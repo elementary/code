@@ -1,3 +1,22 @@
+/***
+  BEGIN LICENSE
+	
+  Copyright (C) 2011 Mario Guerriero <mefrio.g@gmail.com>	
+  This program is free software: you can redistribute it and/or modify it	
+  under the terms of the GNU Lesser General Public License version 3, as published	
+  by the Free Software Foundation.
+	
+  This program is distributed in the hope that it will be useful, but	
+  WITHOUT ANY WARRANTY; without even the implied warranties of	
+  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR	
+  PURPOSE.  See the GNU General Public License for more details.
+	
+  You should have received a copy of the GNU General Public License along	
+  with this program.  If not, see <http://www.gnu.org/licenses/>	
+  
+  END LICENSE	
+***/
+
 using Gtk;
 
 public class MainWindow : Window {
@@ -6,7 +25,7 @@ public class MainWindow : Window {
 	
 	private TextView text_view;
 	
-	public MainWindow (string arg) {
+	public MainWindow (string arg="") {
 		if (arg == "") {
 			this.title = this.TITLE;
 		}
@@ -19,12 +38,12 @@ public class MainWindow : Window {
 		this.set_default_size (800, 500);
 		this.maximize ();
 		
-		draw_window();
-		connect_signals();
+		//create_window();
+		//connect_signals();
 	}
 	
-	public void draw_window () {
-		//drawing the hbox		
+	public void create_window () {
+		//create the hbox		
 		var toolbar = new EditorToolbar ();
 		
 		//textview and its scrolledwindow

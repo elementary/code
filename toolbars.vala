@@ -1,4 +1,24 @@
+/***	
+  BEGIN LICENSE
+	
+  Copyright (C) 2011 Mario Guerriero <mefrio.g@gmail.com>	
+  This program is free software: you can redistribute it and/or modify it	
+  under the terms of the GNU Lesser General Public License version 3, as published	
+  by the Free Software Foundation.
+	
+  This program is distributed in the hope that it will be useful, but	
+  WITHOUT ANY WARRANTY; without even the implied warranties of	
+  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR	
+  PURPOSE.  See the GNU General Public License for more details.
+	
+  You should have received a copy of the GNU General Public License along	
+  with this program.  If not, see <http://www.gnu.org/licenses/>	
+  
+  END LICENSE	
+***/
+
 using Gtk;
+using ElementaryWidgets;
 
 public class ToolbarBasic : Toolbar {
 
@@ -13,11 +33,11 @@ public class ToolbarBasic : Toolbar {
 	public SeparatorToolItem separator2;
 
 	public ToolbarBasic () {
-		draw ();
+		create ();
 		connect_signals ();	
 	}
 	
-	public void draw () {
+	public void create () {
 		this.new_ = new ToolButton.from_stock(Stock.NEW);
 		this.open_ = new ToolButton.from_stock (Stock.OPEN);
 		this.save_ = new ToolButton.from_stock (Stock.SAVE);
@@ -47,6 +67,8 @@ public class ToolbarBasic : Toolbar {
 	
 	public void create_new () {
 		var window =new MainWindow ("");
+		window.create_window();
+		window.connect_signals();
 		window.show_all ();
 		Gtk.main ();
 	}
@@ -58,13 +80,13 @@ public class ToolbarSearch : Toolbar {
 	public SeparatorToolItem separator;
 	public ToolItem entry_cont;
 	public Entry entry;
-	public ToolButtonWithMenu properties_;
+	public AppMenu app_menu;
 
 	public ToolbarSearch () {
-		draw ();	
+		create ();	
 	}
 	
-	public void draw () {
+	public void create () {
 		
 		this.separator = new SeparatorToolItem ();	
 		
@@ -73,14 +95,22 @@ public class ToolbarSearch : Toolbar {
 		this.entry_cont.add (entry);	
 		this.entry_cont.set_expand (true);	
 			
-		var image = new Image.from_stock (Stock.PROPERTIES, IconSize.LARGE_TOOLBAR);
+		//var image = new Image.from_stock (Stock.PROPERTIES, IconSize.LARGE_TOOLBAR);
 		var menu = new MenuProperties (); 
 			
-		this.properties_ = new ToolButtonWithMenu (image, "Properties", menu);
-		
+		var w = new MainWindow ();
+			
+		this.app_menu = new AppMenu (w, menu, "Scratch", 
+				"scratch", 
+				"http://launchpad.net/scratch", 
+				"0.1", 
+				"Mario Guerriero (C) 2011", 
+				{"Copyright (C) 2011 Mario Guerriero <mefrio.g@gmail.com>"}, 
+				"preferences-desktop");
+
 		this.add (separator);
 		this.add (entry_cont);		
-		this.add (properties_);
+		this.add (app_menu);
 				
 	}
 	
@@ -93,10 +123,10 @@ public class ToolbarSearch : Toolbar {
 public class EditorToolbar : HBox {
 
 	public EditorToolbar () {
-		draw ();	
+		create ();	
 	}
 	
-	public void draw () {
+	public void create () {
 		
 		var toolbar = new ToolbarBasic ();
 		
