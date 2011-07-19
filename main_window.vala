@@ -18,13 +18,35 @@
 ***/
 
 using Gtk;
+using Granite.Widgets;
 
 public class MainWindow : Window {
 
 	private const string TITLE = "Scratch";
 	
+	//widgets for the window
 	public TextView text_view;
 	public Notebook notebook;
+	
+	//widgets for the toolbars
+	public Toolbar BasicToolbar;
+	public Toolbar SearchToolbar;
+	public HBox hbox;
+	
+	public ToolButton new_;
+	public ToolButton open_;
+	public ToolButton save_;
+	public SeparatorToolItem separator1;
+	public ToolButton cancel_;
+	public ToolButton repeat_;
+	public ToolItem combo;
+	public ComboBox cb;
+	public SeparatorToolItem separator2;
+	
+	public SeparatorToolItem separator3;
+	public ToolItem entry_cont;
+	public Entry entry;
+	public AppMenu app_menu;
 	
 	public MainWindow (string arg="") {
 		if (arg == "") {
@@ -45,9 +67,7 @@ public class MainWindow : Window {
 	}
 	
 	public void create_window () {
-		//create the hbox		
-		var toolbar = new ScratchToolbar ();
-		
+		create_toolbars ();
 		//notebook, textview and its scrolledwindow
 		var notebook = new Notebook ();
 		var scrolled = new ScrolledWindow (null, null);
@@ -57,7 +77,7 @@ public class MainWindow : Window {
 		notebook.add (scrolled);
 		//addingo all to the vbox
 		var vbox = new VBox (false, 0);
-		vbox.pack_start (toolbar, false, false, 0);
+		vbox.pack_start (hbox, false, false, 0);
 		vbox.pack_start (notebook, true, true, 0); 
 		
 		this.add (vbox);		
@@ -65,10 +85,70 @@ public class MainWindow : Window {
 	}
 	
 	public void connect_signals () {
+		//signals for the window
 		this.destroy.connect (Gtk.main_quit);
 			
 	}
 	
+	public void create_toolbars () {
+		//
+		//	FIRST TOOLBAR
+		//
+		this.BasicToolbar = new Toolbar ();
+		
+		this.new_ = new ToolButton.from_stock(Stock.NEW);
+		this.open_ = new ToolButton.from_stock (Stock.OPEN);
+		this.save_ = new ToolButton.from_stock (Stock.SAVE);
+		this.separator1 = new SeparatorToolItem ();
+		this.cancel_ = new ToolButton.from_stock (Stock.UNDO);
+		this.repeat_ = new ToolButton.from_stock (Stock.REDO);
+		this.separator2 = new SeparatorToolItem ();
+		this.combo = new ToolItem ();
+		
+		this.cb = new ComboBox ();
+		this.combo.add (cb);
+		this.combo.set_expand (false);		
+		
+		BasicToolbar.add (new_);
+		BasicToolbar.add (open_);
+		BasicToolbar.add (save_);
+		BasicToolbar.add (separator1);
+		BasicToolbar.add (cancel_);
+		BasicToolbar.add (repeat_);
+		BasicToolbar.add (separator2);
+		BasicToolbar.add (combo);
+		
+		//
+		//	SECOND TOOLBAR
+		//
+		this.SearchToolbar = new Toolbar ();
+		
+		this.separator3 = new SeparatorToolItem ();	
+		
+		this.entry = new SearchBar ("Search in the text...");
+		this.entry_cont = new ToolItem ();
+		this.entry_cont.add (entry);	
+		this.entry_cont.set_expand (true);	
+			
+		//var image = new Image.from_stock (Stock.PROPERTIES, IconSize.LARGE_TOOLBAR);
+		var menu = new MenuProperties (); 
+			
+		//var w = new MainWindow ();
+			
+		this.app_menu = new AppMenu (menu);
+
+		SearchToolbar.add (separator3);
+		SearchToolbar.add (entry_cont);		
+		SearchToolbar.add (app_menu);
+		////////////
+		this.hbox = new HBox (false, 0);
+		
+		hbox.pack_start (BasicToolbar, true, true, 0);
+		hbox.pack_end (SearchToolbar, true, true, 0);
+					
+	}
+	
+	//generic functions
 	public void load_file (string filename) {
 		if (filename != "") {
 			try {
