@@ -23,7 +23,8 @@ public class MainWindow : Window {
 
 	private const string TITLE = "Scratch";
 	
-	private TextView text_view;
+	public TextView text_view;
+	public Notebook notebook;
 	
 	public MainWindow (string arg="") {
 		if (arg == "") {
@@ -36,6 +37,7 @@ public class MainWindow : Window {
 		load_file (arg);
 		
 		this.set_default_size (800, 500);
+		//this.set_icon ("text-editor");
 		this.maximize ();
 		
 		//create_window();
@@ -44,17 +46,19 @@ public class MainWindow : Window {
 	
 	public void create_window () {
 		//create the hbox		
-		var toolbar = new EditorToolbar ();
+		var toolbar = new ScratchToolbar ();
 		
-		//textview and its scrolledwindow
+		//notebook, textview and its scrolledwindow
+		var notebook = new Notebook ();
 		var scrolled = new ScrolledWindow (null, null);
 		scrolled.set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
 		this.text_view = new TextView ();
 		scrolled.add (text_view);
+		notebook.add (scrolled);
 		//addingo all to the vbox
 		var vbox = new VBox (false, 0);
 		vbox.pack_start (toolbar, false, false, 0);
-		vbox.pack_start (scrolled, true, true, 0); 
+		vbox.pack_start (notebook, true, true, 0); 
 		
 		this.add (vbox);		
 	
@@ -76,6 +80,10 @@ public class MainWindow : Window {
         		}
 		}
 			
+	}
+	
+	public void set_text (string text) {
+		this.text_view.buffer.text = text;
 	}
 	
 }

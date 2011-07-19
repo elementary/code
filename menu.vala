@@ -21,24 +21,18 @@ using Gtk;
 
 public class MenuProperties : Menu {
 
-	private MenuItem preferences;
+	private ImageMenuItem preferences;
 	
 	public MenuProperties () {
 		create ();
-		//this.show_all ();
 	}
 	
 	public void create () {		
-		this.preferences = new MenuItem.with_label ("Hello");
+		this.preferences = new ImageMenuItem.from_stock (Stock.PREFERENCES, null);
 		
 		this.append (preferences);
 		preferences.show();
 	}
-	
-	/*public void connect_signals () {
-		this.destroy.connect (Gtk.main_quit);
-			
-	}*/
 	
 	
 }

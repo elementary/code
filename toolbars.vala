@@ -18,7 +18,7 @@
 ***/
 
 using Gtk;
-using ElementaryWidgets;
+using Granite.Widgets;
 
 public class ToolbarBasic : Toolbar {
 
@@ -62,10 +62,12 @@ public class ToolbarBasic : Toolbar {
 	}
 	
 	public void connect_signals () {
-		this.new_.clicked.connect (create_new) ;				
+		//this.new_.clicked.connect (on_new_clicked);
+		//this.open_.clicked.connect (on_open_clicked);				
+		return;
 	}
-	
-	public void create_new () {
+	/*
+	public void on_new_clicked () {
 		var window =new MainWindow ("");
 		window.create_window();
 		window.connect_signals();
@@ -73,8 +75,9 @@ public class ToolbarBasic : Toolbar {
 		Gtk.main ();
 	}
 
+	public void on_open_clicked () {
+		}*/
 }
-
 public class ToolbarSearch : Toolbar {
 
 	public SeparatorToolItem separator;
@@ -90,7 +93,7 @@ public class ToolbarSearch : Toolbar {
 		
 		this.separator = new SeparatorToolItem ();	
 		
-		this.entry = new ElementarySearchEntry ("Search in the text...");
+		this.entry = new SearchBar ("Search in the text...");
 		this.entry_cont = new ToolItem ();
 		this.entry_cont.add (entry);	
 		this.entry_cont.set_expand (true);	
@@ -98,15 +101,9 @@ public class ToolbarSearch : Toolbar {
 		//var image = new Image.from_stock (Stock.PROPERTIES, IconSize.LARGE_TOOLBAR);
 		var menu = new MenuProperties (); 
 			
-		var w = new MainWindow ();
+		//var w = new MainWindow ();
 			
-		this.app_menu = new AppMenu (w, menu, "Scratch", 
-				"scratch", 
-				"http://launchpad.net/scratch", 
-				"0.1", 
-				"Mario Guerriero (C) 2011", 
-				{"Copyright (C) 2011 Mario Guerriero <mefrio.g@gmail.com>"}, 
-				"preferences-desktop");
+		this.app_menu = new AppMenu (menu);
 
 		this.add (separator);
 		this.add (entry_cont);		
@@ -120,9 +117,9 @@ public class ToolbarSearch : Toolbar {
 	
 }
 
-public class EditorToolbar : HBox {
+public class ScratchToolbar : HBox {
 
-	public EditorToolbar () {
+	public ScratchToolbar () {
 		create ();	
 	}
 	
