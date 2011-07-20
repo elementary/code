@@ -21,7 +21,7 @@
 /* 
 compile with
 
- valac --pkg gtk+-3.0 --pkg=granite  main.vala main_window.vala toolbars.vala entry.vala menu.vala -o scratch
+ valac --pkg gtk+-3.0 --pkg gio-2.0 --pkg=granite  main.vala main_window.vala entry.vala menu.vala -o scratch
  
 and launch with
 

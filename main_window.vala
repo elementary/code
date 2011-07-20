@@ -48,6 +48,9 @@ public class MainWindow : Window {
 	public Entry entry;
 	public AppMenu app_menu;
 	
+	//dialogs
+	public FileChooserDialog filech;
+	
 	public MainWindow (string arg="") {
 		if (arg == "") {
 			this.title = this.TITLE;
@@ -69,7 +72,7 @@ public class MainWindow : Window {
 	public void create_window () {
 		create_toolbars ();
 		//notebook, textview and its scrolledwindow
-		var notebook = new Notebook ();
+		this.notebook = new Notebook ();
 		var scrolled = new ScrolledWindow (null, null);
 		scrolled.set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
 		this.text_view = new TextView ();
@@ -87,6 +90,9 @@ public class MainWindow : Window {
 	public void connect_signals () {
 		//signals for the window
 		this.destroy.connect (Gtk.main_quit);
+		//signals for the toolbars
+		this.new_.clicked.connect (on_new_clicked);
+		this.open_.clicked.connect (on_open_clicked);
 			
 	}
 	
@@ -148,6 +154,39 @@ public class MainWindow : Window {
 					
 	}
 	
+	//signals functions
+	public void on_new_clicked () {
+		create_tab ();
+	}
+	
+	public void on_open_clicked () {
+		this.filech = new FileChooserDialog ("Open a file", this, FileChooserAction.OPEN);
+		filech.add_button (Stock.CANCEL, ResponseType.CANCEL);
+       	 	filech.add_button (Stock.OPEN, ResponseType.ACCEPT);
+        	filech.set_default_response (ResponseType.ACCEPT);
+        	
+	       	//if (filech.run () == ResponseType.OK) {
+            	//	stdout.printf ("filename = %s\n".printf (filech.get_filename ()));
+        	//}
+        	filech.run ();
+        	filech.response.connect (on_response);
+        	
+	}
+	
+	public void on_response (Dialog source, int response_id) {
+		switch (response_id) {
+        		case ResponseType.ACCEPT:
+         			stdout.printf ("filename = %s\n".printf (filech.get_filename ()));
+         			load_file ( filech.get_filename () );
+         			filech.close ();
+         			break;
+        		case ResponseType.CANCEL:
+            			filech.close ();
+            			break;
+        	}
+		
+	}
+	
 	//generic functions
 	public void load_file (string filename) {
 		if (filename != "") {
@@ -162,8 +201,17 @@ public class MainWindow : Window {
 			
 	}
 	
-	public void set_text (string text) {
-		this.text_view.buffer.text = text;
+	public void create_tab () {
+		var s = new ScrolledWindow (null, null);
+		s.set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
+		var t = new TextView ();
+		
+		var l = new Label ("New file");
+		
+		s.add (t);
+		
+		notebook.append_page (s, l);
+		
 	}
 	
 }
