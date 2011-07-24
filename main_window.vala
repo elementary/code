@@ -25,8 +25,9 @@ public class MainWindow : Window {
 	private const string TITLE = "Scratch";
 	
 	//widgets for the window
-	public TextView text_view;
-	public Notebook notebook;
+//	public TextView text_view;
+//	public Notebook notebook;
+	public ScratchNotebook notebook;
 	
 	//widgets for the toolbars
 	public Toolbar BasicToolbar;
@@ -63,7 +64,7 @@ public class MainWindow : Window {
 		
 		this.set_default_size (800, 500);
 		//this.set_icon ("text-editor");
-		this.maximize ();
+		//this.maximize ();
 		
 		//create_window();
 		//connect_signals();
@@ -72,12 +73,18 @@ public class MainWindow : Window {
 	public void create_window () {
 		create_toolbars ();
 		//notebook, textview and its scrolledwindow
-		this.notebook = new Notebook ();
-		var scrolled = new ScrolledWindow (null, null);
-		scrolled.set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
-		this.text_view = new TextView ();
-		scrolled.add (text_view);
-		notebook.add (scrolled);
+//		this.notebook = new Notebook ();
+		this.notebook = new ScratchNotebook ();
+//		var scrolled = new ScrolledWindow (null, null);
+//		scrolled.set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
+//		this.text_view = new TextView ();
+//		this.tab = new Tab ();
+//		scrolled.add (text_view);
+//		notebook.add (scrolled);
+
+//		create_tab();
+		this.notebook.add_tab();
+
 		//addingo all to the vbox
 		var vbox = new VBox (false, 0);
 		vbox.pack_start (hbox, false, false, 0);
@@ -93,6 +100,7 @@ public class MainWindow : Window {
 		//signals for the toolbars
 		this.new_.clicked.connect (on_new_clicked);
 		this.open_.clicked.connect (on_open_clicked);
+		this.save_.clicked.connect (on_save_clicked);
 			
 	}
 	
@@ -156,7 +164,8 @@ public class MainWindow : Window {
 	
 	//signals functions
 	public void on_new_clicked () {
-		create_tab ();
+		int new_tab_index = notebook.add_tab();
+		notebook.set_current_page(new_tab_index);
 	}
 	
 	public void on_open_clicked () {
@@ -172,12 +181,17 @@ public class MainWindow : Window {
         	filech.response.connect (on_response);
         	
 	}
-	
+
+
 	public void on_response (Dialog source, int response_id) {
 		switch (response_id) {
         		case ResponseType.ACCEPT:
-         			stdout.printf ("filename = %s\n".printf (filech.get_filename ()));
-         			load_file ( filech.get_filename () );
+        			string filename = filech.get_filename();
+        			if (filename != null) {
+					stdout.printf ("opening: %s\n".printf (filech.get_filename ()));
+		 			load_file ( filech.get_filename () );
+         			}
+         			
          			filech.close ();
          			break;
         		case ResponseType.CANCEL:
@@ -187,13 +201,54 @@ public class MainWindow : Window {
 		
 	}
 	
+	
+	public void on_save_clicked() {
+		var current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+		
+		if (current_tab.filename == null) {
+		
+			this.filech = new FileChooserDialog ("Save as", this, FileChooserAction.SAVE);
+			filech.add_button (Stock.CANCEL, ResponseType.CANCEL);
+	       	 	filech.add_button (Stock.SAVE, ResponseType.ACCEPT);
+			filech.set_default_response (ResponseType.ACCEPT);
+			
+			filech.run ();
+			filech.response.connect (on_save_response);
+		
+			//TODO "save as" dialog
+		}
+		
+		save_file (current_tab.filename, current_tab.text_view.buffer.text);
+	}
+	
+	
+	public void on_save_response(Dialog source, int response_id) {
+		switch (response_id) {
+			case ResponseType.ACCEPT:
+				string filename = filech.get_filename();
+				var current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+				save_file (filename, current_tab.text_view.buffer.text);
+				break;
+		}
+	}
+	
 	//generic functions
 	public void load_file (string filename) {
 		if (filename != "") {
 			try {
 				string text;
            			FileUtils.get_contents (filename, out text);
-          			this.text_view.buffer.text = text;
+           			
+           			//create new tab
+           			int tab_index = notebook.add_tab();
+           			notebook.set_current_page(tab_index);
+				var new_tab = (Tab) notebook.get_nth_page (tab_index);
+				
+				//set new values
+				new_tab.text_view.buffer.text = text;
+				new_tab.filename = filename;
+          			this.title = this.TITLE + " - " + filename;
+          			
 			} catch (Error e) {
          	   		stderr.printf ("Error: %s\n", e.message);
         		}
@@ -201,18 +256,39 @@ public class MainWindow : Window {
 			
 	}
 	
-	public void create_tab () {
-		var s = new ScrolledWindow (null, null);
-		s.set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
-		var t = new TextView ();
-		
-		var l = new Label ("New file");
-		
-		s.add (t);
-		
-		notebook.append_page (s, l);
+	public int save_file (string filename, string contents) {
+	
+		if (filename != "") {
+			try {
+				FileUtils.set_contents (filename, contents);
+				return 0;				
+			} catch (Error e) {
+				stderr.printf ("Error: %s\n", e.message);
+				return 1;
+			}
+				
+		} else return 1;		
 		
 	}
 	
+/*	
+	public int create_tab () {
+	
+		var t = new Tab();
+		return notebook.append_page (t, null);
+		
+
+//		var s = new ScrolledWindow (null, null);
+//		s.set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
+//		var t = new TextView ();
+//		s.add (t);
+		
+//		var l = new Label ("New file");
+
+//		this.show_all();
+
+	}
+*/
+
 }
 	
