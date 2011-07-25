@@ -261,6 +261,28 @@ public class MainWindow : Window {
 		} else return 1;		
 		
 	}
+	
+	public static void main (string[] args) {
+		//TO DO: modify the if loop
+		if (args[1] != null) {
+			Gtk.init (ref args);
+			var window =new MainWindow (args[1]);
+			window.create_window();
+			window.connect_signals();
+			window.show_all ();
+			Gtk.main ();
+		}
+	
+		else {
+			Gtk.init (ref args);
+			var window =new MainWindow ("");
+			window.create_window();
+			window.connect_signals();
+			window.show_all ();
+			Gtk.main ();
+		}
+	
+	}
 
 }
 	

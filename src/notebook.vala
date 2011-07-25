@@ -40,12 +40,48 @@ public class Tab : ScrolledWindow {
 
 }
 
+public class TabLabel : HBox {
+
+	public Label label;
+	public Button close;
+	
+	public TabLabel(string label="New file") {
+		
+		this.label = new Label (label);
+		
+		var image = new Image.from_stock(Stock.CLOSE, IconSize.MENU);
+		this.close = new Button ();
+		this.close.clicked.connect (on_close_clicked);
+		this.close.set_relief (ReliefStyle.NONE);
+		this.close.set_image (image);
+		
+		this.pack_start (this.label, false, false, 0);
+		this.pack_start (this.close, false, false, 0);
+		
+		this.show_all ();		
+	}
+	
+	public void on_close_clicked() {
+		
+		return;	
+		
+	}
+	
+	public void change_label() {
+		
+		return;
+		
+	}
+	
+}
+
 public class ScratchNotebook : Notebook {
 
 	public int add_tab() {
 		var new_tab = new Tab();
+		var label = new TabLabel();
 		this.set_tab_reorderable (new_tab, true);
-		return this.append_page (new_tab, null);
+		return this.append_page (new_tab, label);
 	}
 
 	public ScratchNotebook() {
