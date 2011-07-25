@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+
+def build(bld):
+	prog = bld(features='cc cprogram')
+	# symbolic name used to reference this object
+	prog.name = 'scratch.program'
+	# name of the resulting program
+	prog.target = 'scratch'
+	prog.source = 'main.vala main_window.vala entry.vala menu.vala notebook.vala'
+	# libraries to link against
+	prog.uselib = 'GTK+'
+	prog.uselib = 'GRANITE'
+	# Vala packages to use
+	prog.packages = 'gtk+-3.0'
+	prog.packages = 'granite'
+	# Extra vapi dirs
+	prog.vapi_dirs = '../vapi'
+	# Enable threading
+	prog.threading = True

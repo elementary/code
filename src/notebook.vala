@@ -16,15 +16,19 @@ END LICENSE
 ***/
 
 using Gtk;
+using Pango;
+using GtkSource;
 
-public class Tab : Gtk.ScrolledWindow {
+public class Tab : ScrolledWindow {
 
 	public TextView text_view;
 	public Label label;
 	public string filename;
 	
 	public Tab() {
-
+		
+		var s = new View ();
+		
 		this.set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
 		this.text_view = new TextView ();
 		this.add (text_view);
@@ -36,15 +40,16 @@ public class Tab : Gtk.ScrolledWindow {
 
 }
 
-public class ScratchNotebook : Gtk.Notebook {
+public class ScratchNotebook : Notebook {
 
 	public int add_tab() {
 		var new_tab = new Tab();
+		this.set_tab_reorderable (new_tab, true);
 		return this.append_page (new_tab, null);
 	}
 
 	public ScratchNotebook() {
-	
+		this.set_scrollable (true);
 	}
 
 

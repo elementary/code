@@ -73,16 +73,7 @@ public class MainWindow : Window {
 	public void create_window () {
 		create_toolbars ();
 		//notebook, textview and its scrolledwindow
-//		this.notebook = new Notebook ();
 		this.notebook = new ScratchNotebook ();
-//		var scrolled = new ScrolledWindow (null, null);
-//		scrolled.set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
-//		this.text_view = new TextView ();
-//		this.tab = new Tab ();
-//		scrolled.add (text_view);
-//		notebook.add (scrolled);
-
-//		create_tab();
 		this.notebook.add_tab();
 
 		//addingo all to the vbox
@@ -270,25 +261,6 @@ public class MainWindow : Window {
 		} else return 1;		
 		
 	}
-	
-/*	
-	public int create_tab () {
-	
-		var t = new Tab();
-		return notebook.append_page (t, null);
-		
-
-//		var s = new ScrolledWindow (null, null);
-//		s.set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
-//		var t = new TextView ();
-//		s.add (t);
-		
-//		var l = new Label ("New file");
-
-//		this.show_all();
-
-	}
-*/
 
 }
 	
