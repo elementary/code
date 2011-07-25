@@ -25,8 +25,6 @@ public class MainWindow : Window {
 	private const string TITLE = "Scratch";
 	
 	//widgets for the window
-//	public TextView text_view;
-//	public Notebook notebook;
 	public ScratchNotebook notebook;
 	
 	//widgets for the toolbars
@@ -230,8 +228,11 @@ public class MainWindow : Window {
 				string text;
            			FileUtils.get_contents (filename, out text);
            			
+           			//get the filename from strig filename =)
+           			var name = filename.split("/");
+           			
            			//create new tab
-           			int tab_index = notebook.add_tab();
+           			int tab_index = notebook.add_tab(name[name.length-1]);
            			notebook.set_current_page(tab_index);
 				var new_tab = (Tab) notebook.get_nth_page (tab_index);
 				
@@ -252,6 +253,8 @@ public class MainWindow : Window {
 		if (filename != "") {
 			try {
 				FileUtils.set_contents (filename, contents);
+				var name = filename.split("/");
+				notebook.change_label (name[name.length-1]);
 				return 0;				
 			} catch (Error e) {
 				stderr.printf ("Error: %s\n", e.message);
