@@ -28,6 +28,7 @@ namespace Scratch.Widgets {
         public View text_view;
         public Label label;
         public string filename;
+        public bool saved;
         
         public Tab() {
             

@@ -93,7 +93,7 @@ namespace Scratch {
         
         public void on_open_clicked () {
 
-            this.filech = new FileChooserDialog ("Open a file", this, FileChooserAction.OPEN);
+            this.filech = new FileChooserDialog ("Open a file", this, FileChooserAction.OPEN, null);
             filech.add_button (Stock.CANCEL, ResponseType.CANCEL);
             filech.add_button (Stock.OPEN, ResponseType.ACCEPT);
             filech.set_default_response (ResponseType.ACCEPT);
@@ -134,23 +134,27 @@ namespace Scratch {
             if (filename == null) {
             
             	//show dialog
-                this.filech = new FileChooserDialog ("Save as", this, FileChooserAction.SAVE);
+                this.filech = new FileChooserDialog ("Save as", this, FileChooserAction.SAVE, null);
                 filech.add_button (Stock.CANCEL, ResponseType.CANCEL);
                 filech.add_button (Stock.SAVE, ResponseType.ACCEPT);
                 filech.set_default_response (ResponseType.ACCEPT);
                 
                 //response
-                if (filech.run () == ResponseType.ACCEPT) {
+                if (filech.run () == ResponseType.ACCEPT)
                     filename = filech.get_filename();
-                    if (filename == null) return;
-                }
                 
                 //close dialog
                 filech.close();
+
+				//check choise
+				if (filename == null) return;
             
             }
             
-            save_file (filename, current_tab.text_view.buffer.text);
+            save_file (filename, current_tab.text_view.buffer.text); //we should check a return value
+           
+			current_tab.saved = true;
+			current_tab.filename = filename;
         }
         
         
