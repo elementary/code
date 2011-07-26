@@ -109,8 +109,25 @@ namespace Scratch {
 				string filename = filech.get_filename();
 				
 		        if (filename != null) {
-					stdout.printf ("Opening: %s\n", filename);
-		            load_file (filename);
+		        
+		        	//check if file is already opened
+		        	int tot_pages = notebook.get_n_pages ();
+		        	int target_page = -1;
+		        	
+	        		for (int i = 0; i < tot_pages; i++) {
+		        		Tab page = (Tab) notebook.get_nth_page (i);
+		        		if (page.filename == filename) {
+		        			target_page = i;
+		        		}
+	        		}
+
+					if (target_page >= 0){
+						stdout.printf("file already opened: %s\n", filename);
+						notebook.set_current_page (target_page);
+	        		} else {
+						stdout.printf ("Opening: %s\n", filename);
+				        load_file (filename);
+				    }
 		        }
             
             }
@@ -186,7 +203,7 @@ namespace Scratch {
 		            var current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
 		            if (current_tab.filename == null) {
 		            
-		            	//open in same tab
+		            	//open in this tab
 						target_tab = current_tab;  
 		            } else {
 
