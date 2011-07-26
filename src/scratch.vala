@@ -28,7 +28,9 @@ namespace Scratch {
     public class Scratch : Granite.Application {
     
         private MainWindow window = null;
+
         public static SavedState saved_state {get; private set; default = null;}
+        public static Settings settings {get; private set; default = null;}
         
         construct {
         
@@ -50,7 +52,8 @@ namespace Scratch {
 		    translate_url = "https://translations.launchpad.net/scratch";
 		    
 		    about_authors = {"Mario Guerriero <mefrio.g@gmail.com>",
-                             "Giulio Collura <random.cpp@gmail.com>"};
+                             "Giulio Collura <random.cpp@gmail.com>",
+                             "Gabriele Coletta <gdmg92@gmail.com>"};
         					    
         	about_documenters = {"",""};
 		    about_artists = {"Harvey Cabaguio 'BassUltra' <harveycabaguio@gmail.com>"};
@@ -62,6 +65,7 @@ namespace Scratch {
         public Scratch () {
 
             saved_state = new SavedState ();
+            settings = new Settings ();
 
         }
 		
@@ -76,8 +80,8 @@ namespace Scratch {
 			    // if not, create a new one.
 			    window = new MainWindow ();
 			    window.set_application (this);
-                window.create_window();
-			    window.connect_signals();
+                window.create_window ();
+			    window.connect_signals ();
 
 			    window.show_all ();
 			    

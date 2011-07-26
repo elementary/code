@@ -44,7 +44,7 @@ include (ValaPrecompile)
 vala_precompile (VALA_C
 	src/main_window.vala
     src/scratch.vala
-    src/saved_state.vala
+    src/settings.vala
     src/Widgets/menu.vala
     src/Widgets/notebook.vala
     src/Widgets/toolbar.vala

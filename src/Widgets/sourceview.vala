@@ -36,20 +36,26 @@ namespace Scratch.Widgets {
             buffer = new Buffer (null);
             set_buffer (buffer);
             
+            restore_settings ();
+
             // Simple default configuration
-            show_line_numbers =  true;
             auto_indent = true;
             set_insert_spaces_instead_of_tabs (true);
             set_indent_width (4);
             set_wrap_mode (Gtk.WrapMode.WORD);
-            highlight_current_line = true;
             
             buffer.highlight_syntax = true;
             
             // TODO: use color scheme
             
         }
-        
+
+        ~SourceView () {
+
+            //update_settings ();
+
+        }
+
         public void use_default_font (bool value) {
             
             if (!value) // if false, simply return null
@@ -62,6 +68,20 @@ namespace Scratch.Widgets {
                 stdout.printf ("SourceView error: %s", e.message);
             }
             
+        }
+
+        public void restore_settings () {
+            
+            show_line_numbers = Scratch.settings.show_line_numbers;
+            highlight_current_line = Scratch.settings.highlight_current_line;
+
+        }
+
+        private void update_settings () {
+
+            Scratch.settings.show_line_numbers = show_line_numbers;
+            Scratch.settings.highlight_current_line = highlight_current_line;
+
         }
 
     }

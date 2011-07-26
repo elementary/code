@@ -202,9 +202,6 @@ namespace Scratch {
 	                target_tab.filename = filename;
 //	                target_tab.label.set_text (name[name.length-1]);
 	                this.title = this.TITLE + " - " + filename;
-	
-
-
                         
                 } catch (Error e) {
                     stderr.printf ("Error: %s\n", e.message);
