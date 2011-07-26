@@ -151,10 +151,11 @@ namespace Scratch {
             
             }
             
-            save_file (filename, current_tab.text_view.buffer.text); //we should check a return value
-           
-			current_tab.saved = true;
-			current_tab.filename = filename;
+            if (save_file (filename, current_tab.text_view.buffer.text) == 0) {
+				current_tab.saved = true;
+				current_tab.filename = filename;
+			}
+			
         }
         
         
