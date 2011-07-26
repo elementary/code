@@ -26,9 +26,8 @@ namespace Scratch.Widgets {
     public class Tab : ScrolledWindow {
 
         public View text_view;
-        public Label label;
+//        public Label label;
         public string filename;
-        public bool saved;
         
         public Tab() {
             
@@ -39,7 +38,7 @@ namespace Scratch.Widgets {
             text_view.set_show_line_numbers (true);            
             
             add (text_view);
-            label = new Label ("New file");
+//            label = new Label ("New file");
             filename = null;
             show_all();
 

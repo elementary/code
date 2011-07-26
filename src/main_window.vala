@@ -93,27 +93,36 @@ namespace Scratch {
         
         public void on_open_clicked () {
 
+			//show dialog
             this.filech = new FileChooserDialog ("Open a file", this, FileChooserAction.OPEN, null);
             filech.add_button (Stock.CANCEL, ResponseType.CANCEL);
             filech.add_button (Stock.OPEN, ResponseType.ACCEPT);
             filech.set_default_response (ResponseType.ACCEPT);
             
-            //if (filech.run () == ResponseType.OK) {
-                //	stdout.printf ("filename = %s\n".printf (filech.get_filename ()));
-            //}
-            filech.run ();
-            filech.response.connect (on_response);
+//          filech.response.connect (on_response);
+
+            if (filech.run () == ResponseType.ACCEPT) {
+				string filename = filech.get_filename();
+				
+		        if (filename != null) {
+					stdout.printf ("Opening: %s\n", filename);
+		            load_file (filename);
+		        }
+            
+            }
+            
+            filech.close();
                 
         }
 
-
+/*
         public void on_response (Dialog source, int response_id) {
             switch (response_id) {
                     case ResponseType.ACCEPT:
                         string filename = filech.get_filename();
                         if (filename != null) {
-                            stdout.printf ("opening: %s\n".printf (filech.get_filename ()));
-                            load_file ( filech.get_filename () );
+							stdout.printf ("Opening: %s\n", filename);
+                            load_file (get_filename ());
                         }
                         
                         filech.close ();
@@ -124,7 +133,7 @@ namespace Scratch {
                 }
             
         }
-        
+*/        
         
         public void on_save_clicked() {
         
@@ -151,8 +160,8 @@ namespace Scratch {
             
             }
             
+			stdout.printf("Saving: %s", filename);
             if (save_file (filename, current_tab.text_view.buffer.text) == 0) {
-				current_tab.saved = true;
 				current_tab.filename = filename;
 			}
 			
@@ -168,16 +177,30 @@ namespace Scratch {
                     
                     //get the filename from strig filename =)
                     var name = filename.split("/");
-                    
-                    //create new tab
-                    int tab_index = notebook.add_tab(name[name.length-1]);
-                    notebook.set_current_page(tab_index);
-                    var new_tab = (Tab) notebook.get_nth_page (tab_index);
-                    
-                    //set new values
-                    new_tab.text_view.buffer.text = text;
-                    new_tab.filename = filename;
-                    this.title = this.TITLE + " - " + filename;
+
+					Tab target_tab;
+		            var current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+		            if (current_tab.filename == null) {
+		            
+		            	//open in same tab
+						target_tab = current_tab;  
+		            } else {
+
+		                //create new tab
+		                int tab_index = notebook.add_tab(name[name.length-1]);
+		                notebook.set_current_page(tab_index);		                
+		                target_tab = (Tab) notebook.get_nth_page (tab_index);
+		                
+		            }    
+		                
+	                //set new values
+	                target_tab.text_view.buffer.text = text;
+	                target_tab.filename = filename;
+//	                target_tab.label.set_text (name[name.length-1]);
+	                this.title = this.TITLE + " - " + filename;
+	
+
+
                         
                 } catch (Error e) {
                     stderr.printf ("Error: %s\n", e.message);
