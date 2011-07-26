@@ -27,7 +27,6 @@ namespace Scratch.Dialogs {
         public Preferences (string? title, MainWindow? window) {
 
             this.title = title;
-            this.parent = window;
             this.type_hint = Gdk.WindowTypeHint.DIALOG;
             this.set_modal (true);
             this.set_transient_for (window);
