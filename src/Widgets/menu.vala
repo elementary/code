@@ -23,9 +23,11 @@ namespace Scratch.Widgets {
 
     public class MenuProperties : Menu {
 
+        private MainWindow window;
         private ImageMenuItem preferences;
         
-        public MenuProperties () {
+        public MenuProperties (MainWindow parent) {
+            this.window = parent;
             create ();
         }
         
@@ -35,7 +37,7 @@ namespace Scratch.Widgets {
             this.append (preferences);
             preferences.show();
 
-            preferences.activate.connect (() => {new Dialogs.Preferences ("Preferences", null);});
+            preferences.activate.connect (() => {new Dialogs.Preferences ("Preferences", this.window);});
 
         }
         

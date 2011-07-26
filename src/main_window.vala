@@ -29,21 +29,19 @@ namespace Scratch {
 
         private const string TITLE = "Scratch";
         
-        //widgets for the window
+        //widgets
         public ScratchNotebook notebook;
-        
-        //widgets for the toolbars
         public Widgets.Toolbar toolbar;
         
         //dialogs
         public FileChooserDialog filech;
-        public Preferences preferences;
         
+
         public MainWindow (string arg="") {
+
             if (arg == "") {
                 this.title = this.TITLE;
-            }
-            else {
+            } else {
                 this.title = arg;
             }
             

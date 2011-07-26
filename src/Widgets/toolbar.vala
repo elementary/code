@@ -24,7 +24,7 @@ namespace Scratch.Widgets {
 
     public class Toolbar : Gtk.Toolbar {
 
-        MainWindow parent;
+        private MainWindow window;
 
         public ToolButton new_button;
         public ToolButton open_button;
@@ -37,10 +37,9 @@ namespace Scratch.Widgets {
         public Entry entry;
         public AppMenu app_menu;
 
-
         public Toolbar (MainWindow parent) {
 
-            this.parent = parent;
+            this.window = parent;
 
             // Toolbar properties
             // compliant with elementary HIG
@@ -66,7 +65,8 @@ namespace Scratch.Widgets {
 
             entry = new SearchBar ("Search in the text...");
                 
-            var menu = new MenuProperties ();     
+            var menu = new MenuProperties (this.window);     
+ 
             app_menu = new AppMenu (menu);
 
             add (add_spacer ());

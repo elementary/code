@@ -28,10 +28,9 @@ namespace Scratch.Dialogs {
 
             this.title = title;
             this.parent = window;
-            this.window_position = WindowPosition.CENTER;
             this.type_hint = Gdk.WindowTypeHint.DIALOG;
-            this.set_modal(true);
-            // this.set_transient_for();
+            this.set_modal (true);
+            this.set_transient_for (window);
             
             set_default_size (400, 300); 
             show_all ();
