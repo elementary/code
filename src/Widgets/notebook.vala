@@ -25,20 +25,22 @@ namespace Scratch.Widgets {
 
     public class Tab : ScrolledWindow {
 
-        public TextView text_view;
+        public View text_view;
         public Label label;
         public string filename;
         
         public Tab() {
             
-            var s = new View ();
+            set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
             
-            this.set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
-            this.text_view = new TextView ();
-            this.add (text_view);
-            this.label = new Label ("New file");
-            this.filename = null;
-            this.show_all();
+            text_view = new View ();
+            text_view.set_highlight_current_line (true);
+            text_view.set_show_line_numbers (true);            
+            
+            add (text_view);
+            label = new Label ("New file");
+            filename = null;
+            show_all();
 
         }
 

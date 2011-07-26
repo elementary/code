@@ -31,6 +31,7 @@ namespace Scratch.Widgets {
         public ToolButton save_button;
         public ToolButton undo_button;
         public ToolButton repeat_button;
+        public ToolItem combo_container;
         public ComboBox combobox;
         
         public Entry entry;
@@ -60,8 +61,8 @@ namespace Scratch.Widgets {
             add (undo_button);
             add (repeat_button);
 
-            add (add_spacer ());
-            add (toolitem (combobox));
+            add (new SeparatorToolItem ());
+            add (toolitem (combobox, false));
 
             entry = new SearchBar ("Search in the text...");
                 
