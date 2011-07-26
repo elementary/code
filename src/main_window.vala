@@ -127,34 +127,32 @@ namespace Scratch {
         
         
         public void on_save_clicked() {
+        
             var current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+        	string filename = current_tab.filename;
             
-            if (current_tab.filename == null) {
+            if (filename == null) {
             
+            	//show dialog
                 this.filech = new FileChooserDialog ("Save as", this, FileChooserAction.SAVE);
                 filech.add_button (Stock.CANCEL, ResponseType.CANCEL);
-                    filech.add_button (Stock.SAVE, ResponseType.ACCEPT);
+                filech.add_button (Stock.SAVE, ResponseType.ACCEPT);
                 filech.set_default_response (ResponseType.ACCEPT);
                 
-                filech.run ();
-                filech.response.connect (on_save_response);
+                //response
+                if (filech.run () == ResponseType.ACCEPT) {
+                    filename = filech.get_filename();
+                    if (filename == null) return;
+                }
+                
+                //close dialog
+                filech.close();
             
-                //TODO "save as" dialog
             }
             
-            save_file (current_tab.filename, current_tab.text_view.buffer.text);
+            save_file (filename, current_tab.text_view.buffer.text);
         }
         
-        
-        public void on_save_response(Dialog source, int response_id) {
-            switch (response_id) {
-                case ResponseType.ACCEPT:
-                    string filename = filech.get_filename();
-                    var current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
-                    save_file (filename, current_tab.text_view.buffer.text);
-                    break;
-            }
-        }
         
         //generic functions
         public void load_file (string filename) {
