@@ -18,7 +18,7 @@
 ***/
 
 using Gtk;
-using Pango;
+//using Pango;
 using GtkSource;
 
 public class Tab : ScrolledWindow {
@@ -29,11 +29,15 @@ public class Tab : ScrolledWindow {
 	
 	public Tab() {
 		
-		var s = new View ();
+		//var sl = new Language ();
+		//var sb = new Buffer.with_language (sl);
+		var s = new View();//.with_buffer (sb);
+		s.set_show_line_numbers (true);
+		s.set_highlight_current_line (true);
 		
 		this.set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
 		this.text_view = new TextView ();
-		this.add (text_view);
+		this.add (s);
 		this.label = new Label ("New file");
 		this.filename = null;
 		this.show_all();

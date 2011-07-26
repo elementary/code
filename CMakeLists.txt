@@ -43,9 +43,11 @@ ensure_vala_version ("0.12.0" MINIMUM)
 include (ValaPrecompile)
 vala_precompile (VALA_C
 	src/main_window.vala
-    src/menu.vala
-    src/notebook.vala
-    src/entry.vala
+    src/scratch.vala
+    src/Widgets/menu.vala
+    src/Widgets/notebook.vala
+    src/Widgets/toolbar.vala
+    src/Dialogs/preferences_dialog.vala
 PACKAGES
 	${SCRATCH_DEPS}
 CUSTOM_VAPIS
