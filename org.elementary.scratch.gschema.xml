@@ -1,0 +1,36 @@
+<schemalist>
+	<enum id="window-states">
+		<value nick="Normal" value="0" />
+		<value nick="Maximized" value="1" />
+		<value nick="Fullscreen" value="2" />
+	</enum>
+	<schema path="/apps/scratch/savedstate/" id="org.elementary.Scratch.SavedState" gettext-domain="scratch">
+		<key name="window-width" type="i">
+			<default>850</default>
+			<summary>The saved width of the window.</summary>
+			<description>The saved width of the window. Must be greater than 700, or it will not take effect.</description>
+		</key>
+		<key name="window-height" type="i">
+			<default>550</default>
+			<summary>The saved height of the window.</summary>
+			<description>The saved height of the window. Must be greater than 400, or it will not take effect.</description>
+		</key>
+		<key name="window-state" enum="window-states">
+			<default>"Normal"</default>
+			<summary>The saved state of the window.</summary>
+			<description>The saved state of the window.</description>
+		</key>
+	</schema>
+    <schema path="/apps/scratch/settings/" id="org.elementary.Scratch.Settings" gettext-domain="scratch">
+        <key name="show-line-numbers" type="b">
+            <default>true</default>
+            <summary>Display Line Numbers</summary>
+            <description>Whether Scratch should display line numbers in the editing area.</description>
+        </key>
+        <key name="highlight-current-line" type="b">
+            <default>true</default>
+            <summary>Highlight Current Line</summary>
+            <description>Whether Scratch should highlight the current line.</description>
+        </key>
+    </schema>
+</schemalist>

@@ -18,14 +18,17 @@
 ***/
 
 using Gtk;
+using Gdk;
+
 using Granite.Widgets;
+using Granite.Services;
 
 using Scratch.Widgets;
 using Scratch.Dialogs;
 
 namespace Scratch {
     
-    public class MainWindow : Window {
+    public class MainWindow : Gtk.Window {
 
         private const string TITLE = "Scratch";
         
@@ -48,6 +51,7 @@ namespace Scratch {
             load_file (arg);
             
             this.set_default_size (800, 500);
+            restore_saved_state ();
             //this.set_icon ("text-editor");
             //this.maximize ();
             
@@ -224,6 +228,45 @@ namespace Scratch {
                     
             } else return 1;		
             
+        }
+
+        protected override bool delete_event (Gdk.EventAny event) {
+
+            update_saved_state ();
+            return false;
+
+        }
+
+        private void restore_saved_state () {
+
+            default_width = Scratch.saved_state.window_width;
+            default_height = Scratch.saved_state.window_height;
+
+            if (Scratch.saved_state.window_state == ScratchWindowState.MAXIMIZED)
+                maximize ();
+            else if (Scratch.saved_state.window_state == ScratchWindowState.FULLSCREEN)
+                fullscreen ();
+        
+        }
+
+        private void update_saved_state () {
+            
+			// Save window state
+			if ((get_window ().get_state () & WindowState.MAXIMIZED) != 0)
+				Scratch.saved_state.window_state = ScratchWindowState.MAXIMIZED;
+			else if ((get_window ().get_state () & WindowState.FULLSCREEN) != 0)
+				Scratch.saved_state.window_state = ScratchWindowState.FULLSCREEN;
+			else
+				Scratch.saved_state.window_state = ScratchWindowState.NORMAL;
+			
+			// Save window size
+			if (Scratch.saved_state.window_state == ScratchWindowState.NORMAL) {
+				int width, height;
+				get_size (out width, out height);
+				Scratch.saved_state.window_width = width;
+				Scratch.saved_state.window_height = height;
+			}
+
         }
 
     }

@@ -19,23 +19,21 @@
 
 using Gtk;
 using Pango;
-using GtkSource;
 
 namespace Scratch.Widgets {
 
     public class Tab : ScrolledWindow {
 
-        public View text_view;
+        public SourceView text_view;
+        public Label label;
 //        public Label label;
         public string filename;
         
-        public Tab() {
+        public Tab () {
             
             set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
             
-            text_view = new View ();
-            text_view.set_highlight_current_line (true);
-            text_view.set_show_line_numbers (true);            
+            text_view = new SourceView ();
             
             add (text_view);
 //            label = new Label ("New file");
@@ -89,14 +87,18 @@ namespace Scratch.Widgets {
         public Label label;
         public Button close;
 
-        public int add_tab(string tabtext="New file") {
+        public ScratchNotebook () {
+            this.set_scrollable (true);
+        }
+
+        public int add_tab (string tabtext="New file") {
             
             //tab label
             this.tablabel = new HBox (false, 0);
             
             this.label = new Label (tabtext);
             
-            var image = new Image.from_stock(Stock.CLOSE, IconSize.MENU);
+            var image = new Image.from_stock (Stock.CLOSE, IconSize.MENU);
             this.close = new Button ();
             this.close.clicked.connect (on_close_clicked);
             this.close.set_relief (ReliefStyle.NONE);
@@ -108,12 +110,12 @@ namespace Scratch.Widgets {
             this.tablabel.show_all ();	
             
             //create the tab
-            var new_tab = new Tab();
+            var new_tab = new Tab ();
             this.set_tab_reorderable (new_tab, true);
             return this.append_page (new_tab, this.tablabel);
         }
         
-        public void change_label(string label) {
+        public void change_label (string label) {
             
             this.label.set_text (label);
             
@@ -126,9 +128,6 @@ namespace Scratch.Widgets {
             
         }
 
-        public ScratchNotebook() {
-            this.set_scrollable (true);
-        }
 
 
     }

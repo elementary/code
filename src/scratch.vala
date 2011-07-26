@@ -28,6 +28,7 @@ namespace Scratch {
     public class Scratch : Granite.Application {
     
         private MainWindow window = null;
+        public static SavedState saved_state {get; private set; default = null;}
         
         construct {
         
@@ -52,11 +53,17 @@ namespace Scratch {
                              "Giulio Collura <random.cpp@gmail.com>"};
         					    
         	about_documenters = {"",""};
-		    about_artists = {"Mario Guerriero <mefrio.g@gmail.com>"};
+		    about_artists = {"Harvey Cabaguio 'BassUltra' <harveycabaguio@gmail.com>"};
 		    about_translators = "";
          
 		
 		}
+
+        public Scratch () {
+
+            saved_state = new SavedState ();
+
+        }
 		
 		protected override void activate () {
 			
