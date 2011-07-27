@@ -21,7 +21,7 @@ configure_file (${CMAKE_SOURCE_DIR}/config.h.cmake ${CMAKE_BINARY_DIR}/config.h)
 
 # Scratch
 
-set (SCRATCH_DEPS "gobject-2.0;glib-2.0;gio-2.0;gtk+-3.0;granite;gtksourceview-3.0")
+set (SCRATCH_DEPS "gobject-2.0;glib-2.0;gio-2.0;gtk+-3.0;granite")
 
 find_package (PkgConfig)
 pkg_check_modules (GLIB REQUIRED "glib-2.0 >= 2.26.0")
@@ -32,9 +32,9 @@ pkg_check_modules (LIBGRANITE REQUIRED "granite")
 pkg_check_modules (LIBSOURCE REQUIRED "gtksourceview-3.0 >= 3.0")
 pkg_check_modules (DEPS REQUIRED ${SCRATCH_DEPS})
 
-add_definitions (${DEPS_CFLAGS})
-link_libraries (${DEPS_LIBRARIES})
-link_directories (${DEPS_LIBRARY_DIRS})
+add_definitions (${DEPS_CFLAGS} ${LIBSOURCE_CFLAGS})
+link_libraries (${DEPS_LIBRARIES} ${LIBSOURCE_LIBRARIES})
+link_directories (${DEPS_LIBRARY_DIRS} ${LIBSOURCE_LIBRARY_DIRS})
 
 find_package (Vala REQUIRED)
 include (ValaVersion)
@@ -54,7 +54,7 @@ PACKAGES
 	${SCRATCH_DEPS}
 CUSTOM_VAPIS
     vapi/config.vapi
-    #vapi/gtksourceview-3.0.vapi
+    vapi/gtksourceview-3.0.vapi
 OPTIONS
 	--thread
 )
