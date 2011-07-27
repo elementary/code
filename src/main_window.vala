@@ -85,6 +85,8 @@ namespace Scratch {
             toolbar.new_button.clicked.connect (on_new_clicked);
             toolbar.open_button.clicked.connect (on_open_clicked);
             toolbar.save_button.clicked.connect (on_save_clicked);
+            toolbar.undo_button.clicked.connect (on_undo_clicked);
+            toolbar.repeat_button.clicked.connect (on_repeat_clicked);
                 
         }
         
@@ -188,8 +190,19 @@ namespace Scratch {
 			
         }
         
-        
-        //generic functions
+        public void on_undo_clicked() {
+        	
+		var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+		tab.text_view.undo ();
+	}
+	
+	public void on_repeat_clicked() {
+        	
+		var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+		tab.text_view.redo ();
+	}
+	
+	//generic functions
         public void load_file (string filename) {
             if (filename != "") {
                 try {
