@@ -26,10 +26,10 @@ namespace Scratch.Widgets {
 
         public SourceView text_view;
         public TabLabel label;
-        public string filename;
-        public bool saved; //TODO define its initial value...
-
 		public Notebook notebook;        
+        public string filename = null;
+        public bool saved = true; //don't ask to save a new empty file
+
         
         public Tab (Notebook parent, string labeltext) {
         
@@ -40,18 +40,19 @@ namespace Scratch.Widgets {
             
             text_view = new SourceView ();
             label = new TabLabel(this, labeltext);
-            
             add (text_view);
-            filename = null;
             show_all();
 
         }
         
 		public void on_close_clicked() {
 		
-//		    stdout.printf("closing: %s\n", this.filename);
 			message("closing: %s\n", this.filename);
-		    //TODO check saved status
+			
+			if (this.saved == false) {
+				//TODO ask if save, not save or cancel;
+		    }
+		    
 		    var n = notebook.page_num(this);
 		    notebook.remove_page(n);
 		    
@@ -77,6 +78,7 @@ namespace Scratch.Widgets {
             close.set_image (image);
             
             //"close" as first, because eOs HIG
+            //TODO: read button position from system!
             pack_start (close, false, false, 0);
             pack_start (label, false, false, 0);
             

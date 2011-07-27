@@ -123,11 +123,9 @@ namespace Scratch {
 	        		}
 
 					if (target_page >= 0){
-//						stdout.printf("file already opened: %s\n", filename);
 						message("file already opened: %s\n", filename);
 						notebook.set_current_page (target_page);
 	        		} else {
-//						stdout.printf ("Opening: %s\n", filename);
 						message("Opening: %s\n", filename);
 				        load_file (filename);
 				    }
@@ -185,10 +183,10 @@ namespace Scratch {
             
             }
             
-//			stdout.printf("Saving: %s", filename);
 			message("Saving: %s", filename);
             if (save_file (filename, current_tab.text_view.buffer.text) == 0) {
 				current_tab.filename = filename;
+				current_tab.saved = true;
 				current_tab.label.change_text (name[name.length-1]);
 			}
 			
@@ -235,11 +233,11 @@ namespace Scratch {
 	                //set new values
 	                target_tab.text_view.buffer.text = text;
 	                target_tab.filename = filename;
+	                target_tab.saved = true;
 	                target_tab.label.change_text (name[name.length-1]);
 	                this.title = this.TITLE + " - " + filename;
                         
                 } catch (Error e) {
-//                    stderr.printf ("Error: %s\n", e.message);
 					warning("Error: %s\n", e.message);
                 }
             }
@@ -253,7 +251,6 @@ namespace Scratch {
                     FileUtils.set_contents (filename, contents);
                     return 0;				
                 } catch (Error e) {
-//                    stderr.printf ("Error: %s\n", e.message);
 						warning("Error: %s\n", e.message);
                     return 1;
                 }
