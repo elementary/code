@@ -25,66 +25,72 @@ namespace Scratch.Widgets {
     public class Tab : ScrolledWindow {
 
         public SourceView text_view;
-        public Label label;
-//        public Label label;
+        public TabLabel label;
         public string filename;
+        public bool saved; //TODO define its initial value...
+
+		public Notebook notebook;        
         
-        public Tab () {
+        public Tab (Notebook parent) {
+        
+        	notebook = parent;
             
             set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
+            notebook.set_tab_reorderable (this, true);            
             
             text_view = new SourceView ();
+            label = new TabLabel(this);
             
             add (text_view);
-//            label = new Label ("New file");
             filename = null;
             show_all();
 
         }
+        
+		public void on_close_clicked() {
+		
+		    stdout.printf("closing: %s\n", this.filename);
+		    //TODO check saved status
+		    var n = notebook.page_num(this);
+		    notebook.remove_page(n);
+		    
+    }
+        
 
     }
     
     public class TabLabel : HBox {
 	
-	public Notebook notebook;
-	public HBox tablabel;
+		public HBox tablabel;
         public Label label;
         public Button close;
         
-        public TabLabel(string textlabel="New file", Notebook parent) {
-            
-            notebook = parent;
+        public TabLabel(Tab my_tab, string textlabel="New file") {
             
             label = new Label (textlabel);
             
             var image = new Image.from_stock(Stock.CLOSE, IconSize.MENU);
             close = new Button ();
-            close.clicked.connect (on_close_clicked);
+            close.clicked.connect (my_tab.on_close_clicked);
             close.set_relief (ReliefStyle.NONE);
             close.set_image (image);
             
-            pack_start (label, false, false, 0);
+            //"close" as first, because eOs HIG
             pack_start (close, false, false, 0);
+            pack_start (label, false, false, 0);
             
             this.show_all ();		
         }
-        
-        public void on_close_clicked() {
-            
-            var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
-            var n = notebook.page_num(tab.text_view);	
-            notebook.remove_page(n);	
-            
+
+
+        public void change_text (string text) {
+            label.set_text (text);
         }
-        
+
+
     }
     
     public class ScratchNotebook : Notebook {
-
-        //widgets for the label
-        public TabLabel tablabel;
-        public Label label;
-        public Button close;
 
         public ScratchNotebook () {
             this.set_scrollable (true);
@@ -92,31 +98,10 @@ namespace Scratch.Widgets {
 
         public int add_tab (string tabtext="New file") {
             
-            //tab label
-            this.tablabel = new TabLabel (tabtext, this);
-            //create the tab
-            var new_tab = new Tab ();
-            set_tab_reorderable (new_tab, true);
-            return this.append_page (new_tab, tablabel);
+            var new_tab = new Tab (this);
+            return this.append_page (new_tab, new_tab.label);
+            
         }
         
-        public void change_label (string label) {
-            
-            var tablabel = (TabLabel) this.get_nth_page (this.get_current_page());
-            tablabel.label.set_text (label);
-            
-        }
-
-        //events
-        public void on_close_clicked () {
-            
-            var tab = (Tab) this.get_nth_page (this.get_current_page());
-            var n = page_num(tab.text_view);	
-            remove_page(n);	
-            
-        }
-
-
-
     }
 } // Namespace

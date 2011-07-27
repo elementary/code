@@ -162,6 +162,7 @@ namespace Scratch {
         
             var current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
         	string filename = current_tab.filename;
+			var name = filename.split("/");
             
             if (filename == null) {
             
@@ -186,6 +187,7 @@ namespace Scratch {
 			stdout.printf("Saving: %s", filename);
             if (save_file (filename, current_tab.text_view.buffer.text) == 0) {
 				current_tab.filename = filename;
+				current_tab.label.change_text (name[name.length-1]);
 			}
 			
         }
@@ -211,7 +213,7 @@ namespace Scratch {
                     
                     //get the filename from strig filename =)
                     var name = filename.split("/");
-
+                    
 					Tab target_tab;
 		            var current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
 		            if (current_tab.filename == null) {
@@ -230,7 +232,7 @@ namespace Scratch {
 	                //set new values
 	                target_tab.text_view.buffer.text = text;
 	                target_tab.filename = filename;
-//	                target_tab.label.set_text (name[name.length-1]);
+	                target_tab.label.change_text (name[name.length-1]);
 	                this.title = this.TITLE + " - " + filename;
                         
                 } catch (Error e) {
@@ -246,7 +248,6 @@ namespace Scratch {
                 try {
                     FileUtils.set_contents (filename, contents);
                     var name = filename.split("/");
-                    notebook.change_label (name[name.length-1]);
                     return 0;				
                 } catch (Error e) {
                     stderr.printf ("Error: %s\n", e.message);
