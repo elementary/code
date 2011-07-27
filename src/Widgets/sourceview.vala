@@ -20,6 +20,7 @@
 using Gtk;
 using GtkSource;
 
+
 namespace Scratch.Widgets {
 
     public class SourceView : View {
@@ -47,7 +48,7 @@ namespace Scratch.Widgets {
             // TODO: use color scheme
 
             Scratch.settings.changed.connect (restore_settings);
-            
+
         }
 
         ~SourceView () {

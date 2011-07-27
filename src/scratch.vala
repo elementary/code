@@ -22,6 +22,7 @@ using Gtk;
 using Gdk;
 
 using Granite;
+using Granite.Services;
 
 namespace Scratch {
 
@@ -63,6 +64,9 @@ namespace Scratch {
 		}
 
         public Scratch () {
+
+			Logger.initialize ("Scratch");
+			Logger.DisplayLevel = LogLevel.DEBUG;
 
             saved_state = new SavedState ();
             settings = new Settings ();
