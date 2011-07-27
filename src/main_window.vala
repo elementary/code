@@ -56,6 +56,7 @@ namespace Scratch {
             
             create_window();
             connect_signals();
+
         }
         
         public void create_window () {
@@ -193,15 +194,24 @@ namespace Scratch {
         }
         
         public void on_undo_clicked() {
-        	
-		var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
-		tab.text_view.undo ();
+        	try {
+			var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+			tab.text_view.undo ();
+		} catch (Error e){
+			warning("Error: %s\n", e.message);
+		}
+		get_undo_redo();
 	}
 	
 	public void on_repeat_clicked() {
-        	
-		var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
-		tab.text_view.redo ();
+        	try {
+			var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+			tab.text_view.redo ();
+		} catch (Error e) {
+			warning("Error: %s\n", e.message);
+		}
+		get_undo_redo();
+		
 	}
 	
 	//generic functions
@@ -296,6 +306,27 @@ namespace Scratch {
 				Scratch.saved_state.window_height = height;
 			}
 
+        }
+        
+        public void get_undo_redo () {
+        	var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+		var buf = tab.text_view.buffer;
+		if (buf.can_redo) {
+			var button = (Widgets.Toolbar) toolbar.repeat_button;
+			button.set_sensitive (true);
+		} else {
+			var button = (Widgets.Toolbar) toolbar.repeat_button;
+			button.set_sensitive (false);		
+		}
+		
+		if (buf.can_undo) {
+			var button = (Widgets.Toolbar) toolbar.undo_button;
+			button.set_sensitive (true);
+		} else {
+			var button = (Widgets.Toolbar) toolbar.undo_button;
+			button.set_sensitive (false);		
+		}
+		
         }
 
     }
