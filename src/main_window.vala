@@ -62,7 +62,7 @@ namespace Scratch {
         public void create_window () {
 
             //notebook, textview and its scrolledwindow
-            this.notebook = new ScratchNotebook ();
+            this.notebook = new ScratchNotebook (this);
             this.notebook.add_tab();
             
             this.toolbar = new Widgets.Toolbar (this);
@@ -162,7 +162,6 @@ namespace Scratch {
         
             var current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
         	string filename = current_tab.filename;
-			var name = filename.split("/");
             
             if (filename == null) {
             
@@ -188,6 +187,7 @@ namespace Scratch {
             if (save_file (filename, current_tab.text_view.buffer.text) == 0) {
 				current_tab.filename = filename;
 				current_tab.saved = true;
+				var name = filename.split("/");
 				current_tab.label.change_text (name[name.length-1]);
 			}
 			

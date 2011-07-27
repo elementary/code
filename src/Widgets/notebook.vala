@@ -26,12 +26,12 @@ namespace Scratch.Widgets {
 
         public SourceView text_view;
         public TabLabel label;
-		public Notebook notebook;        
+		private ScratchNotebook notebook;
         public string filename = null;
         public bool saved = true; //don't ask to save a new empty file
 
         
-        public Tab (Notebook parent, string labeltext) {
+        public Tab (ScratchNotebook parent, string labeltext) {
         
         	notebook = parent;
             
@@ -47,15 +47,55 @@ namespace Scratch.Widgets {
         
 		public void on_close_clicked() {
 		
-			message("closing: %s\n", this.filename);
-			
 			if (this.saved == false) {
-				//TODO ask if save, not save or cancel;
-		    }
-		    
+
+				var save_dialog = new Dialog();
+//				var save_dialog = new Dialog.with_buttons("title", (Window) notebook.window, DialogFlags.MODAL, DialogFlags.DESTROY_WITH_PARENT);
+
+				var message_box = new VBox(true, 10);
+				var head = new HBox(false, 20);
+				var head_label = new Label("Changes on this file aren't saved.");
+				var head_img = new Image.from_stock(Stock.DIALOG_WARNING, IconSize.DIALOG);
+				head.add(head_img);
+				head.add(head_label);
+				var label = new Label ("Do you want to save changes before close this file?");
+				message_box.add(head);
+				message_box.add(label);
+
+
+				var content_area = (Box) save_dialog.get_content_area ();
+				content_area.add(message_box);
+				save_dialog.show_all();
+
+					
+				save_dialog.add_button ("Discard changes", ResponseType.REJECT);
+				save_dialog.add_button ("Cancel", ResponseType.CANCEL);
+				save_dialog.add_button ("Save", ResponseType.YES);
+				save_dialog.set_default_response (ResponseType.CANCEL);
+
+				var response = save_dialog.run();
+				save_dialog.close();
+
+				switch (response) {
+					case ResponseType.REJECT:
+					this.close();
+					break;
+
+					case ResponseType.YES:
+					//TODO save and close
+					break;
+				
+				}
+							
+		    } else this.close();
+		    		    
+    }
+    
+    private void close () {
+    
+    		message("closing: %s\n", this.filename);		    
 		    var n = notebook.page_num(this);
 		    notebook.remove_page(n);
-		    
     }
         
 
@@ -95,8 +135,11 @@ namespace Scratch.Widgets {
     
     public class ScratchNotebook : Notebook {
 
-        public ScratchNotebook () {
-            this.set_scrollable (true);
+		public MainWindow window;
+
+        public ScratchNotebook (MainWindow parent) {
+        	window = parent;
+			this.set_scrollable (true);
         }
 
         public int add_tab (string labeltext="New file") {
