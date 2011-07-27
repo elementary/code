@@ -277,7 +277,7 @@ namespace GtkSource {
 		public string name { get; }
 		public string section { get; }
 	}
-	[CCode (cheader_filename = "gtksourceview/gtksourcelanguagemanager..h")]
+	[CCode (cheader_filename = "gtksourceview/gtksourcelanguagemanager.h")]
 	public class LanguageManager : GLib.Object {
 		[CCode (has_construct_function = false)]
 		public LanguageManager ();

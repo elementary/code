@@ -31,13 +31,14 @@ namespace Scratch.Widgets {
     
         public SourceView () {
             
-            var lan = new LanguageManager ();
+            var manager = new LanguageManager ();
             
             use_default_font (true);
             modify_font (Pango.FontDescription.from_string (current_font));
             
             buffer = new Buffer (null);
             set_buffer (buffer);
+            buffer.set_language (manager.get_language ("c"));
             
             restore_settings ();
 
