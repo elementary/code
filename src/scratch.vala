@@ -80,8 +80,6 @@ namespace Scratch {
 			    // if not, create a new one.
 			    window = new MainWindow ();
 			    window.set_application (this);
-                window.create_window ();
-			    window.connect_signals ();
 
 			    window.show_all ();
 			    

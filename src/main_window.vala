@@ -53,10 +53,9 @@ namespace Scratch {
             this.set_default_size (800, 500);
             restore_saved_state ();
             //this.set_icon ("text-editor");
-            //this.maximize ();
             
-            //create_window();
-            //connect_signals();
+            create_window();
+            connect_signals();
         }
         
         public void create_window () {
@@ -247,7 +246,6 @@ namespace Scratch {
             if (filename != "") {
                 try {
                     FileUtils.set_contents (filename, contents);
-                    var name = filename.split("/");
                     return 0;				
                 } catch (Error e) {
                     stderr.printf ("Error: %s\n", e.message);
