@@ -1,12 +1,11 @@
 Source: scratch
-Section: utility
+Section: editors
 Priority: extra
 Maintainer: Mario Guerriero <mefrio.g@gmail.com>
 Build-Depends: debhelper (>= 7.0.50~), cmake
 Standards-Version: 3.9.1
 Homepage: http://launchpad.net/scratch
-#Vcs-Git: git://git.debian.org/collab-maint/scratch.git
-#Vcs-Browser: http://git.debian.org/?p=collab-maint/scratch.git;a=summary
+Vcs-Bzr: https://code.launchpad.net/~scratch-hackers/scratch/scratch
 
 Package: scratch
 Architecture: any

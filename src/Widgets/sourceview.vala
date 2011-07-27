@@ -31,6 +31,8 @@ namespace Scratch.Widgets {
     
         public SourceView () {
             
+            var lan = new LanguageManager ();
+            
             use_default_font (true);
             modify_font (Pango.FontDescription.from_string (current_font));
             

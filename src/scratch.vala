@@ -54,7 +54,8 @@ namespace Scratch {
 		    
 		    about_authors = {"Mario Guerriero <mefrio.g@gmail.com>",
                              "Giulio Collura <random.cpp@gmail.com>",
-                             "Gabriele Coletta <gdmg92@gmail.com>"};
+                             "Gabriele Coletta <gdmg92@gmail.com>"
+                             };
         					    
         	about_documenters = {"",""};
 		    about_artists = {"Harvey Cabaguio 'BassUltra' <harveycabaguio@gmail.com>"};
