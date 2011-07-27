@@ -31,7 +31,7 @@ namespace Scratch.Widgets {
 
 		public Notebook notebook;        
         
-        public Tab (Notebook parent) {
+        public Tab (Notebook parent, string labeltext) {
         
         	notebook = parent;
             
@@ -39,7 +39,7 @@ namespace Scratch.Widgets {
             notebook.set_tab_reorderable (this, true);            
             
             text_view = new SourceView ();
-            label = new TabLabel(this);
+            label = new TabLabel(this, labeltext);
             
             add (text_view);
             filename = null;
@@ -49,7 +49,8 @@ namespace Scratch.Widgets {
         
 		public void on_close_clicked() {
 		
-		    stdout.printf("closing: %s\n", this.filename);
+//		    stdout.printf("closing: %s\n", this.filename);
+			message("closing: %s\n", this.filename);
 		    //TODO check saved status
 		    var n = notebook.page_num(this);
 		    notebook.remove_page(n);
@@ -65,9 +66,9 @@ namespace Scratch.Widgets {
         public Label label;
         public Button close;
         
-        public TabLabel(Tab my_tab, string textlabel="New file") {
+        public TabLabel(Tab my_tab, string labeltext) {
             
-            label = new Label (textlabel);
+            label = new Label (labeltext);
             
             var image = new Image.from_stock(Stock.CLOSE, IconSize.MENU);
             close = new Button ();
@@ -96,9 +97,9 @@ namespace Scratch.Widgets {
             this.set_scrollable (true);
         }
 
-        public int add_tab (string tabtext="New file") {
+        public int add_tab (string labeltext="New file") {
             
-            var new_tab = new Tab (this);
+            var new_tab = new Tab (this, labeltext);
             return this.append_page (new_tab, new_tab.label);
             
         }
