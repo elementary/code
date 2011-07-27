@@ -45,12 +45,15 @@ namespace Scratch.Widgets {
     }
     
     public class TabLabel : HBox {
-
-        public HBox tablabel;
+	
+	public Notebook notebook;
+	public HBox tablabel;
         public Label label;
         public Button close;
         
-        public TabLabel(string textlabel="New file") {
+        public TabLabel(string textlabel="New file", Notebook parent) {
+            
+            notebook = parent;
             
             label = new Label (textlabel);
             
@@ -68,7 +71,9 @@ namespace Scratch.Widgets {
         
         public void on_close_clicked() {
             
-            return;	
+            var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+            var n = notebook.page_num(tab.text_view);	
+            notebook.remove_page(n);	
             
         }
         
@@ -88,7 +93,7 @@ namespace Scratch.Widgets {
         public int add_tab (string tabtext="New file") {
             
             //tab label
-            this.tablabel = new TabLabel ();
+            this.tablabel = new TabLabel (tabtext, this);
             //create the tab
             var new_tab = new Tab ();
             set_tab_reorderable (new_tab, true);
@@ -105,7 +110,9 @@ namespace Scratch.Widgets {
         //events
         public void on_close_clicked () {
             
-            return;	
+            var tab = (Tab) this.get_nth_page (this.get_current_page());
+            var n = page_num(tab.text_view);	
+            remove_page(n);	
             
         }
 
