@@ -24,7 +24,9 @@ namespace Scratch.Widgets {
     public class MenuProperties : Menu {
 
         private MainWindow window;
+
         private ImageMenuItem preferences;
+        private CheckMenuItem fullscreen;
         
         public MenuProperties (MainWindow parent) {
             this.window = parent;
@@ -33,14 +35,26 @@ namespace Scratch.Widgets {
         
         public void create () {		
 
-            this.preferences = new ImageMenuItem.from_stock (Stock.PREFERENCES, null);
-            this.append (preferences);
-            preferences.show();
+            preferences = new ImageMenuItem.from_stock (Stock.PREFERENCES, null);
+            fullscreen = new CheckMenuItem.with_label ("Fullscreen");
+            fullscreen.active = (Scratch.saved_state.window_state == ScratchWindowState.FULLSCREEN);
 
+            append (fullscreen);
+            append (preferences);
+  
             preferences.activate.connect (() => {new Dialogs.Preferences ("Preferences", this.window);});
+            fullscreen.toggled.connect (toggle_fullscreen);
 
         }
-        
+
+        private void toggle_fullscreen () {
+
+            if (fullscreen.active)
+                window.fullscreen ();
+            else
+                window.unfullscreen ();
+
+        }
         
     }
 
