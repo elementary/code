@@ -42,6 +42,8 @@ namespace Scratch {
 
         public bool show_line_numbers { get; set; }
         public bool highlight_current_line { get; set; }
+        public bool spaces_instead_of_tabs { get; set; }
+        public int indent_width { get; set; }
 
         public Settings ()  {
             base ("org.elementary.Scratch.Settings");

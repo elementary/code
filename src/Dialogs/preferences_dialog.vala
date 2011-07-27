@@ -33,6 +33,8 @@ namespace Scratch.Dialogs {
 
         private CheckButton line_numbers;
         private CheckButton highlight_current_line;
+        private CheckButton spaces_instead_of_tabs;
+        private SpinButton indent_width;
 
         private Button close_button;
 
@@ -67,15 +69,27 @@ namespace Scratch.Dialogs {
             highlight_current_line = new CheckButton.with_label ("Highlight current line");
             highlight_current_line.set_active (Scratch.settings.highlight_current_line);
 
+            spaces_instead_of_tabs = new CheckButton.with_label ("Use spaces instead of tabs");
+            spaces_instead_of_tabs.set_active (Scratch.settings.spaces_instead_of_tabs);
+
+            indent_width = new SpinButton.with_range (1, 24, 1);
+            indent_width.set_value (Scratch.settings.indent_width);
+            var indent_width_l = new Label ("Tab width: ");
+            var indent_width_box = new HBox (false, 5);
+            indent_width_box.pack_start (indent_width_l, false, true, 0);
+            indent_width_box.pack_start (indent_width, false, true, 0);
+
             close_button = new Button.with_label ("Close");
 
             var bottom_buttons = new HButtonBox ();
             bottom_buttons.set_layout (ButtonBoxStyle.END);
             bottom_buttons.pack_end (close_button);
 
-            content.pack_start (editor_label, false, true, 0);
+            content.pack_start (wrap_alignment (editor_label, 10, 0, 0, 0), false, true, 0);
             content.pack_start (wrap_alignment (line_numbers, 0, 0, 0, 10), false, true, 0);
             content.pack_start (wrap_alignment (highlight_current_line, 0, 0, 0, 10), false, true, 0);
+            content.pack_start (wrap_alignment (spaces_instead_of_tabs, 0, 0, 0, 10), false, true, 0);
+            content.pack_start (wrap_alignment (indent_width_box, 0, 0, 0, 10), false, true, 0);
             
             content.pack_end (bottom_buttons, false, true, 10);
 
@@ -105,8 +119,8 @@ namespace Scratch.Dialogs {
 
             Scratch.settings.show_line_numbers = line_numbers.get_active ();
             Scratch.settings.highlight_current_line = highlight_current_line.get_active ();
-
-            //Widgets.SourceView.restore_settings ();
+            Scratch.settings.spaces_instead_of_tabs = spaces_instead_of_tabs.get_active ();
+            Scratch.settings.indent_width = (int) indent_width.value;
             
             this.destroy ();
 

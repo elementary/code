@@ -40,19 +40,20 @@ namespace Scratch.Widgets {
 
             // Simple default configuration
             auto_indent = true;
-            set_insert_spaces_instead_of_tabs (true);
-            set_indent_width (4);
             set_wrap_mode (Gtk.WrapMode.WORD);
             
             buffer.highlight_syntax = true;
             
             // TODO: use color scheme
+
+            Scratch.settings.changed.connect (restore_settings);
             
         }
 
         ~SourceView () {
 
-            //update_settings ();
+            // Update settings when an instance is deleted
+            update_settings ();
 
         }
 
@@ -74,6 +75,8 @@ namespace Scratch.Widgets {
             
             show_line_numbers = Scratch.settings.show_line_numbers;
             highlight_current_line = Scratch.settings.highlight_current_line;
+            insert_spaces_instead_of_tabs = Scratch.settings.spaces_instead_of_tabs;
+            indent_width = Scratch.settings.indent_width;
 
         }
 
@@ -81,6 +84,9 @@ namespace Scratch.Widgets {
 
             Scratch.settings.show_line_numbers = show_line_numbers;
             Scratch.settings.highlight_current_line = highlight_current_line;
+            Scratch.settings.spaces_instead_of_tabs = insert_spaces_instead_of_tabs;
+            Scratch.settings.indent_width = indent_width;
+            
 
         }
 
