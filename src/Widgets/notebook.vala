@@ -43,25 +43,25 @@ namespace Scratch.Widgets {
         }
 
     }
-    /*
+    
     public class TabLabel : HBox {
 
         public HBox tablabel;
         public Label label;
         public Button close;
         
-        public TabLabel(string label) {
+        public TabLabel(string textlabel="New file") {
             
-            this.label = new Label (label);
+            label = new Label (textlabel);
             
             var image = new Image.from_stock(Stock.CLOSE, IconSize.MENU);
-            this.close = new Button ();
-            this.close.clicked.connect (on_close_clicked);
-            this.close.set_relief (ReliefStyle.NONE);
-            this.close.set_image (image);
+            close = new Button ();
+            close.clicked.connect (on_close_clicked);
+            close.set_relief (ReliefStyle.NONE);
+            close.set_image (image);
             
-            this.hbox.pack_start (this.label, false, false, 0);
-            this.hbox.pack_start (this.close, false, false, 0);
+            pack_start (label, false, false, 0);
+            pack_start (close, false, false, 0);
             
             this.show_all ();		
         }
@@ -72,18 +72,12 @@ namespace Scratch.Widgets {
             
         }
         
-        public void change_label(string label) {
-            
-            this.label.set_text (label);
-            
-        }
-        
     }
-    */
+    
     public class ScratchNotebook : Notebook {
 
         //widgets for the label
-        public HBox tablabel;
+        public TabLabel tablabel;
         public Label label;
         public Button close;
 
@@ -94,30 +88,17 @@ namespace Scratch.Widgets {
         public int add_tab (string tabtext="New file") {
             
             //tab label
-            this.tablabel = new HBox (false, 0);
-            
-            this.label = new Label (tabtext);
-            
-            var image = new Image.from_stock (Stock.CLOSE, IconSize.MENU);
-            this.close = new Button ();
-            this.close.clicked.connect (on_close_clicked);
-            this.close.set_relief (ReliefStyle.NONE);
-            this.close.set_image (image);
-            
-            this.tablabel.pack_start (this.label, false, false, 0);
-            this.tablabel.pack_start (this.close, false, false, 0);
-            
-            this.tablabel.show_all ();	
-            
+            this.tablabel = new TabLabel ();
             //create the tab
             var new_tab = new Tab ();
-            this.set_tab_reorderable (new_tab, true);
-            return this.append_page (new_tab, this.tablabel);
+            set_tab_reorderable (new_tab, true);
+            return this.append_page (new_tab, tablabel);
         }
         
         public void change_label (string label) {
             
-            this.label.set_text (label);
+            var tablabel = (TabLabel) this.get_nth_page (this.get_current_page());
+            tablabel.label.set_text (label);
             
         }
 
