@@ -94,8 +94,11 @@ namespace Scratch {
         
         //signals functions
         public void on_new_clicked () {
+        
             int new_tab_index = notebook.add_tab ();
             notebook.set_current_page (new_tab_index);
+        	notebook.show_tabs_view();
+            
         }
         
         public void on_open_clicked () {
@@ -114,21 +117,26 @@ namespace Scratch {
 		        if (filename != null) {
 		        
 		        	//check if file is already opened
-		        	int tot_pages = notebook.get_n_pages ();
 		        	int target_page = -1;
 		        	
-	        		for (int i = 0; i < tot_pages; i++) {
-		        		Tab page = (Tab) notebook.get_nth_page (i);
-		        		if (page.filename == filename) {
-		        			target_page = i;
-		        		}
-	        		}
+		        	if (!notebook.welcome_screen.active) {
+				    			        	
+				    	int tot_pages = notebook.get_n_pages ();		        	
+			    		for (int i = 0; i < tot_pages; i++) {
+				    		Tab page = (Tab) notebook.get_nth_page (i);
+				    		if (page.filename == filename) {
+				    			target_page = i;
+				    		}
+			    		}
+
+					}
 
 					if (target_page >= 0){
 						message("file already opened: %s\n", filename);
 						notebook.set_current_page (target_page);
 	        		} else {
 						message("Opening: %s\n", filename);
+			        	notebook.show_tabs_view();						
 				        load_file (filename);
 				    }
 		        }

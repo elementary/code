@@ -136,7 +136,6 @@ namespace Scratch.Widgets {
 			
 				var save_dialog = new SaveDialog(this);
 				save_dialog.run();
-
 						
 		    } else this.close();
 		    		    
@@ -147,6 +146,9 @@ namespace Scratch.Widgets {
     		message("closing: %s\n", this.filename);		    
 		    var n = notebook.page_num(this);
 		    notebook.remove_page(n);
+		    
+		    if (notebook.get_n_pages() == 0)
+		    	notebook.show_welcome();
 
     }
         
@@ -256,21 +258,93 @@ namespace Scratch.Widgets {
     
 	public class ScratchNotebook : Notebook {
 
-		public MainWindow window; //used in dialog
+		public MainWindow window; //used in dialog		
+		public ScratchWelcome welcome_screen;
 
 	    public ScratchNotebook (MainWindow parent) {
 	    
 	    	this.window = parent;
+			this.welcome_screen = new ScratchWelcome(this);
+	    	
 			this.set_scrollable (true);
 			
+			
 	    }
-
+	    
         public int add_tab (string labeltext="New file") {
             
             var new_tab = new Tab (this, labeltext, window);
             return this.append_page (new_tab, new_tab.label);
             
         }
+       
+        
+		public void show_welcome() {
+			
+			if (!welcome_screen.active) {
+					
+				this.append_page(welcome_screen, null);
+				this.set_show_tabs(false);
+				this.welcome_screen.active = true;
+			}
+		
+		}
+		
+		public void show_tabs_view() {
+			
+			if (welcome_screen.active) {
+			
+				this.remove_page(this.page_num(welcome_screen));
+				this.set_show_tabs(true);
+				this.welcome_screen.active = false;
+				
+			}
+			
+		}
+
+
+		public class ScratchWelcome : Granite.Widgets.Welcome {
+		
+			public bool active = false;
+			private ScratchNotebook notebook;
+			
+			public ScratchWelcome(ScratchNotebook caller) {
+		
+				base("No files opened.", "Open a file to start editing");
+		
+				notebook = caller;
+		
+				append(Stock.OPEN, "Open file", "open a saved file");
+				append(Stock.NEW, "New file", "create an new empty file");
+				this.activated.connect (on_activated);
+				
+				show_all();
+
+			}
+			
+			private void on_activated(int index) {
+
+				switch (index) {
+					case 0: //open
+					notebook.window.on_open_clicked();
+					break;
+
+					case 1: // new
+					notebook.window.on_new_clicked();
+					break;
+				
+				}
+
+				
+			}
+		
+		
+		}
+
         
     }
+   
+    
+    
 } // Namespace
+
