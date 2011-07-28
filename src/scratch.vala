@@ -28,6 +28,8 @@ namespace Scratch {
 
     public class Scratch : Granite.Application {
     	
+    	public string[] arguments;
+    	
         private MainWindow window = null;
 
         public static SavedState saved_state {get; private set; default = null;}
@@ -64,7 +66,9 @@ namespace Scratch {
 		
 		}
 
-        public Scratch () {
+        public Scratch (string[] args) {
+			
+			arguments = args;
 			
 			Logger.initialize ("Scratch");
 			Logger.DisplayLevel = LogLevel.DEBUG;
@@ -83,7 +87,7 @@ namespace Scratch {
 			} else {
 			    
 			    // if not, create a new one.
-			    window = new MainWindow ();
+			    window = new MainWindow (arguments);
 			    window.set_application (this);
 
 			    window.show_all ();
@@ -93,7 +97,7 @@ namespace Scratch {
 		
 		public static int main (string[] args) {
 
-		    return new Scratch ().run (args);
+		    return new Scratch (args).run (args);
 		    
         }
     }

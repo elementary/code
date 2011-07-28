@@ -31,7 +31,6 @@ namespace Scratch {
    
     public class MainWindow : Gtk.Window {
 	
-	static string[] files;
 	
         private const string TITLE = "Scratch";
         
@@ -43,23 +42,16 @@ namespace Scratch {
         public FileChooserDialog filech;
         
         //option entry
-        const OptionEntry[] options = {
+        /*const OptionEntry[] options = {
                 { "",  0, 0, GLib.OptionArg.STRING_ARRAY, ref files, "Filenames", null },
                 { null }
-        };
+        };*/
         
 
-        public MainWindow () {
-
-           /* if (arg == null) {
-                this.title = this.TITLE;
-            } else {
-                this.title = arg;
-            }
-            */
-            
-            if (files != null) {
-            	foreach (string file in files) {
+        public MainWindow (string[] args) {
+				
+            if (args != null) {
+            	foreach (string file in args) {
             		stdout.printf ("%s\n\n", file);
             		//load_file (file);
             	}
