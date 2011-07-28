@@ -19,6 +19,7 @@
 
 using Gtk;
 using Pango;
+using Scratch.Dialogs;
 
 namespace Scratch.Widgets {
 
@@ -28,7 +29,7 @@ namespace Scratch.Widgets {
 
         public SourceView text_view;
         public TabLabel label;
-		private ScratchNotebook notebook;
+		public ScratchNotebook notebook;
         public string filename = null;
         public bool saved = true;
 
@@ -47,89 +48,7 @@ namespace Scratch.Widgets {
             show_all();
 
         }
-        
 
-		private class SaveDialog : Window {
-
-			private Tab caller;
-			
-			private Box headbox;
-			private Label label;
-			private Image image;
-
-			private Box buttonbox;
-			private Button discard;
-			private Button cancel;
-			private Button save;
-
-			private Box container; 
-
-			public SaveDialog(Tab callertab) {
-
-				caller = callertab;
-
-				label = new Label("Changes on this file aren't saved.\nDo you want to save changes before close this file?");
-				image = new Image.from_stock(Stock.DIALOG_WARNING, IconSize.DIALOG);				
-				
-				headbox = new Box(Orientation.HORIZONTAL, 10);
-				headbox.add(image);
-				headbox.add(label);				
-		
-				discard = new Button.with_label(Stock.DISCARD);
-					discard.set_use_stock(true);
-					discard.clicked.connect(this.on_discard_clicked);
-				cancel = new Button.with_label(Stock.CANCEL);
-					cancel.set_use_stock(true);
-					cancel.clicked.connect(this.on_cancel_clicked);
-				save = new Button.with_label(Stock.SAVE);
-					save.set_use_stock(true);
-					save.clicked.connect(this.on_save_clicked);
-		
-				buttonbox = new Box (Orientation.HORIZONTAL, 10);
-				buttonbox.set_homogeneous(true);
-				buttonbox.add(discard);
-				buttonbox.add(cancel);
-				buttonbox.add(save);				
-	
-				container = new Box(Orientation.VERTICAL, 10);
-				container.add(headbox);
-				container.add(buttonbox);
-
-				//window properties
-				this.title = "";
-				this.set_skip_taskbar_hint(true);
-				this.set_modal(false);
-				this.set_transient_for (caller.notebook.window);
-				this.set_resizable(false);
-		
-				this.add(container);
-
-			}
-			
-			public void run() {
-				this.show_all();
-			}
-	
-			//responses
-			private void on_discard_clicked() {
-				this.destroy();
-				caller.close();
-			}
-
-			private void on_cancel_clicked() {
-				this.destroy();				
-			}
-
-			private void on_save_clicked() { 
-				this.destroy();				
-				if (caller.save() == 0)
-					caller.close();
-			}
-
-
-		}
-        
-        
 		public void on_close_clicked() {
 		
 			if (this.saved == false) {
@@ -139,9 +58,9 @@ namespace Scratch.Widgets {
 						
 		    } else this.close();
 		    		    
-    }
+        }
     
-    public void close () {
+        public void close () {
 
     		message("closing: %s\n", this.filename);		    
 		    var n = notebook.page_num(this);
@@ -150,9 +69,9 @@ namespace Scratch.Widgets {
 		    if (notebook.get_n_pages() == 0)
 		    	notebook.show_welcome();
 
-    }
+        }
         
-	public int save () {
+        public int save () {
 	
             if (this.filename == null) {
             
@@ -203,24 +122,22 @@ namespace Scratch.Widgets {
 		    }
 
 	
-	}
+        }
 	
-    public int save_file (string filename, string contents) {
+        public int save_file (string filename, string contents) {
 
-		if (filename != "") {
-		    try {
-		        FileUtils.set_contents (filename, contents);
-		        return 0;				
-		    } catch (Error e) {
-					warning("Error: %s\n", e.message);
-		        return 1;
-		    }
-		        
-		} else return 1;		
+            if (filename != "") {
+                try {
+                    FileUtils.set_contents (filename, contents);
+                    return 0;				
+                } catch (Error e) {
+                    warning("Error: %s\n", e.message);
+                    return 1;
+                }
+                    
+            } else return 1;		
     
-	}
-
-
+        }
 
     }
     
@@ -254,7 +171,7 @@ namespace Scratch.Widgets {
         }
 
 
-	    }
+    }
     
 	public class ScratchNotebook : Notebook {
 
@@ -343,8 +260,5 @@ namespace Scratch.Widgets {
 
         
     }
-   
-    
     
 } // Namespace
-

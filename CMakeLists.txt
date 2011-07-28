@@ -50,6 +50,7 @@ vala_precompile (VALA_C
     src/Widgets/toolbar.vala
     src/Widgets/sourceview.vala
     src/Dialogs/preferences_dialog.vala
+    src/Dialogs/save_dialog.vala
 PACKAGES
 	${SCRATCH_DEPS}
 CUSTOM_VAPIS
