@@ -68,10 +68,13 @@ namespace Scratch {
 
         public Scratch (string[] args) {
 			
-			arguments = args;
+			arguments = args[1 : args.length];
 			
 			Logger.initialize ("Scratch");
 			Logger.DisplayLevel = LogLevel.DEBUG;
+            
+            set_flags (GLib.ApplicationFlags.HANDLES_OPEN);
+            this.open.connect (() => {activate ();});
 
             saved_state = new SavedState ();
             settings = new Settings ();

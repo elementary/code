@@ -40,6 +40,8 @@ namespace Scratch {
         
         //dialogs
         public FileChooserDialog filech;
+
+        public Tab current_tab;
         
         //option entry
         /*const OptionEntry[] options = {
@@ -50,19 +52,17 @@ namespace Scratch {
 
         public MainWindow (string[] args) {
 				
-            if (args != null) {
-            	foreach (string file in args) {
-            		stdout.printf ("%s\n\n", file);
-            		//load_file (file);
-            	}
-            }
-            
             this.set_default_size (800, 500);
             restore_saved_state ();
-            //this.set_icon ("text-editor");
             
             create_window();
             connect_signals();
+
+            if (args != null) {
+            	foreach (string file in args) {
+            		load_file (file);
+            	}
+            }
 
         }
         
@@ -133,8 +133,8 @@ namespace Scratch {
 				    			        	
 				    	int tot_pages = notebook.get_n_pages ();		        	
 			    		for (int i = 0; i < tot_pages; i++) {
-				    		Tab page = (Tab) notebook.get_nth_page (i);
-				    		if (page.filename == filename) {
+				    		current_tab = (Tab) notebook.get_nth_page (i);
+				    		if (current_tab.filename == filename) {
 				    			target_page = i;
 				    		}
 			    		}
@@ -181,7 +181,7 @@ namespace Scratch {
         
         public void on_save_clicked() {
         
-            var current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+            current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
   			current_tab.save();
   		    
 /*      
@@ -221,8 +221,8 @@ namespace Scratch {
         
         public void on_undo_clicked() {
             try {
-                var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
-                tab.text_view.undo ();
+                current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+                current_tab.text_view.undo ();
             } catch (Error e) {
                 warning("Error: %s\n", e.message);
             }
@@ -231,8 +231,8 @@ namespace Scratch {
 	
         public void on_repeat_clicked() {
         	try {
-                var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
-                tab.text_view.redo ();
+                current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+                current_tab.text_view.redo ();
             } catch (Error e) {
                 warning("Error: %s\n", e.message);
             }
@@ -242,18 +242,18 @@ namespace Scratch {
         
         public void on_combobox_changed() {
 
-        	var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+        	current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
         	var lang = toolbar.combobox.get_active_text().down();
-        	tab.text_view.buffer.set_language ( tab.text_view.manager.get_language(lang) );
+        	current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language(lang) );
 
         }
 	
         public void on_switch_tab (Widget page, uint page_num) {
 
-            var tab = (Tab) notebook.get_nth_page (notebook.get_current_page()-1);	
+            current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page()-1);	
 
-            if (tab.filename != null) {
-                set_window_title (tab.filename);
+            if (current_tab.filename != null) {
+                set_window_title (current_tab.filename);
             }
             else {
                 this.title = this.TITLE;
@@ -272,7 +272,7 @@ namespace Scratch {
                     var name = Filename.display_basename (filename);
                     
 					Tab target_tab;
-			        var current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+			        current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
 
 		            if ((current_tab != null) && (current_tab.filename == null) ) {
 		            
@@ -351,8 +351,9 @@ namespace Scratch {
         }
         
         public void set_undo_redo () {
-        	var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
-            var buf = tab.text_view.buffer;
+        	
+            current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+            var buf = current_tab.text_view.buffer;
 
             if (buf.can_redo) {
                 var button = (Widgets.Toolbar) toolbar.repeat_button;
@@ -374,8 +375,8 @@ namespace Scratch {
         
         public void set_combobox_language (string filename) {
         	GtkSource.Language lang;
-        	var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
-            lang = tab.text_view.manager.guess_language (filename, null);
+        	current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+            lang = current_tab.text_view.manager.guess_language (filename, null);
         	toolbar.combobox.set_active_id ( lang.get_id() );
         }
 
