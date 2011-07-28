@@ -24,6 +24,8 @@ namespace Scratch.Widgets {
 
     public class Tab : ScrolledWindow {
 
+        private MainWindow window;
+
         public SourceView text_view;
         public TabLabel label;
 		private ScratchNotebook notebook;
@@ -31,14 +33,15 @@ namespace Scratch.Widgets {
         public bool saved = true;
 
         
-        public Tab (ScratchNotebook parent, string labeltext) {
-        
+        public Tab (ScratchNotebook parent, string labeltext, MainWindow window) {
+            
+            this.window = window;
         	this.notebook = parent;
             
             set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
             notebook.set_tab_reorderable (this, true);            
             
-            text_view = new SourceView ();
+            text_view = new SourceView (window);
             label = new TabLabel(this, labeltext);
             add (text_view);
             show_all();
@@ -264,7 +267,7 @@ namespace Scratch.Widgets {
 
         public int add_tab (string labeltext="New file") {
             
-            var new_tab = new Tab (this, labeltext);
+            var new_tab = new Tab (this, labeltext, window);
             return this.append_page (new_tab, new_tab.label);
             
         }

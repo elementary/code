@@ -30,11 +30,14 @@ namespace Scratch.Dialogs {
         private HBox padding;
 
         private Label editor_label;
+        private Label font_label;
 
         private CheckButton line_numbers;
         private CheckButton highlight_current_line;
         private CheckButton spaces_instead_of_tabs;
         private SpinButton indent_width;
+        private CheckButton use_system_font;
+        private FontButton select_font;
 
         private Button close_button;
 
@@ -62,6 +65,10 @@ namespace Scratch.Dialogs {
             editor_label = new Label ("Editor Settings");
             editor_label.xalign = 0.0f;
             editor_label.set_markup ("<b>Editor Settings</b>");
+
+            font_label = new Label ("Font Settings");
+            font_label.xalign = 0.0f;
+            font_label.set_markup ("<b>Font Settings</b>");
             
             line_numbers = new CheckButton.with_label ("Show line numbers");
             line_numbers.set_active (Scratch.settings.show_line_numbers);
@@ -79,6 +86,12 @@ namespace Scratch.Dialogs {
             indent_width_box.pack_start (indent_width_l, false, true, 0);
             indent_width_box.pack_start (indent_width, false, true, 0);
 
+            use_system_font = new CheckButton.with_label ("Use system font");
+            use_system_font.set_active (Scratch.settings.use_system_font);
+
+            select_font = new FontButton ();
+            select_font.set_font_name (Scratch.settings.font);
+
             close_button = new Button.with_label ("Close");
 
             var bottom_buttons = new HButtonBox ();
@@ -90,6 +103,9 @@ namespace Scratch.Dialogs {
             content.pack_start (wrap_alignment (highlight_current_line, 0, 0, 0, 10), false, true, 0);
             content.pack_start (wrap_alignment (spaces_instead_of_tabs, 0, 0, 0, 10), false, true, 0);
             content.pack_start (wrap_alignment (indent_width_box, 0, 0, 0, 10), false, true, 0);
+            content.pack_start (font_label, false, true, 0);
+            content.pack_start (wrap_alignment (use_system_font, 0, 0, 0, 10), false, true, 0);
+            content.pack_start (wrap_alignment (select_font, 0, 0, 0, 10), false, true, 0);
             
             content.pack_end (bottom_buttons, false, true, 10);
 
@@ -121,6 +137,8 @@ namespace Scratch.Dialogs {
             Scratch.settings.highlight_current_line = highlight_current_line.get_active ();
             Scratch.settings.spaces_instead_of_tabs = spaces_instead_of_tabs.get_active ();
             Scratch.settings.indent_width = (int) indent_width.value;
+            Scratch.settings.use_system_font = use_system_font.get_active ();
+            Scratch.settings.font = select_font.font_name;
             
             this.destroy ();
 

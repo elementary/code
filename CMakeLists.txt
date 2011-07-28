@@ -63,8 +63,8 @@ OPTIONS
 add_executable (scratch ${VALA_C})
 
 #TODO: Installation
-#install (TARGETS scratch RUNTIME DESTINATION bin)
-#install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/scratch.desktop DESTINATION /usr/share/applications)
+install (TARGETS scratch RUNTIME DESTINATION bin)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/scratch.desktop DESTINATION /usr/share/applications)
 
 #
 # GSettings Schema

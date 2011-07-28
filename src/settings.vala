@@ -44,6 +44,8 @@ namespace Scratch {
         public bool highlight_current_line { get; set; }
         public bool spaces_instead_of_tabs { get; set; }
         public int indent_width { get; set; }
+        public bool use_system_font { get; set; }
+        public string font { get; set; }
 
         public Settings ()  {
             base ("org.elementary.Scratch.Settings");

@@ -73,12 +73,12 @@ namespace Scratch {
             settings = new Settings ();
 
         }
-		
+
 		protected override void activate () {
 			
 			if (get_windows () != null) {
 				// show window if app is already open
-				window.present (); 
+				window.present ();
 
 			} else {
 			    
@@ -92,7 +92,7 @@ namespace Scratch {
 		}
 		
 		public static int main (string[] args) {
-		
+		    
 		    return new Scratch ().run (args);
 		    
         }

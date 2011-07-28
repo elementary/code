@@ -42,5 +42,15 @@
             <summary>Tab Size</summary>
             <description>Specifies the number of spaces that should be displayed instead of Tab characters.</description>
         </key>
+        <key name="use-system-font" type="b">
+            <default>true</default>
+            <summary>Use system font</summary>
+            <description>Whether Scratch should use the default system font</description>
+        </key>
+        <key name="font" type="s">
+            <default>'Droid Sans Mono 9'</default>
+            <summary>Preferred Font</summary>
+            <description>Set the preferred font.</description>
+        </key>
     </schema>
 </schemalist>

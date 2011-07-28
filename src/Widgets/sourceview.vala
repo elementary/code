@@ -24,18 +24,19 @@ using GtkSource;
 namespace Scratch.Widgets {
 
     public class SourceView : View {
+
+        private MainWindow window;
         
         public GtkSource.Buffer buffer;
         public LanguageManager manager;
         
-        private string current_font;
+        public string current_font;
     
-        public SourceView () {
+        public SourceView (MainWindow window) {
+
+            this.window = window;
             
             manager = new LanguageManager ();
-            
-            use_default_font (true);
-            modify_font (Pango.FontDescription.from_string (current_font));
             
             buffer = new Buffer (null);
             set_buffer (buffer);
@@ -91,6 +92,10 @@ namespace Scratch.Widgets {
             highlight_current_line = Scratch.settings.highlight_current_line;
             insert_spaces_instead_of_tabs = Scratch.settings.spaces_instead_of_tabs;
             indent_width = Scratch.settings.indent_width;
+            
+            current_font = Scratch.settings.font;
+            use_default_font (Scratch.settings.use_system_font);
+            modify_font (Pango.FontDescription.from_string (current_font));
 
         }
 
@@ -100,7 +105,7 @@ namespace Scratch.Widgets {
             Scratch.settings.highlight_current_line = highlight_current_line;
             Scratch.settings.spaces_instead_of_tabs = insert_spaces_instead_of_tabs;
             Scratch.settings.indent_width = indent_width;
-            
+            Scratch.settings.font = current_font;
 
         }
 
