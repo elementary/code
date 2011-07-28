@@ -241,20 +241,25 @@ namespace Scratch {
         }
         
         public void on_combobox_changed() {
+
         	var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
         	var lang = toolbar.combobox.get_active_text().down();
-        	tab.text_view.buffer.set_language ( tab.text_view.manager.get_language(lang) );                
+        	tab.text_view.buffer.set_language ( tab.text_view.manager.get_language(lang) );
+
         }
 	
-	public void on_switch_tab(Widget page, uint page_num) {
-		var tab = (Tab) notebook.get_nth_page (notebook.get_current_page()-1);	
-		if (tab.filename != null) {
-			this.title = this.TITLE + " - " + tab.filename;
-		}
-		else {
-			this.title = this.TITLE;
-		}
-	}
+        public void on_switch_tab (Widget page, uint page_num) {
+
+            var tab = (Tab) notebook.get_nth_page (notebook.get_current_page()-1);	
+
+            if (tab.filename != null) {
+                set_window_title (tab.filename);
+            }
+            else {
+                this.title = this.TITLE;
+            }
+
+        }
 	
         //generic functions
         public void load_file (string filename) {
@@ -264,7 +269,7 @@ namespace Scratch {
                     FileUtils.get_contents (filename, out text);
                     
                     //get the filename from strig filename =)
-                    var name = filename.split("/");
+                    var name = Filename.display_basename (filename);
                     
 					Tab target_tab;
 			        var current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
@@ -276,8 +281,8 @@ namespace Scratch {
 		            } else {
 
 		                //create new tab
-		                int tab_index = notebook.add_tab(name[name.length-1]);
-		                notebook.set_current_page(tab_index);		                
+		                int tab_index = notebook.add_tab (name);
+		                notebook.set_current_page (tab_index);		                
 		                target_tab = (Tab) notebook.get_nth_page (tab_index);
 		                
 		            }    
@@ -286,14 +291,24 @@ namespace Scratch {
                     target_tab.text_view.set_file (filename, text);
 	                target_tab.filename = filename;
 	                target_tab.saved = true;
-	                target_tab.label.change_text (name[name.length-1]);
-	                this.title = this.TITLE + " - " + filename;
-                        
+	                target_tab.label.change_text (name);
+                    set_window_title (filename);
+	                                        
                 } catch (Error e) {
 					warning("Error: %s\n", e.message);
                 }
             }
                 
+        }
+
+        public void set_window_title (string filename) {
+
+            this.title = this.TITLE + " - " + Path.get_basename (filename);
+            var home_dir = Environment.get_home_dir ();
+            // Sorry for this mess...
+            var path = Path.get_dirname (filename).replace (home_dir, "~");
+            this.title += " (" + path + ")";
+        
         }
         
         protected override bool delete_event (Gdk.EventAny event) {
@@ -337,29 +352,30 @@ namespace Scratch {
         
         public void set_undo_redo () {
         	var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
-		var buf = tab.text_view.buffer;
-		if (buf.can_redo) {
-			var button = (Widgets.Toolbar) toolbar.repeat_button;
-			button.set_sensitive (true);
-		} else {
-			var button = (Widgets.Toolbar) toolbar.repeat_button;
-			button.set_sensitive (false);		
-		}
-		
-		if (buf.can_undo) {
-			var button = (Widgets.Toolbar) toolbar.undo_button;
-			button.set_sensitive (true);
-		} else {
-			var button = (Widgets.Toolbar) toolbar.undo_button;
-			button.set_sensitive (false);		
-		}
+            var buf = tab.text_view.buffer;
+
+            if (buf.can_redo) {
+                var button = (Widgets.Toolbar) toolbar.repeat_button;
+                button.set_sensitive (true);
+            } else {
+                var button = (Widgets.Toolbar) toolbar.repeat_button;
+                button.set_sensitive (false);		
+            }
+            
+            if (buf.can_undo) {
+                var button = (Widgets.Toolbar) toolbar.undo_button;
+                button.set_sensitive (true);
+            } else {
+                var button = (Widgets.Toolbar) toolbar.undo_button;
+                button.set_sensitive (false);		
+            }
 		
         }
         
-        public void set_combobox_language(string filename) {
+        public void set_combobox_language (string filename) {
         	GtkSource.Language lang;
         	var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
-            	lang = tab.text_view.manager.guess_language (filename, null);
+            lang = tab.text_view.manager.guess_language (filename, null);
         	toolbar.combobox.set_active_id ( lang.get_id() );
         }
 

@@ -104,19 +104,20 @@ namespace Scratch.Widgets {
             
             }
             
-			message("Saving: %s", this.filename);
+			message ("Saving: %s", this.filename);
 			
 			try {
 			
 				FileUtils.set_contents (this.filename, this.text_view.buffer.text);
 				this.saved = true;
-				var name = this.filename.split("/");
-				this.label.change_text (name[name.length-1]);
+				var name = Path.get_basename (this.filename);
+				this.label.change_text (name);
+                window.set_window_title (this.filename);
 		        return 0;
 		        
 		    } catch (Error e) {
 		    
-				warning("Error: %s\n", e.message);
+				warning ("Error: %s\n", e.message);
 				return 1;
 				
 		    }
