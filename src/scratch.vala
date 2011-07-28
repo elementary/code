@@ -27,7 +27,7 @@ using Granite.Services;
 namespace Scratch {
 
     public class Scratch : Granite.Application {
-    
+    	
         private MainWindow window = null;
 
         public static SavedState saved_state {get; private set; default = null;}
@@ -65,7 +65,7 @@ namespace Scratch {
 		}
 
         public Scratch () {
-
+			
 			Logger.initialize ("Scratch");
 			Logger.DisplayLevel = LogLevel.DEBUG;
 
@@ -92,7 +92,7 @@ namespace Scratch {
 		}
 		
 		public static int main (string[] args) {
-		    
+
 		    return new Scratch ().run (args);
 		    
         }

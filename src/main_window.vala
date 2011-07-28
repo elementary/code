@@ -30,7 +30,9 @@ namespace Scratch {
 
    
     public class MainWindow : Gtk.Window {
-
+	
+	static string[] files;
+	
         private const string TITLE = "Scratch";
         
         //widgets
@@ -40,16 +42,28 @@ namespace Scratch {
         //dialogs
         public FileChooserDialog filech;
         
+        //option entry
+        const OptionEntry[] options = {
+                { "",  0, 0, GLib.OptionArg.STRING_ARRAY, ref files, "Filenames", null },
+                { null }
+        };
+        
 
-        public MainWindow (string arg="") {
+        public MainWindow () {
 
-            if (arg == "") {
+           /* if (arg == null) {
                 this.title = this.TITLE;
             } else {
                 this.title = arg;
             }
+            */
             
-            load_file (arg);
+            if (files != null) {
+            	foreach (string file in files) {
+            		stdout.printf ("%s\n\n", file);
+            		//load_file (file);
+            	}
+            }
             
             this.set_default_size (800, 500);
             restore_saved_state ();
@@ -72,7 +86,9 @@ namespace Scratch {
             vbox.pack_start (toolbar, false, false, 0);
             vbox.pack_start (notebook, true, true, 0); 
             
-            this.add (vbox);		
+            this.add (vbox);
+            
+            set_undo_redo ();		
         
         }
         
@@ -88,7 +104,9 @@ namespace Scratch {
             toolbar.undo_button.clicked.connect (on_undo_clicked);
             toolbar.repeat_button.clicked.connect (on_repeat_clicked);
             toolbar.combobox.changed.connect (on_combobox_changed);
-                
+            
+            //signals for the notebook
+            notebook.switch_page.connect (on_switch_tab);    
         }
         
         
@@ -138,12 +156,14 @@ namespace Scratch {
 						message("Opening: %s\n", filename);
 			        	notebook.show_tabs_view();						
 				        load_file (filename);
+
 				    }
 		        }
             
             }
             
             filech.close();
+            set_undo_redo();
                 
         }
 
@@ -214,7 +234,7 @@ namespace Scratch {
             } catch (Error e) {
                 warning("Error: %s\n", e.message);
             }
-            get_undo_redo();
+            set_undo_redo();
         }
 	
         public void on_repeat_clicked() {
@@ -224,7 +244,7 @@ namespace Scratch {
             } catch (Error e) {
                 warning("Error: %s\n", e.message);
             }
-            get_undo_redo();
+            set_undo_redo();
 		
         }
         
@@ -233,6 +253,16 @@ namespace Scratch {
         	var lang = toolbar.combobox.get_active_text().down();
         	tab.text_view.buffer.set_language ( tab.text_view.manager.get_language(lang) );                
         }
+	
+	public void on_switch_tab(Widget page, uint page_num) {
+		var tab = (Tab) notebook.get_nth_page (notebook.get_current_page()-1);	
+		if (tab.filename != null) {
+			this.title = this.TITLE + " - " + tab.filename;
+		}
+		else {
+			this.title = this.TITLE;
+		}
+	}
 	
         //generic functions
         public void load_file (string filename) {
@@ -313,7 +343,7 @@ namespace Scratch {
 
         }
         
-        public void get_undo_redo () {
+        public void set_undo_redo () {
         	var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
 		var buf = tab.text_view.buffer;
 		if (buf.can_redo) {
@@ -332,6 +362,13 @@ namespace Scratch {
 			button.set_sensitive (false);		
 		}
 		
+        }
+        
+        public void set_combobox_language(string filename) {
+        	GtkSource.Language lang;
+        	var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+            	lang = tab.text_view.manager.guess_language (filename, null);
+        	toolbar.combobox.set_active_id ( lang.get_id() );
         }
 
     }
