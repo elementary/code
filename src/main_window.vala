@@ -87,6 +87,7 @@ namespace Scratch {
             toolbar.save_button.clicked.connect (on_save_clicked);
             toolbar.undo_button.clicked.connect (on_undo_clicked);
             toolbar.repeat_button.clicked.connect (on_repeat_clicked);
+            toolbar.combobox.changed.connect (on_combobox_changed);
                 
         }
         
@@ -217,6 +218,12 @@ namespace Scratch {
             }
             get_undo_redo();
 		
+        }
+        
+        public void on_combobox_changed() {
+        	var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+        	var lang = toolbar.combobox.get_active_text().down();
+        	tab.text_view.buffer.set_language ( tab.text_view.manager.get_language(lang) );                
         }
 	
         //generic functions

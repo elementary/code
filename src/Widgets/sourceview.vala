@@ -26,7 +26,7 @@ namespace Scratch.Widgets {
     public class SourceView : View {
         
         public GtkSource.Buffer buffer;
-        private LanguageManager manager;
+        public LanguageManager manager;
         
         private string current_font;
     
@@ -39,7 +39,7 @@ namespace Scratch.Widgets {
             
             buffer = new Buffer (null);
             set_buffer (buffer);
-            // buffer.set_language (manager.get_language ("c"));
+            //buffer.set_language (manager.get_language ("c"));
             
             restore_settings ();
 

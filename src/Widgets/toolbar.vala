@@ -32,7 +32,7 @@ namespace Scratch.Widgets {
         public ToolButton undo_button;
         public ToolButton repeat_button;
         public ToolItem combo_container;
-        public ComboBox combobox;
+        public ComboBoxText combobox;
         
         public Entry entry;
         public AppMenu app_menu;
@@ -51,7 +51,8 @@ namespace Scratch.Widgets {
             undo_button = new ToolButton.from_stock (Stock.UNDO);
             repeat_button = new ToolButton.from_stock (Stock.REDO);
             
-            combobox = new ComboBox ();
+            combobox = new ComboBoxText ();
+            set_combobox_text ();
             
             add (new_button);
             add (open_button);
@@ -97,5 +98,31 @@ namespace Scratch.Widgets {
 		    return new_tool_item;
     
         }
-    }
+        
+        private void set_combobox_text () {
+           combobox.append_text ("Normal Text");
+           combobox.append_text ("C");
+           combobox.append_text ("C#");
+           combobox.append_text ("C++");
+           //combobox.append_text (".desktop");
+           //combobox.append_text ("gettext");
+           combobox.append_text ("HTML");
+           combobox.append_text ("ini");
+           combobox.append_text ("Java");
+           combobox.append_text ("JavaScript");
+           combobox.append_text ("Lua");
+           combobox.append_text ("Makefile");
+           combobox.append_text ("Objective-C");
+           combobox.append_text ("Perl");
+           combobox.append_text ("PHP");
+           combobox.append_text ("Python");   	
+           combobox.append_text ("Ruby");
+           combobox.append_text ("sh");
+           combobox.append_text ("Vala");
+           combobox.append_text ("XML");
+           combobox.set_active (0);
+        }
+        
+     
+}
 } // Namespace   
