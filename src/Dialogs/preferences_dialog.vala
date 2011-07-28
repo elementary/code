@@ -90,7 +90,10 @@ namespace Scratch.Dialogs {
             use_system_font.set_active (Scratch.settings.use_system_font);
 
             select_font = new FontButton ();
+            select_font.sensitive = !(use_system_font.get_active ());
             select_font.set_font_name (Scratch.settings.font);
+            use_system_font.toggled.connect (() => {
+                select_font.sensitive = !(use_system_font.get_active ());});
 
             close_button = new Button.with_label ("Close");
 
