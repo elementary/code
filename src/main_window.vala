@@ -199,27 +199,27 @@ namespace Scratch {
         }
         
         public void on_undo_clicked() {
-        try {
-			var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
-			tab.text_view.undo ();
-		} catch (Error e){
-			warning("Error: %s\n", e.message);
-		}
-		get_undo_redo();
-	}
+            try {
+                var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+                tab.text_view.undo ();
+            } catch (Error e) {
+                warning("Error: %s\n", e.message);
+            }
+            get_undo_redo();
+        }
 	
-	public void on_repeat_clicked() {
+        public void on_repeat_clicked() {
         	try {
-			var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
-			tab.text_view.redo ();
-		} catch (Error e) {
-			warning("Error: %s\n", e.message);
-		}
-		get_undo_redo();
+                var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+                tab.text_view.redo ();
+            } catch (Error e) {
+                warning("Error: %s\n", e.message);
+            }
+            get_undo_redo();
 		
-	}
+        }
 	
-	//generic functions
+        //generic functions
         public void load_file (string filename) {
             if (filename != "") {
                 try {
@@ -246,7 +246,7 @@ namespace Scratch {
 		            }    
 		                
 	                //set new values
-	                target_tab.text_view.buffer.text = text;
+                    target_tab.text_view.set_file (filename, text);
 	                target_tab.filename = filename;
 	                target_tab.saved = true;
 	                target_tab.label.change_text (name[name.length-1]);

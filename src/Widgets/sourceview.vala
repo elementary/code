@@ -26,19 +26,20 @@ namespace Scratch.Widgets {
     public class SourceView : View {
         
         public GtkSource.Buffer buffer;
+        private LanguageManager manager;
         
         private string current_font;
     
         public SourceView () {
             
-            var manager = new LanguageManager ();
+            manager = new LanguageManager ();
             
             use_default_font (true);
             modify_font (Pango.FontDescription.from_string (current_font));
             
             buffer = new Buffer (null);
             set_buffer (buffer);
-            buffer.set_language (manager.get_language ("c"));
+            // buffer.set_language (manager.get_language ("c"));
             
             restore_settings ();
 
@@ -70,9 +71,18 @@ namespace Scratch.Widgets {
                 var settings = new GLib.Settings ("org.gnome.desktop.interface");
                 current_font = settings.get_string ("monospace-font-name");
             } catch (Error e) {
-                stdout.printf ("SourceView error: %s", e.message);
+                warning ("SourceView error: %s", e.message);
             }
             
+        }
+
+        public void set_file (string filename, string text) {
+
+            Language lang;
+            lang = manager.guess_language (filename, null);
+            buffer.set_language (lang);
+            buffer.text = text;
+
         }
 
         public void restore_settings () {
