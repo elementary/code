@@ -28,12 +28,12 @@ namespace Scratch.Widgets {
         public TabLabel label;
 		private ScratchNotebook notebook;
         public string filename = null;
-        public bool saved = true; //don't ask to save a new empty file
+        public bool saved = true;
 
         
         public Tab (ScratchNotebook parent, string labeltext) {
         
-        	notebook = parent;
+        	this.notebook = parent;
             
             set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
             notebook.set_tab_reorderable (this, true);            
@@ -45,59 +45,177 @@ namespace Scratch.Widgets {
 
         }
         
+
+		private class SaveDialog : Window {
+
+			private Tab caller;
+			
+			private Box headbox;
+			private Label label;
+			private Image image;
+
+			private Box buttonbox;
+			private Button discard;
+			private Button cancel;
+			private Button save;
+
+			private Box container; 
+
+			public SaveDialog(Tab callertab) {
+
+				caller = callertab;
+
+				label = new Label("Changes on this file aren't saved.\nDo you want to save changes before close this file?");
+				image = new Image.from_stock(Stock.DIALOG_WARNING, IconSize.DIALOG);				
+				
+				headbox = new Box(Orientation.HORIZONTAL, 10);
+				headbox.add(image);
+				headbox.add(label);				
+		
+				discard = new Button.with_label(Stock.DISCARD);
+					discard.set_use_stock(true);
+					discard.clicked.connect(this.on_discard_clicked);
+				cancel = new Button.with_label(Stock.CANCEL);
+					cancel.set_use_stock(true);
+					cancel.clicked.connect(this.on_cancel_clicked);
+				save = new Button.with_label(Stock.SAVE);
+					save.set_use_stock(true);
+					save.clicked.connect(this.on_save_clicked);
+		
+				buttonbox = new Box (Orientation.HORIZONTAL, 10);
+				buttonbox.set_homogeneous(true);
+				buttonbox.add(discard);
+				buttonbox.add(cancel);
+				buttonbox.add(save);				
+	
+				container = new Box(Orientation.VERTICAL, 10);
+				container.add(headbox);
+				container.add(buttonbox);
+
+				//window properties
+				this.title = "";
+				this.set_skip_taskbar_hint(true);
+				this.set_modal(false);
+				this.set_transient_for (caller.notebook.window);
+				this.set_resizable(false);
+		
+				this.add(container);
+
+			}
+			
+			public void run() {
+				this.show_all();
+			}
+	
+			//responses
+			private void on_discard_clicked() {
+				this.destroy();
+				caller.close();
+			}
+
+			private void on_cancel_clicked() {
+				this.destroy();				
+			}
+
+			private void on_save_clicked() { 
+				this.destroy();				
+				if (caller.save() == 0)
+					caller.close();
+			}
+
+
+		}
+        
+        
 		public void on_close_clicked() {
 		
 			if (this.saved == false) {
+			
+				var save_dialog = new SaveDialog(this);
+				save_dialog.run();
 
-				var save_dialog = new Dialog();
-//				var save_dialog = new Dialog.with_buttons("title", (Window) notebook.window, DialogFlags.MODAL, DialogFlags.DESTROY_WITH_PARENT);
-
-				var message_box = new VBox(true, 10);
-				var head = new HBox(false, 20);
-				var head_label = new Label("Changes on this file aren't saved.");
-				var head_img = new Image.from_stock(Stock.DIALOG_WARNING, IconSize.DIALOG);
-				head.add(head_img);
-				head.add(head_label);
-				var label = new Label ("Do you want to save changes before close this file?");
-				message_box.add(head);
-				message_box.add(label);
-
-
-				var content_area = (Box) save_dialog.get_content_area ();
-				content_area.add(message_box);
-				save_dialog.show_all();
-
-					
-				save_dialog.add_button ("Discard changes", ResponseType.REJECT);
-				save_dialog.add_button ("Cancel", ResponseType.CANCEL);
-				save_dialog.add_button ("Save", ResponseType.YES);
-				save_dialog.set_default_response (ResponseType.CANCEL);
-
-				var response = save_dialog.run();
-				save_dialog.close();
-
-				switch (response) {
-					case ResponseType.REJECT:
-					this.close();
-					break;
-
-					case ResponseType.YES:
-					//TODO save and close
-					break;
-				
-				}
-							
+						
 		    } else this.close();
 		    		    
     }
     
-    private void close () {
-    
+    public void close () {
+
     		message("closing: %s\n", this.filename);		    
 		    var n = notebook.page_num(this);
 		    notebook.remove_page(n);
+
     }
         
+	public int save () {
+	
+            if (this.filename == null) {
+            
+            	var filech = notebook.window.filech;
+            	string new_filename = null;
+            
+            	//show dialog
+                filech = new FileChooserDialog ("Save as", notebook.window, FileChooserAction.SAVE, null);
+                filech.add_button (Stock.CANCEL, ResponseType.CANCEL);
+                filech.add_button (Stock.SAVE, ResponseType.ACCEPT);
+                filech.set_default_response (ResponseType.ACCEPT);
+                
+                var response = filech.run();
+                
+                switch (response) {
+					case ResponseType.ACCEPT:
+					new_filename = filech.get_filename();				
+	                filech.close();
+					break;
+					
+					case ResponseType.CANCEL:
+	                filech.close();
+					return 1;
+										
+				}
+                
+				//check choise
+				if (new_filename != null) this.filename = new_filename;
+				else return 1;
+            
+            }
+            
+			message("Saving: %s", this.filename);
+			
+			try {
+			
+				FileUtils.set_contents (this.filename, this.text_view.buffer.text);
+				this.saved = true;
+				var name = this.filename.split("/");
+				this.label.change_text (name[name.length-1]);
+		        return 0;
+		        
+		    } catch (Error e) {
+		    
+				warning("Error: %s\n", e.message);
+				return 1;
+				
+		    }
+
+	
+	}
+	
+    public int save_file (string filename, string contents) {
+
+		if (filename != "") {
+		    try {
+		        FileUtils.set_contents (filename, contents);
+		        return 0;				
+		    } catch (Error e) {
+					warning("Error: %s\n", e.message);
+		        return 1;
+		    }
+		        
+		} else return 1;		
+    
+	}
+
+
 
     }
     
@@ -131,16 +249,18 @@ namespace Scratch.Widgets {
         }
 
 
-    }
+	    }
     
-    public class ScratchNotebook : Notebook {
+	public class ScratchNotebook : Notebook {
 
-		public MainWindow window;
+		public MainWindow window; //used in dialog
 
-        public ScratchNotebook (MainWindow parent) {
-        	window = parent;
+	    public ScratchNotebook (MainWindow parent) {
+	    
+	    	this.window = parent;
 			this.set_scrollable (true);
-        }
+			
+	    }
 
         public int add_tab (string labeltext="New file") {
             

@@ -27,7 +27,8 @@ using Scratch.Widgets;
 using Scratch.Dialogs;
 
 namespace Scratch {
-    
+
+   
     public class MainWindow : Gtk.Window {
 
         private const string TITLE = "Scratch";
@@ -61,7 +62,6 @@ namespace Scratch {
         
         public void create_window () {
 
-            //notebook, textview and its scrolledwindow
             this.notebook = new ScratchNotebook (this);
             this.notebook.add_tab();
             
@@ -161,6 +161,9 @@ namespace Scratch {
         public void on_save_clicked() {
         
             var current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+  			current_tab.save();
+  		    
+/*      
         	string filename = current_tab.filename;
             
             if (filename == null) {
@@ -190,11 +193,13 @@ namespace Scratch {
 				var name = filename.split("/");
 				current_tab.label.change_text (name[name.length-1]);
 			}
+
+*/
 			
         }
         
         public void on_undo_clicked() {
-        	try {
+        try {
 			var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
 			tab.text_view.undo ();
 		} catch (Error e){
@@ -254,21 +259,6 @@ namespace Scratch {
                 
         }
         
-        public int save_file (string filename, string contents) {
-        
-            if (filename != "") {
-                try {
-                    FileUtils.set_contents (filename, contents);
-                    return 0;				
-                } catch (Error e) {
-						warning("Error: %s\n", e.message);
-                    return 1;
-                }
-                    
-            } else return 1;		
-            
-        }
-
         protected override bool delete_event (Gdk.EventAny event) {
 
             update_saved_state ();
