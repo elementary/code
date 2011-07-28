@@ -147,7 +147,7 @@ namespace Scratch.Widgets {
         public Label label;
         public Button close;
         
-        public TabLabel(Tab my_tab, string labeltext) {
+        public TabLabel (Tab my_tab, string labeltext) {
             
             label = new Label (labeltext);
             
@@ -157,11 +157,14 @@ namespace Scratch.Widgets {
             close.set_relief (ReliefStyle.NONE);
             close.set_image (image);
             
-            //"close" as first, because eOs HIG
-            //TODO: read button position from system!
-            pack_start (close, false, false, 0);
-            pack_start (label, false, false, 0);
-            
+            if (is_close_first ()) {
+                pack_start (close, false, false, 0);
+                pack_start (label, false, false, 0);
+            } else {
+                pack_start (label, false, false, 0);
+                pack_start (close, false, false, 0);
+            }
+
             this.show_all ();		
         }
 
@@ -170,6 +173,28 @@ namespace Scratch.Widgets {
             label.set_text (text);
         }
 
+        private bool is_close_first () {
+
+            string path = "/apps/metacity/general/button_layout";
+            GConf.Client cl = GConf.Client.get_default ();
+            string key;
+
+            try {
+                if (cl.get (path) != null)
+                    key = cl.get_string (path);
+                else
+                    return false;
+            } catch (GLib.Error err) {
+                warning ("Unable to read metacity settings: %s", err.message);
+            }
+
+            string[] keys = key.split (":");
+            if ("close" in keys[0])
+                return true;
+            else
+                return false;
+
+        }
 
     }
     
