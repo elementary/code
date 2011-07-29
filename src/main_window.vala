@@ -44,12 +44,6 @@ namespace Scratch {
 
         public Tab current_tab;
         
-        //option entry
-        /*const OptionEntry[] options = {
-                { "",  0, 0, GLib.OptionArg.STRING_ARRAY, ref files, "Filenames", null },
-                { null }
-        };*/
-        
 
         public MainWindow (string[] args) {
 				
@@ -109,26 +103,26 @@ namespace Scratch {
         
             int new_tab_index = notebook.add_tab ();
             notebook.set_current_page (new_tab_index);
-        	notebook.show_tabs_view();
+        	notebook.show_tabs_view ();
             
         }
         
         public void on_open_clicked () {
 
-			//show dialog
+			// show dialog
             this.filech = new FileChooserDialog ("Open a file", this, FileChooserAction.OPEN, null);
             filech.add_button (Stock.CANCEL, ResponseType.CANCEL);
             filech.add_button (Stock.OPEN, ResponseType.ACCEPT);
             filech.set_default_response (ResponseType.ACCEPT);
             
-//          filech.response.connect (on_response);
+            // filech.response.connect (on_response);
 
             if (filech.run () == ResponseType.ACCEPT) {
-				string filename = filech.get_filename();
+				string filename = filech.get_filename ();
 				
 		        if (filename != null) {
 		        
-		        	//check if file is already opened
+		        	// check if file is already opened
 		        	int target_page = -1;
 		        	
 		        	if (!notebook.welcome_screen.active) {
@@ -143,12 +137,12 @@ namespace Scratch {
 
 					}
 
-					if (target_page >= 0){
-						message("file already opened: %s\n", filename);
+					if (target_page >= 0) {
+						message ("file already opened: %s\n", filename);
 						notebook.set_current_page (target_page);
 	        		} else {
-						message("Opening: %s\n", filename);
-			        	notebook.show_tabs_view();						
+						message ("Opening: %s\n", filename);
+			        	notebook.show_tabs_view ();						
 				        load_file (filename);
 
 				    }
@@ -156,8 +150,8 @@ namespace Scratch {
             
             }
             
-            filech.close();
-            set_undo_redo();
+            filech.close ();
+            set_undo_redo ();
                 
         }
 
@@ -221,28 +215,31 @@ namespace Scratch {
 			
         }
         
-        public void on_undo_clicked() {
+        public void on_undo_clicked () {
+
             try {
                 current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
                 current_tab.text_view.undo ();
             } catch (Error e) {
-                warning("Error: %s\n", e.message);
+                warning ("Error: %s\n", e.message);
             }
-            set_undo_redo();
+            set_undo_redo ();
+
         }
 	
-        public void on_repeat_clicked() {
+        public void on_repeat_clicked () {
+
         	try {
                 current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
                 current_tab.text_view.redo ();
             } catch (Error e) {
-                warning("Error: %s\n", e.message);
+                warning ("Error: %s\n", e.message);
             }
-            set_undo_redo();
+            set_undo_redo ();
 		
         }
         
-        public void on_combobox_changed() {
+        public void on_combobox_changed () {
 
         	current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
         	var lang = toolbar.combobox.get_active_text().down();
@@ -256,24 +253,23 @@ namespace Scratch {
 
             if (current_tab.filename != null) {
                 set_window_title (current_tab.filename);
-            }
-            else {
+            } else {
                 this.title = this.TITLE;
             }
 
         }
 	
-	public void on_changed_text (){
-		current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());	
-		search_string = toolbar.entry.get_text();
-		TextIter iter;
-		TextIter start, end;
-		current_tab.text_view.buffer.get_start_iter (out iter);
-		var found = iter.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
-		if (found) {
-			current_tab.text_view.buffer.select_range (start, end);
-		}
-	}
+        public void on_changed_text (){
+            current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());	
+            search_string = toolbar.entry.get_text();
+            TextIter iter;
+            TextIter start, end;
+            current_tab.text_view.buffer.get_start_iter (out iter);
+            var found = iter.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
+            if (found) {
+                current_tab.text_view.buffer.select_range (start, end);
+            }
+        }
 
         //generic functions
         public void load_file (string filename) {
@@ -323,6 +319,13 @@ namespace Scratch {
             var path = Path.get_dirname (filename).replace (home_dir, "~");
             this.title += " (" + path + ")";
         
+        }
+
+        private void on_close_event () {
+
+            var save_on_close_dialog = new SaveOnCloseDialog (current_tab.filename, this);
+            save_on_close_dialog.run ();
+
         }
         
         protected override bool delete_event (Gdk.EventAny event) {

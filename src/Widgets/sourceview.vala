@@ -40,7 +40,6 @@ namespace Scratch.Widgets {
             
             buffer = new Buffer (null);
             set_buffer (buffer);
-            //buffer.set_language (manager.get_language ("c"));
             
             restore_settings ();
 
@@ -50,8 +49,6 @@ namespace Scratch.Widgets {
             
             buffer.highlight_syntax = true;
             
-            // TODO: use color scheme
-
             Scratch.settings.changed.connect (restore_settings);
 
         }
@@ -68,12 +65,8 @@ namespace Scratch.Widgets {
             if (!value) // if false, simply return null
                 return;
             
-            try { // if true, try to get the corrent font
-                var settings = new GLib.Settings ("org.gnome.desktop.interface");
-                current_font = settings.get_string ("monospace-font-name");
-            } catch (Error e) {
-                warning ("SourceView error: %s", e.message);
-            }
+            var settings = new GLib.Settings ("org.gnome.desktop.interface");
+            current_font = settings.get_string ("monospace-font-name");
             
         }
 

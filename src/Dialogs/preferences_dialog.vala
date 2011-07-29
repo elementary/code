@@ -62,13 +62,13 @@ namespace Scratch.Dialogs {
             content = new VBox (false, 10);
             padding = new HBox (false, 10);
 
-            editor_label = new Label ("Editor Settings");
+            editor_label = new Label ("Editor");
             editor_label.xalign = 0.0f;
-            editor_label.set_markup ("<b>Editor Settings</b>");
+            editor_label.set_markup ("<b>Editor</b>");
 
-            font_label = new Label ("Font Settings");
+            font_label = new Label ("Font");
             font_label.xalign = 0.0f;
-            font_label.set_markup ("<b>Font Settings</b>");
+            font_label.set_markup ("<b>Font</b>");
             
             line_numbers = new CheckButton.with_label ("Show line numbers");
             line_numbers.set_active (Scratch.settings.show_line_numbers);
@@ -81,12 +81,13 @@ namespace Scratch.Dialogs {
 
             indent_width = new SpinButton.with_range (1, 24, 1);
             indent_width.set_value (Scratch.settings.indent_width);
-            var indent_width_l = new Label ("Tab width: ");
-            var indent_width_box = new HBox (false, 5);
+            var indent_width_l = new Label ("Tab width:");
+            var indent_width_box = new HBox (false, 16);
             indent_width_box.pack_start (indent_width_l, false, true, 0);
             indent_width_box.pack_start (indent_width, false, true, 0);
 
-            use_system_font = new CheckButton.with_label ("Use system font");
+            use_system_font = new CheckButton.with_label ("Use the system fixed width font ("
+                                                            + default_font () + ")");
             use_system_font.set_active (Scratch.settings.use_system_font);
 
             select_font = new FontButton ();
@@ -94,6 +95,10 @@ namespace Scratch.Dialogs {
             select_font.set_font_name (Scratch.settings.font);
             use_system_font.toggled.connect (() => {
                 select_font.sensitive = !(use_system_font.get_active ());});
+            var select_font_l = new Label ("Select font:");
+            var select_font_box = new HBox (false, 8);
+            select_font_box.pack_start (select_font_l, false, true, 0);
+            select_font_box.pack_start (select_font, true, true, 0);
 
             close_button = new Button.with_label ("Close");
 
@@ -108,11 +113,11 @@ namespace Scratch.Dialogs {
             content.pack_start (wrap_alignment (indent_width_box, 0, 0, 0, 10), false, true, 0);
             content.pack_start (font_label, false, true, 0);
             content.pack_start (wrap_alignment (use_system_font, 0, 0, 0, 10), false, true, 0);
-            content.pack_start (wrap_alignment (select_font, 0, 0, 0, 10), false, true, 0);
+            content.pack_start (wrap_alignment (select_font_box, 0, 0, 0, 10), false, true, 0);
             
-            content.pack_end (bottom_buttons, false, true, 10);
+            content.pack_end (bottom_buttons, false, true, 12);
 
-            padding.pack_start (content, true, true, 10);
+            padding.pack_start (content, true, true, 12);
 
             add (padding);
 
@@ -147,6 +152,13 @@ namespace Scratch.Dialogs {
 
         }
 
+        private string default_font () {
+
+            var settings = new GLib.Settings ("org.gnome.desktop.interface");
+            var default_font = settings.get_string ("monospace-font-name");
+            return default_font;
+        }
+    
     }
 
 } // Namespace

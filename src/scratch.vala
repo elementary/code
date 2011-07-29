@@ -25,10 +25,10 @@ using Granite;
 using Granite.Services;
 
 namespace Scratch {
+    	public string[] arguments;
 
     public class Scratch : Granite.Application {
     	
-    	public string[] arguments;
     	
         private MainWindow window = null;
 
@@ -73,7 +73,7 @@ namespace Scratch {
 			Logger.initialize ("Scratch");
 			Logger.DisplayLevel = LogLevel.DEBUG;
             
-            set_flags (GLib.ApplicationFlags.HANDLES_OPEN);
+            set_flags (ApplicationFlags.HANDLES_OPEN);
             this.open.connect (() => {activate ();});
 
             saved_state = new SavedState ();
@@ -86,6 +86,10 @@ namespace Scratch {
 			if (get_windows () != null) {
 				// show window if app is already open
 				window.present ();
+                foreach (string filename in arguments) {
+                    message ("%s", filename);
+                    window.load_file (filename);
+                }
 
 			} else {
 			    
@@ -102,6 +106,10 @@ namespace Scratch {
 
 		    return new Scratch (args).run (args);
 		    
+        }
+
+        public virtual void gino_pino () {
+            message ("LOL");
         }
     }
 }

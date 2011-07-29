@@ -29,7 +29,7 @@ namespace Scratch.Widgets {
 
         public SourceView text_view;
         public TabLabel label;
-	public ScratchNotebook notebook;
+        public ScratchNotebook notebook;
         public string filename = null;
         public bool saved = true;
 
@@ -56,7 +56,7 @@ namespace Scratch.Widgets {
 				var save_dialog = new SaveDialog(this);
 				save_dialog.run();
 						
-		    } else this.close();
+		    } else this.close ();
 		    		    
         }
     
@@ -222,23 +222,23 @@ namespace Scratch.Widgets {
         }
        
         
-		public void show_welcome() {
+		public void show_welcome () {
 			
 			if (!welcome_screen.active) {
 					
-				this.append_page(welcome_screen, null);
-				this.set_show_tabs(false);
+				this.append_page (welcome_screen, null);
+				this.set_show_tabs (false);
 				this.welcome_screen.active = true;
 			}
 		
 		}
 		
-		public void show_tabs_view() {
+		public void show_tabs_view () {
 			
 			if (welcome_screen.active) {
 			
-				this.remove_page(this.page_num(welcome_screen));
-				this.set_show_tabs(true);
+				this.remove_page (this.page_num(welcome_screen));
+				this.set_show_tabs (true);
 				this.welcome_screen.active = false;
 				
 			}
