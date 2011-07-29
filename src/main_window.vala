@@ -264,10 +264,6 @@ namespace Scratch {
         	else {
         		current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language(lang) );
 		}
-		string[] array = current_tab.text_view.manager.get_language_ids();
-		foreach (string s in array) {
-			stdout.printf ("%s\n", s);
-		}
         }
 	
         public void on_switch_tab (Widget page, uint page_num) {
