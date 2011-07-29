@@ -269,7 +269,7 @@ namespace Scratch {
 		TextIter iter;
 		TextIter start, end;
 		current_tab.text_view.buffer.get_start_iter (out iter);
-		var found = iter.forward_search (search_string, TextSearchFlags.VISIBLE_ONLY, out start, out end, null);
+		var found = iter.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
 		if (found) {
 			current_tab.text_view.buffer.select_range (start, end);
 		}
