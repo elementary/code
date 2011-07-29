@@ -2,13 +2,20 @@ Source: scratch
 Section: editors
 Priority: extra
 Maintainer: Mario Guerriero <mefrio.g@gmail.com>
-Build-Depends: debhelper (>= 7.0.50~), cmake
+Build-Depends: debhelper (>= 7.0.50~), 
+    cmake,
+    pkg-config,
+    valac,
+    libgtk-3-dev,
+    libgranite-dev,
+    gtksourceview-3.0-dev
 Standards-Version: 3.9.1
 Homepage: http://launchpad.net/scratch
 Vcs-Bzr: https://code.launchpad.net/~scratch-hackers/scratch/scratch
 
 Package: scratch
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, 
+    ${misc:Depends}
 Description: Elementary text editor
  This could kill your hamster!
