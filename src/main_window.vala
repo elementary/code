@@ -301,12 +301,22 @@ namespace Scratch {
                     target_tab.text_view.set_file (filename, text);
 	                target_tab.filename = filename;
 	                target_tab.saved = true;
-	                target_tab.label.change_text (name);
+	                //set values for label
+	                var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+            		var label = tab.label.label;
+            		if (label.get_text().substring (0, 1) == "*"){
+                		label.set_text (filename);
+            		}
                     set_window_title (filename);
 	                                        
                 } catch (Error e) {
 					warning("Error: %s\n", e.message);
                 }
+            }
+            var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+            var label = tab.label.label;
+            if (label.get_text().substring (0, 1) == "*"){
+                label.set_text (filename);
             }
                 
         }

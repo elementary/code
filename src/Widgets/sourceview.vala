@@ -40,6 +40,7 @@ namespace Scratch.Widgets {
             
             buffer = new Buffer (null);
             set_buffer (buffer);
+            buffer.changed.connect (on_buffer_changed);
             
             restore_settings ();
 
@@ -77,6 +78,15 @@ namespace Scratch.Widgets {
             buffer.set_language (lang);
             buffer.text = text;
 
+        }
+        
+        public void on_buffer_changed () {
+        	var nb = window.notebook;
+        	var tab = (Tab) nb.get_nth_page (nb.get_current_page());
+        	var label = tab.label.label;
+        	if (label.get_text().substring (0, 1) != "*"){
+        		label.set_text ("* " + label.get_text());
+        	}
         }
 
         public void restore_settings () {
