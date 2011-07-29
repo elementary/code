@@ -29,7 +29,7 @@ namespace Scratch.Widgets {
 
         public SourceView text_view;
         public TabLabel label;
-		public ScratchNotebook notebook;
+	public ScratchNotebook notebook;
         public string filename = null;
         public bool saved = true;
 
