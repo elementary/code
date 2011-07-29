@@ -33,6 +33,7 @@ namespace Scratch {
 	
 	
         private const string TITLE = "Scratch";
+        private string search_string = "";
         
         //widgets
         public ScratchNotebook notebook;
@@ -96,7 +97,7 @@ namespace Scratch {
             toolbar.undo_button.clicked.connect (on_undo_clicked);
             toolbar.repeat_button.clicked.connect (on_repeat_clicked);
             toolbar.combobox.changed.connect (on_combobox_changed);
-            toolbar.entry.insert_text.connect (on_insert_text);
+            toolbar.entry.changed.connect (on_changed_text);
             
             //signals for the notebook
             notebook.switch_page.connect (on_switch_tab);    
@@ -262,19 +263,18 @@ namespace Scratch {
 
         }
 	
-	public void on_insert_text (string text, int len){
+	public void on_changed_text (){
 		current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());	
-		//string search_string = toolbar.entry.get_text();
+		search_string = toolbar.entry.get_text();
 		TextIter iter;
 		TextIter start, end;
 		current_tab.text_view.buffer.get_start_iter (out iter);
-		var found = iter.forward_search (text, TextSearchFlags.VISIBLE_ONLY, out start, out end, null);
+		var found = iter.forward_search (search_string, TextSearchFlags.VISIBLE_ONLY, out start, out end, null);
 		if (found) {
 			current_tab.text_view.buffer.select_range (start, end);
-			stdout.printf ("\n\n");
 		}
 	}
-	
+
         //generic functions
         public void load_file (string filename) {
             if (filename != "") {
