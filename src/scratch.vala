@@ -59,9 +59,9 @@ namespace Scratch {
                              "Gabriele Coletta <gdmg92@gmail.com>"
                              };
         					    
-        	about_documenters = {"",""};
+        	//about_documenters = {"",""};
 		    about_artists = {"Harvey Cabaguio 'BassUltra' <harveycabaguio@gmail.com>"};
-		    about_translators = "";
+		    //about_translators = "";
          
 		
 		}
@@ -106,10 +106,6 @@ namespace Scratch {
 
 		    return new Scratch (args).run (args);
 		    
-        }
-
-        public virtual void gino_pino () {
-            message ("LOL");
         }
     }
 }

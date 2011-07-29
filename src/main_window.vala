@@ -243,8 +243,31 @@ namespace Scratch {
 
         	current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
         	var lang = toolbar.combobox.get_active_text().down();
-        	current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language(lang) );
-
+        	if (lang == "c++") {
+        		current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language("cpp") );
+        	}
+        	else if (lang == "c#") {
+        		current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language("c-sharp") );
+        	}
+        	else if (lang == "gettext") {
+        		current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language("gettext-translation") );
+        	}
+        	else if (lang == ".desktop") {
+        		current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language("desktop") );
+        	}
+        	else if (lang == "javascript") {
+        		current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language("js") );
+        	}
+        	else if (lang == "objective-c") {
+        		current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language("objc") );
+        	}
+        	else {
+        		current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language(lang) );
+		}
+		string[] array = current_tab.text_view.manager.get_language_ids();
+		foreach (string s in array) {
+			stdout.printf ("%s\n", s);
+		}
         }
 	
         public void on_switch_tab (Widget page, uint page_num) {
