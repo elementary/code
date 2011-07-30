@@ -82,7 +82,7 @@ namespace Scratch {
         public void connect_signals () {
 
             //signals for the window
-            this.destroy.connect (Gtk.main_quit);
+            this.destroy.connect (on_destroy);
 
             //signals for the toolbar
             toolbar.new_button.clicked.connect (on_new_clicked);
@@ -99,6 +99,17 @@ namespace Scratch {
         
         
         //signals functions
+        public void on_destroy () {
+        	//var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+        	this.show_all ();
+        	string isnew = current_tab.label.label.get_text () [0:1];
+        	if (isnew == "*") {
+        		var save_on_close_dialog = new SaveOnCloseDialog (current_tab.filename, this);
+            		save_on_close_dialog.run ();
+               	}
+           	//Gtk.main_quit ();    	        
+        }
+        
         public void on_new_clicked () {
         
             int new_tab_index = notebook.add_tab ();

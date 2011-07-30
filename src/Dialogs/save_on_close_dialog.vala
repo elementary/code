@@ -39,6 +39,18 @@ namespace Scratch.Dialogs {
             add_button (Stock.SAVE, ResponseType.ACCEPT);
             set_default_response (ResponseType.ACCEPT);
             
+            response.connect (on_response);
+            
+        }
+        
+        public void on_response (int response_id) {
+            switch (response_id) {
+                case ResponseType.CANCEL:
+                	Gtk.main_quit ();
+                	break;
+                }
+          
+        
         }
     }
 }
