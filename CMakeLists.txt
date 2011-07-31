@@ -8,8 +8,8 @@ project (scratch)
 set (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
 set (PKGDATADIR "${DATADIR}/scratch")
 set (GETTEXT_PACKAGE "scratch")
-set (RELEASE_NAME "This could kill your hamster!")
-set (VERSION "0.0.1-alpha")
+set (RELEASE_NAME "The Elementary Text Editor.")
+set (VERSION "0.0.2")
 set (VERSION_INFO "Release")
 
 

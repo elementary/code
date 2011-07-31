@@ -19,5 +19,6 @@ Package: scratch
 Architecture: any
 Depends: ${shlibs:Depends}, 
     ${misc:Depends}
-Description: Elementary text editor
- This could kill your hamster!
+Description: Scratch Elementary Text Editor
+ Scratch is a lightweight text editor for the elementary desktop.
+ It's written in gtk3 and make use of the powerful Granite framework.
