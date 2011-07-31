@@ -65,9 +65,9 @@ namespace Scratch.Widgets {
             add (toolitem (combobox, false));
 
             entry = new SearchBar ("Search in the text...");
-                
-            var menu = new MenuProperties (this.window);     
- 
+
+            var menu = new MenuProperties (this.window);
+
             app_menu = new AppMenu (menu);
 
             add (add_spacer ());

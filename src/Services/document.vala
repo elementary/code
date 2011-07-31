@@ -18,10 +18,11 @@
 ***/
 
 using GtkSource;
+using Scratch.Widgets;
 
 namespace Scratch.Services {
 
-    enum DocumentStates {
+    public enum DocumentStates {
 
         NORMAL,
         READONLY
@@ -43,24 +44,24 @@ namespace Scratch.Services {
                     return false;
             }
         }
-
+        private string? _name;
         public string? name {
             get {
-                return File.get_basename (filename);
+                return _name;
             }
         }
-
+        
+        private string _directory;
         public string directory {
             get {
-                var home_dir = Environment.get_home_dir ();
-                var path = Path.get_dirname (filename).replace (home_dir, "~");
-                return path;
+                return _directory;
             }
         }
 
         public Language language {
             get {
-                return Language.guess_language (filename, null);
+                var manager = new LanguageManager ();
+                return manager.guess_language (filename, null);
             }
         }
 
@@ -75,21 +76,6 @@ namespace Scratch.Services {
             }
         }
 
-        public uint64 mtime {
-            get {
-                return get_mtime ();
-            }
-        }
-        public string mime_type {
-            get {
-                return get_mime_type ();
-            }
-        }
-        public int64 size {
-            get {
-                return get_size ();
-            }
-        }
         public bool exists {
             get {
                 if (filename != null)
@@ -101,22 +87,35 @@ namespace Scratch.Services {
         
         // Private variables
         private string original_text;
+        private SourceView source_view;
         private Buffer buffer;
         private MainWindow window;
         private File file;
+        private static string home_dir = Environment.get_home_dir ();
 
-        public Document (string? filename, Buffer buffer, MainWindow? window) {
+        public Document (string filename, SourceView source_view, MainWindow? window) {
 
-            if (filename != null) {
-                this.filename = filename;
-                file = File.new_for_path (filename);
-            } else {
-                this.filename = null;
-            }
+            
+            this.filename = filename;
+            file = File.new_for_path (filename);
+            
+            _name = file.get_basename ();
+            _directory = Path.get_dirname (filename).replace (home_dir, "~");
 
-            this.buffer = buffer;
+            this.buffer = source_view.buffer;
+            this.source_view = source_view;
             this.window = window;
             
+        }
+
+        public Document.empty (SourceView source_view, MainWindow? window) {
+            
+            filename = null;
+            
+            this.source_view = source_view;
+            this.buffer = source_view.buffer;
+            this.window = window;
+
         }
 
         public bool open () throws FileError {
@@ -125,8 +124,9 @@ namespace Scratch.Services {
                 return false;
 
             bool result;
-            result = FileUtils.get_contents (filename, out text);
-            original_text = text;
+            string contents;
+            result = FileUtils.get_contents (filename, out contents);
+            original_text = text = contents;
 
             buffer.text = this.text;
             
@@ -141,14 +141,15 @@ namespace Scratch.Services {
             if (!saved)
                 return false;
 
-            this.closed ();
+            this.closed (); // Signal
             return true;
 
         }
 
         public bool save () throws FileError {
-
             
+            // TODO: need smart implementation
+            return false;
 
         }
 
@@ -160,54 +161,84 @@ namespace Scratch.Services {
 
         }
 
-        private uint64 get_mtime () throws Error {
-
-            var info = file.query_info (FILE_ATTRIBUTE_TIME_MODIFIED, 0, null);
-
-            return info.get_attribute_uint64 (FILE_ATTRIBUTE_TIME_MODIFIED);
+        public uint64 get_mtime () {
+            
+            try {
+                var info = file.query_info (FILE_ATTRIBUTE_TIME_MODIFIED, 0, null);
+                return info.get_attribute_uint64 (FILE_ATTRIBUTE_TIME_MODIFIED);
+            } catch  (Error e) {
+                warning ("%s", e.message);
+                return 0;
+            }
         
         }
 
-        private string get_mime_type () throws Error {
+        public string get_mime_type () {
 
             if (filename == null)
                 return "text/plain";
             else {
                 FileInfo info;
                 string mime_type;
-                info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
-                mime_type = ContentType.get_mime_type (info.get_content_type ());
+                try {
+                    info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
+                    mime_type = ContentType.get_mime_type (info.get_content_type ());
+                    return mime_type;
+                } catch (Error e) {
+                    warning ("%s", e.message);
+                    return "undefined";
+                }
             }
 
-            return mime_type;
         
         }
 
-        private int64 get_size () throws Error {
+        public int64 get_size () {
 
             if (filename != null) {
 
                 FileInfo info;
                 int64 size;
-                info = file.query_info (FILE_ATTRIBUTE_STANDARD_SIZE, FileQueryInfoFlags.NONE, null);
-                size = info.get_size ();
-                return size;
+                try {
+                    info = file.query_info (FILE_ATTRIBUTE_STANDARD_SIZE, FileQueryInfoFlags.NONE, null);
+                    size = info.get_size ();
+                    return size;
+                } catch (Error e) {
+                    warning ("%s", e.message);
+                    return 0;
+                }
+
+            } else {
+
+                return 0;
 
             }
 
         }
 
-        private bool can_write () throws Error {
+        private bool can_write () {
 
             if (filename != null) {
 
                 FileInfo info;
                 bool writable;
-                info = file.query_info (FILE_ATTRIBUTE_ACCESS_CAN_WRITE, FileQueryInfoFlags.NONE, null);
-                writable = info.get_attribute_boolean (FILE_ATTRIBUTE_ACCESS_CAN_WRITE);
-                return writable;
+                try {
+                    info = file.query_info (FILE_ATTRIBUTE_ACCESS_CAN_WRITE, FileQueryInfoFlags.NONE, null);
+                    writable = info.get_attribute_boolean (FILE_ATTRIBUTE_ACCESS_CAN_WRITE);
+                    return writable;
+                } catch (Error e) {
+                    warning ("%s", e.message);
+                    return false;
+                }
+
+            } else {
+
+                return true;
 
             }
 
         }
 
+    }
+
+}

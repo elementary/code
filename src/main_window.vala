@@ -222,24 +222,16 @@ namespace Scratch {
         
         public void on_undo_clicked () {
 
-            try {
-                current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
-                current_tab.text_view.undo ();
-            } catch (Error e) {
-                warning ("Error: %s\n", e.message);
-            }
+            current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+            current_tab.text_view.undo ();
             set_undo_redo ();
 
         }
 	
         public void on_repeat_clicked () {
 
-        	try {
-                current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
-                current_tab.text_view.redo ();
-            } catch (Error e) {
-                warning ("Error: %s\n", e.message);
-            }
+            current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+            current_tab.text_view.redo ();
             set_undo_redo ();
 		
         }
