@@ -45,19 +45,13 @@ namespace Scratch {
         public Tab current_tab;
         
 
-        public MainWindow (string[] args) {
+        public MainWindow () {
 				
-            this.set_default_size (800, 500);
+            this.title = TITLE;
             restore_saved_state ();
             
-            create_window();
-            connect_signals();
-
-            if (args != null) {
-            	foreach (string file in args) {
-            		load_file (file);
-            	}
-            }
+            create_window ();
+            connect_signals ();
 
         }
         
@@ -82,7 +76,7 @@ namespace Scratch {
         public void connect_signals () {
 
             //signals for the window
-            this.destroy.connect (on_destroy);
+            this.destroy.connect (Gtk.main_quit);
 
             //signals for the toolbar
             toolbar.new_button.clicked.connect (on_new_clicked);
@@ -361,15 +355,9 @@ namespace Scratch {
         
         }
 
-        private void on_close_event () {
-
-            var save_on_close_dialog = new SaveOnCloseDialog (current_tab.filename, this);
-            save_on_close_dialog.run ();
-
-        }
-        
         protected override bool delete_event (Gdk.EventAny event) {
 
+            on_destroy ();
             update_saved_state ();
             return false;
 

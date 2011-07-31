@@ -380,7 +380,7 @@ namespace GtkSource {
 		public uint tab_width { get; set; }
 		public Gtk.WrapMode wrap_mode { get; set; }
 	}
-	[CCode (cheader_filename = "gtksourceview/gtksourceview.h")]
+	[CCode (cheader_filename = "gtksourceview/gtksourcestyle.h")]
 	public class Style : GLib.Object {
 		[CCode (has_construct_function = false)]
 		protected Style ();
@@ -414,7 +414,7 @@ namespace GtkSource {
 		[NoAccessorMethod]
 		public bool underline_set { get; construct; }
 	}
-	[CCode (cheader_filename = "gtksourceview/gtksourceview.h")]
+	[CCode (cheader_filename = "gtksourceview/gtksourcestylescheme.h")]
 	public class StyleScheme : GLib.Object {
 		[CCode (has_construct_function = false)]
 		protected StyleScheme ();
@@ -430,7 +430,7 @@ namespace GtkSource {
 		public string id { get; construct; }
 		public string name { get; }
 	}
-	[CCode (cheader_filename = "gtksourceview/gtksourceview.h")]
+	[CCode (cheader_filename = "gtksourceview/gtksourcestyleschememanager.h")]
 	public class StyleSchemeManager : GLib.Object {
 		[CCode (has_construct_function = false)]
 		public StyleSchemeManager ();

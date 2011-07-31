@@ -25,10 +25,8 @@ using Granite;
 using Granite.Services;
 
 namespace Scratch {
-    	public string[] arguments;
 
     public class Scratch : Granite.Application {
-    	
     	
         private MainWindow window = null;
 
@@ -66,46 +64,39 @@ namespace Scratch {
 		
 		}
 
-        public Scratch (string[] args) {
-			
-			arguments = args[1 : args.length];
+        public Scratch () {
 			
 			Logger.initialize ("Scratch");
 			Logger.DisplayLevel = LogLevel.DEBUG;
             
             set_flags (ApplicationFlags.HANDLES_OPEN);
-            this.open.connect (() => {activate ();});
 
             saved_state = new SavedState ();
             settings = new Settings ();
 
         }
 
-		protected override void activate () {
-			
-			if (get_windows () != null) {
-				// show window if app is already open
-				window.present ();
-                foreach (string filename in arguments) {
-                    message ("%s", filename);
-                    window.load_file (filename);
-                }
+        protected override void open (File[] files, string hint) {
 
-			} else {
-			    
-			    // if not, create a new one.
-			    window = new MainWindow (arguments);
-			    window.set_application (this);
+            if (get_windows () == null) {
+                window = new MainWindow ();
+                window.set_application (this);
+                window.show_all ();
+            }
 
-			    window.show_all ();
-			    
-			}
-		}
-		
+            for (int i = 0; i < files.length; i++) {
+                window.load_file (files[i].get_path ());
+            }
+
+        }
+
 		public static int main (string[] args) {
+            
+            var app = new Scratch ();
 
-		    return new Scratch (args).run (args);
+		    return app.run (args);
 		    
         }
+
     }
 }

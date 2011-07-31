@@ -36,6 +36,7 @@ namespace Scratch.Dialogs {
         private CheckButton highlight_current_line;
         private CheckButton spaces_instead_of_tabs;
         private SpinButton indent_width;
+        private ComboBoxText style_scheme;
         private CheckButton use_system_font;
         private FontButton select_font;
 
@@ -82,9 +83,18 @@ namespace Scratch.Dialogs {
             indent_width = new SpinButton.with_range (1, 24, 1);
             indent_width.set_value (Scratch.settings.indent_width);
             var indent_width_l = new Label ("Tab width:");
-            var indent_width_box = new HBox (false, 16);
-            indent_width_box.pack_start (indent_width_l, false, true, 0);
+            indent_width_l.xalign = 0.0f;
+            var indent_width_box = new HBox (false, 32);
+            indent_width_box.pack_start (indent_width_l, true, true, 0);
             indent_width_box.pack_start (indent_width, false, true, 0);
+
+            style_scheme = new ComboBoxText ();
+            populate_style_scheme ();
+            var style_scheme_l = new Label ("Style scheme:");
+            style_scheme_l.xalign = 0.0f;
+            var style_scheme_box = new HBox (false, 13);
+            style_scheme_box.pack_start (style_scheme_l, true, true, 0);
+            style_scheme_box.pack_start (style_scheme, true, true, 0);
 
             use_system_font = new CheckButton.with_label ("Use the system fixed width font ("
                                                             + default_font () + ")");
@@ -96,8 +106,9 @@ namespace Scratch.Dialogs {
             use_system_font.toggled.connect (() => {
                 select_font.sensitive = !(use_system_font.get_active ());});
             var select_font_l = new Label ("Select font:");
-            var select_font_box = new HBox (false, 8);
-            select_font_box.pack_start (select_font_l, false, true, 0);
+            select_font_l.xalign = 0.0f;
+            var select_font_box = new HBox (false, 24);
+            select_font_box.pack_start (select_font_l, true, true, 0);
             select_font_box.pack_start (select_font, true, true, 0);
 
             close_button = new Button.with_label ("Close");
@@ -111,6 +122,7 @@ namespace Scratch.Dialogs {
             content.pack_start (wrap_alignment (highlight_current_line, 0, 0, 0, 10), false, true, 0);
             content.pack_start (wrap_alignment (spaces_instead_of_tabs, 0, 0, 0, 10), false, true, 0);
             content.pack_start (wrap_alignment (indent_width_box, 0, 0, 0, 10), false, true, 0);
+            content.pack_start (wrap_alignment (style_scheme_box, 0, 0, 0, 10), false, true, 0);
             content.pack_start (font_label, false, true, 0);
             content.pack_start (wrap_alignment (use_system_font, 0, 0, 0, 10), false, true, 0);
             content.pack_start (wrap_alignment (select_font_box, 0, 0, 0, 10), false, true, 0);
@@ -145,6 +157,7 @@ namespace Scratch.Dialogs {
             Scratch.settings.highlight_current_line = highlight_current_line.get_active ();
             Scratch.settings.spaces_instead_of_tabs = spaces_instead_of_tabs.get_active ();
             Scratch.settings.indent_width = (int) indent_width.value;
+            Scratch.settings.style_scheme = style_scheme.active_id;
             Scratch.settings.use_system_font = use_system_font.get_active ();
             Scratch.settings.font = select_font.font_name;
             
@@ -157,6 +170,21 @@ namespace Scratch.Dialogs {
             var settings = new GLib.Settings ("org.gnome.desktop.interface");
             var default_font = settings.get_string ("monospace-font-name");
             return default_font;
+        }
+
+        private void populate_style_scheme () {
+
+            string[] scheme_ids;
+            var scheme_manager = new GtkSource.StyleSchemeManager ();
+            scheme_ids = scheme_manager.get_scheme_ids ();
+
+            foreach (string scheme_id in scheme_ids) {
+                var scheme = scheme_manager.get_scheme (scheme_id);
+                style_scheme.append (scheme.id, scheme.name); 
+            }
+
+            style_scheme.set_active_id (Scratch.settings.style_scheme);
+
         }
     
     }

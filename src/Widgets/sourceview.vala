@@ -29,6 +29,7 @@ namespace Scratch.Widgets {
         
         public GtkSource.Buffer buffer;
         public LanguageManager manager;
+        public StyleSchemeManager style_scheme_manager;
         
         public string current_font;
     
@@ -37,6 +38,7 @@ namespace Scratch.Widgets {
             this.window = window;
             
             manager = new LanguageManager ();
+            style_scheme_manager = new StyleSchemeManager ();
             
             buffer = new Buffer (null);
             set_buffer (buffer);
@@ -47,6 +49,7 @@ namespace Scratch.Widgets {
             // Simple default configuration
             auto_indent = true;
             set_wrap_mode (Gtk.WrapMode.WORD);
+            show_right_margin = true;
             
             buffer.highlight_syntax = true;
             
@@ -94,11 +97,13 @@ namespace Scratch.Widgets {
             show_line_numbers = Scratch.settings.show_line_numbers;
             highlight_current_line = Scratch.settings.highlight_current_line;
             insert_spaces_instead_of_tabs = Scratch.settings.spaces_instead_of_tabs;
-            indent_width = Scratch.settings.indent_width;
+            tab_width = (uint) Scratch.settings.indent_width;
             
             current_font = Scratch.settings.font;
             use_default_font (Scratch.settings.use_system_font);
             modify_font (Pango.FontDescription.from_string (current_font));
+
+            buffer.style_scheme = style_scheme_manager.get_scheme (Scratch.settings.style_scheme);
 
         }
 
@@ -107,8 +112,9 @@ namespace Scratch.Widgets {
             Scratch.settings.show_line_numbers = show_line_numbers;
             Scratch.settings.highlight_current_line = highlight_current_line;
             Scratch.settings.spaces_instead_of_tabs = insert_spaces_instead_of_tabs;
-            Scratch.settings.indent_width = indent_width;
+            Scratch.settings.indent_width = (int) tab_width;
             Scratch.settings.font = current_font;
+            Scratch.settings.style_scheme = buffer.style_scheme.id;
 
         }
 

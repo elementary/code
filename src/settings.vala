@@ -46,6 +46,7 @@ namespace Scratch {
         public int indent_width { get; set; }
         public bool use_system_font { get; set; }
         public string font { get; set; }
+        public string style_scheme { get; set; }
 
         public Settings ()  {
             base ("org.elementary.Scratch.Settings");
