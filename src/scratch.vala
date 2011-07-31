@@ -90,6 +90,18 @@ namespace Scratch {
 
         }
 
+        protected override void activate () {
+
+            if (get_windows () == null) {
+                window = new MainWindow ();
+                window.set_application (this);
+                window.show_all ();
+            } else {
+                window.present ();
+            }
+
+        }
+
 		public static int main (string[] args) {
             
             var app = new Scratch ();
