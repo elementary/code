@@ -211,7 +211,6 @@ namespace Scratch.Widgets {
 	    	
 			this.set_scrollable (true);
 			
-			
 	    }
 	    
         public int add_tab (string labeltext="New file") {

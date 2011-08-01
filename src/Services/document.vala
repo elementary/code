@@ -153,6 +153,10 @@ namespace Scratch.Services {
 
         }
 
+        public void update () {
+
+        }
+
         public bool rename (string new_name) {
 
             FileUtils.rename (filename, new_name);

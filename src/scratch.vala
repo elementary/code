@@ -85,7 +85,11 @@ namespace Scratch {
             }
 
             for (int i = 0; i < files.length; i++) {
-                window.load_file (files[i].get_path ());
+                if (files[i].get_basename () == "--new-tab") {
+                    window.on_new_clicked ();
+                } else {
+                    window.load_file (files[i].get_path ());
+                }
             }
 
         }

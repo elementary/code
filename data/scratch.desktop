@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Version=0.0.1
+Version=0.0.2
 Name=Scratch
 Comment=Edit Text Files
 GenericName=Text Editor
@@ -10,3 +10,10 @@ Terminal=false
 Categories=GNOME;GTK;Utility;TextEditor;
 MimeType=text/plain;
 StartupNotify=true
+
+X-Ayatana-Desktop-Shortcuts=NewDocument;
+
+[NewDocument Shortcut Group]
+Name=Create a new document
+Exec=scratch --new-tab
+TargetEnvironment=Unity
