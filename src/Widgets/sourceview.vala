@@ -27,7 +27,7 @@ namespace Scratch.Widgets {
 
         private MainWindow window;
         
-        public GtkSource.Buffer buffer;
+        public new GtkSource.Buffer buffer;
         public LanguageManager manager;
         public StyleSchemeManager style_scheme_manager;
         

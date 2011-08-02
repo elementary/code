@@ -32,6 +32,7 @@ namespace Scratch {
 
         public static SavedState saved_state {get; private set; default = null;}
         public static Settings settings {get; private set; default = null;}
+        public static ServicesSettings services {get; private set; default = null;}
         
         construct {
         
@@ -73,6 +74,7 @@ namespace Scratch {
 
             saved_state = new SavedState ();
             settings = new Settings ();
+            services = new ServicesSettings ();
 
         }
 

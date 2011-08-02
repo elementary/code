@@ -35,6 +35,7 @@ namespace Scratch.Widgets {
         public ComboBoxText combobox;
         
         public Entry entry;
+        public ShareMenu share_menu;
         public AppMenu app_menu;
 
         public Toolbar (MainWindow parent) {
@@ -65,13 +66,17 @@ namespace Scratch.Widgets {
             add (toolitem (combobox, false));
 
             entry = new SearchBar ("Search in the text...");
+            entry.width_request = 250;
+
+            share_menu = new ShareMenu (this.window);
+            var share_app_menu = new ShareAppMenu (share_menu);
 
             var menu = new MenuProperties (this.window);
-
             app_menu = new AppMenu (menu);
 
             add (add_spacer ());
-            add (toolitem (entry));
+            add (toolitem (entry, false));
+            add (share_app_menu);
             add (app_menu);
 
         }

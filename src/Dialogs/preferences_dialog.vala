@@ -115,6 +115,7 @@ namespace Scratch.Dialogs {
 
             var bottom_buttons = new HButtonBox ();
             bottom_buttons.set_layout (ButtonBoxStyle.END);
+            bottom_buttons.set_spacing (10);
             bottom_buttons.pack_end (close_button);
 
             content.pack_start (wrap_alignment (editor_label, 10, 0, 0, 0), false, true, 0);

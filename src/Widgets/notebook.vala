@@ -18,7 +18,8 @@
 ***/
 
 using Gtk;
-using Pango;
+using Gdk;
+
 using Scratch.Dialogs;
 
 namespace Scratch.Widgets {
@@ -47,7 +48,9 @@ namespace Scratch.Widgets {
             add (text_view);
             show_all();
 
+
         }
+
 
 		public void on_close_clicked() {
 		
@@ -145,12 +148,19 @@ namespace Scratch.Widgets {
     public class TabLabel : HBox {
 	
 		public HBox tablabel;
+        private EventBox event_box;
         public Label label;
+        public Entry entry;
         public Button close;
         
         public TabLabel (Tab my_tab, string labeltext) {
             
             label = new Label (labeltext);
+            entry = new Entry ();
+
+            event_box = new EventBox ();
+            event_box.set_visible_window (false);
+            event_box.add (label);
             
             var image = new Image.from_stock(Stock.CLOSE, IconSize.MENU);
             close = new Button ();
@@ -160,15 +170,36 @@ namespace Scratch.Widgets {
             
             if (is_close_first ()) {
                 pack_start (close, false, false, 0);
-                pack_start (label, false, false, 0);
+                pack_start (event_box, false, false, 0);
             } else {
-                pack_start (label, false, false, 0);
+                pack_start (event_box, false, false, 0);
                 pack_start (close, false, false, 0);
             }
 
+            event_box.button_press_event.connect (click_event);
             this.show_all ();		
         }
 
+        protected bool click_event (EventButton event) {
+
+            if ((event.type == EventType.2BUTTON_PRESS) || (event.type == EventType.3BUTTON_PRESS)) {
+                event_box.hide ();
+                add (entry);
+                entry.text = label.get_text ();
+                entry.show ();
+                entry.key_press_event.connect (return_event);
+            }
+            return false;
+        }
+
+        protected bool return_event (EventKey event) {
+            if (event.keyval == 65293) { // 65293 is the return key
+                entry.hide ();
+                event_box.show ();
+                label.label = entry.text;
+            }
+            return false;
+        }
 
         public void change_text (string text) {
             label.set_text (text);

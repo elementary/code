@@ -58,4 +58,21 @@
             <description>Set the preferred style scheme.</description>
         </key>
     </schema>
+    <schema path="/apps/scratch/services/" id="org.elementary.Scratch.Services" gettext-domain="scratch">
+        <key name="paste-format-code" type="s">
+            <default>'None'</default>
+            <summary>Default PasteBin text highlight</summary>
+            <description>Set the preferred text highlight.</description>
+        </key>
+        <key name="expiry-time" type="s">
+            <default>'N'</default>
+            <summary>Default PasteBin expiration time</summary>
+            <description>Set the preferred expiration time.</description>
+        </key>
+        <key name="set-private" type="b">
+            <default>false</default>
+            <summary>Default PasteBin policy</summary>
+            <description>Set the preferred policy.</description>
+        </key>
+    </schema>
 </schemalist>

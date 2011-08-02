@@ -33,28 +33,37 @@ namespace Scratch.Services {
 		public const string PUBLIC = "0";
 
 	
-		public static string submit (string paste_code, string paste_name, string paste_private, string paste_expire_Date, string paste_format) {
+		public static string submit (string paste_code, string paste_name, 
+                                     string paste_private, string paste_expire_date, 
+                                     string paste_format) {
+
+            warning ("In PasteBin.submit ()");
 		
 			string api_url = "http://pastebin.com/api_public.php";
 	
 			var session = new SessionAsync ();
 			var message = new Message ("POST", api_url);
-
-			 string request = Form.encode (
+            
+			string request = Form.encode (
 				"option", "paste",
 				"paste_code", paste_code,
 				"paste_name", paste_name,
 				"paste_private", paste_private,
-				"paste_expire_date", paste_expire_Date,
+				"paste_expire_date", paste_expire_date,
 				"paste_format", paste_format);
+            
+            warning ("request encoded");
 
 			message.set_request ("application/x-www-form-urlencoded", MemoryUse.COPY, request.data);
 			message.set_flags (MessageFlags.NO_REDIRECT);
+            
+            warning ("ready to send message");
 
 			session.send_message (message);
-
+            warning ("message sent");
 			var output = message.response_body.data;
-		
+            warning ("output: %s", (string) output);
+            warning ("returning output");
 			return (string) output;
 
 		}
