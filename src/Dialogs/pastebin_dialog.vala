@@ -156,16 +156,26 @@ namespace Scratch.Dialogs {
 
         private void send_button_clicked () {
 
-            string link = submit_paste ();
-            message ("in send_button_clicked");
             content.hide ();
+
+            // Probably your connection is too fast to not see this
+            var spinner = new Spinner ();
+            padding.pack_start (spinner, true, true, 10);
+            spinner.show ();
+            spinner.start ();
+
+            string link = submit_paste ();
+
             // Show the new view
+            spinner.hide ();
             var link_button = new LinkButton (link);
             var close_button = new Button.from_stock (Stock.CLOSE);
-            var box = new HBox (false, 10);
-            box.pack_start (link_button, true, true, 10);
-            box.pack_start (close_button, false, true, 10);
+            var box = new VBox (false, 10);
+            box.pack_start (link_button, false, true, 0);
+            box.pack_start (close_button, false, true, 0);
             padding.pack_start (box, false, true, 12);
+            padding.halign = Align.CENTER;
+            box.valign = Align.CENTER;
             box.show_all ();
             // Copy link to clipboard
             set_clipboard (link);
@@ -176,7 +186,6 @@ namespace Scratch.Dialogs {
 
         private string submit_paste () {
 
-            message ("In submit_paste ()");
             // Get the values
             string paste_code = window.current_tab.text_view.buffer.text;
             string paste_name = name_entry.text;
@@ -186,7 +195,7 @@ namespace Scratch.Dialogs {
 
             string link = PasteBin.submit (paste_code, paste_name, paste_private,
                                            paste_expire_date, paste_format);
-            message ("Returning link");
+
             return link;
 
         }

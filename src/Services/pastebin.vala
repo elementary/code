@@ -37,11 +37,9 @@ namespace Scratch.Services {
                                      string paste_private, string paste_expire_date, 
                                      string paste_format) {
 
-            warning ("In PasteBin.submit ()");
-		
 			string api_url = "http://pastebin.com/api_public.php";
 	
-			var session = new SessionAsync ();
+			var session = new SessionSync ();
 			var message = new Message ("POST", api_url);
             
 			string request = Form.encode (
@@ -52,18 +50,13 @@ namespace Scratch.Services {
 				"paste_expire_date", paste_expire_date,
 				"paste_format", paste_format);
             
-            warning ("request encoded");
-
 			message.set_request ("application/x-www-form-urlencoded", MemoryUse.COPY, request.data);
 			message.set_flags (MessageFlags.NO_REDIRECT);
             
-            warning ("ready to send message");
-
 			session.send_message (message);
-            warning ("message sent");
+
 			var output = message.response_body.data;
-            warning ("output: %s", (string) output);
-            warning ("returning output");
+
 			return (string) output;
 
 		}
