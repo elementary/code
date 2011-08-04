@@ -10,8 +10,8 @@ Build-Depends: debhelper (>= 7.0.50~),
     libgranite-dev,
     libgtksourceview-3.0-dev,
     gir1.2-gconf-2.0,
-    libgconf2-dev
-    gir1.2-soup-2.4
+    libgconf2-dev,
+    gir1.2-soup-2.4,
     libsoup2.4-dev
 Standards-Version: 3.9.1
 Homepage: http://launchpad.net/scratch
