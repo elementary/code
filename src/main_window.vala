@@ -44,6 +44,9 @@ namespace Scratch {
 
         public Tab current_tab;
         
+        //bools for key press event
+        bool ctrlL = false;
+	bool ctrlR = false;
 
         public MainWindow () {
 				
@@ -77,6 +80,7 @@ namespace Scratch {
 
             //signals for the window
             this.destroy.connect (Gtk.main_quit);
+            this.key_press_event.connect (on_key_press);
 
             //signals for the toolbar
             toolbar.new_button.clicked.connect (on_new_clicked);
@@ -102,6 +106,37 @@ namespace Scratch {
             		save_on_close_dialog.run ();
                	}
            	//Gtk.main_quit ();    	        
+        }
+        
+        public bool on_key_press (EventKey event) {
+			
+            string key = Gdk.keyval_name(event.keyval);
+			if (key == "Control_L")
+				ctrlL = true;
+			else if (key == "Control_R")
+				ctrlR = true;
+
+			else if ((ctrlL || ctrlR))
+			{
+				if (key == "t" || key == "T") { //create new tab
+					if (!notebook.welcome_screen.active) {
+						int tab_index = notebook.add_tab ();
+		                		notebook.set_current_page (tab_index);            
+					}
+				}
+				else if (key == "w" || key == "W") { //remove tab
+					//notebook.set_show_tabs (true);
+					current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+					current_tab.on_close_clicked ();
+				}
+				else if (key == "e" || key == "Q") {
+					this.on_destroy ();
+				}
+				else {
+					return false;
+				}
+			}
+            return false;
         }
         
         public void on_new_clicked () {
@@ -149,11 +184,16 @@ namespace Scratch {
 						message ("Opening: %s\n", filename);
 			        	notebook.show_tabs_view ();						
 				        load_file (filename);
+				        //set the name of the file, not all the path, in the tab label
+				        var name = filename.split("/");
+	    				current_tab.label.label.set_text (name[name.length-1]);
 
 				    }
 		        }
             
             }
+            
+            
             
             filech.close ();
             set_undo_redo ();
@@ -286,6 +326,8 @@ namespace Scratch {
                 current_tab.text_view.buffer.select_range (start, end);
             }
         }
+        
+        
 
         //generic functions
         public void load_file (string filename) {
@@ -314,7 +356,7 @@ namespace Scratch {
 		            }    
 		                
 	                //set new values
-                    target_tab.text_view.set_file (filename, text);
+                    	target_tab.text_view.set_file (filename, text);
 	                target_tab.filename = filename;
 	                target_tab.saved = true;
 	                //set values for label

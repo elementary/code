@@ -147,7 +147,7 @@ namespace Scratch.Widgets {
     
     public class TabLabel : HBox {
 	
-		public HBox tablabel;
+	public HBox tablabel;
         private EventBox event_box;
         public Label label;
         public Entry entry;
