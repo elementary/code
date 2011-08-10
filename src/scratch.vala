@@ -59,8 +59,8 @@ namespace Scratch {
                              };
         					    
         	//about_documenters = {"",""};
-		    about_artists = {"Harvey Cabaguio 'BassUltra' <harveycabaguio@gmail.com>"};
-		    //about_translators = "";
+		about_artists = {"Harvey Cabaguio 'BassUltra' <harveycabaguio@gmail.com>"};
+		about_translators = "Launchpad Translators";
          
 		
 		}

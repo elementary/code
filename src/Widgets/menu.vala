@@ -38,7 +38,7 @@ namespace Scratch.Widgets {
             
             print = new ImageMenuItem.from_stock (Stock.PRINT, null);
 
-            fullscreen = new CheckMenuItem.with_label ("Fullscreen");
+            fullscreen = new CheckMenuItem.with_label (_("Fullscreen"));
             fullscreen.active = (Scratch.saved_state.window_state == ScratchWindowState.FULLSCREEN);
             
             preferences = new ImageMenuItem.from_stock (Stock.PREFERENCES, null);

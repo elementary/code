@@ -41,7 +41,7 @@ namespace Scratch.Dialogs {
 
             caller = callertab;
 
-            label = new Label("Changes on this file aren't saved.\nDo you want to save changes before close this file?");
+            label = new Label(_("Changes on this file aren't saved.\nDo you want to save changes before close this file?"));
             image = new Image.from_stock(Stock.DIALOG_WARNING, IconSize.DIALOG);				
             
             headbox = new Box(Orientation.HORIZONTAL, 10);

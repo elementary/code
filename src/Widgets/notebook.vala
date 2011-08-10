@@ -244,7 +244,7 @@ namespace Scratch.Widgets {
 			
 	    }
 	    
-        public int add_tab (string labeltext="New file") {
+        public int add_tab (string labeltext=_("New file")) {
             
             var new_tab = new Tab (this, labeltext, window);
             return this.append_page (new_tab, new_tab.label);

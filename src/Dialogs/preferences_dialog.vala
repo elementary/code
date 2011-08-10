@@ -71,18 +71,18 @@ namespace Scratch.Dialogs {
             font_label.xalign = 0.0f;
             font_label.set_markup ("<b>Font</b>");
             
-            line_numbers = new CheckButton.with_label ("Show line numbers");
+            line_numbers = new CheckButton.with_label (_("Show line numbers"));
             line_numbers.set_active (Scratch.settings.show_line_numbers);
 
-            highlight_current_line = new CheckButton.with_label ("Highlight current line");
+            highlight_current_line = new CheckButton.with_label (_("Highlight current line"));
             highlight_current_line.set_active (Scratch.settings.highlight_current_line);
 
-            spaces_instead_of_tabs = new CheckButton.with_label ("Use spaces instead of tabs");
+            spaces_instead_of_tabs = new CheckButton.with_label (_("Use spaces instead of tabs"));
             spaces_instead_of_tabs.set_active (Scratch.settings.spaces_instead_of_tabs);
 
             indent_width = new SpinButton.with_range (1, 24, 1);
             indent_width.set_value (Scratch.settings.indent_width);
-            var indent_width_l = new Label ("Tab width:");
+            var indent_width_l = new Label (_("Tab width:"));
             indent_width_l.xalign = 0.0f;
             var indent_width_box = new HBox (false, 32);
             indent_width_box.pack_start (indent_width_l, true, true, 0);
@@ -90,13 +90,13 @@ namespace Scratch.Dialogs {
 
             style_scheme = new ComboBoxText ();
             populate_style_scheme ();
-            var style_scheme_l = new Label ("Style scheme:");
+            var style_scheme_l = new Label (_("Style scheme:"));
             style_scheme_l.xalign = 0.0f;
             var style_scheme_box = new HBox (false, 13);
             style_scheme_box.pack_start (style_scheme_l, true, true, 0);
             style_scheme_box.pack_start (style_scheme, true, true, 0);
 
-            use_system_font = new CheckButton.with_label ("Use the system fixed width font ("
+            use_system_font = new CheckButton.with_label (_("Use the system fixed width font (")
                                                             + default_font () + ")");
             use_system_font.set_active (Scratch.settings.use_system_font);
 
@@ -105,13 +105,13 @@ namespace Scratch.Dialogs {
             select_font.set_font_name (Scratch.settings.font);
             use_system_font.toggled.connect (() => {
                 select_font.sensitive = !(use_system_font.get_active ());});
-            var select_font_l = new Label ("Select font:");
+            var select_font_l = new Label (_("Select font:"));
             select_font_l.xalign = 0.0f;
             var select_font_box = new HBox (false, 24);
             select_font_box.pack_start (select_font_l, true, true, 0);
             select_font_box.pack_start (select_font, true, true, 0);
 
-            close_button = new Button.with_label ("Close");
+            close_button = new Button.with_label (_("Close"));
 
             var bottom_buttons = new HButtonBox ();
             bottom_buttons.set_layout (ButtonBoxStyle.END);

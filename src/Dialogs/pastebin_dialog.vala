@@ -41,7 +41,7 @@ namespace Scratch.Dialogs {
         public PasteBinDialog (MainWindow? window) {
 
             this.window = window;
-            this.title = "Share via PasteBin";
+            this.title = _("Share via PasteBin");
             this.type_hint = Gdk.WindowTypeHint.DIALOG;
             this.set_modal (true);
             this.set_transient_for (window);
@@ -60,26 +60,26 @@ namespace Scratch.Dialogs {
 
             name_entry = new Entry ();
             name_entry.text = "Test";
-            var name_entry_l = new Label ("Name:");
+            var name_entry_l = new Label (_("Name:"));
             var name_entry_box = new HBox (false, 58);
             name_entry_box.pack_start (name_entry_l, false, true, 0);
             name_entry_box.pack_start (name_entry, true, true, 0);
 
             format_entry = new Entry ();
             format_entry.text = "None";
-            var format_entry_l = new Label ("Code highlight:");
+            var format_entry_l = new Label (_("Code highlight:"));
             var format_entry_box = new HBox (false, 10);
             format_entry_box.pack_start (format_entry_l, false, true, 0);
             format_entry_box.pack_start (format_entry, true, true, 0);
 
             expiry_combo = new ComboBoxText ();
             populate_expiry_combo ();
-            var expiry_combo_l = new Label ("Expiry time:");
+            var expiry_combo_l = new Label (_("Expiry time:"));
             var expiry_combo_box = new HBox (false, 28);
             expiry_combo_box.pack_start (expiry_combo_l, false, true, 0);
             expiry_combo_box.pack_start (expiry_combo, true, true, 0);
 
-            private_check = new CheckButton.with_label ("Keep this paste private");
+            private_check = new CheckButton.with_label (_("Keep this paste private"));
 
             cancel_button = new Button.from_stock (Stock.CANCEL);
             send_button = new Button.with_label ("Upload");

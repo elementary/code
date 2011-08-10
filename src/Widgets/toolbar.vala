@@ -65,7 +65,7 @@ namespace Scratch.Widgets {
             add (new SeparatorToolItem ());
             add (toolitem (combobox, false));
 
-            entry = new SearchBar ("Search in the text...");
+            entry = new SearchBar (_("Search in the text..."));
             entry.width_request = 250;
 
             share_menu = new ShareMenu (this.window);
@@ -78,6 +78,8 @@ namespace Scratch.Widgets {
             add (toolitem (entry, false));
             add (share_app_menu);
             add (app_menu);
+            
+            set_tooltip ();
 
         }
 
@@ -132,6 +134,15 @@ namespace Scratch.Widgets {
            combobox.append_text ("Vala");
            combobox.append_text ("XML");
            combobox.set_active (0);
+        }
+        
+        private void set_tooltip () {
+        	new_button.set_tooltip_text(_("Create a new file in a new tab"));
+        	open_button.set_tooltip_text(_("Open an existing file"));
+		save_button.set_tooltip_text(_("Save the current file"));
+       		undo_button.set_tooltip_text(_("Cancel the last operation"));
+        	repeat_button.set_tooltip_text(_("Repeat the last cancelled operation"));
+		share_menu.set_tooltip_text(_("Share this file with others"));
         }
         
         

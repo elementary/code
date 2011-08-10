@@ -34,8 +34,8 @@ namespace Scratch.Widgets {
 
             this.window = window;
 
-            pastebin = new MenuItem.with_label ("Upload to Pastebin...");
-            share_email = new MenuItem.with_label ("Share via email...");
+            pastebin = new MenuItem.with_label (_("Upload to Pastebin..."));
+            share_email = new MenuItem.with_label (_("Share via email..."));
 
             append (pastebin);
             append (share_email);

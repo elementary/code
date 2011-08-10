@@ -32,8 +32,8 @@ namespace Scratch.Dialogs {
             message_type = MessageType.WARNING;
             use_markup = true;
 
-            text = "Save this file? " + filename;
-            text += "\n\n<b>All your work will be lost!</b>";
+            text = _("Save this file? ") + filename;
+            text += _("\n\n<b>All your work will be lost!</b>");
 
             add_button (Stock.CANCEL, ResponseType.CANCEL);
             add_button (Stock.SAVE, ResponseType.ACCEPT);
