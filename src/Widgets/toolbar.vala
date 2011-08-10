@@ -38,6 +38,14 @@ namespace Scratch.Widgets {
         public ShareMenu share_menu;
         public AppMenu app_menu;
 
+		public enum ToolButtons {
+			NEW_BUTTON,
+			OPEN_BUTTON,
+			SAVE_BUTTON,
+			UNDO_BUTTON,
+			REPEAT_BUTTON,
+		}
+
         public Toolbar (MainWindow parent) {
 
             this.window = parent;
@@ -145,6 +153,33 @@ namespace Scratch.Widgets {
 		share_menu.set_tooltip_text(_("Share this file with others"));
         }
         
+ 		public void set_button_sensitive(int button, bool sensitive) {
+ 		
+ 			switch (button) {
+ 				case ToolButtons.NEW_BUTTON:
+ 				this.new_button.set_sensitive(sensitive);
+ 				break;
+ 				 					
+				case ToolButtons.OPEN_BUTTON:
+ 				this.open_button.set_sensitive(sensitive);
+				break;
+				
+				case ToolButtons.SAVE_BUTTON:
+ 				this.save_button.set_sensitive(sensitive);
+				break;
+				
+				case ToolButtons.UNDO_BUTTON:
+ 				this.undo_button.set_sensitive(sensitive);				
+				break;
+				
+				case ToolButtons.REPEAT_BUTTON:
+ 				this.repeat_button.set_sensitive(sensitive);
+				break;
+ 			
+ 			}
+ 		
+ 		
+ 		}
         
      
 }

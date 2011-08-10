@@ -90,6 +90,9 @@ namespace Scratch.Widgets {
         	if (label.get_text().substring (0, 1) != "*"){
         		label.set_text ("* " + label.get_text());
         	}
+        	
+        	window.set_undo_redo();
+        	
         }
 
         public void restore_settings () {
@@ -117,6 +120,7 @@ namespace Scratch.Widgets {
             Scratch.settings.style_scheme = buffer.style_scheme.id;
 
         }
+        
 
     }
     

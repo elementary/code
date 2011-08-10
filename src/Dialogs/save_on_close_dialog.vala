@@ -33,7 +33,7 @@ namespace Scratch.Dialogs {
             use_markup = true;
 
             text = _("Save this file? ") + filename;
-            text += "\n\n<b>" + _("All your work will be lost!") + "</b>");
+            text += "\n\n<b>" + _("All your work will be lost!") + "</b>";
 
             add_button (Stock.CANCEL, ResponseType.CANCEL);
             add_button (Stock.SAVE, ResponseType.ACCEPT);

@@ -46,7 +46,7 @@ namespace Scratch {
         
         //bools for key press event
         bool ctrlL = false;
-	bool ctrlR = false;
+		bool ctrlR = false;
 
         public MainWindow () {
 				
@@ -312,7 +312,7 @@ namespace Scratch {
             } else {
                 this.title = this.TITLE;
             }
-
+            
         }
 	
         public void on_changed_text (){
@@ -356,7 +356,7 @@ namespace Scratch {
 		            }    
 		                
 	                //set new values
-                    	target_tab.text_view.set_file (filename, text);
+                   	target_tab.text_view.set_file (filename, text);
 	                target_tab.filename = filename;
 	                target_tab.saved = true;
 	                //set values for label
@@ -434,21 +434,8 @@ namespace Scratch {
             current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
             var buf = current_tab.text_view.buffer;
 
-            if (buf.can_redo) {
-                var button = (Widgets.Toolbar) toolbar.repeat_button;
-                button.set_sensitive (true);
-            } else {
-                var button = (Widgets.Toolbar) toolbar.repeat_button;
-                button.set_sensitive (false);		
-            }
-            
-            if (buf.can_undo) {
-                var button = (Widgets.Toolbar) toolbar.undo_button;
-                button.set_sensitive (true);
-            } else {
-                var button = (Widgets.Toolbar) toolbar.undo_button;
-                button.set_sensitive (false);		
-            }
+			toolbar.set_button_sensitive(Widgets.Toolbar.ToolButtons.UNDO_BUTTON, buf.can_undo);
+			toolbar.set_button_sensitive(Widgets.Toolbar.ToolButtons.REPEAT_BUTTON, buf.can_redo);
 		
         }
         
