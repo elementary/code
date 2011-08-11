@@ -319,13 +319,27 @@ namespace Scratch.Widgets {
     
     public class SplitView : HBox {
 		
-		public SplitView () {
+		public MainWindow window;
+		
+		public SplitView (MainWindow window) {
+			this.window = window;
 			
+			//var notebook = new ScratchNotebook (window);
+			//add_view (notebook);
 		}
 		
 		public void add_view (ScratchNotebook view) {
 			pack_start (view, true, true, 0);
+			show_all ();
 		}
+		
+		public ScratchNotebook get_current_notebook () {
+			
+			var child = (ScratchNotebook) get_focus_child ();
+			return child;
+						
+		}
+		
 		
 	}
     
