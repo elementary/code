@@ -80,6 +80,8 @@ namespace Scratch {
 
             //signals for the window
             this.destroy.connect (Gtk.main_quit);
+            
+            this.key_release_event.connect (on_key_released);
             this.key_press_event.connect (on_key_press);
 
             //signals for the toolbar
@@ -96,44 +98,90 @@ namespace Scratch {
         }
         
         
+         
         //signals functions
         public void on_destroy () {
-        	//var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
-        	this.show_all ();
-        	string isnew = current_tab.label.label.get_text () [0:1];
-        	if (isnew == "*") {
-        		var save_on_close_dialog = new SaveOnCloseDialog (current_tab.filename, this);
-            		save_on_close_dialog.run ();
-               	}
-           	//Gtk.main_quit ();    	        
+			if (!notebook.welcome_screen.active) {
+				//var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+				this.show_all ();
+				string isnew = current_tab.label.label.get_text () [0:1];
+				if (isnew == "*") {
+					var save_on_close_dialog = new SaveOnCloseDialog (current_tab.filename, this);
+						save_on_close_dialog.run ();
+					} else {
+						this.destroy();
+					}
+			}
         }
+        
+        private void reset_ctrl_flags() {
+			ctrlR = false;
+			ctrlL = false;
+		}
+        
+        // untoggles Control Trigger
+        private bool on_key_released (EventKey event) {
+
+			string key = Gdk.keyval_name(event.keyval);
+			
+			if (key == "Control_L" || key == "Control_R")
+				reset_ctrl_flags();
+				
+			return true;
+		}
         
         public bool on_key_press (EventKey event) {
 			
             string key = Gdk.keyval_name(event.keyval);
+			            
+            /// Q: Do we really need ctrlL and ctrlR? One Var may be enough
 			if (key == "Control_L")
 				ctrlL = true;
-			else if (key == "Control_R")
+			if (key == "Control_R")
 				ctrlR = true;
 
-			else if ((ctrlL || ctrlR))
+		    if ((ctrlL || ctrlR))
 			{
-				if (key == "t" || key == "T") { //create new tab
-					if (!notebook.welcome_screen.active) {
-						int tab_index = notebook.add_tab ();
+				switch(key.down()/*This avoids checking for "t" and "T*/)
+				{
+					// Open new Tab
+					case "t":		
+						if (!notebook.welcome_screen.active) {
+							int tab_index = notebook.add_tab ();
 		                		notebook.set_current_page (tab_index);            
-					}
-				}
-				else if (key == "w" || key == "W") { //remove tab
-					//notebook.set_show_tabs (true);
-					current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
-					current_tab.on_close_clicked ();
-				}
-				else if (key == "e" || key == "Q") {
-					this.on_destroy ();
-				}
-				else {
-					return false;
+						}
+					break;
+
+					// Close current Tab
+					case "w":
+						if (!notebook.welcome_screen.active) {					
+							var current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+							current_tab.on_close_clicked ();
+						}
+					break;
+					
+					// Close Scratch by Ctrl+Q
+					// we may also add ctrl+e
+					case "q":
+						stderr.printf("Killler");
+						this.on_destroy();
+					break;
+
+					// Save current File by Ctrl+S
+					case "s":
+						this.on_save_clicked();
+						reset_ctrl_flags();
+					break;		
+					
+					// Undo by Ctrl+Z
+					case "z":
+						this.on_undo_clicked();
+					break;	
+						
+					// Redo by Ctrl+Y
+					case "y":
+						this.on_repeat_clicked();
+					break;
 				}
 			}
             return false;
