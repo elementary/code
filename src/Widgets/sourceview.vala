@@ -49,7 +49,7 @@ namespace Scratch.Widgets {
             // Simple default configuration
             auto_indent = true;
             set_wrap_mode (Gtk.WrapMode.WORD);
-            show_right_margin = true;
+            //show_right_margin = true;
             
             buffer.highlight_syntax = true;
             

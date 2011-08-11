@@ -317,4 +317,16 @@ namespace Scratch.Widgets {
         
     }
     
+    public class SplitView : HBox {
+		
+		public SplitView () {
+			
+		}
+		
+		public void add_view (ScratchNotebook view) {
+			pack_start (view, true, true, 0);
+		}
+		
+	}
+    
 } // Namespace

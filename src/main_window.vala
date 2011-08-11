@@ -37,6 +37,7 @@ namespace Scratch {
         
         //widgets
         public ScratchNotebook notebook;
+        public SplitView split_view;
         public Widgets.Toolbar toolbar;
         
         //dialogs
@@ -59,16 +60,20 @@ namespace Scratch {
         }
         
         public void create_window () {
-
+			
+	    this.split_view = new SplitView ();
+			
             this.notebook = new ScratchNotebook (this);
             this.notebook.add_tab();
+            
+            split_view.add_view (notebook);
             
             this.toolbar = new Widgets.Toolbar (this);
 
             //adding all to the vbox
             var vbox = new VBox (false, 0);
             vbox.pack_start (toolbar, false, false, 0);
-            vbox.pack_start (notebook, true, true, 0); 
+            vbox.pack_start (split_view, true, true, 0); 
             
             this.add (vbox);
             
@@ -163,7 +168,7 @@ namespace Scratch {
 					// Close Scratch by Ctrl+Q
 					// we may also add ctrl+e
 					case "q":
-						stderr.printf("Killler");
+						warning("Killler");
 						this.on_destroy();
 					break;
 
@@ -493,6 +498,15 @@ namespace Scratch {
             lang = current_tab.text_view.manager.guess_language (filename, null);
         	toolbar.combobox.set_active_id ( lang.get_id() );
         }
+        
+        public void create_instance () {
+		
+				var instance = new ScratchNotebook (this);
+				instance.add_tab ();
+				split_view.add_view(instance);
+				split_view.show_all ();
+							
+		}
 
     }
 } // Namespace	

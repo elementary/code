@@ -35,7 +35,7 @@ namespace Scratch.Dialogs {
             text = _("Save this file? ") + filename;
             text += "\n\n<b>" + _("All your work will be lost!") + "</b>";
 
-            add_button (Stock.CANCEL, ResponseType.CANCEL);
+            add_button (Stock.QUIT, ResponseType.CANCEL);
             add_button (Stock.SAVE, ResponseType.ACCEPT);
             set_default_response (ResponseType.ACCEPT);
             
