@@ -110,7 +110,7 @@ namespace Scratch {
 		//signals functions
 		public void on_destroy () {
 			if (!notebook.welcome_screen.active) {
-				//var tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+				var current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
 				this.show_all ();
 				string isnew = current_tab.label.label.get_text () [0:1];
 				if (isnew == "*") {
@@ -457,8 +457,8 @@ namespace Scratch {
 
 		protected override bool delete_event (Gdk.EventAny event) {
 
-			on_destroy ();
 			update_saved_state ();
+			on_destroy ();
 			return false;
 
 		}
