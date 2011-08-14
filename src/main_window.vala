@@ -80,7 +80,7 @@ namespace Scratch {
 			
 			this.add (vbox);
 			
-			set_undo_redo ();		
+			//set_undo_redo ();		
 		
 		}
 		
@@ -324,7 +324,7 @@ namespace Scratch {
 
 			current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
 			current_tab.text_view.undo ();
-			set_undo_redo ();
+			//set_undo_redo ();
 
 		}
 	
@@ -332,7 +332,7 @@ namespace Scratch {
 
 			current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
 			current_tab.text_view.redo ();
-			set_undo_redo ();
+			//set_undo_redo ();
 		
 		}
 		
