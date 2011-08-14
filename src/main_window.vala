@@ -367,7 +367,8 @@ namespace Scratch {
 	
 		public void on_switch_tab (Widget page, uint page_num) {
 
-			current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page()-1);	
+			current_notebook = split_view.get_current_notebook ();
+			current_tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page()-1);	
 
 			if (current_tab.filename != null) {
 				set_window_title (current_tab.filename);
@@ -535,7 +536,9 @@ namespace Scratch {
 				id = id.substring(0, 1).up() + id.substring(1);
 			}*/
 			//stdout.printf ("%s\n\n", id);
-			toolbar.combobox.set_active_id (id);
+			if (id != null) {
+				toolbar.combobox.set_active_id (id); 
+			}
 			//toolbar.combobox.insert_text (25, id+"papapa");
 			//toolbar.combobox.set_active (0);
 			//

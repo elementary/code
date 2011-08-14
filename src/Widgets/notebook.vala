@@ -331,6 +331,7 @@ namespace Scratch.Widgets {
 		}
 		
 		public void add_view (ScratchNotebook view) {
+			view.switch_page.connect (window.on_switch_tab);
 			pack_start (view, true, true, 0);
 			this.set_focus_child (view);			
 			show_all ();
