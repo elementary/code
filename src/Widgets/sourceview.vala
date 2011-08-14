@@ -84,7 +84,7 @@ namespace Scratch.Widgets {
         }
         
         public void on_buffer_changed () {
-        	var nb = window.notebook;
+        	var nb = window.split_view.get_current_notebook ();
         	var tab = (Tab) nb.get_nth_page (nb.get_current_page());
         	var label = tab.label.label;
         	if (label.get_text().substring (0, 1) != "*"){

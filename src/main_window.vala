@@ -109,8 +109,9 @@ namespace Scratch {
 		 
 		//signals functions
 		public void on_destroy () {
-			if (!notebook.welcome_screen.active) {
-				var current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+			current_notebook = split_view.get_current_notebook ();
+			if (!current_notebook.welcome_screen.active) {
+				var current_tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
 				this.show_all ();
 				string isnew = current_tab.label.label.get_text () [0:1];
 				if (isnew == "*") {
@@ -538,6 +539,9 @@ namespace Scratch {
 			//stdout.printf ("%s\n\n", id);
 			if (id != null) {
 				toolbar.combobox.set_active_id (id); 
+			}
+			else {
+				toolbar.combobox.set_active_id ("normal");
 			}
 			//toolbar.combobox.insert_text (25, id+"papapa");
 			//toolbar.combobox.set_active (0);
