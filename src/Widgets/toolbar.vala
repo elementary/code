@@ -62,7 +62,7 @@ namespace Scratch.Widgets {
             
             combobox = new ComboBoxText ();
             set_combobox_text ();
-            
+                        
             add (new_button);
             add (open_button);
             add (save_button);
@@ -115,7 +115,7 @@ namespace Scratch.Widgets {
         }
         
         private void set_combobox_text () {
-		   combobox.append_text (_("File language"));
+		   //combobox.append_text (_("File language"));
            combobox.append_text (_("Normal Text"));
            combobox.append_text ("C");
            combobox.append_text ("C#");

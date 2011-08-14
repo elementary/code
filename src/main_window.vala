@@ -223,6 +223,8 @@ namespace Scratch {
 					// check if file is already opened
 					int target_page = -1;
 					
+					set_combobox_language (filename);
+					
 					if (!current_notebook.welcome_screen.active) {
 											
 						int tot_pages = current_notebook.get_n_pages ();					
@@ -255,7 +257,7 @@ namespace Scratch {
 			
 			
 			filech.close ();
-			set_undo_redo ();
+			//set_undo_redo ();
 			//current_notebook.add_tab ();
 				
 		}
@@ -386,8 +388,6 @@ namespace Scratch {
 				current_tab.text_view.buffer.select_range (start, end);
 			}
 		}
-		
-		
 
 		//generic functions
 		public void load_file (string filename) {
@@ -505,7 +505,38 @@ namespace Scratch {
 			GtkSource.Language lang;
 			current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
 			lang = current_tab.text_view.manager.guess_language (filename, null);
-			toolbar.combobox.set_active_id ( lang.get_id() );
+			
+			string id = lang.get_id();
+			if (id == "cpp") {
+				id = "C++";
+			}
+			else if (id == "c-sharp") {
+				id = "C#";
+			}
+			else if (id == "gettext-translation") {
+				id = "Gettext";
+			}
+			else if (id == "desktop") {
+				id = ".desktop";
+			}
+			else if (id == "js") {
+				id = "JavaScript";
+			}
+			else if (id == "objc") {
+				id = "Objective-C";
+			}
+			else {
+				id = id.substring(0, 1).up() + id.substring(1);
+			}
+			stdout.printf ("%s\n\n", id);
+			
+			int i=0;
+			while (toolbar.combobox.get_active_text() != id) {
+				//toolbar.combobox.set_active_id( "C++" );//lang.get_id() );
+				toolbar.combobox.set_active (i);
+				i++;
+			}
+			//toolbar.combobox.set_active_id (id);
 		}
 		
 		public void create_instance () {

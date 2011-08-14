@@ -80,7 +80,7 @@ namespace Scratch.Widgets {
             
             	var filech = notebook.window.filech;
             	string new_filename = null;
-            
+					
             	//show dialog
                 filech = new FileChooserDialog ("Save as", notebook.window, FileChooserAction.SAVE, null);
                 filech.add_button (Stock.CANCEL, ResponseType.CANCEL);
@@ -104,6 +104,8 @@ namespace Scratch.Widgets {
 				//check choise
 				if (new_filename != null) this.filename = new_filename;
 				else return 1;
+				
+				window.set_combobox_language (filename);
             
             }
             
