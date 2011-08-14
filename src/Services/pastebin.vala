@@ -23,6 +23,8 @@ namespace Scratch.Services {
  
     public class PasteBin : GLib.Object {
 
+        public const int PASTE_ID_LEN = 8;
+
 		public const string NEVER = "N";
 		public const string TEN_MINUTES = "10M";
 		public const string HOUR = "1H";
@@ -33,9 +35,21 @@ namespace Scratch.Services {
 		public const string PUBLIC = "0";
 
 	
-		public static string submit (string paste_code, string paste_name, 
+		public static int submit (out string link, string paste_code, string paste_name, 
                                      string paste_private, string paste_expire_date, 
                                      string paste_format) {
+
+            /* Code meaning:
+            0 = it's all ok
+            1 = generic error
+            2 = text (paste_code) is empty
+            3 = invalid file format
+            ... maybe we should add and handle other errors...
+            */
+
+            //check input values
+            if (paste_code.length == 0) {link=""; return 2; }
+
 
 			string api_url = "http://pastebin.com/api_public.php";
 	
@@ -55,10 +69,38 @@ namespace Scratch.Services {
             
 			session.send_message (message);
 
-			var output = message.response_body.data;
+			var output = (string) message.response_body.data;
 
-			return (string) output;
+			//check return value
+			if (output[0:6] != "ERROR:") {
+			
+                //we need only pastebin url len + id len
+			    output = output[0:20+PASTE_ID_LEN];
+    			debug(output);			    
+			    
+    			link = output;
+                
+			} else {
 
+                //paste error
+
+                link = "";				
+                switch(output) {
+                    case "ERROR: Invalid POST request, or \"paste_code\" value empty":
+                    return 2;
+
+                    case "ERROR: Invalid file format":
+                    return 3;
+
+                    default:
+                    return 1;
+                        
+                }
+	            
+			}
+			
+            return 0;
+			
 		}
 			 
     }

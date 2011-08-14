@@ -164,27 +164,59 @@ namespace Scratch.Dialogs {
             spinner.show ();
             spinner.start ();
 
-            string link = submit_paste ();
+            string link;
+            var submit_result = submit_paste (out link);
 
             // Show the new view
             spinner.hide ();
-            var link_button = new LinkButton (link);
-            var close_button = new Button.from_stock (Stock.CLOSE);
+
             var box = new VBox (false, 10);
-            box.pack_start (link_button, false, true, 0);
-            box.pack_start (close_button, false, true, 0);
+           
+            if (submit_result == 0) {
+            
+                //paste successfully
+                var link_button = new LinkButton (link);
+                box.pack_start (link_button, false, true, 0);                
+                set_clipboard (link);
+            } else {
+            
+                //paste error
+                var error_desc = new StringBuilder();
+                
+                switch(submit_result) {
+                    case 2:
+                    error_desc.append(_("Il testo da inviare è vuoto!"));
+                    break;
+
+                    case 3:
+                    error_desc.append(_("Il formato scelto per la sintassi non esiste."));
+                    break;
+                    
+                    default:
+                    error_desc.append(_("Si è verificato un errore."));                    
+                    break;
+                       
+                }
+
+                error_desc.append(_("\nIl testo non è stato inviato."));
+                var err_label = new Label(error_desc.str);
+
+                box.pack_start (err_label, false, true, 0);
+            }
+
+            var close_button = new Button.from_stock (Stock.CLOSE);
+            box.pack_start (close_button, false, true, 0);            
             padding.pack_start (box, false, true, 12);
             padding.halign = Align.CENTER;
             box.valign = Align.CENTER;
             box.show_all ();
-            // Copy link to clipboard
-            set_clipboard (link);
             // Connect signal
             close_button.clicked.connect (close_button_clicked);
 
+
         }
 
-        private string submit_paste () {
+        private int submit_paste (out string link) {
 
             // Get the values
             string paste_code = window.current_tab.text_view.buffer.text;
@@ -193,12 +225,14 @@ namespace Scratch.Dialogs {
             string paste_private = private_check.get_active () == true ? PasteBin.PRIVATE : PasteBin.PUBLIC;
             string paste_expire_date = expiry_combo.get_active_id ();
 
-            string link = PasteBin.submit (paste_code, paste_name, paste_private,
+            int submit_result = PasteBin.submit (out link, paste_code, paste_name, paste_private,
                                            paste_expire_date, paste_format);
 
-            return link;
+            return submit_result;
+
 
         }
+
         
         private void set_clipboard (string link) {
 
