@@ -115,33 +115,33 @@ namespace Scratch.Widgets {
         }
         
         private void set_combobox_text () {
-		   //combobox.append_text (_("File language"));
-           combobox.append_text (_("Normal Text"));
-           combobox.append_text ("C");
-           combobox.append_text ("C#");
-           combobox.append_text ("C++");
-           combobox.append_text ("CSS");
-           combobox.append_text ("CMake");
-           combobox.append_text (".desktop");
-           combobox.append_text ("Diff");
-           combobox.append_text ("Fortran"); 
-           combobox.append_text ("Gettext");
-           combobox.append_text ("HTML");
-           combobox.append_text ("ini");
-           combobox.append_text ("Java");
-           combobox.append_text ("JavaScript");
-           combobox.append_text ("Latex"); 
-           combobox.append_text ("Lua");
-           combobox.append_text ("Makefile");
-           combobox.append_text ("Objective-C"); 
-           combobox.append_text ("Perl");
-           combobox.append_text ("PHP");
-           combobox.append_text ("Pascal"); 
-           combobox.append_text ("Python");   	
-           combobox.append_text ("Ruby");
-           combobox.append_text ("sh");
-           combobox.append_text ("Vala");
-           combobox.append_text ("XML");
+	   //combobox.append (_("File language"));
+           combobox.append ("normal", _("Normal Text"));
+           combobox.append ("c", "C");
+           combobox.append ("c-sharp", "C#");
+           combobox.append ("cpp", "C++");
+           combobox.append ("css", "CSS");
+           combobox.append ("cmake", "CMake");
+           combobox.append ("desktop", ".desktop");
+           combobox.append ("diff", "Diff");
+           combobox.append ("fortran", "Fortran"); 
+           combobox.append ("gettext-translation", "Gettext");
+           combobox.append ("html", "HTML");
+           combobox.append ("ini", "ini");
+           combobox.append ("java", "Java");
+           combobox.append ("js", "JavaScript");
+           combobox.append ("latex", "Latex"); 
+           combobox.append ("lua", "Lua");
+           combobox.append ("makefile", "Makefile");
+           combobox.append ("objc", "Objective-C"); 
+           combobox.append ("perl", "Perl");
+           combobox.append ("php", "PHP");
+           combobox.append ("pascal", "Pascal"); 
+           combobox.append ("python", "Python");   	
+           combobox.append ("ruby", "Ruby");
+           combobox.append ("sh", "sh");
+           combobox.append ("vala", "Vala");
+           combobox.append ("xml", "XML");
            combobox.set_active (0);
         }
         

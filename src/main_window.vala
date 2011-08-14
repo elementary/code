@@ -375,6 +375,10 @@ namespace Scratch {
 				this.title = this.TITLE;
 			}
 			
+			if (current_tab.filename != null) {
+					set_combobox_language (current_tab.filename);
+			}
+			
 		}
 	
 		public void on_changed_text (){
@@ -503,11 +507,13 @@ namespace Scratch {
 		
 		public void set_combobox_language (string filename) {
 			GtkSource.Language lang;
-			current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+			current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page()-1);
 			lang = current_tab.text_view.manager.guess_language (filename, null);
 			
+			//toolbar.combobox.remove (0);
+			
 			string id = lang.get_id();
-			if (id == "cpp") {
+			/*if (id == "cpp") {
 				id = "C++";
 			}
 			else if (id == "c-sharp") {
@@ -527,17 +533,27 @@ namespace Scratch {
 			}
 			else {
 				id = id.substring(0, 1).up() + id.substring(1);
-			}
-			stdout.printf ("%s\n\n", id);
-			
-			int i=0;
-			while (toolbar.combobox.get_active_text() != id) {
+			}*/
+			//stdout.printf ("%s\n\n", id);
+			toolbar.combobox.set_active_id (id);
+			//toolbar.combobox.insert_text (25, id+"papapa");
+			//toolbar.combobox.set_active (0);
+			//
+			//toolbar.combobox.set_active_text ("C");
+			/*int i=0;
+			while (toolbar.combobox.get_active_text() != id && i <= 26) {
 				//toolbar.combobox.set_active_id( "C++" );//lang.get_id() );
-				toolbar.combobox.set_active (i);
-				i++;
+				if (i == 26) {
+					toolbar.combobox.set_active (0);
+					break;
+				}
+				else {
+					toolbar.combobox.set_active (i);
+					i++;
+				}
 			}
-			//toolbar.combobox.set_active_id (id);
-		}
+			//toolbar.combobox.set_active_id ("C");
+		*/}
 		
 		public void create_instance () {
 		
