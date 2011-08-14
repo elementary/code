@@ -340,7 +340,9 @@ namespace Scratch {
 		}
 		
 		public void on_combobox_changed () {
-
+			
+			//current_notebook = split_view.get_current_notebook ();
+			//current_tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
 			current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
 			var lang = toolbar.combobox.get_active_text().down();
 			if (lang == "c++") {
@@ -363,7 +365,8 @@ namespace Scratch {
 			}
 			else {
 				current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language(lang) );
-		}
+			}
+			//current_tab.text_view.buffer.set_language( toolbar.combox.get_active_id () );
 		}
 	
 		public void on_switch_tab (Widget page, uint page_num) {
@@ -378,7 +381,11 @@ namespace Scratch {
 			}
 			
 			if (current_tab.filename != null) {
-					set_combobox_language (current_tab.filename);
+					try {
+						set_combobox_language (current_tab.filename);
+					} catch (Error e) {
+						return;
+					}
 			}
 			
 		}

@@ -53,7 +53,7 @@ namespace Scratch.Widgets {
 
 
 		public void on_close_clicked() {
-		
+			
 			if (this.saved == false) {
 			
 				var save_dialog = new SaveDialog(this);
@@ -64,7 +64,7 @@ namespace Scratch.Widgets {
         }
     
         public void close () {
-
+			
     		message("closing: %s\n", this.filename);		    
 		    var n = notebook.page_num(this);
 		    notebook.remove_page(n);
