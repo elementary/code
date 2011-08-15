@@ -185,20 +185,20 @@ namespace Scratch.Dialogs {
                 
                 switch(submit_result) {
                     case 2:
-                    error_desc.append(_("Il testo da inviare è vuoto!"));
+                    error_desc.append(_("The text is void!"));
                     break;
 
                     case 3:
-                    error_desc.append(_("Il formato scelto per la sintassi non esiste."));
+                    error_desc.append(_("The text format doesn't exist"));
                     break;
                     
                     default:
-                    error_desc.append(_("Si è verificato un errore."));                    
+                    error_desc.append(_("An error occured"));                    
                     break;
                        
                 }
 
-                error_desc.append(_("\nIl testo non è stato inviato."));
+                error_desc.append("\n" + _("The text is sended"));
                 var err_label = new Label(error_desc.str);
 
                 box.pack_start (err_label, false, true, 0);
@@ -219,6 +219,10 @@ namespace Scratch.Dialogs {
         private int submit_paste (out string link) {
 
             // Get the values
+            //window.current_notebook = window.split_view.get_current_notebook ();
+            //window.current_tab = (Tab) window.current_notebook.get_nth_page (window.current_notebook.get_current_page());
+            //var tab = (Tab) window.current_notebook.get_nth_page (window.current_notebook.get_current_page());
+            
             string paste_code = window.current_tab.text_view.buffer.text;
             string paste_name = name_entry.text;
             string paste_format = format_entry.text;
@@ -244,11 +248,11 @@ namespace Scratch.Dialogs {
 
         private void populate_expiry_combo () {
 
-            expiry_combo.append (PasteBin.NEVER, "Never");
-            expiry_combo.append (PasteBin.TEN_MINUTES, "Ten minutes");
-            expiry_combo.append (PasteBin.HOUR, "One hour");
-            expiry_combo.append (PasteBin.DAY, "One day");
-            expiry_combo.append (PasteBin.MONTH, "One month");
+            expiry_combo.append (PasteBin.NEVER, _("Never"));
+            expiry_combo.append (PasteBin.TEN_MINUTES, _("Ten minutes"));
+            expiry_combo.append (PasteBin.HOUR, _("One hour"));
+            expiry_combo.append (PasteBin.DAY, _("One day"));
+            expiry_combo.append (PasteBin.MONTH, _("One month"));
 
         }
 

@@ -65,6 +65,7 @@ namespace Scratch {
 			this.split_view = new SplitView (this);
 			
 			current_notebook = split_view.get_current_notebook ();
+			current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
 						
 			this.notebook =  new ScratchNotebook (this);
 			this.notebook.add_tab();
@@ -98,7 +99,7 @@ namespace Scratch {
 			toolbar.save_button.clicked.connect (on_save_clicked);
 			toolbar.undo_button.clicked.connect (on_undo_clicked);
 			toolbar.repeat_button.clicked.connect (on_repeat_clicked);
-			toolbar.combobox.changed.connect (on_combobox_changed);
+			toolbar.combobox.changed.connect (combobox_changed);
 			toolbar.entry.changed.connect (on_changed_text);
 			
 			//signals for the notebook
@@ -346,9 +347,19 @@ namespace Scratch {
 		}
 		
 		public void on_combobox_changed () {
-			
 			current_notebook = split_view.get_current_notebook ();
 			current_tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
+			try {
+				combobox_changed ();
+			} catch (Error e) {
+					stdout.printf ("\n\n\n\n\n");
+			} 
+		}
+		
+		public void combobox_changed () {
+					
+			//current_notebook = split_view.get_current_notebook ();
+			//current_tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
 			
 			//this.set_focus_child (current_notebook); //Can is it a solution?
 			//current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
@@ -356,7 +367,11 @@ namespace Scratch {
 			//lang = current_tab.text_view.manager.guess_language (null, null);
 			//lang.set_id( toolbar.combobox.get_active_id () );
 			//var lang = toolbar.combobox.get_active_text().down();
-			current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language (toolbar.combobox.get_active_id () ) );//current_tab.text_view.manager.get_language("c-sharp") );
+			try {
+				current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language (toolbar.combobox.get_active_id () ) );//current_tab.text_view.manager.get_language("c-sharp") );
+			} catch (Error e) {
+				return;
+			}
 			/*if (lang == "c++") {
 				current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language("cpp") );
 			}
@@ -549,6 +564,5 @@ namespace Scratch {
 			split_view.show_all ();
 							
 		}
-
 	}
 } // Namespace	
