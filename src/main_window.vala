@@ -224,7 +224,11 @@ namespace Scratch {
 					// check if file is already opened
 					int target_page = -1;
 					
-					set_combobox_language (filename);
+					try {
+						set_combobox_language (filename);
+					} catch (Error e) {
+						warning ("Cannont set the combobox id");
+					}
 					
 					if (!current_notebook.welcome_screen.active) {
 											
@@ -324,16 +328,18 @@ namespace Scratch {
 		}
 		
 		public void on_undo_clicked () {
-
-			current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+			
+			current_notebook = split_view.get_current_notebook ();
+			current_tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
 			current_tab.text_view.undo ();
 			//set_undo_redo ();
 
 		}
 	
 		public void on_repeat_clicked () {
-
-			current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+			
+			current_notebook = split_view.get_current_notebook ();
+			current_tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
 			current_tab.text_view.redo ();
 			//set_undo_redo ();
 		
@@ -341,11 +347,17 @@ namespace Scratch {
 		
 		public void on_combobox_changed () {
 			
-			//current_notebook = split_view.get_current_notebook ();
-			//current_tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
-			current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
-			var lang = toolbar.combobox.get_active_text().down();
-			if (lang == "c++") {
+			current_notebook = split_view.get_current_notebook ();
+			current_tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
+			
+			//this.set_focus_child (current_notebook); //Can is it a solution?
+			//current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+			//GtkSource.Language lang;
+			//lang = current_tab.text_view.manager.guess_language (null, null);
+			//lang.set_id( toolbar.combobox.get_active_id () );
+			//var lang = toolbar.combobox.get_active_text().down();
+			current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language (toolbar.combobox.get_active_id () ) );//current_tab.text_view.manager.get_language("c-sharp") );
+			/*if (lang == "c++") {
 				current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language("cpp") );
 			}
 			else if (lang == "c#") {
@@ -367,7 +379,7 @@ namespace Scratch {
 				current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language(lang) );
 			}
 			//current_tab.text_view.buffer.set_language( toolbar.combox.get_active_id () );
-		}
+		*/}
 	
 		public void on_switch_tab (Widget page, uint page_num) {
 
@@ -391,6 +403,7 @@ namespace Scratch {
 		}
 	
 		public void on_changed_text (){
+			//current_notebook = split_view.get_current_notebook ();
 			current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());	
 			search_string = toolbar.entry.get_text();
 			TextIter iter;
@@ -518,56 +531,15 @@ namespace Scratch {
 			GtkSource.Language lang;
 			current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page()-1);
 			lang = current_tab.text_view.manager.guess_language (filename, null);
-			
-			//toolbar.combobox.remove (0);
-			
+						
 			string id = lang.get_id();
-			/*if (id == "cpp") {
-				id = "C++";
-			}
-			else if (id == "c-sharp") {
-				id = "C#";
-			}
-			else if (id == "gettext-translation") {
-				id = "Gettext";
-			}
-			else if (id == "desktop") {
-				id = ".desktop";
-			}
-			else if (id == "js") {
-				id = "JavaScript";
-			}
-			else if (id == "objc") {
-				id = "Objective-C";
-			}
-			else {
-				id = id.substring(0, 1).up() + id.substring(1);
-			}*/
-			//stdout.printf ("%s\n\n", id);
 			if (id != null) {
 				toolbar.combobox.set_active_id (id); 
 			}
 			else {
 				toolbar.combobox.set_active_id ("normal");
 			}
-			//toolbar.combobox.insert_text (25, id+"papapa");
-			//toolbar.combobox.set_active (0);
-			//
-			//toolbar.combobox.set_active_text ("C");
-			/*int i=0;
-			while (toolbar.combobox.get_active_text() != id && i <= 26) {
-				//toolbar.combobox.set_active_id( "C++" );//lang.get_id() );
-				if (i == 26) {
-					toolbar.combobox.set_active (0);
-					break;
-				}
-				else {
-					toolbar.combobox.set_active (i);
-					i++;
-				}
-			}
-			//toolbar.combobox.set_active_id ("C");
-		*/}
+		}
 		
 		public void create_instance () {
 		
