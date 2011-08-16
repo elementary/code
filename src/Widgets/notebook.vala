@@ -267,11 +267,18 @@ namespace Scratch.Widgets {
         
 		public void show_welcome () {
 			
-			if (!welcome_screen.active) {
-					
-				this.append_page (welcome_screen, null);
-				this.set_show_tabs (false);
-				this.welcome_screen.active = true;
+			if (window.split_view.get_children().length() == 1) {
+			
+				if (!welcome_screen.active) {
+						
+					this.append_page (welcome_screen, null);
+					this.set_show_tabs (false);
+					this.welcome_screen.active = true;
+				}
+			}
+		
+			else {
+				window.split_view.remove (this);
 			}
 		
 		}
@@ -296,12 +303,12 @@ namespace Scratch.Widgets {
 			
 			public ScratchWelcome(ScratchNotebook caller) {
 		
-				base("No files opened.", "Open a file to start editing");
+				base(_("No files opened."), _("Open a file to start editing"));
 		
 				notebook = caller;
 		
-				append(Stock.OPEN, "Open file", "open a saved file");
-				append(Stock.NEW, "New file", "create an new empty file");
+				append(Stock.OPEN, _("Open file"), _("open a saved file"));
+				append(Stock.NEW, _("New file"), _("create an new empty file"));
 				this.activated.connect (on_activated);
 				
 				show_all();

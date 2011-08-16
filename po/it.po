@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-15 18:02+0200\n"
-"PO-Revision-Date: 2011-08-16 22:24+0100\n"
+"POT-Creation-Date: 2011-08-16 22:37+0200\n"
+"PO-Revision-Date: 2011-08-16 22:39+0100\n"
 "Last-Translator: Mario Guerriero <mefrio.g@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -64,6 +64,9 @@ msgstr "Mai"
 msgid "New file"
 msgstr "Nuovo file"
 
+msgid "No files opened."
+msgstr "Nessun file aperto."
+
 #. combobox.append (_("File language"));
 msgid "Normal Text"
 msgstr "Testo normale"
@@ -77,8 +80,15 @@ msgstr "Un ora"
 msgid "One month"
 msgstr "Un mese"
 
+msgid "Open a file to start editing"
+msgstr "Apri un file per iniziare a modificarlo"
+
 msgid "Open an existing file"
 msgstr "Apre un file esistente"
+
+#, fuzzy
+msgid "Open file"
+msgstr "Nuovo file"
 
 msgid "Repeat the last cancelled operation"
 msgstr "Ripete l'ultima operazione cancellata"
@@ -133,4 +143,11 @@ msgstr "Usa spazi al posto di tabulazioni"
 
 msgid "Use the system fixed width font ("
 msgstr "Usa il carattere a spaziatura fissa di sistema ("
+
+msgid "create an new empty file"
+msgstr "crea un nuovo file"
+
+#, fuzzy
+msgid "open a saved file"
+msgstr "Apre un file esistente"
 

@@ -99,7 +99,7 @@ namespace Scratch {
 			toolbar.save_button.clicked.connect (on_save_clicked);
 			toolbar.undo_button.clicked.connect (on_undo_clicked);
 			toolbar.repeat_button.clicked.connect (on_repeat_clicked);
-			toolbar.combobox.changed.connect (combobox_changed);
+			toolbar.combobox.changed.connect (on_combobox_changed);
 			toolbar.entry.changed.connect (on_changed_text);
 			
 			//signals for the notebook
@@ -257,29 +257,8 @@ namespace Scratch {
 			
 			filech.close ();
 			set_undo_redo ();
-			//current_notebook.add_tab ();
 				
 		}
-
-/*
-		public void on_response (Dialog source, int response_id) {
-			switch (response_id) {
-					case ResponseType.ACCEPT:
-						string filename = filech.get_filename();
-						if (filename != null) {
-							stdout.printf ("Opening: %s\n", filename);
-							load_file (get_filename ());
-						}
-						
-						filech.close ();
-						break;
-					case ResponseType.CANCEL:
-						filech.close ();
-						break;
-				}
-			
-		}
-*/		
 		
 		public void on_save_clicked() {
 		
@@ -302,14 +281,6 @@ namespace Scratch {
 		}
 		
 		public void on_combobox_changed () {
-			try {
-				combobox_changed ();
-			} catch (Error e) {
-					stdout.printf ("\n\n\n\n\n");
-			} 
-		}
-		
-		public void combobox_changed () {
 					
 			try {
 				current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language (toolbar.combobox.get_active_id () ) );//current_tab.text_view.manager.get_language("c-sharp") );
