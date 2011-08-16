@@ -63,14 +63,14 @@ namespace Scratch {
 		public void create_window () {
 			
 			this.split_view = new SplitView (this);
-			
-			current_notebook = split_view.get_current_notebook ();
-			current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
 						
 			this.notebook =  new ScratchNotebook (this);
 			this.notebook.add_tab();
 			
 			split_view.add_view (notebook);
+			
+			current_notebook = split_view.get_current_notebook ();
+			current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
 						
 			this.toolbar = new Widgets.Toolbar (this);
 
@@ -330,8 +330,8 @@ namespace Scratch {
 		
 		public void on_undo_clicked () {
 			
-			current_notebook = split_view.get_current_notebook ();
-			current_tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
+			//current_notebook = split_view.get_current_notebook ();
+			//current_tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
 			current_tab.text_view.undo ();
 			//set_undo_redo ();
 
@@ -339,16 +339,16 @@ namespace Scratch {
 	
 		public void on_repeat_clicked () {
 			
-			current_notebook = split_view.get_current_notebook ();
-			current_tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
+			//current_notebook = split_view.get_current_notebook ();
+			//current_tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
 			current_tab.text_view.redo ();
 			//set_undo_redo ();
 		
 		}
 		
 		public void on_combobox_changed () {
-			current_notebook = split_view.get_current_notebook ();
-			current_tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
+			//current_notebook = split_view.get_current_notebook ();
+			//current_tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
 			try {
 				combobox_changed ();
 			} catch (Error e) {
@@ -419,7 +419,7 @@ namespace Scratch {
 	
 		public void on_changed_text (){
 			//current_notebook = split_view.get_current_notebook ();
-			current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());	
+			//current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());	
 			search_string = toolbar.entry.get_text();
 			TextIter iter;
 			TextIter start, end;
@@ -534,7 +534,7 @@ namespace Scratch {
 		
 		public void set_undo_redo () {
 			
-			current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
+			//current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
 			var buf = current_tab.text_view.buffer;
 
 			toolbar.set_button_sensitive(Widgets.Toolbar.ToolButtons.UNDO_BUTTON, buf.can_undo);

@@ -44,6 +44,7 @@ namespace Scratch.Widgets {
             notebook.set_tab_reorderable (this, true);            
             
             text_view = new SourceView (window);
+            text_view.focus_in_event.connect (on_focus_in);
             label = new TabLabel(this, labeltext);
             add (text_view);
             show_all();
@@ -62,7 +63,17 @@ namespace Scratch.Widgets {
 		    } else this.close ();
 		    		    
         }
-    
+		
+		public bool on_focus_in (EventFocus event) {
+		
+			//stdout.printf ("\n\n\n\n");
+			notebook.window.current_notebook = notebook.window.split_view.get_current_notebook ();
+			notebook.window.current_tab = (Tab) notebook.window.current_notebook.get_nth_page (notebook.window.current_notebook.get_current_page());
+			
+			return true;
+			
+		}
+		
         public void close () {
 			
     		message("closing: %s\n", this.filename);		    
