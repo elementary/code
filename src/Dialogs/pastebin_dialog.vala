@@ -219,9 +219,6 @@ namespace Scratch.Dialogs {
         private int submit_paste (out string link) {
 
             // Get the values
-            //window.current_notebook = window.split_view.get_current_notebook ();
-            //window.current_tab = (Tab) window.current_notebook.get_nth_page (window.current_notebook.get_current_page());
-            //var tab = (Tab) window.current_notebook.get_nth_page (window.current_notebook.get_current_page());
             
             string paste_code = window.current_tab.text_view.buffer.text;
             string paste_name = name_entry.text;

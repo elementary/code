@@ -41,16 +41,12 @@ namespace Scratch.Widgets {
             append (share_email);
 
             pastebin.activate.connect (() => {
-				window.current_notebook = window.split_view.get_current_notebook ();
-				window.current_tab = (Tab) window.current_notebook.get_nth_page (window.current_notebook.get_current_page());
 				new PasteBinDialog (window);
             });
             
             share_email.activate.connect (() => {
-				window.current_notebook = window.split_view.get_current_notebook ();
-				var tab = (Tab) window.current_notebook.get_nth_page (window.current_notebook.get_current_page());
-				if (tab.filename != null){
-					GLib.Process.spawn_command_line_sync ("postler mailto:?attach=" + tab.filename);
+				if (window.current_tab.filename != null){
+					GLib.Process.spawn_command_line_sync ("postler mailto:?attach=" + window.current_tab.filename);
 				}
 				else {
 					warning ("To share the file you need to save it!");

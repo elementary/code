@@ -68,10 +68,7 @@ namespace Scratch {
 			this.notebook.add_tab();
 			
 			split_view.add_view (notebook);
-			
-			current_notebook = split_view.get_current_notebook ();
-			current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
-						
+									
 			this.toolbar = new Widgets.Toolbar (this);
 
 			//adding all to the vbox
@@ -81,7 +78,10 @@ namespace Scratch {
 			
 			this.add (vbox);
 			
-			//set_undo_redo ();		
+			notebook.window.current_notebook = notebook.window.split_view.get_current_notebook ();
+			notebook.window.current_tab = (Tab) notebook.window.current_notebook.get_nth_page (notebook.window.current_notebook.get_current_page());
+			
+			set_undo_redo ();		
 		
 		}
 		
@@ -110,9 +110,7 @@ namespace Scratch {
 		 
 		//signals functions
 		public void on_destroy () {
-			current_notebook = split_view.get_current_notebook ();
 			if (!current_notebook.welcome_screen.active) {
-				var current_tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
 				this.show_all ();
 				string isnew = current_tab.label.label.get_text () [0:1];
 				if (isnew == "*") {
@@ -143,7 +141,6 @@ namespace Scratch {
 		public bool on_key_press (EventKey event) {
 			
 			string key = Gdk.keyval_name(event.keyval);
-			current_notebook = split_view.get_current_notebook ();
 				
 			/// Q: Do we really need ctrlL and ctrlR? One Var may be enough
 			if (key == "Control_L")
@@ -166,7 +163,6 @@ namespace Scratch {
 					// Close current Tab
 					case "w":
 						if (!current_notebook.welcome_screen.active) {					
-							var current_tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
 							current_tab.on_close_clicked ();
 						}
 					break;
@@ -199,7 +195,6 @@ namespace Scratch {
 		}
 		
 		public void on_new_clicked () {
-			current_notebook = split_view.get_current_notebook ();
 			int new_tab_index = current_notebook.add_tab ();
 			current_notebook.set_current_page (new_tab_index);
 			current_notebook.show_tabs_view ();
@@ -214,7 +209,6 @@ namespace Scratch {
 			filech.add_button (Stock.OPEN, ResponseType.ACCEPT);
 			filech.set_default_response (ResponseType.ACCEPT);
 			
-			current_notebook = split_view.get_current_notebook ();
 			// filech.response.connect (on_response);
 
 			if (filech.run () == ResponseType.ACCEPT) {
@@ -236,7 +230,6 @@ namespace Scratch {
 						int tot_pages = current_notebook.get_n_pages ();					
 						for (int i = 0; i < tot_pages; i++) {
 							
-							current_tab = (Tab) current_notebook.get_nth_page (i);
 							if (current_tab.filename == filename) {
 								target_page = i;
 							}
@@ -263,7 +256,7 @@ namespace Scratch {
 			
 			
 			filech.close ();
-			//set_undo_redo ();
+			set_undo_redo ();
 			//current_notebook.add_tab ();
 				
 		}
@@ -290,65 +283,25 @@ namespace Scratch {
 		
 		public void on_save_clicked() {
 		
-			current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
   			current_tab.save();
-  			
-/*	  
-			string filename = current_tab.filename;
-			
-			if (filename == null) {
-			
-				//show dialog
-				this.filech = new FileChooserDialog ("Save as", this, FileChooserAction.SAVE, null);
-				filech.add_button (Stock.CANCEL, ResponseType.CANCEL);
-				filech.add_button (Stock.SAVE, ResponseType.ACCEPT);
-				filech.set_default_response (ResponseType.ACCEPT);
-				
-				//response
-				if (filech.run () == ResponseType.ACCEPT)
-					filename = filech.get_filename();
-				
-				//close dialog
-				filech.close();
-
-				//check choise
-				if (filename == null) return;
-			
-			}
-			
-			message("Saving: %s", filename);
-			if (save_file (filename, current_tab.text_view.buffer.text) == 0) {
-				current_tab.filename = filename;
-				current_tab.saved = true;
-				var name = filename.split("/");
-				current_tab.label.change_text (name[name.length-1]);
-			}
-
-*/
 			
 		}
 		
 		public void on_undo_clicked () {
 			
-			//current_notebook = split_view.get_current_notebook ();
-			//current_tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
 			current_tab.text_view.undo ();
-			//set_undo_redo ();
+			set_undo_redo ();
 
 		}
 	
 		public void on_repeat_clicked () {
 			
-			//current_notebook = split_view.get_current_notebook ();
-			//current_tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
 			current_tab.text_view.redo ();
-			//set_undo_redo ();
+			set_undo_redo ();
 		
 		}
 		
 		public void on_combobox_changed () {
-			//current_notebook = split_view.get_current_notebook ();
-			//current_tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
 			try {
 				combobox_changed ();
 			} catch (Error e) {
@@ -358,48 +311,14 @@ namespace Scratch {
 		
 		public void combobox_changed () {
 					
-			//current_notebook = split_view.get_current_notebook ();
-			//current_tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
-			
-			//this.set_focus_child (current_notebook); //Can is it a solution?
-			//current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
-			//GtkSource.Language lang;
-			//lang = current_tab.text_view.manager.guess_language (null, null);
-			//lang.set_id( toolbar.combobox.get_active_id () );
-			//var lang = toolbar.combobox.get_active_text().down();
 			try {
 				current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language (toolbar.combobox.get_active_id () ) );//current_tab.text_view.manager.get_language("c-sharp") );
 			} catch (Error e) {
 				return;
 			}
-			/*if (lang == "c++") {
-				current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language("cpp") );
-			}
-			else if (lang == "c#") {
-				current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language("c-sharp") );
-			}
-			else if (lang == "gettext") {
-				current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language("gettext-translation") );
-			}
-			else if (lang == ".desktop") {
-				current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language("desktop") );
-			}
-			else if (lang == "javascript") {
-				current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language("js") );
-			}
-			else if (lang == "objective-c") {
-				current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language("objc") );
-			}
-			else {
-				current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language(lang) );
-			}
-			//current_tab.text_view.buffer.set_language( toolbar.combox.get_active_id () );
-		*/}
+		}
 	
 		public void on_switch_tab (Widget page, uint page_num) {
-
-			current_notebook = split_view.get_current_notebook ();
-			current_tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page()-1);	
 
 			if (current_tab.filename != null) {
 				set_window_title (current_tab.filename);
@@ -418,8 +337,6 @@ namespace Scratch {
 		}
 	
 		public void on_changed_text (){
-			//current_notebook = split_view.get_current_notebook ();
-			//current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());	
 			search_string = toolbar.entry.get_text();
 			TextIter iter;
 			TextIter start, end;
@@ -432,7 +349,6 @@ namespace Scratch {
 
 		//generic functions
 		public void load_file (string filename) {
-			current_notebook = split_view.get_current_notebook ();
 			
 			if (filename != "") {
 				try {
@@ -443,7 +359,6 @@ namespace Scratch {
 					var name = Filename.display_basename (filename);
 					
 					Tab target_tab;
-					current_tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
 
 					if ((current_tab != null) && (current_tab.filename == null) ) {
 					
@@ -534,7 +449,6 @@ namespace Scratch {
 		
 		public void set_undo_redo () {
 			
-			//current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page());
 			var buf = current_tab.text_view.buffer;
 
 			toolbar.set_button_sensitive(Widgets.Toolbar.ToolButtons.UNDO_BUTTON, buf.can_undo);
@@ -544,7 +458,6 @@ namespace Scratch {
 		
 		public void set_combobox_language (string filename) {
 			GtkSource.Language lang;
-			current_tab = (Tab) notebook.get_nth_page (notebook.get_current_page()-1);
 			lang = current_tab.text_view.manager.guess_language (filename, null);
 						
 			string id = lang.get_id();

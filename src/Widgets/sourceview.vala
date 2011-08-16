@@ -91,7 +91,7 @@ namespace Scratch.Widgets {
         		label.set_text ("* " + label.get_text());
         	}
         	
-        	//window.set_undo_redo();
+        	window.set_undo_redo();
         	
         }
 

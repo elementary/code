@@ -69,7 +69,7 @@ namespace Scratch.Widgets {
 			//stdout.printf ("\n\n\n\n");
 			notebook.window.current_notebook = notebook.window.split_view.get_current_notebook ();
 			notebook.window.current_tab = (Tab) notebook.window.current_notebook.get_nth_page (notebook.window.current_notebook.get_current_page());
-			
+			notebook.window.set_undo_redo ();
 			return true;
 			
 		}
