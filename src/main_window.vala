@@ -184,12 +184,6 @@ namespace Scratch {
 						reset_ctrl_flags();
 					break;	
 					
-					// Create new view
-					case "v":
-						create_instance ();
-						//reset_ctrl_flags();
-					break;		
-					
 					// Undo by Ctrl+Z
 					case "z":
 						this.on_undo_clicked();
@@ -201,6 +195,9 @@ namespace Scratch {
 					break;
 				}
 			}
+            else if (key == "F3")
+                create_instance ();
+
 			return false;
 		}
 		
