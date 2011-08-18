@@ -167,9 +167,13 @@ namespace Scratch {
 						}
 					break;
 					
-					// Close Scratch by Ctrl+Q
-					// we may also add ctrl+e
+					// Close Scratch by Ctrl+Q or Ctrl+E
 					case "q":
+						warning("Killler");
+						this.on_destroy();
+					break;
+					
+					case "e":
 						warning("Killler");
 						this.on_destroy();
 					break;
@@ -178,6 +182,12 @@ namespace Scratch {
 					case "s":
 						this.on_save_clicked();
 						reset_ctrl_flags();
+					break;	
+					
+					// Create new view
+					case "v":
+						create_instance ();
+						//reset_ctrl_flags();
 					break;		
 					
 					// Undo by Ctrl+Z
@@ -210,12 +220,12 @@ namespace Scratch {
 			filech.set_default_response (ResponseType.ACCEPT);
 			
 			// filech.response.connect (on_response);
-
+			
 			if (filech.run () == ResponseType.ACCEPT) {
 				string filename = filech.get_filename ();
 				
 				if (filename != null) {
-				
+															
 					// check if file is already opened
 					int target_page = -1;
 					
@@ -226,10 +236,9 @@ namespace Scratch {
 					}
 					
 					if (!current_notebook.welcome_screen.active) {
-											
+																						
 						int tot_pages = current_notebook.get_n_pages ();					
 						for (int i = 0; i < tot_pages; i++) {
-							
 							if (current_tab.filename == filename) {
 								target_page = i;
 							}
@@ -321,7 +330,7 @@ namespace Scratch {
 		//generic functions
 		public void load_file (string filename) {
 			
-			if (filename != "") {
+			if (filename != "") {				
 				try {
 					string text;
 					FileUtils.get_contents (filename, out text);

@@ -117,11 +117,12 @@ namespace Scratch.Widgets {
         private void set_combobox_text () {
 	   //combobox.append (_("File language"));
            combobox.append ("normal", _("Normal Text"));
+           combobox.append ("sh", "Bash");
            combobox.append ("c", "C");
            combobox.append ("c-sharp", "C#");
            combobox.append ("cpp", "C++");
+		   combobox.append ("cmake", "CMake");
            combobox.append ("css", "CSS");
-           combobox.append ("cmake", "CMake");
            combobox.append ("desktop", ".desktop");
            combobox.append ("diff", "Diff");
            combobox.append ("fortran", "Fortran"); 
@@ -139,7 +140,6 @@ namespace Scratch.Widgets {
            combobox.append ("pascal", "Pascal"); 
            combobox.append ("python", "Python");   	
            combobox.append ("ruby", "Ruby");
-           combobox.append ("sh", "sh");
            combobox.append ("vala", "Vala");
            combobox.append ("xml", "XML");
            combobox.set_active (0);
