@@ -1,3 +1,4 @@
+// -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /***
   BEGIN LICENSE
 	
@@ -61,7 +62,7 @@ namespace Scratch.Widgets {
 
         public ShareAppMenu (Menu menu) {
 
-            base (new Image.from_icon_name ("document-import", IconSize.MENU), "Share", menu);
+            base (new Image.from_icon_name ("document-export", IconSize.MENU), "Share", menu);
 
         }
 

@@ -1,3 +1,4 @@
+// -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /***
   BEGIN LICENSE
 	
@@ -25,7 +26,7 @@ namespace Scratch.Widgets {
 
         private MainWindow window;
         
-        private ImageMenuItem print;
+        //private ImageMenuItem print;
         private MenuItem view;
         private CheckMenuItem fullscreen;
         private ImageMenuItem preferences;
@@ -37,8 +38,6 @@ namespace Scratch.Widgets {
         
         public void create () {		
             
-            print = new ImageMenuItem.from_stock (Stock.PRINT, null);
-            
             view = new MenuItem.with_label (_("Add a new view"));
 
             fullscreen = new CheckMenuItem.with_label (_("Fullscreen"));
@@ -47,12 +46,11 @@ namespace Scratch.Widgets {
             preferences = new ImageMenuItem.from_stock (Stock.PREFERENCES, null);
 
             append (view);
-            append (print);
             append (fullscreen);
+            append (new SeparatorMenuItem ());
             append (preferences);
             
             view.activate.connect (() => {window.create_instance ();});
-            print.activate.connect (() => {new PrintSettings ();});
             fullscreen.toggled.connect (toggle_fullscreen);
             preferences.activate.connect (() => {new Dialogs.Preferences ("Preferences", this.window);});
 
