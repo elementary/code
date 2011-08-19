@@ -149,10 +149,10 @@ namespace Scratch.Widgets {
         private void set_tooltip () {
         	new_button.set_tooltip_text(_("Create a new file in a new tab"));
         	open_button.set_tooltip_text(_("Open an existing file"));
-		save_button.set_tooltip_text(_("Save the current file"));
+			save_button.set_tooltip_text(_("Save the current file"));
        		undo_button.set_tooltip_text(_("Cancel the last operation"));
         	repeat_button.set_tooltip_text(_("Repeat the last cancelled operation"));
-		share_menu.set_tooltip_text(_("Share this file with others"));
+			share_menu.set_tooltip_text(_("Share this file with others"));
         }
         
  		public void set_button_sensitive(int button, bool sensitive) {

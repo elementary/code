@@ -102,9 +102,7 @@ namespace Scratch {
 			toolbar.repeat_button.clicked.connect (on_repeat_clicked);
 			toolbar.combobox.changed.connect (on_combobox_changed);
 			toolbar.entry.changed.connect (on_changed_text);
-			
-			//signals for the notebook
-			notebook.switch_page.connect (on_switch_tab);	
+
 		}
 		
 		
@@ -243,6 +241,7 @@ namespace Scratch {
 						}
 
 					}
+					
 
 					if (target_page >= 0) {
 						message ("file already opened: %s\n", filename);
@@ -257,10 +256,8 @@ namespace Scratch {
 
 					}
 				}
-			
+								
 			}
-			
-			
 			
 			filech.close ();
 			set_undo_redo ();
@@ -294,24 +291,6 @@ namespace Scratch {
 			} catch (Error e) {
 				return;
 			}
-		}
-	
-		public void on_switch_tab (Widget page, uint page_num) {
-
-			if (current_tab.filename != null) {
-				set_window_title (current_tab.filename);
-			} else {
-				this.title = this.TITLE;
-			}
-			
-			if (current_tab.filename != null) {
-					try {
-						set_combobox_language (current_tab.filename);
-					} catch (Error e) {
-						return;
-					}
-			}
-			
 		}
 	
 		public void on_changed_text (){
@@ -435,6 +414,7 @@ namespace Scratch {
 		}
 		
 		public void set_combobox_language (string filename) {
+		
 			GtkSource.Language lang;
 			lang = current_tab.text_view.manager.guess_language (filename, null);
 						
@@ -445,6 +425,7 @@ namespace Scratch {
 			else {
 				toolbar.combobox.set_active_id ("normal");
 			}
+			
 		}
 		
 		public void create_instance () {

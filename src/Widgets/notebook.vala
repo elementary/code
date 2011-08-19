@@ -66,11 +66,14 @@ namespace Scratch.Widgets {
         }
 		
 		public bool on_focus_in (EventFocus event) {
-		
 			//stdout.printf ("\n\n\n\n");
 			notebook.window.current_notebook = notebook.window.split_view.get_current_notebook ();
 			notebook.window.current_tab = (Tab) notebook.window.current_notebook.get_nth_page (notebook.window.current_notebook.get_current_page());
 			notebook.window.set_undo_redo ();
+			
+			if (window.current_tab.filename != null) {
+					window.set_combobox_language (window.current_tab.filename);
+			}
 			return true;
 			
 		}
@@ -128,7 +131,7 @@ namespace Scratch.Widgets {
 				FileUtils.set_contents (this.filename, this.text_view.buffer.text);
 				this.saved = true;
 				var name = Path.get_basename (this.filename);
-				this.label.change_text (name);
+				this.label.label.set_text (name);
                 window.set_window_title (this.filename);
 		        return 0;
 		        
@@ -215,10 +218,6 @@ namespace Scratch.Widgets {
             return false;
         }
 
-        public void change_text (string text) {
-            label.set_text (text);
-        }
-
         private bool is_close_first () {
 
             string path = "/apps/metacity/general/button_layout";
@@ -267,7 +266,7 @@ namespace Scratch.Widgets {
        
         
 		public void show_welcome () {
-			
+						
 			if (window.split_view.get_children().length() == 1) {
 			
 				if (!welcome_screen.active) {
@@ -350,7 +349,7 @@ namespace Scratch.Widgets {
 		}
 		
 		public void add_view (ScratchNotebook view) {
-			view.switch_page.connect (window.on_switch_tab);
+			//view.switch_page.connect (window.on_switch_tab);
 			pack_start (view, true, true, 0);
 			this.set_focus_child (view);			
 			show_all ();
