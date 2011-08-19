@@ -68,7 +68,6 @@ namespace Scratch.Widgets {
 
 		public override void drag_data_received (Gdk.DragContext context, int x, int y, SelectionData selection_data, uint info, uint time_) {
 			foreach (string s in selection_data.get_uris ()){
-				debug ("hi");
             	window.open (Filename.from_uri (s));
 				window.set_undo_redo ();
 			}
