@@ -217,51 +217,43 @@ namespace Scratch {
 			
 			// filech.response.connect (on_response);
 			
-			if (filech.run () == ResponseType.ACCEPT) {
-				string filename = filech.get_filename ();
-				
-				if (filename != null) {
-															
-					// check if file is already opened
-					int target_page = -1;
-					
-					try {
-						set_combobox_language (filename);
-					} catch (Error e) {
-						warning ("Cannont set the combobox id");
-					}
-					
-					if (!current_notebook.welcome_screen.active) {
-																						
-						int tot_pages = current_notebook.get_n_pages ();					
-						for (int i = 0; i < tot_pages; i++) {
-							if (current_tab.filename == filename) {
-								target_page = i;
-							}
-						}
+			if (filech.run () == ResponseType.ACCEPT)
+				open (filech.get_filename ());
 
-					}
-					
-
-					if (target_page >= 0) {
-						message ("file already opened: %s\n", filename);
-						current_notebook.set_current_page (target_page);
-					} else {
-						message ("Opening: %s\n", filename);
-						current_notebook.show_tabs_view ();						
-						load_file (filename);
-						//set the name of the file, not all the path, in the tab label
-						var name = filename.split("/");
-						current_tab.label.label.set_text (name[name.length-1]);
-
-					}
-				}
-								
-			}
-			
 			filech.close ();
 			set_undo_redo ();
+
+		}
+		
+		public void open (string filename) {
+			if (filename != null) {
+				// check if file is already opened
+				int target_page = -1;
 				
+				try {
+					set_combobox_language (filename);
+				} catch (Error e) {
+					warning ("Cannont set the combobox id");
+				}
+				
+				if (!current_notebook.welcome_screen.active) {
+	
+					int tot_pages = current_notebook.get_n_pages ();
+					for (int i = 0; i < tot_pages; i++)
+						if (current_tab.filename == filename)
+							target_page = i;
+
+				}
+				if (target_page >= 0) {
+					message ("file already opened: %s\n", filename);
+					current_notebook.set_current_page (target_page);
+				} else {
+					message ("Opening: %s\n", filename);
+					current_notebook.show_tabs_view ();	
+					var name = filename.split("/");
+					load_file (filename,name[name.length-1]);
+					}
+			}
 		}
 		
 		public void on_save_clicked() {
@@ -305,7 +297,7 @@ namespace Scratch {
 		}
 
 		//generic functions
-		public void load_file (string filename) {
+		public void load_file (string filename, string? title=null) {
 			
 			if (filename != "") {				
 				try {
@@ -337,9 +329,11 @@ namespace Scratch {
 					//set values for label
 					var tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
 					var label = tab.label.label;
-					if (label.get_text().substring (0, 1) == "*"){
+					
+					if (title != null)
+						label.set_text (title);
+					else 
 						label.set_text (filename);
-					}
 					set_window_title (filename);
 											
 				} catch (Error e) {
@@ -348,7 +342,10 @@ namespace Scratch {
 			}
 			var tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
 			var label = tab.label.label;
-			if (label.get_text().substring (0, 1) == "*"){
+
+			if (title != null)
+			    label.set_text (title);
+			else if (label.get_text().substring (0, 1) == "*"){
 				label.set_text (filename);
 			}
 				
