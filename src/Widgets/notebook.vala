@@ -47,6 +47,8 @@ namespace Scratch.Widgets {
             text_view = new SourceView (window);
             text_view.focus_in_event.connect (on_focus_in);
             label = new TabLabel(this, labeltext);
+   			label.scroll_event.connect (notebook.window.on_scroll_event);
+            
             add (text_view);
             show_all();
 
@@ -319,6 +321,7 @@ namespace Scratch.Widgets {
 
 				switch (index) {
 					case 0: //open
+					notebook.window.current_notebook.add_tab ();
 					notebook.window.on_open_clicked();
 					break;
 
@@ -349,14 +352,12 @@ namespace Scratch.Widgets {
 		}
 		
 		public void add_view (ScratchNotebook view) {
-			//view.switch_page.connect (window.on_switch_tab);
 			pack_start (view, true, true, 0);
 			this.set_focus_child (view);			
 			show_all ();
 		}
 		
 		public ScratchNotebook get_current_notebook () {
-			
 			var child = (ScratchNotebook) get_focus_child ();
 			return child;
 						

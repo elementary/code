@@ -22,7 +22,7 @@ add_definitions(-include config.h)
 
 # Scratch
 
-set (SCRATCH_DEPS "gobject-2.0;glib-2.0;gio-2.0;gconf-2.0;gtk+-3.0;granite;libsoup-2.4")
+set (SCRATCH_DEPS "gobject-2.0;glib-2.0;gio-2.0;gconf-2.0;gtk+-3.0;granite;libsoup-2.4;pango")
 
 find_package (PkgConfig)
 pkg_check_modules (GLIB REQUIRED "glib-2.0 >= 2.26.0")
@@ -33,6 +33,7 @@ pkg_check_modules (GTK+ REQUIRED "gtk+-3.0 >= 3.0.8")
 pkg_check_modules (LIBGRANITE REQUIRED "granite")
 pkg_check_modules (LIBSOURCE REQUIRED "gtksourceview-3.0 >= 3.0")
 pkg_check_modules (LIBSOUP REQUIRED "libsoup-2.4 >= 2.0")
+pkg_check_modules (LIBPANGO REQUIRED "pango >= 1.0")
 pkg_check_modules (DEPS REQUIRED ${SCRATCH_DEPS})
 
 add_definitions (${DEPS_CFLAGS} ${LIBSOURCE_CFLAGS} ${GCONF_CFLAGS})

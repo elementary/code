@@ -20,6 +20,7 @@
 
 using Gtk;
 using Gdk;
+using Pango;
 
 using Granite.Widgets;
 using Granite.Services;
@@ -50,6 +51,11 @@ namespace Scratch {
 		//bools for key press event
 		bool ctrlL = false;
 		bool ctrlR = false;
+		
+		//objects for the set_theme ()
+		FontDescription font;
+        Gdk.Color bgcolor;
+        Gdk.Color fgcolor;
 
 		public MainWindow () {
 				
@@ -58,7 +64,8 @@ namespace Scratch {
 			
 			create_window ();
 			connect_signals ();
-
+			
+			set_theme ();
 		}
 		
 		public void create_window () {
@@ -82,9 +89,45 @@ namespace Scratch {
 			notebook.window.current_notebook = notebook.window.split_view.get_current_notebook ();
 			notebook.window.current_tab = (Tab) notebook.window.current_notebook.get_nth_page (notebook.window.current_notebook.get_current_page());
 			
-			set_undo_redo ();		
+			set_undo_redo ();	
 		
 		}
+		
+		public void set_theme () {
+			
+			string theme = "elementary";
+			if (theme == "normal")
+			{
+				Gtk.Settings.get_default().gtk_application_prefer_dark_theme = false;
+				
+				// Get the system's style
+				realize();
+				font = FontDescription.from_string(system_font());
+				bgcolor = get_style().bg[StateType.NORMAL];
+				fgcolor = get_style().fg[StateType.NORMAL];
+			}
+			else
+			{
+				Gtk.Settings.get_default().gtk_application_prefer_dark_theme = true;
+				
+				// Get the system's style
+				realize();
+				font = FontDescription.from_string(system_font());
+				bgcolor = get_style().bg[StateType.NORMAL];
+				fgcolor = get_style().fg[StateType.NORMAL];
+			}
+		}
+		
+		static string system_font () {
+			
+            string font_name = null;
+            /* Wait for GNOME 3 FIXME
+             * var settings = new GLib.Settings("org.gnome.desktop.interface");
+             * font_name = settings.get_string("monospace-font-name");
+             */
+            font_name = "Ubuntu Regular 10";
+            return font_name;
+        }
 		
 		public void connect_signals () {
 
@@ -229,21 +272,21 @@ namespace Scratch {
 			if (filename != null) {
 				// check if file is already opened
 				int target_page = -1;
-				
+
 				try {
 					set_combobox_language (filename);
 				} catch (Error e) {
 					warning ("Cannont set the combobox id");
 				}
-				
+								
 				if (!current_notebook.welcome_screen.active) {
 	
 					int tot_pages = current_notebook.get_n_pages ();
 					for (int i = 0; i < tot_pages; i++)
 						if (current_tab.filename == filename)
 							target_page = i;
-
 				}
+				
 				if (target_page >= 0) {
 					message ("file already opened: %s\n", filename);
 					current_notebook.set_current_page (target_page);
@@ -295,7 +338,32 @@ namespace Scratch {
 				current_tab.text_view.buffer.select_range (start, end);
 			}
 		}
-
+		
+		public bool on_scroll_event (EventScroll event) {
+			
+			if (event.direction == ScrollDirection.UP || event.direction == ScrollDirection.LEFT)  {
+				
+				if (current_notebook.get_current_page() != 0) {
+					
+					current_notebook.set_current_page ( current_notebook.get_current_page()-1 );	
+				
+				}
+				
+			}
+			
+			if (event.direction == ScrollDirection.DOWN || event.direction == ScrollDirection.RIGHT)  {
+				
+				if (current_notebook.get_current_page() != current_notebook.get_n_pages () ) {
+					
+					current_notebook.set_current_page ( current_notebook.get_current_page()+1 );	
+				
+				}
+				
+			}
+			
+			return true;
+		}
+		
 		//generic functions
 		public void load_file (string filename, string? title=null) {
 			
@@ -320,7 +388,7 @@ namespace Scratch {
 						current_notebook.set_current_page (tab_index);						
 						target_tab = (Tab) current_notebook.get_nth_page (tab_index);
 						
-					}	
+					}
 						
 					//set new values
 				   	target_tab.text_view.set_file (filename, text);
