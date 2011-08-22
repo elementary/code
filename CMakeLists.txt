@@ -116,5 +116,10 @@ endif (_schemas_invalid)
 # Actually install and recomple schemas
 message (STATUS "GSettings schemas will be installed into ${GSETTINGS_DIR}")
 install (FILES ${SCRATCH_SCHEMAS} DESTINATION ${GSETTINGS_DIR} OPTIONAL)
-install (CODE "message (STATUS \"Compiling GSettings schemas\")")
-install (CODE "execute_process (COMMAND ${_glib_comple_schemas} ${GSETTINGS_DIR})")
+
+option (GSETTINGS_COMPILE "Compile GSettings Schemas after installation" GSETTINGS_LOCALINSTALL)
+if (GSETTINGS_COMPILE)
+    install (CODE "message (STATUS \"Compiling GSettings schemas\")")
+    install (CODE "execute_process (COMMAND ${_glib_comple_schemas} ${GSETTINGS_DIR})")
+endif (GSETTINGS_COMPILE)
+
