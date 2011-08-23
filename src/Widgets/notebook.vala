@@ -353,8 +353,22 @@ namespace Scratch.Widgets {
 		
 		public void add_view (ScratchNotebook view) {
 			pack_start (view, true, true, 0);
-			this.set_focus_child (view);			
+			this.set_focus_child (view);	
+			//set sensitive for remove menutitem
+			if (get_children ().length() >= 2) 
+				window.toolbar.menu.remove_view.set_sensitive (true);
+			else 
+				window.toolbar.menu.remove_view.set_sensitive (false);
 			show_all ();
+		}
+		
+		public bool remove_current_view () {
+			remove (window.current_notebook);
+			if (get_children().length() >= 2)
+				return true;
+			else 
+				return false;
+						
 		}
 		
 		public ScratchNotebook get_current_notebook () {

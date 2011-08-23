@@ -37,6 +37,7 @@ namespace Scratch.Widgets {
         
         public Entry entry;
         public ShareMenu share_menu;
+        public MenuProperties menu;
         public AppMenu app_menu;
 
 		public enum ToolButtons {
@@ -80,7 +81,7 @@ namespace Scratch.Widgets {
             share_menu = new ShareMenu (this.window);
             var share_app_menu = new ShareAppMenu (share_menu);
 
-            var menu = new MenuProperties (this.window);
+            menu = new MenuProperties (this.window);
             app_menu = new AppMenu (menu);
 
             add (add_spacer ());

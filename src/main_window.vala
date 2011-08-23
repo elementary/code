@@ -70,6 +70,8 @@ namespace Scratch {
 		
 		public void create_window () {
 			
+			this.toolbar = new Widgets.Toolbar (this);
+			
 			this.split_view = new SplitView (this);
 						
 			this.notebook =  new ScratchNotebook (this);
@@ -77,8 +79,6 @@ namespace Scratch {
 			
 			split_view.add_view (notebook);
 									
-			this.toolbar = new Widgets.Toolbar (this);
-
 			//adding all to the vbox
 			var vbox = new VBox (false, 0);
 			vbox.pack_start (toolbar, false, false, 0);

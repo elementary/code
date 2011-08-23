@@ -24,12 +24,13 @@ namespace Scratch.Widgets {
 
     public class MenuProperties : Menu {
 
-        private MainWindow window;
+        public MainWindow window;
         
         //private ImageMenuItem print;
-        private MenuItem view;
-        private CheckMenuItem fullscreen;
-        private ImageMenuItem preferences;
+        public MenuItem view;
+        public MenuItem remove_view;
+        public CheckMenuItem fullscreen;
+        public ImageMenuItem preferences;
         
         public MenuProperties (MainWindow parent) {
             this.window = parent;
@@ -39,6 +40,9 @@ namespace Scratch.Widgets {
         public void create () {		
             
             view = new MenuItem.with_label (_("Add a new view"));
+            
+            remove_view = new MenuItem.with_label (_("Remove current view"));
+            remove_view.set_sensitive (window.split_view.remove_current_view ());
 
             fullscreen = new CheckMenuItem.with_label (_("Fullscreen"));
             fullscreen.active = (Scratch.saved_state.window_state == ScratchWindowState.FULLSCREEN);
@@ -46,11 +50,13 @@ namespace Scratch.Widgets {
             preferences = new ImageMenuItem.from_stock (Stock.PREFERENCES, null);
 
             append (view);
+            append (remove_view);
             append (fullscreen);
             append (new SeparatorMenuItem ());
             append (preferences);
             
             view.activate.connect (() => {window.create_instance ();});
+            remove_view.activate.connect (() => {remove_view.set_sensitive (window.split_view.remove_current_view ()) ;} );
             fullscreen.toggled.connect (toggle_fullscreen);
             preferences.activate.connect (() => {new Dialogs.Preferences ("Preferences", this.window);});
 
