@@ -8,60 +8,15 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-08-23 11:31+0200\n"
-"PO-Revision-Date: 2011-08-23 11:31+0100\n"
-"Last-Translator: Mario Guerriero <mefrio.g@gmail.com>\n"
+"PO-Revision-Date: 2011-08-23 23:48+0000\n"
+"Last-Translator: Radek Starosta <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
-"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-08-19 05:15+0000\n"
+"X-Launchpad-Export-Date: 2011-08-24 05:34+0000\n"
 "X-Generator: Launchpad (build 13697)\n"
-
-msgid "Add a new view"
-msgstr ""
-
-msgid "All your work will be lost!"
-msgstr "Veškerá rozdělaná práce bude ztracena!"
-
-msgid "An error occured"
-msgstr "Vyskytla se chyba"
-
-msgid "Cancel the last operation"
-msgstr "Zrušit poslední operaci"
-
-msgid "Changes on this file aren't saved."
-msgstr "Změny v tomto souboru nejsou uloženy."
-
-msgid "Close"
-msgstr "Zavřít"
-
-msgid "Code highlight:"
-msgstr "Zvýraznění kódu"
-
-msgid "Create a new file in a new tab"
-msgstr "Vytvořit nový soubor na nové kartě"
-
-msgid "Do you want to save changes before close this file?"
-msgstr "Přejete si před zavřením souboru uložit změny?"
-
-msgid "Expiry time:"
-msgstr "Doba vypršení"
-
-msgid "Fullscreen"
-msgstr "Celá obrazovka"
-
-msgid "Highlight current line"
-msgstr "Zvýrazňovat aktuální řádek"
-
-msgid "Keep this paste private"
-msgstr "Označit tento paste jako soukomý"
-
-msgid "Name:"
-msgstr "Název:"
-
-msgid "Never"
-msgstr "Nikdy"
+"Language: cs\n"
 
 msgid "New file"
 msgstr "Nový soubor"
@@ -69,46 +24,54 @@ msgstr "Nový soubor"
 msgid "No files opened."
 msgstr "Není otevřen žádný soubor."
 
-#. combobox.append (_("File language"));
-msgid "Normal Text"
-msgstr "Normální text"
-
-msgid "One day"
-msgstr "Jeden den"
-
-msgid "One hour"
-msgstr "Jedna hodina"
-
-msgid "One month"
-msgstr "Jeden měsíc"
-
 msgid "Open a file to start editing"
 msgstr ""
 
-msgid "Open an existing file"
-msgstr "Otevřít existující soubor"
-
 msgid "Open file"
-msgstr "Otevřit soubor"
+msgstr "Otevřít soubor"
 
-#, fuzzy
+msgid "open a saved file"
+msgstr "otevřít uložený soubor"
+
+msgid "create an new empty file"
+msgstr "vytvořit nový soubor"
+
+msgid "Add a new view"
+msgstr ""
+
 msgid "Remove current view"
-msgstr "Uložit aktuální soubor"
+msgstr ""
 
-msgid "Repeat the last cancelled operation"
-msgstr "Opakovat poslední zrušenou operaci"
+msgid "Fullscreen"
+msgstr "Celá obrazovka"
 
-msgid "Save the current file"
-msgstr "Uložit aktuální soubor"
+msgid "Upload to Pastebin..."
+msgstr "Nahrát na Pastebin..."
 
-msgid "Save this file? "
-msgstr "Uložit tento soubor? "
+msgid "Share via email..."
+msgstr "Sdílet přes email..."
 
 msgid "Search in the text..."
 msgstr "Vyhledat v textu..."
 
-msgid "Select font:"
-msgstr "Vybrat písmo:"
+#. combobox.append (_("File language"));
+msgid "Normal Text"
+msgstr "Normální text"
+
+msgid "Create a new file in a new tab"
+msgstr "Vytvořit nový soubor na nové kartě"
+
+msgid "Open an existing file"
+msgstr "Otevřít existující soubor"
+
+msgid "Save the current file"
+msgstr "Uložit aktuální soubor"
+
+msgid "Cancel the last operation"
+msgstr "Zrušit poslední operaci"
+
+msgid "Repeat the last cancelled operation"
+msgstr "Opakovat poslední zrušenou operaci"
 
 msgid "Share this file with others"
 msgstr "Sdílet tento soubor s ostatními"
@@ -116,41 +79,77 @@ msgstr "Sdílet tento soubor s ostatními"
 msgid "Share via PasteBin"
 msgstr "Sdílet přes PasteBin"
 
-msgid "Share via email..."
-msgstr "Sdílet přes email..."
+msgid "Name:"
+msgstr "Název:"
 
-msgid "Show line numbers"
-msgstr "Zobrazovat čísla řádků"
+msgid "Code highlight:"
+msgstr "Zvýraznění kódu"
 
-msgid "Style scheme:"
-msgstr ""
+msgid "Expiry time:"
+msgstr "Doba vypršení"
 
-msgid "Tab width:"
-msgstr "Šířka tabulátoru:"
-
-msgid "Ten minutes"
-msgstr "Deset minut"
-
-msgid "The text format doesn't exist"
-msgstr "Textový formát neexistuje"
-
-msgid "The text is sended"
-msgstr "Text byl odeslán"
+msgid "Keep this paste private"
+msgstr "Označit tento paste jako soukomý"
 
 msgid "The text is void!"
 msgstr ""
 
-msgid "Upload to Pastebin..."
-msgstr "Nahrát na Pastebin..."
+msgid "The text format doesn't exist"
+msgstr "Textový formát neexistuje"
+
+msgid "An error occured"
+msgstr "Vyskytla se chyba"
+
+msgid "The text is sended"
+msgstr "Text byl odeslán"
+
+msgid "Never"
+msgstr "Nikdy"
+
+msgid "Ten minutes"
+msgstr "Deset minut"
+
+msgid "One hour"
+msgstr "Jedna hodina"
+
+msgid "One day"
+msgstr "Jeden den"
+
+msgid "One month"
+msgstr "Jeden měsíc"
+
+msgid "Show line numbers"
+msgstr "Zobrazovat čísla řádků"
+
+msgid "Highlight current line"
+msgstr "Zvýrazňovat aktuální řádek"
 
 msgid "Use spaces instead of tabs"
 msgstr "Používat mezery místo tabulátorů"
 
+msgid "Tab width:"
+msgstr "Šířka tabulátoru:"
+
+msgid "Style scheme:"
+msgstr "Barevné schéma:"
+
 msgid "Use the system fixed width font ("
 msgstr "Použít systémové písmo s pevnou šířkou ("
 
-msgid "create an new empty file"
-msgstr "vytvořit prázdný soubor"
+msgid "Select font:"
+msgstr "Vybrat písmo:"
 
-msgid "open a saved file"
-msgstr "otevřít uložený soubor"
+msgid "Close"
+msgstr "Zavřít"
+
+msgid "Changes on this file aren't saved."
+msgstr "Změny v tomto souboru nejsou uloženy."
+
+msgid "Do you want to save changes before close this file?"
+msgstr "Přejete si před zavřením souboru uložit změny?"
+
+msgid "Save this file? "
+msgstr "Uložit tento soubor? "
+
+msgid "All your work will be lost!"
+msgstr "Veškerá rozdělaná práce bude ztracena!"
