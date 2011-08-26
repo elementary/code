@@ -53,15 +53,16 @@ namespace Scratch {
 		    bug_url = "https://bugs.launchpad.net/scratch";
 		    help_url = "https://answers.launchpad.net/scratch";
 		    translate_url = "https://translations.launchpad.net/scratch";
-		    
 		    about_authors = {"Mario Guerriero <mefrio.g@gmail.com>",
                              "Giulio Collura <random.cpp@gmail.com>",
-                             "Gabriele Coletta <gdmg92@gmail.com>"
+                             "Gabriele Coletta <gdmg92@gmail.com>",
+                             null
                              };
-        					    
         	//about_documenters = {"",""};
-		about_artists = {"Harvey Cabaguio 'BassUltra' <harveycabaguio@gmail.com>"};
-		about_translators = "Launchpad Translators";
+		    about_artists = {"Harvey Cabaguio 'BassUltra' <harveycabaguio@gmail.com>",
+                             null
+                             };
+		    about_translators = "Launchpad Translators";
          
 		
 		}
