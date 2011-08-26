@@ -137,9 +137,9 @@ namespace Scratch.Widgets {
            combobox.append ("lua", "Lua");
            combobox.append ("makefile", "Makefile");
            combobox.append ("objc", "Objective-C"); 
+           combobox.append ("pascal", "Pascal"); 
            combobox.append ("perl", "Perl");
            combobox.append ("php", "PHP");
-           combobox.append ("pascal", "Pascal"); 
            combobox.append ("python", "Python");   	
            combobox.append ("ruby", "Ruby");
            combobox.append ("vala", "Vala");
