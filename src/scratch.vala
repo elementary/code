@@ -27,7 +27,7 @@ using Granite.Services;
 
 namespace Scratch {
 
-    public Marlin.PluginManager plugins;
+    public PluginManager plugins;
 
     public class Scratch : Granite.Application {
     	
@@ -79,8 +79,8 @@ namespace Scratch {
             settings = new Settings ();
             services = new ServicesSettings ();
 
-            plugins = new Marlin.PluginManager(settings.schema, "plugins-enabled", build_pkg_data_dir + "/plugins/");
-
+            plugins = new PluginManager(settings.schema, "plugins-enabled", build_pkg_data_dir + "/plugins/");
+            plugins.hook_example("Example text");
         }
 
         protected override void open (File[] files, string hint) {

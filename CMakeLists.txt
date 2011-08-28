@@ -61,13 +61,13 @@ vala_precompile (VALA_C
     src/Services/document.vala
     src/Services/pastebin.vala
 PACKAGES
-	${SCRATCH_DEPS}
+	${SCRATCH_DEPS} scratchplugins
 CUSTOM_VAPIS
     vapi/config.vapi
     vapi/gtksourceview-3.0.vapi
-    ${CMAKE_BINARY_DIR}/libplugins/scratchplugins.vapi
 OPTIONS
-	--thread
+    --vapidir=${CMAKE_BINARY_DIR}/libplugins
+    --thread
 )
 
 # tranlation stuff

@@ -19,21 +19,25 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-public class Scratch.PluginManager : GLib.Object
+//namespace Scratch
+
+
+public class Scratch.BasePluginManager : GLib.Object
 {
-    delegate Plugins.Base ModuleInitFunc ();
-    Gee.HashMap<string,Plugins.Base> plugin_hash;
+    delegate PluginsBase ModuleInitFunc ();
+    internal Gee.HashMap<string,PluginsBase> plugin_hash;
     Settings settings;
     string settings_field;
     string plugin_dir;
     List<string> names = null;
     bool in_available = false;
-    public PluginManager(Settings settings, string field, string plugin_dir)
+    public BasePluginManager(Settings settings, string field, string plugin_dir)
     {
         settings_field = field;
         this.settings = settings;
         this.plugin_dir = plugin_dir;
-        plugin_hash = new Gee.HashMap<string,Plugins.Base>();
+        plugin_hash = new Gee.HashMap<string,PluginsBase>();
+        load_plugins();
     }
     
     public void load_plugins()
@@ -85,7 +89,7 @@ public class Scratch.PluginManager : GLib.Object
         }
     }
 
-    Plugins.Base? load_module(string file_path)
+    PluginsBase? load_module(string file_path)
     {
         Module? module = Module.open (file_path, ModuleFlags.BIND_LOCAL);
         if (module == null)
@@ -113,7 +117,7 @@ public class Scratch.PluginManager : GLib.Object
 
         debug ("Loaded module source: '%s'", module.name());
 
-        Plugins.Base base_ = module_init();
+        PluginsBase base_ = module_init();
         return base_;
     }
     
@@ -130,7 +134,7 @@ public class Scratch.PluginManager : GLib.Object
             }
             else if(force || name in settings.get_strv(settings_field))
             {
-                Plugins.Base plug = load_module(Path.build_filename(parent, keyfile.get_string("Plugin", "File")));
+                PluginsBase plug = load_module(Path.build_filename(parent, keyfile.get_string("Plugin", "File")));
                 if(plug != null)
                 {
                     plugin_hash[name] = plug;
@@ -141,36 +145,6 @@ public class Scratch.PluginManager : GLib.Object
         {
             warning("Couldn't open thie keyfile: %s, %s", path, e.message);
         }
-    }
-    
-    public void hook_context_menu(Gtk.Widget win)
-    {
-        foreach(var plugin in plugin_hash.values) plugin.context_menu(win);
-    }
-    
-    public void ui(Gtk.UIManager data)
-    {
-        foreach(var plugin in plugin_hash.values) plugin.ui(data);
-    }
-    
-    public void directory_loaded(void* path)
-    {
-        foreach(var plugin in plugin_hash.values) plugin.directory_loaded(path);
-    }
-    
-    public void interface_loaded(Gtk.Widget win)
-    {
-        foreach(var plugin in plugin_hash.values) plugin.interface_loaded(win);
-    }
-    
-    public void update_sidebar(Gtk.Widget win)
-    {
-        foreach(var plugin in plugin_hash.values) plugin.update_sidebar(win);
-    }
-    
-    public void file(List<Object> files)
-    {
-        foreach(var plugin in plugin_hash.values) plugin.file(files);
     }
     
     public void add_plugin(string path)
@@ -209,3 +183,22 @@ public class Scratch.PluginManager : GLib.Object
         return found;
     }
 }
+
+public class Scratch.PluginManager : Scratch.BasePluginManager
+{
+    public PluginManager(Settings s, string f, string d)
+    {
+        base(s, f, d);
+    }
+    
+    public void hook_example(string arg)
+    {
+        foreach(var plugin in plugin_hash.values) plugin.example(arg);
+    }
+    
+}
+public abstract class PluginsBase : GLib.Object
+{    
+    public virtual void example(string arg) { }
+}
+
