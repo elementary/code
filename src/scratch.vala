@@ -27,14 +27,16 @@ using Granite.Services;
 
 namespace Scratch {
 
-    public class Scratch : Granite.Application {
+    public Scratch.Plugins.Manager plugins;
+        public SavedState saved_state;
+        public Settings settings;
+        public ServicesSettings services;
+        
+
+    public class ScratchApp : Granite.Application {
     	
         private MainWindow window = null;
 
-        public static SavedState saved_state {get; private set; default = null;}
-        public static Settings settings {get; private set; default = null;}
-        public static ServicesSettings services {get; private set; default = null;}
-        
         construct {
         
             build_data_dir = Constants.DATADIR;
@@ -78,7 +80,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses>""";
 		
 		}
 
-        public Scratch () {
+        public ScratchApp () {
 			
 			Logger.initialize ("Scratch");
 			Logger.DisplayLevel = LogLevel.DEBUG;
@@ -89,6 +91,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses>""";
             settings = new Settings ();
             services = new ServicesSettings ();
 
+            plugins = new Scratch.Plugins.Manager(settings.schema, "plugins-enabled", build_pkg_data_dir + "/plugins/");
+            plugins.hook_example("Example text");
         }
 
         protected override void open (File[] files, string hint) {
@@ -124,7 +128,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses>""";
 
 		public static int main (string[] args) {
             
-            var app = new Scratch ();
+            var app = new ScratchApp ();
 
 		    return app.run (args);
 		    

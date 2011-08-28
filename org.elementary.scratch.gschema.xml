@@ -22,6 +22,11 @@
 		</key>
 	</schema>
     <schema path="/apps/scratch/settings/" id="org.elementary.Scratch.Settings" gettext-domain="scratch">
+    <key type="as" name="plugins-enabled">
+      <default>['contractor']</default>
+      <summary>Enabled Plugins</summary>
+      <description>Enabled Plugins</description>
+    </key>
         <key name="show-line-numbers" type="b">
             <default>true</default>
             <summary>Display Line Numbers</summary>
