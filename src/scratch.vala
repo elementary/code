@@ -4,8 +4,8 @@
 	
   Copyright (C) 2011 Giulio Collura <random.cpp@gmail.com> 
   This program is free software: you can redistribute it and/or modify it	
-  under the terms of the GNU Lesser General Public License version 3, as published	
-  by the Free Software Foundation.
+  under the terms of the GNU Lesser General Public License version 3, as
+  published	by the Free Software Foundation.
 	
   This program is distributed in the hope that it will be useful, but	
   WITHOUT ANY WARRANTY; without even the implied warranties of	
@@ -13,7 +13,7 @@
   PURPOSE.  See the GNU General Public License for more details.
 	
   You should have received a copy of the GNU General Public License along	
-  with this program.  If not, see <http://www.gnu.org/licenses/>	
+  with this program.  If not, see <http://www.gnu.org/licenses>
   
   END LICENSE	
 ***/
@@ -53,16 +53,28 @@ namespace Scratch {
 		    bug_url = "https://bugs.launchpad.net/scratch";
 		    help_url = "https://answers.launchpad.net/scratch";
 		    translate_url = "https://translations.launchpad.net/scratch";
-		    
 		    about_authors = {"Mario Guerriero <mefrio.g@gmail.com>",
                              "Giulio Collura <random.cpp@gmail.com>",
-                             "Gabriele Coletta <gdmg92@gmail.com>"
+                             "Gabriele Coletta <gdmg92@gmail.com>",
+                             null
                              };
-        					    
         	//about_documenters = {"",""};
-		about_artists = {"Harvey Cabaguio 'BassUltra' <harveycabaguio@gmail.com>"};
-		about_translators = "Launchpad Translators";
-         
+		    about_artists = {"Harvey Cabaguio 'BassUltra' <harveycabaguio@gmail.com>",
+                             null
+                             };
+		    about_translators = "Launchpad Translators";
+		    about_license = """This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License version 3,
+as published by the Free Software Foundation.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranties of
+MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU General Public License for
+more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses>""";
 		
 		}
 
