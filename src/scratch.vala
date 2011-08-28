@@ -27,6 +27,8 @@ using Granite.Services;
 
 namespace Scratch {
 
+    public Marlin.PluginManager plugins;
+
     public class Scratch : Granite.Application {
     	
         private MainWindow window = null;
@@ -76,6 +78,8 @@ namespace Scratch {
             saved_state = new SavedState ();
             settings = new Settings ();
             services = new ServicesSettings ();
+
+            plugins = new Marlin.PluginManager(settings.schema, "plugins-enabled", build_pkg_data_dir + "/plugins/");
 
         }
 

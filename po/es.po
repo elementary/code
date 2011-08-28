@@ -6,16 +6,62 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-08-23 11:31+0200\n"
 "PO-Revision-Date: 2011-08-26 19:24+0000\n"
 "Last-Translator: Cody Garver <codygarver@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2011-08-27 06:44+0000\n"
 "X-Generator: Launchpad (build 13794)\n"
+
+msgid "Add a new view"
+msgstr "Añadir una nueva vista"
+
+msgid "All your work will be lost!"
+msgstr ""
+
+msgid "An error occured"
+msgstr ""
+
+msgid "Cancel the last operation"
+msgstr ""
+
+msgid "Changes on this file aren't saved."
+msgstr ""
+
+msgid "Close"
+msgstr "Cerca"
+
+msgid "Code highlight:"
+msgstr ""
+
+msgid "Create a new file in a new tab"
+msgstr ""
+
+msgid "Do you want to save changes before close this file?"
+msgstr ""
+
+msgid "Expiry time:"
+msgstr ""
+
+msgid "Fullscreen"
+msgstr "Pantalla completa"
+
+msgid "Highlight current line"
+msgstr "Resaltar la línea actual"
+
+msgid "Keep this paste private"
+msgstr ""
+
+msgid "Name:"
+msgstr "Nombre:"
+
+msgid "Never"
+msgstr "Nunca"
 
 msgid "New file"
 msgstr "Archivo nuevo"
@@ -23,53 +69,44 @@ msgstr "Archivo nuevo"
 msgid "No files opened."
 msgstr "No hay archivos abiertos."
 
+#. combobox.append (_("File language"));
+msgid "Normal Text"
+msgstr "Texto Normal"
+
+msgid "One day"
+msgstr "Un dia"
+
+msgid "One hour"
+msgstr "Una hora"
+
+msgid "One month"
+msgstr "Un mes"
+
 msgid "Open a file to start editing"
 msgstr "Abrir un archivo para iniciar la edición"
+
+msgid "Open an existing file"
+msgstr "Abrir un archivo existente"
 
 msgid "Open file"
 msgstr "Abrir archivo"
 
-msgid "open a saved file"
-msgstr "abrir un archivo guardado"
-
-msgid "create an new empty file"
-msgstr "crear un nuevo archivo vacío"
-
-msgid "Add a new view"
-msgstr "Añadir una nueva vista"
-
 msgid "Remove current view"
 msgstr "Quitar la vista actual"
 
-msgid "Fullscreen"
-msgstr "Pantalla completa"
+msgid "Repeat the last cancelled operation"
+msgstr ""
 
-msgid "Upload to Pastebin..."
-msgstr "Subir a la Pastebin"
+msgid "Save the current file"
+msgstr "Guardar el archivo actual"
 
-msgid "Share via email..."
+msgid "Save this file? "
 msgstr ""
 
 msgid "Search in the text..."
 msgstr ""
 
-#. combobox.append (_("File language"));
-msgid "Normal Text"
-msgstr "Texto Normal"
-
-msgid "Create a new file in a new tab"
-msgstr ""
-
-msgid "Open an existing file"
-msgstr "Abrir un archivo existente"
-
-msgid "Save the current file"
-msgstr "Guardar el archivo actual"
-
-msgid "Cancel the last operation"
-msgstr ""
-
-msgid "Repeat the last cancelled operation"
+msgid "Select font:"
 msgstr ""
 
 msgid "Share this file with others"
@@ -78,77 +115,41 @@ msgstr ""
 msgid "Share via PasteBin"
 msgstr ""
 
-msgid "Name:"
-msgstr "Nombre:"
-
-msgid "Code highlight:"
+msgid "Share via email..."
 msgstr ""
 
-msgid "Expiry time:"
+msgid "Show line numbers"
+msgstr "Mostrar numero de líneas"
+
+msgid "Style scheme:"
 msgstr ""
 
-msgid "Keep this paste private"
-msgstr ""
+msgid "Tab width:"
+msgstr "Ancho de tabulador:"
 
-msgid "The text is void!"
-msgstr ""
+msgid "Ten minutes"
+msgstr "Diez minutos"
 
 msgid "The text format doesn't exist"
-msgstr ""
-
-msgid "An error occured"
 msgstr ""
 
 msgid "The text is sended"
 msgstr ""
 
-msgid "Never"
-msgstr "Nunca"
+msgid "The text is void!"
+msgstr ""
 
-msgid "Ten minutes"
-msgstr "Diez minutos"
-
-msgid "One hour"
-msgstr "Una hora"
-
-msgid "One day"
-msgstr "Un dia"
-
-msgid "One month"
-msgstr "Un mes"
-
-msgid "Show line numbers"
-msgstr "Mostrar numero de líneas"
-
-msgid "Highlight current line"
-msgstr "Resaltar la línea actual"
+msgid "Upload to Pastebin..."
+msgstr "Subir a la Pastebin"
 
 msgid "Use spaces instead of tabs"
 msgstr "Utilizar espacios en lugar de tabuladores"
 
-msgid "Tab width:"
-msgstr "Ancho de tabulador:"
-
-msgid "Style scheme:"
-msgstr ""
-
 msgid "Use the system fixed width font ("
 msgstr ""
 
-msgid "Select font:"
-msgstr ""
+msgid "create an new empty file"
+msgstr "crear un nuevo archivo vacío"
 
-msgid "Close"
-msgstr "Cerca"
-
-msgid "Changes on this file aren't saved."
-msgstr ""
-
-msgid "Do you want to save changes before close this file?"
-msgstr ""
-
-msgid "Save this file? "
-msgstr ""
-
-msgid "All your work will be lost!"
-msgstr ""
+msgid "open a saved file"
+msgstr "abrir un archivo guardado"

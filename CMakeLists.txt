@@ -22,7 +22,7 @@ add_definitions(-include config.h)
 
 # Scratch
 
-set (SCRATCH_DEPS "gobject-2.0;glib-2.0;gio-2.0;gconf-2.0;gtk+-3.0;granite;libsoup-2.4;pango")
+set (SCRATCH_DEPS "gee-1.0;gobject-2.0;glib-2.0;gio-2.0;gconf-2.0;gtk+-3.0;granite;libsoup-2.4;pango")
 
 find_package (PkgConfig)
 pkg_check_modules (GLIB REQUIRED "glib-2.0 >= 2.26.0")
@@ -65,6 +65,7 @@ PACKAGES
 CUSTOM_VAPIS
     vapi/config.vapi
     vapi/gtksourceview-3.0.vapi
+    ${CMAKE_BINARY_DIR}/libplugins/scratchplugins.vapi
 OPTIONS
 	--thread
 )
@@ -86,6 +87,8 @@ endif (${GETTEXT_FOUND} STREQUAL "TRUE")
 
 # add_definitions (${CFLAGS} -Wall -Winit-self -Wwrite-strings -Wunreachable-code -Wstrict-prototypes )
 add_executable (scratch ${VALA_C})
+include_directories(${CMAKE_BINARY_DIR}/libplugins)
+target_link_libraries (scratch scratchplugins)
 
 #TODO: Installation
 install (TARGETS scratch RUNTIME DESTINATION bin)
@@ -123,3 +126,4 @@ if (GSETTINGS_COMPILE)
     install (CODE "execute_process (COMMAND ${_glib_comple_schemas} ${GSETTINGS_DIR})")
 endif (GSETTINGS_COMPILE)
 
+add_subdirectory(libplugins)
