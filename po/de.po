@@ -8,106 +8,70 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-08-23 11:31+0200\n"
-"PO-Revision-Date: 2011-08-11 13:17+0000\n"
-"Last-Translator: Paspartout <Unknown>\n"
+"PO-Revision-Date: 2011-08-27 10:55+0000\n"
+"Last-Translator: Eduard Gotwig <eduardgotwig@gmail.com>\n"
 "Language-Team: German <de@li.org>\n"
-"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-08-24 05:34+0000\n"
-"X-Generator: Launchpad (build 13697)\n"
-
-msgid "Add a new view"
-msgstr ""
-
-msgid "All your work will be lost!"
-msgstr "Alle Änderungen gehen Verloren!"
-
-msgid "An error occured"
-msgstr ""
-
-msgid "Cancel the last operation"
-msgstr "Rückgängig"
-
-msgid "Changes on this file aren't saved."
-msgstr "Deine Änderungen in der Datei wurden nicht gespeichert"
-
-msgid "Close"
-msgstr "Schließen"
-
-msgid "Code highlight:"
-msgstr "Quelltext hervorheben:"
-
-msgid "Create a new file in a new tab"
-msgstr "Erstellt eine neue Datei in einem neuen Tab"
-
-msgid "Do you want to save changes before close this file?"
-msgstr "Möchtest du deine Änderungen vor dem Schließen speichern?"
-
-msgid "Expiry time:"
-msgstr "Ablaufzeit:"
-
-msgid "Fullscreen"
-msgstr "Vollbild"
-
-msgid "Highlight current line"
-msgstr "Aktuelle Zeile hervorheben"
-
-msgid "Keep this paste private"
-msgstr "Diese Paste privat lassen"
-
-msgid "Name:"
-msgstr "Name:"
-
-msgid "Never"
-msgstr ""
+"X-Launchpad-Export-Date: 2011-08-28 05:48+0000\n"
+"X-Generator: Launchpad (build 13794)\n"
+"Language: de\n"
 
 msgid "New file"
 msgstr "Neue Datei"
 
 msgid "No files opened."
-msgstr ""
-
-#. combobox.append (_("File language"));
-msgid "Normal Text"
-msgstr ""
-
-msgid "One day"
-msgstr ""
-
-msgid "One hour"
-msgstr ""
-
-msgid "One month"
-msgstr ""
+msgstr "Keine Dateien geöffnet."
 
 msgid "Open a file to start editing"
-msgstr ""
-
-msgid "Open an existing file"
-msgstr "Öffnet eine existierende Datei"
+msgstr "Öffnet eine Datei zum Bearbeiten"
 
 msgid "Open file"
-msgstr ""
+msgstr "Datei öffnen"
+
+msgid "open a saved file"
+msgstr "Öffnet eine gespeicherte Datei"
+
+msgid "create an new empty file"
+msgstr "Erstellt ein blankes Dokument"
+
+msgid "Add a new view"
+msgstr "Neue Ansicht hinzufügen"
 
 msgid "Remove current view"
-msgstr ""
+msgstr "Momentane Ansicht entfernen"
 
-msgid "Repeat the last cancelled operation"
-msgstr "Wiederholen"
+msgid "Fullscreen"
+msgstr "Vollbild"
 
-msgid "Save the current file"
-msgstr "Speichert die aktuelle Datei."
+msgid "Upload to Pastebin..."
+msgstr "Auf Pastebin hochladen..."
 
-msgid "Save this file? "
-msgstr "Diese Datei speichern? "
+msgid "Share via email..."
+msgstr "Via E-Mail verschicken..."
 
 msgid "Search in the text..."
 msgstr "In der Datei suchen..."
 
-msgid "Select font:"
-msgstr "Ausgewählte Schriftart"
+#. combobox.append (_("File language"));
+msgid "Normal Text"
+msgstr "Normaler Text"
+
+msgid "Create a new file in a new tab"
+msgstr "Erstellt eine neue Datei in einem neuen Tab"
+
+msgid "Open an existing file"
+msgstr "Öffnet eine existierende Datei"
+
+msgid "Save the current file"
+msgstr "Speichert die aktuelle Datei."
+
+msgid "Cancel the last operation"
+msgstr "Rückgängig"
+
+msgid "Repeat the last cancelled operation"
+msgstr "Wiederholen"
 
 msgid "Share this file with others"
 msgstr "Die Datei mit anderen teilen"
@@ -115,41 +79,77 @@ msgstr "Die Datei mit anderen teilen"
 msgid "Share via PasteBin"
 msgstr "Auf Pastebin hochladen..."
 
-msgid "Share via email..."
-msgstr "Via E-Mail verschicken..."
+msgid "Name:"
+msgstr "Name:"
+
+msgid "Code highlight:"
+msgstr "Quelltext hervorheben:"
+
+msgid "Expiry time:"
+msgstr "Ablaufzeit:"
+
+msgid "Keep this paste private"
+msgstr "Diese Paste privat lassen"
+
+msgid "The text is void!"
+msgstr "Der Text ist blank!"
+
+msgid "The text format doesn't exist"
+msgstr "Das Textformat existiert nicht"
+
+msgid "An error occured"
+msgstr "Es ist ein Fehler aufgetreten"
+
+msgid "The text is sended"
+msgstr "Der Text wurde versandt"
+
+msgid "Never"
+msgstr "Nie"
+
+msgid "Ten minutes"
+msgstr "Zehn Minuten"
+
+msgid "One hour"
+msgstr "Eine Stunde"
+
+msgid "One day"
+msgstr "Einen Tag"
+
+msgid "One month"
+msgstr "Einen Monat"
 
 msgid "Show line numbers"
 msgstr "Zeilennummern anzeigen"
 
-msgid "Style scheme:"
-msgstr "Styleschema:"
-
-msgid "Tab width:"
-msgstr "Tabulatorbreite:"
-
-msgid "Ten minutes"
-msgstr ""
-
-msgid "The text format doesn't exist"
-msgstr ""
-
-msgid "The text is sended"
-msgstr ""
-
-msgid "The text is void!"
-msgstr ""
-
-msgid "Upload to Pastebin..."
-msgstr "Auf Pastebin hochladen..."
+msgid "Highlight current line"
+msgstr "Aktuelle Zeile hervorheben"
 
 msgid "Use spaces instead of tabs"
 msgstr "Leerzeichen statt Tabs verwenden"
 
+msgid "Tab width:"
+msgstr "Tabulatorbreite:"
+
+msgid "Style scheme:"
+msgstr "Styleschema:"
+
 msgid "Use the system fixed width font ("
 msgstr "Die Schriftbreite vom System verwenden ("
 
-msgid "create an new empty file"
-msgstr ""
+msgid "Select font:"
+msgstr "Ausgewählte Schriftart"
 
-msgid "open a saved file"
-msgstr ""
+msgid "Close"
+msgstr "Schließen"
+
+msgid "Changes on this file aren't saved."
+msgstr "Deine Änderungen in der Datei wurden nicht gespeichert"
+
+msgid "Do you want to save changes before close this file?"
+msgstr "Möchtest du deine Änderungen vor dem Schließen speichern?"
+
+msgid "Save this file? "
+msgstr "Diese Datei speichern? "
+
+msgid "All your work will be lost!"
+msgstr "Alle Änderungen gehen Verloren!"
