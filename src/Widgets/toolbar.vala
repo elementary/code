@@ -35,6 +35,10 @@ namespace Scratch.Widgets {
         public ToolItem combo_container;
         public ComboBoxText combobox;
         
+        public string selected_language {
+        	get { return combobox.get_active_id(); }
+        }
+        
         public Entry entry;
         public ShareMenu share_menu;
         public MenuProperties menu;
@@ -118,7 +122,7 @@ namespace Scratch.Widgets {
         
         private void set_combobox_text () {
 	   //combobox.append (_("File language"));
-           combobox.append ("normal", _("Normal Text"));
+           combobox.append ("text", _("Normal Text"));
            combobox.append ("sh", "Bash");
            combobox.append ("c", "C");
            combobox.append ("c-sharp", "C#");
@@ -144,9 +148,12 @@ namespace Scratch.Widgets {
            combobox.append ("ruby", "Ruby");
            combobox.append ("vala", "Vala");
            combobox.append ("xml", "XML");
+           /* IMPORTANT: if you add an item in this list, check also pastebin dialog list */
+           
            combobox.set_active (0);
         }
-        
+
+
         private void set_tooltip () {
         	new_button.set_tooltip_text(_("Create a new file in a new tab"));
         	open_button.set_tooltip_text(_("Open an existing file"));

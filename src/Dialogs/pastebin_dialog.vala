@@ -26,20 +26,6 @@ namespace Scratch.Dialogs {
 
     public class PasteBinDialog : Window {
         
-        private MainWindow window;
-
-        private VBox content;
-        private HBox padding;
-
-        private Entry name_entry;
-		private ComboBoxText format_combo;
-        private ComboBoxText expiry_combo;
-        private CheckButton private_check;
-
-        private Button cancel_button;
-        private Button send_button;
-
-
 		public string[,] languages = {
 			//if default, code, desc, scratch-equivalent
 			{"n", "4cs", "4CS", ""},
@@ -161,7 +147,6 @@ namespace Scratch.Dialogs {
 			{"n", "mxml", "MXML", ""},
 			{"n", "mysql", "MySQL", ""},
 			{"n", "newlisp", "newLISP", ""},
-			{"n", "text", "None", "normal"},
 			{"n", "nsis", "NullSoft Installer", ""},
 			{"n", "oberon2", "Oberon 2", ""},
 			{"n", "objeck", "Objeck Programming Langua", ""},
@@ -220,6 +205,7 @@ namespace Scratch.Dialogs {
 			{"n", "tsql", "T-SQL", ""},
 			{"n", "tcl", "TCL", ""},
 			{"n", "teraterm", "Tera Term", ""},
+			{"n", "text", "None", "text"},
 			{"n", "thinbasic", "thinBasic", ""},
 			{"n", "typoscript", "TypoScript", ""},
 			{"n", "unicon", "Unicon", ""},
@@ -242,6 +228,25 @@ namespace Scratch.Dialogs {
 			{"n", "yaml", "YAML", ""},
 			{"n", "z80", "Z80 Assembler", ""},
 			{"n", "zxbasic", "ZXBasic", ""} };
+        
+        
+			private MainWindow window;
+
+			private VBox content;
+			private HBox padding;
+
+			private Entry name_entry;
+			private ComboBoxText expiry_combo;
+			private CheckButton private_check;
+			
+			private ComboBoxText format_combo;
+			private Window format_others_win;
+			private TreeView format_others_view;
+			private ListStore format_store;
+
+			private Button cancel_button;
+			private Button send_button;
+
         
         public PasteBinDialog (MainWindow? window) {
 
@@ -270,27 +275,31 @@ namespace Scratch.Dialogs {
             name_entry_box.pack_start (name_entry_l, false, true, 0);
             name_entry_box.pack_start (name_entry, true, true, 0);
 
-/*
-            format_entry = new Entry ();
-            format_entry.text = "None";
-            var format_entry_l = new Label (_("Code highlight:"));
-            var format_entry_box = new HBox (false, 10);
-            format_entry_box.pack_start (format_entry_l, false, true, 0);
-            format_entry_box.pack_start (format_entry, true, true, 0);
-*/
 
-
-            format_combo = new ComboBoxText ();
-
-			for (var i=0; i < languages.length[0]; i++)
+			var format_label = new Label (_("Format: "));
+			format_combo = new ComboBoxText();
+			var format_button = new Button.with_label (_("Others..."));
+				format_button.clicked.connect (format_button_clicked);
+			
+			//populate combo box
+			var sel_lang = window.toolbar.selected_language;
+			for (var i=0; i < languages.length[0]; i++) {
+			
+				//insert all languages that are in the scratch combo, and also those that are marked with "y"
 				if ( (languages[i, 3] != "") || (languages[i, 0] == "y")) format_combo.append (languages[i, 1], languages[i, 2]);
-
-			format_combo.set_active_id("text");
-            var format_combo_l = new Label (_("Format:"));
-            var format_combo_box = new HBox (false, 28);
-            format_combo_box.pack_start (format_combo_l, false, true, 0);
-            format_combo_box.pack_start (format_combo, true, true, 0);
-
+				//if the inserted language is selected in scratch combo, select it as default
+				if ( languages[i, 3] == sel_lang ) format_combo.set_active_id(languages[i, 1]);
+			}
+			
+			//if no language is selected, select text as default
+			if (format_combo.get_active_id() == null) format_combo.set_active_id("text");
+		
+		
+			var format_box = new HBox(false, 28);
+			format_box.pack_start (format_label);
+			format_box.pack_start (format_combo);
+			format_box.pack_start (format_button);
+			
 
             expiry_combo = new ComboBoxText ();
             populate_expiry_combo ();
@@ -311,7 +320,7 @@ namespace Scratch.Dialogs {
             bottom_buttons.pack_end (send_button);
 
             content.pack_start (wrap_alignment (name_entry_box, 12, 0, 0, 0), true, true, 0);
-            content.pack_start (format_combo_box, true, true, 0);
+            content.pack_start (format_box, true, true, 0);
             content.pack_start (expiry_combo_box, true, true, 0);
             content.pack_start (private_check, true, true, 0);
             content.pack_end (bottom_buttons, true, true, 12);
@@ -323,10 +332,77 @@ namespace Scratch.Dialogs {
             read_settings ();
 
             show_all ();
+            
             send_button.grab_focus ();
 
         }
 
+
+		private void format_button_clicked() {
+		
+			format_others_win = new Window();
+			format_others_win.set_modal(true);
+			format_others_win.set_title(_("Others formats"));
+			format_others_win.set_default_size (250, 300);
+			
+				format_others_view = new TreeView();
+		        format_others_view.set_headers_visible(false);
+				format_store = new ListStore (2, typeof (string), typeof (string));
+				format_others_view.set_model (format_store);
+				format_others_view.insert_column_with_attributes (-1, "Language", new CellRendererText (), "text", 0);				
+
+				TreeIter iter;
+				for (var i=0; i < languages.length[0]; i++) {			
+					format_store.append (out iter);
+					format_store.set (iter, 0, languages[i, 2], 1, languages[i, 1]);
+				}
+
+			var format_others_scroll = new ScrolledWindow(null, null);
+				format_others_scroll.add(format_others_view);
+				
+			var format_others_ok = new Button.from_stock(Stock.OK);
+				format_others_ok.clicked.connect (format_others_ok_clicked);			
+			var format_others_cancel = new Button.from_stock(Stock.CANCEL);
+				format_others_cancel.clicked.connect (format_others_cancel_clicked);
+			var format_others_buttons = new ButtonBox(Orientation.HORIZONTAL);
+				format_others_buttons.set_layout(ButtonBoxStyle.CENTER);
+				format_others_buttons.pack_start (format_others_cancel);
+				format_others_buttons.pack_start (format_others_ok);
+				
+			var format_others_box = new VBox(false, 10);
+				format_others_box.pack_start (format_others_scroll);
+				format_others_box.pack_start (format_others_buttons);				
+				
+			format_others_win.add (format_others_box);
+			format_others_win.show_all();
+	
+		}
+		
+		private void format_others_cancel_clicked() {
+			format_others_win.destroy();
+		}
+
+		private void format_others_ok_clicked() {
+		
+			var selection = format_others_view.get_selection ();
+			TreeIter iter;
+			if (selection.get_selected (null, out iter) == true) {
+			
+				Value lang_name;
+				Value lang_code;				
+				format_store.get_value(iter, 0, out lang_name);
+				format_store.get_value(iter, 1, out lang_code);
+				
+				format_combo.append ((string) lang_code, (string) lang_name);
+				format_combo.set_active_id((string) lang_code);
+				
+			}
+			
+			format_others_win.destroy();
+			
+		}
+
+		
         private static Alignment wrap_alignment (Widget widget, int top, int right,
                                                  int bottom, int left) {
 
@@ -354,7 +430,7 @@ namespace Scratch.Dialogs {
 
         private void write_settings () {
 
-//            Scratch.services.paste_format_code = format_entry.text;
+            Scratch.services.paste_format_code = format_combo.get_active_id();
             Scratch.services.expiry_time = expiry_combo.get_active_id ();
             Scratch.services.set_private = private_check.get_active ();
 
@@ -436,14 +512,13 @@ namespace Scratch.Dialogs {
 
         }
 
+
         private int submit_paste (out string link) {
 
             // Get the values
-            
             string paste_code = window.current_tab.text_view.buffer.text;
             string paste_name = name_entry.text;
-//            string paste_format = format_entry.text;
-			string paste_format = "text";
+            string paste_format = format_combo.get_active_id ();
             string paste_private = private_check.get_active () == true ? PasteBin.PRIVATE : PasteBin.PUBLIC;
             string paste_expire_date = expiry_combo.get_active_id ();
 

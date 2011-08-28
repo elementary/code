@@ -66,6 +66,7 @@ namespace Scratch {
 			connect_signals ();
 			
 			set_theme ();
+			
 		}
 		
 		public void create_window () {
