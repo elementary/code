@@ -41,8 +41,10 @@ namespace Scratch.Widgets {
             this.window = window;
         	this.notebook = parent;
             
-            set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
-            notebook.set_tab_reorderable (this, true);            
+            notebook.set_tab_reorderable (this, true);
+            notebook.set_tab_detachable (this, true);
+            
+            set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);            
             
             text_view = new SourceView (window);
             text_view.focus_in_event.connect (on_focus_in);
@@ -166,14 +168,14 @@ namespace Scratch.Widgets {
     
     public class TabLabel : HBox {
 	
-	public HBox tablabel;
+		public HBox tablabel;
         private EventBox event_box;
         public Label label;
         public Entry entry;
         public Button close;
         
         public TabLabel (Tab my_tab, string labeltext) {
-            
+                        
             label = new Label (labeltext);
             entry = new Entry ();
 
@@ -255,7 +257,8 @@ namespace Scratch.Widgets {
 	    	this.window = parent;
 			this.welcome_screen = new ScratchWelcome(this);
 	    	
-			this.set_scrollable (true);
+			set_scrollable (true);
+			set_group_name ("s");
 			
 	    }
 	    
@@ -353,7 +356,7 @@ namespace Scratch.Widgets {
 		
 		public void add_view (ScratchNotebook view) {
 			pack_start (view, true, true, 0);
-			this.set_focus_child (view);	
+			this.set_focus_child (view);
 			//set sensitive for remove menutitem
 			if (get_children ().length() >= 2) 
 				window.toolbar.menu.remove_view.set_sensitive (true);
