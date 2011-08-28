@@ -34,7 +34,7 @@ namespace Scratch {
 		public ScratchWindowState window_state { get; set; }
 				
 		public SavedState () {
-			base ("org.elementary.Scratch.SavedState");
+			base ("org.elementary.scratch.savedstate");
 		}
 	
 	}

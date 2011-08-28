@@ -14,6 +14,7 @@ set (VERSION_INFO "Release")
 
 
 list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/vala)
+list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
 
 # Configure file
@@ -70,20 +71,7 @@ OPTIONS
 )
 
 # tranlation stuff
-find_package (Gettext REQUIRED)
-
-add_custom_command (OUTPUT ${CMAKE_SOURCE_DIR}/po/scratch.pot
-        COMMAND xgettext -c --files-from ${CMAKE_SOURCE_DIR}/po/POTFILES.in --keyword=_ -o ${CMAKE_SOURCE_DIR}/po/scratch.pot --no-wrap --no-location
-        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-        )
-
-if (${GETTEXT_FOUND} STREQUAL "TRUE")
-        set (HAVE_GETTEXT true)
-        file (GLOB _translations ${CMAKE_SOURCE_DIR}/po/*.po)
-        GETTEXT_CREATE_TRANSLATIONS (${CMAKE_SOURCE_DIR}/po/${PROJECT_NAME}.pot
-                ALL ${_translations})
-endif (${GETTEXT_FOUND} STREQUAL "TRUE")
-
+add_subdirectory(po)
 # add_definitions (${CFLAGS} -Wall -Winit-self -Wwrite-strings -Wunreachable-code -Wstrict-prototypes )
 add_executable (scratch ${VALA_C})
 
