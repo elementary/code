@@ -27,16 +27,16 @@ using Granite.Services;
 
 namespace Scratch {
 
-    public PluginManager plugins;
+    public Scratch.Plugins.Manager plugins;
+        public SavedState saved_state;
+        public Settings settings;
+        public ServicesSettings services;
+        
 
-    public class Scratch : Granite.Application {
+    public class ScratchApp : Granite.Application {
     	
         private MainWindow window = null;
 
-        public static SavedState saved_state {get; private set; default = null;}
-        public static Settings settings {get; private set; default = null;}
-        public static ServicesSettings services {get; private set; default = null;}
-        
         construct {
         
             build_data_dir = Constants.DATADIR;
@@ -68,7 +68,7 @@ namespace Scratch {
 		
 		}
 
-        public Scratch () {
+        public ScratchApp () {
 			
 			Logger.initialize ("Scratch");
 			Logger.DisplayLevel = LogLevel.DEBUG;
@@ -79,7 +79,7 @@ namespace Scratch {
             settings = new Settings ();
             services = new ServicesSettings ();
 
-            plugins = new PluginManager(settings.schema, "plugins-enabled", build_pkg_data_dir + "/plugins/");
+            plugins = new Scratch.Plugins.Manager(settings.schema, "plugins-enabled", build_pkg_data_dir + "/plugins/");
             plugins.hook_example("Example text");
         }
 
@@ -116,7 +116,7 @@ namespace Scratch {
 
 		public static int main (string[] args) {
             
-            var app = new Scratch ();
+            var app = new ScratchApp ();
 
 		    return app.run (args);
 		    

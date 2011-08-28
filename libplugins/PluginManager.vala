@@ -22,21 +22,21 @@
 //namespace Scratch
 
 
-public class Scratch.BasePluginManager : GLib.Object
+public class Scratch.Plugins.BaseManager : GLib.Object
 {
-    delegate PluginsBase ModuleInitFunc ();
-    internal Gee.HashMap<string,PluginsBase> plugin_hash;
+    delegate Base ModuleInitFunc ();
+    internal Gee.HashMap<string,Base> plugin_hash;
     Settings settings;
     string settings_field;
     string plugin_dir;
     List<string> names = null;
     bool in_available = false;
-    public BasePluginManager(Settings settings, string field, string plugin_dir)
+    public BaseManager(Settings settings, string field, string plugin_dir)
     {
         settings_field = field;
         this.settings = settings;
         this.plugin_dir = plugin_dir;
-        plugin_hash = new Gee.HashMap<string,PluginsBase>();
+        plugin_hash = new Gee.HashMap<string,Base>();
         load_plugins();
     }
     
@@ -89,7 +89,7 @@ public class Scratch.BasePluginManager : GLib.Object
         }
     }
 
-    PluginsBase? load_module(string file_path)
+    Base? load_module(string file_path)
     {
         Module? module = Module.open (file_path, ModuleFlags.BIND_LOCAL);
         if (module == null)
@@ -117,7 +117,7 @@ public class Scratch.BasePluginManager : GLib.Object
 
         debug ("Loaded module source: '%s'", module.name());
 
-        PluginsBase base_ = module_init();
+        Base base_ = module_init();
         return base_;
     }
     
@@ -134,7 +134,7 @@ public class Scratch.BasePluginManager : GLib.Object
             }
             else if(force || name in settings.get_strv(settings_field))
             {
-                PluginsBase plug = load_module(Path.build_filename(parent, keyfile.get_string("Plugin", "File")));
+                Base plug = load_module(Path.build_filename(parent, keyfile.get_string("Plugin", "File")));
                 if(plug != null)
                 {
                     plugin_hash[name] = plug;
@@ -184,9 +184,9 @@ public class Scratch.BasePluginManager : GLib.Object
     }
 }
 
-public class Scratch.PluginManager : Scratch.BasePluginManager
+public class Scratch.Plugins.Manager : Scratch.Plugins.BaseManager
 {
-    public PluginManager(Settings s, string f, string d)
+    public Manager(Settings s, string f, string d)
     {
         base(s, f, d);
     }
@@ -197,7 +197,7 @@ public class Scratch.PluginManager : Scratch.BasePluginManager
     }
     
 }
-public abstract class PluginsBase : GLib.Object
+public abstract class Scratch.Plugins.Base : GLib.Object
 {    
     public virtual void example(string arg) { }
 }
