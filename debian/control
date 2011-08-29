@@ -12,7 +12,8 @@ Build-Depends: debhelper (>= 7.0.50~),
     gir1.2-gconf-2.0,
     libgconf2-dev,
     gir1.2-soup-2.4,
-    libsoup2.4-dev
+    libsoup2.4-dev,
+    libgee-dev
 Standards-Version: 3.9.1
 Homepage: http://launchpad.net/scratch
 Vcs-Bzr: https://code.launchpad.net/~scratch-hackers/scratch/scratch

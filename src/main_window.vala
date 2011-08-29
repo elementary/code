@@ -429,8 +429,11 @@ namespace Scratch {
 			this.title += " (" + path + ")";
 		
 		}
-
+#if VALA_0_14
 		protected override bool delete_event (Gdk.EventAny event) {
+#else
+		protected override bool delete_event (Gdk.Event event) {
+#endif
 
 			update_saved_state ();
 			on_destroy ();
