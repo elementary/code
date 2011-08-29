@@ -252,17 +252,18 @@ namespace Scratch {
 		}
 		
 		public void on_open_clicked () {
-
+			
+			if (current_notebook.welcome_screen.active)
+				on_new_clicked ();
+								
 			// show dialog
 			this.filech = new FileChooserDialog ("Open a file", this, FileChooserAction.OPEN, null);
 			filech.add_button (Stock.CANCEL, ResponseType.CANCEL);
 			filech.add_button (Stock.OPEN, ResponseType.ACCEPT);
 			filech.set_default_response (ResponseType.ACCEPT);
 			
-			// filech.response.connect (on_response);
-			
 			if (filech.run () == ResponseType.ACCEPT)
-				open (filech.get_filename ());
+					open (filech.get_filename ());
 
 			filech.close ();
 			set_undo_redo ();
@@ -479,6 +480,11 @@ namespace Scratch {
 
 			toolbar.set_button_sensitive(Widgets.Toolbar.ToolButtons.UNDO_BUTTON, buf.can_undo);
 			toolbar.set_button_sensitive(Widgets.Toolbar.ToolButtons.REPEAT_BUTTON, buf.can_redo);
+			
+			if (current_notebook.welcome_screen.active) {
+				toolbar.set_button_sensitive(Widgets.Toolbar.ToolButtons.UNDO_BUTTON, false);
+				toolbar.set_button_sensitive(Widgets.Toolbar.ToolButtons.REPEAT_BUTTON, false);
+			}
 		
 		}
 		

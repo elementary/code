@@ -279,6 +279,7 @@ namespace Scratch.Widgets {
 					this.append_page (welcome_screen, null);
 					this.set_show_tabs (false);
 					this.welcome_screen.active = true;
+					window.set_undo_redo ();
 				}
 			}
 		
@@ -324,8 +325,8 @@ namespace Scratch.Widgets {
 
 				switch (index) {
 					case 0: //open
-					notebook.window.current_notebook.add_tab ();
-					notebook.window.on_open_clicked();
+					//notebook.window.on_new_clicked ();
+					notebook.window.on_open_clicked ();
 					break;
 
 					case 1: // new
