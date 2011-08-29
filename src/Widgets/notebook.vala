@@ -346,6 +346,9 @@ namespace Scratch.Widgets {
     public class SplitView : HBox {
 		
 		public MainWindow window;
+		public uint total_view {
+			get {return get_children().length();}
+		}
 		
 		public SplitView (MainWindow window) {
 			this.window = window;

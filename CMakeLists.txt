@@ -11,6 +11,7 @@ set (GETTEXT_PACKAGE "scratch")
 set (RELEASE_NAME "The Elementary Text Editor.")
 set (VERSION "0.0.2")
 set (VERSION_INFO "Release")
+set (CMAKE_C_FLAGS "-ggdb")
 
 
 list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/vala)

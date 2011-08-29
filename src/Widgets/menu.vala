@@ -42,7 +42,11 @@ namespace Scratch.Widgets {
             view = new MenuItem.with_label (_("Add a new view"));
             
             remove_view = new MenuItem.with_label (_("Remove current view"));
-            remove_view.set_sensitive (window.split_view.remove_current_view ());
+            if (window.split_view != null) {
+				if (window.split_view.total_view <= 1) remove_view.set_sensitive(false);
+				else remove_view.set_sensitive(true);
+			}
+	        else remove_view.set_sensitive(false);
 
             fullscreen = new CheckMenuItem.with_label (_("Fullscreen"));
             fullscreen.active = (Scratch.saved_state.window_state == ScratchWindowState.FULLSCREEN);
