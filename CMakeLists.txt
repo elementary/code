@@ -89,7 +89,7 @@ install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/scratch.desktop DESTINATION /usr
 SET (SCRATCH_SCHEMAS "org.elementary.scratch.gschema.xml")
 
 # Have an option to not install the schema into where GLib is
-option (GSETTINGS_LOCALINSTALL "Install GSettings Schemas locally instead of to the GLib prefix" OFF)
+option (GSETTINGS_LOCALINSTALL "Install GSettings Schemas locally instead of to the GLib prefix" ON)
 if (GSETTINGS_LOCALINSTALL)
     SET (GSETTINGS_DIR "${CMAKE_INSTALL_PREFIX}/share/glib-2.0/schemas/")
 else (GSETTINGS_LOCALINSTALL)
