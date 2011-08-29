@@ -59,9 +59,7 @@ vala_precompile (VALA_C
     src/Dialogs/preferences_dialog.vala
     src/Dialogs/save_dialog.vala
     src/Dialogs/save_on_close_dialog.vala
-    src/Dialogs/pastebin_dialog.vala
     src/Services/document.vala
-    src/Services/pastebin.vala
 PACKAGES
 	${SCRATCH_DEPS} scratchplugins
 CUSTOM_VAPIS
@@ -70,6 +68,10 @@ CUSTOM_VAPIS
 OPTIONS
     --vapidir=${CMAKE_BINARY_DIR}/libplugins
     --thread
+GENERATE_VAPI
+    scratch
+GENERATE_HEADER
+    scratch
 )
 
 # tranlation stuff
@@ -77,6 +79,7 @@ add_subdirectory(po)
 # add_definitions (${CFLAGS} -Wall -Winit-self -Wwrite-strings -Wunreachable-code -Wstrict-prototypes )
 add_executable (scratch ${VALA_C})
 include_directories(${CMAKE_BINARY_DIR}/libplugins)
+include_directories(${CMAKE_BINARY_DIR}/lib)
 target_link_libraries (scratch scratchplugins)
 
 #TODO: Installation
@@ -116,3 +119,4 @@ if (GSETTINGS_COMPILE)
 endif (GSETTINGS_COMPILE)
 
 add_subdirectory(libplugins)
+add_subdirectory(plugins/pastebin)

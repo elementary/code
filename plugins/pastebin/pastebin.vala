@@ -106,3 +106,37 @@ namespace Scratch.Services {
 			 
     }
 }
+
+public class Scratch.Plugins.Pastebin : Scratch.Plugins.Base
+{
+    Gtk.MenuItem pastebin;
+    ScratchApp scratch_app;
+    public Pastebin()
+    {
+    }
+
+    public override void app(Gtk.Application app_)
+    {
+        this.scratch_app = app_ as ScratchApp;
+    }
+
+    public override void example(string text)
+    {
+        print("Why do you want me to say \"%s\"?\n", text);
+    }
+
+    public override void addons_menu(Gtk.Menu menu)
+    {
+            pastebin = new Gtk.MenuItem.with_label (_("Upload to Pastebin..."));
+            menu.append (pastebin);
+            pastebin.activate.connect (() => {
+				new Dialogs.PasteBinDialog (scratch_app.window);
+            });
+
+    }
+}
+
+public Scratch.Plugins.Base module_init()
+{
+    return new Scratch.Plugins.Pastebin();
+}

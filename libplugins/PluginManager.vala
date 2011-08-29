@@ -191,6 +191,17 @@ public class Scratch.Plugins.Manager : Scratch.Plugins.BaseManager
         base(s, f, d);
     }
     
+    public void hook_app(Gtk.Application menu)
+    {
+        foreach(var plugin in plugin_hash.values) plugin.app(menu);
+    }
+    
+    
+    public void hook_addons_menu(Gtk.Menu menu)
+    {
+        foreach(var plugin in plugin_hash.values) plugin.addons_menu(menu);
+    }
+    
     public void hook_example(string arg)
     {
         foreach(var plugin in plugin_hash.values) plugin.example(arg);
@@ -200,5 +211,7 @@ public class Scratch.Plugins.Manager : Scratch.Plugins.BaseManager
 public abstract class Scratch.Plugins.Base : GLib.Object
 {    
     public virtual void example(string arg) { }
+    public virtual void addons_menu(Gtk.Menu arg) { }
+    public virtual void app(Gtk.Application app) { }
 }
 

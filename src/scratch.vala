@@ -35,7 +35,7 @@ namespace Scratch {
 
     public class ScratchApp : Granite.Application {
     	
-        private MainWindow window = null;
+        public MainWindow window = null;
 
         construct {
         
@@ -93,6 +93,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses>""";
 
             plugins = new Scratch.Plugins.Manager(settings.schema, "plugins-enabled", build_pkg_data_dir + "/plugins/");
             plugins.hook_example("Example text");
+            plugins.hook_app(this);
         }
 
         protected override void open (File[] files, string hint) {

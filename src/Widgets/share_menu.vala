@@ -28,22 +28,23 @@ namespace Scratch.Widgets {
     public class ShareMenu : Menu {
         
         private Window window;
-        private MenuItem pastebin;
+        /*private MenuItem pastebin;*/
         private MenuItem share_email;
 
         public ShareMenu (MainWindow window) {
 
             this.window = window;
 
-            pastebin = new MenuItem.with_label (_("Upload to Pastebin..."));
+            /*pastebin = new MenuItem.with_label (_("Upload to Pastebin..."));*/
             share_email = new MenuItem.with_label (_("Share via email..."));
 
-            append (pastebin);
+            /*append (pastebin);*/
             append (share_email);
+            plugins.hook_addons_menu(this);
 
-            pastebin.activate.connect (() => {
+            /*pastebin.activate.connect (() => {
 				new PasteBinDialog (window);
-            });
+            });*/
             
             share_email.activate.connect (() => {
 				if (window.current_tab.filename != null){
