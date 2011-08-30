@@ -196,6 +196,10 @@ public class Scratch.Plugins.Manager : Scratch.Plugins.BaseManager
         foreach(var plugin in plugin_hash.values) plugin.app(menu);
     }
     
+    public void hook_notebook_context(Gtk.Notebook menu)
+    {
+        foreach(var plugin in plugin_hash.values) plugin.notebook_context(menu);
+    }
     
     public void hook_addons_menu(Gtk.Menu menu)
     {
@@ -213,5 +217,6 @@ public abstract class Scratch.Plugins.Base : GLib.Object
     public virtual void example(string arg) { }
     public virtual void addons_menu(Gtk.Menu arg) { }
     public virtual void app(Gtk.Application app) { }
+    public virtual void notebook_context(Gtk.Notebook note) { }
 }
 

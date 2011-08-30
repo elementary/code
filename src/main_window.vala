@@ -42,7 +42,9 @@ namespace Scratch {
 		public SplitView split_view;
 		public Widgets.Toolbar toolbar;
 		
-		//dialogs
+        Gtk.Notebook notebook_context;
+		
+        //dialogs
 		public FileChooserDialog filech;
 
 		public Tab current_tab;
@@ -68,13 +70,32 @@ namespace Scratch {
 			set_theme ();
 			
 		}
+
+        void on_notebook_context_new_page(Widget page, uint num)
+        {
+            notebook_context.no_show_all = false;
+            notebook_context.visible = false;
+            notebook_context.show_all();
+            page.show();
+            notebook_context.show_tabs = num > 1;
+        }
 		
 		public void create_window () {
 			
 			this.toolbar = new Widgets.Toolbar (this);
+        
+            notebook_context = new Gtk.Notebook();
+            notebook_context.page_added.connect(on_notebook_context_new_page);
+            var hpaned_addons = new Granite.Widgets.HCollapsablePaned();
 			
 			this.split_view = new SplitView (this);
-						
+            hpaned_addons.pack1(split_view, true, true);
+            hpaned_addons.pack2(notebook_context, false, false);
+            notebook_context.no_show_all = true;
+            notebook_context.visible = false;
+
+            plugins.hook_notebook_context(notebook_context);
+
 			this.notebook =  new ScratchNotebook (this);
 			this.notebook.add_tab();
 			
@@ -83,7 +104,7 @@ namespace Scratch {
 			//adding all to the vbox
 			var vbox = new VBox (false, 0);
 			vbox.pack_start (toolbar, false, false, 0);
-			vbox.pack_start (split_view, true, true, 0); 
+			vbox.pack_start (hpaned_addons, true, true, 0); 
 			
 			this.add (vbox);
 			
@@ -329,6 +350,15 @@ namespace Scratch {
 				return;
 			}
 		}
+        
+        public Gtk.TextView get_active_view() {
+            return current_tab.text_view;
+        }
+	
+
+        public Gtk.TextBuffer get_active_buffer() {
+            return current_tab.text_view.buffer;
+        }
 	
 		public void on_changed_text (){
 			search_string = toolbar.entry.get_text();
