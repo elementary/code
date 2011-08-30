@@ -41,9 +41,6 @@ namespace Scratch.Widgets {
             this.window = window;
         	this.notebook = parent;
             
-            notebook.set_tab_reorderable (this, true);
-            notebook.set_tab_detachable (this, true);
-            
             set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);            
             
             text_view = new SourceView (window);
@@ -265,8 +262,10 @@ namespace Scratch.Widgets {
         public int add_tab (string labeltext="New file") {
             
             var new_tab = new Tab (this, labeltext, window);
-            return this.append_page (new_tab, new_tab.label);
-            
+            int index = this.append_page (new_tab, new_tab.label);
+            set_tab_reorderable(new_tab, true);
+            set_tab_detachable(new_tab, true);
+            return index; 
         }
        
         
