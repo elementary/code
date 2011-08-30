@@ -41,8 +41,8 @@ link_directories(${LIB_PATHS})
 add_library(scratchpastebin SHARED 
     ${VALA_C})
 target_link_libraries(scratchpastebin scratchplugins) # useless, it is just for the build depends
-install(TARGETS scratchpastebin DESTINATION share/scratch/plugins/core/)
-install(FILES pastebin.plug DESTINATION share/scratch/plugins/core/)
+install(TARGETS scratchpastebin DESTINATION lib/scratch/plugins/core/)
+install(FILES pastebin.plug DESTINATION lib/scratch/plugins/core/)
 
 include_directories(${CMAKE_BINARY_DIR}/scratchplugins/)
 

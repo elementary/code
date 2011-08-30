@@ -91,7 +91,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses>""";
             settings = new Settings ();
             services = new ServicesSettings ();
 
-            plugins = new Scratch.Plugins.Manager(settings.schema, "plugins-enabled", build_pkg_data_dir + "/plugins/");
+            plugins = new Scratch.Plugins.Manager(settings.schema, "plugins-enabled", Constants.PLUGINDIR);
             plugins.hook_example("Example text");
             plugins.hook_app(this);
         }
