@@ -30,7 +30,6 @@ PACKAGES
     scratch
     ${SCRATCH_DEPS}
 CUSTOM_VAPIS
-    ${CMAKE_SOURCE_DIR}/vapi/config.vapi
     ${CMAKE_SOURCE_DIR}/vapi/gtksourceview-3.0.vapi
 OPTIONS
     --thread

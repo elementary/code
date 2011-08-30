@@ -18,8 +18,8 @@ list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
 
 # Configure file
-configure_file (${CMAKE_SOURCE_DIR}/config.h.cmake ${CMAKE_BINARY_DIR}/config.h)
-add_definitions(-include config.h)
+configure_file (${CMAKE_SOURCE_DIR}/src/config.vala.cmake ${CMAKE_SOURCE_DIR}/src/config.vala)
+add_definitions(-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\")
 
 # Scratch
 
@@ -59,10 +59,10 @@ vala_precompile (VALA_C
     src/Dialogs/save_dialog.vala
     src/Dialogs/save_on_close_dialog.vala
     src/Services/document.vala
+    src/config.vala
 PACKAGES
 	${SCRATCH_DEPS} scratchplugins
 CUSTOM_VAPIS
-    vapi/config.vapi
     vapi/gtksourceview-3.0.vapi
 OPTIONS
     --vapidir=${CMAKE_BINARY_DIR}/libplugins
