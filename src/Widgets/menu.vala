@@ -31,6 +31,8 @@ namespace Scratch.Widgets {
         public MenuItem remove_view;
         public CheckMenuItem fullscreen;
         public ImageMenuItem preferences;
+        public CheckMenuItem sidebar_visible;
+        public CheckMenuItem context_visible;
         
         public MenuProperties (MainWindow parent) {
             this.window = parent;
@@ -53,9 +55,20 @@ namespace Scratch.Widgets {
             
             preferences = new ImageMenuItem.from_stock (Stock.PREFERENCES, null);
 
+            sidebar_visible = new CheckMenuItem.with_label (_("Show sidebar"));
+            settings.schema.bind("sidebar-visible", sidebar_visible, "active", SettingsBindFlags.DEFAULT);
+            context_visible = new CheckMenuItem.with_label (_("Show context view"));
+            settings.schema.bind("context-visible", context_visible, "active", SettingsBindFlags.DEFAULT);
+
+            context_visible.sensitive = false;
+            sidebar_visible.sensitive = false;
+
             append (view);
             append (remove_view);
             append (fullscreen);
+            append (new SeparatorMenuItem ());
+            append (sidebar_visible);
+            append (context_visible);
             append (new SeparatorMenuItem ());
             append (preferences);
             

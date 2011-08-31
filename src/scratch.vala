@@ -119,7 +119,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses>""";
             if (get_windows () == null) {
                 window = new MainWindow ();
                 window.set_application (this);
-                window.show_all ();
+                window.show ();
             } else {
                 window.present ();
             }

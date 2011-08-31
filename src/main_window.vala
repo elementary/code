@@ -43,7 +43,8 @@ namespace Scratch {
         public Widgets.Toolbar toolbar;
         
         Gtk.Notebook notebook_context;
-        
+        Gtk.Notebook notebook_sidebar;
+
         //dialogs
         public FileChooserDialog filech;
 
@@ -71,13 +72,43 @@ namespace Scratch {
             
         }
 
-        void on_notebook_context_new_page(Widget page, uint num)
+        void on_notebook_context_new_page(Gtk.Notebook notebook, Widget page, uint num)
         {
-            notebook_context.no_show_all = false;
-            notebook_context.visible = false;
-            notebook_context.show_all();
-            page.show();
-            notebook_context.show_tabs = num >= 1;
+            if(settings.schema.get_boolean((notebook == notebook_context ? "context" : "sidebar") + "-visible")) notebook.show_all();
+            if(notebook == notebook_context)
+            {
+                toolbar.menu.context_visible.sensitive = true;
+            }
+            else
+                toolbar.menu.sidebar_visible.sensitive = true;
+            page.show_all();
+            notebook.show_tabs = num >= 1;
+        }
+
+        void key_changed(string key)
+        {
+            if(key == "context-visible")
+            {
+                if(settings.schema.get_boolean("context-visible") && notebook_context.get_n_pages() > 0)
+                {
+                    notebook_context.show_all();
+                }
+                else
+                {
+                    notebook_context.hide();
+                }
+            }
+            if(key == "sidebar-visible")
+            {
+                if(settings.schema.get_boolean("sidebar-visible") && notebook_sidebar.get_n_pages() > 0)
+                {
+                    notebook_sidebar.show_all();
+                }
+                else
+                {
+                    notebook_sidebar.hide();
+                }
+            }
         }
         
         public void create_window () {
@@ -87,13 +118,21 @@ namespace Scratch {
             notebook_context = new Gtk.Notebook();
             notebook_context.page_added.connect(on_notebook_context_new_page);
             var hpaned_addons = new Granite.Widgets.HCollapsablePaned();
+        
+            notebook_sidebar = new Gtk.Notebook();
+            notebook_sidebar.page_added.connect(on_notebook_context_new_page);
+            var hpaned_sidebar = new Granite.Widgets.HCollapsablePaned();
+            hpaned_addons.pack1(hpaned_sidebar, true, true);
             
             this.split_view = new SplitView (this);
-            hpaned_addons.pack1(split_view, true, true);
+            hpaned_sidebar.pack1(notebook_sidebar, false, false);
+            notebook_sidebar.visible = false;
+            hpaned_sidebar.pack2(split_view, true, true);
             hpaned_addons.pack2(notebook_context, false, false);
-            notebook_context.no_show_all = true;
-            notebook_context.visible = false;
+            notebook_context.visible = true;
+            settings.schema.changed.connect(key_changed);
 
+            plugins.hook_notebook_sidebar(notebook_sidebar);
             plugins.hook_notebook_context(notebook_context);
 
             this.notebook =  new ScratchNotebook (this);
@@ -112,7 +151,17 @@ namespace Scratch {
             notebook.window.current_tab = (Tab) notebook.window.current_notebook.get_nth_page (notebook.window.current_notebook.get_current_page());
             
             set_undo_redo ();    
-        
+      
+            /* We mustn't use show_all() here */
+/*            show();
+            vbox.show();
+            toolbar.show_all();
+            hpaned_addons.show();
+            hpaned_sidebar.show();
+            */
+            show_all();
+            key_changed("sidebar-visible");
+            key_changed("context-visible");
         }
         
         public void set_theme () {
@@ -167,10 +216,46 @@ namespace Scratch {
             toolbar.repeat_button.clicked.connect (on_repeat_clicked);
             toolbar.combobox.changed.connect (on_combobox_changed);
             toolbar.entry.changed.connect (on_changed_text);
+            toolbar.entry.key_press_event.connect (on_search_key_press);
 
         }
         
         
+        bool on_search_key_press (Gdk.EventKey event)
+        {
+            string key = Gdk.keyval_name(event.keyval);
+            switch(key)
+            {
+            case "Up":
+                TextIter iter;
+                if(end != null && start != null)
+                {
+                bool found = start.backward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
+                if (found) {
+                    current_tab.text_view.buffer.select_range (start, end);
+                    current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
+                }
+                else
+                {
+                end = null;
+                start = null;
+                }
+                }
+                warning("Up");
+                return true;
+            case "Down":
+                TextIter iter;
+                bool found = end.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
+                if (found) {
+                    current_tab.text_view.buffer.select_range (start, end);
+                    current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
+                }
+                warning("Up");
+                return true;
+            }
+            return false;
+        }
+
          
         //signals functions
         public void on_destroy () {
@@ -359,11 +444,13 @@ namespace Scratch {
         public Gtk.TextBuffer get_active_buffer() {
             return current_tab.text_view.buffer;
         }
+
+        TextIter? end;
+        TextIter? start;
     
-        public void on_changed_text (){
+        public void on_changed_text () {
             search_string = toolbar.entry.get_text();
             TextIter iter;
-            TextIter start, end;
             current_tab.text_view.buffer.get_start_iter (out iter);
             var found = iter.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
             if (found) {

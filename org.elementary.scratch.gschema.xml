@@ -22,8 +22,18 @@
 		</key>
 	</schema>
     <schema path="/apps/scratch/settings/" id="org.elementary.Scratch.Settings" gettext-domain="scratch">
+		<key name="sidebar-visible" type="b">
+			<default>true</default>
+			<summary>sidebar</summary>
+			<description>sidebar</description>
+		</key>
+		<key name="context-visible" type="b">
+			<default>true</default>
+			<summary>sidebar</summary>
+			<description>sidebar</description>
+		</key>
     <key type="as" name="plugins-enabled">
-      <default>['contractor']</default>
+      <default>['FM']</default>
       <summary>Enabled Plugins</summary>
       <description>Enabled Plugins</description>
     </key>
