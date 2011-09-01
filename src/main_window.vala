@@ -244,7 +244,16 @@ namespace Scratch {
                 warning("Up");
                 return true;
             case "Down":
-                TextIter iter;
+				TextIter iter;
+                bool found = end.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
+                if (found) {
+                    current_tab.text_view.buffer.select_range (start, end);
+                    current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
+                }
+                warning("Up");
+                return true;
+			case "Return":
+				TextIter iter;
                 bool found = end.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
                 if (found) {
                     current_tab.text_view.buffer.select_range (start, end);
@@ -376,7 +385,7 @@ namespace Scratch {
 
         }
         
-        public void open (string filename) {
+        public void open (string filename) {            
             if (filename != null) {
                 // check if file is already opened
                 int target_page = -1;
@@ -450,14 +459,18 @@ namespace Scratch {
     
         public void on_changed_text () {
             search_string = toolbar.entry.get_text();
+            var buffer = get_active_buffer ();
             TextIter iter;
-            current_tab.text_view.buffer.get_start_iter (out iter);
+            
+            buffer.get_start_iter (out iter);
+            
             var found = iter.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
+            
             if (found) {
                 current_tab.text_view.buffer.select_range (start, end);
             }
-        }
-        
+		}
+				
         public bool on_scroll_event (EventScroll event) {
             
             if (event.direction == ScrollDirection.UP || event.direction == ScrollDirection.LEFT)  {
