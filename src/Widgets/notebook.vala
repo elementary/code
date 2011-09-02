@@ -378,9 +378,14 @@ namespace Scratch.Widgets {
 		}
 		
 		public ScratchNotebook get_current_notebook () {
-			var child = (ScratchNotebook) get_focus_child ();
+			ScratchNotebook child = get_focus_child () as ScratchNotebook;
+			if (child == null) {
+			    child = get_children ().nth_data (0) as ScratchNotebook;
+			    if( child == null) {
+			        critical ("No valid notebook for the split view?");
+			    }
+			}
 			return child;
-						
 		}
 		
 		
