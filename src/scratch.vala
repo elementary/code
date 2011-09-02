@@ -36,6 +36,7 @@ namespace Scratch {
     public class ScratchApp : Granite.Application {
     	
         public MainWindow window = null;
+        static string app_cmd_name;
 
         construct {
         
@@ -45,12 +46,12 @@ namespace Scratch {
 			build_version = Constants.VERSION;
 			build_version_info = Constants.VERSION_INFO;
 			
-            program_name = "Scratch";
-		    exec_name = "scratch";
+            program_name = app_cmd_name;
+		    exec_name = app_cmd_name.down();
 		    app_copyright = "GPLv3";
 		    app_icon = "text-editor";
 		    app_launcher = "scratch.desktop";
-            application_id = "net.launchpad.scratch";
+            application_id = "net.launchpad." + app_cmd_name.down();
 		    main_url = "https://launchpad.net/scratch";
 		    bug_url = "https://bugs.launchpad.net/scratch";
 		    help_url = "https://answers.launchpad.net/scratch";
@@ -127,7 +128,21 @@ along with this program.  If not, see <http://www.gnu.org/licenses>""";
         }
 
 
+    static const OptionEntry[] entries = {
+        { "set", 's', 0, OptionArg.STRING, ref app_cmd_name, "Set of plugins", "" },
+        { null }
+    };
 		public static int main (string[] args) {
+            app_cmd_name = "Scratch";
+            var context = new OptionContext("File");
+            context.add_main_entries(entries, "scratch");
+            context.add_group(Gtk.get_option_group(true));
+            try {
+                context.parse(ref args);
+            }
+            catch(Error e) {
+                print(e.message + "\n");
+            }
             
             var app = new ScratchApp ();
 
