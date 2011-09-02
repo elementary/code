@@ -33,6 +33,15 @@ namespace Scratch {
    
     public class MainWindow : Gtk.Window {
     
+        const string ui_string = """
+            <ui>
+            <popup name="MenuItemTool">
+                <menuitem name="Fetch" action="Fetch"/>
+            </popup>
+            </ui>
+        """;
+        Gtk.ActionGroup main_actions;
+        Gtk.UIManager ui;
     
         private const string TITLE = "Scratch";
         private string search_string = "";
@@ -64,12 +73,33 @@ namespace Scratch {
                 
             this.title = TITLE;
             restore_saved_state ();
+
+            main_actions = new Gtk.ActionGroup("MainActionGroup"); /* Actions and UIManager */
+            main_actions.set_translation_domain("scratch");
+            main_actions.add_actions(main_entries, this);
+            ui = new Gtk.UIManager();
+            try {
+                ui.add_ui_from_string(ui_string, -1);
+            }
+            catch(Error e) {
+                error("Couldn't load the UI");
+            }
+            Gtk.AccelGroup accel_group = ui.get_accel_group();
+            add_accel_group(accel_group);
+     
+            ui.insert_action_group(main_actions, 0);
+            ui.ensure_update();
             
             create_window ();
             connect_signals ();
             
             set_theme ();
             
+        }
+        
+        void action_fetch()
+        {
+            toolbar.entry.grab_focus();
         }
 
         void on_notebook_context_new_page(Gtk.Notebook notebook, Widget page, uint num)
@@ -215,51 +245,54 @@ namespace Scratch {
             toolbar.undo_button.clicked.connect (on_undo_clicked);
             toolbar.repeat_button.clicked.connect (on_repeat_clicked);
             toolbar.combobox.changed.connect (on_combobox_changed);
+            toolbar.entry.focus_out_event.connect ( () => { start = end = null; return false; });
             toolbar.entry.changed.connect (on_changed_text);
             toolbar.entry.key_press_event.connect (on_search_key_press);
 
         }
         
         
-        bool on_search_key_press (Gdk.EventKey event)
-        {
+        bool on_search_key_press (Gdk.EventKey event) {
             string key = Gdk.keyval_name(event.keyval);
             switch(key)
             {
             case "Up":
                 TextIter iter;
-                if(end != null && start != null)
-                {
-                bool found = start.backward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
+                if (end == null || start == null) {
+                    TextIter start_buffer;
+                    current_tab.text_view.buffer.get_iter_at_offset(out start_buffer, current_tab.text_view.buffer.cursor_position);
+                    end = start_buffer;
+                    start = start_buffer;
+                }
+                TextIter local_end = end;
+                TextIter local_start = start;
+                bool found = start.backward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out local_start, out local_end, null);
                 if (found) {
+                    end = local_end;
+                    start = local_start;
                     current_tab.text_view.buffer.select_range (start, end);
                     current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
                 }
-                else
-                {
-                end = null;
-                start = null;
-                }
-                }
-                warning("Up");
-                return true;
-            case "Down":
-				TextIter iter;
-                bool found = end.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
-                if (found) {
-                    current_tab.text_view.buffer.select_range (start, end);
-                    current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
-                }
-                warning("Up");
                 return true;
 			case "Return":
+            case "Down":
 				TextIter iter;
-                bool found = end.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
+
+                if (end == null || start == null) {
+                    TextIter start_buffer;
+                    current_tab.text_view.buffer.get_iter_at_offset(out start_buffer, current_tab.text_view.buffer.cursor_position);
+                    end = start_buffer;
+                    start = start_buffer;
+                }
+                TextIter local_end = end;
+                TextIter local_start = start;
+                bool found = end.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out local_start, out local_end, null);
                 if (found) {
+                    end = local_end;
+                    start = local_start;
                     current_tab.text_view.buffer.select_range (start, end);
                     current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
                 }
-                warning("Up");
                 return true;
             }
             return false;
@@ -462,12 +495,25 @@ namespace Scratch {
             var buffer = get_active_buffer ();
             TextIter iter;
             
-            buffer.get_start_iter (out iter);
+            if(start == null) {
+                buffer.get_iter_at_offset(out start, buffer.cursor_position);
+                end = start;
+            }
+            iter = start;
             
             var found = iter.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
             
             if (found) {
                 current_tab.text_view.buffer.select_range (start, end);
+                current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
+            }
+            else {
+                buffer.get_start_iter (out iter);
+                found = iter.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
+                if (found) {
+                    current_tab.text_view.buffer.select_range (start, end);
+                    current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
+                }
             }
 		}
 				
@@ -641,5 +687,11 @@ namespace Scratch {
             split_view.show_all ();
                             
         }
+static const Gtk.ActionEntry[] main_entries = {
+   { "Fetch", Gtk.Stock.SAVE,
+  /* label, accelerator */       N_("Fetch"), "<Control>f",
+  /* tooltip */                  N_("Fetch"),
+                                 action_fetch }
+     };
     }
 } // Namespace    
