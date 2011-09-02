@@ -1,7 +1,8 @@
 [CCode (cprefix = "G", lower_case_cprefix = "g_")]
 namespace GLib {
-    [CCode (cheader_filename = "gmodule.h")]
-    public class Module : Object
+    [CCode (cheader_filename = "gmodule.h", free_function="")]
+    [Compact]
+    public class Module
     {
         public static Module open(string path, ModuleFlags flags);
         public static string error();

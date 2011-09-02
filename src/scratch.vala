@@ -144,6 +144,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses>""";
                 print(e.message + "\n");
             }
             
+            Gtk.init(ref args);
+
             var app = new ScratchApp ();
 
 		    return app.run (args);

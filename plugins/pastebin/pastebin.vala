@@ -127,12 +127,11 @@ public class Scratch.Plugins.Pastebin : Scratch.Plugins.Base
 
     public override void addons_menu(Gtk.Menu menu)
     {
-            pastebin = new Gtk.MenuItem.with_label (_("Upload to Pastebin..."));
-            menu.append (pastebin);
-            pastebin.activate.connect (() => {
-				new Dialogs.PasteBinDialog (scratch_app.window);
-            });
-
+        pastebin = new Gtk.MenuItem.with_label (_("Upload to Pastebin..."));
+        menu.append (pastebin);
+        pastebin.activate.connect (() => {
+			new Dialogs.PasteBinDialog (scratch_app.window);
+        });
     }
 }
 

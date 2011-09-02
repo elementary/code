@@ -57,6 +57,8 @@ namespace Scratch.Widgets {
             
             Scratch.settings.changed.connect (restore_settings);
 
+            plugins.hook_source_view(this);
+
         }
 
         ~SourceView () {
