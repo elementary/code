@@ -29,7 +29,6 @@ PACKAGES
     granite
     scratch
     ${SCRATCH_DEPS}
-sqlheavy-0.1
 CUSTOM_VAPIS
     ${CMAKE_SOURCE_DIR}/vapi/gtksourceview-3.0.vapi
 OPTIONS
