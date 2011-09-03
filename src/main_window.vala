@@ -45,7 +45,7 @@ namespace Scratch {
         Gtk.ActionGroup main_actions;
         Gtk.UIManager ui;
     
-        private const string TITLE = "Scratch";
+        public const string TITLE = "Scratch";
         private string search_string = "";
         
         //widgets
@@ -480,14 +480,13 @@ namespace Scratch {
             var buffer = get_active_buffer ();
             TextIter iter;
             
-            if(start == null) {
+            /*if(start == null)*/ {
                 buffer.get_iter_at_offset(out start, buffer.cursor_position);
                 end = start;
             }
             iter = start;
             
             var found = iter.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
-            
             if (found) {
                 current_tab.text_view.buffer.select_range (start, end);
                 current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
@@ -498,6 +497,9 @@ namespace Scratch {
                 if (found) {
                     current_tab.text_view.buffer.select_range (start, end);
                     current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
+                }
+                else {
+                    start = end = null;
                 }
             }
 		}
