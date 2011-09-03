@@ -37,6 +37,8 @@ namespace Scratch {
             <ui>
             <popup name="MenuItemTool">
                 <menuitem name="Fetch" action="Fetch"/>
+                <menuitem name="New tab" action="New tab"/>
+                <menuitem name="SaveFile" action="SaveFile"/>
             </popup>
             </ui>
         """;
@@ -143,7 +145,7 @@ namespace Scratch {
         
         public void create_window () {
             
-            this.toolbar = new Widgets.Toolbar (this);
+            this.toolbar = new Widgets.Toolbar (this, ui, main_actions);
         
             notebook_context = new Gtk.Notebook();
             notebook_context.page_added.connect(on_notebook_context_new_page);
@@ -241,7 +243,6 @@ namespace Scratch {
             //signals for the toolbar
             toolbar.new_button.clicked.connect (on_new_clicked);
             toolbar.open_button.clicked.connect (on_open_clicked);
-            toolbar.save_button.clicked.connect (on_save_clicked);
             toolbar.undo_button.clicked.connect (on_undo_clicked);
             toolbar.repeat_button.clicked.connect (on_repeat_clicked);
             toolbar.combobox.changed.connect (on_combobox_changed);
@@ -329,6 +330,13 @@ namespace Scratch {
             return true;
         }
         
+        void action_new_tab () {
+            if (!current_notebook.welcome_screen.active) {
+                int tab_index = current_notebook.add_tab ();
+                    current_notebook.set_current_page (tab_index);            
+            }
+        }
+        
         public bool on_key_press (EventKey event) {
             
             string key = Gdk.keyval_name(event.keyval);
@@ -343,14 +351,6 @@ namespace Scratch {
             {
                 switch(key.down()/*This avoids checking for "t" and "T*/)
                 {
-                    // Open new Tab
-                    case "t":        
-                        if (!current_notebook.welcome_screen.active) {
-                            int tab_index = current_notebook.add_tab ();
-                                current_notebook.set_current_page (tab_index);            
-                        }
-                    break;
-
                     // Close current Tab
                     case "w":
                         if (!current_notebook.welcome_screen.active) {                    
@@ -367,14 +367,8 @@ namespace Scratch {
                     case "e":
                         warning("Killler");
                         this.on_destroy();
-                    break;
+                    break; 
 
-                    // Save current File by Ctrl+S
-                    case "s":
-                        this.on_save_clicked();
-                        reset_ctrl_flags();
-                    break;    
-                    
                     // Undo by Ctrl+Z
                     case "z":
                         this.on_undo_clicked();
@@ -449,10 +443,8 @@ namespace Scratch {
             }
         }
         
-        public void on_save_clicked() {
-        
+        public void action_save () {
               current_tab.save();
-            
         }
         
         public void on_undo_clicked () {
@@ -687,11 +679,20 @@ namespace Scratch {
             split_view.show_all ();
                             
         }
-static const Gtk.ActionEntry[] main_entries = {
-   { "Fetch", Gtk.Stock.SAVE,
-  /* label, accelerator */       N_("Fetch"), "<Control>f",
-  /* tooltip */                  N_("Fetch"),
-                                 action_fetch }
-     };
+
+        static const Gtk.ActionEntry[] main_entries = {
+           { "Fetch", Gtk.Stock.SAVE,
+          /* label, accelerator */       N_("Fetch"), "<Control>f",
+          /* tooltip */                  N_("Fetch"),
+                                         action_fetch },
+           { "New tab", Gtk.Stock.NEW,
+          /* label, accelerator */       N_("New tab"), "<Control>t",
+          /* tooltip */                  N_("Open a new tab"),
+                                         action_new_tab },
+           { "SaveFile", Gtk.Stock.SAVE,
+          /* label, accelerator */       N_("Save"), "<Control>s",
+          /* tooltip */                  N_("Save current file"),
+                                         action_save }
+        };
     }
 } // Namespace    

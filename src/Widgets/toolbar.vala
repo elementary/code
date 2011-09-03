@@ -18,6 +18,7 @@
   END LICENSE	
 ***/
 
+
 using Gtk;
 using Granite.Widgets;
 
@@ -52,7 +53,7 @@ namespace Scratch.Widgets {
 			REPEAT_BUTTON,
 		}
 
-        public Toolbar (MainWindow parent) {
+        public Toolbar (MainWindow parent, UIManager ui, Gtk.ActionGroup action_group) {
 
             this.window = parent;
 
@@ -62,7 +63,7 @@ namespace Scratch.Widgets {
             
             new_button = new ToolButton.from_stock (Stock.NEW);
             open_button = new ToolButton.from_stock (Stock.OPEN);
-            save_button = new ToolButton.from_stock (Stock.SAVE);
+            save_button = action_group.get_action("SaveFile").create_tool_item() as Gtk.ToolButton;
             undo_button = new ToolButton.from_stock (Stock.UNDO);
             repeat_button = new ToolButton.from_stock (Stock.REDO);
             
