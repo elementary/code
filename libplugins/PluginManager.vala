@@ -191,6 +191,7 @@ public class Scratch.Plugins.BaseManager : GLib.Object
 public class Scratch.Plugins.Manager : Scratch.Plugins.BaseManager
 {
     public signal void hook_main_menu (Gtk.Menu menu);
+    public signal void hook_toolbar (Gtk.Toolbar menu);
     public Manager(Settings s, string f, string d)
     {
         base(s, f, d);
@@ -198,6 +199,7 @@ public class Scratch.Plugins.Manager : Scratch.Plugins.BaseManager
 
     public override void connect_signals(Base base_) {
         hook_main_menu.connect(base_.main_menu);
+        hook_toolbar.connect(base_.toolbar);
     }
     
     public void hook_app(Gtk.Application menu)

@@ -89,6 +89,7 @@ namespace Scratch.Widgets {
             menu = new MenuProperties (this.window);
             plugins.hook_main_menu(menu);
             app_menu = new AppMenu (menu);
+            plugins.hook_toolbar(this);
 
             add (add_spacer ());
             add (toolitem (entry, false));
@@ -96,6 +97,7 @@ namespace Scratch.Widgets {
             add (app_menu);
             
             set_tooltip ();
+            
 
         }
 
