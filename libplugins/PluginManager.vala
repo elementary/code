@@ -121,6 +121,9 @@ public class Scratch.Plugins.BaseManager : GLib.Object
         return base_;
     }
     
+    public virtual void connect_signals(Base base_) {
+    }
+    
     void load_plugin_keyfile(string path, string parent, bool force)
     {
         var keyfile = new KeyFile();
@@ -137,6 +140,7 @@ public class Scratch.Plugins.BaseManager : GLib.Object
                 Base plug = load_module(Path.build_filename(parent, keyfile.get_string("Plugin", "File")));
                 if(plug != null)
                 {
+                    connect_signals(plug);
                     plugin_hash[name] = plug;
                 }
             }
@@ -186,9 +190,14 @@ public class Scratch.Plugins.BaseManager : GLib.Object
 
 public class Scratch.Plugins.Manager : Scratch.Plugins.BaseManager
 {
+    public signal void hook_main_menu (Gtk.Menu menu);
     public Manager(Settings s, string f, string d)
     {
         base(s, f, d);
+    }
+
+    public override void connect_signals(Base base_) {
+        hook_main_menu.connect(base_.main_menu);
     }
     
     public void hook_app(Gtk.Application menu)
@@ -230,5 +239,7 @@ public abstract class Scratch.Plugins.Base : GLib.Object
     public virtual void notebook_context(Gtk.Notebook note) { }
     public virtual void notebook_sidebar(Gtk.Notebook note) { }
     public virtual void source_view(Gtk.TextView view) { }
+    public virtual void main_menu(Gtk.Menu app_menu) { }
+    public virtual void toolbar(Gtk.Toolbar toolbar) { }
 }
 

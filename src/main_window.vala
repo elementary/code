@@ -183,14 +183,7 @@ namespace Scratch {
             notebook.window.current_tab = (Tab) notebook.window.current_notebook.get_nth_page (notebook.window.current_notebook.get_current_page());
             
             set_undo_redo ();    
-      
-            /* We mustn't use show_all() here */
-/*            show();
-            vbox.show();
-            toolbar.show_all();
-            hpaned_addons.show();
-            hpaned_sidebar.show();
-            */
+
             show_all();
             key_changed("sidebar-visible");
             key_changed("context-visible");

@@ -87,6 +87,7 @@ namespace Scratch.Widgets {
             var share_app_menu = new ShareAppMenu (share_menu);
 
             menu = new MenuProperties (this.window);
+            plugins.hook_main_menu(menu);
             app_menu = new AppMenu (menu);
 
             add (add_spacer ());
