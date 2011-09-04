@@ -31,11 +31,13 @@ public class Scratch.Plugins.BaseManager : GLib.Object
     string plugin_dir;
     List<string> names = null;
     bool in_available = false;
-    public BaseManager(Settings settings, string field, string plugin_dir)
+    string? extra_dir;
+    public BaseManager(Settings settings, string field, string plugin_dir, string? extra_dir)
     {
         settings_field = field;
         this.settings = settings;
         this.plugin_dir = plugin_dir;
+        this.extra_dir = extra_dir;
         plugin_hash = new Gee.HashMap<string,Base>();
         load_plugins();
     }
@@ -44,6 +46,7 @@ public class Scratch.Plugins.BaseManager : GLib.Object
     {
         load_modules_from_dir(plugin_dir + "/core/", true);
         load_modules_from_dir(plugin_dir);
+        if(extra_dir != null) load_modules_from_dir(plugin_dir + "/" + extra_dir, true);
     } 
     
     private void load_modules_from_dir (string path, bool force = false)
@@ -192,9 +195,11 @@ public class Scratch.Plugins.Manager : Scratch.Plugins.BaseManager
 {
     public signal void hook_main_menu (Gtk.Menu menu);
     public signal void hook_toolbar (Gtk.Toolbar menu);
-    public Manager(Settings s, string f, string d)
+    public Manager(Settings s, string f, string d, string? e = null)
     {
-        base(s, f, d);
+        e = e == "scratch" ? null : e;
+        print(e + "\n");
+        base(s, f, d, e);
     }
 
     public override void connect_signals(Base base_) {
