@@ -35,17 +35,16 @@ ensure_vala_version("0.12.0" MINIMUM)
 include(ValaPrecompile)
 vala_precompile(VALA_C
 PluginManager.vala
-    module.vapi
-    Plugin.vala
+module.vapi
 PACKAGES
-    gtk+-3.0
-    gee-1.0
+gtk+-3.0
+gee-1.0
 OPTIONS
-    --thread
+--thread
 GENERATE_VAPI
-    ${PKGNAME}
+${PKGNAME}
 GENERATE_HEADER
-    ${PKGNAME}
+${PKGNAME}
 )
 install (FILES ${CMAKE_CURRENT_BINARY_DIR}/${PKGNAME}.vapi DESTINATION ${CMAKE_INSTALL_PREFIX}/share/vala/vapi/)
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/${PKGNAME}.deps DESTINATION ${CMAKE_INSTALL_PREFIX}/share/vala/vapi/)

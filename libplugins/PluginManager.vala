@@ -19,9 +19,6 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-//namespace Scratch
-
-
 public class Scratch.Plugins.BaseManager : GLib.Object
 {
     delegate Base ModuleInitFunc ();

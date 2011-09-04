@@ -40,10 +40,10 @@ add_definitions(${CFLAGSS})
 link_directories(${LIB_PATHS})
 add_library(scratchpastebin SHARED 
     ${VALA_C})
-target_link_libraries(scratchpastebin scratchplugins ${DEPSS_LIBRARIES}) # useless, it is just for the build depends
+target_link_libraries(scratchpastebin scratchplugins ${DEPSS_LIBRARIES})
+# useless, it is just for the build depends
+
 install(TARGETS scratchpastebin DESTINATION lib/scratch/plugins/core/)
 install(FILES pastebin.plug DESTINATION lib/scratch/plugins/core/)
-
 include_directories(${CMAKE_BINARY_DIR}/scratchplugins/)
-
 add_dependencies(scratchpastebin scratch)
