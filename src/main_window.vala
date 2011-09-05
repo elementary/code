@@ -301,7 +301,10 @@ namespace Scratch {
         }
 		
 		public void on_replace_activate () {
+			//TODO: use http://www.valadoc.org/references/gtk+-3.0/0.11.5/Gtk.TextBuffer.set_text.html
 			warning ("The feaure is not implemented yet");
+			current_tab.text_view.buffer.insert_text (end, "Pippo", 5);
+            //current_tab.text_view.buffer.delete_range (start, end);
 		}		
          
         //signals functions
@@ -372,7 +375,13 @@ namespace Scratch {
                         warning("Killler");
                         this.on_destroy();
                     break; 
-
+					
+					
+					//show replace entry
+					case "r":
+						toolbar.show_replace_entry ();
+					break;
+                    
                     // Undo by Ctrl+Z
                     case "z":
                         this.on_undo_clicked();
@@ -450,11 +459,7 @@ namespace Scratch {
         public void action_save () {
               current_tab.save();
         }
-        
-        public void action_replace () {
-			toolbar.add_replace_entry ();
-		}
-        
+                
         public void on_undo_clicked () {
             
             current_tab.text_view.undo ();
@@ -702,11 +707,7 @@ namespace Scratch {
            { "SaveFile", Gtk.Stock.SAVE,
           /* label, accelerator */       N_("Save"), "<Control>s",
           /* tooltip */                  N_("Save current file"),
-                                         action_save },
-           { "Replace", Gtk.Stock.CUT,
-          /* label, accelerator */       N_("Replace"), "<Control>r",
-          /* tooltip */                  N_("Open a replace entry"),
-                                         action_replace }
+                                         action_save }
         };
     }
 } // Namespace    

@@ -207,7 +207,7 @@ namespace Scratch.Widgets {
  		
  		}
  		
- 		public void add_replace_entry () {
+ 		public void show_replace_entry () {
 						
 						
 			if (!replace_active) {
