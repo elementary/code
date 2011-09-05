@@ -40,11 +40,16 @@ namespace Scratch.Widgets {
         	get { return combobox.get_active_id(); }
         }
         
-        public Entry entry;
+        public SearchBar entry;
+        public ToolItem toolentry;
+        public SearchBar replace;
+        public ToolItem toolreplace;
         public ShareMenu share_menu;
         public MenuProperties menu;
         public AppMenu app_menu;
-
+		
+		public bool replace_active = false;
+		
 		public enum ToolButtons {
 			NEW_BUTTON,
 			OPEN_BUTTON,
@@ -82,7 +87,12 @@ namespace Scratch.Widgets {
 
             entry = new SearchBar (_("Search in the text..."));
             entry.width_request = 250;
-
+			toolentry = toolitem (entry, false);
+			
+			replace = new SearchBar (_("Replace..."));
+			replace.width_request = 250;
+			toolreplace = toolitem (replace, false);
+						
             share_menu = new ShareMenu (this.window);
             var share_app_menu = new ShareAppMenu (share_menu);
 
@@ -92,7 +102,9 @@ namespace Scratch.Widgets {
             plugins.hook_toolbar(this);
 
             add (add_spacer ());
-            add (toolitem (entry, false));
+            add (toolentry);
+            add (new SeparatorToolItem ());
+            add (toolreplace);
             add (share_app_menu);
             add (app_menu);
             
@@ -194,6 +206,20 @@ namespace Scratch.Widgets {
  		
  		
  		}
+ 		
+ 		public void add_replace_entry () {
+						
+						
+			if (!replace_active) {
+				toolreplace.show ();
+				replace_active = true;
+			}
+			else {
+				toolreplace.hide ();
+				replace_active = false;
+			}
+			
+		}
         
      
 }

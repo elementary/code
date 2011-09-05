@@ -97,6 +97,9 @@ namespace Scratch {
             
             set_theme ();
             
+            List<string> s = plugins.get_available_plugins ();
+            stdout.printf ("%s\n\n", s.nth_data(1));
+            
         }
         
         void action_fetch()
@@ -176,6 +179,7 @@ namespace Scratch {
             var vbox = new VBox (false, 0);
             vbox.pack_start (toolbar, false, false, 0);
             vbox.pack_start (hpaned_addons, true, true, 0); 
+            vbox.show_all  ();
             
             this.add (vbox);
             
@@ -184,9 +188,12 @@ namespace Scratch {
             
             set_undo_redo ();    
 
-            show_all();
+            //show_all();
             key_changed("sidebar-visible");
             key_changed("context-visible");
+        
+			toolbar.toolreplace.hide ();
+        
         }
         
         public void set_theme () {
@@ -242,6 +249,7 @@ namespace Scratch {
             toolbar.entry.focus_out_event.connect ( () => { start = end = null; return false; });
             toolbar.entry.changed.connect (on_changed_text);
             toolbar.entry.key_press_event.connect (on_search_key_press);
+            toolbar.replace.activate.connect (on_replace_activate);
 
         }
         
@@ -291,7 +299,10 @@ namespace Scratch {
             }
             return false;
         }
-
+		
+		public void on_replace_activate () {
+			warning ("The feaure is not implemented yet");
+		}		
          
         //signals functions
         public void on_destroy () {
@@ -439,6 +450,10 @@ namespace Scratch {
         public void action_save () {
               current_tab.save();
         }
+        
+        public void action_replace () {
+			toolbar.add_replace_entry ();
+		}
         
         public void on_undo_clicked () {
             
@@ -687,7 +702,11 @@ namespace Scratch {
            { "SaveFile", Gtk.Stock.SAVE,
           /* label, accelerator */       N_("Save"), "<Control>s",
           /* tooltip */                  N_("Save current file"),
-                                         action_save }
+                                         action_save },
+           { "Replace", Gtk.Stock.CUT,
+          /* label, accelerator */       N_("Replace"), "<Control>r",
+          /* tooltip */                  N_("Open a replace entry"),
+                                         action_replace }
         };
     }
 } // Namespace    
