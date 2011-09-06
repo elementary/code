@@ -96,10 +96,7 @@ namespace Scratch {
             connect_signals ();
             
             set_theme ();
-            
-            List<string> s = plugins.get_available_plugins ();
-            stdout.printf ("%s\n\n", s.nth_data(1));
-            
+                        
         }
         
         void action_fetch()
@@ -375,8 +372,10 @@ namespace Scratch {
                         warning("Killler");
                         this.on_destroy();
                     break; 
-					
-					
+					// Show open dialog
+					case "o":
+						on_open_clicked ();
+					break;					
 					//show replace entry
 					case "r":
 						toolbar.show_replace_entry ();
