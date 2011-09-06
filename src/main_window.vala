@@ -412,12 +412,14 @@ namespace Scratch {
                                 
             // show dialog
             this.filech = new FileChooserDialog ("Open a file", this, FileChooserAction.OPEN, null);
+            filech.set_select_multiple (true);
             filech.add_button (Stock.CANCEL, ResponseType.CANCEL);
             filech.add_button (Stock.OPEN, ResponseType.ACCEPT);
             filech.set_default_response (ResponseType.ACCEPT);
             
             if (filech.run () == ResponseType.ACCEPT)
-                    open (filech.get_filename ());
+					foreach (string file in filech.get_filenames ())
+						open (file);
 
             filech.close ();
             set_undo_redo ();
