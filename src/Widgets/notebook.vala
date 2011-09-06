@@ -256,6 +256,8 @@ namespace Scratch.Widgets {
 			set_scrollable (true);
 			set_group_name ("s");
 			
+			drag_end.connect (on_drag_end);
+			
 			show_all ();
 			
 	    }
@@ -269,6 +271,17 @@ namespace Scratch.Widgets {
             return index; 
         }
        
+        public void on_drag_end (DragContext context) {
+			
+			List<Widget> children = window.split_view.get_children ();
+			int i;
+			
+			for (i = 0; i!=children.length(); i++) {//ScratchNotebook notebook in children) { 
+				var notebook = children.nth_data (i) as ScratchNotebook;
+				if (notebook.get_n_pages () == 0)
+					window.split_view.remove (notebook);
+			}
+		}
         
 		public void show_welcome () {
 						
