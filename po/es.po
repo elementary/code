@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-08-28 11:52+0200\n"
-"PO-Revision-Date: 2011-08-26 19:24+0000\n"
-"Last-Translator: Cody Garver <codygarver@gmail.com>\n"
+"PO-Revision-Date: 2011-09-07 22:14+0000\n"
+"Last-Translator: Fitoschido <fitoschido@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-08-29 05:11+0000\n"
-"X-Generator: Launchpad (build 13794)\n"
+"X-Launchpad-Export-Date: 2011-09-08 05:03+0000\n"
+"X-Generator: Launchpad (build 13891)\n"
 "Language: es\n"
 
 #: /home/xapantu/scratch/po/../src/Widgets/menu.vala:42
 msgid "Add a new view"
-msgstr "Añadir una nueva vista"
+msgstr "Añadir una vista nueva"
 
 #: /home/xapantu/scratch/po/../src/Widgets/menu.vala:44
 msgid "Remove current view"
@@ -57,15 +57,15 @@ msgstr "crear un nuevo archivo vacío"
 
 #: /home/xapantu/scratch/po/../src/Widgets/toolbar.vala:78
 msgid "Search in the text..."
-msgstr ""
+msgstr "Buscar en el texto..."
 
 #: /home/xapantu/scratch/po/../src/Widgets/toolbar.vala:121
 msgid "Normal Text"
-msgstr "Texto Normal"
+msgstr "Texto normal"
 
 #: /home/xapantu/scratch/po/../src/Widgets/toolbar.vala:151
 msgid "Create a new file in a new tab"
-msgstr ""
+msgstr "Crear un archivo en una pestaña nueva"
 
 #: /home/xapantu/scratch/po/../src/Widgets/toolbar.vala:152
 msgid "Open an existing file"
@@ -77,27 +77,27 @@ msgstr "Guardar el archivo actual"
 
 #: /home/xapantu/scratch/po/../src/Widgets/toolbar.vala:154
 msgid "Cancel the last operation"
-msgstr ""
+msgstr "Cancelar la última operación"
 
 #: /home/xapantu/scratch/po/../src/Widgets/toolbar.vala:155
 msgid "Repeat the last cancelled operation"
-msgstr ""
+msgstr "Repetir la última operación cancelada"
 
 #: /home/xapantu/scratch/po/../src/Widgets/toolbar.vala:156
 msgid "Share this file with others"
-msgstr ""
+msgstr "Compartir este archivo"
 
 #: /home/xapantu/scratch/po/../src/Widgets/share_menu.vala:38
 msgid "Upload to Pastebin..."
-msgstr "Subir a la Pastebin"
+msgstr "Subir a Pastebin..."
 
 #: /home/xapantu/scratch/po/../src/Widgets/share_menu.vala:39
 msgid "Share via email..."
-msgstr ""
+msgstr "Compartir por correo-e..."
 
 #: /home/xapantu/scratch/po/../src/Dialogs/preferences_dialog.vala:75
 msgid "Show line numbers"
-msgstr "Mostrar numero de líneas"
+msgstr "Mostrar números de línea"
 
 #: /home/xapantu/scratch/po/../src/Dialogs/preferences_dialog.vala:78
 msgid "Highlight current line"
@@ -113,31 +113,31 @@ msgstr "Ancho de tabulador:"
 
 #: /home/xapantu/scratch/po/../src/Dialogs/preferences_dialog.vala:94
 msgid "Style scheme:"
-msgstr ""
+msgstr "Estilo:"
 
 #: /home/xapantu/scratch/po/../src/Dialogs/preferences_dialog.vala:100
 msgid "Use the system fixed width font ("
-msgstr ""
+msgstr "Usar la tipografía de ancho fijo del sistema ("
 
 #: /home/xapantu/scratch/po/../src/Dialogs/preferences_dialog.vala:109
 msgid "Select font:"
-msgstr ""
+msgstr "Seleccionar tipografía:"
 
 #: /home/xapantu/scratch/po/../src/Dialogs/preferences_dialog.vala:115
 msgid "Close"
-msgstr "Cerca"
+msgstr "Cerrar"
 
 #: /home/xapantu/scratch/po/../src/Dialogs/save_dialog.vala:44
 msgid "Changes on this file aren't saved."
-msgstr ""
+msgstr "No se han guardado los cambios en este archivo."
 
 #: /home/xapantu/scratch/po/../src/Dialogs/save_dialog.vala:44
 msgid "Do you want to save changes before close this file?"
-msgstr ""
+msgstr "¿Quiere guardar los cambios antes de cerrar este archivo?"
 
 #: /home/xapantu/scratch/po/../src/Dialogs/pastebin_dialog.vala:249
 msgid "Share via PasteBin"
-msgstr ""
+msgstr "Compartir en Pastebin"
 
 #: /home/xapantu/scratch/po/../src/Dialogs/pastebin_dialog.vala:268
 msgid "Name:"
@@ -145,11 +145,11 @@ msgstr "Nombre:"
 
 #: /home/xapantu/scratch/po/../src/Dialogs/pastebin_dialog.vala:289
 msgid "Format:"
-msgstr ""
+msgstr "Formato:"
 
 #: /home/xapantu/scratch/po/../src/Dialogs/pastebin_dialog.vala:297
 msgid "Expiry time:"
-msgstr ""
+msgstr "Fecha de caducidad:"
 
 #: /home/xapantu/scratch/po/../src/Dialogs/pastebin_dialog.vala:302
 msgid "Keep this paste private"
@@ -157,19 +157,19 @@ msgstr ""
 
 #: /home/xapantu/scratch/po/../src/Dialogs/pastebin_dialog.vala:408
 msgid "The text is void!"
-msgstr ""
+msgstr "El texto está dañado."
 
 #: /home/xapantu/scratch/po/../src/Dialogs/pastebin_dialog.vala:412
 msgid "The text format doesn't exist"
-msgstr ""
+msgstr "No existe el formato del texto"
 
 #: /home/xapantu/scratch/po/../src/Dialogs/pastebin_dialog.vala:416
 msgid "An error occured"
-msgstr ""
+msgstr "Ocurrió un error"
 
 #: /home/xapantu/scratch/po/../src/Dialogs/pastebin_dialog.vala:421
 msgid "The text is sended"
-msgstr ""
+msgstr "El texto se envía"
 
 #: /home/xapantu/scratch/po/../src/Dialogs/pastebin_dialog.vala:469
 msgid "Never"
@@ -185,7 +185,7 @@ msgstr "Una hora"
 
 #: /home/xapantu/scratch/po/../src/Dialogs/pastebin_dialog.vala:472
 msgid "One day"
-msgstr "Un dia"
+msgstr "Un día"
 
 #: /home/xapantu/scratch/po/../src/Dialogs/pastebin_dialog.vala:473
 msgid "One month"
@@ -193,8 +193,8 @@ msgstr "Un mes"
 
 #: /home/xapantu/scratch/po/../src/Dialogs/save_on_close_dialog.vala:35
 msgid "Save this file? "
-msgstr ""
+msgstr "¿Guardar este archivo? "
 
 #: /home/xapantu/scratch/po/../src/Dialogs/save_on_close_dialog.vala:36
 msgid "All your work will be lost!"
-msgstr ""
+msgstr "Se perderá todo su trabajo."
