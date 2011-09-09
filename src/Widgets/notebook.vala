@@ -171,7 +171,9 @@ namespace Scratch.Widgets {
         public Button close;
         
         public TabLabel (Tab my_tab, string labeltext) {
-                        
+                                                
+            homogeneous = false;    
+                                            
             label = new Label (labeltext);
             entry = new Entry ();
 
@@ -253,6 +255,7 @@ namespace Scratch.Widgets {
 	    	this.window = parent;
 			this.welcome_screen = new ScratchWelcome(this);
 	    	
+	    	expand = true;
 			set_scrollable (true);
 			set_group_name ("s");
 			
@@ -357,7 +360,10 @@ namespace Scratch.Widgets {
         
     }
     
-    public class SplitView : HBox {
+    public class SplitView : Table {
+		
+		private int current_row = 0;
+		private int current_col = 0;
 		
 		public MainWindow window;
 		public uint total_view {
@@ -365,15 +371,29 @@ namespace Scratch.Widgets {
 		}
 		
 		public SplitView (MainWindow window) {
+			
+			homogeneous = true;
+			expand = true;
+			
 			this.window = window;
 			
-			//var notebook = new ScratchNotebook (window);
-			//add_view (notebook);
 		}
 		
 		public void add_view (ScratchNotebook view) {
-			pack_start (view, true, true, 0);
-			this.set_focus_child (view);
+			
+			if (current_row == 3) {
+			    current_row = 0;
+			    current_col++;
+			}
+			
+			this.attach (view, current_row, current_row + 1,
+			             current_col, current_col + 1, AttachOptions.FILL, AttachOptions.FILL,
+			             0, 0);
+			             
+			current_row++;
+			
+			set_focus_child (view);
+			
 			//set sensitive for remove menutitem
 			if (get_children ().length() >= 2) 
 				window.toolbar.menu.remove_view.set_sensitive (true);

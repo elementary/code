@@ -153,7 +153,7 @@ namespace Scratch {
             var hpaned_sidebar = new Granite.Widgets.HCollapsablePaned();
             hpaned_addons.pack1(hpaned_sidebar, true, true);
             
-            this.split_view = new SplitView (this);
+            split_view = new SplitView (this);
             hpaned_sidebar.pack1(notebook_sidebar, false, false);
             notebook_sidebar.visible = false;
             hpaned_sidebar.pack2(split_view, true, true);
@@ -166,7 +166,7 @@ namespace Scratch {
 
             this.notebook =  new ScratchNotebook (this);
             this.notebook.add_tab();
-            
+                        
             split_view.add_view (notebook);
                                     
             //adding all to the vbox
@@ -187,7 +187,6 @@ namespace Scratch {
             key_changed("context-visible");
         
 			toolbar.toolreplace.hide ();
-        
         }
         
         public void set_theme () {
