@@ -7,194 +7,191 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-28 11:52+0200\n"
-"PO-Revision-Date: 2011-08-29 23:40+0000\n"
-"Last-Translator: Daniel <Unknown>\n"
+"POT-Creation-Date: 2011-09-08 23:02+0200\n"
+"PO-Revision-Date: 2011-09-08 23:03+0100\n"
+"Last-Translator: Mario Guerriero <mefrio.g@gmail.com>\n"
 "Language-Team: German <de@li.org>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2011-08-30 06:15+0000\n"
 "X-Generator: Launchpad (build 13794)\n"
-"Language: de\n"
 
-#: /home/xapantu/scratch/po/../src/Widgets/menu.vala:42
-msgid "Add a new view"
-msgstr "Neue Ansicht hinzufügen"
-
-#: /home/xapantu/scratch/po/../src/Widgets/menu.vala:44
-msgid "Remove current view"
-msgstr "Momentane Ansicht entfernen"
-
-#: /home/xapantu/scratch/po/../src/Widgets/menu.vala:47
-msgid "Fullscreen"
-msgstr "Vollbild"
-
-#: /home/xapantu/scratch/po/../src/Widgets/notebook.vala:262
-#: /home/xapantu/scratch/po/../src/Widgets/notebook.vala:313
-msgid "New file"
-msgstr "Neue Datei"
-
-#: /home/xapantu/scratch/po/../src/Widgets/notebook.vala:308
-msgid "No files opened."
-msgstr "Keine Dateien geöffnet."
-
-#: /home/xapantu/scratch/po/../src/Widgets/notebook.vala:308
-msgid "Open a file to start editing"
-msgstr "Öffnet eine Datei zum Bearbeiten"
-
-#: /home/xapantu/scratch/po/../src/Widgets/notebook.vala:312
-msgid "Open file"
-msgstr "Datei öffnen"
-
-#: /home/xapantu/scratch/po/../src/Widgets/notebook.vala:312
-msgid "open a saved file"
-msgstr "Öffnet eine gespeicherte Datei"
-
-#: /home/xapantu/scratch/po/../src/Widgets/notebook.vala:313
-msgid "create an new empty file"
-msgstr "Erstellt ein blankes Dokument"
-
-#: /home/xapantu/scratch/po/../src/Widgets/toolbar.vala:78
+#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:88
 msgid "Search in the text..."
 msgstr "In der Datei suchen..."
 
-#: /home/xapantu/scratch/po/../src/Widgets/toolbar.vala:121
+#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:92
+msgid "Replace..."
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:141
 msgid "Normal Text"
 msgstr "Normaler Text"
 
-#: /home/xapantu/scratch/po/../src/Widgets/toolbar.vala:151
+#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:174
 msgid "Create a new file in a new tab"
 msgstr "Erstellt eine neue Datei in einem neuen Tab"
 
-#: /home/xapantu/scratch/po/../src/Widgets/toolbar.vala:152
+#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:175
 msgid "Open an existing file"
 msgstr "Öffnet eine existierende Datei"
 
-#: /home/xapantu/scratch/po/../src/Widgets/toolbar.vala:153
+#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:176
 msgid "Save the current file"
 msgstr "Speichert die aktuelle Datei."
 
-#: /home/xapantu/scratch/po/../src/Widgets/toolbar.vala:154
+#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:177
 msgid "Cancel the last operation"
 msgstr "Rückgängig"
 
-#: /home/xapantu/scratch/po/../src/Widgets/toolbar.vala:155
+#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:178
 msgid "Repeat the last cancelled operation"
 msgstr "Wiederholen"
 
-#: /home/xapantu/scratch/po/../src/Widgets/toolbar.vala:156
+#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:179
 msgid "Share this file with others"
 msgstr "Die Datei mit anderen teilen"
 
-#: /home/xapantu/scratch/po/../src/Widgets/share_menu.vala:38
-msgid "Upload to Pastebin..."
-msgstr "Auf Pastebin hochladen..."
-
-#: /home/xapantu/scratch/po/../src/Widgets/share_menu.vala:39
+#: /home/mefrio/scratch/po/../src/Widgets/share_menu.vala:39
 msgid "Share via email..."
 msgstr "Via E-Mail verschicken..."
 
-#: /home/xapantu/scratch/po/../src/Dialogs/preferences_dialog.vala:75
+#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:325
+msgid "No files opened."
+msgstr "Keine Dateien geöffnet."
+
+#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:325
+msgid "Open a file to start editing"
+msgstr "Öffnet eine Datei zum Bearbeiten"
+
+#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:329
+msgid "Open file"
+msgstr "Datei öffnen"
+
+#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:329
+msgid "open a saved file"
+msgstr "Öffnet eine gespeicherte Datei"
+
+#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:330
+msgid "New file"
+msgstr "Neue Datei"
+
+#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:330
+msgid "create an new empty file"
+msgstr "Erstellt ein blankes Dokument"
+
+#: /home/mefrio/scratch/po/../src/Widgets/menu.vala:44
+msgid "Add a new view"
+msgstr "Neue Ansicht hinzufügen"
+
+#: /home/mefrio/scratch/po/../src/Widgets/menu.vala:46
+msgid "Remove current view"
+msgstr "Momentane Ansicht entfernen"
+
+#: /home/mefrio/scratch/po/../src/Widgets/menu.vala:53
+msgid "Fullscreen"
+msgstr "Vollbild"
+
+#: /home/mefrio/scratch/po/../src/Widgets/menu.vala:58
+#, fuzzy
+msgid "Show sidebar"
+msgstr "Zeilennummern anzeigen"
+
+#: /home/mefrio/scratch/po/../src/Widgets/menu.vala:60
+msgid "Show context view"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/preferences_dialog.vala:75
 msgid "Show line numbers"
 msgstr "Zeilennummern anzeigen"
 
-#: /home/xapantu/scratch/po/../src/Dialogs/preferences_dialog.vala:78
+#: /home/mefrio/scratch/po/../src/Dialogs/preferences_dialog.vala:78
 msgid "Highlight current line"
 msgstr "Aktuelle Zeile hervorheben"
 
-#: /home/xapantu/scratch/po/../src/Dialogs/preferences_dialog.vala:81
+#: /home/mefrio/scratch/po/../src/Dialogs/preferences_dialog.vala:81
 msgid "Use spaces instead of tabs"
 msgstr "Leerzeichen statt Tabs verwenden"
 
-#: /home/xapantu/scratch/po/../src/Dialogs/preferences_dialog.vala:86
+#: /home/mefrio/scratch/po/../src/Dialogs/preferences_dialog.vala:86
 msgid "Tab width:"
 msgstr "Tabulatorbreite:"
 
-#: /home/xapantu/scratch/po/../src/Dialogs/preferences_dialog.vala:94
+#: /home/mefrio/scratch/po/../src/Dialogs/preferences_dialog.vala:94
 msgid "Style scheme:"
 msgstr "Styleschema:"
 
-#: /home/xapantu/scratch/po/../src/Dialogs/preferences_dialog.vala:100
+#: /home/mefrio/scratch/po/../src/Dialogs/preferences_dialog.vala:100
 msgid "Use the system fixed width font ("
 msgstr "Die Schriftbreite vom System verwenden ("
 
-#: /home/xapantu/scratch/po/../src/Dialogs/preferences_dialog.vala:109
+#: /home/mefrio/scratch/po/../src/Dialogs/preferences_dialog.vala:109
 msgid "Select font:"
 msgstr "Ausgewählte Schriftart"
 
-#: /home/xapantu/scratch/po/../src/Dialogs/preferences_dialog.vala:115
+#: /home/mefrio/scratch/po/../src/Dialogs/preferences_dialog.vala:115
 msgid "Close"
 msgstr "Schließen"
 
-#: /home/xapantu/scratch/po/../src/Dialogs/save_dialog.vala:44
-msgid "Changes on this file aren't saved."
-msgstr "Deine Änderungen in der Datei wurden nicht gespeichert"
-
-#: /home/xapantu/scratch/po/../src/Dialogs/save_dialog.vala:44
-msgid "Do you want to save changes before close this file?"
-msgstr "Möchtest du deine Änderungen vor dem Schließen speichern?"
-
-#: /home/xapantu/scratch/po/../src/Dialogs/pastebin_dialog.vala:249
-msgid "Share via PasteBin"
-msgstr "Auf Pastebin hochladen..."
-
-#: /home/xapantu/scratch/po/../src/Dialogs/pastebin_dialog.vala:268
-msgid "Name:"
-msgstr "Name:"
-
-#: /home/xapantu/scratch/po/../src/Dialogs/pastebin_dialog.vala:289
-msgid "Format:"
-msgstr "Format:"
-
-#: /home/xapantu/scratch/po/../src/Dialogs/pastebin_dialog.vala:297
-msgid "Expiry time:"
-msgstr "Ablaufzeit:"
-
-#: /home/xapantu/scratch/po/../src/Dialogs/pastebin_dialog.vala:302
-msgid "Keep this paste private"
-msgstr "Diese Paste privat lassen"
-
-#: /home/xapantu/scratch/po/../src/Dialogs/pastebin_dialog.vala:408
-msgid "The text is void!"
-msgstr "Der Text ist blank!"
-
-#: /home/xapantu/scratch/po/../src/Dialogs/pastebin_dialog.vala:412
-msgid "The text format doesn't exist"
-msgstr "Das Textformat existiert nicht"
-
-#: /home/xapantu/scratch/po/../src/Dialogs/pastebin_dialog.vala:416
-msgid "An error occured"
-msgstr "Es ist ein Fehler aufgetreten"
-
-#: /home/xapantu/scratch/po/../src/Dialogs/pastebin_dialog.vala:421
-msgid "The text is sended"
-msgstr "Der Text wurde versandt"
-
-#: /home/xapantu/scratch/po/../src/Dialogs/pastebin_dialog.vala:469
-msgid "Never"
-msgstr "Nie"
-
-#: /home/xapantu/scratch/po/../src/Dialogs/pastebin_dialog.vala:470
-msgid "Ten minutes"
-msgstr "Zehn Minuten"
-
-#: /home/xapantu/scratch/po/../src/Dialogs/pastebin_dialog.vala:471
-msgid "One hour"
-msgstr "Eine Stunde"
-
-#: /home/xapantu/scratch/po/../src/Dialogs/pastebin_dialog.vala:472
-msgid "One day"
-msgstr "Einen Tag"
-
-#: /home/xapantu/scratch/po/../src/Dialogs/pastebin_dialog.vala:473
-msgid "One month"
-msgstr "Einen Monat"
-
-#: /home/xapantu/scratch/po/../src/Dialogs/save_on_close_dialog.vala:35
+#: /home/mefrio/scratch/po/../src/Dialogs/save_on_close_dialog.vala:35
 msgid "Save this file? "
 msgstr "Diese Datei speichern? "
 
-#: /home/xapantu/scratch/po/../src/Dialogs/save_on_close_dialog.vala:36
+#: /home/mefrio/scratch/po/../src/Dialogs/save_on_close_dialog.vala:36
 msgid "All your work will be lost!"
 msgstr "Alle Änderungen gehen Verloren!"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/save_dialog.vala:44
+msgid "Changes on this file aren't saved."
+msgstr "Deine Änderungen in der Datei wurden nicht gespeichert"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/save_dialog.vala:44
+msgid "Do you want to save changes before close this file?"
+msgstr "Möchtest du deine Änderungen vor dem Schließen speichern?"
+
+#~ msgid "Upload to Pastebin..."
+#~ msgstr "Auf Pastebin hochladen..."
+
+#~ msgid "Share via PasteBin"
+#~ msgstr "Auf Pastebin hochladen..."
+
+#~ msgid "Name:"
+#~ msgstr "Name:"
+
+#~ msgid "Format:"
+#~ msgstr "Format:"
+
+#~ msgid "Expiry time:"
+#~ msgstr "Ablaufzeit:"
+
+#~ msgid "Keep this paste private"
+#~ msgstr "Diese Paste privat lassen"
+
+#~ msgid "The text is void!"
+#~ msgstr "Der Text ist blank!"
+
+#~ msgid "The text format doesn't exist"
+#~ msgstr "Das Textformat existiert nicht"
+
+#~ msgid "An error occured"
+#~ msgstr "Es ist ein Fehler aufgetreten"
+
+#~ msgid "The text is sended"
+#~ msgstr "Der Text wurde versandt"
+
+#~ msgid "Never"
+#~ msgstr "Nie"
+
+#~ msgid "Ten minutes"
+#~ msgstr "Zehn Minuten"
+
+#~ msgid "One hour"
+#~ msgstr "Eine Stunde"
+
+#~ msgid "One day"
+#~ msgstr "Einen Tag"
+
+#~ msgid "One month"
+#~ msgstr "Einen Monat"

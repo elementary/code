@@ -70,7 +70,7 @@ namespace Scratch {
         FontDescription font;
         Gdk.Color bgcolor;
         Gdk.Color fgcolor;
-
+				
         public MainWindow () {
                 
             this.title = TITLE;
@@ -99,13 +99,11 @@ namespace Scratch {
                         
         }
         
-        void action_fetch()
-        {
+        void action_fetch () {
             toolbar.entry.grab_focus();
         }
 
-        void on_notebook_context_new_page(Gtk.Notebook notebook, Widget page, uint num)
-        {
+        void on_notebook_context_new_page (Gtk.Notebook notebook, Widget page, uint num) {
             if(settings.schema.get_boolean((notebook == notebook_context ? "context" : "sidebar") + "-visible")) notebook.show_all();
             if(notebook == notebook_context)
             {
@@ -117,8 +115,7 @@ namespace Scratch {
             notebook.show_tabs = num >= 1;
         }
 
-        void key_changed(string key)
-        {
+        void key_changed (string key) {
             if(key == "context-visible")
             {
                 if(settings.schema.get_boolean("context-visible") && notebook_context.get_n_pages() > 0)
@@ -256,52 +253,63 @@ namespace Scratch {
             switch(key)
             {
             case "Up":
-                TextIter iter;
-                if (end == null || start == null) {
-                    TextIter start_buffer;
-                    current_tab.text_view.buffer.get_iter_at_offset(out start_buffer, current_tab.text_view.buffer.cursor_position);
-                    end = start_buffer;
-                    start = start_buffer;
-                }
-                TextIter local_end = end;
-                TextIter local_start = start;
-                bool found = start.backward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out local_start, out local_end, null);
-                if (found) {
-                    end = local_end;
-                    start = local_start;
-                    current_tab.text_view.buffer.select_range (start, end);
-                    current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
-                }
-                return true;
+                case_up ();
+                break;
 			case "Return":
             case "Down":
-				TextIter iter;
-
-                if (end == null || start == null) {
-                    TextIter start_buffer;
-                    current_tab.text_view.buffer.get_iter_at_offset(out start_buffer, current_tab.text_view.buffer.cursor_position);
-                    end = start_buffer;
-                    start = start_buffer;
-                }
-                TextIter local_end = end;
-                TextIter local_start = start;
-                bool found = end.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out local_start, out local_end, null);
-                if (found) {
-                    end = local_end;
-                    start = local_start;
-                    current_tab.text_view.buffer.select_range (start, end);
-                    current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
-                }
-                return true;
+				case_down ();
+				break;
             }
             return false;
         }
 		
+		public bool case_up () {
+			TextIter iter;
+            if (end == null || start == null) {
+                TextIter start_buffer;
+                current_tab.text_view.buffer.get_iter_at_offset(out start_buffer, current_tab.text_view.buffer.cursor_position);
+                end = start_buffer;
+                start = start_buffer;
+            }
+            TextIter local_end = end;
+            TextIter local_start = start;
+            bool found = start.backward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out local_start, out local_end, null);
+            if (found) {
+                end = local_end;
+                start = local_start;
+                current_tab.text_view.buffer.select_range (start, end);
+                current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
+            }
+            return true;
+		}
+		
+		public bool case_down () {
+			TextIter iter;
+
+            if (end == null || start == null) {
+                TextIter start_buffer;
+                current_tab.text_view.buffer.get_iter_at_offset(out start_buffer, current_tab.text_view.buffer.cursor_position);
+                end = start_buffer;
+                start = start_buffer;
+            }
+            TextIter local_end = end;
+            TextIter local_start = start;
+            bool found = end.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out local_start, out local_end, null);
+            if (found) {
+                end = local_end;
+                start = local_start;
+                current_tab.text_view.buffer.select_range (start, end);
+                current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
+            }
+            return true;
+		}
+		
 		public void on_replace_activate () {
-			//TODO: use http://www.valadoc.org/references/gtk+-3.0/0.11.5/Gtk.TextBuffer.set_text.html
-			warning ("The feaure is not implemented yet");
-			current_tab.text_view.buffer.insert_text (end, "Pippo", 5);
-            //current_tab.text_view.buffer.delete_range (start, end);
+			var buf = current_tab.text_view.buffer;
+			string replace_string = toolbar.replace.get_text ();
+			buf.delete_selection (true, true);
+			buf.insert_at_cursor (replace_string, replace_string.length);
+			case_down ();
 		}		
          
         //signals functions
@@ -520,6 +528,8 @@ namespace Scratch {
                     current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
                 }
                 else {
+                    iter.forward_search ("", TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
+                    current_tab.text_view.buffer.select_range (start, end);
                     start = end = null;
                 }
             }
