@@ -74,6 +74,16 @@ namespace Scratch.Widgets {
 			if (window.current_tab.filename != null) {
 					window.set_combobox_language (window.current_tab.filename);
 			}
+			
+			List<Widget> children = window.split_view.get_children ();
+			int i;
+			
+			for (i = 0; i!=children.length(); i++) {//ScratchNotebook notebook in children) { 
+				var notebook = children.nth_data (i) as ScratchNotebook;
+				if (notebook.get_n_pages () == 0)
+					window.split_view.remove (notebook);
+			}
+			
 			return true;
 			
 		}
@@ -364,6 +374,7 @@ namespace Scratch.Widgets {
 		
 		private int current_row = 0;
 		private int current_col = 0;
+		private int tot = 4;
 		
 		public MainWindow window;
 		public uint total_view {
@@ -372,7 +383,7 @@ namespace Scratch.Widgets {
 		
 		public SplitView (MainWindow window) {
 			
-			homogeneous = true;
+			homogeneous = false;
 			expand = true;
 			
 			this.window = window;
@@ -381,14 +392,26 @@ namespace Scratch.Widgets {
 		
 		public void add_view (ScratchNotebook view) {
 			
-			if (current_row == 3) {
+			if (current_row == tot - 1) {
 			    current_row = 0;
 			    current_col++;
 			}
 			
-			this.attach (view, current_row, current_row + 1,
+			int row = tot - current_row;
+			             
+			if (current_col == 0)
+				this.attach (view, current_row, current_row + 1,
 			             current_col, current_col + 1, AttachOptions.FILL, AttachOptions.FILL,
 			             0, 0);
+			else 
+				this.attach (view, current_row, current_row + 3,
+			             current_col, current_col + 1, AttachOptions.FILL, AttachOptions.FILL,
+			             0, 0);
+			
+			//else
+				//this.attach (view, current_row, current_row + 1,
+			      //       current_col, current_col + 1, AttachOptions.FILL, AttachOptions.FILL,
+			        //     0, 0);
 			             
 			current_row++;
 			
