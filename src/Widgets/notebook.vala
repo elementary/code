@@ -74,7 +74,7 @@ namespace Scratch.Widgets {
 			if (window.current_tab.filename != null) {
 					window.set_combobox_language (window.current_tab.filename);
 			}
-			
+			/*
 			List<Widget> children = window.split_view.get_children ();
 			int i;
 			
@@ -83,7 +83,8 @@ namespace Scratch.Widgets {
 				if (notebook.get_n_pages () == 0)
 					window.split_view.remove (notebook);
 			}
-			
+			*/
+			window.status.set_text ("");
 			return true;
 			
 		}

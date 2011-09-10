@@ -55,7 +55,10 @@ namespace Scratch {
         
         Gtk.Notebook notebook_context;
         Gtk.Notebook notebook_sidebar;
-
+		
+		public Overlay overlay;
+		public Label status;
+		
         //dialogs
         public FileChooserDialog filech;
 
@@ -175,7 +178,18 @@ namespace Scratch {
             vbox.pack_start (hpaned_addons, true, true, 0); 
             vbox.show_all  ();
             
-            this.add (vbox);
+            //add overlay
+            overlay = new Overlay ();
+            overlay.add (vbox);
+            
+            status = new Label ("");
+            status.halign = Align.START;
+			status.valign = Align.END;
+            
+            overlay.add_overlay (status);
+            overlay.show_all ();
+                        
+            this.add (overlay);
             
             notebook.window.current_notebook = notebook.window.split_view.get_current_notebook ();
             notebook.window.current_tab = (Tab) notebook.window.current_notebook.get_nth_page (notebook.window.current_notebook.get_current_page());
@@ -530,6 +544,7 @@ namespace Scratch {
                     iter.forward_search ("", TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
                     current_tab.text_view.buffer.select_range (start, end);
                     start = end = null;
+                    status.set_text ("\"" + search_string + "\" is not founded in the text");
                 }
             }
 		}
