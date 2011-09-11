@@ -24,9 +24,9 @@ using Gdk;
 using Scratch.Dialogs;
 
 namespace Scratch.Widgets {
-
+	
     public class Tab : ScrolledWindow {
-
+		
         private MainWindow window;
 
         public SourceView text_view;
@@ -248,7 +248,7 @@ namespace Scratch.Widgets {
     }
     
 	public class ScratchNotebook : Notebook {
-
+		
 		public MainWindow window; //used in dialog		
 		public ScratchWelcome welcome_screen;
 
@@ -269,6 +269,7 @@ namespace Scratch.Widgets {
 	    
         public int add_tab (string labeltext="New file") {
             
+            //var new_tab = new Tab (this, labeltext, window);
             var new_tab = new Tab (this, labeltext, window);
             int index = this.append_page (new_tab, new_tab.label);
             set_tab_reorderable(new_tab, true);
@@ -282,12 +283,16 @@ namespace Scratch.Widgets {
 			int i;
 			
 			for (i = 0; i!=children.length(); i++) {//ScratchNotebook notebook in children) { 
+				debug("qua");
 				var notebook = children.nth_data (i) as ScratchNotebook;
+				debug ("que");
 				if (notebook.get_n_pages () == 0) {
+					debug ("qui");
 					window.split_view.remove (notebook);
-					window.toolbar.menu.view.set_sensitive (true);
+					debug ("quo");
 				}
 			}
+			window.split_view.set_menu_item_sensitive ();
 		}
         
 		public void show_welcome () {
@@ -305,7 +310,7 @@ namespace Scratch.Widgets {
 		
 			else {
 				window.split_view.remove (this);
-				window.toolbar.menu.view.set_sensitive (true);
+				window.split_view.set_menu_item_sensitive ();
 			}
 		
 		}
@@ -418,11 +423,8 @@ namespace Scratch.Widgets {
 			*/
 			pack_start (view);
 						
-			if (get_children ().length() == (max-1))
-				window.toolbar.menu.view.set_sensitive (false);
-			else
-				window.toolbar.menu.view.set_sensitive (true);
-	
+			set_menu_item_sensitive ();
+			
 			set_focus_child (view);
 			
 			//set sensitive for remove menutitem
@@ -437,11 +439,8 @@ namespace Scratch.Widgets {
 		public bool remove_current_view () {
 			remove (window.current_notebook);
 			
-			if (get_children ().length() == (max-1))
-				window.toolbar.menu.view.set_sensitive (false);
-			else
-				window.toolbar.menu.view.set_sensitive (true);
-						
+			set_menu_item_sensitive ();
+									
 			if (get_children().length() >= 2)
 				return true;
 			else 
@@ -457,6 +456,13 @@ namespace Scratch.Widgets {
 			    }
 			}
 			return child;
+		}
+		
+		public void set_menu_item_sensitive () {
+			if (get_children ().length() == (max-1))
+				window.toolbar.menu.view.set_sensitive (false);
+			else
+				window.toolbar.menu.view.set_sensitive (true);
 		}
 		
 		

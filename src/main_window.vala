@@ -580,8 +580,11 @@ namespace Scratch {
             if (filename != "") {                
                 try {
                     string text;
-                    FileUtils.get_contents (filename, out text);
-                    
+					try {
+						FileUtils.get_contents (filename, out text);
+                    } catch (Error e) {
+						status.set_text (_("The file cannot be opened"));
+					}
                     //get the filename from strig filename =)
                     var name = Filename.display_basename (filename);
                     
@@ -626,9 +629,39 @@ namespace Scratch {
             else if (label.get_text().substring (0, 1) == "*"){
                 label.set_text (filename);
             }
+            
+            if (!can_write (filename)) {
+				debug ("Opening a file wich is Read Only");
+				status.set_text (_("The file is under 'Read Only' permissions"));
+				current_tab.text_view.editable = false;
+			}
                 
         }
+		
+		public bool can_write (string filename) {
 
+            if (filename != null) {
+
+                FileInfo info;
+                var file = File.new_for_path (filename);
+                bool writable;
+                try {
+                    info = file.query_info (FILE_ATTRIBUTE_ACCESS_CAN_WRITE, FileQueryInfoFlags.NONE, null);
+                    writable = info.get_attribute_boolean (FILE_ATTRIBUTE_ACCESS_CAN_WRITE);
+                    return writable;
+                } catch (Error e) {
+                    warning ("%s", e.message);
+                    return false;
+                }
+
+            } else {
+
+                return true;
+
+            }
+
+        }
+		
         public void set_window_title (string filename) {
 
             this.title = this.TITLE + " - " + Path.get_basename (filename);
