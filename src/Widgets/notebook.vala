@@ -74,16 +74,7 @@ namespace Scratch.Widgets {
 			if (window.current_tab.filename != null) {
 					window.set_combobox_language (window.current_tab.filename);
 			}
-			/*
-			List<Widget> children = window.split_view.get_children ();
-			int i;
-			
-			for (i = 0; i!=children.length(); i++) {//ScratchNotebook notebook in children) { 
-				var notebook = children.nth_data (i) as ScratchNotebook;
-				if (notebook.get_n_pages () == 0)
-					window.split_view.remove (notebook);
-			}
-			*/
+
 			window.status.set_text ("");
 			return true;
 			
@@ -292,8 +283,10 @@ namespace Scratch.Widgets {
 			
 			for (i = 0; i!=children.length(); i++) {//ScratchNotebook notebook in children) { 
 				var notebook = children.nth_data (i) as ScratchNotebook;
-				if (notebook.get_n_pages () == 0)
+				if (notebook.get_n_pages () == 0) {
 					window.split_view.remove (notebook);
+					window.toolbar.menu.view.set_sensitive (true);
+				}
 			}
 		}
         
@@ -312,6 +305,7 @@ namespace Scratch.Widgets {
 		
 			else {
 				window.split_view.remove (this);
+				window.toolbar.menu.view.set_sensitive (true);
 			}
 		
 		}
@@ -371,11 +365,15 @@ namespace Scratch.Widgets {
         
     }
     
-    public class SplitView : Table {
+    public class SplitView : HBox {
 		
-		private int current_row = 0;
-		private int current_col = 0;
-		private int tot = 4;
+		//IN THIS CLASS I COMMENTED ALL THE CODE WHICH WAS USED FOR A SPLITVIEW WITH GTK.TABLE
+		
+		//private int current_row = 0;
+		//private int current_col = 0;
+		//private int rmax = 4;
+		//private int cmax = 2;
+		private int max = 4; //max = max--
 		
 		public MainWindow window;
 		public uint total_view {
@@ -392,30 +390,39 @@ namespace Scratch.Widgets {
 		}
 		
 		public void add_view (ScratchNotebook view) {
-			
-			if (current_row == tot - 1) {
+			/*			
+			if (current_row == rmax - 1) {
 			    current_row = 0;
 			    current_col++;
 			}
 			
-			int row = tot - current_row;
-			             
-			if (current_col == 0)
-				this.attach (view, current_row, current_row + 1,
-			             current_col, current_col + 1, AttachOptions.FILL, AttachOptions.FILL,
-			             0, 0);
-			else 
-				this.attach (view, current_row, current_row + 3,
-			             current_col, current_col + 1, AttachOptions.FILL, AttachOptions.FILL,
-			             0, 0);
+			if (current_col == cmax - 1) 				
+				if (current_row == rmax - 2) 
+					window.toolbar.menu.view.set_sensitive (false);
 			
-			//else
-				//this.attach (view, current_row, current_row + 1,
-			      //       current_col, current_col + 1, AttachOptions.FILL, AttachOptions.FILL,
-			        //     0, 0);
+			int row = rmax - current_row;
+			             
+			if (current_col != cmax) { 
+			            
+				if (current_col == 0)
+					this.attach (view, current_row, current_row + 1,
+							current_col, current_col + 1, AttachOptions.FILL, AttachOptions.FILL,
+							0, 0);
+				else 
+					this.attach (view, current_row, current_row + 3,
+							current_col, current_col + 1, AttachOptions.FILL, AttachOptions.FILL,
+							0, 0);
+			}
 			             
 			current_row++;
-			
+			*/
+			pack_start (view);
+						
+			if (get_children ().length() == (max-1))
+				window.toolbar.menu.view.set_sensitive (false);
+			else
+				window.toolbar.menu.view.set_sensitive (true);
+	
 			set_focus_child (view);
 			
 			//set sensitive for remove menutitem
@@ -423,16 +430,22 @@ namespace Scratch.Widgets {
 				window.toolbar.menu.remove_view.set_sensitive (true);
 			else 
 				window.toolbar.menu.remove_view.set_sensitive (false);
+			
 			show_all ();
 		}
 		
 		public bool remove_current_view () {
 			remove (window.current_notebook);
+			
+			if (get_children ().length() == (max-1))
+				window.toolbar.menu.view.set_sensitive (false);
+			else
+				window.toolbar.menu.view.set_sensitive (true);
+						
 			if (get_children().length() >= 2)
 				return true;
 			else 
-				return false;
-						
+				return false;						
 		}
 		
 		public ScratchNotebook get_current_notebook () {
