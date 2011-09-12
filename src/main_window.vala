@@ -327,7 +327,7 @@ namespace Scratch {
          
         //signals functions
         public void on_destroy () {
-            if (!current_notebook.welcome_screen.active) {
+            /*if (!current_notebook.welcome_screen.active) {
                 this.show_all ();
                 string isnew = current_tab.label.label.get_text () [0:1];
                 if (isnew == "*") {
@@ -336,7 +336,33 @@ namespace Scratch {
                     } else {
                         this.destroy();
                     }
-            }
+            }*/
+            
+            //
+            this.show_all ();
+            
+			notebook.window.current_tab = (Tab) notebook.window.current_notebook.get_nth_page (notebook.window.current_notebook.get_current_page());
+
+            
+            List<Widget> children = split_view.get_children ();
+			int i, n;
+			
+			for (i = 0; i!=children.length(); i++) {								
+				var notebook = children.nth_data (i) as ScratchNotebook;
+								
+				for (n = 0; n!=notebook.get_n_pages(); n++) {
+					notebook.set_current_page (n);
+					var label = (Tab) notebook.get_nth_page (n);
+					
+					string isnew = label.label.label.get_text () [0:1];
+			
+					if (isnew == "*") {
+						var save_dialog = new SaveOnCloseDialog(label.label.label.get_text (), this);
+						save_dialog.run();
+					}
+				}
+			}
+			
         }
         
         private void reset_ctrl_flags() {

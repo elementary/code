@@ -57,7 +57,9 @@ namespace Scratch.Widgets {
 
 		public void on_close_clicked() {
 			
-			if (this.saved == false) {
+			string isnew = label.label.get_text () [0:1];
+			
+			if (isnew == "*") {
 			
 				var save_dialog = new SaveDialog(this);
 				save_dialog.run();

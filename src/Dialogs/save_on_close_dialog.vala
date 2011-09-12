@@ -22,12 +22,17 @@ using Gtk;
 namespace Scratch.Dialogs {
 
     public class SaveOnCloseDialog : MessageDialog {
-
+		
+		private string filename;
+		private MainWindow window;
+		
         public SaveOnCloseDialog (string? filename, MainWindow window) {
             
             this.type_hint = Gdk.WindowTypeHint.DIALOG;
             this.set_modal (true);
             this.set_transient_for (window);
+            this.filename = filename;
+            this.window = window;
             
             message_type = MessageType.WARNING;
             use_markup = true;
@@ -35,7 +40,7 @@ namespace Scratch.Dialogs {
             text = _("Save this file? ") + filename;
             text += "\n\n<b>" + _("All your work will be lost!") + "</b>";
 
-            add_button (Stock.QUIT, ResponseType.CANCEL);
+            add_button (Stock.NO, ResponseType.CANCEL);
             add_button (Stock.SAVE, ResponseType.ACCEPT);
             set_default_response (ResponseType.ACCEPT);
             
@@ -48,8 +53,12 @@ namespace Scratch.Dialogs {
                 case ResponseType.CANCEL:
                 	Gtk.main_quit ();
                 	break;
-                }
-          
+                
+                case ResponseType.ACCEPT:
+					//if (FileUtils.test (filename, FileTest.EXISTS))
+					window.current_tab.save ();
+					break;
+				}
         
         }
     }
