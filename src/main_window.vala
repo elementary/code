@@ -68,6 +68,8 @@ namespace Scratch {
         //bools for key press event
         bool ctrlL = false;
         bool ctrlR = false;
+        bool shiftR = false;
+        bool shiftL = false;
         
         //objects for the set_theme ()
         FontDescription font;
@@ -201,6 +203,7 @@ namespace Scratch {
             key_changed("context-visible");
         
 			toolbar.toolreplace.hide ();
+			toolbar.toolgoto.hide ();
         }
         
         public void set_theme () {
@@ -257,6 +260,8 @@ namespace Scratch {
             toolbar.entry.changed.connect (on_changed_text);
             toolbar.entry.key_press_event.connect (on_search_key_press);
             toolbar.replace.activate.connect (on_replace_activate);
+            toolbar.go_to.activate.connect (on_goto_activate);
+            toolbar.go_to.changed.connect (on_goto_changed);
 
         }
         
@@ -325,6 +330,41 @@ namespace Scratch {
 			case_down ();
 		}		
          
+        public void on_goto_activate () {
+			TextIter it;
+			var buf = current_tab.text_view.buffer;
+			buf.get_iter_at_line (out it, 0); 
+			buf.place_cursor (it);
+			
+		}
+        
+        public void on_goto_changed () {
+			/*string number = toolbar.go_to.get_text ();
+			//foreach (string s in number)
+				//stdout.printf ("%s\n", s);
+			for (int i=0; i<=number.length; i++) {
+				unichar ch;
+				number.get_next_char (ref i, out ch);
+				string c = ch.to_string ();
+				if (c == "0" || c == "1" || c == "2" || c == "3" || c == "4" 		//if it is a number
+					|| c == "5" || c == "6" || c == "7" || c == "8" || c == "9") {
+						stdout.printf ("%s\n", c);
+						
+						
+				}
+				//else {
+					//	number.replace (c, "");
+						//toolbar.go_to.set_text (number);
+				//}
+			}
+			//toolbar.go_to.set_text (number);
+			//toolbar.go_to.set_text (newnumber);
+			//stdout.printf ("%s", number);
+			//toolbar.go_to.set_text (number);
+			*/
+			return;	
+		}
+         
         //signals functions
         public void on_destroy () {
             /*if (!current_notebook.welcome_screen.active) {
@@ -339,7 +379,7 @@ namespace Scratch {
             }*/
             
             //
-            this.show_all ();
+            //this.show_all ();
             
 			notebook.window.current_tab = (Tab) notebook.window.current_notebook.get_nth_page (notebook.window.current_notebook.get_current_page());
 
@@ -368,6 +408,8 @@ namespace Scratch {
         private void reset_ctrl_flags() {
             ctrlR = false;
             ctrlL = false;
+            shiftR = false;
+            shiftL = false;
         }
         
         // untoggles Control Trigger
@@ -376,6 +418,9 @@ namespace Scratch {
             string key = Gdk.keyval_name(event.keyval);
             
             if (key == "Control_L" || key == "Control_R")
+                reset_ctrl_flags();
+            
+            if (key == "Shift_L" || key == "Shift_R")
                 reset_ctrl_flags();
                 
             return true;
@@ -391,12 +436,17 @@ namespace Scratch {
         public bool on_key_press (EventKey event) {
             
             string key = Gdk.keyval_name(event.keyval);
-                
+
             /// Q: Do we really need ctrlL and ctrlR? One Var may be enough
             if (key == "Control_L")
                 ctrlL = true;
             if (key == "Control_R")
                 ctrlR = true;
+                
+            if (key == "Shift_L")
+                shiftL = true;
+            if (key == "Shift_R")
+                shiftR = true;
 
             if ((ctrlL || ctrlR))
             {
@@ -427,7 +477,21 @@ namespace Scratch {
 					case "r":
 						toolbar.show_replace_entry ();
 					break;
-                    
+					//show replace entry
+					case "i":
+						toolbar.show_go_to_entry ();
+					break;
+                    //go forward in the search
+					case "g":
+						if (shiftL == false && shiftR == false)
+							case_down ();
+						else
+							case_up ();
+					break;
+					//go backward in the search
+					//case "g":
+						//case_down ();
+					//break;
                     // Undo by Ctrl+Z
                     case "z":
                         this.on_undo_clicked();
@@ -607,7 +671,10 @@ namespace Scratch {
                 try {
                     string text;
 					try {
+						var len = ssize_t.MIN;
+						size_t r, w;
 						FileUtils.get_contents (filename, out text);
+						text = text.locale_to_utf8 (len, out r, out w); //TODO:fix it
                     } catch (Error e) {
 						status.set_text (_("The file cannot be opened"));
 					}

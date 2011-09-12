@@ -44,11 +44,14 @@ namespace Scratch.Widgets {
         public ToolItem toolentry;
         public SearchBar replace;
         public ToolItem toolreplace;
+        public SearchBar go_to;
+        public ToolItem toolgoto;
         public ShareMenu share_menu;
         public MenuProperties menu;
         public AppMenu app_menu;
 		
 		public bool replace_active = false;
+		public bool goto_active = false;
 		
 		public enum ToolButtons {
 			NEW_BUTTON,
@@ -92,6 +95,10 @@ namespace Scratch.Widgets {
 			replace = new SearchBar (_("Replace..."));
 			replace.width_request = 250;
 			toolreplace = toolitem (replace, false);
+			
+			go_to = new SearchBar (_("Insert line number..."));
+			go_to.width_request = 250;
+			toolgoto = toolitem (go_to, false);
 						
             share_menu = new ShareMenu (this.window);
             var share_app_menu = new ShareAppMenu (share_menu);
@@ -105,6 +112,7 @@ namespace Scratch.Widgets {
             add (toolentry);
             add (new SeparatorToolItem ());
             add (toolreplace);
+            add (toolgoto);
             add (share_app_menu);
             add (app_menu);
             
@@ -211,7 +219,14 @@ namespace Scratch.Widgets {
 						
 						
 			if (!replace_active) {
-				toolreplace.show ();
+				if (goto_active) {
+					toolgoto.hide ();
+					goto_active = false;
+					toolreplace.show ();
+				}
+				else {
+					toolreplace.show ();
+				}
 				replace_active = true;
 			}
 			else {
@@ -219,6 +234,26 @@ namespace Scratch.Widgets {
 				replace_active = false;
 			}
 			
+		}
+		
+		public void show_go_to_entry () {
+						
+						
+			if (!goto_active) {
+				if (replace_active) {
+					toolreplace.hide ();
+					replace_active = false;
+					toolgoto.show ();
+				}
+				else {
+					toolgoto.show ();
+				}
+				goto_active = true;
+			}
+			else {
+				toolgoto.hide ();
+				goto_active = false;
+			}
 		}
         
      
