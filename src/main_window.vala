@@ -260,8 +260,8 @@ namespace Scratch {
             toolbar.entry.changed.connect (on_changed_text);
             toolbar.entry.key_press_event.connect (on_search_key_press);
             toolbar.replace.activate.connect (on_replace_activate);
-            toolbar.go_to.activate.connect (on_goto_activate);
-            toolbar.go_to.changed.connect (on_goto_changed);
+            //toolbar.go_to.activate.connect (on_goto_activate);
+            //toolbar.go_to.changed.connect (on_goto_changed);
 
         }
         
@@ -608,14 +608,15 @@ namespace Scratch {
         TextIter? start;
     
         public void on_changed_text () {
+            if (current_tab.text_view.buffer.text != "") {
             search_string = toolbar.entry.get_text();
             var buffer = get_active_buffer ();
             TextIter iter;
             
-            /*if(start == null)*/ {
+            //if(start == null) {
                 buffer.get_iter_at_offset(out start, buffer.cursor_position);
                 end = start;
-            }
+            //}
             iter = start;
             
             var found = iter.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
@@ -636,7 +637,9 @@ namespace Scratch {
                     start = end = null;
                     status.set_text ("\"" + search_string + "\" is not founded in the text");
                 }
-            }
+            
+           }
+		}
 		}
 				
         public bool on_scroll_event (EventScroll event) {
