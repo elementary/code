@@ -323,11 +323,29 @@ namespace Scratch {
 		}
 		
 		public void on_replace_activate () {
+			TextIter s, e;
+			if (current_tab.text_view.buffer.get_selection_bounds(out s, out e)) {
 			var buf = current_tab.text_view.buffer;
 			string replace_string = toolbar.replace.get_text ();
 			buf.delete_selection (true, true);
 			buf.insert_at_cursor (replace_string, replace_string.length);
-			case_down ();
+			//simil to case_down() ...
+			TextIter iter;
+            TextIter start_buffer;
+            current_tab.text_view.buffer.get_iter_at_offset(out start_buffer, current_tab.text_view.buffer.cursor_position);
+            end = start_buffer;
+            start = start_buffer;
+
+            TextIter local_end = end;
+            TextIter local_start = start;
+            bool found = end.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out local_start, out local_end, null);
+            if (found) {
+                end = local_end;
+                start = local_start;
+                current_tab.text_view.buffer.select_range (start, end);
+                current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
+            }
+			}
 		}		
          
         public void on_goto_activate () {
