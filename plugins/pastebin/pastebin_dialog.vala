@@ -494,7 +494,7 @@ namespace Scratch.Dialogs {
                        
                 }
 
-                error_desc.append("\n" + _("The text is sended"));
+                error_desc.append("\n" + _("The text was sent"));
                 var err_label = new Label(error_desc.str);
 
                 box.pack_start (err_label, false, true, 0);

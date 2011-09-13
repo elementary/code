@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-08 23:02+0200\n"
-"PO-Revision-Date: 2011-09-08 23:03+0100\n"
+"POT-Creation-Date: 2011-09-13 13:05+0200\n"
+"PO-Revision-Date: 2011-09-13 13:06+0100\n"
 "Last-Translator: Mario Guerriero <mefrio.g@gmail.com>\n"
 "Language-Team: German <de@li.org>\n"
 "Language: de\n"
@@ -18,39 +18,44 @@ msgstr ""
 "X-Launchpad-Export-Date: 2011-08-30 06:15+0000\n"
 "X-Generator: Launchpad (build 13794)\n"
 
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:88
+#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:91
 msgid "Search in the text..."
 msgstr "In der Datei suchen..."
 
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:92
+#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:95
 msgid "Replace..."
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:141
+#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:99
+#, fuzzy
+msgid "Insert line number..."
+msgstr "Zeilennummern anzeigen"
+
+#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:149
 msgid "Normal Text"
 msgstr "Normaler Text"
 
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:174
+#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:182
 msgid "Create a new file in a new tab"
 msgstr "Erstellt eine neue Datei in einem neuen Tab"
 
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:175
+#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:183
 msgid "Open an existing file"
 msgstr "Öffnet eine existierende Datei"
 
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:176
+#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:184
 msgid "Save the current file"
 msgstr "Speichert die aktuelle Datei."
 
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:177
+#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:185
 msgid "Cancel the last operation"
 msgstr "Rückgängig"
 
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:178
+#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:186
 msgid "Repeat the last cancelled operation"
 msgstr "Wiederholen"
 
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:179
+#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:187
 msgid "Share this file with others"
 msgstr "Die Datei mit anderen teilen"
 
@@ -58,27 +63,27 @@ msgstr "Die Datei mit anderen teilen"
 msgid "Share via email..."
 msgstr "Via E-Mail verschicken..."
 
-#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:325
+#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:340
 msgid "No files opened."
 msgstr "Keine Dateien geöffnet."
 
-#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:325
+#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:340
 msgid "Open a file to start editing"
 msgstr "Öffnet eine Datei zum Bearbeiten"
 
-#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:329
+#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:344
 msgid "Open file"
 msgstr "Datei öffnen"
 
-#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:329
+#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:344
 msgid "open a saved file"
 msgstr "Öffnet eine gespeicherte Datei"
 
-#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:330
+#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:345
 msgid "New file"
 msgstr "Neue Datei"
 
-#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:330
+#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:345
 msgid "create an new empty file"
 msgstr "Erstellt ein blankes Dokument"
 
@@ -135,11 +140,11 @@ msgstr "Ausgewählte Schriftart"
 msgid "Close"
 msgstr "Schließen"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/save_on_close_dialog.vala:35
+#: /home/mefrio/scratch/po/../src/Dialogs/save_on_close_dialog.vala:40
 msgid "Save this file? "
 msgstr "Diese Datei speichern? "
 
-#: /home/mefrio/scratch/po/../src/Dialogs/save_on_close_dialog.vala:36
+#: /home/mefrio/scratch/po/../src/Dialogs/save_on_close_dialog.vala:41
 msgid "All your work will be lost!"
 msgstr "Alle Änderungen gehen Verloren!"
 
@@ -151,47 +156,73 @@ msgstr "Deine Änderungen in der Datei wurden nicht gespeichert"
 msgid "Do you want to save changes before close this file?"
 msgstr "Möchtest du deine Änderungen vor dem Schließen speichern?"
 
-#~ msgid "Upload to Pastebin..."
-#~ msgstr "Auf Pastebin hochladen..."
+#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
+msgid "Share via PasteBin"
+msgstr "Auf Pastebin hochladen..."
 
-#~ msgid "Share via PasteBin"
-#~ msgstr "Auf Pastebin hochladen..."
+#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:273
+msgid "Name:"
+msgstr "Name:"
 
-#~ msgid "Name:"
-#~ msgstr "Name:"
+#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:279
+#, fuzzy
+msgid "Format: "
+msgstr "Format:"
 
-#~ msgid "Format:"
-#~ msgstr "Format:"
+#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:281
+msgid "Others..."
+msgstr ""
 
-#~ msgid "Expiry time:"
-#~ msgstr "Ablaufzeit:"
+#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:306
+msgid "Expiry time:"
+msgstr "Ablaufzeit:"
 
-#~ msgid "Keep this paste private"
-#~ msgstr "Diese Paste privat lassen"
+#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:311
+msgid "Keep this paste private"
+msgstr "Diese Paste privat lassen"
 
-#~ msgid "The text is void!"
-#~ msgstr "Der Text ist blank!"
+#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:345
+msgid "Others formats"
+msgstr ""
 
-#~ msgid "The text format doesn't exist"
-#~ msgstr "Das Textformat existiert nicht"
+#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:484
+msgid "The text is void!"
+msgstr "Der Text ist blank!"
 
-#~ msgid "An error occured"
-#~ msgstr "Es ist ein Fehler aufgetreten"
+#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:488
+msgid "The text format doesn't exist"
+msgstr "Das Textformat existiert nicht"
 
-#~ msgid "The text is sended"
-#~ msgstr "Der Text wurde versandt"
+#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:492
+msgid "An error occured"
+msgstr "Es ist ein Fehler aufgetreten"
 
-#~ msgid "Never"
-#~ msgstr "Nie"
+#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:497
+#, fuzzy
+msgid "The text was sent"
+msgstr "Der Text wurde versandt"
 
-#~ msgid "Ten minutes"
-#~ msgstr "Zehn Minuten"
+#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:544
+msgid "Never"
+msgstr "Nie"
 
-#~ msgid "One hour"
-#~ msgstr "Eine Stunde"
+#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:545
+msgid "Ten minutes"
+msgstr "Zehn Minuten"
 
-#~ msgid "One day"
-#~ msgstr "Einen Tag"
+#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:546
+msgid "One hour"
+msgstr "Eine Stunde"
 
-#~ msgid "One month"
-#~ msgstr "Einen Monat"
+#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:547
+msgid "One day"
+msgstr "Einen Tag"
+
+#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:548
+msgid "One month"
+msgstr "Einen Monat"
+
+#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin.vala:130
+msgid "Upload to Pastebin..."
+msgstr "Auf Pastebin hochladen..."
+
