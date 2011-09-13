@@ -337,12 +337,12 @@ namespace Scratch.Widgets {
 			
 			public ScratchWelcome(ScratchNotebook caller) {
 		
-				base(_("No files opened."), _("Open a file to start editing"));
+				base(_("No files are open."), _("Open a file to begin editing"));
 		
 				notebook = caller;
 		
 				append(Stock.OPEN, _("Open file"), _("open a saved file"));
-				append(Stock.NEW, _("New file"), _("create an new empty file"));
+				append(Stock.NEW, _("New file"), _("create a new empty file"));
 				this.activated.connect (on_activated);
 				
 				show_all();

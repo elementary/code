@@ -36,7 +36,7 @@ namespace Scratch.Widgets {
             this.window = window;
 
             /*pastebin = new MenuItem.with_label (_("Upload to Pastebin..."));*/
-            share_email = new MenuItem.with_label (_("Share via email..."));
+            share_email = new MenuItem.with_label (_("Share via Email..."));
 
             /*append (pastebin);*/
             append (share_email);
@@ -51,7 +51,7 @@ namespace Scratch.Widgets {
 					GLib.Process.spawn_command_line_sync ("postler mailto:?attach=" + window.current_tab.filename);
 				}
 				else {
-					warning ("To share the file you need to save it!");
+					warning ("To share the file you need to save it first!");
 				}
 			});
 
