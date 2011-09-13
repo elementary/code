@@ -552,6 +552,7 @@ namespace Scratch {
 
             filech.close ();
             set_undo_redo ();
+            
 
         }
         
@@ -692,10 +693,13 @@ namespace Scratch {
                 try {
                     string text;
 					try {
-						var len = ssize_t.MIN;
+						var len = ssize_t.MAX;
 						size_t r, w;
 						FileUtils.get_contents (filename, out text);
-						text = text.locale_to_utf8 (len, out r, out w); //TODO:fix it
+						text = text.locale_to_utf8 (-1, out r, out w); //TODO:fix it
+						//text = convert (text, -1, "ISO-8859-1", "UTF-8");
+						text = convert (text, -1, "ISO-8859-1", "UTF-8");
+						text.validate ();
                     } catch (Error e) {
 						status.set_text (_("The file cannot be opened"));
 					}
@@ -830,7 +834,6 @@ namespace Scratch {
         }
         
         public void set_undo_redo () {
-            
             var buf = current_tab.text_view.buffer;
 
             toolbar.set_button_sensitive(Widgets.Toolbar.ToolButtons.UNDO_BUTTON, buf.can_undo);
@@ -840,7 +843,7 @@ namespace Scratch {
                 toolbar.set_button_sensitive(Widgets.Toolbar.ToolButtons.UNDO_BUTTON, false);
                 toolbar.set_button_sensitive(Widgets.Toolbar.ToolButtons.REPEAT_BUTTON, false);
             }
-        
+			
         }
         
         public void set_combobox_language (string filename) {

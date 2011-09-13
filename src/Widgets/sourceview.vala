@@ -52,11 +52,11 @@ namespace Scratch.Widgets {
             auto_indent = true;
             set_wrap_mode (Gtk.WrapMode.WORD);
             //show_right_margin = true;
-            
+                        
             buffer.highlight_syntax = true;
             
             Scratch.settings.changed.connect (restore_settings);
-
+			
             plugins.hook_source_view(this);
 
         }
@@ -86,12 +86,21 @@ namespace Scratch.Widgets {
         }
 
         public void set_file (string filename, string text) {
+			
+			var sfile = filename.split (".");
+			Language lang;
+			
+			if (sfile [sfile.length-1] == "ui") {
+				lang = manager.get_language ("xml");
+				buffer.set_language (lang);
+				buffer.text = text;
+			}
 
-            Language lang;
-            lang = manager.guess_language (filename, null);
-            buffer.set_language (lang);
-            buffer.text = text;
-
+			else {
+				lang = manager.guess_language (filename, null);
+				buffer.set_language (lang);
+				buffer.text = text;
+			}
         }
         
         public void on_buffer_changed () {

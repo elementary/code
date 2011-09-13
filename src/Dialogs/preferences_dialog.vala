@@ -148,7 +148,7 @@ namespace Scratch.Dialogs {
 			var pg = new Label ("It is not implemented yet");
 			
 			//create static notebook
-			var plugins = new Label (_("Plugins"));
+			var plugins = new Label ("Plugins");
 			staticn.append_page (pg, plugins);
 			
             add (staticn);
