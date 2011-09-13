@@ -20,13 +20,16 @@
 
 
 using Gtk;
+using Granite.Widgets;
 
 namespace Scratch.Dialogs {
 
     public class Preferences : Window {
 
         private MainWindow window;
-
+		
+		private StaticNotebook staticn;
+		
         private VBox content;
         private HBox padding;
 
@@ -45,6 +48,8 @@ namespace Scratch.Dialogs {
 
         public Preferences (string? title, MainWindow? window) {
             
+            staticn = new StaticNotebook ();
+            
             this.window = window;
             this.title = title;
             this.type_hint = Gdk.WindowTypeHint.DIALOG;
@@ -60,7 +65,9 @@ namespace Scratch.Dialogs {
         }
 
         private void create_layout () {
-
+			
+			//create general settings
+			
             content = new VBox (false, 10);
             padding = new HBox (false, 10);
 
@@ -132,8 +139,19 @@ namespace Scratch.Dialogs {
             content.pack_end (bottom_buttons, false, true, 12);
 
             padding.pack_start (content, true, true, 12);
-
-            add (padding);
+			
+		    //create static notebook
+			var general = new Label (_("General"));
+			staticn.append_page (padding, general);
+			
+			//create plugins settings
+			var pg = new Label ("It is not implemented yet");
+			
+			//create static notebook
+			var plugins = new Label (_("Plugins"));
+			staticn.append_page (pg, plugins);
+			
+            add (staticn);
 
             show_all ();
 
