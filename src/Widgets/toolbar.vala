@@ -158,7 +158,7 @@ namespace Scratch.Widgets {
            combobox.append ("fortran", "Fortran"); 
            combobox.append ("gettext-translation", "Gettext");
            combobox.append ("html", "HTML");
-           combobox.append ("ini", "ini");
+           combobox.append ("ini", "INI");
            combobox.append ("java", "Java");
            combobox.append ("js", "JavaScript");
            combobox.append ("latex", "Latex"); 

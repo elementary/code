@@ -41,9 +41,9 @@ namespace Scratch.Widgets {
         
         public void create () {		
             
-            view = new MenuItem.with_label (_("Add a new view"));
+            view = new MenuItem.with_label (_("Add New View"));
             
-            remove_view = new MenuItem.with_label (_("Remove current view"));
+            remove_view = new MenuItem.with_label (_("Remove Current View"));
             if (window.split_view != null) {
 				if (window.split_view.total_view <= 1) remove_view.set_sensitive(false);
 				else remove_view.set_sensitive(true);
@@ -55,9 +55,9 @@ namespace Scratch.Widgets {
             
             preferences = new ImageMenuItem.from_stock (Stock.PREFERENCES, null);
 
-            sidebar_visible = new CheckMenuItem.with_label (_("Show sidebar"));
+            sidebar_visible = new CheckMenuItem.with_label (_("Show Sidebar"));
             settings.schema.bind("sidebar-visible", sidebar_visible, "active", SettingsBindFlags.DEFAULT);
-            context_visible = new CheckMenuItem.with_label (_("Show context view"));
+            context_visible = new CheckMenuItem.with_label (_("Show Context View"));
             settings.schema.bind("context-visible", context_visible, "active", SettingsBindFlags.DEFAULT);
 
             context_visible.sensitive = false;

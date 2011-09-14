@@ -701,7 +701,7 @@ namespace Scratch {
 						text = convert (text, -1, "ISO-8859-1", "UTF-8");
 						text.validate ();
                     } catch (Error e) {
-						status.set_text (_("The file cannot be opened"));
+						status.set_text (_("The file could not be opened"));
 					}
                     //get the filename from strig filename =)
                     var name = Filename.display_basename (filename);
@@ -750,7 +750,7 @@ namespace Scratch {
             
             if (!can_write (filename)) {
 				debug ("Opening a file wich is Read Only");
-				status.set_text (_("The file is under 'Read Only' permissions"));
+				status.set_text (_("The file is 'Read Only'"));
 				current_tab.text_view.editable = false;
 			}
                 

@@ -174,10 +174,13 @@ namespace Scratch.Widgets {
         public Entry entry;
         public Button close;
         private string old;
+        private Tab tab;
         
         public TabLabel (Tab my_tab, string labeltext) {
                                                 
             homogeneous = false;    
+            
+            this.tab = my_tab;
                                             
             label = new Label (labeltext);
             entry = new Entry ();
@@ -205,25 +208,38 @@ namespace Scratch.Widgets {
         }
 
         protected bool click_event (EventButton event) {
+			
+			string filename = tab.filename;
 
-            if ((event.type == EventType.2BUTTON_PRESS) || (event.type == EventType.3BUTTON_PRESS)) {
-                stdout.printf ("\n\n");
-                old = entry.text;
-                event_box.hide ();
-                add (entry);
-                entry.text = label.get_text ();
-                entry.show ();
-                entry.key_press_event.connect (return_event);
-            }
+			if (filename != null) {
+			
+				if ((event.type == EventType.2BUTTON_PRESS) || (event.type == EventType.3BUTTON_PRESS)) {
+					event_box.hide ();
+					add (entry);
+					entry.text = label.get_text ();
+					entry.show ();
+					entry.key_press_event.connect (return_event);
+				}
+			}
             return false;
         }
 
         protected bool return_event (EventKey event) {
             if (event.keyval == 65293) { // 65293 is the return key
+                string old = tab.filename;
+                var sold = old.split ("/");
+				string newname = "";
+				foreach (string s in sold) {
+					if (s != "" && s != sold[sold.length-1])
+						newname = newname +  "/" + s;
+					if (s == sold[sold.length-1])
+						newname = newname +  "/" + entry.text;
+				}
+                
+                
                 entry.hide ();
                 event_box.show ();
-                stdout.printf ("\n\n");
-                FileUtils.rename (old, entry.text);
+                FileUtils.rename (old, newname);
                 
                 label.label = entry.text;
             }
@@ -343,12 +359,12 @@ namespace Scratch.Widgets {
 			
 			public ScratchWelcome(ScratchNotebook caller) {
 		
-				base(_("No files opened."), _("Open a file to start editing"));
+				base(_("No files are open."), _("Open a file to begin editing"));
 		
 				notebook = caller;
 		
 				append(Stock.OPEN, _("Open file"), _("open a saved file"));
-				append(Stock.NEW, _("New file"), _("create an new empty file"));
+				append(Stock.NEW, _("New file"), _("create a new empty file"));
 				this.activated.connect (on_activated);
 				
 				show_all();
