@@ -173,6 +173,7 @@ namespace Scratch.Widgets {
         public Label label;
         public Entry entry;
         public Button close;
+        private string old;
         
         public TabLabel (Tab my_tab, string labeltext) {
                                                 
@@ -206,6 +207,8 @@ namespace Scratch.Widgets {
         protected bool click_event (EventButton event) {
 
             if ((event.type == EventType.2BUTTON_PRESS) || (event.type == EventType.3BUTTON_PRESS)) {
+                stdout.printf ("\n\n");
+                old = entry.text;
                 event_box.hide ();
                 add (entry);
                 entry.text = label.get_text ();
@@ -219,6 +222,9 @@ namespace Scratch.Widgets {
             if (event.keyval == 65293) { // 65293 is the return key
                 entry.hide ();
                 event_box.show ();
+                stdout.printf ("\n\n");
+                FileUtils.rename (old, entry.text);
+                
                 label.label = entry.text;
             }
             return false;
