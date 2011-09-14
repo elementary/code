@@ -654,7 +654,7 @@ namespace Scratch {
                     iter.forward_search ("", TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
                     current_tab.text_view.buffer.select_range (start, end);
                     start = end = null;
-                    status.set_text ("\"" + search_string + "\" is not founded in the text");
+                    status.set_text ("\"" + search_string + "\" couldn't be found");
                 }
             
            }
