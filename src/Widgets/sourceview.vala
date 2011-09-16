@@ -117,8 +117,8 @@ namespace Scratch.Widgets {
         		label.set_text ("* " + label.get_text());
         	}
         	
+        	//buffer.end_not_undoable_action ();
         	window.set_undo_redo();
-        	
         }
 
         public void restore_settings () {

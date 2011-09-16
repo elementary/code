@@ -594,6 +594,8 @@ namespace Scratch {
                     current_notebook.show_tabs_view ();    
                     var name = filename.split("/");
                     load_file (filename,name[name.length-1]);
+                    current_tab.text_view.buffer.begin_not_undoable_action ();
+                    current_tab.text_view.buffer.end_not_undoable_action ();
                     }
             }
         }
@@ -603,17 +605,17 @@ namespace Scratch {
         }
                 
         public void on_undo_clicked () {
-            
-            current_tab.text_view.undo ();
-            set_undo_redo ();
-
+            //if (current_tab.text_view.buffer.can_undo) {
+				current_tab.text_view.undo ();
+				set_undo_redo ();
+			//}
         }
     
-        public void on_repeat_clicked () {
-            
-            current_tab.text_view.redo ();
-            set_undo_redo ();
-        
+        public void on_repeat_clicked () {         
+            //if (current_tab.text_view.buffer.can_redo) {
+				current_tab.text_view.redo ();
+				set_undo_redo ();
+			//}
         }
         
         public void on_combobox_changed () {
