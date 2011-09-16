@@ -77,7 +77,7 @@ namespace Scratch.Widgets {
 					window.set_combobox_language (window.current_tab.filename);
 			}
 
-			window.status.set_text ("");
+			window.status.hide ();
 			return true;
 			
 		}

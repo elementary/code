@@ -702,71 +702,99 @@ namespace Scratch {
         //generic functions
         public void load_file (string filename, string? title=null) {
             
-            if (filename != "") {                
-                try {
-                    string text;
-					try {
-						var len = ssize_t.MAX;
-						size_t r, w;
-						FileUtils.get_contents (filename, out text);
-						text = text.locale_to_utf8 (-1, out r, out w); //TODO:fix it
-						//text = convert (text, -1, "ISO-8859-1", "UTF-8");
-						text = convert (text, -1, "ISO-8859-1", "UTF-8");
-						text.validate ();
-                    } catch (Error e) {
-						status.set_text (_("The file could not be opened"));
-					}
-                    //get the filename from strig filename =)
-                    var name = Filename.display_basename (filename);
-                    
-                    Tab target_tab;
-
-                    if ((current_tab != null) && (current_tab.filename == null) ) {
-                    
-                        //open in this tab
-                        target_tab = current_tab;  
-                    } else {
-
-                        //create new tab
-                        int tab_index = current_notebook.add_tab (name);
-                        current_notebook.set_current_page (tab_index);                        
-                        target_tab = (Tab) current_notebook.get_nth_page (tab_index);
-                        
-                    }
-                        
-                    //set new values
-                       target_tab.text_view.set_file (filename, text);
-                    target_tab.filename = filename;
-                    target_tab.saved = true;
-                    //set values for label
-                    var tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
-                    var label = tab.label.label;
-                    
-                    if (title != null)
-                        label.set_text (title);
-                    else 
-                        label.set_text (filename);
-                    set_window_title (filename);
-                                            
-                } catch (Error e) {
-                    warning("Error: %s\n", e.message);
-                }
-            }
-            var tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
-            var label = tab.label.label;
-
-            if (title != null)
-                label.set_text (title);
-            else if (label.get_text().substring (0, 1) == "*"){
-                label.set_text (filename);
-            }
+            try {
             
-            if (!can_write (filename)) {
-				debug ("Opening a file wich is Read Only");
-				status.set_text (_("The file is 'Read Only'"));
-				current_tab.text_view.editable = false;
-			}
+            if (filename != "") {                
                 
+                    string text = "";
+					
+						
+					//try {
+			/*		var file = File.new_for_path (filename);
+					var dis = new DataInputStream (file.read ());
+					string line;
+					int i = 0;
+					while ((line = dis.read_line (null)) != null) {
+						if (i != 0) { 
+							stdout.printf ("%s\n", line);
+						
+							text = text + "\n" + line;
+						}
+						i++;
+			*/		FileUtils.get_contents (filename, out text);
+					//}
+					//catch (Error e) {
+					//	status.set_text (_("The file could not be opened"));
+					//}
+					//unichar c;
+					//text = "";
+					//for (int i = 1; text.get_next_char (ref i, out c);) {
+						//stdout.printf ("%d, %s\n", i, c.to_string ());
+						//text = text + c.to_string ();
+					//}
+					//var len = ssize_t.MAX;
+					//size_t r, w;
+					//FileUtils.get_contents (filename, out text);
+					//text = text.locale_to_utf8 (-1, out r, out w); //TODO:fix it
+					//text = convert (text, -1, "ISO-8859-1", "UTF-8");
+					//text = convert (text, -1, "ISO-8859-1", "UTF-8");
+					//text.validate ();
+
+					//get the filename from strig filename =)
+					var name = Filename.display_basename (filename);
+                   
+					Tab target_tab;
+
+					if ((current_tab != null) && (current_tab.filename == null) ) {
+                   
+						//open in this tab
+						target_tab = current_tab;  
+					} else {
+
+						//create new tab
+						int tab_index = current_notebook.add_tab (name);
+						current_notebook.set_current_page (tab_index);                        
+						target_tab = (Tab) current_notebook.get_nth_page (tab_index);
+                        
+					}
+                        
+					//set new values
+					target_tab.text_view.set_file (filename, text);
+					target_tab.filename = filename;
+					target_tab.saved = true;
+					//set values for label
+					var tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
+					var label = tab.label.label;
+                    
+					if (title != null)
+						label.set_text (title);
+					else 
+						label.set_text (filename);
+						set_window_title (filename);
+                                            
+                
+				}
+				var tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
+				var label = tab.label.label;
+
+				if (title != null)
+					label.set_text (title);
+				else if (label.get_text().substring (0, 1) == "*"){
+					label.set_text (filename);
+				}
+            
+				if (!can_write (filename)) {
+					debug ("Opening a file wich is Read Only");
+					status.set_text (_("Opening a file wich is Read Only"));
+					status.show ();
+					current_tab.text_view.editable = false;
+				}
+            } catch (Error e) {
+                   warning("Error: %s\n", e.message);
+                   status.set_text (_("The file could not be opened"));
+                   status.show_now ();
+            }   
+			
         }
 		
 		public bool can_write (string filename) {
