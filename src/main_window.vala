@@ -260,8 +260,7 @@ namespace Scratch {
             toolbar.entry.changed.connect (on_changed_text);
             toolbar.entry.key_press_event.connect (on_search_key_press);
             toolbar.replace.activate.connect (on_replace_activate);
-            //toolbar.go_to.activate.connect (on_goto_activate);
-            //toolbar.go_to.changed.connect (on_goto_changed);
+            toolbar.go_to.activate.connect (on_goto_activate);
 
         }
         
@@ -317,9 +316,20 @@ namespace Scratch {
                 end = local_end;
                 start = local_start;
                 current_tab.text_view.buffer.select_range (start, end);
+                current_tab.text_view.buffer.move_mark_by_name ("selection", local_end);
                 current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
             }
             return true;
+            /*TextIter start, end, local_start, local_end;
+            var buf = current_tab.text_view.buffer;
+			buf.get_selection_bounds (out start, out end);
+			bool found = end.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out local_start, out local_end, null);
+			if (found) {
+				buf.place_cursor (local_start);
+				buf.move_mark_by_name ("selection", local_end);
+				current_tab.text_view.scroll_to_iter (local_start, 0, false, 0, 0);
+			}
+			return found;*/
 		}
 		
 		public void on_replace_activate () {
@@ -351,13 +361,14 @@ namespace Scratch {
         public void on_goto_activate () {
 			TextIter it;
 			var buf = current_tab.text_view.buffer;
-			buf.get_iter_at_line (out it, 0); 
+			buf.get_iter_at_line (out it, toolbar.go_to.get_text().to_int()-1); 
+			current_tab.text_view.scroll_to_iter (it, 0, false, 0, 0);
 			buf.place_cursor (it);
 			
 		}
         
-        public void on_goto_changed () {
-			/*string number = toolbar.go_to.get_text ();
+        /*public void on_goto_changed () {
+			string number = toolbar.go_to.get_text ();
 			//foreach (string s in number)
 				//stdout.printf ("%s\n", s);
 			for (int i=0; i<=number.length; i++) {
@@ -379,9 +390,9 @@ namespace Scratch {
 			//toolbar.go_to.set_text (newnumber);
 			//stdout.printf ("%s", number);
 			//toolbar.go_to.set_text (number);
-			*/
+			
 			return;	
-		}
+		}*/
          
         //signals functions
         public void on_destroy () {

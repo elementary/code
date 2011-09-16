@@ -29,6 +29,7 @@ namespace Scratch.Widgets {
         private MainWindow window;
         
         public new GtkSource.Buffer buffer;
+        public Gtk.TextMark mark;
         public LanguageManager manager;
         public StyleSchemeManager style_scheme_manager;
         
@@ -45,6 +46,11 @@ namespace Scratch.Widgets {
             buffer = new Buffer (null);
             set_buffer (buffer);
             buffer.changed.connect (on_buffer_changed);
+            
+            TextIter start, end;
+			buffer.get_selection_bounds (out start, out end);
+            
+            mark = buffer.create_mark ("selection", start, false);
             
             restore_settings ();
 
