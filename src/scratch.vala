@@ -109,7 +109,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses>""";
                 if (files[i].get_basename () == "--new-tab") {
                     window.on_new_clicked ();
                 } else {
-                    window.load_file (files[i].get_path ());
+                    window.open (files[i].get_path ());
+                    //
+                    window.toolbar.toolreplace.hide ();
+					window.toolbar.toolgoto.hide ();
+					window.notebook_context.hide ();
+					window.notebook_sidebar.hide ();
                 }
             }
 

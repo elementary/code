@@ -99,6 +99,14 @@ namespace Scratch.Widgets {
 			if (sfile [sfile.length-1] == "ui") {
 				lang = manager.get_language ("xml");
 				buffer.set_language (lang);
+				window.toolbar.combobox.set_active_id ("xml");
+				buffer.text = text;
+			}
+			
+			else if (sfile [sfile.length-2] == "CMakeLists") {
+				lang = manager.get_language ("cmake");
+				buffer.set_language (lang);
+				window.toolbar.combobox.set_active_id ("cmake");
 				buffer.text = text;
 			}
 

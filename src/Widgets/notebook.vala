@@ -281,6 +281,8 @@ namespace Scratch.Widgets {
 	    	this.window = parent;
 			this.welcome_screen = new ScratchWelcome(this);
 	    	
+	    	this.switch_page.connect (on_switch_page);
+	    	
 	    	expand = true;
 			set_scrollable (true);
 			set_group_name ("s");
@@ -300,7 +302,16 @@ namespace Scratch.Widgets {
             set_tab_detachable(new_tab, true);
             return index; 
         }
-       
+		
+		public void on_switch_page (Widget page, uint number) {
+		
+			var tab = page as Tab;
+			if (tab.filename != null)
+				window.set_combobox_language (tab.filename);
+				//tab.text_view.set_file (tab.filename, tab.text_view.buffer.text);
+			
+		}
+		
         public void on_drag_end (DragContext context) {
 			
 			List<Widget> children = window.split_view.get_children ();

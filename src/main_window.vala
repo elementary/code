@@ -53,8 +53,8 @@ namespace Scratch {
         public SplitView split_view;
         public Widgets.Toolbar toolbar;
         
-        Gtk.Notebook notebook_context;
-        Gtk.Notebook notebook_sidebar;
+        public Gtk.Notebook notebook_context;
+        public Gtk.Notebook notebook_sidebar;
 		
 		public Overlay overlay;
 		public Label status;
