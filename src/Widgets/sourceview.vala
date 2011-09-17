@@ -93,9 +93,10 @@ namespace Scratch.Widgets {
 
         public void set_file (string filename, string text) {
 			
-			var sfile = filename.split (".");
+			var nopath = filename.split ("/");
+			var sfile = nopath[nopath.length-1].split (".");
 			Language lang;
-			
+			stdout.printf ("%s\n\n", sfile [sfile.length-2]);
 			if (sfile [sfile.length-1] == "ui") {
 				lang = manager.get_language ("xml");
 				buffer.set_language (lang);

@@ -619,12 +619,10 @@ namespace Scratch {
         }
         
         public void on_combobox_changed () {
-                    
-            try {
-                current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language (toolbar.combobox.get_active_id () ) );//current_tab.text_view.manager.get_language("c-sharp") );
-            } catch (Error e) {
-                return;
-            }
+            GtkSource.Language lang;
+            lang = current_tab.text_view.manager.get_language ( toolbar.combobox.get_active_id () );
+            current_tab.text_view.buffer.set_language (lang);
+            //current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language (toolbar.combobox.get_active_id () ) );//current_tab.text_view.manager.get_language("c-sharp") );
         }
         
         public Gtk.TextView get_active_view() {
@@ -900,6 +898,18 @@ namespace Scratch {
                 toolbar.combobox.set_active_id ("normal");
             }
             
+            var nopath = filename.split ("/");
+            var sfile = nopath[nopath.length-1].split (".");
+            
+            if (sfile [sfile.length-1] == "ui")
+				toolbar.combobox.set_active_id ("xml");
+				
+			else if (sfile [sfile.length-2] == "CMakeLists")
+				toolbar.combobox.set_active_id ("cmake");
+				
+			else 
+				toolbar.combobox.set_active_id ("normal");
+			
         }
         
         public void create_instance () {

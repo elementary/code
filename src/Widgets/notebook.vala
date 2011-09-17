@@ -310,6 +310,10 @@ namespace Scratch.Widgets {
 				window.set_combobox_language (tab.filename);
 				//tab.text_view.set_file (tab.filename, tab.text_view.buffer.text);
 			
+			GtkSource.Language lang;
+            lang = tab.text_view.manager.get_language ( window.toolbar.combobox.get_active_id () );
+            tab.text_view.buffer.set_language (lang);
+						
 		}
 		
         public void on_drag_end (DragContext context) {
