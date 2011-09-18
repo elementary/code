@@ -575,7 +575,7 @@ namespace Scratch {
                 try {
                     set_combobox_language (filename);
                 } catch (Error e) {
-                    warning ("Cannont set the combobox id");
+                    warning ("Cannot set the combobox id");
                 }
                                 
                 if (!current_notebook.welcome_screen.active) {
