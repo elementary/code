@@ -538,14 +538,47 @@ namespace Scratch {
             return false;
         }
         
-        public void on_new_clicked () {
+        public void on_new_clicked () {	
+			action_new_clicked ();
+        }
+        
+        public void action_new_clicked (bool welcome=false) {
+			if (welcome) {
+				List<Widget> children = split_view.get_children ();
+				int i;
+			
+				for (i = 0; i!=children.length(); i++) {//ScratchNotebook notebook in children) { 
+					split_view.remove ( children.nth_data (i) );
+				}
+							
+				//split_view.remove (current_notebook.welcome_screen);
+				var notebook = new ScratchNotebook (this);
+				notebook.add_tab ();
+				split_view.add_view (notebook);
+				current_notebook = notebook;
+			}
+			
             int new_tab_index = current_notebook.add_tab ();
             current_notebook.set_current_page (new_tab_index);
             current_notebook.show_tabs_view ();
-            
-        }
+		}
         
         public void on_open_clicked () {
+			action_open_clicked ();
+        }
+        
+        public void action_open_clicked (bool welcome=false) {
+			if (welcome) {
+				List<Widget> children = split_view.get_children ();
+				int i;
+			
+				for (i = 0; i!=children.length(); i++) {//ScratchNotebook notebook in children) { 
+					split_view.remove ( children.nth_data (i) );
+				}
+							
+				//split_view.remove (current_notebook.welcome_screen);
+				create_instance ();
+			}
             
             if (current_notebook.welcome_screen.active)
                 on_new_clicked ();
@@ -560,12 +593,10 @@ namespace Scratch {
             if (filech.run () == ResponseType.ACCEPT)
 					foreach (string file in filech.get_filenames ())
 						open (file);
-
+						
             filech.close ();
             set_undo_redo ();
-            
-
-        }
+		}
         
         public void open (string filename) {            
             if (filename != null) {
@@ -577,7 +608,7 @@ namespace Scratch {
                 } catch (Error e) {
                     warning ("Cannont set the combobox id");
                 }
-                                
+                              
                 if (!current_notebook.welcome_screen.active) {
     
                     int tot_pages = current_notebook.get_n_pages ();
@@ -592,11 +623,18 @@ namespace Scratch {
                 } else {
                     message ("Opening: %s\n", filename);
                     current_notebook.show_tabs_view ();    
-                    var name = filename.split("/");
-                    load_file (filename,name[name.length-1]);
-                    current_tab.text_view.buffer.begin_not_undoable_action ();
-                    current_tab.text_view.buffer.end_not_undoable_action ();
-                    }
+					
+					try {
+						var name = filename.split("/");
+						load_file (filename,name[name.length-1]);
+						debug ("1");
+						current_tab.text_view.buffer.begin_not_undoable_action ();
+						debug ("1");
+						current_tab.text_view.buffer.end_not_undoable_action ();
+					} catch (Error e) {
+						warning (e.message);
+					}
+                }
             }
         }
         
@@ -719,7 +757,12 @@ namespace Scratch {
 							text = text + "\n" + line;
 						}
 						i++;
-			*/		FileUtils.get_contents (filename, out text);
+		*/			
+					try {
+						FileUtils.get_contents (filename, out text);
+					} catch (Error e) {
+						status.set_text (_("The file could not be opened"));
+					}
 					//}
 					//catch (Error e) {
 					//	status.set_text (_("The file could not be opened"));
@@ -740,7 +783,6 @@ namespace Scratch {
 
 					//get the filename from strig filename =)
 					var name = Filename.display_basename (filename);
-                   
 					Tab target_tab;
 
 					if ((current_tab != null) && (current_tab.filename == null) ) {
@@ -765,7 +807,7 @@ namespace Scratch {
 					var label = tab.label.label;
                     
 					if (title != null)
-						label.set_text (title);
+						label.set_text (title);	
 					else 
 						label.set_text (filename);
 						set_window_title (filename);
@@ -774,7 +816,7 @@ namespace Scratch {
 				}
 				var tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
 				var label = tab.label.label;
-
+				
 				if (title != null)
 					label.set_text (title);
 				else if (label.get_text().substring (0, 1) == "*"){

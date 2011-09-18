@@ -108,6 +108,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses>""";
             for (int i = 0; i < files.length; i++) {
                 if (files[i].get_basename () == "--new-tab") {
                     window.on_new_clicked ();
+                    //
+                    window.toolbar.toolreplace.hide ();
+					window.toolbar.toolgoto.hide ();
+					window.notebook_context.hide ();
+					window.notebook_sidebar.hide ();
                 } else {
                     window.open (files[i].get_path ());
                     //

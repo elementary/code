@@ -90,7 +90,7 @@ namespace Scratch.Widgets {
 		    
 		    if (notebook.get_n_pages() == 0)
 		    	notebook.show_welcome();
-
+			
         }
         
         public int save () {
@@ -322,25 +322,32 @@ namespace Scratch.Widgets {
 			int i;
 			
 			for (i = 0; i!=children.length(); i++) {//ScratchNotebook notebook in children) { 
-				debug("qua");
 				var notebook = children.nth_data (i) as ScratchNotebook;
-				debug ("que");
 				if (notebook.get_n_pages () == 0) {
-					debug ("qui");
 					window.split_view.remove (notebook);
-					debug ("quo");
 				}
 			}
 			window.split_view.set_menu_item_sensitive ();
 		}
         
 		public void show_welcome () {
-						
+
 			if (window.split_view.get_children().length() == 1) {
-			
+
 				if (!welcome_screen.active) {
-						
-					this.append_page (welcome_screen, null);
+					
+					List<Widget> children = window.split_view.get_children ();
+					int i;
+			
+					for (i = 0; i!=children.length(); i++) {//ScratchNotebook notebook in children) { 
+						window.split_view.remove ( children.nth_data (i) );
+					}
+							
+					//split_view.remove (current_notebook.welcome_screen);
+					//window.create_instance ();
+					
+					window.split_view.add (welcome_screen);
+					//this.append_page (welcome_screen, null); //here scratch crash
 					this.set_show_tabs (false);
 					this.welcome_screen.active = true;
 					window.set_undo_redo ();
@@ -391,11 +398,11 @@ namespace Scratch.Widgets {
 				switch (index) {
 					case 0: //open
 					//notebook.window.on_new_clicked ();
-					notebook.window.on_open_clicked ();
+					notebook.window.action_open_clicked (true);
 					break;
 
 					case 1: // new
-					notebook.window.on_new_clicked();
+					notebook.window.action_new_clicked(true);
 					break;
 				
 				}
