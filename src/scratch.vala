@@ -49,7 +49,7 @@ namespace Scratch {
             program_name = app_cmd_name;
 		    exec_name = app_cmd_name.down();
 		    app_copyright = "GPLv3";
-		    app_icon = "text-editor";
+		    app_icon = "scratch";
 		    app_launcher = "scratch.desktop";
             application_id = "net.launchpad." + app_cmd_name.down();
 		    main_url = "https://launchpad.net/scratch";
@@ -63,6 +63,7 @@ namespace Scratch {
                              };
         	//about_documenters = {"",""};
 		    about_artists = {"Harvey Cabaguio 'BassUltra' <harveycabaguio@gmail.com>",
+                             "Daniel Fore",
                              null
                              };
 		    about_translators = "Launchpad Translators";
