@@ -54,7 +54,7 @@ vala_precompile (VALA_C
     src/Dialogs/save_on_close_dialog.vala
     src/Services/document.vala
     src/config.vala
-    src/resources.vala
+    #src/resources.vala
 PACKAGES
 	${SCRATCH_DEPS} scratchplugins
 CUSTOM_VAPIS
