@@ -18,8 +18,8 @@ namespace Scratch {
 						 "Daniel Fore <daniel.p.fore@gmail.com>",
 						 null
 						 };
-	about_translators = "Launchpad Translators";
-	about_license = """Scratch is free software: you can redistribute it and/or modify it
+	public const string about_translators = "Launchpad Translators";
+	public const string about_license = """Scratch is free software: you can redistribute it and/or modify it
 under the terms of the GNU Lesser General Public License version 3,
 as published by the Free Software Foundation.
 
