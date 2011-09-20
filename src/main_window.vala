@@ -188,6 +188,7 @@ namespace Scratch {
             status.halign = Align.START;
 			status.valign = Align.END;
             
+            //overlay.add_action_widget (status, 0);
             overlay.add_overlay (status);
             overlay.show_all ();
                         
@@ -483,9 +484,9 @@ namespace Scratch {
                 {
                     // Close current Tab
                     case "w":
-                        if (!current_notebook.welcome_screen.active) {                    
+                        if (!current_notebook.welcome_screen.active)                    
                             current_tab.on_close_clicked ();
-                        }
+                        reset_ctrl_flags ();
                     break;
                     
                     // Close Scratch by Ctrl+Q or Ctrl+E
@@ -501,6 +502,7 @@ namespace Scratch {
 					// Show open dialog
 					case "o":
 						on_open_clicked ();
+						reset_ctrl_flags ();
 					break;					
 					//show replace entry
 					case "r":
@@ -524,17 +526,19 @@ namespace Scratch {
                     // Undo by Ctrl+Z
                     case "z":
                         this.on_undo_clicked();
+                        reset_ctrl_flags ();
                     break;    
                         
                     // Redo by Ctrl+Y
                     case "y":
                         this.on_repeat_clicked();
+                        reset_ctrl_flags ();
                     break;
                 }
             }
             else if (key == "F3")
                 create_instance ();
-
+			
             return false;
         }
         
@@ -579,6 +583,8 @@ namespace Scratch {
 				//split_view.remove (current_notebook.welcome_screen);
 				create_instance ();
 			}
+            
+            //current_tab.text_view.buffer.start_not_undoable_action ();
             
             if (current_notebook.welcome_screen.active)
                 on_new_clicked ();
@@ -627,9 +633,7 @@ namespace Scratch {
 					try {
 						var name = filename.split("/");
 						load_file (filename,name[name.length-1]);
-						debug ("1");
 						current_tab.text_view.buffer.begin_not_undoable_action ();
-						debug ("1");
 						current_tab.text_view.buffer.end_not_undoable_action ();
 					} catch (Error e) {
 						warning (e.message);

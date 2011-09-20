@@ -71,7 +71,7 @@ namespace Scratch.Widgets {
 		public bool on_focus_in (EventFocus event) {
 			notebook.window.current_notebook = notebook.window.split_view.get_current_notebook ();
 			notebook.window.current_tab = (Tab) notebook.window.current_notebook.get_nth_page (notebook.window.current_notebook.get_current_page());
-			notebook.window.set_undo_redo ();
+			//notebook.window.set_undo_redo ();
 			
 			if (window.current_tab.filename != null) {
 					window.set_combobox_language (window.current_tab.filename);
@@ -281,7 +281,7 @@ namespace Scratch.Widgets {
 	    	this.window = parent;
 			this.welcome_screen = new ScratchWelcome(this);
 	    	
-	    	this.switch_page.connect (on_switch_page);
+	    	//this.switch_page.connect (on_switch_page);
 	    	
 	    	expand = true;
 			set_scrollable (true);
@@ -307,12 +307,14 @@ namespace Scratch.Widgets {
 		
 			var tab = page as Tab;
 			if (tab.filename != null)
-				window.set_combobox_language (tab.filename);
+				window.set_window_title (tab.filename);
 				//tab.text_view.set_file (tab.filename, tab.text_view.buffer.text);
 			
 			GtkSource.Language lang;
             lang = tab.text_view.manager.get_language ( window.toolbar.combobox.get_active_id () );
             tab.text_view.buffer.set_language (lang);
+            
+            window.set_undo_redo ();
 						
 		}
 		
