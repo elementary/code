@@ -105,7 +105,7 @@ namespace Scratch.Widgets {
 
             menu = new MenuProperties (this.window);
             plugins.hook_main_menu(menu);
-            app_menu = new AppMenu (menu);
+            app_menu = (window.get_application() as Granite.Application).create_appmenu(menu);
             plugins.hook_toolbar(this);
 
             add (add_spacer ());
@@ -220,12 +220,12 @@ namespace Scratch.Widgets {
 						
 			if (!replace_active) {
 				if (goto_active) {
-					toolgoto.hide ();
+					toolgoto.visible = false;
 					goto_active = false;
-					toolreplace.show ();
+					toolreplace.visible = true;
 				}
 				else {
-					toolreplace.show ();
+					toolreplace.visible = true;
 				}
 				replace_active = true;
 			}

@@ -101,8 +101,7 @@ along with Scratch. If not, see <http://www.gnu.org/licenses>""";
         protected override void open (File[] files, string hint) {
 
             if (get_windows () == null) {
-                window = new MainWindow ();
-                window.set_application (this);
+                window = new MainWindow (this);
                 window.show_all ();
             }
 
@@ -129,8 +128,7 @@ along with Scratch. If not, see <http://www.gnu.org/licenses>""";
         protected override void activate () {
 
             if (get_windows () == null) {
-                window = new MainWindow ();
-                window.set_application (this);
+                window = new MainWindow (this);
                 window.show ();
             } else {
                 window.present ();

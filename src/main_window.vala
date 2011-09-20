@@ -76,7 +76,8 @@ namespace Scratch {
         Gdk.Color bgcolor;
         Gdk.Color fgcolor;
 				
-        public MainWindow () {
+        public MainWindow (Granite.Application scratch_app) {
+            set_application(scratch_app);
                 
             this.title = TITLE;
             restore_saved_state ();
@@ -681,37 +682,36 @@ namespace Scratch {
     
         public void on_changed_text () {
             if (current_tab.text_view.buffer.text != "") {
-            search_string = toolbar.entry.get_text();
-            var buffer = get_active_buffer ();
-            TextIter iter;
-            
-            //if(start == null) {
+                search_string = toolbar.entry.get_text();
+                var buffer = get_active_buffer ();
+                TextIter iter;
+                
                 buffer.get_iter_at_offset(out start, buffer.cursor_position);
                 end = start;
-            //}
-            iter = start;
-            
-            var found = iter.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
-            if (found) {
-                current_tab.text_view.buffer.select_range (start, end);
-                current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
-            }
-            else {
-                buffer.get_start_iter (out iter);
-                found = iter.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
+
+                iter = start;
+                
+                var found = iter.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
                 if (found) {
                     current_tab.text_view.buffer.select_range (start, end);
                     current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
                 }
                 else {
-                    iter.forward_search ("", TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
-                    current_tab.text_view.buffer.select_range (start, end);
-                    start = end = null;
-                    status.set_text ("\"" + search_string + "\" couldn't be found");
-                }
-            
-           }
-		}
+                    buffer.get_start_iter (out iter);
+                    found = iter.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
+                    if (found) {
+                        current_tab.text_view.buffer.select_range (start, end);
+                        current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
+                    }
+                    else {
+                        iter.forward_search ("", TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
+                        current_tab.text_view.buffer.select_range (start, end);
+                        start = end = null;
+                        status.set_text ("\"" + search_string + "\" couldn't be found");
+                    }
+                
+               }
+		    }
 		}
 				
         public bool on_scroll_event (EventScroll event) {
