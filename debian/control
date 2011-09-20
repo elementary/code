@@ -20,8 +20,8 @@ Vcs-Bzr: https://code.launchpad.net/~scratch-hackers/scratch/scratch
 
 Package: scratch
 Architecture: any
-Depends: ${shlibs:Depends}, 
-    ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Pre-Depends: dpkg (>= 1.15.6)
 Description: Scratch Elementary Text Editor
- Scratch is a lightweight text editor for the elementary desktop.
- It's written in gtk3 and make use of the powerful Granite framework.
+A lightweight text editor written in GTK3 for the elementary desktop utilizing the powerful Granite framework.
+
