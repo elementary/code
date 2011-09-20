@@ -23,5 +23,5 @@ Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Pre-Depends: dpkg (>= 1.15.6)
 Description: Scratch Elementary Text Editor
-A lightweight text editor written in GTK3 for the elementary desktop utilizing the powerful Granite framework.
+ A lightweight text editor written in GTK3 for the elementary desktop utilizing the powerful Granite framework.
 
