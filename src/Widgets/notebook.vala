@@ -78,6 +78,7 @@ namespace Scratch.Widgets {
 			}
 
 			window.status.hide ();
+			window.set_undo_redo ();
 			return true;
 			
 		}
@@ -281,7 +282,7 @@ namespace Scratch.Widgets {
 	    	this.window = parent;
 			this.welcome_screen = new ScratchWelcome(this);
 	    	
-	    	//this.switch_page.connect (on_switch_page);
+	    	this.switch_page.connect (on_switch_page);
 	    	
 	    	expand = true;
 			set_scrollable (true);
@@ -308,13 +309,15 @@ namespace Scratch.Widgets {
 			var tab = page as Tab;
 			if (tab.filename != null)
 				window.set_window_title (tab.filename);
+			else
+				window.set_window_title ("Scratch");
 				//tab.text_view.set_file (tab.filename, tab.text_view.buffer.text);
 			
 			GtkSource.Language lang;
             lang = tab.text_view.manager.get_language ( window.toolbar.combobox.get_active_id () );
             tab.text_view.buffer.set_language (lang);
             
-            window.set_undo_redo ();
+            //window.set_undo_redo ();
 						
 		}
 		

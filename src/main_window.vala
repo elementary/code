@@ -200,7 +200,7 @@ namespace Scratch {
             
             set_undo_redo ();    
 
-            //show_all();
+            show_all();
             key_changed("sidebar-visible");
             key_changed("context-visible");
         
@@ -919,15 +919,21 @@ namespace Scratch {
         }
         
         public void set_undo_redo () {
-            var buf = current_tab.text_view.buffer;
-
-            toolbar.set_button_sensitive(Widgets.Toolbar.ToolButtons.UNDO_BUTTON, buf.can_undo);
-            toolbar.set_button_sensitive(Widgets.Toolbar.ToolButtons.REPEAT_BUTTON, buf.can_redo);
             
+            GtkSource.Buffer buf;
+            
+			buf = current_tab.text_view.buffer;
+			
+			bool undo = buf.can_undo;
+			bool redo = buf.can_redo;
+			
+            toolbar.set_button_sensitive(Widgets.Toolbar.ToolButtons.UNDO_BUTTON, undo);
+            toolbar.set_button_sensitive(Widgets.Toolbar.ToolButtons.REPEAT_BUTTON, redo);
+            /*
             if (current_notebook.welcome_screen.active) {
                 toolbar.set_button_sensitive(Widgets.Toolbar.ToolButtons.UNDO_BUTTON, false);
                 toolbar.set_button_sensitive(Widgets.Toolbar.ToolButtons.REPEAT_BUTTON, false);
-            }
+            }*/
 			
         }
         
