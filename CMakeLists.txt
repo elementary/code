@@ -47,6 +47,9 @@ vala_precompile (VALA_C
     src/Widgets/Menu.vala
     src/Widgets/ShareMenu.vala
     src/Widgets/Notebook.vala
+    src/Widgets/Tab.vala
+    src/Widgets/TabLabel.vala
+    src/Widgets/SplitView.vala
     src/Widgets/ToolBar.vala
     src/Widgets/SourceView.vala
     src/Widgets/InfoBar.vala

@@ -275,7 +275,7 @@ namespace Scratch {
         }
 		
 		public bool case_up () {
-			TextIter iter;
+
             if (end == null || start == null) {
                 TextIter start_buffer;
                 current_tab.text_view.buffer.get_iter_at_offset(out start_buffer, current_tab.text_view.buffer.cursor_position);
@@ -295,7 +295,6 @@ namespace Scratch {
 		}
 		
 		public bool case_down () {
-			TextIter iter;
 
             if (end == null || start == null) {
                 TextIter start_buffer;
@@ -334,7 +333,6 @@ namespace Scratch {
 			buf.delete_selection (true, true);
 			buf.insert_at_cursor (replace_string, replace_string.length);
 			//simil to case_down() ...
-			TextIter iter;
             TextIter start_buffer;
             current_tab.text_view.buffer.get_iter_at_offset(out start_buffer, current_tab.text_view.buffer.cursor_position);
             end = start_buffer;
