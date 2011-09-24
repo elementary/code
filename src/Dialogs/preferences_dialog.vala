@@ -47,9 +47,9 @@ namespace Scratch.Dialogs {
         private Button close_button;
 
         public Preferences (string? title, MainWindow? window) {
-            
+            debug ("1");
             staticn = new StaticNotebook ();
-            
+            debug ("2");
             this.window = window;
             this.title = title;
             this.type_hint = Gdk.WindowTypeHint.DIALOG;

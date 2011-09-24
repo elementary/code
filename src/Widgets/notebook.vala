@@ -316,7 +316,7 @@ namespace Scratch.Widgets {
 			GtkSource.Language lang;
             lang = tab.text_view.manager.get_language ( window.toolbar.combobox.get_active_id () );
             tab.text_view.buffer.set_language (lang);
-            
+  
             //window.set_undo_redo ();
 						
 		}
@@ -488,6 +488,7 @@ namespace Scratch.Widgets {
 		}
 		
 		public bool remove_current_view () {
+			show_save_dialog (window.current_notebook);
 			remove (window.current_notebook);
 			
 			set_menu_item_sensitive ();
@@ -496,6 +497,22 @@ namespace Scratch.Widgets {
 				return true;
 			else 
 				return false;						
+		}
+		
+		public void show_save_dialog (ScratchNotebook notebook) {
+			int n;
+								
+			for (n = 0; n!=notebook.get_n_pages(); n++) {
+				notebook.set_current_page (n);
+				var label = (Tab) notebook.get_nth_page (n);
+					
+				string isnew = label.label.label.get_text () [0:1];
+			
+				if (isnew == "*") {
+					var save_dialog = new SaveOnCloseDialog(label.label.label.get_text (), window);
+					save_dialog.run();
+				}
+			}
 		}
 		
 		public ScratchNotebook get_current_notebook () {
