@@ -489,7 +489,7 @@ namespace Scratch.Widgets {
 		
 		public bool remove_current_view () {
 			show_save_dialog (window.current_notebook);
-			remove (window.current_notebook);
+			//remove (window.current_notebook);
 			
 			set_menu_item_sensitive ();
 									
@@ -509,7 +509,8 @@ namespace Scratch.Widgets {
 				string isnew = label.label.label.get_text () [0:1];
 			
 				if (isnew == "*") {
-					var save_dialog = new SaveOnCloseDialog(label.label.label.get_text (), window);
+					var save_dialog = new SaveDialog (label);
+					//var save_dialog = new SaveOnCloseDialog(label.label.label.get_text (), window);
 					save_dialog.run();
 				}
 			}

@@ -110,7 +110,7 @@ namespace Scratch.Widgets {
 				window.toolbar.combobox.set_active_id ("cmake");
 				buffer.text = text;
 			}
-
+						
 			else {
 				lang = manager.guess_language (filename, null);
 				buffer.set_language (lang);

@@ -583,7 +583,10 @@ namespace Scratch {
 				}
 							
 				//split_view.remove (current_notebook.welcome_screen);
-				create_instance ();
+				var notebook = new ScratchNotebook (this);
+				notebook.add_tab ();
+				split_view.add_view (notebook);
+				current_notebook = notebook;
 			}
             
             //current_tab.text_view.buffer.start_not_undoable_action ();
@@ -597,7 +600,7 @@ namespace Scratch {
             filech.add_button (Stock.CANCEL, ResponseType.CANCEL);
             filech.add_button (Stock.OPEN, ResponseType.ACCEPT);
             filech.set_default_response (ResponseType.ACCEPT);
-            debug ("ok");
+
             if (filech.run () == ResponseType.ACCEPT)
 					foreach (string file in filech.get_filenames ()) 
 						open (file);
@@ -741,11 +744,8 @@ namespace Scratch {
         
         //generic functions
         public void load_file (string filename, string? title=null) {
-            debug ("354");
             try {
-            debug ("354");
             if (filename != "") {                
-                debug ("354");
                     string text = "";
 					
 						
@@ -761,7 +761,7 @@ namespace Scratch {
 							text = text + "\n" + line;
 						}
 						i++;
-		*/			debug ("354");
+		*/			
 					try {
 						FileUtils.get_contents (filename, out text);
 					} catch (Error e) {
@@ -788,7 +788,7 @@ namespace Scratch {
 					//get the filename from strig filename =)
 					var name = Filename.display_basename (filename);
 					Tab target_tab;
-					debug ("354");
+					
 					if ((current_tab != null) && (current_tab.filename == null) ) {
                    
 						//open in this tab
@@ -801,13 +801,13 @@ namespace Scratch {
 						target_tab = (Tab) current_notebook.get_nth_page (tab_index);
                         
 					}
-                    debug ("354");    
+                      
 					//set new values
 					target_tab.text_view.set_file (filename, text);
 					target_tab.filename = filename;
 					target_tab.saved = true;
 					//set values for label
-					debug ("354");
+					
 					var tab = current_tab;//(Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
 					var label = tab.label.label;
                     
@@ -942,8 +942,8 @@ namespace Scratch {
         
             GtkSource.Language lang;
             lang = current_tab.text_view.manager.guess_language (filename, null);
-                        
-            string id = lang.get_id();
+            if (lang != null) {            
+            var id = lang.get_id();
             if (id != null) {
                 toolbar.combobox.set_active_id (id); 
             }
@@ -962,7 +962,7 @@ namespace Scratch {
 				
 			else 
 				toolbar.combobox.set_active_id ("normal");
-			
+			}
         }
         
         public void create_instance () {
