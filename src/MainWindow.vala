@@ -755,7 +755,7 @@ namespace Scratch {
 						i++;
 		*/			
 					try {
-						FileUtils.get_contents ("provola", out text);
+						FileUtils.get_contents (filename, out text);
 					} catch (Error e) {
 						infobar.set_info (_("The file could not be opened"));
 						return;
