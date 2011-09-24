@@ -272,11 +272,11 @@ namespace Scratch {
             switch(key)
             {
             case "Up":
-                case_up ();
+                return case_up ();
                 break;
 			case "Return":
             case "Down":
-				case_down ();
+				return case_down ();
 				break;
             }
             return false;
@@ -322,16 +322,6 @@ namespace Scratch {
                 current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
             }
             return true;
-            /*TextIter start, end, local_start, local_end;
-            var buf = current_tab.text_view.buffer;
-			buf.get_selection_bounds (out start, out end);
-			bool found = end.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out local_start, out local_end, null);
-			if (found) {
-				buf.place_cursor (local_start);
-				buf.move_mark_by_name ("selection", local_end);
-				current_tab.text_view.scroll_to_iter (local_start, 0, false, 0, 0);
-			}
-			return found;*/
 		}
 		
 		public void on_replace_activate () {

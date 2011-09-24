@@ -51,7 +51,7 @@ namespace Scratch {
 		    app_copyright = "GPLv3";
 		    app_icon = "scratch";
 		    app_launcher = "scratch.desktop";
-		    application_id = "net.launchpad.scratch";
+		    application_id = "net.launchpad." + app_cmd_name;
 		    main_url = "https://launchpad.net/scratch";
 		    bug_url = "https://bugs.launchpad.net/scratch";
 		    help_url = "https://answers.launchpad.net/scratch";
