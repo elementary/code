@@ -56,8 +56,7 @@ namespace Scratch {
         public Gtk.Notebook notebook_context;
         public Gtk.Notebook notebook_sidebar;
 		
-		public Overlay overlay;
-		public Label status;
+		public ScratchInfoBar infobar;
 		
         //dialogs
         public FileChooserDialog filech;
@@ -181,19 +180,10 @@ namespace Scratch {
             vbox.pack_start (hpaned_addons, true, true, 0); 
             vbox.show_all  ();
             
-            //add overlay
-            overlay = new Overlay ();
-            overlay.add (vbox);
-            
-            status = new Label ("");
-            status.halign = Align.START;
-			status.valign = Align.END;
-            
-            //overlay.add_action_widget (status, 0);
-            overlay.add_overlay (status);
-            overlay.show_all ();
-                        
-            this.add (overlay);
+            //add infobar
+            infobar = new ScratchInfoBar (vbox);
+
+            this.add (infobar);
             
             notebook.window.current_notebook = notebook.window.split_view.get_current_notebook ();
             notebook.window.current_tab = (Tab) notebook.window.current_notebook.get_nth_page (notebook.window.current_notebook.get_current_page());
@@ -206,6 +196,8 @@ namespace Scratch {
         
 			toolbar.toolreplace.hide ();
 			toolbar.toolgoto.hide ();
+			
+			infobar.hide ();
         }
         
         public void set_theme () {
@@ -591,8 +583,8 @@ namespace Scratch {
             
             //current_tab.text_view.buffer.start_not_undoable_action ();
             
-            //if (current_notebook.welcome_screen.active)
-            //    on_new_clicked ();
+            if (current_notebook.welcome_screen.active)
+                on_new_clicked ();
                                 
             // show dialog
             this.filech = new FileChooserDialog ("Open a file", this, FileChooserAction.OPEN, null);
@@ -710,7 +702,7 @@ namespace Scratch {
                         iter.forward_search ("", TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
                         current_tab.text_view.buffer.select_range (start, end);
                         start = end = null;
-                        status.set_text ("\"" + search_string + "\" couldn't be found");
+                        infobar.set_info ("\"" + search_string + "\" couldn't be found");
                     }
                 
                }
@@ -763,9 +755,10 @@ namespace Scratch {
 						i++;
 		*/			
 					try {
-						FileUtils.get_contents (filename, out text);
+						FileUtils.get_contents ("provola", out text);
 					} catch (Error e) {
-						status.set_text (_("The file could not be opened"));
+						infobar.set_info (_("The file could not be opened"));
+						return;
 					}
 					//}
 					//catch (Error e) {
@@ -819,7 +812,7 @@ namespace Scratch {
                                             
                 
 				}
-				var tab = current_tab;//(Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
+				var tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
 				var label = tab.label.label;
 				
 				if (title != null)
@@ -830,14 +823,12 @@ namespace Scratch {
             
 				if (!can_write (filename)) {
 					debug ("Opening a file wich is Read Only");
-					status.set_text (_("Opening a file wich is Read Only"));
-					status.show ();
+					infobar.set_info (_("Opening a file wich is Read Only"));
 					current_tab.text_view.editable = false;
 				}
             } catch (Error e) {
                    warning("Error: %s\n", e.message);
-                   status.set_text (_("The file could not be opened"));
-                   status.show_now ();
+                   infobar.set_info (_("The file could not be opened"));
             }   
 			
         }

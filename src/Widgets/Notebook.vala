@@ -76,8 +76,9 @@ namespace Scratch.Widgets {
 			if (window.current_tab.filename != null) {
 					window.set_combobox_language (window.current_tab.filename);
 			}
-
-			window.status.hide ();
+			
+			//window.infobar.hide ();
+			//window.status.hide ();
 			window.set_undo_redo ();
 			return true;
 			

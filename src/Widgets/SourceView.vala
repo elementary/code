@@ -92,7 +92,7 @@ namespace Scratch.Widgets {
         }
 
         public void set_file (string filename, string text) {
-			
+			buffer.text = text;
 			var nopath = filename.split ("/");
 			var sfile = nopath[nopath.length-1].split (".");
 			Language lang;
@@ -101,20 +101,20 @@ namespace Scratch.Widgets {
 				lang = manager.get_language ("xml");
 				buffer.set_language (lang);
 				window.toolbar.combobox.set_active_id ("xml");
-				buffer.text = text;
+				
 			}
 			
 			else if (sfile [sfile.length-2] == "CMakeLists") {
 				lang = manager.get_language ("cmake");
 				buffer.set_language (lang);
 				window.toolbar.combobox.set_active_id ("cmake");
-				buffer.text = text;
+				//buffer.text = text;
 			}
 						
 			else {
 				lang = manager.guess_language (filename, null);
 				buffer.set_language (lang);
-				buffer.text = text;
+				//buffer.text = text;
 			}
         }
         

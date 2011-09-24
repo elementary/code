@@ -41,17 +41,18 @@ include (ValaVersion)
 ensure_vala_version ("0.12.0" MINIMUM)
 include (ValaPrecompile)
 vala_precompile (VALA_C
-	src/main_window.vala
-    src/scratch.vala
-    src/settings.vala
-    src/Widgets/menu.vala
-    src/Widgets/share_menu.vala
-    src/Widgets/notebook.vala
-    src/Widgets/toolbar.vala
-    src/Widgets/sourceview.vala
-    src/Dialogs/preferences_dialog.vala
-    src/Dialogs/save_dialog.vala
-    src/Dialogs/save_on_close_dialog.vala
+	src/MainWindow.vala
+    src/Scratch.vala
+    src/Settings.vala
+    src/Widgets/Menu.vala
+    src/Widgets/ShareMenu.vala
+    src/Widgets/Notebook.vala
+    src/Widgets/ToolBar.vala
+    src/Widgets/SourceView.vala
+    src/Widgets/InfoBar.vala
+    src/Dialogs/PreferencesDialog.vala
+    src/Dialogs/SaveDialog.vala
+    src/Dialogs/SaveOnCloseDialog.vala
     src/Services/document.vala
     src/config.vala
     #src/resources.vala

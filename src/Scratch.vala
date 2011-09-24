@@ -63,7 +63,6 @@ namespace Scratch {
 						 };
 		    //about_documenters = {"",""};
 		    about_artists = {"Harvey 'BassUltra' Cabaguio <harveycabaguio@gmail.com>",
-						 "Daniel Fore <daniel.p.fore@gmail.com>",
 						 null
 						 };
 		    about_translators = "Launchpad Translators";
