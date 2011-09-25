@@ -955,11 +955,15 @@ namespace Scratch {
         }
         
         public void create_instance () {
-        
-            var instance = new ScratchNotebook (this);
-            instance.add_tab ();
-            split_view.add_view(instance);
-            split_view.show_all ();
+			
+			if (split_view.get_children ().length() <= 2) {
+			
+				var instance = new ScratchNotebook (this);
+				instance.add_tab ();
+				split_view.add_view(instance);
+				split_view.show_all ();
+                
+            }
                             
         }
 
