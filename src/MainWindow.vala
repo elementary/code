@@ -27,6 +27,7 @@ using Granite.Services;
 
 using Scratch.Widgets;
 using Scratch.Dialogs;
+using Scratch.Services;
 
 namespace Scratch {
 
@@ -74,8 +75,11 @@ namespace Scratch {
         FontDescription font;
         Gdk.Color bgcolor;
         Gdk.Color fgcolor;
+        Scratch.ScratchApp scratch_app;
+        
 				
-        public MainWindow (Granite.Application scratch_app) {
+        public MainWindow (Scratch.ScratchApp scratch_app) {
+        	this.scratch_app = scratch_app;
             set_application(scratch_app);
                 
             this.title = TITLE;
@@ -735,92 +739,10 @@ namespace Scratch {
         //generic functions
         public void load_file (string filename, string? title=null) {
             try {
-            if (filename != "") {                
-                    string text = "";
-					
-						
-					//try {
-			/*		var file = File.new_for_path (filename);
-					var dis = new DataInputStream (file.read ());
-					string line;
-					int i = 0;
-					while ((line = dis.read_line (null)) != null) {
-						if (i != 0) { 
-							stdout.printf ("%s\n", line);
-						
-							text = text + "\n" + line;
-						}
-						i++;
-		*/			
-					try {
-						FileUtils.get_contents (filename, out text);
-					} catch (Error e) {
-						infobar.set_info (_("The file could not be opened"));
-						return;
-					}
-					
-					/*File file = File.new_for_path(filename);
-					FileInputStream stream = file.read();
-					uint8[] data = new uint8[150];
-					size_t bytes = 150;
-					while(bytes == 150)
-					{
-    					bytes = stream.read(data);
-    					text += (string)data;
-    				}
-					print("%s\n", text);*/
-					
-					//}
-					//catch (Error e) {
-					//	status.set_text (_("The file could not be opened"));
-					//}
-					//unichar c;
-					//text = "";
-					//for (int i = 1; text.get_next_char (ref i, out c);) {
-						//stdout.printf ("%d, %s\n", i, c.to_string ());
-						//text = text + c.to_string ();
-					//}
-					//var len = ssize_t.MAX;
-					//size_t r, w;
-					//FileUtils.get_contents (filename, out text);
-					//text = text.locale_to_utf8 (-1, out r, out w); //TODO:fix it
-					if(!text.validate()) text = convert (text, -1, "UTF-8", "ISO-8859-1");
-					//text = convert (text, -1, "ISO-8859-1", "UTF-8");
-					//text.validate ();
-
-					//get the filename from strig filename =)
-					var name = Filename.display_basename (filename);
-					Tab target_tab;
-					
-					if ((current_tab != null) && (current_tab.filename == null) ) {
-                   
-						//open in this tab
-						target_tab = current_tab;  
-					} else {
-
-						//create new tab
-						int tab_index = current_notebook.add_tab (name);
-						current_notebook.set_current_page (tab_index);                        
-						target_tab = (Tab) current_notebook.get_nth_page (tab_index);
-                        
-					}
-                      
-					//set new values
-					target_tab.text_view.set_file (filename, text);
-					target_tab.filename = filename;
-					target_tab.saved = true;
-					//set values for label
-					
-					var tab = current_tab;//(Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
-					var label = tab.label.label;
-                    
-					if (title != null)
-						label.set_text (title);	
-					else 
-						label.set_text (filename);
-						set_window_title (filename);
-                                            
-                
+		        if (filename != "") {
+					var doc = new Document (filename, null, null, this);
+					doc.create_sourceview();
+					scratch_app.documents.add(doc);
 				}
 				var tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
 				var label = tab.label.label;

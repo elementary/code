@@ -93,8 +93,9 @@ namespace Scratch.Services {
         private MainWindow window;
         private File file;
         private static string home_dir = Environment.get_home_dir ();
+        Tab tab;
 
-        public Document (string filename, SourceView source_view, MainWindow? window) {
+        public Document (string filename, SourceView? source_view, Tab? tab, MainWindow? window) {
 
             
             this.filename = filename;
@@ -103,10 +104,46 @@ namespace Scratch.Services {
             _name = file.get_basename ();
             _directory = Path.get_dirname (filename).replace (home_dir, "~");
 
-            this.buffer = source_view.buffer;
+            //this.buffer = source_view.buffer;
             this.source_view = source_view;
             this.window = window;
+            this.tab = tab;
             
+        }
+        
+        public void create_sourceview ()
+        {
+            string text = "";
+			try {
+				FileUtils.get_contents (filename, out text);
+			} catch (Error e) {
+				window.infobar.set_info (_("The file could not be opened"));
+				return;
+			}
+		
+			if(!text.validate()) text = convert (text, -1, "UTF-8", "ISO-8859-1");
+
+			//get the filename from strig filename =)
+			var name = Filename.display_basename (filename);
+		
+
+			//create new tab
+			int tab_index = window.current_notebook.add_tab (name);
+			window.current_notebook.set_current_page (tab_index);                        
+			tab = (Tab) window.current_notebook.get_nth_page (tab_index);
+              
+			//set new values
+			tab.text_view.set_file (filename, text);
+			tab.filename = filename;
+			tab.saved = true;
+			//set values for label
+			var label = tab.label.label;
+            
+			/*if (title != null)
+				label.set_text (title);	
+			else
+				label.set_text (filename);
+				set_window_title (filename);*/
         }
 
         public Document.empty (SourceView source_view, MainWindow? window) {

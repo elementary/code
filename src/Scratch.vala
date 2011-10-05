@@ -24,6 +24,7 @@ using Gdk;
 
 using Granite;
 using Granite.Services;
+using Scratch.Services;
 
 namespace Scratch {
 
@@ -37,6 +38,7 @@ namespace Scratch {
     	
         public MainWindow window = null;
         static string app_cmd_name;
+        public Gee.ArrayList<Document> documents = new Gee.ArrayList<Document>();
 
         construct {
         
@@ -136,10 +138,10 @@ along with Scratch. If not, see <http://www.gnu.org/licenses>""";
         }
 
 
-    static const OptionEntry[] entries = {
-        { "set", 's', 0, OptionArg.STRING, ref app_cmd_name, "Set of plugins", "" },
-        { null }
-    };
+		static const OptionEntry[] entries = {
+			{ "set", 's', 0, OptionArg.STRING, ref app_cmd_name, "Set of plugins", "" },
+			{ null }
+		};
 		public static int main (string[] args) {
             app_cmd_name = "Scratch";
             var context = new OptionContext("File");
