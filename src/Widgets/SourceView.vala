@@ -94,7 +94,11 @@ namespace Scratch.Widgets {
         public void set_file (string filename, string text) {
 			buffer.text = text;
 			var nopath = filename.split ("/");
-			var sfile = nopath[nopath.length-1].split (".");
+			string[] sfile;
+			if(filename.contains("."))
+			    sfile = nopath[nopath.length-1].split (".");
+		    else
+			    sfile = nopath;
 			Language lang;
 			stdout.printf ("%s\n\n", sfile [sfile.length-2]);
 			if (sfile [sfile.length-1] == "ui") {

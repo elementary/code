@@ -758,6 +758,18 @@ namespace Scratch {
 						infobar.set_info (_("The file could not be opened"));
 						return;
 					}
+					
+					/*File file = File.new_for_path(filename);
+					FileInputStream stream = file.read();
+					uint8[] data = new uint8[150];
+					size_t bytes = 150;
+					while(bytes == 150)
+					{
+    					bytes = stream.read(data);
+    					text += (string)data;
+    				}
+					print("%s\n", text);*/
+					
 					//}
 					//catch (Error e) {
 					//	status.set_text (_("The file could not be opened"));
@@ -772,7 +784,7 @@ namespace Scratch {
 					//size_t r, w;
 					//FileUtils.get_contents (filename, out text);
 					//text = text.locale_to_utf8 (-1, out r, out w); //TODO:fix it
-					//text = convert (text, -1, "ISO-8859-1", "UTF-8");
+					if(!text.validate()) text = convert (text, -1, "UTF-8", "ISO-8859-1");
 					//text = convert (text, -1, "ISO-8859-1", "UTF-8");
 					//text.validate ();
 
