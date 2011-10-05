@@ -113,16 +113,6 @@ namespace Scratch.Services {
         
         public void create_sourceview ()
         {
-            string text = "";
-			try {
-				FileUtils.get_contents (filename, out text);
-			} catch (Error e) {
-				window.infobar.set_info (_("The file could not be opened"));
-				return;
-			}
-		
-			if(!text.validate()) text = convert (text, -1, "UTF-8", "ISO-8859-1");
-
 			//get the filename from strig filename =)
 			var name = Filename.display_basename (filename);
 		
@@ -133,17 +123,13 @@ namespace Scratch.Services {
 			tab = (Tab) window.current_notebook.get_nth_page (tab_index);
               
 			//set new values
-			tab.text_view.set_file (filename, text);
 			tab.filename = filename;
 			tab.saved = true;
-			//set values for label
-			var label = tab.label.label;
             
-			/*if (title != null)
-				label.set_text (title);	
-			else
-				label.set_text (filename);
-				set_window_title (filename);*/
+			buffer = tab.text_view.buffer;
+			tab.text_view.change_syntax_highlight_for_filename(filename);
+			
+			open();
         }
 
         public Document.empty (SourceView source_view, MainWindow? window) {
@@ -156,6 +142,9 @@ namespace Scratch.Services {
 
         }
 
+		/**
+		 * Open the file and put it content inside the given buffer.
+		 **/
         public bool open () throws FileError {
 
             if (filename == null)
@@ -163,14 +152,26 @@ namespace Scratch.Services {
 
             bool result;
             string contents;
-            result = FileUtils.get_contents (filename, out contents);
+			try {
+				FileUtils.get_contents (filename, out contents);
+			} catch (Error e) {
+				window.infobar.set_info (_("The file could not be opened"));
+				return false;
+			}
             original_text = text = contents;
+		
+			if(!contents.validate()) contents = convert (contents, -1, "UTF-8", "ISO-8859-1");
 
-            buffer.text = this.text;
+            if (buffer != null)
+            	buffer.text = this.text;
+            else
+            	warning ("No buffer selected.");
+            
+            /* TODO: real encoding detection */
             
             this.opened (); // Signal
 
-            return result;
+            return true;
 
         }
 

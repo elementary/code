@@ -90,35 +90,27 @@ namespace Scratch.Widgets {
             current_font = settings.get_string ("monospace-font-name");
             
         }
-
-        public void set_file (string filename, string text) {
-			buffer.text = text;
-			var nopath = filename.split ("/");
-			string[] sfile;
-			if(filename.contains("."))
-			    sfile = nopath[nopath.length-1].split (".");
-		    else
-			    sfile = nopath;
+        
+        public void change_syntax_highlight_for_filename(string filename)
+        {
 			Language lang;
-			stdout.printf ("%s\n\n", sfile [sfile.length-2]);
-			if (sfile [sfile.length-1] == "ui") {
+			string display_name = Filename.display_basename(filename);
+			string extension = display_name.split(".")[display_name.split(".").length - 1];
+
+			if (extension == "ui") {
 				lang = manager.get_language ("xml");
 				buffer.set_language (lang);
 				window.toolbar.combobox.set_active_id ("xml");
 				
 			}
-			
-			else if (sfile [sfile.length-2] == "CMakeLists") {
+			else if (display_name == "CMakeLists.txt") {
 				lang = manager.get_language ("cmake");
 				buffer.set_language (lang);
 				window.toolbar.combobox.set_active_id ("cmake");
-				//buffer.text = text;
 			}
-						
 			else {
 				lang = manager.guess_language (filename, null);
 				buffer.set_language (lang);
-				//buffer.text = text;
 			}
         }
         
