@@ -132,7 +132,7 @@ namespace Scratch.Services {
 			open();
         }
 
-        public Document.empty (SourceView source_view, MainWindow? window) {
+        public Document.empty (SourceView? source_view, MainWindow? window) {
             
             filename = null;
             

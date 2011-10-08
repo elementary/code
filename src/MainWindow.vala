@@ -268,11 +268,11 @@ namespace Scratch {
             switch(key)
             {
             case "Up":
-                case_up ();
+                return case_up ();
                 break;
 			case "Return":
             case "Down":
-				case_down ();
+				return case_down ();
 				break;
             }
             return false;
