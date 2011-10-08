@@ -50,7 +50,7 @@ namespace Scratch {
 			
             program_name = app_cmd_name;
 		    exec_name = app_cmd_name.down();
-		    app_copyright = "GPLv3";
+		    app_years = "2011";
 		    app_icon = "scratch";
 		    app_launcher = "scratch.desktop";
 		    application_id = "net.launchpad." + app_cmd_name.down();
