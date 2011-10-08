@@ -72,8 +72,8 @@ namespace Scratch.Widgets {
             new_button = new ToolButton.from_stock (Stock.NEW);
             open_button = new ToolButton.from_stock (Stock.OPEN);
             save_button = action_group.get_action("SaveFile").create_tool_item() as Gtk.ToolButton;
-            undo_button = new ToolButton.from_stock (Stock.UNDO);
-            repeat_button = new ToolButton.from_stock (Stock.REDO);
+            undo_button = action_group.get_action("Undo").create_tool_item() as Gtk.ToolButton;
+            repeat_button = action_group.get_action("Redo").create_tool_item() as Gtk.ToolButton;
             
             combobox = new ComboBoxText ();
             set_combobox_text ();

@@ -40,6 +40,8 @@ namespace Scratch {
                 <menuitem name="Fetch" action="Fetch"/>
                 <menuitem name="New tab" action="New tab"/>
                 <menuitem name="SaveFile" action="SaveFile"/>
+                <menuitem name="Undo" action="Undo"/>
+                <menuitem name="Redo" action="Redo"/>
             </popup>
             </ui>
         """;
@@ -251,8 +253,6 @@ namespace Scratch {
             //signals for the toolbar
             toolbar.new_button.clicked.connect (on_new_clicked);
             toolbar.open_button.clicked.connect (on_open_clicked);
-            toolbar.undo_button.clicked.connect (on_undo_clicked);
-            toolbar.repeat_button.clicked.connect (on_repeat_clicked);
             toolbar.combobox.changed.connect (on_combobox_changed);
             toolbar.entry.focus_out_event.connect ( () => { start = end = null; return false; });
             toolbar.entry.changed.connect (on_changed_text);
@@ -317,16 +317,6 @@ namespace Scratch {
                 current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
             }
             return true;
-            /*TextIter start, end, local_start, local_end;
-            var buf = current_tab.text_view.buffer;
-			buf.get_selection_bounds (out start, out end);
-			bool found = end.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out local_start, out local_end, null);
-			if (found) {
-				buf.place_cursor (local_start);
-				buf.move_mark_by_name ("selection", local_end);
-				current_tab.text_view.scroll_to_iter (local_start, 0, false, 0, 0);
-			}
-			return found;*/
 		}
 		
 		public void on_replace_activate () {
@@ -362,49 +352,9 @@ namespace Scratch {
 			buf.place_cursor (it);
 			
 		}
-        
-        /*public void on_goto_changed () {
-			string number = toolbar.go_to.get_text ();
-			//foreach (string s in number)
-				//stdout.printf ("%s\n", s);
-			for (int i=0; i<=number.length; i++) {
-				unichar ch;
-				number.get_next_char (ref i, out ch);
-				string c = ch.to_string ();
-				if (c == "0" || c == "1" || c == "2" || c == "3" || c == "4" 		//if it is a number
-					|| c == "5" || c == "6" || c == "7" || c == "8" || c == "9") {
-						stdout.printf ("%s\n", c);
-						
-						
-				}
-				//else {
-					//	number.replace (c, "");
-						//toolbar.go_to.set_text (number);
-				//}
-			}
-			//toolbar.go_to.set_text (number);
-			//toolbar.go_to.set_text (newnumber);
-			//stdout.printf ("%s", number);
-			//toolbar.go_to.set_text (number);
-			
-			return;	
-		}*/
          
         //signals functions
         public void on_destroy () {
-            /*if (!current_notebook.welcome_screen.active) {
-                this.show_all ();
-                string isnew = current_tab.label.label.get_text () [0:1];
-                if (isnew == "*") {
-                    var save_on_close_dialog = new SaveOnCloseDialog (current_tab.filename, this);
-                        save_on_close_dialog.run ();
-                    } else {
-                        this.destroy();
-                    }
-            }*/
-            
-            //
-            //this.show_all ();
             
 			notebook.window.current_tab = (Tab) notebook.window.current_notebook.get_nth_page (notebook.window.current_notebook.get_current_page());
 
@@ -514,21 +464,6 @@ namespace Scratch {
 						else
 							case_up ();
 					break;
-					//go backward in the search
-					//case "g":
-						//case_down ();
-					//break;
-                    // Undo by Ctrl+Z
-                    case "z":
-                        this.on_undo_clicked();
-                        reset_ctrl_flags ();
-                    break;    
-                        
-                    // Redo by Ctrl+Y
-                    case "y":
-                        this.on_repeat_clicked();
-                        reset_ctrl_flags ();
-                    break;
                 }
             }
             else if (key == "F3")
@@ -642,20 +577,6 @@ namespace Scratch {
         
         public void action_save () {
               current_tab.save();
-        }
-                
-        public void on_undo_clicked () {
-            //if (current_tab.text_view.buffer.can_undo) {
-				current_tab.text_view.undo ();
-				set_undo_redo ();
-			//}
-        }
-    
-        public void on_repeat_clicked () {         
-            //if (current_tab.text_view.buffer.can_redo) {
-				current_tab.text_view.redo ();
-				set_undo_redo ();
-			//}
         }
         
         public void on_combobox_changed () {
@@ -851,13 +772,8 @@ namespace Scratch {
 			bool undo = buf.can_undo;
 			bool redo = buf.can_redo;
 			
-            toolbar.set_button_sensitive(Widgets.Toolbar.ToolButtons.UNDO_BUTTON, undo);
-            toolbar.set_button_sensitive(Widgets.Toolbar.ToolButtons.REPEAT_BUTTON, redo);
-            /*
-            if (current_notebook.welcome_screen.active) {
-                toolbar.set_button_sensitive(Widgets.Toolbar.ToolButtons.UNDO_BUTTON, false);
-                toolbar.set_button_sensitive(Widgets.Toolbar.ToolButtons.REPEAT_BUTTON, false);
-            }*/
+            main_actions.get_action ("Undo").set_sensitive (undo);
+            main_actions.get_action ("Redo").set_sensitive (redo);
 			
         }
         
@@ -900,6 +816,15 @@ namespace Scratch {
             }
                             
         }
+        
+        void action_undo () {
+			current_tab.text_view.undo ();
+			set_undo_redo ();
+        }
+        void action_redo () {
+			current_tab.text_view.redo ();
+			set_undo_redo ();
+        }
 
         static const Gtk.ActionEntry[] main_entries = {
            { "Fetch", Gtk.Stock.SAVE,
@@ -910,6 +835,14 @@ namespace Scratch {
           /* label, accelerator */       N_("New tab"), "<Control>t",
           /* tooltip */                  N_("Open a new tab"),
                                          action_new_tab },
+           { "Undo", Gtk.Stock.UNDO,
+          /* label, accelerator */       N_("Undo"), "<Control>z",
+          /* tooltip */                  N_("Undo"),
+                                         action_undo },
+           { "Redo", Gtk.Stock.REDO,
+          /* label, accelerator */       N_("Redo"), "<Control><shift>z",
+          /* tooltip */                  N_("Redo"),
+                                         action_redo },
            { "SaveFile", Gtk.Stock.SAVE,
           /* label, accelerator */       N_("Save"), "<Control>s",
           /* tooltip */                  N_("Save current file"),
