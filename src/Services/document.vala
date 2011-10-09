@@ -107,6 +107,18 @@ namespace Scratch.Services {
             
         }
         
+        public void focus_sourceview() {
+        	if(tab == null) {
+        		critical("No tab created for this document");
+        	}
+        	ScratchNotebook notebook = tab.get_parent () as ScratchNotebook;
+        	if (notebook == null) {
+        		critical ("Can't get tab parent.");
+        	}
+        	notebook.page = notebook.page_num(tab);
+        	tab.grab_focus ();
+        }
+        
         /**
          * In this function, we create a new tab and we load the content of the file in it. 
          **/

@@ -121,7 +121,16 @@ along with Scratch. If not, see <http://www.gnu.org/licenses>""";
         }
         
         public void open_file(string filename)
-        {
+        {	
+        	/* First, let's check it is not already opened */
+        	foreach(var doc in documents)
+        	{
+        		if(doc.filename == filename) {
+        			/* Already opened, then, we will just focus it */
+        			doc.focus_sourceview();
+        			return;
+        		}
+        	}
             var document = new Document(filename, window);
             document.create_sourceview ();
             documents.add(document);
