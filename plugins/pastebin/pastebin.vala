@@ -122,7 +122,7 @@ public class Scratch.Plugins.Pastebin : Scratch.Plugins.Base
 
     public override void example(string text)
     {
-        print("Why do you want me to say \"%s\"?\n", text);
+        //print("Why do you want me to say \"%s\"?\n", text);
     }
 
     public override void addons_menu(Gtk.Menu menu)

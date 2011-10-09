@@ -113,17 +113,21 @@ along with Scratch. If not, see <http://www.gnu.org/licenses>""";
                     window.toolbar.toolreplace.hide ();
 					window.toolbar.toolgoto.hide ();
 					window.notebook_context.hide ();
-					window.notebook_sidebar.hide ();
                 } else {
-                    window.open (files[i].get_path ());
-                    //
-                    window.toolbar.toolreplace.hide ();
-					window.toolbar.toolgoto.hide ();
-					window.notebook_context.hide ();
-					window.notebook_sidebar.hide ();
+                	open_file(files[i].get_path());
                 }
             }
 
+        }
+        
+        public void open_file(string filename)
+        {
+            var document = new Document(filename, window);
+            document.create_sourceview ();
+            documents.add(document);
+            window.toolbar.toolreplace.hide ();
+            window.toolbar.toolgoto.hide ();
+            window.notebook_context.hide ();
         }
 
         protected override void activate () {

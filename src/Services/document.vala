@@ -88,14 +88,13 @@ namespace Scratch.Services {
         
         // Private variables
         private string original_text;
-        private SourceView source_view;
         private Buffer buffer;
         private MainWindow window;
         private File file;
         private static string home_dir = Environment.get_home_dir ();
         Tab tab;
 
-        public Document (string filename, SourceView? source_view, Tab? tab, MainWindow? window) {
+        public Document (string filename, MainWindow? window) {
 
             
             this.filename = filename;
@@ -104,13 +103,13 @@ namespace Scratch.Services {
             _name = file.get_basename ();
             _directory = Path.get_dirname (filename).replace (home_dir, "~");
 
-            //this.buffer = source_view.buffer;
-            this.source_view = source_view;
             this.window = window;
-            this.tab = tab;
             
         }
         
+        /**
+         * In this function, we create a new tab and we load the content of the file in it. 
+         **/
         public void create_sourceview ()
         {
 			//get the filename from strig filename =)
@@ -132,12 +131,9 @@ namespace Scratch.Services {
 			open();
         }
 
-        public Document.empty (SourceView? source_view, MainWindow? window) {
+        public Document.empty (MainWindow? window) {
             
             filename = null;
-            
-            this.source_view = source_view;
-            this.buffer = source_view.buffer;
             this.window = window;
 
         }
@@ -162,8 +158,11 @@ namespace Scratch.Services {
 		
 			if(!contents.validate()) contents = convert (contents, -1, "UTF-8", "ISO-8859-1");
 
-            if (buffer != null)
+            if (buffer != null) {
+                buffer.begin_not_undoable_action ();
             	buffer.text = this.text;
+                buffer.end_not_undoable_action ();
+            }
             else
             	warning ("No buffer selected.");
             

@@ -521,40 +521,7 @@ namespace Scratch {
 		}
         
         public void open (string filename) {            
-            if (filename != null) {
-                // check if file is already opened
-                int target_page = -1;
-
-                try {
-                    set_combobox_language (filename);
-                } catch (Error e) {
-                    warning ("Cannot set the combobox id");
-                }
-                              
-                if (!current_notebook.welcome_screen.active) {
-                    int tot_pages = current_notebook.get_n_pages ();
-                    for (int i = 0; i < tot_pages; i++)
-                        if (current_tab.filename == filename)
-                            target_page = i;
-                }
-                
-                if (target_page >= 0) {
-                    message ("file already opened: %s\n", filename);
-                    current_notebook.set_current_page (target_page);
-                } else {
-                    message ("Opening: %s\n", filename);
-                    current_notebook.show_tabs_view ();    
-					
-					try {
-						var name = filename.split("/");
-						load_file (filename,name[name.length-1]);
-						current_tab.text_view.buffer.begin_not_undoable_action ();
-						current_tab.text_view.buffer.end_not_undoable_action ();
-					} catch (Error e) {
-						warning (e.message);
-					}
-                }
-            }
+            
         }
         
         public void action_save () {
@@ -637,35 +604,6 @@ namespace Scratch {
             }
             
             return true;
-        }
-        
-        //generic functions
-        public void load_file (string filename, string? title=null) {
-            try {
-		        if (filename != "") {
-					var doc = new Document (filename, null, null, this);
-					doc.create_sourceview();
-					scratch_app.documents.add(doc);
-				}
-				var tab = (Tab) current_notebook.get_nth_page (current_notebook.get_current_page());
-				var label = tab.label.label;
-				
-				if (title != null)
-					label.set_text (title);
-				else if (label.get_text().substring (0, 1) == "*"){
-					label.set_text (filename);
-				}
-            
-				if (!can_write (filename)) {
-					debug ("Opening a file wich is Read Only");
-					infobar.set_info (_("Opening a file wich is Read Only"));
-					current_tab.text_view.editable = false;
-				}
-            } catch (Error e) {
-                   warning("Error: %s\n", e.message);
-                   infobar.set_info (_("The file could not be opened"));
-            }   
-			
         }
 		
 		public bool can_write (string filename) {

@@ -67,7 +67,7 @@ public class Scratch.Plugins.BaseManager : GLib.Object
         }
         catch(Error error)
         {
-            critical ("Error listing contents of folder '%s': %s",
+            warning("Error listing contents of folder '%s': %s",
                       dir.get_path (),
                       error.message);
 
@@ -91,13 +91,12 @@ public class Scratch.Plugins.BaseManager : GLib.Object
 
     Base? load_module(string file_path)
     {
-        Module? module = Module.open (file_path, ModuleFlags.BIND_LOCAL);
+        Module module = Module.open (file_path, ModuleFlags.BIND_LOCAL);
         if (module == null)
         {
             warning ("Failed to load module from path '%s': %s",
                      file_path,
                      Module.error ());
-
             return null;
         }
 
@@ -108,12 +107,15 @@ public class Scratch.Plugins.BaseManager : GLib.Object
                      "module_init",
                      file_path,
                      Module.error ());
-
             return null;
         }
 
-        unowned ModuleInitFunc module_init = (ModuleInitFunc) function;
+        ModuleInitFunc module_init = (ModuleInitFunc) function;
         assert (module_init != null);
+
+        /* We don't want our modules to ever unload */
+        module.make_resident ();
+        Plugins.Base plug = module_init();
 
         debug ("Loaded module source: '%s'", module.name());
 
@@ -195,13 +197,13 @@ public class Scratch.Plugins.Manager : Scratch.Plugins.BaseManager
     public Manager(Settings s, string f, string d, string? e = null)
     {
         e = e == "scratch" ? null : e;
-        print(e + "\n");
         base(s, f, d, e);
     }
 
     public override void connect_signals(Base base_) {
         hook_main_menu.connect(base_.main_menu);
         hook_toolbar.connect(base_.toolbar);
+        hook_source_view.connect(base_.source_view);
     }
     
     public void hook_app(Gtk.Application menu)
@@ -214,10 +216,7 @@ public class Scratch.Plugins.Manager : Scratch.Plugins.BaseManager
         foreach(var plugin in plugin_hash.values) plugin.notebook_sidebar(menu);
     }
     
-    public void hook_source_view(Gtk.TextView view)
-    {
-        foreach(var plugin in plugin_hash.values) plugin.source_view(view);
-    }
+    public signal void hook_source_view(Gtk.TextView view);
     
     public void hook_notebook_context(Gtk.Notebook menu)
     {

@@ -48,8 +48,6 @@ namespace Scratch.Widgets {
 	    }
 	    
         public int add_tab (string labeltext="New file") {
-            
-            //var new_tab = new Tab (this, labeltext, window);
             var new_tab = new Tab (this, labeltext, window);
             int index = this.append_page (new_tab, new_tab.label);
             set_tab_reorderable(new_tab, true);
