@@ -150,8 +150,8 @@ namespace Scratch.Widgets {
 			}
 		}
 		
-		public ScratchNotebook get_current_notebook () {
-			ScratchNotebook child = get_focus_child () as ScratchNotebook;
+		public weak ScratchNotebook get_current_notebook () {
+			weak ScratchNotebook child = get_focus_child () as ScratchNotebook;
 			if (child == null) {
 			    child = get_children ().nth_data (0) as ScratchNotebook;
 			    if( child == null) {

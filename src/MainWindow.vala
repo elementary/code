@@ -66,8 +66,8 @@ namespace Scratch {
         //dialogs
         public FileChooserDialog filech;
 
-        public Tab current_tab;
-        public ScratchNotebook current_notebook;
+        public Tab current_tab { get { return (Tab) current_notebook.get_nth_page (current_notebook.get_current_page()); }}
+        public weak ScratchNotebook current_notebook { get { return split_view.get_current_notebook (); } }
         
         //bools for key press event
         bool ctrlL = false;
@@ -129,26 +129,20 @@ namespace Scratch {
         }
 
         void key_changed (string key) {
-            if(key == "context-visible")
-            {
-                if(settings.schema.get_boolean("context-visible") && notebook_context.get_n_pages() > 0)
-                {
-                    notebook_context.show_all();
+            if (key == "context-visible") {
+                if (settings.schema.get_boolean ("context-visible") && notebook_context.get_n_pages () > 0) {
+                    notebook_context.show_all ();
                 }
-                else
-                {
-                    notebook_context.hide();
+                else {
+                    notebook_context.hide ();
                 }
             }
-            if(key == "sidebar-visible")
-            {
-                if(settings.schema.get_boolean("sidebar-visible") && notebook_sidebar.get_n_pages() > 0)
-                {
-                    notebook_sidebar.show_all();
+            if (key == "sidebar-visible") {
+                if (settings.schema.get_boolean ("sidebar-visible") && notebook_sidebar.get_n_pages () > 0) {
+                    notebook_sidebar.show_all ();
                 }
-                else
-                {
-                    notebook_sidebar.hide();
+                else {
+                    notebook_sidebar.hide ();
                 }
             }
         }
@@ -179,22 +173,19 @@ namespace Scratch {
 
             this.notebook =  new ScratchNotebook (this);
             this.notebook.add_tab();
-                        
+
             split_view.add_view (notebook);
-                                    
+
             //adding all to the vbox
             var vbox = new VBox (false, 0);
             vbox.pack_start (toolbar, false, false, 0);
             vbox.pack_start (hpaned_addons, true, true, 0); 
             vbox.show_all  ();
-            
+
             //add infobar
             infobar = new ScratchInfoBar (vbox);
 
             this.add (infobar);
-            
-            notebook.window.current_notebook = notebook.window.split_view.get_current_notebook ();
-            notebook.window.current_tab = (Tab) notebook.window.current_notebook.get_nth_page (notebook.window.current_notebook.get_current_page());
             
             set_undo_redo ();    
 
@@ -357,8 +348,6 @@ namespace Scratch {
          
         //signals functions
         public void on_destroy () {
-            
-			notebook.window.current_tab = (Tab) notebook.window.current_notebook.get_nth_page (notebook.window.current_notebook.get_current_page());
 
             
             List<Widget> children = split_view.get_children ();
@@ -484,7 +473,6 @@ namespace Scratch {
 				var notebook = new ScratchNotebook (this);
 				notebook.add_tab ();
 				split_view.add_view (notebook);
-				current_notebook = notebook;
 			}
 			else {
 				int new_tab_index = current_notebook.add_tab ();
@@ -510,7 +498,6 @@ namespace Scratch {
 				var notebook = new ScratchNotebook (this);
 				notebook.add_tab ();
 				split_view.add_view (notebook);
-				current_notebook = notebook;
 			}
             
             //current_tab.text_view.buffer.start_not_undoable_action ();
