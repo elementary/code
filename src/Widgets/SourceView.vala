@@ -34,6 +34,8 @@ namespace Scratch.Widgets {
         public StyleSchemeManager style_scheme_manager;
         
         public string current_font;
+        
+        public bool modified {set; get;}
     
         public SourceView (MainWindow window) {
 
@@ -118,12 +120,8 @@ namespace Scratch.Widgets {
         	var nb = window.split_view.get_current_notebook ();
         	var tab = (Tab) nb.get_nth_page (nb.get_current_page());
         	var label = tab.label.label;
-        	if (label.get_text().substring (0, 1) != "*"){
-        		label.set_text ("* " + label.get_text());
-        	}
-        	
-        	//buffer.end_not_undoable_action ();
-        	window.set_undo_redo();
+        	//window.set_undo_redo();
+        	modified = true;
         }
 
         public void restore_settings () {

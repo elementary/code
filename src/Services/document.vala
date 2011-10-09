@@ -166,6 +166,12 @@ namespace Scratch.Services {
             else
             	warning ("No buffer selected.");
             
+            if (tab != null) {
+            	tab.text_view.modified = false;
+            }
+            else
+            	warning ("No tab selected.");
+            
             /* TODO: real encoding detection */
             
             this.opened (); // Signal

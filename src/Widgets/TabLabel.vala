@@ -32,12 +32,15 @@ namespace Scratch.Widgets {
         public Button close;
         private Tab tab;
         
+        public string label_text;
+        
         public TabLabel (Tab my_tab, string labeltext) {
                                                 
             homogeneous = false;    
             
             this.tab = my_tab;
                                             
+        	label_text = labeltext;
             label = new Label (labeltext);
             entry = new Entry ();
 
@@ -60,7 +63,20 @@ namespace Scratch.Widgets {
             }
 
             event_box.button_press_event.connect (click_event);
-            this.show_all ();		
+            
+            tab.text_view.notify["modified"].connect(on_modified_changed);
+            
+            this.show_all ();
+        }
+        
+        void on_modified_changed()
+        {
+        	if (tab.text_view.modified) {
+        		label.set_text("* " + label_text);
+        	}
+        	else {
+        		label.set_text(label_text);
+        	}
         }
 
         protected bool click_event (EventButton event) {

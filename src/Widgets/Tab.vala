@@ -50,8 +50,6 @@ namespace Scratch.Widgets {
             
             add (text_view);
             show_all();
-
-
         }
 
 
@@ -132,7 +130,7 @@ namespace Scratch.Widgets {
 				FileUtils.set_contents (this.filename, this.text_view.buffer.text);
 				this.saved = true;
 				var name = Path.get_basename (this.filename);
-				this.label.label.set_text (name);
+				text_view.modified = false;
                 window.set_window_title (this.filename);
 		        return 0;
 		        
