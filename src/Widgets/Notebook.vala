@@ -45,6 +45,26 @@ namespace Scratch.Widgets {
 			
 			show_all ();
 			
+			page_removed.connect(on_page_removed);
+			page_added.connect(on_page_added);
+			
+	    }
+
+        void on_page_added(Gtk.Widget w, uint page_num)
+        {
+            /* If it is a Tab (something where we can put text, not a welcome screen)
+             * we want to hide the tabs and the welcome screen.
+             */
+            if(w is Tab) {
+                welcome_screen.hide ();
+                set_show_tabs(true);
+            }
+        }
+	    
+	    void on_page_removed(Gtk.Widget w, uint page_num)
+	    {
+	    	if (get_n_pages() == 0)
+	    		show_welcome ();
 	    }
 	    
         public int add_tab (string labeltext="New file") {
@@ -58,6 +78,11 @@ namespace Scratch.Widgets {
 		public void on_switch_page (Widget page, uint number) {
 		
 			var tab = page as Tab;
+            if(tab == null) {
+                /* Welcome screen */
+                return;
+            }
+            /* Ok, it is a real Tab then */
 			if (tab.filename != null)
 				window.set_window_title (tab.filename);
 			else
@@ -89,30 +114,17 @@ namespace Scratch.Widgets {
 		public void show_welcome () {
 
 			if (window.split_view.get_children().length() == 1) {
-
-				if (!welcome_screen.active) {
-					
-					List<Widget> children = window.split_view.get_children ();
-					int i;
-			
-					for (i = 0; i!=children.length(); i++) {//ScratchNotebook notebook in children) { 
-						window.split_view.remove ( children.nth_data (i) );
-					}
-							
-					//split_view.remove (current_notebook.welcome_screen);
-					//window.create_instance ();
-					
-					window.split_view.add (welcome_screen);
-					//this.append_page (welcome_screen, null); //here scratch crash
-					this.set_show_tabs (false);
-					this.welcome_screen.active = true;
-					window.set_undo_redo ();
-				}
+                this.set_show_tabs (false);
+                if(welcome_screen.get_parent() == null)
+                {
+                    page = append_page(welcome_screen, null);
+                }
+                welcome_screen.show_all();
+                window.set_undo_redo ();
 			}
 		
 			else {
-				window.split_view.remove (this);
-				window.split_view.set_menu_item_sensitive ();
+                warning ("I won't put a Welcome Screen if there are some others views.");
 			}
 		
 		}

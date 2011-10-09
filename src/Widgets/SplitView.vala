@@ -49,32 +49,6 @@ namespace Scratch.Widgets {
 		}
 		
 		public void add_view (ScratchNotebook view) {
-			/*			
-			if (current_row == rmax - 1) {
-			    current_row = 0;
-			    current_col++;
-			}
-			
-			if (current_col == cmax - 1) 				
-				if (current_row == rmax - 2) 
-					window.toolbar.menu.view.set_sensitive (false);
-			
-			int row = rmax - current_row;
-			             
-			if (current_col != cmax) { 
-			            
-				if (current_col == 0)
-					this.attach (view, current_row, current_row + 1,
-							current_col, current_col + 1, AttachOptions.FILL, AttachOptions.FILL,
-							0, 0);
-				else 
-					this.attach (view, current_row, current_row + 3,
-							current_col, current_col + 1, AttachOptions.FILL, AttachOptions.FILL,
-							0, 0);
-			}
-			             
-			current_row++;
-			*/
 			pack_start (view);
 						
 			set_menu_item_sensitive ();
@@ -91,23 +65,6 @@ namespace Scratch.Widgets {
 		}
 		
 		public bool remove_current_view () {
-			/*List<Widget> children = get_children ();
-			int i, n;
-			uint pages = children.length();
-			
-			for (i = 0; i!=pages; i++) {								
-				var notebook = children.nth_data (i) as ScratchNotebook;
-								
-				for (n = 0; n!=notebook.get_n_pages(); n++) {
-					notebook.set_current_page (n);
-					var tab = (Tab) notebook.get_nth_page (n);
-					
-					string isnew = tab.label.label.get_text () [0:1];
-			
-					if (isnew == "*") 
-						tab.on_close_clicked ();
-				}
-			}*/
 			bool r = false;
 			for (int i=0; i!=window.current_notebook.get_n_pages(); i++) {
 				window.current_notebook.set_current_page (i);

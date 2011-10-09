@@ -52,9 +52,7 @@ namespace Scratch {
     
         public const string TITLE = "Scratch";
         private string search_string = "";
-        
-        //widgets
-        public ScratchNotebook notebook;
+
         public SplitView split_view;
         public Widgets.Toolbar toolbar;
         
@@ -175,10 +173,11 @@ namespace Scratch {
             plugins.hook_notebook_sidebar(notebook_sidebar);
             plugins.hook_notebook_context(notebook_context);
 
-            this.notebook =  new ScratchNotebook (this);
-            this.notebook.add_tab();
-
+            var notebook =  new ScratchNotebook (this);
+            //this.notebook.add_tab();
             split_view.add_view (notebook);
+            notebook.show_welcome();
+
 
             //adding all to the vbox
             var vbox = new VBox (false, 0);
@@ -353,19 +352,10 @@ namespace Scratch {
             List<Widget> children = split_view.get_children ();
 			int i, n;
 			
-			for (i = 0; i!=children.length(); i++) {								
-				var notebook = children.nth_data (i) as ScratchNotebook;
-								
-				for (n = 0; n!=notebook.get_n_pages(); n++) {
-					notebook.set_current_page (n);
-					var label = (Tab) notebook.get_nth_page (n);
-					
-					string isnew = label.label.label.get_text () [0:1];
-			
-					if (isnew == "*") {
-						var save_dialog = new SaveOnCloseDialog(label.label.label.get_text (), this);
-						save_dialog.run();
-					}
+			foreach(var doc in scratch_app.documents) {						
+				if(doc.modified) {
+					var save_dialog = new SaveOnCloseDialog(doc.name, this);
+					save_dialog.run();
 				}
 			}
 			
@@ -685,12 +675,16 @@ namespace Scratch {
         
         public void set_undo_redo () {
             
-            GtkSource.Buffer buf;
-            
-			buf = current_tab.text_view.buffer;
+				bool undo = false;
+				bool redo = false;
+            if(current_tab != null) {
+		        GtkSource.Buffer buf;
+		        
+				buf = current_tab.text_view.buffer;
+				undo = buf.can_undo;
+				redo = buf.can_redo;
 			
-			bool undo = buf.can_undo;
-			bool redo = buf.can_redo;
+			}
 			
             main_actions.get_action ("Undo").set_sensitive (undo);
             main_actions.get_action ("Redo").set_sensitive (redo);

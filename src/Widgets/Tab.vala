@@ -34,6 +34,7 @@ namespace Scratch.Widgets {
         public ScratchNotebook notebook;
         public string filename = null;
         public bool saved = true;
+        public signal void closed ();
 
         
         public Tab (ScratchNotebook parent, string labeltext, MainWindow window) {
@@ -81,11 +82,8 @@ namespace Scratch.Widgets {
 			
     		message("closing: %s\n", this.filename);		    
 		    var n = notebook.page_num(this);
+		    closed ();	
 		    notebook.remove_page(n);
-		    
-		    if (notebook.get_n_pages() == 0)
-		    	notebook.show_welcome();
-			
         }
         
         public int save () {

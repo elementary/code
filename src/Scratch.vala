@@ -134,6 +134,7 @@ along with Scratch. If not, see <http://www.gnu.org/licenses>""";
             var document = new Document(filename, window);
             document.create_sourceview ();
             documents.add(document);
+            document.closed.connect( (doc) => { documents.remove(doc); });
             window.toolbar.toolreplace.hide ();
             window.toolbar.toolgoto.hide ();
             window.notebook_context.hide ();

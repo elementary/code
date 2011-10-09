@@ -93,6 +93,11 @@ namespace Scratch.Services {
         private File file;
         private static string home_dir = Environment.get_home_dir ();
         Tab tab;
+        /**
+         * It returns the value of the modified field of the text_view of the tab of
+         * this document
+         **/
+        public bool modified { get { return tab.text_view.modified; } }
 
         public Document (string filename, MainWindow? window) {
 
@@ -132,6 +137,7 @@ namespace Scratch.Services {
 			int tab_index = window.current_notebook.add_tab (name);
 			window.current_notebook.set_current_page (tab_index);                        
 			tab = (Tab) window.current_notebook.get_nth_page (tab_index);
+            tab.closed.connect( () => { close(); });
               
 			//set new values
 			tab.filename = filename;
