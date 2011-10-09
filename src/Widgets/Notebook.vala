@@ -63,7 +63,7 @@ namespace Scratch.Widgets {
 	    
 	    void on_page_removed(Gtk.Widget w, uint page_num)
 	    {
-	    	if (get_n_pages() == 0)
+	    	if (get_n_pages() == 0 || (get_n_pages() == 1 && welcome_screen.get_parent() != null))
 	    		show_welcome ();
 	    }
 	    
