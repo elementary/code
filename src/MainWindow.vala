@@ -42,6 +42,8 @@ namespace Scratch {
                 <menuitem name="SaveFile" action="SaveFile"/>
                 <menuitem name="Undo" action="Undo"/>
                 <menuitem name="Redo" action="Redo"/>
+                <menuitem name="SearchNext" action="SearchNext"/>
+                <menuitem name="SearchBack" action="SearchBack"/>
             </popup>
             </ui>
         """;
@@ -268,17 +270,19 @@ namespace Scratch {
             switch(key)
             {
             case "Up":
-                return case_up ();
+                case_up ();
+                return true;
                 break;
 			case "Return":
             case "Down":
-				return case_down ();
+				case_down ();
+				return true;
 				break;
             }
             return false;
         }
 		
-		public bool case_up () {
+		public void case_up () {
 
             if (end == null || start == null) {
                 TextIter start_buffer;
@@ -295,10 +299,9 @@ namespace Scratch {
                 current_tab.text_view.buffer.select_range (start, end);
                 current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
             }
-            return true;
 		}
 		
-		public bool case_down () {
+		public void case_down () {
 
             if (end == null || start == null) {
                 TextIter start_buffer;
@@ -316,7 +319,6 @@ namespace Scratch {
                 current_tab.text_view.buffer.move_mark_by_name ("selection", local_end);
                 current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
             }
-            return true;
 		}
 		
 		public void on_replace_activate () {
@@ -456,13 +458,6 @@ namespace Scratch {
 					//show replace entry
 					case "i":
 						toolbar.show_go_to_entry ();
-					break;
-                    //go forward in the search
-					case "g":
-						if (shiftL == false && shiftR == false)
-							case_down ();
-						else
-							case_up ();
 					break;
                 }
             }
@@ -843,6 +838,14 @@ namespace Scratch {
           /* label, accelerator */       N_("Redo"), "<Control><shift>z",
           /* tooltip */                  N_("Redo"),
                                          action_redo },
+           { "SearchNext", Gtk.Stock.REDO,
+          /* label, accelerator */       N_("Next Search"), "<Control>g",
+          /* tooltip */                  N_("Next Search"),
+                                         case_down },
+           { "SearchBack", Gtk.Stock.REDO,
+          /* label, accelerator */       N_("Previous Search"), "<Control><shift>g",
+          /* tooltip */                  N_("Previous Search"),
+                                         case_up },
            { "SaveFile", Gtk.Stock.SAVE,
           /* label, accelerator */       N_("Save"), "<Control>s",
           /* tooltip */                  N_("Save current file"),
