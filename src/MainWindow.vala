@@ -116,6 +116,10 @@ namespace Scratch {
             toolbar.entry.grab_focus();
         }
 
+		/**
+		 * This function checks the settings and show the sidebar (or the sidepanel)
+		 * if needed when a page is added.
+		 **/
         void on_notebook_context_new_page (Gtk.Notebook notebook, Widget page, uint num) {
             if(settings.schema.get_boolean((notebook == notebook_context ? "context" : "sidebar") + "-visible")) notebook.show_all();
             if(notebook == notebook_context)
@@ -273,6 +277,7 @@ namespace Scratch {
             return false;
         }
 		
+		/* FIXME: case_up and case_down should be moved to SourceView */
 		public void case_up () {
 
             if (end == null || start == null) {
@@ -338,12 +343,7 @@ namespace Scratch {
 		}		
          
         public void on_goto_activate () {
-			TextIter it;
-			var buf = current_tab.text_view.buffer;
-			buf.get_iter_at_line (out it, toolbar.go_to.get_text().to_int()-1); 
-			current_tab.text_view.scroll_to_iter (it, 0, false, 0, 0);
-			buf.place_cursor (it);
-			
+			current_tab.text_view.go_to_line (toolbar.go_to.get_text ().to_int ());
 		}
          
         //signals functions

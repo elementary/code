@@ -150,6 +150,18 @@ namespace Scratch.Widgets {
 
         }
         
+        /**
+         * Go to the line.
+         *
+         * @param line the line you want to go to
+         **/
+        public void go_to_line (int line) {
+			TextIter it;
+			buffer.get_iter_at_line (out it, line-1); 
+			scroll_to_iter (it, 0, false, 0, 0);
+			buffer.place_cursor (it);
+        }
+        
 
     }
     
