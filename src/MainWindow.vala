@@ -469,6 +469,9 @@ namespace Scratch {
 				current_notebook.set_current_page (new_tab_index);
 				current_notebook.show_tabs_view ();
 			}
+			
+			toolbar.set_sensitive (true);
+			
 		}
         
         public void on_open_clicked () {
@@ -489,6 +492,8 @@ namespace Scratch {
 				notebook.add_tab ();
 				split_view.add_view (notebook);
 			}
+            
+            toolbar.set_sensitive (true);
             
             //current_tab.text_view.buffer.start_not_undoable_action ();
             

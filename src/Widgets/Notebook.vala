@@ -121,6 +121,7 @@ namespace Scratch.Widgets {
                 }
                 welcome_screen.show_all();
                 window.set_undo_redo ();
+                window.toolbar.set_sensitive(false);
 			}
 		
 			else {
@@ -167,10 +168,12 @@ namespace Scratch.Widgets {
 					case 0: //open
 					//notebook.window.on_new_clicked ();
 					notebook.window.action_open_clicked (true);
+					//notebook.window.toolbar.set_sensitive (true);
 					break;
 
 					case 1: // new
 					notebook.window.action_new_clicked(true);
+					//notebook.window.toolbar.set_sensitive (true);
 					break;
 				
 				}
