@@ -138,8 +138,6 @@ along with Scratch. If not, see <http://www.gnu.org/licenses>""";
             document.closed.connect( (doc) => { documents.remove(doc); });
             window.toolbar.toolreplace.hide ();
             window.toolbar.toolgoto.hide ();
-            window.notebook_context.hide ();
-            window.notebook_sidebar.hide ();
             window.infobar.hide ();
             window.toolbar.set_sensitive (true);
         }
