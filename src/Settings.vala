@@ -48,6 +48,8 @@ namespace Scratch {
         public bool use_system_font { get; set; }
         public string font { get; set; }
         public string style_scheme { get; set; }
+        public bool sidebar_visible { get; set; }
+        public bool context_visible { get; set; }
 
         public Settings ()  {
             base ("org.elementary.Scratch.Settings");
