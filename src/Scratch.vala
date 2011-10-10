@@ -109,15 +109,18 @@ along with Scratch. If not, see <http://www.gnu.org/licenses>""";
             for (int i = 0; i < files.length; i++) {
                 if (files[i].get_basename () == "--new-tab") {
                     window.on_new_clicked ();
-                    //
-                    window.toolbar.toolreplace.hide ();
-					window.toolbar.toolgoto.hide ();
-					window.notebook_context.hide ();
                 } else {
                 	open_file(files[i].get_path());
                 }
             }
-
+        window.toolbar.toolreplace.hide ();
+		window.toolbar.toolgoto.hide ();
+		window.notebook_context.hide ();
+		window.notebook_sidebar.hide ();
+        window.infobar.hide ();
+        window.toolbar.set_sensitive (true);
+        
+        
         }
         
         public void open_file(string filename)
@@ -138,6 +141,9 @@ along with Scratch. If not, see <http://www.gnu.org/licenses>""";
             window.toolbar.toolreplace.hide ();
             window.toolbar.toolgoto.hide ();
             window.notebook_context.hide ();
+            window.notebook_sidebar.hide ();
+            window.infobar.hide ();
+            window.toolbar.set_sensitive (true);
         }
 
         protected override void activate () {

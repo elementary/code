@@ -72,6 +72,9 @@ namespace Scratch.Widgets {
             int index = this.append_page (new_tab, new_tab.label);
             set_tab_reorderable(new_tab, true);
             set_tab_detachable(new_tab, true);
+            
+            window.toolbar.set_sensitive (true);
+            
             return index; 
         }
 		
