@@ -7,222 +7,153 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-13 13:05+0200\n"
-"PO-Revision-Date: 2011-09-13 13:05+0100\n"
-"Last-Translator: Mario Guerriero <mefrio.g@gmail.com>\n"
+"POT-Creation-Date: 2011-10-10 19:03+0200\n"
+"PO-Revision-Date: 2011-08-23 23:48+0000\n"
+"Last-Translator: Radek Starosta <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
-"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-08-29 05:11+0000\n"
-"X-Generator: Launchpad (build 13794)\n"
+"X-Launchpad-Export-Date: 2011-10-11 06:17+0000\n"
+"X-Generator: Launchpad (build 14123)\n"
+"Language: cs\n"
 
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:91
-msgid "Search in the text..."
-msgstr "Vyhledat v textu..."
-
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:95
-msgid "Replace..."
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:156
+msgid "No files are open."
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:99
-#, fuzzy
-msgid "Insert line number..."
-msgstr "Zobrazovat čísla řádků"
-
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:149
-msgid "Normal Text"
-msgstr "Normální text"
-
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:182
-msgid "Create a new file in a new tab"
-msgstr "Vytvořit nový soubor na nové kartě"
-
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:183
-msgid "Open an existing file"
-msgstr "Otevřít existující soubor"
-
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:184
-msgid "Save the current file"
-msgstr "Uložit aktuální soubor"
-
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:185
-msgid "Cancel the last operation"
-msgstr "Zrušit poslední operaci"
-
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:186
-msgid "Repeat the last cancelled operation"
-msgstr "Opakovat poslední zrušenou operaci"
-
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:187
-msgid "Share this file with others"
-msgstr "Sdílet tento soubor s ostatními"
-
-#: /home/mefrio/scratch/po/../src/Widgets/share_menu.vala:39
-msgid "Share via email..."
-msgstr "Sdílet přes email..."
-
-#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:340
-msgid "No files opened."
-msgstr "Není otevřen žádný soubor."
-
-#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:340
-msgid "Open a file to start editing"
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:156
+msgid "Open a file to begin editing."
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:344
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:160
 msgid "Open file"
 msgstr "Otevřít soubor"
 
-#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:344
-msgid "open a saved file"
-msgstr "otevřít uložený soubor"
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:160
+msgid "Open a saved file."
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:345
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:161
 msgid "New file"
 msgstr "Nový soubor"
 
-#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:345
-msgid "create an new empty file"
-msgstr "vytvořit nový soubor"
-
-#: /home/mefrio/scratch/po/../src/Widgets/menu.vala:44
-msgid "Add a new view"
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:161
+msgid "Create a new empty file."
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/menu.vala:46
-msgid "Remove current view"
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:91
+msgid "Search in the text..."
+msgstr "Vyhledat v textu..."
+
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:95
+msgid "Replace..."
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/menu.vala:53
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:99
+msgid "Insert line number..."
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:149
+msgid "Normal Text"
+msgstr "Normální text"
+
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:182
+msgid "Create a new file in a new tab"
+msgstr "Vytvořit nový soubor na nové kartě"
+
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:183
+msgid "Open a file"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:184
+msgid "Save the current file"
+msgstr "Uložit aktuální soubor"
+
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:185
+msgid "Undo the last action"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:186
+msgid "Redo the last undone action"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:187
+msgid "Share this file"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/ShareMenu.vala:39
+msgid "Share via Email..."
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:44
+msgid "Add New View"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:46
+msgid "Remove Current View"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:53
 msgid "Fullscreen"
 msgstr "Celá obrazovka"
 
-#: /home/mefrio/scratch/po/../src/Widgets/menu.vala:58
-#, fuzzy
-msgid "Show sidebar"
-msgstr "Zobrazovat čísla řádků"
-
-#: /home/mefrio/scratch/po/../src/Widgets/menu.vala:60
-msgid "Show context view"
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:58
+msgid "Show Sidebar"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/preferences_dialog.vala:75
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:60
+msgid "Show Context View"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
+msgid "Changes to this file haven't been saved."
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
+msgid "Do you want to save changes before closing this file?"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:82
 msgid "Show line numbers"
 msgstr "Zobrazovat čísla řádků"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/preferences_dialog.vala:78
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:85
 msgid "Highlight current line"
 msgstr "Zvýrazňovat aktuální řádek"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/preferences_dialog.vala:81
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:88
 msgid "Use spaces instead of tabs"
 msgstr "Používat mezery místo tabulátorů"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/preferences_dialog.vala:86
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:93
 msgid "Tab width:"
 msgstr "Šířka tabulátoru:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/preferences_dialog.vala:94
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:101
 msgid "Style scheme:"
 msgstr "Barevné schéma:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/preferences_dialog.vala:100
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:107
 msgid "Use the system fixed width font ("
 msgstr "Použít systémové písmo s pevnou šířkou ("
 
-#: /home/mefrio/scratch/po/../src/Dialogs/preferences_dialog.vala:109
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:116
 msgid "Select font:"
 msgstr "Vybrat písmo:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/preferences_dialog.vala:115
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:122
 msgid "Close"
 msgstr "Zavřít"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/save_on_close_dialog.vala:40
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:144
+msgid "General"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid "Save this file? "
 msgstr "Uložit tento soubor? "
 
-#: /home/mefrio/scratch/po/../src/Dialogs/save_on_close_dialog.vala:41
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:41
 msgid "All your work will be lost!"
 msgstr "Veškerá rozdělaná práce bude ztracena!"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/save_dialog.vala:44
-msgid "Changes on this file aren't saved."
-msgstr "Změny v tomto souboru nejsou uloženy."
-
-#: /home/mefrio/scratch/po/../src/Dialogs/save_dialog.vala:44
-msgid "Do you want to save changes before close this file?"
-msgstr "Přejete si před zavřením souboru uložit změny?"
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
-msgid "Share via PasteBin"
-msgstr "Sdílet přes PasteBin"
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:273
-msgid "Name:"
-msgstr "Název:"
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:279
-msgid "Format: "
-msgstr ""
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:281
-msgid "Others..."
-msgstr ""
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:306
-msgid "Expiry time:"
-msgstr "Doba vypršení"
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:311
-msgid "Keep this paste private"
-msgstr "Označit tento paste jako soukomý"
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:345
-msgid "Others formats"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:484
-#, fuzzy
-msgid "The text is void!"
-msgstr "Text byl odeslán"
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:488
-msgid "The text format doesn't exist"
-msgstr "Textový formát neexistuje"
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:492
-msgid "An error occured"
-msgstr "Vyskytla se chyba"
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:497
-#, fuzzy
-msgid "The text was sent"
-msgstr "Text byl odeslán"
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:544
-msgid "Never"
-msgstr "Nikdy"
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:545
-msgid "Ten minutes"
-msgstr "Deset minut"
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:546
-msgid "One hour"
-msgstr "Jedna hodina"
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:547
-msgid "One day"
-msgstr "Jeden den"
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:548
-msgid "One month"
-msgstr "Jeden měsíc"
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin.vala:130
-msgid "Upload to Pastebin..."
-msgstr "Nahrát na Pastebin..."
-

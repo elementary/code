@@ -7,218 +7,153 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-13 13:05+0200\n"
-"PO-Revision-Date: 2011-09-13 13:06+0100\n"
-"Last-Translator: Mario Guerriero <mefrio.g@gmail.com>\n"
+"POT-Creation-Date: 2011-10-10 19:03+0200\n"
+"PO-Revision-Date: 2011-08-20 09:43+0000\n"
+"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <sr@li.org>\n"
-"Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-08-29 05:11+0000\n"
-"X-Generator: Launchpad (build 13794)\n"
+"X-Launchpad-Export-Date: 2011-10-11 06:17+0000\n"
+"X-Generator: Launchpad (build 14123)\n"
+"Language: sr\n"
 
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:91
-msgid "Search in the text..."
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:156
+msgid "No files are open."
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:95
-msgid "Replace..."
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:156
+msgid "Open a file to begin editing."
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:99
-msgid "Insert line number..."
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:149
-msgid "Normal Text"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:182
-msgid "Create a new file in a new tab"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:183
-msgid "Open an existing file"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:184
-msgid "Save the current file"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:185
-msgid "Cancel the last operation"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:186
-msgid "Repeat the last cancelled operation"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Widgets/toolbar.vala:187
-msgid "Share this file with others"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Widgets/share_menu.vala:39
-msgid "Share via email..."
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:340
-msgid "No files opened."
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:340
-msgid "Open a file to start editing"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:344
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:160
 msgid "Open file"
 msgstr "Отворите датотеку"
 
-#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:344
-msgid "open a saved file"
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:160
+msgid "Open a saved file."
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:345
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:161
 msgid "New file"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/notebook.vala:345
-msgid "create an new empty file"
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:161
+msgid "Create a new empty file."
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/menu.vala:44
-msgid "Add a new view"
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:91
+msgid "Search in the text..."
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/menu.vala:46
-msgid "Remove current view"
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:95
+msgid "Replace..."
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/menu.vala:53
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:99
+msgid "Insert line number..."
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:149
+msgid "Normal Text"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:182
+msgid "Create a new file in a new tab"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:183
+msgid "Open a file"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:184
+msgid "Save the current file"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:185
+msgid "Undo the last action"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:186
+msgid "Redo the last undone action"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:187
+msgid "Share this file"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/ShareMenu.vala:39
+msgid "Share via Email..."
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:44
+msgid "Add New View"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:46
+msgid "Remove Current View"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:53
 msgid "Fullscreen"
 msgstr "Цео екран"
 
-#: /home/mefrio/scratch/po/../src/Widgets/menu.vala:58
-msgid "Show sidebar"
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:58
+msgid "Show Sidebar"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/menu.vala:60
-msgid "Show context view"
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:60
+msgid "Show Context View"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/preferences_dialog.vala:75
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
+msgid "Changes to this file haven't been saved."
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
+msgid "Do you want to save changes before closing this file?"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:82
 msgid "Show line numbers"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/preferences_dialog.vala:78
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:85
 msgid "Highlight current line"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/preferences_dialog.vala:81
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:88
 msgid "Use spaces instead of tabs"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/preferences_dialog.vala:86
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:93
 msgid "Tab width:"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/preferences_dialog.vala:94
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:101
 msgid "Style scheme:"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/preferences_dialog.vala:100
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:107
 msgid "Use the system fixed width font ("
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/preferences_dialog.vala:109
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:116
 msgid "Select font:"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/preferences_dialog.vala:115
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:122
 msgid "Close"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/save_on_close_dialog.vala:40
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:144
+msgid "General"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid "Save this file? "
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/save_on_close_dialog.vala:41
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:41
 msgid "All your work will be lost!"
 msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Dialogs/save_dialog.vala:44
-msgid "Changes on this file aren't saved."
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Dialogs/save_dialog.vala:44
-msgid "Do you want to save changes before close this file?"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
-msgid "Share via PasteBin"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:273
-msgid "Name:"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:279
-msgid "Format: "
-msgstr ""
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:281
-msgid "Others..."
-msgstr ""
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:306
-msgid "Expiry time:"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:311
-msgid "Keep this paste private"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:345
-msgid "Others formats"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:484
-msgid "The text is void!"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:488
-msgid "The text format doesn't exist"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:492
-msgid "An error occured"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:497
-msgid "The text was sent"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:544
-msgid "Never"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:545
-msgid "Ten minutes"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:546
-msgid "One hour"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:547
-msgid "One day"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin_dialog.vala:548
-msgid "One month"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../plugins/pastebin/pastebin.vala:130
-msgid "Upload to Pastebin..."
-msgstr ""
-
