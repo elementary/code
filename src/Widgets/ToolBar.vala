@@ -48,6 +48,7 @@ namespace Scratch.Widgets {
         public ToolItem toolgoto;
         public ShareMenu share_menu;
         public MenuProperties menu;
+        public ShareAppMenu share_app_menu;
         public AppMenu app_menu;
 		
 		public bool replace_active = false;
@@ -101,7 +102,7 @@ namespace Scratch.Widgets {
 			toolgoto = toolitem (go_to, false);
 						
             share_menu = new ShareMenu (this.window);
-            var share_app_menu = new ShareAppMenu (share_menu);
+            share_app_menu = new ShareAppMenu (share_menu);
 
             menu = new MenuProperties (this.window);
             plugins.hook_main_menu(menu);
@@ -142,6 +143,17 @@ namespace Scratch.Widgets {
 
 		    return new_tool_item;
     
+        }
+        
+        public void set_actions (bool val) {
+            save_button.set_sensitive (val);
+            undo_button.set_sensitive (val);
+            repeat_button.set_sensitive (val);
+            combobox.set_sensitive (val);
+            toolentry.set_sensitive (val);
+            toolreplace.set_sensitive (val);
+            toolgoto.set_sensitive (val);
+            share_app_menu.set_sensitive(val);
         }
         
         private void set_combobox_text () {

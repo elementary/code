@@ -73,7 +73,7 @@ namespace Scratch.Widgets {
             set_tab_reorderable(new_tab, true);
             set_tab_detachable(new_tab, true);
             
-            window.toolbar.set_sensitive (true);
+            window.toolbar.set_actions (true);
             
             return index; 
         }
@@ -124,7 +124,7 @@ namespace Scratch.Widgets {
                 }
                 welcome_screen.show_all();
                 window.set_undo_redo ();
-                window.toolbar.set_sensitive(false);
+                window.toolbar.set_actions (false);
 			}
 		
 			else {

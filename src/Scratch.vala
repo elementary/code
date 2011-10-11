@@ -118,7 +118,6 @@ along with Scratch. If not, see <http://www.gnu.org/licenses>""";
         window.infobar.hide ();
         window.toolbar.set_sensitive (true);
         
-        
         }
         
         public void open_file(string filename)
@@ -152,7 +151,7 @@ along with Scratch. If not, see <http://www.gnu.org/licenses>""";
             }
 
         }
-
+        
 
 		static const OptionEntry[] entries = {
 			{ "set", 's', 0, OptionArg.STRING, ref app_cmd_name, "Set of plugins", "" },
