@@ -50,6 +50,7 @@ namespace Scratch {
         public string style_scheme { get; set; }
         public bool sidebar_visible { get; set; }
         public bool context_visible { get; set; }
+        public string[] plugins_enabled { get; set;}
 
         public Settings ()  {
             base ("org.elementary.Scratch.Settings");

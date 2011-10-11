@@ -80,6 +80,10 @@ public class Scratch.Plugins.BaseManager : GLib.Object
             string file_path = Path.build_filename (dir.get_path (), file_name);
 
             File file = File.new_for_path (file_path);
+            if(in_available)
+            {
+            	debug(file_name);
+            }
 
             if(file_name.has_suffix(".plug"))
             {
@@ -187,6 +191,21 @@ public class Scratch.Plugins.BaseManager : GLib.Object
         }
         if(found) settings.set_strv(settings_field, plugs_);
         return found;
+    }
+        
+    public void enable_plugin(string name)
+    {
+        string[] plugs = new string[settings.get_strv(settings_field).length + 1];
+        string[] current_plugins = settings.get_strv(settings_field);
+
+        for(int i = 0; i < current_plugins.length; i++)
+        {
+            plugs[i] = current_plugins[i];
+        }
+        plugs[plugs.length - 1] = name;
+        settings.set_strv(settings_field, plugs);
+
+        load_plugin(name);
     }
 }
 

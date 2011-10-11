@@ -24,7 +24,7 @@ using Granite.Widgets;
 
 namespace Scratch.Dialogs {
 
-    public class Preferences : Window {
+    public class Preferences : Dialog {
 
         private MainWindow window;
 		
@@ -148,13 +148,72 @@ namespace Scratch.Dialogs {
 			var pg = new Label ("It is not implemented yet");
 			
 			//create static notebook
-			var plugins = new Label ("Plugins");
-			staticn.append_page (pg, plugins);
+			var plugins_label = new Label ("Plugins");
 			
-            add (staticn);
+			
+            var view = new Gtk.TreeView(); 
+            var listmodel = new Gtk.ListStore (2, typeof (string), typeof (bool));
+            view.set_model (listmodel);
+            view.set_headers_visible (false);
+            var column = new Gtk.TreeViewColumn();
 
-            show_all ();
+            var text_renderer = new Gtk.CellRendererText();
+            column.pack_start(text_renderer, true);
+            column.set_attributes(text_renderer, "text", 0);
+            var toggle = new Gtk.CellRendererToggle();
+            toggle.toggled.connect_after ((toggle, path) => 
+            {
+                var tree_path = new Gtk.TreePath.from_string (path);
+                Gtk.TreeIter iter;
+                listmodel.get_iter (out iter, tree_path);
+                var name = Value(typeof(string));
+                var active = Value(typeof(bool));
+                listmodel.get_value(iter, 0, out name);
+                listmodel.get_value(iter, 1, out active);
+                listmodel.set (iter, 1, !active.get_boolean());
+                if(active.get_boolean() == false)
+                {
+                    enable_plugin(name.get_string());
+                }
+                else
+                {
+                    disable_plugin(name.get_string());
+                }
+            });
+            column.pack_start(toggle, false);
+            column.set_attributes(toggle, "active", 1);
+            
+            view.insert_column(column, -1);
 
+            Gtk.TreeIter iter;
+
+            foreach(string plugin_name in (plugins.get_available_plugins()))
+            {
+                listmodel.append (out iter);
+                listmodel.set (iter, 0, plugin_name, 1, plugin_name in settings.schema.get_strv("plugins-enabled"));
+            }
+			staticn.append_page (view, plugins_label);
+			
+            ((Gtk.Box)get_content_area()).add (staticn);
+
+            show_all();
+            run ();
+            destroy ();
+
+        }
+        
+        void disable_plugin(string name)
+        {
+            
+            if(!plugins.disable_plugin(name))
+            {
+                critical("Can't properly disable the plugin %s!", name);
+            }
+        }
+        
+        void enable_plugin(string name)
+        {
+            plugins.enable_plugin(name);
         }
 
         private static Alignment wrap_alignment (Widget widget, int top, int right,
