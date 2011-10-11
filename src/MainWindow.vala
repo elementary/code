@@ -39,6 +39,7 @@ namespace Scratch {
             <popup name="MenuItemTool">
                 <menuitem name="Fetch" action="Fetch"/>
                 <menuitem name="New tab" action="New tab"/>
+                <menuitem name="Open" action="Open"/>
                 <menuitem name="SaveFile" action="SaveFile"/>
                 <menuitem name="Undo" action="Undo"/>
                 <menuitem name="Redo" action="Redo"/>
@@ -47,7 +48,7 @@ namespace Scratch {
             </popup>
             </ui>
         """;
-        Gtk.ActionGroup main_actions;
+        public Gtk.ActionGroup main_actions;
         Gtk.UIManager ui;
     
         public const string TITLE = "Scratch";
@@ -247,8 +248,6 @@ namespace Scratch {
             this.key_press_event.connect (on_key_press);
 
             //signals for the toolbar
-            toolbar.new_button.clicked.connect (on_new_clicked);
-            toolbar.open_button.clicked.connect (on_open_clicked);
             toolbar.combobox.changed.connect (on_combobox_changed);
             toolbar.entry.focus_out_event.connect ( () => { start = end = null; return false; });
             toolbar.entry.changed.connect (on_changed_text);
@@ -424,12 +423,7 @@ namespace Scratch {
                     case "e":
                         warning("Killler");
                         this.on_destroy();
-                    break; 
-					// Show open dialog
-					case "o":
-						on_open_clicked ();
-						reset_ctrl_flags ();
-					break;					
+                    break;
 					//show replace entry
 					case "r":
 						toolbar.show_replace_entry ();
@@ -474,31 +468,9 @@ namespace Scratch {
 			
 		}
         
-        public void on_open_clicked () {
-			action_open_clicked ();
-        }
-        
-        public void action_open_clicked (bool welcome=false) {
-			if (welcome) {
-				List<Widget> children = split_view.get_children ();
-				int i;
-			
-				for (i = 0; i!=children.length(); i++) {//ScratchNotebook notebook in children) { 
-					split_view.remove ( children.nth_data (i) );
-				}
-							
-				//split_view.remove (current_notebook.welcome_screen);
-				var notebook = new ScratchNotebook (this);
-				notebook.add_tab ();
-				split_view.add_view (notebook);
-			}
+        public void action_open_clicked () {
             
             toolbar.set_sensitive (true);
-            
-            //current_tab.text_view.buffer.start_not_undoable_action ();
-            
-            if (current_notebook.welcome_screen.active)
-                on_new_clicked ();
                                 
             // show dialog
             this.filech = new FileChooserDialog ("Open a file", this, FileChooserAction.OPEN, null);
@@ -509,14 +481,14 @@ namespace Scratch {
 
             if (filech.run () == ResponseType.ACCEPT)
 					foreach (string file in filech.get_filenames ()) 
-						open (file);
+						scratch_app.open_file (file);
 						
             filech.close ();
             set_undo_redo ();
 		}
         
         public void open (string filename) {            
-            
+            scratch_app.open_file (filename);
         }
         
         public void action_save () {
@@ -770,6 +742,10 @@ namespace Scratch {
           /* label, accelerator */       N_("Previous Search"), "<Control><shift>g",
           /* tooltip */                  N_("Previous Search"),
                                          case_up },
+           { "Open", Gtk.Stock.OPEN,
+          /* label, accelerator */       N_("Open"), "<Control>o",
+          /* tooltip */                  N_("Open"),
+                                         action_open_clicked },
            { "SaveFile", Gtk.Stock.SAVE,
           /* label, accelerator */       N_("Save"), "<Control>s",
           /* tooltip */                  N_("Save current file"),

@@ -169,14 +169,11 @@ namespace Scratch.Widgets {
 
 				switch (index) {
 					case 0: //open
-					//notebook.window.on_new_clicked ();
-					notebook.window.action_open_clicked (true);
-					//notebook.window.toolbar.set_sensitive (true);
+					notebook.window.main_actions.get_action ("Open").activate ();
 					break;
 
 					case 1: // new
-					notebook.window.action_new_clicked(true);
-					//notebook.window.toolbar.set_sensitive (true);
+					notebook.window.main_actions.get_action ("New tab").activate ();
 					break;
 				
 				}

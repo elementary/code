@@ -28,11 +28,11 @@ namespace Scratch.Widgets {
 
         private MainWindow window;
 
-        public ToolButton new_button;
-        public ToolButton open_button;
-        public ToolButton save_button;
-        public ToolButton undo_button;
-        public ToolButton repeat_button;
+        ToolButton new_button;
+        ToolButton open_button;
+        ToolButton save_button;
+        ToolButton undo_button;
+        ToolButton repeat_button;
         public ToolItem combo_container;
         public ComboBoxText combobox;
         
@@ -70,8 +70,8 @@ namespace Scratch.Widgets {
             // compliant with elementary HIG
 			get_style_context ().add_class ("primary-toolbar");
             
-            new_button = new ToolButton.from_stock (Stock.NEW);
-            open_button = new ToolButton.from_stock (Stock.OPEN);
+            new_button = action_group.get_action("New tab").create_tool_item() as Gtk.ToolButton;
+            open_button = action_group.get_action("Open").create_tool_item() as Gtk.ToolButton;
             save_button = action_group.get_action("SaveFile").create_tool_item() as Gtk.ToolButton;
             undo_button = action_group.get_action("Undo").create_tool_item() as Gtk.ToolButton;
             repeat_button = action_group.get_action("Redo").create_tool_item() as Gtk.ToolButton;
@@ -146,9 +146,10 @@ namespace Scratch.Widgets {
         }
         
         public void set_actions (bool val) {
-            save_button.set_sensitive (val);
-            undo_button.set_sensitive (val);
-            repeat_button.set_sensitive (val);
+        	window.main_actions.get_action ("SaveFile").set_sensitive (val);
+        	window.main_actions.get_action ("Undo").set_sensitive (val);
+        	window.main_actions.get_action ("Redo").set_sensitive (val);
+        	window.main_actions.get_action ("Fetch").set_sensitive (val);
             combobox.set_sensitive (val);
             toolentry.set_sensitive (val);
             toolreplace.set_sensitive (val);
