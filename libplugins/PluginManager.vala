@@ -213,6 +213,7 @@ public class Scratch.Plugins.Manager : Scratch.Plugins.BaseManager
 {
     public signal void hook_main_menu (Gtk.Menu menu);
     public signal void hook_toolbar (Gtk.Toolbar menu);
+    public signal void hook_notebook_bottom (Gtk.Notebook notebook);
     public Manager(Settings s, string f, string d, string? e = null)
     {
         e = e == "scratch" ? null : e;
@@ -223,6 +224,7 @@ public class Scratch.Plugins.Manager : Scratch.Plugins.BaseManager
         hook_main_menu.connect(base_.main_menu);
         hook_toolbar.connect(base_.toolbar);
         hook_source_view.connect(base_.source_view);
+        hook_notebook_bottom.connect(base_.notebook_bottom);
     }
     
     public void hook_app(Gtk.Application menu)
@@ -259,6 +261,7 @@ public abstract class Scratch.Plugins.Base : GLib.Object
     public virtual void addons_menu(Gtk.Menu arg) { }
     public virtual void app(Gtk.Application app) { }
     public virtual void notebook_context(Gtk.Notebook note) { }
+    public virtual void notebook_bottom(Gtk.Notebook note) { }
     public virtual void notebook_sidebar(Gtk.Notebook note) { }
     public virtual void source_view(Gtk.TextView view) { }
     public virtual void main_menu(Gtk.Menu app_menu) { }

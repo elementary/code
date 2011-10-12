@@ -206,6 +206,7 @@ namespace Scratch {
             /* Add the sourceview + the sidepanel to the container of the bottom panel */
             vpaned_bottom_panel.pack1 (hpaned_addons, true, true);
             vpaned_bottom_panel.pack2 (notebook_bottom, false, false);
+            plugins.hook_notebook_bottom(notebook_bottom);
 
 
             //adding all to the vbox
