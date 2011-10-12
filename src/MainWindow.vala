@@ -59,6 +59,7 @@ namespace Scratch {
         
         public Gtk.Notebook notebook_context;
         public Gtk.Notebook notebook_sidebar;
+        public Gtk.Notebook notebook_bottom;
 		
 		public ScratchInfoBar infobar;
 		
@@ -120,32 +121,51 @@ namespace Scratch {
 		 * if needed when a page is added.
 		 **/
         void on_notebook_context_new_page (Gtk.Notebook notebook, Widget page, uint num) {
-            if(settings.schema.get_boolean((notebook == notebook_context ? "context" : "sidebar") + "-visible")) notebook.show_all();
+        	string part = "bottom-panel-visible";
             if(notebook == notebook_context)
             {
-                toolbar.menu.context_visible.sensitive = true;
+            	part = "context-visible";
+                toolbar.menu.context_visible.visible = true;
             }
-            else
-                toolbar.menu.sidebar_visible.sensitive = true;
+            else if(notebook == notebook_sidebar)
+            {
+            	part = "sidebar-visible";
+                toolbar.menu.sidebar_visible.visible = true;
+            }
+            else if(notebook == notebook_bottom)
+            {
+            	part = "bottom-panel-visible";
+                toolbar.menu.bottom_visible.visible = true;
+            }
             page.show_all();
             notebook.show_tabs = num >= 1;
+            key_changed (part);
         }
 
         void key_changed (string key) {
+        	bool key_value = settings.schema.get_boolean (key);
             if (key == "context-visible") {
-                if (settings.schema.get_boolean ("context-visible") && notebook_context.get_n_pages () > 0) {
+                if (key_value && notebook_context.get_n_pages () > 0) {
                     notebook_context.show_all ();
                 }
                 else {
                     notebook_context.hide ();
                 }
             }
-            if (key == "sidebar-visible") {
-                if (settings.schema.get_boolean ("sidebar-visible") && notebook_sidebar.get_n_pages () > 0) {
+            else if (key == "sidebar-visible") {
+                if (key_value && notebook_sidebar.get_n_pages () > 0) {
                     notebook_sidebar.show_all ();
                 }
                 else {
                     notebook_sidebar.hide ();
+                }
+            }
+            else if (key == "bottom-panel-visible") {
+                if (key_value && notebook_bottom.get_n_pages () > 0) {
+                    notebook_bottom.show_all ();
+                }
+                else {
+                    notebook_bottom.hide ();
                 }
             }
         }
@@ -157,6 +177,7 @@ namespace Scratch {
             notebook_context = new Gtk.Notebook();
             notebook_context.page_added.connect(on_notebook_context_new_page);
             var hpaned_addons = new Granite.Widgets.HCollapsablePaned();
+            var vpaned_bottom_panel = new Granite.Widgets.VCollapsablePaned();
         
             notebook_sidebar = new Gtk.Notebook();
             notebook_sidebar.page_added.connect(on_notebook_context_new_page);
@@ -179,11 +200,18 @@ namespace Scratch {
             split_view.add_view (notebook);
             notebook.show_welcome();
 
+            notebook_bottom = new Gtk.Notebook();
+            notebook_bottom.page_added.connect(on_notebook_context_new_page);
+            
+            /* Add the sourceview + the sidepanel to the container of the bottom panel */
+            vpaned_bottom_panel.pack1 (hpaned_addons, true, true);
+            vpaned_bottom_panel.pack2 (notebook_bottom, false, false);
+
 
             //adding all to the vbox
             var vbox = new VBox (false, 0);
             vbox.pack_start (toolbar, false, false, 0);
-            vbox.pack_start (hpaned_addons, true, true, 0); 
+            vbox.pack_start (vpaned_bottom_panel, true, true, 0); 
             vbox.show_all  ();
 
             //add infobar
@@ -196,6 +224,7 @@ namespace Scratch {
             show_all();
             key_changed("sidebar-visible");
             key_changed("context-visible");
+            key_changed("bottom-panel-visible");
         
 			toolbar.toolreplace.hide ();
 			toolbar.toolgoto.hide ();
@@ -231,11 +260,10 @@ namespace Scratch {
         static string system_font () {
             
             string font_name = null;
-            /* Wait for GNOME 3 FIXME
-             * var settings = new GLib.Settings("org.gnome.desktop.interface");
-             * font_name = settings.get_string("monospace-font-name");
-             */
-            font_name = "Ubuntu Regular 10";
+            /* Try to use Gnome3 settings? */
+			var settings = new GLib.Settings("org.gnome.desktop.interface");
+			font_name = settings.get_string("monospace-font-name");
+            //font_name = "Ubuntu Regular 10";
             return font_name;
         }
         

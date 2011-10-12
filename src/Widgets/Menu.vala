@@ -33,6 +33,7 @@ namespace Scratch.Widgets {
         public ImageMenuItem preferences;
         public CheckMenuItem sidebar_visible;
         public CheckMenuItem context_visible;
+        public CheckMenuItem bottom_visible;
         
         private Dialogs.Preferences dialog;
         
@@ -61,9 +62,14 @@ namespace Scratch.Widgets {
             settings.schema.bind("sidebar-visible", sidebar_visible, "active", SettingsBindFlags.DEFAULT);
             context_visible = new CheckMenuItem.with_label (_("Show Context View"));
             settings.schema.bind("context-visible", context_visible, "active", SettingsBindFlags.DEFAULT);
-
-            context_visible.sensitive = false;
-            sidebar_visible.sensitive = false;
+            bottom_visible = new CheckMenuItem.with_label (_("Show Bottom Panel"));
+            settings.schema.bind("bottom-panel-visible", bottom_visible, "active", SettingsBindFlags.DEFAULT);
+            sidebar_visible.visible = false;
+            sidebar_visible.no_show_all = true;
+            context_visible.visible = false;
+            context_visible.no_show_all = true;
+            bottom_visible.visible = false;
+            bottom_visible.no_show_all = true;
 
             append (view);
             append (remove_view);
@@ -71,6 +77,7 @@ namespace Scratch.Widgets {
             append (new SeparatorMenuItem ());
             append (sidebar_visible);
             append (context_visible);
+            append (bottom_visible);
             append (new SeparatorMenuItem ());
             append (preferences);
             
