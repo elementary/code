@@ -44,23 +44,23 @@ namespace Scratch.Dialogs {
         private CheckButton use_system_font;
         private FontButton select_font;
 
-        private Button close_button;
+        //private Button close_button;
 
         public Preferences (string? title, MainWindow? window) {
-            debug ("1");
-            staticn = new StaticNotebook ();
-            debug ("2");
+            
             this.window = window;
             this.title = title;
             this.type_hint = Gdk.WindowTypeHint.DIALOG;
             this.set_modal (true);
             this.set_transient_for (window);
             
+            staticn = new StaticNotebook ();
+            
             set_default_size (400, 300);
             
             create_layout ();
 
-            close_button.clicked.connect (close_button_clicked);
+            response.connect (on_response);
 
         }
 
@@ -119,12 +119,13 @@ namespace Scratch.Dialogs {
             select_font_box.pack_start (select_font_l, true, true, 0);
             select_font_box.pack_start (select_font, true, true, 0);
 
-            close_button = new Button.with_label (_("Close"));
-
+            //close_button = new Button.with_label (_("Close"));
+            add_button (Stock.CLOSE, ResponseType.ACCEPT);
+                        
             var bottom_buttons = new HButtonBox ();
             bottom_buttons.set_layout (ButtonBoxStyle.END);
             bottom_buttons.set_spacing (10);
-            bottom_buttons.pack_end (close_button);
+            //bottom_buttons.pack_end (close_button);
 
             content.pack_start (wrap_alignment (editor_label, 10, 0, 0, 0), false, true, 0);
             content.pack_start (wrap_alignment (line_numbers, 0, 0, 0, 10), false, true, 0);
@@ -196,9 +197,9 @@ namespace Scratch.Dialogs {
 			
             ((Gtk.Box)get_content_area()).add (staticn);
 
-            show_all();
-            run ();
-            destroy ();
+            //show_all();
+            //run ();
+            //destroy ();
 
         }
         
@@ -230,7 +231,7 @@ namespace Scratch.Dialogs {
 
         }
 
-        private void close_button_clicked () {
+        private void on_response (int response_id) {
 
             Scratch.settings.show_line_numbers = line_numbers.get_active ();
             Scratch.settings.highlight_current_line = highlight_current_line.get_active ();
@@ -240,7 +241,8 @@ namespace Scratch.Dialogs {
             Scratch.settings.use_system_font = use_system_font.get_active ();
             Scratch.settings.font = select_font.font_name;
             
-            this.destroy ();
+            this.hide ();
+            //this.destroy ();
 
         }
 

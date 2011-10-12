@@ -34,6 +34,8 @@ namespace Scratch.Widgets {
         public CheckMenuItem sidebar_visible;
         public CheckMenuItem context_visible;
         
+        private Dialogs.Preferences dialog;
+        
         public MenuProperties (MainWindow parent) {
             this.window = parent;
             create ();
@@ -72,10 +74,12 @@ namespace Scratch.Widgets {
             append (new SeparatorMenuItem ());
             append (preferences);
             
+            dialog = new Dialogs.Preferences ("Preferences", this.window);
+            
             view.activate.connect (() => {window.create_instance ();});
             remove_view.activate.connect (() => {remove_view.set_sensitive (window.split_view.remove_current_view ()) ;} );
             fullscreen.toggled.connect (toggle_fullscreen);
-            preferences.activate.connect (() => {new Dialogs.Preferences ("Preferences", this.window);});
+            preferences.activate.connect (() => {dialog.show_all ();});
 
         }
 
