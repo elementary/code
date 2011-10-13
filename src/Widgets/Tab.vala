@@ -71,6 +71,7 @@ namespace Scratch.Widgets {
 			//notebook.window.set_undo_redo ();
 			
 			if (window.current_tab.filename != null) {
+					text_view.change_syntax_highlight_for_filename (filename);
 					window.set_combobox_language (window.current_tab.filename);
 			}
 			window.set_undo_redo ();

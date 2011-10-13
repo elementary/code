@@ -93,7 +93,7 @@ namespace Scratch.Widgets {
             
         }
         
-        public void change_syntax_highlight_for_filename(string filename)
+        public void change_syntax_highlight_for_filename (string filename)
         {
 			Language lang;
 			string display_name = Filename.display_basename(filename);
