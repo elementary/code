@@ -139,34 +139,34 @@ namespace Scratch {
             }
             page.show_all();
             notebook.show_tabs = num >= 1;
-            key_changed (part);
+            notebook_settings_changed (part);
         }
 
-        void key_changed (string key) {
+        public void notebook_settings_changed (string key) {
         	bool key_value = settings.schema.get_boolean (key);
+            Gtk.Notebook? notebook = null;
             if (key == "context-visible") {
-                if (key_value && notebook_context.get_n_pages () > 0) {
-                    notebook_context.show_all ();
-                }
-                else {
-                    notebook_context.hide ();
-                }
+        		notebook = notebook_context;
             }
             else if (key == "sidebar-visible") {
-                if (key_value && notebook_sidebar.get_n_pages () > 0) {
-                    notebook_sidebar.show_all ();
-                }
-                else {
-                    notebook_sidebar.hide ();
-                }
+        		notebook = notebook_sidebar;
             }
             else if (key == "bottom-panel-visible") {
-                if (key_value && notebook_bottom.get_n_pages () > 0) {
-                    notebook_bottom.show_all ();
-                }
-                else {
-                    notebook_bottom.hide ();
-                }
+        		notebook = notebook_bottom;
+            }
+            if(notebook != null)
+            {
+		        notebook.hide ();
+		        if(!key_value)
+		        	return;
+		        foreach(var w in notebook.get_children ())
+		        {
+		        	if(w.visible)
+		        	{
+		        		notebook.show_all ();
+		        		return;
+		        	}
+		        }
             }
         }
         
@@ -190,7 +190,7 @@ namespace Scratch {
             hpaned_sidebar.pack2(split_view, true, true);
             hpaned_addons.pack2(notebook_context, false, false);
             notebook_context.visible = true;
-            settings.schema.changed.connect(key_changed);
+            settings.schema.changed.connect(notebook_settings_changed);
 
             plugins.hook_notebook_sidebar(notebook_sidebar);
             plugins.hook_notebook_context(notebook_context);
@@ -223,9 +223,9 @@ namespace Scratch {
             set_undo_redo ();    
 
             show_all();
-            key_changed("sidebar-visible");
-            key_changed("context-visible");
-            key_changed("bottom-panel-visible");
+            notebook_settings_changed("sidebar-visible");
+            notebook_settings_changed("context-visible");
+            notebook_settings_changed("bottom-panel-visible");
         
 			toolbar.toolreplace.hide ();
 			toolbar.toolgoto.hide ();
