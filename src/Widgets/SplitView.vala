@@ -79,7 +79,7 @@ namespace Scratch.Widgets {
 				
 					//remove (window.current_notebook);
 			}
-			if (r)
+			//if (r)
 				remove (window.current_notebook);
 			
 			set_menu_item_sensitive ();

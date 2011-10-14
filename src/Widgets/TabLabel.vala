@@ -72,7 +72,11 @@ namespace Scratch.Widgets {
         void on_modified_changed()
         {
         	if (tab.text_view.modified) {
-        		label.set_text("* " + label_text);
+        	    var r = new Gdk.RGBA ();
+        	    label.use_markup = true;
+        	    label.set_markup ("<font color=red>asdfasdf</font>");
+        	    //label.set_markup("<p style='color:#FF0A0A'>* " + label_text + "</p>");
+        		//label.set_markup("<p style=\"color:#FF0000\">* " + label_text + "</p>");
         	}
         	else {
         		label.set_text(label_text);

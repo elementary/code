@@ -85,6 +85,11 @@ namespace Scratch.Widgets {
 		    var n = notebook.page_num(this);
 		    closed ();	
 		    notebook.remove_page(n);
+		    
+		    if (window.split_view.get_children().length() >= 2) {
+		        window.split_view.remove (notebook);
+		        window.toolbar.menu.remove_view.set_sensitive (false);
+		    }
         }
         
         public int save () {
