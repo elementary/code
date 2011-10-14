@@ -125,6 +125,7 @@ namespace Scratch.Widgets {
                 welcome_screen.show_all();
                 window.set_undo_redo ();
                 window.toolbar.set_actions (false);
+                window.title = window.TITLE;
 			}
 		
 			else {

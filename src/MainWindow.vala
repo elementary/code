@@ -731,7 +731,7 @@ namespace Scratch {
 				var instance = new ScratchNotebook (this);
 				instance.add_tab ();
 				split_view.add_view(instance);
-				split_view.show_all ();
+				//split_view.show_all ();
                 
             }
                             

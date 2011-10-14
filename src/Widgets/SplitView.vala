@@ -61,7 +61,10 @@ namespace Scratch.Widgets {
 			else 
 				window.toolbar.menu.remove_view.set_sensitive (false);
 			
-			show_all ();
+			//view.remove_page (view.page_num(view.welcome_screen));
+			//view.set_show_tabs (true);
+			//view.welcome_screen.active = false;
+			//show_all ();
 		}
 		
 		public bool remove_current_view () {
