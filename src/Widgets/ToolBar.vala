@@ -60,6 +60,14 @@ namespace Scratch.Widgets {
 			SAVE_BUTTON,
 			UNDO_BUTTON,
 			REPEAT_BUTTON,
+			SHARE_BUTTON,
+			APP_MENU_BUTTON
+		}
+		
+		public enum ToolEntry {
+			SEARCH_ENTRY,
+			REPLACE_ENTRY,
+			GOTO_ENTRY
 		}
 
         public Toolbar (MainWindow parent, UIManager ui, Gtk.ActionGroup action_group) {
@@ -222,7 +230,35 @@ namespace Scratch.Widgets {
 				case ToolButtons.REPEAT_BUTTON:
  				this.repeat_button.set_sensitive(sensitive);
 				break;
- 			
+ 			    
+ 			    case ToolButtons.SHARE_BUTTON:
+ 				this.share_app_menu.set_sensitive(sensitive);
+				break;
+				
+				case ToolButtons.APP_MENU_BUTTON:
+ 				this.app_menu.set_sensitive(sensitive);
+				break;
+ 			    
+ 			}
+ 		
+ 		
+ 		}
+ 		
+ 		public void set_entry_sensitive(int entry, bool sensitive) {
+ 		
+ 			switch (entry) {
+ 				case ToolEntry.SEARCH_ENTRY:
+ 				this.toolentry.set_sensitive(sensitive);
+ 				break;
+ 				 					
+				case ToolEntry.REPLACE_ENTRY:
+ 				this.toolreplace.set_sensitive(sensitive);
+				break;
+				
+				case ToolEntry.GOTO_ENTRY:
+ 				this.toolgoto.set_sensitive(sensitive);
+				break;
+ 			    
  			}
  		
  		

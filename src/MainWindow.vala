@@ -247,6 +247,13 @@ namespace Scratch {
 		    		hpaned_sidebar.remove (split_view);
 		        	hpaned_sidebar.pack2 (welcome_screen, true, true);
             	}
+            	toolbar.set_button_sensitive (toolbar.ToolButtons.SAVE_BUTTON, false);
+            	toolbar.set_button_sensitive (toolbar.ToolButtons.UNDO_BUTTON, false);
+            	toolbar.set_button_sensitive (toolbar.ToolButtons.REPEAT_BUTTON, false);
+            	toolbar.set_button_sensitive (toolbar.ToolButtons.SHARE_BUTTON, false);
+            	toolbar.set_entry_sensitive (toolbar.ToolEntry.SEARCH_ENTRY, false);
+            	toolbar.set_entry_sensitive (toolbar.ToolEntry.REPLACE_ENTRY, false);
+            	toolbar.set_entry_sensitive (toolbar.ToolEntry.GOTO_ENTRY, false);
         	}
         	else {
         		if(split_view.get_parent () == null) {
