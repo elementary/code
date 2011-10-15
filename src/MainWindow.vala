@@ -67,7 +67,7 @@ namespace Scratch {
         public FileChooserDialog filech;
 
         public Tab current_tab { get { return (Tab) current_notebook.get_nth_page (current_notebook.get_current_page()); }}
-        public weak ScratchNotebook current_notebook { get { return split_view.get_current_notebook (); } }
+        public ScratchNotebook current_notebook { get { return split_view.get_current_notebook (); }}
         
         //bools for key press event
         bool ctrlL = false;
@@ -433,12 +433,13 @@ namespace Scratch {
             return true;
         }
         
-        void action_new_tab () {
+       // void action_new_tab () {
             /*if (!current_notebook.welcome_screen.active) {
                 int tab_index = current_notebook.add_tab ();
                     current_notebook.set_current_page (tab_index);            
             }*/
-        }
+          //  current_notebook.add_tab ();
+        //}
         
         public bool on_key_press (EventKey event) {
             
@@ -493,11 +494,11 @@ namespace Scratch {
         }
         
         public void on_new_clicked () {	
-			action_new_clicked ();
+			action_new_tab ();
         }
         
-        public void action_new_clicked (bool welcome=false) {
-			if (welcome) {
+        public void action_new_tab () {
+			/*if (current_notebook.welcome.activate) {
 				List<Widget> children = split_view.get_children ();
 				int i;
 			
@@ -510,13 +511,11 @@ namespace Scratch {
 				notebook.add_tab ();
 				split_view.add_view (notebook);
 			}
-			else {
+			else {*/
 				int new_tab_index = current_notebook.add_tab ();
 				current_notebook.set_current_page (new_tab_index);
 				current_notebook.show_tabs_view ();
-			}
-			
-			toolbar.set_sensitive (true);
+			//}
 			
 		}
         
@@ -717,6 +716,9 @@ namespace Scratch {
 			
             main_actions.get_action ("Undo").set_sensitive (undo);
             main_actions.get_action ("Redo").set_sensitive (redo);
+			
+			toolbar.set_button_sensitive (toolbar.ToolButtons.UNDO_BUTTON, undo);
+			toolbar.set_button_sensitive (toolbar.ToolButtons.REPEAT_BUTTON, redo);
 			
         }
         

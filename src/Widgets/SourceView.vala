@@ -117,10 +117,16 @@ namespace Scratch.Widgets {
         }
         
         public void on_buffer_changed () {
-        	var nb = window.split_view.get_current_notebook ();
-        	var tab = (Tab) nb.get_nth_page (nb.get_current_page());
-        	var label = tab.label.label;
-        	//window.set_undo_redo();
+        	//var nb = window.split_view.get_current_notebook ();
+        	//var tab = (Tab) nb.get_nth_page (nb.get_current_page());
+        	var cn = window.split_view.get_current_notebook ();
+        	var l = (Tab) cn.get_nth_page (cn.get_current_page());
+        	var label = l.label.label;
+        	string filename = label.get_text ();
+        	
+        	if (filename[0:1] != "*")
+        	    label.set_text ("* " + filename);
+        	window.set_undo_redo();
         	modified = true;
         }
 
