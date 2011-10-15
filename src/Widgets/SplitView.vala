@@ -142,7 +142,7 @@ namespace Scratch.Widgets {
 		}
 		
 		public weak ScratchNotebook get_current_notebook () {
-			if(focused_widget != null & focused_widget.get_parent() != this) {
+			if(focused_widget != null && focused_widget.get_parent() != this) {
 				focused_widget = null;
 			}
 			weak ScratchNotebook child = focused_widget as ScratchNotebook;
