@@ -31,7 +31,6 @@ namespace Scratch.Widgets {
 
         public SourceView text_view;
         public TabLabel label;
-        public ScratchNotebook notebook;
         public string filename = null;
         public bool saved = true;
         public signal void closed ();
@@ -40,14 +39,13 @@ namespace Scratch.Widgets {
         public Tab (ScratchNotebook parent, string labeltext, MainWindow window) {
             
             this.window = window;
-        	this.notebook = parent;
             
             set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);            
             
             text_view = new SourceView (window);
             text_view.focus_in_event.connect (on_focus_in);
             label = new TabLabel(this, labeltext);
-   			label.scroll_event.connect (notebook.window.on_scroll_event);
+   			label.scroll_event.connect (parent.window.on_scroll_event);
             
             add (text_view);
             show_all();
@@ -70,9 +68,9 @@ namespace Scratch.Widgets {
 		public bool on_focus_in (EventFocus event) {
 			//notebook.window.set_undo_redo ();
 			
-			if (window.current_tab.filename != null) {
+			if (filename != null) {
 					text_view.change_syntax_highlight_for_filename (filename);
-					window.set_combobox_language (window.current_tab.filename);
+					window.set_combobox_language (filename);
 			}
 			window.set_undo_redo ();
 			return true;
@@ -82,25 +80,25 @@ namespace Scratch.Widgets {
         public void close () {
 			
     		message("closing: %s\n", this.filename);		    
-		    var n = notebook.page_num(this);
+		    //var n = notebook.page_num(this);
 		    closed ();	
-		    notebook.remove_page(n);
+		    ((Gtk.Notebook)get_parent()).remove(this);
 		    
-		    if (window.split_view.get_children().length() >= 2) {
+		    /*if (window.split_view.get_children().length() >= 2) {
 		        window.split_view.remove (notebook);
 		        window.toolbar.menu.remove_view.set_sensitive (false);
-		    }
+		    }*/
         }
         
         public int save () {
 	
             if (this.filename == null) {
             
-            	var filech = notebook.window.filech;
+            	//var filech = notebook.window.filech;
             	string new_filename = null;
 					
             	//show dialog
-                filech = new FileChooserDialog ("Save as", notebook.window, FileChooserAction.SAVE, null);
+                var filech = new FileChooserDialog ("Save as", (Gtk.Window)get_toplevel (), FileChooserAction.SAVE, null);
                 filech.add_button (Stock.CANCEL, ResponseType.CANCEL);
                 filech.add_button (Stock.SAVE, ResponseType.ACCEPT);
                 filech.set_default_response (ResponseType.ACCEPT);

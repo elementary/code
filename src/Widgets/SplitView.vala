@@ -70,12 +70,10 @@ namespace Scratch.Widgets {
 			view.page_removed.connect (recompute_empty);
 		}
 		
-		bool is_empty_or_without_tabs ()
-		{
+		bool is_empty_or_without_tabs () {
 			foreach(var widget in get_children ())
 			{
-				if(!(widget is Notebook))
-				{
+				if(!(widget is Notebook)) {
 					return false;
 				}
 				else {
@@ -144,11 +142,18 @@ namespace Scratch.Widgets {
 		}
 		
 		public weak ScratchNotebook get_current_notebook () {
-			weak ScratchNotebook child = get_focus_child () as ScratchNotebook;
+			if(focused_widget != null & focused_widget.get_parent() != this) {
+				focused_widget = null;
+			}
+			weak ScratchNotebook child = focused_widget as ScratchNotebook;
 			if (child == null) {
 			    child = get_children ().nth_data (0) as ScratchNotebook;
 			    if( child == null) {
-			        critical ("No valid notebook for the split view?");
+			        critical ("No valid notebook for the split view? Let's create one.");
+			        var note = new ScratchNotebook(window);
+			        add_view (note);
+			        focused_widget = note;
+			        child = note;
 			    }
 			}
 			return child;

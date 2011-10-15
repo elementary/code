@@ -63,6 +63,9 @@ namespace Scratch.Widgets {
 	    
 	    void on_page_removed(Gtk.Widget w, uint page_num)
 	    {
+	    	if(get_n_pages () == 0) {
+	    		((Gtk.Container)get_parent()).remove(this);
+	    	}
 	    	/*if (get_n_pages() == 0 || (get_n_pages() == 1 && welcome_screen.get_parent() != null))
 	    		show_welcome ();*/
 	    }
@@ -102,7 +105,7 @@ namespace Scratch.Widgets {
 		
         public void on_drag_end (DragContext context) {
 			
-			List<Widget> children = window.split_view.get_children ();
+			/*List<Widget> children = ((Gtk.Container)get_parent ()).get_children ();
 			int i;
 			
 			for (i = 0; i!=children.length(); i++) {//ScratchNotebook notebook in children) { 
@@ -111,7 +114,7 @@ namespace Scratch.Widgets {
 					window.split_view.remove (notebook);
 				}
 			}
-			window.split_view.set_menu_item_sensitive ();
+			window.split_view.set_menu_item_sensitive ();*/
 		}
         
 		/*public void show_welcome () {
@@ -151,44 +154,44 @@ namespace Scratch.Widgets {
         
     }
     
-		public class ScratchWelcome : Granite.Widgets.Welcome {
+	public class ScratchWelcome : Granite.Widgets.Welcome {
+	
+		public bool active = false;
+		private ScratchNotebook notebook;
+		MainWindow window;
 		
-			public bool active = false;
-			private ScratchNotebook notebook;
-			MainWindow window;
+		public ScratchWelcome(MainWindow window) {
+	
+			base(_("No files are open."), _("Open a file to begin editing."));
+	
+			//notebook = caller;
+	
+			append(Stock.OPEN, _("Open file"), _("Open a saved file."));
+			append(Stock.NEW, _("New file"), _("Create a new empty file."));
+			this.activated.connect (on_activated);
+			this.window = window;
 			
-			public ScratchWelcome(MainWindow window) {
-		
-				base(_("No files are open."), _("Open a file to begin editing."));
-		
-				//notebook = caller;
-		
-				append(Stock.OPEN, _("Open file"), _("Open a saved file."));
-				append(Stock.NEW, _("New file"), _("Create a new empty file."));
-				this.activated.connect (on_activated);
-				this.window = window;
-				
-				show_all();
+			show_all();
 
-			}
-			
-			private void on_activated(int index) {
-
-				switch (index) {
-					case 0: //open
-					window.main_actions.get_action ("Open").activate ();
-					break;
-
-					case 1: // new
-					window.main_actions.get_action ("New tab").activate ();
-					break;
-				
-				}
-
-				
-			}
-		
-		
 		}
+		
+		private void on_activated(int index) {
+
+			switch (index) {
+				case 0: //open
+				window.main_actions.get_action ("Open").activate ();
+				break;
+
+				case 1: // new
+				window.main_actions.get_action ("New tab").activate ();
+				break;
+			
+			}
+
+			
+		}
+	
+	
+	}
      
 } // Namespace

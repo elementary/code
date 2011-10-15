@@ -72,7 +72,7 @@ namespace Scratch.Dialogs {
             this.title = "";
             this.set_skip_taskbar_hint(true);
             this.set_modal(false);
-            this.set_transient_for (caller.notebook.window);
+            this.set_transient_for ((Gtk.Window)caller.get_toplevel());
             this.set_resizable(false);
     
             this.add(container);

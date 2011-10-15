@@ -704,8 +704,8 @@ namespace Scratch {
         
         public void set_undo_redo () {
             
-				bool undo = false;
-				bool redo = false;
+			bool undo = false;
+			bool redo = false;
             if(current_tab != null) {
 		        GtkSource.Buffer buf;
 		        
@@ -723,27 +723,30 @@ namespace Scratch {
         public void set_combobox_language (string filename) {
         
             GtkSource.Language lang;
-            lang = current_tab.text_view.manager.guess_language (filename, null);
-            if (lang != null) {            
-            var id = lang.get_id();
-            if (id != null) {
-                toolbar.combobox.set_active_id (id); 
-            }
-            else {
-                toolbar.combobox.set_active_id ("normal");
-            }
-            
-            var nopath = filename.split ("/");
-            var sfile = nopath[nopath.length-1].split (".");
-            
-            if (sfile [sfile.length-1] == "ui")
-				toolbar.combobox.set_active_id ("xml");
+            lang = GtkSource.LanguageManager.get_default ().guess_language (filename, null);
+            if (lang != null) {
+		        var id = lang.get_id();
+		        if (id != null) {
+		            toolbar.combobox.set_active_id (id); 
+		        }
+		        else {
+		            toolbar.combobox.set_active_id ("normal");
+		        }
+		        
+		        var nopath = filename.split ("/");
+		        var sfile = nopath[nopath.length-1].split (".");
+		        
+		        if (sfile [sfile.length-1] == "ui")
+					toolbar.combobox.set_active_id ("xml");
 				
-			else if (sfile [sfile.length-2] == "CMakeLists")
-				toolbar.combobox.set_active_id ("cmake");
+				else if (sfile [sfile.length-2] == "CMakeLists")
+					toolbar.combobox.set_active_id ("cmake");
 				
-			else 
-				toolbar.combobox.set_active_id ("normal");
+				else 
+					toolbar.combobox.set_active_id ("normal");
+			}
+			else {
+				warning ("Couldn't detect language highlight for %s", filename);
 			}
         }
         
@@ -752,9 +755,8 @@ namespace Scratch {
 			if (split_view.get_children ().length() <= 2) {
 			
 				var instance = new ScratchNotebook (this);
-				instance.add_tab ();
 				split_view.add_view(instance);
-				//split_view.show_all ();
+				instance.add_tab ();
                 
             }
                             
