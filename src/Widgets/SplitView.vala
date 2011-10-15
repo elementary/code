@@ -39,6 +39,10 @@ namespace Scratch.Widgets {
 			get {return get_children().length();}
 		}
 		
+		Gtk.Widget? focused_widget = null;
+
+		public bool is_empty { get; set; default = true; }
+		
 		public SplitView (MainWindow window) {
 			
 			homogeneous = false;
@@ -51,9 +55,9 @@ namespace Scratch.Widgets {
 		public void add_view (ScratchNotebook view) {
 			pack_start (view);
 						
-			set_menu_item_sensitive ();
+			//set_menu_item_sensitive ();
 			
-			set_focus_child (view);
+			//set_focus_child (view);
 			
 			//set sensitive for remove menutitem
 			if (get_children ().length() >= 2) 
@@ -61,13 +65,47 @@ namespace Scratch.Widgets {
 			else 
 				window.toolbar.menu.remove_view.set_sensitive (false);
 			
-			//view.remove_page (view.page_num(view.welcome_screen));
-			//view.set_show_tabs (true);
-			//view.welcome_screen.active = false;
-			//show_all ();
+			view.focus_in_event.connect(on_notebook_focus);
+			view.page_added.connect (recompute_empty);
+			view.page_removed.connect (recompute_empty);
+		}
+		
+		bool is_empty_or_without_tabs ()
+		{
+			foreach(var widget in get_children ())
+			{
+				if(!(widget is Notebook))
+				{
+					return false;
+				}
+				else {
+					foreach(var page in ((Notebook)widget).get_children ()) {
+						return false;
+					}
+				}
+			}
+			return true;
+		}
+		
+		void recompute_empty ()
+		{
+			is_empty = is_empty_or_without_tabs ();
+		}
+		
+		bool on_notebook_focus(Gtk.Widget notebook, Gdk.EventFocus event) {
+			focused_widget = notebook;
+			return false;
 		}
 		
 		public bool remove_current_view () {
+			if (focused_widget == null)
+				return false;
+			else {
+				remove(focused_widget);
+				focused_widget = null;
+			}
+			return true;
+		/*
 			bool r = false;
 			for (int i=0; i!=window.current_notebook.get_n_pages(); i++) {
 				window.current_notebook.set_current_page (i);
@@ -78,19 +116,15 @@ namespace Scratch.Widgets {
 					tab.on_close_clicked ();
 				else
 					r = true;
-					//show_save_dialog (window.current_notebook);
-				
-					//remove (window.current_notebook);
 			}
-			//if (r)
-				remove (window.current_notebook);
+			remove (window.current_notebook);
 			
 			set_menu_item_sensitive ();
 									
 			if (get_children().length() >= 2)
 				return true;
 			else 
-				return false;						
+				return false;	*/					
 		}
 		
 		public void show_save_dialog (ScratchNotebook notebook) {
@@ -104,7 +138,6 @@ namespace Scratch.Widgets {
 			
 				if (isnew == "*") {
 					var save_dialog = new SaveDialog (label);
-					//var save_dialog = new SaveOnCloseDialog(label.label.label.get_text (), window);
 					save_dialog.run();
 				}
 			}

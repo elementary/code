@@ -170,6 +170,9 @@ namespace Scratch {
             }
         }
         
+        ScratchWelcome welcome_screen;
+        Granite.Widgets.HCollapsablePaned hpaned_sidebar;
+        
         public void create_window () {
             
             this.toolbar = new Widgets.Toolbar (this, ui, main_actions);
@@ -181,10 +184,12 @@ namespace Scratch {
         
             notebook_sidebar = new Gtk.Notebook();
             notebook_sidebar.page_added.connect(on_notebook_context_new_page);
-            var hpaned_sidebar = new Granite.Widgets.HCollapsablePaned();
+            hpaned_sidebar = new Granite.Widgets.HCollapsablePaned();
             hpaned_addons.pack1(hpaned_sidebar, true, true);
             
             split_view = new SplitView (this);
+            welcome_screen = new ScratchWelcome(this);
+            split_view.notify["is-empty"].connect (on_split_view_empty_changed);
             hpaned_sidebar.pack1(notebook_sidebar, false, false);
             notebook_sidebar.visible = false;
             hpaned_sidebar.pack2(split_view, true, true);
@@ -198,7 +203,7 @@ namespace Scratch {
             var notebook =  new ScratchNotebook (this);
             //this.notebook.add_tab();
             split_view.add_view (notebook);
-            notebook.show_welcome();
+            //notebook.show_welcome();
 
             notebook_bottom = new Gtk.Notebook();
             notebook_bottom.page_added.connect(on_notebook_context_new_page);
@@ -220,7 +225,9 @@ namespace Scratch {
 
             this.add (infobar);
             
-            set_undo_redo ();    
+            set_undo_redo (); 
+            
+            on_split_view_empty_changed ();   
 
             show_all();
             notebook_settings_changed("sidebar-visible");
@@ -231,6 +238,22 @@ namespace Scratch {
 			toolbar.toolgoto.hide ();
 			
 			infobar.hide ();
+        }
+        
+        void on_split_view_empty_changed ()
+        {
+        	if(split_view.is_empty) {
+        		if(split_view.get_parent () != null) {
+		    		hpaned_sidebar.remove (split_view);
+		        	hpaned_sidebar.pack2 (welcome_screen, true, true);
+            	}
+        	}
+        	else {
+        		if(split_view.get_parent () == null) {
+		    		hpaned_sidebar.remove (welcome_screen);
+		        	hpaned_sidebar.pack2 (split_view, true, true);
+            	}
+        	}
         }
         
         public void set_theme () {
@@ -411,10 +434,10 @@ namespace Scratch {
         }
         
         void action_new_tab () {
-            if (!current_notebook.welcome_screen.active) {
+            /*if (!current_notebook.welcome_screen.active) {
                 int tab_index = current_notebook.add_tab ();
                     current_notebook.set_current_page (tab_index);            
-            }
+            }*/
         }
         
         public bool on_key_press (EventKey event) {
@@ -438,7 +461,7 @@ namespace Scratch {
                 {
                     // Close current Tab
                     case "w":
-                        if (!current_notebook.welcome_screen.active)                    
+                        /*if (!current_notebook.welcome_screen.active)                    */
                             current_tab.on_close_clicked ();
                         reset_ctrl_flags ();
                     break;

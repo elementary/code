@@ -28,12 +28,12 @@ namespace Scratch.Widgets {
 	public class ScratchNotebook : Notebook {
 		
 		public MainWindow window; //used in dialog		
-		public ScratchWelcome welcome_screen;
+		//public ScratchWelcome welcome_screen;
 
 	    public ScratchNotebook (MainWindow parent) {
 	    
 	    	this.window = parent;
-			this.welcome_screen = new ScratchWelcome(this);
+			//this.welcome_screen = new ScratchWelcome(this);
 	    	
 	    	this.switch_page.connect (on_switch_page);
 	    	
@@ -56,15 +56,15 @@ namespace Scratch.Widgets {
              * we want to hide the tabs and the welcome screen.
              */
             if(w is Tab) {
-                welcome_screen.hide ();
+                //welcome_screen.hide ();
                 set_show_tabs(true);
             }
         }
 	    
 	    void on_page_removed(Gtk.Widget w, uint page_num)
 	    {
-	    	if (get_n_pages() == 0 || (get_n_pages() == 1 && welcome_screen.get_parent() != null))
-	    		show_welcome ();
+	    	/*if (get_n_pages() == 0 || (get_n_pages() == 1 && welcome_screen.get_parent() != null))
+	    		show_welcome ();*/
 	    }
 	    
         public int add_tab (string labeltext="New file") {
@@ -114,7 +114,7 @@ namespace Scratch.Widgets {
 			window.split_view.set_menu_item_sensitive ();
 		}
         
-		public void show_welcome () {
+		/*public void show_welcome () {
 
 			if (window.split_view.get_children().length() == 1) {
                 this.set_show_tabs (false);
@@ -132,35 +132,41 @@ namespace Scratch.Widgets {
                 warning ("I won't put a Welcome Screen if there are some others views.");
 			}
 		
-		}
+		}*/
 		
 		public void show_tabs_view () {
 			
-			if (welcome_screen.active) {
+			/*if (welcome_screen.active) {
 			
 				this.remove_page (this.page_num(welcome_screen));
 				this.set_show_tabs (true);
 				this.welcome_screen.active = false;
 				
-			}
+			}*/
 			
 		}
 
 
+
+        
+    }
+    
 		public class ScratchWelcome : Granite.Widgets.Welcome {
 		
 			public bool active = false;
 			private ScratchNotebook notebook;
+			MainWindow window;
 			
-			public ScratchWelcome(ScratchNotebook caller) {
+			public ScratchWelcome(MainWindow window) {
 		
 				base(_("No files are open."), _("Open a file to begin editing."));
 		
-				notebook = caller;
+				//notebook = caller;
 		
 				append(Stock.OPEN, _("Open file"), _("Open a saved file."));
 				append(Stock.NEW, _("New file"), _("Create a new empty file."));
 				this.activated.connect (on_activated);
+				this.window = window;
 				
 				show_all();
 
@@ -170,11 +176,11 @@ namespace Scratch.Widgets {
 
 				switch (index) {
 					case 0: //open
-					notebook.window.main_actions.get_action ("Open").activate ();
+					window.main_actions.get_action ("Open").activate ();
 					break;
 
 					case 1: // new
-					notebook.window.main_actions.get_action ("New tab").activate ();
+					window.main_actions.get_action ("New tab").activate ();
 					break;
 				
 				}
@@ -184,8 +190,5 @@ namespace Scratch.Widgets {
 		
 		
 		}
-
-        
-    }
      
 } // Namespace
