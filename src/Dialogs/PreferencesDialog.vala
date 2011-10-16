@@ -194,7 +194,7 @@ namespace Scratch.Dialogs {
             }
             
             //pbox is only for fix the padding
-            var pbox = new VBox (false, 0);
+            var pbox = new HBox (false, 0);
             pbox.pack_start (view, true, true, 5);
             
 			if(count > 0) staticn.append_page (pbox, plugins_label);
