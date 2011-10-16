@@ -192,8 +192,12 @@ namespace Scratch.Dialogs {
                 listmodel.append (out iter);
                 listmodel.set (iter, 0, plugin_name, 1, plugin_name in settings.schema.get_strv("plugins-enabled"));
             }
-
-			if(count > 0) staticn.append_page (view, plugins_label);
+            
+            //pbox is only for fix the padding
+            var pbox = new VBox (false, 0);
+            pbox.pack_start (view, true, true, 5);
+            
+			if(count > 0) staticn.append_page (pbox, plugins_label);
 			
             ((Gtk.Box)get_content_area()).add (staticn);
 
