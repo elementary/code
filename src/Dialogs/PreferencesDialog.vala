@@ -145,9 +145,6 @@ namespace Scratch.Dialogs {
 			var general = new Label (_("General"));
 			staticn.append_page (padding, general);
 			
-			//create plugins settings
-			var pg = new Label ("It is not implemented yet");
-			
 			//create static notebook
 			var plugins_label = new Label ("Plugins");
 			
@@ -188,12 +185,15 @@ namespace Scratch.Dialogs {
 
             Gtk.TreeIter iter;
 
+            int count = 0;
             foreach(string plugin_name in (plugins.get_available_plugins()))
             {
+                count ++;
                 listmodel.append (out iter);
                 listmodel.set (iter, 0, plugin_name, 1, plugin_name in settings.schema.get_strv("plugins-enabled"));
             }
-			staticn.append_page (view, plugins_label);
+
+			if(count > 0) staticn.append_page (view, plugins_label);
 			
             ((Gtk.Box)get_content_area()).add (staticn);
 

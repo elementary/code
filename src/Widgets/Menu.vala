@@ -86,7 +86,7 @@ namespace Scratch.Widgets {
             view.activate.connect (() => {window.create_instance ();});
             remove_view.activate.connect (() => {remove_view.set_sensitive (window.split_view.remove_current_view ()) ;} );
             fullscreen.toggled.connect (toggle_fullscreen);
-            preferences.activate.connect (() => {dialog.show_all ();});
+            preferences.activate.connect (() => { new Dialogs.Preferences ("Preferences", this.window).show_all(); });
 
         }
 
