@@ -126,9 +126,10 @@ namespace Scratch.Dialogs {
             bottom_buttons.set_layout (ButtonBoxStyle.END);
             bottom_buttons.set_spacing (10);
             //bottom_buttons.pack_end (close_button);
-
+            var sw = new Switch ();
             content.pack_start (wrap_alignment (editor_label, 10, 0, 0, 0), false, true, 0);
             content.pack_start (wrap_alignment (line_numbers, 0, 0, 0, 10), false, true, 0);
+            content.pack_start (wrap_alignment (sw, 0, 0, 0, 10), false, true, 0);
             content.pack_start (wrap_alignment (highlight_current_line, 0, 0, 0, 10), false, true, 0);
             content.pack_start (wrap_alignment (spaces_instead_of_tabs, 0, 0, 0, 10), false, true, 0);
             content.pack_start (wrap_alignment (indent_width_box, 0, 0, 0, 10), false, true, 0);

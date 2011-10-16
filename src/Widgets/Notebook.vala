@@ -66,6 +66,8 @@ namespace Scratch.Widgets {
 	    	if(get_n_pages () == 0) {
 	    		((Gtk.Container)get_parent()).remove(this);
 	    	}
+	    	
+	    	set_tab ();
 	    	/*if (get_n_pages() == 0 || (get_n_pages() == 1 && welcome_screen.get_parent() != null))
 	    		show_welcome ();*/
 	    }
@@ -78,8 +80,20 @@ namespace Scratch.Widgets {
             
             window.toolbar.set_actions (true);
             
+            set_tab ();
+            
             return index; 
         }
+		
+		public void set_tab () {
+		    
+		    debug ("%s", get_n_pages ().to_string ());
+		    
+		    if (get_n_pages () == 1)
+		        set_show_tabs (false);
+		    else
+		        set_show_tabs (true);
+		}
 		
 		public void on_switch_page (Widget page, uint number) {
 		
