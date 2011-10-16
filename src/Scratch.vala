@@ -105,7 +105,7 @@ namespace Scratch {
         window.toolbar.toolreplace.hide ();
 		window.toolbar.toolgoto.hide ();
         window.infobar.hide ();
-        window.toolbar.set_sensitive (true);
+
         
         }
         
@@ -127,7 +127,7 @@ namespace Scratch {
             window.toolbar.toolreplace.hide ();
             window.toolbar.toolgoto.hide ();
             window.infobar.hide ();
-            window.toolbar.set_sensitive (true);
+
         }
 
         protected override void activate () {

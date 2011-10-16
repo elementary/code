@@ -254,6 +254,7 @@ namespace Scratch {
             	toolbar.set_entry_sensitive (toolbar.ToolEntry.SEARCH_ENTRY, false);
             	toolbar.set_entry_sensitive (toolbar.ToolEntry.REPLACE_ENTRY, false);
             	toolbar.set_entry_sensitive (toolbar.ToolEntry.GOTO_ENTRY, false);
+            	toolbar.combobox.set_sensitive (false);
         	}
         	else {
         		if(split_view.get_parent () == null) {
@@ -816,3 +817,4 @@ namespace Scratch {
         };
     }
 } // Namespace    
+

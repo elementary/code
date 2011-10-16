@@ -124,8 +124,11 @@ namespace Scratch.Widgets {
         	var label = l.label.label;
         	string filename = label.get_text ();
         	
-        	if (filename[0:1] != "*")
+        	if (filename[0:1] != "*") {
         	    label.set_text ("* " + filename);
+                window.toolbar.set_button_sensitive (window.toolbar.ToolButtons.SAVE_BUTTON, true);
+            }
+
         	window.set_undo_redo();
         	modified = true;
         }

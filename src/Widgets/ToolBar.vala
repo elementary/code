@@ -158,7 +158,9 @@ namespace Scratch.Widgets {
         	window.main_actions.get_action ("Undo").set_sensitive (val);
         	window.main_actions.get_action ("Redo").set_sensitive (val);
         	window.main_actions.get_action ("Fetch").set_sensitive (val);
+            set_entry_sensitive (ToolButtons.SAVE_BUTTON, val);
             combobox.set_sensitive (val);
+            combo_container.set_sensitive (val);
             toolentry.set_sensitive (val);
             toolreplace.set_sensitive (val);
             toolgoto.set_sensitive (val);
@@ -307,4 +309,4 @@ namespace Scratch.Widgets {
         
      
 }
-} // Namespace   
+} // Namespace  
