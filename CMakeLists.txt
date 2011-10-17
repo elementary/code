@@ -7,7 +7,7 @@ set (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
 set (PKGDATADIR "${DATADIR}/scratch")
 set (GETTEXT_PACKAGE "scratch")
 set (RELEASE_NAME "The Elementary Text Editor.")
-set (VERSION "0.0.2")
+set (VERSION "0.2")
 set (VERSION_INFO "Release")
 set (PLUGINDIR "${CMAKE_INSTALL_PREFIX}/lib/scratch/plugins/")
 set (CMAKE_C_FLAGS "-ggdb")
@@ -57,7 +57,6 @@ vala_precompile (VALA_C
     src/Dialogs/SaveOnCloseDialog.vala
     src/Services/document.vala
     src/config.vala
-    #src/resources.vala
 PACKAGES
 	${SCRATCH_DEPS} scratchplugins
 CUSTOM_VAPIS
