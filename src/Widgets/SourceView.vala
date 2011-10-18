@@ -119,18 +119,38 @@ namespace Scratch.Widgets {
         public void on_buffer_changed () {
         	//var nb = window.split_view.get_current_notebook ();
         	//var tab = (Tab) nb.get_nth_page (nb.get_current_page());
-        	var cn = window.split_view.get_current_notebook ();
-        	var l = (Tab) cn.get_nth_page (cn.get_current_page());
-        	var label = l.label.label;
-        	string filename = label.get_text ();
+        	var tb = (Tab) window.current_notebook.get_nth_page (window.current_notebook.get_current_page());
         	
-        	if (filename[0:1] != "*") {
-        	    label.set_text ("* " + filename);
-                window.toolbar.set_button_sensitive (window.toolbar.ToolButtons.SAVE_BUTTON, true);
-            }
+        	string filename = tb.label.label.get_text ();
+			string isnew = filename [0:1];
+			
+			if (isnew != "*") {
+			
+			    int n = 0;
+        	        	
+        	    for (;;) {
+			        tb = (Tab) window.current_notebook.get_nth_page (n);
+			        var lb = tb.label;
+			        if (lb.label.get_text () == filename) 
+			            break;
+			        else
+			            n++;
+			    }
+ 
+			    var doc = (Scratch.Services.Document) window.current_notebook.get_nth_page (n);
+        	
+        	//var l = (Tab) cn.get_nth_page (cn.get_current_page());
+        	//var label = l.label.label;
+        	//string filename = label.get_text ();
+        	
+               	if (doc.can_write ()) {
+            	    tb.label.label.set_text ("* " + filename);
+                    window.toolbar.set_button_sensitive (window.toolbar.ToolButtons.SAVE_BUTTON, true);
+                }
 
-        	window.set_undo_redo();
-        	modified = true;
+            	window.set_undo_redo();
+        	    modified = true;
+        	}
         }
 
         public void restore_settings () {
