@@ -52,13 +52,24 @@ namespace Scratch {
         Gtk.UIManager ui;
     
         public const string TITLE = "Scratch";
-        private string search_string = "";
+        string search_string = "";
 
         public SplitView split_view;
         public Widgets.Toolbar toolbar;
         
+        /**
+         * The Gtk.Notebook which is used to display panels which are related
+         * to the current files.
+         **/ 
         public Gtk.Notebook notebook_context;
+        /**
+         * A Notebook to show general panels, like file managers, project managers,
+         * etc...
+         **/
         public Gtk.Notebook notebook_sidebar;
+        /**
+         * This notebook can be used for things like terminals.
+         **/
         public Gtk.Notebook notebook_bottom;
 		
 		public ScratchInfoBar infobar;
@@ -80,6 +91,9 @@ namespace Scratch {
         Gdk.Color bgcolor;
         Gdk.Color fgcolor;
         Scratch.ScratchApp scratch_app;
+        
+        ScratchWelcome welcome_screen;
+        Granite.Widgets.HCollapsablePaned hpaned_sidebar;
         
 				
         public MainWindow (Scratch.ScratchApp scratch_app) {
@@ -170,9 +184,6 @@ namespace Scratch {
             }
         }
         
-        ScratchWelcome welcome_screen;
-        Granite.Widgets.HCollapsablePaned hpaned_sidebar;
-        
         public void create_window () {
             
             this.toolbar = new Widgets.Toolbar (this, ui, main_actions);
@@ -201,9 +212,7 @@ namespace Scratch {
             plugins.hook_notebook_context(notebook_context);
 
             var notebook =  new ScratchNotebook (this);
-            //this.notebook.add_tab();
             split_view.add_view (notebook);
-            //notebook.show_welcome();
 
             notebook_bottom = new Gtk.Notebook();
             notebook_bottom.page_added.connect(on_notebook_context_new_page);
@@ -240,9 +249,18 @@ namespace Scratch {
 			infobar.hide ();
         }
         
+        public void set_actions (bool val) {
+        	main_actions.get_action ("SaveFile").set_sensitive (val);
+        	main_actions.get_action ("Undo").set_sensitive (val);
+        	main_actions.get_action ("Redo").set_sensitive (val);
+        	main_actions.get_action ("Fetch").set_sensitive (val);
+        	toolbar.set_actions (val);
+        }
+        
         void on_split_view_empty_changed ()
         {
         	if(split_view.is_empty) {
+				set_actions (false);
         		if(split_view.get_parent () != null) {
 		    		hpaned_sidebar.remove (split_view);
 		        	hpaned_sidebar.pack2 (welcome_screen, true, true);
@@ -257,6 +275,7 @@ namespace Scratch {
             	toolbar.combobox.set_sensitive (false);
         	}
         	else {
+				set_actions (true);
         		if(split_view.get_parent () == null) {
 		    		hpaned_sidebar.remove (welcome_screen);
 		        	hpaned_sidebar.pack2 (split_view, true, true);
@@ -506,25 +525,9 @@ namespace Scratch {
         }
         
         public void action_new_tab () {
-			/*if (current_notebook.welcome.activate) {
-				List<Widget> children = split_view.get_children ();
-				int i;
-			
-				for (i = 0; i!=children.length(); i++) {//ScratchNotebook notebook in children) { 
-					split_view.remove ( children.nth_data (i) );
-				}
-							
-				//split_view.remove (current_notebook.welcome_screen);
-				var notebook = new ScratchNotebook (this);
-				notebook.add_tab ();
-				split_view.add_view (notebook);
-			}
-			else {*/
-				int new_tab_index = current_notebook.add_tab ();
-				current_notebook.set_current_page (new_tab_index);
-				current_notebook.show_tabs_view ();
-			//}
-			
+			int new_tab_index = current_notebook.add_tab ();
+			current_notebook.set_current_page (new_tab_index);
+			current_notebook.show_tabs_view ();
 		}
         
         public void action_open_clicked () {

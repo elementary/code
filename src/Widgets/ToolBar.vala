@@ -154,10 +154,6 @@ namespace Scratch.Widgets {
         }
         
         public void set_actions (bool val) {
-        	window.main_actions.get_action ("SaveFile").set_sensitive (val);
-        	window.main_actions.get_action ("Undo").set_sensitive (val);
-        	window.main_actions.get_action ("Redo").set_sensitive (val);
-        	window.main_actions.get_action ("Fetch").set_sensitive (val);
             set_entry_sensitive (ToolButtons.SAVE_BUTTON, val);
             combobox.set_sensitive (val);
             combo_container.set_sensitive (val);

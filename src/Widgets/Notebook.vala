@@ -78,8 +78,6 @@ namespace Scratch.Widgets {
             set_tab_reorderable(new_tab, true);
             set_tab_detachable(new_tab, true);
             
-            window.toolbar.set_actions (true);
-            
             set_tab ();
             
             return index; 
@@ -130,26 +128,6 @@ namespace Scratch.Widgets {
 			}
 			window.split_view.set_menu_item_sensitive ();*/
 		}
-        
-		/*public void show_welcome () {
-
-			if (window.split_view.get_children().length() == 1) {
-                this.set_show_tabs (false);
-                if(welcome_screen.get_parent() == null)
-                {
-                    page = append_page(welcome_screen, null);
-                }
-                welcome_screen.show_all();
-                window.set_undo_redo ();
-                window.toolbar.set_actions (false);
-                window.title = window.TITLE;
-			}
-		
-			else {
-                warning ("I won't put a Welcome Screen if there are some others views.");
-			}
-		
-		}*/
 		
 		public void show_tabs_view () {
 			

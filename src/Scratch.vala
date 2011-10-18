@@ -102,9 +102,9 @@ namespace Scratch {
                 	open_file(files[i].get_path());
                 }
             }
-        window.toolbar.toolreplace.hide ();
-		window.toolbar.toolgoto.hide ();
-        window.infobar.hide ();
+			window.toolbar.toolreplace.hide ();
+			window.toolbar.toolgoto.hide ();
+			window.infobar.hide ();
 
         
         }
