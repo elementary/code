@@ -65,11 +65,11 @@ namespace Scratch.Widgets {
 			this.show ();	
 		}
 		
-		public void show () {
+		public new void show () {
 			infobar.show ();
 		}
 		
-		public void hide () {
+		public new void hide () {
 			infobar.hide ();
 		}
 	

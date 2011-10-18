@@ -344,12 +344,10 @@ namespace Scratch {
             case "Up":
                 case_up ();
                 return true;
-                break;
 			case "Return":
             case "Down":
 				case_down ();
 				return true;
-				break;
             }
             return false;
         }
@@ -420,16 +418,11 @@ namespace Scratch {
 		}		
          
         public void on_goto_activate () {
-			current_tab.text_view.go_to_line (toolbar.go_to.get_text ().to_int ());
+			current_tab.text_view.go_to_line (int.parse (toolbar.go_to.get_text ()));
 		}
          
         //signals functions
         public void on_destroy () {
-
-            
-            List<Widget> children = split_view.get_children ();
-			int i, n;
-			
 			foreach(var doc in scratch_app.documents) {						
 				if(doc.modified) {
 					var save_dialog = new SaveOnCloseDialog(doc.name, this);

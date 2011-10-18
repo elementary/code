@@ -78,8 +78,13 @@ namespace Scratch.Widgets {
 
 		public override void drag_data_received (Gdk.DragContext context, int x, int y, SelectionData selection_data, uint info, uint time_) {
 			foreach (string s in selection_data.get_uris ()){
-            	window.open (Filename.from_uri (s));
-				window.set_undo_redo ();
+			    try {
+                	window.open (Filename.from_uri (s));
+				    window.set_undo_redo ();
+				}
+				catch (Error e) {
+				    warning ("%s doesn't seem to be a valid URI, couldn't open it.", s);
+				}
 			}
 		}
 

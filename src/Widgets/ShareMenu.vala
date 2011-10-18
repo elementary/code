@@ -48,7 +48,12 @@ namespace Scratch.Widgets {
             
             share_email.activate.connect (() => {
 				if (window.current_tab.filename != null){
-					GLib.Process.spawn_command_line_sync ("postler mailto:?attach=" + window.current_tab.filename);
+					try {
+						GLib.Process.spawn_command_line_sync ("postler mailto:?attach=" + window.current_tab.filename);
+					}
+					catch (Error e) {
+						warning("Couldn't execute: postler mailto:?attach=%s, is postler installed?", window.current_tab.filename);
+					}
 				}
 				else {
 					warning ("To share the file you need to save it first!");

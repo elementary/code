@@ -55,7 +55,6 @@ namespace Scratch.Widgets {
 		public void on_close_clicked() {
 			
 			string filename = label.label.get_text ();
-			string isnew = label.label.get_text () [0:1];
 			int n = 0;
  
 			for (;;) {
@@ -144,8 +143,7 @@ namespace Scratch.Widgets {
 			try {
 			
 				FileUtils.set_contents (this.filename, this.text_view.buffer.text);
-				this.saved = true;
-				var name = Path.get_basename (this.filename);
+				this.saved = true; 
 				text_view.modified = false;
                 window.set_window_title (this.filename);
 		        return 0;

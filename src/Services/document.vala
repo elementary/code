@@ -159,12 +159,11 @@ namespace Scratch.Services {
 		/**
 		 * Open the file and put it content inside the given buffer.
 		 **/
-        public bool open () throws FileError {
+        public bool open () {
 
             if (filename == null)
                 return false;
 
-            bool result;
             string contents;
 			try {
 				FileUtils.get_contents (filename, out contents);
@@ -174,7 +173,12 @@ namespace Scratch.Services {
 			}
             original_text = text = contents;
 		
-			if(!contents.validate()) contents = convert (contents, -1, "UTF-8", "ISO-8859-1");
+			try {
+				if(!contents.validate()) contents = convert (contents, -1, "UTF-8", "ISO-8859-1");
+			}
+			catch (Error e) {
+				warning ("Couldn't convert the content of the document to UTF-8 (I guessed it was in ISO-8859-1?)");
+			}
 
             if (buffer != null) {
                 buffer.begin_not_undoable_action ();

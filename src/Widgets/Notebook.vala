@@ -147,9 +147,6 @@ namespace Scratch.Widgets {
     }
     
 	public class ScratchWelcome : Granite.Widgets.Welcome {
-	
-		public bool active = false;
-		private ScratchNotebook notebook;
 		MainWindow window;
 		
 		public ScratchWelcome(MainWindow window) {
