@@ -124,6 +124,7 @@ namespace Scratch {
             document.create_sourceview ();
             documents.add(document);
             document.closed.connect( (doc) => { documents.remove(doc); });
+            window.current_notebook.set_tab ();
             window.toolbar.toolreplace.hide ();
             window.toolbar.toolgoto.hide ();
             window.infobar.hide ();

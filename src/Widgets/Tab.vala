@@ -54,10 +54,24 @@ namespace Scratch.Widgets {
 
 		public void on_close_clicked() {
 			
+			string filename = label.label.get_text ();
 			string isnew = label.label.get_text () [0:1];
+			int n = 0;
+ 
+			for (;;) {
+			    var tb = (Tab) window.current_notebook.get_nth_page (n);
+			    var lb = tb.label;
+			    if (lb.label.get_text () == filename) 
+			        break;
+			    else
+			        n++;
+			}
+ 
+			var doc = (Scratch.Services.Document) window.current_notebook.get_nth_page (n);
+			//var sv = (Scratch.Services.Document) window.current_notebook.get_nth_page (n);
 			
-			if (isnew == "*") {
-			
+			if (doc.can_write () && text_view.modified == true) {
+ 
 				var save_dialog = new SaveDialog(this);
 				save_dialog.run();
 						
