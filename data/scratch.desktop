@@ -4,12 +4,14 @@ Version=0.0.2
 Name=Scratch
 Comment=Edit Text Files
 GenericName=Text Editor
-Exec=scratch
+Exec=scratch %U
 Icon=scratch
 Terminal=false
 Categories=GNOME;GTK;Utility;TextEditor;
 MimeType=text/plain;
 StartupNotify=true
+MimeType=text/plain;
+
 
 X-Ayatana-Desktop-Shortcuts=NewDocument;
 
