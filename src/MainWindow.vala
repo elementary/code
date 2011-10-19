@@ -78,7 +78,7 @@ namespace Scratch {
         public FileChooserDialog filech;
 
         public Tab current_tab { get { return (Tab) current_notebook.get_nth_page (current_notebook.get_current_page()); }}
-        public ScratchNotebook current_notebook { get { return split_view.get_current_notebook (); }}
+        public ScratchNotebook current_notebook { get { return split_view.get_current_notebook (); } set {}}
         
         //bools for key press event
         bool ctrlL = false;

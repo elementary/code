@@ -92,6 +92,7 @@ namespace Scratch.Widgets {
 		
 		bool on_notebook_focus(Gtk.Widget notebook, Gdk.EventFocus event) {
 			focused_widget = notebook;
+			window.current_notebook = notebook as ScratchNotebook;
 			return false;
 		}
 		
