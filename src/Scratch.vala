@@ -37,6 +37,7 @@ namespace Scratch {
     	
         public MainWindow window = null;
         static string app_cmd_name;
+        static string app_set_arg;
         public Gee.ArrayList<Document> documents = new Gee.ArrayList<Document>();
 
         construct {
@@ -85,6 +86,8 @@ namespace Scratch {
             plugins = new Scratch.Plugins.Manager(settings.schema, "plugins-enabled", Constants.PLUGINDIR,  exec_name);
             plugins.hook_example("Example text");
             plugins.hook_app(this);
+            plugins.hook_set_arg(app_cmd_name, app_set_arg);
+            print("Arg set: %s\n", app_set_arg);
         }
 
         protected override void open (File[] files, string hint) {
@@ -145,6 +148,7 @@ namespace Scratch {
 
 		static const OptionEntry[] entries = {
 			{ "set", 's', 0, OptionArg.STRING, ref app_cmd_name, "Set of plugins", "" },
+			{ "set-arg", 'a', 0, OptionArg.STRING, ref app_set_arg, "Argument for the set of plugins", "" },
 			{ null }
 		};
 		public static int main (string[] args) {
