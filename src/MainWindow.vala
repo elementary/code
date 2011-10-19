@@ -38,7 +38,12 @@ namespace Scratch {
             <ui>
             <popup name="MenuItemTool">
                 <menuitem name="Fetch" action="Fetch"/>
+                <menuitem name="CloseTab" action="CloseTab"/>
+                <menuitem name="Quit" action="Quit"/>
+                <menuitem name="ShowGoTo" action="ShowGoTo"/>
+                <menuitem name="ShowReplace" action="ShowReplace"/>
                 <menuitem name="New tab" action="New tab"/>
+                <menuitem name="New view" action="New view"/>
                 <menuitem name="Open" action="Open"/>
                 <menuitem name="SaveFile" action="SaveFile"/>
                 <menuitem name="Undo" action="Undo"/>
@@ -79,12 +84,6 @@ namespace Scratch {
 
         public Tab current_tab { get { return (Tab) current_notebook.get_nth_page (current_notebook.get_current_page()); }}
         public ScratchNotebook current_notebook { get { return split_view.get_current_notebook (); } set {}}
-        
-        //bools for key press event
-        bool ctrlL = false;
-        bool ctrlR = false;
-        bool shiftR = false;
-        bool shiftL = false;
         
         //objects for the set_theme ()
         FontDescription font;
@@ -322,9 +321,6 @@ namespace Scratch {
 
             //signals for the window
             this.destroy.connect (Gtk.main_quit);
-            
-            this.key_release_event.connect (on_key_released);
-            this.key_press_event.connect (on_key_press);
 
             //signals for the toolbar
             toolbar.combobox.changed.connect (on_combobox_changed);
@@ -432,85 +428,21 @@ namespace Scratch {
 			
         }
         
-        private void reset_ctrl_flags() {
-            ctrlR = false;
-            ctrlL = false;
-            shiftR = false;
-            shiftL = false;
+        void action_close_tab () {
+            current_tab.on_close_clicked ();
         }
         
-        // untoggles Control Trigger
-        private bool on_key_released (EventKey event) {
+        void action_quit () {
+			on_destroy ();
+			Gtk.main_quit ();
+        }
 
-            string key = Gdk.keyval_name(event.keyval);
-            
-            if (key == "Control_L" || key == "Control_R")
-                reset_ctrl_flags();
-            
-            if (key == "Shift_L" || key == "Shift_R")
-                reset_ctrl_flags();
-                
-            return true;
+        void action_show_replace () {
+			toolbar.show_replace_entry ();
         }
         
-       // void action_new_tab () {
-            /*if (!current_notebook.welcome_screen.active) {
-                int tab_index = current_notebook.add_tab ();
-                    current_notebook.set_current_page (tab_index);            
-            }*/
-          //  current_notebook.add_tab ();
-        //}
-        
-        public bool on_key_press (EventKey event) {
-            
-            string key = Gdk.keyval_name(event.keyval);
-
-            /// Q: Do we really need ctrlL and ctrlR? One Var may be enough
-            if (key == "Control_L")
-                ctrlL = true;
-            if (key == "Control_R")
-                ctrlR = true;
-                
-            if (key == "Shift_L")
-                shiftL = true;
-            if (key == "Shift_R")
-                shiftR = true;
-
-            if ((ctrlL || ctrlR))
-            {
-                switch(key.down()/*This avoids checking for "t" and "T*/)
-                {
-                    // Close current Tab
-                    case "w":
-                        /*if (!current_notebook.welcome_screen.active)                    */
-                            current_tab.on_close_clicked ();
-                        reset_ctrl_flags ();
-                    break;
-                    
-                    // Close Scratch by Ctrl+Q or Ctrl+E
-                    case "q":
-                        warning("Killler");
-                        this.on_destroy();
-                    break;
-                    
-                    case "e":
-                        warning("Killler");
-                        this.on_destroy();
-                    break;
-					//show replace entry
-					case "r":
-						toolbar.show_replace_entry ();
-					break;
-					//show replace entry
-					case "i":
-						toolbar.show_go_to_entry ();
-					break;
-                }
-            }
-            else if (key == "F3")
-                create_instance ();
-			
-            return false;
+        void action_show_go_to () {
+            toolbar.show_go_to_entry ();
         }
         
         public void on_new_clicked () {	
@@ -562,8 +494,9 @@ namespace Scratch {
         }
     
 
-        public Gtk.TextBuffer get_active_buffer() {
-            return current_tab.text_view.buffer;
+        public Gtk.TextBuffer? get_active_buffer() {
+            if(current_tab != null) return current_tab.text_view.buffer;
+            return null;
         }
 
         TextIter? end;
@@ -776,16 +709,40 @@ namespace Scratch {
 			current_tab.text_view.redo ();
 			set_undo_redo ();
         }
+        
+        void action_new_view () {
+            create_instance ();
+        }
 
         static const Gtk.ActionEntry[] main_entries = {
            { "Fetch", Gtk.Stock.SAVE,
           /* label, accelerator */       N_("Fetch"), "<Control>f",
           /* tooltip */                  N_("Fetch"),
                                          action_fetch },
+           { "ShowGoTo", Gtk.Stock.OK,
+          /* label, accelerator */       N_("Go to line..."), "<Control>i",
+          /* tooltip */                  N_("Go to line..."),
+                                         action_show_go_to },
+           { "Quit", Gtk.Stock.QUIT,
+          /* label, accelerator */       N_("Quit"), "<Control>q",
+          /* tooltip */                  N_("Quit"),
+                                         action_quit },
+           { "CloseTab", Gtk.Stock.CLOSE,
+          /* label, accelerator */       N_("Close"), "<Control>w",
+          /* tooltip */                  N_("Close"),
+                                         action_close_tab },
+           { "ShowReplace", Gtk.Stock.OK,
+          /* label, accelerator */       N_("Replace"), "<Control>r",
+          /* tooltip */                  N_("Replace"),
+                                         action_show_replace },
            { "New tab", Gtk.Stock.NEW,
           /* label, accelerator */       N_("New tab"), "<Control>t",
           /* tooltip */                  N_("Open a new tab"),
                                          action_new_tab },
+           { "New view", Gtk.Stock.NEW,
+          /* label, accelerator */       N_("Add a new view"), "F3",
+          /* tooltip */                  N_("Add a new view"),
+                                         action_new_view },
            { "Undo", Gtk.Stock.UNDO,
           /* label, accelerator */       N_("Undo"), "<Control>z",
           /* tooltip */                  N_("Undo"),
