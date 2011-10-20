@@ -131,6 +131,7 @@ namespace Scratch {
             window.toolbar.toolreplace.hide ();
             window.toolbar.toolgoto.hide ();
             window.infobar.hide ();
+            window.set_window_title (filename);
 
         }
 
