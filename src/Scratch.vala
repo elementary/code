@@ -60,7 +60,7 @@ namespace Scratch {
 		    translate_url = "https://translations.launchpad.net/scratch";
 		    about_authors = {"Mario Guerriero <mefrio.g@gmail.com>",
 						 "Giulio Collura <random.cpp@gmail.com>",
-						 "Gabriele Coletta <gdmg92@gmail.com>",
+						 "Lucas Baudin <xapantu@gmail.com>",
 						 null
 						 };
 		    //about_documenters = {"",""};

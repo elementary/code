@@ -320,7 +320,7 @@ namespace Scratch {
         public void connect_signals () {
 
             //signals for the window
-            this.destroy.connect (Gtk.main_quit);
+            this.destroy.connect (on_destroy);
 
             //signals for the toolbar
             toolbar.combobox.changed.connect (on_combobox_changed);
@@ -331,7 +331,6 @@ namespace Scratch {
             toolbar.go_to.activate.connect (on_goto_activate);
 
         }
-        
         
         bool on_search_key_press (Gdk.EventKey event) {
             string key = Gdk.keyval_name(event.keyval);
