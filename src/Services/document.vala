@@ -105,11 +105,18 @@ namespace Scratch.Services {
             this.filename = filename;
             file = File.new_for_path (filename);
             
+            register_recent ();
+            
             _name = file.get_basename ();
             _directory = Path.get_dirname (filename).replace (home_dir, "~");
 
             this.window = window;
             
+        }
+        
+        void register_recent () {
+            Gtk.RecentManager recent_manager = Gtk.RecentManager.get_default();
+            recent_manager.add_item (file.get_uri ());
         }
         
         public void focus_sourceview() {
