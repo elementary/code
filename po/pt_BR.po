@@ -8,23 +8,23 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-10-10 19:03+0200\n"
-"PO-Revision-Date: 2011-10-18 20:20+0000\n"
-"Last-Translator: Cody Garver <codygarver@gmail.com>\n"
+"PO-Revision-Date: 2011-10-20 13:43+0000\n"
+"Last-Translator: Tomas Abril <Unknown>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-19 06:26+0000\n"
-"X-Generator: Launchpad (build 14157)\n"
+"X-Launchpad-Export-Date: 2011-10-21 05:07+0000\n"
+"X-Generator: Launchpad (build 14165)\n"
 "Language: pt_BR\n"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:156
 msgid "No files are open."
-msgstr ""
+msgstr "Nenhum arquivo está aberto."
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:156
 msgid "Open a file to begin editing."
-msgstr ""
+msgstr "Abra um arquivo para começar a editar."
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:160
 msgid "Open file"
@@ -32,7 +32,7 @@ msgstr "Abrir Arquivo"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:160
 msgid "Open a saved file."
-msgstr ""
+msgstr "Abra um arquivo salvado."
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:161
 msgid "New file"
@@ -40,7 +40,7 @@ msgstr "Novo arquivo"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:161
 msgid "Create a new empty file."
-msgstr ""
+msgstr "Crie um novo arquivo vazio."
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:91
 msgid "Search in the text..."
@@ -52,7 +52,7 @@ msgstr "Substituir..."
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:99
 msgid "Insert line number..."
-msgstr ""
+msgstr "Insira numero da linha..."
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:149
 msgid "Normal Text"
@@ -80,19 +80,19 @@ msgstr "Refaz a última ação desfeita"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:187
 msgid "Share this file"
-msgstr ""
+msgstr "Compartilhe este arquivo"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ShareMenu.vala:39
 msgid "Share via Email..."
-msgstr ""
+msgstr "Compartilhe via Email..."
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:44
 msgid "Add New View"
-msgstr ""
+msgstr "Adicionar Nova Visualização"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:46
 msgid "Remove Current View"
-msgstr ""
+msgstr "Remover Visualização Atual"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:53
 msgid "Fullscreen"
@@ -104,15 +104,15 @@ msgstr "Mostrar Barra Lateral"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:60
 msgid "Show Context View"
-msgstr ""
+msgstr "Mostrar Visualização de Contexto"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
 msgid "Changes to this file haven't been saved."
-msgstr ""
+msgstr "Mudanças neste arquivo não foram salvas."
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
 msgid "Do you want to save changes before closing this file?"
-msgstr ""
+msgstr "Você quer salvar as mudanças antes de fechar este arquivo?"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:82
 msgid "Show line numbers"
@@ -148,7 +148,7 @@ msgstr "Fechar"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:144
 msgid "General"
-msgstr ""
+msgstr "Geral"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid "Save this file? "
