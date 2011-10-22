@@ -186,7 +186,8 @@ namespace Scratch.Dialogs {
             Gtk.TreeIter iter;
 
             int count = 0;
-            foreach(string plugin_name in (plugins.get_available_plugins()))
+            List<string> plugin_lists = plugins.get_available_plugins ();
+            foreach(string plugin_name in plugin_lists)
             {
                 count ++;
                 listmodel.append (out iter);
