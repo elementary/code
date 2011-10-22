@@ -29,36 +29,14 @@ namespace Scratch.Widgets {
         
         private Window window;
         /*private MenuItem pastebin;*/
-        private MenuItem share_email;
+        //private MenuItem share_email;
 
         public ShareMenu (MainWindow window) {
 
             this.window = window;
 
-            /*pastebin = new MenuItem.with_label (_("Upload to Pastebin..."));*/
-            share_email = new MenuItem.with_label (_("Share via Email..."));
-
-            /*append (pastebin);*/
-            append (share_email);
             plugins.hook_addons_menu(this);
 
-            /*pastebin.activate.connect (() => {
-				new PasteBinDialog (window);
-            });*/
-            
-            share_email.activate.connect (() => {
-				if (window.current_tab.filename != null){
-					try {
-						GLib.Process.spawn_command_line_sync ("postler mailto:?attach=" + window.current_tab.filename);
-					}
-					catch (Error e) {
-						warning("Couldn't execute: postler mailto:?attach=%s, is postler installed?", window.current_tab.filename);
-					}
-				}
-				else {
-					warning ("To share the file you need to save it first!");
-				}
-			});
 
         }
 
