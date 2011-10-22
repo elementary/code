@@ -241,7 +241,7 @@ namespace Scratch {
             notebook_settings_changed("sidebar-visible");
             notebook_settings_changed("context-visible");
             notebook_settings_changed("bottom-panel-visible");
-        
+        	
 			toolbar.toolreplace.hide ();
 			toolbar.toolgoto.hide ();
 			

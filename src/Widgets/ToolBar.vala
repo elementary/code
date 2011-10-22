@@ -116,7 +116,7 @@ namespace Scratch.Widgets {
             plugins.hook_main_menu(menu);
             app_menu = (window.get_application() as Granite.Application).create_appmenu(menu);
             plugins.hook_toolbar(this);
-
+			
             add (add_spacer ());
             add (toolentry);
             add (new SeparatorToolItem ());
@@ -230,7 +230,8 @@ namespace Scratch.Widgets {
 				break;
  			    
  			    case ToolButtons.SHARE_BUTTON:
- 				this.share_app_menu.set_sensitive(sensitive);
+ 				//this.share_app_menu.set_sensitive(sensitive);
+				controll_for_share_plugins ();
 				break;
 				
 				case ToolButtons.APP_MENU_BUTTON:
@@ -260,6 +261,14 @@ namespace Scratch.Widgets {
  			}
  		
  		
+ 		}
+ 		
+ 		public void controll_for_share_plugins () {
+ 			
+ 			if (share_menu.get_children ().length () == 0) 
+        		remove (share_app_menu);
+        	
+ 
  		}
  		
  		public void show_replace_entry () {
