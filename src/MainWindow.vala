@@ -418,6 +418,8 @@ namespace Scratch {
          
         //signals functions
         public void on_destroy () {
+			//List<ScratchNotebook> list = split_view.get_children ();
+			
 			foreach(var doc in scratch_app.documents) {						
 				if(doc.modified) {
 					var save_dialog = new SaveOnCloseDialog(doc.name, this);

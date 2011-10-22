@@ -79,6 +79,7 @@ namespace Scratch.Widgets {
             set_tab_detachable(new_tab, true);
             
             set_tab ();
+            window.set_undo_redo ();
             
             return index; 
         }
