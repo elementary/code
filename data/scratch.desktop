@@ -12,10 +12,15 @@ MimeType=text/plain;
 StartupNotify=true
 MimeType=text/plain;
 
-
-X-Ayatana-Desktop-Shortcuts=NewDocument;
+X-Ayatana-Desktop-Shortcuts=NewWindow;NewDocument
 
 [NewDocument Shortcut Group]
 Name=Create a new document
 Exec=scratch --new-tab
 TargetEnvironment=Unity
+
+[NewWindow Shortcut Group]
+Name=Create a new window
+Exec=scratch -n
+TargetEnvironment=Unity
+

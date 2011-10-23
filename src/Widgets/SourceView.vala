@@ -152,6 +152,7 @@ namespace Scratch.Widgets {
             if (doc.can_write () && isnew != "*") {
                 tb = window.current_tab;
                 tb.label.label.set_text ("* " + filename);
+                tb.label.label.override_color (StateFlags.FOCUSED, {1.0, 0.0, 0.0, 1.0});
                 window.toolbar.set_button_sensitive (window.toolbar.ToolButtons.SAVE_BUTTON, true);
             }
 
