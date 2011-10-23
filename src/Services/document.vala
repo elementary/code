@@ -98,6 +98,7 @@ namespace Scratch.Services {
          * this document
          **/
         public bool modified { get { return tab.text_view.modified; } }
+        public SourceView source_view { get { return tab.text_view; } }
 
         public Document (string filename, MainWindow? window) {
 

@@ -114,7 +114,7 @@ namespace Scratch {
         
         }
         
-        public void open_file(string filename)
+        public Document open_file(string filename)
         {	
         	/* First, let's check it is not already opened */
         	foreach(var doc in documents)
@@ -122,7 +122,7 @@ namespace Scratch {
         		if(doc.filename == filename) {
         			/* Already opened, then, we will just focus it */
         			doc.focus_sourceview();
-        			return;
+        			return doc;
         		}
         	}
             var document = new Document(filename, window);
@@ -132,6 +132,7 @@ namespace Scratch {
             window.current_notebook.set_tab ();
             window.infobar.hide ();
             window.set_window_title (filename);
+            return document;
 
         }
 
