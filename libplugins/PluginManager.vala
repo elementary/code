@@ -36,7 +36,6 @@ public class Scratch.Plugins.BaseManager : GLib.Object
         this.plugin_dir = plugin_dir;
         this.extra_dir = extra_dir;
         plugin_hash = new Gee.HashMap<string,Base>();
-        load_plugins();
     }
     
     public void load_plugins()
@@ -216,6 +215,8 @@ public class Scratch.Plugins.Manager : Scratch.Plugins.BaseManager
     public signal void hook_set_arg (string set_name, string? set_arg);
     public signal void hook_notebook_bottom (Gtk.Notebook notebook);
     public signal void hook_source_view(Gtk.TextView view);
+    public signal void hook_new_window(Gtk.Window window);
+    public signal void hook_preferences_dialog(Gtk.Dialog dialog);
 
     public Manager(Settings s, string f, string d, string? e = null)
     {

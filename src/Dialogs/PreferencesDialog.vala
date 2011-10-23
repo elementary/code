@@ -28,7 +28,7 @@ namespace Scratch.Dialogs {
 
         private MainWindow window;
 		
-		private StaticNotebook staticn;
+		public StaticNotebook main_static_notebook;
 		
         private VBox content;
         private HBox padding;
@@ -54,13 +54,15 @@ namespace Scratch.Dialogs {
             this.set_modal (true);
             this.set_transient_for (window);
             
-            staticn = new StaticNotebook ();
+            main_static_notebook = new StaticNotebook ();
             
             set_default_size (400, 300);
             
             create_layout ();
 
             response.connect (on_response);
+            
+            Scratch.plugins.hook_preferences_dialog(this);
 
         }
 
@@ -143,7 +145,7 @@ namespace Scratch.Dialogs {
 			
 		    //create static notebook
 			var general = new Label (_("General"));
-			staticn.append_page (padding, general);
+			main_static_notebook.append_page (padding, general);
 			
 			//create static notebook
 			var plugins_label = new Label ("Plugins");
@@ -198,9 +200,9 @@ namespace Scratch.Dialogs {
             var pbox = new HBox (false, 0);
             pbox.pack_start (view, true, true, 5);
             
-			if(count > 0) staticn.append_page (pbox, plugins_label);
+			if(count > 0) main_static_notebook.append_page (pbox, plugins_label);
 			
-            ((Gtk.Box)get_content_area()).add (staticn);
+            ((Gtk.Box)get_content_area()).add (main_static_notebook);
 
             //show_all();
             //run ();
