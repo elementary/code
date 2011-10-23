@@ -56,7 +56,7 @@ namespace Scratch {
         public Gtk.ActionGroup main_actions;
         Gtk.UIManager ui;
     
-        public const string TITLE = "Scratch";
+        public string TITLE = "Scratch";
 
         public SplitView split_view;
         public Widgets.Toolbar toolbar;

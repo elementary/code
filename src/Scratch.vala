@@ -98,6 +98,7 @@ namespace Scratch {
 
             if (get_windows () == null) {
                 window = new MainWindow (this);
+                plugins.hook_new_window (window);
                 window.show_all ();
             }
 
@@ -141,6 +142,7 @@ namespace Scratch {
             if (get_windows () == null) {
                 window = new MainWindow (this);
                 window.show ();
+                plugins.hook_new_window (window);
             } else {
                 window.present ();
             }
