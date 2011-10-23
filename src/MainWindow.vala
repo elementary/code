@@ -588,11 +588,11 @@ namespace Scratch {
 		
         public void set_window_title (string filename) {
 
-            this.title = this.TITLE + " - " + Path.get_basename (filename);
+            this.title = /*this.TITLE + " - " + */Path.get_basename (filename);
             var home_dir = Environment.get_home_dir ();
             // Sorry for this mess...
             var path = Path.get_dirname (filename).replace (home_dir, "~");
-            this.title += " (" + path + ")";
+            this.title += " (" + path + ") - Scratch";
         
         }
 #if VALA_0_14
