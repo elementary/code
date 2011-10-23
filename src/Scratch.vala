@@ -35,9 +35,10 @@ namespace Scratch {
 
     public class ScratchApp : Granite.Application {
     	
-        public MainWindow window = null;
+        MainWindow window = null;
         static string app_cmd_name;
         static string app_set_arg;
+        static bool new_instance;
         public Gee.ArrayList<Document> documents = new Gee.ArrayList<Document>();
 
         construct {
@@ -69,15 +70,17 @@ namespace Scratch {
 						 };
 		    about_translators = "Launchpad Translators";
 		    about_license_type = License.GPL_3_0;
-
 		}
 
         public ScratchApp () {
 			
 			Logger.initialize ("Scratch");
 			Logger.DisplayLevel = LogLevel.DEBUG;
-            
-            set_flags (ApplicationFlags.HANDLES_OPEN);
+        
+            ApplicationFlags flags = ApplicationFlags.HANDLES_OPEN;
+            if(new_instance)
+                flags |= ApplicationFlags.NON_UNIQUE;
+            set_flags (flags);
 
             saved_state = new SavedState ();
             settings = new Settings ();
@@ -146,6 +149,7 @@ namespace Scratch {
 		static const OptionEntry[] entries = {
 			{ "set", 's', 0, OptionArg.STRING, ref app_cmd_name, "Set of plugins", "" },
 			{ "set-arg", 'a', 0, OptionArg.STRING, ref app_set_arg, "Argument for the set of plugins", "" },
+			{ "new-instance", 'n', 0, OptionArg.NONE, ref new_instance, "Create a new instance", "" },
 			{ null }
 		};
 		public static int main (string[] args) {
