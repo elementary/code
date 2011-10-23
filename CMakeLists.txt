@@ -39,35 +39,37 @@ find_package (Vala REQUIRED)
 include (ValaVersion)
 ensure_vala_version ("0.12.0" MINIMUM)
 include (ValaPrecompile)
-vala_precompile (VALA_C
-	src/MainWindow.vala
-    src/Scratch.vala
-    src/Settings.vala
-    src/Widgets/Menu.vala
-    src/Widgets/ShareMenu.vala
-    src/Widgets/Notebook.vala
-    src/Widgets/Tab.vala
-    src/Widgets/TabLabel.vala
-    src/Widgets/SplitView.vala
-    src/Widgets/ToolBar.vala
-    src/Widgets/SourceView.vala
-    src/Widgets/InfoBar.vala
-    src/Dialogs/PreferencesDialog.vala
-    src/Dialogs/SaveDialog.vala
-    src/Dialogs/SaveOnCloseDialog.vala
-    src/Services/document.vala
-    src/config.vala
+vala_precompile(VALA_C
+src/MainWindow.vala
+src/Scratch.vala
+src/Settings.vala
+src/Widgets/Menu.vala
+src/Widgets/ShareMenu.vala
+src/Widgets/Notebook.vala
+src/Widgets/Tab.vala
+src/Widgets/TabLabel.vala
+src/Widgets/SplitView.vala
+src/Widgets/ToolBar.vala
+src/Widgets/SourceView.vala
+src/Widgets/InfoBar.vala
+src/Dialogs/PreferencesDialog.vala
+src/Dialogs/SaveDialog.vala
+src/Dialogs/SaveOnCloseDialog.vala
+src/Services/document.vala
+src/config.vala
+src/SearchManager.vala
 PACKAGES
-	${SCRATCH_DEPS} scratchplugins
+	${SCRATCH_DEPS}
+scratchplugins
 CUSTOM_VAPIS
-    vapi/gtksourceview-3.0.vapi
+vapi/gtksourceview-3.0.vapi
 OPTIONS
-    --vapidir=${CMAKE_BINARY_DIR}/libplugins
-    --thread
+--vapidir=${CMAKE_BINARY_DIR}/libplugins
+--thread
 GENERATE_VAPI
-    scratch
+scratch
 GENERATE_HEADER
-    scratch
+scratch
 )
 # tranlation stuff
 

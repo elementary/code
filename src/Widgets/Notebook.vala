@@ -27,6 +27,7 @@ namespace Scratch.Widgets {
     
 	public class ScratchNotebook : Notebook {
 		
+		public signal void page_focused (Gtk.Widget w);
 		public MainWindow window; //used in dialog		
 		//public ScratchWelcome welcome_screen;
 
@@ -56,9 +57,15 @@ namespace Scratch.Widgets {
              * we want to hide the tabs and the welcome screen.
              */
             if(w is Tab) {
-                //welcome_screen.hide ();
+                (w as Tab).text_view.focus_in_event.connect (on_page_focused);
+                page_focused ((w as Tab).text_view);
                 set_show_tabs(true);
             }
+        }
+        
+        bool on_page_focused (Gtk.Widget w, Gdk.EventFocus event) {
+            page_focused (w);
+            return false;
         }
 	    
 	    void on_page_removed(Gtk.Widget w, uint page_num)

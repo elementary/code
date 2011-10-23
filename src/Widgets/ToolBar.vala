@@ -39,17 +39,12 @@ namespace Scratch.Widgets {
         public string selected_language {
         	get { return combobox.get_active_id(); }
         }
-        
-        public SearchBar entry;
-        public ToolItem toolentry;
-        public SearchBar replace;
-        public ToolItem toolreplace;
-        public SearchBar go_to;
-        public ToolItem toolgoto;
+
         public ShareMenu share_menu;
         public MenuProperties menu;
         public ShareAppMenu share_app_menu;
         public AppMenu app_menu;
+        public Scratch.SearchManager search_manager;
 		
 		public bool replace_active = false;
 		public bool goto_active = false;
@@ -73,6 +68,7 @@ namespace Scratch.Widgets {
         public Toolbar (MainWindow parent, UIManager ui, Gtk.ActionGroup action_group) {
 
             this.window = parent;
+            search_manager = new Scratch.SearchManager (action_group);
 
             // Toolbar properties
             // compliant with elementary HIG
@@ -96,18 +92,6 @@ namespace Scratch.Widgets {
 
             add (new SeparatorToolItem ());
             add (toolitem (combobox, false));
-
-            entry = new SearchBar (_("Search in the text..."));
-            entry.width_request = 250;
-			toolentry = toolitem (entry, false);
-			
-			replace = new SearchBar (_("Replace..."));
-			replace.width_request = 250;
-			toolreplace = toolitem (replace, false);
-			
-			go_to = new SearchBar (_("Insert line number..."));
-			go_to.width_request = 250;
-			toolgoto = toolitem (go_to, false);
 						
             share_menu = new ShareMenu (this.window);
             share_app_menu = new ShareAppMenu (share_menu);
@@ -118,10 +102,10 @@ namespace Scratch.Widgets {
             plugins.hook_toolbar(this);
 			
             add (add_spacer ());
-            add (toolentry);
+            add (search_manager.get_search_entry ());
             add (new SeparatorToolItem ());
-            add (toolreplace);
-            add (toolgoto);
+            add (search_manager.get_replace_entry ());
+            add (search_manager.get_go_to_entry ());
             add (share_app_menu);
             add (app_menu);
             
@@ -154,12 +138,8 @@ namespace Scratch.Widgets {
         }
         
         public void set_actions (bool val) {
-            set_entry_sensitive (ToolButtons.SAVE_BUTTON, val);
             combobox.set_sensitive (val);
             combo_container.set_sensitive (val);
-            toolentry.set_sensitive (val);
-            toolreplace.set_sensitive (val);
-            toolgoto.set_sensitive (val);
             share_app_menu.set_sensitive(val);
         }
         
@@ -243,26 +223,6 @@ namespace Scratch.Widgets {
  		
  		}
  		
- 		public void set_entry_sensitive(int entry, bool sensitive) {
- 		
- 			switch (entry) {
- 				case ToolEntry.SEARCH_ENTRY:
- 				this.toolentry.set_sensitive(sensitive);
- 				break;
- 				 					
-				case ToolEntry.REPLACE_ENTRY:
- 				this.toolreplace.set_sensitive(sensitive);
-				break;
-				
-				case ToolEntry.GOTO_ENTRY:
- 				this.toolgoto.set_sensitive(sensitive);
-				break;
- 			    
- 			}
- 		
- 		
- 		}
- 		
  		public void controll_for_share_plugins () {
  			
  			if (share_menu.get_children ().length () == 0) 
@@ -270,48 +230,5 @@ namespace Scratch.Widgets {
         	
  
  		}
- 		
- 		public void show_replace_entry () {
-						
-						
-			if (!replace_active) {
-				if (goto_active) {
-					toolgoto.visible = false;
-					goto_active = false;
-					toolreplace.visible = true;
-				}
-				else {
-					toolreplace.visible = true;
-				}
-				replace_active = true;
-			}
-			else {
-				toolreplace.hide ();
-				replace_active = false;
-			}
-			
-		}
-		
-		public void show_go_to_entry () {
-						
-						
-			if (!goto_active) {
-				if (replace_active) {
-					toolreplace.hide ();
-					replace_active = false;
-					toolgoto.show ();
-				}
-				else {
-					toolgoto.show ();
-				}
-				goto_active = true;
-			}
-			else {
-				toolgoto.hide ();
-				goto_active = false;
-			}
-		}
-        
-     
 }
 } // Namespace  

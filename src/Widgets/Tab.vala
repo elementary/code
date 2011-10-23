@@ -86,7 +86,7 @@ namespace Scratch.Widgets {
 					window.set_combobox_language (filename);
 			}
 			window.set_undo_redo ();
-			return true;
+			return false;
 			
 		}
 		

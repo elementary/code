@@ -43,6 +43,8 @@ namespace Scratch.Widgets {
 
 		public bool is_empty { get; set; default = true; }
 		
+		public signal void page_changed (Gtk.Widget w);
+		
 		public SplitView (MainWindow window) {
 			
 			homogeneous = false;
@@ -65,9 +67,13 @@ namespace Scratch.Widgets {
 			else 
 				window.toolbar.menu.remove_view.set_sensitive (false);
 			
-			view.focus_in_event.connect(on_notebook_focus);
 			view.page_added.connect (recompute_empty);
 			view.page_removed.connect (recompute_empty);
+			view.page_focused.connect (on_page_focused);
+		}
+		
+		void on_page_focused (Gtk.Widget w) {
+		    page_changed (w);
 		}
 		
 		bool is_empty_or_without_tabs () {
@@ -90,12 +96,6 @@ namespace Scratch.Widgets {
 			is_empty = is_empty_or_without_tabs ();
 		}
 		
-		bool on_notebook_focus(Gtk.Widget notebook, Gdk.EventFocus event) {
-			focused_widget = notebook;
-			window.current_notebook = notebook as ScratchNotebook;
-			return false;
-		}
-		
 		public bool remove_current_view () {
 			if (focused_widget == null)
 				return false;
@@ -105,27 +105,7 @@ namespace Scratch.Widgets {
 				show_save_dialog (notebook);
 				focused_widget = null;
 			}
-			return true;
-		/*
-			bool r = false;
-			for (int i=0; i!=window.current_notebook.get_n_pages(); i++) {
-				window.current_notebook.set_current_page (i);
-				var tab = (Tab) window.current_notebook.get_nth_page (i);
-				string isnew = tab.label.label.get_text () [0:1];
-				
-				if (isnew == "*")
-					tab.on_close_clicked ();
-				else
-					r = true;
-			}
-			remove (window.current_notebook);
-			
-			set_menu_item_sensitive ();
-									
-			if (get_children().length() >= 2)
-				return true;
-			else 
-				return false;	*/					
+			return true;				
 		}
 		
 		public void show_save_dialog (ScratchNotebook notebook) {
@@ -145,6 +125,7 @@ namespace Scratch.Widgets {
 		}
 		
 		public unowned ScratchNotebook get_current_notebook () {
+		    focused_widget = get_focus_child ();
 			if(focused_widget != null && focused_widget.get_parent() != this) {
 				focused_widget = null;
 			}

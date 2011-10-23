@@ -104,8 +104,6 @@ namespace Scratch {
                 	open_file(files[i].get_path());
                 }
             }
-			window.toolbar.toolreplace.hide ();
-			window.toolbar.toolgoto.hide ();
 			window.infobar.hide ();
 			
 			window.present ();
@@ -128,8 +126,6 @@ namespace Scratch {
             documents.add(document);
             document.closed.connect( (doc) => { documents.remove(doc); });
             window.current_notebook.set_tab ();
-            window.toolbar.toolreplace.hide ();
-            window.toolbar.toolgoto.hide ();
             window.infobar.hide ();
             window.set_window_title (filename);
 

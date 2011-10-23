@@ -2,7 +2,7 @@
 /***
   BEGIN LICENSE
     
-  Copyright (C) 2011 Mario Guerriero <mefrio.g@gmail.com>    
+  Copyright (C) 2011 Mario Guerriero <mefrio.g@gmail.com>
   This program is free software: you can redistribute it and/or modify it    
   under the terms of the GNU Lesser General Public License version 3, as published    
   by the Free Software Foundation.
@@ -57,7 +57,6 @@ namespace Scratch {
         Gtk.UIManager ui;
     
         public const string TITLE = "Scratch";
-        string search_string = "";
 
         public SplitView split_view;
         public Widgets.Toolbar toolbar;
@@ -87,8 +86,6 @@ namespace Scratch {
         
         //objects for the set_theme ()
         FontDescription font;
-        Gdk.Color bgcolor;
-        Gdk.Color fgcolor;
         Scratch.ScratchApp scratch_app;
         
         ScratchWelcome welcome_screen;
@@ -123,10 +120,6 @@ namespace Scratch {
             
             set_theme ();
                         
-        }
-        
-        void action_fetch () {
-            toolbar.entry.grab_focus();
         }
 
 		/**
@@ -167,11 +160,16 @@ namespace Scratch {
             else if (key == "bottom-panel-visible") {
         		notebook = notebook_bottom;
             }
+            /* So, now we know which notebook we are talking about. */
             if(notebook != null)
             {
+                /* We can hide it by default */
 		        notebook.hide ();
+		        /* Stop here if it must be hidden */
 		        if(!key_value)
 		        	return;
+		        /* Now, let's check there is at least one visible
+		         * children notebook in it, and show it if it is the case */
 		        foreach(var w in notebook.get_children ())
 		        {
 		        	if(w.visible)
@@ -181,6 +179,13 @@ namespace Scratch {
 		        	}
 		        }
             }
+        }
+        
+        void on_split_view_page_changed (Gtk.Widget w) {
+            if(w is Scratch.Widgets.SourceView)
+                toolbar.search_manager.set_text_view ((Scratch.Widgets.SourceView) w);
+            else
+                warning("The focused widget is not a valid TextView");
         }
         
         public void create_window () {
@@ -198,6 +203,7 @@ namespace Scratch {
             hpaned_addons.pack1(hpaned_sidebar, true, true);
             
             split_view = new SplitView (this);
+            split_view.page_changed.connect (on_split_view_page_changed);
             welcome_screen = new ScratchWelcome(this);
             split_view.notify["is-empty"].connect (on_split_view_empty_changed);
             hpaned_sidebar.pack1(notebook_sidebar, false, false);
@@ -241,9 +247,6 @@ namespace Scratch {
             notebook_settings_changed("sidebar-visible");
             notebook_settings_changed("context-visible");
             notebook_settings_changed("bottom-panel-visible");
-        	
-			toolbar.toolreplace.hide ();
-			toolbar.toolgoto.hide ();
 			
 			infobar.hide ();
         }
@@ -253,6 +256,8 @@ namespace Scratch {
         	main_actions.get_action ("Undo").set_sensitive (val);
         	main_actions.get_action ("Redo").set_sensitive (val);
         	main_actions.get_action ("Fetch").set_sensitive (val);
+        	main_actions.get_action ("ShowReplace").set_sensitive (val);
+        	main_actions.get_action ("ShowGoTo").set_sensitive (val);
         	toolbar.set_actions (val);
         }
         
@@ -268,9 +273,6 @@ namespace Scratch {
             	toolbar.set_button_sensitive (toolbar.ToolButtons.UNDO_BUTTON, false);
             	toolbar.set_button_sensitive (toolbar.ToolButtons.REPEAT_BUTTON, false);
             	toolbar.set_button_sensitive (toolbar.ToolButtons.SHARE_BUTTON, false);
-            	toolbar.set_entry_sensitive (toolbar.ToolEntry.SEARCH_ENTRY, false);
-            	toolbar.set_entry_sensitive (toolbar.ToolEntry.REPLACE_ENTRY, false);
-            	toolbar.set_entry_sensitive (toolbar.ToolEntry.GOTO_ENTRY, false);
             	toolbar.combobox.set_sensitive (false);
         	}
         	else {
@@ -292,8 +294,6 @@ namespace Scratch {
                 // Get the system's style
                 realize();
                 font = FontDescription.from_string(system_font());
-                bgcolor = get_style().bg[StateType.NORMAL];
-                fgcolor = get_style().fg[StateType.NORMAL];
             }
             else
             {
@@ -302,8 +302,6 @@ namespace Scratch {
                 // Get the system's style
                 realize();
                 font = FontDescription.from_string(system_font());
-                bgcolor = get_style().bg[StateType.NORMAL];
-                fgcolor = get_style().fg[StateType.NORMAL];
             }
         }
         
@@ -324,97 +322,7 @@ namespace Scratch {
 
             //signals for the toolbar
             toolbar.combobox.changed.connect (on_combobox_changed);
-            toolbar.entry.focus_out_event.connect ( () => { start = end = null; return false; });
-            toolbar.entry.changed.connect (on_changed_text);
-            toolbar.entry.key_press_event.connect (on_search_key_press);
-            toolbar.replace.activate.connect (on_replace_activate);
-            toolbar.go_to.activate.connect (on_goto_activate);
-
         }
-        
-        bool on_search_key_press (Gdk.EventKey event) {
-            string key = Gdk.keyval_name(event.keyval);
-            switch(key)
-            {
-            case "Up":
-                case_up ();
-                return true;
-			case "Return":
-            case "Down":
-				case_down ();
-				return true;
-            }
-            return false;
-        }
-		
-		/* FIXME: case_up and case_down should be moved to SourceView */
-		public void case_up () {
-
-            if (end == null || start == null) {
-                TextIter start_buffer;
-                current_tab.text_view.buffer.get_iter_at_offset(out start_buffer, current_tab.text_view.buffer.cursor_position);
-                end = start_buffer;
-                start = start_buffer;
-            }
-            TextIter local_end = end;
-            TextIter local_start = start;
-            bool found = start.backward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out local_start, out local_end, null);
-            if (found) {
-                end = local_end;
-                start = local_start;
-                current_tab.text_view.buffer.select_range (start, end);
-                current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
-            }
-		}
-		
-		public void case_down () {
-
-            if (end == null || start == null) {
-                TextIter start_buffer;
-                current_tab.text_view.buffer.get_iter_at_offset(out start_buffer, current_tab.text_view.buffer.cursor_position);
-                end = start_buffer;
-                start = start_buffer;
-            }
-            TextIter local_end = end;
-            TextIter local_start = start;
-            bool found = end.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out local_start, out local_end, null);
-            if (found) {
-                end = local_end;
-                start = local_start;
-                current_tab.text_view.buffer.select_range (start, end);
-                current_tab.text_view.buffer.move_mark_by_name ("selection", local_end);
-                current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
-            }
-		}
-		
-		public void on_replace_activate () {
-			TextIter s, e;
-			if (current_tab.text_view.buffer.get_selection_bounds(out s, out e)) {
-			var buf = current_tab.text_view.buffer;
-			string replace_string = toolbar.replace.get_text ();
-			buf.delete_selection (true, true);
-			buf.insert_at_cursor (replace_string, replace_string.length);
-			//simil to case_down() ...
-            TextIter start_buffer;
-            current_tab.text_view.buffer.get_iter_at_offset(out start_buffer, current_tab.text_view.buffer.cursor_position);
-            end = start_buffer;
-            start = start_buffer;
-
-            TextIter local_end = end;
-            TextIter local_start = start;
-            bool found = end.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out local_start, out local_end, null);
-            if (found) {
-                end = local_end;
-                start = local_start;
-                current_tab.text_view.buffer.select_range (start, end);
-                current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
-            }
-			}
-		}		
-         
-        public void on_goto_activate () {
-			current_tab.text_view.go_to_line (int.parse (toolbar.go_to.get_text ()));
-		}
          
         //signals functions
         public void on_destroy () {
@@ -436,14 +344,6 @@ namespace Scratch {
         void action_quit () {
 			on_destroy ();
 			Gtk.main_quit ();
-        }
-
-        void action_show_replace () {
-			toolbar.show_replace_entry ();
-        }
-        
-        void action_show_go_to () {
-            toolbar.show_go_to_entry ();
         }
         
         public void on_new_clicked () {	
@@ -499,43 +399,6 @@ namespace Scratch {
             if(current_tab != null) return current_tab.text_view.buffer;
             return null;
         }
-
-        TextIter? end;
-        TextIter? start;
-    
-        public void on_changed_text () {
-            if (current_tab.text_view.buffer.text != "") {
-                search_string = toolbar.entry.get_text();
-                var buffer = get_active_buffer ();
-                TextIter iter;
-                
-                buffer.get_iter_at_offset(out start, buffer.cursor_position);
-                end = start;
-
-                iter = start;
-                
-                var found = iter.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
-                if (found) {
-                    current_tab.text_view.buffer.select_range (start, end);
-                    current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
-                }
-                else {
-                    buffer.get_start_iter (out iter);
-                    found = iter.forward_search (search_string, TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
-                    if (found) {
-                        current_tab.text_view.buffer.select_range (start, end);
-                        current_tab.text_view.scroll_to_iter (start, 0, false, 0, 0);
-                    }
-                    else {
-                        iter.forward_search ("", TextSearchFlags.CASE_INSENSITIVE, out start, out end, null);
-                        current_tab.text_view.buffer.select_range (start, end);
-                        start = end = null;
-                        infobar.set_info ("\"" + search_string + "\" couldn't be found");
-                    }
-                
-               }
-		    }
-		}
 				
         public bool on_scroll_event (EventScroll event) {
             
@@ -702,6 +565,14 @@ namespace Scratch {
                             
         }
         
+        void case_up () {
+            toolbar.search_manager.search_previous ();
+        }
+        
+        void case_down () {
+            toolbar.search_manager.search_next ();
+        }
+        
         void action_undo () {
 			current_tab.text_view.undo ();
 			set_undo_redo ();
@@ -719,11 +590,11 @@ namespace Scratch {
            { "Fetch", Gtk.Stock.SAVE,
           /* label, accelerator */       N_("Fetch"), "<Control>f",
           /* tooltip */                  N_("Fetch"),
-                                         action_fetch },
+                                         null },
            { "ShowGoTo", Gtk.Stock.OK,
           /* label, accelerator */       N_("Go to line..."), "<Control>i",
           /* tooltip */                  N_("Go to line..."),
-                                         action_show_go_to },
+                                         null },
            { "Quit", Gtk.Stock.QUIT,
           /* label, accelerator */       N_("Quit"), "<Control>q",
           /* tooltip */                  N_("Quit"),
@@ -735,7 +606,7 @@ namespace Scratch {
            { "ShowReplace", Gtk.Stock.OK,
           /* label, accelerator */       N_("Replace"), "<Control>r",
           /* tooltip */                  N_("Replace"),
-                                         action_show_replace },
+                                         null },
            { "New tab", Gtk.Stock.NEW,
           /* label, accelerator */       N_("New tab"), "<Control>t",
           /* tooltip */                  N_("Open a new tab"),
