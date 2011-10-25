@@ -263,7 +263,7 @@ namespace Scratch.Dialogs {
         private void populate_style_scheme () {
 
             string[] scheme_ids;
-            var scheme_manager = new GtkSource.StyleSchemeManager ();
+            var scheme_manager = new Gtk.SourceStyleSchemeManager ();
             scheme_ids = scheme_manager.get_scheme_ids ();
 
             foreach (string scheme_id in scheme_ids) {

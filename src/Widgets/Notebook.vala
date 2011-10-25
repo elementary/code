@@ -115,7 +115,7 @@ namespace Scratch.Widgets {
 				window.set_window_title ("Scratch");
 				//tab.text_view.set_file (tab.filename, tab.text_view.buffer.text);
 			
-			GtkSource.Language lang;
+			Gtk.SourceLanguage lang;
             lang = tab.text_view.manager.get_language ( window.toolbar.combobox.get_active_id () );
             tab.text_view.buffer.set_language (lang);
   

@@ -19,19 +19,18 @@
 ***/
 
 using Gtk;
-using GtkSource;
 
 
 namespace Scratch.Widgets {
 
-    public class SourceView : View {
+    public class SourceView : Gtk.SourceView {
 
         private MainWindow window;
         
-        public new GtkSource.Buffer buffer;
+        public new Gtk.SourceBuffer buffer;
         public Gtk.TextMark mark;
-        public LanguageManager manager;
-        public StyleSchemeManager style_scheme_manager;
+        public SourceLanguageManager manager;
+        public SourceStyleSchemeManager style_scheme_manager;
         
         public string current_font;
         
@@ -42,10 +41,10 @@ namespace Scratch.Widgets {
         	Gtk.drag_dest_add_uri_targets (this);
             this.window = window;
             
-            manager = new LanguageManager ();
-            style_scheme_manager = new StyleSchemeManager ();
+            manager = new SourceLanguageManager ();
+            style_scheme_manager = new SourceStyleSchemeManager ();
             
-            buffer = new Buffer (null);
+            buffer = new SourceBuffer (null);
             set_buffer (buffer);
             buffer.changed.connect (on_buffer_changed);
             
@@ -100,7 +99,7 @@ namespace Scratch.Widgets {
         
         public void change_syntax_highlight_for_filename (string filename)
         {
-			Language lang;
+			SourceLanguage lang;
 			string display_name = Filename.display_basename(filename);
 			string extension = display_name.split(".")[display_name.split(".").length - 1];
 

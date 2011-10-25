@@ -18,7 +18,6 @@
   END LICENSE	
 ***/
 
-using GtkSource;
 using Scratch.Widgets;
 
 namespace Scratch.Services {
@@ -59,9 +58,9 @@ namespace Scratch.Services {
             }
         }
 
-        public Language language {
+        public Gtk.SourceLanguage language {
             get {
-                var manager = new LanguageManager ();
+                var manager = new Gtk.SourceLanguageManager ();
                 return manager.guess_language (filename, null);
             }
         }
@@ -88,7 +87,7 @@ namespace Scratch.Services {
         
         // Private variables
         private string original_text;
-        private Buffer buffer;
+        private Gtk.SourceBuffer buffer;
         private MainWindow window;
         private File file;
         private static string home_dir = Environment.get_home_dir ();

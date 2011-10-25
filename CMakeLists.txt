@@ -22,7 +22,7 @@ configure_file (${CMAKE_SOURCE_DIR}/src/scratch.pc.cmake ${CMAKE_BINARY_DIR}/src
 install (FILES ${CMAKE_BINARY_DIR}/src/scratch.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig/)
 # Scratch
 
-set (SCRATCH_DEPS "gee-1.0;gobject-2.0;glib-2.0;gio-2.0;gconf-2.0;gtk+-3.0;granite;")
+set (SCRATCH_DEPS "gtksourceview-3.0;gee-1.0;gobject-2.0;glib-2.0;gio-2.0;gconf-2.0;gtk+-3.0;granite;")
 find_package (PkgConfig)
 pkg_check_modules (GLIB REQUIRED "glib-2.0 >= 2.26.0")
 pkg_check_modules (GOBJECT REQUIRED "gobject-2.0 >= 2.26.0")
@@ -61,8 +61,6 @@ src/SearchManager.vala
 PACKAGES
 	${SCRATCH_DEPS}
 scratchplugins
-CUSTOM_VAPIS
-vapi/gtksourceview-3.0.vapi
 OPTIONS
 --vapidir=${CMAKE_BINARY_DIR}/libplugins
 --thread

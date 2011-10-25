@@ -384,7 +384,7 @@ namespace Scratch {
         }
         
         public void on_combobox_changed () {
-            GtkSource.Language lang;
+            Gtk.SourceLanguage lang;
             lang = current_tab.text_view.manager.get_language ( toolbar.combobox.get_active_id () );
             current_tab.text_view.buffer.set_language (lang);
             //current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language (toolbar.combobox.get_active_id () ) );//current_tab.text_view.manager.get_language("c-sharp") );
@@ -507,7 +507,7 @@ namespace Scratch {
 			bool undo = false;
 			bool redo = false;
             if(current_tab != null) {
-		        GtkSource.Buffer buf;
+		        Gtk.SourceBuffer buf;
 		        
 				buf = current_tab.text_view.buffer;
 				undo = buf.can_undo;
@@ -525,8 +525,8 @@ namespace Scratch {
         
         public void set_combobox_language (string filename) {
         
-            GtkSource.Language lang;
-            lang = GtkSource.LanguageManager.get_default ().guess_language (filename, null);
+            Gtk.SourceLanguage lang;
+            lang = Gtk.SourceLanguageManager.get_default ().guess_language (filename, null);
             if (lang != null) {
 		        var id = lang.get_id();
 		        if (id != null) {
