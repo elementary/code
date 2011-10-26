@@ -67,6 +67,15 @@ namespace Scratch.Widgets {
             tab.text_view.notify["modified"].connect(on_modified_changed);
             
             this.show_all ();
+            button_press_event.connect(on_main_click);
+        }
+        
+        bool on_main_click(Gdk.EventButton event) {
+            if(event.button == 2) {
+                tab.on_close_clicked();
+                return true;
+            }
+            return false;
         }
         
         void on_modified_changed()
