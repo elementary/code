@@ -178,7 +178,6 @@ namespace Scratch.Services {
 				window.infobar.set_info (_("The file could not be opened"));
 				return false;
 			}
-            original_text = text = contents;
 		
 			try {
 				if(!contents.validate()) contents = convert (contents, -1, "UTF-8", "ISO-8859-1");
@@ -186,6 +185,7 @@ namespace Scratch.Services {
 			catch (Error e) {
 				warning ("Couldn't convert the content of the document to UTF-8 (I guessed it was in ISO-8859-1?)");
 			}
+            original_text = text = contents;
 
             if (buffer != null) {
                 buffer.begin_not_undoable_action ();
