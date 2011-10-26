@@ -34,6 +34,7 @@ namespace Scratch.Widgets {
         public CheckMenuItem sidebar_visible;
         public CheckMenuItem context_visible;
         public CheckMenuItem bottom_visible;
+        public MenuItem additional_separator;
         
         private Dialogs.Preferences dialog;
         
@@ -78,7 +79,10 @@ namespace Scratch.Widgets {
             append (sidebar_visible);
             append (context_visible);
             append (bottom_visible);
-            append (new SeparatorMenuItem ());
+            additional_separator = new SeparatorMenuItem ();
+            append (additional_separator);
+            additional_separator.no_show_all = true;
+            additional_separator.visible = false;
             append (preferences);
             
             dialog = new Dialogs.Preferences ("Preferences", this.window);
