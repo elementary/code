@@ -51,6 +51,8 @@ namespace Scratch {
         public bool sidebar_visible { get; set; }
         public bool context_visible { get; set; }
         public bool bottom_panel_visible { get; set; }
+        public bool search_loop { get; set; }
+        public bool search_sensitive { get; set; }
         public string[] plugins_enabled { get; set;}
 
         public Settings ()  {

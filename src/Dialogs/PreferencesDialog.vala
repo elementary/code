@@ -135,9 +135,19 @@ namespace Scratch.Dialogs {
             content.pack_start (wrap_alignment (spaces_instead_of_tabs, 0, 0, 0, 10), false, true, 0);
             content.pack_start (wrap_alignment (indent_width_box, 0, 0, 0, 10), false, true, 0);
             content.pack_start (wrap_alignment (style_scheme_box, 0, 0, 0, 10), false, true, 0);
+            
+            /* Search management */
+            var cycle_search = new Gtk.CheckButton.with_label(_("Search Loop"));
+            var case_sensitive = new Gtk.CheckButton.with_label(_("Case Sensitive Search"));
+            Scratch.settings.schema.bind("search-loop", cycle_search, "active", SettingsBindFlags.DEFAULT);
+            Scratch.settings.schema.bind("search-sensitive", case_sensitive, "active", SettingsBindFlags.DEFAULT);
+            content.pack_start(wrap_alignment (cycle_search, 0, 0, 0, 10));
+            content.pack_start(wrap_alignment (case_sensitive, 0, 0, 0, 10));
+
             content.pack_start (font_label, false, true, 0);
             content.pack_start (wrap_alignment (use_system_font, 0, 0, 0, 10), false, true, 0);
             content.pack_start (wrap_alignment (select_font_box, 0, 0, 0, 10), false, true, 0);
+            
             
             content.pack_end (bottom_buttons, false, true, 12);
 
@@ -151,6 +161,7 @@ namespace Scratch.Dialogs {
 			var plugins_label = new Label ("Plugins");
 			
 			
+			/* Plugin management, might be better in PluginManager */
             var view = new Gtk.TreeView(); 
             var listmodel = new Gtk.ListStore (2, typeof (string), typeof (bool));
             view.set_model (listmodel);

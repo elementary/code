@@ -68,6 +68,8 @@ namespace Scratch.Widgets {
 
             this.window = parent;
             search_manager = new Scratch.SearchManager (action_group);
+            Scratch.settings.schema.bind("search-sensitive", search_manager, "case-sensitive", SettingsBindFlags.DEFAULT);
+            Scratch.settings.schema.bind("search-loop", search_manager, "cycle-search", SettingsBindFlags.DEFAULT);
 
             // Toolbar properties
             // compliant with elementary HIG

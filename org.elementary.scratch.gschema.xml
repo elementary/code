@@ -32,16 +32,26 @@
 			<summary>sidebar</summary>
 			<description>sidebar</description>
 		</key>
+		<key name="search-loop" type="b">
+			<default>true</default>
+			<summary>Search Loop</summary>
+			<description>Is the search cyclic?</description>
+		</key>
+		<key name="search-sensitive" type="b">
+			<default>true</default>
+			<summary>Search sensitive</summary>
+			<description>Wether the search is case sensitive.</description>
+		</key>
 		<key name="bottom-panel-visible" type="b">
 			<default>true</default>
 			<summary>bottom panel</summary>
 			<description>bottom panel</description>
 		</key>
-    <key type="as" name="plugins-enabled">
-      <default>['FM']</default>
-      <summary>Enabled Plugins</summary>
-      <description>Enabled Plugins</description>
-    </key>
+        <key type="as" name="plugins-enabled">
+          <default>['FM']</default>
+          <summary>Enabled Plugins</summary>
+          <description>Enabled Plugins</description>
+        </key>
         <key name="show-line-numbers" type="b">
             <default>true</default>
             <summary>Display Line Numbers</summary>
