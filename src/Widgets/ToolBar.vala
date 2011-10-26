@@ -225,8 +225,10 @@ namespace Scratch.Widgets {
  		
  		public void controll_for_share_plugins () {
  			
- 			if (share_menu.get_children ().length () == 0) 
-        		remove (share_app_menu);
+ 			if (share_menu.get_children ().length () == 0) {
+        		share_app_menu.no_show_all = true;
+        		share_app_menu.hide();
+            }
         	
  
  		}
