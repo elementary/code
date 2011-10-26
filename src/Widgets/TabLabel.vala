@@ -73,9 +73,7 @@ namespace Scratch.Widgets {
         {
         	if (tab.text_view.modified) {
         	    label.use_markup = true;
-        	    label.set_markup ("<color=red>hellp</color>");
-        	    //label.set_markup("<p style='color:#FF0A0A'>* " + label_text + "</p>");
-        		//label.set_markup("<p style=\"color:#FF0000\">* " + label_text + "</p>");
+        	    label.set_markup ("<span font_style='italic'>%s</span>".printf(label_text));
         	}
         	else {
         		label.set_text(label_text);

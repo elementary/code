@@ -93,8 +93,6 @@ namespace Scratch.Widgets {
 		
 		public void set_tab () {
 		    
-		    debug ("%s", get_n_pages ().to_string ());
-		    
 		    if (get_n_pages () == 1)
 		        set_show_tabs (false);
 		    else

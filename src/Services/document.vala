@@ -145,6 +145,7 @@ namespace Scratch.Services {
 			window.current_notebook.set_current_page (tab_index);                        
 			tab = (Tab) window.current_notebook.get_nth_page (tab_index);
             tab.closed.connect( () => { close(); });
+            tab.document = this;
               
 			//set new values
 			tab.filename = filename;

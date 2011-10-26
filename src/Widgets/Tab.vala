@@ -34,6 +34,7 @@ namespace Scratch.Widgets {
         public string filename = null;
         public bool saved = true;
         public signal void closed ();
+        public Scratch.Services.Document document;
 
         
         public Tab (ScratchNotebook parent, string labeltext, MainWindow window) {

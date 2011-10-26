@@ -66,10 +66,6 @@ public class Scratch.Plugins.BaseManager : GLib.Object
         }
         catch(Error error)
         {
-            warning("Error listing contents of folder '%s': %s",
-                      dir.get_path (),
-                      error.message);
-
             return;
         }
 
@@ -79,10 +75,6 @@ public class Scratch.Plugins.BaseManager : GLib.Object
             string file_path = Path.build_filename (dir.get_path (), file_name);
 
             File file = File.new_for_path (file_path);
-            if(in_available)
-            {
-            	debug(file_name);
-            }
 
             if(file_name.has_suffix(".plug"))
             {
@@ -119,8 +111,6 @@ public class Scratch.Plugins.BaseManager : GLib.Object
         /* We don't want our modules to ever unload */
         module.make_resident ();
         Plugins.Base plug = module_init();
-
-        debug ("Loaded module source: '%s'", module.name());
 
         Base base_ = module_init();
         return base_;

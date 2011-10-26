@@ -33,7 +33,6 @@ namespace Scratch.Widgets {
         ToolButton save_button;
         ToolButton undo_button;
         ToolButton repeat_button;
-        public ToolItem combo_container;
         public ComboBoxText combobox;
         
         public string selected_language {
@@ -139,7 +138,6 @@ namespace Scratch.Widgets {
         
         public void set_actions (bool val) {
             combobox.set_sensitive (val);
-            combo_container.set_sensitive (val);
             share_app_menu.set_sensitive(val);
         }
         
