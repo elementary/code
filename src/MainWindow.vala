@@ -391,7 +391,7 @@ namespace Scratch {
             //current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language (toolbar.combobox.get_active_id () ) );//current_tab.text_view.manager.get_language("c-sharp") );
         }
         
-        public Gtk.TextView get_active_view() {
+        public Scratch.Widgets.SourceView get_active_view() {
             return current_tab.text_view;
         }
     
