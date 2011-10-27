@@ -52,8 +52,17 @@ namespace Scratch.Widgets {
 			
 			this.window = window;
 			
+			set_focus_child.connect (on_set_focus_child);
+			
 		}
 		
+		public void on_set_focus_child (Widget child) {
+		    
+		    window.current_notebook = child as ScratchNotebook;
+		    
+		}
+		
+				
 		public void add_view (ScratchNotebook view) {
 			pack_start (view);
 						
