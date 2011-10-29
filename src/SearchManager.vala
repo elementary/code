@@ -56,9 +56,9 @@ public class Scratch.SearchManager : GLib.Object {
      * following actions : Fetch, ShowGoTo, ShowRreplace.
      **/
     public SearchManager (Gtk.ActionGroup main_actions) {
-        search_entry = new Granite.Widgets.SearchBar ("Search...");
-        replace_entry = new Granite.Widgets.SearchBar ("Replace...");
-        go_to_entry = new Granite.Widgets.SearchBar ("Go to line...");
+        search_entry = new Granite.Widgets.SearchBar (_("Search..."));
+        replace_entry = new Granite.Widgets.SearchBar (_("Replace..."));
+        go_to_entry = new Granite.Widgets.SearchBar (_("Go to line..."));
         search_entry.width_request = 250;
         replace_entry.width_request = 250;
         go_to_entry.width_request = 250;
