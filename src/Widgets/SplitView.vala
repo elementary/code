@@ -32,7 +32,7 @@ namespace Scratch.Widgets {
 		//private int current_col = 0;
 		//private int rmax = 4;
 		//private int cmax = 2;
-		private int max = 4; //max = max--
+		public const int max = 4; //max = max--
 		
 		public MainWindow window;
 		public uint total_view {
@@ -41,7 +41,7 @@ namespace Scratch.Widgets {
 		
 		Gtk.Widget? focused_widget = null;
 
-		public bool is_empty { get; set; default = true; }
+		public bool is_empty { get; private set; default = true; }
 		
 		public signal void page_changed (Gtk.Widget w);
 		
@@ -65,16 +65,6 @@ namespace Scratch.Widgets {
 				
 		public void add_view (ScratchNotebook view) {
 			pack_start (view);
-						
-			//set_menu_item_sensitive ();
-			
-			//set_focus_child (view);
-			
-			//set sensitive for remove menutitem
-			if (get_children ().length() >= 2) 
-				window.toolbar.menu.remove_view.set_sensitive (true);
-			else 
-				window.toolbar.menu.remove_view.set_sensitive (false);
 			
 			view.page_added.connect (recompute_empty);
 			view.page_removed.connect (recompute_empty);
@@ -106,6 +96,7 @@ namespace Scratch.Widgets {
 		}
 		
 		public bool remove_current_view () {
+		    focused_widget = get_focus_child ();
 			if (focused_widget == null)
 				return false;
 			else {
@@ -150,15 +141,7 @@ namespace Scratch.Widgets {
 			    }
 			}
 			return child;
-		}
-		
-		public void set_menu_item_sensitive () {
-			if (get_children ().length() == (max-1))
-				window.toolbar.menu.view.set_sensitive (false);
-			else
-				window.toolbar.menu.view.set_sensitive (true);
-		}
-		
+		}		
 		
 	}
 }

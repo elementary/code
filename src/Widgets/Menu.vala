@@ -25,10 +25,7 @@ namespace Scratch.Widgets {
     public class MenuProperties : Menu {
 
         public MainWindow window;
-        
-        //private ImageMenuItem print;
-        public MenuItem view;
-        public MenuItem remove_view;
+
         public CheckMenuItem fullscreen;
         public ImageMenuItem preferences;
         public CheckMenuItem sidebar_visible;
@@ -37,22 +34,19 @@ namespace Scratch.Widgets {
         public MenuItem additional_separator;
         
         private Dialogs.Preferences dialog;
+        Gtk.ActionGroup actions;
         
-        public MenuProperties (MainWindow parent) {
+        public MenuProperties (MainWindow parent, Gtk.ActionGroup actions) {
             this.window = parent;
+            this.actions = actions;
             create ();
         }
         
         public void create () {		
             
-            view = new MenuItem.with_label (_("Add New View"));
+            var view = (Gtk.MenuItem) actions.get_action ("New view").create_menu_item ();
             
-            remove_view = new MenuItem.with_label (_("Remove Current View"));
-            if (window.split_view != null) {
-				if (window.split_view.total_view <= 1) remove_view.set_sensitive(false);
-				else remove_view.set_sensitive(true);
-			}
-	        else remove_view.set_sensitive(false);
+            var remove_view = (Gtk.MenuItem) actions.get_action ("Remove view").create_menu_item ();
 
             fullscreen = new CheckMenuItem.with_label (_("Fullscreen"));
             fullscreen.active = (Scratch.saved_state.window_state == ScratchWindowState.FULLSCREEN);
@@ -86,9 +80,6 @@ namespace Scratch.Widgets {
             append (preferences);
             
             dialog = new Dialogs.Preferences ("Preferences", this.window);
-            
-            view.activate.connect (() => {window.create_instance ();});
-            remove_view.activate.connect (() => {remove_view.set_sensitive (window.split_view.remove_current_view ()) ;} );
             fullscreen.toggled.connect (toggle_fullscreen);
             preferences.activate.connect (() => { new Dialogs.Preferences ("Preferences", this.window).show_all(); });
 

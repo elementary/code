@@ -259,6 +259,10 @@ namespace Scratch {
         	main_actions.get_action ("Fetch").set_sensitive (val);
         	main_actions.get_action ("ShowReplace").set_sensitive (val);
         	main_actions.get_action ("ShowGoTo").set_sensitive (val);
+        	bool split_view_not_full = split_view.get_children ().length () < split_view.max - 1;
+        	bool split_view_multiple_view = split_view.get_children ().length () > 1;
+        	main_actions.get_action ("New view").set_sensitive (val ? split_view_not_full : false);
+        	main_actions.get_action ("Remove view").set_sensitive (val ? split_view_multiple_view : false);
         	toolbar.set_actions (val);
         }
         
@@ -585,6 +589,11 @@ namespace Scratch {
         
         void action_new_view () {
             create_instance ();
+            set_actions (true);
+        }
+        
+        void action_remove_view () {
+            split_view.remove_current_view ();
         }
 
         static const Gtk.ActionEntry[] main_entries = {
@@ -613,9 +622,13 @@ namespace Scratch {
           /* tooltip */                  N_("Open a new tab"),
                                          action_new_tab },
            { "New view", Gtk.Stock.NEW,
-          /* label, accelerator */       N_("Add a new view"), "F3",
+          /* label, accelerator */       N_("Add New View"), "F3",
           /* tooltip */                  N_("Add a new view"),
                                          action_new_view },
+           { "Remove view", Gtk.Stock.CLOSE,
+          /* label, accelerator */       N_("Remove Current View"), null,
+          /* tooltip */                  N_("Remove this view"),
+                                         action_remove_view },
            { "Undo", Gtk.Stock.UNDO,
           /* label, accelerator */       N_("Undo"), "<Control>z",
           /* tooltip */                  N_("Undo"),

@@ -97,7 +97,7 @@ namespace Scratch.Widgets {
             share_menu = new ShareMenu (this.window);
             share_app_menu = new ShareAppMenu (share_menu);
 
-            menu = new MenuProperties (this.window);
+            menu = new MenuProperties (this.window, action_group);
             plugins.hook_main_menu(menu);
             app_menu = (window.get_application() as Granite.Application).create_appmenu(menu);
             plugins.hook_toolbar(this);
