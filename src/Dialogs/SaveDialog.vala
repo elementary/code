@@ -44,9 +44,9 @@ namespace Scratch.Dialogs {
             label = new Label(_("Changes to this file haven't been saved.") + "\n" + _("Do you want to save changes before closing this file?"));
             image = new Image.from_stock(Stock.DIALOG_WARNING, IconSize.DIALOG);				
             
-            headbox = new Box(Orientation.HORIZONTAL, 10);
-            headbox.add(image);
-            headbox.add(label);				
+            headbox = new Box (Orientation.HORIZONTAL, 10);
+            headbox.pack_start(image, true, false, 5);
+            headbox.pack_start (label, true, true, 5);				
     
             discard = new Button.with_label(Stock.DISCARD);
                 discard.set_use_stock(true);
@@ -58,15 +58,15 @@ namespace Scratch.Dialogs {
                 save.set_use_stock(true);
                 save.clicked.connect(this.on_save_clicked);
     
-            buttonbox = new Box (Orientation.HORIZONTAL, 10);
+            buttonbox = new Box(Orientation.HORIZONTAL, 10);
             buttonbox.set_homogeneous(true);
-            buttonbox.add(discard);
-            buttonbox.add(cancel);
-            buttonbox.add(save);				
+            buttonbox.pack_start (discard, true, true, 5);
+            buttonbox.pack_start (cancel, true, true, 5);
+            buttonbox.pack_start (save, true, true, 5);				
 
-            container = new Box(Orientation.VERTICAL, 10);
-            container.add(headbox);
-            container.add(buttonbox);
+            container = new Box (Orientation.VERTICAL, 10);
+            container.pack_start (headbox, true, true, 5);
+            container.pack_start (buttonbox, true, true, 5);
 
             //window properties
             this.title = "";
