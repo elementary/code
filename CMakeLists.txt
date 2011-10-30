@@ -55,9 +55,9 @@ src/Widgets/InfoBar.vala
 src/Dialogs/PreferencesDialog.vala
 src/Dialogs/SaveDialog.vala
 src/Dialogs/SaveOnCloseDialog.vala
-src/Services/document.vala
+src/Services/Document.vala
+src/Services/SearchManager.vala
 src/config.vala
-src/SearchManager.vala
 PACKAGES
 	${SCRATCH_DEPS}
 scratchplugins

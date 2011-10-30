@@ -112,6 +112,8 @@ namespace Scratch.Services {
 
             this.window = window;
             
+            //window.scratch_app.documents.add (this);
+            
         }
         
         void register_recent () {

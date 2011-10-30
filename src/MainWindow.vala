@@ -86,7 +86,7 @@ namespace Scratch {
         
         //objects for the set_theme ()
         FontDescription font;
-        Scratch.ScratchApp scratch_app;
+        public Scratch.ScratchApp scratch_app;
         
         ScratchWelcome welcome_screen;
         Granite.Widgets.HCollapsablePaned hpaned_sidebar;
@@ -331,7 +331,6 @@ namespace Scratch {
          
         //signals functions
         /*public void on_destroy () {
-			//List<ScratchNotebook> list = split_view.get_children ();
 			
 			foreach(var doc in scratch_app.documents) {						
 				if(doc.modified) {
@@ -339,6 +338,8 @@ namespace Scratch {
 					save_dialog.run();
 				}
 			}
+			
+			Gtk.main_quit ();
 			
         }*/
         
@@ -348,15 +349,16 @@ namespace Scratch {
         
         void action_quit () {
 			//on_destroy ();
+			
 			show ();
 			
 			foreach(var doc in scratch_app.documents) {						
 				if(doc.modified) {
-					var save_dialog = new SaveOnCloseDialog(doc.name, this);
+    				var save_dialog = new SaveOnCloseDialog(doc.name, this);
 					save_dialog.run();
 				}
 			}
-			
+						
 			Gtk.main_quit ();
         }
         

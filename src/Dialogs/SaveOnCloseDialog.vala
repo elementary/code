@@ -51,7 +51,7 @@ namespace Scratch.Dialogs {
         public void on_response (int response_id) {
             switch (response_id) {
                 case ResponseType.CANCEL:
-                	Gtk.main_quit ();
+                	hide ();
                 	break;
                 
                 case ResponseType.ACCEPT:

@@ -22,6 +22,8 @@
 using Gtk;
 using Granite.Widgets;
 
+using Scratch.Services;
+
 namespace Scratch.Widgets {
 
     public class Toolbar : Gtk.Toolbar {
@@ -43,7 +45,7 @@ namespace Scratch.Widgets {
         public MenuProperties menu;
         public ShareAppMenu share_app_menu;
         public AppMenu app_menu;
-        public Scratch.SearchManager search_manager;
+        public SearchManager search_manager;
 		
 		public bool replace_active = false;
 		public bool goto_active = false;
@@ -67,7 +69,7 @@ namespace Scratch.Widgets {
         public Toolbar (MainWindow parent, UIManager ui, Gtk.ActionGroup action_group) {
 
             this.window = parent;
-            search_manager = new Scratch.SearchManager (action_group);
+            search_manager = new SearchManager (action_group);
             Scratch.settings.schema.bind("search-sensitive", search_manager, "case-sensitive", SettingsBindFlags.DEFAULT);
             Scratch.settings.schema.bind("search-loop", search_manager, "cycle-search", SettingsBindFlags.DEFAULT);
 
