@@ -323,14 +323,14 @@ namespace Scratch {
         public void connect_signals () {
 
             //signals for the window
-            this.destroy.connect (on_destroy);
+            this.destroy.connect (action_quit);
 
             //signals for the toolbar
             toolbar.combobox.changed.connect (on_combobox_changed);
         }
          
         //signals functions
-        public void on_destroy () {
+        /*public void on_destroy () {
 			//List<ScratchNotebook> list = split_view.get_children ();
 			
 			foreach(var doc in scratch_app.documents) {						
@@ -340,14 +340,23 @@ namespace Scratch {
 				}
 			}
 			
-        }
+        }*/
         
         void action_close_tab () {
             current_tab.on_close_clicked ();
         }
         
         void action_quit () {
-			on_destroy ();
+			//on_destroy ();
+			show ();
+			
+			foreach(var doc in scratch_app.documents) {						
+				if(doc.modified) {
+					var save_dialog = new SaveOnCloseDialog(doc.name, this);
+					save_dialog.run();
+				}
+			}
+			
 			Gtk.main_quit ();
         }
         
@@ -470,7 +479,7 @@ namespace Scratch {
 #endif
 
             update_saved_state ();
-            on_destroy ();
+            //on_destroy ();
             return false;
 
         }
