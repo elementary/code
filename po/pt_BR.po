@@ -7,104 +7,84 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-10 19:03+0200\n"
+"POT-Creation-Date: 2011-10-29 22:12+0200\n"
 "PO-Revision-Date: 2011-10-20 13:43+0000\n"
 "Last-Translator: Tomas Abril <Unknown>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-23 05:37+0000\n"
-"X-Generator: Launchpad (build 14170)\n"
+"X-Launchpad-Export-Date: 2011-10-30 05:32+0000\n"
+"X-Generator: Launchpad (build 14197)\n"
 "Language: pt_BR\n"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:156
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:160
 msgid "No files are open."
 msgstr "Nenhum arquivo está aberto."
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:156
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:160
 msgid "Open a file to begin editing."
 msgstr "Abra um arquivo para começar a editar."
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:160
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:164
 msgid "Open file"
 msgstr "Abrir Arquivo"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:160
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:164
 msgid "Open a saved file."
 msgstr "Abra um arquivo salvado."
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:161
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:165
 msgid "New file"
 msgstr "Novo arquivo"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:161
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:165
 msgid "Create a new empty file."
 msgstr "Crie um novo arquivo vazio."
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:91
-msgid "Search in the text..."
-msgstr "Buscar no texto por..."
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:95
-msgid "Replace..."
-msgstr "Substituir..."
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:99
-msgid "Insert line number..."
-msgstr "Insira numero da linha..."
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:149
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:148
 msgid "Normal Text"
 msgstr "Texto Normal"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:182
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:181
 msgid "Create a new file in a new tab"
 msgstr "Criar um arquivo novo em uma nova aba"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:183
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:182
 msgid "Open a file"
 msgstr "Abrir um arquivo"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:184
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:183
 msgid "Save the current file"
 msgstr "Salvar o arquivo atual"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:185
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:184
 msgid "Undo the last action"
 msgstr "Desfaz a última ação"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:186
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:185
 msgid "Redo the last undone action"
 msgstr "Refaz a última ação desfeita"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:187
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:186
 msgid "Share this file"
 msgstr "Compartilhe este arquivo"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ShareMenu.vala:39
-msgid "Share via Email..."
-msgstr "Compartilhe via Email..."
-
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:44
-msgid "Add New View"
-msgstr "Adicionar Nova Visualização"
-
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:46
-msgid "Remove Current View"
-msgstr "Remover Visualização Atual"
-
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:53
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:51
 msgid "Fullscreen"
 msgstr "Tela cheia"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:58
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:56
 msgid "Show Sidebar"
 msgstr "Mostrar Barra Lateral"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:60
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:58
 msgid "Show Context View"
 msgstr "Mostrar Visualização de Contexto"
+
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:60
+msgid "Show Bottom Panel"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
 msgid "Changes to this file haven't been saved."
@@ -114,39 +94,43 @@ msgstr "Mudanças neste arquivo não foram salvas."
 msgid "Do you want to save changes before closing this file?"
 msgstr "Você quer salvar as mudanças antes de fechar este arquivo?"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:82
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:84
 msgid "Show line numbers"
 msgstr "Mostrar o número das linhas"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:85
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:87
 msgid "Highlight current line"
 msgstr "Realçar a linha atual"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:88
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:90
 msgid "Use spaces instead of tabs"
 msgstr "Usar espaços ao invés de parágrafos"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:93
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:95
 msgid "Tab width:"
 msgstr "Largura de aba:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:101
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:103
 msgid "Style scheme:"
 msgstr "Esquema de estilo:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:107
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:109
 msgid "Use the system fixed width font ("
 msgstr "Usar a fonte de largura fixa do sistema ("
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:116
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:118
 msgid "Select font:"
 msgstr "Selecionar fonte:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:122
-msgid "Close"
-msgstr "Fechar"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:140
+msgid "Search Loop"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:144
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:141
+msgid "Case Sensitive Search"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:157
 msgid "General"
 msgstr "Geral"
 
