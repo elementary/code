@@ -331,7 +331,7 @@ namespace Scratch {
         }
         
         void action_quit () {
-			foreach(var doc in scratch_app.documents) {						
+			foreach(var doc in scratch_app.documents) {
 				if(doc.modified) {
     				var save_dialog = new SaveOnCloseDialog (doc.name, this);
 					int response = save_dialog.run ();
@@ -566,7 +566,9 @@ namespace Scratch {
 			
 				var instance = new ScratchNotebook (this);
 				split_view.add_view(instance);
-				instance.add_tab ();
+				var doc = new Document.empty(this);
+				instance.grab_focus ();
+				scratch_app.open_document(doc);
                 
             }
                             
@@ -595,6 +597,28 @@ namespace Scratch {
         }
         
         void action_remove_view () {
+            var notebook = split_view.get_current_notebook ();
+            foreach(var w in notebook.get_children ()) {
+                var tab = w as Tab;
+                if(tab != null) {
+                    var doc = tab.document;
+				    if(doc.modified) {
+        				var save_dialog = new SaveOnCloseDialog (doc.name, this);
+					    int response = save_dialog.run ();
+					    switch(response) {
+					    case Gtk.ResponseType.CANCEL:
+					        save_dialog.destroy ();
+					        return;
+					    case Gtk.ResponseType.YES:
+					        doc.save ();
+					        break;
+				        case Gtk.ResponseType.NO:
+				            break;
+					    }
+					    save_dialog.destroy ();
+				    }
+                }
+            }
             split_view.remove_current_view ();
         }
 
