@@ -616,6 +616,7 @@ namespace Scratch {
 				            break;
 					    }
 					    save_dialog.destroy ();
+					    scratch_app.documents.remove (doc);
 				    }
                 }
             }
