@@ -44,12 +44,7 @@ namespace Scratch.Services {
                     return false;
             }
         }
-        private string? _name;
-        public string? name {
-            get {
-                return _name;
-            }
-        }
+        public string? name { get; private set; default  = null; }
         
         private string _directory;
         public string directory {
@@ -107,7 +102,7 @@ namespace Scratch.Services {
             
             register_recent ();
             
-            _name = file.get_basename ();
+            name = file.get_basename ();
             _directory = Path.get_dirname (filename).replace (home_dir, "~");
 
             this.window = window;
@@ -139,7 +134,9 @@ namespace Scratch.Services {
         public void create_sourceview ()
         {
 			//get the filename from strig filename =)
-			var name = Filename.display_basename (filename);
+			string name = _("New Tab");
+			if(filename != null)
+    			name = Filename.display_basename (filename);
 		
 
 			//create new tab
@@ -162,6 +159,7 @@ namespace Scratch.Services {
         public Document.empty (MainWindow? window) {
             
             filename = null;
+            name = null;
             this.window = window;
 
         }
@@ -222,9 +220,9 @@ namespace Scratch.Services {
 
         }
 
-        public bool save () throws FileError {
+        public bool save () {
             
-            // TODO: need smart implementation
+            tab.save ();
             return false;
 
         }

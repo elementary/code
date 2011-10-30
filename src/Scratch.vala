@@ -136,6 +136,15 @@ namespace Scratch {
             return document;
 
         }
+        
+        public void open_document(Document document) {
+            document.create_sourceview ();
+            documents.add(document);
+            document.closed.connect( (doc) => { documents.remove(doc); });
+            window.current_notebook.set_tab ();
+            window.infobar.hide ();
+            window.set_window_title ("New");
+        }
 
         protected override void activate () {
 

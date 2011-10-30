@@ -322,40 +322,30 @@ namespace Scratch {
         
         public void connect_signals () {
 
-            //signals for the window
-            this.destroy.connect (action_quit);
-
             //signals for the toolbar
             toolbar.combobox.changed.connect (on_combobox_changed);
         }
-         
-        //signals functions
-        /*public void on_destroy () {
-			
-			foreach(var doc in scratch_app.documents) {						
-				if(doc.modified) {
-					var save_dialog = new SaveOnCloseDialog(doc.name, this);
-					save_dialog.run();
-				}
-			}
-			
-			Gtk.main_quit ();
-			
-        }*/
         
         void action_close_tab () {
             current_tab.on_close_clicked ();
         }
         
         void action_quit () {
-			//on_destroy ();
-			
-			show ();
-			
 			foreach(var doc in scratch_app.documents) {						
 				if(doc.modified) {
-    				var save_dialog = new SaveOnCloseDialog(doc.name, this);
-					save_dialog.run();
+    				var save_dialog = new SaveOnCloseDialog (doc.name, this);
+					int response = save_dialog.run ();
+					switch(response) {
+					case Gtk.ResponseType.CANCEL:
+					    save_dialog.destroy ();
+					    return;
+					case Gtk.ResponseType.YES:
+					    doc.save ();
+					    break;
+				    case Gtk.ResponseType.NO:
+				        break;
+					}
+					save_dialog.destroy ();
 				}
 			}
 						
@@ -367,8 +357,8 @@ namespace Scratch {
         }
         
         public void action_new_tab () {
-			int new_tab_index = current_notebook.add_tab ();
-			current_notebook.set_current_page (new_tab_index);
+			var doc = new Document.empty(this);
+			scratch_app.open_document(doc);
 			current_notebook.show_tabs_view ();
 		}
         
@@ -481,8 +471,8 @@ namespace Scratch {
 #endif
 
             update_saved_state ();
-            //on_destroy ();
-            return false;
+            action_quit ();
+            return true;
 
         }
 

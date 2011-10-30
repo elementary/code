@@ -37,29 +37,13 @@ namespace Scratch.Dialogs {
             message_type = MessageType.WARNING;
             use_markup = true;
 
-            text = _("Save this file? ") + filename;
+            text = _("Save this file? ") + (filename ?? _("New File"));
             text += "\n\n<b>" + _("All your work will be lost!") + "</b>";
 
-            add_button (Stock.NO, ResponseType.CANCEL);
-            add_button (Stock.SAVE, ResponseType.ACCEPT);
+            add_button (Stock.CANCEL, ResponseType.CANCEL);
+            add_button (Stock.DISCARD, ResponseType.NO);
+            add_button (Stock.SAVE, ResponseType.YES);
             set_default_response (ResponseType.ACCEPT);
-            
-            response.connect (on_response);
-            
-        }
-        
-        public void on_response (int response_id) {
-            switch (response_id) {
-                case ResponseType.CANCEL:
-                	hide ();
-                	break;
-                
-                case ResponseType.ACCEPT:
-					//if (FileUtils.test (filename, FileTest.EXISTS))
-					window.current_tab.save ();
-					break;
-				}
-        
         }
     }
 }
