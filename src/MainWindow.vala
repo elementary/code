@@ -372,9 +372,10 @@ namespace Scratch {
             filech.add_button (Stock.CANCEL, ResponseType.CANCEL);
             filech.add_button (Stock.OPEN, ResponseType.ACCEPT);
             filech.set_default_response (ResponseType.ACCEPT);
+            filech.set_current_folder (scratch_app.current_directory);
 
             if (filech.run () == ResponseType.ACCEPT)
-					foreach (string file in filech.get_filenames ()) 
+					foreach (string file in filech.get_filenames ())
 						scratch_app.open_file (file);
 						
             filech.close ();

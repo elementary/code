@@ -40,6 +40,7 @@ namespace Scratch {
         static string app_set_arg;
         static bool new_instance;
         public Gee.ArrayList<Document> documents = new Gee.ArrayList<Document>();
+        public string current_directory = ".";
 
         construct {
         
@@ -126,6 +127,8 @@ namespace Scratch {
         			return doc;
         		}
         	}
+        	
+            current_directory = Path.get_dirname (filename);
             var document = new Document(filename, window);
             document.create_sourceview ();
             documents.add(document);
