@@ -60,7 +60,24 @@ namespace Scratch.Widgets {
                 (w as Tab).text_view.focus_in_event.connect (on_page_focused);
                 page_focused ((w as Tab).text_view);
                 set_show_tabs(true);
+   			    (w as Tab).label.scroll_event.connect (on_scroll_event);
             }
+        }
+        
+				
+        bool on_scroll_event (EventScroll event) {
+            if (event.direction == ScrollDirection.UP || event.direction == ScrollDirection.LEFT)  {
+                if (get_current_page() != 0) {
+                    set_current_page (get_current_page() - 1);    
+                }
+            }
+            if (event.direction == ScrollDirection.DOWN || event.direction == ScrollDirection.RIGHT)  {
+                if (get_current_page() != get_n_pages ()) {
+                    set_current_page (get_current_page() + 1);
+                }
+            }
+            
+            return true;
         }
         
         bool on_page_focused (Gtk.Widget w, Gdk.EventFocus event) {

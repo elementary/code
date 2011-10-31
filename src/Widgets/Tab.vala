@@ -46,7 +46,6 @@ namespace Scratch.Widgets {
             text_view = new SourceView (window.toolbar.combobox);
             text_view.focus_in_event.connect (on_focus_in);
             label = new TabLabel(this, labeltext);
-   			label.scroll_event.connect (parent.window.on_scroll_event);
             
             add (text_view);
             show_all();

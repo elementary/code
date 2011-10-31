@@ -406,31 +406,6 @@ namespace Scratch {
             if(current_tab != null) return current_tab.text_view.buffer;
             return null;
         }
-				
-        public bool on_scroll_event (EventScroll event) {
-            
-            if (event.direction == ScrollDirection.UP || event.direction == ScrollDirection.LEFT)  {
-                
-                if (current_notebook.get_current_page() != 0) {
-                    
-                    current_notebook.set_current_page ( current_notebook.get_current_page()-1 );    
-                
-                }
-                
-            }
-            
-            if (event.direction == ScrollDirection.DOWN || event.direction == ScrollDirection.RIGHT)  {
-                
-                if (current_notebook.get_current_page() != current_notebook.get_n_pages () ) {
-                    
-                    current_notebook.set_current_page ( current_notebook.get_current_page()+1 );    
-                
-                }
-                
-            }
-            
-            return true;
-        }
 		
 		public bool can_write (string filename) {
 
