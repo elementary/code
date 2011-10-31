@@ -356,10 +356,6 @@ namespace Scratch {
 			Gtk.main_quit ();
         }
         
-        public void on_new_clicked () {	
-			action_new_tab ();
-        }
-        
         public void action_new_tab () {
 			var doc = new Document.empty(this);
 			scratch_app.open_document(doc);
