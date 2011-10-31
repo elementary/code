@@ -5,4 +5,5 @@ namespace Scratch {
     public SavedState saved_state;
     public Settings settings;
     public ServicesSettings services;
+
 }

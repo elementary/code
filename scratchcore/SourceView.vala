@@ -97,7 +97,7 @@ namespace Scratch.Widgets {
             
         }
         
-        public void change_syntax_highlight_for_filename (string filename)
+        public SourceLanguage change_syntax_highlight_for_filename (string filename)
         {
 			SourceLanguage lang;
 			string display_name = Filename.display_basename(filename);
@@ -120,6 +120,9 @@ namespace Scratch.Widgets {
 				lang = manager.guess_language (filename, null);
 				buffer.set_language (lang);
 			}
+			
+			return lang;
+			
         }
         
         public void on_buffer_changed () {

@@ -46,6 +46,23 @@ public int main(string[] args)
         search.search ();
         assert(sourceview.buffer.cursor_position == "elementary scratch test ".length);
     });
+    
+    Test.add_func("/scratch/core/source_view", () => {
+        var sourceview = new Scratch.Widgets.SourceView (null);
+        
+        assert (sourceview.buffer.cursor_position == 0);
+        
+        sourceview.buffer.text = "elementary scratch\ntest Euclide ele";
+        
+        sourceview.go_to_line (1);
+        assert (sourceview.buffer.cursor_position == "elementary scratch\n".length);
+        
+        var lang = sourceview.change_syntax_highlight_for_filename ("immaginary.vala");
+        var blang = sourceview.buffer.get_language ();
+        assert (lang.get_id () == blang.get_id ());
+        
+    });
+    
     Test.run();
     return 0;
 }
