@@ -59,7 +59,6 @@ OPTIONS
     scratchcore
 )
 install (FILES ${CMAKE_CURRENT_BINARY_DIR}/scratchcore.vapi DESTINATION ${CMAKE_INSTALL_PREFIX}/share/vala/vapi/)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/scratchcore.deps DESTINATION ${CMAKE_INSTALL_PREFIX}/share/vala/vapi/)
 install (FILES ${CMAKE_CURRENT_BINARY_DIR}/scratchcore.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include/scratchcore/)
 add_library (${PKGNAME} SHARED
     ${VALA_C}
