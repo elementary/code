@@ -25,7 +25,7 @@ namespace Scratch.Widgets {
 
     public class SourceView : Gtk.SourceView {
 
-        private MainWindow window;
+        Gtk.ComboBoxText language_combo;
         
         public new Gtk.SourceBuffer buffer;
         public Gtk.TextMark mark;
@@ -36,10 +36,10 @@ namespace Scratch.Widgets {
         
         public bool modified {set; get;}
     
-        public SourceView (MainWindow window) {
+        public SourceView (Gtk.ComboBoxText language_combo) {
 
         	Gtk.drag_dest_add_uri_targets (this);
-            this.window = window;
+            this.language_combo = language_combo;
             
             manager = new SourceLanguageManager ();
             style_scheme_manager = new SourceStyleSchemeManager ();
@@ -77,8 +77,8 @@ namespace Scratch.Widgets {
 		public override void drag_data_received (Gdk.DragContext context, int x, int y, SelectionData selection_data, uint info, uint time_) {
 			foreach (string s in selection_data.get_uris ()){
 			    try {
-                	window.open (Filename.from_uri (s));
-				    window.set_undo_redo ();
+                	//window.open (Filename.from_uri (s));
+				    //window.set_undo_redo ();
 				}
 				catch (Error e) {
 				    warning ("%s doesn't seem to be a valid URI, couldn't open it.", s);
@@ -105,13 +105,13 @@ namespace Scratch.Widgets {
 			if (extension == "ui") {
 				lang = manager.get_language ("xml");
 				buffer.set_language (lang);
-				window.toolbar.combobox.set_active_id ("xml");
+				language_combo.set_active_id ("xml");
 				
 			}
 			else if (display_name == "CMakeLists.txt") {
 				lang = manager.get_language ("cmake");
 				buffer.set_language (lang);
-				window.toolbar.combobox.set_active_id ("cmake");
+				language_combo.set_active_id ("cmake");
 			}
 			else {
 				lang = manager.guess_language (filename, null);
@@ -120,19 +120,6 @@ namespace Scratch.Widgets {
         }
         
         public void on_buffer_changed () {
-        	var tb = window.current_notebook.get_nth_page (window.current_notebook.get_current_page()) as Tab;
-        	if(tb == null) /* then there is no tab */
-        	    return;
-        	var doc = tb.document;
-        	
-        	string filename = tb.label.label.get_text ();
-			string isnew = filename [0:1];
-            if (doc.can_write () && isnew != "*") {
-                tb = window.current_tab;
-                window.toolbar.set_button_sensitive (window.toolbar.ToolButtons.SAVE_BUTTON, true);
-            }
-
-            window.set_undo_redo();
         	modified = true;
         }
 

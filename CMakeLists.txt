@@ -40,34 +40,33 @@ include (ValaVersion)
 ensure_vala_version ("0.12.0" MINIMUM)
 include (ValaPrecompile)
 vala_precompile(VALA_C
-src/MainWindow.vala
-src/Scratch.vala
-src/Settings.vala
-src/Widgets/Menu.vala
-src/Widgets/ShareMenu.vala
-src/Widgets/Notebook.vala
-src/Widgets/Tab.vala
-src/Widgets/TabLabel.vala
-src/Widgets/SplitView.vala
-src/Widgets/ToolBar.vala
-src/Widgets/SourceView.vala
-src/Widgets/InfoBar.vala
-src/Dialogs/PreferencesDialog.vala
-src/Dialogs/SaveDialog.vala
-src/Dialogs/SaveOnCloseDialog.vala
-src/Services/Document.vala
-src/Services/SearchManager.vala
-src/config.vala
+    src/MainWindow.vala
+    src/Scratch.vala
+    src/Widgets/Menu.vala
+    src/Widgets/ShareMenu.vala
+    src/Widgets/Notebook.vala
+    src/Widgets/Tab.vala
+    src/Widgets/TabLabel.vala
+    src/Widgets/SplitView.vala
+    src/Widgets/ToolBar.vala
+    src/Widgets/InfoBar.vala
+    src/Dialogs/PreferencesDialog.vala
+    src/Dialogs/SaveDialog.vala
+    src/Dialogs/SaveOnCloseDialog.vala
+    src/Services/Document.vala
+    src/config.vala
 PACKAGES
 	${SCRATCH_DEPS}
-scratchplugins
+    scratchplugins
+    scratchcore
 OPTIONS
---vapidir=${CMAKE_BINARY_DIR}/libplugins
---thread
+    --vapidir=${CMAKE_BINARY_DIR}/libplugins
+    --vapidir=${CMAKE_BINARY_DIR}/scratchcore
+    --thread
 GENERATE_VAPI
-scratch
+    scratch
 GENERATE_HEADER
-scratch
+    scratch
 )
 # tranlation stuff
 
@@ -76,8 +75,9 @@ add_subdirectory(po)
 
 add_executable (scratch ${VALA_C})
 include_directories(${CMAKE_BINARY_DIR}/libplugins)
+include_directories(${CMAKE_BINARY_DIR}/scratchcore)
 include_directories(${CMAKE_BINARY_DIR}/lib)
-target_link_libraries (scratch scratchplugins)
+target_link_libraries (scratch scratchcore scratchplugins)
 #TODO: Installation
 
 install (TARGETS scratch RUNTIME DESTINATION bin)
@@ -88,3 +88,4 @@ install (FILES ${CMAKE_BINARY_DIR}/scratch.h DESTINATION include/scratch/)
 include(GSettings)
 add_schema("org.elementary.scratch.gschema.xml")
 add_subdirectory(libplugins)
+add_subdirectory(scratchcore)
