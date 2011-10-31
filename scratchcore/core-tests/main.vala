@@ -11,7 +11,7 @@ public int main(string[] args)
 
     Test.add_func("/scratch/core/search_manager", () => {
         var search = new Scratch.Services.SearchManager (null);
-        var sourceview = new Scratch.Widgets.SourceView (null);
+        var sourceview = new Scratch.Widgets.SourceView ();
         search.set_text_view (sourceview);
         
         assert(sourceview.buffer.cursor_position == 0);
@@ -48,7 +48,7 @@ public int main(string[] args)
     });
     
     Test.add_func("/scratch/core/source_view", () => {
-        var sourceview = new Scratch.Widgets.SourceView (null);
+        var sourceview = new Scratch.Widgets.SourceView ();
         
         assert (sourceview.buffer.cursor_position == 0);
         

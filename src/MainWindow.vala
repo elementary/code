@@ -183,8 +183,12 @@ namespace Scratch {
         }
         
         void on_split_view_page_changed (Gtk.Widget w) {
-            if(w is Scratch.Widgets.SourceView)
+            if(w is Scratch.Widgets.SourceView) {
                 toolbar.search_manager.set_text_view ((Scratch.Widgets.SourceView) w);
+                var tab = w.get_parent () as Tab;
+                assert(tab != null);
+                set_combobox_language (tab.document.filename);
+            }
             else
                 warning("The focused widget is not a valid TextView");
         }
@@ -507,8 +511,7 @@ namespace Scratch {
         
         public void set_combobox_language (string filename) {
         
-            Gtk.SourceLanguage lang;
-            lang = Gtk.SourceLanguageManager.get_default ().guess_language (filename, null);
+            Gtk.SourceLanguage lang = current_tab.text_view.change_syntax_highlight_for_filename (filename);
             if (lang != null) {
 		        var id = lang.get_id();
 		        if (id != null) {
@@ -517,18 +520,6 @@ namespace Scratch {
 		        else {
 		            toolbar.combobox.set_active_id ("normal");
 		        }
-		        
-		        var nopath = filename.split ("/");
-		        var sfile = nopath[nopath.length-1].split (".");
-		        
-		        if (sfile [sfile.length-1] == "ui")
-					toolbar.combobox.set_active_id ("xml");
-				
-				else if (sfile [sfile.length-2] == "CMakeLists")
-					toolbar.combobox.set_active_id ("cmake");
-				
-				else 
-					toolbar.combobox.set_active_id ("normal");
 			}
 			else {
 				warning ("Couldn't detect language highlight for %s", filename);

@@ -24,8 +24,6 @@ using Gtk;
 namespace Scratch.Widgets {
 
     public class SourceView : Gtk.SourceView {
-
-        Gtk.ComboBoxText? language_combo = null;
         
         public new Gtk.SourceBuffer buffer;
         public Gtk.TextMark mark;
@@ -36,10 +34,9 @@ namespace Scratch.Widgets {
         
         public bool modified {set; get;}
     
-        public SourceView (Gtk.ComboBoxText? language_combo) {
+        public SourceView () {
 
         	Gtk.drag_dest_add_uri_targets (this);
-            this.language_combo = language_combo;
             
             manager = new SourceLanguageManager ();
             style_scheme_manager = new SourceStyleSchemeManager ();
@@ -106,15 +103,11 @@ namespace Scratch.Widgets {
 			if (extension == "ui") {
 				lang = manager.get_language ("xml");
 				buffer.set_language (lang);
-				if(language_combo != null)
-    				language_combo.set_active_id ("xml");
 				
 			}
 			else if (display_name == "CMakeLists.txt") {
 				lang = manager.get_language ("cmake");
 				buffer.set_language (lang);
-				if(language_combo != null)
-    				language_combo.set_active_id ("cmake");
 			}
 			else {
 				lang = manager.guess_language (filename, null);

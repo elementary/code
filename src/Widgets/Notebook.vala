@@ -28,13 +28,11 @@ namespace Scratch.Widgets {
 	public class ScratchNotebook : Notebook {
 		
 		public signal void page_focused (Gtk.Widget w);
-		public MainWindow window; //used in dialog		
-		//public ScratchWelcome welcome_screen;
+		public MainWindow window; //used in dialog
 
 	    public ScratchNotebook (MainWindow parent) {
 	    
 	    	this.window = parent;
-			//this.welcome_screen = new ScratchWelcome(this);
 	    	
 	    	this.switch_page.connect (on_switch_page);
 	    	
@@ -100,9 +98,9 @@ namespace Scratch.Widgets {
             Tab new_tab;
             
             if (labeltext == "New file")
-                new_tab = new Tab (this, _("New file"), window);
+                new_tab = new Tab (this, _("New file"));
             else
-                new_tab = new Tab (this, labeltext, window);
+                new_tab = new Tab (this, labeltext);
             int index = this.append_page (new_tab, new_tab.label);
             set_tab_reorderable(new_tab, true);
             set_tab_detachable(new_tab, true);

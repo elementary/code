@@ -26,8 +26,6 @@ using Scratch.Dialogs;
 namespace Scratch.Widgets {
 	
     public class Tab : ScrolledWindow {
-		
-        private MainWindow window;
 
         public SourceView text_view;
         public TabLabel label;
@@ -37,13 +35,11 @@ namespace Scratch.Widgets {
         public Scratch.Services.Document document;
 
         
-        public Tab (ScratchNotebook parent, string labeltext, MainWindow window) {
-            
-            this.window = window;
+        public Tab (ScratchNotebook parent, string labeltext) {
             
             set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);            
             
-            text_view = new SourceView (window.toolbar.combobox);
+            text_view = new SourceView ();
             text_view.focus_in_event.connect (on_focus_in);
             label = new TabLabel(this, labeltext);
             
@@ -53,21 +49,7 @@ namespace Scratch.Widgets {
 
 
 		public void on_close_clicked() {
-			
-			string filename = label.label.get_text ();
-			int n = 0;
- 
-			for (;;) {
-			    var tb = (Tab) window.current_notebook.get_nth_page (n);
-			    var lb = tb.label;
-			    if (lb.label.get_text () == filename) 
-			        break;
-			    else
-			        n++;
-			}
- 
-			var doc = (Scratch.Services.Document) window.current_notebook.get_nth_page (n);
-			//var sv = (Scratch.Services.Document) window.current_notebook.get_nth_page (n);
+			var doc = document;
 			
 			if (doc.can_write () && text_view.modified == true) {
  
@@ -79,35 +61,23 @@ namespace Scratch.Widgets {
         }
 		
 		public bool on_focus_in (EventFocus event) {
-			//notebook.window.set_undo_redo ();
-			
 			if (filename != null) {
-					text_view.change_syntax_highlight_for_filename (filename);
-					window.set_combobox_language (filename);
+				text_view.change_syntax_highlight_for_filename (filename);
 			}
-			window.set_undo_redo ();
 			return false;
 			
 		}
 		
         public void close () {
 			
-    		message("closing: %s\n", this.filename);		    
-		    //var n = notebook.page_num(this);
+    		message("closing: %s\n", this.filename);
 		    closed ();	
 		    ((Gtk.Notebook)get_parent()).remove(this);
-		    
-		    /*if (window.split_view.get_children().length() >= 2) {
-		        window.split_view.remove (notebook);
-		        window.toolbar.menu.remove_view.set_sensitive (false);
-		    }*/
         }
         
         public int save () {
 	
             if (this.filename == null) {
-            
-            	//var filech = notebook.window.filech;
             	string new_filename = null;
 					
             	//show dialog
@@ -133,9 +103,6 @@ namespace Scratch.Widgets {
 				//check choise
 				if (new_filename != null) this.filename = new_filename;
 				else return 1;
-				
-				window.set_combobox_language (filename);
-            
             }
             
 			message ("Saving: %s", this.filename);
@@ -145,7 +112,6 @@ namespace Scratch.Widgets {
 				FileUtils.set_contents (this.filename, this.text_view.buffer.text);
 				this.saved = true; 
 				text_view.modified = false;
-                window.set_window_title (this.filename);
 		        return 0;
 		        
 		    } catch (Error e) {
