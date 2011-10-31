@@ -80,3 +80,4 @@ set_target_properties (${PKGNAME} PROPERTIES
 install (TARGETS ${PKGNAME} DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/)
 target_link_libraries(scratchcore ${LIBS})
 target_link_libraries(scratchcore scratchplugins)
+add_subdirectory(core-tests)

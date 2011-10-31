@@ -52,9 +52,9 @@ public class Scratch.Services.SearchManager : GLib.Object {
      * Create a new SearchManager object.
      *
      * @param main_actions A set of actions which contains the
-     * following actions : Fetch, ShowGoTo, ShowRreplace.
+     * following actions : Fetch, ShowGoTo, ShowRreplace, or null.
      **/
-    public SearchManager (Gtk.ActionGroup main_actions) {
+    public SearchManager (Gtk.ActionGroup? main_actions) {
 	    search_entry = new Granite.Widgets.SearchBar (_("Search..."));
 	    replace_entry = new Granite.Widgets.SearchBar (_("Replace..."));
 	    go_to_entry = new Granite.Widgets.SearchBar (_("Go to line..."));
@@ -70,12 +70,14 @@ public class Scratch.Services.SearchManager : GLib.Object {
 	    tool_replace_entry.add (replace_entry);
 	    tool_go_to_entry.add (go_to_entry);
 	
-	    main_actions.get_action ("Fetch").activate.connect (show_search);
-	    main_actions.get_action ("ShowGoTo").activate.connect (show_go_to);
-	    main_actions.get_action ("ShowReplace").activate.connect (show_replace);
-	    main_actions.get_action ("Fetch").bind_property("sensitive", search_entry, "sensitive", BindingFlags.DEFAULT);
-	    main_actions.get_action ("ShowGoTo").bind_property("sensitive", replace_entry, "sensitive", BindingFlags.DEFAULT);
-	    main_actions.get_action ("ShowReplace").bind_property("sensitive", go_to_entry, "sensitive", BindingFlags.DEFAULT);
+	    if(main_actions != null) {
+	        main_actions.get_action ("Fetch").activate.connect (show_search);
+	        main_actions.get_action ("ShowGoTo").activate.connect (show_go_to);
+	        main_actions.get_action ("ShowReplace").activate.connect (show_replace);
+	        main_actions.get_action ("Fetch").bind_property("sensitive", search_entry, "sensitive", BindingFlags.DEFAULT);
+	        main_actions.get_action ("ShowGoTo").bind_property("sensitive", replace_entry, "sensitive", BindingFlags.DEFAULT);
+	        main_actions.get_action ("ShowReplace").bind_property("sensitive", go_to_entry, "sensitive", BindingFlags.DEFAULT);
+	    }
 	
 	    tool_replace_entry.no_show_all = true;
 	    tool_go_to_entry.no_show_all = true;
@@ -159,12 +161,16 @@ public class Scratch.Services.SearchManager : GLib.Object {
 	        search ();
 	    }
     }
+    
+    public void set_search_string (string to_search) {
+        search_entry.text = to_search;
+    }
 
     void on_search_entry_text_changed () {
 	    search ();
     }
 
-    bool search () {
+    public bool search () {
 	    /* So, first, let's check we can really search something. */
 	    string search_string = search_entry.text;
 	    if(text_buffer == null || text_buffer.text == "" || search_string == "") {
