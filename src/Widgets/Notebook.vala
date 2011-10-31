@@ -79,8 +79,13 @@ namespace Scratch.Widgets {
 	    		show_welcome ();*/
 	    }
 	    
-        public int add_tab (string labeltext=_("New file")) {
-            var new_tab = new Tab (this, labeltext, window);
+        public int add_tab (string labeltext="New file") {
+            Tab new_tab;
+            
+            if (labeltext == "New file")
+                new_tab = new Tab (this, _("New file"), window);
+            else
+                new_tab = new Tab (this, labeltext, window);
             int index = this.append_page (new_tab, new_tab.label);
             set_tab_reorderable(new_tab, true);
             set_tab_detachable(new_tab, true);
