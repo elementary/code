@@ -462,7 +462,7 @@ namespace Scratch {
             var home_dir = Environment.get_home_dir ();
             // Sorry for this mess...
             var path = Path.get_dirname (filename).replace (home_dir, "~");
-            this.title += " (" + path + ") - Scratch";
+            this.title += " (" + path + ") - " + TITLE;
         
         }
 #if VALA_0_14

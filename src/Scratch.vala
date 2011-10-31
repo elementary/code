@@ -87,7 +87,6 @@ namespace Scratch {
             plugins.hook_example("Example text");
             plugins.hook_app(this);
             plugins.hook_set_arg(app_cmd_name, app_set_arg);
-            print("Arg set: %s\n", app_set_arg);
         }
 
         protected override void open (File[] files, string hint) {
@@ -95,6 +94,8 @@ namespace Scratch {
             if (get_windows () == null) {
                 window = new MainWindow (this);
                 plugins.hook_new_window (window);
+                window.TITLE = app_cmd_name ?? "Scratch";
+                window.title = window.TITLE;
                 window.show_all ();
             }
 
@@ -148,6 +149,8 @@ namespace Scratch {
 
             if (get_windows () == null) {
                 window = new MainWindow (this);
+                window.TITLE = app_cmd_name ?? "Scratch";
+                window.title = window.TITLE;
                 window.show ();
                 plugins.hook_new_window (window);
             } else {
