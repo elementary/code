@@ -556,7 +556,9 @@ namespace Scratch {
         
         void action_revert () {
             current_tab.document.backup ();
-            current_tab.document.save ();       
+            var file = File.new_for_path (current_tab.document.filename);
+            if (file.query_exists ())
+                current_tab.document.save ();       
         }
         
         void action_new_view () {
