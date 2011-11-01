@@ -1,4 +1,4 @@
-# Dutch translation for scratch
+# Polish translation for scratch
 # Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
 # This file is distributed under the same license as the scratch package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
@@ -6,139 +6,138 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-10-30 12:09+0100\n"
-"PO-Revision-Date: 2011-10-31 18:58+0000\n"
-"Last-Translator: RobinJ <broederjacobs@gmail.com>\n"
-"Language-Team: Dutch <nl@li.org>\n"
+"PO-Revision-Date: 2011-10-31 12:56+0000\n"
+"Last-Translator: Grzegorz G. <Unknown>\n"
+"Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2011-11-01 05:38+0000\n"
 "X-Generator: Launchpad (build 14197)\n"
-"Language: nl\n"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:82
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:165
 msgid "New file"
-msgstr "Nieuw bestand"
+msgstr "Nowy plik"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:160
 msgid "No files are open."
-msgstr "Er zijn geen bestanden geopend."
+msgstr "Żadne pliki nie są otwarte."
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:160
 msgid "Open a file to begin editing."
-msgstr "Open een bestand om het te beginnen bewerken."
+msgstr "Otwórz plik, aby zacząć edycję."
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:164
 msgid "Open file"
-msgstr "Bestand openen"
+msgstr "Otwórz plik"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:164
 msgid "Open a saved file."
-msgstr "Een opgeslagen bestand openen."
+msgstr "Otwórz zapisany plik"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:165
 msgid "Create a new empty file."
-msgstr "Maak een nieuw leeg bestand."
+msgstr "Stwórz nowy pusty plik."
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:148
 msgid "Normal Text"
-msgstr "Platte tekst"
+msgstr "Zwykły tekst"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:181
 msgid "Create a new file in a new tab"
-msgstr "Een nieuw bestand in een nieuw tabblat maken"
+msgstr "Stwórz nowy plik w nowej zakładce"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:182
 msgid "Open a file"
-msgstr "Een bestand openen"
+msgstr "Otwórz plik"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:183
 msgid "Save the current file"
-msgstr "Het huidige bestand opslaan"
+msgstr "Zapisz bieżący plik"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:184
 msgid "Undo the last action"
-msgstr "De laatste bewerking ongedaan maken"
+msgstr "Cofnij ostatnią czynność"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:185
 msgid "Redo the last undone action"
-msgstr "De laatste ongedaangemaakte bewerking opnieuw uitvoeren"
+msgstr "Powtarza ostatnie cofnięte działanie"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:186
 msgid "Share this file"
-msgstr "Dit bestand delen"
+msgstr "Współdziel ten plik"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:51
 msgid "Fullscreen"
-msgstr "Volledig scherm"
+msgstr "Pełny ekran"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:56
 msgid "Show Sidebar"
-msgstr "Zijbalk tonen"
+msgstr "Pokaż panel boczny"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:58
 msgid "Show Context View"
-msgstr ""
+msgstr "Pokaż widok kontekstowy"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:60
 msgid "Show Bottom Panel"
-msgstr "Onderste paneel tonen"
+msgstr "Pokaż dolny panel"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
 msgid "Changes to this file haven't been saved."
-msgstr "Wijzigingen aan dit bestand zijn niet opgeslagen"
+msgstr "Zmiany w tym pliku nie zostały zapisane."
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
 msgid "Do you want to save changes before closing this file?"
-msgstr "Wilt u de wijzigingen opslaan alvorens dit bestand te sluiten?"
+msgstr "Zapisać zmiany przed zamknięciem tego pliku?"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:84
 msgid "Show line numbers"
-msgstr "Toon regelnummers"
+msgstr "Wyświetlanie numerów wierszy"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:87
 msgid "Highlight current line"
-msgstr "Huidige regel markeren"
+msgstr "Podświetl bierzącą linię"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:90
 msgid "Use spaces instead of tabs"
-msgstr "Spaties gebruiken in plaats van tabs"
+msgstr "Używaj spacji zamiast tabulatorów"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:95
 msgid "Tab width:"
-msgstr "Tabbreedte:"
+msgstr "Szerokość tabulacji:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:103
 msgid "Style scheme:"
-msgstr "Stijlschema:"
+msgstr "Schemat kolorów:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:109
 msgid "Use the system fixed width font ("
-msgstr "Systeemvoorkeur voor lettertype met vaste breedte gebruiken ("
+msgstr "Używaj czcionki systemowej o stałej szerokości ("
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:118
 msgid "Select font:"
-msgstr "Selecteer lettertype:"
+msgstr "Wybierz czcionkę:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:140
 msgid "Search Loop"
-msgstr "Zoekopdracht herhalen"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:141
 msgid "Case Sensitive Search"
-msgstr "Hoofdlettergevoelige zoekopdracht"
+msgstr "Wyszukiwanie z rozróżnieniem wielkich i małych liter"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:157
 msgid "General"
-msgstr "Algemeen"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid "Save this file? "
-msgstr "Dit bestand opslaan? "
+msgstr "Zapisać ten plik? "
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:41
 msgid "All your work will be lost!"
-msgstr "Al uw werk zal verloren gaan!"
+msgstr "Cała praca pójdzie na marne!"

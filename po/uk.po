@@ -1,4 +1,4 @@
-# Dutch translation for scratch
+# Ukrainian translation for scratch
 # Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
 # This file is distributed under the same license as the scratch package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
@@ -6,78 +6,77 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-10-30 12:09+0100\n"
-"PO-Revision-Date: 2011-10-31 18:58+0000\n"
-"Last-Translator: RobinJ <broederjacobs@gmail.com>\n"
-"Language-Team: Dutch <nl@li.org>\n"
+"PO-Revision-Date: 2011-10-31 20:43+0000\n"
+"Last-Translator: Fedik <Unknown>\n"
+"Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2011-11-01 05:38+0000\n"
 "X-Generator: Launchpad (build 14197)\n"
-"Language: nl\n"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:82
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:165
 msgid "New file"
-msgstr "Nieuw bestand"
+msgstr "Новий файл"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:160
 msgid "No files are open."
-msgstr "Er zijn geen bestanden geopend."
+msgstr "Немає відкритих файлів"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:160
 msgid "Open a file to begin editing."
-msgstr "Open een bestand om het te beginnen bewerken."
+msgstr "Відкрийте файл для початку редагування."
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:164
 msgid "Open file"
-msgstr "Bestand openen"
+msgstr "Відкрити файл"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:164
 msgid "Open a saved file."
-msgstr "Een opgeslagen bestand openen."
+msgstr "Відкрити попередньо збережений файл."
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:165
 msgid "Create a new empty file."
-msgstr "Maak een nieuw leeg bestand."
+msgstr "Свторити порожній файл."
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:148
 msgid "Normal Text"
-msgstr "Platte tekst"
+msgstr "Звичайний текст"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:181
 msgid "Create a new file in a new tab"
-msgstr "Een nieuw bestand in een nieuw tabblat maken"
+msgstr "Створити новий файл в новій вкладці"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:182
 msgid "Open a file"
-msgstr "Een bestand openen"
+msgstr "Відкрити файл"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:183
 msgid "Save the current file"
-msgstr "Het huidige bestand opslaan"
+msgstr "Зберегти поточний файл"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:184
 msgid "Undo the last action"
-msgstr "De laatste bewerking ongedaan maken"
+msgstr "Скасувати останню дію"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:185
 msgid "Redo the last undone action"
-msgstr "De laatste ongedaangemaakte bewerking opnieuw uitvoeren"
+msgstr "Повернути останню дію"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:186
 msgid "Share this file"
-msgstr "Dit bestand delen"
+msgstr "Поділитись файлом"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:51
 msgid "Fullscreen"
-msgstr "Volledig scherm"
+msgstr "На ввесь екран"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:56
 msgid "Show Sidebar"
-msgstr "Zijbalk tonen"
+msgstr "Показати бічну панель"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:58
 msgid "Show Context View"
@@ -85,60 +84,60 @@ msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:60
 msgid "Show Bottom Panel"
-msgstr "Onderste paneel tonen"
+msgstr "Показати нижню панель"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
 msgid "Changes to this file haven't been saved."
-msgstr "Wijzigingen aan dit bestand zijn niet opgeslagen"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
 msgid "Do you want to save changes before closing this file?"
-msgstr "Wilt u de wijzigingen opslaan alvorens dit bestand te sluiten?"
+msgstr "Бажаєте зберегти зміни перед закриттям файлу?"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:84
 msgid "Show line numbers"
-msgstr "Toon regelnummers"
+msgstr "Показувати нумерацію рядків"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:87
 msgid "Highlight current line"
-msgstr "Huidige regel markeren"
+msgstr "Підсвічування поточнного рядка"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:90
 msgid "Use spaces instead of tabs"
-msgstr "Spaties gebruiken in plaats van tabs"
+msgstr "Використовувати пробіли замість табуляції"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:95
 msgid "Tab width:"
-msgstr "Tabbreedte:"
+msgstr "Ширина табуляції:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:103
 msgid "Style scheme:"
-msgstr "Stijlschema:"
+msgstr "Схема стилю:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:109
 msgid "Use the system fixed width font ("
-msgstr "Systeemvoorkeur voor lettertype met vaste breedte gebruiken ("
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:118
 msgid "Select font:"
-msgstr "Selecteer lettertype:"
+msgstr "Обрати шрифт:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:140
 msgid "Search Loop"
-msgstr "Zoekopdracht herhalen"
+msgstr "Пошук по колу"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:141
 msgid "Case Sensitive Search"
-msgstr "Hoofdlettergevoelige zoekopdracht"
+msgstr "Пошук з урахуванням регістру"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:157
 msgid "General"
-msgstr "Algemeen"
+msgstr "Загальне"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid "Save this file? "
-msgstr "Dit bestand opslaan? "
+msgstr "Зберегти цей файл? "
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:41
 msgid "All your work will be lost!"
-msgstr "Al uw werk zal verloren gaan!"
+msgstr "Всю вашу роботу буде втрачено!"
