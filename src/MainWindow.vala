@@ -260,6 +260,7 @@ namespace Scratch {
         	main_actions.get_action ("SaveFile").set_sensitive (val);
         	main_actions.get_action ("Undo").set_sensitive (val);
         	main_actions.get_action ("Redo").set_sensitive (val);
+        	main_actions.get_action ("Revert").set_sensitive (val);
         	main_actions.get_action ("Fetch").set_sensitive (val);
         	main_actions.get_action ("ShowReplace").set_sensitive (val);
         	main_actions.get_action ("ShowGoTo").set_sensitive (val);
@@ -553,6 +554,17 @@ namespace Scratch {
 			set_undo_redo ();
         }
         
+        void action_revert () {
+            var bk = File.new_for_path (current_tab.filename + "~");
+            var or = File.new_for_path (current_tab.filename);
+            
+            try {
+			    bk.copy (or, FileCopyFlags.NONE);
+            } catch (Error e) {
+                warning (e.message);
+            }
+        }
+        
         void action_new_view () {
             create_instance ();
             set_actions (true);
@@ -626,6 +638,12 @@ namespace Scratch {
           /* label, accelerator */       N_("Redo"), "<Control><shift>z",
           /* tooltip */                  N_("Redo"),
                                          action_redo },
+          
+          { "Revert", Gtk.Stock.REVERT_TO_SAVED,
+          /* label, accelerator */       N_("Revert"), "<Control><shift>o",
+          /* tooltip */                  N_("Revert"),
+                                         action_revert },
+                                         
            { "SearchNext", Gtk.Stock.REDO,
           /* label, accelerator */       N_("Next Search"), "<Control>g",
           /* tooltip */                  N_("Next Search"),

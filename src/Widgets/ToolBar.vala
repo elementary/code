@@ -35,6 +35,7 @@ namespace Scratch.Widgets {
         ToolButton save_button;
         ToolButton undo_button;
         ToolButton repeat_button;
+        ToolButton revert_button;
         public ComboBoxText combobox;
         
         public string selected_language {
@@ -56,6 +57,7 @@ namespace Scratch.Widgets {
 			SAVE_BUTTON,
 			UNDO_BUTTON,
 			REPEAT_BUTTON,
+			REVERT_BUTTON,
 			SHARE_BUTTON,
 			APP_MENU_BUTTON
 		}
@@ -82,6 +84,7 @@ namespace Scratch.Widgets {
             save_button = action_group.get_action("SaveFile").create_tool_item() as Gtk.ToolButton;
             undo_button = action_group.get_action("Undo").create_tool_item() as Gtk.ToolButton;
             repeat_button = action_group.get_action("Redo").create_tool_item() as Gtk.ToolButton;
+            revert_button = action_group.get_action("Revert").create_tool_item() as Gtk.ToolButton;
             
             combobox = new ComboBoxText ();
             set_combobox_text ();
@@ -92,6 +95,7 @@ namespace Scratch.Widgets {
             add (new SeparatorToolItem ());
             add (undo_button);
             add (repeat_button);
+            add (revert_button);
 
             add (new SeparatorToolItem ());
             add (toolitem (combobox, false));
@@ -184,6 +188,7 @@ namespace Scratch.Widgets {
         	open_button.set_tooltip_text(_("Open a file"));
 			save_button.set_tooltip_text(_("Save the current file"));
        		undo_button.set_tooltip_text(_("Undo the last action"));
+       		revert_button.set_tooltip_text (_("Restore the current file"));
         	repeat_button.set_tooltip_text(_("Redo the last undone action"));
 			share_menu.set_tooltip_text(_("Share this file"));
         }
@@ -209,6 +214,10 @@ namespace Scratch.Widgets {
 				
 				case ToolButtons.REPEAT_BUTTON:
  				this.repeat_button.set_sensitive(sensitive);
+				break;
+ 			    
+ 			    case ToolButtons.REVERT_BUTTON:
+ 				this.revert_button.set_sensitive(sensitive);
 				break;
  			    
  			    case ToolButtons.SHARE_BUTTON:
