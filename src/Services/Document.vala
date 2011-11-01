@@ -209,7 +209,48 @@ namespace Scratch.Services {
             return true;
 
         }
+        
+        public bool backup () {
+            
+            if (filename == null)
+                return false;
+            
+            string contents;
+			try {
+				FileUtils.get_contents (filename + "~", out contents);
+			} catch (Error e) {
+				window.infobar.set_info (_("The file could not be opened"));
+				return false;
+			}
+		
+			try {
+				if(!contents.validate()) contents = convert (contents, -1, "UTF-8", "ISO-8859-1");
+			}
+			catch (Error e) {
+				warning ("Couldn't convert the content of the document to UTF-8 (I guessed it was in ISO-8859-1?)");
+			}
+            original_text = text = contents;
 
+            if (buffer != null) {
+                buffer.begin_not_undoable_action ();
+            	buffer.text = this.text;
+                buffer.end_not_undoable_action ();
+            }
+            else
+            	warning ("No buffer selected.");
+            
+            if (tab != null) {
+            	tab.text_view.modified = false;
+            }
+            else
+            	warning ("No tab selected.");
+            
+            /* TODO: real encoding detection */
+            
+            return true;
+            
+        }
+        
         public bool close () {
 
             if (!saved)

@@ -555,14 +555,8 @@ namespace Scratch {
         }
         
         void action_revert () {
-            var bk = File.new_for_path (current_tab.filename + "~");
-            var or = File.new_for_path (current_tab.filename);
-            
-            try {
-			    bk.copy (or, FileCopyFlags.NONE);
-            } catch (Error e) {
-                warning (e.message);
-            }
+            current_tab.document.backup ();
+            current_tab.document.save ();       
         }
         
         void action_new_view () {

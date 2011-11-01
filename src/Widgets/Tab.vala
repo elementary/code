@@ -112,11 +112,13 @@ namespace Scratch.Widgets {
 			    var or = File.new_for_path (this.filename);
 				var bk = File.new_for_path (this.filename + "~");
 				
-				try {
-				    or.copy (bk, FileCopyFlags.NONE);
-                } catch (Error e) {
-                    warning (e.message);
-                }
+				if (!bk.query_exists ()) {
+				    try {
+				        or.copy (bk, FileCopyFlags.NONE);
+                    } catch (Error e) {
+                        warning (e.message);
+                    }
+				}
 				
 				FileUtils.set_contents (this.filename, this.text_view.buffer.text);
 				this.saved = true; 
