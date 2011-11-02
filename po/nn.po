@@ -1,4 +1,4 @@
-# French translation for scratch
+# Norwegian Nynorsk translation for scratch
 # Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
 # This file is distributed under the same license as the scratch package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
@@ -6,62 +6,61 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-11-01 22:41+0100\n"
-"PO-Revision-Date: 2011-10-31 17:36+0000\n"
-"Last-Translator: TiBounise <Unknown>\n"
-"Language-Team: French <fr@li.org>\n"
+"PO-Revision-Date: 2011-11-01 09:54+0000\n"
+"Last-Translator: Martin Myrvold <Unknown>\n"
+"Language-Team: Norwegian Nynorsk <nn@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2011-11-02 05:26+0000\n"
 "X-Generator: Launchpad (build 14214)\n"
-"Language: fr\n"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:101
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "New file"
-msgstr "Nouveau fichier"
+msgstr "Ny fil"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:180
 msgid "No files are open."
-msgstr "Aucun fichier ouvert"
+msgstr "Ingen filer er opna"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:180
 msgid "Open a file to begin editing."
-msgstr "Ouvrir un fichier pour commencer l'édition"
+msgstr "Opna ei fil for å byrja å redigera."
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
 msgid "Open file"
-msgstr "Ouvrir un fichier"
+msgstr "Opna fil"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
 msgid "Open a saved file."
-msgstr "Ouvrir un fichier sauvegardé"
+msgstr "Opna ei lagra fil."
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Create a new empty file."
-msgstr "Créer un fichier vide"
+msgstr "Lag ei tom ny fil."
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:154
 msgid "Normal Text"
-msgstr "Texte Normal"
+msgstr "Vanleg tekst"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:187
 msgid "Create a new file in a new tab"
-msgstr "Créer un nouveau fichier dans un nouvel onglet"
+msgstr "Lag ny fil i ei ny fane"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:188
 msgid "Open a file"
-msgstr "Ouvrir un fichier"
+msgstr "Opna ei fil"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:189
 msgid "Save the current file"
-msgstr "Sauvegarder le fichier actuel"
+msgstr "Lagra den noverande fila"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:190
 msgid "Undo the last action"
-msgstr "Annuler la dernière action"
+msgstr "Gjer om førre handling"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:191
 msgid "Restore the current file"
@@ -69,79 +68,79 @@ msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:192
 msgid "Redo the last undone action"
-msgstr "Rétablir la dernière action annulée"
+msgstr "Gjer om den sist angra handlinga"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:193
 msgid "Share this file"
-msgstr "Partager ce fichier"
+msgstr "Del denne fila"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:51
 msgid "Fullscreen"
-msgstr "Plein Écran"
+msgstr "Fullskjerm"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:56
 msgid "Show Sidebar"
-msgstr "Montrer Barre latérale"
+msgstr "Vis sidestolpe"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:58
 msgid "Show Context View"
-msgstr "Afficher Vue Contextuel"
+msgstr "Vis kontekst"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:60
 msgid "Show Bottom Panel"
-msgstr "Afficher le panneau du bas"
+msgstr "Vis nedre panel"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
 msgid "Changes to this file haven't been saved."
-msgstr "Les changements apportés à ce fichier n'ont pas été sauvegardés"
+msgstr "Endringane til fila har ikkje blitt lagra."
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
 msgid "Do you want to save changes before closing this file?"
-msgstr "Voulez vous sauvegarder les changements avant de fermer ce fichier ?"
+msgstr "Vil du lagra endringane før du forlet denne fila?"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:84
 msgid "Show line numbers"
-msgstr "Afficher les numéros des lignes"
+msgstr "Vis linjenummer"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:87
 msgid "Highlight current line"
-msgstr "Mettre en surbrillance la ligne actuelle"
+msgstr "Uthev denne linja"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:90
 msgid "Use spaces instead of tabs"
-msgstr "Utiliser des espaces au lieu des tabulations"
+msgstr "Bruk mellomrom istaden for fanar"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:95
 msgid "Tab width:"
-msgstr "Largeur des tabulations:"
+msgstr "Fane breidd:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:103
 msgid "Style scheme:"
-msgstr "Format de style:"
+msgstr "Stil skjema:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:109
 msgid "Use the system fixed width font ("
-msgstr "Utiliser la police système à largeur fixe"
+msgstr "Bruk vidda til systemfonten"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:118
 msgid "Select font:"
-msgstr "Sélectionner la police:"
+msgstr "Vel font:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:140
 msgid "Search Loop"
-msgstr "Rechercher une boucle"
+msgstr "Søk sløyfa"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:141
 msgid "Case Sensitive Search"
-msgstr "Recherche sensible à la casse"
+msgstr "Søk med store og små bokstavar"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:157
 msgid "General"
-msgstr "Général"
+msgstr "Allmennt"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid "Save this file? "
-msgstr "Enregistrer ce fichier? "
+msgstr "Lagra denne fila? "
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid "New File"
@@ -149,4 +148,4 @@ msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:41
 msgid "All your work will be lost!"
-msgstr "Tout votre travail sera perdu!"
+msgstr "Ditt arbeid vill forsvinna!"

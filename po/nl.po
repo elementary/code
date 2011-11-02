@@ -7,67 +7,71 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-30 12:09+0100\n"
+"POT-Creation-Date: 2011-11-01 22:41+0100\n"
 "PO-Revision-Date: 2011-10-31 18:58+0000\n"
 "Last-Translator: RobinJ <broederjacobs@gmail.com>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-11-01 05:38+0000\n"
-"X-Generator: Launchpad (build 14197)\n"
+"X-Launchpad-Export-Date: 2011-11-02 05:26+0000\n"
+"X-Generator: Launchpad (build 14214)\n"
 "Language: nl\n"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:82
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:165
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:101
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "New file"
 msgstr "Nieuw bestand"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:160
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:180
 msgid "No files are open."
 msgstr "Er zijn geen bestanden geopend."
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:160
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:180
 msgid "Open a file to begin editing."
 msgstr "Open een bestand om het te beginnen bewerken."
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:164
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
 msgid "Open file"
 msgstr "Bestand openen"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:164
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
 msgid "Open a saved file."
 msgstr "Een opgeslagen bestand openen."
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:165
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Create a new empty file."
 msgstr "Maak een nieuw leeg bestand."
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:148
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:154
 msgid "Normal Text"
 msgstr "Platte tekst"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:181
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:187
 msgid "Create a new file in a new tab"
 msgstr "Een nieuw bestand in een nieuw tabblat maken"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:182
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:188
 msgid "Open a file"
 msgstr "Een bestand openen"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:183
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:189
 msgid "Save the current file"
 msgstr "Het huidige bestand opslaan"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:184
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:190
 msgid "Undo the last action"
 msgstr "De laatste bewerking ongedaan maken"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:185
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:191
+msgid "Restore the current file"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:192
 msgid "Redo the last undone action"
 msgstr "De laatste ongedaangemaakte bewerking opnieuw uitvoeren"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:186
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:193
 msgid "Share this file"
 msgstr "Dit bestand delen"
 
@@ -138,6 +142,10 @@ msgstr "Algemeen"
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid "Save this file? "
 msgstr "Dit bestand opslaan? "
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
+msgid "New File"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:41
 msgid "All your work will be lost!"

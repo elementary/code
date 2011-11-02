@@ -7,67 +7,71 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-30 12:09+0100\n"
+"POT-Creation-Date: 2011-11-01 22:41+0100\n"
 "PO-Revision-Date: 2011-10-30 20:01+0000\n"
 "Last-Translator: Fitoschido <fitoschido@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-31 05:45+0000\n"
-"X-Generator: Launchpad (build 14197)\n"
+"X-Launchpad-Export-Date: 2011-11-02 05:26+0000\n"
+"X-Generator: Launchpad (build 14214)\n"
 "Language: es\n"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:82
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:165
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:101
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "New file"
 msgstr "Archivo nuevo"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:160
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:180
 msgid "No files are open."
 msgstr "No hay archivos abiertos."
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:160
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:180
 msgid "Open a file to begin editing."
 msgstr "Abra un archivo para comenzar a editar."
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:164
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
 msgid "Open file"
 msgstr "Abrir archivo"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:164
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
 msgid "Open a saved file."
 msgstr "Abrir un archivo guardado."
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:165
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Create a new empty file."
 msgstr "Crear un archivo vacío nuevo."
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:148
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:154
 msgid "Normal Text"
 msgstr "Texto normal"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:181
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:187
 msgid "Create a new file in a new tab"
 msgstr "Crear un archivo en una pestaña nueva"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:182
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:188
 msgid "Open a file"
 msgstr "Abrir un archivo"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:183
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:189
 msgid "Save the current file"
 msgstr "Guardar el archivo actual"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:184
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:190
 msgid "Undo the last action"
 msgstr "Deshacer la última acción"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:185
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:191
+msgid "Restore the current file"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:192
 msgid "Redo the last undone action"
 msgstr "Rehacer la última acción deshecha"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:186
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:193
 msgid "Share this file"
 msgstr "Compartir este archivo"
 
@@ -138,6 +142,10 @@ msgstr "Generales"
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid "Save this file? "
 msgstr "¿Guardar este archivo? "
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
+msgid "New File"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:41
 msgid "All your work will be lost!"
