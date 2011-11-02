@@ -352,6 +352,14 @@ namespace Scratch {
 					}
 					save_dialog.destroy ();
 				}
+				var bk = File.new_for_path (doc.filename + "~");
+				if (bk.query_exists ()) {
+				    try {
+				        bk.delete ();
+				    } catch (Error e) {
+				        debug ("Cannot delete %s~, it doesn't exist", doc.filename);
+				    }
+				}
 			}
 						
 			Gtk.main_quit ();
