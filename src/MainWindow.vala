@@ -258,6 +258,7 @@ namespace Scratch {
         
         public void set_actions (bool val) {
         	main_actions.get_action ("SaveFile").set_sensitive (val);
+        	main_actions.get_action ("SaveFileAs").set_sensitive (val);
         	main_actions.get_action ("Undo").set_sensitive (val);
         	main_actions.get_action ("Redo").set_sensitive (val);
         	main_actions.get_action ("Revert").set_sensitive (val);
@@ -397,6 +398,10 @@ namespace Scratch {
         
         public void action_save () {
               current_tab.save();
+        }
+        
+        public void action_save_as () {
+            current_tab.save_as ();
         }
         
         public void on_combobox_changed () {
@@ -663,7 +668,12 @@ namespace Scratch {
            { "SaveFile", Gtk.Stock.SAVE,
           /* label, accelerator */       N_("Save"), "<Control>s",
           /* tooltip */                  N_("Save current file"),
-                                         action_save }
+                                         action_save },
+           { "SaveFileAs", Gtk.Stock.SAVE_AS,
+          /* label, accelerator */       N_("SaveAs"), "<Control><shift>s",
+          /* tooltip */                  N_("Save current file as"),
+                                         action_save_as }                               
+          
         };
     }
 } // Namespace    

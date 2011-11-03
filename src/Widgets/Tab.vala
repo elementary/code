@@ -135,6 +135,69 @@ namespace Scratch.Widgets {
 
 	
         }
+        
+        public int save_as () {
+        
+            //if (this.filename == null) {
+            	string new_filename = null;
+					
+            	//show dialog
+                var filech = new FileChooserDialog ("Save as", (Gtk.Window)get_toplevel (), FileChooserAction.SAVE, null);
+                filech.add_button (Stock.CANCEL, ResponseType.CANCEL);
+                filech.add_button (Stock.SAVE, ResponseType.ACCEPT);
+                filech.set_default_response (ResponseType.ACCEPT);
+                    
+                if (this.filename != null)
+                    filech.set_filename (this.filename);
+                    
+                var response = filech.run();
+                
+                switch (response) {
+					case ResponseType.ACCEPT:
+					new_filename = filech.get_filename();				
+	                filech.close();
+					break;
+					
+					case ResponseType.CANCEL:
+	                filech.close();
+					return 1;
+										
+				}
+                
+				//check choise
+				if (new_filename != null) this.filename = new_filename;
+				else return 1;
+            //}
+            
+			message ("Saving: %s", this.filename);
+			
+			try {
+			
+			    var or = File.new_for_path (this.filename);
+				var bk = File.new_for_path (this.filename + "~");
+				
+				if (!bk.query_exists ()) {
+				    try {
+				        or.copy (bk, FileCopyFlags.NONE);
+                    } catch (Error e) {
+                        warning (e.message);
+                    }
+				}
+				
+				FileUtils.set_contents (this.filename, this.text_view.buffer.text);
+				this.saved = true; 
+				text_view.modified = false;
+		        
+		        return 0;
+		        
+		    } catch (Error e) {
+		    
+				warning ("Error: %s\n", e.message);
+				return 1;
+				
+		    }
+        
+        }
 
         public int save_file (string filename, string contents) {
 

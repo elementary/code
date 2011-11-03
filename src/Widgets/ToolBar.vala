@@ -33,6 +33,7 @@ namespace Scratch.Widgets {
         ToolButton new_button;
         ToolButton open_button;
         ToolButton save_button;
+        ToolButton save_as_button;
         ToolButton undo_button;
         ToolButton repeat_button;
         ToolButton revert_button;
@@ -81,6 +82,7 @@ namespace Scratch.Widgets {
             
             new_button = action_group.get_action("New tab").create_tool_item() as Gtk.ToolButton;
             open_button = action_group.get_action("Open").create_tool_item() as Gtk.ToolButton;
+            save_as_button = action_group.get_action("SaveFileAs").create_tool_item() as Gtk.ToolButton;
             save_button = action_group.get_action("SaveFile").create_tool_item() as Gtk.ToolButton;
             undo_button = action_group.get_action("Undo").create_tool_item() as Gtk.ToolButton;
             repeat_button = action_group.get_action("Redo").create_tool_item() as Gtk.ToolButton;
@@ -92,10 +94,11 @@ namespace Scratch.Widgets {
             add (new_button);
             add (open_button);
             add (save_button);
+            add (save_as_button);
             add (new SeparatorToolItem ());
+            add (revert_button);
             add (undo_button);
             add (repeat_button);
-            add (revert_button);
 
             add (new SeparatorToolItem ());
             add (toolitem (combobox, false));
