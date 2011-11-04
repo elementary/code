@@ -270,6 +270,7 @@ namespace Scratch {
         	main_actions.get_action ("New view").set_sensitive (val ? split_view_not_full : false);
         	main_actions.get_action ("Remove view").set_sensitive (val ? split_view_multiple_view : false);
         	toolbar.set_actions (val);
+        	toolbar.menu.languages.set_sensitive (val);
         }
         
         void on_split_view_empty_changed ()
@@ -284,7 +285,7 @@ namespace Scratch {
             	toolbar.set_button_sensitive (toolbar.ToolButtons.UNDO_BUTTON, false);
             	toolbar.set_button_sensitive (toolbar.ToolButtons.REPEAT_BUTTON, false);
             	toolbar.set_button_sensitive (toolbar.ToolButtons.SHARE_BUTTON, false);
-            	//toolbar.combobox.set_sensitive (false);
+            	toolbar.menu.languages.set_sensitive (false);
         	}
         	else {
 				set_actions (true);
