@@ -37,11 +37,11 @@ namespace Scratch.Widgets {
         ToolButton undo_button;
         ToolButton repeat_button;
         ToolButton revert_button;
-        public ComboBoxText combobox;
+        //public ComboBoxText combobox;
         
-        public string selected_language {
-        	get { return combobox.get_active_id(); }
-        }
+        //public string selected_language {
+        //	get { return combobox.get_active_id(); }
+        //}
 
         public ShareMenu share_menu;
         public MenuProperties menu;
@@ -88,8 +88,8 @@ namespace Scratch.Widgets {
             repeat_button = action_group.get_action("Redo").create_tool_item() as Gtk.ToolButton;
             revert_button = action_group.get_action("Revert").create_tool_item() as Gtk.ToolButton;
             
-            combobox = new ComboBoxText ();
-            set_combobox_text ();
+            //combobox = new ComboBoxText ();
+            //set_combobox_text ();
                         
             add (new_button);
             add (open_button);
@@ -101,7 +101,7 @@ namespace Scratch.Widgets {
             add (repeat_button);
 
             add (new SeparatorToolItem ());
-            add (toolitem (combobox, false));
+            //add (toolitem (combobox, false));
 						
             share_menu = new ShareMenu (this.window);
             share_app_menu = new ShareAppMenu (share_menu);
@@ -133,7 +133,7 @@ namespace Scratch.Widgets {
 			
 		}
 		
-		private ToolItem toolitem (Widget widget, bool expand = true, int border_width = 0) {
+		/*private ToolItem toolitem (Widget widget, bool expand = true, int border_width = 0) {
 		
 		    var new_tool_item = new ToolItem ();
 		    new_tool_item.add (widget);
@@ -145,14 +145,14 @@ namespace Scratch.Widgets {
 
 		    return new_tool_item;
     
-        }
+        }*/
         
         public void set_actions (bool val) {
-            combobox.set_sensitive (val);
+            //combobox.set_sensitive (val);
             share_app_menu.set_sensitive(val);
         }
         
-        private void set_combobox_text () {
+        /*private void set_combobox_text () {
 	   //combobox.append (_("File language"));
            combobox.append ("text", _("Normal Text"));
            combobox.append ("sh", "Bash");
@@ -180,10 +180,10 @@ namespace Scratch.Widgets {
            combobox.append ("ruby", "Ruby");
            combobox.append ("vala", "Vala");
            combobox.append ("xml", "XML");
-           /* IMPORTANT: if you add an item in this list, check also pastebin dialog list */
+           // IMPORTANT: if you add an item in this list, check also pastebin dialog list 
            
            combobox.set_active (0);
-        }
+        }*/
 
 
         private void set_tooltip () {

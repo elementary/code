@@ -187,7 +187,7 @@ namespace Scratch {
                 toolbar.search_manager.set_text_view ((Scratch.Widgets.SourceView) w);
                 var tab = w.get_parent () as Tab;
                 assert(tab != null);
-                set_combobox_language (tab.document.filename);
+                //set_combobox_language (tab.document.filename);
             }
             else
                 warning("The focused widget is not a valid TextView");
@@ -284,7 +284,7 @@ namespace Scratch {
             	toolbar.set_button_sensitive (toolbar.ToolButtons.UNDO_BUTTON, false);
             	toolbar.set_button_sensitive (toolbar.ToolButtons.REPEAT_BUTTON, false);
             	toolbar.set_button_sensitive (toolbar.ToolButtons.SHARE_BUTTON, false);
-            	toolbar.combobox.set_sensitive (false);
+            	//toolbar.combobox.set_sensitive (false);
         	}
         	else {
 				set_actions (true);
@@ -329,7 +329,7 @@ namespace Scratch {
         public void connect_signals () {
 
             //signals for the toolbar
-            toolbar.combobox.changed.connect (on_combobox_changed);
+            //toolbar.combobox.changed.connect (on_combobox_changed);
         }
         
         void action_close_tab () {
@@ -404,12 +404,12 @@ namespace Scratch {
             current_tab.save_as ();
         }
         
-        public void on_combobox_changed () {
+        /*public void on_combobox_changed () {
             Gtk.SourceLanguage lang;
             lang = current_tab.text_view.manager.get_language ( toolbar.combobox.get_active_id () );
             current_tab.text_view.buffer.set_language (lang);
             //current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language (toolbar.combobox.get_active_id () ) );//current_tab.text_view.manager.get_language("c-sharp") );
-        }
+        }*/
         
         public Scratch.Widgets.SourceView get_active_view() {
             return current_tab.text_view;
@@ -519,7 +519,7 @@ namespace Scratch {
 			
         }
         
-        public void set_combobox_language (string filename) {
+        /*public void set_combobox_language (string filename) {
         
             Gtk.SourceLanguage lang = current_tab.text_view.change_syntax_highlight_for_filename (filename);
             if (lang != null) {
@@ -534,7 +534,7 @@ namespace Scratch {
 			else {
 				warning ("Couldn't detect language highlight for %s", filename);
 			}
-        }
+        }*/
         
         public void create_instance () {
 			

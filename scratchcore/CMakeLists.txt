@@ -48,7 +48,7 @@ PACKAGES
     granite
     gtksourceview-3.0
     scratchplugins
-    
+
     gee-1.0
 OPTIONS
     --thread
