@@ -54,12 +54,12 @@ namespace Scratch.Widgets {
             /* If it is a Tab (something where we can put text, not a welcome screen)
              * we want to hide the tabs and the welcome screen.
              */
-            if(w is Tab) {
+            /*if(w is Tab) {
                 (w as Tab).text_view.focus_in_event.connect (on_page_focused);
                 page_focused ((w as Tab).text_view);
                 set_show_tabs(true);
    			    (w as Tab).label.scroll_event.connect (on_scroll_event);
-            }
+            }*/
         }
         
 				
@@ -113,10 +113,10 @@ namespace Scratch.Widgets {
 		
 		public void set_tab () {
 		    
-		    if (get_n_pages () == 1)
+		    /*if (get_n_pages () == 1)
 		        set_show_tabs (false);
 		    else
-		        set_show_tabs (true);
+		        set_show_tabs (true);*/
 		}
 		
 		public void on_switch_page (Widget page, uint number) {
