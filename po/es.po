@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-11-01 22:41+0100\n"
-"PO-Revision-Date: 2011-10-30 20:01+0000\n"
-"Last-Translator: Fitoschido <fitoschido@gmail.com>\n"
+"PO-Revision-Date: 2011-11-05 21:36+0000\n"
+"Last-Translator: Cody Garver <codygarver@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-11-02 05:26+0000\n"
-"X-Generator: Launchpad (build 14214)\n"
+"X-Launchpad-Export-Date: 2011-11-06 05:36+0000\n"
+"X-Generator: Launchpad (build 14231)\n"
 "Language: es\n"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:101
@@ -29,7 +29,7 @@ msgstr "No hay archivos abiertos."
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:180
 msgid "Open a file to begin editing."
-msgstr "Abra un archivo para comenzar a editar."
+msgstr "Abra un archivo para comenzar la edición"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
 msgid "Open file"
@@ -41,7 +41,7 @@ msgstr "Abrir un archivo guardado."
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Create a new empty file."
-msgstr "Crear un archivo vacío nuevo."
+msgstr "Crear un archivo nuevo vacío."
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:154
 msgid "Normal Text"
@@ -65,7 +65,7 @@ msgstr "Deshacer la última acción"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:191
 msgid "Restore the current file"
-msgstr ""
+msgstr "Restablecer el archivo actual"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:192
 msgid "Redo the last undone action"
@@ -81,27 +81,27 @@ msgstr "Pantalla completa"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:56
 msgid "Show Sidebar"
-msgstr "Mostrar barra lateral"
+msgstr "Mostrar la barra lateral"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:58
 msgid "Show Context View"
-msgstr "Mostrar vista contextual"
+msgstr "Mostrar la vista contextual"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:60
 msgid "Show Bottom Panel"
-msgstr "Mostrar panel inferior"
+msgstr "Mostrar el panel inferior"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
 msgid "Changes to this file haven't been saved."
-msgstr "Los cambios a este archivo no se han guardado."
+msgstr "Los cambios en este archivo no han sido guardados."
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
 msgid "Do you want to save changes before closing this file?"
-msgstr "¿Quiere guardar los cambios antes de cerrar este archivo?"
+msgstr "¿Desea guardar los cambios antes de cerrar este archivo?"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:84
 msgid "Show line numbers"
-msgstr "Mostrar números de línea"
+msgstr "Mostrar los números de línea"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:87
 msgid "Highlight current line"
@@ -113,7 +113,7 @@ msgstr "Utilizar espacios en lugar de tabuladores"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:95
 msgid "Tab width:"
-msgstr "Ancho de tabulador:"
+msgstr "Ancho del tabulador:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:103
 msgid "Style scheme:"
@@ -129,7 +129,7 @@ msgstr "Seleccionar tipografía:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:140
 msgid "Search Loop"
-msgstr "Búsqueda de bucle"
+msgstr "Ciclo de búsqueda"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:141
 msgid "Case Sensitive Search"
@@ -145,7 +145,7 @@ msgstr "¿Guardar este archivo? "
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid "New File"
-msgstr ""
+msgstr "Archivo nuevo"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:41
 msgid "All your work will be lost!"
