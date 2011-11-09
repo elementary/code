@@ -1,21 +1,21 @@
 # Polish translation for scratch
 # Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
 # This file is distributed under the same license as the scratch package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+# Piotr Sokół <psokol@jabster.pl>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-11-01 22:41+0100\n"
-"PO-Revision-Date: 2011-11-04 18:52+0000\n"
-"Last-Translator: Grzegorz G. <Unknown>\n"
-"Language-Team: Polish <pl@li.org>\n"
+"PO-Revision-Date: 2011-11-08 18:48+0000\n"
+"Last-Translator: Piotr Sokół <Unknown>\n"
+"Language-Team: polski <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-11-05 06:29+0000\n"
-"X-Generator: Launchpad (build 14231)\n"
+"X-Launchpad-Export-Date: 2011-11-09 05:31+0000\n"
+"X-Generator: Launchpad (build 14263)\n"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:101
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
@@ -28,7 +28,7 @@ msgstr "Żadne pliki nie są otwarte."
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:180
 msgid "Open a file to begin editing."
-msgstr "Otwórz plik, aby zacząć edycję."
+msgstr "Proszę otworzyć plik, aby rozpocząć pracę."
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
 msgid "Open file"
@@ -36,11 +36,11 @@ msgstr "Otwórz plik"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
 msgid "Open a saved file."
-msgstr "Otwórz zapisany plik"
+msgstr "Otwiera zapisany plik"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Create a new empty file."
-msgstr "Stwórz nowy pusty plik."
+msgstr "Tworzy nowy, pusty plik"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:154
 msgid "Normal Text"
@@ -48,27 +48,27 @@ msgstr "Zwykły tekst"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:187
 msgid "Create a new file in a new tab"
-msgstr "Stwórz nowy plik w nowej zakładce"
+msgstr "Tworzy nowy plik i otwiera go w nowej karcie"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:188
 msgid "Open a file"
-msgstr "Otwórz plik"
+msgstr "Otwiera plik"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:189
 msgid "Save the current file"
-msgstr "Zapisz bieżący plik"
+msgstr "Zapisuje bieżący plik"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:190
 msgid "Undo the last action"
-msgstr "Cofnij ostatnią czynność"
+msgstr "Cofa ostatnią czynność"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:191
 msgid "Restore the current file"
-msgstr ""
+msgstr "Przywraca bieżący plik"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:192
 msgid "Redo the last undone action"
-msgstr "Powtarza ostatnie cofnięte działanie"
+msgstr "Powtarza ostatnią cofniętą czynność"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:193
 msgid "Share this file"
@@ -92,11 +92,11 @@ msgstr "Pokaż dolny panel"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
 msgid "Changes to this file haven't been saved."
-msgstr "Zmiany w tym pliku nie zostały zapisane."
+msgstr "Nie zapisano zmian w tym pliku."
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
 msgid "Do you want to save changes before closing this file?"
-msgstr "Zapisać zmiany przed zamknięciem tego pliku?"
+msgstr "Zapisać zmiany przed zamknięciem pliku?"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:84
 msgid "Show line numbers"
@@ -104,11 +104,11 @@ msgstr "Wyświetlanie numerów wierszy"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:87
 msgid "Highlight current line"
-msgstr "Podświetl bierzącą linię"
+msgstr "Podświetlanie bieżącego wiersza"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:90
 msgid "Use spaces instead of tabs"
-msgstr "Używaj spacji zamiast tabulatorów"
+msgstr "Używanie spacji zamiast tabulatorów"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:95
 msgid "Tab width:"
@@ -116,23 +116,23 @@ msgstr "Szerokość tabulacji:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:103
 msgid "Style scheme:"
-msgstr "Schemat kolorów:"
+msgstr "Styl:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:109
 msgid "Use the system fixed width font ("
-msgstr "Używaj czcionki systemowej o stałej szerokości ("
+msgstr "Używanie czcionki systemowej o stałej szerokości ("
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:118
 msgid "Select font:"
-msgstr "Wybierz czcionkę:"
+msgstr "Czcionka:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:140
 msgid "Search Loop"
-msgstr "Pętla wyszukiwania"
+msgstr "Wyszukiwanie w pętli"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:141
 msgid "Case Sensitive Search"
-msgstr "Wyszukiwanie z rozróżnieniem wielkich i małych liter"
+msgstr "Uwzględnianie wielkości liter podczas wyszukiwania"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:157
 msgid "General"
@@ -140,7 +140,7 @@ msgstr "Ogólne"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid "Save this file? "
-msgstr "Zapisać ten plik? "
+msgstr "Zapisać plik? "
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid "New File"
@@ -148,4 +148,4 @@ msgstr "Nowy plik"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:41
 msgid "All your work will be lost!"
-msgstr "Cała praca pójdzie na marne!"
+msgstr "Wszystkie zmiany zostaną porzucone!"
