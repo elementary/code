@@ -58,7 +58,7 @@ namespace Scratch.Widgets {
 		
 		public void on_set_focus_child (Widget child) {
 		    
-		    window.current_notebook = child as ScratchNotebook;
+		    window.current_notebook = get_focus_child() as ScratchNotebook;
 		    
 		}
 		
