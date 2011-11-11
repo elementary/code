@@ -41,6 +41,8 @@ namespace Scratch.Widgets {
             
             text_view = new SourceView ();
             text_view.focus_in_event.connect (on_focus_in);
+            text_view.buffer.changed.connect ( () => {var top = get_toplevel () as Scratch.MainWindow; top.set_undo_redo ();});
+            
             label = new TabLabel(this, labeltext);
             
             add (text_view);
