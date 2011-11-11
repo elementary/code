@@ -44,6 +44,7 @@ namespace Scratch {
                 <menuitem name="ShowReplace" action="ShowReplace"/>
                 <menuitem name="New tab" action="New tab"/>
                 <menuitem name="New view" action="New view"/>
+                <menuitem name="Fullscreen" action="Fullscreen"/>
                 <menuitem name="Open" action="Open"/>
                 <menuitem name="SaveFile" action="SaveFile"/>
                 <menuitem name="Undo" action="Undo"/>
@@ -53,9 +54,10 @@ namespace Scratch {
             </popup>
             </ui>
         """;
+
         public Gtk.ActionGroup main_actions;
         Gtk.UIManager ui;
-    
+        
         public string TITLE = "Scratch";
 
         public SplitView split_view;
@@ -98,10 +100,13 @@ namespace Scratch {
                 
             this.title = TITLE;
             restore_saved_state ();
+            
+            //main actions
+            main_actions = new Gtk.ActionGroup ("MainActionGroup"); /* Actions and UIManager */
+            main_actions.set_translation_domain ("scratch");
+            main_actions.add_actions (main_entries, this);
+            main_actions.add_toggle_actions (toggle_entries, this);
 
-            main_actions = new Gtk.ActionGroup("MainActionGroup"); /* Actions and UIManager */
-            main_actions.set_translation_domain("scratch");
-            main_actions.add_actions(main_entries, this);
             ui = new Gtk.UIManager();
             try {
                 ui.add_ui_from_string(ui_string, -1);
@@ -580,6 +585,14 @@ namespace Scratch {
             set_actions (true);
         }
         
+        void action_fullscreen () {
+            if ((get_window ().get_state () & WindowState.FULLSCREEN) != 0)
+                this.unfullscreen ();
+            else
+                this.fullscreen ();
+            debug ("Full");
+        }
+        
         void action_remove_view () {
             var notebook = split_view.get_current_notebook ();
             foreach(var w in notebook.get_children ()) {
@@ -636,6 +649,7 @@ namespace Scratch {
           /* label, accelerator */       N_("Add New View"), "F3",
           /* tooltip */                  N_("Add a new view"),
                                          action_new_view },
+           
            { "Remove view", Gtk.Stock.CLOSE,
           /* label, accelerator */       N_("Remove Current View"), null,
           /* tooltip */                  N_("Remove this view"),
@@ -676,6 +690,14 @@ namespace Scratch {
                                          action_save_as }                               
           
         };
+
+        static const Gtk.ToggleActionEntry[] toggle_entries = {
+           { "Fullscreen", Gtk.Stock.FULLSCREEN,
+          /* label, accelerator */       N_("Fullscreen"), "F11",
+          /* tooltip */                  N_("Fullscreen"),
+                                         action_fullscreen }     
+        };
+        
     }
 } // Namespace    
 

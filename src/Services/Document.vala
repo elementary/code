@@ -264,12 +264,13 @@ namespace Scratch.Services {
         public bool save () {
             
             tab.save ();
+            update ();
             return false;
 
         }
 
         public void update () {
-
+            tab.label.label.set_text (this.filename);
         }
 
         public bool rename (string new_name) {
