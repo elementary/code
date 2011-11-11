@@ -96,7 +96,7 @@ namespace Scratch {
                 plugins.hook_new_window (window);
                 window.TITLE = app_cmd_name ?? "Scratch";
                 window.title = window.TITLE;
-                window.show_all ();
+                window.show ();
             }
 
             for (int i = 0; i < files.length; i++) {
