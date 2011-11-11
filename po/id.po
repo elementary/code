@@ -1,4 +1,4 @@
-# Portuguese translation for scratch
+# Indonesian translation for scratch
 # Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
 # This file is distributed under the same license as the scratch package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-11-01 22:41+0100\n"
-"PO-Revision-Date: 2011-11-10 14:03+0000\n"
-"Last-Translator: Tiago Branco <Unknown>\n"
-"Language-Team: Portuguese <pt@li.org>\n"
+"PO-Revision-Date: 2011-11-10 13:52+0000\n"
+"Last-Translator: Khalifa Visi Islami <Unknown>\n"
+"Language-Team: Indonesian <id@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,132 +20,132 @@ msgstr ""
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:101
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "New file"
-msgstr "Novo ficheiro"
+msgstr "Berkas baru"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:180
 msgid "No files are open."
-msgstr "Nenhum ficheiro aberto"
+msgstr "Tidak ada berkas yang terbuka"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:180
 msgid "Open a file to begin editing."
-msgstr "Abrir um ficheiro pra edição"
+msgstr "Buka sebuah berkas untuk memulai meredaksi"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
 msgid "Open file"
-msgstr "Abrir um ficheiro"
+msgstr "Buka berkas"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
 msgid "Open a saved file."
-msgstr "Abrir um ficheiro gravado"
+msgstr "Buka sebuah berkas tersimpan"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Create a new empty file."
-msgstr "Criar um novo ficheiro vazio"
+msgstr "Buat sebuah berkas kosong"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:154
 msgid "Normal Text"
-msgstr "Texto Normal"
+msgstr "Teks Normal"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:187
 msgid "Create a new file in a new tab"
-msgstr "Criar um novo ficheiro em uma nova aba"
+msgstr "Buat sebuah berkas di tab baru"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:188
 msgid "Open a file"
-msgstr "Abrir um ficheiro"
+msgstr "Buka sebuah berkas"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:189
 msgid "Save the current file"
-msgstr "Gravar o ficheiro actual"
+msgstr "Simpan berkas ini"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:190
 msgid "Undo the last action"
-msgstr "Desfazer a última acção"
+msgstr "Batalkan aksi terakhir"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:191
 msgid "Restore the current file"
-msgstr "Restaurar o ficheiro actual"
+msgstr "Pulihkan berkas ini"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:192
 msgid "Redo the last undone action"
-msgstr "Refazer a última acção desfeita"
+msgstr "Lakukan kembali pembatalan terakhir"
 
 #: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:193
 msgid "Share this file"
-msgstr "Compartilhar um ficheiro"
+msgstr "Bagikan berkas ini"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:51
 msgid "Fullscreen"
-msgstr "Ecrã completo"
+msgstr "Layar penuh"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:56
 msgid "Show Sidebar"
-msgstr "Mostrar a Barra Lateral"
+msgstr "Tampilkan Bar Samping"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:58
 msgid "Show Context View"
-msgstr "Mostrar visualização de contexto"
+msgstr "Tampilkan Tampilan Konteks"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:60
 msgid "Show Bottom Panel"
-msgstr "Mostrar painel inferior"
+msgstr "Tampilkan Panel Bawah"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
 msgid "Changes to this file haven't been saved."
-msgstr "Alterações para este ficheiro não estão sendo gravadas."
+msgstr "Segala perubahan pada berkas ini belum disimpan"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
 msgid "Do you want to save changes before closing this file?"
-msgstr "Você deseja gravar as alterações antes de fechar o ficheiro?"
+msgstr "Anda ingin menyimpan perubahan sebelum menutup berkas ini?"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:84
 msgid "Show line numbers"
-msgstr "Mostrar o número das linhas"
+msgstr "Tampilkan nomor baris"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:87
 msgid "Highlight current line"
-msgstr "Realçar a linha actual"
+msgstr "Sorot baris yang sekarang"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:90
 msgid "Use spaces instead of tabs"
-msgstr "Usar espaço ao invés de tabulação"
+msgstr "Gunakan space sebagai ganti tab"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:95
 msgid "Tab width:"
-msgstr "Tamanho da tabulação:"
+msgstr "Lebar tab:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:103
 msgid "Style scheme:"
-msgstr "Esquema de estilo:"
+msgstr "Skema Gaya:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:109
 msgid "Use the system fixed width font ("
-msgstr "Use o sistema de fonte de largura fixa ("
+msgstr "Gunakan ukuran font sesuai sistem ("
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:118
 msgid "Select font:"
-msgstr "Selecionar fonte:"
+msgstr "Pilih font:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:140
 msgid "Search Loop"
-msgstr "ciclo de busca"
+msgstr "Pengulangan Pencarian"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:141
 msgid "Case Sensitive Search"
-msgstr "Busca em modo case sensitive"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:157
 msgid "General"
-msgstr "Geral"
+msgstr "Umum"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid "Save this file? "
-msgstr "Gravar este ficheiro? "
+msgstr "Simpan berkas ini? "
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid "New File"
-msgstr "Novo Ficheiro"
+msgstr "Berkas Baru"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:41
 msgid "All your work will be lost!"
-msgstr "Todo o seu trabalho será perdido!"
+msgstr "Semua pekerjaan anda akan hilang!"
