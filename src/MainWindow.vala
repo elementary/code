@@ -126,6 +126,21 @@ namespace Scratch {
             set_theme ();
                         
         }
+        
+        
+
+		public void on_drag_data_received (Gdk.DragContext context, int x, int y, SelectionData selection_data, uint info, uint time_) {
+			foreach (string s in selection_data.get_uris ()){
+			    try {
+                	//var w = get_toplevel () as MainWindow;
+                	scratch_app.open_file (Filename.from_uri (s));
+				    //w.set_undo_redo ();
+				}
+				catch (Error e) {
+				    warning ("%s doesn't seem to be a valid URI, couldn't open it.", s);
+				}
+			}
+		}
 
 		/**
 		 * This function checks the settings and show the sidebar (or the sidepanel)
@@ -333,9 +348,7 @@ namespace Scratch {
         }
         
         public void connect_signals () {
-
-            //signals for the toolbar
-            //toolbar.combobox.changed.connect (on_combobox_changed);
+            drag_data_received.connect(on_drag_data_received);
         }
         
         void action_close_tab () {
