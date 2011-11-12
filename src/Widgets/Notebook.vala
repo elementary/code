@@ -180,8 +180,8 @@ namespace Scratch.Widgets {
 	
 			//notebook = caller;
 	
-			append(Stock.OPEN, _("Open file"), _("Open a saved file."));
-			append(Stock.NEW, _("New file"), _("Create a new empty file."));
+			append("document-open", _("Open file"), _("Open a saved file."));
+			append("document-new", _("New file"), _("Create a new empty file."));
 			this.activated.connect (on_activated);
 			this.window = window;
 			
