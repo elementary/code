@@ -280,9 +280,9 @@ namespace Scratch {
             on_split_view_empty_changed ();
 
             show_all();
-            notebook_settings_changed("sidebar-visible");
-            notebook_settings_changed("context-visible");
-            notebook_settings_changed("bottom-panel-visible");
+            notebook_settings_changed ("sidebar-visible");
+            notebook_settings_changed ("context-visible");
+            notebook_settings_changed ("bottom-panel-visible");
 
             infobar.hide ();
         }
@@ -342,11 +342,11 @@ namespace Scratch {
 
                 // Get the system's style
                 realize ();
-                font = FontDescription.from_string(system_font());
+                font = FontDescription.from_string (system_font());
             }
             else
             {
-                Gtk.Settings.get_default().gtk_application_prefer_dark_theme = true;
+                Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
 
                 // Get the system's style
                 realize ();
@@ -377,7 +377,7 @@ namespace Scratch {
                 if (doc.modified) {
                     var save_dialog = new SaveOnCloseDialog (doc.name, this);
                     int response = save_dialog.run ();
-                    switch(response) {
+                    switch (response) {
                     case Gtk.ResponseType.CANCEL:
                         save_dialog.destroy ();
                         return;
