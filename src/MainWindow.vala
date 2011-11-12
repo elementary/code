@@ -77,6 +77,7 @@ namespace Scratch {
          **/
         public Gtk.Notebook notebook_bottom;
 
+        public StatusBar statusbar;
         public ScratchInfoBar infobar;
 
         //dialogs
@@ -269,11 +270,11 @@ namespace Scratch {
             vbox.pack_start (toolbar, false, false, 0);
             vbox.pack_start (vpaned_bottom_panel, true, true, 0);
             vbox.show_all ();
+            
+            statusbar = new StatusBar ();
+            vbox.pack_end (statusbar, false, false, 0);
 
-            //add infobar
-            infobar = new ScratchInfoBar (vbox);
-
-            this.add (infobar);
+            this.add (vbox);
 
             set_undo_redo ();
 
@@ -284,7 +285,7 @@ namespace Scratch {
             notebook_settings_changed ("context-visible");
             notebook_settings_changed ("bottom-panel-visible");
 
-            infobar.hide ();
+
         }
 
         public void set_actions (bool val) {

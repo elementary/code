@@ -49,6 +49,7 @@ vala_precompile(VALA_C
     src/Widgets/Tab.vala
     src/Widgets/TabLabel.vala
     src/Widgets/SplitView.vala
+    src/Widgets/StatusBar.vala
     src/Widgets/ToolBar.vala
     src/Widgets/InfoBar.vala
     src/Dialogs/PreferencesDialog.vala

@@ -24,7 +24,7 @@ using Scratch.Dialogs;
 
 namespace Scratch.Widgets {
 	
-    public class SplitView : HBox {
+    public class SplitView : Granite.Widgets.HCollapsablePaned {
 		
 		//IN THIS CLASS I COMMENTED ALL THE CODE WHICH WAS USED FOR A SPLITVIEW WITH GTK.TABLE
 		
@@ -47,8 +47,8 @@ namespace Scratch.Widgets {
 		
 		public SplitView (MainWindow window) {
 			
-			homogeneous = false;
-			expand = true;
+			//homogeneous = false;
+			//expand = true;
 			
 			this.window = window;
 			
@@ -64,7 +64,8 @@ namespace Scratch.Widgets {
 		
 				
 		public void add_view (ScratchNotebook view) {
-			pack_start (view);
+			add (view);
+			//pack_start (view);
 			
 			view.page_added.connect (recompute_empty);
 			view.page_removed.connect (recompute_empty);
