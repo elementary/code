@@ -95,7 +95,7 @@ namespace Scratch {
 
         public MainWindow (Scratch.ScratchApp scratch_app) {
             this.scratch_app = scratch_app;
-            set_application(scratch_app);
+            set_application (scratch_app);
 
             this.title = TITLE;
             restore_saved_state ();
@@ -106,18 +106,20 @@ namespace Scratch {
             main_actions.add_actions (main_entries, this);
             main_actions.add_toggle_actions (toggle_entries, this);
 
-            ui = new Gtk.UIManager();
+            ui = new Gtk.UIManager ();
+
             try {
-                ui.add_ui_from_string(ui_string, -1);
+                ui.add_ui_from_string (ui_string, -1);
             }
             catch(Error e) {
-                error("Couldn't load the UI");
+                error ("Couldn't load the UI");
             }
-            Gtk.AccelGroup accel_group = ui.get_accel_group();
-            add_accel_group(accel_group);
 
-            ui.insert_action_group(main_actions, 0);
-            ui.ensure_update();
+            Gtk.AccelGroup accel_group = ui.get_accel_group();
+            add_accel_group (accel_group);
+
+            ui.insert_action_group (main_actions, 0);
+            ui.ensure_update ();
 
             create_window ();
             connect_signals ();
@@ -127,7 +129,8 @@ namespace Scratch {
         }
 
         public void on_drag_data_received (Gdk.DragContext context, int x, int y, SelectionData selection_data, uint info, uint time_) {
-            foreach (string s in selection_data.get_uris ()){
+
+            foreach (string s in selection_data.get_uris ()) {
                 try {
                     //var w = get_toplevel () as MainWindow;
                     scratch_app.open_file (Filename.from_uri (s));
@@ -137,6 +140,7 @@ namespace Scratch {
                     warning ("%s doesn't seem to be a valid URI, couldn't open it.", s);
                 }
             }
+
         }
 
         /**
@@ -184,18 +188,19 @@ namespace Scratch {
                 notebook = notebook_bottom;
             }
             /* So, now we know which notebook we are talking about. */
-            if(notebook != null)
+            if (notebook != null)
             {
                 /* We can hide it by default */
                 notebook.hide ();
                 /* Stop here if it must be hidden */
-                if(!key_value)
+                if (!key_value)
                     return;
                 /* Now, let's check there is at least one visible
                  * children notebook in it, and show it if it is the case */
-                foreach(var w in notebook.get_children ())
+
+                foreach (var w in notebook.get_children ())
                 {
-                    if(w.visible)
+                    if (w.visible)
                     {
                         notebook.show_all ();
                         return;
@@ -210,6 +215,7 @@ namespace Scratch {
             if (w is Scratch.Widgets.SourceView) {
                 toolbar.search_manager.set_text_view ((Scratch.Widgets.SourceView) w);
                 var tab = w.get_parent () as Tab;
+
                 assert(tab != null);
                 //set_combobox_language (tab.document.filename);
             }
@@ -222,47 +228,47 @@ namespace Scratch {
 
             this.toolbar = new Widgets.Toolbar (this, ui, main_actions);
 
-            notebook_context = new Gtk.Notebook();
-            notebook_context.page_added.connect(on_notebook_context_new_page);
-            var hpaned_addons = new Granite.Widgets.HCollapsablePaned();
-            var vpaned_bottom_panel = new Granite.Widgets.VCollapsablePaned();
+            notebook_context = new Gtk.Notebook ();
+            notebook_context.page_added.connect (on_notebook_context_new_page);
+            var hpaned_addons = new Granite.Widgets.HCollapsablePaned ();
+            var vpaned_bottom_panel = new Granite.Widgets.VCollapsablePaned ();
 
-            notebook_sidebar = new Gtk.Notebook();
-            notebook_sidebar.page_added.connect(on_notebook_context_new_page);
-            hpaned_sidebar = new Granite.Widgets.HCollapsablePaned();
-            hpaned_addons.pack1(hpaned_sidebar, true, true);
+            notebook_sidebar = new Gtk.Notebook ();
+            notebook_sidebar.page_added.connect (on_notebook_context_new_page);
+            hpaned_sidebar = new Granite.Widgets.HCollapsablePaned ();
+            hpaned_addons.pack1 (hpaned_sidebar, true, true);
 
             split_view = new SplitView (this);
             split_view.page_changed.connect (on_split_view_page_changed);
-            welcome_screen = new ScratchWelcome(this);
+            welcome_screen = new ScratchWelcome (this);
             split_view.notify["is-empty"].connect (on_split_view_empty_changed);
-            hpaned_sidebar.pack1(notebook_sidebar, false, false);
+            hpaned_sidebar.pack1 (notebook_sidebar, false, false);
             notebook_sidebar.visible = false;
-            hpaned_sidebar.pack2(split_view, true, true);
-            hpaned_addons.pack2(notebook_context, false, false);
+            hpaned_sidebar.pack2 (split_view, true, true);
+            hpaned_addons.pack2 (notebook_context, false, false);
             notebook_context.visible = true;
-            settings.schema.changed.connect(notebook_settings_changed);
+            settings.schema.changed.connect (notebook_settings_changed);
 
-            plugins.hook_notebook_sidebar(notebook_sidebar);
-            plugins.hook_notebook_context(notebook_context);
+            plugins.hook_notebook_sidebar (notebook_sidebar);
+            plugins.hook_notebook_context (notebook_context);
 
             var notebook =  new ScratchNotebook (this);
             split_view.add_view (notebook);
 
-            notebook_bottom = new Gtk.Notebook();
-            notebook_bottom.page_added.connect(on_notebook_context_new_page);
+            notebook_bottom = new Gtk.Notebook ();
+            notebook_bottom.page_added.connect (on_notebook_context_new_page);
 
             /* Add the sourceview + the sidepanel to the container of the bottom panel */
             vpaned_bottom_panel.pack1 (hpaned_addons, true, true);
             vpaned_bottom_panel.pack2 (notebook_bottom, false, false);
-            plugins.hook_notebook_bottom(notebook_bottom);
+            plugins.hook_notebook_bottom (notebook_bottom);
 
 
             //adding all to the vbox
             var vbox = new VBox (false, 0);
             vbox.pack_start (toolbar, false, false, 0);
             vbox.pack_start (vpaned_bottom_panel, true, true, 0);
-            vbox.show_all  ();
+            vbox.show_all ();
 
             //add infobar
             infobar = new ScratchInfoBar (vbox);
@@ -332,10 +338,10 @@ namespace Scratch {
             string theme = "elementary";
             if (theme == "normal")
             {
-                Gtk.Settings.get_default().gtk_application_prefer_dark_theme = false;
+                Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = false;
 
                 // Get the system's style
-                realize();
+                realize ();
                 font = FontDescription.from_string(system_font());
             }
             else
@@ -343,8 +349,8 @@ namespace Scratch {
                 Gtk.Settings.get_default().gtk_application_prefer_dark_theme = true;
 
                 // Get the system's style
-                realize();
-                font = FontDescription.from_string(system_font());
+                realize ();
+                font = FontDescription.from_string(system_font ());
             }
         }
 
@@ -352,14 +358,14 @@ namespace Scratch {
 
             string font_name = null;
             /* Try to use Gnome3 settings? */
-            var settings = new GLib.Settings("org.gnome.desktop.interface");
-            font_name = settings.get_string("monospace-font-name");
+            var settings = new GLib.Settings ("org.gnome.desktop.interface");
+            font_name = settings.get_string ("monospace-font-name");
             //font_name = "Ubuntu Regular 10";
             return font_name;
         }
 
         public void connect_signals () {
-            drag_data_received.connect(on_drag_data_received);
+            drag_data_received.connect (on_drag_data_received);
         }
 
         void action_close_tab () {
@@ -367,8 +373,8 @@ namespace Scratch {
         }
 
         void action_quit () {
-            foreach(var doc in scratch_app.documents) {
-                if(doc.modified) {
+            foreach (var doc in scratch_app.documents) {
+                if (doc.modified) {
                     var save_dialog = new SaveOnCloseDialog (doc.name, this);
                     int response = save_dialog.run ();
                     switch(response) {
@@ -397,8 +403,8 @@ namespace Scratch {
         }
 
         public void action_new_tab () {
-            var doc = new Document.empty(this);
-            scratch_app.open_document(doc);
+            var doc = new Document.empty (this);
+            scratch_app.open_document (doc);
             current_notebook.show_tabs_view ();
         }
 
@@ -427,7 +433,7 @@ namespace Scratch {
         }
 
         public void action_save () {
-            current_tab.save();
+            current_tab.save ();
         }
 
         public void action_save_as () {
@@ -441,23 +447,23 @@ namespace Scratch {
             //current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language (toolbar.combobox.get_active_id () ) );//current_tab.text_view.manager.get_language("c-sharp") );
         }*/
 
-        public Scratch.Widgets.SourceView get_active_view() {
+        public Scratch.Widgets.SourceView get_active_view () {
             return current_tab.text_view;
         }
 
 
-        public Gtk.TextBuffer? get_active_buffer() {
-            if(current_tab != null) return current_tab.text_view.buffer;
+        public Gtk.TextBuffer? get_active_buffer () {
+            if (current_tab != null) return current_tab.text_view.buffer;
             return null;
         }
 
         public bool can_write (string filename) {
 
             if (filename != null) {
-
                 FileInfo info;
                 var file = File.new_for_path (filename);
                 bool writable;
+
                 try {
                     info = file.query_info (FILE_ATTRIBUTE_ACCESS_CAN_WRITE, FileQueryInfoFlags.NONE, null);
                     writable = info.get_attribute_boolean (FILE_ATTRIBUTE_ACCESS_CAN_WRITE);
@@ -468,20 +474,17 @@ namespace Scratch {
                 }
 
             } else {
-
                 return true;
-
             }
 
         }
 
         public void set_window_title (string filename) {
 
-            this.title = /*this.TITLE + " - " + */Path.get_basename (filename);
             var home_dir = Environment.get_home_dir ();
-            // Sorry for this mess...
             var path = Path.get_dirname (filename).replace (home_dir, "~");
-            this.title += " (" + path + ") - " + TITLE;
+
+            this.title = Path.get_basename (filename) + " (%s) - %s".printf(path, TITLE);
 
         }
 
@@ -569,13 +572,13 @@ namespace Scratch {
 
         public void create_instance () {
 
-            if (split_view.get_children ().length() <= 2) {
+            if (split_view.get_children ().length () <= 2) {
 
                 var instance = new ScratchNotebook (this);
-                split_view.add_view(instance);
-                var doc = new Document.empty(this);
+                split_view.add_view (instance);
+                var doc = new Document.empty (this);
                 instance.grab_focus ();
-                scratch_app.open_document(doc);
+                scratch_app.open_document (doc);
 
             }
 
@@ -601,6 +604,7 @@ namespace Scratch {
         void action_revert () {
             current_tab.document.backup ();
             var file = File.new_for_path (current_tab.document.filename);
+
             if (file.query_exists ())
                 current_tab.document.save ();
         }
