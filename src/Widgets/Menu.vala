@@ -50,7 +50,7 @@ namespace Scratch.Widgets {
         
         public void create () {		
             
-            languages = new MenuItem.with_label (_("Select language"));
+            languages = new MenuItem.with_label (_("Syntax Highlighting"));
             add_submenu (languages);
             
             var view = (Gtk.MenuItem) actions.get_action ("New view").create_menu_item ();
