@@ -519,22 +519,21 @@ namespace Scratch {
         
         public void set_undo_redo () {
             
-			bool undo = false;
-			bool redo = false;
+			      bool undo = false;
+			      bool redo = false;
             if(current_tab != null) {
-		        Gtk.SourceBuffer buf;
+		            Gtk.SourceBuffer buf;
 		        
-				buf = current_tab.text_view.buffer;
-				undo = buf.can_undo;
-				redo = buf.can_redo;
-			
-			}
+                buf = current_tab.text_view.buffer;
+                undo = buf.can_undo;
+                redo = buf.can_redo;
+			      }
 			
             main_actions.get_action ("Undo").set_sensitive (undo);
             main_actions.get_action ("Redo").set_sensitive (redo);
 			
-			toolbar.set_button_sensitive (toolbar.ToolButtons.UNDO_BUTTON, undo);
-			toolbar.set_button_sensitive (toolbar.ToolButtons.REPEAT_BUTTON, redo);
+			      toolbar.set_button_sensitive (toolbar.ToolButtons.UNDO_BUTTON, undo);
+			      toolbar.set_button_sensitive (toolbar.ToolButtons.REPEAT_BUTTON, redo);
 			
         }
         
@@ -600,9 +599,15 @@ namespace Scratch {
         
         void action_fullscreen () {
             if ((get_window ().get_state () & WindowState.FULLSCREEN) != 0)
+            {
+                toolbar.menu.fullscreen.active = false;
                 this.unfullscreen ();
+            }
             else
+            {
                 this.fullscreen ();
+                toolbar.menu.fullscreen.active = true;
+            }
             debug ("Full");
         }
         
