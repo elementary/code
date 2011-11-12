@@ -108,14 +108,14 @@ namespace Scratch.Dialogs {
 
             use_system_font = new CheckButton.with_label (_("Use the system fixed width font (")
                                                             + default_font () + ")");
-            use_system_font.set_active (Scratch.settings.use_system_font);
 
             select_font = new FontButton ();
             select_font.sensitive = !(use_system_font.get_active ());
             select_font.set_font_name (Scratch.settings.font);
-            use_system_font.toggled.connect (() => {
-                select_font.sensitive = !(use_system_font.get_active ());});
+            Scratch.settings.schema.bind("use-system-font", use_system_font, "active", SettingsBindFlags.DEFAULT);
+            Scratch.settings.schema.bind("use-system-font", select_font, "sensitive", SettingsBindFlags.INVERT_BOOLEAN);
             var select_font_l = new Label (_("Select font:"));
+            Scratch.settings.schema.bind("use-system-font", select_font_l, "sensitive", SettingsBindFlags.INVERT_BOOLEAN);
             select_font_l.xalign = 0.0f;
             var select_font_box = new HBox (false, 24);
             select_font_box.pack_start (select_font_l, true, true, 0);
