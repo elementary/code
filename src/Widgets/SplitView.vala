@@ -50,7 +50,7 @@ namespace Scratch.Widgets {
 
         public void add_view (ScratchNotebook view) {
             add (view);
-            this.position = window.get_screen ().get_width() / 2; //Puts the new view in the middle
+            this.position = window.get_allocated_width() / 2; //Puts the new view in the middle
 
             view.page_added.connect (recompute_empty);
             view.page_removed.connect (recompute_empty);
