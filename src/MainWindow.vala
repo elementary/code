@@ -224,6 +224,8 @@ namespace Scratch {
                 warning("The focused widget is not a valid TextView");
 
         }
+        
+        Gtk.VBox vbox_split_view_toolbar;
 
         public void create_window () {
 
@@ -245,7 +247,14 @@ namespace Scratch {
             split_view.notify["is-empty"].connect (on_split_view_empty_changed);
             hpaned_sidebar.pack1 (notebook_sidebar, false, false);
             notebook_sidebar.visible = false;
-            hpaned_sidebar.pack2 (split_view, true, true);
+            
+            
+            vbox_split_view_toolbar = new Gtk.VBox(false, 0);
+            statusbar = new StatusBar (main_actions);
+            vbox_split_view_toolbar.pack_start (split_view, true, true, 0);
+            vbox_split_view_toolbar.pack_end (statusbar, false, false, 0);
+            hpaned_sidebar.pack2 (vbox_split_view_toolbar, true, true);
+            
             hpaned_addons.pack2 (notebook_context, false, false);
             notebook_context.visible = true;
             settings.schema.changed.connect (notebook_settings_changed);
@@ -270,9 +279,6 @@ namespace Scratch {
             vbox.pack_start (toolbar, false, false, 0);
             vbox.pack_start (vpaned_bottom_panel, true, true, 0);
             vbox.show_all ();
-            
-            statusbar = new StatusBar (main_actions);
-            vbox.pack_end (statusbar, false, false, 0);
 
             this.add (vbox);
 
@@ -312,10 +318,13 @@ namespace Scratch {
         {
             if (split_view.is_empty) {
                 set_actions (false);
+                
+                statusbar.no_show_all = true;
+                statusbar.visible = false;
 
                 if (split_view.get_parent () != null) {
-                    hpaned_sidebar.remove (split_view);
-                    hpaned_sidebar.pack2 (welcome_screen, true, true);
+                    vbox_split_view_toolbar.remove (split_view);
+                    vbox_split_view_toolbar.pack_start (welcome_screen, true, true);
                 }
 
                 toolbar.set_button_sensitive (toolbar.ToolButtons.SAVE_BUTTON, false);
@@ -327,10 +336,13 @@ namespace Scratch {
 
             else {
                 set_actions (true);
+                statusbar.no_show_all = false;
+                statusbar.visible = true;
+                statusbar.show_all();
 
                 if (split_view.get_parent () == null) {
-                    hpaned_sidebar.remove (welcome_screen);
-                    hpaned_sidebar.pack2 (split_view, true, true);
+                    vbox_split_view_toolbar.remove (welcome_screen);
+                    vbox_split_view_toolbar.pack_start (split_view, true, true);
                 }
             }
         }
