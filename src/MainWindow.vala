@@ -253,6 +253,7 @@ namespace Scratch {
             
             vbox_split_view_toolbar = new Gtk.VBox(false, 0);
             statusbar = new StatusBar (main_actions);
+            statusbar.notify["language-id"].connect (on_status_language_id_changed);
             vbox_split_view_toolbar.pack_start (split_view, true, true, 0);
             vbox_split_view_toolbar.pack_end (statusbar, false, false, 0);
             hpaned_sidebar.pack2 (vbox_split_view_toolbar, true, true);
@@ -456,12 +457,11 @@ namespace Scratch {
             current_tab.save_as ();
         }
 
-        /*public void on_combobox_changed () {
+        public void on_status_language_id_changed () {
             Gtk.SourceLanguage lang;
-            lang = current_tab.text_view.manager.get_language ( toolbar.combobox.get_active_id () );
+            lang = current_tab.text_view.manager.get_language ( statusbar.language_id );
             current_tab.text_view.buffer.set_language (lang);
-            //current_tab.text_view.buffer.set_language ( current_tab.text_view.manager.get_language (toolbar.combobox.get_active_id () ) );//current_tab.text_view.manager.get_language("c-sharp") );
-        }*/
+        }
 
         public Scratch.Widgets.SourceView get_active_view () {
             return current_tab.text_view;

@@ -40,7 +40,6 @@ namespace Scratch.Widgets {
             set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);            
             
             text_view = new SourceView ();
-            text_view.focus_in_event.connect (on_focus_in);
             text_view.buffer.changed.connect ( () => {var top = get_toplevel () as Scratch.MainWindow; top.set_undo_redo ();});
             
             label = new TabLabel(this, labeltext);
@@ -59,15 +58,6 @@ namespace Scratch.Widgets {
 				save_dialog.run();
 						
 		    } else this.close ();
-		    		    
-        }
-		
-		public bool on_focus_in (EventFocus event) {
-			if (filename != null) {
-				text_view.change_syntax_highlight_for_filename (filename);
-			}
-			return false;
-			
 		}
 		
         public void close () {
