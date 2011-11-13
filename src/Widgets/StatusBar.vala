@@ -35,8 +35,6 @@ namespace Granite.Widgets {
     }
     public class StatusBar : Gtk.Toolbar {
 	    
-	    Scratch.MainWindow window;
-	    
     	public ComboBoxText combo_syntax;
     	public SpinButton spin_width;
     	
@@ -45,8 +43,6 @@ namespace Granite.Widgets {
     	public Scratch.Services.SearchManager search_manager;
     	
     	public StatusBar (Gtk.ActionGroup action_group) {
-    	    
-    	    this.window = get_toplevel () as Scratch.MainWindow;
 
     		set_orientation (Orientation.HORIZONTAL);
     		search_manager = new Scratch.Services.SearchManager (action_group);
@@ -163,9 +159,6 @@ namespace Granite.Widgets {
 
         void on_syntax_changed () {
             language_id = combo_syntax.active_id;
-            /*Gtk.SourceLanguage lang;
-            lang = window.current_tab.text_view.manager.get_language ( combo_syntax.get_active_id () );
-            window.current_tab.text_view.buffer.set_language (lang);*/
         }
     }
     
