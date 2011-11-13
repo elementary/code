@@ -22,7 +22,6 @@
 using Gtk;
 
 namespace Granite.Widgets {
-    Pango.FontDescription small_font;
     class ToolItemLabel : Gtk.ToolItem
     {
         Gtk.Label _label;
@@ -31,7 +30,6 @@ namespace Granite.Widgets {
         public ToolItemLabel(string label)
         {
             _label = new Gtk.Label(label);
-            _label.modify_font(small_font);
             add(_label);
         }
     }
@@ -49,9 +47,7 @@ namespace Granite.Widgets {
     	public StatusBar (Gtk.ActionGroup action_group) {
     	    
     	    this.window = get_toplevel () as Scratch.MainWindow;
-    	    
-            small_font = get_style_context().get_font(Gtk.StateFlags.NORMAL);
-            small_font.set_size(small_font.get_size() - Pango.units_from_double(2));
+
     		set_orientation (Orientation.HORIZONTAL);
     		search_manager = new Scratch.Services.SearchManager (action_group);
             Scratch.settings.schema.bind("search-sensitive", search_manager, "case-sensitive", SettingsBindFlags.DEFAULT);
@@ -77,13 +73,11 @@ namespace Granite.Widgets {
              var combo_tool = new Gtk.ToolItem ();
              combo_tool.add(combo_syntax);
              add(combo_tool);
-             combo_syntax.get_child().modify_font(small_font);
 
              add (new Gtk.SeparatorToolItem ());
 
              add(new ToolItemLabel (_("Tab width") + ":   "));
              spin_width = new SpinButton.with_range (1, 24, 1);
-             spin_width.modify_font(small_font);
              Scratch.settings.schema.bind("indent-width", spin_width, "value", SettingsBindFlags.DEFAULT);
              var spin_tool = new Gtk.ToolItem ();
              spin_tool.add(spin_width);
@@ -94,7 +88,6 @@ namespace Granite.Widgets {
              add(new ToolItemLabel (_("Color Scheme") + ":   "));
              combo_scheme = new ComboBoxText ();
              populate_style_scheme ();
-             combo_scheme.get_child().modify_font(small_font);
              Scratch.settings.schema.bind("style-scheme", combo_scheme, "active-id", 0);
              var scheme_tool = new Gtk.ToolItem ();
              scheme_tool.add (combo_scheme);
