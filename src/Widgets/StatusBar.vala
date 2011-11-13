@@ -26,7 +26,7 @@ namespace Granite.Widgets {
     {
         Gtk.Label _label;
         public string label { get { return _label.label; } set { _label.label = value; } }
-        
+
         public ToolItemLabel(string label)
         {
             _label = new Gtk.Label(label);
@@ -34,33 +34,33 @@ namespace Granite.Widgets {
         }
     }
     public class StatusBar : Gtk.Toolbar {
-	    
-    	public ComboBoxText combo_syntax;
-    	public SpinButton spin_width;
-    	
-    	public string language_id { set; get; }
-    	ComboBoxText combo_scheme;
-    	public Scratch.Services.SearchManager search_manager;
-    	
-    	public StatusBar (Gtk.ActionGroup action_group) {
 
-    		set_orientation (Orientation.HORIZONTAL);
-    		search_manager = new Scratch.Services.SearchManager (action_group);
+        public ComboBoxText combo_syntax;
+        public SpinButton spin_width;
+
+        public string language_id { set; get; }
+        ComboBoxText combo_scheme;
+        public Scratch.Services.SearchManager search_manager;
+
+        public StatusBar (Gtk.ActionGroup action_group) {
+
+            set_orientation (Orientation.HORIZONTAL);
+            search_manager = new Scratch.Services.SearchManager (action_group);
             Scratch.settings.schema.bind("search-sensitive", search_manager, "case-sensitive", SettingsBindFlags.DEFAULT);
             Scratch.settings.schema.bind("search-loop", search_manager, "cycle-search", SettingsBindFlags.DEFAULT);
-    		
-    		get_style_context().add_class("status-toolbar");
-    		
-    		notify["language-id"].connect(on_language_id_changed);
-    		
-    		create ();
+
+            get_style_context().add_class("status-toolbar");
+
+            notify["language-id"].connect(on_language_id_changed);
+
+            create ();
         }
-        
+
         void on_language_id_changed()
         {
             combo_syntax.active_id = language_id;
         }
-	
+
         void create () {
              add(new ToolItemLabel (_("Syntax Highlighthing") + ":   "));
              combo_syntax = new ComboBoxText ();
@@ -91,22 +91,22 @@ namespace Granite.Widgets {
              add (new Gtk.SeparatorToolItem ());
 
              add_spacer ();
-             
-             
+
+
              Scratch.settings.schema.bind("search-sensitive", search_manager, "case-sensitive", SettingsBindFlags.DEFAULT);
              Scratch.settings.schema.bind("search-loop", search_manager, "cycle-search", SettingsBindFlags.DEFAULT);
-             
+
              add (new SeparatorToolItem ());
              add (search_manager.get_arrow_previous ());
              add (search_manager.get_arrow_next ());
              add (search_manager.get_search_entry ());
              add (search_manager.get_replace_entry ());
              add (search_manager.get_go_to_entry ());
-             
+
              show_all ();
-    	    
-    	}
-    	
+
+        }
+
         void populate_syntax () {
              combo_syntax.append ("normal", _("Normal text"));
              combo_syntax.append ("sh", "Bash");
@@ -135,16 +135,16 @@ namespace Granite.Widgets {
              combo_syntax.append ("vala", "Vala");
              combo_syntax.append ("xml", "XML");
         }
-    	
-    	void add_spacer () {
-	
-	        var spacer = new ToolItem ();
-	        spacer.set_expand (true);
-	        add (spacer);
-	
+
+        void add_spacer () {
+
+            var spacer = new ToolItem ();
+            spacer.set_expand (true);
+            add (spacer);
+
         }
-    	
-    	void populate_style_scheme () {
+
+        void populate_style_scheme () {
 
             string[] scheme_ids;
             var scheme_manager = new Gtk.SourceStyleSchemeManager ();
@@ -152,7 +152,7 @@ namespace Granite.Widgets {
 
             foreach (string scheme_id in scheme_ids) {
                 var scheme = scheme_manager.get_scheme (scheme_id);
-                combo_scheme.append (scheme.id, 
+                combo_scheme.append (scheme.id,
                 scheme.name);
             }
         }
@@ -161,5 +161,5 @@ namespace Granite.Widgets {
             language_id = combo_syntax.active_id;
         }
     }
-    
+
 }
