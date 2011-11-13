@@ -180,6 +180,10 @@ namespace Scratch.Widgets {
 				this.saved = true; 
 				text_view.modified = false;
 		        
+		        //updating the tab label
+		        var f = File.new_for_path (this.filename);
+		        label.label.set_text (f.get_basename ());
+		        
 		        return 0;
 		        
 		    } catch (Error e) {
