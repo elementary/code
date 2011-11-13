@@ -25,31 +25,31 @@ using Scratch.Dialogs;
 
 namespace Scratch.Widgets {
 
-	public class ScratchNotebook : Notebook {
+    public class ScratchNotebook : Notebook {
 
-		public signal void page_focused (Gtk.Widget w);
-		public MainWindow window; //used in dialog
+        public signal void page_focused (Gtk.Widget w);
+        public MainWindow window; //used in dialog
 
-		public Tab current_tab;
+        public Tab current_tab;
 
-	    public ScratchNotebook (MainWindow parent) {
+        public ScratchNotebook (MainWindow parent) {
 
-	    	this.window = parent;
+            this.window = parent;
 
-	    	this.switch_page.connect_after (on_switch_page);
+            this.switch_page.connect_after (on_switch_page);
 
-	    	expand = true;
-			set_scrollable (true);
-			set_group_name ("s");
+            expand = true;
+            set_scrollable (true);
+            set_group_name ("s");
 
-			drag_end.connect (on_drag_end);
+            drag_end.connect (on_drag_end);
 
-			show_all ();
+            show_all ();
 
-			page_removed.connect(on_page_removed);
-			page_added.connect(on_page_added);
+            page_removed.connect(on_page_removed);
+            page_added.connect(on_page_added);
 
-	    }
+        }
 
         void on_page_added(Gtk.Widget w, uint page_num)
         {
@@ -60,7 +60,7 @@ namespace Scratch.Widgets {
                 (w as Tab).text_view.focus_in_event.connect (on_page_focused);
                 current_tab = w as Tab;
                 page_focused ((w as Tab).text_view);
-   			    (w as Tab).label.scroll_event.connect (on_scroll_event);
+                   (w as Tab).label.scroll_event.connect (on_scroll_event);
             }
         }
 
@@ -86,16 +86,16 @@ namespace Scratch.Widgets {
             return false;
         }
 
-	    void on_page_removed(Gtk.Widget w, uint page_num)
-	    {
-	    	if(get_n_pages () == 0) {
-	    		((Gtk.Container)get_parent()).remove(this);
-	    	}
+        void on_page_removed(Gtk.Widget w, uint page_num)
+        {
+            if(get_n_pages () == 0) {
+                ((Gtk.Container)get_parent()).remove(this);
+            }
 
-	    	set_tab ();
-	    	/*if (get_n_pages() == 0 || (get_n_pages() == 1 && welcome_screen.get_parent() != null))
-	    		show_welcome ();*/
-	    }
+            set_tab ();
+            /*if (get_n_pages() == 0 || (get_n_pages() == 1 && welcome_screen.get_parent() != null))
+                show_welcome ();*/
+        }
 
         public int add_tab (string labeltext="New file") {
             Tab new_tab;
@@ -117,97 +117,97 @@ namespace Scratch.Widgets {
             return index;
         }
 
-		public void set_tab () {
+        public void set_tab () {
 
-		    /*if (get_n_pages () == 1)
-		        set_show_tabs (false);
-		    else
-		        set_show_tabs (true);*/
-		}
+            /*if (get_n_pages () == 1)
+                set_show_tabs (false);
+            else
+                set_show_tabs (true);*/
+        }
 
-		public void on_switch_page (Widget page, uint number) {
+        public void on_switch_page (Widget page, uint number) {
 
-			var tab = page as Tab;
+            var tab = page as Tab;
             if(tab == null) {
                 /* Welcome screen */
                 return;
             }
             /* Ok, it is a real Tab then */
-			if (tab.filename != null)
-				window.set_window_title (tab.filename);
-			else
-				window.set_window_title ("Scratch");
+            if (tab.filename != null)
+                window.set_window_title (tab.filename);
+            else
+                window.set_window_title ("Scratch");
 
-			tab.text_view.grab_focus ();
+            tab.text_view.grab_focus ();
 
-		}
+        }
 
         public void on_drag_end (DragContext context) {
 
-			/*List<Widget> children = ((Gtk.Container)get_parent ()).get_children ();
-			int i;
+            /*List<Widget> children = ((Gtk.Container)get_parent ()).get_children ();
+            int i;
 
-			for (i = 0; i!=children.length(); i++) {//ScratchNotebook notebook in children) {
-				var notebook = children.nth_data (i) as ScratchNotebook;
-				if (notebook.get_n_pages () == 0) {
-					window.split_view.remove (notebook);
-				}
-			}
-			window.split_view.set_menu_item_sensitive ();*/
-		}
+            for (i = 0; i!=children.length(); i++) {//ScratchNotebook notebook in children) {
+                var notebook = children.nth_data (i) as ScratchNotebook;
+                if (notebook.get_n_pages () == 0) {
+                    window.split_view.remove (notebook);
+                }
+            }
+            window.split_view.set_menu_item_sensitive ();*/
+        }
 
-		public void show_tabs_view () {
+        public void show_tabs_view () {
 
-			/*if (welcome_screen.active) {
+            /*if (welcome_screen.active) {
 
-				this.remove_page (this.page_num(welcome_screen));
-				this.set_show_tabs (true);
-				this.welcome_screen.active = false;
+                this.remove_page (this.page_num(welcome_screen));
+                this.set_show_tabs (true);
+                this.welcome_screen.active = false;
 
-			}*/
+            }*/
 
-		}
+        }
 
 
 
 
     }
 
-	public class ScratchWelcome : Granite.Widgets.Welcome {
-		MainWindow window;
+    public class ScratchWelcome : Granite.Widgets.Welcome {
+        MainWindow window;
 
-		public ScratchWelcome(MainWindow window) {
+        public ScratchWelcome(MainWindow window) {
 
-			base(_("No files are open."), _("Open a file to begin editing."));
+            base(_("No files are open."), _("Open a file to begin editing."));
 
-			//notebook = caller;
+            //notebook = caller;
 
-			append("document-open", _("Open file"), _("Open a saved file."));
-			append("document-new", _("New file"), _("Create a new empty file."));
-			this.activated.connect (on_activated);
-			this.window = window;
+            append("document-open", _("Open file"), _("Open a saved file."));
+            append("document-new", _("New file"), _("Create a new empty file."));
+            this.activated.connect (on_activated);
+            this.window = window;
 
-			show_all();
+            show_all();
 
-		}
+        }
 
-		private void on_activated(int index) {
+        private void on_activated(int index) {
 
-			switch (index) {
-				case 0: //open
-				window.main_actions.get_action ("Open").activate ();
-				break;
+            switch (index) {
+                case 0: //open
+                window.main_actions.get_action ("Open").activate ();
+                break;
 
-				case 1: // new
-				window.main_actions.get_action ("New tab").activate ();
-				break;
+                case 1: // new
+                window.main_actions.get_action ("New tab").activate ();
+                break;
 
-			}
-
-
-		}
+            }
 
 
-	}
+        }
+
+
+    }
 
 } // Namespace
