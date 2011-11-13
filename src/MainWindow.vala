@@ -214,7 +214,7 @@ namespace Scratch {
         void on_split_view_page_changed (Gtk.Widget w) {
 
             if (w is Scratch.Widgets.SourceView) {
-                toolbar.search_manager.set_text_view ((Scratch.Widgets.SourceView) w);
+                statusbar.search_manager.set_text_view ((Scratch.Widgets.SourceView) w);
                 var tab = w.get_parent () as Tab;
 
                 assert(tab != null);
