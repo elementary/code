@@ -47,7 +47,7 @@ namespace Scratch.Widgets {
             buffer.changed.connect (on_buffer_changed);
             
             TextIter start, end;
-			buffer.get_selection_bounds (out start, out end);
+            buffer.get_selection_bounds (out start, out end);
             
             mark = buffer.create_mark ("selection", start, false);
             
