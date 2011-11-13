@@ -7,89 +7,93 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-01 22:41+0100\n"
+"POT-Creation-Date: 2011-11-12 15:18+0100\n"
 "PO-Revision-Date: 2011-11-06 18:27+0000\n"
 "Last-Translator: Radim Hvizdák <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-11-07 06:19+0000\n"
-"X-Generator: Launchpad (build 14231)\n"
+"X-Launchpad-Export-Date: 2011-11-13 06:11+0000\n"
+"X-Generator: Launchpad (build 14277)\n"
 "Language: cs\n"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:101
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:100
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
 msgid "New file"
 msgstr "Nový soubor"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:180
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:179
 msgid "No files are open."
 msgstr "Nejsou otevřeny žádné soubory."
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:180
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:179
 msgid "Open a file to begin editing."
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:183
 msgid "Open file"
 msgstr "Otevřít soubor"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:183
 msgid "Open a saved file."
 msgstr "Otevřít uložený soubor."
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
 msgid "Create a new empty file."
 msgstr "Vytvořit nový prázdný soubor."
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:154
-msgid "Normal Text"
-msgstr "Normální text"
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:187
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:190
 msgid "Create a new file in a new tab"
 msgstr "Vytvořit nový soubor na nové kartě"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:188
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:191
 msgid "Open a file"
 msgstr "Otevřít soubor"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:189
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:192
 msgid "Save the current file"
 msgstr "Uložit aktuální soubor"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:190
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:193
 msgid "Undo the last action"
 msgstr "Vrátit zpět poslední akci"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:191
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:194
 msgid "Restore the current file"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:192
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:195
 msgid "Redo the last undone action"
 msgstr "Opakovat poslední vrácenou akci"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:193
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:196
 msgid "Share this file"
 msgstr "Sdílet tento soubor"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:51
-msgid "Fullscreen"
-msgstr "Celá obrazovka"
-
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:56
-msgid "Show Sidebar"
-msgstr "Zobrazit postranní lištu"
-
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:58
-msgid "Show Context View"
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:53
+msgid "Syntax Highlighting"
 msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:60
+msgid "Fullscreen"
+msgstr "Celá obrazovka"
+
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:65
+msgid "Show Sidebar"
+msgstr "Zobrazit postranní lištu"
+
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:67
+msgid "Show Context View"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:69
 msgid "Show Bottom Panel"
 msgstr "Zobrazit spodní panel"
+
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:136
+msgid "Normal Text"
+msgstr "Normální text"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
 msgid "Changes to this file haven't been saved."
@@ -123,7 +127,7 @@ msgstr "Barevné schéma:"
 msgid "Use the system fixed width font ("
 msgstr "Použít systémové písmo s pevnou šířkou ("
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:118
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:117
 msgid "Select font:"
 msgstr "Vybrat písmo:"
 

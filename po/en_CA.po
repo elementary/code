@@ -7,88 +7,92 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-11-01 22:41+0100\n"
+"POT-Creation-Date: 2011-11-12 15:18+0100\n"
 "PO-Revision-Date: 2011-10-31 17:23+0000\n"
 "Last-Translator: Rafael Neri <Unknown>\n"
 "Language-Team: English (Canada) <en_CA@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-11-02 05:26+0000\n"
-"X-Generator: Launchpad (build 14214)\n"
+"X-Launchpad-Export-Date: 2011-11-13 06:11+0000\n"
+"X-Generator: Launchpad (build 14277)\n"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:101
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:100
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
 msgid "New file"
 msgstr "New file"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:180
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:179
 msgid "No files are open."
 msgstr "No files are open."
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:180
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:179
 msgid "Open a file to begin editing."
 msgstr "Open a file to begin editing."
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:183
 msgid "Open file"
 msgstr "Open file"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:183
 msgid "Open a saved file."
 msgstr "Open a saved file."
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
 msgid "Create a new empty file."
 msgstr "Create a new empty file."
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:154
-msgid "Normal Text"
-msgstr "Normal Text"
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:187
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:190
 msgid "Create a new file in a new tab"
 msgstr "Create a new file in a new tab"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:188
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:191
 msgid "Open a file"
 msgstr "Open a file"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:189
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:192
 msgid "Save the current file"
 msgstr "Save the current file"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:190
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:193
 msgid "Undo the last action"
 msgstr "Undo the last action"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:191
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:194
 msgid "Restore the current file"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:192
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:195
 msgid "Redo the last undone action"
 msgstr "Redo the last undone action"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:193
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:196
 msgid "Share this file"
 msgstr "Share this file"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:51
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:53
+msgid "Syntax Highlighting"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:60
 msgid "Fullscreen"
 msgstr "Fullscreen"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:56
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:65
 msgid "Show Sidebar"
 msgstr "Show Sidebar"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:58
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:67
 msgid "Show Context View"
 msgstr "Show Context View"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:60
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:69
 msgid "Show Bottom Panel"
 msgstr "Show Bottom Panel"
+
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:136
+msgid "Normal Text"
+msgstr "Normal Text"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
 msgid "Changes to this file haven't been saved."
@@ -122,7 +126,7 @@ msgstr "Style scheme:"
 msgid "Use the system fixed width font ("
 msgstr "Use the system fixed width font ("
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:118
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:117
 msgid "Select font:"
 msgstr "Select font:"
 

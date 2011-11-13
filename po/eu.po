@@ -7,88 +7,92 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-11-01 22:41+0100\n"
+"POT-Creation-Date: 2011-11-12 15:18+0100\n"
 "PO-Revision-Date: 2011-10-12 19:23+0000\n"
 "Last-Translator: Eneko Sarasola <Unknown>\n"
 "Language-Team: Basque <eu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-11-02 05:26+0000\n"
-"X-Generator: Launchpad (build 14214)\n"
+"X-Launchpad-Export-Date: 2011-11-13 06:11+0000\n"
+"X-Generator: Launchpad (build 14277)\n"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:101
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:100
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
 msgid "New file"
 msgstr "Fitxategi berria"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:180
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:179
 msgid "No files are open."
 msgstr "Ez dago fitxategi irekirik."
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:180
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:179
 msgid "Open a file to begin editing."
 msgstr "Ireki fitxategi bat aldatzen hasteko."
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:183
 msgid "Open file"
 msgstr "Fitxategia ireki"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:183
 msgid "Open a saved file."
 msgstr "Ireki gordetako fitxategi bat."
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
 msgid "Create a new empty file."
 msgstr "Sortu fitxategi huts berri bat."
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:154
-msgid "Normal Text"
-msgstr "Testu Arrunta"
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:187
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:190
 msgid "Create a new file in a new tab"
 msgstr "Sortu fitxategi berri bat fitxa berri batean"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:188
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:191
 msgid "Open a file"
 msgstr "Ireki fitxategia"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:189
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:192
 msgid "Save the current file"
 msgstr "Gorde uneko fitxategia"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:190
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:193
 msgid "Undo the last action"
 msgstr "Azken ekintza desegin"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:191
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:194
 msgid "Restore the current file"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:192
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:195
 msgid "Redo the last undone action"
 msgstr "Berregin desegindako azken ekintza"
 
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:193
+#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:196
 msgid "Share this file"
 msgstr "Fitxategi hau partekatu"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:51
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:53
+msgid "Syntax Highlighting"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:60
 msgid "Fullscreen"
 msgstr "Pantaila osoa"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:56
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:65
 msgid "Show Sidebar"
 msgstr "Erakutsi alboko barra"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:58
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:67
 msgid "Show Context View"
 msgstr "Testuinguru Bista Erakutsi"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:60
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:69
 msgid "Show Bottom Panel"
 msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:136
+msgid "Normal Text"
+msgstr "Testu Arrunta"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
 msgid "Changes to this file haven't been saved."
@@ -122,7 +126,7 @@ msgstr "Itxura:"
 msgid "Use the system fixed width font ("
 msgstr "Erabili ezarritako zabaleradun letra-tipoa ("
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:118
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:117
 msgid "Select font:"
 msgstr "Aukeratu letra-tipoa:"
 
