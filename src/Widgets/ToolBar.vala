@@ -112,11 +112,11 @@ namespace Scratch.Widgets {
             plugins.hook_toolbar(this);
 			
             add (add_spacer ());
-            add (search_manager.get_search_entry ());
+            /*add (search_manager.get_search_entry ());
             add (new SeparatorToolItem ());
             add (search_manager.get_replace_entry ());
             add (search_manager.get_go_to_entry ());
-            add (share_app_menu);
+            add (share_app_menu);*/
             add (app_menu);
             
             set_tooltip ();

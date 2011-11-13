@@ -271,7 +271,7 @@ namespace Scratch {
             vbox.pack_start (vpaned_bottom_panel, true, true, 0);
             vbox.show_all ();
             
-            statusbar = new StatusBar ();
+            statusbar = new StatusBar (main_actions);
             vbox.pack_end (statusbar, false, false, 0);
 
             this.add (vbox);
@@ -304,6 +304,7 @@ namespace Scratch {
             main_actions.get_action ("Remove view").set_sensitive (val ? split_view_multiple_view : false);
             toolbar.set_actions (val);
             toolbar.menu.languages.set_sensitive (val);
+            statusbar.combo_syntax.set_sensitive (val);
 
         }
 
