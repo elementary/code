@@ -50,6 +50,7 @@ namespace Scratch.Widgets {
 
         public void add_view (ScratchNotebook view) {
             add (view);
+            this.position = window.get_screen ().get_width() / 2; //Puts the new view in the middle
 
             view.page_added.connect (recompute_empty);
             view.page_removed.connect (recompute_empty);
@@ -61,13 +62,13 @@ namespace Scratch.Widgets {
         }
 
         bool is_empty_or_without_tabs () {
-            foreach(var widget in get_children ())
+            foreach (var widget in get_children ())
             {
-                if(!(widget is Notebook)) {
+                if (!(widget is Notebook)) {
                     return false;
                 }
                 else {
-                    foreach(var page in ((Notebook)widget).get_children ()) {
+                    foreach (var page in ((Notebook)widget).get_children ()) {
                         return false;
                     }
                 }
@@ -111,10 +112,13 @@ namespace Scratch.Widgets {
 
         public unowned ScratchNotebook get_current_notebook () {
             focused_widget = get_focus_child ();
-            if(focused_widget != null && focused_widget.get_parent() != this) {
+            
+            if (focused_widget != null && focused_widget.get_parent () != this) {
                 focused_widget = null;
             }
+            
             weak ScratchNotebook child = focused_widget as ScratchNotebook;
+            
             if (child == null) {
                 child = get_children ().nth_data (0) as ScratchNotebook;
                 if( child == null) {
