@@ -54,6 +54,8 @@ namespace Granite.Widgets {
             small_font.set_size(small_font.get_size() - Pango.units_from_double(2));
     		set_orientation (Orientation.HORIZONTAL);
     		search_manager = new Scratch.Services.SearchManager (action_group);
+            Scratch.settings.schema.bind("search-sensitive", search_manager, "case-sensitive", SettingsBindFlags.DEFAULT);
+            Scratch.settings.schema.bind("search-loop", search_manager, "cycle-search", SettingsBindFlags.DEFAULT);
     		
     		get_style_context().add_class("status-toolbar");
     		
@@ -105,8 +107,10 @@ namespace Granite.Widgets {
              Scratch.settings.schema.bind("search-sensitive", search_manager, "case-sensitive", SettingsBindFlags.DEFAULT);
              Scratch.settings.schema.bind("search-loop", search_manager, "cycle-search", SettingsBindFlags.DEFAULT);
              
-             add (search_manager.get_search_entry ());
              add (new SeparatorToolItem ());
+             add (search_manager.get_arrow_previous ());
+             add (search_manager.get_arrow_next ());
+             add (search_manager.get_search_entry ());
              add (search_manager.get_replace_entry ());
              add (search_manager.get_go_to_entry ());
              

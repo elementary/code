@@ -28,10 +28,6 @@ namespace Scratch.Widgets {
 
         //IN THIS CLASS I COMMENTED ALL THE CODE WHICH WAS USED FOR A SPLITVIEW WITH GTK.TABLE
 
-        //private int current_row = 0;
-        //private int current_col = 0;
-        //private int rmax = 4;
-        //private int cmax = 2;
         public const int max = 4; //max = max--
 
         public MainWindow window;
@@ -47,25 +43,13 @@ namespace Scratch.Widgets {
 
         public SplitView (MainWindow window) {
 
-            //homogeneous = false;
-            //expand = true;
-
             this.window = window;
-
-            set_focus_child.connect (on_set_focus_child);
-
-        }
-
-        public void on_set_focus_child (Widget child) {
-
-            window.current_notebook = get_focus_child() as ScratchNotebook;
 
         }
 
 
         public void add_view (ScratchNotebook view) {
             add (view);
-            //pack_start (view);
 
             view.page_added.connect (recompute_empty);
             view.page_removed.connect (recompute_empty);

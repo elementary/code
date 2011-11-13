@@ -83,8 +83,8 @@ namespace Scratch {
         //dialogs
         public FileChooserDialog filech;
 
-        public Tab current_tab { get { return (Tab) current_notebook.get_nth_page (current_notebook.get_current_page()); }}
-        public ScratchNotebook current_notebook { get { return split_view.get_current_notebook (); } set {}}
+        public Tab current_tab { get { return (Tab) current_notebook.current_tab; }}
+        public ScratchNotebook current_notebook { get { return split_view.get_current_notebook (); } }
 
         //objects for the set_theme ()
         FontDescription font;
@@ -218,8 +218,6 @@ namespace Scratch {
                 var tab = w.get_parent () as Tab;
 
                 assert(tab != null);
-                
-                print("current language id: %s\n", tab.text_view.buffer.language.id);
                 statusbar.language_id = tab.text_view.buffer.language.id;
             }
             else
@@ -601,11 +599,11 @@ namespace Scratch {
         }
 
         void case_up () {
-            toolbar.search_manager.search_previous ();
+            statusbar.search_manager.search_previous ();
         }
 
         void case_down () {
-            toolbar.search_manager.search_next ();
+            statusbar.search_manager.search_next ();
         }
 
         void action_undo () {
@@ -721,11 +719,11 @@ namespace Scratch {
           /* tooltip */                  N_("Revert"),
                                          action_revert },
 
-           { "SearchNext", Gtk.Stock.REDO,
+           { "SearchNext", Gtk.Stock.GO_FORWARD,
           /* label, accelerator */       N_("Next Search"), "<Control>g",
           /* tooltip */                  N_("Next Search"),
                                          case_down },
-           { "SearchBack", Gtk.Stock.REDO,
+           { "SearchBack", Gtk.Stock.GO_BACK,
           /* label, accelerator */       N_("Previous Search"), "<Control><shift>g",
           /* tooltip */                  N_("Previous Search"),
                                          case_up },

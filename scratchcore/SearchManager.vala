@@ -22,6 +22,8 @@ public class Scratch.Services.SearchManager : GLib.Object {
     Gtk.ToolItem tool_search_entry;
     Gtk.ToolItem tool_replace_entry;
     Gtk.ToolItem tool_go_to_entry;
+    Gtk.ToolItem tool_arrow_up;
+    Gtk.ToolItem tool_arrow_down;
     
     Granite.Widgets.SearchBar search_entry;
     Granite.Widgets.SearchBar replace_entry;
@@ -96,10 +98,21 @@ public class Scratch.Services.SearchManager : GLib.Object {
 	    entry_context.set_path (entry_path);
 	    entry_context.add_class ("entry");
 	    normal_color = entry_context.get_color(Gtk.StateFlags.FOCUSED);
+	    
+	    tool_arrow_up = (Gtk.ToolItem) main_actions.get_action ("SearchNext").create_tool_item ();
+	    tool_arrow_down = (Gtk.ToolItem) main_actions.get_action ("SearchBack").create_tool_item ();
     }
     
     public Gtk.ToolItem get_search_entry () {
 	    return tool_search_entry;
+    }
+    
+    public Gtk.ToolItem get_arrow_next () {
+	    return tool_arrow_up;
+    }
+    
+    public Gtk.ToolItem get_arrow_previous () {
+	    return tool_arrow_down;
     }
     
     public Gtk.ToolItem get_replace_entry () {
@@ -115,6 +128,18 @@ public class Scratch.Services.SearchManager : GLib.Object {
 	    text_buffer = null;
 	    if(new_text_view != null)
 	        text_buffer = text_view.get_buffer ();
+    }
+    
+    void show_arrow (bool show) {
+        tool_arrow_down.no_show_all = tool_arrow_up.no_show_all = !show;
+        if(show) {
+            tool_arrow_up.show_all ();
+            tool_arrow_down.show_all ();
+        }
+        else {
+            tool_arrow_up.hide ();
+            tool_arrow_down.hide ();
+        }
     }
     
     void show_search () {

@@ -29,12 +29,14 @@ namespace Scratch.Widgets {
 		
 		public signal void page_focused (Gtk.Widget w);
 		public MainWindow window; //used in dialog
+		
+		public Tab current_tab;
 
 	    public ScratchNotebook (MainWindow parent) {
 	    
 	    	this.window = parent;
 	    	
-	    	this.switch_page.connect (on_switch_page);
+	    	this.switch_page.connect_after (on_switch_page);
 	    	
 	    	expand = true;
 			set_scrollable (true);
@@ -56,6 +58,7 @@ namespace Scratch.Widgets {
              */
             if(w is Tab) {
                 (w as Tab).text_view.focus_in_event.connect (on_page_focused);
+                current_tab = w as Tab;
                 page_focused ((w as Tab).text_view);
    			    (w as Tab).label.scroll_event.connect (on_scroll_event);
             }
@@ -78,6 +81,7 @@ namespace Scratch.Widgets {
         }
         
         bool on_page_focused (Gtk.Widget w, Gdk.EventFocus event) {
+            current_tab = w.get_parent() as Tab;
             page_focused (w);
             return false;
         }
