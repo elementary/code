@@ -140,9 +140,7 @@ namespace Scratch.Services {
 		
 
 			//create new tab
-			int tab_index = window.current_notebook.add_tab (name);
-			window.current_notebook.set_current_page (tab_index);                        
-			tab = (Tab) window.current_notebook.get_nth_page (tab_index);
+			tab = new Tab (window.current_notebook, name);
             tab.closed.connect( () => { close(); });
             tab.document = this;
               
@@ -152,6 +150,7 @@ namespace Scratch.Services {
             
 			buffer = tab.text_view.buffer;
 			tab.text_view.change_syntax_highlight_for_filename(filename);
+			window.current_notebook.set_current_page (window.current_notebook.add_existing_tab(tab));
 			
 			open();
         }

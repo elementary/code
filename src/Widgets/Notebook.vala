@@ -100,6 +100,9 @@ namespace Scratch.Widgets {
                 new_tab = new Tab (this, _("New file"));
             else
                 new_tab = new Tab (this, labeltext);
+            return add_existing_tab(new_tab);
+        }
+        public int add_existing_tab (Tab new_tab) {
             int index = this.append_page (new_tab, new_tab.label);
             set_tab_reorderable(new_tab, true);
             set_tab_detachable(new_tab, true);
@@ -130,13 +133,8 @@ namespace Scratch.Widgets {
 				window.set_window_title (tab.filename);
 			else
 				window.set_window_title ("Scratch");
-				//tab.text_view.set_file (tab.filename, tab.text_view.buffer.text);
 			
-			//Gtk.SourceLanguage lang;
-            //lang = tab.text_view.manager.get_language ( window.toolbar.combobox.get_active_id () );
-            //tab.text_view.buffer.set_language (lang);
-  
-            //window.set_undo_redo ();
+			tab.text_view.grab_focus ();
 						
 		}
 		

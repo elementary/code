@@ -218,7 +218,9 @@ namespace Scratch {
                 var tab = w.get_parent () as Tab;
 
                 assert(tab != null);
-                //set_combobox_language (tab.document.filename);
+                
+                print("current language id: %s\n", tab.text_view.buffer.language.id);
+                statusbar.language_id = tab.text_view.buffer.language.id;
             }
             else
                 warning("The focused widget is not a valid TextView");
@@ -567,7 +569,7 @@ namespace Scratch {
 
         }
 
-        /*public void set_combobox_language (string filename) {
+        /*void set_combobox_language (string filename) {
 
             Gtk.SourceLanguage lang = current_tab.text_view.change_syntax_highlight_for_filename (filename);
             if (lang != null) {
