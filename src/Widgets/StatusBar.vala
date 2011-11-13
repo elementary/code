@@ -22,79 +22,101 @@
 using Gtk;
 
 namespace Granite.Widgets {
-    public class StatusBar : Gtk.Statusbar {
+    Pango.FontDescription small_font;
+    class ToolItemLabel : Gtk.ToolItem
+    {
+        Gtk.Label _label;
+        public string label { get { return _label.label; } set { _label.label = value; } }
+        
+        public ToolItemLabel(string label)
+        {
+            _label = new Gtk.Label(label);
+            _label.modify_font(small_font);
+            add(_label);
+        }
+    }
+    public class StatusBar : Gtk.Toolbar {
     	
     	public ComboBoxText combo_syntax;
     	public SpinButton spin_width;
     	public ComboBoxText combo_scheme;
     	
     	public StatusBar () {
+    	
+            small_font = get_style_context().get_font(Gtk.StateFlags.NORMAL);
+            small_font.set_size(small_font.get_size() - Pango.units_from_double(2));
     		set_orientation (Orientation.HORIZONTAL);
+    		
+    		get_style_context().add_class("status-toolbar");
     		
     		create ();
     	}
     	
     	void create () {
-    	    var syntax_label = new Label (_("Syntax Highlighthing") + ":");
-    	    combo_syntax = new ComboBoxText ();
-    	    combo_syntax.changed.connect (on_syntax_changed);
-    	    populate_syntax ();
-    	    pack_start (syntax_label, false, false, 5);
-    	    pack_start (combo_syntax, false, false, 5);
-    	    pack_start (new VSeparator (), false, false, 5);
-    	    
-    	    var width_label = new Label (_("Tab width") + ":");
-    	    spin_width = new SpinButton.with_range (1, 24, 1);
-    	    spin_width.set_value (Scratch.settings.indent_width);
-    	    spin_width.value_changed.connect (on_width_value_changed);
-    	    pack_start (width_label, false, false, 5);
-    	    pack_start (spin_width, false, false, 5);
-    	    pack_start (new VSeparator (), false, false, 5);
-    	    
-    	    var scheme_label = new Label (_("Color Scheme") + ":");
-    	    combo_scheme = new ComboBoxText ();
-    	    combo_scheme.changed.connect (on_scheme_changed);
-    	    populate_style_scheme ();
-    	    pack_start (scheme_label, false, false, 5);
-    	    pack_start (combo_scheme, false, false, 5);
-    	    pack_start (new VSeparator (), false, false, 5);
-    	    
-    	    //just a spacer
-    	    pack_start (new Label (""), true, true, 5);
-    	    
-    	    
-    	    show_all ();
+         add(new ToolItemLabel (_("Syntax Highlighthing") + ":   "));
+         combo_syntax = new ComboBoxText ();
+         combo_syntax.changed.connect (on_syntax_changed);
+         populate_syntax ();
+         var combo_tool = new Gtk.ToolItem ();
+         combo_tool.add(combo_syntax);
+         add(combo_tool);
+         combo_syntax.get_child().modify_font(small_font);
+
+         add (new Gtk.SeparatorToolItem ());
+
+         add(new ToolItemLabel (_("Tab width") + ":   "));
+         spin_width = new SpinButton.with_range (1, 24, 1);
+         spin_width.modify_font(small_font);
+         Scratch.settings.schema.bind("indent-width", spin_width, "value", SettingsBindFlags.DEFAULT);
+         var spin_tool = new Gtk.ToolItem ();
+         spin_tool.add(spin_width);
+         add(spin_tool);
+
+         add (new Gtk.SeparatorToolItem ());
+
+         add(new ToolItemLabel (_("Color Scheme") + ":   "));
+         combo_scheme = new ComboBoxText ();
+         populate_style_scheme ();
+         combo_scheme.get_child().modify_font(small_font);
+         Scratch.settings.schema.bind("style-scheme", combo_scheme, "active-id", 0);
+         var scheme_tool = new Gtk.ToolItem ();
+         scheme_tool.add (combo_scheme);
+         add(scheme_tool);
+         add (new Gtk.SeparatorToolItem ());
+
+
+         show_all ();
     	    
     	}
     	
-    	void populate_syntax () {
-    	    combo_syntax.append ("normal", _("Normal text"));
-    	    combo_syntax.append ("sh", "Bash");
-            combo_syntax.append ("c", "C");
-            combo_syntax.append ("C#", "c-sharp");
-            combo_syntax.append ("cpp", "C++");
-            combo_syntax.append ("cmake", "CMake");
-            combo_syntax.append ("css", "CSS");
-            combo_syntax.append ("desktop", ".desktop");
-            combo_syntax.append ("diff", "Diff");
-            combo_syntax.append ("fortran", "Fortran");
-            combo_syntax.append ("gettext-translation", "Gettext");
-            combo_syntax.append ("html", "HTML");
-            combo_syntax.append ("ini", "ini");
-            combo_syntax.append ("java", "Java");
-            combo_syntax.append ("js", "JavaScript");
-            combo_syntax.append ("latext", "LaTex");
-            combo_syntax.append ("lua", "Lua");
-            combo_syntax.append ("makefile", "MakeFile");
-            combo_syntax.append ("objc", "Objective-C");
-            combo_syntax.append ("pascal", "Pascal");
-            combo_syntax.append ("perl", "Perl");
-            combo_syntax.append ("php", "PHP");
-            combo_syntax.append ("python", "Python");
-            combo_syntax.append ("ruby", "Ruby");
-            combo_syntax.append ("vala", "Vala");
-            combo_syntax.append ("xml", "XML");
-    	}
+      void populate_syntax () {
+         combo_syntax.append ("normal", _("Normal text"));
+         combo_syntax.append ("sh", "Bash");
+         combo_syntax.append ("c", "C");
+         combo_syntax.append ("C#", "c-sharp");
+         combo_syntax.append ("cpp", "C++");
+         combo_syntax.append ("cmake", "CMake");
+         combo_syntax.append ("css", "CSS");
+         combo_syntax.append ("desktop", ".desktop");
+         combo_syntax.append ("diff", "Diff");
+         combo_syntax.append ("fortran", "Fortran");
+         combo_syntax.append ("gettext-translation", "Gettext");
+         combo_syntax.append ("html", "HTML");
+         combo_syntax.append ("ini", "ini");
+         combo_syntax.append ("java", "Java");
+         combo_syntax.append ("js", "JavaScript");
+         combo_syntax.append ("latext", "LaTex");
+         combo_syntax.append ("lua", "Lua");
+         combo_syntax.append ("makefile", "MakeFile");
+         combo_syntax.append ("objc", "Objective-C");
+         combo_syntax.append ("pascal", "Pascal");
+         combo_syntax.append ("perl", "Perl");
+         combo_syntax.append ("php", "PHP");
+         combo_syntax.append ("python", "Python");
+         combo_syntax.append ("ruby", "Ruby");
+         combo_syntax.append ("vala", "Vala");
+         combo_syntax.append ("xml", "XML");
+      }
     	
     	void populate_style_scheme () {
 
@@ -104,23 +126,17 @@ namespace Granite.Widgets {
 
             foreach (string scheme_id in scheme_ids) {
                 var scheme = scheme_manager.get_scheme (scheme_id);
-                combo_scheme.append (scheme.id, scheme.name); 
+                combo_scheme.append (scheme.id, 
+                scheme.name);
+                //"<small>" + scheme.name + "</small>"); 
             }
-
-            combo_scheme.set_active_id (Scratch.settings.style_scheme);
+            
+            /*combo_scheme.set_attributes(combo_scheme.get_cells ().nth_data(0), "markup", 0, null);*/
 
         }
         
         void on_syntax_changed () {
         
-        }
-        
-        void on_width_value_changed () {
-            Scratch.settings.indent_width = (int) spin_width.value;
-        }
-        
-        void on_scheme_changed () {
-            Scratch.settings.style_scheme = combo_scheme.active_id;
         }
     }
     
