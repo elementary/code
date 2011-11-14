@@ -130,7 +130,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
 	        text_buffer = text_view.get_buffer ();
     }
     
-    void show_arrow (bool show) {
+    /*void show_arrow (bool show) {
         tool_arrow_down.no_show_all = tool_arrow_up.no_show_all = !show;
         if(show) {
             tool_arrow_up.show_all ();
@@ -140,7 +140,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
             tool_arrow_up.hide ();
             tool_arrow_down.hide ();
         }
-    }
+    }*/
     
     void show_search () {
 	    tool_replace_entry.hide ();
