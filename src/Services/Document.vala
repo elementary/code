@@ -334,7 +334,7 @@ namespace Scratch.Services {
             }
 
         }
-
+        
         public bool can_write () {
 
             if (filename != null) {

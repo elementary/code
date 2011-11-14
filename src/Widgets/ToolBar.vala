@@ -36,7 +36,7 @@ namespace Scratch.Widgets {
         ToolButton save_as_button;
         ToolButton undo_button;
         ToolButton repeat_button;
-        ToolButton revert_button;
+        public ToolButton revert_button;
         //public ComboBoxText combobox;
 
         //public string selected_language {

@@ -438,7 +438,9 @@ namespace Scratch {
             if (filech.run () == ResponseType.ACCEPT)
                     foreach (string file in filech.get_filenames ())
                         scratch_app.open_file (file);
-
+            
+            current_tab.make_backup ();            
+            
             filech.close ();
             set_undo_redo ();
         }

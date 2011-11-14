@@ -40,7 +40,7 @@ namespace Scratch.Widgets {
             set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
 
             text_view = new SourceView ();
-            text_view.buffer.changed.connect ( () => {var top = get_toplevel () as Scratch.MainWindow; top.set_undo_redo ();});
+            text_view.buffer.changed.connect (buffer_changed);
 
             label = new TabLabel(this, labeltext);
 
@@ -100,17 +100,6 @@ namespace Scratch.Widgets {
             message ("Saving: %s", this.filename);
 
             try {
-
-                var or = File.new_for_path (this.filename);
-                var bk = File.new_for_path (this.filename + "~");
-
-                if (!bk.query_exists ()) {
-                    try {
-                        or.copy (bk, FileCopyFlags.NONE);
-                    } catch (Error e) {
-                        warning (e.message);
-                    }
-                }
 
                 FileUtils.set_contents (this.filename, this.text_view.buffer.text);
                 this.saved = true;
@@ -175,7 +164,9 @@ namespace Scratch.Widgets {
                         warning (e.message);
                     }
                 }
-
+                
+                make_backup ();
+                
                 FileUtils.set_contents (this.filename, this.text_view.buffer.text);
                 this.saved = true;
                 text_view.modified = false;
@@ -209,6 +200,48 @@ namespace Scratch.Widgets {
             } else return 1;
 
         }
+        
+        public void make_backup () {
+            var or = File.new_for_path (this.filename);
+            var bk = File.new_for_path (this.filename + "~");
 
+            if (!bk.query_exists ()) {
+                try {
+                    or.copy (bk, FileCopyFlags.NONE);
+                } catch (Error e) {
+                    warning (e.message);
+                }
+            }
+        }
+        
+        void buffer_changed () {
+            var top = get_toplevel () as Scratch.MainWindow; 
+            top.set_undo_redo (); 
+            
+            if (filename != null) {
+                string f, b;
+                
+                try {
+                    f = text_view.buffer.text;
+			        FileUtils.get_contents (this.filename + "~", out b);
+                } catch (Error e) {
+                    return;
+                }
+
+                if (f == b) {
+                    top.main_actions.get_action ("Revert").set_sensitive (false);
+                    top.toolbar.revert_button.set_sensitive (false);
+                }
+                else {
+                    top.main_actions.get_action ("Revert").set_sensitive (true);
+                    top.toolbar.revert_button.set_sensitive (true);
+                } 
+            }
+            else {
+                top.main_actions.get_action ("Revert").set_sensitive (false);
+                top.toolbar.revert_button.set_sensitive (false);
+            }
+         }
+        
     }
 }
