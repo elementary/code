@@ -164,7 +164,6 @@ namespace Scratch {
         void on_notebook_context_new_page (Gtk.Notebook notebook, Widget page, uint num) {
 
             string part = "bottom-panel-visible";
-            toolbar.menu.additional_separator.visible = true;
 
             if (notebook == notebook_context)
             {

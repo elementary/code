@@ -28,10 +28,6 @@ namespace Scratch.Widgets {
 
         public CheckMenuItem fullscreen;
         public ImageMenuItem preferences;
-        public CheckMenuItem sidebar_visible;
-        public CheckMenuItem context_visible;
-        public CheckMenuItem bottom_visible;
-        public MenuItem additional_separator;
 
         public Menu menu_language;
 
@@ -55,30 +51,10 @@ namespace Scratch.Widgets {
 
             preferences = new ImageMenuItem.from_stock (Stock.PREFERENCES, null);
 
-            sidebar_visible = new CheckMenuItem.with_label (_("Show Sidebar"));
-            settings.schema.bind("sidebar-visible", sidebar_visible, "active", SettingsBindFlags.DEFAULT);
-            context_visible = new CheckMenuItem.with_label (_("Show Context View"));
-            settings.schema.bind("context-visible", context_visible, "active", SettingsBindFlags.DEFAULT);
-            bottom_visible = new CheckMenuItem.with_label (_("Show Bottom Panel"));
-            settings.schema.bind("bottom-panel-visible", bottom_visible, "active", SettingsBindFlags.DEFAULT);
-            sidebar_visible.visible = false;
-            sidebar_visible.no_show_all = true;
-            context_visible.visible = false;
-            context_visible.no_show_all = true;
-            bottom_visible.visible = false;
-            bottom_visible.no_show_all = true;
-
             append (view);
             append (remove_view);
             append (fullscreen);
             append (new SeparatorMenuItem ());
-            append (sidebar_visible);
-            append (context_visible);
-            append (bottom_visible);
-            additional_separator = new SeparatorMenuItem ();
-            append (additional_separator);
-            additional_separator.no_show_all = true;
-            additional_separator.visible = false;
             append (preferences);
 
             dialog = new Dialogs.Preferences ("Preferences", this.window);
