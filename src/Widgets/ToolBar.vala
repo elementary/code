@@ -116,7 +116,8 @@ namespace Scratch.Widgets {
             add (app_menu);
 
             set_tooltip ();
-
+            
+            button_press_event.connect (on_context_menu);
 
         }
 
@@ -242,5 +243,18 @@ namespace Scratch.Widgets {
 
 
          }
-}
+         
+         bool on_context_menu (Gdk.EventButton event) {
+            if (event.button == 3) {
+                var m = new Menu ();
+                var i = new MenuItem.with_label ("context");
+                m.append (i);
+                i.show ();
+                m.show_all ();
+                m.popup (null, null, null, event.button, Gtk.get_current_event_time ());
+                return true;
+            }
+            return false;
+         }
+    }
 } // Namespace
