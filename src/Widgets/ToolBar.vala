@@ -62,10 +62,13 @@ namespace Scratch.Widgets {
             REPLACE_ENTRY,
             GOTO_ENTRY
         }
+        
+        UIManager ui;
 
         public Toolbar (MainWindow parent, UIManager ui, Gtk.ActionGroup action_group) {
 
             this.window = parent;
+            this.ui = ui;
 
             // Toolbar properties
             // compliant with elementary HIG
@@ -102,16 +105,13 @@ namespace Scratch.Widgets {
             add (app_menu);
 
             set_tooltip ();
-
-            /* Set up the context menu */
-            menu_ui = ui.get_widget ("ui/ToolbarContext") as Gtk.Menu;
         }
         
         Gtk.Menu menu_ui;
         
         public override bool button_press_event (Gdk.EventButton event) {
             if (event.button == 3) {
-                menu_ui.popup (null, null, null, event.button, Gtk.get_current_event_time ());
+                (ui.get_widget ("ui/ToolbarContext") as Gtk.Menu).popup (null, null, null, event.button, Gtk.get_current_event_time ());
                 return true;
             }
             return false;

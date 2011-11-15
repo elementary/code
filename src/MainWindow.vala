@@ -116,6 +116,9 @@ namespace Scratch {
             settings.schema.bind("sidebar-visible", main_actions.get_action ("ShowSidebar"), "active", SettingsBindFlags.DEFAULT);
             settings.schema.bind("context-visible", main_actions.get_action ("ShowContextView"), "active", SettingsBindFlags.DEFAULT);
             settings.schema.bind("bottom-panel-visible", main_actions.get_action ("ShowBottomPanel"), "active", SettingsBindFlags.DEFAULT);
+            main_actions.get_action ("ShowContextView").visible = false;
+            main_actions.get_action ("ShowBottomPanel").visible = false;
+            main_actions.get_action ("ShowSidebar").visible = false;
 
             ui = new Gtk.UIManager ();
 
@@ -136,9 +139,6 @@ namespace Scratch {
             connect_signals ();
 
             set_theme ();
-            main_actions.get_action ("ShowContextView").visible = false;
-            main_actions.get_action ("ShowBottomPanel").visible = false;
-            main_actions.get_action ("ShowSidebar").visible = false;
 
         }
 
@@ -179,12 +179,14 @@ namespace Scratch {
             else if (notebook == notebook_bottom)
             {
                 part = "bottom-panel-visible";
-                main_actions.get_action ("BottomPanel").visible = true;
+                main_actions.get_action ("ShowBottomPanel").visible = true;
             }
 
             page.show_all();
             notebook.show_tabs = num >= 1;
             notebook_settings_changed (part);
+            
+            ui.ensure_update ();
 
         }
 
