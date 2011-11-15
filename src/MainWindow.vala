@@ -140,7 +140,6 @@ namespace Scratch {
             connect_signals ();
 
             set_theme ();
-
         }
 
         public void on_drag_data_received (Gdk.DragContext context, int x, int y, SelectionData selection_data, uint info, uint time_) {
@@ -324,6 +323,7 @@ namespace Scratch {
             bool split_view_multiple_view = split_view.get_children ().length () > 1;
             main_actions.get_action ("New view").set_sensitive (val ? split_view_not_full : false);
             main_actions.get_action ("Remove view").set_sensitive (val ? split_view_multiple_view : false);
+            main_actions.get_action ("ShowStatusBar").set_sensitive (val);
             toolbar.set_actions (val);
             statusbar.combo_syntax.set_sensitive (val);
 
@@ -350,9 +350,8 @@ namespace Scratch {
 
             else {
                 set_actions (true);
-                statusbar.no_show_all = false;
-                statusbar.visible = true;
-                statusbar.show_all();
+                
+                action_show_status_bar (main_actions.get_action ("ShowStatusBar"));
 
                 if (split_view.get_parent () == null) {
                     vbox_split_view_toolbar.remove (welcome_screen);
