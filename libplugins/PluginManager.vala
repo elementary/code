@@ -207,6 +207,7 @@ public class Scratch.Plugins.Manager : Scratch.Plugins.BaseManager
     public signal void hook_source_view(Gtk.TextView view);
     public signal void hook_new_window(Gtk.Window window);
     public signal void hook_preferences_dialog(Gtk.Dialog dialog);
+    public signal void hook_toolbar_context_menu(Gtk.Menu menu);
 
     public Manager(Settings s, string f, string d, string? e = null)
     {

@@ -103,14 +103,14 @@ namespace Scratch.Widgets {
 
             set_tooltip ();
 
-            menu_ui = new Gtk.Menu();
+            /* Set up the context menu */
+            menu_ui = ui.get_widget ("ui/ToolbarContext") as Gtk.Menu;
         }
         
         Gtk.Menu menu_ui;
         
         public override bool button_press_event (Gdk.EventButton event) {
             if (event.button == 3) {
-                menu_ui.show_all ();
                 menu_ui.popup (null, null, null, event.button, Gtk.get_current_event_time ());
                 return true;
             }

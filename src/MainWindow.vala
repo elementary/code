@@ -51,6 +51,12 @@ namespace Scratch {
                 <menuitem name="SearchNext" action="SearchNext"/>
                 <menuitem name="SearchBack" action="SearchBack"/>
             </popup>
+            <popup name="ToolbarContext">
+                <menuitem action="ShowSidebar" />
+                <menuitem action="ShowContextView" />
+                <menuitem action="ShowBottomPanel" />
+                <menuitem action="ShowStatusBar" />
+            </popup>
             </ui>
         """;
 
@@ -106,6 +112,10 @@ namespace Scratch {
             main_actions.set_translation_domain ("scratch");
             main_actions.add_actions (main_entries, this);
             main_actions.add_toggle_actions (toggle_entries, this);
+            
+            settings.schema.bind("sidebar-visible", main_actions.get_action ("ShowSidebar"), "active", SettingsBindFlags.DEFAULT);
+            settings.schema.bind("context-visible", main_actions.get_action ("ShowContextView"), "active", SettingsBindFlags.DEFAULT);
+            settings.schema.bind("bottom-panel-visible", main_actions.get_action ("ShowBottomPanel"), "active", SettingsBindFlags.DEFAULT);
 
             ui = new Gtk.UIManager ();
 
@@ -113,7 +123,7 @@ namespace Scratch {
                 ui.add_ui_from_string (ui_string, -1);
             }
             catch(Error e) {
-                error ("Couldn't load the UI");
+                error ("Couldn't load the UI: %s", e.message);
             }
 
             Gtk.AccelGroup accel_group = ui.get_accel_group();
@@ -126,6 +136,9 @@ namespace Scratch {
             connect_signals ();
 
             set_theme ();
+            main_actions.get_action ("ShowContextView").visible = false;
+            main_actions.get_action ("ShowBottomPanel").visible = false;
+            main_actions.get_action ("ShowSidebar").visible = false;
 
         }
 
@@ -156,17 +169,17 @@ namespace Scratch {
             if (notebook == notebook_context)
             {
                 part = "context-visible";
-                toolbar.menu.context_visible.visible = true;
+                main_actions.get_action ("ShowContextView").visible = true;
             }
             else if (notebook == notebook_sidebar)
             {
                 part = "sidebar-visible";
-                toolbar.menu.sidebar_visible.visible = true;
+                main_actions.get_action ("ShowSidebar").visible = true;
             }
             else if (notebook == notebook_bottom)
             {
                 part = "bottom-panel-visible";
-                toolbar.menu.bottom_visible.visible = true;
+                main_actions.get_action ("BottomPanel").visible = true;
             }
 
             page.show_all();
@@ -670,6 +683,17 @@ namespace Scratch {
 
             split_view.remove_current_view ();
         }
+        
+        void action_show_status_bar (Gtk.Action action) {
+            if (!((Gtk.ToggleAction)action).active) {
+                statusbar.no_show_all = true;
+                statusbar.visible = false;
+            }
+            else {
+                statusbar.no_show_all = false;
+                statusbar.visible = true;
+            }
+        }
 
         static const Gtk.ActionEntry[] main_entries = {
            { "Fetch", Gtk.Stock.SAVE,
@@ -746,7 +770,23 @@ namespace Scratch {
            { "Fullscreen", Gtk.Stock.FULLSCREEN,
           /* label, accelerator */       N_("Fullscreen"), "F11",
           /* tooltip */                  N_("Fullscreen"),
-                                         action_fullscreen }
+                                         action_fullscreen },
+           { "ShowSidebar", "",
+          /* label, accelerator */       N_("Sidebar"), null,
+          /* tooltip */                  N_("Sidebar"),
+                                         null },
+           { "ShowContextView", "",
+          /* label, accelerator */       N_("Context View"), null,
+          /* tooltip */                  N_("Context View"),
+                                         null },
+           { "ShowStatusBar", "",
+          /* label, accelerator */       N_("Status Bar"), null,
+          /* tooltip */                  N_("Status Bar"),
+                                         action_show_status_bar, true },
+           { "ShowBottomPanel", "",
+          /* label, accelerator */       N_("Bottom Panel"), null,
+          /* tooltip */                  N_("Bottom Panel"),
+                                         null }
         };
 
     }
