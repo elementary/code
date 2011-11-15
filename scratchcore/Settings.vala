@@ -49,6 +49,7 @@ namespace Scratch {
         public string font { get; set; }
         public string style_scheme { get; set; }
         public bool sidebar_visible { get; set; }
+        public bool statusbar_visible { get; set; }
         public bool context_visible { get; set; }
         public bool bottom_panel_visible { get; set; }
         public bool search_loop { get; set; }

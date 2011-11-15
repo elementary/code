@@ -37,12 +37,14 @@ namespace Scratch.Widgets {
         ToolButton undo_button;
         ToolButton repeat_button;
         public ToolButton revert_button;
-
+        
         public ShareMenu share_menu;
         public MenuProperties menu;
         public ShareAppMenu share_app_menu;
         public AppMenu app_menu;
-
+        
+        Gtk.Menu menu_ui;
+        
         public bool replace_active = false;
         public bool goto_active = false;
 
@@ -105,6 +107,10 @@ namespace Scratch.Widgets {
             add (app_menu);
 
             set_tooltip ();
+
+            /* Set up the context menu */
+            menu_ui = ui.get_widget ("ui/ToolbarContext") as Gtk.Menu;
+            
         }
         
         public override bool button_press_event (Gdk.EventButton event) {
@@ -123,7 +129,7 @@ namespace Scratch.Widgets {
             return spacer;
 
         }
-
+        
         public void set_actions (bool val) {
             share_app_menu.set_sensitive(val);
         }
