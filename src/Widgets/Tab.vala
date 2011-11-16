@@ -230,16 +230,27 @@ namespace Scratch.Widgets {
 
                 if (f == b) {
                     top.main_actions.get_action ("Revert").set_sensitive (false);
-                    top.toolbar.revert_button.set_sensitive (false);
+                    //top.toolbar.revert_button.set_sensitive (false);
+                    top.main_actions.get_action ("Save").set_sensitive (false);
+                    top.toolbar.save_button.set_sensitive (false);
+                    label.label.set_text(label.label_text);
+                    text_view.modified = false;
                 }
                 else {
                     top.main_actions.get_action ("Revert").set_sensitive (true);
-                    top.toolbar.revert_button.set_sensitive (true);
+                    //top.toolbar.revert_button.set_sensitive (true);
+                    top.main_actions.get_action ("Save").set_sensitive (true);
+                    top.toolbar.save_button.set_sensitive (true);
+                    label.label.use_markup = true;
+                    label.label.set_markup ("<span font_style='italic'>%s</span>".printf(label.label_text));
+                    text_view.modified = true;                    
                 } 
             }
             else {
                 top.main_actions.get_action ("Revert").set_sensitive (false);
-                top.toolbar.revert_button.set_sensitive (false);
+                //top.toolbar.revert_button.set_sensitive (false);
+                //top.main_actions.get_action ("Save").set_sensitive (false);
+                //top.toolbar.revert_button.set_sensitive (false);
             }
          }
         

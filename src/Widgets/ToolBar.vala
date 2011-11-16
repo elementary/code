@@ -30,12 +30,12 @@ namespace Scratch.Widgets {
 
         private MainWindow window;
 
-        ToolButton new_button;
-        ToolButton open_button;
-        ToolButton save_button;
-        ToolButton save_as_button;
-        ToolButton undo_button;
-        ToolButton repeat_button;
+        public ToolButton new_button;
+        public ToolButton open_button;
+        public ToolButton save_button;
+        public ToolButton save_as_button;
+        public ToolButton undo_button;
+        public ToolButton repeat_button;
         public ToolButton revert_button;
         
         public ShareMenu share_menu;
