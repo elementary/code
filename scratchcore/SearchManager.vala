@@ -79,6 +79,9 @@ public class Scratch.Services.SearchManager : GLib.Object {
 	        main_actions.get_action ("Fetch").bind_property("sensitive", search_entry, "sensitive", BindingFlags.DEFAULT);
 	        main_actions.get_action ("ShowGoTo").bind_property("sensitive", replace_entry, "sensitive", BindingFlags.DEFAULT);
 	        main_actions.get_action ("ShowReplace").bind_property("sensitive", go_to_entry, "sensitive", BindingFlags.DEFAULT);
+	    
+	        tool_arrow_up = (Gtk.ToolItem) main_actions.get_action ("SearchNext").create_tool_item ();
+	        tool_arrow_down = (Gtk.ToolItem) main_actions.get_action ("SearchBack").create_tool_item ();
 	    }
 	
 	    tool_replace_entry.no_show_all = true;
@@ -98,9 +101,6 @@ public class Scratch.Services.SearchManager : GLib.Object {
 	    entry_context.set_path (entry_path);
 	    entry_context.add_class ("entry");
 	    normal_color = entry_context.get_color(Gtk.StateFlags.FOCUSED);
-	    
-	    tool_arrow_up = (Gtk.ToolItem) main_actions.get_action ("SearchNext").create_tool_item ();
-	    tool_arrow_down = (Gtk.ToolItem) main_actions.get_action ("SearchBack").create_tool_item ();
     }
     
     public Gtk.ToolItem get_search_entry () {

@@ -54,8 +54,10 @@ public int main(string[] args)
         
         sourceview.buffer.text = "elementary scratch\ntest Euclide ele";
         
-        sourceview.go_to_line (1);
+        sourceview.go_to_line (2);
         assert (sourceview.buffer.cursor_position == "elementary scratch\n".length);
+        sourceview.go_to_line (1);
+        assert (sourceview.buffer.cursor_position == 0);
         
         var lang = sourceview.change_syntax_highlight_for_filename ("immaginary.vala");
         var blang = sourceview.buffer.get_language ();
