@@ -341,13 +341,19 @@ namespace Scratch.Services {
 
                 FileInfo info;
                 bool writable;
+
                 try {
+
                     info = file.query_info (FILE_ATTRIBUTE_ACCESS_CAN_WRITE, FileQueryInfoFlags.NONE, null);
                     writable = info.get_attribute_boolean (FILE_ATTRIBUTE_ACCESS_CAN_WRITE);
+
                     return writable;
+
                 } catch (Error e) {
+
                     warning ("%s", e.message);
                     return false;
+ 
                 }
 
             } else {

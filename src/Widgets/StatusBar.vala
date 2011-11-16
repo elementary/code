@@ -22,17 +22,19 @@
 using Gtk;
 
 namespace Granite.Widgets {
+
     class ToolItemLabel : Gtk.ToolItem
     {
         Gtk.Label _label;
         public string label { get { return _label.label; } set { _label.label = value; } }
 
-        public ToolItemLabel(string label)
+        public ToolItemLabel (string label)
         {
-            _label = new Gtk.Label(label);
-            add(_label);
+            _label = new Gtk.Label (label);
+            add (_label);
         }
     }
+
     public class StatusBar : Gtk.Toolbar {
 
         public ComboBoxText combo_syntax;
@@ -46,55 +48,55 @@ namespace Granite.Widgets {
 
             set_orientation (Orientation.HORIZONTAL);
             search_manager = new Scratch.Services.SearchManager (action_group);
-            Scratch.settings.schema.bind("search-sensitive", search_manager, "case-sensitive", SettingsBindFlags.DEFAULT);
-            Scratch.settings.schema.bind("search-loop", search_manager, "cycle-search", SettingsBindFlags.DEFAULT);
+            Scratch.settings.schema.bind ("search-sensitive", search_manager, "case-sensitive", SettingsBindFlags.DEFAULT);
+            Scratch.settings.schema.bind ("search-loop", search_manager, "cycle-search", SettingsBindFlags.DEFAULT);
 
-            get_style_context().add_class("status-toolbar");
+            get_style_context ().add_class ("status-toolbar");
 
-            notify["language-id"].connect(on_language_id_changed);
+            notify["language-id"].connect (on_language_id_changed);
 
             create ();
         }
 
-        void on_language_id_changed()
+        void on_language_id_changed ()
         {
             combo_syntax.active_id = language_id;
         }
 
         void create () {
-             add(new ToolItemLabel (_("Syntax Highlighthing") + ":   "));
+             add (new ToolItemLabel (_(" Syntax Highlighthing") + ":   "));
              combo_syntax = new ComboBoxText ();
              combo_syntax.changed.connect (on_syntax_changed);
              populate_syntax ();
              var combo_tool = new Gtk.ToolItem ();
-             combo_tool.add(combo_syntax);
-             add(combo_tool);
+             combo_tool.add (combo_syntax);
+             add (combo_tool);
 
              add (new Gtk.SeparatorToolItem ());
 
-             add(new ToolItemLabel (_("Tab width") + ":   "));
+             add (new ToolItemLabel (_("Tab width") + ":   "));
              spin_width = new SpinButton.with_range (1, 24, 1);
-             Scratch.settings.schema.bind("indent-width", spin_width, "value", SettingsBindFlags.DEFAULT);
+             Scratch.settings.schema.bind ("indent-width", spin_width, "value", SettingsBindFlags.DEFAULT);
              var spin_tool = new Gtk.ToolItem ();
-             spin_tool.add(spin_width);
-             add(spin_tool);
+             spin_tool.add (spin_width);
+             add (spin_tool);
 
              add (new Gtk.SeparatorToolItem ());
 
-             add(new ToolItemLabel (_("Color Scheme") + ":   "));
+             add (new ToolItemLabel (_("Color Scheme") + ":   "));
              combo_scheme = new ComboBoxText ();
              populate_style_scheme ();
-             Scratch.settings.schema.bind("style-scheme", combo_scheme, "active-id", 0);
+             Scratch.settings.schema.bind ("style-scheme", combo_scheme, "active-id", 0);
              var scheme_tool = new Gtk.ToolItem ();
              scheme_tool.add (combo_scheme);
-             add(scheme_tool);
+             add (scheme_tool);
              add (new Gtk.SeparatorToolItem ());
 
              add_spacer ();
 
 
-             Scratch.settings.schema.bind("search-sensitive", search_manager, "case-sensitive", SettingsBindFlags.DEFAULT);
-             Scratch.settings.schema.bind("search-loop", search_manager, "cycle-search", SettingsBindFlags.DEFAULT);
+             Scratch.settings.schema.bind ("search-sensitive", search_manager, "case-sensitive", SettingsBindFlags.DEFAULT);
+             Scratch.settings.schema.bind ("search-loop", search_manager, "cycle-search", SettingsBindFlags.DEFAULT);
 
              add (new SeparatorToolItem ());
              add (search_manager.get_arrow_previous ());

@@ -80,6 +80,7 @@ namespace Scratch.Widgets {
             var highlight = new Gtk.CheckMenuItem.with_label(_("Highlight current line"));
             var lines = new Gtk.CheckMenuItem.with_label(_("Show line numbers"));
             var font = new Gtk.MenuItem.with_label(_("Change font"));
+
             font.activate.connect( () => {
                 var font_chooser = new Gtk.FontChooserDialog(_("Change main view font"), (Gtk.Window)get_toplevel());
                 var check_font = new Gtk.CheckButton.with_label(_("Use the system fixed width font (%s)").printf(default_font ()));
@@ -104,6 +105,7 @@ namespace Scratch.Widgets {
             Scratch.settings.schema.bind("spaces-instead-of-tabs", spaces, "active", SettingsBindFlags.DEFAULT);
             Scratch.settings.schema.bind("highlight-current-line", highlight, "active", SettingsBindFlags.DEFAULT);
             Scratch.settings.schema.bind("show-line-numbers", lines, "active", SettingsBindFlags.DEFAULT);
+
             menu.append(spaces);
             menu.append(highlight);
             menu.append(lines);
