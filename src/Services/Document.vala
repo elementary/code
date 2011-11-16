@@ -80,6 +80,9 @@ namespace Scratch.Services {
             }
         }
         
+        public bool can_undo { get { return buffer.can_undo; } }
+        public bool can_redo { get { return buffer.can_redo; } }
+        
         // Private variables
         private string original_text;
         private Gtk.SourceBuffer buffer;
@@ -91,8 +94,7 @@ namespace Scratch.Services {
          * It returns the value of the modified field of the text_view of the tab of
          * this document
          **/
-        public bool modified { get { return tab.text_view.modified; } }
-        public SourceView source_view { get { return tab.text_view; } }
+        public bool modified { get; private set; }
 
         public Document (string filename, MainWindow? window) {
 
@@ -128,6 +130,14 @@ namespace Scratch.Services {
         	tab.grab_focus ();
         }
         
+        public void undo () {
+            tab.text_view.undo ();
+        }
+        
+        public void redo () {
+            tab.text_view.redo ();
+        }
+
         /**
          * In this function, we create a new tab and we load the content of the file in it. 
          **/
@@ -143,13 +153,14 @@ namespace Scratch.Services {
 			tab = new Tab (window.current_notebook, name);
             tab.closed.connect( () => { close(); });
             tab.document = this;
+            tab.text_view.bind_property("modified", this, "modified", BindingFlags.DEFAULT);
               
 			//set new values
 			tab.filename = filename;
 			tab.saved = true;
             
 			buffer = tab.text_view.buffer;
-			tab.text_view.change_syntax_highlight_for_filename(filename);
+			tab.change_syntax_highlight_for_filename(filename);
 			window.current_notebook.set_current_page (window.current_notebook.add_existing_tab(tab));
 			
 			open();

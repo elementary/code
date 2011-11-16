@@ -91,6 +91,7 @@ namespace Scratch {
 
         public Tab current_tab { get { return (Tab) current_notebook.current_tab; }}
         public ScratchNotebook current_notebook { get { return split_view.get_current_notebook (); } }
+        public Document current_document { get { return current_tab.document; } }
 
         //objects for the set_theme ()
         FontDescription font;
@@ -475,11 +476,16 @@ namespace Scratch {
             current_tab.text_view.buffer.set_language (lang);
         }
 
+        /**
+         * @deprecated
+         **/
         public Scratch.Widgets.SourceView get_active_view () {
             return current_tab.text_view;
         }
 
-
+        /**
+         * @deprecated
+         **/
         public Gtk.TextBuffer? get_active_buffer () {
             if (current_tab != null) return current_tab.text_view.buffer;
             return null;
@@ -566,11 +572,8 @@ namespace Scratch {
             bool redo = false;
 
             if (current_tab != null) {
-                Gtk.SourceBuffer buf;
-
-                buf = current_tab.text_view.buffer;
-                undo = buf.can_undo;
-                redo = buf.can_redo;
+                undo = current_document.can_undo;
+                redo = current_document.can_redo;
             }
 
             main_actions.get_action ("Undo").set_sensitive (undo);
@@ -580,23 +583,6 @@ namespace Scratch {
             toolbar.set_button_sensitive (toolbar.ToolButtons.REPEAT_BUTTON, redo);
 
         }
-
-        /*void set_combobox_language (string filename) {
-
-            Gtk.SourceLanguage lang = current_tab.text_view.change_syntax_highlight_for_filename (filename);
-            if (lang != null) {
-                var id = lang.get_id();
-                if (id != null) {
-                    toolbar.combobox.set_active_id (id);
-                }
-                else {
-                    toolbar.combobox.set_active_id ("normal");
-                }
-            }
-            else {
-                warning ("Couldn't detect language highlight for %s", filename);
-            }
-        }*/
 
         public void create_instance () {
 
@@ -621,11 +607,11 @@ namespace Scratch {
         }
 
         void action_undo () {
-            current_tab.text_view.undo ();
+            current_document.undo ();
             set_undo_redo ();
         }
         void action_redo () {
-            current_tab.text_view.redo ();
+            current_document.redo ();
             set_undo_redo ();
         }
 

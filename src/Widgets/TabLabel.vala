@@ -64,7 +64,7 @@ namespace Scratch.Widgets {
 
             event_box.button_press_event.connect (click_event);
 
-            tab.text_view.notify["modified"].connect(on_modified_changed);
+            tab.document.notify["modified"].connect(on_modified_changed);
 
             this.show_all ();
             button_press_event.connect(on_main_click);
@@ -84,7 +84,7 @@ namespace Scratch.Widgets {
 
         void on_modified_changed()
         {
-            if (tab.text_view.modified) {
+            if (tab.document.modified) {
                 label.use_markup = true;
                 label.set_markup ("<span font_style='italic'>%s</span>".printf(label_text));
             }

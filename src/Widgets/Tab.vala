@@ -27,7 +27,7 @@ namespace Scratch.Widgets {
 
     public class Tab : ScrolledWindow {
 
-        public SourceView text_view;
+        public SourceView text_view { set; get; }
         public TabLabel label;
         public string filename = null;
         public bool saved = true;
@@ -48,6 +48,9 @@ namespace Scratch.Widgets {
             show_all();
         }
 
+        public void change_syntax_highlight_for_filename (string filename) {
+            text_view.change_syntax_highlight_for_filename (filename);
+        }
 
         public void on_close_clicked() {
             var doc = document;
