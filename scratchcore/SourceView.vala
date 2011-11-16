@@ -78,7 +78,7 @@ namespace Scratch.Widgets {
         void on_populate_menu (Gtk.Menu menu) {
             var spaces = new Gtk.CheckMenuItem.with_label(_("Use spaces instead of tabs"));
             var highlight = new Gtk.CheckMenuItem.with_label(_("Highlight current line"));
-            var lines = new Gtk.CheckMenuItem.with_label(_("Show lines number"));
+            var lines = new Gtk.CheckMenuItem.with_label(_("Show line numbers"));
             var font = new Gtk.MenuItem.with_label(_("Change font"));
             font.activate.connect( () => {
                 var font_chooser = new Gtk.FontChooserDialog(_("Change main view font"), (Gtk.Window)get_toplevel());
