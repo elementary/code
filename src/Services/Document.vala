@@ -89,7 +89,7 @@ namespace Scratch.Services {
         private MainWindow window;
         private File file;
         private static string home_dir = Environment.get_home_dir ();
-        Tab tab;
+        public Tab tab;
         /**
          * It returns the value of the modified field of the text_view of the tab of
          * this document

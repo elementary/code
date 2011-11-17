@@ -104,6 +104,7 @@ namespace Scratch.Widgets {
             plugins.hook_toolbar(this);
 
             add (add_spacer ());
+            add (share_app_menu);
             add (app_menu);
 
             set_tooltip ();
@@ -175,10 +176,8 @@ namespace Scratch.Widgets {
         }
 
         public void controll_for_share_plugins () {
-            if (share_menu.get_children ().length () == 0) {
-                share_app_menu.no_show_all = true;
-                share_app_menu.hide();
-            }
+            share_app_menu.no_show_all = false;
+            share_app_menu.show_all();
         }
     }
 } // Namespace
