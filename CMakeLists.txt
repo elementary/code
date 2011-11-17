@@ -55,6 +55,7 @@ vala_precompile(VALA_C
     src/Dialogs/PreferencesDialog.vala
     src/Dialogs/SaveDialog.vala
     src/Dialogs/SaveOnCloseDialog.vala
+    src/Dialogs/ToolBarEditor.vala
     src/Services/Document.vala
     src/config.vala
 PACKAGES

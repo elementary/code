@@ -56,6 +56,8 @@ namespace Scratch {
                 <menuitem action="ShowContextView" />
                 <menuitem action="ShowBottomPanel" />
                 <menuitem action="ShowStatusBar" />
+                <separator />
+                <menuitem action="EditToolbar" />
             </popup>
             </ui>
         """;
@@ -641,7 +643,12 @@ namespace Scratch {
             }
             debug ("Full");
         }
-
+        
+        void action_edit_toolbar () {
+            var toolbar_editor = new ToolBarEditor (_("Customize toolbar"), this);
+            toolbar_editor.show_all ();
+        }
+        
         void action_remove_view () {
             var notebook = split_view.get_current_notebook ();
 
@@ -751,8 +758,12 @@ namespace Scratch {
            { "SaveFileAs", Gtk.Stock.SAVE_AS,
           /* label, accelerator */       N_("SaveAs"), "<Control><shift>s",
           /* tooltip */                  N_("Save the current file with a different name"),
-                                         action_save_as }
-
+                                         action_save_as },
+                                         
+            { "EditToolbar", Gtk.Stock.PREFERENCES,
+          /* label, accelerator */       N_("Customize toolbar"), null,
+          /* tooltip */                  N_("Customize toolbar"),
+                                         action_edit_toolbar }
         };
 
         static const Gtk.ToggleActionEntry[] toggle_entries = {
@@ -776,6 +787,7 @@ namespace Scratch {
           /* label, accelerator */       N_("Bottom Panel"), null,
           /* tooltip */                  N_("Bottom Panel"),
                                          null }
+   
         };
 
     }
