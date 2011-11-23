@@ -100,14 +100,17 @@ namespace Scratch.Widgets {
             }
 
             message ("Saving: %s", this.filename);
-            
-            label.label.use_markup = true;
-                label.label.set_markup ("<span font_style='normal'>%s</span>".printf(label.label_text));
 
             try {
 
                 FileUtils.set_contents (this.filename, this.text_view.buffer.text);
                 this.saved = true;
+				
+				//updating the tab label and window title
+                var f = File.new_for_path (this.filename);
+                label.label.set_text (f.get_basename ());
+                var top = get_toplevel () as MainWindow;
+                top.set_window_title (this.filename);
 				
                 return 0;
 
@@ -138,12 +141,12 @@ namespace Scratch.Widgets {
 
                 switch (response) {
                     case ResponseType.ACCEPT:
-                    new_filename = filech.get_filename();
-                    filech.close();
+                        new_filename = filech.get_filename();
+                        filech.close();
                     break;
 
                     case ResponseType.CANCEL:
-                    filech.close();
+                        filech.close();
                     return 1;
 
                 }
@@ -173,10 +176,12 @@ namespace Scratch.Widgets {
                 FileUtils.set_contents (this.filename, this.text_view.buffer.text);
                 this.saved = true;
 
-                //updating the tab label
+                //updating the tab label and the window title
                 var f = File.new_for_path (this.filename);
                 label.label.set_text (f.get_basename ());
-
+                var top = get_toplevel () as MainWindow;
+                top.set_window_title (this.filename);
+                
                 return 0;
 
             } catch (Error e) {
