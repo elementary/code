@@ -735,7 +735,7 @@ namespace Scratch {
 
           { "Revert", Gtk.Stock.REVERT_TO_SAVED,
           /* label, accelerator */       N_("Revert"), "<Control><shift>o",
-          /* tooltip */                  N_("Revert"),
+          /* tooltip */                  N_("Restore this file"),
                                          action_revert },
 
            { "SearchNext", Gtk.Stock.GO_FORWARD,

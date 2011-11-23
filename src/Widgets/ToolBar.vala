@@ -107,8 +107,6 @@ namespace Scratch.Widgets {
             add (share_app_menu);
             add (app_menu);
 
-            set_tooltip ();
-
             /* Set up the context menu */
             menu_ui = ui.get_widget ("ui/ToolbarContext") as Gtk.Menu;
             
@@ -133,11 +131,6 @@ namespace Scratch.Widgets {
         
         public void set_actions (bool val) {
             share_app_menu.set_sensitive(val);
-        }
-
-        private void set_tooltip () {
-            revert_button.set_tooltip_text (_("Restore the current file"));
-            share_menu.set_tooltip_text(_("Share this file"));
         }
 
         public void set_button_sensitive(int button, bool sensitive) {
