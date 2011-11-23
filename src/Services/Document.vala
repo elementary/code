@@ -17,7 +17,7 @@
   
   END LICENSE	
 ***/
-
+ 
 using Scratch.Widgets;
 
 namespace Scratch.Services {
@@ -160,6 +160,7 @@ namespace Scratch.Services {
 			tab.saved = true;
             
 			buffer = tab.text_view.buffer;
+			buffer.changed.connect (on_buffer_changed);
 			tab.change_syntax_highlight_for_filename(filename);
 			window.current_notebook.set_current_page (window.current_notebook.add_existing_tab(tab));
 			
@@ -270,17 +271,60 @@ namespace Scratch.Services {
             return true;
 
         }
-
-        public bool save () {
-            
-            tab.save ();
-            update ();
-            return false;
-
+        
+        void set_label_font (string style) {
+            switch (style) {
+                
+                case "modified":
+                    tab.label.label.set_markup ("<span font_style='italic'>%s</span>".printf(tab.label.label_text));                
+                break;
+                
+                case "saved":
+                    tab.label.label.set_markup ("<span font_style='normal'>%s</span>".printf(tab.label.label_text)); 
+                break;   
+                
+            }
         }
-
-        public void update () {
-            tab.label.label.set_text (this.filename);
+        
+        void on_buffer_changed () {
+            
+            window.set_undo_redo ();
+            
+            if (filename != null) {
+                if (buffer.text == original_text) {
+                    window.main_actions.get_action ("Revert").set_sensitive (false);
+                    //top.toolbar.revert_button.set_sensitive (false);
+                    window.main_actions.get_action ("Save").set_sensitive (false);
+                    window.toolbar.save_button.set_sensitive (false);//TODO: fix it
+                    set_label_font ("saved");
+                    modified = false;
+                }
+                else {
+                    window.main_actions.get_action ("Revert").set_sensitive (true);
+                    //top.toolbar.revert_button.set_sensitive (true);
+                    window.main_actions.get_action ("Save").set_sensitive (true);
+                    window.toolbar.save_button.set_sensitive (true);//TODO: fix it
+                    set_label_font ("modified");
+                    modified = true;                    
+                } 
+            }
+            else {
+                window.main_actions.get_action ("Revert").set_sensitive (false);
+                set_label_font ("modified");
+                modified = true;  
+            }
+        }
+        
+        public bool save () {     
+            tab.save ();
+            modified = false;
+            return false;
+        }
+        
+        public bool save_as () {     
+            tab.save_as ();
+            modified = false;
+            return false;
         }
 
         public bool rename (string new_name) {

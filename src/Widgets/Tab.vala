@@ -40,7 +40,6 @@ namespace Scratch.Widgets {
             set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
 
             text_view = new SourceView ();
-            text_view.buffer.changed.connect (buffer_changed);
 
             label = new TabLabel(this, labeltext);
 
@@ -109,10 +108,6 @@ namespace Scratch.Widgets {
 
                 FileUtils.set_contents (this.filename, this.text_view.buffer.text);
                 this.saved = true;
-                text_view.modified = false;
-				
-				label.label.use_markup = true;
-                label.label.set_markup ("<span font_style='normal'>%s</span>".printf(label.label_text));
 				
                 return 0;
 
@@ -177,7 +172,6 @@ namespace Scratch.Widgets {
                 
                 FileUtils.set_contents (this.filename, this.text_view.buffer.text);
                 this.saved = true;
-                text_view.modified = false;
 
                 //updating the tab label
                 var f = File.new_for_path (this.filename);
@@ -221,50 +215,6 @@ namespace Scratch.Widgets {
                 }
             }
         }
-        
-        void buffer_changed () {
-            var top = get_toplevel () as Scratch.MainWindow; 
-            top.set_undo_redo (); 
-
-            if (filename != null) {
-                string f, b;
-                
-                try {
-                    f = text_view.buffer.text;
-			        FileUtils.get_contents (this.filename + "~", out b);
-                } catch (Error e) {
-                    return;
-                }
-
-                if (f == b) {
-                    top.main_actions.get_action ("Revert").set_sensitive (false);
-                    //top.toolbar.revert_button.set_sensitive (false);
-                    top.main_actions.get_action ("Save").set_sensitive (false);
-                    top.toolbar.save_button.set_sensitive (false);
-                    label.label.use_markup = true;
-                    label.label.set_markup ("<span font_style='normal'>%s</span>".printf(label.label_text));
-                    text_view.modified = false;
-                }
-                else {
-                    top.main_actions.get_action ("Revert").set_sensitive (true);
-                    //top.toolbar.revert_button.set_sensitive (true);
-                    top.main_actions.get_action ("Save").set_sensitive (true);
-                    top.toolbar.save_button.set_sensitive (true);
-                    label.label.use_markup = true;
-                    label.label.set_markup ("<span font_style='italic'>%s</span>".printf(label.label_text));
-                    text_view.modified = true;                    
-                } 
-            }
-            else {
-                top.main_actions.get_action ("Revert").set_sensitive (false);
-                label.label.use_markup = true;
-                label.label.set_markup ("<span font_style='italic'>%s</span>".printf(label.label_text));
-                text_view.modified = true;  
-                //top.toolbar.revert_button.set_sensitive (false);
-                //top.main_actions.get_action ("Save").set_sensitive (false);
-                //top.toolbar.revert_button.set_sensitive (false);
-            }
-         }
         
     }
 }

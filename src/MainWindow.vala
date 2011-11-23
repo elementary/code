@@ -464,13 +464,11 @@ namespace Scratch {
         }
 
         public void action_save () {
-            current_tab.save ();
-            current_tab.label.label.use_markup = true;
-            current_tab.label.label.set_markup ("<span font_style='italic'>%s</span>".printf(current_tab.label.label_text));
+            current_tab.document.save ();
         }
 
         public void action_save_as () {
-            current_tab.save_as ();
+            current_tab.document.save_as ();
         }
 
         public void on_status_language_id_changed () {

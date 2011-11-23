@@ -42,6 +42,7 @@ namespace Scratch.Widgets {
 
             label_text = labeltext;
             label = new Label (labeltext);
+            label.use_markup = true;
             entry = new Entry ();
 
             event_box = new EventBox ();
