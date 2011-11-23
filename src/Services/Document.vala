@@ -186,7 +186,7 @@ namespace Scratch.Services {
 			try {
 				FileUtils.get_contents (filename, out contents);
 			} catch (Error e) {
-				window.infobar.set_info (_("The file could not be opened"));
+				warning ("Couldn't open the file");
 				return false;
 			}
 		
@@ -229,7 +229,7 @@ namespace Scratch.Services {
 			try {
 				FileUtils.get_contents (filename + "~", out contents);
 			} catch (Error e) {
-				window.infobar.set_info (_("The file could not be opened"));
+				warning ("Couldn't create a backup for the file");
 				return false;
 			}
 		

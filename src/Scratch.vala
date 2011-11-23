@@ -103,10 +103,8 @@ namespace Scratch {
                 if (files[i].get_basename () == "--new-tab") 
                     window.action_new_tab ();
                 else 
-                	open_file(files[i].get_path());
-                
+                	open_file(files[i].get_path());                
             }
-			window.infobar.hide ();
 			
 			window.present ();
         
@@ -130,7 +128,6 @@ namespace Scratch {
             documents.add(document);
             document.closed.connect( (doc) => { documents.remove(doc); });
             window.current_notebook.set_tab ();
-            window.infobar.hide ();
             window.set_window_title (filename);
             return document;
 
@@ -141,7 +138,6 @@ namespace Scratch {
             documents.add(document);
             document.closed.connect( (doc) => { documents.remove(doc); });
             window.current_notebook.set_tab ();
-            window.infobar.hide ();
             window.set_window_title ("New");
         }
 

@@ -86,7 +86,6 @@ namespace Scratch {
         public Gtk.Notebook notebook_bottom;
 
         public StatusBar statusbar;
-        public ScratchInfoBar infobar;
 
         //dialogs
         public FileChooserDialog filech;
@@ -466,6 +465,8 @@ namespace Scratch {
 
         public void action_save () {
             current_tab.save ();
+            current_tab.label.label.use_markup = true;
+            current_tab.label.label.set_markup ("<span font_style='italic'>%s</span>".printf(current_tab.label.label_text));
         }
 
         public void action_save_as () {

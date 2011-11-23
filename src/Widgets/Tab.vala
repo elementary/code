@@ -101,13 +101,19 @@ namespace Scratch.Widgets {
             }
 
             message ("Saving: %s", this.filename);
+            
+            label.label.use_markup = true;
+                label.label.set_markup ("<span font_style='normal'>%s</span>".printf(label.label_text));
 
             try {
 
                 FileUtils.set_contents (this.filename, this.text_view.buffer.text);
                 this.saved = true;
                 text_view.modified = false;
-
+				
+				label.label.use_markup = true;
+                label.label.set_markup ("<span font_style='normal'>%s</span>".printf(label.label_text));
+				
                 return 0;
 
             } catch (Error e) {
@@ -116,7 +122,6 @@ namespace Scratch.Widgets {
                 return 1;
 
             }
-
 
         }
 
@@ -220,7 +225,7 @@ namespace Scratch.Widgets {
         void buffer_changed () {
             var top = get_toplevel () as Scratch.MainWindow; 
             top.set_undo_redo (); 
-            
+
             if (filename != null) {
                 string f, b;
                 
@@ -236,7 +241,8 @@ namespace Scratch.Widgets {
                     //top.toolbar.revert_button.set_sensitive (false);
                     top.main_actions.get_action ("Save").set_sensitive (false);
                     top.toolbar.save_button.set_sensitive (false);
-                    label.label.set_text(label.label_text);
+                    label.label.use_markup = true;
+                    label.label.set_markup ("<span font_style='normal'>%s</span>".printf(label.label_text));
                     text_view.modified = false;
                 }
                 else {
@@ -251,6 +257,9 @@ namespace Scratch.Widgets {
             }
             else {
                 top.main_actions.get_action ("Revert").set_sensitive (false);
+                label.label.use_markup = true;
+                label.label.set_markup ("<span font_style='italic'>%s</span>".printf(label.label_text));
+                text_view.modified = true;  
                 //top.toolbar.revert_button.set_sensitive (false);
                 //top.main_actions.get_action ("Save").set_sensitive (false);
                 //top.toolbar.revert_button.set_sensitive (false);
