@@ -63,7 +63,7 @@ namespace Granite.Widgets {
         }
 
         void create () {
-             add (new ToolItemLabel (_(" Syntax Highlighthing") + ":   "));
+             add (new ToolItemLabel (_(" Syntax Highlighting") + ":   "));
              combo_syntax = new ComboBoxText ();
              combo_syntax.changed.connect (on_syntax_changed);
              populate_syntax ();
