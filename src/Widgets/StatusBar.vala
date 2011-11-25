@@ -101,7 +101,7 @@ namespace Granite.Widgets {
              add (search_manager.get_arrow_previous ());
              add (search_manager.get_arrow_next ());
              add (search_manager.get_search_entry ());
-             add (new ToolItemLabel (" ")); //Hackish much?
+             search_manager.get_search_entry ().set_margin_right (5);
              add (search_manager.get_replace_entry ());
              add (search_manager.get_go_to_entry ());
 
