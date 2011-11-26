@@ -53,7 +53,7 @@ namespace Scratch.Widgets {
 
             append (view);
             append (remove_view);
-            append (fullscreen);
+            //append (fullscreen);
             append (new SeparatorMenuItem ());
             append (preferences);
 
