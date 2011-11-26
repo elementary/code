@@ -18,7 +18,6 @@
   END LICENSE
 ***/
 
-
 using Gtk;
 using Granite.Widgets;
 

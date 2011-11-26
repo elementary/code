@@ -1,23 +1,23 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /***
   BEGIN LICENSE
-	
+
   Copyright (C) 2011 Giulio Collura <random.cpp@gmail.com>
-  This program is free software: you can redistribute it and/or modify it	
-  under the terms of the GNU Lesser General Public License version 3, as published	
+  This program is free software: you can redistribute it and/or modify it
+  under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
-	
-  This program is distributed in the hope that it will be useful, but	
-  WITHOUT ANY WARRANTY; without even the implied warranties of	
-  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR	
+
+  This program is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranties of
+  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
   PURPOSE.  See the GNU General Public License for more details.
-	
-  You should have received a copy of the GNU General Public License along	
-  with this program.  If not, see <http://www.gnu.org/licenses/>	
-  
-  END LICENSE	
+
+  You should have received a copy of the GNU General Public License along
+  with this program.  If not, see <http://www.gnu.org/licenses/>
+
+  END LICENSE
 ***/
- 
+
 using Scratch.Widgets;
 
 namespace Scratch.Services {
@@ -30,13 +30,13 @@ namespace Scratch.Services {
     }
 
     public class Document : GLib.Object {
-        
+
         // Signals
         public signal void opened ();
         public signal void closed ();
-        
+
         // Public properties
-        public bool saved { 
+        public bool saved {
             get {
                 if (original_text == text)
                     return true;
@@ -45,7 +45,7 @@ namespace Scratch.Services {
             }
         }
         public string? name { get; private set; default  = null; }
-        
+
         private string _directory;
         public string directory {
             get {
@@ -79,10 +79,10 @@ namespace Scratch.Services {
                     return false;
             }
         }
-        
+
         public bool can_undo { get { return buffer.can_undo; } }
         public bool can_redo { get { return buffer.can_redo; } }
-        
+
         // Private variables
         private string original_text;
         private Gtk.SourceBuffer buffer;
@@ -98,170 +98,170 @@ namespace Scratch.Services {
 
         public Document (string filename, MainWindow? window) {
 
-            
+
             this.filename = filename;
             file = File.new_for_path (filename);
-            
+
             register_recent ();
-            
+
             name = file.get_basename ();
             _directory = Path.get_dirname (filename).replace (home_dir, "~");
 
             this.window = window;
-            
+
             //window.scratch_app.documents.add (this);
-            
+
         }
-        
+
         void register_recent () {
             Gtk.RecentManager recent_manager = Gtk.RecentManager.get_default();
             recent_manager.add_item (file.get_uri ());
         }
-        
+
         public void focus_sourceview() {
-        	if(tab == null) {
-        		critical("No tab created for this document");
-        	}
-        	ScratchNotebook notebook = tab.get_parent () as ScratchNotebook;
-        	if (notebook == null) {
-        		critical ("Can't get tab parent.");
-        	}
-        	notebook.page = notebook.page_num(tab);
-        	tab.grab_focus ();
+            if(tab == null) {
+                critical("No tab created for this document");
+            }
+            ScratchNotebook notebook = tab.get_parent () as ScratchNotebook;
+            if (notebook == null) {
+                critical ("Can't get tab parent.");
+            }
+            notebook.page = notebook.page_num(tab);
+            tab.grab_focus ();
         }
-        
+
         public void undo () {
             tab.text_view.undo ();
         }
-        
+
         public void redo () {
             tab.text_view.redo ();
         }
 
         /**
-         * In this function, we create a new tab and we load the content of the file in it. 
+         * In this function, we create a new tab and we load the content of the file in it.
          **/
         public void create_sourceview ()
         {
-			//get the filename from strig filename =)
-			string name = _("New Tab");
-			if(filename != null)
-    			name = Filename.display_basename (filename);
-		
+            //get the filename from strig filename =)
+            string name = _("New Tab");
+            if(filename != null)
+                name = Filename.display_basename (filename);
 
-			//create new tab
-			tab = new Tab (window.current_notebook, name);
+
+            //create new tab
+            tab = new Tab (window.current_notebook, name);
             tab.closed.connect( () => { close(); });
             tab.document = this;
             tab.text_view.bind_property("modified", this, "modified", BindingFlags.DEFAULT);
-              
-			//set new values
-			tab.filename = filename;
-			tab.saved = true;
-            
-			buffer = tab.text_view.buffer;
-			buffer.changed.connect (on_buffer_changed);
-			tab.change_syntax_highlight_for_filename(filename);
-			window.current_notebook.set_current_page (window.current_notebook.add_existing_tab(tab));
-			
-			open();
+
+            //set new values
+            tab.filename = filename;
+            tab.saved = true;
+
+            buffer = tab.text_view.buffer;
+            buffer.changed.connect (on_buffer_changed);
+            tab.change_syntax_highlight_for_filename(filename);
+            window.current_notebook.set_current_page (window.current_notebook.add_existing_tab(tab));
+
+            open();
         }
 
         public Document.empty (MainWindow? window) {
-            
+
             filename = null;
             name = null;
             this.window = window;
 
         }
 
-		/**
-		 * Open the file and put it content inside the given buffer.
-		 **/
+        /**
+         * Open the file and put it content inside the given buffer.
+         **/
         public bool open () {
 
             if (filename == null)
                 return false;
 
             string contents;
-			try {
-				FileUtils.get_contents (filename, out contents);
-			} catch (Error e) {
-				warning ("Couldn't open the file");
-				return false;
-			}
-		
-			try {
-				if(!contents.validate()) contents = convert (contents, -1, "UTF-8", "ISO-8859-1");
-			}
-			catch (Error e) {
-				warning ("Couldn't convert the content of the document to UTF-8 (I guessed it was in ISO-8859-1?)");
-			}
+            try {
+                FileUtils.get_contents (filename, out contents);
+            } catch (Error e) {
+                warning ("Couldn't open the file");
+                return false;
+            }
+
+            try {
+                if(!contents.validate()) contents = convert (contents, -1, "UTF-8", "ISO-8859-1");
+            }
+            catch (Error e) {
+                warning ("Couldn't convert the content of the document to UTF-8 (I guessed it was in ISO-8859-1?)");
+            }
             original_text = text = contents;
 
             if (buffer != null) {
                 buffer.begin_not_undoable_action ();
-            	buffer.text = this.text;
+                buffer.text = this.text;
                 buffer.end_not_undoable_action ();
             }
             else
-            	warning ("No buffer selected.");
-            
+                warning ("No buffer selected.");
+
             if (tab != null) {
-            	tab.text_view.modified = false;
+                tab.text_view.modified = false;
             }
             else
-            	warning ("No tab selected.");
-            
+                warning ("No tab selected.");
+
             /* TODO: real encoding detection */
-            
+
             this.opened (); // Signal
 
             return true;
 
         }
-        
+
         public bool backup () {
-            
+
             if (filename == null)
                 return false;
-            
+
             string contents;
-			try {
-				FileUtils.get_contents (filename + "~", out contents);
-			} catch (Error e) {
-				warning ("Couldn't create a backup for the file");
-				return false;
-			}
-		
-			try {
-				if(!contents.validate()) contents = convert (contents, -1, "UTF-8", "ISO-8859-1");
-			}
-			catch (Error e) {
-				warning ("Couldn't convert the content of the document to UTF-8 (I guessed it was in ISO-8859-1?)");
-			}
+            try {
+                FileUtils.get_contents (filename + "~", out contents);
+            } catch (Error e) {
+                warning ("Couldn't create a backup for the file");
+                return false;
+            }
+
+            try {
+                if(!contents.validate()) contents = convert (contents, -1, "UTF-8", "ISO-8859-1");
+            }
+            catch (Error e) {
+                warning ("Couldn't convert the content of the document to UTF-8 (I guessed it was in ISO-8859-1?)");
+            }
             original_text = text = contents;
 
             if (buffer != null) {
                 buffer.begin_not_undoable_action ();
-            	buffer.text = this.text;
+                buffer.text = this.text;
                 buffer.end_not_undoable_action ();
             }
             else
-            	warning ("No buffer selected.");
-            
+                warning ("No buffer selected.");
+
             if (tab != null) {
-            	tab.text_view.modified = false;
+                tab.text_view.modified = false;
             }
             else
-            	warning ("No tab selected.");
-            
+                warning ("No tab selected.");
+
             /* TODO: real encoding detection */
-            
+
             return true;
-            
+
         }
-        
+
         public bool close () {
 
             if (!saved)
@@ -271,25 +271,25 @@ namespace Scratch.Services {
             return true;
 
         }
-        
+
         void set_label_font (string style) {
             switch (style) {
-                
+
                 case "modified":
-                    tab.label.label.set_markup ("<span font_style='italic'>%s</span>".printf(tab.label.label_text));                
+                    tab.label.label.set_markup ("<span font_style='italic'>%s</span>".printf(tab.label.label_text));
                 break;
-                
+
                 case "saved":
-                    tab.label.label.set_markup ("<span font_style='normal'>%s</span>".printf(tab.label.label_text)); 
-                break;   
-                
+                    tab.label.label.set_markup ("<span font_style='normal'>%s</span>".printf(tab.label.label_text));
+                break;
+
             }
         }
-        
+
         void on_buffer_changed () {
-            
+
             window.set_undo_redo ();
-            
+
             if (filename != null) {
                 if (buffer.text == original_text) {
                     window.main_actions.get_action ("Revert").set_sensitive (false);
@@ -305,23 +305,23 @@ namespace Scratch.Services {
                     window.main_actions.get_action ("Save").set_sensitive (true);
                     window.toolbar.save_button.set_sensitive (true);//TODO: fix it
                     set_label_font ("modified");
-                    modified = true;                    
-                } 
+                    modified = true;
+                }
             }
             else {
                 window.main_actions.get_action ("Revert").set_sensitive (false);
                 set_label_font ("modified");
-                modified = true;  
+                modified = true;
             }
         }
-        
-        public bool save () {     
+
+        public bool save () {
             tab.save ();
             modified = false;
             return false;
         }
-        
-        public bool save_as () {     
+
+        public bool save_as () {
             tab.save_as ();
             modified = false;
             return false;
@@ -336,7 +336,7 @@ namespace Scratch.Services {
         }
 
         public uint64 get_mtime () {
-            
+
             try {
                 var info = file.query_info (FILE_ATTRIBUTE_TIME_MODIFIED, 0, null);
                 return info.get_attribute_uint64 (FILE_ATTRIBUTE_TIME_MODIFIED);
@@ -344,7 +344,7 @@ namespace Scratch.Services {
                 warning ("%s", e.message);
                 return 0;
             }
-        
+
         }
 
         public string get_mime_type () {
@@ -364,7 +364,7 @@ namespace Scratch.Services {
                 }
             }
 
-        
+
         }
 
         public int64 get_size () {
@@ -389,7 +389,7 @@ namespace Scratch.Services {
             }
 
         }
-        
+
         public bool can_write () {
 
             if (filename != null) {
@@ -408,7 +408,7 @@ namespace Scratch.Services {
 
                     warning ("%s", e.message);
                     return false;
- 
+
                 }
 
             } else {

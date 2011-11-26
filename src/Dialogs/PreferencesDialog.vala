@@ -1,21 +1,21 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /***
   BEGIN LICENSE
-	
+
   Copyright (C) 2011 Giulio Collura <random.cpp@gmail.com>
-  This program is free software: you can redistribute it and/or modify it	
-  under the terms of the GNU Lesser General Public License version 3, as published	
+  This program is free software: you can redistribute it and/or modify it
+  under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
-	
-  This program is distributed in the hope that it will be useful, but	
-  WITHOUT ANY WARRANTY; without even the implied warranties of	
-  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR	
+
+  This program is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranties of
+  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
   PURPOSE.  See the GNU General Public License for more details.
-	
-  You should have received a copy of the GNU General Public License along	
-  with this program.  If not, see <http://www.gnu.org/licenses/>	
-  
-  END LICENSE	
+
+  You should have received a copy of the GNU General Public License along
+  with this program.  If not, see <http://www.gnu.org/licenses/>
+
+  END LICENSE
 ***/
 
 
@@ -27,9 +27,9 @@ namespace Scratch.Dialogs {
     public class Preferences : Dialog {
 
         private MainWindow window;
-		
-		public StaticNotebook main_static_notebook;
-		
+
+        public StaticNotebook main_static_notebook;
+
         private VBox content;
         private HBox padding;
 
@@ -47,29 +47,29 @@ namespace Scratch.Dialogs {
         //private Button close_button;
 
         public Preferences (string? title, MainWindow? window) {
-            
+
             this.window = window;
             this.title = title;
             this.type_hint = Gdk.WindowTypeHint.DIALOG;
             this.set_modal (true);
             this.set_transient_for (window);
-            
+
             main_static_notebook = new StaticNotebook ();
-            
+
             set_default_size (400, 300);
-            
+
             create_layout ();
 
             response.connect (on_response);
-            
+
             Scratch.plugins.hook_preferences_dialog(this);
 
         }
 
         private void create_layout () {
-			
-			//create general settings
-			
+
+            //create general settings
+
             content = new VBox (false, 10);
             padding = new HBox (false, 10);
 
@@ -80,7 +80,7 @@ namespace Scratch.Dialogs {
             font_label = new Label ("Font");
             font_label.xalign = 0.0f;
             font_label.set_markup ("<b>Font</b>");
-            
+
             line_numbers = new CheckButton.with_label (_("Show line numbers"));
             line_numbers.set_active (Scratch.settings.show_line_numbers);
 
@@ -123,7 +123,7 @@ namespace Scratch.Dialogs {
 
             //close_button = new Button.with_label (_("Close"));
             add_button (Stock.CLOSE, ResponseType.ACCEPT);
-                        
+
             var bottom_buttons = new HButtonBox ();
             bottom_buttons.set_layout (ButtonBoxStyle.END);
             bottom_buttons.set_spacing (10);
@@ -135,7 +135,7 @@ namespace Scratch.Dialogs {
             content.pack_start (wrap_alignment (spaces_instead_of_tabs, 0, 0, 0, 10), false, true, 0);
             content.pack_start (wrap_alignment (indent_width_box, 0, 0, 0, 10), false, true, 0);
             content.pack_start (wrap_alignment (style_scheme_box, 0, 0, 0, 10), false, true, 0);
-            
+
             /* Search management */
             var cycle_search = new Gtk.CheckButton.with_label(_("Search Loop"));
             var case_sensitive = new Gtk.CheckButton.with_label(_("Case Sensitive Search"));
@@ -147,22 +147,22 @@ namespace Scratch.Dialogs {
             content.pack_start (font_label, false, true, 0);
             content.pack_start (wrap_alignment (use_system_font, 0, 0, 0, 10), false, true, 0);
             content.pack_start (wrap_alignment (select_font_box, 0, 0, 0, 10), false, true, 0);
-            
-            
+
+
             content.pack_end (bottom_buttons, false, true, 12);
 
             padding.pack_start (content, true, true, 12);
-			
-		    //create static notebook
-			var general = new Label (_("General"));
-			main_static_notebook.append_page (padding, general);
-			
-			//create static notebook
-			var plugins_label = new Label ("Plugins");
-			
-			
-			/* Plugin management, might be better in PluginManager */
-            var view = new Gtk.TreeView(); 
+
+            //create static notebook
+            var general = new Label (_("General"));
+            main_static_notebook.append_page (padding, general);
+
+            //create static notebook
+            var plugins_label = new Label ("Plugins");
+
+
+            /* Plugin management, might be better in PluginManager */
+            var view = new Gtk.TreeView();
             var listmodel = new Gtk.ListStore (2, typeof (string), typeof (bool));
             view.set_model (listmodel);
             view.set_headers_visible (false);
@@ -172,7 +172,7 @@ namespace Scratch.Dialogs {
             column.pack_start(text_renderer, true);
             column.set_attributes(text_renderer, "text", 0);
             var toggle = new Gtk.CellRendererToggle();
-            toggle.toggled.connect_after ((toggle, path) => 
+            toggle.toggled.connect_after ((toggle, path) =>
             {
                 var tree_path = new Gtk.TreePath.from_string (path);
                 Gtk.TreeIter iter;
@@ -193,7 +193,7 @@ namespace Scratch.Dialogs {
             });
             column.pack_start(toggle, false);
             column.set_attributes(toggle, "active", 1);
-            
+
             view.insert_column(column, -1);
 
             Gtk.TreeIter iter;
@@ -206,13 +206,13 @@ namespace Scratch.Dialogs {
                 listmodel.append (out iter);
                 listmodel.set (iter, 0, plugin_name, 1, plugin_name in settings.schema.get_strv("plugins-enabled"));
             }
-            
+
             //pbox is only for fix the padding
             var pbox = new HBox (false, 0);
             pbox.pack_start (view, true, true, 5);
-            
-			if(count > 0) main_static_notebook.append_page (pbox, plugins_label);
-			
+
+            if(count > 0) main_static_notebook.append_page (pbox, plugins_label);
+
             ((Gtk.Box)get_content_area()).add (main_static_notebook);
 
             //show_all();
@@ -220,16 +220,16 @@ namespace Scratch.Dialogs {
             //destroy ();
 
         }
-        
+
         void disable_plugin(string name)
         {
-            
+
             if(!plugins.disable_plugin(name))
             {
                 critical("Can't properly disable the plugin %s!", name);
             }
         }
-        
+
         void enable_plugin(string name)
         {
             plugins.enable_plugin(name);
@@ -243,7 +243,7 @@ namespace Scratch.Dialogs {
             alignment.right_padding = right;
             alignment.bottom_padding = bottom;
             alignment.left_padding = left;
-            
+
             alignment.add(widget);
             return alignment;
 
@@ -258,7 +258,7 @@ namespace Scratch.Dialogs {
             Scratch.settings.style_scheme = style_scheme.active_id;
             Scratch.settings.use_system_font = use_system_font.get_active ();
             Scratch.settings.font = select_font.font_name;
-            
+
             this.hide ();
             //this.destroy ();
 
@@ -279,13 +279,13 @@ namespace Scratch.Dialogs {
 
             foreach (string scheme_id in scheme_ids) {
                 var scheme = scheme_manager.get_scheme (scheme_id);
-                style_scheme.append (scheme.id, scheme.name); 
+                style_scheme.append (scheme.id, scheme.name);
             }
 
             style_scheme.set_active_id (Scratch.settings.style_scheme);
 
         }
-    
+
     }
 
 } // Namespace
