@@ -39,6 +39,7 @@ namespace Scratch.Dialogs {
         private CheckButton line_numbers;
         private CheckButton highlight_current_line;
         private CheckButton spaces_instead_of_tabs;
+        private CheckButton auto_indent;
         private SpinButton indent_width;
         private ComboBoxText style_scheme;
         private CheckButton use_system_font;
@@ -89,6 +90,9 @@ namespace Scratch.Dialogs {
 
             spaces_instead_of_tabs = new CheckButton.with_label (_("Use spaces instead of tabs"));
             spaces_instead_of_tabs.set_active (Scratch.settings.spaces_instead_of_tabs);
+            
+            auto_indent = new CheckButton.with_label (_("Use auto indent"));
+            auto_indent.set_active (Scratch.settings.auto_indent);
 
             indent_width = new SpinButton.with_range (1, 24, 1);
             indent_width.set_value (Scratch.settings.indent_width);
@@ -133,6 +137,7 @@ namespace Scratch.Dialogs {
             content.pack_start (wrap_alignment (line_numbers, 0, 0, 0, 10), false, true, 0);
             content.pack_start (wrap_alignment (highlight_current_line, 0, 0, 0, 10), false, true, 0);
             content.pack_start (wrap_alignment (spaces_instead_of_tabs, 0, 0, 0, 10), false, true, 0);
+            content.pack_start (wrap_alignment (auto_indent, 0, 0, 0, 10), false, true, 0);
             content.pack_start (wrap_alignment (indent_width_box, 0, 0, 0, 10), false, true, 0);
             content.pack_start (wrap_alignment (style_scheme_box, 0, 0, 0, 10), false, true, 0);
 
@@ -254,6 +259,7 @@ namespace Scratch.Dialogs {
             Scratch.settings.show_line_numbers = line_numbers.get_active ();
             Scratch.settings.highlight_current_line = highlight_current_line.get_active ();
             Scratch.settings.spaces_instead_of_tabs = spaces_instead_of_tabs.get_active ();
+            Scratch.settings.auto_indent = auto_indent.get_active ();
             Scratch.settings.indent_width = (int) indent_width.value;
             Scratch.settings.style_scheme = style_scheme.active_id;
             Scratch.settings.use_system_font = use_system_font.get_active ();

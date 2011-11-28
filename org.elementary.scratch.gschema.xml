@@ -72,6 +72,11 @@
             <summary>Use spaces instead of tabs</summary>
             <description>Whether Scratch should replace tabs with spaces</description>
         </key>
+        <key name="auto-indent" type="b">
+            <default>false</default>
+            <summary>Use auto indent</summary>
+            <description>Whether Scratch should use auto indentation</description>
+        </key>
         <key name="indent-width" type="i">
             <default>4</default>
             <summary>Tab Size</summary>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-28 13:47+0100\n"
+"POT-Creation-Date: 2011-11-28 18:48+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -74,43 +74,47 @@ msgstr ""
 msgid "All your work will be lost!"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:84
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:85
 msgid "Show line numbers"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:87
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:88
 msgid "Highlight current line"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:90
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:91
 msgid "Use spaces instead of tabs"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:95
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:94
+msgid "Use auto indent"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:99
 msgid "Tab width:"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:103
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:107
 msgid "Style scheme:"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:109
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:113
 msgid "Use the system fixed width font ("
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:117
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
 msgid "Select font:"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:140
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:145
 msgid "Search Loop"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:141
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:146
 msgid "Case Sensitive Search"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:157
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:162
 msgid "General"
 msgstr ""
 
@@ -122,13 +126,16 @@ msgstr ""
 msgid "Do you want to save changes before closing this file?"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:54
+#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:63
 msgid ""
 "Select the elements to show in the toolbar. You can customize them also with "
 "drag n drop"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:87
-#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:103
+#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:97
 msgid "Avaible elements"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:115
+msgid "Showed elements"
 msgstr ""
