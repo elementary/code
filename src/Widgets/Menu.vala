@@ -25,7 +25,9 @@ namespace Scratch.Widgets {
     public class MenuProperties : Menu {
 
         public MainWindow window;
-
+        
+        public MenuItem view;
+        public MenuItem remove_view;
         public CheckMenuItem fullscreen;
         public ImageMenuItem preferences;
 
@@ -42,9 +44,9 @@ namespace Scratch.Widgets {
 
         public void create () {
 
-            var view = (Gtk.MenuItem) actions.get_action ("New view").create_menu_item ();
+            view = (Gtk.MenuItem) actions.get_action ("New view").create_menu_item ();
 
-            var remove_view = (Gtk.MenuItem) actions.get_action ("Remove view").create_menu_item ();
+            remove_view = (Gtk.MenuItem) actions.get_action ("Remove view").create_menu_item ();
 
             fullscreen = new CheckMenuItem.with_label (_("Fullscreen"));
             fullscreen.active = (Scratch.saved_state.window_state == ScratchWindowState.FULLSCREEN);

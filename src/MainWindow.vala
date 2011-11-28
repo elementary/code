@@ -596,6 +596,10 @@ namespace Scratch {
                 scratch_app.open_document (doc);
 
             }
+            
+            if (split_view.get_children ().length () == 2)
+                toolbar.menu.view.set_sensitive (false);
+                
 
         }
 
