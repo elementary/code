@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-12 15:18+0100\n"
+"POT-Creation-Date: 2011-11-28 13:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,89 +17,61 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:100
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
-msgid "New file"
+#: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:66
+msgid " Syntax Highlighting"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:179
-msgid "No files are open."
+#: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:76
+msgid "Tab width"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:179
-msgid "Open a file to begin editing."
+#: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:85
+msgid "Color Scheme"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:183
-msgid "Open file"
+#: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:113
+msgid "Normal text"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:183
-msgid "Open a saved file."
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
-msgid "Create a new empty file."
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:190
-msgid "Create a new file in a new tab"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:191
-msgid "Open a file"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:192
-msgid "Save the current file"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:193
-msgid "Undo the last action"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:194
-msgid "Restore the current file"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:195
-msgid "Redo the last undone action"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:196
-msgid "Share this file"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:53
-msgid "Syntax Highlighting"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:60
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:49
 msgid "Fullscreen"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:65
-msgid "Show Sidebar"
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:104
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
+msgid "New file"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:67
-msgid "Show Context View"
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
+msgid "No files are open."
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:69
-msgid "Show Bottom Panel"
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
+msgid "Open a file to begin editing."
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:136
-msgid "Normal Text"
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
+msgid "Open file"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
-msgid "Changes to this file haven't been saved."
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
+msgid "Open a saved file."
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
-msgid "Do you want to save changes before closing this file?"
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
+msgid "Create a new empty file."
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
+msgid "Save this file? "
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
+msgid "New File"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:41
+msgid "All your work will be lost!"
 msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:84
@@ -142,14 +114,21 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
-msgid "Save this file? "
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
+msgid "Changes to this file haven't been saved."
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
-msgid "New File"
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
+msgid "Do you want to save changes before closing this file?"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:41
-msgid "All your work will be lost!"
+#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:54
+msgid ""
+"Select the elements to show in the toolbar. You can customize them also with "
+"drag n drop"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:87
+#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:103
+msgid "Avaible elements"
 msgstr ""

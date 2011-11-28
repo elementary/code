@@ -644,7 +644,7 @@ namespace Scratch {
         }
         
         void action_edit_toolbar () {
-            var toolbar_editor = new ToolBarEditor (_("Customize toolbar"), this);
+            var toolbar_editor = new ToolBarEditor (_("Customize toolbar"), this, this.toolbar);
             toolbar_editor.show_all ();
         }
         

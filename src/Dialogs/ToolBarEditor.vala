@@ -26,22 +26,31 @@ namespace Scratch.Dialogs {
 
     public class ToolBarEditor : Dialog {
 
-        private MainWindow window;
-
+        MainWindow window;
+        Toolbar toolbar;        
+        Gee.HashMap <int, Gtk.ToolItem> item_map;
+        
         TreeView view_avaible;
+        ListStore avaible_listmodel;
         TreeView view_showed;
-
-        public ToolBarEditor (string? title, MainWindow? window) {
+        ListStore showed_listmodel;
+        
+        public ToolBarEditor (string? title, MainWindow? window, Gtk.Toolbar toolbar) {
 
             this.window = window;
             this.title = title;
+            this.toolbar = toolbar;
             this.type_hint = Gdk.WindowTypeHint.DIALOG;
             this.set_modal (true);
             this.set_transient_for (window);
-
+            
+            item_map = new Gee.HashMap <int, Gtk.ToolItem> ();
+            
             set_default_size (400, 300);
-
+            
             create_layout ();
+            populate_avaible ();
+            populate_showed ();            
 
             response.connect (on_response);
 
@@ -81,36 +90,75 @@ namespace Scratch.Dialogs {
 
         TreeView treeview_avaible () {
             view_avaible = new TreeView ();
+            view_avaible.reorderable = true;
+            
+            //var column_icon = new TreeViewColumn.with_attributes ("", new CellRendererText (), "text", 0);
 
-            var column_icon = new TreeViewColumn.with_attributes ("", new CellRendererText (), "text", 0);
+            var column_name = new TreeViewColumn.with_attributes (_("Avaible elements"), new CellRendererText (), "text", 0);
 
-            var column_name = new TreeViewColumn.with_attributes (_("Avaible elements"), new CellRendererText (), "text", 1);
+            //view_avaible.insert_column (column_icon, 0);
+            view_avaible.insert_column (column_name, 0);
 
-            view_avaible.insert_column (column_icon, 0);
-            view_avaible.insert_column (column_name, 1);
-
-            var listmodel = new ListStore (3, typeof(Gdk.Pixbuf), typeof(string));
-            view_avaible.set_model (listmodel);
+            avaible_listmodel = new ListStore (/*2, typeof(Gdk.Pixbuf),*/1, typeof(string));
+            view_avaible.set_model (avaible_listmodel);
 
             return view_avaible;
         }
 
         TreeView treeview_showed () {
             view_showed = new TreeView ();
+            view_showed.reorderable = true;
+            //var cell = new CellRendererPixbuf ();
+            //cell.set ("stock-id", true);
+            //var column_icon = new TreeViewColumn.with_attributes ("", new CellRendererPixbuf (), "stock-id", 0);
 
-            var column_icon = new TreeViewColumn.with_attributes ("", new CellRendererText (), "text", 0);
+            var column_name = new TreeViewColumn.with_attributes (_("Showed elements"), new CellRendererText (), "text", 0);
 
-            var column_name = new TreeViewColumn.with_attributes (_("Avaible elements"), new CellRendererText (), "text", 1);
+            //view_showed.insert_column (column_icon, 0);
+            view_showed.insert_column (column_name, /*1*/0);
 
-            view_showed.insert_column (column_icon, 0);
-            view_showed.insert_column (column_name, 1);
-
-            var listmodel = new ListStore (3, typeof(Gdk.Pixbuf), typeof(string));
-            view_showed.set_model (listmodel);
+            showed_listmodel = new ListStore (/*2, typeof(Gdk.Pixbuf),*/1, typeof(string));
+            view_showed.set_model (showed_listmodel);
 
             return view_showed;
         }
-
+        
+        void populate_avaible () {
+            TreeIter iter;
+            
+            avaible_listmodel.append (out iter);
+            avaible_listmodel.set (iter, /*0, null, 1*/0, "Separator");
+            
+            avaible_listmodel.append (out iter);
+            avaible_listmodel.set (iter, /*0, null, 1*/0, "Spacer");
+            
+            view_avaible.show_all ();
+        }
+        
+        void populate_showed () {
+            //var it = new Gtk.IconTheme ();
+            //var default_icon_theme = it.get_default ();
+            
+            foreach (var child in toolbar.get_children ()) {
+                if (child is Gtk.ToolButton) {
+                    //try {
+                        Gtk.TreeIter iter;
+                        var tb = child as Gtk.ToolButton;
+                        //var pix = render_icon_pixbuf (Stock.NEW, Gtk.IconSize.BUTTON);
+                        //var pix = default_icon_theme.load_icon (tb.get_stock_id (), Gtk.IconSize.BUTTON, IconLookupFlags.NO_SVG);
+                        showed_listmodel.append (out iter);
+                        showed_listmodel.set (iter, /*0, null, 1*/0, tb.get_label ());
+                        view_showed.show_all ();
+                    //} catch (Error e) {
+                    //    warning (e.message);
+                    //} 
+                }
+                else if (child is Gtk.SeparatorToolItem) {
+                
+                }
+            }
+        }
+        
     }
 
 } // Namespace
