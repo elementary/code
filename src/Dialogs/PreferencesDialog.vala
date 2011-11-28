@@ -35,7 +35,8 @@ namespace Scratch.Dialogs {
 
         private Label editor_label;
         private Label font_label;
-
+        
+        private CheckButton modal_dialog;
         private CheckButton line_numbers;
         private CheckButton highlight_current_line;
         private CheckButton spaces_instead_of_tabs;
@@ -52,7 +53,7 @@ namespace Scratch.Dialogs {
             this.window = window;
             this.title = title;
             this.type_hint = Gdk.WindowTypeHint.DIALOG;
-            this.set_modal (true);
+            this.set_modal (Scratch.settings.modal_dialog);
             this.set_transient_for (window);
 
             main_static_notebook = new StaticNotebook ();
@@ -84,6 +85,9 @@ namespace Scratch.Dialogs {
 
             line_numbers = new CheckButton.with_label (_("Show line numbers"));
             line_numbers.set_active (Scratch.settings.show_line_numbers);
+            
+            modal_dialog = new CheckButton.with_label (_("Show dialogs as modal"));
+            modal_dialog.set_active (Scratch.settings.modal_dialog);
 
             highlight_current_line = new CheckButton.with_label (_("Highlight current line"));
             highlight_current_line.set_active (Scratch.settings.highlight_current_line);
@@ -134,6 +138,7 @@ namespace Scratch.Dialogs {
             //bottom_buttons.pack_end (close_button);
 
             content.pack_start (wrap_alignment (editor_label, 10, 0, 0, 0), false, true, 0);
+            content.pack_start (wrap_alignment (modal_dialog, 0, 0, 0, 10), false, true, 0);
             content.pack_start (wrap_alignment (line_numbers, 0, 0, 0, 10), false, true, 0);
             content.pack_start (wrap_alignment (highlight_current_line, 0, 0, 0, 10), false, true, 0);
             content.pack_start (wrap_alignment (spaces_instead_of_tabs, 0, 0, 0, 10), false, true, 0);
@@ -161,7 +166,11 @@ namespace Scratch.Dialogs {
             //create static notebook
             var general = new Label (_("General"));
             main_static_notebook.append_page (padding, general);
-
+            
+            //create static notebook
+            var editor = new Label (_("Editor"));
+            main_static_notebook.append_page (padding, editor);
+            
             //create static notebook
             var plugins_label = new Label ("Plugins");
 
@@ -255,7 +264,8 @@ namespace Scratch.Dialogs {
         }
 
         private void on_response (int response_id) {
-
+            
+            Scratch.settings.modal_dialog = modal_dialog.get_active ();
             Scratch.settings.show_line_numbers = line_numbers.get_active ();
             Scratch.settings.highlight_current_line = highlight_current_line.get_active ();
             Scratch.settings.spaces_instead_of_tabs = spaces_instead_of_tabs.get_active ();

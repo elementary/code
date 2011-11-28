@@ -57,6 +57,11 @@
           <summary>Enabled Plugins</summary>
           <description>Enabled Plugins</description>
         </key>
+        <key name="modal-dialog" type="b">
+            <default>false</default>
+            <summary>Show the dialogs as modal dialogs</summary>
+            <description>Whether Scratch should show the dialogs in a modal way.</description>
+        </key>
         <key name="show-line-numbers" type="b">
             <default>true</default>
             <summary>Display Line Numbers</summary>

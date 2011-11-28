@@ -41,7 +41,7 @@ namespace Scratch.Dialogs {
             this.title = title;
             this.toolbar = toolbar;
             this.type_hint = Gdk.WindowTypeHint.DIALOG;
-            this.set_modal (true);
+            this.set_modal (Scratch.settings.modal_dialog);
             this.set_transient_for (window);
             
             item_map = new Gee.HashMap <int, Gtk.ToolItem> ();

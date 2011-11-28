@@ -39,8 +39,10 @@ namespace Scratch.Dialogs {
 
         public SaveDialog (Tab callertab) {
 
-            caller = callertab;
+	    this.set_modal (Scratch.settings.modal_dialog);
 
+            caller = callertab;
+	    
             label = new Label(_("Changes to this file haven't been saved.") + "\n" + _("Do you want to save changes before closing this file?"));
             image = new Image.from_stock(Stock.DIALOG_WARNING, IconSize.DIALOG);
 

@@ -40,7 +40,8 @@ namespace Scratch {
 	}
 	
     public class Settings : Granite.Services.Settings {
-
+        
+        public bool modal_dialog { get; set; }
         public bool show_line_numbers { get; set; }
         public bool highlight_current_line { get; set; }
         public bool spaces_instead_of_tabs { get; set; }
