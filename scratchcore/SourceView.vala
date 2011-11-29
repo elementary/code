@@ -62,54 +62,7 @@ namespace Scratch.Widgets {
 			
             if(plugins != null)
                 plugins.hook_source_view(this);
-                
-            populate_popup.connect(on_populate_menu);
 
-        }
-
-        private string default_font () {
-
-            var settings = new GLib.Settings ("org.gnome.desktop.interface");
-            var default_font = settings.get_string ("monospace-font-name");
-            return default_font;
-        }
-        
-        void on_populate_menu (Gtk.Menu menu) {
-            var spaces = new Gtk.CheckMenuItem.with_label(_("Use spaces instead of tabs"));
-            var highlight = new Gtk.CheckMenuItem.with_label(_("Highlight current line"));
-            var lines = new Gtk.CheckMenuItem.with_label(_("Show line numbers"));
-            var font = new Gtk.MenuItem.with_label(_("Change font"));
-
-            font.activate.connect( () => {
-                var font_chooser = new Gtk.FontChooserDialog(_("Change main view font"), (Gtk.Window)get_toplevel());
-                var check_font = new Gtk.CheckButton.with_label(_("Use the system fixed width font (%s)").printf(default_font ()));
-                
-                
-                Scratch.settings.schema.bind("use-system-font", check_font, "active", SettingsBindFlags.DEFAULT);
-                Scratch.settings.schema.bind("use-system-font", (font_chooser.get_content_area() as Gtk.Box).get_children().nth_data(0), "sensitive", SettingsBindFlags.INVERT_BOOLEAN);
-                Scratch.settings.schema.bind("font", font_chooser, "font", SettingsBindFlags.DEFAULT);
-                
-                (font_chooser.get_content_area() as Gtk.Box).pack_start(check_font);
-                
-                foreach(var w in (font_chooser.get_action_area() as Gtk.Box).get_children ())
-                    w.destroy ();
-                    
-                font_chooser.add_button (Gtk.Stock.CLOSE, Gtk.ResponseType.OK);
-                
-                font_chooser.show_all ();
-                font_chooser.run ();
-                font_chooser.destroy ();
-            });
-            
-            Scratch.settings.schema.bind("spaces-instead-of-tabs", spaces, "active", SettingsBindFlags.DEFAULT);
-            Scratch.settings.schema.bind("highlight-current-line", highlight, "active", SettingsBindFlags.DEFAULT);
-            Scratch.settings.schema.bind("show-line-numbers", lines, "active", SettingsBindFlags.DEFAULT);
-
-            menu.append(spaces);
-            menu.append(highlight);
-            menu.append(lines);
-            menu.append(font);
-            menu.show_all();
         }
 
         ~SourceView () {
