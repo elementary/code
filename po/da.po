@@ -7,140 +7,60 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-11-12 15:18+0100\n"
+"POT-Creation-Date: 2011-11-28 18:48+0100\n"
 "PO-Revision-Date: 2011-11-04 04:17+0000\n"
 "Last-Translator: mjjzf <mjjzf@syntaktisk.dk>\n"
 "Language-Team: Danish <da@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-11-13 06:11+0000\n"
-"X-Generator: Launchpad (build 14277)\n"
+"X-Launchpad-Export-Date: 2011-11-29 06:06+0000\n"
+"X-Generator: Launchpad (build 14399)\n"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:100
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
-msgid "New file"
-msgstr "Ny fil"
-
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:179
-msgid "No files are open."
-msgstr "Ingen filer er åbne."
-
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:179
-msgid "Open a file to begin editing."
-msgstr "Indlæs fil for at begynde redigering"
-
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:183
-msgid "Open file"
-msgstr "Åbn fil"
-
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:183
-msgid "Open a saved file."
-msgstr "Åben en gemt fil."
-
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
-msgid "Create a new empty file."
-msgstr "Opret en ny tom fil."
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:190
-msgid "Create a new file in a new tab"
-msgstr "Opret ny fil i nyt faneblad"
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:191
-msgid "Open a file"
-msgstr "Åbn en fil"
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:192
-msgid "Save the current file"
-msgstr "Gem den aktuelle fil"
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:193
-msgid "Undo the last action"
-msgstr "Fortryd den sidste handling"
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:194
-msgid "Restore the current file"
-msgstr "Nulstil den nuværende fil"
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:195
-msgid "Redo the last undone action"
-msgstr "Omgør den sidste fortrudte handling"
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:196
-msgid "Share this file"
-msgstr "Del denne fil."
-
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:53
-msgid "Syntax Highlighting"
+#: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:66
+msgid " Syntax Highlighting"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:60
+#: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:76
+msgid "Tab width"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:85
+msgid "Color Scheme"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:113
+msgid "Normal text"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:49
 msgid "Fullscreen"
 msgstr "Fuldskærm"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:65
-msgid "Show Sidebar"
-msgstr "Vis sidebjælke"
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:104
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
+msgid "New file"
+msgstr "Ny fil"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:67
-msgid "Show Context View"
-msgstr ""
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
+msgid "No files are open."
+msgstr "Ingen filer er åbne."
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:69
-msgid "Show Bottom Panel"
-msgstr "Vis bundpanel"
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
+msgid "Open a file to begin editing."
+msgstr "Indlæs fil for at begynde redigering"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:136
-msgid "Normal Text"
-msgstr "Normal tekst"
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
+msgid "Open file"
+msgstr "Åbn fil"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
-msgid "Changes to this file haven't been saved."
-msgstr "Ændringer i denne fil er ikke gemt"
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
+msgid "Open a saved file."
+msgstr "Åben en gemt fil."
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
-msgid "Do you want to save changes before closing this file?"
-msgstr "Ønsker du at gemme ændringerne, inden filen lukkes?"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:84
-msgid "Show line numbers"
-msgstr "Vis linjenumre"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:87
-msgid "Highlight current line"
-msgstr "Fremhæv aktuel linje"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:90
-msgid "Use spaces instead of tabs"
-msgstr "Brug mellemrum i stedet for tabs"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:95
-msgid "Tab width:"
-msgstr "Tab-bredde:"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:103
-msgid "Style scheme:"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:109
-msgid "Use the system fixed width font ("
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:117
-msgid "Select font:"
-msgstr "Vælg skrifttype:"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:140
-msgid "Search Loop"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:141
-msgid "Case Sensitive Search"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:157
-msgid "General"
-msgstr "Generelt"
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
+msgid "Create a new empty file."
+msgstr "Opret en ny tom fil."
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid "Save this file? "
@@ -153,3 +73,69 @@ msgstr "Ny fil"
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:41
 msgid "All your work will be lost!"
 msgstr "Du vil miste alt dit arbejde!"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:85
+msgid "Show line numbers"
+msgstr "Vis linjenumre"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:88
+msgid "Highlight current line"
+msgstr "Fremhæv aktuel linje"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:91
+msgid "Use spaces instead of tabs"
+msgstr "Brug mellemrum i stedet for tabs"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:94
+msgid "Use auto indent"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:99
+msgid "Tab width:"
+msgstr "Tab-bredde:"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:107
+msgid "Style scheme:"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:113
+msgid "Use the system fixed width font ("
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
+msgid "Select font:"
+msgstr "Vælg skrifttype:"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:145
+msgid "Search Loop"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:146
+msgid "Case Sensitive Search"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:162
+msgid "General"
+msgstr "Generelt"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
+msgid "Changes to this file haven't been saved."
+msgstr "Ændringer i denne fil er ikke gemt"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
+msgid "Do you want to save changes before closing this file?"
+msgstr "Ønsker du at gemme ændringerne, inden filen lukkes?"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:63
+msgid ""
+"Select the elements to show in the toolbar. You can customize them also with "
+"drag n drop"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:97
+msgid "Avaible elements"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:115
+msgid "Showed elements"
+msgstr ""

@@ -1,4 +1,4 @@
-# Portuguese translation for scratch
+# Occitan (post 1500) translation for scratch
 # Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
 # This file is distributed under the same license as the scratch package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-11-28 18:48+0100\n"
-"PO-Revision-Date: 2011-11-28 19:17+0000\n"
-"Last-Translator: David Gomes <davidrafagomes@gmail.com>\n"
-"Language-Team: Portuguese <pt@li.org>\n"
+"PO-Revision-Date: 2011-11-28 18:03+0000\n"
+"Last-Translator: Cédric VALMARY (Tot en òc) <cvalmary@yahoo.fr>\n"
+"Language-Team: Occitan (post 1500) <oc@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,125 +19,123 @@ msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:66
 msgid " Syntax Highlighting"
-msgstr " Colorização da Sintaxe"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:76
 msgid "Tab width"
-msgstr "Largura dos separadores"
+msgstr "Largor dels onglets"
 
 #: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:85
 msgid "Color Scheme"
-msgstr "Esquema de Cores"
+msgstr "Modèls de colors"
 
 #: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:113
 msgid "Normal text"
-msgstr "Texto normal"
+msgstr "Tèxte estandard"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:49
 msgid "Fullscreen"
-msgstr "Ecrã completo"
+msgstr "Ecran complet"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:104
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
 msgid "New file"
-msgstr "Novo ficheiro"
+msgstr "Novèl fichièr"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
 msgid "No files are open."
-msgstr "Nenhum ficheiro aberto"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
 msgid "Open a file to begin editing."
-msgstr "Abrir um ficheiro pra edição"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Open file"
-msgstr "Abrir um ficheiro"
+msgstr "Dobrir un fichièr"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Open a saved file."
-msgstr "Abrir um ficheiro gravado"
+msgstr "Dobrir un fichièr salvat"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
 msgid "Create a new empty file."
-msgstr "Criar um novo ficheiro vazio"
+msgstr "Crear un fichièr void"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid "Save this file? "
-msgstr "Gravar este ficheiro? "
+msgstr "Enregistrar aqueste fichièr ? "
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid "New File"
-msgstr "Novo Ficheiro"
+msgstr "Fichièr novèl"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:41
 msgid "All your work will be lost!"
-msgstr "Todo o seu trabalho será perdido!"
+msgstr "Tot vòstre trabalh serà perdut !"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:85
 msgid "Show line numbers"
-msgstr "Mostrar o número das linhas"
+msgstr "Afichar los numèros de linhas"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:88
 msgid "Highlight current line"
-msgstr "Realçar a linha actual"
+msgstr "Metre en susbrilhança la linha en cors"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:91
 msgid "Use spaces instead of tabs"
-msgstr "Usar espaço ao invés de tabulação"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:94
 msgid "Use auto indent"
-msgstr "Usar indentação automática"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:99
 msgid "Tab width:"
-msgstr "Tamanho da tabulação:"
+msgstr "Largor de las tabulacions :"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:107
 msgid "Style scheme:"
-msgstr "Esquema de estilo:"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:113
 msgid "Use the system fixed width font ("
-msgstr "Use o sistema de fonte de largura fixa ("
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
 msgid "Select font:"
-msgstr "Selecionar fonte:"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:145
 msgid "Search Loop"
-msgstr "ciclo de busca"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:146
 msgid "Case Sensitive Search"
-msgstr "Busca em modo case sensitive"
+msgstr "Recèrca sensibla a las majusculas"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:162
 msgid "General"
-msgstr "Geral"
+msgstr "General"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
 msgid "Changes to this file haven't been saved."
-msgstr "Alterações para este ficheiro não estão sendo gravadas."
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
 msgid "Do you want to save changes before closing this file?"
-msgstr "Você deseja gravar as alterações antes de fechar o ficheiro?"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:63
 msgid ""
 "Select the elements to show in the toolbar. You can customize them also with "
 "drag n drop"
 msgstr ""
-"Selecione os elementos para tornar visíveis na barra de ferramentas. Pode "
-"também personalizar o esquema arrastando-os."
 
 #: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:97
 msgid "Avaible elements"
-msgstr "Elementos disponíveis"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:115
 msgid "Showed elements"
-msgstr "Elementos visíveis"
+msgstr ""

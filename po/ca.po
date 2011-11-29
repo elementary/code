@@ -7,140 +7,60 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-11-12 15:18+0100\n"
+"POT-Creation-Date: 2011-11-28 18:48+0100\n"
 "PO-Revision-Date: 2011-11-13 19:58+0000\n"
 "Last-Translator: abelokeponemos <Unknown>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-11-14 05:58+0000\n"
-"X-Generator: Launchpad (build 14277)\n"
+"X-Launchpad-Export-Date: 2011-11-29 06:06+0000\n"
+"X-Generator: Launchpad (build 14399)\n"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:100
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
-msgid "New file"
-msgstr "Nou fitxer"
+#: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:66
+msgid " Syntax Highlighting"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:179
-msgid "No files are open."
-msgstr "No hi ha cap fitxer obert."
+#: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:76
+msgid "Tab width"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:179
-msgid "Open a file to begin editing."
-msgstr "Obriu un fitxer per començar l'edició."
+#: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:85
+msgid "Color Scheme"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:183
-msgid "Open file"
-msgstr "Obre un fitxer"
+#: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:113
+msgid "Normal text"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:183
-msgid "Open a saved file."
-msgstr "Obre un fitxer desat."
-
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
-msgid "Create a new empty file."
-msgstr "Crea un fitxer nou buit."
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:190
-msgid "Create a new file in a new tab"
-msgstr "Crea un fitxer en una pestanya nova"
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:191
-msgid "Open a file"
-msgstr "Obre un fitxer"
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:192
-msgid "Save the current file"
-msgstr "Desa el fitxer actual"
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:193
-msgid "Undo the last action"
-msgstr "Desfés la darrera acció"
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:194
-msgid "Restore the current file"
-msgstr "Restaura el fitxer actual"
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:195
-msgid "Redo the last undone action"
-msgstr "Refés la darrera acció desfeta"
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:196
-msgid "Share this file"
-msgstr "Comparteix aquest fitxer"
-
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:53
-msgid "Syntax Highlighting"
-msgstr "Ressaltat de la sintaxi"
-
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:60
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:49
 msgid "Fullscreen"
 msgstr "Pantalla completa"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:65
-msgid "Show Sidebar"
-msgstr "Mostra la barra lateral"
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:104
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
+msgid "New file"
+msgstr "Nou fitxer"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:67
-msgid "Show Context View"
-msgstr "Mostra la vista contextual"
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
+msgid "No files are open."
+msgstr "No hi ha cap fitxer obert."
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:69
-msgid "Show Bottom Panel"
-msgstr "Mostra el quadre inferior"
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
+msgid "Open a file to begin editing."
+msgstr "Obriu un fitxer per començar l'edició."
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:136
-msgid "Normal Text"
-msgstr "Text normal"
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
+msgid "Open file"
+msgstr "Obre un fitxer"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
-msgid "Changes to this file haven't been saved."
-msgstr "Els canvis en aquest fitxer no s'han desat."
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
+msgid "Open a saved file."
+msgstr "Obre un fitxer desat."
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
-msgid "Do you want to save changes before closing this file?"
-msgstr "Vouleu desar els canvis abans de tancar aquest fitxer?"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:84
-msgid "Show line numbers"
-msgstr "Mostra els números de línia"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:87
-msgid "Highlight current line"
-msgstr "Ressalta la línia actual"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:90
-msgid "Use spaces instead of tabs"
-msgstr "Utilitza espais en comptes de tabuladors"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:95
-msgid "Tab width:"
-msgstr "Amplada del tabulador:"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:103
-msgid "Style scheme:"
-msgstr "Estil:"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:109
-msgid "Use the system fixed width font ("
-msgstr "Utilitza la tipografia del sistema d'amplada fixa ("
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:117
-msgid "Select font:"
-msgstr "Selecciona tipografia:"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:140
-msgid "Search Loop"
-msgstr "Cicle de cerca"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:141
-msgid "Case Sensitive Search"
-msgstr "Cerca sensible a majúscules"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:157
-msgid "General"
-msgstr "Generals"
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
+msgid "Create a new empty file."
+msgstr "Crea un fitxer nou buit."
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid "Save this file? "
@@ -153,3 +73,69 @@ msgstr "Nou fitxer"
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:41
 msgid "All your work will be lost!"
 msgstr "Tot el vostre treball es perdrà."
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:85
+msgid "Show line numbers"
+msgstr "Mostra els números de línia"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:88
+msgid "Highlight current line"
+msgstr "Ressalta la línia actual"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:91
+msgid "Use spaces instead of tabs"
+msgstr "Utilitza espais en comptes de tabuladors"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:94
+msgid "Use auto indent"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:99
+msgid "Tab width:"
+msgstr "Amplada del tabulador:"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:107
+msgid "Style scheme:"
+msgstr "Estil:"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:113
+msgid "Use the system fixed width font ("
+msgstr "Utilitza la tipografia del sistema d'amplada fixa ("
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
+msgid "Select font:"
+msgstr "Selecciona tipografia:"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:145
+msgid "Search Loop"
+msgstr "Cicle de cerca"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:146
+msgid "Case Sensitive Search"
+msgstr "Cerca sensible a majúscules"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:162
+msgid "General"
+msgstr "Generals"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
+msgid "Changes to this file haven't been saved."
+msgstr "Els canvis en aquest fitxer no s'han desat."
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
+msgid "Do you want to save changes before closing this file?"
+msgstr "Vouleu desar els canvis abans de tancar aquest fitxer?"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:63
+msgid ""
+"Select the elements to show in the toolbar. You can customize them also with "
+"drag n drop"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:97
+msgid "Avaible elements"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:115
+msgid "Showed elements"
+msgstr ""

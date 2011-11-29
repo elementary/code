@@ -7,141 +7,61 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-12 15:18+0100\n"
+"POT-Creation-Date: 2011-11-28 18:48+0100\n"
 "PO-Revision-Date: 2011-11-13 19:55+0000\n"
 "Last-Translator: abelokeponemos <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-11-14 05:58+0000\n"
-"X-Generator: Launchpad (build 14277)\n"
+"X-Launchpad-Export-Date: 2011-11-29 06:06+0000\n"
+"X-Generator: Launchpad (build 14399)\n"
 "Language: es\n"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:100
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
-msgid "New file"
-msgstr "Archivo nuevo"
+#: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:66
+msgid " Syntax Highlighting"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:179
-msgid "No files are open."
-msgstr "No hay archivos abiertos."
+#: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:76
+msgid "Tab width"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:179
-msgid "Open a file to begin editing."
-msgstr "Abra un archivo para comenzar la edición."
+#: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:85
+msgid "Color Scheme"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:183
-msgid "Open file"
-msgstr "Abrir archivo"
+#: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:113
+msgid "Normal text"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:183
-msgid "Open a saved file."
-msgstr "Abrir un archivo guardado."
-
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:184
-msgid "Create a new empty file."
-msgstr "Crear un archivo nuevo vacío."
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:190
-msgid "Create a new file in a new tab"
-msgstr "Crear un archivo en una pestaña nueva"
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:191
-msgid "Open a file"
-msgstr "Abrir un archivo"
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:192
-msgid "Save the current file"
-msgstr "Guardar el archivo actual"
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:193
-msgid "Undo the last action"
-msgstr "Deshacer la última acción"
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:194
-msgid "Restore the current file"
-msgstr "Restablecer el archivo actual"
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:195
-msgid "Redo the last undone action"
-msgstr "Rehacer la última acción deshecha"
-
-#: /home/mefrio/scratch/po/../src/Widgets/ToolBar.vala:196
-msgid "Share this file"
-msgstr "Compartir este archivo"
-
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:53
-msgid "Syntax Highlighting"
-msgstr "Resaltado de sintaxis"
-
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:60
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:49
 msgid "Fullscreen"
 msgstr "Pantalla completa"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:65
-msgid "Show Sidebar"
-msgstr "Mostrar la barra lateral"
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:104
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
+msgid "New file"
+msgstr "Archivo nuevo"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:67
-msgid "Show Context View"
-msgstr "Mostrar la vista contextual"
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
+msgid "No files are open."
+msgstr "No hay archivos abiertos."
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:69
-msgid "Show Bottom Panel"
-msgstr "Mostrar el panel inferior"
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
+msgid "Open a file to begin editing."
+msgstr "Abra un archivo para comenzar la edición."
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:136
-msgid "Normal Text"
-msgstr "Texto normal"
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
+msgid "Open file"
+msgstr "Abrir archivo"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
-msgid "Changes to this file haven't been saved."
-msgstr "Los cambios en este archivo no han sido guardados."
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
+msgid "Open a saved file."
+msgstr "Abrir un archivo guardado."
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
-msgid "Do you want to save changes before closing this file?"
-msgstr "¿Desea guardar los cambios antes de cerrar este archivo?"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:84
-msgid "Show line numbers"
-msgstr "Mostrar los números de línea"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:87
-msgid "Highlight current line"
-msgstr "Resaltar la línea actual"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:90
-msgid "Use spaces instead of tabs"
-msgstr "Utilizar espacios en lugar de tabuladores"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:95
-msgid "Tab width:"
-msgstr "Ancho del tabulador:"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:103
-msgid "Style scheme:"
-msgstr "Estilo:"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:109
-msgid "Use the system fixed width font ("
-msgstr "Usar la tipografía de ancho fijo del sistema ("
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:117
-msgid "Select font:"
-msgstr "Seleccionar tipografía:"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:140
-msgid "Search Loop"
-msgstr "Ciclo de búsqueda"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:141
-msgid "Case Sensitive Search"
-msgstr "Busqueda sensible a mayúsculas"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:157
-msgid "General"
-msgstr "Generales"
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
+msgid "Create a new empty file."
+msgstr "Crear un archivo nuevo vacío."
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid "Save this file? "
@@ -154,3 +74,69 @@ msgstr "Archivo nuevo"
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:41
 msgid "All your work will be lost!"
 msgstr "Se perderá todo su trabajo."
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:85
+msgid "Show line numbers"
+msgstr "Mostrar los números de línea"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:88
+msgid "Highlight current line"
+msgstr "Resaltar la línea actual"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:91
+msgid "Use spaces instead of tabs"
+msgstr "Utilizar espacios en lugar de tabuladores"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:94
+msgid "Use auto indent"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:99
+msgid "Tab width:"
+msgstr "Ancho del tabulador:"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:107
+msgid "Style scheme:"
+msgstr "Estilo:"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:113
+msgid "Use the system fixed width font ("
+msgstr "Usar la tipografía de ancho fijo del sistema ("
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
+msgid "Select font:"
+msgstr "Seleccionar tipografía:"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:145
+msgid "Search Loop"
+msgstr "Ciclo de búsqueda"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:146
+msgid "Case Sensitive Search"
+msgstr "Busqueda sensible a mayúsculas"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:162
+msgid "General"
+msgstr "Generales"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
+msgid "Changes to this file haven't been saved."
+msgstr "Los cambios en este archivo no han sido guardados."
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
+msgid "Do you want to save changes before closing this file?"
+msgstr "¿Desea guardar los cambios antes de cerrar este archivo?"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:63
+msgid ""
+"Select the elements to show in the toolbar. You can customize them also with "
+"drag n drop"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:97
+msgid "Avaible elements"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:115
+msgid "Showed elements"
+msgstr ""
