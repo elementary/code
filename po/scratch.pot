@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-28 18:48+0100\n"
+"POT-Creation-Date: 2011-11-30 16:52+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,7 +33,7 @@ msgstr ""
 msgid "Normal text"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:49
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:51
 msgid "Fullscreen"
 msgstr ""
 
@@ -74,55 +74,71 @@ msgstr ""
 msgid "All your work will be lost!"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:85
-msgid "Show line numbers"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:88
-msgid "Highlight current line"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:91
-msgid "Use spaces instead of tabs"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:94
-msgid "Use auto indent"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:99
-msgid "Tab width:"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:107
-msgid "Style scheme:"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:113
-msgid "Use the system fixed width font ("
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
-msgid "Select font:"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:145
-msgid "Search Loop"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:146
-msgid "Case Sensitive Search"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:162
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:69
 msgid "General"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
+msgid "Editor"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:77
+msgid "Fonts and colors"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
+msgid "Search Manager"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:158
+msgid "Show dialogs as modal"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:166
+msgid "Search Loop"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:167
+msgid "Case Sensitive Search"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:194
+msgid "Tab width:"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:200
+msgid "Show line numbers"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:201
+msgid "Highlight current line"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:202
+msgid "Use spaces instead of tabs"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:204
+msgid "Use auto indent"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:219
+msgid "Style scheme:"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:232
+msgid "Select font:"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:240
+msgid "Use the system fixed width font ("
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:46
 msgid "Changes to this file haven't been saved."
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:46
 msgid "Do you want to save changes before closing this file?"
 msgstr ""
 

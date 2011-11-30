@@ -29,21 +29,15 @@ namespace Scratch.Dialogs {
         private MainWindow window;
 
         public StaticNotebook main_static_notebook;
-
-        private VBox content;
-        private HBox padding;
-
-        private Label editor_label;
-        private Label font_label;
         
-        private CheckButton modal_dialog;
-        private CheckButton line_numbers;
-        private CheckButton highlight_current_line;
-        private CheckButton spaces_instead_of_tabs;
-        private CheckButton auto_indent;
+        private Switch modal_dialog;
+        private Switch line_numbers;
+        private Switch highlight_current_line;
+        private Switch spaces_instead_of_tabs;
+        private Switch auto_indent;
         private SpinButton indent_width;
         private ComboBoxText style_scheme;
-        private CheckButton use_system_font;
+        private Switch use_system_font;
         private FontButton select_font;
 
         //private Button close_button;
@@ -58,10 +52,10 @@ namespace Scratch.Dialogs {
 
             main_static_notebook = new StaticNotebook ();
 
-            set_default_size (400, 300);
+            set_default_size (550, 250);
 
             create_layout ();
-
+            
             response.connect (on_response);
 
             Scratch.plugins.hook_preferences_dialog(this);
@@ -70,111 +64,23 @@ namespace Scratch.Dialogs {
 
         private void create_layout () {
 
-            //create general settings
-
-            content = new VBox (false, 10);
-            padding = new HBox (false, 10);
-
-            editor_label = new Label ("Editor");
-            editor_label.xalign = 0.0f;
-            editor_label.set_markup ("<b>Editor</b>");
-
-            font_label = new Label ("Font");
-            font_label.xalign = 0.0f;
-            font_label.set_markup ("<b>Font</b>");
-
-            line_numbers = new CheckButton.with_label (_("Show line numbers"));
-            line_numbers.set_active (Scratch.settings.show_line_numbers);
-            
-            modal_dialog = new CheckButton.with_label (_("Show dialogs as modal"));
-            modal_dialog.set_active (Scratch.settings.modal_dialog);
-
-            highlight_current_line = new CheckButton.with_label (_("Highlight current line"));
-            highlight_current_line.set_active (Scratch.settings.highlight_current_line);
-
-            spaces_instead_of_tabs = new CheckButton.with_label (_("Use spaces instead of tabs"));
-            spaces_instead_of_tabs.set_active (Scratch.settings.spaces_instead_of_tabs);
-            
-            auto_indent = new CheckButton.with_label (_("Use auto indent"));
-            auto_indent.set_active (Scratch.settings.auto_indent);
-
-            indent_width = new SpinButton.with_range (1, 24, 1);
-            indent_width.set_value (Scratch.settings.indent_width);
-            var indent_width_l = new Label (_("Tab width:"));
-            indent_width_l.xalign = 0.0f;
-            var indent_width_box = new HBox (false, 32);
-            indent_width_box.pack_start (indent_width_l, true, true, 0);
-            indent_width_box.pack_start (indent_width, false, true, 0);
-
-            style_scheme = new ComboBoxText ();
-            populate_style_scheme ();
-            var style_scheme_l = new Label (_("Style scheme:"));
-            style_scheme_l.xalign = 0.0f;
-            var style_scheme_box = new HBox (false, 13);
-            style_scheme_box.pack_start (style_scheme_l, true, true, 0);
-            style_scheme_box.pack_start (style_scheme, true, true, 0);
-
-            use_system_font = new CheckButton.with_label (_("Use the system fixed width font (")
-                                                            + default_font () + ")");
-
-            select_font = new FontButton ();
-            select_font.sensitive = !(use_system_font.get_active ());
-            select_font.set_font_name (Scratch.settings.font);
-            Scratch.settings.schema.bind("use-system-font", use_system_font, "active", SettingsBindFlags.DEFAULT);
-            Scratch.settings.schema.bind("use-system-font", select_font, "sensitive", SettingsBindFlags.INVERT_BOOLEAN);
-            var select_font_l = new Label (_("Select font:"));
-            Scratch.settings.schema.bind("use-system-font", select_font_l, "sensitive", SettingsBindFlags.INVERT_BOOLEAN);
-            select_font_l.xalign = 0.0f;
-            var select_font_box = new HBox (false, 24);
-            select_font_box.pack_start (select_font_l, true, true, 0);
-            select_font_box.pack_start (select_font, true, true, 0);
-
-            //close_button = new Button.with_label (_("Close"));
-            add_button (Stock.CLOSE, ResponseType.ACCEPT);
-
-            var bottom_buttons = new HButtonBox ();
-            bottom_buttons.set_layout (ButtonBoxStyle.END);
-            bottom_buttons.set_spacing (10);
-            //bottom_buttons.pack_end (close_button);
-
-            content.pack_start (wrap_alignment (editor_label, 10, 0, 0, 0), false, true, 0);
-            content.pack_start (wrap_alignment (modal_dialog, 0, 0, 0, 10), false, true, 0);
-            content.pack_start (wrap_alignment (line_numbers, 0, 0, 0, 10), false, true, 0);
-            content.pack_start (wrap_alignment (highlight_current_line, 0, 0, 0, 10), false, true, 0);
-            content.pack_start (wrap_alignment (spaces_instead_of_tabs, 0, 0, 0, 10), false, true, 0);
-            content.pack_start (wrap_alignment (auto_indent, 0, 0, 0, 10), false, true, 0);
-            content.pack_start (wrap_alignment (indent_width_box, 0, 0, 0, 10), false, true, 0);
-            content.pack_start (wrap_alignment (style_scheme_box, 0, 0, 0, 10), false, true, 0);
-
-            /* Search management */
-            var cycle_search = new Gtk.CheckButton.with_label(_("Search Loop"));
-            var case_sensitive = new Gtk.CheckButton.with_label(_("Case Sensitive Search"));
-            Scratch.settings.schema.bind("search-loop", cycle_search, "active", SettingsBindFlags.DEFAULT);
-            Scratch.settings.schema.bind("search-sensitive", case_sensitive, "active", SettingsBindFlags.DEFAULT);
-            content.pack_start(wrap_alignment (cycle_search, 0, 0, 0, 10));
-            content.pack_start(wrap_alignment (case_sensitive, 0, 0, 0, 10));
-
-            content.pack_start (font_label, false, true, 0);
-            content.pack_start (wrap_alignment (use_system_font, 0, 0, 0, 10), false, true, 0);
-            content.pack_start (wrap_alignment (select_font_box, 0, 0, 0, 10), false, true, 0);
-
-
-            content.pack_end (bottom_buttons, false, true, 12);
-
-            padding.pack_start (content, true, true, 12);
 
             //create static notebook
             var general = new Label (_("General"));
-            main_static_notebook.append_page (padding, general);
+            main_static_notebook.append_page (get_general_box (), general);
             
             //create static notebook
             var editor = new Label (_("Editor"));
-            main_static_notebook.append_page (padding, editor);
+            main_static_notebook.append_page (get_editor_box (), editor);
+
+            //create static notebook
+            var fonts = new Label (_("Fonts and colors"));
+            main_static_notebook.append_page (get_fonts_box (), fonts);
             
             //create static notebook
             var plugins_label = new Label ("Plugins");
 
-
+            
             /* Plugin management, might be better in PluginManager */
             var view = new Gtk.TreeView();
             var listmodel = new Gtk.ListStore (2, typeof (string), typeof (bool));
@@ -228,13 +134,124 @@ namespace Scratch.Dialogs {
             if(count > 0) main_static_notebook.append_page (pbox, plugins_label);
 
             ((Gtk.Box)get_content_area()).add (main_static_notebook);
-
+            
+            add_button (Stock.CLOSE, ResponseType.ACCEPT);
+            
             //show_all();
             //run ();
             //destroy ();
 
         }
+        
+        Gtk.HBox get_general_box () {
+            //create general settings
 
+            var content = new VBox (false, 10);
+            var padding = new HBox (false, 10);
+            
+            var search_label = new Label (_("Search Manager"));
+            search_label.set_markup ("<b>Search Manager</b>");
+            
+            modal_dialog = new Switch ();
+            modal_dialog.set_active (Scratch.settings.modal_dialog);
+            
+            content.pack_start (wrap_alignment (create_switcher_box (new Label (_("Show dialogs as modal")), modal_dialog), 0, 0, 0, 10), false, false, 0);
+            
+            var cycle_search = new Gtk.Switch ();
+            var case_sensitive = new Gtk.Switch ();
+            Scratch.settings.schema.bind("search-loop", cycle_search, "active", SettingsBindFlags.DEFAULT);
+            Scratch.settings.schema.bind("search-sensitive", case_sensitive, "active", SettingsBindFlags.DEFAULT);
+            
+            content.pack_start (wrap_alignment (search_label, 0, 0, 0, 10), false, false, 0);
+            content.pack_start(wrap_alignment (create_switcher_box (new Label (_("Search Loop")), cycle_search), 0, 0, 0, 0), false, false);
+            content.pack_start(wrap_alignment (create_switcher_box (new Label (_("Case Sensitive Search")), case_sensitive), 0, 0, 0, 0), false, false);
+
+            padding.pack_start (content, false, false, 12);
+            
+            return padding;
+        }
+        
+        Gtk.HBox get_editor_box () {
+            //create general settings
+
+            var content = new VBox (false, 10);
+            var padding = new HBox (false, 10);
+            
+            line_numbers = new Switch ();
+            line_numbers.set_active (Scratch.settings.show_line_numbers);
+            
+            highlight_current_line = new Switch ();
+            highlight_current_line.set_active (Scratch.settings.highlight_current_line);
+
+            spaces_instead_of_tabs = new Switch ();
+            spaces_instead_of_tabs.set_active (Scratch.settings.spaces_instead_of_tabs);
+            
+            auto_indent = new Switch ();
+            auto_indent.set_active (Scratch.settings.auto_indent);
+
+            var indent_width = new SpinButton.with_range (1, 24, 1);
+            indent_width.set_value (Scratch.settings.indent_width);
+            var indent_width_l = new Label (_("Tab width:"));
+            indent_width_l.xalign = 0.0f;
+            var indent_width_box = new HBox (false, 32);
+            indent_width_box.pack_start (indent_width_l, true, true, 0);
+            indent_width_box.pack_start (indent_width, false, true, 0);
+
+            content.pack_start (wrap_alignment (create_switcher_box (new Label (_("Show line numbers")), line_numbers), 0, 0, 0, 10), false, true, 0);
+            content.pack_start (wrap_alignment (create_switcher_box (new Label (_("Highlight current line")), highlight_current_line), 0, 0, 0, 10), false, true, 0);
+            content.pack_start (wrap_alignment (create_switcher_box (new Label (_("Use spaces instead of tabs")), spaces_instead_of_tabs), 0, 0, 0, 10), false, true, 0);
+            content.pack_start (wrap_alignment (indent_width_box, 0, 0, 0, 10), false, true, 0);
+            content.pack_start (wrap_alignment (create_switcher_box (new Label (_("Use auto indent")), auto_indent), 0, 0, 0, 10), false, true, 0);
+            
+            padding.pack_start (content, false, false, 12);
+            
+            return padding;
+        }
+
+        Gtk.HBox get_fonts_box () {
+            //create general settings
+
+            var content = new VBox (false, 10);
+            var padding = new HBox (false, 10);
+
+            style_scheme = new ComboBoxText ();
+            populate_style_scheme ();
+            var style_scheme_l = new Label (_("Style scheme:"));
+            style_scheme_l.xalign = 0.0f;
+            var style_scheme_box = new HBox (false, 13);
+            style_scheme_box.pack_start (style_scheme_l, true, true, 0);
+            style_scheme_box.pack_start (style_scheme, true, true, 0);
+
+            use_system_font = new Switch ();
+
+            select_font = new FontButton ();
+            select_font.sensitive = !(use_system_font.get_active ());
+            select_font.set_font_name (Scratch.settings.font);
+            Scratch.settings.schema.bind("use-system-font", use_system_font, "active", SettingsBindFlags.DEFAULT);
+            Scratch.settings.schema.bind("use-system-font", select_font, "sensitive", SettingsBindFlags.INVERT_BOOLEAN);
+            var select_font_l = new Label (_("Select font:"));
+            Scratch.settings.schema.bind("use-system-font", select_font_l, "sensitive", SettingsBindFlags.INVERT_BOOLEAN);
+            select_font_l.xalign = 0.0f;
+            var select_font_box = new HBox (false, 24);
+            select_font_box.pack_start (select_font_l, true, true, 0);
+            select_font_box.pack_start (select_font, true, true, 0);
+
+            content.pack_start (wrap_alignment (style_scheme_box, 0, 0, 0, 10), false, true, 0);
+            content.pack_start (wrap_alignment (create_switcher_box (new Label (_("Use the system fixed width font (") + default_font () + ")"), use_system_font), 0, 0, 0, 10), false, false, 0);
+            content.pack_start (wrap_alignment (select_font_box, 0, 0, 0, 10), false, true, 0);
+
+            padding.pack_start (content, true, true, 12);
+            
+            return padding;
+        }
+        
+        HBox create_switcher_box (Label label, Switch switcher) {
+            var h = new HBox (false, 32);
+            h.pack_start (wrap_alignment (label, 0, 0, 0, 10), true, true, 0);
+            h.pack_start (wrap_alignment (switcher, 0, 10, 0, 0), false, true, 0);
+            return h;
+        }
+        
         void disable_plugin(string name)
         {
 

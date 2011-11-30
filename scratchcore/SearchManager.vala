@@ -107,13 +107,13 @@ public class Scratch.Services.SearchManager : GLib.Object {
 	    return tool_search_entry;
     }
     
-    public Gtk.ToolItem get_arrow_next () {
+    /*public Gtk.ToolItem get_arrow_next () {
 	    return tool_arrow_up;
     }
     
     public Gtk.ToolItem get_arrow_previous () {
 	    return tool_arrow_down;
-    }
+    }*/
     
     public Gtk.ToolItem get_replace_entry () {
 	    return tool_replace_entry;

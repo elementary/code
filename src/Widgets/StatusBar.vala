@@ -98,8 +98,6 @@ namespace Granite.Widgets {
              Scratch.settings.schema.bind ("search-loop", search_manager, "cycle-search", SettingsBindFlags.DEFAULT);
 
              add (new SeparatorToolItem ());
-             add (search_manager.get_arrow_previous ());
-             add (search_manager.get_arrow_next ());
              add (search_manager.get_search_entry ());
              search_manager.get_search_entry ().set_margin_right (5);
              add (search_manager.get_replace_entry ());

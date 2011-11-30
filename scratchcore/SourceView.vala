@@ -124,6 +124,7 @@ namespace Scratch.Widgets {
 
         public void restore_settings () {
             
+            auto_indent = Scratch.settings.auto_indent;
             show_line_numbers = Scratch.settings.show_line_numbers;
             highlight_current_line = Scratch.settings.highlight_current_line;
             insert_spaces_instead_of_tabs = Scratch.settings.spaces_instead_of_tabs;
