@@ -125,6 +125,8 @@ namespace Scratch.Widgets {
         public void restore_settings () {
             
             auto_indent = Scratch.settings.auto_indent;
+            show_right_margin = Scratch.settings.show_right_margin;
+            right_margin_position = Scratch.settings.right_margin_position;
             show_line_numbers = Scratch.settings.show_line_numbers;
             highlight_current_line = Scratch.settings.highlight_current_line;
             insert_spaces_instead_of_tabs = Scratch.settings.spaces_instead_of_tabs;
@@ -141,6 +143,8 @@ namespace Scratch.Widgets {
         private void update_settings () {
 
             Scratch.settings.show_line_numbers = show_line_numbers;
+            Scratch.settings.show_right_margin = show_right_margin;
+            Scratch.settings.right_margin_position = (int) right_margin_position;
             Scratch.settings.highlight_current_line = highlight_current_line;
             Scratch.settings.spaces_instead_of_tabs = insert_spaces_instead_of_tabs;
             Scratch.settings.indent_width = (int) tab_width;

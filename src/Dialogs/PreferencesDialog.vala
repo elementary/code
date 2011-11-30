@@ -31,6 +31,8 @@ namespace Scratch.Dialogs {
         public StaticNotebook main_static_notebook;
         
         private Switch modal_dialog;
+        private Switch show_right_margin;
+        private SpinButton right_margin_position;
         private Switch line_numbers;
         private Switch highlight_current_line;
         private Switch spaces_instead_of_tabs;
@@ -39,8 +41,6 @@ namespace Scratch.Dialogs {
         private ComboBoxText style_scheme;
         private Switch use_system_font;
         private FontButton select_font;
-
-        //private Button close_button;
 
         public Preferences (string? title, MainWindow? window) {
 
@@ -155,6 +155,20 @@ namespace Scratch.Dialogs {
             modal_dialog = new Switch ();
             modal_dialog.set_active (Scratch.settings.modal_dialog);
             
+            show_right_margin = new Switch ();
+            show_right_margin.activate.connect ( () => { right_margin_position.set_sensitive (show_right_margin.get_active ()); });
+            show_right_margin.set_active (Scratch.settings.show_right_margin);
+            right_margin_position = new SpinButton.with_range (0, 250, 0);
+            right_margin_position.set_value (Scratch.settings.right_margin_position);
+            right_margin_position.set_sensitive (show_right_margin.get_active ());
+            var hbox = new HBox (false, 10);
+            var label = new Label (_("Show right margin at column:"));
+            label.xalign = 0.0f;
+            hbox.pack_start (label, false, true, 0);
+            hbox.pack_start (right_margin_position, false, false, 0);
+            
+            content.pack_start (wrap_alignment (create_switcher_box (new Label (_("Show a right margin")), show_right_margin), 0, 0, 0, 10), false, false, 0);
+            content.pack_start (wrap_alignment (hbox, 0, 0, 0, 10), false, false, 0);
             content.pack_start (wrap_alignment (create_switcher_box (new Label (_("Show dialogs as modal")), modal_dialog), 0, 0, 0, 10), false, false, 0);
             
             var cycle_search = new Gtk.Switch ();
@@ -162,7 +176,7 @@ namespace Scratch.Dialogs {
             Scratch.settings.schema.bind("search-loop", cycle_search, "active", SettingsBindFlags.DEFAULT);
             Scratch.settings.schema.bind("search-sensitive", case_sensitive, "active", SettingsBindFlags.DEFAULT);
             
-            content.pack_start (wrap_alignment (search_label, 0, 0, 0, 10), false, false, 0);
+            content.pack_start (wrap_alignment (search_label, 10, 0, 0, 10), false, false, 0);
             content.pack_start(wrap_alignment (create_switcher_box (new Label (_("Search Loop")), cycle_search), 0, 0, 0, 0), false, false);
             content.pack_start(wrap_alignment (create_switcher_box (new Label (_("Case Sensitive Search")), case_sensitive), 0, 0, 0, 0), false, false);
 
@@ -248,7 +262,7 @@ namespace Scratch.Dialogs {
         HBox create_switcher_box (Label label, Switch switcher) {
             var h = new HBox (false, 32);
             h.pack_start (wrap_alignment (label, 0, 0, 0, 10), true, true, 0);
-            h.pack_start (wrap_alignment (switcher, 0, 10, 0, 0), false, true, 0);
+            h.pack_start (wrap_alignment (switcher, 0, 10, 0, 0), false, false, 0);
             return h;
         }
         
@@ -283,6 +297,7 @@ namespace Scratch.Dialogs {
         private void on_response (int response_id) {
             
             Scratch.settings.modal_dialog = modal_dialog.get_active ();
+            Scratch.settings.show_right_margin = show_right_margin.get_active ();
             Scratch.settings.show_line_numbers = line_numbers.get_active ();
             Scratch.settings.highlight_current_line = highlight_current_line.get_active ();
             Scratch.settings.spaces_instead_of_tabs = spaces_instead_of_tabs.get_active ();
@@ -291,7 +306,9 @@ namespace Scratch.Dialogs {
             Scratch.settings.style_scheme = style_scheme.active_id;
             Scratch.settings.use_system_font = use_system_font.get_active ();
             Scratch.settings.font = select_font.font_name;
-
+            
+            right_margin_position.set_sensitive (show_right_margin.get_active ());
+            
             this.hide ();
             //this.destroy ();
 

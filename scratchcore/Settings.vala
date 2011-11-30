@@ -47,6 +47,8 @@ namespace Scratch {
         public bool spaces_instead_of_tabs { get; set; }
         public bool auto_indent { get; set; }
         public int indent_width { get; set; }
+        public bool show_right_margin { get; set; }
+        public int right_margin_position { get; set; }
         public bool use_system_font { get; set; }
         public string font { get; set; }
         public string style_scheme { get; set; }

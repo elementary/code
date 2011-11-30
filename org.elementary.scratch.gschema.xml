@@ -62,6 +62,16 @@
             <summary>Show the dialogs as modal dialogs</summary>
             <description>Whether Scratch should show the dialogs in a modal way.</description>
         </key>
+        <key name="show-right-margin" type="b">
+            <default>false</default>
+            <summary>Show the right margin</summary>
+            <description>Specifies if the Source view should show the right margin or not.</description>
+        </key>
+        <key name="right-margin-position" type="i">
+            <default>100</default>
+            <summary>Right margin position</summary>
+            <description>Specifies the right margin position.</description>
+        </key>
         <key name="show-line-numbers" type="b">
             <default>true</default>
             <summary>Display Line Numbers</summary>
