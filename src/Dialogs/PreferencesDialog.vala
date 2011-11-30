@@ -216,7 +216,7 @@ namespace Scratch.Dialogs {
 
             style_scheme = new ComboBoxText ();
             populate_style_scheme ();
-            var style_scheme_l = new Label (_("Style scheme:"));
+            var style_scheme_l = new Label (_("Color scheme:"));
             style_scheme_l.xalign = 0.0f;
             var style_scheme_box = new HBox (false, 13);
             style_scheme_box.pack_start (style_scheme_l, true, true, 0);
