@@ -18,7 +18,6 @@
   END LICENSE
 ***/
 
-
 using Gtk;
 using Granite.Widgets;
 
@@ -32,7 +31,6 @@ namespace Scratch.Dialogs {
         
         private Switch modal_dialog;
         private Switch show_right_margin;
-        private SpinButton right_margin_position;
         private Switch line_numbers;
         private Switch highlight_current_line;
         private Switch spaces_instead_of_tabs;
@@ -49,14 +47,13 @@ namespace Scratch.Dialogs {
             this.type_hint = Gdk.WindowTypeHint.DIALOG;
             this.set_modal (Scratch.settings.modal_dialog);
             this.set_transient_for (window);
+            resizable = false;
 
             main_static_notebook = new StaticNotebook ();
 
             set_default_size (550, 250);
 
             create_layout ();
-            
-            response.connect (on_response);
 
             Scratch.plugins.hook_preferences_dialog(this);
 
@@ -235,50 +232,40 @@ namespace Scratch.Dialogs {
             return content;
         }
 
-        Gtk.HBox get_fonts_box () {
+        Gtk.Grid get_fonts_box () {
             //create general settings
 
-            var content = new VBox (false, 10);
-            var padding = new HBox (false, 10);
+            var content = new Gtk.Grid ();
+            content.row_spacing = 5;
+            content.column_spacing = 5;
+            content.margin_left = 12;
+            content.margin_right = 12;
+            content.margin_top = 12;
+            content.margin_bottom = 12;
+
+            int row = 0;
 
             style_scheme = new ComboBoxText ();
             populate_style_scheme ();
-            var style_scheme_l = new Label (_("Color scheme:"));
-            style_scheme_l.xalign = 0.0f;
-            var style_scheme_box = new HBox (false, 13);
-            style_scheme_box.pack_start (style_scheme_l, true, true, 0);
-            style_scheme_box.pack_start (style_scheme, true, true, 0);
+            Scratch.settings.schema.bind("style-scheme", style_scheme, "active-id", SettingsBindFlags.DEFAULT);
 
             use_system_font = new Switch ();
 
             select_font = new FontButton ();
-            select_font.sensitive = !(use_system_font.get_active ());
-            select_font.set_font_name (Scratch.settings.font);
+            
+            Scratch.settings.schema.bind("font", select_font, "font-name", SettingsBindFlags.DEFAULT);
             Scratch.settings.schema.bind("use-system-font", use_system_font, "active", SettingsBindFlags.DEFAULT);
             Scratch.settings.schema.bind("use-system-font", select_font, "sensitive", SettingsBindFlags.INVERT_BOOLEAN);
             var select_font_l = new Label (_("Select font:"));
             Scratch.settings.schema.bind("use-system-font", select_font_l, "sensitive", SettingsBindFlags.INVERT_BOOLEAN);
-            select_font_l.xalign = 0.0f;
-            var select_font_box = new HBox (false, 24);
-            select_font_box.pack_start (select_font_l, true, true, 0);
-            select_font_box.pack_start (select_font, true, true, 0);
 
-            content.pack_start (wrap_alignment (style_scheme_box, 0, 0, 0, 10), false, true, 0);
-            content.pack_start (wrap_alignment (create_switcher_box (new Label (_("Use the system fixed width font (") + default_font () + ")"), use_system_font), 0, 0, 0, 10), false, false, 0);
-            content.pack_start (wrap_alignment (select_font_box, 0, 0, 0, 10), false, true, 0);
-
-            padding.pack_start (content, true, true, 12);
+            add_option (content, new Label (_("Color scheme:")), style_scheme, ref row);
+            add_option (content, new Label (_("Use the system fixed width font (%s):").printf(default_font())), use_system_font, ref row);
+            add_option (content, select_font_l, select_font, ref row);
             
-            return padding;
+            return content;
         }
-        
-        HBox create_switcher_box (Label label, Switch switcher) {
-            var h = new HBox (false, 32);
-            h.pack_start (wrap_alignment (label, 0, 0, 0, 10), true, true, 0);
-            h.pack_start (wrap_alignment (switcher, 0, 10, 0, 0), false, false, 0);
-            return h;
-        }
-        
+
         void disable_plugin(string name)
         {
 
@@ -291,31 +278,6 @@ namespace Scratch.Dialogs {
         void enable_plugin(string name)
         {
             plugins.enable_plugin(name);
-        }
-
-        private static Alignment wrap_alignment (Widget widget, int top, int right,
-                                                 int bottom, int left) {
-
-            var alignment = new Alignment (0.0f, 0.0f, 1.0f, 1.0f);
-            alignment.top_padding = top;
-            alignment.right_padding = right;
-            alignment.bottom_padding = bottom;
-            alignment.left_padding = left;
-
-            alignment.add(widget);
-            return alignment;
-
-        }
-
-        private void on_response (int response_id) {
-            Scratch.settings.indent_width = (int) indent_width.value;
-            Scratch.settings.style_scheme = style_scheme.active_id;
-            Scratch.settings.use_system_font = use_system_font.get_active ();
-            Scratch.settings.font = select_font.font_name;
-            
-            this.hide ();
-            //this.destroy ();
-
         }
 
         private string default_font () {
@@ -335,8 +297,7 @@ namespace Scratch.Dialogs {
                 var scheme = scheme_manager.get_scheme (scheme_id);
                 style_scheme.append (scheme.id, scheme.name);
             }
-
-            style_scheme.set_active_id (Scratch.settings.style_scheme);
+            
 
         }
 

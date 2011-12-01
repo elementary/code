@@ -61,7 +61,12 @@ namespace Scratch.Widgets {
 
             dialog = new Dialogs.Preferences ("Preferences", this.window);
             fullscreen.toggled.connect (toggle_fullscreen);
-            preferences.activate.connect (() => { new Dialogs.Preferences ("Preferences", this.window).show_all(); });
+            preferences.activate.connect (() => {
+                var dialog = new Dialogs.Preferences ("Preferences", this.window);
+                dialog.show_all ();
+                dialog.run ();
+                dialog.destroy ();
+            });
 
         }
 
