@@ -153,12 +153,13 @@ namespace Scratch.Dialogs {
             search_label.set_markup ("<b>%s</b>".printf(_("Search Manager")));
             
             modal_dialog = new Switch ();
-            modal_dialog.set_active (Scratch.settings.modal_dialog);
+            Scratch.settings.schema.bind("modal-dialog", modal_dialog, "active", SettingsBindFlags.DEFAULT);
             
             show_right_margin = new Switch ();
-            show_right_margin.set_active (Scratch.settings.show_right_margin);
+            Scratch.settings.schema.bind("show-right-margin", show_right_margin, "active", SettingsBindFlags.DEFAULT);
             var right_margin_position = new SpinButton.with_range (1, 250, 1);
-            right_margin_position.set_value (Scratch.settings.right_margin_position);
+            Scratch.settings.schema.bind("right-margin-position", right_margin_position, "value", SettingsBindFlags.DEFAULT);
+            Scratch.settings.schema.bind("show-right-margin", right_margin_position, "sensitive", SettingsBindFlags.DEFAULT);
             
             var general_grid = new Gtk.Grid ();
             general_grid.row_spacing = 5;
@@ -169,11 +170,12 @@ namespace Scratch.Dialogs {
             general_grid.margin_bottom = 12;
             
             int row = 0;
-            var label = new Label (_("Show right margin at column"));
-            add_option (general_grid, label, right_margin_position, ref row);
-            
-            label = new Label (_("Show a right margin"));
+            var label = new Label (_("Show a right margin"));
             add_option (general_grid, label, show_right_margin, ref row);
+            
+            label = new Label (_("Show right margin at column"));
+            add_option (general_grid, label, right_margin_position, ref row);
+            Scratch.settings.schema.bind("show-right-margin", label, "sensitive", SettingsBindFlags.DEFAULT);
             
             label = new Label (_("Show dialogs as modal"));
             add_option (general_grid, label, modal_dialog, ref row);
@@ -307,9 +309,6 @@ namespace Scratch.Dialogs {
         }
 
         private void on_response (int response_id) {
-            
-            Scratch.settings.modal_dialog = modal_dialog.get_active ();
-            Scratch.settings.show_right_margin = show_right_margin.get_active ();
             Scratch.settings.show_line_numbers = line_numbers.get_active ();
             Scratch.settings.highlight_current_line = highlight_current_line.get_active ();
             Scratch.settings.spaces_instead_of_tabs = spaces_instead_of_tabs.get_active ();
@@ -318,8 +317,6 @@ namespace Scratch.Dialogs {
             Scratch.settings.style_scheme = style_scheme.active_id;
             Scratch.settings.use_system_font = use_system_font.get_active ();
             Scratch.settings.font = select_font.font_name;
-            
-            right_margin_position.set_sensitive (show_right_margin.get_active ());
             
             this.hide ();
             //this.destroy ();
