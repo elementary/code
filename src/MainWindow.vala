@@ -59,6 +59,13 @@ namespace Scratch {
                 <separator />
                 <menuitem action="EditToolbar" />
             </popup>
+            <popup name="AppMenu">
+                <menuitem action="New view" />
+                <menuitem action="Remove view" />
+                <menuitem action="Fullscreen" />
+                <separator />
+                <menuitem action="Preferences" />
+            </popup>
             </ui>
         """;
 
@@ -396,6 +403,13 @@ namespace Scratch {
         public void connect_signals () {
             drag_data_received.connect (on_drag_data_received);
         }
+        
+        void action_preferences () {
+            var dialog = new Dialogs.Preferences ("Preferences", this);
+            dialog.show_all ();
+            dialog.run ();
+            dialog.destroy ();
+        }
 
         void action_close_tab () {
             current_tab.on_close_clicked ();
@@ -598,7 +612,7 @@ namespace Scratch {
             }
             
             if (split_view.get_children ().length () == 2)
-                toolbar.menu.view.set_sensitive (false);
+                ; //main_actions.get_action ().
                 
 
         }
@@ -636,15 +650,12 @@ namespace Scratch {
         void action_fullscreen () {
             if ((get_window ().get_state () & WindowState.FULLSCREEN) != 0)
             {
-                toolbar.menu.fullscreen.active = false;
                 this.unfullscreen ();
             }
             else
             {
                 this.fullscreen ();
-                toolbar.menu.fullscreen.active = true;
             }
-            debug ("Full");
         }
         
         void action_edit_toolbar () {
@@ -759,9 +770,13 @@ namespace Scratch {
           /* tooltip */                  N_("Save the current file"),
                                          action_save },
            { "SaveFileAs", Gtk.Stock.SAVE_AS,
-          /* label, accelerator */       N_("SaveAs"), "<Control><shift>s",
+          /* label, accelerator */       N_("Save as"), "<Control><shift>s",
           /* tooltip */                  N_("Save the current file with a different name"),
                                          action_save_as },
+           { "Preferences", Gtk.Stock.PREFERENCES,
+          /* label, accelerator */       N_("Preferences"), null,
+          /* tooltip */                  N_("Change Scratch settings"),
+                                         action_preferences },
                                          
             { "EditToolbar", Gtk.Stock.PREFERENCES,
           /* label, accelerator */       N_("Customize toolbar"), null,

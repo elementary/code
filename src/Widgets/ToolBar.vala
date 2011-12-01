@@ -38,7 +38,7 @@ namespace Scratch.Widgets {
         public ToolButton revert_button;
         
         public ShareMenu share_menu;
-        public MenuProperties menu;
+        public Menu menu;
         public ShareAppMenu share_app_menu;
         public AppMenu app_menu;
         
@@ -97,7 +97,7 @@ namespace Scratch.Widgets {
             share_menu = new ShareMenu (this.window);
             share_app_menu = new ShareAppMenu (share_menu);
 
-            menu = new MenuProperties (this.window, action_group);
+            menu = ui.get_widget ("ui/AppMenu") as Gtk.Menu;
             plugins.hook_main_menu(menu);
             app_menu = (window.get_application() as Granite.Application).create_appmenu(menu);
             plugins.hook_toolbar(this);

@@ -43,7 +43,6 @@ include (ValaPrecompile)
 vala_precompile(VALA_C
     src/MainWindow.vala
     src/Scratch.vala
-    src/Widgets/Menu.vala
     src/Widgets/ShareMenu.vala
     src/Widgets/Notebook.vala
     src/Widgets/Tab.vala
