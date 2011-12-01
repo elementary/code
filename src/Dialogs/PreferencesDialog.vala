@@ -136,53 +136,65 @@ namespace Scratch.Dialogs {
             ((Gtk.Box)get_content_area()).add (main_static_notebook);
             
             add_button (Stock.CLOSE, ResponseType.ACCEPT);
-            
-            //show_all();
-            //run ();
-            //destroy ();
-
         }
         
-        Gtk.HBox get_general_box () {
-            //create general settings
-
-            var content = new VBox (false, 10);
-            var padding = new HBox (false, 10);
+        void add_option (Gtk.Grid grid, Gtk.Widget label, Gtk.Widget switcher, ref int row) {
+            label.hexpand = true;
+            label.halign = Gtk.Align.START;
+            switcher.halign = Gtk.Align.END;
+            grid.attach (label, 0, row, 1, 1);
+            grid.attach_next_to (switcher, label, Gtk.PositionType.RIGHT, 1, 1);
+            row ++;
+        }
+        
+        Gtk.Widget get_general_box () {
             
             var search_label = new Label (_("Search Manager"));
-            search_label.set_markup ("<b>Search Manager</b>");
+            search_label.set_markup ("<b>%s</b>".printf(_("Search Manager")));
             
             modal_dialog = new Switch ();
             modal_dialog.set_active (Scratch.settings.modal_dialog);
             
             show_right_margin = new Switch ();
-            //show_right_margin.activate.connect ( () => { right_margin_position.set_sensitive (show_right_margin.get_active ()); });
             show_right_margin.set_active (Scratch.settings.show_right_margin);
             var right_margin_position = new SpinButton.with_range (1, 250, 1);
             right_margin_position.set_value (Scratch.settings.right_margin_position);
-            //right_margin_position.set_sensitive (show_right_margin.get_active ());
-            var hbox = new HBox (false, 10);
-            var label = new Label (_("Show right margin at column:"));
-            label.xalign = 0.0f;
-            hbox.pack_start (label, false, true, 0);
-            hbox.pack_start (right_margin_position, false, false, 0);
             
-            content.pack_start (wrap_alignment (create_switcher_box (new Label (_("Show a right margin")), show_right_margin), 0, 0, 0, 10), false, false, 0);
-            content.pack_start (wrap_alignment (hbox, 0, 0, 0, 10), false, false, 0);
-            content.pack_start (wrap_alignment (create_switcher_box (new Label (_("Show dialogs as modal")), modal_dialog), 0, 0, 0, 10), false, false, 0);
+            var general_grid = new Gtk.Grid ();
+            general_grid.row_spacing = 5;
+            general_grid.column_spacing = 5;
+            general_grid.margin_left = 12;
+            general_grid.margin_right = 12;
+            general_grid.margin_top = 12;
+            general_grid.margin_bottom = 12;
+            
+            int row = 0;
+            var label = new Label (_("Show right margin at column"));
+            add_option (general_grid, label, right_margin_position, ref row);
+            
+            label = new Label (_("Show a right margin"));
+            add_option (general_grid, label, show_right_margin, ref row);
+            
+            label = new Label (_("Show dialogs as modal"));
+            add_option (general_grid, label, modal_dialog, ref row);
             
             var cycle_search = new Gtk.Switch ();
             var case_sensitive = new Gtk.Switch ();
             Scratch.settings.schema.bind("search-loop", cycle_search, "active", SettingsBindFlags.DEFAULT);
             Scratch.settings.schema.bind("search-sensitive", case_sensitive, "active", SettingsBindFlags.DEFAULT);
             
-            content.pack_start (wrap_alignment (search_label, 10, 0, 0, 10), false, false, 0);
-            content.pack_start(wrap_alignment (create_switcher_box (new Label (_("Search Loop")), cycle_search), 0, 0, 0, 0), false, false);
-            content.pack_start(wrap_alignment (create_switcher_box (new Label (_("Case Sensitive Search")), case_sensitive), 0, 0, 0, 0), false, false);
-
-            padding.pack_start (content, false, false, 12);
+            general_grid.attach (search_label, 0, row, 2, 1);
+            search_label.hexpand = search_label.vexpand = true;
+            search_label.halign = Gtk.Align.CENTER;
+            row ++;
             
-            return padding;
+            label = new Label (_("Search Loop"));
+            add_option (general_grid, label, cycle_search, ref row);
+            
+            label = new Label (_("Case Sensitive Search"));
+            add_option (general_grid, label, case_sensitive, ref row);
+            
+            return general_grid;
         }
         
         Gtk.HBox get_editor_box () {
