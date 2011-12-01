@@ -170,14 +170,14 @@ namespace Scratch.Dialogs {
             general_grid.margin_bottom = 12;
             
             int row = 0;
-            var label = new Label (_("Show a right margin"));
+            var label = new Label (_("Show a right margin:"));
             add_option (general_grid, label, show_right_margin, ref row);
             
-            label = new Label (_("Show right margin at column"));
+            label = new Label (_("Show right margin at column:"));
             add_option (general_grid, label, right_margin_position, ref row);
             Scratch.settings.schema.bind("show-right-margin", label, "sensitive", SettingsBindFlags.DEFAULT);
             
-            label = new Label (_("Show dialogs as modal"));
+            label = new Label (_("Show dialogs as modal:"));
             add_option (general_grid, label, modal_dialog, ref row);
             
             var cycle_search = new Gtk.Switch ();
@@ -190,10 +190,10 @@ namespace Scratch.Dialogs {
             search_label.halign = Gtk.Align.CENTER;
             row ++;
             
-            label = new Label (_("Search Loop"));
+            label = new Label (_("Search loop:"));
             add_option (general_grid, label, cycle_search, ref row);
             
-            label = new Label (_("Case Sensitive Search"));
+            label = new Label (_("Case sensitive search:"));
             add_option (general_grid, label, case_sensitive, ref row);
             
             return general_grid;
