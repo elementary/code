@@ -156,11 +156,11 @@ namespace Scratch.Dialogs {
             modal_dialog.set_active (Scratch.settings.modal_dialog);
             
             show_right_margin = new Switch ();
-            show_right_margin.activate.connect ( () => { right_margin_position.set_sensitive (show_right_margin.get_active ()); });
+            //show_right_margin.activate.connect ( () => { right_margin_position.set_sensitive (show_right_margin.get_active ()); });
             show_right_margin.set_active (Scratch.settings.show_right_margin);
-            right_margin_position = new SpinButton.with_range (0, 250, 0);
+            var right_margin_position = new SpinButton.with_range (1, 250, 1);
             right_margin_position.set_value (Scratch.settings.right_margin_position);
-            right_margin_position.set_sensitive (show_right_margin.get_active ());
+            //right_margin_position.set_sensitive (show_right_margin.get_active ());
             var hbox = new HBox (false, 10);
             var label = new Label (_("Show right margin at column:"));
             label.xalign = 0.0f;
@@ -203,7 +203,7 @@ namespace Scratch.Dialogs {
             auto_indent = new Switch ();
             auto_indent.set_active (Scratch.settings.auto_indent);
 
-            var indent_width = new SpinButton.with_range (1, 24, 1);
+            indent_width = new SpinButton.with_range (1, 24, 1);
             indent_width.set_value (Scratch.settings.indent_width);
             var indent_width_l = new Label (_("Tab width:"));
             indent_width_l.xalign = 0.0f;
