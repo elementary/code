@@ -199,41 +199,40 @@ namespace Scratch.Dialogs {
             return general_grid;
         }
         
-        Gtk.HBox get_editor_box () {
+        Gtk.Widget get_editor_box () {
             //create general settings
 
-            var content = new VBox (false, 10);
-            var padding = new HBox (false, 10);
-            
+            var content = new Gtk.Grid ();
+            content.row_spacing = 5;
+            content.column_spacing = 5;
+            content.margin_left = 12;
+            content.margin_right = 12;
+            content.margin_top = 12;
+            content.margin_bottom = 12;
+
             line_numbers = new Switch ();
-            line_numbers.set_active (Scratch.settings.show_line_numbers);
+            Scratch.settings.schema.bind("show-line-numbers", line_numbers, "active", SettingsBindFlags.DEFAULT);
             
             highlight_current_line = new Switch ();
-            highlight_current_line.set_active (Scratch.settings.highlight_current_line);
+            Scratch.settings.schema.bind("highlight-current-line", highlight_current_line, "active", SettingsBindFlags.DEFAULT);
 
             spaces_instead_of_tabs = new Switch ();
-            spaces_instead_of_tabs.set_active (Scratch.settings.spaces_instead_of_tabs);
+            Scratch.settings.schema.bind("spaces-instead-of-tabs", spaces_instead_of_tabs, "active", SettingsBindFlags.DEFAULT);
             
             auto_indent = new Switch ();
-            auto_indent.set_active (Scratch.settings.auto_indent);
+            Scratch.settings.schema.bind("auto-indent", auto_indent, "active", SettingsBindFlags.DEFAULT);
 
             indent_width = new SpinButton.with_range (1, 24, 1);
-            indent_width.set_value (Scratch.settings.indent_width);
-            var indent_width_l = new Label (_("Tab width:"));
-            indent_width_l.xalign = 0.0f;
-            var indent_width_box = new HBox (false, 32);
-            indent_width_box.pack_start (indent_width_l, true, true, 0);
-            indent_width_box.pack_start (indent_width, false, true, 0);
+            Scratch.settings.schema.bind("indent-width", indent_width, "value", SettingsBindFlags.DEFAULT);
 
-            content.pack_start (wrap_alignment (create_switcher_box (new Label (_("Show line numbers")), line_numbers), 0, 0, 0, 10), false, true, 0);
-            content.pack_start (wrap_alignment (create_switcher_box (new Label (_("Highlight current line")), highlight_current_line), 0, 0, 0, 10), false, true, 0);
-            content.pack_start (wrap_alignment (create_switcher_box (new Label (_("Use spaces instead of tabs")), spaces_instead_of_tabs), 0, 0, 0, 10), false, true, 0);
-            content.pack_start (wrap_alignment (indent_width_box, 0, 0, 0, 10), false, true, 0);
-            content.pack_start (wrap_alignment (create_switcher_box (new Label (_("Use auto indent")), auto_indent), 0, 0, 0, 10), false, true, 0);
+            int row = 0;
+            add_option (content, new Label (_("Show line numbers:")), line_numbers, ref row);
+            add_option (content, new Label (_("Highlight current line:")), highlight_current_line, ref row);
+            add_option (content, new Label (_("Use spaces instead of tabs:")), spaces_instead_of_tabs, ref row);
+            add_option (content, new Label (_("Tab width:")), indent_width, ref row);
+            add_option (content, new Label (_("Use auto indent:")), auto_indent, ref row);
             
-            padding.pack_start (content, false, false, 12);
-            
-            return padding;
+            return content;
         }
 
         Gtk.HBox get_fonts_box () {
@@ -309,10 +308,6 @@ namespace Scratch.Dialogs {
         }
 
         private void on_response (int response_id) {
-            Scratch.settings.show_line_numbers = line_numbers.get_active ();
-            Scratch.settings.highlight_current_line = highlight_current_line.get_active ();
-            Scratch.settings.spaces_instead_of_tabs = spaces_instead_of_tabs.get_active ();
-            Scratch.settings.auto_indent = auto_indent.get_active ();
             Scratch.settings.indent_width = (int) indent_width.value;
             Scratch.settings.style_scheme = style_scheme.active_id;
             Scratch.settings.use_system_font = use_system_font.get_active ();
