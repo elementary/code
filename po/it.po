@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-28 18:48+0100\n"
-"PO-Revision-Date: 2011-11-29 08:28+0000\n"
-"Last-Translator: Antonio <Unknown>\n"
+"POT-Creation-Date: 2011-11-30 19:32+0100\n"
+"PO-Revision-Date: 2011-11-30 13:37+0000\n"
+"Last-Translator: Antonio Bisconti <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-11-30 06:59+0000\n"
-"X-Generator: Launchpad (build 14404)\n"
+"X-Launchpad-Export-Date: 2011-12-01 06:16+0000\n"
+"X-Generator: Launchpad (build 14414)\n"
 "Language: \n"
 
 #: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:66
@@ -30,11 +30,11 @@ msgstr "Dimensione del tab"
 msgid "Color Scheme"
 msgstr "Schema colori"
 
-#: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:113
+#: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:111
 msgid "Normal text"
 msgstr "Testo normale"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:49
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:51
 msgid "Fullscreen"
 msgstr "Schermo intero"
 
@@ -75,55 +75,79 @@ msgstr "Nuovo file"
 msgid "All your work will be lost!"
 msgstr "Tutto il tuo lavoro sarà perso!"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:85
-msgid "Show line numbers"
-msgstr "Mostra i numeri di riga"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:88
-msgid "Highlight current line"
-msgstr "Evidanzia la riga in uso"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:91
-msgid "Use spaces instead of tabs"
-msgstr "Usa spazi al posto di tabulazioni"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:94
-msgid "Use auto indent"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:99
-msgid "Tab width:"
-msgstr "Larghezza tabulazioni:"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:107
-msgid "Style scheme:"
-msgstr "Schema di colori:"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:113
-msgid "Use the system fixed width font ("
-msgstr "Usa il carattere a spaziatura fissa di sistema ("
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
-msgid "Select font:"
-msgstr "Seleziona carattere"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:145
-msgid "Search Loop"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:146
-msgid "Case Sensitive Search"
-msgstr "Ricerca case sensitive"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:162
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:69
 msgid "General"
 msgstr "Generale"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
+msgid "Editor"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:77
+msgid "Fonts and colors"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
+msgid "Search Manager"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:165
+msgid "Show right margin at column:"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:170
+msgid "Show a right margin"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:172
+msgid "Show dialogs as modal"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:180
+msgid "Search Loop"
+msgstr "Cerca Loop"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:181
+msgid "Case Sensitive Search"
+msgstr "Ricerca case sensitive"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
+msgid "Tab width:"
+msgstr "Larghezza tabulazioni:"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:214
+msgid "Show line numbers"
+msgstr "Mostra i numeri di riga"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:215
+msgid "Highlight current line"
+msgstr "Evidanzia la riga in uso"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:216
+msgid "Use spaces instead of tabs"
+msgstr "Usa spazi al posto di tabulazioni"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:218
+msgid "Use auto indent"
+msgstr "Utilizza l'auto indentazione."
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:233
+msgid "Color scheme:"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:246
+msgid "Select font:"
+msgstr "Seleziona carattere"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:254
+msgid "Use the system fixed width font ("
+msgstr "Usa il carattere a spaziatura fissa di sistema ("
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:46
 msgid "Changes to this file haven't been saved."
 msgstr "I cambiamente a questo file non saranno salvati"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:46
 msgid "Do you want to save changes before closing this file?"
 msgstr "Vuoi salvare i cambiamenti prima di chiudere questo file?"
 
@@ -132,11 +156,13 @@ msgid ""
 "Select the elements to show in the toolbar. You can customize them also with "
 "drag n drop"
 msgstr ""
+"Seleziona gli elementi da visualizzare nella barra degli strumenti.Gli "
+"elementi possono essere anche trascinati all'interno della barra."
 
 #: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:97
 msgid "Avaible elements"
-msgstr ""
+msgstr "Elementi disponibili"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:115
 msgid "Showed elements"
-msgstr ""
+msgstr "Elementi Visualizzati"

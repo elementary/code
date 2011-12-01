@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-11-28 18:48+0100\n"
+"POT-Creation-Date: 2011-11-30 19:32+0100\n"
 "PO-Revision-Date: 2011-11-11 03:05+0000\n"
 "Last-Translator: דוביקס <dovix2003@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-11-29 06:06+0000\n"
-"X-Generator: Launchpad (build 14399)\n"
+"X-Launchpad-Export-Date: 2011-12-01 06:16+0000\n"
+"X-Generator: Launchpad (build 14414)\n"
 
 #: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:66
 msgid " Syntax Highlighting"
@@ -29,11 +29,11 @@ msgstr ""
 msgid "Color Scheme"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:113
+#: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:111
 msgid "Normal text"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:49
+#: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:51
 msgid "Fullscreen"
 msgstr "מסך מלא"
 
@@ -74,55 +74,79 @@ msgstr "קובץ חדש"
 msgid "All your work will be lost!"
 msgstr "כל השינויים שביצעת יאבדו!"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:85
-msgid "Show line numbers"
-msgstr "הצג מספרי שורות"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:88
-msgid "Highlight current line"
-msgstr "הדגש את השורה הנוכחית"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:91
-msgid "Use spaces instead of tabs"
-msgstr "השתמש ברווחים במקום בטאבים"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:94
-msgid "Use auto indent"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:99
-msgid "Tab width:"
-msgstr "רוחב טאב:"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:107
-msgid "Style scheme:"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:113
-msgid "Use the system fixed width font ("
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
-msgid "Select font:"
-msgstr "בחר גופן:"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:145
-msgid "Search Loop"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:146
-msgid "Case Sensitive Search"
-msgstr ""
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:162
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:69
 msgid "General"
 msgstr "כללי"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
+msgid "Editor"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:77
+msgid "Fonts and colors"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
+msgid "Search Manager"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:165
+msgid "Show right margin at column:"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:170
+msgid "Show a right margin"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:172
+msgid "Show dialogs as modal"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:180
+msgid "Search Loop"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:181
+msgid "Case Sensitive Search"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
+msgid "Tab width:"
+msgstr "רוחב טאב:"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:214
+msgid "Show line numbers"
+msgstr "הצג מספרי שורות"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:215
+msgid "Highlight current line"
+msgstr "הדגש את השורה הנוכחית"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:216
+msgid "Use spaces instead of tabs"
+msgstr "השתמש ברווחים במקום בטאבים"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:218
+msgid "Use auto indent"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:233
+msgid "Color scheme:"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:246
+msgid "Select font:"
+msgstr "בחר גופן:"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:254
+msgid "Use the system fixed width font ("
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:46
 msgid "Changes to this file haven't been saved."
 msgstr "השינויים לקובץ זה לא נשמרו."
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:46
 msgid "Do you want to save changes before closing this file?"
 msgstr "האם ברצונך לשמור את השינויים לפני סגירת הקובץ?"
 
