@@ -136,90 +136,103 @@ namespace Scratch.Dialogs {
             ((Gtk.Box)get_content_area()).add (main_static_notebook);
             
             add_button (Stock.CLOSE, ResponseType.ACCEPT);
-            
-            //show_all();
-            //run ();
-            //destroy ();
-
         }
         
-        Gtk.HBox get_general_box () {
-            //create general settings
-
-            var content = new VBox (false, 10);
-            var padding = new HBox (false, 10);
+        void add_option (Gtk.Grid grid, Gtk.Widget label, Gtk.Widget switcher, ref int row) {
+            label.hexpand = true;
+            label.halign = Gtk.Align.START;
+            switcher.halign = Gtk.Align.END;
+            grid.attach (label, 0, row, 1, 1);
+            grid.attach_next_to (switcher, label, Gtk.PositionType.RIGHT, 1, 1);
+            row ++;
+        }
+        
+        Gtk.Widget get_general_box () {
             
             var search_label = new Label (_("Search Manager"));
-            search_label.set_markup ("<b>Search Manager</b>");
+            search_label.set_markup ("<b>%s</b>".printf(_("Search Manager")));
             
             modal_dialog = new Switch ();
-            modal_dialog.set_active (Scratch.settings.modal_dialog);
+            Scratch.settings.schema.bind("modal-dialog", modal_dialog, "active", SettingsBindFlags.DEFAULT);
             
             show_right_margin = new Switch ();
-            //show_right_margin.activate.connect ( () => { right_margin_position.set_sensitive (show_right_margin.get_active ()); });
-            show_right_margin.set_active (Scratch.settings.show_right_margin);
+            Scratch.settings.schema.bind("show-right-margin", show_right_margin, "active", SettingsBindFlags.DEFAULT);
             var right_margin_position = new SpinButton.with_range (1, 250, 1);
-            right_margin_position.set_value (Scratch.settings.right_margin_position);
-            //right_margin_position.set_sensitive (show_right_margin.get_active ());
-            var hbox = new HBox (false, 10);
-            var label = new Label (_("Show right margin at column:"));
-            label.xalign = 0.0f;
-            hbox.pack_start (label, false, true, 0);
-            hbox.pack_start (right_margin_position, false, false, 0);
+            Scratch.settings.schema.bind("right-margin-position", right_margin_position, "value", SettingsBindFlags.DEFAULT);
+            Scratch.settings.schema.bind("show-right-margin", right_margin_position, "sensitive", SettingsBindFlags.DEFAULT);
             
-            content.pack_start (wrap_alignment (create_switcher_box (new Label (_("Show a right margin")), show_right_margin), 0, 0, 0, 10), false, false, 0);
-            content.pack_start (wrap_alignment (hbox, 0, 0, 0, 10), false, false, 0);
-            content.pack_start (wrap_alignment (create_switcher_box (new Label (_("Show dialogs as modal")), modal_dialog), 0, 0, 0, 10), false, false, 0);
+            var general_grid = new Gtk.Grid ();
+            general_grid.row_spacing = 5;
+            general_grid.column_spacing = 5;
+            general_grid.margin_left = 12;
+            general_grid.margin_right = 12;
+            general_grid.margin_top = 12;
+            general_grid.margin_bottom = 12;
+            
+            int row = 0;
+            var label = new Label (_("Show a right margin:"));
+            add_option (general_grid, label, show_right_margin, ref row);
+            
+            label = new Label (_("Show right margin at column:"));
+            add_option (general_grid, label, right_margin_position, ref row);
+            Scratch.settings.schema.bind("show-right-margin", label, "sensitive", SettingsBindFlags.DEFAULT);
+            
+            label = new Label (_("Show dialogs as modal:"));
+            add_option (general_grid, label, modal_dialog, ref row);
             
             var cycle_search = new Gtk.Switch ();
             var case_sensitive = new Gtk.Switch ();
             Scratch.settings.schema.bind("search-loop", cycle_search, "active", SettingsBindFlags.DEFAULT);
             Scratch.settings.schema.bind("search-sensitive", case_sensitive, "active", SettingsBindFlags.DEFAULT);
             
-            content.pack_start (wrap_alignment (search_label, 10, 0, 0, 10), false, false, 0);
-            content.pack_start(wrap_alignment (create_switcher_box (new Label (_("Search Loop")), cycle_search), 0, 0, 0, 0), false, false);
-            content.pack_start(wrap_alignment (create_switcher_box (new Label (_("Case Sensitive Search")), case_sensitive), 0, 0, 0, 0), false, false);
-
-            padding.pack_start (content, false, false, 12);
+            general_grid.attach (search_label, 0, row, 2, 1);
+            search_label.hexpand = search_label.vexpand = true;
+            search_label.halign = Gtk.Align.CENTER;
+            row ++;
             
-            return padding;
+            label = new Label (_("Search loop:"));
+            add_option (general_grid, label, cycle_search, ref row);
+            
+            label = new Label (_("Case sensitive search:"));
+            add_option (general_grid, label, case_sensitive, ref row);
+            
+            return general_grid;
         }
         
-        Gtk.HBox get_editor_box () {
+        Gtk.Widget get_editor_box () {
             //create general settings
 
-            var content = new VBox (false, 10);
-            var padding = new HBox (false, 10);
-            
+            var content = new Gtk.Grid ();
+            content.row_spacing = 5;
+            content.column_spacing = 5;
+            content.margin_left = 12;
+            content.margin_right = 12;
+            content.margin_top = 12;
+            content.margin_bottom = 12;
+
             line_numbers = new Switch ();
-            line_numbers.set_active (Scratch.settings.show_line_numbers);
+            Scratch.settings.schema.bind("show-line-numbers", line_numbers, "active", SettingsBindFlags.DEFAULT);
             
             highlight_current_line = new Switch ();
-            highlight_current_line.set_active (Scratch.settings.highlight_current_line);
+            Scratch.settings.schema.bind("highlight-current-line", highlight_current_line, "active", SettingsBindFlags.DEFAULT);
 
             spaces_instead_of_tabs = new Switch ();
-            spaces_instead_of_tabs.set_active (Scratch.settings.spaces_instead_of_tabs);
+            Scratch.settings.schema.bind("spaces-instead-of-tabs", spaces_instead_of_tabs, "active", SettingsBindFlags.DEFAULT);
             
             auto_indent = new Switch ();
-            auto_indent.set_active (Scratch.settings.auto_indent);
+            Scratch.settings.schema.bind("auto-indent", auto_indent, "active", SettingsBindFlags.DEFAULT);
 
             indent_width = new SpinButton.with_range (1, 24, 1);
-            indent_width.set_value (Scratch.settings.indent_width);
-            var indent_width_l = new Label (_("Tab width:"));
-            indent_width_l.xalign = 0.0f;
-            var indent_width_box = new HBox (false, 32);
-            indent_width_box.pack_start (indent_width_l, true, true, 0);
-            indent_width_box.pack_start (indent_width, false, true, 0);
+            Scratch.settings.schema.bind("indent-width", indent_width, "value", SettingsBindFlags.DEFAULT);
 
-            content.pack_start (wrap_alignment (create_switcher_box (new Label (_("Show line numbers")), line_numbers), 0, 0, 0, 10), false, true, 0);
-            content.pack_start (wrap_alignment (create_switcher_box (new Label (_("Highlight current line")), highlight_current_line), 0, 0, 0, 10), false, true, 0);
-            content.pack_start (wrap_alignment (create_switcher_box (new Label (_("Use spaces instead of tabs")), spaces_instead_of_tabs), 0, 0, 0, 10), false, true, 0);
-            content.pack_start (wrap_alignment (indent_width_box, 0, 0, 0, 10), false, true, 0);
-            content.pack_start (wrap_alignment (create_switcher_box (new Label (_("Use auto indent")), auto_indent), 0, 0, 0, 10), false, true, 0);
+            int row = 0;
+            add_option (content, new Label (_("Show line numbers:")), line_numbers, ref row);
+            add_option (content, new Label (_("Highlight current line:")), highlight_current_line, ref row);
+            add_option (content, new Label (_("Use spaces instead of tabs:")), spaces_instead_of_tabs, ref row);
+            add_option (content, new Label (_("Tab width:")), indent_width, ref row);
+            add_option (content, new Label (_("Use auto indent:")), auto_indent, ref row);
             
-            padding.pack_start (content, false, false, 12);
-            
-            return padding;
+            return content;
         }
 
         Gtk.HBox get_fonts_box () {
@@ -295,19 +308,10 @@ namespace Scratch.Dialogs {
         }
 
         private void on_response (int response_id) {
-            
-            Scratch.settings.modal_dialog = modal_dialog.get_active ();
-            Scratch.settings.show_right_margin = show_right_margin.get_active ();
-            Scratch.settings.show_line_numbers = line_numbers.get_active ();
-            Scratch.settings.highlight_current_line = highlight_current_line.get_active ();
-            Scratch.settings.spaces_instead_of_tabs = spaces_instead_of_tabs.get_active ();
-            Scratch.settings.auto_indent = auto_indent.get_active ();
             Scratch.settings.indent_width = (int) indent_width.value;
             Scratch.settings.style_scheme = style_scheme.active_id;
             Scratch.settings.use_system_font = use_system_font.get_active ();
             Scratch.settings.font = select_font.font_name;
-            
-            right_margin_position.set_sensitive (show_right_margin.get_active ());
             
             this.hide ();
             //this.destroy ();
