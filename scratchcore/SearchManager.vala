@@ -223,6 +223,8 @@ public class Scratch.Services.SearchManager : GLib.Object {
             }
             else {
                 warning ("Not found : %s", search_string);
+                start_iter.set_offset (-1);
+                text_buffer.select_range (start_iter, start_iter);
                 search_entry.override_color (Gtk.StateFlags.FOCUSED, {1.0, 0.0, 0.0, 1.0});
                 return false;
             }
