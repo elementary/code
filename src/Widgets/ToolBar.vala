@@ -40,6 +40,7 @@ namespace Scratch.Widgets {
         public ShareMenu share_menu;
         public Menu menu;
         public ShareAppMenu share_app_menu;
+        public ComboBoxSyntax combo_syntax;
         public AppMenu app_menu;
         
         Gtk.Menu menu_ui;
@@ -65,6 +66,7 @@ namespace Scratch.Widgets {
         }
         
         UIManager ui;
+        public Scratch.Services.SearchManager search_manager;
 
         public Toolbar (MainWindow parent, UIManager ui, Gtk.ActionGroup action_group) {
 
@@ -91,6 +93,12 @@ namespace Scratch.Widgets {
             add (revert_button);
             add (undo_button);
             add (repeat_button);
+            
+            combo_syntax = new ComboBoxSyntax ();
+            combo_syntax.load();
+            var toolitem = new Gtk.ToolItem();
+            toolitem.add(combo_syntax);
+            add(toolitem);
 
             add (new SeparatorToolItem ());
 
@@ -103,6 +111,16 @@ namespace Scratch.Widgets {
             plugins.hook_toolbar(this);
 
             add (add_spacer ());
+
+            search_manager = new Scratch.Services.SearchManager (action_group);
+            Scratch.settings.schema.bind ("search-sensitive", search_manager, "case-sensitive", SettingsBindFlags.DEFAULT);
+            Scratch.settings.schema.bind ("search-loop", search_manager, "cycle-search", SettingsBindFlags.DEFAULT);
+
+            add (search_manager.get_search_entry ());
+            search_manager.get_search_entry ().set_margin_right (5);
+            add (search_manager.get_replace_entry ());
+            add (search_manager.get_go_to_entry ());
+            
             add (share_app_menu);
             add (app_menu);
 

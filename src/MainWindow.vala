@@ -92,8 +92,6 @@ namespace Scratch {
          **/
         public Gtk.Notebook notebook_bottom;
 
-        public StatusBar statusbar;
-
         //dialogs
         public FileChooserDialog filech;
 
@@ -104,6 +102,7 @@ namespace Scratch {
         //objects for the set_theme ()
         FontDescription font;
         public Scratch.ScratchApp scratch_app;
+        public StatusBar statusbar;
 
         ScratchWelcome welcome_screen;
         Granite.Widgets.HCollapsablePaned hpaned_sidebar;
@@ -237,11 +236,11 @@ namespace Scratch {
         void on_split_view_page_changed (Gtk.Widget w) {
 
             if (w is Scratch.Widgets.SourceView) {
-                statusbar.search_manager.set_text_view ((Scratch.Widgets.SourceView) w);
+                toolbar.search_manager.set_text_view ((Scratch.Widgets.SourceView) w);
                 var tab = w.get_parent () as Tab;
 
                 assert(tab != null);
-                statusbar.language_id = tab.text_view.buffer.language.id;
+                toolbar.combo_syntax.language_id = tab.text_view.buffer.language.id;
             }
             else
                 warning("The focused widget is not a valid TextView");
@@ -253,6 +252,7 @@ namespace Scratch {
         public void create_window () {
 
             this.toolbar = new Widgets.Toolbar (this, ui, main_actions);
+            toolbar.combo_syntax.changed.connect (on_status_language_id_changed);
 
             notebook_context = new Gtk.Notebook ();
             notebook_context.page_added.connect (on_notebook_context_new_page);
@@ -273,7 +273,7 @@ namespace Scratch {
             
             
             vbox_split_view_toolbar = new Gtk.VBox(false, 0);
-            statusbar = new StatusBar (main_actions);
+            statusbar = new StatusBar ();
             statusbar.notify["language-id"].connect (on_status_language_id_changed);
             vbox_split_view_toolbar.pack_start (split_view, true, true, 0);
             vbox_split_view_toolbar.pack_end (statusbar, false, false, 0);
@@ -315,6 +315,8 @@ namespace Scratch {
             notebook_settings_changed ("context-visible");
             notebook_settings_changed ("bottom-panel-visible");
             
+            
+            main_actions.get_action ("ShowStatusBar").visible = false;
 
         }
 
@@ -334,7 +336,7 @@ namespace Scratch {
             main_actions.get_action ("Remove view").set_sensitive (val ? split_view_multiple_view : false);
             main_actions.get_action ("ShowStatusBar").set_sensitive (val);
             toolbar.set_actions (val);
-            statusbar.combo_syntax.set_sensitive (val);
+            toolbar.combo_syntax.set_sensitive (val);
 
         }
 
@@ -487,7 +489,7 @@ namespace Scratch {
 
         public void on_status_language_id_changed () {
             Gtk.SourceLanguage lang;
-            lang = current_tab.text_view.manager.get_language ( statusbar.language_id );
+            lang = current_tab.text_view.manager.get_language (toolbar.combo_syntax.language_id);
             current_tab.text_view.buffer.set_language (lang);
         }
 
@@ -618,11 +620,11 @@ namespace Scratch {
         }
 
         void case_up () {
-            statusbar.search_manager.search_previous ();
+            toolbar.search_manager.search_previous ();
         }
 
         void case_down () {
-            statusbar.search_manager.search_next ();
+            toolbar.search_manager.search_next ();
         }
 
         void action_undo () {
@@ -693,7 +695,7 @@ namespace Scratch {
         }
         
         void action_show_status_bar (Gtk.Action action) {
-            if (!((Gtk.ToggleAction)action).active) {
+            if (!((Gtk.ToggleAction)action).active || statusbar.get_children ().length () == 0) {
                 statusbar.no_show_all = true;
                 statusbar.visible = false;
                 Scratch.settings.statusbar_visible = false;

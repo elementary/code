@@ -48,7 +48,6 @@ vala_precompile(VALA_C
     src/Widgets/Tab.vala
     src/Widgets/TabLabel.vala
     src/Widgets/SplitView.vala
-    src/Widgets/StatusBar.vala
     src/Widgets/ToolBar.vala
     src/Dialogs/PreferencesDialog.vala
     src/Dialogs/SaveDialog.vala
@@ -56,17 +55,19 @@ vala_precompile(VALA_C
     src/Dialogs/ToolBarEditor.vala
     src/Services/Document.vala
     src/config.vala
+    src/Widgets/ComboSyntax.vala
+    src/Widgets/StatusBar.vala
 PACKAGES
-	${SCRATCH_DEPS}
+    	${SCRATCH_DEPS}
     scratchplugins
     scratchcore
 OPTIONS
     --vapidir=${CMAKE_BINARY_DIR}/libplugins
     --vapidir=${CMAKE_BINARY_DIR}/scratchcore
     --thread
-GENERATE_VAPI
+    GENERATE_VAPI
     scratch
-GENERATE_HEADER
+    GENERATE_HEADER
     scratch
 )
 # tranlation stuff
