@@ -89,7 +89,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
 
         search_entry.changed.connect (on_search_entry_text_changed);
         search_entry.key_press_event.connect (on_search_entry_key_press);
-        search_entry.activate.connect (on_search_entry_activate);
+        search_entry.focus_in_event.connect (on_search_entry_focused_in);
 
         go_to_entry.activate.connect (on_go_to_entry_activate);
         replace_entry.activate.connect (on_replace_entry_activate);
@@ -195,12 +195,10 @@ public class Scratch.Services.SearchManager : GLib.Object {
         search ();
     }
 
-    void on_search_entry_activate () {
+    bool on_search_entry_focused_in (Gdk.EventFocus event) {
 
-        //TODO Select all text
-        //FIXME This function never seems to be called, even though I connected it to the activate signal on line 92
-        print ("Search bar activated\n");
-        return;
+        search_entry.select_region(0, -1);
+        return false;
     }
 
     public bool search () {
