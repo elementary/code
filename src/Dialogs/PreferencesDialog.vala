@@ -28,7 +28,7 @@ namespace Scratch.Dialogs {
         private MainWindow window;
 
         public StaticNotebook main_static_notebook;
-        
+
         private Switch modal_dialog;
         private Switch show_right_margin;
         private Switch line_numbers;
@@ -66,7 +66,7 @@ namespace Scratch.Dialogs {
             //create static notebook
             var general = new Label (_("General"));
             main_static_notebook.append_page (get_general_box (), general);
-            
+
             //create static notebook
             var editor = new Label (_("Editor"));
             main_static_notebook.append_page (get_editor_box (), editor);
@@ -74,11 +74,11 @@ namespace Scratch.Dialogs {
             //create static notebook
             var fonts = new Label (_("Fonts and colors"));
             main_static_notebook.append_page (get_fonts_box (), fonts);
-            
+
             //create static notebook
             var plugins_label = new Label ("Plugins");
 
-            
+
             /* Plugin management, might be better in PluginManager */
             var view = new Gtk.TreeView();
             var listmodel = new Gtk.ListStore (2, typeof (string), typeof (bool));
@@ -132,10 +132,10 @@ namespace Scratch.Dialogs {
             if(count > 0) main_static_notebook.append_page (pbox, plugins_label);
 
             ((Gtk.Box)get_content_area()).add (main_static_notebook);
-            
+
             add_button (Stock.CLOSE, ResponseType.ACCEPT);
         }
-        
+
         void add_option (Gtk.Grid grid, Gtk.Widget label, Gtk.Widget switcher, ref int row) {
             label.hexpand = true;
             label.halign = Gtk.Align.START;
@@ -144,21 +144,21 @@ namespace Scratch.Dialogs {
             grid.attach_next_to (switcher, label, Gtk.PositionType.RIGHT, 1, 1);
             row ++;
         }
-        
+
         Gtk.Widget get_general_box () {
-            
+
             var search_label = new Label (_("Search Manager"));
             search_label.set_markup ("<b>%s</b>".printf(_("Search Manager")));
-            
+
             modal_dialog = new Switch ();
             Scratch.settings.schema.bind("modal-dialog", modal_dialog, "active", SettingsBindFlags.DEFAULT);
-            
+
             show_right_margin = new Switch ();
             Scratch.settings.schema.bind("show-right-margin", show_right_margin, "active", SettingsBindFlags.DEFAULT);
             var right_margin_position = new SpinButton.with_range (1, 250, 1);
             Scratch.settings.schema.bind("right-margin-position", right_margin_position, "value", SettingsBindFlags.DEFAULT);
             Scratch.settings.schema.bind("show-right-margin", right_margin_position, "sensitive", SettingsBindFlags.DEFAULT);
-            
+
             var general_grid = new Gtk.Grid ();
             general_grid.row_spacing = 5;
             general_grid.column_spacing = 5;
@@ -166,37 +166,37 @@ namespace Scratch.Dialogs {
             general_grid.margin_right = 12;
             general_grid.margin_top = 12;
             general_grid.margin_bottom = 12;
-            
+
             int row = 0;
             var label = new Label (_("Show a right margin:"));
             add_option (general_grid, label, show_right_margin, ref row);
-            
+
             label = new Label (_("Show right margin at column:"));
             add_option (general_grid, label, right_margin_position, ref row);
             Scratch.settings.schema.bind("show-right-margin", label, "sensitive", SettingsBindFlags.DEFAULT);
-            
+
             label = new Label (_("Show dialogs as modal:"));
             add_option (general_grid, label, modal_dialog, ref row);
-            
+
             var cycle_search = new Gtk.Switch ();
             var case_sensitive = new Gtk.Switch ();
             Scratch.settings.schema.bind("search-loop", cycle_search, "active", SettingsBindFlags.DEFAULT);
             Scratch.settings.schema.bind("search-sensitive", case_sensitive, "active", SettingsBindFlags.DEFAULT);
-            
+
             general_grid.attach (search_label, 0, row, 2, 1);
             search_label.hexpand = search_label.vexpand = true;
             search_label.halign = Gtk.Align.CENTER;
             row ++;
-            
+
             label = new Label (_("Search loop:"));
             add_option (general_grid, label, cycle_search, ref row);
-            
+
             label = new Label (_("Case sensitive search:"));
             add_option (general_grid, label, case_sensitive, ref row);
-            
+
             return general_grid;
         }
-        
+
         Gtk.Widget get_editor_box () {
             //create general settings
 
@@ -210,16 +210,22 @@ namespace Scratch.Dialogs {
 
             line_numbers = new Switch ();
             Scratch.settings.schema.bind("show-line-numbers", line_numbers, "active", SettingsBindFlags.DEFAULT);
-            
+
+            var highlightings_label = new Label (_("Highlightings"));
+            highlightings_label.set_markup ("<b>%s</b>".printf(_("Highlightings")));
+
             highlight_current_line = new Switch ();
             Scratch.settings.schema.bind("highlight-current-line", highlight_current_line, "active", SettingsBindFlags.DEFAULT);
 
             highlight_matching_brackets = new Switch ();
             Scratch.settings.schema.bind("highlight-matching-brackets", highlight_matching_brackets, "active", SettingsBindFlags.DEFAULT);
 
+            var tabs_label = new Label (_("Indentation and Tabs"));
+            tabs_label.set_markup ("<b>%s</b>".printf(_("Indentation and Tabs")));
+
             spaces_instead_of_tabs = new Switch ();
             Scratch.settings.schema.bind("spaces-instead-of-tabs", spaces_instead_of_tabs, "active", SettingsBindFlags.DEFAULT);
-            
+
             auto_indent = new Switch ();
             Scratch.settings.schema.bind("auto-indent", auto_indent, "active", SettingsBindFlags.DEFAULT);
 
@@ -228,12 +234,24 @@ namespace Scratch.Dialogs {
 
             int row = 0;
             add_option (content, new Label (_("Show line numbers:")), line_numbers, ref row);
+            
+            content.attach (highlightings_label, 0, row, 2, 1);
+            highlightings_label.hexpand = highlightings_label.vexpand = true;
+            highlightings_label.halign = Gtk.Align.CENTER;
+            row ++;
+
             add_option (content, new Label (_("Highlight current line:")), highlight_current_line, ref row);
             add_option (content, new Label (_("Highlight matching brackets:")), highlight_matching_brackets, ref row);
+            
+            content.attach (tabs_label, 0, row, 2, 1);
+            tabs_label.hexpand = tabs_label.vexpand = true;
+            tabs_label.halign = Gtk.Align.CENTER;
+            row ++;
+            
             add_option (content, new Label (_("Use spaces instead of tabs:")), spaces_instead_of_tabs, ref row);
             add_option (content, new Label (_("Tab width:")), indent_width, ref row);
             add_option (content, new Label (_("Use auto indent:")), auto_indent, ref row);
-            
+
             return content;
         }
 
@@ -257,7 +275,7 @@ namespace Scratch.Dialogs {
             use_system_font = new Switch ();
 
             select_font = new FontButton ();
-            
+
             Scratch.settings.schema.bind("font", select_font, "font-name", SettingsBindFlags.DEFAULT);
             Scratch.settings.schema.bind("use-system-font", use_system_font, "active", SettingsBindFlags.DEFAULT);
             Scratch.settings.schema.bind("use-system-font", select_font, "sensitive", SettingsBindFlags.INVERT_BOOLEAN);
@@ -267,7 +285,7 @@ namespace Scratch.Dialogs {
             add_option (content, new Label (_("Color scheme:")), style_scheme, ref row);
             add_option (content, new Label (_("Use the system fixed width font (%s):").printf(default_font())), use_system_font, ref row);
             add_option (content, select_font_l, select_font, ref row);
-            
+
             return content;
         }
 
@@ -302,7 +320,7 @@ namespace Scratch.Dialogs {
                 var scheme = scheme_manager.get_scheme (scheme_id);
                 style_scheme.append (scheme.id, scheme.name);
             }
-            
+
 
         }
 
