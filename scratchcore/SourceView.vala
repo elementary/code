@@ -60,7 +60,7 @@ namespace Scratch.Widgets {
 
             Scratch.settings.changed.connect (restore_settings);
 
-            if (plugins != null)
+            if(plugins != null)
                 plugins.hook_source_view(this);
 
         }
@@ -129,7 +129,6 @@ namespace Scratch.Widgets {
             right_margin_position = Scratch.settings.right_margin_position;
             show_line_numbers = Scratch.settings.show_line_numbers;
             highlight_current_line = Scratch.settings.highlight_current_line;
-            buffer.highlight_matching_brackets = Scratch.settings.highlight_matching_brackets;
             insert_spaces_instead_of_tabs = Scratch.settings.spaces_instead_of_tabs;
             tab_width = (uint) Scratch.settings.indent_width;
 
@@ -147,7 +146,6 @@ namespace Scratch.Widgets {
             Scratch.settings.show_right_margin = show_right_margin;
             Scratch.settings.right_margin_position = (int) right_margin_position;
             Scratch.settings.highlight_current_line = highlight_current_line;
-            Scratch.settings.highlight_matching_brackets = buffer.highlight_matching_brackets;
             Scratch.settings.spaces_instead_of_tabs = insert_spaces_instead_of_tabs;
             Scratch.settings.indent_width = (int) tab_width;
             Scratch.settings.font = current_font;

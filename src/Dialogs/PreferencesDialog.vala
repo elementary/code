@@ -33,7 +33,6 @@ namespace Scratch.Dialogs {
         private Switch show_right_margin;
         private Switch line_numbers;
         private Switch highlight_current_line;
-        private Switch highlight_matching_brackets;
         private Switch spaces_instead_of_tabs;
         private Switch auto_indent;
         private SpinButton indent_width;
@@ -214,9 +213,6 @@ namespace Scratch.Dialogs {
             highlight_current_line = new Switch ();
             Scratch.settings.schema.bind("highlight-current-line", highlight_current_line, "active", SettingsBindFlags.DEFAULT);
 
-            highlight_matching_brackets = new Switch ();
-            Scratch.settings.schema.bind("highlight-matching-brackets", highlight_matching_brackets, "active", SettingsBindFlags.DEFAULT);
-
             spaces_instead_of_tabs = new Switch ();
             Scratch.settings.schema.bind("spaces-instead-of-tabs", spaces_instead_of_tabs, "active", SettingsBindFlags.DEFAULT);
             
@@ -229,7 +225,6 @@ namespace Scratch.Dialogs {
             int row = 0;
             add_option (content, new Label (_("Show line numbers:")), line_numbers, ref row);
             add_option (content, new Label (_("Highlight current line:")), highlight_current_line, ref row);
-            add_option (content, new Label (_("Highlight matching brackets:")), highlight_matching_brackets, ref row);
             add_option (content, new Label (_("Use spaces instead of tabs:")), spaces_instead_of_tabs, ref row);
             add_option (content, new Label (_("Tab width:")), indent_width, ref row);
             add_option (content, new Label (_("Use auto indent:")), auto_indent, ref row);
