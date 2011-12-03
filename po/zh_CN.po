@@ -1,4 +1,4 @@
-# Norwegian Nynorsk translation for scratch
+# Chinese (Simplified) translation for scratch
 # Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
 # This file is distributed under the same license as the scratch package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-11-30 19:32+0100\n"
-"PO-Revision-Date: 2011-12-02 08:38+0000\n"
-"Last-Translator: Martin Myrvold <Unknown>\n"
-"Language-Team: Norwegian Nynorsk <nn@li.org>\n"
+"PO-Revision-Date: 2011-12-02 08:40+0000\n"
+"Last-Translator: 英华 <wantinghard@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,149 +19,147 @@ msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:66
 msgid " Syntax Highlighting"
-msgstr " Syntaks merking"
+msgstr " 语法高亮"
 
 #: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:76
 msgid "Tab width"
-msgstr "Fanevidde"
+msgstr "制表符宽度"
 
 #: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:85
 msgid "Color Scheme"
-msgstr "Fargeskjema"
+msgstr "配色方案"
 
 #: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:111
 msgid "Normal text"
-msgstr "Vanleg tekst"
+msgstr "普通文本"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:51
 msgid "Fullscreen"
-msgstr "Fullskjerm"
+msgstr "全屏"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:104
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
 msgid "New file"
-msgstr "Ny fil"
+msgstr "新建文件"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
 msgid "No files are open."
-msgstr "Ingen filer er opna"
+msgstr "没有打开文件。"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
 msgid "Open a file to begin editing."
-msgstr "Opna ei fil for å byrja å redigera."
+msgstr "打开一个文件进行编辑。"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Open file"
-msgstr "Opna fil"
+msgstr "打开文件"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Open a saved file."
-msgstr "Opna ei lagra fil."
+msgstr "打开一个已保存的文件。"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
 msgid "Create a new empty file."
-msgstr "Lag ei tom ny fil."
+msgstr "创建一个新的空白文件。"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid "Save this file? "
-msgstr "Lagra denne fila? "
+msgstr "保存这个文件吗？ "
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid "New File"
-msgstr "Ny fil"
+msgstr "新建文件"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:41
 msgid "All your work will be lost!"
-msgstr "Ditt arbeid vill forsvinna!"
+msgstr "您的所有工作将丢失！"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:69
 msgid "General"
-msgstr "Allmennt"
+msgstr "常规"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
 msgid "Editor"
-msgstr "Skriveprogram"
+msgstr "编辑器"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:77
 msgid "Fonts and colors"
-msgstr "Font og farge"
+msgstr "字体和颜色"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Search Manager"
-msgstr "Søkehandsamar"
+msgstr "搜索管理器"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:165
 msgid "Show right margin at column:"
-msgstr "Vis høgremargin i kolonne:"
+msgstr "在第几列显示右侧边界"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:170
 msgid "Show a right margin"
-msgstr "Vis høgremargin"
+msgstr "显示右侧边界"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:172
 msgid "Show dialogs as modal"
-msgstr "Vid dialogar som sperre"
+msgstr "显示模态对话框(下方窗口不可操作)"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:180
 msgid "Search Loop"
-msgstr "Søk sløyfa"
+msgstr "折回搜索"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:181
 msgid "Case Sensitive Search"
-msgstr "Søk med store og små bokstavar"
+msgstr "搜索区分大小写"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
 msgid "Tab width:"
-msgstr "Fane breidd:"
+msgstr "制表符宽度:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:214
 msgid "Show line numbers"
-msgstr "Vis linjenummer"
+msgstr "显示行号"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:215
 msgid "Highlight current line"
-msgstr "Uthev denne linja"
+msgstr "高亮显示当前行"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:216
 msgid "Use spaces instead of tabs"
-msgstr "Bruk mellomrom istaden for fanar"
+msgstr "使用空格代替制表符"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:218
 msgid "Use auto indent"
-msgstr "Bruk automatisk inrykk"
+msgstr "使用自动缩进"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:233
 msgid "Color scheme:"
-msgstr "Fargeskjema:"
+msgstr "颜色方案:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:246
 msgid "Select font:"
-msgstr "Vel font:"
+msgstr "选择字体："
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:254
 msgid "Use the system fixed width font ("
-msgstr "Bruk vidda til systemfonten"
+msgstr "使用系统等宽字体("
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:46
 msgid "Changes to this file haven't been saved."
-msgstr "Endringane til fila har ikkje blitt lagra."
+msgstr "对此文件的更改尚未保存。"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:46
 msgid "Do you want to save changes before closing this file?"
-msgstr "Vil du lagra endringane før du forlet denne fila?"
+msgstr "在关闭文件前您想保存更改吗？"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:63
 msgid ""
 "Select the elements to show in the toolbar. You can customize them also with "
 "drag n drop"
-msgstr ""
-"Velg elementa du vil vise i verktøylinja. Du kan endre dei med dra og slipp "
-"funksjonen"
+msgstr "选择要显示在工具栏上的元素。您可以通过拖放来定制它们"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:97
 msgid "Avaible elements"
-msgstr "Ledige element"
+msgstr "可用的元素"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:115
 msgid "Showed elements"
-msgstr "Viste element"
+msgstr "显示的元素"
