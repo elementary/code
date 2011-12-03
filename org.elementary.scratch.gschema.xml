@@ -81,6 +81,11 @@
             <default>true</default>
             <summary>Highlight Current Line</summary>
             <description>Whether Scratch should highlight the current line.</description>
+          </key>
+        <key name="highlight-matching-brackets" type="b">
+            <default>false</default>
+            <summary>Highlight Matching Brackets</summary>
+            <description>Whether Scratch should highlight matching brackets.</description>
         </key>
         <key name="spaces-instead-of-tabs" type="b">
             <default>false</default>
