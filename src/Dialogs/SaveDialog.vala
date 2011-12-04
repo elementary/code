@@ -27,6 +27,7 @@ namespace Scratch.Dialogs {
         private Tab caller;
 
         private Box headbox;
+        private Label main_label;
         private Label label;
         private Image image;
 
@@ -42,13 +43,21 @@ namespace Scratch.Dialogs {
 	    this.set_modal (Scratch.settings.modal_dialog);
 
             caller = callertab;
-	    
+	   
+            string filename = callertab.filename;
+            if (filename == null)
+                main_label = new Label (_("Save unsaved changes to file before closing?"));
+            else
+                main_label = new Label (_("Save unsaved changes to file \"" + filename + "\" before closing?")); //FIXME Display one filename, not the whole path
+            main_label.set_markup ("<b>%s</b>".printf(_(main_label.get_text ())));
+
             label = new Label(_("Changes to this file haven't been saved.") + "\n" + _("Do you want to save changes before closing this file?"));
             image = new Image.from_stock(Stock.DIALOG_WARNING, IconSize.DIALOG);
 
             headbox = new Box (Orientation.HORIZONTAL, 10);
-            headbox.pack_start(image, true, false, 5);
-            headbox.pack_start (label, true, true, 5);
+            headbox.pack_start (image, true, false, 5);
+            headbox.pack_start (main_label, true, true, 5);
+            headbox.pack_start (label, true, true, 0); //FIXME Display under main_label
 
             discard = new Button.with_label(Stock.DISCARD);
                 discard.set_use_stock(true);
