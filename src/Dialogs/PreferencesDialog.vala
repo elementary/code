@@ -56,7 +56,7 @@ namespace Scratch.Dialogs {
 
             create_layout ();
 
-            Scratch.plugins.hook_preferences_dialog(this);
+            Scratch.plugins.hook_preferences_dialog (this);
 
         }
 

@@ -106,6 +106,7 @@ namespace Scratch.Widgets {
                 new_tab = new Tab (this, labeltext);
             return add_existing_tab(new_tab);
         }
+
         public int add_existing_tab (Tab new_tab) {
             int index = this.append_page (new_tab, new_tab.label);
             set_tab_reorderable(new_tab, true);
