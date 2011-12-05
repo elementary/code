@@ -293,17 +293,11 @@ namespace Scratch.Services {
             if (filename != null) {
                 if (buffer.text == original_text) {
                     window.main_actions.get_action ("Revert").set_sensitive (false);
-                    //top.toolbar.revert_button.set_sensitive (false);
-                    window.main_actions.get_action ("Save").set_sensitive (false);
-                    window.toolbar.save_button.set_sensitive (false);//TODO: fix it
                     set_label_font ("saved");
                     modified = false;
                 }
                 else {
                     window.main_actions.get_action ("Revert").set_sensitive (true);
-                    //top.toolbar.revert_button.set_sensitive (true);
-                    window.main_actions.get_action ("Save").set_sensitive (true);
-                    window.toolbar.save_button.set_sensitive (true);//TODO: fix it
                     set_label_font ("modified");
                     modified = true;
                 }
