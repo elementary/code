@@ -48,11 +48,10 @@ namespace Scratch.Dialogs {
             this.type_hint = Gdk.WindowTypeHint.DIALOG;
             this.set_modal (Scratch.settings.modal_dialog);
             this.set_transient_for (window);
-            resizable = false;
+            set_default_size (600, 300);
+            //resizable = false;
 
             main_static_notebook = new StaticNotebook ();
-
-            set_default_size (550, 250);
 
             create_layout ();
 
@@ -225,6 +224,7 @@ namespace Scratch.Dialogs {
 
             indent_width = new SpinButton.with_range (1, 24, 1);
             Scratch.settings.schema.bind("indent-width", indent_width, "value", SettingsBindFlags.DEFAULT);
+            Scratch.settings.schema.bind("spaces-instead-of-tabs", indent_width, "sensitive", SettingsBindFlags.DEFAULT);
 
             int row = 0;
             add_option (content, new Label (_("Show line numbers:")), line_numbers, ref row);
