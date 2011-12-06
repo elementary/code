@@ -26,56 +26,53 @@ namespace Scratch.Dialogs {
 
         private Tab caller;
 
-        private Box headbox;
-        private Label main_label;
-        private Label label;
-        private Image image;
-
-        private Box buttonbox;
-        private Button discard;
-        private Button cancel;
-        private Button save;
-
-        private Box container;
-
         public SaveDialog (Tab callertab) {
 
 	    this.set_modal (Scratch.settings.modal_dialog);
 
-            caller = callertab;
+            this.caller = callertab;
 	   
-            string filename = callertab.filename;
+            string path = callertab.document.filename;
+            var file = File.new_for_path (path);
+            string filename = file.get_basename ();
+            
+            Gtk.Label main_label;
+            
             if (filename == null)
                 main_label = new Label (_("Save unsaved changes to file before closing?"));
             else
-                main_label = new Label (_("Save unsaved changes to file \"" + filename + "\" before closing?")); //FIXME Display one filename, not the whole path
+                main_label = new Label (_("Save unsaved changes to file \"" + filename + "\" before closing?"));
             main_label.set_markup ("<b>%s</b>".printf(_(main_label.get_text ())));
 
-            label = new Label(_("Changes to this file haven't been saved.") + "\n" + _("Do you want to save changes before closing this file?"));
-            image = new Image.from_stock(Stock.DIALOG_WARNING, IconSize.DIALOG);
+            var label = new Label(_("Changes to this file haven't been saved.") + "\n" + _("Do you want to save changes before closing this file?"));
+            var image = new Image.from_stock(Stock.DIALOG_WARNING, IconSize.DIALOG);
 
-            headbox = new Box (Orientation.HORIZONTAL, 10);
+            var headbox = new Box (Orientation.HORIZONTAL, 10);
+            var label_box = new Box (Orientation.VERTICAL, 10);
             headbox.pack_start (image, true, false, 5);
-            headbox.pack_start (main_label, true, true, 5);
-            headbox.pack_start (label, true, true, 0); //FIXME Display under main_label
+            label_box.pack_start (main_label, true, true, 5);
+            label_box.pack_start (label, true, true, 5); 
+            headbox.pack_start (label_box, true, true, 5);
+            
+            var discard = new Button.with_label(Stock.DISCARD);
+            discard.set_use_stock(true);
+            discard.clicked.connect(this.on_discard_clicked);
+            
+            var cancel = new Button.with_label(Stock.CANCEL);
+            cancel.set_use_stock(true);
+            cancel.clicked.connect(this.on_cancel_clicked);
+            
+            var save = new Button.with_label(Stock.SAVE);
+            save.set_use_stock(true);
+            save.clicked.connect(this.on_save_clicked);
 
-            discard = new Button.with_label(Stock.DISCARD);
-                discard.set_use_stock(true);
-                discard.clicked.connect(this.on_discard_clicked);
-            cancel = new Button.with_label(Stock.CANCEL);
-                cancel.set_use_stock(true);
-                cancel.clicked.connect(this.on_cancel_clicked);
-            save = new Button.with_label(Stock.SAVE);
-                save.set_use_stock(true);
-                save.clicked.connect(this.on_save_clicked);
-
-            buttonbox = new Box(Orientation.HORIZONTAL, 10);
+            var buttonbox = new Box(Orientation.HORIZONTAL, 10);
             buttonbox.set_homogeneous(true);
             buttonbox.pack_start (discard, true, true, 5);
             buttonbox.pack_start (cancel, true, true, 5);
             buttonbox.pack_start (save, true, true, 5);
 
-            container = new Box (Orientation.VERTICAL, 10);
+            var container = new Box (Orientation.VERTICAL, 10);
             container.pack_start (headbox, true, true, 5);
             container.pack_start (buttonbox, true, true, 5);
 
