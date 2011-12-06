@@ -146,9 +146,6 @@ namespace Scratch.Dialogs {
         
         Gtk.Widget get_general_box () {
             
-            var search_label = new Label (_("Search Manager"));
-            search_label.set_markup ("<b>%s</b>".printf(_("Search Manager")));
-            
             modal_dialog = new Switch ();
             Scratch.settings.schema.bind("modal-dialog", modal_dialog, "active", SettingsBindFlags.DEFAULT);
             
@@ -167,14 +164,14 @@ namespace Scratch.Dialogs {
             general_grid.margin_bottom = 12;
             
             int row = 0;
-            var label = new Label (_("Show a right margin:"));
+            var label = new Label (_("Right margin"));
             add_option (general_grid, label, show_right_margin, ref row);
             
-            label = new Label (_("Show right margin at column:"));
+            label = new Label (_("Right margin at column"));
             add_option (general_grid, label, right_margin_position, ref row);
             Scratch.settings.schema.bind("show-right-margin", label, "sensitive", SettingsBindFlags.DEFAULT);
             
-            label = new Label (_("Show dialogs as modal:"));
+            label = new Label (_("Modal dialogs"));
             add_option (general_grid, label, modal_dialog, ref row);
             
             var cycle_search = new Gtk.Switch ();
@@ -182,15 +179,12 @@ namespace Scratch.Dialogs {
             Scratch.settings.schema.bind("search-loop", cycle_search, "active", SettingsBindFlags.DEFAULT);
             Scratch.settings.schema.bind("search-sensitive", case_sensitive, "active", SettingsBindFlags.DEFAULT);
             
-            general_grid.attach (search_label, 0, row, 2, 1);
-            search_label.hexpand = search_label.vexpand = true;
-            search_label.halign = Gtk.Align.CENTER;
             row ++;
             
-            label = new Label (_("Search loop:"));
+            label = new Label (_("Search loop"));
             add_option (general_grid, label, cycle_search, ref row);
             
-            label = new Label (_("Case sensitive search:"));
+            label = new Label (_("Case sensitive search"));
             add_option (general_grid, label, case_sensitive, ref row);
             
             return general_grid;
@@ -227,12 +221,12 @@ namespace Scratch.Dialogs {
             Scratch.settings.schema.bind("spaces-instead-of-tabs", indent_width, "sensitive", SettingsBindFlags.DEFAULT);
 
             int row = 0;
-            add_option (content, new Label (_("Show line numbers:")), line_numbers, ref row);
-            add_option (content, new Label (_("Highlight current line:")), highlight_current_line, ref row);
-            add_option (content, new Label (_("Highlight matching brackets:")), highlight_matching_brackets, ref row);
-            add_option (content, new Label (_("Use spaces instead of tabs:")), spaces_instead_of_tabs, ref row);
-            add_option (content, new Label (_("Tab width:")), indent_width, ref row);
-            add_option (content, new Label (_("Use auto indent:")), auto_indent, ref row);
+            add_option (content, new Label (_("Line numbers")), line_numbers, ref row);
+            add_option (content, new Label (_("Highlight current line")), highlight_current_line, ref row);
+            add_option (content, new Label (_("Highlight matching brackets")), highlight_matching_brackets, ref row);
+            add_option (content, new Label (_("Spaces instead of tabs")), spaces_instead_of_tabs, ref row);
+            add_option (content, new Label (_("Tab width")), indent_width, ref row);
+            add_option (content, new Label (_("Auto indent")), auto_indent, ref row);
             
             return content;
         }
@@ -265,7 +259,7 @@ namespace Scratch.Dialogs {
             Scratch.settings.schema.bind("use-system-font", select_font_l, "sensitive", SettingsBindFlags.INVERT_BOOLEAN);
 
             add_option (content, new Label (_("Color scheme:")), style_scheme, ref row);
-            add_option (content, new Label (_("Use the system fixed width font (%s):").printf(default_font())), use_system_font, ref row);
+            add_option (content, new Label (_("System fixed width font (%s):").printf(default_font())), use_system_font, ref row);
             add_option (content, select_font_l, select_font, ref row);
             
             return content;
