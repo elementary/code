@@ -240,7 +240,10 @@ namespace Scratch {
                 var tab = w.get_parent () as Tab;
 
                 assert(tab != null);
-                toolbar.combo_syntax.language_id = tab.text_view.buffer.language.id;
+                if (tab.text_view.buffer.language.id != null)
+                    toolbar.combo_syntax.language_id = tab.text_view.buffer.language.id;
+                else
+                    toolbar.combo_syntax.language_id = "normal";
             }
             else
                 warning("The focused widget is not a valid TextView");
