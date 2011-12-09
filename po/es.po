@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-11-30 19:32+0100\n"
-"PO-Revision-Date: 2011-12-06 05:57+0000\n"
-"Last-Translator: ttosttos <Unknown>\n"
+"PO-Revision-Date: 2011-12-09 00:52+0000\n"
+"Last-Translator: Alfredo Hernández <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-07 05:30+0000\n"
-"X-Generator: Launchpad (build 14435)\n"
+"X-Launchpad-Export-Date: 2011-12-09 05:25+0000\n"
+"X-Generator: Launchpad (build 14450)\n"
 "Language: es\n"
 
 #: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:66
@@ -24,11 +24,11 @@ msgstr " Resaltado de sintaxis"
 
 #: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:76
 msgid "Tab width"
-msgstr "Ancho de la pestaña"
+msgstr "Ancho de la tabulación"
 
 #: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:85
 msgid "Color Scheme"
-msgstr "Esquema de Colores"
+msgstr "Esquema de colores"
 
 #: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:111
 msgid "Normal text"
@@ -41,7 +41,7 @@ msgstr "Pantalla completa"
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:104
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
 msgid "New file"
-msgstr "Archivo nuevo"
+msgstr "Nuevo archivo"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
 msgid "No files are open."
@@ -61,7 +61,7 @@ msgstr "Abrir un archivo guardado."
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
 msgid "Create a new empty file."
-msgstr "Crear un nuevo archivo vacío"
+msgstr "Crear un nuevo archivo vacío."
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid "Save this file? "
@@ -69,7 +69,7 @@ msgstr "¿Guardar este archivo? "
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid "New File"
-msgstr "Archivo nuevo"
+msgstr "Nuevo archivo"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:41
 msgid "All your work will be lost!"
@@ -77,7 +77,7 @@ msgstr "Se perderá todo su trabajo."
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:69
 msgid "General"
-msgstr "Generales"
+msgstr "General"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
 msgid "Editor"
@@ -85,23 +85,23 @@ msgstr "Editor"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:77
 msgid "Fonts and colors"
-msgstr "Fuentes y colores"
+msgstr "Tipografías y colores"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Search Manager"
-msgstr "Administrador de busquedas"
+msgstr "Administrador de búsqueda"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:165
 msgid "Show right margin at column:"
-msgstr "Mostrar margen derecho en la columna"
+msgstr "Mostrar margen derecho en la columna:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:170
 msgid "Show a right margin"
-msgstr "Motrar margen derecho"
+msgstr "Mostrar un margen derecho"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:172
 msgid "Show dialogs as modal"
-msgstr "Mostrar cuadros de diálogo como diálogos modales"
+msgstr "Mostrar los cuadros de diálogo como diálogos modales"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:180
 msgid "Search Loop"
@@ -129,11 +129,11 @@ msgstr "Utilizar espacios en lugar de tabuladores"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:218
 msgid "Use auto indent"
-msgstr ""
+msgstr "Utilizar sangría automática"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:233
 msgid "Color scheme:"
-msgstr "Esquema de color:"
+msgstr "Esquema de colores:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:246
 msgid "Select font:"
@@ -141,7 +141,7 @@ msgstr "Seleccionar fuente:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:254
 msgid "Use the system fixed width font ("
-msgstr "Usar ancho de fuente del sistema ("
+msgstr "Usar tipografía de ancho fijo del sistema ("
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:46
 msgid "Changes to this file haven't been saved."
@@ -157,7 +157,7 @@ msgid ""
 "drag n drop"
 msgstr ""
 "Seleccione los elementos que desea mostrar en la barra de herramientas. "
-"Puede arrastrarlos y soltarlos"
+"También puede personalizar la barra arrastrando y soltando los elementos"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:97
 msgid "Avaible elements"

@@ -1,4 +1,4 @@
-# Catalan translation for scratch
+# Turkish translation for scratch
 # Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
 # This file is distributed under the same license as the scratch package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-11-30 19:32+0100\n"
-"PO-Revision-Date: 2011-12-09 00:58+0000\n"
-"Last-Translator: Alfredo Hernández <Unknown>\n"
-"Language-Team: Catalan <ca@li.org>\n"
+"PO-Revision-Date: 2011-12-08 09:22+0000\n"
+"Last-Translator: Fatih Dayioglu <fatihdy@gmail.com>\n"
+"Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,149 +19,147 @@ msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:66
 msgid " Syntax Highlighting"
-msgstr " Realçat de sintaxi"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:76
 msgid "Tab width"
-msgstr "Amplada de la tabulació"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:85
 msgid "Color Scheme"
-msgstr "Esquema de colors"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:111
 msgid "Normal text"
-msgstr "Text normal"
+msgstr "Normal metin"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:51
 msgid "Fullscreen"
-msgstr "Pantalla completa"
+msgstr "Tam Ekran"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:104
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
 msgid "New file"
-msgstr "Nou fitxer"
+msgstr "Yeni dosya"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
 msgid "No files are open."
-msgstr "No hi ha cap fitxer obert."
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
 msgid "Open a file to begin editing."
-msgstr "Obriu un fitxer per començar l'edició."
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Open file"
-msgstr "Obre un fitxer"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Open a saved file."
-msgstr "Obre un fitxer desat."
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
 msgid "Create a new empty file."
-msgstr "Crea un fitxer nou buit."
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid "Save this file? "
-msgstr "Voleu desar aquest fitxer? "
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid "New File"
-msgstr "Nou fitxer"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:41
 msgid "All your work will be lost!"
-msgstr "Tot el vostre treball es perdrà."
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:69
 msgid "General"
-msgstr "Generals"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
 msgid "Editor"
-msgstr "Editor"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:77
 msgid "Fonts and colors"
-msgstr "Tipografies i colors"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Search Manager"
-msgstr "Administrador de cerques"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:165
 msgid "Show right margin at column:"
-msgstr "Mostra marge dret a la columna:"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:170
 msgid "Show a right margin"
-msgstr "Mostra un marge dret"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:172
 msgid "Show dialogs as modal"
-msgstr "Mostra els quadres de diàleg com a diàlegs modals"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:180
 msgid "Search Loop"
-msgstr "Cicle de cerca"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:181
 msgid "Case Sensitive Search"
-msgstr "Cerca sensible a majúscules"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
 msgid "Tab width:"
-msgstr "Amplada de la tabulació:"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:214
 msgid "Show line numbers"
-msgstr "Mostra els números de línia"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:215
 msgid "Highlight current line"
-msgstr "Ressalta la línia actual"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:216
 msgid "Use spaces instead of tabs"
-msgstr "Utilitza espais en comptes de tabulacions"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:218
 msgid "Use auto indent"
-msgstr "Utilitza sagnat automàtic"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:233
 msgid "Color scheme:"
-msgstr "Esquema de colors:"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:246
 msgid "Select font:"
-msgstr "Selecciona tipografia:"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:254
 msgid "Use the system fixed width font ("
-msgstr "Utilitza la tipografia del sistema d'amplada fixa ("
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:46
 msgid "Changes to this file haven't been saved."
-msgstr "Els canvis en aquest fitxer no s'han desat."
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:46
 msgid "Do you want to save changes before closing this file?"
-msgstr "Vouleu desar els canvis abans de tancar aquest fitxer?"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:63
 msgid ""
 "Select the elements to show in the toolbar. You can customize them also with "
 "drag n drop"
 msgstr ""
-"Seleccioneu els elements que voleu que es mostrin en la barra d'eines. També "
-"podeu personalitzar la barra arrossegant i deixant anar els elements"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:97
 msgid "Avaible elements"
-msgstr "Elements disponibles"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:115
 msgid "Showed elements"
-msgstr "Elements mostrats"
+msgstr ""
