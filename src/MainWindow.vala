@@ -421,7 +421,22 @@ namespace Scratch {
         }
 
         void action_quit () {
+            int n = 0;
+            
             foreach (var doc in scratch_app.documents) {
+                
+                if (settings.save_opened_files) {               
+                    string filename = doc.filename;
+                    string[] op = {};
+
+                    if (filename != null) {
+                        op[n] = filename;
+                        n++;
+                    }
+
+                    settings.schema.set_strv ("opened-files", op);   
+                }             
+
                 if (doc.modified) {
                     var save_dialog = new SaveOnCloseDialog (doc.name, this);
                     int response = save_dialog.run ();

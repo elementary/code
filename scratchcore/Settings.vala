@@ -60,7 +60,9 @@ namespace Scratch {
         public bool search_loop { get; set; }
         public bool search_sensitive { get; set; }
         public string[] plugins_enabled { get; set;}
-
+        public bool save_opened_files { get; set; }
+        public string[] opened_files { get; set; }
+        
         public Settings ()  {
             base ("org.elementary.Scratch.Settings");
         }

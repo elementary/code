@@ -149,12 +149,28 @@ namespace Scratch {
                 window.title = window.TITLE;
                 window.show ();
                 plugins.hook_new_window (window);
+                if (settings.save_opened_files)
+                    restore_opened_files ();
             } else {
                 window.present ();
             }
 
         }
+        
+        void restore_opened_files () {
+            
+            string[] op = settings.schema.get_strv("opened-files");
+            
+            foreach (string file in op) {
+               if (file != "") {
+                    var doc = new Document (file, window);
+                    open_document (doc);
+                }
+            }
+            settings.schema.set_strv ("opened-files", {});
 
+        }
+        
         static const OptionEntry[] entries = {
             { "set", 's', 0, OptionArg.STRING, ref app_cmd_name, "Set of plugins", "" },
             { "set-arg", 'a', 0, OptionArg.STRING, ref app_set_arg, "Argument for the set of plugins", "" },

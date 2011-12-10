@@ -57,6 +57,16 @@
           <summary>Enabled Plugins</summary>
           <description>Enabled Plugins</description>
         </key>
+        <key name="save-opened-files" type="b">
+            <default>true</default>
+            <summary>Save the opened files</summary>
+            <description>Save the files opened in the previously Scratch session.</description>
+        </key>
+        <key type="as" name="opened-files">
+          <default>['']</default>
+          <summary>Files opened in the previously session of Scratch</summary>
+          <description>It is used to open the files opened in the last Scratch session</description>
+        </key>
         <key name="modal-dialog" type="b">
             <default>false</default>
             <summary>Show the dialogs as modal dialogs</summary>

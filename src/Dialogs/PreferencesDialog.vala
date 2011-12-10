@@ -30,6 +30,7 @@ namespace Scratch.Dialogs {
         public StaticNotebook main_static_notebook;
         
         private Switch modal_dialog;
+        private Switch save_opened_files;
         private Switch show_right_margin;
         private Switch line_numbers;
         private Switch highlight_current_line;
@@ -149,6 +150,9 @@ namespace Scratch.Dialogs {
             modal_dialog = new Switch ();
             Scratch.settings.schema.bind("modal-dialog", modal_dialog, "active", SettingsBindFlags.DEFAULT);
             
+            save_opened_files = new Switch ();
+            Scratch.settings.schema.bind("save-opened-files", save_opened_files, "active", SettingsBindFlags.DEFAULT);
+            
             show_right_margin = new Switch ();
             Scratch.settings.schema.bind("show-right-margin", show_right_margin, "active", SettingsBindFlags.DEFAULT);
             var right_margin_position = new SpinButton.with_range (1, 250, 1);
@@ -164,15 +168,18 @@ namespace Scratch.Dialogs {
             general_grid.margin_bottom = 12;
             
             int row = 0;
-            var label = new Label (_("Right margin"));
+            var label = new Label (_("Save opened files"));
+            add_option (general_grid, label, save_opened_files, ref row);
+            
+            label = new Label (_("Modal dialogs"));
+            add_option (general_grid, label, modal_dialog, ref row);
+            
+            label = new Label (_("Right margin"));
             add_option (general_grid, label, show_right_margin, ref row);
             
             label = new Label (_("Right margin at column"));
             add_option (general_grid, label, right_margin_position, ref row);
             Scratch.settings.schema.bind("show-right-margin", label, "sensitive", SettingsBindFlags.DEFAULT);
-            
-            label = new Label (_("Modal dialogs"));
-            add_option (general_grid, label, modal_dialog, ref row);
             
             var cycle_search = new Gtk.Switch ();
             var case_sensitive = new Gtk.Switch ();
