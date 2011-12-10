@@ -8,31 +8,31 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-11-30 19:32+0100\n"
-"PO-Revision-Date: 2011-11-13 16:56+0000\n"
-"Last-Translator: xemard.nicolas <Unknown>\n"
+"PO-Revision-Date: 2011-12-09 22:02+0000\n"
+"Last-Translator: benjamin SIENTZOFF <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-01 06:16+0000\n"
-"X-Generator: Launchpad (build 14414)\n"
+"X-Launchpad-Export-Date: 2011-12-10 05:28+0000\n"
+"X-Generator: Launchpad (build 14450)\n"
 "Language: fr\n"
 
 #: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:66
 msgid " Syntax Highlighting"
-msgstr ""
+msgstr " Coloration Syntaxique"
 
 #: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:76
 msgid "Tab width"
-msgstr ""
+msgstr "Largeur des onglets"
 
 #: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:85
 msgid "Color Scheme"
-msgstr ""
+msgstr "Jeu de couleurs"
 
 #: /home/mefrio/scratch/po/../src/Widgets/StatusBar.vala:111
 msgid "Normal text"
-msgstr ""
+msgstr "Texte standard"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Menu.vala:51
 msgid "Fullscreen"
@@ -81,31 +81,31 @@ msgstr "Général"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
 msgid "Editor"
-msgstr ""
+msgstr "Éditeur"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:77
 msgid "Fonts and colors"
-msgstr ""
+msgstr "Plices d'écritures et couleurs"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Search Manager"
-msgstr ""
+msgstr "Gestionnaire de recherche"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:165
 msgid "Show right margin at column:"
-msgstr ""
+msgstr "Montrer la marge de droite sur une collone"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:170
 msgid "Show a right margin"
-msgstr ""
+msgstr "Montrer une marche à droite"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:172
 msgid "Show dialogs as modal"
-msgstr ""
+msgstr "Montrer les boites de dialogue"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:180
 msgid "Search Loop"
-msgstr "Rechercher une boucle"
+msgstr "Rechercher en boucle"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:181
 msgid "Case Sensitive Search"
@@ -113,7 +113,7 @@ msgstr "Recherche sensible à la casse"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
 msgid "Tab width:"
-msgstr "Largeur des tabulations:"
+msgstr "Largueur des onglets"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:214
 msgid "Show line numbers"
@@ -129,11 +129,11 @@ msgstr "Utiliser des espaces au lieu des tabulations"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:218
 msgid "Use auto indent"
-msgstr ""
+msgstr "Utiliser l'indentation automatique"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:233
 msgid "Color scheme:"
-msgstr ""
+msgstr "Palette de couleurs :"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:246
 msgid "Select font:"
@@ -156,6 +156,8 @@ msgid ""
 "Select the elements to show in the toolbar. You can customize them also with "
 "drag n drop"
 msgstr ""
+"Sélectionner les élèments à montrer dans la bar d'outils.  Vous pouvez aussi "
+"les personnalise avec un glisser-déposer."
 
 #: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:97
 msgid "Avaible elements"
@@ -163,4 +165,4 @@ msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:115
 msgid "Showed elements"
-msgstr ""
+msgstr "élèments montrés"
