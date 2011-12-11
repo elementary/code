@@ -29,7 +29,7 @@ namespace Scratch.Dialogs {
         public SaveOnCloseDialog (string? filename, MainWindow window) {
 
             this.type_hint = Gdk.WindowTypeHint.DIALOG;
-	    this.set_modal (Scratch.settings.modal_dialog);
+	        this.set_modal (Scratch.settings.modal_dialog);
             this.set_transient_for (window);
             this.filename = filename;
             this.window = window;
@@ -37,11 +37,14 @@ namespace Scratch.Dialogs {
             message_type = MessageType.WARNING;
             use_markup = true;
 
-            text = _("Save this file? ") + (filename ?? _("New File"));
-            text += "\n\n<b>" + _("All your work will be lost!") + "</b>";
-
+            text = "<b>" + _("Save changes to document") + " \"" + (filename ?? _("New File")) + "\" " + "before closing?" + "</b>";
+            text += "\n\n" + _("If you don't save, changes from the last 4 seconds will be permanently lost.");
+            
+            var button = new Button.with_label (_("Close without saving"));
+            button.show ();
+            
+            add_action_widget (button, ResponseType.NO);
             add_button (Stock.CANCEL, ResponseType.CANCEL);
-            add_button (Stock.DISCARD, ResponseType.NO);
             add_button (Stock.SAVE, ResponseType.YES);
             set_default_response (ResponseType.ACCEPT);
         }
