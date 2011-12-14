@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-12-10 23:23+0100\n"
-"PO-Revision-Date: 2011-12-09 01:22+0000\n"
+"PO-Revision-Date: 2011-12-13 11:32+0000\n"
 "Last-Translator: Łukasz Serafinowski <Unknown>\n"
 "Language-Team: polski <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-11 06:11+0000\n"
-"X-Generator: Launchpad (build 14450)\n"
+"X-Launchpad-Export-Date: 2011-12-14 05:43+0000\n"
+"X-Generator: Launchpad (build 14487)\n"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:104
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:187
@@ -72,15 +72,15 @@ msgstr "Czcionki i kolory"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:171
 msgid "Save opened files"
-msgstr ""
+msgstr "Zapisz otwarte pliki"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:174
 msgid "Modal dialogs"
-msgstr ""
+msgstr "Modalne okna dialogowe"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:177
 msgid "Right margin"
-msgstr ""
+msgstr "Prawy margines"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:180
 msgid "Right margin at column"
@@ -96,7 +96,7 @@ msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:231
 msgid "Line numbers"
-msgstr ""
+msgstr "Numery wierszy"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:232
 msgid "Highlight current line"
@@ -112,11 +112,11 @@ msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:235
 msgid "Tab width"
-msgstr ""
+msgstr "Szerokość zakładki"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:236
 msgid "Auto indent"
-msgstr ""
+msgstr "Automatyczne wcięcia"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:265
 msgid "Select font:"
@@ -124,7 +124,7 @@ msgstr "Czcionka:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:268
 msgid "Color scheme:"
-msgstr ""
+msgstr "Schemat kolorów:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:269
 #, c-format
@@ -133,11 +133,11 @@ msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:42
 msgid "Save unsaved changes to file before closing?"
-msgstr ""
+msgstr "Zapisz zmiany w pliku przed zamknięciem"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
 msgid "Save unsaved changes to file \""
-msgstr ""
+msgstr "Zapisz zmiany w pliku"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:47
 msgid "Changes to this file haven't been saved."
@@ -152,6 +152,8 @@ msgid ""
 "Select the elements to show in the toolbar. You can customize them also with "
 "drag n drop"
 msgstr ""
+"Wybierz elementy wyświetlane w pasku narzędzi. Może dostosować je również "
+"poprzez przeciągnięcie i upuszczenie."
 
 #: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:97
 msgid "Avaible elements"

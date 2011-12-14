@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-12-10 23:23+0100\n"
-"PO-Revision-Date: 2011-12-10 02:23+0000\n"
+"PO-Revision-Date: 2011-12-13 20:54+0000\n"
 "Last-Translator: Alfredo Hernández <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-11 06:11+0000\n"
-"X-Generator: Launchpad (build 14450)\n"
+"X-Launchpad-Export-Date: 2011-12-14 05:43+0000\n"
+"X-Generator: Launchpad (build 14487)\n"
 "Language: es\n"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:104
@@ -69,35 +69,35 @@ msgstr "Editor"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:75
 msgid "Fonts and colors"
-msgstr "Tipografías y colores"
+msgstr "Fuentes y colores"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:171
 msgid "Save opened files"
-msgstr ""
+msgstr "Guardar los archivos abiertos"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:174
 msgid "Modal dialogs"
-msgstr ""
+msgstr "Diálogos modales"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:177
 msgid "Right margin"
-msgstr ""
+msgstr "Margen derecho"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:180
 msgid "Right margin at column"
-msgstr ""
+msgstr "Margen derecho en una columna"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:191
 msgid "Search loop"
-msgstr ""
+msgstr "Bucle de búsqueda"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:194
 msgid "Case sensitive search"
-msgstr ""
+msgstr "Búsqueda sensible a mayúsculas"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:231
 msgid "Line numbers"
-msgstr ""
+msgstr "Números de línea"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:232
 msgid "Highlight current line"
@@ -105,11 +105,11 @@ msgstr "Resaltar línea actual"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:233
 msgid "Highlight matching brackets"
-msgstr ""
+msgstr "Resaltar pareja de llaves"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:234
 msgid "Spaces instead of tabs"
-msgstr ""
+msgstr "Utilizar espacios en lugar de tabulaciones"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:235
 msgid "Tab width"
@@ -117,11 +117,11 @@ msgstr "Ancho del tabulador"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:236
 msgid "Auto indent"
-msgstr ""
+msgstr "Sangrado automático"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:265
 msgid "Select font:"
-msgstr "Seleccionar fuente:"
+msgstr "Seleccione fuente:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:268
 msgid "Color scheme:"
@@ -130,15 +130,15 @@ msgstr "Esquema de colores:"
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:269
 #, c-format
 msgid "System fixed width font (%s):"
-msgstr ""
+msgstr "Fuente de ancho fijo del sistema (%s):"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:42
 msgid "Save unsaved changes to file before closing?"
-msgstr ""
+msgstr "Desea guardar los cambios en el archivo antes de cerrar?"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
 msgid "Save unsaved changes to file \""
-msgstr ""
+msgstr "Guardar los cambios del archivo «"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:47
 msgid "Changes to this file haven't been saved."
