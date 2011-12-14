@@ -45,6 +45,7 @@ namespace Scratch {
                 <menuitem name="New view" action="New view"/>
                 <menuitem name="Fullscreen" action="Fullscreen"/>
                 <menuitem name="Open" action="Open"/>
+                <menuitem name="Duplicate" action="Duplicate"/>
                 <menuitem name="SaveFile" action="SaveFile"/>
                 <menuitem name="Undo" action="Undo"/>
                 <menuitem name="Redo" action="Redo"/>
@@ -661,7 +662,19 @@ namespace Scratch {
             if (file.query_exists ())
                 current_tab.document.save ();
         }
-
+        
+        void action_duplicate () {
+            if (current_tab != null) {
+                TextIter start, end;
+                var buf = current_tab.text_view.buffer;
+                buf.get_selection_bounds (out start, out end);
+                string selected = buf.get_text (start, end, true);
+                buf.insert (ref end, "\n" + selected, -1);//selected.length + 1);
+                //buf.insert_at_cursor (selected, selected.length);
+            }
+                
+        }        
+        
         void action_new_view () {
             create_instance ();
             set_actions (true);
@@ -781,6 +794,12 @@ namespace Scratch {
           /* label, accelerator */       N_("Previous Search"), "<Control><shift>g",
           /* tooltip */                  N_("Previous Search"),
                                          case_up },
+                                         
+           { "Duplicate", null,
+          /* label, accelerator */       N_("Duplicate selected strings"), "<Control>d",
+          /* tooltip */                  N_("Duplicate selected strings"),
+                                         action_duplicate },
+                                         
            { "Open", Gtk.Stock.OPEN,
           /* label, accelerator */       N_("Open"), "<Control>o",
           /* tooltip */                  N_("Open a file"),

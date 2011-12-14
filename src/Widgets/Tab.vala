@@ -56,7 +56,7 @@ namespace Scratch.Widgets {
 
             if (doc.can_write () && text_view.modified == true) {
 
-                var save_dialog = new SaveDialog(this);
+                var save_dialog = new SaveDialog (this);
                 save_dialog.run();
 
             } else this.close ();
