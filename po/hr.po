@@ -1,0 +1,162 @@
+# Croatian translation for scratch
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# This file is distributed under the same license as the scratch package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: scratch\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2011-12-10 23:23+0100\n"
+"PO-Revision-Date: 2011-12-17 07:56+0000\n"
+"Last-Translator: Borna Bilas <Unknown>\n"
+"Language-Team: Croatian <hr@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2011-12-18 04:47+0000\n"
+"X-Generator: Launchpad (build 14525)\n"
+
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:104
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:187
+msgid "New file"
+msgstr "Nova datoteka"
+
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:182
+msgid "No files are open."
+msgstr "Nema otvorenih datoteka"
+
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:182
+msgid "Open a file to begin editing."
+msgstr "Otvori datoteku za uređivanje"
+
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
+msgid "Open file"
+msgstr "Otvori datoteku"
+
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
+msgid "Open a saved file."
+msgstr "Otvori snimljenu datoteku."
+
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:187
+msgid "Create a new empty file."
+msgstr "Stvori praznu datoteku."
+
+#: /home/mefrio/scratch/po/../src/Widgets/ComboSyntax.vala:38
+msgid "Normal text"
+msgstr "Normalan Tekst"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
+msgid "Save this file? "
+msgstr "Snimiti datoteku? "
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
+msgid "New File"
+msgstr "Nova Datoteka"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:41
+msgid "All your work will be lost!"
+msgstr "Sve promjene će biti izgubljene!"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:67
+msgid "General"
+msgstr "Općenito"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:71
+msgid "Editor"
+msgstr "Uređivač"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:75
+msgid "Fonts and colors"
+msgstr "Slova i boje"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:171
+msgid "Save opened files"
+msgstr "Snimi otvorene datoteke"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:174
+msgid "Modal dialogs"
+msgstr "Modalni dijalozi"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:177
+msgid "Right margin"
+msgstr "Desna margina"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:180
+msgid "Right margin at column"
+msgstr "Desna margina na stupcu"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:191
+msgid "Search loop"
+msgstr "Pretraživačka petlja"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:194
+msgid "Case sensitive search"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:231
+msgid "Line numbers"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:232
+msgid "Highlight current line"
+msgstr "Istakni trenutnu liniju"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:233
+msgid "Highlight matching brackets"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:234
+msgid "Spaces instead of tabs"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:235
+msgid "Tab width"
+msgstr "Širina tabulatora"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:236
+msgid "Auto indent"
+msgstr "Automatsko uvlačenje"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:265
+msgid "Select font:"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:268
+msgid "Color scheme:"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:269
+#, c-format
+msgid "System fixed width font (%s):"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:42
+msgid "Save unsaved changes to file before closing?"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
+msgid "Save unsaved changes to file \""
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:47
+msgid "Changes to this file haven't been saved."
+msgstr "Promjene nisu snimljene"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:47
+msgid "Do you want to save changes before closing this file?"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:63
+msgid ""
+"Select the elements to show in the toolbar. You can customize them also with "
+"drag n drop"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:97
+msgid "Avaible elements"
+msgstr "Dostupni elementi"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:115
+msgid "Showed elements"
+msgstr "Prikazani elementi"
