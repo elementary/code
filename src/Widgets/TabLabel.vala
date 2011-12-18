@@ -87,10 +87,10 @@ namespace Scratch.Widgets {
         {
             if (tab.document.modified) {
                 label.use_markup = true;
-                label.set_markup ("<span font_style='italic'>%s</span>".printf(label_text));
+                label.set_markup ("<span font_style='italic'>%s</span>".printf(tab.document.filename));
             }
             else {
-                label.set_text(label_text);
+                label.set_text(tab.document.filename);
             }
         }
 

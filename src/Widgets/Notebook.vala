@@ -60,10 +60,9 @@ namespace Scratch.Widgets {
                 (w as Tab).text_view.focus_in_event.connect (on_page_focused);
                 current_tab = w as Tab;
                 page_focused ((w as Tab).text_view);
-                   (w as Tab).label.scroll_event.connect (on_scroll_event);
+                (w as Tab).label.scroll_event.connect (on_scroll_event);
             }
         }
-
 
         bool on_scroll_event (EventScroll event) {
             if (event.direction == ScrollDirection.UP || event.direction == ScrollDirection.LEFT)  {

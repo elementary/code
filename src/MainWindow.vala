@@ -669,7 +669,8 @@ namespace Scratch {
                 var buf = current_tab.text_view.buffer;
                 buf.get_selection_bounds (out start, out end);
                 string selected = buf.get_text (start, end, true);
-                buf.insert (ref end, "\n" + selected, -1);//selected.length + 1);
+                if (selected != "")
+                    buf.insert (ref end, "\n" + selected, -1);
                 //buf.insert_at_cursor (selected, selected.length);
             }
                 
