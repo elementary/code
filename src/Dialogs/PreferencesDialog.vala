@@ -136,10 +136,17 @@ namespace Scratch.Dialogs {
             add_button (Stock.CLOSE, ResponseType.ACCEPT);
         }
         
-        void add_option (Gtk.Grid grid, Gtk.Widget label, Gtk.Widget switcher, ref int row) {
-            label.hexpand = true;
-            label.halign = Gtk.Align.START;
-            switcher.halign = Gtk.Align.END;
+        void add_option (Gtk.Grid grid, Gtk.Widget label, Gtk.Widget switcher, ref int row, bool expand_switcher = false) {
+            if (!expand_switcher) {
+                label.hexpand = true;
+                label.halign = Gtk.Align.START;
+                switcher.halign = Gtk.Align.END;
+            }
+            else if (expand_switcher) {
+                label.hexpand = false;
+                label.halign = Gtk.Align.START;
+                switcher.hexpand = true;
+            }
             grid.attach (label, 0, row, 1, 1);
             grid.attach_next_to (switcher, label, Gtk.PositionType.RIGHT, 1, 1);
             row ++;
@@ -267,7 +274,7 @@ namespace Scratch.Dialogs {
 
             add_option (content, new Label (_("Color scheme:")), style_scheme, ref row);
             add_option (content, new Label (_("System fixed width font (%s):").printf(default_font())), use_system_font, ref row);
-            add_option (content, select_font_l, select_font, ref row);
+            add_option (content, select_font_l, select_font, ref row, true);
             
             return content;
         }
