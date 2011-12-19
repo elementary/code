@@ -96,11 +96,11 @@ namespace Scratch.Widgets {
                 show_welcome ();*/
         }
 
-        public int add_tab (string labeltext="New file") {
+        public int add_tab (string labeltext=_("New document")) {
             Tab new_tab;
 
-            if (labeltext == "New file")
-                new_tab = new Tab (this, _("New file"));
+            if (labeltext == _("New document"))
+                new_tab = new Tab (this, _("New document"));
             else
                 new_tab = new Tab (this, labeltext);
             return add_existing_tab(new_tab);

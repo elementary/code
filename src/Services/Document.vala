@@ -60,7 +60,7 @@ namespace Scratch.Services {
             }
         }
 
-        public string filename      { get; private set; }
+        public string filename      { get; public set; }
         public string text          { get; set; }
         public DocumentStates state {
             get {
@@ -144,7 +144,7 @@ namespace Scratch.Services {
         public void create_sourceview ()
         {
             //get the filename from strig filename =)
-            string name = _("New Tab");
+            string name = _("New document");
             if(filename != null)
                 name = Filename.display_basename (filename);
 
@@ -214,7 +214,10 @@ namespace Scratch.Services {
                 warning ("No tab selected.");
 
             /* TODO: real encoding detection */
-
+            
+            var f = File.new_for_path (filename);
+            this.filename = f.get_basename ();
+            
             this.opened (); // Signal
 
             return true;
@@ -276,11 +279,14 @@ namespace Scratch.Services {
             switch (style) {
 
                 case "modified":
-                    tab.label.label.set_markup ("<span font_style='italic'>%s</span>".printf(tab.label.label_text));
+                    if (this.filename != null)
+                        tab.label.label.set_markup ("<span font_style='italic'>%s</span>".printf(this.filename));
+                    else 
+                        tab.label.label.set_markup ("<span font_style='italic'>%s</span>".printf(_("New document")));
                 break;
 
                 case "saved":
-                    tab.label.label.set_markup ("<span font_style='normal'>%s</span>".printf(tab.label.label_text));
+                    tab.label.label.set_markup ("<span font_style='normal'>%s</span>".printf(this.filename));//tab.label.label_text));
                 break;
 
             }
@@ -292,9 +298,9 @@ namespace Scratch.Services {
 
             if (filename != null) {
                 if (buffer.text == original_text) {
-                    window.main_actions.get_action ("Revert").set_sensitive (false);
-                    set_label_font ("saved");
-                    modified = false;
+                    //window.main_actions.get_action ("Revert").set_sensitive (false);
+                    //set_label_font ("saved");
+                    //modified = true;
                 }
                 else {
                     window.main_actions.get_action ("Revert").set_sensitive (true);
@@ -324,7 +330,12 @@ namespace Scratch.Services {
         public bool rename (string new_name) {
 
             FileUtils.rename (filename, new_name);
-            filename = new_name;
+            
+            var f = File.new_for_path (new_name);
+            this.filename = f.get_basename ();
+            
+            this.save ();
+            
             return true;
 
         }

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-10 23:23+0100\n"
+"POT-Creation-Date: 2011-12-19 17:24+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,28 +17,33 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:104
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:187
-msgid "New file"
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:99
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:102
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:103
+msgid "New document"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:182
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
 msgid "No files are open."
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:182
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
 msgid "Open a file to begin editing."
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Open file"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Open a saved file."
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:187
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
+msgid "New file"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
 msgid "Create a new empty file."
 msgstr ""
 
@@ -47,7 +52,7 @@ msgid "Normal text"
 msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
-msgid "Save this file? "
+msgid "Save changes to document"
 msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
@@ -55,7 +60,12 @@ msgid "New File"
 msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:41
-msgid "All your work will be lost!"
+msgid ""
+"If you don't save, changes from the last 4 seconds will be permanently lost."
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:43
+msgid "Close without saving"
 msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:67
@@ -70,63 +80,63 @@ msgstr ""
 msgid "Fonts and colors"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:171
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:178
 msgid "Save opened files"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:174
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:181
 msgid "Modal dialogs"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:177
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:184
 msgid "Right margin"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:180
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:187
 msgid "Right margin at column"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:191
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:198
 msgid "Search loop"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:194
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:201
 msgid "Case sensitive search"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:231
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:238
 msgid "Line numbers"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:232
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:239
 msgid "Highlight current line"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:233
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:240
 msgid "Highlight matching brackets"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:234
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:241
 msgid "Spaces instead of tabs"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:235
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:242
 msgid "Tab width"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:236
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:243
 msgid "Auto indent"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:265
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:272
 msgid "Select font:"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:268
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:275
 msgid "Color scheme:"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:269
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:276
 #, c-format
 msgid "System fixed width font (%s):"
 msgstr ""

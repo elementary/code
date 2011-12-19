@@ -110,8 +110,9 @@ namespace Scratch.Widgets {
                 var f = File.new_for_path (this.filename);
                 label.label.set_text (f.get_basename ());
                 var top = get_toplevel () as MainWindow;
-                top.set_window_title (this.filename);
-				//document.filename = this.filename;
+                top.set_window_title (this.filename);				
+
+                this.document.filename = f.get_basename ();
 				
                 return 0;
 
@@ -182,7 +183,8 @@ namespace Scratch.Widgets {
                 label.label.set_text (f.get_basename ());
                 var top = get_toplevel () as MainWindow;
                 top.set_window_title (this.filename);
-                //document.filename = this.filename;
+
+                this.document.filename = f.get_basename ();
                 
                 return 0;
 
