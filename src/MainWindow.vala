@@ -477,12 +477,21 @@ namespace Scratch {
             toolbar.set_sensitive (true);
 
             // show dialog
-            this.filech = new FileChooserDialog ("Open a file", this, FileChooserAction.OPEN, null);
+            this.filech = new FileChooserDialog (_("Open a file"), this, FileChooserAction.OPEN, null);
             filech.set_select_multiple (true);
             filech.add_button (Stock.CANCEL, ResponseType.CANCEL);
             filech.add_button (Stock.OPEN, ResponseType.ACCEPT);
             filech.set_default_response (ResponseType.ACCEPT);
             filech.set_current_folder (scratch_app.current_directory);
+            var all_files_filter = new FileFilter();
+                    all_files_filter.set_filter_name(_("All files"));
+                    all_files_filter.add_pattern("*");
+            var text_files_filter = new FileFilter();
+                    all_files_filter.set_filter_name(_("Text files"));
+                    all_files_filter.add_pattern("text/*");
+            filech.add_filter(all_files_filter);
+            filech.add_filter(text_files_filter);
+            filech.set_filter(all_files_filter);
 
             if (filech.run () == ResponseType.ACCEPT)
                     foreach (string file in filech.get_filenames ())
