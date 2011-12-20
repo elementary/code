@@ -484,11 +484,11 @@ namespace Scratch {
             filech.set_default_response (ResponseType.ACCEPT);
             filech.set_current_folder (scratch_app.current_directory);
             var all_files_filter = new FileFilter();
-                    all_files_filter.set_filter_name(_("All files"));
-                    all_files_filter.add_pattern("*");
+            all_files_filter.set_filter_name(_("All files"));
+            all_files_filter.add_pattern("*");
             var text_files_filter = new FileFilter();
-                    all_files_filter.set_filter_name(_("Text files"));
-                    all_files_filter.add_pattern("text/*");
+            all_files_filter.set_filter_name(_("Text files"));
+            all_files_filter.add_mime_type("text/*");
             filech.add_filter(all_files_filter);
             filech.add_filter(text_files_filter);
             filech.set_filter(all_files_filter);
