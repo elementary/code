@@ -218,11 +218,16 @@ namespace Scratch.Dialogs {
             add_option (general_grid, new Label (_("Automatic indentation") + ":"), auto_indent, ref row, true, spacer);
             
             spaces_instead_of_tabs = new Switch ();
+            var spaces_instead_of_tabs_label = new Label (_("Insert spaces instead of tabs") + ":");
             Scratch.settings.schema.bind("spaces-instead-of-tabs", spaces_instead_of_tabs, "active", SettingsBindFlags.DEFAULT);
-            add_option (general_grid, new Label (_("Insert spaces instead of tabs") + ":"), spaces_instead_of_tabs, ref row, true, spacer);
-
+            Scratch.settings.schema.bind("spaces-instead-of-tabs", spaces_instead_of_tabs_label, "sensitive", SettingsBindFlags.DEFAULT);
+            add_option (general_grid, spaces_instead_of_tabs_label, spaces_instead_of_tabs, ref row, true, spacer);
+            
+            var indent_width_label = new Label (_("Tab width") + ":");
             indent_width = new SpinButton.with_range (1, 24, 1);
             Scratch.settings.schema.bind("indent-width", indent_width, "value", SettingsBindFlags.DEFAULT);
+            Scratch.settings.schema.bind("spaces-instead-of-tabs", indent_width, "sensitive", SettingsBindFlags.DEFAULT);
+            Scratch.settings.schema.bind("spaces-instead-of-tabs", indent_width_label, "sensitive", SettingsBindFlags.DEFAULT);
             add_option (general_grid, new Label (_("Tab width") + ":"), indent_width, ref row, true, spacer);
             
             row ++;

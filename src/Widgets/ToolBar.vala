@@ -114,7 +114,6 @@ namespace Scratch.Widgets {
 
             search_manager = new Scratch.Services.SearchManager (action_group);
             Scratch.settings.schema.bind ("search-sensitive", search_manager, "case-sensitive", SettingsBindFlags.DEFAULT);
-            Scratch.settings.schema.bind ("search-loop", search_manager, "cycle-search", SettingsBindFlags.DEFAULT);
 
             add (search_manager.get_search_entry ());
             search_manager.get_search_entry ().set_margin_right (5);
