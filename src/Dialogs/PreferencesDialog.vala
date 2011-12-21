@@ -29,7 +29,6 @@ namespace Scratch.Dialogs {
 
         public StaticNotebook main_static_notebook;
         
-        private Switch modal_dialog;
         private Switch save_opened_files;
         private Switch show_right_margin;
         private Switch line_numbers;
@@ -64,11 +63,11 @@ namespace Scratch.Dialogs {
 
 
             //create static notebook
-            var general = new Label (_("General"));
+            var general = new Label (_("Behavior"));
             main_static_notebook.append_page (get_general_box (), general);
             
             //create static notebook
-            var editor = new Label (_("Editor"));
+            var editor = new Label (_("Interface"));
             main_static_notebook.append_page (get_editor_box (), editor);
 
             //create static notebook
@@ -76,7 +75,7 @@ namespace Scratch.Dialogs {
             main_static_notebook.append_page (get_fonts_box (), fonts);
             
             //create static notebook
-            var plugins_label = new Label ("Plugins");
+            var plugins_label = new Label (_("Exstensions"));
 
             
             /* Plugin management, might be better in PluginManager */
@@ -136,26 +135,44 @@ namespace Scratch.Dialogs {
             add_button (Stock.CLOSE, ResponseType.ACCEPT);
         }
         
-        void add_option (Gtk.Grid grid, Gtk.Widget label, Gtk.Widget switcher, ref int row, bool expand_switcher = false) {
+        void add_section (Gtk.Grid grid, Gtk.Label name, ref int row) {
+            name.use_markup = true;
+            name.set_markup ("<b>%s</b>".printf (name.get_text ()));
+            grid.attach (name, 1, row, 1, 1);
+            row ++;
+        }
+        
+        void add_option (Gtk.Grid grid, Gtk.Widget label, Gtk.Widget switcher, ref int row, bool expand_switcher = false, Gtk.Widget? third_child) {
             if (!expand_switcher) {
-                label.hexpand = true;
-                label.halign = Gtk.Align.START;
+                label.halign = Align.END;
                 switcher.halign = Gtk.Align.END;
             }
             else if (expand_switcher) {
-                label.hexpand = false;
-                label.halign = Gtk.Align.START;
+                label.halign = Gtk.Align.END;
                 switcher.hexpand = true;
             }
-            grid.attach (label, 0, row, 1, 1);
+            var spacer = new Label ("\t\t\t"); //TODO: it need a more elegant fix
+            grid.attach (spacer, 1, row, 1, 1);
+            grid.attach_next_to (label, spacer, Gtk.PositionType.RIGHT, 1, 1);
+            //grid.attach (label, 1, row, 1, 1);
             grid.attach_next_to (switcher, label, Gtk.PositionType.RIGHT, 1, 1);
+ 
+            if (!expand_switcher) {
+                label.halign = Align.END;
+                switcher.halign = Gtk.Align.END;
+                grid.attach_next_to (third_child, switcher, Gtk.PositionType.RIGHT, 1, 1);
+            }
+            else if (expand_switcher) {
+                label.halign = Gtk.Align.END;
+                switcher.hexpand = true;
+            }
             row ++;
         }
         
         Gtk.Widget get_general_box () {
             
-            modal_dialog = new Switch ();
-            Scratch.settings.schema.bind("modal-dialog", modal_dialog, "active", SettingsBindFlags.DEFAULT);
+            //modal_dialog = new Switch ();
+            //Scratch.settings.schema.bind("modal-dialog", modal_dialog, "active", SettingsBindFlags.DEFAULT);
             
             save_opened_files = new Switch ();
             Scratch.settings.schema.bind("save-opened-files", save_opened_files, "active", SettingsBindFlags.DEFAULT);
@@ -172,34 +189,40 @@ namespace Scratch.Dialogs {
             general_grid.margin_left = 12;
             general_grid.margin_right = 12;
             general_grid.margin_top = 12;
-            general_grid.margin_bottom = 12;
+            general_grid.margin_bottom = 12;            
             
             int row = 0;
-            var label = new Label (_("Save opened files"));
-            add_option (general_grid, label, save_opened_files, ref row);
+            var label = new Label (_("General") + ":");
+            add_section (general_grid, label, ref row);
             
-            label = new Label (_("Modal dialogs"));
-            add_option (general_grid, label, modal_dialog, ref row);
+            label = new Label (_("Save opened files"));
+            add_option (general_grid, label, save_opened_files, ref row, false, null);
+            
+            // Useless option
+            //label = new Label (_("Modal dialogs"));
+            //add_option (general_grid, label, modal_dialog, ref row);
             
             label = new Label (_("Right margin"));
-            add_option (general_grid, label, show_right_margin, ref row);
+            add_option (general_grid, label, show_right_margin, ref row, false, null);
             
             label = new Label (_("Right margin at column"));
-            add_option (general_grid, label, right_margin_position, ref row);
+            add_option (general_grid, label, right_margin_position, ref row, false, null);
             Scratch.settings.schema.bind("show-right-margin", label, "sensitive", SettingsBindFlags.DEFAULT);
             
-            var cycle_search = new Gtk.Switch ();
+            // Useless option
+            //var cycle_search = new Gtk.Switch ();
             var case_sensitive = new Gtk.Switch ();
-            Scratch.settings.schema.bind("search-loop", cycle_search, "active", SettingsBindFlags.DEFAULT);
+            //Scratch.settings.schema.bind("search-loop", cycle_search, "active", SettingsBindFlags.DEFAULT);
             Scratch.settings.schema.bind("search-sensitive", case_sensitive, "active", SettingsBindFlags.DEFAULT);
             
             row ++;
             
-            label = new Label (_("Search loop"));
-            add_option (general_grid, label, cycle_search, ref row);
+            // Useless option
+            //label = new Label (_("Search loop"));
+            //add_option (general_grid, label, cycle_search, ref row);
             
             label = new Label (_("Case sensitive search"));
-            add_option (general_grid, label, case_sensitive, ref row);
+            add_option (general_grid, label, case_sensitive, ref row, false, null);
             
             return general_grid;
         }
@@ -235,12 +258,12 @@ namespace Scratch.Dialogs {
             Scratch.settings.schema.bind("spaces-instead-of-tabs", indent_width, "sensitive", SettingsBindFlags.DEFAULT);
 
             int row = 0;
-            add_option (content, new Label (_("Line numbers")), line_numbers, ref row);
-            add_option (content, new Label (_("Highlight current line")), highlight_current_line, ref row);
-            add_option (content, new Label (_("Highlight matching brackets")), highlight_matching_brackets, ref row);
-            add_option (content, new Label (_("Spaces instead of tabs")), spaces_instead_of_tabs, ref row);
-            add_option (content, new Label (_("Tab width")), indent_width, ref row);
-            add_option (content, new Label (_("Auto indent")), auto_indent, ref row);
+            add_option (content, new Label (_("Line numbers")), line_numbers, ref row, false, null);
+            add_option (content, new Label (_("Highlight current line")), highlight_current_line, ref row, false, null);
+            add_option (content, new Label (_("Highlight matching brackets")), highlight_matching_brackets, ref row, false, null);
+            add_option (content, new Label (_("Spaces instead of tabs")), spaces_instead_of_tabs, ref row, false, null);
+            add_option (content, new Label (_("Tab width")), indent_width, ref row, false, null);
+            add_option (content, new Label (_("Auto indent")), auto_indent, ref row, false, null);
             
             return content;
         }
@@ -272,9 +295,9 @@ namespace Scratch.Dialogs {
             var select_font_l = new Label (_("Select font:"));
             Scratch.settings.schema.bind("use-system-font", select_font_l, "sensitive", SettingsBindFlags.INVERT_BOOLEAN);
 
-            add_option (content, new Label (_("Color scheme:")), style_scheme, ref row);
-            add_option (content, new Label (_("System fixed width font (%s):").printf(default_font())), use_system_font, ref row);
-            add_option (content, select_font_l, select_font, ref row, true);
+            add_option (content, new Label (_("Color scheme:")), style_scheme, ref row, true, null);
+            add_option (content, new Label (_("System fixed width font (%s):").printf(default_font())), use_system_font, ref row, false, select_font);
+            //add_option (content, select_font_l, select_font, ref row, true, null);
             
             return content;
         }

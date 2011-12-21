@@ -22,6 +22,6 @@ OPTIONS
     --vapidir=${CMAKE_BINARY_DIR}/libplugins/
 )
 add_library(scratchcontractor MODULE ${VALA_C})
-add_dependencies(scratchcontractor generate_scratch_h)
+add_dependencies(scratchcontractor scratch generate_scratch_h)
 install(TARGETS scratchcontractor DESTINATION lib/scratch/plugins/core/)
 install(FILES contractor.plug DESTINATION lib/scratch/plugins/core/)
