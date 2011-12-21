@@ -37,11 +37,6 @@
 			<summary>sidebar</summary>
 			<description>sidebar</description>
 		</key>
-		<key name="search-loop" type="b">
-			<default>true</default>
-			<summary>Search Loop</summary>
-			<description>Is the search cyclic?</description>
-		</key>
 		<key name="search-sensitive" type="b">
 			<default>false</default>
 			<summary>Search sensitive</summary>
@@ -57,20 +52,15 @@
           <summary>Enabled Plugins</summary>
           <description>Enabled Plugins</description>
         </key>
-        <key name="save-opened-files" type="b">
-            <default>true</default>
-            <summary>Save the opened files</summary>
-            <description>Save the files opened in the previously Scratch session.</description>
+        <key name="show-at-start" type="s">
+            <default>'welcome'</default>
+            <summary>Show the welcome screen or the last opened files at Scratch launch</summary>
+            <description>Show the welcome screen or the last opened files at Scratch launch.</description>
         </key>
         <key type="as" name="opened-files">
           <default>['']</default>
           <summary>Files opened in the previously session of Scratch</summary>
           <description>It is used to open the files opened in the last Scratch session</description>
-        </key>
-        <key name="modal-dialog" type="b">
-            <default>false</default>
-            <summary>Show the dialogs as modal dialogs</summary>
-            <description>Whether Scratch should show the dialogs in a modal way.</description>
         </key>
         <key name="show-right-margin" type="b">
             <default>false</default>

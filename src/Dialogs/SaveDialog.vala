@@ -28,8 +28,6 @@ namespace Scratch.Dialogs {
 
         public SaveDialog (Tab callertab) {
 
-	    this.set_modal (Scratch.settings.modal_dialog);
-
             this.caller = callertab;
 	   
             string path = callertab.document.filename;
@@ -79,7 +77,6 @@ namespace Scratch.Dialogs {
             //window properties
             this.title = "";
             this.set_skip_taskbar_hint(true);
-            this.set_modal(false);
             this.set_transient_for ((Gtk.Window)caller.get_toplevel());
             this.set_resizable(false);
             this.window_position  = WindowPosition.CENTER;

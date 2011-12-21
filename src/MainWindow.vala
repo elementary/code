@@ -426,7 +426,7 @@ namespace Scratch {
             
             foreach (var doc in scratch_app.documents) {
                 
-                if (settings.save_opened_files) {               
+                if (settings.show_at_start == "last-tabs") {               
                     string filename = doc.filename;
                     string[] op = {};
 

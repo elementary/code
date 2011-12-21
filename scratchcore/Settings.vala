@@ -41,7 +41,6 @@ namespace Scratch {
 
     public class Settings : Granite.Services.Settings {
 
-        public bool modal_dialog { get; set; }
         public bool show_line_numbers { get; set; }
         public bool highlight_current_line { get; set; }
         public bool highlight_matching_brackets { get; set; }
@@ -57,10 +56,9 @@ namespace Scratch {
         public bool statusbar_visible { get; set; }
         public bool context_visible { get; set; }
         public bool bottom_panel_visible { get; set; }
-        public bool search_loop { get; set; }
         public bool search_sensitive { get; set; }
         public string[] plugins_enabled { get; set;}
-        public bool save_opened_files { get; set; }
+        public string show_at_start { get; set; }
         public string[] opened_files { get; set; }
         
         public Settings ()  {

@@ -149,7 +149,7 @@ namespace Scratch {
                 window.title = window.TITLE;
                 window.show ();
                 plugins.hook_new_window (window);
-                if (settings.save_opened_files)
+                if (settings.show_at_start == "last-tabs")
                     restore_opened_files ();
             } else {
                 window.present ();
