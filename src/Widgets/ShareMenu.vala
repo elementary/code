@@ -25,7 +25,7 @@ using Scratch.Dialogs;
 
 namespace Scratch.Widgets {
 
-    public class ShareMenu : Menu {
+    public class ShareMenu : Gtk.Menu {
         
         private Window window;
         /*private MenuItem pastebin;*/
@@ -44,7 +44,7 @@ namespace Scratch.Widgets {
 
     public class ShareAppMenu : ToolButtonWithMenu {
 
-        public ShareAppMenu (Menu menu) {
+        public ShareAppMenu (Gtk.Menu menu) {
 
             base (new Image.from_icon_name ("document-export", IconSize.MENU), "Share", menu);
 

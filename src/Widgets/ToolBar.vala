@@ -38,7 +38,7 @@ namespace Scratch.Widgets {
         public ToolButton revert_button;
         
         public ShareMenu share_menu;
-        public Menu menu;
+        public Gtk.Menu menu;
         public ShareAppMenu share_app_menu;
         public ComboBoxSyntax combo_syntax;
         public AppMenu app_menu;
