@@ -7,19 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-19 17:24+0100\n"
+"POT-Creation-Date: 2011-12-21 17:01+0100\n"
 "PO-Revision-Date: 2011-12-11 13:53+0000\n"
 "Last-Translator: jibweb <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-20 05:10+0000\n"
-"X-Generator: Launchpad (build 14538)\n"
+"X-Launchpad-Export-Date: 2011-12-22 05:58+0000\n"
+"X-Generator: Launchpad (build 14560)\n"
 "Language: fr\n"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:99
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:102
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:103
 msgid "New document"
 msgstr ""
@@ -52,114 +50,134 @@ msgstr "Créer un fichier vide"
 msgid "Normal text"
 msgstr "Texte standard"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "Save changes to document"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "New File"
 msgstr "Nouveau fichier"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:41
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:43
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:67
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:65
+msgid "Behavior"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:69
+msgid "Interface"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
+msgid "Exstensions"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:182
+msgid "Show welcome screen"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:183
+msgid "Show last open tabs"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:199
 msgid "General"
 msgstr "Général"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:71
-msgid "Editor"
-msgstr "Éditeur"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:75
-msgid "Fonts and colors"
-msgstr "Polices d'écritures et couleurs"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:178
-msgid "Save opened files"
-msgstr "Enregistrer les fichiers ouverts"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:181
-msgid "Modal dialogs"
-msgstr "Boîte de dialogue modale"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:184
-msgid "Right margin"
-msgstr "Marge de droite"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:187
-msgid "Right margin at column"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:205
+msgid "When Scratch starts"
 msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:198
-msgid "Search loop"
-msgstr "Recherche"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:201
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
 msgid "Case sensitive search"
 msgstr "Recherche sensible à la casse"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:238
-msgid "Line numbers"
-msgstr "Numérotation des lignes"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:213
+msgid "Tabs"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:239
-msgid "Highlight current line"
-msgstr "Mettre en surbrillance la ligne actuelle"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:218
+msgid "Automatic indentation"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:240
-msgid "Highlight matching brackets"
-msgstr "Mettre en surbrillance les parenthèses associées"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:222
+msgid "Insert spaces instead of tabs"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:241
-msgid "Spaces instead of tabs"
-msgstr "Utiliser des espaces à la place des tabulations"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:242
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:226
 msgid "Tab width"
 msgstr "Largeur des onglets"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:243
-msgid "Auto indent"
-msgstr "Indentation automatique"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:250
+msgid "Editor"
+msgstr "Éditeur"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:272
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:262
+msgid "Highlight current line"
+msgstr "Mettre en surbrillance la ligne actuelle"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:263
+msgid "Highlight matching brackets"
+msgstr "Mettre en surbrillance les parenthèses associées"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:264
+msgid "Show line numbers"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:266
+msgid "Right margin"
+msgstr "Marge de droite"
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:271
+msgid "Show margin on right"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:279
+msgid "Margin width"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:283
+msgid "Font and colors"
+msgstr ""
+
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:297
 msgid "Select font:"
 msgstr "Sélectionner la police :"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:275
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:300
 msgid "Color scheme:"
 msgstr "Palette de couleurs :"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:276
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:301
 #, c-format
 msgid "System fixed width font (%s):"
 msgstr "Largeur de police fixée par le système (%s) :"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:42
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
 msgstr "Enregistrer les modifications avant de fermer ?"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:44
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:42
 msgid "Save unsaved changes to file \""
 msgstr "Enregistrer les modifications dans le fichier \""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:47
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
 msgstr "Les changements apportés à ce fichier n'ont pas été sauvegardés"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:47
+#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Do you want to save changes before closing this file?"
 msgstr ""
 "Voulez-vous enregistrer les modifications avant de fermer le fichier ?"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:63
+#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:62
 msgid ""
 "Select the elements to show in the toolbar. You can customize them also with "
 "drag n drop"
@@ -167,10 +185,10 @@ msgstr ""
 "Sélectionner les éléments à montrer dans la barre d'outils. Personnalisation "
 "par glisser-déposer."
 
-#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:97
+#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:96
 msgid "Avaible elements"
 msgstr "Éléments disponibles"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:115
+#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:114
 msgid "Showed elements"
 msgstr "Éléments visibles"
