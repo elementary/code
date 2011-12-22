@@ -30,8 +30,6 @@ namespace Scratch.Dialogs {
         public StaticNotebook main_static_notebook;
         
         ComboBoxText start;
-        CheckButton show_right_margin;
-        CheckButton line_numbers;
         Switch highlight_current_line;
         Switch highlight_matching_brackets;
         Switch spaces_instead_of_tabs;
@@ -70,7 +68,7 @@ namespace Scratch.Dialogs {
             main_static_notebook.append_page (get_editor_box (), editor);
             
             //create static notebook
-            var plugins_label = new Label (_("Exstensions"));
+            var plugins_label = new Label (_("Extensions"));
 
             
             /* Plugin management, might be better in PluginManager */
@@ -133,47 +131,26 @@ namespace Scratch.Dialogs {
         void add_section (Gtk.Grid grid, Gtk.Label name, ref int row) {
             name.use_markup = true;
             name.set_markup ("<b>%s</b>".printf (name.get_text ()));
-            grid.attach (name, 1, row, 1, 1);
+            name.halign = Gtk.Align.START;
+            grid.attach (name, 0, row, 1, 1);
             row ++;
         }
         
-        void add_option (Gtk.Grid grid, Gtk.Widget label, Gtk.Widget switcher, ref int row, bool expand_switcher = false, Gtk.Widget? third_child) {
-            if (!expand_switcher) {
-                label.halign = Align.END;
-                switcher.halign = Gtk.Align.END;
-            }
-            else if (expand_switcher) {
-                label.halign = Gtk.Align.END;
-                switcher.hexpand = true;
-            }
-            var spacer = new Label ("\t\t\t"); //TODO: it needs a more elegant fix
-            grid.attach (spacer, 1, row, 1, 1);
-            grid.attach_next_to (label, spacer, Gtk.PositionType.RIGHT, 1, 1);
-            grid.attach_next_to (switcher, label, Gtk.PositionType.RIGHT, 1, 1);
+        void add_option (Gtk.Grid grid, Gtk.Widget label, Gtk.Widget switcher, ref int row) {
+            label.hexpand = true;
+            label.halign = Align.END;
+            label.margin_left = 20;
+            switcher.halign = Gtk.Align.FILL;
+            switcher.hexpand = true;
             
-            if (!expand_switcher) {
-                 label.halign = Align.END;
-                 switcher.halign = Gtk.Align.END;
-                 grid.attach_next_to (third_child, switcher, Gtk.PositionType.RIGHT, 1, 1);
-             }
-             else if (expand_switcher) {
-                 label.halign = Gtk.Align.END;
-                 switcher.hexpand = false;
-                 switcher.halign = Gtk.Align.START;
-             }
+            if (switcher is Switch || switcher is CheckButton
+                || switcher is Entry) { /* then we don't want it to be expanded */
+                switcher.halign = Gtk.Align.START;
+            }
             
+            grid.attach (label, 0, row, 1, 1);
+            grid.attach_next_to (switcher, label, Gtk.PositionType.RIGHT, 3, 1);
             row ++;
-        }
-        
-        void add_combo_option (Gtk.Grid grid, Gtk.Widget label, Gtk.Widget combo, ref int row) {
-            var spacer = new Label ("\t\t\t"); //TODO: it need a more elegant fix
-            label.halign = Gtk.Align.END;
-            combo.hexpand = true;
-            grid.attach (spacer, 1, row, 1, 1);
-            grid.attach_next_to (label, spacer, Gtk.PositionType.RIGHT, 1, 1);
-            grid.attach_next_to (combo, label, Gtk.PositionType.RIGHT, 2, 1);
-        
-            row++;
         }
         
         Gtk.Widget get_general_box () {
@@ -196,39 +173,39 @@ namespace Scratch.Dialogs {
             
             int row = 0;
             // General
-            var label = new Label (_("General") + ":");
+            var label = new Label (_("General:"));
             add_section (general_grid, label, ref row);
             
             var spacer = new Label ("");
             spacer.hexpand = true;
             
-            label = new Label (_("When Scratch starts") + ":");
-            add_combo_option (general_grid, label, start, ref row);
+            label = new Label (_("When Scratch starts:"));
+            add_option (general_grid, label, start, ref row);
             
-            label = new Label (_("Case sensitive search") + ":");
-            add_option (general_grid, label, case_sensitive, ref row, true, spacer);
+            label = new Label (_("Case sensitive search:"));
+            add_option (general_grid, label, case_sensitive, ref row);
             
             //Tabs
             
-            label = new Label (_("Tabs") + ":");
+            label = new Label (_("Tabs:"));
             add_section (general_grid, label, ref row);
             
             auto_indent = new Switch ();
             Scratch.settings.schema.bind("auto-indent", auto_indent, "active", SettingsBindFlags.DEFAULT);
-            add_option (general_grid, new Label (_("Automatic indentation") + ":"), auto_indent, ref row, true, spacer);
+            add_option (general_grid, new Label (_("Automatic indentation:")), auto_indent, ref row);
             
             spaces_instead_of_tabs = new Switch ();
-            var spaces_instead_of_tabs_label = new Label (_("Insert spaces instead of tabs") + ":");
+            var spaces_instead_of_tabs_label = new Label (_("Insert spaces instead of tabs:"));
             Scratch.settings.schema.bind("spaces-instead-of-tabs", spaces_instead_of_tabs, "active", SettingsBindFlags.DEFAULT);
-            Scratch.settings.schema.bind("spaces-instead-of-tabs", spaces_instead_of_tabs_label, "sensitive", SettingsBindFlags.DEFAULT);
-            add_option (general_grid, spaces_instead_of_tabs_label, spaces_instead_of_tabs, ref row, true, spacer);
+            add_option (general_grid, spaces_instead_of_tabs_label, spaces_instead_of_tabs, ref row);
             
-            var indent_width_label = new Label (_("Tab width") + ":");
+            var indent_width_label = new Label (_("Tab width:"));
+            Scratch.settings.schema.bind("spaces-instead-of-tabs", indent_width_label, "sensitive", SettingsBindFlags.DEFAULT);
             indent_width = new SpinButton.with_range (1, 24, 1);
             Scratch.settings.schema.bind("indent-width", indent_width, "value", SettingsBindFlags.DEFAULT);
             Scratch.settings.schema.bind("spaces-instead-of-tabs", indent_width, "sensitive", SettingsBindFlags.DEFAULT);
             Scratch.settings.schema.bind("spaces-instead-of-tabs", indent_width_label, "sensitive", SettingsBindFlags.DEFAULT);
-            add_option (general_grid, new Label (_("Tab width") + ":"), indent_width, ref row, true, spacer);
+            add_option (general_grid, indent_width_label, indent_width, ref row);
             
             row ++;
             
@@ -252,10 +229,10 @@ namespace Scratch.Dialogs {
             spacer.hexpand = true;
             
             // Editor
-            var section_l = new Label (_("Editor") + ":");
+            var section_l = new Label (_("Editor:"));
             add_section (content, section_l, ref row);            
             
-            line_numbers = new CheckButton ();
+            var line_numbers = new CheckButton ();
             Scratch.settings.schema.bind("show-line-numbers", line_numbers, "active", SettingsBindFlags.DEFAULT);
             
             highlight_current_line = new Switch ();
@@ -264,28 +241,24 @@ namespace Scratch.Dialogs {
             highlight_matching_brackets = new Switch ();
             Scratch.settings.schema.bind("highlight-matching-brackets", highlight_matching_brackets, "active", SettingsBindFlags.DEFAULT);
 
-            add_option (content, new Label (_("Highlight current line") + ":"), highlight_current_line, ref row, false, null);
-            add_option (content, new Label (_("Highlight matching brackets") + ":"), highlight_matching_brackets, ref row, false, null);           
-            add_option (content, new Label (_("Show line numbers") + ":"), line_numbers, ref row, true, spacer);
-            
-            var label = new Label (_("Right margin"));
-            add_option (content, label, show_right_margin, ref row, true, spacer);
-            
+            add_option (content, new Label (_("Highlight current line:")), highlight_current_line, ref row);
+            add_option (content, new Label (_("Highlight matching brackets:")), highlight_matching_brackets, ref row);           
+            add_option (content, new Label (_("Show line numbers:")), line_numbers, ref row);
 
             
-            label = new Label (_("Show margin on right") + ":");
-            Scratch.settings.schema.bind("show-right-margin", label, "sensitive", SettingsBindFlags.DEFAULT);
-            show_right_margin = new CheckButton ();
+            var label = new Label (_("Show margin on right:"));
+            var show_right_margin = new CheckButton ();
             Scratch.settings.schema.bind("show-right-margin", show_right_margin, "active", SettingsBindFlags.DEFAULT);
             var right_margin_position = new SpinButton.with_range (1, 250, 1);
             Scratch.settings.schema.bind("right-margin-position", right_margin_position, "value", SettingsBindFlags.DEFAULT);
             Scratch.settings.schema.bind("show-right-margin", right_margin_position, "sensitive", SettingsBindFlags.DEFAULT);
-            add_option (content, label, show_right_margin, ref row, true, spacer);
-            label = new Label (_("Margin width") + ":");
-            add_option (content, label, right_margin_position, ref row, true, spacer);
+            add_option (content, label, show_right_margin, ref row);
+            label = new Label (_("Margin width:"));
+            Scratch.settings.schema.bind("show-right-margin", label, "sensitive", SettingsBindFlags.DEFAULT);
+            add_option (content, label, right_margin_position, ref row);
             
             // Font and Colors
-            section_l = new Label (_("Font and colors") + ":");
+            section_l = new Label (_("Font and colors:"));
             add_section (content, section_l, ref row);
             
             style_scheme = new ComboBoxText ();
@@ -302,8 +275,12 @@ namespace Scratch.Dialogs {
             var select_font_l = new Label (_("Select font:"));
             Scratch.settings.schema.bind("use-system-font", select_font_l, "sensitive", SettingsBindFlags.INVERT_BOOLEAN);
 
-            add_combo_option (content, new Label (_("Color scheme:")), style_scheme, ref row);
-            add_option (content, new Label (_("System fixed width font (%s):").printf(default_font())), use_system_font, ref row, false, select_font);
+            add_option (content, new Label (_("Color scheme:")), style_scheme, ref row);
+            var font_grid = new Gtk.Grid();
+            font_grid.add(use_system_font);
+            font_grid.add(select_font);
+            select_font.hexpand = true;
+            add_option (content, new Label (_("Custom font (%s):").printf(default_font())), font_grid, ref row);
             
             return content;
         }
