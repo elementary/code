@@ -133,7 +133,7 @@ namespace Scratch.Widgets {
                 (ui.get_widget ("ui/ToolbarContext") as Gtk.Menu).popup (null, null, null, event.button, Gtk.get_current_event_time ());
                 return true;
             }
-            return false;
+            return base.button_press_event (event);
         }
 
         private ToolItem add_spacer () {
