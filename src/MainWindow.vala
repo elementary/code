@@ -666,7 +666,11 @@ namespace Scratch {
                 buf.get_selection_bounds (out start, out end);
                 string selected = buf.get_text (start, end, true);
                 if (selected != "")
+#if VALA_0_14
                     buf.insert (end, "\n" + selected, -1);
+#else
+                    buf.insert (ref end, "\n" + selected, -1);
+#endif
                 //buf.insert_at_cursor (selected, selected.length);
             }
                 
