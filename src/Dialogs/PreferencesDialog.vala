@@ -45,9 +45,9 @@ namespace Scratch.Dialogs {
 
             this.window = window;
             this.title = title;
-            this.type_hint = Gdk.WindowTypeHint.DIALOG;
             this.set_transient_for (window);
             set_default_size (600, 300);
+            modal = true;
             //resizable = false;
 
             main_static_notebook = new StaticNotebook ();
