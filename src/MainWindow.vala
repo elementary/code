@@ -376,24 +376,11 @@ namespace Scratch {
         }
 
         public void set_theme () {
+            Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = false;
 
-            string theme = "elementary";
-            if (theme == "normal")
-            {
-                Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = false;
-
-                // Get the system's style
-                realize ();
-                font = FontDescription.from_string (system_font());
-            }
-            else
-            {
-                Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
-
-                // Get the system's style
-                realize ();
-                font = FontDescription.from_string(system_font ());
-            }
+            // Get the system's style
+            realize ();
+            font = FontDescription.from_string(system_font ());
         }
 
         static string system_font () {
