@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-12-21 17:01+0100\n"
-"PO-Revision-Date: 2011-12-05 20:32+0000\n"
-"Last-Translator: Tom Beckmann <tombeckmann@online.de>\n"
+"PO-Revision-Date: 2011-12-27 08:31+0000\n"
+"Last-Translator: Anducar <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-22 05:58+0000\n"
+"X-Launchpad-Export-Date: 2011-12-28 05:58+0000\n"
 "X-Generator: Launchpad (build 14560)\n"
 "Language: de\n"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:103
 msgid "New document"
-msgstr ""
+msgstr "Neues Dokument"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
 msgid "No files are open."
@@ -52,7 +52,7 @@ msgstr "Normaler Text"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "Save changes to document"
-msgstr ""
+msgstr "Änderungen im Dokument speichern"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "New File"
@@ -62,14 +62,16 @@ msgstr "Neue Datei"
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
+"Wenn Sie nicht speichern, gehen Ihre Änderungen der letzten 4 Sekunden "
+"unwiderruflich verloren."
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
-msgstr ""
+msgstr "Schließen ohne zu speichern"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:65
 msgid "Behavior"
-msgstr ""
+msgstr "Verhalten"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:69
 msgid "Interface"
@@ -77,15 +79,15 @@ msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
 msgid "Exstensions"
-msgstr ""
+msgstr "Erweiterungen"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:182
 msgid "Show welcome screen"
-msgstr ""
+msgstr "Zeige den Willkommen-Bildschirm"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:183
 msgid "Show last open tabs"
-msgstr ""
+msgstr "Zeig die zuletzt geöffneten Tabs"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:199
 msgid "General"
@@ -93,7 +95,7 @@ msgstr "Allgemeines"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:205
 msgid "When Scratch starts"
-msgstr ""
+msgstr "Wenn Scratch startet"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
 msgid "Case sensitive search"
@@ -101,15 +103,15 @@ msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:213
 msgid "Tabs"
-msgstr ""
+msgstr "Tabs"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:218
 msgid "Automatic indentation"
-msgstr ""
+msgstr "Automatisches Einrücken"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:222
 msgid "Insert spaces instead of tabs"
-msgstr ""
+msgstr "Leerstellen statt Tabulatoren einfügen"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:226
 msgid "Tab width"
@@ -125,27 +127,27 @@ msgstr "Aktuelle Zeile hervorheben"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:263
 msgid "Highlight matching brackets"
-msgstr ""
+msgstr "Zusammen gehörende Klammern hervorheben"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:264
 msgid "Show line numbers"
-msgstr ""
+msgstr "Zeilennummern anzeigen"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:266
 msgid "Right margin"
-msgstr ""
+msgstr "Rechter Rand"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:271
 msgid "Show margin on right"
-msgstr ""
+msgstr "Rand rechts anzeigen"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:279
 msgid "Margin width"
-msgstr ""
+msgstr "Randbreite"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:283
 msgid "Font and colors"
-msgstr ""
+msgstr "Schriften und Farben"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:297
 msgid "Select font:"
@@ -162,11 +164,11 @@ msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
-msgstr ""
+msgstr "Vor beenden nicht gesicherte Änderungen in Datei speichern ?"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:42
 msgid "Save unsaved changes to file \""
-msgstr ""
+msgstr "Speichere nicht gesicherte Änderungen in Datei \""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
