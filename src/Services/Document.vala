@@ -82,10 +82,15 @@ namespace Scratch.Services {
 
         public bool can_undo { get { return buffer.can_undo; } }
         public bool can_redo { get { return buffer.can_redo; } }
-
+        
+        // Public string and bool to watch for an warn about files changed by other programs 
+        public string last_saved_text = null;
+        public bool want_reload = true;
+        
         // Private variables
         private string original_text;
         private Gtk.SourceBuffer buffer;
+        private Gtk.SourceView source_view;
         private MainWindow window;
         private File file;
         private static string home_dir = Environment.get_home_dir ();
@@ -109,8 +114,6 @@ namespace Scratch.Services {
 
             this.window = window;
 
-            //window.scratch_app.documents.add (this);
-
         }
 
         void register_recent () {
@@ -118,7 +121,7 @@ namespace Scratch.Services {
             recent_manager.add_item (file.get_uri ());
         }
 
-        public void focus_sourceview() {
+        public void focus_sourceview () {
             if(tab == null) {
                 critical("No tab created for this document");
             }
@@ -161,6 +164,10 @@ namespace Scratch.Services {
 
             buffer = tab.text_view.buffer;
             buffer.changed.connect (on_buffer_changed);
+            
+            source_view = tab.text_view;
+            source_view.focus_in_event.connect (on_source_view_focus_in);
+            
             tab.change_syntax_highlight_for_filename(filename);
             window.current_notebook.set_current_page (window.current_notebook.add_existing_tab(tab));
 
@@ -227,6 +234,8 @@ namespace Scratch.Services {
             var f = File.new_for_path (filename);
             this.filename = f.get_basename ();
             
+            this.last_saved_text = contents;
+            
             this.opened (); // Signal
 
             return true;
@@ -284,7 +293,7 @@ namespace Scratch.Services {
 
         }
 
-        void set_label_font (string style) {
+        public void set_label_font (string style) {
             switch (style) {
 
                 case "modified":
@@ -304,7 +313,8 @@ namespace Scratch.Services {
         void on_buffer_changed () {
 
             window.set_undo_redo ();
-
+            want_reload = true;
+            
             if (filename != null) {
                 if (buffer.text == original_text) {
                     //window.main_actions.get_action ("Revert").set_sensitive (false);
@@ -323,16 +333,36 @@ namespace Scratch.Services {
                 modified = true;
             }
         }
-
+        
+        bool on_source_view_focus_in (Gdk.EventFocus event) {
+            string contents;
+            try {
+                FileUtils.get_contents (file.get_path (), out contents);
+            } catch (Error e) {
+                warning (e.message);
+                return false;
+            }
+            if (want_reload) {
+                if (contents != this.last_saved_text) {
+                    var warn = new Scratch.Dialogs.WarnDialog (filename, window);
+                    warn.run ();
+                    return true;
+                }
+            }
+            return false;
+        }
+        
         public bool save () {
             tab.save ();
             modified = false;
+            this.last_saved_text = this.buffer.text;
             return false;
         }
 
         public bool save_as () {
             tab.save_as ();
             modified = false;
+            this.last_saved_text = this.buffer.text;
             return false;
         }
 
@@ -348,7 +378,19 @@ namespace Scratch.Services {
             return true;
 
         }
-
+        
+        public bool reload () {
+            string contents;
+            try {
+                FileUtils.get_contents (file.get_path (), out contents);
+                buffer.text = contents;
+                return true;
+            } catch (Error e) {
+                warning (e.message);
+                return false;
+            }
+        }
+        
         public uint64 get_mtime () {
 
             try {

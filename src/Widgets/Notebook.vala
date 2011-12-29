@@ -138,7 +138,7 @@ namespace Scratch.Widgets {
             else
                 window.set_window_title ("Scratch");
 
-            tab.text_view.grab_focus ();
+            //tab.text_view.grab_focus ();
 
         }
 

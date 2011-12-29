@@ -53,6 +53,7 @@ vala_precompile(VALA_C
     src/Dialogs/PreferencesDialog.vala
     src/Dialogs/SaveDialog.vala
     src/Dialogs/SaveOnCloseDialog.vala
+    src/Dialogs/WarnDialog.vala
     src/Services/Document.vala
     src/config.vala
     src/Widgets/ComboSyntax.vala
