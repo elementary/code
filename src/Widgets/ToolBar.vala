@@ -130,7 +130,15 @@ namespace Scratch.Widgets {
         
         public override bool button_press_event (Gdk.EventButton event) {
             if (event.button == 3) {
+                if (window.main_actions.get_action ("ShowContextView").visible == false &&
+                        window.main_actions.get_action ("ShowBottomPanel").visible == false &&
+                        window.main_actions.get_action ("ShowSidebar").visible == false &&
+                        window.main_actions.get_action ("ShowStatusBar").visible == false) {
+                    return true;       
+                }
+                else {
                 (ui.get_widget ("ui/ToolbarContext") as Gtk.Menu).popup (null, null, null, event.button, Gtk.get_current_event_time ());
+                }
                 return true;
             }
             return base.button_press_event (event);

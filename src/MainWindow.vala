@@ -127,7 +127,8 @@ namespace Scratch {
             main_actions.get_action ("ShowContextView").visible = false;
             main_actions.get_action ("ShowBottomPanel").visible = false;
             main_actions.get_action ("ShowSidebar").visible = false;
-
+            main_actions.get_action ("ShowStatusBar").visible = false;
+            
             ui = new Gtk.UIManager ();
 
             try {
