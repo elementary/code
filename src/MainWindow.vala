@@ -57,8 +57,6 @@ namespace Scratch {
                 <menuitem action="ShowContextView" />
                 <menuitem action="ShowBottomPanel" />
                 <menuitem action="ShowStatusBar" />
-                <separator />
-                <menuitem action="EditToolbar" />
             </popup>
             <popup name="AppMenu">
                 <menuitem action="New view" />
@@ -667,7 +665,7 @@ namespace Scratch {
                 string selected = buf.get_text (start, end, true);
                 if (selected != "")
 #if VALA_0_14
-                    buf.insert (end, "\n" + selected, -1);
+                    buf.insert (ref end, "\n" + selected, -1);
 #else
                     buf.insert (ref end, "\n" + selected, -1);
 #endif
@@ -690,11 +688,6 @@ namespace Scratch {
             {
                 this.fullscreen ();
             }
-        }
-        
-        void action_edit_toolbar () {
-            var toolbar_editor = new ToolBarEditor (_("Customize toolbar"), this, this.toolbar);
-            toolbar_editor.show_all ();
         }
         
         void action_remove_view () {
@@ -816,12 +809,7 @@ namespace Scratch {
            { "Preferences", Gtk.Stock.PREFERENCES,
           /* label, accelerator */       N_("Preferences"), null,
           /* tooltip */                  N_("Change Scratch settings"),
-                                         action_preferences },
-                                         
-            { "EditToolbar", Gtk.Stock.PREFERENCES,
-          /* label, accelerator */       N_("Customize toolbar"), null,
-          /* tooltip */                  N_("Customize toolbar"),
-                                         action_edit_toolbar }
+                                         action_preferences }
         };
 
         static const Gtk.ToggleActionEntry[] toggle_entries = {

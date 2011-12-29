@@ -182,7 +182,16 @@ namespace Scratch.Services {
 
             if (filename == null)
                 return false;
-
+            
+            foreach(var doc in window.scratch_app.documents)
+            {
+                if(doc.filename == filename) {
+                    /* Already opened, then, we will just focus it */
+                    doc.focus_sourceview();
+                    return false;
+                }
+            }
+            
             string contents;
             try {
                 FileUtils.get_contents (filename, out contents);
