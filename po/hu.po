@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-12-21 17:01+0100\n"
+"POT-Creation-Date: 2011-12-29 23:15+0100\n"
 "PO-Revision-Date: 2011-12-25 17:17+0000\n"
 "Last-Translator: Csonka Bálint <Unknown>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-26 05:14+0000\n"
+"X-Launchpad-Export-Date: 2011-12-30 05:59+0000\n"
 "X-Generator: Launchpad (build 14560)\n"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:103
@@ -67,98 +67,94 @@ msgstr ""
 msgid "Close without saving"
 msgstr "Bezárás mentés nélkül"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:65
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:63
 msgid "Behavior"
 msgstr "Működés"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:69
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:67
 msgid "Interface"
 msgstr "Kezelőfelület"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
-msgid "Exstensions"
-msgstr "Kiegészítők"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:71
+msgid "Extensions"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:182
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
 msgid "Show welcome screen"
 msgstr "Üdvözlő képernyő mutatása"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:183
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:160
 msgid "Show last open tabs"
 msgstr "Legutoljára mengynitott fülek mutatása-"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:199
-msgid "General"
-msgstr "Általános"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:176
+msgid "General:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:205
-msgid "When Scratch starts"
-msgstr "A Scratch induásánál"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:182
+msgid "When Scratch starts:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
-msgid "Case sensitive search"
-msgstr "Kis és nagybetűk megkülömböztetése kereséskor"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:185
+msgid "Case sensitive search:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:213
-msgid "Tabs"
-msgstr "Fülek"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:190
+msgid "Tabs:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:218
-msgid "Automatic indentation"
-msgstr "Automatikus behúzás"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:195
+msgid "Automatic indentation:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:222
-msgid "Insert spaces instead of tabs"
-msgstr "Szóközök beszúrása tanulátor helyett."
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:198
+msgid "Insert spaces instead of tabs:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:226
-msgid "Tab width"
-msgstr "Tabulátor szélesség"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:202
+msgid "Tab width:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:250
-msgid "Editor"
-msgstr "Szerkesztő"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:232
+msgid "Editor:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:262
-msgid "Highlight current line"
-msgstr "A jelenlegi sor kiemelése"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:244
+msgid "Highlight current line:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:263
-msgid "Highlight matching brackets"
-msgstr "Zárójel párjának kiemelése"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:245
+msgid "Highlight matching brackets:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:264
-msgid "Show line numbers"
-msgstr "Sorok számának megjelenítése"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:246
+msgid "Show line numbers:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:266
-msgid "Right margin"
-msgstr "Jobb oldali margó"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:249
+msgid "Show margin on right:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:271
-msgid "Show margin on right"
-msgstr "Margó megjelenítése a jobb oldlon"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:256
+msgid "Margin width:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:279
-msgid "Margin width"
-msgstr "Margó szélesség"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:261
+msgid "Font and colors:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:283
-msgid "Font and colors"
-msgstr "Betűtípus és színek"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:297
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:275
 msgid "Select font:"
 msgstr "Betűtípus:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:300
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:278
 msgid "Color scheme:"
 msgstr "Színséma:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:301
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:283
 #, c-format
-msgid "System fixed width font (%s):"
-msgstr "Rendszer rögzített szélességű betűtípusa (%s)"
+msgid "Custom font (%s):"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
@@ -176,18 +172,10 @@ msgstr "A fájl változtatásai nem lettek mentve."
 msgid "Do you want to save changes before closing this file?"
 msgstr "Menti a változtatásokat?"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:62
-msgid ""
-"Select the elements to show in the toolbar. You can customize them also with "
-"drag n drop"
+#: /home/mefrio/scratch/po/../src/Dialogs/WarnDialog.vala:41
+msgid "The file:"
 msgstr ""
-"Jelölje ki, hogy melyik elemek jelenjenek meg az eszköztárban. Használja a "
-"drag & dropp funkciót a rendszerezéshez!"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:96
-msgid "Avaible elements"
-msgstr "Elérhető elemek"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:114
-msgid "Showed elements"
-msgstr "Megjelenített elemek"
+#: /home/mefrio/scratch/po/../src/Dialogs/WarnDialog.vala:42
+msgid "Do you want to reload it?"
+msgstr ""

@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-21 17:01+0100\n"
+"POT-Creation-Date: 2011-12-29 23:15+0100\n"
 "PO-Revision-Date: 2011-12-25 10:05+0000\n"
 "Last-Translator: Fitoschido <fitoschido@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-26 05:14+0000\n"
+"X-Launchpad-Export-Date: 2011-12-30 05:59+0000\n"
 "X-Generator: Launchpad (build 14560)\n"
 "Language: es\n"
 
@@ -69,98 +69,94 @@ msgstr ""
 msgid "Close without saving"
 msgstr "Cerrar sin guardar"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:65
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:63
 msgid "Behavior"
 msgstr "Comportamiento"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:69
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:67
 msgid "Interface"
 msgstr "Interfaz"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
-msgid "Exstensions"
-msgstr "Extensiones"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:71
+msgid "Extensions"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:182
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
 msgid "Show welcome screen"
 msgstr "Mostrar pantalla de bienvenida"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:183
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:160
 msgid "Show last open tabs"
 msgstr "Mostrar las últimas pestañas abiertas"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:199
-msgid "General"
-msgstr "General"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:176
+msgid "General:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:205
-msgid "When Scratch starts"
-msgstr "Cuando Scratch inicie"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:182
+msgid "When Scratch starts:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
-msgid "Case sensitive search"
-msgstr "Búsqueda sensible a mayúsculas"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:185
+msgid "Case sensitive search:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:213
-msgid "Tabs"
-msgstr "Pestañas"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:190
+msgid "Tabs:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:218
-msgid "Automatic indentation"
-msgstr "Indentación automática"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:195
+msgid "Automatic indentation:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:222
-msgid "Insert spaces instead of tabs"
-msgstr "Insertar espacios en lugar de tabuladores"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:198
+msgid "Insert spaces instead of tabs:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:226
-msgid "Tab width"
-msgstr "Ancho del tabulador"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:202
+msgid "Tab width:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:250
-msgid "Editor"
-msgstr "Editor"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:232
+msgid "Editor:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:262
-msgid "Highlight current line"
-msgstr "Resaltar la línea actual"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:244
+msgid "Highlight current line:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:263
-msgid "Highlight matching brackets"
-msgstr "Resaltar pareja de llaves"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:245
+msgid "Highlight matching brackets:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:264
-msgid "Show line numbers"
-msgstr "Mostrar números de línea"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:246
+msgid "Show line numbers:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:266
-msgid "Right margin"
-msgstr "Margen derecho"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:249
+msgid "Show margin on right:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:271
-msgid "Show margin on right"
-msgstr "Mostrar margen a la derecha"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:256
+msgid "Margin width:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:279
-msgid "Margin width"
-msgstr "Ancho del margen"
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:261
+msgid "Font and colors:"
+msgstr ""
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:283
-msgid "Font and colors"
-msgstr "Tipografía y colores"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:297
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:275
 msgid "Select font:"
 msgstr "Seleccionar tipografía:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:300
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:278
 msgid "Color scheme:"
 msgstr "Esquema de colores:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:301
+#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:283
 #, c-format
-msgid "System fixed width font (%s):"
-msgstr "Tipografía de ancho fijo del sistema (%s):"
+msgid "Custom font (%s):"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
@@ -178,18 +174,10 @@ msgstr "Los cambios en este archivo no han sido guardados."
 msgid "Do you want to save changes before closing this file?"
 msgstr "¿Quiere guardar los cambios antes de cerrar este archivo?"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:62
-msgid ""
-"Select the elements to show in the toolbar. You can customize them also with "
-"drag n drop"
+#: /home/mefrio/scratch/po/../src/Dialogs/WarnDialog.vala:41
+msgid "The file:"
 msgstr ""
-"Seleccione los elementos que quiere mostrar en la barra de herramientas. "
-"También puede personalizar la barra arrastrando y soltando los elementos"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:96
-msgid "Avaible elements"
-msgstr "Elementos disponibles"
-
-#: /home/mefrio/scratch/po/../src/Dialogs/ToolBarEditor.vala:114
-msgid "Showed elements"
-msgstr "Elementos mostrados"
+#: /home/mefrio/scratch/po/../src/Dialogs/WarnDialog.vala:42
+msgid "Do you want to reload it?"
+msgstr ""
