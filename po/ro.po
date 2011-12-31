@@ -1,4 +1,4 @@
-# Brazilian Portuguese translation for scratch
+# Romanian translation for scratch
 # Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
 # This file is distributed under the same license as the scratch package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
@@ -6,116 +6,114 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-12-29 23:15+0100\n"
-"PO-Revision-Date: 2011-12-30 17:16+0000\n"
-"Last-Translator: Eduardo Souza <Unknown>\n"
-"Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
+"PO-Revision-Date: 2011-12-30 09:26+0000\n"
+"Last-Translator: rodislav <rodearo@yahoo.com>\n"
+"Language-Team: Romanian <ro@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2011-12-31 06:16+0000\n"
 "X-Generator: Launchpad (build 14560)\n"
-"Language: pt_BR\n"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:103
 msgid "New document"
-msgstr "Novo documento"
+msgstr "Document nou"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
 msgid "No files are open."
-msgstr "Nenhum arquivo está aberto."
+msgstr "Nu sunt fişiere deschise"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
 msgid "Open a file to begin editing."
-msgstr "Abra um arquivo para começar a editar."
+msgstr "Deschide un fişier pentru a începe editarea"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Open file"
-msgstr "Abrir Arquivo"
+msgstr "Deschide fișier"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Open a saved file."
-msgstr "Abrir um arquivo salvo."
+msgstr "Deschide un fişier salvat"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
 msgid "New file"
-msgstr "Novo arquivo"
+msgstr "Fişier nou"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
 msgid "Create a new empty file."
-msgstr "Criar um novo arquivo vazio."
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Widgets/ComboSyntax.vala:38
 msgid "Normal text"
-msgstr "Texto normal"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "Save changes to document"
-msgstr "Salvar alterações no documento"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "New File"
-msgstr "Novo Arquivo"
+msgstr "Fișier nou"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
-"Caso você não salvar, as alterações dos últimos 4 segundos serão perdidas "
-"permanentemente."
+"Dacă nu salvezi, schimbările făcute în ultimele 4 secunde vor fi pierdute."
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
-msgstr "Fechar sem salvar"
+msgstr "Închide fără a salva"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:63
 msgid "Behavior"
-msgstr "Comportamento"
+msgstr "Comportament"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:67
 msgid "Interface"
-msgstr "Interface"
+msgstr "Interfaţă"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:71
 msgid "Extensions"
-msgstr "Extensões"
+msgstr "Extensii"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
 msgid "Show welcome screen"
-msgstr "Mostrar tela de boas-vindas"
+msgstr "Arată ecranul de întâmpinare"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:160
 msgid "Show last open tabs"
-msgstr "Mostrar últimas abas abertas"
+msgstr "Arată filele deschise ultima dată"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:176
 msgid "General:"
-msgstr "Geral:"
+msgstr "General"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:182
 msgid "When Scratch starts:"
-msgstr "Quando Scratch iniciar:"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:185
 msgid "Case sensitive search:"
-msgstr "Pesquisa case sensitive:"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:190
 msgid "Tabs:"
-msgstr "Abas:"
+msgstr "File"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:195
 msgid "Automatic indentation:"
-msgstr "Identificação automática"
+msgstr "Indentare automată"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:198
 msgid "Insert spaces instead of tabs:"
-msgstr "Inserir espaços ao invés de abas:"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:202
 msgid "Tab width:"
-msgstr "Largura de aba:"
+msgstr "Lungime tab"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:232
 msgid "Editor:"
@@ -123,61 +121,61 @@ msgstr "Editor:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:244
 msgid "Highlight current line:"
-msgstr "Destacar linha atual:"
+msgstr "Marchează linia curentă"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:245
 msgid "Highlight matching brackets:"
-msgstr "Destacar colchetes correspondentes:"
+msgstr "Marchează parantezele potrivite"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:246
 msgid "Show line numbers:"
-msgstr "Mostrar número de linhas:"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:249
 msgid "Show margin on right:"
-msgstr "Mostrar margem à direita:"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:256
 msgid "Margin width:"
-msgstr "Largura da margem:"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:261
 msgid "Font and colors:"
-msgstr "Fontes e cores:"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:275
 msgid "Select font:"
-msgstr "Selecionar fonte:"
+msgstr "Selectează font:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:278
 msgid "Color scheme:"
-msgstr "Tema de cor:"
+msgstr "Schemă de culori:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:283
 #, c-format
 msgid "Custom font (%s):"
-msgstr "Font personalizada (%s):"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
-msgstr "Salvar mudanças ainda não salvas antes de fechar o arquivo?"
+msgstr "Salvaţi modificările înainte de inchidere ?"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:42
 msgid "Save unsaved changes to file \""
-msgstr "Salvar mudanças ainda não salvas no arquivo"
+msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
-msgstr "As mudanças neste arquivo não foram salvas."
+msgstr "Modificările din acest fişier nu au fost salvate"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Do you want to save changes before closing this file?"
-msgstr "Você deseja salvar as mudanças antes de fechar este arquivo?"
+msgstr "Vreţi să salvaţi modificările înainte de a inchide acest fişier ?"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/WarnDialog.vala:41
 msgid "The file:"
-msgstr "O arquivo:"
+msgstr "Acest fişier"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/WarnDialog.vala:42
 msgid "Do you want to reload it?"
-msgstr "Deseja recarregá-lo?"
+msgstr "Doriți să-l reîncărcați?"
