@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-12-29 23:15+0100\n"
-"PO-Revision-Date: 2011-12-25 10:05+0000\n"
-"Last-Translator: Fitoschido <fitoschido@gmail.com>\n"
+"PO-Revision-Date: 2012-01-01 02:12+0000\n"
+"Last-Translator: ttosttos <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-30 05:59+0000\n"
+"X-Launchpad-Export-Date: 2012-01-01 05:55+0000\n"
 "X-Generator: Launchpad (build 14560)\n"
 "Language: es\n"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:103
 msgid "New document"
-msgstr "Documento nuevo"
+msgstr "Nuevo documento"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
 msgid "No files are open."
@@ -40,7 +40,7 @@ msgstr "Abrir un archivo guardado."
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
 msgid "New file"
-msgstr "Archivo nuevo"
+msgstr "Nuevo archivo"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
 msgid "Create a new empty file."
@@ -56,14 +56,12 @@ msgstr "Guardar los cambios al documento"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "New File"
-msgstr "Archivo nuevo"
+msgstr "Nuevo archivo"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
-"Si no guarda, los cambios de los últimos 4 segundos se perderán "
-"permanentemente."
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
@@ -79,7 +77,7 @@ msgstr "Interfaz"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:71
 msgid "Extensions"
-msgstr ""
+msgstr "Extensiones"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
 msgid "Show welcome screen"
@@ -91,7 +89,7 @@ msgstr "Mostrar las últimas pestañas abiertas"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:176
 msgid "General:"
-msgstr ""
+msgstr "General:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:182
 msgid "When Scratch starts:"
@@ -119,7 +117,7 @@ msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:232
 msgid "Editor:"
-msgstr ""
+msgstr "Editor:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:244
 msgid "Highlight current line:"
@@ -151,7 +149,7 @@ msgstr "Seleccionar tipografía:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:278
 msgid "Color scheme:"
-msgstr "Esquema de colores:"
+msgstr "Esquema de color:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:283
 #, c-format
@@ -180,4 +178,4 @@ msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/WarnDialog.vala:42
 msgid "Do you want to reload it?"
-msgstr ""
+msgstr "¿Desea volver a cargarlo?"
