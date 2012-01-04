@@ -315,8 +315,10 @@ namespace Scratch.Services {
             window.set_undo_redo ();
             want_reload = true;
             
-            if (settings.autosave && filename != null) 
+            if (settings.autosave && filename != null) {
                 save ();
+                modified = false;
+            }
             else {
                 if (filename != null) {
                     if (buffer.text == original_text) {
