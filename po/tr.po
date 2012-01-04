@@ -8,34 +8,34 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-12-29 23:15+0100\n"
-"PO-Revision-Date: 2011-12-08 09:22+0000\n"
-"Last-Translator: Fatih Dayioglu <fatihdy@gmail.com>\n"
+"PO-Revision-Date: 2012-01-03 17:44+0000\n"
+"Last-Translator: Muhammet Kara <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-30 05:59+0000\n"
-"X-Generator: Launchpad (build 14560)\n"
+"X-Launchpad-Export-Date: 2012-01-04 05:32+0000\n"
+"X-Generator: Launchpad (build 14616)\n"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:103
 msgid "New document"
-msgstr ""
+msgstr "Yeni belge"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
 msgid "No files are open."
-msgstr ""
+msgstr "Açık dosya yok."
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
 msgid "Open a file to begin editing."
-msgstr ""
+msgstr "Düzenlemeye başlamak için bir dosya açın."
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Open file"
-msgstr ""
+msgstr "Dosya aç"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Open a saved file."
-msgstr ""
+msgstr "Kaydedilmiş bir dosyayı aç."
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
 msgid "New file"
@@ -43,7 +43,7 @@ msgstr "Yeni dosya"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
 msgid "Create a new empty file."
-msgstr ""
+msgstr "Yeni bir boş dosya oluştur."
 
 #: /home/mefrio/scratch/po/../src/Widgets/ComboSyntax.vala:38
 msgid "Normal text"
@@ -51,36 +51,38 @@ msgstr "Normal metin"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "Save changes to document"
-msgstr ""
+msgstr "Belgedeki değişiklikleri kaydet"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "New File"
-msgstr ""
+msgstr "Yeni Dosya"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
+"Eğer kaydetmezseniz, son 4 saniyedeki değişiklikler kalıcı olarak "
+"silinecektir."
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
-msgstr ""
+msgstr "Kaydetmeden kapat"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:63
 msgid "Behavior"
-msgstr ""
+msgstr "Davranış"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:67
 msgid "Interface"
-msgstr ""
+msgstr "Arabirim"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:71
 msgid "Extensions"
-msgstr ""
+msgstr "Uzantılar"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
 msgid "Show welcome screen"
-msgstr ""
+msgstr "Karşılama ekranını göster"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:160
 msgid "Show last open tabs"
@@ -88,7 +90,7 @@ msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:176
 msgid "General:"
-msgstr ""
+msgstr "Genel:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:182
 msgid "When Scratch starts:"
@@ -96,31 +98,31 @@ msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:185
 msgid "Case sensitive search:"
-msgstr ""
+msgstr "Büyük/küçük harfe duyarlı arama:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:190
 msgid "Tabs:"
-msgstr ""
+msgstr "Sekmeler:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:195
 msgid "Automatic indentation:"
-msgstr ""
+msgstr "Otomatik girintileme:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:198
 msgid "Insert spaces instead of tabs:"
-msgstr ""
+msgstr "Sekme yerine boşluk ekle:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:202
 msgid "Tab width:"
-msgstr ""
+msgstr "Sekme genişliği:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:232
 msgid "Editor:"
-msgstr ""
+msgstr "Düzenleyici"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:244
 msgid "Highlight current line:"
-msgstr ""
+msgstr "Geçerli satırı vurgula"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:245
 msgid "Highlight matching brackets:"
@@ -128,7 +130,7 @@ msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:246
 msgid "Show line numbers:"
-msgstr ""
+msgstr "Satır numaralarını göster:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:249
 msgid "Show margin on right:"
@@ -140,24 +142,24 @@ msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:261
 msgid "Font and colors:"
-msgstr ""
+msgstr "Yazıtipi ve renkler:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:275
 msgid "Select font:"
-msgstr ""
+msgstr "Yazıtipi seç:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:278
 msgid "Color scheme:"
-msgstr ""
+msgstr "Renk şeması:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:283
 #, c-format
 msgid "Custom font (%s):"
-msgstr ""
+msgstr "Özel yazıtipi (%s):"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
-msgstr ""
+msgstr "Kapatmadan önce değişiklikler dosyaya kaydedilsin mi?"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:42
 msgid "Save unsaved changes to file \""
@@ -173,7 +175,7 @@ msgstr ""
 
 #: /home/mefrio/scratch/po/../src/Dialogs/WarnDialog.vala:41
 msgid "The file:"
-msgstr ""
+msgstr "Dosya:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/WarnDialog.vala:42
 msgid "Do you want to reload it?"
