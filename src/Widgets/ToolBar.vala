@@ -122,10 +122,17 @@ namespace Scratch.Widgets {
             
             add (share_app_menu);
             add (app_menu);
-
+            
+            settings.changed.connect (show_hide_button);
+            
             /* Set up the context menu */
             menu_ui = ui.get_widget ("ui/ToolbarContext") as Gtk.Menu;
             
+        }
+        
+        public void show_hide_button () {
+            if (settings.autosave) save_button.hide ();
+            else save_button.show ();
         }
         
         public override bool button_press_event (Gdk.EventButton event) {

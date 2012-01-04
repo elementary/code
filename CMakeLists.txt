@@ -3,7 +3,7 @@
 cmake_minimum_required (VERSION 2.6)
 cmake_policy (VERSION 2.6)
 project (scratch)
-enable_testing ()
+enable_testing ()   
 set (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
 set (PKGDATADIR "${DATADIR}/scratch")
 set (GETTEXT_PACKAGE "scratch")

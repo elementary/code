@@ -315,22 +315,26 @@ namespace Scratch.Services {
             window.set_undo_redo ();
             want_reload = true;
             
-            if (filename != null) {
-                if (buffer.text == original_text) {
-                    //window.main_actions.get_action ("Revert").set_sensitive (false);
-                    //set_label_font ("saved");
-                    //modified = true;
+            if (settings.autosave && filename != null) 
+                save ();
+            else {
+                if (filename != null) {
+                    if (buffer.text == original_text) {
+                        //window.main_actions.get_action ("Revert").set_sensitive (false);
+                        //set_label_font ("saved");
+                        //modified = true;
+                    }
+                    else {
+                        window.main_actions.get_action ("Revert").set_sensitive (true);
+                        set_label_font ("modified");
+                        modified = true;
+                    }
                 }
                 else {
-                    window.main_actions.get_action ("Revert").set_sensitive (true);
+                    window.main_actions.get_action ("Revert").set_sensitive (false);
                     set_label_font ("modified");
                     modified = true;
                 }
-            }
-            else {
-                window.main_actions.get_action ("Revert").set_sensitive (false);
-                set_label_font ("modified");
-                modified = true;
             }
         }
         

@@ -62,6 +62,11 @@
           <summary>Files opened in the previously session of Scratch</summary>
           <description>It is used to open the files opened in the last Scratch session</description>
         </key>
+        <key name="autosave" type="b">
+            <default>true</default>
+            <summary>Autosave edited files</summary>
+            <description>Autosave edited files.</description>
+        </key>
         <key name="show-right-margin" type="b">
             <default>false</default>
             <summary>Show the right margin</summary>

@@ -160,6 +160,9 @@ namespace Scratch.Dialogs {
             start.append ("last-tabs", _("Show last open tabs"));
             Scratch.settings.schema.bind("show-at-start", start, "active-id", SettingsBindFlags.DEFAULT);
             
+            var autosave = new Gtk.Switch ();
+            Scratch.settings.schema.bind("autosave", autosave, "active", SettingsBindFlags.DEFAULT);
+            
             var case_sensitive = new Gtk.Switch ();
             Scratch.settings.schema.bind("search-sensitive", case_sensitive, "active", SettingsBindFlags.DEFAULT);
  
@@ -181,6 +184,9 @@ namespace Scratch.Dialogs {
             
             label = new Label (_("When Scratch starts:"));
             add_option (general_grid, label, start, ref row);
+            
+            label = new Label (_("Auto save:"));
+            add_option (general_grid, label, autosave, ref row);
             
             label = new Label (_("Case sensitive search:"));
             add_option (general_grid, label, case_sensitive, ref row);

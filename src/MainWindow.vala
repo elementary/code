@@ -314,6 +314,7 @@ namespace Scratch {
             on_split_view_empty_changed ();
 
             show_all();
+            toolbar.show_hide_button ();
             notebook_settings_changed ("sidebar-visible");
             notebook_settings_changed ("context-visible");
             notebook_settings_changed ("bottom-panel-visible");
