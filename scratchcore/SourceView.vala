@@ -44,7 +44,6 @@ namespace Scratch.Widgets {
 
             buffer = new SourceBuffer (null);
             set_buffer (buffer);
-            buffer.changed.connect (on_buffer_changed);
 
             TextIter start, end;
             buffer.get_selection_bounds (out start, out end);
@@ -116,10 +115,6 @@ namespace Scratch.Widgets {
 
             return lang;
 
-        }
-
-        public void on_buffer_changed () {
-            modified = true;
         }
 
         public void restore_settings () {

@@ -318,6 +318,7 @@ namespace Scratch.Services {
             if (settings.autosave && filename != null) {
                 save ();
                 modified = false;
+                tab.text_view.modified = false;
             }
             else {
                 if (filename != null) {
@@ -330,12 +331,14 @@ namespace Scratch.Services {
                         window.main_actions.get_action ("Revert").set_sensitive (true);
                         set_label_font ("modified");
                         modified = true;
+                        tab.text_view.modified = true;
                     }
                 }
                 else {
                     window.main_actions.get_action ("Revert").set_sensitive (false);
                     set_label_font ("modified");
                     modified = true;
+                    tab.text_view.modified = true;
                 }
             }
         }
