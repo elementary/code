@@ -114,6 +114,8 @@ namespace Scratch.Widgets {
 
                 this.document.filename = f.get_basename ();
 				
+				change_syntax_highlight_for_filename(this.filename);
+				
                 return 0;
 
             } catch (Error e) {
@@ -185,6 +187,8 @@ namespace Scratch.Widgets {
                 top.set_window_title (this.filename);
 
                 this.document.filename = f.get_basename ();
+                
+                change_syntax_highlight_for_filename(this.filename);
                 
                 return 0;
 
