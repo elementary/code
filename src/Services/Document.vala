@@ -355,6 +355,7 @@ namespace Scratch.Services {
                 if (contents != this.last_saved_text) {
                     var warn = new Scratch.Dialogs.WarnDialog (filename, window);
                     warn.run ();
+                    want_reload = false;
                     return true;
                 }
             }

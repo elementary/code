@@ -57,7 +57,6 @@ namespace Scratch.Dialogs {
                     destroy ();
                 break;
                 case ResponseType.CANCEL:
-                    window.current_document.want_reload = false;
                     window.current_document.set_label_font ("modified");
                     destroy ();
                 break;
