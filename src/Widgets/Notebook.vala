@@ -133,12 +133,16 @@ namespace Scratch.Widgets {
                 return;
             }
             /* Ok, it is a real Tab then */
-            if (tab.filename != null)
+            if (tab.filename != null) {
                 window.set_window_title (tab.filename);
-            else
+                if (settings.autosave)
+                    window.toolbar.save_button.hide ();
+            }
+            else {
                 window.set_window_title ("Scratch");
-
-            //tab.text_view.grab_focus ();
+                if (settings.autosave)
+                    window.toolbar.save_button.show ();
+            }
 
         }
 
