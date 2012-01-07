@@ -190,8 +190,6 @@ namespace Scratch {
                 print(e.message + "\n");
             }
 
-            Gtk.init(ref args);
-
             var app = new ScratchApp ();
 
             return app.run (args);
