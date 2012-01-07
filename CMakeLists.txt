@@ -21,7 +21,6 @@ configure_file (${CMAKE_SOURCE_DIR}/src/config.vala.cmake ${CMAKE_SOURCE_DIR}/sr
 add_definitions(-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\")
 configure_file (${CMAKE_SOURCE_DIR}/src/scratch.pc.cmake ${CMAKE_BINARY_DIR}/src/scratch.pc)
 install (FILES ${CMAKE_BINARY_DIR}/src/scratch.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig/)
-add_custom_target(generate_scratch_h DEPENDS ${CMAKE_BINARY_DIR}/scratch.h)
 # Scratch
 
 set (SCRATCH_DEPS "gtksourceview-3.0;gee-1.0;gobject-2.0;glib-2.0;gio-2.0;gconf-2.0;gtk+-3.0;granite;")
@@ -77,6 +76,7 @@ add_subdirectory(po)
 # add_definitions (${CFLAGS} -Wall -Winit-self -Wwrite-strings -Wunreachable-code -Wstrict-prototypes )
 
 add_executable (scratch ${VALA_C})
+add_dependencies(scratch scratchcore)
 include_directories(${CMAKE_BINARY_DIR}/libplugins)
 include_directories(${CMAKE_BINARY_DIR}/scratchcore)
 include_directories(${CMAKE_BINARY_DIR}/lib)
