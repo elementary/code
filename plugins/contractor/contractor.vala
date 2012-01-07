@@ -44,7 +44,7 @@ public class Scratch.Plugins.Contractor : Scratch.Plugins.Base
             foreach(var w in list)
                 w.destroy();
         list  = new List<Gtk.MenuItem>();
-        foreach(var contract in Granite.Services.Contractor.get_contract("file:///" + scratch_app.window.current_document.filename, "text/plain"))
+        foreach(var contract in Granite.Services.Contractor.get_contract("file:///" + scratch_app.window.current_tab.filename, "text/plain"))
         {
             var menuitem = new Gtk.MenuItem.with_label (contract["Description"]);
             string exec = contract["Exec"];
