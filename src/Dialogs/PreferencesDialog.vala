@@ -38,16 +38,21 @@ namespace Scratch.Dialogs {
         ComboBoxText style_scheme;
         Switch use_system_font;
         FontButton select_font;
-
-        public Preferences (string? title, MainWindow? window) {
+        
+        List<string> plugin_lists;
+        
+        public Preferences (string? title, MainWindow? window, List<string> plugin_lists) {
 
             this.window = window;
             this.title = title;
+            this.type_hint = Gdk.WindowTypeHint.DIALOG;
             this.set_transient_for (window);
             set_default_size (600, 300);
             modal = true;
-            //resizable = false;
-
+            resizable = false;
+            
+            this.plugin_lists = plugin_lists.copy ();
+            
             main_static_notebook = new StaticNotebook ();
 
             create_layout ();
@@ -109,7 +114,7 @@ namespace Scratch.Dialogs {
             Gtk.TreeIter iter;
 
             int count = 0;
-            List<string> plugin_lists = plugins.get_available_plugins ();
+            //this.plugin_lists = plugins.get_available_plugins ();
             foreach(string plugin_name in plugin_lists)
             {
                 count ++;
@@ -126,6 +131,7 @@ namespace Scratch.Dialogs {
             ((Gtk.Box)get_content_area()).add (main_static_notebook);
             
             add_button (Stock.CLOSE, ResponseType.ACCEPT);
+
         }
         
         void add_section (Gtk.Grid grid, Gtk.Label name, ref int row) {

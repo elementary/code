@@ -75,7 +75,14 @@ namespace Scratch {
 
         public SplitView split_view;
         public Widgets.Toolbar toolbar;
-
+        
+        /**
+         * This is the list of plugins. I added it 
+         * so the list will be loaded just once
+         * and the Preferences dialog will not crash randomly
+         **/
+        public List<string> plugin_lists;
+        
         /**
          * The Gtk.Notebook which is used to display panels which are related
          * to the current files.
@@ -146,7 +153,10 @@ namespace Scratch {
 
             create_window ();
             connect_signals ();
-
+            
+            // Load the plugins list
+            this.plugin_lists = plugins.get_available_plugins ();
+            
             set_theme ();
         }
 
@@ -398,7 +408,7 @@ namespace Scratch {
         }
         
         void action_preferences () {
-            var dialog = new Dialogs.Preferences ("Preferences", this);
+            var dialog = new Dialogs.Preferences ("Preferences", this, plugin_lists);
             dialog.show_all ();
             dialog.run ();
             dialog.destroy ();
