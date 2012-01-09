@@ -112,7 +112,7 @@ namespace Scratch.Widgets {
                 var top = get_toplevel () as MainWindow;
                 top.set_window_title (this.filename);				
 
-                this.document.filename = f.get_basename ();
+                this.document.filename = this.filename;
 				
 				change_syntax_highlight_for_filename(this.filename);
 				
@@ -186,7 +186,7 @@ namespace Scratch.Widgets {
                 var top = get_toplevel () as MainWindow;
                 top.set_window_title (this.filename);
 
-                this.document.filename = f.get_basename ();
+                this.document.filename = this.filename;
                 
                 change_syntax_highlight_for_filename(this.filename);
                 

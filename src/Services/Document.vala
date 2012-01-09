@@ -231,8 +231,7 @@ namespace Scratch.Services {
 
             /* TODO: real encoding detection */
             
-            var f = File.new_for_path (filename);
-            this.filename = f.get_basename ();
+            this.filename = filename;
             
             this.last_saved_text = contents;
             
@@ -380,8 +379,7 @@ namespace Scratch.Services {
 
             FileUtils.rename (filename, new_name);
             
-            var f = File.new_for_path (new_name);
-            this.filename = f.get_basename ();
+            this.filename = new_name;
             
             this.save ();
             

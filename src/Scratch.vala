@@ -34,7 +34,7 @@ namespace Scratch {
         static string app_cmd_name;
         static string app_set_arg;
         static bool new_instance;
-        public Gee.ArrayList<Document> documents = new Gee.ArrayList<Document>();
+        public GLib.List<Document> documents = new GLib.List<Document>();
         public string current_directory = ".";
 
         construct {
@@ -125,7 +125,7 @@ namespace Scratch {
             current_directory = Path.get_dirname (filename);
             var document = new Document(filename, window);
             document.create_sourceview ();
-            documents.add(document);
+            documents.append (document);
             document.closed.connect( (doc) => { documents.remove(doc); });
             window.current_notebook.set_tab ();
             window.set_window_title (filename);
@@ -135,7 +135,7 @@ namespace Scratch {
 
         public void open_document(Document document) {
             document.create_sourceview ();
-            documents.add(document);
+            documents.append (document);
             document.closed.connect( (doc) => { documents.remove(doc); });
             window.current_notebook.set_tab ();
             window.set_window_title ("New");
