@@ -293,17 +293,20 @@ namespace Scratch.Services {
         }
 
         public void set_label_font (string style) {
+            var f = File.new_for_path (this.filename);
+            string label = f.get_basename ();
+            
             switch (style) {
 
                 case "modified":
                     if (this.filename != null)
-                        tab.label.label.set_markup ("<span font_style='italic'>%s</span>".printf(this.filename));
+                        tab.label.label.set_markup ("<span font_style='italic'>%s</span>".printf(label));
                     else 
                         tab.label.label.set_markup ("<span font_style='italic'>%s</span>".printf(_("New document")));
                 break;
 
                 case "saved":
-                    tab.label.label.set_markup ("<span font_style='normal'>%s</span>".printf(this.filename));//tab.label.label_text));
+                    tab.label.label.set_markup ("<span font_style='normal'>%s</span>".printf(label));
                 break;
 
             }
