@@ -420,21 +420,14 @@ namespace Scratch {
 
         void action_quit () {
             int n = 0;
+            string[] opened_files = {};
             
-            foreach (var doc in scratch_app.documents) {
+            foreach (var doc in scratch_app.documents) {            
                 
-                if (settings.show_at_start == "last-tabs") {               
-                    string filename = doc.filename;
-                    string[] op = {};
-
-                    if (filename != null) {
-                        op[n] = filename;
-                        n++;
-                    }
-
-                    settings.schema.set_strv ("opened-files", op);   
-                }             
-
+                if (doc.filename != null) {
+                    opened_files[n] = doc.filename;
+                }
+                
                 if (doc.modified) {
                     var save_dialog = new SaveOnCloseDialog (doc.name, this);
                     int response = save_dialog.run ();
@@ -458,7 +451,15 @@ namespace Scratch {
                         debug ("Cannot delete %s~, it doesn't exist", doc.filename);
                     }
                 }
+                n++;
             }
+            
+            /*
+             * Update the opened-files setting
+             */
+            if (settings.show_at_start == "last-tabs") {               
+               settings.schema.set_strv ("opened-files", opened_files);   
+            } 
 
             Gtk.main_quit ();
         }

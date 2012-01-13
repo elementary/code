@@ -159,7 +159,7 @@ namespace Scratch {
         
         void restore_opened_files () {
             
-            string[] op = settings.schema.get_strv("opened-files");
+            string[] op = settings.schema.get_strv ("opened-files");
             
             foreach (string file in op) {
                if (file != "") {
@@ -167,7 +167,6 @@ namespace Scratch {
                     open_document (doc);
                 }
             }
-            settings.schema.set_strv ("opened-files", {});
 
         }
         
