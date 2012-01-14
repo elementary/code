@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-	<enum id="window-states">
+	<enum id="scratch-window-states">
 		<value nick="Normal" value="0" />
 		<value nick="Maximized" value="1" />
 		<value nick="Fullscreen" value="2" />
@@ -15,7 +16,7 @@
 			<summary>The saved height of the window.</summary>
 			<description>The saved height of the window. Must be greater than 400, or it will not take effect.</description>
 		</key>
-		<key name="window-state" enum="window-states">
+		<key name="window-state" enum="scratch-window-states">
 			<default>"Normal"</default>
 			<summary>The saved state of the window.</summary>
 			<description>The saved state of the window.</description>
