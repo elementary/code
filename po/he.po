@@ -8,18 +8,18 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-12-29 23:15+0100\n"
-"PO-Revision-Date: 2011-11-11 03:05+0000\n"
-"Last-Translator: דוביקס <dovix2003@gmail.com>\n"
+"PO-Revision-Date: 2012-01-11 09:15+0000\n"
+"Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-30 05:59+0000\n"
-"X-Generator: Launchpad (build 14560)\n"
+"X-Launchpad-Export-Date: 2012-01-14 05:51+0000\n"
+"X-Generator: Launchpad (build 14664)\n"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:103
 msgid "New document"
-msgstr ""
+msgstr "מסמך חדש"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
 msgid "No files are open."
@@ -27,15 +27,15 @@ msgstr "אין קבצים פתוחים."
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
 msgid "Open a file to begin editing."
-msgstr "עליך לפתוח קובץ בכדי להתחיל עריכה."
+msgstr "עליך לפתוח קובץ כדי להתחיל עריכה."
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Open file"
-msgstr "פתח קובץ"
+msgstr "פתיחת קובץ"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Open a saved file."
-msgstr "פתח קובץ שמור."
+msgstr "פתיחת קובץ שמור."
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
 msgid "New file"
@@ -43,15 +43,15 @@ msgstr "קובץ חדש"
 
 #: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
 msgid "Create a new empty file."
-msgstr "צור קובץ ריק חדש."
+msgstr "יצירת קובץ ריק חדש."
 
 #: /home/mefrio/scratch/po/../src/Widgets/ComboSyntax.vala:38
 msgid "Normal text"
-msgstr ""
+msgstr "טקסט רגיל"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "Save changes to document"
-msgstr ""
+msgstr "שמירת השינויים למסמך"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "New File"
@@ -60,87 +60,87 @@ msgstr "קובץ חדש"
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr ""
+msgstr "אם השינויים לא יישמרו, כל השינויים מ־4 השניות האחרונות יאבדו לעד."
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
-msgstr ""
+msgstr "סגירה ללא שמירה"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:63
 msgid "Behavior"
-msgstr ""
+msgstr "התנהגות"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:67
 msgid "Interface"
-msgstr ""
+msgstr "מנשק"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:71
 msgid "Extensions"
-msgstr ""
+msgstr "הרחבות"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
 msgid "Show welcome screen"
-msgstr ""
+msgstr "הצגת מסך הפתיחה"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:160
 msgid "Show last open tabs"
-msgstr ""
+msgstr "הצגת הלשוניות שנשארו פתוחות"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:176
 msgid "General:"
-msgstr ""
+msgstr "כללי:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:182
 msgid "When Scratch starts:"
-msgstr ""
+msgstr "עם הפעלת Scratch:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:185
 msgid "Case sensitive search:"
-msgstr ""
+msgstr "חיפוש תלוי רישיות:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:190
 msgid "Tabs:"
-msgstr ""
+msgstr "לשוניות:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:195
 msgid "Automatic indentation:"
-msgstr ""
+msgstr "הזחה אוטומטית:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:198
 msgid "Insert spaces instead of tabs:"
-msgstr ""
+msgstr "הוספת רווחים במקום טאבים:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:202
 msgid "Tab width:"
-msgstr ""
+msgstr "רוחב הטאב:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:232
 msgid "Editor:"
-msgstr ""
+msgstr "עורך:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:244
 msgid "Highlight current line:"
-msgstr ""
+msgstr "הדגשת השורה הנוכחית:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:245
 msgid "Highlight matching brackets:"
-msgstr ""
+msgstr "הדגשת פיסוק הסגירה התואם:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:246
 msgid "Show line numbers:"
-msgstr ""
+msgstr "הצגת מספרי השורות:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:249
 msgid "Show margin on right:"
-msgstr ""
+msgstr "הצגת שול לימין:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:256
 msgid "Margin width:"
-msgstr ""
+msgstr "רוחב השול:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:261
 msgid "Font and colors:"
-msgstr ""
+msgstr "גופן וצבעים:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:275
 msgid "Select font:"
@@ -148,20 +148,20 @@ msgstr "בחר גופן:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:278
 msgid "Color scheme:"
-msgstr ""
+msgstr "ערכת הצבעים:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:283
 #, c-format
 msgid "Custom font (%s):"
-msgstr ""
+msgstr "גופן מותאם אישית (%s):"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
-msgstr ""
+msgstr "האם לשמור את השינויים שלא נשמרו בטרם הסגירה?"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:42
 msgid "Save unsaved changes to file \""
-msgstr ""
+msgstr "האם לשמור את השינויים שלא נשמרו לקובץ „"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
@@ -173,8 +173,8 @@ msgstr "האם ברצונך לשמור את השינויים לפני סגירת
 
 #: /home/mefrio/scratch/po/../src/Dialogs/WarnDialog.vala:41
 msgid "The file:"
-msgstr ""
+msgstr "הקובץ:"
 
 #: /home/mefrio/scratch/po/../src/Dialogs/WarnDialog.vala:42
 msgid "Do you want to reload it?"
-msgstr ""
+msgstr "האם ברצונך לטעון מחדש?"
