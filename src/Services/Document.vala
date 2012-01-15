@@ -357,6 +357,7 @@ namespace Scratch.Services {
                 if (contents != this.last_saved_text) {
                     var warn = new Scratch.Dialogs.WarnDialog (filename, window);
                     warn.run ();
+                    warn.destroy ();
                     want_reload = false;
                     return true;
                 }
@@ -367,6 +368,7 @@ namespace Scratch.Services {
         public bool save () {
             tab.save ();
             modified = false;
+            want_reload = false;
             this.last_saved_text = this.buffer.text;
             return false;
         }
@@ -374,6 +376,7 @@ namespace Scratch.Services {
         public bool save_as () {
             tab.save_as ();
             modified = false;
+            want_reload = false;
             this.last_saved_text = this.buffer.text;
             return false;
         }
