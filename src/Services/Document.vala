@@ -311,6 +311,8 @@ namespace Scratch.Services {
 
             }
         }
+        
+        bool need_saving = false;
 
         void on_buffer_changed () {
 
@@ -318,9 +320,16 @@ namespace Scratch.Services {
             want_reload = true;
             
             if (settings.autosave && filename != null) {
-                save ();
-                modified = false;
-                tab.text_view.modified = false;
+                if(!need_saving) {
+                    need_saving = true;
+                    Idle.add( () => {
+                        need_saving = false;
+                        save ();
+                        modified = false;
+                        tab.text_view.modified = false;
+                        return false;
+                    });
+                }
             }
             else {
                 if (filename != null) {
