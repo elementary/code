@@ -75,58 +75,8 @@ namespace Scratch.Dialogs {
             //create static notebook
             var plugins_label = new Label (_("Extensions"));
 
-            
-            /* Plugin management, might be better in PluginManager */
-            var view = new Gtk.TreeView();
-            var listmodel = new Gtk.ListStore (2, typeof (string), typeof (bool));
-            view.set_model (listmodel);
-            view.set_headers_visible (false);
-            var column = new Gtk.TreeViewColumn();
-
-            var text_renderer = new Gtk.CellRendererText();
-            column.pack_start(text_renderer, true);
-            column.set_attributes(text_renderer, "text", 0);
-            var toggle = new Gtk.CellRendererToggle();
-            toggle.toggled.connect_after ((toggle, path) =>
-            {
-                var tree_path = new Gtk.TreePath.from_string (path);
-                Gtk.TreeIter iter;
-                listmodel.get_iter (out iter, tree_path);
-                var name = Value(typeof(string));
-                var active = Value(typeof(bool));
-                listmodel.get_value(iter, 0, out name);
-                listmodel.get_value(iter, 1, out active);
-                listmodel.set (iter, 1, !active.get_boolean());
-                if(active.get_boolean() == false)
-                {
-                    enable_plugin(name.get_string());
-                }
-                else
-                {
-                    disable_plugin(name.get_string());
-                }
-            });
-            column.pack_start(toggle, false);
-            column.set_attributes(toggle, "active", 1);
-
-            view.insert_column(column, -1);
-
-            Gtk.TreeIter iter;
-
-            int count = 0;
-            //this.plugin_lists = plugins.get_available_plugins ();
-            foreach(string plugin_name in plugin_lists)
-            {
-                count ++;
-                listmodel.append (out iter);
-                listmodel.set (iter, 0, plugin_name, 1, plugin_name in settings.schema.get_strv("plugins-enabled"));
-            }
-
-            //pbox is only for fix the padding
-            var pbox = new HBox (false, 0);
-            pbox.pack_start (view, true, true, 5);
-
-            if(count > 0) main_static_notebook.append_page (pbox, plugins_label);
+            var pbox = plugins.get_view ();
+            main_static_notebook.append_page (pbox, plugins_label);
 
             ((Gtk.Box)get_content_area()).add (main_static_notebook);
             
@@ -295,20 +245,6 @@ namespace Scratch.Dialogs {
             add_option (content, new Label (_("Custom font (%s):").printf(default_font())), font_grid, ref row);
             
             return content;
-        }
-
-        void disable_plugin(string name)
-        {
-
-            if(!plugins.disable_plugin(name))
-            {
-                critical("Can't properly disable the plugin %s!", name);
-            }
-        }
-
-        void enable_plugin(string name)
-        {
-            plugins.enable_plugin(name);
         }
 
         private string default_font () {
