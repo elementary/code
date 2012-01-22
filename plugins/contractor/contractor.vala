@@ -19,32 +19,39 @@
 ***/
 
 
-public class Scratch.Plugins.Contractor : Scratch.Plugins.Base
+public class Scratch.Plugins.Contractor : Object, Peas.Activatable
 {
-    Gtk.MenuItem contractor;
-    ScratchApp scratch_app;
+    Interface plugins;
     List<Gtk.MenuItem>? list = null;
-    public Contractor()
-    {
+
+    public Object object { owned get; construct; }
+   
+    public void update_state () {
     }
 
-    public override void app(Gtk.Application app_)
-    {
-        this.scratch_app = app_ as ScratchApp;
-        Scratch.plugins.hook_new_window.connect( () => {
-            scratch_app.window.split_view.page_changed.connect(on_page_changed);
+    public void activate () {
+        plugins = (Scratch.Plugins.Interface)object;
+        plugins.register_function(Interface.Hook.WINDOW, () => {
+            ((MainWindow)plugins.window).split_view.page_changed.connect(on_page_changed);
         });
     }
-    
-    Gtk.Menu share_menu;
+
+    public void deactivate () {
+        if (list != null)
+            foreach (var w in list)
+                w.destroy ();
+    }
     
     void on_page_changed()
     {
+        if(plugins.addons_menu == null)
+            return;
         if(list != null)
             foreach(var w in list)
                 w.destroy();
         list  = new List<Gtk.MenuItem>();
-        foreach(var contract in Granite.Services.Contractor.get_contract("file:///" + scratch_app.window.current_tab.filename, "text/plain"))
+
+        foreach(var contract in Granite.Services.Contractor.get_contract("file:///" + ((ScratchApp)plugins.scratch_app).window.current_tab.filename, "text/plain"))
         {
             var menuitem = new Gtk.MenuItem.with_label (contract["Description"]);
             string exec = contract["Exec"];
@@ -55,19 +62,16 @@ public class Scratch.Plugins.Contractor : Scratch.Plugins.Base
                     stderr.printf ("error spawn command line %s: %s", exec, e.message);
                 }
             });
-            share_menu.append (menuitem);
-            share_menu.show_all ();
+            plugins.addons_menu.append (menuitem);
+            plugins.addons_menu.show_all ();
             list.append(menuitem);
         }
     }
-
-    public override void addons_menu(Gtk.Menu menu)
-    {
-        this.share_menu = menu;
-    }
 }
 
-public Scratch.Plugins.Base module_init()
-{
-    return new Scratch.Plugins.Contractor();
+[ModuleInit]
+public void peas_register_types (GLib.TypeModule module) {
+    var objmodule = module as Peas.ObjectModule;
+    objmodule.register_extension_type (typeof (Peas.Activatable),
+                                     typeof (Scratch.Plugins.Contractor));
 }

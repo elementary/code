@@ -24,23 +24,65 @@ public class Scratch.Plugins.Interface : Object {
     Manager manager;
 
     public enum Hook {
-        SIDEBAR
+        SIDEBAR,
+        MAIN_MENU,
+        ADDONS_MENU,
+        WINDOW
     }
 
     public delegate void HookFunction ();
 
-    public Gtk.Notebook sidebar { set; get; }
-    public Gtk.Application scratch_app { set; get; }
+    public Gtk.Notebook sidebar {internal set; get; }
+    public Gtk.Application scratch_app {internal set; get; }
+    public Gtk.Menu main_menu {private set; get; }
+    public Gtk.Menu addons_menu {private set; get; }
+    public Gtk.Window window {private set; get; }
 
     public Interface (Manager manager) {
         this.manager = manager;
+
+        manager.hook_main_menu.connect( (m) => {
+            main_menu = m;
+        });
+        manager.hook_addons_menu.connect( (m) => {
+            addons_menu = m;
+        });
+        manager.hook_new_window.connect( (m) => {
+            window = m;
+        });
     }
     
     public void register_function (Hook hook, HookFunction hook_function) {
         switch(hook) {
         case Hook.SIDEBAR:
-            manager.hook_notebook_sidebar.connect (() => { hook_function(); });
+            manager.hook_notebook_sidebar.connect_after (() => {
+                hook_function();
+            });
             if (sidebar != null) {
+                hook_function ();
+            }
+            break;
+        case Hook.MAIN_MENU:
+            manager.hook_main_menu.connect_after (() => {
+                hook_function();
+            });
+            if (main_menu != null) {
+                hook_function ();
+            }
+            break;
+        case Hook.ADDONS_MENU:
+            manager.hook_addons_menu.connect_after (() => {
+                hook_function();
+            });
+            if (addons_menu != null) {
+                hook_function ();
+            }
+            break;
+        case Hook.WINDOW:
+            manager.hook_new_window.connect_after (() => {
+                hook_function ();
+            });
+            if (window != null) {
                 hook_function ();
             }
             break;
@@ -63,6 +105,9 @@ public class Scratch.Plugins.Manager : Object
 
     Peas.Engine engine;
     Peas.ExtensionSet exts;
+    
+    Peas.Engine engine_core;
+    Peas.ExtensionSet exts_core;
         
     public Gtk.Toolbar toolbar {get; set; }
     public Gtk.Application scratch_app { set { plugin_iface.scratch_app = value;  }}
@@ -96,6 +141,18 @@ public class Scratch.Plugins.Manager : Object
         exts.extension_added.connect(on_extension_added);
         exts.extension_removed.connect(on_extension_removed);
         peas_extension_set_foreach(exts, on_extension_added, null);
+        
+        /* The core now */
+        engine_core = new Peas.Engine ();
+        engine_core.enable_loader ("python");
+        engine_core.enable_loader ("gjs");
+        engine_core.add_search_path (d + "/core/", null);
+        engine_core.loaded_plugins = { "scratchcontractor"};
+
+        /* Our extension set */
+        exts_core = new Peas.ExtensionSet (engine_core, typeof(Peas.Activatable), "object", plugin_iface);
+
+        peas_extension_set_foreach(exts_core, on_extension_added, null);
     }
 
     public Gtk.Widget get_view () {
@@ -120,25 +177,10 @@ public class Scratch.Plugins.Manager : Object
     {
     }
     
-    public void hook_addons_menu(Gtk.Menu menu)
-    {
-    }
+    public signal void hook_addons_menu(Gtk.Menu menu);
     
     public void hook_example(string arg)
     {
     }
-}
-public abstract class Scratch.Plugins.Base : GLib.Object
-{    
-    public virtual void example(string arg) { }
-    public virtual void addons_menu(Gtk.Menu arg) { }
-    public virtual void app(Gtk.Application app) { }
-    public virtual void notebook_context(Gtk.Notebook note) { }
-    public virtual void notebook_bottom(Gtk.Notebook note) { }
-    public virtual void notebook_sidebar(Gtk.Notebook note) { }
-    public virtual void source_view(Gtk.TextView view) { }
-    public virtual void main_menu(Gtk.Menu app_menu) { }
-    public virtual void toolbar(Gtk.Toolbar toolbar) { }
-    public virtual void set_arg(string project_name, string? arg_set) { }
 }
 
