@@ -120,7 +120,7 @@ public class Scratch.Plugins.Pastebin : Object, Peas.Activatable
     public void activate () {
         plugins = (Scratch.Plugins.Interface)object;
         
-        menuitem = new Gtk.MenuItem.with_label ("Upload to Pastebin...");
+        menuitem = new Gtk.MenuItem.with_label ("Upload to Pastebin");
         menuitem.activate.connect (() => {
 			new Dialogs.PasteBinDialog (((ScratchApp)plugins.scratch_app).window);
         });
