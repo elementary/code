@@ -675,7 +675,7 @@ namespace Scratch {
                 string selected = buf.get_text (start, end, true);
                 if (selected != "")
 #if VALA_0_14
-                    buf.insert (ref end, "\n" + selected, -1);
+                    buf.insert (end, "\n" + selected, -1);
 #else
                     buf.insert (ref end, "\n" + selected, -1);
 #endif
