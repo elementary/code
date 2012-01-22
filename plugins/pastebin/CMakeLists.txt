@@ -3,10 +3,10 @@ include(ValaVersion)
 ensure_vala_version("0.11.3" MINIMUM)
 include(ValaPrecompile)
 find_package(PkgConfig)
-pkg_check_modules(DEPS REQUIRED libsoup-2.4 libpeas-1.0 granite gee-1.0 gtksourceview-3.0)
-add_definitions(${DEPS_CFLAGS} ${DEPS_CFLAGS_OTHER})
+pkg_check_modules(DEPS_PASTEBIN REQUIRED libsoup-2.4 libpeas-1.0 granite gee-1.0 gtksourceview-3.0)
+add_definitions(${DEPS_PASTEBIN_CFLAGS} ${DEPS_PASTEBIN_CFLAGS_OTHER})
 include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/libplugins/ ${CMAKE_BINARY_DIR}/scratchcore/)
-link_directories(${DEPS_LIBRARY_DIRS})
+link_directories(${DEPS_PASTEBIN_LIBRARY_DIRS})
 vala_precompile(VALA_C
     pastebin.vala
     pastebin_dialog.vala
