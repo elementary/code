@@ -24,5 +24,5 @@ OPTIONS
 )
 add_library(scratchcontractor MODULE ${VALA_C})
 add_dependencies(scratchcontractor scratchcore scratch)
-install(TARGETS scratchcontractor DESTINATION lib/scratch/plugins/core/contractor/)
-install(FILES contractor.plugin DESTINATION lib/scratch/plugins/core/contractor/)
+install(TARGETS scratchcontractor DESTINATION lib/scratch/plugins/contractor/)
+install(FILES contractor.plugin DESTINATION lib/scratch/plugins/contractor/)

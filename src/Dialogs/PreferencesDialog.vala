@@ -72,11 +72,14 @@ namespace Scratch.Dialogs {
             var editor = new Label (_("Interface"));
             main_static_notebook.append_page (get_editor_box (), editor);
             
-            //create static notebook
-            var plugins_label = new Label (_("Extensions"));
+            if (Peas.Engine.get_default ().get_plugin_list ().length() > 0) {
+                //create static notebook
+                var plugins_label = new Label (_("Extensions"));
 
-            var pbox = plugins.get_view ();
-            main_static_notebook.append_page (pbox, plugins_label);
+                var pbox = plugins.get_view ();
+
+                main_static_notebook.append_page (pbox, plugins_label);
+            }
 
             ((Gtk.Box)get_content_area()).add (main_static_notebook);
             

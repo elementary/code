@@ -141,7 +141,9 @@ public class Scratch.Plugins.Manager : Object
         exts.extension_added.connect(on_extension_added);
         exts.extension_removed.connect(on_extension_removed);
         peas_extension_set_foreach(exts, on_extension_added, null);
-        
+
+        /* Uncomment the following lines to re-enable the core plugin system */
+#if 0
         /* The core now */
         engine_core = new Peas.Engine ();
         engine_core.enable_loader ("python");
@@ -160,6 +162,7 @@ public class Scratch.Plugins.Manager : Object
         exts_core = new Peas.ExtensionSet (engine_core, typeof(Peas.Activatable), "object", plugin_iface);
 
         peas_extension_set_foreach(exts_core, on_extension_added, null);
+#endif
     }
 
     public Gtk.Widget get_view () {
