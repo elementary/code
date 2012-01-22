@@ -13,6 +13,7 @@ Build-Depends: debhelper (>= 7),
     libgconf2-dev,
     gir1.2-soup-2.4,
     libsoup2.4-dev,
+    libpeas-dev,
     libgee-dev
 Standards-Version: 3.9.1
 Homepage: http://launchpad.net/scratch
