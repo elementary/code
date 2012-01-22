@@ -147,7 +147,14 @@ public class Scratch.Plugins.Manager : Object
         engine_core.enable_loader ("python");
         engine_core.enable_loader ("gjs");
         engine_core.add_search_path (d + "/core/", null);
-        engine_core.loaded_plugins = { "scratchcontractor"};
+
+        var core_list = engine_core.get_plugin_list ().copy ();
+        string[] core_plugins = new string[core_list.length()];
+        for (int i = 0; i < core_list.length(); i++) {
+            core_plugins[i] = core_list.nth_data (i).get_module_name ();
+            
+        }
+        engine_core.loaded_plugins = core_plugins;
 
         /* Our extension set */
         exts_core = new Peas.ExtensionSet (engine_core, typeof(Peas.Activatable), "object", plugin_iface);
