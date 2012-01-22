@@ -67,10 +67,11 @@ PACKAGES
 OPTIONS
     --vapidir=${CMAKE_BINARY_DIR}/libplugins
     --vapidir=${CMAKE_BINARY_DIR}/scratchcore
+    --vapidir=${CMAKE_SOURCE_DIR}/vapi
     --thread
-    GENERATE_VAPI
+GENERATE_VAPI
     scratch
-    GENERATE_HEADER
+GENERATE_HEADER
     scratch
 )
 # tranlation stuff
