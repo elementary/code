@@ -3,7 +3,7 @@ include(ValaVersion)
 ensure_vala_version("0.11.3" MINIMUM)
 include(ValaPrecompile)
 find_package(PkgConfig)
-pkg_check_modules(DEPS REQUIRED granite gee-1.0 gtksourceview-3.0)
+pkg_check_modules(DEPS REQUIRED libpeas-1.0 granite gee-1.0 gtksourceview-3.0)
 add_definitions(${DEPS_CFLAGS} ${DEPS_CFLAGS_OTHER})
 include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/libplugins/ ${CMAKE_BINARY_DIR}/scratchcore/)
 link_directories(${DEPS_LIBRARY_DIRS})
@@ -16,6 +16,7 @@ PACKAGES
     gtksourceview-3.0
     scratchcore
     gee-1.0
+    libpeas-1.0
 OPTIONS
     --vapidir=${CMAKE_BINARY_DIR}
     --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
@@ -23,5 +24,5 @@ OPTIONS
 )
 add_library(scratchcontractor MODULE ${VALA_C})
 add_dependencies(scratchcontractor scratchcore scratch)
-install(TARGETS scratchcontractor DESTINATION lib/scratch/plugins/core/)
-install(FILES contractor.plug DESTINATION lib/scratch/plugins/core/)
+install(TARGETS scratchcontractor DESTINATION lib/scratch/plugins/contractor/)
+install(FILES contractor.plugin DESTINATION lib/scratch/plugins/contractor/)

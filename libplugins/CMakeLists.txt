@@ -13,7 +13,7 @@ install (FILES ${CMAKE_CURRENT_BINARY_DIR}/${PKGNAME}.pc DESTINATION ${CMAKE_INS
 # Check for the deps
 
 find_package(PkgConfig)
-set(PKG_DEPS gtk+-3.0 gee-1.0)
+set(PKG_DEPS libpeas-1.0 libpeas-gtk-1.0 gtk+-3.0 gee-1.0)
 pkg_check_modules(DEPSPLUGS REQUIRED ${PKG_DEPS})
 # Link all
 
@@ -39,8 +39,11 @@ PACKAGES
 gtk+-3.0
 gee-1.0
 gmodule-2.0
+libpeas-1.0
+peas-gtk
 OPTIONS
 --thread
+--vapidir=${CMAKE_SOURCE_DIR}/vapi/
 GENERATE_VAPI
 ${PKGNAME}
 GENERATE_HEADER

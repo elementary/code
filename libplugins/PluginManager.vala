@@ -19,189 +19,83 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-public class Scratch.Plugins.BaseManager : GLib.Object
-{
-    delegate Base ModuleInitFunc ();
-    internal Gee.HashMap<string,Base> plugin_hash;
-    Settings settings;
-    string settings_field;
-    string plugin_dir;
-    List<string> names = null;
-    bool in_available = false;
-    string? extra_dir;
-    public BaseManager(Settings settings, string field, string plugin_dir, string? extra_dir)
-    {
-        settings_field = field;
-        this.settings = settings;
-        this.plugin_dir = plugin_dir;
-        this.extra_dir = extra_dir;
-        plugin_hash = new Gee.HashMap<string,Base>();
+
+public class Scratch.Plugins.Interface : Object {
+    Manager manager;
+
+    public enum Hook {
+        SIDEBAR,
+        MAIN_MENU,
+        ADDONS_MENU,
+        WINDOW
+    }
+
+    public delegate void HookFunction ();
+
+    public Gtk.Notebook sidebar {internal set; get; }
+    public Gtk.Application scratch_app {internal set; get; }
+    public Gtk.Menu main_menu {private set; get; }
+    public Gtk.Menu addons_menu {private set; get; }
+    public Gtk.Window window {private set; get; }
+
+    public Interface (Manager manager) {
+        this.manager = manager;
+
+        manager.hook_main_menu.connect( (m) => {
+            main_menu = m;
+        });
+        manager.hook_addons_menu.connect( (m) => {
+            addons_menu = m;
+        });
+        manager.hook_new_window.connect( (m) => {
+            window = m;
+        });
     }
     
-    public void load_plugins()
-    {
-        load_modules_from_dir(plugin_dir + "/core/", true);
-        load_modules_from_dir(plugin_dir);
-        if(extra_dir != null) load_modules_from_dir(plugin_dir + "/" + extra_dir, true);
-    } 
-    
-    private void load_modules_from_dir (string path, bool force = false)
-    {
-        File dir = File.new_for_path(path);
-
-        string attributes = FILE_ATTRIBUTE_STANDARD_NAME + "," +
-                            FILE_ATTRIBUTE_STANDARD_TYPE + "," +
-                            FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE;
-
-        FileInfo info;
-        FileEnumerator enumerator;
-
-        try
-        {
-            enumerator = dir.enumerate_children
-                                        (attributes,
-                                         FileQueryInfoFlags.NONE);
-
-            info = enumerator.next_file ();
-        }
-        catch(Error error)
-        {
-            return;
-        }
-
-        while(info != null)
-        {
-            string file_name = info.get_name ();
-            string file_path = Path.build_filename (dir.get_path (), file_name);
-
-            File file = File.new_for_path (file_path);
-
-            if(file_name.has_suffix(".plug"))
-            {
-                load_plugin_keyfile(file_path, dir.get_path (), force);
+    public void register_function (Hook hook, HookFunction hook_function) {
+        switch(hook) {
+        case Hook.SIDEBAR:
+            manager.hook_notebook_sidebar.connect_after (() => {
+                hook_function();
+            });
+            if (sidebar != null) {
+                hook_function ();
             }
-            info = enumerator.next_file ();
-        }
-    }
-
-    Base? load_module(string file_path)
-    {
-        Module module = Module.open (file_path, ModuleFlags.BIND_LOCAL);
-        if (module == null)
-        {
-            warning ("Failed to load module from path '%s': %s",
-                     file_path,
-                     Module.error ());
-            return null;
-        }
-
-        void* function;
-
-        if (!module.symbol("module_init", out function)) {
-            warning ("Failed to find entry point function '%s' in '%s': %s",
-                     "module_init",
-                     file_path,
-                     Module.error ());
-            return null;
-        }
-
-        ModuleInitFunc module_init = (ModuleInitFunc) function;
-        assert (module_init != null);
-
-        /* We don't want our modules to ever unload */
-        module.make_resident ();
-        Plugins.Base plug = module_init();
-
-        Base base_ = module_init();
-        return base_;
-    }
-    
-    public virtual void connect_signals(Base base_) {
-    }
-    
-    void load_plugin_keyfile(string path, string parent, bool force)
-    {
-        var keyfile = new KeyFile();
-        try
-        {
-            keyfile.load_from_file(path, KeyFileFlags.NONE);
-            string name = keyfile.get_string("Plugin", "Name");
-            if(in_available)
-            {
-                names.append(name);
+            break;
+        case Hook.MAIN_MENU:
+            manager.hook_main_menu.connect_after (() => {
+                hook_function();
+            });
+            if (main_menu != null) {
+                hook_function ();
             }
-            else if(force || name in settings.get_strv(settings_field))
-            {
-                Base plug = load_module(Path.build_filename(parent, keyfile.get_string("Plugin", "File")));
-                if(plug != null)
-                {
-                    connect_signals(plug);
-                    plugin_hash[name] = plug;
-                }
+            break;
+        case Hook.ADDONS_MENU:
+            manager.hook_addons_menu.connect_after (() => {
+                hook_function();
+            });
+            if (addons_menu != null) {
+                hook_function ();
             }
-        }
-        catch(Error e)
-        {
-            warning("Couldn't open thie keyfile: %s, %s", path, e.message);
-        }
-    }
-    
-    public void add_plugin(string path)
-    {
-    }
-    
-    public void load_plugin(string path)
-    {
-    }
-    
-    public List<string> get_available_plugins()
-    {
-        names = new List<string>();
-        in_available = true;
-        load_modules_from_dir(plugin_dir, false);
-        in_available = false;
-        return names.copy();
-    }
-    
-    public bool disable_plugin(string path)
-    {
-        string[] plugs = settings.get_strv(settings_field);
-        string[] plugs_ = new string[plugs.length - 1];
-        bool found = false;
-        int i = 0;
-        foreach(var name in plugs)
-        {
-            if(name != path)
-            {
-                plugs[i] = name;
+            break;
+        case Hook.WINDOW:
+            manager.hook_new_window.connect_after (() => {
+                hook_function ();
+            });
+            if (window != null) {
+                hook_function ();
             }
-            else found = true;
-            i++;
+            break;
         }
-        if(found) settings.set_strv(settings_field, plugs_);
-        return found;
     }
-        
-    public void enable_plugin(string name)
-    {
-        string[] plugs = new string[settings.get_strv(settings_field).length + 1];
-        string[] current_plugins = settings.get_strv(settings_field);
-
-        for(int i = 0; i < current_plugins.length; i++)
-        {
-            plugs[i] = current_plugins[i];
-        }
-        plugs[plugs.length - 1] = name;
-        settings.set_strv(settings_field, plugs);
-
-        load_plugin(name);
-    }
+    
 }
 
-public class Scratch.Plugins.Manager : Scratch.Plugins.BaseManager
+
+public class Scratch.Plugins.Manager : Object
 {
     public signal void hook_main_menu (Gtk.Menu menu);
-    public signal void hook_toolbar (Gtk.Toolbar menu);
+    public signal void hook_toolbar ();
     public signal void hook_set_arg (string set_name, string? set_arg);
     public signal void hook_notebook_bottom (Gtk.Notebook notebook);
     public signal void hook_source_view(Gtk.TextView view);
@@ -209,58 +103,94 @@ public class Scratch.Plugins.Manager : Scratch.Plugins.BaseManager
     public signal void hook_preferences_dialog(Gtk.Dialog dialog);
     public signal void hook_toolbar_context_menu(Gtk.Menu menu);
 
+    Peas.Engine engine;
+    Peas.ExtensionSet exts;
+    
+    Peas.Engine engine_core;
+    Peas.ExtensionSet exts_core;
+        
+    public Gtk.Toolbar toolbar {get; set; }
+    public Gtk.Application scratch_app { set { plugin_iface.scratch_app = value;  }}
+    [CCode (cheader_filename = "libpeas/libpeas.h", cname = "peas_extension_set_foreach")]
+    extern static void peas_extension_set_foreach (Peas.ExtensionSet extset, Peas.ExtensionSetForeachFunc option, void* data);
+
+    Settings settings;
+    string settings_field;
+
+    Scratch.Plugins.Interface plugin_iface;
+
     public Manager(Settings s, string f, string d, string? e = null)
     {
+        settings = s;
+        settings_field = f;
         e = e == "scratch" ? null : e;
-        base(s, f, d, e);
+
+        plugin_iface = new Scratch.Plugins.Interface (this);
+
+        /* Let's init the engine */
+        engine = Peas.Engine.get_default ();
+        engine.enable_loader ("python");
+        engine.enable_loader ("gjs");
+        engine.add_search_path (d, null);
+        engine.loaded_plugins = settings.get_strv(settings_field);
+        settings.bind("plugins-enabled", engine, "loaded-plugins", SettingsBindFlags.DEFAULT);
+
+        /* Our extension set */
+        exts = new Peas.ExtensionSet (engine, typeof(Peas.Activatable), "object", plugin_iface);
+
+        exts.extension_added.connect(on_extension_added);
+        exts.extension_removed.connect(on_extension_removed);
+        peas_extension_set_foreach(exts, on_extension_added, null);
+
+        /* Uncomment the following lines to re-enable the core plugin system */
+#if 0
+        /* The core now */
+        engine_core = new Peas.Engine ();
+        engine_core.enable_loader ("python");
+        engine_core.enable_loader ("gjs");
+        engine_core.add_search_path (d + "/core/", null);
+
+        var core_list = engine_core.get_plugin_list ().copy ();
+        string[] core_plugins = new string[core_list.length()];
+        for (int i = 0; i < core_list.length(); i++) {
+            core_plugins[i] = core_list.nth_data (i).get_module_name ();
+            
+        }
+        engine_core.loaded_plugins = core_plugins;
+
+        /* Our extension set */
+        exts_core = new Peas.ExtensionSet (engine_core, typeof(Peas.Activatable), "object", plugin_iface);
+
+        peas_extension_set_foreach(exts_core, on_extension_added, null);
+#endif
     }
 
-    public override void connect_signals(Base base_) {
-        hook_main_menu.connect(base_.main_menu);
-        hook_toolbar.connect(base_.toolbar);
-        hook_source_view.connect(base_.source_view);
-        hook_notebook_bottom.connect(base_.notebook_bottom);
-        hook_set_arg.connect(base_.set_arg);
+    public Gtk.Widget get_view () {
+        return new PeasGtk.PluginManager (engine);
+    }
+
+    void on_extension_added(Peas.PluginInfo info, Object extension) {
+        ((Peas.Activatable)extension).activate();
+    }
+    void on_extension_removed(Peas.PluginInfo info, Object extension) {
+        ((Peas.Activatable)extension).deactivate();
     }
     
     public void hook_app(Gtk.Application menu)
     {
-        foreach(var plugin in plugin_hash.values) plugin.app(menu);
     }
     
-    public void hook_notebook_sidebar(Gtk.Notebook menu) 
-    {
-        foreach(var plugin in plugin_hash.values) plugin.notebook_sidebar(menu);
-    }
-    
+    public Gtk.Notebook sidebar { set { plugin_iface.sidebar = value; } }
+    public signal void hook_notebook_sidebar (); 
     
     public void hook_notebook_context(Gtk.Notebook menu)
     {
-        foreach(var plugin in plugin_hash.values) plugin.notebook_context(menu);
     }
     
-    public void hook_addons_menu(Gtk.Menu menu)
-    {
-        foreach(var plugin in plugin_hash.values) plugin.addons_menu(menu);
-    }
+    public signal void hook_addons_menu(Gtk.Menu menu);
     
     public void hook_example(string arg)
     {
-        foreach(var plugin in plugin_hash.values) plugin.example(arg);
     }
-    
-}
-public abstract class Scratch.Plugins.Base : GLib.Object
-{    
-    public virtual void example(string arg) { }
-    public virtual void addons_menu(Gtk.Menu arg) { }
-    public virtual void app(Gtk.Application app) { }
-    public virtual void notebook_context(Gtk.Notebook note) { }
-    public virtual void notebook_bottom(Gtk.Notebook note) { }
-    public virtual void notebook_sidebar(Gtk.Notebook note) { }
-    public virtual void source_view(Gtk.TextView view) { }
-    public virtual void main_menu(Gtk.Menu app_menu) { }
-    public virtual void toolbar(Gtk.Toolbar toolbar) { }
-    public virtual void set_arg(string project_name, string? arg_set) { }
 }
 

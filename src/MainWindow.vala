@@ -77,13 +77,6 @@ namespace Scratch {
         public Widgets.Toolbar toolbar;
         
         /**
-         * This is the list of plugins. I added it 
-         * so the list will be loaded just once
-         * and the Preferences dialog will not crash randomly
-         **/
-        public List<string> plugin_lists;
-        
-        /**
          * The Gtk.Notebook which is used to display panels which are related
          * to the current files.
          **/
@@ -154,9 +147,6 @@ namespace Scratch {
             settings.schema.bind("statusbar-visible", main_actions.get_action ("ShowStatusBar"), "active", SettingsBindFlags.DEFAULT);
             connect_signals ();
             
-            // Load the plugins list
-            this.plugin_lists = plugins.get_available_plugins ();
-            
             set_theme ();
         }
 
@@ -182,25 +172,28 @@ namespace Scratch {
         void on_notebook_context_new_page (Gtk.Notebook notebook, Widget page, uint num) {
 
             string part = "bottom-panel-visible";
+            bool has_tabs = notebook.get_n_pages() > 0;
 
             if (notebook == notebook_context)
             {
                 part = "context-visible";
-                main_actions.get_action ("ShowContextView").visible = true;
+                main_actions.get_action ("ShowContextView").visible = has_tabs;
             }
             else if (notebook == notebook_sidebar)
             {
                 part = "sidebar-visible";
-                main_actions.get_action ("ShowSidebar").visible = true;
+                main_actions.get_action ("ShowSidebar").visible = has_tabs;
             }
             else if (notebook == notebook_bottom)
             {
                 part = "bottom-panel-visible";
-                main_actions.get_action ("ShowBottomPanel").visible = true;
+                main_actions.get_action ("ShowBottomPanel").visible = has_tabs;
             }
 
-            page.show_all();
-            notebook.show_tabs = num >= 1;
+            if (has_tabs) {
+                page.show_all();
+                notebook.show_tabs = num >= 1;
+            }
             notebook_settings_changed (part);
             
             ui.ensure_update ();
@@ -269,11 +262,13 @@ namespace Scratch {
 
             notebook_context = new Gtk.Notebook ();
             notebook_context.page_added.connect (on_notebook_context_new_page);
+            notebook_context.page_removed.connect (on_notebook_context_new_page);
             var hpaned_addons = new Granite.Widgets.HCollapsablePaned ();
             var vpaned_bottom_panel = new Granite.Widgets.VCollapsablePaned ();
 
             notebook_sidebar = new Gtk.Notebook ();
             notebook_sidebar.page_added.connect (on_notebook_context_new_page);
+            notebook_sidebar.page_removed.connect (on_notebook_context_new_page);
             hpaned_sidebar = new Granite.Widgets.HCollapsablePaned ();
             hpaned_addons.pack1 (hpaned_sidebar, true, true);
 
@@ -296,7 +291,8 @@ namespace Scratch {
             notebook_context.visible = true;
             settings.schema.changed.connect (notebook_settings_changed);
 
-            plugins.hook_notebook_sidebar (notebook_sidebar);
+            plugins.sidebar = notebook_sidebar;
+            plugins.hook_notebook_sidebar ();
             plugins.hook_notebook_context (notebook_context);
 
             var notebook =  new ScratchNotebook (this);
@@ -304,6 +300,7 @@ namespace Scratch {
 
             notebook_bottom = new Gtk.Notebook ();
             notebook_bottom.page_added.connect (on_notebook_context_new_page);
+            notebook_bottom.page_removed.connect (on_notebook_context_new_page);
 
             /* Add the sourceview + the sidepanel to the container of the bottom panel */
             vpaned_bottom_panel.pack1 (hpaned_addons, true, true);
@@ -408,7 +405,7 @@ namespace Scratch {
         }
         
         void action_preferences () {
-            var dialog = new Dialogs.Preferences ("Preferences", this, plugin_lists);
+            var dialog = new Dialogs.Preferences ("Preferences", this, null);
             dialog.show_all ();
             dialog.run ();
             dialog.destroy ();
