@@ -130,7 +130,6 @@ namespace Scratch {
             settings.schema.bind("sidebar-visible", main_actions.get_action ("ShowSidebar"), "active", SettingsBindFlags.DEFAULT);
             settings.schema.bind("context-visible", main_actions.get_action ("ShowContextView"), "active", SettingsBindFlags.DEFAULT);
             settings.schema.bind("bottom-panel-visible", main_actions.get_action ("ShowBottomPanel"), "active", SettingsBindFlags.DEFAULT);
-            settings.schema.bind("statusbar-visible", main_actions.get_action ("ShowStatusBar"), "active", SettingsBindFlags.DEFAULT);
             main_actions.get_action ("ShowContextView").visible = false;
             main_actions.get_action ("ShowBottomPanel").visible = false;
             main_actions.get_action ("ShowSidebar").visible = false;
@@ -152,6 +151,7 @@ namespace Scratch {
             ui.ensure_update ();
 
             create_window ();
+            settings.schema.bind("statusbar-visible", main_actions.get_action ("ShowStatusBar"), "active", SettingsBindFlags.DEFAULT);
             connect_signals ();
             
             // Load the plugins list
@@ -250,7 +250,7 @@ namespace Scratch {
                 var tab = w.get_parent () as Tab;
 
                 assert(tab != null);
-                if (tab.text_view.buffer.language.id != null)
+                if (tab.text_view.buffer.language != null)
                     toolbar.combo_syntax.language_id = tab.text_view.buffer.language.id;
                 else
                     toolbar.combo_syntax.language_id = "normal";
@@ -678,7 +678,7 @@ namespace Scratch {
                 string selected = buf.get_text (start, end, true);
                 if (selected != "")
 #if VALA_0_14
-                    buf.insert (end, "\n" + selected, -1);
+                    buf.insert (ref end, "\n" + selected, -1);
 #else
                     buf.insert (ref end, "\n" + selected, -1);
 #endif

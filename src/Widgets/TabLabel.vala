@@ -65,8 +65,6 @@ namespace Scratch.Widgets {
 
             event_box.button_press_event.connect (click_event);
 
-            tab.document.notify["modified"].connect(on_modified_changed);
-
             this.show_all ();
             button_press_event.connect(on_main_click);
         }
@@ -81,17 +79,6 @@ namespace Scratch.Widgets {
                 return true;
             }
             return false;
-        }
-
-        void on_modified_changed()
-        {
-            if (tab.document.modified) {
-                label.use_markup = true;
-                label.set_markup ("<span font_style='italic'>%s</span>".printf(tab.document.filename));
-            }
-            else {
-                label.set_text(tab.document.filename);
-            }
         }
 
         protected bool click_event (EventButton event) {

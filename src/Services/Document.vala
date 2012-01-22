@@ -156,7 +156,6 @@ namespace Scratch.Services {
             tab = new Tab (window.current_notebook, name);
             tab.closed.connect( () => { close(); });
             tab.document = this;
-            tab.text_view.bind_property("modified", this, "modified", BindingFlags.DEFAULT);
 
             //set new values
             tab.filename = filename;
@@ -263,9 +262,9 @@ namespace Scratch.Services {
             original_text = text = contents;
 
             if (buffer != null) {
-                buffer.begin_not_undoable_action ();
+                //buffer.begin_not_undoable_action ();
                 buffer.text = this.text;
-                buffer.end_not_undoable_action ();
+                //buffer.end_not_undoable_action ();
             }
             else
                 warning ("No buffer selected.");
@@ -293,16 +292,19 @@ namespace Scratch.Services {
         }
 
         public void set_label_font (string style) {
-            var f = File.new_for_path (this.filename);
-            string label = f.get_basename ();
+            string label;
+            if (filename != null) {
+                var f = File.new_for_path (this.filename);
+                label = f.get_basename ();
+            }
+            else {
+                label = _("New document");
+            }
             
             switch (style) {
 
                 case "modified":
-                    if (this.filename != null)
-                        tab.label.label.set_markup ("<span font_style='italic'>%s</span>".printf(label));
-                    else 
-                        tab.label.label.set_markup ("<span font_style='italic'>%s</span>".printf(_("New document")));
+                    tab.label.label.set_markup ("<span font_style='italic'>%s</span>".printf(label));
                 break;
 
                 case "saved":
@@ -354,8 +356,18 @@ namespace Scratch.Services {
             }
         }
         
+        /**
+         * In this function, called each time a source view is focused, we check that
+         * the file in the buffer hasn't been modified, and, if it is the case, we propose
+         * to reload it.
+         **/
         bool on_source_view_focus_in (Gdk.EventFocus event) {
-            string contents;
+            string contents;            
+
+            /* First, we check that this is a real file, and not a new document */
+            if (filename == null)
+                return false;
+
             try {
                 FileUtils.get_contents (file.get_path (), out contents);
             } catch (Error e) {

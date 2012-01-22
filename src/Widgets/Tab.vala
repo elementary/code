@@ -47,8 +47,9 @@ namespace Scratch.Widgets {
             show_all();
         }
 
-        public void change_syntax_highlight_for_filename (string filename) {
-            text_view.change_syntax_highlight_for_filename (filename);
+        public void change_syntax_highlight_for_filename (string? filename) {
+            if (filename != null)
+                text_view.change_syntax_highlight_for_filename (filename);
         }
 
         public void on_close_clicked() {
