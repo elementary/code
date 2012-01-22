@@ -19,6 +19,37 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+
+public class Scratch.Plugins.Interface : Object {
+    Manager manager;
+
+    public enum Hook {
+        SIDEBAR
+    }
+
+    public delegate void HookFunction ();
+
+    public Gtk.Notebook sidebar { set; get; }
+    public Gtk.Application scratch_app { set; get; }
+
+    public Interface (Manager manager) {
+        this.manager = manager;
+    }
+    
+    public void register_function (Hook hook, HookFunction hook_function) {
+        switch(hook) {
+        case Hook.SIDEBAR:
+            manager.hook_notebook_sidebar.connect (() => { hook_function(); });
+            if (sidebar != null) {
+                hook_function ();
+            }
+            break;
+        }
+    }
+    
+}
+
+
 public class Scratch.Plugins.Manager : Object
 {
     public signal void hook_main_menu (Gtk.Menu menu);
@@ -34,16 +65,22 @@ public class Scratch.Plugins.Manager : Object
     Peas.ExtensionSet exts;
         
     public Gtk.Toolbar toolbar {get; set; }
+    public Gtk.Application scratch_app { set { plugin_iface.scratch_app = value;  }}
     [CCode (cheader_filename = "libpeas/libpeas.h", cname = "peas_extension_set_foreach")]
     extern static void peas_extension_set_foreach (Peas.ExtensionSet extset, Peas.ExtensionSetForeachFunc option, void* data);
 
     Settings settings;
     string settings_field;
+
+    Scratch.Plugins.Interface plugin_iface;
+
     public Manager(Settings s, string f, string d, string? e = null)
     {
         settings = s;
         settings_field = f;
         e = e == "scratch" ? null : e;
+
+        plugin_iface = new Scratch.Plugins.Interface (this);
 
         /* Let's init the engine */
         engine = Peas.Engine.get_default ();
@@ -54,7 +91,7 @@ public class Scratch.Plugins.Manager : Object
         settings.bind("plugins-enabled", engine, "loaded-plugins", SettingsBindFlags.DEFAULT);
 
         /* Our extension set */
-        exts = new Peas.ExtensionSet (engine, typeof(Peas.Activatable), "object", this);
+        exts = new Peas.ExtensionSet (engine, typeof(Peas.Activatable), "object", plugin_iface);
 
         exts.extension_added.connect(on_extension_added);
         exts.extension_removed.connect(on_extension_removed);
@@ -76,10 +113,8 @@ public class Scratch.Plugins.Manager : Object
     {
     }
     
-    public void hook_notebook_sidebar(Gtk.Notebook menu) 
-    {
-    }
-    
+    public Gtk.Notebook sidebar { set { plugin_iface.sidebar = value; } }
+    public signal void hook_notebook_sidebar (); 
     
     public void hook_notebook_context(Gtk.Notebook menu)
     {
