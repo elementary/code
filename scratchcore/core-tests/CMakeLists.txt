@@ -1,7 +1,3 @@
-find_package(Vala REQUIRED)
-include(ValaVersion)
-ensure_vala_version("0.11.3" MINIMUM)
-include(ValaPrecompile)
 # pkgconfig, real C code
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)

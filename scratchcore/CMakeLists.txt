@@ -10,34 +10,19 @@ set (DOLLAR "$")
 
 configure_file (${CMAKE_CURRENT_SOURCE_DIR}/${PKGNAME}.pc.cmake ${CMAKE_CURRENT_BINARY_DIR}/${PKGNAME}.pc)
 install (FILES ${CMAKE_CURRENT_BINARY_DIR}/${PKGNAME}.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig/)
-# Check for the deps
 
-find_package(PkgConfig)
-set(PKG_DEPS gtk+-3.0 gio-unix-2.0 gee-1.0 gtksourceview-3.0)
-pkg_check_modules(DEPS REQUIRED gtk+-3.0
- gio-unix-2.0
- granite
- gtksourceview-3.0
- 
- gee-1.0
-)
 # Link all
 
-set(CFLAGS ${DEPS_CFLAGS} ${DEPS_CFLAGS_OTHER})
-add_definitions(${CFLAGS} "-DGETTEXT_PACKAGE=\"${PKGNAME_}\"")
+add_definitions(${NORMAL_CFLAGS} "-DGETTEXT_PACKAGE=\"${PKGNAME_}\"")
 set(LIBS
-    ${DEPS_LIBRARIES}
+    ${NORMAL_LIBRARIES}
 )
 set(LIB_PATHS
-	${DEPS_LIBRARY_DIRS}
+    ${NORMAL_LINK_DIRS}
 )
 link_directories(${LIB_PATHS})
 #VALA stuff
 
-find_package(Vala REQUIRED)
-include(ValaVersion)
-ensure_vala_version("0.12.0" MINIMUM)
-include(ValaPrecompile)
 vala_precompile(VALA_C
     main.vala
     SearchManager.vala
