@@ -26,5 +26,8 @@ OPTIONS
 )
 add_library(scratchpastebin MODULE ${VALA_C})
 add_dependencies(scratchpastebin scratchcore scratch)
+
+target_link_libraries (scratchpastebin ${DEPS_PASTEBIN_LIBRARIES})
+
 install(TARGETS scratchpastebin DESTINATION lib/scratch/plugins/pastebin/)
 install(FILES pastebin.plugin DESTINATION lib/scratch/plugins/pastebin/)
