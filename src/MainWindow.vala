@@ -465,6 +465,8 @@ namespace Scratch {
             var doc = new Document.empty (this);
             scratch_app.open_document (doc);
             current_notebook.show_tabs_view ();
+            if (settings.autosave)
+                this.toolbar.save_button.show ();
         }
 
         public void action_open_clicked () {

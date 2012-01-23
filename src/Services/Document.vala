@@ -387,7 +387,8 @@ namespace Scratch.Services {
         }
         
         public bool save () {
-            tab.save ();
+            if (filename == null && settings.autosave && tab.save () == 0)
+                window.toolbar.save_button.hide ();
             modified = false;
             want_reload = false;
             this.last_saved_text = this.buffer.text;
@@ -395,7 +396,8 @@ namespace Scratch.Services {
         }
 
         public bool save_as () {
-            tab.save_as ();
+            if (filename == null && settings.autosave && tab.save_as () == 0)
+                window.toolbar.save_button.hide ();
             modified = false;
             want_reload = false;
             this.last_saved_text = this.buffer.text;
