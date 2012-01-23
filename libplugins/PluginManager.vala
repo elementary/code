@@ -27,19 +27,29 @@ public class Scratch.Plugins.Interface : Object {
         SIDEBAR,
         MAIN_MENU,
         ADDONS_MENU,
+        BOTTOMBAR,
+        TOOLBAR,
+        SOURCE_VIEW,
+        SETTINGS_DIALOG,
         WINDOW
     }
 
     public delegate void HookFunction ();
+    public delegate void HookFunctionArg (Object object);
 
     public Gtk.Notebook sidebar {internal set; get; }
+    public Gtk.Notebook bottombar {internal set; get; }
     public Gtk.Application scratch_app {internal set; get; }
     public Gtk.Menu main_menu {private set; get; }
     public Gtk.Menu addons_menu {private set; get; }
+    public Gtk.Toolbar toolbar {internal set; get; }
     public Gtk.Window window {private set; get; }
+
+    public unowned List<Gtk.TextView> all_source_view { private set; get; }
 
     public Interface (Manager manager) {
         this.manager = manager;
+        all_source_view = new List<Gtk.TextView>();
 
         manager.hook_main_menu.connect( (m) => {
             main_menu = m;
@@ -50,6 +60,30 @@ public class Scratch.Plugins.Interface : Object {
         manager.hook_new_window.connect( (m) => {
             window = m;
         });
+        manager.hook_notebook_bottom.connect( (m) => {
+            bottombar = m;
+        });
+        manager.hook_source_view.connect( (m) => {
+            all_source_view.append(m);
+        });
+    }
+    
+    public void register_function_arg (Hook hook, HookFunctionArg hook_function) {
+        switch (hook) {
+        case Hook.SOURCE_VIEW:
+            manager.hook_source_view.connect_after ((m) => {
+                hook_function(m);
+            });
+            foreach (var source_view in all_source_view) {
+                hook_function (source_view);
+            }
+            break;
+        case Hook.SETTINGS_DIALOG:
+            manager.hook_preferences_dialog.connect_after ( (d) => {
+                hook_function (d);
+            });
+            break;
+        }
     }
     
     public void register_function (Hook hook, HookFunction hook_function) {
@@ -59,6 +93,22 @@ public class Scratch.Plugins.Interface : Object {
                 hook_function();
             });
             if (sidebar != null) {
+                hook_function ();
+            }
+            break;
+        case Hook.TOOLBAR:
+            manager.hook_toolbar.connect_after (() => {
+                hook_function();
+            });
+            if (toolbar != null) {
+                hook_function ();
+            }
+            break;
+        case Hook.BOTTOMBAR:
+            manager.hook_notebook_bottom.connect_after (() => {
+                hook_function();
+            });
+            if (bottombar != null) {
                 hook_function ();
             }
             break;
@@ -109,7 +159,7 @@ public class Scratch.Plugins.Manager : Object
     Peas.Engine engine_core;
     Peas.ExtensionSet exts_core;
         
-    public Gtk.Toolbar toolbar {get; set; }
+    public Gtk.Toolbar toolbar { set { plugin_iface.toolbar = value; } }
     public Gtk.Application scratch_app { set { plugin_iface.scratch_app = value;  }}
     [CCode (cheader_filename = "libpeas/libpeas.h", cname = "peas_extension_set_foreach")]
     extern static void peas_extension_set_foreach (Peas.ExtensionSet extset, Peas.ExtensionSetForeachFunc option, void* data);
