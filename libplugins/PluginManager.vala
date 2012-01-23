@@ -216,7 +216,12 @@ public class Scratch.Plugins.Manager : Object
     }
 
     public Gtk.Widget get_view () {
-        return new PeasGtk.PluginManager (engine);
+        var view = new PeasGtk.PluginManager (engine);
+        var bottom_box = view.get_children ().nth_data (1) as Gtk.Box;
+        assert(bottom_box != null);
+        bottom_box.get_children ().nth_data(0).no_show_all = true;
+        bottom_box.get_children ().nth_data(0).visible = false;
+        return view;
     }
 
     void on_extension_added(Peas.PluginInfo info, Object extension) {
