@@ -405,7 +405,7 @@ namespace Scratch {
         }
         
         void action_preferences () {
-            var dialog = new Dialogs.Preferences ("Preferences", this, null);
+            var dialog = new Dialogs.Preferences ("Preferences", this);
             dialog.show_all ();
             dialog.run ();
             dialog.destroy ();

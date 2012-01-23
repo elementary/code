@@ -41,7 +41,7 @@ namespace Scratch.Dialogs {
         
         List<string> plugin_lists;
         
-        public Preferences (string? title, MainWindow? window, List<string> plugin_lists) {
+        public Preferences (string? title, MainWindow? window) {
 
             this.window = window;
             this.title = title;
@@ -144,7 +144,7 @@ namespace Scratch.Dialogs {
             label = new Label (_("When Scratch starts:"));
             add_option (general_grid, label, start, ref row);
             
-            label = new Label (_("Auto save:"));
+            label = new Label (_("Save files at every changes:"));
             add_option (general_grid, label, autosave, ref row);
             
             label = new Label (_("Case sensitive search:"));
