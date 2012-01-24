@@ -387,20 +387,26 @@ namespace Scratch.Services {
         }
         
         public bool save () {
-            if (filename == null && settings.autosave && tab.save () == 0)
+            string f = filename;
+            int n = tab.save ();
+            if (f == null && n == 0) {
                 window.toolbar.save_button.hide ();
-            modified = false;
-            want_reload = false;
-            this.last_saved_text = this.buffer.text;
+                modified = false;
+                want_reload = false;
+                this.last_saved_text = this.buffer.text;
+            }
             return false;
         }
 
         public bool save_as () {
-            if (filename == null && settings.autosave && tab.save_as () == 0)
+            string f = filename;
+            int n = tab.save_as ();
+            if (f == null && n == 0) {
                 window.toolbar.save_button.hide ();
-            modified = false;
-            want_reload = false;
-            this.last_saved_text = this.buffer.text;
+                modified = false;
+                want_reload = false;
+                this.last_saved_text = this.buffer.text;
+            }
             return false;
         }
 
