@@ -7,177 +7,181 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-29 23:15+0100\n"
+"POT-Creation-Date: 2012-01-23 20:13+0100\n"
 "PO-Revision-Date: 2012-01-19 06:07+0000\n"
 "Last-Translator: Alfredo Hernández <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-01-20 05:14+0000\n"
-"X-Generator: Launchpad (build 14700)\n"
+"X-Launchpad-Export-Date: 2012-01-24 07:00+0000\n"
+"X-Generator: Launchpad (build 14713)\n"
 "Language: es\n"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:103
+#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:103
 msgid "New document"
 msgstr "Nuevo documento"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
+#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "No files are open."
 msgstr "No hay archivos abiertos."
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:181
+#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Open a file to begin editing."
 msgstr "Abra un archivo para comenzar la edición."
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
+#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:189
 msgid "Open file"
 msgstr "Abrir archivo"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:185
+#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:189
 msgid "Open a saved file."
 msgstr "Abrir un archivo guardado."
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
+#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:190
 msgid "New file"
 msgstr "Nuevo archivo"
 
-#: /home/mefrio/scratch/po/../src/Widgets/Notebook.vala:186
+#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:190
 msgid "Create a new empty file."
 msgstr "Crear un archivo vacío nuevo."
 
-#: /home/mefrio/scratch/po/../src/Widgets/ComboSyntax.vala:38
+#: /home/mefrio/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
 msgid "Normal text"
 msgstr "Texto normal"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "Save changes to document"
 msgstr "Guardar los cambios al documento"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "New File"
 msgstr "Nuevo archivo"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
 "Si no guarda el documento, los cambios de los últimos 4 segundos se perderán "
 "permanentemente."
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
 msgstr "Cerrar sin guardar"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:63
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:68
 msgid "Behavior"
 msgstr "Comportamiento"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:67
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:72
 msgid "Interface"
 msgstr "Interfaz"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:71
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:77
 msgid "Extensions"
 msgstr "Extensiones"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:118
 msgid "Show welcome screen"
 msgstr "Mostrar pantalla de bienvenida"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:160
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:119
 msgid "Show last open tabs"
 msgstr "Mostrar las últimas pestañas abiertas"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:176
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:138
 msgid "General:"
 msgstr "General:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:182
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:144
 msgid "When Scratch starts:"
 msgstr "Al iniciar Scratch:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:185
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
+msgid "Save files at every changes:"
+msgstr ""
+
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:150
 msgid "Case sensitive search:"
 msgstr "Búsqueda sensible a mayúsculas:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:190
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:155
 msgid "Tabs:"
 msgstr "Tabulaciones:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:195
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:160
 msgid "Automatic indentation:"
 msgstr "Sangría automática:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:198
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:163
 msgid "Insert spaces instead of tabs:"
 msgstr "Insertar espacios en lugar de tabulaciones:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:202
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:167
 msgid "Tab width:"
 msgstr "Ancho de la tabulación:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:232
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:197
 msgid "Editor:"
 msgstr "Editor:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:244
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:209
 msgid "Highlight current line:"
 msgstr "Destacar la línea activa:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:245
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:210
 msgid "Highlight matching brackets:"
 msgstr "Destaca la pareja de corchetes:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:246
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:211
 msgid "Show line numbers:"
 msgstr "Mostrar los números de línea:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:249
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:214
 msgid "Show margin on right:"
 msgstr "Mostrar margen a la derecha:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:256
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:221
 msgid "Margin width:"
 msgstr "Ancho del margen:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:261
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:226
 msgid "Font and colors:"
 msgstr "Fuente y colores:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:275
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:240
 msgid "Select font:"
 msgstr "Seleccionar tipografía:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:278
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:243
 msgid "Color scheme:"
 msgstr "Esquema de color:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/PreferencesDialog.vala:283
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:248
 #, c-format
 msgid "Custom font (%s):"
 msgstr "Fuente personalizada (%s):"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:40
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
 msgstr "¿Guardar los cambios en el archivo antes de cerrar?"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:42
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
 msgid "Save unsaved changes to file \""
 msgstr "Guardar los cambios del archivo «"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:45
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
 msgstr "Los cambios en este archivo no han sido guardados."
 
-#: /home/mefrio/scratch/po/../src/Dialogs/SaveDialog.vala:45
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Do you want to save changes before closing this file?"
 msgstr "¿Quiere guardar los cambios antes de cerrar este archivo?"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/WarnDialog.vala:41
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:41
 msgid "The file:"
 msgstr "El archivo:"
 
-#: /home/mefrio/scratch/po/../src/Dialogs/WarnDialog.vala:42
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:42
 msgid "Do you want to reload it?"
 msgstr "¿Desea volver a cargarlo?"
