@@ -86,6 +86,19 @@ public class Scratch.Plugins.Interface : Object {
         }
     }
     
+    public void register_function_signal (Hook hook, string signal_name, Object obj) {
+        switch(hook) {
+        case Hook.BOTTOMBAR:
+            manager.hook_notebook_bottom.connect_after (() => {
+                Signal.emit_by_name (obj, signal_name);
+            });
+            if(bottombar != null) {
+                Signal.emit_by_name (obj, signal_name);
+            }
+            break;
+        }
+    }
+    
     public void register_function (Hook hook, HookFunction hook_function) {
         switch(hook) {
         case Hook.SIDEBAR:
@@ -188,7 +201,7 @@ public class Scratch.Plugins.Manager : Object
         Parameter param = Parameter();
         param.value = plugin_iface;
         param.name = "object";
-        exts = Peas.ExtensionSet.newv (engine, typeof(Peas.Activatable), { param });
+        exts = new Peas.ExtensionSet (engine, typeof(Peas.Activatable), "object", plugin_iface, null);
 
         exts.extension_added.connect(on_extension_added);
         exts.extension_removed.connect(on_extension_removed);
@@ -211,7 +224,7 @@ public class Scratch.Plugins.Manager : Object
             engine_core.loaded_plugins = core_plugins;
 
             /* Our extension set */
-            exts_core = Peas.ExtensionSet.newv (engine_core, typeof(Peas.Activatable), { param });
+            exts_core = new Peas.ExtensionSet (engine_core, typeof(Peas.Activatable), "object", plugin_iface, null);
 
             peas_extension_set_foreach(exts_core, on_extension_added, null);
         }

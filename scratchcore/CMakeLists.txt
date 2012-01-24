@@ -65,3 +65,7 @@ set_target_properties (${PKGNAME} PROPERTIES
 install (TARGETS ${PKGNAME} DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/)
 target_link_libraries(scratchcore ${LIBS})
 add_subdirectory(core-tests)
+
+# GObject Introspection
+include(GObjectIntrospectionMacros)
+add_target_gir(scratchcore Scratch scratchcore.h "${NORMAL_CFLAGS}" 0.1 Gtk-3.0)
