@@ -381,7 +381,7 @@ namespace Scratch.Services {
                     warn.destroy ();
                     want_reload = false;
                     return true;
-                }
+                }  
             }
             return false;
         }
