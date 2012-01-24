@@ -173,7 +173,6 @@ public class Scratch.Plugins.Manager : Object
     {
         settings = s;
         settings_field = f;
-        e = e == "scratch" ? null : e;
 
         plugin_iface = new Scratch.Plugins.Interface (this);
 
@@ -192,27 +191,27 @@ public class Scratch.Plugins.Manager : Object
         exts.extension_removed.connect(on_extension_removed);
         peas_extension_set_foreach(exts, on_extension_added, null);
 
-        /* Uncomment the following lines to re-enable the core plugin system */
-#if 0
-        /* The core now */
-        engine_core = new Peas.Engine ();
-        engine_core.enable_loader ("python");
-        engine_core.enable_loader ("gjs");
-        engine_core.add_search_path (d + "/core/", null);
+        
+        if (e != null) {
+            /* The core now */
+            engine_core = new Peas.Engine ();
+            engine_core.enable_loader ("python");
+            engine_core.enable_loader ("gjs");
+            engine_core.add_search_path (d + "/" + e + "/", null);
 
-        var core_list = engine_core.get_plugin_list ().copy ();
-        string[] core_plugins = new string[core_list.length()];
-        for (int i = 0; i < core_list.length(); i++) {
-            core_plugins[i] = core_list.nth_data (i).get_module_name ();
-            
+            var core_list = engine_core.get_plugin_list ().copy ();
+            string[] core_plugins = new string[core_list.length()];
+            for (int i = 0; i < core_list.length(); i++) {
+                core_plugins[i] = core_list.nth_data (i).get_module_name ();
+                
+            }
+            engine_core.loaded_plugins = core_plugins;
+
+            /* Our extension set */
+            exts_core = new Peas.ExtensionSet (engine_core, typeof(Peas.Activatable), "object", plugin_iface);
+
+            peas_extension_set_foreach(exts_core, on_extension_added, null);
         }
-        engine_core.loaded_plugins = core_plugins;
-
-        /* Our extension set */
-        exts_core = new Peas.ExtensionSet (engine_core, typeof(Peas.Activatable), "object", plugin_iface);
-
-        peas_extension_set_foreach(exts_core, on_extension_added, null);
-#endif
     }
 
     public Gtk.Widget get_view () {
