@@ -1,20 +1,19 @@
 add_definitions(${NORMAL_CFLAGS})
-include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/libplugins/ ${CMAKE_BINARY_DIR}/scratchcore/)
+include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/scratchcore/)
 link_directories(${NORMAL_LINK_DIRS})
 vala_precompile(VALA_C
     contractor.vala
 PACKAGES
     scratch
     granite
-    scratchplugins
     gtksourceview-3.0
     scratchcore
     gee-1.0
     libpeas-1.0
 OPTIONS
     --vapidir=${CMAKE_BINARY_DIR}
+    --vapidir=${CMAKE_SOURCE_DIR}/vapi/
     --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
-    --vapidir=${CMAKE_BINARY_DIR}/libplugins/
 )
 add_library(scratchcontractor MODULE ${VALA_C})
 add_dependencies(scratchcontractor scratchcore scratch)

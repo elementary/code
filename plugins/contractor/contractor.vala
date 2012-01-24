@@ -19,7 +19,7 @@
 ***/
 
 
-public class Scratch.Plugins.Contractor : Object, Peas.Activatable
+public class Scratch.Plugins.Contractor : Peas.ExtensionBase,  Peas.Activatable
 {
     Interface plugins;
     List<Gtk.MenuItem>? list = null;

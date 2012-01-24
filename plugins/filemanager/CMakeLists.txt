@@ -9,7 +9,6 @@ if(${DEPS_FM_FOUND})
         marlincore.vala
     PACKAGES
         gtk+-3.0
-        scratchplugins
         gee-1.0
         scratch
         granite
@@ -20,7 +19,6 @@ if(${DEPS_FM_FOUND})
     OPTIONS
         --vapidir=${CMAKE_BINARY_DIR}
         --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
-        --vapidir=${CMAKE_BINARY_DIR}/libplugins/
     )
     add_library(euclidefm MODULE ${VALA_C})
     target_link_libraries(euclidefm ${NORMAL_LIBRARIES} ${DEPS_FM_LIBRARIES})

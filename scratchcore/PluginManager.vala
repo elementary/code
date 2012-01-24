@@ -164,12 +164,12 @@ public class Scratch.Plugins.Manager : Object
     [CCode (cheader_filename = "libpeas/libpeas.h", cname = "peas_extension_set_foreach")]
     extern static void peas_extension_set_foreach (Peas.ExtensionSet extset, Peas.ExtensionSetForeachFunc option, void* data);
 
-    Settings settings;
+    GLib.Settings settings;
     string settings_field;
 
     Scratch.Plugins.Interface plugin_iface;
 
-    public Manager(Settings s, string f, string d, string? e = null)
+    public Manager(GLib.Settings s, string f, string d, string? e = null)
     {
         settings = s;
         settings_field = f;
@@ -185,7 +185,10 @@ public class Scratch.Plugins.Manager : Object
         settings.bind("plugins-enabled", engine, "loaded-plugins", SettingsBindFlags.DEFAULT);
 
         /* Our extension set */
-        exts = new Peas.ExtensionSet (engine, typeof(Peas.Activatable), "object", plugin_iface);
+        Parameter param = Parameter();
+        param.value = plugin_iface;
+        param.name = "object";
+        exts = Peas.ExtensionSet.newv (engine, typeof(Peas.Activatable), { param });
 
         exts.extension_added.connect(on_extension_added);
         exts.extension_removed.connect(on_extension_removed);
@@ -208,7 +211,7 @@ public class Scratch.Plugins.Manager : Object
             engine_core.loaded_plugins = core_plugins;
 
             /* Our extension set */
-            exts_core = new Peas.ExtensionSet (engine_core, typeof(Peas.Activatable), "object", plugin_iface);
+            exts_core = Peas.ExtensionSet.newv (engine_core, typeof(Peas.Activatable), { param });
 
             peas_extension_set_foreach(exts_core, on_extension_added, null);
         }

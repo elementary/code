@@ -62,10 +62,8 @@ vala_precompile(VALA_C
     src/Widgets/StatusBar.vala
 PACKAGES
     	${SCRATCH_DEPS}
-    scratchplugins
     scratchcore
 OPTIONS
-    --vapidir=${CMAKE_BINARY_DIR}/libplugins
     --vapidir=${CMAKE_BINARY_DIR}/scratchcore
     --vapidir=${CMAKE_SOURCE_DIR}/vapi
     --thread
@@ -81,10 +79,9 @@ add_subdirectory(po)
 
 add_executable (scratch ${VALA_C})
 add_dependencies(scratch scratchcore)
-include_directories(${CMAKE_BINARY_DIR}/libplugins)
 include_directories(${CMAKE_BINARY_DIR}/scratchcore)
 include_directories(${CMAKE_BINARY_DIR}/lib)
-target_link_libraries (scratch scratchcore scratchplugins)
+target_link_libraries (scratch scratchcore)
 #TODO: Installation
 
 install (TARGETS scratch RUNTIME DESTINATION bin)
@@ -95,6 +92,5 @@ install (FILES ${CMAKE_SOURCE_DIR}/src/scratch.deps DESTINATION share/vala/vapi/
 install (FILES ${CMAKE_BINARY_DIR}/scratch.h DESTINATION include/scratch/)
 include(GSettings)
 add_schema("org.elementary.scratch.gschema.xml")
-add_subdirectory(libplugins)
 add_subdirectory(scratchcore)
 add_subdirectory(plugins)

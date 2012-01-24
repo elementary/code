@@ -28,16 +28,17 @@ vala_precompile(VALA_C
     SearchManager.vala
     SourceView.vala
     Settings.vala
+    PluginManager.vala
 PACKAGES
     gtk+-3.0
     granite
     gtksourceview-3.0
-    scratchplugins
-
     gee-1.0
+    libpeas-1.0
+    peas-gtk
 OPTIONS
     --thread
-    --vapidir=${CMAKE_BINARY_DIR}/libplugins
+    --vapidir=${CMAKE_SOURCE_DIR}/vapi
     GENERATE_VAPI
     scratchcore
     GENERATE_HEADER
@@ -63,5 +64,4 @@ set_target_properties (${PKGNAME} PROPERTIES
                        )
 install (TARGETS ${PKGNAME} DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/)
 target_link_libraries(scratchcore ${LIBS})
-target_link_libraries(scratchcore scratchplugins)
 add_subdirectory(core-tests)

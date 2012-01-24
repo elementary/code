@@ -4,7 +4,7 @@ if(${DEPS_PASTEBIN_FOUND})
 
     add_definitions(${NORMAL_CFLAGS} ${DEPS_PASTEBIN_CFLAGS} ${DEPS_PASTEBIN_CFLAGS_OTHER})
 
-    include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/libplugins/ ${CMAKE_BINARY_DIR}/scratchcore/)
+    include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/scratchcore/)
 
     link_directories(${NORMAL_LINK_DIRS} ${DEPS_PASTEBIN_LIBRARY_DIRS})
 
@@ -15,7 +15,6 @@ if(${DEPS_PASTEBIN_FOUND})
         scratch
         libsoup-2.4
         granite
-        scratchplugins
         gtksourceview-3.0
         scratchcore
         gee-1.0
@@ -23,7 +22,6 @@ if(${DEPS_PASTEBIN_FOUND})
     OPTIONS
         --vapidir=${CMAKE_BINARY_DIR}
         --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
-        --vapidir=${CMAKE_BINARY_DIR}/libplugins/
     )
 
     add_library(scratchpastebin MODULE ${VALA_C})
