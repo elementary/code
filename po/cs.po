@@ -7,18 +7,32 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-23 20:13+0100\n"
-"PO-Revision-Date: 2012-01-14 11:58+0000\n"
-"Last-Translator: Mirek2 <Unknown>\n"
+"POT-Creation-Date: 2012-01-25 16:02+0100\n"
+"PO-Revision-Date: 2012-01-25 20:57+0000\n"
+"Last-Translator: Jakub Jezbera <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-01-24 06:59+0000\n"
-"X-Generator: Launchpad (build 14713)\n"
+"X-Launchpad-Export-Date: 2012-01-26 05:42+0000\n"
+"X-Generator: Launchpad (build 14719)\n"
 "Language: cs\n"
 
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:477
+msgid "Open a file"
+msgstr "Otevřít soubor"
+
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:484
+msgid "All files"
+msgstr "Všechny soubory"
+
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:487
+msgid "Text files"
+msgstr "Textové soubory"
+
 #: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:103
+#: /home/mefrio/elementary/scratch/po/../src/Services/Document.vala:150
+#: /home/mefrio/elementary/scratch/po/../src/Services/Document.vala:301
 msgid "New document"
 msgstr "Nový dokument"
 
@@ -97,7 +111,7 @@ msgstr "Když se spustí Scratch:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
 msgid "Save files at every changes:"
-msgstr ""
+msgstr "Ukládat soubor po každé změně"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:150
 msgid "Case sensitive search:"
