@@ -57,7 +57,7 @@ namespace Scratch.Widgets {
 
             buffer.highlight_syntax = true;
             
-            smart_home_end = SourceSmartHomeEndType.ALWAYS;
+            smart_home_end = SourceSmartHomeEndType.AFTER;
             
             Scratch.settings.changed.connect (restore_settings);
 
@@ -127,7 +127,7 @@ namespace Scratch.Widgets {
             show_line_numbers = Scratch.settings.show_line_numbers;
             highlight_current_line = Scratch.settings.highlight_current_line;
             buffer.highlight_matching_brackets = Scratch.settings.highlight_matching_brackets;
-            if (settings.draw_spaces) { draw_spaces = SourceDrawSpacesFlags.TAB; draw_spaces = SourceDrawSpacesFlags.SPACE; }
+            if (settings.draw_spaces) { draw_spaces = SourceDrawSpacesFlags.TAB; draw_spaces |= SourceDrawSpacesFlags.SPACE; }
             else draw_spaces = SourceDrawSpacesFlags.NBSP;
             insert_spaces_instead_of_tabs = Scratch.settings.spaces_instead_of_tabs;
             tab_width = (uint) Scratch.settings.indent_width;
