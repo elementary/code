@@ -32,6 +32,7 @@ namespace Scratch.Dialogs {
         ComboBoxText start;
         Switch highlight_current_line;
         Switch highlight_matching_brackets;
+        Switch draw_spaces;
         Switch spaces_instead_of_tabs;
         Switch auto_indent;
         SpinButton indent_width;
@@ -206,8 +207,12 @@ namespace Scratch.Dialogs {
             highlight_matching_brackets = new Switch ();
             Scratch.settings.schema.bind("highlight-matching-brackets", highlight_matching_brackets, "active", SettingsBindFlags.DEFAULT);
 
+            draw_spaces = new Switch ();
+            Scratch.settings.schema.bind("draw-spaces", draw_spaces, "active", SettingsBindFlags.DEFAULT);
+
             add_option (content, new Label (_("Highlight current line:")), highlight_current_line, ref row);
             add_option (content, new Label (_("Highlight matching brackets:")), highlight_matching_brackets, ref row);           
+            add_option (content, new Label (_("Draw spaces:")), draw_spaces, ref row);           
             add_option (content, new Label (_("Show line numbers:")), line_numbers, ref row);
 
             
