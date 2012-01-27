@@ -6,7 +6,7 @@ includedir=@DOLLAR@{prefix}/include/
 Name: Scratch
 Description: Scratch headers
 Version: 0.1
-Libs: -lscratchplugins
+Libs: -lscratchcore
 Cflags: -I@DOLLAR@{includedir}/scratch
-Requires: gtk+-3.0 gee-1.0 scratchplugins granite libsoup-2.4 scratchcore
+Requires: gtk+-3.0 gee-1.0 granite libsoup-2.4 scratchcore
 
