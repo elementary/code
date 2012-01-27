@@ -185,7 +185,8 @@ namespace Scratch.Widgets {
             base(_("No files are open."), _("Open a file to begin editing."));
 
             //notebook = caller;
-
+            this.set_size_request (100, 100);
+            
             append("document-open", _("Open file"), _("Open a saved file."));
             append("document-new", _("New file"), _("Create a new empty file."));
             this.activated.connect (on_activated);
