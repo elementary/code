@@ -166,6 +166,7 @@ namespace Scratch.Services {
             
             source_view = tab.text_view;
             source_view.focus_in_event.connect (on_source_view_focus_in);
+            source_view.drag_data_received.connect (on_drag_data_received);
             
             tab.change_syntax_highlight_for_filename(filename);
             window.current_notebook.set_current_page (window.current_notebook.add_existing_tab(tab));
@@ -384,6 +385,17 @@ namespace Scratch.Services {
                 }  
             }
             return false;
+        }
+        
+        void on_drag_data_received (Gdk.DragContext context, int x, int y, Gtk.SelectionData selection_data, uint info, uint time_) {
+            foreach (string s in selection_data.get_uris ()){
+                try {
+                    window.open (Filename.from_uri (s));
+                }
+                catch (Error e) {
+                    warning ("%s doesn't seem to be a valid URI, couldn't open it.", s);
+                }
+            }
         }
         
         public bool save () {

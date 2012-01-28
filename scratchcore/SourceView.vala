@@ -72,19 +72,6 @@ namespace Scratch.Widgets {
 
         }
 
-        /*public override void drag_data_received (Gdk.DragContext context, int x, int y, SelectionData selection_data, uint info, uint time_) {
-            foreach (string s in selection_data.get_uris ()){
-                try {
-                    //var w = get_toplevel () as MainWindow;
-                    //w.open (Filename.from_uri (s));
-                    //w.set_undo_redo ();
-                }
-                catch (Error e) {
-                    warning ("%s doesn't seem to be a valid URI, couldn't open it.", s);
-                }
-            }
-        }*/
-
         public void use_default_font (bool value) {
 
             if (!value) // if false, simply return null
