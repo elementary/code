@@ -250,7 +250,7 @@ namespace Scratch.Dialogs {
             font_grid.add(use_system_font);
             font_grid.add(select_font);
             select_font.hexpand = true;
-            add_option (content, new Label (_("Custom font (%s):").printf(default_font())), font_grid, ref row);
+            add_option (content, new Label (_("System font (%s):").printf(default_font())), font_grid, ref row);
             
             return content;
         }

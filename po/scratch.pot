@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-25 16:02+0100\n"
+"POT-Creation-Date: 2012-01-29 09:32+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,29 +17,29 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:477
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:479
 msgid "Open a file"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:484
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:486
 msgid "All files"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:487
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:489
 msgid "Text files"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:103
+#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:102
 #: /home/mefrio/elementary/scratch/po/../src/Services/Document.vala:150
-#: /home/mefrio/elementary/scratch/po/../src/Services/Document.vala:301
+#: /home/mefrio/elementary/scratch/po/../src/Services/Document.vala:302
 msgid "New document"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:185
+#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:184
 msgid "No files are open."
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:185
+#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:184
 msgid "Open a file to begin editing."
 msgstr ""
 
@@ -80,97 +80,101 @@ msgstr ""
 msgid "Close without saving"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:68
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:69
 msgid "Behavior"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:72
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
 msgid "Interface"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:77
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:78
 msgid "Extensions"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:118
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:119
 msgid "Show welcome screen"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:119
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:120
 msgid "Show last open tabs"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:138
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:139
 msgid "General:"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:144
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:145
 msgid "When Scratch starts:"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:148
 msgid "Save files at every changes:"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:150
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:151
 msgid "Case sensitive search:"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:155
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:156
 msgid "Tabs:"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:160
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:161
 msgid "Automatic indentation:"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:163
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:164
 msgid "Insert spaces instead of tabs:"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:167
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:168
 msgid "Tab width:"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:197
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:198
 msgid "Editor:"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:209
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:213
 msgid "Highlight current line:"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:210
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:214
 msgid "Highlight matching brackets:"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:211
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:215
+msgid "Draw spaces:"
+msgstr ""
+
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:216
 msgid "Show line numbers:"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:214
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:219
 msgid "Show margin on right:"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:221
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:226
 msgid "Margin width:"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:226
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:231
 msgid "Font and colors:"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:240
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:245
 msgid "Select font:"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:243
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:248
 msgid "Color scheme:"
 msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:248
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:253
 #, c-format
-msgid "Custom font (%s):"
+msgid "System font (%s):"
 msgstr ""
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
