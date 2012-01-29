@@ -44,6 +44,8 @@ public class Scratch.Plugins.Interface : Object {
     public Gtk.Menu addons_menu {private set; get; }
     public Gtk.Toolbar toolbar {internal set; get; }
     public Gtk.Window window {private set; get; }
+    public string set_name {internal set; get; }
+    public string? argument {internal set; get; }
 
     public unowned List<Gtk.TextView> all_source_view { private set; get; }
 
@@ -182,12 +184,14 @@ public class Scratch.Plugins.Manager : Object
 
     Scratch.Plugins.Interface plugin_iface;
 
-    public Manager(GLib.Settings s, string f, string d, string? e = null)
+    public Manager(GLib.Settings s, string f, string d, string? e, string? argument_set)
     {
         settings = s;
         settings_field = f;
 
         plugin_iface = new Scratch.Plugins.Interface (this);
+        plugin_iface.argument = argument_set;
+        plugin_iface.set_name = e ?? "scratch";
 
         /* Let's init the engine */
         engine = Peas.Engine.get_default ();
