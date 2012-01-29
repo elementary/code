@@ -92,8 +92,7 @@ namespace Scratch.Widgets {
             }
 
             set_tab ();
-            /*if (get_n_pages() == 0 || (get_n_pages() == 1 && welcome_screen.get_parent() != null))
-                show_welcome ();*/
+
         }
 
         public int add_tab (string labeltext="New document") {

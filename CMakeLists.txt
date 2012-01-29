@@ -33,7 +33,7 @@ set (SCRATCH_DEPS "libpeas-1.0;gtksourceview-3.0;gee-1.0;gobject-2.0;glib-2.0;gi
 find_package (PkgConfig)
 pkg_check_modules (GTK+ REQUIRED "gtk+-3.0 >= 3.2")
 pkg_check_modules (LIBSOURCE REQUIRED "libpeas-gtk-1.0; gtksourceview-3.0 >= 3.0")
-pkg_check_modules (DEPS REQUIRED ${SCRATCH_DEPS} gthread-2.0)
+pkg_check_modules (DEPS REQUIRED ${SCRATCH_DEPS})
 
 set(NORMAL_CFLAGS ${DEPS_CFLAGS} ${LIBSOURCE_CFLAGS} ${GCONF_CFLAGS})
 set(NORMAL_LINK_DIRS ${DEPS_LIBRARY_DIRS} ${LIBSOURCE_LIBRARY_DIRS} ${GCONF_LIBRARY_DIRS})

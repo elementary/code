@@ -362,6 +362,8 @@ namespace Scratch {
                 if (split_view.get_parent () != null) {
                     vbox_split_view_toolbar.remove (split_view);
                     vbox_split_view_toolbar.pack_start (welcome_screen, true, true);
+                    /* Set the window title for the WelcomeScreen */
+                    this.title = TITLE;
                 }
 
                 toolbar.set_button_sensitive (toolbar.ToolButtons.SAVE_BUTTON, false);
