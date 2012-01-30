@@ -2,7 +2,7 @@
 /***
   BEGIN LICENSE
 
-  Copyright (C) 2011 Giulio Collura <random.cpp@gmail.com>
+  Copyright (C) 2011-2012 Giulio Collura <random.cpp@gmail.com>
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as
   published    by the Free Software Foundation.
@@ -47,7 +47,7 @@ namespace Scratch {
 
             program_name = app_cmd_name;
             exec_name = app_cmd_name.down();
-            app_years = "2011";
+            app_years = "2011-2012";
             app_icon = "scratch";
             app_launcher = "scratch.desktop";
             application_id = "net.launchpad." + app_cmd_name.down();

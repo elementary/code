@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 Lucas Baudin <xapantu@gmail.com>
+ * Copyright (C) 2011-2012 Lucas Baudin <xapantu@gmail.com>
  *
  * This file is part of Scratch.
  *
