@@ -100,7 +100,7 @@ namespace Scratch.Widgets {
 
         protected bool return_event (EventKey event) {
             if (event.keyval == 65293) { // 65293 is the return key
-                string old = tab.filename;
+                string old = tab.document.filename;
                 var sold = old.split ("/");
                 string newname = "";
                 foreach (string s in sold) {
@@ -109,12 +109,14 @@ namespace Scratch.Widgets {
                     if (s == sold[sold.length-1])
                         newname = newname +  "/" + entry.text;
                 }
-
-
+                
+                debug ("%s", newname);
+                
                 entry.hide ();
                 event_box.show ();
-                FileUtils.rename (old, newname);
-
+                tab.filename = newname;
+                tab.document.rename (newname);
+                
                 label.label = entry.text;
             }
             return false;
