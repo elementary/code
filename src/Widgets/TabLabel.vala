@@ -74,10 +74,7 @@ namespace Scratch.Widgets {
                 tab.on_close_clicked();
                 return true;
             }
-            else if(event.button == 3) {
-                debug ("I need to add a menu");
-                return true;
-            }
+
             return false;
         }
 

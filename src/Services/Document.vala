@@ -99,7 +99,7 @@ namespace Scratch.Services {
          * It returns the value of the modified field of the text_view of the tab of
          * this document
          **/
-        public bool modified { get; private set; }
+        public bool modified { get; public set; }
 
         public Document (string filename, MainWindow? window) {
 
@@ -284,7 +284,7 @@ namespace Scratch.Services {
 
         public bool close () {
 
-            if (!saved)
+            if (!saved) 
                 return false;
 
             this.closed (); // Signal

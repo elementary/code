@@ -53,9 +53,7 @@ namespace Scratch.Widgets {
         }
 
         public void on_close_clicked() {
-            var doc = document;
-
-            if (doc.can_write () && text_view.modified == true) {
+            if (document.can_write () && document.modified == true) {
 
                 var save_dialog = new SaveDialog (this);
                 save_dialog.run();
@@ -68,6 +66,7 @@ namespace Scratch.Widgets {
             message("closing: %s\n", this.filename);
             closed ();
             ((Gtk.Notebook)get_parent()).remove(this);
+        
         }
 
         public int save () {
@@ -115,6 +114,7 @@ namespace Scratch.Widgets {
                 
                 this.document.filename = this.filename;
 				this.document.last_saved_text = this.text_view.buffer.text;
+				this.document.modified = false;
 				
 				change_syntax_highlight_for_filename(this.filename);
 				
@@ -190,6 +190,7 @@ namespace Scratch.Widgets {
 
                 this.document.filename = this.filename;
                 this.document.last_saved_text = this.text_view.buffer.text;
+                this.document.modified = false;
                 
                 change_syntax_highlight_for_filename(this.filename);
                 
