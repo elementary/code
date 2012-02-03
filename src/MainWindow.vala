@@ -459,8 +459,6 @@ namespace Scratch {
             if (settings.show_at_start == "last-tabs") {               
                settings.schema.set_strv ("opened-files", opened_files);   
             } 
-
-            Gtk.main_quit ();
         }
 
         public void action_new_tab () {
@@ -574,7 +572,7 @@ namespace Scratch {
 
             update_saved_state ();
             action_quit ();
-            return true;
+            return false;
 
         }
 
