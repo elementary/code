@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-03 21:33+0100\n"
+"POT-Creation-Date: 2012-02-03 21:40+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:477
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:807
 msgid "Open a file"
 msgstr ""
 
@@ -29,14 +30,152 @@ msgstr ""
 msgid "Text files"
 msgstr ""
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Widgets/ComboSyntax.vala:38
-msgid "Normal text"
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:745
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:746
+msgid "Fetch"
 msgstr ""
 
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:749
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:750
+msgid "Go to line..."
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:753
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:754
+msgid "Quit"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:757
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:758
+msgid "Close"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:761
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:762
+msgid "Replace"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:765
 #: /home/xapantu/Dev/scratch/trunk/po/../src/Widgets/Notebook.vala:102
 #: /home/xapantu/Dev/scratch/trunk/po/../src/Services/Document.vala:150
 #: /home/xapantu/Dev/scratch/trunk/po/../src/Services/Document.vala:302
 msgid "New document"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:766
+msgid "Create a new document in a new tab"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:769
+msgid "Add New View"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:770
+msgid "Add a new view"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:774
+msgid "Remove Current View"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:775
+msgid "Remove this view"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:778
+msgid "Undo"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:779
+msgid "Undo the last action"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:782
+msgid "Redo"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:783
+msgid "Redo the last undone action"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:787
+msgid "Revert"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:788
+msgid "Restore this file"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:792
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:793
+msgid "Next Search"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:796
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:797
+msgid "Previous Search"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:801
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:802
+msgid "Duplicate selected strings"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:806
+msgid "Open"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:810
+msgid "Save"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:811
+msgid "Save the current file"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:814
+msgid "Save as"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:815
+msgid "Save the current file with a different name"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:818
+msgid "Preferences"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:819
+msgid "Change Scratch settings"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:825
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:826
+msgid "Fullscreen"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:829
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:830
+msgid "Sidebar"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:833
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:834
+msgid "Context View"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:837
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:838
+msgid "Status Bar"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:841
+#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:842
+msgid "Bottom Panel"
+msgstr ""
+
+#: /home/xapantu/Dev/scratch/trunk/po/../src/Widgets/ComboSyntax.vala:38
+msgid "Normal text"
 msgstr ""
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/Widgets/Notebook.vala:184
