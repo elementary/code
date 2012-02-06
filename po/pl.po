@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-02-03 21:40+0100\n"
-"PO-Revision-Date: 2012-02-04 15:37+0000\n"
+"PO-Revision-Date: 2012-02-05 08:56+0000\n"
 "Last-Translator: Piotr Sokół <Unknown>\n"
 "Language-Team: polski <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-05 05:22+0000\n"
-"X-Generator: Launchpad (build 14738)\n"
+"X-Launchpad-Export-Date: 2012-02-06 05:08+0000\n"
+"X-Generator: Launchpad (build 14747)\n"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:477
 #: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:807
 msgid "Open a file"
-msgstr "Otwórz plik"
+msgstr "Otwiera plik"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:484
 msgid "All files"
@@ -64,7 +64,7 @@ msgstr "Nowy dokument"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:766
 msgid "Create a new document in a new tab"
-msgstr ""
+msgstr "Tworzy nowy dokument w nowej karcie"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:769
 msgid "Add New View"
@@ -72,7 +72,7 @@ msgstr "Dodaj nowy widok"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:770
 msgid "Add a new view"
-msgstr ""
+msgstr "Dodaje nowy widok"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:774
 msgid "Remove Current View"
@@ -80,7 +80,7 @@ msgstr "Usuń bieżący widok"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:775
 msgid "Remove this view"
-msgstr ""
+msgstr "Usuwa bieżący widok"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:778
 msgid "Undo"
@@ -100,26 +100,26 @@ msgstr "Ponawia ostatnią cofniętą czynność"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:787
 msgid "Revert"
-msgstr ""
+msgstr "Przywróć"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:788
 msgid "Restore this file"
-msgstr ""
+msgstr "Przywraca zawartość bieżącego pliku"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:792
 #: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:793
 msgid "Next Search"
-msgstr ""
+msgstr "Wyszukaj następne"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:796
 #: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:797
 msgid "Previous Search"
-msgstr ""
+msgstr "Wyszkaj poprzednie"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:801
 #: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:802
 msgid "Duplicate selected strings"
-msgstr ""
+msgstr "Powiela zaznaczony ciąg"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:806
 msgid "Open"
@@ -162,17 +162,17 @@ msgstr "Panel boczny"
 #: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:833
 #: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:834
 msgid "Context View"
-msgstr ""
+msgstr "Widok kontekstowy"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:837
 #: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:838
 msgid "Status Bar"
-msgstr ""
+msgstr "Pasek stanu"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:841
 #: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:842
 msgid "Bottom Panel"
-msgstr ""
+msgstr "Dolny panel"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/Widgets/ComboSyntax.vala:38
 msgid "Normal text"
@@ -204,7 +204,7 @@ msgstr "Tworzy nowy, pusty plik"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "Save changes to document"
-msgstr "Zapisz zmiany"
+msgstr "Zapisuje zmiany do pliku"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "New File"
@@ -233,7 +233,7 @@ msgstr "Wtyczki"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:119
 msgid "Show welcome screen"
-msgstr "Pokaż ekran powitalny"
+msgstr "Wyświetlanie ekranu powitalnego"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:120
 msgid "Show last open tabs"
@@ -253,7 +253,7 @@ msgstr "Zapisuj pliki po każdej zmianie:"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:151
 msgid "Case sensitive search:"
-msgstr ""
+msgstr "Wyszukiwanie z uwzględnieniem wielkości liter:"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:156
 msgid "Tabs:"
@@ -265,11 +265,11 @@ msgstr "Automatyczne wcięcia:"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:164
 msgid "Insert spaces instead of tabs:"
-msgstr "Wstawiaj spacje zamiast tabulatora:"
+msgstr "Wstawianie spacji zamiast tabulatora:"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:168
 msgid "Tab width:"
-msgstr "Szerokość tabulatora:"
+msgstr "Szerokość tabulacji:"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:198
 msgid "Editor:"
@@ -277,23 +277,23 @@ msgstr "Edytor:"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:213
 msgid "Highlight current line:"
-msgstr "Podświetlaj aktywną linię:"
+msgstr "Podświetlanie bieżącego wiersza:"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:214
 msgid "Highlight matching brackets:"
-msgstr "Podświetlaj pasujące nawiasy:"
+msgstr "Podświetlanie pasujących nawiasów:"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:215
 msgid "Draw spaces:"
-msgstr ""
+msgstr "Oznaczanie znaków spacji:"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:216
 msgid "Show line numbers:"
-msgstr "Pokazuj numery linii:"
+msgstr "Wyświetlanie numerów wierszy:"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:219
 msgid "Show margin on right:"
-msgstr "Pokazuj margines z prawej:"
+msgstr "Wyświetlanie marginesu po prawej stronie:"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:226
 msgid "Margin width:"
@@ -322,11 +322,11 @@ msgstr "Plik:"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/WarnDialog.vala:42
 msgid "Do you want to reload it?"
-msgstr "Chcesz wczytać go ponownie?"
+msgstr "Wczytać go ponownie?"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
-msgstr "Zapisz zmiany w pliku przed zamknięciem"
+msgstr "Zapisać zmiany do pliku przed jego zamknięciem?"
 
 #: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/SaveDialog.vala:42
 msgid "Save unsaved changes to file \""
