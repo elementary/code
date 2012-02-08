@@ -5,5 +5,6 @@ add_translations_catalog("scratch"
     ../src/Widgets
     ../src/Dialogs
     ../src/Services
+    ../scratchcore
     ../plugins/pastebin
 )
