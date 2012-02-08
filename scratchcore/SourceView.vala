@@ -93,8 +93,12 @@ namespace Scratch.Widgets {
                 buffer.set_language (lang);
 
             }
-            else if (display_name == "CMakeLists.txt") {
+            else if (display_name == "CMakeLists.txt") { 
                 lang = manager.get_language ("cmake");
+                buffer.set_language (lang);
+            }
+            else if ("Makefile" in display_name) {
+                lang = manager.get_language ("makefile");
                 buffer.set_language (lang);
             }
             else {
