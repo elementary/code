@@ -264,7 +264,7 @@ public class Scratch.Plugins.Manager : Object
     {
     }
     
-    public Gtk.Notebook context { set { plugin_iface.sidebar = value; } }
+    public Gtk.Notebook context { set { plugin_iface.context = value; } }
     public signal void hook_notebook_context (); 
     
     public Gtk.Notebook sidebar { set { plugin_iface.sidebar = value; } }
