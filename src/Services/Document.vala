@@ -320,7 +320,7 @@ namespace Scratch.Services {
         void on_buffer_changed () {
 
             window.set_undo_redo ();
-            want_reload = true;
+            //want_reload = true;
             
             if (settings.autosave && filename != null) {
                 if(!need_saving) {
