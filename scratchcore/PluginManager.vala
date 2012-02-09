@@ -24,6 +24,7 @@ public class Scratch.Plugins.Interface : Object {
     Manager manager;
 
     public enum Hook {
+        CONTEXT,
         SIDEBAR,
         MAIN_MENU,
         ADDONS_MENU,
@@ -36,7 +37,8 @@ public class Scratch.Plugins.Interface : Object {
 
     public delegate void HookFunction ();
     public delegate void HookFunctionArg (Object object);
-
+    
+    public Gtk.Notebook context {internal set; get; }
     public Gtk.Notebook sidebar {internal set; get; }
     public Gtk.Notebook bottombar {internal set; get; }
     public Gtk.Application scratch_app {internal set; get; }
@@ -103,6 +105,14 @@ public class Scratch.Plugins.Interface : Object {
     
     public void register_function (Hook hook, HookFunction hook_function) {
         switch(hook) {
+        case Hook.CONTEXT:
+            manager.hook_notebook_context.connect_after (() => {
+                hook_function();
+            });
+            if (context != null) {
+                hook_function ();
+            }
+            break;
         case Hook.SIDEBAR:
             manager.hook_notebook_sidebar.connect_after (() => {
                 hook_function();
@@ -254,12 +264,11 @@ public class Scratch.Plugins.Manager : Object
     {
     }
     
+    public Gtk.Notebook context { set { plugin_iface.sidebar = value; } }
+    public signal void hook_notebook_context (); 
+    
     public Gtk.Notebook sidebar { set { plugin_iface.sidebar = value; } }
     public signal void hook_notebook_sidebar (); 
-    
-    public void hook_notebook_context(Gtk.Notebook menu)
-    {
-    }
     
     public signal void hook_addons_menu(Gtk.Menu menu);
     

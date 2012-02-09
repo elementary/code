@@ -293,7 +293,8 @@ namespace Scratch {
 
             plugins.sidebar = notebook_sidebar;
             plugins.hook_notebook_sidebar ();
-            plugins.hook_notebook_context (notebook_context);
+            plugins.context = notebook_context;
+            plugins.hook_notebook_context ();
 
             var notebook =  new ScratchNotebook (this);
             split_view.add_view (notebook);
