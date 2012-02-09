@@ -7,338 +7,347 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-03 21:40+0100\n"
+"POT-Creation-Date: 2012-02-08 11:10+0100\n"
 "PO-Revision-Date: 2012-02-04 15:19+0000\n"
 "Last-Translator: Alfredo Hernández <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-05 05:22+0000\n"
-"X-Generator: Launchpad (build 14738)\n"
+"X-Launchpad-Export-Date: 2012-02-09 07:50+0000\n"
+"X-Generator: Launchpad (build 14763)\n"
 "Language: es\n"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:477
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:807
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:477
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:807
 msgid "Open a file"
 msgstr "Abrir un archivo"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:484
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:484
 msgid "All files"
 msgstr "Todos los archivos"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:487
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:487
 msgid "Text files"
 msgstr "Archivos de texto"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:745
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:746
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:745
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:746
 msgid "Fetch"
 msgstr "Recuperar"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:749
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:750
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:749
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:750
+#: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:62
 msgid "Go to line..."
 msgstr "Ir a la línea..."
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:753
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:754
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:753
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:754
 msgid "Quit"
 msgstr "Salir"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:757
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:758
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:757
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:758
 msgid "Close"
 msgstr "Cerrar"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:761
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:762
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:761
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:762
 msgid "Replace"
 msgstr "Reemplazar"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:765
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Widgets/Notebook.vala:102
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Services/Document.vala:150
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Services/Document.vala:302
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:765
+#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:102
+#: /home/mefrio/elementary/scratch/po/../src/Services/Document.vala:150
+#: /home/mefrio/elementary/scratch/po/../src/Services/Document.vala:302
 msgid "New document"
 msgstr "Nuevo documento"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:766
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:766
 msgid "Create a new document in a new tab"
 msgstr "Crear un documento nuevo en una pestaña nueva"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:769
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:769
 msgid "Add New View"
 msgstr "Añadir una vista nueva"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:770
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:770
 msgid "Add a new view"
 msgstr "Añadir una nueva vista"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:774
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:774
 msgid "Remove Current View"
 msgstr "Eliminar la vista actual"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:775
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:775
 msgid "Remove this view"
 msgstr "Eliminar esta vista"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:778
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:778
 msgid "Undo"
 msgstr "Deshacer"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:779
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:779
 msgid "Undo the last action"
 msgstr "Deshacer la última acción"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:782
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:782
 msgid "Redo"
 msgstr "Rehacer"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:783
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:783
 msgid "Redo the last undone action"
 msgstr "Rehacer la última acción deshecha"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:787
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:787
 msgid "Revert"
 msgstr "Revertir"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:788
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:788
 msgid "Restore this file"
 msgstr "Restaurar este archivo"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:792
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:793
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:792
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:793
 msgid "Next Search"
 msgstr "Búsqueda siguiente"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:796
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:797
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:796
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:797
 msgid "Previous Search"
 msgstr "Búsqueda anterior"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:801
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:802
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:801
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:802
 msgid "Duplicate selected strings"
 msgstr "Duplicar las líneas selecionadas"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:806
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:806
 msgid "Open"
 msgstr "Abrir"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:810
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:810
 msgid "Save"
 msgstr "Guardar"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:811
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:811
 msgid "Save the current file"
 msgstr "Guardar el archivo actual"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:814
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:814
 msgid "Save as"
 msgstr "Guardar como"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:815
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:815
 msgid "Save the current file with a different name"
 msgstr "Guardar el archivo actual con un nombre diferente"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:818
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:818
 msgid "Preferences"
 msgstr "Preferencias"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:819
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:819
 msgid "Change Scratch settings"
 msgstr "Cambiar las preferencias de Scratch"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:825
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:826
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:825
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:826
 msgid "Fullscreen"
 msgstr "Pantalla completa"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:829
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:830
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:829
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:830
 msgid "Sidebar"
 msgstr "Barra lateral"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:833
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:834
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:833
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:834
 msgid "Context View"
 msgstr "Vista contextual"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:837
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:838
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:837
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:838
 msgid "Status Bar"
 msgstr "Barra de estado"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:841
-#: /home/xapantu/Dev/scratch/trunk/po/../src/MainWindow.vala:842
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:841
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:842
 msgid "Bottom Panel"
 msgstr "Panel inferior"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Widgets/ComboSyntax.vala:38
-msgid "Normal text"
-msgstr "Texto normal"
-
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Widgets/Notebook.vala:184
+#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:184
 msgid "No files are open."
 msgstr "No hay archivos abiertos."
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Widgets/Notebook.vala:184
+#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:184
 msgid "Open a file to begin editing."
 msgstr "Abra un archivo para comenzar la edición."
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Widgets/Notebook.vala:189
+#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:189
 msgid "Open file"
 msgstr "Abrir archivo"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Widgets/Notebook.vala:189
+#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:189
 msgid "Open a saved file."
 msgstr "Abrir un archivo guardado."
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Widgets/Notebook.vala:190
+#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:190
 msgid "New file"
 msgstr "Nuevo archivo"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Widgets/Notebook.vala:190
+#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:190
 msgid "Create a new empty file."
 msgstr "Crear un archivo vacío nuevo."
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+#: /home/mefrio/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
+msgid "Normal text"
+msgstr "Texto normal"
+
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "Save changes to document"
 msgstr "Guardar los cambios al documento"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "New File"
 msgstr "Nuevo archivo"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/SaveOnCloseDialog.vala:40
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
 "Si no guarda el documento, los cambios de los últimos 4 segundos se perderán "
 "permanentemente."
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/SaveOnCloseDialog.vala:42
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
 msgstr "Cerrar sin guardar"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:69
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:69
 msgid "Behavior"
 msgstr "Comportamiento"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:73
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
 msgid "Interface"
 msgstr "Interfaz"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:78
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:78
 msgid "Extensions"
 msgstr "Extensiones"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:119
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:119
 msgid "Show welcome screen"
 msgstr "Mostrar pantalla de bienvenida"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:120
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:120
 msgid "Show last open tabs"
 msgstr "Mostrar las últimas pestañas abiertas"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:139
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:139
 msgid "General:"
 msgstr "General:"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:145
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:145
 msgid "When Scratch starts:"
 msgstr "Al iniciar Scratch:"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:148
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:148
 msgid "Save files at every changes:"
 msgstr "Guardar archivos al producirse cambios:"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:151
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:151
 msgid "Case sensitive search:"
 msgstr "Búsqueda sensible a mayúsculas:"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:156
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:156
 msgid "Tabs:"
 msgstr "Tabulaciones:"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:161
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:161
 msgid "Automatic indentation:"
 msgstr "Sangría automática:"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:164
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:164
 msgid "Insert spaces instead of tabs:"
 msgstr "Insertar espacios en lugar de tabulaciones:"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:168
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:168
 msgid "Tab width:"
 msgstr "Ancho de la tabulación:"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:198
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:198
 msgid "Editor:"
 msgstr "Editor:"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:213
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:213
 msgid "Highlight current line:"
 msgstr "Destacar la línea activa:"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:214
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:214
 msgid "Highlight matching brackets:"
 msgstr "Destaca la pareja de corchetes:"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:215
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:215
 msgid "Draw spaces:"
 msgstr "Dibujar espacios:"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:216
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:216
 msgid "Show line numbers:"
 msgstr "Mostrar los números de línea:"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:219
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:219
 msgid "Show margin on right:"
 msgstr "Mostrar margen a la derecha:"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:226
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:226
 msgid "Margin width:"
 msgstr "Ancho del margen:"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:231
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:231
 msgid "Font and colors:"
 msgstr "Fuente y colores:"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:245
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:245
 msgid "Select font:"
 msgstr "Seleccionar tipografía:"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:248
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:248
 msgid "Color scheme:"
 msgstr "Esquema de color:"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/PreferencesDialog.vala:253
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:253
 #, c-format
 msgid "System font (%s):"
 msgstr "Fuente del sistema (%s):"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/WarnDialog.vala:41
-msgid "The file:"
-msgstr "El archivo:"
-
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/WarnDialog.vala:42
-msgid "Do you want to reload it?"
-msgstr "¿Desea volver a cargarlo?"
-
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/SaveDialog.vala:40
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
 msgstr "¿Guardar los cambios en el archivo antes de cerrar?"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/SaveDialog.vala:42
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
 msgid "Save unsaved changes to file \""
 msgstr "Guardar los cambios del archivo «"
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/SaveDialog.vala:45
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
 msgstr "Los cambios en este archivo no han sido guardados."
 
-#: /home/xapantu/Dev/scratch/trunk/po/../src/Dialogs/SaveDialog.vala:45
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Do you want to save changes before closing this file?"
 msgstr "¿Quiere guardar los cambios antes de cerrar este archivo?"
+
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:41
+msgid "The file:"
+msgstr "El archivo:"
+
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:42
+msgid "Do you want to reload it?"
+msgstr "¿Desea volver a cargarlo?"
+
+#: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:60
+msgid "Search..."
+msgstr ""
+
+#: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:61
+msgid "Replace..."
+msgstr ""
