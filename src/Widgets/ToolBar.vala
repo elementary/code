@@ -104,7 +104,7 @@ namespace Scratch.Widgets {
 
             share_menu = new ShareMenu (this.window);
             share_app_menu = new ShareAppMenu (share_menu);
-
+            
             menu = ui.get_widget ("ui/AppMenu") as Gtk.Menu;
             plugins.hook_main_menu(menu);
             app_menu = (window.get_application() as Granite.Application).create_appmenu(menu);

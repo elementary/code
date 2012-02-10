@@ -36,8 +36,15 @@ namespace Scratch.Widgets {
             this.window = window;
 
             plugins.hook_addons_menu(this);
-
-
+            
+            insert.connect ((w, p) => { 
+                if (get_children ().length ()  == 0) window.toolbar.share_app_menu.set_sensitive (false);
+                else window.toolbar.share_app_menu.set_sensitive (true);               
+            });
+            remove.connect ((w) => { 
+                if (get_children ().length () == 0) window.toolbar.share_app_menu.set_sensitive (false);
+                else window.toolbar.share_app_menu.set_sensitive (true);               
+            });
         }
 
     }
@@ -47,7 +54,7 @@ namespace Scratch.Widgets {
         public ShareAppMenu (Gtk.Menu menu) {
 
             base (new Image.from_icon_name ("document-export", IconSize.MENU), "Share", menu);
-
+            
         }
 
 
