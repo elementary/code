@@ -24,13 +24,16 @@ public class Scratch.Plugins.Contractor : Peas.ExtensionBase,  Peas.Activatable
     Interface plugins;
     List<Gtk.MenuItem>? list = null;
 
+    [NoAcessorMethod]
     public Object object { owned get; construct; }
    
     public void update_state () {
     }
 
     public void activate () {
-        plugins = (Scratch.Plugins.Interface)object;
+        Value value = Value(typeof(GLib.Object));
+        get_property("object", ref value);
+        plugins = (Scratch.Plugins.Interface)value.get_object();
         plugins.register_function(Interface.Hook.WINDOW, () => {
             ((MainWindow)plugins.window).split_view.page_changed.connect(on_page_changed);
         });
