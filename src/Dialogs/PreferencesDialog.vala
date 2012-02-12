@@ -122,9 +122,6 @@ namespace Scratch.Dialogs {
             
             var autosave = new Gtk.Switch ();
             Scratch.settings.schema.bind("autosave", autosave, "active", SettingsBindFlags.DEFAULT);
-            
-            var case_sensitive = new Gtk.Switch ();
-            Scratch.settings.schema.bind("search-sensitive", case_sensitive, "active", SettingsBindFlags.DEFAULT);
  
             var general_grid = new Gtk.Grid ();
             general_grid.row_spacing = 5;
@@ -147,9 +144,6 @@ namespace Scratch.Dialogs {
             
             label = new Label (_("Save files at every changes:"));
             add_option (general_grid, label, autosave, ref row);
-            
-            label = new Label (_("Case sensitive search:"));
-            add_option (general_grid, label, case_sensitive, ref row);
             
             //Tabs
             

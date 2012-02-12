@@ -10,7 +10,6 @@ set (DOLLAR "$")
 
 configure_file (${CMAKE_CURRENT_SOURCE_DIR}/${PKGNAME}.pc.cmake ${CMAKE_CURRENT_BINARY_DIR}/${PKGNAME}.pc)
 install (FILES ${CMAKE_CURRENT_BINARY_DIR}/${PKGNAME}.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig/)
-
 # Link all
 
 add_definitions(${NORMAL_CFLAGS} "-DGETTEXT_PACKAGE=\"${PKGNAME_}\"")
@@ -65,7 +64,7 @@ set_target_properties (${PKGNAME} PROPERTIES
 install (TARGETS ${PKGNAME} DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/)
 target_link_libraries(scratchcore ${LIBS})
 add_subdirectory(core-tests)
-
 # GObject Introspection
+
 include(GObjectIntrospectionMacros)
 add_target_gir(scratchcore Scratch scratchcore.h "${NORMAL_CFLAGS}" 0.1 Gtk-3.0)

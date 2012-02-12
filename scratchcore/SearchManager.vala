@@ -101,6 +101,10 @@ public class Scratch.Services.SearchManager : GLib.Object {
         entry_context.set_path (entry_path);
         entry_context.add_class ("entry");
         normal_color = entry_context.get_color (Gtk.StateFlags.FOCUSED);
+        
+        settings.show_replace = false;
+        settings.show_go_to_line = false;
+        Scratch.settings.changed.connect (restore_settings);
     }
 
     public Gtk.ToolItem get_search_entry () {
@@ -158,7 +162,16 @@ public class Scratch.Services.SearchManager : GLib.Object {
 
         Idle.add (() => { replace_entry.grab_focus (); return false; });
     }
+    
+    void hide_replace () {
+        tool_replace_entry.no_show_all = true;
+        tool_search_entry.show_all ();
+        tool_go_to_entry.hide ();
+        tool_replace_entry.hide ();
 
+        Idle.add (() => { search_entry.grab_focus (); return false; });
+    }
+    
     void show_go_to () {
         tool_go_to_entry.no_show_all = false;
         tool_replace_entry.hide ();
@@ -167,7 +180,16 @@ public class Scratch.Services.SearchManager : GLib.Object {
 
         Idle.add (() => { go_to_entry.grab_focus (); return false; });
     }
+    
+    void hide_go_to () {
+        tool_go_to_entry.no_show_all = true;
+        tool_replace_entry.hide ();
+        tool_search_entry.show_all ();
+        tool_go_to_entry.hide ();
 
+        Idle.add (() => { search_entry.grab_focus (); return false; });
+    }
+    
     void on_go_to_entry_activate () {
         if( text_view != null) {
             text_view.go_to_line (int.parse(go_to_entry.text));
@@ -309,5 +331,13 @@ public class Scratch.Services.SearchManager : GLib.Object {
             return true;
         }
         return false;
+    }
+    
+    void restore_settings () {
+        if (settings.show_replace) show_replace ();
+        else hide_replace ();
+        
+        if (settings.show_go_to_line) show_go_to ();
+        else hide_go_to ();
     }
 }
