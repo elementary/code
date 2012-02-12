@@ -156,18 +156,21 @@ namespace Scratch.Widgets {
             label = new Label (_("Entries:"));
             add_section (grid, label, ref row);  
             unowned SList<Gtk.RadioButton> group = null;
-            var replace = new Gtk.RadioButton (group);
+            var search = new Gtk.RadioButton (group);
+            Scratch.settings.schema.bind("show-search", search, "active", SettingsBindFlags.DEFAULT);
+            label = new Label (_("Search:"));
+            add_option (grid, label, search, ref row);
+            var replace = new Gtk.RadioButton (search.get_group ());
             Scratch.settings.schema.bind("show-replace", replace, "active", SettingsBindFlags.DEFAULT);
             label = new Label (_("Replace:"));
             add_option (grid, label, replace, ref row);
-            var go_to_line = new Gtk.RadioButton (replace.get_group ());
+            var go_to_line = new Gtk.RadioButton (search.get_group ());
             Scratch.settings.schema.bind("show-go-to-line", go_to_line, "active", SettingsBindFlags.DEFAULT);
             label = new Label (_("Go to line:"));
             add_option (grid, label, go_to_line, ref row);
             
             box.pack_start (grid);
 
-            search_popover.move_to_widget (search_arrow);
             search_popover.show_all();
             search_popover.present();
             search_popover.run();

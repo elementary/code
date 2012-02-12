@@ -334,6 +334,9 @@ public class Scratch.Services.SearchManager : GLib.Object {
     }
     
     void restore_settings () {
+        
+        show_search ();
+        
         if (settings.show_replace) show_replace ();
         else hide_replace ();
         
