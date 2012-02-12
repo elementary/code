@@ -240,13 +240,6 @@ namespace Scratch {
 
             if (w is Scratch.Widgets.SourceView) {
                 toolbar.search_manager.set_text_view ((Scratch.Widgets.SourceView) w);
-                var tab = w.get_parent () as Tab;
-
-                assert(tab != null);
-                if (tab.text_view.buffer.language != null)
-                    toolbar.combo_syntax.language_id = tab.text_view.buffer.language.id;
-                else
-                    toolbar.combo_syntax.language_id = "normal";
             }
             else
                 warning("The focused widget is not a valid TextView");
@@ -258,7 +251,6 @@ namespace Scratch {
         public void create_window () {
 
             this.toolbar = new Widgets.Toolbar (this, ui, main_actions);
-            toolbar.combo_syntax.changed.connect (on_status_language_id_changed);
 
             notebook_context = new Gtk.Notebook ();
             notebook_context.page_added.connect (on_notebook_context_new_page);
@@ -282,7 +274,6 @@ namespace Scratch {
             
             vbox_split_view_toolbar = new Gtk.VBox(false, 0);
             statusbar = new StatusBar ();
-            statusbar.notify["language-id"].connect (on_status_language_id_changed);
             vbox_split_view_toolbar.pack_start (split_view, true, true, 0);
             vbox_split_view_toolbar.pack_end (statusbar, false, false, 0);
             hpaned_sidebar.pack2 (vbox_split_view_toolbar, true, true);
@@ -348,7 +339,6 @@ namespace Scratch {
             main_actions.get_action ("Remove view").set_sensitive (val ? split_view_multiple_view : false);
             main_actions.get_action ("ShowStatusBar").set_sensitive (val);
             toolbar.set_actions (val);
-            toolbar.combo_syntax.set_sensitive (val);
 
         }
 
@@ -511,12 +501,6 @@ namespace Scratch {
 
         public void action_save_as () {
             current_tab.document.save_as ();
-        }
-
-        public void on_status_language_id_changed () {
-            Gtk.SourceLanguage lang;
-            lang = current_tab.text_view.manager.get_language (toolbar.combo_syntax.language_id);
-            current_tab.text_view.buffer.set_language (lang);
         }
 
         /**

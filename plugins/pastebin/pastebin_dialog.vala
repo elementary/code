@@ -282,7 +282,7 @@ namespace Scratch.Dialogs {
 				format_button.clicked.connect (format_button_clicked);
 			
 			//populate combo box
-			var sel_lang = window.toolbar.combo_syntax.get_active_id ();
+			var sel_lang = window.current_tab.text_view.buffer.language.id;
 			for (var i=0; i < languages.length[0]; i++) {
 			
 				//insert all languages that are in the scratch combo, and also those that are marked with "y"

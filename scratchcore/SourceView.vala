@@ -63,7 +63,71 @@ namespace Scratch.Widgets {
 
             if (plugins != null)
                 plugins.hook_source_view(this);
+                
+            populate_popup.connect(on_populate_menu);
 
+        }
+        
+        void append_submenu (string id, string text, ref Gtk.RadioMenuItem? menuitem, Gtk.Menu menu) {
+            unowned SList<Gtk.RadioMenuItem> group = null;
+            if (menuitem != null) group = menuitem.get_group ();
+            var newitem = new Gtk.RadioMenuItem (group);
+            newitem.set_label (text);
+            
+            menu.add (newitem);
+            
+            menuitem = newitem;
+            
+            menuitem.toggled.connect ( () => {
+                var lang = manager.get_language (id);
+                buffer.set_language (lang);
+            });
+            
+            if (id == buffer.language.id) {
+                menuitem.active = true;
+            }
+        }
+        
+        Gtk.Menu submenu;
+        
+        void on_populate_menu (Gtk.Menu menu) {
+            var syntax_menu = new Gtk.MenuItem ();
+            syntax_menu.set_label (_("Syntax Highlighting"));
+            submenu = new Gtk.Menu ();
+            syntax_menu.set_submenu (submenu);
+            
+            Gtk.RadioMenuItem? menuitem = null;
+            
+            append_submenu ("normal", _("Normal text"), ref menuitem, submenu);
+            append_submenu ("sh", "Bash", ref menuitem, submenu);
+            append_submenu ("c", "C", ref menuitem, submenu);
+            append_submenu ("C#", "c-sharp", ref menuitem, submenu);
+            append_submenu ("cpp", "C++", ref menuitem, submenu);
+            append_submenu ("cmake", "CMake", ref menuitem, submenu);
+            append_submenu ("css", "CSS", ref menuitem, submenu);
+            append_submenu ("desktop", ".desktop", ref menuitem, submenu);
+            append_submenu ("diff", "Diff", ref menuitem, submenu);
+            append_submenu ("fortran", "Fortran", ref menuitem, submenu);
+            append_submenu ("gettext-translation", "Gettext", ref menuitem, submenu);
+            append_submenu ("html", "HTML", ref menuitem, submenu);
+            append_submenu ("ini", "ini", ref menuitem, submenu);
+            append_submenu ("java", "Java", ref menuitem, submenu);
+            append_submenu ("js", "JavaScript", ref menuitem, submenu);
+            append_submenu ("latext", "LaTex", ref menuitem, submenu);
+            append_submenu ("lua", "Lua", ref menuitem, submenu);
+            append_submenu ("makefile", "MakeFile", ref menuitem, submenu);
+            append_submenu ("objc", "Objective-C", ref menuitem, submenu);
+            append_submenu ("pascal", "Pascal", ref menuitem, submenu);
+            append_submenu ("perl", "Perl", ref menuitem, submenu);
+            append_submenu ("php", "PHP", ref menuitem, submenu);
+            append_submenu ("python", "Python", ref menuitem, submenu);
+            append_submenu ("ruby", "Ruby", ref menuitem, submenu);
+            append_submenu ("vala", "Vala", ref menuitem, submenu);
+            append_submenu ("xml", "XML", ref menuitem, submenu);
+            
+            menu.add(syntax_menu);
+            
+            menu.show_all ();
         }
 
         ~SourceView () {

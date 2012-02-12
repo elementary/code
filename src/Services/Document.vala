@@ -23,10 +23,8 @@ using Scratch.Widgets;
 namespace Scratch.Services {
 
     public enum DocumentStates {
-
         NORMAL,
         READONLY
-
     }
 
     public class Document : GLib.Object {

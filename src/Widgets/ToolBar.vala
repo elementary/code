@@ -40,7 +40,6 @@ namespace Scratch.Widgets {
         public ShareMenu share_menu;
         public Gtk.Menu menu;
         public ShareAppMenu share_app_menu;
-        public ComboBoxSyntax combo_syntax;
         public AppMenu app_menu;
         
         Gtk.Menu menu_ui;
@@ -93,12 +92,6 @@ namespace Scratch.Widgets {
             add (revert_button);
             add (undo_button);
             add (repeat_button);
-            
-            combo_syntax = new ComboBoxSyntax ();
-            combo_syntax.load();
-            var toolitem = new Gtk.ToolItem();
-            toolitem.add(combo_syntax);
-            add(toolitem);
 
             add (new SeparatorToolItem ());
 
