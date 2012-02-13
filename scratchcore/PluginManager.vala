@@ -48,12 +48,16 @@ public class Scratch.Plugins.Interface : Object {
     public Gtk.Window window {private set; get; }
     public string set_name {internal set; get; }
     public string? argument {internal set; get; }
+    
+    public Scratch.TemplateManager template_manager { private set; get; }
 
     public unowned List<Gtk.TextView> all_source_view { private set; get; }
 
     public Interface (Manager manager) {
         this.manager = manager;
         all_source_view = new List<Gtk.TextView>();
+        
+        template_manager = new Scratch.TemplateManager ();
 
         manager.hook_main_menu.connect( (m) => {
             main_menu = m;
@@ -192,7 +196,7 @@ public class Scratch.Plugins.Manager : Object
     GLib.Settings settings;
     string settings_field;
 
-    Scratch.Plugins.Interface plugin_iface;
+    public Scratch.Plugins.Interface plugin_iface { private set; public get; }
 
     public Manager(GLib.Settings s, string f, string d, string? e, string? argument_set)
     {

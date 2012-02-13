@@ -77,6 +77,15 @@ namespace Scratch.Widgets {
             get_style_context ().add_class ("primary-toolbar");
 
             new_button = action_group.get_action("New tab").create_tool_item() as Gtk.ToolButton;
+            
+            new_button.get_child ().button_press_event.connect( (event) => {
+                if (event.button == 3) {
+                    plugins.plugin_iface.template_manager.show_window (get_toplevel ());
+                    return true;
+                }
+                return false;
+            });
+            
             open_button = action_group.get_action("Open").create_tool_item() as Gtk.ToolButton;
             //save_as_button = action_group.get_action("SaveFileAs").create_tool_item() as Gtk.ToolButton;
             save_button = action_group.get_action("SaveFile").create_tool_item() as Gtk.ToolButton;
