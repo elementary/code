@@ -22,14 +22,39 @@ public abstract class Scratch.Template : Object {
     public abstract Gtk.Widget get_creation_box ();
 }
 
+public class Scratch.TestTemplate : Template {
+    
+    public override Gtk.Widget get_creation_box () {
+        return null;
+    }
+}
+
 public class Scratch.TemplateManager : Object {
     
     Gtk.Dialog dialog;
+    
+    Gtk.ListStore list_store;
+    Gtk.IconView icon_view;
     
     public TemplateManager () {
         dialog = new Gtk.Dialog.with_buttons (_("Templates"), null,
             Gtk.DialogFlags.MODAL,
             Gtk.Stock.CLOSE, Gtk.ResponseType.ACCEPT);
+        list_store = new Gtk.ListStore (4, 
+            typeof (string) /* icon_id */,
+            typeof (string) /* label */,
+            typeof(Type) /* object_type */,
+            typeof (Gdk.Pixbuf) /* icon */);
+        icon_view = new Gtk.IconView.with_model (list_store);
+        ((Gtk.Container)dialog.get_content_area ()).add (icon_view);
+        icon_view.set_markup_column (1);
+        icon_view.set_pixbuf_column (3);
+    }
+    
+    public void register_template (string icon_id, string label, Type template_type) {
+        Gtk.TreeIter iter;
+        list_store.append (out iter);
+        list_store.set (iter, 0, icon_id, 1, label, 2, template_type, 3, Gtk.IconTheme.get_default ().load_icon (icon_id, 64, 0));
     }
     
     public void show_window (Gtk.Widget? parent) {
