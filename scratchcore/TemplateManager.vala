@@ -25,16 +25,24 @@ public abstract class Scratch.Template : Object {
 public class Scratch.TestTemplate : Template {
     
     public override Gtk.Widget get_creation_box () {
-        return null;
+        return new Gtk.Label("Test");
     }
 }
 
+/**
+ * Global Template Manager for Scratch. Only one instance of this object should
+ * be used at once. It is created by the main Granite.Application (ScratchApp) and
+ * a reference can be got from the plugin manager.
+ **/
 public class Scratch.TemplateManager : Object {
     
     Gtk.Dialog dialog;
     
     Gtk.ListStore list_store;
     Gtk.IconView icon_view;
+    Scratch.Template current_template;
+    
+    Gtk.Container hbox { get { return ((Gtk.Container)dialog.get_content_area ()); } }
     
     public TemplateManager () {
         dialog = new Gtk.Dialog.with_buttons (_("Templates"), null,
@@ -46,19 +54,74 @@ public class Scratch.TemplateManager : Object {
             typeof(Type) /* object_type */,
             typeof (Gdk.Pixbuf) /* icon */);
         icon_view = new Gtk.IconView.with_model (list_store);
-        ((Gtk.Container)dialog.get_content_area ()).add (icon_view);
+        hbox.add (icon_view);
         icon_view.set_markup_column (1);
         icon_view.set_pixbuf_column (3);
+        
+        icon_view.selection_changed.connect (on_icon_selection_changed);
+        icon_view.item_activated.connect ( () => {
+            on_icon_selection_changed ();
+        });
+        
+        register_template ("text-editor", "Sample", typeof(TestTemplate));
     }
     
+    void on_icon_selection_changed () {
+        var selected_items = icon_view.get_selected_items ();
+        if (selected_items.length () > 0) {
+            Gtk.TreeIter iter;
+            list_store.get_iter (out iter, selected_items.nth_data (0));
+            
+            string id;
+            Type tpl_type;
+            list_store.get (iter, 0, out id, 2, out tpl_type);
+            
+            current_template = (Scratch.Template)Object.new (tpl_type);
+            hbox.remove (icon_view);
+            hbox.add (current_template.get_creation_box ());
+            
+            hbox.show_all ();
+        }
+    }
+    
+    /**
+     * Register a new template
+     * 
+     * @param icon_id the icon id used in the IconView which shows all the template.
+     * It will be used to launch an icon via Gtk.IconTheme.load_icon, so, any icon is
+     * fine.
+     * @param label The name of your template.
+     * @param template_type The object type which must be instanciated when we click on
+     * the icon on the IconView. It will be used to get the creation box and therefore must
+     * inherit from #Scratch.Template.
+     **/
     public void register_template (string icon_id, string label, Type template_type) {
-        Gtk.TreeIter iter;
-        list_store.append (out iter);
-        list_store.set (iter, 0, icon_id, 1, label, 2, template_type, 3, Gtk.IconTheme.get_default ().load_icon (icon_id, 64, 0));
+        try {
+            Gtk.TreeIter iter;
+            var pixbuf = Gtk.IconTheme.get_default ().load_icon (icon_id, 64, 0);
+            list_store.append (out iter);
+            list_store.set (iter, 0, icon_id, 1, label, 2, template_type, 3, pixbuf);
+        }
+        catch (Error e) {
+            warning ("Couldn't add template %s, %s icon can't be found.", label, icon_id);
+        }
     }
     
+    /**
+     * Show a dialog which contains an #Gtk.IconView with all templates available.
+     * 
+     * @param parent The parent window, or null.
+     **/
     public void show_window (Gtk.Widget? parent) {
         if (parent != null) dialog.set_transient_for ((Gtk.Window)parent);
+        
+        if (current_template != null) {
+            hbox.remove (hbox.get_children ().nth_data (0));
+            hbox.add (icon_view);
+        }
+        
+        icon_view.unselect_all ();
+        
         dialog.show_all ();
         dialog.run ();
         dialog.hide ();
