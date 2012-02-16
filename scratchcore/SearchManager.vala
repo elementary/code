@@ -18,6 +18,8 @@
  */
 
 public class Scratch.Services.SearchManager : GLib.Object {
+    Gtk.ActionGroup main_actions;
+    
     /* The toolitems, accessible via get_*_entry(); */
     Gtk.ToolItem tool_search_entry;
     Gtk.ToolItem tool_replace_entry;
@@ -57,6 +59,9 @@ public class Scratch.Services.SearchManager : GLib.Object {
      * following actions : Fetch, ShowGoTo, ShowRreplace, or null.
      **/
     public SearchManager (Gtk.ActionGroup? main_actions) {
+        
+        this.main_actions = main_actions;
+
         search_entry = new Granite.Widgets.SearchBar (_("Find..."));
         replace_entry = new Granite.Widgets.SearchBar (_("Replace..."));
         go_to_entry = new Granite.Widgets.SearchBar (_("Go to line..."));
@@ -106,6 +111,10 @@ public class Scratch.Services.SearchManager : GLib.Object {
         
         settings.show_replace = false;
         settings.show_go_to_line = false;
+        
+        main_actions.get_action ("SearchNext").set_sensitive (false);
+        main_actions.get_action ("SearchBack").set_sensitive (false);
+        
         Scratch.settings.changed.connect (restore_settings);
     }
 
@@ -229,6 +238,15 @@ public class Scratch.Services.SearchManager : GLib.Object {
         /* So, first, let's check we can really search something. */
         string search_string = search_entry.text;
 
+        if (search_string == "") {
+            main_actions.get_action ("SearchNext").set_sensitive (false);
+            main_actions.get_action ("SearchBack").set_sensitive (false);        
+        }
+        else {
+            main_actions.get_action ("SearchNext").set_sensitive (true);
+            main_actions.get_action ("SearchBack").set_sensitive (true);
+        }
+        
         if (text_buffer == null || text_buffer.text == "" || search_string == "") {
             warning ("I can't search anything in an inexistant buffer and/or wuthout anything to search.");
             return false;

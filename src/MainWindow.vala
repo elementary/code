@@ -75,6 +75,12 @@ namespace Scratch {
 
         public SplitView split_view;
         public Widgets.Toolbar toolbar;
+
+        /**
+         * Search manager
+         */ 
+        Gtk.Toolbar search_bar; 
+        Scratch.Services.SearchManager search_manager;
         
         /**
          * The Gtk.Notebook which is used to display panels which are related
@@ -238,11 +244,11 @@ namespace Scratch {
 
         void on_split_view_page_changed (Gtk.Widget w) {
 
-            /*if (w is Scratch.Widgets.SourceView) {
-                current_tab.search_manager.set_text_view ((Scratch.Widgets.SourceView) w);
+            if (w is Scratch.Widgets.SourceView) {
+                search_manager.set_text_view ((Scratch.Widgets.SourceView) w);
             }
             else
-                warning("The focused widget is not a valid TextView");*/
+                warning("The focused widget is not a valid TextView");
 
         }
         
@@ -286,7 +292,25 @@ namespace Scratch {
             plugins.hook_notebook_sidebar ();
             plugins.context = notebook_context;
             plugins.hook_notebook_context ();
-
+            
+            /**
+             * Search manager
+             */ 
+            search_manager = new Scratch.Services.SearchManager (main_actions);
+            Scratch.settings.schema.bind ("search-sensitive", search_manager, "case-sensitive", SettingsBindFlags.DEFAULT);
+            
+            search_bar = new Gtk.Toolbar ();
+            search_bar.get_style_context ().add_class ("secondary-toolbar");
+            search_bar.add (search_manager.get_search_entry ());
+            search_bar.add (search_manager.get_arrow_previous ());
+            search_bar.add (search_manager.get_arrow_next ());
+            search_manager.get_search_entry ().set_margin_right (5);
+            search_bar.add (search_manager.get_replace_entry ());
+            var spacer = new Gtk.ToolItem ();
+            spacer.set_expand (true);
+            search_bar.add (spacer);
+            search_bar.add (search_manager.get_go_to_entry ());      
+            
             var notebook =  new ScratchNotebook (this);
             split_view.add_view (notebook);
 
@@ -303,6 +327,7 @@ namespace Scratch {
             //adding all to the vbox
             var vbox = new VBox (false, 0);
             vbox.pack_start (toolbar, false, false, 0);
+            vbox.pack_start (search_bar, false, false, 0);
             vbox.pack_start (vpaned_bottom_panel, true, true, 0);
             vbox.show_all ();
 
@@ -630,11 +655,11 @@ namespace Scratch {
         }
 
         void case_up () {
-            current_tab.search_manager.search_previous ();
+            search_manager.search_previous ();
         }
 
         void case_down () {
-            current_tab.search_manager.search_next ();
+            search_manager.search ();
         }
 
         void action_undo () {
