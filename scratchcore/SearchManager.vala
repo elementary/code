@@ -57,7 +57,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
      * following actions : Fetch, ShowGoTo, ShowRreplace, or null.
      **/
     public SearchManager (Gtk.ActionGroup? main_actions) {
-        search_entry = new Granite.Widgets.SearchBar (_("Search..."));
+        search_entry = new Granite.Widgets.SearchBar (_("Find..."));
         replace_entry = new Granite.Widgets.SearchBar (_("Replace..."));
         go_to_entry = new Granite.Widgets.SearchBar (_("Go to line..."));
         search_entry.width_request = 250;
@@ -81,7 +81,9 @@ public class Scratch.Services.SearchManager : GLib.Object {
             main_actions.get_action ("ShowReplace").bind_property("sensitive", go_to_entry, "sensitive", BindingFlags.DEFAULT);
 
             tool_arrow_up = (Gtk.ToolItem) main_actions.get_action ("SearchNext").create_tool_item ();
+            main_actions.get_action ("SearchNext").bind_property("sensitive", tool_arrow_up, "sensitive", BindingFlags.DEFAULT);
             tool_arrow_down = (Gtk.ToolItem) main_actions.get_action ("SearchBack").create_tool_item ();
+            main_actions.get_action ("SearchBack").bind_property("sensitive", tool_arrow_down, "sensitive", BindingFlags.DEFAULT);
         }
 
         tool_replace_entry.no_show_all = true;
@@ -111,13 +113,13 @@ public class Scratch.Services.SearchManager : GLib.Object {
         return tool_search_entry;
     }
 
-    /*public Gtk.ToolItem get_arrow_next () {
+    public Gtk.ToolItem get_arrow_next () {
         return tool_arrow_up;
     }
 
     public Gtk.ToolItem get_arrow_previous () {
         return tool_arrow_down;
-    }*/
+    }
 
     public Gtk.ToolItem get_replace_entry () {
         return tool_replace_entry;
@@ -134,7 +136,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
             text_buffer = text_view.get_buffer ();
     }
 
-    /*void show_arrow (bool show) {
+    void show_arrow (bool show) {
         tool_arrow_down.no_show_all = tool_arrow_up.no_show_all = !show;
         if(show) {
             tool_arrow_up.show_all ();
@@ -144,11 +146,11 @@ public class Scratch.Services.SearchManager : GLib.Object {
             tool_arrow_up.hide ();
             tool_arrow_down.hide ();
         }
-    }*/
+    }
 
     void show_search () {
-        tool_replace_entry.hide ();
-        tool_go_to_entry.hide ();
+        //tool_replace_entry.hide ();
+        //tool_go_to_entry.hide ();
         tool_search_entry.show_all ();
 
         Idle.add (() => { search_entry.grab_focus (); return false; });
@@ -157,35 +159,35 @@ public class Scratch.Services.SearchManager : GLib.Object {
     void show_replace () {
         tool_replace_entry.no_show_all = false;
         tool_search_entry.show_all ();
-        tool_go_to_entry.hide ();
+        //tool_go_to_entry.hide ();
         tool_replace_entry.show_all ();
 
         Idle.add (() => { replace_entry.grab_focus (); return false; });
     }
     
     void hide_replace () {
-        tool_replace_entry.no_show_all = true;
-        tool_search_entry.show_all ();
-        tool_go_to_entry.hide ();
-        tool_replace_entry.hide ();
+        //tool_replace_entry.no_show_all = true;
+        //tool_search_entry.show_all ();
+        //tool_go_to_entry.hide ();
+        //tool_replace_entry.hide ();
 
         Idle.add (() => { search_entry.grab_focus (); return false; });
     }
     
     void show_go_to () {
         tool_go_to_entry.no_show_all = false;
-        tool_replace_entry.hide ();
-        tool_search_entry.hide ();
+        //tool_replace_entry.hide ();
+        //tool_search_entry.hide ();
         tool_go_to_entry.show_all ();
 
         Idle.add (() => { go_to_entry.grab_focus (); return false; });
     }
     
     void hide_go_to () {
-        tool_go_to_entry.no_show_all = true;
-        tool_replace_entry.hide ();
-        tool_search_entry.show_all ();
-        tool_go_to_entry.hide ();
+        //tool_go_to_entry.no_show_all = true;
+        //tool_replace_entry.hide ();
+        //tool_search_entry.show_all ();
+        //tool_go_to_entry.hide ();
 
         Idle.add (() => { search_entry.grab_focus (); return false; });
     }

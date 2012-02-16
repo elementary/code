@@ -33,7 +33,9 @@ namespace Scratch.Widgets {
         public bool saved = true;
         public signal void closed ();
         public Scratch.Services.Document document;
-
+        
+        public Gtk.Toolbar search_bar;
+        public Scratch.Services.SearchManager search_manager;
 
         public Tab (ScratchNotebook parent, string labeltext) {
 
@@ -43,6 +45,22 @@ namespace Scratch.Widgets {
 
             label = new TabLabel(this, labeltext);
 
+            search_manager = new Scratch.Services.SearchManager (parent.window.main_actions);
+            Scratch.settings.schema.bind ("search-sensitive", search_manager, "case-sensitive", SettingsBindFlags.DEFAULT);
+            search_manager.set_text_view (text_view);
+            
+            search_bar = new Gtk.Toolbar ();
+            search_bar.get_style_context ().add_class ("primary-toolbar");
+            search_bar.add (search_manager.get_search_entry ());
+            search_bar.add (search_manager.get_arrow_previous ());
+            search_bar.add (search_manager.get_arrow_next ());
+            search_manager.get_search_entry ().set_margin_right (5);
+            search_bar.add (search_manager.get_replace_entry ());
+            var spacer = new Gtk.ToolItem ();
+            spacer.set_expand (true);
+            search_bar.add (spacer);
+            search_bar.add (search_manager.get_go_to_entry ());
+            
             add (text_view);
             show_all();
         }

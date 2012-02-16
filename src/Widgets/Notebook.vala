@@ -106,7 +106,15 @@ namespace Scratch.Widgets {
         }
 
         public int add_existing_tab (Tab new_tab) {
-            int index = this.append_page (new_tab, new_tab.label);
+            /**
+             * Search bar
+             */
+            var box = new Box (Orientation.VERTICAL, 0);
+            box.pack_start (new_tab.search_bar, false, false);
+            box.pack_start (new_tab, true, true);
+            box.show_all ();
+            
+            int index = this.append_page (box, new_tab.label);
             set_tab_reorderable(new_tab, true);
             set_tab_detachable(new_tab, true);
 
