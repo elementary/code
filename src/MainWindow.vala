@@ -62,6 +62,7 @@ namespace Scratch {
                 <menuitem action="New view" />
                 <menuitem action="Remove view" />
                 <menuitem action="Fullscreen" />
+                <menuitem action="Fetch" />
                 <separator />
                 <menuitem action="Preferences" />
             </popup>
@@ -298,6 +299,7 @@ namespace Scratch {
              */ 
             search_manager = new Scratch.Services.SearchManager (main_actions);
             Scratch.settings.schema.bind ("search-sensitive", search_manager, "case-sensitive", SettingsBindFlags.DEFAULT);
+            search_manager.need_hide.connect (hide_search_bar);
             
             search_bar = new Gtk.Toolbar ();
             search_bar.get_style_context ().add_class ("secondary-toolbar");
@@ -306,12 +308,18 @@ namespace Scratch {
             search_bar.add (search_manager.get_arrow_next ());
             search_manager.get_search_entry ().set_margin_right (5);
             search_bar.add (search_manager.get_replace_entry ());
+            search_bar.add (search_manager.get_go_to_entry ());
+            search_bar.add (search_manager.get_search_arrow ());
             var spacer = new Gtk.ToolItem ();
             spacer.set_expand (true);
             search_bar.add (spacer);
-            search_bar.add (search_manager.get_go_to_entry ());      
+            search_bar.add (search_manager.get_close_button ());
             
             var notebook =  new ScratchNotebook (this);
+            notebook.switch_page.connect( () => { hide_search_bar(); });
+            notebook.additional_widget = search_bar;
+            search_bar.no_show_all = true;
+            search_bar.visible = false;
             split_view.add_view (notebook);
 
             notebook_bottom = new Gtk.Notebook ();
@@ -327,7 +335,6 @@ namespace Scratch {
             //adding all to the vbox
             var vbox = new VBox (false, 0);
             vbox.pack_start (toolbar, false, false, 0);
-            vbox.pack_start (search_bar, false, false, 0);
             vbox.pack_start (vpaned_bottom_panel, true, true, 0);
             vbox.show_all ();
 
@@ -346,6 +353,11 @@ namespace Scratch {
             
             main_actions.get_action ("ShowStatusBar").visible = false;
 
+        }
+        
+        void hide_search_bar () {
+            search_bar.no_show_all = true;
+            search_bar.visible = false;
         }
 
         public void set_actions (bool val) {
@@ -641,6 +653,8 @@ namespace Scratch {
             if (split_view.get_children ().length () <= 2) {
 
                 var instance = new ScratchNotebook (this);
+                instance.switch_page.connect( () => { hide_search_bar(); });
+                instance.additional_widget = search_bar;
                 split_view.add_view (instance);
                 var doc = new Document.empty (this);
                 instance.grab_focus ();
@@ -749,16 +763,21 @@ namespace Scratch {
                 Scratch.settings.statusbar_visible = true;
             }
         }
+        
+        void action_fetch () {
+            search_bar.no_show_all = false;
+            search_bar.show_all ();
+        }
 
         static const Gtk.ActionEntry[] main_entries = {
            { "Fetch", Gtk.Stock.SAVE,
           /* label, accelerator */       N_("Fetch"), "<Control>f",
           /* tooltip */                  N_("Fetch"),
-                                         null },
+                                         action_fetch },
            { "ShowGoTo", Gtk.Stock.OK,
           /* label, accelerator */       N_("Go to line..."), "<Control>i",
           /* tooltip */                  N_("Go to line..."),
-                                         null },
+                                         action_fetch },
            { "Quit", Gtk.Stock.QUIT,
           /* label, accelerator */       N_("Quit"), "<Control>q",
           /* tooltip */                  N_("Quit"),
@@ -770,7 +789,7 @@ namespace Scratch {
            { "ShowReplace", Gtk.Stock.OK,
           /* label, accelerator */       N_("Replace"), "<Control>r",
           /* tooltip */                  N_("Replace"),
-                                         null },
+                                         action_fetch },
            { "New tab", Gtk.Stock.NEW,
           /* label, accelerator */       N_("New document"), "<Control>t",
           /* tooltip */                  N_("Create a new document in a new tab"),

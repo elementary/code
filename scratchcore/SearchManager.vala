@@ -26,6 +26,8 @@ public class Scratch.Services.SearchManager : GLib.Object {
     Gtk.ToolItem tool_go_to_entry;
     Gtk.ToolItem tool_arrow_up;
     Gtk.ToolItem tool_arrow_down;
+    Gtk.ToolButton tool_close_button;
+    Granite.Widgets.ToolArrow search_arrow;
 
     Granite.Widgets.SearchBar search_entry;
     Granite.Widgets.SearchBar replace_entry;
@@ -51,6 +53,8 @@ public class Scratch.Services.SearchManager : GLib.Object {
      * Wether the search is or isn't case sensitive.
      **/
     public bool case_sensitive {get; set; default = false; }
+    
+    public signal void need_hide ();
 
     /**
      * Create a new SearchManager object.
@@ -72,6 +76,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
         tool_search_entry = new Gtk.ToolItem ();
         tool_replace_entry = new Gtk.ToolItem ();
         tool_go_to_entry = new Gtk.ToolItem ();
+        tool_close_button = new Gtk.ToolButton.from_stock ("gtk-close");
 
         tool_search_entry.add (search_entry);
         tool_replace_entry.add (replace_entry);
@@ -97,6 +102,8 @@ public class Scratch.Services.SearchManager : GLib.Object {
         search_entry.changed.connect (on_search_entry_text_changed);
         search_entry.key_press_event.connect (on_search_entry_key_press);
         search_entry.focus_in_event.connect (on_search_entry_focused_in);
+        
+        tool_close_button.clicked.connect (() => { need_hide (); });
 
         go_to_entry.activate.connect (on_go_to_entry_activate);
         replace_entry.activate.connect (on_replace_entry_activate);
@@ -116,10 +123,22 @@ public class Scratch.Services.SearchManager : GLib.Object {
         main_actions.get_action ("SearchBack").set_sensitive (false);
         
         Scratch.settings.changed.connect (restore_settings);
+        
+    
+        search_arrow = new Granite.Widgets.ToolArrow ();
+        search_arrow.clicked.connect(on_show_popover);
     }
 
     public Gtk.ToolItem get_search_entry () {
         return tool_search_entry;
+    }
+
+    public Gtk.ToolItem get_search_arrow () {
+        return search_arrow;
+    }
+
+    public Gtk.ToolItem get_close_button () {
+        return tool_close_button;
     }
 
     public Gtk.ToolItem get_arrow_next () {
@@ -158,8 +177,8 @@ public class Scratch.Services.SearchManager : GLib.Object {
     }
 
     void show_search () {
-        //tool_replace_entry.hide ();
-        //tool_go_to_entry.hide ();
+        tool_replace_entry.hide ();
+        tool_go_to_entry.hide ();
         tool_search_entry.show_all ();
 
         Idle.add (() => { search_entry.grab_focus (); return false; });
@@ -168,7 +187,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
     void show_replace () {
         tool_replace_entry.no_show_all = false;
         tool_search_entry.show_all ();
-        //tool_go_to_entry.hide ();
+        tool_go_to_entry.hide ();
         tool_replace_entry.show_all ();
 
         Idle.add (() => { replace_entry.grab_focus (); return false; });
@@ -185,8 +204,8 @@ public class Scratch.Services.SearchManager : GLib.Object {
     
     void show_go_to () {
         tool_go_to_entry.no_show_all = false;
-        //tool_replace_entry.hide ();
-        //tool_search_entry.hide ();
+        tool_replace_entry.hide ();
+        tool_search_entry.hide ();
         tool_go_to_entry.show_all ();
 
         Idle.add (() => { go_to_entry.grab_focus (); return false; });
@@ -233,6 +252,82 @@ public class Scratch.Services.SearchManager : GLib.Object {
         search_entry.select_region(0, -1);
         return false;
     }
+    
+
+    void on_show_popover() {
+        search_arrow.set_state (true);
+        var search_popover = new Granite.Widgets.PopOver ();
+        search_popover.move_to_widget (search_arrow);
+        var box = search_popover.get_content_area() as Gtk.Box;
+
+        var grid = new Gtk.Grid ();
+        grid.row_spacing = 5;
+        grid.column_spacing = 5;
+        grid.margin_left = 12;
+        grid.margin_right = 12;
+        grid.margin_top = 12;
+        grid.margin_bottom = 12;            
+        
+        int row = 0;
+        
+        var label = new Gtk.Label (_("General:"));
+        add_section (grid, label, ref row);            
+        var case_sensitive = new Gtk.Switch ();
+        Scratch.settings.schema.bind("search-sensitive", case_sensitive, "active", SettingsBindFlags.DEFAULT);
+        label = new Gtk.Label (_("Case sensitive search:"));
+        add_option (grid, label, case_sensitive, ref row);
+        
+        label = new Gtk.Label (_("Entries:"));
+        add_section (grid, label, ref row);  
+        unowned SList<Gtk.RadioButton> group = null;
+        var search = new Gtk.RadioButton (group);
+        Scratch.settings.schema.bind("show-search", search, "active", SettingsBindFlags.DEFAULT);
+        label = new Gtk.Label (_("Search:"));
+        add_option (grid, label, search, ref row);
+        var replace = new Gtk.RadioButton (search.get_group ());
+        Scratch.settings.schema.bind("show-replace", replace, "active", SettingsBindFlags.DEFAULT);
+        label = new Gtk.Label (_("Replace:"));
+        add_option (grid, label, replace, ref row);
+        var go_to_line = new Gtk.RadioButton (search.get_group ());
+        Scratch.settings.schema.bind("show-go-to-line", go_to_line, "active", SettingsBindFlags.DEFAULT);
+        label = new Gtk.Label (_("Go to line:"));
+        add_option (grid, label, go_to_line, ref row);
+        
+        box.pack_start (grid);
+
+        search_popover.show_all();
+        search_popover.present();
+        search_popover.run();
+        search_popover.destroy();
+        search_arrow.set_state(false);
+    }
+
+
+    void add_section (Gtk.Grid grid, Gtk.Label name, ref int row) {
+        name.use_markup = true;
+        name.set_markup ("<b>%s</b>".printf (name.get_text ()));
+        name.halign = Gtk.Align.START;
+        grid.attach (name, 0, row, 1, 1);
+        row ++;
+    }
+    
+    void add_option (Gtk.Grid grid, Gtk.Widget label, Gtk.Widget switcher, ref int row) {
+        label.hexpand = true;
+        label.halign = Gtk.Align.END;
+        label.margin_left = 20;
+        switcher.halign = Gtk.Align.FILL;
+        switcher.hexpand = true;
+        
+        if (switcher is Gtk.Switch || switcher is Gtk.CheckButton
+            || switcher is Gtk.Entry) { /* then we don't want it to be expanded */
+            switcher.halign = Gtk.Align.START;
+        }
+        
+        grid.attach (label, 0, row, 1, 1);
+        grid.attach_next_to (switcher, label, Gtk.PositionType.RIGHT, 3, 1);
+        row ++;
+    }
+    
 
     public bool search () {
         /* So, first, let's check we can really search something. */
@@ -362,5 +457,28 @@ public class Scratch.Services.SearchManager : GLib.Object {
         
         if (settings.show_go_to_line) show_go_to ();
         else hide_go_to ();
+    }
+}
+
+public class Granite.Widgets.ToolArrow : Gtk.ToolItem
+{
+    public signal void clicked();
+    Gtk.ToggleButton button;
+    public ToolArrow()
+    {
+        Gtk.CssProvider css = new Gtk.CssProvider();
+        css.load_from_data("* { padding-left:0; padding-right:0; }", -1);
+        var arrow = new Gtk.Arrow(Gtk.ArrowType.DOWN, Gtk.ShadowType.OUT);
+        button = new Gtk.ToggleButton();
+        button.button_press_event.connect( () => { clicked(); return true; });
+        button.add(arrow);
+        button.get_style_context().add_provider(css, 800);
+        button.set_relief(Gtk.ReliefStyle.NONE);
+        add(button);
+    }
+    
+    public void set_state(bool v)
+    {
+        button.active = v;
     }
 }

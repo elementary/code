@@ -86,9 +86,6 @@ namespace Scratch.Widgets {
             repeat_button = action_group.get_action("Redo").create_tool_item() as Gtk.ToolButton;
             revert_button = action_group.get_action("Revert").create_tool_item() as Gtk.ToolButton;
             
-            search_arrow = new Granite.Widgets.ToolArrow ();
-            search_arrow.clicked.connect(on_show_popover);
-            
             add (new_button);
             add (open_button);
             add (save_button);
@@ -128,79 +125,6 @@ namespace Scratch.Widgets {
             /* Set up the context menu */
             menu_ui = ui.get_widget ("ui/ToolbarContext") as Gtk.Menu;
             
-        }
-        
-        void on_show_popover() {
-            search_arrow.set_state (true);
-            var search_popover = new Granite.Widgets.PopOver ();
-            search_popover.move_to_widget (search_arrow);
-            var box = search_popover.get_content_area() as Gtk.Box;
- 
-            var grid = new Gtk.Grid ();
-            grid.row_spacing = 5;
-            grid.column_spacing = 5;
-            grid.margin_left = 12;
-            grid.margin_right = 12;
-            grid.margin_top = 12;
-            grid.margin_bottom = 12;            
-            
-            int row = 0;
-            
-            var label = new Label (_("General:"));
-            add_section (grid, label, ref row);            
-            var case_sensitive = new Gtk.Switch ();
-            Scratch.settings.schema.bind("search-sensitive", case_sensitive, "active", SettingsBindFlags.DEFAULT);
-            label = new Label (_("Case sensitive search:"));
-            add_option (grid, label, case_sensitive, ref row);
-            
-            label = new Label (_("Entries:"));
-            add_section (grid, label, ref row);  
-            unowned SList<Gtk.RadioButton> group = null;
-            var search = new Gtk.RadioButton (group);
-            Scratch.settings.schema.bind("show-search", search, "active", SettingsBindFlags.DEFAULT);
-            label = new Label (_("Search:"));
-            add_option (grid, label, search, ref row);
-            var replace = new Gtk.RadioButton (search.get_group ());
-            Scratch.settings.schema.bind("show-replace", replace, "active", SettingsBindFlags.DEFAULT);
-            label = new Label (_("Replace:"));
-            add_option (grid, label, replace, ref row);
-            var go_to_line = new Gtk.RadioButton (search.get_group ());
-            Scratch.settings.schema.bind("show-go-to-line", go_to_line, "active", SettingsBindFlags.DEFAULT);
-            label = new Label (_("Go to line:"));
-            add_option (grid, label, go_to_line, ref row);
-            
-            box.pack_start (grid);
-
-            search_popover.show_all();
-            search_popover.present();
-            search_popover.run();
-            search_popover.destroy();
-            search_arrow.set_state(false);
-        }
-        
-        void add_section (Gtk.Grid grid, Gtk.Label name, ref int row) {
-            name.use_markup = true;
-            name.set_markup ("<b>%s</b>".printf (name.get_text ()));
-            name.halign = Gtk.Align.START;
-            grid.attach (name, 0, row, 1, 1);
-            row ++;
-        }
-        
-        void add_option (Gtk.Grid grid, Gtk.Widget label, Gtk.Widget switcher, ref int row) {
-            label.hexpand = true;
-            label.halign = Align.END;
-            label.margin_left = 20;
-            switcher.halign = Gtk.Align.FILL;
-            switcher.hexpand = true;
-            
-            if (switcher is Switch || switcher is CheckButton
-                || switcher is Entry) { /* then we don't want it to be expanded */
-                switcher.halign = Gtk.Align.START;
-            }
-            
-            grid.attach (label, 0, row, 1, 1);
-            grid.attach_next_to (switcher, label, Gtk.PositionType.RIGHT, 3, 1);
-            row ++;
         }
         
         public void show_hide_button () {

@@ -25,7 +25,7 @@ using Scratch.Dialogs;
 
 namespace Scratch.Widgets {
 
-    public class Tab : ScrolledWindow {
+    public class Tab : Gtk.Grid {
 
         public SourceView text_view { set; get; }
         public TabLabel label;
@@ -36,15 +36,27 @@ namespace Scratch.Widgets {
 
         public Tab (ScratchNotebook parent, string labeltext) {
 
-            set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
+            var scrolled_window = new Gtk.ScrolledWindow (null, null);
+            scrolled_window.set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
 
             text_view = new SourceView ();
 
             label = new TabLabel(this, labeltext);
             
-            add (text_view);
+            scrolled_window.add (text_view);
+
+            attach (scrolled_window, 0, 1, 1, 1);
+            scrolled_window.hexpand = true;
+            scrolled_window.vexpand = true;
+            
             show_all();
         }
+        
+        public void set_overlay (Gtk.Widget widget) {
+            ((Gtk.Container)widget.get_parent ()).remove (widget);
+            attach (widget, 0, 0, 1, 1);
+            show_all ();
+        } 
 
         public void change_syntax_highlight_for_filename (string? filename) {
             if (filename != null)
