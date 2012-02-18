@@ -12,7 +12,7 @@
   MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
   PURPOSE.  See the GNU      Public License for more details.
 
-  You should have received a copy of the GNU      Public License along
+  You should have received a copy of the GNUon      Public License along
   with this program.  If not, see <http://www.gnu.org/licenses/>
 
   END LICENSE
@@ -38,7 +38,7 @@ namespace Scratch.Widgets {
             this.window = parent;
 
             this.switch_page.connect_after (on_switch_page);
-
+            
             expand = true;
             set_scrollable (true);
             set_group_name ("s");
@@ -85,7 +85,20 @@ namespace Scratch.Widgets {
 
         bool on_page_focused (Gtk.Widget w, Gdk.EventFocus event) {
             current_tab = w.get_parent ().get_parent () as Tab;
+            window.toolbar.show_hide_button ();
             page_focused (w);
+            
+            if (current_tab.filename != null) {
+                window.set_window_title (current_tab.filename);
+                if (settings.autosave)
+                    window.toolbar.save_button.hide ();
+            }
+            else {
+                window.set_window_title ("Scratch");
+                if (settings.autosave)
+                    window.toolbar.save_button.show ();
+            }
+            
             return false;
         }
 
