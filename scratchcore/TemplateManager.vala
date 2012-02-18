@@ -20,16 +20,78 @@
 
 public abstract class Scratch.Template : Object {
     public abstract Gtk.Widget get_creation_box ();
-    public void configure_template (string origin, string destination, Gee.HashMap<string, string> variables) {
+    public static void configure_template (string origin, string destination, Gee.HashMap<string, string>? variables) {
         debug ("Origin: %s, destination: %s\n", origin, destination);
         
-        configure_directory (File.new_for_path(origin), File.new_for_path(destination));
+        configure_directory (File.new_for_path(origin), File.new_for_path(destination), variables);
     }
     
-    void configure_directory (File origin, File destination) {
+    static void configure_directory (File origin, File destination, Gee.HashMap<string, string>? variables) {
         /* First, let's check that these files actually exists and are directory */
-        var origin_info = origin.query_info ("standard::type", 0);
-        var destination_info = destination.query_info ("standard::type", 0);
+        bool is_directory, exists;
+        info_directory (origin, out is_directory, out exists);
+        if (!is_directory || !exists) {
+            critical ("Origin directory doesn't exist or isn't a directory.");
+            return;
+        }
+        
+        info_directory (destination, out is_directory, out exists);
+        if (is_directory || exists) {
+            critical ("Destination directory already exists...");
+            return;
+        }
+        
+        destination.make_directory ();
+        
+        List<FileInfo> files;
+        List<File> dirs;
+        enumerate_directory (origin, out files, out dirs);
+        foreach (var file in files) {
+            if (file.get_content_type ().contains ("text")) {
+                string content;
+                FileUtils.get_contents (Path.build_filename (origin.get_path (), file.get_name ()), out content);
+                if (variables != null) {
+                    foreach (var entry in variables.entries) {
+                        content = content.replace ("$$" + entry.key, entry.value);
+                    }
+                }
+                FileUtils.set_contents (Path.build_filename (destination.get_path (), file.get_name ()), content);
+            }
+            else {
+                var orig = File.new_for_path (Path.build_filename (origin.get_path (), file.get_name ()));
+                var dest = File.new_for_path (Path.build_filename (destination.get_path (), file.get_name ()));
+                orig.copy (dest, 0);
+            }
+                
+        }
+        foreach (var dir in dirs) {
+            configure_directory (dir, File.new_for_path (destination.get_path () + "/" + dir.get_basename ()), null);
+        }
+    }
+    
+    public static void enumerate_directory (File origin, out List<FileInfo> files, out List<File> directories) {
+        files = new List<FileInfo> ();
+        directories = new List<File> ();
+        
+        var enumerator = origin.enumerate_children ("standard::type,standard::name,standard::content-type", 0);
+        
+        var file_info = enumerator.next_file ();
+        while (file_info != null) {
+            if (file_info.get_file_type () == FileType.DIRECTORY) {
+                directories.append (File.new_for_path (origin.get_path () + "/" + file_info.get_name ()));
+            }
+            else if (file_info.get_file_type () == FileType.REGULAR) {
+                files.append (file_info);
+            }
+            file_info = enumerator.next_file ();
+        }
+    }
+    
+    public static void info_directory (File file, out bool is_directory, out bool exists) {
+        //var origin_info = origin.query_info ("standard::type", 0);
+        var file_type = file.query_file_type (0 /* info flags: none */);
+        exists = file_type != FileType.UNKNOWN;
+        is_directory = file_type == FileType.DIRECTORY;
     }
 }
 
