@@ -177,18 +177,18 @@ public class Scratch.Services.SearchManager : GLib.Object {
     }
 
     void show_search () {
-        tool_replace_entry.hide ();
+        /*tool_replace_entry.hide ();
         tool_go_to_entry.hide ();
-        tool_search_entry.show_all ();
+        tool_search_entry.show_all ();*/
 
         Idle.add (() => { search_entry.grab_focus (); return false; });
     }
 
     void show_replace () {
         tool_replace_entry.no_show_all = false;
-        tool_search_entry.show_all ();
+        /*tool_search_entry.show_all ();
         tool_go_to_entry.hide ();
-        tool_replace_entry.show_all ();
+        tool_replace_entry.show_all ();*/
 
         Idle.add (() => { replace_entry.grab_focus (); return false; });
     }
@@ -204,9 +204,9 @@ public class Scratch.Services.SearchManager : GLib.Object {
     
     void show_go_to () {
         tool_go_to_entry.no_show_all = false;
-        tool_replace_entry.hide ();
+        /*tool_replace_entry.hide ();
         tool_search_entry.hide ();
-        tool_go_to_entry.show_all ();
+        tool_go_to_entry.show_all ();*/
 
         Idle.add (() => { go_to_entry.grab_focus (); return false; });
     }
@@ -270,7 +270,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
         
         int row = 0;
         
-        var label = new Gtk.Label (_("General:"));
+        var label = new Gtk.Label (_("Search options:"));
         add_section (grid, label, ref row);            
         var case_sensitive = new Gtk.Switch ();
         Scratch.settings.schema.bind("search-sensitive", case_sensitive, "active", SettingsBindFlags.DEFAULT);
