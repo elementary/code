@@ -61,6 +61,7 @@ namespace Scratch {
         public string[] plugins_enabled { get; set;}
         public string show_at_start { get; set; }
         public string[] opened_files { get; set; }
+        public bool make_backup { get; set; }
         public bool autosave { get; set; }
         public bool show_search { get; set; } 
         public bool show_replace { get; set; } 

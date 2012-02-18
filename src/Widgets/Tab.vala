@@ -179,17 +179,10 @@ namespace Scratch.Widgets {
             try {
 
                 var or = File.new_for_path (this.filename);
-                var bk = File.new_for_path (this.filename + "~");
-
-                if (!bk.query_exists ()) {
-                    try {
-                        or.copy (bk, FileCopyFlags.NONE);
-                    } catch (Error e) {
-                        warning (e.message);
-                    }
-                }
                 
-                make_backup ();
+                var bk = File.new_for_path (this.filename + "~");
+     
+                if (settings.make_backup) make_backup ();
                 
                 FileUtils.set_contents (this.filename, this.text_view.buffer.text);
                 this.saved = true;

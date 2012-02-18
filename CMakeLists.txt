@@ -19,7 +19,7 @@ list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
 find_package (Vala REQUIRED)
 include (ValaVersion)
-ensure_vala_version ("0.15.0" MINIMUM)
+ensure_vala_version ("0.14.1" MINIMUM)
 include (ValaPrecompile)
 configure_file (${CMAKE_SOURCE_DIR}/src/config.vala.cmake ${CMAKE_SOURCE_DIR}/src/config.vala)
 add_definitions(-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\")
