@@ -117,6 +117,8 @@ public class Scratch.TemplateManager : Object {
     
     Gtk.Container hbox { get { return ((Gtk.Container)dialog.get_content_area ()); } }
     
+    public bool template_available { private set; get; }
+    
     public TemplateManager () {
         dialog = new Gtk.Dialog.with_buttons (_("Templates"), null,
             Gtk.DialogFlags.MODAL,
@@ -135,8 +137,9 @@ public class Scratch.TemplateManager : Object {
         icon_view.item_activated.connect ( () => {
             on_icon_selection_changed ();
         });
+        template_available = false;
         
-        register_template ("text-editor", "Sample", typeof(TestTemplate));
+        //register_template ("text-editor", "Sample", typeof(TestTemplate));
     }
     
     void on_icon_selection_changed () {
@@ -174,6 +177,7 @@ public class Scratch.TemplateManager : Object {
             var pixbuf = Gtk.IconTheme.get_default ().load_icon (icon_id, 64, 0);
             list_store.append (out iter);
             list_store.set (iter, 0, icon_id, 1, label, 2, template_type, 3, pixbuf);
+            template_available = true;
         }
         catch (Error e) {
             warning ("Couldn't add template %s, %s icon can't be found.", label, icon_id);
