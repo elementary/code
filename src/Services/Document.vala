@@ -313,7 +313,7 @@ namespace Scratch.Services {
             }
         }
         
-        bool need_saving = false;
+        uint timeout_saving = -1;
 
         void on_buffer_changed () {
 
@@ -321,16 +321,17 @@ namespace Scratch.Services {
             //want_reload = true;
             
             if (settings.autosave && filename != null) {
-                if(!need_saving) {
-                    need_saving = true;
-                    Idle.add( () => {
-                        need_saving = false;
-                        save ();
-                        modified = false;
-                        tab.text_view.modified = false;
-                        return false;
-                    });
+                if (timeout_saving >= 0) {
+                    Source.remove(timeout_saving);
+                    timeout_saving = -1;
                 }
+                timeout_saving = Timeout.add(250, () => {
+                    save ();
+                    modified = false;
+                    tab.text_view.modified = false;
+                    return false;
+                    timeout_saving = -1;
+                });
             }
             else {
                 if (filename != null) {
