@@ -62,6 +62,7 @@ namespace Scratch {
                 <menuitem action="New view" />
                 <menuitem action="Remove view" />
                 <menuitem action="Fullscreen" />
+                <menuitem action="Fetch" />
                 <separator />
                 <menuitem action="Preferences" />
             </popup>
@@ -75,6 +76,12 @@ namespace Scratch {
 
         public SplitView split_view;
         public Widgets.Toolbar toolbar;
+
+        /**
+         * Search manager
+         */ 
+        Gtk.Toolbar search_bar; 
+        Scratch.Services.SearchManager search_manager;
         
         /**
          * The Gtk.Notebook which is used to display panels which are related
@@ -239,7 +246,7 @@ namespace Scratch {
         void on_split_view_page_changed (Gtk.Widget w) {
 
             if (w is Scratch.Widgets.SourceView) {
-                toolbar.search_manager.set_text_view ((Scratch.Widgets.SourceView) w);
+                search_manager.set_text_view ((Scratch.Widgets.SourceView) w);
             }
             else
                 warning("The focused widget is not a valid TextView");
@@ -286,8 +293,33 @@ namespace Scratch {
             plugins.hook_notebook_sidebar ();
             plugins.context = notebook_context;
             plugins.hook_notebook_context ();
-
+            
+            /**
+             * Search manager
+             */ 
+            search_manager = new Scratch.Services.SearchManager (main_actions);
+            Scratch.settings.schema.bind ("search-sensitive", search_manager, "case-sensitive", SettingsBindFlags.DEFAULT);
+            search_manager.need_hide.connect (hide_search_bar);
+            
+            search_bar = new Gtk.Toolbar ();
+            search_bar.get_style_context ().add_class ("secondary-toolbar");
+            search_bar.add (search_manager.get_search_entry ());
+            search_bar.add (search_manager.get_arrow_previous ());
+            search_bar.add (search_manager.get_arrow_next ());
+            search_manager.get_search_entry ().set_margin_right (5);
+            search_bar.add (search_manager.get_replace_entry ());
+            search_bar.add (search_manager.get_go_to_entry ());
+            search_bar.add (search_manager.get_search_arrow ());
+            var spacer = new Gtk.ToolItem ();
+            spacer.set_expand (true);
+            search_bar.add (spacer);
+            search_bar.add (search_manager.get_close_button ());
+            
             var notebook =  new ScratchNotebook (this);
+            notebook.switch_page.connect( () => { hide_search_bar(); });
+            notebook.additional_widget = search_bar;
+            search_bar.no_show_all = true;
+            search_bar.visible = false;
             split_view.add_view (notebook);
 
             notebook_bottom = new Gtk.Notebook ();
@@ -322,6 +354,11 @@ namespace Scratch {
             main_actions.get_action ("ShowStatusBar").visible = false;
 
         }
+        
+        void hide_search_bar () {
+            search_bar.no_show_all = true;
+            search_bar.visible = false;
+        }
 
         public void set_actions (bool val) {
 
@@ -339,7 +376,7 @@ namespace Scratch {
             main_actions.get_action ("Remove view").set_sensitive (val ? split_view_multiple_view : false);
             main_actions.get_action ("ShowStatusBar").set_sensitive (val);
             toolbar.set_actions (val);
-
+            toolbar.search_arrow.set_sensitive (val);
         }
 
         void on_split_view_empty_changed ()
@@ -616,6 +653,8 @@ namespace Scratch {
             if (split_view.get_children ().length () <= 2) {
 
                 var instance = new ScratchNotebook (this);
+                instance.switch_page.connect( () => { hide_search_bar(); });
+                instance.additional_widget = search_bar;
                 split_view.add_view (instance);
                 var doc = new Document.empty (this);
                 instance.grab_focus ();
@@ -630,11 +669,11 @@ namespace Scratch {
         }
 
         void case_up () {
-            toolbar.search_manager.search_previous ();
+            search_manager.search_previous ();
         }
 
         void case_down () {
-            toolbar.search_manager.search_next ();
+            search_manager.search ();
         }
 
         void action_undo () {
@@ -724,16 +763,21 @@ namespace Scratch {
                 Scratch.settings.statusbar_visible = true;
             }
         }
+        
+        void action_fetch () {
+            search_bar.no_show_all = false;
+            search_bar.show_all ();
+        }
 
         static const Gtk.ActionEntry[] main_entries = {
            { "Fetch", Gtk.Stock.SAVE,
           /* label, accelerator */       N_("Fetch"), "<Control>f",
           /* tooltip */                  N_("Fetch"),
-                                         null },
+                                         action_fetch },
            { "ShowGoTo", Gtk.Stock.OK,
           /* label, accelerator */       N_("Go to line..."), "<Control>i",
           /* tooltip */                  N_("Go to line..."),
-                                         null },
+                                         action_fetch },
            { "Quit", Gtk.Stock.QUIT,
           /* label, accelerator */       N_("Quit"), "<Control>q",
           /* tooltip */                  N_("Quit"),
@@ -745,7 +789,7 @@ namespace Scratch {
            { "ShowReplace", Gtk.Stock.OK,
           /* label, accelerator */       N_("Replace"), "<Control>r",
           /* tooltip */                  N_("Replace"),
-                                         null },
+                                         action_fetch },
            { "New tab", Gtk.Stock.NEW,
           /* label, accelerator */       N_("New document"), "<Control>t",
           /* tooltip */                  N_("Create a new document in a new tab"),
@@ -773,11 +817,11 @@ namespace Scratch {
           /* tooltip */                  N_("Restore this file"),
                                          action_revert },
 
-           { "SearchNext", Gtk.Stock.GO_FORWARD,
+           { "SearchNext", "go-next-symbolic",
           /* label, accelerator */       N_("Next Search"), "<Control>g",
           /* tooltip */                  N_("Next Search"),
                                          case_down },
-           { "SearchBack", Gtk.Stock.GO_BACK,
+           { "SearchBack", "go-previous-symbolic",
           /* label, accelerator */       N_("Previous Search"), "<Control><shift>g",
           /* tooltip */                  N_("Previous Search"),
                                          case_up },

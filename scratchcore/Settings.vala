@@ -62,6 +62,9 @@ namespace Scratch {
         public string show_at_start { get; set; }
         public string[] opened_files { get; set; }
         public bool autosave { get; set; }
+        public bool show_search { get; set; } 
+        public bool show_replace { get; set; } 
+        public bool show_go_to_line { get; set; } 
         
         public Settings ()  {
             base ("org.elementary.Scratch.Settings");

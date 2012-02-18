@@ -31,6 +31,7 @@ namespace Scratch.Widgets {
         public MainWindow window; //used in dialog
 
         public Tab current_tab;
+        public Gtk.Widget additional_widget { set; private get; }
 
         public ScratchNotebook (MainWindow parent) {
 
@@ -48,6 +49,9 @@ namespace Scratch.Widgets {
 
             page_removed.connect(on_page_removed);
             page_added.connect(on_page_added);
+            additional_widget = new Gtk.Label("NoteBook");
+            
+            page_focused.connect ( () => { current_tab.set_overlay (additional_widget); });
 
         }
 
@@ -80,7 +84,7 @@ namespace Scratch.Widgets {
         }
 
         bool on_page_focused (Gtk.Widget w, Gdk.EventFocus event) {
-            current_tab = w.get_parent() as Tab;
+            current_tab = w.get_parent ().get_parent () as Tab;
             page_focused (w);
             return false;
         }
@@ -106,6 +110,9 @@ namespace Scratch.Widgets {
         }
 
         public int add_existing_tab (Tab new_tab) {
+            /**
+             * Search bar
+             */
             int index = this.append_page (new_tab, new_tab.label);
             set_tab_reorderable(new_tab, true);
             set_tab_detachable(new_tab, true);

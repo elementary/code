@@ -20,6 +20,17 @@
 
 public abstract class Scratch.Template : Object {
     public abstract Gtk.Widget get_creation_box ();
+    public void configure_template (string origin, string destination, Gee.HashMap<string, string> variables) {
+        debug ("Origin: %s, destination: %s\n", origin, destination);
+        
+        configure_directory (File.new_for_path(origin), File.new_for_path(destination));
+    }
+    
+    void configure_directory (File origin, File destination) {
+        /* First, let's check that these files actually exists and are directory */
+        var origin_info = origin.query_info ("standard::type", 0);
+        var destination_info = destination.query_info ("standard::type", 0);
+    }
 }
 
 public class Scratch.TestTemplate : Template {

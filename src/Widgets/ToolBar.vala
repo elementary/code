@@ -37,6 +37,8 @@ namespace Scratch.Widgets {
         public ToolButton repeat_button;
         public ToolButton revert_button;
         
+        public Granite.Widgets.ToolArrow search_arrow;
+        
         public ShareMenu share_menu;
         public Gtk.Menu menu;
         public ShareAppMenu share_app_menu;
@@ -92,7 +94,7 @@ namespace Scratch.Widgets {
             undo_button = action_group.get_action("Undo").create_tool_item() as Gtk.ToolButton;
             repeat_button = action_group.get_action("Redo").create_tool_item() as Gtk.ToolButton;
             revert_button = action_group.get_action("Revert").create_tool_item() as Gtk.ToolButton;
-
+            
             add (new_button);
             add (open_button);
             add (save_button);
@@ -101,7 +103,7 @@ namespace Scratch.Widgets {
             add (revert_button);
             add (undo_button);
             add (repeat_button);
-
+            
             add (new SeparatorToolItem ());
 
             share_menu = new ShareMenu (this.window);
@@ -115,13 +117,14 @@ namespace Scratch.Widgets {
 
             add (add_spacer ());
 
-            search_manager = new Scratch.Services.SearchManager (action_group);
-            Scratch.settings.schema.bind ("search-sensitive", search_manager, "case-sensitive", SettingsBindFlags.DEFAULT);
+            //search_manager = new Scratch.Services.SearchManager (action_group);
+            //Scratch.settings.schema.bind ("search-sensitive", search_manager, "case-sensitive", SettingsBindFlags.DEFAULT);
 
             add (search_manager.get_search_entry ());
             search_manager.get_search_entry ().set_margin_right (5);
             add (search_manager.get_replace_entry ());
             add (search_manager.get_go_to_entry ());
+            add (search_arrow);
             
             add (share_app_menu);
             add (app_menu);

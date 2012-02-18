@@ -55,6 +55,7 @@ vala_precompile(VALA_C
     src/config.vala
     src/Widgets/ComboSyntax.vala
     src/Widgets/StatusBar.vala
+    src/Widgets/ToolArrow.vala
 PACKAGES
     	${SCRATCH_DEPS}
     scratchcore
@@ -62,9 +63,9 @@ OPTIONS
     --vapidir=${CMAKE_BINARY_DIR}/scratchcore
     --vapidir=${CMAKE_SOURCE_DIR}/vapi
     --thread
-GENERATE_VAPI
+    GENERATE_VAPI
     scratch
-GENERATE_HEADER
+    GENERATE_HEADER
     scratch
 )
 # tranlation stuff
