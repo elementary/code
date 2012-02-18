@@ -317,9 +317,9 @@ namespace Scratch {
             
             var notebook =  new ScratchNotebook (this);
             notebook.switch_page.connect( () => { hide_search_bar(); });
-            notebook.additional_widget = search_bar;
             search_bar.no_show_all = true;
             search_bar.visible = false;
+            split_view.additional_widget = search_bar;
             split_view.add_view (notebook);
 
             notebook_bottom = new Gtk.Notebook ();
