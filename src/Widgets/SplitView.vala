@@ -40,6 +40,7 @@ namespace Scratch.Widgets {
         public bool is_empty { get; private set; default = true; }
 
         public signal void page_changed (Gtk.Widget w);
+        public Gtk.Widget additional_widget { set; private get; }
 
         public SplitView (MainWindow window) {
 
@@ -55,6 +56,7 @@ namespace Scratch.Widgets {
             view.page_added.connect (recompute_empty);
             view.page_removed.connect (recompute_empty);
             view.page_focused.connect (on_page_focused);
+            view.additional_widget = additional_widget;
         }
 
         void on_page_focused (Gtk.Widget w) {

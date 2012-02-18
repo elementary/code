@@ -99,8 +99,8 @@ public class Scratch.Services.SearchManager : GLib.Object {
             main_actions.get_action ("SearchBack").set_sensitive (false);
         }
 
-        tool_replace_entry.no_show_all = true;
-        tool_go_to_entry.no_show_all = true;
+        tool_replace_entry.no_show_all = false;
+        tool_go_to_entry.no_show_all = false;
 
         search_entry.changed.connect (on_search_entry_text_changed);
         search_entry.key_press_event.connect (on_search_entry_key_press);
@@ -276,7 +276,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
         Scratch.settings.schema.bind("search-sensitive", case_sensitive, "active", SettingsBindFlags.DEFAULT);
         label = new Gtk.Label (_("Case sensitive search:"));
         add_option (grid, label, case_sensitive, ref row);
-        
+        /*
         label = new Gtk.Label (_("Entries:"));
         add_section (grid, label, ref row);  
         unowned SList<Gtk.RadioButton> group = null;
@@ -292,7 +292,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
         Scratch.settings.schema.bind("show-go-to-line", go_to_line, "active", SettingsBindFlags.DEFAULT);
         label = new Gtk.Label (_("Go to line:"));
         add_option (grid, label, go_to_line, ref row);
-        
+        */
         box.pack_start (grid);
 
         search_popover.show_all();

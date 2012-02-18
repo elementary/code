@@ -366,7 +366,7 @@ namespace Scratch.Services {
             /* First, we check that this is a real file, and not a new document */
             if (filename == null)
                 return false;
-
+    
             try {
                 FileUtils.get_contents (file.get_path (), out contents);
             } catch (Error e) {
