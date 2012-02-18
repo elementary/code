@@ -65,6 +65,39 @@ public int main(string[] args)
         
     });
     
+    Test.add_func ("/scratch/core/template_manager", () => {
+        /* cleanup */
+        Process.spawn_sync ("/", {"rm", Environment.get_tmp_dir () + "/scratch-tpl", "-Rf"}, null, SpawnFlags.SEARCH_PATH, null);
+        File file = File.new_for_path ("/tmp/scratch-tpl/");
+        bool is_dir, exists;
+        Scratch.Template.info_directory (file, out is_dir, out exists);
+        assert (exists == false);
+        assert (is_dir == false);
+        
+        file = File.new_for_path ("../../../tests/template_test/");
+        Scratch.Template.info_directory (file, out is_dir, out exists);
+        assert (exists == true);
+        assert (is_dir == true);
+        
+        file = File.new_for_path ("../../../tests/template_test/README");
+        Scratch.Template.info_directory (file, out is_dir, out exists);
+        assert (exists == true);
+        assert (is_dir == false);
+        
+        file = File.new_for_path ("../../../tests/template_test/");
+        List<FileInfo> files;
+        List<File> dirs;
+        Scratch.Template.enumerate_directory (file, out files, out dirs);
+        assert (dirs.length () == 1);
+        assert (files.length () == 1);
+        debug(files.nth_data (0).get_name ());
+        assert (files.nth_data (0).get_name () == "README");
+
+        var variables = new Gee.HashMap<string, string> ();
+        variables ["NAME"] = "Demo App";
+        Scratch.Template.configure_template ("../../../tests/template_test/", "/tmp/scratch-tpl/", variables);
+    });
+    
     Test.run();
     return 0;
 }

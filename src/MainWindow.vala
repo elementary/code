@@ -63,6 +63,7 @@ namespace Scratch {
                 <menuitem action="Remove view" />
                 <menuitem action="Fullscreen" />
                 <menuitem action="Fetch" />
+                <menuitem action="Templates" />
                 <separator />
                 <menuitem action="Preferences" />
             </popup>
@@ -134,6 +135,10 @@ namespace Scratch {
             main_actions.get_action ("ShowBottomPanel").visible = false;
             main_actions.get_action ("ShowSidebar").visible = false;
             main_actions.get_action ("ShowStatusBar").visible = false;
+            main_actions.get_action ("Templates").sensitive = plugins.plugin_iface.template_manager.template_available;
+            plugins.plugin_iface.template_manager.notify["template_available"].connect ( () => {
+                main_actions.get_action ("Templates").sensitive = plugins.plugin_iface.template_manager.template_available;
+            });
             
             ui = new Gtk.UIManager ();
 
@@ -768,6 +773,10 @@ namespace Scratch {
             search_bar.no_show_all = false;
             search_bar.show_all ();
         }
+        
+        void action_templates () {
+            plugins.plugin_iface.template_manager.show_window (this);
+        }
 
         static const Gtk.ActionEntry[] main_entries = {
            { "Fetch", Gtk.Stock.SAVE,
@@ -843,6 +852,10 @@ namespace Scratch {
           /* label, accelerator */       N_("Save as"), "<Control><shift>s",
           /* tooltip */                  N_("Save the current file with a different name"),
                                          action_save_as },
+           { "Templates", Gtk.Stock.NEW,
+          /* label, accelerator */       N_("Templates"), null,
+          /* tooltip */                  N_("Create a new document from a template"),
+                                         action_templates },
            { "Preferences", Gtk.Stock.PREFERENCES,
           /* label, accelerator */       N_("Preferences"), null,
           /* tooltip */                  N_("Change Scratch settings"),

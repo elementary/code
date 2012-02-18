@@ -94,6 +94,9 @@ public class Scratch.Services.SearchManager : GLib.Object {
             main_actions.get_action ("SearchNext").bind_property("sensitive", tool_arrow_up, "sensitive", BindingFlags.DEFAULT);
             tool_arrow_down = (Gtk.ToolItem) main_actions.get_action ("SearchBack").create_tool_item ();
             main_actions.get_action ("SearchBack").bind_property("sensitive", tool_arrow_down, "sensitive", BindingFlags.DEFAULT);
+            
+            main_actions.get_action ("SearchNext").set_sensitive (false);
+            main_actions.get_action ("SearchBack").set_sensitive (false);
         }
 
         tool_replace_entry.no_show_all = false;
@@ -118,9 +121,6 @@ public class Scratch.Services.SearchManager : GLib.Object {
         
         settings.show_replace = false;
         settings.show_go_to_line = false;
-        
-        main_actions.get_action ("SearchNext").set_sensitive (false);
-        main_actions.get_action ("SearchBack").set_sensitive (false);
         
         Scratch.settings.changed.connect (restore_settings);
         
@@ -333,11 +333,11 @@ public class Scratch.Services.SearchManager : GLib.Object {
         /* So, first, let's check we can really search something. */
         string search_string = search_entry.text;
 
-        if (search_string == "") {
+        if (search_string == "" && main_actions != null) {
             main_actions.get_action ("SearchNext").set_sensitive (false);
             main_actions.get_action ("SearchBack").set_sensitive (false);        
         }
-        else {
+        else if (main_actions != null) {
             main_actions.get_action ("SearchNext").set_sensitive (true);
             main_actions.get_action ("SearchBack").set_sensitive (true);
         }

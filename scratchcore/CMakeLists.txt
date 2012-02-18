@@ -28,6 +28,7 @@ vala_precompile(VALA_C
     SourceView.vala
     Settings.vala
     PluginManager.vala
+    TemplateManager.vala
 PACKAGES
     gtk+-3.0
     granite
