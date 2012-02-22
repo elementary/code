@@ -145,7 +145,7 @@
         </key>
         <key name="make-backup" type="b">
             <default>true</default>
-            <summary>Save or not the backup copy for the files.<summary>
+	    <summary>Save or not the backup copy for the files.</summary>
             <description>Save or not the file's backup. DON'T SET IT AS FALSE or you will break some Scratch's functions</description>
         </key>
     </schema>
