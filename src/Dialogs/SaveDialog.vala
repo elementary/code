@@ -64,15 +64,18 @@ namespace Scratch.Dialogs {
             save.set_use_stock(true);
             save.clicked.connect(this.on_save_clicked);
 
-            var buttonbox = new Box(Orientation.HORIZONTAL, 10);
-            buttonbox.set_homogeneous(true);
-            buttonbox.pack_start (discard, true, true, 5);
-            buttonbox.pack_start (cancel, true, true, 5);
-            buttonbox.pack_start (save, true, true, 5);
+            var buttonbox = new ButtonBox (Orientation.HORIZONTAL);
+            buttonbox.set_margin_right (10);
+            buttonbox.set_spacing (5);
+            buttonbox.set_margin_top (8);
+            buttonbox.set_layout (ButtonBoxStyle.START);
+            buttonbox.pack_start (discard, false, false, 5);
+            buttonbox.pack_start (cancel, false, false, 5);
+            buttonbox.pack_start (save, false, false, 5);
 
             var container = new Box (Orientation.VERTICAL, 10);
             container.pack_start (headbox, true, true, 5);
-            container.pack_start (buttonbox, true, true, 5);
+            container.pack_start (buttonbox, false, false, 5);
 
             //window properties
             this.title = "";
