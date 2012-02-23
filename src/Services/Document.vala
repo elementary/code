@@ -233,6 +233,11 @@ namespace Scratch.Services {
             
             this.last_saved_text = contents;
             
+            if (state == DocumentStates.READONLY) {
+                if (settings.autosave) source_view.editable = false;    
+                else window.toolbar.save_button.set_sensitive (false);
+            }
+                 
             this.opened (); // Signal
 
             return true;
@@ -300,6 +305,11 @@ namespace Scratch.Services {
                 label = _("New document");
             }
             
+            if (state == DocumentStates.READONLY) {
+                tab.label.label.set_markup ("<span font_style='normal'>%s</span>".printf(label));
+                return; 
+            }
+            
             switch (style) {
 
                 case "modified":
@@ -311,6 +321,7 @@ namespace Scratch.Services {
                 break;
 
             }
+            
         }
         
         uint timeout_saving = -1;
@@ -354,6 +365,7 @@ namespace Scratch.Services {
                     tab.text_view.modified = true;
                 }
             }
+            if (state == DocumentStates.READONLY) modified = false;
         }
         
         /**
@@ -382,6 +394,15 @@ namespace Scratch.Services {
                     want_reload = false;
                     return true;
                 }  
+            }
+            /* Check the document state */
+            if (state == DocumentStates.READONLY) {
+                if (settings.autosave) source_view.editable = false;    
+                else window.toolbar.save_button.set_sensitive (false);
+            }
+            if (state == DocumentStates.NORMAL) {
+                if (settings.autosave) source_view.editable = true;    
+                else window.toolbar.save_button.set_sensitive (true);
             }
             return false;
         }
