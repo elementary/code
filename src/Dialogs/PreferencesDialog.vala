@@ -126,10 +126,10 @@ namespace Scratch.Dialogs {
             var general_grid = new Gtk.Grid ();
             general_grid.row_spacing = 5;
             general_grid.column_spacing = 5;
-            general_grid.margin_left = 12;
-            general_grid.margin_right = 12;
-            general_grid.margin_top = 12;
-            general_grid.margin_bottom = 12;            
+            general_grid.margin_left = 15;
+            general_grid.margin_right = 15;
+            general_grid.margin_top = 15;
+            general_grid.margin_bottom = 15;            
             
             int row = 0;
             // General
@@ -178,10 +178,10 @@ namespace Scratch.Dialogs {
             var content = new Gtk.Grid ();
             content.row_spacing = 5;
             content.column_spacing = 5;
-            content.margin_left = 12;
-            content.margin_right = 12;
-            content.margin_top = 12;
-            content.margin_bottom = 12;
+            content.margin_left = 15;
+            content.margin_right = 15;
+            content.margin_top = 15;
+            content.margin_bottom = 15;
             
             int row = 0;
             
