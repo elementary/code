@@ -60,12 +60,14 @@ namespace Scratch.Services {
 
         public string filename      { get; public set; }
         public string text          { get; set; }
+        private DocumentStates _state;
         public DocumentStates state {
             get {
-                if (can_write ())
-                    return DocumentStates.NORMAL;
-                else
-                    return DocumentStates.READONLY;
+                //if (can_write ())
+                //    return DocumentStates.NORMAL;
+                //else
+                //    return DocumentStates.READONLY;
+                return _state;
             }
         }
 
@@ -425,6 +427,7 @@ namespace Scratch.Services {
                 window.toolbar.save_button.hide ();
                 modified = false;
                 want_reload = false;
+                _state = DocumentStates.NORMAL;
                 this.last_saved_text = this.buffer.text;
             }
             return false;
@@ -437,6 +440,7 @@ namespace Scratch.Services {
                 window.toolbar.save_button.hide ();
                 modified = false;
                 want_reload = false;
+                _state = DocumentStates.NORMAL;
                 this.last_saved_text = this.buffer.text;
             }
             return false;
