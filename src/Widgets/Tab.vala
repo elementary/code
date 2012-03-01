@@ -177,10 +177,6 @@ namespace Scratch.Widgets {
             message ("Saving: %s", this.filename);
 
             try {
-
-                var or = File.new_for_path (this.filename);
-                
-                var bk = File.new_for_path (this.filename + "~");
      
                 if (settings.make_backup) make_backup ();
                 

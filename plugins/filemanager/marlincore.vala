@@ -85,8 +85,8 @@ public class FMView : Gtk.ScrolledWindow
     }
 }
 
-Gtk.Window win;
-FMView fm_view;
+//Gtk.Window win;
+//FMView fm_view;
 
 /*void on_select(GOF.File a)
 {
@@ -118,7 +118,6 @@ public class PluginView : Gtk.VBox
 
     void add_combo()
     {
-        bool combo_was_null = combo == null;
         if(combo == null)
         {
             combo = new Gtk.ComboBoxText();

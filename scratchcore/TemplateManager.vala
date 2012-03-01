@@ -190,17 +190,19 @@ public class Scratch.TemplateManager : Object {
      * @param parent The parent window, or null.
      **/
     public void show_window (Gtk.Widget? parent) {
-        if (parent != null) dialog.set_transient_for ((Gtk.Window)parent);
-        
-        if (current_template != null) {
-            hbox.remove (hbox.get_children ().nth_data (0));
-            hbox.add (icon_view);
+        if (template_available) {
+            if (parent != null) dialog.set_transient_for ((Gtk.Window)parent);
+            
+            if (current_template != null) {
+                hbox.remove (hbox.get_children ().nth_data (0));
+                hbox.add (icon_view);
+            }
+            
+            icon_view.unselect_all ();
+            
+            dialog.show_all ();
+            dialog.run ();
+            dialog.hide ();
         }
-        
-        icon_view.unselect_all ();
-        
-        dialog.show_all ();
-        dialog.run ();
-        dialog.hide ();
     }
 }

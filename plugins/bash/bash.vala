@@ -41,9 +41,16 @@ public class Scratch.Plugins.Bash : Peas.ExtensionBase,  Peas.Activatable
     
     void on_bottombar () {
         if (plugins.bottombar != null && plugins.scratch_app != null) {
+            
             this.terminal = new Vte.Terminal ();
-            this.terminal.fork_command_full (Vte.PtyFlags.DEFAULT, "~/", { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, null);
-            plugins.bottombar.append_page (terminal, new Gtk.Label("Bash"));
+            
+            try {
+                this.terminal.fork_command_full (Vte.PtyFlags.DEFAULT, "~/", { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, null);
+            } catch (GLib.SpawnError e) {
+                warning (e.message);
+            }
+            
+            plugins.bottombar.append_page (terminal, new Gtk.Label ("Bash"));
         }
     }
 }
