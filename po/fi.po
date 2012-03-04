@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-02-08 11:10+0100\n"
-"PO-Revision-Date: 2012-02-25 13:48+0000\n"
-"Last-Translator: Erkka Juhaninmäki <Unknown>\n"
+"PO-Revision-Date: 2012-03-03 20:24+0000\n"
+"Last-Translator: Teemu Kielinen <teemu.kielinen@gmail.com>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-26 05:15+0000\n"
-"X-Generator: Launchpad (build 14860)\n"
+"X-Launchpad-Export-Date: 2012-03-04 05:18+0000\n"
+"X-Generator: Launchpad (build 14886)\n"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:477
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:807
@@ -39,7 +39,7 @@ msgstr "Nouda"
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:750
 #: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:62
 msgid "Go to line..."
-msgstr "Siirry riville"
+msgstr "Siirry riville..."
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:753
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:754
@@ -120,7 +120,7 @@ msgstr "Edellinen haku"
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:801
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:802
 msgid "Duplicate selected strings"
-msgstr ""
+msgstr "Toista valitut merkit"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:806
 msgid "Open"
@@ -153,27 +153,27 @@ msgstr "Muuta Scratchin asetuksia"
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:825
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:826
 msgid "Fullscreen"
-msgstr ""
+msgstr "Kokoruutu"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:829
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:830
 msgid "Sidebar"
-msgstr ""
+msgstr "Sivupaneeli"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:833
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:834
 msgid "Context View"
-msgstr ""
+msgstr "Sisältönäkymä"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:837
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:838
 msgid "Status Bar"
-msgstr ""
+msgstr "Tilapalkki"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:841
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:842
 msgid "Bottom Panel"
-msgstr ""
+msgstr "Alapaneeli"
 
 #: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:184
 msgid "No files are open."
@@ -189,7 +189,7 @@ msgstr "Avaa tiedosto"
 
 #: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:189
 msgid "Open a saved file."
-msgstr "Avaa tallennettu tiedosto"
+msgstr "Avaa tallennettu tiedosto."
 
 #: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:190
 msgid "New file"
@@ -201,7 +201,7 @@ msgstr "Luo uusi tyhjä tiedosto"
 
 #: /home/mefrio/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
 msgid "Normal text"
-msgstr ""
+msgstr "Tavallinen teksti"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "Save changes to document"
@@ -215,6 +215,8 @@ msgstr "Uusi tiedosto"
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
+"Jos et tallenna, muutokset viimeiseltä neljältä sekunnilta katoavat "
+"pysyvästi."
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
@@ -234,11 +236,11 @@ msgstr "Laajennukset"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:119
 msgid "Show welcome screen"
-msgstr ""
+msgstr "Näytä tervetuloa ikkuna"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:120
 msgid "Show last open tabs"
-msgstr ""
+msgstr "Näytä viimeisimmät avoimet välilehdet"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:139
 msgid "General:"
@@ -250,15 +252,15 @@ msgstr "Kun Scratch käynnistyy:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:148
 msgid "Save files at every changes:"
-msgstr ""
+msgstr "Tallenna tiedosto jokaisesta muutoksesta:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:151
 msgid "Case sensitive search:"
-msgstr ""
+msgstr "Merkkikokoriippuvainen haku:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:156
 msgid "Tabs:"
-msgstr ""
+msgstr "Sarkaimet:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:161
 msgid "Automatic indentation:"
@@ -266,27 +268,27 @@ msgstr "Automaattinen sisennys:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:164
 msgid "Insert spaces instead of tabs:"
-msgstr ""
+msgstr "Käytä välilyöntejä sarkainten tilalla:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:168
 msgid "Tab width:"
-msgstr ""
+msgstr "Sarkaimen leveys:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:198
 msgid "Editor:"
-msgstr ""
+msgstr "Muokkain:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:213
 msgid "Highlight current line:"
-msgstr ""
+msgstr "Korosta nykyinen rivi:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:214
 msgid "Highlight matching brackets:"
-msgstr ""
+msgstr "Korosta toisiaan vastaavat hakasulut:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:215
 msgid "Draw spaces:"
-msgstr ""
+msgstr "Väritä välilyönnit:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:216
 msgid "Show line numbers:"
@@ -310,20 +312,20 @@ msgstr "Valitse kirjasin:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:248
 msgid "Color scheme:"
-msgstr ""
+msgstr "Värimaailma"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:253
 #, c-format
 msgid "System font (%s):"
-msgstr "Järjestelmäkirjasin (%s):"
+msgstr "Järjestelmän kirjasin (%s):"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
-msgstr ""
+msgstr "Tallennetaanko muutokset ennen sulkemista?"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
 msgid "Save unsaved changes to file \""
-msgstr ""
+msgstr "Tallenna muutokset tiedostoon \""
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
@@ -343,8 +345,8 @@ msgstr "Haluatko ladata sen uudelleen?"
 
 #: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:60
 msgid "Search..."
-msgstr ""
+msgstr "Etsi..."
 
 #: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:61
 msgid "Replace..."
-msgstr ""
+msgstr "Korvaa..."
