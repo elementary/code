@@ -17,3 +17,9 @@ export DEB_BUILD_OPTIONS=nocheck
 
 override_dh_builddeb:
 	dh_builddeb -- -Zxz
+
+override_dh_strip:
+	dh_strip --dbg-package=scratch-dbg
+
+override_dh_auto_install:
+	dh_auto_install --destdir=debian/scratch
