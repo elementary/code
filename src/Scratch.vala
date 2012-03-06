@@ -103,8 +103,10 @@ namespace Scratch {
             for (int i = 0; i < files.length; i++) {
                 if (files[i].get_basename () == "--new-tab")
                     window.action_new_tab ();
-                else
+                else {
                     open_file(files[i].get_path());
+                    window.current_tab.make_backup ();    
+                }
             }
 
             window.present ();
