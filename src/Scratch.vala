@@ -105,7 +105,6 @@ namespace Scratch {
                     window.action_new_tab ();
                 else {
                     open_file(files[i].get_path());
-                    window.current_tab.make_backup ();    
                 }
             }
 
@@ -130,6 +129,7 @@ namespace Scratch {
             document.create_sourceview ();
             documents.append (document);
             document.closed.connect( (doc) => { documents.remove(doc); });
+            document.tab.make_backup ();
             window.current_notebook.set_tab ();
             window.set_window_title (filename);
             return document;
