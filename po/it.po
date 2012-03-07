@@ -7,200 +7,210 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-08 11:10+0100\n"
+"POT-Creation-Date: 2012-03-06 17:09+0100\n"
 "PO-Revision-Date: 2012-02-17 21:48+0000\n"
 "Last-Translator: Andrea Basso <voluntatefaber@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-18 05:47+0000\n"
-"X-Generator: Launchpad (build 14814)\n"
+"X-Launchpad-Export-Date: 2012-03-07 05:52+0000\n"
+"X-Generator: Launchpad (build 14907)\n"
 "Language: \n"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:477
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:807
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:510
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:843
 msgid "Open a file"
 msgstr "Apri un file"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:484
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:517
 msgid "All files"
 msgstr "Tutti i file"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:487
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:520
 msgid "Text files"
 msgstr "File di testo"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:745
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:746
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:781
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:782
 msgid "Fetch"
 msgstr "Fetch"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:749
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:750
-#: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:62
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:785
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:786
+#: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:71
 msgid "Go to line..."
 msgstr "Vai alla linea..."
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:753
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:754
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:789
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:790
 msgid "Quit"
 msgstr "Chiudi"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:757
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:758
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:793
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:794
 msgid "Close"
 msgstr "Chiudi"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:761
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:762
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:797
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:798
 msgid "Replace"
 msgstr "Sostituisci"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:765
-#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:102
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:801
+#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:119
 #: /home/mefrio/elementary/scratch/po/../src/Services/Document.vala:150
-#: /home/mefrio/elementary/scratch/po/../src/Services/Document.vala:302
+#: /home/mefrio/elementary/scratch/po/../src/Services/Document.vala:307
 msgid "New document"
 msgstr "Nuovo documento"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:766
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:802
 msgid "Create a new document in a new tab"
 msgstr "Crea un nuovo documento in una nuova scheda"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:769
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:805
 msgid "Add New View"
 msgstr "Aggiungi un nuovo gruppo di schede"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:770
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:806
 msgid "Add a new view"
 msgstr "Aggiungi un nuovo gruppo di schede"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:774
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:810
 msgid "Remove Current View"
 msgstr "Rimuovi il gruppo di schede attuale"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:775
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:811
 msgid "Remove this view"
 msgstr "Rimuovi questo gruppo di schede"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:778
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:814
 msgid "Undo"
 msgstr "Annulla"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:779
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:815
 msgid "Undo the last action"
 msgstr "Annulla l'ultima azione"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:782
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:818
 msgid "Redo"
 msgstr "Ripeti"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:783
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:819
 msgid "Redo the last undone action"
 msgstr "Ripeti l'ultima azione annullata"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:787
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:823
 msgid "Revert"
 msgstr "Ripristina"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:788
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:824
 msgid "Restore this file"
 msgstr "Ripristina questo file"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:792
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:793
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:828
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:829
 msgid "Next Search"
 msgstr "Ricerca successiva"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:796
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:797
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:832
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:833
 msgid "Previous Search"
 msgstr "Ricerca precedente"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:801
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:802
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:837
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:838
 msgid "Duplicate selected strings"
 msgstr "Duplica le lettere selezionate"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:806
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:842
 msgid "Open"
 msgstr "Apri"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:810
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:846
 msgid "Save"
 msgstr "Salva"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:811
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:847
 msgid "Save the current file"
 msgstr "Salva il file attuale"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:814
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:850
 msgid "Save as"
 msgstr "Salva come"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:815
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:851
 msgid "Save the current file with a different name"
 msgstr "Salva il file attuale con un nome diverso"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:818
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:854
+#: /home/mefrio/elementary/scratch/po/../scratchcore/TemplateManager.vala:123
+msgid "Templates"
+msgstr ""
+
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:855
+msgid "Create a new document from a template"
+msgstr ""
+
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:858
 msgid "Preferences"
 msgstr "Preferenze"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:819
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:859
 msgid "Change Scratch settings"
 msgstr "Cambia le impostazioni di Scratch"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:825
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:826
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:865
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:866
 msgid "Fullscreen"
 msgstr "Schermo intero"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:829
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:830
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:869
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:870
 msgid "Sidebar"
 msgstr "Barra laterale"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:833
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:834
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:873
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:874
 msgid "Context View"
 msgstr "Barra contestuale"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:837
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:838
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:877
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:878
 msgid "Status Bar"
 msgstr "Barra di stato"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:841
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:842
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:881
+#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:882
 msgid "Bottom Panel"
 msgstr "Pannello inferiore"
 
-#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:184
+#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:204
 msgid "No files are open."
 msgstr "Nessun file aperto."
 
-#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:184
+#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:204
 msgid "Open a file to begin editing."
 msgstr "Apri un file da modificare."
 
-#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:189
+#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:206
 msgid "Open file"
 msgstr "Apri file"
 
-#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:189
+#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:206
 msgid "Open a saved file."
 msgstr "Apri un file salvato."
 
-#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:190
+#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:207
 msgid "New file"
 msgstr "Nuovo file"
 
-#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:190
+#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:207
 msgid "Create a new empty file."
 msgstr "Crea un nuovo file vuoto."
 
 #: /home/mefrio/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
+#: /home/mefrio/elementary/scratch/po/../scratchcore/SourceView.vala:101
 msgid "Normal text"
 msgstr "Testo normale"
 
@@ -241,79 +251,75 @@ msgstr "Mostra schermata di benvenuto"
 msgid "Show last open tabs"
 msgstr "Mostra le ultime tab aperte"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:139
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:136
 msgid "General:"
 msgstr "Generale:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:145
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:142
 msgid "When Scratch starts:"
 msgstr "All'avvio di Scratch:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:148
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:145
 msgid "Save files at every changes:"
 msgstr "Salva i file ad ogni modifica:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:151
-msgid "Case sensitive search:"
-msgstr "Ricerca maiuscole e minuscole:"
-
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:156
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:150
 msgid "Tabs:"
 msgstr "Tabs:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:161
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:155
 msgid "Automatic indentation:"
 msgstr "Capoverso automatico:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:164
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:158
 msgid "Insert spaces instead of tabs:"
 msgstr "Inserire spazi invece di tabulazioni:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:168
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:162
 msgid "Tab width:"
 msgstr "Larghezza tab:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:198
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:192
 msgid "Editor:"
 msgstr "Editor:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:213
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:207
 msgid "Highlight current line:"
 msgstr "Evidenzia riga corrente:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:214
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
 msgid "Highlight matching brackets:"
 msgstr "Evidenzia parentesi corrispondenti:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:215
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:209
 msgid "Draw spaces:"
 msgstr "Visualizza spazi:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:216
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:210
 msgid "Show line numbers:"
 msgstr "Mostra numeri di riga:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:219
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:213
 msgid "Show margin on right:"
 msgstr "Mostra il margine destro:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:226
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:220
 msgid "Margin width:"
 msgstr "Larghezza margini"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:231
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:225
 msgid "Font and colors:"
 msgstr "Caratteri e colori:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:245
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:239
 msgid "Select font:"
 msgstr "Seleziona il carattere:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:248
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:242
 msgid "Color scheme:"
 msgstr "Schema di colori:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:253
+#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:247
 #, c-format
 msgid "System font (%s):"
 msgstr "Font di sistema (%s):"
@@ -342,10 +348,22 @@ msgstr "Il file:"
 msgid "Do you want to reload it?"
 msgstr "Vuoi ricaricarlo?"
 
-#: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:60
-msgid "Search..."
-msgstr "Cerca..."
+#: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:69
+msgid "Find..."
+msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:61
+#: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:70
 msgid "Replace..."
 msgstr "Sostituisci..."
+
+#: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:273
+msgid "Search options:"
+msgstr ""
+
+#: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:277
+msgid "Case sensitive search:"
+msgstr "Ricerca maiuscole e minuscole:"
+
+#: /home/mefrio/elementary/scratch/po/../scratchcore/SourceView.vala:95
+msgid "Syntax Highlighting"
+msgstr ""
