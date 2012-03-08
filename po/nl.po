@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-06 17:09+0100\n"
-"PO-Revision-Date: 2012-02-05 08:38+0000\n"
-"Last-Translator: Glennz nl <Unknown>\n"
+"PO-Revision-Date: 2012-03-07 13:27+0000\n"
+"Last-Translator: computergeoffrey <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-07 05:52+0000\n"
-"X-Generator: Launchpad (build 14907)\n"
+"X-Launchpad-Export-Date: 2012-03-08 05:13+0000\n"
+"X-Generator: Launchpad (build 14914)\n"
 "Language: nl\n"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:510
@@ -70,7 +70,7 @@ msgstr "Maak een nieuw document in een nieuw tabblad"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:805
 msgid "Add New View"
-msgstr ""
+msgstr "Voeg nieuwe weergave toe"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:806
 msgid "Add a new view"
@@ -121,7 +121,7 @@ msgstr "Vorige zoekopdracht"
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:837
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:838
 msgid "Duplicate selected strings"
-msgstr ""
+msgstr "Kopieer geselecteerde tekst"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:842
 msgid "Open"
@@ -146,11 +146,11 @@ msgstr "Het huidige bestand opslaan onder een andere naam"
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:854
 #: /home/mefrio/elementary/scratch/po/../scratchcore/TemplateManager.vala:123
 msgid "Templates"
-msgstr ""
+msgstr "Sjablonen"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:855
 msgid "Create a new document from a template"
-msgstr ""
+msgstr "Maak een nieuw document op basis van een sjabloon"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:858
 msgid "Preferences"
@@ -158,7 +158,7 @@ msgstr "Voorkeuren"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:859
 msgid "Change Scratch settings"
-msgstr ""
+msgstr "Wijzig Scratch-instellingen"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:865
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:866
@@ -173,7 +173,7 @@ msgstr "Zijpaneel"
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:873
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:874
 msgid "Context View"
-msgstr ""
+msgstr "Contextweergave"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:877
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:878
@@ -263,7 +263,7 @@ msgstr "Als Scratch start:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:145
 msgid "Save files at every changes:"
-msgstr ""
+msgstr "Bewaar bestanden bij elke wijziging"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:150
 msgid "Tabs:"
@@ -271,7 +271,7 @@ msgstr "Tabbladen:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:155
 msgid "Automatic indentation:"
-msgstr ""
+msgstr "Automatische inspringing"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:158
 msgid "Insert spaces instead of tabs:"
@@ -295,7 +295,7 @@ msgstr "Markeer overeenkomende haakjes:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:209
 msgid "Draw spaces:"
-msgstr ""
+msgstr "Teken spaties"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:210
 msgid "Show line numbers:"
@@ -303,11 +303,11 @@ msgstr "Laat regelnummers zien:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:213
 msgid "Show margin on right:"
-msgstr ""
+msgstr "Toon de marge langs rechts"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:220
 msgid "Margin width:"
-msgstr ""
+msgstr "Kantlijnbreedte:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:225
 msgid "Font and colors:"
@@ -324,7 +324,7 @@ msgstr "Kleurenschema"
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:247
 #, c-format
 msgid "System font (%s):"
-msgstr ""
+msgstr "Systeemlettertype (%s):"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
@@ -352,15 +352,15 @@ msgstr "Wilt u het opnieuw te laden?"
 
 #: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:69
 msgid "Find..."
-msgstr ""
+msgstr "Zoeken..."
 
 #: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:70
 msgid "Replace..."
-msgstr ""
+msgstr "Vervangen..."
 
 #: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:273
 msgid "Search options:"
-msgstr ""
+msgstr "Zoekopties:"
 
 #: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:277
 msgid "Case sensitive search:"
@@ -368,4 +368,4 @@ msgstr "Hoofdlettergevoelig zoeken:"
 
 #: /home/mefrio/elementary/scratch/po/../scratchcore/SourceView.vala:95
 msgid "Syntax Highlighting"
-msgstr ""
+msgstr "Syntaxiskleuring"
