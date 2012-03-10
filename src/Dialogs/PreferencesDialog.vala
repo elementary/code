@@ -48,7 +48,7 @@ namespace Scratch.Dialogs {
             this.title = title;
             this.type_hint = Gdk.WindowTypeHint.DIALOG;
             this.set_transient_for (window);
-            set_default_size (600, 300);
+            set_default_size (630, 330);
             modal = true;
             resizable = false;
             
@@ -77,8 +77,10 @@ namespace Scratch.Dialogs {
                 //create static notebook
                 var plugins_label = new Label (_("Extensions"));
 
-                var pbox = plugins.get_view ();
-
+                //var pbox = plugins.get_view ();
+                var pbox = new Box (Orientation.HORIZONTAL, 5);
+                pbox.pack_start (plugins.get_view (), true, true, 5);
+                
                 main_static_notebook.append_page (pbox, plugins_label);
             }
 
@@ -127,7 +129,7 @@ namespace Scratch.Dialogs {
             general_grid.row_spacing = 5;
             general_grid.column_spacing = 5;
             general_grid.margin_left = 15;
-            general_grid.margin_right = 15;
+            general_grid.margin_right = 5;
             general_grid.margin_top = 15;
             general_grid.margin_bottom = 15;            
             
@@ -179,7 +181,7 @@ namespace Scratch.Dialogs {
             content.row_spacing = 5;
             content.column_spacing = 5;
             content.margin_left = 15;
-            content.margin_right = 15;
+            content.margin_right = 5;
             content.margin_top = 15;
             content.margin_bottom = 15;
             
