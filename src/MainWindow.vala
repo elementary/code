@@ -497,9 +497,10 @@ namespace Scratch {
         public void action_new_tab () {
             var doc = new Document.empty (this);
             scratch_app.open_document (doc);
-            current_notebook.show_tabs_view ();
             if (settings.autosave)
                 this.toolbar.save_button.show ();
+                
+            current_tab.text_view.grab_focus ();
         }
 
         public void action_open_clicked () {

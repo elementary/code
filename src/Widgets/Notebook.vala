@@ -114,7 +114,7 @@ namespace Scratch.Widgets {
 
         public int add_tab (string labeltext="New document") {
             Tab new_tab;
-
+            
             if (labeltext == "New document")
                 new_tab = new Tab (this, _("New document"));
             else

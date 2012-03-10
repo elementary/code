@@ -421,6 +421,9 @@ namespace Scratch.Services {
         }
         
         public bool save () {
+            bool was_executable = can_execute ();
+            if (was_executable) debug ("%s", filename);
+            
             string f = filename;
             int n = tab.save ();
             if (f == null && n == 0) {
@@ -430,10 +433,24 @@ namespace Scratch.Services {
                 _state = DocumentStates.NORMAL;
                 this.last_saved_text = this.buffer.text;
             }
+            
+            /*
+             * re-set the missed attributes
+             */
+            // TODO: make the native way working
+            /*var file = File.new_for_path (f);
+            var info = file.query_info (FILE_ATTRIBUTE_ACCESS_CAN_EXECUTE, FileQueryInfoFlags.NONE, null);
+            info.set_attribute_boolean (FILE_ATTRIBUTE_ACCESS_CAN_EXECUTE, was_executable);
+            file.set_attributes_from_info (info, FileQueryInfoFlags.NONE);*/
+            
+            if (was_executable) GLib.Process.spawn_command_line_async ("chmod +x " + f);
+            
             return false;
         }
 
         public bool save_as () {
+            bool was_executable = can_execute ();
+            
             string f = filename;
             int n = tab.save_as ();
             if (f == null && n == 0) {
@@ -443,6 +460,17 @@ namespace Scratch.Services {
                 _state = DocumentStates.NORMAL;
                 this.last_saved_text = this.buffer.text;
             }
+            /*
+             * re-set the missed attributes
+             */
+            // TODO: make the native way working
+            /*var file = File.new_for_path (f);
+            var info = file.query_info (FILE_ATTRIBUTE_ACCESS_CAN_EXECUTE, FileQueryInfoFlags.NONE, null);
+            info.set_attribute_boolean (FILE_ATTRIBUTE_ACCESS_CAN_EXECUTE, was_executable);
+            file.set_attributes_from_info (info, FileQueryInfoFlags.NONE);*/
+            
+            if (was_executable) GLib.Process.spawn_command_line_async ("chmod +x " + f);
+            
             return false;
         }
 
@@ -524,7 +552,7 @@ namespace Scratch.Services {
             }
 
         }
-
+        
         public bool can_write () {
 
             if (filename != null) {
@@ -538,6 +566,34 @@ namespace Scratch.Services {
                     writable = info.get_attribute_boolean (FILE_ATTRIBUTE_ACCESS_CAN_WRITE);
 
                     return writable;
+
+                } catch (Error e) {
+
+                    warning ("%s", e.message);
+                    return false;
+
+                }
+
+            } else {
+
+                return true;
+
+            }
+
+        }
+        
+        public bool can_execute () {
+
+            if (filename != null) {
+
+                FileInfo info;
+                bool executable;
+                try {
+
+                    info = file.query_info (FILE_ATTRIBUTE_ACCESS_CAN_EXECUTE, FileQueryInfoFlags.NONE, null);
+                    executable = info.get_attribute_boolean (FILE_ATTRIBUTE_ACCESS_CAN_EXECUTE);
+
+                    return executable;
 
                 } catch (Error e) {
 
