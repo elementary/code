@@ -442,8 +442,9 @@ namespace Scratch.Services {
             var info = file.query_info (FILE_ATTRIBUTE_ACCESS_CAN_EXECUTE, FileQueryInfoFlags.NONE, null);
             info.set_attribute_boolean (FILE_ATTRIBUTE_ACCESS_CAN_EXECUTE, was_executable);
             file.set_attributes_from_info (info, FileQueryInfoFlags.NONE);*/
-            
-            if (was_executable) GLib.Process.spawn_command_line_async ("chmod +x " + f);
+            try {
+                if (was_executable) GLib.Process.spawn_command_line_async ("chmod +x " + f);
+            } catch (Error e) { warning (e.message); }
             
             return false;
         }
@@ -468,8 +469,9 @@ namespace Scratch.Services {
             var info = file.query_info (FILE_ATTRIBUTE_ACCESS_CAN_EXECUTE, FileQueryInfoFlags.NONE, null);
             info.set_attribute_boolean (FILE_ATTRIBUTE_ACCESS_CAN_EXECUTE, was_executable);
             file.set_attributes_from_info (info, FileQueryInfoFlags.NONE);*/
-            
-            if (was_executable) GLib.Process.spawn_command_line_async ("chmod +x " + f);
+            try {
+                if (was_executable) GLib.Process.spawn_command_line_async ("chmod +x " + f);
+            } catch (Error e) { warning (e.message); }
             
             return false;
         }

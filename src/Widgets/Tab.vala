@@ -66,8 +66,21 @@ namespace Scratch.Widgets {
         public void on_close_clicked() {
             if (document.can_write () && document.modified == true) {
 
-                var save_dialog = new SaveDialog (this);
-                save_dialog.run();
+                var save_dialog = new SaveOnCloseDialog (document.name, ((MainWindow)get_toplevel ()));
+                int response = save_dialog.run ();
+                switch(response) {
+                    case Gtk.ResponseType.CANCEL:
+                        save_dialog.destroy ();
+                        return;
+                    case Gtk.ResponseType.YES:
+                        document.save ();
+                        close ();
+                        break;
+                    case Gtk.ResponseType.NO:
+                        close ();
+                        break;
+                    }
+                save_dialog.destroy ();
 
             } else this.close ();
         }

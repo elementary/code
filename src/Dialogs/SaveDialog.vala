@@ -66,11 +66,12 @@ namespace Scratch.Dialogs {
 
             var buttonbox = new ButtonBox (Orientation.HORIZONTAL);
             buttonbox.set_margin_right (10);
+            buttonbox.set_margin_left (10);
             buttonbox.set_spacing (5);
             buttonbox.set_margin_top (8);
-            buttonbox.set_layout (ButtonBoxStyle.START);
-            buttonbox.pack_start (discard, false, false, 5);
+            buttonbox.set_layout (ButtonBoxStyle.END);
             buttonbox.pack_start (cancel, false, false, 5);
+            buttonbox.pack_start (discard, false, false, 5);
             buttonbox.pack_start (save, false, false, 5);
 
             var container = new Box (Orientation.VERTICAL, 10);
