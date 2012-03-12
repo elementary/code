@@ -65,7 +65,7 @@ namespace Scratch.Widgets {
                 plugins.hook_source_view(this);
                 
             populate_popup.connect(on_populate_menu);
-
+            
         }
         
         void append_submenu (string id, string text, ref Gtk.RadioMenuItem? menuitem, Gtk.Menu menu) {

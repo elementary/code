@@ -102,7 +102,7 @@ namespace Scratch {
         //dialogs
         public FileChooserDialog filech;
 
-        public Tab current_tab { get { return (Tab) current_notebook.current_tab; }}
+        public Scratch.Widgets.Tab current_tab { get { return (Scratch.Widgets.Tab) current_notebook.current_tab; }}
         public ScratchNotebook current_notebook { get { return split_view.get_current_notebook (); } }
         public Document current_document { get { return current_tab.document; } }
 
@@ -499,8 +499,6 @@ namespace Scratch {
             scratch_app.open_document (doc);
             if (settings.autosave)
                 this.toolbar.save_button.show ();
-                
-            current_tab.text_view.grab_focus ();
         }
 
         public void action_open_clicked () {
@@ -730,7 +728,7 @@ namespace Scratch {
             var notebook = split_view.get_current_notebook ();
 
             foreach(var w in notebook.get_children ()) {
-                var tab = w as Tab;
+                var tab = w as Scratch.Widgets.Tab;
                 if (tab != null) {
                     var doc = tab.document;
                     if (doc.modified) {

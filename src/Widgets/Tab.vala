@@ -50,6 +50,8 @@ namespace Scratch.Widgets {
             scrolled_window.vexpand = true;
             
             show_all();
+            
+            scrolled_window.grab_focus ();
         }
         
         public void set_overlay (Gtk.Widget widget) {
@@ -168,7 +170,7 @@ namespace Scratch.Widgets {
                 if (this.filename != null)
                     filech.set_filename (this.filename);
 
-                var response = filech.run();
+                var response = filech.run ();
 
                 switch (response) {
                     case ResponseType.ACCEPT:
