@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-03-06 17:09+0100\n"
-"PO-Revision-Date: 2012-03-09 11:39+0000\n"
+"PO-Revision-Date: 2012-03-11 16:04+0000\n"
 "Last-Translator: Simon <Unknown>\n"
 "Language-Team: Danish <da@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-10 05:24+0000\n"
-"X-Generator: Launchpad (build 14914)\n"
+"X-Launchpad-Export-Date: 2012-03-12 05:02+0000\n"
+"X-Generator: Launchpad (build 14933)\n"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:510
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:843
@@ -65,23 +65,23 @@ msgstr "Nyt dokument"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:802
 msgid "Create a new document in a new tab"
-msgstr ""
+msgstr "Opret et nyt dokument i en ny fane"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:805
 msgid "Add New View"
-msgstr ""
+msgstr "Tilføj ny visning"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:806
 msgid "Add a new view"
-msgstr ""
+msgstr "Tilføj en ny visning"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:810
 msgid "Remove Current View"
-msgstr ""
+msgstr "Fjern nuværende visning"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:811
 msgid "Remove this view"
-msgstr ""
+msgstr "Fjern denne visning"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:814
 msgid "Undo"
@@ -105,22 +105,22 @@ msgstr "Gå tilbage"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:824
 msgid "Restore this file"
-msgstr ""
+msgstr "Genskab denne fil"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:828
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:829
 msgid "Next Search"
-msgstr ""
+msgstr "Næste søgning"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:832
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:833
 msgid "Previous Search"
-msgstr ""
+msgstr "Forrige søgning"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:837
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:838
 msgid "Duplicate selected strings"
-msgstr ""
+msgstr "Duplikér valgte strenge"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:842
 msgid "Open"
@@ -157,7 +157,7 @@ msgstr "Præferencer"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:859
 msgid "Change Scratch settings"
-msgstr ""
+msgstr "Ændre Scratch indstillinger"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:865
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:866
@@ -172,7 +172,7 @@ msgstr "Sidepanel"
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:873
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:874
 msgid "Context View"
-msgstr ""
+msgstr "Kontekst visning"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:877
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:878
@@ -215,7 +215,7 @@ msgstr "Normal tekst"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "Save changes to document"
-msgstr ""
+msgstr "Gem ændringer til dokument"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "New File"
@@ -225,6 +225,8 @@ msgstr "Ny fil"
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
+"Hvis du ikke gemmer, vil ændringer fra de sidste 4 sekunder gå permanent "
+"tabt."
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
@@ -244,7 +246,7 @@ msgstr "Udvidelser"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:119
 msgid "Show welcome screen"
-msgstr ""
+msgstr "VIs velkomstskærm"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:120
 msgid "Show last open tabs"
@@ -256,59 +258,59 @@ msgstr "Generelt:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:142
 msgid "When Scratch starts:"
-msgstr ""
+msgstr "Når Scratch starter:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:145
 msgid "Save files at every changes:"
-msgstr ""
+msgstr "Gem filer ved alle ændringer:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:150
 msgid "Tabs:"
-msgstr ""
+msgstr "Tabulator:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:155
 msgid "Automatic indentation:"
-msgstr ""
+msgstr "Automatisk indrykning:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:158
 msgid "Insert spaces instead of tabs:"
-msgstr ""
+msgstr "Insæt mellemrum i stedet for tabulator:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:162
 msgid "Tab width:"
-msgstr ""
+msgstr "Tabulator bredde:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:192
 msgid "Editor:"
-msgstr ""
+msgstr "Editor:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:207
 msgid "Highlight current line:"
-msgstr ""
+msgstr "Fremhæv nuværende linje:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
 msgid "Highlight matching brackets:"
-msgstr ""
+msgstr "Fremhæv matchende klammer (brackets):"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:209
 msgid "Draw spaces:"
-msgstr ""
+msgstr "Tegn mellemrum:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:210
 msgid "Show line numbers:"
-msgstr ""
+msgstr "Vis linjenumre:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:213
 msgid "Show margin on right:"
-msgstr ""
+msgstr "Vis margen til højre:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:220
 msgid "Margin width:"
-msgstr ""
+msgstr "Margen bredde"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:225
 msgid "Font and colors:"
-msgstr ""
+msgstr "Skrifttype og farver:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:239
 msgid "Select font:"
@@ -316,20 +318,20 @@ msgstr "Vælg skrifttype:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:242
 msgid "Color scheme:"
-msgstr ""
+msgstr "Farveskema:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:247
 #, c-format
 msgid "System font (%s):"
-msgstr ""
+msgstr "System skrifttype (%s):"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
-msgstr ""
+msgstr "Gem ikke gemte ændringer til fil inden lukning?"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
 msgid "Save unsaved changes to file \""
-msgstr ""
+msgstr "Gem ikke gemte ændringer til fil \""
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
@@ -341,11 +343,11 @@ msgstr "Ønsker du at gemme ændringerne, inden filen lukkes?"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:41
 msgid "The file:"
-msgstr ""
+msgstr "Filen:"
 
 #: /home/mefrio/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:42
 msgid "Do you want to reload it?"
-msgstr ""
+msgstr "Vil du at genindlæse den?"
 
 #: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:69
 msgid "Find..."
@@ -357,11 +359,11 @@ msgstr "Erstat..."
 
 #: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:273
 msgid "Search options:"
-msgstr ""
+msgstr "Søge indstillinger:"
 
 #: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:277
 msgid "Case sensitive search:"
-msgstr ""
+msgstr "Store-og-små-bogstaver søgning:"
 
 #: /home/mefrio/elementary/scratch/po/../scratchcore/SourceView.vala:95
 msgid "Syntax Highlighting"
