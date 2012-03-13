@@ -27,7 +27,6 @@ public class Scratch.Services.SearchManager : GLib.Object {
     Gtk.ToolItem tool_arrow_up;
     Gtk.ToolItem tool_arrow_down;
     Gtk.ToolButton tool_close_button;
-    Granite.Widgets.ToolArrow search_arrow;
 
     Granite.Widgets.SearchBar search_entry;
     Granite.Widgets.SearchBar replace_entry;
@@ -48,11 +47,6 @@ public class Scratch.Services.SearchManager : GLib.Object {
      * of the search entry.
      **/
     public bool cycle_search {get; set; default = false; }
-
-    /**
-     * Wether the search is or isn't case sensitive.
-     **/
-    public bool case_sensitive {get; set; default = false; }
     
     public signal void need_hide ();
 
@@ -123,18 +117,10 @@ public class Scratch.Services.SearchManager : GLib.Object {
         settings.show_go_to_line = false;
         
         Scratch.settings.changed.connect (restore_settings);
-        
-    
-        search_arrow = new Granite.Widgets.ToolArrow ();
-        search_arrow.clicked.connect(on_show_popover);
     }
 
     public Gtk.ToolItem get_search_entry () {
         return tool_search_entry;
-    }
-
-    public Gtk.ToolItem get_search_arrow () {
-        return search_arrow;
     }
 
     public Gtk.ToolItem get_close_button () {
@@ -252,56 +238,6 @@ public class Scratch.Services.SearchManager : GLib.Object {
         search_entry.select_region(0, -1);
         return false;
     }
-    
-
-    void on_show_popover() {
-        search_arrow.set_state (true);
-        var search_popover = new Granite.Widgets.PopOver ();
-        search_popover.move_to_widget (search_arrow);
-        var box = search_popover.get_content_area() as Gtk.Box;
-
-        var grid = new Gtk.Grid ();
-        grid.row_spacing = 5;
-        grid.column_spacing = 5;
-        grid.margin_left = 12;
-        grid.margin_right = 12;
-        grid.margin_top = 12;
-        grid.margin_bottom = 12;            
-        
-        int row = 0;
-        
-        var label = new Gtk.Label (_("Search options:"));
-        add_section (grid, label, ref row);            
-        var case_sensitive = new Gtk.Switch ();
-        Scratch.settings.schema.bind("search-sensitive", case_sensitive, "active", SettingsBindFlags.DEFAULT);
-        label = new Gtk.Label (_("Case sensitive search:"));
-        add_option (grid, label, case_sensitive, ref row);
-        /*
-        label = new Gtk.Label (_("Entries:"));
-        add_section (grid, label, ref row);  
-        unowned SList<Gtk.RadioButton> group = null;
-        var search = new Gtk.RadioButton (group);
-        Scratch.settings.schema.bind("show-search", search, "active", SettingsBindFlags.DEFAULT);
-        label = new Gtk.Label (_("Search:"));
-        add_option (grid, label, search, ref row);
-        var replace = new Gtk.RadioButton (search.get_group ());
-        Scratch.settings.schema.bind("show-replace", replace, "active", SettingsBindFlags.DEFAULT);
-        label = new Gtk.Label (_("Replace:"));
-        add_option (grid, label, replace, ref row);
-        var go_to_line = new Gtk.RadioButton (search.get_group ());
-        Scratch.settings.schema.bind("show-go-to-line", go_to_line, "active", SettingsBindFlags.DEFAULT);
-        label = new Gtk.Label (_("Go to line:"));
-        add_option (grid, label, go_to_line, ref row);
-        */
-        box.pack_start (grid);
-
-        search_popover.show_all();
-        search_popover.present();
-        search_popover.run();
-        search_popover.destroy();
-        search_arrow.set_state(false);
-    }
-
 
     void add_section (Gtk.Grid grid, Gtk.Label name, ref int row) {
         name.use_markup = true;
@@ -372,6 +308,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
 
     bool search_for_iter (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter, string search_string) {
         end_iter = start_iter;
+        bool case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
         bool found = start_iter.forward_search (search_string,
                                                 case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
                                                 out start_iter, out end_iter, null);
@@ -387,6 +324,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
 
     bool search_for_iter_backward (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter, string search_string) {
         end_iter = start_iter;
+        bool case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
         bool found = start_iter.backward_search (search_string,
                                                 case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
                                                  out start_iter, out end_iter, null);
