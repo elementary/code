@@ -769,12 +769,8 @@ namespace Scratch {
         }
         
         void action_fetch () {
-            if (search_bar.visible == true) {
-                hide_search_bar ();
-            } else {
-                search_bar.no_show_all = false;
-                search_bar.show_all ();
-            }
+            search_bar.no_show_all = false;
+            search_bar.show_all ();
         }
         
         void action_templates () {
