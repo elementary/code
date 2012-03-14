@@ -63,10 +63,10 @@ namespace Scratch.Services {
         private DocumentStates _state;
         public DocumentStates state {
             get {
-                //if (can_write ())
-                //    return DocumentStates.NORMAL;
-                //else
-                //    return DocumentStates.READONLY;
+                if (can_write ())
+                    return DocumentStates.NORMAL;
+                else
+                    return DocumentStates.READONLY;
                 return _state;
             }
         }
