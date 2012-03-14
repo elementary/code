@@ -37,6 +37,7 @@ namespace Scratch {
             <ui>
             <popup name="MenuItemTool">
                 <menuitem name="Fetch" action="Fetch"/>
+                <menuitem name="HideSearchBar" action="HideSearchBar"/>
                 <menuitem name="CloseTab" action="CloseTab"/>
                 <menuitem name="Quit" action="Quit"/>
                 <menuitem name="ShowGoTo" action="ShowGoTo"/>
@@ -362,6 +363,7 @@ namespace Scratch {
         void hide_search_bar () {
             search_bar.no_show_all = true;
             search_bar.visible = false;
+            current_tab.text_view.grab_focus ();            
         }
 
         public void set_actions (bool val) {
@@ -372,6 +374,7 @@ namespace Scratch {
             main_actions.get_action ("Redo").set_sensitive (val);
             main_actions.get_action ("Revert").set_sensitive (val);
             main_actions.get_action ("Fetch").set_sensitive (val);
+            main_actions.get_action ("HideSearchBar").set_sensitive (val);
             main_actions.get_action ("ShowReplace").set_sensitive (val);
             main_actions.get_action ("ShowGoTo").set_sensitive (val);
             bool split_view_not_full = split_view.get_children ().length () < split_view.max - 1;
@@ -779,6 +782,10 @@ namespace Scratch {
           /* label, accelerator */       N_("Fetch"), "<Control>f",
           /* tooltip */                  N_("Fetch"),
                                          action_fetch },
+           { "HideSearchBar", Gtk.Stock.CLEAR,
+          /* label, accelerator */       N_("Hide search bar"), "Escape",
+          /* tooltip */                  N_("Hide search bar"),
+                                         hide_search_bar },
            { "ShowGoTo", Gtk.Stock.OK,
           /* label, accelerator */       N_("Go to line..."), "<Control>i",
           /* tooltip */                  N_("Go to line..."),
