@@ -37,14 +37,12 @@ public int main(string[] args)
         assert(sourceview.buffer.cursor_position == "elementary ".length);
         
         /* Case sensitive */
-        assert(search.case_sensitive == false);
-        search.set_search_string ("E");
+        search.set_search_string ("EST");
         search.search ();
-        assert(sourceview.buffer.cursor_position == "elementary scratch t".length);
-        search.case_sensitive = true;
-        search.set_search_string ("E");
+        assert(sourceview.buffer.cursor_position == "elementary scratch test".length);
+        search.set_search_string ("Eu");
         search.search ();
-        assert(sourceview.buffer.cursor_position == "elementary scratch test ".length);
+        assert(sourceview.buffer.cursor_position == "elementary scratch test E".length);
     });
     
     Test.add_func("/scratch/core/source_view", () => {

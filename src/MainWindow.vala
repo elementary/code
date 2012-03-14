@@ -314,7 +314,6 @@ namespace Scratch {
             search_manager.get_search_entry ().set_margin_right (5);
             search_bar.add (search_manager.get_replace_entry ());
             search_bar.add (search_manager.get_go_to_entry ());
-            search_bar.add (search_manager.get_search_arrow ());
             var spacer = new Gtk.ToolItem ();
             spacer.set_expand (true);
             search_bar.add (spacer);
