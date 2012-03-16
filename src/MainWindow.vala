@@ -786,8 +786,8 @@ namespace Scratch {
 
         static const Gtk.ActionEntry[] main_entries = {
            { "Fetch", Gtk.Stock.SAVE,
-          /* label, accelerator */       N_("Fetch"), "<Control>f",
-          /* tooltip */                  N_("Fetch"),
+          /* label, accelerator */       N_("Find..."), "<Control>f",
+          /* tooltip */                  N_("Find..."),
                                          action_fetch },
            { "HideSearchBar", Gtk.Stock.CLEAR,
           /* label, accelerator */       N_("Hide search bar"), "Escape",
