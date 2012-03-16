@@ -712,7 +712,6 @@ namespace Scratch {
                 string selected = buf.get_text (start, end, true);
                 if (selected != "")
                     buf.insert (ref end, "\n" + selected, -1);
-
             }
                 
         }        
@@ -776,6 +775,17 @@ namespace Scratch {
         }
         
         void action_fetch () {
+            /* Get selected text to put it in the  search entry */
+            if (current_tab != null) {
+                TextIter start, end;
+                var buf = current_tab.text_view.buffer;
+                buf.get_selection_bounds (out start, out end);
+                string selected = buf.get_text (start, end, true);
+                selected = selected.chomp ().replace ("\n", " ");
+                if (selected != "")
+                    search_manager.search_entry.text = selected;
+            }
+            
             search_bar.no_show_all = false;
             search_bar.show_all ();
         }

@@ -28,9 +28,9 @@ public class Scratch.Services.SearchManager : GLib.Object {
     Gtk.ToolItem tool_arrow_down;
     Gtk.ToolButton tool_close_button;
 
-    Granite.Widgets.SearchBar search_entry;
-    Granite.Widgets.SearchBar replace_entry;
-    Granite.Widgets.SearchBar go_to_entry;
+    public Granite.Widgets.SearchBar search_entry;
+    public Granite.Widgets.SearchBar replace_entry;
+    public Granite.Widgets.SearchBar go_to_entry;
 
     Scratch.Widgets.SourceView? text_view = null;
     Gtk.TextBuffer? text_buffer = null;
