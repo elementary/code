@@ -90,7 +90,6 @@ namespace Scratch.Services {
         
         // Public string and bool to watch for an warn about files changed by other programs 
         public string last_saved_text = null;
-        public bool want_reload = true;
         
         // Private variables
         private string original_text;
@@ -364,7 +363,6 @@ namespace Scratch.Services {
         void on_buffer_changed () {
 
             window.set_undo_redo ();
-            //want_reload = true;
             
             if (settings.autosave && filename != null) {
                 if (timeout_saving >= 0) {
@@ -416,27 +414,25 @@ namespace Scratch.Services {
                 window.toolbar.save_button.set_sensitive (true);
             }
             
+            /* Check if an external thing modified the file */
             try {
                 FileUtils.get_contents (file.get_path (), out contents);
             } catch (Error e) {
                 warning (e.message);
             }
-            if (want_reload) {
-                if (contents != this.last_saved_text) {
-                    var warn = new Scratch.Dialogs.WarnDialog (filename, window);
-                    warn.run ();
-                    warn.destroy ();
-                    want_reload = false;
-                }  
-            }
+            if (contents != this.last_saved_text) {
+                var warn = new Scratch.Dialogs.WarnDialog (filename, window);
+                warn.run ();
+                warn.destroy ();
+            }  
+
             /* Check the document state */
             if (state == DocumentStates.READONLY) {
-                debug ("sdf");
                 if (settings.autosave) source_view.editable = false;    
                 else window.toolbar.save_button.set_sensitive (false);
             }
             if (state == DocumentStates.NORMAL) {
-                debug ("fs2");
+                force_normal_state = true;
                 if (settings.autosave) source_view.editable = true;    
                 else window.toolbar.save_button.set_sensitive (true);
             }
@@ -462,7 +458,6 @@ namespace Scratch.Services {
             if (f == null && n == 0) {
                 window.toolbar.save_button.hide ();
                 modified = false;
-                want_reload = false;
                 force_normal_state = true;
                 this.last_saved_text = this.buffer.text;
             }
@@ -490,7 +485,6 @@ namespace Scratch.Services {
             if (f == null && n == 0) {
                 window.toolbar.save_button.hide ();
                 modified = false;
-                want_reload = false;
                 _state = DocumentStates.NORMAL;
                 this.last_saved_text = this.buffer.text;
             }
