@@ -60,9 +60,14 @@ namespace Scratch.Services {
 
         public string filename      { get; public set; }
         public string text          { get; set; }
+        
+        private bool force_normal_state;
         private DocumentStates _state;
         public DocumentStates state {
             get {
+                if (force_normal_state)
+                    return DocumentStates.NORMAL;
+                
                 if (can_write ())
                     return DocumentStates.NORMAL;
                 else
@@ -407,14 +412,14 @@ namespace Scratch.Services {
             string contents;            
 
             /* First, we check that this is a real file, and not a new document */
-            if (filename == null)
-                return false;
-    
+            if (filename == null && settings.autosave == false) {
+                window.toolbar.save_button.set_sensitive (true);
+            }
+            
             try {
                 FileUtils.get_contents (file.get_path (), out contents);
             } catch (Error e) {
                 warning (e.message);
-                return false;
             }
             if (want_reload) {
                 if (contents != this.last_saved_text) {
@@ -422,15 +427,16 @@ namespace Scratch.Services {
                     warn.run ();
                     warn.destroy ();
                     want_reload = false;
-                    return true;
                 }  
             }
             /* Check the document state */
             if (state == DocumentStates.READONLY) {
+                debug ("sdf");
                 if (settings.autosave) source_view.editable = false;    
                 else window.toolbar.save_button.set_sensitive (false);
             }
             if (state == DocumentStates.NORMAL) {
+                debug ("fs2");
                 if (settings.autosave) source_view.editable = true;    
                 else window.toolbar.save_button.set_sensitive (true);
             }
@@ -450,7 +456,6 @@ namespace Scratch.Services {
         
         public bool save () {
             bool was_executable = can_execute ();
-            if (was_executable) debug ("%s", filename);
             
             string f = filename;
             int n = tab.save ();
@@ -458,7 +463,7 @@ namespace Scratch.Services {
                 window.toolbar.save_button.hide ();
                 modified = false;
                 want_reload = false;
-                _state = DocumentStates.NORMAL;
+                force_normal_state = true;
                 this.last_saved_text = this.buffer.text;
             }
             
@@ -584,7 +589,9 @@ namespace Scratch.Services {
         }
         
         public bool can_write () {
-
+            
+            debug ("%s", filename);
+            
             if (filename != null) {
 
                 FileInfo info;
