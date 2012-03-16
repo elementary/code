@@ -234,13 +234,41 @@ namespace Scratch.Services {
             this.filename = filename;
             
             this.last_saved_text = contents;
-            
+     
+            this.opened (); // Signal
+
             if (state == DocumentStates.READONLY) {
                 if (settings.autosave) source_view.editable = false;    
                 else window.toolbar.save_button.set_sensitive (false);
+                
+                // TODO: implement the InfoBar in a more elegant way
+                var info = new Gtk.InfoBar ();
+                info.set_message_type (Gtk.MessageType.QUESTION);
+                
+                var l = new Gtk.Label ("");
+                l.halign = Gtk.Align.START;
+                l.use_markup = true;
+                l.set_markup (_("You can't save changes to:") + " <b>" + filename + "</b>. " + _("Do you want to save the changes to this file in a different location?"));
+                
+                var no = new Gtk.Button.with_label (("   ") + _("No") + ("   "));
+                no.clicked.connect (() => {
+                    info.hide ();
+                    info.no_show_all = true;                    
+                });
+                
+                var yes = new Gtk.Button.with_label (("   ") + _("Yes") + ("   "));
+                yes.clicked.connect (() => {
+                    info.hide ();
+                    info.no_show_all = true;
+                });
+                
+                info.pack_start (l, true, true, 3);
+                info.pack_end (yes, false, false, 3);
+                info.pack_end (no, false, false, 3);
+                
+                info.no_show_all = false;
+                window.current_notebook.info_bar = info;
             }
-                 
-            this.opened (); // Signal
 
             return true;
 

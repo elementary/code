@@ -41,6 +41,7 @@ namespace Scratch.Widgets {
 
         public signal void page_changed (Gtk.Widget w);
         public Gtk.Widget additional_widget { set; private get; }
+        public Gtk.InfoBar info_bar { set; private get; }
 
         public SplitView (MainWindow window) {
 
@@ -57,6 +58,7 @@ namespace Scratch.Widgets {
             view.page_removed.connect (recompute_empty);
             view.page_focused.connect (on_page_focused);
             view.additional_widget = additional_widget;
+            view.info_bar = info_bar;
         }
 
         void on_page_focused (Gtk.Widget w) {

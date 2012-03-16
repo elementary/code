@@ -101,7 +101,7 @@ namespace Scratch {
         public Gtk.Notebook notebook_bottom;
 
         //dialogs
-        public FileChooserDialog filech;
+        public InfoBar info_bar;
 
         public Scratch.Widgets.Tab current_tab { get { return (Scratch.Widgets.Tab) current_notebook.current_tab; }}
         public ScratchNotebook current_notebook { get { return split_view.get_current_notebook (); } }
@@ -320,23 +320,29 @@ namespace Scratch {
             search_bar.add (spacer);
             search_bar.add (search_manager.get_close_button ());
             
+            /**
+             * Info bar
+             */
+            info_bar = new Gtk.InfoBar ();
+            info_bar.no_show_all = true;
+            
             var notebook =  new ScratchNotebook (this);
             notebook.switch_page.connect( () => { hide_search_bar(); });
             search_bar.no_show_all = true;
             search_bar.visible = false;
             split_view.additional_widget = search_bar;
+            split_view.info_bar = info_bar;
             split_view.add_view (notebook);
 
             notebook_bottom = new Gtk.Notebook ();
             notebook_bottom.page_added.connect (on_notebook_context_new_page);
             notebook_bottom.page_removed.connect (on_notebook_context_new_page);
-
+ 
             /* Add the sourceview + the sidepanel to the container of the bottom panel */
             vpaned_bottom_panel.pack1 (hpaned_addons, true, true);
             vpaned_bottom_panel.pack2 (notebook_bottom, false, false);
             plugins.hook_notebook_bottom (notebook_bottom);
-
-
+            
             //adding all to the vbox
             var vbox = new VBox (false, 0);
             vbox.pack_start (toolbar, false, false, 0);
@@ -508,7 +514,7 @@ namespace Scratch {
             toolbar.set_sensitive (true);
 
             // show dialog
-            this.filech = new FileChooserDialog (_("Open a file"), this, FileChooserAction.OPEN, null);
+            var filech = new FileChooserDialog (_("Open a file"), this, FileChooserAction.OPEN, null);
             filech.set_select_multiple (true);
             filech.add_button (Stock.CANCEL, ResponseType.CANCEL);
             filech.add_button (Stock.OPEN, ResponseType.ACCEPT);
@@ -659,6 +665,7 @@ namespace Scratch {
                 var instance = new ScratchNotebook (this);
                 instance.switch_page.connect( () => { hide_search_bar(); });
                 instance.additional_widget = search_bar;
+                instance.info_bar = info_bar;
                 split_view.add_view (instance);
                 var doc = new Document.empty (this);
                 instance.grab_focus ();

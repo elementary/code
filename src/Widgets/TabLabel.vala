@@ -85,11 +85,13 @@ namespace Scratch.Widgets {
             if (filename != null) {
 
                 if ((event.type == EventType.2BUTTON_PRESS) || (event.type == EventType.3BUTTON_PRESS)) {
-                    event_box.hide ();
-                    add (entry);
-                    entry.text = label.get_text ();
-                    entry.show ();
-                    entry.key_press_event.connect (return_event);
+                    if (tab.document.state == Scratch.Services.DocumentStates.NORMAL) {
+                        event_box.hide ();
+                        add (entry);
+                        entry.text = label.get_text ();
+                        entry.show ();
+                        entry.key_press_event.connect (return_event);
+                    }
                 }
             }
             return false;

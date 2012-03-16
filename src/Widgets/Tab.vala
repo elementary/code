@@ -41,7 +41,7 @@ namespace Scratch.Widgets {
 
             text_view = new SourceView ();
 
-            label = new TabLabel(this, labeltext);
+            label = new TabLabel (this, labeltext);
             
             scrolled_window.add (text_view);
 
