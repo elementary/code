@@ -590,8 +590,6 @@ namespace Scratch.Services {
         
         public bool can_write () {
             
-            debug ("%s", filename);
-            
             if (filename != null) {
 
                 FileInfo info;
