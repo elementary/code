@@ -23,6 +23,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
     /* The toolitems, accessible via get_*_entry(); */
     Gtk.ToolItem tool_search_entry;
     Gtk.ToolItem tool_replace_entry;
+    Gtk.ToolItem tool_go_to_label;
     Gtk.ToolItem tool_go_to_entry;
     Gtk.ToolItem tool_arrow_up;
     Gtk.ToolItem tool_arrow_down;
@@ -30,7 +31,9 @@ public class Scratch.Services.SearchManager : GLib.Object {
 
     public Granite.Widgets.SearchBar search_entry;
     public Granite.Widgets.SearchBar replace_entry;
-    public Granite.Widgets.SearchBar go_to_entry;
+    public Gtk.SpinButton go_to_entry;
+    public Gtk.Adjustment go_to_adj;
+    
 
     Scratch.Widgets.SourceView? text_view = null;
     Gtk.TextBuffer? text_buffer = null;
@@ -62,18 +65,21 @@ public class Scratch.Services.SearchManager : GLib.Object {
 
         search_entry = new Granite.Widgets.SearchBar (_("Find..."));
         replace_entry = new Granite.Widgets.SearchBar (_("Replace..."));
-        go_to_entry = new Granite.Widgets.SearchBar (_("Go to line..."));
+        go_to_adj = new Gtk.Adjustment (0, 0, 1000, 1, 40, 0);
+        go_to_entry = new Gtk.SpinButton (go_to_adj, 1, 1);
+        go_to_entry.digits = 0;
         search_entry.width_request = 250;
         replace_entry.width_request = 250;
-        go_to_entry.width_request = 250;
 
         tool_search_entry = new Gtk.ToolItem ();
         tool_replace_entry = new Gtk.ToolItem ();
+        tool_go_to_label = new Gtk.ToolItem ();
         tool_go_to_entry = new Gtk.ToolItem ();
         tool_close_button = new Gtk.ToolButton.from_stock ("gtk-close");
 
         tool_search_entry.add (search_entry);
         tool_replace_entry.add (replace_entry);
+        tool_go_to_label.add (new Gtk.Label (_("Go To Line:")));
         tool_go_to_entry.add (go_to_entry);
 
         if(main_actions != null) {
@@ -138,9 +144,17 @@ public class Scratch.Services.SearchManager : GLib.Object {
     public Gtk.ToolItem get_replace_entry () {
         return tool_replace_entry;
     }
+    
+    public Gtk.ToolItem get_go_to_label () {
+        return tool_go_to_label;
+    }
 
     public Gtk.ToolItem get_go_to_entry () {
         return tool_go_to_entry;
+    }
+    
+    public Gtk.Adjustment get_go_to_adj () {
+        return go_to_adj;
     }
 
     public void set_text_view (Scratch.Widgets.SourceView? new_text_view) {

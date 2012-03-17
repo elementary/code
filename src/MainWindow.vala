@@ -83,7 +83,7 @@ namespace Scratch {
          * Search manager
          */ 
         Gtk.Toolbar search_bar; 
-        Scratch.Services.SearchManager search_manager;
+        public Scratch.Services.SearchManager search_manager;
         
         /**
          * The Gtk.Notebook which is used to display panels which are related
@@ -314,10 +314,12 @@ namespace Scratch {
             search_bar.add (search_manager.get_arrow_next ());
             search_manager.get_search_entry ().set_margin_right (5);
             search_bar.add (search_manager.get_replace_entry ());
-            search_bar.add (search_manager.get_go_to_entry ());
             var spacer = new Gtk.ToolItem ();
             spacer.set_expand (true);
             search_bar.add (spacer);
+            search_bar.add (search_manager.get_go_to_label ());
+            search_manager.get_go_to_label ().set_margin_right (5);
+            search_bar.add (search_manager.get_go_to_entry ());
             search_bar.add (search_manager.get_close_button ());
             
             /**

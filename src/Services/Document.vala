@@ -399,6 +399,8 @@ namespace Scratch.Services {
                 }
             }
             if (state == DocumentStates.READONLY) modified = false;
+            
+            window.search_manager.get_go_to_adj ().upper = buffer.text.split ("\n").length;
         }
         
         /**
@@ -436,6 +438,10 @@ namespace Scratch.Services {
                 if (settings.autosave) source_view.editable = true;    
                 else window.toolbar.save_button.set_sensitive (true);
             }
+            
+            window.search_manager.get_go_to_adj ().upper = buffer.text.split ("\n").length;
+            window.search_manager.get_go_to_adj ().value = 0;
+            
             return false;
         }
         
