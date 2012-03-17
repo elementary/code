@@ -160,6 +160,11 @@ namespace Scratch {
             settings.schema.bind("statusbar-visible", main_actions.get_action ("ShowStatusBar"), "active", SettingsBindFlags.DEFAULT);
             connect_signals ();
             
+            /* Update app status at settings updates */
+            settings.changed.connect (() => {
+                if (settings.autosave) action_save_all ();
+            });
+            
             set_theme ();
         }
 
@@ -548,6 +553,21 @@ namespace Scratch {
             current_tab.document.save ();
         }
 
+        public void action_save_all () {
+            int n = 0;
+            string[] opened_files = {};
+            
+            foreach (var doc in scratch_app.documents) {            
+                
+                if (doc.filename != null)
+                    opened_files[n] = doc.filename;
+                else
+                    return;
+                
+                doc.save ();
+            }
+        }        
+        
         public void action_save_as () {
             current_tab.document.save_as ();
         }
