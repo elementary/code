@@ -312,7 +312,7 @@ namespace Scratch {
             search_bar.add (search_manager.get_search_entry ());
             search_bar.add (search_manager.get_arrow_previous ());
             search_bar.add (search_manager.get_arrow_next ());
-            search_manager.get_search_entry ().set_margin_right (5);
+            search_manager.get_replace_entry ().set_margin_left (5);
             search_bar.add (search_manager.get_replace_entry ());
             var spacer = new Gtk.ToolItem ();
             spacer.set_expand (true);

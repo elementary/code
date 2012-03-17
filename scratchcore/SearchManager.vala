@@ -89,11 +89,26 @@ public class Scratch.Services.SearchManager : GLib.Object {
             main_actions.get_action ("Fetch").bind_property("sensitive", search_entry, "sensitive", BindingFlags.DEFAULT);
             main_actions.get_action ("ShowGoTo").bind_property("sensitive", replace_entry, "sensitive", BindingFlags.DEFAULT);
             main_actions.get_action ("ShowReplace").bind_property("sensitive", go_to_entry, "sensitive", BindingFlags.DEFAULT);
-
-            tool_arrow_up = (Gtk.ToolItem) main_actions.get_action ("SearchNext").create_tool_item ();
+            
+            var next = new Gtk.Button ();
+            next.clicked.connect (search_next);
+            next.set_relief (Gtk.ReliefStyle.NONE);
+            var i = new Gtk.Image.from_icon_name ("go-next-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            i.pixel_size = 16;
+            next.image = i;
+            tool_arrow_up = new Gtk.ToolItem ();//(Gtk.ToolItem) main_actions.get_action ("SearchNext").create_tool_item ();
             main_actions.get_action ("SearchNext").bind_property("sensitive", tool_arrow_up, "sensitive", BindingFlags.DEFAULT);
-            tool_arrow_down = (Gtk.ToolItem) main_actions.get_action ("SearchBack").create_tool_item ();
+            tool_arrow_up.add (next);
+            
+            var previous = new Gtk.Button ();
+            previous.clicked.connect (search_previous);
+            previous.set_relief (Gtk.ReliefStyle.NONE);
+            i = new Gtk.Image.from_icon_name ("go-previous-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            i.pixel_size = 16;
+            previous.image = i;
+            tool_arrow_down = new Gtk.ToolItem ();//(Gtk.ToolItem) main_actions.get_action ("SearchBack").create_tool_item ();
             main_actions.get_action ("SearchBack").bind_property("sensitive", tool_arrow_down, "sensitive", BindingFlags.DEFAULT);
+            tool_arrow_down.add (previous);
             
             main_actions.get_action ("SearchNext").set_sensitive (false);
             main_actions.get_action ("SearchBack").set_sensitive (false);
