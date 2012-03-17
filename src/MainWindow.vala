@@ -686,7 +686,7 @@ namespace Scratch {
         }
 
         void case_down () {
-            search_manager.search ();
+            search_manager.search_next ();
         }
 
         void action_undo () {
