@@ -88,15 +88,22 @@ namespace Scratch.Services {
         public bool can_undo { get { return buffer.can_undo; } }
         public bool can_redo { get { return buffer.can_redo; } }
         
-        // Public string and bool to watch for an warn about files changed by other programs 
+        // Private string and bool to watch for an warn about files changed by other programs 
         public string last_saved_text = null;
+        private bool want_reload = false;
         
         // Private variables
         private string original_text;
         private Gtk.SourceBuffer buffer;
         private Gtk.SourceView source_view;
         private MainWindow window;
-        private File file;
+        private File _file;
+        private File file { 
+            get { 
+                _file =File.new_for_path (filename); 
+                return _file;
+            } 
+        }
         private static string home_dir = Environment.get_home_dir ();
         public Tab tab;
         /**
@@ -109,7 +116,6 @@ namespace Scratch.Services {
 
 
             this.filename = filename;
-            file = File.new_for_path (filename);
 
             register_recent ();
 
@@ -380,9 +386,9 @@ namespace Scratch.Services {
             else {
                 if (filename != null) {
                     if (buffer.text == original_text) {
-                        //window.main_actions.get_action ("Revert").set_sensitive (false);
-                        //set_label_font ("saved");
-                        //modified = true;
+                        /*window.main_actions.get_action ("Revert").set_sensitive (false);
+                        set_label_font ("saved");
+                        modified = false;*/
                     }
                     else {
                         window.main_actions.get_action ("Revert").set_sensitive (true);
@@ -410,7 +416,10 @@ namespace Scratch.Services {
          **/
         bool on_source_view_focus_in (Gdk.EventFocus event) {
             string contents;            
-
+            
+            if (filename != null)
+                window.main_actions.get_action ("Revert").set_sensitive (true);
+            
             /* First, we check that this is a real file, and not a new document */
             if (filename == null && settings.autosave == false) {
                 window.toolbar.save_button.set_sensitive (true);
@@ -422,12 +431,17 @@ namespace Scratch.Services {
             } catch (Error e) {
                 warning (e.message);
             }
-            if (contents != this.last_saved_text) {
+            
+            if (contents != this.last_saved_text && this.last_saved_text != null) want_reload = true;
+                
+            if (want_reload) {
                 var warn = new Scratch.Dialogs.WarnDialog (filename, window);
                 warn.run ();
-                warn.destroy ();
-            }  
-
+                warn.destroy ();    
+                want_reload = false;
+                this.last_saved_text = contents; 
+            }
+            
             /* Check the document state */
             if (state == DocumentStates.READONLY) {
                 if (settings.autosave) source_view.editable = false;    
@@ -465,11 +479,21 @@ namespace Scratch.Services {
                 window.toolbar.save_button.hide ();
                 modified = false;
                 force_normal_state = true;
-                this.last_saved_text = this.buffer.text;
+                
+                string contents;   
+                try {
+                    FileUtils.get_contents (filename, out contents);
+                } catch (Error e) {
+                    warning (e.message);
+                }
+                
+                this.last_saved_text = contents;
+             
+                this.want_reload = false;
             }
             
             /*
-             * re-set the missed attributes
+             * re-set the missed attributesfocus
              */
             // TODO: make the native way working
             /*var file = File.new_for_path (f);
@@ -492,7 +516,18 @@ namespace Scratch.Services {
                 window.toolbar.save_button.hide ();
                 modified = false;
                 _state = DocumentStates.NORMAL;
-                this.last_saved_text = this.buffer.text;
+                force_normal_state = true;
+                
+                string contents;   
+                try {
+                    FileUtils.get_contents (file.get_path (), out contents);
+                } catch (Error e) {
+                    warning (e.message);
+                }
+             
+                this.last_saved_text = contents;
+             
+                this.want_reload = false;
             }
             /*
              * re-set the missed attributes

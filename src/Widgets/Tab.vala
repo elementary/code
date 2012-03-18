@@ -139,7 +139,6 @@ namespace Scratch.Widgets {
                 top.set_window_title (this.filename);				
                 
                 this.document.filename = this.filename;
-				this.document.last_saved_text = this.text_view.buffer.text;
 				this.document.modified = false;
 				
 				change_syntax_highlight_for_filename(this.filename);
@@ -204,7 +203,6 @@ namespace Scratch.Widgets {
                 top.set_window_title (this.filename);
 
                 this.document.filename = this.filename;
-                this.document.last_saved_text = this.text_view.buffer.text;
                 this.document.modified = false;
                 
                 change_syntax_highlight_for_filename(this.filename);
