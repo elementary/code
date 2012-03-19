@@ -101,7 +101,7 @@ namespace Scratch {
         public Gtk.Notebook notebook_bottom;
 
         //dialogs
-        public InfoBar info_bar;
+        public NotificationBar info_bar;
 
         public Scratch.Widgets.Tab current_tab { get { return (Scratch.Widgets.Tab) current_notebook.current_tab; }}
         public ScratchNotebook current_notebook { get { return split_view.get_current_notebook (); } }
@@ -330,7 +330,7 @@ namespace Scratch {
             /**
              * Info bar
              */
-            info_bar = new Gtk.InfoBar ();
+            info_bar = new NotificationBar ();
             info_bar.no_show_all = true;
             
             var notebook =  new ScratchNotebook (this);

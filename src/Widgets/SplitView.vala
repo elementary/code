@@ -41,7 +41,7 @@ namespace Scratch.Widgets {
 
         public signal void page_changed (Gtk.Widget w);
         public Gtk.Widget additional_widget { set; private get; }
-        public Gtk.InfoBar info_bar { set; private get; }
+        public NotificationBar info_bar { set; private get; }
 
         public SplitView (MainWindow window) {
 

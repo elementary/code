@@ -32,7 +32,7 @@ namespace Scratch.Widgets {
 
         public Tab current_tab;
         public Gtk.Widget additional_widget { set; private get; }
-        public Gtk.InfoBar info_bar { set; public get; }
+        public NotificationBar info_bar { set; public get; }
 
         public ScratchNotebook (MainWindow parent) {
 
@@ -51,7 +51,7 @@ namespace Scratch.Widgets {
             page_removed.connect(on_page_removed);
             page_added.connect(on_page_added);
             additional_widget = new Gtk.Label("NoteBook");
-            info_bar = new Gtk.InfoBar ();
+            info_bar = new NotificationBar ();
             
             page_focused.connect ( () => { 
                 current_tab.set_overlay (additional_widget);

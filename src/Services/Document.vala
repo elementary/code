@@ -251,33 +251,10 @@ namespace Scratch.Services {
                 if (settings.autosave) source_view.editable = false;    
                 else window.toolbar.save_button.set_sensitive (false);
                 
-                // TODO: implement the InfoBar in a more elegant way
-                var info = new Gtk.InfoBar ();
-                info.set_message_type (Gtk.MessageType.QUESTION);
-                
-                var l = new Gtk.Label ("");
-                l.halign = Gtk.Align.START;
-                l.use_markup = true;
-                l.set_markup (_("You can't save changes to:") + " <b>" + filename + "</b>. " + _("Do you want to save the changes to this file in a different location?"));
-                
-                var no = new Gtk.Button.with_label (("   ") + _("No") + ("   "));
-                no.clicked.connect (() => {
-                    info.hide ();
-                    info.no_show_all = true;                    
-                });
-                
-                var yes = new Gtk.Button.with_label (("   ") + _("Yes") + ("   "));
-                yes.clicked.connect (() => {
-                    info.hide ();
-                    info.no_show_all = true;
-                });
-                
-                info.pack_start (l, true, true, 3);
-                info.pack_end (yes, false, false, 3);
-                info.pack_end (no, false, false, 3);
-                
-                info.no_show_all = false;
-                window.current_notebook.info_bar = info;
+                window.current_notebook.info_bar.set_notification_type (Scratch.Widgets.NotificationType.NO_WRITE);
+                window.current_notebook.info_bar.set_notification_label (_("You can't save changes to:") + " <b>" + file.get_basename () + "</b>. " + _("Do you want to save the changes to this file in a different location?"));
+                window.current_notebook.info_bar.set_filename (filename);
+                window.current_notebook.info_bar.no_show_all = false;
             }
 
             return true;
@@ -451,6 +428,12 @@ namespace Scratch.Services {
                 force_normal_state = true;
                 if (settings.autosave) source_view.editable = true;    
                 else window.toolbar.save_button.set_sensitive (true);
+            }
+            
+            if (state == DocumentStates.READONLY) {
+                window.current_notebook.info_bar.set_notification_type (Scratch.Widgets.NotificationType.NO_WRITE);
+                window.current_notebook.info_bar.set_notification_label (_("You can't save changes to:") + " <b>" + file.get_basename () + "</b>. " + _("Do you want to save the changes to this file in a different location?"));
+                window.current_notebook.info_bar.set_filename (filename);
             }
             
             window.search_manager.get_go_to_adj ().upper = buffer.text.split ("\n").length;
