@@ -253,7 +253,7 @@ namespace Scratch.Services {
                 
                 window.current_notebook.info_bar.set_notification_type (Scratch.Widgets.NotificationType.NO_WRITE);
                 window.current_notebook.info_bar.set_notification_label (_("You can't save changes to:") + " <b>" + file.get_basename () + "</b>. " + _("Do you want to save the changes to this file in a different location?"));
-                window.current_notebook.info_bar.set_filename (filename);
+                window.current_notebook.info_bar.set_attributes (filename, this);
                 window.current_notebook.info_bar.no_show_all = false;
             }
 
@@ -433,7 +433,7 @@ namespace Scratch.Services {
             if (state == DocumentStates.READONLY) {
                 window.current_notebook.info_bar.set_notification_type (Scratch.Widgets.NotificationType.NO_WRITE);
                 window.current_notebook.info_bar.set_notification_label (_("You can't save changes to:") + " <b>" + file.get_basename () + "</b>. " + _("Do you want to save the changes to this file in a different location?"));
-                window.current_notebook.info_bar.set_filename (filename);
+                window.current_notebook.info_bar.set_attributes (filename, this);
             }
             
             window.search_manager.get_go_to_adj ().upper = buffer.text.split ("\n").length;
