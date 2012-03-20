@@ -1,0 +1,25 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+    configure)
+        # register scratch as a gnome-text-editor in the alternatives system
+        update-alternatives \
+            --install \
+                /usr/bin/gnome-text-editor \
+                gnome-text-editor \
+                /usr/bin/scratch \
+                60 # gedit uses 50 and scratch is 20% cooler
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 0
+    ;;
+esac
+
+#DEBHELPER#
