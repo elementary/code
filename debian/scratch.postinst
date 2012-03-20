@@ -10,7 +10,7 @@ case "$1" in
                 /usr/bin/gnome-text-editor \
                 gnome-text-editor \
                 /usr/bin/scratch \
-                60 # gedit uses 50 and scratch is 20% cooler
+                40 #don't replace gedit because scratch doesn't support URLs yet
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
