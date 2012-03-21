@@ -8,20 +8,20 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-06 17:09+0100\n"
-"PO-Revision-Date: 2012-03-17 23:12+0000\n"
-"Last-Translator: Gregor Santner <Unknown>\n"
+"PO-Revision-Date: 2012-03-20 20:53+0000\n"
+"Last-Translator: alfalive <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-19 05:00+0000\n"
-"X-Generator: Launchpad (build 14969)\n"
+"X-Launchpad-Export-Date: 2012-03-21 05:57+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
 "Language: de\n"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:510
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:843
 msgid "Open a file"
-msgstr "Eine Datei öffnen"
+msgstr "Datei öffnen"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:517
 msgid "All files"
@@ -62,11 +62,11 @@ msgstr "Ersetzen"
 #: /home/mefrio/elementary/scratch/po/../src/Services/Document.vala:150
 #: /home/mefrio/elementary/scratch/po/../src/Services/Document.vala:307
 msgid "New document"
-msgstr "Neues Dokument"
+msgstr "Neue Datei"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:802
 msgid "Create a new document in a new tab"
-msgstr "Neues Dokument in neuem Reiter erstellen"
+msgstr "Neue Datei erstellen."
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:805
 msgid "Add New View"
@@ -90,7 +90,7 @@ msgstr "Rückgängig"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:815
 msgid "Undo the last action"
-msgstr "Die letzte Aktion rückgängig machen"
+msgstr "Eine Änderung zurück"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:818
 msgid "Redo"
@@ -98,7 +98,7 @@ msgstr "Wiederholen"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:819
 msgid "Redo the last undone action"
-msgstr "Die zuletzt rückgängig gemachte Aktion wiederholen"
+msgstr "Eine Änderung vorwärts"
 
 #: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:823
 msgid "Revert"
@@ -207,7 +207,7 @@ msgstr "Neue Datei"
 
 #: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:207
 msgid "Create a new empty file."
-msgstr "Eine neue, leere Datei erstellen."
+msgstr "Erstelle neue Datei."
 
 #: /home/mefrio/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
 #: /home/mefrio/elementary/scratch/po/../scratchcore/SourceView.vala:101
