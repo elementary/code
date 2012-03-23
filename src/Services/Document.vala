@@ -43,7 +43,11 @@ namespace Scratch.Services {
             }
         }
         public string? name { get; private set; default  = null; }
-
+        
+        
+        // Detect if the file is opened now
+        public bool opening = true;
+        
         private string _directory;
         public string directory {
             get {
@@ -353,9 +357,10 @@ namespace Scratch.Services {
                     timeout_saving = -1;
                 }
                 timeout_saving = Timeout.add(250, () => {
-                    save ();
+                    if (!opening) save ();
                     modified = false;
                     tab.text_view.modified = false;
+                    opening = false;
                     return false;
                     timeout_saving = -1;
                 });
@@ -384,6 +389,7 @@ namespace Scratch.Services {
             if (state == DocumentStates.READONLY) modified = false;
             
             window.search_manager.get_go_to_adj ().upper = buffer.text.split ("\n").length;
+
         }
         
         /**
@@ -455,6 +461,7 @@ namespace Scratch.Services {
         
         public bool save () {
             bool was_executable = can_execute ();
+            opening = false;
             
             string f = filename;
             int n = tab.save ();
