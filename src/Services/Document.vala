@@ -388,6 +388,12 @@ namespace Scratch.Services {
             }
             if (state == DocumentStates.READONLY) modified = false;
             
+            /* Set revert button sensitive */
+            if (original_text == source_view.buffer.text)
+                window.toolbar.revert_button.set_sensitive (false);
+            else
+                window.toolbar.revert_button.set_sensitive (true);
+            
             window.search_manager.get_go_to_adj ().upper = buffer.text.split ("\n").length;
 
         }
@@ -424,7 +430,13 @@ namespace Scratch.Services {
                 want_reload = false;
                 this.last_saved_text = contents; 
             }
-            
+ 
+            /* Set revert button sensitive */
+            if (original_text == source_view.buffer.text)
+                window.toolbar.revert_button.set_sensitive (false);
+            else
+                window.toolbar.revert_button.set_sensitive (true);
+                
             /* Check the document state */
             if (state == DocumentStates.READONLY) {
                 if (settings.autosave) source_view.editable = false;    
