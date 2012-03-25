@@ -7,364 +7,383 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-03-06 17:09+0100\n"
+"POT-Creation-Date: 2012-03-23 16:35+0100\n"
 "PO-Revision-Date: 2012-03-06 18:10+0000\n"
 "Last-Translator: Ebubekir KARUL <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-07 05:52+0000\n"
-"X-Generator: Launchpad (build 14907)\n"
+"X-Launchpad-Export-Date: 2012-03-25 05:57+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:510
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:843
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:524
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:887
 msgid "Open a file"
 msgstr "Dosya aç"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:517
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:531
 msgid "All files"
 msgstr "Tüm dosyalar"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:520
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:534
 msgid "Text files"
 msgstr "Metin dosyaları"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:781
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:782
-msgid "Fetch"
-msgstr "Getir"
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:821
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:822
+#: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:66
+msgid "Find..."
+msgstr "Ara..."
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:785
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:786
-#: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:71
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:825
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:826
+msgid "Hide search bar"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:829
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:830
 msgid "Go to line..."
 msgstr "Satıra git..."
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:789
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:790
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:833
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:834
 msgid "Quit"
 msgstr "Çıkış"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:793
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:794
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:837
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:838
 msgid "Close"
 msgstr "Kapat"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:797
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:798
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:841
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:842
 msgid "Replace"
 msgstr "Değiştir"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:801
-#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:119
-#: /home/mefrio/elementary/scratch/po/../src/Services/Document.vala:150
-#: /home/mefrio/elementary/scratch/po/../src/Services/Document.vala:307
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:845
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:124
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:164
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:326
 msgid "New document"
 msgstr "Yeni belge"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:802
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:846
 msgid "Create a new document in a new tab"
 msgstr "Yeni sekmede belge oluştur"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:805
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:849
 msgid "Add New View"
 msgstr "Ekranı Böl"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:806
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:850
 msgid "Add a new view"
 msgstr "Ekranı böl"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:810
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:854
 msgid "Remove Current View"
 msgstr "Seçili Ekranı Sil"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:811
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:855
 msgid "Remove this view"
 msgstr "Bu ekranı sil"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:814
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:858
 msgid "Undo"
 msgstr "Geri al"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:815
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:859
 msgid "Undo the last action"
 msgstr "Son eylemi geri al"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:818
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:862
 msgid "Redo"
 msgstr "Yeniden Yap"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:819
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:863
 msgid "Redo the last undone action"
 msgstr "Geri alınmış son işlemi yinele"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:823
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:867
 msgid "Revert"
 msgstr "Eskiye dön"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:824
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:868
 msgid "Restore this file"
 msgstr "Dosyayı kurtar"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:828
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:829
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:872
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:873
 msgid "Next Search"
 msgstr "Sonraki arama"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:832
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:833
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:876
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:877
 msgid "Previous Search"
 msgstr "Önceki arama"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:837
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:838
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:881
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:882
 msgid "Duplicate selected strings"
 msgstr "Seçili kelimeyi çoğalt"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:842
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:886
 msgid "Open"
 msgstr "Aç"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:846
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:890
 msgid "Save"
 msgstr "Kaydet"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:847
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:891
 msgid "Save the current file"
 msgstr "Mevcut dosyayı kaydet"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:850
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:894
 msgid "Save as"
 msgstr "Farklı kaydet"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:851
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:895
 msgid "Save the current file with a different name"
 msgstr "Mevcut dosyayı farklı bir isimle kaydet"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:854
-#: /home/mefrio/elementary/scratch/po/../scratchcore/TemplateManager.vala:123
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:898
+#: /home/mario/elementary/scratch/po/../scratchcore/TemplateManager.vala:123
 msgid "Templates"
 msgstr "Şablonlar"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:855
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:899
 msgid "Create a new document from a template"
 msgstr "Şablondan Yeni Belge Yarat"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:858
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:902
 msgid "Preferences"
 msgstr "Tercihler"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:859
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:903
 msgid "Change Scratch settings"
 msgstr "Scratch ayarlarını değiştir"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:865
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:866
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:909
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:910
 msgid "Fullscreen"
 msgstr "Tam ekran"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:869
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:870
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:913
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:914
 msgid "Sidebar"
 msgstr "Kenar çubuğu"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:873
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:874
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:917
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:918
 msgid "Context View"
 msgstr "Bağlam Görünümü"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:877
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:878
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:921
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:922
 msgid "Status Bar"
 msgstr "Durum Çubuğu"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:881
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:882
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:925
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:926
 msgid "Bottom Panel"
 msgstr "Alt Panel"
 
-#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:204
-msgid "No files are open."
-msgstr "Açık dosya yok."
-
-#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:204
-msgid "Open a file to begin editing."
-msgstr "Düzenlemeye başlamak için bir dosya açın."
-
-#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:206
-msgid "Open file"
-msgstr "Dosya aç"
-
-#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:206
-msgid "Open a saved file."
-msgstr "Kaydedilmiş bir dosyayı aç."
-
-#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:207
-msgid "New file"
-msgstr "Yeni dosya"
-
-#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:207
-msgid "Create a new empty file."
-msgstr "Yeni bir boş dosya oluştur."
-
-#: /home/mefrio/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
-#: /home/mefrio/elementary/scratch/po/../scratchcore/SourceView.vala:101
+#: /home/mario/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
+#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:101
 msgid "Normal text"
 msgstr "Normal metin"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+#: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:44
+msgid "No"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:50
+msgid "Yes"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:58
+msgid "Choose the new location"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:209
+msgid "No files are open."
+msgstr "Açık dosya yok."
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:209
+msgid "Open a file to begin editing."
+msgstr "Düzenlemeye başlamak için bir dosya açın."
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:211
+msgid "Open file"
+msgstr "Dosya aç"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:211
+msgid "Open a saved file."
+msgstr "Kaydedilmiş bir dosyayı aç."
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:212
+msgid "New file"
+msgstr "Yeni dosya"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:212
+msgid "Create a new empty file."
+msgstr "Yeni bir boş dosya oluştur."
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "Save changes to document"
 msgstr "Belgedeki değişiklikleri kaydet"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "New File"
 msgstr "Yeni Dosya"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
 "Eğer kaydetmezseniz, son 4 saniyedeki değişiklikler kalıcı olarak "
 "silinecektir."
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
 msgstr "Kaydetmeden kapat"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:69
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:69
 msgid "Behavior"
 msgstr "Davranış"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
 msgid "Interface"
 msgstr "Arayüz"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:78
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:78
 msgid "Extensions"
 msgstr "Eklentiler"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:119
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
 msgid "Show welcome screen"
 msgstr "Karşılama ekranını göster"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:120
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:122
 msgid "Show last open tabs"
 msgstr "En son açılmış sekmeleri göster"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:136
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:138
 msgid "General:"
 msgstr "Genel:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:142
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:144
 msgid "When Scratch starts:"
 msgstr "Scratch başladığında:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:145
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
 msgid "Save files at every changes:"
 msgstr "Her değişimde dosyayı kaydet:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:150
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Tabs:"
 msgstr "Sekmeler:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:155
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:157
 msgid "Automatic indentation:"
 msgstr "Otomatik girintileme:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:158
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:160
 msgid "Insert spaces instead of tabs:"
 msgstr "Sekme yerine boşluk ekle:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:162
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:164
 msgid "Tab width:"
 msgstr "Sekme genişliği:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:192
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:194
 msgid "Editor:"
 msgstr "Düzenleyici"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:207
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:209
 msgid "Highlight current line:"
 msgstr "Geçerli satırı vurgula"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:210
 msgid "Highlight matching brackets:"
 msgstr "Eşleşenleri renklendir"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:209
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:211
 msgid "Draw spaces:"
 msgstr "Yazı boşluğu"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:210
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:212
 msgid "Show line numbers:"
 msgstr "Satır numaralarını göster:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:213
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:215
 msgid "Show margin on right:"
 msgstr "Düzen çubuğunu göster"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:220
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:222
 msgid "Margin width:"
 msgstr "Çubuk genişliği:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:225
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:227
 msgid "Font and colors:"
 msgstr "Yazıtipi ve renkler:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:239
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:241
 msgid "Select font:"
 msgstr "Yazıtipi seç:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:242
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:244
 msgid "Color scheme:"
 msgstr "Renk şeması:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:247
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:249
 #, c-format
 msgid "System font (%s):"
 msgstr "Sistem yazıtipi  (%s):"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
 msgstr "Kapatmadan önce değişiklikler dosyaya kaydedilsin mi?"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
 msgid "Save unsaved changes to file \""
 msgstr "\" dosyadaki kaydedilmemiş değişiklikleri kaydet."
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
 msgstr "Bu dosyadaki değişiklikler kaydedilmedi."
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Do you want to save changes before closing this file?"
 msgstr "Bu dosyayı kapatmadan önce değişiklikleri kaydetmek istiyor musunuz?"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:41
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:41
 msgid "The file:"
 msgstr "Dosya:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:42
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:42
 msgid "Do you want to reload it?"
 msgstr "Yeniden yüklemek ister misiniz?"
 
-#: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:69
-msgid "Find..."
-msgstr "Ara..."
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:259
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:441
+msgid "You can't save changes to:"
+msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:70
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:259
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:441
+msgid "Do you want to save the changes to this file in a different location?"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:67
 msgid "Replace..."
 msgstr "Değiştir..."
 
-#: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:273
-msgid "Search options:"
-msgstr "Arama Ayarları:"
+#: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:82
+msgid "Go To Line:"
+msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:277
-msgid "Case sensitive search:"
-msgstr "Büyük/küçük harfe duyarlı arama:"
-
-#: /home/mefrio/elementary/scratch/po/../scratchcore/SourceView.vala:95
+#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:95
 msgid "Syntax Highlighting"
 msgstr "Sözdizimi Vurgulaması"

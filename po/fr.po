@@ -7,366 +7,385 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-06 17:09+0100\n"
+"POT-Creation-Date: 2012-03-23 16:35+0100\n"
 "PO-Revision-Date: 2012-03-13 15:03+0000\n"
 "Last-Translator: Corentin Noël <tintou@mailoo.org>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-14 05:21+0000\n"
-"X-Generator: Launchpad (build 14933)\n"
+"X-Launchpad-Export-Date: 2012-03-25 05:57+0000\n"
+"X-Generator: Launchpad (build 14981)\n"
 "Language: fr\n"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:510
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:843
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:524
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:887
 msgid "Open a file"
 msgstr "Ouvrir un fichier"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:517
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:531
 msgid "All files"
 msgstr "Tous les fichiers"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:520
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:534
 msgid "Text files"
 msgstr "Fichiers texte"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:781
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:782
-msgid "Fetch"
-msgstr "Rechercher"
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:821
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:822
+#: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:66
+msgid "Find..."
+msgstr "Rechercher..."
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:785
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:786
-#: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:71
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:825
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:826
+msgid "Hide search bar"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:829
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:830
 msgid "Go to line..."
 msgstr "Aller à la ligne..."
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:789
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:790
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:833
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:834
 msgid "Quit"
 msgstr "Quitter"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:793
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:794
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:837
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:838
 msgid "Close"
 msgstr "Fermer"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:797
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:798
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:841
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:842
 msgid "Replace"
 msgstr "Remplacer"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:801
-#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:119
-#: /home/mefrio/elementary/scratch/po/../src/Services/Document.vala:150
-#: /home/mefrio/elementary/scratch/po/../src/Services/Document.vala:307
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:845
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:124
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:164
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:326
 msgid "New document"
 msgstr "Nouveau document"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:802
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:846
 msgid "Create a new document in a new tab"
 msgstr "Créer un document dans un nouvel onglet"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:805
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:849
 msgid "Add New View"
 msgstr "Nouvel onglet"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:806
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:850
 msgid "Add a new view"
 msgstr "Nouvel onglet"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:810
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:854
 msgid "Remove Current View"
 msgstr "Fermer l'onglet actif"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:811
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:855
 msgid "Remove this view"
 msgstr "Fermer cet onglet"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:814
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:858
 msgid "Undo"
 msgstr "Annuler"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:815
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:859
 msgid "Undo the last action"
 msgstr "Annuler la dernière action"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:818
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:862
 msgid "Redo"
 msgstr "Refaire"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:819
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:863
 msgid "Redo the last undone action"
 msgstr "Rétablir la dernière action annulée"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:823
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:867
 msgid "Revert"
 msgstr "Annuler"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:824
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:868
 msgid "Restore this file"
 msgstr "Restaurer ce fichier"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:828
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:829
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:872
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:873
 msgid "Next Search"
 msgstr "Recherche suivante"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:832
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:833
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:876
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:877
 msgid "Previous Search"
 msgstr "Recherche précédente"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:837
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:838
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:881
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:882
 msgid "Duplicate selected strings"
 msgstr "Dupliquer la sélection"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:842
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:886
 msgid "Open"
 msgstr "Ouvrir"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:846
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:890
 msgid "Save"
 msgstr "Enregistrer"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:847
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:891
 msgid "Save the current file"
 msgstr "Enregistre le fichier actuel"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:850
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:894
 msgid "Save as"
 msgstr "Enregistrer sous"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:851
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:895
 msgid "Save the current file with a different name"
 msgstr "Enregistrer le fichier courant sous un nom différent"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:854
-#: /home/mefrio/elementary/scratch/po/../scratchcore/TemplateManager.vala:123
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:898
+#: /home/mario/elementary/scratch/po/../scratchcore/TemplateManager.vala:123
 msgid "Templates"
 msgstr "Modèles"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:855
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:899
 msgid "Create a new document from a template"
 msgstr "Créer un nouveau document à partir d'un modèle"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:858
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:902
 msgid "Preferences"
 msgstr "Préférences"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:859
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:903
 msgid "Change Scratch settings"
 msgstr "Changer les paramètres de Scratch"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:865
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:866
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:909
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:910
 msgid "Fullscreen"
 msgstr "Plein écran"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:869
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:870
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:913
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:914
 msgid "Sidebar"
 msgstr "Panneau latéral"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:873
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:874
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:917
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:918
 msgid "Context View"
 msgstr "Panneau contextuel"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:877
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:878
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:921
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:922
 msgid "Status Bar"
 msgstr "Barre d'état"
 
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:881
-#: /home/mefrio/elementary/scratch/po/../src/MainWindow.vala:882
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:925
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:926
 msgid "Bottom Panel"
 msgstr "Panneau inférieur"
 
-#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:204
-msgid "No files are open."
-msgstr "Aucun fichier n'est ouvert"
-
-#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:204
-msgid "Open a file to begin editing."
-msgstr "Ouvrir un fichier pour commencer l'édition"
-
-#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:206
-msgid "Open file"
-msgstr "Ouvrir un fichier"
-
-#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:206
-msgid "Open a saved file."
-msgstr "Ouvrir un fichier sauvegardé"
-
-#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:207
-msgid "New file"
-msgstr "Nouveau fichier"
-
-#: /home/mefrio/elementary/scratch/po/../src/Widgets/Notebook.vala:207
-msgid "Create a new empty file."
-msgstr "Créer un fichier vide"
-
-#: /home/mefrio/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
-#: /home/mefrio/elementary/scratch/po/../scratchcore/SourceView.vala:101
+#: /home/mario/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
+#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:101
 msgid "Normal text"
 msgstr "Texte standard"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+#: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:44
+msgid "No"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:50
+msgid "Yes"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:58
+msgid "Choose the new location"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:209
+msgid "No files are open."
+msgstr "Aucun fichier n'est ouvert"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:209
+msgid "Open a file to begin editing."
+msgstr "Ouvrir un fichier pour commencer l'édition"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:211
+msgid "Open file"
+msgstr "Ouvrir un fichier"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:211
+msgid "Open a saved file."
+msgstr "Ouvrir un fichier sauvegardé"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:212
+msgid "New file"
+msgstr "Nouveau fichier"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:212
+msgid "Create a new empty file."
+msgstr "Créer un fichier vide"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "Save changes to document"
 msgstr "Enregistrer les modifications"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "New File"
 msgstr "Nouveau fichier"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
 "Si vous n'enregistrez pas, les modifications des 4 dernières secondes seront "
 "perdu définitivement."
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
 msgstr "Fermer sans enregistrer"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:69
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:69
 msgid "Behavior"
 msgstr "Comportement"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
 msgid "Interface"
 msgstr "Interface"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:78
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:78
 msgid "Extensions"
 msgstr "Extensions"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:119
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
 msgid "Show welcome screen"
 msgstr "Afficher l'écran d'accueil"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:120
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:122
 msgid "Show last open tabs"
 msgstr "Afficher les derniers onglets ouverts"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:136
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:138
 msgid "General:"
 msgstr "Général :"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:142
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:144
 msgid "When Scratch starts:"
 msgstr "Quand Scratch démarre :"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:145
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
 msgid "Save files at every changes:"
 msgstr "Enregistrer à chaque modification :"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:150
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Tabs:"
 msgstr "Onglets :"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:155
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:157
 msgid "Automatic indentation:"
 msgstr "Traduction automatique :"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:158
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:160
 msgid "Insert spaces instead of tabs:"
 msgstr "Insérer des espaces au lieu de tabulations :"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:162
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:164
 msgid "Tab width:"
 msgstr "Largeur des tabulations :"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:192
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:194
 msgid "Editor:"
 msgstr "Éditeur :"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:207
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:209
 msgid "Highlight current line:"
 msgstr "Surligner la ligne active :"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:210
 msgid "Highlight matching brackets:"
 msgstr "Surligner les crochets correspondants :"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:209
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:211
 msgid "Draw spaces:"
 msgstr "Indiquer les espaces:"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:210
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:212
 msgid "Show line numbers:"
 msgstr "Afficher les numéros de ligne :"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:213
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:215
 msgid "Show margin on right:"
 msgstr "Afficher la marge de droite :"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:220
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:222
 msgid "Margin width:"
 msgstr "Largeur de la marge :"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:225
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:227
 msgid "Font and colors:"
 msgstr "Polices et couleurs :"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:239
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:241
 msgid "Select font:"
 msgstr "Choisissez une police :"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:242
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:244
 msgid "Color scheme:"
 msgstr "Palette de couleurs :"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:247
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:249
 #, c-format
 msgid "System font (%s):"
 msgstr "Police système (%s) :"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
 msgstr "Enregistrer les modifications avant de fermer ?"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
 msgid "Save unsaved changes to file \""
 msgstr "Enregistrer les modifications dans le fichier \""
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
 msgstr "Les modifications apportées au fichier n'ont pas été enregistrées."
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Do you want to save changes before closing this file?"
 msgstr ""
 "Voulez-vous enregistrer les modifications avant de fermer le fichier ?"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:41
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:41
 msgid "The file:"
 msgstr "Le fichier :"
 
-#: /home/mefrio/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:42
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:42
 msgid "Do you want to reload it?"
 msgstr "Souhaitez-vous le rafraîchir ?"
 
-#: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:69
-msgid "Find..."
-msgstr "Rechercher..."
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:259
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:441
+msgid "You can't save changes to:"
+msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:70
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:259
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:441
+msgid "Do you want to save the changes to this file in a different location?"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:67
 msgid "Replace..."
 msgstr "Remplacer..."
 
-#: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:273
-msgid "Search options:"
-msgstr "Options de recherche:"
+#: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:82
+msgid "Go To Line:"
+msgstr ""
 
-#: /home/mefrio/elementary/scratch/po/../scratchcore/SearchManager.vala:277
-msgid "Case sensitive search:"
-msgstr "Recherche sensible à la case :"
-
-#: /home/mefrio/elementary/scratch/po/../scratchcore/SourceView.vala:95
+#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:95
 msgid "Syntax Highlighting"
 msgstr "Coloration syntaxique"
