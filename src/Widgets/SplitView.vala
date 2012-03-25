@@ -28,7 +28,7 @@ namespace Scratch.Widgets {
 
         //IN THIS CLASS I COMMENTED ALL THE CODE WHICH WAS USED FOR A SPLITVIEW WITH GTK.TABLE
 
-        public const int max = 4; //max = max--
+        public const int max = 3;
 
         public MainWindow window;
         public uint total_view {
