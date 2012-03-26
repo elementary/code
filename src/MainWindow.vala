@@ -392,7 +392,8 @@ namespace Scratch {
             main_actions.get_action ("ShowGoTo").set_sensitive (val);
             bool split_view_not_full = split_view.get_children ().length () < split_view.max - 1;
             bool split_view_multiple_view = split_view.get_children ().length () > 1;
-            main_actions.get_action ("New view").set_sensitive (split_view_not_full);
+            if (!val) main_actions.get_action ("New view").set_sensitive (false);
+            else main_actions.get_action ("New view").set_sensitive (split_view_not_full);
             main_actions.get_action ("Remove view").set_sensitive (val ? split_view_multiple_view : false);
             main_actions.get_action ("ShowStatusBar").set_sensitive (val);
             toolbar.set_actions (val);
