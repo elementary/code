@@ -399,6 +399,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
         if (search_entry.text == "")
             return false;
         string key = Gdk.keyval_name (event.keyval);
+        debug ("%s", key);
         switch (key)
         {
         case "Up":
@@ -410,6 +411,9 @@ public class Scratch.Services.SearchManager : GLib.Object {
             return true;
         case "Escape":
             text_view.grab_focus ();
+            return true;
+        case "Tab":
+            if (search_entry.is_focus) replace_entry.grab_focus ();
             return true;
         }
         return false;
