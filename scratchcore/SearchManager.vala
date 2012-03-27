@@ -63,8 +63,8 @@ public class Scratch.Services.SearchManager : GLib.Object {
         
         this.main_actions = main_actions;
 
-        search_entry = new Granite.Widgets.SearchBar (_("Find..."));
-        replace_entry = new Granite.Widgets.SearchBar (_("Replace..."));
+        search_entry = new Granite.Widgets.SearchBar (_("Find"));
+        replace_entry = new Granite.Widgets.SearchBar (_("Replace With"));
         go_to_adj = new Gtk.Adjustment (0, 0, 1000, 1, 40, 0);
         go_to_entry = new Gtk.SpinButton (go_to_adj, 1, 1);
         go_to_entry.digits = 0;
@@ -93,7 +93,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
             var next = new Gtk.Button ();
             next.clicked.connect (search_next);
             next.set_relief (Gtk.ReliefStyle.NONE);
-            var i = new Gtk.Image.from_icon_name ("go-next-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            var i = new Gtk.Image.from_icon_name ("go-down-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
             i.pixel_size = 16;
             next.image = i;
             tool_arrow_up = new Gtk.ToolItem ();//(Gtk.ToolItem) main_actions.get_action ("SearchNext").create_tool_item ();
@@ -103,7 +103,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
             var previous = new Gtk.Button ();
             previous.clicked.connect (search_previous);
             previous.set_relief (Gtk.ReliefStyle.NONE);
-            i = new Gtk.Image.from_icon_name ("go-previous-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            i = new Gtk.Image.from_icon_name ("go-up-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
             i.pixel_size = 16;
             previous.image = i;
             tool_arrow_down = new Gtk.ToolItem ();//(Gtk.ToolItem) main_actions.get_action ("SearchBack").create_tool_item ();

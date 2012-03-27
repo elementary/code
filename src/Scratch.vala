@@ -50,7 +50,7 @@ namespace Scratch {
             app_years = "2011-2012";
             app_icon = "scratch";
             app_launcher = "scratch.desktop";
-            application_id = "net.launchpad." + app_cmd_name.down();
+            application_id = "org.elementary." + app_cmd_name.down();
             main_url = "https://launchpad.net/scratch";
             bug_url = "https://bugs.launchpad.net/scratch";
             help_url = "https://answers.launchpad.net/scratch";
