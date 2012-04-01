@@ -142,7 +142,14 @@ namespace Scratch.Widgets {
                 this.document.last_saved_text = this.text_view.buffer.text;
 				this.document.modified = false;
 				
-				change_syntax_highlight_for_filename(this.filename);
+				/* If autosave is on, 
+				 * to avoid to change 
+				 * the syntax highlight 
+				 * at every change, 
+				 * it is not changed 
+				 */
+    		    if (!settings.autosave)
+    		        change_syntax_highlight_for_filename(this.filename);
 				
                 return 0;
 
@@ -207,7 +214,14 @@ namespace Scratch.Widgets {
                 this.document.last_saved_text = this.text_view.buffer.text;
                 this.document.modified = false;
                 
-                change_syntax_highlight_for_filename(this.filename);
+                /* If autosave is on, 
+				 * to avoid to change 
+				 * the syntax highlight 
+				 * at every change, 
+				 * it is not changed 
+				 */
+    		    if (!settings.autosave)
+    		        change_syntax_highlight_for_filename(this.filename);
                 
                 return 0;
 
