@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-23 16:35+0100\n"
-"PO-Revision-Date: 2012-03-26 18:38+0000\n"
-"Last-Translator: dbinary <Unknown>\n"
+"PO-Revision-Date: 2012-03-31 23:03+0000\n"
+"Last-Translator: Alfredo Hernández <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-27 05:34+0000\n"
-"X-Generator: Launchpad (build 15011)\n"
+"X-Launchpad-Export-Date: 2012-04-01 04:56+0000\n"
+"X-Generator: Launchpad (build 15032)\n"
 "Language: es\n"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:524
@@ -35,12 +35,12 @@ msgstr "Archivos de texto"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:822
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:66
 msgid "Find..."
-msgstr "Buscar…"
+msgstr "Buscar..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:825
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:826
 msgid "Hide search bar"
-msgstr "Ocultar barra de busqueda"
+msgstr "Ocultar la barra de busqueda"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:829
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:830
@@ -67,7 +67,7 @@ msgstr "Reemplazar"
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:164
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:326
 msgid "New document"
-msgstr "Nuevo documento"
+msgstr "Documento nuevo"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:846
 msgid "Create a new document in a new tab"
@@ -79,7 +79,7 @@ msgstr "Añadir una vista nueva"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:850
 msgid "Add a new view"
-msgstr "Añadir una nueva vista"
+msgstr "Añadir una vista nueva"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:854
 msgid "Remove Current View"
@@ -155,7 +155,7 @@ msgstr "Plantillas"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:899
 msgid "Create a new document from a template"
-msgstr "Crear un nuevo documento desde una plantilla"
+msgstr "Crear un documento nuevo usando una plantilla"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:902
 msgid "Preferences"
@@ -217,7 +217,7 @@ msgstr "Abra un archivo para comenzar la edición."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:211
 msgid "Open file"
-msgstr "Abrir archivo"
+msgstr "Abrir un archivo"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:211
 msgid "Open a saved file."
@@ -225,7 +225,7 @@ msgstr "Abrir un archivo guardado."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:212
 msgid "New file"
-msgstr "Nuevo archivo"
+msgstr "Archivo nuevo"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:212
 msgid "Create a new empty file."
@@ -237,7 +237,7 @@ msgstr "Guardar los cambios al documento"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "New File"
-msgstr "Nuevo archivo"
+msgstr "Archivo nuevo"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
@@ -280,7 +280,7 @@ msgstr "Al iniciar Scratch:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
 msgid "Save files at every changes:"
-msgstr "Guardar archivos al producirse cambios:"
+msgstr "Guardar los archivos al producirse cambios:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Tabs:"
@@ -308,7 +308,7 @@ msgstr "Destacar la línea activa:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:210
 msgid "Highlight matching brackets:"
-msgstr "Destaca la pareja de corchetes:"
+msgstr "Destacar la pareja de corchetes:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:211
 msgid "Draw spaces:"
@@ -332,7 +332,7 @@ msgstr "Fuente y colores:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:241
 msgid "Select font:"
-msgstr "Seleccionar tipografía:"
+msgstr "Seleccionar fuente:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:244
 msgid "Color scheme:"
@@ -349,7 +349,7 @@ msgstr "¿Guardar los cambios en el archivo antes de cerrar?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
 msgid "Save unsaved changes to file \""
-msgstr "Guardar los cambios del archivo «"
+msgstr "Guardar los cambios en el archivo «"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
@@ -357,7 +357,7 @@ msgstr "Los cambios en este archivo no han sido guardados."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Do you want to save changes before closing this file?"
-msgstr "¿Quiere guardar los cambios antes de cerrar este archivo?"
+msgstr "¿Desea guardar los cambios antes de cerrar este archivo?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:41
 msgid "The file:"
@@ -370,13 +370,13 @@ msgstr "¿Desea volver a cargarlo?"
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:259
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:441
 msgid "You can't save changes to:"
-msgstr "No puedes guardar cambios a:"
+msgstr "No puede guardar los cambios en:"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:259
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:441
 msgid "Do you want to save the changes to this file in a different location?"
 msgstr ""
-"Quieres guardar los cambios de este archivo en una ubicación diferente?"
+"¿Desea guardar los cambios en este archivo en una ubicación diferente?"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:67
 msgid "Replace..."
@@ -384,7 +384,7 @@ msgstr "Reemplazar..."
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:82
 msgid "Go To Line:"
-msgstr "Ir a la Linea:"
+msgstr "Ir a la línea:"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:95
 msgid "Syntax Highlighting"
