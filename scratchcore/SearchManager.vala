@@ -260,6 +260,8 @@ public class Scratch.Services.SearchManager : GLib.Object {
 
     void on_search_entry_text_changed () {
         search ();
+        tool_arrow_up.set_sensitive (true);
+        tool_arrow_down.set_sensitive (true);
     }
 
     bool on_search_entry_focused_in (Gdk.EventFocus event) {
@@ -376,8 +378,10 @@ public class Scratch.Services.SearchManager : GLib.Object {
             if(!search_for_iter_backward (start_iter, out end_iter, search_string) && cycle_search) {
                 text_buffer.get_end_iter (out start_iter);
                 search_for_iter_backward (start_iter, out end_iter, search_string);
+                tool_arrow_down.set_sensitive (true);
             }
-
+            else
+                tool_arrow_down.set_sensitive (false);
         }
     }
 
@@ -390,7 +394,10 @@ public class Scratch.Services.SearchManager : GLib.Object {
             if(!search_for_iter (end_iter, out end_iter_tmp, search_string) && cycle_search) {
                 text_buffer.get_start_iter (out start_iter);
                 search_for_iter (start_iter, out end_iter, search_string);
+                tool_arrow_up.set_sensitive (true);
             }
+            else
+                tool_arrow_up.set_sensitive (false);
         }
     }
 

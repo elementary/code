@@ -167,7 +167,8 @@ namespace Scratch {
             foreach (string file in op) {
                if (file != "") {
                     var doc = new Document (file, window);
-                    open_document (doc);
+                    if (doc.exists) 
+                        open_document (doc);
                 }
             }
 
