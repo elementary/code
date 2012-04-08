@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-23 16:35+0100\n"
+"POT-Creation-Date: 2012-04-08 22:21+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,6 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:821
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:822
-#: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:66
 msgid "Find..."
 msgstr ""
 
@@ -356,26 +355,35 @@ msgstr ""
 msgid "Do you want to save changes before closing this file?"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:41
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:49
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:57
 msgid "The file:"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:42
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:50
 msgid "Do you want to reload it?"
 msgstr ""
 
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:58
+msgid "Do you want to create it again?"
+msgstr ""
+
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:259
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:441
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:457
 msgid "You can't save changes to:"
 msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:259
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:441
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:457
 msgid "Do you want to save the changes to this file in a different location?"
 msgstr ""
 
+#: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:66
+msgid "Find"
+msgstr ""
+
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:67
-msgid "Replace..."
+msgid "Replace With"
 msgstr ""
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:82

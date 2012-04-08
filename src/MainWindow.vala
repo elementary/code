@@ -115,14 +115,13 @@ namespace Scratch {
         ScratchWelcome welcome_screen;
         Granite.Widgets.HCollapsablePaned hpaned_sidebar;
 
-
         public MainWindow (Scratch.ScratchApp scratch_app) {
             this.scratch_app = scratch_app;
             set_application (scratch_app);
 
             this.title = TITLE;
             restore_saved_state ();
-
+            
             //main actions
             main_actions = new Gtk.ActionGroup ("MainActionGroup"); /* Actions and UIManager */
             main_actions.set_translation_domain ("scratch");

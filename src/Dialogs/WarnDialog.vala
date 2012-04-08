@@ -22,14 +22,21 @@ using Scratch.Widgets;
 
 namespace Scratch.Dialogs {
 
+    public enum WarnType {
+        RELOAD,
+        FILE_DELETED
+    }
+
     private class WarnDialog : MessageDialog {
 
         MainWindow window;
-
-        public WarnDialog (string filename, MainWindow? window) {
+        WarnType type;        
+        
+        public WarnDialog (string filename, MainWindow? window, WarnType type = WarnType.RELOAD) {
 
 	        this.window = window;
             this.title = title;
+            this.type = type;
             this.set_transient_for (window);
 	        set_default_size (300, 150);
             modal = true;
@@ -38,12 +45,22 @@ namespace Scratch.Dialogs {
 	        message_type = MessageType.WARNING;
             use_markup = true;
 	        
-	        text = "<b>" + _("The file:") + " \"" + filename + "\" " + "was modified." + "</b>";
-            text += "\n\n" + _("Do you want to reload it?");
+	        if (type == WarnType.RELOAD) {
+	            text = "<b>" + _("The file:") + " \"" + filename + "\" " + "was modified." + "</b>";
+                text += "\n\n" + _("Do you want to reload it?");
+	            
+	            add_button (Stock.REFRESH, ResponseType.ACCEPT);
+                add_button (Stock.CLOSE, ResponseType.CANCEL);
+	        }
 	        
-	        add_button (Stock.REFRESH, ResponseType.ACCEPT);
-            add_button (Stock.CLOSE, ResponseType.CANCEL);
-            
+	        else if (type == WarnType.FILE_DELETED) {
+	            text = "<b>" + _("The file:") + " \"" + filename + "\" " + "was deleted." + "</b>";
+                text += "\n\n" + _("Do you want to create it again?");
+	            
+	            add_button (Stock.YES, ResponseType.ACCEPT);
+                add_button (Stock.CLOSE, ResponseType.CANCEL);
+	        }
+	        
             response.connect (on_response);
                 
         }
@@ -52,12 +69,19 @@ namespace Scratch.Dialogs {
         
             switch (response) {
                 case ResponseType.ACCEPT:
-                    window.current_document.reload ();
-                    window.current_document.save ();
+                    if (type == WarnType.RELOAD) {
+                        window.current_document.reload ();
+                        window.current_document.save ();
+                    }
+                    else if (type == WarnType.FILE_DELETED) 
+                        window.current_document.save ();
                     destroy ();
                 break;
                 case ResponseType.CANCEL:
-                    window.current_document.set_label_font ("modified");
+                    if (type == WarnType.RELOAD)
+                        window.current_document.set_label_font ("modified");
+                    else if (type == WarnType.FILE_DELETED)
+                        window.current_document.set_label_font ("modified");
                     destroy ();
                 break;
             }
