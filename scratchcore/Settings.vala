@@ -63,6 +63,7 @@ namespace Scratch {
         public string[] opened_files { get; set; }
         public bool make_backup { get; set; }
         public bool autosave { get; set; }
+        public bool autoupdate { get; set; }
         public bool show_search { get; set; } 
         public bool show_replace { get; set; } 
         public bool show_go_to_line { get; set; } 

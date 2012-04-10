@@ -73,11 +73,11 @@ namespace Scratch.Widgets {
                 no_show_all = true;
             });
 
-            pack_start (label, true, true, 3);
-            pack_end (yes, false, false, 3);
-            pack_end (no, false, false, 3);
-
-            no_show_all = false;
+            ((Box)get_content_area ()).add (label);
+            add_button ("Dismiss", 0);
+            add_button ("Save new file", 1);
+            
+            no_show_all = true;
 
         }
         

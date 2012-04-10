@@ -68,6 +68,11 @@
             <summary>Autosave edited files</summary>
             <description>Autosave edited files.</description>
         </key>
+        <key name="autoupdate" type="b">
+            <default>true</default>
+            <summary>Autoupdate the file modified by an external source</summary>
+            <description>Autoupdate the file modified by an external source.</description>
+        </key>
         <key name="show-right-margin" type="b">
             <default>false</default>
             <summary>Show the right margin</summary>
