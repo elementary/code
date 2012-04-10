@@ -91,6 +91,7 @@ namespace Scratch.Widgets {
                         entry.text = label.get_text ();
                         entry.show ();
                         entry.key_press_event.connect (return_event);
+                        entry.focus_out_event.connect (on_entry_focus_out);
                     }
                 }
             }
@@ -120,7 +121,30 @@ namespace Scratch.Widgets {
             }
             return false;
         }
-
+        
+        private bool on_entry_focus_out (EventFocus event) {
+            string old = tab.document.filename;
+            var sold = old.split ("/");
+            string newname = "";
+            foreach (string s in sold) {
+                if (s != "" && s != sold[sold.length-1])
+                    newname = newname +  "/" + s;
+                if (s == sold[sold.length-1])
+                    newname = newname +  "/" + entry.text;
+            }
+              
+            debug ("%s", newname);
+                
+            entry.hide ();
+            event_box.show ();
+            tab.filename = newname;
+            tab.document.rename (newname);
+               
+            label.label = entry.text;
+            
+            return true;
+        }
+        
         private bool is_close_first () {
 
             string path = "/apps/metacity/general/button_layout";

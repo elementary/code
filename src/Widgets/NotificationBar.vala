@@ -41,13 +41,13 @@ namespace Scratch.Widgets {
             label.halign = Gtk.Align.START;
             label.use_markup = true;
 
-            var no = new Gtk.Button.with_label (("   ") + _("No") + ("   "));
+            var no = new Gtk.Button.with_label (("   ") + _("Dismiss") + ("   "));
             no.clicked.connect (() => {
                 hide ();
                 no_show_all = true;                    
             });
 
-            var yes = new Gtk.Button.with_label (("   ") + _("Yes") + ("   "));
+            var yes = new Gtk.Button.with_label (("   ") + _("Save as New File") + ("   "));
             yes.clicked.connect (() => {
                 if (type == NotificationType.NO_WRITE) {
                     

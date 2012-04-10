@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-23 16:35+0100\n"
-"PO-Revision-Date: 2012-03-30 10:05+0000\n"
-"Last-Translator: Eduard Gotwig <eduardgotwig@gmail.com>\n"
+"POT-Creation-Date: 2012-04-08 22:21+0200\n"
+"PO-Revision-Date: 2012-04-09 08:12+0000\n"
+"Last-Translator: Stefan Köhn <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-31 05:31+0000\n"
-"X-Generator: Launchpad (build 15032)\n"
+"X-Launchpad-Export-Date: 2012-04-10 05:37+0000\n"
+"X-Generator: Launchpad (build 15070)\n"
 "Language: de\n"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:524
@@ -33,7 +33,6 @@ msgstr "Textdateien"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:821
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:822
-#: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:66
 msgid "Find..."
 msgstr "Suchen..."
 
@@ -361,28 +360,37 @@ msgid "Do you want to save changes before closing this file?"
 msgstr ""
 "Möchtest du die Änderungen an der Datei speichern, bevor du diese schließt?"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:41
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:49
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:57
 msgid "The file:"
 msgstr "Die Datei:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:42
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:50
 msgid "Do you want to reload it?"
 msgstr "Möchtest du die Datei neu laden?"
 
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:58
+msgid "Do you want to create it again?"
+msgstr ""
+
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:259
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:441
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:457
 msgid "You can't save changes to:"
 msgstr "Du kannst hier keine Änderungen speichern:"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:259
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:441
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:457
 msgid "Do you want to save the changes to this file in a different location?"
 msgstr ""
 "Möchtest du die Änderungen an dieser Datei an einem anderen Ort speichern?"
 
+#: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:66
+msgid "Find"
+msgstr "Suchen"
+
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:67
-msgid "Replace..."
-msgstr "Ersetzen ..."
+msgid "Replace With"
+msgstr "Ersetzen durch"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:82
 msgid "Go To Line:"

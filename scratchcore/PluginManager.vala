@@ -221,10 +221,12 @@ public class Scratch.Plugins.Manager : Object
         param.name = "object";
         exts = new Peas.ExtensionSet (engine, typeof(Peas.Activatable), "object", plugin_iface, null);
 
-        exts.extension_added.connect(on_extension_added);
+        exts.extension_added.connect( (info, ext) => {  
+            ((Peas.Activatable)ext).activate();
+        });
         exts.extension_removed.connect(on_extension_removed);
-        peas_extension_set_foreach(exts, on_extension_added, null);
 
+        peas_extension_set_foreach(exts, on_extension_added, null);
         
         if (e != null) {
             /* The core now */
@@ -243,7 +245,7 @@ public class Scratch.Plugins.Manager : Object
 
             /* Our extension set */
             exts_core = new Peas.ExtensionSet (engine_core, typeof(Peas.Activatable), "object", plugin_iface, null);
-
+            
             peas_extension_set_foreach(exts_core, on_extension_added, null);
         }
     }
@@ -256,8 +258,11 @@ public class Scratch.Plugins.Manager : Object
         bottom_box.get_children ().nth_data(0).visible = false;
         return view;
     }
-
+#if VALA_0_16
+    void on_extension_added(Peas.ExtensionSet set, Peas.PluginInfo info, Peas.Extension extension) {
+#else
     void on_extension_added(Peas.PluginInfo info, Object extension) {
+#endif
         ((Peas.Activatable)extension).activate();
     }
     void on_extension_removed(Peas.PluginInfo info, Object extension) {

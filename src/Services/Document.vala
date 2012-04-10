@@ -424,7 +424,11 @@ namespace Scratch.Services {
             if (contents != this.last_saved_text && this.last_saved_text != null) want_reload = true;
                 
             if (want_reload) {
-                var warn = new Scratch.Dialogs.WarnDialog (filename, window);
+                var type = Scratch.Dialogs.WarnType.RELOAD; 
+                if (!exists)   
+                    type = Scratch.Dialogs.WarnType.FILE_DELETED; 
+                
+                var warn = new Scratch.Dialogs.WarnDialog (filename, window, type);
                 warn.run ();
                 warn.destroy ();    
                 want_reload = false;
