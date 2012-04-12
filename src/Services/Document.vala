@@ -99,7 +99,7 @@ namespace Scratch.Services {
         // Private variables
         private string original_text;
         private Gtk.SourceBuffer buffer;
-        private Gtk.SourceView source_view;
+        private SourceView source_view;
         private MainWindow window;
         private File _file;
         private File file { 
@@ -498,6 +498,8 @@ namespace Scratch.Services {
                 } catch (Error e) {
                     warning (e.message);
                 }
+                
+                source_view.change_syntax_highlight_for_filename (filename);
                 
                 this.last_saved_text = contents;
              
