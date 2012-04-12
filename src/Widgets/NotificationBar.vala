@@ -72,10 +72,17 @@ namespace Scratch.Widgets {
                 hide ();
                 no_show_all = true;
             });
-
+            
+            var box = new Box (Orientation.HORIZONTAL, 5);
+            box.add (yes);
+            box.add (no);
+            
+            var expander = new Label ("");
+            expander.hexpand = true;
+            
             ((Box)get_content_area ()).add (label);
-            add_button ("Dismiss", 0);
-            add_button ("Save new file", 1);
+            ((Box)get_content_area ()).add (expander);
+            ((Box)get_content_area ()).add (box);
             
             no_show_all = true;
 
