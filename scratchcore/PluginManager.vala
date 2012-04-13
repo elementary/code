@@ -190,8 +190,11 @@ public class Scratch.Plugins.Manager : Object
         
     public Gtk.Toolbar toolbar { set { plugin_iface.toolbar = value; } }
     public Gtk.Application scratch_app { set { plugin_iface.scratch_app = value;  }}
-    //[CCode (cheader_filename = "libpeas/libpeas.h", cname = "peas_extension_set_foreach")]
-    //extern static void peas_extension_set_foreach (Peas.ExtensionSet extset, Peas.ExtensionSetForeachFunc option, void* data);
+
+#if VALA_0_14
+    [CCode (cheader_filename = "libpeas/libpeas.h", cname = "peas_extension_set_foreach")]
+    extern static void peas_extension_set_foreach (Peas.ExtensionSet extset, Peas.ExtensionSetForeachFunc option, void* data);
+#endif
 
     GLib.Settings settings;
     string settings_field;
@@ -226,7 +229,11 @@ public class Scratch.Plugins.Manager : Object
         });
         exts.extension_removed.connect(on_extension_removed);
 
+#if VALA_0_16
         exts_core.foreach (on_extension_added);
+#else
+        peas_extension_set_foreach(exts, on_extension_added, null);
+#endif
         
         if (e != null) {
             /* The core now */
@@ -245,7 +252,11 @@ public class Scratch.Plugins.Manager : Object
             /* Our extension set */
             exts_core = new Peas.ExtensionSet (engine_core, typeof(Peas.Activatable), "object", plugin_iface, null);
             
-            exts_core.foreach (on_extension_added);
+#if VALA_0_16
+        exts_core.foreach (on_extension_added);
+#else
+        peas_extension_set_foreach(exts, on_extension_added, null);
+#endif
         }
 
     }
