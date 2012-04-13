@@ -39,7 +39,6 @@ namespace Scratch.Widgets {
 
             label = new Gtk.Label ("");
             label.set_line_wrap (true);
-            //label.set_size_request(500, -1);
             label.halign = Gtk.Align.START;
             label.use_markup = true;
 

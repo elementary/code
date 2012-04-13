@@ -190,8 +190,8 @@ public class Scratch.Plugins.Manager : Object
         
     public Gtk.Toolbar toolbar { set { plugin_iface.toolbar = value; } }
     public Gtk.Application scratch_app { set { plugin_iface.scratch_app = value;  }}
-    [CCode (cheader_filename = "libpeas/libpeas.h", cname = "peas_extension_set_foreach")]
-    extern static void peas_extension_set_foreach (Peas.ExtensionSet extset, Peas.ExtensionSetForeachFunc option, void* data);
+    //[CCode (cheader_filename = "libpeas/libpeas.h", cname = "peas_extension_set_foreach")]
+    //extern static void peas_extension_set_foreach (Peas.ExtensionSet extset, Peas.ExtensionSetForeachFunc option, void* data);
 
     GLib.Settings settings;
     string settings_field;
@@ -226,7 +226,7 @@ public class Scratch.Plugins.Manager : Object
         });
         exts.extension_removed.connect(on_extension_removed);
 
-        peas_extension_set_foreach(exts, on_extension_added, null);
+        exts_core.foreach (on_extension_added);
         
         if (e != null) {
             /* The core now */
@@ -239,17 +239,17 @@ public class Scratch.Plugins.Manager : Object
             string[] core_plugins = new string[core_list.length()];
             for (int i = 0; i < core_list.length(); i++) {
                 core_plugins[i] = core_list.nth_data (i).get_module_name ();
-                
             }
             engine_core.loaded_plugins = core_plugins;
-
+            
             /* Our extension set */
             exts_core = new Peas.ExtensionSet (engine_core, typeof(Peas.Activatable), "object", plugin_iface, null);
             
-            peas_extension_set_foreach(exts_core, on_extension_added, null);
+            exts_core.foreach (on_extension_added);
         }
-    }
 
+    }
+    
     public Gtk.Widget get_view () {
         var view = new PeasGtk.PluginManager (engine);
         var bottom_box = view.get_children ().nth_data (1) as Gtk.Box;
@@ -258,6 +258,7 @@ public class Scratch.Plugins.Manager : Object
         bottom_box.get_children ().nth_data(0).visible = false;
         return view;
     }
+    
 #if VALA_0_16
     void on_extension_added(Peas.ExtensionSet set, Peas.PluginInfo info, Peas.Extension extension) {
 #else
