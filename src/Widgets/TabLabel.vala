@@ -90,6 +90,7 @@ namespace Scratch.Widgets {
                         add (entry);
                         entry.text = label.get_text ();
                         entry.show ();
+                        entry.grab_focus ();
                         entry.key_press_event.connect (return_event);
                         entry.focus_out_event.connect (on_entry_focus_out);
                     }
