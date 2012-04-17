@@ -160,10 +160,11 @@ namespace Scratch {
             connect_signals ();
             
             /* Update app status at settings updates */
-            settings.changed.connect (() => {
-                if (settings.autosave) action_save_all ();
+            settings.schema.changed.connect ((key) => {  
+                if (key == "autosave" && settings.autosave == false)
+                    action_save_all ();
             });
-            
+             
             set_theme ();
         }
 

@@ -177,7 +177,7 @@ namespace Scratch.Services {
 
             buffer = tab.text_view.buffer;
             buffer.changed.connect (on_buffer_changed);
-            
+
             source_view = tab.text_view;
             source_view.focus_in_event.connect (on_source_view_focus_in);
             source_view.drag_data_received.connect (on_drag_data_received);
@@ -359,8 +359,8 @@ namespace Scratch.Services {
                 timeout_saving = Timeout.add(250, () => {
                     if (!opening) save ();
                     modified = false;
-                    tab.text_view.modified = false;
                     opening = false;
+                    tab.text_view.modified = false;
                     return false;
                     timeout_saving = -1;
                 });
@@ -488,7 +488,9 @@ namespace Scratch.Services {
             string f = filename;
             int n = tab.save ();
             if (f == null && n == 0) {
+                message ("Saving: %s", this.filename);
                 window.toolbar.save_button.hide ();
+                set_label_font ("saved");
                 modified = false;
                 force_normal_state = true;
                 
@@ -518,7 +520,7 @@ namespace Scratch.Services {
                 if (was_executable) GLib.Process.spawn_command_line_async ("chmod +x " + f);
             } catch (Error e) { warning (e.message); }
             
-            return false;
+            return true;
         }
 
         public bool save_as () {

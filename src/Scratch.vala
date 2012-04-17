@@ -104,10 +104,10 @@ namespace Scratch {
                 if (files[i].get_basename () == "--new-tab")
                     window.action_new_tab ();
                 else {
-                    open_file(files[i].get_path());
+                    open_file(files[i].get_path()).opening = false;
                 }
             }
-
+debug ("aaaa");
             window.present ();
 
         }
