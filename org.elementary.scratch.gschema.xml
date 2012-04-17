@@ -5,7 +5,7 @@
 		<value nick="Maximized" value="1" />
 		<value nick="Fullscreen" value="2" />
 	</enum>
-	<schema path="/apps/scratch/savedstate/" id="org.elementary.Scratch.SavedState" gettext-domain="scratch">
+	<schema path="/org/elementary/scratch/savedstate/" id="org.elementary.Scratch.SavedState" gettext-domain="scratch">
 		<key name="window-width" type="i">
 			<default>850</default>
 			<summary>The saved width of the window.</summary>
@@ -22,7 +22,7 @@
 			<description>The saved state of the window.</description>
 		</key>
 	</schema>
-    <schema path="/apps/scratch/settings/" id="org.elementary.Scratch.Settings" gettext-domain="scratch">
+    <schema path="/org/elementary/scratch/settings/" id="org.elementary.Scratch.Settings" gettext-domain="scratch">
 		<key name="sidebar-visible" type="b">
 			<default>true</default>
 			<summary>sidebar</summary>
@@ -154,7 +154,7 @@
             <description>Save or not the file's backup. DON'T SET IT AS FALSE or you will break some Scratch's functions</description>
         </key>
     </schema>
-    <schema path="/apps/scratch/services/" id="org.elementary.Scratch.Services" gettext-domain="scratch">
+    <schema path="/org/elementary/scratch/services/" id="org.elementary.Scratch.Services" gettext-domain="scratch">
         <key name="paste-format-code" type="s">
             <default>'None'</default>
             <summary>Default PasteBin text highlight</summary>
