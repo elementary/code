@@ -191,13 +191,12 @@ public class Scratch.Plugins.Manager : Object
     public Gtk.Toolbar toolbar { set { plugin_iface.toolbar = value; } }
     public Gtk.Application scratch_app { set { plugin_iface.scratch_app = value;  }}
 
-    /*[CCode (cheader_filename = "libpeas/libpeas.h", cname = "peas_extension_set_foreach")]
-    extern static void peas_extension_set_foreach (Peas.ExtensionSet extset, Peas.ExtensionSetForeachFunc option, void* data);*/
-
+    //[CCode (cheader_filename = "libpeas/libpeas.h", cname = "peas_extension_set_foreach")]
+    //extern static void peas_extension_set_foreach (Peas.ExtensionSet extset, Peas.ExtensionSetForeachFunc option, void* data);
 
     GLib.Settings settings;
     string settings_field;
-
+    
     public Scratch.Plugins.Interface plugin_iface { private set; public get; }
 
     public Manager(GLib.Settings s, string f, string d, string? e, string? argument_set)
@@ -214,9 +213,12 @@ public class Scratch.Plugins.Manager : Object
         engine.enable_loader ("python");
         engine.enable_loader ("gjs");
         engine.add_search_path (d, null);
+        settings.bind("plugins-enabled", engine, "loaded-plugins", SettingsBindFlags.DEFAULT);
         //engine.loaded_plugins = settings.get_strv(settings_field);
-        //settings.bind("plugins-enabled", engine, "loaded-plugins", SettingsBindFlags.DEFAULT);
-
+        for (int i = 0; i < engine.loaded_plugins.length; i++) {
+            debug (engine.loaded_plugins[i]);//core_plugins[i] = core_list.nth_data (i).get_module_name ();
+        }
+        
         /* Our extension set */
         Parameter param = Parameter();
         param.value = plugin_iface;
@@ -224,7 +226,7 @@ public class Scratch.Plugins.Manager : Object
         exts = new Peas.ExtensionSet (engine, typeof(Peas.Activatable), "object", plugin_iface, null);
 
         exts.extension_added.connect( (info, ext) => {  
-            ((Peas.Activatable)ext).activate();
+                ((Peas.Activatable)ext).activate();
         });
         exts.extension_removed.connect(on_extension_removed);
         
@@ -237,8 +239,14 @@ public class Scratch.Plugins.Manager : Object
             core_plugins[i] = core_list.nth_data (i).get_module_name ();
         }
         
-        engine.loaded_plugins = core_plugins;
-#if 0        
+        //engine.loaded_plugins = core_plugins;
+        
+        for (int i = 0; i < engine.loaded_plugins.length; i++) {
+            string p = engine.loaded_plugins[i];
+            debug (p);
+        }
+
+#if 0
         if (e != null) {
             /* The core now */
             engine_core = new Peas.Engine ();
@@ -271,12 +279,18 @@ public class Scratch.Plugins.Manager : Object
         return view;
     }
     
-#if VALA_0_16
     void on_extension_added(Peas.ExtensionSet set, Peas.PluginInfo info, Peas.Extension extension) {
-#else
-    void on_extension_added(Peas.PluginInfo info, Object extension) {
-#endif
-        ((Peas.Activatable)extension).activate();
+        var core_list = engine.get_plugin_list ().copy ();
+        string[] core_plugins = new string[core_list.length()];
+        for (int i = 0; i < core_list.length(); i++) {
+            string module = core_list.nth_data (i).get_module_name ();
+            if (module == info.get_module_name ()) {
+                ((Peas.Activatable)extension).activate();
+                debug (module);
+            }
+            else
+                ((Peas.Activatable)extension).deactivate();
+        }
     }
     void on_extension_removed(Peas.PluginInfo info, Object extension) {
         ((Peas.Activatable)extension).deactivate();
