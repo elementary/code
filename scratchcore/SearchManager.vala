@@ -97,7 +97,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
             i.pixel_size = 16;
             next.image = i;
             tool_arrow_up = new Gtk.ToolItem ();//(Gtk.ToolItem) main_actions.get_action ("SearchNext").create_tool_item ();
-            main_actions.get_action ("SearchNext").bind_property("sensitive", tool_arrow_up, "sensitive", BindingFlags.DEFAULT);
+            //main_actions.get_action ("SearchNext").bind_property("sensitive", tool_arrow_up, "sensitive", BindingFlags.DEFAULT);
             tool_arrow_up.add (next);
             
             var previous = new Gtk.Button ();
@@ -107,7 +107,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
             i.pixel_size = 16;
             previous.image = i;
             tool_arrow_down = new Gtk.ToolItem ();//(Gtk.ToolItem) main_actions.get_action ("SearchBack").create_tool_item ();
-            main_actions.get_action ("SearchBack").bind_property("sensitive", tool_arrow_down, "sensitive", BindingFlags.DEFAULT);
+            //main_actions.get_action ("SearchBack").bind_property("sensitive", tool_arrow_down, "sensitive", BindingFlags.DEFAULT);
             tool_arrow_down.add (previous);
             
             main_actions.get_action ("SearchNext").set_sensitive (false);
@@ -378,10 +378,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
             if(!search_for_iter_backward (start_iter, out end_iter, search_string) && cycle_search) {
                 text_buffer.get_end_iter (out start_iter);
                 search_for_iter_backward (start_iter, out end_iter, search_string);
-                tool_arrow_down.set_sensitive (true);
             }
-            else
-                tool_arrow_down.set_sensitive (false);
         }
     }
 
@@ -394,10 +391,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
             if(!search_for_iter (end_iter, out end_iter_tmp, search_string) && cycle_search) {
                 text_buffer.get_start_iter (out start_iter);
                 search_for_iter (start_iter, out end_iter, search_string);
-                tool_arrow_up.set_sensitive (true);
             }
-            else
-                tool_arrow_up.set_sensitive (false);
         }
     }
 
