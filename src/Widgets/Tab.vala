@@ -69,6 +69,7 @@ namespace Scratch.Widgets {
             if (document.can_write () && document.modified == true) {
 
                 var save_dialog = new SaveOnCloseDialog (document.name, ((MainWindow)get_toplevel ()));
+                document.focus_sourceview ();
                 int response = save_dialog.run ();
                 switch(response) {
                     case Gtk.ResponseType.CANCEL:

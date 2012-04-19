@@ -107,7 +107,7 @@ namespace Scratch {
                     open_file(files[i].get_path()).opening = false;
                 }
             }
-debug ("aaaa");
+
             window.present ();
 
         }

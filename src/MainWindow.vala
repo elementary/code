@@ -478,6 +478,7 @@ namespace Scratch {
                 
                 if (doc.modified) {
                     var save_dialog = new SaveOnCloseDialog (doc.name, this);
+                    doc.focus_sourceview ();
                     int response = save_dialog.run ();
                     switch (response) {
                     case Gtk.ResponseType.CANCEL:
