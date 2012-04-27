@@ -44,7 +44,7 @@ namespace Scratch.Widgets {
 
             buffer = new SourceBuffer (null);
             set_buffer (buffer);
-
+            
             TextIter start, end;
             buffer.get_selection_bounds (out start, out end);
 
@@ -214,11 +214,12 @@ namespace Scratch.Widgets {
          *
          * @param line the line you want to go to
          **/
-        public void go_to_line (int line) {
+        public void go_to_line (int line) {           
             TextIter it;
             buffer.get_iter_at_line (out it, line-1);
             scroll_to_iter (it, 0, false, 0, 0);
             buffer.place_cursor (it);
+            set_highlight_current_line (true);
         }
 
 

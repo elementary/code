@@ -406,6 +406,9 @@ namespace Scratch.Services {
         bool on_source_view_focus_in (Gdk.EventFocus event) {
             string contents;            
             
+            /* Set the right highligh_current_line setting again */
+            source_view.set_highlight_current_line (settings.highlight_current_line);
+            
             if (filename != null)
                 window.main_actions.get_action ("Revert").set_sensitive (true);
             
