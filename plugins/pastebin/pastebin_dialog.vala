@@ -251,7 +251,7 @@ namespace Scratch.Dialogs {
         public PasteBinDialog (MainWindow? window) {
 
             this.window = window;
-            this.title = "Share via PasteBin";
+            this.title = _("Share via PasteBin");
             this.type_hint = Gdk.WindowTypeHint.DIALOG;
             this.set_modal (true);
             this.set_transient_for (window);
@@ -270,15 +270,15 @@ namespace Scratch.Dialogs {
 
             name_entry = new Entry ();
             name_entry.text = "Test";
-            var name_entry_l = new Label ("Name:");
+            var name_entry_l = new Label (_("Name:"));
             var name_entry_box = new HBox (false, 58);
             name_entry_box.pack_start (name_entry_l, false, true, 0);
             name_entry_box.pack_start (name_entry, true, true, 0);
 
 
-			var format_label = new Label ("Format: ");
+			var format_label = new Label (_("Format: "));
 			format_combo = new ComboBoxText();
-			var format_button = new Button.with_label ("Others...");
+			var format_button = new Button.with_label (_("Others..."));
 				format_button.clicked.connect (format_button_clicked);
 			
 			//populate combo box
@@ -303,15 +303,15 @@ namespace Scratch.Dialogs {
 
             expiry_combo = new ComboBoxText ();
             populate_expiry_combo ();
-            var expiry_combo_l = new Label ("Expiry time:");
+            var expiry_combo_l = new Label (_("Expiry time:"));
             var expiry_combo_box = new HBox (false, 28);
             expiry_combo_box.pack_start (expiry_combo_l, false, true, 0);
             expiry_combo_box.pack_start (expiry_combo, true, true, 0);
 
-            private_check = new CheckButton.with_label ("Keep this paste private");
+            private_check = new CheckButton.with_label (_("Keep this paste private"));
 
             cancel_button = new Button.from_stock (Stock.CANCEL);
-            send_button = new Button.with_label ("Upload");
+            send_button = new Button.with_label (_("Upload"));
 
             var bottom_buttons = new HButtonBox ();
             bottom_buttons.set_layout (ButtonBoxStyle.CENTER);
@@ -342,7 +342,7 @@ namespace Scratch.Dialogs {
 		
 			format_others_win = new Window();
 			format_others_win.set_modal(true);
-			format_others_win.set_title("Others formats");
+			format_others_win.set_title(_("Other formats"));
 			format_others_win.set_default_size (250, 300);
 			
 				format_others_view = new TreeView();
@@ -541,11 +541,11 @@ namespace Scratch.Dialogs {
 
         private void populate_expiry_combo () {
 
-            expiry_combo.append (PasteBin.NEVER, "Never");
-            expiry_combo.append (PasteBin.TEN_MINUTES, "Ten minutes");
-            expiry_combo.append (PasteBin.HOUR, "One hour");
-            expiry_combo.append (PasteBin.DAY, "One day");
-            expiry_combo.append (PasteBin.MONTH, "One month");
+            expiry_combo.append (PasteBin.NEVER, _("Never"));
+            expiry_combo.append (PasteBin.TEN_MINUTES, _("Ten minutes"));
+            expiry_combo.append (PasteBin.HOUR, _("One hour"));
+            expiry_combo.append (PasteBin.DAY, _("One day"));
+            expiry_combo.append (PasteBin.MONTH, _("One month"));
 
         }
 
