@@ -36,7 +36,7 @@ namespace Scratch.Dialogs {
             message_type = MessageType.WARNING;
             use_markup = true;
 
-            text = "<b>" + _("Save changes to document") + " \"" + (filename ?? _("New File")) + "\" " + "before closing?" + "</b>";
+            text = "<b>" + _("Save changes to document") + " \"" + (filename ?? _("New File")) + "\" " + _("before closing?") + "</b>";
             text += "\n\n" + _("If you don't save, changes from the last 4 seconds will be permanently lost.");
             
             var button = new Button.with_label (_("Close without saving"));
