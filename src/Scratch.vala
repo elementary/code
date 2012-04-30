@@ -175,15 +175,15 @@ namespace Scratch {
         }
         
         static const OptionEntry[] entries = {
-            { "set", 's', 0, OptionArg.STRING, ref app_cmd_name, "Set of plugins", "" },
-            { "set-arg", 'a', 0, OptionArg.STRING, ref app_set_arg, "Argument for the set of plugins", "" },
-            { "new-instance", 'n', 0, OptionArg.NONE, ref new_instance, "Create a new instance", "" },
+            { "set", 's', 0, OptionArg.STRING, ref app_cmd_name, _("Set of plugins"), "" },
+            { "set-arg", 'a', 0, OptionArg.STRING, ref app_set_arg, _("Argument for the set of plugins"), "" },
+            { "new-instance", 'n', 0, OptionArg.NONE, ref new_instance, _("Create a new instance"), "" },
             { null }
         };
 
         public static int main (string[] args) {
             app_cmd_name = "Scratch";
-            var context = new OptionContext("File");
+            var context = new OptionContext(_("File"));
             context.add_main_entries(entries, "scratch");
             context.add_group(Gtk.get_option_group(true));
             try {
