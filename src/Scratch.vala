@@ -175,9 +175,9 @@ namespace Scratch {
         }
         
         static const OptionEntry[] entries = {
-            { "set", 's', 0, OptionArg.STRING, ref app_cmd_name, "Set of plugins", "" },
-            { "set-arg", 'a', 0, OptionArg.STRING, ref app_set_arg, "Argument for the set of plugins", "" },
-            { "new-instance", 'n', 0, OptionArg.NONE, ref new_instance, "Create a new instance", "" },
+            { "set", 's', 0, OptionArg.STRING, ref app_cmd_name, N_("Set of plugins"), "" },
+            { "set-arg", 'a', 0, OptionArg.STRING, ref app_set_arg, N_("Argument for the set of plugins"), "" },
+            { "new-instance", 'n', 0, OptionArg.NONE, ref new_instance, N_("Create a new instance"), "" },
             { null }
         };
 
