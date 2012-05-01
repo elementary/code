@@ -397,7 +397,7 @@ namespace Scratch {
             main_actions.get_action ("Remove view").set_sensitive (val ? split_view_multiple_view : false);
             main_actions.get_action ("ShowStatusBar").set_sensitive (val);
             toolbar.set_actions (val);
-            toolbar.search_arrow.set_sensitive (val);
+            //toolbar.search_arrow.set_sensitive (val);
         }
 
         void on_split_view_empty_changed ()
