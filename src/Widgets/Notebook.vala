@@ -167,7 +167,6 @@ namespace Scratch.Widgets {
                 if (settings.autosave)
                     window.toolbar.save_button.show ();
             }
-
         }
 
         public void on_drag_end (DragContext context) {

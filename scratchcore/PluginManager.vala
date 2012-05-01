@@ -215,9 +215,6 @@ public class Scratch.Plugins.Manager : Object
         engine.add_search_path (d, null);
         settings.bind("plugins-enabled", engine, "loaded-plugins", SettingsBindFlags.DEFAULT);
         //engine.loaded_plugins = settings.get_strv(settings_field);
-        for (int i = 0; i < engine.loaded_plugins.length; i++) {
-            debug (engine.loaded_plugins[i]);//core_plugins[i] = core_list.nth_data (i).get_module_name ();
-        }
         
         /* Our extension set */
         Parameter param = Parameter();
@@ -240,11 +237,6 @@ public class Scratch.Plugins.Manager : Object
         }
         
         //engine.loaded_plugins = core_plugins;
-        
-        for (int i = 0; i < engine.loaded_plugins.length; i++) {
-            string p = engine.loaded_plugins[i];
-            debug (p);
-        }
 
 #if 0
         if (e != null) {

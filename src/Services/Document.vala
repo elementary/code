@@ -260,7 +260,9 @@ namespace Scratch.Services {
                 window.current_notebook.info_bar.set_attributes (filename, this);
                 window.current_notebook.info_bar.no_show_all = false;
             }
-
+            else 
+                window.current_notebook.info_bar.no_show_all = true;
+                
             return true;
 
         }
@@ -454,18 +456,24 @@ namespace Scratch.Services {
             if (state == DocumentStates.READONLY) {
                 if (settings.autosave) source_view.editable = false;    
                 else window.toolbar.save_button.set_sensitive (false);
+                window.current_notebook.info_bar.show_all ();
             }
             if (state == DocumentStates.NORMAL) {
                 force_normal_state = true;
                 if (settings.autosave) source_view.editable = true;    
                 else window.toolbar.save_button.set_sensitive (true);
+                window.current_notebook.info_bar.hide ();
             }
             
             if (state == DocumentStates.READONLY) {
                 window.current_notebook.info_bar.set_notification_type (Scratch.Widgets.NotificationType.NO_WRITE);
                 window.current_notebook.info_bar.set_notification_label (_("You can't save changes to:") + " <b>" + file.get_basename () + "</b>. " + _("Do you want to save the changes to this file in a different location?"));
                 window.current_notebook.info_bar.set_attributes (filename, this);
+                window.current_notebook.info_bar.no_show_all = false;
             }
+            else    
+                window.current_notebook.info_bar.no_show_all = true;
+
             
             window.search_manager.get_go_to_adj ().upper = buffer.text.split ("\n").length;
             window.search_manager.get_go_to_adj ().value = 0;
