@@ -493,7 +493,7 @@ namespace Scratch {
                     save_dialog.destroy ();
                 }
                 var bk = File.new_for_path (doc.filename + "~");
-                if (bk.query_exists ()) {
+                if (bk != null && bk.query_exists ()) {
                     try {
                         bk.delete ();
                     } catch (Error e) {

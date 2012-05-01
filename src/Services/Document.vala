@@ -102,10 +102,14 @@ namespace Scratch.Services {
         private SourceView source_view;
         private MainWindow window;
         private File _file;
-        private File file { 
+        private File? file { 
             get { 
-                _file =File.new_for_path (filename); 
-                return _file;
+                if (filename != null) {
+                    _file = File.new_for_path (filename); 
+                    return _file;
+                }
+                else
+                    return null;
             } 
         }
         private static string home_dir = Environment.get_home_dir ();
@@ -182,10 +186,10 @@ namespace Scratch.Services {
             source_view.focus_in_event.connect (on_source_view_focus_in);
             source_view.drag_data_received.connect (on_drag_data_received);
             
-            tab.change_syntax_highlight_for_filename(filename);
+            tab.change_syntax_highlight_for_filename (filename);
             window.current_notebook.set_current_page (window.current_notebook.add_existing_tab(tab));
 
-            open();
+            open ();
         }
 
         public Document.empty (MainWindow? window) {
@@ -321,8 +325,7 @@ namespace Scratch.Services {
         public void set_label_font (string style) {
             string label;
             if (filename != null) {
-                var f = File.new_for_path (this.filename);
-                label = f.get_basename ();
+                label = file.get_basename ();
             }
             else {
                 label = _("New document");
@@ -406,7 +409,7 @@ namespace Scratch.Services {
          * to reload it.
          **/
         bool on_source_view_focus_in (Gdk.EventFocus event) {
-            string contents;            
+            string contents = null;            
             
             /* Set the right highligh_current_line setting again */
             source_view.set_highlight_current_line (settings.highlight_current_line);
@@ -421,7 +424,8 @@ namespace Scratch.Services {
             
             /* Check if an external thing modified the file */
             try {
-                FileUtils.get_contents (file.get_path (), out contents);
+                if (file != null)
+                    FileUtils.get_contents (file.get_path (), out contents);
             } catch (Error e) {
                 warning (e.message);
             }

@@ -90,7 +90,7 @@ namespace Scratch.Widgets {
             if (focused_widget == null)
                 return false;
             else {
-                remove(focused_widget);
+                remove (focused_widget);
                 var notebook = focused_widget as ScratchNotebook;
                 show_save_dialog (notebook);
                 focused_widget = null;
