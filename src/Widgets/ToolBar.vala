@@ -117,11 +117,11 @@ namespace Scratch.Widgets {
 
             add (add_spacer ());
 
-            add (search_manager.get_search_entry ());
+            /*add (search_manager.get_search_entry ());
             search_manager.get_search_entry ().set_margin_right (5);
             add (search_manager.get_replace_entry ());
             add (search_manager.get_go_to_entry ());
-            add (search_arrow);
+            add (search_arrow);*/
             
             add (share_app_menu);
             add (app_menu);

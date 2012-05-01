@@ -309,7 +309,7 @@ namespace Scratch {
              * Search manager
              */ 
             search_manager = new Scratch.Services.SearchManager (main_actions);
-            Scratch.settings.schema.bind ("search-sensitive", search_manager, "case-sensitive", SettingsBindFlags.DEFAULT);
+            //Scratch.settings.schema.bind ("search-sensitive", search_manager, "case-sensitive", SettingsBindFlags.DEFAULT);
             search_manager.need_hide.connect (hide_search_bar);
             
             search_bar = new Gtk.Toolbar ();
@@ -620,11 +620,7 @@ namespace Scratch {
 
         }
 
-#if VALA_0_14
         protected override bool delete_event (Gdk.EventAny event) {
-#else
-        protected override bool delete_event (Gdk.Event event) {
-#endif
 
             update_saved_state ();
             action_quit ();

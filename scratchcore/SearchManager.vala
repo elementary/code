@@ -400,7 +400,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
         if (search_entry.text == "")
             return false;
         string key = Gdk.keyval_name (event.keyval);
-        debug ("%s", key);
+        //debug ("%s", key);
         switch (key)
         {
         case "Up":
