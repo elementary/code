@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-30 20:56+0200\n"
-"PO-Revision-Date: 2012-04-30 21:16+0000\n"
-"Last-Translator: Anducar <Unknown>\n"
+"PO-Revision-Date: 2012-05-01 16:04+0000\n"
+"Last-Translator: Tom Gießmann <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-01 05:48+0000\n"
-"X-Generator: Launchpad (build 15171)\n"
+"X-Launchpad-Export-Date: 2012-05-02 05:53+0000\n"
+"X-Generator: Launchpad (build 15177)\n"
 "Language: de\n"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:459
@@ -99,7 +99,7 @@ msgstr "Rückgängig"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:861
 msgid "Undo the last action"
-msgstr "Eine Änderung zurück"
+msgstr "Die letzte Änderung rückgängig machen"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:864
 msgid "Redo"
@@ -225,7 +225,7 @@ msgstr "Keine Dateien geöffnet."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:209
 msgid "Open a file to begin editing."
-msgstr "Wählen Sie zu Beginn eine Datei aus."
+msgstr "Um zu beginnen, wählen Sie eine Datei aus"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:211
 msgid "Open file"
@@ -420,7 +420,7 @@ msgstr "Syntax hervorheben"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
-msgstr ""
+msgstr "Teilen über PasteBin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:273
 msgid "Name:"
