@@ -311,7 +311,18 @@ namespace Scratch.Services {
             return true;
 
         }
-
+        
+        public void delete_backup () {
+            var bk = File.new_for_path (filename + "~");
+            if (bk != null && bk.query_exists ()) {
+                try {
+                    bk.delete ();
+                } catch (Error e) {
+                    debug ("Cannot delete %s~, it doesn't exist", filename);
+                }
+            }
+        }
+        
         public bool close () {
 
             if (!saved) 

@@ -92,6 +92,7 @@ namespace Scratch.Widgets {
 
             message("closing: %s\n", this.filename);
             closed ();
+            document.delete_backup ();
             ((Gtk.Notebook)get_parent()).remove(this);
         
         }
