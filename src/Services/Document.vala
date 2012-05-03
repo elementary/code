@@ -65,6 +65,8 @@ namespace Scratch.Services {
         public string filename      { get; public set; }
         public string text          { get; set; }
         
+        public bool show_notification = true;
+        
         private bool force_normal_state;
         private DocumentStates _state;
         public DocumentStates state {
@@ -262,7 +264,8 @@ namespace Scratch.Services {
                 window.current_notebook.info_bar.set_notification_type (Scratch.Widgets.NotificationType.NO_WRITE);
                 window.current_notebook.info_bar.set_notification_label (_("You can't save changes to:") + " <b>" + file.get_basename () + "</b>. " + _("Do you want to save the changes to this file in a different location?"));
                 window.current_notebook.info_bar.set_attributes (filename, this);
-                window.current_notebook.info_bar.no_show_all = false;
+                if (show_notification)
+                    window.current_notebook.info_bar.no_show_all = false;
             }
             else 
                 window.current_notebook.info_bar.no_show_all = true;
@@ -484,7 +487,8 @@ namespace Scratch.Services {
                 window.current_notebook.info_bar.set_notification_type (Scratch.Widgets.NotificationType.NO_WRITE);
                 window.current_notebook.info_bar.set_notification_label (_("You can't save changes to:") + " <b>" + file.get_basename () + "</b>. " + _("Do you want to save the changes to this file in a different location?"));
                 window.current_notebook.info_bar.set_attributes (filename, this);
-                window.current_notebook.info_bar.no_show_all = false;
+                if (show_notification)
+                    window.current_notebook.info_bar.no_show_all = false;
             }
             else    
                 window.current_notebook.info_bar.no_show_all = true;

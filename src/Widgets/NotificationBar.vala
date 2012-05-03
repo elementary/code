@@ -45,6 +45,7 @@ namespace Scratch.Widgets {
             var no = new Gtk.Button.with_label (("   ") + _("Dismiss") + ("   "));
             no.clicked.connect (() => {
                 hide ();
+                doc.show_notification = false;
                 no_show_all = true;                    
             });
 
