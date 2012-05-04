@@ -469,6 +469,9 @@ namespace Scratch.Services {
                 window.toolbar.revert_button.set_sensitive (false);
             else
                 window.toolbar.revert_button.set_sensitive (true);
+            
+            /* Set undo/redo buttons sensitive */
+            window.set_undo_redo ();
                 
             /* Check the document state */
             if (state == DocumentStates.READONLY) {
