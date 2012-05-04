@@ -53,7 +53,7 @@ namespace Scratch.Widgets {
 
         public ShareAppMenu (Gtk.Menu menu) {
 
-            base (new Image.from_icon_name ("document-export", IconSize.MENU), "Share", menu);
+            base (new Image.from_icon_name ("document-export", IconSize.MENU), _("Share"), menu);
             
         }
 
