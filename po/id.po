@@ -7,23 +7,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-04-30 20:56+0200\n"
+"POT-Creation-Date: 2012-05-04 20:02+0200\n"
 "PO-Revision-Date: 2012-04-19 11:27+0000\n"
 "Last-Translator: Viko Adi Rahmawan <Unknown>\n"
 "Language-Team: Indonesian <id@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-01 05:48+0000\n"
-"X-Generator: Launchpad (build 15171)\n"
+"X-Launchpad-Export-Date: 2012-05-05 05:42+0000\n"
+"X-Generator: Launchpad (build 15195)\n"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:459
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:904
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:900
 msgid "Preferences"
 msgstr "Pengaturan"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:526
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:889
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:885
 msgid "Open a file"
 msgstr "Buka berkas"
 
@@ -35,157 +35,157 @@ msgstr "Semua berkas"
 msgid "Text files"
 msgstr "Berkas teks"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:823
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:824
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:819
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:820
 msgid "Find..."
 msgstr "Temukan..."
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:827
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:828
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:823
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:824
 msgid "Hide search bar"
 msgstr "Sembunyikan kotak pencari"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:831
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:832
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:827
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:828
 msgid "Go to line..."
 msgstr "Menuju baris..."
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:835
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:836
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:831
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:832
 msgid "Quit"
 msgstr "Keluar"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:839
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:840
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:835
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:836
 msgid "Close"
 msgstr "Tutup"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:843
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:844
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:839
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:840
 msgid "Replace"
 msgstr "Gantikan"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:847
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:843
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:124
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:164
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:326
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:170
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:345
 msgid "New document"
 msgstr "Dokumen baru"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:848
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:844
 msgid "Create a new document in a new tab"
 msgstr "Buat dokumen baru di tab baru"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:851
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:847
 msgid "Add New View"
 msgstr "Tambah Tinjauan Baru"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:852
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:848
 msgid "Add a new view"
 msgstr "Tambah tinjauan baru"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:856
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:852
 msgid "Remove Current View"
 msgstr "Hapus Tinjauan"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:857
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:853
 msgid "Remove this view"
 msgstr "Hapus tinjauan ini"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:860
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:856
 msgid "Undo"
 msgstr "Tak Jadi"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:861
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:857
 msgid "Undo the last action"
 msgstr "Batalkan perubahan terakhir"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:864
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:860
 msgid "Redo"
 msgstr "Ulangi"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:865
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:861
 msgid "Redo the last undone action"
 msgstr "Kembalikan pembatalan terakhir"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:869
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:865
 msgid "Revert"
 msgstr "Kembalikan seperti Semula"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:870
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:866
 msgid "Restore this file"
 msgstr "Kembalikan file ini ke tempat semula"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:874
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:875
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:870
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:871
 msgid "Next Search"
 msgstr "Pencarian Berikutnya"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:878
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:879
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:874
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:875
 msgid "Previous Search"
 msgstr "Pencarian Sebelumnya"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:883
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:884
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:879
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:880
 msgid "Duplicate selected strings"
 msgstr "Gandakan string yang dipilih"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:888
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:884
 msgid "Open"
 msgstr "Buka"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:892
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:888
 msgid "Save"
 msgstr "Simpan"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:893
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:889
 msgid "Save the current file"
 msgstr "Simpan berkas ini"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:896
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:892
 msgid "Save as"
 msgstr "Simpan sebagai"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:897
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:893
 msgid "Save the current file with a different name"
 msgstr "Simpan berkas ini dengan nama lain"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:900
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:896
 #: /home/mario/elementary/scratch/po/../scratchcore/TemplateManager.vala:123
 msgid "Templates"
 msgstr "Palet"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:901
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:897
 msgid "Create a new document from a template"
 msgstr "Buat dokumen baru dari palet"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:905
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:901
 msgid "Change Scratch settings"
 msgstr "Ubah pengaturan Scratch"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:911
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:912
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:907
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:908
 msgid "Fullscreen"
 msgstr "Layar Penuh"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:915
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:916
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:911
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:912
 msgid "Sidebar"
 msgstr "Bilah Sisi"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:919
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:920
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:915
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:916
 msgid "Context View"
 msgstr "Tinjauan Konteks"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:923
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:924
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:919
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:920
 msgid "Status Bar"
 msgstr "Bilah Status"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:927
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:928
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:923
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:924
 msgid "Bottom Panel"
 msgstr "Panel Bawah"
 
@@ -201,6 +201,10 @@ msgstr ""
 msgid "Create a new instance"
 msgstr ""
 
+#: /home/mario/elementary/scratch/po/../src/Widgets/ShareMenu.vala:56
+msgid "Share"
+msgstr ""
+
 #: /home/mario/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
 #: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:101
 msgid "Normal text"
@@ -210,35 +214,35 @@ msgstr "Teks normal"
 msgid "Dismiss"
 msgstr "Singkirkan"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:51
+#: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:52
 msgid "Save as New File"
 msgstr "Simpan menjadi berkas baru"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:59
+#: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:60
 msgid "Choose the new location"
 msgstr "Pilih lokasi baru"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:209
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:208
 msgid "No files are open."
 msgstr "Tidak ada berkas yang terbuka."
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:209
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:208
 msgid "Open a file to begin editing."
 msgstr "Buka sebuah berkas untuk mulai menyunting."
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:211
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:210
 msgid "Open file"
 msgstr "Buka berkas"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:211
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:210
 msgid "Open a saved file."
 msgstr "Buka berkas yang telah tersimpan."
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:212
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:211
 msgid "New file"
 msgstr "Berkas baru"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:212
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:211
 msgid "Create a new empty file."
 msgstr "Buat sebuah berkas kosong."
 
@@ -388,13 +392,13 @@ msgstr "Anda ingin memuat ulang ini?"
 msgid "Do you want to create it again?"
 msgstr "Apakah Anda ingin membuatnya lagi?"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:259
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:466
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:265
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:491
 msgid "You can't save changes to:"
 msgstr "Anda tidak dapat menyimpannya di:"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:259
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:466
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:265
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:491
 msgid "Do you want to save the changes to this file in a different location?"
 msgstr "Apakah anda ingin menyimpan berkas ini di tempat yang berbeda?"
 
