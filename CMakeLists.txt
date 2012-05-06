@@ -55,7 +55,6 @@ vala_precompile(VALA_C
     src/config.vala
     src/Widgets/ComboSyntax.vala
     src/Widgets/StatusBar.vala
-    src/Widgets/ToolArrow.vala
     src/Widgets/NotificationBar.vala
 PACKAGES
     	${SCRATCH_DEPS}
