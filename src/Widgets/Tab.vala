@@ -103,7 +103,7 @@ namespace Scratch.Widgets {
                 string new_filename = null;
 
                 //show dialog
-                var filech = new FileChooserDialog ("Save as", (Gtk.Window)get_toplevel (), FileChooserAction.SAVE, null);
+                var filech = new FileChooserDialog (_("Save as"), (Gtk.Window)get_toplevel (), FileChooserAction.SAVE, null);
                 filech.add_button (Stock.CANCEL, ResponseType.CANCEL);
                 filech.add_button (Stock.SAVE, ResponseType.ACCEPT);
                 filech.set_default_response (ResponseType.ACCEPT);
@@ -170,7 +170,7 @@ namespace Scratch.Widgets {
                 string new_filename = null;
 
                 //show dialog
-                var filech = new FileChooserDialog ("Save as", (Gtk.Window)get_toplevel (), FileChooserAction.SAVE, null);
+                var filech = new FileChooserDialog (_("Save as"), (Gtk.Window)get_toplevel (), FileChooserAction.SAVE, null);
                 filech.add_button (Stock.CANCEL, ResponseType.CANCEL);
                 filech.add_button (Stock.SAVE, ResponseType.ACCEPT);
                 filech.set_default_response (ResponseType.ACCEPT);
