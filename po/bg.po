@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-05-04 20:02+0200\n"
-"PO-Revision-Date: 2012-04-27 15:30+0000\n"
-"Last-Translator: Dimitar Dimitrov <Unknown>\n"
+"PO-Revision-Date: 2012-05-05 13:26+0000\n"
+"Last-Translator: KVG <kvgkvg@gmail.com>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-05 05:41+0000\n"
+"X-Launchpad-Export-Date: 2012-05-06 04:58+0000\n"
 "X-Generator: Launchpad (build 15195)\n"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:459
@@ -74,7 +74,7 @@ msgstr "Нов документ"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:844
 msgid "Create a new document in a new tab"
-msgstr ""
+msgstr "Нов документ в нов раздел"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:847
 msgid "Add New View"
@@ -114,7 +114,7 @@ msgstr "Връщане"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:866
 msgid "Restore this file"
-msgstr ""
+msgstr "Възстановяване на този файл"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:870
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:871
@@ -220,7 +220,7 @@ msgstr "Запази като нов файл"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:60
 msgid "Choose the new location"
-msgstr "Избери новата локация"
+msgstr "Избиране на новото местоположение"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:208
 msgid "No files are open."
@@ -294,7 +294,7 @@ msgstr "Общи:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:144
 msgid "When Scratch starts:"
-msgstr ""
+msgstr "При стартиране на Scratch:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
 msgid "Save files at every changes:"
@@ -302,11 +302,11 @@ msgstr "Запазване на файловете при всяка промя�
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Tabs:"
-msgstr ""
+msgstr "Раздели:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:157
 msgid "Automatic indentation:"
-msgstr ""
+msgstr "Автоматично подравняване:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:160
 msgid "Insert spaces instead of tabs:"
@@ -338,11 +338,11 @@ msgstr "Показване на номерата на редовете"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:215
 msgid "Show margin on right:"
-msgstr ""
+msgstr "Показване на ляв ограничител:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:222
 msgid "Margin width:"
-msgstr ""
+msgstr "Ширина на ограничителя:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:227
 msgid "Font and colors:"
@@ -393,7 +393,7 @@ msgstr "Искате ли да го създадете отново?"
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:265
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:491
 msgid "You can't save changes to:"
-msgstr "Не можете да запазите промените в:"
+msgstr "Не можете да съхраните промените в:"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:265
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:491
@@ -434,7 +434,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:306
 msgid "Expiry time:"
-msgstr ""
+msgstr "Време на валидност:"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:311
 msgid "Keep this paste private"
@@ -450,7 +450,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:544
 msgid "Never"
-msgstr ""
+msgstr "Безсрочно"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:545
 msgid "Ten minutes"
