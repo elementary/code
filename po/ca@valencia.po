@@ -1,16 +1,16 @@
-# Finnish translation for scratch
-# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# Catalan (Valencian) translation for scratch
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the scratch package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-05-06 16:27+0200\n"
-"PO-Revision-Date: 2012-05-01 12:26+0000\n"
-"Last-Translator: Jiri Grönroos <Unknown>\n"
-"Language-Team: Finnish <fi@li.org>\n"
+"PO-Revision-Date: 2012-05-06 17:52+0000\n"
+"Last-Translator: Sergio Tortosa <sertorbe@gmail.com>\n"
+"Language-Team: Catalan (Valencian) <ca@valencia@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,176 +20,176 @@ msgstr ""
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:459
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:900
 msgid "Preferences"
-msgstr "Asetukset"
+msgstr "Configuració"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:526
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:885
 msgid "Open a file"
-msgstr "Avaa tiedosto"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:533
 msgid "All files"
-msgstr "Kaikki tiedostot"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:536
 msgid "Text files"
-msgstr "Tekstitiedostot"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:819
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:820
 msgid "Find..."
-msgstr "Etsi..."
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:823
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:824
 msgid "Hide search bar"
-msgstr "Piilota hakupalkki"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:827
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:828
 msgid "Go to line..."
-msgstr "Siirry riville..."
+msgstr "Anar a la línia..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:831
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:832
 msgid "Quit"
-msgstr "Lopeta"
+msgstr "Eixir"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:835
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:836
 msgid "Close"
-msgstr "Sulje"
+msgstr "Tancar"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:839
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:840
 msgid "Replace"
-msgstr "Korvaa"
+msgstr "Reemplaçar"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:843
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:124
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:170
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:345
 msgid "New document"
-msgstr "Uusi asiakirja"
+msgstr "Nou document"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:844
 msgid "Create a new document in a new tab"
-msgstr "Luo uusi dokumentti uuteen välilehteen."
+msgstr "Crear un nou document en una pestnya nova"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:847
 msgid "Add New View"
-msgstr "Lisää uusi näkymä"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:848
 msgid "Add a new view"
-msgstr "Lisää uusi näkymä"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:852
 msgid "Remove Current View"
-msgstr "Poista nykyinen näkymä"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:853
 msgid "Remove this view"
-msgstr "Poista tämä näkymä"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:856
 msgid "Undo"
-msgstr "Kumoa"
+msgstr "Desfer"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:857
 msgid "Undo the last action"
-msgstr "Kumoa viimeisin toiminto"
+msgstr "Desfer l'última acció"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:860
 msgid "Redo"
-msgstr "Tee uudelleen"
+msgstr "Refer"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:861
 msgid "Redo the last undone action"
-msgstr "Tee uudelleen viimeisin kumottu toiminto"
+msgstr "Refer l'última acció"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:865
 msgid "Revert"
-msgstr "Palauta"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:866
 msgid "Restore this file"
-msgstr "Palauta tämä tiedosto"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:870
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:871
 msgid "Next Search"
-msgstr "Seuraava haku"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:874
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:875
 msgid "Previous Search"
-msgstr "Edellinen haku"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:879
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:880
 msgid "Duplicate selected strings"
-msgstr "Toista valitut merkit"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:884
 msgid "Open"
-msgstr "Avaa"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:888
 msgid "Save"
-msgstr "Tallenna"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:889
 msgid "Save the current file"
-msgstr "Tallenna nykyinen tiedosto"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:892
 #: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:106
 #: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:173
 msgid "Save as"
-msgstr "Tallenna nimellä"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:893
 msgid "Save the current file with a different name"
-msgstr "Tallenna nykyinen tiedosto eri nimellä"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:896
 #: /home/mario/elementary/scratch/po/../scratchcore/TemplateManager.vala:123
 msgid "Templates"
-msgstr "Mallit"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:897
 msgid "Create a new document from a template"
-msgstr "Luo uusi asiakirja mallista"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:901
 msgid "Change Scratch settings"
-msgstr "Muuta Scratchin asetuksia"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:907
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:908
 msgid "Fullscreen"
-msgstr "Kokoruutu"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:911
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:912
 msgid "Sidebar"
-msgstr "Sivupaneeli"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:915
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:916
 msgid "Context View"
-msgstr "Sisältönäkymä"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:919
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:920
 msgid "Status Bar"
-msgstr "Tilapalkki"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:923
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:924
 msgid "Bottom Panel"
-msgstr "Alapaneeli"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:178
 msgid "Set of plugins"
@@ -210,7 +210,7 @@ msgstr ""
 #: /home/mario/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
 #: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:101
 msgid "Normal text"
-msgstr "Tavallinen teksti"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:45
 msgid "Dismiss"
@@ -218,219 +218,217 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:52
 msgid "Save as New File"
-msgstr "Tallenna uutena tiedostona"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:60
 msgid "Choose the new location"
-msgstr "Valitse uusi sijainti"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:208
 msgid "No files are open."
-msgstr "Ei tiedostoja avoinna."
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:208
 msgid "Open a file to begin editing."
-msgstr "Avaa tiedosto aloittaaksesi muokkauksen."
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:210
 msgid "Open file"
-msgstr "Avaa tiedosto"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:210
 msgid "Open a saved file."
-msgstr "Avaa tallennettu tiedosto."
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:211
 msgid "New file"
-msgstr "Uusi tiedosto"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:211
 msgid "Create a new empty file."
-msgstr "Luo uusi tyhjä tiedosto"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "Save changes to document"
-msgstr "Tallenna muutokset asiakirjaan"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "New File"
-msgstr "Uusi tiedosto"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
 msgid "before closing?"
-msgstr "ennen sulkemista?"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
-"Jos et tallenna, muutokset viimeiseltä neljältä sekunnilta katoavat "
-"pysyvästi."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
-msgstr "Sulje tallentamatta"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:69
 msgid "Behavior"
-msgstr "Toiminta"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
 msgid "Interface"
-msgstr "Käyttöliittymä"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:78
 msgid "Extensions"
-msgstr "Laajennukset"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
 msgid "Show welcome screen"
-msgstr "Näytä tervetuloa-ikkuna"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:122
 msgid "Show last open tabs"
-msgstr "Näytä viimeisimmät avoimet välilehdet"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:138
 msgid "General:"
-msgstr "Yleiset:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:144
 msgid "When Scratch starts:"
-msgstr "Kun Scratch käynnistyy:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
 msgid "Save files at every changes:"
-msgstr "Tallenna tiedosto jokaisesta muutoksesta:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Tabs:"
-msgstr "Sarkaimet:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:157
 msgid "Automatic indentation:"
-msgstr "Automaattinen sisennys:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:160
 msgid "Insert spaces instead of tabs:"
-msgstr "Käytä välilyöntejä sarkainten tilalla:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:164
 msgid "Tab width:"
-msgstr "Sarkaimen leveys:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:194
 msgid "Editor:"
-msgstr "Muokkain:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:209
 msgid "Highlight current line:"
-msgstr "Korosta nykyinen rivi:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:210
 msgid "Highlight matching brackets:"
-msgstr "Korosta toisiaan vastaavat hakasulut:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:211
 msgid "Draw spaces:"
-msgstr "Väritä välilyönnit:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:212
 msgid "Show line numbers:"
-msgstr "Näytä rivinumerot:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:215
 msgid "Show margin on right:"
-msgstr "Näytä reunus oikealla:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:222
 msgid "Margin width:"
-msgstr "Reunuksen leveys:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:227
 msgid "Font and colors:"
-msgstr "Kirjasin ja värit:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:241
 msgid "Select font:"
-msgstr "Valitse kirjasin:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:244
 msgid "Color scheme:"
-msgstr "Värimaailma"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:249
 #, c-format
 msgid "System font (%s):"
-msgstr "Järjestelmän kirjasin (%s):"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
-msgstr "Tallennetaanko muutokset ennen sulkemista?"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
 msgid "Save unsaved changes to file \""
-msgstr "Tallenna muutokset tiedostoon \""
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
-msgstr "Tiedostoon kohdistuvia muutoksia ei ole tallennettu."
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Do you want to save changes before closing this file?"
-msgstr "Haluatko tallentaa muutokset, ennen kuin tiedosto suljetaan?"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:49
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:57
 msgid "The file:"
-msgstr "Tiedosto:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:50
 msgid "Do you want to reload it?"
-msgstr "Haluatko ladata sen uudelleen?"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:58
 msgid "Do you want to create it again?"
-msgstr "Haluatko luoda sen uudelleen?"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:265
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:491
 msgid "You can't save changes to:"
-msgstr "Muutosten tallennus ei onnistu kohteeseen:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:265
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:491
 msgid "Do you want to save the changes to this file in a different location?"
-msgstr "Haluatko tallentaa tämän tiedoston muutokset uuteen sijaintiin?"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:66
 msgid "Find"
-msgstr "Etsi"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:67
 msgid "Replace With"
-msgstr "Korvaava merkkijono"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:82
 msgid "Go To Line:"
-msgstr "Siirry riville:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:95
 msgid "Syntax Highlighting"
-msgstr "Syntaksin korostus"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
-msgstr "Jaa PasteBinin kautta"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:273
 msgid "Name:"
-msgstr "Nimi:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:279
 msgid "Format: "
-msgstr "Muoto: "
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:281
 msgid "Others..."
@@ -438,7 +436,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:306
 msgid "Expiry time:"
-msgstr "Vanhenemisaika:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:311
 msgid "Keep this paste private"
@@ -454,20 +452,20 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:544
 msgid "Never"
-msgstr "Ei koskaan"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:545
 msgid "Ten minutes"
-msgstr "Kymmenen minuuttia"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:546
 msgid "One hour"
-msgstr "Yksi tunti"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:547
 msgid "One day"
-msgstr "Yksi päivä"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:548
 msgid "One month"
-msgstr "Yksi kuukausi"
+msgstr ""
