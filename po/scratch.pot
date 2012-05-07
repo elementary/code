@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-06 16:27+0200\n"
+"POT-Creation-Date: 2012-05-07 23:37+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -154,7 +154,7 @@ msgid "Save the current file with a different name"
 msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:896
-#: /home/mario/elementary/scratch/po/../scratchcore/TemplateManager.vala:123
+#: /home/mario/elementary/scratch/po/../scratchcore/TemplateManager.vala:139
 msgid "Templates"
 msgstr ""
 
@@ -299,7 +299,7 @@ msgid "When Scratch starts:"
 msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
-msgid "Save files at every changes:"
+msgid "Save files when changed:"
 msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
@@ -359,8 +359,7 @@ msgid "Color scheme:"
 msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:249
-#, c-format
-msgid "System font (%s):"
+msgid "Custom font:"
 msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40

@@ -41,7 +41,11 @@ public abstract class Scratch.Template : Object {
             return;
         }
         
-        destination.make_directory ();
+        try {
+            destination.make_directory ();
+        } catch (Error e) {
+            warning (e.message);
+        }
         
         List<FileInfo> files;
         List<File> dirs;
@@ -49,18 +53,30 @@ public abstract class Scratch.Template : Object {
         foreach (var file in files) {
             if (file.get_content_type ().contains ("text")) {
                 string content;
-                FileUtils.get_contents (Path.build_filename (origin.get_path (), file.get_name ()), out content);
+                try {
+                    FileUtils.get_contents (Path.build_filename (origin.get_path (), file.get_name ()), out content);
+                } catch (FileError e) {
+                    warning (e.message);
+                }
                 if (variables != null) {
                     foreach (var entry in variables.entries) {
                         content = content.replace ("$$" + entry.key, entry.value);
                     }
                 }
-                FileUtils.set_contents (Path.build_filename (destination.get_path (), file.get_name ()), content);
+                try {
+                    FileUtils.set_contents (Path.build_filename (destination.get_path (), file.get_name ()), content);
+                } catch (FileError e) {
+                    warning (e.message);
+                }
             }
             else {
                 var orig = File.new_for_path (Path.build_filename (origin.get_path (), file.get_name ()));
                 var dest = File.new_for_path (Path.build_filename (destination.get_path (), file.get_name ()));
-                orig.copy (dest, 0);
+                try {
+                    orig.copy (dest, 0);
+                } catch (Error e) {
+                    warning (e.message);
+                }
             }
                 
         }

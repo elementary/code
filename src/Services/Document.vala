@@ -546,8 +546,8 @@ namespace Scratch.Services {
              */
             // TODO: make the native way working
             /*var file = File.new_for_path (f);
-            var info = file.query_info (FILE_ATTRIBUTE_ACCESS_CAN_EXECUTE, FileQueryInfoFlags.NONE, null);
-            info.set_attribute_boolean (FILE_ATTRIBUTE_ACCESS_CAN_EXECUTE, was_executable);
+            var info = file.query_info (FileAttribute.ACCESS_CAN_EXECUTE, FileQueryInfoFlags.NONE, null);
+            info.set_attribute_boolean (FileAttribute.ACCESS_CAN_EXECUTE, was_executable);
             file.set_attributes_from_info (info, FileQueryInfoFlags.NONE);*/
             try {
                 if (was_executable) GLib.Process.spawn_command_line_async ("chmod +x " + f);
@@ -583,8 +583,8 @@ namespace Scratch.Services {
              */
             // TODO: make the native way working
             /*var file = File.new_for_path (f);
-            var info = file.query_info (FILE_ATTRIBUTE_ACCESS_CAN_EXECUTE, FileQueryInfoFlags.NONE, null);
-            info.set_attribute_boolean (FILE_ATTRIBUTE_ACCESS_CAN_EXECUTE, was_executable);
+            var info = file.query_info (FileAttribute.ACCESS_CAN_EXECUTE, FileQueryInfoFlags.NONE, null);
+            info.set_attribute_boolean (FileAttribute.ACCESS_CAN_EXECUTE, was_executable);
             file.set_attributes_from_info (info, FileQueryInfoFlags.NONE);*/
             try {
                 if (was_executable) GLib.Process.spawn_command_line_async ("chmod +x " + f);
@@ -620,8 +620,8 @@ namespace Scratch.Services {
         public uint64 get_mtime () {
 
             try {
-                var info = file.query_info (FILE_ATTRIBUTE_TIME_MODIFIED, 0, null);
-                return info.get_attribute_uint64 (FILE_ATTRIBUTE_TIME_MODIFIED);
+                var info = file.query_info (FileAttribute.TIME_MODIFIED, 0, null);
+                return info.get_attribute_uint64 (FileAttribute.TIME_MODIFIED);
             } catch  (Error e) {
                 warning ("%s", e.message);
                 return 0;
@@ -656,7 +656,7 @@ namespace Scratch.Services {
                 FileInfo info;
                 int64 size;
                 try {
-                    info = file.query_info (FILE_ATTRIBUTE_STANDARD_SIZE, FileQueryInfoFlags.NONE, null);
+                    info = file.query_info (FileAttribute.STANDARD_SIZE, FileQueryInfoFlags.NONE, null);
                     size = info.get_size ();
                     return size;
                 } catch (Error e) {
@@ -681,8 +681,8 @@ namespace Scratch.Services {
 
                 try {
 
-                    info = file.query_info (FILE_ATTRIBUTE_ACCESS_CAN_WRITE, FileQueryInfoFlags.NONE, null);
-                    writable = info.get_attribute_boolean (FILE_ATTRIBUTE_ACCESS_CAN_WRITE);
+                    info = file.query_info (FileAttribute.ACCESS_CAN_WRITE, FileQueryInfoFlags.NONE, null);
+                    writable = info.get_attribute_boolean (FileAttribute.ACCESS_CAN_WRITE);
 
                     return writable;
 
@@ -709,8 +709,8 @@ namespace Scratch.Services {
                 bool executable;
                 try {
 
-                    info = file.query_info (FILE_ATTRIBUTE_ACCESS_CAN_EXECUTE, FileQueryInfoFlags.NONE, null);
-                    executable = info.get_attribute_boolean (FILE_ATTRIBUTE_ACCESS_CAN_EXECUTE);
+                    info = file.query_info (FileAttribute.ACCESS_CAN_EXECUTE, FileQueryInfoFlags.NONE, null);
+                    executable = info.get_attribute_boolean (FileAttribute.ACCESS_CAN_EXECUTE);
 
                     return executable;
 

@@ -37,7 +37,7 @@ namespace Scratch.Dialogs {
         Switch auto_indent;
         SpinButton indent_width;
         ComboBoxText style_scheme;
-        Switch use_system_font;
+        Switch use_custom_font;
         FontButton select_font;
         
         List<string> plugin_lists;
@@ -144,7 +144,7 @@ namespace Scratch.Dialogs {
             label = new Label (_("When Scratch starts:"));
             add_option (general_grid, label, start, ref row);
             
-            label = new Label (_("Save files at every changes:"));
+            label = new Label (_("Save files when changed:"));
             add_option (general_grid, label, autosave, ref row);
             
             //Tabs
@@ -231,22 +231,22 @@ namespace Scratch.Dialogs {
             populate_style_scheme ();
             Scratch.settings.schema.bind("style-scheme", style_scheme, "active-id", SettingsBindFlags.DEFAULT);
 
-            use_system_font = new Switch ();
+            use_custom_font = new Switch ();
 
             select_font = new FontButton ();
             
             Scratch.settings.schema.bind("font", select_font, "font-name", SettingsBindFlags.DEFAULT);
-            Scratch.settings.schema.bind("use-system-font", use_system_font, "active", SettingsBindFlags.DEFAULT);
+            Scratch.settings.schema.bind("use-system-font", use_custom_font, "active", SettingsBindFlags.INVERT_BOOLEAN);
             Scratch.settings.schema.bind("use-system-font", select_font, "sensitive", SettingsBindFlags.INVERT_BOOLEAN);
             var select_font_l = new Label (_("Select font:"));
             Scratch.settings.schema.bind("use-system-font", select_font_l, "sensitive", SettingsBindFlags.INVERT_BOOLEAN);
 
             add_option (content, new Label (_("Color scheme:")), style_scheme, ref row);
             var font_grid = new Gtk.Grid();
-            font_grid.add(use_system_font);
+            font_grid.add(use_custom_font);
             font_grid.add(select_font);
             select_font.hexpand = true;
-            add_option (content, new Label (_("System font (%s):").printf(default_font())), font_grid, ref row);
+            add_option (content, new Label (_("Custom font:")), font_grid, ref row);
             
             return content;
         }

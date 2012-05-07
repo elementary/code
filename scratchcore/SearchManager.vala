@@ -179,7 +179,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
             text_buffer = text_view.get_buffer ();
     }
 
-    void show_arrow (bool show) {
+    /*void show_arrow (bool show) {
         tool_arrow_down.no_show_all = tool_arrow_up.no_show_all = !show;
         if(show) {
             tool_arrow_up.show_all ();
@@ -189,7 +189,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
             tool_arrow_up.hide ();
             tool_arrow_down.hide ();
         }
-    }
+    }*/
 
     void show_search () {
         /*tool_replace_entry.hide ();
@@ -291,7 +291,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
         return false;
     }
 
-    void add_section (Gtk.Grid grid, Gtk.Label name, ref int row) {
+    /*void add_section (Gtk.Grid grid, Gtk.Label name, ref int row) {
         name.use_markup = true;
         name.set_markup ("<b>%s</b>".printf (name.get_text ()));
         name.halign = Gtk.Align.START;
@@ -307,14 +307,14 @@ public class Scratch.Services.SearchManager : GLib.Object {
         switcher.hexpand = true;
         
         if (switcher is Gtk.Switch || switcher is Gtk.CheckButton
-            || switcher is Gtk.Entry) { /* then we don't want it to be expanded */
+            || switcher is Gtk.Entry) { /* then we don't want it to be expanded *
             switcher.halign = Gtk.Align.START;
         }
         
         grid.attach (label, 0, row, 1, 1);
         grid.attach_next_to (switcher, label, Gtk.PositionType.RIGHT, 3, 1);
         row ++;
-    }
+    }*/
     
 
     public bool search () {
@@ -460,7 +460,11 @@ public class Granite.Widgets.ToolArrow : Gtk.ToolItem
     public ToolArrow()
     {
         Gtk.CssProvider css = new Gtk.CssProvider();
-        css.load_from_data("* { padding-left:0; padding-right:0; }", -1);
+        try {
+            css.load_from_data("* { padding-left:0; padding-right:0; }", -1);
+        } catch (Error e) {
+            warning (e.message);
+        }
         var arrow = new Gtk.Arrow(Gtk.ArrowType.DOWN, Gtk.ShadowType.OUT);
         button = new Gtk.ToggleButton();
         button.button_press_event.connect( () => { clicked(); return true; });
@@ -470,8 +474,8 @@ public class Granite.Widgets.ToolArrow : Gtk.ToolItem
         add(button);
     }
     
-    public void set_state(bool v)
+    /*public void set_state(bool v)
     {
         button.active = v;
-    }
+    }*/
 }

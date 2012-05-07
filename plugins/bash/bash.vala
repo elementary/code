@@ -46,7 +46,7 @@ public class Scratch.Plugins.Bash : Peas.ExtensionBase,  Peas.Activatable
             
             try {
                 this.terminal.fork_command_full (Vte.PtyFlags.DEFAULT, "~/", { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, null);
-            } catch (GLib.SpawnError e) {
+            } catch (GLib.Error e) {
                 warning (e.message);
             }
             

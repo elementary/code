@@ -30,13 +30,13 @@ namespace Scratch.Dialogs {
     private class WarnDialog : MessageDialog {
 
         MainWindow window;
-        WarnType type;        
+        WarnType warn_type;        
         
         public WarnDialog (string filename, MainWindow? window, WarnType type = WarnType.RELOAD) {
 
 	        this.window = window;
             this.title = title;
-            this.type = type;
+            this.warn_type = type;
             this.set_transient_for (window);
 	        set_default_size (300, 150);
             modal = true;
@@ -45,7 +45,7 @@ namespace Scratch.Dialogs {
 	        message_type = MessageType.WARNING;
             use_markup = true;
 	        
-	        if (type == WarnType.RELOAD) {
+	        if (warn_type == WarnType.RELOAD) {
 	            text = "<b>" + _("The file:") + " \"" + filename + "\" " + "was modified." + "</b>";
                 text += "\n\n" + _("Do you want to reload it?");
 	            
@@ -53,7 +53,7 @@ namespace Scratch.Dialogs {
                 add_button (Stock.CLOSE, ResponseType.CANCEL);
 	        }
 	        
-	        else if (type == WarnType.FILE_DELETED) {
+	        else if (warn_type == WarnType.FILE_DELETED) {
 	            text = "<b>" + _("The file:") + " \"" + filename + "\" " + "was deleted." + "</b>";
                 text += "\n\n" + _("Do you want to create it again?");
 	            
@@ -69,18 +69,18 @@ namespace Scratch.Dialogs {
         
             switch (response) {
                 case ResponseType.ACCEPT:
-                    if (type == WarnType.RELOAD) {
+                    if (warn_type == WarnType.RELOAD) {
                         window.current_document.reload ();
                         window.current_document.save ();
                     }
-                    else if (type == WarnType.FILE_DELETED) 
+                    else if (warn_type == WarnType.FILE_DELETED) 
                         window.current_document.save ();
                     destroy ();
                 break;
                 case ResponseType.CANCEL:
-                    if (type == WarnType.RELOAD)
+                    if (warn_type == WarnType.RELOAD)
                         window.current_document.set_label_font ("modified");
-                    else if (type == WarnType.FILE_DELETED)
+                    else if (warn_type == WarnType.FILE_DELETED)
                         window.current_document.set_label_font ("modified");
                     destroy ();
                 break;
