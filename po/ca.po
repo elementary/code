@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-05-06 16:27+0200\n"
-"PO-Revision-Date: 2012-05-06 17:48+0000\n"
-"Last-Translator: Sergio Tortosa <sertorbe@gmail.com>\n"
+"POT-Creation-Date: 2012-05-07 23:37+0200\n"
+"PO-Revision-Date: 2012-05-07 20:34+0000\n"
+"Last-Translator: Alfredo Hernández <Unknown>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-07 04:58+0000\n"
-"X-Generator: Launchpad (build 15195)\n"
+"X-Launchpad-Export-Date: 2012-05-08 05:38+0000\n"
+"X-Generator: Launchpad (build 15204)\n"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:459
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:900
@@ -154,7 +154,7 @@ msgid "Save the current file with a different name"
 msgstr "Desa el fitxer actual amb un nom diferent"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:896
-#: /home/mario/elementary/scratch/po/../scratchcore/TemplateManager.vala:123
+#: /home/mario/elementary/scratch/po/../scratchcore/TemplateManager.vala:139
 msgid "Templates"
 msgstr "Plantilles"
 
@@ -193,19 +193,19 @@ msgstr "Tauler inferior"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:178
 msgid "Set of plugins"
-msgstr "Conjunt de plugins"
+msgstr "Conjunt de connectors"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:179
 msgid "Argument for the set of plugins"
-msgstr "Argument per al conjunt de plugins"
+msgstr "Argument per al conjunt de connectors"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:180
 msgid "Create a new instance"
-msgstr "Crear una nova instància"
+msgstr "Crea una nova instància"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ShareMenu.vala:56
 msgid "Share"
-msgstr ""
+msgstr "Comparteix"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
 #: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:101
@@ -301,8 +301,8 @@ msgid "When Scratch starts:"
 msgstr "Quan s'iniciï l'Scratch:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
-msgid "Save files at every changes:"
-msgstr "Desa els fitxers a cada canvi:"
+msgid "Save files when changed:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Tabs:"
@@ -342,7 +342,7 @@ msgstr "Mostrar el nombres de línia:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:215
 msgid "Show margin on right:"
-msgstr "Mostrar marge a la dreta:"
+msgstr "Mostra un marge a la dreta:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:222
 msgid "Margin width:"
@@ -354,16 +354,15 @@ msgstr "Tipus de lletra i colors:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:241
 msgid "Select font:"
-msgstr "Seleccioneu tipus de lletra:"
+msgstr "Seleccioneu un tipus de lletra:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:244
 msgid "Color scheme:"
 msgstr "Esquema de colors:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:249
-#, c-format
-msgid "System font (%s):"
-msgstr "Tipus de lletra del sistema (%s):"
+msgid "Custom font:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
@@ -422,7 +421,7 @@ msgstr "Realçat de sintaxi"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
-msgstr "Compartir mitjançant PasteBin"
+msgstr "Comparteix mitjançant el PasteBin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:273
 msgid "Name:"
@@ -438,15 +437,15 @@ msgstr "Altres..."
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:306
 msgid "Expiry time:"
-msgstr ""
+msgstr "Temps d'expiració:"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:311
 msgid "Keep this paste private"
-msgstr ""
+msgstr "Mantén aquest retall com a privat"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:314
 msgid "Upload"
-msgstr "Pujar"
+msgstr "Puja"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:345
 msgid "Other formats"

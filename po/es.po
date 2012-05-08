@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-06 16:27+0200\n"
-"PO-Revision-Date: 2012-05-05 20:25+0000\n"
-"Last-Translator: Christopher <Unknown>\n"
+"POT-Creation-Date: 2012-05-07 23:37+0200\n"
+"PO-Revision-Date: 2012-05-07 23:44+0000\n"
+"Last-Translator: ttosttos <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-07 04:58+0000\n"
-"X-Generator: Launchpad (build 15195)\n"
+"X-Launchpad-Export-Date: 2012-05-08 05:39+0000\n"
+"X-Generator: Launchpad (build 15204)\n"
 "Language: es\n"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:459
@@ -155,7 +155,7 @@ msgid "Save the current file with a different name"
 msgstr "Guardar el archivo actual con un nombre diferente"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:896
-#: /home/mario/elementary/scratch/po/../scratchcore/TemplateManager.vala:123
+#: /home/mario/elementary/scratch/po/../scratchcore/TemplateManager.vala:139
 msgid "Templates"
 msgstr "Plantillas"
 
@@ -194,11 +194,11 @@ msgstr "Panel inferior"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:178
 msgid "Set of plugins"
-msgstr "Conjunto de plugins"
+msgstr "Conjunto de conectores"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:179
 msgid "Argument for the set of plugins"
-msgstr ""
+msgstr "Argumento para el conjunto de conectores"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:180
 msgid "Create a new instance"
@@ -219,7 +219,7 @@ msgstr "Ignorar"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:52
 msgid "Save as New File"
-msgstr "Guardar como nuevo archivo"
+msgstr "Guardar como archivo nuevo"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:60
 msgid "Choose the new location"
@@ -302,8 +302,8 @@ msgid "When Scratch starts:"
 msgstr "Al iniciar Scratch:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
-msgid "Save files at every changes:"
-msgstr "Guardar los archivos al producirse cambios:"
+msgid "Save files when changed:"
+msgstr "Guardar archivos despues de ser modificados:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Tabs:"
@@ -362,9 +362,8 @@ msgid "Color scheme:"
 msgstr "Esquema de color:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:249
-#, c-format
-msgid "System font (%s):"
-msgstr "Fuente del sistema (%s):"
+msgid "Custom font:"
+msgstr "Fuente personalizada:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
@@ -440,11 +439,11 @@ msgstr "Otros..."
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:306
 msgid "Expiry time:"
-msgstr "Fecha de vencimiento"
+msgstr "Fecha de vencimiento:"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:311
 msgid "Keep this paste private"
-msgstr ""
+msgstr "Conservar como privado el texto pegado"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:314
 msgid "Upload"

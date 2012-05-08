@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-06 16:27+0200\n"
+"POT-Creation-Date: 2012-05-07 23:37+0200\n"
 "PO-Revision-Date: 2012-05-05 21:21+0000\n"
 "Last-Translator: LEROY Jean-Christophe <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-07 04:58+0000\n"
-"X-Generator: Launchpad (build 15195)\n"
+"X-Launchpad-Export-Date: 2012-05-08 05:38+0000\n"
+"X-Generator: Launchpad (build 15204)\n"
 "Language: fr\n"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:459
@@ -155,7 +155,7 @@ msgid "Save the current file with a different name"
 msgstr "Enregistrer le fichier courant sous un nom différent"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:896
-#: /home/mario/elementary/scratch/po/../scratchcore/TemplateManager.vala:123
+#: /home/mario/elementary/scratch/po/../scratchcore/TemplateManager.vala:139
 msgid "Templates"
 msgstr "Modèles"
 
@@ -302,8 +302,8 @@ msgid "When Scratch starts:"
 msgstr "Quand Scratch démarre :"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
-msgid "Save files at every changes:"
-msgstr "Enregistrer à chaque modification :"
+msgid "Save files when changed:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Tabs:"
@@ -362,9 +362,8 @@ msgid "Color scheme:"
 msgstr "Palette de couleurs :"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:249
-#, c-format
-msgid "System font (%s):"
-msgstr "Police système (%s) :"
+msgid "Custom font:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"

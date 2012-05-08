@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-05-06 16:27+0200\n"
+"POT-Creation-Date: 2012-05-07 23:37+0200\n"
 "PO-Revision-Date: 2012-04-08 13:17+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-07 04:58+0000\n"
-"X-Generator: Launchpad (build 15195)\n"
+"X-Launchpad-Export-Date: 2012-05-08 05:39+0000\n"
+"X-Generator: Launchpad (build 15204)\n"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:459
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:900
@@ -154,7 +154,7 @@ msgid "Save the current file with a different name"
 msgstr "用不同的文件名保存当前文件"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:896
-#: /home/mario/elementary/scratch/po/../scratchcore/TemplateManager.vala:123
+#: /home/mario/elementary/scratch/po/../scratchcore/TemplateManager.vala:139
 msgid "Templates"
 msgstr "模板"
 
@@ -299,8 +299,8 @@ msgid "When Scratch starts:"
 msgstr "在 Scratch 启动时："
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
-msgid "Save files at every changes:"
-msgstr "每次更改时保存文件："
+msgid "Save files when changed:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Tabs:"
@@ -359,9 +359,8 @@ msgid "Color scheme:"
 msgstr "颜色方案:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:249
-#, c-format
-msgid "System font (%s):"
-msgstr "系统字体(%s)："
+msgid "Custom font:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
