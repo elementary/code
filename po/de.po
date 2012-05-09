@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-07 23:37+0200\n"
-"PO-Revision-Date: 2012-05-04 21:17+0000\n"
-"Last-Translator: Anducar <Unknown>\n"
+"PO-Revision-Date: 2012-05-08 14:38+0000\n"
+"Last-Translator: alfalive <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-08 05:38+0000\n"
-"X-Generator: Launchpad (build 15204)\n"
+"X-Launchpad-Export-Date: 2012-05-09 05:14+0000\n"
+"X-Generator: Launchpad (build 15213)\n"
 "Language: de\n"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:459
@@ -239,7 +239,7 @@ msgstr "Datei öffnen"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:210
 msgid "Open a saved file."
-msgstr "Öffne gespeicherte Datei."
+msgstr "Öffnet neue Datei."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:211
 msgid "New file"
@@ -247,7 +247,7 @@ msgstr "Neue Datei"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:211
 msgid "Create a new empty file."
-msgstr "Erstelle neue Datei."
+msgstr "Erstellt neue Datei"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "Save changes to document"
@@ -303,7 +303,7 @@ msgstr "Wenn Scratch startet:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
 msgid "Save files when changed:"
-msgstr ""
+msgstr "Dateien nach Änderung speichern:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Tabs:"
@@ -363,7 +363,7 @@ msgstr "Farbschema:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:249
 msgid "Custom font:"
-msgstr ""
+msgstr "Benutzerdefinierte Schriftart:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
