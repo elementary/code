@@ -65,7 +65,11 @@ public int main(string[] args)
     
     Test.add_func ("/scratch/core/template_manager", () => {
         /* cleanup */
-        Process.spawn_sync ("/", {"rm", Environment.get_tmp_dir () + "/scratch-tpl", "-Rf"}, null, SpawnFlags.SEARCH_PATH, null);
+        try {
+            Process.spawn_sync ("/", {"rm", Environment.get_tmp_dir () + "/scratch-tpl", "-Rf"}, null, SpawnFlags.SEARCH_PATH, null);
+        } catch (SpawnError e) {
+            warning (e.message);
+        }
         File file = File.new_for_path ("/tmp/scratch-tpl/");
         bool is_dir, exists;
         Scratch.Template.info_directory (file, out is_dir, out exists);

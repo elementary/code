@@ -250,14 +250,14 @@ namespace Scratch.Dialogs {
             
             return content;
         }
-
+/*
         private string default_font () {
 
             var settings = new GLib.Settings ("org.gnome.desktop.interface");
             var default_font = settings.get_string ("monospace-font-name");
             return default_font;
         }
-
+*/
         private void populate_style_scheme () {
 
             string[] scheme_ids;
