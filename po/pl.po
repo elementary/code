@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-05-09 20:39+0200\n"
-"PO-Revision-Date: 2012-04-16 07:38+0000\n"
-"Last-Translator: Jacek Spławski <zacol1@gmail.com>\n"
+"PO-Revision-Date: 2012-05-11 19:26+0000\n"
+"Last-Translator: Adam Brzęcki <adambrzecki@gmail.com>\n"
 "Language-Team: polski <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-11 06:05+0000\n"
+"X-Launchpad-Export-Date: 2012-05-12 06:19+0000\n"
 "X-Generator: Launchpad (build 15225)\n"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:459
@@ -193,19 +193,19 @@ msgstr "Dolny panel"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:178
 msgid "Set of plugins"
-msgstr ""
+msgstr "Zestaw wtyczek"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:179
 msgid "Argument for the set of plugins"
-msgstr ""
+msgstr "Argument dla zestawu wtyczek"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:180
 msgid "Create a new instance"
-msgstr ""
+msgstr "Stwórz nową instancję"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ShareMenu.vala:56
 msgid "Share"
-msgstr ""
+msgstr "Udostępnij"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
 #: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:101
@@ -259,7 +259,7 @@ msgstr "Nowy plik"
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
 msgid "before closing?"
-msgstr ""
+msgstr "przed zamknięciem?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
@@ -302,7 +302,7 @@ msgstr "Czynność podjęta po uruchomieniu programu:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
 msgid "Save files when changed:"
-msgstr ""
+msgstr "Zapisuj zmiany automatycznie przy każdej zmianie"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Tabs:"
@@ -362,7 +362,7 @@ msgstr "Schemat kolorów:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:249
 msgid "Custom font:"
-msgstr ""
+msgstr "Własna czcionka:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
@@ -421,52 +421,52 @@ msgstr "Wyróżnienie składni"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
-msgstr ""
+msgstr "Udostępnij w serwisie PasteBin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:273
 msgid "Name:"
-msgstr ""
+msgstr "Nazwa:"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:279
 msgid "Format: "
-msgstr ""
+msgstr "Format: "
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:281
 msgid "Others..."
-msgstr ""
+msgstr "Inne..."
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:306
 msgid "Expiry time:"
-msgstr ""
+msgstr "Czas wygaśnięcia:"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:311
 msgid "Keep this paste private"
-msgstr ""
+msgstr "Prywatna wklejka"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:314
 msgid "Upload"
-msgstr ""
+msgstr "Wyślij"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:345
 msgid "Other formats"
-msgstr ""
+msgstr "Inne formaty"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:544
 msgid "Never"
-msgstr ""
+msgstr "Nigdy"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:545
 msgid "Ten minutes"
-msgstr ""
+msgstr "10 minut"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:546
 msgid "One hour"
-msgstr ""
+msgstr "Godzina"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:547
 msgid "One day"
-msgstr ""
+msgstr "Jeden dzień"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:548
 msgid "One month"
-msgstr ""
+msgstr "Jeden miesiąc"

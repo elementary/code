@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-05-09 20:39+0200\n"
-"PO-Revision-Date: 2012-04-08 13:17+0000\n"
+"PO-Revision-Date: 2012-05-11 07:29+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-11 06:05+0000\n"
+"X-Launchpad-Export-Date: 2012-05-12 06:19+0000\n"
 "X-Generator: Launchpad (build 15225)\n"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:459
@@ -102,7 +102,7 @@ msgstr "撤消上次操作"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:860
 msgid "Redo"
-msgstr ""
+msgstr "重做"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:861
 msgid "Redo the last undone action"
@@ -193,19 +193,19 @@ msgstr "底部面板"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:178
 msgid "Set of plugins"
-msgstr ""
+msgstr "插件设置"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:179
 msgid "Argument for the set of plugins"
-msgstr ""
+msgstr "插件设置参数"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:180
 msgid "Create a new instance"
-msgstr ""
+msgstr "创建新实例"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ShareMenu.vala:56
 msgid "Share"
-msgstr ""
+msgstr "分享"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
 #: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:101
@@ -214,11 +214,11 @@ msgstr "普通文本"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:45
 msgid "Dismiss"
-msgstr ""
+msgstr "忽略"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:52
 msgid "Save as New File"
-msgstr ""
+msgstr "另存为新文件"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:60
 msgid "Choose the new location"
@@ -259,7 +259,7 @@ msgstr "新建文件"
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
 msgid "before closing?"
-msgstr ""
+msgstr "在关闭之前？"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
@@ -300,7 +300,7 @@ msgstr "在 Scratch 启动时："
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
 msgid "Save files when changed:"
-msgstr ""
+msgstr "当变更时保存文件："
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Tabs:"
@@ -360,7 +360,7 @@ msgstr "颜色方案:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:249
 msgid "Custom font:"
-msgstr ""
+msgstr "自定义字体："
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
@@ -389,7 +389,7 @@ msgstr "您要重新载入吗？"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:58
 msgid "Do you want to create it again?"
-msgstr ""
+msgstr "您要再次创建它吗？"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:265
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:491
@@ -403,11 +403,11 @@ msgstr "您要将该文件的修改保存到不同的位置吗？"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:66
 msgid "Find"
-msgstr ""
+msgstr "查找"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:67
 msgid "Replace With"
-msgstr ""
+msgstr "替换为"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:82
 msgid "Go To Line:"
@@ -419,52 +419,52 @@ msgstr "语法高亮"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
-msgstr ""
+msgstr "通过 PasteBin 分享"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:273
 msgid "Name:"
-msgstr ""
+msgstr "名称："
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:279
 msgid "Format: "
-msgstr ""
+msgstr "格式： "
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:281
 msgid "Others..."
-msgstr ""
+msgstr "其它..."
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:306
 msgid "Expiry time:"
-msgstr ""
+msgstr "过期时间："
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:311
 msgid "Keep this paste private"
-msgstr ""
+msgstr "保持该粘帖为私有"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:314
 msgid "Upload"
-msgstr ""
+msgstr "上传"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:345
 msgid "Other formats"
-msgstr ""
+msgstr "其它格式"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:544
 msgid "Never"
-msgstr ""
+msgstr "从不"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:545
 msgid "Ten minutes"
-msgstr ""
+msgstr "十分钟"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:546
 msgid "One hour"
-msgstr ""
+msgstr "一小时"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:547
 msgid "One day"
-msgstr ""
+msgstr "一天"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:548
 msgid "One month"
-msgstr ""
+msgstr "一月"

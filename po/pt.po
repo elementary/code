@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-05-09 20:39+0200\n"
-"PO-Revision-Date: 2012-04-23 14:20+0000\n"
-"Last-Translator: Laurentino <laurentinolopes@gmail.com>\n"
+"PO-Revision-Date: 2012-05-11 21:21+0000\n"
+"Last-Translator: Luís Marques <Unknown>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-11 06:05+0000\n"
+"X-Launchpad-Export-Date: 2012-05-12 06:19+0000\n"
 "X-Generator: Launchpad (build 15225)\n"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:459
@@ -48,7 +48,7 @@ msgstr "Esconder barra de pesquisa"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:827
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:828
 msgid "Go to line..."
-msgstr "Ir à linha..."
+msgstr "Ir para a linha..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:831
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:832
@@ -129,7 +129,7 @@ msgstr "Pesquisa anterior"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:879
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:880
 msgid "Duplicate selected strings"
-msgstr "Duplicar strings seleccionadas"
+msgstr "Duplicar linhas selecionadas"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:884
 msgid "Open"
@@ -169,7 +169,7 @@ msgstr "Mudar as preferências do Scratch"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:907
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:908
 msgid "Fullscreen"
-msgstr "Ecrã total"
+msgstr "Ecrã completo"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:911
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:912
@@ -179,7 +179,7 @@ msgstr "Barra lateral"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:915
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:916
 msgid "Context View"
-msgstr "Visualizar contexto"
+msgstr "Visualização de contexto"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:919
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:920
@@ -193,19 +193,19 @@ msgstr "Painel Inferior"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:178
 msgid "Set of plugins"
-msgstr ""
+msgstr "Conjunto de plugins"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:179
 msgid "Argument for the set of plugins"
-msgstr ""
+msgstr "Argumento para o conjunto de plugins"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:180
 msgid "Create a new instance"
-msgstr ""
+msgstr "Criar uma nova instância"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ShareMenu.vala:56
 msgid "Share"
-msgstr ""
+msgstr "Partilhar"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
 #: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:101
@@ -222,7 +222,7 @@ msgstr "Gravar como Novo Ficheiro"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:60
 msgid "Choose the new location"
-msgstr "Escolher nova localização"
+msgstr "Escolher a nova localização"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:208
 msgid "No files are open."
@@ -234,7 +234,7 @@ msgstr "Abrir um ficheiro para edição"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:210
 msgid "Open file"
-msgstr "Abrir um ficheiro"
+msgstr "Abrir ficheiro"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:210
 msgid "Open a saved file."
@@ -250,7 +250,7 @@ msgstr "Criar um novo ficheiro vazio"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "Save changes to document"
-msgstr "Gravar alterações do documento"
+msgstr "Guardar alterações ao documento"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "New File"
@@ -259,14 +259,14 @@ msgstr "Novo Ficheiro"
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
 msgid "before closing?"
-msgstr ""
+msgstr "antes de fechar?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
 "Se não gravar, as alterações efectuadas nos últimos 4 segundos serão "
-"perdidas permanentemente"
+"perdidas permanentemente."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
@@ -302,7 +302,7 @@ msgstr "Quando o Scratch inicia:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
 msgid "Save files when changed:"
-msgstr ""
+msgstr "Gravar ficheiros quando alterados:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Tabs:"
@@ -338,11 +338,11 @@ msgstr "Desenhar espaços:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:212
 msgid "Show line numbers:"
-msgstr "Exibir números de linhas:"
+msgstr "Exibir números de linha:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:215
 msgid "Show margin on right:"
-msgstr "Exibir margem a direita"
+msgstr "Exibir margem à direita:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:222
 msgid "Margin width:"
@@ -362,7 +362,7 @@ msgstr "Esquema de Cores:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:249
 msgid "Custom font:"
-msgstr ""
+msgstr "Tipo de letra personalizado:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
@@ -374,7 +374,7 @@ msgstr "Gravar alterações efectuadas para o ficheiro \""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
-msgstr "Alterações para este ficheiro não estão sendo gravadas."
+msgstr "As alterações a este ficheiro não foram guardadas."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Do you want to save changes before closing this file?"
@@ -414,7 +414,7 @@ msgstr "Substituir Por"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:82
 msgid "Go To Line:"
-msgstr "Vai Para a Linha:"
+msgstr "Ir para a linha"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:95
 msgid "Syntax Highlighting"
@@ -422,52 +422,52 @@ msgstr "Realce de Sintaxe"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
-msgstr ""
+msgstr "Partilhar via PasteBin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:273
 msgid "Name:"
-msgstr ""
+msgstr "Nome:"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:279
 msgid "Format: "
-msgstr ""
+msgstr "Formato: "
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:281
 msgid "Others..."
-msgstr ""
+msgstr "Outros..."
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:306
 msgid "Expiry time:"
-msgstr ""
+msgstr "Expira em:"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:311
 msgid "Keep this paste private"
-msgstr ""
+msgstr "Manter este paste privado"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:314
 msgid "Upload"
-msgstr ""
+msgstr "Upload"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:345
 msgid "Other formats"
-msgstr ""
+msgstr "Outros formatos"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:544
 msgid "Never"
-msgstr ""
+msgstr "Nunca"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:545
 msgid "Ten minutes"
-msgstr ""
+msgstr "Dez minutos"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:546
 msgid "One hour"
-msgstr ""
+msgstr "Uma hora"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:547
 msgid "One day"
-msgstr ""
+msgstr "Um dia"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:548
 msgid "One month"
-msgstr ""
+msgstr "Um mês"
