@@ -365,7 +365,7 @@ namespace Scratch.Services {
         }
         
         uint timeout_saving = -1;
-
+        
         void on_buffer_changed () {
 
             window.set_undo_redo ();
@@ -376,7 +376,7 @@ namespace Scratch.Services {
                     timeout_saving = -1;
                 }
                 timeout_saving = Timeout.add(250, () => {
-                    if (!opening) save ();
+                    if (!opening) save ();//Thread.create (save_a, false);
                     modified = false;
                     opening = false;
                     tab.text_view.modified = false;

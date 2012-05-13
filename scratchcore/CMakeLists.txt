@@ -1,5 +1,6 @@
 set (PKGNAME scratchcore)
 set (PKGNAME_ SCRATCHCORE)
+set (GETTEXT_PACKAGE "scratch")
 set (${PKGNAME_}_VERSION 0.1)
 # increase when you broke the API
 
@@ -12,7 +13,7 @@ configure_file (${CMAKE_CURRENT_SOURCE_DIR}/${PKGNAME}.pc.cmake ${CMAKE_CURRENT_
 install (FILES ${CMAKE_CURRENT_BINARY_DIR}/${PKGNAME}.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig/)
 # Link all
 
-add_definitions(${NORMAL_CFLAGS} "-DGETTEXT_PACKAGE=\"${PKGNAME_}\"")
+add_definitions(-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\")
 set(LIBS
     ${NORMAL_LIBRARIES}
 )
