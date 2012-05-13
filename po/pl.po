@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-05-09 20:39+0200\n"
-"PO-Revision-Date: 2012-05-11 19:26+0000\n"
-"Last-Translator: Adam Brzęcki <adambrzecki@gmail.com>\n"
+"PO-Revision-Date: 2012-05-12 17:01+0000\n"
+"Last-Translator: Piotr Sokół <Unknown>\n"
 "Language-Team: polski <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-12 06:19+0000\n"
+"X-Launchpad-Export-Date: 2012-05-13 04:58+0000\n"
 "X-Generator: Launchpad (build 15225)\n"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:459
@@ -74,7 +74,7 @@ msgstr "Nowy dokument"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:844
 msgid "Create a new document in a new tab"
-msgstr "Tworzy nowy plik w nowej karcie"
+msgstr "Tworzy nowy dokument w nowej karcie"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:847
 msgid "Add New View"
@@ -151,7 +151,7 @@ msgstr "Zapisz jako"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:893
 msgid "Save the current file with a different name"
-msgstr "Zapisuje bieżący plik pod inną nazwą"
+msgstr "Zapisuje bieżący dokument pod inną nazwą"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:896
 #: /home/mario/elementary/scratch/po/../scratchcore/TemplateManager.vala:123
@@ -205,7 +205,7 @@ msgstr "Stwórz nową instancję"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ShareMenu.vala:56
 msgid "Share"
-msgstr "Udostępnij"
+msgstr "Udostępnia dokument"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
 #: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:101
@@ -226,7 +226,7 @@ msgstr "Wybór położenia"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:208
 msgid "No files are open."
-msgstr "Żadne pliki nie są otwarte."
+msgstr "Brak otwartych plików"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:208
 msgid "Open a file to begin editing."
@@ -238,7 +238,7 @@ msgstr "Otwórz plik"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:210
 msgid "Open a saved file."
-msgstr "Otwiera zapisany plik"
+msgstr "Otwiera zapisany dokument"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:211
 msgid "New file"
@@ -246,7 +246,7 @@ msgstr "Utwórz nowy"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:211
 msgid "Create a new empty file."
-msgstr "Tworzy nowy, pusty plik"
+msgstr "Tworzy nowy dokument"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "Save changes to document"
@@ -302,7 +302,7 @@ msgstr "Czynność podjęta po uruchomieniu programu:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
 msgid "Save files when changed:"
-msgstr "Zapisuj zmiany automatycznie przy każdej zmianie"
+msgstr "Automatyczne zapisywanie wprowadzonych zmian"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Tabs:"
@@ -334,7 +334,7 @@ msgstr "Podświetlanie pasujących nawiasów"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:211
 msgid "Draw spaces:"
-msgstr "Oznaczanie znaków spacji"
+msgstr "Wyróżnianie znaków spacji"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:212
 msgid "Show line numbers:"
@@ -358,7 +358,7 @@ msgstr "Czcionka:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:244
 msgid "Color scheme:"
-msgstr "Schemat kolorów:"
+msgstr "Styl kolorów:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:249
 msgid "Custom font:"
@@ -421,7 +421,7 @@ msgstr "Wyróżnienie składni"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
-msgstr "Udostępnij w serwisie PasteBin"
+msgstr "Udostępnia w serwisie PasteBin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:273
 msgid "Name:"

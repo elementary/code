@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-05-09 20:39+0200\n"
-"PO-Revision-Date: 2012-05-11 19:40+0000\n"
-"Last-Translator: Marko Gajšt <Unknown>\n"
+"PO-Revision-Date: 2012-05-12 16:58+0000\n"
+"Last-Translator: MarkoD <Unknown>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-12 06:19+0000\n"
+"X-Launchpad-Export-Date: 2012-05-13 04:58+0000\n"
 "X-Generator: Launchpad (build 15225)\n"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:459
@@ -38,7 +38,7 @@ msgstr "Datoteke z besedilom"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:819
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:820
 msgid "Find..."
-msgstr "Najdi ..."
+msgstr "Poišči ..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:823
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:824
@@ -48,7 +48,7 @@ msgstr "Skrij iskalno vrstico"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:827
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:828
 msgid "Go to line..."
-msgstr "Pojdi na vrstco ..."
+msgstr "Pojdi na vrstico ..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:831
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:832
@@ -272,7 +272,7 @@ msgstr "Zapri brez shranjevanja"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:69
 msgid "Behavior"
-msgstr "Obnašanje"
+msgstr "Vedenje"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
 msgid "Interface"
@@ -284,7 +284,7 @@ msgstr "Razširitve"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
 msgid "Show welcome screen"
-msgstr "Pokaži pozdravno okno"
+msgstr "Pokaži pozdravni zaslon"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:122
 msgid "Show last open tabs"
@@ -300,7 +300,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
 msgid "Save files when changed:"
-msgstr ""
+msgstr "Shrani datoteke ob spremembi:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Tabs:"
@@ -403,7 +403,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:66
 msgid "Find"
-msgstr "Najdi"
+msgstr "Poišči"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:67
 msgid "Replace With"
@@ -419,7 +419,7 @@ msgstr "Osvetlitev sintakse"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
-msgstr ""
+msgstr "Deli preko PasteBin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:273
 msgid "Name:"
@@ -455,7 +455,7 @@ msgstr "Nikoli"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:545
 msgid "Ten minutes"
-msgstr ""
+msgstr "Deset minut"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:546
 msgid "One hour"
