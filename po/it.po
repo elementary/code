@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-09 20:39+0200\n"
-"PO-Revision-Date: 2012-05-11 18:42+0000\n"
-"Last-Translator: xskydevilx <Unknown>\n"
+"POT-Creation-Date: 2012-05-13 20:53+0200\n"
+"PO-Revision-Date: 2012-05-13 17:57+0000\n"
+"Last-Translator: Bennici Piercarlo <vesnarteach@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-12 06:19+0000\n"
-"X-Generator: Launchpad (build 15225)\n"
+"X-Launchpad-Export-Date: 2012-05-14 05:20+0000\n"
+"X-Generator: Launchpad (build 15238)\n"
 "Language: \n"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:459
@@ -130,7 +130,7 @@ msgstr "Ricerca precedente"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:879
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:880
 msgid "Duplicate selected strings"
-msgstr "Duplica le lettere selezionate"
+msgstr "Duplica le stringe selezionate"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:884
 msgid "Open"
@@ -223,7 +223,7 @@ msgstr "Salva su un nuovo file"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:60
 msgid "Choose the new location"
-msgstr "Scegli un nuovo posto"
+msgstr "Scegli la nuova posizione"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:208
 msgid "No files are open."
@@ -231,7 +231,7 @@ msgstr "Nessun file aperto."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:208
 msgid "Open a file to begin editing."
-msgstr "Apri un file da modificare."
+msgstr "Apri un file per avviare la modifica"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:210
 msgid "Open file"
@@ -265,7 +265,7 @@ msgstr "prima di chiudere?"
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr "Se non salvi, i cambiamenti degli ultimi 4 secondi saranno persi."
+msgstr "Se non salvi, i cambiamenti degli ultimi 4 secondi andranno persi."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
@@ -393,18 +393,18 @@ msgid "Do you want to create it again?"
 msgstr "Vuoi crearlo di nuovo?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:265
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:491
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:499
 msgid "You can't save changes to:"
 msgstr "Non puoi salvare i cambiamenti a:"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:265
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:491
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:499
 msgid "Do you want to save the changes to this file in a different location?"
 msgstr "Vuoi salvare i cambiamenti a questo file in un posto differente?"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:66
-msgid "Find"
-msgstr "Trova"
+msgid "aaaa"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:67
 msgid "Replace With"
