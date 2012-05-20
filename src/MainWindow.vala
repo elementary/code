@@ -506,9 +506,9 @@ namespace Scratch {
             /*
              * Update the opened-files setting
              */
-            if (settings.show_at_start == "last-tabs") {               
-               settings.schema.set_strv ("opened-files", opened_files);   
-            } 
+            //if (settings.show_at_start == "last-tabs") {               
+            //   settings.schema.set_strv ("opened-files", opened_files);   
+            //} 
         }
 
         public void action_new_tab () {
@@ -620,7 +620,7 @@ namespace Scratch {
 
         }
 
-        protected override bool delete_event (Gdk.EventAny event) {
+        protected override bool destroy_event (Gdk.EventAny event) {
 
             update_saved_state ();
             action_quit ();

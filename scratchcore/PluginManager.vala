@@ -240,12 +240,14 @@ public class Scratch.Plugins.Manager : Object
         var core_list = engine.get_plugin_list ().copy ();
         for (int i = 0; i < core_list.length(); i++) {
             string module = core_list.nth_data (i).get_module_name ();
-            if (module == info.get_module_name ()) {
+            debug (module);
+            if (module == info.get_module_name ()) 
                 ((Peas.Activatable)extension).activate();
-                debug (module);
-            }
             else
                 ((Peas.Activatable)extension).deactivate();
+            /* Load plugins from argument_set */
+            if (module == plugin_iface.argument) 
+                ((Peas.Activatable)extension).activate();
         }
     }
     void on_extension_removed(Peas.PluginInfo info, Object extension) {

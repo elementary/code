@@ -83,7 +83,6 @@ namespace Scratch {
             services = new ServicesSettings ();
 
             plugins = new Scratch.Plugins.Manager(settings.schema, "plugins-enabled", Constants.PLUGINDIR,  exec_name, app_set_arg);
-            //plugins.load_plugins ();
             plugins.hook_example("Example text");
             plugins.scratch_app = this;
             plugins.hook_app(this);
