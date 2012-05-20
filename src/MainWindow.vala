@@ -506,9 +506,9 @@ namespace Scratch {
             /*
              * Update the opened-files setting
              */
-            //if (settings.show_at_start == "last-tabs") {               
-            //   settings.schema.set_strv ("opened-files", opened_files);   
-            //} 
+            if (settings.show_at_start == "last-tabs") {               
+               settings.schema.set_strv ("opened-files", opened_files);   
+            } 
         }
 
         public void action_new_tab () {

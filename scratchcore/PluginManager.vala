@@ -224,7 +224,7 @@ public class Scratch.Plugins.Manager : Object
         exts.extension_removed.connect(on_extension_removed);
         
         exts.foreach (on_extension_added);
-
+        
     }
     
     public Gtk.Widget get_view () {
@@ -243,17 +243,19 @@ public class Scratch.Plugins.Manager : Object
             debug (module);
             if (module == info.get_module_name ()) 
                 ((Peas.Activatable)extension).activate();
+            /* Enable plugin set */
+            else if (module == plugin_iface.set_name) {
+                debug ("Loaded %s", module);
+                ((Peas.Activatable)extension).activate();
+            }
             else
                 ((Peas.Activatable)extension).deactivate();
-            /* Load plugins from argument_set */
-            if (module == plugin_iface.argument) 
-                ((Peas.Activatable)extension).activate();
         }
     }
     void on_extension_removed(Peas.PluginInfo info, Object extension) {
         ((Peas.Activatable)extension).deactivate();
     }
-    
+
     public void hook_app(Gtk.Application menu)
     {
     }
