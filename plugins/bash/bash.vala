@@ -24,6 +24,7 @@ public class Scratch.Plugins.Bash : Peas.ExtensionBase,  Peas.Activatable
 {
     Interface plugins;
     Vte.Terminal terminal;
+    Gtk.Grid grid;
     public Object object { owned get; construct; }
    
     public void update_state () {
@@ -36,7 +37,7 @@ public class Scratch.Plugins.Bash : Peas.ExtensionBase,  Peas.Activatable
 
     public void deactivate () {
         if (terminal != null)
-            terminal.destroy ();
+            grid.destroy ();
     }
     
     void on_bottombar () {
@@ -51,16 +52,16 @@ public class Scratch.Plugins.Bash : Peas.ExtensionBase,  Peas.Activatable
                 warning (e.message);
             }
             
-            var g = new Gtk.Grid ();
+            grid = new Gtk.Grid ();
             var sb = new Gtk.Scrollbar (Gtk.Orientation.VERTICAL, terminal.vadjustment);
-            g.attach (terminal, 0, 0, 1, 1);
-            g.attach (sb, 1, 0, 1, 1);
+            grid.attach (terminal, 0, 0, 1, 1);
+            grid.attach (sb, 1, 0, 1, 1);
             
             /* Make the terminal occupy the whole GUI */
             terminal.vexpand = true;
             terminal.hexpand = true;
             
-            plugins.bottombar.append_page (g, new Gtk.Label ("Bash"));
+            plugins.bottombar.append_page (grid, new Gtk.Label ("Bash"));
         }
     }
 }
