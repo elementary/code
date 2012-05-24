@@ -658,9 +658,9 @@ namespace Scratch {
         private void update_saved_state () {
 
             // Save window state
-            if ((get_window ().get_state () & WindowState.MAXIMIZED) != 0)
+            if (get_window ().get_state () == WindowState.MAXIMIZED)
                 Scratch.saved_state.window_state = ScratchWindowState.MAXIMIZED;
-            else if ((get_window ().get_state () & WindowState.FULLSCREEN) != 0)
+            else if (get_window ().get_state () == WindowState.FULLSCREEN)
                 Scratch.saved_state.window_state = ScratchWindowState.FULLSCREEN;
             else
                 Scratch.saved_state.window_state = ScratchWindowState.NORMAL;
