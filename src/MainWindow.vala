@@ -455,6 +455,24 @@ namespace Scratch {
             drag_data_received.connect (on_drag_data_received);
         }
         
+        void update_opened_files () {
+            int n = 0;
+            string[] opened_files = {};
+            
+            foreach (var doc in scratch_app.documents) {            
+                
+                if (doc.filename != null)
+                    opened_files[n] = doc.filename;
+                
+                n++;
+            }
+            /*
+             * Update the opened-files setting
+             */
+            if (settings.show_at_start == "last-tabs")
+               settings.schema.set_strv ("opened-files", opened_files);    
+        }
+        
         void action_preferences () {
             var dialog = new Dialogs.Preferences (_("Preferences"), this);
             dialog.show_all ();
@@ -471,11 +489,7 @@ namespace Scratch {
             string[] opened_files = {};
             
             foreach (var doc in scratch_app.documents) {            
-                
-                if (doc.filename != null) {
-                    opened_files[n] = doc.filename;
-                }
-                
+
                 if (doc.modified) {
                     var save_dialog = new SaveOnCloseDialog (doc.name, this);
                     doc.focus_sourceview ();
@@ -502,13 +516,7 @@ namespace Scratch {
                 }
                 n++;
             }
-            
-            /*
-             * Update the opened-files setting
-             */
-            if (settings.show_at_start == "last-tabs") {               
-               settings.schema.set_strv ("opened-files", opened_files);   
-            } 
+
         }
 
         public void action_new_tab () {
@@ -623,6 +631,7 @@ namespace Scratch {
         protected override bool delete_event (Gdk.EventAny event) {
 
             update_saved_state ();
+            update_opened_files ();
             return false;
 
         }
