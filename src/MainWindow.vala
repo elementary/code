@@ -620,14 +620,20 @@ namespace Scratch {
 
         }
 
-        protected override bool destroy_event (Gdk.EventAny event) {
+        protected override bool delete_event (Gdk.EventAny event) {
 
             update_saved_state ();
-            action_quit ();
             return false;
 
         }
 
+        protected override bool destroy_event (Gdk.EventAny event) {
+            
+            action_quit ();
+            return false;
+            
+        }        
+        
         private void restore_saved_state () {
 
             default_width = Scratch.saved_state.window_width;
