@@ -140,7 +140,7 @@ namespace Scratch {
             documents.append (document);
             document.closed.connect( (doc) => { documents.remove(doc); });
             window.current_notebook.set_tab ();
-            window.set_window_title ("New");
+            window.set_window_title ("Scratch");
         }
 
         protected override void activate () {

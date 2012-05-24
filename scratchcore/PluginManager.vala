@@ -240,7 +240,6 @@ public class Scratch.Plugins.Manager : Object
         var core_list = engine.get_plugin_list ().copy ();
         for (int i = 0; i < core_list.length(); i++) {
             string module = core_list.nth_data (i).get_module_name ();
-            debug (module);
             if (module == info.get_module_name ()) 
                 ((Peas.Activatable)extension).activate();
             /* Enable plugin set */
