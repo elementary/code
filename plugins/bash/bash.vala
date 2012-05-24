@@ -43,6 +43,7 @@ public class Scratch.Plugins.Bash : Peas.ExtensionBase,  Peas.Activatable
         if (plugins.bottombar != null && plugins.scratch_app != null) {
             
             this.terminal = new Vte.Terminal ();
+            this.terminal.scrollback_lines = -1;
             
             try {
                 this.terminal.fork_command_full (Vte.PtyFlags.DEFAULT, "~/", { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, null);
@@ -50,7 +51,16 @@ public class Scratch.Plugins.Bash : Peas.ExtensionBase,  Peas.Activatable
                 warning (e.message);
             }
             
-            plugins.bottombar.append_page (terminal, new Gtk.Label ("Bash"));
+            var g = new Gtk.Grid ();
+            var sb = new Gtk.Scrollbar (Gtk.Orientation.VERTICAL, terminal.vadjustment);
+            g.attach (terminal, 0, 0, 1, 1);
+            g.attach (sb, 1, 0, 1, 1);
+            
+            /* Make the terminal occupy the whole GUI */
+            terminal.vexpand = true;
+            terminal.hexpand = true;
+            
+            plugins.bottombar.append_page (g, new Gtk.Label ("Bash"));
         }
     }
 }
