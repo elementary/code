@@ -3,9 +3,7 @@ Type=Application
 Version=1.1
 Name=Scratch
 Comment=Edit text files
-Comment[it]=Modifica i file di testo
 GenericName=Text Editor
-GenericName[it]=Editor di testo
 Exec=scratch %U
 Icon=scratch
 Terminal=false
@@ -16,15 +14,15 @@ MimeType=text/plain;
 
 X-Ayatana-Desktop-Shortcuts=NewWindow;NewDocument
 
+X-GNOME-Gettext-Domain=scratch
+
 [NewDocument Shortcut Group]
 Name=Create a new document
-Name[it]=Crea un nuovo documento
 Exec=scratch --new-tab
 TargetEnvironment=Unity
 
 [NewWindow Shortcut Group]
 Name=Create a new window
-Name[it]=Crea una nuova finestra
 Exec=scratch -n
 TargetEnvironment=Unity
 
