@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-05-25 16:55+0200\n"
-"PO-Revision-Date: 2012-04-26 21:26+0000\n"
-"Last-Translator: Yaron <sh.yaron@gmail.com>\n"
+"PO-Revision-Date: 2012-05-27 14:06+0000\n"
+"Last-Translator: GenghisKhan <genghiskhan@gmx.ca>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-26 05:42+0000\n"
+"X-Launchpad-Export-Date: 2012-05-28 05:42+0000\n"
 "X-Generator: Launchpad (build 15288)\n"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:477
@@ -193,11 +193,11 @@ msgstr "סרגל תחתון"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:177
 msgid "Set of plugins"
-msgstr ""
+msgstr "מערכת תוספים"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:178
 msgid "Argument for the set of plugins"
-msgstr ""
+msgstr "ארגומנט עבור מערכת התוספים"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:179
 msgid "Create a new instance"
@@ -205,23 +205,23 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:10
 msgid "Edit text files"
-msgstr ""
+msgstr "עריכת קבצי טקסט"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:11
 msgid "Text Editor"
-msgstr ""
+msgstr "מעבד תמלילים"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:12
 msgid "Create a new document"
-msgstr ""
+msgstr "יצירת מסמך חדש"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:13
 msgid "Create a new window"
-msgstr ""
+msgstr "יצירת חלון חדש"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ShareMenu.vala:56
 msgid "Share"
-msgstr ""
+msgstr "שיתוף"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
 #: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:101
@@ -275,7 +275,7 @@ msgstr "קובץ חדש"
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
 msgid "before closing?"
-msgstr ""
+msgstr "לפני הסגירה?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
@@ -316,7 +316,7 @@ msgstr "עם הפעלת Scratch:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
 msgid "Save files when changed:"
-msgstr ""
+msgstr "שמירת קבצים בעת שינוי:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Tabs:"
@@ -376,7 +376,7 @@ msgstr "ערכת הצבעים:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:249
 msgid "Custom font:"
-msgstr ""
+msgstr "גופן מותאם אישית:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
@@ -419,7 +419,7 @@ msgstr "האם ברצונך לשמור את השינויים לקובץ זה ב�
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:66
 msgid "Find"
-msgstr ""
+msgstr "חיפוש"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:67
 msgid "Replace With"
@@ -435,52 +435,52 @@ msgstr "הדגשת תחביר"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
-msgstr ""
+msgstr "שיתוף באמצעות PasteBin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:273
 msgid "Name:"
-msgstr ""
+msgstr "שם:"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:279
 msgid "Format: "
-msgstr ""
+msgstr "פורמט: "
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:281
 msgid "Others..."
-msgstr ""
+msgstr "אחרים..."
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:306
 msgid "Expiry time:"
-msgstr ""
+msgstr "זמן תפוגה"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:311
 msgid "Keep this paste private"
-msgstr ""
+msgstr "השארת גזיר זה כפרטי"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:314
 msgid "Upload"
-msgstr ""
+msgstr "העלאה"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:345
 msgid "Other formats"
-msgstr ""
+msgstr "פורמטים אחרים"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:544
 msgid "Never"
-msgstr ""
+msgstr "לעולם לא"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:545
 msgid "Ten minutes"
-msgstr ""
+msgstr "עשר דקות"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:546
 msgid "One hour"
-msgstr ""
+msgstr "שעה אחת"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:547
 msgid "One day"
-msgstr ""
+msgstr "יום אחד"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:548
 msgid "One month"
-msgstr ""
+msgstr "חודש אחד"
