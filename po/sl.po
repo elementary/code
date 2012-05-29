@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-05-25 16:55+0200\n"
-"PO-Revision-Date: 2012-05-26 17:54+0000\n"
+"PO-Revision-Date: 2012-05-28 18:38+0000\n"
 "Last-Translator: MarkoD <Unknown>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-27 04:58+0000\n"
-"X-Generator: Launchpad (build 15288)\n"
+"X-Launchpad-Export-Date: 2012-05-29 05:02+0000\n"
+"X-Generator: Launchpad (build 15316)\n"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:477
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:915
@@ -38,7 +38,7 @@ msgstr "Datoteke z besedilom"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:834
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:835
 msgid "Find..."
-msgstr "Poišči ..."
+msgstr "Najdi ..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:838
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:839
@@ -53,7 +53,7 @@ msgstr "Pojdi na vrstico ..."
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:846
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:847
 msgid "Quit"
-msgstr "Izhod"
+msgstr "Končaj"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:850
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:851
@@ -102,11 +102,11 @@ msgstr "Razveljavi zadnje dejanje"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:875
 msgid "Redo"
-msgstr "Uveljavi"
+msgstr "Ponovi"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:876
 msgid "Redo the last undone action"
-msgstr "Uveljavi zadnje razveljavljeno dejanje"
+msgstr "Ponovi zadnje razveljavljeno dejanje"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:880
 msgid "Revert"
@@ -151,7 +151,7 @@ msgstr "Shrani kot"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:908
 msgid "Save the current file with a different name"
-msgstr "Shrani trenutno datoteko z drugim imenom"
+msgstr "Shrani trenutno datoteko pod drugim imenom"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:911
 #: /home/mario/elementary/scratch/po/../scratchcore/TemplateManager.vala:123
@@ -380,7 +380,7 @@ msgstr "Pisava po meri:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
-msgstr "Shrani neshranjene spremembe v datoteko pred izhodom?"
+msgstr "Shrani neshranjene spremembe v datoteko pred zaprtjem?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
 msgid "Save unsaved changes to file \""
@@ -392,7 +392,7 @@ msgstr "Spremembe na tej datoteki niso bile shranjene."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Do you want to save changes before closing this file?"
-msgstr ""
+msgstr "Želiš shraniti spremembe pred zaprtjem te datoteke?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:49
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:57
@@ -401,11 +401,11 @@ msgstr "Datoteka:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:50
 msgid "Do you want to reload it?"
-msgstr ""
+msgstr "Jo želiš ponovno odpreti?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:58
 msgid "Do you want to create it again?"
-msgstr ""
+msgstr "Jo želiš ponovno ustvariti?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:265
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:491
@@ -451,11 +451,11 @@ msgstr "Drugo ..."
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:306
 msgid "Expiry time:"
-msgstr ""
+msgstr "Čas poteka:"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:311
 msgid "Keep this paste private"
-msgstr ""
+msgstr "Zasebna objava"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:314
 msgid "Upload"
