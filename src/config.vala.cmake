@@ -12,7 +12,7 @@ namespace Constants {
    /* changes in these launcher keys in .desktop file.          */
    public const string COMMENT = N_("Edit text files");
    public const string GENERIC = N_("Text Editor");
-   public const string NEW_DOCUMENT = N_("New Window");
+   public const string NEW_DOCUMENT = N_("New Document");
    public const string NEW_WINDOW = N_("New Window");
 }
  
