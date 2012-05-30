@@ -17,12 +17,12 @@ X-Ayatana-Desktop-Shortcuts=NewWindow;NewDocument
 X-GNOME-Gettext-Domain=scratch
 
 [NewDocument Shortcut Group]
-Name=Create a new document
+Name=New Document
 Exec=scratch --new-tab
 TargetEnvironment=Unity
 
 [NewWindow Shortcut Group]
-Name=Create a new window
+Name=New Window
 Exec=scratch -n
 TargetEnvironment=Unity
 
