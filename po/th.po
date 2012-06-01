@@ -1,487 +1,483 @@
-# Spanish translation for scratch
-# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# Thai translation for scratch
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the scratch package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-05-30 02:49-0700\n"
-"PO-Revision-Date: 2012-05-31 16:12+0000\n"
-"Last-Translator: Alfredo Hernández <Unknown>\n"
-"Language-Team: Spanish <es@li.org>\n"
+"PO-Revision-Date: 2012-05-31 12:05+0000\n"
+"Last-Translator: Sitdhi <gvdosk124@gmail.com>\n"
+"Language-Team: Thai <th@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2012-06-01 05:45+0000\n"
 "X-Generator: Launchpad (build 15342)\n"
-"Language: es\n"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/config.vala:13
 msgid "Edit text files"
-msgstr "Editar archivos de texto"
+msgstr "แก้ไขเอกสารข้อความ"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/config.vala:14
 msgid "Text Editor"
-msgstr "Editor de textos"
+msgstr "เครื่องมือแก้ไขข้อความ"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/config.vala:15
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/config.vala:16
 msgid "New Window"
-msgstr "Ventana nueva"
+msgstr "สร้างหน้าต่างใหม่"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Scratch.vala:177
 msgid "Set of plugins"
-msgstr "Conjunto de conectores"
+msgstr ""
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Scratch.vala:178
 msgid "Argument for the set of plugins"
-msgstr "Argumento para el conjunto de conectores"
+msgstr ""
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Scratch.vala:179
 msgid "Create a new instance"
-msgstr "Crear nueva instancia"
+msgstr ""
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:477
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:915
 msgid "Preferences"
-msgstr "Preferencias"
+msgstr "ปรับแต่ง"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:534
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:900
 msgid "Open a file"
-msgstr "Abrir un archivo"
+msgstr "เปิดเอกสาร"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:541
 msgid "All files"
-msgstr "Todos los archivos"
+msgstr "เอกสารทุกฉบับ"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:544
 msgid "Text files"
-msgstr "Archivos de texto"
+msgstr "เอกสารที่เป็นข้อความ"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:834
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:835
 msgid "Find..."
-msgstr "Buscar..."
+msgstr "ค้นหา..."
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:838
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:839
 msgid "Hide search bar"
-msgstr "Ocultar barra de búsqueda"
+msgstr "ซ่อนแถบค้นหา"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:842
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:843
 msgid "Go to line..."
-msgstr "Ir a la línea..."
+msgstr "ไปยังบรรทัดที่..."
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:846
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:847
 msgid "Quit"
-msgstr "Salir"
+msgstr "ออกจากโปรแกรม"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:850
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:851
 msgid "Close"
-msgstr "Cerrar"
+msgstr "ปิด"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:854
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:855
 msgid "Replace"
-msgstr "Reemplazar"
+msgstr "แทนที่"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:858
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:124
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:170
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:345
 msgid "New document"
-msgstr "Documento nuevo"
+msgstr "เอกสารใหม่"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:859
 msgid "Create a new document in a new tab"
-msgstr "Crear documento en nueva pestaña"
+msgstr "สร้างเอกสารใหม่ที่แถบใหม่"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:862
 msgid "Add New View"
-msgstr "Añadir Nueva Vista"
+msgstr "เพิ่มมุมมองใหม่"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:863
 msgid "Add a new view"
-msgstr "Añadir nueva vista"
+msgstr "เพิ่มมุมมองใหม่"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:867
 msgid "Remove Current View"
-msgstr "Eliminar vista actual"
+msgstr "ลบมุมมองปัจจุบัน"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:868
 msgid "Remove this view"
-msgstr "Eliminar esta vista"
+msgstr "ลบมุมมองนี้"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:871
 msgid "Undo"
-msgstr "Deshacer"
+msgstr "ยกเลิกการกระทำ"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:872
 msgid "Undo the last action"
-msgstr "Deshacer última acción"
+msgstr "ยกเลิกการกระทำล่าสุด"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:875
 msgid "Redo"
-msgstr "Rehacer"
+msgstr "ทำซ้ำ"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:876
 msgid "Redo the last undone action"
-msgstr "Rehacer última acción deshecha"
+msgstr "ทำซ้ำการยกเลิกการกระทำล่าสุด"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:880
 msgid "Revert"
-msgstr "Revertir"
+msgstr "คืนสภาพเดิม"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:881
 msgid "Restore this file"
-msgstr "Restaurar este archivo"
+msgstr ""
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:885
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:886
 msgid "Next Search"
-msgstr "Búsqueda siguiente"
+msgstr "ค้นหาต่อไป"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:889
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:890
 msgid "Previous Search"
-msgstr "Búsqueda anterior"
+msgstr "ค้นหาย้อนกลับ"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:894
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:895
 msgid "Duplicate selected strings"
-msgstr "Duplicar las líneas selecionadas"
+msgstr "ทำสำเนาข้อความที่เลือก"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:899
 msgid "Open"
-msgstr "Abrir"
+msgstr "เปิด"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:903
 msgid "Save"
-msgstr "Guardar"
+msgstr "บันทึก"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:904
 msgid "Save the current file"
-msgstr "Guardar archivo actual"
+msgstr "บันทึกไฟล์ปัจจุบัน"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:907
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Tab.vala:106
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Tab.vala:173
 msgid "Save as"
-msgstr "Guardar como"
+msgstr ""
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:908
 msgid "Save the current file with a different name"
-msgstr "Guardar archivo actual con un nombre diferente"
+msgstr "บันทึกไฟล์ปัจจุบันเป็นชื่อใหม่"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:911
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/TemplateManager.vala:123
 msgid "Templates"
-msgstr "Plantillas"
+msgstr "แม่แบบ"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:912
 msgid "Create a new document from a template"
-msgstr "Crear nuevo documento desde plantilla"
+msgstr "สร้างเอกสารใหม่จากแม่แบบ"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:916
 msgid "Change Scratch settings"
-msgstr "Cambiar las preferencias de Scratch"
+msgstr "เปลี่ยนการตั้งค่าของ Scratch"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:922
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:923
 msgid "Fullscreen"
-msgstr "Pantalla completa"
+msgstr "เต็มจอ"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:926
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:927
 msgid "Sidebar"
-msgstr "Panel lateral"
+msgstr "แถบด้านข้าง"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:930
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:931
 msgid "Context View"
-msgstr "Vista contextual"
+msgstr ""
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:934
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:935
 msgid "Status Bar"
-msgstr "Barra de estado"
+msgstr "แถบสถานะ"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:938
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:939
 msgid "Bottom Panel"
-msgstr "Panel inferior"
+msgstr ""
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/ComboSyntax.vala:38
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SourceView.vala:101
 msgid "Normal text"
-msgstr "Texto normal"
+msgstr "ข้อความธรรมดา"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/NotificationBar.vala:45
 msgid "Dismiss"
-msgstr "Ignorar"
+msgstr "ยกเลิก"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/NotificationBar.vala:52
 msgid "Save as New File"
-msgstr "Guardar como nuevo archivo"
+msgstr "บันทึกเป็นไฟล์ใหม่"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/NotificationBar.vala:60
 msgid "Choose the new location"
-msgstr "Elija la nueva ubicación"
+msgstr "เลือกที่ใหม่"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:208
 msgid "No files are open."
-msgstr "No hay archivos abiertos."
+msgstr "ไม่ได้เปิดไฟล์ใด"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:208
 msgid "Open a file to begin editing."
-msgstr "Abra un archivo para comenzar la edición."
+msgstr "เปิดไฟล์เพื่อเริ่มแก้ไข"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:210
 msgid "Open file"
-msgstr "Abrir un archivo"
+msgstr "เปิดไฟล์"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:210
 msgid "Open a saved file."
-msgstr "Abrir un archivo guardado."
+msgstr "เปิดไฟล์ที่บันทึกไว้"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:211
 msgid "New file"
-msgstr "Nuevo archivo"
+msgstr "สร้างไฟล์ใหม่"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:211
 msgid "Create a new empty file."
-msgstr "Crear un nuevo archivo vacío"
+msgstr "สร้างไฟล์เปล่า"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/ShareMenu.vala:56
 msgid "Share"
-msgstr "Compartir"
+msgstr ""
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:69
 msgid "Behavior"
-msgstr "Comportamiento"
+msgstr ""
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:73
 msgid "Interface"
-msgstr "Interfaz"
+msgstr ""
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:78
 msgid "Extensions"
-msgstr "Extensiones"
+msgstr ""
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:121
 msgid "Show welcome screen"
-msgstr "Mostrar pantalla de bienvenida"
+msgstr "แสดงหน้าจอต้อนรับ"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:122
 msgid "Show last open tabs"
-msgstr "Mostrar las últimas pestañas abiertas"
+msgstr "แสดงแถบที่เปิดไว้ล่าสุด"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:138
 msgid "General:"
-msgstr "General:"
+msgstr "ทั่วไป:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:144
 msgid "When Scratch starts:"
-msgstr "Cuando Scratch inicia:"
+msgstr "เมื่อ Scratch เริ่มการทำงาน:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:147
 msgid "Save files when changed:"
-msgstr "Guardar archivos cuando son modificados:"
+msgstr "บันทุกไฟล์เมื่อมีการเปลี่ยนแปลง:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Tabs:"
-msgstr "Tabulaciones:"
+msgstr "แท็บ:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:157
 msgid "Automatic indentation:"
-msgstr "Sangría automática:"
+msgstr "ย่อหน้าโดยอัตโนมัติ"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:160
 msgid "Insert spaces instead of tabs:"
-msgstr "Insertar espacios en lugar de tabulaciones:"
+msgstr "เว้นวรรคแทนแท็บ"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:164
 msgid "Tab width:"
-msgstr "Ancho de tabulador:"
+msgstr "ความกว้างของแท็บ:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:194
 msgid "Editor:"
-msgstr "Editor:"
+msgstr "เครื่องมือแก้ไข:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:209
 msgid "Highlight current line:"
-msgstr "Destacar la línea activa:"
+msgstr "แสดงแถบสีที่บรรทัดปัจจุบัน"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:210
 msgid "Highlight matching brackets:"
-msgstr "Destacar la pareja de corchetes:"
+msgstr "แสดงแถบสีที่คู่วงเล็บ"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:211
 msgid "Draw spaces:"
-msgstr "Dibujar espacios:"
+msgstr ""
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:212
 msgid "Show line numbers:"
-msgstr "Mostrar números de línea"
+msgstr "แสดงเลขบรรทัด:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:215
 msgid "Show margin on right:"
-msgstr "Mostrar margen derecho"
+msgstr "แสดงขอบกระดาษด้านขวา:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:222
 msgid "Margin width:"
-msgstr "Ancho del margen:"
+msgstr "ความกว้างของขอบ:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:227
 msgid "Font and colors:"
-msgstr "Fuente y colores:"
+msgstr "แบบอักษรและสี:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:241
 msgid "Select font:"
-msgstr "Seleccionar fuente:"
+msgstr "เลือกแบบอักษร:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:244
 msgid "Color scheme:"
-msgstr "Esquema de colores"
+msgstr "รูปแบบสี:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:249
 msgid "Custom font:"
-msgstr "Fuente personalizada:"
+msgstr "เลือกแบบอักษรเอง:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
-msgstr "¿Guardar cambios no guardados antes de cerrar?"
+msgstr "ต้องการบันทึกไฟล์ที่แก้ไขก่อนปิดหรือไม่?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:42
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "before closing?"
-msgstr "antes de cerrar?"
+msgstr "ก่อนปิด?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:42
 msgid "Save unsaved changes to file \""
-msgstr "Guardar los cambios en el archivo «"
+msgstr "บันทึกสิ่งที่แก้ไขไปยังไฟล์"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
-msgstr "Los cambios en este archivo no han sido guardados."
+msgstr "ยังไม่ได้บันทึกสิ่งที่แก้ไขกับไฟล์นี้"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Do you want to save changes before closing this file?"
-msgstr "¿Desea guardar los cambios antes de cerrar este archivo?"
+msgstr "ต้องการบันทึกสิ่งที่แก้ไขไปยังไฟล์ก่อนจะปิดหรือไม่?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "Save changes to document"
-msgstr "Guardar los cambios al documento"
+msgstr "บันทึกสิ่งที่แก้ไขไปยังเอกสาร"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "New File"
-msgstr "Nuevo archivo"
+msgstr "ไฟล์ใหม่"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr ""
-"Si no guarda el documento, los cambios de los últimos 4 segundos se perderán "
-"permanentemente."
+msgstr "ถ้าคุณไม่บันทึก สิ่งที่แก้ไขจาก 4 วินาทีล่าสุดจะสูญ"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
-msgstr "Cerrar sin guardar cambios"
+msgstr "ปิดโดยไม่ต้องบันทึก"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/WarnDialog.vala:49
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/WarnDialog.vala:57
 msgid "The file:"
-msgstr "El archivo:"
+msgstr "ไฟล์:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/WarnDialog.vala:50
 msgid "Do you want to reload it?"
-msgstr "¿Desea volver a cargarlo?"
+msgstr "ต้องการให้โหลดเอกสารอีกรอบหรือไม่?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/WarnDialog.vala:58
 msgid "Do you want to create it again?"
-msgstr "¿Desea crearlo nuevamente?"
+msgstr "ต้องการที่จะสร้างมันใหม่หรือไม่?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:265
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:491
 msgid "You can't save changes to:"
-msgstr "No puede guardar los cambios en:"
+msgstr "ไม่สามารถบันทึกสิ่งที่แก้ไขไปยัง:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:265
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:491
 msgid "Do you want to save the changes to this file in a different location?"
-msgstr ""
-"¿Desea guardar los cambios en este archivo en una ubicación diferente?"
+msgstr "ต้องการบันทึกสิ่งที่แก้ไขไปยังที่ใหม่หรือไม่?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SourceView.vala:95
 msgid "Syntax Highlighting"
-msgstr "Resaltado de sintaxis"
+msgstr "เน้นสีข้อความตามไวยากรณ์"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SearchManager.vala:66
 msgid "Find"
-msgstr "Buscar"
+msgstr "ค้นหา"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SearchManager.vala:67
 msgid "Replace With"
-msgstr "Reemplazar con"
+msgstr "แทนที่ด้วย"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SearchManager.vala:82
 msgid "Go To Line:"
-msgstr "Ir a la línea:"
+msgstr "ไปยังบรรทัดที่:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
-msgstr "Compartir via PasteBin"
+msgstr ""
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:273
 msgid "Name:"
-msgstr "Nombre:"
+msgstr ""
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:279
 msgid "Format: "
-msgstr "Formato: "
+msgstr ""
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:281
 msgid "Others..."
-msgstr "Otros..."
+msgstr "อื่นๆ"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:306
 msgid "Expiry time:"
-msgstr "Fecha de vencimiento:"
+msgstr "เวลาหมดอายุ:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:311
 msgid "Keep this paste private"
-msgstr "Conservar como privado el texto pegado"
+msgstr ""
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:314
 msgid "Upload"
-msgstr "Subir"
+msgstr "อัพโหลด"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:345
 msgid "Other formats"
-msgstr "Otros formatos"
+msgstr "รูปแบบอื่นๆ"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:544
 msgid "Never"
-msgstr "Nunca"
+msgstr "ไม่เคย"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:545
 msgid "Ten minutes"
-msgstr "Diez minutos"
+msgstr "สิบนาที"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:546
 msgid "One hour"
-msgstr "Una hora"
+msgstr "หนึ่งชั่วโมง"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:547
 msgid "One day"
-msgstr "Un día"
+msgstr "หนึ่งวัน"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:548
 msgid "One month"
-msgstr "Un mes"
+msgstr "หนึ่งเดือน"
