@@ -457,20 +457,17 @@ namespace Scratch {
         
         void update_opened_files () {
             int n = 0;
-            string[] opened_files = {};
+            var opened_files = new string [scratch_app.documents.length ()];
             
             foreach (var doc in scratch_app.documents) {            
-                
-                if (doc.filename != null)
+                if (doc.name != null) {
                     opened_files[n] = doc.filename;
-                
-                n++;
+                    n++;
+                }
             }
-            /*
-             * Update the opened-files setting
-             */
+            /* Update the opened-files setting */
             if (settings.show_at_start == "last-tabs")
-               settings.schema.set_strv ("opened-files", opened_files);    
+               settings.opened_files = opened_files;//schema.set_strv ("opened-files", opened_files);    
         }
         
         void action_preferences () {
@@ -485,38 +482,7 @@ namespace Scratch {
         }
 
         void action_quit () {
-            int n = 0;
-            string[] opened_files = {};
-            
-            foreach (var doc in scratch_app.documents) {            
-
-                if (doc.modified) {
-                    var save_dialog = new SaveOnCloseDialog (doc.name, this);
-                    doc.focus_sourceview ();
-                    int response = save_dialog.run ();
-                    switch (response) {
-                    case Gtk.ResponseType.CANCEL:
-                        save_dialog.destroy ();
-                        return;
-                    case Gtk.ResponseType.YES:
-                        doc.save ();
-                        break;
-                    case Gtk.ResponseType.NO:
-                        break;
-                    }
-                    save_dialog.destroy ();
-                }
-                var bk = File.new_for_path (doc.filename + "~");
-                if (bk != null && bk.query_exists ()) {
-                    try {
-                        bk.delete ();
-                    } catch (Error e) {
-                        debug ("Cannot delete %s~, it doesn't exist", doc.filename);
-                    }
-                }
-                n++;
-            }
-
+            GLib.Signal.emit_by_name (this, "delete-event");
         }
 
         public void action_new_tab () {
@@ -629,20 +595,50 @@ namespace Scratch {
         }
 
         protected override bool delete_event (Gdk.EventAny event) {
-
+            
             update_saved_state ();
             update_opened_files ();
+            
+            uint n = 0;
+            bool ret = false;
+            
+            foreach (var doc in scratch_app.documents) {            
+                if (doc.modified) {
+                    var save_dialog = new SaveOnCloseDialog (doc.name, this);
+                    doc.focus_sourceview ();
+                    int response = save_dialog.run ();
+                    switch (response) {
+                    case Gtk.ResponseType.CANCEL:
+                        save_dialog.destroy ();
+                        return true;
+                    case Gtk.ResponseType.YES:
+                        doc.save ();
+                        ret = false;
+                        break;
+                    case Gtk.ResponseType.NO:
+                        ret = false;
+                        break;
+                    }
+                    save_dialog.destroy ();
+                }
+                var bk = File.new_for_path (doc.filename + "~");
+                if (bk != null && bk.query_exists ()) {
+                    try {
+                        bk.delete ();
+                    } catch (Error e) {
+                        debug ("Cannot delete %s~, it doesn't exist", doc.filename);
+                    }
+                }
+                if (n == scratch_app.documents.length ())
+                    return ret;
+                else
+                    n++;
+            }
+
             return false;
 
         }
 
-        protected override bool destroy_event (Gdk.EventAny event) {
-            
-            action_quit ();
-            return false;
-            
-        }        
-        
         private void restore_saved_state () {
 
             default_width = Scratch.saved_state.window_width;

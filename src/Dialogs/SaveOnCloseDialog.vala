@@ -47,5 +47,6 @@ namespace Scratch.Dialogs {
             add_button (Stock.SAVE, ResponseType.YES);
             set_default_response (ResponseType.ACCEPT);
         }
+
     }
 }
