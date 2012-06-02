@@ -1,448 +1,442 @@
-# German translation for scratch
-# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# Malay translation for scratch
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the scratch package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-05-30 02:49-0700\n"
-"PO-Revision-Date: 2012-06-01 11:48+0000\n"
-"Last-Translator: Eduard Gotwig <eduardgotwig@gmail.com>\n"
-"Language-Team: German <de@li.org>\n"
+"PO-Revision-Date: 2012-06-01 17:01+0000\n"
+"Last-Translator: abuyop <Unknown>\n"
+"Language-Team: Malay <ms@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2012-06-02 06:00+0000\n"
 "X-Generator: Launchpad (build 15342)\n"
-"Language: de\n"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/config.vala:13
 msgid "Edit text files"
-msgstr "Textdateien bearbeiten"
+msgstr "Sunting fail teks"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/config.vala:14
 msgid "Text Editor"
-msgstr "Text Editor"
+msgstr "Penyunting Teks"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/config.vala:15
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/config.vala:16
 msgid "New Window"
-msgstr "Neues Fenster"
+msgstr "Tetingkap Baru"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Scratch.vala:177
 msgid "Set of plugins"
-msgstr "Sammlung von Plugins"
+msgstr "Set pemalam"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Scratch.vala:178
 msgid "Argument for the set of plugins"
-msgstr "Argumente für die Sammlung von Plugins"
+msgstr "Argumen untuk set pemalam"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Scratch.vala:179
 msgid "Create a new instance"
-msgstr "Eine neue Instanz erstellen"
+msgstr "Cipta kejadian baru"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:477
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:915
 msgid "Preferences"
-msgstr "Einstellungen"
+msgstr "Keutamaan"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:534
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:900
 msgid "Open a file"
-msgstr "Datei öffnen"
+msgstr "Buka fail"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:541
 msgid "All files"
-msgstr "Alle Dateien"
+msgstr "Semua fail"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:544
 msgid "Text files"
-msgstr "Textdateien"
+msgstr "Fail teks"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:834
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:835
 msgid "Find..."
-msgstr "Suchen..."
+msgstr "Cari..."
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:838
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:839
 msgid "Hide search bar"
-msgstr "Suchleiste verstecken"
+msgstr "Sembunyi palang gelintar"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:842
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:843
 msgid "Go to line..."
-msgstr "Gehe zu Zeile..."
+msgstr "Pergi ke baris..."
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:846
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:847
 msgid "Quit"
-msgstr "Verlassen"
+msgstr "Keluar"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:850
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:851
 msgid "Close"
-msgstr "Beenden"
+msgstr "Tutup"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:854
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:855
 msgid "Replace"
-msgstr "Ersetzen"
+msgstr "Ganti"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:858
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:124
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:170
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:345
 msgid "New document"
-msgstr "Neue Datei"
+msgstr "Dokumen baru"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:859
 msgid "Create a new document in a new tab"
-msgstr "Neue Datei"
+msgstr "Cipta dokumen baru dalam tab baru"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:862
 msgid "Add New View"
-msgstr "Neue Ansicht hinzufügen"
+msgstr "Tambah Paparan Baru"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:863
 msgid "Add a new view"
-msgstr "Eine neue Ansicht hinzufügen"
+msgstr "Tambah paparan baru"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:867
 msgid "Remove Current View"
-msgstr "Momentane Ansicht entfernen"
+msgstr "Buang Paparan Semasa"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:868
 msgid "Remove this view"
-msgstr "Diese Ansicht entfernen"
+msgstr "Buang paparan ini"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:871
 msgid "Undo"
-msgstr "Rückgängig"
+msgstr "Buat Asal"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:872
 msgid "Undo the last action"
-msgstr "Die letzte Änderung rückgängig machen"
+msgstr "Buat asal tindakan terakhir"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:875
 msgid "Redo"
-msgstr "Wiederholen"
+msgstr "Buat Semula"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:876
 msgid "Redo the last undone action"
-msgstr "Eine Änderung vorwärts"
+msgstr "Buat semula tindakan tidak selesai terakhir"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:880
 msgid "Revert"
-msgstr "Wiederherstellen"
+msgstr "Kembali"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:881
 msgid "Restore this file"
-msgstr "Diese Datei wiederherstellen"
+msgstr "Pulih fail ini"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:885
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:886
 msgid "Next Search"
-msgstr "Nächste Suche"
+msgstr "Gelintar Berikutnya"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:889
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:890
 msgid "Previous Search"
-msgstr "Vorherige Suche"
+msgstr "Gelintar Terdahulu"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:894
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:895
 msgid "Duplicate selected strings"
-msgstr "Ausgewählte Strings duplizieren"
+msgstr "Gandakan rentetan terpilih"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:899
 msgid "Open"
-msgstr "Öffnen"
+msgstr "Buka"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:903
 msgid "Save"
-msgstr "Speichern"
+msgstr "Simpan"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:904
 msgid "Save the current file"
-msgstr "Aktuelle Datei speichern"
+msgstr "Simpan fail semasa"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:907
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Tab.vala:106
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Tab.vala:173
 msgid "Save as"
-msgstr "Speichern unter"
+msgstr "Simpan sebagai"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:908
 msgid "Save the current file with a different name"
-msgstr "Die momentan geöffnete Datei unter einem anderem Namen speichern"
+msgstr "Simpan fail semasa dengan menggunakan nama yang berbeza"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:911
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/TemplateManager.vala:123
 msgid "Templates"
-msgstr "Vorlagen"
+msgstr "Templat"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:912
 msgid "Create a new document from a template"
-msgstr "Neues Dokument aus Vorlage erstellen"
+msgstr "Cipta dokumen baru dari templat"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:916
 msgid "Change Scratch settings"
-msgstr "Ändere die Scratch Einstellungen"
+msgstr "Ubah tetapan Kasar"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:922
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:923
 msgid "Fullscreen"
-msgstr "Vollbild"
+msgstr "Skrin Penuh"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:926
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:927
 msgid "Sidebar"
-msgstr "Seitenleiste"
+msgstr "Palang sisi"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:930
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:931
 msgid "Context View"
-msgstr "Kontextansicht"
+msgstr "Paparan Konteks"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:934
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:935
 msgid "Status Bar"
-msgstr "Statusleiste"
+msgstr "Palang Status"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:938
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:939
 msgid "Bottom Panel"
-msgstr "Untere Leiste"
+msgstr "Panel Bawah"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/ComboSyntax.vala:38
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SourceView.vala:101
 msgid "Normal text"
-msgstr "Normaler Text"
+msgstr "Teks Biasa"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/NotificationBar.vala:45
 msgid "Dismiss"
-msgstr "Verwerfen"
+msgstr "Ketepikan"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/NotificationBar.vala:52
 msgid "Save as New File"
-msgstr "Als neue Datei speichern"
+msgstr "Simpan sebagai Fail Baru"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/NotificationBar.vala:60
 msgid "Choose the new location"
-msgstr "Wähle den neuen Ort"
+msgstr "Pilih lokasi baru"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:208
 msgid "No files are open."
-msgstr "Keine Dateien geöffnet."
+msgstr "Tiada fail dibuka."
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:208
 msgid "Open a file to begin editing."
-msgstr "Um zu beginnen, wählen Sie eine Datei aus"
+msgstr "Buka fail untuk mula menyunting."
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:210
 msgid "Open file"
-msgstr "Datei öffnen"
+msgstr "Buka fail"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:210
 msgid "Open a saved file."
-msgstr "Öffnet neue Datei."
+msgstr "Buka fail tersimpan."
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:211
 msgid "New file"
-msgstr "Neue Datei"
+msgstr "Fail baru"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:211
 msgid "Create a new empty file."
-msgstr "Erstellt neue Datei"
+msgstr "Cipta fail kosong baru."
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/ShareMenu.vala:56
 msgid "Share"
-msgstr "Teilen"
+msgstr "Kongsi"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:69
 msgid "Behavior"
-msgstr "Verhalten"
+msgstr "Kelakuan"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:73
 msgid "Interface"
-msgstr "Oberfläche"
+msgstr "Antaramuka"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:78
 msgid "Extensions"
-msgstr "Erweiterungen"
+msgstr "Sambungan"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:121
 msgid "Show welcome screen"
-msgstr "Zeige den Willkommen-Bildschirm"
+msgstr "Papar skrin aluan"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:122
 msgid "Show last open tabs"
-msgstr "Zuletzt geöffnete Tabs anzeigen"
+msgstr "Papar tab terakhir dibuka"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:138
 msgid "General:"
-msgstr "Allgemein:"
+msgstr "Am:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:144
 msgid "When Scratch starts:"
-msgstr "Wenn Scratch startet:"
+msgstr "Bila Scratch bermula:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:147
 msgid "Save files when changed:"
-msgstr "Dateien nach Änderung speichern:"
+msgstr "Simpan fail bila berubah:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Tabs:"
-msgstr "Reiter:"
+msgstr "Tab:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:157
 msgid "Automatic indentation:"
-msgstr "Automatische Einrückung:"
+msgstr "Indentasi automatik:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:160
 msgid "Insert spaces instead of tabs:"
-msgstr "Leerzeichen anstelle von Tabulatoren einfügen:"
+msgstr "Sisip jarak selain tab:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:164
 msgid "Tab width:"
-msgstr "Tabulatorbreite:"
+msgstr "Lebar tab:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:194
 msgid "Editor:"
-msgstr "Editor:"
+msgstr "Penyunting:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:209
 msgid "Highlight current line:"
-msgstr "Aktive Zeile hervorheben:"
+msgstr "Sorot baris semasa:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:210
 msgid "Highlight matching brackets:"
-msgstr "Zusammengehörende Klammern hervorheben:"
+msgstr "Sorot kurungan sepadan:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:211
 msgid "Draw spaces:"
-msgstr "Leerzeichen anzeigen:"
+msgstr "Lukis jarak:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:212
 msgid "Show line numbers:"
-msgstr "Zeilennummern anzeigen:"
+msgstr "Papar baris nombor:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:215
 msgid "Show margin on right:"
-msgstr "Rand rechts anzeigen:"
+msgstr "Papar margin disebelah kanan:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:222
 msgid "Margin width:"
-msgstr "Randbreite:"
+msgstr "Lebar margin:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:227
 msgid "Font and colors:"
-msgstr "Schrift und Farben:"
+msgstr "Fon dan warna:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:241
 msgid "Select font:"
-msgstr "Ausgewählte Schriftart"
+msgstr "Pilih fon:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:244
 msgid "Color scheme:"
-msgstr "Farbschema:"
+msgstr "Skema warna:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:249
 msgid "Custom font:"
-msgstr "Benutzerdefinierte Schriftart:"
+msgstr "Fon suai:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
-msgstr ""
-"Sollen nicht gesicherte Änderungen vor dem Beenden gespeichert werden?"
+msgstr "Simpan perubahan belum disimpan ke fail sebelum menutup?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:42
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "before closing?"
-msgstr "vor dem Beenden?"
+msgstr "sebelum menutup?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:42
 msgid "Save unsaved changes to file \""
-msgstr "Speichere nicht gesicherte Änderungen in Datei \""
+msgstr "Simpan perubahan belum disimpan ke fail \""
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
-msgstr "Änderungen an der Datei wurden noch nicht gespeichert."
+msgstr "Perubahan ke fail ini tidak disimpan."
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Do you want to save changes before closing this file?"
-msgstr ""
-"Möchten Sie die Änderungen an der Datei speichern, bevor Sie diese schließen?"
+msgstr "Anda hendak simpan perubahan sebelum menutup fail ini?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "Save changes to document"
-msgstr "Änderungen im Dokument speichern"
+msgstr "Simpan perubahan ke dokumen"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "New File"
-msgstr "Neue Datei"
+msgstr "Fail Baru"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr ""
-"Wenn Sie nicht speichern, gehen Ihre Änderungen der letzten 4 Sekunden "
-"unwiderruflich verloren."
+msgstr "Jika anda tidak  simpan, perubahan dari 4 saat terakhir akan hilang."
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
-msgstr "Schließen ohne zu speichern"
+msgstr "Tutup tanpa menyimpan"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/WarnDialog.vala:49
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/WarnDialog.vala:57
 msgid "The file:"
-msgstr "Die Datei:"
+msgstr "Fail:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/WarnDialog.vala:50
 msgid "Do you want to reload it?"
-msgstr "Möchten Sie die Datei neu laden?"
+msgstr "Anda hendak muat semula ia?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/WarnDialog.vala:58
 msgid "Do you want to create it again?"
-msgstr "Wollen Sie sie noch einmal erstellen?"
+msgstr "Anda hendak cipta ia lagi?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:265
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:491
 msgid "You can't save changes to:"
-msgstr "Sie können hier keine Änderungen speichern:"
+msgstr "Anda tidak boleh simpan perubahan ke:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:265
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:491
 msgid "Do you want to save the changes to this file in a different location?"
-msgstr ""
-"Möchten Sie die Änderungen an der Datei an einem anderen Ort speichern?"
+msgstr "Anda hendak simpan perubahan ke fail ini dalam lokasi berbeza?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SourceView.vala:95
 msgid "Syntax Highlighting"
-msgstr "Syntax hervorheben"
+msgstr "Penyorotan Sintaks"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SearchManager.vala:66
 msgid "Find"
-msgstr "Suchen"
+msgstr "Cari"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SearchManager.vala:67
 msgid "Replace With"
-msgstr "Ersetzen durch"
+msgstr "Ganti Dengan"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SearchManager.vala:82
 msgid "Go To Line:"
-msgstr "Gehe zu Linie:"
+msgstr "Pergi Ke Baris:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
-msgstr "Teilen über PasteBin"
+msgstr "Kongsi melalui PasteBin"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:273
 msgid "Name:"
-msgstr "Name :"
+msgstr "Nama:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:279
 msgid "Format: "
@@ -450,40 +444,40 @@ msgstr "Format: "
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:281
 msgid "Others..."
-msgstr "Sonstige ..."
+msgstr "Lain-lain..."
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:306
 msgid "Expiry time:"
-msgstr "Ablauf Zeit:"
+msgstr "Masa luput:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:311
 msgid "Keep this paste private"
-msgstr "Diese Kopie als privat einstufen"
+msgstr "Kekalkan tampalan ini peribadi"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:314
 msgid "Upload"
-msgstr "Hochladen"
+msgstr "Muat Naik"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:345
 msgid "Other formats"
-msgstr "Andere Formate"
+msgstr "Format lain"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:544
 msgid "Never"
-msgstr "Nie"
+msgstr "Tidak Sesekali"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:545
 msgid "Ten minutes"
-msgstr "10 Minuten"
+msgstr "Sepuluh minit"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:546
 msgid "One hour"
-msgstr "Eine Stunde"
+msgstr "Satu jam"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:547
 msgid "One day"
-msgstr "Einen Tag"
+msgstr "Satu hari"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:548
 msgid "One month"
-msgstr "Einen Monat"
+msgstr "Satu bulan"
