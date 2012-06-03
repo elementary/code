@@ -275,10 +275,16 @@ namespace Scratch.Services {
         }
 
         public bool backup () {
-
+            
+            /* Check for the requested permissions */
+            if (state == DocumentStates.READONLY)
+               return false; 
+                
+            /* Check if the file is real */
             if (filename == null)
                 return false;
 
+            /* Make the backup copy */
             string contents;
             try {
                 FileUtils.get_contents (filename + "~", out contents);
@@ -515,6 +521,11 @@ namespace Scratch.Services {
         }
         
         public bool save () {
+            
+            /* Check for the requested permissions */
+            if (state == DocumentStates.READONLY)
+               return false; 
+            
             bool was_executable = can_execute ();
             opening = false;
             
@@ -557,6 +568,11 @@ namespace Scratch.Services {
         }
 
         public bool save_as () {
+            
+            /* Check for the requested permissions */
+            if (state == DocumentStates.READONLY)
+               return false; 
+            
             bool was_executable = can_execute ();
             
             string f = filename;

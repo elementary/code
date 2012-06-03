@@ -252,6 +252,10 @@ namespace Scratch.Widgets {
         }
         
         public void make_backup () {
+            /* Check for the requested permissions */
+            if (document.state == Services.DocumentStates.READONLY)
+               return; 
+            
             var or = File.new_for_path (this.filename);
             var bk = File.new_for_path (this.filename + "~");
 
