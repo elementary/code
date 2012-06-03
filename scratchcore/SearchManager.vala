@@ -265,30 +265,24 @@ public class Scratch.Services.SearchManager : GLib.Object {
     }
 
     bool on_search_entry_focused_in (Gdk.EventFocus event) {
-
-        search_entry.select_region(0, -1);
         
         Gtk.TextIter? start_iter, end_iter;
         text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
         
-        if (search_for_iter (start_iter, out end_iter, search_entry.text)) {
+        end_iter = start_iter;
+        bool case_sensitive = !((search_entry.text.up () == search_entry.text) || (search_entry.text.down () == search_entry.text));
+        bool found = start_iter.forward_search (search_entry.text,
+                                                case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
+                                                out start_iter, out end_iter, null);
+        if (found) {
             search_entry.override_color (Gtk.StateFlags.FOCUSED, normal_color);
+            return true;
         }
         else {
-            text_buffer.get_start_iter (out start_iter);
-            if (search_for_iter (start_iter, out end_iter, search_entry.text)) {
-                search_entry.override_color (Gtk.StateFlags.FOCUSED, normal_color);
-            }
-            else {
-                warning ("Not found : %s", search_entry.text);
-                start_iter.set_offset (-1);
-                text_buffer.select_range (start_iter, start_iter);
-                search_entry.override_color (Gtk.StateFlags.FOCUSED, {1.0, 0.0, 0.0, 1.0});
-                return false;
-            }
-
+            search_entry.override_color (Gtk.StateFlags.FOCUSED, {1.0, 0.0, 0.0, 1.0});
+            return false;
         }
-        return false;
+
     }
 
     /*void add_section (Gtk.Grid grid, Gtk.Label name, ref int row) {
