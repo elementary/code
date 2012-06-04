@@ -2,31 +2,30 @@ Source: scratch
 Section: editors
 Priority: optional
 Maintainer: Mario Guerriero <mefrio.g@gmail.com>
-Build-Depends: debhelper (>= 7), 
-    cmake,
-    pkg-config,
-    valac-0.16 (>= 0.15.1),
-    libgtk-3-dev,
-    libgranite-dev,
-    libgtksourceview-3.0-dev,
-    gir1.2-gconf-2.0,
-    libgconf2-dev,
-    gir1.2-soup-2.4,
-    libsoup2.4-dev,
-    libpeas-dev,
-    libvte-2.90-dev,
-    libgee-dev
+Build-Depends: cmake,
+               debhelper (>= 7),
+               gir1.2-gconf-2.0,
+               gir1.2-soup-2.4,
+               libgconf2-dev,
+               libgee-dev,
+               libgranite-dev,
+               libgtk-3-dev,
+               libgtksourceview-3.0-dev,
+               libpeas-dev,
+               libsoup2.4-dev,
+               libvte-2.90-dev,
+               pkg-config,
+               valac-0.16 (>= 0.15.1)
 Standards-Version: 3.9.1
 Homepage: http://launchpad.net/scratch
 Vcs-Bzr: https://code.launchpad.net/~scratch-hackers/scratch/scratch
 
 Package: scratch
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}
 Pre-Depends: dpkg (>= 1.15.6)
 Description: Scratch Elementary Text Editor
  A lightweight text editor written in GTK3 for the elementary desktop utilizing the powerful Granite framework.
-
 
 Package: scratch-dbg
 Architecture: any
