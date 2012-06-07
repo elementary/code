@@ -224,7 +224,7 @@ namespace Scratch.Dialogs {
             add_option (content, label, right_margin_position, ref row);
             
             // Font and Colors
-            section_l = new Label (_("Font and colors:"));
+            section_l = new Label (_("Font and Color Scheme:"));
             add_section (content, section_l, ref row);
             
             style_scheme = new ComboBoxText ();
