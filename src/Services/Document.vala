@@ -19,6 +19,7 @@
 ***/
 
 using Scratch.Widgets;
+using Zeitgeist;
 
 namespace Scratch.Services {
 
@@ -44,6 +45,7 @@ namespace Scratch.Services {
         }
         public string? name { get; private set; default  = null; }
         
+        private ZeitgeistLogger zg_log;
         
         // Detect if the file is opened now
         public bool opening = true;
@@ -126,6 +128,7 @@ namespace Scratch.Services {
 
 
             this.filename = filename;
+            zg_log = new ZeitgeistLogger();
 
             register_recent ();
 
@@ -270,6 +273,8 @@ namespace Scratch.Services {
             else 
                 window.current_notebook.info_bar.no_show_all = true;
                 
+            zg_log.open_insert(file.get_uri(), get_mime_type ());
+
             return true;
 
         }
@@ -336,6 +341,8 @@ namespace Scratch.Services {
 
             if (!saved) 
                 return false;
+            
+            zg_log.close_insert(this.filename, get_mime_type ());
 
             this.closed (); // Signal
             return true;
@@ -563,7 +570,9 @@ namespace Scratch.Services {
             try {
                 if (was_executable) GLib.Process.spawn_command_line_async ("chmod +x " + f);
             } catch (Error e) { warning (e.message); }
-            
+
+            zg_log.save_insert(this.filename, get_mime_type ());
+
             return true;
         }
 
@@ -605,14 +614,15 @@ namespace Scratch.Services {
             try {
                 if (was_executable) GLib.Process.spawn_command_line_async ("chmod +x " + f);
             } catch (Error e) { warning (e.message); }
-            
+        
             return false;
         }
 
         public bool rename (string new_name) {
 
             FileUtils.rename (filename, new_name);
-            
+            zg_log.move_insert(filename, new_name, get_mime_type());
+
             this.filename = new_name;
             
             this.save ();

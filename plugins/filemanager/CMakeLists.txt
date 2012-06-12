@@ -14,6 +14,7 @@ vala_precompile(VALA_C
         scratchcore
         libpeas-1.0
         gtksourceview-3.0
+        zeitgeist-1.0
     OPTIONS
         --vapidir=${CMAKE_BINARY_DIR}
         --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
