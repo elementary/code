@@ -10,6 +10,7 @@ PACKAGES
     scratchcore
     gee-1.0
     libpeas-1.0
+    zeitgeist-1.0
 OPTIONS
     --vapidir=${CMAKE_BINARY_DIR}
     --vapidir=${CMAKE_SOURCE_DIR}/vapi/

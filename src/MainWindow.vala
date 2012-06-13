@@ -22,6 +22,8 @@ using Gtk;
 using Gdk;
 using Pango;
 
+using Zeitgeist;
+
 using Granite.Widgets;
 using Granite.Services;
 
@@ -115,6 +117,8 @@ namespace Scratch {
         ScratchWelcome welcome_screen;
         Granite.Widgets.HCollapsablePaned hpaned_sidebar;
 
+        private Zeitgeist.DataSourceRegistry registry;
+
         public MainWindow (Scratch.ScratchApp scratch_app) {
             this.scratch_app = scratch_app;
             set_application (scratch_app);
@@ -166,6 +170,27 @@ namespace Scratch {
             });
              
             set_theme ();
+            
+            // Set up the Data Source Registry
+            registry = new DataSourceRegistry ();
+            
+            var ds_event = new Zeitgeist.Event();
+            ds_event.set_actor("application://scratch.desktop");
+            ds_event.add_subject(new Zeitgeist.Subject());
+            PtrArray ptr_array = new PtrArray.with_free_func (Object.unref);
+            ptr_array.add(ds_event);
+            var ds = new DataSource.full (  "scratch-logger",
+                                            _("Zeitgeist Datasource for Scratch"),
+                                            "A data source which logs Open, Close, Save and Move Events",
+                                            (owned)ptr_array); // FIXME: templates!
+            try
+            {
+                registry.register_data_source (ds, null);
+            }
+            catch (GLib.Error reg_err)
+            {
+                warning ("%s", reg_err.message);
+            }
         }
 
         public void on_drag_data_received (Gdk.DragContext context, int x, int y, SelectionData selection_data, uint info, uint time_) {
