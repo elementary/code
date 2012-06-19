@@ -82,7 +82,6 @@ target_link_libraries (scratch scratchcore)
 #TODO: Installation
 
 install (TARGETS scratch RUNTIME DESTINATION bin)
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/scratch.svg DESTINATION share/icons/hicolor/scalable/apps)
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/scratch.desktop DESTINATION share/applications)
 install (FILES ${CMAKE_BINARY_DIR}/scratch.vapi DESTINATION share/vala/vapi/)
 install (FILES ${CMAKE_SOURCE_DIR}/src/scratch.deps DESTINATION share/vala/vapi/)
