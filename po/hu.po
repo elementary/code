@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-05-30 02:49-0700\n"
-"PO-Revision-Date: 2012-06-10 10:42+0000\n"
-"Last-Translator: András Bognár <Unknown>\n"
+"PO-Revision-Date: 2012-06-27 18:40+0000\n"
+"Last-Translator: András Bognár <froccsmester@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-11 05:05+0000\n"
-"X-Generator: Launchpad (build 15376)\n"
+"X-Launchpad-Export-Date: 2012-06-28 05:10+0000\n"
+"X-Generator: Launchpad (build 15505)\n"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/config.vala:13
 msgid "Edit text files"
@@ -32,15 +32,15 @@ msgstr "Új ablak"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Scratch.vala:177
 msgid "Set of plugins"
-msgstr ""
+msgstr "Bővítménykészlet"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Scratch.vala:178
 msgid "Argument for the set of plugins"
-msgstr ""
+msgstr "Bővítménykészlet paramétere"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Scratch.vala:179
 msgid "Create a new instance"
-msgstr ""
+msgstr "Új példány létrehozása"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:477
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:915
@@ -99,23 +99,23 @@ msgstr "Új dokumentum"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:859
 msgid "Create a new document in a new tab"
-msgstr "Új dokumentum létrehozása egy új lapon"
+msgstr "Új dokumentum létrehozása új lapon"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:862
 msgid "Add New View"
-msgstr ""
+msgstr "Új lapcsoport hozzáadása"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:863
 msgid "Add a new view"
-msgstr ""
+msgstr "Egy új lapcsoport hozzáadása"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:867
 msgid "Remove Current View"
-msgstr ""
+msgstr "Jelenlegi lapcsoport eltávolítása"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:868
 msgid "Remove this view"
-msgstr ""
+msgstr "Ezen lapcsoport eltávolítása"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:871
 msgid "Undo"
@@ -135,7 +135,7 @@ msgstr "A visszavont művelet ismételt végrehajtása"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:880
 msgid "Revert"
-msgstr ""
+msgstr "Visszaállítás"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:881
 msgid "Restore this file"
@@ -154,7 +154,7 @@ msgstr "Előző keresés"
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:894
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:895
 msgid "Duplicate selected strings"
-msgstr ""
+msgstr "Kiválasztott karakterláncok kettőzése"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:899
 msgid "Open"
@@ -185,11 +185,11 @@ msgstr "Sablonok"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:912
 msgid "Create a new document from a template"
-msgstr "Új dokumentum létrehozás sablonból"
+msgstr "Új dokumentum létrehozása sablonból"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:916
 msgid "Change Scratch settings"
-msgstr ""
+msgstr "Scratch beállításainak módosítása"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:922
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:923
@@ -204,7 +204,7 @@ msgstr "Oldalsáv"
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:930
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:931
 msgid "Context View"
-msgstr ""
+msgstr "Helyi nézet"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:934
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:935
@@ -227,15 +227,15 @@ msgstr "Elvetés"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/NotificationBar.vala:52
 msgid "Save as New File"
-msgstr ""
+msgstr "Mentés új fájlként"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/NotificationBar.vala:60
 msgid "Choose the new location"
-msgstr ""
+msgstr "Új hely kiválasztása"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:208
 msgid "No files are open."
-msgstr "Egy fájl sincs megnyitva."
+msgstr "Nincsenek megnyitott fájlok."
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:208
 msgid "Open a file to begin editing."
@@ -275,11 +275,11 @@ msgstr "Bővítmények"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:121
 msgid "Show welcome screen"
-msgstr "Üdvözlő képernyő megjelenítése"
+msgstr "Üdvözlőképernyő megjelenítése"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:122
 msgid "Show last open tabs"
-msgstr "A legutóbbi lapok megjelenítése"
+msgstr "Legutóbbi lapok megjelenítése"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:138
 msgid "General:"
@@ -287,23 +287,23 @@ msgstr "Általános:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:144
 msgid "When Scratch starts:"
-msgstr ""
+msgstr "Scratch indításakor:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:147
 msgid "Save files when changed:"
-msgstr ""
+msgstr "Fájlok mentése változtatáskor:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Tabs:"
-msgstr ""
+msgstr "Tabulátorok:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:157
 msgid "Automatic indentation:"
-msgstr ""
+msgstr "Automatikus behúzás:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:160
 msgid "Insert spaces instead of tabs:"
-msgstr ""
+msgstr "Szóközök beillesztése tabulátorok helyett:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:164
 msgid "Tab width:"
@@ -311,35 +311,35 @@ msgstr "Tabulátor szélessége:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:194
 msgid "Editor:"
-msgstr ""
+msgstr "Szerkesztő:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:209
 msgid "Highlight current line:"
-msgstr ""
+msgstr "Jelenlegi sor kiemelése:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:210
 msgid "Highlight matching brackets:"
-msgstr ""
+msgstr "Zárójelpárok kiemelése:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:211
 msgid "Draw spaces:"
-msgstr ""
+msgstr "Szóközök berajzolása:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:212
 msgid "Show line numbers:"
-msgstr ""
+msgstr "Sorok számának megjelenítése:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:215
 msgid "Show margin on right:"
-msgstr ""
+msgstr "Jobboldali margó megjelenítése:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:222
 msgid "Margin width:"
-msgstr ""
+msgstr "Margó szélessége:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:227
 msgid "Font and colors:"
-msgstr ""
+msgstr "Betűtípus és szín:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:241
 msgid "Select font:"
@@ -360,11 +360,11 @@ msgstr "Menti a változtatásokat bezárás előtt?"
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:42
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "before closing?"
-msgstr "bezárás előtt?"
+msgstr "bezárása előtt?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:42
 msgid "Save unsaved changes to file \""
-msgstr "Válzoztatások mentése"
+msgstr "Változtatások mentése ebbe a fájlba: \""
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
@@ -376,7 +376,7 @@ msgstr "Menti a változtatásokat a fájl bezárása előtt?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "Save changes to document"
-msgstr "Dokumentum változtatásainak mentése"
+msgstr "Változtatások mentése a dokumentumba"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "New File"
@@ -386,7 +386,8 @@ msgstr "Új fájl"
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
-"Ha nem ment, az elmúlt 4 másodperc változtatásai végérvényesen elvesznek."
+"Ha nem menti, akkor az elmúlt 4 másodpercben történt változások véglegesen "
+"elvesznek."
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
@@ -395,65 +396,65 @@ msgstr "Bezárás mentés nélkül"
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/WarnDialog.vala:49
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/WarnDialog.vala:57
 msgid "The file:"
-msgstr ""
+msgstr "A fájl:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/WarnDialog.vala:50
 msgid "Do you want to reload it?"
-msgstr ""
+msgstr "Kívánja frissíteni?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/WarnDialog.vala:58
 msgid "Do you want to create it again?"
-msgstr ""
+msgstr "Újra létre kívánja hozni?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:265
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:491
 msgid "You can't save changes to:"
-msgstr ""
+msgstr "Nem mentheti a változtatásokat a következőnél:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:265
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:491
 msgid "Do you want to save the changes to this file in a different location?"
-msgstr ""
+msgstr "Kívánja menteni ezen fájl változtatásait egy másik helyre?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SourceView.vala:95
 msgid "Syntax Highlighting"
-msgstr ""
+msgstr "Szintaxiskiemelés:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SearchManager.vala:66
 msgid "Find"
-msgstr ""
+msgstr "Keresés"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SearchManager.vala:67
 msgid "Replace With"
-msgstr ""
+msgstr "Csere ezzel"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SearchManager.vala:82
 msgid "Go To Line:"
-msgstr ""
+msgstr "Ugrás erre a sorra:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
-msgstr ""
+msgstr "Megosztás PasteBin-en"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:273
 msgid "Name:"
-msgstr ""
+msgstr "Név:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:279
 msgid "Format: "
-msgstr ""
+msgstr "Formátum: "
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:281
 msgid "Others..."
-msgstr ""
+msgstr "Egyéb..."
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:306
 msgid "Expiry time:"
-msgstr ""
+msgstr "Lejárati idő:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:311
 msgid "Keep this paste private"
-msgstr ""
+msgstr "Személyes"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:314
 msgid "Upload"
