@@ -74,14 +74,14 @@ OPTIONS
 add_subdirectory(po)
 # add_definitions (${CFLAGS} -Wall -Winit-self -Wwrite-strings -Wunreachable-code -Wstrict-prototypes )
 
-add_executable (scratch ${VALA_C})
-add_dependencies(scratch scratchcore)
+add_executable (scratch-text-editor ${VALA_C})
+add_dependencies(scratch-text-editor scratchcore)
 include_directories(${CMAKE_BINARY_DIR}/scratchcore)
 include_directories(${CMAKE_BINARY_DIR}/lib)
-target_link_libraries (scratch scratchcore)
+target_link_libraries (scratch-text-editor scratchcore)
 #TODO: Installation
 
-install (TARGETS scratch RUNTIME DESTINATION bin)
+install (TARGETS scratch-text-editor RUNTIME DESTINATION bin)
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/scratch.desktop DESTINATION share/applications)
 install (FILES ${CMAKE_BINARY_DIR}/scratch.vapi DESTINATION share/vala/vapi/)
 install (FILES ${CMAKE_SOURCE_DIR}/src/scratch.deps DESTINATION share/vala/vapi/)
