@@ -153,7 +153,7 @@ namespace Scratch.Services {
                 critical ("Can't get tab parent.");
             }
             notebook.page = notebook.page_num(tab);
-            tab.grab_focus ();
+            tab.text_view.grab_focus ();
         }
 
         public void undo () {
