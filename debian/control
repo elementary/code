@@ -26,8 +26,8 @@ Package: scratch-text-editor
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Pre-Depends: dpkg (>= 1.15.6)
-Replaces: scratch
-Conflicts: scratch
+Replaces: scratch (<< 1.1-1)
+Conflicts: scratch (<< 1.1-1)
 Description: Scratch Elementary Text Editor
  A lightweight text editor written in GTK3 for the elementary desktop utilizing the powerful Granite framework.
 
