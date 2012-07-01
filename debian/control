@@ -1,4 +1,4 @@
-Source: scratch
+Source: scratch-text-editor
 Section: editors
 Priority: optional
 Maintainer: Mario Guerriero <mefrio.g@gmail.com>
@@ -22,21 +22,21 @@ Standards-Version: 3.9.1
 Homepage: http://launchpad.net/scratch
 Vcs-Bzr: https://code.launchpad.net/~scratch-hackers/scratch/scratch
 
-Package: scratch
+Package: scratch-text-editor
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Pre-Depends: dpkg (>= 1.15.6)
 Description: Scratch Elementary Text Editor
  A lightweight text editor written in GTK3 for the elementary desktop utilizing the powerful Granite framework.
 
-Package: scratch-dbg
+Package: scratch-text-editor-dbg
 Architecture: any
 Section: debug
 Priority: extra
-Depends: scratch (= ${binary:Version}), ${misc:Depends}
+Depends: scratch-text-editor (= ${binary:Version}), ${misc:Depends}
 Pre-Depends: dpkg (>= 1.15.6)
-Enhances: scratch
+Enhances: scratch-text-editor
 Description: Scratch Elementary Text Editor (debugging symbols)
  A lightweight text editor written in GTK3 for the elementary desktop utilizing the powerful Granite framework.
  .
- This package contains debugging symbols for scratch.
+ This package contains debugging symbols for scratch-text-editor.

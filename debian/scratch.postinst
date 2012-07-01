@@ -4,12 +4,12 @@ set -e
 
 case "$1" in
     configure)
-        # register scratch as a gnome-text-editor in the alternatives system
+        # register scratch-text-editor as a gnome-text-editor in the alternatives system
         update-alternatives \
             --install \
                 /usr/bin/gnome-text-editor \
                 gnome-text-editor \
-                /usr/bin/scratch \
+                /usr/bin/scratch-text-editor \
                 40 #don't replace gedit because scratch doesn't support URLs yet
     ;;
 
