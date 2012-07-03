@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-30 02:49-0700\n"
-"PO-Revision-Date: 2012-06-03 13:57+0000\n"
-"Last-Translator: Bennici Piercarlo <vesnarteach@gmail.com>\n"
+"PO-Revision-Date: 2012-07-02 12:05+0000\n"
+"Last-Translator: Devid Antonio Filoni <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-04 04:59+0000\n"
-"X-Generator: Launchpad (build 15353)\n"
+"X-Launchpad-Export-Date: 2012-07-03 06:14+0000\n"
+"X-Generator: Launchpad (build 15531)\n"
 "Language: \n"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/config.vala:13
@@ -33,11 +33,11 @@ msgstr "Nuova finestra"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Scratch.vala:177
 msgid "Set of plugins"
-msgstr "Set di plugins"
+msgstr "Raccolta di plugin"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Scratch.vala:178
 msgid "Argument for the set of plugins"
-msgstr "Argomento per il set di plugins"
+msgstr "Argomento per la raccolta di plugin"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Scratch.vala:179
 msgid "Create a new instance"
@@ -167,7 +167,7 @@ msgstr "Salva"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:904
 msgid "Save the current file"
-msgstr "Salva il file attuale"
+msgstr "Salva il file corrente"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:907
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Tab.vala:106
@@ -177,7 +177,7 @@ msgstr "Salva come"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:908
 msgid "Save the current file with a different name"
-msgstr "Salva il file attuale con un nome diverso"
+msgstr "Salva il file corrente con un nome diverso"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:911
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/TemplateManager.vala:123
@@ -240,7 +240,7 @@ msgstr "Nessun file aperto."
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:208
 msgid "Open a file to begin editing."
-msgstr "Apri un file per avviare la modifica"
+msgstr "Apri un file per avviare la modifica."
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:210
 msgid "Open file"
@@ -280,7 +280,7 @@ msgstr "Mostra schermata di benvenuto"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:122
 msgid "Show last open tabs"
-msgstr "Mostra le ultime tab aperte"
+msgstr "Mostra le ultime schede aperte"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:138
 msgid "General:"
@@ -296,7 +296,7 @@ msgstr "Salva i file appena modificati:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Tabs:"
-msgstr "Tabs:"
+msgstr "Tabulazioni:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:157
 msgid "Automatic indentation:"
@@ -308,7 +308,7 @@ msgstr "Inserire spazi invece di tabulazioni:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:164
 msgid "Tab width:"
-msgstr "Larghezza tab:"
+msgstr "Larghezza tabulazione:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:194
 msgid "Editor:"
@@ -332,11 +332,11 @@ msgstr "Mostra numeri di riga:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:215
 msgid "Show margin on right:"
-msgstr "Mostra il margine destro:"
+msgstr "Mostra il margine sulla destra:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:222
 msgid "Margin width:"
-msgstr "Larghezza margini:"
+msgstr "Larghezza margine:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:227
 msgid "Font and colors:"
@@ -369,24 +369,26 @@ msgstr "Salva modifiche nel file \""
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
-msgstr "I cambiamente a questo file non saranno salvati."
+msgstr "Le modifiche a questo file non saranno salvate."
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Do you want to save changes before closing this file?"
-msgstr "Vuoi salvare i cambiamenti prima di chiudere questo file?"
+msgstr "Vuoi salvare le modifiche prima di chiudere questo file?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "Save changes to document"
-msgstr "Salva i cambiamenti al documento"
+msgstr "Salva le modifiche al documento"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "New File"
-msgstr "Nuovo File"
+msgstr "Nuovo file"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr "Se non salvi, i cambiamenti degli ultimi 4 secondi andranno persi."
+msgstr ""
+"Se non si esegue il salvataggio, le modifiche apportate negli ultimi 4 "
+"secondi andranno persi."
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
@@ -399,25 +401,25 @@ msgstr "Il file:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/WarnDialog.vala:50
 msgid "Do you want to reload it?"
-msgstr "Vuoi ricaricarlo?"
+msgstr "Ricaricare il file?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/WarnDialog.vala:58
 msgid "Do you want to create it again?"
-msgstr "Vuoi crearlo di nuovo?"
+msgstr "Crearlo di nuovo?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:265
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:491
 msgid "You can't save changes to:"
-msgstr "Non puoi salvare i cambiamenti a:"
+msgstr "Non è possibile salvate le modifiche apportate a:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:265
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:491
 msgid "Do you want to save the changes to this file in a different location?"
-msgstr "Vuoi salvare i cambiamenti a questo file in un posto differente?"
+msgstr "Salvare le modifiche apportate a questo file in un posto differente?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SourceView.vala:95
 msgid "Syntax Highlighting"
-msgstr "Evidenziazione sintassi"
+msgstr "Evidenziatore di sintassi"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SearchManager.vala:66
 msgid "Find"
@@ -453,7 +455,7 @@ msgstr "Scadenza:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:311
 msgid "Keep this paste private"
-msgstr "Mantenere questa pasta privato"
+msgstr "Mantieni privato"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:314
 msgid "Upload"
