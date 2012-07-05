@@ -483,7 +483,7 @@ namespace Scratch {
         void update_opened_files () {
             int n = 0;
             var opened_files = new string [scratch_app.documents.length ()];
-            
+            debug ("a");
             foreach (var doc in scratch_app.documents) {            
                 if (doc.name != null) {
                     opened_files[n] = doc.filename;
@@ -492,7 +492,7 @@ namespace Scratch {
             }
             /* Update the opened-files setting */
             if (settings.show_at_start == "last-tabs")
-               settings.opened_files = opened_files;//schema.set_strv ("opened-files", opened_files);    
+               /*settings.opened_files = opened_files;*/settings.schema.set_strv ("opened-files", opened_files);    
         }
         
         void action_preferences () {
