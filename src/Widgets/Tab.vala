@@ -252,6 +252,9 @@ namespace Scratch.Widgets {
         }
         
         public void make_backup () {
+            if (!settings.make_backup)
+                return;
+            
             /* Check for the requested permissions */
             if (document.state == Services.DocumentStates.READONLY)
                return; 

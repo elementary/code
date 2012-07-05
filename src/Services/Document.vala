@@ -281,6 +281,9 @@ namespace Scratch.Services {
 
         public bool backup () {
             
+            if (!settings.make_backup)
+                return false;
+            
             /* Check for the requested permissions */
             if (state == DocumentStates.READONLY)
                return false; 
