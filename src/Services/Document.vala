@@ -571,7 +571,7 @@ namespace Scratch.Services {
             info.set_attribute_boolean (FileAttribute.ACCESS_CAN_EXECUTE, was_executable);
             file.set_attributes_from_info (info, FileQueryInfoFlags.NONE);*/
             if (was_executable) 
-                GLib.FileUtils.chmod (f, 777);
+                GLib.FileUtils.chmod (f, 775);
 
             zg_log.save_insert(this.filename, get_mime_type ());
 
@@ -614,7 +614,7 @@ namespace Scratch.Services {
             info.set_attribute_boolean (FileAttribute.ACCESS_CAN_EXECUTE, was_executable);
             file.set_attributes_from_info (info, FileQueryInfoFlags.NONE);*/
             if (was_executable) 
-                GLib.FileUtils.chmod (f, 777);
+                GLib.FileUtils.chmod (f, 775);
                 
             zg_log.save_insert(this.filename, get_mime_type ());
         
