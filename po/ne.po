@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-05-30 02:49-0700\n"
-"PO-Revision-Date: 2012-07-03 17:57+0000\n"
+"PO-Revision-Date: 2012-07-06 00:17+0000\n"
 "Last-Translator: प्रबिण ( Prabin ) दाहाल ( Dahal ) <Unknown>\n"
 "Language-Team: Nepali <ne@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-04 05:17+0000\n"
-"X-Generator: Launchpad (build 15544)\n"
+"X-Launchpad-Export-Date: 2012-07-06 05:28+0000\n"
+"X-Generator: Launchpad (build 15558)\n"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/config.vala:13
 msgid "Edit text files"
@@ -32,15 +32,15 @@ msgstr "नयाँ सञ्झ्याल"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Scratch.vala:177
 msgid "Set of plugins"
-msgstr ""
+msgstr "प्लग्ईनका दल"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Scratch.vala:178
 msgid "Argument for the set of plugins"
-msgstr ""
+msgstr "प्लग्इन दलका निमित्त तर्कहरू"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Scratch.vala:179
 msgid "Create a new instance"
-msgstr ""
+msgstr "नयाँ द्ृष्तान्ट सिर्जना गर्नुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:477
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:915
@@ -99,7 +99,7 @@ msgstr "नयाँ कागजात"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:859
 msgid "Create a new document in a new tab"
-msgstr ""
+msgstr "नयाँ ट्याबमा नयाँ कागजात सिर्जना गर्नुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:862
 msgid "Add New View"
@@ -154,7 +154,7 @@ msgstr "अघिल्लो खोज"
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:894
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:895
 msgid "Duplicate selected strings"
-msgstr ""
+msgstr "चयन गरिएका सब्दहरुको प्रतिलिपी बनाउनुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:899
 msgid "Open"
@@ -172,7 +172,7 @@ msgstr "यो फाइल बचत गर्नुहोस"
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Tab.vala:106
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Tab.vala:173
 msgid "Save as"
-msgstr ""
+msgstr "यस रुपमा बचत गर्नुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:908
 msgid "Save the current file with a different name"
@@ -189,7 +189,7 @@ msgstr "टेम्प्लेटबाट नयाँ कागजात स
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:916
 msgid "Change Scratch settings"
-msgstr ""
+msgstr "स्क्र्याचको प्राथमिकताहरू बदल्नुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:922
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:923
@@ -204,7 +204,7 @@ msgstr "छेउपट्टी"
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:930
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:931
 msgid "Context View"
-msgstr ""
+msgstr "सान्धर्विक अवलोकन"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:934
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:935
@@ -214,7 +214,7 @@ msgstr "स्थिति पट्टि"
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:938
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:939
 msgid "Bottom Panel"
-msgstr ""
+msgstr "तल्लो पट्टीका"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/ComboSyntax.vala:38
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SourceView.vala:101
@@ -223,23 +223,23 @@ msgstr "सामान्य पाठ"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/NotificationBar.vala:45
 msgid "Dismiss"
-msgstr ""
+msgstr "रद्ध गर्नुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/NotificationBar.vala:52
 msgid "Save as New File"
-msgstr ""
+msgstr "नयाँ कागजातको रुपमा बचत गर्नुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/NotificationBar.vala:60
 msgid "Choose the new location"
-msgstr ""
+msgstr "नयाँ स्थल चुन्नुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:208
 msgid "No files are open."
-msgstr ""
+msgstr "कुनैपनि कागजातहरू खु्ल्ला छैनन्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:208
 msgid "Open a file to begin editing."
-msgstr ""
+msgstr "सम्पादनको निमित्त  एउटा कागजात खोल्नुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:210
 msgid "Open file"
@@ -247,15 +247,15 @@ msgstr "फाइल खोल्नुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:210
 msgid "Open a saved file."
-msgstr ""
+msgstr "बचत गरिएको कागजात खोल्नुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:211
 msgid "New file"
-msgstr ""
+msgstr "नयाँ कागजात"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:211
 msgid "Create a new empty file."
-msgstr ""
+msgstr "नयाँ शुन्य कागजात खोल्नुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/ShareMenu.vala:56
 msgid "Share"
@@ -275,108 +275,108 @@ msgstr "विस्तारहरू"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:121
 msgid "Show welcome screen"
-msgstr ""
+msgstr "स्वागतम् पर्दा देखाउनुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:122
 msgid "Show last open tabs"
-msgstr ""
+msgstr "अगाडि खोलिएको ट्यावहरू देखाउनुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:138
 msgid "General:"
-msgstr ""
+msgstr "साधारण:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:144
 msgid "When Scratch starts:"
-msgstr ""
+msgstr "जब श्क्र्याच प्रारम्भ हुन्छ:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:147
 msgid "Save files when changed:"
-msgstr ""
+msgstr "बदलिएका कागजातहरू बचत गर्नुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Tabs:"
-msgstr ""
+msgstr "ट्यावहरू"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:157
 msgid "Automatic indentation:"
-msgstr ""
+msgstr "स्वत: दाती"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:160
 msgid "Insert spaces instead of tabs:"
-msgstr ""
+msgstr "ट्यावको बदलामा स्थान् थप्नुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:164
 msgid "Tab width:"
-msgstr ""
+msgstr "ट्यावको चौडाई"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:194
 msgid "Editor:"
-msgstr ""
+msgstr "सम्पादक्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:209
 msgid "Highlight current line:"
-msgstr ""
+msgstr "चालु रेखालाई"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:210
 msgid "Highlight matching brackets:"
-msgstr ""
+msgstr "कोष्ठकहरूको जोडलाई हाइलाईट"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:211
 msgid "Draw spaces:"
-msgstr ""
+msgstr "स्थान् खिच्नुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:212
 msgid "Show line numbers:"
-msgstr ""
+msgstr "पंक्ती संख्या देखाउनुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:215
 msgid "Show margin on right:"
-msgstr ""
+msgstr "दाँयातिर किनारा देखाउनुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:222
 msgid "Margin width:"
-msgstr ""
+msgstr "किनारा चौडाई"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:227
 msgid "Font and colors:"
-msgstr ""
+msgstr "अक्षर र रंगहरू"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:241
 msgid "Select font:"
-msgstr ""
+msgstr "अक्षर चयन गर्नुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:244
 msgid "Color scheme:"
-msgstr ""
+msgstr "रंग पद्धती"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:249
 msgid "Custom font:"
-msgstr ""
+msgstr "दस्तर अक्षर"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
-msgstr ""
+msgstr "बन्द गर्नु अगाडी परिवर्तन गरिएका सामाग्रीलाई बचत गर्न चाहनुहुन्छ?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:42
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "before closing?"
-msgstr ""
+msgstr "बन्द गर्नु अगाडी?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:42
 msgid "Save unsaved changes to file \""
-msgstr ""
+msgstr "परिवर्तन गरिएका सामाग्रीलाई यस कागजातमा बचत गर्नुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
-msgstr ""
+msgstr "परिवर्तित यस कागजातलाई बचत गरिएको छैन।"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Do you want to save changes before closing this file?"
-msgstr ""
+msgstr "यस परिवर्तित कागजातलाई बन्द गर्नु अगाडी बचत गर्न चाहनुहुन्छ?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "Save changes to document"
-msgstr ""
+msgstr "परिवर्तनलाई कागजातमा बचत गर्नुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "New File"
@@ -386,33 +386,34 @@ msgstr "नयाँ फाइल"
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
+"यदि बचत नगर्नुभएको खण्डमा पछिल्लो ४ सेकोण्डको परिवर्तन सधैंकालागी हराउने छ।"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
-msgstr ""
+msgstr "बचत नगरी बन्द गर्नुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/WarnDialog.vala:49
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/WarnDialog.vala:57
 msgid "The file:"
-msgstr ""
+msgstr "कागजात"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/WarnDialog.vala:50
 msgid "Do you want to reload it?"
-msgstr ""
+msgstr "यसलाई पुन: खोल्न चाहनुहुन्छ?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/WarnDialog.vala:58
 msgid "Do you want to create it again?"
-msgstr ""
+msgstr "यसलाई पुन: निर्माण गर्न चाहनुहुन्छ?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:265
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:491
 msgid "You can't save changes to:"
-msgstr ""
+msgstr "यसमा बचत गर्न सक्नुहुन्न"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:265
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:491
 msgid "Do you want to save the changes to this file in a different location?"
-msgstr ""
+msgstr "के तपाईं यो कागजातलाई अन्य स्थानमा बचत गर्न चाहनुहुन्छ?"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SourceView.vala:95
 msgid "Syntax Highlighting"
@@ -420,7 +421,7 @@ msgstr "वाक्य-संरचना हाइलाइटिङ"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SearchManager.vala:66
 msgid "Find"
-msgstr ""
+msgstr "खोज्नुहोस"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SearchManager.vala:67
 msgid "Replace With"
@@ -428,11 +429,11 @@ msgstr "यससँग बदल्नुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SearchManager.vala:82
 msgid "Go To Line:"
-msgstr ""
+msgstr "यस पंक्तिमा जानुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
-msgstr ""
+msgstr "पेष्टबिनमा साझा गर्नुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:273
 msgid "Name:"
@@ -440,7 +441,7 @@ msgstr "नाम:"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:279
 msgid "Format: "
-msgstr ""
+msgstr "प्रकार "
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:281
 msgid "Others..."
@@ -448,11 +449,11 @@ msgstr "अन्य..."
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:306
 msgid "Expiry time:"
-msgstr ""
+msgstr "अन्त्य समय"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:311
 msgid "Keep this paste private"
-msgstr ""
+msgstr "यो जलपेषलाई निजी राख्नुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:314
 msgid "Upload"
@@ -460,7 +461,7 @@ msgstr "अपलोड गर्नुहोस्"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:345
 msgid "Other formats"
-msgstr ""
+msgstr "अन्य प्रकारहरू"
 
 #: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:544
 msgid "Never"
