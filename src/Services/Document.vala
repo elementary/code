@@ -570,8 +570,8 @@ namespace Scratch.Services {
             var info = file.query_info (FileAttribute.ACCESS_CAN_EXECUTE, FileQueryInfoFlags.NONE, null);
             info.set_attribute_boolean (FileAttribute.ACCESS_CAN_EXECUTE, was_executable);
             file.set_attributes_from_info (info, FileQueryInfoFlags.NONE);*/
-            if (was_executable) 
-                GLib.FileUtils.chmod (f, 755);
+            //if (was_executable) 
+            //    GLib.FileUtils.chmod (f, 755);
 
             zg_log.save_insert(this.filename, get_mime_type ());
 
@@ -612,9 +612,9 @@ namespace Scratch.Services {
             /*var file = File.new_for_path (f);
             var info = file.query_info (FileAttribute.ACCESS_CAN_EXECUTE, FileQueryInfoFlags.NONE, null);
             info.set_attribute_boolean (FileAttribute.ACCESS_CAN_EXECUTE, was_executable);
-            file.set_attributes_from_info (info, FileQueryInfoFlags.NONE);*/
-            if (was_executable) 
-                GLib.FileUtils.chmod (f, 755);
+            file.set_attributes_from_info (info, FileQueryInfoFlags.NONE);*/            
+            //if (was_executable) 
+            //    GLib.FileUtils.chmod (f, 755);
                 
             zg_log.save_insert(this.filename, get_mime_type ());
         
