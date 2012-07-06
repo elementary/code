@@ -49,7 +49,6 @@ namespace Scratch.Dialogs {
             this.type_hint = Gdk.WindowTypeHint.DIALOG;
             this.set_transient_for (window);
             set_default_size (630, 330);
-            modal = true;
             resizable = false;
             
             this.plugin_lists = plugin_lists.copy ();

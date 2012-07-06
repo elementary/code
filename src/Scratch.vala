@@ -87,6 +87,11 @@ namespace Scratch {
             plugins.scratch_app = this;
             plugins.hook_app(this);
             plugins.hook_set_arg(app_cmd_name, app_set_arg);
+            
+            // Check for session quitting
+            register_session = true;
+            quit.connect (on_quit);
+            inhibit (window, ApplicationInhibitFlags.LOGOUT, _("There are unsaved changes in Scratch!"));
         }
 
         protected override void open (File[] files, string hint) {
@@ -160,6 +165,12 @@ namespace Scratch {
                 window.present ();
             }
 
+        }
+        
+        void on_quit () {
+            foreach(var doc in documents)
+                if(!doc.saved)
+                    inhibit (window, ApplicationInhibitFlags.LOGOUT, _("There are unsaved changes in Scratch!"));
         }
         
         void restore_opened_files () {
