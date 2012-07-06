@@ -106,7 +106,7 @@ namespace Scratch.Services {
         private SourceView source_view;
         private MainWindow window;
         private File _file;
-        private File? file { 
+        public File? file { 
             get { 
                 if (filename != null) {
                     _file = File.new_for_path (filename); 
@@ -536,7 +536,6 @@ namespace Scratch.Services {
             if (state == DocumentStates.READONLY)
                return false; 
             
-            bool was_executable = can_execute ();
             opening = false;
             
             string f = filename;
@@ -548,7 +547,7 @@ namespace Scratch.Services {
                 modified = false;
                 force_normal_state = true;
                 
-                string contents;   
+                string contents = null;   
                 try {
                     FileUtils.get_contents (filename, out contents);
                 } catch (Error e) {
@@ -561,17 +560,6 @@ namespace Scratch.Services {
              
                 this.want_reload = false;
             }
-            
-            /*
-             * re-set the missed attributesfocus
-             */
-            // TODO: make the native way working
-            /*var file = File.new_for_path (f);
-            var info = file.query_info (FileAttribute.ACCESS_CAN_EXECUTE, FileQueryInfoFlags.NONE, null);
-            info.set_attribute_boolean (FileAttribute.ACCESS_CAN_EXECUTE, was_executable);
-            file.set_attributes_from_info (info, FileQueryInfoFlags.NONE);*/
-            //if (was_executable) 
-            //    GLib.FileUtils.chmod (f, 755);
 
             zg_log.save_insert(this.filename, get_mime_type ());
 
@@ -583,8 +571,6 @@ namespace Scratch.Services {
             /* Check for the requested permissions */
             if (state == DocumentStates.READONLY)
                return false; 
-            
-            bool was_executable = can_execute ();
             
             string f = filename;
             int n = tab.save_as ();
@@ -605,16 +591,6 @@ namespace Scratch.Services {
              
                 this.want_reload = false;
             }
-            /*
-             * re-set the missed attributes
-             */
-            // TODO: make the native way working
-            /*var file = File.new_for_path (f);
-            var info = file.query_info (FileAttribute.ACCESS_CAN_EXECUTE, FileQueryInfoFlags.NONE, null);
-            info.set_attribute_boolean (FileAttribute.ACCESS_CAN_EXECUTE, was_executable);
-            file.set_attributes_from_info (info, FileQueryInfoFlags.NONE);*/            
-            //if (was_executable) 
-            //    GLib.FileUtils.chmod (f, 755);
                 
             zg_log.save_insert(this.filename, get_mime_type ());
         
@@ -714,34 +690,6 @@ namespace Scratch.Services {
                     writable = info.get_attribute_boolean (FileAttribute.ACCESS_CAN_WRITE);
 
                     return writable;
-
-                } catch (Error e) {
-
-                    warning ("%s", e.message);
-                    return false;
-
-                }
-
-            } else {
-
-                return true;
-
-            }
-
-        }
-        
-        public bool can_execute () {
-
-            if (filename != null) {
-
-                FileInfo info;
-                bool executable;
-                try {
-
-                    info = file.query_info (FileAttribute.ACCESS_CAN_EXECUTE, FileQueryInfoFlags.NONE, null);
-                    executable = info.get_attribute_boolean (FileAttribute.ACCESS_CAN_EXECUTE);
-
-                    return executable;
 
                 } catch (Error e) {
 

@@ -131,7 +131,14 @@ namespace Scratch.Widgets {
 
             try {
 
-                FileUtils.set_contents (this.filename, this.text_view.buffer.text);
+                // Old GLib way
+                //FileUtils.set_contents (this.filename, this.text_view.buffer.text);
+                
+                // New GIO way
+                uint8[] data = text_view.buffer.text.data;
+                string s;
+                document.file.replace_contents (data, null, false, 0, out s);
+                
                 this.saved = true;
 				
 				//updating the tab label and window title
@@ -203,7 +210,14 @@ namespace Scratch.Widgets {
      
                 if (settings.make_backup) make_backup ();
                 
-                FileUtils.set_contents (this.filename, this.text_view.buffer.text);
+                // Old GLib way
+                //FileUtils.set_contents (this.filename, this.text_view.buffer.text);
+                
+                // New GIO way
+                uint8[] data = text_view.buffer.text.data;
+                string s;
+                document.file.replace_contents (data, null, false, 0, out s);
+                
                 this.saved = true;
 
                 //updating the tab label and the window title
@@ -233,21 +247,6 @@ namespace Scratch.Widgets {
                 return 1;
 
             }
-
-        }
-
-        public int save_file (string filename, string contents) {
-
-            if (filename != "") {
-                try {
-                    FileUtils.set_contents (filename, contents);
-                    return 0;
-                } catch (Error e) {
-                    warning("Error: %s\n", e.message);
-                    return 1;
-                }
-
-            } else return 1;
 
         }
         
