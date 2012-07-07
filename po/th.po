@@ -7,477 +7,489 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-05-30 02:49-0700\n"
+"POT-Creation-Date: 2012-07-06 19:46+0200\n"
 "PO-Revision-Date: 2012-05-31 12:05+0000\n"
 "Last-Translator: Sitdhi <gvdosk124@gmail.com>\n"
 "Language-Team: Thai <th@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-06-01 05:45+0000\n"
-"X-Generator: Launchpad (build 15342)\n"
+"X-Launchpad-Export-Date: 2012-07-07 05:52+0000\n"
+"X-Generator: Launchpad (build 15558)\n"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/config.vala:13
-msgid "Edit text files"
-msgstr "แก้ไขเอกสารข้อความ"
+#: /home/mario/dev/scratch/po/../src/Scratch.vala:94
+#: /home/mario/dev/scratch/po/../src/Scratch.vala:173
+msgid "There are unsaved changes in Scratch!"
+msgstr ""
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/config.vala:14
-msgid "Text Editor"
-msgstr "เครื่องมือแก้ไขข้อความ"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/config.vala:15
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/config.vala:16
-msgid "New Window"
-msgstr "สร้างหน้าต่างใหม่"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Scratch.vala:177
+#: /home/mario/dev/scratch/po/../src/Scratch.vala:191
 msgid "Set of plugins"
 msgstr ""
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Scratch.vala:178
+#: /home/mario/dev/scratch/po/../src/Scratch.vala:192
 msgid "Argument for the set of plugins"
 msgstr ""
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Scratch.vala:179
+#: /home/mario/dev/scratch/po/../src/Scratch.vala:193
 msgid "Create a new instance"
 msgstr ""
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:477
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:915
+#: /home/mario/dev/scratch/po/../src/config.vala:13
+msgid "Edit text files"
+msgstr "แก้ไขเอกสารข้อความ"
+
+#: /home/mario/dev/scratch/po/../src/config.vala:14
+msgid "Text Editor"
+msgstr "เครื่องมือแก้ไขข้อความ"
+
+#: /home/mario/dev/scratch/po/../src/config.vala:15
+msgid "New Document"
+msgstr ""
+
+#: /home/mario/dev/scratch/po/../src/config.vala:16
+msgid "New Window"
+msgstr "สร้างหน้าต่างใหม่"
+
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:183
+msgid "Zeitgeist Datasource for Scratch"
+msgstr ""
+
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:499
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:936
 msgid "Preferences"
 msgstr "ปรับแต่ง"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:534
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:900
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:525
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:921
 msgid "Open a file"
 msgstr "เปิดเอกสาร"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:541
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:532
 msgid "All files"
 msgstr "เอกสารทุกฉบับ"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:544
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:535
 msgid "Text files"
 msgstr "เอกสารที่เป็นข้อความ"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:834
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:835
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:855
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:856
 msgid "Find..."
 msgstr "ค้นหา..."
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:838
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:839
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:859
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:860
 msgid "Hide search bar"
 msgstr "ซ่อนแถบค้นหา"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:842
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:843
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:863
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:864
 msgid "Go to line..."
 msgstr "ไปยังบรรทัดที่..."
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:846
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:847
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:867
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:868
 msgid "Quit"
 msgstr "ออกจากโปรแกรม"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:850
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:851
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:871
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:872
 msgid "Close"
 msgstr "ปิด"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:854
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:855
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:875
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:876
 msgid "Replace"
 msgstr "แทนที่"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:858
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:124
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:170
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:345
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:879
+#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:124
+#: /home/mario/dev/scratch/po/../src/Services/Document.vala:173
+#: /home/mario/dev/scratch/po/../src/Services/Document.vala:361
 msgid "New document"
 msgstr "เอกสารใหม่"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:859
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:880
 msgid "Create a new document in a new tab"
 msgstr "สร้างเอกสารใหม่ที่แถบใหม่"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:862
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:883
 msgid "Add New View"
 msgstr "เพิ่มมุมมองใหม่"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:863
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:884
 msgid "Add a new view"
 msgstr "เพิ่มมุมมองใหม่"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:867
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:888
 msgid "Remove Current View"
 msgstr "ลบมุมมองปัจจุบัน"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:868
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:889
 msgid "Remove this view"
 msgstr "ลบมุมมองนี้"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:871
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:892
 msgid "Undo"
 msgstr "ยกเลิกการกระทำ"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:872
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:893
 msgid "Undo the last action"
 msgstr "ยกเลิกการกระทำล่าสุด"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:875
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:896
 msgid "Redo"
 msgstr "ทำซ้ำ"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:876
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:897
 msgid "Redo the last undone action"
 msgstr "ทำซ้ำการยกเลิกการกระทำล่าสุด"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:880
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:901
 msgid "Revert"
 msgstr "คืนสภาพเดิม"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:881
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:902
 msgid "Restore this file"
 msgstr ""
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:885
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:886
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:906
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:907
 msgid "Next Search"
 msgstr "ค้นหาต่อไป"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:889
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:890
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:910
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:911
 msgid "Previous Search"
 msgstr "ค้นหาย้อนกลับ"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:894
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:895
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:915
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:916
 msgid "Duplicate selected strings"
 msgstr "ทำสำเนาข้อความที่เลือก"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:899
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:920
 msgid "Open"
 msgstr "เปิด"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:903
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:924
 msgid "Save"
 msgstr "บันทึก"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:904
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:925
 msgid "Save the current file"
 msgstr "บันทึกไฟล์ปัจจุบัน"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:907
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Tab.vala:106
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Tab.vala:173
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:928
+#: /home/mario/dev/scratch/po/../src/Widgets/Tab.vala:106
+#: /home/mario/dev/scratch/po/../src/Widgets/Tab.vala:180
 msgid "Save as"
 msgstr ""
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:908
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:929
 msgid "Save the current file with a different name"
 msgstr "บันทึกไฟล์ปัจจุบันเป็นชื่อใหม่"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:911
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/TemplateManager.vala:123
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:932
+#: /home/mario/dev/scratch/po/../scratchcore/TemplateManager.vala:123
 msgid "Templates"
 msgstr "แม่แบบ"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:912
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:933
 msgid "Create a new document from a template"
 msgstr "สร้างเอกสารใหม่จากแม่แบบ"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:916
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:937
 msgid "Change Scratch settings"
 msgstr "เปลี่ยนการตั้งค่าของ Scratch"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:922
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:923
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:943
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:944
 msgid "Fullscreen"
 msgstr "เต็มจอ"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:926
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:927
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:947
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:948
 msgid "Sidebar"
 msgstr "แถบด้านข้าง"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:930
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:931
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:951
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:952
 msgid "Context View"
 msgstr ""
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:934
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:935
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:955
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:956
 msgid "Status Bar"
 msgstr "แถบสถานะ"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:938
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:939
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:959
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:960
 msgid "Bottom Panel"
 msgstr ""
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/ComboSyntax.vala:38
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SourceView.vala:101
-msgid "Normal text"
-msgstr "ข้อความธรรมดา"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/NotificationBar.vala:45
+#: /home/mario/dev/scratch/po/../src/Widgets/NotificationBar.vala:45
 msgid "Dismiss"
 msgstr "ยกเลิก"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/NotificationBar.vala:52
+#: /home/mario/dev/scratch/po/../src/Widgets/NotificationBar.vala:52
 msgid "Save as New File"
 msgstr "บันทึกเป็นไฟล์ใหม่"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/NotificationBar.vala:60
+#: /home/mario/dev/scratch/po/../src/Widgets/NotificationBar.vala:60
 msgid "Choose the new location"
 msgstr "เลือกที่ใหม่"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:208
+#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:208
 msgid "No files are open."
 msgstr "ไม่ได้เปิดไฟล์ใด"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:208
+#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:208
 msgid "Open a file to begin editing."
 msgstr "เปิดไฟล์เพื่อเริ่มแก้ไข"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:210
+#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:210
 msgid "Open file"
 msgstr "เปิดไฟล์"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:210
+#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:210
 msgid "Open a saved file."
 msgstr "เปิดไฟล์ที่บันทึกไว้"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:211
+#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:211
 msgid "New file"
 msgstr "สร้างไฟล์ใหม่"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:211
+#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:211
 msgid "Create a new empty file."
 msgstr "สร้างไฟล์เปล่า"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/ShareMenu.vala:56
+#: /home/mario/dev/scratch/po/../src/Widgets/ComboSyntax.vala:38
+#: /home/mario/dev/scratch/po/../scratchcore/SourceView.vala:101
+msgid "Normal text"
+msgstr "ข้อความธรรมดา"
+
+#: /home/mario/dev/scratch/po/../src/Widgets/ShareMenu.vala:56
 msgid "Share"
 msgstr ""
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:69
-msgid "Behavior"
-msgstr ""
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:73
-msgid "Interface"
-msgstr ""
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:78
-msgid "Extensions"
-msgstr ""
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:121
-msgid "Show welcome screen"
-msgstr "แสดงหน้าจอต้อนรับ"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:122
-msgid "Show last open tabs"
-msgstr "แสดงแถบที่เปิดไว้ล่าสุด"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:138
-msgid "General:"
-msgstr "ทั่วไป:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:144
-msgid "When Scratch starts:"
-msgstr "เมื่อ Scratch เริ่มการทำงาน:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:147
-msgid "Save files when changed:"
-msgstr "บันทุกไฟล์เมื่อมีการเปลี่ยนแปลง:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:152
-msgid "Tabs:"
-msgstr "แท็บ:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:157
-msgid "Automatic indentation:"
-msgstr "ย่อหน้าโดยอัตโนมัติ"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:160
-msgid "Insert spaces instead of tabs:"
-msgstr "เว้นวรรคแทนแท็บ"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:164
-msgid "Tab width:"
-msgstr "ความกว้างของแท็บ:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:194
-msgid "Editor:"
-msgstr "เครื่องมือแก้ไข:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:209
-msgid "Highlight current line:"
-msgstr "แสดงแถบสีที่บรรทัดปัจจุบัน"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:210
-msgid "Highlight matching brackets:"
-msgstr "แสดงแถบสีที่คู่วงเล็บ"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:211
-msgid "Draw spaces:"
-msgstr ""
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:212
-msgid "Show line numbers:"
-msgstr "แสดงเลขบรรทัด:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:215
-msgid "Show margin on right:"
-msgstr "แสดงขอบกระดาษด้านขวา:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:222
-msgid "Margin width:"
-msgstr "ความกว้างของขอบ:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:227
-msgid "Font and colors:"
-msgstr "แบบอักษรและสี:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:241
-msgid "Select font:"
-msgstr "เลือกแบบอักษร:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:244
-msgid "Color scheme:"
-msgstr "รูปแบบสี:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:249
-msgid "Custom font:"
-msgstr "เลือกแบบอักษรเอง:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:40
-msgid "Save unsaved changes to file before closing?"
-msgstr "ต้องการบันทึกไฟล์ที่แก้ไขก่อนปิดหรือไม่?"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:42
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:39
-msgid "before closing?"
-msgstr "ก่อนปิด?"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:42
-msgid "Save unsaved changes to file \""
-msgstr "บันทึกสิ่งที่แก้ไขไปยังไฟล์"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:45
-msgid "Changes to this file haven't been saved."
-msgstr "ยังไม่ได้บันทึกสิ่งที่แก้ไขกับไฟล์นี้"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:45
-msgid "Do you want to save changes before closing this file?"
-msgstr "ต้องการบันทึกสิ่งที่แก้ไขไปยังไฟล์ก่อนจะปิดหรือไม่?"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+#: /home/mario/dev/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "Save changes to document"
 msgstr "บันทึกสิ่งที่แก้ไขไปยังเอกสาร"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+#: /home/mario/dev/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "New File"
 msgstr "ไฟล์ใหม่"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:40
+#: /home/mario/dev/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+#: /home/mario/dev/scratch/po/../src/Dialogs/SaveDialog.vala:42
+msgid "before closing?"
+msgstr "ก่อนปิด?"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr "ถ้าคุณไม่บันทึก สิ่งที่แก้ไขจาก 4 วินาทีล่าสุดจะสูญ"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:42
+#: /home/mario/dev/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
 msgstr "ปิดโดยไม่ต้องบันทึก"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/WarnDialog.vala:49
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/WarnDialog.vala:57
+#: /home/mario/dev/scratch/po/../src/Dialogs/WarnDialog.vala:49
+#: /home/mario/dev/scratch/po/../src/Dialogs/WarnDialog.vala:57
 msgid "The file:"
 msgstr "ไฟล์:"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/WarnDialog.vala:50
+#: /home/mario/dev/scratch/po/../src/Dialogs/WarnDialog.vala:50
 msgid "Do you want to reload it?"
 msgstr "ต้องการให้โหลดเอกสารอีกรอบหรือไม่?"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/WarnDialog.vala:58
+#: /home/mario/dev/scratch/po/../src/Dialogs/WarnDialog.vala:58
 msgid "Do you want to create it again?"
 msgstr "ต้องการที่จะสร้างมันใหม่หรือไม่?"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:265
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:491
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:68
+msgid "Behavior"
+msgstr ""
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:72
+msgid "Interface"
+msgstr ""
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:77
+msgid "Extensions"
+msgstr ""
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:120
+msgid "Show welcome screen"
+msgstr "แสดงหน้าจอต้อนรับ"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
+msgid "Show last open tabs"
+msgstr "แสดงแถบที่เปิดไว้ล่าสุด"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:137
+msgid "General:"
+msgstr "ทั่วไป:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:143
+msgid "When Scratch starts:"
+msgstr "เมื่อ Scratch เริ่มการทำงาน:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:146
+msgid "Save files when changed:"
+msgstr "บันทุกไฟล์เมื่อมีการเปลี่ยนแปลง:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:151
+msgid "Tabs:"
+msgstr "แท็บ:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:156
+msgid "Automatic indentation:"
+msgstr "ย่อหน้าโดยอัตโนมัติ"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
+msgid "Insert spaces instead of tabs:"
+msgstr "เว้นวรรคแทนแท็บ"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:163
+msgid "Tab width:"
+msgstr "ความกว้างของแท็บ:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:193
+msgid "Editor:"
+msgstr "เครื่องมือแก้ไข:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
+msgid "Highlight current line:"
+msgstr "แสดงแถบสีที่บรรทัดปัจจุบัน"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:209
+msgid "Highlight matching brackets:"
+msgstr "แสดงแถบสีที่คู่วงเล็บ"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:210
+msgid "Draw spaces:"
+msgstr ""
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:211
+msgid "Show line numbers:"
+msgstr "แสดงเลขบรรทัด:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:214
+msgid "Show margin on right:"
+msgstr "แสดงขอบกระดาษด้านขวา:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:221
+msgid "Margin width:"
+msgstr "ความกว้างของขอบ:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:226
+msgid "Font and colors:"
+msgstr "แบบอักษรและสี:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:240
+msgid "Select font:"
+msgstr "เลือกแบบอักษร:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:243
+msgid "Color scheme:"
+msgstr "รูปแบบสี:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:248
+msgid "Custom font:"
+msgstr "เลือกแบบอักษรเอง:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/SaveDialog.vala:40
+msgid "Save unsaved changes to file before closing?"
+msgstr "ต้องการบันทึกไฟล์ที่แก้ไขก่อนปิดหรือไม่?"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/SaveDialog.vala:42
+msgid "Save unsaved changes to file \""
+msgstr "บันทึกสิ่งที่แก้ไขไปยังไฟล์"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/SaveDialog.vala:45
+msgid "Changes to this file haven't been saved."
+msgstr "ยังไม่ได้บันทึกสิ่งที่แก้ไขกับไฟล์นี้"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/SaveDialog.vala:45
+msgid "Do you want to save changes before closing this file?"
+msgstr "ต้องการบันทึกสิ่งที่แก้ไขไปยังไฟล์ก่อนจะปิดหรือไม่?"
+
+#: /home/mario/dev/scratch/po/../src/Services/Document.vala:268
+#: /home/mario/dev/scratch/po/../src/Services/Document.vala:507
 msgid "You can't save changes to:"
 msgstr "ไม่สามารถบันทึกสิ่งที่แก้ไขไปยัง:"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:265
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:491
+#: /home/mario/dev/scratch/po/../src/Services/Document.vala:268
+#: /home/mario/dev/scratch/po/../src/Services/Document.vala:507
 msgid "Do you want to save the changes to this file in a different location?"
 msgstr "ต้องการบันทึกสิ่งที่แก้ไขไปยังที่ใหม่หรือไม่?"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SourceView.vala:95
+#: /home/mario/dev/scratch/po/../scratchcore/SourceView.vala:95
 msgid "Syntax Highlighting"
 msgstr "เน้นสีข้อความตามไวยากรณ์"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SearchManager.vala:66
+#: /home/mario/dev/scratch/po/../scratchcore/SearchManager.vala:66
 msgid "Find"
 msgstr "ค้นหา"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SearchManager.vala:67
+#: /home/mario/dev/scratch/po/../scratchcore/SearchManager.vala:67
 msgid "Replace With"
 msgstr "แทนที่ด้วย"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SearchManager.vala:82
+#: /home/mario/dev/scratch/po/../scratchcore/SearchManager.vala:82
 msgid "Go To Line:"
 msgstr "ไปยังบรรทัดที่:"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:254
+#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
 msgstr ""
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:273
+#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:273
 msgid "Name:"
 msgstr ""
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:279
+#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:279
 msgid "Format: "
 msgstr ""
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:281
+#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:281
 msgid "Others..."
 msgstr "อื่นๆ"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:306
+#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:306
 msgid "Expiry time:"
 msgstr "เวลาหมดอายุ:"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:311
+#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:311
 msgid "Keep this paste private"
 msgstr ""
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:314
+#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:314
 msgid "Upload"
 msgstr "อัพโหลด"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:345
+#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:345
 msgid "Other formats"
 msgstr "รูปแบบอื่นๆ"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:544
+#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:544
 msgid "Never"
 msgstr "ไม่เคย"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:545
+#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:545
 msgid "Ten minutes"
 msgstr "สิบนาที"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:546
+#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:546
 msgid "One hour"
 msgstr "หนึ่งชั่วโมง"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:547
+#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:547
 msgid "One day"
 msgstr "หนึ่งวัน"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:548
+#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:548
 msgid "One month"
 msgstr "หนึ่งเดือน"

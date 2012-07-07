@@ -7,478 +7,490 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-30 02:49-0700\n"
+"POT-Creation-Date: 2012-07-06 19:46+0200\n"
 "PO-Revision-Date: 2012-07-01 16:34+0000\n"
 "Last-Translator: Marek Suchánek <suchm@seznam.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-02 04:57+0000\n"
-"X-Generator: Launchpad (build 15520)\n"
+"X-Launchpad-Export-Date: 2012-07-07 05:52+0000\n"
+"X-Generator: Launchpad (build 15558)\n"
 "Language: cs\n"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/config.vala:13
-msgid "Edit text files"
-msgstr "Upravit textové soubory"
+#: /home/mario/dev/scratch/po/../src/Scratch.vala:94
+#: /home/mario/dev/scratch/po/../src/Scratch.vala:173
+msgid "There are unsaved changes in Scratch!"
+msgstr ""
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/config.vala:14
-msgid "Text Editor"
-msgstr "Textový editor"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/config.vala:15
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/config.vala:16
-msgid "New Window"
-msgstr "Nové okno"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Scratch.vala:177
+#: /home/mario/dev/scratch/po/../src/Scratch.vala:191
 msgid "Set of plugins"
 msgstr "Set pluginů"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Scratch.vala:178
+#: /home/mario/dev/scratch/po/../src/Scratch.vala:192
 msgid "Argument for the set of plugins"
 msgstr "Argument pro set pluginů"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Scratch.vala:179
+#: /home/mario/dev/scratch/po/../src/Scratch.vala:193
 msgid "Create a new instance"
 msgstr "Vytvořit novou instanci"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:477
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:915
+#: /home/mario/dev/scratch/po/../src/config.vala:13
+msgid "Edit text files"
+msgstr "Upravit textové soubory"
+
+#: /home/mario/dev/scratch/po/../src/config.vala:14
+msgid "Text Editor"
+msgstr "Textový editor"
+
+#: /home/mario/dev/scratch/po/../src/config.vala:15
+msgid "New Document"
+msgstr ""
+
+#: /home/mario/dev/scratch/po/../src/config.vala:16
+msgid "New Window"
+msgstr "Nové okno"
+
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:183
+msgid "Zeitgeist Datasource for Scratch"
+msgstr ""
+
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:499
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:936
 msgid "Preferences"
 msgstr "Nastavení"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:534
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:900
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:525
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:921
 msgid "Open a file"
 msgstr "Otevřít soubor"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:541
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:532
 msgid "All files"
 msgstr "Všechny soubory"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:544
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:535
 msgid "Text files"
 msgstr "Textové soubory"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:834
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:835
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:855
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:856
 msgid "Find..."
 msgstr "Najít..."
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:838
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:839
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:859
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:860
 msgid "Hide search bar"
 msgstr "Skrýt vyhledávací panel"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:842
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:843
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:863
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:864
 msgid "Go to line..."
 msgstr "Přejít na řádek..."
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:846
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:847
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:867
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:868
 msgid "Quit"
 msgstr "Ukončit"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:850
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:851
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:871
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:872
 msgid "Close"
 msgstr "Zavřít"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:854
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:855
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:875
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:876
 msgid "Replace"
 msgstr "Nahradit"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:858
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:124
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:170
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:345
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:879
+#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:124
+#: /home/mario/dev/scratch/po/../src/Services/Document.vala:173
+#: /home/mario/dev/scratch/po/../src/Services/Document.vala:361
 msgid "New document"
 msgstr "Nový dokument"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:859
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:880
 msgid "Create a new document in a new tab"
 msgstr "Vytvořit nový dokument v záložce"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:862
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:883
 msgid "Add New View"
 msgstr "Přidat nové zobrazení"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:863
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:884
 msgid "Add a new view"
 msgstr "Přidat nové zobrazení"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:867
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:888
 msgid "Remove Current View"
 msgstr "Odstranit současné zobrazení"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:868
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:889
 msgid "Remove this view"
 msgstr "Odstranit toto zobrazení"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:871
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:892
 msgid "Undo"
 msgstr "Zpět"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:872
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:893
 msgid "Undo the last action"
 msgstr "Vrátit poslední akci"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:875
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:896
 msgid "Redo"
 msgstr "Opakovat"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:876
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:897
 msgid "Redo the last undone action"
 msgstr "Opakovat poslední vrácenou akci"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:880
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:901
 msgid "Revert"
 msgstr "Vrátit"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:881
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:902
 msgid "Restore this file"
 msgstr "Obnovit tento soubor"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:885
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:886
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:906
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:907
 msgid "Next Search"
 msgstr "Další"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:889
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:890
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:910
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:911
 msgid "Previous Search"
 msgstr "Předchozí"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:894
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:895
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:915
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:916
 msgid "Duplicate selected strings"
 msgstr "Duplikovat vybrané řetězce"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:899
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:920
 msgid "Open"
 msgstr "Otevřít"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:903
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:924
 msgid "Save"
 msgstr "Uložit"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:904
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:925
 msgid "Save the current file"
 msgstr "Uložit současný soubor"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:907
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Tab.vala:106
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Tab.vala:173
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:928
+#: /home/mario/dev/scratch/po/../src/Widgets/Tab.vala:106
+#: /home/mario/dev/scratch/po/../src/Widgets/Tab.vala:180
 msgid "Save as"
 msgstr "Uložit jako"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:908
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:929
 msgid "Save the current file with a different name"
 msgstr "Uložit současný soubor pod jiným jménem"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:911
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/TemplateManager.vala:123
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:932
+#: /home/mario/dev/scratch/po/../scratchcore/TemplateManager.vala:123
 msgid "Templates"
 msgstr "Šablony"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:912
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:933
 msgid "Create a new document from a template"
 msgstr "Vytvořit nový dokument ze šablony"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:916
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:937
 msgid "Change Scratch settings"
 msgstr "Změnit nastavení editoru Scratch"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:922
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:923
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:943
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:944
 msgid "Fullscreen"
 msgstr "Na celou obrazovku"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:926
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:927
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:947
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:948
 msgid "Sidebar"
 msgstr "Postranní panel"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:930
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:931
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:951
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:952
 msgid "Context View"
 msgstr "Kontextové zobrazení"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:934
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:935
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:955
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:956
 msgid "Status Bar"
 msgstr "Stavová lišta"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:938
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/MainWindow.vala:939
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:959
+#: /home/mario/dev/scratch/po/../src/MainWindow.vala:960
 msgid "Bottom Panel"
 msgstr "Dolní panel"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/ComboSyntax.vala:38
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SourceView.vala:101
-msgid "Normal text"
-msgstr "Normální text"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/NotificationBar.vala:45
+#: /home/mario/dev/scratch/po/../src/Widgets/NotificationBar.vala:45
 msgid "Dismiss"
 msgstr "Zrušit"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/NotificationBar.vala:52
+#: /home/mario/dev/scratch/po/../src/Widgets/NotificationBar.vala:52
 msgid "Save as New File"
 msgstr "Uložit jako nový soubor"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/NotificationBar.vala:60
+#: /home/mario/dev/scratch/po/../src/Widgets/NotificationBar.vala:60
 msgid "Choose the new location"
 msgstr "Vyberte novou lokaci"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:208
+#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:208
 msgid "No files are open."
 msgstr "Nejsou otevřeny žádné soubory."
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:208
+#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:208
 msgid "Open a file to begin editing."
 msgstr "Otevřete soubor a začněte editovat"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:210
+#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:210
 msgid "Open file"
 msgstr "Otevřít soubor"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:210
+#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:210
 msgid "Open a saved file."
 msgstr "Otevřít uložený soubor."
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:211
+#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:211
 msgid "New file"
 msgstr "Nový soubor"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/Notebook.vala:211
+#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:211
 msgid "Create a new empty file."
 msgstr "Vytvořit nový prázdný soubor."
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Widgets/ShareMenu.vala:56
+#: /home/mario/dev/scratch/po/../src/Widgets/ComboSyntax.vala:38
+#: /home/mario/dev/scratch/po/../scratchcore/SourceView.vala:101
+msgid "Normal text"
+msgstr "Normální text"
+
+#: /home/mario/dev/scratch/po/../src/Widgets/ShareMenu.vala:56
 msgid "Share"
 msgstr "Sdílet"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:69
-msgid "Behavior"
-msgstr "Chování"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:73
-msgid "Interface"
-msgstr "Rozhraní"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:78
-msgid "Extensions"
-msgstr "Rozšíření"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:121
-msgid "Show welcome screen"
-msgstr "Zobrazit uvítací obrazovku"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:122
-msgid "Show last open tabs"
-msgstr "Zobrazit posledně otevřené karty"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:138
-msgid "General:"
-msgstr "Obecné:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:144
-msgid "When Scratch starts:"
-msgstr "Když se spustí Scratch:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:147
-msgid "Save files when changed:"
-msgstr "Ukládat soubory po upravení:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:152
-msgid "Tabs:"
-msgstr "Tabulátory:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:157
-msgid "Automatic indentation:"
-msgstr "Automatické odsazování:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:160
-msgid "Insert spaces instead of tabs:"
-msgstr "Vkládat mezery místo tabulátorů:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:164
-msgid "Tab width:"
-msgstr "Šířka tabulátoru:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:194
-msgid "Editor:"
-msgstr "Editor:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:209
-msgid "Highlight current line:"
-msgstr "Zvýraznit aktuální řádek:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:210
-msgid "Highlight matching brackets:"
-msgstr "Zvýraznit odpovídající závorky:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:211
-msgid "Draw spaces:"
-msgstr "Zvýrazňovat mezery:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:212
-msgid "Show line numbers:"
-msgstr "Zobrazit čísla řádků"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:215
-msgid "Show margin on right:"
-msgstr "Zobrazit okraj vpravo:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:222
-msgid "Margin width:"
-msgstr "Šířka okraje"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:227
-msgid "Font and colors:"
-msgstr "Písmo a barvy:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:241
-msgid "Select font:"
-msgstr "Vybrat písmo:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:244
-msgid "Color scheme:"
-msgstr "Barevné schéma:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/PreferencesDialog.vala:249
-msgid "Custom font:"
-msgstr "Vlastní font:"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:40
-msgid "Save unsaved changes to file before closing?"
-msgstr "Uložit do souboru neuložené změny před zavřením?"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:42
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:39
-msgid "before closing?"
-msgstr "před uzavřením?"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:42
-msgid "Save unsaved changes to file \""
-msgstr "Uložit neuložené změny do souboru \""
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:45
-msgid "Changes to this file haven't been saved."
-msgstr "Změny v tomto souboru nebyly dosud uloženy."
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveDialog.vala:45
-msgid "Do you want to save changes before closing this file?"
-msgstr "Chcete uložit změny před zavřením tohoto souboru?"
-
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+#: /home/mario/dev/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "Save changes to document"
 msgstr "Uložit změny v dokumentu"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+#: /home/mario/dev/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "New File"
 msgstr "Nový soubor"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:40
+#: /home/mario/dev/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+#: /home/mario/dev/scratch/po/../src/Dialogs/SaveDialog.vala:42
+msgid "before closing?"
+msgstr "před uzavřením?"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr "Pokud neuložíte, změny z posledních 4 sekund budou navždy ztraceny."
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/SaveOnCloseDialog.vala:42
+#: /home/mario/dev/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
 msgstr "Zavřít bez uložení"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/WarnDialog.vala:49
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/WarnDialog.vala:57
+#: /home/mario/dev/scratch/po/../src/Dialogs/WarnDialog.vala:49
+#: /home/mario/dev/scratch/po/../src/Dialogs/WarnDialog.vala:57
 msgid "The file:"
 msgstr "Soubor:"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/WarnDialog.vala:50
+#: /home/mario/dev/scratch/po/../src/Dialogs/WarnDialog.vala:50
 msgid "Do you want to reload it?"
 msgstr "Chcete jej znovu načíst?"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Dialogs/WarnDialog.vala:58
+#: /home/mario/dev/scratch/po/../src/Dialogs/WarnDialog.vala:58
 msgid "Do you want to create it again?"
 msgstr "Chcete ho znovu vytvořit?"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:265
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:491
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:68
+msgid "Behavior"
+msgstr "Chování"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:72
+msgid "Interface"
+msgstr "Rozhraní"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:77
+msgid "Extensions"
+msgstr "Rozšíření"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:120
+msgid "Show welcome screen"
+msgstr "Zobrazit uvítací obrazovku"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
+msgid "Show last open tabs"
+msgstr "Zobrazit posledně otevřené karty"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:137
+msgid "General:"
+msgstr "Obecné:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:143
+msgid "When Scratch starts:"
+msgstr "Když se spustí Scratch:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:146
+msgid "Save files when changed:"
+msgstr "Ukládat soubory po upravení:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:151
+msgid "Tabs:"
+msgstr "Tabulátory:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:156
+msgid "Automatic indentation:"
+msgstr "Automatické odsazování:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
+msgid "Insert spaces instead of tabs:"
+msgstr "Vkládat mezery místo tabulátorů:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:163
+msgid "Tab width:"
+msgstr "Šířka tabulátoru:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:193
+msgid "Editor:"
+msgstr "Editor:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
+msgid "Highlight current line:"
+msgstr "Zvýraznit aktuální řádek:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:209
+msgid "Highlight matching brackets:"
+msgstr "Zvýraznit odpovídající závorky:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:210
+msgid "Draw spaces:"
+msgstr "Zvýrazňovat mezery:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:211
+msgid "Show line numbers:"
+msgstr "Zobrazit čísla řádků"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:214
+msgid "Show margin on right:"
+msgstr "Zobrazit okraj vpravo:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:221
+msgid "Margin width:"
+msgstr "Šířka okraje"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:226
+msgid "Font and colors:"
+msgstr "Písmo a barvy:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:240
+msgid "Select font:"
+msgstr "Vybrat písmo:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:243
+msgid "Color scheme:"
+msgstr "Barevné schéma:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:248
+msgid "Custom font:"
+msgstr "Vlastní font:"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/SaveDialog.vala:40
+msgid "Save unsaved changes to file before closing?"
+msgstr "Uložit do souboru neuložené změny před zavřením?"
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/SaveDialog.vala:42
+msgid "Save unsaved changes to file \""
+msgstr "Uložit neuložené změny do souboru \""
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/SaveDialog.vala:45
+msgid "Changes to this file haven't been saved."
+msgstr "Změny v tomto souboru nebyly dosud uloženy."
+
+#: /home/mario/dev/scratch/po/../src/Dialogs/SaveDialog.vala:45
+msgid "Do you want to save changes before closing this file?"
+msgstr "Chcete uložit změny před zavřením tohoto souboru?"
+
+#: /home/mario/dev/scratch/po/../src/Services/Document.vala:268
+#: /home/mario/dev/scratch/po/../src/Services/Document.vala:507
 msgid "You can't save changes to:"
 msgstr "Nemůžete uložit změny v:"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:265
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../src/Services/Document.vala:491
+#: /home/mario/dev/scratch/po/../src/Services/Document.vala:268
+#: /home/mario/dev/scratch/po/../src/Services/Document.vala:507
 msgid "Do you want to save the changes to this file in a different location?"
 msgstr "Chcete uložit změny v tomto soubory do jiného umístění?"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SourceView.vala:95
+#: /home/mario/dev/scratch/po/../scratchcore/SourceView.vala:95
 msgid "Syntax Highlighting"
 msgstr "Zvýraznění syntaxe"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SearchManager.vala:66
+#: /home/mario/dev/scratch/po/../scratchcore/SearchManager.vala:66
 msgid "Find"
 msgstr "Hledat"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SearchManager.vala:67
+#: /home/mario/dev/scratch/po/../scratchcore/SearchManager.vala:67
 msgid "Replace With"
 msgstr "Nahradit za"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../scratchcore/SearchManager.vala:82
+#: /home/mario/dev/scratch/po/../scratchcore/SearchManager.vala:82
 msgid "Go To Line:"
 msgstr "Přejít na řádek:"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:254
+#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
 msgstr "Sdílet pomocí PasteBin"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:273
+#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:273
 msgid "Name:"
 msgstr "Jméno:"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:279
+#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:279
 msgid "Format: "
 msgstr "Formát: "
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:281
+#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:281
 msgid "Others..."
 msgstr "Jiné..."
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:306
+#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:306
 msgid "Expiry time:"
 msgstr "Doba použitelnosti:"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:311
+#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:311
 msgid "Keep this paste private"
 msgstr "Ponechte si vložit soukromý"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:314
+#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:314
 msgid "Upload"
 msgstr "Nahrát"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:345
+#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:345
 msgid "Other formats"
 msgstr "Ostatní formáty"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:544
+#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:544
 msgid "Never"
 msgstr "Nikdy"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:545
+#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:545
 msgid "Ten minutes"
 msgstr "Deset minuty"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:546
+#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:546
 msgid "One hour"
 msgstr "Jedna hodina"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:547
+#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:547
 msgid "One day"
 msgstr "Jeden den"
 
-#: /home/ttosttos/Projects/elementary/Bugs/scratch-fix-1006040/po/../plugins/pastebin/pastebin_dialog.vala:548
+#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:548
 msgid "One month"
 msgstr "Jeden měsíc"
