@@ -69,6 +69,7 @@ namespace Scratch.Widgets {
                             doc._file = nf;
                             //GLib.FileUtils.set_contents (filech.get_filename () + "/" + f.get_basename (), doc.tab.text_view.buffer.text);
                             doc.filename = filech.get_filename () + "/" + doc.file.get_basename ();
+                            debug ("a%s", doc.filename);
                             doc.save ();
                         } catch (Error e) { warning (e.message); }
                     }

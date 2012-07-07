@@ -98,7 +98,9 @@ namespace Scratch.Widgets {
         }
 
         public int save () {
-
+            
+            this.filename = document.filename;
+            
             if (this.filename == null) {
                 string new_filename = null;
 
