@@ -82,7 +82,7 @@ target_link_libraries (scratch-text-editor scratchcore)
 #TODO: Installation
 
 install (TARGETS scratch-text-editor RUNTIME DESTINATION bin)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/scratch.desktop DESTINATION share/applications)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/scratch-text-editor.desktop DESTINATION share/applications)
 install (FILES ${CMAKE_BINARY_DIR}/scratch.vapi DESTINATION share/vala/vapi/)
 install (FILES ${CMAKE_SOURCE_DIR}/src/scratch.deps DESTINATION share/vala/vapi/)
 install (FILES ${CMAKE_BINARY_DIR}/scratch.h DESTINATION include/scratch/)
