@@ -77,7 +77,9 @@ namespace Scratch {
             if(new_instance)
                 flags |= ApplicationFlags.NON_UNIQUE;
             set_flags (flags);
-
+            
+            //register_session = true;
+            
             saved_state = new SavedState ();
             settings = new Settings ();
             services = new ServicesSettings ();
@@ -87,11 +89,7 @@ namespace Scratch {
             plugins.scratch_app = this;
             plugins.hook_app(this);
             plugins.hook_set_arg(app_cmd_name, app_set_arg);
-            
-            // Check for session quitting
-            register_session = true;
-            quit.connect (on_quit);
-            inhibit (window, ApplicationInhibitFlags.LOGOUT, _("There are unsaved changes in Scratch!"));
+    
         }
 
         protected override void open (File[] files, string hint) {
@@ -207,7 +205,10 @@ namespace Scratch {
             }
 
             var app = new ScratchApp ();
-
+            // Check for session quitting
+            //quit.connect (on_quit);
+            //app.inhibit (app.window, ApplicationInhibitFlags.LOGOUT, _("There are unsaved changes in Scratch!"));
+            
             return app.run (args);
 
         }

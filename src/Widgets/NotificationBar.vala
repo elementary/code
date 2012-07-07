@@ -64,8 +64,11 @@ namespace Scratch.Widgets {
 
                     if (filech.run () == ResponseType.ACCEPT) {
                         try {
-                            GLib.FileUtils.set_contents (filech.get_filename () + "/" + f.get_basename (), doc.tab.text_view.buffer.text);
-                            doc.tab.filename = filech.get_filename () + "/" + f.get_basename ();
+                            var nf = File.new_for_path (filech.get_filename () + "/" + f.get_basename ());
+                            doc.file.copy (nf, FileCopyFlags.OVERWRITE);
+                            doc._file = nf;
+                            //GLib.FileUtils.set_contents (filech.get_filename () + "/" + f.get_basename (), doc.tab.text_view.buffer.text);
+                            doc.filename = filech.get_filename () + "/" + doc.file.get_basename ();
                             doc.save ();
                         } catch (Error e) { warning (e.message); }
                     }

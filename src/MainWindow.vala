@@ -191,6 +191,7 @@ namespace Scratch {
             {
                 warning ("%s", reg_err.message);
             }
+            
         }
 
         public void on_drag_data_received (Gdk.DragContext context, int x, int y, SelectionData selection_data, uint info, uint time_) {
@@ -483,7 +484,6 @@ namespace Scratch {
         void update_opened_files () {
             int n = 0;
             var opened_files = new string [scratch_app.documents.length ()];
-            debug ("a");
             foreach (var doc in scratch_app.documents) {            
                 if (doc.name != null) {
                     opened_files[n] = doc.filename;

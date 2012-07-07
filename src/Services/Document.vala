@@ -69,6 +69,9 @@ namespace Scratch.Services {
         
         public bool show_notification = true;
         
+        // Cookie requested for session managment
+        uint? cookie = null;
+        
         private bool force_normal_state;
         private DocumentStates _state;
         public DocumentStates state {
@@ -105,7 +108,7 @@ namespace Scratch.Services {
         private Gtk.SourceBuffer buffer;
         private SourceView source_view;
         private MainWindow window;
-        private File _file;
+        public File _file;
         public File? file { 
             get { 
                 if (filename != null) {
@@ -430,7 +433,9 @@ namespace Scratch.Services {
                 window.toolbar.revert_button.set_sensitive (true);
             
             window.search_manager.get_go_to_adj ().upper = buffer.text.split ("\n").length;
-
+            
+            check_session_manager ();
+            
         }
         
         /**
@@ -530,6 +535,22 @@ namespace Scratch.Services {
             }
         }
         
+        void check_session_manager () {
+            var app = window.scratch_app;
+            var documents = app.documents.copy ();
+            foreach(var doc in documents) {                
+                if(doc.modified && !app.is_inhibited (Gtk.ApplicationInhibitFlags.LOGOUT)) {
+                    debug ("Inhibiting");
+                    cookie = app.inhibit (window, Gtk.ApplicationInhibitFlags.LOGOUT, _("There are unsaved changes!"));
+                }
+                else if (!doc.modified)
+                    if (cookie != null && app.is_inhibited (Gtk.ApplicationInhibitFlags.LOGOUT)) {
+                        debug ("Uninhibiting");
+                        app.uninhibit (cookie);
+                    }
+            }
+        }
+        
         public bool save () {
             
             /* Check for the requested permissions */
@@ -555,6 +576,8 @@ namespace Scratch.Services {
                 }
                 
                 source_view.change_syntax_highlight_for_filename (filename);
+                
+                check_session_manager ();
                 
                 this.last_saved_text = contents;
              
@@ -586,7 +609,9 @@ namespace Scratch.Services {
                 } catch (Error e) {
                     warning (e.message);
                 }
-             
+                
+                check_session_manager ();
+                
                 this.last_saved_text = contents;
              
                 this.want_reload = false;
@@ -604,8 +629,13 @@ namespace Scratch.Services {
 
             this.filename = new_name;
             
-            this.save ();
+            if (can_write ()) {
+                force_normal_state = true;
+                _state = DocumentStates.NORMAL;
+            }
             
+            this.save ();
+
             return true;
 
         }
