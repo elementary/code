@@ -34,23 +34,23 @@ namespace Scratch.Widgets {
         public ShareMenu (MainWindow window) {
 
             this.window = window;
-
-            plugins.hook_addons_menu(this);
-            
+     
             insert.connect ((w, p) => { 
-                if (get_children ().length ()  == 0) window.toolbar.share_app_menu.set_sensitive (false);
-                else window.toolbar.share_app_menu.set_sensitive (true);               
+                if (get_children ().length ()  == 0) window.toolbar.share_app_menu.hide ();//set_sensitive (false);
+                else window.toolbar.share_app_menu.show ();//set_sensitive (true);               
             });
             remove.connect ((w) => { 
-                if (get_children ().length () == 0) window.toolbar.share_app_menu.set_sensitive (false);
-                else window.toolbar.share_app_menu.set_sensitive (true);               
+                if (get_children ().length () == 0) window.toolbar.share_app_menu.hide ();//set_sensitive (false);
+                else window.toolbar.share_app_menu.show ();//set_sensitive (true);               
             });
+            
+            plugins.hook_addons_menu(this);
         }
 
     }
 
     public class ShareAppMenu : ToolButtonWithMenu {
-
+        
         public ShareAppMenu (Gtk.Menu menu) {
 
             base (new Image.from_icon_name ("document-export", IconSize.MENU), _("Share"), menu);

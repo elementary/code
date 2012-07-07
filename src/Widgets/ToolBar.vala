@@ -164,7 +164,8 @@ namespace Scratch.Widgets {
         }
         
         public void set_actions (bool val) {
-            share_app_menu.set_sensitive(val);
+            // Share App Menu
+            share_app_menu.set_sensitive (val);
         }
 
         public void set_button_sensitive(int button, bool sensitive) {
@@ -203,8 +204,10 @@ namespace Scratch.Widgets {
         }
 
         public void controll_for_share_plugins () {
-            share_app_menu.no_show_all = false;
-            share_app_menu.show_all();
+            if (share_menu.get_children ().length () == 0)
+                share_app_menu.hide ();
+            else
+                share_app_menu.show ();
         }
     }
 } // Namespace

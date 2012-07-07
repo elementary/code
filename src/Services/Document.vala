@@ -521,6 +521,9 @@ namespace Scratch.Services {
             window.search_manager.get_go_to_adj ().upper = buffer.text.split ("\n").length;
             window.search_manager.get_go_to_adj ().value = 0;
             
+            /* Check Share menu button status */
+            window.toolbar.controll_for_share_plugins ();
+            
             return false;
         }
         
