@@ -186,7 +186,9 @@ namespace Scratch.Services {
             //set new values
             tab.filename = filename;
             tab.saved = true;
-
+            
+            buffer = tab.text_view.buffer;
+            
             source_view = tab.text_view;
             source_view.focus_in_event.connect (on_source_view_focus_in);
             source_view.drag_data_received.connect (on_drag_data_received);
@@ -196,7 +198,6 @@ namespace Scratch.Services {
 
             open ();
             
-            buffer = tab.text_view.buffer;
             buffer.changed.connect (on_buffer_changed);
         }
 
