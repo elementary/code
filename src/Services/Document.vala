@@ -187,9 +187,6 @@ namespace Scratch.Services {
             tab.filename = filename;
             tab.saved = true;
 
-            buffer = tab.text_view.buffer;
-            buffer.changed.connect (on_buffer_changed);
-
             source_view = tab.text_view;
             source_view.focus_in_event.connect (on_source_view_focus_in);
             source_view.drag_data_received.connect (on_drag_data_received);
@@ -198,6 +195,9 @@ namespace Scratch.Services {
             window.current_notebook.set_current_page (window.current_notebook.add_existing_tab(tab));
 
             open ();
+            
+            buffer = tab.text_view.buffer;
+            buffer.changed.connect (on_buffer_changed);
         }
 
         public Document.empty (MainWindow? window) {
