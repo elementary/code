@@ -184,7 +184,10 @@ public class Scratch.Plugins.Manager : Object
 
     Peas.Engine engine;
     Peas.ExtensionSet exts;
-        
+    
+    Peas.Engine engine_core;
+    Peas.ExtensionSet exts_core;
+    
     public Gtk.Toolbar toolbar { set { plugin_iface.toolbar = value; } }
     public Gtk.Application scratch_app { set { plugin_iface.scratch_app = value;  }}
 
@@ -218,12 +221,32 @@ public class Scratch.Plugins.Manager : Object
         param.name = "object";
         exts = new Peas.ExtensionSet (engine, typeof(Peas.Activatable), "object", plugin_iface, null);
 
-        exts.extension_added.connect( (info, ext) => {  
-                ((Peas.Activatable)ext).activate();
-        });
+        /*exts.extension_added.connect( (info, ext) => {  
+            ((Peas.Activatable)ext).activate();
+        });*/
         exts.extension_removed.connect(on_extension_removed);
-        
         exts.foreach (on_extension_added);
+        
+        if (e != null) {
+            /* The core now */
+            engine_core = new Peas.Engine ();
+            engine_core.enable_loader ("python");
+            engine_core.enable_loader ("gjs");
+            engine_core.add_search_path (d + "/" + e + "/", null);
+
+            var core_list = engine_core.get_plugin_list ().copy ();
+            string[] core_plugins = new string[core_list.length()];
+            for (int i = 0; i < core_list.length(); i++) {
+                core_plugins[i] = core_list.nth_data (i).get_module_name ();
+                
+            }
+            engine_core.loaded_plugins = core_plugins;
+
+            /* Our extension set */
+            exts_core = new Peas.ExtensionSet (engine_core, typeof(Peas.Activatable), "object", plugin_iface, null);
+
+            exts_core.foreach (on_extension_added);
+        }
         
     }
     
@@ -236,19 +259,19 @@ public class Scratch.Plugins.Manager : Object
     }
     
     void on_extension_added(Peas.ExtensionSet set, Peas.PluginInfo info, Peas.Extension extension) {
-        var core_list = engine.get_plugin_list ().copy ();
+        /*var core_list = engine.get_plugin_list ().copy ();
         for (int i = 0; i < core_list.length(); i++) {
             string module = core_list.nth_data (i).get_module_name ();
             if (module == info.get_module_name ()) 
-                ((Peas.Activatable)extension).activate();
-            /* Enable plugin set */
-            else if (module == plugin_iface.set_name) {
+                ((Peas.Activatable)extension).activate();           
+            else
+                ((Peas.Activatable)extension).deactivate();
+            /* Enable plugin set *
+            if (module == plugin_iface.set_name) {
                 debug ("Loaded %s", module);
                 ((Peas.Activatable)extension).activate();
             }
-            else
-                ((Peas.Activatable)extension).deactivate();
-        }
+        }*/((Peas.Activatable)extension).activate();
     }
     void on_extension_removed(Peas.PluginInfo info, Object extension) {
         ((Peas.Activatable)extension).deactivate();
