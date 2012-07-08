@@ -7,31 +7,30 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-06 19:46+0200\n"
+"POT-Creation-Date: 2012-07-07 14:28+0200\n"
 "PO-Revision-Date: 2012-07-06 21:59+0000\n"
 "Last-Translator: ttosttos <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-07 05:52+0000\n"
+"X-Launchpad-Export-Date: 2012-07-08 04:56+0000\n"
 "X-Generator: Launchpad (build 15558)\n"
 "Language: es\n"
 
-#: /home/mario/dev/scratch/po/../src/Scratch.vala:94
-#: /home/mario/dev/scratch/po/../src/Scratch.vala:173
+#: /home/mario/dev/scratch/po/../src/Scratch.vala:171
 msgid "There are unsaved changes in Scratch!"
 msgstr ""
 
-#: /home/mario/dev/scratch/po/../src/Scratch.vala:191
+#: /home/mario/dev/scratch/po/../src/Scratch.vala:189
 msgid "Set of plugins"
 msgstr "Conjunto de conectores"
 
-#: /home/mario/dev/scratch/po/../src/Scratch.vala:192
+#: /home/mario/dev/scratch/po/../src/Scratch.vala:190
 msgid "Argument for the set of plugins"
 msgstr "Argumento para el conjunto de conectores"
 
-#: /home/mario/dev/scratch/po/../src/Scratch.vala:193
+#: /home/mario/dev/scratch/po/../src/Scratch.vala:191
 msgid "Create a new instance"
 msgstr "Crear nueva instancia"
 
@@ -105,8 +104,8 @@ msgstr "Reemplazar"
 
 #: /home/mario/dev/scratch/po/../src/MainWindow.vala:879
 #: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:124
-#: /home/mario/dev/scratch/po/../src/Services/Document.vala:173
-#: /home/mario/dev/scratch/po/../src/Services/Document.vala:361
+#: /home/mario/dev/scratch/po/../src/Services/Document.vala:176
+#: /home/mario/dev/scratch/po/../src/Services/Document.vala:364
 msgid "New document"
 msgstr "Documento nuevo"
 
@@ -419,16 +418,20 @@ msgstr "Los cambios en este archivo no han sido guardados."
 msgid "Do you want to save changes before closing this file?"
 msgstr "¿Desea guardar los cambios antes de cerrar este archivo?"
 
-#: /home/mario/dev/scratch/po/../src/Services/Document.vala:268
-#: /home/mario/dev/scratch/po/../src/Services/Document.vala:507
+#: /home/mario/dev/scratch/po/../src/Services/Document.vala:271
+#: /home/mario/dev/scratch/po/../src/Services/Document.vala:512
 msgid "You can't save changes to:"
 msgstr "No puede guardar los cambios en:"
 
-#: /home/mario/dev/scratch/po/../src/Services/Document.vala:268
-#: /home/mario/dev/scratch/po/../src/Services/Document.vala:507
+#: /home/mario/dev/scratch/po/../src/Services/Document.vala:271
+#: /home/mario/dev/scratch/po/../src/Services/Document.vala:512
 msgid "Do you want to save the changes to this file in a different location?"
 msgstr ""
 "¿Desea guardar los cambios en este archivo en una ubicación diferente?"
+
+#: /home/mario/dev/scratch/po/../src/Services/Document.vala:544
+msgid "There are unsaved changes!"
+msgstr ""
 
 #: /home/mario/dev/scratch/po/../scratchcore/SourceView.vala:95
 msgid "Syntax Highlighting"
