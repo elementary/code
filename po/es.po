@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-07 14:28+0200\n"
-"PO-Revision-Date: 2012-07-06 21:59+0000\n"
-"Last-Translator: ttosttos <Unknown>\n"
+"PO-Revision-Date: 2012-07-08 11:54+0000\n"
+"Last-Translator: Alfredo Hernández <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-08 04:56+0000\n"
+"X-Launchpad-Export-Date: 2012-07-09 05:04+0000\n"
 "X-Generator: Launchpad (build 15558)\n"
 "Language: es\n"
 
 #: /home/mario/dev/scratch/po/../src/Scratch.vala:171
 msgid "There are unsaved changes in Scratch!"
-msgstr ""
+msgstr "Hay cambios sin guardar en Scratch."
 
 #: /home/mario/dev/scratch/po/../src/Scratch.vala:189
 msgid "Set of plugins"
@@ -52,7 +52,7 @@ msgstr "Ventana nueva"
 
 #: /home/mario/dev/scratch/po/../src/MainWindow.vala:183
 msgid "Zeitgeist Datasource for Scratch"
-msgstr ""
+msgstr "Fuente de datos de Zeitgeist para Scratch"
 
 #: /home/mario/dev/scratch/po/../src/MainWindow.vala:499
 #: /home/mario/dev/scratch/po/../src/MainWindow.vala:936
@@ -111,7 +111,7 @@ msgstr "Documento nuevo"
 
 #: /home/mario/dev/scratch/po/../src/MainWindow.vala:880
 msgid "Create a new document in a new tab"
-msgstr "Crear documento en nueva pestaña"
+msgstr "Crear documento en una pestaña nueva"
 
 #: /home/mario/dev/scratch/po/../src/MainWindow.vala:883
 msgid "Add New View"
@@ -197,7 +197,7 @@ msgstr "Plantillas"
 
 #: /home/mario/dev/scratch/po/../src/MainWindow.vala:933
 msgid "Create a new document from a template"
-msgstr "Crear nuevo documento desde plantilla"
+msgstr "Crear un nuevo documento desde una plantilla"
 
 #: /home/mario/dev/scratch/po/../src/MainWindow.vala:937
 msgid "Change Scratch settings"
@@ -431,7 +431,7 @@ msgstr ""
 
 #: /home/mario/dev/scratch/po/../src/Services/Document.vala:544
 msgid "There are unsaved changes!"
-msgstr ""
+msgstr "Hay cambios sin guardar."
 
 #: /home/mario/dev/scratch/po/../scratchcore/SourceView.vala:95
 msgid "Syntax Highlighting"
