@@ -99,6 +99,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
             tool_arrow_up = new Gtk.ToolItem ();//(Gtk.ToolItem) main_actions.get_action ("SearchNext").create_tool_item ();
             //main_actions.get_action ("SearchNext").bind_property("sensitive", tool_arrow_up, "sensitive", BindingFlags.DEFAULT);
             tool_arrow_up.add (next);
+            tool_arrow_up.sensitive = false;
             
             var previous = new Gtk.Button ();
             previous.clicked.connect (search_previous);
@@ -109,6 +110,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
             tool_arrow_down = new Gtk.ToolItem ();//(Gtk.ToolItem) main_actions.get_action ("SearchBack").create_tool_item ();
             //main_actions.get_action ("SearchBack").bind_property("sensitive", tool_arrow_down, "sensitive", BindingFlags.DEFAULT);
             tool_arrow_down.add (previous);
+            tool_arrow_down.sensitive = false;
             
             main_actions.get_action ("SearchNext").set_sensitive (false);
             main_actions.get_action ("SearchBack").set_sensitive (false);
@@ -260,8 +262,9 @@ public class Scratch.Services.SearchManager : GLib.Object {
 
     void on_search_entry_text_changed () {
         search ();
-        tool_arrow_up.set_sensitive (true);
-        tool_arrow_down.set_sensitive (true);
+        //tool_arrow_up.set_sensitive (true);
+        //tool_arrow_down.set_sensitive (true);
+        update_tool_arrows (search_entry.text);
     }
 
     bool on_search_entry_focused_in (Gdk.EventFocus event) {
@@ -325,7 +328,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
         }
         
         if (text_buffer == null || text_buffer.text == "" || search_string == "") {
-            warning ("I can't search anything in an inexistant buffer and/or wuthout anything to search.");
+            warning ("I can't search anything in an inexistant buffer and/or without anything to search.");
             return false;
         }
 
@@ -394,6 +397,9 @@ public class Scratch.Services.SearchManager : GLib.Object {
                 text_buffer.get_end_iter (out start_iter);
                 search_for_iter_backward (start_iter, out end_iter, search_string);
             }
+            //text_buffer.get_selection_bounds (out start_iter, out end_iter);
+            update_tool_arrows (search_string);
+            warning("PREVIOUS PRESSED");
         }
     }
 
@@ -407,7 +413,33 @@ public class Scratch.Services.SearchManager : GLib.Object {
                 text_buffer.get_start_iter (out start_iter);
                 search_for_iter (start_iter, out end_iter, search_string);
             }
+            //text_buffer.get_selection_bounds (out start_iter, out end_iter);
+            update_tool_arrows (search_string);
+            warning("NEXT PRESSED");
         }
+    }
+
+    private void update_tool_arrows(string search_string)
+    {
+        Gtk.TextIter? start_iter, end_iter;
+        text_buffer.get_selection_bounds (out start_iter, out end_iter);
+        
+        bool case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
+     
+        Gtk.TextIter? tmp_start_iter = start_iter;
+        end_iter = tmp_start_iter;
+        bool next_found = start_iter.forward_search (search_string,
+                                                     case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
+                                                     out tmp_start_iter, out end_iter, null);
+        
+        tmp_start_iter = start_iter;
+        end_iter = tmp_start_iter;
+        bool previous_found = start_iter.backward_search (search_string,
+                                                          case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
+                                                          out tmp_start_iter, out end_iter, null);
+        
+        tool_arrow_down.sensitive = previous_found;
+        tool_arrow_up.sensitive   = next_found;
     }
 
     bool on_search_entry_key_press (Gdk.EventKey event) {
