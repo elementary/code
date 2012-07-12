@@ -398,9 +398,8 @@ public class Scratch.Services.SearchManager : GLib.Object {
                 text_buffer.get_end_iter (out start_iter);
                 search_for_iter_backward (start_iter, out end_iter, search_string);
             }
-            //text_buffer.get_selection_bounds (out start_iter, out end_iter);
+            
             update_tool_arrows (search_string);
-            warning("PREVIOUS PRESSED");
         }
     }
 
@@ -414,33 +413,51 @@ public class Scratch.Services.SearchManager : GLib.Object {
                 text_buffer.get_start_iter (out start_iter);
                 search_for_iter (start_iter, out end_iter, search_string);
             }
-            //text_buffer.get_selection_bounds (out start_iter, out end_iter);
+            
             update_tool_arrows (search_string);
-            warning("NEXT PRESSED");
         }
     }
 
     private void update_tool_arrows(string search_string)
     {
         Gtk.TextIter? start_iter, end_iter;
+        Gtk.TextIter? tmp_start_iter, tmp_end_iter;
+
+        bool is_in_start, is_in_end;
+        bool case_sensitive = false;
+
+        text_buffer.get_start_iter (out tmp_start_iter);
+        text_buffer.get_end_iter (out tmp_end_iter);
+        
         text_buffer.get_selection_bounds (out start_iter, out end_iter);
         
-        bool case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
-     
-        Gtk.TextIter? tmp_start_iter = start_iter;
-        end_iter = tmp_start_iter;
-        bool next_found = start_iter.forward_search (search_string,
-                                                     case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
-                                                     out tmp_start_iter, out end_iter, null);
-        
-        tmp_start_iter = start_iter;
-        end_iter = tmp_start_iter;
-        bool previous_found = start_iter.backward_search (search_string,
-                                                          case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
-                                                          out tmp_start_iter, out end_iter, null);
-        
-        tool_arrow_down.sensitive = previous_found;
-        tool_arrow_up.sensitive   = next_found;
+        is_in_start = start_iter.compare(tmp_start_iter) == 0;
+        is_in_end = end_iter.compare(tmp_end_iter) == 0;
+
+        if(!is_in_start && !is_in_end)
+            case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
+
+        if (!is_in_end) {
+            tmp_start_iter = end_iter;
+            text_buffer.get_end_iter (out tmp_end_iter);
+            bool next_found = tmp_start_iter.forward_search (search_string,
+                case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
+                out tmp_start_iter, out tmp_end_iter, null);
+            tool_arrow_up.sensitive   = next_found;
+        }else{
+            tool_arrow_up.sensitive = false;
+        }
+
+        if (!is_in_start){
+            tmp_start_iter = start_iter;
+            tmp_end_iter = tmp_start_iter;
+            bool previous_found = tmp_start_iter.backward_search (search_string,
+                case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
+                out tmp_start_iter, out end_iter, null);
+            tool_arrow_down.sensitive = previous_found;
+        }else{
+            tool_arrow_down.sensitive = false;
+        }
     }
 
     bool on_search_entry_key_press (Gdk.EventKey event) {
