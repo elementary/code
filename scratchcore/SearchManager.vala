@@ -253,6 +253,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
             text_buffer.delete_selection (true, true);
             text_buffer.insert_at_cursor (replace_string, replace_string.length);
             search ();
+            update_tool_arrows (search_entry.text);
         }
     }
 
