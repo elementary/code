@@ -436,20 +436,16 @@ public class Scratch.Services.SearchManager : GLib.Object {
             case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
 
         if (!is_in_end) {
-            tmp_start_iter = end_iter;
-            text_buffer.get_end_iter (out tmp_end_iter);
-            bool next_found = tmp_start_iter.forward_search (search_string,
+            bool next_found = end_iter.forward_search (search_string,
                 case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
                 out tmp_start_iter, out tmp_end_iter, null);
-            tool_arrow_up.sensitive   = next_found;
+            tool_arrow_up.sensitive = next_found;
         }else{
             tool_arrow_up.sensitive = false;
         }
 
         if (!is_in_start){
-            tmp_start_iter = start_iter;
-            tmp_end_iter = tmp_start_iter;
-            bool previous_found = tmp_start_iter.backward_search (search_string,
+            bool previous_found = start_iter.backward_search (search_string,
                 case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
                 out tmp_start_iter, out end_iter, null);
             tool_arrow_down.sensitive = previous_found;
