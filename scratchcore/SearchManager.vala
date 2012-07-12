@@ -263,8 +263,6 @@ public class Scratch.Services.SearchManager : GLib.Object {
 
     void on_search_entry_text_changed () {
         search ();
-        //tool_arrow_up.set_sensitive (true);
-        //tool_arrow_down.set_sensitive (true);
         update_tool_arrows (search_entry.text);
     }
 
