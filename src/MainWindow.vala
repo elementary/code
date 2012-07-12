@@ -192,6 +192,8 @@ namespace Scratch {
                 warning ("%s", reg_err.message);
             }
             
+            // Set minimum window size.
+            this.set_size_request(300,250);
         }
 
         public void on_drag_data_received (Gdk.DragContext context, int x, int y, SelectionData selection_data, uint info, uint time_) {
