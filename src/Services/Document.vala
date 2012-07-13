@@ -544,12 +544,10 @@ namespace Scratch.Services {
             var documents = app.documents.copy ();
             foreach(var doc in documents) {                
                 if(doc.modified && !app.is_inhibited (Gtk.ApplicationInhibitFlags.LOGOUT)) {
-                    debug ("Inhibiting");
                     cookie = app.inhibit (window, Gtk.ApplicationInhibitFlags.LOGOUT, _("There are unsaved changes!"));
                 }
                 else if (!doc.modified)
                     if (cookie != null && app.is_inhibited (Gtk.ApplicationInhibitFlags.LOGOUT)) {
-                        debug ("Uninhibiting");
                         app.uninhibit (cookie);
                     }
             }

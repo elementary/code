@@ -99,6 +99,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
             tool_arrow_up = new Gtk.ToolItem ();//(Gtk.ToolItem) main_actions.get_action ("SearchNext").create_tool_item ();
             //main_actions.get_action ("SearchNext").bind_property("sensitive", tool_arrow_up, "sensitive", BindingFlags.DEFAULT);
             tool_arrow_up.add (next);
+            tool_arrow_up.sensitive = false;
             
             var previous = new Gtk.Button ();
             previous.clicked.connect (search_previous);
@@ -109,6 +110,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
             tool_arrow_down = new Gtk.ToolItem ();//(Gtk.ToolItem) main_actions.get_action ("SearchBack").create_tool_item ();
             //main_actions.get_action ("SearchBack").bind_property("sensitive", tool_arrow_down, "sensitive", BindingFlags.DEFAULT);
             tool_arrow_down.add (previous);
+            tool_arrow_down.sensitive = false;
             
             main_actions.get_action ("SearchNext").set_sensitive (false);
             main_actions.get_action ("SearchBack").set_sensitive (false);
@@ -251,6 +253,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
             text_buffer.delete_selection (true, true);
             text_buffer.insert_at_cursor (replace_string, replace_string.length);
             search ();
+            update_tool_arrows (search_entry.text);
         }
     }
 
@@ -260,8 +263,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
 
     void on_search_entry_text_changed () {
         search ();
-        tool_arrow_up.set_sensitive (true);
-        tool_arrow_down.set_sensitive (true);
+        update_tool_arrows (search_entry.text);
     }
 
     bool on_search_entry_focused_in (Gdk.EventFocus event) {
@@ -325,7 +327,7 @@ public class Scratch.Services.SearchManager : GLib.Object {
         }
         
         if (text_buffer == null || text_buffer.text == "" || search_string == "") {
-            warning ("I can't search anything in an inexistant buffer and/or wuthout anything to search.");
+            warning ("I can't search anything in an inexistant buffer and/or without anything to search.");
             return false;
         }
 
@@ -394,6 +396,8 @@ public class Scratch.Services.SearchManager : GLib.Object {
                 text_buffer.get_end_iter (out start_iter);
                 search_for_iter_backward (start_iter, out end_iter, search_string);
             }
+            
+            update_tool_arrows (search_string);
         }
     }
 
@@ -407,6 +411,46 @@ public class Scratch.Services.SearchManager : GLib.Object {
                 text_buffer.get_start_iter (out start_iter);
                 search_for_iter (start_iter, out end_iter, search_string);
             }
+            
+            update_tool_arrows (search_string);
+        }
+    }
+
+    private void update_tool_arrows(string search_string)
+    {
+        Gtk.TextIter? start_iter, end_iter;
+        Gtk.TextIter? tmp_start_iter, tmp_end_iter;
+
+        bool is_in_start, is_in_end;
+        bool case_sensitive = false;
+
+        text_buffer.get_start_iter (out tmp_start_iter);
+        text_buffer.get_end_iter (out tmp_end_iter);
+        
+        text_buffer.get_selection_bounds (out start_iter, out end_iter);
+        
+        is_in_start = start_iter.compare(tmp_start_iter) == 0;
+        is_in_end = end_iter.compare(tmp_end_iter) == 0;
+
+        if(!is_in_start && !is_in_end)
+            case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
+
+        if (!is_in_end) {
+            bool next_found = end_iter.forward_search (search_string,
+                case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
+                out tmp_start_iter, out tmp_end_iter, null);
+            tool_arrow_up.sensitive = next_found;
+        }else{
+            tool_arrow_up.sensitive = false;
+        }
+
+        if (!is_in_start){
+            bool previous_found = start_iter.backward_search (search_string,
+                case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
+                out tmp_start_iter, out end_iter, null);
+            tool_arrow_down.sensitive = previous_found;
+        }else{
+            tool_arrow_down.sensitive = false;
         }
     }
 
