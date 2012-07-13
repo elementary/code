@@ -46,6 +46,31 @@ public class Scratch.Plugins.Bash : Peas.ExtensionBase,  Peas.Activatable
             this.terminal = new Vte.Terminal ();
             this.terminal.scrollback_lines = -1;
             
+            // Popup menu
+            var menu = new Gtk.Menu ();
+            
+            var copy = new Gtk.MenuItem.with_label (_("Copy"));
+            copy.activate.connect (() => {
+                terminal.copy_clipboard ();
+            });
+            menu.append (copy);
+            copy.show ();
+            
+            var paste = new Gtk.MenuItem.with_label (_("Paste"));
+            paste.activate.connect (() => {
+                terminal.paste_clipboard ();
+            });
+            menu.append (paste);
+            paste.show ();
+            
+            this.terminal.button_press_event.connect ((event) => {
+                if (event.button == 3) {
+                    menu.select_first (false);
+                    menu.popup (null, null, null, event.button, event.time);
+                }
+                return false;
+            });
+            
             try {
                 this.terminal.fork_command_full (Vte.PtyFlags.DEFAULT, "~/", { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, null);
             } catch (GLib.Error e) {
