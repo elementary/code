@@ -8,18 +8,18 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-07-13 13:37+0200\n"
-"PO-Revision-Date: 2012-06-22 15:29+0000\n"
-"Last-Translator: angelescu <Unknown>\n"
+"PO-Revision-Date: 2012-07-16 16:31+0000\n"
+"Last-Translator: Andy C. Candet <Unknown>\n"
 "Language-Team: Romanian <ro@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-14 06:41+0000\n"
-"X-Generator: Launchpad (build 15614)\n"
+"X-Launchpad-Export-Date: 2012-07-17 05:12+0000\n"
+"X-Generator: Launchpad (build 15627)\n"
 
 #: /home/mario/dev/scratch/po/../src/Scratch.vala:171
 msgid "There are unsaved changes in Scratch!"
-msgstr ""
+msgstr "Există schimbări nesalvate în Scratch!"
 
 #: /home/mario/dev/scratch/po/../src/Scratch.vala:189
 msgid "Set of plugins"
@@ -39,11 +39,11 @@ msgstr "Editare fișiere text"
 
 #: /home/mario/dev/scratch/po/../src/config.vala:14
 msgid "Text Editor"
-msgstr "Editor text"
+msgstr "Editor de text"
 
 #: /home/mario/dev/scratch/po/../src/config.vala:15
 msgid "New Document"
-msgstr ""
+msgstr "Document nou"
 
 #: /home/mario/dev/scratch/po/../src/config.vala:16
 msgid "New Window"
@@ -51,7 +51,7 @@ msgstr "Fereastră nouă"
 
 #: /home/mario/dev/scratch/po/../src/MainWindow.vala:183
 msgid "Zeitgeist Datasource for Scratch"
-msgstr ""
+msgstr "Sursă de date Zeitgeist pentru Scratch"
 
 #: /home/mario/dev/scratch/po/../src/MainWindow.vala:501
 #: /home/mario/dev/scratch/po/../src/MainWindow.vala:938
@@ -165,7 +165,7 @@ msgstr "Căutare anterioară"
 #: /home/mario/dev/scratch/po/../src/MainWindow.vala:917
 #: /home/mario/dev/scratch/po/../src/MainWindow.vala:918
 msgid "Duplicate selected strings"
-msgstr ""
+msgstr "Duplică stringurile selectate"
 
 #: /home/mario/dev/scratch/po/../src/MainWindow.vala:922
 msgid "Open"
@@ -215,7 +215,7 @@ msgstr "Bară laterală"
 #: /home/mario/dev/scratch/po/../src/MainWindow.vala:953
 #: /home/mario/dev/scratch/po/../src/MainWindow.vala:954
 msgid "Context View"
-msgstr ""
+msgstr "Vizualizare context"
 
 #: /home/mario/dev/scratch/po/../src/MainWindow.vala:957
 #: /home/mario/dev/scratch/po/../src/MainWindow.vala:958
@@ -229,11 +229,11 @@ msgstr "Panou de jos"
 
 #: /home/mario/dev/scratch/po/../src/Widgets/NotificationBar.vala:45
 msgid "Ignore"
-msgstr ""
+msgstr "Ignoră"
 
 #: /home/mario/dev/scratch/po/../src/Widgets/NotificationBar.vala:52
 msgid "Save changes elsewhere"
-msgstr ""
+msgstr "Salvează schimbările altundeva"
 
 #: /home/mario/dev/scratch/po/../src/Widgets/NotificationBar.vala:60
 msgid "Choose the new location"
@@ -429,7 +429,7 @@ msgstr ""
 
 #: /home/mario/dev/scratch/po/../src/Services/Document.vala:547
 msgid "There are unsaved changes!"
-msgstr ""
+msgstr "Există schimbări nesalvate!"
 
 #: /home/mario/dev/scratch/po/../scratchcore/SourceView.vala:95
 msgid "Syntax Highlighting"
@@ -469,7 +469,7 @@ msgstr "Timpul expirării:"
 
 #: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:311
 msgid "Keep this paste private"
-msgstr ""
+msgstr "Ține acest paste privat"
 
 #: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:314
 msgid "Upload"
