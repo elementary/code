@@ -133,13 +133,15 @@ namespace Scratch.Widgets {
 
             try {
 
-                // Old GLib way
-                //FileUtils.set_contents (this.filename, this.text_view.buffer.text);
+                if (!document.exists) {
+                    FileUtils.set_contents (this.filename, this.text_view.buffer.text);
+                }
+                else {
+                    uint8[] data = text_view.buffer.text.data;
+                    string s;
                 
-                // New GIO way
-                uint8[] data = text_view.buffer.text.data;
-                string s;
-                document.file.replace_contents (data, null, false, 0, out s);
+                    document.file.replace_contents (data, null, false, 0, out s);
+                }
                 
                 this.saved = true;
 				
@@ -212,13 +214,15 @@ namespace Scratch.Widgets {
      
                 if (settings.make_backup) make_backup ();
                 
-                // Old GLib way
-                //FileUtils.set_contents (this.filename, this.text_view.buffer.text);
+                if (!document.exists) {
+                    FileUtils.set_contents (this.filename, this.text_view.buffer.text);
+                }
+                else {
+                    uint8[] data = text_view.buffer.text.data;
+                    string s;
                 
-                // New GIO way
-                uint8[] data = text_view.buffer.text.data;
-                string s;
-                document.file.replace_contents (data, null, false, 0, out s);
+                    document.file.replace_contents (data, null, false, 0, out s);
+                }
                 
                 this.saved = true;
 
