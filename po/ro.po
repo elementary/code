@@ -7,494 +7,494 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-07-13 13:37+0200\n"
+"POT-Creation-Date: 2012-07-23 00:16+0200\n"
 "PO-Revision-Date: 2012-07-16 16:31+0000\n"
 "Last-Translator: Andy C. Candet <Unknown>\n"
 "Language-Team: Romanian <ro@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-17 05:12+0000\n"
-"X-Generator: Launchpad (build 15627)\n"
+"X-Launchpad-Export-Date: 2012-07-23 05:27+0000\n"
+"X-Generator: Launchpad (build 15654)\n"
 
-#: /home/mario/dev/scratch/po/../src/Scratch.vala:171
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:171
 msgid "There are unsaved changes in Scratch!"
 msgstr "Există schimbări nesalvate în Scratch!"
 
-#: /home/mario/dev/scratch/po/../src/Scratch.vala:189
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:189
 msgid "Set of plugins"
 msgstr "Set de module"
 
-#: /home/mario/dev/scratch/po/../src/Scratch.vala:190
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:190
 msgid "Argument for the set of plugins"
 msgstr "Argument pentru setul de module"
 
-#: /home/mario/dev/scratch/po/../src/Scratch.vala:191
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:191
 msgid "Create a new instance"
 msgstr "Crează o instanță nouă"
 
-#: /home/mario/dev/scratch/po/../src/config.vala:13
-msgid "Edit text files"
-msgstr "Editare fișiere text"
-
-#: /home/mario/dev/scratch/po/../src/config.vala:14
-msgid "Text Editor"
-msgstr "Editor de text"
-
-#: /home/mario/dev/scratch/po/../src/config.vala:15
-msgid "New Document"
-msgstr "Document nou"
-
-#: /home/mario/dev/scratch/po/../src/config.vala:16
-msgid "New Window"
-msgstr "Fereastră nouă"
-
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:183
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:183
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Sursă de date Zeitgeist pentru Scratch"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:501
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:938
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:501
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:938
 msgid "Preferences"
 msgstr "Preferinţe"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:527
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:923
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:527
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:923
 msgid "Open a file"
 msgstr "Deschide un fișier"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:534
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:534
 msgid "All files"
 msgstr "Toate fişierele"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:537
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:537
 msgid "Text files"
 msgstr "Fișiere text"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:857
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:858
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:857
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:858
 msgid "Find..."
 msgstr "Căutare..."
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:861
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:862
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:861
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:862
 msgid "Hide search bar"
 msgstr "Ascunde bara de căutare"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:865
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:866
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:865
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:866
 msgid "Go to line..."
 msgstr "Du-te la linia..."
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:869
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:870
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:869
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:870
 msgid "Quit"
 msgstr "Termină"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:873
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:874
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:873
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:874
 msgid "Close"
 msgstr "Închide"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:877
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:878
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:877
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:878
 msgid "Replace"
 msgstr "Înlocuiește"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:881
-#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:124
-#: /home/mario/dev/scratch/po/../src/Services/Document.vala:176
-#: /home/mario/dev/scratch/po/../src/Services/Document.vala:365
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:881
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:124
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:176
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:365
 msgid "New document"
 msgstr "Document nou"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:882
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:882
 msgid "Create a new document in a new tab"
 msgstr "Crează un document nou într-o fereastră nouă"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:885
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:885
 msgid "Add New View"
 msgstr "Adaugă vizualizare nouă"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:886
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:886
 msgid "Add a new view"
 msgstr "Adaugă o vizualizare nouă"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:890
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:890
 msgid "Remove Current View"
 msgstr "Elimină vizualizarea actuală"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:891
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:891
 msgid "Remove this view"
 msgstr "Elimină această vizualizare"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:894
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:894
 msgid "Undo"
 msgstr "Restabilire"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:895
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:895
 msgid "Undo the last action"
 msgstr "Anulează ultima acțiune"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:898
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:898
 msgid "Redo"
 msgstr "Refacere"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:899
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:899
 msgid "Redo the last undone action"
 msgstr "Refă ultima acțiune anulată"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:903
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:903
 msgid "Revert"
 msgstr "Revenire"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:904
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:904
 msgid "Restore this file"
 msgstr "Restabilește acest fișier"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:908
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:909
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:908
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:909
 msgid "Next Search"
 msgstr "Căutare următoare"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:912
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:913
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:912
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:913
 msgid "Previous Search"
 msgstr "Căutare anterioară"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:917
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:918
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:917
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:918
 msgid "Duplicate selected strings"
 msgstr "Duplică stringurile selectate"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:922
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:922
 msgid "Open"
 msgstr "Deschis"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:926
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:926
 msgid "Save"
 msgstr "Salvează"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:927
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:927
 msgid "Save the current file"
 msgstr "Salvează fișierul curent"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:930
-#: /home/mario/dev/scratch/po/../src/Widgets/Tab.vala:108
-#: /home/mario/dev/scratch/po/../src/Widgets/Tab.vala:182
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:930
+#: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:108
+#: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:184
 msgid "Save as"
 msgstr "Salvează ca"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:931
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:931
 msgid "Save the current file with a different name"
 msgstr "Salvează fișierul curent cu un nume diferit"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:934
-#: /home/mario/dev/scratch/po/../scratchcore/TemplateManager.vala:123
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:934
+#: /home/mario/elementary/scratch/po/../scratchcore/TemplateManager.vala:123
 msgid "Templates"
 msgstr "Sabloane"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:935
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:935
 msgid "Create a new document from a template"
 msgstr "Creați un document nou dintr-un șablon"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:939
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:939
 msgid "Change Scratch settings"
 msgstr "Schimbă configurările Scratch"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:945
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:946
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:945
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:946
 msgid "Fullscreen"
 msgstr "Ecran complet"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:949
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:950
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:949
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:950
 msgid "Sidebar"
 msgstr "Bară laterală"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:953
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:954
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:953
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:954
 msgid "Context View"
 msgstr "Vizualizare context"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:957
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:958
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:957
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:958
 msgid "Status Bar"
 msgstr "Bara de stare"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:961
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:962
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:961
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:962
 msgid "Bottom Panel"
 msgstr "Panou de jos"
 
-#: /home/mario/dev/scratch/po/../src/Widgets/NotificationBar.vala:45
-msgid "Ignore"
-msgstr "Ignoră"
+#: /home/mario/elementary/scratch/po/../src/config.vala:13
+msgid "Edit text files"
+msgstr "Editare fișiere text"
 
-#: /home/mario/dev/scratch/po/../src/Widgets/NotificationBar.vala:52
-msgid "Save changes elsewhere"
-msgstr "Salvează schimbările altundeva"
+#: /home/mario/elementary/scratch/po/../src/config.vala:14
+msgid "Text Editor"
+msgstr "Editor de text"
 
-#: /home/mario/dev/scratch/po/../src/Widgets/NotificationBar.vala:60
-msgid "Choose the new location"
-msgstr "Alegeți noua locație"
+#: /home/mario/elementary/scratch/po/../src/config.vala:15
+msgid "New Document"
+msgstr "Document nou"
 
-#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:208
-msgid "No files are open."
-msgstr "Nu sunt fişiere deschise"
+#: /home/mario/elementary/scratch/po/../src/config.vala:16
+msgid "New Window"
+msgstr "Fereastră nouă"
 
-#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:208
-msgid "Open a file to begin editing."
-msgstr "Deschide un fişier pentru a începe editarea"
-
-#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:210
-msgid "Open file"
-msgstr "Deschide fișier"
-
-#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:210
-msgid "Open a saved file."
-msgstr "Deschide un fişier salvat"
-
-#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:211
-msgid "New file"
-msgstr "Fişier nou"
-
-#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:211
-msgid "Create a new empty file."
-msgstr "Crează un fișier nou gol"
-
-#: /home/mario/dev/scratch/po/../src/Widgets/ComboSyntax.vala:38
-#: /home/mario/dev/scratch/po/../scratchcore/SourceView.vala:101
-msgid "Normal text"
-msgstr "Text normal"
-
-#: /home/mario/dev/scratch/po/../src/Widgets/ShareMenu.vala:56
+#: /home/mario/elementary/scratch/po/../src/Widgets/ShareMenu.vala:56
 msgid "Share"
 msgstr "Partajare"
 
-#: /home/mario/dev/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
-msgid "Save changes to document"
-msgstr "Salvează modificările documentului"
+#: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:45
+msgid "Ignore"
+msgstr "Ignoră"
 
-#: /home/mario/dev/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
-msgid "New File"
-msgstr "Fișier nou"
+#: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:52
+msgid "Save changes elsewhere"
+msgstr "Salvează schimbările altundeva"
 
-#: /home/mario/dev/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
-#: /home/mario/dev/scratch/po/../src/Dialogs/SaveDialog.vala:42
+#: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:60
+msgid "Choose the new location"
+msgstr "Alegeți noua locație"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:208
+msgid "No files are open."
+msgstr "Nu sunt fişiere deschise"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:208
+msgid "Open a file to begin editing."
+msgstr "Deschide un fişier pentru a începe editarea"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:210
+msgid "Open file"
+msgstr "Deschide fișier"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:210
+msgid "Open a saved file."
+msgstr "Deschide un fişier salvat"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:211
+msgid "New file"
+msgstr "Fişier nou"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:211
+msgid "Create a new empty file."
+msgstr "Crează un fișier nou gol"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
+#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:101
+msgid "Normal text"
+msgstr "Text normal"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:68
+msgid "Behavior"
+msgstr "Comportament"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:72
+msgid "Interface"
+msgstr "Interfaţă"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:77
+msgid "Extensions"
+msgstr "Extensii"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:120
+msgid "Show welcome screen"
+msgstr "Arată ecranul de întâmpinare"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
+msgid "Show last open tabs"
+msgstr "Arată filele deschise ultima dată"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:137
+msgid "General:"
+msgstr "General"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:143
+msgid "When Scratch starts:"
+msgstr "Când pornește Scratch:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:146
+msgid "Save files when changed:"
+msgstr "Salvează fișierele când s-au schimbat:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:151
+msgid "Tabs:"
+msgstr "File"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:156
+msgid "Automatic indentation:"
+msgstr "Indentare automată"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
+msgid "Insert spaces instead of tabs:"
+msgstr "Insereză spaţii în loc de tab-uri:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:163
+msgid "Tab width:"
+msgstr "Lungime tab"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:193
+msgid "Editor:"
+msgstr "Editor:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
+msgid "Highlight current line:"
+msgstr "Marchează linia curentă"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:209
+msgid "Highlight matching brackets:"
+msgstr "Marchează parantezele potrivite"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:210
+msgid "Draw spaces:"
+msgstr "Desenează spații"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:211
+msgid "Show line numbers:"
+msgstr "Arată numerele de linie:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:214
+msgid "Show margin on right:"
+msgstr "Arată marginea la dreapta:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:221
+msgid "Margin width:"
+msgstr "Lățime margine:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:226
+msgid "Font and Color Scheme:"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:240
+msgid "Select font:"
+msgstr "Selectează font:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:243
+msgid "Color scheme:"
+msgstr "Schemă de culori:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:248
+msgid "Custom font:"
+msgstr "Font personalizat:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
+msgid "Save unsaved changes to file before closing?"
+msgstr "Salvaţi modificările înainte de inchidere ?"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "before closing?"
 msgstr "înainte de inchidere?"
 
-#: /home/mario/dev/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
+msgid "Save unsaved changes to file \""
+msgstr "Salvează în fișier schimbările nesalvate\""
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
+msgid "Changes to this file haven't been saved."
+msgstr "Modificările din acest fişier nu au fost salvate"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
+msgid "Do you want to save changes before closing this file?"
+msgstr "Vreţi să salvaţi modificările înainte de a inchide acest fişier ?"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:49
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:57
+msgid "The file:"
+msgstr "Acest fişier"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:50
+msgid "Do you want to reload it?"
+msgstr "Doriți să-l reîncărcați?"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:58
+msgid "Do you want to create it again?"
+msgstr "Doriți să-l creați din nou?"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+msgid "Save changes to document"
+msgstr "Salvează modificările documentului"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+msgid "New File"
+msgstr "Fișier nou"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
 "Dacă nu salvezi, schimbările făcute în ultimele 4 secunde vor fi pierdute."
 
-#: /home/mario/dev/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
 msgstr "Închide fără a salva"
 
-#: /home/mario/dev/scratch/po/../src/Dialogs/WarnDialog.vala:49
-#: /home/mario/dev/scratch/po/../src/Dialogs/WarnDialog.vala:57
-msgid "The file:"
-msgstr "Acest fişier"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/WarnDialog.vala:50
-msgid "Do you want to reload it?"
-msgstr "Doriți să-l reîncărcați?"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/WarnDialog.vala:58
-msgid "Do you want to create it again?"
-msgstr "Doriți să-l creați din nou?"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:68
-msgid "Behavior"
-msgstr "Comportament"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:72
-msgid "Interface"
-msgstr "Interfaţă"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:77
-msgid "Extensions"
-msgstr "Extensii"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:120
-msgid "Show welcome screen"
-msgstr "Arată ecranul de întâmpinare"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
-msgid "Show last open tabs"
-msgstr "Arată filele deschise ultima dată"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:137
-msgid "General:"
-msgstr "General"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:143
-msgid "When Scratch starts:"
-msgstr "Când pornește Scratch:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:146
-msgid "Save files when changed:"
-msgstr "Salvează fișierele când s-au schimbat:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:151
-msgid "Tabs:"
-msgstr "File"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:156
-msgid "Automatic indentation:"
-msgstr "Indentare automată"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
-msgid "Insert spaces instead of tabs:"
-msgstr "Insereză spaţii în loc de tab-uri:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:163
-msgid "Tab width:"
-msgstr "Lungime tab"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:193
-msgid "Editor:"
-msgstr "Editor:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
-msgid "Highlight current line:"
-msgstr "Marchează linia curentă"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:209
-msgid "Highlight matching brackets:"
-msgstr "Marchează parantezele potrivite"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:210
-msgid "Draw spaces:"
-msgstr "Desenează spații"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:211
-msgid "Show line numbers:"
-msgstr "Arată numerele de linie:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:214
-msgid "Show margin on right:"
-msgstr "Arată marginea la dreapta:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:221
-msgid "Margin width:"
-msgstr "Lățime margine:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:226
-msgid "Font and colors:"
-msgstr "Font și culori:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:240
-msgid "Select font:"
-msgstr "Selectează font:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:243
-msgid "Color scheme:"
-msgstr "Schemă de culori:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:248
-msgid "Custom font:"
-msgstr "Font personalizat:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/SaveDialog.vala:40
-msgid "Save unsaved changes to file before closing?"
-msgstr "Salvaţi modificările înainte de inchidere ?"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/SaveDialog.vala:42
-msgid "Save unsaved changes to file \""
-msgstr "Salvează în fișier schimbările nesalvate\""
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/SaveDialog.vala:45
-msgid "Changes to this file haven't been saved."
-msgstr "Modificările din acest fişier nu au fost salvate"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/SaveDialog.vala:45
-msgid "Do you want to save changes before closing this file?"
-msgstr "Vreţi să salvaţi modificările înainte de a inchide acest fişier ?"
-
-#: /home/mario/dev/scratch/po/../src/Services/Document.vala:272
-#: /home/mario/dev/scratch/po/../src/Services/Document.vala:513
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:272
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:513
 msgid "You can't save changes to:"
 msgstr "Nu puteți salva modificările la:"
 
-#: /home/mario/dev/scratch/po/../src/Services/Document.vala:272
-#: /home/mario/dev/scratch/po/../src/Services/Document.vala:513
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:272
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:513
 msgid "Do you want to save the changes to this file in a different location?"
 msgstr ""
 "Doriți să salvați modificările acestui filier într-o locație diferită?"
 
-#: /home/mario/dev/scratch/po/../src/Services/Document.vala:547
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:547
 msgid "There are unsaved changes!"
 msgstr "Există schimbări nesalvate!"
 
-#: /home/mario/dev/scratch/po/../scratchcore/SourceView.vala:95
-msgid "Syntax Highlighting"
-msgstr "Evidențiere sitaxă"
-
-#: /home/mario/dev/scratch/po/../scratchcore/SearchManager.vala:66
+#: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:66
 msgid "Find"
 msgstr "Găsește"
 
-#: /home/mario/dev/scratch/po/../scratchcore/SearchManager.vala:67
+#: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:67
 msgid "Replace With"
 msgstr "Înlocuiește cu"
 
-#: /home/mario/dev/scratch/po/../scratchcore/SearchManager.vala:82
+#: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:82
 msgid "Go To Line:"
 msgstr "Du-te la linia:"
 
-#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
+#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:95
+msgid "Syntax Highlighting"
+msgstr "Evidențiere sitaxă"
+
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
 msgstr "Partajează prin PasteBin"
 
-#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:273
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:273
 msgid "Name:"
 msgstr "Nume:"
 
-#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:279
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:279
 msgid "Format: "
 msgstr "Format: "
 
-#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:281
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:281
 msgid "Others..."
 msgstr "Altele..."
 
-#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:306
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:306
 msgid "Expiry time:"
 msgstr "Timpul expirării:"
 
-#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:311
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:311
 msgid "Keep this paste private"
 msgstr "Ține acest paste privat"
 
-#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:314
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:314
 msgid "Upload"
 msgstr "Încarcă"
 
-#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:345
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:345
 msgid "Other formats"
 msgstr "Alte formate"
 
-#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:544
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:544
 msgid "Never"
 msgstr "Niciodată"
 
-#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:545
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:545
 msgid "Ten minutes"
 msgstr "Zece minute"
 
-#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:546
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:546
 msgid "One hour"
 msgstr "O oră"
 
-#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:547
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:547
 msgid "One day"
 msgstr "O zi"
 
-#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:548
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:548
 msgid "One month"
 msgstr "O lună"

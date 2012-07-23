@@ -7,492 +7,492 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-07-13 13:37+0200\n"
+"POT-Creation-Date: 2012-07-23 00:16+0200\n"
 "PO-Revision-Date: 2012-05-12 02:09+0000\n"
 "Last-Translator: huyngochoang <Unknown>\n"
 "Language-Team: Vietnamese <vi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-14 06:41+0000\n"
-"X-Generator: Launchpad (build 15614)\n"
+"X-Launchpad-Export-Date: 2012-07-23 05:27+0000\n"
+"X-Generator: Launchpad (build 15654)\n"
 
-#: /home/mario/dev/scratch/po/../src/Scratch.vala:171
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:171
 msgid "There are unsaved changes in Scratch!"
 msgstr ""
 
-#: /home/mario/dev/scratch/po/../src/Scratch.vala:189
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:189
 msgid "Set of plugins"
 msgstr "Tập hợp plugin"
 
-#: /home/mario/dev/scratch/po/../src/Scratch.vala:190
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:190
 msgid "Argument for the set of plugins"
 msgstr "Tham số cho tập hợn plugins"
 
-#: /home/mario/dev/scratch/po/../src/Scratch.vala:191
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:191
 msgid "Create a new instance"
 msgstr "Tạo một đối tượng"
 
-#: /home/mario/dev/scratch/po/../src/config.vala:13
-msgid "Edit text files"
-msgstr ""
-
-#: /home/mario/dev/scratch/po/../src/config.vala:14
-msgid "Text Editor"
-msgstr ""
-
-#: /home/mario/dev/scratch/po/../src/config.vala:15
-msgid "New Document"
-msgstr ""
-
-#: /home/mario/dev/scratch/po/../src/config.vala:16
-msgid "New Window"
-msgstr ""
-
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:183
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:183
 msgid "Zeitgeist Datasource for Scratch"
 msgstr ""
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:501
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:938
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:501
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:938
 msgid "Preferences"
 msgstr "Tùy chỉnh"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:527
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:923
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:527
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:923
 msgid "Open a file"
 msgstr "Mở tập tin"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:534
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:534
 msgid "All files"
 msgstr "Mọi tập tin"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:537
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:537
 msgid "Text files"
 msgstr "Tập tin văn bản"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:857
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:858
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:857
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:858
 msgid "Find..."
 msgstr "Tìm..."
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:861
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:862
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:861
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:862
 msgid "Hide search bar"
 msgstr "Ẩn thanh tìm kiếm"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:865
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:866
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:865
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:866
 msgid "Go to line..."
 msgstr "Đi tới dòng..."
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:869
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:870
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:869
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:870
 msgid "Quit"
 msgstr "Thoát"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:873
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:874
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:873
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:874
 msgid "Close"
 msgstr "Đóng"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:877
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:878
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:877
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:878
 msgid "Replace"
 msgstr "Thay thế"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:881
-#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:124
-#: /home/mario/dev/scratch/po/../src/Services/Document.vala:176
-#: /home/mario/dev/scratch/po/../src/Services/Document.vala:365
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:881
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:124
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:176
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:365
 msgid "New document"
 msgstr "Tài liệu mới"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:882
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:882
 msgid "Create a new document in a new tab"
 msgstr "Tạo tài liệu ở thẻ mới"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:885
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:885
 msgid "Add New View"
 msgstr "Thêm Khung nhìn mới"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:886
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:886
 msgid "Add a new view"
 msgstr "Thêm Khung nhìn mới"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:890
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:890
 msgid "Remove Current View"
 msgstr "Bỏ Khung nhìn hiện tại"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:891
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:891
 msgid "Remove this view"
 msgstr "Bỏ Khung nhìn này"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:894
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:894
 msgid "Undo"
 msgstr "Hoàn tác"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:895
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:895
 msgid "Undo the last action"
 msgstr "Hồi lại hành động cuối"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:898
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:898
 msgid "Redo"
 msgstr "Làm lại"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:899
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:899
 msgid "Redo the last undone action"
 msgstr "Làm lại hành động hồi lại cuối cùng"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:903
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:903
 msgid "Revert"
 msgstr "Trở lại"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:904
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:904
 msgid "Restore this file"
 msgstr "Khôi phục tập tin này"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:908
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:909
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:908
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:909
 msgid "Next Search"
 msgstr "Tìm kiếm tiếp"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:912
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:913
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:912
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:913
 msgid "Previous Search"
 msgstr "Tìm kiếm trước"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:917
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:918
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:917
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:918
 msgid "Duplicate selected strings"
 msgstr "Lặp chuỗi đã chọn"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:922
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:922
 msgid "Open"
 msgstr "Mở"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:926
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:926
 msgid "Save"
 msgstr "Lưu"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:927
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:927
 msgid "Save the current file"
 msgstr "Lưu tập tin hiện tại"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:930
-#: /home/mario/dev/scratch/po/../src/Widgets/Tab.vala:108
-#: /home/mario/dev/scratch/po/../src/Widgets/Tab.vala:182
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:930
+#: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:108
+#: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:184
 msgid "Save as"
 msgstr "Lưu là"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:931
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:931
 msgid "Save the current file with a different name"
 msgstr "Lưu tập tin hiện tại với tên khác"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:934
-#: /home/mario/dev/scratch/po/../scratchcore/TemplateManager.vala:123
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:934
+#: /home/mario/elementary/scratch/po/../scratchcore/TemplateManager.vala:123
 msgid "Templates"
 msgstr "Các mẫu"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:935
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:935
 msgid "Create a new document from a template"
 msgstr "Tạo tài liệu mới từ mẫu"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:939
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:939
 msgid "Change Scratch settings"
 msgstr "Thay đổi tùy chỉnh của Scratch"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:945
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:946
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:945
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:946
 msgid "Fullscreen"
 msgstr "Toàn màn hình"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:949
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:950
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:949
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:950
 msgid "Sidebar"
 msgstr "Khung lề"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:953
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:954
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:953
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:954
 msgid "Context View"
 msgstr "Khung nhìn bối cảnh"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:957
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:958
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:957
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:958
 msgid "Status Bar"
 msgstr "Thanh trạng thái"
 
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:961
-#: /home/mario/dev/scratch/po/../src/MainWindow.vala:962
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:961
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:962
 msgid "Bottom Panel"
 msgstr "Bảng ở đáy"
 
-#: /home/mario/dev/scratch/po/../src/Widgets/NotificationBar.vala:45
-msgid "Ignore"
+#: /home/mario/elementary/scratch/po/../src/config.vala:13
+msgid "Edit text files"
 msgstr ""
 
-#: /home/mario/dev/scratch/po/../src/Widgets/NotificationBar.vala:52
-msgid "Save changes elsewhere"
+#: /home/mario/elementary/scratch/po/../src/config.vala:14
+msgid "Text Editor"
 msgstr ""
 
-#: /home/mario/dev/scratch/po/../src/Widgets/NotificationBar.vala:60
-msgid "Choose the new location"
-msgstr "Chọn đường dẫn mới"
+#: /home/mario/elementary/scratch/po/../src/config.vala:15
+msgid "New Document"
+msgstr ""
 
-#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:208
-msgid "No files are open."
-msgstr "Chưa mở tập tin"
+#: /home/mario/elementary/scratch/po/../src/config.vala:16
+msgid "New Window"
+msgstr ""
 
-#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:208
-msgid "Open a file to begin editing."
-msgstr "Mở một tập tin để chỉnh sửa"
-
-#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:210
-msgid "Open file"
-msgstr "Mở tập tin"
-
-#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:210
-msgid "Open a saved file."
-msgstr "Mở tập tin đã lưu"
-
-#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:211
-msgid "New file"
-msgstr "Tập tin mới"
-
-#: /home/mario/dev/scratch/po/../src/Widgets/Notebook.vala:211
-msgid "Create a new empty file."
-msgstr "Tạo tập tin rỗng"
-
-#: /home/mario/dev/scratch/po/../src/Widgets/ComboSyntax.vala:38
-#: /home/mario/dev/scratch/po/../scratchcore/SourceView.vala:101
-msgid "Normal text"
-msgstr "Kiểu chữ bình thường"
-
-#: /home/mario/dev/scratch/po/../src/Widgets/ShareMenu.vala:56
+#: /home/mario/elementary/scratch/po/../src/Widgets/ShareMenu.vala:56
 msgid "Share"
 msgstr "Chia sẻ"
 
-#: /home/mario/dev/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
-msgid "Save changes to document"
-msgstr "Lưu thanh đổi vào tài liệu"
+#: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:45
+msgid "Ignore"
+msgstr ""
 
-#: /home/mario/dev/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
-msgid "New File"
+#: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:52
+msgid "Save changes elsewhere"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:60
+msgid "Choose the new location"
+msgstr "Chọn đường dẫn mới"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:208
+msgid "No files are open."
+msgstr "Chưa mở tập tin"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:208
+msgid "Open a file to begin editing."
+msgstr "Mở một tập tin để chỉnh sửa"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:210
+msgid "Open file"
+msgstr "Mở tập tin"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:210
+msgid "Open a saved file."
+msgstr "Mở tập tin đã lưu"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:211
+msgid "New file"
 msgstr "Tập tin mới"
 
-#: /home/mario/dev/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
-#: /home/mario/dev/scratch/po/../src/Dialogs/SaveDialog.vala:42
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:211
+msgid "Create a new empty file."
+msgstr "Tạo tập tin rỗng"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
+#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:101
+msgid "Normal text"
+msgstr "Kiểu chữ bình thường"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:68
+msgid "Behavior"
+msgstr "Chế độ"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:72
+msgid "Interface"
+msgstr "Giao diện"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:77
+msgid "Extensions"
+msgstr "Phần mở rộng"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:120
+msgid "Show welcome screen"
+msgstr "Hiện màn hình chào mừng"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
+msgid "Show last open tabs"
+msgstr "Mở thẻ cuối cùng"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:137
+msgid "General:"
+msgstr "Chung"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:143
+msgid "When Scratch starts:"
+msgstr "Khi Scratch khởi động:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:146
+msgid "Save files when changed:"
+msgstr "Lưu tập tin khi thay đổi:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:151
+msgid "Tabs:"
+msgstr "Thẻ:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:156
+msgid "Automatic indentation:"
+msgstr "Tự động thụt dòng:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
+msgid "Insert spaces instead of tabs:"
+msgstr "Chèn khoảng trống thay vì tab"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:163
+msgid "Tab width:"
+msgstr "Độ rộng Tab:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:193
+msgid "Editor:"
+msgstr "Soạn thảo"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
+msgid "Highlight current line:"
+msgstr "Làm nổi bật dòng hiện tại:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:209
+msgid "Highlight matching brackets:"
+msgstr "Làm nổi bật ngoặc tương ứng:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:210
+msgid "Draw spaces:"
+msgstr "Hiện khoảng trống:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:211
+msgid "Show line numbers:"
+msgstr "Hiện số thứ tự dòng:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:214
+msgid "Show margin on right:"
+msgstr "Hiện lề bên phải:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:221
+msgid "Margin width:"
+msgstr "Độ rộng lề:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:226
+msgid "Font and Color Scheme:"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:240
+msgid "Select font:"
+msgstr "Chọn kiểu chữ:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:243
+msgid "Color scheme:"
+msgstr "Kiểu màu:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:248
+msgid "Custom font:"
+msgstr "Tùy biến phông:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
+msgid "Save unsaved changes to file before closing?"
+msgstr "Lưu thay đổi vào tập tin trước khi đóng?"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "before closing?"
 msgstr "trước khi đóng?"
 
-#: /home/mario/dev/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
+msgid "Save unsaved changes to file \""
+msgstr "Lưu thay đổi vào tập tin \""
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
+msgid "Changes to this file haven't been saved."
+msgstr "Thay đổi không được lưu"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
+msgid "Do you want to save changes before closing this file?"
+msgstr "Bạn có muốn lưu thay đổi trước khi đóng tập tin?"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:49
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:57
+msgid "The file:"
+msgstr "Tập tin:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:50
+msgid "Do you want to reload it?"
+msgstr "Bạn có muốn khởi động lại?"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:58
+msgid "Do you want to create it again?"
+msgstr "Bạn có muốn tạo lại nó?"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+msgid "Save changes to document"
+msgstr "Lưu thanh đổi vào tài liệu"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+msgid "New File"
+msgstr "Tập tin mới"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr "Nếu bạn không lưu, thay đổi trong 4 giây trước sẽ bị mất mãi mãi"
 
-#: /home/mario/dev/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
 msgstr "Đóng không lưu"
 
-#: /home/mario/dev/scratch/po/../src/Dialogs/WarnDialog.vala:49
-#: /home/mario/dev/scratch/po/../src/Dialogs/WarnDialog.vala:57
-msgid "The file:"
-msgstr "Tập tin:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/WarnDialog.vala:50
-msgid "Do you want to reload it?"
-msgstr "Bạn có muốn khởi động lại?"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/WarnDialog.vala:58
-msgid "Do you want to create it again?"
-msgstr "Bạn có muốn tạo lại nó?"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:68
-msgid "Behavior"
-msgstr "Chế độ"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:72
-msgid "Interface"
-msgstr "Giao diện"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:77
-msgid "Extensions"
-msgstr "Phần mở rộng"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:120
-msgid "Show welcome screen"
-msgstr "Hiện màn hình chào mừng"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
-msgid "Show last open tabs"
-msgstr "Mở thẻ cuối cùng"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:137
-msgid "General:"
-msgstr "Chung"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:143
-msgid "When Scratch starts:"
-msgstr "Khi Scratch khởi động:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:146
-msgid "Save files when changed:"
-msgstr "Lưu tập tin khi thay đổi:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:151
-msgid "Tabs:"
-msgstr "Thẻ:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:156
-msgid "Automatic indentation:"
-msgstr "Tự động thụt dòng:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
-msgid "Insert spaces instead of tabs:"
-msgstr "Chèn khoảng trống thay vì tab"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:163
-msgid "Tab width:"
-msgstr "Độ rộng Tab:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:193
-msgid "Editor:"
-msgstr "Soạn thảo"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
-msgid "Highlight current line:"
-msgstr "Làm nổi bật dòng hiện tại:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:209
-msgid "Highlight matching brackets:"
-msgstr "Làm nổi bật ngoặc tương ứng:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:210
-msgid "Draw spaces:"
-msgstr "Hiện khoảng trống:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:211
-msgid "Show line numbers:"
-msgstr "Hiện số thứ tự dòng:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:214
-msgid "Show margin on right:"
-msgstr "Hiện lề bên phải:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:221
-msgid "Margin width:"
-msgstr "Độ rộng lề:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:226
-msgid "Font and colors:"
-msgstr "Kiểu chữ và màu:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:240
-msgid "Select font:"
-msgstr "Chọn kiểu chữ:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:243
-msgid "Color scheme:"
-msgstr "Kiểu màu:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/PreferencesDialog.vala:248
-msgid "Custom font:"
-msgstr "Tùy biến phông:"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/SaveDialog.vala:40
-msgid "Save unsaved changes to file before closing?"
-msgstr "Lưu thay đổi vào tập tin trước khi đóng?"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/SaveDialog.vala:42
-msgid "Save unsaved changes to file \""
-msgstr "Lưu thay đổi vào tập tin \""
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/SaveDialog.vala:45
-msgid "Changes to this file haven't been saved."
-msgstr "Thay đổi không được lưu"
-
-#: /home/mario/dev/scratch/po/../src/Dialogs/SaveDialog.vala:45
-msgid "Do you want to save changes before closing this file?"
-msgstr "Bạn có muốn lưu thay đổi trước khi đóng tập tin?"
-
-#: /home/mario/dev/scratch/po/../src/Services/Document.vala:272
-#: /home/mario/dev/scratch/po/../src/Services/Document.vala:513
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:272
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:513
 msgid "You can't save changes to:"
 msgstr "Bạn không thể lưu thay đổi cho:"
 
-#: /home/mario/dev/scratch/po/../src/Services/Document.vala:272
-#: /home/mario/dev/scratch/po/../src/Services/Document.vala:513
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:272
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:513
 msgid "Do you want to save the changes to this file in a different location?"
 msgstr "Bạn có muốn lưu thay đổi cho tập tin ở đường dẫn khác?"
 
-#: /home/mario/dev/scratch/po/../src/Services/Document.vala:547
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:547
 msgid "There are unsaved changes!"
 msgstr ""
 
-#: /home/mario/dev/scratch/po/../scratchcore/SourceView.vala:95
-msgid "Syntax Highlighting"
-msgstr "Làm nổi bật cú pháp"
-
-#: /home/mario/dev/scratch/po/../scratchcore/SearchManager.vala:66
+#: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:66
 msgid "Find"
 msgstr ""
 
-#: /home/mario/dev/scratch/po/../scratchcore/SearchManager.vala:67
+#: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:67
 msgid "Replace With"
 msgstr "Thay thế bằng"
 
-#: /home/mario/dev/scratch/po/../scratchcore/SearchManager.vala:82
+#: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:82
 msgid "Go To Line:"
 msgstr "Đi tới dòng:"
 
-#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
+#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:95
+msgid "Syntax Highlighting"
+msgstr "Làm nổi bật cú pháp"
+
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
 msgstr "Chia sẻ qua PasteBin"
 
-#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:273
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:273
 msgid "Name:"
 msgstr "Tên"
 
-#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:279
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:279
 msgid "Format: "
 msgstr "Định dạng: "
 
-#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:281
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:281
 msgid "Others..."
 msgstr "Khác..."
 
-#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:306
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:306
 msgid "Expiry time:"
 msgstr "Thời gian hết hạn:"
 
-#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:311
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:311
 msgid "Keep this paste private"
 msgstr "Giữ riêng tư đoạn dán này"
 
-#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:314
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:314
 msgid "Upload"
 msgstr "Tải lên"
 
-#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:345
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:345
 msgid "Other formats"
 msgstr "Định dạng khác"
 
-#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:544
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:544
 msgid "Never"
 msgstr "Không bao giờ"
 
-#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:545
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:545
 msgid "Ten minutes"
 msgstr "Mười phút"
 
-#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:546
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:546
 msgid "One hour"
 msgstr "Một giờ"
 
-#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:547
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:547
 msgid "One day"
 msgstr "Một ngày"
 
-#: /home/mario/dev/scratch/po/../plugins/pastebin/pastebin_dialog.vala:548
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:548
 msgid "One month"
 msgstr "Một tháng"
