@@ -42,12 +42,13 @@ namespace Scratch.Widgets {
             label.halign = Gtk.Align.START;
             label.use_markup = true;
 
-            var no = new Gtk.Button.with_label (("   ") + _("Ignore") + ("   "));
+            // Not use "Ignore" button for now
+            /*var no = new Gtk.Button.with_label (("   ") + _("Ignore") + ("   "));
             no.clicked.connect (() => {
                 hide ();
                 doc.show_notification = false;
                 no_show_all = true;                    
-            });
+            });*/
 
             var yes = new Gtk.Button.with_label (("   ") + _("Save changes elsewhere") + ("   "));
             yes.clicked.connect (() => {
@@ -81,7 +82,7 @@ namespace Scratch.Widgets {
             
             var box = new Box (Orientation.HORIZONTAL, 5);
             box.add (yes);
-            box.add (no);
+            //box.add (no);
             
             var expander = new Label ("");
             expander.hexpand = true;
