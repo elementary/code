@@ -770,6 +770,17 @@ namespace Scratch {
                 string selected = buf.get_text (start, end, true);
                 if (selected != "")
                     buf.insert (ref end, "\n" + selected, -1);
+                // If nothing is selected duplicate current line
+                else {
+                    buf.get_iter_at_mark (out start, buf.get_insert ());
+                    if (!start.starts_line ()) start.backward_sentence_start ();
+
+                    buf.get_iter_at_mark (out end, buf.get_insert ());
+                    if (!end.ends_line ()) end.forward_sentence_end ();
+                        
+                    selected = buf.get_text (start, end, true);
+                    buf.insert (ref end, "\n" + selected, -1);
+                }
             }
                 
         }        

@@ -163,6 +163,7 @@ namespace Scratch.Dialogs {
             var indent_width_label = new Label (_("Tab width:"));
             indent_width = new SpinButton.with_range (1, 24, 1);
             Scratch.settings.schema.bind("indent-width", indent_width, "value", SettingsBindFlags.DEFAULT);
+
             add_option (general_grid, indent_width_label, indent_width, ref row);
             
             row ++;
