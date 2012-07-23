@@ -48,8 +48,8 @@ namespace Scratch {
             program_name = app_cmd_name;
             exec_name = app_cmd_name.down();
             app_years = "2011-2012";
-            app_icon = "scratch";
-            app_launcher = "scratch.desktop";
+            app_icon = "accessories-text-editor";
+            app_launcher = "scratch-text-editor.desktop";
             application_id = "org.elementary." + app_cmd_name.down();
             main_url = "https://launchpad.net/scratch";
             bug_url = "https://bugs.launchpad.net/scratch";
