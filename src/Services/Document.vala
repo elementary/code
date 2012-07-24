@@ -456,6 +456,7 @@ namespace Scratch.Services {
             /* First, we check that this is a real file, and not a new document */
             if (filename == null && settings.autosave == false) {
                 window.toolbar.save_button.set_sensitive (true);
+                window.toolbar.save_button.show ();
             }
             
             /* Check if an external thing modified the file */
@@ -469,7 +470,7 @@ namespace Scratch.Services {
             if (contents != this.last_saved_text && this.last_saved_text != null) want_reload = true;
                 
             if (want_reload) {
-                if (settings.autosave && settings.autoupdate) {
+                if (settings.autosave && settings.autoupdate && exists) {
                     reload ();
                     save ();
                 }
@@ -494,7 +495,7 @@ namespace Scratch.Services {
             
             /* Set undo/redo buttons sensitive */
             window.set_undo_redo ();
-                
+            
             /* Check the document state */
             if (state == DocumentStates.READONLY) {
                 if (settings.autosave) source_view.editable = false;    

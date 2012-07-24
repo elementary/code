@@ -23,7 +23,8 @@ using Gtk;
 namespace Scratch.Widgets {
 	
     public enum NotificationType {
-        NO_WRITE
+        NO_WRITE,
+        DELETED
     }
 
     public class NotificationBar : Gtk.InfoBar {
@@ -75,6 +76,9 @@ namespace Scratch.Widgets {
                         } catch (Error e) { warning (e.message); }
                     }
                     filech.destroy ();
+                }   
+                else if (type == NotificationType.DELETED) {
+                    
                 }   
                 hide ();
                 no_show_all = true;
