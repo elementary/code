@@ -509,7 +509,46 @@ namespace Scratch {
         }
 
         void action_quit () {
-            GLib.Signal.emit_by_name (this, "delete-event");
+            update_saved_state ();
+            update_opened_files ();
+            
+            uint n = 0;
+            bool quit = true;
+            
+            foreach (var doc in scratch_app.documents) {            
+                if (doc.modified) {
+                    var save_dialog = new SaveOnCloseDialog (doc.name, this);
+                    doc.focus_sourceview ();
+                    int response = save_dialog.run ();
+                    switch (response) {
+                    case Gtk.ResponseType.CANCEL:
+                        save_dialog.destroy ();
+                        quit = false;
+                        break;
+                    case Gtk.ResponseType.YES:
+                        doc.save ();
+                        quit = true;
+                        break;
+                    case Gtk.ResponseType.NO:
+                        quit = true;
+                        break;
+                    }
+                    save_dialog.destroy ();
+                }
+                var bk = File.new_for_path (doc.filename + "~");
+                if (bk != null && bk.query_exists ()) {
+                    try {
+                        bk.delete ();
+                    } catch (Error e) {
+                        debug ("Cannot delete %s~, it doesn't exist", doc.filename);
+                    }
+                }
+                if (n != scratch_app.documents.length ())
+                    n++;
+            }
+            
+            if (quit)
+                destroy ();
         }
 
         public void action_new_tab () {
