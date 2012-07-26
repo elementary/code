@@ -27,7 +27,7 @@ configure_file (${CMAKE_SOURCE_DIR}/src/scratch.pc.cmake ${CMAKE_BINARY_DIR}/src
 install (FILES ${CMAKE_BINARY_DIR}/src/scratch.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig/)
 # Scratch
 
-set (SCRATCH_DEPS "libpeas-1.0;gtksourceview-3.0;gee-1.0;gobject-2.0;glib-2.0;gio-2.0;gconf-2.0;gtk+-3.0;granite;vte-2.90;zeitgeist-1.0")
+set (SCRATCH_DEPS "libpeas-1.0;gtksourceview-3.0;gee-1.0;gobject-2.0;glib-2.0;gio-2.0;gconf-2.0;gtk+-3.0;granite;libdevhelp-3.0;vte-2.90;zeitgeist-1.0")
 find_package (PkgConfig)
 pkg_check_modules (GTK+ REQUIRED "gtk+-3.0 >= 3.4")
 pkg_check_modules (LIBSOURCE REQUIRED "libpeas-gtk-1.0; gtksourceview-3.0 >= 3.0; gthread-2.0")
