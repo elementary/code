@@ -86,7 +86,7 @@ public class Scratch.Plugins.Bash : Peas.ExtensionBase,  Peas.Activatable
             terminal.vexpand = true;
             terminal.hexpand = true;
             
-            plugins.bottombar.append_page (grid, new Gtk.Label ("Bash"));
+            plugins.bottombar.append_page (grid, new Gtk.Label (_("Terminal")));
         }
     }
 }

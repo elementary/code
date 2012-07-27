@@ -1,6 +1,12 @@
 add_definitions(${NORMAL_CFLAGS})
 include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/scratchcore/)
 link_directories(${NORMAL_LINK_DIRS})
+
+pkg_check_modules (VTE REQUIRED "vte-2.90")
+add_definitions (${VTE_CFLAGS})
+link_libraries (${VTE_LIBRARIES})
+link_directories (${VTE_LIBRARY_DIRS})
+
 vala_precompile(VALA_C
     bash.vala
 PACKAGES

@@ -7,4 +7,6 @@ add_translations_catalog("scratch"
     ../src/Services
     ../scratchcore
     ../plugins/pastebin
+    ../plugins/filemanager
+    ../plugins/bash
 )
