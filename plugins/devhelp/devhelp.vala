@@ -21,6 +21,8 @@
 public class Scratch.Plugins.DevHelp : Peas.ExtensionBase,  Peas.Activatable
 {
     Interface plugins;
+    private Dh.Base? dhbase = null;
+    private Gtk.Widget? window = null;
     private Gtk.Widget widget;
     public Object object { owned get; construct; }
     
@@ -40,9 +42,12 @@ public class Scratch.Plugins.DevHelp : Peas.ExtensionBase,  Peas.Activatable
     void on_bottombar () {
         if (plugins.bottombar != null && plugins.scratch_app != null) {
             
-            var dhbase = new Dh.Base ();
+            var aw = new Dh.AssistantView ();
             
-            var window = dhbase.get_window ();
+            dhbase = aw.get_base ();
+            
+            window = new Dh.Window (dhbase);
+
             // Remove MenuBar
             var wchildren = ((Gtk.Container)window).get_children ();
             foreach (var w in wchildren) {
@@ -52,8 +57,9 @@ public class Scratch.Plugins.DevHelp : Peas.ExtensionBase,  Peas.Activatable
                         if (bw is Gtk.Container) {
                             var bwchildren = ((Gtk.Container)bw).get_children ();
                             foreach (var bwc in bwchildren) {    
-                                if (bwc is Gtk.MenuBar)
+                                if (bwc is Gtk.MenuBar) {
                                     bwc.destroy (); // How much fucking containers before the fucking MenuBar?
+                                }
                             }
                         }
                     }
@@ -63,7 +69,8 @@ public class Scratch.Plugins.DevHelp : Peas.ExtensionBase,  Peas.Activatable
             widget = ((Gtk.Bin)window).get_child ();
             
             ((Gtk.Container)window).remove (widget);
-            window.destroy ();    
+            //window.destroy ();
+            widget.show_all (); 
             plugins.bottombar.append_page (widget, new Gtk.Label ("Devhelp"));
         }
     }
