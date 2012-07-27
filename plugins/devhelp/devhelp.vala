@@ -43,7 +43,23 @@ public class Scratch.Plugins.DevHelp : Peas.ExtensionBase,  Peas.Activatable
             var dhbase = new Dh.Base ();
             
             var window = dhbase.get_window ();
-
+            // Remove MenuBar
+            var wchildren = ((Gtk.Container)window).get_children ();
+            foreach (var w in wchildren) {
+                if (w is Gtk.Container) {
+                    var bchildren = ((Gtk.Container)w).get_children ();
+                    foreach (var bw in bchildren) {
+                        if (bw is Gtk.Container) {
+                            var bwchildren = ((Gtk.Container)bw).get_children ();
+                            foreach (var bwc in bwchildren) {    
+                                if (bwc is Gtk.MenuBar)
+                                    bwc.destroy (); // How much fucking containers before the fucking MenuBar?
+                            }
+                        }
+                    }
+                }
+            }
+            
             widget = ((Gtk.Bin)window).get_child ();
             
             ((Gtk.Container)window).remove (widget);
