@@ -21,8 +21,9 @@
 public class Scratch.Plugins.DevHelp : Peas.ExtensionBase,  Peas.Activatable
 {
     Interface plugins;
+    private Gtk.Widget widget;
     public Object object { owned get; construct; }
-   
+    
     public void update_state () {
     }
 
@@ -32,7 +33,8 @@ public class Scratch.Plugins.DevHelp : Peas.ExtensionBase,  Peas.Activatable
     }
 
     public void deactivate () {
-
+        if (widget != null)
+            widget.destroy ();
     }
     
     void on_bottombar () {
@@ -42,7 +44,7 @@ public class Scratch.Plugins.DevHelp : Peas.ExtensionBase,  Peas.Activatable
             
             var window = dhbase.get_window ();
 
-            var widget = ((Gtk.Bin)window).get_child ();
+            widget = ((Gtk.Bin)window).get_child ();
             
             ((Gtk.Container)window).remove (widget);
             window.destroy ();    

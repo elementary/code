@@ -221,9 +221,9 @@ public class Scratch.Plugins.Manager : Object
         param.name = "object";
         exts = new Peas.ExtensionSet (engine, typeof(Peas.Activatable), "object", plugin_iface, null);
 
-        /*exts.extension_added.connect( (info, ext) => {  
+        exts.extension_added.connect( (info, ext) => {  
             ((Peas.Activatable)ext).activate();
-        });*/
+        });
         exts.extension_removed.connect(on_extension_removed);
         exts.foreach (on_extension_added);
         
