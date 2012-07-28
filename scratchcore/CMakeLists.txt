@@ -23,6 +23,11 @@ set(LIB_PATHS
 link_directories(${LIB_PATHS})
 #VALA stuff
 
+pkg_check_modules (DEVHELP REQUIRED "libdevhelp-3.0")
+add_definitions (${DEVHELP_CFLAGS})
+link_libraries (${DEVHELP_LIBRARIES})
+link_directories (${DEVHELP_LIBRARY_DIRS})
+
 vala_precompile(VALA_C
     main.vala
     SearchManager.vala
@@ -37,6 +42,7 @@ PACKAGES
     gee-1.0
     libpeas-1.0
     peas-gtk
+    libdevhelp-3.0
 OPTIONS
     --thread
     --vapidir=${CMAKE_SOURCE_DIR}/vapi

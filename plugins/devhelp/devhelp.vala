@@ -44,7 +44,9 @@ public class Scratch.Plugins.DevHelp : Peas.ExtensionBase,  Peas.Activatable
             
             var aw = new Dh.AssistantView ();
             
-            dhbase = aw.get_base ();
+            dhbase = plugins.dhbase as Dh.Base;
+            
+            aw.set_base (dhbase);
             
             window = new Dh.Window (dhbase);
 

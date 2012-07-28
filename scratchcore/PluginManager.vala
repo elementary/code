@@ -52,7 +52,10 @@ public class Scratch.Plugins.Interface : Object {
     public Scratch.TemplateManager template_manager { private set; get; }
 
     public unowned List<Gtk.TextView> all_source_view { private set; get; }
-
+    
+    // Utilities for some core plugins
+    public GLib.Object dhbase;
+    
     public Interface (Manager manager) {
         this.manager = manager;
         all_source_view = new List<Gtk.TextView>();
@@ -74,6 +77,8 @@ public class Scratch.Plugins.Interface : Object {
         manager.hook_source_view.connect( (m) => {
             all_source_view.append(m);
         });
+        // Utilities for some core plugins
+        dhbase = new Dh.Base ();
     }
     
     public void register_function_arg (Hook hook, HookFunctionArg hook_function) {
