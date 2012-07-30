@@ -90,7 +90,7 @@ namespace Scratch.Services {
         public bool exists {
             get {
                 if (filename != null)
-                    return FileUtils.test (filename, FileTest.EXISTS);
+                    return file.query_exists ();
                 else
                     return false;
             }
@@ -112,7 +112,7 @@ namespace Scratch.Services {
         public File? file { 
             get { 
                 if (filename != null) {
-                    _file = File.new_for_path (filename); 
+                    _file = File.new_for_uri (filename); 
                     return _file;
                 }
                 else
@@ -128,7 +128,6 @@ namespace Scratch.Services {
         public bool modified { get; public set; }
 
         public Document (string filename, MainWindow? window) {
-
 
             this.filename = filename;
             zg_log = new ZeitgeistLogger();
@@ -226,9 +225,19 @@ namespace Scratch.Services {
                 }
             }
             
-            string contents;
+            string contents = null;
             try {
-                FileUtils.get_contents (filename, out contents);
+                if (file != null) {
+                    var dis = new DataInputStream (file.read ());
+                    var text = new StringBuilder ();
+                    string line;
+                    size_t len;
+                    while ((line = dis.read_line (null)) != null) {
+                        text.append (line);
+                        text.append_c ('\n');
+                    }
+                    contents = text.str;
+                }
             } catch (Error e) {
                 warning ("Couldn't open the file");
                 return false;
@@ -299,7 +308,7 @@ namespace Scratch.Services {
             /* Make the backup copy */
             string contents;
             try {
-                FileUtils.get_contents (filename + "~", out contents);
+                contents = FileHandler.load_content_from_uri (filename + "~");
             } catch (Error e) {
                 warning ("Couldn't create a backup for the file");
                 return false;
@@ -461,8 +470,7 @@ namespace Scratch.Services {
             
             /* Check if an external thing modified the file */
             try {
-                if (file != null)
-                    FileUtils.get_contents (file.get_path (), out contents);
+                contents = FileHandler.load_content_from_uri (filename);//FileUtils.get_contents (filename, out contents);
             } catch (Error e) {
                 warning (e.message);
             }
@@ -573,7 +581,7 @@ namespace Scratch.Services {
                 
                 string contents = null;   
                 try {
-                    FileUtils.get_contents (filename, out contents);
+                    contents = FileHandler.load_content_from_uri (filename);
                 } catch (Error e) {
                     warning (e.message);
                 }
@@ -608,7 +616,7 @@ namespace Scratch.Services {
                 
                 string contents;   
                 try {
-                    FileUtils.get_contents (file.get_path (), out contents);
+                    contents = FileHandler.load_content_from_uri (filename);
                 } catch (Error e) {
                     warning (e.message);
                 }
@@ -646,7 +654,7 @@ namespace Scratch.Services {
         public bool reload () {
             string contents;
             try {
-                FileUtils.get_contents (file.get_path (), out contents);
+                contents = FileHandler.load_content_from_uri (filename);
                 buffer.text = contents;
                 return true;
             } catch (Error e) {

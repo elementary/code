@@ -580,7 +580,7 @@ namespace Scratch {
             filech.set_filter(all_files_filter);
 
             if (filech.run () == ResponseType.ACCEPT)
-                    foreach (string file in filech.get_filenames ())
+                    foreach (string file in filech.get_uris ())
                         scratch_app.open_file (file);   
             
             filech.close ();
@@ -655,7 +655,11 @@ namespace Scratch {
 
             var home_dir = Environment.get_home_dir ();
             var path = Path.get_dirname (filename).replace (home_dir, "~");
-
+            path = path.replace ("file://", "");
+            
+            if ("trash://" in path)
+                path = _("Trash");
+            
             this.title = Path.get_basename (filename) + " (%s) - %s".printf(path, TITLE);
 
         }

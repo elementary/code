@@ -106,7 +106,7 @@ namespace Scratch {
                 if (files[i].get_basename () == "--new-tab")
                     window.action_new_tab ();
                 else {
-                    open_file(files[i].get_path()).opening = false;
+                    open_file(files[i].get_uri()).opening = false;
                 }
             }
 
@@ -114,8 +114,9 @@ namespace Scratch {
 
         }
 
-        public Document open_file(string filename)
+        public Document open_file(string? filename)
         {
+
             /* First, let's check it is not already opened */
             foreach(var doc in documents)
             {
@@ -205,10 +206,7 @@ namespace Scratch {
             }
 
             var app = new ScratchApp ();
-            // Check for session quitting
-            //quit.connect (on_quit);
-            //app.inhibit (app.window, ApplicationInhibitFlags.LOGOUT, _("There are unsaved changes in Scratch!"));
-            
+
             return app.run (args);
 
         }
