@@ -7,29 +7,29 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-07-27 10:46+0200\n"
+"POT-Creation-Date: 2012-07-30 18:40+0200\n"
 "PO-Revision-Date: 2012-07-27 18:27+0000\n"
 "Last-Translator: Tolbkni Kao <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-28 05:12+0000\n"
-"X-Generator: Launchpad (build 15694)\n"
+"X-Launchpad-Export-Date: 2012-07-31 05:18+0000\n"
+"X-Generator: Launchpad (build 15702)\n"
 
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:171
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:172
 msgid "There are unsaved changes in Scratch!"
 msgstr "Scratch 中有未保存的更改！"
 
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:189
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:190
 msgid "Set of plugins"
 msgstr "插件设置"
 
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:190
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:191
 msgid "Argument for the set of plugins"
 msgstr "插件设置参数"
 
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:191
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:192
 msgid "Create a new instance"
 msgstr "创建新实例"
 
@@ -38,12 +38,12 @@ msgid "Zeitgeist Datasource for Scratch"
 msgstr "Scratch Zeitgeist 数据源"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:501
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:988
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:992
 msgid "Preferences"
 msgstr "首选项"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:566
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:973
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:977
 msgid "Open a file"
 msgstr "打开文件"
 
@@ -55,159 +55,163 @@ msgstr "全部文件"
 msgid "Text files"
 msgstr "文本文件"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:907
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:908
-msgid "Find..."
-msgstr "查找..."
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:661
+msgid "Trash"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:911
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:912
-msgid "Hide search bar"
-msgstr "隐藏搜索栏"
+msgid "Find..."
+msgstr "查找..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:915
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:916
-msgid "Go to line..."
-msgstr "跳到行..."
+msgid "Hide search bar"
+msgstr "隐藏搜索栏"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:919
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:920
-msgid "Quit"
-msgstr "退出"
+msgid "Go to line..."
+msgstr "跳到行..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:923
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:924
-msgid "Close"
-msgstr "关闭"
+msgid "Quit"
+msgstr "退出"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:927
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:928
+msgid "Close"
+msgstr "关闭"
+
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:931
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:932
 msgid "Replace"
 msgstr "替换"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:931
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:935
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:124
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:176
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:365
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:175
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:374
 msgid "New document"
 msgstr "新建文档"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:932
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:936
 msgid "Create a new document in a new tab"
 msgstr "在新标签中创建文档"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:935
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:939
 msgid "Add New View"
 msgstr "添加新视图"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:936
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:940
 msgid "Add a new view"
 msgstr "添加新视图"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:940
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:944
 msgid "Remove Current View"
 msgstr "删除当前视图"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:941
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:945
 msgid "Remove this view"
 msgstr "删除此视图"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:944
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:948
 msgid "Undo"
 msgstr "撤销"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:945
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:949
 msgid "Undo the last action"
 msgstr "撤销上次操作"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:948
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:952
 msgid "Redo"
 msgstr "重做"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:949
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:953
 msgid "Redo the last undone action"
 msgstr "重做最近的动作"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:953
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:957
 msgid "Revert"
 msgstr "还原"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:954
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:958
 msgid "Restore this file"
 msgstr "恢复该文件"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:958
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:959
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:962
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:963
 msgid "Next Search"
 msgstr "下一个搜索"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:962
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:963
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:966
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:967
 msgid "Previous Search"
 msgstr "上一个搜索"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:967
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:968
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:971
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:972
 msgid "Duplicate selected strings"
 msgstr "复制选中的字符串"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:972
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:976
 msgid "Open"
 msgstr "打开"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:976
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:980
 msgid "Save"
 msgstr "保存"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:977
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:981
 msgid "Save the current file"
 msgstr "保存当前文件"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:980
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:984
 #: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:108
 #: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:184
 msgid "Save as"
 msgstr "另存为"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:981
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:985
 msgid "Save the current file with a different name"
 msgstr "用不同的文件名保存当前文件"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:984
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:988
 #: /home/mario/elementary/scratch/po/../scratchcore/TemplateManager.vala:123
 msgid "Templates"
 msgstr "模板"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:985
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:989
 msgid "Create a new document from a template"
 msgstr "从模板新建文件"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:989
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:993
 msgid "Change Scratch settings"
 msgstr "更改 Scratch 设置"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:995
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:996
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:999
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1000
 msgid "Fullscreen"
 msgstr "全屏"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:999
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1000
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1003
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1004
 msgid "Sidebar"
 msgstr "侧边栏"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1003
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1004
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1007
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1008
 msgid "Context View"
 msgstr "上下文视图"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1007
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1008
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1011
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1012
 msgid "Status Bar"
 msgstr "状态栏"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1011
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1012
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1015
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1016
 msgid "Bottom Panel"
 msgstr "底部面板"
 
@@ -411,17 +415,17 @@ msgstr "若是您没有保存，最近 4 秒的改动将永久丢失。"
 msgid "Close without saving"
 msgstr "不保存而关闭"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:272
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:514
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:281
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:522
 msgid "You can't save changes to:"
 msgstr "您无法保存更改至："
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:272
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:514
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:281
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:522
 msgid "Do you want to save the changes to this file in a different location?"
 msgstr "您要将该文件的修改保存到不同的位置吗？"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:548
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:556
 msgid "There are unsaved changes!"
 msgstr "有未保存的更改！"
 
