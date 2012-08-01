@@ -124,6 +124,7 @@ namespace Scratch {
             set_application (scratch_app);
 
             this.title = TITLE;
+            this.icon_name = "accessories-text-editor";
             restore_saved_state ();
             
             //main actions
