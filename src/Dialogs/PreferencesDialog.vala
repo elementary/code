@@ -220,7 +220,7 @@ namespace Scratch.Dialogs {
             Scratch.settings.schema.bind("show-right-margin", label, "sensitive", SettingsBindFlags.DEFAULT);
             add_option (content, label, right_margin_position, ref row);
             
-            // Font and Colors
+            // Font and Color Scheme
             section_l = new Label (_("Font and Color Scheme:"));
             add_section (content, section_l, ref row);
             
