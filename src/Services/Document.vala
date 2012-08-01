@@ -640,6 +640,8 @@ namespace Scratch.Services {
 
             this.filename = new_name;
             
+            source_view.change_syntax_highlight_for_filename (filename);
+            
             if (can_write ()) {
                 force_normal_state = true;
                 _state = DocumentStates.NORMAL;
