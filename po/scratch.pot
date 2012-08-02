@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-01 23:51-0500\n"
+"POT-Creation-Date: 2012-08-02 12:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,498 +17,506 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:184
-msgid "Zeitgeist Datasource for Scratch"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:502
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:993
-msgid "Preferences"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:567
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:978
-msgid "Open a file"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:574
-msgid "All files"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:577
-msgid "Text files"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:662
-msgid "Trash"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:912
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:913
-msgid "Find..."
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:916
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:917
-msgid "Hide search bar"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:920
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:921
-msgid "Go to line..."
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:924
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:925
-msgid "Quit"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:928
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:929
-msgid "Close"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:932
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:933
-msgid "Replace"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:936
-#: /home/codygarver/scratch/po/../src/Widgets/Notebook.vala:124
-#: /home/codygarver/scratch/po/../src/Services/Document.vala:175
-#: /home/codygarver/scratch/po/../src/Services/Document.vala:374
-msgid "New document"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:937
-msgid "Create a new document in a new tab"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:940
-msgid "Add New View"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:941
-msgid "Add a new view"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:945
-msgid "Remove Current View"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:946
-msgid "Remove this view"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:949
-msgid "Undo"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:950
-msgid "Undo the last action"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:953
-msgid "Redo"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:954
-msgid "Redo the last undone action"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:958
-msgid "Revert"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:959
-msgid "Restore this file"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:963
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:964
-msgid "Next Search"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:967
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:968
-msgid "Previous Search"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:972
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:973
-msgid "Duplicate selected strings"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:977
-msgid "Open"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:981
-msgid "Save"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:982
-msgid "Save the current file"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:985
-#: /home/codygarver/scratch/po/../src/Widgets/Tab.vala:108
-#: /home/codygarver/scratch/po/../src/Widgets/Tab.vala:184
-msgid "Save as"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:986
-msgid "Save the current file with a different name"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:989
-#: /home/codygarver/scratch/po/../scratchcore/TemplateManager.vala:123
-msgid "Templates"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:990
-msgid "Create a new document from a template"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:994
-msgid "Change Scratch settings"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:1000
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:1001
-msgid "Fullscreen"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:1004
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:1005
-msgid "Sidebar"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:1008
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:1009
-msgid "Context View"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:1012
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:1013
-msgid "Status Bar"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:1016
-#: /home/codygarver/scratch/po/../src/MainWindow.vala:1017
-msgid "Bottom Panel"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/config.vala:13
+#: /home/gotwig/scratch/po/../src/config.vala:13
 msgid "Edit text files"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/config.vala:14
+#: /home/gotwig/scratch/po/../src/config.vala:14
 msgid "Text Editor"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/config.vala:15
+#: /home/gotwig/scratch/po/../src/config.vala:15
 msgid "New Document"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/config.vala:16
+#: /home/gotwig/scratch/po/../src/config.vala:16
 msgid "New Window"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Scratch.vala:172
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:184
+msgid "Zeitgeist Datasource for Scratch"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:502
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:993
+msgid "Preferences"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:567
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:978
+msgid "Open a file"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:574
+msgid "All files"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:577
+msgid "Text files"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:662
+msgid "Trash"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:912
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:913
+msgid "Find..."
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:916
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:917
+msgid "Hide search bar"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:920
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:921
+msgid "Go to line..."
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:924
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:925
+msgid "Quit"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:928
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:929
+msgid "Close"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:932
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:933
+msgid "Replace"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:936
+#: /home/gotwig/scratch/po/../src/Widgets/Notebook.vala:124
+#: /home/gotwig/scratch/po/../src/Services/Document.vala:175
+#: /home/gotwig/scratch/po/../src/Services/Document.vala:374
+msgid "New document"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:937
+msgid "Create a new document in a new tab"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:940
+msgid "Add New View"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:941
+msgid "Add a new view"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:945
+msgid "Remove Current View"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:946
+msgid "Remove this view"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:949
+msgid "Undo"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:950
+msgid "Undo the last action"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:953
+msgid "Redo"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:954
+msgid "Redo the last undone action"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:958
+msgid "Revert"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:959
+msgid "Restore this file"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:963
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:964
+msgid "Next Search"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:967
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:968
+msgid "Previous Search"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:972
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:973
+msgid "Duplicate selected strings"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:977
+msgid "Open"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:981
+msgid "Save"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:982
+msgid "Save the current file"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:985
+#: /home/gotwig/scratch/po/../src/Widgets/Tab.vala:108
+#: /home/gotwig/scratch/po/../src/Widgets/Tab.vala:184
+msgid "Save as"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:986
+msgid "Save the current file with a different name"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:989
+#: /home/gotwig/scratch/po/../scratchcore/TemplateManager.vala:123
+msgid "Templates"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:990
+msgid "Create a new document from a template"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:994
+msgid "Change Scratch settings"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:1000
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:1001
+msgid "Fullscreen"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:1004
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:1005
+msgid "Sidebar"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:1008
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:1009
+msgid "Context View"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:1012
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:1013
+msgid "Status Bar"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:1016
+#: /home/gotwig/scratch/po/../src/MainWindow.vala:1017
+msgid "Bottom Panel"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/Scratch.vala:172
 msgid "There are unsaved changes in Scratch!"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Scratch.vala:190
+#: /home/gotwig/scratch/po/../src/Scratch.vala:190
 msgid "Set of plugins"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Scratch.vala:191
+#: /home/gotwig/scratch/po/../src/Scratch.vala:191
 msgid "Argument for the set of plugins"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Scratch.vala:192
+#: /home/gotwig/scratch/po/../src/Scratch.vala:192
 msgid "Create a new instance"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Widgets/NotificationBar.vala:54
-msgid "Save changes elsewhere"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/Widgets/NotificationBar.vala:62
-msgid "Choose the new location"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/Widgets/ShareMenu.vala:56
-msgid "Share"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/Widgets/ComboSyntax.vala:38
-#: /home/codygarver/scratch/po/../scratchcore/SourceView.vala:101
-msgid "Normal text"
-msgstr ""
-
-#: /home/codygarver/scratch/po/../src/Widgets/Notebook.vala:208
+#: /home/gotwig/scratch/po/../src/Widgets/Notebook.vala:208
 msgid "No files are open."
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Widgets/Notebook.vala:208
+#: /home/gotwig/scratch/po/../src/Widgets/Notebook.vala:208
 msgid "Open a file to begin editing."
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Widgets/Notebook.vala:210
+#: /home/gotwig/scratch/po/../src/Widgets/Notebook.vala:210
 msgid "Open file"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Widgets/Notebook.vala:210
+#: /home/gotwig/scratch/po/../src/Widgets/Notebook.vala:210
 msgid "Open a saved file."
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Widgets/Notebook.vala:211
+#: /home/gotwig/scratch/po/../src/Widgets/Notebook.vala:211
 msgid "New file"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Widgets/Notebook.vala:211
+#: /home/gotwig/scratch/po/../src/Widgets/Notebook.vala:211
 msgid "Create a new empty file."
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:68
+#: /home/gotwig/scratch/po/../src/Widgets/NotificationBar.vala:54
+msgid "Save changes elsewhere"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/Widgets/NotificationBar.vala:62
+msgid "Choose the new location"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/Widgets/ComboSyntax.vala:38
+#: /home/gotwig/scratch/po/../scratchcore/SourceView.vala:101
+msgid "Normal text"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/Widgets/ShareMenu.vala:56
+msgid "Share"
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/Dialogs/PreferencesDialog.vala:68
 msgid "Behavior"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:72
+#: /home/gotwig/scratch/po/../src/Dialogs/PreferencesDialog.vala:72
 msgid "Interface"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:77
+#: /home/gotwig/scratch/po/../src/Dialogs/PreferencesDialog.vala:77
 msgid "Extensions"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:120
+#: /home/gotwig/scratch/po/../src/Dialogs/PreferencesDialog.vala:120
 msgid "Show welcome screen"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
+#: /home/gotwig/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
 msgid "Show last open tabs"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:137
+#: /home/gotwig/scratch/po/../src/Dialogs/PreferencesDialog.vala:137
 msgid "General:"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:143
+#: /home/gotwig/scratch/po/../src/Dialogs/PreferencesDialog.vala:143
 msgid "When Scratch starts:"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:146
+#: /home/gotwig/scratch/po/../src/Dialogs/PreferencesDialog.vala:146
 msgid "Save files when changed:"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:151
+#: /home/gotwig/scratch/po/../src/Dialogs/PreferencesDialog.vala:151
 msgid "Tabs:"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:156
+#: /home/gotwig/scratch/po/../src/Dialogs/PreferencesDialog.vala:156
 msgid "Automatic indentation:"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
+#: /home/gotwig/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
 msgid "Insert spaces instead of tabs:"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:163
+#: /home/gotwig/scratch/po/../src/Dialogs/PreferencesDialog.vala:163
 msgid "Tab width:"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:191
+#: /home/gotwig/scratch/po/../src/Dialogs/PreferencesDialog.vala:191
 msgid "Editor:"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:206
+#: /home/gotwig/scratch/po/../src/Dialogs/PreferencesDialog.vala:206
 msgid "Highlight current line:"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:207
+#: /home/gotwig/scratch/po/../src/Dialogs/PreferencesDialog.vala:207
 msgid "Highlight matching brackets:"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
+#: /home/gotwig/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
 msgid "Draw spaces:"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:209
+#: /home/gotwig/scratch/po/../src/Dialogs/PreferencesDialog.vala:209
 msgid "Show line numbers:"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:212
+#: /home/gotwig/scratch/po/../src/Dialogs/PreferencesDialog.vala:212
 msgid "Show margin on right:"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:219
+#: /home/gotwig/scratch/po/../src/Dialogs/PreferencesDialog.vala:219
 msgid "Margin width:"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
+#: /home/gotwig/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
 msgid "Font and Color Scheme:"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:238
+#: /home/gotwig/scratch/po/../src/Dialogs/PreferencesDialog.vala:238
 msgid "Select font:"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:241
+#: /home/gotwig/scratch/po/../src/Dialogs/PreferencesDialog.vala:241
 msgid "Color scheme:"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:246
+#: /home/gotwig/scratch/po/../src/Dialogs/PreferencesDialog.vala:246
 msgid "Custom font:"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/WarnDialog.vala:49
-#: /home/codygarver/scratch/po/../src/Dialogs/WarnDialog.vala:57
+#: /home/gotwig/scratch/po/../src/Dialogs/WarnDialog.vala:49
+#: /home/gotwig/scratch/po/../src/Dialogs/WarnDialog.vala:57
 msgid "The file:"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/WarnDialog.vala:50
+#: /home/gotwig/scratch/po/../src/Dialogs/WarnDialog.vala:49
+msgid "was modified."
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/Dialogs/WarnDialog.vala:50
 msgid "Do you want to reload it?"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/WarnDialog.vala:58
+#: /home/gotwig/scratch/po/../src/Dialogs/WarnDialog.vala:57
+msgid "was deleted."
+msgstr ""
+
+#: /home/gotwig/scratch/po/../src/Dialogs/WarnDialog.vala:58
 msgid "Do you want to create it again?"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/SaveDialog.vala:40
+#: /home/gotwig/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/SaveDialog.vala:42
-#: /home/codygarver/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+#: /home/gotwig/scratch/po/../src/Dialogs/SaveDialog.vala:42
+#: /home/gotwig/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "before closing?"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/SaveDialog.vala:42
+#: /home/gotwig/scratch/po/../src/Dialogs/SaveDialog.vala:42
 msgid "Save unsaved changes to file \""
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/SaveDialog.vala:45
+#: /home/gotwig/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/SaveDialog.vala:45
+#: /home/gotwig/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Do you want to save changes before closing this file?"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+#: /home/gotwig/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "Save changes to document"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+#: /home/gotwig/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "New File"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
+#: /home/gotwig/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
+#: /home/gotwig/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Services/Document.vala:281
-#: /home/codygarver/scratch/po/../src/Services/Document.vala:522
+#: /home/gotwig/scratch/po/../src/Services/Document.vala:281
+#: /home/gotwig/scratch/po/../src/Services/Document.vala:522
 msgid "You can't save changes to:"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Services/Document.vala:281
-#: /home/codygarver/scratch/po/../src/Services/Document.vala:522
+#: /home/gotwig/scratch/po/../src/Services/Document.vala:281
+#: /home/gotwig/scratch/po/../src/Services/Document.vala:522
 msgid "Do you want to save the changes to this file in a different location?"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../src/Services/Document.vala:556
+#: /home/gotwig/scratch/po/../src/Services/Document.vala:556
 msgid "There are unsaved changes!"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../scratchcore/SourceView.vala:95
+#: /home/gotwig/scratch/po/../scratchcore/SourceView.vala:95
 msgid "Syntax Highlighting"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../scratchcore/SearchManager.vala:66
+#: /home/gotwig/scratch/po/../scratchcore/SearchManager.vala:66
 msgid "Find"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../scratchcore/SearchManager.vala:67
+#: /home/gotwig/scratch/po/../scratchcore/SearchManager.vala:67
 msgid "Replace With"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../scratchcore/SearchManager.vala:82
+#: /home/gotwig/scratch/po/../scratchcore/SearchManager.vala:82
 msgid "Go To Line:"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
+#: /home/gotwig/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../plugins/pastebin/pastebin_dialog.vala:273
+#: /home/gotwig/scratch/po/../plugins/pastebin/pastebin_dialog.vala:273
 msgid "Name:"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../plugins/pastebin/pastebin_dialog.vala:279
+#: /home/gotwig/scratch/po/../plugins/pastebin/pastebin_dialog.vala:279
 msgid "Format: "
 msgstr ""
 
-#: /home/codygarver/scratch/po/../plugins/pastebin/pastebin_dialog.vala:281
+#: /home/gotwig/scratch/po/../plugins/pastebin/pastebin_dialog.vala:281
 msgid "Others..."
 msgstr ""
 
-#: /home/codygarver/scratch/po/../plugins/pastebin/pastebin_dialog.vala:306
+#: /home/gotwig/scratch/po/../plugins/pastebin/pastebin_dialog.vala:306
 msgid "Expiry time:"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../plugins/pastebin/pastebin_dialog.vala:311
+#: /home/gotwig/scratch/po/../plugins/pastebin/pastebin_dialog.vala:311
 msgid "Keep this paste private"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../plugins/pastebin/pastebin_dialog.vala:314
+#: /home/gotwig/scratch/po/../plugins/pastebin/pastebin_dialog.vala:314
 msgid "Upload"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../plugins/pastebin/pastebin_dialog.vala:345
+#: /home/gotwig/scratch/po/../plugins/pastebin/pastebin_dialog.vala:345
 msgid "Other formats"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../plugins/pastebin/pastebin_dialog.vala:544
+#: /home/gotwig/scratch/po/../plugins/pastebin/pastebin_dialog.vala:544
 msgid "Never"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../plugins/pastebin/pastebin_dialog.vala:545
+#: /home/gotwig/scratch/po/../plugins/pastebin/pastebin_dialog.vala:545
 msgid "Ten minutes"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../plugins/pastebin/pastebin_dialog.vala:546
+#: /home/gotwig/scratch/po/../plugins/pastebin/pastebin_dialog.vala:546
 msgid "One hour"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../plugins/pastebin/pastebin_dialog.vala:547
+#: /home/gotwig/scratch/po/../plugins/pastebin/pastebin_dialog.vala:547
 msgid "One day"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../plugins/pastebin/pastebin_dialog.vala:548
+#: /home/gotwig/scratch/po/../plugins/pastebin/pastebin_dialog.vala:548
 msgid "One month"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../plugins/filemanager/filemanager.vala:29
+#: /home/gotwig/scratch/po/../plugins/filemanager/filemanager.vala:29
 msgid "Files"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../plugins/bash/bash.vala:52
+#: /home/gotwig/scratch/po/../plugins/bash/bash.vala:52
 msgid "Copy"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../plugins/bash/bash.vala:59
+#: /home/gotwig/scratch/po/../plugins/bash/bash.vala:59
 msgid "Paste"
 msgstr ""
 
-#: /home/codygarver/scratch/po/../plugins/bash/bash.vala:89
+#: /home/gotwig/scratch/po/../plugins/bash/bash.vala:89
 msgid "Terminal"
 msgstr ""
