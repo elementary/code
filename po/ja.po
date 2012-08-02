@@ -7,508 +7,508 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-07-30 18:40+0200\n"
+"POT-Creation-Date: 2012-08-01 23:51-0500\n"
 "PO-Revision-Date: 2012-05-12 06:50+0000\n"
 "Last-Translator: Naoki Kephart <Unknown>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-31 05:18+0000\n"
-"X-Generator: Launchpad (build 15702)\n"
+"X-Launchpad-Export-Date: 2012-08-02 05:20+0000\n"
+"X-Generator: Launchpad (build 15719)\n"
 
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:172
-msgid "There are unsaved changes in Scratch!"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:190
-msgid "Set of plugins"
-msgstr "プラグイン"
-
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:191
-msgid "Argument for the set of plugins"
-msgstr "プラグインへの引数"
-
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:192
-msgid "Create a new instance"
-msgstr "新しいインスタンスを作成"
-
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:183
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:184
 msgid "Zeitgeist Datasource for Scratch"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:501
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:992
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:502
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:993
 msgid "Preferences"
 msgstr "設定"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:566
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:977
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:567
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:978
 msgid "Open a file"
 msgstr "ファイルを開く"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:573
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:574
 msgid "All files"
 msgstr "すべてのファイル"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:576
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:577
 msgid "Text files"
 msgstr "テキストファイル"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:661
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:662
 msgid "Trash"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:911
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:912
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:912
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:913
 msgid "Find..."
 msgstr "検索..."
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:915
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:916
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:916
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:917
 msgid "Hide search bar"
 msgstr "検索バーを隠す"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:919
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:920
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:920
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:921
 msgid "Go to line..."
 msgstr "行に移動..."
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:923
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:924
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:924
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:925
 msgid "Quit"
 msgstr "終了"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:927
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:928
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:928
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:929
 msgid "Close"
 msgstr "閉じる"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:931
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:932
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:932
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:933
 msgid "Replace"
 msgstr "置き換え"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:935
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:124
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:175
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:374
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:936
+#: /home/codygarver/scratch/po/../src/Widgets/Notebook.vala:124
+#: /home/codygarver/scratch/po/../src/Services/Document.vala:175
+#: /home/codygarver/scratch/po/../src/Services/Document.vala:374
 msgid "New document"
 msgstr "新規ドキュメント"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:936
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:937
 msgid "Create a new document in a new tab"
 msgstr "新しいタブでドキュメントを作成"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:939
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:940
 msgid "Add New View"
 msgstr "ビューを追加"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:940
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:941
 msgid "Add a new view"
 msgstr "新しいビューを追加"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:944
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:945
 msgid "Remove Current View"
 msgstr "ビューを削除"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:945
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:946
 msgid "Remove this view"
 msgstr "現在のビューを削除"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:948
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:949
 msgid "Undo"
 msgstr "元に戻す"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:949
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:950
 msgid "Undo the last action"
 msgstr "最後のアクションを元に戻す"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:952
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:953
 msgid "Redo"
 msgstr "やり直す"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:953
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:954
 msgid "Redo the last undone action"
 msgstr "最後に元に戻したアクションをやり直す"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:957
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:958
 msgid "Revert"
 msgstr "取り消し"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:958
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:959
 msgid "Restore this file"
 msgstr "ファイルに加えた変更を取り消す"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:962
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:963
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:963
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:964
 msgid "Next Search"
 msgstr "次を検索"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:966
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:967
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:967
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:968
 msgid "Previous Search"
 msgstr "前を検索"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:971
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:972
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:972
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:973
 msgid "Duplicate selected strings"
 msgstr "選択された文字列を複製"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:976
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:977
 msgid "Open"
 msgstr "開く"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:980
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:981
 msgid "Save"
 msgstr "保存"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:981
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:982
 msgid "Save the current file"
 msgstr "現在のファイルを保存"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:984
-#: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:108
-#: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:184
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:985
+#: /home/codygarver/scratch/po/../src/Widgets/Tab.vala:108
+#: /home/codygarver/scratch/po/../src/Widgets/Tab.vala:184
 msgid "Save as"
 msgstr "別名で保存"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:985
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:986
 msgid "Save the current file with a different name"
 msgstr "現在のファイルを別名で保存"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:988
-#: /home/mario/elementary/scratch/po/../scratchcore/TemplateManager.vala:123
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:989
+#: /home/codygarver/scratch/po/../scratchcore/TemplateManager.vala:123
 msgid "Templates"
 msgstr "テンプレート"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:989
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:990
 msgid "Create a new document from a template"
 msgstr "テンプレートから新規ドキュメントを作成"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:993
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:994
 msgid "Change Scratch settings"
 msgstr "アプリケーションの設定を変更"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:999
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1000
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:1000
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:1001
 msgid "Fullscreen"
 msgstr "全画面"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1003
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1004
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:1004
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:1005
 msgid "Sidebar"
 msgstr "サイドバー"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1007
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1008
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:1008
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:1009
 msgid "Context View"
 msgstr "内容表示"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1011
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1012
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:1012
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:1013
 msgid "Status Bar"
 msgstr "ステータスバー"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1015
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1016
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:1016
+#: /home/codygarver/scratch/po/../src/MainWindow.vala:1017
 msgid "Bottom Panel"
 msgstr "ボトムパネル"
 
-#: /home/mario/elementary/scratch/po/../src/config.vala:13
+#: /home/codygarver/scratch/po/../src/config.vala:13
 msgid "Edit text files"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/config.vala:14
+#: /home/codygarver/scratch/po/../src/config.vala:14
 msgid "Text Editor"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/config.vala:15
+#: /home/codygarver/scratch/po/../src/config.vala:15
 msgid "New Document"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/config.vala:16
+#: /home/codygarver/scratch/po/../src/config.vala:16
 msgid "New Window"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/ShareMenu.vala:56
-msgid "Share"
-msgstr "共有"
+#: /home/codygarver/scratch/po/../src/Scratch.vala:172
+msgid "There are unsaved changes in Scratch!"
+msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:54
+#: /home/codygarver/scratch/po/../src/Scratch.vala:190
+msgid "Set of plugins"
+msgstr "プラグイン"
+
+#: /home/codygarver/scratch/po/../src/Scratch.vala:191
+msgid "Argument for the set of plugins"
+msgstr "プラグインへの引数"
+
+#: /home/codygarver/scratch/po/../src/Scratch.vala:192
+msgid "Create a new instance"
+msgstr "新しいインスタンスを作成"
+
+#: /home/codygarver/scratch/po/../src/Widgets/NotificationBar.vala:54
 msgid "Save changes elsewhere"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:62
+#: /home/codygarver/scratch/po/../src/Widgets/NotificationBar.vala:62
 msgid "Choose the new location"
 msgstr "新しい保存先を選択"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:208
-msgid "No files are open."
-msgstr "ファイルが開かれていません。"
+#: /home/codygarver/scratch/po/../src/Widgets/ShareMenu.vala:56
+msgid "Share"
+msgstr "共有"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:208
-msgid "Open a file to begin editing."
-msgstr "編集を開始するにはファイルを開いて下さい。"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:210
-msgid "Open file"
-msgstr "ファイルを開く"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:210
-msgid "Open a saved file."
-msgstr "保存されたファイルを開く。"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:211
-msgid "New file"
-msgstr "新規ファイル"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:211
-msgid "Create a new empty file."
-msgstr "新しい空のファイルを作成します。"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
-#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:101
+#: /home/codygarver/scratch/po/../src/Widgets/ComboSyntax.vala:38
+#: /home/codygarver/scratch/po/../scratchcore/SourceView.vala:101
 msgid "Normal text"
 msgstr "通常のテキスト"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:68
+#: /home/codygarver/scratch/po/../src/Widgets/Notebook.vala:208
+msgid "No files are open."
+msgstr "ファイルが開かれていません。"
+
+#: /home/codygarver/scratch/po/../src/Widgets/Notebook.vala:208
+msgid "Open a file to begin editing."
+msgstr "編集を開始するにはファイルを開いて下さい。"
+
+#: /home/codygarver/scratch/po/../src/Widgets/Notebook.vala:210
+msgid "Open file"
+msgstr "ファイルを開く"
+
+#: /home/codygarver/scratch/po/../src/Widgets/Notebook.vala:210
+msgid "Open a saved file."
+msgstr "保存されたファイルを開く。"
+
+#: /home/codygarver/scratch/po/../src/Widgets/Notebook.vala:211
+msgid "New file"
+msgstr "新規ファイル"
+
+#: /home/codygarver/scratch/po/../src/Widgets/Notebook.vala:211
+msgid "Create a new empty file."
+msgstr "新しい空のファイルを作成します。"
+
+#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:68
 msgid "Behavior"
 msgstr "動作"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:72
+#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:72
 msgid "Interface"
 msgstr "インターフェース"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:77
+#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:77
 msgid "Extensions"
 msgstr "拡張機能"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:120
+#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:120
 msgid "Show welcome screen"
 msgstr "ようこそ画面を表示"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
+#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
 msgid "Show last open tabs"
 msgstr "最後に開いていたタブを表示"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:137
+#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:137
 msgid "General:"
 msgstr "一般:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:143
+#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:143
 msgid "When Scratch starts:"
 msgstr "アプリケーション起動時:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:146
+#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:146
 msgid "Save files when changed:"
 msgstr "変更が加えられた時にファイルを保存:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:151
+#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:151
 msgid "Tabs:"
 msgstr "タブ:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:156
+#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:156
 msgid "Automatic indentation:"
 msgstr "自動インデント:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
+#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
 msgid "Insert spaces instead of tabs:"
 msgstr "タブの代わりにスペースを挿入:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:163
+#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:163
 msgid "Tab width:"
 msgstr "タブ幅"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:191
+#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:191
 msgid "Editor:"
 msgstr "エディタ:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:206
+#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:206
 msgid "Highlight current line:"
 msgstr "現在の行をハイライト:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:207
+#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:207
 msgid "Highlight matching brackets:"
 msgstr "対となるブラケットをハイライト:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
+#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
 msgid "Draw spaces:"
 msgstr "スペースを描画:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:209
+#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:209
 msgid "Show line numbers:"
 msgstr "行番号を表示:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:212
+#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:212
 msgid "Show margin on right:"
 msgstr "右側に余白を表示:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:219
+#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:219
 msgid "Margin width:"
 msgstr "余白の幅:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
+#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
 msgid "Font and Color Scheme:"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:238
+#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:238
 msgid "Select font:"
 msgstr "フォントを選択:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:241
+#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:241
 msgid "Color scheme:"
 msgstr "配色"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:246
+#: /home/codygarver/scratch/po/../src/Dialogs/PreferencesDialog.vala:246
 msgid "Custom font:"
 msgstr "カスタムフォント:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
-msgid "Save unsaved changes to file before closing?"
-msgstr "終了する前に未保存の変更を保存しますか？"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
-#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
-msgid "before closing?"
-msgstr "への変更を保存しますか？"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
-msgid "Save unsaved changes to file \""
-msgstr "未保存の変更をファイルに保存 \""
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
-msgid "Changes to this file haven't been saved."
-msgstr "このファイルへの変更は保存されていません。"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
-msgid "Do you want to save changes before closing this file?"
-msgstr "ファイルを閉じる前に変更を保存しますか？"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:49
-#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:57
+#: /home/codygarver/scratch/po/../src/Dialogs/WarnDialog.vala:49
+#: /home/codygarver/scratch/po/../src/Dialogs/WarnDialog.vala:57
 msgid "The file:"
 msgstr "ファイル:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:50
+#: /home/codygarver/scratch/po/../src/Dialogs/WarnDialog.vala:50
 msgid "Do you want to reload it?"
 msgstr "再読み込みしますか？"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:58
+#: /home/codygarver/scratch/po/../src/Dialogs/WarnDialog.vala:58
 msgid "Do you want to create it again?"
 msgstr "再び作成しますか？"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+#: /home/codygarver/scratch/po/../src/Dialogs/SaveDialog.vala:40
+msgid "Save unsaved changes to file before closing?"
+msgstr "終了する前に未保存の変更を保存しますか？"
+
+#: /home/codygarver/scratch/po/../src/Dialogs/SaveDialog.vala:42
+#: /home/codygarver/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+msgid "before closing?"
+msgstr "への変更を保存しますか？"
+
+#: /home/codygarver/scratch/po/../src/Dialogs/SaveDialog.vala:42
+msgid "Save unsaved changes to file \""
+msgstr "未保存の変更をファイルに保存 \""
+
+#: /home/codygarver/scratch/po/../src/Dialogs/SaveDialog.vala:45
+msgid "Changes to this file haven't been saved."
+msgstr "このファイルへの変更は保存されていません。"
+
+#: /home/codygarver/scratch/po/../src/Dialogs/SaveDialog.vala:45
+msgid "Do you want to save changes before closing this file?"
+msgstr "ファイルを閉じる前に変更を保存しますか？"
+
+#: /home/codygarver/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "Save changes to document"
 msgstr "ドキュメントを閉じる前に"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+#: /home/codygarver/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 msgid "New File"
 msgstr "新規ファイル"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
+#: /home/codygarver/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr "保存を行わなかった場合、直前の4秒間に加えられた変更が失われます。"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
+#: /home/codygarver/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
 msgstr "保存せずに閉じる"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:281
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:522
+#: /home/codygarver/scratch/po/../src/Services/Document.vala:281
+#: /home/codygarver/scratch/po/../src/Services/Document.vala:522
 msgid "You can't save changes to:"
 msgstr "次のファイルに変更を保存できません:"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:281
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:522
+#: /home/codygarver/scratch/po/../src/Services/Document.vala:281
+#: /home/codygarver/scratch/po/../src/Services/Document.vala:522
 msgid "Do you want to save the changes to this file in a different location?"
 msgstr "このファイルへの変更を別の場所に保存しますか？"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:556
+#: /home/codygarver/scratch/po/../src/Services/Document.vala:556
 msgid "There are unsaved changes!"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:66
-msgid "Find"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:67
-msgid "Replace With"
-msgstr "置き換え"
-
-#: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:82
-msgid "Go To Line:"
-msgstr "行へ移動:"
-
-#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:95
+#: /home/codygarver/scratch/po/../scratchcore/SourceView.vala:95
 msgid "Syntax Highlighting"
 msgstr "構文ハイライト"
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
+#: /home/codygarver/scratch/po/../scratchcore/SearchManager.vala:66
+msgid "Find"
+msgstr ""
+
+#: /home/codygarver/scratch/po/../scratchcore/SearchManager.vala:67
+msgid "Replace With"
+msgstr "置き換え"
+
+#: /home/codygarver/scratch/po/../scratchcore/SearchManager.vala:82
+msgid "Go To Line:"
+msgstr "行へ移動:"
+
+#: /home/codygarver/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
 msgstr "PasteBinで共有"
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:273
+#: /home/codygarver/scratch/po/../plugins/pastebin/pastebin_dialog.vala:273
 msgid "Name:"
 msgstr "ファイル名:"
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:279
+#: /home/codygarver/scratch/po/../plugins/pastebin/pastebin_dialog.vala:279
 msgid "Format: "
 msgstr "形式: "
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:281
+#: /home/codygarver/scratch/po/../plugins/pastebin/pastebin_dialog.vala:281
 msgid "Others..."
 msgstr "その他..."
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:306
+#: /home/codygarver/scratch/po/../plugins/pastebin/pastebin_dialog.vala:306
 msgid "Expiry time:"
 msgstr "期限:"
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:311
+#: /home/codygarver/scratch/po/../plugins/pastebin/pastebin_dialog.vala:311
 msgid "Keep this paste private"
 msgstr "公開しない"
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:314
+#: /home/codygarver/scratch/po/../plugins/pastebin/pastebin_dialog.vala:314
 msgid "Upload"
 msgstr "アップロード"
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:345
+#: /home/codygarver/scratch/po/../plugins/pastebin/pastebin_dialog.vala:345
 msgid "Other formats"
 msgstr "他の形式"
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:544
+#: /home/codygarver/scratch/po/../plugins/pastebin/pastebin_dialog.vala:544
 msgid "Never"
 msgstr "なし"
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:545
+#: /home/codygarver/scratch/po/../plugins/pastebin/pastebin_dialog.vala:545
 msgid "Ten minutes"
 msgstr "10分間"
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:546
+#: /home/codygarver/scratch/po/../plugins/pastebin/pastebin_dialog.vala:546
 msgid "One hour"
 msgstr "1時間"
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:547
+#: /home/codygarver/scratch/po/../plugins/pastebin/pastebin_dialog.vala:547
 msgid "One day"
 msgstr "1日"
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:548
+#: /home/codygarver/scratch/po/../plugins/pastebin/pastebin_dialog.vala:548
 msgid "One month"
 msgstr "1ヶ月"
 
-#: /home/mario/elementary/scratch/po/../plugins/filemanager/filemanager.vala:29
+#: /home/codygarver/scratch/po/../plugins/filemanager/filemanager.vala:29
 msgid "Files"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:52
+#: /home/codygarver/scratch/po/../plugins/bash/bash.vala:52
 msgid "Copy"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:59
+#: /home/codygarver/scratch/po/../plugins/bash/bash.vala:59
 msgid "Paste"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:89
+#: /home/codygarver/scratch/po/../plugins/bash/bash.vala:89
 msgid "Terminal"
 msgstr ""
