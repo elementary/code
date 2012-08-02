@@ -46,7 +46,7 @@ namespace Scratch.Dialogs {
             use_markup = true;
 	        
 	        if (warn_type == WarnType.RELOAD) {
-	            text = string.print ("<b>" + _("The file %s was modified.") + "</b>", filename);
+	            text = ("<b>" + _("The File %s was modified.") +  "</b>").printf(filename);
                 text += "\n\n" + _("Do you want to reload it?");
 	            
 	            add_button (Stock.REFRESH, ResponseType.ACCEPT);
@@ -54,7 +54,7 @@ namespace Scratch.Dialogs {
 	        }
 	        
 	        else if (warn_type == WarnType.FILE_DELETED) {
-	            text = string.print ("<b>" + _("The file %s was deleted.") + "</b>", filename);
+	            text = ("<b>" + _("The File %s was deleted.") +  "</b>").printf(filename);
                 text += "\n\n" + _("Do you want to create it again?");
 	            
 	            add_button (Stock.YES, ResponseType.ACCEPT);

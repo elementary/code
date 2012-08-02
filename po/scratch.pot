@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-02 14:14+0200\n"
+"POT-Creation-Date: 2012-08-02 19:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -366,7 +366,7 @@ msgstr ""
 
 #: /home/gotwig/translations-gen-fix/po/../src/Dialogs/WarnDialog.vala:49
 #, c-format
-msgid "The file %s was modified."
+msgid "The File %s was modified."
 msgstr ""
 
 #: /home/gotwig/translations-gen-fix/po/../src/Dialogs/WarnDialog.vala:50
@@ -375,7 +375,7 @@ msgstr ""
 
 #: /home/gotwig/translations-gen-fix/po/../src/Dialogs/WarnDialog.vala:57
 #, c-format
-msgid "The file %s was deleted."
+msgid "The File %s was deleted."
 msgstr ""
 
 #: /home/gotwig/translations-gen-fix/po/../src/Dialogs/WarnDialog.vala:58
@@ -405,6 +405,7 @@ msgid "Save changes to document %s before closing?"
 msgstr ""
 
 #: /home/gotwig/translations-gen-fix/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+#, c-format
 msgid "New File"
 msgstr ""
 
