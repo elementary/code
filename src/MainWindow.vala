@@ -201,9 +201,7 @@ namespace Scratch {
 
             foreach (string s in selection_data.get_uris ()) {
                 try {
-                    //var w = get_toplevel () as MainWindow;
-                    scratch_app.open_file (Filename.from_uri (s));
-                    //w.set_undo_redo ();
+                    scratch_app.open_file (s);
                 }
                 catch (Error e) {
                     warning ("%s doesn't seem to be a valid URI, couldn't open it.", s);

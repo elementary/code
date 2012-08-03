@@ -25,7 +25,7 @@ public class Euclide.Plugins.FM : Peas.Activatable, Object {
     {
         if (plugins.sidebar != null && plugins.scratch_app != null) {
             view = new PluginView();
-            view.select.connect( (a) => { ((Scratch.ScratchApp)plugins.scratch_app).open_file(a.location.get_path()); });
+            view.select.connect( (a) => { ((Scratch.ScratchApp)plugins.scratch_app).open_file(a.location.get_uri()); });
             plugins.sidebar.append_page(view, new Gtk.Label(_("Files")));
         }
     }

@@ -264,8 +264,8 @@ namespace Scratch.Widgets {
             if (document.state == Services.DocumentStates.READONLY)
                return; 
             
-            var or = File.new_for_path (this.filename);
-            var bk = File.new_for_path (this.filename + "~");
+            var or = File.new_for_uri (this.filename);
+            var bk = File.new_for_uri (this.filename + "~");
 
             if (!bk.query_exists ()) {
                 try {

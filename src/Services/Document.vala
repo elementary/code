@@ -343,7 +343,7 @@ namespace Scratch.Services {
         }
         
         public void delete_backup () {
-            var bk = File.new_for_path (filename + "~");
+            var bk = File.new_for_uri (filename + "~");
             if (bk != null && bk.query_exists ()) {
                 try {
                     bk.delete ();
@@ -540,7 +540,7 @@ namespace Scratch.Services {
         void on_drag_data_received (Gdk.DragContext context, int x, int y, Gtk.SelectionData selection_data, uint info, uint time_) {
             foreach (string s in selection_data.get_uris ()){
                 try {
-                    window.open (Filename.from_uri (s));
+                    window.open (s);
                 }
                 catch (Error e) {
                     warning ("%s doesn't seem to be a valid URI, couldn't open it.", s);
