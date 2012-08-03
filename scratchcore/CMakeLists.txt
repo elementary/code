@@ -28,6 +28,11 @@ add_definitions (${DEVHELP_CFLAGS})
 link_libraries (${DEVHELP_LIBRARIES})
 link_directories (${DEVHELP_LIBRARY_DIRS})
 
+pkg_check_modules (PEASGTK REQUIRED "libpeas-gtk-1.0")
+add_definitions (${PEASGTK_CFLAGS})
+link_libraries (${PEASGTK_LIBRARIES})
+link_directories (${PEASGTK_LIBRARY_DIRS})
+
 vala_precompile(VALA_C
     main.vala
     SearchManager.vala

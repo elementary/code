@@ -71,7 +71,7 @@ public class Scratch.Plugins.DevHelp : Peas.ExtensionBase,  Peas.Activatable
             widget = ((Gtk.Bin)window).get_child ();
             
             ((Gtk.Container)window).remove (widget);
-            //window.destroy ();
+
             widget.show_all (); 
             plugins.bottombar.append_page (widget, new Gtk.Label ("Devhelp"));
         }

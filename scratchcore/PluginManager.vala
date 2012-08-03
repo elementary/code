@@ -260,6 +260,38 @@ public class Scratch.Plugins.Manager : Object
         var bottom_box = view.get_children ().nth_data (1) as Gtk.Box;
         bottom_box.get_children ().nth_data(0).no_show_all = true;
         bottom_box.get_children ().nth_data(0).visible = false;
+        view.view.populate_popup.connect ((menu) => {
+            foreach (Gtk.Widget item in menu.get_children ()) {
+                menu.remove (item);
+                if (((Gtk.MenuItem)item).get_label () == "gtk-about") {
+                    ((Gtk.MenuItem)item).destroy ();
+                    var nitem = new Gtk.ImageMenuItem.from_stock ("gtk-about", null);
+                    menu.prepend (nitem);
+                    nitem.activate.connect (() => { 
+                        var data = view.view.get_selected_plugin ();
+                        var about = new Granite.Widgets.AboutDialog ();
+                        about.response.connect (() => { about.destroy (); });
+                        about.program_name = data.get_name ();
+                        about.license_type = Gtk.License.GPL_3_0;
+                        about.version = data.get_version ();
+                        about.copyright = data.get_copyright ();
+                        about.website = data.get_website () ?? "http://launchpad.net/scratch";
+                        about.website_label = _("Website");
+                        about.authors = data.get_authors ();
+                        about.logo_icon_name = data.get_icon_name ();
+                        about.run ();
+                    });
+                }
+                else if (((Gtk.MenuItem)item) is Gtk.SeparatorMenuItem) {
+                    var sep = new Gtk.SeparatorMenuItem ();
+                    menu.append (sep);
+                }
+                else {
+                    menu.append (((Gtk.MenuItem)item));
+                }
+                debug (item.get_type ().name ());
+            }
+        });
         return view;
     }
     

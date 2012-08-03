@@ -1,5 +1,5 @@
 using Scratch.Plugins;
-public class Euclide.Plugins.FM : Peas.Activatable, Object {
+public class Euclide.Plugins.FM : Peas.ExtensionBase, Peas.Activatable {
     Interface plugins;
     PluginView view;
 

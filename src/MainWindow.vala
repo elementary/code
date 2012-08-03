@@ -104,7 +104,8 @@ namespace Scratch {
 
         //dialogs
         public NotificationBar info_bar;
-
+        private Dialogs.Preferences? preferences = null;
+        
         public Scratch.Widgets.Tab current_tab { get { return (Scratch.Widgets.Tab) current_notebook.current_tab; }}
         public ScratchNotebook current_notebook { get { return split_view.get_current_notebook (); } }
         public Document current_document { get { return current_tab.document; } }
@@ -497,10 +498,11 @@ namespace Scratch {
         }
         
         void action_preferences () {
-            var dialog = new Dialogs.Preferences (_("Preferences"), this);
-            dialog.show_all ();
-            dialog.run ();
-            dialog.destroy ();
+            if (preferences == null)
+                preferences = new Dialogs.Preferences (_("Preferences"), this);
+            preferences.show_all ();
+            preferences.run ();
+            preferences.hide ();
         }
 
         void action_close_tab () {
