@@ -48,8 +48,7 @@ public abstract class Scratch.Template : Object {
         enumerate_directory (origin, out files, out dirs);
         foreach (var file in files) {
             if (file.get_content_type ().contains ("text")) {
-                string content;
-                FileUtils.get_contents (Path.build_filename (origin.get_path (), file.get_name ()), out content);
+                string content = Scratch.Services.FileHandler.load_content (Path.build_filename (origin.get_path (), file.get_name ()));
                 if (variables != null) {
                     foreach (var entry in variables.entries) {
                         content = content.replace ("$$" + entry.key, entry.value);

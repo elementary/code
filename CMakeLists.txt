@@ -53,7 +53,6 @@ vala_precompile(VALA_C
     src/Dialogs/WarnDialog.vala
     src/Services/Document.vala
     src/Services/ZeitgeistLogger.vala
-    src/Services/FileHandler.vala
     src/config.vala
     src/Widgets/ComboSyntax.vala
     src/Widgets/StatusBar.vala

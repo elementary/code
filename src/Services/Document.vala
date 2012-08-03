@@ -470,7 +470,7 @@ namespace Scratch.Services {
             
             /* Check if an external thing modified the file */
             try {
-                contents = FileHandler.load_content_from_uri (filename);//FileUtils.get_contents (filename, out contents);
+                contents = FileHandler.load_content_from_uri (filename);
             } catch (Error e) {
                 warning (e.message);
             }
