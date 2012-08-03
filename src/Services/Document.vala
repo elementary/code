@@ -89,10 +89,7 @@ namespace Scratch.Services {
 
         public bool exists {
             get {
-                if (filename != null)
-                    return file.query_exists ();
-                else
-                    return false;
+                return file.query_exists ();
             }
         }
 
