@@ -101,17 +101,8 @@ namespace Scratch.Widgets {
 
         protected bool return_event (EventKey event) {
             if (event.keyval == 65293) { // 65293 is the return key
-                string old = tab.document.filename;
-                var sold = old.split ("/");
-                string newname = "";
-                foreach (string s in sold) {
-                    if (s != "" && s != sold[sold.length-1])
-                        newname = newname +  "/" + s;
-                    if (s == sold[sold.length-1])
-                        newname = newname +  "/" + entry.text;
-                }
-                
-                debug ("%s", newname);
+                var dir = Path.get_dirname (tab.document.filename);
+                var newname = dir + "/" + entry.text;
                 
                 entry.hide ();
                 event_box.show ();
@@ -124,23 +115,14 @@ namespace Scratch.Widgets {
         }
         
         private bool on_entry_focus_out (EventFocus event) {
-            string old = tab.document.filename;
-            var sold = old.split ("/");
-            string newname = "";
-            foreach (string s in sold) {
-                if (s != "" && s != sold[sold.length-1])
-                    newname = newname +  "/" + s;
-                if (s == sold[sold.length-1])
-                    newname = newname +  "/" + entry.text;
-            }
-              
-            debug ("%s", newname);
+            var dir = Path.get_dirname (tab.document.filename);
+            var newname = dir + "/" + entry.text;
                 
             entry.hide ();
             event_box.show ();
             tab.filename = newname;
             tab.document.rename (newname);
-               
+              
             label.label = entry.text;
             
             return true;

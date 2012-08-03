@@ -635,7 +635,7 @@ namespace Scratch.Services {
 
         public bool rename (string new_name) {
 
-            FileUtils.rename (filename, new_name);
+            FileHandler.move_uri (filename, new_name);
             zg_log.move_insert(filename, new_name, get_mime_type());
 
             this.filename = new_name;

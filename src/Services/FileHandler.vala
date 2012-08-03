@@ -56,19 +56,75 @@ namespace Scratch.Services {
         }    
         
         public static bool set_content_uri (string uri, string content) {
-        }
+        }*/
         
         public static bool move (string path, string new_path) {
+            var old = File.new_for_path (path);
+            var newpath = File.new_for_path (new_path);
+
+            if (!newpath.query_exists ()) {
+                try {
+                    old.move (newpath, FileCopyFlags.NONE);
+                    return true;
+                } catch (Error e) {
+                    warning (e.message);
+                    return false;
+                }
+            }
+            else
+                return false;
         }
         
         public static bool move_uri (string uri, string new_uri) {
+            var old = File.new_for_uri (uri);
+            var newuri = File.new_for_uri (new_uri);
+
+            if (!newuri.query_exists ()) {
+                try {
+                    old.move (newuri, FileCopyFlags.NONE);
+                    return true;
+                } catch (Error e) {
+                    warning (e.message);
+                    return false;
+                }
+            }
+            else
+                return false;
         }
         
         public static bool copy (string path, string new_path) {
+            var old = File.new_for_path (path);
+            var newpath = File.new_for_path (new_path);
+
+            if (!newpath.query_exists ()) {
+                try {
+                    old.copy (newpath, FileCopyFlags.NONE);
+                    return true;
+                } catch (Error e) {
+                    warning (e.message);
+                    return false;
+                }
+            }
+            else
+                return false;
         }
         
         public static bool copy_uri (string uri, string new_uri) {
-        }
+            var old = File.new_for_uri (uri);
+            var newuri = File.new_for_uri (new_uri);
+
+            if (!newuri.query_exists ()) {
+                try {
+                    old.copy (newuri, FileCopyFlags.NONE);
+                    return true;
+                } catch (Error e) {
+                    warning (e.message);
+                    return false;
+                }
+            }
+            else
+                return false;
+        }/*
         
         public static bool backup (string path) {
         }
