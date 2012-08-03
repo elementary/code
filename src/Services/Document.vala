@@ -368,7 +368,7 @@ namespace Scratch.Services {
         public void set_label_font (string style) {
             string label;
             if (filename != null) {
-                label = file.get_basename ();
+                label = Filename.display_basename (filename);
             }
             else {
                 label = _("New document");
@@ -484,9 +484,8 @@ namespace Scratch.Services {
                 }
                 else {
                     var type = Scratch.Dialogs.WarnType.RELOAD; 
-                    if (!exists)   
+                    if (!exists)
                         type = Scratch.Dialogs.WarnType.FILE_DELETED; 
-                    
                     var warn = new Scratch.Dialogs.WarnDialog (filename, window, type);
                     warn.run ();
                     warn.destroy ();  
