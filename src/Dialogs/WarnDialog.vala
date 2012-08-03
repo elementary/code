@@ -46,16 +46,16 @@ namespace Scratch.Dialogs {
             use_markup = true;
 	        
 	        if (warn_type == WarnType.RELOAD) {
-	            text = "<b>" + _("The file:") + " \"" + filename + "\" " + _("was modified.") + "</b>";
-                text += "\n\n" + _("Do you want to reload it?");
+	            text = ("<b>" + _("The File %s was modified.") +  "</b>").printf(filename);
+                    text += "\n\n" + _("Do you want to reload it?");
 	            
 	            add_button (Stock.REFRESH, ResponseType.ACCEPT);
                 add_button (Stock.CLOSE, ResponseType.CANCEL);
 	        }
 	        
 	        else if (warn_type == WarnType.FILE_DELETED) {
-	            text = "<b>" + _("The file:") + " \"" + filename + "\" " + _("was deleted.") + "</b>";
-                text += "\n\n" + _("Do you want to create it again?");
+	            text = ("<b>" + _("The File %s was deleted.") +  "</b>").printf(filename);
+                    text += "\n\n" + _("Do you want to create it again?");
 	            
 	            add_button (Stock.YES, ResponseType.ACCEPT);
                 add_button (Stock.CLOSE, ResponseType.CANCEL);
