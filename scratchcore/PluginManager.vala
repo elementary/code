@@ -258,8 +258,10 @@ public class Scratch.Plugins.Manager : Object
     public Gtk.Widget get_view () {
         var view = new PeasGtk.PluginManager (engine);
         var bottom_box = view.get_children ().nth_data (1) as Gtk.Box;
-        bottom_box.get_children ().nth_data(0).no_show_all = true;
-        bottom_box.get_children ().nth_data(0).visible = false;
+        bottom_box.remove (bottom_box.get_children ().nth_data(0));
+        //bottom_box.get_children ().nth_data(0).no_show_all = true;
+        //bottom_box.get_children ().nth_data(0).visible = false;
+        
         view.view.populate_popup.connect ((menu) => {
             foreach (Gtk.Widget item in menu.get_children ()) {
                 menu.remove (item);
@@ -282,6 +284,10 @@ public class Scratch.Plugins.Manager : Object
                         about.run ();
                     });
                 }
+                else if (((Gtk.MenuItem)item).get_label () == "gtk-preferences") {
+                    menu.remove (item);
+                    menu.append (new Gtk.SeparatorMenuItem ());
+                }
                 else if (((Gtk.MenuItem)item) is Gtk.SeparatorMenuItem) {
                     var sep = new Gtk.SeparatorMenuItem ();
                     menu.append (sep);
@@ -289,26 +295,13 @@ public class Scratch.Plugins.Manager : Object
                 else {
                     menu.append (((Gtk.MenuItem)item));
                 }
-                debug (item.get_type ().name ());
             }
         });
         return view;
     }
     
     void on_extension_added(Peas.ExtensionSet set, Peas.PluginInfo info, Peas.Extension extension) {
-        /*var core_list = engine.get_plugin_list ().copy ();
-        for (int i = 0; i < core_list.length(); i++) {
-            string module = core_list.nth_data (i).get_module_name ();
-            if (module == info.get_module_name ()) 
-                ((Peas.Activatable)extension).activate();           
-            else
-                ((Peas.Activatable)extension).deactivate();
-            /* Enable plugin set *
-            if (module == plugin_iface.set_name) {
-                debug ("Loaded %s", module);
-                ((Peas.Activatable)extension).activate();
-            }
-        }*/((Peas.Activatable)extension).activate();
+        ((Peas.Activatable)extension).activate();
     }
     void on_extension_removed(Peas.PluginInfo info, Object extension) {
         ((Peas.Activatable)extension).deactivate();
