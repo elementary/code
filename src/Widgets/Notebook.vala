@@ -60,12 +60,11 @@ namespace Scratch.Widgets {
 
         }
 
-        void on_page_added(Gtk.Widget w, uint page_num)
-        {
+        void on_page_added (Gtk.Widget w, uint page_num) {
             /* If it is a Tab (something where we can put text, not a welcome screen)
              * we want to hide the tabs and the welcome screen.
              */
-            if(w is Tab) {
+            if (w is Tab) {
                 (w as Tab).text_view.focus_in_event.connect (on_page_focused);
                 current_tab = w as Tab;
                 page_focused ((w as Tab).text_view);
@@ -107,10 +106,9 @@ namespace Scratch.Widgets {
             return false;
         }
 
-        void on_page_removed(Gtk.Widget w, uint page_num)
-        {
-            if(get_n_pages () == 0) {
-                ((Gtk.Container)get_parent()).remove(this);
+        void on_page_removed(Gtk.Widget w, uint page_num) {
+            if (get_n_pages () == 0) {
+                ((Gtk.Container) get_parent ()).remove (this);
             }
 
             set_tab ();
@@ -142,7 +140,6 @@ namespace Scratch.Widgets {
         }
 
         public void set_tab () {
-
             /*if (get_n_pages () == 1)
                 set_show_tabs (false);
             else
@@ -150,9 +147,8 @@ namespace Scratch.Widgets {
         }
 
         public void on_switch_page (Widget page, uint number) {
-
             var tab = page as Tab;
-            if(tab == null) {
+            if (tab == null) {
                 /* Welcome screen */
                 return;
             }
