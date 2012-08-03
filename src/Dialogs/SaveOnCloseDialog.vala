@@ -30,7 +30,7 @@ namespace Scratch.Dialogs {
 
             this.type_hint = Gdk.WindowTypeHint.DIALOG;
             this.set_transient_for (window);
-	    this.filename = (filename ?? _("New File"));
+	    this.filename = (filename ?? _("New Document"));
             this.window = window;
 
             message_type = MessageType.WARNING;
