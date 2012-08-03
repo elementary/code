@@ -39,7 +39,7 @@ namespace Scratch.Dialogs {
             if (filename == null)
                 main_label = new Label (_("Save unsaved changes to file before closing?"));
             else
-                main_label = new Label (_("Save unsaved changes to file \"" + filename + "\" " + _("before closing?")));
+                main_label = new Label (_("Save unsaved changes to file %s before closing?").printf (filename));
             main_label.set_markup ("<b>%s</b>".printf(_(main_label.get_text ())));
 
             var label = new Label(_("Changes to this file haven't been saved.") + "\n" + _("Do you want to save changes before closing this file?"));

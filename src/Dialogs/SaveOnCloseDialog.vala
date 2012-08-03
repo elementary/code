@@ -30,13 +30,13 @@ namespace Scratch.Dialogs {
 
             this.type_hint = Gdk.WindowTypeHint.DIALOG;
             this.set_transient_for (window);
-            this.filename = filename;
+	    this.filename = (filename ?? _("New Document"));
             this.window = window;
 
             message_type = MessageType.WARNING;
             use_markup = true;
 
-            text = "<b>" + _("Save changes to document") + " \"" + (filename ?? _("New File")) + "\" " + _("before closing?") + "</b>";
+	    text = ("<b>" + _("Save changes to document %s before closing?") + "</b>").printf (this.filename);
             text += "\n\n" + _("If you don't save, changes from the last 4 seconds will be permanently lost.");
             
             var button = new Button.with_label (_("Close without saving"));
