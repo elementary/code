@@ -1,6 +1,6 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /***
-  BEGIN LICENSE
+  BEGIN LICENSE  
 
   Copyright (C) 2011-2012 Giulio Collura <random.cpp@gmail.com>
   This program is free software: you can redistribute it and/or modify it

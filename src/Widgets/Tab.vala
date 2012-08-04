@@ -114,7 +114,7 @@ namespace Scratch.Widgets {
 
                 switch (response) {
                     case ResponseType.ACCEPT:
-                    new_filename = filech.get_filename();
+                    new_filename = filech.get_uri();
                     filech.close();
                     break;
 
@@ -132,21 +132,17 @@ namespace Scratch.Widgets {
             message ("Saving: %s", this.filename);
 
             try {
-
-                if (!document.exists) {
-                    FileUtils.set_contents (this.filename, this.text_view.buffer.text);
-                }
-                else {
-                    uint8[] data = text_view.buffer.text.data;
-                    string s;
+                document.filename = this.filename;
+                    
+                uint8[] data = text_view.buffer.text.data;
+                string s;
                 
-                    document.file.replace_contents (data, null, false, 0, out s);
-                }
+                document.file.replace_contents (data, null, false, 0, out s);
                 
                 this.saved = true;
 				
 				//updating the tab label and window title
-                label.label.set_text (Filename.display_basename (filename));
+                label.label.set_text (document.file.get_basename ());
                 var top = get_toplevel () as MainWindow;
                 top.set_window_title (this.filename);				
                 
@@ -192,7 +188,7 @@ namespace Scratch.Widgets {
 
                 switch (response) {
                     case ResponseType.ACCEPT:
-                        new_filename = filech.get_filename();
+                        new_filename = filech.get_uri();
                         filech.close();
                     break;
 
