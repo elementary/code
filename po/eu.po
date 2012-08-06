@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-08-03 21:02+0200\n"
-"PO-Revision-Date: 2012-07-15 10:59+0000\n"
-"Last-Translator: Asier Iturralde Sarasola <Unknown>\n"
+"PO-Revision-Date: 2012-08-05 09:27+0000\n"
+"Last-Translator: KombuchaMushroom <enekosar@gmail.com>\n"
 "Language-Team: Basque <eu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-08-04 05:38+0000\n"
-"X-Generator: Launchpad (build 15742)\n"
+"X-Launchpad-Export-Date: 2012-08-06 05:06+0000\n"
+"X-Generator: Launchpad (build 15745)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:172
 msgid "There are unsaved changes in Scratch!"
@@ -57,7 +57,7 @@ msgstr "Testu-fitxategiak"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:662
 msgid "Trash"
-msgstr ""
+msgstr "Zakarrontzia"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:912
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:913
@@ -351,7 +351,7 @@ msgstr "Marjinaren zabalera:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
 msgid "Font and Color Scheme:"
-msgstr ""
+msgstr "Letra-tipoa eta Koloreak"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:238
 msgid "Select font:"
@@ -372,7 +372,7 @@ msgstr "Gorde azken aldaketak itxi aurretik?"
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
 #, c-format
 msgid "Save unsaved changes to file %s before closing?"
-msgstr ""
+msgstr "Gorde gabeko aldaketak gorde %s(e)n itxi aurretik?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
@@ -385,7 +385,7 @@ msgstr "Aldaketak gorde nahi dituzu fitxategi hau itxi aurretik?"
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:49
 #, c-format
 msgid "The file %s was modified."
-msgstr ""
+msgstr "%s fitxategia aldatua izan da."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:50
 msgid "Do you want to reload it?"
@@ -394,7 +394,7 @@ msgstr "Birkargatu nahi duzu?"
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:57
 #, c-format
 msgid "The file %s was deleted."
-msgstr ""
+msgstr "%s fitxategia ezabatua izan da."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:58
 msgid "Do you want to create it again?"
@@ -403,7 +403,7 @@ msgstr "Berriz sortu nahi duzu?"
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 #, c-format
 msgid "Save changes to document %s before closing?"
-msgstr ""
+msgstr "%s dokumentuaren aldaketak gorde irten aurretik?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
@@ -444,7 +444,7 @@ msgstr "Joan lerrora:"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/PluginManager.vala:281
 msgid "Website"
-msgstr ""
+msgstr "Webgunea"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:95
 msgid "Syntax Highlighting"
@@ -504,16 +504,16 @@ msgstr "Hilabete bat"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/filemanager.vala:29
 msgid "Files"
-msgstr ""
+msgstr "Fitxategiak"
 
 #: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:52
 msgid "Copy"
-msgstr ""
+msgstr "Kopiatu"
 
 #: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:59
 msgid "Paste"
-msgstr ""
+msgstr "Itsatsi"
 
 #: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:89
 msgid "Terminal"
-msgstr ""
+msgstr "Terminala"
