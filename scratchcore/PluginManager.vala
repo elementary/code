@@ -267,26 +267,9 @@ public class Scratch.Plugins.Manager : Object
                 menu.remove (item);
                 if (((Gtk.MenuItem)item).get_label () == "gtk-about") {
                     ((Gtk.MenuItem)item).destroy ();
-                    var nitem = new Gtk.ImageMenuItem.from_stock ("gtk-about", null);
-                    menu.prepend (nitem);
-                    nitem.activate.connect (() => { 
-                        var data = view.view.get_selected_plugin ();
-                        var about = new Granite.Widgets.AboutDialog ();
-                        about.response.connect (() => { about.destroy (); });
-                        about.program_name = data.get_name ();
-                        about.license_type = Gtk.License.GPL_3_0;
-                        about.version = data.get_version ();
-                        about.copyright = data.get_copyright ();
-                        about.website = data.get_website () ?? "http://launchpad.net/scratch";
-                        about.website_label = _("Website");
-                        about.authors = data.get_authors ();
-                        about.logo_icon_name = data.get_icon_name ();
-                        about.run ();
-                    });
                 }
                 else if (((Gtk.MenuItem)item).get_label () == "gtk-preferences") {
                     menu.remove (item);
-                    menu.append (new Gtk.SeparatorMenuItem ());
                 }
                 else if (((Gtk.MenuItem)item) is Gtk.SeparatorMenuItem) {
                     var sep = new Gtk.SeparatorMenuItem ();
