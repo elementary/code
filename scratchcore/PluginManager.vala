@@ -56,6 +56,9 @@ public class Scratch.Plugins.Interface : Object {
     // Utilities for some core plugins
     public GLib.Object dhbase;
     
+    // base args to init external libs
+    public unowned string[] args;
+    
     public Interface (Manager manager) {
         this.manager = manager;
         all_source_view = new List<Gtk.TextView>();

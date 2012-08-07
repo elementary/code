@@ -569,7 +569,7 @@ namespace Scratch {
             filech.add_button (Stock.CANCEL, ResponseType.CANCEL);
             filech.add_button (Stock.OPEN, ResponseType.ACCEPT);
             filech.set_default_response (ResponseType.ACCEPT);
-            filech.set_current_folder (scratch_app.current_directory);
+            filech.set_current_folder_uri (scratch_app.current_directory);
             var all_files_filter = new FileFilter();
             all_files_filter.set_filter_name(_("All files"));
             all_files_filter.add_pattern("*");
@@ -581,8 +581,10 @@ namespace Scratch {
             filech.set_filter(all_files_filter);
 
             if (filech.run () == ResponseType.ACCEPT)
-                    foreach (string file in filech.get_uris ())
+                    foreach (string file in filech.get_uris ()) {
                         scratch_app.open_file (file);   
+                        scratch_app.current_directory = Path.get_dirname (file);
+                    }
             
             filech.close ();
             set_undo_redo ();
