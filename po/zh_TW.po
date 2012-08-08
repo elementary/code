@@ -8,18 +8,18 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-08-03 21:02+0200\n"
-"PO-Revision-Date: 2012-07-06 07:36+0000\n"
+"PO-Revision-Date: 2012-08-08 00:47+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-08-04 05:39+0000\n"
-"X-Generator: Launchpad (build 15742)\n"
+"X-Launchpad-Export-Date: 2012-08-08 05:10+0000\n"
+"X-Generator: Launchpad (build 15757)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:172
 msgid "There are unsaved changes in Scratch!"
-msgstr ""
+msgstr "Scratch 中有未儲存的更動！"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:190
 msgid "Set of plugins"
@@ -35,7 +35,7 @@ msgstr "建立新的實體"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:185
 msgid "Zeitgeist Datasource for Scratch"
-msgstr ""
+msgstr "供 Scratch 使用的 Zeitgeist 資料來源"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:502
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:993
@@ -57,7 +57,7 @@ msgstr "文字檔案"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:662
 msgid "Trash"
-msgstr ""
+msgstr "回收筒"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:912
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:913
@@ -226,7 +226,7 @@ msgstr "文字編輯器"
 #: /home/mario/elementary/scratch/po/../src/config.vala:15
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:33
 msgid "New Document"
-msgstr ""
+msgstr "新增文件"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:16
 msgid "New Window"
@@ -238,7 +238,7 @@ msgstr "分享"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:54
 msgid "Save changes elsewhere"
-msgstr ""
+msgstr "將更動儲存於別處"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:62
 msgid "Choose the new location"
@@ -351,7 +351,7 @@ msgstr "邊緣寬度："
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
 msgid "Font and Color Scheme:"
-msgstr ""
+msgstr "字型與配色方案："
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:238
 msgid "Select font:"
@@ -372,7 +372,7 @@ msgstr "在關閉前儲存尚未儲存的變更至檔案中？"
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
 #, c-format
 msgid "Save unsaved changes to file %s before closing?"
-msgstr ""
+msgstr "是否在關閉之前將尚未儲存的更動儲存至檔案 %s？"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
@@ -385,7 +385,7 @@ msgstr "您是否想在關閉此檔案前儲存變更？"
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:49
 #, c-format
 msgid "The file %s was modified."
-msgstr ""
+msgstr "檔案 %s 已修改。"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:50
 msgid "Do you want to reload it?"
@@ -394,7 +394,7 @@ msgstr "您是否要重新載入它？"
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:57
 #, c-format
 msgid "The file %s was deleted."
-msgstr ""
+msgstr "檔案 %s 已刪除。"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:58
 msgid "Do you want to create it again?"
@@ -403,7 +403,7 @@ msgstr "你是否要再次建立它？"
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 #, c-format
 msgid "Save changes to document %s before closing?"
-msgstr ""
+msgstr "是否在關閉之前將更動儲存至文件 %s？"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
@@ -426,7 +426,7 @@ msgstr "您想要儲存變更至此檔案但是不同的位置嗎？"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:556
 msgid "There are unsaved changes!"
-msgstr ""
+msgstr "有尚未儲存的更動！"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:66
 msgid "Find"
@@ -442,7 +442,7 @@ msgstr "前往列號："
 
 #: /home/mario/elementary/scratch/po/../scratchcore/PluginManager.vala:281
 msgid "Website"
-msgstr ""
+msgstr "網站"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:95
 msgid "Syntax Highlighting"
@@ -502,16 +502,16 @@ msgstr "一個月"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/filemanager.vala:29
 msgid "Files"
-msgstr ""
+msgstr "檔案"
 
 #: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:52
 msgid "Copy"
-msgstr ""
+msgstr "複製"
 
 #: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:59
 msgid "Paste"
-msgstr ""
+msgstr "貼上"
 
 #: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:89
 msgid "Terminal"
-msgstr ""
+msgstr "終端機"
