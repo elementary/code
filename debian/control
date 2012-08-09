@@ -19,7 +19,7 @@ Build-Depends: cmake,
                libwebkitgtk-dev,
                libzeitgeist-dev,
                pkg-config,
-               valac-0.16 (>= 0.15.1)
+               valac-0.16 | valac (>= 0.16)
 Standards-Version: 3.9.1
 Homepage: http://launchpad.net/scratch
 Vcs-Bzr: https://code.launchpad.net/~scratch-hackers/scratch/scratch
