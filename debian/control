@@ -30,8 +30,18 @@ Depends: ${misc:Depends}, ${shlibs:Depends}
 Pre-Depends: dpkg (>= 1.15.6)
 Replaces: scratch (<< 1.1-1)
 Conflicts: scratch (<< 1.1-1)
-Description: Scratch Elementary Text Editor
- A lightweight text editor written in GTK3 for the elementary desktop utilizing the powerful Granite framework.
+Description: The text editor that works.
+ Scratch is the text editor that works for you. It auto-saves your files, meaning they're always up-to-date. Plus it remembers your tabs so you never lose your spot, even in between sessions.
+ .
+ Make it yours. Scratch is written from the ground up to be extensible. Keep things super lightweight and simple, or install extensions to turn Scratch into a full-blown IDE; it's your choice. And with a handful of useful preferences, you can tweak the behavior and interface to your liking.
+ .
+ It's elementary. Scratch is made to be the perfect text editor for elementary, meaning it closely follows the high standards of design, speed, and consistency. It's sexy, but not distracting.
+ .
+ Works with your language. Whether you're crafting code in Vala, scripting with PHP, or marking things up in HTML, Scratch has you covered. Experience full syntax highlighting with nearly all programming, scripting, and markup languages.
+ .
+ .
+ .
+ Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, .Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, Objective C, Pascal, Perl, Python, Ruby, XML.
 
 Package: scratch-text-editor-dbg
 Architecture: any
@@ -40,7 +50,17 @@ Priority: extra
 Depends: scratch-text-editor (= ${binary:Version}), ${misc:Depends}
 Pre-Depends: dpkg (>= 1.15.6)
 Enhances: scratch-text-editor
-Description: Scratch Elementary Text Editor (debugging symbols)
- A lightweight text editor written in GTK3 for the elementary desktop utilizing the powerful Granite framework.
+Description: The text editor that works.
+ Scratch is the text editor that works for you. It auto-saves your files, meaning they're always up-to-date. Plus it remembers your tabs so you never lose your spot, even in between sessions.
+ .
+ Make it yours. Scratch is written from the ground up to be extensible. Keep things super lightweight and simple, or install extensions to turn Scratch into a full-blown IDE; it's your choice. And with a handful of useful preferences, you can tweak the behavior and interface to your liking.
+ .
+ It's elementary. Scratch is made to be the perfect text editor for elementary, meaning it closely follows the high standards of design, speed, and consistency. It's sexy, but not distracting.
+ .
+ Works with your language. Whether you're crafting code in Vala, scripting with PHP, or marking things up in HTML, Scratch has you covered. Experience full syntax highlighting with nearly all programming, scripting, and markup languages.
+ .
+ .
+ .
+ Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, .Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, Objective C, Pascal, Perl, Python, Ruby, XML.
  .
  This package contains debugging symbols for scratch-text-editor.
