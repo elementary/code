@@ -8,18 +8,18 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-08-03 21:02+0200\n"
-"PO-Revision-Date: 2012-05-12 02:09+0000\n"
-"Last-Translator: huyngochoang <Unknown>\n"
+"PO-Revision-Date: 2012-08-08 08:10+0000\n"
+"Last-Translator: Ngô Chin <ndtrung4419@gmail.com>\n"
 "Language-Team: Vietnamese <vi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-08-04 05:39+0000\n"
-"X-Generator: Launchpad (build 15742)\n"
+"X-Launchpad-Export-Date: 2012-08-09 05:22+0000\n"
+"X-Generator: Launchpad (build 15761)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:172
 msgid "There are unsaved changes in Scratch!"
-msgstr ""
+msgstr "Có thay đổi chưa được lưu!"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:190
 msgid "Set of plugins"
@@ -35,7 +35,7 @@ msgstr "Tạo một đối tượng"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:185
 msgid "Zeitgeist Datasource for Scratch"
-msgstr ""
+msgstr "Nguồn dữ liệu Zeitgeist cho Scratch"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:502
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:993
@@ -57,7 +57,7 @@ msgstr "Tập tin văn bản"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:662
 msgid "Trash"
-msgstr ""
+msgstr "Thùng rác"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:912
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:913
@@ -217,20 +217,20 @@ msgstr "Bảng ở đáy"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:13
 msgid "Edit text files"
-msgstr ""
+msgstr "Soạn thảo tập tin văn bản"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:14
 msgid "Text Editor"
-msgstr ""
+msgstr "Bộ soạn thảo văn bản"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:15
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:33
 msgid "New Document"
-msgstr ""
+msgstr "Tạo tài liệu mới"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:16
 msgid "New Window"
-msgstr ""
+msgstr "Cửa sổ mới"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ShareMenu.vala:56
 msgid "Share"
@@ -238,7 +238,7 @@ msgstr "Chia sẻ"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:54
 msgid "Save changes elsewhere"
-msgstr ""
+msgstr "Lưu thay đổi vào nơi khác"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:62
 msgid "Choose the new location"
@@ -351,7 +351,7 @@ msgstr "Độ rộng lề:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
 msgid "Font and Color Scheme:"
-msgstr ""
+msgstr "Phông chữ và màu sắc"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:238
 msgid "Select font:"
@@ -372,7 +372,7 @@ msgstr "Lưu thay đổi vào tập tin trước khi đóng?"
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
 #, c-format
 msgid "Save unsaved changes to file %s before closing?"
-msgstr ""
+msgstr "Bạn có muốn lưu thay đổi vào tập tin %s trước khi thoát không?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
@@ -385,7 +385,7 @@ msgstr "Bạn có muốn lưu thay đổi trước khi đóng tập tin?"
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:49
 #, c-format
 msgid "The file %s was modified."
-msgstr ""
+msgstr "Tập tin %s đã thay đổi"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:50
 msgid "Do you want to reload it?"
@@ -394,7 +394,7 @@ msgstr "Bạn có muốn khởi động lại?"
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:57
 #, c-format
 msgid "The file %s was deleted."
-msgstr ""
+msgstr "Tập tin %s đã bị xóa."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:58
 msgid "Do you want to create it again?"
@@ -403,7 +403,7 @@ msgstr "Bạn có muốn tạo lại nó?"
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 #, c-format
 msgid "Save changes to document %s before closing?"
-msgstr ""
+msgstr "Bạn có muốn lưu các thay đổi vào tài liệu %s trước khi đóng không?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
@@ -426,11 +426,11 @@ msgstr "Bạn có muốn lưu thay đổi cho tập tin ở đường dẫn khá
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:556
 msgid "There are unsaved changes!"
-msgstr ""
+msgstr "Có thay đổi chưa được lưu!"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:66
 msgid "Find"
-msgstr ""
+msgstr "Tìm kiếm"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:67
 msgid "Replace With"
@@ -442,7 +442,7 @@ msgstr "Đi tới dòng:"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/PluginManager.vala:281
 msgid "Website"
-msgstr ""
+msgstr "Trang web"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:95
 msgid "Syntax Highlighting"
@@ -502,16 +502,16 @@ msgstr "Một tháng"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/filemanager.vala:29
 msgid "Files"
-msgstr ""
+msgstr "Tập tin"
 
 #: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:52
 msgid "Copy"
-msgstr ""
+msgstr "Chép"
 
 #: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:59
 msgid "Paste"
-msgstr ""
+msgstr "Dán"
 
 #: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:89
 msgid "Terminal"
-msgstr ""
+msgstr "Cửa sổ dòng lệnh"

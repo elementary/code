@@ -8,18 +8,18 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-08-03 21:02+0200\n"
-"PO-Revision-Date: 2012-08-05 10:05+0000\n"
-"Last-Translator: Sérgio Marques <Unknown>\n"
+"PO-Revision-Date: 2012-08-08 18:55+0000\n"
+"Last-Translator: Gonçalo Fernandes <autocromo@gmail.com>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-08-06 05:06+0000\n"
-"X-Generator: Launchpad (build 15745)\n"
+"X-Launchpad-Export-Date: 2012-08-09 05:22+0000\n"
+"X-Generator: Launchpad (build 15761)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:172
 msgid "There are unsaved changes in Scratch!"
-msgstr "Existem alterações não gravadas no Scratch!"
+msgstr "Existem alterações por guardar no Scratch!"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:190
 msgid "Set of plugins"
@@ -102,19 +102,19 @@ msgstr "Criar um novo documento num novo separador"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:940
 msgid "Add New View"
-msgstr "Adicionar uma nova visualização"
+msgstr "Adicionar uma nova vista"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:941
 msgid "Add a new view"
-msgstr "Adicionar uma nova visualização"
+msgstr "Adicionar uma nova vista"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:945
 msgid "Remove Current View"
-msgstr "Remover visualização atual"
+msgstr "Remover vista actual"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:946
 msgid "Remove this view"
-msgstr "Remover esta visualização"
+msgstr "Remover esta vista"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:949
 msgid "Undo"
@@ -122,7 +122,7 @@ msgstr "Anular"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:950
 msgid "Undo the last action"
-msgstr "Anular a última ação"
+msgstr "Anular a última acção"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:953
 msgid "Redo"
@@ -130,7 +130,7 @@ msgstr "Refazer"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:954
 msgid "Redo the last undone action"
-msgstr "Refazer a última ação desfeita"
+msgstr "Refazer a última acção desfeita"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:958
 msgid "Revert"
@@ -161,21 +161,21 @@ msgstr "Abrir"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:981
 msgid "Save"
-msgstr "Gravar"
+msgstr "Guardar"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:982
 msgid "Save the current file"
-msgstr "Gravar o ficheiro atual"
+msgstr "Guardar o ficheiro actual"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:985
 #: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:108
 #: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:184
 msgid "Save as"
-msgstr "Gravar como"
+msgstr "Guardar como"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:986
 msgid "Save the current file with a different name"
-msgstr "Gravar o ficheiro actual com outro nome"
+msgstr "Guardar o ficheiro actual com um nome diferente"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:989
 #: /home/mario/elementary/scratch/po/../scratchcore/TemplateManager.vala:122
@@ -188,7 +188,7 @@ msgstr "Criar novo documento com base num modelo"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:994
 msgid "Change Scratch settings"
-msgstr "Ajustar as preferências do Scratch"
+msgstr "Alterar definições do Scratch"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1000
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1001
@@ -203,7 +203,7 @@ msgstr "Barra lateral"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1008
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1009
 msgid "Context View"
-msgstr "Visualização de contexto"
+msgstr "Vista de contexto"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1012
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1013
@@ -238,7 +238,7 @@ msgstr "Partilhar"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:54
 msgid "Save changes elsewhere"
-msgstr "Gravar alterações noutro local"
+msgstr "Guardar alterações noutro local"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:62
 msgid "Choose the new location"
@@ -246,11 +246,11 @@ msgstr "Escolher a nova localização"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:204
 msgid "No files are open."
-msgstr "Nenhum ficheiro aberto"
+msgstr "Não há ficheiros abertos."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:204
 msgid "Open a file to begin editing."
-msgstr "Abrir um ficheiro para edição"
+msgstr "Abrir um ficheiro para começar a editar."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:206
 msgid "Open file"
@@ -258,7 +258,7 @@ msgstr "Abrir ficheiro"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:206
 msgid "Open a saved file."
-msgstr "Abrir um ficheiro gravado"
+msgstr "Abrir um ficheiro guardado."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:207
 msgid "New file"
@@ -299,11 +299,11 @@ msgstr "Geral:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:143
 msgid "When Scratch starts:"
-msgstr "Ao iniciar o Scratch:"
+msgstr "Quando o Scratch inicia:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:146
 msgid "Save files when changed:"
-msgstr "Gravar ficheiros se alterados:"
+msgstr "Guardar ficheiros quando alterados:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:151
 msgid "Tabs:"
@@ -311,7 +311,7 @@ msgstr "Separadores:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:156
 msgid "Automatic indentation:"
-msgstr "Avanço automático:"
+msgstr "Indentação automática:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
 msgid "Insert spaces instead of tabs:"
@@ -319,7 +319,7 @@ msgstr "Inserir espaço em vez de tabulação:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:163
 msgid "Tab width:"
-msgstr "Largura da tabulação:"
+msgstr "Tamanho da tabulação:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:191
 msgid "Editor:"
@@ -367,20 +367,20 @@ msgstr "Tipo de letra personalizado:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
-msgstr "Gravar as alterações efetuadas antes de fechar?"
+msgstr "Guardar alterações efectuadas antes de fechar?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
 #, c-format
 msgid "Save unsaved changes to file %s before closing?"
-msgstr "Gravar alterações ao documento %s antes de fechar?"
+msgstr "Guardar alterações ao ficheiro %s antes de fechar?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
-msgstr "As alterações a este ficheiro não foram gravadas."
+msgstr "As alterações a este ficheiro não foram guardadas."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Do you want to save changes before closing this file?"
-msgstr "Pretende gravar as alterações antes de fechar o ficheiro?"
+msgstr "Pretende guardar as alterações antes de fechar o ficheiro?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:49
 #, c-format
@@ -389,7 +389,7 @@ msgstr "O ficheiro %s foi modificado."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:50
 msgid "Do you want to reload it?"
-msgstr "Pretende recarregar?"
+msgstr "Pretende recarregá-lo?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:57
 #, c-format
@@ -398,37 +398,37 @@ msgstr "O ficheiro %s foi eliminado."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:58
 msgid "Do you want to create it again?"
-msgstr "Pretende criar novamente?"
+msgstr "Pretende criá-lo novamente?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 #, c-format
 msgid "Save changes to document %s before closing?"
-msgstr "Gravar alterações ao documento %s antes de fechar?"
+msgstr "Guardar alterações ao documento %s antes de fechar?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
-"Se não gravar, as alterações efetuadas nos últimos 4 segundos serão perdidas "
-"permanentemente."
+"Se não guardar, as alterações efetuadas nos últimos 4 segundos serão "
+"perdidas permanentemente."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
-msgstr "Fechar sem gravar"
+msgstr "Fechar sem guardar"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:281
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:522
 msgid "You can't save changes to:"
-msgstr "Não pode gravar as alterações para:"
+msgstr "Não pode guardar as alterações a:"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:281
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:522
 msgid "Do you want to save the changes to this file in a different location?"
-msgstr "Pretende gravar as alterações a este ficheiro num local diferente?"
+msgstr "Pretende guardar as alterações a este ficheiro num local diferente?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:556
 msgid "There are unsaved changes!"
-msgstr "Existem alterações não gravadas!"
+msgstr "Existem alterações por guardar!"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:66
 msgid "Find"
@@ -444,7 +444,7 @@ msgstr "Ir para a linha:"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/PluginManager.vala:281
 msgid "Website"
-msgstr "Sítio web"
+msgstr "Website"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:95
 msgid "Syntax Highlighting"
