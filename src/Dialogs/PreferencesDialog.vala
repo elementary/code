@@ -53,7 +53,7 @@ namespace Scratch.Dialogs {
             
             this.plugin_lists = plugin_lists.copy ();
             
-            main_static_notebook = new StaticNotebook ();
+            main_static_notebook = new StaticNotebook (false);
 
             create_layout ();
 
