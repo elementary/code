@@ -8,22 +8,22 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-08-03 21:02+0200\n"
-"PO-Revision-Date: 2012-01-17 03:50+0000\n"
-"Last-Translator: cafeinoz <Unknown>\n"
+"PO-Revision-Date: 2012-08-23 03:38+0000\n"
+"Last-Translator: MinSik CHO <Unknown>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-08-04 05:39+0000\n"
-"X-Generator: Launchpad (build 15742)\n"
+"X-Launchpad-Export-Date: 2012-08-28 08:58+0000\n"
+"X-Generator: Launchpad (build 15864)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:172
 msgid "There are unsaved changes in Scratch!"
-msgstr ""
+msgstr "저장되지 않은 항목이 있습니다!"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:190
 msgid "Set of plugins"
-msgstr ""
+msgstr "플러그인 모음"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:191
 msgid "Argument for the set of plugins"
@@ -31,63 +31,63 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:192
 msgid "Create a new instance"
-msgstr ""
+msgstr "새로운 조건을 설정하기"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:185
 msgid "Zeitgeist Datasource for Scratch"
-msgstr ""
+msgstr "Scratch를 위한 Zeitgeist 데이터 소스"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:502
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:993
 msgid "Preferences"
-msgstr ""
+msgstr "환경설정"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:567
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:978
 msgid "Open a file"
-msgstr ""
+msgstr "파일 열기"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:574
 msgid "All files"
-msgstr ""
+msgstr "모든 파일"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:577
 msgid "Text files"
-msgstr ""
+msgstr "텍스트 파일"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:662
 msgid "Trash"
-msgstr ""
+msgstr "휴지통"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:912
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:913
 msgid "Find..."
-msgstr ""
+msgstr "찾기..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:916
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:917
 msgid "Hide search bar"
-msgstr ""
+msgstr "검색 바 숨기기"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:920
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:921
 msgid "Go to line..."
-msgstr ""
+msgstr "줄로 가기..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:924
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:925
 msgid "Quit"
-msgstr ""
+msgstr "종료"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:928
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:929
 msgid "Close"
-msgstr ""
+msgstr "닫기"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:932
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:933
 msgid "Replace"
-msgstr ""
+msgstr "바꾸기"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:936
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:122
@@ -98,167 +98,167 @@ msgstr "새 문서"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:937
 msgid "Create a new document in a new tab"
-msgstr ""
+msgstr "새 탭에서 새 문서 만들기"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:940
 msgid "Add New View"
-msgstr ""
+msgstr "새로운 보기 설정"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:941
 msgid "Add a new view"
-msgstr ""
+msgstr "새로운 보기를 설정합니다."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:945
 msgid "Remove Current View"
-msgstr ""
+msgstr "현재 보기 삭제"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:946
 msgid "Remove this view"
-msgstr ""
+msgstr "현재 보기를 삭제합니다."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:949
 msgid "Undo"
-msgstr ""
+msgstr "실행 취소"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:950
 msgid "Undo the last action"
-msgstr ""
+msgstr "마지막 동작을 실행 취소합니다"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:953
 msgid "Redo"
-msgstr ""
+msgstr "다시 실행"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:954
 msgid "Redo the last undone action"
-msgstr ""
+msgstr "마지막 실행 취소한 동작을 다시 실행합니다"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:958
 msgid "Revert"
-msgstr ""
+msgstr "되돌리기"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:959
 msgid "Restore this file"
-msgstr ""
+msgstr "이 파일을 원래대로 되돌립니다."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:963
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:964
 msgid "Next Search"
-msgstr ""
+msgstr "다음 찾기"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:967
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:968
 msgid "Previous Search"
-msgstr ""
+msgstr "이전 찾기"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:972
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:973
 msgid "Duplicate selected strings"
-msgstr ""
+msgstr "선택한 항목을 복제하기"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:977
 msgid "Open"
-msgstr ""
+msgstr "열기"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:981
 msgid "Save"
-msgstr ""
+msgstr "저장"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:982
 msgid "Save the current file"
-msgstr ""
+msgstr "현재 파일을 저장합니다"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:985
 #: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:108
 #: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:184
 msgid "Save as"
-msgstr ""
+msgstr "다른 이름으로 저장"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:986
 msgid "Save the current file with a different name"
-msgstr ""
+msgstr "현재 파일을 다른 이름으로 저장합니다"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:989
 #: /home/mario/elementary/scratch/po/../scratchcore/TemplateManager.vala:122
 msgid "Templates"
-msgstr ""
+msgstr "서식"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:990
 msgid "Create a new document from a template"
-msgstr ""
+msgstr "서식으로부터 새 문서를 만들기"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:994
 msgid "Change Scratch settings"
-msgstr ""
+msgstr "Scratch 설정 변경하기"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1000
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1001
 msgid "Fullscreen"
-msgstr ""
+msgstr "전체화면"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1004
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1005
 msgid "Sidebar"
-msgstr ""
+msgstr "사이드바"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1008
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1009
 msgid "Context View"
-msgstr ""
+msgstr "텍스트 보기"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1012
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1013
 msgid "Status Bar"
-msgstr ""
+msgstr "상태 표시줄"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1016
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1017
 msgid "Bottom Panel"
-msgstr ""
+msgstr "하단 패널"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:13
 msgid "Edit text files"
-msgstr ""
+msgstr "텍스트 파일을 편집하기"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:14
 msgid "Text Editor"
-msgstr ""
+msgstr "텍스트 편집기"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:15
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:33
 msgid "New Document"
-msgstr ""
+msgstr "새 문서"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:16
 msgid "New Window"
-msgstr ""
+msgstr "새 창"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ShareMenu.vala:56
 msgid "Share"
-msgstr ""
+msgstr "공유"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:54
 msgid "Save changes elsewhere"
-msgstr ""
+msgstr "다른 곳에 변경사항을 저장하기"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:62
 msgid "Choose the new location"
-msgstr ""
+msgstr "새로운 위치를 고르세요."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:204
 msgid "No files are open."
-msgstr ""
+msgstr "열려있는 파일이 없습니다."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:204
 msgid "Open a file to begin editing."
-msgstr ""
+msgstr "편집을 시작하기 위해 파일을 여세요."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:206
 msgid "Open file"
-msgstr ""
+msgstr "파일 열기"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:206
 msgid "Open a saved file."
-msgstr ""
+msgstr "저장된 파일을 엽니다."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:207
 msgid "New file"
@@ -266,20 +266,20 @@ msgstr "새 파일"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:207
 msgid "Create a new empty file."
-msgstr ""
+msgstr "새 빈 파일을 만듭니다."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
 #: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:101
 msgid "Normal text"
-msgstr ""
+msgstr "일반 텍스트"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:68
 msgid "Behavior"
-msgstr "행동"
+msgstr "동작"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:72
 msgid "Interface"
-msgstr "인터페이스"
+msgstr "사용자 환경"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:77
 msgid "Extensions"
@@ -287,23 +287,23 @@ msgstr "확장 기능"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:120
 msgid "Show welcome screen"
-msgstr ""
+msgstr "시작 화면을 표시"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
 msgid "Show last open tabs"
-msgstr ""
+msgstr "마지막에 연 탭 표시"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:137
 msgid "General:"
-msgstr ""
+msgstr "일반:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:143
 msgid "When Scratch starts:"
-msgstr ""
+msgstr "Scratch가 시작할 때:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:146
 msgid "Save files when changed:"
-msgstr ""
+msgstr "변경사항이 있으면 저장하기:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:151
 msgid "Tabs:"
@@ -311,47 +311,47 @@ msgstr "탭:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:156
 msgid "Automatic indentation:"
-msgstr ""
+msgstr "자동 들여쓰기:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
 msgid "Insert spaces instead of tabs:"
-msgstr ""
+msgstr "탭 대신 띄어쓰기를 삽입하기"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:163
 msgid "Tab width:"
-msgstr ""
+msgstr "탭 너비:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:191
 msgid "Editor:"
-msgstr ""
+msgstr "편집자:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:206
 msgid "Highlight current line:"
-msgstr ""
+msgstr "현재 줄을 강조표시하기:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:207
 msgid "Highlight matching brackets:"
-msgstr ""
+msgstr "대응되는 괄호를 강조표시하기:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
 msgid "Draw spaces:"
-msgstr ""
+msgstr "띄어쓰기 그리기"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:209
 msgid "Show line numbers:"
-msgstr ""
+msgstr "줄 수를 보여주기:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:212
 msgid "Show margin on right:"
-msgstr ""
+msgstr "오른쪽에 여백을 표시하기:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:219
 msgid "Margin width:"
-msgstr ""
+msgstr "여백 너비"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
 msgid "Font and Color Scheme:"
-msgstr ""
+msgstr "글꼴과 색 설정:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:238
 msgid "Select font:"
@@ -408,7 +408,7 @@ msgstr ""
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr ""
+msgstr "저장하지 않으면, 지난 4초 동안 변경한 내용은 손실됩니다."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"

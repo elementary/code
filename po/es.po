@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-08-03 21:02+0200\n"
-"PO-Revision-Date: 2012-08-04 19:56+0000\n"
-"Last-Translator: Rubén Vera <Unknown>\n"
+"PO-Revision-Date: 2012-08-20 08:10+0000\n"
+"Last-Translator: Alfredo Hernández <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-08-05 05:02+0000\n"
-"X-Generator: Launchpad (build 15742)\n"
+"X-Launchpad-Export-Date: 2012-08-28 08:58+0000\n"
+"X-Generator: Launchpad (build 15864)\n"
 "Language: es\n"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:172
@@ -374,7 +374,7 @@ msgstr "¿Guardar cambios no guardados antes de cerrar?"
 #, c-format
 msgid "Save unsaved changes to file %s before closing?"
 msgstr ""
-"¿Desea guardar los cambios no salvados al fichero %s antes de cerrar?"
+"¿Desea guardar los cambios no guardados en el archivo %s antes de cerrar?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
@@ -387,7 +387,7 @@ msgstr "¿Desea guardar los cambios antes de cerrar este archivo?"
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:49
 #, c-format
 msgid "The file %s was modified."
-msgstr "El fichero %s fue modificado."
+msgstr "El archivo %s fue modificado."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:50
 msgid "Do you want to reload it?"
@@ -396,7 +396,7 @@ msgstr "¿Desea volver a cargarlo?"
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:57
 #, c-format
 msgid "The file %s was deleted."
-msgstr "El fichero %s fue borrado."
+msgstr "El archivo %s fue borrado."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:58
 msgid "Do you want to create it again?"

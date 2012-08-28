@@ -8,18 +8,18 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-08-03 21:02+0200\n"
-"PO-Revision-Date: 2012-06-24 18:09+0000\n"
+"PO-Revision-Date: 2012-08-26 13:52+0000\n"
 "Last-Translator: Stefan Ivanović <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-08-04 05:38+0000\n"
-"X-Generator: Launchpad (build 15742)\n"
+"X-Launchpad-Export-Date: 2012-08-28 08:58+0000\n"
+"X-Generator: Launchpad (build 15864)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:172
 msgid "There are unsaved changes in Scratch!"
-msgstr ""
+msgstr "Ima nesačuvanih promjena u Scratch-u"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:190
 msgid "Set of plugins"
@@ -35,7 +35,7 @@ msgstr "Kreirati novu instancu"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:185
 msgid "Zeitgeist Datasource for Scratch"
-msgstr ""
+msgstr "Cajtgajst Izvor Podataka za Scratch"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:502
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:993
@@ -57,7 +57,7 @@ msgstr "Tekstualne datoteke"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:662
 msgid "Trash"
-msgstr ""
+msgstr "Korpa"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:912
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:913
@@ -226,7 +226,7 @@ msgstr "Uređivač teksta"
 #: /home/mario/elementary/scratch/po/../src/config.vala:15
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:33
 msgid "New Document"
-msgstr ""
+msgstr "Novi dokument"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:16
 msgid "New Window"
@@ -238,7 +238,7 @@ msgstr "Podijeli"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:54
 msgid "Save changes elsewhere"
-msgstr ""
+msgstr "Sačuvati promjene negde drugde"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:62
 msgid "Choose the new location"
@@ -352,7 +352,7 @@ msgstr "Širina margina:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
 msgid "Font and Color Scheme:"
-msgstr ""
+msgstr "Šema Oblika i Boja Slova"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:238
 msgid "Select font:"
@@ -373,7 +373,7 @@ msgstr "Sačuvati nesačuvane promjene datoteci prije zatvaranja?"
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
 #, c-format
 msgid "Save unsaved changes to file %s before closing?"
-msgstr ""
+msgstr "Sačuvati nesačuvane romjene u dokument %s pre zatvaranja?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
@@ -386,7 +386,7 @@ msgstr "Da li želite sačuvati izmjene prije zatvaranja datoteke?"
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:49
 #, c-format
 msgid "The file %s was modified."
-msgstr ""
+msgstr "Dokument %s je modifikovan."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:50
 msgid "Do you want to reload it?"
@@ -395,7 +395,7 @@ msgstr "Želite li ponovo učitati?"
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:57
 #, c-format
 msgid "The file %s was deleted."
-msgstr ""
+msgstr "Dokument %s je izbrisan"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:58
 msgid "Do you want to create it again?"
@@ -404,7 +404,7 @@ msgstr "Želite li rekreirati?"
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 #, c-format
 msgid "Save changes to document %s before closing?"
-msgstr ""
+msgstr "Sačuvati promjene dokumentu %s pre zatvaranja?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
@@ -427,7 +427,7 @@ msgstr "Želite li sačuvati promijene u datoteku u drugoj lokaciji?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:556
 msgid "There are unsaved changes!"
-msgstr ""
+msgstr "Ima nesačuvanih promjena!"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:66
 msgid "Find"
@@ -443,7 +443,7 @@ msgstr "Idi na liniju:"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/PluginManager.vala:281
 msgid "Website"
-msgstr ""
+msgstr "Web stranica"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:95
 msgid "Syntax Highlighting"
@@ -503,16 +503,16 @@ msgstr "Jedan Mjesec"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/filemanager.vala:29
 msgid "Files"
-msgstr ""
+msgstr "Datoteke"
 
 #: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:52
 msgid "Copy"
-msgstr ""
+msgstr "Umnoži"
 
 #: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:59
 msgid "Paste"
-msgstr ""
+msgstr "Zalijepi"
 
 #: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:89
 msgid "Terminal"
-msgstr ""
+msgstr "Terminal"
