@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-08-03 21:02+0200\n"
-"PO-Revision-Date: 2012-05-24 18:44+0000\n"
-"Last-Translator: Nikola Trifunović <Unknown>\n"
+"PO-Revision-Date: 2012-08-30 14:49+0000\n"
+"Last-Translator: Igor <Unknown>\n"
 "Language-Team: Serbian <sr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-08-04 05:39+0000\n"
-"X-Generator: Launchpad (build 15742)\n"
+"X-Launchpad-Export-Date: 2012-08-31 05:11+0000\n"
+"X-Generator: Launchpad (build 15887)\n"
 "Language: sr\n"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:172
 msgid "There are unsaved changes in Scratch!"
-msgstr ""
+msgstr "Постоје несачуване измене у Скици!"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:190
 msgid "Set of plugins"
@@ -36,7 +36,7 @@ msgstr "Направи нови случај"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:185
 msgid "Zeitgeist Datasource for Scratch"
-msgstr ""
+msgstr "Цајтгајст извор података за Скицу"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:502
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:993
@@ -58,7 +58,7 @@ msgstr "Текстуалне датотеке"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:662
 msgid "Trash"
-msgstr ""
+msgstr "Смеће"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:912
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:913
@@ -218,20 +218,20 @@ msgstr "Доње окно"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:13
 msgid "Edit text files"
-msgstr ""
+msgstr "Измени текстуалне датотеке"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:14
 msgid "Text Editor"
-msgstr ""
+msgstr "Уређивач текста"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:15
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:33
 msgid "New Document"
-msgstr ""
+msgstr "Нови документ"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:16
 msgid "New Window"
-msgstr ""
+msgstr "Нови прозор"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ShareMenu.vala:56
 msgid "Share"
@@ -239,7 +239,7 @@ msgstr "Подели"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:54
 msgid "Save changes elsewhere"
-msgstr ""
+msgstr "Сачувај промене негде"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:62
 msgid "Choose the new location"
@@ -352,7 +352,7 @@ msgstr "Ширина ивице:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
 msgid "Font and Color Scheme:"
-msgstr ""
+msgstr "Шема Фонта и Боја:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:238
 msgid "Select font:"
@@ -373,7 +373,7 @@ msgstr "Сачувај несачуване промене у датотеци �
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
 #, c-format
 msgid "Save unsaved changes to file %s before closing?"
-msgstr ""
+msgstr "Сачувај несачуване промене у датотеку %s пре затварања?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
@@ -387,7 +387,7 @@ msgstr ""
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:49
 #, c-format
 msgid "The file %s was modified."
-msgstr ""
+msgstr "Датотека %s је измењена."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:50
 msgid "Do you want to reload it?"
