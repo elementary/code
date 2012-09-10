@@ -126,25 +126,19 @@ namespace Scratch {
                     return doc;
                 }
             }
-
-            /* Is not open
-             * filename is still encoded as uri, so a file is created
-             * to extract a decoded version/display_name
-             */
-
-            var f = File.new_for_uri(filename);
-            string decoded_filename = f.query_info(FileAttribute.STANDARD_DISPLAY_NAME, FileQueryInfoFlags.NONE).get_display_name();
-            f.unref();
+            
+            
 
             current_directory = Path.get_dirname (filename);
-            /* use the decoded version for presentation */
-            var document = new Document(decoded_filename, window);
+            /* FIXME : filename is still encoded as uri */
+            var document = new Document(filename, window);
             document.create_sourceview ();
             documents.append (document);
             document.closed.connect( (doc) => { documents.remove(doc); });
             document.tab.make_backup ();
             window.current_notebook.set_tab ();
-            window.set_window_title (decoded_filename);
+            /* FIXME : filename is still encoded as uri */
+            window.set_window_title (filename);
             return document;
 
         }
