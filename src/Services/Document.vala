@@ -406,8 +406,8 @@ namespace Scratch.Services {
                     modified = false;
                     opening = false;
                     tab.text_view.modified = false;
-                    return false;
                     timeout_saving = -1;
+                    return false;
                 });
             }
             else {
