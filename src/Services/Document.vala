@@ -83,7 +83,6 @@ namespace Scratch.Services {
                     return DocumentStates.NORMAL;
                 else
                     return DocumentStates.READONLY;
-                return _state;
             }
         }
 
