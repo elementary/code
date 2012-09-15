@@ -83,7 +83,6 @@ namespace Scratch.Services {
                     return DocumentStates.NORMAL;
                 else
                     return DocumentStates.READONLY;
-                return _state;
             }
         }
 
@@ -718,32 +717,35 @@ namespace Scratch.Services {
         
         public bool can_write () {
             
-            if (filename != null) {
-
-                FileInfo info;
-                bool writable;
-
-                try {
-
-                    info = file.query_info (FileAttribute.ACCESS_CAN_WRITE, FileQueryInfoFlags.NONE, null);
-                    writable = info.get_attribute_boolean (FileAttribute.ACCESS_CAN_WRITE);
-
-                    return writable;
-
-                } catch (Error e) {
-
-                    warning ("%s", e.message);
-                    return false;
-
-                }
-
-            } else {
-
-                return true;
-
+            FileInfo info;
+            //false by default, this way state always flow trough writable
+            bool writable = false;
+            
+            //this is flood logic, a null filename should be an error, but since
+            //the rest of the program relies on this assumption, it will be allowed
+            //for now
+            if (filename == null) {
+                debug ("filename is set to null, assuming it's a new file");
+                return writable = true;
             }
-
+            
+            try {
+                info = file.query_info(FileAttribute.ACCESS_CAN_WRITE, FileQueryInfoFlags.NONE, null);
+                writable = info.get_attribute_boolean(FileAttribute.ACCESS_CAN_WRITE);
+                return writable;
+            } catch (Error e) {
+                
+                if (filename != null ) {
+                    warning ("query_info failed, but filename appears to be correct, allowing as new file");
+                    writable = true;
+                }
+                
+                return writable;
+                
+            }
         }
+
+    
 
     }
 
