@@ -578,7 +578,7 @@ namespace Scratch {
             text_files_filter.add_mime_type("text/*");
             filech.add_filter(all_files_filter);
             filech.add_filter(text_files_filter);
-            filech.set_filter(all_files_filter);
+            filech.set_filter(text_files_filter);
 
             if (filech.run () == ResponseType.ACCEPT)
                     foreach (string file in filech.get_uris ()) {
