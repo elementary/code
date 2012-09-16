@@ -54,7 +54,7 @@ public class Scratch.Plugins.Interface : Object {
     public unowned List<Gtk.TextView> all_source_view { private set; get; }
     
     // Utilities for some core plugins
-    public GLib.Object dhbase;
+    public GLib.Object? dhbase = null;
     
     // base args to init external libs
     public unowned string[] args;
@@ -80,8 +80,6 @@ public class Scratch.Plugins.Interface : Object {
         manager.hook_source_view.connect( (m) => {
             all_source_view.append(m);
         });
-        // Utilities for some core plugins
-        dhbase = new Dh.Base ();
     }
     
     public void register_function_arg (Hook hook, HookFunctionArg hook_function) {
