@@ -21,7 +21,11 @@
 public class Scratch.Plugins.DevHelp : Peas.ExtensionBase,  Peas.Activatable
 {
     Interface plugins;
+#if HAS_DEVHELP36
+    private Dh.App? dhbase = null;
+#else
     private Dh.Base? dhbase = null;
+#endif
     private Gtk.Widget? window = null;
     private Gtk.Widget widget;
     public Object object { owned get; construct; }
@@ -44,14 +48,16 @@ public class Scratch.Plugins.DevHelp : Peas.ExtensionBase,  Peas.Activatable
             
             var aw = new Dh.AssistantView ();
             
-            if (plugins.dhbase != null)
-                dhbase = plugins.dhbase as Dh.Base;
-            else {
+            if (plugins.dhbase == null)
+#if HAS_DEVHELP36
+                plugins.dhbase = new Dh.App ();
+            dhbase = plugins.dhbase as Dh.App;
+            aw.set_app (dhbase);
+#else
                 plugins.dhbase = new Dh.Base ();
-                dhbase = plugins.dhbase as Dh.Base;
-            }   
-            
+            dhbase = plugins.dhbase as Dh.Base;
             aw.set_base (dhbase);
+#endif
             
             window = new Dh.Window (dhbase);
 
