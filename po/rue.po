@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-08-03 21:02+0200\n"
-"PO-Revision-Date: 2012-10-21 18:10+0000\n"
+"PO-Revision-Date: 2012-10-22 20:21+0000\n"
 "Last-Translator: u.f.djeison@gmail.com <u.f.djeison@gmail.com>\n"
 "Language-Team: Rusyn <rue@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-22 04:51+0000\n"
-"X-Generator: Launchpad (build 16165)\n"
+"X-Launchpad-Export-Date: 2012-10-23 05:13+0000\n"
+"X-Generator: Launchpad (build 16179)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:172
 msgid "There are unsaved changes in Scratch!"
@@ -23,11 +23,11 @@ msgstr "Туйки є несохранині переміни у Scratch!"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:190
 msgid "Set of plugins"
-msgstr ""
+msgstr "Набір плагінів"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:191
 msgid "Argument for the set of plugins"
-msgstr ""
+msgstr "Аргумент по набору плагінів"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:192
 msgid "Create a new instance"
@@ -35,7 +35,7 @@ msgstr "Утворити нову інштанціу"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:185
 msgid "Zeitgeist Datasource for Scratch"
-msgstr ""
+msgstr "Резервуваня джерел даних про Scratch"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:502
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:993
@@ -82,7 +82,7 @@ msgstr "Уйти"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:928
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:929
 msgid "Close"
-msgstr "Закрити"
+msgstr "Затворити"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:932
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:933
@@ -102,7 +102,7 @@ msgstr "Утворити новий документ у новів вкладц�
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:940
 msgid "Add New View"
-msgstr ""
+msgstr "Добавити нову вкладку"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:941
 msgid "Add a new view"
@@ -238,7 +238,7 @@ msgstr "Поділитися"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:54
 msgid "Save changes elsewhere"
-msgstr ""
+msgstr "Уложити зміни диь инде"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:62
 msgid "Choose the new location"
@@ -291,7 +291,7 @@ msgstr "Указати екран вітання"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
 msgid "Show last open tabs"
-msgstr "Указати послінню откриту вкладку"
+msgstr "Указати послінню отворену вкладку"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:137
 msgid "General:"
@@ -311,7 +311,7 @@ msgstr "Вклвдки"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:156
 msgid "Automatic indentation:"
-msgstr ""
+msgstr "Автоматична розстановка:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
 msgid "Insert spaces instead of tabs:"
@@ -331,11 +331,11 @@ msgstr "Звиразнити сись рядок:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:207
 msgid "Highlight matching brackets:"
-msgstr ""
+msgstr "Уділити сись рядок:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
 msgid "Draw spaces:"
-msgstr ""
+msgstr "ПОказувати пропуски крапками:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:209
 msgid "Show line numbers:"
@@ -359,7 +359,7 @@ msgstr "Убрати шрифт"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:241
 msgid "Color scheme:"
-msgstr "фарбова схема"
+msgstr "Фарбова схема"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:246
 msgid "Custom font:"
@@ -367,151 +367,151 @@ msgstr "Власний шрифт:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
-msgstr ""
+msgstr "Уложити неуложені зміни перед затвореням?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
 #, c-format
 msgid "Save unsaved changes to file %s before closing?"
-msgstr ""
+msgstr "Уложити неуложені зміни у файлі %s перед затвореням?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
-msgstr ""
+msgstr "Зміни в сьому файлі неболи уложені."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Do you want to save changes before closing this file?"
-msgstr ""
+msgstr "Хочете уложити зміни перед затвореням сього файла?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:49
 #, c-format
 msgid "The file %s was modified."
-msgstr ""
+msgstr "%s поміняно."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:50
 msgid "Do you want to reload it?"
-msgstr ""
+msgstr "Оновити го?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:57
 #, c-format
 msgid "The file %s was deleted."
-msgstr ""
+msgstr "%s удалено."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:58
 msgid "Do you want to create it again?"
-msgstr ""
+msgstr "Хочете то витворити ззясь?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 #, c-format
 msgid "Save changes to document %s before closing?"
-msgstr ""
+msgstr "Уложити зміни в документі %s перед затвореням?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr ""
+msgstr "Кіть неуложите файл, то зміни за послінні 4 секунди будуть вернуті."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
-msgstr ""
+msgstr "Затворити без уложиня"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:281
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:522
 msgid "You can't save changes to:"
-msgstr ""
+msgstr "Можете уложити переміни у:"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:281
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:522
 msgid "Do you want to save the changes to this file in a different location?"
-msgstr ""
+msgstr "Уложити переміни инде?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:556
 msgid "There are unsaved changes!"
-msgstr ""
+msgstr "Суть неуложені зміни!"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:66
 msgid "Find"
-msgstr ""
+msgstr "Гледати"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:67
 msgid "Replace With"
-msgstr ""
+msgstr "Поміняти на"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:82
 msgid "Go To Line:"
-msgstr ""
+msgstr "Перейти на рядок:"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/PluginManager.vala:281
 msgid "Website"
-msgstr ""
+msgstr "Веб-сайт"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:95
 msgid "Syntax Highlighting"
-msgstr ""
+msgstr "Підсвіченя синтаксису"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
-msgstr ""
+msgstr "Завантажити на PasteBin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:273
 msgid "Name:"
-msgstr ""
+msgstr "Імня:"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:279
 msgid "Format: "
-msgstr ""
+msgstr "Формат: "
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:281
 msgid "Others..."
-msgstr ""
+msgstr "Инші..."
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:306
 msgid "Expiry time:"
-msgstr ""
+msgstr "Доба використаня:"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:311
 msgid "Keep this paste private"
-msgstr ""
+msgstr "Лишити сись текст неприступним про инших"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:314
 msgid "Upload"
-msgstr ""
+msgstr "Угрузити"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:345
 msgid "Other formats"
-msgstr ""
+msgstr "Иншакі формати"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:544
 msgid "Never"
-msgstr ""
+msgstr "Ниґде"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:545
 msgid "Ten minutes"
-msgstr ""
+msgstr "Дисять минут"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:546
 msgid "One hour"
-msgstr ""
+msgstr "Йинна година"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:547
 msgid "One day"
-msgstr ""
+msgstr "Єден динь"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:548
 msgid "One month"
-msgstr ""
+msgstr "Єден місяць"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/filemanager.vala:29
 msgid "Files"
-msgstr ""
+msgstr "Файли"
 
 #: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:52
 msgid "Copy"
-msgstr ""
+msgstr "Купірувати"
 
 #: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:59
 msgid "Paste"
-msgstr ""
+msgstr "Вложити"
 
 #: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:89
 msgid "Terminal"
-msgstr ""
+msgstr "Термінал"
