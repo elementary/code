@@ -39,10 +39,11 @@ public int main(string[] args)
         /* Case sensitive */
         search.set_search_string ("EST");
         search.search ();
-        assert(sourceview.buffer.cursor_position == "elementary scratch test".length);
+        assert(sourceview.buffer.cursor_position == "elementary scratch test".length - 3);
         search.set_search_string ("Eu");
+        print ("%d", sourceview.buffer.cursor_position);
         search.search ();
-        assert(sourceview.buffer.cursor_position == "elementary scratch test E".length);
+        assert(sourceview.buffer.cursor_position == "elementary scratch test E".length - 1);
     });
     
     Test.add_func("/scratch/core/source_view", () => {

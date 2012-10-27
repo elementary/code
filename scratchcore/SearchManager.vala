@@ -418,39 +418,45 @@ public class Scratch.Services.SearchManager : GLib.Object {
 
     private void update_tool_arrows(string search_string)
     {
-        Gtk.TextIter? start_iter, end_iter;
-        Gtk.TextIter? tmp_start_iter, tmp_end_iter;
+        /* We don't need to compute the sensitive states of these widgets
+         * if they don't exist. */
+        print((tool_arrow_up != null).to_string());
+        print((tool_arrow_down != null).to_string());
+        if (tool_arrow_up != null && tool_arrow_down != null) {
+            Gtk.TextIter? start_iter, end_iter;
+            Gtk.TextIter? tmp_start_iter, tmp_end_iter;
 
-        bool is_in_start, is_in_end;
-        bool case_sensitive = false;
+            bool is_in_start, is_in_end;
+            bool case_sensitive = false;
 
-        text_buffer.get_start_iter (out tmp_start_iter);
-        text_buffer.get_end_iter (out tmp_end_iter);
-        
-        text_buffer.get_selection_bounds (out start_iter, out end_iter);
-        
-        is_in_start = start_iter.compare(tmp_start_iter) == 0;
-        is_in_end = end_iter.compare(tmp_end_iter) == 0;
+            text_buffer.get_start_iter (out tmp_start_iter);
+            text_buffer.get_end_iter (out tmp_end_iter);
+            
+            text_buffer.get_selection_bounds (out start_iter, out end_iter);
+            
+            is_in_start = start_iter.compare(tmp_start_iter) == 0;
+            is_in_end = end_iter.compare(tmp_end_iter) == 0;
 
-        if(!is_in_start && !is_in_end)
-            case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
+            if(!is_in_start && !is_in_end)
+                case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
 
-        if (!is_in_end) {
-            bool next_found = end_iter.forward_search (search_string,
-                case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
-                out tmp_start_iter, out tmp_end_iter, null);
-            tool_arrow_up.sensitive = next_found;
-        }else{
-            tool_arrow_up.sensitive = false;
-        }
+            if (!is_in_end) {
+                bool next_found = end_iter.forward_search (search_string,
+                    case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
+                    out tmp_start_iter, out tmp_end_iter, null);
+                tool_arrow_up.sensitive = next_found;
+            } else {
+                tool_arrow_up.sensitive = false;
+            }
 
-        if (!is_in_start){
-            bool previous_found = start_iter.backward_search (search_string,
-                case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
-                out tmp_start_iter, out end_iter, null);
-            tool_arrow_down.sensitive = previous_found;
-        }else{
-            tool_arrow_down.sensitive = false;
+            if (!is_in_start) {
+                bool previous_found = start_iter.backward_search (search_string,
+                    case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
+                    out tmp_start_iter, out end_iter, null);
+                tool_arrow_down.sensitive = previous_found;
+            } else {
+                tool_arrow_down.sensitive = false;
+            }
         }
     }
 
