@@ -30,26 +30,23 @@ namespace Scratch.Services {
     
         public static string load_content (string path) {
             var file = File.new_for_path (path);
+            return load_content_from_gfile (file);
+        } 
+
+        static string load_content_from_gfile(File file) {
             var dis = new DataInputStream (file.read ());
-                var text = new StringBuilder ();
-                string line;
-                while ((line = dis.read_line (null)) != null) {
-                    text.append (line);
-                    text.append_c ('\n');
+            var text = new StringBuilder ();
+            string line;
+            while ((line = dis.read_line (null)) != null) {
+                text.append (line);
+                text.append_c ('\n');
             }
             return text.str;
-        }    
+        }
         
         public static string load_content_from_uri (string uri) {
             var file = File.new_for_uri (uri);
-            var dis = new DataInputStream (file.read ());
-                var text = new StringBuilder ();
-                string line;
-                while ((line = dis.read_line (null)) != null) {
-                    text.append (line);
-                    text.append_c ('\n');
-            }
-            return text.str;
+            return load_content_from_gfile (file);
         }
         
         /*public static bool set_content (string path, string content) {
