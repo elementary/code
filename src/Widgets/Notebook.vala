@@ -132,11 +132,18 @@ namespace Scratch.Widgets {
             return index;
         }
 
-        public void on_switch_page (Widget page, uint number) {
+        public void on_switch_page (Widget page, uint page_num) {
             var tab = page as Tab;
             if (tab == null) {
                 /* Welcome screen */
                 return;
+            }
+            else {
+                /* Focus displaied tab */
+                GLib.Idle.add (() => {
+                    tab.document.focus_sourceview ();//text_view.grab_focus ();
+                    return true;
+                });
             }
             /* Ok, it is a real Tab then */
             if (tab.filename != null) {
@@ -149,6 +156,7 @@ namespace Scratch.Widgets {
                 if (settings.autosave)
                     window.toolbar.save_button.show ();
             }
+
         }
     }
 
