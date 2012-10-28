@@ -250,12 +250,12 @@ namespace Scratch.Services {
                 return false;
             }
 
-            try {
-                if(!contents.validate()) contents = convert (contents, -1, "UTF-8", "ISO-8859-1");
-            }
-            catch (Error e) {
-                warning ("Couldn't convert the content of the document to UTF-8 (I guessed it was in ISO-8859-1?)");
-            }
+            if(!contents.validate()) 
+                contents = file_content_to_utf8 (file, contents);
+            
+            if (contents == null)
+                warning ("Couldn't read file's content: " + file.get_basename ());
+            
             original_text = text = contents;
 
             if (buffer != null) {
@@ -321,12 +321,12 @@ namespace Scratch.Services {
                 return false;
             }
 
-            try {
-                if(!contents.validate()) contents = convert (contents, -1, "UTF-8", "ISO-8859-1");
-            }
-            catch (Error e) {
-                warning ("Couldn't convert the content of the document to UTF-8 (I guessed it was in ISO-8859-1?)");
-            }
+            if(!contents.validate()) 
+                contents = file_content_to_utf8 (file, contents);
+            
+            if (contents == null)
+                warning ("Couldn't read file's content: " + file.get_basename ());
+                
             original_text = text = contents;
 
             if (buffer != null) {
@@ -702,7 +702,7 @@ namespace Scratch.Services {
 
 
         }
-
+        
         public int64 get_size () {
 
             if (filename != null) {
