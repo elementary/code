@@ -41,6 +41,7 @@ namespace Scratch.Widgets {
             this.tab = my_tab;
 
             label_text = labeltext;
+            
             label = new Label (labeltext);
             label.use_markup = true;
             entry = new Entry ();

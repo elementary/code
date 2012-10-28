@@ -181,7 +181,7 @@ namespace Scratch.Services {
             //get the filename from strig filename =)
             string name = _("New document");
             if(filename != null)
-                name = Filename.display_basename (filename);
+                name = file.get_basename ();
 
 
             //create new tab

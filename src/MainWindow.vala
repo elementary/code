@@ -663,7 +663,9 @@ namespace Scratch {
             if ("trash://" in path)
                 path = _("Trash");
             
-            this.title = Path.get_basename (filename) + " (%s) - %s".printf(path, TITLE);
+            var file = File.new_for_uri (filename);
+            
+            this.title = file.get_basename () + " (%s) - %s".printf(path, TITLE);
 
         }
 
