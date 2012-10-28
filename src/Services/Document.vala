@@ -59,8 +59,19 @@ namespace Scratch.Services {
 
         public Gtk.SourceLanguage language {
             get {
+            	Gtk.SourceLanguage lang = null;
+            	bool result_uncertain;
+            	string content_type;
+            	
+            	content_type = GLib.ContentType.guess (filename, null,  out result_uncertain);
+            	if (result_uncertain) 
+            	{
+            		GLib.g_free (content_type);
+            		content_type = null;
+            	}
+            	
                 var manager = new Gtk.SourceLanguageManager ();
-                return manager.guess_language (filename, null);
+                return manager.guess_language (filename, content_type);
             }
         }
 
