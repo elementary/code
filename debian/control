@@ -4,6 +4,7 @@ Priority: optional
 Maintainer: Mario Guerriero <mefrio.g@gmail.com>
 Build-Depends: cmake,
                debhelper (>= 7),
+               pantheon-files,
                gir1.2-gconf-2.0,
                gir1.2-soup-2.4,
                libdevhelp-dev,
