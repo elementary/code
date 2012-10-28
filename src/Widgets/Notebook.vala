@@ -105,6 +105,15 @@ namespace Scratch.Widgets {
         }
 
         void on_page_removed(Gtk.Widget w, uint page_num) {
+            
+            // Focus new showed page
+            GLib.Idle.add (() => {
+                if (window.welcome_screen.get_parent () == null) {
+                    window.current_document.focus_sourceview ();
+                    return window.current_tab.text_view.has_visible_focus ();
+                } else return false;
+            });
+            
             if (get_n_pages () == 0)
                 ((Gtk.Container) get_parent ()).remove (this);
         }
@@ -139,12 +148,12 @@ namespace Scratch.Widgets {
                 return;
             }
             else {
-                /* Focus displaied tab */
+/*                /* Focus displaied tab *
                 GLib.Idle.add (() => {
-                    tab.document.focus_sourceview ();//text_view.grab_focus ();
-                    return true;
+                    tab.document.focus_sourceview ();
+                    return tab.text_view.has_visible_focus ();
                 });
-            }
+*/            }
             /* Ok, it is a real Tab then */
             if (tab.filename != null) {
                 window.set_window_title (tab.filename);

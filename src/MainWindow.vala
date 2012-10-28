@@ -115,7 +115,7 @@ namespace Scratch {
         public Scratch.ScratchApp scratch_app;
         public StatusBar statusbar;
 
-        ScratchWelcome welcome_screen;
+        public ScratchWelcome welcome_screen;
         Granite.Widgets.HCollapsablePaned hpaned_sidebar;
 
         private Zeitgeist.DataSourceRegistry registry;
