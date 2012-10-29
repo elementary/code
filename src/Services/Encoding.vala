@@ -240,7 +240,7 @@ namespace Scratch.Services {
             "WINDOWS-1258", "Vietnamese" }
     };
     
-    public string? file_content_to_utf8 (File file, string content, string mode = "a") {
+    public string? file_content_to_utf8 (File file, string content, string mode = "a" /* it means read and write */) {
         
         GLib.IOChannel channel;
         string? encoding = null;

@@ -50,6 +50,7 @@ namespace Scratch {
                 <menuitem name="Open" action="Open"/>
                 <menuitem name="Duplicate" action="Duplicate"/>
                 <menuitem name="SaveFile" action="SaveFile"/>
+                <menuitem name="SaveFileAs" action="SaveFileAs"/>
                 <menuitem name="Undo" action="Undo"/>
                 <menuitem name="Redo" action="Redo"/>
                 <menuitem name="SearchNext" action="SearchNext"/>
@@ -986,7 +987,7 @@ namespace Scratch {
           /* tooltip */                  N_("Save the current file"),
                                          action_save },
            { "SaveFileAs", Gtk.Stock.SAVE_AS,
-          /* label, accelerator */       N_("Save as"), "<Control><shift>s",
+          /* label, accelerator */       N_("Save as"), "<Control><Shift>s",
           /* tooltip */                  N_("Save the current file with a different name"),
                                          action_save_as },
            { "Templates", Gtk.Stock.NEW,

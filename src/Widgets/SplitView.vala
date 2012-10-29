@@ -126,7 +126,7 @@ namespace Scratch.Widgets {
             if (child == null) {
                 child = get_children ().nth_data (0) as ScratchNotebook;
                 if( child == null) {
-                    critical ("No valid notebook for the split view? Let's create one.");
+                    debug ("No valid notebook for the split view? Let's create one.");
                     var note = new ScratchNotebook(window);
                     add_view (note);
                     focused_widget = note;
