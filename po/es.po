@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-28 15:10+0100\n"
+"POT-Creation-Date: 2012-10-29 20:54+0100\n"
 "PO-Revision-Date: 2012-09-07 14:52+0000\n"
 "Last-Translator: Alfredo Hernández <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-29 05:15+0000\n"
-"X-Generator: Launchpad (build 16194)\n"
+"X-Launchpad-Export-Date: 2012-10-30 05:50+0000\n"
+"X-Generator: Launchpad (build 16206)\n"
 "Language: es\n"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:13
@@ -92,7 +92,7 @@ msgid "Replace"
 msgstr "Reemplazar"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:940
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:116
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:125
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:182
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:381
 msgid "New document"
@@ -250,27 +250,27 @@ msgstr "Texto normal"
 msgid "Share"
 msgstr "Compartir"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:168
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:177
 msgid "No files are open."
 msgstr "No hay archivos abiertos."
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:168
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:177
 msgid "Open a file to begin editing."
 msgstr "Abra un archivo para comenzar la edición."
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:170
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:179
 msgid "Open file"
 msgstr "Abrir un archivo"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:170
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:179
 msgid "Open a saved file."
 msgstr "Abrir un archivo guardado."
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:171
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:180
 msgid "New file"
 msgstr "Nuevo archivo"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:171
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:180
 msgid "Create a new empty file."
 msgstr "Crear un nuevo archivo vacío"
 
@@ -417,139 +417,6 @@ msgstr "Los cambios en este archivo no han sido guardados."
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Do you want to save changes before closing this file?"
 msgstr "¿Desea guardar los cambios antes de cerrar este archivo?"
-
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:111
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:135
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:185
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:228
-msgid "Western"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:113
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:187
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:224
-msgid "Central European"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:115
-msgid "South European"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:117
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:131
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:238
-msgid "Baltic"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:119
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:189
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:202
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:206
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:208
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:226
-msgid "Cyrillic"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:121
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:195
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:236
-msgid "Arabic"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:123
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:230
-msgid "Greek"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:125
-msgid "Hebrew Visual"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:127
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:191
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:232
-msgid "Turkish"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:129
-msgid "Nordic"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:133
-msgid "Celtic"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:137
-msgid "Romanian"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:140
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:142
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:144
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:146
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:148
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:150
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:152
-msgid "Unicode"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:155
-msgid "Armenian"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:157
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:159
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:173
-msgid "Chinese Traditional"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:161
-msgid "Cyrillic/Russian"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:164
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:166
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:168
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:198
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:213
-msgid "Japanese"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:171
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:200
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:204
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:219
-msgid "Korean"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:176
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:178
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:180
-msgid "Chinese Simplified"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:182
-msgid "Georgian"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:193
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:234
-msgid "Hebrew"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:210
-msgid "Cyrillic/Ukrainian"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:215
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:221
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:240
-msgid "Vietnamese"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Services/Encoding.vala:217
-msgid "Thai"
-msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:288
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:528
