@@ -168,7 +168,12 @@ namespace Scratch.Widgets {
 
         }
     }
-
+    
+    public enum ScratchWelcomeState {
+        SHOW,
+        HIDE
+    }
+    
     public class ScratchWelcome : Granite.Widgets.Welcome {
         MainWindow window;
 

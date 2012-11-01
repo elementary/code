@@ -208,7 +208,14 @@ namespace Scratch.Widgets {
             Scratch.settings.style_scheme = buffer.style_scheme.id;
 
         }
-
+        
+        /**
+         * @return view's language manager
+         **/
+        public SourceLanguageManager get_language_manager () {
+            return manager;
+        }
+        
         /**
          * Go to the line.
          *

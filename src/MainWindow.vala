@@ -120,7 +120,10 @@ namespace Scratch {
         Granite.Widgets.HCollapsablePaned hpaned_sidebar;
 
         private Zeitgeist.DataSourceRegistry registry;
-
+        
+        // Signals
+        public signal void welcome_state_change (Scratch.Widgets.ScratchWelcomeState state);
+        
         public MainWindow (Scratch.ScratchApp scratch_app) {
             this.scratch_app = scratch_app;
             set_application (scratch_app);
@@ -440,6 +443,7 @@ namespace Scratch {
                 if (split_view.get_parent () != null) {
                     vbox_split_view_toolbar.remove (split_view);
                     vbox_split_view_toolbar.pack_start (welcome_screen, true, true);
+                    welcome_state_change (ScratchWelcomeState.SHOW);
                     /* Set the window title for the WelcomeScreen */
                     this.title = TITLE;
                 }
@@ -457,6 +461,7 @@ namespace Scratch {
 
                 if (split_view.get_parent () == null) {
                     vbox_split_view_toolbar.remove (welcome_screen);
+                    welcome_state_change (ScratchWelcomeState.HIDE);
                     vbox_split_view_toolbar.pack_start (split_view, true, true);
                 }
             }
