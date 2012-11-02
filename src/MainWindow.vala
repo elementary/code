@@ -439,11 +439,12 @@ namespace Scratch {
                 
                 statusbar.no_show_all = true;
                 statusbar.visible = false;
-
+                
+                welcome_state_change (ScratchWelcomeState.HIDE);
+                
                 if (split_view.get_parent () != null) {
                     vbox_split_view_toolbar.remove (split_view);
                     vbox_split_view_toolbar.pack_start (welcome_screen, true, true);
-                    welcome_state_change (ScratchWelcomeState.SHOW);
                     /* Set the window title for the WelcomeScreen */
                     this.title = TITLE;
                 }
@@ -458,10 +459,11 @@ namespace Scratch {
                 set_actions (true);
                 
                 action_show_status_bar (main_actions.get_action ("ShowStatusBar"));
-
+                
+                welcome_state_change (ScratchWelcomeState.SHOW);
+                
                 if (split_view.get_parent () == null) {
                     vbox_split_view_toolbar.remove (welcome_screen);
-                    welcome_state_change (ScratchWelcomeState.HIDE);
                     vbox_split_view_toolbar.pack_start (split_view, true, true);
                 }
             }
@@ -542,14 +544,7 @@ namespace Scratch {
                     }
                     save_dialog.destroy ();
                 }
-                var bk = File.new_for_path (doc.filename + "~");
-                if (bk != null && bk.query_exists ()) {
-                    try {
-                        bk.delete ();
-                    } catch (Error e) {
-                        debug ("Cannot delete %s~, it doesn't exist", doc.filename);
-                    }
-                }
+                doc.delete_backup ();
                 if (n != scratch_app.documents.length ())
                     n++;
             }
@@ -702,14 +697,7 @@ namespace Scratch {
                     }
                     save_dialog.destroy ();
                 }
-                var bk = File.new_for_path (doc.filename + "~");
-                if (bk != null && bk.query_exists ()) {
-                    try {
-                        bk.delete ();
-                    } catch (Error e) {
-                        debug ("Cannot delete %s~, it doesn't exist", doc.filename);
-                    }
-                }
+                doc.delete_backup ();
                 if (n == scratch_app.documents.length ())
                     return ret;
                 else

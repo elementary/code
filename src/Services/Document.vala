@@ -366,7 +366,9 @@ namespace Scratch.Services {
                 return false;
             
             zg_log.close_insert(this.filename, get_mime_type ());
-
+            
+            delete_backup ();
+            
             this.closed (); // Signal
             return true;
 
