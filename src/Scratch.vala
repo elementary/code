@@ -36,7 +36,10 @@ namespace Scratch {
         static bool new_instance;
         public GLib.List<Document> documents = new GLib.List<Document>();
         public string current_directory = ".";
-
+        
+        // Signals
+        public signal void file_opened (Document doc);
+        
         construct {
 
             build_data_dir = Constants.DATADIR;
@@ -126,8 +129,6 @@ namespace Scratch {
                     return doc;
                 }
             }
-            
-            
 
             current_directory = Path.get_dirname (filename);
             /* FIXME : filename is still encoded as uri */
@@ -138,6 +139,9 @@ namespace Scratch {
             document.tab.make_backup ();
             /* FIXME : filename is still encoded as uri */
             window.set_window_title (filename);
+            
+            file_opened (document);
+            
             return document;
 
         }
