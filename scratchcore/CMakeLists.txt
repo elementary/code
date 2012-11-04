@@ -75,4 +75,4 @@ add_subdirectory(core-tests)
 # GObject Introspection
 
 include(GObjectIntrospectionMacros)
-add_target_gir(scratchcore Scratch scratchcore.h "${NORMAL_CFLAGS}" 0.1 Gtk-3.0)
+add_target_gir_with_executable(scratchcore ${CMAKE_BINARY_DIR}/src/scratch-text-editor Scratch ${CMAKE_CURRENT_BINARY_DIR}/scratchcore.h ${CMAKE_BINARY_DIR}/src/scratch.h "${NORMAL_CFLAGS}" 0.1 Gtk-3.0)
