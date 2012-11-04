@@ -1,4 +1,4 @@
-# Check http://webdev.elementaryos.org/docs/developer-guide/cmake for documentation
+# Check http://elementaryos.org/docs/developer-guide/cmake for documentation
 
 cmake_minimum_required (VERSION 2.6)
 cmake_policy (VERSION 2.6)
@@ -7,26 +7,35 @@ enable_testing ()
 set (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
 set (PKGDATADIR "${DATADIR}/scratch")
 set (GETTEXT_PACKAGE "scratch")
+add_definitions(-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\")
 set (RELEASE_NAME "The elementary Text Editor.")
 set (VERSION "1.1.1")
 set (VERSION_INFO "Release")
 set (PLUGINDIR "${CMAKE_INSTALL_PREFIX}/lib/scratch/plugins/")
-set (CMAKE_C_FLAGS "-ggdb")
 set (PREFIX ${CMAKE_INSTALL_PREFIX})
 set (DOLLAR "$")
 list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
-# Configure file
 
+
+# Some configuration
+configure_file (${CMAKE_SOURCE_DIR}/src/config.vala.cmake ${CMAKE_SOURCE_DIR}/src/config.vala)
+configure_file (${CMAKE_SOURCE_DIR}/src/scratch.pc.cmake ${CMAKE_BINARY_DIR}/src/scratch.pc)
+
+
+
+# Vala
 find_package (Vala REQUIRED)
 include (ValaVersion)
 ensure_vala_version ("0.15.1" MINIMUM)
 include (ValaPrecompile)
-configure_file (${CMAKE_SOURCE_DIR}/src/config.vala.cmake ${CMAKE_SOURCE_DIR}/src/config.vala)
-add_definitions(-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\")
-configure_file (${CMAKE_SOURCE_DIR}/src/scratch.pc.cmake ${CMAKE_BINARY_DIR}/src/scratch.pc)
-install (FILES ${CMAKE_BINARY_DIR}/src/scratch.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig/)
-# Scratch
 
+
+# GSettings
+include(GSettings)
+add_schema("org.pantheon.scratch.gschema.xml")
+
+
+# Dependencies
 set (SCRATCH_DEPS "libpeas-1.0;gtksourceview-3.0;gee-1.0;gobject-2.0;glib-2.0;gio-2.0;gconf-2.0;gtk+-3.0;granite;zeitgeist-1.0")
 find_package (PkgConfig)
 pkg_check_modules (GTK+ REQUIRED "gtk+-3.0 >= 3.4")
@@ -35,59 +44,23 @@ pkg_check_modules (DEPS REQUIRED ${SCRATCH_DEPS})
 set(NORMAL_CFLAGS ${DEPS_CFLAGS} ${LIBSOURCE_CFLAGS} ${GCONF_CFLAGS})
 set(NORMAL_LINK_DIRS ${DEPS_LIBRARY_DIRS} ${LIBSOURCE_LIBRARY_DIRS} ${GCONF_LIBRARY_DIRS})
 set(NORMAL_LIBRARIES ${DEPS_LIBRARIES} ${LIBSOURCE_LIBRARIES} ${GCONF_LIBRARIES})
+
 add_definitions (${DEPS_CFLAGS} ${LIBSOURCE_CFLAGS} ${GCONF_CFLAGS})
 link_libraries (${DEPS_LIBRARIES} ${LIBSOURCE_LIBRARIES} ${GCONF_LIBRARIES})
 link_directories (${DEPS_LIBRARY_DIRS} ${LIBSOURCE_LIBRARY_DIRS} ${GCONF_LIBRARY_DIRS})
-vala_precompile(VALA_C
-    src/MainWindow.vala
-    src/Scratch.vala
-    src/Widgets/ShareMenu.vala
-    src/Widgets/Notebook.vala
-    src/Widgets/Tab.vala
-    src/Widgets/TabLabel.vala
-    src/Widgets/SplitView.vala
-    src/Widgets/ToolBar.vala
-    src/Dialogs/PreferencesDialog.vala
-    src/Dialogs/SaveDialog.vala
-    src/Dialogs/SaveOnCloseDialog.vala
-    src/Dialogs/WarnDialog.vala
-    src/Services/Document.vala
-    src/Services/ZeitgeistLogger.vala
-    src/Services/Encoding.vala
-    src/config.vala
-    src/Widgets/ComboSyntax.vala
-    src/Widgets/StatusBar.vala
-    src/Widgets/NotificationBar.vala
-PACKAGES
-    	${SCRATCH_DEPS}
-    scratchcore
-OPTIONS
-    --vapidir=${CMAKE_BINARY_DIR}/scratchcore
-    --vapidir=${CMAKE_SOURCE_DIR}/vapi
-    --thread
-    GENERATE_VAPI
-    scratch
-    GENERATE_HEADER
-    scratch
-)
-# tranlation stuff
 
-add_subdirectory(po)
-# add_definitions (${CFLAGS} -Wall -Winit-self -Wwrite-strings -Wunreachable-code -Wstrict-prototypes )
 
-add_executable (scratch-text-editor ${VALA_C})
-add_dependencies(scratch-text-editor scratchcore)
+# Some include paths
 include_directories(${CMAKE_BINARY_DIR}/scratchcore)
-include_directories(${CMAKE_BINARY_DIR}/lib)
-target_link_libraries (scratch-text-editor scratchcore)
-#TODO: Installation
+include_directories(${CMAKE_BINARY_DIR}/src)
 
-install (TARGETS scratch-text-editor RUNTIME DESTINATION bin)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/scratch-text-editor.desktop DESTINATION share/applications)
-install (FILES ${CMAKE_BINARY_DIR}/scratch.vapi DESTINATION share/vala/vapi/)
-install (FILES ${CMAKE_SOURCE_DIR}/src/scratch.deps DESTINATION share/vala/vapi/)
-install (FILES ${CMAKE_BINARY_DIR}/scratch.h DESTINATION include/scratch/)
-include(GSettings)
-add_schema("org.pantheon.scratch.gschema.xml")
+
+# Subdirectories
+add_subdirectory(src)
 add_subdirectory(scratchcore)
 add_subdirectory(plugins)
+add_subdirectory(po)
+
+
+# Data
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/scratch-text-editor.desktop DESTINATION share/applications)
