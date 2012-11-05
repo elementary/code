@@ -451,6 +451,11 @@ namespace Scratch.Services {
             else
                 window.toolbar.revert_button.set_sensitive (true);
             
+            /* Don't ask for save if it is an empty new file */
+            if (filename == null && (buffer.text == "" || buffer.text == null))
+                modified = false;
+                
+            
             window.search_manager.get_go_to_adj ().upper = buffer.text.split ("\n").length;
             
             check_session_manager ();
