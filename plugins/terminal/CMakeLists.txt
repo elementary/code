@@ -8,7 +8,7 @@ link_libraries (${VTE_LIBRARIES})
 link_directories (${VTE_LIBRARY_DIRS})
 
 vala_precompile(VALA_C
-    bash.vala
+    terminal.vala
 PACKAGES
     vte-2.90
     scratch
@@ -25,7 +25,7 @@ OPTIONS
     --vapidir=${CMAKE_SOURCE_DIR}/vapi/
     --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
 )
-add_library(scratchbash MODULE ${VALA_C})
-add_dependencies(scratchbash scratchcore scratch)
-install(TARGETS scratchbash DESTINATION lib/scratch/plugins/bash/)
-install(FILES bash.plugin DESTINATION lib/scratch/plugins/bash/)
+add_library(scratchterminal MODULE ${VALA_C})
+add_dependencies(scratchterminal scratchcore scratch)
+install(TARGETS scratchterminal DESTINATION lib/scratch/plugins/terminal/)
+install(FILES terminal.plugin DESTINATION lib/scratch/plugins/terminal/)
