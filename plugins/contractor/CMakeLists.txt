@@ -13,6 +13,7 @@ PACKAGES
     zeitgeist-1.0
 OPTIONS
     --vapidir=${CMAKE_BINARY_DIR}
+    --vapidir=${CMAKE_BINARY_DIR}/src/
     --vapidir=${CMAKE_SOURCE_DIR}/vapi/
     --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
 )

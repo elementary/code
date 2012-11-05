@@ -21,6 +21,7 @@ PACKAGES
 OPTIONS
     --thread
     --vapidir=${CMAKE_BINARY_DIR}
+    --vapidir=${CMAKE_BINARY_DIR}/src/
     --vapidir=${CMAKE_SOURCE_DIR}/vapi/
     --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
 )
