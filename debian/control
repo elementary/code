@@ -20,18 +20,14 @@ Build-Depends: cmake,
                libwebkitgtk-dev,
                libzeitgeist-dev,
                pkg-config,
-               valac-0.16 | valac (>= 0.16)
+                valac (>= 0.16)
 Standards-Version: 3.9.1
 Homepage: http://launchpad.net/scratch
-Vcs-Bzr: https://code.launchpad.net/~scratch-hackers/scratch/scratch
 
 Package: scratch-text-editor
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Pre-Depends: dpkg (>= 1.15.6)
-Replaces: scratch (<< 1.1-1)
-Conflicts: scratch (<< 1.1-1)
-Description: The text editor that works.
+Description: text editor written in Vala
  Scratch is the text editor that works for you. It auto-saves your files,
  meaning they're always up-to-date. Plus it remembers your tabs so you never
  lose your spot, even in between sessions.
@@ -59,9 +55,7 @@ Architecture: any
 Section: debug
 Priority: extra
 Depends: scratch-text-editor (= ${binary:Version}), ${misc:Depends}
-Pre-Depends: dpkg (>= 1.15.6)
-Enhances: scratch-text-editor
-Description: The text editor that works.
+Description: text editor written in Vala
  Scratch is the text editor that works for you. It auto-saves your files,
  meaning they're always up-to-date. Plus it remembers your tabs so you never
  lose your spot, even in between sessions.
