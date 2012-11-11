@@ -4,7 +4,7 @@
 export DEB_BUILD_OPTIONS=nocheck
 
 %:
-	dh $@ 
+	dh $@ --with gir
 
 override_dh_auto_install:
 	dh_auto_install --destdir=debian/scratch-text-editor
