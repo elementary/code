@@ -17,6 +17,7 @@ vala_precompile(VALA_C
         zeitgeist-1.0
     OPTIONS
         --vapidir=${CMAKE_BINARY_DIR}
+        --vapidir=${CMAKE_BINARY_DIR}/src/
         --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
     )
 add_library(scratchpastebin MODULE ${VALA_C})

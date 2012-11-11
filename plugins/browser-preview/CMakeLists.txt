@@ -22,6 +22,7 @@ OPTIONS
     --thread
     --vapidir=${CMAKE_BINARY_DIR}
     --vapidir=${CMAKE_SOURCE_DIR}/vapi/
+    --vapidir=${CMAKE_BINARY_DIR}/src/
     --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
 )
 add_library(scratchbrowserpreview MODULE ${VALA_C})
