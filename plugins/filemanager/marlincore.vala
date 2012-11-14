@@ -3,6 +3,7 @@ public class FMView : Gtk.ScrolledWindow
     FM.ListModel model;
     GOF.Directory.Async dir;
     Gtk.TreeView view;
+    Gtk.TreeSelection selection;
     public signal void select(GOF.File file);
     public FMView(GOF.File file)
     {
@@ -32,18 +33,24 @@ public class FMView : Gtk.ScrolledWindow
         column.set_attributes(renderer, "text", 2);
         renderer.ellipsize = Pango.EllipsizeMode.END;
         view.append_column(column);
-
+        
+        selection = view.get_selection ();
+        
         view.row_expanded.connect(on_expand);
-        view.row_activated.connect(on_activate);
+        selection.changed.connect (on_activate);//view.row_activated.connect(on_activate);
         view.headers_visible = false;
         view.enable_search = true;
         view.rules_hint = true;
         width_request = 200;
     }
 
-    void on_activate(Gtk.TreePath path, Gtk.TreeViewColumn col)
+    void on_activate()
     {
         //print(model.file_for_path(path).name + "\n");
+        Gtk.TreeIter? iter = null;
+        Gtk.TreeModel? mod = null;
+        selection.get_selected (out mod, out iter);
+        var path = view.model.get_path (iter);
         select(model.file_for_path(path));
     }
 
