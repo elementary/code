@@ -63,7 +63,12 @@ namespace Scratch.Widgets {
                     filech.add_button (Stock.CANCEL, ResponseType.CANCEL);
                     filech.add_button (Stock.OPEN, ResponseType.ACCEPT);
                     filech.set_default_response (ResponseType.ACCEPT);
-
+                    filech.key_press_event.connect ((ev) => {
+                        if (ev.keyval == 65307) // Esc key
+                            filech.destroy ();
+                        return false;
+                    });                    
+                    
                     if (filech.run () == ResponseType.ACCEPT) {
                         try {
                             var nf = File.new_for_path (filech.get_filename () + "/" + f.get_basename ());

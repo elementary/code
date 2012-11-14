@@ -109,7 +109,12 @@ namespace Scratch.Widgets {
                 filech.add_button (Stock.CANCEL, ResponseType.CANCEL);
                 filech.add_button (Stock.SAVE, ResponseType.ACCEPT);
                 filech.set_default_response (ResponseType.ACCEPT);
-
+                filech.key_press_event.connect ((ev) => {
+                    if (ev.keyval == 65307) // Esc key
+                        filech.destroy ();
+                    return false;
+                });
+                
                 var response = filech.run();
 
                 switch (response) {
@@ -180,7 +185,12 @@ namespace Scratch.Widgets {
                 filech.add_button (Stock.CANCEL, ResponseType.CANCEL);
                 filech.add_button (Stock.SAVE, ResponseType.ACCEPT);
                 filech.set_default_response (ResponseType.ACCEPT);
-
+                filech.key_press_event.connect ((ev) => {
+                    if (ev.keyval == 65307) // Esc key
+                        filech.destroy ();
+                    return false;
+                });
+                
                 if (this.filename != null)
                     filech.set_filename (this.filename);
 

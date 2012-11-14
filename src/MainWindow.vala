@@ -571,6 +571,11 @@ namespace Scratch {
             filech.add_button (Stock.OPEN, ResponseType.ACCEPT);
             filech.set_default_response (ResponseType.ACCEPT);
             filech.set_current_folder_uri (scratch_app.current_directory);
+            filech.key_press_event.connect ((ev) => {
+                if (ev.keyval == 65307) // Esc key
+                    filech.destroy ();
+                return false;
+            });
             var all_files_filter = new FileFilter();
             all_files_filter.set_filter_name(_("All files"));
             all_files_filter.add_pattern("*");
