@@ -107,8 +107,9 @@ namespace Scratch.Widgets {
         void on_page_removed(Gtk.Widget w, uint page_num) {
             
             // Focus new showed page
-            GLib.Idle.add (() => {
-                if (window.welcome_screen.get_parent () == null) {
+            GLib.Idle.add_full (GLib.Priority.LOW, () => {
+                bool has_focus = window.current_tab.text_view.has_visible_focus ();
+                if (window.welcome_screen.get_parent () == null && has_focus != true) {
                     window.current_document.focus_sourceview ();
                     return window.current_tab.text_view.has_visible_focus ();
                 } else return false;
