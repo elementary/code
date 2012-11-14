@@ -131,6 +131,7 @@ namespace Scratch {
             this.title = TITLE;
             this.icon_name = "accessories-text-editor";
             restore_saved_state ();
+            this.window_position = Gtk.WindowPosition.CENTER;
             
             //main actions
             main_actions = new Gtk.ActionGroup ("MainActionGroup"); /* Actions and UIManager */
