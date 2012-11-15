@@ -206,6 +206,8 @@ namespace Scratch {
             var context = new OptionContext("File");
             context.add_main_entries(entries, "scratch");
             context.add_group(Gtk.get_option_group(true));
+            context.set_ignore_unknown_options (true);
+            
             try {
                 context.parse(ref args);
             }

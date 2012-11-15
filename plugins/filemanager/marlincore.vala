@@ -37,21 +37,31 @@ public class FMView : Gtk.ScrolledWindow
         selection = view.get_selection ();
         
         view.row_expanded.connect(on_expand);
-        selection.changed.connect (on_activate);//view.row_activated.connect(on_activate);
+        selection.changed.connect (on_selection_changed);
+        //view.row_activated.connect(on_activate);
         view.headers_visible = false;
         view.enable_search = true;
         view.rules_hint = true;
         width_request = 200;
     }
 
-    void on_activate()
+    void on_selection_changed()
     {
-        //print(model.file_for_path(path).name + "\n");
+        // Getting objects...
         Gtk.TreeIter? iter = null;
         Gtk.TreeModel? mod = null;
         selection.get_selected (out mod, out iter);
         var path = view.model.get_path (iter);
-        select(model.file_for_path(path));
+        // If there is something to expand...
+        GOF.Directory.Async dir;
+        if(model.file_for_path (path).is_folder ()) {
+            model.load_subdirectory (path, out dir);
+            load_dir(dir);
+            dir.ref();
+        }
+        // else...
+        else
+            select(model.file_for_path(path));
     }
 
     void on_expand(Gtk.TreeIter iter, Gtk.TreePath path)
