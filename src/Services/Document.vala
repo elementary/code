@@ -264,11 +264,11 @@ namespace Scratch.Services {
                 GLib.Idle.add (() => {
                     buffer.begin_not_undoable_action ();
                     buffer.text = this.text;
+                    buffer.end_not_undoable_action ();
                     while (Gtk.events_pending ())
                         Gtk.main_iteration ();
                     return false;
                 });                
-                buffer.end_not_undoable_action ();
             }
             else
                 warning ("No buffer selected.");
