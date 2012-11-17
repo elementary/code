@@ -115,6 +115,7 @@ namespace Scratch.Services {
         private Gtk.SourceBuffer buffer;
         private SourceView source_view;
         private MainWindow window;
+        
         public File _file;
         public File? file { 
             get { 

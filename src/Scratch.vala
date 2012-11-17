@@ -232,7 +232,7 @@ namespace Scratch {
             var app = new ScratchApp ();
             
             plugins.plugin_iface.args = args;
-            
+
             return app.run (args);
 
         }
