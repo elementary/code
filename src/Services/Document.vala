@@ -202,8 +202,10 @@ namespace Scratch.Services {
             tab.change_syntax_highlight_for_filename (filename);
             window.current_notebook.set_current_page (window.current_notebook.add_existing_tab(tab));
 
-            open ();
-            
+            open.begin ((obj, res) => {
+                open.end (res);
+            });
+                        
             buffer.changed.connect (on_buffer_changed);
         }
 
@@ -218,7 +220,7 @@ namespace Scratch.Services {
         /**
          * Open the file and put it content inside the given buffer.
          **/
-        public bool open () {
+        private async bool open () {
 
             if (filename == null)
                 return false;
@@ -239,7 +241,7 @@ namespace Scratch.Services {
                     var text = new StringBuilder ();
                     string line;
                     size_t len;
-                    while ((line = dis.read_line (null)) != null) {
+                    while ((line = yield dis.read_line_async ()) != null) {
                         text.append (line);
                         text.append_c ('\n');
                     }
@@ -249,7 +251,7 @@ namespace Scratch.Services {
                 warning ("Couldn't open the file");
                 return false;
             }
-
+            
             if(!contents.validate()) 
                 contents = file_content_to_utf8 (file, contents);
             
@@ -259,8 +261,13 @@ namespace Scratch.Services {
             original_text = text = contents;
 
             if (buffer != null) {
-                buffer.begin_not_undoable_action ();
-                buffer.text = this.text;
+                GLib.Idle.add (() => {
+                    buffer.begin_not_undoable_action ();
+                    buffer.text = this.text;
+                    while (Gtk.events_pending ())
+                        Gtk.main_iteration ();
+                    return false;
+                });                
                 buffer.end_not_undoable_action ();
             }
             else
@@ -294,7 +301,7 @@ namespace Scratch.Services {
                 window.current_notebook.info_bar.no_show_all = true;
                 
             zg_log.open_insert(file.get_uri(), get_mime_type ());
-
+            
             return true;
 
         }
