@@ -1,8 +1,9 @@
+pkg_check_modules (WEBKIT REQUIRED "webkitgtk-3.0")
+if(${WEBKIT_FOUND})
 add_definitions(${NORMAL_CFLAGS})
 include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/scratchcore/)
 link_directories(${NORMAL_LINK_DIRS})
 
-pkg_check_modules (WEBKIT REQUIRED "webkitgtk-3.0")
 add_definitions (${WEBKIT_CFLAGS})
 link_libraries (${WEBKIT_LIBRARIES})
 link_directories (${WEBKIT_LIBRARY_DIRS})
@@ -25,7 +26,11 @@ OPTIONS
     --vapidir=${CMAKE_BINARY_DIR}/src/
     --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
 )
-add_library(scratchbrowserpreview MODULE ${VALA_C})
-add_dependencies(scratchbrowserpreview scratchcore scratch)
-install(TARGETS scratchbrowserpreview DESTINATION lib/scratch/plugins/browser-preview/)
+add_library(browserpreview MODULE ${VALA_C})
+add_dependencies(browserpreview scratchcore scratch)
+install(TARGETS browserpreview DESTINATION lib/scratch/plugins/browser-preview/)
 install(FILES browser-preview.plugin DESTINATION lib/scratch/plugins/browser-preview/)
+message("-- Browser preview plugin will be compiled")
+else()
+message("-- Browser preview plugin will NOT be compiled")
+endif()

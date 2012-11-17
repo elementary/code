@@ -20,11 +20,11 @@ vala_precompile(VALA_C
     	--vapidir=${CMAKE_BINARY_DIR}/src/
         --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
     )
-add_library(euclidefm MODULE ${VALA_C})
-target_link_libraries(euclidefm ${NORMAL_LIBRARIES} ${DEPS_FM_LIBRARIES})
-install(TARGETS euclidefm DESTINATION lib/scratch/plugins/fm/)
+add_library(filemanager MODULE ${VALA_C})
+target_link_libraries(filemanager ${NORMAL_LIBRARIES} ${DEPS_FM_LIBRARIES})
+install(TARGETS filemanager DESTINATION lib/scratch/plugins/fm/)
 install(FILES filemanager.plugin DESTINATION lib/scratch/plugins/fm/)
-add_dependencies(euclidefm scratchcore scratch)
+add_dependencies(filemanager scratchcore scratch)
 message("-- Filemanager plugin will be compiled")
 else()
 message("-- Filemanager plugin will NOT be compiled")

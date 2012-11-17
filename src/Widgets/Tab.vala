@@ -40,7 +40,7 @@ namespace Scratch.Widgets {
             scrolled_window.set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
 
             text_view = new SourceView ();
-
+            
             label = new TabLabel (this, labeltext);
             
             scrolled_window.add (text_view);

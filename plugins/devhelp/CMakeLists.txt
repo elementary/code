@@ -1,8 +1,9 @@
+pkg_check_modules (DEVHELP REQUIRED "libdevhelp-3.0")
+if (${DEVHELP_FOUND})
 add_definitions(${NORMAL_CFLAGS})
 include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/scratchcore/)
 link_directories(${NORMAL_LINK_DIRS})
 
-pkg_check_modules (DEVHELP REQUIRED "libdevhelp-3.0")
 add_definitions (${DEVHELP_CFLAGS})
 link_libraries (${DEVHELP_LIBRARIES})
 link_directories (${DEVHELP_LIBRARY_DIRS})
@@ -32,7 +33,11 @@ OPTIONS
     --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
     ${VALAFLAGS}
 )
-add_library(scratchdevhelp MODULE ${VALA_C})
-add_dependencies(scratchdevhelp scratchcore scratch)
-install(TARGETS scratchdevhelp DESTINATION lib/scratch/plugins/devhelp/)
+add_library(devhelp MODULE ${VALA_C})
+add_dependencies(devhelp scratchcore scratch)
+install(TARGETS devhelp DESTINATION lib/scratch/plugins/devhelp/)
 install(FILES devhelp.plugin DESTINATION lib/scratch/plugins/devhelp/)
+message("-- DevHelp plugin will be compiled")
+else()
+message("-- DevHelp plugin will NOT be compiled")
+endif()
