@@ -52,9 +52,6 @@ namespace Scratch.Widgets {
 
             restore_settings ();
 
-            // Simple default configuration
-            set_wrap_mode (Gtk.WrapMode.WORD);
-
             buffer.highlight_syntax = true;
             
             smart_home_end = SourceSmartHomeEndType.AFTER;
@@ -186,11 +183,13 @@ namespace Scratch.Widgets {
             else draw_spaces = SourceDrawSpacesFlags.NBSP;
             insert_spaces_instead_of_tabs = Scratch.settings.spaces_instead_of_tabs;
             tab_width = (uint) Scratch.settings.indent_width;
-
+            if (settings.line_break) set_wrap_mode (Gtk.WrapMode.CHAR);
+            else set_wrap_mode (Gtk.WrapMode.NONE);
+            
             current_font = Scratch.settings.font;
             use_default_font (Scratch.settings.use_system_font);
             modify_font (Pango.FontDescription.from_string (current_font));
-
+            
             buffer.style_scheme = style_scheme_manager.get_scheme (Scratch.settings.style_scheme);
 
         }

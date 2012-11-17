@@ -42,6 +42,7 @@ namespace Scratch {
     public class Settings : Granite.Services.Settings {
 
         public bool show_line_numbers { get; set; }
+        public bool line_break { get; set; }
         public bool highlight_current_line { get; set; }
         public bool highlight_matching_brackets { get; set; }
         public bool draw_spaces { get; set; }
