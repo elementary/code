@@ -39,7 +39,8 @@ namespace Scratch {
         public string current_directory = ".";
         
         // Signals
-        public signal void file_opened (Document doc);
+        public signal void document_opened (Document doc);
+        public signal void document_closed (Document doc);
         
         construct {
 
@@ -136,12 +137,15 @@ namespace Scratch {
             var document = new Document(filename, window);
             document.create_sourceview ();
             documents.append (document);
-            document.closed.connect( (doc) => { documents.remove(doc); });
+            document.closed.connect( (doc) => { 
+                documents.remove(doc); 
+                document_closed (doc);
+            });
             document.tab.make_backup ();
             /* FIXME : filename is still encoded as uri */
             window.set_window_title (filename);
             
-            file_opened (document);
+            document_opened (document);
             
             return document;
 
