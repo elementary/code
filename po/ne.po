@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-10-29 20:54+0100\n"
+"POT-Creation-Date: 2012-11-17 18:52+0100\n"
 "PO-Revision-Date: 2012-07-06 00:17+0000\n"
 "Last-Translator: प्रबिण ( Prabin ) दाहाल ( Dahal ) <Unknown>\n"
 "Language-Team: Nepali <ne@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-11-10 05:21+0000\n"
-"X-Generator: Launchpad (build 16251)\n"
+"X-Launchpad-Export-Date: 2012-11-18 04:53+0000\n"
+"X-Generator: Launchpad (build 16278)\n"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:13
 msgid "Edit text files"
@@ -34,29 +34,29 @@ msgstr ""
 msgid "New Window"
 msgstr "नयाँ सञ्झ्याल"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:185
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:190
 msgid "Zeitgeist Datasource for Scratch"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:502
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:511
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:997
 msgid "Preferences"
 msgstr "रोजाइहरु"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:567
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:569
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:982
 msgid "Open a file"
 msgstr "फाइल खोल्नुहोस्"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:574
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:581
 msgid "All files"
 msgstr "सबै फाईलरहरु"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:577
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:584
 msgid "Text files"
 msgstr "पाठ फाइलहरू"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:664
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:671
 msgid "Trash"
 msgstr ""
 
@@ -91,9 +91,9 @@ msgid "Replace"
 msgstr "बदल्नुहोस्"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:940
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:125
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:126
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:182
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:381
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:390
 msgid "New document"
 msgstr "नयाँ कागजात"
 
@@ -170,7 +170,7 @@ msgstr "यो फाइल बचत गर्नुहोस"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:989
 #: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:108
-#: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:179
+#: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:184
 msgid "Save as"
 msgstr "यस रुपमा बचत गर्नुहोस्"
 
@@ -216,19 +216,23 @@ msgstr "स्थिति पट्टि"
 msgid "Bottom Panel"
 msgstr "तल्लो पट्टीका"
 
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:174
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:179
 msgid "There are unsaved changes in Scratch!"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:192
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:197
 msgid "Set of plugins"
 msgstr "प्लग्ईनका दल"
 
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:193
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:198
+msgid "To generate introspection file (only for developers)."
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:199
 msgid "Argument for the set of plugins"
 msgstr "प्लग्इन दलका निमित्त तर्कहरू"
 
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:194
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:200
 msgid "Create a new instance"
 msgstr "नयाँ द्ृष्तान्ट सिर्जना गर्नुहोस्"
 
@@ -241,7 +245,7 @@ msgid "Choose the new location"
 msgstr "नयाँ स्थल चुन्नुहोस्"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
-#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:101
+#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:98
 msgid "Normal text"
 msgstr "सामान्य पाठ"
 
@@ -249,27 +253,27 @@ msgstr "सामान्य पाठ"
 msgid "Share"
 msgstr "साझा गर्नुहोस्"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:177
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:183
 msgid "No files are open."
 msgstr "कुनैपनि कागजातहरू खु्ल्ला छैनन्"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:177
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:183
 msgid "Open a file to begin editing."
 msgstr "सम्पादनको निमित्त  एउटा कागजात खोल्नुहोस्"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:179
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Open file"
 msgstr "फाइल खोल्नुहोस्"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:179
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Open a saved file."
 msgstr "बचत गरिएको कागजात खोल्नुहोस्"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:180
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:186
 msgid "New file"
 msgstr "नयाँ कागजात"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:180
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:186
 msgid "Create a new empty file."
 msgstr "नयाँ शुन्य कागजात खोल्नुहोस्"
 
@@ -291,95 +295,99 @@ msgstr ""
 msgid "Do you want to create it again?"
 msgstr "यसलाई पुन: निर्माण गर्न चाहनुहुन्छ?"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:68
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:69
 msgid "Behavior"
 msgstr "व्यवहार"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:72
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
 msgid "Interface"
 msgstr "इन्टरफेस"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:77
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:78
 msgid "Extensions"
 msgstr "विस्तारहरू"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:120
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
 msgid "Show welcome screen"
 msgstr "स्वागतम् पर्दा देखाउनुहोस्"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:122
 msgid "Show last open tabs"
 msgstr "अगाडि खोलिएको ट्यावहरू देखाउनुहोस्"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:137
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:138
 msgid "General:"
 msgstr "साधारण:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:143
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:144
 msgid "When Scratch starts:"
 msgstr "जब श्क्र्याच प्रारम्भ हुन्छ:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:146
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
 msgid "Save files when changed:"
 msgstr "बदलिएका कागजातहरू बचत गर्नुहोस्"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:151
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Tabs:"
 msgstr "ट्यावहरू"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:156
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:157
 msgid "Automatic indentation:"
 msgstr "स्वत: दाती"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:160
 msgid "Insert spaces instead of tabs:"
 msgstr "ट्यावको बदलामा स्थान् थप्नुहोस्"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:163
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:164
 msgid "Tab width:"
 msgstr "ट्यावको चौडाई"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:191
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:192
 msgid "Editor:"
 msgstr "सम्पादक्"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:206
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:210
 msgid "Highlight current line:"
 msgstr "चालु रेखालाई"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:207
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:211
 msgid "Highlight matching brackets:"
 msgstr "कोष्ठकहरूको जोडलाई हाइलाईट"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:212
+msgid "Split long text in many lines:"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:213
 msgid "Draw spaces:"
 msgstr "स्थान् खिच्नुहोस्"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:209
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:214
 msgid "Show line numbers:"
 msgstr "पंक्ती संख्या देखाउनुहोस्"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:212
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:217
 msgid "Show margin on right:"
 msgstr "दाँयातिर किनारा देखाउनुहोस्"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:219
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
 msgid "Margin width:"
 msgstr "किनारा चौडाई"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:229
 msgid "Font and Color Scheme:"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:238
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:243
 msgid "Select font:"
 msgstr "अक्षर चयन गर्नुहोस्"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:241
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:246
 msgid "Color scheme:"
 msgstr "रंग पद्धती"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:246
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:251
 msgid "Custom font:"
 msgstr "दस्तर अक्षर"
 
@@ -415,21 +423,21 @@ msgstr "परिवर्तित यस कागजातलाई बचत
 msgid "Do you want to save changes before closing this file?"
 msgstr "यस परिवर्तित कागजातलाई बन्द गर्नु अगाडी बचत गर्न चाहनुहुन्छ?"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:288
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:528
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:295
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:542
 msgid "You can't save changes to:"
 msgstr "यसमा बचत गर्न सक्नुहुन्न"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:288
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:528
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:295
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:542
 msgid "Do you want to save the changes to this file in a different location?"
 msgstr "के तपाईं यो कागजातलाई अन्य स्थानमा बचत गर्न चाहनुहुन्छ?"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:562
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:576
 msgid "There are unsaved changes!"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:95
+#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:92
 msgid "Syntax Highlighting"
 msgstr "वाक्य-संरचना हाइलाइटिङ"
 
@@ -499,16 +507,4 @@ msgstr "एक महिना"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/filemanager.vala:29
 msgid "Files"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:52
-msgid "Copy"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:59
-msgid "Paste"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:89
-msgid "Terminal"
 msgstr ""

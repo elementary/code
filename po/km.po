@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-10-29 20:54+0100\n"
+"POT-Creation-Date: 2012-11-17 18:52+0100\n"
 "PO-Revision-Date: 2012-09-09 06:50+0000\n"
 "Last-Translator: Adam Wood <Unknown>\n"
 "Language-Team: Khmer <km@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-11-10 05:21+0000\n"
-"X-Generator: Launchpad (build 16251)\n"
+"X-Launchpad-Export-Date: 2012-11-18 04:53+0000\n"
+"X-Generator: Launchpad (build 16278)\n"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:13
 msgid "Edit text files"
@@ -34,29 +34,29 @@ msgstr "ឯកសារ​ថ្មី"
 msgid "New Window"
 msgstr "បង្អួច​ថ្មី"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:185
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:190
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "ប្រភព​ទិន្នន័យ Zeitgeist សំរាប់ Scratch"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:502
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:511
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:997
 msgid "Preferences"
 msgstr "ចំណង់​ចំណូល​ចិត្ត"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:567
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:569
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:982
 msgid "Open a file"
 msgstr "បើក​​ឯកសារ"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:574
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:581
 msgid "All files"
 msgstr "ឯកសារ​​ទាំង​អស់"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:577
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:584
 msgid "Text files"
 msgstr "ឯកសារ​​អត្ថបទ"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:664
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:671
 msgid "Trash"
 msgstr "ធុង​​សំរាម"
 
@@ -91,9 +91,9 @@ msgid "Replace"
 msgstr "ជំនួស"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:940
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:125
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:126
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:182
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:381
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:390
 msgid "New document"
 msgstr "ឯកសារ​ថ្មី"
 
@@ -170,7 +170,7 @@ msgstr "រក្សា​ទុក​ឯកសារ​បច្ចុប្ប
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:989
 #: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:108
-#: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:179
+#: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:184
 msgid "Save as"
 msgstr "រក្សា​ទុក​ជា"
 
@@ -216,19 +216,23 @@ msgstr "របារស្ថានភាព"
 msgid "Bottom Panel"
 msgstr "បន្ទះ​ខាង​ក្រោម"
 
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:174
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:179
 msgid "There are unsaved changes in Scratch!"
 msgstr "មាន​ការ​ប្រែ​ប្រួល​ដែល​មិន​ទាន់​រក្សា​ទុកក្នុង Scratch នៅ​ឡើយ !"
 
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:192
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:197
 msgid "Set of plugins"
 msgstr "សំណុំ​កម្ម​វិធី​ជំនួយ"
 
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:193
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:198
+msgid "To generate introspection file (only for developers)."
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:199
 msgid "Argument for the set of plugins"
 msgstr "អាគុយម៉ង់​សំរាប់​សំណុំ​កម្ម​វិធី​ជំនួយ"
 
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:194
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:200
 msgid "Create a new instance"
 msgstr "បង្កើត​វត្ថុ​ថ្មីឡើង"
 
@@ -241,7 +245,7 @@ msgid "Choose the new location"
 msgstr "ជ្រើស​រើស​ទី​តាំង​ថ្មី"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
-#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:101
+#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:98
 msgid "Normal text"
 msgstr "អត្ថបទ​ធម្មតា"
 
@@ -249,27 +253,27 @@ msgstr "អត្ថបទ​ធម្មតា"
 msgid "Share"
 msgstr "ចែក​រំលែក"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:177
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:183
 msgid "No files are open."
 msgstr "គ្មាន​ឯកសារ​បើក​ឡើង​ទេ ។"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:177
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:183
 msgid "Open a file to begin editing."
 msgstr "បើក​ឯកសារ​ឡើង​ដើម្បី​ចាប់ផ្ដើម​កែ​សម្រួល"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:179
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Open file"
 msgstr "បើក​​ឯកសារ"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:179
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Open a saved file."
 msgstr "បើក​ឯកសារ​ដែល​បាន​រក្សា​ទុក"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:180
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:186
 msgid "New file"
 msgstr "ឯកសារ​ថ្មី"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:180
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:186
 msgid "Create a new empty file."
 msgstr "បង្កើត​ឯកសារ​ទទេ​ថ្មី"
 
@@ -291,95 +295,99 @@ msgstr "ឯកសារ %s បាន​លុប​ចោល​ហើយ ។"
 msgid "Do you want to create it again?"
 msgstr "តើ​អ្នក​ចង់​បង្កើត​វា​ឡើង​វិញ​ម្ដង​ទៀត​ឬ​ទេ ?"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:68
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:69
 msgid "Behavior"
 msgstr "ឥរិយាបថ"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:72
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
 msgid "Interface"
 msgstr "ចំណុច​ប្រទាក់"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:77
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:78
 msgid "Extensions"
 msgstr "ផ្នែក​បន្ថែម"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:120
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
 msgid "Show welcome screen"
 msgstr "បង្ហាញ​អេក្រង់​ស្វាគមន៍"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:122
 msgid "Show last open tabs"
 msgstr "បង្ហាញ​ផ្ទាំង​ដែល​បើក​ចុង​ក្រោយ"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:137
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:138
 msgid "General:"
 msgstr "ទូទៅ ៖"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:143
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:144
 msgid "When Scratch starts:"
 msgstr "ពេល Scratch ចាប់​ផ្ដើម ៖"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:146
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
 msgid "Save files when changed:"
 msgstr "រក្សា​ទុក​ឯកសារ​ពេល​ប្រែ​ប្រួល ៖"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:151
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Tabs:"
 msgstr "ផ្ទាំង ៖"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:156
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:157
 msgid "Automatic indentation:"
 msgstr "ការ​ចូល​បន្ទាត់​ស្វ័យ​ប្រវត្តិ ៖"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:160
 msgid "Insert spaces instead of tabs:"
 msgstr "បញ្ចូល​ចន្លោះ​ជំនួស​ថេប ៖"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:163
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:164
 msgid "Tab width:"
 msgstr "ទទឹង​ថេប ៖"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:191
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:192
 msgid "Editor:"
 msgstr "កម្ម​វិធី​និពន្ធ ៖"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:206
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:210
 msgid "Highlight current line:"
 msgstr "បន្លិច​បន្ទាត់​បច្ចុប្បន្ន ៖"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:207
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:211
 msgid "Highlight matching brackets:"
 msgstr "បន្លិច​តង្កៀប​ដែល​ផ្គូផ្គង ៖"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:212
+msgid "Split long text in many lines:"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:213
 msgid "Draw spaces:"
 msgstr "គូរ​ចន្លោះ ៖"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:209
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:214
 msgid "Show line numbers:"
 msgstr "បង្ហាញ​លេខ​របស់​បន្ទាត់ ៖"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:212
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:217
 msgid "Show margin on right:"
 msgstr "បង្ហាញ​រឹម​ខាង​ស្ដាំ ៖"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:219
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
 msgid "Margin width:"
 msgstr "ទទឹង​រឹម ៖"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:229
 msgid "Font and Color Scheme:"
 msgstr "គ្រោង​ការណ៍​របស់​ពុម្ព​អក្សរ​និង​ពណ៌ ៖"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:238
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:243
 msgid "Select font:"
 msgstr "ជ្រើស​រើស​ពុម្ព​អក្សរ ៖"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:241
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:246
 msgid "Color scheme:"
 msgstr "គ្រោង​ការណ៍​របស់​ពណ៌ ៖"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:246
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:251
 msgid "Custom font:"
 msgstr "ពុម្ព​អក្សរ​ផ្ទាល់​ខ្លួន ៖"
 
@@ -418,23 +426,23 @@ msgstr "ការ​ប្រែ​ប្រួល​ក្នុង​ឯកស
 msgid "Do you want to save changes before closing this file?"
 msgstr "តើ​អ្នក​ចង់​រក្សា​ទុក​ការ​ប្រែ​ប្រួល​មុន​បិទ​ឯកសារ​នេះ​ឬ​ទេ ?"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:288
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:528
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:295
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:542
 msgid "You can't save changes to:"
 msgstr "មិន​អាច​រក្សា​ទុក​ការ​ប្រែ​ប្រួល​ដល់ ៖"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:288
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:528
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:295
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:542
 msgid "Do you want to save the changes to this file in a different location?"
 msgstr ""
 "តើ​អ្នក​ចង់​រក្សា​ទុក​ការ​ប្រែ​ប្រួល​ក្នុង​ឯកសារ​នេះ "
 "នៅ​ទី​តាំង​មួយ​ផ្សេង​ទៀត​ឬ​ទេ ?"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:562
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:576
 msgid "There are unsaved changes!"
 msgstr "មាន​ការ​ប្រែ​ប្រួល​ដែល​មិន​ទាន់​រក្សា​ទុក​នៅ​ឡើយ !"
 
-#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:95
+#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:92
 msgid "Syntax Highlighting"
 msgstr "ការ​បន្លិច​វាក្យសម្ពន្ធ"
 
@@ -505,15 +513,3 @@ msgstr "មួយ​ខែ"
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/filemanager.vala:29
 msgid "Files"
 msgstr "ឯកសារ"
-
-#: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:52
-msgid "Copy"
-msgstr "ចម្លង"
-
-#: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:59
-msgid "Paste"
-msgstr "បិទ​ភ្ជាប់"
-
-#: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:89
-msgid "Terminal"
-msgstr "ស្ថានីយ៍"

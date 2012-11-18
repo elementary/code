@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-10-29 20:54+0100\n"
+"POT-Creation-Date: 2012-11-17 18:52+0100\n"
 "PO-Revision-Date: 2012-08-05 09:27+0000\n"
 "Last-Translator: KombuchaMushroom <enekosar@gmail.com>\n"
 "Language-Team: Basque <eu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-11-10 05:21+0000\n"
-"X-Generator: Launchpad (build 16251)\n"
+"X-Launchpad-Export-Date: 2012-11-18 04:53+0000\n"
+"X-Generator: Launchpad (build 16278)\n"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:13
 msgid "Edit text files"
@@ -34,29 +34,29 @@ msgstr "Dokumentu berria"
 msgid "New Window"
 msgstr "Leiho berria"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:185
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:190
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Scratch-entzako Zeitgeist datu-iturburua"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:502
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:511
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:997
 msgid "Preferences"
 msgstr "Hobespenak"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:567
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:569
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:982
 msgid "Open a file"
 msgstr "Ireki fitxategi bat"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:574
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:581
 msgid "All files"
 msgstr "Fitxategi guztiak"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:577
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:584
 msgid "Text files"
 msgstr "Testu-fitxategiak"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:664
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:671
 msgid "Trash"
 msgstr "Zakarrontzia"
 
@@ -91,9 +91,9 @@ msgid "Replace"
 msgstr "Ordezkatu"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:940
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:125
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:126
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:182
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:381
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:390
 msgid "New document"
 msgstr "Dokumentu berria"
 
@@ -170,7 +170,7 @@ msgstr "Gorde uneko fitxategia"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:989
 #: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:108
-#: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:179
+#: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:184
 msgid "Save as"
 msgstr "Gorde honela"
 
@@ -216,19 +216,23 @@ msgstr "Egoera-barra"
 msgid "Bottom Panel"
 msgstr "Beheko panela"
 
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:174
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:179
 msgid "There are unsaved changes in Scratch!"
 msgstr "Gorde gabeko aldaketak daude Scratch-en!"
 
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:192
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:197
 msgid "Set of plugins"
 msgstr "Plugin-sorta"
 
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:193
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:198
+msgid "To generate introspection file (only for developers)."
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:199
 msgid "Argument for the set of plugins"
 msgstr "Plugin-sortaren argumentuak"
 
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:194
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:200
 msgid "Create a new instance"
 msgstr "Sortu instantzia berri bat"
 
@@ -241,7 +245,7 @@ msgid "Choose the new location"
 msgstr "Aukeratu kokapen berria"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
-#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:101
+#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:98
 msgid "Normal text"
 msgstr "Testu normala"
 
@@ -249,27 +253,27 @@ msgstr "Testu normala"
 msgid "Share"
 msgstr "Partekatu"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:177
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:183
 msgid "No files are open."
 msgstr "Ez dago fitxategirik irekita."
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:177
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:183
 msgid "Open a file to begin editing."
 msgstr "Ireki fitxategi bat editatzen hasteko."
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:179
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Open file"
 msgstr "Ireki fitxategia"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:179
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Open a saved file."
 msgstr "Ireki gordetako fitxategi bat."
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:180
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:186
 msgid "New file"
 msgstr "Fitxategi berria"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:180
+#: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:186
 msgid "Create a new empty file."
 msgstr "Sortu fitxategi huts berri bat."
 
@@ -291,95 +295,99 @@ msgstr "%s fitxategia ezabatua izan da."
 msgid "Do you want to create it again?"
 msgstr "Berriz sortu nahi duzu?"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:68
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:69
 msgid "Behavior"
 msgstr "Portaera"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:72
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
 msgid "Interface"
 msgstr "Interfazea"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:77
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:78
 msgid "Extensions"
 msgstr "Hedapenak"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:120
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
 msgid "Show welcome screen"
 msgstr "Erakutsi ongietorri pantaila"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:122
 msgid "Show last open tabs"
 msgstr "Erakutsi irekitako azken fitxak"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:137
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:138
 msgid "General:"
 msgstr "Orokorra:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:143
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:144
 msgid "When Scratch starts:"
 msgstr "Scratch hasten denean:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:146
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
 msgid "Save files when changed:"
 msgstr "Gorde fitxategiak aldatzean:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:151
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Tabs:"
 msgstr "Fitxak:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:156
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:157
 msgid "Automatic indentation:"
 msgstr "Koska automatikoa:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:160
 msgid "Insert spaces instead of tabs:"
 msgstr "Txertatu zuriuneak tabuladoreen ordez:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:163
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:164
 msgid "Tab width:"
 msgstr "Tabuladorearen zabalera:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:191
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:192
 msgid "Editor:"
 msgstr "Editorea:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:206
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:210
 msgid "Highlight current line:"
 msgstr "Nabarmendu uneko lerroa:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:207
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:211
 msgid "Highlight matching brackets:"
 msgstr "Nabarmendu parentesi pareak:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:212
+msgid "Split long text in many lines:"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:213
 msgid "Draw spaces:"
 msgstr "Marraztu zuriuneak:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:209
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:214
 msgid "Show line numbers:"
 msgstr "Erakutsi lerro zenbakiak:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:212
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:217
 msgid "Show margin on right:"
 msgstr "Erakutsi marjina eskuinaldean:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:219
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
 msgid "Margin width:"
 msgstr "Marjinaren zabalera:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:229
 msgid "Font and Color Scheme:"
 msgstr "Letra-tipoa eta Koloreak"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:238
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:243
 msgid "Select font:"
 msgstr "Aukeratu letra-tipoa:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:241
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:246
 msgid "Color scheme:"
 msgstr "Kolore-eskema:"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:246
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:251
 msgid "Custom font:"
 msgstr "Letra-tipo pertsonalizatua:"
 
@@ -415,22 +423,22 @@ msgstr "Fitxategi honen aldaketak ez dira gorde."
 msgid "Do you want to save changes before closing this file?"
 msgstr "Aldaketak gorde nahi dituzu fitxategi hau itxi aurretik?"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:288
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:528
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:295
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:542
 msgid "You can't save changes to:"
 msgstr "Ezin dituzu hemen aldaketak gorde:"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:288
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:528
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:295
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:542
 msgid "Do you want to save the changes to this file in a different location?"
 msgstr ""
 "Fitxategi honi egindako aldaketak beste kokapen batean gorde nahi dituzu?"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:562
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:576
 msgid "There are unsaved changes!"
 msgstr "Gorde gabeko aldaketak daude!"
 
-#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:95
+#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:92
 msgid "Syntax Highlighting"
 msgstr "Sintaxiaren nabarmentzea"
 
@@ -501,15 +509,3 @@ msgstr "Hilabete bat"
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/filemanager.vala:29
 msgid "Files"
 msgstr "Fitxategiak"
-
-#: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:52
-msgid "Copy"
-msgstr "Kopiatu"
-
-#: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:59
-msgid "Paste"
-msgstr "Itsatsi"
-
-#: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:89
-msgid "Terminal"
-msgstr "Terminala"
