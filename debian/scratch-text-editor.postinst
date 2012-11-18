@@ -2,28 +2,15 @@
 
 set -e
 
-install_scratch_to_alternatives() {
-    # register scratch-text-editor as a gnome-text-editor in the alternatives system
-    update-alternatives \
-        --install \
-            /usr/bin/gnome-text-editor \
-            gnome-text-editor \
-            /usr/bin/scratch-text-editor \
-            50 # same as Gedit
-    }
-
 case "$1" in
     configure)
-        install_scratch_to_alternatives
-    ;;
-
-    upgrade)
-        # check if the old name is registered in alternatives
-        if ( update-alternatives --list gnome-text-editor | grep -E -q '^/usr/bin/scratch$' ); then
-            # if it is, remove it and install the new name
-            update-alternatives --remove gnome-text-editor /usr/bin/scratch || true
-            install_scratch_to_alternatives
-        fi
+        # register scratch as a gnome-text-editor in the alternatives system
+        update-alternatives \
+            --install \
+                /usr/bin/gnome-text-editor \
+                gnome-text-editor \
+                /usr/bin/scratch-text-editor \
+                50 \
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
@@ -34,5 +21,6 @@ case "$1" in
         exit 0
     ;;
 esac
+
 
 #DEBHELPER#
