@@ -22,7 +22,7 @@ public class Scratch.Plugins.SpellCheck : Peas.ExtensionBase,  Peas.Activatable
 {
 
     string lang;   
-      
+
     Interface plugins;
     public Object object { owned get; construct; }
    
@@ -48,7 +48,7 @@ public class Scratch.Plugins.SpellCheck : Peas.ExtensionBase,  Peas.Activatable
     public void on_new_source_view (Object obj) {
         var view = obj as Gtk.TextView;
         try {
-            var spell = new Gtk.Spell.attach (view, lang);   
+            var spell = new Gtk.Spell.attach (view, lang);
         } catch (Error e) {
             warning (e.message);
         }

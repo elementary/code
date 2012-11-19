@@ -803,11 +803,10 @@ namespace Scratch {
         }
 
         void action_revert () {
-            current_tab.document.backup ();
-            var file = File.new_for_path (current_tab.document.filename);
+            current_document.backup ();
 
-            if (file.query_exists ())
-                current_tab.document.save ();
+            if (current_document.file.query_exists ())
+                current_document.save ();
         }
         
         void action_duplicate () {

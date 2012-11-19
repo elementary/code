@@ -127,6 +127,18 @@ namespace Scratch.Services {
                     return null;
             } 
         }
+        public File _backup_file;
+        public File? backup_file {
+        get { 
+                if (file != null) {
+                    _backup_file = File.new_for_uri (filename + "~"); 
+                    return _backup_file;
+                }
+                else
+                    return null;
+            } 
+        }
+        
         private static string home_dir = Environment.get_home_dir ();
         public Tab tab;
         /**
@@ -236,12 +248,12 @@ namespace Scratch.Services {
             }
             
             string contents = null;
+            
             try {
                 if (file != null) {
                     var dis = new DataInputStream (file.read ());
                     var text = new StringBuilder ();
                     string line;
-                    size_t len;
                     while ((line = yield dis.read_line_async ()) != null) {
                         text.append (line);
                         text.append_c ('\n');
@@ -253,8 +265,10 @@ namespace Scratch.Services {
                 return false;
             }
             
-            if(!contents.validate()) 
-                contents = file_content_to_utf8 (file, contents);
+            if(!contents.validate()) {
+               size_t br, bw;
+               debug (contents.locale_to_utf8 (-1, out br, out bw));//file_content_to_utf8 (file, contents);
+            }
             
             if (contents == null)
                 warning ("Couldn't read file's content: " + file.get_basename ());
@@ -306,7 +320,34 @@ namespace Scratch.Services {
             return true;
 
         }
+        
+        public void make_backup () {
+            if (!settings.make_backup)
+                return;
+            
+            /* Check for the requested permissions */
+            if (this.state == Services.DocumentStates.READONLY)
+               return; 
+            
+            var or = File.new_for_uri (this.filename);
+            var bk = File.new_for_uri (this.filename + "~");
 
+            if (!bk.query_exists ()) {
+                try {
+                    or.copy (bk, FileCopyFlags.NONE);
+                } catch (Error e) {
+                    warning (e.message);
+                }
+            }
+        }
+        
+        public bool backup_exists () {
+            if (filename == null)
+                return false;
+            else
+                return backup_file.query_exists ();
+        }
+        
         public bool backup () {
             
             if (!settings.make_backup)
@@ -359,9 +400,9 @@ namespace Scratch.Services {
         
         public void delete_backup () {
             var bk = File.new_for_uri (filename + "~");
-            if (bk != null && bk.query_exists ()) {
+            if (backup_file != null && backup_file.query_exists ()) {
                 try {
-                    bk.delete ();
+                    backup_file.delete ();
                 } catch (Error e) {
                     debug ("Cannot delete %s~, it doesn't exist", filename);
                 }
@@ -438,14 +479,12 @@ namespace Scratch.Services {
                         modified = false;*/
                     }
                     else {
-                        window.main_actions.get_action ("Revert").set_sensitive (true);
                         set_label_font ("modified");
                         modified = true;
                         tab.text_view.modified = true;
                     }
                 }
                 else {
-                    window.main_actions.get_action ("Revert").set_sensitive (false);
                     set_label_font ("modified");
                     modified = true;
                     tab.text_view.modified = true;
@@ -454,10 +493,10 @@ namespace Scratch.Services {
             if (state == DocumentStates.READONLY) modified = false;
             
             /* Set revert button sensitive */
-            if (original_text == source_view.buffer.text)
-                window.toolbar.revert_button.set_sensitive (false);
+            if (filename == null)
+                window.main_actions.get_action ("Revert").set_sensitive (false);
             else
-                window.toolbar.revert_button.set_sensitive (true);
+                window.main_actions.get_action ("Revert").set_sensitive ((!(original_text == source_view.buffer.text) && backup_exists ()));
             
             /* Don't ask for save if it is an empty new file */
             if (filename == null && (buffer.text == "" || buffer.text == null))
@@ -480,10 +519,7 @@ namespace Scratch.Services {
             
             /* Set the right highligh_current_line setting again */
             source_view.set_highlight_current_line (settings.highlight_current_line);
-            
-            if (filename != null)
-                window.main_actions.get_action ("Revert").set_sensitive (true);
-            
+
             /* First, we check that this is a real file, and not a new document */
             if (filename == null && settings.autosave == false) {
                 window.toolbar.save_button.set_sensitive (true);
@@ -517,10 +553,10 @@ namespace Scratch.Services {
             }
  
             /* Set revert button sensitive */
-            if (original_text == source_view.buffer.text)
-                window.toolbar.revert_button.set_sensitive (false);
+            if (filename == null)
+                window.main_actions.get_action ("Revert").set_sensitive (false);
             else
-                window.toolbar.revert_button.set_sensitive (true);
+                window.main_actions.get_action ("Revert").set_sensitive ((!(original_text == source_view.buffer.text) && backup_exists ()));
             
             /* Set undo/redo buttons sensitive */
             window.set_undo_redo ();
@@ -600,6 +636,8 @@ namespace Scratch.Services {
                 modified = false;
                 force_normal_state = true;
                 
+                make_backup ();
+                
                 string contents = null;   
                 try {
                     contents = FileHandler.load_content_from_uri (filename);
@@ -634,6 +672,8 @@ namespace Scratch.Services {
                 modified = false;
                 _state = DocumentStates.NORMAL;
                 force_normal_state = true;
+                
+                make_backup ();
                 
                 string contents;   
                 try {

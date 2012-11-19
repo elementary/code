@@ -137,6 +137,7 @@ namespace Scratch.Widgets {
             message ("Saving: %s", this.filename);
 
             try {
+
                 document.filename = this.filename;
                     
                 uint8[] data = text_view.buffer.text.data;
@@ -216,9 +217,7 @@ namespace Scratch.Widgets {
             message ("Saving: %s", this.filename);
 
             try {
-     
-                if (settings.make_backup) make_backup ();
-                
+                     
                 if (!document.exists) {
                     FileUtils.set_contents (this.filename, this.text_view.buffer.text);
                 }
@@ -258,26 +257,6 @@ namespace Scratch.Widgets {
 
             }
 
-        }
-        
-        public void make_backup () {
-            if (!settings.make_backup)
-                return;
-            
-            /* Check for the requested permissions */
-            if (document.state == Services.DocumentStates.READONLY)
-               return; 
-            
-            var or = File.new_for_uri (this.filename);
-            var bk = File.new_for_uri (this.filename + "~");
-
-            if (!bk.query_exists ()) {
-                try {
-                    or.copy (bk, FileCopyFlags.NONE);
-                } catch (Error e) {
-                    warning (e.message);
-                }
-            }
         }
         
     }

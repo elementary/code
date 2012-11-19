@@ -248,6 +248,7 @@ namespace Scratch.Services {
         
         try {
             channel = new GLib.IOChannel.file (file.get_path (), mode);
+            channel.init ();
             encoding = channel.get_encoding ();
             debug (file.get_basename () + " encoding: " + encoding);
         } catch (FileError e) {

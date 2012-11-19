@@ -141,7 +141,7 @@ namespace Scratch {
                 documents.remove(doc); 
                 document_closed (doc);
             });
-            document.tab.make_backup ();
+            document.make_backup ();
             /* FIXME : filename is still encoded as uri */
             window.set_window_title (filename);
             
