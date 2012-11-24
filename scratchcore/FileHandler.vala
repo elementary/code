@@ -33,7 +33,7 @@ namespace Scratch.Services {
             return load_content_from_gfile (file);
         } 
 
-        static string load_content_from_gfile(File file) {
+        public static string load_content_from_gfile (File file) {
             var dis = new DataInputStream (file.read ());
             var text = new StringBuilder ();
             string line;

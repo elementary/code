@@ -4,7 +4,8 @@ cmake_minimum_required (VERSION 2.6)
 cmake_policy (VERSION 2.6)
 project (scratch)
 enable_testing ()
-set (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
+set (DATADIR "${CMAKE_INSTALL_PREFIX}/share/scratch")
+set (SCRIPTDIR "${CMAKE_INSTALL_PREFIX}/share/scratch/scripts")
 set (PKGDATADIR "${DATADIR}/scratch")
 set (GETTEXT_PACKAGE "scratch")
 add_definitions(-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\")
@@ -59,9 +60,9 @@ include_directories(${CMAKE_BINARY_DIR}/src)
 # Subdirectories
 add_subdirectory(src)
 add_subdirectory(scratchcore)
+add_subdirectory(scripts)
 add_subdirectory(plugins)
 add_subdirectory(po)
-
 
 # Data
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/scratch-text-editor.desktop DESTINATION share/applications)

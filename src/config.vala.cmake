@@ -1,5 +1,6 @@
 namespace Constants {
    public const string DATADIR = "@DATADIR@";
+   public const string SCRIPTDIR = "@SCRIPTDIR@";
    public const string PKGDATADIR = "@PKGDATADIR@";
    public const string GETTEXT_PACKAGE = "@GETTEXT_PACKAGE@";
    public const string RELEASE_NAME = "@RELEASE_NAME@";
@@ -15,4 +16,3 @@ namespace Constants {
    public const string NEW_DOCUMENT = N_("New Document");
    public const string NEW_WINDOW = N_("New Window");
 }
- 

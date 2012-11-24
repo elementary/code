@@ -266,8 +266,7 @@ namespace Scratch.Services {
             }
             
             if(!contents.validate()) {
-               size_t br, bw;
-               debug (contents.locale_to_utf8 (-1, out br, out bw));//file_content_to_utf8 (file, contents);
+               contents = file_content_to_utf8 (file, contents);
             }
             
             if (contents == null)
@@ -379,9 +378,9 @@ namespace Scratch.Services {
             original_text = text = contents;
 
             if (buffer != null) {
-                //buffer.begin_not_undoable_action ();
+                buffer.begin_not_undoable_action ();
                 buffer.text = this.text;
-                //buffer.end_not_undoable_action ();
+                buffer.end_not_undoable_action ();
             }
             else
                 warning ("No buffer selected.");

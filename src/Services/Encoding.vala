@@ -18,6 +18,8 @@
   END LICENSE
 ***/
 
+// TODO: do it using native Vala code dropping the python script
+
 namespace Scratch.Services {
 
     public enum EncodingType {
@@ -240,30 +242,49 @@ namespace Scratch.Services {
             "WINDOWS-1258", "Vietnamese" }
     };
     
-    public string? file_content_to_utf8 (File file, string content, string mode = "a" /* it means read and write */) {
+    private static bool test (string text, string charset) {
+          bool valid = false;
+
+        try {
+            string convert;
+
+            convert = GLib.convert (text, -1, "UTF-8", charset);
+            valid = true;
+        }
+        catch (Error e) {
+            debug (e.message);
+        }
+        return valid;
+    }
+    
+    public static string get_charset (string path) {
+        // Get correct encoding via chardect.py script
+        string script = Constants.SCRIPTDIR + "/chardetect.py ";
+        string command = "python " + script + path;
+        string? output = null; 
+        try {
+            GLib.Process.spawn_command_line_sync (command, out output);
+        } catch (SpawnError e) {
+            warning (e.message);
+        }
+        debug (output);
+        return output;
+    }
+    
+    public string? file_content_to_utf8 (File file, string content, string mode = "r" /* it means read or write */) {
         
         GLib.IOChannel channel;
         string? encoding = null;
         string? encoded_content = null;
         
+        encoding = get_charset (file.get_path ());
+        
         try {
-            channel = new GLib.IOChannel.file (file.get_path (), mode);
-            channel.init ();
-            encoding = channel.get_encoding ();
-            debug (file.get_basename () + " encoding: " + encoding);
-        } catch (FileError e) {
-            warning (e.message);
+            encoded_content = GLib.convert (content, -1, "UTF-8", encoding);
+        } catch (GLib.ConvertError ce) {
+            warning (ce.message);
         }
-        
-        if (encoding != null && encoding != "UTF-8") {
-            try {
-                encoded_content = convert (content, -1, "UTF-8", encoding);
-            } catch (GLib.ConvertError ce) {
-                warning (ce.message);
-                encoded_content = null;
-            }
-        }
-        
+                
         return encoded_content;
     
     }
