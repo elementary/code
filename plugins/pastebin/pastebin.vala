@@ -107,24 +107,37 @@ namespace Scratch.Services {
     }
 }
 
-public class Scratch.Plugins.Pastebin : Object, Peas.Activatable
+public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Peas.Activatable
 {
     Interface plugins;
-    Gtk.MenuItem menuitem;
+    Gtk.MenuItem? menuitem = null;
     
+    [NoAcessorMethod]
     public Object object { owned get; construct; }
    
     public void update_state () {
     }
 
     public void activate () {
-        plugins = (Scratch.Plugins.Interface)object;
+        Value value = Value(typeof(GLib.Object));
+        get_property("object", ref value);
+        plugins = (Scratch.Plugins.Interface)value.get_object();
+        plugins.register_function(Interface.Hook.WINDOW, () => {
+            ((MainWindow)plugins.window).split_view.page_changed.connect(on_page_changed);
+        });
+    }
+    
+    void on_page_changed () {
+        if (plugins.addons_menu == null)
+            return;
+        
+        if (menuitem != null)
+            return;
         
         menuitem = new Gtk.MenuItem.with_label ("Upload to Pastebin");
         menuitem.activate.connect (() => {
-			new Dialogs.PasteBinDialog (((ScratchApp)plugins.scratch_app).window);
+		    new Dialogs.PasteBinDialog (((ScratchApp)plugins.scratch_app).window);
         });
-        
         plugins.addons_menu.append (menuitem);
         plugins.addons_menu.show_all ();
     }
