@@ -746,7 +746,7 @@ namespace Scratch.Services {
                 string mime_type;
                 try {
                     info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
-                    mime_type = ContentType.get_mime_type (info.get_content_type ());
+                    mime_type = ContentType.get_mime_type (info.get_attribute_as_string (FileAttribute.STANDARD_CONTENT_TYPE));
                     return mime_type;
                 } catch (Error e) {
                     warning ("%s", e.message);

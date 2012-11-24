@@ -143,27 +143,26 @@ namespace Scratch.Widgets {
 
         }
 
-        public SourceLanguage change_syntax_highlight_for_filename (string filename)
-        {
-            SourceLanguage lang;
-            string display_name = Filename.display_basename(filename);
-            string extension = display_name.split(".")[display_name.split(".").length - 1];
+        public SourceLanguage change_syntax_highlight_for_filename (string filename) {
+            
+            var file = File.new_for_uri (filename);   
+            Gtk.SourceLanguage lang = null;
+            
+            // Real file type detection
+            string path = file.get_path ();
+            var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
+            var mime_type = ContentType.get_mime_type (info.get_attribute_as_string (FileAttribute.STANDARD_CONTENT_TYPE));
 
-            if (extension == "ui") {
-                lang = manager.get_language ("xml");
-                buffer.set_language (lang);
+            lang = manager.guess_language (filename, mime_type);
+                
+            buffer.set_language (lang);
+            
+            // Fake file type detection
+            // "Not all files are equal"
+            string display_name = file.get_basename ();
 
-            }
-            else if (display_name == "CMakeLists.txt") { 
+            if (display_name == "CMakeLists.txt") { 
                 lang = manager.get_language ("cmake");
-                buffer.set_language (lang);
-            }
-            else if ("Makefile" in display_name) {
-                lang = manager.get_language ("makefile");
-                buffer.set_language (lang);
-            }
-            else {
-                lang = manager.guess_language (filename, null);
                 buffer.set_language (lang);
             }
 
