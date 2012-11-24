@@ -23,6 +23,7 @@ Build-Depends: cmake,
                pkg-config,
                gobject-introspection,
                libgirepository1.0-dev,
+               python-chardet,
                valac (>= 0.16)
 Standards-Version: 3.9.1
 Homepage: http://launchpad.net/scratch
