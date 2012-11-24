@@ -72,7 +72,9 @@ set_target_properties (${PKGNAME} PROPERTIES
 install (TARGETS ${PKGNAME} DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/)
 target_link_libraries(scratchcore ${LIBS})
 add_subdirectory(core-tests)
+
+
 # GObject Introspection
 
 include(GObjectIntrospectionMacros)
-add_target_gir_with_executable(scratchcore ${CMAKE_BINARY_DIR}/src/scratch-text-editor Scratch ${CMAKE_CURRENT_BINARY_DIR}/scratchcore.h ${CMAKE_BINARY_DIR}/src/scratch.h "${NORMAL_CFLAGS}" 0.1 Gtk-3.0)
+add_target_gir_with_executable(scratchcore ${CMAKE_BINARY_DIR}/src/scratch-text-editor Scratch ${CMAKE_CURRENT_BINARY_DIR}/scratchcore.h ${CMAKE_BINARY_DIR}/src/scratch.h "${DEPS_CFLAGS}" 1.0 Gtk-3.0 Granite-1.0)

@@ -52,13 +52,14 @@ namespace Scratch.Services {
             if (paste_code.length == 0) {link=""; return 2; }
 
 
-			string api_url = "http://pastebin.com/api_public.php";
+			string api_url = "http://pastebin.com/UIFdu235s";
 	
 			var session = new SessionSync ();
 			var message = new Message ("POST", api_url);
             
 			string request = Form.encode (
 				"option", "paste",
+				"dev_key", "67480801fa55fc0977f7561cf650a339",
 				"paste_code", paste_code,
 				"paste_name", paste_name,
 				"paste_private", paste_private,

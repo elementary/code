@@ -302,7 +302,7 @@ namespace Scratch {
         public void create_window () {
 
             this.toolbar = new Widgets.Toolbar (this, ui, main_actions);
-
+            
             notebook_context = new Gtk.Notebook ();
             notebook_context.page_added.connect (on_notebook_context_new_page);
             notebook_context.page_removed.connect (on_notebook_context_new_page);

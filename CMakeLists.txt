@@ -58,8 +58,8 @@ include_directories(${CMAKE_BINARY_DIR}/src)
 
 
 # Subdirectories
-add_subdirectory(src)
 add_subdirectory(scratchcore)
+add_subdirectory(src)
 add_subdirectory(scripts)
 add_subdirectory(plugins)
 add_subdirectory(po)
