@@ -23,7 +23,8 @@ macro(add_target_gir_with_executable TARGET_NAME EXE_NAME GIR_NAME HEADER EXE_HE
     install(CODE "set(ENV{LD_LIBRARY_PATH} \"${CMAKE_CURRENT_BINARY_DIR}:\$ENV{LD_LIBRARY_PATH}\")
     execute_process(COMMAND g-ir-scanner ${CFLAGS} -n ${GIR_NAME}
             --warn-all
-            --library ${TARGET_NAME} --program ${EXE_NAME} ${PACKAGES}
+            --library ${TARGET_NAME} --program ${EXE_NAME} 
+            --program-arg='--introspect-dump=''' ${PACKAGES}
             -o ${CMAKE_CURRENT_BINARY_DIR}/${GIR_NAME}-${GRANITE_VERSION}.gir
             -L${CMAKE_CURRENT_BINARY_DIR}
             -I${CMAKE_CURRENT_BINARY_DIR}
