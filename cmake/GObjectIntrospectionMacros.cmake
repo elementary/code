@@ -24,7 +24,7 @@ macro(add_target_gir_with_executable TARGET_NAME EXE_NAME GIR_NAME HEADER EXE_HE
     execute_process(COMMAND g-ir-scanner ${CFLAGS} -n ${GIR_NAME}
             --warn-all
             --library ${TARGET_NAME} --program ${EXE_NAME} 
-            --program-arg='--introspect-dump=''' ${PACKAGES}
+            --program-arg='--disable-ui' ${PACKAGES}
             -o ${CMAKE_CURRENT_BINARY_DIR}/${GIR_NAME}-${GRANITE_VERSION}.gir
             -L${CMAKE_CURRENT_BINARY_DIR}
             -I${CMAKE_CURRENT_BINARY_DIR}

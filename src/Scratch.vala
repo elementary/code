@@ -34,6 +34,7 @@ namespace Scratch {
         static string app_cmd_name;
         static string app_set_arg;
         static string? introspect_arg;
+        static bool disable_ui = false;
         static bool new_instance;
         public GLib.List<Document> documents = new GLib.List<Document>();
         public string current_directory = ".";
@@ -200,6 +201,7 @@ namespace Scratch {
         static const OptionEntry[] entries = {
             { "set", 's', 0, OptionArg.STRING, ref app_cmd_name, N_("Set of plugins"), "" },
             { "introspect-dump", 'i', 0, OptionArg.STRING, ref introspect_arg, N_("To generate introspection file (only for developers)."), "" },
+            { "disable-ui", 'd', 0, OptionArg.NONE, ref disable_ui, N_("Disable the UI (only for developers)."), null },
             { "set-arg", 'a', 0, OptionArg.STRING, ref app_set_arg, N_("Argument for the set of plugins"), "" },
             { "new-instance", 'n', 0, OptionArg.NONE, ref new_instance, N_("Create a new instance"), "" },
             { null }
@@ -218,7 +220,10 @@ namespace Scratch {
             catch(Error e) {
                 print(e.message + "\n");
             }
-
+            
+            if (disable_ui)
+                return 0;
+            
             if(introspect_arg != null) {
                 try {
                     GI.Repository.dump(introspect_arg);
