@@ -168,7 +168,7 @@ namespace Scratch.Widgets {
             share_app_menu.set_sensitive (val);
         }
 
-        public void set_button_sensitive(int button, bool sensitive) {
+        public void set_button_sensitive (int button, bool sensitive) {
             switch (button) {
             case ToolButtons.NEW_BUTTON:
                 this.new_button.set_sensitive(sensitive);

@@ -114,7 +114,7 @@ namespace Scratch {
         //objects for the set_theme ()
         FontDescription font;
         public Scratch.ScratchApp scratch_app;
-        public StatusBar statusbar;
+        public Scratch.Widgets.StatusBar statusbar;
 
         public ScratchWelcome welcome_screen;
         Granite.Widgets.HCollapsablePaned hpaned_sidebar;
@@ -142,6 +142,7 @@ namespace Scratch {
             settings.schema.bind("sidebar-visible", main_actions.get_action ("ShowSidebar"), "active", SettingsBindFlags.DEFAULT);
             settings.schema.bind("context-visible", main_actions.get_action ("ShowContextView"), "active", SettingsBindFlags.DEFAULT);
             settings.schema.bind("bottom-panel-visible", main_actions.get_action ("ShowBottomPanel"), "active", SettingsBindFlags.DEFAULT);
+            settings.schema.bind("statusbar-visible", main_actions.get_action ("ShowStatusBar"), "active", SettingsBindFlags.DEFAULT);
             main_actions.get_action ("ShowContextView").visible = false;
             main_actions.get_action ("ShowBottomPanel").visible = false;
             main_actions.get_action ("ShowSidebar").visible = false;
@@ -167,7 +168,6 @@ namespace Scratch {
             ui.ensure_update ();
 
             create_window ();
-            settings.schema.bind("statusbar-visible", main_actions.get_action ("ShowStatusBar"), "active", SettingsBindFlags.DEFAULT);
             connect_signals ();
             
             /* Update app status at settings updates */
@@ -317,14 +317,14 @@ namespace Scratch {
 
             split_view = new SplitView (this);
             split_view.page_changed.connect (on_split_view_page_changed);
-            welcome_screen = new ScratchWelcome (this);
             split_view.notify["is-empty"].connect (on_split_view_empty_changed);
+            welcome_screen = new ScratchWelcome (this);
             hpaned_sidebar.pack1 (notebook_sidebar, false, false);
             notebook_sidebar.visible = false;
             
             
             vbox_split_view_toolbar = new Gtk.VBox(false, 0);
-            statusbar = new StatusBar ();
+            statusbar = new Scratch.Widgets.StatusBar ();
             vbox_split_view_toolbar.pack_start (split_view, true, true, 0);
             vbox_split_view_toolbar.pack_end (statusbar, false, false, 0);
             hpaned_sidebar.pack2 (vbox_split_view_toolbar, true, true);
@@ -393,16 +393,16 @@ namespace Scratch {
 
             set_undo_redo ();
 
-            on_split_view_empty_changed ();
-
             show_all();
             toolbar.show_hide_button ();
             notebook_settings_changed ("sidebar-visible");
             notebook_settings_changed ("context-visible");
             notebook_settings_changed ("bottom-panel-visible");
             
-            
             main_actions.get_action ("ShowStatusBar").visible = false;
+            statusbar.check ();
+            
+            on_split_view_empty_changed ();
 
         }
         
@@ -438,13 +438,14 @@ namespace Scratch {
             if (split_view.is_empty) {
                 set_actions (false);
                 
-                statusbar.no_show_all = true;
-                statusbar.visible = false;
+                statusbar.check ();
+                action_show_status_bar (main_actions.get_action ("ShowStatusBar"));
                 
                 welcome_state_change (ScratchWelcomeState.HIDE);
                 
                 if (split_view.get_parent () != null) {
                     vbox_split_view_toolbar.remove (split_view);
+                    vbox_split_view_toolbar.remove (statusbar);
                     vbox_split_view_toolbar.pack_start (welcome_screen, true, true);
                     /* Set the window title for the WelcomeScreen */
                     this.title = TITLE;
@@ -459,6 +460,7 @@ namespace Scratch {
             else {
                 set_actions (true);
                 
+                statusbar.check ();
                 action_show_status_bar (main_actions.get_action ("ShowStatusBar"));
                 
                 welcome_state_change (ScratchWelcomeState.SHOW);
@@ -466,6 +468,7 @@ namespace Scratch {
                 if (split_view.get_parent () == null) {
                     vbox_split_view_toolbar.remove (welcome_screen);
                     vbox_split_view_toolbar.pack_start (split_view, true, true);
+                    vbox_split_view_toolbar.pack_end (statusbar, false, false, 0);
                 }
             }
         }
@@ -888,6 +891,8 @@ namespace Scratch {
                 statusbar.visible = true;
                 Scratch.settings.statusbar_visible = true;
             }
+
+            statusbar.check ();
         }
         
         void action_fetch () {

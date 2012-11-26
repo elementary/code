@@ -30,6 +30,7 @@ public class Scratch.Plugins.Interface : Object {
         ADDONS_MENU,
         BOTTOMBAR,
         TOOLBAR,
+        STATUSBAR,
         SOURCE_VIEW,
         SETTINGS_DIALOG,
         WINDOW
@@ -45,6 +46,7 @@ public class Scratch.Plugins.Interface : Object {
     public Gtk.Menu main_menu {private set; get; }
     public Gtk.Menu addons_menu {private set; get; }
     public Gtk.Toolbar toolbar {internal set; get; }
+    public Gtk.Toolbar statusbar {internal set; get; }
     public Gtk.Window window {private set; get; }
     public string set_name {internal set; get; }
     public string? argument {internal set; get; }
@@ -139,6 +141,14 @@ public class Scratch.Plugins.Interface : Object {
                 hook_function ();
             }
             break;
+        case Hook.STATUSBAR:
+            manager.hook_toolbar.connect_after (() => {
+                hook_function();
+            });
+            if (statusbar != null) {
+                hook_function ();
+            }
+            break;
         case Hook.BOTTOMBAR:
             manager.hook_notebook_bottom.connect_after (() => {
                 hook_function();
@@ -181,6 +191,7 @@ public class Scratch.Plugins.Manager : Object
 {
     public signal void hook_main_menu (Gtk.Menu menu);
     public signal void hook_toolbar ();
+    public signal void hook_statusbar ();
     public signal void hook_set_arg (string set_name, string? set_arg);
     public signal void hook_notebook_bottom (Gtk.Notebook notebook);
     public signal void hook_source_view(Gtk.TextView view);
@@ -195,6 +206,7 @@ public class Scratch.Plugins.Manager : Object
     Peas.ExtensionSet exts_core;
     
     public Gtk.Toolbar toolbar { set { plugin_iface.toolbar = value; } }
+    public Gtk.Toolbar statusbar { set { plugin_iface.statusbar = value; } }
     public Gtk.Application scratch_app { set { plugin_iface.scratch_app = value;  }}
 
     //[CCode (cheader_filename = "libpeas/libpeas.h", cname = "peas_extension_set_foreach")]

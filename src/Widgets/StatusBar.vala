@@ -20,12 +20,28 @@
 
 using Gtk;
 
-public class StatusBar : Gtk.Toolbar {
+namespace Scratch.Widgets {
+    public class StatusBar : Gtk.Toolbar {
 
-    public StatusBar () {
+        public StatusBar () {
 
-        set_orientation (Orientation.HORIZONTAL);
-
-        get_style_context ().add_class ("status-toolbar");
+            set_orientation (Orientation.HORIZONTAL);
+            
+            get_style_context ().add_class ("status-toolbar");
+            
+            plugins.statusbar = this;
+            plugins.hook_statusbar ();
+        }
+        
+        public void check () {
+            this.no_show_all = (get_children ().length () == 0);
+            if (get_children ().length () == 0) this.hide ();
+            else show_all ();
+        }
+        
+        public void append (ToolItem widget) {
+            this.insert (widget, -1);
+            check ();
+        }
     }
 }
