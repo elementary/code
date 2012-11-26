@@ -52,19 +52,19 @@ namespace Scratch.Services {
             if (paste_code.length == 0) {link=""; return 2; }
 
 
-			string api_url = "http://pastebin.com/UIFdu235s";
+			string api_url = "http://pastebin.com/api/api_post.php";
 	
 			var session = new SessionSync ();
 			var message = new Message ("POST", api_url);
             
 			string request = Form.encode (
-				"option", "paste",
-				"dev_key", "67480801fa55fc0977f7561cf650a339",
-				"paste_code", paste_code,
-				"paste_name", paste_name,
-				"paste_private", paste_private,
-				"paste_expire_date", paste_expire_date,
-				"paste_format", paste_format);
+				"api_option", "paste",
+				"api_dev_key", "67480801fa55fc0977f7561cf650a339",
+				"api_paste_code", paste_code,
+				"api_paste_name", paste_name,
+				"api_paste_private", paste_private,
+				"api_paste_expire_date", paste_expire_date,
+				"api_paste_format", paste_format);
             
 			message.set_request ("application/x-www-form-urlencoded", MemoryUse.COPY, request.data);
 			message.set_flags (MessageFlags.NO_REDIRECT);
