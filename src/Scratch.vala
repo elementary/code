@@ -220,10 +220,7 @@ namespace Scratch {
             catch(Error e) {
                 print(e.message + "\n");
             }
-            
-            if (disable_ui)
-                return 0;
-            
+
             if(introspect_arg != null) {
                 try {
                     GI.Repository.dump(introspect_arg);
@@ -233,6 +230,9 @@ namespace Scratch {
                 }
                 return 0;
             }
+            
+            if (disable_ui)
+                return 0;
 
             var app = new ScratchApp ();
             
