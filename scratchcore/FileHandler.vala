@@ -44,9 +44,13 @@ namespace Scratch.Services {
             return text.str;
         }
         
-        public static string load_content_from_uri (string uri) {
-            var file = File.new_for_uri (uri);
-            return load_content_from_gfile (file);
+        public static string load_content_from_uri (string? uri) {
+            if (uri == null)
+                return "";
+            else {
+                var file = File.new_for_uri (uri);
+                return load_content_from_gfile (file);
+            }
         }
         
         /*public static bool set_content (string path, string content) {
