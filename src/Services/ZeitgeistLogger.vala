@@ -29,8 +29,11 @@ namespace Scratch.Services {
         string actor = "application://scratch.desktop";
         string event_manifestation = ZG_USER_ACTIVITY;
 
-        public void open_insert (string uri, string mimetype) {
-
+        public void open_insert (string? uri, string mimetype) {
+            
+            if (uri == null)
+                return;
+            
             var subject = get_subject(uri, mimetype);
             var event = new Event.full (ZG_ACCESS_EVENT,
                                 event_manifestation,
@@ -40,8 +43,11 @@ namespace Scratch.Services {
             insert_events(event);
         }
 
-        public void close_insert (string uri, string mimetype) {
-
+        public void close_insert (string? uri, string mimetype) {
+            
+            if (uri == null) 
+                return;
+            
             var subject = get_subject(uri, mimetype);
             var event = new Event.full (ZG_LEAVE_EVENT,
                                 event_manifestation,

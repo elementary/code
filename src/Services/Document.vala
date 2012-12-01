@@ -398,6 +398,9 @@ namespace Scratch.Services {
         }
         
         public void delete_backup () {
+            if (filename == null)
+                return;
+            
             var bk = File.new_for_uri (filename + "~");
             if (backup_file != null && backup_file.query_exists ()) {
                 try {
@@ -413,8 +416,9 @@ namespace Scratch.Services {
             if (!saved) 
                 return false;
             
-            zg_log.close_insert(this.filename, get_mime_type ());
-            
+            if (this.filename != null)
+                zg_log.close_insert(this.filename, get_mime_type ());
+           
             delete_backup ();
             
             this.closed (); // Signal
@@ -790,7 +794,6 @@ namespace Scratch.Services {
             //the rest of the program relies on this assumption, it will be allowed
             //for now
             if (filename == null) {
-                debug ("filename is set to null, assuming it's a new file");
                 return writable = true;
             }
             

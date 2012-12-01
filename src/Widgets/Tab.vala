@@ -27,7 +27,7 @@ namespace Scratch.Widgets {
 
     public class Tab : Gtk.Grid {
 
-        public SourceView text_view { set; get; }
+        public SourceView? text_view { set; get; default = null; }
         public TabLabel label;
         public string filename = null;
         public bool saved = true;
@@ -96,7 +96,7 @@ namespace Scratch.Widgets {
             ((Gtk.Notebook)get_parent()).remove(this);
         
         }
-
+        
         public int save () {
             
             this.filename = document.filename;

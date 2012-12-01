@@ -79,7 +79,7 @@ namespace Scratch {
 
         public string TITLE = "Scratch";
 
-        public SplitView split_view;
+        public SplitView? split_view = null;
         public Widgets.Toolbar toolbar;
 
         /**
@@ -114,7 +114,7 @@ namespace Scratch {
         //objects for the set_theme ()
         FontDescription font;
         public Scratch.ScratchApp scratch_app;
-        public Scratch.Widgets.StatusBar statusbar;
+        public Scratch.Widgets.StatusBar? statusbar = null;
 
         public ScratchWelcome welcome_screen;
         Granite.Widgets.HCollapsablePaned hpaned_sidebar;
@@ -297,7 +297,7 @@ namespace Scratch {
 
         }
         
-        Gtk.VBox vbox_split_view_toolbar;
+        Gtk.Box? vbox_split_view_toolbar = null;
 
         public void create_window () {
 
@@ -323,7 +323,7 @@ namespace Scratch {
             notebook_sidebar.visible = false;
             
             
-            vbox_split_view_toolbar = new Gtk.VBox(false, 0);
+            vbox_split_view_toolbar = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
             statusbar = new Scratch.Widgets.StatusBar ();
             vbox_split_view_toolbar.pack_start (split_view, true, true, 0);
             vbox_split_view_toolbar.pack_end (statusbar, false, false, 0);
@@ -438,12 +438,14 @@ namespace Scratch {
             if (split_view.is_empty) {
                 set_actions (false);
                 
-                statusbar.check ();
-                action_show_status_bar (main_actions.get_action ("ShowStatusBar"));
+                if (statusbar != null) {
+                    statusbar.check ();
+                    action_show_status_bar (main_actions.get_action ("ShowStatusBar"));
+                }
                 
                 welcome_state_change (ScratchWelcomeState.HIDE);
                 
-                if (split_view.get_parent () != null) {
+                if (split_view.get_parent () != null && vbox_split_view_toolbar != null) {
                     vbox_split_view_toolbar.remove (split_view);
                     vbox_split_view_toolbar.remove (statusbar);
                     vbox_split_view_toolbar.pack_start (welcome_screen, true, true);
@@ -460,12 +462,14 @@ namespace Scratch {
             else {
                 set_actions (true);
                 
-                statusbar.check ();
-                action_show_status_bar (main_actions.get_action ("ShowStatusBar"));
+                if (statusbar != null) {
+                    statusbar.check ();
+                    action_show_status_bar (main_actions.get_action ("ShowStatusBar"));
+                }
                 
                 welcome_state_change (ScratchWelcomeState.SHOW);
                 
-                if (split_view.get_parent () == null) {
+                if (split_view.get_parent () == null && vbox_split_view_toolbar != null) {
                     vbox_split_view_toolbar.remove (welcome_screen);
                     vbox_split_view_toolbar.pack_start (split_view, true, true);
                     vbox_split_view_toolbar.pack_end (statusbar, false, false, 0);
@@ -877,22 +881,25 @@ namespace Scratch {
                 }
             }
 
-            split_view.remove_current_view ();
+            if (split_view != null)
+                split_view.remove_current_view ();
         }
         
         void action_show_status_bar (Gtk.Action action) {
-            if (!((Gtk.ToggleAction)action).active || statusbar.get_children ().length () == 0) {
-                statusbar.no_show_all = true;
-                statusbar.visible = false;
-                Scratch.settings.statusbar_visible = false;
-            }
-            else {
-                statusbar.no_show_all = false;
-                statusbar.visible = true;
-                Scratch.settings.statusbar_visible = true;
-            }
+            if (statusbar != null) {
+                if (!((Gtk.ToggleAction)action).active || statusbar.get_children ().length () == 0) {
+                    statusbar.no_show_all = true;
+                    statusbar.visible = false;
+                    Scratch.settings.statusbar_visible = false;
+                }
+                else {
+                    statusbar.no_show_all = false;
+                    statusbar.visible = true;
+                    Scratch.settings.statusbar_visible = true;
+                }
 
-            statusbar.check ();
+                statusbar.check ();
+            }
         }
         
         void action_fetch () {

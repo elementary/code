@@ -108,15 +108,20 @@ namespace Scratch.Widgets {
             
             // Focus new showed page
             GLib.Idle.add_full (GLib.Priority.LOW, () => {
-                bool has_focus = window.current_tab.text_view.has_visible_focus ();
-                if (window.welcome_screen.get_parent () == null && has_focus != true) {
-                    window.current_document.focus_sourceview ();
-                    return window.current_tab.text_view.has_visible_focus ();
-                } else return false;
+                if (window.current_tab.text_view != null) {
+                    bool has_focus = window.current_tab.text_view.has_visible_focus ();
+                    if (window.welcome_screen.get_parent () == null && has_focus != true) {
+                        window.current_document.focus_sourceview ();
+                        return window.current_tab.text_view.has_visible_focus ();
+                    } else return false;
+                }
+                return false;
             });
             
-            if (get_n_pages () == 0)
-                ((Gtk.Container) get_parent ()).remove (this);
+            var parent = ((Gtk.Container) get_parent ());
+            
+            if (get_n_pages () == 0 && parent != null)
+                parent.remove (this);
         }
 
         public int add_tab (string labeltext="New document") {
