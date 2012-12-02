@@ -1,6 +1,6 @@
 include(Translations)
-add_translations_directory("scratch")
-add_translations_catalog("scratch"
+add_translations_directory("scratch-text-editor")
+add_translations_catalog("scratch-text-editor"
     ../src
     ../src/Widgets
     ../src/Dialogs
@@ -8,5 +8,8 @@ add_translations_catalog("scratch"
     ../scratchcore
     ../plugins/pastebin
     ../plugins/filemanager
-    ../plugins/bash
+    ../plugins/terminal
+    ../plugins/browser-preview
+    ../plugins/spell-check
+    ../plugins/devhelp
 )

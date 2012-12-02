@@ -7,7 +7,7 @@ enable_testing ()
 set (DATADIR "${CMAKE_INSTALL_PREFIX}/share/scratch")
 set (SCRIPTDIR "${CMAKE_INSTALL_PREFIX}/share/scratch/scripts")
 set (PKGDATADIR "${DATADIR}/scratch")
-set (GETTEXT_PACKAGE "scratch")
+set (GETTEXT_PACKAGE "scratch-text-editor")
 add_definitions(-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\")
 set (RELEASE_NAME "The elementary Text Editor.")
 set (VERSION "1.1.1")
@@ -16,7 +16,6 @@ set (PLUGINDIR "${CMAKE_INSTALL_PREFIX}/lib/scratch/plugins/")
 set (PREFIX ${CMAKE_INSTALL_PREFIX})
 set (DOLLAR "$")
 list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
-
 
 # Some configuration
 configure_file (${CMAKE_SOURCE_DIR}/src/config.vala.cmake ${CMAKE_SOURCE_DIR}/src/config.vala)

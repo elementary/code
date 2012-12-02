@@ -210,7 +210,7 @@ namespace Scratch {
         public static int main (string[] args) {
             app_cmd_name = "Scratch";
             var context = new OptionContext("File");
-            context.add_main_entries(entries, "scratch");
+            context.add_main_entries(entries, Constants.GETTEXT_PACKAGE);
             context.add_group(Gtk.get_option_group(true));
             context.set_ignore_unknown_options (true);
             
