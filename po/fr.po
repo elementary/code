@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-11-17 18:52+0100\n"
-"PO-Revision-Date: 2012-08-08 15:25+0000\n"
-"Last-Translator: Bouhlel Moez <Unknown>\n"
+"PO-Revision-Date: 2012-12-01 19:53+0000\n"
+"Last-Translator: Florie Depuiset <florie.depuiset@gmail.com>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-11-18 04:53+0000\n"
-"X-Generator: Launchpad (build 16278)\n"
+"X-Launchpad-Export-Date: 2012-12-02 04:51+0000\n"
+"X-Generator: Launchpad (build 16319)\n"
 "Language: fr\n"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:13
@@ -167,7 +167,7 @@ msgstr "Enregistrer"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:986
 msgid "Save the current file"
-msgstr "Enregistre le fichier actuel"
+msgstr "Enregistrer le fichier actuel"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:989
 #: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:108
@@ -243,7 +243,7 @@ msgstr "Enregistrer les modifications ailleurs"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:62
 msgid "Choose the new location"
-msgstr "Choisissez le nouvel emplacement"
+msgstr "Choisir le nouvel emplacement"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
 #: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:98
@@ -326,7 +326,7 @@ msgstr "Quand Scratch démarre :"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
 msgid "Save files when changed:"
-msgstr "Sauvegarder les fichiers lorsqu'ils sont modifiés:"
+msgstr "Sauvegarder les fichiers lorsqu'ils sont modifiés :"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Tabs:"
@@ -390,7 +390,7 @@ msgstr "Palette de couleurs :"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:251
 msgid "Custom font:"
-msgstr "Police personnalisée:"
+msgstr "Police personnalisée :"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 #, c-format
@@ -404,7 +404,7 @@ msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
 "Si vous n'enregistrez pas, les modifications des 4 dernières secondes seront "
-"perdu définitivement."
+"perdues définitivement."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
