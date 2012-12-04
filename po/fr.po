@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-11-17 18:52+0100\n"
-"PO-Revision-Date: 2012-12-01 19:53+0000\n"
+"PO-Revision-Date: 2012-12-03 23:34+0000\n"
 "Last-Translator: Florie Depuiset <florie.depuiset@gmail.com>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-12-02 04:51+0000\n"
-"X-Generator: Launchpad (build 16319)\n"
+"X-Launchpad-Export-Date: 2012-12-04 06:07+0000\n"
+"X-Generator: Launchpad (build 16335)\n"
 "Language: fr\n"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:13
@@ -227,7 +227,7 @@ msgstr "Réglage des greffons"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:198
 msgid "To generate introspection file (only for developers)."
-msgstr ""
+msgstr "Générer un fichier d'introspection (seulement pour développeurs)"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:199
 msgid "Argument for the set of plugins"
@@ -358,11 +358,11 @@ msgstr "Surligner les crochets correspondants :"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:212
 msgid "Split long text in many lines:"
-msgstr ""
+msgstr "Ecrire les longs textes sur plusieurs lignes :"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:213
 msgid "Draw spaces:"
-msgstr "Indiquer les espaces:"
+msgstr "Indiquer les espaces :"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:214
 msgid "Show line numbers:"
@@ -386,7 +386,7 @@ msgstr "Choisissez une police :"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:246
 msgid "Color scheme:"
-msgstr "Palette de couleurs :"
+msgstr "Palette de couleurs :"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:251
 msgid "Custom font:"
@@ -419,7 +419,7 @@ msgstr "Enregistrer les modifications avant de fermer ?"
 msgid "Save unsaved changes to file %s before closing?"
 msgstr ""
 "Enregistrer les modifications non enregistrées dans le fichier %s avant la "
-"fermeture?"
+"fermeture ?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
