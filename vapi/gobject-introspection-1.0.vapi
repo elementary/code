@@ -274,7 +274,7 @@ namespace GI {
 	public struct AttributeIter {
 	}
 	[CCode (cheader_filename = "girepository.h", cname = "_GIArgument")]
-	public struct _Argument {
+	public struct Argument {
 		public bool v_boolean;
 		public int8 v_int8;
 		public uint8 v_uint8;
