@@ -135,7 +135,7 @@ namespace Scratch {
             
             //main actions
             main_actions = new Gtk.ActionGroup ("MainActionGroup"); /* Actions and UIManager */
-            main_actions.set_translation_domain ("scratch");
+            main_actions.set_translation_domain (Constants.GETTEXT_PACKAGE);
             main_actions.add_actions (main_entries, this);
             main_actions.add_toggle_actions (toggle_entries, this);
             

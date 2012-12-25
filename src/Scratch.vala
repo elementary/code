@@ -221,7 +221,7 @@ namespace Scratch {
                 print(e.message + "\n");
             }
 
-            if(introspect_arg != null) {
+            /*if(introspect_arg != null) {
                 try {
                     GI.Repository.dump(introspect_arg);
                 }
@@ -229,7 +229,7 @@ namespace Scratch {
                     error(e.message);
                 }
                 return 0;
-            }
+            }*/
             
             if (disable_ui)
                 return 0;

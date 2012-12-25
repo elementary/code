@@ -24,11 +24,11 @@ macro(add_translations_catalog NLS_PACKAGE)
     set(C_SOURCE "")
 
     foreach(FILES_INPUT ${ARGN})
-        file (GLOB SOURCE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/${FILES_INPUT}/*.c)
+        file (GLOB_RECURSE SOURCE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/${FILES_INPUT}/*.c)
         foreach(C_FILE ${SOURCE_FILES})
             set(C_SOURCE ${C_SOURCE} ${C_FILE})
         endforeach()
-        file (GLOB SOURCE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/${FILES_INPUT}/*.vala)
+        file (GLOB_RECURSE SOURCE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/${FILES_INPUT}/*.vala)
         foreach(C_FILE ${SOURCE_FILES})
             set(C_SOURCE ${C_SOURCE} ${C_FILE})
         endforeach()
@@ -36,6 +36,6 @@ macro(add_translations_catalog NLS_PACKAGE)
 
     add_custom_command (TARGET pot COMMAND
         ${XGETTEXT_EXECUTABLE} -d ${NLS_PACKAGE} -o ${CMAKE_CURRENT_SOURCE_DIR}/${NLS_PACKAGE}.pot
-        ${VALA_SOURCE} ${C_SOURCE} --from-code=UTF-8 --keyword="_" --keyword="N_"
+        ${VALA_SOURCE} ${C_SOURCE} --keyword="_" --keyword="N_" --from-code=UTF-8
         )
 endmacro()
