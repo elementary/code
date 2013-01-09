@@ -57,7 +57,7 @@ namespace Scratch.Dialogs {
 	            text = ("<b>" + _("The file %s was deleted.") +  "</b>").printf(filename);
                     text += "\n\n" + _("Do you want to create it again?");
 	            
-	            add_button (Stock.YES, ResponseType.ACCEPT);
+	            add_button (_("Recreate"), ResponseType.ACCEPT);
                 add_button (Stock.CLOSE, ResponseType.CANCEL);
 	        }
 	        
