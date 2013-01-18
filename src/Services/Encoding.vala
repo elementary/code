@@ -260,23 +260,23 @@ namespace Scratch.Services {
     public static string get_charset (string path) {
         // Get correct encoding via chardect.py script
 
-        const string FALLBACK_ENCODING = "UTF-8";
+        const string FALLBACK_CHARSET = "UTF-8";
         string script = Constants.SCRIPTDIR + "/chardetect.py";
         string[] command = { "python", script, path };
-        string? output = null;
+        string? charset = null;
 
         try {
-            GLib.Process.spawn_sync (null, command, null, 0, null, out output, null, null);
+            GLib.Process.spawn_sync (null, command, null, 0, null, out charset, null, null);
         } catch (SpawnError e) {
             warning ("Could not execute \"%s\": %s", script, e.message);
         }
-        if ( output == null ) {
+        if ( charset == null ) {
             warning ("Could not automatically detect encoding, assuming %s", FALLBACK_ENCODING);
-            output = FALLBACK_ENCODING; //TODO: prompt the user to meddle with encoding manually, until satisfied
+            charset = FALLBACK_ENCODING; //TODO: prompt the user to meddle with encoding manually, until satisfied
         } else {
-            debug ("Detected encoding of file \"%s\" to be \"%s\"", path, output);
+            debug ("Detected encoding of file \"%s\" to be \"%s\"", path, charset);
         }
-        return output;
+        return charset;
     }
     
     public string? file_content_to_utf8 (File file, string content, string mode = "r" /* it means read or write */) {
