@@ -272,9 +272,9 @@ namespace Scratch.Services {
         }
         if ( output == null ) {
             warning ("Could not automatically detect encoding, assuming %s", FALLBACK_ENCODING);
-            return FALLBACK_ENCODING; //TODO: prompt the user to meddle with encoding manually, until satisfied
+            output = FALLBACK_ENCODING; //TODO: prompt the user to meddle with encoding manually, until satisfied
         } else {
-            debug ("Detected file encoding to be \"%s\"", output);
+            debug ("Detected encoding of file \"%s\" to be \"%s\"", path, output);
         }
         return output;
     }
