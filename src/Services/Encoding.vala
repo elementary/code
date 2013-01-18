@@ -264,7 +264,7 @@ namespace Scratch.Services {
         string[] command = { "python", script, path };
         string? output = null;
         try {
-            GLib.Process.spawn_sync (null, command, null, SpawnFlags.SEARCH_PATH, null, out output, null, null);
+            GLib.Process.spawn_sync (null, command, null, 0, null, out output, null, null);
         } catch (SpawnError e) {
             warning ("Could not execute \"%s\": %s", script, e.message);
         }
