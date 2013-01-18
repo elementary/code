@@ -259,10 +259,12 @@ namespace Scratch.Services {
     
     public static string get_charset (string path) {
         // Get correct encoding via chardect.py script
+
         const string FALLBACK_ENCODING = "UTF-8";
         string script = Constants.SCRIPTDIR + "/chardetect.py";
         string[] command = { "python", script, path };
         string? output = null;
+
         try {
             GLib.Process.spawn_sync (null, command, null, 0, null, out output, null, null);
         } catch (SpawnError e) {
