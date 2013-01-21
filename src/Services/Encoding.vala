@@ -271,8 +271,8 @@ namespace Scratch.Services {
             warning ("Could not execute \"%s\": %s", script, e.message);
         }
         if ( charset == null ) {
-            warning ("Could not automatically detect encoding, assuming %s", FALLBACK_ENCODING);
-            charset = FALLBACK_ENCODING; //TODO: prompt the user to meddle with encoding manually, until satisfied
+            warning ("Could not automatically detect encoding, assuming %s", FALLBACK_CHARSET);
+            charset = FALLBACK_CHARSET; //TODO: prompt the user to meddle with encoding manually, until satisfied
         } else {
             debug ("Detected encoding of file \"%s\" to be \"%s\"", path, charset);
         }
