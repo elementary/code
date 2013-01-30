@@ -34,7 +34,7 @@ namespace Scratch {
         public ScratchWindowState window_state { get; set; }
 
         public SavedState () {
-            base ("org.elementary.Scratch.SavedState");
+            base ("org.pantheon.scratch.saved-state");
         }
 
     }
@@ -70,7 +70,7 @@ namespace Scratch {
         public bool show_go_to_line { get; set; } 
         
         public Settings ()  {
-            base ("org.elementary.Scratch.Settings");
+            base ("org.pantheon.scratch.settings");
         }
 
     }
@@ -82,7 +82,7 @@ namespace Scratch {
         public bool set_private { get; set; }
 
         public ServicesSettings () {
-            base ("org.elementary.Scratch.Services");
+            base ("org.pantheon.scratch.services");
         }
 
     }
