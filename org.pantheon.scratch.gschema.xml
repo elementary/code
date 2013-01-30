@@ -22,7 +22,7 @@
 			<description>The saved height of the window. Must be greater than 400, or it will not take effect.</description>
 		</key>
 	</schema>
-    <schema path="/org/pantheon/scratch/settings/" id="org.pantheon.scratch.settings" gettext-domain="scratch">
+	<schema path="/org/pantheon/scratch/settings/" id="org.pantheon.scratch.settings" gettext-domain="scratch">
 		<key name="sidebar-visible" type="b">
 			<default>true</default>
 			<summary>sidebar</summary>
@@ -48,132 +48,132 @@
 			<summary>bottom panel</summary>
 			<description>bottom panel</description>
 		</key>
-        <key type="as" name="plugins-enabled">
-          <default>['contractor']</default>
-          <summary>Enabled Plugins</summary>
-          <description>Enabled Plugins</description>
-        </key>
-        <key name="show-at-start" type="s">
-            <default>'welcome'</default>
-            <summary>Show the welcome screen or the last opened files at Scratch launch</summary>
-            <description>Show the welcome screen or the last opened files at Scratch launch.</description>
-        </key>
-        <key type="as" name="opened-files">
-          <default>['']</default>
-          <summary>Files opened in the previously session of Scratch</summary>
-          <description>It is used to open the files opened in the last Scratch session</description>
-        </key>
-        <key name="autosave" type="b">
-            <default>true</default>
-            <summary>Autosave edited files</summary>
-            <description>Autosave edited files.</description>
-        </key>
-        <key name="autoupdate" type="b">
-            <default>true</default>
-            <summary>Autoupdate the file modified by an external source</summary>
-            <description>Autoupdate the file modified by an external source.</description>
-        </key>
-        <key name="show-right-margin" type="b">
-            <default>false</default>
-            <summary>Show the right margin</summary>
-            <description>Specifies if the Source view should show the right margin or not.</description>
-        </key>
-        <key name="right-margin-position" type="i">
-            <default>80</default>
-            <summary>Right margin position</summary>
-            <description>Specifies the right margin position.</description>
-        </key>
-        <key name="show-line-numbers" type="b">
-            <default>false</default>
-            <summary>Display Line Numbers</summary>
-            <description>Whether Scratch should display line numbers in the editing area.</description>
-        </key>
-        <key name="line-break" type="b">
-            <default>false</default>
-            <summary>Split words in many lines</summary>
-            <description>Split words in many lines.</description>
-        </key>
-        <key name="highlight-current-line" type="b">
-            <default>false</default>
-            <summary>Highlight Current Line</summary>
-            <description>Whether Scratch should highlight the current line.</description>
-        </key>
-        <key name="highlight-matching-brackets" type="b">
-            <default>false</default>
-            <summary>Highlight Matching Brackets</summary>
-            <description>Whether Scratch should highlight matching brackets.</description>
-        </key>
-        <key name="draw-spaces" type="b">
-            <default>false</default>
-            <summary>Draw spaces and tabs with symbols</summary>
-            <description>Draw spaces and tabs with symbols.</description>
-        </key>
-        <key name="spaces-instead-of-tabs" type="b">
-            <default>true</default>
-            <summary>Use spaces instead of tabs</summary>
-            <description>Whether Scratch should replace tabs with spaces</description>
-        </key>
-        <key name="auto-indent" type="b">
-            <default>false</default>
-            <summary>Use auto indent</summary>
-            <description>Whether Scratch should use auto indentation</description>
-        </key>
-        <key name="indent-width" type="i">
-            <default>4</default>
-            <summary>Tab Size</summary>
-            <description>Specifies the number of spaces that should be displayed instead of Tab characters.</description>
-        </key>
-        <key name="use-system-font" type="b">
-            <default>true</default>
-            <summary>Use system font</summary>
-            <description>Whether Scratch should use the default system font</description>
-        </key>
-        <key name="font" type="s">
-            <default>'Droid Sans Mono 10'</default>
-            <summary>Preferred Font</summary>
-            <description>Set the preferred font.</description>
-        </key>
-        <key name="style-scheme" type="s">
-            <default>'classic'</default>
-            <summary>Preferred Style Scheme</summary>
-            <description>Set the preferred style scheme.</description>
-        </key>
-        <key name="show-search" type="b">
-            <default>true</default>
-            <summary>Show search entry</summary>
-            <description>Show search entry.</description>
-        </key>
-        <key name="show-replace" type="b">
-            <default>false</default>
-            <summary>Show replace entry</summary>
-            <description>Show replace entry.</description>
-        </key>
-        <key name="show-go-to-line" type="b">
-            <default>false</default>
-            <summary>Show go to line entry</summary>
-            <description>Show go to line entry.</description>
-        </key>
-        <key name="make-backup" type="b">
-            <default>true</default>
-	    <summary>Save or not the backup copy for the files.</summary>
-            <description>Save or not the file's backup. DON'T SET IT AS FALSE or you will break some Scratch's functions</description>
-        </key>
-    </schema>
-    <schema path="/org/pantheon/scratch/services/" id="org.pantheon.scratch.services" gettext-domain="scratch">
-        <key name="paste-format-code" type="s">
-            <default>'None'</default>
-            <summary>Default PasteBin text highlight</summary>
-            <description>Set the preferred text highlight.</description>
-        </key>
-        <key name="expiry-time" type="s">
-            <default>'N'</default>
-            <summary>Default PasteBin expiration time</summary>
-            <description>Set the preferred expiration time.</description>
-        </key>
-        <key name="set-private" type="b">
-            <default>false</default>
-            <summary>Default PasteBin policy</summary>
-            <description>Set the preferred policy.</description>
-        </key>
-    </schema>
+		<key type="as" name="plugins-enabled">
+			<default>['contractor']</default>
+			<summary>Enabled Plugins</summary>
+			<description>Enabled Plugins</description>
+		</key>
+		<key name="show-at-start" type="s">
+			<default>'welcome'</default>
+			<summary>Show the welcome screen or the last opened files at Scratch launch</summary>
+			<description>Show the welcome screen or the last opened files at Scratch launch.</description>
+		</key>
+		<key type="as" name="opened-files">
+			<default>['']</default>
+			<summary>Files opened in the previously session of Scratch</summary>
+			<description>It is used to open the files opened in the last Scratch session</description>
+		</key>
+		<key name="autosave" type="b">
+			<default>true</default>
+			<summary>Autosave edited files</summary>
+			<description>Autosave edited files.</description>
+		</key>
+		<key name="autoupdate" type="b">
+			<default>true</default>
+			<summary>Autoupdate the file modified by an external source</summary>
+			<description>Autoupdate the file modified by an external source.</description>
+		</key>
+		<key name="show-right-margin" type="b">
+			<default>false</default>
+			<summary>Show the right margin</summary>
+			<description>Specifies if the Source view should show the right margin or not.</description>
+		</key>
+		<key name="right-margin-position" type="i">
+			<default>80</default>
+			<summary>Right margin position</summary>
+			<description>Specifies the right margin position.</description>
+		</key>
+		<key name="show-line-numbers" type="b">
+			<default>false</default>
+			<summary>Display Line Numbers</summary>
+			<description>Whether Scratch should display line numbers in the editing area.</description>
+		</key>
+		<key name="line-break" type="b">
+			<default>false</default>
+			<summary>Split words in many lines</summary>
+			<description>Split words in many lines.</description>
+		</key>
+		<key name="highlight-current-line" type="b">
+			<default>false</default>
+			<summary>Highlight Current Line</summary>
+			<description>Whether Scratch should highlight the current line.</description>
+		</key>
+		<key name="highlight-matching-brackets" type="b">
+			<default>false</default>
+			<summary>Highlight Matching Brackets</summary>
+			<description>Whether Scratch should highlight matching brackets.</description>
+		</key>
+		<key name="draw-spaces" type="b">
+			<default>false</default>
+			<summary>Draw spaces and tabs with symbols</summary>
+			<description>Draw spaces and tabs with symbols.</description>
+		</key>
+		<key name="spaces-instead-of-tabs" type="b">
+			<default>true</default>
+			<summary>Use spaces instead of tabs</summary>
+			<description>Whether Scratch should replace tabs with spaces</description>
+		</key>
+		<key name="auto-indent" type="b">
+			<default>false</default>
+			<summary>Use auto indent</summary>
+			<description>Whether Scratch should use auto indentation</description>
+		</key>
+		<key name="indent-width" type="i">
+			<default>4</default>
+			<summary>Tab Size</summary>
+			<description>Specifies the number of spaces that should be displayed instead of Tab characters.</description>
+		</key>
+		<key name="use-system-font" type="b">
+			<default>true</default>
+			<summary>Use system font</summary>
+			<description>Whether Scratch should use the default system font</description>
+		</key>
+		<key name="font" type="s">
+			<default>'Droid Sans Mono 10'</default>
+			<summary>Preferred Font</summary>
+			<description>Set the preferred font.</description>
+		</key>
+		<key name="style-scheme" type="s">
+			<default>'classic'</default>
+			<summary>Preferred Style Scheme</summary>
+			<description>Set the preferred style scheme.</description>
+		</key>
+		<key name="show-search" type="b">
+			<default>true</default>
+			<summary>Show search entry</summary>
+			<description>Show search entry.</description>
+		</key>
+		<key name="show-replace" type="b">
+			<default>false</default>
+			<summary>Show replace entry</summary>
+			<description>Show replace entry.</description>
+		</key>
+		<key name="show-go-to-line" type="b">
+			<default>false</default>
+			<summary>Show go to line entry</summary>
+			<description>Show go to line entry.</description>
+		</key>
+		<key name="make-backup" type="b">
+			<default>true</default>
+		<summary>Save or not the backup copy for the files.</summary>
+			<description>Save or not the file's backup. DON'T SET IT AS FALSE or you will break some Scratch's functions</description>
+		</key>
+	</schema>
+	<schema path="/org/pantheon/scratch/services/" id="org.pantheon.scratch.services" gettext-domain="scratch">
+		<key name="paste-format-code" type="s">
+			<default>'None'</default>
+			<summary>Default PasteBin text highlight</summary>
+			<description>Set the preferred text highlight.</description>
+		</key>
+		<key name="expiry-time" type="s">
+			<default>'N'</default>
+			<summary>Default PasteBin expiration time</summary>
+			<description>Set the preferred expiration time.</description>
+		</key>
+		<key name="set-private" type="b">
+			<default>false</default>
+			<summary>Default PasteBin policy</summary>
+			<description>Set the preferred policy.</description>
+		</key>
+	</schema>
 </schemalist>
