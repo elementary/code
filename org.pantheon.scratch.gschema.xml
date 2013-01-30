@@ -5,7 +5,7 @@
 		<value nick="Maximized" value="1" />
 		<value nick="Fullscreen" value="2" />
 	</enum>
-	<schema path="/org/pantheon/scratch/savedstate/" id="org.elementary.Scratch.SavedState" gettext-domain="scratch">
+	<schema path="/org/pantheon/scratch/saved-state/" id="org.pantheon.scratch.saved-state" gettext-domain="scratch">
 		<key name="window-state" enum="scratch-window-states">
 			<default>"Normal"</default>
 			<summary>The saved state of the window.</summary>
@@ -22,7 +22,7 @@
 			<description>The saved height of the window. Must be greater than 400, or it will not take effect.</description>
 		</key>
 	</schema>
-    <schema path="/org/pantheon/scratch/settings/" id="org.elementary.Scratch.Settings" gettext-domain="scratch">
+    <schema path="/org/pantheon/scratch/settings/" id="org.pantheon.scratch.settings" gettext-domain="scratch">
 		<key name="sidebar-visible" type="b">
 			<default>true</default>
 			<summary>sidebar</summary>
@@ -159,7 +159,7 @@
             <description>Save or not the file's backup. DON'T SET IT AS FALSE or you will break some Scratch's functions</description>
         </key>
     </schema>
-    <schema path="/org/pantheon/scratch/services/" id="org.elementary.Scratch.Services" gettext-domain="scratch">
+    <schema path="/org/pantheon/scratch/services/" id="org.pantheon.scratch.services" gettext-domain="scratch">
         <key name="paste-format-code" type="s">
             <default>'None'</default>
             <summary>Default PasteBin text highlight</summary>
