@@ -200,12 +200,12 @@ namespace Scratch.Widgets {
         private void on_activated(int index) {
 
             switch (index) {
-                case 0: //open
-                window.main_actions.get_action ("Open").activate ();
+                case 0: //new
+                window.main_actions.get_action ("New tab").activate ();
                 break;
 
-                case 1: // new
-                window.main_actions.get_action ("New tab").activate ();
+                case 1: // open
+                window.main_actions.get_action ("Open").activate ();
                 break;
 
             }
