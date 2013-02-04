@@ -404,6 +404,10 @@ namespace Scratch {
             
             on_split_view_empty_changed ();
 
+            /* trap SIGINT and SIGTERM and terminate properly when catching one */
+            Unix.signal_add (Posix.SIGINT, action_quit, Priority.HIGH);
+            Unix.signal_add (Posix.SIGTERM, action_quit, Priority.HIGH);
+
         }
         
         void hide_search_bar () {
