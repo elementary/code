@@ -22,6 +22,7 @@ vala_precompile(VALA_C
 PACKAGES
     ${SCRATCH_DEPS}
     scratchcore
+    posix
 OPTIONS
     --vapidir=${CMAKE_BINARY_DIR}/scratchcore
     --vapidir=${CMAKE_SOURCE_DIR}/vapi

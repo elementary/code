@@ -404,6 +404,10 @@ namespace Scratch {
             
             on_split_view_empty_changed ();
 
+            /* trap SIGINT and SIGTERM and terminate properly when catching one */
+            Unix.signal_add (Posix.SIGINT, action_quit_source_func, Priority.HIGH);
+            Unix.signal_add (Posix.SIGTERM, action_quit_source_func, Priority.HIGH);
+
         }
         
         void hide_search_bar () {
@@ -559,6 +563,15 @@ namespace Scratch {
             
             if (quit)
                 destroy ();
+        }
+
+        public bool action_quit_source_func () {
+        /**
+         * wrapper for the actual action_quit () method that can be passed to
+         * methods that expect Glib.SourceFunc method signature
+         */
+            action_quit ();
+            return false;
         }
 
         public void action_new_tab () {
