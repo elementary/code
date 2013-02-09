@@ -419,7 +419,7 @@ namespace Scratch.Dialogs {
 
         private void read_settings () {
 
-            string paste_name = window.current_tab.label.label.get_text ();
+            string paste_name = window.current_tab.label;
             name_entry.text = paste_name;
 
 //            format_entry.text = Scratch.services.paste_format_code;

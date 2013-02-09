@@ -25,7 +25,7 @@ using Scratch.Dialogs;
 
 namespace Scratch.Widgets {
 
-    public class ScratchNotebook : Notebook {
+    public class ScratchNotebook : Granite.Widgets.DynamicNotebook {
 
         public signal void page_focused (Gtk.Widget w);
         public MainWindow window; //used in dialog
@@ -38,16 +38,14 @@ namespace Scratch.Widgets {
 
             this.window = parent;
 
-            this.switch_page.connect_after (on_switch_page);
+            this.tab_switched.connect_after (on_switch_page);
             
             expand = true;
-            set_scrollable (true);
-            set_group_name ("s");
 
             show_all ();
 
-            page_removed.connect(on_page_removed);
-            page_added.connect(on_page_added);
+            tab_removed.connect(on_page_removed);
+            tab_added.connect(on_page_added);
             additional_widget = new Gtk.Label("NoteBook");
             info_bar = new NotificationBar ();
             
@@ -58,33 +56,33 @@ namespace Scratch.Widgets {
 
         }
 
-        void on_page_added (Gtk.Widget w, uint page_num) {
+        void on_page_added (Granite.Widgets.Tab tab) {
             /* If it is a Tab (something where we can put text, not a welcome screen)
              * we want to hide the tabs and the welcome screen.
              */
-            if (w is Tab) {
-                (w as Tab).text_view.focus_in_event.connect (on_page_focused);
-                current_tab = w as Tab;
-                page_focused ((w as Tab).text_view);
-                (w as Tab).label.scroll_event.connect (on_scroll_event);
+            if (tab is Tab) {
+                (tab as Tab).text_view.focus_in_event.connect (on_page_focused);
+                current_tab = tab as Tab;
+                page_focused ((tab as Tab).text_view);
+                //(tab as Tab).label.scroll_event.connect (on_scroll_event);
             }
         }
 
-        bool on_scroll_event (EventScroll event) {
+        /*bool on_scroll_event (EventScroll event) {
             if (event.direction == ScrollDirection.UP || event.direction == ScrollDirection.LEFT)  {
                 if (get_current_page() != 0) {
                     set_current_page (get_current_page() - 1);
                 }
             }
             if (event.direction == ScrollDirection.DOWN || event.direction == ScrollDirection.RIGHT)  {
-                if (get_current_page() != get_n_pages ()) {
+                if (tabs.index (current) != tabs.length ()) {
                     set_current_page (get_current_page() + 1);
                 }
             }
 
             return true;
-        }
-
+        }*/
+        
         bool on_page_focused (Gtk.Widget w, Gdk.EventFocus event) {
             current_tab = w.get_parent ().get_parent () as Tab;
             window.toolbar.show_hide_button ();
@@ -104,7 +102,7 @@ namespace Scratch.Widgets {
             return false;
         }
 
-        void on_page_removed(Gtk.Widget w, uint page_num) {
+        bool on_page_removed(Granite.Widgets.Tab tab) {
             
             // Focus new showed page
             GLib.Idle.add_full (GLib.Priority.LOW, () => {
@@ -120,35 +118,32 @@ namespace Scratch.Widgets {
             
             var parent = ((Gtk.Container) get_parent ());
             
-            if (get_n_pages () == 0 && parent != null)
+            if (tabs.length () == 0 && parent != null)
                 parent.remove (this);
+                
+            return true;
         }
 
-        public int add_tab (string labeltext="New document") {
+        public void add_tab (string labeltext="New document") {
             Tab new_tab;
             
             if (labeltext == "New document")
                 new_tab = new Tab (this, _("New document"));
             else
                 new_tab = new Tab (this, labeltext);
-            return add_existing_tab(new_tab);
+            
+            add_existing_tab(new_tab);
         }
 
-        public int add_existing_tab (Tab new_tab) {
-            /**
-             * Search bar
-             */
-            int index = this.append_page (new_tab, new_tab.label);
-            set_tab_reorderable(new_tab, true);
-            set_tab_detachable(new_tab, true);
+        public void add_existing_tab (Tab new_tab) {
+
+            this.insert_tab (new_tab, 0);
 
             window.set_undo_redo ();
-
-            return index;
         }
 
-        public void on_switch_page (Widget page, uint page_num) {
-            var tab = page as Tab;
+        public void on_switch_page (Granite.Widgets.Tab? old_tab, Granite.Widgets.Tab new_tab) {
+            var tab = new_tab as Tab;
             if (tab == null) {
                 /* Welcome screen */
                 return;

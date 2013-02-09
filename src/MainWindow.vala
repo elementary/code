@@ -367,7 +367,7 @@ namespace Scratch {
             info_bar.no_show_all = true;
             
             var notebook =  new ScratchNotebook (this);
-            notebook.switch_page.connect( () => { hide_search_bar(); });
+            notebook.tab_switched.connect( () => { hide_search_bar(); });
             search_bar.no_show_all = true;
             search_bar.visible = false;
             split_view.additional_widget = search_bar;
@@ -439,7 +439,7 @@ namespace Scratch {
 
         void on_split_view_empty_changed ()
         {
-            if (split_view.is_empty) {
+            if (!split_view.is_empty) {
                 set_actions (false);
                 
                 if (statusbar != null) {
@@ -789,7 +789,7 @@ namespace Scratch {
             if (split_view.get_children ().length () <= 1) {
 
                 var instance = new ScratchNotebook (this);
-                instance.switch_page.connect( () => { hide_search_bar(); });
+                instance.tab_switched.connect( () => { hide_search_bar(); });
                 instance.additional_widget = search_bar;
                 instance.info_bar = info_bar;
                 split_view.add_view (instance);

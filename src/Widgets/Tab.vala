@@ -25,13 +25,12 @@ using Scratch.Dialogs;
 
 namespace Scratch.Widgets {
 
-    public class Tab : Gtk.Grid {
+    public class Tab : Granite.Widgets.Tab {
 
         public SourceView? text_view { set; get; default = null; }
-        public TabLabel label;
         public string filename = null;
         public bool saved = true;
-        public signal void closed ();
+        public signal void tab_closed ();
         public Scratch.Services.Document document;
 
         public Tab (ScratchNotebook parent, string labeltext) {
@@ -41,11 +40,11 @@ namespace Scratch.Widgets {
 
             text_view = new SourceView ();
             
-            label = new TabLabel (this, labeltext);
+            label = labeltext;
             
             scrolled_window.add (text_view);
 
-            attach (scrolled_window, 0, 1, 1, 1);
+            pack_end (scrolled_window, true, true, 0);
             scrolled_window.hexpand = true;
             scrolled_window.vexpand = true;
             
@@ -56,7 +55,7 @@ namespace Scratch.Widgets {
         
         public void set_overlay (Gtk.Widget widget) {
             ((Gtk.Container)widget.get_parent ()).remove (widget);
-            attach (widget, 0, 0, 1, 1);
+            pack_start (widget, false, true, 0);
             show_all ();
         } 
 
@@ -91,7 +90,7 @@ namespace Scratch.Widgets {
         public void close () {
 
             message("closing: %s\n", this.filename);
-            closed ();
+            tab_closed ();
             document.delete_backup ();
             ((Gtk.Notebook)get_parent()).remove(this);
         
@@ -148,7 +147,7 @@ namespace Scratch.Widgets {
                 this.saved = true;
 				
 				//updating the tab label and window title
-                label.label.set_text (document.file.get_basename ());
+                label = document.file.get_basename ();
                 var top = get_toplevel () as MainWindow;
                 top.set_window_title (this.filename);				
                 
@@ -231,7 +230,7 @@ namespace Scratch.Widgets {
                 this.saved = true;
 
                 //updating the tab label and the window title
-                label.label.set_text (Filename.display_basename (filename));
+                label = Filename.display_basename (filename);
                 var top = get_toplevel () as MainWindow;
                 top.set_window_title (this.filename);
 
