@@ -68,13 +68,12 @@ namespace Scratch.Widgets {
         bool is_empty_or_without_tabs () {
             foreach (var widget in get_children ())
             {
-                if (!(widget is Notebook)) {
+                if (!(widget is ScratchNotebook)) {
                     return false;
                 }
                 else {
-                    foreach (var page in ((ScratchNotebook)widget).get_children ()) {
+                    if (((ScratchNotebook)widget).get_children ().length () > 0)
                         return false;
-                    }
                 }
             }
             return true;

@@ -27,6 +27,7 @@ namespace Scratch.Widgets {
 
     public class Tab : Granite.Widgets.Tab {
 
+        public Gtk.Box box_page;
         public SourceView? text_view { set; get; default = null; }
         public string filename = null;
         public bool saved = true;
@@ -34,7 +35,12 @@ namespace Scratch.Widgets {
         public Scratch.Services.Document document;
 
         public Tab (ScratchNotebook parent, string labeltext) {
-
+            base (labeltext, null, null);
+            
+            working = false; // Not spin
+            
+            box_page = new Gtk.Box (Orientation.VERTICAL, 0);
+            
             var scrolled_window = new Gtk.ScrolledWindow (null, null);
             scrolled_window.set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
 
@@ -44,18 +50,20 @@ namespace Scratch.Widgets {
             
             scrolled_window.add (text_view);
 
-            pack_end (scrolled_window, true, true, 0);
+            box_page.pack_end (scrolled_window, true, true, 0);
             scrolled_window.hexpand = true;
             scrolled_window.vexpand = true;
             
             show_all();
             
             scrolled_window.grab_focus ();
+            
+            this.page = box_page;
         }
         
         public void set_overlay (Gtk.Widget widget) {
             ((Gtk.Container)widget.get_parent ()).remove (widget);
-            pack_start (widget, false, true, 0);
+            box_page.pack_start (widget, false, true, 0);
             show_all ();
         } 
 

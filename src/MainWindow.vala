@@ -401,8 +401,6 @@ namespace Scratch {
             
             main_actions.get_action ("ShowStatusBar").visible = false;
             statusbar.check ();
-            
-            on_split_view_empty_changed ();
 
             /* trap SIGINT and SIGTERM and terminate properly when catching one */
             Unix.signal_add (Posix.SIGINT, action_quit_source_func, Priority.HIGH);
@@ -439,7 +437,7 @@ namespace Scratch {
 
         void on_split_view_empty_changed ()
         {
-            if (!split_view.is_empty) {
+            if (split_view.is_empty) {
                 set_actions (false);
                 
                 if (statusbar != null) {

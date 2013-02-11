@@ -213,9 +213,11 @@ namespace Scratch.Services {
             source_view.drag_data_received.connect (on_drag_data_received);
             
             tab.change_syntax_highlight_for_filename (filename);
+            
             int index = window.current_notebook.tabs.index (tab);
+            window.current_notebook.insert_tab (tab, -1);
             window.current_notebook.current = window.current_notebook.tabs.nth_data (index);
-
+            
             open.begin ((obj, res) => {
                 open.end (res);
             });

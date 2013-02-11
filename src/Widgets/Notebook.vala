@@ -132,12 +132,12 @@ namespace Scratch.Widgets {
             else
                 new_tab = new Tab (this, labeltext);
             
-            add_existing_tab(new_tab);
+            add_existing_tab (new_tab);
         }
 
         public void add_existing_tab (Tab new_tab) {
 
-            this.insert_tab (new_tab, 0);
+            this.insert_tab (new_tab, -1);
 
             window.set_undo_redo ();
         }
