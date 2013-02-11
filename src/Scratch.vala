@@ -158,7 +158,7 @@ namespace Scratch {
             document.closed.connect( (doc) => { documents.remove(doc); });
             /* Apparently, it needs an iteration of the main loop to add the tab properly before we can focus it */
             Idle.add( () => { document.focus_sourceview(); return false; });
-            
+            document.make_backup ();
             window.set_window_title ("Scratch");
         }
 
