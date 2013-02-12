@@ -152,7 +152,7 @@ namespace Scratch {
 
         }
 
-        public void open_document(Document document) {
+        public void open_document (Document document) {
             document.create_sourceview ();
             documents.append (document);
             document.closed.connect( (doc) => { documents.remove(doc); });

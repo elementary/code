@@ -57,6 +57,10 @@ namespace Scratch.Widgets {
         }
 
         void on_page_added (Granite.Widgets.Tab tab) {
+            if (tab.page is Gtk.Label) { // It is a label when it is void (???)
+                window.action_new_tab ();
+                this.remove_tab (tab);
+            }
             /* If it is a Tab (something where we can put text, not a welcome screen)
              * we want to hide the tabs and the welcome screen.
              */
@@ -144,6 +148,7 @@ namespace Scratch.Widgets {
 
         public void on_switch_page (Granite.Widgets.Tab? old_tab, Granite.Widgets.Tab new_tab) {
             var tab = new_tab as Tab;
+            current_tab = tab;
             if (tab == null) {
                 /* Welcome screen */
                 return;

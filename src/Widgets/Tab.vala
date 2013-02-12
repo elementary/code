@@ -35,9 +35,7 @@ namespace Scratch.Widgets {
         public Scratch.Services.Document document;
 
         public Tab (ScratchNotebook parent, string labeltext) {
-            base (labeltext, null, null);
-            
-            working = false; // Not spin
+            base (labeltext, new ThemedIcon ("empty"), null);
             
             box_page = new Gtk.Box (Orientation.VERTICAL, 0);
             
@@ -59,6 +57,8 @@ namespace Scratch.Widgets {
             scrolled_window.grab_focus ();
             
             this.page = box_page;
+            
+            working = false; // Don't spin
         }
         
         public void set_overlay (Gtk.Widget widget) {

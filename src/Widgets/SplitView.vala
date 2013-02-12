@@ -66,7 +66,11 @@ namespace Scratch.Widgets {
         }
 
         bool is_empty_or_without_tabs () {
-            foreach (var widget in get_children ())
+            if (get_children ().length > 0)
+                return true;
+            else
+                return false;
+            /*foreach (var widget in get_children ())
             {
                 if (!(widget is ScratchNotebook)) {
                     return false;
@@ -75,8 +79,7 @@ namespace Scratch.Widgets {
                     if (((ScratchNotebook)widget).get_children ().length () > 0)
                         return false;
                 }
-            }
-            return true;
+            }*/
         }
 
         public bool remove_current_view () {
