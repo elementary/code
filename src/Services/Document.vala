@@ -170,11 +170,11 @@ namespace Scratch.Services {
             if(tab == null) {
                 critical("No tab created for this document");
             }
-            ScratchNotebook notebook = window.current_notebook as ScratchNotebook;
+            ScratchNotebook notebook = tab.get_parent () as ScratchNotebook;
             if (notebook == null) {
                 critical ("Can't get tab parent.");
             }
-            notebook.current = tab;
+            notebook.page = notebook.page_num(tab);
             tab.text_view.grab_focus ();
         }
 
@@ -199,7 +199,7 @@ namespace Scratch.Services {
 
             //create new tab
             tab = new Tab (window.current_notebook, name);
-            tab.tab_closed.connect( () => { close(); });
+            tab.closed.connect( () => { close(); });
             tab.document = this;
 
             //set new values
@@ -213,11 +213,8 @@ namespace Scratch.Services {
             source_view.drag_data_received.connect (on_drag_data_received);
             
             tab.change_syntax_highlight_for_filename (filename);
-            
-            int index = window.current_notebook.tabs.index (tab);
-            window.current_notebook.insert_tab (tab, -1);
-            window.current_notebook.current = window.current_notebook.tabs.nth_data (index);
-            
+            window.current_notebook.set_current_page (window.current_notebook.add_existing_tab(tab));
+
             open.begin ((obj, res) => {
                 open.end (res);
             });
@@ -439,21 +436,18 @@ namespace Scratch.Services {
             }
             
             if (state == DocumentStates.READONLY) {
-                tab.label = "%s".printf(label);
-                //tab.label.label.set_markup ("<span font_style='normal'>%s</span>".printf(label));
+                tab.label.label.set_markup ("<span font_style='normal'>%s</span>".printf(label));
                 return; 
             }
             
             switch (style) {
 
                 case "modified":
-                    tab.label = "* %s".printf(label);
-                    //tab.label.label.set_markup ("<span font_style='italic'>%s</span>".printf(label));
+                    tab.label.label.set_markup ("<span font_style='italic'>%s</span>".printf(label));
                 break;
 
                 case "saved":
-                    tab.label = "%s".printf(label);
-                    //tab.label.label.set_markup ("<span font_style='normal'>%s</span>".printf(label));
+                    tab.label.label.set_markup ("<span font_style='normal'>%s</span>".printf(label));
                 break;
 
             }

@@ -25,45 +25,38 @@ using Scratch.Dialogs;
 
 namespace Scratch.Widgets {
 
-    public class Tab : Granite.Widgets.Tab {
+    public class Tab : Gtk.Grid {
 
-        public Gtk.Box box_page;
         public SourceView? text_view { set; get; default = null; }
+        public TabLabel label;
         public string filename = null;
         public bool saved = true;
-        public signal void tab_closed ();
+        public signal void closed ();
         public Scratch.Services.Document document;
 
         public Tab (ScratchNotebook parent, string labeltext) {
-            base (labeltext, new ThemedIcon ("empty"), null);
-            
-            box_page = new Gtk.Box (Orientation.VERTICAL, 0);
-            
+
             var scrolled_window = new Gtk.ScrolledWindow (null, null);
             scrolled_window.set_policy (PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
 
             text_view = new SourceView ();
             
-            label = labeltext;
+            label = new TabLabel (this, labeltext);
             
             scrolled_window.add (text_view);
 
-            box_page.pack_end (scrolled_window, true, true, 0);
+            attach (scrolled_window, 0, 1, 1, 1);
             scrolled_window.hexpand = true;
             scrolled_window.vexpand = true;
             
             show_all();
             
             scrolled_window.grab_focus ();
-            
-            this.page = box_page;
-            
-            working = false; // Don't spin
         }
         
         public void set_overlay (Gtk.Widget widget) {
             ((Gtk.Container)widget.get_parent ()).remove (widget);
-            box_page.pack_start (widget, false, true, 0);
+            attach (widget, 0, 0, 1, 1);
             show_all ();
         } 
 
@@ -98,7 +91,7 @@ namespace Scratch.Widgets {
         public void close () {
 
             message("closing: %s\n", this.filename);
-            tab_closed ();
+            closed ();
             document.delete_backup ();
             ((Gtk.Notebook)get_parent()).remove(this);
         
@@ -155,7 +148,7 @@ namespace Scratch.Widgets {
                 this.saved = true;
 				
 				//updating the tab label and window title
-                label = document.file.get_basename ();
+                label.label.set_text (document.file.get_basename ());
                 var top = get_toplevel () as MainWindow;
                 top.set_window_title (this.filename);				
                 
@@ -238,7 +231,7 @@ namespace Scratch.Widgets {
                 this.saved = true;
 
                 //updating the tab label and the window title
-                label = Filename.display_basename (filename);
+                label.label.set_text (Filename.display_basename (filename));
                 var top = get_toplevel () as MainWindow;
                 top.set_window_title (this.filename);
 

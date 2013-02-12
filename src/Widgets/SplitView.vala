@@ -54,8 +54,8 @@ namespace Scratch.Widgets {
             add (view);
             this.position = window.get_allocated_width() / 2; //Puts the new view in the middle
 
-            view.tab_added.connect (() => { is_empty = is_empty_or_without_tabs (); });
-            view.tab_removed.connect (() => { is_empty = is_empty_or_without_tabs (); return true; });
+            view.page_added.connect (recompute_empty);
+            view.page_removed.connect (recompute_empty);
             view.page_focused.connect (on_page_focused);
             view.additional_widget = additional_widget;
             view.info_bar = info_bar;
@@ -66,20 +66,23 @@ namespace Scratch.Widgets {
         }
 
         bool is_empty_or_without_tabs () {
-            if (get_children ().length > 0)
-                return true;
-            else
-                return false;
-            /*foreach (var widget in get_children ())
+            foreach (var widget in get_children ())
             {
-                if (!(widget is ScratchNotebook)) {
+                if (!(widget is Notebook)) {
                     return false;
                 }
                 else {
-                    if (((ScratchNotebook)widget).get_children ().length () > 0)
+                    foreach (var page in ((Notebook)widget).get_children ()) {
                         return false;
+                    }
                 }
-            }*/
+            }
+            return true;
+        }
+
+        void recompute_empty ()
+        {
+            is_empty = is_empty_or_without_tabs ();
         }
 
         public bool remove_current_view () {
@@ -98,11 +101,11 @@ namespace Scratch.Widgets {
         public void show_save_dialog (ScratchNotebook notebook) {
             int n;
 
-            for (n = 0; n!=notebook.n_tabs; n++) {
-                var label  = (Tab) notebook.tabs.nth_data (n);
-                notebook.current = label;
+            for (n = 0; n!=notebook.get_n_pages(); n++) {
+                notebook.set_current_page (n);
+                var label = (Tab) notebook.get_nth_page (n);
 
-                string isnew = label.label [0:1];
+                string isnew = label.label.label.get_text () [0:1];
 
                 if (isnew == "*") {
                     var save_dialog = new SaveDialog (label);
