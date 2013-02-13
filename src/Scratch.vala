@@ -36,8 +36,9 @@ namespace Scratch {
         static string? introspect_arg;
         static bool disable_ui = false;
         static bool new_instance;
-        public GLib.List<Document> documents = new GLib.List<Document>();
         public string current_directory = ".";
+        public GLib.List<Document> documents = new GLib.List<Document>();
+        private string[] closed_documents = null;
         
         // Signals
         public signal void document_opened (Document doc);
@@ -136,15 +137,10 @@ namespace Scratch {
             current_directory = Path.get_dirname (filename);
             /* FIXME : filename is still encoded as uri */
             var document = new Document(filename, window);
-            document.create_sourceview ();
-            documents.append (document);
-            document.closed.connect( (doc) => { 
-                documents.remove(doc); 
-                document_closed (doc);
-            });
-            document.make_backup ();
+            open_document (document);
+
             /* FIXME : filename is still encoded as uri */
-            window.set_window_title (filename);
+            //window.set_window_title (filename);
             
             document_opened (document);
             
@@ -155,13 +151,26 @@ namespace Scratch {
         public void open_document(Document document) {
             document.create_sourceview ();
             documents.append (document);
-            document.closed.connect( (doc) => { documents.remove(doc); });
             document.make_backup ();
             
+            document.closed.connect( (doc) => {
+                documents.remove(doc);
+                if (doc.filename != null) 
+                    closed_documents += doc.filename;
+            });
+
             /* Apparently, it needs an iteration of the main loop to add the tab properly before we can focus it */
             Idle.add( () => { document.focus_sourceview(); return false; });
             
             window.set_window_title ("Scratch");
+        }
+        
+        public void restore_tab () {
+            var length = closed_documents.length;
+            if (closed_documents == null || length == 0)
+                return;
+            open_file (closed_documents[length-1]);
+            closed_documents.resize (length-1);
         }
 
         protected override void activate () {

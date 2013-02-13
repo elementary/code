@@ -1,7 +1,7 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /***
   BEGIN LICENSE
- afsd as 
+
   Copyright (C) 2011-2012 Mario Guerriero <mefrio.g@gmail.com>
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as published
@@ -45,6 +45,7 @@ namespace Scratch {
                 <menuitem name="ShowGoTo" action="ShowGoTo"/>
                 <menuitem name="ShowReplace" action="ShowReplace"/>
                 <menuitem name="New tab" action="New tab"/>
+                <menuitem name="Restore tab" action="Restore tab"/>
                 <menuitem name="New view" action="New view"/>
                 <menuitem name="Fullscreen" action="Fullscreen"/>
                 <menuitem name="Open" action="Open"/>
@@ -125,6 +126,7 @@ namespace Scratch {
         public signal void welcome_state_change (Scratch.Widgets.ScratchWelcomeState state);
         
         public MainWindow (Scratch.ScratchApp scratch_app) {
+        
             this.scratch_app = scratch_app;
             set_application (scratch_app);
 
@@ -413,7 +415,7 @@ namespace Scratch {
         void hide_search_bar () {
             search_bar.no_show_all = true;
             search_bar.visible = false;
-            current_tab.text_view.grab_focus ();            
+            current_tab.text_view.grab_focus ();
         }
 
         public void set_actions (bool val) {
@@ -506,7 +508,7 @@ namespace Scratch {
         void update_opened_files () {
             int n = 0;
             var opened_files = new string [scratch_app.documents.length ()];
-            foreach (var doc in scratch_app.documents) {            
+            foreach (var doc in scratch_app.documents) {
                 if (doc.name != null) {
                     opened_files[n] = doc.filename;
                     n++;
@@ -579,6 +581,10 @@ namespace Scratch {
             scratch_app.open_document (doc);
             if (settings.autosave)
                 this.toolbar.save_button.show ();
+        }
+        
+        public void action_restore_tab () {
+            scratch_app.restore_tab ();
         }
 
         public void action_open_clicked () {
@@ -704,7 +710,7 @@ namespace Scratch {
             uint n = 0;
             bool ret = false;
             
-            foreach (var doc in scratch_app.documents) {            
+            foreach (var doc in scratch_app.documents) {
                 if (doc.modified) {
                     var save_dialog = new SaveOnCloseDialog (doc.name, this);
                     doc.focus_sourceview ();
@@ -964,11 +970,14 @@ namespace Scratch {
           /* label, accelerator */       N_("New document"), "<Control>t",
           /* tooltip */                  N_("Create a new document in a new tab"),
                                          action_new_tab },
+           { "Restore tab", null,
+          /* label, accelerator */       N_("Reopen closed document"), "<Control><Shift>t",
+          /* tooltip */                  N_("Open last closed document in a new tab"),
+                                         action_restore_tab },
            { "New view", Gtk.Stock.NEW,
           /* label, accelerator */       N_("Add New View"), "F3",
           /* tooltip */                  N_("Add a new view"),
                                          action_new_view },
-
            { "Remove view", Gtk.Stock.CLOSE,
           /* label, accelerator */       N_("Remove Current View"), null,
           /* tooltip */                  N_("Remove this view"),
@@ -981,12 +990,10 @@ namespace Scratch {
           /* label, accelerator */       N_("Redo"), "<Control><shift>z",
           /* tooltip */                  N_("Redo the last undone action"),
                                          action_redo },
-
           { "Revert", Gtk.Stock.REVERT_TO_SAVED,
           /* label, accelerator */       N_("Revert"), "<Control><shift>o",
           /* tooltip */                  N_("Restore this file"),
                                          action_revert },
-
            { "SearchNext", "go-next-symbolic",
           /* label, accelerator */       N_("Next Search"), "<Control>g",
           /* tooltip */                  N_("Next Search"),
