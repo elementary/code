@@ -584,7 +584,6 @@ namespace Scratch {
         }
         
         public void action_restore_tab () {
-            warning ("Restoring Tab…");
             scratch_app.restore_tab ();
         }
 
@@ -971,7 +970,7 @@ namespace Scratch {
           /* label, accelerator */       N_("New document"), "<Control>t",
           /* tooltip */                  N_("Create a new document in a new tab"),
                                          action_new_tab },
-           { "Restore tab", Gtk.Stock.NEW,
+           { "Restore tab", null,
           /* label, accelerator */       N_("Reopen closed document"), "<Control><Shift>t",
           /* tooltip */                  N_("Open last closed document in a new tab"),
                                          action_restore_tab },
@@ -979,7 +978,6 @@ namespace Scratch {
           /* label, accelerator */       N_("Add New View"), "F3",
           /* tooltip */                  N_("Add a new view"),
                                          action_new_view },
-
            { "Remove view", Gtk.Stock.CLOSE,
           /* label, accelerator */       N_("Remove Current View"), null,
           /* tooltip */                  N_("Remove this view"),
@@ -992,12 +990,10 @@ namespace Scratch {
           /* label, accelerator */       N_("Redo"), "<Control><shift>z",
           /* tooltip */                  N_("Redo the last undone action"),
                                          action_redo },
-
           { "Revert", Gtk.Stock.REVERT_TO_SAVED,
           /* label, accelerator */       N_("Revert"), "<Control><shift>o",
           /* tooltip */                  N_("Restore this file"),
                                          action_revert },
-
            { "SearchNext", "go-next-symbolic",
           /* label, accelerator */       N_("Next Search"), "<Control>g",
           /* tooltip */                  N_("Next Search"),

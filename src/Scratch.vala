@@ -137,16 +137,10 @@ namespace Scratch {
             current_directory = Path.get_dirname (filename);
             /* FIXME : filename is still encoded as uri */
             var document = new Document(filename, window);
-            document.create_sourceview ();
-            documents.append (document);
-            document.closed.connect( (doc) => { 
-                documents.remove (doc);
-                closed_documents += doc.filename;
-                document_closed (doc);
-            });
-            document.make_backup ();
+            open_document (document);
+
             /* FIXME : filename is still encoded as uri */
-            window.set_window_title (filename);
+            //window.set_window_title (filename);
             
             document_opened (document);
             
@@ -157,10 +151,14 @@ namespace Scratch {
         public void open_document(Document document) {
             document.create_sourceview ();
             documents.append (document);
+            document.make_backup ();
+            
             document.closed.connect( (doc) => {
                 documents.remove(doc);
-                closed_documents += doc.filename;
+                if (doc.filename != null) 
+                    closed_documents += doc.filename;
             });
+
             /* Apparently, it needs an iteration of the main loop to add the tab properly before we can focus it */
             Idle.add( () => { document.focus_sourceview(); return false; });
             
