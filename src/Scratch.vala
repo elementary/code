@@ -36,8 +36,9 @@ namespace Scratch {
         static string? introspect_arg;
         static bool disable_ui = false;
         static bool new_instance;
-        public GLib.List<Document> documents = new GLib.List<Document>();
         public string current_directory = ".";
+        public GLib.List<Document> documents = new GLib.List<Document>();
+        private string[] closed_documents = null;
         
         // Signals
         public signal void document_opened (Document doc);
@@ -139,7 +140,8 @@ namespace Scratch {
             document.create_sourceview ();
             documents.append (document);
             document.closed.connect( (doc) => { 
-                documents.remove(doc); 
+                documents.remove (doc);
+                closed_documents += doc.filename;
                 document_closed (doc);
             });
             document.make_backup ();
@@ -155,11 +157,22 @@ namespace Scratch {
         public void open_document(Document document) {
             document.create_sourceview ();
             documents.append (document);
-            document.closed.connect( (doc) => { documents.remove(doc); });
+            document.closed.connect( (doc) => {
+                documents.remove(doc);
+                closed_documents += doc.filename;
+            });
             /* Apparently, it needs an iteration of the main loop to add the tab properly before we can focus it */
             Idle.add( () => { document.focus_sourceview(); return false; });
             
             window.set_window_title ("Scratch");
+        }
+        
+        public void restore_tab () {
+            var length = closed_documents.length;
+            if (closed_documents == null || length == 0)
+                return;
+            open_file (closed_documents[length-1]);
+            closed_documents.resize (length-1);
         }
 
         protected override void activate () {
