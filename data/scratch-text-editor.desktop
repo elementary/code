@@ -16,11 +16,11 @@ X-GNOME-Gettext-Domain=scratch-text-editor
 
 [NewDocument Shortcut Group]
 Name=New Document
-Exec=scratch --new-tab
+Exec=scratch-text-editor --new-tab
 TargetEnvironment=Unity
 
 [NewWindow Shortcut Group]
 Name=New Window
-Exec=scratch -n
+Exec=scratch-text-editor -n
 TargetEnvironment=Unity
 
