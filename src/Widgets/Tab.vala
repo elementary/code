@@ -114,6 +114,7 @@ namespace Scratch.Widgets {
                         filech.destroy ();
                     return false;
                 });
+                filech.set_filename (GLib.Environment.get_user_special_dir (GLib.UserDirectory.DOCUMENTS) + "/*");
                 
                 var response = filech.run();
 
