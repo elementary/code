@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-11-17 18:52+0100\n"
-"PO-Revision-Date: 2012-10-14 12:26+0000\n"
-"Last-Translator: Yaron <sh.yaron@gmail.com>\n"
+"PO-Revision-Date: 2013-02-25 20:40+0000\n"
+"Last-Translator: Danny Damsky <dannydamsky99@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-02-17 04:57+0000\n"
-"X-Generator: Launchpad (build 16491)\n"
+"X-Launchpad-Export-Date: 2013-02-26 05:20+0000\n"
+"X-Generator: Launchpad (build 16506)\n"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:13
 msgid "Edit text files"
@@ -23,20 +23,20 @@ msgstr "עריכת קבצי טקסט"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:14
 msgid "Text Editor"
-msgstr "מעבד תמלילים"
+msgstr "עורך טקסטים"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:15
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:33
 msgid "New Document"
-msgstr ""
+msgstr "מסמך חדש"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:16
 msgid "New Window"
-msgstr ""
+msgstr "חלון חדש"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:190
 msgid "Zeitgeist Datasource for Scratch"
-msgstr ""
+msgstr "מקור נתונים זייטגייסט בשביל סקראצ"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:511
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:997
@@ -46,7 +46,7 @@ msgstr "העדפות"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:569
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:982
 msgid "Open a file"
-msgstr "פתיחת קובץ"
+msgstr "פתח קובץ"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:581
 msgid "All files"
@@ -54,7 +54,7 @@ msgstr "כל הקבצים"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:584
 msgid "Text files"
-msgstr "קובצי טקסט"
+msgstr "קבצי טקסט"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:671
 msgid "Trash"
@@ -63,32 +63,32 @@ msgstr "אשפה"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:916
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:917
 msgid "Find..."
-msgstr "חיפוש..."
+msgstr "חפש..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:920
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:921
 msgid "Hide search bar"
-msgstr "הסתרת סרגל החיפוש"
+msgstr "הסתר סרגל חיפוש"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:924
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:925
 msgid "Go to line..."
-msgstr "מעבר לשורה..."
+msgstr "עבור לשורה..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:928
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:929
 msgid "Quit"
-msgstr "יציאה"
+msgstr "צא"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:932
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:933
 msgid "Close"
-msgstr "סגירה"
+msgstr "סגור"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:936
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:937
 msgid "Replace"
-msgstr "החלפה"
+msgstr "החלף"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:940
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:126
@@ -103,11 +103,11 @@ msgstr "יצירת מסמך חדש בלשונית חדשה"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:944
 msgid "Add New View"
-msgstr "הוספת תצוגה חדשה"
+msgstr "הסף תצוגה חדשה"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:945
 msgid "Add a new view"
-msgstr "הוספת תצוגה חדשה"
+msgstr "הסף תצוגה חדשה"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:949
 msgid "Remove Current View"
@@ -119,15 +119,15 @@ msgstr "הסרת תצוגה זו"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:953
 msgid "Undo"
-msgstr "ביטול"
+msgstr "בטל"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:954
 msgid "Undo the last action"
-msgstr "ביטול הפעולה האחרונה"
+msgstr "בטל את הפעולה האחרונה"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:957
 msgid "Redo"
-msgstr "ביצוע שוב"
+msgstr "בצע שוב"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:958
 msgid "Redo the last undone action"
@@ -135,7 +135,7 @@ msgstr "ביצוע הפעולה האחרונה שבוטלה שוב"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:962
 msgid "Revert"
-msgstr "שחזור"
+msgstr "החזר לקדמותו"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:963
 msgid "Restore this file"
@@ -158,25 +158,25 @@ msgstr "שכפול המחרוזות הנבחרות"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:981
 msgid "Open"
-msgstr "פתיחה"
+msgstr "פתח"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:985
 msgid "Save"
-msgstr "שמירה"
+msgstr "שמור"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:986
 msgid "Save the current file"
-msgstr "שמירת הקובץ הנוכחי"
+msgstr "שומר את הקובץ הנוכחי"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:989
 #: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:108
 #: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:184
 msgid "Save as"
-msgstr "שמירה בשם"
+msgstr "שמור בשם"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:990
 msgid "Save the current file with a different name"
-msgstr "שמירת הקובץ הנוכחי בשם אחר"
+msgstr "שומר את הקובץ הנוכחי בשם אחר"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:993
 #: /home/mario/elementary/scratch/po/../scratchcore/TemplateManager.vala:122
@@ -189,7 +189,7 @@ msgstr "יצירת מסמך חדש מתבנית"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:998
 msgid "Change Scratch settings"
-msgstr "שינוי ההגדרות של Scratch"
+msgstr "שינוי ההגדרות של סקראצ"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1004
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1005
@@ -199,7 +199,7 @@ msgstr "מסך מלא"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1008
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1009
 msgid "Sidebar"
-msgstr "סרגל צד"
+msgstr "פאנל צד"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1012
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1013
@@ -214,11 +214,11 @@ msgstr "שורת המצב"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1020
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1021
 msgid "Bottom Panel"
-msgstr "סרגל תחתון"
+msgstr "פאנל תחתון"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:179
 msgid "There are unsaved changes in Scratch!"
-msgstr ""
+msgstr "יש שינויים בסקראצ שלא נשמרו"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:197
 msgid "Set of plugins"
@@ -226,23 +226,23 @@ msgstr "ערכת תוספים"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:198
 msgid "To generate introspection file (only for developers)."
-msgstr ""
+msgstr "ליצור קובץ מסתכל פנימה (רק למקצוענים)"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:199
 msgid "Argument for the set of plugins"
-msgstr "ארגומנט עבור מערכת התוספים"
+msgstr "טענה עבור ערכה של תוספים"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:200
 msgid "Create a new instance"
-msgstr "הפעלת עותק חדש"
+msgstr "יצירת דוגמה חדשה"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:54
 msgid "Save changes elsewhere"
-msgstr ""
+msgstr "שמור שינויים איפהשהו"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:62
 msgid "Choose the new location"
-msgstr "נא לבחור את המיקום החדש"
+msgstr "בחר מיקום חדש"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
 #: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:98
@@ -251,7 +251,7 @@ msgstr "טקסט רגיל"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ShareMenu.vala:56
 msgid "Share"
-msgstr "שיתוף"
+msgstr "שתף"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:183
 msgid "No files are open."
@@ -259,11 +259,11 @@ msgstr "אין קבצים פתוחים."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:183
 msgid "Open a file to begin editing."
-msgstr "עליך לפתוח קובץ כדי להתחיל עריכה."
+msgstr "פתחו קובץ כדי להתחיל לערוך."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Open file"
-msgstr "פתיחת קובץ"
+msgstr "פתח קובץ"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Open a saved file."
@@ -280,7 +280,7 @@ msgstr "יצירת קובץ ריק חדש."
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:49
 #, c-format
 msgid "The file %s was modified."
-msgstr ""
+msgstr "הקובץ %s התחדש."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:50
 msgid "Do you want to reload it?"
@@ -289,7 +289,7 @@ msgstr "האם ברצונך לטעון מחדש?"
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:57
 #, c-format
 msgid "The file %s was deleted."
-msgstr ""
+msgstr "הקובץ %s נמחק."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:58
 msgid "Do you want to create it again?"
@@ -301,7 +301,7 @@ msgstr "התנהגות"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
 msgid "Interface"
-msgstr "מנשק"
+msgstr "ממשק"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:78
 msgid "Extensions"
@@ -321,7 +321,7 @@ msgstr "כללי:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:144
 msgid "When Scratch starts:"
-msgstr "עם הפעלת Scratch:"
+msgstr "כאשר סקראצ מופעל:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
 msgid "Save files when changed:"
@@ -337,11 +337,11 @@ msgstr "הזחה אוטומטית:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:160
 msgid "Insert spaces instead of tabs:"
-msgstr "הוספת רווחים במקום טאבים:"
+msgstr "הוספת רווחים במקום לשוניות:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:164
 msgid "Tab width:"
-msgstr "רוחב הטאב:"
+msgstr "רוחב הלשונית:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:192
 msgid "Editor:"
@@ -357,11 +357,11 @@ msgstr "הדגשת פיסוק הסגירה התואם:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:212
 msgid "Split long text in many lines:"
-msgstr ""
+msgstr "לפצל טקסט ארוך להרבה שורות:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:213
 msgid "Draw spaces:"
-msgstr "ציור רווחים:"
+msgstr "צייר רווחים:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:214
 msgid "Show line numbers:"
@@ -377,7 +377,7 @@ msgstr "רוחב השול:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:229
 msgid "Font and Color Scheme:"
-msgstr ""
+msgstr "טכסיס  גופן וצבע:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:243
 msgid "Select font:"
@@ -394,12 +394,12 @@ msgstr "גופן מותאם אישית:"
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
 #, c-format
 msgid "Save changes to document %s before closing?"
-msgstr ""
+msgstr "האם לשמור את השינויים למסמך %s לפני הסגירה?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr "אם השינויים לא יישמרו, כל השינויים מ־4 השניות האחרונות יאבדו לעד."
+msgstr "אם לא תשמרו, שינויים של הארבע השניות האחרונות לא ישמרו."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
 msgid "Close without saving"
@@ -412,7 +412,7 @@ msgstr "האם לשמור את השינויים שלא נשמרו בטרם הס�
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:42
 #, c-format
 msgid "Save unsaved changes to file %s before closing?"
-msgstr ""
+msgstr "האם לשמור שינויים שלא נשמרו לתוך קובץ %s לפני סגירה?"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:45
 msgid "Changes to this file haven't been saved."
@@ -425,7 +425,7 @@ msgstr "האם ברצונך לשמור את השינויים לפני סגירת
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:295
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:542
 msgid "You can't save changes to:"
-msgstr "לא ניתן לשמור את השינויים לקובץ:"
+msgstr "לא ניתן לשמור את השינויים ל:"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:295
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:542
@@ -434,7 +434,7 @@ msgstr "האם ברצונך לשמור את השינויים לקובץ זה ב�
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:576
 msgid "There are unsaved changes!"
-msgstr ""
+msgstr "יש שינויים שלא נשמרו!"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:92
 msgid "Syntax Highlighting"
@@ -442,19 +442,19 @@ msgstr "הדגשת תחביר"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:66
 msgid "Find"
-msgstr "חיפוש"
+msgstr "מצא"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:67
 msgid "Replace With"
-msgstr "החלפה ב־"
+msgstr "החלף ב־"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:82
 msgid "Go To Line:"
-msgstr "מעבר לשורה:"
+msgstr "עבור לשורה:"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
-msgstr "שיתוף באמצעות PasteBin"
+msgstr "שתף באמצעות פייסטבין"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:273
 msgid "Name:"
@@ -486,7 +486,7 @@ msgstr "פורמטים אחרים"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:544
 msgid "Never"
-msgstr "לעולם לא"
+msgstr "אף פעם"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:545
 msgid "Ten minutes"
@@ -506,4 +506,4 @@ msgstr "חודש אחד"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/filemanager.vala:29
 msgid "Files"
-msgstr ""
+msgstr "קבצים"
