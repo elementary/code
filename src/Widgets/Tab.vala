@@ -139,6 +139,11 @@ namespace Scratch.Widgets {
             try {
 
                 document.filename = this.filename;
+                
+                if (document.file.query_exists () == false) {
+                    FileOutputStream file_out_stream = document.file.create (FileCreateFlags.NONE);
+                    file_out_stream.close();
+                }
                     
                 uint8[] data = text_view.buffer.text.data;
                 string s;
