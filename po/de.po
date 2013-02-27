@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-11-17 18:52+0100\n"
-"PO-Revision-Date: 2012-08-03 17:04+0000\n"
-"Last-Translator: Alexander Wilms <Unknown>\n"
+"PO-Revision-Date: 2013-02-26 23:23+0000\n"
+"Last-Translator: DaElsta <pcrepariert@gmail.com>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-02-17 04:57+0000\n"
-"X-Generator: Launchpad (build 16491)\n"
+"X-Launchpad-Export-Date: 2013-02-27 04:57+0000\n"
+"X-Generator: Launchpad (build 16506)\n"
 "Language: de\n"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:13
@@ -228,6 +228,8 @@ msgstr "Erweiterungssammlung"
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:198
 msgid "To generate introspection file (only for developers)."
 msgstr ""
+"Zum Erstellen einer introspection (selbstüberprüfenden) Datei (für "
+"Entwickler)"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:199
 msgid "Argument for the set of plugins"
@@ -358,7 +360,7 @@ msgstr "Zusammengehörende Klammern hervorheben:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:212
 msgid "Split long text in many lines:"
-msgstr ""
+msgstr "Automatischer Zeilenumbruch:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:213
 msgid "Draw spaces:"
