@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-11-17 18:52+0100\n"
-"PO-Revision-Date: 2012-12-09 19:36+0000\n"
-"Last-Translator: Risman Rangga Pratama <Unknown>\n"
+"PO-Revision-Date: 2013-03-09 15:10+0000\n"
+"Last-Translator: Dani Pratomo <Unknown>\n"
 "Language-Team: Indonesian <id@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-02-17 04:57+0000\n"
-"X-Generator: Launchpad (build 16491)\n"
+"X-Launchpad-Export-Date: 2013-03-10 05:01+0000\n"
+"X-Generator: Launchpad (build 16523)\n"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:13
 msgid "Edit text files"
@@ -199,7 +199,7 @@ msgstr "Layar Penuh"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1008
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1009
 msgid "Sidebar"
-msgstr "Bilah Sisi"
+msgstr "Bilah Samping"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1012
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1013
@@ -267,7 +267,7 @@ msgstr "Buka berkas"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:185
 msgid "Open a saved file."
-msgstr "Buka berkas tersimpan"
+msgstr "Buka berkas tersimpan."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:186
 msgid "New file"
@@ -289,7 +289,7 @@ msgstr "Anda ingin memuat ulang ini?"
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:57
 #, c-format
 msgid "The file %s was deleted."
-msgstr "Berkas %s telah dihapus"
+msgstr "Berkas %s telah dihapus."
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:58
 msgid "Do you want to create it again?"
@@ -305,7 +305,7 @@ msgstr "Antarmuka"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:78
 msgid "Extensions"
-msgstr "Pengaya"
+msgstr "Ekstensi"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
 msgid "Show welcome screen"
@@ -451,7 +451,7 @@ msgstr "Ganti Dengan"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:82
 msgid "Go To Line:"
-msgstr "Menuju Baris"
+msgstr "Tuju Baris:"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
@@ -475,7 +475,7 @@ msgstr "Jangka kadaluarsa:"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:311
 msgid "Keep this paste private"
-msgstr "Jaga kerahasiaan rekatan ini"
+msgstr "Jaga kerahasiaan tempelan ini"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:314
 msgid "Upload"
