@@ -44,6 +44,7 @@ namespace Scratch.Widgets {
             
             label = new Label (labeltext);
             label.use_markup = true;
+            label.set_margin_right(6);
             entry = new Entry ();
 
             event_box = new EventBox ();
