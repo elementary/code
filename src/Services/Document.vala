@@ -185,6 +185,21 @@ namespace Scratch.Services {
         public void redo () {
             tab.text_view.redo ();
         }
+        
+        /**
+         * With this function we remove the "%20" characters replacing them with spaces
+         * This is used in tab titles
+         **/
+        public string fix_tab_title(string input)
+        {
+            try {
+		        var regex = new Regex ("(%20)");
+		        return regex.replace (input, -1, 0, " ");
+	        } catch (RegexError e) {
+		        warning ("%s", e.message);
+		        return input;
+	        }
+	    }
 
         /**
          * In this function, we create a new tab and we load the content of the file in it.
@@ -429,7 +444,11 @@ namespace Scratch.Services {
         public void set_label_font (string style) {
             string label;
             if (filename != null) {
-                label = Filename.display_basename (filename);
+                /**
+                 * We use fix_tab_title(string) to remove '%20' characters that otherwise in this
+                 * case will appear in the tab's text
+                 **/
+                label = fix_tab_title(Filename.display_basename (filename));
             }
             else {
                 label = _("New document");
