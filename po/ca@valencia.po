@@ -7,31 +7,32 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-08-03 21:02+0200\n"
-"PO-Revision-Date: 2012-05-21 23:42+0000\n"
-"Last-Translator: Sergio Tortosa <sertorbe@gmail.com>\n"
+"POT-Creation-Date: 2012-11-17 18:52+0100\n"
+"PO-Revision-Date: 2013-04-04 12:08+0000\n"
+"Last-Translator: Isacar Marín García <Unknown>\n"
 "Language-Team: Catalan (Valencian) <ca@valencia@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-03-28 05:08+0000\n"
-"X-Generator: Launchpad (build 16546)\n"
+"X-Launchpad-Export-Date: 2013-04-05 05:47+0000\n"
+"X-Generator: Launchpad (build 16550)\n"
 
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:172
-msgid "There are unsaved changes in Scratch!"
-msgstr ""
+#: /home/mario/elementary/scratch/po/../src/config.vala:13
+msgid "Edit text files"
+msgstr "Editeu fitxers de text"
 
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:190
-msgid "Set of plugins"
-msgstr ""
+#: /home/mario/elementary/scratch/po/../src/config.vala:14
+msgid "Text Editor"
+msgstr "Editor de text"
 
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:191
-msgid "Argument for the set of plugins"
-msgstr ""
+#: /home/mario/elementary/scratch/po/../src/config.vala:15
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:33
+msgid "New Document"
+msgstr "Document nou"
 
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:192
-msgid "Create a new instance"
-msgstr ""
+#: /home/mario/elementary/scratch/po/../src/config.vala:16
+msgid "New Window"
+msgstr "Finestra nova"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:185
 msgid "Zeitgeist Datasource for Scratch"
@@ -45,24 +46,24 @@ msgstr "Configuració"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:567
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:978
 msgid "Open a file"
-msgstr ""
+msgstr "Obri un fitxer"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:574
 msgid "All files"
-msgstr ""
+msgstr "Tots els fitxers"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:577
 msgid "Text files"
-msgstr ""
+msgstr "Fitxers de text"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:662
 msgid "Trash"
-msgstr ""
+msgstr "Paperera"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:912
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:913
 msgid "Find..."
-msgstr ""
+msgstr "Cerca..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:916
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:917
@@ -134,7 +135,7 @@ msgstr "Refer l'última acció"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:958
 msgid "Revert"
-msgstr ""
+msgstr "Desfés"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:959
 msgid "Restore this file"
@@ -157,30 +158,30 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:977
 msgid "Open"
-msgstr ""
+msgstr "Obrir"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:981
 msgid "Save"
-msgstr ""
+msgstr "Desa"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:982
 msgid "Save the current file"
-msgstr ""
+msgstr "Alça el fitxer actual"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:985
 #: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:108
 #: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:184
 msgid "Save as"
-msgstr ""
+msgstr "Alça com a"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:986
 msgid "Save the current file with a different name"
-msgstr ""
+msgstr "Alça el fitxer amb un altre nom"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:989
 #: /home/mario/elementary/scratch/po/../scratchcore/TemplateManager.vala:122
 msgid "Templates"
-msgstr ""
+msgstr "Plantilles"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:990
 msgid "Create a new document from a template"
@@ -193,12 +194,12 @@ msgstr ""
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1000
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1001
 msgid "Fullscreen"
-msgstr ""
+msgstr "Pantalla completa"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1004
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1005
 msgid "Sidebar"
-msgstr ""
+msgstr "Barra lateral"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1008
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1009
@@ -208,32 +209,31 @@ msgstr ""
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1012
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1013
 msgid "Status Bar"
-msgstr ""
+msgstr "Barra d'estat"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1016
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1017
 msgid "Bottom Panel"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/config.vala:13
-msgid "Edit text files"
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:172
+msgid "There are unsaved changes in Scratch!"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/config.vala:14
-msgid "Text Editor"
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:190
+msgid "Set of plugins"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/config.vala:15
-#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:33
-msgid "New Document"
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:198
+msgid "To generate introspection file (only for developers)."
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/config.vala:16
-msgid "New Window"
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:191
+msgid "Argument for the set of plugins"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/ShareMenu.vala:56
-msgid "Share"
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:192
+msgid "Create a new instance"
 msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:54
@@ -243,6 +243,15 @@ msgstr ""
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:62
 msgid "Choose the new location"
 msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
+#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:101
+msgid "Normal text"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/ShareMenu.vala:56
+msgid "Share"
+msgstr "Comparteix"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:204
 msgid "No files are open."
@@ -254,7 +263,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:206
 msgid "Open file"
-msgstr ""
+msgstr "Obri un fitxer"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:206
 msgid "Open a saved file."
@@ -268,9 +277,22 @@ msgstr ""
 msgid "Create a new empty file."
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
-#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:101
-msgid "Normal text"
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:49
+#, c-format
+msgid "The file %s was modified."
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:50
+msgid "Do you want to reload it?"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:57
+#, c-format
+msgid "The file %s was deleted."
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:58
+msgid "Do you want to create it again?"
 msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:68
@@ -279,11 +301,11 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:72
 msgid "Interface"
-msgstr ""
+msgstr "Interfície"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:77
 msgid "Extensions"
-msgstr ""
+msgstr "Extensions"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:120
 msgid "Show welcome screen"
@@ -295,7 +317,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:137
 msgid "General:"
-msgstr ""
+msgstr "General"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:143
 msgid "When Scratch starts:"
@@ -323,7 +345,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:191
 msgid "Editor:"
-msgstr ""
+msgstr "Editor:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:206
 msgid "Highlight current line:"
@@ -331,6 +353,10 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:207
 msgid "Highlight matching brackets:"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:212
+msgid "Split long text in many lines:"
 msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
@@ -365,6 +391,20 @@ msgstr ""
 msgid "Custom font:"
 msgstr ""
 
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+#, c-format
+msgid "Save changes to document %s before closing?"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
+msgid ""
+"If you don't save, changes from the last 4 seconds will be permanently lost."
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
+msgid "Close without saving"
+msgstr "Tanca sense alçar"
+
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
 msgstr ""
@@ -382,38 +422,6 @@ msgstr ""
 msgid "Do you want to save changes before closing this file?"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:49
-#, c-format
-msgid "The file %s was modified."
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:50
-msgid "Do you want to reload it?"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:57
-#, c-format
-msgid "The file %s was deleted."
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:58
-msgid "Do you want to create it again?"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
-#, c-format
-msgid "Save changes to document %s before closing?"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
-msgid ""
-"If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
-msgid "Close without saving"
-msgstr ""
-
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:281
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:522
 msgid "You can't save changes to:"
@@ -428,24 +436,20 @@ msgstr ""
 msgid "There are unsaved changes!"
 msgstr ""
 
+#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:95
+msgid "Syntax Highlighting"
+msgstr "Ressaltat de sintaxi"
+
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:66
 msgid "Find"
-msgstr ""
+msgstr "Cerca"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:67
 msgid "Replace With"
-msgstr ""
+msgstr "Substitueix amb"
 
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:82
 msgid "Go To Line:"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../scratchcore/PluginManager.vala:281
-msgid "Website"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:95
-msgid "Syntax Highlighting"
 msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
@@ -454,7 +458,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:273
 msgid "Name:"
-msgstr ""
+msgstr "Nom:"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:279
 msgid "Format: "
@@ -474,44 +478,32 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:314
 msgid "Upload"
-msgstr ""
+msgstr "Puja"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:345
 msgid "Other formats"
-msgstr ""
+msgstr "Altres formats"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:544
 msgid "Never"
-msgstr ""
+msgstr "Mai"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:545
 msgid "Ten minutes"
-msgstr ""
+msgstr "Deu minuts"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:546
 msgid "One hour"
-msgstr ""
+msgstr "Una hora"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:547
 msgid "One day"
-msgstr ""
+msgstr "Un dia"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:548
 msgid "One month"
-msgstr ""
+msgstr "Un mes"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/filemanager.vala:29
 msgid "Files"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:52
-msgid "Copy"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:59
-msgid "Paste"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:89
-msgid "Terminal"
-msgstr ""
+msgstr "Fitxers"
