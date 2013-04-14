@@ -262,11 +262,11 @@ namespace Scratch.Services {
 
         const string FALLBACK_CHARSET = "UTF-8";
         string script = Constants.SCRIPTDIR + "/chardetect.py";
-        string[] command = { "python", script, path };
+        string command = "python " + script + " " + path;
         string? charset = null;
 
         try {
-            GLib.Process.spawn_sync (null, command, null, 0, null, out charset, null, null);
+            GLib.Process.spawn_command_line_sync (command, out charset);
         } catch (SpawnError e) {
             warning ("Could not execute \"%s\": %s", script, e.message);
         }
@@ -281,7 +281,6 @@ namespace Scratch.Services {
     
     public string? file_content_to_utf8 (File file, string content, string mode = "r" /* it means read or write */) {
         
-        GLib.IOChannel channel;
         string? encoding = null;
         string? encoded_content = null;
         
