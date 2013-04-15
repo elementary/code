@@ -262,7 +262,7 @@ namespace Scratch.Services {
 
         const string FALLBACK_CHARSET = "UTF-8";
         string script = Constants.SCRIPTDIR + "/chardetect.py";
-        string command = "python " + script + " " + path;
+        string command = "python " + script + " " + path.replace (" ", "\\ ");
         string? charset = null;
 
         try {
