@@ -7,35 +7,36 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-08-03 21:02+0200\n"
-"PO-Revision-Date: 2012-06-17 09:28+0000\n"
-"Last-Translator: Filippos Kolyvas <fkolyvas@gmail.com>\n"
+"POT-Creation-Date: 2012-11-17 18:52+0100\n"
+"PO-Revision-Date: 2013-04-15 13:42+0000\n"
+"Last-Translator: onIaom <onlaom@aol.com>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-03-28 05:08+0000\n"
-"X-Generator: Launchpad (build 16546)\n"
+"X-Launchpad-Export-Date: 2013-04-16 05:02+0000\n"
+"X-Generator: Launchpad (build 16564)\n"
 
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:172
-msgid "There are unsaved changes in Scratch!"
-msgstr "Υπάρχουν μη αποθηκευμένες αλλαγές στο Scratch!"
+#: /home/mario/elementary/scratch/po/../src/config.vala:13
+msgid "Edit text files"
+msgstr "Επεξεργασία Αρχείων Κειμένου"
 
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:190
-msgid "Set of plugins"
-msgstr "Σετ προσθέτων"
+#: /home/mario/elementary/scratch/po/../src/config.vala:14
+msgid "Text Editor"
+msgstr "Επεξεργαστής Κειμένου"
 
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:191
-msgid "Argument for the set of plugins"
-msgstr "Παράμετρος για το σετ προσθέτων"
+#: /home/mario/elementary/scratch/po/../src/config.vala:15
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:33
+msgid "New Document"
+msgstr "Νέο Έγγραφο"
 
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:192
-msgid "Create a new instance"
-msgstr "Δημιουργία νέου στιγμιότυπου"
+#: /home/mario/elementary/scratch/po/../src/config.vala:16
+msgid "New Window"
+msgstr "Νέο Παράθυρο"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:185
 msgid "Zeitgeist Datasource for Scratch"
-msgstr "Πηγή δεδομένων του Zeitgeist για το Scratch"
+msgstr "Πηγή Δεδομένων του Zeitgeist Για Το Scratch"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:502
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:993
@@ -45,15 +46,15 @@ msgstr "Προτιμήσεις"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:567
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:978
 msgid "Open a file"
-msgstr "Άνοιγμα ενός αρχείου"
+msgstr "Άνοιγμα Αρχέιου"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:574
 msgid "All files"
-msgstr "Όλα τα αρχεία"
+msgstr "Όλα Τα Αρχεία"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:577
 msgid "Text files"
-msgstr "Αρχεία κειμένου"
+msgstr "Αρχεία Κειμένου"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:662
 msgid "Trash"
@@ -62,17 +63,17 @@ msgstr "Απορρίμματα"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:912
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:913
 msgid "Find..."
-msgstr "Εύρεση..."
+msgstr "Αναζήτηση..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:916
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:917
 msgid "Hide search bar"
-msgstr "Απόκρυψη μπάρας αναζήτησης"
+msgstr "Απόκρυψη Μπάρας Αναζήτησης"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:920
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:921
 msgid "Go to line..."
-msgstr "Μεταφορά στην γραμμή..."
+msgstr "Μεταφορά Σε γραμμή"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:924
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:925
@@ -94,11 +95,11 @@ msgstr "Αντικατάσταση"
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:175
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:374
 msgid "New document"
-msgstr "Νέο έγγραφο"
+msgstr "Νέο Έγγραφο"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:937
 msgid "Create a new document in a new tab"
-msgstr "Δημιουργία νέου εγγράφου σε νέα καρτέλα"
+msgstr "Δημιουργεία Νέου Εγγράφου Σε Νέα Καρτέλλα"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:940
 msgid "Add New View"
@@ -106,7 +107,7 @@ msgstr "Προσθήκη Νέας Προβολής"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:941
 msgid "Add a new view"
-msgstr "Πρόσθεσε μια νέα προβολή"
+msgstr "Προσθήκη Μιάς Νέας Προβολής"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:945
 msgid "Remove Current View"
@@ -114,7 +115,7 @@ msgstr "Αφαίρεση Τρέχουσας Προβολής"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:946
 msgid "Remove this view"
-msgstr "Αφάιρεσε αυτήν την προβολή"
+msgstr "Αφέρεση Αυτής Της Προβολής"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:949
 msgid "Undo"
@@ -122,15 +123,15 @@ msgstr "Αναίρεση"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:950
 msgid "Undo the last action"
-msgstr "Αναίρεση της τελευταίας ενέργειας"
+msgstr "Αναίρεση Τελευταίας Ενέργειας"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:953
 msgid "Redo"
-msgstr "Επανάληψη"
+msgstr "Επανάληψη Τελευταίας Ενέργειας"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:954
 msgid "Redo the last undone action"
-msgstr "Επανάληψη της τελευταίας αναιρεμένης ενέργειας"
+msgstr "Επανάληψη Της Τελευταίας Αναιρεμένης Ενέργειας"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:958
 msgid "Revert"
@@ -138,22 +139,22 @@ msgstr "Επαναφορά"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:959
 msgid "Restore this file"
-msgstr "Επαναφορά αυτού του αρχείου"
+msgstr "Επαναφορά Του Επιλεγμένου Αρχείου"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:963
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:964
 msgid "Next Search"
-msgstr "Επόμενη αναζήτηση"
+msgstr "Επόμενη Αναζήτηση"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:967
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:968
 msgid "Previous Search"
-msgstr "Προηγούμενη αναζήτηση"
+msgstr "Προηγούμενη Αναζήτηση"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:972
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:973
 msgid "Duplicate selected strings"
-msgstr "Διπλοτυπία επιλεγμένων συμβολοσειρών"
+msgstr "Διπλοτυπία Επιλεγμένων Συμβολοσειρών"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:977
 msgid "Open"
@@ -165,17 +166,17 @@ msgstr "Αποθήκευση"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:982
 msgid "Save the current file"
-msgstr "Αποθήκευση του τρέχοντος αρχείου"
+msgstr "Αποθήκευση Αυτού Του Αρχείου"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:985
 #: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:108
 #: /home/mario/elementary/scratch/po/../src/Widgets/Tab.vala:184
 msgid "Save as"
-msgstr "Αποθήκευση ως"
+msgstr "Αποθήκευση Ώς"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:986
 msgid "Save the current file with a different name"
-msgstr "Αποθήκευση του τρέχοντος αρχείου με διαφορετικό όνομα"
+msgstr "Αποθήκευση Του Τρέχοντος Αρχείου Με Διαφορετικό Όνομα"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:989
 #: /home/mario/elementary/scratch/po/../scratchcore/TemplateManager.vala:122
@@ -184,11 +185,11 @@ msgstr "Πρότυπα"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:990
 msgid "Create a new document from a template"
-msgstr "Δημιουργία νέου εγγράφου από πρότυπο"
+msgstr "Δημιουργία Νέου Εγγράφου Από Πρότυπο"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:994
 msgid "Change Scratch settings"
-msgstr "Αλλαγή ρυθμίσεων του Scratch"
+msgstr "Αλλαγή Ρυθμίσεων Του Scratch"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1000
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1001
@@ -198,12 +199,12 @@ msgstr "Πλήρης Οθόνη"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1004
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1005
 msgid "Sidebar"
-msgstr "Πλευρική στήλη"
+msgstr "Πλευρική Στήλη"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1008
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1009
 msgid "Context View"
-msgstr "Προβολή με πλαίσιο"
+msgstr "Προβολή Με Πλαίσιο"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1012
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1013
@@ -213,36 +214,44 @@ msgstr "Γραμμή Κατάστασης"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1016
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:1017
 msgid "Bottom Panel"
-msgstr "Κάτω γραμμή εργαλείων"
+msgstr "Κάτω Γραμμή Εργαλείων"
 
-#: /home/mario/elementary/scratch/po/../src/config.vala:13
-msgid "Edit text files"
-msgstr "Επεξεργασία αρχείων κειμένου"
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:172
+msgid "There are unsaved changes in Scratch!"
+msgstr "Υπάρχουν Μή Αποθηκευμένες Αλλαγές Στο Scratch!"
 
-#: /home/mario/elementary/scratch/po/../src/config.vala:14
-msgid "Text Editor"
-msgstr "Επεξεργαστής κειμένου"
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:190
+msgid "Set of plugins"
+msgstr "Σετ Προσθέτων"
 
-#: /home/mario/elementary/scratch/po/../src/config.vala:15
-#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:33
-msgid "New Document"
-msgstr "Νέο έγγραφο"
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:198
+msgid "To generate introspection file (only for developers)."
+msgstr "Για Δημιουργία Ενδοσκοπικού Αρχείου (Μόνο Για Προγραμματιστές)."
 
-#: /home/mario/elementary/scratch/po/../src/config.vala:16
-msgid "New Window"
-msgstr "Νέο Παράθυρο"
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:191
+msgid "Argument for the set of plugins"
+msgstr "Παράμετρος Για Το Σετ Προσθέτων"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/ShareMenu.vala:56
-msgid "Share"
-msgstr "Κοινή χρήση"
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:192
+msgid "Create a new instance"
+msgstr "Δημιουργία Νέου Στιγμιότυπου"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:54
 msgid "Save changes elsewhere"
-msgstr "Αποθήκευση των αλλαγών αλλού"
+msgstr "Αποθήκευση Των Αλλαγών Αλλού"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/NotificationBar.vala:62
 msgid "Choose the new location"
 msgstr "Επιλέξτε την νέα τοποθεσία"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
+#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:101
+msgid "Normal text"
+msgstr "Κανονικό κείμενο"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/ShareMenu.vala:56
+msgid "Share"
+msgstr "Κοινή χρήση"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/Notebook.vala:204
 msgid "No files are open."
@@ -268,10 +277,23 @@ msgstr "Νέο αρχείο"
 msgid "Create a new empty file."
 msgstr "Δημιουργία νέου κενού αρχείου"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/ComboSyntax.vala:38
-#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:101
-msgid "Normal text"
-msgstr "Κανονικό κείμενο"
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:49
+#, c-format
+msgid "The file %s was modified."
+msgstr "Το αρχείο %s τροποποιήθηκε."
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:50
+msgid "Do you want to reload it?"
+msgstr "Θέλετε να το επαναφορτώσετε;"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:57
+#, c-format
+msgid "The file %s was deleted."
+msgstr "Το αρχείο %s διεγράφη."
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:58
+msgid "Do you want to create it again?"
+msgstr "Θέλετε να το επαναδημιουργήσεστε;"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:68
 msgid "Behavior"
@@ -333,6 +355,10 @@ msgstr "Επισήμανση τρέχουσας γραμμής:"
 msgid "Highlight matching brackets:"
 msgstr "Επισήμανση ζεύγων αγκυλών:"
 
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:212
+msgid "Split long text in many lines:"
+msgstr ""
+
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
 msgid "Draw spaces:"
 msgstr "Σχεδίαση κενών:"
@@ -365,6 +391,22 @@ msgstr "Χρωματικός συνδυασμός:"
 msgid "Custom font:"
 msgstr "Προσαρμοσμένη γραμματοσειρά:"
 
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
+#, c-format
+msgid "Save changes to document %s before closing?"
+msgstr "Αποθήκευση των αλλαγών στο έγγραφο %s πριν την έξοδο;"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
+msgid ""
+"If you don't save, changes from the last 4 seconds will be permanently lost."
+msgstr ""
+"Αν δεν αποθηκεύσετε, οι αλλαγές των τελευταίων 4 δευτερολέπτων θα χαθούν "
+"μόνιμα."
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
+msgid "Close without saving"
+msgstr "Κλείσιμο χωρίς αποθήκευση"
+
 #: /home/mario/elementary/scratch/po/../src/Dialogs/SaveDialog.vala:40
 msgid "Save unsaved changes to file before closing?"
 msgstr "Αποθήκευση αλλαγών πρίν το κλείσιμο;"
@@ -383,40 +425,6 @@ msgstr "Οι αλλαγές σε αυτό το αρχείο δεν έχουν α
 msgid "Do you want to save changes before closing this file?"
 msgstr "Θέλετε να αποθηκεύσετε τις αλλάγες πριν κλείσετε το αρχείο;"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:49
-#, c-format
-msgid "The file %s was modified."
-msgstr "Το αρχείο %s τροποποιήθηκε."
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:50
-msgid "Do you want to reload it?"
-msgstr "Θέλετε να το επαναφορτώσετε;"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:57
-#, c-format
-msgid "The file %s was deleted."
-msgstr "Το αρχείο %s διεγράφη."
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/WarnDialog.vala:58
-msgid "Do you want to create it again?"
-msgstr "Θέλετε να το επαναδημιουργήσεστε;"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:39
-#, c-format
-msgid "Save changes to document %s before closing?"
-msgstr "Αποθήκευση των αλλαγών στο έγγραφο %s πριν την έξοδο;"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:40
-msgid ""
-"If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr ""
-"Αν δεν αποθηκεύσετε, οι αλλαγές των τελευταίων 4 δευτερολέπτων θα χαθούν "
-"μόνιμα."
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/SaveOnCloseDialog.vala:42
-msgid "Close without saving"
-msgstr "Κλείσιμο χωρίς αποθήκευση"
-
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:281
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:522
 msgid "You can't save changes to:"
@@ -432,6 +440,10 @@ msgstr ""
 msgid "There are unsaved changes!"
 msgstr "Υπάρχουν μη αποθηκευμένες αλλαγές!"
 
+#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:95
+msgid "Syntax Highlighting"
+msgstr "Επισήμανση Σύνταξης"
+
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:66
 msgid "Find"
 msgstr "Εύρεση"
@@ -443,14 +455,6 @@ msgstr "Αντικατάσταση με"
 #: /home/mario/elementary/scratch/po/../scratchcore/SearchManager.vala:82
 msgid "Go To Line:"
 msgstr "Μετακίνηση στη στον αριθμό γραμμής:"
-
-#: /home/mario/elementary/scratch/po/../scratchcore/PluginManager.vala:281
-msgid "Website"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../scratchcore/SourceView.vala:95
-msgid "Syntax Highlighting"
-msgstr "Επισήμανση Σύνταξης"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
@@ -507,15 +511,3 @@ msgstr "Ένας μήνας"
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/filemanager.vala:29
 msgid "Files"
 msgstr "Αρχεία"
-
-#: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:52
-msgid "Copy"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:59
-msgid "Paste"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../plugins/bash/bash.vala:89
-msgid "Terminal"
-msgstr ""
