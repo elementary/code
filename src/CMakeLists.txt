@@ -1,44 +1,71 @@
-install (FILES ${CMAKE_BINARY_DIR}/src/scratch.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig/)
 vala_precompile(VALA_C
     MainWindow.vala
     Scratch.vala
-    Widgets/ShareMenu.vala
-    Widgets/Notebook.vala
-    Widgets/Tab.vala
-    Widgets/TabLabel.vala
-    Widgets/SplitView.vala
-    Widgets/ToolBar.vala
+    Utils.vala
     Dialogs/PreferencesDialog.vala
-    Dialogs/SaveDialog.vala
-    Dialogs/SaveOnCloseDialog.vala
-    Dialogs/WarnDialog.vala
+    Widgets/DocumentView.vala
+    Widgets/Notebook.vala
+    #Widgets/Tab.vala
+    #Widgets/TabLabel.vala
+    #Widgets/SplitView.vala
+    Widgets/ToolBar.vala
+    Widgets/SearchManager.vala
+    Widgets/SplitView.vala
+    Widgets/SourceView.vala
+    #Dialogs/SaveOnCloseDialog.vala
+    #Dialogs/WarnDialog.vala
+    Services/FileHandler.vala
     Services/Document.vala
+    Services/PluginManager.vala
+    Services/Settings.vala
+    #Services/TemplateManager.vala
     Services/ZeitgeistLogger.vala
-    Services/Encoding.vala
     config.vala
-    Widgets/ComboSyntax.vala
-    Widgets/StatusBar.vala
-    Widgets/NotificationBar.vala
+    #Widgets/StatusBar.vala
+    #Widgets/NotificationBar.vala
 PACKAGES
     ${SCRATCH_DEPS}
-    scratchcore
     posix
 OPTIONS
-    --vapidir=${CMAKE_BINARY_DIR}/scratchcore
     --vapidir=${CMAKE_SOURCE_DIR}/vapi
     --thread
 GENERATE_VAPI
-    scratch
+    ${LIBNAME}
 GENERATE_HEADER
-    scratch
+    ${LIBNAME}
 )
 # tranlation stuff
 
 add_executable (scratch-text-editor ${VALA_C})
+
+install (TARGETS scratch-text-editor RUNTIME DESTINATION bin)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/scratch-ui.xml DESTINATION share/scratch/)
+
+#####
+# Plugin Library
+#####
+
+# Bild library for plugins
+add_library (${LIBNAME} SHARED
+    ${VALA_C}
+)
+
+if(BUILD_STATIC MATCHES "Yes")
+add_library (${LIBNAME}-static STATIC ${VALA_C})
+set_target_properties (${PKGNAME}-static PROPERTIES OUTPUT_NAME ${LIBNAME})
+install (TARGETS ${LIBNAME}-static DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/)
+endif(BUILD_STATIC MATCHES "Yes")
+
+set_target_properties (${LIBNAME} PROPERTIES
+    VERSION ${LIBNAME}
+    SOVERSION ${SOVERSION}
+)
+
 add_dependencies(scratch-text-editor scratchcore)
 target_link_libraries (scratch-text-editor scratchcore)
 
-install (TARGETS scratch-text-editor RUNTIME DESTINATION bin)
+# Install lib stuffs
+install (FILES ${CMAKE_BINARY_DIR}/src/scratchcore.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig/)
 install (FILES ${CMAKE_CURRENT_BINARY_DIR}/scratch.vapi DESTINATION share/vala/vapi/)
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/scratch.deps DESTINATION share/vala/vapi/)
 install (FILES ${CMAKE_CURRENT_BINARY_DIR}/scratch.h DESTINATION include/scratch/)

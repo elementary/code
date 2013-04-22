@@ -12,7 +12,7 @@ $ mkdir build
 $ cd build/
 $ cmake -DCMAKE_INSTALL_PREFIX=/usr ..
 $ make
-$ sudo make install # do not worry, it's only needed for gsettings schema
+$ sudo make install
 $ ./src/scratch-text-editor
 
 Thanks!

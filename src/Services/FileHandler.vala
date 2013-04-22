@@ -27,29 +27,21 @@ namespace Scratch.Services {
     }
     
     public class FileHandler : GLib.Object {
-    
-        public static string load_content (string path) {
-            var file = File.new_for_path (path);
-            return load_content_from_gfile (file);
-        } 
-
-        public static string load_content_from_gfile (File file) {
-            var dis = new DataInputStream (file.read ());
-            var text = new StringBuilder ();
-            string line;
-            while ((line = dis.read_line (null)) != null) {
-                text.append (line);
-                text.append_c ('\n');
-            }
-            return text.str;
-        }
         
-        public static string load_content_from_uri (string? uri) {
-            if (uri == null)
-                return "";
-            else {
-                var file = File.new_for_uri (uri);
-                return load_content_from_gfile (file);
+        public static async string? load_content_from_file (File file) {
+            var text = new StringBuilder ();
+                        
+            try {
+                var dis = new DataInputStream (file.read ());
+                string line = null;
+                while ((line = yield dis.read_line_async (Priority.DEFAULT)) != null) {
+                    text.append (line);
+                    text.append_c ('\n');
+                }
+                return text.str;
+            } catch (Error e) {
+                warning ("Cannot read \"%s\": %s", file.get_basename (), e.message);
+                return null;
             }
         }
         
@@ -100,23 +92,6 @@ namespace Scratch.Services {
             if (!newpath.query_exists ()) {
                 try {
                     old.copy (newpath, FileCopyFlags.NONE);
-                    return true;
-                } catch (Error e) {
-                    warning (e.message);
-                    return false;
-                }
-            }
-            else
-                return false;
-        }
-        
-        public static bool copy_uri (string uri, string new_uri) {
-            var old = File.new_for_uri (uri);
-            var newuri = File.new_for_uri (new_uri);
-
-            if (!newuri.query_exists ()) {
-                try {
-                    old.copy (newuri, FileCopyFlags.NONE);
                     return true;
                 } catch (Error e) {
                     warning (e.message);

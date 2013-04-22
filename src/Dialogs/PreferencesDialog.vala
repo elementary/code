@@ -3,6 +3,7 @@
   BEGIN LICENSE
 
   Copyright (C) 2011-2012 Giulio Collura <random.cpp@gmail.com>
+                2013 Mario Guerriero <mario@elementaryos.org>
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
@@ -25,8 +26,6 @@ namespace Scratch.Dialogs {
 
     public class Preferences : Dialog {
 
-        private MainWindow window;
-
         public StaticNotebook main_static_notebook;
         
         ComboBoxText start;
@@ -41,47 +40,39 @@ namespace Scratch.Dialogs {
         Switch use_custom_font;
         FontButton select_font;
         
-        List<string> plugin_lists;
-        
-        public Preferences (string? title, MainWindow? window) {
+        public Preferences () {
 
-            this.window = window;
-            this.title = title;
+            this.title = _("Preferences");
             this.type_hint = Gdk.WindowTypeHint.DIALOG;
-            this.set_transient_for (window);
             set_default_size (630, 330);
             resizable = false;
-            
-            this.plugin_lists = plugin_lists.copy ();
             
             main_static_notebook = new StaticNotebook (false);
 
             create_layout ();
 
-            Scratch.plugins.hook_preferences_dialog (this);
+            //Scratch.plugins.hook_preferences_dialog (this);
 
         }
 
         private void create_layout () {
-
-
-            //create static notebook
-            var general = new Label (_("Behavior"));
-            main_static_notebook.append_page (get_general_box (), general);
+            //create static notebook Behavior tab
+            var behavior_label = new Label (_("Behavior"));
+            main_static_notebook.append_page (get_general_box (), behavior_label);
             
-            //create static notebook
-            var editor = new Label (_("Interface"));
-            main_static_notebook.append_page (get_editor_box (), editor);
+            //create static notebook Interface tab
+            var interface_label = new Label (_("Interface"));
+            main_static_notebook.append_page (get_editor_box (), interface_label);
             
-            if (Peas.Engine.get_default ().get_plugin_list ().length() > 0) {
-                //create static notebook
-                var plugins_label = new Label (_("Extensions"));
+            if (Peas.Engine.get_default ().get_plugin_list ().length () > 0) {
+                //create static notebook Extensions tab
+                var extensions_label = new Label (_("Extensions"));
 
                 //var pbox = plugins.get_view ();
                 var pbox = new Box (Orientation.HORIZONTAL, 5);
                 pbox.pack_start (plugins.get_view (), true, true, 5);
                 
-                main_static_notebook.append_page (pbox, plugins_label);
+                main_static_notebook.append_page (pbox, extensions_label);
             }
 
             ((Gtk.Box)get_content_area()).add (main_static_notebook);
