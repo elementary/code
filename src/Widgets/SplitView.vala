@@ -41,9 +41,9 @@ namespace Scratch.Widgets {
             // Welcome screen
             this.welcome_screen = new Granite.Widgets.Welcome (_("No files are open."), 
                                                     _("Open a file to begin editing."));
-            this.welcome_screen.valign = Gtk.Align.CENTER;
-            this.welcome_screen.halign = Gtk.Align.CENTER;
-            this.welcome_screen.vexpand = true;        
+            this.welcome_screen.valign = Gtk.Align.FILL;
+            this.welcome_screen.halign = Gtk.Align.FILL;
+            this.welcome_screen.vexpand = true;
             this.welcome_screen.append ("document-new", _("New file"), _("Create a new empty file."));
             this.welcome_screen.append ("document-open", _("Open file"), _("Open a saved file."));
             this.welcome_screen.activated.connect ((i) => {

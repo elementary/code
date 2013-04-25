@@ -58,7 +58,7 @@ add_dependencies(scratch-text-editor scratchcore)
 target_link_libraries (scratch-text-editor scratchcore)
 
 # Install lib stuffs
-install (FILES ${CMAKE_BINARY_DIR}/src/scratchcore.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig/)
-install (FILES ${CMAKE_CURRENT_BINARY_DIR}/scratch.vapi DESTINATION share/vala/vapi/)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/scratch.deps DESTINATION share/vala/vapi/)
-install (FILES ${CMAKE_CURRENT_BINARY_DIR}/scratch.h DESTINATION include/scratch/)
+install (FILES ${CMAKE_BINARY_DIR}/src/${LIBNAME}.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig/)
+install (FILES ${CMAKE_CURRENT_BINARY_DIR}/${LIBNAME}.vapi DESTINATION share/vala/vapi/)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/${LIBNAME}.deps DESTINATION share/vala/vapi/)
+install (FILES ${CMAKE_CURRENT_BINARY_DIR}/${LIBNAME}.h DESTINATION include/scratch/)

@@ -82,6 +82,9 @@ namespace Scratch.Services {
             // Load file's content
             FileHandler.load_content_from_file.begin (file, (obj, res) => {
                 var text = FileHandler.load_content_from_file.end (res);
+                // Convert non-UTF8 text in UTF8 
+                if (!text.validate())
+                   text = file_content_to_utf8 (file, text);
                 this.source_view.set_text (text);
                 this.original_content = text;
                 // Signals for SourceView
@@ -205,21 +208,15 @@ namespace Scratch.Services {
         }
         
         public bool save_as () {
-            // Replace old content with the new one
-            try {
-                string s;
-                file.replace_contents (this.source_view.buffer.text.data, null, false, 0, out s);
-            } catch (Error e) {
-                warning ("Cannot save \"%s\": %s", get_basename (), e.message);
-            }
-
-            // Zeitgeist integration
-            zg_log.save_insert (file.get_uri (), get_mime_type ());
-
-            doc_saved ();
-            this.saved = true;
-
-            message ("File \"%s\" saved succefully", get_basename ());
+            // New file
+            var filech = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.SAVE);
+            
+            if (filech.run () == Gtk.ResponseType.ACCEPT)
+                this.file = File.new_for_uri (filech.get_uri ());
+                
+            filech.close ();
+            
+            save ();
 
             return true;
         }
@@ -346,6 +343,7 @@ namespace Scratch.Services {
         // Revert
         public void revert () {
             this.source_view.set_text (original_content);
+            this.last_saved_content = original_content;
             check_undoable_actions ();
         }
 
@@ -369,6 +367,7 @@ namespace Scratch.Services {
 
                     set_message (Gtk.MessageType.WARNING, message, _("Save changes elsewhere"), () => {
                         this.save_as ();
+                        hide_info_bar ();
                     });
                     main_actions.get_action ("SaveFile").sensitive = false;
                     this.source_view.editable = !settings.autosave;
@@ -380,6 +379,7 @@ namespace Scratch.Services {
 
                     set_message (Gtk.MessageType.WARNING, message, _("Save"), () => {
                         this.save ();
+                        hide_info_bar ();
                     });
                     main_actions.get_action ("SaveFile").sensitive = false;
                     this.source_view.editable = false;

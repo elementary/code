@@ -260,7 +260,20 @@ namespace Scratch {
         public Scratch.Widgets.DocumentView? add_view () {
             return split_view.add_view ();
         }
-
+        
+        // Open a document
+        public void open_document (Scratch.Services.Document doc) {
+            Scratch.Widgets.DocumentView? view = null;
+            if (this.split_view.is_empty ()) {
+                view = split_view.add_view ();
+                view.open_document (doc);
+            }
+            else {
+                view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
+                view.open_document (doc);
+            }
+        }
+        
         // Return true if there are no documents
         public bool is_empty () {
             return split_view.is_empty ();
@@ -314,7 +327,26 @@ namespace Scratch {
             }
 
         }
-
+        
+        // Update files-opened settings key
+        void update_opened_files () {
+            // File list
+            var docs = new GLib.List<Scratch.Services.Document> ();
+            this.split_view.views.foreach ((view) => {
+                docs.concat (view.docs.copy ());
+            });
+            
+            string[] opened_files = { "" };//new string[docs.length ()];
+            docs.foreach ((doc) => {
+                if (doc.file != null)
+                    opened_files += doc.file.get_uri ();
+            });
+            
+            // Update the opened-files setting 
+            if (settings.show_at_start == "last-tabs")
+               settings.schema.set_strv ("opened-files", opened_files);
+        }
+        
         // Actions functions
         void action_preferences () {
             var dialog = new Scratch.Dialogs.Preferences ();
@@ -329,6 +361,7 @@ namespace Scratch {
 
         void action_quit () {
             update_saved_state ();
+            update_opened_files ();
         }
 
         void action_restore_tab () {
@@ -337,7 +370,7 @@ namespace Scratch {
 
         void action_open () {
             // Show a GtkFileChooserDialog
-            var filech = Utils.new_file_chooser_dialog (FileChooserAction.OPEN);
+            var filech = Utils.new_file_chooser_dialog (FileChooserAction.OPEN, true);
 
             if (filech.run () == ResponseType.ACCEPT) {
                 foreach (string uri in filech.get_uris ()) {
@@ -346,15 +379,7 @@ namespace Scratch {
                     // Open the file
                     var file = File.new_for_uri (uri);
                     var doc = new Scratch.Services.Document (file);
-                    Scratch.Widgets.DocumentView? view = null;
-                    if (this.split_view.is_empty ()) {
-                        view = split_view.add_view ();
-                        view.open_document (doc);
-                    }
-                    else {
-                        view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
-                        view.open_document (doc);
-                    }
+                    this.open_document (doc);
                 }
             }
 
