@@ -203,6 +203,29 @@ namespace Scratch.Widgets {
             return selected;
         }
         
+        // Duplicate selected text if exists, else duplicate current line
+        public void duplicate_selection () {
+            // Selection
+            var selection = get_selected_text ();
+            // Iters
+            Gtk.TextIter start, end;
+            this.buffer.get_selection_bounds (out start, out end); 
+            
+            if (selection != "")
+                this.buffer.insert (ref end, "\n" + selection, -1);
+            // If nothing is selected duplicate current line
+            else {
+                this.buffer.get_iter_at_mark (out start, this.buffer.get_insert ());
+                start.backward_sentence_start ();
+
+                this.buffer.get_iter_at_mark (out end, this.buffer.get_insert ());
+                if (!end.ends_line ()) end.forward_sentence_end ();
+                        
+                string line = this.buffer.get_text (start, end, true);
+                this.buffer.insert (ref end, "\n" + line, -1);
+            }
+        }
+        
         public void set_text (string text) {
             buffer.begin_not_undoable_action ();
             buffer.text = text;

@@ -4,25 +4,18 @@ vala_precompile(VALA_C
     Utils.vala
     Dialogs/PreferencesDialog.vala
     Widgets/DocumentView.vala
-    Widgets/Notebook.vala
-    #Widgets/Tab.vala
-    #Widgets/TabLabel.vala
-    #Widgets/SplitView.vala
     Widgets/ToolBar.vala
     Widgets/SearchManager.vala
     Widgets/SplitView.vala
     Widgets/SourceView.vala
-    #Dialogs/SaveOnCloseDialog.vala
-    #Dialogs/WarnDialog.vala
-    Services/FileHandler.vala
     Services/Document.vala
+    Services/Encoding.vala
+    Services/FileHandler.vala
     Services/PluginManager.vala
     Services/Settings.vala
     #Services/TemplateManager.vala
     Services/ZeitgeistLogger.vala
     config.vala
-    #Widgets/StatusBar.vala
-    #Widgets/NotificationBar.vala
 PACKAGES
     ${SCRATCH_DEPS}
     posix
@@ -57,7 +50,7 @@ install (TARGETS ${LIBNAME}-static DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/)
 endif(BUILD_STATIC MATCHES "Yes")
 
 set_target_properties (${LIBNAME} PROPERTIES
-    VERSION ${LIBNAME}
+    VERSION ${LIBVERSION}
     SOVERSION ${SOVERSION}
 )
 

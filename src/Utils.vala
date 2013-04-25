@@ -21,4 +21,29 @@
 namespace Scratch.Utils {
     public const string UI_PATH = Constants.DATADIR + "/scratch-ui.xml";
     public string? last_path = null;
+    
+    // Create a GtkFileChooserDialog to perform the action desired
+    public Gtk.FileChooserDialog new_file_chooser_dialog (Gtk.FileChooserAction action) {
+        var filech = new Gtk.FileChooserDialog (_("Open some files"), null, action, null);
+        filech.set_select_multiple (true);
+        filech.add_button (Gtk.Stock.CANCEL, Gtk.ResponseType.CANCEL);
+        filech.add_button (Gtk.Stock.OPEN, Gtk.ResponseType.ACCEPT);
+        filech.set_default_response (Gtk.ResponseType.ACCEPT);
+        filech.set_current_folder_uri (Utils.last_path ?? GLib.Environment.get_home_dir ());
+        filech.key_press_event.connect ((ev) => {
+            if (ev.keyval == 65307) // Esc key
+                filech.destroy ();
+            return false;
+        });
+        var all_files_filter = new Gtk.FileFilter ();
+        all_files_filter.set_filter_name (_("All files"));
+        all_files_filter.add_pattern ("*");
+        var text_files_filter = new Gtk.FileFilter ();
+        text_files_filter.set_filter_name (_("Text files"));
+        text_files_filter.add_mime_type ("text/*");
+        filech.add_filter (all_files_filter);
+        filech.add_filter (text_files_filter);
+        filech.set_filter (text_files_filter);
+        return filech;
+    }
 }

@@ -12,6 +12,7 @@ set (RELEASE_NAME "The elementary Text Editor.")
 set (VERSION "1.2")
 set (VERSION_INFO "Release")
 set (LIBNAME "scratchcore")
+set (LIBVERSION "0")
 set (SOVERSION 0)
 set (PLUGINDIR "${CMAKE_INSTALL_PREFIX}/lib/scratch/plugins/")
 set (PREFIX ${CMAKE_INSTALL_PREFIX})
@@ -29,7 +30,7 @@ add_custom_target (dist COMMAND ${CMAKE_MAKE_PROGRAM} package_source)
 
 # Some configuration
 configure_file (${CMAKE_SOURCE_DIR}/src/config.vala.cmake ${CMAKE_SOURCE_DIR}/src/config.vala)
-configure_file (${CMAKE_SOURCE_DIR}/src/scratchcore.pc.cmake ${CMAKE_BINARY_DIR}/src/scratch.pc)
+configure_file (${CMAKE_SOURCE_DIR}/src/${LIBNAME}.pc.cmake ${CMAKE_BINARY_DIR}/src/${LIBNAME}.pc)
 
 # Some definitions
 add_definitions(-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\")

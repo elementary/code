@@ -42,24 +42,30 @@ namespace Scratch.Services {
         // Objects
         public File? file = null;
         public string original_content;
+        public string? last_saved_content = null;
         public bool saved = true;
-        
+
         // Zeitgeist integration
         private ZeitgeistLogger zg_log = new ZeitgeistLogger();
         
+        // Delegates
+        public delegate void VoidFunc ();
+        
         public Document (File? file = null) {
             this.file = file;
-            
+
             hide_info_bar ();
 
             open ();
-        } 
+
+        }
 
         public bool open () {
             if (file == null) {
                 message ("New Document opened");
                 this.source_view.focus_in_event.connect (() => {
                     main_actions.get_action ("SaveFile").visible = true;
+                    check_file_status ();
                     check_undoable_actions ();
                     return false;
                 });
@@ -79,11 +85,6 @@ namespace Scratch.Services {
                 this.source_view.set_text (text);
                 this.original_content = text;
                 // Signals for SourceView
-                this.source_view.focus_in_event.connect (() => {
-                    main_actions.get_action ("SaveFile").visible = !(settings.autosave);
-                    check_undoable_actions ();
-                    return false;
-                });
                 uint timeout_saving = -1;
                 this.source_view.buffer.changed.connect (() => {
                     check_undoable_actions ();
@@ -103,13 +104,21 @@ namespace Scratch.Services {
                         this.saved = false;
                 });
             });
-            
+
+            // Focus in event for SourceView
+            this.source_view.focus_in_event.connect (() => {
+                main_actions.get_action ("SaveFile").visible = !(settings.autosave);
+                check_file_status ();
+                check_undoable_actions ();
+                return false;
+            });
+
             // Change syntax highlight
             this.source_view.change_syntax_highlight_from_file (this.file);
-            
+
             // Create backup copy file
             create_backup ();
-            
+
             // Zeitgeist integration
             zg_log.open_insert (file.get_uri (), get_mime_type ());
 
@@ -119,35 +128,35 @@ namespace Scratch.Services {
         }
 
         public bool close () {
-           
+
             message ("Closing \"%s\"", get_basename ());
-            
+
             bool ret_value = true;
-            
+
             // Check for unsaved changes
             if (!this.saved) {
                 debug ("There are unsaved changes, showing a Message Dialog!");
-                
+
                 // Create a GtkDialog
-                var dialog = new Gtk.MessageDialog (null, Gtk.DialogFlags.MODAL, 
+                var dialog = new Gtk.MessageDialog (null, Gtk.DialogFlags.MODAL,
                                                     Gtk.MessageType.WARNING, Gtk.ButtonsType.NONE, "");
                 dialog.type_hint = Gdk.WindowTypeHint.DIALOG;
 
                 dialog.use_markup = true;
 
-	            dialog.text = ("<b>" + _("Save changes to document %s before closing?") + 
+	            dialog.text = ("<b>" + _("Save changes to document %s before closing?") +
 	                            "</b>").printf (this.get_basename ());
-                dialog.text += "\n\n" + 
+                dialog.text += "\n\n" +
                             _("If you don't save, changes from the last 4 seconds will be permanently lost.");
-                
+
                 var button = new Gtk.Button.with_label (_("Close without saving"));
                 button.show ();
-                
+
                 dialog.add_action_widget (button, Gtk.ResponseType.NO);
                 dialog.add_button (Gtk.Stock.CANCEL, Gtk.ResponseType.CANCEL);
                 dialog.add_button (Gtk.Stock.SAVE, Gtk.ResponseType.YES);
                 dialog.set_default_response (Gtk.ResponseType.ACCEPT);
-                
+
                 int response = dialog.run ();
                 switch (response) {
                     case Gtk.ResponseType.CANCEL:
@@ -163,14 +172,14 @@ namespace Scratch.Services {
                 }
                 dialog.destroy ();
             }
-            
-            if (file != null) {        
+
+            if (file != null) {
                 // Delete backup copy file
                 delete_backup ();
                 // Zeitgeist integration
                 zg_log.close_insert (file.get_uri (), get_mime_type ());
             }
-            
+
             return ret_value;
         }
 
@@ -188,12 +197,33 @@ namespace Scratch.Services {
 
             doc_saved ();
             this.saved = true;
+            this.last_saved_content = this.source_view.buffer.text;
             
             message ("File \"%s\" saved succefully", get_basename ());
 
             return true;
         }
+        
+        public bool save_as () {
+            // Replace old content with the new one
+            try {
+                string s;
+                file.replace_contents (this.source_view.buffer.text.data, null, false, 0, out s);
+            } catch (Error e) {
+                warning ("Cannot save \"%s\": %s", get_basename (), e.message);
+            }
 
+            // Zeitgeist integration
+            zg_log.save_insert (file.get_uri (), get_mime_type ());
+
+            doc_saved ();
+            this.saved = true;
+
+            message ("File \"%s\" saved succefully", get_basename ());
+
+            return true;
+        }
+        
         public bool move (File new_dest) {
             // Zeitgeist integration
             zg_log.move_insert (file.get_uri (), new_dest.get_uri (), get_mime_type ());
@@ -237,7 +267,7 @@ namespace Scratch.Services {
             this.page = box;
             this.label = get_basename ();
         }
-        
+
         // Get file name
         public string get_basename () {
             if (file != null)
@@ -245,20 +275,34 @@ namespace Scratch.Services {
             else
                 return _("New Document");
         }
-        
+
         // Set InfoBars message
         public void set_message (Gtk.MessageType type, string label,
                                   string? button1 = null, owned VoidFunc? callback1 = null,
                                   string? button2 = null, owned VoidFunc? callback2 = null) {
+
             // Show InfoBar
             info_bar.no_show_all = false;
             info_bar.visible = true;
+
+            // Clear from useless widgets
+            ((Gtk.Box)info_bar.get_content_area ()).get_children ().foreach ((w) => {
+                if (w != null)
+                    w.destroy ();
+            });
+            ((Gtk.Box)info_bar.get_action_area ()).get_children ().foreach ((w) => {
+                if (w != null)
+                    w.destroy ();
+            });
 
             // Type
             info_bar.message_type = type;
 
             // Layout
             var l = new Gtk.Label (label);
+            l.ellipsize = Pango.EllipsizeMode.END;
+            l.use_markup = true;
+            l.set_markup (label);
             ((Gtk.Box) info_bar.get_action_area ()).orientation = Gtk.Orientation.HORIZONTAL;
             var main = info_bar.get_content_area () as Gtk.Box;
             main.orientation = Gtk.Orientation.HORIZONTAL;
@@ -285,42 +329,101 @@ namespace Scratch.Services {
             info_bar.no_show_all = true;
             info_bar.visible = false;
         }
-        
+
         // SourceView releated functions
         // Undo
         public void undo () {
             this.source_view.undo ();
             check_undoable_actions ();
         }
-        
+
         // Redo
         public void redo () {
             this.source_view.redo ();
             check_undoable_actions ();
         }
-        
+
         // Revert
         public void revert () {
             this.source_view.set_text (original_content);
             check_undoable_actions ();
         }
-        
+
         // Get selcted text
         public string get_selected_text () {
             return this.source_view.get_selected_text ();
         }
-        
+
+        // Duplicate selected text
+        public void duplicate_selection () {
+            this.source_view.duplicate_selection ();
+        }
+
+        // Check if the file was delete/changed by an external source
+        public void check_file_status () {
+            if (file != null) {
+                // If the file can't be written
+                if (!can_write ()) {
+                    string message = _("You cannot save changes on file") +  " \"<b>%s</b>\". ".printf (get_basename ()) +
+                                     _("Do you want to save the changes to this file in a different location?");
+
+                    set_message (Gtk.MessageType.WARNING, message, _("Save changes elsewhere"), () => {
+                        this.save_as ();
+                    });
+                    main_actions.get_action ("SaveFile").sensitive = false;
+                    this.source_view.editable = !settings.autosave;
+                }
+                // If the file does not exist anymore
+                else if (!exists ()) {
+                    string message = _("File ") +  " \"<b>%s</b>\" ".printf (get_basename ()) +
+                                     _("was delete. Do you want to save it anyway?");
+
+                    set_message (Gtk.MessageType.WARNING, message, _("Save"), () => {
+                        this.save ();
+                    });
+                    main_actions.get_action ("SaveFile").sensitive = false;
+                    this.source_view.editable = false;
+                }
+                else {
+                    main_actions.get_action ("SaveFile").sensitive = true;
+                    this.source_view.editable = true;
+                }
+                // Detect external changes
+                FileHandler.load_content_from_file.begin (file, (obj, res) => {
+                    var text = FileHandler.load_content_from_file.end (res);
+                    if (last_saved_content != null && text != last_saved_content) {
+                        string message = _("File ") +  " \"<b>%s</b>\" ".printf (get_basename ()) +
+                                         _("was modified by an external application. Do you want to load it again or continue your editing?");
+
+                        set_message (Gtk.MessageType.WARNING, message, _("Load"), () => {
+                            this.source_view.set_text (text);
+                            hide_info_bar ();
+                        }, _("Continue"), () => {
+                            hide_info_bar ();
+                        });
+                    }
+                });
+            }
+            else {
+                main_actions.get_action ("SaveFile").sensitive = true;
+                this.source_view.editable = true;
+            }
+        }
+
         // Set Undo/Redo action sensitive property
         public void check_undoable_actions () {
             main_actions.get_action ("Undo").sensitive = this.source_view.buffer.can_undo;
             main_actions.get_action ("Redo").sensitive = this.source_view.buffer.can_redo;
             main_actions.get_action ("Revert").sensitive = (file != null && original_content != source_view.buffer.text);
         }
-        
+
         // Backup functions
         private void create_backup () {
-            var backup = File.new_for_path (this.file.get_path () + "~");
+            if (!can_write ())
+                return;
             
+            var backup = File.new_for_path (this.file.get_path () + "~");
+
             if (!backup.query_exists ()) {
                 try {
                     file.copy (backup, FileCopyFlags.NONE);
@@ -329,7 +432,7 @@ namespace Scratch.Services {
                 }
             }
         }
-        
+
         private void delete_backup () {
             var backup = File.new_for_path (this.file.get_path () + "~");
             try {
@@ -337,6 +440,33 @@ namespace Scratch.Services {
             } catch (Error e) {
                 warning ("Cannot delete backup for file \"%s\": %s", get_basename (), e.message);
             }
+        }
+
+        // Return true if the file is writable
+        public bool can_write () {
+            FileInfo info;
+
+            bool writable = false;
+
+            if (this.file == null)
+                return writable = true;
+
+            try {
+                info = this.file.query_info (FileAttribute.ACCESS_CAN_WRITE, FileQueryInfoFlags.NONE, null);
+                writable = info.get_attribute_boolean (FileAttribute.ACCESS_CAN_WRITE);
+                return writable;
+            } catch (Error e) {
+                if (this.file != null ) {
+                    warning ("query_info failed, but filename appears to be correct, allowing as new file");
+                    writable = true;
+                }
+                return writable;
+            }
+        }
+
+        // Return true if the file exists
+        public bool exists () {
+            return this.file.query_exists ();
         }
     }
 

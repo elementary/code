@@ -337,26 +337,7 @@ namespace Scratch {
 
         void action_open () {
             // Show a GtkFileChooserDialog
-            var filech = new FileChooserDialog (_("Open some files"), this, FileChooserAction.OPEN, null);
-            filech.set_select_multiple (true);
-            filech.add_button (Stock.CANCEL, ResponseType.CANCEL);
-            filech.add_button (Stock.OPEN, ResponseType.ACCEPT);
-            filech.set_default_response (ResponseType.ACCEPT);
-            filech.set_current_folder_uri (Utils.last_path ?? GLib.Environment.get_home_dir ());
-            filech.key_press_event.connect ((ev) => {
-                if (ev.keyval == 65307) // Esc key
-                    filech.destroy ();
-                return false;
-            });
-            var all_files_filter = new FileFilter ();
-            all_files_filter.set_filter_name (_("All files"));
-            all_files_filter.add_pattern ("*");
-            var text_files_filter = new FileFilter ();
-            text_files_filter.set_filter_name (_("Text files"));
-            text_files_filter.add_mime_type ("text/*");
-            filech.add_filter (all_files_filter);
-            filech.add_filter (text_files_filter);
-            filech.set_filter (text_files_filter);
+            var filech = Utils.new_file_chooser_dialog (FileChooserAction.OPEN);
 
             if (filech.run () == ResponseType.ACCEPT) {
                 foreach (string uri in filech.get_uris ()) {
@@ -396,7 +377,7 @@ namespace Scratch {
         }
 
         void action_duplicate () {
-
+            this.get_current_document ().duplicate_selection ();
         }
 
         void action_new_tab () {
