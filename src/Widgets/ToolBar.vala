@@ -53,20 +53,31 @@ namespace Scratch.Widgets {
             // Create Share and AppMenu
             share_menu = new Gtk.Menu ();
             share_app_menu = new Granite.Widgets.ToolButtonWithMenu (new Image.from_icon_name ("document-export", IconSize.MENU), _("Share"), share_menu);
-            share_menu.add.connect (() => {
-                if (share_menu.get_children ().length () > 0)
+            share_menu.insert.connect (() => {
+                if (share_menu.get_children ().length () > 0) {
                     share_app_menu.no_show_all = false;
-                else
+                    share_app_menu.visible = true;
+                    share_app_menu.show_all ();
+                }
+                else {
                     share_app_menu.no_show_all = true;                
+                    share_app_menu.visible = false;
+                    share_app_menu.hide ();
+                }
             });
             share_menu.remove.connect (() => {
-                if (share_menu.get_children ().length () > 0)
+                if (share_menu.get_children ().length () > 0) {
                     share_app_menu.no_show_all = false;
-                else
-                    share_app_menu.no_show_all = true;
+                    share_app_menu.visible = true;
+                    share_app_menu.show_all ();
+                }
+                else {
+                    share_app_menu.no_show_all = true;                
+                    share_app_menu.visible = false;
+                    share_app_menu.hide ();
+                }
             });
             share_app_menu.no_show_all = true;
-            
             
             // Add everything to the toolbar
             add (open_button);
@@ -86,7 +97,7 @@ namespace Scratch.Widgets {
             settings.changed.connect (() => {
                 save_button.visible = !settings.autosave;
             });
-            
+
         }
 
         private void add_spacer () {

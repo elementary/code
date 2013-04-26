@@ -123,6 +123,7 @@ namespace Scratch.Widgets {
             // Close the Document object too
             if (closing_tab == doc) {
                 bool ret_value = doc.close ();
+                this.docs.remove (doc);
                 // Check if the view is empty
                 if (this.notebook.get_children ().length () <= 1)
                     empty ();
@@ -142,6 +143,10 @@ namespace Scratch.Widgets {
         
         public bool is_empty () {
             return (this.docs.length () == 0);
+        }
+        
+        public new void focus () {
+            get_current_document ().focus ();
         }
         
     }

@@ -76,7 +76,9 @@ namespace Scratch.Services {
                 this.saved = true;
                 return true;
             }
-
+            
+            // Start loading
+            this.working = true;
             message ("Opening \"%s\"", get_basename ());
 
             // Load file's content
@@ -121,7 +123,10 @@ namespace Scratch.Services {
 
             // Create backup copy file
             create_backup ();
-
+            
+            // Stop loading
+            this.working = false;
+            
             // Zeitgeist integration
             zg_log.open_insert (file.get_uri (), get_mime_type ());
 
@@ -187,6 +192,10 @@ namespace Scratch.Services {
         }
 
         public bool save () {
+            // Show save as dialog if file is null
+            if (this.file == null)
+                this.save_as ();
+            
             // Replace old content with the new one
             try {
                 string s;
@@ -209,7 +218,7 @@ namespace Scratch.Services {
         
         public bool save_as () {
             // New file
-            var filech = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.SAVE);
+            var filech = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.SAVE, _("Save File"));
             
             if (filech.run () == Gtk.ResponseType.ACCEPT)
                 this.file = File.new_for_uri (filech.get_uri ());

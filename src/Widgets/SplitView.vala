@@ -110,6 +110,11 @@ namespace Scratch.Widgets {
             // Enbale/Disable useless GtkActions about views
             check_actions ();
             
+            // Move the focus on the other view
+            if (views.nth_data (0) != null) {
+                views.nth_data (0).focus ();
+                debug ("");
+            }
             // Show/Hide welcome screen
             if (get_children ().length () == 0)
                 show_welcome ();

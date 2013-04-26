@@ -45,11 +45,22 @@ namespace Scratch.Services {
             }
         }
         
-        /*public static bool set_content (string path, string content) {
-        }    
-        
-        public static bool set_content_uri (string uri, string content) {
-        }*/
+        public static string? load_content_from_file_sync (File file) {
+            var text = new StringBuilder ();
+                        
+            try {
+                var dis = new DataInputStream (file.read ());
+                string line = null;
+                while ((line = dis.read_line ()) != null) {
+                    text.append (line);
+                    text.append_c ('\n');
+                }
+                return text.str;
+            } catch (Error e) {
+                warning ("Cannot read \"%s\": %s", file.get_basename (), e.message);
+                return null;
+            }
+        }
         
         public static bool move (string path, string new_path) {
             var old = File.new_for_path (path);

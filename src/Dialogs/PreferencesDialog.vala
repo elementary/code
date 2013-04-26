@@ -24,7 +24,7 @@ using Granite.Widgets;
 
 namespace Scratch.Dialogs {
 
-    public class Preferences : Dialog {
+    public class Preferences : Granite.Widgets.LightWindow {
 
         public StaticNotebook main_static_notebook;
         
@@ -48,10 +48,12 @@ namespace Scratch.Dialogs {
             resizable = false;
             
             main_static_notebook = new StaticNotebook (false);
-
+            main_static_notebook.margin = 5;
+            
             create_layout ();
 
-            //Scratch.plugins.hook_preferences_dialog (this);
+            // Plugin hook function
+            plugins.hook_preferences_dialog (this);
 
         }
 
@@ -75,9 +77,7 @@ namespace Scratch.Dialogs {
                 main_static_notebook.append_page (pbox, extensions_label);
             }
 
-            ((Gtk.Box)get_content_area()).add (main_static_notebook);
-            
-            add_button (Stock.CLOSE, ResponseType.ACCEPT);
+            this.add (main_static_notebook);
 
         }
         

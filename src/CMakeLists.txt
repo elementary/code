@@ -13,7 +13,7 @@ vala_precompile(VALA_C
     Services/FileHandler.vala
     Services/PluginManager.vala
     Services/Settings.vala
-    #Services/TemplateManager.vala
+    Services/TemplateManager.vala
     Services/ZeitgeistLogger.vala
     config.vala
 PACKAGES

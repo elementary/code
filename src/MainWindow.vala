@@ -40,9 +40,9 @@ namespace Scratch {
         private const string TITLE = "Scratch";
 
         // Widgets
-        private Scratch.Widgets.Toolbar toolbar;
-        private Scratch.Widgets.SearchManager search_manager;
-        private Scratch.Widgets.SplitView split_view;
+        public Scratch.Widgets.Toolbar toolbar;
+        public Scratch.Widgets.SearchManager search_manager;
+        public Scratch.Widgets.SplitView split_view;
 
         // Widgets for Plugins
         public Gtk.Notebook sidebar;
@@ -76,10 +76,10 @@ namespace Scratch {
             ds_event.add_subject (new Zeitgeist.Subject ());
             PtrArray ptr_array = new PtrArray.with_free_func (Object.unref);
             ptr_array.add (ds_event);
-            var ds = new DataSource.full (  "scratch-logger",
-                                            _("Zeitgeist Datasource for Scratch"),
-                                            "A data source which logs Open, Close, Save and Move Events",
-                                            (owned)ptr_array); // FIXME: templates!
+            var ds = new DataSource.full ("scratch-logger",
+                                          _("Zeitgeist Datasource for Scratch"),
+                                          "A data source which logs Open, Close, Save and Move Events",
+                                          (owned)ptr_array); // FIXME: templates!
             registry.register_data_source.begin (ds, null, (obj, res) => {
                 try {
                     registry.register_data_source.end (res);
@@ -122,7 +122,7 @@ namespace Scratch {
             toolbar.menu = ui.get_widget ("ui/AppMenu") as Gtk.Menu;
             var app_menu = (app as Granite.Application).create_appmenu (toolbar.menu);
             toolbar.add (app_menu);
-
+            
             // SearchManager
             this.search_manager = new Scratch.Widgets.SearchManager ();
             this.search_manager.get_style_context ().add_class ("secondary-toolbar");
@@ -213,9 +213,26 @@ namespace Scratch {
             // Show/Hide widgets    
             show_all ();
             main_actions.get_action ("SaveFile").visible = !settings.autosave;
-
+            main_actions.get_action ("Templates").visible = plugins.plugin_iface.template_manager.template_available;
+            plugins.plugin_iface.template_manager.notify["template_available"].connect ( () => {
+                main_actions.get_action ("Templates").visible = plugins.plugin_iface.template_manager.template_available;
+            });
+            
             // Show welcome by default
             this.split_view.show_welcome ();
+            
+            // Plugins hook
+            plugins.hook_window (this);
+            plugins.hook_toolbar (this.toolbar);
+            plugins.hook_main_menu (this.toolbar.menu);
+            plugins.hook_share_menu (this.toolbar.share_menu);
+            plugins.hook_notebook_sidebar (this.sidebar);
+            plugins.hook_notebook_context (this.contextbar);
+            plugins.hook_notebook_bottom (this.bottombar);
+            this.split_view.document_change.connect ((doc) => {
+                plugins.hook_document (doc);
+            });
+            plugins.hook_split_view (this.split_view);
         }
 
         protected override bool delete_event (Gdk.EventAny event) {
@@ -351,8 +368,6 @@ namespace Scratch {
         void action_preferences () {
             var dialog = new Scratch.Dialogs.Preferences ();
             dialog.show_all ();
-            dialog.run ();
-            dialog.destroy ();
         }
 
         void action_close_tab () {
@@ -370,7 +385,7 @@ namespace Scratch {
 
         void action_open () {
             // Show a GtkFileChooserDialog
-            var filech = Utils.new_file_chooser_dialog (FileChooserAction.OPEN, true);
+            var filech = Utils.new_file_chooser_dialog (FileChooserAction.OPEN, _("Open some files"), true);
 
             if (filech.run () == ResponseType.ACCEPT) {
                 foreach (string uri in filech.get_uris ()) {
@@ -447,7 +462,7 @@ namespace Scratch {
         }
 
         void action_templates () {
-
+            plugins.plugin_iface.template_manager.show_window (this);
         }
 
         // Actions array

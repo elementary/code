@@ -41,25 +41,40 @@ public abstract class Scratch.Template : Object {
             return;
         }
         
-        destination.make_directory ();
+        try {
+            destination.make_directory ();
+        } catch (Error e) {
+            warning (e.message);
+            return;
+        }
         
         List<FileInfo> files;
         List<File> dirs;
         enumerate_directory (origin, out files, out dirs);
         foreach (var file in files) {
             if (file.get_content_type ().contains ("text")) {
-                string content = Scratch.Services.FileHandler.load_content (Path.build_filename (origin.get_path (), file.get_name ()));
+                var gfile = File.new_for_path (Path.build_filename (origin.get_path (), file.get_name ()));
+                string content = Scratch.Services.FileHandler.load_content_from_file_sync (gfile);
                 if (variables != null) {
                     foreach (var entry in variables.entries) {
                         content = content.replace ("$$" + entry.key, entry.value);
                     }
                 }
-                FileUtils.set_contents (Path.build_filename (destination.get_path (), file.get_name ()), content);
+                try {
+                    FileUtils.set_contents (Path.build_filename (destination.get_path (), file.get_name ()), content);
+                } catch (Error e) {
+                    warning (e.message);
+                }
             }
             else {
                 var orig = File.new_for_path (Path.build_filename (origin.get_path (), file.get_name ()));
                 var dest = File.new_for_path (Path.build_filename (destination.get_path (), file.get_name ()));
-                orig.copy (dest, 0);
+                try {
+                    orig.copy (dest, 0);
+                } catch (Error e) {
+                    warning (e.message);
+                    return;
+                }
             }
                 
         }
@@ -72,9 +87,23 @@ public abstract class Scratch.Template : Object {
         files = new List<FileInfo> ();
         directories = new List<File> ();
         
-        var enumerator = origin.enumerate_children ("standard::type,standard::name,standard::content-type", 0);
+        FileEnumerator? enumerator = null;
         
-        var file_info = enumerator.next_file ();
+        try {
+            enumerator = origin.enumerate_children ("standard::type,standard::name,standard::content-type", 0);
+        } catch (Error e) {
+            warning (e.message);
+            return;
+        }
+        
+        FileInfo? file_info = null;
+        
+        try {
+            file_info = enumerator.next_file ();
+        } catch (Error e) {
+            warning (e.message);
+        }
+        
         while (file_info != null) {
             if (file_info.get_file_type () == FileType.DIRECTORY) {
                 directories.append (File.new_for_path (origin.get_path () + "/" + file_info.get_name ()));
@@ -82,7 +111,11 @@ public abstract class Scratch.Template : Object {
             else if (file_info.get_file_type () == FileType.REGULAR) {
                 files.append (file_info);
             }
-            file_info = enumerator.next_file ();
+            try {
+                file_info = enumerator.next_file ();
+            } catch (Error e) {
+                warning (e.message);
+            }
         }
     }
     
@@ -106,37 +139,35 @@ public class Scratch.TestTemplate : Template {
  * be used at once. It is created by the main Granite.Application (ScratchApp) and
  * a reference can be got from the plugin manager.
  **/
-public class Scratch.TemplateManager : Object {
+public class Scratch.TemplateManager : GLib.Object {
     
-    Gtk.Dialog dialog;
+    Granite.Widgets.LightWindow dialog;
     
     Gtk.ListStore list_store;
     Gtk.IconView icon_view;
     Scratch.Template current_template;
     
-    Gtk.Container hbox { get { return ((Gtk.Container)dialog.get_content_area ()); } }
+    Gtk.Container hbox;
     
-    public bool template_available { private set; get; }
+    public bool template_available = false;
     
     public TemplateManager () {
-        dialog = new Gtk.Dialog.with_buttons (_("Templates"), null,
-            Gtk.DialogFlags.MODAL,
-            Gtk.Stock.CLOSE, Gtk.ResponseType.ACCEPT);
+        dialog = new Granite.Widgets.LightWindow ();
+        dialog.set_default_size (630, 330);
         list_store = new Gtk.ListStore (4, 
             typeof (string) /* icon_id */,
             typeof (string) /* label */,
-            typeof(Type) /* object_type */,
+            typeof (Type) /* object_type */,
             typeof (Gdk.Pixbuf) /* icon */);
         icon_view = new Gtk.IconView.with_model (list_store);
+        this.hbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 5);
         hbox.add (icon_view);
-        icon_view.set_markup_column (1);
-        icon_view.set_pixbuf_column (3);
+        dialog.add (hbox);
         
         icon_view.selection_changed.connect (on_icon_selection_changed);
         icon_view.item_activated.connect ( () => {
             on_icon_selection_changed ();
         });
-        template_available = false;
         
         //register_template ("text-editor", "Sample", typeof(TestTemplate));
     }
@@ -151,7 +182,7 @@ public class Scratch.TemplateManager : Object {
             Type tpl_type;
             list_store.get (iter, 0, out id, 2, out tpl_type);
             
-            current_template = (Scratch.Template)Object.new (tpl_type);
+            current_template = (Scratch.Template) Object.new (tpl_type);
             hbox.remove (icon_view);
             hbox.add (current_template.get_creation_box ());
             
@@ -200,8 +231,6 @@ public class Scratch.TemplateManager : Object {
             icon_view.unselect_all ();
             
             dialog.show_all ();
-            dialog.run ();
-            dialog.hide ();
         }
     }
 }

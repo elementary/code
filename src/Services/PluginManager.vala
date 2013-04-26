@@ -24,58 +24,83 @@ namespace Scratch.Services {
         
         private PluginsManager manager;
         
-        public Gtk.Notebook context {internal set; get; }
-        public Gtk.Notebook sidebar {internal set; get; }
-        public Gtk.Notebook bottombar {internal set; get; }
-        public Scratch.ScratchApp scratch_app {internal set; get; }
-        public Gtk.Menu main_menu {private set; get; }
-        public Gtk.Menu addons_menu {private set; get; }
-        public Gtk.Toolbar toolbar {internal set; get; }
-        public Gtk.Toolbar statusbar {internal set; get; }
-        public Gtk.Window window {private set; get; }
-        public string set_name {internal set; get; }
+        // Signals
+        public signal void hook_window (Scratch.MainWindow window);
+        public signal void hook_main_menu (Gtk.Menu menu);
+        public signal void hook_share_menu (Gtk.Menu menu);
+        public signal void hook_toolbar (Scratch.Widgets.Toolbar toolbar);
+        public signal void hook_notebook_sidebar (Gtk.Notebook notebook);
+        public signal void hook_notebook_context (Gtk.Notebook notebook);
+        public signal void hook_notebook_bottom (Gtk.Notebook notebook);
+        public signal void hook_split_view (Scratch.Widgets.SplitView view);
+        public signal void hook_document (Scratch.Services.Document doc);
+        public signal void hook_preferences_dialog (Scratch.Dialogs.Preferences dialog);
         
-        //public Scratch.TemplateManager template_manager { private set; get; }
+        public Scratch.TemplateManager template_manager { private set; get; }
         
         public Interface (PluginsManager manager) {
             this.manager = manager;
-        }    
+            
+            template_manager = new Scratch.TemplateManager ();
+
+        }
+        
+        public Scratch.Services.Document get_current_document () {
+            return manager.app.window.get_current_document ();
+        }
+        
+        public Scratch.Widgets.Toolbar get_toolbar () {
+            return manager.app.window.toolbar;
+        }
+        
+        public Gtk.Menu get_main_menu () {
+            return manager.app.window.toolbar.menu;
+        }
+        
+        public Gtk.Menu get_share_menu () {
+            return manager.app.window.toolbar.share_menu;
+        }
+        
+        public Scratch.Widgets.SplitView get_split_view () {
+            return manager.app.window.split_view;
+        }
     }
 
 
     public class PluginsManager : GLib.Object {
-        
-        public signal void hook_main_menu (Gtk.Menu menu);
-        public signal void hook_toolbar ();
-        public signal void hook_statusbar ();
-        public signal void hook_set_arg (string set_name, string? set_arg);
-        public signal void hook_notebook_bottom (Gtk.Notebook notebook);
-        public signal void hook_source_view(Gtk.TextView view);
-        public signal void hook_new_window(Gtk.Window window);
-        public signal void hook_preferences_dialog(Gtk.Dialog dialog);
-        public signal void hook_toolbar_context_menu(Gtk.Menu menu);
-
+    
         Peas.Engine engine;
         Peas.ExtensionSet exts;
         
         Peas.Engine engine_core;
         Peas.ExtensionSet exts_core;
-        
-        public Gtk.Toolbar toolbar { set { plugin_iface.toolbar = value; } }
-        public Gtk.Toolbar statusbar { set { plugin_iface.statusbar = value; } }
-        public Scratch.ScratchApp scratch_app { set { plugin_iface.scratch_app = value;  }}
 
         GLib.Settings settings;
         string settings_field;
         
         public Interface plugin_iface { private set; public get; }
-
+        
+        public ScratchApp app;
+        
+        // Signals
+        public signal void hook_window (Scratch.MainWindow window);
+        public signal void hook_main_menu (Gtk.Menu menu);
+        public signal void hook_share_menu (Gtk.Menu menu);
+        public signal void hook_toolbar (Scratch.Widgets.Toolbar toolbar);
+        public signal void hook_notebook_sidebar (Gtk.Notebook notebook);
+        public signal void hook_notebook_context (Gtk.Notebook notebook);
+        public signal void hook_notebook_bottom (Gtk.Notebook notebook);
+        public signal void hook_split_view (Scratch.Widgets.SplitView view);
+        public signal void hook_document (Scratch.Services.Document doc);
+        public signal void hook_preferences_dialog (Scratch.Dialogs.Preferences dialog);
+        
         public PluginsManager (ScratchApp app, string? set_name = null) {
+            this.app = app;
+            
             settings = Scratch.settings.schema;
             settings_field = "plugins-enabled";
 
             plugin_iface = new Interface (this);
-            plugin_iface.set_name = set_name ?? "Scratch";
 
             /* Let's init the engine */
             engine = Peas.Engine.get_default ();
@@ -112,10 +137,42 @@ namespace Scratch.Services {
                 engine_core.loaded_plugins = core_plugins;
 
                 /* Our extension set */
-                exts_core = new Peas.ExtensionSet (engine_core, typeof(Peas.Activatable), "object", plugin_iface, null);
+                exts_core = new Peas.ExtensionSet (engine_core, typeof (Peas.Activatable), "object", plugin_iface, null);
 
                 exts_core.foreach (on_extension_added);
             }
+            
+            // Connect managers signals to interface's signals
+            this.hook_window.connect ((w) => {
+                plugin_iface.hook_window (w);
+            });
+            this.hook_main_menu.connect ((m) => {
+                plugin_iface.hook_main_menu (m);
+            });
+            this.hook_share_menu.connect ((m) => {
+                plugin_iface.hook_share_menu (m);
+            });
+            this.hook_toolbar.connect ((t) => {
+                plugin_iface.hook_toolbar (t);
+            });
+            this.hook_notebook_sidebar.connect ((n) => {
+                plugin_iface.hook_notebook_sidebar (n);
+            });
+            this.hook_notebook_context.connect ((n) => {
+                plugin_iface.hook_notebook_context (n);
+            });
+            this.hook_notebook_bottom.connect ((n) => {
+                plugin_iface.hook_notebook_bottom (n);
+            });
+            this.hook_split_view.connect ((v) => {
+                plugin_iface.hook_split_view (v);
+            });
+            this.hook_document.connect ((d) => {
+                plugin_iface.hook_document (d);
+            });
+            this.hook_preferences_dialog.connect ((d) => {
+                plugin_iface.hook_preferences_dialog (d);
+            });
         }
         
         void on_extension_added (Peas.ExtensionSet set, Peas.PluginInfo info, Peas.Extension extension) {

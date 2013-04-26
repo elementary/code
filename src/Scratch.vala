@@ -29,7 +29,7 @@ namespace Scratch {
     public ServicesSettings services;
     
     // Plugins;
-    public Scratch.Services.PluginsManager plugins;
+    public Scratch.Services.PluginsManager? plugins = null;
     
     public class ScratchApp : Granite.Application {
 
@@ -85,36 +85,37 @@ namespace Scratch {
             settings = new Settings ();
             services = new ServicesSettings ();
             
-            // Plugins
-            plugins = new Scratch.Services.PluginsManager (this, app_cmd_name.down ());
         }
 
         protected override void activate () {
-
+            
+            // Plugins
+            if (plugins == null)
+                plugins = new Scratch.Services.PluginsManager (this, app_cmd_name.down ());
+            
             if (get_windows () == null) {
                 window = new MainWindow (this);
                 window.show ();
+                // Restore opened documents
+                if (settings.show_at_start == "last-tabs") {
+                    string[] uris = settings.schema.get_strv ("opened-files");
+                
+                    foreach (string uri in uris) {
+                       if (uri != "") {
+                            var file = File.new_for_uri (uri);
+                            var doc = new Scratch.Services.Document (file);
+                            if (doc.exists ()) 
+                                window.open_document (doc);
+                        }
+                    }
+                }
             } else {
                 window.present ();
             }
             
             if (new_document)
                 main_actions.get_action ("NewTab").activate ();
-            
-            // Restore opened documents
-            if (settings.show_at_start == "last-tabs") {
-                string[] uris = settings.schema.get_strv ("opened-files");
-            
-                foreach (string uri in uris) {
-                   if (uri != "") {
-                        var file = File.new_for_uri (uri);
-                        var doc = new Scratch.Services.Document (file);
-                        if (doc.exists ()) 
-                            window.open_document (doc);
-                    }
-                }
-            }
-            
+
         }
         
         protected override void open (File[] files, string hint) {
