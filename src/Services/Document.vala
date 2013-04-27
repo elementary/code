@@ -355,12 +355,35 @@ namespace Scratch.Services {
             this.last_saved_content = original_content;
             check_undoable_actions ();
         }
-
+        
+        // Get text
+        public string get_text () {
+            return this.source_view.buffer.text;
+        }
+        
         // Get selcted text
         public string get_selected_text () {
             return this.source_view.get_selected_text ();
         }
-
+        
+        // Get language name
+        public string get_language_name () {
+            var lang = this.source_view.buffer.language;
+            if (lang != null)
+                return lang.name;
+            else
+                return "";
+        }
+        
+        // Get language id
+        public string get_language_id () {
+            var lang = this.source_view.buffer.language;
+            if (lang != null)
+                return lang.id;
+            else  
+                return "";
+        }
+        
         // Duplicate selected text
         public void duplicate_selection () {
             this.source_view.duplicate_selection ();

@@ -40,12 +40,12 @@ public class Scratch.Plugins.ContractMenuItem : Gtk.MenuItem {
 }
 
 public class Scratch.Plugins.Contractor : Peas.ExtensionBase,  Peas.Activatable {
-    Scratch.Services.Interface plugins;
     GLib.List<Gtk.Widget>? list = null;
 
     [NoAcessorMethod]
     public Object object { owned get; construct; }
-   
+    Scratch.Services.Interface plugins;
+    
     public void update_state () {
     }
 

@@ -24,7 +24,7 @@ using Scratch.Services;
 
 namespace Scratch.Dialogs {
 
-    public class PasteBinDialog : Window {
+    public class PasteBinDialog : Granite.Widgets.LightWindow {
         
 		public string[,] languages = {
 			//if default, code, desc, scratch-equivalent
@@ -228,12 +228,11 @@ namespace Scratch.Dialogs {
 			{"n", "yaml", "YAML", ""},
 			{"n", "z80", "Z80 Assembler", ""},
 			{"n", "zxbasic", "ZXBasic", ""} };
-        
-        
-			private MainWindow window;
-
-			private VBox content;
-			private HBox padding;
+            
+            private Scratch.Services.Document doc;
+            
+			private Box content;
+			private Box padding;
 
 			private Entry name_entry;
 			private ComboBoxText expiry_combo;
@@ -244,34 +243,32 @@ namespace Scratch.Dialogs {
 			private TreeView format_others_view;
 			private ListStore format_store;
 
-			private Button cancel_button;
 			private Button send_button;
 
         
-        public PasteBinDialog (MainWindow? window) {
-
-            this.window = window;
+        public PasteBinDialog (Scratch.Services.Document doc) {
+            this.doc = doc; 
+            
             this.title = _("Share via PasteBin");
             this.type_hint = Gdk.WindowTypeHint.DIALOG;
-            this.set_modal (true);
-            this.set_transient_for (window);
-           
+            
             create_dialog ();
 
             send_button.clicked.connect (send_button_clicked);
-            cancel_button.clicked.connect (cancel_button_clicked);
-
+            this.destroy.connect (() => {
+                write_settings ();
+            });
         }
 
         private void create_dialog () {
 
-            content = new VBox (false, 10);
-            padding = new HBox (false, 10);
+            content = new Box (Gtk.Orientation.VERTICAL, 10);
+            padding = new Box (Gtk.Orientation.HORIZONTAL, 10);
 
             name_entry = new Entry ();
             name_entry.text = "Test";
             var name_entry_l = new Label (_("Name:"));
-            var name_entry_box = new HBox (false, 58);
+            var name_entry_box = new Box (Gtk.Orientation.HORIZONTAL, 58);
             name_entry_box.pack_start (name_entry_l, false, true, 0);
             name_entry_box.pack_start (name_entry, true, true, 0);
 
@@ -282,7 +279,7 @@ namespace Scratch.Dialogs {
 				format_button.clicked.connect (format_button_clicked);
 			
 			//populate combo box
-			var sel_lang = window.current_tab.text_view.buffer.language.id;
+			var sel_lang = doc.get_language_id ();
 			for (var i=0; i < languages.length[0]; i++) {
 			
 				//insert all languages that are in the scratch combo, and also those that are marked with "y"
@@ -295,7 +292,7 @@ namespace Scratch.Dialogs {
 			if (format_combo.get_active_id() == null) format_combo.set_active_id("text");
 		
 		
-			var format_box = new HBox(false, 28);
+			var format_box = new Box (Gtk.Orientation.HORIZONTAL, 28);
 			format_box.pack_start (format_label);
 			format_box.pack_start (format_combo);
 			format_box.pack_start (format_button);
@@ -304,19 +301,17 @@ namespace Scratch.Dialogs {
             expiry_combo = new ComboBoxText ();
             populate_expiry_combo ();
             var expiry_combo_l = new Label (_("Expiry time:"));
-            var expiry_combo_box = new HBox (false, 28);
+            var expiry_combo_box = new Box (Gtk.Orientation.HORIZONTAL, 28);
             expiry_combo_box.pack_start (expiry_combo_l, false, true, 0);
             expiry_combo_box.pack_start (expiry_combo, true, true, 0);
 
             private_check = new CheckButton.with_label (_("Keep this paste private"));
 
-            cancel_button = new Button.from_stock (Stock.CANCEL);
             send_button = new Button.with_label (_("Upload"));
 
-            var bottom_buttons = new HButtonBox ();
+            var bottom_buttons = new ButtonBox (Gtk.Orientation.HORIZONTAL);
             bottom_buttons.set_layout (ButtonBoxStyle.CENTER);
             bottom_buttons.set_spacing (10);
-            bottom_buttons.pack_start (cancel_button);
             bottom_buttons.pack_end (send_button);
 
             content.pack_start (wrap_alignment (name_entry_box, 12, 0, 0, 0), true, true, 0);
@@ -369,7 +364,7 @@ namespace Scratch.Dialogs {
 				format_others_buttons.pack_start (format_others_cancel);
 				format_others_buttons.pack_start (format_others_ok);
 				
-			var format_others_box = new VBox(false, 10);
+			var format_others_box = new Box (Gtk.Orientation.VERTICAL, 10);
 				format_others_box.pack_start (format_others_scroll);
 				format_others_box.pack_start (format_others_buttons);				
 				
@@ -419,7 +414,7 @@ namespace Scratch.Dialogs {
 
         private void read_settings () {
 
-            string paste_name = window.current_tab.label.label.get_text ();
+            string paste_name = this.doc.get_basename ();
             name_entry.text = paste_name;
 
 //            format_entry.text = Scratch.services.paste_format_code;
@@ -433,20 +428,6 @@ namespace Scratch.Dialogs {
             Scratch.services.paste_format_code = format_combo.get_active_id();
             Scratch.services.expiry_time = expiry_combo.get_active_id ();
             Scratch.services.set_private = private_check.get_active ();
-
-        }
-
-        private void cancel_button_clicked () {
-            
-            write_settings ();
-            this.destroy ();
-
-        }
-
-        private void close_button_clicked () {
-            
-            write_settings ();
-            this.destroy ();
 
         }
 
@@ -466,14 +447,13 @@ namespace Scratch.Dialogs {
             // Show the new view
             spinner.hide ();
 
-            var box = new VBox (false, 10);
+            var box = new Box (Gtk.Orientation.VERTICAL, 10);
            
             if (submit_result == 0) {
             
                 //paste successfully
                 var link_button = new LinkButton (link);
-                box.pack_start (link_button, false, true, 0);                
-                set_clipboard (link);
+                box.pack_start (link_button, false, true, 25);
             } else {
             
                 //paste error
@@ -500,23 +480,17 @@ namespace Scratch.Dialogs {
                 box.pack_start (err_label, false, true, 0);
             }
 
-            var close_button = new Button.from_stock (Stock.CLOSE);
-            box.pack_start (close_button, false, true, 0);            
             padding.pack_start (box, false, true, 12);
             padding.halign = Align.CENTER;
             box.valign = Align.CENTER;
             box.show_all ();
-            // Connect signal
-            close_button.clicked.connect (close_button_clicked);
-
-
         }
 
 
         private int submit_paste (out string link) {
 
             // Get the values
-            string paste_code = window.current_tab.text_view.buffer.text;
+            string paste_code = this.doc.get_text ();
             string paste_name = name_entry.text;
             string paste_format = format_combo.get_active_id ();
             string paste_private = private_check.get_active () == true ? PasteBin.PRIVATE : PasteBin.PUBLIC;
@@ -527,15 +501,6 @@ namespace Scratch.Dialogs {
 
             return submit_result;
 
-
-        }
-
-        
-        private void set_clipboard (string link) {
-
-            var display = window.get_display ();
-            var clipboard = Clipboard.get_for_display (display, Gdk.SELECTION_CLIPBOARD);
-            clipboard.set_text (link, -1);
 
         }
 

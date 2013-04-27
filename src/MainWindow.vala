@@ -209,9 +209,12 @@ namespace Scratch {
             });
 
             var hp1 = new Granite.Widgets.CollapsiblePaned (Orientation.HORIZONTAL);
+            hp1.position = 150;
             var hp2 = new Granite.Widgets.CollapsiblePaned (Orientation.HORIZONTAL);
+            hp2.position = 150;
             var vp = new Granite.Widgets.CollapsiblePaned (Orientation.VERTICAL);
-
+            vp.position = 1500; // FIXME: what a bad solution
+    
             hp1.pack1 (sidebar, true, false);
             hp1.pack2 (split_view, true, false);
             hp2.pack1 (hp1, true, false);
@@ -283,7 +286,6 @@ namespace Scratch {
             view = split_view.get_current_view ();
 
             if (view == null && !split_view.is_empty ()) {
-                debug ("");
                 view = (split_view.get_child2 () ?? split_view.get_child2 ()) as Scratch.Widgets.DocumentView;
             }
 

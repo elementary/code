@@ -51,11 +51,12 @@ public class Euclide.Plugins.FM : Peas.ExtensionBase, Peas.Activatable {
     
     void on_hook (Gtk.Notebook notebook) {
         view = new PluginView ();
-        view.select.connect( (a) => { 
-            var file = File.new_for_uri (a.location.get_uri());
+        view.select.connect ((a) => { 
+            var file = File.new_for_uri (a.location.get_uri ());
             plugins.open_file (file);
         });
-        notebook.append_page(view, new Gtk.Label(_("Files")));
+        
+        notebook.append_page (view, new Gtk.Label (_("Files")));
 
         view.show_all ();
     }
