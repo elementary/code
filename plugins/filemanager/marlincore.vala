@@ -42,7 +42,7 @@ public class FMView : Gtk.ScrolledWindow
         view.headers_visible = false;
         view.enable_search = true;
         view.rules_hint = true;
-        width_request = 200;
+        width_request = 150;
     }
 
     void on_selection_changed()

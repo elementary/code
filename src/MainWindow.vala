@@ -168,10 +168,14 @@ namespace Scratch {
             this.sidebar.page_added.connect (() => {
                 this.sidebar.set_show_tabs ((this.sidebar.get_n_pages () > 1));
                 this.sidebar.no_show_all = (this.sidebar.get_n_pages () == 0);
+                this.sidebar.visible = (this.sidebar.get_n_pages () == 0);
+                this.sidebar.show ();
             });
             this.sidebar.page_removed.connect (() => {
                 this.sidebar.set_show_tabs ((this.sidebar.get_n_pages () > 1));
                 this.sidebar.no_show_all = (this.sidebar.get_n_pages () == 0);
+                this.sidebar.visible = (this.sidebar.get_n_pages () == 0);
+                this.sidebar.hide ();
             });
 
             this.contextbar = new Gtk.Notebook ();
@@ -179,10 +183,14 @@ namespace Scratch {
             this.contextbar.page_added.connect (() => {
                 this.contextbar.set_show_tabs ((this.contextbar.get_n_pages () > 1));
                 this.contextbar.no_show_all = (this.contextbar.get_n_pages () == 0);
+                this.contextbar.visible = (this.contextbar.get_n_pages () == 0);
+                this.contextbar.show ();
             });
             this.contextbar.page_removed.connect (() => {
                 this.contextbar.set_show_tabs ((this.contextbar.get_n_pages () > 1));
                 this.contextbar.no_show_all = (this.contextbar.get_n_pages () == 0);
+                this.contextbar.visible = (this.contextbar.get_n_pages () == 0);
+                this.contextbar.hide ();
             });
 
             this.bottombar = new Gtk.Notebook ();
@@ -204,12 +212,12 @@ namespace Scratch {
             var hp2 = new Granite.Widgets.CollapsiblePaned (Orientation.HORIZONTAL);
             var vp = new Granite.Widgets.CollapsiblePaned (Orientation.VERTICAL);
 
-            hp1.pack1 (sidebar, true, true);
-            hp1.pack2 (split_view, true, true);
-            hp2.pack1 (hp1, true, true);
-            hp2.pack2 (contextbar, true, true);
-            vp.pack1 (hp2, true, true);
-            vp.pack2 (bottombar, true, true);
+            hp1.pack1 (sidebar, true, false);
+            hp1.pack2 (split_view, true, false);
+            hp2.pack1 (hp1, true, false);
+            hp2.pack2 (contextbar, true, false);
+            vp.pack1 (hp2, true, false);
+            vp.pack2 (bottombar, true, false);
 
             // Add everything to the window
             main_box.pack_start (toolbar, false, true, 0);
@@ -302,6 +310,8 @@ namespace Scratch {
             }
             else {
                 view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
+                if (view == null) 
+                    view = this.split_view.current_view;
                 view.open_document (doc);
             }
         }

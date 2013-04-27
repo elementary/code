@@ -25,8 +25,8 @@ namespace Scratch.Widgets {
     public class SplitView : Granite.Widgets.CollapsiblePaned {
         
         // Widgets
-        private Granite.Widgets.Welcome welcome_screen;
-        private Scratch.Widgets.DocumentView? current_view = null;
+        public Granite.Widgets.Welcome welcome_screen;
+        public Scratch.Widgets.DocumentView? current_view = null;
         
         public GLib.List<Scratch.Widgets.DocumentView> views;
         

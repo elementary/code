@@ -45,25 +45,11 @@ namespace Scratch.Services {
 
         }
         
-        public Scratch.Services.Document get_current_document () {
-            return manager.app.window.get_current_document ();
+        public void open_file (File file) {
+            var doc = new Document (file);
+            manager.app.window.open_document (doc);
         }
         
-        public Scratch.Widgets.Toolbar get_toolbar () {
-            return manager.app.window.toolbar;
-        }
-        
-        public Gtk.Menu get_main_menu () {
-            return manager.app.window.toolbar.menu;
-        }
-        
-        public Gtk.Menu get_share_menu () {
-            return manager.app.window.toolbar.share_menu;
-        }
-        
-        public Scratch.Widgets.SplitView get_split_view () {
-            return manager.app.window.split_view;
-        }
     }
 
 
