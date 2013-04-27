@@ -2,7 +2,7 @@
 /***
   BEGIN LICENSE
 	
-  Copyright (C) 2011-2012 Mario Guerriero <mefrio.g@gmail.com>
+  Copyright (C) 2011-2013 Mario Guerriero <mario@elementaryos.org>
   This program is free software: you can redistribute it and/or modify it	
   under the terms of the GNU Lesser General Public License version 3, as published	
   by the Free Software Foundation.
@@ -50,9 +50,7 @@ public class Scratch.Plugins.Contractor : Peas.ExtensionBase,  Peas.Activatable 
     }
 
     public void activate () {
-        Value value = Value (typeof (GLib.Object));
-        get_property ("object", ref value);
-        plugins = (Scratch.Services.Interface) value.get_object ();
+        plugins = (Scratch.Services.Interface) object;        
         
         this.list = new List<Gtk.Widget> ();
         

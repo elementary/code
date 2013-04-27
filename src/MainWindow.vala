@@ -48,10 +48,13 @@ namespace Scratch {
         public Gtk.Notebook sidebar;
         public Gtk.Notebook contextbar;
         public Gtk.Notebook bottombar;
-
+        
         // Zeitgeist integration
         private Zeitgeist.DataSourceRegistry registry;
 
+        // Delegates
+        delegate void HookFunc ();        
+        
         public MainWindow (Scratch.ScratchApp scratch_app) {
 
             this.app = scratch_app;
@@ -187,10 +190,14 @@ namespace Scratch {
             this.bottombar.page_added.connect (() => {
                 this.bottombar.set_show_tabs ((this.bottombar.get_n_pages () > 1));
                 this.bottombar.no_show_all = (this.bottombar.get_n_pages () == 0);
+                this.bottombar.visible = (this.bottombar.get_n_pages () == 0);
+                this.bottombar.show ();
             });
             this.bottombar.page_removed.connect (() => {
                 this.bottombar.set_show_tabs ((this.bottombar.get_n_pages () > 1));
                 this.bottombar.no_show_all = (this.bottombar.get_n_pages () == 0);
+                this.bottombar.visible = (this.bottombar.get_n_pages () == 0);
+                this.bottombar.hide ();
             });
 
             var hp1 = new Granite.Widgets.CollapsiblePaned (Orientation.HORIZONTAL);
@@ -222,17 +229,25 @@ namespace Scratch {
             this.split_view.show_welcome ();
             
             // Plugins hook
-            plugins.hook_window (this);
-            plugins.hook_toolbar (this.toolbar);
-            plugins.hook_main_menu (this.toolbar.menu);
-            plugins.hook_share_menu (this.toolbar.share_menu);
-            plugins.hook_notebook_sidebar (this.sidebar);
-            plugins.hook_notebook_context (this.contextbar);
-            plugins.hook_notebook_bottom (this.bottombar);
-            this.split_view.document_change.connect ((doc) => {
-                plugins.hook_document (doc);
+            
+            HookFunc hook_func = () => {
+                plugins.hook_window (this);
+                plugins.hook_toolbar (this.toolbar);
+                plugins.hook_main_menu (this.toolbar.menu);
+                plugins.hook_share_menu (this.toolbar.share_menu);
+                plugins.hook_notebook_sidebar (this.sidebar);
+                plugins.hook_notebook_context (this.contextbar);
+                plugins.hook_notebook_bottom (this.bottombar);
+                this.split_view.document_change.connect ((doc) => {
+                    plugins.hook_document (doc);
+                });
+                plugins.hook_split_view (this.split_view);
+            };
+            plugins.extension_added.connect (() => {
+                hook_func ();
             });
-            plugins.hook_split_view (this.split_view);
+            hook_func ();
+            
         }
 
         protected override bool delete_event (Gdk.EventAny event) {

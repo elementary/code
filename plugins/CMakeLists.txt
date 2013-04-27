@@ -1,7 +1,7 @@
 add_subdirectory (contractor)
 #add_subdirectory (pastebin)
 #add_subdirectory (filemanager)
-#add_subdirectory (terminal)
+add_subdirectory (terminal)
 #add_subdirectory (devhelp)
 #add_subdirectory (browser-preview)
 #add_subdirectory (spell-check)

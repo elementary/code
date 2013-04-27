@@ -94,6 +94,9 @@ namespace Scratch.Services {
         public signal void hook_document (Scratch.Services.Document doc);
         public signal void hook_preferences_dialog (Scratch.Dialogs.Preferences dialog);
         
+        public signal void extension_added ();
+        public signal void extension_removed ();
+        
         public PluginsManager (ScratchApp app, string? set_name = null) {
             this.app = app;
             
@@ -115,11 +118,15 @@ namespace Scratch.Services {
             param.name = "object";
             exts = new Peas.ExtensionSet (engine, typeof (Peas.Activatable), "object", plugin_iface, null);
 
-            exts.extension_added.connect( (info, ext) => {  
+            exts.extension_added.connect ((info, ext) => {  
                 ((Peas.Activatable)ext).activate();
+                extension_added ();
             });
-            exts.extension_removed.connect(on_extension_removed);
-            exts.foreach (on_extension_added);
+            exts.extension_removed.connect ((info, ext) => {
+                ((Peas.Activatable)ext).deactivate ();
+                extension_removed ();
+            });
+            exts.foreach (on_extension_foreach);
             
             if (set_name != null) {
                 /* The core now */
@@ -139,7 +146,7 @@ namespace Scratch.Services {
                 /* Our extension set */
                 exts_core = new Peas.ExtensionSet (engine_core, typeof (Peas.Activatable), "object", plugin_iface, null);
 
-                exts_core.foreach (on_extension_added);
+                exts_core.foreach (on_extension_foreach);
             }
             
             // Connect managers signals to interface's signals
@@ -175,36 +182,14 @@ namespace Scratch.Services {
             });
         }
         
-        void on_extension_added (Peas.ExtensionSet set, Peas.PluginInfo info, Peas.Extension extension) {
+        void on_extension_foreach (Peas.ExtensionSet set, Peas.PluginInfo info, Peas.Extension extension) {
             ((Peas.Activatable)extension).activate ();
-        }
-        void on_extension_removed (Peas.PluginInfo info, Object extension) {
-            ((Peas.Activatable)extension).deactivate ();
         }
         
         public Gtk.Widget get_view () {
             var view = new PeasGtk.PluginManager (engine);
-            var bottom_box = view.get_children ().nth_data (1) as Gtk.Box;
-            bottom_box.remove (bottom_box.get_children ().nth_data(0));
-            
-            view.view.populate_popup.connect ((menu) => {
-                foreach (Gtk.Widget item in menu.get_children ()) {
-                    menu.remove (item);
-                    if (((Gtk.MenuItem)item).get_label () == "gtk-about") {
-                        ((Gtk.MenuItem)item).destroy ();
-                    }
-                    else if (((Gtk.MenuItem)item).get_label () == "gtk-preferences") {
-                        menu.remove (item);
-                    }
-                    else if (((Gtk.MenuItem)item) is Gtk.SeparatorMenuItem) {
-                        var sep = new Gtk.SeparatorMenuItem ();
-                        menu.append (sep);
-                    }
-                    else {
-                        menu.append (((Gtk.MenuItem)item));
-                    }
-                }
-            });
+            var bottom_box = view.get_children ().nth_data (1);
+            bottom_box.no_show_all = true;
             return view;
         }
     }

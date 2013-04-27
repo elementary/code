@@ -12,7 +12,6 @@ vala_precompile(VALA_C
     terminal.vala
 PACKAGES
     vte-2.90
-    scratch
     granite
     gtksourceview-3.0
     scratchcore
