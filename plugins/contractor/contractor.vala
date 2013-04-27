@@ -18,9 +18,28 @@
   END LICENSE	
 ***/
 
+public class Scratch.Plugins.ContractMenuItem : Gtk.MenuItem {
+    private Granite.Services.Contract contract;
+    private File file;
 
-public class Scratch.Plugins.Contractor : Peas.ExtensionBase,  Peas.Activatable
-{
+    public ContractMenuItem (Granite.Services.Contract contract, File file) {
+        this.contract = contract;
+        this.file = file;
+
+        label = contract.get_display_name ();
+        tooltip_text = contract.get_description ();
+    }
+
+    public override void activate () {
+        try {
+            contract.execute_with_file (file);
+        } catch (Error err) {
+            warning (err.message);
+        }
+    }
+}
+
+public class Scratch.Plugins.Contractor : Peas.ExtensionBase,  Peas.Activatable {
     Scratch.Services.Interface plugins;
     GLib.List<Gtk.Widget>? list = null;
 
@@ -48,34 +67,29 @@ public class Scratch.Plugins.Contractor : Peas.ExtensionBase,  Peas.Activatable
     
     private void on_hook (Gtk.Menu menu) {
         plugins.hook_document.connect ((doc) => {
-            if (doc.file == null)
-                return;
-            debug ("Loading Contracts for file: \"%s\"", doc.get_basename ());
             // Remove old contracts
             this.list.foreach ((item) => { if (item != null) item.destroy (); });
+            
+            if (doc.file == null)
+                return;
+
             // Create ContractorMenu widget
-            var contractor = Granite.Services.Contractor.get_contract (doc.file.get_path (), "text/plain");
-            foreach (var contract in contractor) {
-                var item = new Gtk.MenuItem.with_label (contract.lookup ("Name"));
-                item.activate.connect (() => {
-                    try {
-                        GLib.Process.spawn_command_line_async (contract.lookup ("Exec"));
-                    } catch (SpawnError e) {
-                        warning (e.message);
-                    }
-                });
-                menu.append (item);
-                this.list.append (item);
+            Gee.List<Granite.Services.Contract> contracts = null;
+            try {
+                contracts = Granite.Services.ContractorProxy.get_contracts_by_mime ("text/plain");
+            } catch (Error e) {
+                warning (e.message);
+            }
+            
+            for (int i = 0; i < contracts.size; i++) {
+                var contract = contracts.get (i);
+                Gtk.MenuItem menu_item;
+
+                menu_item = new ContractMenuItem (contract, doc.file);
+                menu.append (menu_item);
+                this.list.append (menu_item);
             }
 
-            /*this.list = contractor.get_children ().copy ();
-
-            // Append Contracts
-            this.list.foreach ((item) => {
-                if (item != null)
-                    menu.append (item as Gtk.MenuItem);
-            });*
-            debug ("Loading Contracts for file: \"%s\"", doc.get_basename ());*/
         });
     }
     
