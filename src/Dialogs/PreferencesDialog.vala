@@ -205,7 +205,7 @@ namespace Scratch.Dialogs {
             add_option (content, new Label (_("Show line numbers:")), line_numbers, ref row);
 
             
-            var label = new Label (_("Show margin on right:"));
+            var label = new Label (_("Line width guide:"));
             var show_right_margin = new CheckButton ();
             Scratch.settings.schema.bind("show-right-margin", show_right_margin, "active", SettingsBindFlags.DEFAULT);
             var right_margin_position = new SpinButton.with_range (1, 250, 1);
