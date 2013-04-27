@@ -15,13 +15,11 @@
 
 using Gtk;
 
-public class
-Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatable {
+public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatable {
 
-    Interface plugins;
+    Scratch.Services.Interface plugins;
     public Object object {owned get; construct;}
     Scratch.MainWindow main_window;
-    Gtk.ActionGroup action_group;
     Gtk.Action action_save;
     public void update_state () {return;}
 
@@ -29,14 +27,11 @@ Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatable {
      * Activate plugin.
      */
     public void activate () {
-        Value value = Value(typeof(GLib.Object));
-        get_property("object", ref value);
-        plugins = (Scratch.Plugins.Interface)value.get_object();
-        plugins.register_function(Interface.Hook.WINDOW, () => {
-            main_window = (MainWindow) plugins.window;
-            action_group = main_window.main_actions;
-            action_group.pre_activate.connect(on_save);
-            action_save = action_group.get_action("SaveFile");
+        plugins = (Scratch.Services.Interface) object;   
+        plugins.hook_window.connect ((w) => {
+            this.main_window = w;
+            main_actions.pre_activate.connect (on_save);
+            action_save = main_actions.get_action ("SaveFile");
         });
     }
 
@@ -44,7 +39,7 @@ Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatable {
      * Deactivate plugin.
      */
     public void deactivate () {
-        action_group.pre_activate.disconnect(on_save);
+        main_actions.pre_activate.disconnect(on_save);
     }
 
     /*
@@ -52,12 +47,11 @@ Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatable {
      */
     void on_save (Gtk.Action action) {
         if (action==action_save) {
-            var text_view = main_window.current_tab.text_view;
+            var text_view = main_window.get_current_document ().source_view;
             var buffer = text_view.buffer;
             buffer.begin_user_action();
             strip_trailing_spaces(buffer);
             buffer.end_user_action();
-            main_window.split_view.page_changed(text_view);
         }
     }
 

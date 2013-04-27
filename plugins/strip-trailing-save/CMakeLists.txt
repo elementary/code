@@ -5,7 +5,6 @@ link_directories(${NORMAL_LINK_DIRS})
 vala_precompile(VALA_C
     strip-trailing-save.vala
 PACKAGES
-    scratch
     granite
     gtksourceview-3.0
     scratchcore
