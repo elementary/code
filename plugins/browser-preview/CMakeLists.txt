@@ -12,7 +12,6 @@ vala_precompile(VALA_C
     browser-preview.vala
 PACKAGES
     webkitgtk-3.0
-    scratch
     granite
     gtksourceview-3.0
     scratchcore

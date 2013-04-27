@@ -211,7 +211,7 @@ namespace Scratch {
             var hp1 = new Granite.Widgets.CollapsiblePaned (Orientation.HORIZONTAL);
             hp1.position = 150;
             var hp2 = new Granite.Widgets.CollapsiblePaned (Orientation.HORIZONTAL);
-            hp2.position = 150;
+            hp2.position = 1500; // FIXME: what a bad solution
             var vp = new Granite.Widgets.CollapsiblePaned (Orientation.VERTICAL);
             vp.position = 1500; // FIXME: what a bad solution
     
