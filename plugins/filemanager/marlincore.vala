@@ -22,8 +22,16 @@ public class FMView : Gtk.ScrolledWindow {
             model.get (iter, 0, out file_pix, -1);
 
             if (file_pix != null)
-            ((Gtk.CellRendererPixbuf)renderer).pixbuf = file_pix.pix;
-
+                ((Gtk.CellRendererPixbuf)renderer).pixbuf = file_pix.pix;
+            if(file_pix != null) {
+                ((Gtk.CellRendererPixbuf)renderer).pixbuf = file_pix.pix;
+                renderer.visible=true;
+                renderer_pix.visible=true;
+            }
+            else {
+                renderer.visible=false;
+                renderer_pix.visible=false;
+            }
         });
         column.pack_start (renderer, true);
         column.set_attributes (renderer, "text", 2);
@@ -45,6 +53,11 @@ public class FMView : Gtk.ScrolledWindow {
         Gtk.TreeIter? iter = null;
         Gtk.TreeModel? mod = null;
         selection.get_selected (out mod, out iter);
+        // Check if selected file is dummy, if so do not act on selection (otherwise crashes)
+        GOF.File sf;
+        mod.get(iter,0,out sf,-1);
+        if (sf==null) 
+            return;
         var path = view.model.get_path (iter);
         // If there is something to expand...
         GOF.Directory.Async dir;
