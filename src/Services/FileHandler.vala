@@ -19,18 +19,18 @@
 ***/
 
 namespace Scratch.Services {
-    
+
     public enum FileOption {
         EXISTS,
         IS_DIR,
         IS_EXECUTABLE
     }
-    
+
     public class FileHandler : GLib.Object {
-        
+
         public static async string? load_content_from_file (File file) {
             var text = new StringBuilder ();
-                        
+
             try {
                 var dis = new DataInputStream (file.read ());
                 string line = null;
@@ -44,14 +44,14 @@ namespace Scratch.Services {
                 return null;
             }
         }
-        
+
         public static string? load_content_from_file_sync (File file) {
             var text = new StringBuilder ();
-                        
+
             try {
                 var dis = new DataInputStream (file.read ());
                 string line = null;
-                while ((line = dis.read_line ()) != null) {
+                while ((line = dis.read_line (null, null)) != null) {
                     text.append (line);
                     text.append_c ('\n');
                 }
@@ -61,7 +61,7 @@ namespace Scratch.Services {
                 return null;
             }
         }
-        
+
         public static bool move (string path, string new_path) {
             var old = File.new_for_path (path);
             var newpath = File.new_for_path (new_path);
@@ -78,7 +78,7 @@ namespace Scratch.Services {
             else
                 return false;
         }
-        
+
         public static bool move_uri (string uri, string new_uri) {
             var old = File.new_for_uri (uri);
             var newuri = File.new_for_uri (new_uri);
@@ -95,7 +95,7 @@ namespace Scratch.Services {
             else
                 return false;
         }
-        
+
         public static bool copy (string path, string new_path) {
             var old = File.new_for_path (path);
             var newpath = File.new_for_path (new_path);
@@ -112,16 +112,16 @@ namespace Scratch.Services {
             else
                 return false;
         }/*
-        
+
         public static bool backup (string path) {
         }
 
         public static bool backup_uri (string uri) {
         }
-        
+
         public static bool query_option (FileOption option) {
         }*/
-        
+
     }
 
 }
