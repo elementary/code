@@ -22,7 +22,7 @@ namespace Scratch.Services {
 
     public class Interface : GLib.Object {
         
-        private PluginsManager manager;
+        public PluginsManager manager;
         
         // Signals
         public signal void hook_window (Scratch.MainWindow window);
@@ -80,8 +80,8 @@ namespace Scratch.Services {
         public signal void hook_document (Scratch.Services.Document doc);
         public signal void hook_preferences_dialog (Scratch.Dialogs.Preferences dialog);
         
-        public signal void extension_added ();
-        public signal void extension_removed ();
+        public signal void extension_added (Peas.PluginInfo info);
+        public signal void extension_removed (Peas.PluginInfo info);
         
         public PluginsManager (ScratchApp app, string? set_name = null) {
             this.app = app;
@@ -105,12 +105,12 @@ namespace Scratch.Services {
             exts = new Peas.ExtensionSet (engine, typeof (Peas.Activatable), "object", plugin_iface, null);
 
             exts.extension_added.connect ((info, ext) => {  
-                ((Peas.Activatable)ext).activate();
-                extension_added ();
+                ((Peas.Activatable)ext).activate ();
+                extension_added (info);
             });
             exts.extension_removed.connect ((info, ext) => {
                 ((Peas.Activatable)ext).deactivate ();
-                extension_removed ();
+                extension_removed (info);
             });
             exts.foreach (on_extension_foreach);
             
