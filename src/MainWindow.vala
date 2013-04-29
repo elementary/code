@@ -129,10 +129,10 @@ namespace Scratch {
             // SearchManager
             this.search_manager = new Scratch.Widgets.SearchManager ();
             this.search_manager.get_style_context ().add_class ("secondary-toolbar");
-
+            
             // SlitView
             this.split_view = new Scratch.Widgets.SplitView ();
-
+            
             // Signals
             this.split_view.welcome_shown.connect (() => {
                 set_widgets_sensitive (false);

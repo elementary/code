@@ -26,6 +26,7 @@ public class Scratch.Plugins.BrowserPreview : Peas.ExtensionBase,  Peas.Activata
     Gtk.ToolButton? tool_button = null;
     WebView? view = null;
     Gtk.ScrolledWindow? scrolled = null;
+    Scratch.Services.Document? doc = null;
     
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
@@ -35,14 +36,12 @@ public class Scratch.Plugins.BrowserPreview : Peas.ExtensionBase,  Peas.Activata
 
     public void activate () {
         plugins = (Scratch.Services.Interface) object;        
-        plugins.hook_notebook_context.connect ((n) => { 
-            if (context == null) {
-                this.context = n;
-                on_hook_context (this.context);
-            }
+        
+        plugins.hook_document.connect ((d) => {
+            this.doc = d;
         });
-        if (context != null)
-            on_hook_context (this.context);
+        
+        plugins.hook_notebook_context.connect (on_hook_context);
             
         plugins.hook_toolbar.connect (on_hook_toolbar);
     }
@@ -53,24 +52,23 @@ public class Scratch.Plugins.BrowserPreview : Peas.ExtensionBase,  Peas.Activata
         
         if (scrolled != null)
             scrolled.destroy ();
+
     }
     
     void on_hook_toolbar (Gtk.Toolbar toolbar) {
-        Scratch.Services.Document? doc = null;
-        plugins.hook_document.connect ((d) => {
-            doc = d;
-        });
-        
+        if (tool_button != null)
+            return;
+
         var icon = new Gtk.Image.from_icon_name ("emblem-web", Gtk.IconSize.LARGE_TOOLBAR);
         tool_button = new Gtk.ToolButton (icon, _("Get preview!"));
         tool_button.tooltip_text = _("Get preview!");
         tool_button.clicked.connect (() => {              
             // Get uri
-            if (doc.file == null)
+            if (this.doc.file == null)
                 return;
-            string uri = doc.file.get_uri ();
+            string uri = this.doc.file.get_uri ();
                 
-            debug ("Previewing: " + doc.file.get_basename ());
+            debug ("Previewing: " + this.doc.file.get_basename ());
                 
             view.load_uri (uri);
         });
@@ -82,6 +80,9 @@ public class Scratch.Plugins.BrowserPreview : Peas.ExtensionBase,  Peas.Activata
     }
     
     void on_hook_context (Gtk.Notebook notebook) {
+    	if (scrolled != null)
+    	    return;
+    	
     	view = new WebView ();
     	// Enable local loading
     	var settings = view.get_settings ();

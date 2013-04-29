@@ -178,8 +178,7 @@ namespace Scratch.Widgets {
             update_tool_arrows (search_entry.text);
         }
 
-        bool on_search_entry_focused_in (Gdk.EventFocus event) {
-            
+        bool on_search_entry_focused_in (Gdk.EventFocus event) {           
             Gtk.TextIter? start_iter, end_iter;
             text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
             
@@ -197,7 +196,6 @@ namespace Scratch.Widgets {
                     search_entry.override_color (Gtk.StateFlags.FOCUSED, {1.0, 0.0, 0.0, 1.0});
                 return false;
             }
-
         }
 
         public bool search () {

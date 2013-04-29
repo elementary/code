@@ -52,8 +52,9 @@ namespace Scratch.Services {
                 var dis = new DataInputStream (file.read ());
                 string line = null;
                 while ((line = dis.read_line (null, null)) != null) {
+                    if (line != "\n") {
                     text.append (line);
-                    text.append_c ('\n');
+                    text.append_c ('\n');}
                 }
                 return text.str;
             } catch (Error e) {

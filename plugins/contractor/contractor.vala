@@ -74,7 +74,7 @@ public class Scratch.Plugins.Contractor : Peas.ExtensionBase,  Peas.Activatable 
             // Create ContractorMenu widget
             Gee.List<Granite.Services.Contract> contracts = null;
             try {
-                contracts = Granite.Services.ContractorProxy.get_contracts_by_mime ("text/plain");
+                contracts = Granite.Services.ContractorProxy.get_contracts_by_mime (doc.get_mime_type ());
             } catch (Error e) {
                 warning (e.message);
             }

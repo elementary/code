@@ -130,6 +130,9 @@ namespace Scratch.Services {
             // Zeitgeist integration
             zg_log.open_insert (file.get_uri (), get_mime_type ());
 
+            // Grab focus
+            this.source_view.grab_focus ();
+            
             doc_opened ();
 
             return true;
@@ -209,7 +212,9 @@ namespace Scratch.Services {
 
             doc_saved ();
             this.saved = true;
-            this.last_saved_content = this.source_view.buffer.text;
+            FileHandler.load_content_from_file.begin (file, (obj, res) => {
+                this.last_saved_content = FileHandler.load_content_from_file.end (res);
+           });
             
             message ("File \"%s\" saved succefully", get_basename ());
 
@@ -392,6 +397,19 @@ namespace Scratch.Services {
         // Check if the file was delete/changed by an external source
         public void check_file_status () {
             if (file != null) {
+                // If the file does not exist anymore
+                if (!exists ()) {
+                    string message = _("File ") +  " \"<b>%s</b>\" ".printf (get_basename ()) +
+                                     _("was delete. Do you want to save it anyway?");
+
+                    set_message (Gtk.MessageType.WARNING, message, _("Save"), () => {
+                        this.save ();
+                        hide_info_bar ();
+                    });
+                    main_actions.get_action ("SaveFile").sensitive = false;
+                    this.source_view.editable = false;
+                    return;
+                }
                 // If the file can't be written
                 if (!can_write ()) {
                     string message = _("You cannot save changes on file") +  " \"<b>%s</b>\". ".printf (get_basename ()) +
@@ -403,18 +421,6 @@ namespace Scratch.Services {
                     });
                     main_actions.get_action ("SaveFile").sensitive = false;
                     this.source_view.editable = !settings.autosave;
-                }
-                // If the file does not exist anymore
-                else if (!exists ()) {
-                    string message = _("File ") +  " \"<b>%s</b>\" ".printf (get_basename ()) +
-                                     _("was delete. Do you want to save it anyway?");
-
-                    set_message (Gtk.MessageType.WARNING, message, _("Save"), () => {
-                        this.save ();
-                        hide_info_bar ();
-                    });
-                    main_actions.get_action ("SaveFile").sensitive = false;
-                    this.source_view.editable = false;
                 }
                 else {
                     main_actions.get_action ("SaveFile").sensitive = true;
