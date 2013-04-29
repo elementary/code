@@ -146,6 +146,20 @@ namespace Scratch.Widgets {
             }
             this.text_view = text_view;
             this.text_buffer = text_view.get_buffer ();
+            
+            // Determine the search entry color
+            bool found = (search_entry.text in this.text_buffer.text);
+            if (found) {
+                tool_arrow_down.sensitive = true;
+                tool_arrow_up.sensitive = false;
+                search_entry.override_color (Gtk.StateFlags.NORMAL, normal_color);
+            }
+            else {
+                if (search_entry.text != "") 
+                    search_entry.override_color (Gtk.StateFlags.NORMAL, {1.0, 0.0, 0.0, 1.0});
+                tool_arrow_down.sensitive = false;
+                tool_arrow_up.sensitive = false;
+            }
         }
         
         void on_go_to_entry_activate () {
