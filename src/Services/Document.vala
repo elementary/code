@@ -446,7 +446,6 @@ namespace Scratch.Services {
                 // Detect external changes
                 FileHandler.load_content_from_file.begin (file, (obj, res) => {
                     var text = FileHandler.load_content_from_file.end (res);
-                    debug (last_saved_content);
                     if (last_saved_content != null && text != last_saved_content) {
                         string message = _("File ") +  " \"<b>%s</b>\" ".printf (get_basename ()) +
                                          _("was modified by an external application. Do you want to load it again or continue your editing?");

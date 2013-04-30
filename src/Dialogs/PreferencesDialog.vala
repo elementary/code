@@ -58,6 +58,9 @@ namespace Scratch.Dialogs {
         }
 
         private void create_layout () {
+            // Create main box
+            var box = new Box (Orientation.VERTICAL, 0);
+            
             //create static notebook Behavior tab
             var behavior_label = new Label (_("Behavior"));
             main_static_notebook.append_page (get_general_box (), behavior_label);
@@ -76,8 +79,22 @@ namespace Scratch.Dialogs {
                 
                 main_static_notebook.append_page (pbox, extensions_label);
             }
-
-            this.add (main_static_notebook);
+            
+            // Close button
+            var close = new Button.with_label (_("Close"));
+            close.clicked.connect (() => {
+                this.destroy ();
+            });
+            
+            var bbox = new ButtonBox (Orientation.HORIZONTAL);
+            bbox.halign = Align.END;
+            bbox.margin_right = 5;
+            bbox.add (close);
+            
+            // Pack everything into the dialog
+            box.pack_start (main_static_notebook, true, true, 0);
+            box.pack_start (bbox, true, false, 15);
+            this.add (box);
         }
         
         void add_section (Gtk.Grid grid, Gtk.Label name, ref int row) {
