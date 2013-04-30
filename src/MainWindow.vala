@@ -480,8 +480,8 @@ namespace Scratch {
 
         void action_fetch () {
             var doc = this.get_current_document ();
-            this.search_manager.search_entry.grab_focus ();
             this.search_manager.search_entry.text = doc.get_selected_text ();
+            this.search_manager.search_entry.grab_focus ();
         }
 
         void action_go_to () {
