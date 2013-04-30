@@ -98,6 +98,7 @@ namespace Scratch.Services {
                 if (!text.validate())
                    text = file_content_to_utf8 (file, text);
                 this.source_view.set_text (text);
+                this.last_saved_content = this.source_view.buffer.text;
                 this.original_content = text;
                 // Signals for SourceView
                 uint timeout_saving = -1;
@@ -224,7 +225,7 @@ namespace Scratch.Services {
             this.saved = true;
             FileHandler.load_content_from_file.begin (file, (obj, res) => {
                 this.last_saved_content = FileHandler.load_content_from_file.end (res);
-           });
+            });
             
             message ("File \"%s\" saved succefully", get_basename ());
 
@@ -445,6 +446,7 @@ namespace Scratch.Services {
                 // Detect external changes
                 FileHandler.load_content_from_file.begin (file, (obj, res) => {
                     var text = FileHandler.load_content_from_file.end (res);
+                    debug (last_saved_content);
                     if (last_saved_content != null && text != last_saved_content) {
                         string message = _("File ") +  " \"<b>%s</b>\" ".printf (get_basename ()) +
                                          _("was modified by an external application. Do you want to load it again or continue your editing?");

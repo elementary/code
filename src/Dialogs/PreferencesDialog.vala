@@ -78,7 +78,6 @@ namespace Scratch.Dialogs {
             }
 
             this.add (main_static_notebook);
-
         }
         
         void add_section (Gtk.Grid grid, Gtk.Label name, ref int row) {
@@ -96,8 +95,7 @@ namespace Scratch.Dialogs {
             switcher.halign = Gtk.Align.FILL;
             switcher.hexpand = true;
             
-            if (switcher is Switch || switcher is CheckButton
-                || switcher is Entry) { /* then we don't want it to be expanded */
+            if (switcher is Switch || switcher is Entry) { /* then we don't want it to be expanded */
                 switcher.halign = Gtk.Align.START;
             }
             
@@ -183,7 +181,7 @@ namespace Scratch.Dialogs {
             var section_l = new Label (_("Editor:"));
             add_section (content, section_l, ref row);            
             
-            var line_numbers = new CheckButton ();
+            var line_numbers = new Switch ();
             Scratch.settings.schema.bind("show-line-numbers", line_numbers, "active", SettingsBindFlags.DEFAULT);
             
             highlight_current_line = new Switch ();
@@ -206,15 +204,19 @@ namespace Scratch.Dialogs {
 
             
             var label = new Label (_("Line width guide:"));
-            var show_right_margin = new CheckButton ();
+            var show_right_margin = new Switch ();
             Scratch.settings.schema.bind("show-right-margin", show_right_margin, "active", SettingsBindFlags.DEFAULT);
             var right_margin_position = new SpinButton.with_range (1, 250, 1);
             Scratch.settings.schema.bind("right-margin-position", right_margin_position, "value", SettingsBindFlags.DEFAULT);
             Scratch.settings.schema.bind("show-right-margin", right_margin_position, "sensitive", SettingsBindFlags.DEFAULT);
-            add_option (content, label, show_right_margin, ref row);
-            label = new Label (_("Margin width:"));
-            Scratch.settings.schema.bind("show-right-margin", label, "sensitive", SettingsBindFlags.DEFAULT);
-            add_option (content, label, right_margin_position, ref row);
+            //add_option (content, label, show_right_margin, ref row);
+            //label = new Label (_("Margin width:"));
+            //Scratch.settings.schema.bind("show-right-margin", label, "sensitive", SettingsBindFlags.DEFAULT);
+            var margin_grid = new Gtk.Grid ();
+            margin_grid.add (show_right_margin);
+            margin_grid.add (right_margin_position);
+            right_margin_position.hexpand = true;
+            add_option (content, label, margin_grid, ref row);
             
             // Font and Color Scheme
             section_l = new Label (_("Font and Color Scheme:"));
@@ -235,9 +237,9 @@ namespace Scratch.Dialogs {
             Scratch.settings.schema.bind("use-system-font", select_font_l, "sensitive", SettingsBindFlags.INVERT_BOOLEAN);
 
             add_option (content, new Label (_("Color scheme:")), style_scheme, ref row);
-            var font_grid = new Gtk.Grid();
-            font_grid.add(use_custom_font);
-            font_grid.add(select_font);
+            var font_grid = new Gtk.Grid ();
+            font_grid.add (use_custom_font);
+            font_grid.add (select_font);
             select_font.hexpand = true;
             add_option (content, new Label (_("Custom font:")), font_grid, ref row);
             
