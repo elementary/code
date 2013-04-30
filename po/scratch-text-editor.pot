@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-27 20:08+0200\n"
+"POT-Creation-Date: 2013-04-30 22:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,66 +17,66 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/mario/scratch/po/../src/Services/Document.vala:155
+#: /home/mario/scratch/po/../src/Services/Document.vala:169
 #, c-format
 msgid "Save changes to document %s before closing?"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Services/Document.vala:158
+#: /home/mario/scratch/po/../src/Services/Document.vala:172
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Services/Document.vala:160
+#: /home/mario/scratch/po/../src/Services/Document.vala:174
 msgid "Close without saving"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Services/Document.vala:221
+#: /home/mario/scratch/po/../src/Services/Document.vala:237
 msgid "Save File"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Services/Document.vala:282
+#: /home/mario/scratch/po/../src/Services/Document.vala:304
 #: /home/mario/scratch/po/../src/config.vala:16
 msgid "New Document"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Services/Document.vala:397
-msgid "You cannot save changes on file"
-msgstr ""
-
-#: /home/mario/scratch/po/../src/Services/Document.vala:398
-msgid "Do you want to save the changes to this file in a different location?"
-msgstr ""
-
-#: /home/mario/scratch/po/../src/Services/Document.vala:400
-msgid "Save changes elsewhere"
-msgstr ""
-
-#: /home/mario/scratch/po/../src/Services/Document.vala:409
-#: /home/mario/scratch/po/../src/Services/Document.vala:427
+#: /home/mario/scratch/po/../src/Services/Document.vala:419
+#: /home/mario/scratch/po/../src/Services/Document.vala:451
 msgid "File "
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Services/Document.vala:410
+#: /home/mario/scratch/po/../src/Services/Document.vala:420
 msgid "was delete. Do you want to save it anyway?"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Services/Document.vala:412
+#: /home/mario/scratch/po/../src/Services/Document.vala:422
 #: /home/mario/scratch/po/../src/MainWindow.vala:554
 msgid "Save"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Services/Document.vala:428
+#: /home/mario/scratch/po/../src/Services/Document.vala:432
+msgid "You cannot save changes on file"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:433
+msgid "Do you want to save the changes to this file in a different location?"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:435
+msgid "Save changes elsewhere"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:452
 msgid ""
 "was modified by an external application. Do you want to load it again or "
 "continue your editing?"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Services/Document.vala:430
+#: /home/mario/scratch/po/../src/Services/Document.vala:454
 msgid "Load"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Services/Document.vala:433
+#: /home/mario/scratch/po/../src/Services/Document.vala:457
 msgid "Continue"
 msgstr ""
 
@@ -117,99 +117,95 @@ msgstr ""
 msgid "Extensions"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:112
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:110
 msgid "Show welcome screen"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:113
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:111
 msgid "Show last open tabs"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:129
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:127
 msgid "General:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:135
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:133
 msgid "When Scratch starts:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:138
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:136
 msgid "Save files when changed:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:143
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:141
 msgid "Tabs:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:148
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:146
 msgid "Automatic indentation:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:151
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:149
 msgid "Insert spaces instead of tabs:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:155
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:153
 msgid "Tab width:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:183
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:181
 msgid "Editor:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:201
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:199
 msgid "Highlight current line:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:202
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:200
 msgid "Highlight matching brackets:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:203
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:201
 msgid "Split long text in many lines:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:204
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:202
 msgid "Draw spaces:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:205
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:203
 msgid "Show line numbers:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:206
 msgid "Line width guide:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:215
-msgid "Margin width:"
-msgstr ""
-
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:220
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:222
 msgid "Font and Color Scheme:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:234
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:236
 msgid "Select font:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:237
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:239
 msgid "Color scheme:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:242
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:244
 msgid "Custom font:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Scratch.vala:140
+#: /home/mario/scratch/po/../src/Scratch.vala:141
 msgid "Set of plugins"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Scratch.vala:141
+#: /home/mario/scratch/po/../src/Scratch.vala:142
 msgid "Create a new instance"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Scratch.vala:142
+#: /home/mario/scratch/po/../src/Scratch.vala:143
 msgid "Create a new document"
 msgstr ""
 
@@ -460,11 +456,11 @@ msgstr ""
 msgid "Terminal"
 msgstr ""
 
-#: /home/mario/scratch/po/../plugins/browser-preview/browser-preview.vala:65
-#: /home/mario/scratch/po/../plugins/browser-preview/browser-preview.vala:66
+#: /home/mario/scratch/po/../plugins/browser-preview/browser-preview.vala:63
+#: /home/mario/scratch/po/../plugins/browser-preview/browser-preview.vala:64
 msgid "Get preview!"
 msgstr ""
 
-#: /home/mario/scratch/po/../plugins/browser-preview/browser-preview.vala:93
+#: /home/mario/scratch/po/../plugins/browser-preview/browser-preview.vala:94
 msgid "Web preview"
 msgstr ""
