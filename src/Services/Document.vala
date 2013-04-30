@@ -373,7 +373,7 @@ namespace Scratch.Services {
 
         // Revert
         public void revert () {
-            this.source_view.set_text (original_content);
+            this.source_view.set_text (original_content, false);
             this.last_saved_content = original_content;
             check_undoable_actions ();
         }

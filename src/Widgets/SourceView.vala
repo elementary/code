@@ -226,10 +226,10 @@ namespace Scratch.Widgets {
             }
         }
         
-        public void set_text (string text) {
-            buffer.begin_not_undoable_action ();
+        public void set_text (string text, bool opening = true) {
+            if (opening) buffer.begin_not_undoable_action ();
             buffer.text = text;
-            buffer.end_not_undoable_action ();
+            if (opening) buffer.end_not_undoable_action ();
         }
         
     }

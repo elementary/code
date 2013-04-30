@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-30 22:29+0200\n"
+"POT-Creation-Date: 2013-04-30 22:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,7 +41,7 @@ msgid "New Document"
 msgstr ""
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:419
-#: /home/mario/scratch/po/../src/Services/Document.vala:451
+#: /home/mario/scratch/po/../src/Services/Document.vala:450
 msgid "File "
 msgstr ""
 
@@ -66,17 +66,17 @@ msgstr ""
 msgid "Save changes elsewhere"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Services/Document.vala:452
+#: /home/mario/scratch/po/../src/Services/Document.vala:451
 msgid ""
 "was modified by an external application. Do you want to load it again or "
 "continue your editing?"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Services/Document.vala:454
+#: /home/mario/scratch/po/../src/Services/Document.vala:453
 msgid "Load"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Services/Document.vala:457
+#: /home/mario/scratch/po/../src/Services/Document.vala:456
 msgid "Continue"
 msgstr ""
 
@@ -105,95 +105,101 @@ msgstr ""
 msgid "Preferences"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:62
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:65
 msgid "Behavior"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:66
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:69
 msgid "Interface"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:71
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:74
 msgid "Extensions"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:110
-msgid "Show welcome screen"
-msgstr ""
-
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:111
-msgid "Show last open tabs"
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:84
+#: /home/mario/scratch/po/../src/MainWindow.vala:510
+#: /home/mario/scratch/po/../src/MainWindow.vala:511
+msgid "Close"
 msgstr ""
 
 #: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:127
+msgid "Show welcome screen"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:128
+msgid "Show last open tabs"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:144
 msgid "General:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:133
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:150
 msgid "When Scratch starts:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:136
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:153
 msgid "Save files when changed:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:141
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:158
 msgid "Tabs:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:146
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:163
 msgid "Automatic indentation:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:149
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:166
 msgid "Insert spaces instead of tabs:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:153
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:170
 msgid "Tab width:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:181
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:198
 msgid "Editor:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:199
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:216
 msgid "Highlight current line:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:200
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:217
 msgid "Highlight matching brackets:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:201
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:218
 msgid "Split long text in many lines:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:202
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:219
 msgid "Draw spaces:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:203
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:220
 msgid "Show line numbers:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:206
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:223
 msgid "Line width guide:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:222
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:239
 msgid "Font and Color Scheme:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:236
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:253
 msgid "Select font:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:239
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:256
 msgid "Color scheme:"
 msgstr ""
 
-#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:244
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:261
 msgid "Custom font:"
 msgstr ""
 
@@ -234,11 +240,6 @@ msgstr ""
 #: /home/mario/scratch/po/../src/MainWindow.vala:506
 #: /home/mario/scratch/po/../src/MainWindow.vala:507
 msgid "Quit"
-msgstr ""
-
-#: /home/mario/scratch/po/../src/MainWindow.vala:510
-#: /home/mario/scratch/po/../src/MainWindow.vala:511
-msgid "Close"
 msgstr ""
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:514
