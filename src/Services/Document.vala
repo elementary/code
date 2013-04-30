@@ -78,6 +78,15 @@ namespace Scratch.Services {
                 return true;
             }
             
+            // If it does not exists, let's create it!
+            if (!exists ()) {
+                try {
+                    FileUtils.set_contents (file.get_path (), "");
+                } catch (FileError e) {
+                    warning ("Cannot create file \"%s\": %s", get_basename (), e.message);
+                }
+            }
+            
             // Start loading
             this.working = true;
             message ("Opening \"%s\"", get_basename ());
