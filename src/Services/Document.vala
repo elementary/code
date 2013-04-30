@@ -3,6 +3,7 @@
   BEGIN LICENSE
 
   Copyright (C) 2011-2012 Giulio Collura <random.cpp@gmail.com>
+                2013      Mario Guerriero <mario@elemnetaryos.org>
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
@@ -232,6 +233,12 @@ namespace Scratch.Services {
             
             save ();
 
+            // Change syntax highlight
+            this.source_view.change_syntax_highlight_from_file (this.file);    
+            
+            // Change label
+            this.label = get_basename ();
+            
             return true;
         }
         

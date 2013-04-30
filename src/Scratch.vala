@@ -103,9 +103,10 @@ namespace Scratch {
                     foreach (string uri in uris) {
                        if (uri != "") {
                             var file = File.new_for_uri (uri);
-                            var doc = new Scratch.Services.Document (file);
-                            if (doc.exists ()) 
+                            if (file.query_exists ()) {
+                                var doc = new Scratch.Services.Document (file);
                                 window.open_document (doc);
+                            }
                         }
                     }
                 }
