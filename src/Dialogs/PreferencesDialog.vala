@@ -88,12 +88,12 @@ namespace Scratch.Dialogs {
             
             var bbox = new ButtonBox (Orientation.HORIZONTAL);
             bbox.halign = Align.END;
-            bbox.margin_right = 5;
+            bbox.margin = 5;
             bbox.add (close);
             
             // Pack everything into the dialog
             box.pack_start (main_static_notebook, true, true, 0);
-            box.pack_start (bbox, true, false, 15);
+            box.pack_start (bbox, true, false, 0);
             this.add (box);
         }
         
