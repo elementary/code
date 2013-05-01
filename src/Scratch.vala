@@ -132,8 +132,18 @@ namespace Scratch {
                 view = window.get_current_view ();
             
             for (int i = 0; i < files.length; i++) {
-                var doc = new Scratch.Services.Document (files[i]);
-                view.open_document (doc);
+                // Check if the given path is a directory
+                try {
+                    var info = files[i].query_info ("standard::*", FileQueryInfoFlags.NONE, null);
+                    if (info.get_file_type () != FileType.DIRECTORY) {
+                        var doc = new Scratch.Services.Document (files[i]);
+                        view.open_document (doc);
+                    }
+                    else
+                        warning ("\"%s\" is a directory, not opening it", files[i].get_basename ());
+                } catch (Error e) {
+                    warning (e.message);
+                }
             }
         }
         
