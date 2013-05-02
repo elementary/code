@@ -49,7 +49,7 @@ public class Scratch.Plugins.OpenWith : Peas.ExtensionBase,  Peas.Activatable {
                 return;
 
             // Create new item
-            this.item = new Gtk.MenuItem.with_label (_("Open With"));
+            this.item = new Gtk.MenuItem.with_label (_("Open With..."));
             this.item.activate.connect (() => {
                 var dialog = new Gtk.AppChooserDialog (new Gtk.Window (), Gtk.DialogFlags.MODAL, doc.file);
                 if (dialog.run () == Gtk.ResponseType.OK) {
