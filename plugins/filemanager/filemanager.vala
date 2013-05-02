@@ -1,16 +1,44 @@
-using Scratch.Plugins;
-public class Euclide.Plugins.FM : Peas.ExtensionBase, Peas.Activatable {
-    Interface plugins;
-    PluginView view;
+// -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
+/***
+  BEGIN LICENSE
+	
+  Copyright (C) 2013 Mario Guerriero <mario@elementaryos.org>
+  This program is free software: you can redistribute it and/or modify it	
+  under the terms of the GNU Lesser General Public License version 3, as published	
+  by the Free Software Foundation.
+	
+  This program is distributed in the hope that it will be useful, but	
+  WITHOUT ANY WARRANTY; without even the implied warranties of	
+  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR	
+  PURPOSE.  See the GNU General Public License for more details.
+	
+  You should have received a copy of the GNU General Public License along	
+  with this program.  If not, see <http://www.gnu.org/licenses/>	
+  
+  END LICENSE	
+***/
 
+public class Euclide.Plugins.FM : Peas.ExtensionBase, Peas.Activatable {
+    
+    Gtk.Notebook? sidebar = null;
+    PluginView view;
+    
+    Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
 
     public FM () {
     }
     
     public void activate () {
-        plugins = (Scratch.Plugins.Interface)object;
-        plugins.register_function (Interface.Hook.SIDEBAR, on_notebook_sidebar);
+        plugins = (Scratch.Services.Interface) object;        
+        plugins.hook_notebook_sidebar.connect ((n) => { 
+            if (sidebar == null) {
+                this.sidebar = n;
+                on_hook (this.sidebar);
+            }
+        });
+        if (sidebar != null)
+            on_hook (this.sidebar);
     }
 
     public void deactivate () {
@@ -20,15 +48,19 @@ public class Euclide.Plugins.FM : Peas.ExtensionBase, Peas.Activatable {
 
     public void update_state () {
     }
+    
+    void on_hook (Gtk.Notebook notebook) {
+        view = new PluginView ();
+        view.select.connect ((a) => { 
+            var file = File.new_for_uri (a.location.get_uri ());
+            plugins.open_file (file);
+        });
+        
+        notebook.append_page (view, new Gtk.Label (_("Files")));
 
-    void on_notebook_sidebar ()
-    {
-        if (plugins.sidebar != null && plugins.scratch_app != null) {
-            view = new PluginView();
-            view.select.connect( (a) => { ((Scratch.ScratchApp)plugins.scratch_app).open_file(a.location.get_uri()); });
-            plugins.sidebar.append_page(view, new Gtk.Label(_("Files")));
-        }
+        view.show_all ();
     }
+
 }
 
 [ModuleInit]

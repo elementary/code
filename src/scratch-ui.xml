@@ -1,0 +1,27 @@
+<ui>
+    <popup name="ItemTool">
+        <menuitem name="Fetch" action="Fetch"/>
+        <menuitem name="CloseTab" action="CloseTab"/>
+        <menuitem name="Quit" action="Quit"/>
+        <menuitem name="ShowGoTo" action="ShowGoTo"/>
+        <menuitem name="ShowReplace" action="ShowReplace"/>
+        <menuitem name="RestoreTab" action="RestoreTab"/>
+        <menuitem name="NewTab" action="NewTab"/>
+        <menuitem name="NewView" action="NewView"/>
+        <menuitem name="Fullscreen" action="Fullscreen"/>
+        <menuitem name="Open" action="Open"/>
+        <menuitem name="Duplicate" action="Duplicate"/>
+        <menuitem name="SaveFile" action="SaveFile"/>
+        <menuitem name="Undo" action="Undo"/>
+        <menuitem name="Redo" action="Redo"/>
+    </popup>
+    
+    <popup name="AppMenu">
+        <menuitem action="NewView" />
+        <menuitem action="RemoveView" />
+        <menuitem action="Fullscreen" />
+        <menuitem action="Templates" />
+        <separator />
+        <menuitem action="Preferences" />
+    </popup>
+</ui>

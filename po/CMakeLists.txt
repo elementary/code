@@ -11,5 +11,5 @@ add_translations_catalog("scratch-text-editor"
     ../plugins/terminal
     ../plugins/browser-preview
     ../plugins/spell-check
-    ../plugins/devhelp
+    ../plugins/open-with
 )

@@ -1,73 +1,79 @@
-public class FMView : Gtk.ScrolledWindow
-{
+public class FMView : Gtk.ScrolledWindow {
     FM.ListModel model;
     GOF.Directory.Async dir;
     Gtk.TreeView view;
     Gtk.TreeSelection selection;
-    public signal void select(GOF.File file);
-    public FMView(GOF.File file)
-    {
-        model = Object.new(typeof(FM.ListModel)) as FM.ListModel;
-        model.set("has-child", true);
-        view = new Gtk.TreeView();
-        view.set_model(model);
-        add(view);
-        dir = GOF.Directory.Async.from_file(file);
-        load_dir(dir);
+    public signal void select (GOF.File file);
+    public FMView (GOF.File file) {
+        model = Object.new (typeof (FM.ListModel)) as FM.ListModel;
+        model.set ("has-child", true);
+        view = new Gtk.TreeView ();
+        view.set_model (model);
+        add (view);
+        dir = GOF.Directory.Async.from_file (file);
+        load_dir (dir);
 
-        var renderer_pix = new Gtk.CellRendererPixbuf();
-        //var column = new Gtk.TreeViewColumn.with_attributes("Icon", renderer_pix, "pixbuf", 1, null);
-        //view.append_column(column);
-        var renderer = new Gtk.CellRendererText();
-        var column = new Gtk.TreeViewColumn();
-        column.pack_start(renderer_pix, false);
-        column.set_cell_data_func(renderer_pix, (layout, renderer, model, iter) => {
+        var renderer_pix = new Gtk.CellRendererPixbuf ();
+        var renderer = new Gtk.CellRendererText ();
+        var column = new Gtk.TreeViewColumn ();
+        column.pack_start (renderer_pix, false);
+        column.set_cell_data_func (renderer_pix, (layout, renderer, model, iter) => {
             GOF.File file_pix;
-            model.get(iter, 0, out file_pix, -1);
+            model.get (iter, 0, out file_pix, -1);
 
-            if(file_pix != null)
-            ((Gtk.CellRendererPixbuf)renderer).pixbuf = file_pix.pix;
-
+            if (file_pix != null)
+                ((Gtk.CellRendererPixbuf)renderer).pixbuf = file_pix.pix;
+            if(file_pix != null) {
+                ((Gtk.CellRendererPixbuf)renderer).pixbuf = file_pix.pix;
+                renderer.visible=true;
+                renderer_pix.visible=true;
+            }
+            else {
+                renderer.visible=false;
+                renderer_pix.visible=false;
+            }
         });
-        column.pack_start(renderer, true);
-        column.set_attributes(renderer, "text", 2);
+        column.pack_start (renderer, true);
+        column.set_attributes (renderer, "text", 2);
         renderer.ellipsize = Pango.EllipsizeMode.END;
-        view.append_column(column);
+        view.append_column (column);
         
         selection = view.get_selection ();
         
-        view.row_expanded.connect(on_expand);
+        view.row_expanded.connect (on_expand);
         selection.changed.connect (on_selection_changed);
-        //view.row_activated.connect(on_activate);
         view.headers_visible = false;
         view.enable_search = true;
         view.rules_hint = true;
-        width_request = 200;
+        width_request = 150;
     }
 
-    void on_selection_changed()
-    {
+    void on_selection_changed() {
         // Getting objects...
         Gtk.TreeIter? iter = null;
         Gtk.TreeModel? mod = null;
         selection.get_selected (out mod, out iter);
+        // Check if selected file is dummy, if so do not act on selection (otherwise crashes)
+        GOF.File sf;
+        mod.get(iter,0,out sf,-1);
+        if (sf==null) 
+            return;
         var path = view.model.get_path (iter);
         // If there is something to expand...
         GOF.Directory.Async dir;
         if(model.file_for_path (path).is_folder ()) {
             model.load_subdirectory (path, out dir);
-            load_dir(dir);
+            load_dir (dir);
             dir.ref();
         }
         // else...
         else
-            select(model.file_for_path(path));
+            select (model.file_for_path (path));
     }
 
-    void on_expand(Gtk.TreeIter iter, Gtk.TreePath path)
-    {
+    void on_expand (Gtk.TreeIter iter, Gtk.TreePath path) {
         GOF.Directory.Async dir;
-        if(model.load_subdirectory(path, out dir)) load_dir(dir);
+        if (model.load_subdirectory (path, out dir)) load_dir (dir);
         dir.ref();
     }
 

@@ -3,6 +3,7 @@
   BEGIN LICENSE
 
   Copyright (C) 2011-2012 Giulio Collura <random.cpp@gmail.com>
+                2013      Mario Guerriero <mario@elementaryos.org>
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
@@ -23,9 +24,7 @@ using Granite.Widgets;
 
 namespace Scratch.Dialogs {
 
-    public class Preferences : Dialog {
-
-        private MainWindow window;
+    public class Preferences : Granite.Widgets.LightWindow {
 
         public StaticNotebook main_static_notebook;
         
@@ -41,53 +40,62 @@ namespace Scratch.Dialogs {
         Switch use_custom_font;
         FontButton select_font;
         
-        List<string> plugin_lists;
-        
-        public Preferences (string? title, MainWindow? window) {
+        public Preferences () {
 
-            this.window = window;
-            this.title = title;
+            this.title = _("Preferences");
             this.type_hint = Gdk.WindowTypeHint.DIALOG;
-            this.set_transient_for (window);
             set_default_size (630, 330);
             resizable = false;
             
-            this.plugin_lists = plugin_lists.copy ();
-            
             main_static_notebook = new StaticNotebook (false);
-
+            main_static_notebook.margin = 5;
+            
             create_layout ();
 
-            Scratch.plugins.hook_preferences_dialog (this);
+            // Plugin hook function
+            plugins.hook_preferences_dialog (this);
 
         }
 
         private void create_layout () {
-
-
-            //create static notebook
-            var general = new Label (_("Behavior"));
-            main_static_notebook.append_page (get_general_box (), general);
+            // Create main box
+            var box = new Box (Orientation.VERTICAL, 0);
             
-            //create static notebook
-            var editor = new Label (_("Interface"));
-            main_static_notebook.append_page (get_editor_box (), editor);
+            //create static notebook Behavior tab
+            var behavior_label = new Label (_("Behavior"));
+            main_static_notebook.append_page (get_general_box (), behavior_label);
             
-            if (Peas.Engine.get_default ().get_plugin_list ().length() > 0) {
-                //create static notebook
-                var plugins_label = new Label (_("Extensions"));
+            //create static notebook Interface tab
+            var interface_label = new Label (_("Interface"));
+            main_static_notebook.append_page (get_editor_box (), interface_label);
+            
+            if (Peas.Engine.get_default ().get_plugin_list ().length () > 0) {
+                //create static notebook Extensions tab
+                var extensions_label = new Label (_("Extensions"));
 
                 //var pbox = plugins.get_view ();
                 var pbox = new Box (Orientation.HORIZONTAL, 5);
                 pbox.pack_start (plugins.get_view (), true, true, 5);
                 
-                main_static_notebook.append_page (pbox, plugins_label);
+                main_static_notebook.append_page (pbox, extensions_label);
             }
-
-            ((Gtk.Box)get_content_area()).add (main_static_notebook);
             
-            add_button (Stock.CLOSE, ResponseType.ACCEPT);
-
+            // Close button
+            var close = new Button.with_label (_("Close"));
+            close.clicked.connect (() => {
+                this.destroy ();
+            });
+            
+            var bbox = new ButtonBox (Orientation.HORIZONTAL);
+            bbox.halign = Align.END;
+            bbox.margin_bottom = 11;
+            bbox.margin_right = 8;
+            bbox.add (close);
+            
+            // Pack everything into the dialog
+            box.pack_start (main_static_notebook, true, true, 0);
+            box.pack_start (bbox, true, false, 0);
+            this.add (box);
         }
         
         void add_section (Gtk.Grid grid, Gtk.Label name, ref int row) {
@@ -105,8 +113,7 @@ namespace Scratch.Dialogs {
             switcher.halign = Gtk.Align.FILL;
             switcher.hexpand = true;
             
-            if (switcher is Switch || switcher is CheckButton
-                || switcher is Entry) { /* then we don't want it to be expanded */
+            if (switcher is Switch || switcher is Entry) { /* then we don't want it to be expanded */
                 switcher.halign = Gtk.Align.START;
             }
             
@@ -192,7 +199,7 @@ namespace Scratch.Dialogs {
             var section_l = new Label (_("Editor:"));
             add_section (content, section_l, ref row);            
             
-            var line_numbers = new CheckButton ();
+            var line_numbers = new Switch ();
             Scratch.settings.schema.bind("show-line-numbers", line_numbers, "active", SettingsBindFlags.DEFAULT);
             
             highlight_current_line = new Switch ();
@@ -214,16 +221,20 @@ namespace Scratch.Dialogs {
             add_option (content, new Label (_("Show line numbers:")), line_numbers, ref row);
 
             
-            var label = new Label (_("Show margin on right:"));
-            var show_right_margin = new CheckButton ();
+            var label = new Label (_("Line width guide:"));
+            var show_right_margin = new Switch ();
             Scratch.settings.schema.bind("show-right-margin", show_right_margin, "active", SettingsBindFlags.DEFAULT);
             var right_margin_position = new SpinButton.with_range (1, 250, 1);
             Scratch.settings.schema.bind("right-margin-position", right_margin_position, "value", SettingsBindFlags.DEFAULT);
             Scratch.settings.schema.bind("show-right-margin", right_margin_position, "sensitive", SettingsBindFlags.DEFAULT);
-            add_option (content, label, show_right_margin, ref row);
-            label = new Label (_("Margin width:"));
-            Scratch.settings.schema.bind("show-right-margin", label, "sensitive", SettingsBindFlags.DEFAULT);
-            add_option (content, label, right_margin_position, ref row);
+            //add_option (content, label, show_right_margin, ref row);
+            //label = new Label (_("Margin width:"));
+            //Scratch.settings.schema.bind("show-right-margin", label, "sensitive", SettingsBindFlags.DEFAULT);
+            var margin_grid = new Gtk.Grid ();
+            margin_grid.add (show_right_margin);
+            margin_grid.add (right_margin_position);
+            right_margin_position.hexpand = true;
+            add_option (content, label, margin_grid, ref row);
             
             // Font and Color Scheme
             section_l = new Label (_("Font and Color Scheme:"));
@@ -244,9 +255,9 @@ namespace Scratch.Dialogs {
             Scratch.settings.schema.bind("use-system-font", select_font_l, "sensitive", SettingsBindFlags.INVERT_BOOLEAN);
 
             add_option (content, new Label (_("Color scheme:")), style_scheme, ref row);
-            var font_grid = new Gtk.Grid();
-            font_grid.add(use_custom_font);
-            font_grid.add(select_font);
+            var font_grid = new Gtk.Grid ();
+            font_grid.add (use_custom_font);
+            font_grid.add (select_font);
             select_font.hexpand = true;
             add_option (content, new Label (_("Custom font:")), font_grid, ref row);
             

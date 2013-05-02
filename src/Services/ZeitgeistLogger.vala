@@ -26,8 +26,8 @@ namespace Scratch.Services {
 
         Zeitgeist.Log zg_log = new Zeitgeist.Log();
 
-        string actor = "application://scratch.desktop";
-        string event_manifestation = ZG_USER_ACTIVITY;
+        public string actor = "application://scratch-text-editor.desktop";
+        public string event_manifestation = ZG_USER_ACTIVITY;
 
         public void open_insert (string? uri, string mimetype) {
             

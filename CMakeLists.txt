@@ -9,8 +9,11 @@ set (SCRIPTDIR "${CMAKE_INSTALL_PREFIX}/share/scratch/scripts")
 set (PKGDATADIR "${DATADIR}/scratch")
 set (GETTEXT_PACKAGE "scratch-text-editor")
 set (RELEASE_NAME "The elementary Text Editor.")
-set (VERSION "1.1.1")
+set (VERSION "2.0")
 set (VERSION_INFO "Release")
+set (LIBNAME "scratchcore")
+set (LIBVERSION "0")
+set (SOVERSION 0)
 set (PLUGINDIR "${CMAKE_INSTALL_PREFIX}/lib/scratch/plugins/")
 set (PREFIX ${CMAKE_INSTALL_PREFIX})
 set (DOLLAR "$")
@@ -27,7 +30,7 @@ add_custom_target (dist COMMAND ${CMAKE_MAKE_PROGRAM} package_source)
 
 # Some configuration
 configure_file (${CMAKE_SOURCE_DIR}/src/config.vala.cmake ${CMAKE_SOURCE_DIR}/src/config.vala)
-configure_file (${CMAKE_SOURCE_DIR}/src/scratch.pc.cmake ${CMAKE_BINARY_DIR}/src/scratch.pc)
+configure_file (${CMAKE_SOURCE_DIR}/src/${LIBNAME}.pc.cmake ${CMAKE_BINARY_DIR}/src/${LIBNAME}.pc)
 
 # Some definitions
 add_definitions(-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\")
@@ -38,14 +41,8 @@ include (ValaVersion)
 ensure_vala_version ("0.16.1" MINIMUM)
 include (ValaPrecompile)
 
-
-# GSettings
-include(GSettings)
-add_schema("org.pantheon.scratch.gschema.xml")
-
-
 # Dependencies
-set (SCRATCH_DEPS libpeas-1.0 gtksourceview-3.0 gee-1.0 gobject-2.0 glib-2.0 gio-2.0 gconf-2.0 gtk+-3.0 granite zeitgeist-1.0 gobject-introspection-1.0)
+set (SCRATCH_DEPS libpeas-1.0 libpeas-gtk-1.0 gtksourceview-3.0 gee-1.0 gobject-2.0 glib-2.0 gio-2.0 gconf-2.0 gtk+-3.0 granite zeitgeist-1.0 gobject-introspection-1.0)
 find_package (PkgConfig)
 pkg_check_modules (GTK+ REQUIRED "gtk+-3.0 >= 3.4")
 pkg_check_modules (LIBSOURCE REQUIRED libpeas-gtk-1.0 gtksourceview-3.0>=3.0 gthread-2.0)
@@ -66,11 +63,12 @@ include_directories(${CMAKE_BINARY_DIR}/src)
 
 
 # Subdirectories
-add_subdirectory(scratchcore)
-add_subdirectory(src)
-add_subdirectory(scripts)
-add_subdirectory(plugins)
-add_subdirectory(po)
+#add_subdirectory(scratchcore)
+add_subdirectory (src)
+add_subdirectory (scripts)
+add_subdirectory (plugins)
+add_subdirectory (schemas)
+add_subdirectory (po)
 
 # Data
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/scratch-text-editor.desktop DESTINATION share/applications)

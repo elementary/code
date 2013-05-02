@@ -2,7 +2,7 @@
 /***
   BEGIN LICENSE
 	
-  Copyright (C) 2011-2012 Mario Guerriero <mefrio.g@gmail.com>
+  Copyright (C) 2011-2013 Mario Guerriero <mario@elementaryos.org>
   This program is free software: you can redistribute it and/or modify it	
   under the terms of the GNU Lesser General Public License version 3, as published	
   by the Free Software Foundation.
@@ -18,58 +18,79 @@
   END LICENSE	
 ***/
 
+public class Scratch.Plugins.ContractMenuItem : Gtk.MenuItem {
+    private Granite.Services.Contract contract;
+    private File file;
 
-public class Scratch.Plugins.Contractor : Peas.ExtensionBase,  Peas.Activatable
-{
-    Interface plugins;
-    List<Gtk.MenuItem>? list = null;
+    public ContractMenuItem (Granite.Services.Contract contract, File file) {
+        this.contract = contract;
+        this.file = file;
+
+        label = contract.get_display_name ();
+        tooltip_text = contract.get_description ();
+    }
+
+    public override void activate () {
+        try {
+            contract.execute_with_file (file);
+        } catch (Error err) {
+            warning (err.message);
+        }
+    }
+}
+
+public class Scratch.Plugins.Contractor : Peas.ExtensionBase,  Peas.Activatable {
+    GLib.List<Gtk.Widget>? list = null;
 
     [NoAcessorMethod]
     public Object object { owned get; construct; }
-   
+    Scratch.Services.Interface plugins;
+    
     public void update_state () {
     }
 
     public void activate () {
-        Value value = Value(typeof(GLib.Object));
-        get_property("object", ref value);
-        plugins = (Scratch.Plugins.Interface)value.get_object();
-        plugins.register_function(Interface.Hook.WINDOW, () => {
-            ((MainWindow)plugins.window).split_view.page_changed.connect(on_page_changed);
-        });
+        plugins = (Scratch.Services.Interface) object;        
+        
+        this.list = new List<Gtk.Widget> ();
+        
+        plugins.hook_share_menu.connect (on_hook);
     }
-
+    
     public void deactivate () {
         if (list != null)
             foreach (var w in list)
                 w.destroy ();
     }
     
-    void on_page_changed()
-    {
-        if(plugins.addons_menu == null)
-            return;
-        if(list != null)
-            foreach(var w in list)
-                w.destroy();
-        list  = new List<Gtk.MenuItem>();
+    private void on_hook (Gtk.Menu menu) {
+        plugins.hook_document.connect ((doc) => {
+            // Remove old contracts
+            this.list.foreach ((item) => { if (item != null) item.destroy (); });
+            
+            if (doc.file == null)
+                return;
 
-        foreach(var contract in Granite.Services.Contractor.get_contract("file:///" + ((ScratchApp)plugins.scratch_app).window.current_tab.filename, "text/plain"))
-        {
-            var menuitem = new Gtk.MenuItem.with_label (contract["Description"]);
-            string exec = contract["Exec"];
-            menuitem.activate.connect( () => {
-                try {
-                    GLib.Process.spawn_command_line_async(exec);
-                } catch (SpawnError e) {
-                    stderr.printf ("error spawn command line %s: %s", exec, e.message);
-                }
-            });
-            plugins.addons_menu.append (menuitem);
-            plugins.addons_menu.show_all ();
-            list.append(menuitem);
-        }
+            // Create ContractorMenu widget
+            Gee.List<Granite.Services.Contract> contracts = null;
+            try {
+                contracts = Granite.Services.ContractorProxy.get_contracts_by_mime (doc.get_mime_type ());
+            } catch (Error e) {
+                warning (e.message);
+            }
+            
+            for (int i = 0; i < contracts.size; i++) {
+                var contract = contracts.get (i);
+                Gtk.MenuItem menu_item;
+
+                menu_item = new ContractMenuItem (contract, doc.file);
+                menu.append (menu_item);
+                this.list.append (menu_item);
+            }
+
+        });
     }
+    
 }
 
 [ModuleInit]

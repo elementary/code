@@ -2,7 +2,7 @@
 /***
   BEGIN LICENSE  
 
-  Copyright (C) 2012 Mario Guerriero <mefrio.g@gmail.com>
+  Copyright (C) 2012-2013 Mario Guerriero <mario@elementaryos.org>
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
@@ -262,7 +262,7 @@ namespace Scratch.Services {
 
         const string FALLBACK_CHARSET = "UTF-8";
         string script = Constants.SCRIPTDIR + "/chardetect.py";
-        string command = "python " + script + " " + path.replace (" ", "\\ ");
+        string command = "python " + script + " \"" + path.replace ("\\ ", " ") + "\"";
         string? charset = null;
 
         try {

@@ -3,6 +3,7 @@
   BEGIN LICENSE
 
   Copyright (C) 2011-2012 Giulio Collura <random.cpp@gmail.com>
+                2013      Mario Guerriero <mario@elementaryos.org>
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as
   published    by the Free Software Foundation.
@@ -18,31 +19,25 @@
   END LICENSE
 ***/
 
-using Gtk;
-using Gdk;
-
 using Granite;
 using Granite.Services;
-using Scratch.Services;
 
 namespace Scratch {
-
-
+    
+    // Settings
+    public SavedState saved_state;
+    public Settings settings;
+    public ServicesSettings services;
+    
+    // Plugins;
+    public Scratch.Services.PluginsManager? plugins = null;
+    
     public class ScratchApp : Granite.Application {
 
         public MainWindow window = null;
         static string app_cmd_name;
-        static string app_set_arg;
-        static string? introspect_arg;
-        static bool disable_ui = false;
-        static bool new_instance;
-        public string current_directory = ".";
-        public GLib.List<Document> documents = new GLib.List<Document>();
-        private string[] closed_documents = null;
-        
-        // Signals
-        public signal void document_opened (Document doc);
-        public signal void document_closed (Document doc);
+        static bool new_instance = false;
+        static bool new_document = false;
         
         construct {
 
@@ -53,26 +48,27 @@ namespace Scratch {
             build_version_info = Constants.VERSION_INFO;
 
             program_name = app_cmd_name;
-            exec_name = app_cmd_name.down();
-            app_years = "2011-2012";
+            exec_name = "scratch-text-editor";
+            app_years = "2011-2013";
             app_icon = "accessories-text-editor";
             app_launcher = "scratch-text-editor.desktop";
-            application_id = "org.elementary." + app_cmd_name.down();
+            application_id = "org.elementary." + app_cmd_name.down ();
             main_url = "https://launchpad.net/scratch";
             bug_url = "https://bugs.launchpad.net/scratch";
             help_url = "https://answers.launchpad.net/scratch";
             translate_url = "https://translations.launchpad.net/scratch";
-            about_authors = {"Mario Guerriero <mefrio.g@gmail.com>",
+            about_authors = { "Mario Guerriero <mario@elementaryos.org>",
                          "Giulio Collura <random.cpp@gmail.com>",
                          "Lucas Baudin <xapantu@gmail.com>",
                          null
                          };
-            //about_documenters = {"",""};
-            about_artists = {"Harvey Cabaguio <harveycabaguio@gmail.com>",
+            about_documenters = { "Mario Guerriero <mario@elementaryos.org>",
+                              null };
+            about_artists = { "Harvey Cabaguio <harveycabaguio@gmail.com>",
                          null
                          };
             about_translators = "Launchpad Translators";
-            about_license_type = License.GPL_3_0;
+            about_license_type = Gtk.License.GPL_3_0;
         }
 
         public ScratchApp () {
@@ -85,145 +81,84 @@ namespace Scratch {
                 flags |= ApplicationFlags.NON_UNIQUE;
             set_flags (flags);
             
-            //register_session = true;
-            
+            // Init settings
             saved_state = new SavedState ();
             settings = new Settings ();
             services = new ServicesSettings ();
-
-            plugins = new Scratch.Plugins.Manager(settings.schema, "plugins-enabled", Constants.PLUGINDIR,  exec_name, app_set_arg);
-            plugins.hook_example("Example text");
-            plugins.scratch_app = this;
-            plugins.hook_app(this);
-            plugins.hook_set_arg(app_cmd_name, app_set_arg);
-    
-        }
-
-        protected override void open (File[] files, string hint) {
-
-            if (get_windows () == null) {
-                window = new MainWindow (this);
-                plugins.hook_new_window (window);
-                window.TITLE = app_cmd_name ?? "Scratch";
-                window.title = window.TITLE;
-                window.show ();
-            }
-
-            for (int i = 0; i < files.length; i++) {
-                if (files[i].get_basename () == "--new-tab")
-                    window.action_new_tab ();
-                else {
-                    open_file(files[i].get_uri()).opening = false;
-                }
-            }
-
-            window.present ();
-
-        }
-
-        public Document open_file(string? filename)
-        {
-
-            /* First, let's check it is not already opened */
-            foreach(var doc in documents)
-            {
-                if(doc.filename == filename) {
-                    /* Already opened, then, we will just focus it */
-                    doc.focus_sourceview();
-                    return doc;
-                }
-            }
-
-            current_directory = Path.get_dirname (filename);
-            /* FIXME : filename is still encoded as uri */
-            var document = new Document(filename, window);
-            open_document (document);
-
-            /* FIXME : filename is still encoded as uri */
-            //window.set_window_title (filename);
             
-            document_opened (document);
-            
-            return document;
-
-        }
-
-        public void open_document(Document document) {
-            document.create_sourceview ();
-            documents.append (document);
-            document.make_backup ();
-            
-            document.closed.connect( (doc) => {
-                documents.remove(doc);
-                if (doc.filename != null) 
-                    closed_documents += doc.filename;
-            });
-
-            /* Apparently, it needs an iteration of the main loop to add the tab properly before we can focus it */
-            Idle.add( () => { document.focus_sourceview(); return false; });
-            
-            window.set_window_title ("Scratch");
-        }
-        
-        public void restore_tab () {
-            var length = closed_documents.length;
-            if (closed_documents == null || length == 0)
-                return;
-            open_file (closed_documents[length-1]);
-            closed_documents.resize (length-1);
         }
 
         protected override void activate () {
-
+            
+            // Plugins
+            if (plugins == null)
+                plugins = new Scratch.Services.PluginsManager (this, app_cmd_name.down ());
+            
             if (get_windows () == null) {
                 window = new MainWindow (this);
-                window.TITLE = app_cmd_name ?? "Scratch";
-                window.title = window.TITLE;
                 window.show ();
-                plugins.hook_new_window (window);
-                if (settings.show_at_start == "last-tabs")
-                    restore_opened_files ();
+                // Restore opened documents
+                if (settings.show_at_start == "last-tabs") {
+                    string[] uris = settings.schema.get_strv ("opened-files");
+                
+                    foreach (string uri in uris) {
+                       if (uri != "") {
+                            var file = File.new_for_uri (uri);
+                            if (file.query_exists ()) {
+                                var doc = new Scratch.Services.Document (file);
+                                window.open_document (doc);
+                            }
+                        }
+                    }
+                }
             } else {
                 window.present ();
             }
+            
+            if (new_document)
+                main_actions.get_action ("NewTab").activate ();
 
         }
         
-        void on_quit () {
-            foreach(var doc in documents)
-                if(!doc.saved)
-                    inhibit (window, ApplicationInhibitFlags.LOGOUT, _("There are unsaved changes in Scratch!"));
-        }
-        
-        void restore_opened_files () {
+        protected override void open (File[] files, string hint) {
+            // Create window if it was not yet done
+            activate ();
             
-            string[] op = settings.schema.get_strv ("opened-files");
+            // Add a view if there aren't and get the current DocumentView
+            Scratch.Widgets.DocumentView? view = null;
             
-            foreach (string file in op) {
-               if (file != "") {
-                    var doc = new Document (file, window);
-                    if (doc.exists) 
-                        open_document (doc);
+            if (window.is_empty ())
+                view = window.add_view ();
+            else
+                view = window.get_current_view ();
+            
+            for (int i = 0; i < files.length; i++) {
+                // Check if the given path is a directory
+                try {
+                    var info = files[i].query_info ("standard::*", FileQueryInfoFlags.NONE, null);
+                    if (info.get_file_type () != FileType.DIRECTORY) {
+                        var doc = new Scratch.Services.Document (files[i]);
+                        view.open_document (doc);
+                    }
+                    else
+                        warning ("\"%s\" is a directory, not opening it", files[i].get_basename ());
+                } catch (Error e) {
+                    warning (e.message);
                 }
             }
-
         }
         
         static const OptionEntry[] entries = {
             { "set", 's', 0, OptionArg.STRING, ref app_cmd_name, N_("Set of plugins"), "" },
-            { "introspect-dump", 'i', 0, OptionArg.STRING, ref introspect_arg, N_("To generate introspection file (only for developers)."), "" },
-            { "disable-ui", 'd', 0, OptionArg.NONE, ref disable_ui, N_("Disable the UI (only for developers)."), null },
-            { "set-arg", 'a', 0, OptionArg.STRING, ref app_set_arg, N_("Argument for the set of plugins"), "" },
-            { "new-instance", 'n', 0, OptionArg.NONE, ref new_instance, N_("Create a new instance"), "" },
+            { "new-instance", 'n', 0, OptionArg.NONE, ref new_instance, N_("Create a new instance"), null },
+            { "new-document", 't', 0, OptionArg.NONE, ref new_document, N_("Create a new document"), null },
             { null }
         };
 
         public static int main (string[] args) {
             app_cmd_name = "Scratch";
-            var context = new OptionContext("File");
-            context.add_main_entries(entries, Constants.GETTEXT_PACKAGE);
-            context.add_group(Gtk.get_option_group(true));
-            context.set_ignore_unknown_options (true);
+            var context = new OptionContext ("File");
+            context.add_main_entries (entries, Constants.GETTEXT_PACKAGE);
             
             try {
                 context.parse(ref args);
@@ -232,22 +167,7 @@ namespace Scratch {
                 print(e.message + "\n");
             }
 
-            /*if(introspect_arg != null) {
-                try {
-                    GI.Repository.dump(introspect_arg);
-                }
-                catch(Error e) {
-                    error(e.message);
-                }
-                return 0;
-            }*/
-            
-            if (disable_ui)
-                return 0;
-
             var app = new ScratchApp ();
-            
-            plugins.plugin_iface.args = args;
 
             return app.run (args);
 

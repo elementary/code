@@ -108,39 +108,33 @@ namespace Scratch.Services {
     }
 }
 
-public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Peas.Activatable
-{
-    Interface plugins;
+public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Peas.Activatable {
     Gtk.MenuItem? menuitem = null;
     
     [NoAcessorMethod]
     public Object object { owned get; construct; }
+    Scratch.Services.Interface plugins;
    
     public void update_state () {
     }
 
     public void activate () {
-        Value value = Value(typeof(GLib.Object));
-        get_property("object", ref value);
-        plugins = (Scratch.Plugins.Interface)value.get_object();
-        plugins.register_function(Interface.Hook.WINDOW, () => {
-            ((MainWindow)plugins.window).split_view.page_changed.connect(on_page_changed);
-        });
+        plugins = (Scratch.Services.Interface) object;        
+        
+        plugins.hook_share_menu.connect (on_hook);
     }
     
-    void on_page_changed () {
-        if (plugins.addons_menu == null)
-            return;
-        
-        if (menuitem != null)
-            return;
-        
-        menuitem = new Gtk.MenuItem.with_label ("Upload to Pastebin");
-        menuitem.activate.connect (() => {
-		    new Dialogs.PasteBinDialog (((ScratchApp)plugins.scratch_app).window);
+    void on_hook (Gtk.Menu menu) {
+        plugins.hook_document.connect ((doc) => {
+            if (menuitem != null)
+                menuitem.destroy ();
+            menuitem = new Gtk.MenuItem.with_label (_("Upload to Pastebin"));
+            menuitem.activate.connect (() => {
+		        new Dialogs.PasteBinDialog (doc);
+            });
+            menu.append (menuitem);
+            menuitem.show_all ();
         });
-        plugins.addons_menu.append (menuitem);
-        plugins.addons_menu.show_all ();
     }
     
     public void deactivate () {

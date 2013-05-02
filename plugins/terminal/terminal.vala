@@ -2,7 +2,7 @@
 /***
   BEGIN LICENSE
 	
-  Copyright (C) 2011-2012 Mario Guerriero <mefrio.g@gmail.com>
+  Copyright (C) 2011-2013 Mario Guerriero <mario@elementaryos.org>
   This program is free software: you can redistribute it and/or modify it	
   under the terms of the GNU Lesser General Public License version 3, as published	
   by the Free Software Foundation.
@@ -20,19 +20,28 @@
 
 using Vte;
 
-public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable
-{
-    Interface plugins;
+public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
+    
+    Gtk.Notebook? bottombar = null;
     Vte.Terminal terminal;
     Gtk.Grid grid;
+    
+    Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
    
     public void update_state () {
     }
 
     public void activate () {
-        plugins = (Scratch.Plugins.Interface)object;        
-        plugins.register_function(Interface.Hook.BOTTOMBAR, on_bottombar);
+        plugins = (Scratch.Services.Interface) object;        
+        plugins.hook_notebook_bottom.connect ((n) => { 
+            if (bottombar == null) {
+                this.bottombar = n;
+                on_hook (this.bottombar);
+            }
+        });
+        if (bottombar != null)
+            on_hook (this.bottombar);
     }
 
     public void deactivate () {
@@ -40,54 +49,54 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable
             grid.destroy ();
     }
     
-    void on_bottombar () {
-        if (plugins.bottombar != null && plugins.scratch_app != null) {
+    void on_hook (Gtk.Notebook notebook) {
+        this.terminal = new Vte.Terminal ();
+        this.terminal.scrollback_lines = -1;
             
-            this.terminal = new Vte.Terminal ();
-            this.terminal.scrollback_lines = -1;
+        // Popup menu
+        var menu = new Gtk.Menu ();
             
-            // Popup menu
-            var menu = new Gtk.Menu ();
+        var copy = new Gtk.MenuItem.with_label (_("Copy"));
+        copy.activate.connect (() => {
+            terminal.copy_clipboard ();
+        });
+        menu.append (copy);
+        copy.show ();
             
-            var copy = new Gtk.MenuItem.with_label (_("Copy"));
-            copy.activate.connect (() => {
-                terminal.copy_clipboard ();
-            });
-            menu.append (copy);
-            copy.show ();
+        var paste = new Gtk.MenuItem.with_label (_("Paste"));
+        paste.activate.connect (() => {
+            terminal.paste_clipboard ();
+        });
+        menu.append (paste);
+        paste.show ();
             
-            var paste = new Gtk.MenuItem.with_label (_("Paste"));
-            paste.activate.connect (() => {
-                terminal.paste_clipboard ();
-            });
-            menu.append (paste);
-            paste.show ();
-            
-            this.terminal.button_press_event.connect ((event) => {
-                if (event.button == 3) {
-                    menu.select_first (false);
-                    menu.popup (null, null, null, event.button, event.time);
-                }
-                return false;
-            });
-            
-            try {
-                this.terminal.fork_command_full (Vte.PtyFlags.DEFAULT, "~/", { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, null);
-            } catch (GLib.Error e) {
-                warning (e.message);
+        this.terminal.button_press_event.connect ((event) => {
+            if (event.button == 3) {
+                menu.select_first (false);
+                menu.popup (null, null, null, event.button, event.time);
             }
+            return false;
+        });
             
-            grid = new Gtk.Grid ();
-            var sb = new Gtk.Scrollbar (Gtk.Orientation.VERTICAL, terminal.vadjustment);
-            grid.attach (terminal, 0, 0, 1, 1);
-            grid.attach (sb, 1, 0, 1, 1);
-            
-            /* Make the terminal occupy the whole GUI */
-            terminal.vexpand = true;
-            terminal.hexpand = true;
-            
-            plugins.bottombar.append_page (grid, new Gtk.Label (_("Terminal")));
+        try {
+           this.terminal.fork_command_full (Vte.PtyFlags.DEFAULT, "~/", { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, null);
+        } catch (GLib.Error e) {
+            warning (e.message);
         }
+            
+        grid = new Gtk.Grid ();
+        var sb = new Gtk.Scrollbar (Gtk.Orientation.VERTICAL, terminal.vadjustment);
+        grid.attach (terminal, 0, 0, 1, 1);
+        grid.attach (sb, 1, 0, 1, 1);
+            
+        // Make the terminal occupy the whole GUI
+        terminal.vexpand = true;
+        terminal.hexpand = true;
+            
+        notebook.append_page (grid, new Gtk.Label (_("Terminal")));
+        
+        grid.show_all ();
+
     }
 }
 
