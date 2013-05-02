@@ -88,7 +88,8 @@ namespace Scratch.Dialogs {
             
             var bbox = new ButtonBox (Orientation.HORIZONTAL);
             bbox.halign = Align.END;
-            bbox.margin = 5;
+            bbox.margin_bottom = 11;
+            bbox.margin_right = 8;
             bbox.add (close);
             
             // Pack everything into the dialog
