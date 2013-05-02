@@ -451,7 +451,7 @@ namespace Scratch.Services {
                                          _("was modified by an external application. Do you want to load it again or continue your editing?");
 
                         set_message (Gtk.MessageType.WARNING, message, _("Load"), () => {
-                            this.source_view.set_text (text);
+                            this.source_view.set_text (text, false);
                             hide_info_bar ();
                         }, _("Continue"), () => {
                             hide_info_bar ();
