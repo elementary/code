@@ -1,0 +1,471 @@
+# Lithuanian translation for scratch
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the scratch package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: scratch\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-05-02 21:29+0200\n"
+"PO-Revision-Date: 2012-12-26 16:14+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Lithuanian <lt@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-05-03 05:38+0000\n"
+"X-Generator: Launchpad (build 16598)\n"
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:169
+#, c-format
+msgid "Save changes to document %s before closing?"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:172
+msgid ""
+"If you don't save, changes from the last 4 seconds will be permanently lost."
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:174
+msgid "Close without saving"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:237
+msgid "Save File"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:304
+#: /home/mario/scratch/po/../src/config.vala:16
+msgid "New Document"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:419
+#: /home/mario/scratch/po/../src/Services/Document.vala:450
+msgid "File "
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:420
+msgid "was delete. Do you want to save it anyway?"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:422
+#: /home/mario/scratch/po/../src/MainWindow.vala:554
+msgid "Save"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:432
+msgid "You cannot save changes on file"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:433
+msgid "Do you want to save the changes to this file in a different location?"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:435
+msgid "Save changes elsewhere"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:451
+msgid ""
+"was modified by an external application. Do you want to load it again or "
+"continue your editing?"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:453
+msgid "Load"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:456
+msgid "Continue"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Utils.vala:39
+msgid "All files"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Utils.vala:42
+msgid "Text files"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/config.vala:14
+msgid "Edit text files"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/config.vala:15
+msgid "Text Editor"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/config.vala:17
+msgid "New Window"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:45
+#: /home/mario/scratch/po/../src/MainWindow.vala:562
+msgid "Preferences"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:65
+msgid "Behavior"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:69
+msgid "Interface"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:74
+msgid "Extensions"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:84
+#: /home/mario/scratch/po/../src/MainWindow.vala:510
+#: /home/mario/scratch/po/../src/MainWindow.vala:511
+msgid "Close"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:128
+msgid "Show welcome screen"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:129
+msgid "Show last open tabs"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:145
+msgid "General:"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:151
+msgid "When Scratch starts:"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:154
+msgid "Save files when changed:"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
+msgid "Tabs:"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:164
+msgid "Automatic indentation:"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:167
+msgid "Insert spaces instead of tabs:"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:171
+msgid "Tab width:"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:199
+msgid "Editor:"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:217
+msgid "Highlight current line:"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:218
+msgid "Highlight matching brackets:"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:219
+msgid "Split long text in many lines:"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:220
+msgid "Draw spaces:"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:221
+msgid "Show line numbers:"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
+msgid "Line width guide:"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:240
+msgid "Font and Color Scheme:"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:254
+msgid "Select font:"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:257
+msgid "Color scheme:"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:262
+msgid "Custom font:"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Scratch.vala:152
+msgid "Set of plugins"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Scratch.vala:153
+msgid "Create a new instance"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Scratch.vala:154
+msgid "Create a new document"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:83
+msgid "Zeitgeist Datasource for Scratch"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:153
+msgid "Trash"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:415
+msgid "Open some files"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:498
+#: /home/mario/scratch/po/../src/MainWindow.vala:499
+msgid "Find..."
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:502
+#: /home/mario/scratch/po/../src/MainWindow.vala:503
+msgid "Go to line..."
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:506
+#: /home/mario/scratch/po/../src/MainWindow.vala:507
+msgid "Quit"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:514
+#: /home/mario/scratch/po/../src/MainWindow.vala:515
+msgid "Replace"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:518
+msgid "Reopen closed document"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:519
+msgid "Open last closed document in a new tab"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:522
+msgid "Add New Tab"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:523
+msgid "Add a new tab"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:526
+msgid "Add New View"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:527
+msgid "Add a new view"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:530
+msgid "Remove Current View"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:531
+msgid "Remove this view"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:534
+msgid "Undo"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:535
+msgid "Undo the last action"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:538
+msgid "Redo"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:539
+msgid "Redo the last undone action"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:542
+msgid "Revert"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:543
+msgid "Restore this file"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:546
+#: /home/mario/scratch/po/../src/MainWindow.vala:547
+msgid "Duplicate selected strings"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:550
+msgid "Open"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:551
+msgid "Open a file"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:555
+msgid "Save the current file"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:558
+msgid "Templates"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:559
+msgid "Create a new document from a template"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:563
+msgid "Change Scratch settings"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:569
+#: /home/mario/scratch/po/../src/MainWindow.vala:570
+msgid "Fullscreen"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Widgets/SourceView.vala:71
+msgid "Syntax Highlighting"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Widgets/SourceView.vala:82
+msgid "Normal Text"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Widgets/ToolBar.vala:55
+msgid "Share"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Widgets/SearchManager.vala:65
+msgid "Find"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Widgets/SearchManager.vala:84
+msgid "Replace With"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Widgets/SearchManager.vala:110
+msgid "Go To Line:"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Widgets/SplitView.vala:42
+msgid "No files are open."
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Widgets/SplitView.vala:43
+msgid "Open a file to begin editing."
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Widgets/SplitView.vala:47
+msgid "New file"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Widgets/SplitView.vala:47
+msgid "Create a new empty file."
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Widgets/SplitView.vala:48
+msgid "Open file"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Widgets/SplitView.vala:48
+msgid "Open a saved file."
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin.vala:131
+msgid "Upload to Pastebin"
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:252
+msgid "Share via PasteBin"
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:270
+msgid "Name:"
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:276
+msgid "Format: "
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:278
+msgid "Others..."
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:303
+msgid "Expiry time:"
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:308
+msgid "Keep this paste private"
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:310
+msgid "Upload"
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:340
+msgid "Other formats"
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:509
+msgid "Never"
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:510
+msgid "Ten minutes"
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:511
+msgid "One hour"
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:512
+msgid "One day"
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:513
+msgid "One month"
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/filemanager/filemanager.vala:59
+msgid "Files"
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/terminal/terminal.vala:59
+msgid "Copy"
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/terminal/terminal.vala:66
+msgid "Paste"
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/terminal/terminal.vala:96
+msgid "Terminal"
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/browser-preview/browser-preview.vala:63
+#: /home/mario/scratch/po/../plugins/browser-preview/browser-preview.vala:64
+msgid "Get preview!"
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/browser-preview/browser-preview.vala:94
+msgid "Web preview"
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/open-with/open-with.vala:52
+msgid "Open With..."
+msgstr ""

@@ -1,0 +1,538 @@
+# Nepali translation for scratch
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the scratch package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: scratch\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-05-02 21:29+0200\n"
+"PO-Revision-Date: 2012-07-06 00:17+0000\n"
+"Last-Translator: प्रबिण ( Prabin ) दाहाल ( Dahal ) <Unknown>\n"
+"Language-Team: Nepali <ne@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-05-03 05:38+0000\n"
+"X-Generator: Launchpad (build 16598)\n"
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:169
+#, c-format
+msgid "Save changes to document %s before closing?"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:172
+msgid ""
+"If you don't save, changes from the last 4 seconds will be permanently lost."
+msgstr ""
+"यदि बचत नगर्नुभएको खण्डमा पछिल्लो ४ सेकोण्डको परिवर्तन सधैंकालागी हराउने छ।"
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:174
+msgid "Close without saving"
+msgstr "बचत नगरी बन्द गर्नुहोस्"
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:237
+msgid "Save File"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:304
+#: /home/mario/scratch/po/../src/config.vala:16
+msgid "New Document"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:419
+#: /home/mario/scratch/po/../src/Services/Document.vala:450
+msgid "File "
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:420
+msgid "was delete. Do you want to save it anyway?"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:422
+#: /home/mario/scratch/po/../src/MainWindow.vala:554
+msgid "Save"
+msgstr "बचत गर्नुहोस्"
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:432
+msgid "You cannot save changes on file"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:433
+msgid "Do you want to save the changes to this file in a different location?"
+msgstr "के तपाईं यो कागजातलाई अन्य स्थानमा बचत गर्न चाहनुहुन्छ?"
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:435
+msgid "Save changes elsewhere"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:451
+msgid ""
+"was modified by an external application. Do you want to load it again or "
+"continue your editing?"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:453
+msgid "Load"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Services/Document.vala:456
+msgid "Continue"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Utils.vala:39
+msgid "All files"
+msgstr "सबै फाईलरहरु"
+
+#: /home/mario/scratch/po/../src/Utils.vala:42
+msgid "Text files"
+msgstr "पाठ फाइलहरू"
+
+#: /home/mario/scratch/po/../src/config.vala:14
+msgid "Edit text files"
+msgstr "पाठ फाइल सम्पादन गर्नुहोस्"
+
+#: /home/mario/scratch/po/../src/config.vala:15
+msgid "Text Editor"
+msgstr "पाठ सम्पादक"
+
+#: /home/mario/scratch/po/../src/config.vala:17
+msgid "New Window"
+msgstr "नयाँ सञ्झ्याल"
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:45
+#: /home/mario/scratch/po/../src/MainWindow.vala:562
+msgid "Preferences"
+msgstr "रोजाइहरु"
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:65
+msgid "Behavior"
+msgstr "व्यवहार"
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:69
+msgid "Interface"
+msgstr "इन्टरफेस"
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:74
+msgid "Extensions"
+msgstr "विस्तारहरू"
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:84
+#: /home/mario/scratch/po/../src/MainWindow.vala:510
+#: /home/mario/scratch/po/../src/MainWindow.vala:511
+msgid "Close"
+msgstr "बन्द गर्नुहोस्"
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:128
+msgid "Show welcome screen"
+msgstr "स्वागतम् पर्दा देखाउनुहोस्"
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:129
+msgid "Show last open tabs"
+msgstr "अगाडि खोलिएको ट्यावहरू देखाउनुहोस्"
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:145
+msgid "General:"
+msgstr "साधारण:"
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:151
+msgid "When Scratch starts:"
+msgstr "जब श्क्र्याच प्रारम्भ हुन्छ:"
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:154
+msgid "Save files when changed:"
+msgstr "बदलिएका कागजातहरू बचत गर्नुहोस्"
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
+msgid "Tabs:"
+msgstr "ट्यावहरू"
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:164
+msgid "Automatic indentation:"
+msgstr "स्वत: दाती"
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:167
+msgid "Insert spaces instead of tabs:"
+msgstr "ट्यावको बदलामा स्थान् थप्नुहोस्"
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:171
+msgid "Tab width:"
+msgstr "ट्यावको चौडाई"
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:199
+msgid "Editor:"
+msgstr "सम्पादक्"
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:217
+msgid "Highlight current line:"
+msgstr "चालु रेखालाई"
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:218
+msgid "Highlight matching brackets:"
+msgstr "कोष्ठकहरूको जोडलाई हाइलाईट"
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:219
+msgid "Split long text in many lines:"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:220
+msgid "Draw spaces:"
+msgstr "स्थान् खिच्नुहोस्"
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:221
+msgid "Show line numbers:"
+msgstr "पंक्ती संख्या देखाउनुहोस्"
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
+msgid "Line width guide:"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:240
+msgid "Font and Color Scheme:"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:254
+msgid "Select font:"
+msgstr "अक्षर चयन गर्नुहोस्"
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:257
+msgid "Color scheme:"
+msgstr "रंग पद्धती"
+
+#: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:262
+msgid "Custom font:"
+msgstr "दस्तर अक्षर"
+
+#: /home/mario/scratch/po/../src/Scratch.vala:152
+msgid "Set of plugins"
+msgstr "प्लग्ईनका दल"
+
+#: /home/mario/scratch/po/../src/Scratch.vala:153
+msgid "Create a new instance"
+msgstr "नयाँ द्ृष्तान्ट सिर्जना गर्नुहोस्"
+
+#: /home/mario/scratch/po/../src/Scratch.vala:154
+msgid "Create a new document"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:83
+msgid "Zeitgeist Datasource for Scratch"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:153
+msgid "Trash"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:415
+msgid "Open some files"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:498
+#: /home/mario/scratch/po/../src/MainWindow.vala:499
+msgid "Find..."
+msgstr "खोज्नुहोस्..."
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:502
+#: /home/mario/scratch/po/../src/MainWindow.vala:503
+msgid "Go to line..."
+msgstr "लाईनमा जानुहोस"
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:506
+#: /home/mario/scratch/po/../src/MainWindow.vala:507
+msgid "Quit"
+msgstr "बन्द गर्नुहोस ।"
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:514
+#: /home/mario/scratch/po/../src/MainWindow.vala:515
+msgid "Replace"
+msgstr "बदल्नुहोस्"
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:518
+msgid "Reopen closed document"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:519
+msgid "Open last closed document in a new tab"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:522
+msgid "Add New Tab"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:523
+msgid "Add a new tab"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:526
+msgid "Add New View"
+msgstr "नयाँ द्रिश्य थप्नुहोस"
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:527
+msgid "Add a new view"
+msgstr "एउटा नयाँ द्रिश्य थप्नुहोस"
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:530
+msgid "Remove Current View"
+msgstr "अहिलेको द्रिश्य हटाउनुहोस"
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:531
+msgid "Remove this view"
+msgstr "यो द्रिश्य हटाउनुहोस"
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:534
+msgid "Undo"
+msgstr "पुर्वस्थितिमा फर्काउनुहोस्"
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:535
+msgid "Undo the last action"
+msgstr "अन्तिम कार्यलाई पूर्वावस्थामा फर्काउनुहोस्"
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:538
+msgid "Redo"
+msgstr "फेरि गर्नुहोस्"
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:539
+msgid "Redo the last undone action"
+msgstr "पूर्वस्थितिमा ल्याइएको अन्तिम कार्य रिडू गर्नुहोस्"
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:542
+msgid "Revert"
+msgstr "पछाडि फर्काउनुहोस्"
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:543
+msgid "Restore this file"
+msgstr "यो फाईल पुन: निर्माण गर्नुहोस"
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:546
+#: /home/mario/scratch/po/../src/MainWindow.vala:547
+msgid "Duplicate selected strings"
+msgstr "चयन गरिएका सब्दहरुको प्रतिलिपी बनाउनुहोस्"
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:550
+msgid "Open"
+msgstr "खोल्नुहोस्"
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:551
+msgid "Open a file"
+msgstr "फाइल खोल्नुहोस्"
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:555
+msgid "Save the current file"
+msgstr "यो फाइल बचत गर्नुहोस"
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:558
+msgid "Templates"
+msgstr "टेम्प्लेटहरू"
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:559
+msgid "Create a new document from a template"
+msgstr "टेम्प्लेटबाट नयाँ कागजात सिर्जना गर्नुहोस्"
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:563
+msgid "Change Scratch settings"
+msgstr "स्क्र्याचको प्राथमिकताहरू बदल्नुहोस्"
+
+#: /home/mario/scratch/po/../src/MainWindow.vala:569
+#: /home/mario/scratch/po/../src/MainWindow.vala:570
+msgid "Fullscreen"
+msgstr "पूरापर्दा"
+
+#: /home/mario/scratch/po/../src/Widgets/SourceView.vala:71
+msgid "Syntax Highlighting"
+msgstr "वाक्य-संरचना हाइलाइटिङ"
+
+#: /home/mario/scratch/po/../src/Widgets/SourceView.vala:82
+msgid "Normal Text"
+msgstr ""
+
+#: /home/mario/scratch/po/../src/Widgets/ToolBar.vala:55
+msgid "Share"
+msgstr "साझा गर्नुहोस्"
+
+#: /home/mario/scratch/po/../src/Widgets/SearchManager.vala:65
+msgid "Find"
+msgstr "खोज्नुहोस"
+
+#: /home/mario/scratch/po/../src/Widgets/SearchManager.vala:84
+msgid "Replace With"
+msgstr "यससँग बदल्नुहोस्"
+
+#: /home/mario/scratch/po/../src/Widgets/SearchManager.vala:110
+msgid "Go To Line:"
+msgstr "यस पंक्तिमा जानुहोस्"
+
+#: /home/mario/scratch/po/../src/Widgets/SplitView.vala:42
+msgid "No files are open."
+msgstr "कुनैपनि कागजातहरू खु्ल्ला छैनन्"
+
+#: /home/mario/scratch/po/../src/Widgets/SplitView.vala:43
+msgid "Open a file to begin editing."
+msgstr "सम्पादनको निमित्त  एउटा कागजात खोल्नुहोस्"
+
+#: /home/mario/scratch/po/../src/Widgets/SplitView.vala:47
+msgid "New file"
+msgstr "नयाँ कागजात"
+
+#: /home/mario/scratch/po/../src/Widgets/SplitView.vala:47
+msgid "Create a new empty file."
+msgstr "नयाँ शुन्य कागजात खोल्नुहोस्"
+
+#: /home/mario/scratch/po/../src/Widgets/SplitView.vala:48
+msgid "Open file"
+msgstr "फाइल खोल्नुहोस्"
+
+#: /home/mario/scratch/po/../src/Widgets/SplitView.vala:48
+msgid "Open a saved file."
+msgstr "बचत गरिएको कागजात खोल्नुहोस्"
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin.vala:131
+msgid "Upload to Pastebin"
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:252
+msgid "Share via PasteBin"
+msgstr "पेष्टबिनमा साझा गर्नुहोस्"
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:270
+msgid "Name:"
+msgstr "नाम:"
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:276
+msgid "Format: "
+msgstr "प्रकार "
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:278
+msgid "Others..."
+msgstr "अन्य..."
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:303
+msgid "Expiry time:"
+msgstr "अन्त्य समय"
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:308
+msgid "Keep this paste private"
+msgstr "यो जलपेषलाई निजी राख्नुहोस्"
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:310
+msgid "Upload"
+msgstr "अपलोड गर्नुहोस्"
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:340
+msgid "Other formats"
+msgstr "अन्य प्रकारहरू"
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:509
+msgid "Never"
+msgstr "कहिले पनि"
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:510
+msgid "Ten minutes"
+msgstr "१० मिनेट"
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:511
+msgid "One hour"
+msgstr "एक घण्टा"
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:512
+msgid "One day"
+msgstr "एक दिन"
+
+#: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:513
+msgid "One month"
+msgstr "एक महिना"
+
+#: /home/mario/scratch/po/../plugins/filemanager/filemanager.vala:59
+msgid "Files"
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/terminal/terminal.vala:59
+msgid "Copy"
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/terminal/terminal.vala:66
+msgid "Paste"
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/terminal/terminal.vala:96
+msgid "Terminal"
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/browser-preview/browser-preview.vala:63
+#: /home/mario/scratch/po/../plugins/browser-preview/browser-preview.vala:64
+msgid "Get preview!"
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/browser-preview/browser-preview.vala:94
+msgid "Web preview"
+msgstr ""
+
+#: /home/mario/scratch/po/../plugins/open-with/open-with.vala:52
+msgid "Open With..."
+msgstr ""
+
+#~ msgid "New document"
+#~ msgstr "नयाँ कागजात"
+
+#~ msgid "Save the current file with a different name"
+#~ msgstr "फरक नामसँग हालको फाइल बचत गर्नुहोस्"
+
+#~ msgid "Status Bar"
+#~ msgstr "स्थिति पट्टि"
+
+#~ msgid "Sidebar"
+#~ msgstr "छेउपट्टी"
+
+#~ msgid "Normal text"
+#~ msgstr "सामान्य पाठ"
+
+#~ msgid "Hide search bar"
+#~ msgstr "खोज पट्टी लुकाउनुहोस"
+
+#~ msgid "Previous Search"
+#~ msgstr "अघिल्लो खोज"
+
+#~ msgid "Next Search"
+#~ msgstr "पछिल्लो खोज"
+
+#~ msgid "Create a new document in a new tab"
+#~ msgstr "नयाँ ट्याबमा नयाँ कागजात सिर्जना गर्नुहोस्"
+
+#~ msgid "Bottom Panel"
+#~ msgstr "तल्लो पट्टीका"
+
+#~ msgid "Context View"
+#~ msgstr "सान्धर्विक अवलोकन"
+
+#~ msgid "Save as"
+#~ msgstr "यस रुपमा बचत गर्नुहोस्"
+
+#~ msgid "Choose the new location"
+#~ msgstr "नयाँ स्थल चुन्नुहोस्"
+
+#~ msgid "Margin width:"
+#~ msgstr "किनारा चौडाई"
+
+#~ msgid "Show margin on right:"
+#~ msgstr "दाँयातिर किनारा देखाउनुहोस्"
+
+#~ msgid "Save unsaved changes to file before closing?"
+#~ msgstr "बन्द गर्नु अगाडी परिवर्तन गरिएका सामाग्रीलाई बचत गर्न चाहनुहुन्छ?"
+
+#~ msgid "You can't save changes to:"
+#~ msgstr "यसमा बचत गर्न सक्नुहुन्न"
+
+#~ msgid "Changes to this file haven't been saved."
+#~ msgstr "परिवर्तित यस कागजातलाई बचत गरिएको छैन।"
+
+#~ msgid "Do you want to save changes before closing this file?"
+#~ msgstr "यस परिवर्तित कागजातलाई बन्द गर्नु अगाडी बचत गर्न चाहनुहुन्छ?"
+
+#~ msgid "Do you want to reload it?"
+#~ msgstr "यसलाई पुन: खोल्न चाहनुहुन्छ?"
+
+#~ msgid "Do you want to create it again?"
+#~ msgstr "यसलाई पुन: निर्माण गर्न चाहनुहुन्छ?"
+
+#~ msgid "Argument for the set of plugins"
+#~ msgstr "प्लग्इन दलका निमित्त तर्कहरू"
