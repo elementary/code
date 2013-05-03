@@ -411,13 +411,13 @@ namespace Scratch.Services {
             this.source_view.duplicate_selection ();
         }
 
-        // Check if the file was delete/changed by an external source
+        // Check if the file was deleted/changed by an external source
         public void check_file_status () {
             if (file != null) {
                 // If the file does not exist anymore
                 if (!exists ()) {
                     string message = _("File ") +  " \"<b>%s</b>\" ".printf (get_basename ()) +
-                                     _("was delete. Do you want to save it anyway?");
+                                     _("was deleted. Do you want to save it anyway?");
 
                     set_message (Gtk.MessageType.WARNING, message, _("Save"), () => {
                         this.save ();
