@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-05-02 21:29+0200\n"
-"PO-Revision-Date: 2013-04-13 11:57+0000\n"
+"PO-Revision-Date: 2013-05-03 20:13+0000\n"
 "Last-Translator: Pedro Monteiro <Unknown>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-05-03 05:38+0000\n"
+"X-Launchpad-Export-Date: 2013-05-04 06:18+0000\n"
 "X-Generator: Launchpad (build 16598)\n"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:169
@@ -35,7 +35,7 @@ msgstr "Fechar sem guardar"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:237
 msgid "Save File"
-msgstr ""
+msgstr "Guardar Ficheiro"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:304
 #: /home/mario/scratch/po/../src/config.vala:16
@@ -45,11 +45,11 @@ msgstr "Novo documento"
 #: /home/mario/scratch/po/../src/Services/Document.vala:419
 #: /home/mario/scratch/po/../src/Services/Document.vala:450
 msgid "File "
-msgstr ""
+msgstr "Ficheiro "
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:420
 msgid "was delete. Do you want to save it anyway?"
-msgstr ""
+msgstr "foi eliminado. Deseja guardá-lo na mesma?"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:422
 #: /home/mario/scratch/po/../src/MainWindow.vala:554
@@ -58,7 +58,7 @@ msgstr "Guardar"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:432
 msgid "You cannot save changes on file"
-msgstr ""
+msgstr "Não pode guardar alterações no ficheiro"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:433
 msgid "Do you want to save the changes to this file in a different location?"
@@ -73,14 +73,16 @@ msgid ""
 "was modified by an external application. Do you want to load it again or "
 "continue your editing?"
 msgstr ""
+"foi modificado por outra aplicação. Deseja recarregá-lo ou continuar a "
+"edição?"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:453
 msgid "Load"
-msgstr ""
+msgstr "Carregar"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:456
 msgid "Continue"
-msgstr ""
+msgstr "Continuar"
 
 #: /home/mario/scratch/po/../src/Utils.vala:39
 msgid "All files"
@@ -187,7 +189,7 @@ msgstr "Mostrar números de linha:"
 
 #: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
 msgid "Line width guide:"
-msgstr ""
+msgstr "Largura da margem:"
 
 #: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:240
 msgid "Font and Color Scheme:"
@@ -215,7 +217,7 @@ msgstr "Criar uma nova instância"
 
 #: /home/mario/scratch/po/../src/Scratch.vala:154
 msgid "Create a new document"
-msgstr ""
+msgstr "Criar um novo documento"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:83
 msgid "Zeitgeist Datasource for Scratch"
@@ -227,7 +229,7 @@ msgstr "Reciclagem"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:415
 msgid "Open some files"
-msgstr ""
+msgstr "Abrir ficheiros"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:498
 #: /home/mario/scratch/po/../src/MainWindow.vala:499
@@ -251,23 +253,23 @@ msgstr "Substituir"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:518
 msgid "Reopen closed document"
-msgstr ""
+msgstr "Reabrir documento fechado"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:519
 msgid "Open last closed document in a new tab"
-msgstr ""
+msgstr "Abrir o último documento fechado num novo separador"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:522
 msgid "Add New Tab"
-msgstr ""
+msgstr "Adicionar Novo Separador"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:523
 msgid "Add a new tab"
-msgstr ""
+msgstr "Adicionar novo separador"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:526
 msgid "Add New View"
-msgstr "Adicionar uma nova vista"
+msgstr "Adicionar Nova Vista"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:527
 msgid "Add a new view"
@@ -345,7 +347,7 @@ msgstr "Realce de sintaxe"
 
 #: /home/mario/scratch/po/../src/Widgets/SourceView.vala:82
 msgid "Normal Text"
-msgstr ""
+msgstr "Texto Normal"
 
 #: /home/mario/scratch/po/../src/Widgets/ToolBar.vala:55
 msgid "Share"
@@ -385,11 +387,11 @@ msgstr "Abrir ficheiro"
 
 #: /home/mario/scratch/po/../src/Widgets/SplitView.vala:48
 msgid "Open a saved file."
-msgstr "Abrir um ficheiro guardado."
+msgstr "Abrir um ficheiro existente"
 
 #: /home/mario/scratch/po/../plugins/pastebin/pastebin.vala:131
 msgid "Upload to Pastebin"
-msgstr ""
+msgstr "Enviar para Pastebin"
 
 #: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:252
 msgid "Share via PasteBin"
@@ -462,15 +464,15 @@ msgstr "Terminal"
 #: /home/mario/scratch/po/../plugins/browser-preview/browser-preview.vala:63
 #: /home/mario/scratch/po/../plugins/browser-preview/browser-preview.vala:64
 msgid "Get preview!"
-msgstr ""
+msgstr "Pré-visualizar!"
 
 #: /home/mario/scratch/po/../plugins/browser-preview/browser-preview.vala:94
 msgid "Web preview"
-msgstr ""
+msgstr "Pré-visualização Web"
 
 #: /home/mario/scratch/po/../plugins/open-with/open-with.vala:52
 msgid "Open With..."
-msgstr ""
+msgstr "Abrir com..."
 
 #~ msgid "Normal text"
 #~ msgstr "Texto normal"
