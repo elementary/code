@@ -212,7 +212,7 @@ namespace Scratch {
             hp1.position = 150; // FIXME: what a bad solution
             var hp2 = new Granite.Widgets.ThinPaned ();
             hp2.position = 1500; // FIXME: what a bad solution
-            var vp = new Granite.Widgets.ThinPaned ()
+            var vp = new Granite.Widgets.ThinPaned ();
             vp.orientation = Orientation.VERTICAL;
             vp.position = 1500; // FIXME: what a bad solution
     
