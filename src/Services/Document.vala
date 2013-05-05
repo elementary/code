@@ -132,9 +132,6 @@ namespace Scratch.Services {
             // Change syntax highlight
             this.source_view.change_syntax_highlight_from_file (this.file);
 
-            // Create backup copy file
-            create_backup ();
-            
             // Stop loading
             this.working = false;
             
@@ -206,6 +203,9 @@ namespace Scratch.Services {
         }
 
         public bool save () {
+            // Create backup copy file if it does not still exist
+            create_backup ();
+            
             // Show save as dialog if file is null
             if (this.file == null)
                 this.save_as ();
@@ -448,7 +448,8 @@ namespace Scratch.Services {
                     var text = FileHandler.load_content_from_file.end (res);
                     // Reload automatically if auto save is ON
                     if (settings.autosave)
-                        this.source_view.set_text (text, false);
+                        if (text != this.source_view.buffer.text)
+                            this.source_view.set_text (text, false);
                     else {
                         if (last_saved_content != null && text != last_saved_content) {
                             string message = _("File ") +  " \"<b>%s</b>\" ".printf (get_basename ()) +
