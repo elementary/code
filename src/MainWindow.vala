@@ -208,11 +208,12 @@ namespace Scratch {
                 this.bottombar.hide ();
             });
 
-            var hp1 = new Granite.Widgets.CollapsiblePaned (Orientation.HORIZONTAL);
-            hp1.position = 150;
-            var hp2 = new Granite.Widgets.CollapsiblePaned (Orientation.HORIZONTAL);
+            var hp1 = new Granite.Widgets.ThinPaned ();
+            hp1.position = 150; // FIXME: what a bad solution
+            var hp2 = new Granite.Widgets.ThinPaned ();
             hp2.position = 1500; // FIXME: what a bad solution
-            var vp = new Granite.Widgets.CollapsiblePaned (Orientation.VERTICAL);
+            var vp = new Granite.Widgets.ThinPaned ()
+            vp.orientation = Orientation.VERTICAL;
             vp.position = 1500; // FIXME: what a bad solution
     
             hp1.pack1 (sidebar, true, false);
