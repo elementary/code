@@ -452,11 +452,10 @@ namespace Scratch.Services {
                 FileHandler.load_content_from_file.begin (file, (obj, res) => {
                     var text = FileHandler.load_content_from_file.end (res);
                     // Reload automatically if auto save is ON
-                    if (settings.autosave)
-                        if (text != this.source_view.buffer.text)
+                    if (last_saved_content != null && text != last_saved_content) {
+                        if (settings.autosave)
                             this.source_view.set_text (text, false);
-                    else {
-                        if (last_saved_content != null && text != last_saved_content) {
+                        else {
                             string message = _("File ") +  " \"<b>%s</b>\" ".printf (get_basename ()) +
                                              _("was modified by an external application. Do you want to load it again or continue your editing?");
 
