@@ -236,10 +236,15 @@ namespace Scratch.Services {
             // New file
             var filech = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.SAVE, _("Save File"));
             
-            if (filech.run () == Gtk.ResponseType.ACCEPT)
+            if (filech.run () == Gtk.ResponseType.ACCEPT) {
+                filech.destroy ();
                 this.file = File.new_for_uri (filech.get_uri ());
-                
-            filech.close ();
+            }
+            else {
+                filech.destroy ();
+                return false;
+            }  
+            
             
             save ();
 
