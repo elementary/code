@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-05-02 21:29+0200\n"
-"PO-Revision-Date: 2013-05-03 18:52+0000\n"
-"Last-Translator: Ezequiel Sapo <Unknown>\n"
+"PO-Revision-Date: 2013-05-05 23:09+0000\n"
+"Last-Translator: Alfredo Hernández <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-05-04 06:18+0000\n"
+"X-Launchpad-Export-Date: 2013-05-06 05:51+0000\n"
 "X-Generator: Launchpad (build 16598)\n"
 "Language: es\n"
 
@@ -50,7 +50,7 @@ msgstr "Archivo "
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:420
 msgid "was delete. Do you want to save it anyway?"
-msgstr ""
+msgstr "fue borrado. ¿Desea guardarlo de todas maneras?"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:422
 #: /home/mario/scratch/po/../src/MainWindow.vala:554
@@ -75,6 +75,8 @@ msgid ""
 "was modified by an external application. Do you want to load it again or "
 "continue your editing?"
 msgstr ""
+"fue modificado por una aplicación externa. ¿Desea cargarlo de nuevo o "
+"continuar editándolo?"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:453
 msgid "Load"
