@@ -8,19 +8,19 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-05-02 21:29+0200\n"
-"PO-Revision-Date: 2012-09-23 15:29+0000\n"
-"Last-Translator: Daniel Foxik <foxik0169@gmail.com>\n"
+"PO-Revision-Date: 2013-05-06 07:05+0000\n"
+"Last-Translator: Martin Maričák <Unknown>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-05-03 05:38+0000\n"
+"X-Launchpad-Export-Date: 2013-05-07 05:43+0000\n"
 "X-Generator: Launchpad (build 16598)\n"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:169
 #, c-format
 msgid "Save changes to document %s before closing?"
-msgstr ""
+msgstr "Uložiť zmeny do %s pred ukončením?"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:172
 msgid ""
@@ -33,17 +33,17 @@ msgstr "Zavrieť bez uloženia"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:237
 msgid "Save File"
-msgstr ""
+msgstr "Uložiť súbor"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:304
 #: /home/mario/scratch/po/../src/config.vala:16
 msgid "New Document"
-msgstr ""
+msgstr "Nový dokument"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:419
 #: /home/mario/scratch/po/../src/Services/Document.vala:450
 msgid "File "
-msgstr ""
+msgstr "Súbor "
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:420
 msgid "was delete. Do you want to save it anyway?"
@@ -56,7 +56,7 @@ msgstr "Uložiť"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:432
 msgid "You cannot save changes on file"
-msgstr ""
+msgstr "Nemôžete uložiť zmeny do súboru"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:433
 msgid "Do you want to save the changes to this file in a different location?"
@@ -64,21 +64,23 @@ msgstr "Chcete uložiť zmeny v tomto súbore na inom mieste?"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:435
 msgid "Save changes elsewhere"
-msgstr ""
+msgstr "Uložiť zmeny inde"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:451
 msgid ""
 "was modified by an external application. Do you want to load it again or "
 "continue your editing?"
 msgstr ""
+"bol zmenený inou aplikáciou. Chcete súbor načítať znova a pokračovať v "
+"úpravách?"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:453
 msgid "Load"
-msgstr ""
+msgstr "Nahrať"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:456
 msgid "Continue"
-msgstr ""
+msgstr "Pokračovať"
 
 #: /home/mario/scratch/po/../src/Utils.vala:39
 msgid "All files"
@@ -94,11 +96,11 @@ msgstr ""
 
 #: /home/mario/scratch/po/../src/config.vala:15
 msgid "Text Editor"
-msgstr ""
+msgstr "Textový Editor"
 
 #: /home/mario/scratch/po/../src/config.vala:17
 msgid "New Window"
-msgstr ""
+msgstr "Nové Okno"
 
 #: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:45
 #: /home/mario/scratch/po/../src/MainWindow.vala:562
@@ -173,7 +175,7 @@ msgstr "Zvýrazniť zhodujúce sa zátvorky:"
 
 #: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:219
 msgid "Split long text in many lines:"
-msgstr ""
+msgstr "Rozdeliť dlhý text do viacerých riadkov:"
 
 #: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:220
 msgid "Draw spaces:"
@@ -189,7 +191,7 @@ msgstr ""
 
 #: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:240
 msgid "Font and Color Scheme:"
-msgstr ""
+msgstr "Písmo a farebná schéma:"
 
 #: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:254
 msgid "Select font:"
@@ -213,7 +215,7 @@ msgstr "Vytvoriť novú inštanciu"
 
 #: /home/mario/scratch/po/../src/Scratch.vala:154
 msgid "Create a new document"
-msgstr ""
+msgstr "Vytvoriť nový dokument"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:83
 msgid "Zeitgeist Datasource for Scratch"
@@ -249,7 +251,7 @@ msgstr "Nahradiť"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:518
 msgid "Reopen closed document"
-msgstr ""
+msgstr "Znovu otvoriť zatvorený dokument"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:519
 msgid "Open last closed document in a new tab"
