@@ -5,11 +5,10 @@ add_translations_catalog("scratch-text-editor"
     ../src/Widgets
     ../src/Dialogs
     ../src/Services
-    ../scratchcore
     ../plugins/pastebin
     ../plugins/filemanager
     ../plugins/terminal
     ../plugins/browser-preview
-    ../plugins/spell-check
+    ../plugins/spell
     ../plugins/open-with
 )
