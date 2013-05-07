@@ -212,7 +212,7 @@ namespace Scratch.Widgets {
             this.buffer.get_selection_bounds (out start, out end); 
             
             if (selection != "")
-                this.buffer.insert (ref end, "\n" + selection, -1);
+                this.buffer.insert (ref end, selection, -1);
             // If nothing is selected duplicate current line
             else {
                 this.buffer.get_iter_at_mark (out start, this.buffer.get_insert ());
