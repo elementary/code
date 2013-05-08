@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-05-02 21:29+0200\n"
-"PO-Revision-Date: 2013-05-05 23:07+0000\n"
+"PO-Revision-Date: 2013-05-07 21:06+0000\n"
 "Last-Translator: Alfredo Hernández <Unknown>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-05-06 05:51+0000\n"
+"X-Launchpad-Export-Date: 2013-05-08 05:44+0000\n"
 "X-Generator: Launchpad (build 16598)\n"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:169
@@ -49,7 +49,7 @@ msgstr "Fitxer "
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:420
 msgid "was delete. Do you want to save it anyway?"
-msgstr ""
+msgstr "ha estat suprimit. Voleu desar-lo de totes maneres?"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:422
 #: /home/mario/scratch/po/../src/MainWindow.vala:554
@@ -58,7 +58,7 @@ msgstr "Desa"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:432
 msgid "You cannot save changes on file"
-msgstr ""
+msgstr "No es poden desar els canvis al fitxer"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:433
 msgid "Do you want to save the changes to this file in a different location?"
@@ -73,6 +73,8 @@ msgid ""
 "was modified by an external application. Do you want to load it again or "
 "continue your editing?"
 msgstr ""
+"ha estat modificat per una aplicació externa. Voleu carregar-lo de nou o "
+"continuar editant-lo?"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:453
 msgid "Load"
@@ -187,7 +189,7 @@ msgstr "Mostrar el nombres de línia:"
 
 #: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
 msgid "Line width guide:"
-msgstr ""
+msgstr "Guia d'amplada de línia:"
 
 #: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:240
 msgid "Font and Color Scheme:"
@@ -227,17 +229,17 @@ msgstr "Paperera"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:415
 msgid "Open some files"
-msgstr ""
+msgstr "Obriu alguns fitxers"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:498
 #: /home/mario/scratch/po/../src/MainWindow.vala:499
 msgid "Find..."
-msgstr "Cerca..."
+msgstr "Cerca…"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:502
 #: /home/mario/scratch/po/../src/MainWindow.vala:503
 msgid "Go to line..."
-msgstr "Vés a la línia..."
+msgstr "Vés a la línia…"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:506
 #: /home/mario/scratch/po/../src/MainWindow.vala:507
@@ -251,11 +253,11 @@ msgstr "Reemplaça"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:518
 msgid "Reopen closed document"
-msgstr ""
+msgstr "Reobre document tancat"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:519
 msgid "Open last closed document in a new tab"
-msgstr ""
+msgstr "Obre l'últim document tancat a una pestanya nova"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:522
 msgid "Add New Tab"
@@ -389,7 +391,7 @@ msgstr "Obre un fitxer desat."
 
 #: /home/mario/scratch/po/../plugins/pastebin/pastebin.vala:131
 msgid "Upload to Pastebin"
-msgstr ""
+msgstr "Puja al Pastebin"
 
 #: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:252
 msgid "Share via PasteBin"
@@ -405,7 +407,7 @@ msgstr "Format: "
 
 #: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:278
 msgid "Others..."
-msgstr "Altres..."
+msgstr "Altres…"
 
 #: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:303
 msgid "Expiry time:"
@@ -470,7 +472,7 @@ msgstr "Previsualització web"
 
 #: /home/mario/scratch/po/../plugins/open-with/open-with.vala:52
 msgid "Open With..."
-msgstr ""
+msgstr "Obre amb…"
 
 #~ msgid "Do you want to save changes before closing this file?"
 #~ msgstr "Vouleu desar els canvis abans de tancar aquest fitxer?"
