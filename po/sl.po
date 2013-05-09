@@ -8,24 +8,25 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-05-02 21:29+0200\n"
-"PO-Revision-Date: 2012-09-23 18:12+0000\n"
-"Last-Translator: MarkoD <Unknown>\n"
+"PO-Revision-Date: 2013-05-08 10:30+0000\n"
+"Last-Translator: Damir Jerovšek <Unknown>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-05-03 05:38+0000\n"
+"X-Launchpad-Export-Date: 2013-05-09 05:38+0000\n"
 "X-Generator: Launchpad (build 16598)\n"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:169
 #, c-format
 msgid "Save changes to document %s before closing?"
-msgstr ""
+msgstr "Ali želite pred zaprtjem shraniti spremembe v dokument %s?"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:172
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr "Če ne shraniš, bodo spremembe zadnjih 4-ih sekund trajno izgubljene."
+msgstr ""
+"Če ne boste shranili, bodo spremembe zadnjih 4-ih sekund trajno izgubljene."
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:174
 msgid "Close without saving"
@@ -33,7 +34,7 @@ msgstr "Zapri brez shranjevanja"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:237
 msgid "Save File"
-msgstr ""
+msgstr "Shrani datoteko"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:304
 #: /home/mario/scratch/po/../src/config.vala:16
@@ -43,11 +44,11 @@ msgstr "Nov dokument"
 #: /home/mario/scratch/po/../src/Services/Document.vala:419
 #: /home/mario/scratch/po/../src/Services/Document.vala:450
 msgid "File "
-msgstr ""
+msgstr "Datoteka "
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:420
 msgid "was delete. Do you want to save it anyway?"
-msgstr ""
+msgstr "je izbrisana. Ali jo želite vseeno shraniti?"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:422
 #: /home/mario/scratch/po/../src/MainWindow.vala:554
@@ -60,7 +61,7 @@ msgstr ""
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:433
 msgid "Do you want to save the changes to this file in a different location?"
-msgstr "Želiš shraniti spremembe datoteke na drugo lokacijo?"
+msgstr "Ali želite shraniti spremembe v to datoteko in na drugo mesto?"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:435
 msgid "Save changes elsewhere"
@@ -71,14 +72,16 @@ msgid ""
 "was modified by an external application. Do you want to load it again or "
 "continue your editing?"
 msgstr ""
+"je bila spremenjena z zunanjim programom. Ali jo želite ponovno naložiti in "
+"nadaljevati z urejanjem?"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:453
 msgid "Load"
-msgstr ""
+msgstr "Naloži"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:456
 msgid "Continue"
-msgstr ""
+msgstr "Nadaljuj"
 
 #: /home/mario/scratch/po/../src/Utils.vala:39
 msgid "All files"
@@ -173,7 +176,7 @@ msgstr "Poudari ujemajoče oklepaje:"
 
 #: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:219
 msgid "Split long text in many lines:"
-msgstr ""
+msgstr "Razdeli dolgo besedilo v več vrstic:"
 
 #: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:220
 msgid "Draw spaces:"
@@ -213,11 +216,11 @@ msgstr "Ustari nov primerek"
 
 #: /home/mario/scratch/po/../src/Scratch.vala:154
 msgid "Create a new document"
-msgstr ""
+msgstr "Ustvari nov dokument"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:83
 msgid "Zeitgeist Datasource for Scratch"
-msgstr ""
+msgstr "Vir podatkov Zeitgeist za Scratch"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:153
 msgid "Trash"
@@ -225,7 +228,7 @@ msgstr "Smeti"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:415
 msgid "Open some files"
-msgstr ""
+msgstr "Odpri nekaj datotek"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:498
 #: /home/mario/scratch/po/../src/MainWindow.vala:499
@@ -249,19 +252,19 @@ msgstr "Zamenjaj"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:518
 msgid "Reopen closed document"
-msgstr ""
+msgstr "Znova odpri zaprt dokument"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:519
 msgid "Open last closed document in a new tab"
-msgstr ""
+msgstr "Odpri nazadnje zaprt dokument v novem zavihku"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:522
 msgid "Add New Tab"
-msgstr ""
+msgstr "Dodaj nov zavihek"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:523
 msgid "Add a new tab"
-msgstr ""
+msgstr "Dodaj nov zavihek"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:526
 msgid "Add New View"
@@ -343,7 +346,7 @@ msgstr "Označevanje sintakse"
 
 #: /home/mario/scratch/po/../src/Widgets/SourceView.vala:82
 msgid "Normal Text"
-msgstr ""
+msgstr "Običajno besedilo"
 
 #: /home/mario/scratch/po/../src/Widgets/ToolBar.vala:55
 msgid "Share"
@@ -387,7 +390,7 @@ msgstr "Odpri shranjeno datoteko."
 
 #: /home/mario/scratch/po/../plugins/pastebin/pastebin.vala:131
 msgid "Upload to Pastebin"
-msgstr ""
+msgstr "Pošlji na Pastebin"
 
 #: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:252
 msgid "Share via PasteBin"
@@ -460,15 +463,15 @@ msgstr "Terminal"
 #: /home/mario/scratch/po/../plugins/browser-preview/browser-preview.vala:63
 #: /home/mario/scratch/po/../plugins/browser-preview/browser-preview.vala:64
 msgid "Get preview!"
-msgstr ""
+msgstr "Dobi predogled!"
 
 #: /home/mario/scratch/po/../plugins/browser-preview/browser-preview.vala:94
 msgid "Web preview"
-msgstr ""
+msgstr "Spletni predogled"
 
 #: /home/mario/scratch/po/../plugins/open-with/open-with.vala:52
 msgid "Open With..."
-msgstr ""
+msgstr "Odpri z ..."
 
 #~ msgid "Hide search bar"
 #~ msgstr "Skrij iskalno vrstico"
