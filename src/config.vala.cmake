@@ -7,6 +7,7 @@ namespace Constants {
    public const string VERSION = "@VERSION@";
    public const string VERSION_INFO = "@VERSION_INFO@";
    public const string PLUGINDIR = "@PLUGINDIR@";
+   public const string INSTALL_PREFIX = "@CMAKE_INSTALL_PREFIX@";
 
    /* Translatable launcher (.desktop) strings to be added to   */
    /* template (.pot) file. These strings should reflect any    */
