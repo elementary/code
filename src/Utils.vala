@@ -24,10 +24,13 @@ namespace Scratch.Utils {
     
     // Create a GtkFileChooserDialog to perform the action desired
     public Gtk.FileChooserDialog new_file_chooser_dialog (Gtk.FileChooserAction action, string title, bool select_multiple = false) {
-        var filech = new Gtk.FileChooserDialog (title, null, action, null);
+        var filech = new Gtk.FileChooserDialog (title, null, action);
         filech.set_select_multiple (select_multiple);
         filech.add_button (Gtk.Stock.CANCEL, Gtk.ResponseType.CANCEL);
-        filech.add_button (Gtk.Stock.OPEN, Gtk.ResponseType.ACCEPT);
+        if (action == Gtk.FileChooserAction.OPEN)
+            filech.add_button (Gtk.Stock.OPEN, Gtk.ResponseType.ACCEPT);
+        else
+            filech.add_button (Gtk.Stock.SAVE, Gtk.ResponseType.ACCEPT);
         filech.set_default_response (Gtk.ResponseType.ACCEPT);
         filech.set_current_folder_uri (Utils.last_path ?? GLib.Environment.get_home_dir ());
         filech.key_press_event.connect ((ev) => {

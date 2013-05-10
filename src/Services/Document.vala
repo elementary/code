@@ -208,7 +208,7 @@ namespace Scratch.Services {
             
             // Show save as dialog if file is null
             if (this.file == null)
-                this.save_as ();
+                return this.save_as ();
             
             // Replace old content with the new one
             try {
@@ -237,14 +237,13 @@ namespace Scratch.Services {
             var filech = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.SAVE, _("Save File"));
             
             if (filech.run () == Gtk.ResponseType.ACCEPT) {
+                this.file = File.new_for_uri (filech.get_file ().get_uri ());
                 filech.destroy ();
-                this.file = File.new_for_uri (filech.get_uri ());
             }
             else {
                 filech.destroy ();
                 return false;
             }  
-            
             
             save ();
 
