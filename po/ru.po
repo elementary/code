@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-05-02 21:29+0200\n"
-"PO-Revision-Date: 2013-01-12 21:14+0000\n"
-"Last-Translator: Mukusev Vladimir <damon95@yandex.ru>\n"
+"PO-Revision-Date: 2013-05-10 17:48+0000\n"
+"Last-Translator: Sergey Cinaylo <funeral20@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-05-03 05:38+0000\n"
+"X-Launchpad-Export-Date: 2013-05-11 05:52+0000\n"
 "X-Generator: Launchpad (build 16598)\n"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:169
@@ -44,11 +44,11 @@ msgstr "Новый документ"
 #: /home/mario/scratch/po/../src/Services/Document.vala:419
 #: /home/mario/scratch/po/../src/Services/Document.vala:450
 msgid "File "
-msgstr ""
+msgstr "Файл "
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:420
 msgid "was delete. Do you want to save it anyway?"
-msgstr ""
+msgstr "удалено. Cохранить в любом случае?"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:422
 #: /home/mario/scratch/po/../src/MainWindow.vala:554
@@ -57,7 +57,7 @@ msgstr "Сохранить"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:432
 msgid "You cannot save changes on file"
-msgstr ""
+msgstr "Невозможно сохранить изменения"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:433
 msgid "Do you want to save the changes to this file in a different location?"
@@ -72,6 +72,7 @@ msgid ""
 "was modified by an external application. Do you want to load it again or "
 "continue your editing?"
 msgstr ""
+"изменен другой программой. Хотите обновить или продолжить редактирование?"
 
 #: /home/mario/scratch/po/../src/Services/Document.vala:453
 msgid "Load"
@@ -186,7 +187,7 @@ msgstr "Отображать номера строк:"
 
 #: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
 msgid "Line width guide:"
-msgstr ""
+msgstr "Настройка строки:"
 
 #: /home/mario/scratch/po/../src/Dialogs/PreferencesDialog.vala:240
 msgid "Font and Color Scheme:"
@@ -226,7 +227,7 @@ msgstr "Корзина"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:415
 msgid "Open some files"
-msgstr ""
+msgstr "Открыть файлы"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:498
 #: /home/mario/scratch/po/../src/MainWindow.vala:499
@@ -250,19 +251,19 @@ msgstr "Заменить"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:518
 msgid "Reopen closed document"
-msgstr ""
+msgstr "Переоткрыть документ"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:519
 msgid "Open last closed document in a new tab"
-msgstr ""
+msgstr "Открыть последний документ в новой вкладке"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:522
 msgid "Add New Tab"
-msgstr ""
+msgstr "Новая вкладка"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:523
 msgid "Add a new tab"
-msgstr ""
+msgstr "Новая вкладка"
 
 #: /home/mario/scratch/po/../src/MainWindow.vala:526
 msgid "Add New View"
@@ -388,7 +389,7 @@ msgstr "Открыть сохранённый файл."
 
 #: /home/mario/scratch/po/../plugins/pastebin/pastebin.vala:131
 msgid "Upload to Pastebin"
-msgstr ""
+msgstr "Загрузить на Pastebin"
 
 #: /home/mario/scratch/po/../plugins/pastebin/pastebin_dialog.vala:252
 msgid "Share via PasteBin"
@@ -461,11 +462,11 @@ msgstr "Терминал"
 #: /home/mario/scratch/po/../plugins/browser-preview/browser-preview.vala:63
 #: /home/mario/scratch/po/../plugins/browser-preview/browser-preview.vala:64
 msgid "Get preview!"
-msgstr ""
+msgstr "Предпросмотр!"
 
 #: /home/mario/scratch/po/../plugins/browser-preview/browser-preview.vala:94
 msgid "Web preview"
-msgstr ""
+msgstr "Просмотр в браузере"
 
 #: /home/mario/scratch/po/../plugins/open-with/open-with.vala:52
 msgid "Open With..."
