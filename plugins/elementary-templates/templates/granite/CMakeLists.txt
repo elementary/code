@@ -8,7 +8,7 @@ enable_testing ()
 
 list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
-configure_file (${CMAKE_SOURCE_DIR}/src/config.vala.cmake ${CMAKE_BINARY_DIR}/src/config.vala)
+configure_file (${CMAKE_CURRENT_SOURCE_DIR}/src/config.vala.cmake ${CMAKE_CURRENT_SOURCE_DIR}/src/config.vala)
 add_definitions(-DGETTEXT_PACKAGE="$$LOWER_CASE_NAME")
 
 find_package(PkgConfig)
@@ -25,8 +25,8 @@ file(GLOB_RECURSE sources src/*.vala)
 
 include(ValaPrecompile)
 vala_precompile(VALA_C
-    ${sources}
-    ${CMAKE_BINARY_DIR}/src/config.vala
+    src/$$NAME.vala
+    src/config.vala
 PACKAGES
     gtk+-3.0
     granite

@@ -1,1 +1,1 @@
-install (DIRECTORY granite DESTINATION share/euclide/templates/)
+install (DIRECTORY granite DESTINATION lib/scratch/plugins/elementary-templates/)

@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2011-2012 Lucas Baudin <xapantu@gmail.com>
- *
+ *               2013      Mario Guerriero <mario@elementaryos.org>
  *
  * This file is part of Scratch.
  *
@@ -22,24 +22,24 @@ using Gtk;
 
 public abstract class Scratch.Template : Object {
     public abstract Gtk.Widget get_creation_box ();
-    public static void configure_template (string origin, string destination, Gee.HashMap<string, string>? variables) {
+    public static void configure_template (string origin, string destination, Gee.HashMap<string, string> variables) {
         debug ("Origin: %s, destination: %s\n", origin, destination);
         
         configure_directory (File.new_for_path(origin), File.new_for_path(destination), variables);
     }
     
-    static void configure_directory (File origin, File destination, Gee.HashMap<string, string>? variables) {
+    static void configure_directory (File origin, File destination, Gee.HashMap<string, string> variables) {
         /* First, let's check that these files actually exists and are directory */
         bool is_directory, exists;
         info_directory (origin, out is_directory, out exists);
         if (!is_directory || !exists) {
-            critical ("Origin directory doesn't exist or isn't a directory.");
+            warning ("Origin directory doesn't exist or isn't a directory.");
             return;
         }
         
         info_directory (destination, out is_directory, out exists);
         if (is_directory || exists) {
-            critical ("Destination directory already exists...");
+            warning ("Destination directory already exists...");
             return;
         }
         
@@ -56,14 +56,18 @@ public abstract class Scratch.Template : Object {
         foreach (var file in files) {
             if (file.get_content_type ().contains ("text")) {
                 var gfile = File.new_for_path (Path.build_filename (origin.get_path (), file.get_name ()));
+
                 string content = Scratch.Services.FileHandler.load_content_from_file_sync (gfile);
+                
                 if (variables != null) {
-                    foreach (var entry in variables.entries) {
+                    foreach (var entry in variables.entries)
                         content = content.replace ("$$" + entry.key, entry.value);
-                    }
                 }
                 try {
-                    FileUtils.set_contents (Path.build_filename (destination.get_path (), file.get_name ()), content);
+                    string dest_path = Path.build_filename (destination.get_path (), file.get_name ());
+                    foreach (var entry in variables.entries)
+                        dest_path = dest_path.replace ("$$" + entry.key, entry.value);
+                    FileUtils.set_contents (dest_path, content);
                 } catch (Error e) {
                     warning (e.message);
                 }
@@ -81,7 +85,7 @@ public abstract class Scratch.Template : Object {
                 
         }
         foreach (var dir in dirs) {
-            configure_directory (dir, File.new_for_path (destination.get_path () + "/" + dir.get_basename ()), null);
+            configure_directory (dir, File.new_for_path (destination.get_path () + "/" + dir.get_basename ()), variables);
         }
     }
     
@@ -255,7 +259,7 @@ public class Scratch.TemplateManager : GLib.Object {
         button.clicked.connect (() => {
             current_template = (Scratch.Template) Object.new (template_type);
             this.dialog.hide ();
-            var window = new Granite.Widgets.LightWindow ();
+            var window = new Granite.Widgets.LightWindow (label);
             if (parent != null) window.set_transient_for ((Gtk.Window)parent);
             window.add (current_template.get_creation_box ());
             window.show_all ();
