@@ -18,6 +18,8 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+using Gtk;
+
 public abstract class Scratch.Template : Object {
     public abstract Gtk.Widget get_creation_box ();
     public static void configure_template (string origin, string destination, Gee.HashMap<string, string>? variables) {
@@ -134,6 +136,62 @@ public class Scratch.TestTemplate : Template {
     }
 }
 
+public class TemplateButton : Button {
+        
+    private Image icon_image;
+       
+    public TemplateButton (string title, string description, string icon) {
+        can_focus = false;
+        set_relief (ReliefStyle.NONE);
+           
+        var main_box = new Box (Orientation.HORIZONTAL, 3);
+        var text_box = new Box (Orientation.VERTICAL, 3);
+        text_box.halign = Align.START;
+            
+        var title_label = new Label (Markup.printf_escaped ("<span weight='medium' size='11700'>%s</span>", title));
+        title_label.use_markup = true;
+        title_label.ellipsize = Pango.EllipsizeMode.END;
+        title_label.halign = Align.START;
+        title_label.valign = Align.START;
+            
+        var description_label = new Label (Markup.printf_escaped ("<span weight='medium' size='11400'>%s</span>", description));
+        description_label.use_markup = true;
+        description_label.ellipsize = Pango.EllipsizeMode.END;
+        description_label.halign = Align.START;
+        description_label.valign = Align.START;
+        description_label.sensitive = false;
+        
+        Gdk.Pixbuf? pixbuf = null;    
+        try {
+            pixbuf = Gtk.IconTheme.get_default ().load_icon (icon, 64, 0);
+        } catch (Error e) {
+            warning (e.message);
+        }
+        
+        if (pixbuf != null)
+            icon_image = new Image.from_pixbuf (pixbuf);
+        else
+            icon_image = new Image.from_icon_name (icon, IconSize.DIALOG);
+        icon_image.halign = Align.START;
+            
+        text_box.pack_start (new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0), true, true, 0); // Top spacing
+        text_box.pack_start (title_label, false, false, 0);
+        text_box.pack_start (description_label, false, false, 0);
+        text_box.pack_start (new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0), true, true, 0); // Bottom spacing
+            
+        main_box.pack_start (icon_image, false, true, 0);
+        main_box.pack_start (text_box, false, true, 0);
+        
+        this.add (main_box);
+        this.show_all ();
+    }
+        
+    public void set_icon_from_pixbuf (Gdk.Pixbuf pixbuf) {
+        icon_image.set_from_pixbuf (pixbuf);
+    }
+        
+}
+
 /**
  * Global Template Manager for Scratch. Only one instance of this object should
  * be used at once. It is created by the main Granite.Application (ScratchApp) and
@@ -141,53 +199,42 @@ public class Scratch.TestTemplate : Template {
  **/
 public class Scratch.TemplateManager : GLib.Object {
     
-    Granite.Widgets.LightWindow dialog;
+    private Granite.Widgets.LightWindow dialog;
     
-    Gtk.ListStore list_store;
-    Gtk.IconView icon_view;
-    Scratch.Template current_template;
+    private Scratch.Template current_template;
     
-    Gtk.Container hbox;
+    private Gtk.Widget? parent = null;
+    
+    private Gtk.Grid grid;
+    private int n_columns = 0; // One column
+    private int left = 0; // No more than 1
+    private int top = 0; // No more than 1
+    private int width = 1; // Event 1
+    private int height = 1; // Event 1
     
     public bool template_available = false;
     
     public TemplateManager () {
-        dialog = new Granite.Widgets.LightWindow ();
-        dialog.set_default_size (630, 330);
-        list_store = new Gtk.ListStore (4, 
-            typeof (string) /* icon_id */,
-            typeof (string) /* label */,
-            typeof (Type) /* object_type */,
-            typeof (Gdk.Pixbuf) /* icon */);
-        icon_view = new Gtk.IconView.with_model (list_store);
-        this.hbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 5);
-        hbox.add (icon_view);
-        dialog.add (hbox);
+        dialog = new Granite.Widgets.LightWindow (_("Templates"));
         
-        icon_view.selection_changed.connect (on_icon_selection_changed);
-        icon_view.item_activated.connect ( () => {
-            on_icon_selection_changed ();
-        });
+        this.grid = new Gtk.Grid ();
+        this.grid.margin = 5;
+        this.grid.row_spacing = 5;
+        this.grid.column_spacing = 5;
+        this.grid.row_homogeneous = true;
+        this.grid.column_homogeneous = true;
         
-        //register_template ("text-editor", "Sample", typeof(TestTemplate));
-    }
-    
-    void on_icon_selection_changed () {
-        var selected_items = icon_view.get_selected_items ();
-        if (selected_items.length () > 0) {
-            Gtk.TreeIter iter;
-            list_store.get_iter (out iter, selected_items.nth_data (0));
-            
-            string id;
-            Type tpl_type;
-            list_store.get (iter, 0, out id, 2, out tpl_type);
-            
-            current_template = (Scratch.Template) Object.new (tpl_type);
-            hbox.remove (icon_view);
-            hbox.add (current_template.get_creation_box ());
-            
-            hbox.show_all ();
-        }
+        // Viewport
+        ScrolledWindow scroll = new ScrolledWindow (null, null);
+        scroll.height_request = 250;
+        scroll.set_policy (PolicyType.NEVER, PolicyType.AUTOMATIC);
+        scroll.add_with_viewport (grid);
+        ((Viewport)scroll.get_child()).set_shadow_type (ShadowType.NONE);
+        
+        dialog.add (scroll);
+        
+        //register_template ("text-editor", "Sample", "sample template", typeof(TestTemplate));
+
     }
     
     /**
@@ -201,17 +248,32 @@ public class Scratch.TemplateManager : GLib.Object {
      * the icon on the IconView. It will be used to get the creation box and therefore must
      * inherit from #Scratch.Template.
      **/
-    public void register_template (string icon_id, string label, Type template_type) {
-        try {
-            Gtk.TreeIter iter;
-            var pixbuf = Gtk.IconTheme.get_default ().load_icon (icon_id, 64, 0);
-            list_store.append (out iter);
-            list_store.set (iter, 0, icon_id, 1, label, 2, template_type, 3, pixbuf);
-            template_available = true;
-        }
-        catch (Error e) {
-            warning ("Couldn't add template %s, %s icon can't be found.", label, icon_id);
-        }
+    public void register_template (string icon_id, string label, string description, Type template_type) {
+        var button = new TemplateButton (label, description, icon_id);
+        append_button (button);
+        
+        button.clicked.connect (() => {
+            current_template = (Scratch.Template) Object.new (template_type);
+            this.dialog.hide ();
+            var window = new Granite.Widgets.LightWindow ();
+            if (parent != null) window.set_transient_for ((Gtk.Window)parent);
+            window.add (current_template.get_creation_box ());
+            window.show_all ();
+        });
+        
+        template_available = true;
+    }
+    
+    private void append_button (Widget button) {
+        if (left > n_columns)
+           left = 0;
+               
+        this.grid.attach (button, left, top, width, height);
+            
+        button.show ();
+            
+        if (left == n_columns) top++;
+        left++;
     }
     
     /**
@@ -220,15 +282,10 @@ public class Scratch.TemplateManager : GLib.Object {
      * @param parent The parent window, or null.
      **/
     public void show_window (Gtk.Widget? parent) {
+        this.parent = parent;
+        
         if (template_available) {
             if (parent != null) dialog.set_transient_for ((Gtk.Window)parent);
-            
-            if (current_template != null) {
-                hbox.remove (hbox.get_children ().nth_data (0));
-                hbox.add (icon_view);
-            }
-            
-            icon_view.unselect_all ();
             
             dialog.show_all ();
         }

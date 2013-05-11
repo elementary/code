@@ -191,7 +191,7 @@ namespace Scratch.Services {
                 }
                 dialog.destroy ();
             }
-
+debug ("");
             if (file != null) {
                 // Delete backup copy file
                 delete_backup ();

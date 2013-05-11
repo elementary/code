@@ -330,10 +330,8 @@ namespace Scratch {
                 foreach (var w in this.split_view.views) {
                     var view = w as Scratch.Widgets.DocumentView;
                     foreach (var doc in view.docs) {
-                        if (!doc.saved) {
-                            view.set_current_document (doc);
-                            return doc.close ();
-                        }
+                        view.set_current_document (doc);
+                        return doc.close ();
                     }
                 }
             }
