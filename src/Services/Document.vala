@@ -95,8 +95,8 @@ namespace Scratch.Services {
             FileHandler.load_content_from_file.begin (file, (obj, res) => {
                 var text = FileHandler.load_content_from_file.end (res);
                 // Convert non-UTF8 text in UTF8 
-                if (!text.validate())
-                   text = file_content_to_utf8 (file, text);
+                if (!text.validate()) 
+                    text = file_content_to_utf8 (file, text);
                 this.source_view.set_text (text);
                 this.last_saved_content = this.source_view.buffer.text;
                 this.original_content = text;
@@ -119,14 +119,13 @@ namespace Scratch.Services {
                     else if (!settings.autosave || file == null)
                         this.saved = false;
                 });
-            });
-
-            // Focus in event for SourceView
-            this.source_view.focus_in_event.connect (() => {
-                main_actions.get_action ("SaveFile").visible = !(settings.autosave);
-                check_file_status ();
-                check_undoable_actions ();
-                return false;
+                // Focus in event for SourceView
+                this.source_view.focus_in_event.connect (() => {
+                    main_actions.get_action ("SaveFile").visible = !(settings.autosave);
+                    check_file_status ();
+                    check_undoable_actions ();
+                    return false;
+                });
             });
 
             // Change syntax highlight
