@@ -48,13 +48,13 @@ namespace Scratch {
         public Gtk.Notebook sidebar;
         public Gtk.Notebook contextbar;
         public Gtk.Notebook bottombar;
-        
+
         // Zeitgeist integration
         private Zeitgeist.DataSourceRegistry registry;
 
         // Delegates
-        delegate void HookFunc ();        
-        
+        delegate void HookFunc ();
+
         public MainWindow (Scratch.ScratchApp scratch_app) {
 
             this.app = scratch_app;
@@ -90,6 +90,7 @@ namespace Scratch {
                     warning ("%s", reg_err.message);
                 }
             });
+
         }
 
         private void init_actions () {
@@ -125,14 +126,14 @@ namespace Scratch {
             toolbar.menu = ui.get_widget ("ui/AppMenu") as Gtk.Menu;
             var app_menu = (app as Granite.Application).create_appmenu (toolbar.menu);
             toolbar.add (app_menu);
-            
+
             // SearchManager
             this.search_manager = new Scratch.Widgets.SearchManager ();
             this.search_manager.get_style_context ().add_class ("secondary-toolbar");
-            
+
             // SlitView
             this.split_view = new Scratch.Widgets.SplitView ();
-            
+
             // Signals
             this.split_view.welcome_shown.connect (() => {
                 set_widgets_sensitive (false);
@@ -215,7 +216,7 @@ namespace Scratch {
             var vp = new Granite.Widgets.ThinPaned ();
             vp.orientation = Orientation.VERTICAL;
             vp.position = 1500; // FIXME: what a bad solution
-    
+
             hp1.pack1 (sidebar, true, false);
             hp1.pack2 (split_view, true, false);
             hp2.pack1 (hp1, true, false);
@@ -229,19 +230,21 @@ namespace Scratch {
             main_box.pack_start (vp, false, true, 0);
             this.add (main_box);
 
-            // Show/Hide widgets    
+            // Show/Hide widgets
             show_all ();
+
+            this.search_manager.visible = false;
+
             main_actions.get_action ("SaveFile").visible = !settings.autosave;
             main_actions.get_action ("Templates").visible = plugins.plugin_iface.template_manager.template_available;
             plugins.plugin_iface.template_manager.notify["template_available"].connect ( () => {
                 main_actions.get_action ("Templates").visible = plugins.plugin_iface.template_manager.template_available;
             });
-            
+
             // Show welcome by default
             this.split_view.show_welcome ();
-            
+
             // Plugins hook
-            
             HookFunc hook_func = () => {
                 plugins.hook_window (this);
                 plugins.hook_toolbar (this.toolbar);
@@ -259,7 +262,6 @@ namespace Scratch {
                 hook_func ();
             });
             hook_func ();
-            
         }
 
         protected override bool delete_event (Gdk.EventAny event) {
@@ -270,7 +272,6 @@ namespace Scratch {
         // Set sensitive property for 'delicate' Widgets/GtkActions while
         private void set_widgets_sensitive (bool val) {
             // SearchManager's stuffs
-            this.search_manager.visible = val;
             main_actions.get_action ("Fetch").sensitive = val;
             // Toolbar Actions
             main_actions.get_action ("SaveFile").sensitive = val;
@@ -303,7 +304,7 @@ namespace Scratch {
         public Scratch.Widgets.DocumentView? add_view () {
             return split_view.add_view ();
         }
-        
+
         // Open a document
         public void open_document (Scratch.Services.Document doc) {
             Scratch.Widgets.DocumentView? view = null;
@@ -313,17 +314,17 @@ namespace Scratch {
             }
             else {
                 view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
-                if (view == null) 
+                if (view == null)
                     view = this.split_view.current_view;
                 view.open_document (doc);
             }
         }
-        
+
         // Return true if there are no documents
         public bool is_empty () {
             return split_view.is_empty ();
         }
-        
+
         // Check if there no unsaved changes
         private bool check_unsaved_changes () {
             if (!is_empty ()) {
@@ -337,7 +338,7 @@ namespace Scratch {
             }
             return true;
         }
-        
+
         // Save windows size and state
         private void restore_saved_state () {
 
@@ -370,7 +371,7 @@ namespace Scratch {
             }
 
         }
-        
+
         // Update files-opened settings key
         void update_opened_files () {
             // File list
@@ -378,18 +379,18 @@ namespace Scratch {
             this.split_view.views.foreach ((view) => {
                 docs.concat (view.docs.copy ());
             });
-            
+
             string[] opened_files = { "" };//new string[docs.length ()];
             docs.foreach ((doc) => {
                 if (doc.file != null)
                     opened_files += doc.file.get_uri ();
             });
-            
-            // Update the opened-files setting 
+
+            // Update the opened-files setting
             if (settings.show_at_start == "last-tabs")
                settings.schema.set_strv ("opened-files", opened_files);
         }
-        
+
         // Actions functions
         void action_preferences () {
             var dialog = new Scratch.Dialogs.Preferences ();
@@ -481,6 +482,7 @@ namespace Scratch {
             var doc = this.get_current_document ();
             this.search_manager.search_entry.text = doc.get_selected_text ();
             this.search_manager.search_entry.grab_focus ();
+            this.search_manager.visible = !this.search_manager.visible;
         }
 
         void action_go_to () {
@@ -494,12 +496,12 @@ namespace Scratch {
         // Actions array
         static const Gtk.ActionEntry[] main_entries = {
             { "Fetch", Gtk.Stock.FIND,
-          /* label, accelerator */       N_("Find..."), "<Control>f",
-          /* tooltip */                  N_("Find..."),
+          /* label, accelerator */       N_("Find…"), "<Control>f",
+          /* tooltip */                  N_("Find…"),
                                          action_fetch },
            { "ShowGoTo", Gtk.Stock.OK,
-          /* label, accelerator */       N_("Go to line..."), "<Control>i",
-          /* tooltip */                  N_("Go to line..."),
+          /* label, accelerator */       N_("Go to line…"), "<Control>i",
+          /* tooltip */                  N_("Go to line…"),
                                          action_go_to },
            { "Quit", Gtk.Stock.QUIT,
           /* label, accelerator */       N_("Quit"), "<Control>q",

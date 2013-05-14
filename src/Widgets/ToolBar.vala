@@ -30,6 +30,7 @@ namespace Scratch.Widgets {
         public ToolButton undo_button;
         public ToolButton repeat_button;
         public ToolButton revert_button;
+        public ToolButton find_button;
         
         public Gtk.Menu share_menu;
         public Gtk.Menu menu;
@@ -49,6 +50,7 @@ namespace Scratch.Widgets {
             undo_button = main_actions.get_action ("Undo").create_tool_item() as Gtk.ToolButton;
             repeat_button = main_actions.get_action ("Redo").create_tool_item() as Gtk.ToolButton;
             revert_button = main_actions.get_action ("Revert").create_tool_item() as Gtk.ToolButton;
+            find_button = main_actions.get_action ("Fetch").create_tool_item() as Gtk.ToolButton;
             
             // Create Share and AppMenu
             share_menu = new Gtk.Menu ();
@@ -87,6 +89,7 @@ namespace Scratch.Widgets {
             add (undo_button);
             add (repeat_button);
             add (new SeparatorToolItem ());
+            add (find_button);
             add_spacer ();
             add (share_app_menu);
   
