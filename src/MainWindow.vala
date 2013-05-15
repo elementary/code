@@ -482,11 +482,20 @@ namespace Scratch {
             var doc = this.get_current_document ();
             this.search_manager.search_entry.text = doc.get_selected_text ();
             this.search_manager.search_entry.grab_focus ();
-            this.search_manager.visible = !this.search_manager.visible;
+            toggle_searchbar ();
         }
 
         void action_go_to () {
             this.search_manager.go_to_entry.grab_focus ();
+            toggle_searchbar ();
+        }
+
+        void toggle_searchbar () {
+            this.search_manager.visible = !this.search_manager.visible;
+            this.toolbar.find_button.set_tooltip_text (
+                (this.search_manager.visible)
+                ? _("Hide searchbar")
+                : main_actions.get_action ("Fetch").tooltip);
         }
 
         void action_templates () {
