@@ -89,8 +89,8 @@ namespace Scratch.Widgets {
             add (undo_button);
             add (repeat_button);
             add (new SeparatorToolItem ());
-            add_spacer ();
             add (find_button);
+            add_spacer ();
             add (share_app_menu);
 
             // Show/Hide widgets
