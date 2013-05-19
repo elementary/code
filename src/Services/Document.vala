@@ -48,10 +48,10 @@ namespace Scratch.Services {
 
         // Zeitgeist integration
         private ZeitgeistLogger zg_log = new ZeitgeistLogger();
-        
+
         // Delegates
         public delegate void VoidFunc ();
-        
+
         public Document (File? file = null) {
             this.file = file;
 
@@ -77,7 +77,7 @@ namespace Scratch.Services {
                 this.saved = true;
                 return true;
             }
-            
+
             // If it does not exists, let's create it!
             if (!exists ()) {
                 try {
@@ -86,7 +86,7 @@ namespace Scratch.Services {
                     warning ("Cannot create file \"%s\": %s", get_basename (), e.message);
                 }
             }
-            
+
             // Start loading
             this.working = true;
             message ("Opening \"%s\"", get_basename ());
@@ -94,8 +94,8 @@ namespace Scratch.Services {
             // Load file's content
             FileHandler.load_content_from_file.begin (file, (obj, res) => {
                 var text = FileHandler.load_content_from_file.end (res);
-                // Convert non-UTF8 text in UTF8 
-                if (!text.validate()) 
+                // Convert non-UTF8 text in UTF8
+                if (!text.validate())
                     text = file_content_to_utf8 (file, text);
                 this.source_view.set_text (text);
                 this.last_saved_content = this.source_view.buffer.text;
@@ -133,13 +133,13 @@ namespace Scratch.Services {
 
             // Stop loading
             this.working = false;
-            
+
             // Zeitgeist integration
             zg_log.open_insert (file.get_uri (), get_mime_type ());
 
             // Grab focus
             this.source_view.grab_focus ();
-            
+
             doc_opened ();
 
             return true;
@@ -190,7 +190,7 @@ namespace Scratch.Services {
                 }
                 dialog.destroy ();
             }
-debug ("");
+
             if (file != null) {
                 // Delete backup copy file
                 delete_backup ();
@@ -204,11 +204,11 @@ debug ("");
         public bool save () {
             // Create backup copy file if it does not still exist
             create_backup ();
-            
+
             // Show save as dialog if file is null
             if (this.file == null)
                 return this.save_as ();
-            
+
             // Replace old content with the new one
             try {
                 string s;
@@ -225,16 +225,16 @@ debug ("");
             FileHandler.load_content_from_file.begin (file, (obj, res) => {
                 this.last_saved_content = FileHandler.load_content_from_file.end (res);
             });
-            
+
             message ("File \"%s\" saved succefully", get_basename ());
 
             return true;
         }
-        
+
         public bool save_as () {
             // New file
             var filech = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.SAVE, _("Save File"));
-            
+
             if (filech.run () == Gtk.ResponseType.ACCEPT) {
                 this.file = File.new_for_uri (filech.get_file ().get_uri ());
                 filech.destroy ();
@@ -242,19 +242,19 @@ debug ("");
             else {
                 filech.destroy ();
                 return false;
-            }  
-            
+            }
+
             save ();
 
             // Change syntax highlight
-            this.source_view.change_syntax_highlight_from_file (this.file);    
-            
+            this.source_view.change_syntax_highlight_from_file (this.file);
+
             // Change label
             this.label = get_basename ();
-            
+
             return true;
         }
-        
+
         public bool move (File new_dest) {
             // Zeitgeist integration
             zg_log.move_insert (file.get_uri (), new_dest.get_uri (), get_mime_type ());
@@ -380,17 +380,17 @@ debug ("");
             this.last_saved_content = original_content;
             check_undoable_actions ();
         }
-        
+
         // Get text
         public string get_text () {
             return this.source_view.buffer.text;
         }
-        
+
         // Get selcted text
         public string get_selected_text () {
             return this.source_view.get_selected_text ();
         }
-        
+
         // Get language name
         public string get_language_name () {
             var lang = this.source_view.buffer.language;
@@ -399,16 +399,16 @@ debug ("");
             else
                 return "";
         }
-        
+
         // Get language id
         public string get_language_id () {
             var lang = this.source_view.buffer.language;
             if (lang != null)
                 return lang.id;
-            else  
+            else
                 return "";
         }
-        
+
         // Duplicate selected text
         public void duplicate_selection () {
             this.source_view.duplicate_selection ();
@@ -484,7 +484,7 @@ debug ("");
         private void create_backup () {
             if (!can_write ())
                 return;
-            
+
             var backup = File.new_for_path (this.file.get_path () + "~");
 
             if (!backup.query_exists ()) {
@@ -498,6 +498,8 @@ debug ("");
 
         private void delete_backup () {
             var backup = File.new_for_path (this.file.get_path () + "~");
+            if (!backup.query_exists ())
+                return;
             try {
                 backup.delete ();
             } catch (Error e) {
