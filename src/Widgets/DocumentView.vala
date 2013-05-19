@@ -76,7 +76,7 @@ namespace Scratch.Widgets {
             });
             
             this.notebook.current = doc;
-            this.docs.append (doc);
+            add_document (doc);
         }
         
         public void open_document (Document doc) {
@@ -110,20 +110,20 @@ namespace Scratch.Widgets {
             doc.focus ();
             
             this.notebook.current = doc;
-            this.docs.append (doc);
+            add_document (doc);
         }
         
         public void close_document (Document doc) {
             this.notebook.remove_tab (doc);
             doc.close ();
-            this.docs.remove (doc);
+            remove_document (doc);
         }
         
         private bool close_document_from_tab (Document doc, Granite.Widgets.Tab closing_tab) {
             // Close the Document object too
             if (closing_tab == doc) {
                 bool ret_value = doc.close ();
-                this.docs.remove (doc);
+                remove_document (doc);
                 // Check if the view is empty
                 if (this.notebook.get_children ().length () <= 1)
                     empty ();
@@ -131,6 +131,30 @@ namespace Scratch.Widgets {
             }
             else
                 return true;
+        }
+        
+        private void add_document (Document doc) {
+            this.docs.append (doc);
+            // Update the opened-files setting
+            if (settings.show_at_start == "last-tabs" && doc.file != null) {
+                var files = settings.schema.get_strv ("opened-files");
+                files += doc.file.get_uri ();
+                settings.schema.set_strv ("opened-files", files);
+            }
+        }
+        
+        private void remove_document (Document doc) {
+            this.docs.remove (doc);
+            // Update the opened-files setting
+            if (settings.show_at_start == "last-tabs") {
+                var files = settings.schema.get_strv ("opened-files");
+                string[] opened = { "" };
+                foreach (var file in files) {
+                    if (file != doc.file.get_uri ())
+                        opened += file;
+                }
+                settings.schema.set_strv ("opened-files", opened);
+            }
         }
         
         public Document? get_current_document () {
