@@ -72,9 +72,11 @@ namespace Scratch.Services {
                 });
                 this.source_view.buffer.changed.connect (() => {
                     check_undoable_actions ();
-                    this.saved = false;
+                    // If it wasn't yet saved
+                    if (file == null)
+                        this.set_saved_status (false);
                 });
-                this.saved = true;
+                this.set_saved_status (true);
                 return true;
             }
 
@@ -117,7 +119,7 @@ namespace Scratch.Services {
                         });
                     }
                     else if (!settings.autosave || file == null)
-                        this.saved = false;
+                        this.set_saved_status (false);
                 });
                 // Focus in event for SourceView
                 this.source_view.focus_in_event.connect (() => {
@@ -221,7 +223,7 @@ namespace Scratch.Services {
             zg_log.save_insert (file.get_uri (), get_mime_type ());
 
             doc_saved ();
-            this.saved = true;
+            this.set_saved_status (true);
             FileHandler.load_content_from_file.begin (file, (obj, res) => {
                 this.last_saved_content = FileHandler.load_content_from_file.end (res);
             });
@@ -479,7 +481,21 @@ namespace Scratch.Services {
             main_actions.get_action ("Redo").sensitive = this.source_view.buffer.can_redo;
             main_actions.get_action ("Revert").sensitive = (file != null && original_content != source_view.buffer.text);
         }
-
+        
+        // Set saved status
+        public void set_saved_status (bool val) {
+            this.saved = val;
+            
+            string unsaved_identifier = "* ";
+            
+            if (!val) {
+                if (!(unsaved_identifier in this.label))
+                    this.label = unsaved_identifier + this.label;
+            }
+            else
+                this.label = this.label.replace (unsaved_identifier, "");
+        }
+        
         // Backup functions
         private void create_backup () {
             if (!can_write ())
