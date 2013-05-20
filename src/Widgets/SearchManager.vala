@@ -28,7 +28,6 @@ namespace Scratch.Widgets {
         private Gtk.ToolItem tool_go_to_entry;
         private Gtk.ToolItem tool_arrow_up;
         private Gtk.ToolItem tool_arrow_down;
-        private Gtk.ToolButton tool_close_button;
 
         public Granite.Widgets.SearchBar search_entry;
         public Granite.Widgets.SearchBar replace_entry;
@@ -100,7 +99,6 @@ namespace Scratch.Widgets {
             tool_go_to_label = new Gtk.ToolItem ();
             tool_go_to_label.set_margin_right (5);
             tool_go_to_entry = new Gtk.ToolItem ();
-            tool_close_button = new Gtk.ToolButton.from_stock ("gtk-close");
             
             // Populate GtkToolItems
             tool_search_entry.add (search_entry);
@@ -114,7 +112,6 @@ namespace Scratch.Widgets {
             search_entry.changed.connect (on_search_entry_text_changed);
             search_entry.key_press_event.connect (on_search_entry_key_press);
             search_entry.focus_in_event.connect (on_search_entry_focused_in);
-            tool_close_button.clicked.connect (() => { need_hide (); });
             go_to_entry.activate.connect (on_go_to_entry_activate);
             replace_entry.activate.connect (on_replace_entry_activate);
 
@@ -136,7 +133,6 @@ namespace Scratch.Widgets {
             this.add (spacer);
             this.add (tool_go_to_label);
             this.add (tool_go_to_entry);
-            
         }
 
         public void set_text_view (Scratch.Widgets.SourceView? text_view) {

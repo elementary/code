@@ -90,6 +90,7 @@ namespace Scratch {
                     warning ("%s", reg_err.message);
                 }
             });
+
         }
 
         private void init_actions () {
@@ -231,6 +232,9 @@ namespace Scratch {
 
             // Show/Hide widgets
             show_all ();
+
+            this.search_manager.visible = false;
+
             main_actions.get_action ("SaveFile").visible = !settings.autosave;
             main_actions.get_action ("Templates").visible = plugins.plugin_iface.template_manager.template_available;
             plugins.plugin_iface.template_manager.notify["template_available"].connect ( () => {
@@ -241,7 +245,6 @@ namespace Scratch {
             this.split_view.show_welcome ();
 
             // Plugins hook
-
             HookFunc hook_func = () => {
                 plugins.hook_window (this);
                 plugins.hook_toolbar (this.toolbar);
@@ -270,8 +273,11 @@ namespace Scratch {
         // Set sensitive property for 'delicate' Widgets/GtkActions while
         private void set_widgets_sensitive (bool val) {
             // SearchManager's stuffs
-            this.search_manager.visible = val;
             main_actions.get_action ("Fetch").sensitive = val;
+            main_actions.get_action ("ShowGoTo").sensitive = val;
+            main_actions.get_action ("ShowReplace").sensitive = val;
+            if (val == false)
+                this.search_manager.visible = false;
             // Toolbar Actions
             main_actions.get_action ("SaveFile").sensitive = val;
             main_actions.get_action ("Undo").sensitive = val;
@@ -478,13 +484,33 @@ namespace Scratch {
         }
 
         void action_fetch () {
-            var doc = this.get_current_document ();
-            this.search_manager.search_entry.text = doc.get_selected_text ();
-            this.search_manager.search_entry.grab_focus ();
+            if (toggle_searchbar ()) {
+                var selected_text = this.get_current_document ().get_selected_text ();
+                if (selected_text != "")
+                    this.search_manager.search_entry.text = selected_text;
+                this.search_manager.search_entry.grab_focus ();
+            }
         }
 
         void action_go_to () {
-            this.search_manager.go_to_entry.grab_focus ();
+            if (toggle_searchbar ()) {
+                this.search_manager.go_to_entry.grab_focus ();
+            }
+        }
+
+        bool toggle_searchbar () {
+            if (!this.search_manager.visible ||
+                 this.search_manager.search_entry.has_focus ||
+                 this.search_manager.replace_entry.has_focus ||
+                 this.search_manager.go_to_entry.has_focus) {
+            
+                this.search_manager.visible = !this.search_manager.visible;
+                this.toolbar.find_button.set_tooltip_text (
+                    (this.search_manager.visible)
+                    ? _("Hide search bar")
+                    : main_actions.get_action ("Fetch").tooltip);
+            }
+            return this.search_manager.visible;
         }
 
         void action_templates () {
@@ -494,12 +520,12 @@ namespace Scratch {
         // Actions array
         static const Gtk.ActionEntry[] main_entries = {
             { "Fetch", Gtk.Stock.FIND,
-          /* label, accelerator */       N_("Find..."), "<Control>f",
-          /* tooltip */                  N_("Find..."),
+          /* label, accelerator */       N_("Find…"), "<Control>f",
+          /* tooltip */                  N_("Find…"),
                                          action_fetch },
            { "ShowGoTo", Gtk.Stock.OK,
-          /* label, accelerator */       N_("Go to line..."), "<Control>i",
-          /* tooltip */                  N_("Go to line..."),
+          /* label, accelerator */       N_("Go to line…"), "<Control>i",
+          /* tooltip */                  N_("Go to line…"),
                                          action_go_to },
            { "Quit", Gtk.Stock.QUIT,
           /* label, accelerator */       N_("Quit"), "<Control>q",
