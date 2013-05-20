@@ -35,18 +35,18 @@ public class Scratch.Templates.Granite : Scratch.Template {
         
         var destination = new Gtk.Label (GLib.Environment.get_home_dir ());
         destination.sensitive = false;
-        file_chooser_button = new Gtk.FileChooserButton ("Create a project", Gtk.FileChooserAction.SELECT_FOLDER);
+        file_chooser_button = new Gtk.FileChooserButton (_("Create a project"), Gtk.FileChooserAction.SELECT_FOLDER);
         
         grid.attach (destination, 0, 2, 1, 1);
         grid.attach (file_chooser_button, 1, 2, 1, 1);
 
-        var create_button = new Gtk.Button.with_label ("Create!");
+        var create_button = new Gtk.Button.with_label (_("Create"));
         grid.attach (create_button, 1, 3, 1, 1);
         create_button.clicked.connect (on_create_clicked);
         return grid;
     }
 
-    void on_create_clicked () {
+    private void on_create_clicked () {
         var variables = new Gee.HashMap<string, string> ();
         var low = project_name.text.down ().replace(" ", "-");
         variables.set ("LOWER_CASE_NAME", low);
@@ -55,8 +55,13 @@ public class Scratch.Templates.Granite : Scratch.Template {
         variables.set ("DESCRIPTION", project_name.text);
         variables.set ("AUTHORS", "elementary Developers");
         variables.set ("CATEGORIES", "development");
+        
         string path = Constants.PLUGINDIR + "elementary-templates";
         configure_template (path + "/granite/", file_chooser_button.get_filename () + "/" + low + "/", variables);
+        
+        var file = File.new_for_path (file_chooser_button.get_filename () + "/" + low);
+        loaded (file);
+        
         grid.get_parent ().destroy ();
     }
 }

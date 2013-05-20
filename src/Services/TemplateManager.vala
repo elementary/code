@@ -21,7 +21,10 @@
 using Gtk;
 
 public abstract class Scratch.Template : Object {
+    
     public abstract Gtk.Widget get_creation_box ();
+    public abstract signal void loaded (File file);
+    
     public static void configure_template (string origin, string destination, Gee.HashMap<string, string> variables) {
         debug ("Origin: %s, destination: %s\n", origin, destination);
         
@@ -138,6 +141,7 @@ public class Scratch.TestTemplate : Template {
     public override Gtk.Widget get_creation_box () {
         return new Gtk.Label("Test");
     }
+    
 }
 
 public class TemplateButton : Button {
@@ -218,6 +222,8 @@ public class Scratch.TemplateManager : GLib.Object {
     
     public bool template_available = false;
     
+    public signal void template_loaded (Template template, File file);
+    
     public TemplateManager () {
         dialog = new Granite.Widgets.LightWindow (_("Templates"));
         
@@ -263,6 +269,9 @@ public class Scratch.TemplateManager : GLib.Object {
             if (parent != null) window.set_transient_for ((Gtk.Window)parent);
             window.add (current_template.get_creation_box ());
             window.show_all ();
+            current_template.loaded.connect ((file) => {
+                template_loaded (current_template, file);
+            });
         });
         
         template_available = true;
