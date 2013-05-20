@@ -100,7 +100,7 @@ namespace Scratch.Services {
                 if (!text.validate())
                     text = file_content_to_utf8 (file, text);
                 this.source_view.set_text (text);
-                this.last_saved_content = this.source_view.buffer.text;
+                this.last_saved_content = text;
                 this.original_content = text;
                 // Signals for SourceView
                 uint timeout_saving = -1;
@@ -121,15 +121,16 @@ namespace Scratch.Services {
                     else if (!settings.autosave || file == null)
                         this.set_saved_status (false);
                 });
-                // Focus in event for SourceView
-                this.source_view.focus_in_event.connect (() => {
-                    main_actions.get_action ("SaveFile").visible = !(settings.autosave);
-                    check_file_status ();
-                    check_undoable_actions ();
-                    return false;
-                });
             });
-
+            
+            // Focus in event for SourceView
+            this.source_view.focus_in_event.connect (() => {
+                main_actions.get_action ("SaveFile").visible = !(settings.autosave);
+                check_file_status ();
+                check_undoable_actions ();
+                return false;
+            });
+            
             // Change syntax highlight
             this.source_view.change_syntax_highlight_from_file (this.file);
 
@@ -451,6 +452,8 @@ namespace Scratch.Services {
                 // Detect external changes
                 FileHandler.load_content_from_file.begin (file, (obj, res) => {
                     var text = FileHandler.load_content_from_file.end (res);
+                    if (!text.validate())
+                        text = file_content_to_utf8 (file, text);
                     // Reload automatically if auto save is ON
                     if (last_saved_content != null && text != last_saved_content) {
                         if (settings.autosave)
