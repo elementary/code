@@ -39,23 +39,23 @@ install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/scratch-ui.xml DESTINATION share/scra
 #####
 
 # Bild library for plugins
+set (LIBS ${DEPS_LIBRARIES} -lm)
+set (LIB_PATHS ${DEPS_LIBRARY_DIRS})
+link_directories (${LIB_PATHS})
+
+set (LIB_FILES ${C_SOURCES} ${VALA_C})
+
 add_library (${LIBNAME} SHARED
-    ${VALA_C}
+    ${LIB_FILES}
 )
 
-if(BUILD_STATIC MATCHES "Yes")
-add_library (${LIBNAME}-static STATIC ${VALA_C})
-set_target_properties (${PKGNAME}-static PROPERTIES OUTPUT_NAME ${LIBNAME})
-install (TARGETS ${LIBNAME}-static DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/)
-endif(BUILD_STATIC MATCHES "Yes")
+target_link_libraries (${LIBNAME} ${LIBS})
 
 set_target_properties (${LIBNAME} PROPERTIES
-    VERSION ${LIBVERSION}
-    SOVERSION ${SOVERSION}
-)
+    VERSION ${LIBVERSION}.0
+    SOVERSION ${SOVERSION})
 
-add_dependencies(scratch-text-editor scratchcore)
-target_link_libraries (scratch-text-editor scratchcore)
+install (TARGETS ${LIBNAME} DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
 
 # Install lib stuffs
 install (FILES ${CMAKE_BINARY_DIR}/src/${LIBNAME}.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig/)
