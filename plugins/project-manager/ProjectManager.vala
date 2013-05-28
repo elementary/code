@@ -22,7 +22,6 @@ namespace Scratch.Plugins {
 
     public class ProjectManagerPlugin : Peas.ExtensionBase, Peas.Activatable {
 
-        Gtk.Notebook? sidebar = null;
         ProjectManager.FileView view;
         Gtk.ToolButton tool_button;
         
@@ -70,11 +69,11 @@ namespace Scratch.Plugins {
             
             //(toolbar as Scratch.Widgets.Toolbar).open_button.visible = false;
             var icon = new Gtk.Image.from_icon_name ("folder-saved-search", Gtk.IconSize.LARGE_TOOLBAR);
-            tool_button = new Gtk.ToolButton (icon, _("Open a project"));
-            tool_button.tooltip_text = _("Open a project");
+            tool_button = new Gtk.ToolButton (icon, _("Open a folder"));
+            tool_button.tooltip_text = _("Open a folder");
             tool_button.clicked.connect (() => {
                 Gtk.FileChooserDialog chooser = new Gtk.FileChooserDialog (
-                    "Select a project folder.", null, Gtk.FileChooserAction.SELECT_FOLDER,
+                    "Select a folder.", null, Gtk.FileChooserAction.SELECT_FOLDER,
                     Gtk.Stock.CANCEL, Gtk.ResponseType.CANCEL,
                     Gtk.Stock.OPEN, Gtk.ResponseType.ACCEPT);
                 chooser.select_multiple = true;

@@ -40,7 +40,7 @@ namespace ProjectManager {
             settings = new Settings ();
 
             settings.opened_projects.foreach ((project) => {
-                add_project (project);
+                add_project (project, false);
             });
 
             this.set_sort_func ((a, b) => {
@@ -50,13 +50,13 @@ namespace ProjectManager {
 
         public void open_project (File project) {
             if (settings.add_project (project))
-                add_project (project);
+                add_project (project, true);
         }
 
-        private void add_project (File project) {
+        private void add_project (File project, bool expand) {
             var project_root = new ProjectItem (project);
             this.root.add (project_root);
-            project_root.expanded = false;
+            project_root.expanded = expand;
             project_root.closed.connect (() => {
                 settings.remove_project (project);
                 root.remove (project_root);

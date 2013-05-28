@@ -35,9 +35,6 @@ namespace ProjectManager {
 
         public File (string path) {
             file = GLib.File.new_for_path (path);
-            if (!exists) {
-                critical (@"File '$path' does not exist");
-            }
         }
 
         // returns the path the file

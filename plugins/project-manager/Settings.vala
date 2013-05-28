@@ -45,8 +45,16 @@ namespace ProjectManager {
                 settings =  new GLib.Settings.full (schema, null, null);
                 _opened_projects = new GLib.List <File> ();
                 foreach (var path in settings.get_strv ("opened-projects")) {
-                    _opened_projects.append (new File (path));
+                    var project = new File (path);
+                    if (is_open (project)) {
+                        warning ("Project is already open '%s'", project.path);
+                    } else if (!project.is_valid_directory) {
+                        warning ("Failed to open invalid directory '%s'", project.path);
+                    } else {
+                        _opened_projects.append (project);
+                    }
                 }
+                write_data (); 
             }
         }
 
