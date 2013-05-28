@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+    <schema path="/org/pantheon/scratch/plugins/project-manager/" id="org.pantheon.scratch.plugins.project-manager" gettext-domain="scratch">
+        <key name="opened-projects" type="as">
+            <default>[]</default>
+            <summary>Opened project folders.</summary>
+            <description>Additionnal project folders outside the main project folder.</description>
+        </key>
+    </schema>
+</schemalist>
