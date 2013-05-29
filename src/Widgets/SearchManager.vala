@@ -34,6 +34,7 @@ namespace Scratch.Widgets {
         public Gtk.SpinButton go_to_entry;
         private Gtk.Adjustment go_to_adj;
         
+        private Gtk.ToolButton replace_tool_button;        
 
         private Scratch.Widgets.SourceView? text_view = null;
         private Gtk.TextBuffer? text_buffer = null;
@@ -100,6 +101,10 @@ namespace Scratch.Widgets {
             tool_go_to_label.set_margin_right (5);
             tool_go_to_entry = new Gtk.ToolItem ();
             
+            // Replace GtkToolButton
+            replace_tool_button = new Gtk.ToolButton.from_stock (Gtk.Stock.FIND_AND_REPLACE);
+            replace_tool_button.clicked.connect (on_replace_entry_activate);
+            
             // Populate GtkToolItems
             tool_search_entry.add (search_entry);
             tool_arrow_up.add (next);
@@ -129,6 +134,7 @@ namespace Scratch.Widgets {
             this.add (tool_arrow_down);
             this.add (tool_arrow_up);
             this.add (tool_replace_entry);
+            this.add (replace_tool_button);
             var spacer = new Gtk.ToolItem ();
             spacer.set_expand (true);
             this.add (spacer);
