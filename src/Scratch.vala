@@ -37,7 +37,6 @@ namespace Scratch {
         public MainWindow window = null;
         static string app_cmd_name;
         static bool new_instance = false;
-        static bool new_document = false;
         
         construct {
 
@@ -86,7 +85,7 @@ namespace Scratch {
             if(new_instance)
                 flags |= ApplicationFlags.NON_UNIQUE;
             set_flags (flags);
-            
+
             // Init settings
             saved_state = new SavedState ();
             settings = new Settings ();
@@ -120,9 +119,6 @@ namespace Scratch {
             } else {
                 window.present ();
             }
-            
-            if (new_document)
-                main_actions.get_action ("NewTab").activate ();
 
         }
         
@@ -139,6 +135,8 @@ namespace Scratch {
                 view = window.get_current_view ();
             
             for (int i = 0; i < files.length; i++) {
+                if (files[i].get_basename () == "--new-tab")
+                    main_actions.get_action ("NewTab").activate ();
                 // Check if the given path is a directory
                 try {
                     var info = files[i].query_info ("standard::*", FileQueryInfoFlags.NONE, null);
@@ -157,7 +155,6 @@ namespace Scratch {
         static const OptionEntry[] entries = {
             { "set", 's', 0, OptionArg.STRING, ref app_cmd_name, N_("Set of plugins"), "" },
             { "new-instance", 'n', 0, OptionArg.NONE, ref new_instance, N_("Create a new instance"), null },
-            { "new-document", 't', 0, OptionArg.NONE, ref new_document, N_("Create a new document"), null },
             { null }
         };
 
