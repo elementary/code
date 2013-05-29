@@ -25,6 +25,7 @@ namespace ProjectManager {
     internal class File : GLib.Object {
 
         public GLib.File file;
+        private GLib.FileInfo info;
 
         private enum Type {
             VALID_FILE,
@@ -35,6 +36,20 @@ namespace ProjectManager {
 
         public File (string path) {
             file = GLib.File.new_for_path (path);
+
+            info = new FileInfo ();
+            try {
+                info = file.query_info (
+                    GLib.FileAttribute.STANDARD_CONTENT_TYPE + "," +
+                    GLib.FileAttribute.STANDARD_IS_BACKUP + "," +
+                    GLib.FileAttribute.STANDARD_IS_HIDDEN + "," +
+                    GLib.FileAttribute.STANDARD_DISPLAY_NAME + "," +
+                    GLib.FileAttribute.STANDARD_TYPE,
+                    FileQueryInfoFlags.NONE);
+            } catch (GLib.Error error) {
+                info = null;
+                warning (error.message);
+            }
         }
 
         // returns the path the file
@@ -46,7 +61,7 @@ namespace ProjectManager {
         // returns the basename of the file
         string _name = null;
         public string name {
-            get { return _name != null ? _name : _name = file.get_basename (); }
+            get { return _name != null ? _name : _name = info.get_display_name (); }
         }
 
         // returns the icon of the file's content type
@@ -55,13 +70,7 @@ namespace ProjectManager {
             get {
                 if (_icon != null)
                     return _icon;
-                var info = new FileInfo ();
-                try {
-                    info = file.query_info ("standard::*", 0);
-                } catch (GLib.Error error) {
-                    warning (error.message);
-                    return (GLib.Icon) null;
-                }
+
                 return _icon = GLib.ContentType.get_icon (info.get_content_type ());
             }
         }
@@ -81,29 +90,21 @@ namespace ProjectManager {
                     return true;
                 if (_type == Type.INVALID)
                     return false;
-                    
-                var info = new FileInfo ();
-                try {
-                    info = file.query_info ("standard::*", 0);
-                } catch (GLib.Error error) {
-                    warning (error.message);
-                    _type = Type.INVALID;
-                    return false;
-                }
 
-                if (file.query_file_type (FileQueryInfoFlags.NONE) != FileType.DIRECTORY ||
+                if (info.get_file_type () != FileType.DIRECTORY ||
                     info.get_is_hidden () || info.get_is_backup ()) {
                     return false;
                 }
-                
+
                 bool has_valid_children = false;
+
                 foreach (var child in children) {
                     if (child.is_valid_textfile) {
                         _type = Type.VALID_FOLDER;
                         return has_valid_children = true;
                     }
                 }
-                
+
                 foreach (var child in children) {
                     if (child.is_valid_directory) {
                         has_valid_children = true;
@@ -125,22 +126,15 @@ namespace ProjectManager {
                     return false;
                 if (_type == Type.INVALID)
                     return false;
-                    
-                var info = new FileInfo ();
-                try {
-                    info = file.query_info ("standard::*", 0);
-                } catch (GLib.Error error) {
-                    warning (error.message);
-                    _type = Type.INVALID;
-                    return false;
-                }
-                if (file.query_file_type (FileQueryInfoFlags.NONE) == FileType.REGULAR &&
+
+                if (info.get_file_type () == FileType.REGULAR &&
                     ContentType.is_a (info.get_content_type (), "text/*") &&
                     !info.get_is_backup () &&
                     !info.get_is_hidden ()) {
                     _type = Type.VALID_FILE;
                     return true;
                 }
+
                 return false;
             }
         }
@@ -154,7 +148,10 @@ namespace ProjectManager {
 
                 var parent = GLib.File.new_for_path (file.get_path ());
                 try {
-                    var enumerator = parent.enumerate_children ("standard::*", 0);
+                    var enumerator = parent.enumerate_children (
+                        GLib.FileAttribute.STANDARD_NAME,
+                        FileQueryInfoFlags.NONE
+                    );
 
                     var file_info = new FileInfo ();
                     while ((file_info = enumerator.next_file ()) != null) {
@@ -176,7 +173,7 @@ namespace ProjectManager {
             _children = null;
             _type = Type.UNKNOWN;
         }
-        
+
         public static int compare (File a, File b) {
             if (a.is_valid_directory && b.is_valid_textfile)
                 return -1;

@@ -15,7 +15,7 @@ PACKAGES
     zeitgeist-1.0
 OPTIONS
     --vapidir=${CMAKE_BINARY_DIR}
- 	--vapidir=${CMAKE_BINARY_DIR}/src/
+    --vapidir=${CMAKE_BINARY_DIR}/src/
     --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
 )
 add_library(project-manager MODULE ${VALA_C})
