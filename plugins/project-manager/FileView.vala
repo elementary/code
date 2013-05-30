@@ -31,7 +31,6 @@ namespace ProjectManager {
 
         public FileView () {
             this.width_request = 180;
-            this.get_style_context ().set_junction_sides (Gtk.JunctionSides.BOTTOM);
 
             this.item_selected.connect ((item) => {
                 select ((item as FileItem).path);

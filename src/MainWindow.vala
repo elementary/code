@@ -166,48 +166,18 @@ namespace Scratch {
             // Plugins widgets
             this.sidebar = new Gtk.Notebook ();
             this.sidebar.no_show_all = true;
-            this.sidebar.page_added.connect (() => {
-                this.sidebar.set_show_tabs ((this.sidebar.get_n_pages () > 1));
-                this.sidebar.no_show_all = (this.sidebar.get_n_pages () == 0);
-                this.sidebar.visible = (this.sidebar.get_n_pages () == 0);
-                this.sidebar.show ();
-            });
-            this.sidebar.page_removed.connect (() => {
-                this.sidebar.set_show_tabs ((this.sidebar.get_n_pages () > 1));
-                this.sidebar.no_show_all = (this.sidebar.get_n_pages () == 0);
-                this.sidebar.visible = (this.sidebar.get_n_pages () == 0);
-                this.sidebar.hide ();
-            });
+            this.sidebar.page_added.connect (() => { on_plugin_toggled (sidebar); });
+            this.sidebar.page_removed.connect (() => { on_plugin_toggled (sidebar); });
 
             this.contextbar = new Gtk.Notebook ();
             this.contextbar.no_show_all = true;
-            this.contextbar.page_added.connect (() => {
-                this.contextbar.set_show_tabs ((this.contextbar.get_n_pages () > 1));
-                this.contextbar.no_show_all = (this.contextbar.get_n_pages () == 0);
-                this.contextbar.visible = (this.contextbar.get_n_pages () == 0);
-                this.contextbar.show ();
-            });
-            this.contextbar.page_removed.connect (() => {
-                this.contextbar.set_show_tabs ((this.contextbar.get_n_pages () > 1));
-                this.contextbar.no_show_all = (this.contextbar.get_n_pages () == 0);
-                this.contextbar.visible = (this.contextbar.get_n_pages () == 0);
-                this.contextbar.hide ();
-            });
+            this.contextbar.page_added.connect (() => { on_plugin_toggled (contextbar); });
+            this.contextbar.page_removed.connect (() => { on_plugin_toggled (contextbar); });
 
             this.bottombar = new Gtk.Notebook ();
             this.bottombar.no_show_all = true;
-            this.bottombar.page_added.connect (() => {
-                this.bottombar.set_show_tabs ((this.bottombar.get_n_pages () > 1));
-                this.bottombar.no_show_all = (this.bottombar.get_n_pages () == 0);
-                this.bottombar.visible = (this.bottombar.get_n_pages () == 0);
-                this.bottombar.show ();
-            });
-            this.bottombar.page_removed.connect (() => {
-                this.bottombar.set_show_tabs ((this.bottombar.get_n_pages () > 1));
-                this.bottombar.no_show_all = (this.bottombar.get_n_pages () == 0);
-                this.bottombar.visible = (this.bottombar.get_n_pages () == 0);
-                this.bottombar.hide ();
-            });
+            this.bottombar.page_added.connect (() => { on_plugin_toggled (bottombar); });
+            this.bottombar.page_removed.connect (() => { on_plugin_toggled (bottombar); });
 
             var hp1 = new Granite.Widgets.ThinPaned ();
             hp1.position = 150; // FIXME: what a bad solution
@@ -217,12 +187,12 @@ namespace Scratch {
             vp.orientation = Orientation.VERTICAL;
             vp.position = 1500; // FIXME: what a bad solution
 
-            hp1.pack1 (sidebar, true, false);
+            hp1.pack1 (sidebar, false, false);
             hp1.pack2 (split_view, true, false);
             hp2.pack1 (hp1, true, false);
-            hp2.pack2 (contextbar, true, false);
+            hp2.pack2 (contextbar, false, false);
             vp.pack1 (hp2, true, false);
-            vp.pack2 (bottombar, true, false);
+            vp.pack2 (bottombar, false, false);
 
             // Add everything to the window
             main_box.pack_start (toolbar, false, true, 0);
@@ -263,6 +233,13 @@ namespace Scratch {
             });
             hook_func ();
 
+        }
+
+         private void on_plugin_toggled (Gtk.Notebook notebook) {
+            var pages = notebook.get_n_pages ();
+            notebook.set_show_tabs (pages > 1);
+            notebook.no_show_all = (pages == 0);
+            notebook.visible = (pages > 0);
         }
 
         protected override bool delete_event (Gdk.EventAny event) {
@@ -503,7 +480,7 @@ namespace Scratch {
                  this.search_manager.search_entry.has_focus ||
                  this.search_manager.replace_entry.has_focus ||
                  this.search_manager.go_to_entry.has_focus) {
-            
+
                 this.search_manager.visible = !this.search_manager.visible;
                 this.toolbar.find_button.set_tooltip_text (
                     (this.search_manager.visible)

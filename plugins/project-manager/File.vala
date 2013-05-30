@@ -70,8 +70,9 @@ namespace ProjectManager {
             get {
                 if (_icon != null)
                     return _icon;
-
-                return _icon = GLib.ContentType.get_icon (info.get_content_type ());
+                //var content_type = info.get_attribute_string (FileAttribute.STANDARD_FAST_CONTENT_TYPE);
+                var content_type = info.get_content_type ();
+                return _icon = GLib.ContentType.get_icon (content_type);
             }
         }
 
@@ -127,12 +128,17 @@ namespace ProjectManager {
                 if (_type == Type.INVALID)
                     return false;
 
-                if (info.get_file_type () == FileType.REGULAR &&
-                    ContentType.is_a (info.get_content_type (), "text/*") &&
-                    !info.get_is_backup () &&
-                    !info.get_is_hidden ()) {
-                    _type = Type.VALID_FILE;
-                    return true;
+                
+
+                if (info.get_file_type () == FileType.REGULAR) {
+                    //var content_type = info.get_attribute_string (FileAttribute.STANDARD_FAST_CONTENT_TYPE);
+                    var content_type = info.get_content_type ();
+                    if (ContentType.is_a (content_type, "text/*") &&
+                        !info.get_is_backup () &&
+                        !info.get_is_hidden ()) {
+                        _type = Type.VALID_FILE;
+                        return true;
+                    }
                 }
 
                 return false;
