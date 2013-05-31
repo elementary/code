@@ -230,6 +230,9 @@ namespace Scratch.Widgets {
             if (opening) buffer.begin_not_undoable_action ();
             buffer.text = text;
             if (opening) buffer.end_not_undoable_action ();
+            Gtk.TextIter? start = null;
+            buffer.get_start_iter (out start);
+            buffer.place_cursor (start);
         }
         
     }
