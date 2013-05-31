@@ -24,7 +24,9 @@ namespace Scratch.Plugins {
 
         FolderManager.FileView view;
         Gtk.ToolButton tool_button;
-        
+
+        int index = 0;
+
         Scratch.Services.Interface plugins;
         public Object object { owned get; construct; }
 
@@ -53,23 +55,32 @@ namespace Scratch.Plugins {
         void on_hook_sidebar (Gtk.Notebook notebook) {
             if (view != null)
                 return;
+                
             view = new FolderManager.FileView ();
+            
             view.select.connect ((a) => {
                 var file = GLib.File.new_for_path (a);
                 plugins.open_file (file);
             });
 
-            view.root.child_added.connect (() => { notebook.visible = (view.root.n_children > 0); });
-            view.root.child_removed.connect (() => { notebook.visible = (view.root.n_children > 0); });
-
-            notebook.append_page (view, new Gtk.Label (_("Folder")));
-            view.show_all ();
+            view.root.child_added.connect (() => {
+                if (view.get_n_visible_children (view.root) == 0) {
+                    index = notebook.append_page (view, new Gtk.Label (_("Folders")));
+                }
+            });
+            
+            view.root.child_removed.connect (() => {
+                if (view.get_n_visible_children (view.root) == 1)
+                    notebook.remove_page (index);
+            });
+            
+            view.restore_saved_state ();
         }
 
         void on_hook_toolbar (Gtk.Toolbar toolbar) {
             if (tool_button != null)
                 return;
-            
+
             //(toolbar as Scratch.Widgets.Toolbar).open_button.visible = false;
             var icon = new Gtk.Image.from_icon_name ("folder-saved-search", Gtk.IconSize.LARGE_TOOLBAR);
             tool_button = new Gtk.ToolButton (icon, _("Open a folder"));

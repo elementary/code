@@ -38,12 +38,14 @@ namespace Scratch.Plugins.FolderManager {
 
             settings = new Settings ();
 
-            foreach (var path in settings.opened_folders)
-                add_folder (new File (path), false);
-
             this.set_sort_func ((a, b) => {
                 return File.compare ((a as Item).file, (b as Item).file);
             });
+        }
+
+        public void restore_saved_state () {
+            foreach (var path in settings.opened_folders)
+                add_folder (new File (path), false);
         }
 
         public void open_folder (File folder) {
