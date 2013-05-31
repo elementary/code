@@ -18,7 +18,8 @@
   END LICENSE
 ***/
 
-namespace ProjectManager {
+namespace Scratch.Plugins.FolderManager {
+
     /**
      * Class for easily dealing with files.
      */
@@ -171,7 +172,23 @@ namespace ProjectManager {
                 return _children;
             }
         }
-
+        
+        public void rename (string name) {
+            try {
+                file.set_display_name (name);
+            } catch (GLib.Error error) {
+                warning (error.message);
+            }
+        }
+        
+        public void trash () {
+            try {
+                file.trash ();
+            } catch (GLib.Error error) {
+                warning (error.message);
+            }
+        }
+        
         public void reset_cache () {
             _name = null;
             _path = null;

@@ -20,15 +20,16 @@
 
 namespace Scratch.Plugins {
 
-    public class ProjectManagerPlugin : Peas.ExtensionBase, Peas.Activatable {
+    public class FolderManagerPlugin : Peas.ExtensionBase, Peas.Activatable {
 
-        ProjectManager.FileView view;
+        FolderManager.FileView view;
         Gtk.ToolButton tool_button;
         
         Scratch.Services.Interface plugins;
         public Object object { owned get; construct; }
 
-        public ProjectManagerPlugin () {
+        public FolderManagerPlugin () {
+            message ("Starting Folder Manager Plugin");
         }
 
         public void activate () {
@@ -52,14 +53,16 @@ namespace Scratch.Plugins {
         void on_hook_sidebar (Gtk.Notebook notebook) {
             if (view != null)
                 return;
-            view = new ProjectManager.FileView ();
+            view = new FolderManager.FileView ();
             view.select.connect ((a) => {
                 var file = GLib.File.new_for_path (a);
                 plugins.open_file (file);
             });
 
-            notebook.append_page (view, new Gtk.Label (_("Projects")));
+            view.root.child_added.connect (() => { notebook.visible = (view.root.n_children > 0); });
+            view.root.child_removed.connect (() => { notebook.visible = (view.root.n_children > 0); });
 
+            notebook.append_page (view, new Gtk.Label (_("Folder")));
             view.show_all ();
         }
 
@@ -81,8 +84,8 @@ namespace Scratch.Plugins {
                 if (chooser.run () == Gtk.ResponseType.ACCEPT) {
                     SList<string> uris = chooser.get_uris ();
                     foreach (unowned string uri in uris) {
-                        var project = new ProjectManager.File (uri.replace ("file:///", "/"));
-                        view.open_project (project); // emit signal
+                        var folder = new FolderManager.File (uri.replace ("file:///", "/"));
+                        view.open_folder (folder); // emit signal
                     }
                 }
 
@@ -100,5 +103,5 @@ namespace Scratch.Plugins {
 [ModuleInit]
 public void peas_register_types (GLib.TypeModule module) {
   var objmodule = module as Peas.ObjectModule;
-  objmodule.register_extension_type (typeof (Peas.Activatable), typeof (Scratch.Plugins.ProjectManagerPlugin));
+  objmodule.register_extension_type (typeof (Peas.Activatable), typeof (Scratch.Plugins.FolderManagerPlugin));
 }
