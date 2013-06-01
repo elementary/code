@@ -31,6 +31,10 @@ namespace Scratch.Widgets {
         public SourceLanguageManager manager;
         public SourceStyleSchemeManager style_scheme_manager;
         
+        // Commmon tags
+        public Gtk.TextTag warning_tag;
+        public Gtk.TextTag error_tag;
+        
         // Properties
         private string font;
         
@@ -45,6 +49,13 @@ namespace Scratch.Widgets {
             // Set some settings
             buffer.highlight_syntax = true;
             smart_home_end = SourceSmartHomeEndType.AFTER;
+            
+            // Create common tags
+            this.warning_tag = new Gtk.TextTag ("warning_bg");
+            this.warning_tag.background_rgba = Gdk.RGBA() { red = 1.0, green = 1.0, blue = 0, alpha = 0.8 };
+            
+            this.error_tag = new Gtk.TextTag ("error_bg");
+            this.error_tag.underline = Pango.Underline.ERROR;
             
             // Restore user settings
             restore_settings ();
