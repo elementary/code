@@ -24,7 +24,8 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
     
     GLib.List<Gtk.TextBuffer> buffers;   
     Gtk.TextBuffer current_buffer;
-    
+    string last_inserted;    
+        
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
    
@@ -39,7 +40,13 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
         this.brackets.set ("[", "]");
         this.brackets.set ("{", "}");
         this.brackets.set ("<", ">");
-
+        this.brackets.set ("⟨", "⟩");
+        this.brackets.set ("｢", "｣");
+        this.brackets.set ("⸤", "⸥");
+        this.brackets.set ("‘", "‘");
+        this.brackets.set ("'", "'");
+        this.brackets.set ("\"", "\"");
+        
         plugins = (Scratch.Services.Interface) object;        
         plugins.hook_document.connect ((doc) => {
             var buf = doc.source_view.buffer;
@@ -57,13 +64,17 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
     }
     
     void on_insert_text (ref Gtk.TextIter pos, string new_text, int new_text_length) {
-        if (new_text in this.brackets.keys) {
+        
+        if (new_text in this.brackets.keys && this.last_inserted != new_text) {
             var buf = this.current_buffer;
 
             string text = this.brackets.get (new_text);
             int len = text.length;
             
+            this.last_inserted = new_text;
             buf.insert (ref pos, text, len);
+            
+            debug (this.last_inserted);
             
             pos.backward_chars (len);
             buf.place_cursor (pos);
