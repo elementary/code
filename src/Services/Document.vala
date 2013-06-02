@@ -229,7 +229,7 @@ namespace Scratch.Services {
                 this.last_saved_content = FileHandler.load_content_from_file.end (res);
             });
 
-            message ("File \"%s\" saved succefully", get_basename ());
+            message ("File \"%s\" saved succesfully", get_basename ());
 
             return true;
         }

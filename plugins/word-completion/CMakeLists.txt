@@ -23,7 +23,7 @@ PACKAGES
     gtksourceview-3.0
     scratchcore
     libpeas-1.0
-OPTIONSz
+OPTIONS
 )
 
 add_library(scratchwordcompletion MODULE ${VALA_C})

@@ -1,6 +1,7 @@
 add_subdirectory (contractor)
 add_subdirectory (pastebin)
 add_subdirectory (filemanager)
+add_subdirectory (folder-manager)
 add_subdirectory (terminal)
 add_subdirectory (browser-preview)
 add_subdirectory (strip-trailing-save)
