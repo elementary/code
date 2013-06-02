@@ -68,8 +68,6 @@ namespace Scratch.Widgets {
                 return close_document_from_tab (doc, closing_tab);
             });
             
-            doc.focus ();
-            
             doc.source_view.focus_in_event.connect (() => {
                 document_change (doc);
                 return true;
@@ -77,6 +75,8 @@ namespace Scratch.Widgets {
             
             this.notebook.current = doc;
             add_document (doc);
+            
+            doc.focus ();
         }
         
         public void open_document (Document doc) {
@@ -107,10 +107,10 @@ namespace Scratch.Widgets {
                 return true;
             });
             
-            doc.focus ();
-            
             this.notebook.current = doc;
             add_document (doc);
+            
+            doc.focus ();
         }
         
         public void close_document (Document doc) {

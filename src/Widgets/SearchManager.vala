@@ -34,6 +34,7 @@ namespace Scratch.Widgets {
         public Gtk.SpinButton go_to_entry;
         private Gtk.Adjustment go_to_adj;
         
+        private Gtk.ToolButton replace_tool_button;        
 
         private Scratch.Widgets.SourceView? text_view = null;
         private Gtk.TextBuffer? text_buffer = null;
@@ -100,6 +101,10 @@ namespace Scratch.Widgets {
             tool_go_to_label.set_margin_right (5);
             tool_go_to_entry = new Gtk.ToolItem ();
             
+            // Replace GtkToolButton
+            replace_tool_button = new Gtk.ToolButton.from_stock (Gtk.Stock.FIND_AND_REPLACE);
+            replace_tool_button.clicked.connect (on_replace_entry_activate);
+            
             // Populate GtkToolItems
             tool_search_entry.add (search_entry);
             tool_arrow_up.add (next);
@@ -114,6 +119,7 @@ namespace Scratch.Widgets {
             search_entry.focus_in_event.connect (on_search_entry_focused_in);
             go_to_entry.activate.connect (on_go_to_entry_activate);
             replace_entry.activate.connect (on_replace_entry_activate);
+            replace_entry.key_press_event.connect (on_replace_entry_key_press);
 
             // Get default text color in Gtk.Entry 
             var entry_context = new Gtk.StyleContext ();
@@ -128,6 +134,7 @@ namespace Scratch.Widgets {
             this.add (tool_arrow_down);
             this.add (tool_arrow_up);
             this.add (tool_replace_entry);
+            this.add (replace_tool_button);
             var spacer = new Gtk.ToolItem ();
             spacer.set_expand (true);
             this.add (spacer);
@@ -363,6 +370,29 @@ namespace Scratch.Widgets {
                 return true;
             case "Tab":
                 if (search_entry.is_focus) replace_entry.grab_focus ();
+                return true;
+            }
+            return false;
+        }
+        
+        bool on_replace_entry_key_press (Gdk.EventKey event) {
+            /* We don't need to perform search if there is nothing to search... */
+            if (search_entry.text == "")
+                return false;
+            string key = Gdk.keyval_name (event.keyval);
+            switch (key)
+            {
+            case "Up":
+                search_previous ();
+                return true;
+            case "Down":
+                search_next ();
+                return true;
+            case "Escape":
+                text_view.grab_focus ();
+                return true;
+            case "Tab":
+                if (replace_entry.is_focus) go_to_entry.grab_focus ();
                 return true;
             }
             return false;

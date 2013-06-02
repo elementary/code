@@ -122,7 +122,7 @@ namespace Scratch.Services {
                         this.set_saved_status (false);
                 });
             });
-            
+
             // Focus in event for SourceView
             this.source_view.focus_in_event.connect (() => {
                 main_actions.get_action ("SaveFile").visible = !(settings.autosave);
@@ -130,7 +130,7 @@ namespace Scratch.Services {
                 check_undoable_actions ();
                 return false;
             });
-            
+
             // Change syntax highlight
             this.source_view.change_syntax_highlight_from_file (this.file);
 
@@ -240,6 +240,8 @@ namespace Scratch.Services {
 
             if (filech.run () == Gtk.ResponseType.ACCEPT) {
                 this.file = File.new_for_uri (filech.get_file ().get_uri ());
+                // Update last visited path
+                Utils.last_path = Path.get_dirname (filech.get_file ().get_uri ());
                 filech.destroy ();
             }
             else {
@@ -484,13 +486,13 @@ namespace Scratch.Services {
             main_actions.get_action ("Redo").sensitive = this.source_view.buffer.can_redo;
             main_actions.get_action ("Revert").sensitive = (file != null && original_content != source_view.buffer.text);
         }
-        
+
         // Set saved status
         public void set_saved_status (bool val) {
             this.saved = val;
-            
+
             string unsaved_identifier = "* ";
-            
+
             if (!val) {
                 if (!(unsaved_identifier in this.label))
                     this.label = unsaved_identifier + this.label;
@@ -498,7 +500,7 @@ namespace Scratch.Services {
             else
                 this.label = this.label.replace (unsaved_identifier, "");
         }
-        
+
         // Backup functions
         private void create_backup () {
             if (!can_write ())

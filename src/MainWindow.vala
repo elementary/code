@@ -28,7 +28,7 @@ using Granite.Widgets;
 using Granite.Services;
 
 namespace Scratch {
-
+    
     // GtkActions
     public Gtk.ActionGroup main_actions;
     public Gtk.UIManager ui;
@@ -38,25 +38,25 @@ namespace Scratch {
         public ScratchApp app;
 
         private const string TITLE = "Scratch";
-
+        
         // Widgets
         public Scratch.Widgets.Toolbar toolbar;
         public Scratch.Widgets.SearchManager search_manager;
         public Scratch.Widgets.SplitView split_view;
-
+		
         // Widgets for Plugins
         public Gtk.Notebook sidebar;
         public Gtk.Notebook contextbar;
         public Gtk.Notebook bottombar;
-
+        
         // Zeitgeist integration
         private Zeitgeist.DataSourceRegistry registry;
-
+        
         // Delegates
         delegate void HookFunc ();
 
         public MainWindow (Scratch.ScratchApp scratch_app) {
-
+            
             this.app = scratch_app;
             set_application (this.app);
 
