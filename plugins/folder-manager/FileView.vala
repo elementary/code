@@ -52,6 +52,9 @@ namespace Scratch.Plugins.FolderManager {
             if (is_open (folder)) {
                 warning ("Folder '%s' is already open.", folder.path);
                 return;
+            } else if (!folder.is_valid_directory) {
+                warning ("Cannot open invalid directory.");
+                return;
             }
 
             add_folder (folder, true);
@@ -61,6 +64,9 @@ namespace Scratch.Plugins.FolderManager {
         private void add_folder (File folder, bool expand) {
             if (is_open (folder)) {
                 warning ("Folder '%s' is already open.", folder.path);
+                return;
+            } else if (!folder.is_valid_directory) {
+                warning ("Cannot open invalid directory.");
                 return;
             }
 
@@ -154,8 +160,8 @@ namespace Scratch.Plugins.FolderManager {
      */
     internal class FileItem : Granite.Widgets.SourceList.Item, Item {
 
-        Gtk.Menu menu;
-        Gtk.MenuItem item_trash;
+        //Gtk.Menu menu;
+        //Gtk.MenuItem item_trash;
 
         public File file { get; construct; }
         public string path { get { return file.path; } }
@@ -169,9 +175,9 @@ namespace Scratch.Plugins.FolderManager {
             this.icon = IconLoader.get_default ().get_rendered_icon (file.icon);
         }
 
-        public void rename (string new_name) {
+        /*public void rename (string new_name) {
             file.rename (new_name);
-        }
+        }*/
 
         /*public override Gtk.Menu? get_context_menu () {
             menu = new Gtk.Menu ();
@@ -190,9 +196,9 @@ namespace Scratch.Plugins.FolderManager {
      */
     internal class FolderItem : Granite.Widgets.SourceList.ExpandableItem, Item {
 
-        Gtk.Menu menu;
-        Gtk.MenuItem item_trash;
-        Gtk.MenuItem item_create;
+        //Gtk.Menu menu;
+        //Gtk.MenuItem item_trash;
+        //Gtk.MenuItem item_create;
 
         private GLib.FileMonitor monitor;
         private bool children_loaded = false;
@@ -303,7 +309,7 @@ namespace Scratch.Plugins.FolderManager {
 
         Gtk.Menu menu;
         Gtk.MenuItem item_close;
-        Gtk.MenuItem item_create;
+        //Gtk.MenuItem item_create;
 
         public MainFolderItem (File file) requires (file.is_valid_directory) {
             base (file);
@@ -314,11 +320,11 @@ namespace Scratch.Plugins.FolderManager {
         public override Gtk.Menu? get_context_menu () {
             menu = new Gtk.Menu ();
             item_close = new Gtk.MenuItem.with_label (_("Close Folder"));
-            item_create = new Gtk.MenuItem.with_label (_("Create new File"));
+            //item_create = new Gtk.MenuItem.with_label (_("Create new File"));
             menu.append (item_close);
             //menu.append (item_create);
             item_close.activate.connect (() => { closed (); });
-            item_create.activate.connect (() => {
+            /*item_create.activate.connect (() => {
                 var new_file = GLib.File.new_for_path (file.path + "/new File");
 
                 try {
@@ -326,7 +332,7 @@ namespace Scratch.Plugins.FolderManager {
                 } catch (Error e) {
                     warning ("Error: %s\n", e.message);
                 }
-            });
+            });*/
             menu.show_all ();
             return menu;
         }
