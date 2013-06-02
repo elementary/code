@@ -129,8 +129,6 @@ namespace Scratch.Plugins.FolderManager {
                 if (_type == Type.INVALID)
                     return false;
 
-                
-
                 if (info.get_file_type () == FileType.REGULAR) {
                     //var content_type = info.get_attribute_string (FileAttribute.STANDARD_FAST_CONTENT_TYPE);
                     var content_type = info.get_content_type ();
@@ -172,7 +170,7 @@ namespace Scratch.Plugins.FolderManager {
                 return _children;
             }
         }
-        
+
         public void rename (string name) {
             try {
                 file.set_display_name (name);
@@ -180,7 +178,7 @@ namespace Scratch.Plugins.FolderManager {
                 warning (error.message);
             }
         }
-        
+
         public void trash () {
             try {
                 file.trash ();
@@ -188,7 +186,7 @@ namespace Scratch.Plugins.FolderManager {
                 warning (error.message);
             }
         }
-        
+
         public void reset_cache () {
             _name = null;
             _path = null;

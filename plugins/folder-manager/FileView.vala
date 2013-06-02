@@ -104,11 +104,11 @@ namespace Scratch.Plugins.FolderManager {
 
     internal class IconLoader {
         private static IconLoader instance;
-  
+
         private int icon_size;
         private Gee.HashMap<string, unowned Gdk.Pixbuf> icon_cache;
         private Gtk.StyleContext style;
-  
+
         private IconLoader () {
             icon_cache = new Gee.HashMap<string, unowned Gdk.Pixbuf> ();
             style = new Gtk.StyleContext ();
@@ -234,7 +234,7 @@ namespace Scratch.Plugins.FolderManager {
             item_trash.activate.connect (() => { file.trash (); });
             item_create.activate.connect (() => {
                 var new_file = GLib.File.new_for_path (file.path + "/new File");
-                
+
                 try {
 		            FileOutputStream os = new_file.create (FileCreateFlags.NONE);
 	            } catch (Error e) {
@@ -320,12 +320,12 @@ namespace Scratch.Plugins.FolderManager {
             item_close.activate.connect (() => { closed (); });
             item_create.activate.connect (() => {
                 var new_file = GLib.File.new_for_path (file.path + "/new File");
-                
+
                 try {
-		            FileOutputStream os = new_file.create (FileCreateFlags.NONE);
-	            } catch (Error e) {
-		            warning ("Error: %s\n", e.message);
-	            }
+                    FileOutputStream os = new_file.create (FileCreateFlags.NONE);
+                } catch (Error e) {
+                    warning ("Error: %s\n", e.message);
+                }
             });
             menu.show_all ();
             return menu;
