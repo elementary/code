@@ -1,32 +1,30 @@
-find_package(Vala REQUIRED)
-include(ValaVersion)
-ensure_vala_version("0.18" MINIMUM)
-include(ValaPrecompile)
-find_package(PkgConfig)
-
-pkg_check_modules(DEPS REQUIRED
- gtksourceview-3.0
- scratchcore
- libpeas-1.0
-)
-
-add_definitions (${DEPS_CFLAGS})
-link_libraries (${DEPS_LIBRARIES})
-link_directories (${DEPS_LIBRARY_DIRS})
+add_definitions(${NORMAL_CFLAGS})
+include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/scratchcore/)
+link_directories(${NORMAL_LINK_DIRS})
 
 vala_precompile(VALA_C
     plugin.vala
-    completion-provider.vala
     engine.vala
+    completion-provider.vala
 PACKAGES
     granite
     gtksourceview-3.0
     scratchcore
+    gee-1.0
     libpeas-1.0
+    zeitgeist-1.0
 OPTIONS
+    --thread
+    --vapidir=${CMAKE_BINARY_DIR}
+    --vapidir=${CMAKE_BINARY_DIR}/src/
+    --vapidir=${CMAKE_SOURCE_DIR}/vapi/
+    --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
 )
 
-add_library(scratchwordcompletion MODULE ${VALA_C})
+add_library(word-completion MODULE ${VALA_C})
+add_dependencies(word-completion scratchcore scratch)
 
-install(TARGETS scratchwordcompletion DESTINATION lib/scratch/plugins/scratch/)
-install(FILES word-completion.plugin DESTINATION lib/scratch/plugins/scratch/)
+install(TARGETS word-completion DESTINATION lib/scratch/plugins/word-completion/)
+install(FILES word-completion.plugin DESTINATION lib/scratch/plugins/word-completion/)
+
+message("-- Word completion plugin will be compiled")
