@@ -36,8 +36,6 @@ namespace Scratch {
     public class MainWindow : Gtk.Window {
 
         public ScratchApp app;
-
-        private const string TITLE = "Scratch";
         
         // Widgets
         public Scratch.Widgets.Toolbar toolbar;
@@ -60,7 +58,7 @@ namespace Scratch {
             this.app = scratch_app;
             set_application (this.app);
 
-            this.title = TITLE;
+            this.title = this.app.app_cmd_name;
             restore_saved_state ();
             this.window_position = Gtk.WindowPosition.CENTER;
             this.icon_name = "accessories-text-editor";
@@ -137,7 +135,8 @@ namespace Scratch {
             // Signals
             this.split_view.welcome_shown.connect (() => {
                 set_widgets_sensitive (false);
-                this.title = TITLE;
+                this.title = this.app.app_cmd_name;
+                
             });
             this.split_view.welcome_hidden.connect (() => {
                 set_widgets_sensitive (true);
@@ -153,10 +152,10 @@ namespace Scratch {
                     if ("trash://" in path)
                         path = _("Trash");
 
-                    this.title = doc.file.get_basename () + " (%s) - %s".printf(path, TITLE);
+                    this.title = doc.file.get_basename () + " (%s) - %s".printf(path, this.app.app_cmd_name);
                 }
                 else {
-                    this.title = TITLE;
+                    this.title = this.app.app_cmd_name;
                 }
                 // Set actions sensitive property
                 main_actions.get_action ("SaveFile").visible = (!settings.autosave || doc.file == null);
@@ -477,9 +476,9 @@ namespace Scratch {
 
         bool toggle_searchbar () {
             if (!this.search_manager.visible ||
-                 this.search_manager.search_entry.has_focus ||
-                 this.search_manager.replace_entry.has_focus ||
-                 this.search_manager.go_to_entry.has_focus) {
+                this.search_manager.search_entry.has_focus ||
+                this.search_manager.replace_entry.has_focus ||
+                this.search_manager.go_to_entry.has_focus) {
 
                 this.search_manager.visible = !this.search_manager.visible;
                 this.toolbar.find_button.set_tooltip_text (

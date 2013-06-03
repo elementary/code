@@ -35,8 +35,8 @@ namespace Scratch {
     public class ScratchApp : Granite.Application {
 
         public MainWindow window = null;
-        static string app_cmd_name;
-        static bool new_instance = false;
+        public static string app_cmd_name;
+        public static bool new_instance = false;
         
         construct {
 
