@@ -36,7 +36,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase,  Peas.Activatable 
     
     static const unichar[] stoppers = {' ', '\n', '(', ';', '}', '{', '.'};
 
-    List<Gtk.TextView> text_view = new List<Gtk.TextView> ();
+    List<Gtk.SourceView> text_view = new List<Gtk.SourceView> ();
     
     uint timeout = 0;
     uint timeout_parse = -1;
@@ -49,11 +49,21 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase,  Peas.Activatable 
         plugins.hook_window.connect ((w) => {
             this.main_window = w;
         });
+        
         plugins.hook_document.connect (on_new_source_view);
     }
 
     public void deactivate () {
         if (timeout_parse > 0) Source.remove (timeout_parse);
+        text_view.foreach ((v) => {
+            v.completion.get_providers ().foreach ((p) => { 
+                try {
+                    v.completion.remove_provider (p); 
+                } catch (Error e) {
+                    warning (e.message);
+                }
+            });
+        });
     }
 
     public void update_state () {

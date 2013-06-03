@@ -71,10 +71,8 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
             string text = this.brackets.get (new_text);
             int len = text.length;
             
-            this.last_inserted = new_text;
+            this.last_inserted = text;
             buf.insert (ref pos, text, len);
-            
-            debug (this.last_inserted);
             
             pos.backward_chars (len);
             buf.place_cursor (pos);
