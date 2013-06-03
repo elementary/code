@@ -11,4 +11,10 @@ add_translations_catalog("scratch-text-editor"
     ../plugins/browser-preview
     ../plugins/spell
     ../plugins/open-with
+    ../plugins/terminal
+    ../plugins/brackets-completion
+    ../plugins/word-completion
+    ../plugins/folder-manager
+    ../plugins/contractor
+    ../plugins/strip-trailing-save
 )
