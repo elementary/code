@@ -54,20 +54,10 @@ namespace Scratch {
         public bool use_system_font { get; set; }
         public string font { get; set; }
         public string style_scheme { get; set; }
-        public bool sidebar_visible { get; set; }
-        public bool statusbar_visible { get; set; }
-        public bool context_visible { get; set; }
-        public bool bottom_panel_visible { get; set; }
-        public bool search_sensitive { get; set; }
         public string[] plugins_enabled { get; set;}
         public string show_at_start { get; set; }
         public string[] opened_files { get; set; }
-        public bool make_backup { get; set; }
         public bool autosave { get; set; }
-        public bool autoupdate { get; set; }
-        public bool show_search { get; set; } 
-        public bool show_replace { get; set; } 
-        public bool show_go_to_line { get; set; } 
         
         public Settings ()  {
             base ("org.pantheon.scratch.settings");

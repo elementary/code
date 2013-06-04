@@ -23,31 +23,6 @@
 		</key>
 	</schema>
 	<schema path="/org/pantheon/scratch/settings/" id="org.pantheon.scratch.settings" gettext-domain="scratch">
-		<key name="sidebar-visible" type="b">
-			<default>true</default>
-			<summary>sidebar</summary>
-			<description>sidebar</description>
-		</key>
-		<key name="statusbar-visible" type="b">
-			<default>true</default>
-			<summary>statusbar</summary>
-			<description>statusbar</description>
-		</key>
-		<key name="context-visible" type="b">
-			<default>true</default>
-			<summary>sidebar</summary>
-			<description>sidebar</description>
-		</key>
-		<key name="search-sensitive" type="b">
-			<default>false</default>
-			<summary>Search sensitive</summary>
-			<description>Wether the search is case sensitive.</description>
-		</key>
-		<key name="bottom-panel-visible" type="b">
-			<default>true</default>
-			<summary>bottom panel</summary>
-			<description>bottom panel</description>
-		</key>
 		<key type="as" name="plugins-enabled">
 			<default>['contractor']</default>
 			<summary>Enabled Plugins</summary>
@@ -67,11 +42,6 @@
 			<default>true</default>
 			<summary>Autosave edited files</summary>
 			<description>Autosave edited files.</description>
-		</key>
-		<key name="autoupdate" type="b">
-			<default>true</default>
-			<summary>Autoupdate the file modified by an external source</summary>
-			<description>Autoupdate the file modified by an external source.</description>
 		</key>
 		<key name="show-right-margin" type="b">
 			<default>false</default>
@@ -137,26 +107,6 @@
 			<default>'classic'</default>
 			<summary>Preferred Style Scheme</summary>
 			<description>Set the preferred style scheme.</description>
-		</key>
-		<key name="show-search" type="b">
-			<default>true</default>
-			<summary>Show search entry</summary>
-			<description>Show search entry.</description>
-		</key>
-		<key name="show-replace" type="b">
-			<default>false</default>
-			<summary>Show replace entry</summary>
-			<description>Show replace entry.</description>
-		</key>
-		<key name="show-go-to-line" type="b">
-			<default>false</default>
-			<summary>Show go to line entry</summary>
-			<description>Show go to line entry.</description>
-		</key>
-		<key name="make-backup" type="b">
-			<default>true</default>
-		<summary>Save or not the backup copy for the files.</summary>
-			<description>Save or not the file's backup. DON'T SET IT AS FALSE or you will break some Scratch's functions</description>
 		</key>
 	</schema>
 	<schema path="/org/pantheon/scratch/services/" id="org.pantheon.scratch.services" gettext-domain="scratch">

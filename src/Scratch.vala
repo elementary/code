@@ -35,7 +35,8 @@ namespace Scratch {
     public class ScratchApp : Granite.Application {
 
         public MainWindow window = null;
-        public static string app_cmd_name;
+        public string app_cmd_name { get { return _app_cmd_name; } }
+        public static string _app_cmd_name;
         public static bool new_instance = false;
         
         construct {
@@ -153,13 +154,13 @@ namespace Scratch {
         }
         
         static const OptionEntry[] entries = {
-            { "set", 's', 0, OptionArg.STRING, ref app_cmd_name, N_("Set of plugins"), "" },
+            { "set", 's', 0, OptionArg.STRING, ref _app_cmd_name, N_("Set of plugins"), "" },
             { "new-instance", 'n', 0, OptionArg.NONE, ref new_instance, N_("Create a new instance"), null },
             { null }
         };
 
         public static int main (string[] args) {
-            app_cmd_name = "Scratch";
+            _app_cmd_name = "Scratch";
             var context = new OptionContext ("File");
             context.add_main_entries (entries, Constants.GETTEXT_PACKAGE);
             
