@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-06-03 19:41+0200\n"
-"PO-Revision-Date: 2013-05-06 08:41+0000\n"
+"PO-Revision-Date: 2013-06-04 15:45+0000\n"
 "Last-Translator: Adrian Widerski <Unknown>\n"
 "Language-Team: polski <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-06-04 05:48+0000\n"
+"X-Launchpad-Export-Date: 2013-06-05 05:51+0000\n"
 "X-Generator: Launchpad (build 16660)\n"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:15
@@ -61,12 +61,12 @@ msgstr "Ukryj pasek wyszukiwania"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:500
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:501
 msgid "Find…"
-msgstr ""
+msgstr "Znajdź…"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:504
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:505
 msgid "Go to line…"
-msgstr ""
+msgstr "Przejdź do linii..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:508
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:509
@@ -212,7 +212,7 @@ msgstr "Plik "
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:428
 msgid "was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "został usunięty. Chcesz ten plik zapisać mimo to?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:440
 msgid "You cannot save changes on file"
@@ -478,7 +478,7 @@ msgstr "Otwórz za pomocą..."
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/completion-provider.vala:67
 #, c-format
 msgid "Could not load icon theme: %s\n"
-msgstr ""
+msgstr "Nie udało się załadować schematu ikon: %s\n"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:96
 #, c-format
@@ -487,16 +487,16 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FileView.vala:322
 msgid "Close Folder"
-msgstr ""
+msgstr "Zamknij folder"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:68
 msgid "Folders"
-msgstr ""
+msgstr "Foldery"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:86
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:87
 msgid "Open a folder"
-msgstr ""
+msgstr "Otwórz folder"
 
 #~ msgid "Changes to this file haven't been saved."
 #~ msgstr "Nie zapisano zmian w tym pliku."
