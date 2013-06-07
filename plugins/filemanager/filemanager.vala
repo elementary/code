@@ -13,10 +13,13 @@
   PURPOSE.  See the GNU General Public License for more details.
 	
   You should have received a copy of the GNU General Public License along	
-  with this program.  If not, see <http://www.gnu.org/licenses/>	
+  with this program.  If not, see <http://www.gnu.org/licenses/>
   
   END LICENSE	
 ***/
+
+public const string NAME = N_("File Manager");
+public const string DESCRIPTION = N_("Browse files and folders");
 
 public class Euclide.Plugins.FM : Peas.ExtensionBase, Peas.Activatable {
     

@@ -27,6 +27,9 @@ public Document? current_document = null;
 public Gtk.SourceView? current_view = null;
 public Gtk.SourceBuffer? current_buffer = null;
 
+public const string NAME = N_("Words Completion");
+public const string DESCRIPTION = N_("Show a completion dialog with most used words from your files");
+
 public class Scratch.Plugins.Completion : Peas.ExtensionBase,  Peas.Activatable {
 
     MainWindow main_window;

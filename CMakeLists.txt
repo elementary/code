@@ -61,6 +61,11 @@ link_directories (${DEPS_LIBRARY_DIRS} ${LIBSOURCE_LIBRARY_DIRS} ${GCONF_LIBRARY
 include_directories(${CMAKE_BINARY_DIR}/scratchcore)
 include_directories(${CMAKE_BINARY_DIR}/src)
 
+# Translations for plugins
+execute_process(
+    COMMAND python ${CMAKE_CURRENT_SOURCE_DIR}/plugin-translate.py
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+)
 
 # Subdirectories
 #add_subdirectory(scratchcore)

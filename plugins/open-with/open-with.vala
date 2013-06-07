@@ -18,6 +18,9 @@
   END LICENSE	
 ***/
 
+public const string NAME = N_("Open With");
+public const string DESCRIPTION = N_("Open files you are editing with another application");
+
 public class Scratch.Plugins.OpenWith : Peas.ExtensionBase,  Peas.Activatable {
     Gtk.MenuItem? item = null;
     

@@ -20,6 +20,9 @@
 
 using Vte;
 
+public const string NAME = N_("Terminal");
+public const string DESCRIPTION = N_("A terminal in your text editor");
+
 public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
     
     Gtk.Notebook? bottombar = null;

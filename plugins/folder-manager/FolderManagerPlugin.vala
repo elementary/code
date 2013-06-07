@@ -18,6 +18,9 @@
   END LICENSE
 ***/
 
+public const string NAME = N_("Folder Manager");
+public const string DESCRIPTION = N_("Basic folder manager with file browsing");
+
 namespace Scratch.Plugins {
 
     public class FolderManagerPlugin : Peas.ExtensionBase, Peas.Activatable {

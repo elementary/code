@@ -18,6 +18,9 @@
   END LICENSE	
 ***/
 
+public const string NAME = N_("Brackets Completion");
+public const string DESCRIPTION = N_("Complete brackets while typing");
+
 public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Activatable {
     
     Gee.HashMap<string, string> brackets;

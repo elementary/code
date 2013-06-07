@@ -20,6 +20,9 @@
 
 using WebKit;
 
+public const string NAME = N_("Browser Preview");
+public const string DESCRIPTION = N_("Get a preview your work in a web page");
+
 public class Scratch.Plugins.BrowserPreview : Peas.ExtensionBase,  Peas.Activatable {
 
     Gtk.Notebook? context = null;
