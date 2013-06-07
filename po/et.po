@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-06-03 19:41+0200\n"
-"PO-Revision-Date: 2013-05-18 13:09+0000\n"
+"PO-Revision-Date: 2013-06-06 11:29+0000\n"
 "Last-Translator: Kristjan Vool <tictac7x@gmail.com>\n"
 "Language-Team: Estonian <et@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-06-04 05:48+0000\n"
-"X-Generator: Launchpad (build 16660)\n"
+"X-Launchpad-Export-Date: 2013-06-07 06:07+0000\n"
+"X-Generator: Launchpad (build 16667)\n"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:15
 msgid "Edit text files"
@@ -61,12 +61,12 @@ msgstr "Peida leidmise tööriistariba"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:500
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:501
 msgid "Find…"
-msgstr ""
+msgstr "Leia…"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:504
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:505
 msgid "Go to line…"
-msgstr ""
+msgstr "Mine reale…"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:508
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:509
@@ -212,7 +212,7 @@ msgstr "Fail "
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:428
 msgid "was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "kustutati. Soovid sa seda sellegipoolest salvestada?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:440
 msgid "You cannot save changes on file"
@@ -476,25 +476,25 @@ msgstr "Ava rakendusega..."
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/completion-provider.vala:67
 #, c-format
 msgid "Could not load icon theme: %s\n"
-msgstr ""
+msgstr "Ebaõnnestus laadida ikoonide teemat: %s\n"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:96
 #, c-format
 msgid "%s - Word Completion"
-msgstr ""
+msgstr "%s - sõnade lõpetamine"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FileView.vala:322
 msgid "Close Folder"
-msgstr ""
+msgstr "Sulge kaust"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:68
 msgid "Folders"
-msgstr ""
+msgstr "Kaustad"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:86
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:87
 msgid "Open a folder"
-msgstr ""
+msgstr "Ava kaust"
 
 #~ msgid "Show margin on right:"
 #~ msgstr "Parempoolse veerise näitamine:"
