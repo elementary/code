@@ -1,10 +1,9 @@
 [Plugin]
-Module=contractor
+Name=Words Completion
+Module=word-completion
 Loader=C
 IAge=2
-_Name=Contractor
-_Description=Share your files with Contractor
+Description=Show a completion dialog with most used words from your files
 Authors=Mario Guerriero <mario@elementaryos.org>
 Copyright=Copyright © 2012 Scratch and Euclide Developers
 Website=http://launchpad.net/scratch
-Hidden=true
