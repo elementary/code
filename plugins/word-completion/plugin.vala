@@ -125,6 +125,10 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase,  Peas.Activatable 
     
     bool on_key_press (Gtk.Widget view, Gdk.EventKey event) {
         if (timeout > 0) Source.remove (timeout);
+        if (event.str.get_char () in stoppers) {
+            //message ("The auto completion box should hide now");
+            current_view.completion.hide ();
+        }
         //timeout = Timeout.add (100, () => { update_completion (); return false; });
         return false;
     }
