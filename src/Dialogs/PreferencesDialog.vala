@@ -52,9 +52,6 @@ namespace Scratch.Dialogs {
             
             create_layout ();
 
-            // Plugin hook function
-            plugins.hook_preferences_dialog (this);
-
         }
 
         private void create_layout () {
@@ -68,6 +65,9 @@ namespace Scratch.Dialogs {
             //create static notebook Interface tab
             var interface_label = new Label (_("Interface"));
             main_static_notebook.append_page (get_editor_box (), interface_label);
+            
+            // Plugin hook function
+            plugins.hook_preferences_dialog (this);
             
             if (Peas.Engine.get_default ().get_plugin_list ().length () > 0) {
                 //create static notebook Extensions tab
