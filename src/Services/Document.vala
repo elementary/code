@@ -45,7 +45,8 @@ namespace Scratch.Services {
         public string original_content;
         public string? last_saved_content = null;
         public bool saved = true;
-
+        private bool error_shown = false;
+        
         // Zeitgeist integration
         private ZeitgeistLogger zg_log = new ZeitgeistLogger();
 
@@ -96,6 +97,10 @@ namespace Scratch.Services {
             // Load file's content
             FileHandler.load_content_from_file.begin (file, (obj, res) => {
                 var text = FileHandler.load_content_from_file.end (res);
+                if (text == null) {
+                    show_error_dialog ();
+                    return;
+                }
                 // Convert non-UTF8 text in UTF8
                 if (!text.validate())
                     text = file_content_to_utf8 (file, text);
@@ -200,7 +205,7 @@ namespace Scratch.Services {
                 // Zeitgeist integration
                 zg_log.close_insert (file.get_uri (), get_mime_type ());
             }
-
+            
             return ret_value;
         }
 
@@ -418,7 +423,22 @@ namespace Scratch.Services {
         public void duplicate_selection () {
             this.source_view.duplicate_selection ();
         }
-
+        
+        // Show an error dialog which says "Hey, I cannot read that file!"
+        private void show_error_dialog () {
+            if (this.error_shown)
+                return;
+            this.error_shown = true;
+            string message = _("File \"<b>%s</b>\" cannot be read. Maybe it is corrupt\nor you do not have the necessary permissions to read it.").printf (get_basename ());
+            var dialog = new Gtk.MessageDialog.with_markup (null, Gtk.DialogFlags.MODAL,
+                                                 Gtk.MessageType.ERROR,
+                                                 Gtk.ButtonsType.CLOSE,
+                                                 message);
+            dialog.run ();
+            dialog.destroy ();
+            this.close ();
+        }
+        
         // Check if the file was deleted/changed by an external source
         public void check_file_status () {
             if (file != null) {
@@ -454,6 +474,10 @@ namespace Scratch.Services {
                 // Detect external changes
                 FileHandler.load_content_from_file.begin (file, (obj, res) => {
                     var text = FileHandler.load_content_from_file.end (res);
+                    if (text == null) {
+                        show_error_dialog ();
+                        return;
+                    }
                     if (!text.validate())
                         text = file_content_to_utf8 (file, text);
                     // Reload automatically if auto save is ON
