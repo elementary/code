@@ -25,7 +25,6 @@ public const string DESCRIPTION = N_("Get a preview your work in a web page");
 
 public class Scratch.Plugins.BrowserPreview : Peas.ExtensionBase,  Peas.Activatable {
 
-    Gtk.Notebook? context = null;
     Gtk.ToolButton? tool_button = null;
     WebView? view = null;
     Gtk.ScrolledWindow? scrolled = null;
@@ -43,7 +42,9 @@ public class Scratch.Plugins.BrowserPreview : Peas.ExtensionBase,  Peas.Activata
         plugins.hook_document.connect ((d) => {
             this.doc = d;
         });
-
+        
+        plugins.hook_split_view.connect (on_hook_split_view);
+        
         plugins.hook_notebook_context.connect (on_hook_context);
 
         plugins.hook_toolbar.connect (on_hook_toolbar);
@@ -57,7 +58,20 @@ public class Scratch.Plugins.BrowserPreview : Peas.ExtensionBase,  Peas.Activata
             scrolled.destroy ();
 
     }
-
+    
+    void on_hook_split_view (Scratch.Widgets.SplitView view) {
+        this.tool_button.visible = ! view.is_empty ();
+        this.tool_button.no_show_all = view.is_empty ();
+        view.welcome_shown.connect (() => {
+            this.tool_button.visible = false;
+            this.tool_button.no_show_all = true;
+        });
+        view.welcome_hidden.connect (() => {
+            this.tool_button.visible = true;
+            this.tool_button.no_show_all = false;
+        });
+    }
+    
     void on_hook_toolbar (Gtk.Toolbar toolbar) {
         if (tool_button != null)
             return;
