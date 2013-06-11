@@ -147,6 +147,10 @@ namespace Scratch.Widgets {
                 warning ("No SourceView is associated with SearchManager!");
                 return;
             }
+            
+            if (this.text_view != null)
+                this.text_buffer.changed.disconnect (on_text_buffer_changed);
+                
             this.text_view = text_view;
             this.text_buffer = text_view.get_buffer ();
             
@@ -163,6 +167,9 @@ namespace Scratch.Widgets {
                 tool_arrow_down.sensitive = false;
                 tool_arrow_up.sensitive = false;
             }
+            
+            update_go_to_entry ();
+            this.text_buffer.changed.connect (on_text_buffer_changed);
         }
         
         void on_go_to_entry_activate () {
@@ -396,6 +403,15 @@ namespace Scratch.Widgets {
                 return true;
             }
             return false;
+        }
+        
+        void update_go_to_entry () {
+            //Set the maximum range of the "Go To Line" spinbutton.
+            go_to_entry.set_range (1, text_buffer.get_line_count ());        
+        }
+        
+        void on_text_buffer_changed () {
+            update_go_to_entry ();
         }
     }
 }
