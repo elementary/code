@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-06-07 22:58+0200\n"
-"PO-Revision-Date: 2013-05-07 13:20+0000\n"
-"Last-Translator: Wang Dianjin <Unknown>\n"
+"PO-Revision-Date: 2013-06-10 04:07+0000\n"
+"Last-Translator: Yangyu Huang <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-06-08 06:05+0000\n"
+"X-Launchpad-Export-Date: 2013-06-11 06:06+0000\n"
 "X-Generator: Launchpad (build 16667)\n"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:15
@@ -61,12 +61,12 @@ msgstr "隐藏搜索栏"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:499
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:500
 msgid "Find…"
-msgstr ""
+msgstr "查找..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:503
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:504
 msgid "Go to line…"
-msgstr ""
+msgstr "跳转到行..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:507
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:508
@@ -210,7 +210,7 @@ msgstr "文件 "
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:428
 msgid "was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "被删除。你仍然想要保存它吗？"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:440
 msgid "You cannot save changes on file"
@@ -440,11 +440,11 @@ msgstr "一月"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
-msgstr ""
+msgstr "Pastebin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
-msgstr ""
+msgstr "通过 Pastebin 共享文件"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:134
 msgid "Upload to Pastebin"
@@ -452,11 +452,11 @@ msgstr "上传到 Pastebin"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/filemanager.vala:21
 msgid "File Manager"
-msgstr ""
+msgstr "文件管理器"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/filemanager.vala:22
 msgid "Browse files and folders"
-msgstr ""
+msgstr "浏览文件和文件夹"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/filemanager.vala:62
 msgid "Files"
@@ -469,7 +469,7 @@ msgstr "终端"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:24
 msgid "A terminal in your text editor"
-msgstr ""
+msgstr "一个文本编辑器中的终端"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:62
 msgid "Copy"
@@ -481,11 +481,11 @@ msgstr "粘贴"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:23
 msgid "Browser Preview"
-msgstr ""
+msgstr "在浏览器中预览"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:24
 msgid "Get a preview your work in a web page"
-msgstr ""
+msgstr "在网页中预览您的工作"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:66
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:67
@@ -498,19 +498,19 @@ msgstr "网络预览！"
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:18
 msgid "Spell Checker"
-msgstr ""
+msgstr "拼写检查"
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
-msgstr ""
+msgstr "检查您文档的拼写"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:21
 msgid "Open With"
-msgstr ""
+msgstr "以...打开"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr ""
+msgstr "用其他程序打开您所编辑的文件"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:55
 msgid "Open With..."
@@ -518,62 +518,62 @@ msgstr "打开方式..."
 
 #: /home/mario/elementary/scratch/po/../plugins/brackets-completion/brackets-completion.vala:21
 msgid "Brackets Completion"
-msgstr ""
+msgstr "括号补全"
 
 #: /home/mario/elementary/scratch/po/../plugins/brackets-completion/brackets-completion.vala:22
 msgid "Complete brackets while typing"
-msgstr ""
+msgstr "在输入时补全括号"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/completion-provider.vala:67
 #, c-format
 msgid "Could not load icon theme: %s\n"
-msgstr ""
+msgstr "无法加载图标主题：%s\n"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:30
 msgid "Words Completion"
-msgstr ""
+msgstr "词语补全"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:31
 msgid "Show a completion dialog with most used words from your files"
-msgstr ""
+msgstr "在一个补全对话框显示你文档最常用的词语"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:99
 #, c-format
 msgid "%s - Word Completion"
-msgstr ""
+msgstr "%s - 词语补全"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FileView.vala:322
 msgid "Close Folder"
-msgstr ""
+msgstr "关闭文件夹"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:21
 msgid "Folder Manager"
-msgstr ""
+msgstr "文件夹管理器"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:22
 msgid "Basic folder manager with file browsing"
-msgstr ""
+msgstr "简易的带文件浏览的文件夹管理器"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:71
 msgid "Folders"
-msgstr ""
+msgstr "文件夹"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:89
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:90
 msgid "Open a folder"
-msgstr ""
+msgstr "打开一个文件夹"
 
 #: /home/mario/elementary/scratch/po/../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
-msgstr ""
+msgstr "用 Contractor 共享您的文件"
 
 #: /home/mario/elementary/scratch/po/../plugins/strip-trailing-save/strip-trailing-save.vala:18
 msgid "Strip trailing whitespace"
-msgstr ""
+msgstr "删除文件末尾的空格"
 
 #: /home/mario/elementary/scratch/po/../plugins/strip-trailing-save/strip-trailing-save.vala:19
 msgid "Strip trailing whitespace on save"
-msgstr ""
+msgstr "在保存时删除文件末尾的空格"
 
 #~ msgid "Normal text"
 #~ msgstr "普通文本"
