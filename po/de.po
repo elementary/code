@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-07 22:58+0200\n"
-"PO-Revision-Date: 2013-06-09 10:12+0000\n"
+"PO-Revision-Date: 2013-06-12 13:00+0000\n"
 "Last-Translator: Phillip Sz <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-06-11 06:06+0000\n"
+"X-Launchpad-Export-Date: 2013-06-13 05:42+0000\n"
 "X-Generator: Launchpad (build 16667)\n"
 "Language: de\n"
 
@@ -451,7 +451,7 @@ msgstr "Pastebin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
-msgstr ""
+msgstr "Dateien über den Pastbin-Dienst freigeben"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:134
 msgid "Upload to Pastebin"
@@ -476,7 +476,7 @@ msgstr "Terminal"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:24
 msgid "A terminal in your text editor"
-msgstr ""
+msgstr "Ein Terminal in Ihrem Text-Editor"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:62
 msgid "Copy"
@@ -509,7 +509,7 @@ msgstr "Rechtschreibprüfung"
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
-msgstr ""
+msgstr "Überprüft die Rechtschreibung in Ihrem Dokument"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:21
 msgid "Open With"
@@ -517,7 +517,7 @@ msgstr "Öffnen Mit"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr ""
+msgstr "Öffne Dateien, die Sie bearbeiten, mit einer anderen Anwendung"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:55
 msgid "Open With..."
@@ -525,11 +525,11 @@ msgstr "Öffnen mit …"
 
 #: /home/mario/elementary/scratch/po/../plugins/brackets-completion/brackets-completion.vala:21
 msgid "Brackets Completion"
-msgstr ""
+msgstr "Vervollständigung von Klammern"
 
 #: /home/mario/elementary/scratch/po/../plugins/brackets-completion/brackets-completion.vala:22
 msgid "Complete brackets while typing"
-msgstr ""
+msgstr "Vervollständigen von Klammern während des Tippes"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/completion-provider.vala:67
 #, c-format
@@ -538,7 +538,7 @@ msgstr "Konnte Symbol-Thema nicht laden: %s\n"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:30
 msgid "Words Completion"
-msgstr ""
+msgstr "Wörter-Vervollständigung"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:31
 msgid "Show a completion dialog with most used words from your files"
@@ -559,7 +559,7 @@ msgstr "Ordner-Manager"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:22
 msgid "Basic folder manager with file browsing"
-msgstr ""
+msgstr "Einfacher Ordner-Manager mit Datei-Browser"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:71
 msgid "Folders"
@@ -572,15 +572,15 @@ msgstr "Einen Ordner öffnen"
 
 #: /home/mario/elementary/scratch/po/../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
-msgstr ""
+msgstr "Teilen Sie Ihre Dateien mit Contractor"
 
 #: /home/mario/elementary/scratch/po/../plugins/strip-trailing-save/strip-trailing-save.vala:18
 msgid "Strip trailing whitespace"
-msgstr ""
+msgstr "Leerzeichen am Zeilenende entfernen"
 
 #: /home/mario/elementary/scratch/po/../plugins/strip-trailing-save/strip-trailing-save.vala:19
 msgid "Strip trailing whitespace on save"
-msgstr ""
+msgstr "Leerzeichen am Zeilenende beim Speichern entfernen"
 
 #~ msgid "Normal text"
 #~ msgstr "Normaler Text"
