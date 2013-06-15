@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-07 22:58+0200\n"
-"PO-Revision-Date: 2013-05-07 21:07+0000\n"
-"Last-Translator: Juan David Angarita <Unknown>\n"
+"PO-Revision-Date: 2013-06-14 15:24+0000\n"
+"Last-Translator: Alfredo Hernández <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-06-08 06:05+0000\n"
+"X-Launchpad-Export-Date: 2013-06-15 05:30+0000\n"
 "X-Generator: Launchpad (build 16667)\n"
 "Language: es\n"
 
@@ -62,12 +62,12 @@ msgstr "Ocultar barra de búsqueda"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:499
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:500
 msgid "Find…"
-msgstr ""
+msgstr "Buscar…"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:503
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:504
 msgid "Go to line…"
-msgstr ""
+msgstr "Ir a la línea…"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:507
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:508
@@ -450,7 +450,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
-msgstr ""
+msgstr "Compartir archivos a través de Pastebin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:134
 msgid "Upload to Pastebin"
@@ -487,7 +487,7 @@ msgstr "Pegar"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:23
 msgid "Browser Preview"
-msgstr ""
+msgstr "Previsualización en el navegador"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:24
 msgid "Get a preview your work in a web page"
@@ -516,7 +516,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr ""
+msgstr "Abrir archivos que esté editando con otra aplicación."
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:55
 msgid "Open With..."
@@ -533,20 +533,21 @@ msgstr ""
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/completion-provider.vala:67
 #, c-format
 msgid "Could not load icon theme: %s\n"
-msgstr ""
+msgstr "No se pudo cargar el tema de iconos : %s\n"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:30
 msgid "Words Completion"
-msgstr ""
+msgstr "Completar palabras"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:31
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
+"Mostrar un diálogo de compleción con las palabras más usadas en sus archivos."
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:99
 #, c-format
 msgid "%s - Word Completion"
-msgstr ""
+msgstr "%s - Compleción de palabras"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FileView.vala:322
 msgid "Close Folder"
@@ -567,7 +568,7 @@ msgstr ""
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:89
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:90
 msgid "Open a folder"
-msgstr ""
+msgstr "Abrir una carpeta"
 
 #: /home/mario/elementary/scratch/po/../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"

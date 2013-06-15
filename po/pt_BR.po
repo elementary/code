@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-07 22:58+0200\n"
-"PO-Revision-Date: 2013-05-06 23:58+0000\n"
+"PO-Revision-Date: 2013-06-14 22:23+0000\n"
 "Last-Translator: Leonardo Lemos <leonardolemos@live.com>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-06-08 06:05+0000\n"
+"X-Launchpad-Export-Date: 2013-06-15 05:30+0000\n"
 "X-Generator: Launchpad (build 16667)\n"
 "Language: pt_BR\n"
 
@@ -62,12 +62,12 @@ msgstr "Esconder barra de busca"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:499
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:500
 msgid "Find…"
-msgstr ""
+msgstr "Localizar..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:503
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:504
 msgid "Go to line…"
-msgstr ""
+msgstr "Ir para a linha..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:507
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:508
@@ -213,7 +213,7 @@ msgstr "File "
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:428
 msgid "was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "foi deletado. Você deseja salvar isso de qualquer maneira?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:440
 msgid "You cannot save changes on file"
@@ -445,11 +445,11 @@ msgstr "Um mês"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
-msgstr ""
+msgstr "Pastebin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
-msgstr ""
+msgstr "Compartilhar arquivos com o serviço do pastebin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:134
 msgid "Upload to Pastebin"
@@ -457,11 +457,11 @@ msgstr "Enviar para o Pastebin"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/filemanager.vala:21
 msgid "File Manager"
-msgstr ""
+msgstr "Gerenciador de arquivos"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/filemanager.vala:22
 msgid "Browse files and folders"
-msgstr ""
+msgstr "Navegar por arquivos e pastas"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/filemanager.vala:62
 msgid "Files"
@@ -474,7 +474,7 @@ msgstr "Terminal"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:24
 msgid "A terminal in your text editor"
-msgstr ""
+msgstr "Um terminal em seu editor de texto"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:62
 msgid "Copy"
@@ -486,11 +486,11 @@ msgstr "Colar"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:23
 msgid "Browser Preview"
-msgstr ""
+msgstr "Pré-visualizar no navegador"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:24
 msgid "Get a preview your work in a web page"
-msgstr ""
+msgstr "Obtenha uma prévia de seu trabalha em uma página da web"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:66
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:67
@@ -503,19 +503,19 @@ msgstr "Visualização da web"
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:18
 msgid "Spell Checker"
-msgstr ""
+msgstr "Verificar ortográfico"
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
-msgstr ""
+msgstr "Checa a ortografia de seus documentos"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:21
 msgid "Open With"
-msgstr ""
+msgstr "Abrir com"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr ""
+msgstr "Abrir arquivos que você está editando com outro aplicativo"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:55
 msgid "Open With..."
@@ -523,62 +523,64 @@ msgstr "Abrir com..."
 
 #: /home/mario/elementary/scratch/po/../plugins/brackets-completion/brackets-completion.vala:21
 msgid "Brackets Completion"
-msgstr ""
+msgstr "Fechamento de parênteses"
 
 #: /home/mario/elementary/scratch/po/../plugins/brackets-completion/brackets-completion.vala:22
 msgid "Complete brackets while typing"
-msgstr ""
+msgstr "Completar parênteses enquanto estiver digitando"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/completion-provider.vala:67
 #, c-format
 msgid "Could not load icon theme: %s\n"
-msgstr ""
+msgstr "Não pôde carregar o tema de ícones: %s\n"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:30
 msgid "Words Completion"
-msgstr ""
+msgstr "Conclusão de palavras"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:31
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
+"Mostra um diálogo de completação com as palavras mais utilizadas para os "
+"seus arquivos"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:99
 #, c-format
 msgid "%s - Word Completion"
-msgstr ""
+msgstr "%s - Completação de palavra"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FileView.vala:322
 msgid "Close Folder"
-msgstr ""
+msgstr "Fechar pasta"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:21
 msgid "Folder Manager"
-msgstr ""
+msgstr "Gerenciador de pastas"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:22
 msgid "Basic folder manager with file browsing"
-msgstr ""
+msgstr "Gerenciador de pastas básico com navegador de arquivos"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:71
 msgid "Folders"
-msgstr ""
+msgstr "Pastas"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:89
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:90
 msgid "Open a folder"
-msgstr ""
+msgstr "Abrir uma pasta"
 
 #: /home/mario/elementary/scratch/po/../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
-msgstr ""
+msgstr "Compartilhar seu arquivos com o Contractor"
 
 #: /home/mario/elementary/scratch/po/../plugins/strip-trailing-save/strip-trailing-save.vala:18
 msgid "Strip trailing whitespace"
-msgstr ""
+msgstr "Tirar os espaços em branco"
 
 #: /home/mario/elementary/scratch/po/../plugins/strip-trailing-save/strip-trailing-save.vala:19
 msgid "Strip trailing whitespace on save"
-msgstr ""
+msgstr "Tirar os espaços em branco ao salvar"
 
 #~ msgid "Save unsaved changes to file before closing?"
 #~ msgstr "Salvar mudanças ainda não salvas antes de fechar o arquivo?"
