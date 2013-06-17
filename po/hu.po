@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-06-07 22:58+0200\n"
-"PO-Revision-Date: 2012-11-30 19:47+0000\n"
-"Last-Translator: Imre Benedek <nucleo@indamail.hu>\n"
+"PO-Revision-Date: 2013-06-16 06:34+0000\n"
+"Last-Translator: Mark Lutring <marcus@elitemail.hu>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-06-08 06:05+0000\n"
+"X-Launchpad-Export-Date: 2013-06-17 05:32+0000\n"
 "X-Generator: Launchpad (build 16667)\n"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:15
@@ -61,12 +61,12 @@ msgstr "Keresődoboz elrejtése"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:499
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:500
 msgid "Find…"
-msgstr ""
+msgstr "Keresés…"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:503
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:504
 msgid "Go to line…"
-msgstr ""
+msgstr "Ugrás a sorhoz..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:507
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:508
@@ -86,7 +86,7 @@ msgstr "Csere"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:519
 msgid "Reopen closed document"
-msgstr ""
+msgstr "Bezárt dokumentum újranyitása"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:520
 msgid "Open last closed document in a new tab"
@@ -94,11 +94,11 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:523
 msgid "Add New Tab"
-msgstr ""
+msgstr "Új fül"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:524
 msgid "Add a new tab"
-msgstr ""
+msgstr "Új fül"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:527
 msgid "Add New View"
@@ -203,12 +203,12 @@ msgstr "Bezárás mentés nélkül"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:239
 msgid "Save File"
-msgstr ""
+msgstr "Fájl mentése"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:427
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:464
 msgid "File "
-msgstr ""
+msgstr "Fájl "
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:428
 msgid "was deleted. Do you want to save it anyway?"
@@ -238,7 +238,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:470
 msgid "Continue"
-msgstr ""
+msgstr "Folytatás"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:42
 msgid "No files are open."
@@ -286,7 +286,7 @@ msgstr "Szintaxiskiemelés:"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:93
 msgid "Normal Text"
-msgstr ""
+msgstr "Normál szöveg"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:157
 msgid "Set of plugins"
@@ -442,23 +442,23 @@ msgstr "Egy hónap"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
-msgstr ""
+msgstr "Pastebin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
-msgstr ""
+msgstr "Fájlok megosztása Pastebin segítségével"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:134
 msgid "Upload to Pastebin"
-msgstr ""
+msgstr "Feltöltés Pastebinre"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/filemanager.vala:21
 msgid "File Manager"
-msgstr ""
+msgstr "Fájlkezelő"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/filemanager.vala:22
 msgid "Browse files and folders"
-msgstr ""
+msgstr "Fájlok és mappák tallózása"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/filemanager.vala:62
 msgid "Files"
@@ -500,7 +500,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:18
 msgid "Spell Checker"
-msgstr ""
+msgstr "Helyesírás-ellenőrző"
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
@@ -508,7 +508,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:21
 msgid "Open With"
-msgstr ""
+msgstr "Megnyitás ezzel"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
@@ -533,7 +533,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:30
 msgid "Words Completion"
-msgstr ""
+msgstr "Szó kiegészítés"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:31
 msgid "Show a completion dialog with most used words from your files"
@@ -546,7 +546,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FileView.vala:322
 msgid "Close Folder"
-msgstr ""
+msgstr "Mappa bezárása"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:21
 msgid "Folder Manager"
@@ -558,12 +558,12 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:71
 msgid "Folders"
-msgstr ""
+msgstr "Mappák"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:89
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:90
 msgid "Open a folder"
-msgstr ""
+msgstr "Mappa megnyitása"
 
 #: /home/mario/elementary/scratch/po/../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
