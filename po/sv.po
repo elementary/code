@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-06-07 22:58+0200\n"
-"PO-Revision-Date: 2013-06-11 19:17+0000\n"
+"PO-Revision-Date: 2013-06-17 09:45+0000\n"
 "Last-Translator: Joachim Johansson <joachim.j@gmail.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-06-12 05:37+0000\n"
-"X-Generator: Launchpad (build 16667)\n"
+"X-Launchpad-Export-Date: 2013-06-18 06:23+0000\n"
+"X-Generator: Launchpad (build 16673)\n"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:15
 msgid "Edit text files"
@@ -61,12 +61,12 @@ msgstr "Dölj sökfältet"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:499
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:500
 msgid "Find…"
-msgstr ""
+msgstr "Sök..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:503
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:504
 msgid "Go to line…"
-msgstr ""
+msgstr "Gå till rad…"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:507
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:508
@@ -86,19 +86,19 @@ msgstr "Ersätt"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:519
 msgid "Reopen closed document"
-msgstr ""
+msgstr "Öppna det stängda dokumentet igen"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:520
 msgid "Open last closed document in a new tab"
-msgstr ""
+msgstr "Öppna det stängda dokumentet i en ny flik"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:523
 msgid "Add New Tab"
-msgstr ""
+msgstr "Lägg till ny flik"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:524
 msgid "Add a new tab"
-msgstr ""
+msgstr "Lägg till en ny flik"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:527
 msgid "Add New View"
@@ -178,7 +178,7 @@ msgstr "Inställningar"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:564
 msgid "Change Scratch settings"
-msgstr "Ändra inställningar för Scratch"
+msgstr "Ändra inställningarna för Scratch"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:570
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:571
@@ -194,7 +194,7 @@ msgstr "Spara ändringar till dokumentet %s före avslut?"
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
-"Ifall du inte sparar, kommer ändringar från de 4 senste sekunderna att "
+"Om du inte sparar, kommer de fyra senaste sekundernas ändringar att "
 "försvinna."
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:173
@@ -203,24 +203,24 @@ msgstr "Stäng utan att spara"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:239
 msgid "Save File"
-msgstr ""
+msgstr "Spara fil"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:427
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:464
 msgid "File "
-msgstr ""
+msgstr "Fil "
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:428
 msgid "was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "raderades. Vill du spara det i alla fall?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:440
 msgid "You cannot save changes on file"
-msgstr ""
+msgstr "Du kan inte spara ändringar i denna fil"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:441
 msgid "Do you want to save the changes to this file in a different location?"
-msgstr "Vill du spara ändringarna för denna fil på ett annat ställe?"
+msgstr "Vill du spara ändringarna för denna fil på en annan plats?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:443
 msgid "Save changes elsewhere"
@@ -234,7 +234,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:467
 msgid "Load"
-msgstr ""
+msgstr "Läs in"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:470
 msgid "Continue"
