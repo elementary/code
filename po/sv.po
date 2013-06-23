@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-06-07 22:58+0200\n"
-"PO-Revision-Date: 2013-06-18 21:38+0000\n"
+"PO-Revision-Date: 2013-06-22 11:45+0000\n"
 "Last-Translator: Joachim Johansson <joachim.j@gmail.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-06-19 05:42+0000\n"
-"X-Generator: Launchpad (build 16673)\n"
+"X-Launchpad-Export-Date: 2013-06-23 05:22+0000\n"
+"X-Generator: Launchpad (build 16677)\n"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:15
 msgid "Edit text files"
@@ -52,7 +52,7 @@ msgstr "Papperskorg"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:396
 msgid "Open some files"
-msgstr ""
+msgstr "Öppna några filer"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:486
 msgid "Hide search bar"
@@ -122,7 +122,7 @@ msgstr "Ångra"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:536
 msgid "Undo the last action"
-msgstr "Ångra senaste åtgärden"
+msgstr "Ångra den senaste åtgärden"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:539
 msgid "Redo"
@@ -160,7 +160,7 @@ msgstr "Spara"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:556
 msgid "Save the current file"
-msgstr "Spara aktuell fil"
+msgstr "Spara den aktuella filen"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:559
 #: /home/mario/elementary/scratch/po/../src/Services/TemplateManager.vala:228
@@ -188,7 +188,7 @@ msgstr "Fullskärmsläge"
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:168
 #, c-format
 msgid "Save changes to document %s before closing?"
-msgstr "Spara ändringar till dokumentet %s före avslut?"
+msgstr "Spara ändringarna i dokumentet %s innan du avslutar?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:171
 msgid ""
@@ -231,6 +231,8 @@ msgid ""
 "was modified by an external application. Do you want to load it again or "
 "continue your editing?"
 msgstr ""
+"ändrades av ett annat program. Vill du ladda om dokumentet eller fortsätta "
+"redigera?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:467
 msgid "Load"
@@ -446,7 +448,7 @@ msgstr "Pastebin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
-msgstr ""
+msgstr "Dela filer via tjänsten Pastebin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:134
 msgid "Upload to Pastebin"
