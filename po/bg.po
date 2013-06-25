@@ -8,31 +8,31 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-06-07 22:58+0200\n"
-"PO-Revision-Date: 2012-09-06 11:53+0000\n"
-"Last-Translator: Veselin Trakiyski <Unknown>\n"
+"PO-Revision-Date: 2013-06-24 09:36+0000\n"
+"Last-Translator: KVG <kvgkvg@gmail.com>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-06-08 06:05+0000\n"
-"X-Generator: Launchpad (build 16667)\n"
+"X-Launchpad-Export-Date: 2013-06-25 05:38+0000\n"
+"X-Generator: Launchpad (build 16677)\n"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:15
 msgid "Edit text files"
-msgstr ""
+msgstr "Редактирайте текстови файлове"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:16
 msgid "Text Editor"
-msgstr ""
+msgstr "Текстов редактор"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:17
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:312
 msgid "New Document"
-msgstr ""
+msgstr "Нов документ"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:18
 msgid "New Window"
-msgstr ""
+msgstr "Нов прозорец"
 
 #: /home/mario/elementary/scratch/po/../src/Utils.vala:42
 msgid "All files"
@@ -52,7 +52,7 @@ msgstr "Кошче"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:396
 msgid "Open some files"
-msgstr ""
+msgstr "Отваряне на файлове"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:486
 msgid "Hide search bar"
@@ -61,12 +61,12 @@ msgstr "Скриване на лентата за търсене"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:499
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:500
 msgid "Find…"
-msgstr ""
+msgstr "Търсене…"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:503
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:504
 msgid "Go to line…"
-msgstr ""
+msgstr "Отиване на ред..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:507
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:508
@@ -77,7 +77,7 @@ msgstr "Изход"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:512
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:84
 msgid "Close"
-msgstr "Затвори"
+msgstr "Затваряне"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:515
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:516
@@ -90,15 +90,15 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:520
 msgid "Open last closed document in a new tab"
-msgstr ""
+msgstr "Отваряне на последно затворен документ в нов таб"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:523
 msgid "Add New Tab"
-msgstr ""
+msgstr "Добавяне на нов таб"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:524
 msgid "Add a new tab"
-msgstr ""
+msgstr "Добавяне на нов таб"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:527
 msgid "Add New View"
@@ -188,12 +188,14 @@ msgstr "Цял екран"
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:168
 #, c-format
 msgid "Save changes to document %s before closing?"
-msgstr ""
+msgstr "Записване на промените в документа %s преди затваряне?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:171
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
+"Ако не съхраните файла, промените от предходните 4 секунди ще бъдат загубени "
+"окончателно."
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:173
 msgid "Close without saving"
@@ -201,20 +203,20 @@ msgstr "Затваряне без запазване"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:239
 msgid "Save File"
-msgstr ""
+msgstr "Запазване на файл"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:427
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:464
 msgid "File "
-msgstr ""
+msgstr "Файлът "
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:428
 msgid "was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "беше изтрит. Желаете ли да го запишете въпреки това?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:440
 msgid "You cannot save changes on file"
-msgstr ""
+msgstr "Не можете да запишете промените на файла"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:441
 msgid "Do you want to save the changes to this file in a different location?"
@@ -222,13 +224,15 @@ msgstr "Искате ли да запазите промените в този �
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:443
 msgid "Save changes elsewhere"
-msgstr ""
+msgstr "Запазване на промените другаде"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:465
 msgid ""
 "was modified by an external application. Do you want to load it again or "
 "continue your editing?"
 msgstr ""
+"беше променен от друго приложение. Желаете ли да го заредите отново или да "
+"продължите редакцията?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:467
 msgid "Load"
