@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-07 22:58+0200\n"
-"PO-Revision-Date: 2013-06-07 08:34+0000\n"
+"PO-Revision-Date: 2013-06-25 10:07+0000\n"
 "Last-Translator: ZDroid <legospace9876@gmail.com>\n"
 "Language-Team: Serbian <sr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-06-08 06:05+0000\n"
-"X-Generator: Launchpad (build 16667)\n"
+"X-Launchpad-Export-Date: 2013-06-26 05:44+0000\n"
+"X-Generator: Launchpad (build 16681)\n"
 "Language: sr\n"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:15
@@ -444,11 +444,11 @@ msgstr "Један месец"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
-msgstr ""
+msgstr "Pastebin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
-msgstr ""
+msgstr "Подели датотеке Pastebin сервисем"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:134
 msgid "Upload to Pastebin"
@@ -456,11 +456,11 @@ msgstr "Отпреми на Pastebin"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/filemanager.vala:21
 msgid "File Manager"
-msgstr ""
+msgstr "Управник датотека"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/filemanager.vala:22
 msgid "Browse files and folders"
-msgstr ""
+msgstr "Прегледај датотеке и фасцикле"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/filemanager.vala:62
 msgid "Files"
@@ -473,7 +473,7 @@ msgstr "Терминал"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:24
 msgid "A terminal in your text editor"
-msgstr ""
+msgstr "Терминал у вашем уреднику текста"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:62
 msgid "Copy"
@@ -485,11 +485,11 @@ msgstr "Налепи"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:23
 msgid "Browser Preview"
-msgstr ""
+msgstr "Преглед у прегледачу"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:24
 msgid "Get a preview your work in a web page"
-msgstr ""
+msgstr "Прегледајте ваш рад у web страници"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:66
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:67
@@ -502,19 +502,19 @@ msgstr "Web преглед"
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:18
 msgid "Spell Checker"
-msgstr ""
+msgstr "Провера правописа"
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
-msgstr ""
+msgstr "Проверава правопис ваших докумената"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:21
 msgid "Open With"
-msgstr ""
+msgstr "Отвори помоћу"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr ""
+msgstr "Отвори датоеке које уређујете другом апликацијом"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:55
 msgid "Open With..."
@@ -522,11 +522,11 @@ msgstr "Отвори помоћу..."
 
 #: /home/mario/elementary/scratch/po/../plugins/brackets-completion/brackets-completion.vala:21
 msgid "Brackets Completion"
-msgstr ""
+msgstr "Затварање заграда"
 
 #: /home/mario/elementary/scratch/po/../plugins/brackets-completion/brackets-completion.vala:22
 msgid "Complete brackets while typing"
-msgstr ""
+msgstr "Затвори заграде приликом куцања"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/completion-provider.vala:67
 #, c-format
@@ -535,11 +535,12 @@ msgstr "Не могу да учитам тему иконица: %s\n"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:30
 msgid "Words Completion"
-msgstr ""
+msgstr "Завршавање речи"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:31
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
+"Прикажи дијалог завршавања са најчешће коришћеним речима из ваших датотека"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:99
 #, c-format
@@ -552,11 +553,11 @@ msgstr "Затвори фасциклу"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:21
 msgid "Folder Manager"
-msgstr ""
+msgstr "Управник фасцикли"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:22
 msgid "Basic folder manager with file browsing"
-msgstr ""
+msgstr "Основни управник фасцикли са прегледањем датотека"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:71
 msgid "Folders"
@@ -569,15 +570,15 @@ msgstr "Отвори фасциклу"
 
 #: /home/mario/elementary/scratch/po/../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
-msgstr ""
+msgstr "Поделите ваше датотеке са Contractor-ом"
 
 #: /home/mario/elementary/scratch/po/../plugins/strip-trailing-save/strip-trailing-save.vala:18
 msgid "Strip trailing whitespace"
-msgstr ""
+msgstr "Уколони пратећи размак"
 
 #: /home/mario/elementary/scratch/po/../plugins/strip-trailing-save/strip-trailing-save.vala:19
 msgid "Strip trailing whitespace on save"
-msgstr ""
+msgstr "Уклони пратећи размак приликом чувања"
 
 #~ msgid "Create a new document in a new tab"
 #~ msgstr "Направи нови документ у новој картици"
