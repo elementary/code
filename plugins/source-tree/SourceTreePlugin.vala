@@ -214,6 +214,7 @@ namespace Scratch.Plugins {
 
 				if (new_current is Bookmark) {
 					var bookmark = new_current as Bookmark;
+					((Scratch.Services.Interface)object).open_file (bookmark.doc.file);
 					var text = bookmark.doc.source_view;
 					text.buffer.place_cursor (bookmark.iter);
 					text.scroll_to_iter (bookmark.iter, 0.0, true, 0.5, 0.5);
@@ -229,10 +230,12 @@ namespace Scratch.Plugins {
 
 		void on_hook_document (Scratch.Services.Document doc) {
 			(doc.get_parent () as Gtk.Notebook).set_show_tabs (!HIDE_TOOLBAR);
-
+            
 			foreach (var d in category_files.children) {
-				if ((d as Document).file == doc.file)
+				if ((d as Document).file == doc.file) {
+					view.selected = d;
 					return;
+				}
 			}
 
 			if (doc.file == null) {
@@ -243,14 +246,12 @@ namespace Scratch.Plugins {
 			add_doc (doc);
 		}
 
-		void wait_for_save (Scratch.Services.Document doc)
-		{
+		void wait_for_save (Scratch.Services.Document doc) {
 			doc.doc_saved.disconnect (wait_for_save);
 			add_doc (doc);
 		}
 
-		void add_doc (Scratch.Services.Document doc)
-		{
+		void add_doc (Scratch.Services.Document doc) {
 			var item = new Document.scratch (doc);
 			category_files.add (item);
 			my_select = true;
@@ -265,8 +266,7 @@ namespace Scratch.Plugins {
 			}
 		}
 
-		void add_bookmark ()
-		{
+		void add_bookmark () {
 			var doc = (view.selected as Document).doc as Scratch.Services.Document;
 			var buffer = doc.source_view.buffer;
 			Gtk.TextIter iter;
@@ -278,8 +278,7 @@ namespace Scratch.Plugins {
 		}
 
 		const string [] vcss = {".bzr", ".git", ".hg"};
-		File? detect_project (File opened)
-		{
+		File? detect_project (File opened)	{
 			//go up looking for a vcs indicating folder
 			var dir = opened;
 			while ((dir = dir.get_parent ()) != null) {
