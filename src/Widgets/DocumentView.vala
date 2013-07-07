@@ -27,7 +27,7 @@ namespace Scratch.Widgets {
     public class DocumentView : Gtk.Box {
         
         // Widgets
-        private Granite.Widgets.DynamicNotebook notebook;
+        private Scratch.Widgets.DynamicNotebook notebook;
         
         public GLib.List<Document> docs;
         
@@ -41,12 +41,22 @@ namespace Scratch.Widgets {
             docs = new GLib.List<Document> ();
             
             // Layout
-            this.notebook = new Granite.Widgets.DynamicNotebook ();
-            this.notebook.tab_added.connect ((tab) => {
-                new_document (tab);
+            this.notebook = new Scratch.Widgets.DynamicNotebook ();
+            this.notebook.allow_restoring = true;
+            this.notebook.tab_added.connect (() => {
+                new_document ();
+            });
+            this.notebook.tab_removed.connect ((tab) => {
+                if ((tab as Document).file != null)
+                    tab.restore_data = (tab as Document).get_uri ();
+                return true;
             });
             this.notebook.tab_switched.connect ((old_tab, new_tab) => {
                 document_change (new_tab as Document);
+            });
+            this.notebook.tab_restored.connect ((tab) => {
+                var doc = new Document (File.new_for_uri (tab.restore_data));
+                open_document (doc);
             });
             
             this.pack_start (notebook, true, true, 0);
@@ -54,14 +64,10 @@ namespace Scratch.Widgets {
             show_all ();
         }
         
-        public void new_document (owned Granite.Widgets.Tab? tab = null) {
-            
+        public void new_document (owned Scratch.Widgets.Tab? tab = null) {
             var doc = new Document ();
             doc.create_page ();
-            
-            if (tab != null)
-                this.notebook.remove_tab (tab);
-            
+           
             this.notebook.insert_tab (doc, -1);
             
             this.notebook.tab_removed.connect ((closing_tab) => {
@@ -119,7 +125,7 @@ namespace Scratch.Widgets {
             remove_document (doc);
         }
         
-        private bool close_document_from_tab (Document doc, Granite.Widgets.Tab closing_tab) {
+        private bool close_document_from_tab (Document doc, Scratch.Widgets.Tab closing_tab) {
             // Close the Document object too
             if (closing_tab == doc) {
                 bool ret_value = doc.close ();
@@ -150,7 +156,7 @@ namespace Scratch.Widgets {
                 var files = settings.schema.get_strv ("opened-files");
                 string[] opened = { "" };
                 foreach (var file in files) {
-                    if (file != doc.file.get_uri ())
+                    if (file != doc.get_uri ())
                         opened += file;
                 }
                 settings.schema.set_strv ("opened-files", opened);

@@ -29,7 +29,7 @@ namespace Scratch.Services {
         READONLY
     }
 
-    public class Document : Granite.Widgets.Tab {
+    public class Document : Scratch.Widgets.Tab {
 
         // Signals
         public signal void doc_opened ();
@@ -153,7 +153,7 @@ namespace Scratch.Services {
             return true;
         }
 
-        public bool close () {
+        public new bool close () {
 
             message ("Closing \"%s\"", get_basename ());
 
@@ -309,6 +309,13 @@ namespace Scratch.Services {
             this.label = get_basename ();
         }
 
+        // Get file uri
+        public string get_uri () {
+            if (file == null)
+                return "";
+            return this.file.get_uri ();
+        }        
+        
         // Get file name
         public string get_basename () {
             if (file != null)
