@@ -117,7 +117,7 @@ public class Bookmark : Granite.Widgets.SourceList.Item
 
 	public Bookmark (Scratch.Services.Document doc, Gtk.TextIter iter)
 	{
-		Object(name: doc.get_basename () + ":" + iter.get_line ().to_string (),
+		Object(name: doc.get_basename () + ":" + (iter.get_line () + 1).to_string (),
 			doc: doc, iter: iter, icon: new ThemedIcon ("tag-new"));
 		try {
 			activatable = Gtk.IconTheme.get_default ().lookup_by_gicon (new ThemedIcon ("window-close-symbolic"), 16, 0).load_symbolic ({1, 1, 1, 1});
