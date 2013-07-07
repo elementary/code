@@ -131,10 +131,12 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase,  Peas.Activatabl
 				break;
 			case Gdk.Key.Down:
 			case Gdk.Key.j:
+			case Gdk.Key.plus:
 				view.move_cursor (Gtk.MovementStep.DISPLAY_LINES, 1, false);
 				break;
 			case Gdk.Key.Up:
 			case Gdk.Key.k:
+			case Gdk.Key.minus:
 				view.move_cursor (Gtk.MovementStep.DISPLAY_LINES, -1, false);
 				break;
 			case Gdk.Key.Right:
@@ -145,6 +147,15 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase,  Peas.Activatabl
 			case Gdk.Key.dollar:
 				view.move_cursor (Gtk.MovementStep.DISPLAY_LINE_ENDS, 1, false);
 				break;
+		    case Gdk.Key.u:
+		        view.undo ();
+		        break;
+		    case Gdk.Key.H:
+		        view.move_cursor (Gtk.MovementStep.BUFFER_ENDS, -1, false);
+		        break;
+		    case Gdk.Key.L:
+		        view.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 1, false);
+		        break;
 			case Gdk.Key.Home:
 			case Gdk.Key.@0:
 				if (number == "")

@@ -18,4 +18,5 @@ add_translations_catalog("scratch-text-editor"
     ../plugins/contractor
     ../plugins/strip-trailing-save
     ../plugins/source-tree
+    ../plugins/vim-emulation
 )
