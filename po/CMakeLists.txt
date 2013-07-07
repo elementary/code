@@ -17,4 +17,5 @@ add_translations_catalog("scratch-text-editor"
     ../plugins/folder-manager
     ../plugins/contractor
     ../plugins/strip-trailing-save
+    ../plugins/source-tree
 )

@@ -21,8 +21,10 @@
 public const string NAME = N_("Source Tree");
 public const string DESCRIPTION = N_("Have a look at your sources organized in a nice tree");
 
-const bool HIDE_TOOLBAR = false;
+const bool HIDE_TOOLBAR = true;
 const bool DARK_THEME = true;
+
+Scratch.Services.Interface scratch_interface;
 
 public class Folder : Granite.Widgets.SourceList.ExpandableItem
 {
@@ -88,8 +90,8 @@ public class Document : Granite.Widgets.SourceList.Item
 		action_activated.connect (() => {
 			if (parent == null)
 				return;
-			
-			doc.close ();
+				
+            scratch_interface.close_document (doc);
 			parent.remove (this);
 		});
 	}
@@ -104,7 +106,7 @@ public class Document : Granite.Widgets.SourceList.Item
 		doc = _doc;
 		try {
 			activatable = Gtk.IconTheme.get_default ().lookup_by_gicon (new ThemedIcon ("window-close-symbolic"), 16, 0).load_symbolic ({1, 1, 1, 1});
-		} catch (Error e) { warning (e.message); }
+		} catch (Error e) { warning (e.message); }		
 	}
 }
 
@@ -130,13 +132,12 @@ public class Bookmark : Granite.Widgets.SourceList.Item
 	}
 }
 
-namespace Scratch.Plugins
-{
-    public class SourceTreePlugin : Peas.ExtensionBase, Peas.Activatable
-	{
+namespace Scratch.Plugins {
+    public class SourceTreePlugin : Peas.ExtensionBase, Peas.Activatable {
         Scratch.Services.Interface plugins;
         public Object object { owned get; construct; }
-
+        
+        Gtk.ToolButton bookmark_tool_button;
 		Granite.Widgets.SourceList view;
 		Granite.Widgets.SourceList.ExpandableItem category_files;
 		Granite.Widgets.SourceList.ExpandableItem category_project;
@@ -146,12 +147,7 @@ namespace Scratch.Plugins
 
 		bool my_select = false;
 
-        public SourceTreePlugin ()
-		{
-        }
-
-        public void activate ()
-		{
+        public void activate () {
 			if (DARK_THEME)
 				Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
 
@@ -159,21 +155,33 @@ namespace Scratch.Plugins
             plugins.hook_notebook_sidebar.connect (on_hook_sidebar);
 			plugins.hook_document.connect (on_hook_document);
 			plugins.hook_toolbar.connect ((toolbar) => {
-				var item = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("bookmark-new", Gtk.IconSize.LARGE_TOOLBAR), _("Bookmark"));
-				item.show_all ();
-				item.clicked.connect (() => add_bookmark ());
-				toolbar.insert (item, toolbar.get_item_index (toolbar.find_button) + 1);
+				this.bookmark_tool_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("bookmark-new", Gtk.IconSize.LARGE_TOOLBAR), _("Bookmark"));
+				bookmark_tool_button.show_all ();
+				bookmark_tool_button.clicked.connect (() => add_bookmark ());
+				toolbar.insert (bookmark_tool_button, toolbar.get_item_index (toolbar.find_button) + 1);
 			});
+			plugins.hook_split_view.connect ((view) => {
+			    this.bookmark_tool_button.visible = ! view.is_empty ();
+                this.bookmark_tool_button.no_show_all = view.is_empty ();
+                view.welcome_shown.connect (() => {
+                    this.bookmark_tool_button.visible = false;
+                    this.bookmark_tool_button.no_show_all = true;
+                });
+                view.welcome_hidden.connect (() => {
+                    this.bookmark_tool_button.visible = true;
+                    this.bookmark_tool_button.no_show_all = false;
+                });
+			});
+			
+			scratch_interface = ((Scratch.Services.Interface)object);
         }
 
-        public void deactivate ()
-		{
+        public void deactivate () {
             if (view != null)
                 view.destroy();
         }
 
-        public void update_state ()
-		{
+        public void update_state () {
         }
 
         void on_hook_sidebar (Gtk.Notebook notebook) {
@@ -213,18 +221,13 @@ namespace Scratch.Plugins
 				}
 
 				var doc = new_current as Document;
-				if (doc.doc != null) {
-					doc.doc.focus ();
-				} else {
-					((Scratch.Services.Interface)object).open_file (doc.file);
-				}
+				((Scratch.Services.Interface)object).open_file (doc.file);
 			});
 
-			notebook.append_page (view);
+			notebook.append_page (view, new Gtk.Label (_("Source Tree")));
         }
 
-		void on_hook_document (Scratch.Services.Document doc)
-		{
+		void on_hook_document (Scratch.Services.Document doc) {
 			(doc.get_parent () as Gtk.Notebook).set_show_tabs (!HIDE_TOOLBAR);
 
 			foreach (var d in category_files.children) {

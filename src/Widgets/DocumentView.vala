@@ -42,8 +42,8 @@ namespace Scratch.Widgets {
             
             // Layout
             this.notebook = new Granite.Widgets.DynamicNotebook ();
-            this.notebook.tab_added.connect ((tab) => {
-                new_document (tab);
+            this.notebook.tab_added.connect (() => {
+                new_document ();
             });
             this.notebook.tab_switched.connect ((old_tab, new_tab) => {
                 document_change (new_tab as Document);
@@ -93,6 +93,10 @@ namespace Scratch.Widgets {
             
             if (already_opened) {
                 warning ("This Document was already opened! Not opening a duplicate!");
+                docs.foreach ((d) => {
+                    if (d.file.get_uri () == doc.file.get_uri ())
+                        this.notebook.current = d;
+                });
                 return;
             }
             
