@@ -300,6 +300,21 @@ namespace Scratch {
                 view.open_document (doc);
             }
         }
+        
+        // Close a document
+        public void close_document (Scratch.Services.Document doc) {
+            Scratch.Widgets.DocumentView? view = null;
+            if (this.split_view.is_empty ()) {
+                view = split_view.add_view ();
+                view.close_document (doc);
+            }
+            else {
+                view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
+                if (view == null)
+                    view = this.split_view.current_view;
+                view.close_document (doc);
+            }
+        }
 
         // Return true if there are no documents
         public bool is_empty () {

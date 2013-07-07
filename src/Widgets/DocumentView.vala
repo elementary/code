@@ -99,6 +99,10 @@ namespace Scratch.Widgets {
             
             if (already_opened) {
                 warning ("This Document was already opened! Not opening a duplicate!");
+                docs.foreach ((d) => {
+                    if (d.file.get_uri () == doc.file.get_uri ())
+                        this.notebook.current = d;
+                });
                 return;
             }
             
