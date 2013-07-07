@@ -137,7 +137,7 @@ namespace Scratch.Plugins {
         Scratch.Services.Interface plugins;
         public Object object { owned get; construct; }
         
-        Gtk.ToolButton bookmark_tool_button;
+        Gtk.ToolButton? bookmark_tool_button = null;
 		Granite.Widgets.SourceList view;
 		Granite.Widgets.SourceList.ExpandableItem category_files;
 		Granite.Widgets.SourceList.ExpandableItem category_project;
@@ -155,6 +155,8 @@ namespace Scratch.Plugins {
             plugins.hook_notebook_sidebar.connect (on_hook_sidebar);
 			plugins.hook_document.connect (on_hook_document);
 			plugins.hook_toolbar.connect ((toolbar) => {
+				if (this.bookmark_tool_button != null) 
+				    return;
 				this.bookmark_tool_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("bookmark-new", Gtk.IconSize.LARGE_TOOLBAR), _("Bookmark"));
 				bookmark_tool_button.show_all ();
 				bookmark_tool_button.clicked.connect (() => add_bookmark ());
@@ -179,6 +181,8 @@ namespace Scratch.Plugins {
         public void deactivate () {
             if (view != null)
                 view.destroy();
+            if (bookmark_tool_button != null)
+                bookmark_tool_button.destroy ();
         }
 
         public void update_state () {
