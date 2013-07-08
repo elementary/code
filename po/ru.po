@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-06-07 22:58+0200\n"
+"POT-Creation-Date: 2013-07-08 00:04+0200\n"
 "PO-Revision-Date: 2013-06-23 16:35+0000\n"
 "Last-Translator: Oleg <oopseekoleg@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-06-24 04:54+0000\n"
-"X-Generator: Launchpad (build 16677)\n"
+"X-Launchpad-Export-Date: 2013-07-08 05:41+0000\n"
+"X-Generator: Launchpad (build 16696)\n"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:15
 msgid "Edit text files"
@@ -26,7 +26,7 @@ msgid "Text Editor"
 msgstr "Текстовый редактор"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:17
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:312
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:324
 msgid "New Document"
 msgstr "Новый документ"
 
@@ -50,193 +50,200 @@ msgstr "Отслеживать источник данных для редакт
 msgid "Trash"
 msgstr "Корзина"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:396
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:411
 msgid "Open some files"
 msgstr "Открыть файлы"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:486
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:501
 msgid "Hide search bar"
 msgstr "Скрыть панель поиска"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:499
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:500
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:514
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:515
 msgid "Find…"
 msgstr "Поиск..."
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:503
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:504
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:518
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:519
 msgid "Go to line…"
 msgstr "Перейти к строке..."
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:507
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:508
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:522
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:523
 msgid "Quit"
 msgstr "Выход"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:511
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:512
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:526
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:527
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:84
 msgid "Close"
 msgstr "Закрыть"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:515
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:516
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:530
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:531
 msgid "Replace"
 msgstr "Заменить"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:519
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:534
 msgid "Reopen closed document"
 msgstr "Переоткрыть документ"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:520
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:535
 msgid "Open last closed document in a new tab"
 msgstr "Открыть последний документ в новой вкладке"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:523
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:538
 msgid "Add New Tab"
 msgstr "Новая вкладка"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:524
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:539
 msgid "Add a new tab"
 msgstr "Новая вкладка"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:527
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:542
 msgid "Add New View"
 msgstr "Разделить окно пополам"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:528
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:543
 msgid "Add a new view"
 msgstr "Разделить окно пополам"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:531
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:546
 msgid "Remove Current View"
 msgstr "Закрыть файл в текущей половине окна"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:532
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:547
 msgid "Remove this view"
 msgstr "Закрыть файл в текущей половине окна"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:535
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:550
 msgid "Undo"
 msgstr "Отменить"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:536
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:551
 msgid "Undo the last action"
 msgstr "Отменить последнее действие"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:539
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:554
 msgid "Redo"
 msgstr "Повторить"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:540
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:555
 msgid "Redo the last undone action"
 msgstr "Повторить последнее отменённое действие"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:543
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:558
 msgid "Revert"
 msgstr "Откатить"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:544
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:559
 msgid "Restore this file"
 msgstr "Вернуть файл в первоначальное состояние"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:547
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:548
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:562
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:563
 msgid "Duplicate selected strings"
 msgstr "Дублировать выбранные строки"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:551
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:566
 msgid "Open"
 msgstr "Открыть"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:552
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:567
 msgid "Open a file"
 msgstr "Открыть файл"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:555
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:430
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:570
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:457
 msgid "Save"
 msgstr "Сохранить"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:556
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:571
 msgid "Save the current file"
 msgstr "Сохранить текущий файл"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:559
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:574
 #: /home/mario/elementary/scratch/po/../src/Services/TemplateManager.vala:228
 msgid "Templates"
 msgstr "Шаблоны"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:560
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:575
 msgid "Create a new document from a template"
 msgstr "Создать новый документ по шаблону"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:563
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:578
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:45
 msgid "Preferences"
 msgstr "Параметры"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:564
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:579
 msgid "Change Scratch settings"
 msgstr "Изменение параметров Scratch"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:570
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:571
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:585
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:586
 msgid "Fullscreen"
 msgstr "Полноэкранный режим"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:168
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:173
 #, c-format
 msgid "Save changes to document %s before closing?"
 msgstr "Сохранить изменения в документе %s перед закрытием?"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:171
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:176
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
 "Если вы не сохраните файл, изменения за последние 4 секунды будут утрачены."
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:173
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:178
 msgid "Close without saving"
 msgstr "Закрыть без сохранения"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:239
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:244
 msgid "Save File"
 msgstr "Сохранить файл"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:427
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:464
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:439
+#, c-format
+msgid ""
+"File \"<b>%s</b>\" cannot be read. Maybe it is corrupt\n"
+"or you do not have the necessary permissions to read it."
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:454
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:495
 msgid "File "
 msgstr "Файл "
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:428
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:455
 msgid "was deleted. Do you want to save it anyway?"
 msgstr "был удален. Вы хотите сохранить его в любом случае?"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:440
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:467
 msgid "You cannot save changes on file"
 msgstr "Невозможно сохранить изменения"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:441
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:468
 msgid "Do you want to save the changes to this file in a different location?"
 msgstr "Сохранить изменения в другом месте?"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:443
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:470
 msgid "Save changes elsewhere"
 msgstr "Сохранить изменения в другом месте"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:465
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:496
 msgid ""
 "was modified by an external application. Do you want to load it again or "
 "continue your editing?"
 msgstr ""
 "изменен другой программой. Хотите обновить или продолжить редактирование?"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:467
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:498
 msgid "Load"
 msgstr "Загрузить"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:470
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:501
 msgid "Continue"
 msgstr "Далее"
 
@@ -280,6 +287,40 @@ msgstr "Заменить на"
 msgid "Go To Line:"
 msgstr "Перейти к строке:"
 
+#: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:112
+#: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:135
+msgid "Close Tab"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:137
+msgid "Open in a new Window"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:138
+msgid "Duplicate"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:186
+msgid "Close Other Tab"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:186
+msgid "Close Other Tabs"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:474
+#: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:501
+msgid "New Tab"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:475
+msgid "Undo Close Tab"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:510
+msgid "Closed Tabs"
+msgstr ""
+
 #: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:82
 msgid "Syntax Highlighting"
 msgstr "Подсветка синтаксиса"
@@ -296,11 +337,11 @@ msgstr "Набор надстроек"
 msgid "Create a new instance"
 msgstr "Создать новый экземпляр"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:65
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:62
 msgid "Behavior"
 msgstr "Поведение"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:69
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:66
 msgid "Interface"
 msgstr "Интерфейс"
 
@@ -461,6 +502,7 @@ msgid "Browse files and folders"
 msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/filemanager.vala:62
+#: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:208
 msgid "Files"
 msgstr "Файлы"
 
@@ -489,12 +531,12 @@ msgstr "Предварительный просмотр в браузере"
 msgid "Get a preview your work in a web page"
 msgstr "Предварительный просмотр вашей работы в виде веб-страници"
 
-#: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:66
-#: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:67
+#: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:80
+#: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:81
 msgid "Get preview!"
 msgstr "Предпросмотр!"
 
-#: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:97
+#: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:111
 msgid "Web preview"
 msgstr "Просмотр в браузере"
 
@@ -577,6 +619,39 @@ msgstr "Удалить конечные пробелы"
 #: /home/mario/elementary/scratch/po/../plugins/strip-trailing-save/strip-trailing-save.vala:19
 msgid "Strip trailing whitespace on save"
 msgstr "Удалить конечные пробелы при сохранении"
+
+#: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:21
+#: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:232
+msgid "Source Tree"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:22
+msgid "Have a look at your sources organized in a nice tree"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:41
+msgid "Loading..."
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:160
+msgid "Bookmark"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:209
+msgid "Project"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:210
+msgid "Bookmarks"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:21
+msgid "Vim Emulation"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:22
+msgid "Use Vim commands in Scratch"
+msgstr ""
 
 #~ msgid "New document"
 #~ msgstr "Новый документ"
