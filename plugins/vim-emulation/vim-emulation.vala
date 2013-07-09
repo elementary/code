@@ -12,8 +12,8 @@
   MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR	
   PURPOSE.  See the GNU General Public License for more details.
 	
-  You should have received a copy of the GNU General Public License along	
-  with this program.  If not, see <http://www.gnu.org/licenses/>	
+  You should have received a copy of the GNU General Public License along
+  with this program.  If not, see <http://www.gnu.org/licenses/>
   
   END LICENSE	
 ***/
@@ -155,6 +155,31 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase,  Peas.Activatabl
 		        break;
 		    case Gdk.Key.L:
 		        view.move_cursor (Gtk.MovementStep.BUFFER_ENDS, 1, false);
+		        break;
+		    case Gdk.Key.w:
+		        view.move_cursor (Gtk.MovementStep.WORDS, 1, false);
+		        break;
+		    case Gdk.Key.b:
+		        view.move_cursor (Gtk.MovementStep.WORDS, -1, false);
+		        break;
+		    case Gdk.Key.I:
+		        if (mode == Mode.INSERT)
+			        return false;
+				mode = Mode.INSERT;
+				var buffer = view.buffer;		
+		        Gtk.TextIter start, end;
+		        buffer.get_selection_bounds (out start, out end); 
+		        buffer.get_iter_at_mark (out start, buffer.get_insert ());
+                start.backward_sentence_start ();
+				buffer.place_cursor (start);
+				debug ("Vim Emulation: INSERT Mode!");
+		        break;
+		    case Gdk.Key.A:
+		        if (mode == Mode.INSERT)
+			        return false;
+				mode = Mode.INSERT;
+				view.move_cursor (Gtk.MovementStep.DISPLAY_LINE_ENDS, 1, false);
+				debug ("Vim Emulation: INSERT Mode!");
 		        break;
 			case Gdk.Key.Home:
 			case Gdk.Key.@0:
