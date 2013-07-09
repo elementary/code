@@ -48,6 +48,7 @@ public class ValaSymbolOutline : Object, SymbolOutline
 	public ValaSymbolOutline (Scratch.Services.Document _doc)
 	{
 		doc = _doc;
+		doc.doc_closed.connect (doc_closed);
 
 		field_blacklist = new Gee.LinkedList<Vala.Field> ();
 		cache = new SymbolIter ();
@@ -82,7 +83,12 @@ public class ValaSymbolOutline : Object, SymbolOutline
 	
 	~ValaSymbolResolver ()
 	{
-		doc.doc_saved.disconnect (parse_symbols);
+		doc.doc_closed.disconnect (doc_closed);
+	}
+
+	void doc_closed (Scratch.Services.Document doc)
+	{
+		closed ();
 	}
 
 	public Granite.Widgets.SourceList get_source_list ()
@@ -117,24 +123,10 @@ public class ValaSymbolOutline : Object, SymbolOutline
 
 		thread.join ();
 
-		store.root.remove (root);
 		root.clear ();
-		root = null;
-		root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));
-		store.root.add (root);
 		construct_tree (cache, root);
 
-		foreach (var child in root.children) {
-			var exp = child as Symbol;
-			// if we have no children on an item, make it non expandable
-			// if it has no children, it will also be hidden, so we add a dummy one
-			if (exp.children.size == 0) {
-				exp.add (new Granite.Widgets.SourceList.Item (""));
-				exp.collapsible = false;
-			}
-		}
-
-		//filter_generated_fields (root);
+		filter_generated_fields (root);
 
 		store.root.expand_all ();
 	}
@@ -167,12 +159,14 @@ public class ValaSymbolOutline : Object, SymbolOutline
 		return match;
 	}
 
+	// vala generates for each property a field which we do not want to display
 	void filter_generated_fields (Granite.Widgets.SourceList.ExpandableItem parent)
 	{
 		foreach (var child in parent.children) {
 			var child_symbol = child as Symbol;
-			if (field_blacklist.contains (child_symbol.symbol as Vala.Field))
+			if (field_blacklist.contains (child_symbol.symbol as Vala.Field)) {
 				parent.remove (child);
+			}
 			filter_generated_fields (child_symbol);
 		}
 	}
@@ -220,6 +214,7 @@ public class SymbolResolver : Vala.SymbolResolver
 		add_symbol (s);
 		base.visit_delegate (s);
 	}
+	//FIXME both constructor and destructor are currently not added for some reason
 	public override void visit_constructor (Vala.Constructor s)
 	{
 		add_symbol (s, "media-playback-start-symbolic");

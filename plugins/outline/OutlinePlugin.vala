@@ -58,6 +58,7 @@ namespace Scratch.Plugins {
 
         void on_hook_context (Gtk.Notebook notebook) {
 			notebook.append_page (container, new Gtk.Label (_("Symbols")));
+			container.show_all ();
         }
 
 		void on_hook_document (Scratch.Services.Document doc) {
