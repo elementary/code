@@ -42,7 +42,7 @@ ensure_vala_version ("0.16.1" MINIMUM)
 include (ValaPrecompile)
 
 # Dependencies
-set (SCRATCH_DEPS libpeas-1.0 libpeas-gtk-1.0 gtksourceview-3.0 gee-1.0 gobject-2.0 glib-2.0 gio-2.0 gconf-2.0 gtk+-3.0 granite zeitgeist-1.0 gobject-introspection-1.0)
+set (SCRATCH_DEPS libpeas-1.0 libpeas-gtk-1.0 gtksourceview-3.0 gee-1.0 gobject-2.0 glib-2.0 gio-2.0 gtk+-3.0 granite zeitgeist-1.0)
 find_package (PkgConfig)
 pkg_check_modules (GTK+ REQUIRED "gtk+-3.0 >= 3.4")
 pkg_check_modules (LIBSOURCE REQUIRED libpeas-gtk-1.0 gtksourceview-3.0>=3.0 gthread-2.0)
@@ -60,12 +60,6 @@ link_directories (${DEPS_LIBRARY_DIRS} ${LIBSOURCE_LIBRARY_DIRS} ${GCONF_LIBRARY
 # Some include paths
 include_directories(${CMAKE_BINARY_DIR}/scratchcore)
 include_directories(${CMAKE_BINARY_DIR}/src)
-
-# Translations for plugins
-execute_process(
-    COMMAND python ${CMAKE_CURRENT_SOURCE_DIR}/plugin-translate.py
-    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-)
 
 # Subdirectories
 #add_subdirectory(scratchcore)
