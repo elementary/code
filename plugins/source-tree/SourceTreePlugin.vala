@@ -138,6 +138,7 @@ namespace Scratch.Plugins {
         public Object object { owned get; construct; }
         
         Gtk.ToolButton? bookmark_tool_button = null;
+		Gtk.Notebook scratch_notebook;
 		Granite.Widgets.SourceList view;
 		Granite.Widgets.SourceList.ExpandableItem category_files;
 		Granite.Widgets.SourceList.ExpandableItem category_project;
@@ -183,6 +184,7 @@ namespace Scratch.Plugins {
                 view.destroy();
             if (bookmark_tool_button != null)
                 bookmark_tool_button.destroy ();
+            scratch_notebook.set_show_tabs (true);
         }
 
         public void update_state () {
@@ -233,7 +235,8 @@ namespace Scratch.Plugins {
         }
 
 		void on_hook_document (Scratch.Services.Document doc) {
-			(doc.get_parent () as Gtk.Notebook).set_show_tabs (!HIDE_TOOLBAR);
+			scratch_notebook = (doc.get_parent () as Gtk.Notebook);
+			scratch_notebook.set_show_tabs (!HIDE_TOOLBAR);
             
 			foreach (var d in category_files.children) {
 				if ((d as Document).file == doc.file) {
