@@ -31,6 +31,7 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase,  Peas.Activatabl
 	
     Mode mode = Mode.INSERT;
     string number = "";
+    string action = "";
     bool g = false;
     
     GLib.List<Scratch.Widgets.SourceView> views = new GLib.List<Scratch.Widgets.SourceView> (); 
@@ -80,6 +81,9 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase,  Peas.Activatabl
 			case Gdk.Key.i:
 			    if (mode == Mode.INSERT)
 			        return false;
+				else
+				    // clean action string
+                    action = "";
 				mode = Mode.INSERT;
 				debug ("Vim Emulation: INSERT Mode!");
 				return true;
@@ -89,8 +93,12 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase,  Peas.Activatabl
 				break;
 		}
 		
-		if (mode == Mode.INSERT)
+		if (mode == Mode.INSERT) {
+		    action += event.str;
 			return false;
+        }
+        
+		//debug ("%u", event.keyval);
 		
 		// Parse commands
 		switch (event.keyval) {
@@ -181,6 +189,10 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase,  Peas.Activatabl
 				view.move_cursor (Gtk.MovementStep.DISPLAY_LINE_ENDS, 1, false);
 				debug ("Vim Emulation: INSERT Mode!");
 		        break;
+		    case 46: // Dot "."
+		        debug (action);
+		        view.insert_at_cursor (action);
+		        break;
 			case Gdk.Key.Home:
 			case Gdk.Key.@0:
 				if (number == "")
@@ -200,7 +212,7 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase,  Peas.Activatabl
 		//if there weren't any numbers added, we probably used it, so we reset it
 		if (old_len == number.length)
 			number = "";
-
+        
 		return true;
     }
     
