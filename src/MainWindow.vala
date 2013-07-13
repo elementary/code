@@ -179,13 +179,18 @@ namespace Scratch {
             this.bottombar.page_removed.connect (() => { on_plugin_toggled (bottombar); });
 
             var hp1 = new Granite.Widgets.ThinPaned ();
-            hp1.position = 150; // FIXME: what a bad solution
             var hp2 = new Granite.Widgets.ThinPaned ();
-            hp2.position = 1500; // FIXME: what a bad solution
             var vp = new Granite.Widgets.ThinPaned ();
             vp.orientation = Orientation.VERTICAL;
-            vp.position = 1500; // FIXME: what a bad solution
-
+            
+            // Set a proper position for ThinPaned widgets
+            int width, height;
+            this.get_size (out width, out height);
+            
+            hp1.position = 150;
+            hp2.position = (width - 150);
+            vp.position = (height - 100);
+            
             hp1.pack1 (sidebar, false, false);
             hp1.pack2 (split_view, true, false);
             hp2.pack1 (hp1, true, false);
