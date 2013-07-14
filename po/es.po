@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-07-08 00:04+0200\n"
-"PO-Revision-Date: 2013-06-21 08:34+0000\n"
-"Last-Translator: Alfredo Hernández <Unknown>\n"
+"PO-Revision-Date: 2013-07-13 10:46+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitoschido@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-07-08 05:41+0000\n"
+"X-Launchpad-Export-Date: 2013-07-14 05:54+0000\n"
 "X-Generator: Launchpad (build 16696)\n"
 "Language: es\n"
 
@@ -212,6 +212,8 @@ msgid ""
 "File \"<b>%s</b>\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
+"No se puede leer el archivo «<b>%s</b>». Quizá está dañado\n"
+"o no tiene los permisos necesarios para leerlo."
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:454
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:495
@@ -294,36 +296,36 @@ msgstr "Ir a la línea:"
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:112
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:135
 msgid "Close Tab"
-msgstr ""
+msgstr "Cerrar la pestaña"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:137
 msgid "Open in a new Window"
-msgstr ""
+msgstr "Abrir en una ventana nueva"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:138
 msgid "Duplicate"
-msgstr ""
+msgstr "Duplicar"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:186
 msgid "Close Other Tab"
-msgstr ""
+msgstr "Cerrar la otra pestaña"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:186
 msgid "Close Other Tabs"
-msgstr ""
+msgstr "Cerrar las demás pestañas"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:474
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:501
 msgid "New Tab"
-msgstr ""
+msgstr "Pestaña nueva"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:475
 msgid "Undo Close Tab"
-msgstr ""
+msgstr "Deshacer cerrar pestaña"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:510
 msgid "Closed Tabs"
-msgstr ""
+msgstr "Pestañas cerradas"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:82
 msgid "Syntax Highlighting"
@@ -635,7 +637,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:41
 msgid "Loading..."
-msgstr ""
+msgstr "Cargando…"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:160
 msgid "Bookmark"
@@ -643,19 +645,19 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:209
 msgid "Project"
-msgstr ""
+msgstr "Proyecto"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:210
 msgid "Bookmarks"
-msgstr ""
+msgstr "Marcadores"
 
 #: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
-msgstr ""
+msgstr "Emulación de Vim"
 
 #: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
-msgstr ""
+msgstr "Utilizar órdenes de Vim en Scratch"
 
 #~ msgid "Changes to this file haven't been saved."
 #~ msgstr "Los cambios en este archivo no han sido guardados."
