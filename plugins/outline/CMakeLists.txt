@@ -12,14 +12,14 @@ PACKAGES
     libpeas-1.0
     gtksourceview-3.0
     zeitgeist-1.0
-	libvala-0.18
+	libvala-${VALA_SHORTVER}
 OPTIONS
     --vapidir=${CMAKE_BINARY_DIR}
     --vapidir=${CMAKE_BINARY_DIR}/src/
     --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
 )
 
-pkg_check_modules(OUTLINE_DEPS libvala-0.18)
+pkg_check_modules(OUTLINE_DEPS libvala-${VALA_SHORTVER})
 link_directories(${OUTLINE_DEPS_LIBRARY_DRIS})
 add_definitions(${OUTLINE_DEPS_CFLAGS})
 
