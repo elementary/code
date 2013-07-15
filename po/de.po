@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-07-08 00:04+0200\n"
-"PO-Revision-Date: 2013-07-09 15:47+0000\n"
-"Last-Translator: Simeon <Unknown>\n"
+"PO-Revision-Date: 2013-07-14 11:36+0000\n"
+"Last-Translator: Phillip Sz <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-07-10 05:44+0000\n"
+"X-Launchpad-Export-Date: 2013-07-15 05:02+0000\n"
 "X-Generator: Launchpad (build 16696)\n"
 "Language: de\n"
 
@@ -213,6 +213,9 @@ msgid ""
 "File \"<b>%s</b>\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
+"Die Datei »<b>%s</b>« kann nicht gelesen werden. Sie ist möglicherweise "
+"beschädigt\n"
+"oder Ihnen fehlen die nötigen Zugriffsrechte."
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:454
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:495
@@ -303,7 +306,7 @@ msgstr "In neuem Fenster öffnen"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:138
 msgid "Duplicate"
-msgstr ""
+msgstr "Duplikat"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:186
 msgid "Close Other Tab"
@@ -627,11 +630,12 @@ msgstr "Leerzeichen am Zeilenende beim Speichern entfernen"
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:21
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:232
 msgid "Source Tree"
-msgstr ""
+msgstr "Quelltextbaum"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:22
 msgid "Have a look at your sources organized in a nice tree"
 msgstr ""
+"Haben Sie Ihre Quellen in einem gut organisierten Verzeichnisbaum im Blick."
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:41
 msgid "Loading..."
@@ -651,11 +655,11 @@ msgstr "Lesezeichen"
 
 #: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
-msgstr ""
+msgstr "Vim-Emulator"
 
 #: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
-msgstr ""
+msgstr "Nutzen Sie Vim-Kommandos in Scratch"
 
 #~ msgid "Normal text"
 #~ msgstr "Normaler Text"
