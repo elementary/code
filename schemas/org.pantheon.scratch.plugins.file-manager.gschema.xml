@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+    <schema path="/org/pantheon/scratch/plugins/file-manager/" id="org.pantheon.scratch.plugins.file-manager" gettext-domain="scratch">
+        <key name="opened-folder" type="s">
+            <default>''</default>
+            <summary>Opened folder.</summary>
+            <description>Opened folder that should be restored in startup.</description>
+        </key>
+    </schema>
+</schemalist>

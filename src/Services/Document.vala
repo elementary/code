@@ -158,7 +158,7 @@ namespace Scratch.Services {
             message ("Closing \"%s\"", get_basename ());
 
             bool ret_value = true;
-
+            
             // Check for unsaved changes
             if (!this.saved) {
                 debug ("There are unsaved changes, showing a Message Dialog!");
@@ -216,7 +216,10 @@ namespace Scratch.Services {
             // Show save as dialog if file is null
             if (this.file == null)
                 return this.save_as ();
-
+            
+            if (!this.exists ())
+                return false;
+            
             // Replace old content with the new one
             try {
                 string s;
@@ -266,6 +269,9 @@ namespace Scratch.Services {
         }
 
         public bool move (File new_dest) {
+            this.file = new_dest;
+            this.save ();
+
             // Zeitgeist integration
             zg_log.move_insert (file.get_uri (), new_dest.get_uri (), get_mime_type ());
 

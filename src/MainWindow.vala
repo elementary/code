@@ -257,6 +257,7 @@ namespace Scratch {
             main_actions.get_action ("Fetch").sensitive = val;
             main_actions.get_action ("ShowGoTo").sensitive = val;
             main_actions.get_action ("ShowReplace").sensitive = val;
+main_actions.get_action ("ShowReplace").sensitive = val;
             if (val == false)
                 this.search_manager.visible = false;
             // Toolbar Actions
@@ -332,8 +333,12 @@ namespace Scratch {
                 foreach (var w in this.split_view.views) {
                     var view = w as Scratch.Widgets.DocumentView;
                     foreach (var doc in view.docs) {
-                        view.set_current_document (doc);
-                        if (!doc.close ()) return false;
+                        if (!doc.exists ())
+                            continue;
+                        if (!doc.close ()) {
+                            view.set_current_document (doc);
+                            return false;
+                        }
                     }
                 }
             }
@@ -383,7 +388,7 @@ namespace Scratch {
 
             string[] opened_files = { "" };//new string[docs.length ()];
             docs.foreach ((doc) => {
-                if (doc.file != null)
+                if (doc.file != null && doc.exists ())
                     opened_files += doc.file.get_uri ();
             });
 
