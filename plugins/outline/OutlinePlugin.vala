@@ -36,7 +36,7 @@ namespace Scratch.Plugins {
 
 		Scratch.Services.Interface scratch_interface;
 		SymbolOutline? current_view = null;
-		Gtk.EventBox container;
+		Gtk.EventBox? container = null;
 
 		uint refresh_timeout = 0;
 
@@ -48,8 +48,6 @@ namespace Scratch.Plugins {
 			scratch_interface.hook_document.connect (on_hook_document);
 			scratch_interface.hook_split_view.connect (on_hook_split_view);
 			views = new Gee.LinkedList<SymbolOutline> ();
-			container = new Gtk.EventBox ();
-			container.visible = false;
         }
 
         public void deactivate () {
@@ -60,6 +58,11 @@ namespace Scratch.Plugins {
         }
 
         void on_hook_context (Gtk.Notebook notebook) {
+            if (container != null)
+                return;
+            
+            container = new Gtk.EventBox ();
+			container.visible = false;			
 			notebook.append_page (container, new Gtk.Label (_("Symbols")));
 			container.show_all ();
         }
