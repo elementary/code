@@ -105,6 +105,8 @@ namespace Scratch {
                 window.show ();
                 // Restore opened documents
                 if (settings.show_at_start == "last-tabs") {
+                    window.start_loading ();
+                    
                     string[] uris = settings.schema.get_strv ("opened-files");
                 
                     foreach (string uri in uris) {
@@ -116,6 +118,7 @@ namespace Scratch {
                             }
                         }
                     }
+                    window.stop_loading ();
                 }
             } else {
                 window.present ();

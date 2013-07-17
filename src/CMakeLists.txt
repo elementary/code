@@ -6,6 +6,7 @@ vala_precompile(VALA_C
     Widgets/DocumentView.vala
     Widgets/DynamicNotebook.vala
     Widgets/ToolBar.vala
+    Widgets/LoadingView.vala
     Widgets/SearchManager.vala
     Widgets/SplitView.vala
     Widgets/SourceView.vala

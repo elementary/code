@@ -40,12 +40,17 @@ namespace Scratch {
         // Widgets
         public Scratch.Widgets.Toolbar toolbar;
         public Scratch.Widgets.SearchManager search_manager;
+        public Scratch.Widgets.LoadingView loading_view;
         public Scratch.Widgets.SplitView split_view;
 		
         // Widgets for Plugins
         public Gtk.Notebook sidebar;
         public Gtk.Notebook contextbar;
         public Gtk.Notebook bottombar;
+        
+        private Granite.Widgets.ThinPaned hp1;
+        private Granite.Widgets.ThinPaned hp2;
+        private Granite.Widgets.ThinPaned vp;
         
         // Zeitgeist integration
         private Zeitgeist.DataSourceRegistry registry;
@@ -131,7 +136,10 @@ namespace Scratch {
 
             // SlitView
             this.split_view = new Scratch.Widgets.SplitView ();
-
+    
+            // LoadingView
+            this.loading_view = new Scratch.Widgets.LoadingView ();
+                
             // Signals
             this.split_view.welcome_shown.connect (() => {
                 set_widgets_sensitive (false);
@@ -178,9 +186,9 @@ namespace Scratch {
             this.bottombar.page_added.connect (() => { on_plugin_toggled (bottombar); });
             this.bottombar.page_removed.connect (() => { on_plugin_toggled (bottombar); });
 
-            var hp1 = new Granite.Widgets.ThinPaned ();
-            var hp2 = new Granite.Widgets.ThinPaned ();
-            var vp = new Granite.Widgets.ThinPaned ();
+            hp1 = new Granite.Widgets.ThinPaned ();
+            hp2 = new Granite.Widgets.ThinPaned ();
+            vp = new Granite.Widgets.ThinPaned ();
             vp.orientation = Orientation.VERTICAL;
             
             // Set a proper position for ThinPaned widgets
@@ -201,6 +209,7 @@ namespace Scratch {
             // Add everything to the window
             main_box.pack_start (toolbar, false, true, 0);
             main_box.pack_start (search_manager, false, true, 0);
+            main_box.pack_start (loading_view, true, true, 0);
             main_box.pack_start (vp, false, true, 0);
             this.add (main_box);
 
@@ -291,9 +300,27 @@ main_actions.get_action ("ShowReplace").sensitive = val;
         public Scratch.Widgets.DocumentView? add_view () {
             return split_view.add_view ();
         }
-
+        
+        // Show LoadingView
+        public void start_loading () {
+            this.loading_view.start ();
+            this.vp.visible = false;
+            this.toolbar.sensitive = false;
+        }
+        
+        // Hide LoadingView
+        public void stop_loading () {
+            this.loading_view.stop ();
+            this.vp.visible = true;
+            this.toolbar.sensitive = true;
+        }
+        
         // Open a document
         public void open_document (Scratch.Services.Document doc) {
+            while (Gtk.events_pending()) {
+                Gtk.main_iteration();
+            }
+            
             Scratch.Widgets.DocumentView? view = null;
             if (this.split_view.is_empty ()) {
                 view = split_view.add_view ();

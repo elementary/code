@@ -58,11 +58,11 @@ namespace Scratch.Services {
 
             hide_info_bar ();
 
-            open ();
+            open.begin ();
 
         }
 
-        public bool open () {
+        public async bool open () {
             if (file == null) {
                 message ("New Document opened");
                 this.source_view.focus_in_event.connect (() => {
