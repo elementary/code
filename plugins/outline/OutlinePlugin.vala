@@ -46,8 +46,10 @@ namespace Scratch.Plugins {
 			scratch_interface = (Scratch.Services.Interface)object;
             scratch_interface.hook_notebook_context.connect (on_hook_context);
 			scratch_interface.hook_document.connect (on_hook_document);
+			scratch_interface.hook_split_view.connect (on_hook_split_view);
 			views = new Gee.LinkedList<SymbolOutline> ();
 			container = new Gtk.EventBox ();
+			container.visible = false;
         }
 
         public void deactivate () {
@@ -94,9 +96,17 @@ namespace Scratch.Plugins {
 			container.show_all ();
 			current_view = view;
 		}
-
-		void update_timeout ()
-		{
+        
+        void on_hook_split_view (Scratch.Widgets.SplitView view) {
+            view.welcome_shown.connect (() => {
+                container.visible = false;
+            });
+            view.welcome_hidden.connect (() => {
+                container.visible = true;
+            });
+        }
+        
+		void update_timeout () {
 			if (refresh_timeout != 0)
 				Source.remove (refresh_timeout);
 
@@ -107,16 +117,14 @@ namespace Scratch.Plugins {
 			});
 		}
 
-		void remove_view (SymbolOutline view)
-		{
+		void remove_view (SymbolOutline view) {
 			views.remove (view);
 			view.doc.doc_saved.disconnect (update_timeout);
 			view.closed.disconnect (remove_view);
 			view.goto.disconnect (goto);
 		}
 
-		void goto (Scratch.Services.Document doc, int line)
-		{
+		void goto (Scratch.Services.Document doc, int line)	{
 			scratch_interface.open_file (doc.file);
 
 			var text = doc.source_view;
