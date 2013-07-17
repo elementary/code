@@ -71,10 +71,27 @@ namespace Scratch.Services {
                     check_undoable_actions ();
                     return false;
                 });
+                uint timeout_saving = -1;
                 this.source_view.buffer.changed.connect (() => {
                     check_undoable_actions ();
                     // If it wasn't yet saved
-                    if (file == null)
+                    if (file == null) {
+                        this.set_saved_status (false);
+                        return;
+                    }
+                    // Save if autosave is ON
+                    if (settings.autosave) {
+                        if (timeout_saving >= 0) {
+                            Source.remove (timeout_saving);
+                            timeout_saving = -1;
+                        }
+                        timeout_saving = Timeout.add (250, () => {
+                            save ();
+                            timeout_saving = -1;
+                            return false;
+                        });
+                    }
+                    else if (!settings.autosave || file == null)
                         this.set_saved_status (false);
                 });
                 this.set_saved_status (true);
