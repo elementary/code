@@ -217,9 +217,6 @@ namespace Scratch.Services {
             if (this.file == null)
                 return this.save_as ();
             
-            if (!this.exists ())
-                return false;
-            
             // Replace old content with the new one
             try {
                 string s;
