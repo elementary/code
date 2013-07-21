@@ -40,18 +40,23 @@ namespace Scratch.Widgets {
             box.pack_start (spinner, false, true, 0);
             box.pack_start (label, false, true, 0);    
         
-            this.show_all ();
             this.add (box);
+            
             this.visible = false;
+            this.no_show_all = true;
         }
         
         public void start () {
             this.visible = true;
+            this.no_show_all = false;
+            this.show_all ();
             spinner.start ();
         }
         
         public void stop () {
             this.visible = false;
+            this.no_show_all = true;
+            this.hide ();
             spinner.stop ();
         }
     }
