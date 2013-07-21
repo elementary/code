@@ -206,6 +206,13 @@ namespace Scratch.Plugins.FileManager {
         }
 
         public void rename (string new_name) {
+            string new_uri = file.file.get_parent ().get_uri () + "/" + new_name;
+            debug (new_uri);
+            for (int n = 0; n < documents.to_array ().length; n++) {
+                var doc = documents.to_array ()[n]; 
+                if (doc.file.get_uri () == file.file.get_uri ())
+                    doc.file = GLib.File.new_for_uri (new_uri);
+            }
             file.rename (new_name);
         }
 

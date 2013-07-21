@@ -23,20 +23,27 @@ public const string DESCRIPTION = N_("Basic folder manager with file browsing");
 
 namespace Scratch.Plugins {
 
+    public Scratch.Services.Interface plugins;
+    public Gee.ArrayList<Scratch.Services.Document> documents;
+    
     public class FileManagerPlugin : Peas.ExtensionBase, Peas.Activatable {
 
         FileManager.FileView view;
 
-        Scratch.Services.Interface plugins;
         public Object object { owned get; construct; }
 
         public FileManagerPlugin () {
-            message ("Starting Folder Manager Plugin");
+            message ("Starting File Manager Plugin");
         }
 
         public void activate () {
+            documents = new Gee.ArrayList<Scratch.Services.Document> ();
             plugins = (Scratch.Services.Interface) object;
             plugins.hook_notebook_sidebar.connect (on_hook_sidebar);
+            plugins.hook_document.connect ((doc) => { 
+                if (!documents.contains (doc))
+                    documents.add (doc); 
+            });
         }
 
         public void deactivate () {

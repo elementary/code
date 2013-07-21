@@ -67,7 +67,6 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
     }
     
     void on_insert_text (ref Gtk.TextIter pos, string new_text, int new_text_length) {
-        
         if (new_text in this.brackets.keys && this.last_inserted != new_text) {
             var buf = this.current_buffer;
 

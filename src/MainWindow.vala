@@ -360,12 +360,8 @@ main_actions.get_action ("ShowReplace").sensitive = val;
                 foreach (var w in this.split_view.views) {
                     var view = w as Scratch.Widgets.DocumentView;
                     foreach (var doc in view.docs) {
-                        if (!doc.exists ())
-                            continue;
-                        if (!doc.close ()) {
-                            view.set_current_document (doc);
-                            return false;
-                        }
+                        view.set_current_document (doc);
+                        if (!doc.close ()) return false;
                     }
                 }
             }
