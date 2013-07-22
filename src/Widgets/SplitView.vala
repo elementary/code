@@ -39,7 +39,7 @@ namespace Scratch.Widgets {
             base (Gtk.Orientation.HORIZONTAL);
             
             // Welcome screen
-            this.welcome_screen = new Granite.Widgets.Welcome (_("No files are open."), 
+            this.welcome_screen = new Granite.Widgets.Welcome (_("No Files Open"), 
                                                     _("Open a file to begin editing."));
             this.welcome_screen.valign = Gtk.Align.FILL;
             this.welcome_screen.halign = Gtk.Align.FILL;
