@@ -21,7 +21,7 @@
 using Gtk;
 using Gdk;
 using Pango;
-
+ 
 using Zeitgeist;
 
 using Granite.Widgets;
