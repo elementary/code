@@ -62,7 +62,7 @@ namespace Scratch {
             
             this.app = scratch_app;
             set_application (this.app);
-
+            this.set_default_size (970, 820);
             this.title = this.app.app_cmd_name;
             restore_saved_state ();
             this.window_position = Gtk.WindowPosition.CENTER;
