@@ -57,7 +57,9 @@ public abstract class Scratch.Template : Object {
         List<File> dirs;
         enumerate_directory (origin, out files, out dirs);
         foreach (var file in files) {
-            if (file.get_content_type ().contains ("text")) {
+            if (file.get_content_type ().contains ("text") || 
+                file.get_content_type ().contains ("x-desktop")) {
+                
                 var gfile = File.new_for_path (Path.build_filename (origin.get_path (), file.get_name ()));
 
                 string content = Scratch.Services.FileHandler.load_content_from_file_sync (gfile);
