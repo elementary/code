@@ -34,7 +34,7 @@ namespace Scratch {
     public Gtk.UIManager ui;
 
     public class MainWindow : Gtk.Window {
-
+    
         public ScratchApp app;
         
         // Widgets
@@ -57,12 +57,11 @@ namespace Scratch {
         
         // Delegates
         delegate void HookFunc ();
-
+        
         public MainWindow (Scratch.ScratchApp scratch_app) {
-            
+        public void set_size_request (int 450, int 400)
             this.app = scratch_app;
             set_application (this.app);
-            this.set_default_size (970, 820);
             this.title = this.app.app_cmd_name;
             restore_saved_state ();
             this.window_position = Gtk.WindowPosition.CENTER;
