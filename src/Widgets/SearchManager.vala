@@ -363,8 +363,11 @@ namespace Scratch.Widgets {
             if (search_entry.text == "")
                 return false;
             string key = Gdk.keyval_name (event.keyval);
+            if ( event.state == Gdk.ModifierType.SHIFT_MASK )
+                key = "<Shift>" + key;
             switch (key)
             {
+            case "<Shift>Return":
             case "Up":
                 search_previous ();
                 return true;
