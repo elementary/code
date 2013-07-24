@@ -59,12 +59,12 @@ namespace Scratch {
         delegate void HookFunc ();
         
         public MainWindow (Scratch.ScratchApp scratch_app) {
-        public void set_size_request (int 450, int 400)
             this.app = scratch_app;
             set_application (this.app);
             this.title = this.app.app_cmd_name;
             restore_saved_state ();
             this.window_position = Gtk.WindowPosition.CENTER;
+            this.set_size_request (450, 400);
             this.icon_name = "accessories-text-editor";
 
             // Set up GtkActions
