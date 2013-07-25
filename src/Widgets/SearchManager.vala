@@ -275,7 +275,7 @@ namespace Scratch.Widgets {
 
             text_buffer.remove_tag_by_name ("highlight_search_all", start, end_of_file);
             while (start.forward_search(search_string, case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
-             out start, out end, null)) {
+                                        out start, out end, null)) {
                 text_buffer.apply_tag_by_name ("highlight_search_all", start, end);                 
                 int offset = end.get_offset ();
                 text_buffer.get_iter_at_offset (out start, offset);
