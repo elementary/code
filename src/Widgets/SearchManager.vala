@@ -274,8 +274,9 @@ namespace Scratch.Widgets {
             bool case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
 
             text_buffer.remove_tag_by_name ("highlight_search_all", start, end_of_file);
-            while (start.forward_search(search_string, case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
-                                        out start, out end, null)) {
+            while (start.forward_search (search_string, 
+                                         case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
+                                         out start, out end, null)) {
                 text_buffer.apply_tag_by_name ("highlight_search_all", start, end);                 
                 int offset = end.get_offset ();
                 text_buffer.get_iter_at_offset (out start, offset);
