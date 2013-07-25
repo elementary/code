@@ -225,6 +225,7 @@ namespace Scratch.Widgets {
         public bool search () {
             /* So, first, let's check we can really search something. */
             string search_string = search_entry.text;
+            highlight_all (search_string);
             
             if (text_buffer == null || text_buffer.text == "" || search_string == "") {
                 warning ("I can't search anything in an inexistant buffer and/or without anything to search.");
@@ -252,6 +253,36 @@ namespace Scratch.Widgets {
 
             }
            return true;
+        }
+
+        public void highlight_none () {
+            Gtk.TextIter start, end_of_file;
+
+            text_buffer.get_start_iter (out start);
+            text_buffer.get_end_iter (out end_of_file);
+
+            text_buffer.remove_tag_by_name ("highlight_search_all", start, end_of_file);
+        }
+
+        bool highlight_all (string search_string) {
+            Gtk.TextIter start, end, end_of_file;
+
+            text_buffer.get_start_iter (out start);
+            text_buffer.get_end_iter (out end_of_file);
+            end = start;
+
+            bool case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
+
+            text_buffer.remove_tag_by_name ("highlight_search_all", start, end_of_file);
+            while (start.forward_search (search_string, 
+                                         case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
+                                         out start, out end, null)) {
+                text_buffer.apply_tag_by_name ("highlight_search_all", start, end);                 
+                int offset = end.get_offset ();
+                text_buffer.get_iter_at_offset (out start, offset);
+            }
+
+            return true;
         }
 
         bool search_for_iter (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter, string search_string) {

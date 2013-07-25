@@ -530,6 +530,7 @@ main_actions.get_action ("ShowReplace").sensitive = val;
                 this.search_manager.go_to_entry.has_focus) {
 
                 this.search_manager.visible = !this.search_manager.visible;
+                this.search_manager.highlight_none ();
                 this.toolbar.find_button.set_tooltip_text (
                     (this.search_manager.visible)
                     ? _("Hide search bar")
