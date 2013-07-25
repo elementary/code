@@ -21,7 +21,7 @@
 using Gtk;
 using Gdk;
 using Pango;
-
+ 
 using Zeitgeist;
 
 using Granite.Widgets;
@@ -34,7 +34,7 @@ namespace Scratch {
     public Gtk.UIManager ui;
 
     public class MainWindow : Gtk.Window {
-
+    
         public ScratchApp app;
         
         // Widgets
@@ -57,15 +57,14 @@ namespace Scratch {
         
         // Delegates
         delegate void HookFunc ();
-
+        
         public MainWindow (Scratch.ScratchApp scratch_app) {
-            
             this.app = scratch_app;
             set_application (this.app);
-
             this.title = this.app.app_cmd_name;
             restore_saved_state ();
             this.window_position = Gtk.WindowPosition.CENTER;
+            this.set_size_request (450, 400);
             this.icon_name = "accessories-text-editor";
 
             // Set up GtkActions
