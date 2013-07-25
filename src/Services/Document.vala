@@ -124,7 +124,7 @@ namespace Scratch.Services {
                 this.source_view.set_text (text);
                 this.last_saved_content = text;
                 this.original_content = text;
-                this.source_view.buffer.create_tag("highlight_search_all", "background", "yellow", null);
+                this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
                 // Signals for SourceView
                 uint timeout_saving = -1;
                 this.source_view.buffer.changed.connect (() => {

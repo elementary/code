@@ -64,7 +64,7 @@ namespace Scratch.Widgets {
             // Search entry
             search_entry = new Granite.Widgets.SearchBar (_("Find"));
             search_entry.width_request = 250;
-
+            
             // Back and Next buttons
             var next = new Gtk.Button ();
             next.clicked.connect (search_next);
@@ -128,7 +128,7 @@ namespace Scratch.Widgets {
             entry_context.set_path (entry_path);
             entry_context.add_class ("entry");
             normal_color = entry_context.get_color (Gtk.StateFlags.FOCUSED);
-
+            
             // Add everything to SearchManager's toolbar
             this.add (tool_search_entry);
             this.add (tool_arrow_down);
@@ -152,7 +152,7 @@ namespace Scratch.Widgets {
                 this.text_buffer.changed.disconnect (on_text_buffer_changed);
                 
             this.text_view = text_view;
-            this.text_buffer = text_view.get_buffer ();            
+            this.text_buffer = text_view.get_buffer ();
             
             // Determine the search entry color
             bool found = (search_entry.text in this.text_buffer.text);
@@ -225,7 +225,7 @@ namespace Scratch.Widgets {
         public bool search () {
             /* So, first, let's check we can really search something. */
             string search_string = search_entry.text;
-            highlight_all(search_string);
+            highlight_all (search_string);
             
             if (text_buffer == null || text_buffer.text == "" || search_string == "") {
                 warning ("I can't search anything in an inexistant buffer and/or without anything to search.");
@@ -237,7 +237,6 @@ namespace Scratch.Widgets {
 
             if (search_for_iter (start_iter, out end_iter, search_string)) {
                 search_entry.override_color (Gtk.StateFlags.FOCUSED, normal_color);
-
             }
             else {
                 text_buffer.get_start_iter (out start_iter);
@@ -256,30 +255,30 @@ namespace Scratch.Widgets {
            return true;
         }
 
-        public void highlight_none() {
+        public void highlight_none () {
             Gtk.TextIter start, end_of_file;
 
-            text_buffer.get_start_iter(out start);
-            text_buffer.get_end_iter(out end_of_file);
+            text_buffer.get_start_iter (out start);
+            text_buffer.get_end_iter (out end_of_file);
 
-            text_buffer.remove_tag_by_name("highlight_search_all", start, end_of_file);
+            text_buffer.remove_tag_by_name ("highlight_search_all", start, end_of_file);
         }
 
-        bool highlight_all(string search_string) {
+        bool highlight_all (string search_string) {
             Gtk.TextIter start, end, end_of_file;
 
-            text_buffer.get_start_iter(out start);
-            text_buffer.get_end_iter(out end_of_file);
+            text_buffer.get_start_iter (out start);
+            text_buffer.get_end_iter (out end_of_file);
             end = start;
 
             bool case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
 
-            text_buffer.remove_tag_by_name("highlight_search_all", start, end_of_file);
+            text_buffer.remove_tag_by_name ("highlight_search_all", start, end_of_file);
             while (start.forward_search(search_string, case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
              out start, out end, null)) {
-                text_buffer.apply_tag_by_name("highlight_search_all", start, end);                 
-                int offset = end.get_offset();
-                text_buffer.get_iter_at_offset(out start, offset);
+                text_buffer.apply_tag_by_name ("highlight_search_all", start, end);                 
+                int offset = end.get_offset ();
+                text_buffer.get_iter_at_offset (out start, offset);
             }
 
             return true;
