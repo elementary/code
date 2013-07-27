@@ -55,7 +55,12 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
     void on_hook (Gtk.Notebook notebook) {
         this.terminal = new Vte.Terminal ();
         this.terminal.scrollback_lines = -1;
-            
+        
+        // Set terminal font to system default font
+        var system_settings = new GLib.Settings ("org.gnome.desktop.interface");
+        string font_name = system_settings.get_string ("monospace-font-name");
+        this.terminal.set_font_from_string (font_name);
+
         // Popup menu
         var menu = new Gtk.Menu ();
             
