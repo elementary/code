@@ -86,26 +86,17 @@ namespace Scratch.Widgets {
         }
         
         public void open_document (Document doc) {
-            bool already_opened = false;
             for (int n = 0; n <= docs.length (); n++) {
                 if (docs.nth_data (n) == null)
                     continue;
                 if (docs.nth_data (n).file != null 
                         && docs.nth_data (n).file.get_uri () == doc.file.get_uri ()) {
-                    already_opened = true;
                     this.notebook.current = docs.nth_data (n);
+                    warning ("This Document was already opened! Not opening a duplicate!");
+                    return;
                 }
             }
-            
-            if (already_opened) {
-                warning ("This Document was already opened! Not opening a duplicate!");
-                docs.foreach ((d) => {
-                    if (d.file.get_uri () == doc.file.get_uri ())
-                        this.notebook.current = d;
-                });
-                return;
-            }
-            
+           
             doc.create_page ();
             
             this.notebook.insert_tab (doc, -1);

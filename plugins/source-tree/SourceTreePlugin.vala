@@ -26,13 +26,11 @@ const bool DARK_THEME = true;
 
 Scratch.Services.Interface scratch_interface;
 
-public class Folder : Granite.Widgets.SourceList.ExpandableItem
-{
+public class Folder : Granite.Widgets.SourceList.ExpandableItem {
 	public File file { get; construct set; }
 	bool loaded = false;
 
-	public Folder (File dir)
-	{
+	public Folder (File dir) {
 		file = dir;
 		name = dir.get_basename ();
 		selectable = false;
@@ -56,8 +54,7 @@ public class Folder : Granite.Widgets.SourceList.ExpandableItem
 
 	const string ATTRIBUTES = FileAttribute.STANDARD_NAME + "," + FileAttribute.STANDARD_TYPE + 
 		"," + FileAttribute.STANDARD_ICON;
-	public void load ()
-	{
+	public void load ()	{
 		try {
 			var enumerator = file.enumerate_children (ATTRIBUTES, FileQueryInfoFlags.NOFOLLOW_SYMLINKS, null);
 			FileInfo? file_info = null;
@@ -310,8 +307,7 @@ namespace Scratch.Plugins {
 }
 
 [ModuleInit]
-public void peas_register_types (GLib.TypeModule module)
-{
+public void peas_register_types (GLib.TypeModule module) {
   var objmodule = module as Peas.ObjectModule;
   objmodule.register_extension_type (typeof (Peas.Activatable), typeof (Scratch.Plugins.SourceTreePlugin));
 }
