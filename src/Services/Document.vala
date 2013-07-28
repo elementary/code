@@ -47,6 +47,9 @@ namespace Scratch.Services {
         public bool saved = true;
         private bool error_shown = false;
         
+        // It is used to load file content on focusing
+        private bool loaded = false;
+        
         // Zeitgeist integration
         private ZeitgeistLogger zg_log = new ZeitgeistLogger();
 
@@ -111,46 +114,17 @@ namespace Scratch.Services {
             this.working = true;
             message ("Opening \"%s\"", get_basename ());
 
-            // Load file's content
-            FileHandler.load_content_from_file.begin (file, (obj, res) => {
-                var text = FileHandler.load_content_from_file.end (res);
-                if (text == null) {
-                    show_error_dialog ();
-                    return;
-                }
-                // Convert non-UTF8 text in UTF8
-                if (!text.validate())
-                    text = file_content_to_utf8 (file, text);
-                this.source_view.set_text (text);
-                this.last_saved_content = text;
-                this.original_content = text;
-                this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
-                // Signals for SourceView
-                uint timeout_saving = -1;
-                this.source_view.buffer.changed.connect (() => {
-                    check_undoable_actions ();
-                    // Save if autosave is ON
-                    if (settings.autosave) {
-                        if (timeout_saving >= 0) {
-                            Source.remove (timeout_saving);
-                            timeout_saving = -1;
-                        }
-                        timeout_saving = Timeout.add (250, () => {
-                            save ();
-                            timeout_saving = -1;
-                            return false;
-                        });
-                    }
-                    else if (!settings.autosave || file == null)
-                        this.set_saved_status (false);
-                });
-            });
+            
 
             // Focus in event for SourceView
             this.source_view.focus_in_event.connect (() => {
                 main_actions.get_action ("SaveFile").visible = !(settings.autosave);
                 check_file_status ();
                 check_undoable_actions ();
+                
+                // Load file's content
+                this.load_content ();
+                   
                 return false;
             });
 
@@ -228,6 +202,9 @@ namespace Scratch.Services {
         }
 
         public bool save () {
+            if (!this.loaded)
+                return false;
+                
             // Create backup copy file if it does not still exist
             create_backup ();
 
@@ -450,6 +427,46 @@ namespace Scratch.Services {
         // Duplicate selected text
         public void duplicate_selection () {
             this.source_view.duplicate_selection ();
+        }
+        
+        // Load file content
+        internal void load_content () {
+            if (!this.loaded) {
+                FileHandler.load_content_from_file.begin (file, (obj, res) => {
+                    var text = FileHandler.load_content_from_file.end (res);
+                    if (text == null) {
+                        show_error_dialog ();
+                        return;
+                    }
+                    // Convert non-UTF8 text in UTF8
+                    if (!text.validate())
+                        text = file_content_to_utf8 (file, text);
+                    this.source_view.set_text (text);
+                    this.last_saved_content = text;
+                    this.original_content = text;
+                    this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
+                    // Signals for SourceView
+                    uint timeout_saving = -1;
+                    this.source_view.buffer.changed.connect (() => {
+                        check_undoable_actions ();
+                        // Save if autosave is ON
+                        if (settings.autosave) {
+                            if (timeout_saving >= 0) {
+                                Source.remove (timeout_saving);
+                                timeout_saving = -1;
+                            }
+                            timeout_saving = Timeout.add (250, () => {
+                                save ();
+                                timeout_saving = -1;
+                                return false;
+                            });
+                        }
+                        else if (!settings.autosave || file == null)
+                            this.set_saved_status (false);
+                     });
+                 });
+                 this.loaded = true;
+            }
         }
         
         // Show an error dialog which says "Hey, I cannot read that file!"

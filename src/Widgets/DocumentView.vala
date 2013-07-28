@@ -27,9 +27,15 @@ namespace Scratch.Widgets {
     public class DocumentView : Gtk.Box {
         
         // Widgets
-        private Scratch.Widgets.DynamicNotebook notebook;
+        public Scratch.Widgets.DynamicNotebook notebook;
         
         public GLib.List<Document> docs;
+        
+        public Scratch.Services.Document current {
+            set {
+                notebook.current = value;
+            }
+        }
         
         // Signals
         public signal void document_change (Document? document);
@@ -92,6 +98,7 @@ namespace Scratch.Widgets {
                 if (docs.nth_data (n).file != null 
                         && docs.nth_data (n).file.get_uri () == doc.file.get_uri ()) {
                     this.notebook.current = docs.nth_data (n);
+                    docs.nth_data (n).load_content ();
                     warning ("This Document was already opened! Not opening a duplicate!");
                     return;
                 }

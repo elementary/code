@@ -238,12 +238,15 @@ namespace Scratch.Widgets {
         }
         
         public void set_text (string text, bool opening = true) {
-            if (opening) buffer.begin_not_undoable_action ();
-            buffer.text = text;
-            if (opening) buffer.end_not_undoable_action ();
-            Gtk.TextIter? start = null;
-            buffer.get_start_iter (out start);
-            buffer.place_cursor (start);
+            GLib.Idle.add (() => {
+                if (opening) buffer.begin_not_undoable_action ();
+                buffer.text = text;
+                if (opening) buffer.end_not_undoable_action ();
+                Gtk.TextIter? start = null;
+                buffer.get_start_iter (out start);
+                buffer.place_cursor (start);
+                return false;
+            });
         }
         
     }

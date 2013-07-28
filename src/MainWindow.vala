@@ -312,12 +312,15 @@ main_actions.get_action ("ShowReplace").sensitive = val;
             this.loading_view.stop ();
             this.vp.visible = true;
             this.toolbar.sensitive = true;
+            // Load the content of the shown document
+            var doc = this.get_current_document ();
+            doc.load_content ();
         }
         
         // Open a document
         public void open_document (Scratch.Services.Document doc) {
-            while (Gtk.events_pending()) {
-                Gtk.main_iteration();
+            while (Gtk.events_pending ()) {
+                Gtk.main_iteration ();
             }
             
             Scratch.Widgets.DocumentView? view = null;
