@@ -34,7 +34,8 @@ namespace Scratch.Widgets {
             spinner.set_size_request(32, 32);
 
             label = new Label (_("Wait while restoring last session..."));
-        
+            label.margin = 15;
+            
             var box = new Box (Orientation.VERTICAL, 0);
             box.valign = Align.CENTER;
             box.pack_start (spinner, false, true, 0);
