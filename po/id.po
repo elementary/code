@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-07-19 18:30+0200\n"
-"PO-Revision-Date: 2013-05-06 16:14+0000\n"
+"PO-Revision-Date: 2013-07-28 07:37+0000\n"
 "Last-Translator: Viko Adi Rahmawan <Unknown>\n"
 "Language-Team: Indonesian <id@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-07-23 05:26+0000\n"
+"X-Launchpad-Export-Date: 2013-07-29 05:44+0000\n"
 "X-Generator: Launchpad (build 16700)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Utils.vala:42
@@ -44,12 +44,12 @@ msgstr "Sembunyikan bilah cari"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:551
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:552
 msgid "Find…"
-msgstr ""
+msgstr "Cari..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:555
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:556
 msgid "Go to line…"
-msgstr ""
+msgstr "Loncat ke baris…"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:559
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:560
@@ -308,41 +308,41 @@ msgstr "Teks Normal"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/LoadingView.vala:36
 msgid "Wait while restoring last session..."
-msgstr ""
+msgstr "Mohon tunggu, sedang mengembalikan sesi sebelumnya…"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:112
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:135
 msgid "Close Tab"
-msgstr ""
+msgstr "Tutup Tab"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:137
 msgid "Open in a new Window"
-msgstr ""
+msgstr "Buka di Jendela baru"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:138
 msgid "Duplicate"
-msgstr ""
+msgstr "Gandakan"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:186
 msgid "Close Other Tab"
-msgstr ""
+msgstr "Tutup Tab Lainnya"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:186
 msgid "Close Other Tabs"
-msgstr ""
+msgstr "Tutup Tab Lainnya"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:474
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:501
 msgid "New Tab"
-msgstr ""
+msgstr "Tab Baru"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:475
 msgid "Undo Close Tab"
-msgstr ""
+msgstr "Batalkan menutub Tab"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:510
 msgid "Closed Tabs"
-msgstr ""
+msgstr "Tab yang telah ditutup"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ToolBar.vala:57
 msgid "Share"
@@ -396,7 +396,7 @@ msgstr "Simpan File"
 msgid ""
 "File \"<b>%s</b>\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
-msgstr ""
+msgstr "Berkas \"<b>%s</b>\" tidak dapat dibaca. Kemungkinan rusak"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:474
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:515
@@ -405,7 +405,7 @@ msgstr "File "
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:475
 msgid "was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "telah dihapus. Tetap disimpan?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:487
 msgid "You cannot save changes on file"
@@ -441,7 +441,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
-msgstr ""
+msgstr "Bagi berkas melalui layanan pastebin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:134
 msgid "Upload to Pastebin"
@@ -501,17 +501,17 @@ msgstr "Satu bulan"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileView.vala:94
 msgid "/New File"
-msgstr ""
+msgstr "/Berkas Baru"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:21
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:21
 msgid "Folder Manager"
-msgstr ""
+msgstr "Daftar Isi Folder"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:22
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:22
 msgid "Basic folder manager with file browsing"
-msgstr ""
+msgstr "Dapat mendaftar seluruh isi folder"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:70
 msgid "Go to parent"
@@ -519,15 +519,15 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:81
 msgid "Add file"
-msgstr ""
+msgstr "Tambah berkas"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:88
 msgid "Remove file"
-msgstr ""
+msgstr "Hapus Berkas"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:103
 msgid "File Manager"
-msgstr ""
+msgstr "Pengelola Berkas"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:23
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:99
@@ -536,7 +536,7 @@ msgstr "Terminal"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:24
 msgid "A terminal in your text editor"
-msgstr ""
+msgstr "Terminal dalam pengolah teks"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:62
 msgid "Copy"
@@ -552,7 +552,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:24
 msgid "Get a preview your work in a web page"
-msgstr ""
+msgstr "tampilkan preview berkas web yang anda edti"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:80
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:81
@@ -565,19 +565,19 @@ msgstr "Preview web"
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:18
 msgid "Spell Checker"
-msgstr ""
+msgstr "Pemeriksa Ejaan"
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
-msgstr ""
+msgstr "Memeriksa ejaan"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:21
 msgid "Open With"
-msgstr ""
+msgstr "Buka Dengan"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr ""
+msgstr "Buka berkas yang anda olah dengan aplikasi lain"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:55
 msgid "Open With..."
@@ -585,71 +585,73 @@ msgstr "Buka Dengan..."
 
 #: /home/mario/elementary/scratch/po/../plugins/brackets-completion/brackets-completion.vala:21
 msgid "Brackets Completion"
-msgstr ""
+msgstr "Pelengkap tanda kurung otomatis"
 
 #: /home/mario/elementary/scratch/po/../plugins/brackets-completion/brackets-completion.vala:22
 msgid "Complete brackets while typing"
-msgstr ""
+msgstr "Menutup tanda kurung yang anda buat secara otomatis"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/completion-provider.vala:67
 #, c-format
 msgid "Could not load icon theme: %s\n"
-msgstr ""
+msgstr "Tak dapat membuka tema ikon:%s\n"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:30
 msgid "Words Completion"
-msgstr ""
+msgstr "Pelengkap kata otomatis"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:31
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
+"Menampilakn kata yang sering muncul untuk memudahkan menulis kata yang "
+"berulang"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:99
 #, c-format
 msgid "%s - Word Completion"
-msgstr ""
+msgstr "%s - Pelengkap kata otomatis"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FileView.vala:322
 msgid "Close Folder"
-msgstr ""
+msgstr "Tutup Folder"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:71
 msgid "Folders"
-msgstr ""
+msgstr "Folder"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:89
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:90
 msgid "Open a folder"
-msgstr ""
+msgstr "Buka Folder"
 
 #: /home/mario/elementary/scratch/po/../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
-msgstr ""
+msgstr "Bagikan berkas anda dengan Contractor"
 
 #: /home/mario/elementary/scratch/po/../plugins/strip-trailing-save/strip-trailing-save.vala:18
 msgid "Strip trailing whitespace"
-msgstr ""
+msgstr "Hapus spasi dan tab dibelakang baris"
 
 #: /home/mario/elementary/scratch/po/../plugins/strip-trailing-save/strip-trailing-save.vala:19
 msgid "Strip trailing whitespace on save"
-msgstr ""
+msgstr "Hapus spasi dan tab di belakan baris saat menyimpan"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:21
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:234
 msgid "Source Tree"
-msgstr ""
+msgstr "Pohon Berkas"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:22
 msgid "Have a look at your sources organized in a nice tree"
-msgstr ""
+msgstr "tampilkan semua kode sumber anda dalam pohon berkas"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:41
 msgid "Loading..."
-msgstr ""
+msgstr "Sedang memuat..."
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:161
 msgid "Bookmark"
-msgstr ""
+msgstr "Penanda"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:210
 msgid "Files"
@@ -657,19 +659,19 @@ msgstr "Berkas"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:211
 msgid "Project"
-msgstr ""
+msgstr "Proyek"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:212
 msgid "Bookmarks"
-msgstr ""
+msgstr "Penanda"
 
 #: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
-msgstr ""
+msgstr "Emulasi Vim"
 
 #: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
-msgstr ""
+msgstr "Gunakan perintah Vim dalam Scratch"
 
 #~ msgid "Do you want to save changes before closing this file?"
 #~ msgstr "Anda ingin menyimpan perubahan sebelum menutup berkas ini?"
