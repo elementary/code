@@ -19,6 +19,7 @@ Build-Depends: cmake (>= 2.8),
                libwebkitgtk-dev,
                libzeitgeist-dev,
                libvala-0.18-dev,
+               exuberant-ctags,
                pkg-config,
                python-chardet,
                valac-0.18 | valac (>= 0.18)
