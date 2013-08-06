@@ -26,6 +26,7 @@ namespace Scratch.Widgets {
     public class Toolbar : Gtk.Toolbar {
 
         public ToolButton open_button;
+        public ToolButton templates_button;
         public ToolButton save_button;
         public ToolButton undo_button;
         public ToolButton repeat_button;
@@ -44,8 +45,9 @@ namespace Scratch.Widgets {
             // compliant with elementary HIG
             get_style_context ().add_class ("primary-toolbar");
 
-            // Create ToolButtons
+            // Create ToolButtons       
             open_button = main_actions.get_action ("Open").create_tool_item() as Gtk.ToolButton;
+            templates_button = main_actions.get_action ("Templates").create_tool_item() as Gtk.ToolButton;
             save_button = main_actions.get_action ("SaveFile").create_tool_item() as Gtk.ToolButton;
             undo_button = main_actions.get_action ("Undo").create_tool_item() as Gtk.ToolButton;
             repeat_button = main_actions.get_action ("Redo").create_tool_item() as Gtk.ToolButton;
@@ -83,6 +85,7 @@ namespace Scratch.Widgets {
 
             // Add everything to the toolbar
             add (open_button);
+            add (templates_button);
             add (save_button);
             add (new SeparatorToolItem ());
             add (revert_button);

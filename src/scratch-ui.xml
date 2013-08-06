@@ -14,13 +14,13 @@
         <menuitem name="SaveFile" action="SaveFile"/>
         <menuitem name="Undo" action="Undo"/>
         <menuitem name="Redo" action="Redo"/>
+        <menuitem action="Templates" />
     </popup>
     
     <popup name="AppMenu">
         <menuitem action="NewView" />
         <menuitem action="RemoveView" />
-        <menuitem action="Fullscreen" />
-        <menuitem action="Templates" />
+        <menuitem action="Fullscreen" /> 
         <separator />
         <menuitem action="Preferences" />
     </popup>
