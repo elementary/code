@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-07-19 18:30+0200\n"
+"POT-Creation-Date: 2013-08-02 16:03+0200\n"
 "PO-Revision-Date: 2013-08-03 09:35+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-08-04 05:29+0000\n"
-"X-Generator: Launchpad (build 16718)\n"
+"X-Launchpad-Export-Date: 2013-08-07 04:56+0000\n"
+"X-Generator: Launchpad (build 16721)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Utils.vala:42
 msgid "All files"
@@ -25,11 +25,11 @@ msgstr "全部文件"
 msgid "Text files"
 msgstr "文本文件"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:86
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:85
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Scratch Zeitgeist 数据源"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:161
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:160
 msgid "Trash"
 msgstr "回收站"
 
@@ -37,135 +37,135 @@ msgstr "回收站"
 msgid "Open some files"
 msgstr "打开一些文件"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:538
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:539
 msgid "Hide search bar"
 msgstr "隐藏搜索栏"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:551
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:552
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:553
 msgid "Find…"
 msgstr "查找..."
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:555
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:556
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:557
 msgid "Go to line…"
 msgstr "跳转到行..."
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:559
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:560
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:561
 msgid "Quit"
 msgstr "退出"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:563
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:564
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:565
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:84
 msgid "Close"
 msgstr "关闭"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:567
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:568
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:569
 msgid "Replace"
 msgstr "替换"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:571
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:572
 msgid "Reopen closed document"
 msgstr "重新打开已关闭的文档"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:572
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:573
 msgid "Open last closed document in a new tab"
 msgstr "在新标签页打开最近关闭的文档"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:575
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:576
 msgid "Add New Tab"
 msgstr "添加新标签"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:576
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:577
 msgid "Add a new tab"
 msgstr "添加新标签页"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:579
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:580
 msgid "Add New View"
 msgstr "添加新视图"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:580
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:581
 msgid "Add a new view"
 msgstr "添加新视图"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:583
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:584
 msgid "Remove Current View"
 msgstr "删除当前视图"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:584
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:585
 msgid "Remove this view"
 msgstr "删除此视图"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:587
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:588
 msgid "Undo"
 msgstr "撤销"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:588
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:589
 msgid "Undo the last action"
 msgstr "撤销上次操作"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:591
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:592
 msgid "Redo"
 msgstr "重做"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:592
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:593
 msgid "Redo the last undone action"
 msgstr "重做最近的动作"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:595
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:596
 msgid "Revert"
 msgstr "还原"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:596
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:597
 msgid "Restore this file"
 msgstr "恢复该文件"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:599
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:600
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:601
 msgid "Duplicate selected strings"
 msgstr "复制选中的字符串"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:603
-#: /home/mario/elementary/scratch/po/../plugins/filemanager/FileView.vala:275
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:604
+#: /home/mario/elementary/scratch/po/../plugins/filemanager/FileView.vala:282
 msgid "Open"
 msgstr "打开"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:604
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:605
 msgid "Open a file"
 msgstr "打开文件"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:607
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:477
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:608
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:495
 msgid "Save"
 msgstr "保存"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:608
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:609
 msgid "Save the current file"
 msgstr "保存当前文件"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:611
-#: /home/mario/elementary/scratch/po/../src/Services/TemplateManager.vala:228
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:612
+#: /home/mario/elementary/scratch/po/../src/Services/TemplateManager.vala:230
 msgid "Templates"
 msgstr "模板"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:612
-msgid "Create a new document from a template"
-msgstr "从模板新建文件"
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:613
+msgid "Project templates"
+msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:615
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:616
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:45
 msgid "Preferences"
 msgstr "首选项"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:616
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:617
 msgid "Change Scratch settings"
 msgstr "更改 Scratch 设置"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:622
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:623
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:624
 msgid "Fullscreen"
 msgstr "全屏"
 
@@ -178,7 +178,7 @@ msgid "Text Editor"
 msgstr "文本编辑器"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:17
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:344
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:322
 msgid "New Document"
 msgstr "新建文档"
 
@@ -344,13 +344,13 @@ msgstr "撤消关闭标签"
 msgid "Closed Tabs"
 msgstr "已关闭的标签"
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/ToolBar.vala:57
+#: /home/mario/elementary/scratch/po/../src/Widgets/ToolBar.vala:59
 msgid "Share"
 msgstr "分享"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:42
-msgid "No files are open."
-msgstr "没有打开文件。"
+msgid "No Files Open"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:43
 msgid "Open a file to begin editing."
@@ -372,25 +372,25 @@ msgstr "打开文件"
 msgid "Open a saved file."
 msgstr "打开一个已保存的文件。"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:190
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:165
 #, c-format
 msgid "Save changes to document %s before closing?"
 msgstr "关闭文档 %s 之前要保存吗？"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:193
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:168
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr "若是您没有保存，最近 4 秒的改动将永久丢失。"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:195
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:170
 msgid "Close without saving"
 msgstr "不保存而关闭"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:261
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:239
 msgid "Save File"
 msgstr "保存文件"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:459
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:477
 #, c-format
 msgid ""
 "File \"<b>%s</b>\" cannot be read. Maybe it is corrupt\n"
@@ -399,38 +399,38 @@ msgstr ""
 "无法读取文件“<b>%s</b>”。它可能已被损坏\n"
 "或者您没有相应权限以读取该文件。"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:474
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:515
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:492
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:533
 msgid "File "
 msgstr "文件 "
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:475
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:493
 msgid "was deleted. Do you want to save it anyway?"
 msgstr "被删除。你仍然想要保存它吗？"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:487
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:505
 msgid "You cannot save changes on file"
 msgstr "您无法保存文件更改"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:488
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:506
 msgid "Do you want to save the changes to this file in a different location?"
 msgstr "您要将该文件的修改保存到不同的位置吗？"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:490
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:508
 msgid "Save changes elsewhere"
 msgstr "保存更改到其他位置"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:516
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:534
 msgid ""
 "was modified by an external application. Do you want to load it again or "
 "continue your editing?"
 msgstr "已被外部应用程序更改。您要重新加载文件还是继续当前编辑？"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:518
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:536
 msgid "Load"
 msgstr "重新加载"
 
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:521
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:539
 msgid "Continue"
 msgstr "继续"
 
@@ -512,24 +512,24 @@ msgstr "文件夹管理器"
 msgid "Basic folder manager with file browsing"
 msgstr "简易的带文件浏览的文件夹管理器"
 
-#: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:70
+#: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:77
 msgid "Go to parent"
 msgstr "转到上一级"
 
-#: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:81
+#: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:88
 msgid "Add file"
 msgstr "添加文件"
 
-#: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:88
+#: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:95
 msgid "Remove file"
 msgstr "删除文件"
 
-#: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:103
+#: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:110
 msgid "File Manager"
 msgstr "文件管理器"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:23
-#: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:99
+#: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:104
 msgid "Terminal"
 msgstr "终端"
 
@@ -537,11 +537,11 @@ msgstr "终端"
 msgid "A terminal in your text editor"
 msgstr "一个文本编辑器中的终端"
 
-#: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:62
+#: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:67
 msgid "Copy"
 msgstr "复制"
 
-#: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:69
+#: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:74
 msgid "Paste"
 msgstr "粘贴"
 
@@ -634,7 +634,7 @@ msgid "Strip trailing whitespace on save"
 msgstr "在保存时删除文件末尾的空格"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:21
-#: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:234
+#: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:231
 msgid "Source Tree"
 msgstr "源文件树"
 
@@ -642,23 +642,23 @@ msgstr "源文件树"
 msgid "Have a look at your sources organized in a nice tree"
 msgstr "以树结构查看您的源文件"
 
-#: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:41
+#: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:39
 msgid "Loading..."
 msgstr "正在加载..."
 
-#: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:161
+#: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:158
 msgid "Bookmark"
 msgstr "书签"
 
-#: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:210
+#: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:207
 msgid "Files"
 msgstr "文件"
 
-#: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:211
+#: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:208
 msgid "Project"
 msgstr "项目"
 
-#: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:212
+#: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:209
 msgid "Bookmarks"
 msgstr "书签"
 
@@ -669,6 +669,9 @@ msgstr "Vim 模拟器"
 #: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
 msgstr "在 Scratch 中使用 Vim 命令"
+
+#~ msgid "No files are open."
+#~ msgstr "没有打开文件。"
 
 #~ msgid "Normal text"
 #~ msgstr "普通文本"
@@ -720,6 +723,9 @@ msgstr "在 Scratch 中使用 Vim 命令"
 
 #~ msgid "Find..."
 #~ msgstr "查找..."
+
+#~ msgid "Create a new document from a template"
+#~ msgstr "从模板新建文件"
 
 #~ msgid "You can't save changes to:"
 #~ msgstr "您无法保存更改至："
