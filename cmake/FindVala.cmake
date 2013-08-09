@@ -91,7 +91,7 @@ if(VALA_EXECUTABLE)
   string(REGEX REPLACE "^[0-9]+\\.([0-9]+).*" "\\1" min_ver "${VALA_VERSION}")
   math(EXPR is_odd "${min_ver} % 2")
   if(${is_odd} EQUAL 1)
-    math(EXPR short_ver "${min_ver} + 1")
+    math(EXPR min_ver "${min_ver} + 1")
   endif()
   set(VALA_SHORTVER "${maj_ver}.${min_ver}" CACHE INTERNAL "")
   if(NOT "${maj_ver}" STREQUAL "" AND NOT "${min_ver}" STREQUAL "")
@@ -110,7 +110,7 @@ endif()
 
 # Handle the QUIETLY and REQUIRED arguments, which may be given to the find call.
 # Furthermore set VALA_FOUND to TRUE if Vala has been found (aka.
-# VALA_EXECUTABLE is set)
+# VALA_EXECUTABLE etc. are set)
 
 include(FindPackageHandleStandardArgs)
 find_package_handle_standard_args(Vala
@@ -126,3 +126,5 @@ find_package_handle_standard_args(Vala
   VERSION_VAR
     VALA_VERSION
 )
+
+# vim: set ai ts=2 sts=2 et sw=2
