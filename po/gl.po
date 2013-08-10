@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-08-02 16:03+0200\n"
-"PO-Revision-Date: 2013-06-21 14:11+0000\n"
+"PO-Revision-Date: 2013-08-09 16:10+0000\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician <gl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-08-07 04:56+0000\n"
-"X-Generator: Launchpad (build 16721)\n"
+"X-Launchpad-Export-Date: 2013-08-10 05:33+0000\n"
+"X-Generator: Launchpad (build 16723)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Utils.vala:42
 msgid "All files"
@@ -153,7 +153,7 @@ msgstr "Modelos"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:613
 msgid "Project templates"
-msgstr ""
+msgstr "Modelos de proxecto"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:616
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:45
@@ -308,41 +308,41 @@ msgstr "Texto normal"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/LoadingView.vala:36
 msgid "Wait while restoring last session..."
-msgstr ""
+msgstr "Agarde mestras se restaura a última sesión..."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:112
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:135
 msgid "Close Tab"
-msgstr ""
+msgstr "Fechar a lapela"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:137
 msgid "Open in a new Window"
-msgstr ""
+msgstr "Abrir nunha nova xanela"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:138
 msgid "Duplicate"
-msgstr ""
+msgstr "Duplicada"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:186
 msgid "Close Other Tab"
-msgstr ""
+msgstr "Pechar a outra lapela"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:186
 msgid "Close Other Tabs"
-msgstr ""
+msgstr "Pechar as outras lapelas"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:474
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:501
 msgid "New Tab"
-msgstr ""
+msgstr "Nova lapela"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:475
 msgid "Undo Close Tab"
-msgstr ""
+msgstr "Desfacer o peche da lapela"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:510
 msgid "Closed Tabs"
-msgstr ""
+msgstr "Lapelas pechadas"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ToolBar.vala:59
 msgid "Share"
@@ -350,7 +350,7 @@ msgstr "Compartir"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:42
 msgid "No Files Open"
-msgstr ""
+msgstr "Non hai ficheiros abertos"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:43
 msgid "Open a file to begin editing."
@@ -398,6 +398,8 @@ msgid ""
 "File \"<b>%s</b>\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
+"Non é posíbel ler o ficheiro «<b>%s</b>». Poida que estea\n"
+"estragado ou que non teña  permiso para lelo."
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:492
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:533
@@ -502,7 +504,7 @@ msgstr "Un mes"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileView.vala:94
 msgid "/New File"
-msgstr ""
+msgstr "/Novo ficheiro"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:21
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:21
@@ -516,15 +518,15 @@ msgstr "Xestor básico de cartafoles con navegación de ficheiros"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:77
 msgid "Go to parent"
-msgstr ""
+msgstr "Ir ao pai"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:88
 msgid "Add file"
-msgstr ""
+msgstr "Engadir un ficheiro"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:95
 msgid "Remove file"
-msgstr ""
+msgstr "Retirar o ficheiro"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:110
 msgid "File Manager"
@@ -639,19 +641,19 @@ msgstr "Eliminar espazos en branco ao gardar"
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:21
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:231
 msgid "Source Tree"
-msgstr ""
+msgstr "Árbore de orixes"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:22
 msgid "Have a look at your sources organized in a nice tree"
-msgstr ""
+msgstr "Bótelle un ollo ás súas orixes organizadas a xeito de árbore"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:39
 msgid "Loading..."
-msgstr ""
+msgstr "Cargando..."
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:158
 msgid "Bookmark"
-msgstr ""
+msgstr "Marcador"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:207
 msgid "Files"
@@ -659,19 +661,19 @@ msgstr "Ficheiros"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:208
 msgid "Project"
-msgstr ""
+msgstr "Proxecto"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:209
 msgid "Bookmarks"
-msgstr ""
+msgstr "Marcadores"
 
 #: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
-msgstr ""
+msgstr "Emulación do Vim"
 
 #: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
-msgstr ""
+msgstr "Usar as ordes do Vim no Scratch"
 
 #~ msgid "Go to line..."
 #~ msgstr "Ir á liña..."
