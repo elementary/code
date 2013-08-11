@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Mario Guerriero <mefrio.g@gmail.com>
 Build-Depends: cmake (>= 2.8),
                debhelper (>= 7.0.50~),
-               pantheon-files,
+               exuberant-ctags,
                gir1.2-soup-2.4,
                libdevhelp-dev,
                libgail-3-dev,
@@ -12,14 +12,14 @@ Build-Depends: cmake (>= 2.8),
                libgranite-dev,
                libgtk-3-dev,
                libgtksourceview-3.0-dev,
+               libgtkspell-3-dev | libgtkspell3-3-dev,
                libpeas-dev,
                libsoup2.4-dev,
+               libvala-0.18-dev,
                libvte-2.90-dev,
-               libgtkspell-3-dev | libgtkspell3-3-dev,
                libwebkitgtk-dev,
                libzeitgeist-dev,
-               libvala-0.18-dev,
-               exuberant-ctags,
+               pantheon-files,
                pkg-config,
                python-chardet,
                valac-0.18 | valac (>= 0.18)
@@ -28,7 +28,7 @@ Homepage: http://launchpad.net/scratch
 
 Package: scratch-text-editor
 Architecture: any
-Depends: ${gir:Depends}, ${misc:Depends}, ${shlibs:Depends}
+Depends: ${gir:Depends}, ${misc:Depends}, ${shlibs:Depends}, exuberant-ctags
 Description: text editor written in Vala
  Scratch is the text editor that works for you. It auto-saves your files,
  meaning they're always up-to-date. Plus it remembers your tabs so you never
