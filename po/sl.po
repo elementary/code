@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-08-02 16:03+0200\n"
-"PO-Revision-Date: 2013-05-08 10:30+0000\n"
-"Last-Translator: Damir Jerovšek <Unknown>\n"
+"PO-Revision-Date: 2013-08-11 15:49+0000\n"
+"Last-Translator: MarkoD <Unknown>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-08-07 04:56+0000\n"
-"X-Generator: Launchpad (build 16721)\n"
+"X-Launchpad-Export-Date: 2013-08-12 04:58+0000\n"
+"X-Generator: Launchpad (build 16723)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Utils.vala:42
 msgid "All files"
@@ -44,7 +44,7 @@ msgstr "Skrij iskalno vrstico"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:552
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:553
 msgid "Find…"
-msgstr ""
+msgstr "Najdi..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:556
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:557
@@ -354,7 +354,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:43
 msgid "Open a file to begin editing."
-msgstr "Odpri datoteko, da začneš z urejanjem."
+msgstr "Odprite datoteko, da začnete z urejanjem."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:47
 msgid "New file"
@@ -362,7 +362,7 @@ msgstr "Nova datoteka"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:47
 msgid "Create a new empty file."
-msgstr "Ustvari novo prazno datoteko."
+msgstr "Ustvarite novo prazno datoteko."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:48
 msgid "Open file"
@@ -370,7 +370,7 @@ msgstr "Odpri datoteko"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:48
 msgid "Open a saved file."
-msgstr "Odpri shranjeno datoteko."
+msgstr "Odprite shranjeno datoteko."
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:165
 #, c-format
@@ -437,11 +437,11 @@ msgstr "Nadaljuj"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
-msgstr ""
+msgstr "Pastebin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
-msgstr ""
+msgstr "Delite datoteke s storitvijo Pastebin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:134
 msgid "Upload to Pastebin"
@@ -506,7 +506,7 @@ msgstr ""
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:21
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:21
 msgid "Folder Manager"
-msgstr ""
+msgstr "Upravitelj map"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:22
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:22
@@ -527,7 +527,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:110
 msgid "File Manager"
-msgstr ""
+msgstr "Upravitelj datotek"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:23
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:104
@@ -536,7 +536,7 @@ msgstr "Terminal"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:24
 msgid "A terminal in your text editor"
-msgstr ""
+msgstr "Terminal v vašem urejevalniku besedil"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:67
 msgid "Copy"
@@ -565,15 +565,15 @@ msgstr "Spletni predogled"
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:18
 msgid "Spell Checker"
-msgstr ""
+msgstr "Pregledovalnik pravopisa"
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
-msgstr ""
+msgstr "Preveri pravopis vaših dokumenov"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:21
 msgid "Open With"
-msgstr ""
+msgstr "Odpri z"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
@@ -589,7 +589,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/brackets-completion/brackets-completion.vala:22
 msgid "Complete brackets while typing"
-msgstr ""
+msgstr "Ob tipkanju dokonča oklepaje"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/completion-provider.vala:67
 #, c-format
@@ -645,11 +645,11 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:39
 msgid "Loading..."
-msgstr ""
+msgstr "Nalaganje..."
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:158
 msgid "Bookmark"
-msgstr ""
+msgstr "Zaznamek"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:207
 msgid "Files"
@@ -657,7 +657,7 @@ msgstr "Datoteke"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:208
 msgid "Project"
-msgstr ""
+msgstr "Projekt"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:209
 msgid "Bookmarks"
