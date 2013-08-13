@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-08-02 16:03+0200\n"
-"PO-Revision-Date: 2013-07-06 19:08+0000\n"
-"Last-Translator: Niklas Fjeldberg <Unknown>\n"
+"PO-Revision-Date: 2013-08-12 06:09+0000\n"
+"Last-Translator: kingu <comradekingu@gmail.com>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-08-07 04:56+0000\n"
-"X-Generator: Launchpad (build 16721)\n"
+"X-Launchpad-Export-Date: 2013-08-13 05:56+0000\n"
+"X-Generator: Launchpad (build 16723)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Utils.vala:42
 msgid "All files"
@@ -153,7 +153,7 @@ msgstr "Skisser"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:613
 msgid "Project templates"
-msgstr ""
+msgstr "Prosjektmaler"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:616
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:45
@@ -308,41 +308,41 @@ msgstr "Normal Tekst"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/LoadingView.vala:36
 msgid "Wait while restoring last session..."
-msgstr ""
+msgstr "Vent mens foregående sesjon gjenopprettes..."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:112
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:135
 msgid "Close Tab"
-msgstr ""
+msgstr "Lukk fane"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:137
 msgid "Open in a new Window"
-msgstr ""
+msgstr "Åpne i nytt vindu."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:138
 msgid "Duplicate"
-msgstr ""
+msgstr "Lag kopi"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:186
 msgid "Close Other Tab"
-msgstr ""
+msgstr "Lukk annen fane"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:186
 msgid "Close Other Tabs"
-msgstr ""
+msgstr "Lukk andre faner"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:474
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:501
 msgid "New Tab"
-msgstr ""
+msgstr "Ny fane"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:475
 msgid "Undo Close Tab"
-msgstr ""
+msgstr "Angre lukking av fane"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:510
 msgid "Closed Tabs"
-msgstr ""
+msgstr "Lukkede faner"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ToolBar.vala:59
 msgid "Share"
@@ -350,7 +350,7 @@ msgstr "Del"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:42
 msgid "No Files Open"
-msgstr ""
+msgstr "Ingen åpne filer"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:43
 msgid "Open a file to begin editing."
@@ -398,6 +398,8 @@ msgid ""
 "File \"<b>%s</b>\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
+"Filen \"<b>%s</b>\" er ikke lesbar. Kanskje er den korrupt\n"
+"eller fordi du mangler de nødvendige rettighetene til å lese den."
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:492
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:533
@@ -502,29 +504,29 @@ msgstr "En måned"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileView.vala:94
 msgid "/New File"
-msgstr ""
+msgstr "/Ny fil"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:21
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:21
 msgid "Folder Manager"
-msgstr ""
+msgstr "Mappebehandler"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:22
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:22
 msgid "Basic folder manager with file browsing"
-msgstr ""
+msgstr "Standard mappebehandler med filutforskning"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:77
 msgid "Go to parent"
-msgstr ""
+msgstr "Gå til forelder"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:88
 msgid "Add file"
-msgstr ""
+msgstr "Legg til fil"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:95
 msgid "Remove file"
-msgstr ""
+msgstr "Fjern fil"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:110
 msgid "File Manager"
@@ -533,73 +535,73 @@ msgstr "Filbehandler"
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:23
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:104
 msgid "Terminal"
-msgstr ""
+msgstr "Terminal"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:24
 msgid "A terminal in your text editor"
-msgstr ""
+msgstr "En terminal i din tekstbahandler"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:67
 msgid "Copy"
-msgstr ""
+msgstr "Kopiér"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:74
 msgid "Paste"
-msgstr ""
+msgstr "Lim inn"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:23
 msgid "Browser Preview"
-msgstr ""
+msgstr "Forhåndsvisning i nettleser"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:24
 msgid "Get a preview your work in a web page"
-msgstr ""
+msgstr "Forhåndsvisning av arbeid i en nettside"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:80
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:81
 msgid "Get preview!"
-msgstr ""
+msgstr "Forhåndsvisning!"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:111
 msgid "Web preview"
-msgstr ""
+msgstr "Forhåndsvisning nett"
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:18
 msgid "Spell Checker"
-msgstr ""
+msgstr "Stavekontroll"
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
-msgstr ""
+msgstr "Sjekker stavingen i dokumentene dine"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:21
 msgid "Open With"
-msgstr ""
+msgstr "Åpne med"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr ""
+msgstr "Åpne filene du behandler med annet program"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:55
 msgid "Open With..."
-msgstr ""
+msgstr "Åpne med..."
 
 #: /home/mario/elementary/scratch/po/../plugins/brackets-completion/brackets-completion.vala:21
 msgid "Brackets Completion"
-msgstr ""
+msgstr "Fullføring av parenteser"
 
 #: /home/mario/elementary/scratch/po/../plugins/brackets-completion/brackets-completion.vala:22
 msgid "Complete brackets while typing"
-msgstr ""
+msgstr "Fullfør paranteser under skriving"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/completion-provider.vala:67
 #, c-format
 msgid "Could not load icon theme: %s\n"
-msgstr ""
+msgstr "Kunne ikke laste drakt for ikoner: %s\n"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:30
 msgid "Words Completion"
-msgstr ""
+msgstr "Ordfullføring"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:31
 msgid "Show a completion dialog with most used words from your files"
@@ -608,20 +610,20 @@ msgstr ""
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:99
 #, c-format
 msgid "%s - Word Completion"
-msgstr ""
+msgstr "%s - Ordfullføring"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FileView.vala:322
 msgid "Close Folder"
-msgstr ""
+msgstr "Lukk mappe"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:71
 msgid "Folders"
-msgstr ""
+msgstr "Mapper"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:89
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:90
 msgid "Open a folder"
-msgstr ""
+msgstr "Åpne en mappe"
 
 #: /home/mario/elementary/scratch/po/../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
@@ -629,28 +631,28 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/strip-trailing-save/strip-trailing-save.vala:18
 msgid "Strip trailing whitespace"
-msgstr ""
+msgstr "Fjern påflølgende skjult tabulering før linjeskift"
 
 #: /home/mario/elementary/scratch/po/../plugins/strip-trailing-save/strip-trailing-save.vala:19
 msgid "Strip trailing whitespace on save"
-msgstr ""
+msgstr "Fjern skjult tabulering ved lagring"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:21
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:231
 msgid "Source Tree"
-msgstr ""
+msgstr "Modertre"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:22
 msgid "Have a look at your sources organized in a nice tree"
-msgstr ""
+msgstr "Ta i øyesyn dine kilder organisert i en fin avgreiningsvisning"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:39
 msgid "Loading..."
-msgstr ""
+msgstr "Laster…"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:158
 msgid "Bookmark"
-msgstr ""
+msgstr "Bokmerke"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:207
 msgid "Files"
@@ -658,19 +660,19 @@ msgstr "Filer"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:208
 msgid "Project"
-msgstr ""
+msgstr "Prosjekt"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:209
 msgid "Bookmarks"
-msgstr ""
+msgstr "Bokmerker"
 
 #: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
-msgstr ""
+msgstr "Vim-etterligning"
 
 #: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
-msgstr ""
+msgstr "Bruk Vim-kommandoer i Scratch"
 
 #~ msgid "Go to line..."
 #~ msgstr "Gå til linje..."
