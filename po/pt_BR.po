@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-02 16:03+0200\n"
-"PO-Revision-Date: 2013-07-30 19:31+0000\n"
-"Last-Translator: Paulo Galardi <Unknown>\n"
+"PO-Revision-Date: 2013-08-13 08:46+0000\n"
+"Last-Translator: Otto Robba <Unknown>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-08-07 04:56+0000\n"
-"X-Generator: Launchpad (build 16721)\n"
+"X-Launchpad-Export-Date: 2013-08-14 05:53+0000\n"
+"X-Generator: Launchpad (build 16723)\n"
 "Language: pt_BR\n"
 
 #: /home/mario/elementary/scratch/po/../src/Utils.vala:42
@@ -154,7 +154,7 @@ msgstr "Modelos"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:613
 msgid "Project templates"
-msgstr ""
+msgstr "Modelos de projeto"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:616
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:45
@@ -217,23 +217,23 @@ msgstr "Quando o Scratch iniciar:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:154
 msgid "Save files when changed:"
-msgstr "Salvar arquivos quando modificados:"
+msgstr "Salvar mudanças nos arquivos:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
 msgid "Tabs:"
-msgstr "Abas:"
+msgstr "Tabulação:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:164
 msgid "Automatic indentation:"
-msgstr "Identificação automática:"
+msgstr "Recuo automático:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:167
 msgid "Insert spaces instead of tabs:"
-msgstr "Inserir espaços ao invés de abas:"
+msgstr "Inserir espaços ao invés de margem tabulada:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:171
 msgid "Tab width:"
-msgstr "Largura de aba:"
+msgstr "Largura da tabulação:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:199
 msgid "Editor:"
@@ -351,7 +351,7 @@ msgstr "Compartilhar"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:42
 msgid "No Files Open"
-msgstr ""
+msgstr "Nenhum Arquivo Aberto"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:43
 msgid "Open a file to begin editing."
