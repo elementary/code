@@ -202,7 +202,7 @@ namespace Scratch.Services {
         }
 
         public bool save () {
-            if (!this.loaded && this.file != null)
+            if (last_saved_content == get_text() && this.file != null)
                 return false;
                 
             // Create backup copy file if it does not still exist
