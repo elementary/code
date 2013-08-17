@@ -33,10 +33,18 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
         plugins.hook_document.connect ((d) => {
             var view = d.source_view;
             // Create GtkSpell object
+#if SPELLLEGACY
             if (Gtk.Spell.get_from_text_view (view) == null) {
                 Gtk.Spell? spell = null;
                 try {
                     spell = new Gtk.Spell.attach (view, lang);
+#else
+            if (GtkSpell.Checker.get_from_text_view (view) == null) {
+                GtkSpell.Checker spell = new GtkSpell.Checker ();
+                try {
+                    spell.set_language (lang);
+                    spell.attach (view);
+#endif
                 } catch (Error e) {
                     warning (e.message);
                 }
