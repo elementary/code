@@ -36,7 +36,6 @@ namespace Scratch.Services {
                 string line = null;
                 while ((line = yield dis.read_line_async (Priority.DEFAULT)) != null) {
                     text.append (line);
-                    text.append_c ('\n');
                 }
                 return text.str;
             } catch (Error e) {
@@ -53,8 +52,8 @@ namespace Scratch.Services {
                 string line = null;
                 while ((line = dis.read_line (null, null)) != null) {
                     if (line != "\n") {
-                    text.append (line);
-                    text.append_c ('\n');}
+                        text.append (line);
+                    }
                 }
                 return text.str;
             } catch (Error e) {
