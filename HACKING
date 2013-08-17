@@ -29,7 +29,7 @@ Refer to README for required dependencies.
 Then:
     mkdir build
     cd build
-    cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+    cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Debug ..
     make
 
 Run Scratch:
