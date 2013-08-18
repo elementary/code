@@ -9,7 +9,7 @@ PACKAGES
     scratchcore
     libpeas-1.0
     gtksourceview-3.0
-    zeitgeist-1.0
+    zeitgeist-2.0
 OPTIONS
     --vapidir=${CMAKE_BINARY_DIR}
     --vapidir=${CMAKE_BINARY_DIR}/src/
