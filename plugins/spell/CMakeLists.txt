@@ -3,9 +3,10 @@ pkg_check_modules (SPELL QUIET "gtkspell3-3.0")
 
 if(SPELLLEGACY_FOUND)
 set(SPELLPACKAGE "gtkspell-3.0")
-set(VALAFLAGS "${VALAFLAGS} -DSPELLLEGACY")
+set(SPELLLEGACY_FLAGS "--define=SPELLLEGACY")
 elseif(SPELL_FOUND)
 set(SPELLPACKAGE "gtkspell3-3.0")
+set(SPELLLEGACY_FLAGS "")
 endif()
 
 if (SPELLLEGACY_FOUND OR SPELL_FOUND)
@@ -36,6 +37,7 @@ OPTIONS
     --vapidir=${CMAKE_SOURCE_DIR}/vapi/
     --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
     ${VALAFLAGS}
+    ${SPELLLEGACY_FLAGS}
 )
 add_library(spell MODULE ${VALA_C})
 add_dependencies(spell scratchcore scratch)
