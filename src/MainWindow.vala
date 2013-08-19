@@ -293,7 +293,7 @@ main_actions.get_action ("ShowReplace").sensitive = val;
 
         // Get current document
         public Scratch.Services.Document? get_current_document () {
-            var view = this.split_view.get_current_view ();
+            var view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
             return view.get_current_document ();
         }
 
@@ -560,6 +560,18 @@ main_actions.get_action ("ShowReplace").sensitive = val;
         void action_templates () {
             plugins.plugin_iface.template_manager.show_window (this);
         }
+        
+        void action_next_tab () {
+            Scratch.Widgets.DocumentView? view = null;
+            view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
+            view.next_document ();
+        }
+        
+        void action_previous_tab () {
+            Scratch.Widgets.DocumentView? view = null;
+            view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
+            view.previous_document ();
+        }
 
         // Actions array
         static const Gtk.ActionEntry[] main_entries = {
@@ -630,7 +642,15 @@ main_actions.get_action ("ShowReplace").sensitive = val;
            { "Preferences", Gtk.Stock.PREFERENCES,
           /* label, accelerator */       N_("Preferences"), null,
           /* tooltip */                  N_("Change Scratch settings"),
-                                         action_preferences }
+                                         action_preferences },
+           { "NextTab", "next-tab",
+          /* label, accelerator */       N_("Next Tab"), "<Control><Alt>Page_Up",
+          /* tooltip */                  N_("Next Tab"),
+                                         action_next_tab },
+           { "PreviousTab", "previous-tab",
+          /* label, accelerator */       N_("Previous Tab"), "<Control><Alt>Page_Down",
+          /* tooltip */                  N_("Previous Tab"),
+                                         action_previous_tab }                              
         };
 
          static const Gtk.ToggleActionEntry[] toggle_entries = {
