@@ -291,7 +291,7 @@ main_actions.get_action ("ShowReplace").sensitive = val;
 
         // Get current document
         public Scratch.Services.Document? get_current_document () {
-            var view = this.split_view.get_current_view ();
+            var view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
             return view.get_current_document ();
         }
 
