@@ -93,6 +93,8 @@ namespace Scratch {
                 }
             });
 
+	    Unix.signal_add (Posix.SIGINT, quit_source_func, Priority.HIGH);
+	    Unix.signal_add (Posix.SIGTERM, quit_source_func, Priority.HIGH);
         }
 
         private void init_actions () {
@@ -255,7 +257,7 @@ namespace Scratch {
         }
 
         protected override bool delete_event (Gdk.EventAny event) {
-            action_quit ();
+            handle_quit ();
             return !check_unsaved_changes ();
         }
 
@@ -424,6 +426,18 @@ main_actions.get_action ("ShowReplace").sensitive = val;
                settings.schema.set_strv ("opened-files", opened_files);
         }
 
+	// SIGTERM/SIGINT Handling
+	public bool quit_source_func () {
+            action_quit ();
+	    return false;
+	}
+
+	// For exit cleanup
+        void handle_quit () {
+            update_saved_state ();
+            update_opened_files ();
+	}
+
         // Actions functions
         void action_preferences () {
             var dialog = new Scratch.Dialogs.Preferences ();
@@ -435,8 +449,9 @@ main_actions.get_action ("ShowReplace").sensitive = val;
         }
 
         void action_quit () {
-            update_saved_state ();
-            update_opened_files ();
+            handle_quit ();
+	    check_unsaved_changes ();
+	    destroy ();
         }
 
         void action_restore_tab () {

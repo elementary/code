@@ -1,5 +1,16 @@
-pkg_check_modules (SPELL REQUIRED "gtkspell-3.0")
-if (${SPELL_FOUND})
+pkg_check_modules (SPELLLEGACY QUIET "gtkspell-3.0")
+pkg_check_modules (SPELL QUIET "gtkspell3-3.0")
+
+if(SPELLLEGACY_FOUND)
+set(SPELLPACKAGE "gtkspell-3.0")
+set(SPELLLEGACY_FLAGS "--define=SPELLLEGACY")
+elseif(SPELL_FOUND)
+set(SPELLPACKAGE "gtkspell3-3.0")
+set(SPELLLEGACY_FLAGS "")
+endif()
+
+if (SPELLLEGACY_FOUND OR SPELL_FOUND)
+pkg_check_modules (SPELL REQUIRED ${SPELLPACKAGE})
 add_definitions(${NORMAL_CFLAGS})
 include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/scratchcore/)
 link_directories(${NORMAL_LINK_DIRS})
@@ -11,7 +22,7 @@ link_directories (${SPELL_LIBRARY_DIRS})
 vala_precompile(VALA_C
     spell.vala
 PACKAGES
-    gtkspell-3.0
+    ${SPELLPACKAGE}
     gtk+-3.0
     granite
     gtksourceview-3.0
@@ -26,6 +37,7 @@ OPTIONS
     --vapidir=${CMAKE_SOURCE_DIR}/vapi/
     --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
     ${VALAFLAGS}
+    ${SPELLLEGACY_FLAGS}
 )
 add_library(spell MODULE ${VALA_C})
 add_dependencies(spell scratchcore scratch)
