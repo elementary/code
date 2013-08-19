@@ -10,7 +10,7 @@ set(SPELLLEGACY_FLAGS "")
 endif()
 
 if (SPELLLEGACY_FOUND OR SPELL_FOUND)
-pkg_check_modules (SPELL REQUIRES ${SPELLPACKAGE})
+pkg_check_modules (SPELL REQUIRED ${SPELLPACKAGE})
 add_definitions(${NORMAL_CFLAGS})
 include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/scratchcore/)
 link_directories(${NORMAL_LINK_DIRS})
