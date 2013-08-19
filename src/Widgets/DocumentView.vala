@@ -121,6 +121,24 @@ namespace Scratch.Widgets {
             doc.focus ();
         }
         
+        public void next_document () {
+            uint current_index = docs.index (get_current_document ()) + 1;
+            if (current_index < docs.length ()) {
+                Document? next_doc = docs.nth_data (current_index++);
+                this.notebook.current = next_doc;
+                next_doc.focus();
+            } 
+        }
+        
+        public void previous_document () {
+            uint current_index = docs.index (get_current_document ());
+            if (current_index > 0) {
+                Document? previous_doc = docs.nth_data (--current_index);
+                this.notebook.current = previous_doc;
+                previous_doc.focus();   
+            }        
+        }
+        
         public void close_document (Document doc) {
             this.notebook.remove_tab (doc);
             doc.close ();
