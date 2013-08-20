@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-08-02 16:03+0200\n"
-"PO-Revision-Date: 2013-06-21 08:35+0000\n"
+"PO-Revision-Date: 2013-08-19 07:48+0000\n"
 "Last-Translator: Alfredo Hernández <Unknown>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-08-07 04:56+0000\n"
-"X-Generator: Launchpad (build 16721)\n"
+"X-Launchpad-Export-Date: 2013-08-20 05:09+0000\n"
+"X-Generator: Launchpad (build 16723)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Utils.vala:42
 msgid "All files"
@@ -153,7 +153,7 @@ msgstr "Plantilles"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:613
 msgid "Project templates"
-msgstr ""
+msgstr "Plantilles de projectes"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:616
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:45
@@ -308,41 +308,41 @@ msgstr "Text normal"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/LoadingView.vala:36
 msgid "Wait while restoring last session..."
-msgstr ""
+msgstr "Espereu mentre es restableix l'última sessió…"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:112
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:135
 msgid "Close Tab"
-msgstr ""
+msgstr "Tanca la pestanya"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:137
 msgid "Open in a new Window"
-msgstr ""
+msgstr "Obre a una finestra nova"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:138
 msgid "Duplicate"
-msgstr ""
+msgstr "Duplica"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:186
 msgid "Close Other Tab"
-msgstr ""
+msgstr "Tanca l'altra pestanya"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:186
 msgid "Close Other Tabs"
-msgstr ""
+msgstr "Tanca les altres pestanyes"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:474
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:501
 msgid "New Tab"
-msgstr ""
+msgstr "Pestanya nova"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:475
 msgid "Undo Close Tab"
-msgstr ""
+msgstr "Desfés el tancament de la pestanya"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:510
 msgid "Closed Tabs"
-msgstr ""
+msgstr "Pestanyes tancades"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ToolBar.vala:59
 msgid "Share"
@@ -350,7 +350,7 @@ msgstr "Comparteix"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:42
 msgid "No Files Open"
-msgstr ""
+msgstr "No hi ha cap fitxer obert"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:43
 msgid "Open a file to begin editing."
@@ -398,6 +398,8 @@ msgid ""
 "File \"<b>%s</b>\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
+"No es pot llegir el fitxer «<b>%s</b>». Potser està malmès\n"
+"o no téniu els permisos necessaris per llegir-lo."
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:492
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:533
@@ -502,7 +504,7 @@ msgstr "Un mes"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileView.vala:94
 msgid "/New File"
-msgstr ""
+msgstr "/Nou fitxer"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:21
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:21
@@ -516,15 +518,15 @@ msgstr "Gestor de carpetes bàsic amb navegació de fitxers"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:77
 msgid "Go to parent"
-msgstr ""
+msgstr "Vés al directori principal"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:88
 msgid "Add file"
-msgstr ""
+msgstr "Afegeix un fitxer"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:95
 msgid "Remove file"
-msgstr ""
+msgstr "Suprimeix el fitxer"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:110
 msgid "File Manager"
@@ -640,19 +642,19 @@ msgstr "Suprimeix els espais en blanc en desar"
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:21
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:231
 msgid "Source Tree"
-msgstr ""
+msgstr "Arbre d'origen"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:22
 msgid "Have a look at your sources organized in a nice tree"
-msgstr ""
+msgstr "Feu una ullada als vostres orígens organitzats en un arbre"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:39
 msgid "Loading..."
-msgstr ""
+msgstr "S'està carregant…"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:158
 msgid "Bookmark"
-msgstr ""
+msgstr "Adreça d'interès"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:207
 msgid "Files"
@@ -660,19 +662,19 @@ msgstr "Fitxers"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:208
 msgid "Project"
-msgstr ""
+msgstr "Projecte"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:209
 msgid "Bookmarks"
-msgstr ""
+msgstr "Adreces d'interès"
 
 #: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
-msgstr ""
+msgstr "Emulació del Vim"
 
 #: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
-msgstr ""
+msgstr "Utilitza ordres del Vim a l'Scratch"
 
 #~ msgid "No files are open."
 #~ msgstr "No hi ha cap fitxer obert."
