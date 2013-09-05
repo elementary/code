@@ -196,9 +196,9 @@ namespace Scratch {
             int width, height;
             this.get_size (out width, out height);
             
-            hp1.position = 150;
-            hp2.position = (width - 150);
-            vp.position = (height - 100);
+            hp1.position = 180;
+            hp2.position = (width - 180);
+            vp.position = (height - 150);
             
             hp1.pack1 (sidebar, false, false);
             hp1.pack2 (split_view, true, false);

@@ -265,7 +265,8 @@ namespace Scratch.Plugins {
 			var new_root = detect_project (doc.file);
 			if (root == null || root.get_path () != new_root.get_path ()) {
 				root = new_root;
-				category_project.clear ();
+				category_project.clear ();				
+				category_project.expand_all ();
 				category_project.add (new Folder (root));
 			}
 		}
