@@ -134,6 +134,7 @@ namespace Scratch.Plugins {
         Scratch.Services.Interface plugins;
         public Object object { owned get; construct; }
         
+        Gtk.ToolButton? new_button = null;
         Gtk.ToolButton? bookmark_tool_button = null;
 		Gtk.Notebook scratch_notebook;
 		Granite.Widgets.SourceList view;
@@ -148,17 +149,19 @@ namespace Scratch.Plugins {
         public void activate () {
 			if (DARK_THEME)
 				Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
-
+            
             plugins = (Scratch.Services.Interface) object;
             plugins.hook_notebook_sidebar.connect (on_hook_sidebar);
 			plugins.hook_document.connect (on_hook_document);
 			plugins.hook_toolbar.connect ((toolbar) => {
-				if (this.bookmark_tool_button != null) 
+				if (this.bookmark_tool_button != null && this.new_button != null) 
 				    return;
+				this.new_button = main_actions.get_action ("NewTab").create_tool_item() as Gtk.ToolButton;
 				this.bookmark_tool_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("bookmark-new", Gtk.IconSize.LARGE_TOOLBAR), _("Bookmark"));
 				bookmark_tool_button.show_all ();
 				bookmark_tool_button.clicked.connect (() => add_bookmark ());
 				toolbar.insert (bookmark_tool_button, toolbar.get_item_index (toolbar.find_button) + 1);
+				toolbar.insert (new_button, 0);
 			});
 			plugins.hook_split_view.connect ((view) => {
 			    this.bookmark_tool_button.visible = ! view.is_empty ();
@@ -181,7 +184,9 @@ namespace Scratch.Plugins {
                 view.destroy();
             if (bookmark_tool_button != null)
                 bookmark_tool_button.destroy ();
-            scratch_notebook.set_show_tabs (true);
+            if (new_button != null)
+                new_button.destroy ();
+            scratch_notebook.set_show_tabs (HIDE_TOOLBAR);
         }
 
         public void update_state () {

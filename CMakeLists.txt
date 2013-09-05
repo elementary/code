@@ -42,6 +42,7 @@ ensure_vala_version ("0.17.1" MINIMUM)
 include (ValaPrecompile)
 
 add_definitions(-DVALA_VERSION="${VALA_SHORTVER}")
+add_definitions(-w) # Disable gcc warnings
 
 # Dependencies
 set (SCRATCH_DEPS libpeas-1.0 libpeas-gtk-1.0 gtksourceview-3.0 gee-1.0 gobject-2.0 glib-2.0 gio-2.0 gtk+-3.0 granite zeitgeist-1.0)

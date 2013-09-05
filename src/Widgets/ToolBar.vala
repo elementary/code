@@ -44,8 +44,8 @@ namespace Scratch.Widgets {
             // Toolbar properties
             // compliant with elementary HIG
             get_style_context ().add_class ("primary-toolbar");
-
-            // Create ToolButtons       
+            
+            // Create ToolButtons
             open_button = main_actions.get_action ("Open").create_tool_item() as Gtk.ToolButton;
             templates_button = main_actions.get_action ("Templates").create_tool_item() as Gtk.ToolButton;
             save_button = main_actions.get_action ("SaveFile").create_tool_item() as Gtk.ToolButton;
