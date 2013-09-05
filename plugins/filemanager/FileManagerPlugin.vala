@@ -27,7 +27,8 @@ namespace Scratch.Plugins {
     public Gee.ArrayList<Scratch.Services.Document> documents;
     
     public class FileManagerPlugin : Peas.ExtensionBase, Peas.Activatable {
-
+        
+        Gtk.Box box;
         FileManager.FileView view;
 
         public Object object { owned get; construct; }
@@ -47,8 +48,8 @@ namespace Scratch.Plugins {
         }
 
         public void deactivate () {
-            if (view != null)
-                view.destroy();
+            if (box != null)
+                box.destroy();
         }
 
         public void update_state () {
@@ -58,7 +59,7 @@ namespace Scratch.Plugins {
             if (view != null)
                 return;
             
-            var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+            box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
             
             // File View
             view = new FileManager.FileView ();

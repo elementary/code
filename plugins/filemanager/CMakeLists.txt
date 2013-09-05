@@ -1,7 +1,7 @@
 add_definitions(${NORMAL_CFLAGS})
 link_directories(${NORMAL_LINK_DIRS})
 vala_precompile(VALA_C
-    FolderManagerPlugin.vala
+    FileManagerPlugin.vala
     File.vala
     Settings.vala
     FileView.vala
