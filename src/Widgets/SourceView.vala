@@ -25,69 +25,69 @@ using Scratch;
 namespace Scratch.Widgets {
 
     public class SourceView : Gtk.SourceView {
-        
+
         public new SourceBuffer buffer;
         public Gtk.TextMark mark;
         public SourceLanguageManager manager;
         public SourceStyleSchemeManager style_scheme_manager;
-        
+
         // Commmon tags
         public Gtk.TextTag warning_tag;
         public Gtk.TextTag error_tag;
-        
+
         // Properties
         private string font;
-        
+
         public SourceView () {
             // Create general objects
             manager = SourceLanguageManager.get_default ();
             style_scheme_manager = new SourceStyleSchemeManager ();
             buffer = new SourceBuffer (null);
-            
+
             this.set_buffer (buffer);
-            
+
             // Set some settings
             buffer.highlight_syntax = true;
             smart_home_end = SourceSmartHomeEndType.AFTER;
-            
+
             // Create common tags
             this.warning_tag = new Gtk.TextTag ("warning_bg");
             this.warning_tag.background_rgba = Gdk.RGBA() { red = 1.0, green = 1.0, blue = 0, alpha = 0.8 };
-            
+
             this.error_tag = new Gtk.TextTag ("error_bg");
             this.error_tag.underline = Pango.Underline.ERROR;
-            
+
             // Restore user settings
             restore_settings ();
-            
+
             // Popup menu
             populate_popup.connect (on_populate_menu);
-            
+
             // Allow files to be dragged into the widgets
             Gtk.drag_dest_add_uri_targets (this);
-            
+
             // Settings
             restore_settings ();
             settings.changed.connect (restore_settings);
         }
-        
+
         ~SourceView () {
             // Update settings when an instance is deleted
             update_settings ();
         }
-        
+
         void on_populate_menu (Gtk.Menu menu) {
-            
+
             var syntax_menu = new Gtk.MenuItem ();
             syntax_menu.set_label (_("Syntax Highlighting"));
-            
+
             var submenu = new Gtk.Menu ();
             syntax_menu.set_submenu (submenu);
-            
+
             // Create menu
             unowned SList<Gtk.RadioMenuItem> group = null;
             Gtk.RadioMenuItem? item = null;
-            
+
             // "No Language" entry
             item = new Gtk.RadioMenuItem (group);
             item.set_label (_("Normal Text"));
@@ -95,21 +95,21 @@ namespace Scratch.Widgets {
                 var lang = manager.get_language ("normal");
                 buffer.set_language (lang);
             });
-            
+
             submenu.add (item);
-            
+
             // Language entries
             var ids = manager.get_language_ids ();
             for (int n = 0; n < ids.length; n++) {
                 // Lang
                 var lang = manager.get_language (ids[n]);
-                
+
                 group = item.get_group ();
                 item = new Gtk.RadioMenuItem (group);
                 item.set_label (lang.name);
-                
+
                 submenu.add (item);
-                
+
                 item.toggled.connect (() => {
                     buffer.set_language (lang);
                 });
@@ -117,9 +117,9 @@ namespace Scratch.Widgets {
                 if (buffer.language != null && lang.id == buffer.language.id)
                     item.active = true;
             }
-           
+
             menu.add (syntax_menu);
-            
+
             menu.show_all ();
         }
 
@@ -134,11 +134,11 @@ namespace Scratch.Widgets {
         }
 
         public void change_syntax_highlight_from_file (File file) {
-            
+
             Gtk.SourceLanguage lang = null;
-            
+
             FileInfo? info = null;
-            
+
             try {
                 info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
             } catch (Error e) {
@@ -148,14 +148,14 @@ namespace Scratch.Widgets {
             var mime_type = ContentType.get_mime_type (info.get_attribute_as_string (FileAttribute.STANDARD_CONTENT_TYPE));
 
             lang = manager.guess_language (file.get_path (), mime_type);
-                
+
             buffer.set_language (lang);
-            
+
             // Fake file type detection
             // "Not all files are equal"
             string display_name = file.get_basename ();
 
-            if (display_name == "CMakeLists.txt") { 
+            if (display_name == "CMakeLists.txt") {
                 lang = manager.get_language ("cmake");
                 buffer.set_language (lang);
             }
@@ -176,11 +176,11 @@ namespace Scratch.Widgets {
             tab_width = (uint) Scratch.settings.indent_width;
             if (settings.line_break) set_wrap_mode (Gtk.WrapMode.CHAR);
             else set_wrap_mode (Gtk.WrapMode.NONE);
-            
+
             this.font = Scratch.settings.font;
             use_default_font (Scratch.settings.use_system_font);
             modify_font (Pango.FontDescription.from_string (this.font));
-         
+
             buffer.style_scheme = style_scheme_manager.get_scheme (Scratch.settings.style_scheme);
         }
 
@@ -197,14 +197,14 @@ namespace Scratch.Widgets {
         }
 
         // Move cursor to a given line
-        public void go_to_line (int line) {           
+        public void go_to_line (int line) {
             TextIter it;
             buffer.get_iter_at_line (out it, line-1);
             scroll_to_iter (it, 0, false, 0, 0);
             buffer.place_cursor (it);
             set_highlight_current_line (true);
         }
-        
+
         // Get selected text
         public string get_selected_text () {
             TextIter start, end;
@@ -213,30 +213,31 @@ namespace Scratch.Widgets {
             selected = selected.chomp ().replace ("\n", " ");
             return selected;
         }
-        
+
         // Duplicate selected text if exists, else duplicate current line
         public void duplicate_selection () {
             // Selection
             var selection = get_selected_text ();
             // Iters
             Gtk.TextIter start, end;
-            this.buffer.get_selection_bounds (out start, out end); 
-            
+            this.buffer.get_selection_bounds (out start, out end);
+
             if (selection != "")
                 this.buffer.insert (ref end, selection, -1);
             // If nothing is selected duplicate current line
             else {
                 this.buffer.get_iter_at_mark (out start, this.buffer.get_insert ());
-                start.backward_sentence_start ();
+                start.backward_line ();
+                start.forward_line ();
 
                 this.buffer.get_iter_at_mark (out end, this.buffer.get_insert ());
-                if (!end.ends_line ()) end.forward_sentence_end ();
-                        
+                end.forward_line ();
+
                 string line = this.buffer.get_text (start, end, true);
-                this.buffer.insert (ref end, "\n" + line, -1);
+                this.buffer.insert (ref end, line, -1);
             }
         }
-        
+
         public void set_text (string text, bool opening = true) {
             GLib.Idle.add (() => {
                 if (opening) buffer.begin_not_undoable_action ();
@@ -248,7 +249,7 @@ namespace Scratch.Widgets {
                 return false;
             });
         }
-        
+
     }
 
 }
