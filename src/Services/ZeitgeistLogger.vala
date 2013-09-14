@@ -27,32 +27,34 @@ namespace Scratch.Services {
         Zeitgeist.Log zg_log = new Zeitgeist.Log();
 
         public string actor = "application://scratch-text-editor.desktop";
-        public string event_manifestation = ZG_USER_ACTIVITY;
+        public string event_manifestation = Zeitgeist.ZG.USER_ACTIVITY;
 
         public void open_insert (string? uri, string mimetype) {
-            
+
             if (uri == null)
                 return;
-            
+
             var subject = get_subject(uri, mimetype);
-            var event = new Event.full (ZG_ACCESS_EVENT,
+            var event = new Zeitgeist.Event.full (Zeitgeist.ZG.ACCESS_EVENT,
                                 event_manifestation,
                                 actor,
-                                subject, null);
+                                null);
+            event.add_subject(subject);
 
             insert_events(event);
         }
 
         public void close_insert (string? uri, string mimetype) {
-            
-            if (uri == null) 
+
+            if (uri == null)
                 return;
-            
+
             var subject = get_subject(uri, mimetype);
-            var event = new Event.full (ZG_LEAVE_EVENT,
+            var event = new Zeitgeist.Event.full (Zeitgeist.ZG.LEAVE_EVENT,
                                 event_manifestation,
                                 actor,
-                                subject, null);
+                                null);
+            event.add_subject(subject);
 
             insert_events(event);
        }
@@ -60,10 +62,11 @@ namespace Scratch.Services {
         public void save_insert (string uri, string mimetype) {
 
             var subject = get_subject(uri, mimetype);
-            var event = new Event.full (ZG_MODIFY_EVENT,
+            var event = new Zeitgeist.Event.full (Zeitgeist.ZG.MODIFY_EVENT,
                                 event_manifestation,
                                 actor,
-                                subject, null);
+                                null);
+            event.add_subject(subject);
 
             insert_events(event);
         }
@@ -71,17 +74,20 @@ namespace Scratch.Services {
         public void move_insert (string old_uri, string new_uri, string mimetype) {
 
             var subject = get_subject(old_uri, mimetype);
-            subject.set_current_uri(new_uri);
-            var event = new Event.full (ZG_MOVE_EVENT,
+            subject.current_uri = new_uri;
+            var event = new Zeitgeist.Event.full (Zeitgeist.ZG.MOVE_EVENT,
                                 event_manifestation,
                                 actor,
-                                subject, null);
+                                null);
+            event.add_subject(subject);
 
             insert_events(event);
         }
 
         private void insert_events (Zeitgeist.Event ev) {
-            zg_log.insert_events_no_reply (ev, null);
+            GenericArray<Event> events = new GenericArray<Event>();
+            events.add(ev);
+            zg_log.insert_events_no_reply (events);
         }
 
         private Subject get_subject(string uri, string mimetype) {

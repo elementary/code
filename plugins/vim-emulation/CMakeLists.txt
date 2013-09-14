@@ -11,7 +11,7 @@ PACKAGES
     scratchcore
     gee-1.0
     libpeas-1.0
-    zeitgeist-1.0
+    zeitgeist-2.0
 OPTIONS
     --thread
     --vapidir=${CMAKE_BINARY_DIR}

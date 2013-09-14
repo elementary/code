@@ -77,14 +77,14 @@ namespace Scratch {
             registry = new DataSourceRegistry ();
 
             var ds_event = new Zeitgeist.Event ();
-            ds_event.set_actor ("application://scratch-text-editor.desktop");
+            ds_event.actor = "application://scratch-text-editor.desktop";
             ds_event.add_subject (new Zeitgeist.Subject ());
-            PtrArray ptr_array = new PtrArray.with_free_func (Object.unref);
-            ptr_array.add (ds_event);
+            GenericArray<Zeitgeist.Event> ds_events = new GenericArray<Zeitgeist.Event>();
+            ds_events.add(ds_event);
             var ds = new DataSource.full ("scratch-logger",
                                           _("Zeitgeist Datasource for Scratch"),
                                           "A data source which logs Open, Close, Save and Move Events",
-                                          (owned)ptr_array); // FIXME: templates!
+                                          ds_events); // FIXME: templates!
             registry.register_data_source.begin (ds, null, (obj, res) => {
                 try {
                     registry.register_data_source.end (res);
