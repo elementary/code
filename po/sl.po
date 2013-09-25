@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-08-02 16:03+0200\n"
-"PO-Revision-Date: 2013-09-20 17:48+0000\n"
+"PO-Revision-Date: 2013-09-24 10:43+0000\n"
 "Last-Translator: Damir Jerovšek <Unknown>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-09-21 05:54+0000\n"
-"X-Generator: Launchpad (build 16765)\n"
+"X-Launchpad-Export-Date: 2013-09-25 05:40+0000\n"
+"X-Generator: Launchpad (build 16771)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Utils.vala:42
 msgid "All files"
@@ -153,7 +153,7 @@ msgstr "Predloge"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:613
 msgid "Project templates"
-msgstr ""
+msgstr "Projektne predloge"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:616
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:45
@@ -338,7 +338,7 @@ msgstr "Nov zavihek"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:475
 msgid "Undo Close Tab"
-msgstr ""
+msgstr "Razveljavi zaprtje zavihka"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:510
 msgid "Closed Tabs"
@@ -350,7 +350,7 @@ msgstr "Deli"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:42
 msgid "No Files Open"
-msgstr ""
+msgstr "Ni odprtih datotek"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:43
 msgid "Open a file to begin editing."
@@ -405,11 +405,11 @@ msgstr "Datoteka "
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:493
 msgid "was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "je bil izbrisan. Ali želite vseeno shraniti?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:505
 msgid "You cannot save changes on file"
-msgstr ""
+msgstr "Sprememb datoteke ni mogoče shraniti"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:506
 msgid "Do you want to save the changes to this file in a different location?"
@@ -501,7 +501,7 @@ msgstr "En mesec"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileView.vala:94
 msgid "/New File"
-msgstr ""
+msgstr "/Nova datoteka"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:21
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:21
@@ -515,7 +515,7 @@ msgstr "Preprost upravljalnik map z brskanjem datotek"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:77
 msgid "Go to parent"
-msgstr ""
+msgstr "Pojdi do nadrejenega"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:88
 msgid "Add file"
@@ -626,7 +626,7 @@ msgstr "Odpri mapo"
 
 #: /home/mario/elementary/scratch/po/../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
-msgstr ""
+msgstr "Delite svoje datoteke s Contractorjem"
 
 #: /home/mario/elementary/scratch/po/../plugins/strip-trailing-save/strip-trailing-save.vala:18
 msgid "Strip trailing whitespace"
@@ -639,7 +639,7 @@ msgstr ""
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:21
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:231
 msgid "Source Tree"
-msgstr ""
+msgstr "Drevo vira"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:22
 msgid "Have a look at your sources organized in a nice tree"
@@ -667,11 +667,11 @@ msgstr "Zaznamki"
 
 #: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
-msgstr ""
+msgstr "Posnemanje Vima"
 
 #: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
-msgstr ""
+msgstr "Uporabi ukaze Vima v Scratchu"
 
 #~ msgid "Find..."
 #~ msgstr "Najdi ..."
