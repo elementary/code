@@ -87,7 +87,9 @@ namespace Scratch.Services {
         private void insert_events (Zeitgeist.Event ev) {
             GenericArray<Event> events = new GenericArray<Event>();
             events.add(ev);
-            zg_log.insert_events_no_reply (events);
+            try {
+                zg_log.insert_events_no_reply (events);
+            } catch (Error e) { warning (e.message); }
         }
 
         private Subject get_subject(string uri, string mimetype) {

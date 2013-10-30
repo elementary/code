@@ -626,7 +626,7 @@ namespace Scratch.Widgets {
             notebook.create_window.disconnect (on_create_window);
         }
 
-        void restore_menu_position (Gtk.Menu menu, out int x, out int y, out bool p) {
+        void restore_menu_position (Gtk.Menu menu, out int x, out int y) {
             Gtk.Allocation button_alloc, menu_alloc;
             restore_button.get_allocation (out button_alloc);
             menu.get_allocation (out menu_alloc);
