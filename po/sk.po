@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-08-02 16:03+0200\n"
-"PO-Revision-Date: 2013-10-27 19:57+0000\n"
+"PO-Revision-Date: 2013-10-29 16:13+0000\n"
 "Last-Translator: Milan Slovák <Unknown>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-28 05:34+0000\n"
-"X-Generator: Launchpad (build 16810)\n"
+"X-Launchpad-Export-Date: 2013-10-30 05:43+0000\n"
+"X-Generator: Launchpad (build 16820)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Utils.vala:42
 msgid "All files"
@@ -338,7 +338,7 @@ msgstr "Nová karta"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:475
 msgid "Undo Close Tab"
-msgstr ""
+msgstr "Vrátiť zatvorenú záložku"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:510
 msgid "Closed Tabs"
@@ -512,77 +512,77 @@ msgstr "Správca priečinkov"
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:22
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:22
 msgid "Basic folder manager with file browsing"
-msgstr ""
+msgstr "Základný správca priečinkov s prehliadaním súborov"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:77
 msgid "Go to parent"
-msgstr ""
+msgstr "O úroveň vyššie"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:88
 msgid "Add file"
-msgstr ""
+msgstr "Pridať súbor"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:95
 msgid "Remove file"
-msgstr ""
+msgstr "Odstrániť súbor"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:110
 msgid "File Manager"
-msgstr ""
+msgstr "Správca súborov"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:23
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:104
 msgid "Terminal"
-msgstr ""
+msgstr "Terminál"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:24
 msgid "A terminal in your text editor"
-msgstr ""
+msgstr "Terminál vo vašom textovom editore"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:67
 msgid "Copy"
-msgstr ""
+msgstr "Kopírovať"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:74
 msgid "Paste"
-msgstr ""
+msgstr "Vložiť"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:23
 msgid "Browser Preview"
-msgstr ""
+msgstr "Náhľad prehliadača"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:24
 msgid "Get a preview your work in a web page"
-msgstr ""
+msgstr "Získajte náhľad svojej práce na webovej stránke"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:80
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:81
 msgid "Get preview!"
-msgstr ""
+msgstr "Získať náhľad"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:111
 msgid "Web preview"
-msgstr ""
+msgstr "Náhľad webu"
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:18
 msgid "Spell Checker"
-msgstr ""
+msgstr "Kontrola pravopisu"
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
-msgstr ""
+msgstr "Kontrola pravopisu vašich dokumentov"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:21
 msgid "Open With"
-msgstr ""
+msgstr "Otvoriť pomocou"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr ""
+msgstr "Otvorte súbory, ktoré upravujete inou aplikáciou"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:55
 msgid "Open With..."
-msgstr ""
+msgstr "Otvoriť pomocou..."
 
 #: /home/mario/elementary/scratch/po/../plugins/brackets-completion/brackets-completion.vala:21
 msgid "Brackets Completion"
@@ -595,7 +595,7 @@ msgstr ""
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/completion-provider.vala:67
 #, c-format
 msgid "Could not load icon theme: %s\n"
-msgstr ""
+msgstr "Nepodarilo sa načítať motív ikôn: %s\n"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:30
 msgid "Words Completion"
@@ -612,20 +612,20 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FileView.vala:322
 msgid "Close Folder"
-msgstr ""
+msgstr "Zatvoriť priečinok"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:71
 msgid "Folders"
-msgstr ""
+msgstr "Priečinky"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:89
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:90
 msgid "Open a folder"
-msgstr ""
+msgstr "Otvoriť priečinok"
 
 #: /home/mario/elementary/scratch/po/../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
-msgstr ""
+msgstr "Zdieľajte vaše súbory cez Contractor"
 
 #: /home/mario/elementary/scratch/po/../plugins/strip-trailing-save/strip-trailing-save.vala:18
 msgid "Strip trailing whitespace"
@@ -638,39 +638,39 @@ msgstr ""
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:21
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:231
 msgid "Source Tree"
-msgstr ""
+msgstr "Zdrojový strom"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:22
 msgid "Have a look at your sources organized in a nice tree"
-msgstr ""
+msgstr "Pozrite sa na svoje zdroje organizované v strome"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:39
 msgid "Loading..."
-msgstr ""
+msgstr "Načítava sa..."
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:158
 msgid "Bookmark"
-msgstr ""
+msgstr "Záložka"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:207
 msgid "Files"
-msgstr ""
+msgstr "Súbory"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:208
 msgid "Project"
-msgstr ""
+msgstr "Projekt"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:209
 msgid "Bookmarks"
-msgstr ""
+msgstr "Záložky"
 
 #: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
-msgstr ""
+msgstr "Emulácia Vim"
 
 #: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
-msgstr ""
+msgstr "Použiť Vim príkazy v Scratch"
 
 #~ msgid "Go to line..."
 #~ msgstr "Ísť na riadok..."
