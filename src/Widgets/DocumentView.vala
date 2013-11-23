@@ -75,7 +75,7 @@ namespace Scratch.Widgets {
             show_all ();
         }
         
-        public void new_document (owned Granite.Widgets.Tab? tab = null) {
+        public void new_document () {
             var doc = new Document ();
             doc.create_page ();
            
