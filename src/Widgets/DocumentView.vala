@@ -21,13 +21,14 @@
 using Gtk;
 
 using Scratch.Services;
+using Granite.Widgets;
 
 namespace Scratch.Widgets {
     
     public class DocumentView : Gtk.Box {
         
         // Widgets
-        public Scratch.Widgets.DynamicNotebook notebook;
+        public DynamicNotebook notebook;
         
         public GLib.List<Document> docs;
         
@@ -47,21 +48,25 @@ namespace Scratch.Widgets {
             docs = new GLib.List<Document> ();
             
             // Layout
-            this.notebook = new Scratch.Widgets.DynamicNotebook ();
+            this.notebook = new DynamicNotebook ();
             this.notebook.allow_restoring = true;
-            this.notebook.tab_added.connect (() => {
+
+            this.notebook.new_tab_requested.connect (() => {
                 new_document ();
             });
-            this.notebook.tab_removed.connect ((tab) => {
+
+            this.notebook.close_tab_requested.connect ((tab) => {
                 if ((tab as Document).file != null)
                     tab.restore_data = (tab as Document).get_uri ();
-                return true;
+                return close_document_from_tab ((tab as Document));
             });
+
             this.notebook.tab_switched.connect ((old_tab, new_tab) => {
                 document_change (new_tab as Document);
             });
-            this.notebook.tab_restored.connect ((tab) => {
-                var doc = new Document (File.new_for_uri (tab.restore_data));
+
+            this.notebook.tab_restored.connect ((label, restore_data, icon) => {
+                var doc = new Document (File.new_for_uri (restore_data));
                 open_document (doc);
             });
             
@@ -70,15 +75,11 @@ namespace Scratch.Widgets {
             show_all ();
         }
         
-        public void new_document (owned Scratch.Widgets.Tab? tab = null) {
+        public void new_document (owned Granite.Widgets.Tab? tab = null) {
             var doc = new Document ();
             doc.create_page ();
            
             this.notebook.insert_tab (doc, -1);
-            
-            this.notebook.tab_removed.connect ((closing_tab) => {
-                return close_document_from_tab (doc, closing_tab);
-            });
             
             doc.source_view.focus_in_event.connect (() => {
                 document_change (doc);
@@ -107,9 +108,7 @@ namespace Scratch.Widgets {
             doc.create_page ();
             
             this.notebook.insert_tab (doc, -1);
-            this.notebook.tab_removed.connect ((closing_tab) => {
-                return close_document_from_tab (doc, closing_tab);
-            });
+
             doc.source_view.focus_in_event.connect (() => {
                 document_change (doc);
                 return true;
@@ -145,18 +144,16 @@ namespace Scratch.Widgets {
             remove_document (doc);
         }
         
-        private bool close_document_from_tab (Document doc, Scratch.Widgets.Tab closing_tab) {
-            // Close the Document object too
-            if (closing_tab == doc) {
-                bool ret_value = doc.close ();
-                remove_document (doc);
-                // Check if the view is empty
-                if (this.notebook.get_children ().length () <= 1)
-                    empty ();
-                return ret_value;
-            }
-            else
-                return true;
+        private bool close_document_from_tab (Document doc) {
+            if (!doc.close ())
+                return false;
+
+            remove_document (doc);
+            // Check if the view is empty
+            if (this.notebook.get_children ().length () <= 1)
+                empty ();
+            
+            return true;
         }
         
         private void add_document (Document doc) {
