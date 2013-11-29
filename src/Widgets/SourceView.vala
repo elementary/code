@@ -179,7 +179,7 @@ namespace Scratch.Widgets {
 
             this.font = Scratch.settings.font;
             use_default_font (Scratch.settings.use_system_font);
-            modify_font (Pango.FontDescription.from_string (this.font));
+            override_font (Pango.FontDescription.from_string (this.font));
 
             buffer.style_scheme = style_scheme_manager.get_scheme (Scratch.settings.style_scheme);
         }

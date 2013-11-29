@@ -23,7 +23,7 @@ using Granite.Widgets;
 
 namespace Scratch.Widgets {
 
-    public class Toolbar : Gtk.Toolbar {
+    public class Toolbar : Gtk.HeaderBar {
 
         public ToolButton open_button;
         public ToolButton templates_button;
@@ -84,17 +84,17 @@ namespace Scratch.Widgets {
             share_app_menu.no_show_all = true;
 
             // Add everything to the toolbar
-            add (open_button);
-            add (templates_button);
-            add (save_button);
-            add (new SeparatorToolItem ());
-            add (revert_button);
-            add (undo_button);
-            add (repeat_button);
-            add (new SeparatorToolItem ());
-            add (find_button);
-            add_spacer ();
-            add (share_app_menu);
+            pack_start (open_button);
+            pack_start (templates_button);
+            pack_start (save_button);
+            pack_start (new SeparatorToolItem ());
+            pack_start (revert_button);
+            pack_start (undo_button);
+            pack_start (repeat_button);
+            pack_start (new SeparatorToolItem ());
+            pack_start (find_button);
+
+            pack_end (share_app_menu);
 
             // Show/Hide widgets
             show_all ();
@@ -104,12 +104,6 @@ namespace Scratch.Widgets {
                 save_button.visible = !settings.autosave;
             });
 
-        }
-
-        private void add_spacer () {
-            var spacer = new ToolItem ();
-            spacer.set_expand (true);
-            add (spacer);
         }
     }
 }

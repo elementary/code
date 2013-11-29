@@ -355,12 +355,12 @@ namespace Scratch.Dialogs {
 			var format_others_scroll = new ScrolledWindow(null, null);
 				format_others_scroll.add(format_others_view);
 				
-			var format_others_ok = new Button.from_stock(Stock.OK);
+			var format_others_ok = new Button.from_stock ("gtk-ok");
 				format_others_ok.clicked.connect (format_others_ok_clicked);			
-			var format_others_cancel = new Button.from_stock(Stock.CANCEL);
+			var format_others_cancel = new Button.from_stock ("gtk-cancel");
 				format_others_cancel.clicked.connect (format_others_cancel_clicked);
-			var format_others_buttons = new ButtonBox(Orientation.HORIZONTAL);
-				format_others_buttons.set_layout(ButtonBoxStyle.CENTER);
+			var format_others_buttons = new ButtonBox (Orientation.HORIZONTAL);
+				format_others_buttons.set_layout (ButtonBoxStyle.CENTER);
 				format_others_buttons.pack_start (format_others_cancel);
 				format_others_buttons.pack_start (format_others_ok);
 				

@@ -38,7 +38,7 @@ add_definitions(-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\")
 # Vala
 find_package (Vala REQUIRED)
 include (ValaVersion)
-ensure_vala_version ("0.17.1" MINIMUM)
+ensure_vala_version ("0.20" MINIMUM)
 include (ValaPrecompile)
 
 add_definitions(-DVALA_VERSION="${VALA_SHORTVER}")
@@ -47,7 +47,7 @@ add_definitions(-w) # Disable gcc warnings
 # Dependencies
 set (SCRATCH_DEPS libpeas-1.0 libpeas-gtk-1.0 gtksourceview-3.0 gee-1.0 gobject-2.0 glib-2.0 gio-2.0 gtk+-3.0 granite zeitgeist-2.0)
 find_package (PkgConfig)
-pkg_check_modules (GTK+ REQUIRED "gtk+-3.0 >= 3.4")
+pkg_check_modules (GTK+ REQUIRED "gtk+-3.0 >= 3.10")
 pkg_check_modules (LIBSOURCE REQUIRED libpeas-gtk-1.0 gtksourceview-3.0>=3.0 gthread-2.0)
 pkg_check_modules (DEPS REQUIRED ${SCRATCH_DEPS})
 
