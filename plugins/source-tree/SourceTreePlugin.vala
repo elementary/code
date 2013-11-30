@@ -160,13 +160,10 @@ namespace Scratch.Plugins {
 				this.bookmark_tool_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("bookmark-new", Gtk.IconSize.LARGE_TOOLBAR), _("Bookmark"));
 				bookmark_tool_button.show_all ();
 				bookmark_tool_button.clicked.connect (() => add_bookmark ());
-#if HAS_GTK310
 				toolbar.pack_start (bookmark_tool_button);
 				toolbar.pack_start (new_button);
-#else
-				toolbar.insert (bookmark_tool_button, toolbar.get_item_index (toolbar.find_button) + 1);
-				toolbar.insert (new_button, 0);
-#endif
+				//toolbar.insert (bookmark_tool_button, toolbar.get_item_index (toolbar.find_button) + 1);
+				//toolbar.insert (new_button, 0);
 			});
 			plugins.hook_split_view.connect ((view) => {
 			    this.bookmark_tool_button.visible = ! view.is_empty ();
