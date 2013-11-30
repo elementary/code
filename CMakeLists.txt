@@ -55,7 +55,7 @@ set (GTK310_FLAG "")
 pkg_check_modules (GTK310 QUIET gtk+-3.0>=3.10)
 if (HAS_GTK310)
     pkg_check_modules (GTK310 REQUIRED gtk+-3.0>=3.10)
-    ensure_vala_version ("0.20" MINIMUM)
+    ensure_vala_version ("0.22" MINIMUM)
     set (GTK310_FLAGS "--define=HAS_GTK310")
 endif (HAS_GTK310)
 
