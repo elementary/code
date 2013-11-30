@@ -127,12 +127,16 @@ namespace Scratch {
 
             // Toolbar
             this.toolbar = new Scratch.Widgets.Toolbar ();
+#if HAS_GTK310
             this.toolbar.title = this.title;
             this.toolbar.show_close_button = true;
             this.set_titlebar (this.toolbar);
+#endif
             toolbar.menu = ui.get_widget ("ui/AppMenu") as Gtk.Menu;
             var app_menu = (app as Granite.Application).create_appmenu (toolbar.menu);
+#if HAS_GTK310
             toolbar.pack_end (app_menu);
+#endif
 
             // SearchManager
             this.search_manager = new Scratch.Widgets.SearchManager ();
@@ -147,7 +151,11 @@ namespace Scratch {
             // Signals
             this.split_view.welcome_shown.connect (() => {
                 set_widgets_sensitive (false);
+#if HAS_GTK310
                 this.toolbar.subtitle = null;
+#else
+                this.title = this.app.app_cmd_name;
+#endif
                 
             });
             this.split_view.welcome_hidden.connect (() => {
@@ -164,10 +172,18 @@ namespace Scratch {
                     if ("trash://" in path)
                         path = _("Trash");
 
+#if HAS_GTK310
                     this.toolbar.subtitle = doc.file.get_basename () + " (%s)".printf(path);
+#else
+                    this.title = doc.file.get_basename () + " (%s) - %s".printf(path, this.app.app_cmd_name);
+#endif
                 }
                 else {
+#if HAS_GTK310
                     this.toolbar.subtitle = null;
+#else
+                    this.title = this.app.app_cmd_name;
+#endif
                 }
                 // Set actions sensitive property
                 main_actions.get_action ("SaveFile").visible = (!settings.autosave || doc.file == null);
