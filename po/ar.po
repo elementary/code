@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-08-02 16:03+0200\n"
-"PO-Revision-Date: 2013-10-17 18:21+0000\n"
+"PO-Revision-Date: 2013-11-30 11:28+0000\n"
 "Last-Translator: abdXelrhman <abdXelrhman@gmail.com>\n"
 "Language-Team: Arabic <ar@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-11-07 05:41+0000\n"
-"X-Generator: Launchpad (build 16820)\n"
+"X-Launchpad-Export-Date: 2013-12-01 05:39+0000\n"
+"X-Generator: Launchpad (build 16856)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Utils.vala:42
 msgid "All files"
@@ -54,13 +54,13 @@ msgstr "إذهب الى السطر..."
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:560
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:561
 msgid "Quit"
-msgstr "خروج"
+msgstr "اُخرج"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:564
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:565
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:84
 msgid "Close"
-msgstr "اغلاق"
+msgstr "اغلق"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:568
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:569
@@ -69,11 +69,11 @@ msgstr "إستبدال"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:572
 msgid "Reopen closed document"
-msgstr ""
+msgstr "أعد فتح المُستند المُغلق"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:573
 msgid "Open last closed document in a new tab"
-msgstr ""
+msgstr "أعد فتح اخر مُستند مُغلق ولكن فى لسان جديد"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:576
 msgid "Add New Tab"
@@ -85,7 +85,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:580
 msgid "Add New View"
-msgstr "اضف منطقة عرض جديدة"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:581
 msgid "Add a new view"
@@ -93,15 +93,15 @@ msgstr "اضف منطقة عرض جديدة"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:584
 msgid "Remove Current View"
-msgstr "احذف منطقة العرض الحالية"
+msgstr "إحذف منطقه العرض الحاليه"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:585
 msgid "Remove this view"
-msgstr "احذف منطقة العرض هذه"
+msgstr "إحذف منطقه العرض هذه"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:588
 msgid "Undo"
-msgstr "تراجع"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:589
 msgid "Undo the last action"
@@ -113,61 +113,61 @@ msgstr "أعد"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:593
 msgid "Redo the last undone action"
-msgstr "اعد اخر اجراء تم التراجع عنه"
+msgstr "أعد اخر إجراء تم التراجع عنه"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:596
 msgid "Revert"
-msgstr "اعكس"
+msgstr "إعكس"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:597
 msgid "Restore this file"
-msgstr "استعادة الملف"
+msgstr "إستعد هذا الملف"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:600
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:601
 msgid "Duplicate selected strings"
-msgstr "كرر النص المحدد"
+msgstr "كرر النصوص المحدده"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:604
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileView.vala:282
 msgid "Open"
-msgstr "فتح"
+msgstr "إفتح"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:605
 msgid "Open a file"
-msgstr "افتح ملف"
+msgstr "إفتح ملفاً"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:608
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:495
 msgid "Save"
-msgstr "حفظ"
+msgstr "إحفظ"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:609
 msgid "Save the current file"
-msgstr "حفظ الملف الحالي"
+msgstr "إحفظ الملف الحالى"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:612
 #: /home/mario/elementary/scratch/po/../src/Services/TemplateManager.vala:230
 msgid "Templates"
-msgstr "قوالب"
+msgstr "القوالب"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:613
 msgid "Project templates"
-msgstr ""
+msgstr "قوالب المشروع"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:616
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:45
 msgid "Preferences"
-msgstr "التفضيلات"
+msgstr "اﻹعدادات"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:617
 msgid "Change Scratch settings"
-msgstr "تغيير الاعدادات"
+msgstr "تغيير إعدادات خربشات"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:623
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:624
 msgid "Fullscreen"
-msgstr "ملئ الشاشة"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:15
 msgid "Edit text files"
@@ -175,20 +175,20 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:16
 msgid "Text Editor"
-msgstr ""
+msgstr "مُحرر النصوص"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:17
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:322
 msgid "New Document"
-msgstr ""
+msgstr "مُستند جديد"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:18
 msgid "New Window"
-msgstr ""
+msgstr "نافذه جديده"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:62
 msgid "Behavior"
-msgstr "السلوك"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:66
 msgid "Interface"
@@ -200,11 +200,11 @@ msgstr "الامتدادات"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:128
 msgid "Show welcome screen"
-msgstr "اعرض نافذة الترحيب"
+msgstr "إعرض نافذه الترحيب"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:129
 msgid "Show last open tabs"
-msgstr "اعرض اخر الألسنة المفتوحة"
+msgstr "إعرض اخر اﻷلسنه المفتوحه"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:145
 msgid "General:"
@@ -212,11 +212,11 @@ msgstr "عام"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:151
 msgid "When Scratch starts:"
-msgstr "عند بدأ Scratch"
+msgstr "عند بدأ خربشات:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:154
 msgid "Save files when changed:"
-msgstr "احفظ الملفات عند تغييرها"
+msgstr "إحفظ الملفات عند تغييرها:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
 msgid "Tabs:"
@@ -236,27 +236,27 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:199
 msgid "Editor:"
-msgstr "المحرر:"
+msgstr "المُحرر"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:217
 msgid "Highlight current line:"
-msgstr "تسليط الضوء علي السطر الحالي:"
+msgstr "إبراز السطر الحالى :"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:218
 msgid "Highlight matching brackets:"
-msgstr ""
+msgstr "إبراز الاقواس :"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:219
 msgid "Split long text in many lines:"
-msgstr ""
+msgstr "إقسم النصوص الطويله على عده اسطر :"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:220
 msgid "Draw spaces:"
-msgstr "ارسم المسافات:"
+msgstr "إرسم المسافات :"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:221
 msgid "Show line numbers:"
-msgstr "اعرض رقم السطر:"
+msgstr "إعرض رقم السطر :"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
 msgid "Line width guide:"
@@ -268,7 +268,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:254
 msgid "Select font:"
-msgstr "اختر الخط:"
+msgstr "إختر الخط :"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:257
 msgid "Color scheme:"
@@ -296,57 +296,57 @@ msgstr "استبدل بـ"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:113
 msgid "Go To Line:"
-msgstr "اذهب الي السطر:"
+msgstr "إذهب الى السطر :"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:82
 msgid "Syntax Highlighting"
-msgstr "تمييز بنية الجملة"
+msgstr "إبراز تراكيب الجمله"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:93
 msgid "Normal Text"
-msgstr ""
+msgstr "نص عادى"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/LoadingView.vala:36
 msgid "Wait while restoring last session..."
-msgstr ""
+msgstr "يُرجى اﻹنتظار ريثما تُستعاد الجلسه السابقه..."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:112
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:135
 msgid "Close Tab"
-msgstr ""
+msgstr "إغلق اللسان"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:137
 msgid "Open in a new Window"
-msgstr ""
+msgstr "إفتح فى نافذه جديده"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:138
 msgid "Duplicate"
-msgstr ""
+msgstr "تكرار"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:186
 msgid "Close Other Tab"
-msgstr ""
+msgstr "إغلق اللسان اﻵخر"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:186
 msgid "Close Other Tabs"
-msgstr ""
+msgstr "إغلق الالسنه الاخرى"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:474
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:501
 msgid "New Tab"
-msgstr ""
+msgstr "لسان جديد"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:475
 msgid "Undo Close Tab"
-msgstr ""
+msgstr "تراجع عن إغلاق اللسان"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:510
 msgid "Closed Tabs"
-msgstr ""
+msgstr "إغلق الالسنه"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ToolBar.vala:59
 msgid "Share"
-msgstr "مشاركة"
+msgstr "المشاركه"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:42
 msgid "No Files Open"
@@ -354,7 +354,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:43
 msgid "Open a file to begin editing."
-msgstr "افتح ملف لبدأ التعديل"
+msgstr "إفتح ملفاً لبدأ التحرير."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:47
 msgid "New file"
@@ -362,31 +362,29 @@ msgstr "ملف جديد"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:47
 msgid "Create a new empty file."
-msgstr "انشاء ملف جديد فارغ"
+msgstr "انشئ ملفاً فارغاً جديداً"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:48
 msgid "Open file"
-msgstr "فتح ملففت"
+msgstr "إفتح ملف"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:48
 msgid "Open a saved file."
-msgstr "فتح ملف محفوظ مسبقاً"
+msgstr "إفتح ملفاً محفوظاً"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:165
 #, c-format
 msgid "Save changes to document %s before closing?"
-msgstr ""
+msgstr "حفظ التغيرات الى المُستند %s قبل اﻹغلاق ؟"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:168
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr ""
-"ان لم تحفظ التغييرات، سوف تختفي نهائياً التغييرات التي حدثت في ال 4 ثواني "
-"الأخيرة."
+msgstr "إن لم تحفظ فستختفى نهائياً جميع التغيرات الحادثه فى اخر 4 ثوانى."
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:170
 msgid "Close without saving"
-msgstr "إغلاق بدون حفظ"
+msgstr "إغلق بدون حفظ"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:239
 msgid "Save File"
