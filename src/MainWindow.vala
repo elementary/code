@@ -39,6 +39,7 @@ namespace Scratch {
         
         // Widgets
         public Scratch.Widgets.Toolbar toolbar;
+        private Gtk.Revealer search_revealer;
         public Scratch.Widgets.SearchManager search_manager;
         public Scratch.Widgets.LoadingView loading_view;
         public Scratch.Widgets.SplitView split_view;
@@ -135,9 +136,11 @@ namespace Scratch {
             toolbar.pack_end (app_menu);
 
             // SearchManager
+            this.search_revealer = new Gtk.Revealer ();
             this.search_manager = new Scratch.Widgets.SearchManager ();
             this.search_manager.get_style_context ().add_class ("secondary-toolbar");
-
+            this.search_revealer.add (this.search_manager);
+            
             // SlitView
             this.split_view = new Scratch.Widgets.SplitView ();
     
@@ -212,7 +215,7 @@ namespace Scratch {
 
             // Add everything to the window
             main_box.pack_start (toolbar, false, true, 0);
-            main_box.pack_start (search_manager, false, true, 0);
+            main_box.pack_start (search_revealer, false, true, 0);
             main_box.pack_start (loading_view, true, true, 0);
             main_box.pack_start (vp, false, true, 0);
             this.add (main_box);
@@ -220,8 +223,8 @@ namespace Scratch {
             // Show/Hide widgets
             show_all ();
 
-            this.search_manager.visible = false;
-
+            this.search_revealer.set_reveal_child (false);
+            
             main_actions.get_action ("SaveFile").visible = !settings.autosave;
             main_actions.get_action ("Templates").visible = plugins.plugin_iface.template_manager.template_available;
             plugins.plugin_iface.template_manager.notify["template_available"].connect ( () => {
@@ -272,7 +275,7 @@ namespace Scratch {
             main_actions.get_action ("ShowReplace").sensitive = val;
 main_actions.get_action ("ShowReplace").sensitive = val;
             if (val == false)
-                this.search_manager.visible = false;
+                this.search_revealer.set_reveal_child (false);
             // Toolbar Actions
             main_actions.get_action ("SaveFile").sensitive = val;
             main_actions.get_action ("Undo").sensitive = val;
@@ -545,19 +548,19 @@ main_actions.get_action ("ShowReplace").sensitive = val;
         }
 
         bool toggle_searchbar () {
-            if (!this.search_manager.visible ||
+            if (!this.search_revealer.get_child_revealed () ||
                 this.search_manager.search_entry.has_focus ||
                 this.search_manager.replace_entry.has_focus ||
                 this.search_manager.go_to_entry.has_focus) {
 
-                this.search_manager.visible = !this.search_manager.visible;
+                this.search_revealer.set_reveal_child (!this.search_revealer.get_child_revealed ());
                 this.search_manager.highlight_none ();
                 this.toolbar.find_button.set_tooltip_text (
-                    (this.search_manager.visible)
+                    (this.search_revealer.get_child_revealed ())
                     ? _("Hide search bar")
                     : main_actions.get_action ("Fetch").tooltip);
             }
-            return this.search_manager.visible;
+            return this.search_revealer.get_reveal_child ();
         }
 
         void action_templates () {
