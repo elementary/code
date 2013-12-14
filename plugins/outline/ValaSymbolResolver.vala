@@ -44,6 +44,7 @@ public class ValaSymbolOutline : Object, SymbolOutline
 	SymbolIter cache;
 
 	Gee.List<Vala.Field> field_blacklist;
+	bool reacreating_tree = false;
 
 	public ValaSymbolOutline (Scratch.Services.Document _doc)
 	{
@@ -55,8 +56,10 @@ public class ValaSymbolOutline : Object, SymbolOutline
 
 		store = new Granite.Widgets.SourceList ();
 		store.get_style_context ().add_class ("sidebar");
+		store.set_sort_func ((Granite.Widgets.SourceList.SortFunc)Comparison.sort_function);
 		store.item_selected.connect ((selected) => {
 			if (selected == null) return;
+			if (reacreating_tree == true) return;
 			goto (doc, (selected as Symbol).symbol.source_reference.begin.line);
 			store.selected = null;
 		});
@@ -113,6 +116,7 @@ public class ValaSymbolOutline : Object, SymbolOutline
 
 	public void parse_symbols ()
 	{
+	    reacreating_tree = true;
 		cache.children.clear ();
 		init_context ();
 
@@ -129,6 +133,7 @@ public class ValaSymbolOutline : Object, SymbolOutline
 		filter_generated_fields (root);
 
 		store.root.expand_all ();
+		reacreating_tree = false;
 	}
 
 	void construct_tree (SymbolIter iter_parent,
@@ -171,7 +176,7 @@ public class ValaSymbolOutline : Object, SymbolOutline
 		}
 	}
 
-	void add_symbol (Vala.Symbol symbol, string icon = "", Icon? real_icon = null)
+	void add_symbol (Vala.Symbol symbol, string icon = "")
 	{
 		if (symbol.name == null)
 			return;
@@ -187,7 +192,9 @@ public class ValaSymbolOutline : Object, SymbolOutline
 			return;
 		}
 
-		var i = real_icon != null ? real_icon : new ThemedIcon.with_default_fallbacks (icon);
+		GLib.Icon i = null;
+		if (icon != null && icon != "")
+		    i = new ThemedIcon (icon);
 		var s = new SymbolIter (symbol, i);
 		parent.children.add (s);
 	}
@@ -200,13 +207,12 @@ public class SymbolResolver : Vala.SymbolResolver
 
 	public override void visit_class (Vala.Class s)
 	{
-		add_symbol (s, "user-home-symbolic",
-			new ThemedIcon.from_names ({"user-home-symbolic", "go-home-symbolic", "user-home", "go-home", "home"}));
+		add_symbol (s, "class-symbolic");
 		base.visit_class (s);
 	}
 	public override void visit_constant (Vala.Constant s)
 	{
-		add_symbol (s, "view-grid-symbolic");
+		add_symbol (s, "constant-symbolic");
 		base.visit_constant (s);
 	}
 	public override void visit_delegate (Vala.Delegate s)
@@ -217,55 +223,53 @@ public class SymbolResolver : Vala.SymbolResolver
 	//FIXME both constructor and destructor are currently not added for some reason
 	public override void visit_constructor (Vala.Constructor s)
 	{
-		add_symbol (s, "media-playback-start-symbolic");
+		add_symbol (s);
 		base.visit_constructor (s);
 	}
 	public override void visit_destructor (Vala.Destructor s)
 	{
-		add_symbol (s, "edit-delete-symbolic");
+		add_symbol (s);
 		base.visit_destructor (s);
 	}
 	public override void visit_enum (Vala.Enum s)
 	{
-		add_symbol (s, "view-list-compact-symbolic");
+		add_symbol (s, "enum-symbolic");
 		base.visit_enum (s);
 	}
 	public override void visit_field (Vala.Field s)
 	{
-		add_symbol (s, "view-grid-symbolic");
+		add_symbol (s, "field-symbolic");
 		base.visit_field (s);
 	}
 	public override void visit_interface (Vala.Interface s)
 	{
-		add_symbol (s, "", 
-			new ThemedIcon.from_names ({"dialog-information-symbolic", "help-info-symbolic", "dialog-information", "help-info", "information", "info"}));
+		add_symbol (s, "interface-symbolic");
 		base.visit_interface (s);
 	}
 	public override void visit_method (Vala.Method s)
 	{
-		add_symbol (s, "document-properties-symbolic");
+		add_symbol (s);
 		base.visit_method (s);
 	}
 	public override void visit_namespace (Vala.Namespace s)
 	{
-		add_symbol (s, "view-fullscreen-symbolic");
+		add_symbol (s);
 		base.visit_namespace (s);
 	}
 	public override void visit_property (Vala.Property s)
 	{
-		add_symbol (s, "format-indent-more-symbolic");
+		add_symbol (s, "property-symbolic");
 		blacklist (s.field);
 		base.visit_property (s);
 	}
 	public override void visit_signal (Vala.Signal s)
 	{
-		add_symbol (s);
+		add_symbol (s, "signal-symbolic");
 		base.visit_signal (s);
 	}
 	public override void visit_struct (Vala.Struct s)
 	{
-		add_symbol (s, "user-home-symbolic",
-			new ThemedIcon.from_names ({"user-home-symbolic", "go-home-symbolic", "user-home", "go-home", "home"}));
+		add_symbol (s, "structure-symbolic");
 		base.visit_struct (s);
 	}
 }
