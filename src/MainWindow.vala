@@ -578,6 +578,36 @@ main_actions.get_action ("ShowReplace").sensitive = val;
             view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
             view.previous_document ();
         }
+        
+        void action_to_lower_case () {
+            Scratch.Widgets.DocumentView? view = null;
+            view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
+            var doc = view.get_current_document ();
+            if (doc == null) return;
+            var source_view = doc.source_view;
+            
+            TextIter start, end;
+            source_view.buffer.get_selection_bounds (out start, out end);
+            string selected = source_view.buffer.get_text (start, end, true);
+
+            source_view.buffer.delete (ref start, ref end);
+            source_view.buffer.insert (ref start, selected.down (), -1);
+        }
+        
+        void action_to_upper_case () {
+            Scratch.Widgets.DocumentView? view = null;
+            view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
+            var doc = view.get_current_document ();
+            if (doc == null) return;
+            var source_view = doc.source_view;
+            
+            TextIter start, end;
+            source_view.buffer.get_selection_bounds (out start, out end);
+            string selected = source_view.buffer.get_text (start, end, true);
+
+            source_view.buffer.delete (ref start, ref end);
+            source_view.buffer.insert (ref start, selected.up (), -1);
+        }
 
         // Actions array
         static const Gtk.ActionEntry[] main_entries = {
@@ -656,7 +686,17 @@ main_actions.get_action ("ShowReplace").sensitive = val;
            { "PreviousTab", "previous-tab",
           /* label, accelerator */       N_("Previous Tab"), "<Control><Alt>Page_Down",
           /* tooltip */                  N_("Previous Tab"),
-                                         action_previous_tab }                              
+                                         action_previous_tab },
+                                         
+           { "ToLowerCase", null,
+          /* label, accelerator */       null, "<Control>l",
+          /* tooltip */                  null,
+                                         action_to_lower_case },
+                                         
+            { "ToUpperCase", null,
+          /* label, accelerator */       null, "<Control>u",
+          /* tooltip */                  null,
+                                         action_to_upper_case }                           
         };
 
          static const Gtk.ToggleActionEntry[] toggle_entries = {
