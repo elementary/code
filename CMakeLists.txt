@@ -58,8 +58,14 @@ set (SCRATCH_DEPS
   zeitgeist-2.0)
 
 find_package (PkgConfig)
-pkg_check_modules (GTK+ REQUIRED "gtk+-3.0 >= 3.4")
-pkg_check_modules (LIBSOURCE REQUIRED libpeas-gtk-1.0 gtksourceview-3.0>=3.0 gthread-2.0)
+pkg_check_modules (GTK+ REQUIRED
+  gtk+-3.0>=3.4)
+
+pkg_check_modules (LIBSOURCE REQUIRED
+  libpeas-gtk-1.0
+  gtksourceview-3.0>=3.0
+  gthread-2.0)
+
 pkg_check_modules (DEPS REQUIRED ${SCRATCH_DEPS})
 
 set(NORMAL_CFLAGS ${DEPS_CFLAGS} ${LIBSOURCE_CFLAGS} ${GCONF_CFLAGS})
