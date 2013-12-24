@@ -58,8 +58,7 @@ set (SCRATCH_DEPS
   zeitgeist-2.0)
 
 find_package (PkgConfig)
-pkg_check_modules (GTK+ REQUIRED
-  gtk+-3.0>=3.4)
+pkg_check_modules (GTK+ REQUIRED "gtk+-3.0 >= 3.10")
 
 pkg_check_modules (LIBSOURCE REQUIRED
   libpeas-gtk-1.0
