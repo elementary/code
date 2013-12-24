@@ -67,6 +67,10 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
     }
     
     void on_insert_text (ref Gtk.TextIter pos, string new_text, int new_text_length) {
+        // If you are copy/pasting a large amount of text...
+        if (new_text_length > 1)
+            return;
+        
         if (new_text in this.brackets.keys && this.last_inserted != new_text) {
             var buf = this.current_buffer;
 

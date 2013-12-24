@@ -80,7 +80,7 @@ namespace Scratch.Plugins {
             view.restore_saved_state ();
         }
 
-        void on_hook_toolbar (Gtk.Toolbar toolbar) {
+        void on_hook_toolbar (Gtk.HeaderBar toolbar) {
             if (tool_button != null)
                 return;
 
@@ -109,7 +109,8 @@ namespace Scratch.Plugins {
             icon.show ();
             tool_button.show ();
 
-            toolbar.insert (tool_button, 1);
+            toolbar.pack_start (tool_button);
+            //toolbar.insert (tool_button, 1);
         }
     }
 }

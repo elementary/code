@@ -54,6 +54,9 @@ namespace Scratch.Services {
         // Zeitgeist integration
         private ZeitgeistLogger zg_log = new ZeitgeistLogger();
 
+        // It is used to not mark files as changed on load
+        private ulong onchange_handler_id = 0;
+
         // Delegates
         public delegate void VoidFunc ();
 
@@ -116,7 +119,28 @@ namespace Scratch.Services {
             this.working = true;
             message ("Opening \"%s\"", get_basename ());
 
-            
+            onchange_handler_id = this.source_view.buffer.changed.connect (() => {
+                this.source_view.buffer.disconnect(onchange_handler_id);
+                // Signals for SourceView
+                uint timeout_saving = -1;
+                this.source_view.buffer.changed.connect (() => {
+                    check_undoable_actions ();
+                    // Save if autosave is ON
+                    if (settings.autosave) {
+                        if (timeout_saving >= 0) {
+                            Source.remove (timeout_saving);
+                            timeout_saving = -1;
+                        }
+                        timeout_saving = Timeout.add (250, () => {
+                            save ();
+                            timeout_saving = -1;
+                            return false;
+                        });
+                    }
+                    else
+                        this.set_saved_status (false);
+                 });
+            });
 
             // Focus in event for SourceView
             this.source_view.focus_in_event.connect (() => {
@@ -446,25 +470,6 @@ namespace Scratch.Services {
                     this.source_view.set_text (text);
                     this.last_saved_content = text;
                     this.original_content = text;
-                    // Signals for SourceView
-                    uint timeout_saving = -1;
-                    this.source_view.buffer.changed.connect (() => {
-                        check_undoable_actions ();
-                        // Save if autosave is ON
-                        if (settings.autosave) {
-                            if (timeout_saving >= 0) {
-                                Source.remove (timeout_saving);
-                                timeout_saving = -1;
-                            }
-                            timeout_saving = Timeout.add (250, () => {
-                                save ();
-                                timeout_saving = -1;
-                                return false;
-                            });
-                        }
-                        else if (!settings.autosave || file == null)
-                            this.set_saved_status (false);
-                     });
                  });
                  this.loaded = true;
             }

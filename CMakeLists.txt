@@ -38,7 +38,7 @@ add_definitions(-DGETTEXT_PACKAGE=\"${GETTEXT_PACKAGE}\")
 # Vala
 find_package (Vala REQUIRED)
 include (ValaVersion)
-ensure_vala_version ("0.17.1" MINIMUM)
+ensure_vala_version ("0.22" MINIMUM)
 include (ValaPrecompile)
 
 add_definitions(-DVALA_VERSION="${VALA_SHORTVER}")
@@ -58,7 +58,8 @@ set (SCRATCH_DEPS
   zeitgeist-2.0)
 
 find_package (PkgConfig)
-pkg_check_modules (GTK+ REQUIRED "gtk+-3.0 >= 3.10")
+pkg_check_modules (GTK+ REQUIRED
+  gtk+-3.0>=3.10)
 
 pkg_check_modules (LIBSOURCE REQUIRED
   libpeas-gtk-1.0

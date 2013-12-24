@@ -30,6 +30,11 @@ public class Folder : Granite.Widgets.SourceList.ExpandableItem {
 	public File file { get; construct set; }
 	bool loaded = false;
 
+    const string ATTRIBUTES = FileAttribute.STANDARD_NAME + "," + FileAttribute.STANDARD_TYPE + 
+		"," + FileAttribute.STANDARD_ICON;
+    const string[] IGNORED = { "pyc", "class", "pyo", "o" };
+
+
 	public Folder (File dir) {
 		file = dir;
 		name = dir.get_basename ();
@@ -51,9 +56,7 @@ public class Folder : Granite.Widgets.SourceList.ExpandableItem {
 			}
 		});
 	}
-
-	const string ATTRIBUTES = FileAttribute.STANDARD_NAME + "," + FileAttribute.STANDARD_TYPE + 
-		"," + FileAttribute.STANDARD_ICON;
+	
 	public void load ()	{
 		try {
 			var enumerator = file.enumerate_children (ATTRIBUTES, FileQueryInfoFlags.NOFOLLOW_SYMLINKS, null);
@@ -64,7 +67,20 @@ public class Folder : Granite.Widgets.SourceList.ExpandableItem {
 				var file_type = file_info.get_file_type ();
 				
 				if (file_type == FileType.REGULAR && !file_name.has_suffix ("~") && !file_name.has_prefix (".")) {
-					add (new Document (file.get_child (file_name), file_info.get_icon ()));
+					// Ignore some kind of temporany files
+
+				    bool ignore = false;
+				    for (int n = 0; n < IGNORED.length; n++) { 
+				        string ignored_suffix = IGNORED[n];
+				        debug (ignored_suffix);
+				        var tmp = file_name.split (".");
+				        string suffix = tmp[tmp.length-1];
+				        if (suffix == ignored_suffix)
+					        ignore = true;
+					}
+					if (!ignore)
+					    add (new Document (file.get_child (file_name), file_info.get_icon ()));
+
 				} else if (file_type == FileType.DIRECTORY && !file_name.has_prefix (".")) {
 					add (new Folder (file.get_child (file_name)));
 				}
@@ -160,8 +176,10 @@ namespace Scratch.Plugins {
 				this.bookmark_tool_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("bookmark-new", Gtk.IconSize.LARGE_TOOLBAR), _("Bookmark"));
 				bookmark_tool_button.show_all ();
 				bookmark_tool_button.clicked.connect (() => add_bookmark ());
-				toolbar.insert (bookmark_tool_button, toolbar.get_item_index (toolbar.find_button) + 1);
-				toolbar.insert (new_button, 0);
+				toolbar.pack_start (bookmark_tool_button);
+				toolbar.pack_start (new_button);
+				//toolbar.insert (bookmark_tool_button, toolbar.get_item_index (toolbar.find_button) + 1);
+				//toolbar.insert (new_button, 0);
 			});
 			plugins.hook_split_view.connect ((view) => {
 			    this.bookmark_tool_button.visible = ! view.is_empty ();
@@ -266,7 +284,7 @@ namespace Scratch.Plugins {
 			my_select = true;
 			view.selected = item;
 			my_select = false;
-
+            
 			var new_root = detect_project (doc.file);
 			if (root == null || root.get_path () != new_root.get_path ()) {
 				root = new_root;

@@ -38,7 +38,7 @@ namespace Scratch.Services {
                     text.append (line);
                     text.append_c ('\n');
                 }
-                return text.str;
+                return text.erase(text.len - 1, 1).str;
             } catch (Error e) {
                 warning ("Cannot read \"%s\": %s", file.get_basename (), e.message);
                 return null;
@@ -57,7 +57,7 @@ namespace Scratch.Services {
                         text.append_c ('\n');
                     }
                 }
-                return text.str;
+                return text.erase(text.len - 1, 1).str;
             } catch (Error e) {
                 warning ("Cannot read \"%s\": %s", file.get_basename (), e.message);
                 return null;

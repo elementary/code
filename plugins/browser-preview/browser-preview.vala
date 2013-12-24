@@ -93,7 +93,8 @@ public class Scratch.Plugins.BrowserPreview : Peas.ExtensionBase,  Peas.Activata
         icon.show ();
         tool_button.show ();
 
-        toolbar.insert (tool_button, toolbar.get_item_index (toolbar.find_button) + 1);
+        toolbar.pack_start (tool_button);
+        //toolbar.insert (tool_button, toolbar.get_item_index (toolbar.find_button) + 1);
     }
 
     void on_hook_context (Gtk.Notebook notebook) {
