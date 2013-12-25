@@ -19,6 +19,7 @@
   END LICENSE
 ***/
 
+using Granite.Widgets;
 using Scratch.Widgets;
 using Zeitgeist;
 
@@ -29,7 +30,7 @@ namespace Scratch.Services {
         READONLY
     }
 
-    public class Document : Scratch.Widgets.Tab {
+    public class Document : Granite.Widgets.Tab {
 
         // Signals
         public signal void doc_opened ();

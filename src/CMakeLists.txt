@@ -4,7 +4,6 @@ vala_precompile(VALA_C
     Utils.vala
     Dialogs/PreferencesDialog.vala
     Widgets/DocumentView.vala
-    Widgets/DynamicNotebook.vala
     Widgets/ToolBar.vala
     Widgets/LoadingView.vala
     Widgets/SearchManager.vala
