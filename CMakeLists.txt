@@ -49,7 +49,7 @@ set (SCRATCH_DEPS
   libpeas-1.0
   libpeas-gtk-1.0
   gtksourceview-3.0
-  gee-1.0
+  gee-0.8
   gobject-2.0
   glib-2.0
   gio-2.0
