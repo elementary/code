@@ -27,7 +27,7 @@ PACKAGES
     granite
     gtksourceview-3.0
     scratchcore
-    gee-1.0
+    gee-0.8
     libpeas-1.0
     zeitgeist-2.0
 OPTIONS

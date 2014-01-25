@@ -4,7 +4,7 @@ vala_precompile(VALA_C
 	SourceTreePlugin.vala
 PACKAGES
     gtk+-3.0
-    gee-1.0
+    gee-0.8
     granite
     scratchcore
     libpeas-1.0

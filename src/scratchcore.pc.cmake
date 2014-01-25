@@ -8,5 +8,5 @@ Description: Scratch headers
 Version: 0.1  
 Libs: -L@DOLLAR@{libdir} -lscratchcore
 Cflags: -I@DOLLAR@{includedir}/scratch
-Requires: gtk+-3.0 gee-1.0 granite libsoup-2.4
+Requires: gtk+-3.0 gee-0.8 granite libsoup-2.4
 
