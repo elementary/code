@@ -21,7 +21,9 @@
 
 using Granite.Widgets;
 using Scratch.Widgets;
+#if HAVE_ZEITGEIST
 using Zeitgeist;
+#endif
 
 namespace Scratch.Services {
 
@@ -51,8 +53,10 @@ namespace Scratch.Services {
         // It is used to load file content on focusing
         private bool loaded = false;
         
+#if HAVE_ZEITGEIST
         // Zeitgeist integration
         private ZeitgeistLogger zg_log = new ZeitgeistLogger();
+#endif
 
         // It is used to not mark files as changed on load
         private ulong onchange_handler_id = 0;
@@ -160,8 +164,10 @@ namespace Scratch.Services {
             // Stop loading
             this.working = false;
 
+#if HAVE_ZEITGEIST
             // Zeitgeist integration
             zg_log.open_insert (file.get_uri (), get_mime_type ());
+#endif
 
             // Grab focus
             this.source_view.grab_focus ();
@@ -220,8 +226,10 @@ namespace Scratch.Services {
             if (file != null) {
                 // Delete backup copy file
                 delete_backup ();
+#if HAVE_ZEITGEIST
                 // Zeitgeist integration
                 zg_log.close_insert (file.get_uri (), get_mime_type ());
+#endif
             }
             
             return ret_value;
@@ -246,8 +254,10 @@ namespace Scratch.Services {
                 warning ("Cannot save \"%s\": %s", get_basename (), e.message);
             }
 
+#if HAVE_ZEITGEIST
             // Zeitgeist integration
             zg_log.save_insert (file.get_uri (), get_mime_type ());
+#endif
 
             doc_saved ();
             this.set_saved_status (true);
@@ -290,8 +300,10 @@ namespace Scratch.Services {
             this.file = new_dest;
             this.save ();
 
+#if HAVE_ZEITGEIST
             // Zeitgeist integration
             zg_log.move_insert (file.get_uri (), new_dest.get_uri (), get_mime_type ());
+#endif
 
             return true;
         }

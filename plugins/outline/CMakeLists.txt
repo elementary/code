@@ -11,7 +11,7 @@ PACKAGES
     scratchcore
     libpeas-1.0
     gtksourceview-3.0
-    zeitgeist-2.0
+    ${ZEITGEIST_DEPS}
 	libvala-${VALA_SHORTVER}
 OPTIONS
     --vapidir=${CMAKE_BINARY_DIR}
