@@ -115,11 +115,11 @@ public class ValaSymbolOutline : Object, SymbolOutline
 	{
 		cache.children.clear ();
 		init_context ();
-
-		unowned Thread<void*> thread = Thread.create<void*> (() => {
+		
+		Thread<void*> thread = new Thread<void*>("parse-symbols", () => {
 			parse_symbols_async ();
 			return null;
-		}, true);
+		});
 
 		thread.join ();
 

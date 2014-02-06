@@ -17,6 +17,7 @@ OPTIONS
     --vapidir=${CMAKE_BINARY_DIR}
     --vapidir=${CMAKE_BINARY_DIR}/src/
     --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
+    --target-glib=2.32
 )
 
 pkg_check_modules(OUTLINE_DEPS libvala-${VALA_SHORTVER})
