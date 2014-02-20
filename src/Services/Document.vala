@@ -218,6 +218,8 @@ namespace Scratch.Services {
             }
 
             if (file != null) {
+                // Save the changes that were not saved during typing breaks
+                save ();
                 // Delete backup copy file
                 delete_backup ();
                 // Zeitgeist integration
