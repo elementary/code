@@ -278,7 +278,7 @@ namespace Scratch.Services {
         }
         return charset;
     }
-    
+   
     public string? file_content_to_utf8 (File file, string content, string mode = "r" /* it means read or write */) {
         
         string? encoding = null;
@@ -287,10 +287,23 @@ namespace Scratch.Services {
         encoding = get_charset (file.get_path ());
         
         try {
-            encoded_content = GLib.convert (content, -1, "UTF-8", encoding);
+			InputStream @is = file.read ();
+			CharsetConverter iconverter = new CharsetConverter ("utf-8", encoding.down());
+			ConverterInputStream @converted = new ConverterInputStream(@is, iconverter);
+			DataInputStream dis = new DataInputStream (@converted);
+			string line = dis.read_line ();
+			string str = line;
+			while ((line = dis.read_line (null)) != null) {
+				str += line + "\n";
+			}
+			encoded_content = str;
         } catch (GLib.ConvertError ce) {
             warning (ce.message);
-        }
+        } catch (IOError e){
+			stdout.printf ("IOError: %s\n", e.message);
+		} catch (Error e){
+			stdout.printf ("IOError: %s\n", e.message);
+		}
                 
         return encoded_content;
     
