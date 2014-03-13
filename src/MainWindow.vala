@@ -22,7 +22,9 @@ using Gtk;
 using Gdk;
 using Pango;
  
+#if HAVE_ZEITGEIST
 using Zeitgeist;
+#endif
 
 using Granite.Widgets;
 using Granite.Services;
@@ -52,9 +54,11 @@ namespace Scratch {
         private Granite.Widgets.ThinPaned hp1;
         private Granite.Widgets.ThinPaned hp2;
         private Granite.Widgets.ThinPaned vp;
-        
+
+#if HAVE_ZEITGEIST
         // Zeitgeist integration
         private Zeitgeist.DataSourceRegistry registry;
+#endif
         
         // Delegates
         delegate void HookFunc ();
@@ -74,6 +78,7 @@ namespace Scratch {
             // Set up layout
             init_layout ();
 
+#if HAVE_ZEITGEIST
             // Set up the Data Source Registry for Zeitgeist
             registry = new DataSourceRegistry ();
 
@@ -93,6 +98,7 @@ namespace Scratch {
                     warning ("%s", reg_err.message);
                 }
             });
+#endif
 
 	    Unix.signal_add (Posix.SIGINT, quit_source_func, Priority.HIGH);
 	    Unix.signal_add (Posix.SIGTERM, quit_source_func, Priority.HIGH);

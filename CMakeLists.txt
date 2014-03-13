@@ -44,6 +44,16 @@ include (ValaPrecompile)
 add_definitions(-DVALA_VERSION="${VALA_SHORTVER}")
 add_definitions(-w) # Disable gcc warnings
 
+option (USE_ZEITGEIST "Use Zeitgeist integration" ON)
+
+if (USE_ZEITGEIST)
+  message ("-- Zeitgeist integration enabled")
+  set (ZEITGEIST_DEPS zeitgeist-2.0)
+  set (ZEITGEIST_OPTIONS --define=HAVE_ZEITGEIST)
+else ()
+  message ("-- Zeitgeist integration disabled")
+endif ()
+
 # Dependencies
 set (SCRATCH_DEPS
   libpeas-1.0
@@ -55,7 +65,7 @@ set (SCRATCH_DEPS
   gio-2.0
   gtk+-3.0
   granite>=0.3.0
-  zeitgeist-2.0)
+  ${ZEITGEIST_DEPS})
 
 find_package (PkgConfig)
 pkg_check_modules (GTK+ REQUIRED

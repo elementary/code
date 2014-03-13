@@ -18,6 +18,7 @@
   END LICENSE
 ***/
 
+#if HAVE_ZEITGEIST
 using Zeitgeist;
 
 namespace Scratch.Services {
@@ -105,4 +106,5 @@ namespace Scratch.Services {
     }
 
 }
+#endif
 
