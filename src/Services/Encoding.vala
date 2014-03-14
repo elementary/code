@@ -299,9 +299,9 @@ namespace Scratch.Services {
         } catch (GLib.ConvertError ce) {
             warning (ce.message);
         } catch (IOError e) {
-            stdout.printf ("IOError: %s\n", e.message);
+            warning (e.message);
         } catch (Error e) {
-            stdout.printf ("IOError: %s\n", e.message);
+            warning (e.message);
         }
 
         return encoded_content;
