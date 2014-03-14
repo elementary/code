@@ -287,8 +287,8 @@ namespace Scratch.Services {
 
         try {
             InputStream @is = file.read ();
-            CharsetConverter iconverter = new CharsetConverter ("utf-8", encoding.down());
-            ConverterInputStream @converted = new ConverterInputStream(@is, iconverter);
+            CharsetConverter iconverter = new CharsetConverter ("utf-8", encoding.down ());
+            ConverterInputStream @converted = new ConverterInputStream (@is, iconverter);
             DataInputStream dis = new DataInputStream (@converted);
             string line = dis.read_line ();
             string str = line;
