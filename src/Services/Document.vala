@@ -97,7 +97,7 @@ namespace Scratch.Services {
                             Source.remove (timeout_saving);
                             timeout_saving = -1;
                         }
-                        timeout_saving = Timeout.add (250, () => {
+                        timeout_saving = Timeout.add (3000, () => {
                             save ();
                             timeout_saving = -1;
                             return false;
@@ -135,7 +135,7 @@ namespace Scratch.Services {
                             Source.remove (timeout_saving);
                             timeout_saving = -1;
                         }
-                        timeout_saving = Timeout.add (250, () => {
+                        timeout_saving = Timeout.add (3000, () => {
                             save ();
                             timeout_saving = -1;
                             return false;
@@ -155,6 +155,14 @@ namespace Scratch.Services {
                 // Load file's content
                 this.load_content ();
                    
+                return false;
+            });
+
+            // Focus out event for SourceView
+            this.source_view.focus_out_event.connect (() => {
+                if (settings.autosave) {
+                    save ();
+                }
                 return false;
             });
 
