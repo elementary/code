@@ -37,6 +37,9 @@ namespace Scratch.Widgets {
 
         // Properties
         private string font;
+        
+        // Signals
+        public signal void style_changed (SourceStyleScheme style);
 
         public SourceView () {
             // Create general objects
@@ -69,6 +72,10 @@ namespace Scratch.Widgets {
             // Settings
             restore_settings ();
             settings.changed.connect (restore_settings);
+            style_changed.connect ((style) => {
+                bool dark_source_style = "dark" in style.get_name ().down ();
+                Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = dark_source_style;
+            });
         }
 
         ~SourceView () {
@@ -182,6 +189,8 @@ namespace Scratch.Widgets {
             override_font (Pango.FontDescription.from_string (this.font));
 
             buffer.style_scheme = style_scheme_manager.get_scheme (Scratch.settings.style_scheme);
+        
+            this.style_changed (buffer.style_scheme);
         }
 
         private void update_settings () {
@@ -194,6 +203,8 @@ namespace Scratch.Widgets {
             Scratch.settings.indent_width = (int) tab_width;
             Scratch.settings.font = this.font;
             Scratch.settings.style_scheme = buffer.style_scheme.id;
+            
+            this.style_changed (buffer.style_scheme);
         }
 
         // Move cursor to a given line

@@ -1,6 +1,6 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /***
-  BEGIN LICENSE  
+  BEGIN LICENSE
 
   Copyright (C) 2012-2013 Mario Guerriero <mario@elementaryos.org>
   This program is free software: you can redistribute it and/or modify it
@@ -241,13 +241,12 @@ namespace Scratch.Services {
         { EncodingType.WINDOWS_1258,
             "WINDOWS-1258", "Vietnamese" }
     };
-    
+
     private static bool test (string text, string charset) {
           bool valid = false;
 
         try {
             string convert;
-
             convert = GLib.convert (text, -1, "UTF-8", charset);
             valid = true;
         }
@@ -256,7 +255,7 @@ namespace Scratch.Services {
         }
         return valid;
     }
-    
+
     public static string get_charset (string path) {
         // Get correct encoding via chardect.py script
 
@@ -278,22 +277,35 @@ namespace Scratch.Services {
         }
         return charset;
     }
-    
+
     public string? file_content_to_utf8 (File file, string content, string mode = "r" /* it means read or write */) {
-        
+
         string? encoding = null;
         string? encoded_content = null;
-        
+
         encoding = get_charset (file.get_path ());
-        
+
         try {
-            encoded_content = GLib.convert (content, -1, "UTF-8", encoding);
+            InputStream @is = file.read ();
+            CharsetConverter iconverter = new CharsetConverter ("utf-8", encoding.down ());
+            ConverterInputStream @converted = new ConverterInputStream (@is, iconverter);
+            DataInputStream dis = new DataInputStream (@converted);
+            string line = dis.read_line ();
+            string str = line;
+            while ((line = dis.read_line (null)) != null) {
+                str += line + "\n";
+            }
+            encoded_content = str;
         } catch (GLib.ConvertError ce) {
             warning (ce.message);
+        } catch (IOError e) {
+            warning (e.message);
+        } catch (Error e) {
+            warning (e.message);
         }
-                
+
         return encoded_content;
-    
+
     }
 
 }
