@@ -53,6 +53,10 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
                     if (info.get_module_name () == "spell")
                         spell.detach ();
                 });
+                // Deactivate Spell checker when we are editing a code file
+                var lang = d.source_view.buffer.language;
+                if (lang != null)
+                    spell.detach ();
             }
         });
     }
