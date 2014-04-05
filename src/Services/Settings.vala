@@ -32,7 +32,13 @@ namespace Scratch {
         public int window_width { get; set; }
         public int window_height { get; set; }
         public ScratchWindowState window_state { get; set; }
-
+        public int window_x { get; set; }
+        public int window_y { get; set; }
+        
+        public int hp1_size { get; set; }
+        public int hp2_size { get; set; }
+        public int vp_size { get; set; }
+        
         public SavedState () {
             base ("org.pantheon.scratch.saved-state");
         }

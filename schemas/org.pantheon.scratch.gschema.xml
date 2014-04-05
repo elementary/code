@@ -21,6 +21,32 @@
 			<summary>The saved height of the window.</summary>
 			<description>The saved height of the window. Must be greater than 400, or it will not take effect.</description>
 		</key>
+		<key name="window-x" type="i">
+			<default>250</default>
+			<summary></summary>
+			<description></description>
+		</key>
+		<key name="window-y" type="i">
+			<default>250</default>
+			<summary></summary>
+			<description></description>
+		</key>
+		
+		<key name="hp1-size" type="i">
+			<default>125</default>
+			<summary></summary>
+			<description></description>
+		</key>
+		<key name="hp2-size" type="i">
+			<default>125</default>
+			<summary></summary>
+			<description></description>
+		</key>
+		<key name="vp-size" type="i">
+			<default>125</default>
+			<summary></summary>
+			<description></description>
+		</key>
 	</schema>
 	<schema path="/org/pantheon/scratch/settings/" id="org.pantheon.scratch.settings" gettext-domain="scratch">
 		<key type="as" name="plugins-enabled">

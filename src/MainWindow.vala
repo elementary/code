@@ -67,9 +67,9 @@ namespace Scratch {
             this.app = scratch_app;
             set_application (this.app);
             this.title = this.app.app_cmd_name;
-            restore_saved_state ();
             this.window_position = Gtk.WindowPosition.CENTER;
             this.set_size_request (450, 400);
+            restore_saved_state ();
             this.icon_name = "accessories-text-editor";
 
             // Set up GtkActions
@@ -77,6 +77,9 @@ namespace Scratch {
 
             // Set up layout
             init_layout ();
+
+            // Restore session
+            restore_saved_state_extra ();
 
 #if HAVE_ZEITGEIST
             // Set up the Data Source Registry for Zeitgeist
@@ -388,15 +391,23 @@ main_actions.get_action ("ShowReplace").sensitive = val;
 
         // Save windows size and state
         private void restore_saved_state () {
-
             default_width = Scratch.saved_state.window_width;
             default_height = Scratch.saved_state.window_height;
-
+            
             if (Scratch.saved_state.window_state == ScratchWindowState.MAXIMIZED)
                 maximize ();
             else if (Scratch.saved_state.window_state == ScratchWindowState.FULLSCREEN)
                 fullscreen ();
-
+            else
+                this.move (Scratch.saved_state.window_x, Scratch.saved_state.window_y);
+        }
+        
+        // Save session informations different from window state
+        private void restore_saved_state_extra () {
+            // Plugin panes size
+            hp1.set_position (Scratch.saved_state.hp1_size);
+            hp2.set_position (Scratch.saved_state.hp2_size);
+            vp.set_position (Scratch.saved_state.vp_size);
         }
 
         private void update_saved_state () {
@@ -416,7 +427,17 @@ main_actions.get_action ("ShowReplace").sensitive = val;
                 Scratch.saved_state.window_width = width;
                 Scratch.saved_state.window_height = height;
             }
-
+            
+            // Save window position
+            int x, y;
+            this.get_position (out x, out y);
+            Scratch.saved_state.window_x = x;
+            Scratch.saved_state.window_y = y;
+            
+            // Plugin panes size
+            Scratch.saved_state.hp1_size = hp1.get_position ();
+            Scratch.saved_state.hp2_size = hp2.get_position ();
+            Scratch.saved_state.vp_size = vp.get_position ();
         }
 
         // Update files-opened settings key
