@@ -30,6 +30,8 @@ public class Scratch.Plugins.BrowserPreview : Peas.ExtensionBase,  Peas.Activata
     Gtk.ScrolledWindow? scrolled = null;
     Scratch.Services.Document? doc = null;
 
+    Gtk.Notebook notebook;
+
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
 
@@ -65,10 +67,14 @@ public class Scratch.Plugins.BrowserPreview : Peas.ExtensionBase,  Peas.Activata
         view.welcome_shown.connect (() => {
             this.tool_button.visible = false;
             this.tool_button.no_show_all = true;
+            if (notebook.page_num (scrolled) != -1)
+                notebook.remove (scrolled);
         });
         view.welcome_hidden.connect (() => {
             this.tool_button.visible = true;
             this.tool_button.no_show_all = false;
+            if (notebook.page_num (scrolled) == -1)
+                notebook.append_page (scrolled, new Gtk.Label (_("Web preview")));
         });
     }
     
@@ -94,24 +100,25 @@ public class Scratch.Plugins.BrowserPreview : Peas.ExtensionBase,  Peas.Activata
         tool_button.show ();
 
         toolbar.pack_start (tool_button);
-        //toolbar.insert (tool_button, toolbar.get_item_index (toolbar.find_button) + 1);
     }
 
     void on_hook_context (Gtk.Notebook notebook) {
-    	if (scrolled != null)
-    	    return;
+        if (scrolled != null)
+            return;
 
-    	view = new WebView ();
-    	// Enable local loading
-    	var settings = view.get_settings ();
-    	settings.enable_file_access_from_file_uris = true;
+        this.notebook = notebook;
 
-    	scrolled = new Gtk.ScrolledWindow (null, null);
-    	scrolled.add (view);
+        view = new WebView ();
+        // Enable local loading
+        var settings = view.get_settings ();
+        settings.enable_file_access_from_file_uris = true;
 
-    	notebook.append_page (scrolled, new Gtk.Label (_("Web preview")));
+        scrolled = new Gtk.ScrolledWindow (null, null);
+        scrolled.add (view);
 
-    	scrolled.show_all ();
+        notebook.append_page (scrolled, new Gtk.Label (_("Web preview")));
+
+        scrolled.show_all ();
     }
 
 }
