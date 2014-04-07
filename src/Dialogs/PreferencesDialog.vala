@@ -77,7 +77,11 @@ namespace Scratch.Dialogs {
                 main_static_notebook.append_page (pbox, extensions_label);
             }
             
-            add_button (_("_Close"), Gtk.ResponseType.CLOSE);
+            // Close button
+	        this.response.connect ((response_id) => { 
+		        this.destroy();
+		    });
+            add_button ("_Close", Gtk.ResponseType.CLOSE);
             
             // Pack everything into the dialog
             Gtk.Box content = get_content_area () as Gtk.Box;
