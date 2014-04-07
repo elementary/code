@@ -202,8 +202,8 @@ namespace Scratch.Services {
 
                 dialog.use_markup = true;
 
-	            dialog.text = ("<b>" + _("Save changes to document %s before closing?") +
-	                            "</b>").printf (this.get_basename ());
+                dialog.text = ("<b>" + _("Save changes to document %s before closing?") +
+                               "</b>").printf (this.get_basename ());
                 dialog.text += "\n\n" +
                             _("If you don't save, changes from the last 4 seconds will be permanently lost.");
 

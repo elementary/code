@@ -45,7 +45,7 @@ namespace Scratch {
         public Scratch.Widgets.SearchManager search_manager;
         public Scratch.Widgets.LoadingView loading_view;
         public Scratch.Widgets.SplitView split_view;
-		
+
         // Widgets for Plugins
         public Gtk.Notebook sidebar;
         public Gtk.Notebook contextbar;
@@ -100,8 +100,8 @@ namespace Scratch {
             });
 #endif
 
-	    Unix.signal_add (Posix.SIGINT, quit_source_func, Priority.HIGH);
-	    Unix.signal_add (Posix.SIGTERM, quit_source_func, Priority.HIGH);
+            Unix.signal_add (Posix.SIGINT, quit_source_func, Priority.HIGH);
+            Unix.signal_add (Posix.SIGTERM, quit_source_func, Priority.HIGH);
         }
 
         private void init_actions () {
@@ -279,7 +279,7 @@ namespace Scratch {
             main_actions.get_action ("Fetch").sensitive = val;
             main_actions.get_action ("ShowGoTo").sensitive = val;
             main_actions.get_action ("ShowReplace").sensitive = val;
-main_actions.get_action ("ShowReplace").sensitive = val;
+            main_actions.get_action ("ShowReplace").sensitive = val;
             if (val == false)
                 this.search_revealer.set_reveal_child (false);
             // Toolbar Actions
@@ -438,17 +438,17 @@ main_actions.get_action ("ShowReplace").sensitive = val;
                settings.schema.set_strv ("opened-files", opened_files);
         }
 
-	// SIGTERM/SIGINT Handling
-	public bool quit_source_func () {
+        // SIGTERM/SIGINT Handling
+        public bool quit_source_func () {
             action_quit ();
-	    return false;
-	}
+            return false;
+        }
 
-	// For exit cleanup
+        // For exit cleanup
         void handle_quit () {
             update_saved_state ();
             update_opened_files ();
-	}
+        }
 
         // Actions functions
         void action_preferences () {
@@ -462,8 +462,8 @@ main_actions.get_action ("ShowReplace").sensitive = val;
 
         void action_quit () {
             handle_quit ();
-	    check_unsaved_changes ();
-	    destroy ();
+            check_unsaved_changes ();
+            destroy ();
         }
 
         void action_restore_tab () {
@@ -711,6 +711,5 @@ main_actions.get_action ("ShowReplace").sensitive = val;
           /* tooltip */                  N_("Fullscreen"),
                                          action_fullscreen }
         };
-
     }
 }
