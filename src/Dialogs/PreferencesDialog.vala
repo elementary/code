@@ -24,7 +24,7 @@ using Granite.Widgets;
 
 namespace Scratch.Dialogs {
 
-    public class Preferences : Granite.Widgets.LightWindow {
+    public class Preferences : Gtk.Dialog {
 
         public StaticNotebook main_static_notebook;
         
@@ -43,20 +43,17 @@ namespace Scratch.Dialogs {
         public Preferences () {
 
             this.title = _("Preferences");
-            this.type_hint = Gdk.WindowTypeHint.DIALOG;
+            this.border_width = 5;
             set_default_size (630, 330);
             resizable = false;
             
             main_static_notebook = new StaticNotebook (false);
-            main_static_notebook.margin = 5;
             
             create_layout ();
 
         }
 
         private void create_layout () {
-            // Create main box
-            var box = new Box (Orientation.VERTICAL, 0);
             
             //create static notebook Behavior tab
             var behavior_label = new Label (_("Behavior"));
@@ -80,24 +77,13 @@ namespace Scratch.Dialogs {
                 main_static_notebook.append_page (pbox, extensions_label);
             }
             
-            // Close button
-            var close = new Button.with_label (_("Close"));
-            close.clicked.connect (() => {
-                this.destroy ();
-            });
-            
-            var bbox = new ButtonBox (Orientation.HORIZONTAL);
-            bbox.halign = Align.END;
-            bbox.margin_bottom = 11;
-            bbox.margin_right = 8;
-            bbox.add (close);
+            add_button (_("_Close"), Gtk.ResponseType.CLOSE);
             
             // Pack everything into the dialog
-            box.pack_start (main_static_notebook, true, true, 0);
-            box.pack_start (bbox, true, false, 0);
-            this.add (box);
+            Gtk.Box content = get_content_area () as Gtk.Box;
+            content.pack_start (main_static_notebook, true, true, 0);
         }
-        
+
         void add_section (Gtk.Grid grid, Gtk.Label name, ref int row) {
             name.use_markup = true;
             name.set_markup ("<b>%s</b>".printf (name.get_text ()));
