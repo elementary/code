@@ -51,7 +51,9 @@ namespace Scratch.Services {
         private bool error_shown = false;
         
         // It is used to load file content on focusing
-        private bool loaded = false;
+        private int is_loaded;
+        private static const int LOADED = 1;
+        private static const int NOT_LOADED = 0;
         
 #if HAVE_ZEITGEIST
         // Zeitgeist integration
@@ -66,6 +68,8 @@ namespace Scratch.Services {
 
         public Document (File? file = null) {
             this.file = file;
+
+            AtomicInt.set (ref is_loaded, NOT_LOADED);
 
             hide_info_bar ();
 
@@ -160,9 +164,10 @@ namespace Scratch.Services {
 
             // Focus out event for SourceView
             this.source_view.focus_out_event.connect (() => {
-                if (settings.autosave) {
+                if (AtomicInt.get (ref this.is_loaded) == LOADED && settings.autosave) {
                     save ();
                 }
+
                 return false;
             });
 
@@ -249,7 +254,7 @@ namespace Scratch.Services {
         public bool save () {
             if (last_saved_content == get_text () && this.file != null)
                 return false;
-                
+
             // Create backup copy file if it does not still exist
             create_backup ();
 
@@ -480,7 +485,7 @@ namespace Scratch.Services {
         
         // Load file content
         internal void load_content () {
-            if (!this.loaded) {
+            if (AtomicInt.get (ref is_loaded) == NOT_LOADED) {
                 FileHandler.load_content_from_file.begin (file, (obj, res) => {
                     var text = FileHandler.load_content_from_file.end (res);
                     if (text == null) {
@@ -493,8 +498,8 @@ namespace Scratch.Services {
                     this.source_view.set_text (text);
                     this.last_saved_content = text;
                     this.original_content = text;
+                    AtomicInt.set (ref is_loaded, LOADED);
                  });
-                 this.loaded = true;
             }
         }
         
@@ -653,5 +658,5 @@ namespace Scratch.Services {
             return this.file.query_exists ();
         }
     }
-
 }
+
