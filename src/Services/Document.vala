@@ -218,6 +218,7 @@ namespace Scratch.Services {
                 int response = dialog.run ();
                 switch (response) {
                     case Gtk.ResponseType.CANCEL:
+                    case Gtk.ResponseType.DELETE_EVENT:
                         ret_value = false;
                         break;
                     case Gtk.ResponseType.YES:
