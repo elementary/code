@@ -176,6 +176,7 @@ namespace Scratch {
                     if ("trash://" in path)
                         path = _("Trash");
 
+                    path = Uri.unescape_string(path);
                     this.toolbar.subtitle = doc.file.get_basename () + " (%s)".printf(path);
                 }
                 else {
