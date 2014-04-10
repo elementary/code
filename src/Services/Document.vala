@@ -251,7 +251,8 @@ namespace Scratch.Services {
                 return false;
                 
             // Create backup copy file if it does not still exist
-            create_backup ();
+            if (this.file != null)
+                create_backup ();
 
             // Show save as dialog if file is null
             if (this.file == null)
