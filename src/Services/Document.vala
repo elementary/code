@@ -51,9 +51,7 @@ namespace Scratch.Services {
         private bool error_shown = false;
         
         // It is used to load file content on focusing
-        private int is_loaded;
-        private static const int LOADED = 1;
-        private static const int NOT_LOADED = 0;
+        private bool loaded = false;
         
 #if HAVE_ZEITGEIST
         // Zeitgeist integration
@@ -68,8 +66,6 @@ namespace Scratch.Services {
 
         public Document (File? file = null) {
             this.file = file;
-
-            AtomicInt.set (ref is_loaded, NOT_LOADED);
 
             hide_info_bar ();
 
@@ -164,7 +160,7 @@ namespace Scratch.Services {
 
             // Focus out event for SourceView
             this.source_view.focus_out_event.connect (() => {
-                if (AtomicInt.get (ref this.is_loaded) == LOADED && settings.autosave) {
+                if (settings.autosave) {
                     save ();
                 }
 
@@ -253,6 +249,9 @@ namespace Scratch.Services {
 
         public bool save () {
             if (last_saved_content == get_text () && this.file != null)
+                return false;
+
+            if (!this.loaded)
                 return false;
 
             // Create backup copy file if it does not still exist
@@ -485,7 +484,7 @@ namespace Scratch.Services {
         
         // Load file content
         internal void load_content () {
-            if (AtomicInt.get (ref is_loaded) == NOT_LOADED) {
+            if (!this.loaded) {
                 FileHandler.load_content_from_file.begin (file, (obj, res) => {
                     var text = FileHandler.load_content_from_file.end (res);
                     if (text == null) {
@@ -498,7 +497,7 @@ namespace Scratch.Services {
                     this.source_view.set_text (text);
                     this.last_saved_content = text;
                     this.original_content = text;
-                    AtomicInt.set (ref is_loaded, LOADED);
+                    this.loaded = true;
                  });
             }
         }
