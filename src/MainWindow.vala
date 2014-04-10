@@ -223,7 +223,6 @@ namespace Scratch {
             vp.pack2 (bottombar, false, false);
 
             // Add everything to the window
-            main_box.pack_start (toolbar, false, true, 0);
             main_box.pack_start (search_revealer, false, true, 0);
             main_box.pack_start (loading_view, true, true, 0);
             main_box.pack_start (vp, false, true, 0);
