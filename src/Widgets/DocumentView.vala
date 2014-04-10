@@ -164,6 +164,12 @@ namespace Scratch.Widgets {
                 files += doc.file.get_uri ();
                 settings.schema.set_strv ("opened-files", files);
             }
+            
+            // Handle Drag-and-drop functionality on source-view
+            Gtk.TargetEntry uris = {"text/uri-list", 0, 0};
+            Gtk.TargetEntry text = {"text/plain", 0, 0};
+            Gtk.drag_dest_set (doc.source_view, Gtk.DestDefaults.ALL, {uris, text}, Gdk.DragAction.COPY);
+            doc.source_view.drag_data_received.connect (this.drag_received);
         }
         
         private void remove_document (Document doc) {
@@ -177,6 +183,22 @@ namespace Scratch.Widgets {
                         opened += file;
                 }
                 settings.schema.set_strv ("opened-files", opened);
+            }
+            
+            doc.source_view.drag_data_received.disconnect (this.drag_received);
+        }
+        
+        private void drag_received(Gdk.DragContext ctx, int x, int y, Gtk.SelectionData sel,  uint info, uint time){
+            var uris = sel.get_uris ();
+            if (uris.length > 0){
+                for (var i = 0; i < uris.length; i++){
+                    string filename = uris[i];
+                    File file = File.new_for_uri(filename);
+                    Document doc = new Document(file);
+                    this.open_document(doc);
+                }
+                
+                Gtk.drag_finish (ctx, true, false, time);
             }
         }
         
