@@ -52,6 +52,7 @@ namespace Scratch.Services {
         
         // It is used to load file content on focusing
         private bool loaded = false;
+        private bool has_started_loading = false;
         
 #if HAVE_ZEITGEIST
         // Zeitgeist integration
@@ -484,7 +485,7 @@ namespace Scratch.Services {
         
         // Load file content
         internal void load_content () {
-            if (!this.loaded) {
+            if (!this.has_started_loading) {
                 FileHandler.load_content_from_file.begin (file, (obj, res) => {
                     var text = FileHandler.load_content_from_file.end (res);
                     if (text == null) {
@@ -499,6 +500,8 @@ namespace Scratch.Services {
                     this.original_content = text;
                     this.loaded = true;
                  });
+
+                this.has_started_loading = true;
             }
         }
         
