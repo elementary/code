@@ -45,14 +45,15 @@ namespace Scratch.Services {
 
         }
         
-        public Document open_file (File file) {
-            var doc = new Document (file);
-            manager.app.window.open_document (doc);
-            return doc;
+        public Document? open_file (File file) {
+            // var doc = new Document (file);
+            // manager.app.get_last_window ().open_document (doc);
+            // return doc;
+            return null;
         }
         
         public void close_document (Document doc) {
-            manager.app.window.close_document (doc);
+            manager.app.get_last_window ().close_document (doc);
         }
         
     }

@@ -31,13 +31,8 @@ using Granite.Services;
 
 namespace Scratch {
     
-    // GtkActions
-    public Gtk.ActionGroup main_actions;
-    public Gtk.UIManager ui;
-
     public class MainWindow : Gtk.Window {
-    
-        public ScratchApp app;
+        public weak ScratchApp app;
         
         // Widgets
         public Scratch.Widgets.Toolbar toolbar;
@@ -54,6 +49,10 @@ namespace Scratch {
         private Granite.Widgets.ThinPaned hp1;
         private Granite.Widgets.ThinPaned hp2;
         private Granite.Widgets.ThinPaned vp;
+
+        // GtkActions
+        public Gtk.ActionGroup main_actions;
+        public Gtk.UIManager ui;
 
 #if HAVE_ZEITGEIST
         // Zeitgeist integration
@@ -136,7 +135,7 @@ namespace Scratch {
             var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 
             // Toolbar
-            this.toolbar = new Scratch.Widgets.Toolbar ();
+            this.toolbar = new Scratch.Widgets.Toolbar (main_actions);
             this.toolbar.title = this.title;
             this.toolbar.show_close_button = true;
             this.set_titlebar (this.toolbar);
@@ -149,9 +148,9 @@ namespace Scratch {
             this.search_manager = new Scratch.Widgets.SearchManager ();
             this.search_manager.get_style_context ().add_class ("secondary-toolbar");
             this.search_revealer.add (this.search_manager);
-            
+
             // SlitView
-            this.split_view = new Scratch.Widgets.SplitView ();
+            this.split_view = new Scratch.Widgets.SplitView (this);
     
             // LoadingView
             this.loading_view = new Scratch.Widgets.LoadingView ();
@@ -214,7 +213,7 @@ namespace Scratch {
             hp1.position = 180;
             hp2.position = (width - 180);
             vp.position = (height - 150);
-            
+
             hp1.pack1 (sidebar, false, false);
             hp1.pack2 (split_view, true, false);
             hp2.pack1 (hp1, true, false);
@@ -300,7 +299,7 @@ namespace Scratch {
             view = split_view.get_current_view ();
 
             if (view == null && !split_view.is_empty ()) {
-                view = (split_view.get_child2 () ?? split_view.get_child2 ()) as Scratch.Widgets.DocumentView;
+                view = (split_view.get_child1 () ?? split_view.get_child2 ()) as Scratch.Widgets.DocumentView;
             }
 
             return view;
@@ -308,7 +307,7 @@ namespace Scratch {
 
         // Get current document
         public Scratch.Services.Document? get_current_document () {
-            var view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
+            var view = get_current_view ();
             return view.get_current_document ();
         }
 
@@ -501,7 +500,7 @@ namespace Scratch {
                     Utils.last_path = Path.get_dirname (uri);
                     // Open the file
                     var file = File.new_for_uri (uri);
-                    var doc = new Scratch.Services.Document (file);
+                    var doc = new Scratch.Services.Document (main_actions, file);
                     this.open_document (doc);
                 }
             }

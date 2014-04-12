@@ -34,10 +34,13 @@ namespace Scratch.Widgets {
         public signal void welcome_shown ();
         public signal void welcome_hidden ();
         public signal void document_change (Scratch.Services.Document document);
+
+        private weak MainWindow window;
         
-        public SplitView () {
+        public SplitView (MainWindow window) {
             base (Gtk.Orientation.HORIZONTAL);
-            
+            this.window = window;
+
             // Welcome screen
             this.welcome_screen = new Granite.Widgets.Welcome (_("No Files Open"), 
                                                     _("Open a file to begin editing."));
@@ -49,10 +52,10 @@ namespace Scratch.Widgets {
             this.welcome_screen.activated.connect ((i) => {
                 // New file
                 if (i == 0)
-                    main_actions.get_action ("NewTab").activate ();
+                    window.main_actions.get_action ("NewTab").activate ();
                 // Open
                 else if (i == 1)
-                    main_actions.get_action ("Open").activate ();
+                    window.main_actions.get_action ("Open").activate ();
             });
             
             this.views = new GLib.List<Scratch.Widgets.DocumentView> ();
@@ -68,7 +71,7 @@ namespace Scratch.Widgets {
             if (get_children ().length () > 0)
                 hide_welcome ();
             
-            var view = new Scratch.Widgets.DocumentView ();
+            var view = new Scratch.Widgets.DocumentView (window);
             view.empty.connect (() => {
                 remove_view (view);
             });
@@ -158,8 +161,8 @@ namespace Scratch.Widgets {
         
         // Check the possibility to add or not a new view
         private void check_actions () {
-            main_actions.get_action ("NewView").sensitive = (views.length () < 2);
-            main_actions.get_action ("RemoveView").sensitive = (views.length () > 1);
+            window.main_actions.get_action ("NewView").sensitive = (views.length () < 2);
+            window.main_actions.get_action ("RemoveView").sensitive = (views.length () > 1);
         }
     }
 }

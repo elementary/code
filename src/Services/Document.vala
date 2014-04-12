@@ -34,6 +34,18 @@ namespace Scratch.Services {
 
     public class Document : Granite.Widgets.Tab {
 
+        // The parent window's actions
+        private weak Gtk.ActionGroup _main_actions;
+        public Gtk.ActionGroup main_actions {
+            get {
+                return _main_actions;
+            }
+
+            set {
+                _main_actions = value;
+            }
+        }
+
         // Signals
         public signal void doc_opened ();
         public signal void doc_saved ();
@@ -64,7 +76,8 @@ namespace Scratch.Services {
         // Delegates
         public delegate void VoidFunc ();
 
-        public Document (File? file = null) {
+        public Document (Gtk.ActionGroup actions, File? file = null) {
+            this.main_actions = actions;
             this.file = file;
 
             hide_info_bar ();

@@ -39,7 +39,7 @@ namespace Scratch.Widgets {
         public Granite.Widgets.ToolButtonWithMenu share_app_menu;
         public AppMenu app_menu;
 
-        public Toolbar () {
+        public Toolbar (Gtk.ActionGroup main_actions) {
 
             // Toolbar properties
             // compliant with elementary HIG
