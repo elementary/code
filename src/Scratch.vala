@@ -29,9 +29,6 @@ namespace Scratch {
     public Settings settings;
     public ServicesSettings services;
     
-    // Plugins;
-    public Scratch.Services.PluginsManager? plugins = null;
-    
     public class ScratchApp : Granite.Application {
 
         private GLib.List <MainWindow> windows;
@@ -144,10 +141,6 @@ namespace Scratch {
         }
 
         protected override void activate () {
-            // Plugins
-            if (plugins == null)
-                plugins = new Scratch.Services.PluginsManager (this, app_cmd_name.down ());
-
             var window = get_last_window ();
             if (window == null) {
                 window = this.new_window ();

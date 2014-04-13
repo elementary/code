@@ -33,13 +33,16 @@ namespace Scratch {
     
     public class MainWindow : Gtk.Window {
         public weak ScratchApp app;
-        
+
         // Widgets
         public Scratch.Widgets.Toolbar toolbar;
         private Gtk.Revealer search_revealer;
         public Scratch.Widgets.SearchManager search_manager;
         public Scratch.Widgets.LoadingView loading_view;
         public Scratch.Widgets.SplitView split_view;
+
+        // Plugins
+        private Scratch.Services.PluginsManager plugins;
 
         // Widgets for Plugins
         public Gtk.Notebook sidebar;
@@ -70,6 +73,8 @@ namespace Scratch {
             this.set_size_request (450, 400);
             restore_saved_state ();
             this.icon_name = "accessories-text-editor";
+
+            plugins = new Scratch.Services.PluginsManager (this, app.app_cmd_name.down ());
 
             // Set up GtkActions
             init_actions ();
@@ -472,7 +477,7 @@ namespace Scratch {
 
         // Actions functions
         void action_preferences () {
-            var dialog = new Scratch.Dialogs.Preferences ();
+            var dialog = new Scratch.Dialogs.Preferences (plugins);
             dialog.show_all ();
         }
 

@@ -21,6 +21,7 @@
 
 using Gtk;
 using Granite.Widgets;
+using Scratch.Services;
 
 namespace Scratch.Dialogs {
 
@@ -40,7 +41,7 @@ namespace Scratch.Dialogs {
         Switch use_custom_font;
         FontButton select_font;
         
-        public Preferences () {
+        public Preferences (PluginsManager plugins) {
 
             this.title = _("Preferences");
             this.border_width = 5;
@@ -49,11 +50,11 @@ namespace Scratch.Dialogs {
             
             main_static_notebook = new StaticNotebook (false);
             
-            create_layout ();
+            create_layout (plugins);
 
         }
 
-        private void create_layout () {
+        private void create_layout (PluginsManager plugins) {
             
             //create static notebook Behavior tab
             var behavior_label = new Label (_("Behavior"));

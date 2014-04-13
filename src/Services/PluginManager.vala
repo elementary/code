@@ -42,20 +42,17 @@ namespace Scratch.Services {
             this.manager = manager;
             
             template_manager = new Scratch.TemplateManager ();
-
         }
         
-        public Document? open_file (File file) {
-            // var doc = new Document (file);
-            // manager.app.get_last_window ().open_document (doc);
-            // return doc;
-            return null;
+        public Document open_file (File file) {
+            var doc = new Document (manager.window.main_actions, file);
+            manager.window.open_document (doc);
+            return doc;
         }
         
         public void close_document (Document doc) {
-            manager.app.get_last_window ().close_document (doc);
+            manager.window.close_document (doc);
         }
-        
     }
 
 
@@ -72,7 +69,7 @@ namespace Scratch.Services {
         
         public Interface plugin_iface { private set; public get; }
         
-        public ScratchApp app;
+        public weak MainWindow window;
         
         // Signals
         public signal void hook_window (Scratch.MainWindow window);
@@ -89,8 +86,8 @@ namespace Scratch.Services {
         public signal void extension_added (Peas.PluginInfo info);
         public signal void extension_removed (Peas.PluginInfo info);
         
-        public PluginsManager (ScratchApp app, string? set_name = null) {
-            this.app = app;
+        public PluginsManager (MainWindow window, string? set_name = null) {
+            this.window = window;
             
             settings = Scratch.settings.schema;
             settings_field = "plugins-enabled";
