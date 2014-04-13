@@ -40,7 +40,9 @@ public class ValaSymbolOutline : Object, SymbolOutline
     Vala.CodeContext context;
     Vala.Parser parser;
     SymbolResolver resolver;
-
+    
+    public int n_symbols { get; protected set; }
+    
     SymbolIter cache;
 
     Gee.List<Vala.Field> field_blacklist;
@@ -69,6 +71,8 @@ public class ValaSymbolOutline : Object, SymbolOutline
         resolver.blacklist.connect ((f) => {
             field_blacklist.add (f);
         });
+
+        this.n_symbols = 0;
 
         init_context ();
     }
@@ -126,8 +130,6 @@ public class ValaSymbolOutline : Object, SymbolOutline
         root.clear ();
         construct_tree (cache, root);
 
-        filter_generated_fields (root);
-
         store.root.expand_all ();
     }
 
@@ -135,11 +137,14 @@ public class ValaSymbolOutline : Object, SymbolOutline
         Granite.Widgets.SourceList.ExpandableItem tree_parent)
     {
         foreach (var iter_child in iter_parent.children) {
+            if (iter_child == null)
+                continue;
             var tree_child = new Symbol (doc, iter_child.symbol);
             tree_child.icon = iter_child.icon;
             tree_parent.add (tree_child);
 
             construct_tree (iter_child, tree_child);
+            this.n_symbols++;
         }
     }
 
@@ -269,4 +274,3 @@ public class SymbolResolver : Vala.SymbolResolver
         base.visit_struct (s);
     }
 }
-

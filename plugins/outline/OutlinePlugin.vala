@@ -25,6 +25,7 @@ public interface SymbolOutline : Object
 {
     public abstract Scratch.Services.Document doc { get; protected set; }
     public abstract void parse_symbols ();
+    public abstract int n_symbols { get; protected set; }
     public abstract Granite.Widgets.SourceList get_source_list ();
     public signal void closed ();
     public signal void goto (Scratch.Services.Document doc, int line);
@@ -37,6 +38,7 @@ namespace Scratch.Plugins {
         Scratch.Services.Interface scratch_interface;
         SymbolOutline? current_view = null;
         Gtk.EventBox? container = null;
+        Gtk.Notebook? notebook = null;
 
         uint refresh_timeout = 0;
 
@@ -60,7 +62,9 @@ namespace Scratch.Plugins {
         void on_hook_context (Gtk.Notebook notebook) {
             if (container != null)
                 return;
-            
+            if (this.notebook == null)
+                this.notebook = notebook;
+                
             container = new Gtk.EventBox ();
             container.visible = false;            
             notebook.append_page (container, new Gtk.Label (_("Symbols")));
@@ -94,10 +98,20 @@ namespace Scratch.Plugins {
 
                 doc.doc_saved.connect (update_timeout);
             }
-
+            
+            var source_list = view.get_source_list ();
+            
             container.add (view.get_source_list ());
             container.show_all ();
             current_view = view;
+
+            if (view.n_symbols > 0 && notebook.page_num (container) == -1) {
+                notebook.append_page (container, new Gtk.Label (_("Symbols")));
+                container.show_all ();
+            }
+            else if (view.n_symbols == 0 && notebook.page_num (container) != -1) {
+                notebook.remove (container);
+            }
         }
         
         void on_hook_split_view (Scratch.Widgets.SplitView view) {
