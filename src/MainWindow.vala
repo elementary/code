@@ -300,7 +300,7 @@ namespace Scratch {
             view = split_view.get_current_view ();
 
             if (view == null && !split_view.is_empty ()) {
-                view = (split_view.get_child2 () ?? split_view.get_child2 ()) as Scratch.Widgets.DocumentView;
+                view = (split_view.get_child1 () ?? split_view.get_child2 ()) as Scratch.Widgets.DocumentView;
             }
 
             return view;
@@ -308,7 +308,7 @@ namespace Scratch {
 
         // Get current document
         public Scratch.Services.Document? get_current_document () {
-            var view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
+            var view = this.get_current_view ();
             return view.get_current_document ();
         }
 
