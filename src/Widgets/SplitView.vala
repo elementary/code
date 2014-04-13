@@ -58,6 +58,25 @@ namespace Scratch.Widgets {
                     window.main_actions.get_action ("Open").activate ();
             });
             
+            // Handle Drag-and-drop functionality on source-view
+            Gtk.TargetEntry target = {"text/uri-list", 0, 0};
+            Gtk.drag_dest_set (this.welcome_screen, Gtk.DestDefaults.ALL, {target}, Gdk.DragAction.COPY);
+            this.welcome_screen.drag_data_received.connect ((ctx, x, y, sel, info, time) => {
+                var uris = sel.get_uris ();
+                if (uris.length > 0){
+                    var view = this.current_view ?? this.add_view ();
+                
+                    for (var i = 0; i < uris.length; i++){
+                        string filename = uris[i];
+                        File file = File.new_for_uri (filename);
+                        Scratch.Services.Document doc = new Scratch.Services.Document (window.main_actions, file);
+                        view.open_document (doc);
+                    }
+                    
+                    Gtk.drag_finish (ctx, true, false, time);
+                }
+            });
+            
             this.views = new GLib.List<Scratch.Widgets.DocumentView> ();
         }
         

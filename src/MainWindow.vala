@@ -180,6 +180,7 @@ namespace Scratch {
                     if ("trash://" in path)
                         path = _("Trash");
 
+                    path = Uri.unescape_string (path);
                     this.toolbar.subtitle = doc.file.get_basename () + " (%s)".printf(path);
                 }
                 else {
@@ -227,7 +228,6 @@ namespace Scratch {
             vp.pack2 (bottombar, false, false);
 
             // Add everything to the window
-            main_box.pack_start (toolbar, false, true, 0);
             main_box.pack_start (search_revealer, false, true, 0);
             main_box.pack_start (loading_view, true, true, 0);
             main_box.pack_start (vp, false, true, 0);
@@ -312,7 +312,7 @@ namespace Scratch {
 
         // Get current document
         public Scratch.Services.Document? get_current_document () {
-            var view = get_current_view ();
+            var view = this.get_current_view ();
             return view.get_current_document ();
         }
 

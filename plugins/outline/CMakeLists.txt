@@ -1,9 +1,9 @@
 add_definitions(${NORMAL_CFLAGS})
 link_directories(${NORMAL_LINK_DIRS})
 vala_precompile(VALA_C
-	OutlinePlugin.vala
-	ValaSymbolResolver.vala
-	CtagsSymbolResolver.vala
+    OutlinePlugin.vala
+    ValaSymbolResolver.vala
+    CtagsSymbolResolver.vala
 PACKAGES
     gtk+-3.0
     gee-0.8
@@ -12,7 +12,7 @@ PACKAGES
     libpeas-1.0
     gtksourceview-3.0
     ${ZEITGEIST_DEPS}
-	libvala-${VALA_SHORTVER}
+    libvala-${VALA_SHORTVER}
 OPTIONS
     --vapidir=${CMAKE_BINARY_DIR}
     --vapidir=${CMAKE_BINARY_DIR}/src/

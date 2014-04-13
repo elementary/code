@@ -23,31 +23,31 @@ public const string DESCRIPTION = N_("Outline symbols in your current file in va
 
 public interface SymbolOutline : Object
 {
-	public abstract Scratch.Services.Document doc { get; protected set; }
-	public abstract void parse_symbols ();
-	public abstract Granite.Widgets.SourceList get_source_list ();
-	public signal void closed ();
-	public signal void goto (Scratch.Services.Document doc, int line);
+    public abstract Scratch.Services.Document doc { get; protected set; }
+    public abstract void parse_symbols ();
+    public abstract Granite.Widgets.SourceList get_source_list ();
+    public signal void closed ();
+    public signal void goto (Scratch.Services.Document doc, int line);
 }
 
 namespace Scratch.Plugins {
     public class OutlinePlugin : Peas.ExtensionBase, Peas.Activatable {
         public Object object { owned get; construct; }
 
-		Scratch.Services.Interface scratch_interface;
-		SymbolOutline? current_view = null;
-		Gtk.EventBox? container = null;
+        Scratch.Services.Interface scratch_interface;
+        SymbolOutline? current_view = null;
+        Gtk.EventBox? container = null;
 
-		uint refresh_timeout = 0;
+        uint refresh_timeout = 0;
 
-		Gee.List<SymbolOutline> views;
+        Gee.List<SymbolOutline> views;
 
         public void activate () {
-			scratch_interface = (Scratch.Services.Interface)object;
+            scratch_interface = (Scratch.Services.Interface)object;
             scratch_interface.hook_notebook_context.connect (on_hook_context);
-			scratch_interface.hook_document.connect (on_hook_document);
-			scratch_interface.hook_split_view.connect (on_hook_split_view);
-			views = new Gee.LinkedList<SymbolOutline> ();
+            scratch_interface.hook_document.connect (on_hook_document);
+            scratch_interface.hook_split_view.connect (on_hook_split_view);
+            views = new Gee.LinkedList<SymbolOutline> ();
         }
 
         public void deactivate () {
@@ -62,43 +62,43 @@ namespace Scratch.Plugins {
                 return;
             
             container = new Gtk.EventBox ();
-			container.visible = false;			
-			notebook.append_page (container, new Gtk.Label (_("Symbols")));
-			container.show_all ();
+            container.visible = false;            
+            notebook.append_page (container, new Gtk.Label (_("Symbols")));
+            container.show_all ();
         }
 
-		void on_hook_document (Scratch.Services.Document doc) {
-			if (current_view != null && current_view.doc == doc) 
-				return;
+        void on_hook_document (Scratch.Services.Document doc) {
+            if (current_view != null && current_view.doc == doc) 
+                return;
 
-			if (current_view != null)
-				container.remove (current_view.get_source_list ());
+            if (current_view != null)
+                container.remove (current_view.get_source_list ());
 
-			SymbolOutline view = null;
-			foreach (var v in views) {
-				if (v.doc == doc) {
-					view = v;
-					break;
-				}
-			}
-			if (view == null) {
-				if (doc.get_mime_type () == "text/x-vala") {
-					view = new ValaSymbolOutline (doc);
-				} else {
-					view = new CtagsSymbolOutline (doc);
-				}
-				view.closed.connect (remove_view);
-				view.goto.connect (goto);
-				views.add (view);
-				view.parse_symbols ();
+            SymbolOutline view = null;
+            foreach (var v in views) {
+                if (v.doc == doc) {
+                    view = v;
+                    break;
+                }
+            }
+            if (view == null) {
+                if (doc.get_mime_type () == "text/x-vala") {
+                    view = new ValaSymbolOutline (doc);
+                } else {
+                    view = new CtagsSymbolOutline (doc);
+                }
+                view.closed.connect (remove_view);
+                view.goto.connect (goto);
+                views.add (view);
+                view.parse_symbols ();
 
-				doc.doc_saved.connect (update_timeout);
-			}
+                doc.doc_saved.connect (update_timeout);
+            }
 
-			container.add (view.get_source_list ());
-			container.show_all ();
-			current_view = view;
-		}
+            container.add (view.get_source_list ());
+            container.show_all ();
+            current_view = view;
+        }
         
         void on_hook_split_view (Scratch.Widgets.SplitView view) {
             view.welcome_shown.connect (() => {
@@ -109,34 +109,34 @@ namespace Scratch.Plugins {
             });
         }
         
-		void update_timeout () {
-			if (refresh_timeout != 0)
-				Source.remove (refresh_timeout);
+        void update_timeout () {
+            if (refresh_timeout != 0)
+                Source.remove (refresh_timeout);
 
-			refresh_timeout = Timeout.add (1000, () => {
-				current_view.parse_symbols ();
-				refresh_timeout = 0;
-				return false;
-			});
-		}
+            refresh_timeout = Timeout.add (1000, () => {
+                current_view.parse_symbols ();
+                refresh_timeout = 0;
+                return false;
+            });
+        }
 
-		void remove_view (SymbolOutline view) {
-			views.remove (view);
-			view.doc.doc_saved.disconnect (update_timeout);
-			view.closed.disconnect (remove_view);
-			view.goto.disconnect (goto);
-		}
+        void remove_view (SymbolOutline view) {
+            views.remove (view);
+            view.doc.doc_saved.disconnect (update_timeout);
+            view.closed.disconnect (remove_view);
+            view.goto.disconnect (goto);
+        }
 
-		void goto (Scratch.Services.Document doc, int line)	{
-			scratch_interface.open_file (doc.file);
+        void goto (Scratch.Services.Document doc, int line)    {
+            scratch_interface.open_file (doc.file);
 
-			var text = doc.source_view;
-			Gtk.TextIter iter;
-			text.buffer.get_iter_at_line (out iter, line - 1);
-			text.buffer.place_cursor (iter);
-			text.scroll_to_iter (iter, 0.0, true, 0.5, 0.5);
-		}
-	}
+            var text = doc.source_view;
+            Gtk.TextIter iter;
+            text.buffer.get_iter_at_line (out iter, line - 1);
+            text.buffer.place_cursor (iter);
+            text.scroll_to_iter (iter, 0.0, true, 0.5, 0.5);
+        }
+    }
 }
 
 [ModuleInit]

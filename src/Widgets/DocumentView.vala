@@ -169,6 +169,8 @@ namespace Scratch.Widgets {
                 files += doc.file.get_uri ();
                 settings.schema.set_strv ("opened-files", files);
             }
+            
+            doc.source_view.drag_data_received.connect (this.drag_received);
         }
 
         private void on_doc_removed (Granite.Widgets.Tab tab) {
@@ -176,6 +178,7 @@ namespace Scratch.Widgets {
 
             this.docs.remove (doc);
             doc.source_view.focus_in_event.disconnect (on_focus_in_event);
+            doc.source_view.drag_data_received.disconnect (this.drag_received);
 
             // Update the opened-files setting
             if (settings.show_at_start == "last-tabs") {
@@ -218,7 +221,21 @@ namespace Scratch.Widgets {
                 document_change (doc);
             }
 
-            return true;
+            return true;  
         }
-    }   
+        
+        private void drag_received(Gdk.DragContext ctx, int x, int y, Gtk.SelectionData sel,  uint info, uint time){
+            var uris = sel.get_uris ();
+            if (uris.length > 0) {
+                for (var i = 0; i < uris.length; i++) {
+                    string filename = uris[i];
+                    File file = File.new_for_uri (filename);
+                    Document doc = new Document (window.main_actions, file);
+                    this.open_document (doc);
+                }
+                
+                Gtk.drag_finish (ctx, true, false, time);
+            }
+        }
+    }
 }

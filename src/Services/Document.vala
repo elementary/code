@@ -64,6 +64,7 @@ namespace Scratch.Services {
         
         // It is used to load file content on focusing
         private bool loaded = false;
+        private bool has_started_loading = false;
         
 #if HAVE_ZEITGEIST
         // Zeitgeist integration
@@ -79,6 +80,11 @@ namespace Scratch.Services {
         public Document (Gtk.ActionGroup actions, File? file = null) {
             this.main_actions = actions;
             this.file = file;
+
+            // Handle Drag-and-drop functionality on source-view
+            Gtk.TargetEntry uris = {"text/uri-list", 0, 0};
+            Gtk.TargetEntry text = {"text/plain", 0, 0};
+            Gtk.drag_dest_set (source_view, Gtk.DestDefaults.ALL, {uris, text}, Gdk.DragAction.COPY);
 
             hide_info_bar ();
 
@@ -176,6 +182,7 @@ namespace Scratch.Services {
                 if (settings.autosave) {
                     save ();
                 }
+
                 return false;
             });
 
@@ -262,9 +269,13 @@ namespace Scratch.Services {
         public bool save () {
             if (last_saved_content == get_text () && this.file != null)
                 return false;
-                
+
+            if (!this.loaded)
+                return false;
+
             // Create backup copy file if it does not still exist
-            create_backup ();
+            if (this.file != null)
+                create_backup ();
 
             // Show save as dialog if file is null
             if (this.file == null)
@@ -493,7 +504,7 @@ namespace Scratch.Services {
         
         // Load file content
         internal void load_content () {
-            if (!this.loaded) {
+            if (!this.has_started_loading) {
                 FileHandler.load_content_from_file.begin (file, (obj, res) => {
                     var text = FileHandler.load_content_from_file.end (res);
                     if (text == null) {
@@ -506,8 +517,10 @@ namespace Scratch.Services {
                     this.source_view.set_text (text);
                     this.last_saved_content = text;
                     this.original_content = text;
+                    this.loaded = true;
                  });
-                 this.loaded = true;
+
+                this.has_started_loading = true;
             }
         }
         
@@ -666,5 +679,5 @@ namespace Scratch.Services {
             return this.file.query_exists ();
         }
     }
-
 }
+
