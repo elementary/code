@@ -161,7 +161,8 @@ namespace Scratch.Widgets {
             doc.main_actions = window.main_actions;
 
             this.docs.append (doc);
-            doc.source_view.focus_in_event.connect (on_focus_in_event);
+            doc.source_view.focus_in_event.connect (this.on_focus_in_event);
+            doc.source_view.drag_data_received.connect (this.drag_received);
 
             // Update the opened-files setting
             if (settings.show_at_start == "last-tabs" && doc.file != null) {
@@ -169,15 +170,13 @@ namespace Scratch.Widgets {
                 files += doc.file.get_uri ();
                 settings.schema.set_strv ("opened-files", files);
             }
-            
-            doc.source_view.drag_data_received.connect (this.drag_received);
         }
 
         private void on_doc_removed (Granite.Widgets.Tab tab) {
             var doc = tab as Document;
 
             this.docs.remove (doc);
-            doc.source_view.focus_in_event.disconnect (on_focus_in_event);
+            doc.source_view.focus_in_event.disconnect (this.on_focus_in_event);
             doc.source_view.drag_data_received.disconnect (this.drag_received);
 
             // Update the opened-files setting
