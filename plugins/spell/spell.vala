@@ -57,6 +57,11 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
                 var lang = d.source_view.buffer.language;
                 if (lang != null)
                     spell.detach ();
+                // Detect language changed event
+                view.language_changed.connect ((lang) => {
+                    if (lang != null)
+                        spell.detach ();
+                });
             }
         });
     }
