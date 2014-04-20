@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-08-02 16:03+0200\n"
-"PO-Revision-Date: 2014-04-08 00:01+0000\n"
+"PO-Revision-Date: 2014-04-18 17:17+0000\n"
 "Last-Translator: ITPROJECTS <Unknown>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-08 06:55+0000\n"
-"X-Generator: Launchpad (build 16976)\n"
+"X-Launchpad-Export-Date: 2014-04-19 06:27+0000\n"
+"X-Generator: Launchpad (build 16985)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Utils.vala:42
 msgid "All files"
@@ -167,7 +167,7 @@ msgstr "Промяна на настройките на Scratch"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:623
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:624
 msgid "Fullscreen"
-msgstr "Цял екран"
+msgstr "На цял екран"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:15
 msgid "Edit text files"
@@ -192,7 +192,7 @@ msgstr "Поведение"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:66
 msgid "Interface"
-msgstr "Изглед"
+msgstr "Потребителска среда"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:74
 msgid "Extensions"
@@ -228,7 +228,7 @@ msgstr "Автоматично подравняване:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:167
 msgid "Insert spaces instead of tabs:"
-msgstr "Insert spaces instead of tabs:"
+msgstr "Използване на интервали вместо табулации:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:171
 msgid "Tab width:"
@@ -240,11 +240,11 @@ msgstr "Редактор:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:217
 msgid "Highlight current line:"
-msgstr "Маркиране на текущия ред:"
+msgstr "Открояване на текущия ред:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:218
 msgid "Highlight matching brackets:"
-msgstr "Маркиране на съвпадащи скоби:"
+msgstr "Открояване на съвпадащи скоби:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:219
 msgid "Split long text in many lines:"
@@ -256,7 +256,7 @@ msgstr "Показвай интервалите:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:221
 msgid "Show line numbers:"
-msgstr "Показване на номерата на редовете"
+msgstr "Покажи номерата на редовете"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
 msgid "Line width guide:"
@@ -296,11 +296,11 @@ msgstr "Замяна с"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:113
 msgid "Go To Line:"
-msgstr "Отиди на линия"
+msgstr "Отидина ред:"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:82
 msgid "Syntax Highlighting"
-msgstr "Синтактично оцветен текст"
+msgstr "Синтактично открояване на съдържанието"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:93
 msgid "Normal Text"

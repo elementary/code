@@ -126,6 +126,9 @@ namespace Scratch.Services {
                         this.set_saved_status (false);
                 });
                 this.set_saved_status (true);
+                this.has_started_loading = true;
+                this.loaded = true;
+
                 return true;
             }
 
