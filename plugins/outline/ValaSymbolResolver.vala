@@ -102,12 +102,12 @@ public class ValaSymbolOutline : Object, SymbolOutline
 
         lock (context)
         {
-            Vala.CodeContext.push (context);
+		    Vala.CodeContext.push (context);
 
-            parser.parse (context);
-            resolver.resolve (context);
+		    parser.parse (context);
+		    resolver.resolve (context);
 
-            Vala.CodeContext.pop ();
+		    Vala.CodeContext.pop ();
         }
     }
 
@@ -162,11 +162,14 @@ public class ValaSymbolOutline : Object, SymbolOutline
     // vala generates for each property a field which we do not want to display
     void filter_generated_fields (Granite.Widgets.SourceList.ExpandableItem parent)
     {
-        foreach (var child in parent.children) {
+        var children = parent.children.to_array ();
+        for (int i = 0; i < children.length; i++) {
+            var child = children[i];
             var child_symbol = child as Symbol;
             if (field_blacklist.contains (child_symbol.symbol as Vala.Field)) {
                 parent.remove (child);
             }
+            
             filter_generated_fields (child_symbol);
         }
     }
@@ -269,4 +272,3 @@ public class SymbolResolver : Vala.SymbolResolver
         base.visit_struct (s);
     }
 }
-
