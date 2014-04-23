@@ -162,12 +162,14 @@ public class ValaSymbolOutline : Object, SymbolOutline
     // vala generates for each property a field which we do not want to display
     void filter_generated_fields (Granite.Widgets.SourceList.ExpandableItem parent)
     {
-        foreach (var child in parent.children) {
+        var children = parent.children.to_array ();
+        foreach (var child in children) {
             var child_symbol = child as Symbol;
             if (field_blacklist.contains (child_symbol.symbol as Vala.Field)) {
                 parent.remove (child);
+            } else {
+                filter_generated_fields (child_symbol);
             }
-            filter_generated_fields (child_symbol);
         }
     }
 
@@ -269,4 +271,3 @@ public class SymbolResolver : Vala.SymbolResolver
         base.visit_struct (s);
     }
 }
-
