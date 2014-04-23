@@ -29,6 +29,7 @@ namespace Scratch.Widgets {
         public Scratch.Widgets.DocumentView? current_view = null;
         
         public GLib.List<Scratch.Widgets.DocumentView> views;
+        private GLib.List<Scratch.Widgets.DocumentView> hidden_views;
         
         // Signals
         public signal void welcome_shown ();
@@ -75,6 +76,7 @@ namespace Scratch.Widgets {
             });
             
             this.views = new GLib.List<Scratch.Widgets.DocumentView> ();
+            this.hidden_views = new GLib.List<Scratch.Widgets.DocumentView> ();
         }
         
         public Scratch.Widgets.DocumentView? add_view () {
@@ -87,7 +89,13 @@ namespace Scratch.Widgets {
             if (get_children ().length () > 0)
                 hide_welcome ();
             
-            var view = new Scratch.Widgets.DocumentView ();
+            Scratch.Widgets.DocumentView view;
+            if (hidden_views.length () == 0)
+                view = new Scratch.Widgets.DocumentView ();
+            else { 
+                view = hidden_views.nth_data (0);
+                hidden_views.remove (view);
+            }
             view.empty.connect (() => {
                 remove_view (view);
             });
@@ -123,7 +131,8 @@ namespace Scratch.Widgets {
             this.remove (view);
             this.views.remove (view);
             view.document_change.disconnect (on_document_changed);
-            view.destroy ();
+            view.visible = false;
+            this.hidden_views.append (view);
             debug ("View removed succefully");
             
             // Enbale/Disable useless GtkActions about views
@@ -132,10 +141,9 @@ namespace Scratch.Widgets {
             // Move the focus on the other view
             if (views.nth_data (0) != null) {
                 views.nth_data (0).focus ();
-                debug ("");
             }
             // Show/Hide welcome screen
-            if (get_children ().length () == 0)
+            if (this.views.length () == 0)
                 show_welcome ();
         }
         
