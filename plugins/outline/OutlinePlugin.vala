@@ -101,21 +101,25 @@ namespace Scratch.Plugins {
             container.show_all ();
             current_view = view;
 
-            if (doc.file != null || (view.n_symbols > 0 && notebook.page_num (container) == -1)) {
+            if (view.n_symbols > 1) {
+                debug (view.n_symbols.to_string());
                 add_container ();
             }
-            else if (doc.file == null || (view.n_symbols == 0 && notebook.page_num (container) != -1)) {
+            else if (doc.file == null || view.n_symbols == 0) {
                 remove_container ();
             }
         }
         
         void add_container () {
-            notebook.append_page (container, new Gtk.Label (_("Symbols")));
-            container.show_all ();
+            if(notebook.page_num (container) == -1) {
+                notebook.append_page (container, new Gtk.Label (_("Symbols")));
+                container.show_all ();
+            }
         }
         
         void remove_container () {
-            notebook.remove (container);
+            if (notebook.page_num (container) != -1)
+                notebook.remove (container);
         }
         
         void on_hook_split_view (Scratch.Widgets.SplitView view) {
