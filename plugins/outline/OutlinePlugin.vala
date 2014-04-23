@@ -102,10 +102,9 @@ namespace Scratch.Plugins {
             current_view = view;
 
             if (view.n_symbols > 1) {
-                debug (view.n_symbols.to_string());
                 add_container ();
             }
-            else if (doc.file == null || view.n_symbols == 0) {
+            else if (doc.file == null || view.n_symbols <= 1) {
                 remove_container ();
             }
         }
