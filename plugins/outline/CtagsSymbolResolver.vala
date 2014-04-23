@@ -178,6 +178,8 @@ public class CtagsSymbolOutline : Object, SymbolOutline
     void parse_fields (string fields, out int line, out string parent)
     {
         var index = -1;
+        line = -1;
+        parent = null;
         if ((index = fields.index_of ("line:")) > -1) {
             line = int.parse (fields.substring (index + 5, int.max (fields.index_of (" ", index + 6) - index, -1)));
         }

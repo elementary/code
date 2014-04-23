@@ -121,7 +121,7 @@ public class ValaSymbolOutline : Object, SymbolOutline
         init_context ();
         
         Thread<void*> thread = new Thread<void*>("parse-symbols", () => {
-            parse_symbols_async ();
+            parse_symbols_async.begin ();
             return null;
         });
 
@@ -162,18 +162,6 @@ public class ValaSymbolOutline : Object, SymbolOutline
             }
         }
         return match;
-    }
-
-    // vala generates for each property a field which we do not want to display
-    void filter_generated_fields (Granite.Widgets.SourceList.ExpandableItem parent)
-    {
-        foreach (var child in parent.children) {
-            var child_symbol = child as Symbol;
-            if (field_blacklist.contains (child_symbol.symbol as Vala.Field)) {
-                parent.remove (child);
-            }
-            filter_generated_fields (child_symbol);
-        }
     }
 
     void add_symbol (Vala.Symbol symbol, string icon = "", Icon? real_icon = null)

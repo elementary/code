@@ -66,9 +66,7 @@ namespace Scratch.Plugins {
                 this.notebook = notebook;
                 
             container = new Gtk.EventBox ();
-            container.visible = false;            
-            notebook.append_page (container, new Gtk.Label (_("Symbols")));
-            container.show_all ();
+            container.visible = false;
         }
 
         void on_hook_document (Scratch.Services.Document doc) {
@@ -85,7 +83,7 @@ namespace Scratch.Plugins {
                     break;
                 }
             }
-            if (view == null) {
+            if (view == null && doc.file != null) {
                 if (doc.get_mime_type () == "text/x-vala") {
                     view = new ValaSymbolOutline (doc);
                 } else {
@@ -98,28 +96,34 @@ namespace Scratch.Plugins {
 
                 doc.doc_saved.connect (update_timeout);
             }
-            
-            var source_list = view.get_source_list ();
-            
+
             container.add (view.get_source_list ());
             container.show_all ();
             current_view = view;
 
-            if (view.n_symbols > 0 && notebook.page_num (container) == -1) {
-                notebook.append_page (container, new Gtk.Label (_("Symbols")));
-                container.show_all ();
+            if (doc.file != null || (view.n_symbols > 0 && notebook.page_num (container) == -1)) {
+                add_container ();
             }
-            else if (view.n_symbols == 0 && notebook.page_num (container) != -1) {
-                notebook.remove (container);
+            else if (doc.file == null || (view.n_symbols == 0 && notebook.page_num (container) != -1)) {
+                remove_container ();
             }
+        }
+        
+        void add_container () {
+            notebook.append_page (container, new Gtk.Label (_("Symbols")));
+            container.show_all ();
+        }
+        
+        void remove_container () {
+            notebook.remove (container);
         }
         
         void on_hook_split_view (Scratch.Widgets.SplitView view) {
             view.welcome_shown.connect (() => {
-                container.visible = false;
+                remove_container ();
             });
             view.welcome_hidden.connect (() => {
-                container.visible = true;
+                add_container ();
             });
         }
         
