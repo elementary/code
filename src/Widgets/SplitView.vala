@@ -35,10 +35,13 @@ namespace Scratch.Widgets {
         public signal void welcome_shown ();
         public signal void welcome_hidden ();
         public signal void document_change (Scratch.Services.Document document);
+
+        private weak MainWindow window;
         
-        public SplitView () {
+        public SplitView (MainWindow window) {
             base (Gtk.Orientation.HORIZONTAL);
-            
+            this.window = window;
+
             // Welcome screen
             this.welcome_screen = new Granite.Widgets.Welcome (_("No Files Open"), 
                                                     _("Open a file to begin editing."));
@@ -50,10 +53,10 @@ namespace Scratch.Widgets {
             this.welcome_screen.activated.connect ((i) => {
                 // New file
                 if (i == 0)
-                    main_actions.get_action ("NewTab").activate ();
+                    window.main_actions.get_action ("NewTab").activate ();
                 // Open
                 else if (i == 1)
-                    main_actions.get_action ("Open").activate ();
+                    window.main_actions.get_action ("Open").activate ();
             });
             
             // Handle Drag-and-drop functionality on source-view
@@ -66,9 +69,9 @@ namespace Scratch.Widgets {
                 
                     for (var i = 0; i < uris.length; i++){
                         string filename = uris[i];
-                        File file = File.new_for_uri(filename);
-                        Scratch.Services.Document doc = new Scratch.Services.Document(file);
-                        view.open_document(doc);
+                        File file = File.new_for_uri (filename);
+                        Scratch.Services.Document doc = new Scratch.Services.Document (window.main_actions, file);
+                        view.open_document (doc);
                     }
                     
                     Gtk.drag_finish (ctx, true, false, time);
@@ -91,11 +94,12 @@ namespace Scratch.Widgets {
             
             Scratch.Widgets.DocumentView view;
             if (hidden_views.length () == 0)
-                view = new Scratch.Widgets.DocumentView ();
+                view = new Scratch.Widgets.DocumentView (window);
             else { 
                 view = hidden_views.nth_data (0);
                 hidden_views.remove (view);
             }
+
             view.empty.connect (() => {
                 remove_view (view);
             });
@@ -185,8 +189,8 @@ namespace Scratch.Widgets {
         
         // Check the possibility to add or not a new view
         private void check_actions () {
-            main_actions.get_action ("NewView").sensitive = (views.length () < 2);
-            main_actions.get_action ("RemoveView").sensitive = (views.length () > 1);
+            window.main_actions.get_action ("NewView").sensitive = (views.length () < 2);
+            window.main_actions.get_action ("RemoveView").sensitive = (views.length () > 1);
         }
     }
 }

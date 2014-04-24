@@ -26,6 +26,9 @@ using Granite.Widgets;
 namespace Scratch.Widgets {
     
     public class DocumentView : Gtk.Box {
+
+        // Parent window
+        private weak MainWindow window;
         
         // Widgets
         public DynamicNotebook notebook;
@@ -41,15 +44,23 @@ namespace Scratch.Widgets {
         // Signals
         public signal void document_change (Document? document);
         public signal void empty ();
-        
-        public DocumentView () {
+
+        public DocumentView (MainWindow window) {
             orientation = Orientation.VERTICAL;
+            this.window = window;
             
             docs = new GLib.List<Document> ();
             
             // Layout
             this.notebook = new DynamicNotebook ();
             this.notebook.allow_restoring = true;
+            this.notebook.allow_new_window = true;
+            this.notebook.allow_drag = true;
+            this.notebook.tab_added.connect (on_doc_added);
+            this.notebook.tab_removed.connect (on_doc_removed);
+            this.notebook.tab_reordered.connect (on_doc_reordered);
+            this.notebook.tab_moved.connect (on_doc_moved);
+            this.notebook.group_name = "scratch-text-editor";
 
             this.notebook.new_tab_requested.connect (() => {
                 new_document ();
@@ -58,7 +69,7 @@ namespace Scratch.Widgets {
             this.notebook.close_tab_requested.connect ((tab) => {
                 if ((tab as Document).file != null)
                     tab.restore_data = (tab as Document).get_uri ();
-                return close_document_from_tab ((tab as Document));
+                return (tab as Document).close ();
             });
 
             this.notebook.tab_switched.connect ((old_tab, new_tab) => {
@@ -66,7 +77,7 @@ namespace Scratch.Widgets {
             });
 
             this.notebook.tab_restored.connect ((label, restore_data, icon) => {
-                var doc = new Document (File.new_for_uri (restore_data));
+                var doc = new Document (window.main_actions, File.new_for_uri (restore_data));
                 open_document (doc);
             });
             
@@ -76,18 +87,11 @@ namespace Scratch.Widgets {
         }
         
         public void new_document () {
-            var doc = new Document ();
+            var doc = new Document (window.main_actions);
             doc.create_page ();
            
             this.notebook.insert_tab (doc, -1);
-            
-            doc.source_view.focus_in_event.connect (() => {
-                document_change (doc);
-                return true;
-            });
-            
             this.notebook.current = doc;
-            add_document (doc);
             
             doc.focus ();
         }
@@ -108,14 +112,7 @@ namespace Scratch.Widgets {
             doc.create_page ();
             
             this.notebook.insert_tab (doc, -1);
-
-            doc.source_view.focus_in_event.connect (() => {
-                document_change (doc);
-                return true;
-            });
-            
             this.notebook.current = doc;
-            add_document (doc);
             
             doc.focus ();
         }
@@ -141,39 +138,47 @@ namespace Scratch.Widgets {
         public void close_document (Document doc) {
             this.notebook.remove_tab (doc);
             doc.close ();
-            remove_document (doc);
         }
         
-        private bool close_document_from_tab (Document doc) {
-            if (!doc.close ())
-                return false;
+        public Document? get_current_document () {
+            return this.notebook.current as Document;
+        }
+        
+        public void set_current_document (Document doc) {
+            this.notebook.current = doc;
+        }
+        
+        public bool is_empty () {
+            return this.docs.length () == 0;
+        }
+        
+        public new void focus () {
+            get_current_document ().focus ();
+        }
+        
+        private void on_doc_added (Granite.Widgets.Tab tab) {
+            var doc = tab as Document;
+            doc.main_actions = window.main_actions;
 
-            remove_document (doc);
-            // Check if the view is empty
-            if (this.notebook.get_children ().length () <= 1)
-                empty ();
-            
-            return true;
-        }
-        
-        private void add_document (Document doc) {
             this.docs.append (doc);
+            doc.source_view.focus_in_event.connect (this.on_focus_in_event);
+            doc.source_view.drag_data_received.connect (this.drag_received);
+
             // Update the opened-files setting
             if (settings.show_at_start == "last-tabs" && doc.file != null) {
                 var files = settings.schema.get_strv ("opened-files");
                 files += doc.file.get_uri ();
                 settings.schema.set_strv ("opened-files", files);
             }
-            
-            // Handle Drag-and-drop functionality on source-view
-            Gtk.TargetEntry uris = {"text/uri-list", 0, 0};
-            Gtk.TargetEntry text = {"text/plain", 0, 0};
-            Gtk.drag_dest_set (doc.source_view, Gtk.DestDefaults.ALL, {uris, text}, Gdk.DragAction.COPY);
-            doc.source_view.drag_data_received.connect (this.drag_received);
         }
-        
-        private void remove_document (Document doc) {
+
+        private void on_doc_removed (Granite.Widgets.Tab tab) {
+            var doc = tab as Document;
+
             this.docs.remove (doc);
+            doc.source_view.focus_in_event.disconnect (this.on_focus_in_event);
+            doc.source_view.drag_data_received.disconnect (this.drag_received);
+
             // Update the opened-files setting
             if (settings.show_at_start == "last-tabs") {
                 var files = settings.schema.get_strv ("opened-files");
@@ -184,40 +189,52 @@ namespace Scratch.Widgets {
                 }
                 settings.schema.set_strv ("opened-files", opened);
             }
-            
-            doc.source_view.drag_data_received.disconnect (this.drag_received);
+
+            // Check if the view is empty
+            if (this.is_empty ())
+                empty ();
+        }
+
+        private void on_doc_moved (Tab tab, int x, int y) {
+            var doc = tab as Document;
+
+            var other_window = window.app.new_window ();
+            other_window.move (x, y);
+
+            DocumentView other_view = other_window.add_view ();
+
+            this.notebook.remove_tab (doc);
+            other_view.notebook.insert_tab (doc, -1);
+        }
+
+        private void on_doc_reordered (Tab tab) {
+            (tab as Document).focus ();
+        }
+
+        private bool on_focus_in_event () {
+            var doc = get_current_document ();
+
+            if (doc == null) {
+                warning ("Focus event callback cannot get current document");
+            } else {
+                document_change (doc);
+            }
+
+            return true;  
         }
         
         private void drag_received(Gdk.DragContext ctx, int x, int y, Gtk.SelectionData sel,  uint info, uint time){
             var uris = sel.get_uris ();
-            if (uris.length > 0){
-                for (var i = 0; i < uris.length; i++){
+            if (uris.length > 0) {
+                for (var i = 0; i < uris.length; i++) {
                     string filename = uris[i];
-                    File file = File.new_for_uri(filename);
-                    Document doc = new Document(file);
-                    this.open_document(doc);
+                    File file = File.new_for_uri (filename);
+                    Document doc = new Document (window.main_actions, file);
+                    this.open_document (doc);
                 }
                 
                 Gtk.drag_finish (ctx, true, false, time);
             }
         }
-        
-        public Document? get_current_document () {
-            return (this.notebook.current as Document);
-        }
-        
-        public void set_current_document (Document doc) {
-            this.notebook.current = doc;
-        }
-        
-        public bool is_empty () {
-            return (this.docs.length () == 0);
-        }
-        
-        public new void focus () {
-            get_current_document ().focus ();
-        }
-        
     }
-    
 }

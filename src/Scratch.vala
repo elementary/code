@@ -29,18 +29,19 @@ namespace Scratch {
     public Settings settings;
     public ServicesSettings services;
     
-    // Plugins;
-    public Scratch.Services.PluginsManager? plugins = null;
-    
     public class ScratchApp : Granite.Application {
 
-        public MainWindow window = null;
+        private GLib.List <MainWindow> windows;
+
         public string app_cmd_name { get { return _app_cmd_name; } }
-        public static string _app_cmd_name;
-        public static bool new_instance = false;
+        private static string _app_cmd_name;
+        private static bool print_version = false;
+        private static bool create_new_tab = false;
+        private static bool create_new_window = false;
         
         construct {
-
+            flags |= ApplicationFlags.HANDLES_OPEN;
+            flags |= ApplicationFlags.HANDLES_COMMAND_LINE;
             build_data_dir = Constants.DATADIR;
             build_pkg_data_dir = Constants.PKGDATADIR;
             build_release_name = Constants.RELEASE_NAME;
@@ -82,26 +83,67 @@ namespace Scratch {
             Logger.initialize ("Scratch");
             Logger.DisplayLevel = LogLevel.DEBUG;
 
-            ApplicationFlags flags = ApplicationFlags.HANDLES_OPEN;
-            if(new_instance)
-                flags |= ApplicationFlags.NON_UNIQUE;
-            set_flags (flags);
-
             // Init settings
             saved_state = new SavedState ();
             settings = new Settings ();
             services = new ServicesSettings ();
+            windows = new GLib.List <MainWindow> ();
             
         }
 
+        protected override int command_line (ApplicationCommandLine command_line) {
+            var context = new OptionContext ("File");
+            context.add_main_entries (entries, Constants.GETTEXT_PACKAGE);
+            context.add_group (Gtk.get_option_group (true));
+
+            string[] args = command_line.get_arguments ();
+            int unclaimed_args;
+
+            try {
+                unowned string[] tmp = args;
+                context.parse (ref tmp);
+                unclaimed_args = tmp.length - 1;
+            } catch(Error e) {
+                print (e.message + "\n");
+
+                return Posix.EXIT_FAILURE;
+            }
+
+            // Create (or show) the first window
+            activate ();
+
+            // Create a second window if requested
+            if (create_new_window) {
+                create_new_window = false;
+                this.new_window ();
+            }
+
+            // Create a new document if requested
+            if (create_new_tab) {
+                create_new_tab = false;
+                var window = get_last_window ();
+                window.main_actions.get_action ("NewTab").activate ();
+            }
+
+            // Open all files given as arguments
+            if (unclaimed_args > 0) {
+                File[] files = new File[unclaimed_args];
+                files.length = 0;
+
+                foreach (string arg in args[1:unclaimed_args + 1]) {
+                    files += File.new_for_commandline_arg (arg);
+                }
+
+                open (files, "");
+            }
+
+            return Posix.EXIT_SUCCESS;
+        }
+
         protected override void activate () {
-            
-            // Plugins
-            if (plugins == null)
-                plugins = new Scratch.Services.PluginsManager (this, app_cmd_name.down ());
-            
-            if (get_windows () == null) {
-                window = new MainWindow (this);
+            var window = get_last_window ();
+            if (window == null) {
+                window = this.new_window ();
                 window.show ();
                 // Restore opened documents
                 if (settings.show_at_start == "last-tabs") {
@@ -113,7 +155,7 @@ namespace Scratch {
                        if (uri != "") {
                             var file = File.new_for_uri (uri);
                             if (file.query_exists ()) {
-                                var doc = new Scratch.Services.Document (file);
+                                var doc = new Scratch.Services.Document (window.main_actions, file);
                                 window.open_document (doc);
                             }
                         }
@@ -127,25 +169,21 @@ namespace Scratch {
         }
         
         protected override void open (File[] files, string hint) {
-            // Create window if it was not yet done
-            activate ();
-            
             // Add a view if there aren't and get the current DocumentView
             Scratch.Widgets.DocumentView? view = null;
-            
+            var window = get_last_window ();
+
             if (window.is_empty ())
                 view = window.add_view ();
             else
                 view = window.get_current_view ();
             
             for (int i = 0; i < files.length; i++) {
-                if (files[i].get_basename () == "--new-tab")
-                    main_actions.get_action ("NewTab").activate ();
                 // Check if the given path is a directory
                 try {
                     var info = files[i].query_info ("standard::*", FileQueryInfoFlags.NONE, null);
                     if (info.get_file_type () != FileType.DIRECTORY) {
-                        var doc = new Scratch.Services.Document (files[i]);
+                        var doc = new Scratch.Services.Document (window.main_actions, files[i]);
                         view.open_document (doc);
                     }
                     else
@@ -155,30 +193,61 @@ namespace Scratch {
                 }
             }
         }
+
+        public MainWindow? get_last_window () {
+            uint length = windows.length ();
+
+            return length > 0 ? windows.nth_data (length - 1) : null;
+        }
+
+        public MainWindow new_window () {
+            return new MainWindow (this);
+        }
+
+        protected override void window_added (Gtk.Window window) {
+            windows.append (window as MainWindow);
+            base.window_added (window);
+        }
+
+        protected override void window_removed (Gtk.Window window) {
+            windows.remove (window as MainWindow);
+            base.window_removed (window);
+        }
         
         static const OptionEntry[] entries = {
+            { "new-tab", 't', 0, OptionArg.NONE, out create_new_tab, N_("New Tab"), null },
+            { "new-window", 'n', 0, OptionArg.NONE, out create_new_window, N_("New Window"), null },
+            { "version", 'v', 0, OptionArg.NONE, out print_version, N_("Print version info and exit"), null },
             { "set", 's', 0, OptionArg.STRING, ref _app_cmd_name, N_("Set of plugins"), "" },
-            { "new-instance", 'n', 0, OptionArg.NONE, ref new_instance, N_("Create a new instance"), null },
             { null }
         };
 
         public static int main (string[] args) {
             _app_cmd_name = "Scratch";
+
             var context = new OptionContext ("File");
             context.add_main_entries (entries, Constants.GETTEXT_PACKAGE);
-            
+            context.add_group (Gtk.get_option_group (true));
+
+            string[] args_primary_instance = args;
+
             try {
-                context.parse(ref args);
+                context.parse (ref args);
+            } catch(Error e) {
+                print (e.message + "\n");
+
+                return Posix.EXIT_FAILURE;
             }
-            catch(Error e) {
-                print(e.message + "\n");
+
+            if (print_version) {
+                stdout.printf ("Scratch Text Editor %s\n", Constants.VERSION);
+                stdout.printf ("Copyright 2011-2014 Scratch Text Editor Developers.\n");
+
+                return Posix.EXIT_SUCCESS;
             }
 
             var app = new ScratchApp ();
-
-            return app.run (args);
-
+            return app.run (args_primary_instance);
         }
-        
     }
 }

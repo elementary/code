@@ -47,7 +47,7 @@ namespace Scratch.Plugins.FileManager {
                 return File.compare ((a as Item).file, (b as Item).file);
             });
             
-            restore_sesttings ();
+            restore_settings ();
         }
 
         /*public void open_folder (File folder) {
@@ -131,7 +131,7 @@ namespace Scratch.Plugins.FileManager {
             settings.opened_folder = this.folder.file.file.get_path ();
         }
         
-        private void restore_sesttings () {
+        private void restore_settings () {
             if (settings.opened_folder == "" || settings.opened_folder == null)
                 settings.opened_folder = GLib.Environment.get_home_dir ();
             open_folder (new File (settings.opened_folder));
@@ -208,11 +208,6 @@ namespace Scratch.Plugins.FileManager {
         public void rename (string new_name) {
             string new_uri = file.file.get_parent ().get_uri () + "/" + new_name;
             debug (new_uri);
-            for (int n = 0; n < documents.to_array ().length; n++) {
-                var doc = documents.to_array ()[n]; 
-                if (doc.file.get_uri () == file.file.get_uri ())
-                    doc.file = GLib.File.new_for_uri (new_uri);
-            }
             file.rename (new_name);
         }
 
