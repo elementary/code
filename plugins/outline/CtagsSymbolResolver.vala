@@ -86,7 +86,7 @@ public class CtagsSymbolOutline : Object, SymbolOutline
             var type = parts[3];
             int line = 0;
             string? parent = null;
-            parse_fields (string.joinv (" ", parts[4:parts.length - 1]), out line, out parent);
+            parse_fields (string.joinv (" ", parts[4:parts.length]), out line, out parent);
 
             Icon? icon = null;
             switch (type) {
