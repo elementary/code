@@ -29,15 +29,19 @@ namespace Scratch.Widgets {
         public Scratch.Widgets.DocumentView? current_view = null;
         
         public GLib.List<Scratch.Widgets.DocumentView> views;
+        private GLib.List<Scratch.Widgets.DocumentView> hidden_views;
         
         // Signals
         public signal void welcome_shown ();
         public signal void welcome_hidden ();
         public signal void document_change (Scratch.Services.Document document);
+
+        private weak MainWindow window;
         
-        public SplitView () {
+        public SplitView (MainWindow window) {
             base (Gtk.Orientation.HORIZONTAL);
-            
+            this.window = window;
+
             // Welcome screen
             this.welcome_screen = new Granite.Widgets.Welcome (_("No Files Open"), 
                                                     _("Open a file to begin editing."));
@@ -49,13 +53,33 @@ namespace Scratch.Widgets {
             this.welcome_screen.activated.connect ((i) => {
                 // New file
                 if (i == 0)
-                    main_actions.get_action ("NewTab").activate ();
+                    window.main_actions.get_action ("NewTab").activate ();
                 // Open
                 else if (i == 1)
-                    main_actions.get_action ("Open").activate ();
+                    window.main_actions.get_action ("Open").activate ();
+            });
+            
+            // Handle Drag-and-drop functionality on source-view
+            Gtk.TargetEntry target = {"text/uri-list", 0, 0};
+            Gtk.drag_dest_set (this.welcome_screen, Gtk.DestDefaults.ALL, {target}, Gdk.DragAction.COPY);
+            this.welcome_screen.drag_data_received.connect ((ctx, x, y, sel, info, time) => {
+                var uris = sel.get_uris ();
+                if (uris.length > 0){
+                    var view = this.current_view ?? this.add_view ();
+                
+                    for (var i = 0; i < uris.length; i++){
+                        string filename = uris[i];
+                        File file = File.new_for_uri (filename);
+                        Scratch.Services.Document doc = new Scratch.Services.Document (window.main_actions, file);
+                        view.open_document (doc);
+                    }
+                    
+                    Gtk.drag_finish (ctx, true, false, time);
+                }
             });
             
             this.views = new GLib.List<Scratch.Widgets.DocumentView> ();
+            this.hidden_views = new GLib.List<Scratch.Widgets.DocumentView> ();
         }
         
         public Scratch.Widgets.DocumentView? add_view () {
@@ -68,7 +92,14 @@ namespace Scratch.Widgets {
             if (get_children ().length () > 0)
                 hide_welcome ();
             
-            var view = new Scratch.Widgets.DocumentView ();
+            Scratch.Widgets.DocumentView view;
+            if (hidden_views.length () == 0)
+                view = new Scratch.Widgets.DocumentView (window);
+            else { 
+                view = hidden_views.nth_data (0);
+                hidden_views.remove (view);
+            }
+
             view.empty.connect (() => {
                 remove_view (view);
             });
@@ -104,7 +135,8 @@ namespace Scratch.Widgets {
             this.remove (view);
             this.views.remove (view);
             view.document_change.disconnect (on_document_changed);
-            view.destroy ();
+            view.visible = false;
+            this.hidden_views.append (view);
             debug ("View removed succefully");
             
             // Enbale/Disable useless GtkActions about views
@@ -113,10 +145,9 @@ namespace Scratch.Widgets {
             // Move the focus on the other view
             if (views.nth_data (0) != null) {
                 views.nth_data (0).focus ();
-                debug ("");
             }
             // Show/Hide welcome screen
-            if (get_children ().length () == 0)
+            if (this.views.length () == 0)
                 show_welcome ();
         }
         
@@ -158,8 +189,8 @@ namespace Scratch.Widgets {
         
         // Check the possibility to add or not a new view
         private void check_actions () {
-            main_actions.get_action ("NewView").sensitive = (views.length () < 2);
-            main_actions.get_action ("RemoveView").sensitive = (views.length () > 1);
+            window.main_actions.get_action ("NewView").sensitive = (views.length () < 2);
+            window.main_actions.get_action ("RemoveView").sensitive = (views.length () > 1);
         }
     }
 }

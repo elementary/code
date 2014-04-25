@@ -22,6 +22,6 @@ TargetEnvironment=Unity
 
 [NewWindow Shortcut Group]
 Name=New Window
-Exec=scratch-text-editor -n
+Exec=scratch-text-editor --new-window
 TargetEnvironment=Unity
 

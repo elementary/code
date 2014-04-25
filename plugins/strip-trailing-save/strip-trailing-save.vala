@@ -33,8 +33,8 @@ public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatabl
         plugins = (Scratch.Services.Interface) object;   
         plugins.hook_window.connect ((w) => {
             this.main_window = w;
-            main_actions.pre_activate.connect (on_save);
-            action_save = main_actions.get_action ("SaveFile");
+            w.main_actions.pre_activate.connect (on_save);
+            action_save = w.main_actions.get_action ("SaveFile");
         });
     }
 
@@ -42,7 +42,7 @@ public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatabl
      * Deactivate plugin.
      */
     public void deactivate () {
-        main_actions.pre_activate.disconnect(on_save);
+        this.main_window.main_actions.pre_activate.disconnect(on_save);
     }
 
     /*

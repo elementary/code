@@ -169,9 +169,10 @@ namespace Scratch.Plugins {
             plugins.hook_notebook_sidebar.connect (on_hook_sidebar);
             plugins.hook_document.connect (on_hook_document);
             plugins.hook_toolbar.connect ((toolbar) => {
+                MainWindow window = plugins.manager.window;
                 if (this.bookmark_tool_button != null && this.new_button != null) 
                     return;
-                this.new_button = main_actions.get_action ("NewTab").create_tool_item() as Gtk.ToolButton;
+                this.new_button = window.main_actions.get_action ("NewTab").create_tool_item() as Gtk.ToolButton;
                 this.bookmark_tool_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("bookmark-new", Gtk.IconSize.LARGE_TOOLBAR), _("Bookmark"));
                 bookmark_tool_button.show_all ();
                 bookmark_tool_button.clicked.connect (() => add_bookmark ());

@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-08-02 16:03+0200\n"
-"PO-Revision-Date: 2014-04-08 00:01+0000\n"
+"PO-Revision-Date: 2014-04-23 19:16+0000\n"
 "Last-Translator: ITPROJECTS <Unknown>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-08 06:55+0000\n"
-"X-Generator: Launchpad (build 16976)\n"
+"X-Launchpad-Export-Date: 2014-04-24 06:22+0000\n"
+"X-Generator: Launchpad (build 16985)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Utils.vala:42
 msgid "All files"
@@ -77,11 +77,11 @@ msgstr "Отваряне на последно затворен документ
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:576
 msgid "Add New Tab"
-msgstr "Добавяне на нов таб"
+msgstr "Добавяне на нов подпрозорец"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:577
 msgid "Add a new tab"
-msgstr "Добавяне на нов таб"
+msgstr "Добавяне на нов подпрозорец"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:580
 msgid "Add New View"
@@ -105,7 +105,7 @@ msgstr "Отмяна"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:589
 msgid "Undo the last action"
-msgstr "Отмяна на последното действие"
+msgstr "Отмени последното действие"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:592
 msgid "Redo"
@@ -167,7 +167,7 @@ msgstr "Промяна на настройките на Scratch"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:623
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:624
 msgid "Fullscreen"
-msgstr "Цял екран"
+msgstr "На цял екран"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:15
 msgid "Edit text files"
@@ -192,7 +192,7 @@ msgstr "Поведение"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:66
 msgid "Interface"
-msgstr "Изглед"
+msgstr "Потребителска среда"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:74
 msgid "Extensions"
@@ -212,7 +212,7 @@ msgstr "Общи:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:151
 msgid "When Scratch starts:"
-msgstr "При стартиране на Scratch:"
+msgstr "При стартиране на Драскутина:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:154
 msgid "Save files when changed:"
@@ -220,15 +220,15 @@ msgstr "Записвай файловете при промяна:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
 msgid "Tabs:"
-msgstr "Раздели:"
+msgstr "Подпрозорци"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:164
 msgid "Automatic indentation:"
-msgstr "Автоматично подравняване:"
+msgstr "Самостоятелно подравняване"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:167
 msgid "Insert spaces instead of tabs:"
-msgstr "Insert spaces instead of tabs:"
+msgstr "Използване на интервали вместо табулации:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:171
 msgid "Tab width:"
@@ -240,11 +240,11 @@ msgstr "Редактор:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:217
 msgid "Highlight current line:"
-msgstr "Маркиране на текущия ред:"
+msgstr "Открояване на текущия ред:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:218
 msgid "Highlight matching brackets:"
-msgstr "Маркиране на съвпадащи скоби:"
+msgstr "Открояване на съвпадащи скоби:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:219
 msgid "Split long text in many lines:"
@@ -252,11 +252,11 @@ msgstr "Раздели дълги текстове на много редове:
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:220
 msgid "Draw spaces:"
-msgstr "Показвай интервалите:"
+msgstr "Очертай интервалите:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:221
 msgid "Show line numbers:"
-msgstr "Показване на номерата на редовете"
+msgstr "Покажи номерата на редовете"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
 msgid "Line width guide:"
@@ -264,7 +264,7 @@ msgstr "Покажи препоръчителната ширина за ред:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:240
 msgid "Font and Color Scheme:"
-msgstr "цветово и шрифтово оформление:"
+msgstr "Цветово и Шрифтово Оформление:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:254
 msgid "Select font:"
@@ -280,7 +280,7 @@ msgstr "Шрифт по избор:"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:160
 msgid "Set of plugins"
-msgstr "Допълнителни функционалности:"
+msgstr "Набор от добавки"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:161
 msgid "Create a new instance"
@@ -296,19 +296,19 @@ msgstr "Замяна с"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:113
 msgid "Go To Line:"
-msgstr "Отиди на линия"
+msgstr "Отиди на ред:"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:82
 msgid "Syntax Highlighting"
-msgstr "Синтактично оцветен текст"
+msgstr "Синтактично Открояване"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:93
 msgid "Normal Text"
-msgstr "Нормален текст"
+msgstr "Обикновен Текст"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/LoadingView.vala:36
 msgid "Wait while restoring last session..."
-msgstr "Почакайте докато се възстанови последното отработване"
+msgstr "Почакайте докато се възстанови предишното състояние..."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:112
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:135
@@ -342,7 +342,7 @@ msgstr "Отмени затварянето на подпрозореца"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:510
 msgid "Closed Tabs"
-msgstr "Затворени подпрозорци"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ToolBar.vala:59
 msgid "Share"
@@ -440,19 +440,19 @@ msgstr "Продължи"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
-msgstr "Поставка"
+msgstr "Пейстбин"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
-msgstr "Сподели файлове с поставячна мрежова услуга"
+msgstr "Сподели файлове с мрежовата услуга на Пейстбин"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:134
 msgid "Upload to Pastebin"
-msgstr "Качи кам Поставка"
+msgstr "Качи в Пейстбин"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:252
 msgid "Share via PasteBin"
-msgstr "Споделяне чрез Поставка"
+msgstr "Споделяне чрез Пейстбин"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:270
 msgid "Name:"
@@ -472,7 +472,7 @@ msgstr "Време на валидност:"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:308
 msgid "Keep this paste private"
-msgstr "Качване като частен поставяне"
+msgstr "Запази това като частно и лично"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:310
 msgid "Upload"
@@ -564,7 +564,7 @@ msgstr "Получаване на преглед!"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:111
 msgid "Web preview"
-msgstr "Преглед"
+msgstr "Мрежов преглед"
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:18
 msgid "Spell Checker"
