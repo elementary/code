@@ -274,9 +274,12 @@ namespace Scratch.Plugins.FolderManager {
             switch (event) {
 
                 case GLib.FileMonitorEvent.DELETED:
-                    foreach (var item in children)
-                        if ((item as Item).path == source.get_path ())
+                    foreach (var item in children) {
+                        if ((item as Item).path == source.get_path ()) {
                             remove (item);
+                            break;
+                        }
+                    }
                     break;
 
                 case GLib.FileMonitorEvent.CREATED:
