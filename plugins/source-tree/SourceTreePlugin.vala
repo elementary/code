@@ -49,7 +49,9 @@ public class Folder : Granite.Widgets.SourceList.ExpandableItem {
             loaded = true;
             
             load ();
-            foreach (var child in children) {
+            var children_tmp = new Gee.ArrayList<Granite.Widgets.SourceList.Item> ();
+            children_tmp.add_all (children);
+            foreach (var child in children_tmp) {
                 if (!(child is Document) && !(child is Folder))
                     remove (child);
             }
