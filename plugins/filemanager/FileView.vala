@@ -309,9 +309,13 @@ namespace Scratch.Plugins.FileManager {
             switch (event) {
 
                 case GLib.FileMonitorEvent.DELETED:
-                    foreach (var item in children)
-                        if ((item as Item).path == source.get_path ())
+                    var children_tmp = new Gee.ArrayList<Granite.Widgets.SourceList.Item> ();
+                    children_tmp.add_all (children);
+                    foreach (var item in children_tmp) {
+                        if ((item as Item).path == source.get_path ()) {
                             remove (item);
+                        }
+                    }
                     break;
 
                 case GLib.FileMonitorEvent.CREATED:
