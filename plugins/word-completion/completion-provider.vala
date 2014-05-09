@@ -77,7 +77,11 @@ public class CompletionProvider : Gtk.SourceCompletionProvider, Object {
         TextIter start;
         current_buffer.get_iter_at_mark (out start, completion_mark);
         
-        start.backward_word_start ();
+        bool match = start.backward_find_char ((c) => {
+            return c in Euclide.Completion.Parser.stoppers;
+        }, null);
+        if (match)
+            start.forward_cursor_position ();
         
         current_buffer.delete (ref start, ref iter);
         current_buffer.insert (ref start, proposal.get_text (), proposal.get_text ().length);
@@ -94,7 +98,7 @@ public class CompletionProvider : Gtk.SourceCompletionProvider, Object {
         return box_info_frame;
     }
 
-    public int get_interactive_dela () {
+    public int get_interactive_delay () {
         return -1;
     }
 
