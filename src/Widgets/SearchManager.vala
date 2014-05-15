@@ -103,11 +103,11 @@ namespace Scratch.Widgets {
             tool_go_to_entry = new Gtk.ToolItem ();
             
             // Replace GtkToolButton
-            replace_tool_button = new Gtk.ToolButton.from_stock (Gtk.Stock.FIND_AND_REPLACE);
+            replace_tool_button = new Gtk.ToolButton (null, _("Replace"));
             replace_tool_button.clicked.connect (on_replace_entry_activate);
 
             // Replace all GtkToolButton
-            replace_all_tool_button = new Gtk.ToolButton.from_stock (Gtk.Stock.SELECT_ALL);
+            replace_all_tool_button =new Gtk.ToolButton (null, _("Replace all"));
             replace_all_tool_button.clicked.connect (on_replace_all_entry_activate);
             
             // Populate GtkToolItems
