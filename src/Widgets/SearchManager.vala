@@ -34,7 +34,8 @@ namespace Scratch.Widgets {
         public Gtk.SpinButton go_to_entry;
         private Gtk.Adjustment go_to_adj;
         
-        private Gtk.ToolButton replace_tool_button;        
+        private Gtk.ToolButton replace_tool_button;
+        private Gtk.ToolButton replace_all_tool_button;
 
         private Scratch.Widgets.SourceView? text_view = null;
         private Gtk.TextBuffer? text_buffer = null;
@@ -104,6 +105,10 @@ namespace Scratch.Widgets {
             // Replace GtkToolButton
             replace_tool_button = new Gtk.ToolButton.from_stock (Gtk.Stock.FIND_AND_REPLACE);
             replace_tool_button.clicked.connect (on_replace_entry_activate);
+
+            // Replace all GtkToolButton
+            replace_all_tool_button = new Gtk.ToolButton.from_stock (Gtk.Stock.SELECT_ALL);
+            replace_all_tool_button.clicked.connect (on_replace_all_entry_activate);
             
             // Populate GtkToolItems
             tool_search_entry.add (search_entry);
@@ -135,6 +140,7 @@ namespace Scratch.Widgets {
             this.add (tool_arrow_up);
             this.add (tool_replace_entry);
             this.add (replace_tool_button);
+            this.add (replace_all_tool_button);
             var spacer = new Gtk.ToolItem ();
             spacer.set_expand (true);
             this.add (spacer);
@@ -191,6 +197,19 @@ namespace Scratch.Widgets {
                 update_tool_arrows (search_entry.text);
                 debug ("Replace \"%s\" with \"%s\"", search_entry.text, replace_entry.text);
             }
+        }
+
+        void on_replace_all_entry_activate () {
+            if (text_buffer == null) {
+                warning ("No valid buffer to replace");
+                return;
+            }
+            while (search ()) {
+                string replace_string = replace_entry.text;
+                text_buffer.delete_selection (true, true);
+                text_buffer.insert_at_cursor (replace_string, replace_string.length);
+            }
+            update_tool_arrows (search_entry.text);
         }
 
         public void set_search_string (string to_search) {
