@@ -107,7 +107,7 @@ namespace Scratch.Widgets {
             replace_tool_button.clicked.connect (on_replace_entry_activate);
 
             // Replace all GtkToolButton
-            replace_all_tool_button =new Gtk.ToolButton (null, _("Replace all"));
+            replace_all_tool_button = new Gtk.ToolButton (null, _("Replace all"));
             replace_all_tool_button.clicked.connect (on_replace_all_entry_activate);
             
             // Populate GtkToolItems
@@ -146,6 +146,8 @@ namespace Scratch.Widgets {
             this.add (spacer);
             this.add (tool_go_to_label);
             this.add (tool_go_to_entry);
+
+            update_replace_tool_sensitivities (search_entry.text, false);
         }
 
         public void set_text_view (Scratch.Widgets.SourceView? text_view) {
@@ -193,7 +195,8 @@ namespace Scratch.Widgets {
                 string replace_string = replace_entry.text;
                 text_buffer.delete_selection (true, true);
                 text_buffer.insert_at_cursor (replace_string, replace_string.length);
-                search ();
+                bool matches = search ();
+                update_replace_tool_sensitivities (search_entry.text, matches);
                 update_tool_arrows (search_entry.text);
                 debug ("Replace \"%s\" with \"%s\"", search_entry.text, replace_entry.text);
             }
@@ -210,6 +213,7 @@ namespace Scratch.Widgets {
                 text_buffer.insert_at_cursor (replace_string, replace_string.length);
             }
             update_tool_arrows (search_entry.text);
+            update_replace_tool_sensitivities (search_entry.text, false);
         }
 
         public void set_search_string (string to_search) {
@@ -217,8 +221,14 @@ namespace Scratch.Widgets {
         }
 
         void on_search_entry_text_changed () {
-            search ();
+            bool matches = search ();
+            update_replace_tool_sensitivities (search_entry.text, matches);
             update_tool_arrows (search_entry.text);
+        }
+
+        void update_replace_tool_sensitivities (string search_text, bool matches) {
+            replace_tool_button.sensitive = matches && search_text != "";
+            replace_all_tool_button.sensitive = matches && search_text != "";
         }
 
         bool on_search_entry_focused_in (Gdk.EventFocus event) {           
