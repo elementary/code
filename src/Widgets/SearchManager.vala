@@ -207,11 +207,13 @@ namespace Scratch.Widgets {
                 warning ("No valid buffer to replace");
                 return;
             }
+            text_buffer.begin_user_action ();
             while (search ()) {
                 string replace_string = replace_entry.text;
                 text_buffer.delete_selection (true, true);
                 text_buffer.insert_at_cursor (replace_string, replace_string.length);
             }
+            text_buffer.end_user_action ();
             update_tool_arrows (search_entry.text);
             update_replace_tool_sensitivities (search_entry.text, false);
         }
