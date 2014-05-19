@@ -198,10 +198,13 @@ namespace Scratch.Widgets {
                 warning ("No valid buffer to replace");
                 return;
             }
-            if (search ()) {
+            Gtk.TextIter? start_iter, end_iter;
+            text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
+
+            if (search_for_iter (start_iter, out end_iter)) {
                 string replace_string = replace_entry.text;
-                text_buffer.delete_selection (true, true);
-                text_buffer.insert_at_cursor (replace_string, replace_string.length);
+                search_context.replace (start_iter, end_iter,
+                                        replace_string, replace_string.length);
                 bool matches = search ();
                 update_replace_tool_sensitivities (search_entry.text, matches);
                 update_tool_arrows (search_entry.text);
@@ -214,13 +217,9 @@ namespace Scratch.Widgets {
                 warning ("No valid buffer to replace");
                 return;
             }
-            text_buffer.begin_user_action ();
-            while (search ()) {
-                string replace_string = replace_entry.text;
-                text_buffer.delete_selection (true, true);
-                text_buffer.insert_at_cursor (replace_string, replace_string.length);
-            }
-            text_buffer.end_user_action ();
+            string replace_string = replace_entry.text;
+
+            search_context.replace_all (replace_string, replace_string.length);
             update_tool_arrows (search_entry.text);
             update_replace_tool_sensitivities (search_entry.text, false);
         }
