@@ -39,6 +39,7 @@ namespace Scratch.Widgets {
 
         private Scratch.Widgets.SourceView? text_view = null;
         private Gtk.TextBuffer? text_buffer = null;
+        private Gtk.SourceSearchContext search_context = null;
 
         /* The normal color for GtkEntry, used when we put the text in red
          * (when something is not found), and/or we want to re-put the normal
@@ -161,7 +162,14 @@ namespace Scratch.Widgets {
                 
             this.text_view = text_view;
             this.text_buffer = text_view.get_buffer ();
-            
+            this.search_context = new Gtk.SourceSearchContext (text_buffer as Gtk.SourceBuffer, null);
+            search_context.settings.wrap_around = true;
+            search_context.settings.regex_enabled = false;
+            search_context.settings.case_sensitive = false;
+            search_context.notify["occurrences-count"].connect ((context, property) => {
+                info ("%d occurrences found", (context as Gtk.SourceSearchContext).occurrences_count);
+            });
+
             // Determine the search entry color
             bool found = (search_entry.text != "" && search_entry.text in this.text_buffer.text);
             if (found) {
@@ -223,6 +231,7 @@ namespace Scratch.Widgets {
         }
 
         void on_search_entry_text_changed () {
+            search_context.settings.search_text = search_entry.text;
             bool matches = search ();
             update_replace_tool_sensitivities (search_entry.text, matches);
             update_tool_arrows (search_entry.text);
@@ -287,32 +296,11 @@ namespace Scratch.Widgets {
         }
 
         public void highlight_none () {
-            Gtk.TextIter start, end_of_file;
-
-            text_buffer.get_start_iter (out start);
-            text_buffer.get_end_iter (out end_of_file);
-
-            text_buffer.remove_tag_by_name ("highlight_search_all", start, end_of_file);
+            search_context.highlight = false;
         }
 
         bool highlight_all (string search_string) {
-            Gtk.TextIter start, end, end_of_file;
-
-            text_buffer.get_start_iter (out start);
-            text_buffer.get_end_iter (out end_of_file);
-            end = start;
-
-            bool case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
-
-            text_buffer.remove_tag_by_name ("highlight_search_all", start, end_of_file);
-            while (start.forward_search (search_string, 
-                                         case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
-                                         out start, out end, null)) {
-                text_buffer.apply_tag_by_name ("highlight_search_all", start, end);                 
-                int offset = end.get_offset ();
-                text_buffer.get_iter_at_offset (out start, offset);
-            }
-
+            search_context.highlight = true;
             return true;
         }
 
