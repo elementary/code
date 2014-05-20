@@ -22,6 +22,9 @@ namespace Scratch.Widgets {
 
     public class SearchManager : Gtk.Toolbar {
 
+        // Parent window
+        private weak MainWindow window;
+
         private Gtk.ToolItem tool_search_entry;
         private Gtk.ToolItem tool_replace_entry;
         private Gtk.ToolItem tool_go_to_label;
@@ -61,9 +64,10 @@ namespace Scratch.Widgets {
          *
          * following actions : Fetch, ShowGoTo, ShowRreplace, or null.
          **/
-        public SearchManager () {            
+        public SearchManager (MainWindow window) {            
             // Main entries
             // Search entry
+            this.window = window;
             search_entry = new Granite.Widgets.SearchBar (_("Find"));
             search_entry.width_request = 250;
             
@@ -218,10 +222,18 @@ namespace Scratch.Widgets {
                 return;
             }
             string replace_string = replace_entry.text;
-
-            search_context.replace_all (replace_string, replace_string.length);
+            // temporarily disable all textbuffer changed signal handlers
+            this.text_buffer.changed.disconnect (on_text_buffer_changed);
+            this.window.get_current_document ().toggle_changed_handlers (false);
+            var replaced = search_context.replace_all (replace_string, replace_string.length);
             update_tool_arrows (search_entry.text);
             update_replace_tool_sensitivities (search_entry.text, false);
+            // reenable all disabled buffer changed signal handlers
+            this.text_buffer.changed.connect (on_text_buffer_changed);
+            this.window.get_current_document ().toggle_changed_handlers (true);
+            // notify the buffer of the change after replace all
+            if (replaced > 0)
+                this.text_buffer.changed ();
         }
 
         public void set_search_string (string to_search) {

@@ -92,6 +92,37 @@ namespace Scratch.Services {
 
         }
 
+        public void toggle_changed_handlers (bool enabled) {
+            if (onchange_handler_id == 0)
+                return;
+            if (enabled) {
+                onchange_handler_id = this.source_view.buffer.changed.connect (() => {
+                    this.source_view.buffer.disconnect(onchange_handler_id);
+                    // Signals for SourceView
+                    uint timeout_saving = -1;
+                    this.source_view.buffer.changed.connect (() => {
+                        check_undoable_actions ();
+                        // Save if autosave is ON
+                        if (settings.autosave) {
+                            if (timeout_saving >= 0) {
+                                Source.remove (timeout_saving);
+                                timeout_saving = -1;
+                            }
+                            timeout_saving = Timeout.add (3000, () => {
+                                save ();
+                                timeout_saving = -1;
+                                return false;
+                            });
+                        }
+                        else
+                            this.set_saved_status (false);
+                     });
+                });
+            } else {
+                this.source_view.buffer.disconnect(onchange_handler_id);
+            }
+        }
+
         public async bool open () {
             this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
             if (file == null) {
@@ -145,28 +176,7 @@ namespace Scratch.Services {
             this.working = true;
             message ("Opening \"%s\"", get_basename ());
 
-            onchange_handler_id = this.source_view.buffer.changed.connect (() => {
-                this.source_view.buffer.disconnect(onchange_handler_id);
-                // Signals for SourceView
-                uint timeout_saving = -1;
-                this.source_view.buffer.changed.connect (() => {
-                    check_undoable_actions ();
-                    // Save if autosave is ON
-                    if (settings.autosave) {
-                        if (timeout_saving >= 0) {
-                            Source.remove (timeout_saving);
-                            timeout_saving = -1;
-                        }
-                        timeout_saving = Timeout.add (3000, () => {
-                            save ();
-                            timeout_saving = -1;
-                            return false;
-                        });
-                    }
-                    else
-                        this.set_saved_status (false);
-                 });
-            });
+            toggle_changed_handlers (true);
 
             // Focus in event for SourceView
             this.source_view.focus_in_event.connect (() => {
