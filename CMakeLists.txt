@@ -73,7 +73,7 @@ pkg_check_modules (GTK+ REQUIRED
 
 pkg_check_modules (LIBSOURCE REQUIRED
   libpeas-gtk-1.0
-  gtksourceview-3.0>=3.0
+  gtksourceview-3.0>=3.10
   gthread-2.0)
 
 pkg_check_modules (DEPS REQUIRED ${SCRATCH_DEPS})
