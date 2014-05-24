@@ -255,9 +255,7 @@ namespace Scratch.Services {
                 dialog.destroy ();
             }
 
-            if (file != null) {
-                // Save the changes that were not saved during typing breaks
-                save ();
+            if (file != null && ret_value) {
                 // Delete backup copy file
                 delete_backup ();
 #if HAVE_ZEITGEIST
