@@ -190,16 +190,9 @@ namespace Scratch.Plugins {
                 view.welcome_shown.connect (() => {
                     this.bookmark_tool_button.visible = false;
                     this.bookmark_tool_button.no_show_all = true;
-                    int i = -1;
-                    bool found = false;
-                    while (i<this.side_notebook.get_n_pages () && !found) {
-                        i++;
-                        if (this.side_notebook.get_nth_page (i) == this.view) {
-                            found = true;
-                        }
-                    }
-                    if (found) {
-                        this.side_notebook.remove_page (i);
+                    int current_page = this.side_notebook.get_current_page ();
+                    if (this.side_notebook.get_nth_page (current_page) == this.view) {
+                        this.side_notebook.remove_page (current_page);
                     }
                 });
                 view.welcome_hidden.connect (() => {
