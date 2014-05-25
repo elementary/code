@@ -154,6 +154,7 @@ namespace Scratch.Plugins {
         Gtk.ToolButton? new_button = null;
         Gtk.ToolButton? bookmark_tool_button = null;
         Gtk.Notebook scratch_notebook;
+        Gtk.Notebook side_notebook;
         Granite.Widgets.SourceList view;
         Granite.Widgets.SourceList.ExpandableItem category_files;
         Granite.Widgets.SourceList.ExpandableItem category_project;
@@ -189,10 +190,15 @@ namespace Scratch.Plugins {
                 view.welcome_shown.connect (() => {
                     this.bookmark_tool_button.visible = false;
                     this.bookmark_tool_button.no_show_all = true;
+                    int current_page = this.side_notebook.get_current_page ();
+                    if (this.side_notebook.get_nth_page (current_page) == this.view) {
+                        this.side_notebook.remove_page (current_page);
+                    }
                 });
                 view.welcome_hidden.connect (() => {
                     this.bookmark_tool_button.visible = true;
                     this.bookmark_tool_button.no_show_all = false;
+                    this.side_notebook.append_page (this.view, new Gtk.Label (_("Source Tree")));
                 });
             });
             
@@ -215,7 +221,7 @@ namespace Scratch.Plugins {
         void on_hook_sidebar (Gtk.Notebook notebook) {
             if (view != null)
                 return;
-
+            side_notebook = notebook;
             view = new Granite.Widgets.SourceList ();
             view.set_sort_func ((a, b) => {
                 if (a is Folder && b is Folder)
@@ -253,7 +259,6 @@ namespace Scratch.Plugins {
                 ((Scratch.Services.Interface)object).open_file (doc.file);
             });
 
-            notebook.append_page (view, new Gtk.Label (_("Source Tree")));
         }
 
         void on_hook_document (Scratch.Services.Document doc) {
