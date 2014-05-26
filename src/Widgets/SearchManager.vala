@@ -22,6 +22,9 @@ namespace Scratch.Widgets {
 
     public class SearchManager : Gtk.Toolbar {
 
+        // Parent window
+        private weak MainWindow window;
+
         private Gtk.ToolItem tool_search_entry;
         private Gtk.ToolItem tool_replace_entry;
         private Gtk.ToolItem tool_go_to_label;
@@ -34,10 +37,12 @@ namespace Scratch.Widgets {
         public Gtk.SpinButton go_to_entry;
         private Gtk.Adjustment go_to_adj;
         
-        private Gtk.ToolButton replace_tool_button;        
+        private Gtk.ToolButton replace_tool_button;
+        private Gtk.ToolButton replace_all_tool_button;
 
         private Scratch.Widgets.SourceView? text_view = null;
         private Gtk.TextBuffer? text_buffer = null;
+        private Gtk.SourceSearchContext search_context = null;
 
         /* The normal color for GtkEntry, used when we put the text in red
          * (when something is not found), and/or we want to re-put the normal
@@ -59,9 +64,10 @@ namespace Scratch.Widgets {
          *
          * following actions : Fetch, ShowGoTo, ShowRreplace, or null.
          **/
-        public SearchManager () {            
+        public SearchManager (MainWindow window) {            
             // Main entries
             // Search entry
+            this.window = window;
             search_entry = new Granite.Widgets.SearchBar (_("Find"));
             search_entry.width_request = 250;
             
@@ -102,8 +108,12 @@ namespace Scratch.Widgets {
             tool_go_to_entry = new Gtk.ToolItem ();
             
             // Replace GtkToolButton
-            replace_tool_button = new Gtk.ToolButton.from_stock (Gtk.Stock.FIND_AND_REPLACE);
+            replace_tool_button = new Gtk.ToolButton (null, _("Replace"));
             replace_tool_button.clicked.connect (on_replace_entry_activate);
+
+            // Replace all GtkToolButton
+            replace_all_tool_button = new Gtk.ToolButton (null, _("Replace all"));
+            replace_all_tool_button.clicked.connect (on_replace_all_entry_activate);
             
             // Populate GtkToolItems
             tool_search_entry.add (search_entry);
@@ -135,11 +145,14 @@ namespace Scratch.Widgets {
             this.add (tool_arrow_up);
             this.add (tool_replace_entry);
             this.add (replace_tool_button);
+            this.add (replace_all_tool_button);
             var spacer = new Gtk.ToolItem ();
             spacer.set_expand (true);
             this.add (spacer);
             this.add (tool_go_to_label);
             this.add (tool_go_to_entry);
+
+            update_replace_tool_sensitivities (search_entry.text, false);
         }
 
         public void set_text_view (Scratch.Widgets.SourceView? text_view) {
@@ -153,7 +166,13 @@ namespace Scratch.Widgets {
                 
             this.text_view = text_view;
             this.text_buffer = text_view.get_buffer ();
-            
+            this.search_context = new Gtk.SourceSearchContext (text_buffer as Gtk.SourceBuffer, null);
+            search_context.settings.wrap_around = cycle_search;
+            search_context.settings.regex_enabled = false;
+            search_context.notify["occurrences-count"].connect ((context, property) => {
+                info ("%d occurrences found", (context as Gtk.SourceSearchContext).occurrences_count);
+            });
+
             // Determine the search entry color
             bool found = (search_entry.text != "" && search_entry.text in this.text_buffer.text);
             if (found) {
@@ -183,14 +202,38 @@ namespace Scratch.Widgets {
                 warning ("No valid buffer to replace");
                 return;
             }
-            if (search ()) {
+            Gtk.TextIter? start_iter, end_iter;
+            text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
+
+            if (search_for_iter (start_iter, out end_iter)) {
                 string replace_string = replace_entry.text;
-                text_buffer.delete_selection (true, true);
-                text_buffer.insert_at_cursor (replace_string, replace_string.length);
-                search ();
+                search_context.replace (start_iter, end_iter,
+                                        replace_string, replace_string.length);
+                bool matches = search ();
+                update_replace_tool_sensitivities (search_entry.text, matches);
                 update_tool_arrows (search_entry.text);
                 debug ("Replace \"%s\" with \"%s\"", search_entry.text, replace_entry.text);
             }
+        }
+
+        void on_replace_all_entry_activate () {
+            if (text_buffer == null) {
+                warning ("No valid buffer to replace");
+                return;
+            }
+            string replace_string = replace_entry.text;
+            // temporarily disable all textbuffer changed signal handlers
+            this.text_buffer.changed.disconnect (on_text_buffer_changed);
+            this.window.get_current_document ().toggle_changed_handlers (false);
+            var replaced = search_context.replace_all (replace_string, replace_string.length);
+            update_tool_arrows (search_entry.text);
+            update_replace_tool_sensitivities (search_entry.text, false);
+            // reenable all disabled buffer changed signal handlers
+            this.text_buffer.changed.connect (on_text_buffer_changed);
+            this.window.get_current_document ().toggle_changed_handlers (true);
+            // notify the buffer of the change after replace all
+            if (replaced > 0)
+                this.text_buffer.changed ();
         }
 
         public void set_search_string (string to_search) {
@@ -198,8 +241,19 @@ namespace Scratch.Widgets {
         }
 
         void on_search_entry_text_changed () {
-            search ();
+            var search_string = search_entry.text;
+            search_context.settings.search_text = search_string;
+            bool case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
+            search_context.settings.case_sensitive = case_sensitive;
+
+            bool matches = search ();
+            update_replace_tool_sensitivities (search_entry.text, matches);
             update_tool_arrows (search_entry.text);
+        }
+
+        void update_replace_tool_sensitivities (string search_text, bool matches) {
+            replace_tool_button.sensitive = matches && search_text != "";
+            replace_all_tool_button.sensitive = matches && search_text != "";
         }
 
         bool on_search_entry_focused_in (Gdk.EventFocus event) {           
@@ -235,12 +289,12 @@ namespace Scratch.Widgets {
             Gtk.TextIter? start_iter, end_iter;
             text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
 
-            if (search_for_iter (start_iter, out end_iter, search_string)) {
+            if (search_for_iter (start_iter, out end_iter)) {
                 search_entry.override_color (Gtk.StateFlags.FOCUSED, normal_color);
             }
             else {
                 text_buffer.get_start_iter (out start_iter);
-                if (search_for_iter (start_iter, out end_iter, search_string)) {
+                if (search_for_iter (start_iter, out end_iter)) {
                     search_entry.override_color (Gtk.StateFlags.FOCUSED, normal_color);
                 }
                 else {
@@ -256,65 +310,36 @@ namespace Scratch.Widgets {
         }
 
         public void highlight_none () {
-            Gtk.TextIter start, end_of_file;
-
-            text_buffer.get_start_iter (out start);
-            text_buffer.get_end_iter (out end_of_file);
-
-            text_buffer.remove_tag_by_name ("highlight_search_all", start, end_of_file);
+            search_context.highlight = false;
         }
 
         bool highlight_all (string search_string) {
-            Gtk.TextIter start, end, end_of_file;
-
-            text_buffer.get_start_iter (out start);
-            text_buffer.get_end_iter (out end_of_file);
-            end = start;
-
-            bool case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
-
-            text_buffer.remove_tag_by_name ("highlight_search_all", start, end_of_file);
-            while (start.forward_search (search_string, 
-                                         case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
-                                         out start, out end, null)) {
-                text_buffer.apply_tag_by_name ("highlight_search_all", start, end);                 
-                int offset = end.get_offset ();
-                text_buffer.get_iter_at_offset (out start, offset);
-            }
-
+            search_context.highlight = true;
             return true;
         }
 
-        bool search_for_iter (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter, string search_string) {
+        bool search_for_iter (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
             end_iter = start_iter;
-            bool case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
-            bool found = start_iter.forward_search (search_string,
-                                                    case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
-                                                    out start_iter, out end_iter, null);
+            bool found = search_context.forward (start_iter,
+                                                 out start_iter,
+                                                 out end_iter);
             if (found) {
                 text_buffer.select_range (start_iter, end_iter);
                 text_view.scroll_to_iter (start_iter, 0, false, 0, 0);
-                return true;
             }
-            else {
-                return false;
-            }
+            return found;
         }
 
-        bool search_for_iter_backward (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter, string search_string) {
+        bool search_for_iter_backward (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
             end_iter = start_iter;
-            bool case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
-            bool found = start_iter.backward_search (search_string,
-                                                    case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
-                                                     out start_iter, out end_iter, null);
+            bool found = search_context.backward (start_iter,
+                                                  out start_iter,
+                                                  out end_iter);
             if (found) {
                 text_buffer.select_range (start_iter, end_iter);
                 text_view.scroll_to_iter (start_iter, 0, false, 0, 0);
-                return true;
             }
-            else {
-                return false;
-            }
+            return found;
         }
 
         public void search_previous () {
@@ -323,9 +348,9 @@ namespace Scratch.Widgets {
             if(text_buffer != null) {
                 string search_string = search_entry.text;
                 text_buffer.get_selection_bounds (out start_iter, out end_iter);
-                if(!search_for_iter_backward (start_iter, out end_iter, search_string) && cycle_search) {
+                if(!search_for_iter_backward (start_iter, out end_iter) && cycle_search) {
                     text_buffer.get_end_iter (out start_iter);
-                    search_for_iter_backward (start_iter, out end_iter, search_string);
+                    search_for_iter_backward (start_iter, out end_iter);
                 }
                 
                 update_tool_arrows (search_string);
@@ -338,9 +363,9 @@ namespace Scratch.Widgets {
             if(text_buffer != null) {
                 string search_string = search_entry.text;
                 text_buffer.get_selection_bounds (out start_iter, out end_iter);
-                if(!search_for_iter (end_iter, out end_iter_tmp, search_string) && cycle_search) {
+                if(!search_for_iter (end_iter, out end_iter_tmp) && cycle_search) {
                     text_buffer.get_start_iter (out start_iter);
-                    search_for_iter (start_iter, out end_iter, search_string);
+                    search_for_iter (start_iter, out end_iter);
                 }
                 
                 update_tool_arrows (search_string);
@@ -361,7 +386,6 @@ namespace Scratch.Widgets {
                     Gtk.TextIter? tmp_start_iter, tmp_end_iter;
 
                     bool is_in_start, is_in_end;
-                    bool case_sensitive = false;
 
                     text_buffer.get_start_iter (out tmp_start_iter);
                     text_buffer.get_end_iter (out tmp_end_iter);
@@ -371,22 +395,19 @@ namespace Scratch.Widgets {
                     is_in_start = start_iter.compare(tmp_start_iter) == 0;
                     is_in_end = end_iter.compare(tmp_end_iter) == 0;
 
-                    if(!is_in_start && !is_in_end)
-                        case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
-
                     if (!is_in_end) {
-                        bool next_found = end_iter.forward_search (search_string,
-                            case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
-                            out tmp_start_iter, out tmp_end_iter, null);
+                        bool next_found = search_context.forward (end_iter,
+                                                                  out tmp_start_iter,
+                                                                  out tmp_end_iter);
                         tool_arrow_up.sensitive = next_found;
                     } else {
                         tool_arrow_up.sensitive = false;
                     }
 
                     if (!is_in_start) {
-                        bool previous_found = start_iter.backward_search (search_string,
-                            case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
-                            out tmp_start_iter, out end_iter, null);
+                        bool previous_found = search_context.backward (start_iter,
+                                                                       out tmp_start_iter,
+                                                                       out end_iter);
                         tool_arrow_down.sensitive = previous_found;
                     } else {
                         tool_arrow_down.sensitive = false;
