@@ -40,6 +40,7 @@ namespace Scratch.Widgets {
         
         // Signals
         public signal void style_changed (SourceStyleScheme style);
+        public signal void language_changed (SourceLanguage language);
 
         public SourceView () {
             // Create general objects
@@ -100,7 +101,7 @@ namespace Scratch.Widgets {
             item.set_label (_("Normal Text"));
             item.toggled.connect (() => {
                 var lang = manager.get_language ("normal");
-                buffer.set_language (lang);
+                set_language (lang);
             });
 
             submenu.add (item);
@@ -118,7 +119,7 @@ namespace Scratch.Widgets {
                 submenu.add (item);
 
                 item.toggled.connect (() => {
-                    buffer.set_language (lang);
+                    set_language (lang);
                 });
                 // Active item
                 if (buffer.language != null && lang.id == buffer.language.id)
@@ -156,7 +157,7 @@ namespace Scratch.Widgets {
 
             lang = manager.guess_language (file.get_path (), mime_type);
 
-            buffer.set_language (lang);
+            set_language (lang);
 
             // Fake file type detection
             // "Not all files are equal"
@@ -164,7 +165,7 @@ namespace Scratch.Widgets {
 
             if (display_name == "CMakeLists.txt") {
                 lang = manager.get_language ("cmake");
-                buffer.set_language (lang);
+                set_language (lang);
             }
 
         }
@@ -259,6 +260,11 @@ namespace Scratch.Widgets {
                 buffer.place_cursor (start);
                 return false;
             });
+        }
+        
+        public void set_language (SourceLanguage lang) {
+            this.buffer.set_language (lang);
+            this.language_changed (lang);
         }
 
     }
