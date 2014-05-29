@@ -170,7 +170,7 @@ namespace Scratch.Widgets {
             search_context.settings.wrap_around = cycle_search;
             search_context.settings.regex_enabled = false;
             search_context.notify["occurrences-count"].connect ((context, property) => {
-                info ("%d occurrences found", (context as Gtk.SourceSearchContext).occurrences_count);
+                message ("%d occurrences found", (context as Gtk.SourceSearchContext).occurrences_count);
             });
 
             // Determine the search entry color
