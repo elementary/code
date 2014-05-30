@@ -560,7 +560,7 @@ namespace Scratch.Services {
                         string message = _("The location containing the file ") +  " \"<b>%s</b>\" ".printf (get_basename ()) +
                                          _("was unmounted. Do you want to save somewhere else?");
 
-                        set_message (Gtk.MessageType.WARNING, message, _("Save As"), () => {
+                        set_message (Gtk.MessageType.WARNING, message, _("Save As..."), () => {
                             this.save_as ();
                             hide_info_bar ();
                         });
