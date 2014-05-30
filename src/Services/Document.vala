@@ -83,6 +83,7 @@ namespace Scratch.Services {
 
         // Mount state of the file
         private bool mounted = true;
+        private Mount mount;
 
         public Document (Gtk.ActionGroup actions, File? file = null) {
             this.main_actions = actions;
@@ -288,7 +289,7 @@ namespace Scratch.Services {
             // Show save as dialog if file is null
             if (this.file == null)
                 return this.save_as ();
-            
+
             // Replace old content with the new one
             try {
                 string s;
@@ -327,6 +328,9 @@ namespace Scratch.Services {
                 filech.destroy ();
                 return false;
             }
+
+            // reset the last saved content
+            last_saved_content = null;
 
             save ();
 
@@ -702,17 +706,25 @@ namespace Scratch.Services {
                 mounted = true;
                 return;
             }
+
+            if (mount != null) {
+                mount.unmounted.disconnect (unmounted_cb);
+                mount = null;
+            }
+
             try {
-                var mount = file.find_enclosing_mount ();
-                mount.unmounted.connect (() => {
-                    warning ("Folder containing the file was unmounted");
-                    mounted = false;
-                });
+                mount = file.find_enclosing_mount ();
+                mount.unmounted.connect (unmounted_cb);
             } catch (Error e) {
                 debug ("Could not find mount location");
                 return;
             }
             mounted = true;
+        }
+
+        private void unmounted_cb () {
+            warning ("Folder containing the file was unmounted");
+            mounted = false;
         }
     }
 }
