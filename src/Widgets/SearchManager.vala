@@ -169,9 +169,6 @@ namespace Scratch.Widgets {
             this.search_context = new Gtk.SourceSearchContext (text_buffer as Gtk.SourceBuffer, null);
             search_context.settings.wrap_around = cycle_search;
             search_context.settings.regex_enabled = false;
-            search_context.notify["occurrences-count"].connect ((context, property) => {
-                message ("%d occurrences found", (context as Gtk.SourceSearchContext).occurrences_count);
-            });
 
             // Determine the search entry color
             bool found = (search_entry.text != "" && search_entry.text in this.text_buffer.text);
