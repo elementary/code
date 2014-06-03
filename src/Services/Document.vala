@@ -93,13 +93,14 @@ namespace Scratch.Services {
         }
 
         public void toggle_changed_handlers (bool enabled) {
-            if (onchange_handler_id == 0)
-                return;
             if (enabled) {
                 onchange_handler_id = this.source_view.buffer.changed.connect (() => {
-                    this.source_view.buffer.disconnect(onchange_handler_id);
+                    if (onchange_handler_id != 0) {
+                        this.source_view.buffer.disconnect(onchange_handler_id);
+                    }
                     // Signals for SourceView
                     uint timeout_saving = -1;
+                    check_undoable_actions ();
                     this.source_view.buffer.changed.connect (() => {
                         check_undoable_actions ();
                         // Save if autosave is ON
@@ -118,7 +119,7 @@ namespace Scratch.Services {
                             this.set_saved_status (false);
                      });
                 });
-            } else {
+            } else if (onchange_handler_id != 0) {
                 this.source_view.buffer.disconnect(onchange_handler_id);
             }
         }
