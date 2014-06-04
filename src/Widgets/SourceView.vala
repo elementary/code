@@ -73,10 +73,6 @@ namespace Scratch.Widgets {
             // Settings
             restore_settings ();
             settings.changed.connect (restore_settings);
-            style_changed.connect ((style) => {
-                bool dark_source_style = "dark" in style.get_name ().down ();
-                Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = dark_source_style;
-            });
         }
 
         ~SourceView () {

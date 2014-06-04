@@ -21,7 +21,6 @@ public const string NAME = N_("Source Tree");
 public const string DESCRIPTION = N_("Have a look at your sources organized in a nice tree");
 
 const bool HIDE_TOOLBAR = true;
-const bool DARK_THEME = true;
 
 Scratch.Services.Interface scratch_interface;
 
@@ -165,9 +164,6 @@ namespace Scratch.Plugins {
         bool my_select = false;
 
         public void activate () {
-            if (DARK_THEME)
-                Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
-            
             plugins = (Scratch.Services.Interface) object;
             plugins.hook_notebook_sidebar.connect (on_hook_sidebar);
             plugins.hook_document.connect (on_hook_document);
