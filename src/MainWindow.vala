@@ -211,7 +211,10 @@ namespace Scratch {
             hp2 = new Granite.Widgets.ThinPaned ();
             vp = new Granite.Widgets.ThinPaned ();
             vp.orientation = Orientation.VERTICAL;
-            
+
+            var content = new Gtk.Box (Orientation.VERTICAL, 0);
+            content.pack_start (search_revealer, false, true, 0);            
+            content.pack_start (split_view, true, true, 0);            
             // Set a proper position for ThinPaned widgets
             int width, height;
             this.get_size (out width, out height);
@@ -221,14 +224,13 @@ namespace Scratch {
             vp.position = (height - 150);
 
             hp1.pack1 (sidebar, false, false);
-            hp1.pack2 (split_view, true, false);
+            hp1.pack2 (content, true, false);
             hp2.pack1 (hp1, true, false);
             hp2.pack2 (contextbar, false, false);
             vp.pack1 (hp2, true, false);
             vp.pack2 (bottombar, false, false);
 
             // Add everything to the window
-            main_box.pack_start (search_revealer, false, true, 0);
             main_box.pack_start (loading_view, true, true, 0);
             main_box.pack_start (vp, false, true, 0);
             this.add (main_box);
