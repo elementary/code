@@ -36,7 +36,11 @@ namespace Scratch {
 
         // Widgets
         public Scratch.Widgets.Toolbar toolbar;
+        public Scratch.Widgets.Toolbar fullscreen_toolbar;
+        private Gtk.Overlay overlay;
+        private Gtk.EventBox fullscreen_eventbox;
         private Gtk.Revealer search_revealer;
+        private Gtk.Revealer fullscreen_revealer;
         public Scratch.Widgets.SearchManager search_manager;
         public Scratch.Widgets.LoadingView loading_view;
         public Scratch.Widgets.SplitView split_view;
@@ -147,6 +151,19 @@ namespace Scratch {
             toolbar.menu = ui.get_widget ("ui/AppMenu") as Gtk.Menu;
             var app_menu = (app as Granite.Application).create_appmenu (toolbar.menu);
             toolbar.pack_end (app_menu);
+            
+            //Fullscreen Toolbar
+            this.fullscreen_toolbar = new Scratch.Widgets.Toolbar (main_actions);
+            this.fullscreen_revealer = new Gtk.Revealer ();
+            fullscreen_revealer.set_can_focus (false);
+            fullscreen_revealer.set_reveal_child (false);
+            fullscreen_revealer.set_valign (Gtk.Align.START);
+            this.overlay = new Gtk.Overlay ();
+            this.fullscreen_eventbox = new Gtk.EventBox ();
+            this.fullscreen_eventbox.set_size_request (-1, 1);
+            this.fullscreen_eventbox.set_can_focus (false);
+            fullscreen_eventbox.set_valign (Gtk.Align.START);
+            this.fullscreen_eventbox.add (this.fullscreen_revealer);
 
             // SearchManager
             this.search_revealer = new Gtk.Revealer ();
@@ -190,6 +207,14 @@ namespace Scratch {
                 main_actions.get_action ("SaveFile").visible = (!settings.autosave || doc.file == null);
                 doc.check_undoable_actions ();
             });
+            this.fullscreen_eventbox.enter_notify_event.connect (()=>{
+                this.fullscreen_revealer.set_reveal_child (true);
+                return false;
+            });
+            this.fullscreen_eventbox.leave_notify_event.connect (()=>{
+                this.fullscreen_revealer.set_reveal_child (false);
+                return false;
+            });
 
             // Plugins widgets
             this.sidebar = new Gtk.Notebook ();
@@ -231,11 +256,14 @@ namespace Scratch {
             main_box.pack_start (search_revealer, false, true, 0);
             main_box.pack_start (loading_view, true, true, 0);
             main_box.pack_start (vp, false, true, 0);
-            this.add (main_box);
+            overlay.add (main_box);
+            overlay.add_overlay (fullscreen_eventbox);
+            this.add (this.overlay);
 
             // Show/Hide widgets
             show_all ();
-
+            
+            this.fullscreen_revealer.set_reveal_child (false);
             this.search_revealer.set_reveal_child (false);
             
             main_actions.get_action ("SaveFile").visible = !settings.autosave;
@@ -250,7 +278,7 @@ namespace Scratch {
             // Plugins hook
             HookFunc hook_func = () => {
                 plugins.hook_window (this);
-                plugins.hook_toolbar (this.toolbar);
+                //plugins.hook_toolbar (this.toolbar);
                 plugins.hook_main_menu (this.toolbar.menu);
                 plugins.hook_share_menu (this.toolbar.share_menu);
                 plugins.hook_notebook_sidebar (this.sidebar);
@@ -401,7 +429,7 @@ namespace Scratch {
             if (Scratch.saved_state.window_state == ScratchWindowState.MAXIMIZED)
                 maximize ();
             else if (Scratch.saved_state.window_state == ScratchWindowState.FULLSCREEN)
-                fullscreen ();
+                action_fullscreen ();
             else
                 this.move (Scratch.saved_state.window_x, Scratch.saved_state.window_y);
         }
@@ -497,7 +525,7 @@ namespace Scratch {
 
         void action_open () {
             // Show a GtkFileChooserDialog
-            var filech = Utils.new_file_chooser_dialog (FileChooserAction.OPEN, _("Open some files"), true);
+            var filech = Utils.new_file_chooser_dialog (FileChooserAction.OPEN, _("Open some files"), this, true);
 
             if (filech.run () == ResponseType.ACCEPT) {
                 foreach (string uri in filech.get_uris ()) {
@@ -556,9 +584,17 @@ namespace Scratch {
 
         void action_fullscreen () {
             if ((get_window ().get_state () & WindowState.FULLSCREEN) != 0) {
+                this.fullscreen_eventbox.hide ();
+                this.fullscreen_revealer.remove (this.toolbar);
+                this.toolbar.set_show_close_button (true);
+                this.set_titlebar (this.toolbar);
                 this.unfullscreen ();
             }
             else {
+                this.toolbar.set_show_close_button (false);
+                this.set_titlebar (fullscreen_toolbar);
+                this.fullscreen_revealer.add (this.toolbar);
+                this.fullscreen_eventbox.show ();
                 this.fullscreen ();
             }
         }

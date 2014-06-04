@@ -23,8 +23,8 @@ namespace Scratch.Utils {
     public string? last_path = null;
     
     // Create a GtkFileChooserDialog to perform the action desired
-    public Gtk.FileChooserDialog new_file_chooser_dialog (Gtk.FileChooserAction action, string title, bool select_multiple = false) {
-        var filech = new Gtk.FileChooserDialog (title, null, action);
+    public Gtk.FileChooserDialog new_file_chooser_dialog (Gtk.FileChooserAction action, string title, Gtk.Window? parent, bool select_multiple = false) {
+        var filech = new Gtk.FileChooserDialog (title, parent, action);
         filech.set_select_multiple (select_multiple);
         filech.add_button (Gtk.Stock.CANCEL, Gtk.ResponseType.CANCEL);
         if (action == Gtk.FileChooserAction.OPEN)
