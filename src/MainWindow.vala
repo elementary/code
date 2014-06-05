@@ -440,7 +440,7 @@ namespace Scratch {
             hp2.set_position (Scratch.saved_state.hp2_size);
             vp.set_position (Scratch.saved_state.vp_size);
             
-            if ((get_window ().get_state () & WindowState.FULLSCREEN) != 0) {//this doesnt work need help
+            if ((get_window ().get_state () & WindowState.FULLSCREEN) != 0) {
                 prepare_fullscreen_toolbar ();
                 this.fullscreen_eventbox.show ();
             }
@@ -451,7 +451,7 @@ namespace Scratch {
             // Save window state
             if (get_window ().get_state () == WindowState.MAXIMIZED)
                 Scratch.saved_state.window_state = ScratchWindowState.MAXIMIZED;
-            else if (get_window ().get_state () == WindowState.FULLSCREEN)
+            else if ((get_window ().get_state () & WindowState.FULLSCREEN)!=0)
                 Scratch.saved_state.window_state = ScratchWindowState.FULLSCREEN;
             else
                 Scratch.saved_state.window_state = ScratchWindowState.NORMAL;
