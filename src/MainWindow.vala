@@ -278,7 +278,7 @@ namespace Scratch {
             // Plugins hook
             HookFunc hook_func = () => {
                 plugins.hook_window (this);
-                //plugins.hook_toolbar (this.toolbar);
+                plugins.hook_toolbar (this.toolbar);
                 plugins.hook_main_menu (this.toolbar.menu);
                 plugins.hook_share_menu (this.toolbar.share_menu);
                 plugins.hook_notebook_sidebar (this.sidebar);
