@@ -156,7 +156,6 @@ namespace Scratch {
             this.fullscreen_toolbar = new Scratch.Widgets.Toolbar (main_actions);
             this.fullscreen_revealer = new Gtk.Revealer ();
             fullscreen_revealer.set_can_focus (false);
-            fullscreen_revealer.set_reveal_child (false);
             fullscreen_revealer.set_valign (Gtk.Align.START);
             this.overlay = new Gtk.Overlay ();
             this.fullscreen_eventbox = new Gtk.EventBox ();
@@ -429,7 +428,7 @@ namespace Scratch {
             if (Scratch.saved_state.window_state == ScratchWindowState.MAXIMIZED)
                 maximize ();
             else if (Scratch.saved_state.window_state == ScratchWindowState.FULLSCREEN)
-                action_fullscreen ();
+                fullscreen ();
             else
                 this.move (Scratch.saved_state.window_x, Scratch.saved_state.window_y);
         }
@@ -440,6 +439,11 @@ namespace Scratch {
             hp1.set_position (Scratch.saved_state.hp1_size);
             hp2.set_position (Scratch.saved_state.hp2_size);
             vp.set_position (Scratch.saved_state.vp_size);
+            
+            if ((get_window ().get_state () & WindowState.FULLSCREEN) != 0) {//this doesnt work need help
+                prepare_fullscreen_toolbar ();
+                this.fullscreen_eventbox.show ();
+            }
         }
 
         private void update_saved_state () {
@@ -470,6 +474,20 @@ namespace Scratch {
             Scratch.saved_state.hp1_size = hp1.get_position ();
             Scratch.saved_state.hp2_size = hp2.get_position ();
             Scratch.saved_state.vp_size = vp.get_position ();
+        }
+        
+        //move this.toolbar from fullscrean revaler to the windows titlebar
+        void prepare_toolbar () {
+            this.fullscreen_revealer.remove (this.toolbar);
+            this.toolbar.set_show_close_button (true);
+            this.set_titlebar (this.toolbar);
+        }
+        
+        //move this.toolbar from windows titlebar to the fullscreen revealer
+        void prepare_fullscreen_toolbar (){
+            this.toolbar.set_show_close_button (false);
+            this.set_titlebar (fullscreen_toolbar);
+            this.fullscreen_revealer.add (this.toolbar);
         }
 
         // Update files-opened settings key
@@ -585,15 +603,11 @@ namespace Scratch {
         void action_fullscreen () {
             if ((get_window ().get_state () & WindowState.FULLSCREEN) != 0) {
                 this.fullscreen_eventbox.hide ();
-                this.fullscreen_revealer.remove (this.toolbar);
-                this.toolbar.set_show_close_button (true);
-                this.set_titlebar (this.toolbar);
+                prepare_toolbar ();
                 this.unfullscreen ();
             }
             else {
-                this.toolbar.set_show_close_button (false);
-                this.set_titlebar (fullscreen_toolbar);
-                this.fullscreen_revealer.add (this.toolbar);
+                prepare_fullscreen_toolbar ();
                 this.fullscreen_eventbox.show ();
                 this.fullscreen ();
             }
