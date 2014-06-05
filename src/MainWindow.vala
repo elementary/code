@@ -484,7 +484,7 @@ namespace Scratch {
         }
         
         //move this.toolbar from windows titlebar to the fullscreen revealer
-        void prepare_fullscreen_toolbar (){
+        void prepare_fullscreen_toolbar () {
             this.toolbar.set_show_close_button (false);
             this.set_titlebar (fullscreen_toolbar);
             this.fullscreen_revealer.add (this.toolbar);
