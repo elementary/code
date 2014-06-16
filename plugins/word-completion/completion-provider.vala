@@ -18,16 +18,24 @@
  *
  */
 
-using Gtk;
-
-public class CompletionProvider : Gtk.SourceCompletionProvider, Object {
-    
-    static const unichar[] stoppers = {' ', '\n', '(', ';', '}', '{', '.'};
-    TextMark completion_mark; /* The mark at which the proposals were generated */
-    
-    Gdk.Pixbuf icon;
+public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, Object {
     public string name;
     public int priority;
+
+    private Gdk.Pixbuf icon;
+    private Gtk.TextMark completion_mark;
+    private Gtk.TextView? view;
+    private Gtk.TextBuffer? buffer;
+    private Euclide.Completion.Parser parser;
+    private bool proposals_found = false;
+
+    public signal void can_propose (bool b);
+
+    public CompletionProvider (Scratch.Plugins.Completion completion) {
+        this.view = completion.current_view as Gtk.TextView;
+        this.buffer = completion.current_view.buffer;
+        this.parser = completion.parser;
+    }
 
     public string get_name () {
         return this.name;
@@ -40,22 +48,17 @@ public class CompletionProvider : Gtk.SourceCompletionProvider, Object {
     public bool match (Gtk.SourceCompletionContext context) {
         return true;
     }
-    
-    public void populate (Gtk.SourceCompletionContext context) {        
-        var file_props = get_file_proposals ();
-        
-        /* Get current line */
-        completion_mark = current_buffer.get_insert ();
-        TextIter iter;
-        current_buffer.get_iter_at_mark (out iter, completion_mark);
-        var line = iter.get_line () + 1;
 
-        TextIter iter_start;
-        current_buffer.get_iter_at_line (out iter_start, line - 1);
-        
-        // Proposal itself        
-        if (file_props != null)
+    public void populate (Gtk.SourceCompletionContext context) {
+        GLib.List<Gtk.SourceCompletionItem>? file_props = get_file_proposals ();
+        /*Store current insertion point for use in activate_proposal */
+        completion_mark = buffer.get_insert ();
+
+        if (proposals_found)
             context.add_proposals (this, file_props, true);
+
+        /* Signal to plugin that proposals are available*/
+        can_propose (proposals_found);
     }
 
     public unowned Gdk.Pixbuf? get_icon () {
@@ -72,19 +75,24 @@ public class CompletionProvider : Gtk.SourceCompletionProvider, Object {
 
     public bool activate_proposal (Gtk.SourceCompletionProposal proposal,
                                    Gtk.TextIter iter) {
+        if (!proposals_found) {
+            return false;
+        }
 
-        // Count backward from completion_mark instead of iter (avoids wrong insertion if the user is typing fast) 
-        TextIter start;
-        current_buffer.get_iter_at_mark (out start, completion_mark);
-        
+        /* Count backward from completion_mark instead of iter
+         * (avoids wrong insertion if the user is typing fast) */
+        Gtk.TextIter start;
+        buffer.get_iter_at_mark (out start, completion_mark);
+
         bool match = start.backward_find_char ((c) => {
-            return c in Euclide.Completion.Parser.stoppers;
+            return parser.is_delimiter (c);
         }, null);
+
         if (match)
             start.forward_cursor_position ();
-        
-        current_buffer.delete (ref start, ref iter);
-        current_buffer.insert (ref start, proposal.get_text (), proposal.get_text ().length);
+
+        buffer.@delete (ref start, ref iter);
+        buffer.insert (ref start, proposal.get_text (), proposal.get_text ().length);
         return true;
     }
 
@@ -93,65 +101,62 @@ public class CompletionProvider : Gtk.SourceCompletionProvider, Object {
                Gtk.SourceCompletionActivation.USER_REQUESTED;
     }
 
-    Box box_info_frame = new Box (Orientation.VERTICAL, 0);
     public unowned Gtk.Widget? get_info_widget (Gtk.SourceCompletionProposal proposal) {
-        return box_info_frame;
+        /* As no additional info is provided no widget is needed */
+        return null;
     }
 
     public int get_interactive_delay () {
+        /* Use default delay (250 milliseconds) */
         return -1;
     }
 
-    public bool get_start_it (Gtk.SourceCompletionContext context,
+    public bool get_start_iter (Gtk.SourceCompletionContext context,
                                 Gtk.SourceCompletionProposal proposal,
                                 Gtk.TextIter iter) {
-        var mark = current_buffer.get_insert ();
-        TextIter cursor_iter;
-        current_buffer.get_iter_at_mark (out cursor_iter, mark);
-        
+        var mark = buffer.get_insert ();
+        Gtk.TextIter cursor_iter;
+        buffer.get_iter_at_mark (out cursor_iter, mark);
+
         iter = cursor_iter;
         iter.backward_word_start ();
         return true;
     }
 
     public void update_info (Gtk.SourceCompletionProposal proposal, Gtk.SourceCompletionInfo info) {
+        /* No additional info provided on proposals */
         return;
     }
-    
-    public GLib.List<Gtk.SourceCompletionItem>? get_file_proposals () {
-        /* Compute the string we want compute */
+
+    private GLib.List<Gtk.SourceCompletionItem>? get_file_proposals () {
         string to_find = "";
-        string last_to_find;
         Gtk.TextIter iter;
-        Gtk.TextBuffer buffer = current_buffer;
-        buffer.get_iter_at_offset (out iter, buffer.cursor_position);
+        Gtk.TextBuffer temp_buffer = buffer;
+        /* Find start of current word */
+        temp_buffer.get_iter_at_offset (out iter, buffer.cursor_position);
         iter.backward_find_char ((c) => {
-            bool valid = c in stoppers;
+            bool valid = parser.is_delimiter (c);
             if (!valid)
                 to_find += c.to_string ();
             return valid;
         }, null);
 
-        to_find = to_find.reverse ();
-        last_to_find = to_find;
-
-            
-        if (to_find == "")
+        if (to_find.length < Euclide.Completion.Parser.MINIMUM_WORD_LENGTH)
             return null;
-            
-        var props = new GLib.List<Gtk.SourceCompletionItem> ();
-        
-        foreach (var word in parser.get_for_word (to_find)) {
-            GLib.debug (word);
-            var item = new Gtk.SourceCompletionItem (word,
-                                                    word,
-                                                    null,
-                                                    null);
-            props.append (item);
+
+        /* Get proposals, if any */
+        var props = new GLib.List<Gtk.SourceCompletionItem> () ;
+        var prop_word_list = new GLib.List<string> ();
+        proposals_found = parser.get_for_word (to_find.reverse (), out prop_word_list);
+        if (proposals_found) {
+            foreach (var word in prop_word_list) {
+                var item = new Gtk.SourceCompletionItem (word,
+                                                        word,
+                                                        null,
+                                                        null);
+                props.prepend (item);
+            }
         }
-            
-        current_view.grab_focus ();
-        
         return props;
     }
 }
