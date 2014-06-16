@@ -44,7 +44,7 @@ namespace Scratch.Widgets {
         
         // Consts        
         // Pause after end user highlighting to confirm select,in ms
-        private const uint SELECTION_CHANGED_PAUSE = 550; 
+        private const uint SELECTION_CHANGED_PAUSE = 400; 
         
         
         // Signals
@@ -281,17 +281,19 @@ namespace Scratch.Widgets {
             TextIter start, end;
             bool selected = this.buffer.get_selection_bounds (out start,out end);
             
-            // We didn't change
             if(start == last_select_start_iter && end == last_select_end_iter)
                 return;
-                
-            deselected();                       
+                                                
             if( selection_changed_timer!=0 &&
                 MainContext.get_thread_default().find_source_by_id(selection_changed_timer)!=null)
                 Source.remove (selection_changed_timer);
             
+            //fire deselected immediatly
+            if(!this.buffer.get_has_selection())
+                deselected();
             // Don't fire signal till we think select movement is done
-            selection_changed_timer = Timeout.add (SELECTION_CHANGED_PAUSE, selection_changed_event);
+            else
+                selection_changed_timer = Timeout.add (SELECTION_CHANGED_PAUSE, selection_changed_event);
             
         }
         
@@ -300,9 +302,9 @@ namespace Scratch.Widgets {
             TextIter start, end;
             bool selected = this.buffer.get_selection_bounds (out start,out end);
             if(selected)
-            {
-                selection_changed(start,end);   
-            }                           
+                selection_changed(start,end);        
+            else
+                deselected();                    
             return false;
         }
 
