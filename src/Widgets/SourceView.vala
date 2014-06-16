@@ -37,10 +37,21 @@ namespace Scratch.Widgets {
 
         // Properties
         private string font;
+        private uint selection_changed_timer = 0;
+        private TextIter last_select_start_iter;
+        private TextIter last_select_end_iter;
+        
+        
+        // Consts        
+        // Pause after end user highlighting to confirm select,in ms
+        private const uint SELECTION_CHANGED_PAUSE = 550; 
+        
         
         // Signals
         public signal void style_changed (SourceStyleScheme style);
         public signal void language_changed (SourceLanguage language);
+        public signal void selection_changed (TextIter start_iter,TextIter end_iter);
+        public signal void deselected ();
 
         public SourceView () {
             // Create general objects
@@ -53,7 +64,7 @@ namespace Scratch.Widgets {
             // Set some settings
             buffer.highlight_syntax = true;
             smart_home_end = SourceSmartHomeEndType.AFTER;
-
+            buffer.mark_set.connect(on_mark_set);
             // Create common tags
             this.warning_tag = new Gtk.TextTag ("warning_bg");
             this.warning_tag.background_rgba = Gdk.RGBA() { red = 1.0, green = 1.0, blue = 0, alpha = 0.8 };
@@ -261,6 +272,38 @@ namespace Scratch.Widgets {
         public void set_language (SourceLanguage lang) {
             this.buffer.set_language (lang);
             this.language_changed (lang);
+        }
+        
+        
+        void on_mark_set(TextIter loc,TextMark mar)
+        {
+            // Weed out user movement for text selection changes
+            TextIter start, end;
+            bool selected = this.buffer.get_selection_bounds (out start,out end);
+            
+            // We didn't change
+            if(start == last_select_start_iter && end == last_select_end_iter)
+                return;
+                
+            deselected();                       
+            if( selection_changed_timer!=0 &&
+                MainContext.get_thread_default().find_source_by_id(selection_changed_timer)!=null)
+                Source.remove (selection_changed_timer);
+            
+            // Don't fire signal till we think select movement is done
+            selection_changed_timer = Timeout.add (SELECTION_CHANGED_PAUSE, selection_changed_event);
+            
+        }
+        
+        bool selection_changed_event()      
+        {
+            TextIter start, end;
+            bool selected = this.buffer.get_selection_bounds (out start,out end);
+            if(selected)
+            {
+                selection_changed(start,end);   
+            }                           
+            return false;
         }
 
     }
