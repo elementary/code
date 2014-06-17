@@ -229,7 +229,8 @@ namespace Scratch.Services {
                 debug ("There are unsaved changes, showing a Message Dialog!");
 
                 // Create a GtkDialog
-                var dialog = new Gtk.MessageDialog (null, Gtk.DialogFlags.MODAL,
+                var parent_window = source_view.get_toplevel () as Gtk.Window;
+                var dialog = new Gtk.MessageDialog (parent_window, Gtk.DialogFlags.MODAL,
                                                     Gtk.MessageType.WARNING, Gtk.ButtonsType.NONE, "");
                 dialog.type_hint = Gdk.WindowTypeHint.DIALOG;
 
