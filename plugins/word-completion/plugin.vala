@@ -41,6 +41,9 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase,  Peas.Activatable 
                                            Gdk.Key.KP_Tab,
                                            Gdk.Key.ISO_Left_Tab,
                                     };
+
+    private const uint USER_REQUESTED_KEY = Gdk.Key.backslash;
+
     private uint timeout_id = 0;
     private bool completion_visible = false;
 
@@ -94,7 +97,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase,  Peas.Activatable 
             current_view.completion.add_provider (comp_provider);
             current_view.completion.show_headers = true;
             current_view.completion.show_icons = true;
-            /* Wait a bit to allow text to load */
+            /* Wait a bit to allow text to load then run parser*/
             timeout_id = Timeout.add (1000, on_timeout_update);
 
         } catch (Error e) {
@@ -123,10 +126,25 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase,  Peas.Activatable 
     private bool on_key_press (Gtk.Widget view, Gdk.EventKey event) {
         uint kv = event.keyval;
         unichar uc = (unichar)(Gdk.keyval_to_unicode (kv));
+
+        /* Pass through any modified keypress except Shift or Capslock */
+        Gdk.ModifierType mods = event.state & Gdk.ModifierType.MODIFIER_MASK
+                                            & ~Gdk.ModifierType.SHIFT_MASK
+                                            & ~Gdk.ModifierType.LOCK_MASK;
+        if (mods > 0 ) {
+            /* Default key for USER_REQUESTED completion is ControlSpace
+             * but this is trapped elsewhere. Need to set an alternative */ 
+            if ((mods & Gdk.ModifierType.CONTROL_MASK) > 0
+                && (kv == USER_REQUESTED_KEY)) {
+                current_view.show_completion ();
+                return true;
+            } else
+                return false;
+        }
+
         if (completion_visible && (kv in activate_keys)) {
             current_view.completion.activate_proposal ();
             parser.add_last_word ();
-            current_view.completion.hide ();
             return true;
         }
 
@@ -134,6 +152,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase,  Peas.Activatable 
             parser.add_last_word ();
             current_view.completion.hide ();
         }
+
         return false;
     }
 
@@ -173,8 +192,6 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase,  Peas.Activatable 
         completion_visible = false;
     }
 }
-
-
 
 [ModuleInit]
 public void peas_register_types (GLib.TypeModule module) {

@@ -22,7 +22,7 @@ public class Euclide.Completion.Parser : GLib.Object {
     public const int MINIMUM_WORD_LENGTH = 3;
     public const int MAX_TOKENS = 1000000;
 
-    public const string delimiters = " .,;:?{}[]()0123456789+-=&|-<>*\\\n\t\'\"";
+    public const string delimiters = " .,;:?{}[]()0123456789+-=&|-<>*\\/\n\t\'\"";
     public bool is_delimiter (unichar c) {
         return delimiters.index_of_char (c) >= 0;
     }
@@ -79,7 +79,6 @@ public class Euclide.Completion.Parser : GLib.Object {
             return;
 
         if (!(word in words) && words_lock.trylock ()) {
-            //words_lock.lock ();
             words.add (word);
             words_lock.unlock ();
         }

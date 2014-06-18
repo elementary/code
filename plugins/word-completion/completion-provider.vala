@@ -50,14 +50,17 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
     }
 
     public void populate (Gtk.SourceCompletionContext context) {
-        GLib.List<Gtk.SourceCompletionItem>? file_props = get_file_proposals ();
         /*Store current insertion point for use in activate_proposal */
         completion_mark = buffer.get_insert ();
+        GLib.List<Gtk.SourceCompletionItem>? file_props;
+        bool no_minimum = (context.get_activation () == Gtk.SourceCompletionActivation.USER_REQUESTED);
+        proposals_found = get_file_proposals (out file_props, no_minimum);
 
         if (proposals_found)
             context.add_proposals (this, file_props, true);
 
-        /* Signal to plugin that proposals are available*/
+        /* Signal to plugin whether proposals are available
+         * If none, the completion will be active but not visible */
         can_propose (proposals_found);
     }
 
@@ -75,24 +78,22 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
 
     public bool activate_proposal (Gtk.SourceCompletionProposal proposal,
                                    Gtk.TextIter iter) {
-        if (!proposals_found) {
-            return false;
+        if (proposals_found) {
+            /* Count backward from completion_mark instead of iter
+             * (avoids wrong insertion if the user is typing fast) */
+            Gtk.TextIter start;
+            buffer.get_iter_at_mark (out start, completion_mark);
+
+            bool match = start.backward_find_char ((c) => {
+                return parser.is_delimiter (c);
+            }, null);
+
+            if (match)
+                start.forward_cursor_position ();
+
+            buffer.@delete (ref start, ref iter);
+            buffer.insert (ref start, proposal.get_text (), proposal.get_text ().length);
         }
-
-        /* Count backward from completion_mark instead of iter
-         * (avoids wrong insertion if the user is typing fast) */
-        Gtk.TextIter start;
-        buffer.get_iter_at_mark (out start, completion_mark);
-
-        bool match = start.backward_find_char ((c) => {
-            return parser.is_delimiter (c);
-        }, null);
-
-        if (match)
-            start.forward_cursor_position ();
-
-        buffer.@delete (ref start, ref iter);
-        buffer.insert (ref start, proposal.get_text (), proposal.get_text ().length);
         return true;
     }
 
@@ -128,10 +129,12 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         return;
     }
 
-    private GLib.List<Gtk.SourceCompletionItem>? get_file_proposals () {
+    private bool get_file_proposals (out GLib.List<Gtk.SourceCompletionItem>? props, bool no_minimum) {
         string to_find = "";
         Gtk.TextIter iter;
         Gtk.TextBuffer temp_buffer = buffer;
+        props = null;
+
         /* Find start of current word */
         temp_buffer.get_iter_at_offset (out iter, buffer.cursor_position);
         iter.backward_find_char ((c) => {
@@ -141,22 +144,20 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
             return valid;
         }, null);
 
-        if (to_find.length < Euclide.Completion.Parser.MINIMUM_WORD_LENGTH)
-            return null;
-
-        /* Get proposals, if any */
-        var props = new GLib.List<Gtk.SourceCompletionItem> () ;
-        var prop_word_list = new GLib.List<string> ();
-        proposals_found = parser.get_for_word (to_find.reverse (), out prop_word_list);
-        if (proposals_found) {
-            foreach (var word in prop_word_list) {
-                var item = new Gtk.SourceCompletionItem (word,
-                                                        word,
-                                                        null,
-                                                        null);
-                props.prepend (item);
+        if (no_minimum || to_find.length >= Euclide.Completion.Parser.MINIMUM_WORD_LENGTH) {
+            /* Get proposals, if any */
+            var prop_word_list = new GLib.List<string> ();
+            if (parser.get_for_word (to_find.reverse (), out prop_word_list)) {
+                foreach (var word in prop_word_list) {
+                    var item = new Gtk.SourceCompletionItem (word,
+                                                             word,
+                                                             null,
+                                                             null);
+                    props.prepend (item);
+                }
+                return true;
             }
         }
-        return props;
+        return false;
     }
 }
