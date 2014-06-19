@@ -45,12 +45,14 @@ public class Euclide.Completion.Parser : GLib.Object {
 
     public bool get_for_word (string to_find, out List<string> list) {
         bool success = false;
+        uint length = to_find.length;
+
         list = null;
         last_word = to_find;
+
         if (words != null && words_lock.trylock ()) {
             foreach (var word in words) {
-                if (word.length > to_find.length
-                    && word.slice (0, to_find.length) == to_find) {
+                if (word.length > length && word.slice (0, length) == to_find) {
                     success = true;
                     list.prepend (word);
                 }
@@ -60,6 +62,13 @@ public class Euclide.Completion.Parser : GLib.Object {
         return success;
     }
 
+    public void rebuild_word_list (Gtk.TextView view) {
+        words_lock.lock ();
+        words.clear ();
+        words_lock.unlock ();
+        parse_text_view (view);
+    }
+
     public void parse_text_view (Gtk.TextView view) {
         /* If this view has already been parsed, restore the word list */
         if (text_view_words.has_key (view)) {
@@ -67,10 +76,10 @@ public class Euclide.Completion.Parser : GLib.Object {
         } else {
         /* Else create a new word list and parse the buffer text */
             words = new Gee.ArrayList<string> ();
-            if (view.buffer.text.length > 0) {
-                parse_string (view.buffer.text);
-                text_view_words.@set (view, words);
-            }
+        }
+        if (view.buffer.text.length > 0) {
+            parse_string (view.buffer.text);
+            text_view_words.@set (view, words);
         }
     }
 

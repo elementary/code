@@ -133,22 +133,27 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase,  Peas.Activatable 
                                             & ~Gdk.ModifierType.LOCK_MASK;
         if (mods > 0 ) {
             /* Default key for USER_REQUESTED completion is ControlSpace
-             * but this is trapped elsewhere. Need to set an alternative */ 
-            if ((mods & Gdk.ModifierType.CONTROL_MASK) > 0
-                && (kv == USER_REQUESTED_KEY)) {
+             * but this is trapped elsewhere. Control + USER_REQUESTED_KEY acts as an
+             * alternative and also purges spelling mistakes and unused words from the list.
+             * If used when a word or part of a word is selected, the selection will be
+             * used as the word to find. */ 
+            if ((mods & Gdk.ModifierType.CONTROL_MASK) > 0 && (kv == USER_REQUESTED_KEY)) {
+                parser.rebuild_word_list (current_view);
                 current_view.show_completion ();
                 return true;
             } else
                 return false;
         }
 
-        if (completion_visible && (kv in activate_keys)) {
+        bool activating = kv in activate_keys;
+            
+        if (completion_visible && activating) {
             current_view.completion.activate_proposal ();
             parser.add_last_word ();
             return true;
         }
 
-        if ((uc.isprint () && parser.is_delimiter (uc) ) || (kv in activate_keys)) {
+        if (activating || (uc.isprint () && parser.is_delimiter (uc) )) {
             parser.add_last_word ();
             current_view.completion.hide ();
         }
