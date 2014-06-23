@@ -96,7 +96,7 @@ namespace Scratch.Services {
             if (enabled) {
                 onchange_handler_id = this.source_view.buffer.changed.connect (() => {
                     if (onchange_handler_id != 0) {
-                        this.source_view.buffer.disconnect(onchange_handler_id);
+                        this.source_view.buffer.disconnect (onchange_handler_id);
                     }
                     // Signals for SourceView
                     uint timeout_saving = -1;
