@@ -206,11 +206,11 @@ namespace Scratch {
                 main_actions.get_action ("SaveFile").visible = (!settings.autosave || doc.file == null);
                 doc.check_undoable_actions ();
             });
-            this.fullscreen_eventbox.enter_notify_event.connect (()=>{
+            this.fullscreen_eventbox.enter_notify_event.connect (() => {
                 this.fullscreen_revealer.set_reveal_child (true);
                 return false;
             });
-            this.fullscreen_eventbox.leave_notify_event.connect (()=>{
+            this.fullscreen_eventbox.leave_notify_event.connect (() => {
                 this.fullscreen_revealer.set_reveal_child (false);
                 return false;
             });
@@ -261,7 +261,7 @@ namespace Scratch {
 
             // Show/Hide widgets
             show_all ();
-            
+
             this.fullscreen_revealer.set_reveal_child (false);
             this.search_revealer.set_reveal_child (false);
             
