@@ -89,8 +89,9 @@ namespace Scratch.Plugins {
             tool_button = new Gtk.ToolButton (icon, _("Open a folder"));
             tool_button.tooltip_text = _("Open a folder");
             tool_button.clicked.connect (() => {
+                MainWindow window = plugins.manager.window;
                 Gtk.FileChooserDialog chooser = new Gtk.FileChooserDialog (
-                    "Select a folder.", null, Gtk.FileChooserAction.SELECT_FOLDER,
+                    "Select a folder.", window, Gtk.FileChooserAction.SELECT_FOLDER,
                     Gtk.Stock.CANCEL, Gtk.ResponseType.CANCEL,
                     Gtk.Stock.OPEN, Gtk.ResponseType.ACCEPT);
                 chooser.select_multiple = true;

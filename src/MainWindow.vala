@@ -523,7 +523,7 @@ namespace Scratch {
 
         // Actions functions
         void action_preferences () {
-            var dialog = new Scratch.Dialogs.Preferences (plugins);
+            var dialog = new Scratch.Dialogs.Preferences (this, plugins);
             dialog.show_all ();
         }
 

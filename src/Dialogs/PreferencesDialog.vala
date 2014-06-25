@@ -41,8 +41,10 @@ namespace Scratch.Dialogs {
         Switch use_custom_font;
         FontButton select_font;
         
-        public Preferences (PluginsManager plugins) {
+        public Preferences (Gtk.Window? parent, PluginsManager plugins) {
 
+            if (parent != null)
+                  this.set_transient_for (parent);
             this.title = _("Preferences");
             this.border_width = 5;
             set_default_size (630, 330);
