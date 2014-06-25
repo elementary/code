@@ -45,6 +45,7 @@ namespace Scratch.Dialogs {
 
             if (parent != null)
                   this.set_transient_for (parent);
+            set_modal (true);
             this.title = _("Preferences");
             this.border_width = 5;
             set_default_size (630, 330);
