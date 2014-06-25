@@ -134,7 +134,7 @@ public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Peas.Activatable {
             menuitem = new Gtk.MenuItem.with_label (_("Upload to Pastebin"));
             menuitem.activate.connect (() => {
                 MainWindow window = plugins.manager.window;
-		        new Dialogs.PasteBinDialog (window, doc);
+                new Dialogs.PasteBinDialog (window, doc);
             });
             menu.append (menuitem);
             menuitem.show_all ();
