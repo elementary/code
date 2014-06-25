@@ -251,7 +251,6 @@ namespace Scratch.Dialogs {
             
             if (parent != null)
                 this.set_transient_for (parent);
-            set_modal (true);
             this.title = _("Share via PasteBin");
             this.type_hint = Gdk.WindowTypeHint.DIALOG;
             
