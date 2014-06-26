@@ -64,7 +64,7 @@ namespace Scratch.Widgets {
             // Set some settings
             buffer.highlight_syntax = true;
             smart_home_end = SourceSmartHomeEndType.AFTER;
-            buffer.mark_set.connect(on_mark_set);
+            buffer.mark_set.connect (on_mark_set);
             // Create common tags
             this.warning_tag = new Gtk.TextTag ("warning_bg");
             this.warning_tag.background_rgba = Gdk.RGBA() { red = 1.0, green = 1.0, blue = 0, alpha = 0.8 };
@@ -275,36 +275,34 @@ namespace Scratch.Widgets {
         }
         
         
-        void on_mark_set(TextIter loc,TextMark mar)
-        {
+        void on_mark_set (TextIter loc,TextMark mar) {
             // Weed out user movement for text selection changes
             TextIter start, end;
-            bool selected = this.buffer.get_selection_bounds (out start,out end);
+            this.buffer.get_selection_bounds (out start,out end);
             
-            if(start == last_select_start_iter && end == last_select_end_iter)
+            if (start == last_select_start_iter && end == last_select_end_iter)
                 return;
                                                 
-            if( selection_changed_timer!=0 &&
-                MainContext.get_thread_default().find_source_by_id(selection_changed_timer)!=null)
+            if (selection_changed_timer !=0 &&
+                MainContext.get_thread_default ().find_source_by_id (selection_changed_timer) != null)
                 Source.remove (selection_changed_timer);
             
-            //fire deselected immediatly
-            if(!this.buffer.get_has_selection())
-                deselected();
+            // Fire deselected immediatly
+            if (!this.buffer.get_has_selection ())
+                deselected ();
             // Don't fire signal till we think select movement is done
             else
                 selection_changed_timer = Timeout.add (SELECTION_CHANGED_PAUSE, selection_changed_event);
             
         }
         
-        bool selection_changed_event()      
-        {
+        bool selection_changed_event () {
             TextIter start, end;
             bool selected = this.buffer.get_selection_bounds (out start,out end);
-            if(selected)
-                selection_changed(start,end);        
+            if (selected)
+                selection_changed (start,end);        
             else
-                deselected();                    
+                deselected ();                    
             return false;
         }
 
