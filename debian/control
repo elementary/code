@@ -15,14 +15,14 @@ Build-Depends: cmake (>= 2.8),
                libgtkspell-3-dev | libgtkspell3-3-dev,
                libpeas-dev,
                libsoup2.4-dev,
-               libvala-0.22-dev,
+               libvala-0.24-dev,
                libvte-2.90-dev,
                libwebkitgtk-dev,
                libzeitgeist-2.0-dev,
                pantheon-files,
                pkg-config,
                python-chardet,
-               valac-0.22
+               valac-0.24
 Standards-Version: 3.9.1
 Homepage: http://launchpad.net/scratch
 
