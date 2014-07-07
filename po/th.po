@@ -8,34 +8,34 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-08-02 16:03+0200\n"
-"PO-Revision-Date: 2012-05-31 12:05+0000\n"
-"Last-Translator: Sitdhi <gvdosk124@gmail.com>\n"
+"PO-Revision-Date: 2014-07-06 10:58+0000\n"
+"Last-Translator: Jirayu Yingthawornsuk <me@jirayu.in.th>\n"
 "Language-Team: Thai <th@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-07-01 06:06+0000\n"
-"X-Generator: Launchpad (build 17082)\n"
+"X-Launchpad-Export-Date: 2014-07-07 05:53+0000\n"
+"X-Generator: Launchpad (build 17086)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Utils.vala:42
 msgid "All files"
-msgstr "เอกสารทุกฉบับ"
+msgstr "ไฟล์ทั้งหมด"
 
 #: /home/mario/elementary/scratch/po/../src/Utils.vala:45
 msgid "Text files"
-msgstr "เอกสารที่เป็นข้อความ"
+msgstr "ไฟล์ข้อความ"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:85
 msgid "Zeitgeist Datasource for Scratch"
-msgstr ""
+msgstr "แหล่งข้อมูล Zeitgeist สำหรับ Scratch"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:160
 msgid "Trash"
-msgstr ""
+msgstr "ถังขยะ"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:448
 msgid "Open some files"
-msgstr ""
+msgstr "เปิดบางไฟล์"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:539
 msgid "Hide search bar"
@@ -44,17 +44,17 @@ msgstr "ซ่อนแถบค้นหา"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:552
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:553
 msgid "Find…"
-msgstr ""
+msgstr "ค้นหา..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:556
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:557
 msgid "Go to line…"
-msgstr ""
+msgstr "ไปบรรทัด..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:560
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:561
 msgid "Quit"
-msgstr "ออกจากโปรแกรม"
+msgstr "ออก"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:564
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:565
@@ -69,19 +69,19 @@ msgstr "แทนที่"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:572
 msgid "Reopen closed document"
-msgstr ""
+msgstr "เปิดเอกสารที่ปิดไปแล้ว"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:573
 msgid "Open last closed document in a new tab"
-msgstr ""
+msgstr "เปิดเอกสารที่ปิดไปล่าสุดในแท็บใหม่"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:576
 msgid "Add New Tab"
-msgstr ""
+msgstr "เพิ่มแท็บใหม่"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:577
 msgid "Add a new tab"
-msgstr ""
+msgstr "เพิ่มแท็บใหม่"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:580
 msgid "Add New View"
@@ -101,7 +101,7 @@ msgstr "ลบมุมมองนี้"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:588
 msgid "Undo"
-msgstr "ยกเลิกการกระทำ"
+msgstr "เลิกทำ"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:589
 msgid "Undo the last action"
@@ -117,11 +117,11 @@ msgstr "ทำซ้ำการยกเลิกการกระทำล่
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:596
 msgid "Revert"
-msgstr "คืนสภาพเดิม"
+msgstr "กลับคืนค่าเดิม"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:597
 msgid "Restore this file"
-msgstr ""
+msgstr "กู้คืนไฟล์นี้"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:600
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:601
@@ -135,7 +135,7 @@ msgstr "เปิด"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:605
 msgid "Open a file"
-msgstr "เปิดเอกสาร"
+msgstr "เปิดไฟล์"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:608
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:495
@@ -153,12 +153,12 @@ msgstr "แม่แบบ"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:613
 msgid "Project templates"
-msgstr ""
+msgstr "แม่แบบโครงการ"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:616
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:45
 msgid "Preferences"
-msgstr "ปรับแต่ง"
+msgstr "ตั้งค่า"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:617
 msgid "Change Scratch settings"
@@ -171,32 +171,32 @@ msgstr "เต็มจอ"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:15
 msgid "Edit text files"
-msgstr "แก้ไขเอกสารข้อความ"
+msgstr "แก้ไขไฟล์ข้อความ"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:16
 msgid "Text Editor"
-msgstr "เครื่องมือแก้ไขข้อความ"
+msgstr "โปรแกรมแก้ไขข้อความ"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:17
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:322
 msgid "New Document"
-msgstr ""
+msgstr "สร้างเอกสารใหม่"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:18
 msgid "New Window"
-msgstr "สร้างหน้าต่างใหม่"
+msgstr "หน้าต่างใหม่"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:62
 msgid "Behavior"
-msgstr ""
+msgstr "พฤติกรรม"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:66
 msgid "Interface"
-msgstr ""
+msgstr "ส่วนติดต่อผู้ใช้"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:74
 msgid "Extensions"
-msgstr ""
+msgstr "ส่วนขยาย"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:128
 msgid "Show welcome screen"
@@ -204,7 +204,7 @@ msgstr "แสดงหน้าจอต้อนรับ"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:129
 msgid "Show last open tabs"
-msgstr "แสดงแถบที่เปิดไว้ล่าสุด"
+msgstr "แสดงแท็บที่เคยเปิดไว้"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:145
 msgid "General:"
@@ -212,11 +212,11 @@ msgstr "ทั่วไป:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:151
 msgid "When Scratch starts:"
-msgstr "เมื่อ Scratch เริ่มการทำงาน:"
+msgstr "เมื่อเปิด Scratch"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:154
 msgid "Save files when changed:"
-msgstr "บันทุกไฟล์เมื่อมีการเปลี่ยนแปลง:"
+msgstr "บันทึกไฟล์เมื่อมีการเปลี่ยนแปลง"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:159
 msgid "Tabs:"
@@ -228,7 +228,7 @@ msgstr "ย่อหน้าโดยอัตโนมัติ"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:167
 msgid "Insert spaces instead of tabs:"
-msgstr "เว้นวรรคแทนแท็บ"
+msgstr "ใช้เว้นวรรคแทนแท็บ"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:171
 msgid "Tab width:"
@@ -248,11 +248,11 @@ msgstr "แสดงแถบสีที่คู่วงเล็บ"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:219
 msgid "Split long text in many lines:"
-msgstr ""
+msgstr "ตัดบรรทัดข้อความที่ยาวเกินไป"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:220
 msgid "Draw spaces:"
-msgstr ""
+msgstr "แสดงการเว้นวรรค:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:221
 msgid "Show line numbers:"
@@ -260,11 +260,11 @@ msgstr "แสดงเลขบรรทัด:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
 msgid "Line width guide:"
-msgstr ""
+msgstr "แสดงเส้นแนะนำความกว้าง"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:240
 msgid "Font and Color Scheme:"
-msgstr ""
+msgstr "รูปแบบตัวอักษรและสี"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:254
 msgid "Select font:"
@@ -276,15 +276,15 @@ msgstr "รูปแบบสี:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:262
 msgid "Custom font:"
-msgstr "เลือกแบบอักษรเอง:"
+msgstr "กำหนดแบบอักษร"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:160
 msgid "Set of plugins"
-msgstr ""
+msgstr "ชุดปลั๊กอิน"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:161
 msgid "Create a new instance"
-msgstr ""
+msgstr "เปิดโปรแกรมใหม่"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:65
 msgid "Find"
@@ -296,61 +296,61 @@ msgstr "แทนที่ด้วย"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:113
 msgid "Go To Line:"
-msgstr "ไปยังบรรทัดที่:"
+msgstr "ไปยังบรรทัด:"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:82
 msgid "Syntax Highlighting"
-msgstr "เน้นสีข้อความตามไวยากรณ์"
+msgstr "การเน้นไวยากรณ์"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:93
 msgid "Normal Text"
-msgstr ""
+msgstr "ข้อความปกติ"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/LoadingView.vala:36
 msgid "Wait while restoring last session..."
-msgstr ""
+msgstr "รอระหว่างกู้คืนเซสชันที่แล้ว..."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:112
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:135
 msgid "Close Tab"
-msgstr ""
+msgstr "ปิดแท็บ"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:137
 msgid "Open in a new Window"
-msgstr ""
+msgstr "เปิดในหน้าต่างใหม่"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:138
 msgid "Duplicate"
-msgstr ""
+msgstr "ทำสำเนา"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:186
 msgid "Close Other Tab"
-msgstr ""
+msgstr "ปิดแท็บอื่น"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:186
 msgid "Close Other Tabs"
-msgstr ""
+msgstr "ปิดแท็บอื่น"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:474
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:501
 msgid "New Tab"
-msgstr ""
+msgstr "เปิดแท็บใหม่"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:475
 msgid "Undo Close Tab"
-msgstr ""
+msgstr "เปิดแท็บที่ถูกปิด"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/DynamicNotebook.vala:510
 msgid "Closed Tabs"
-msgstr ""
+msgstr "แท็บที่ถูกปิด"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ToolBar.vala:59
 msgid "Share"
-msgstr ""
+msgstr "ใช้งานร่วมกัน"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:42
 msgid "No Files Open"
-msgstr ""
+msgstr "ไม่มีไฟล์ถูกเปิด"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:43
 msgid "Open a file to begin editing."
@@ -358,7 +358,7 @@ msgstr "เปิดไฟล์เพื่อเริ่มแก้ไข"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:47
 msgid "New file"
-msgstr "สร้างไฟล์ใหม่"
+msgstr "สร้างไฟล์"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:47
 msgid "Create a new empty file."
@@ -375,12 +375,12 @@ msgstr "เปิดไฟล์ที่บันทึกไว้"
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:165
 #, c-format
 msgid "Save changes to document %s before closing?"
-msgstr ""
+msgstr "ต้องการบันทึกการเปลี่ยนแปลงไปยัง %s ก่อนปิดโปรแกรมหรือไม่?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:168
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr "ถ้าคุณไม่บันทึก สิ่งที่แก้ไขจาก 4 วินาทีล่าสุดจะสูญ"
+msgstr "หาไม่ทำการบันทึก การเปลี่ยนแปลงใดๆ ใน 4 วินาทีล่าสุด จะไม่ถูกบันทึก"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:170
 msgid "Close without saving"
@@ -388,7 +388,7 @@ msgstr "ปิดโดยไม่ต้องบันทึก"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:239
 msgid "Save File"
-msgstr ""
+msgstr "บันทึกไฟล์"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:477
 #, c-format
@@ -396,69 +396,72 @@ msgid ""
 "File \"<b>%s</b>\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
+"ไม่สามารถอ่านไฟล์ <b>%s</b> ได้ ไฟล์อาจเสียหาย\n"
+"หรือคุณไม่มีสิทธิ์ในการเข้าอ่านไฟล์นี้"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:492
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:533
 msgid "File "
-msgstr ""
+msgstr "ไฟล์ "
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:493
 msgid "was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "ถูกลบไปแล้ว คุณยังต้องการบันทึกอยู่หรือไม่?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:505
 msgid "You cannot save changes on file"
-msgstr ""
+msgstr "คุณไม่สามารถบันทึกการเปลี่ยนแปลงลงไฟล์ได้"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:506
 msgid "Do you want to save the changes to this file in a different location?"
-msgstr "ต้องการบันทึกสิ่งที่แก้ไขไปยังที่ใหม่หรือไม่?"
+msgstr "คุณต้องการบันทึกการเปลี่ยนแปลงของไฟล์นี้ไปยังไฟล์อื่นแทนหรือไม่?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:508
 msgid "Save changes elsewhere"
-msgstr ""
+msgstr "บันทึกไปยังไฟล์อื่น"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:534
 msgid ""
 "was modified by an external application. Do you want to load it again or "
 "continue your editing?"
 msgstr ""
+"ถูกแก้ไขโดยโปรแกรมอื่น  คุณต้องการโหลดไฟล์นี้ใหม่ หรือดำเนินการแก้ไขนี้ต่อไป?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:536
 msgid "Load"
-msgstr ""
+msgstr "โหลด"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:539
 msgid "Continue"
-msgstr ""
+msgstr "ทำต่อไป"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
-msgstr ""
+msgstr "Pastebin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
-msgstr ""
+msgstr "แบ่งปันไฟล์นี้ไปยัง Pastebin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:134
 msgid "Upload to Pastebin"
-msgstr ""
+msgstr "อัพโหลดไปยัง Pastebin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:252
 msgid "Share via PasteBin"
-msgstr ""
+msgstr "แบ่งปันผ่าน Pastebin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:270
 msgid "Name:"
-msgstr ""
+msgstr "ชื่อ:"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:276
 msgid "Format: "
-msgstr ""
+msgstr "รูปแบบ: "
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:278
 msgid "Others..."
-msgstr "อื่นๆ"
+msgstr "อื่นๆ..."
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:303
 msgid "Expiry time:"
@@ -466,7 +469,7 @@ msgstr "เวลาหมดอายุ:"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:308
 msgid "Keep this paste private"
-msgstr ""
+msgstr "เก็บข้อความนี้ไว้ส่วนตัว"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:310
 msgid "Upload"
@@ -478,7 +481,7 @@ msgstr "รูปแบบอื่นๆ"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:509
 msgid "Never"
-msgstr "ไม่เคย"
+msgstr "ไม่ต้อง"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:510
 msgid "Ten minutes"
@@ -498,175 +501,175 @@ msgstr "หนึ่งเดือน"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileView.vala:94
 msgid "/New File"
-msgstr ""
+msgstr "/ไฟล์ใหม่"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:21
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:21
 msgid "Folder Manager"
-msgstr ""
+msgstr "ตัวจัดการโฟลเดอร์"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:22
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:22
 msgid "Basic folder manager with file browsing"
-msgstr ""
+msgstr "ตัวจัดการโฟลเดอร์ขั้นพื้นฐาน พร้อมตัวค้นไฟล์"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:77
 msgid "Go to parent"
-msgstr ""
+msgstr "กลับสู่ระดับบน"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:88
 msgid "Add file"
-msgstr ""
+msgstr "เพิ่มไฟล์"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:95
 msgid "Remove file"
-msgstr ""
+msgstr "ลบไฟล์"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FolderManagerPlugin.vala:110
 msgid "File Manager"
-msgstr ""
+msgstr "ตัวจัดการไฟล์"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:23
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:104
 msgid "Terminal"
-msgstr ""
+msgstr "เทอร์มินัล"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:24
 msgid "A terminal in your text editor"
-msgstr ""
+msgstr "เทอร์มินัลในโปรแกรมแก้ไขข้อความของคุณ"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:67
 msgid "Copy"
-msgstr ""
+msgstr "คัดลอก"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:74
 msgid "Paste"
-msgstr ""
+msgstr "วาง"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:23
 msgid "Browser Preview"
-msgstr ""
+msgstr "แสดงตัวอย่างในเบราเซอร์"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:24
 msgid "Get a preview your work in a web page"
-msgstr ""
+msgstr "ดูตัวอย่างงานของคุณในหน้าเว็บ"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:80
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:81
 msgid "Get preview!"
-msgstr ""
+msgstr "ดูตัวอย่าง!"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:111
 msgid "Web preview"
-msgstr ""
+msgstr "ตัวอย่างหน้าเว็บ"
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:18
 msgid "Spell Checker"
-msgstr ""
+msgstr "ตรวจคำสะกด"
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
-msgstr ""
+msgstr "ตรวจสอบการสะกดในเอกสาร"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:21
 msgid "Open With"
-msgstr ""
+msgstr "เปิดด้วย"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr ""
+msgstr "เปิดไฟล์ที่กำลังแก้ไขอยู่ด้วยโปรแกรมอื่น"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:55
 msgid "Open With..."
-msgstr ""
+msgstr "เปิดด้วย..."
 
 #: /home/mario/elementary/scratch/po/../plugins/brackets-completion/brackets-completion.vala:21
 msgid "Brackets Completion"
-msgstr ""
+msgstr "เติมวงเล็บอัตโนมัติ"
 
 #: /home/mario/elementary/scratch/po/../plugins/brackets-completion/brackets-completion.vala:22
 msgid "Complete brackets while typing"
-msgstr ""
+msgstr "เติมวงเล็บในระหว่างพิมพ์"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/completion-provider.vala:67
 #, c-format
 msgid "Could not load icon theme: %s\n"
-msgstr ""
+msgstr "ไม่สามารถโหลดชุดไอคอน: %s\n"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:30
 msgid "Words Completion"
-msgstr ""
+msgstr "เติมคำอัตโนมัติ"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:31
 msgid "Show a completion dialog with most used words from your files"
-msgstr ""
+msgstr "แสดงหน้าต่างเติมคำ ด้วยคำที่ใช้มากที่สุดในไฟล์ข้องคุณ"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:99
 #, c-format
 msgid "%s - Word Completion"
-msgstr ""
+msgstr "%s - เติมคำอัตโนมัติ"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FileView.vala:322
 msgid "Close Folder"
-msgstr ""
+msgstr "ปิดโฟลเดอร์"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:71
 msgid "Folders"
-msgstr ""
+msgstr "โฟลเดอร์"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:89
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:90
 msgid "Open a folder"
-msgstr ""
+msgstr "เปิดโฟลเดอร์"
 
 #: /home/mario/elementary/scratch/po/../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
-msgstr ""
+msgstr "แบ่งปันไฟล์ผ่าน Contractor"
 
 #: /home/mario/elementary/scratch/po/../plugins/strip-trailing-save/strip-trailing-save.vala:18
 msgid "Strip trailing whitespace"
-msgstr ""
+msgstr "เอาที่ว่างท้ายข้อความออก"
 
 #: /home/mario/elementary/scratch/po/../plugins/strip-trailing-save/strip-trailing-save.vala:19
 msgid "Strip trailing whitespace on save"
-msgstr ""
+msgstr "เอาที่ว่างท้ายข้อความออกและบันทึก"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:21
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:231
 msgid "Source Tree"
-msgstr ""
+msgstr "แผนผังต้นไม้"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:22
 msgid "Have a look at your sources organized in a nice tree"
-msgstr ""
+msgstr "แสดงไฟล์ของคุณในรูปแบบแผนผังต้นไม้"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:39
 msgid "Loading..."
-msgstr ""
+msgstr "กำลังโหลด..."
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:158
 msgid "Bookmark"
-msgstr ""
+msgstr "ที่คั่นหน้า"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:207
 msgid "Files"
-msgstr ""
+msgstr "ไฟล์"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:208
 msgid "Project"
-msgstr ""
+msgstr "โครงการ"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:209
 msgid "Bookmarks"
-msgstr ""
+msgstr "ที่คั่นหน้า"
 
 #: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
-msgstr ""
+msgstr "จำลอง Vim"
 
 #: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
-msgstr ""
+msgstr "ใช้คำสั่ง Vim ใน Scratch"
 
 #~ msgid "Go to line..."
 #~ msgstr "ไปยังบรรทัดที่..."
