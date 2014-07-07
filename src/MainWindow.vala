@@ -36,11 +36,7 @@ namespace Scratch {
 
         // Widgets
         public Scratch.Widgets.Toolbar toolbar;
-        public Scratch.Widgets.Toolbar fullscreen_toolbar;
-        private Gtk.Overlay overlay;
-        private Gtk.EventBox fullscreen_eventbox;
         private Gtk.Revealer search_revealer;
-        private Gtk.Revealer fullscreen_revealer;
         public Scratch.Widgets.SearchManager search_manager;
         public Scratch.Widgets.LoadingView loading_view;
         public Scratch.Widgets.SplitView split_view;
@@ -75,6 +71,7 @@ namespace Scratch {
             this.title = this.app.app_cmd_name;
             this.window_position = Gtk.WindowPosition.CENTER;
             this.set_size_request (450, 400);
+            this.set_hide_titlebar_when_maximized (true);
             restore_saved_state ();
             this.icon_name = "accessories-text-editor";
 
@@ -151,18 +148,6 @@ namespace Scratch {
             toolbar.menu = ui.get_widget ("ui/AppMenu") as Gtk.Menu;
             var app_menu = (app as Granite.Application).create_appmenu (toolbar.menu);
             toolbar.pack_end (app_menu);
-            
-            //Fullscreen Toolbar
-            this.fullscreen_toolbar = new Scratch.Widgets.Toolbar (main_actions);
-            this.fullscreen_revealer = new Gtk.Revealer ();
-            fullscreen_revealer.set_can_focus (false);
-            fullscreen_revealer.set_valign (Gtk.Align.START);
-            this.overlay = new Gtk.Overlay ();
-            this.fullscreen_eventbox = new Gtk.EventBox ();
-            this.fullscreen_eventbox.set_size_request (-1, 1);
-            this.fullscreen_eventbox.set_can_focus (false);
-            fullscreen_eventbox.set_valign (Gtk.Align.START);
-            this.fullscreen_eventbox.add (this.fullscreen_revealer);
 
             // SearchManager
             this.search_revealer = new Gtk.Revealer ();
@@ -206,14 +191,6 @@ namespace Scratch {
                 main_actions.get_action ("SaveFile").visible = (!settings.autosave || doc.file == null);
                 doc.check_undoable_actions ();
             });
-            this.fullscreen_eventbox.enter_notify_event.connect (() => {
-                this.fullscreen_revealer.set_reveal_child (true);
-                return false;
-            });
-            this.fullscreen_eventbox.leave_notify_event.connect (() => {
-                this.fullscreen_revealer.set_reveal_child (false);
-                return false;
-            });
 
             // Plugins widgets
             this.sidebar = new Gtk.Notebook ();
@@ -255,14 +232,11 @@ namespace Scratch {
             main_box.pack_start (search_revealer, false, true, 0);
             main_box.pack_start (loading_view, true, true, 0);
             main_box.pack_start (vp, false, true, 0);
-            overlay.add (main_box);
-            overlay.add_overlay (fullscreen_eventbox);
-            this.add (this.overlay);
+            this.add (main_box);
 
             // Show/Hide widgets
             show_all ();
 
-            this.fullscreen_revealer.set_reveal_child (false);
             this.search_revealer.set_reveal_child (false);
             
             main_actions.get_action ("SaveFile").visible = !settings.autosave;
@@ -439,11 +413,6 @@ namespace Scratch {
             hp1.set_position (Scratch.saved_state.hp1_size);
             hp2.set_position (Scratch.saved_state.hp2_size);
             vp.set_position (Scratch.saved_state.vp_size);
-            
-            if ((get_window ().get_state () & WindowState.FULLSCREEN) != 0) {
-                prepare_fullscreen_toolbar ();
-                this.fullscreen_eventbox.show ();
-            }
         }
 
         private void update_saved_state () {
@@ -474,20 +443,6 @@ namespace Scratch {
             Scratch.saved_state.hp1_size = hp1.get_position ();
             Scratch.saved_state.hp2_size = hp2.get_position ();
             Scratch.saved_state.vp_size = vp.get_position ();
-        }
-        
-        //move this.toolbar from fullscrean revaler to the windows titlebar
-        void prepare_toolbar () {
-            this.fullscreen_revealer.remove (this.toolbar);
-            this.toolbar.set_show_close_button (true);
-            this.set_titlebar (this.toolbar);
-        }
-        
-        //move this.toolbar from windows titlebar to the fullscreen revealer
-        void prepare_fullscreen_toolbar () {
-            this.toolbar.set_show_close_button (false);
-            this.set_titlebar (fullscreen_toolbar);
-            this.fullscreen_revealer.add (this.toolbar);
         }
 
         // Update files-opened settings key
@@ -601,16 +556,11 @@ namespace Scratch {
         }
 
         void action_fullscreen () {
-            if ((get_window ().get_state () & WindowState.FULLSCREEN) != 0) {
-                this.fullscreen_eventbox.hide ();
-                prepare_toolbar ();
+            if ((get_window ().get_state () & WindowState.FULLSCREEN) != 0) 
                 this.unfullscreen ();
-            }
-            else {
-                prepare_fullscreen_toolbar ();
-                this.fullscreen_eventbox.show ();
+            else
                 this.fullscreen ();
-            }
+            
         }
 
         void action_fetch () {
