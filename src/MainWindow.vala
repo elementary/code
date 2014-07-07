@@ -71,7 +71,7 @@ namespace Scratch {
             this.title = this.app.app_cmd_name;
             this.window_position = Gtk.WindowPosition.CENTER;
             this.set_size_request (450, 400);
-            this.set_hide_titlebar_when_maximized (true);
+            this.set_hide_titlebar_when_maximized (false);
             restore_saved_state ();
             this.icon_name = "accessories-text-editor";
 
@@ -556,11 +556,12 @@ namespace Scratch {
         }
 
         void action_fullscreen () {
-            if ((get_window ().get_state () & WindowState.FULLSCREEN) != 0) 
+            if ((get_window ().get_state () & WindowState.FULLSCREEN) != 0) {
                 this.unfullscreen ();
-            else
+            }
+            else {
                 this.fullscreen ();
-            
+            }
         }
 
         void action_fetch () {
