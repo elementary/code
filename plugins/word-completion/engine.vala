@@ -19,98 +19,94 @@
  */
 
 public class Euclide.Completion.Parser : GLib.Object {
-    public static const unichar[] stoppers = {'\n', ' ', '.', ';', '\t', '(', ')', ',', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '"', '\'', '&', '|'};
-    public static const string[] to_ignore = {"ref", "var"};
-    /* Read-only for external use */
-    public Gee.ArrayList<string> words;
-    public Gee.HashMap<Gtk.TextView,Gee.LinkedList<string>> text_views;
+    public const int MINIMUM_WORD_LENGTH = 3;
+    public const int MAX_TOKENS = 1000000;
+
+    public const string delimiters = " .,;:?{}[]()0123456789+-=&|-<>*\\/\n\t\'\"";
+    public bool is_delimiter (unichar c) {
+        return delimiters.index_of_char (c) >= 0;
+    }
+
+    public Gee.HashMap<Gtk.TextView,Gee.ArrayList<string>> text_view_words;
+    public bool parsing_cancelled = false;
+
+    private Gee.ArrayList<string> words;
+    private Mutex words_lock;
+    private string last_word = "";
+
     public Parser () {
-         words = new Gee.ArrayList<string> ();
-         text_views = new Gee.HashMap<Gtk.TextView,Gee.LinkedList<string>> ();
+         words_lock = new Mutex ();
+         text_view_words = new Gee.HashMap<Gtk.TextView,Gee.ArrayList<string>> ();
     }
-    
-    public void clear () {
-        lock (words) {
-            words.clear ();
-        }
+
+    public void add_last_word () {
+        add_word (last_word);
     }
-    
-    public void parse_string (string text, Gee.List<string>? words_ = null) {
-        in_comment = false;
-        in_string = false;
-        in_single_string = false;
-        words_ = words_ ?? words;
-        lock (words) {
-            string current_word = "";
-            for (int i = 0; i < text.length; i++) {
-                var text_char = text[i];
-                if (text_char in stoppers) {
-                    if (current_word != "") {
-                        parse_word (current_word);
-                        current_word = "";
-                    }
-                    if (text_char == '\'')
-                        in_single_string = !in_single_string;
-                    if (text_char == '"')
-                        in_string = !in_string;
+
+    public bool get_for_word (string to_find, out List<string> list) {
+        bool success = false;
+        uint length = to_find.length;
+
+        list = null;
+        last_word = to_find;
+
+        if (words != null && words_lock.trylock ()) {
+            foreach (var word in words) {
+                if (word.length > length && word.slice (0, length) == to_find) {
+                    success = true;
+                    list.prepend (word);
                 }
-                else
-                    current_word += text_char.to_string ();
             }
+            words_lock.unlock ();
         }
+        return success;
     }
-    
-    bool in_comment;
-    bool in_string;
-    bool in_single_string;
-    
-    void parse_word (string word, Gee.List<string>? words_ = null) {
-        if (word.contains ("/*"))
-            in_comment = true;
-        if (word.contains ("*/"))
-            in_comment = false;
-        if (in_comment || in_single_string || in_string)
-            return;
-        words_ = words_ ?? words;
-        assert (word != "");
-        if (word in to_ignore || word in words_) {
-            return;
-        }
-        words_.add (word);
+
+    public void rebuild_word_list (Gtk.TextView view) {
+        words_lock.lock ();
+        words.clear ();
+        words_lock.unlock ();
+        parse_text_view (view);
     }
-    
-    public List<string> get_for_word (string to_find) {
-        List<string> list = new List<string> ();
-        foreach (var word in words) {
-            if (word.length > to_find.length 
-                    && word.slice (0, to_find.length) == to_find) {
-                list.append (word);
-            }
-        }
-        return list;
-    }
-    
-    void add_list (Gee.LinkedList<string> list) {
-        foreach (var word in list) parse_word (word);
-    }
-    
+
     public void parse_text_view (Gtk.TextView view) {
-        if (text_views.has_key (view)) {
-            if (!view.get_data<bool> ("damaged"))
-                add_list (text_views[view]);
-            else {
-                text_views[view].clear ();
-                parse_string (view.buffer.text, text_views[view]);
-                add_list (text_views[view]);
-                view.set_data<bool> ("damaged", false);
+        /* If this view has already been parsed, restore the word list */
+        if (text_view_words.has_key (view)) {
+            words = text_view_words.@get (view);
+        } else {
+        /* Else create a new word list and parse the buffer text */
+            words = new Gee.ArrayList<string> ();
+        }
+        if (view.buffer.text.length > 0) {
+            parse_string (view.buffer.text);
+            text_view_words.@set (view, words);
+        }
+    }
+
+    private void add_word (string word) {
+        if (word.length < MINIMUM_WORD_LENGTH)
+            return;
+
+        if (!(word in words) && words_lock.trylock ()) {
+            words.add (word);
+            words_lock.unlock ();
+        }
+    }
+
+    public void cancel_parsing () {
+        parsing_cancelled = true;
+    }
+
+    private bool parse_string (string text) {
+        parsing_cancelled = false;
+        string [] word_array = text.split_set (delimiters, MAX_TOKENS);
+        foreach (var current_word  in word_array ) {
+            if (parsing_cancelled) {
+                debug ("Cancelling parse");
+                return false;
             }
+            add_word (current_word);
         }
-        else {
-            text_views[view] = new Gee.LinkedList<string> ();
-            parse_string (view.buffer.text, text_views[view]);
-            add_list (text_views[view]);
-            view.set_data<bool> ("damaged", false);
-            view.key_press_event.connect (() => { view.set_data<bool> ("damaged", true); return false; });
-        }
+        return true;
     }
 }

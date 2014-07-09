@@ -18,16 +18,32 @@
  *
  */
 
-using Gtk;
-
-public class CompletionProvider : Gtk.SourceCompletionProvider, Object {
-    
-    static const unichar[] stoppers = {' ', '\n', '(', ';', '}', '{', '.'};
-    TextMark completion_mark; /* The mark at which the proposals were generated */
-    
-    Gdk.Pixbuf icon;
+public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, Object {
     public string name;
     public int priority;
+
+    public const string COMPLETION_END_MARK_NAME = "ScratchWordCompletionEnd";
+    public const string COMPLETION_START_MARK_NAME = "ScratchWordCompletionStart";
+
+    private Gdk.Pixbuf icon;
+    private Gtk.TextView? view;
+    private Gtk.TextBuffer? buffer;
+    private Euclide.Completion.Parser parser;
+    private bool proposals_found = false;
+    private Gtk.TextMark completion_end_mark;
+    private Gtk.TextMark completion_start_mark;
+
+    public signal void can_propose (bool b);
+
+    public CompletionProvider (Scratch.Plugins.Completion completion) {
+        this.view = completion.current_view as Gtk.TextView;
+        this.buffer = completion.current_view.buffer;
+        this.parser = completion.parser;
+        Gtk.TextIter iter;
+        buffer.get_iter_at_offset (out iter, 0);
+        completion_end_mark = buffer.create_mark (COMPLETION_END_MARK_NAME, iter, false);
+        completion_start_mark = buffer.create_mark (COMPLETION_START_MARK_NAME, iter, false);
+    }
 
     public string get_name () {
         return this.name;
@@ -40,22 +56,19 @@ public class CompletionProvider : Gtk.SourceCompletionProvider, Object {
     public bool match (Gtk.SourceCompletionContext context) {
         return true;
     }
-    
-    public void populate (Gtk.SourceCompletionContext context) {        
-        var file_props = get_file_proposals ();
-        
-        /* Get current line */
-        completion_mark = current_buffer.get_insert ();
-        TextIter iter;
-        current_buffer.get_iter_at_mark (out iter, completion_mark);
-        var line = iter.get_line () + 1;
 
-        TextIter iter_start;
-        current_buffer.get_iter_at_line (out iter_start, line - 1);
-        
-        // Proposal itself        
-        if (file_props != null)
+    public void populate (Gtk.SourceCompletionContext context) {
+        /*Store current insertion point for use in activate_proposal */
+        GLib.List<Gtk.SourceCompletionItem>? file_props;
+        bool no_minimum = (context.get_activation () == Gtk.SourceCompletionActivation.USER_REQUESTED);
+        proposals_found = get_proposals (out file_props, no_minimum);
+
+        if (proposals_found)
             context.add_proposals (this, file_props, true);
+
+        /* Signal to plugin whether proposals are available
+         * If none, the completion will be active but not visible */
+        can_propose (proposals_found);
     }
 
     public unowned Gdk.Pixbuf? get_icon () {
@@ -72,19 +85,22 @@ public class CompletionProvider : Gtk.SourceCompletionProvider, Object {
 
     public bool activate_proposal (Gtk.SourceCompletionProposal proposal,
                                    Gtk.TextIter iter) {
+        if (proposals_found) {
+            /* Count backward from completion_mark instead of iter
+             * (avoids wrong insertion if the user is typing fast) */
+            Gtk.TextIter start;
+            Gtk.TextIter end;
+            Gtk.TextMark mark;
 
-        // Count backward from completion_mark instead of iter (avoids wrong insertion if the user is typing fast) 
-        TextIter start;
-        current_buffer.get_iter_at_mark (out start, completion_mark);
-        
-        bool match = start.backward_find_char ((c) => {
-            return c in Euclide.Completion.Parser.stoppers;
-        }, null);
-        if (match)
-            start.forward_cursor_position ();
-        
-        current_buffer.delete (ref start, ref iter);
-        current_buffer.insert (ref start, proposal.get_text (), proposal.get_text ().length);
+            mark = buffer.get_mark (COMPLETION_END_MARK_NAME);
+            buffer.get_iter_at_mark (out end, mark);
+
+            mark = buffer.get_mark (COMPLETION_START_MARK_NAME);
+            buffer.get_iter_at_mark (out start, mark);
+
+            buffer.@delete (ref start, ref end);
+            buffer.insert (ref start, proposal.get_text (), proposal.get_text ().length);
+        }
         return true;
     }
 
@@ -93,65 +109,82 @@ public class CompletionProvider : Gtk.SourceCompletionProvider, Object {
                Gtk.SourceCompletionActivation.USER_REQUESTED;
     }
 
-    Box box_info_frame = new Box (Orientation.VERTICAL, 0);
     public unowned Gtk.Widget? get_info_widget (Gtk.SourceCompletionProposal proposal) {
-        return box_info_frame;
+        /* As no additional info is provided no widget is needed */
+        return null;
     }
 
     public int get_interactive_delay () {
+        /* Use default delay (250 milliseconds) */
         return -1;
     }
 
-    public bool get_start_it (Gtk.SourceCompletionContext context,
+    public bool get_start_iter (Gtk.SourceCompletionContext context,
                                 Gtk.SourceCompletionProposal proposal,
                                 Gtk.TextIter iter) {
-        var mark = current_buffer.get_insert ();
-        TextIter cursor_iter;
-        current_buffer.get_iter_at_mark (out cursor_iter, mark);
-        
+        var mark = buffer.get_insert ();
+        Gtk.TextIter cursor_iter;
+        buffer.get_iter_at_mark (out cursor_iter, mark);
+
         iter = cursor_iter;
         iter.backward_word_start ();
         return true;
     }
 
     public void update_info (Gtk.SourceCompletionProposal proposal, Gtk.SourceCompletionInfo info) {
+        /* No additional info provided on proposals */
         return;
     }
-    
-    public GLib.List<Gtk.SourceCompletionItem>? get_file_proposals () {
-        /* Compute the string we want compute */
+
+    private bool get_proposals (out GLib.List<Gtk.SourceCompletionItem>? props, bool no_minimum) {
         string to_find = "";
-        string last_to_find;
         Gtk.TextIter iter;
-        Gtk.TextBuffer buffer = current_buffer;
-        buffer.get_iter_at_offset (out iter, buffer.cursor_position);
-        iter.backward_find_char ((c) => {
-            bool valid = c in stoppers;
-            if (!valid)
-                to_find += c.to_string ();
-            return valid;
-        }, null);
+        Gtk.TextBuffer temp_buffer = buffer;
+        props = null;
 
-        to_find = to_find.reverse ();
-        last_to_find = to_find;
+        Gtk.TextIter start, end;
+        buffer.get_selection_bounds (out start, out end);
 
-            
-        if (to_find == "")
-            return null;
-            
-        var props = new GLib.List<Gtk.SourceCompletionItem> ();
-        
-        foreach (var word in parser.get_for_word (to_find)) {
-            GLib.debug (word);
-            var item = new Gtk.SourceCompletionItem (word,
-                                                    word,
-                                                    null,
-                                                    null);
-            props.append (item);
+        to_find = temp_buffer.get_text (start, end, true);
+
+        if (to_find.length == 0) {
+            /* Find start of current word */
+            temp_buffer.get_iter_at_offset (out iter, buffer.cursor_position);
+            /* Mark current insertion point as end point for use in activate proposal */
+            buffer.move_mark_by_name (COMPLETION_END_MARK_NAME, iter);
+            /* TODO - Use iter.backward_word_start? */
+            iter.backward_find_char ((c) => {
+                bool valid = parser.is_delimiter (c);
+                if (!valid)
+                    to_find += c.to_string ();
+
+                return valid;
+            }, null);
+            iter.forward_cursor_position ();
+            /* Mark start of delimited text as start point for use in activate proposal */
+            buffer.move_mark_by_name (COMPLETION_START_MARK_NAME, iter);
+            to_find = to_find.reverse ();
+        } else {
+            /* mark start and end of the selection */
+            buffer.move_mark_by_name (COMPLETION_END_MARK_NAME, end);
+            buffer.move_mark_by_name (COMPLETION_START_MARK_NAME, start);
         }
-            
-        current_view.grab_focus ();
-        
-        return props;
+
+        /* There is no minimum length of word to find if the user requested a completion */
+        if (no_minimum || to_find.length >= Euclide.Completion.Parser.MINIMUM_WORD_LENGTH) {
+            /* Get proposals, if any */
+            var prop_word_list = new GLib.List<string> ();
+            if (parser.get_for_word (to_find, out prop_word_list)) {
+                foreach (var word in prop_word_list) {
+                    var item = new Gtk.SourceCompletionItem (word,
+                                                             word,
+                                                             null,
+                                                             null);
+                    props.prepend (item);
+                }
+                return true;
+            }
+        }
+        return false;
     }
 }
