@@ -56,7 +56,11 @@ namespace Scratch.Services {
         private Gtk.InfoBar info_bar =                  new Gtk.InfoBar ();
 
         // Objects
-        public File? file = null;
+        private File? _file = null;
+        public File? file {
+            get { return _file; }
+            set { _file = value; file_changed (); }
+        }
         public string original_content;
         public string? last_saved_content = null;
         public bool saved = true;
@@ -76,6 +80,10 @@ namespace Scratch.Services {
 
         // Delegates
         public delegate void VoidFunc ();
+
+        // Mount state of the file
+        private bool mounted = true;
+        private Mount mount;
 
         public Document (Gtk.ActionGroup actions, File? file = null) {
             this.main_actions = actions;
@@ -292,7 +300,7 @@ namespace Scratch.Services {
             // Show save as dialog if file is null
             if (this.file == null)
                 return this.save_as ();
-            
+
             // Replace old content with the new one
             try {
                 string s;
@@ -331,6 +339,9 @@ namespace Scratch.Services {
                 filech.destroy ();
                 return false;
             }
+
+            // reset the last saved content
+            last_saved_content = null;
 
             save ();
 
@@ -556,13 +567,23 @@ namespace Scratch.Services {
             if (file != null) {
                 // If the file does not exist anymore
                 if (!exists ()) {
-                    string message = _("File ") +  " \"<b>%s</b>\" ".printf (get_basename ()) +
-                                     _("was deleted. Do you want to save it anyway?");
+                    if (mounted == false) {
+                        string message = _("The location containing the file") +  " \"<b>%s</b>\" ".printf (get_basename ()) +
+                                         _("was unmounted. Do you want to save somewhere else?");
 
-                    set_message (Gtk.MessageType.WARNING, message, _("Save"), () => {
-                        this.save ();
-                        hide_info_bar ();
-                    });
+                        set_message (Gtk.MessageType.WARNING, message, _("Save As…"), () => {
+                            this.save_as ();
+                            hide_info_bar ();
+                        });
+                    } else {
+                        string message = _("File") +  " \"<b>%s</b>\" ".printf (get_basename ()) +
+                                         _("was deleted. Do you want to save it anyway?");
+
+                        set_message (Gtk.MessageType.WARNING, message, _("Save"), () => {
+                            this.save ();
+                            hide_info_bar ();
+                        });
+                    }
                     main_actions.get_action ("SaveFile").sensitive = false;
                     this.source_view.editable = false;
                     return;
@@ -689,6 +710,32 @@ namespace Scratch.Services {
         // Return true if the file exists
         public bool exists () {
             return this.file.query_exists ();
+        }
+
+        private void file_changed () {
+            if (file == null) {
+                mounted = true;
+                return;
+            }
+
+            if (mount != null) {
+                mount.unmounted.disconnect (unmounted_cb);
+                mount = null;
+            }
+
+            try {
+                mount = file.find_enclosing_mount ();
+                mount.unmounted.connect (unmounted_cb);
+            } catch (Error e) {
+                debug ("Could not find mount location");
+                return;
+            }
+            mounted = true;
+        }
+
+        private void unmounted_cb () {
+            warning ("Folder containing the file was unmounted");
+            mounted = false;
         }
     }
 }
