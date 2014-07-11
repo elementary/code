@@ -557,15 +557,15 @@ namespace Scratch.Services {
                 // If the file does not exist anymore
                 if (!exists ()) {
                     if (mounted == false) {
-                        string message = _("The location containing the file ") +  " \"<b>%s</b>\" ".printf (get_basename ()) +
+                        string message = _("The location containing the file") +  " \"<b>%s</b>\" ".printf (get_basename ()) +
                                          _("was unmounted. Do you want to save somewhere else?");
 
-                        set_message (Gtk.MessageType.WARNING, message, _("Save As..."), () => {
+                        set_message (Gtk.MessageType.WARNING, message, _("Save As…"), () => {
                             this.save_as ();
                             hide_info_bar ();
                         });
                     } else {
-                        string message = _("File ") +  " \"<b>%s</b>\" ".printf (get_basename ()) +
+                        string message = _("File") +  " \"<b>%s</b>\" ".printf (get_basename ()) +
                                          _("was deleted. Do you want to save it anyway?");
 
                         set_message (Gtk.MessageType.WARNING, message, _("Save"), () => {
