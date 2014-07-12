@@ -71,6 +71,7 @@ namespace Scratch {
             this.title = this.app.app_cmd_name;
             this.window_position = Gtk.WindowPosition.CENTER;
             this.set_size_request (450, 400);
+            this.set_hide_titlebar_when_maximized (false);
             restore_saved_state ();
             this.icon_name = "accessories-text-editor";
 
@@ -419,9 +420,9 @@ namespace Scratch {
         private void update_saved_state () {
 
             // Save window state
-            if (get_window ().get_state () == WindowState.MAXIMIZED)
+            if ((get_window ().get_state () & WindowState.MAXIMIZED) != 0)
                 Scratch.saved_state.window_state = ScratchWindowState.MAXIMIZED;
-            else if (get_window ().get_state () == WindowState.FULLSCREEN)
+            else if ((get_window ().get_state () & WindowState.FULLSCREEN) != 0)
                 Scratch.saved_state.window_state = ScratchWindowState.FULLSCREEN;
             else
                 Scratch.saved_state.window_state = ScratchWindowState.NORMAL;
@@ -479,7 +480,7 @@ namespace Scratch {
 
         // Actions functions
         void action_preferences () {
-            var dialog = new Scratch.Dialogs.Preferences (plugins);
+            var dialog = new Scratch.Dialogs.Preferences (this, plugins);
             dialog.show_all ();
         }
 
@@ -499,7 +500,7 @@ namespace Scratch {
 
         void action_open () {
             // Show a GtkFileChooserDialog
-            var filech = Utils.new_file_chooser_dialog (FileChooserAction.OPEN, _("Open some files"), true);
+            var filech = Utils.new_file_chooser_dialog (FileChooserAction.OPEN, _("Open some files"), this, true);
 
             if (filech.run () == ResponseType.ACCEPT) {
                 foreach (string uri in filech.get_uris ()) {
