@@ -455,7 +455,7 @@ namespace Scratch {
                 docs.concat (view.docs.copy ());
             });
 
-            string[] opened_files = { "" };//new string[docs.length ()];
+            string[] opened_files = {};//new string[docs.length ()];
             docs.foreach ((doc) => {
                 if (doc.file != null && doc.exists ())
                     opened_files += doc.file.get_uri ();

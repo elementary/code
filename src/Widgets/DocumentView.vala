@@ -164,12 +164,6 @@ namespace Scratch.Widgets {
             doc.source_view.focus_in_event.connect (this.on_focus_in_event);
             doc.source_view.drag_data_received.connect (this.drag_received);
 
-            // Update the opened-files setting
-            if (settings.show_at_start == "last-tabs" && doc.file != null) {
-                var files = settings.schema.get_strv ("opened-files");
-                files += doc.file.get_uri ();
-                settings.schema.set_strv ("opened-files", files);
-            }
         }
 
         private void on_doc_removed (Granite.Widgets.Tab tab) {
@@ -178,17 +172,6 @@ namespace Scratch.Widgets {
             this.docs.remove (doc);
             doc.source_view.focus_in_event.disconnect (this.on_focus_in_event);
             doc.source_view.drag_data_received.disconnect (this.drag_received);
-
-            // Update the opened-files setting
-            if (settings.show_at_start == "last-tabs") {
-                var files = settings.schema.get_strv ("opened-files");
-                string[] opened = { "" };
-                foreach (var file in files) {
-                    if (file != doc.get_uri ())
-                        opened += file;
-                }
-                settings.schema.set_strv ("opened-files", opened);
-            }
 
             // Check if the view is empty
             if (this.is_empty ())
