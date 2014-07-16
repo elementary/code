@@ -37,10 +37,6 @@ namespace Scratch.Plugins.FolderManager {
             });
 
             settings = new Settings ();
-
-            this.set_sort_func ((a, b) => {
-                return File.compare ((a as Item).file, (b as Item).file);
-            });
         }
 
         public void restore_saved_state () {
@@ -147,24 +143,35 @@ namespace Scratch.Plugins.FolderManager {
     }
 
     /**
-     * Common interface for normal and expandable items.
+     * Common abstract class for file and filder items.
      */
-    internal interface Item : Granite.Widgets.SourceList.Item {
-        public abstract File file { get; construct; }
-        public abstract string path { get; }
+    internal class Item: Granite.Widgets.SourceList.ExpandableItem, Granite.Widgets.SourceListSortable {
+        public File file { get; construct; }
+        public string path { get { return file.path; } }
+
+        public int compare (Granite.Widgets.SourceList.Item a,
+                            Granite.Widgets.SourceList.Item b) {
+            if (a is FolderItem && b is FileItem) {
+                return -1;
+            } else if (a is FileItem && b is FolderItem) {
+                return 1;
+            }
+            return File.compare ((a as Item).file, (b as Item).file);;
+        }
+
+        public bool allow_dnd_sorting () { 
+            return false;
+        }
     }
 
     /**
      * Normal item in the source list, represents a textfile.
      * TODO Remove, Rename
      */
-    internal class FileItem : Granite.Widgets.SourceList.Item, Item {
+    internal class FileItem : Item {
 
         //Gtk.Menu menu;
         //Gtk.MenuItem item_trash;
-
-        public File file { get; construct; }
-        public string path { get { return file.path; } }
 
         public FileItem (File file) requires (file.is_valid_textfile) {
             Object (file: file);
@@ -194,7 +201,7 @@ namespace Scratch.Plugins.FolderManager {
      * Monitored for changes inside the directory.
      * TODO remove, rename, create new file
      */
-    internal class FolderItem : Granite.Widgets.SourceList.ExpandableItem, Item {
+    internal class FolderItem : Item {
 
         //Gtk.Menu menu;
         //Gtk.MenuItem item_trash;
@@ -202,9 +209,6 @@ namespace Scratch.Plugins.FolderManager {
 
         private GLib.FileMonitor monitor;
         private bool children_loaded = false;
-
-        public File file { get; construct; }
-        public string path { get { return file.path; } }
 
         public FolderItem (File file) requires (file.is_valid_directory) {
             Object (file: file);
