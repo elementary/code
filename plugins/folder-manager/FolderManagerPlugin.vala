@@ -92,8 +92,8 @@ namespace Scratch.Plugins {
                 Gtk.Window window = plugins.manager.window;
                 Gtk.FileChooserDialog chooser = new Gtk.FileChooserDialog (
                     "Select a folder.", window, Gtk.FileChooserAction.SELECT_FOLDER,
-                    Gtk.Stock.CANCEL, Gtk.ResponseType.CANCEL,
-                    Gtk.Stock.OPEN, Gtk.ResponseType.ACCEPT);
+                    _("_Cancel"), Gtk.ResponseType.CANCEL,
+                    _("_Open"), Gtk.ResponseType.ACCEPT);
                 chooser.select_multiple = true;
 
                 if (chooser.run () == Gtk.ResponseType.ACCEPT) {
