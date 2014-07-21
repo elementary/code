@@ -156,7 +156,7 @@ namespace Scratch.Plugins.FolderManager {
             } else if (a is FileItem && b is FolderItem) {
                 return 1;
             }
-            return File.compare ((a as Item).file, (b as Item).file);;
+            return File.compare ((a as Item).file, (b as Item).file);
         }
 
         public bool allow_dnd_sorting () { 
