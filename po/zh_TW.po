@@ -7,167 +7,167 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-07-11 15:41-0500\n"
+"POT-Creation-Date: 2014-07-20 21:25-0500\n"
 "PO-Revision-Date: 2013-10-11 11:14+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-07-12 06:49+0000\n"
-"X-Generator: Launchpad (build 17111)\n"
+"X-Launchpad-Export-Date: 2014-07-21 06:45+0000\n"
+"X-Generator: Launchpad (build 17114)\n"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:98
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:99
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "供 Scratch 使用的 Zeitgeist 資料來源"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:181
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:182
 msgid "Trash"
 msgstr "回收筒"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:502
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:503
 msgid "Open some files"
 msgstr "開啟一些檔案"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:593
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:594
 msgid "Hide search bar"
 msgstr "隱藏搜尋列"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:648
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:649
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:650
 msgid "Find…"
 msgstr "尋找…"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:652
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:653
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:654
 msgid "Go to line…"
 msgstr "前往列號…"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:656
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:657
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:658
 msgid "Quit"
 msgstr "退出"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:660
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:661
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:662
 msgid "Close"
 msgstr "關閉"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:664
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:665
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:666
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:111
 msgid "Replace"
 msgstr "取代"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:668
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:669
 msgid "Reopen closed document"
 msgstr "重新開啟關閉的文件"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:669
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:670
 msgid "Open last closed document in a new tab"
 msgstr "在新分頁中開啟上次關閉的文件"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:672
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:673
 msgid "Add New Tab"
 msgstr "新增分頁"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:673
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:674
 msgid "Add a new tab"
 msgstr "新增一分頁"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:676
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:677
 msgid "Add New View"
 msgstr "加入新檢視"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:677
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:678
 msgid "Add a new view"
 msgstr "加入新的檢視"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:680
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:681
 msgid "Remove Current View"
 msgstr "移除目前檢視"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:681
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:682
 msgid "Remove this view"
 msgstr "移除此檢視"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:684
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:685
 msgid "Undo"
 msgstr "取消動作"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:685
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:686
 msgid "Undo the last action"
 msgstr "取消上個動作"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:688
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:689
 msgid "Redo"
 msgstr "再次動作"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:689
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:690
 msgid "Redo the last undone action"
 msgstr "再次執行上個已取消的動作"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:692
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:693
 msgid "Revert"
 msgstr "回復"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:693
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:694
 msgid "Restore this file"
 msgstr "還原此檔案"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:696
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:697
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:698
 msgid "Duplicate selected strings"
 msgstr "製作所選字串的複本"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:700
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:701
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileView.vala:277
 msgid "Open"
 msgstr "開啟"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:701
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:702
 msgid "Open a file"
 msgstr "開啟檔案"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:704
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:705
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:582
 msgid "Save"
 msgstr "儲存"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:705
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:706
 msgid "Save the current file"
 msgstr "儲存目前的檔案"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:708
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:709
 #: /home/mario/elementary/scratch/po/../src/Services/TemplateManager.vala:230
 msgid "Templates"
 msgstr "範本"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:709
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:710
 msgid "Project templates"
 msgstr "專案模板"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:712
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:46
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:713
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:48
 msgid "Preferences"
 msgstr "偏好設定"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:713
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:714
 msgid "Change Scratch settings"
 msgstr "變更 Scratch 設定值"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:716
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:717
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:718
 msgid "Next Tab"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:720
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:721
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:722
 msgid "Previous Tab"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:737
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:738
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:739
 msgid "Fullscreen"
 msgstr "全螢幕"
 
@@ -274,95 +274,95 @@ msgstr "文字編輯器"
 msgid "New Window"
 msgstr "新增視窗"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:60
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:62
 msgid "Behavior"
 msgstr "行為"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:64
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:66
 msgid "Interface"
 msgstr "介面"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:72
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:74
 msgid "Extensions"
 msgstr "擴充套件"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:119
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
 msgid "Show welcome screen"
 msgstr "顯示歡迎畫面"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:120
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:122
 msgid "Show last open tabs"
 msgstr "顯示上次開啟的分頁"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:136
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:138
 msgid "General:"
 msgstr "一般："
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:142
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:144
 msgid "When Scratch starts:"
 msgstr "當 Sractch 開始時："
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:145
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
 msgid "Save files when changed:"
 msgstr "當更動後儲存檔案："
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:150
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "Tabs:"
 msgstr "跳格："
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:155
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:157
 msgid "Automatic indentation:"
 msgstr "自動縮排："
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:158
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:160
 msgid "Insert spaces instead of tabs:"
 msgstr "插入空格而不是跳格："
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:162
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:164
 msgid "Tab width:"
 msgstr "跳格寬度："
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:190
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:192
 msgid "Editor:"
 msgstr "編輯器："
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:208
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:210
 msgid "Highlight current line:"
 msgstr "突顯目前列："
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:209
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:211
 msgid "Highlight matching brackets:"
 msgstr "突顯對稱括號："
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:210
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:212
 msgid "Split long text in many lines:"
 msgstr "將長文字切分為多列："
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:211
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:213
 msgid "Draw spaces:"
 msgstr "繪製空格數："
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:212
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:214
 msgid "Show line numbers:"
 msgstr "顯示列號："
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:215
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:217
 msgid "Line width guide:"
 msgstr "線寬指引："
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:231
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:233
 msgid "Font and Color Scheme:"
 msgstr "字型與配色方案："
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:245
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:247
 msgid "Select font:"
 msgstr "選取字型："
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:248
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:250
 msgid "Color scheme:"
 msgstr "配色方案："
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:253
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:255
 msgid "Custom font:"
 msgstr "自訂字型："
 
@@ -434,55 +434,55 @@ msgstr ""
 msgid "Set of plugins"
 msgstr "外掛設定"
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:252
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
 msgstr "透過 PasteBin 分享"
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:270
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:272
 msgid "Name:"
 msgstr "名稱："
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:276
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:278
 msgid "Format: "
 msgstr "格式： "
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:278
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:280
 msgid "Others..."
 msgstr "其他..."
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:303
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:305
 msgid "Expiry time:"
 msgstr "截止時間："
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:308
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:310
 msgid "Keep this paste private"
 msgstr "保持該剪貼為私人使用"
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:310
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:312
 msgid "Upload"
 msgstr "上傳"
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:340
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:342
 msgid "Other formats"
 msgstr "其他格式"
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:509
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:511
 msgid "Never"
 msgstr "永不"
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:510
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:512
 msgid "Ten minutes"
 msgstr "十分鐘"
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:511
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:513
 msgid "One hour"
 msgstr "一小時"
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:512
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:514
 msgid "One day"
 msgstr "一天"
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:513
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:515
 msgid "One month"
 msgstr "一個月"
 
@@ -609,7 +609,7 @@ msgstr "顯示您檔案中最常使用單字的補完對話盒"
 msgid "%s - Word Completion"
 msgstr "%s - 單字補完"
 
-#: /home/mario/elementary/scratch/po/../plugins/folder-manager/FileView.vala:326
+#: /home/mario/elementary/scratch/po/../plugins/folder-manager/FileView.vala:330
 msgid "Close Folder"
 msgstr "關閉資料夾"
 
@@ -621,6 +621,14 @@ msgstr "資料夾"
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:90
 msgid "Open a folder"
 msgstr "開啟資料夾"
+
+#: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:95
+msgid "_Cancel"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:96
+msgid "_Open"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
