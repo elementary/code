@@ -259,7 +259,7 @@ namespace Scratch.Services {
     public static string get_charset (string path) {
         // Get correct encoding via chardect.py script
 
-        const string FALLBACK_CHARSET = "UTF-8";
+        const string FALLBACK_CHARSET = "ISO-8859-1";
         string script = Constants.SCRIPTDIR + "/chardetect.py";
         string command = "python " + script + " \"" + path.replace ("\\ ", " ") + "\"";
         string? charset = null;
@@ -269,7 +269,7 @@ namespace Scratch.Services {
         } catch (SpawnError e) {
             warning ("Could not execute \"%s\": %s", script, e.message);
         }
-        if ( charset == null ) {
+        if ( charset == null || strcmp (charset, "error") != 0) {
             warning ("Could not automatically detect encoding, assuming %s", FALLBACK_CHARSET);
             charset = FALLBACK_CHARSET; //TODO: prompt the user to meddle with encoding manually, until satisfied
         } else {
