@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-07-20 21:25-0500\n"
-"PO-Revision-Date: 2013-12-03 23:53+0000\n"
+"PO-Revision-Date: 2014-07-22 11:26+0000\n"
 "Last-Translator: Kristjan Vool <tictac7x@gmail.com>\n"
 "Language-Team: Estonian <et@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-07-22 07:04+0000\n"
+"X-Launchpad-Export-Date: 2014-07-23 06:50+0000\n"
 "X-Generator: Launchpad (build 17114)\n"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:99
@@ -159,12 +159,12 @@ msgstr "Scratch'i eelistuste muutmine"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:717
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:718
 msgid "Next Tab"
-msgstr ""
+msgstr "Järgmine kaart"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:721
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:722
 msgid "Previous Tab"
-msgstr ""
+msgstr "Eelmine kaart"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:738
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:739
@@ -207,19 +207,19 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:571
 msgid "The location containing the file"
-msgstr ""
+msgstr "Faili asukoht"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:572
 msgid "was unmounted. Do you want to save somewhere else?"
-msgstr ""
+msgstr "haagiti lahti. Soovid sa teise kohta salvestada?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:574
 msgid "Save As…"
-msgstr ""
+msgstr "Salvesta kui…"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:579
 msgid "File"
-msgstr ""
+msgstr "Fail"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:580
 msgid "was deleted. Do you want to save it anyway?"
@@ -378,7 +378,7 @@ msgstr "Asenda"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:115
 msgid "Replace all"
-msgstr ""
+msgstr "Asenda kõik"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:123
 msgid "Go To Line:"
@@ -430,7 +430,7 @@ msgstr "Uus kaart"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:220
 msgid "Print version info and exit"
-msgstr ""
+msgstr "Prindi versiooni teave ja välju"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:221
 msgid "Set of plugins"
@@ -628,11 +628,11 @@ msgstr "Ava kaust"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:95
 msgid "_Cancel"
-msgstr ""
+msgstr "_Loobu"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:96
 msgid "_Open"
-msgstr ""
+msgstr "_Ava"
 
 #: /home/mario/elementary/scratch/po/../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
