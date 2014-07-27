@@ -99,7 +99,7 @@ namespace Scratch.Dialogs {
             }
             
             // Close button
-	        var close_button = new Gtk.Button.with_label (_("Close"));
+            var close_button = new Gtk.Button.with_label (_("Close"));
             close_button.clicked.connect (() => {this.destroy ();});
             
             var button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
