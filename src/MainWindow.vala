@@ -164,7 +164,6 @@ namespace Scratch {
             // Signals
             this.split_view.welcome_shown.connect (() => {
                 set_widgets_sensitive (false);
-                this.toolbar.subtitle = null;
                 
             });
             this.split_view.welcome_hidden.connect (() => {
@@ -182,10 +181,10 @@ namespace Scratch {
                         path = _("Trash");
 
                     path = Uri.unescape_string (path);
-                    this.toolbar.subtitle = doc.file.get_basename () + " (%s)".printf(path);
+                    this.toolbar.title = doc.file.get_basename () + " (%s)".printf(path);
                 }
                 else {
-                    this.toolbar.subtitle = null;
+                    this.toolbar.title = this.app.app_cmd_name;
                 }
                 // Set actions sensitive property
                 main_actions.get_action ("SaveFile").visible = (!settings.autosave || doc.file == null);
