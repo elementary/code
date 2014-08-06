@@ -61,14 +61,17 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         string font_name = system_settings.get_string ("monospace-font-name");
         this.terminal.set_font_from_string (font_name);
 
-        // Set background, foreground, and palette of pantheon-terminal
-
+        // Set allow-bold, audible-bell, background, foreground, and palette of pantheon-terminal
         var schema_source = SettingsSchemaSource.get_default ();
         var terminal_schema = schema_source.lookup ("org.pantheon.terminal.settings", true);
         if (terminal_schema != null) {
-
-        //if ("org.pantheon.terminal.settings" in GLib.Settings.list_schemas ())
             var pantheon_terminal_settings = new GLib.Settings ("org.pantheon.terminal.settings");
+
+            bool allow_bold_setting = pantheon_terminal_settings.get_boolean ("allow-bold");
+            this.terminal.set_allow_bold (allow_bold_setting);
+
+            bool audible_bell_setting = pantheon_terminal_settings.get_boolean ("audible-bell");
+            this.terminal.set_audible_bell (audible_bell_setting);
 
             this.terminal.set_background_image (null); // allows background and foreground settings to take effect
 
@@ -110,7 +113,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
 
             this.terminal.set_colors (foreground_color, background_color, palette);
 
-            } // end pantheon-terminal shit
+            } // end pantheon-terminal settings
 
         // Popup menu
         var menu = new Gtk.Menu ();
