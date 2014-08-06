@@ -61,6 +61,26 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         string font_name = system_settings.get_string ("monospace-font-name");
         this.terminal.set_font_from_string (font_name);
 
+        // Set background, foreground and opacity of pantheon-terminal
+        var pantheon_terminal_settings = new GLib.Settings ("org.pantheon.terminal.settings");
+
+        string background_setting = pantheon_terminal_settings.get_string ("background");
+        Gdk.Color background_color;
+        Gdk.Color.parse (background_setting, out background_color);
+        this.terminal.set_color_background (background_color);
+
+        string foreground_setting = pantheon_terminal_settings.get_string ("foreground");
+        Gdk.Color foreground_color;
+        Gdk.Color.parse (foreground_setting, out foreground_color);
+        this.terminal.set_color_foreground (foreground_color);
+
+        int opacity_setting = pantheon_terminal_settings.get_int ("opacity") * 65535;
+        this.terminal.set_background_image (null); // allows background and foreground settings to take effect
+        this.terminal.set_background_transparent (false);
+        this.terminal.set_opacity ((uint16) (opacity_setting / 100));
+
+        //this.terminal.set_colors (foreground_color, background_color, palette);
+
         // Popup menu
         var menu = new Gtk.Menu ();
             
