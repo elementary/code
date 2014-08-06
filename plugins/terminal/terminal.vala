@@ -61,8 +61,10 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         string font_name = system_settings.get_string ("monospace-font-name");
         this.terminal.set_font_from_string (font_name);
 
-        // Set background, foreground, opacity and palette of pantheon-terminal
+        // Set background, foreground, and palette of pantheon-terminal
         var pantheon_terminal_settings = new GLib.Settings ("org.pantheon.terminal.settings");
+
+        this.terminal.set_background_image (null); // allows background and foreground settings to take effect
 
         string background_setting = pantheon_terminal_settings.get_string ("background");
         Gdk.Color background_color;
@@ -71,10 +73,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         string foreground_setting = pantheon_terminal_settings.get_string ("foreground");
         Gdk.Color foreground_color;
         Gdk.Color.parse (foreground_setting, out foreground_color);
-
-        int opacity_setting = pantheon_terminal_settings.get_int ("opacity") * 65535;
-        this.terminal.set_background_image (null); // allows background and foreground settings to take effect
-        this.terminal.set_opacity ((uint16) (opacity_setting / 100));
 
         string palette_setting = pantheon_terminal_settings.get_string ("palette");
 
