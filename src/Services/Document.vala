@@ -238,7 +238,8 @@ namespace Scratch.Services {
                 debug ("There are unsaved changes, showing a Message Dialog!");
 
                 // Create a GtkDialog
-                var dialog = new Gtk.MessageDialog (null, Gtk.DialogFlags.MODAL,
+                var parent_window = source_view.get_toplevel () as Gtk.Window;
+                var dialog = new Gtk.MessageDialog (parent_window, Gtk.DialogFlags.MODAL,
                                                     Gtk.MessageType.WARNING, Gtk.ButtonsType.NONE, "");
                 dialog.type_hint = Gdk.WindowTypeHint.DIALOG;
 
@@ -553,7 +554,8 @@ namespace Scratch.Services {
                 return;
             this.error_shown = true;
             string message = _("File \"<b>%s</b>\" cannot be read. Maybe it is corrupt\nor you do not have the necessary permissions to read it.").printf (get_basename ());
-            var dialog = new Gtk.MessageDialog.with_markup (null, Gtk.DialogFlags.MODAL,
+            var parent_window = source_view.get_toplevel () as Gtk.Window;
+            var dialog = new Gtk.MessageDialog.with_markup (parent_window, Gtk.DialogFlags.MODAL,
                                                  Gtk.MessageType.ERROR,
                                                  Gtk.ButtonsType.CLOSE,
                                                  message);
@@ -739,4 +741,3 @@ namespace Scratch.Services {
         }
     }
 }
-
