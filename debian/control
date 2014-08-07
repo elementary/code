@@ -1,9 +1,9 @@
 Source: scratch-text-editor
 Section: editors
 Priority: optional
-Maintainer: Mario Guerriero <mefrio.g@gmail.com>
+Maintainer: Sergey "Shnatsel" Davidoff <sergey@elementaryos.org>
 Build-Depends: cmake (>= 2.8),
-               debhelper (>= 7.0.50~),
+               debhelper (>= 9),
                exuberant-ctags,
                gir1.2-soup-2.4,
                libdevhelp-dev,
