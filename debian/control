@@ -28,7 +28,7 @@ Architecture: any
 Priority: optional
 Depends: ${gir:Depends}, ${misc:Depends}, ${shlibs:Depends},
          exuberant-ctags, libscratchcore0 (= ${binary:Version})
-Description: text editor written in Vala
+Description: text editor that works for you
  Scratch is the text editor that works for you. It auto-saves your files,
  meaning they're always up-to-date. Plus it remembers your tabs so you never
  lose your spot, even in between sessions.
@@ -46,17 +46,13 @@ Description: text editor written in Vala
  PHP, or marking things up in HTML, Scratch has you covered. Experience full
  syntax highlighting with nearly all programming, scripting, and markup
  languages.
- .
- Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, .Desktop,
- Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile,
- Objective C, Pascal, Perl, Python, Ruby, XML.
 
 Package: libscratchcore0
 Architecture: any
 Priority: optional
 Section: libs
 Depends: ${gir:Depends}, ${misc:Depends}, ${shlibs:Depends}
-Description: text editor written in Vala (shared library)
+Description: text editor that works for you (shared library)
  Scratch is the text editor that works for you. It auto-saves your files,
  meaning they're always up-to-date. Plus it remembers your tabs so you never
  lose your spot, even in between sessions.
@@ -74,10 +70,6 @@ Description: text editor written in Vala (shared library)
  PHP, or marking things up in HTML, Scratch has you covered. Experience full
  syntax highlighting with nearly all programming, scripting, and markup
  languages.
- .
- Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, .Desktop,
- Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile,
- Objective C, Pascal, Perl, Python, Ruby, XML.
  .
  This package contains the shared library used by Scratch plugins.
 
@@ -87,7 +79,7 @@ Priority: optional
 Section: libdevel
 Depends: ${gir:Depends}, ${misc:Depends}, ${shlibs:Depends},
          libscratchcore0 (= ${binary:Version})
-Description: text editor written in Vala (plugin development files)
+Description: text editor that works for you (plugin development files)
  Scratch is the text editor that works for you. It auto-saves your files,
  meaning they're always up-to-date. Plus it remembers your tabs so you never
  lose your spot, even in between sessions.
@@ -105,10 +97,6 @@ Description: text editor written in Vala (plugin development files)
  PHP, or marking things up in HTML, Scratch has you covered. Experience full
  syntax highlighting with nearly all programming, scripting, and markup
  languages.
- .
- Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, .Desktop,
- Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile,
- Objective C, Pascal, Perl, Python, Ruby, XML.
  .
  This package contains the development headers for writing Scratch plugins.
 
@@ -117,7 +105,7 @@ Architecture: any
 Section: debug
 Priority: extra
 Depends: scratch-text-editor (= ${binary:Version}), ${misc:Depends}
-Description: text editor written in Vala (debugging symbols)
+Description: text editor that works for you (debugging symbols)
  Scratch is the text editor that works for you. It auto-saves your files,
  meaning they're always up-to-date. Plus it remembers your tabs so you never
  lose your spot, even in between sessions.
@@ -135,9 +123,5 @@ Description: text editor written in Vala (debugging symbols)
  PHP, or marking things up in HTML, Scratch has you covered. Experience full
  syntax highlighting with nearly all programming, scripting, and markup
  languages.
- .
- Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, .Desktop,
- Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile,
- Objective C, Pascal, Perl, Python, Ruby, XML.
  .
  This package contains debugging symbols for scratch-text-editor.
