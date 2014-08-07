@@ -26,7 +26,6 @@ Homepage: http://launchpad.net/scratch
 Package: scratch-text-editor
 Architecture: any
 Priority: optional
-Section: editors
 Depends: ${gir:Depends}, ${misc:Depends}, ${shlibs:Depends},
          exuberant-ctags, libscratchcore0 (= ${binary:Version})
 Description: text editor written in Vala
