@@ -6,8 +6,8 @@ export DEB_BUILD_OPTIONS=nocheck
 %:
 	dh $@
 
-override_dh_auto_install:
-	dh_auto_install --destdir=debian/scratch-text-editor
+override_dh_install:
+	dh_install --fail-missing
 
 override_dh_strip:
 	dh_strip --dbg-package=scratch-text-editor-dbg
