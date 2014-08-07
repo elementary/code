@@ -4,6 +4,8 @@
 
   Copyright (C) 2011-2012 Giulio Collura <random.cpp@gmail.com>
                 2013      Mario Guerriero <mario@elementaryos.org>
+                2014      Fabio Zaramella <ffabio.96.x@gmail.com>
+
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
@@ -27,7 +29,8 @@ namespace Scratch.Dialogs {
 
     public class Preferences : Gtk.Dialog {
 
-        public StaticNotebook main_static_notebook;
+        private Gtk.Stack       main_stack;
+        private StackSwitcher   main_stackswitcher;
         
         ComboBoxText start;
         Switch highlight_current_line;
@@ -41,54 +44,65 @@ namespace Scratch.Dialogs {
         Switch use_custom_font;
         FontButton select_font;
         
-        public Preferences (Gtk.Window? parent, PluginsManager plugins) {
+        public Preferences (Gtk.Window? parent, PluginsManager plugins) {           
+            Object (use_header_bar: 1);
 
             if (parent != null)
-                this.set_transient_for (parent);
-            this.title = _("Preferences");
-            this.border_width = 5;
+                set_transient_for (parent);
+            title = _("Preferences");
             set_default_size (630, 330);
             resizable = false;
             
-            main_static_notebook = new StaticNotebook (false);
-            
-            create_layout (plugins);
+            (get_header_bar () as Gtk.HeaderBar).show_close_button = false;
+            get_header_bar ().get_style_context ().remove_class ("header-bar");
 
+            main_stack = new Gtk.Stack ();
+            main_stackswitcher = new Gtk.StackSwitcher ();
+            main_stackswitcher.set_stack (main_stack);
+            main_stackswitcher.halign = Gtk.Align.CENTER;
+
+            create_layout (plugins);
         }
 
-        private void create_layout (PluginsManager plugins) {
+        private void create_layout (PluginsManager plugins) {        
+
+            //create Behavior tab
+            this.main_stack.add_titled (get_general_box (), "behavior", _("Behavior"));
             
-            //create static notebook Behavior tab
-            var behavior_label = new Label (_("Behavior"));
-            main_static_notebook.append_page (get_general_box (), behavior_label);
-            
-            //create static notebook Interface tab
-            var interface_label = new Label (_("Interface"));
-            main_static_notebook.append_page (get_editor_box (), interface_label);
+            //create Interface tab
+            this.main_stack.add_titled (get_editor_box (), "interface", _("Interface"));
             
             // Plugin hook function
             plugins.hook_preferences_dialog (this);
             
             if (Peas.Engine.get_default ().get_plugin_list ().length () > 0) {
-                //create static notebook Extensions tab
-                var extensions_label = new Label (_("Extensions"));
-
                 //var pbox = plugins.get_view ();
-                var pbox = new Box (Orientation.HORIZONTAL, 5);
-                pbox.pack_start (plugins.get_view (), true, true, 5);
-                
-                main_static_notebook.append_page (pbox, extensions_label);
+                var pbox = new Box (Orientation.HORIZONTAL, 12);
+                pbox.margin_top = 12;
+                pbox.margin_bottom = 12;
+                pbox.pack_start (plugins.get_view (), true, true, 12);
+
+                //create Extensions tab
+                this.main_stack.add_titled (pbox, "extensions", _("Extensions"));
             }
             
             // Close button
-	        this.response.connect ((response_id) => { 
-		        this.destroy();
-		    });
-            add_button ("_Close", Gtk.ResponseType.CLOSE);
+            var close_button = new Gtk.Button.with_label (_("Close"));
+            close_button.clicked.connect (() => {this.destroy ();});
             
+            var button_box = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
+            button_box.set_layout (Gtk.ButtonBoxStyle.END);
+            button_box.pack_end (close_button);
+            button_box.margin_right = 12;
+
             // Pack everything into the dialog
-            Gtk.Box content = get_content_area () as Gtk.Box;
-            content.pack_start (main_static_notebook, true, true, 0);
+            Gtk.Grid main_grid = new Gtk.Grid ();
+            main_grid.attach (this.main_stackswitcher, 0, 0, 1, 1);
+            main_grid.attach (this.main_stack, 0, 1, 1, 1);
+            main_grid.attach (button_box, 0, 2, 1, 1);
+
+            ((Gtk.Container) get_content_area ()).add (main_grid);
+
         }
 
         void add_section (Gtk.Grid grid, Gtk.Label name, ref int row) {
@@ -128,10 +142,10 @@ namespace Scratch.Dialogs {
             var general_grid = new Gtk.Grid ();
             general_grid.row_spacing = 5;
             general_grid.column_spacing = 5;
-            general_grid.margin_left = 15;
-            general_grid.margin_right = 5;
-            general_grid.margin_top = 15;
-            general_grid.margin_bottom = 15;            
+            general_grid.margin_left = 12;
+            general_grid.margin_right = 12;
+            general_grid.margin_top = 12;
+            general_grid.margin_bottom = 12;            
             
             int row = 0;
             // General
@@ -178,10 +192,10 @@ namespace Scratch.Dialogs {
             var content = new Gtk.Grid ();
             content.row_spacing = 5;
             content.column_spacing = 5;
-            content.margin_left = 15;
-            content.margin_right = 5;
-            content.margin_top = 15;
-            content.margin_bottom = 15;
+            content.margin_left = 12;
+            content.margin_right = 12;
+            content.margin_top = 12;
+            content.margin_bottom = 12;
             
             int row = 0;
             
