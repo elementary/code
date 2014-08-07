@@ -113,7 +113,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
 
             this.terminal.set_colors (foreground_color, background_color, palette);
 
-            } // end pantheon-terminal settings
+        } // end pantheon-terminal settings
 
         // Popup menu
         var menu = new Gtk.Menu ();
