@@ -4,19 +4,35 @@ Source: https://launchpad.net/scratch
 
 
 Files: *
-Copyright: 2011-2012 Mario Guerriero <mefrio.g@gmail.com>
-License: LGPL-3.0
-
-
-Files: scratchcore/*Manager.vala
-       src/Widgets/ComboSyntax.vala
-Copyright: 2011-2012 Lucas Baudin <xapantu@gmail.com>
-License: GPL-3.0+
+Copyright: 2011-2014 Mario Guerriero <mario@elementaryos.org>
+           2011-2012 Lucas Baudin <xapantu@gmail.com>
+           2014 Akshay Shekher <akshay@elementaryos.org>
+           2012 Andrea Basso <andrea@elementaryos.org>
+           2011-2014 Cody Garver <cody@elementaryos.org>
+           2013 Cuzzie Lee <kelwin.lee@gmail.com>
+           2012 Darcy Bras da Silva <dardevelin@cidadecool.com>
+           2011, 2013 David Gomes <david@elementaryos.org>
+           2011 Gabriele Coletta <gdmg92@gmail.com>
+           2014 Garrett Finucane <garrettdreyfus@gmail.com>
+           2013 Giacomo De Lazzari <giacky98.mail@gmail.com>
+           2011 Giulio Collura <giulio.collura@gmail.com>
+           2013 Julien Spautz <spautz.julien@gmail.com>
+           2013 Julián Unrrein <junrrein@gmail.com>
+           2013 Justin Schiff <ambientrevolution@gmail.com>
+           2014 KJ Lawrence <kjtehprogrammer@gmail.com>
+           2012 Marcus Lundgren <marcus.lundgren@gmail.com>
+           2013-2014 Niclas Lockner <niclaslockner@gmail.com>
+           2012-2014 Rico Tzschichholz <ricotz@ubuntu.com>
+           2014 Robert Roth <robert.roth.off@gmail.com>
+           2012-2014 Sergey "Shnatsel" Davidoff <sergey@elementaryos.org>
+           2013 Tom Beckmann <tom@elementaryos.org>
+           2014 Viko Adi Rahmawan <vikoadi@gmail.com>
+License: GPL-3.0
 
 
 Files: plugins/pastebin/*
-       scratchcore/Settings.vala
-       scratchcore/SourceView.vala
+       src/Services/Settings.vala
+       src/Widgets/SourceView.vala
        src/Widgets/ShareMenu.vala
        src/Widgets/ToolBar.vala
        src/Dialogs/SaveOnCloseDialog.vala
@@ -24,6 +40,14 @@ Files: plugins/pastebin/*
        src/Services/Document.vala
        src/Scratch.vala
 Copyright: 2011-2012 Giulio Collura <random.cpp@gmail.com>
+           2012 Andrea Basso <andrea@elementaryos.org>
+           2011-2014 Cody Garver <cody@elementaryos.org>
+           2012 Darcy Bras da Silva <dardevelin@cidadecool.com>
+           2011 David Gomes <david@elementaryos.org>
+           2013 Julien Spautz <spautz.julien@gmail.com>
+           2011-2013 Mario Guerriero <mario@elementaryos.org>
+           2014 Niclas Lockner <niclaslockner@gmail.com>
+           2011-2012 Lucas Baudin <xapantu@gmail.com>
 License: LGPL-3.0
 
 
@@ -34,12 +58,13 @@ License: LGPL-3.0
 
 Files: src/Services/ZeitgeistLogger.vala
 Copyright: 2012 Manish Sinha <manishsinha@ubuntu.com>
+           2012-2013 Mario Guerriero <mario@elementaryos.org>
 License: LGPL-3.0
 
 
 Files: cmake/ParseArguments.cmake
 Copyright: 2000-2009 Kitware, Inc., Insight Software Consortium
-License: 2-clause BSD
+License: BSD-2-clause
 
 
 Files: cmake/FindVala.cmake
@@ -47,11 +72,18 @@ Files: cmake/FindVala.cmake
        cmake/ValaVersion.cmake
        cmake/README.Vala.rst
 Copyright: 2009-2010 Jakob Westhoff
-License: 2-clause BSD
+License: BSD-2-clause
 
 
 Files: debian/*
-Copyright: 2011 Mario Guerriero <mefrio.g@gmail.com>
+Copyright: 2011-2013 Mario Guerriero <mario@elementaryos.org>
+           2011-2013 Cody Garver <cody@elementaryos.org>
+           2011 Giulio Collura <giulio.collura@gmail.com>
+           2011-2012 Lucas Baudin <xapantu@gmail.com>
+           2012 Cassidy Blaede <cassidy@elementaryos.org>
+           2012 Devid Antonio Filoni <d.filoni@ubuntu.com>
+           2012-2014 Rico Tzschichholz <ricotz@ubuntu.com>
+           2011-2014 Sergey "Shnatsel" Davidoff <sergey@elementaryos.org>
 License: GPL-3.0+
 
 
@@ -90,7 +122,7 @@ License: LGPL-3.0
  Public License 3 can be found in "/usr/share/common-licenses/LGPL-3".
 
 
-License: 2-clause BSD
+License: BSD-2-clause
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
  .
