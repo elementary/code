@@ -77,19 +77,18 @@ public class Scratch.Plugins.Contractor : Peas.ExtensionBase,  Peas.Activatable 
             Gee.List<Granite.Services.Contract> contracts = null;
             try {
                 contracts = Granite.Services.ContractorProxy.get_contracts_by_mime (doc.get_mime_type ());
+
+                for (int i = 0; i < contracts.size; i++) {
+                    var contract = contracts.get (i);
+                    Gtk.MenuItem menu_item;
+
+                    menu_item = new ContractMenuItem (contract, doc.file);
+                    menu.append (menu_item);
+                    this.list.append (menu_item);
+                }
             } catch (Error e) {
                 warning (e.message);
             }
-            
-            for (int i = 0; i < contracts.size; i++) {
-                var contract = contracts.get (i);
-                Gtk.MenuItem menu_item;
-
-                menu_item = new ContractMenuItem (contract, doc.file);
-                menu.append (menu_item);
-                this.list.append (menu_item);
-            }
-
         });
     }
     
