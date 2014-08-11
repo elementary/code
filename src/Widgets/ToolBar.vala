@@ -28,6 +28,7 @@ namespace Scratch.Widgets {
         public ToolButton open_button;
         public ToolButton templates_button;
         public ToolButton save_button;
+        public ToolButton save_as_button;
         public ToolButton revert_button;
         public ToolButton find_button;
 
@@ -47,6 +48,7 @@ namespace Scratch.Widgets {
             open_button = main_actions.get_action ("Open").create_tool_item() as Gtk.ToolButton;
             templates_button = main_actions.get_action ("Templates").create_tool_item() as Gtk.ToolButton;
             save_button = main_actions.get_action ("SaveFile").create_tool_item() as Gtk.ToolButton;
+            save_as_button = main_actions.get_action ("SaveFileAs").create_tool_item() as Gtk.ToolButton;
             revert_button = main_actions.get_action ("Revert").create_tool_item() as Gtk.ToolButton;
             find_button = main_actions.get_action ("Fetch").create_tool_item() as Gtk.ToolButton;
             
@@ -83,6 +85,7 @@ namespace Scratch.Widgets {
             pack_start (open_button);
             pack_start (templates_button);
             pack_start (save_button);
+            pack_start (save_as_button);
             pack_start (new SeparatorToolItem ());
             pack_start (revert_button);
             pack_start (new SeparatorToolItem ());

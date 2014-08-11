@@ -188,6 +188,7 @@ namespace Scratch {
                 }
                 // Set actions sensitive property
                 main_actions.get_action ("SaveFile").visible = (!settings.autosave || doc.file == null);
+                main_actions.get_action ("SaveFileAs").visible = (doc.file != null);
                 doc.check_undoable_actions ();
             });
 
@@ -293,6 +294,7 @@ namespace Scratch {
                 this.search_revealer.set_reveal_child (false);
             // Toolbar Actions
             main_actions.get_action ("SaveFile").sensitive = val;
+            main_actions.get_action ("SaveFileAs").sensitive = val;
             main_actions.get_action ("Undo").sensitive = val;
             main_actions.get_action ("Redo").sensitive = val;
             main_actions.get_action ("Revert").sensitive = val;
@@ -519,6 +521,10 @@ namespace Scratch {
             this.get_current_document ().save ();
         }
 
+        void action_save_as () {
+            this.get_current_document ().save_as ();
+        }
+
         void action_undo () {
             this.get_current_document ().undo ();
         }
@@ -704,6 +710,10 @@ namespace Scratch {
           /* label, accelerator */       N_("Save"), "<Control>s",
           /* tooltip */                  N_("Save the current file"),
                                          action_save },
+           { "SaveFileAs", Gtk.Stock.SAVE_AS,
+          /* label, accelerator */       N_("Save As..."), "<Control><shift>s",
+          /* tooltip */                  N_("Save the current file under a different file name"),
+                                         action_save_as },
            { "Templates", "text-x-generic-template",
           /* label, accelerator */       N_("Templates"), null,
           /* tooltip */                  N_("Project templates"),
