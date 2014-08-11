@@ -712,7 +712,7 @@ namespace Scratch {
                                          action_save },
            { "SaveFileAs", Gtk.Stock.SAVE_AS,
           /* label, accelerator */       N_("Save As…"), "<Control><shift>s",
-          /* tooltip */                  N_("Save this file under a different file name"),
+          /* tooltip */                  N_("Save this file with a different name"),
                                          action_save_as },
            { "Templates", "text-x-generic-template",
           /* label, accelerator */       N_("Templates"), null,
