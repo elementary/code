@@ -32,8 +32,8 @@ namespace Scratch.Widgets {
         private Gtk.ToolItem tool_arrow_up;
         private Gtk.ToolItem tool_arrow_down;
 
-        public Granite.Widgets.SearchBar search_entry;
-        public Granite.Widgets.SearchBar replace_entry;
+        public Gtk.SearchEntry search_entry;
+        public Gtk.SearchEntry replace_entry;
         public Gtk.SpinButton go_to_entry;
         private Gtk.Adjustment go_to_adj;
         
@@ -68,7 +68,8 @@ namespace Scratch.Widgets {
             // Main entries
             // Search entry
             this.window = window;
-            search_entry = new Granite.Widgets.SearchBar (_("Find"));
+            search_entry = new Gtk.SearchEntry ();
+            search_entry.placeholder_text = _("Find");
             search_entry.width_request = 250;
             
             // Back and Next buttons
@@ -87,7 +88,8 @@ namespace Scratch.Widgets {
             previous.image = i;
             
             // Replace entry
-            replace_entry = new Granite.Widgets.SearchBar (_("Replace With"));
+            replace_entry = new Gtk.SearchEntry ();
+            replace_entry.placeholder_text = _("Replace With");
             replace_entry.width_request = 250;
             
             // Go To entry
