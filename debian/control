@@ -52,6 +52,7 @@ Architecture: any
 Priority: optional
 Section: libs
 Depends: ${gir:Depends}, ${misc:Depends}, ${shlibs:Depends}
+Breaks: scratch-text-editor (<= 2.0.1)
 Description: text editor that works for you (shared library)
  Scratch is the text editor that works for you. It auto-saves your files,
  meaning they're always up-to-date. Plus it remembers your tabs so you never
@@ -79,6 +80,7 @@ Priority: optional
 Section: libdevel
 Depends: ${gir:Depends}, ${misc:Depends}, ${shlibs:Depends},
          libscratchcore0 (= ${binary:Version})
+Breaks: scratch-text-editor (<= 2.0.1)
 Description: text editor that works for you (plugin development files)
  Scratch is the text editor that works for you. It auto-saves your files,
  meaning they're always up-to-date. Plus it remembers your tabs so you never
