@@ -27,7 +27,7 @@ Copyright: 2011-2014 Mario Guerriero <mario@elementaryos.org>
            2012-2014 Sergey "Shnatsel" Davidoff <sergey@elementaryos.org>
            2013 Tom Beckmann <tom@elementaryos.org>
            2014 Viko Adi Rahmawan <vikoadi@gmail.com>
-License: GPL-3.0
+License: GPL-3.0+
 
 
 Files: plugins/pastebin/*
@@ -74,6 +74,10 @@ Files: cmake/FindVala.cmake
 Copyright: 2009-2010 Jakob Westhoff
 License: BSD-2-clause
 
+Files: cmake/FindVala.cmake
+Copyright: 2009-2010 Jakob Westhoff
+           2012-2013 Dominique Lasserre <lasserre.d@gmail.com>
+License: GPL-3.0+
 
 Files: debian/*
 Copyright: 2011-2013 Mario Guerriero <mario@elementaryos.org>
