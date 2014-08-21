@@ -3,6 +3,10 @@
 # Disable unit testing
 export DEB_BUILD_OPTIONS=nocheck
 
+# Enable additional explot mitigation
+# (PIE and *full* RELRO at the time of this writing)
+export DEB_BUILD_MAINT_OPTIONS=hardening=+all
+
 %:
 	dh $@
 
