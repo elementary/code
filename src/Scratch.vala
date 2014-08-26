@@ -35,6 +35,7 @@ namespace Scratch {
 
         public string app_cmd_name { get { return _app_cmd_name; } }
         private static string _app_cmd_name;
+        private static string _cwd;
         private static bool print_version = false;
         private static bool create_new_tab = false;
         private static bool create_new_window = false;
@@ -124,6 +125,9 @@ namespace Scratch {
                 var window = get_last_window ();
                 window.main_actions.get_action ("NewTab").activate ();
             }
+
+            // Set Current Directory
+            Environment.set_current_dir (_cwd); 
 
             // Open all files given as arguments
             if (unclaimed_args > 0) {
@@ -219,6 +223,7 @@ namespace Scratch {
             { "new-window", 'n', 0, OptionArg.NONE, out create_new_window, N_("New Window"), null },
             { "version", 'v', 0, OptionArg.NONE, out print_version, N_("Print version info and exit"), null },
             { "set", 's', 0, OptionArg.STRING, ref _app_cmd_name, N_("Set of plugins"), "" },
+            { "cwd", 'c', 0, OptionArg.STRING, ref _cwd, N_("Curent working directoyr"), "" },            
             { null }
         };
 
@@ -230,6 +235,8 @@ namespace Scratch {
             context.add_group (Gtk.get_option_group (true));
 
             string[] args_primary_instance = args;
+            args_primary_instance += "-c";
+            args_primary_instance += Environment.get_current_dir (); 
 
             try {
                 context.parse (ref args);
