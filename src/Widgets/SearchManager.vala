@@ -88,6 +88,7 @@ namespace Scratch.Widgets {
             
             // Replace entry
             replace_entry = new Granite.Widgets.SearchBar (_("Replace With"));
+            replace_entry.set_icon_from_icon_name (Gtk.EntryIconPosition.PRIMARY, "edit-symbolic");
             replace_entry.width_request = 250;
             
             // Go To entry
