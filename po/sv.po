@@ -7,15 +7,118 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-08-17 14:05-0500\n"
+"POT-Creation-Date: 2014-08-30 09:08-0500\n"
 "PO-Revision-Date: 2014-07-30 13:19+0000\n"
 "Last-Translator: Niclas Lockner <niclaslockner@gmail.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-18 07:07+0000\n"
-"X-Generator: Launchpad (build 17156)\n"
+"X-Launchpad-Export-Date: 2014-08-31 07:12+0000\n"
+"X-Generator: Launchpad (build 17176)\n"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:52
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:722
+msgid "Preferences"
+msgstr "Inställningar"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:70
+msgid "Behavior"
+msgstr "Beteende"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
+msgid "Interface"
+msgstr "Gränssnitt"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:86
+msgid "Extensions"
+msgstr "Tillägg"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:90
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:666
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:667
+msgid "Close"
+msgstr "Stäng"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:135
+msgid "Show welcome screen"
+msgstr "Visa välkomstskärm"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:136
+msgid "Show last open tabs"
+msgstr "Visa senast öppna flikar"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
+msgid "General:"
+msgstr "Allmänt:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:158
+msgid "When Scratch starts:"
+msgstr "När Scratch startar:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:161
+msgid "Save files when changed:"
+msgstr "Spara filer när de ändrats"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:166
+msgid "Tabs:"
+msgstr "Flikar:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:171
+msgid "Automatic indentation:"
+msgstr "Automatiskt indrag:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:174
+msgid "Insert spaces instead of tabs:"
+msgstr "Använd mellanslag istället för tabbar"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:178
+msgid "Tab width:"
+msgstr "Tabulatorbredd:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:206
+msgid "Editor:"
+msgstr "Redigerare:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
+msgid "Highlight current line:"
+msgstr "Markera vald rad:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:225
+msgid "Highlight matching brackets:"
+msgstr "Markera matchande parentestecken:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:226
+msgid "Split long text in many lines:"
+msgstr "Dela lång text över flera rader:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:227
+msgid "Draw spaces:"
+msgstr "Markera mellanrum visuellt:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:228
+msgid "Show line numbers:"
+msgstr "Visa radnumrering:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:231
+msgid "Line width guide:"
+msgstr "Linjera med guidlinjen:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:247
+msgid "Font and Color Scheme:"
+msgstr "Typsnitt och färgschema:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:261
+msgid "Select font:"
+msgstr "Välj typsnitt:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:264
+msgid "Color scheme:"
+msgstr "Färgschema:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:269
+msgid "Custom font:"
+msgstr "Anpassat typsnitt:"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:99
 msgid "Zeitgeist Datasource for Scratch"
@@ -47,12 +150,6 @@ msgstr "Gå till rad…"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:663
 msgid "Quit"
 msgstr "Avsluta"
-
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:666
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:667
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:90
-msgid "Close"
-msgstr "Stäng"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:670
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:671
@@ -157,11 +254,6 @@ msgstr "Mallar"
 msgid "Project templates"
 msgstr "Projektmallar"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:722
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:52
-msgid "Preferences"
-msgstr "Inställningar"
-
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:723
 msgid "Change Scratch settings"
 msgstr "Ändra inställningarna för Scratch"
@@ -180,6 +272,83 @@ msgstr "Föregående flik"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:748
 msgid "Fullscreen"
 msgstr "Fullskärmsläge"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/ToolBar.vala:57
+msgid "Share"
+msgstr "Dela"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:46
+msgid "No Files Open"
+msgstr "Inga öppna filer"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:47
+msgid "Open a file to begin editing."
+msgstr "Öppna en fil för att börja redigera"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:51
+msgid "New file"
+msgstr "Ny fil"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:51
+msgid "Create a new empty file."
+msgstr "Skapa en ny tom fil"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:52
+msgid "Open file"
+msgstr "Öppna fil"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:52
+msgid "Open a saved file."
+msgstr "Öppna en sparad fil"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:97
+msgid "Syntax Highlighting"
+msgstr "Syntaxmarkering"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:108
+msgid "Normal Text"
+msgstr "Normal text"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/LoadingView.vala:36
+msgid "Wait while restoring last session..."
+msgstr "Vänta. Återställer föregående session..."
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:71
+msgid "Find"
+msgstr "Sök"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:90
+msgid "Replace With"
+msgstr "Ersätt med"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:115
+msgid "Replace all"
+msgstr "Ersätt alla"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:123
+msgid "Go To Line:"
+msgstr "Gå till rad:"
+
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:222
+msgid "New Tab"
+msgstr "Ny flik"
+
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:223
+#: /home/mario/elementary/scratch/po/../src/config.vala:18
+msgid "New Window"
+msgstr "Nytt fönster"
+
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:224
+msgid "Print version info and exit"
+msgstr "Skriv ut versionsinformation och avsluta"
+
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:225
+msgid "Set of plugins"
+msgstr "uppsättning av tillägg"
+
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:226
+msgid "Current working directoy"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:248
 #, c-format
@@ -279,170 +448,17 @@ msgstr "Redigera textfiler"
 msgid "Text Editor"
 msgstr "Textredigerare"
 
-#: /home/mario/elementary/scratch/po/../src/config.vala:18
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:219
-msgid "New Window"
-msgstr "Nytt fönster"
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:23
+msgid "Pastebin"
+msgstr "Pastebin"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:70
-msgid "Behavior"
-msgstr "Beteende"
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:24
+msgid "Share files with pastebin service"
+msgstr "Dela filer via tjänsten Pastebin"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
-msgid "Interface"
-msgstr "Gränssnitt"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:86
-msgid "Extensions"
-msgstr "Tillägg"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:135
-msgid "Show welcome screen"
-msgstr "Visa välkomstskärm"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:136
-msgid "Show last open tabs"
-msgstr "Visa senast öppna flikar"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
-msgid "General:"
-msgstr "Allmänt:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:158
-msgid "When Scratch starts:"
-msgstr "När Scratch startar:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:161
-msgid "Save files when changed:"
-msgstr "Spara filer när de ändrats"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:166
-msgid "Tabs:"
-msgstr "Flikar:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:171
-msgid "Automatic indentation:"
-msgstr "Automatiskt indrag:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:174
-msgid "Insert spaces instead of tabs:"
-msgstr "Använd mellanslag istället för tabbar"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:178
-msgid "Tab width:"
-msgstr "Tabulatorbredd:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:206
-msgid "Editor:"
-msgstr "Redigerare:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
-msgid "Highlight current line:"
-msgstr "Markera vald rad:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:225
-msgid "Highlight matching brackets:"
-msgstr "Markera matchande parentestecken:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:226
-msgid "Split long text in many lines:"
-msgstr "Dela lång text över flera rader:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:227
-msgid "Draw spaces:"
-msgstr "Markera mellanrum visuellt:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:228
-msgid "Show line numbers:"
-msgstr "Visa radnumrering:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:231
-msgid "Line width guide:"
-msgstr "Linjera med guidlinjen:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:247
-msgid "Font and Color Scheme:"
-msgstr "Typsnitt och färgschema:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:261
-msgid "Select font:"
-msgstr "Välj typsnitt:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:264
-msgid "Color scheme:"
-msgstr "Färgschema:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:269
-msgid "Custom font:"
-msgstr "Anpassat typsnitt:"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:71
-msgid "Find"
-msgstr "Sök"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:90
-msgid "Replace With"
-msgstr "Ersätt med"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:115
-msgid "Replace all"
-msgstr "Ersätt alla"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:123
-msgid "Go To Line:"
-msgstr "Gå till rad:"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:46
-msgid "No Files Open"
-msgstr "Inga öppna filer"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:47
-msgid "Open a file to begin editing."
-msgstr "Öppna en fil för att börja redigera"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:51
-msgid "New file"
-msgstr "Ny fil"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:51
-msgid "Create a new empty file."
-msgstr "Skapa en ny tom fil"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:52
-msgid "Open file"
-msgstr "Öppna fil"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:52
-msgid "Open a saved file."
-msgstr "Öppna en sparad fil"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/LoadingView.vala:36
-msgid "Wait while restoring last session..."
-msgstr "Vänta. Återställer föregående session..."
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:97
-msgid "Syntax Highlighting"
-msgstr "Syntaxmarkering"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:108
-msgid "Normal Text"
-msgstr "Normal text"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/ToolBar.vala:57
-msgid "Share"
-msgstr "Dela"
-
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:218
-msgid "New Tab"
-msgstr "Ny flik"
-
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:220
-msgid "Print version info and exit"
-msgstr "Skriv ut versionsinformation och avsluta"
-
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:221
-msgid "Set of plugins"
-msgstr "uppsättning av tillägg"
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:134
+msgid "Upload to Pastebin"
+msgstr "Ladda upp till Pastebin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
@@ -496,17 +512,9 @@ msgstr "Ett dygn"
 msgid "One month"
 msgstr "En månad"
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:23
-msgid "Pastebin"
-msgstr "Pastebin"
-
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:24
-msgid "Share files with pastebin service"
-msgstr "Dela filer via tjänsten Pastebin"
-
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:134
-msgid "Upload to Pastebin"
-msgstr "Ladda upp till Pastebin"
+#: /home/mario/elementary/scratch/po/../plugins/filemanager/FileView.vala:90
+msgid "/New File"
+msgstr "/Ny fil"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:21
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:21
@@ -533,10 +541,6 @@ msgstr "Ta bort fil"
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:104
 msgid "File Manager"
 msgstr "Filhanterare"
-
-#: /home/mario/elementary/scratch/po/../plugins/filemanager/FileView.vala:90
-msgid "/New File"
-msgstr "/Ny fil"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:23
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:158
@@ -619,10 +623,6 @@ msgstr "Föreslår automatiskt de ord du använder mest i dina filer"
 msgid "%s - Word Completion"
 msgstr "%s - Ordförslag"
 
-#: /home/mario/elementary/scratch/po/../plugins/folder-manager/FileView.vala:330
-msgid "Close Folder"
-msgstr "Stäng mapp"
-
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:71
 msgid "Folders"
 msgstr "Mappar"
@@ -639,6 +639,10 @@ msgstr "_Avbryt"
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:96
 msgid "_Open"
 msgstr "_Öppna"
+
+#: /home/mario/elementary/scratch/po/../plugins/folder-manager/FileView.vala:330
+msgid "Close Folder"
+msgstr "Stäng mapp"
 
 #: /home/mario/elementary/scratch/po/../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
