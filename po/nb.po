@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-08-30 09:08-0500\n"
-"PO-Revision-Date: 2014-08-05 19:50+0000\n"
-"Last-Translator: Mathias Bynke <Unknown>\n"
+"PO-Revision-Date: 2014-09-25 18:21+0000\n"
+"Last-Translator: ProsjektX <Unknown>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-31 07:12+0000\n"
-"X-Generator: Launchpad (build 17176)\n"
+"X-Launchpad-Export-Date: 2014-09-26 06:30+0000\n"
+"X-Generator: Launchpad (build 17196)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:52
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:722
@@ -66,11 +66,11 @@ msgstr "Faner:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:171
 msgid "Automatic indentation:"
-msgstr "Automatik indentering:"
+msgstr "Automatisk innrykk:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:174
 msgid "Insert spaces instead of tabs:"
-msgstr "Sett mellomrom i stedet for tabulator:"
+msgstr "Sett inn mellomrom i stedet for tabulator:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:178
 msgid "Tab width:"
@@ -90,7 +90,7 @@ msgstr "Uthev klammer som hører sammen:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:226
 msgid "Split long text in many lines:"
-msgstr "Split lang tekst i mange linjer:"
+msgstr "Splitt lang tekst på flere linjer:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:227
 msgid "Draw spaces:"
@@ -106,11 +106,11 @@ msgstr "Linjebredde guide:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:247
 msgid "Font and Color Scheme:"
-msgstr "Font og fargevalg:"
+msgstr "Skrifttype og fargevalg:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:261
 msgid "Select font:"
-msgstr "Velg skrift:"
+msgstr "Velg skrifttype:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:264
 msgid "Color scheme:"
@@ -118,7 +118,7 @@ msgstr "Fargetema:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:269
 msgid "Custom font:"
-msgstr "Egendefinert skrift:"
+msgstr "Egendefinert skrifttype:"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:99
 msgid "Zeitgeist Datasource for Scratch"
@@ -139,7 +139,7 @@ msgstr "Skjul søkefeltet"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:654
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:655
 msgid "Find…"
-msgstr "Finn …"
+msgstr "Finn..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:658
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:659
@@ -149,7 +149,7 @@ msgstr "Gå til linje..."
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:662
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:663
 msgid "Quit"
-msgstr "Avbrutt"
+msgstr "Avslutt"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:670
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:671
@@ -159,15 +159,15 @@ msgstr "Erstatt"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:674
 msgid "Reopen closed document"
-msgstr "Åpne locked document"
+msgstr "Gjenåpne lukket dokument"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:675
 msgid "Open last closed document in a new tab"
-msgstr "Åpne siste locked document i en ny fane"
+msgstr "Åpne sist lukkede dokument i en ny fane"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:678
 msgid "Add New Tab"
-msgstr "Legg til en Ny Fane"
+msgstr "Legg til ny fane"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:679
 msgid "Add a new tab"
@@ -234,7 +234,7 @@ msgstr "Lagre"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:711
 msgid "Save this file"
-msgstr ""
+msgstr "Lagre denne filen"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:714
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:576
@@ -243,7 +243,7 @@ msgstr "Lagre som …"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:715
 msgid "Save this file with a different name"
-msgstr ""
+msgstr "Lagre denne filen med et annet navn"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:718
 #: /home/mario/elementary/scratch/po/../src/Services/TemplateManager.vala:230
@@ -299,7 +299,7 @@ msgstr "Åpne fil"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:52
 msgid "Open a saved file."
-msgstr "Åpne en lagra fil"
+msgstr "Åpne en lagret fil."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:97
 msgid "Syntax Highlighting"
@@ -348,7 +348,7 @@ msgstr "Utvidelser"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:226
 msgid "Current working directoy"
-msgstr ""
+msgstr "Gjeldende arbeidsmappe"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:248
 #, c-format
@@ -359,8 +359,7 @@ msgstr "Lagre endringer i dokument %s før programmet avsluttes?"
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
-"Viss du ikke vil lagre, kommer du til å miste endringene som er gjort de "
-"siste 4 minuttene. For alltid."
+"Hvis du ikke lagrer vil du miste endringene som er gjort de siste 4 sekunder."
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:253
 msgid "Close without saving"
@@ -406,7 +405,7 @@ msgstr "Do kan ikke lagre forandringene på filen"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:596
 msgid "Do you want to save the changes to this file in a different location?"
-msgstr "Vil du lagre endringene i denne fila til en anna plass?"
+msgstr "Vil du lagre endringene i denne fila til en annen plass?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:598
 msgid "Save changes elsewhere"
@@ -478,11 +477,11 @@ msgstr "Andre ..."
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:305
 msgid "Expiry time:"
-msgstr "Utløpsdato:"
+msgstr "Utløpstid:"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:310
 msgid "Keep this paste private"
-msgstr "Hold denne insettinga privat"
+msgstr "Hold denne insettingen privat"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:312
 msgid "Upload"
@@ -549,7 +548,7 @@ msgstr "Terminal"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:24
 msgid "A terminal in your text editor"
-msgstr "En terminal i din tekstbahandler"
+msgstr "En terminal i din tekstbehandler"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:121
 msgid "Copy"
