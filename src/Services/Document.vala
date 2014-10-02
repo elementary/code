@@ -56,15 +56,23 @@ namespace Scratch.Services {
         private Gtk.InfoBar info_bar =                  new Gtk.InfoBar ();
 
         // Objects
-        private File? _file = null;
-        public File? file {
+        private File _file = null;
+        public File file {
             get { return _file; }
-            set { _file = value; file_changed (); }
+            set { 
+                _file = value; 
+                file_changed (); 
+            }
         }
         public string original_content;
         public string? last_saved_content = null;
         public bool saved = true;
         private bool error_shown = false;
+        private bool is_file_temporery {
+            get {
+                return file.get_path ().has_prefix (ScratchApp.instance.data_home_folder_unsaved);
+            }
+        }
         
         // It is used to load file content on focusing
         private bool loaded = false;
@@ -134,43 +142,6 @@ namespace Scratch.Services {
 
         public async bool open () {
             this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
-            if (file == null) {
-                message ("New Document opened");
-                this.source_view.focus_in_event.connect (() => {
-                    main_actions.get_action ("SaveFile").visible = true;
-                    check_file_status ();
-                    check_undoable_actions ();
-                    return false;
-                });
-                uint timeout_saving = -1;
-                this.source_view.buffer.changed.connect (() => {
-                    check_undoable_actions ();
-                    // If it wasn't yet saved
-                    if (file == null) {
-                        this.set_saved_status (false);
-                        return;
-                    }
-                    // Save if autosave is ON
-                    if (settings.autosave) {
-                        if (timeout_saving >= 0) {
-                            Source.remove (timeout_saving);
-                            timeout_saving = -1;
-                        }
-                        timeout_saving = Timeout.add (3000, () => {
-                            save ();
-                            timeout_saving = -1;
-                            return false;
-                        });
-                    }
-                    else if (!settings.autosave || file == null)
-                        this.set_saved_status (false);
-                });
-                this.set_saved_status (true);
-                this.has_started_loading = true;
-                this.loaded = true;
-
-                return true;
-            }
 
             // If it does not exists, let's create it!
             if (!exists ()) {
@@ -231,10 +202,10 @@ namespace Scratch.Services {
 
             message ("Closing \"%s\"", get_basename ());
 
-            bool ret_value = true;
-            
+            bool ret_value = false;
+
             // Check for unsaved changes
-            if (!this.saved) {
+            if (!this.saved && !this.is_file_temporery) {
                 debug ("There are unsaved changes, showing a Message Dialog!");
 
                 // Create a GtkDialog
@@ -274,33 +245,34 @@ namespace Scratch.Services {
                 }
                 dialog.destroy ();
             }
-
-            if (file != null && ret_value) {
-                // Delete backup copy file
-                delete_backup ();
-#if HAVE_ZEITGEIST
-                // Zeitgeist integration
-                zg_log.close_insert (file.get_uri (), get_mime_type ());
-#endif
+            else if (this.is_file_temporery) {
+                this.save ();
+                ret_value = true;
             }
+
+            // Delete backup copy file
+            delete_backup ();
+
+            // Delete empty temporary files
+            delelte_empty_temporary_file ();
+
+#if HAVE_ZEITGEIST
+            // Zeitgeist integration
+            zg_log.close_insert (file.get_uri (), get_mime_type ());
+#endif
             
             return ret_value;
         }
 
         public bool save () {
-            if (last_saved_content == get_text () && this.file != null)
+            if (last_saved_content == get_text ())
                 return false;
 
             if (!this.loaded)
                 return false;
 
-            // Create backup copy file if it does not still exist
-            if (this.file != null)
-                create_backup ();
-
-            // Show save as dialog if file is null
-            if (this.file == null)
-                return this.save_as ();
+            // Create backup copy file
+            this.create_backup ();
 
             // Replace old content with the new one
             try {
@@ -308,6 +280,7 @@ namespace Scratch.Services {
                 file.replace_contents (this.source_view.buffer.text.data, null, false, 0, out s);
             } catch (Error e) {
                 warning ("Cannot save \"%s\": %s", get_basename (), e.message);
+                return false;
             }
 
 #if HAVE_ZEITGEIST
@@ -330,6 +303,9 @@ namespace Scratch.Services {
             // New file
             var filech = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.SAVE, _("Save File"), null);
 
+            string current_file = file.get_path ();
+            bool is_current_file_temporary = this.is_file_temporery;
+
             if (filech.run () == Gtk.ResponseType.ACCEPT) {
                 this.file = File.new_for_uri (filech.get_file ().get_uri ());
                 // Update last visited path
@@ -341,11 +317,17 @@ namespace Scratch.Services {
                 return false;
             }
 
-            // reset the last saved content
-            last_saved_content = null;
+            // Reset the last saved content
+            last_saved_content = null;            
 
-            save ();
-
+            if (save () && is_current_file_temporary) {
+                // Delete temporery file              
+                try {
+                    File.new_for_path (current_file).delete ();
+                } catch (Error err) {
+                    message ("Temporary file can't be deleted: %s", current_file);
+                }
+            }
             // Change syntax highlight
             this.source_view.change_syntax_highlight_from_file (this.file);
 
@@ -369,20 +351,16 @@ namespace Scratch.Services {
 
         // Get mime type for the document
         public string get_mime_type () {
-            if (file == null)
-                return "text/plain";
-            else {
-                FileInfo info;
-                string mime_type;
-                try {
-                    info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
-                    mime_type = ContentType.get_mime_type (info.get_attribute_as_string (FileAttribute.STANDARD_CONTENT_TYPE));
-                    return mime_type;
-                } catch (Error e) {
-                    warning ("%s", e.message);
-                    return "undefined";
-                }
-            }
+            FileInfo info;
+            string mime_type;
+            try {
+                info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
+                mime_type = ContentType.get_mime_type (info.get_attribute_as_string (FileAttribute.STANDARD_CONTENT_TYPE));
+                return mime_type;
+            } catch (Error e) {
+                warning ("%s", e.message);
+                return "undefined";
+            }            
         }
 
         // Focus the SourceView
@@ -406,17 +384,12 @@ namespace Scratch.Services {
 
         // Get file uri
         public string get_uri () {
-            if (file == null)
-                return "";
             return this.file.get_uri ();
         }        
         
         // Get file name
         public string get_basename () {
-            if (file != null)
                 return file.get_basename ();
-            else
-                return _("New Document");
         }
 
         // Set InfoBars message
@@ -687,6 +660,17 @@ namespace Scratch.Services {
             }
         }
 
+        private void delelte_empty_temporary_file () {
+            if (!is_file_temporery || get_text ().length > 0) 
+                return;
+            try {
+                file.delete();
+            } catch (Error e) {
+                warning ("Cannot delete termporary file \"%s\": %s", get_basename (), e.message);
+            }   
+
+        }
+
         // Return true if the file is writable
         public bool can_write () {
             FileInfo info;
@@ -715,11 +699,6 @@ namespace Scratch.Services {
         }
 
         private void file_changed () {
-            if (file == null) {
-                mounted = true;
-                return;
-            }
-
             if (mount != null) {
                 mount.unmounted.disconnect (unmounted_cb);
                 mount = null;

@@ -34,7 +34,9 @@ namespace Scratch {
         private GLib.List <MainWindow> windows;
 
         public string app_cmd_name { get { return _app_cmd_name; } }
+        public string data_home_folder_unsaved { get { return _data_home_folder_unsaved; } }
         private static string _app_cmd_name;
+        private static string _data_home_folder_unsaved;
         private static string _cwd;
         private static bool print_version = false;
         private static bool create_new_tab = false;
@@ -90,6 +92,18 @@ namespace Scratch {
             services = new ServicesSettings ();
             windows = new GLib.List <MainWindow> ();
             
+            // Init data home folder for unsaved text files
+            _data_home_folder_unsaved = Environment.get_user_data_dir () + "/scratch/unsaved/";
+        }
+
+        public static ScratchApp _instance = null;
+
+        public static ScratchApp instance {
+            get {
+                if (_instance == null)
+                    _instance = new ScratchApp ();
+                return _instance;
+            }
         }
 
         protected override int command_line (ApplicationCommandLine command_line) {
@@ -253,7 +267,7 @@ namespace Scratch {
                 return Posix.EXIT_SUCCESS;
             }
 
-            var app = new ScratchApp ();
+            ScratchApp app = ScratchApp.instance;
             return app.run (args_primary_instance);
         }
     }

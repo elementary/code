@@ -86,6 +86,9 @@ namespace Scratch {
             // Restore session
             restore_saved_state_extra ();
 
+            // Crate folder for unsaved documents
+            create_unsaved_documentes_directory ();
+
 #if HAVE_ZEITGEIST
             // Set up the Data Source Registry for Zeitgeist
             registry = new DataSourceRegistry ();
@@ -381,16 +384,22 @@ namespace Scratch {
             return split_view.is_empty ();
         }
 
+        public bool has_temporary_files () {
+        	FileEnumerator enumerator = File.new_for_path (app.data_home_folder_unsaved).enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME, 0, null);
+			var fileinfo = enumerator.next_file(null);
+			if (fileinfo != null)
+				return true;
+			return false;
+        }
+        
         // Check if there no unsaved changes
         private bool check_unsaved_changes () {
             if (!is_empty ()) {
                 foreach (var w in this.split_view.views) {
                     var view = w as Scratch.Widgets.DocumentView;
                     foreach (var doc in view.docs) {
-                        if (!doc.close ()) {
-                            view.set_current_document (doc);
-                            return false;
-                        }
+                    	if(!doc.close ())
+                    		return false;
                     }
                 }
             }
@@ -416,6 +425,16 @@ namespace Scratch {
             hp1.set_position (Scratch.saved_state.hp1_size);
             hp2.set_position (Scratch.saved_state.hp2_size);
             vp.set_position (Scratch.saved_state.vp_size);
+        }
+
+        private void create_unsaved_documentes_directory () {
+        	File directory = File.new_for_path(app.data_home_folder_unsaved);
+		    if (!directory.query_exists ()) {
+		        debug ("create 'unsaved' directory: %s", directory.get_path());
+		        directory.make_directory_with_parents ();
+		        return;
+		    }
+		    debug ("'unsaved' directory already exists.");
         }
 
         private void update_saved_state () {
@@ -490,8 +509,10 @@ namespace Scratch {
         }
 
         void action_quit () {
+        	debug ("action_quit");
             handle_quit ();
             check_unsaved_changes ();
+            
             destroy ();
         }
 
@@ -515,6 +536,18 @@ namespace Scratch {
             }
 
             filech.close ();
+        }
+
+        void action_open_temporery_files () {
+			FileEnumerator enumerator = File.new_for_path (app.data_home_folder_unsaved).enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME, 0, null);
+			var fileinfo = enumerator.next_file (null);
+			while (fileinfo != null) {
+		        var file = File.new_for_path(app.data_home_folder_unsaved + fileinfo.get_name ());
+	            var doc = new Scratch.Services.Document (this.main_actions, file);
+	            this.open_document (doc);
+	            // Next file info
+		        fileinfo = enumerator.next_file (null);
+			}
         }
 
         void action_save () {
@@ -694,7 +727,7 @@ namespace Scratch {
           /* label, accelerator */       N_("Redo"), "<Control><shift>z",
           /* tooltip */                  N_("Redo the last undone action"),
                                          action_redo },
-          { "Revert", Gtk.Stock.REVERT_TO_SAVED,
+           { "Revert", Gtk.Stock.REVERT_TO_SAVED,
           /* label, accelerator */       N_("Revert"), "<Control><shift>o",
           /* tooltip */                  N_("Restore this file"),
                                          action_revert },
@@ -706,6 +739,10 @@ namespace Scratch {
           /* label, accelerator */       N_("Open"), "<Control>o",
           /* tooltip */                  N_("Open a file"),
                                          action_open },
+           { "OpenTemporaryFiles", Gtk.Stock.OPEN,
+          /* label, accelerator */       N_("Open"), "<Control>o",
+          /* tooltip */                  N_("Open temporery files"),
+                                         action_open_temporery_files },
            { "SaveFile", Gtk.Stock.SAVE,
           /* label, accelerator */       N_("Save"), "<Control>s",
           /* tooltip */                  N_("Save this file"),
