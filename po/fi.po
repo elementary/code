@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-08-30 09:08-0500\n"
-"PO-Revision-Date: 2014-08-21 07:30+0000\n"
+"PO-Revision-Date: 2014-10-01 12:27+0000\n"
 "Last-Translator: Jiri Grönroos <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-31 07:12+0000\n"
-"X-Generator: Launchpad (build 17176)\n"
+"X-Launchpad-Export-Date: 2014-10-02 06:23+0000\n"
+"X-Generator: Launchpad (build 17196)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:52
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:722
@@ -102,7 +102,7 @@ msgstr "Näytä rivinumerot:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:231
 msgid "Line width guide:"
-msgstr ""
+msgstr "Rivileveyden merkki:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:247
 msgid "Font and Color Scheme:"
@@ -122,7 +122,7 @@ msgstr "Mukautettu kirjasin:"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:99
 msgid "Zeitgeist Datasource for Scratch"
-msgstr ""
+msgstr "Zeitgeist-datalähde Scratchille"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:181
 msgid "Trash"
@@ -344,7 +344,7 @@ msgstr "Tulosta versiotiedot ja poistu"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:225
 msgid "Set of plugins"
-msgstr ""
+msgstr "Laajennusjoukko"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:226
 msgid "Current working directoy"
@@ -482,7 +482,7 @@ msgstr "Vanhenemisaika:"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:310
 msgid "Keep this paste private"
-msgstr ""
+msgstr "Älä aseta julkiseksi"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:312
 msgid "Upload"
@@ -490,7 +490,7 @@ msgstr "Lähetä"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:342
 msgid "Other formats"
-msgstr ""
+msgstr "Muut muodot"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:511
 msgid "Never"
@@ -519,16 +519,16 @@ msgstr "/Uusi tiedosto"
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:21
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:21
 msgid "Folder Manager"
-msgstr ""
+msgstr "Kansiohallinta"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:22
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:22
 msgid "Basic folder manager with file browsing"
-msgstr ""
+msgstr "Pelkistetty kansiohallinta tiedostoselauksella"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:71
 msgid "Go to parent"
-msgstr ""
+msgstr "Siirry ylätason kansioon"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:82
 msgid "Add file"
@@ -561,21 +561,21 @@ msgstr "Liitä"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:23
 msgid "Browser Preview"
-msgstr ""
+msgstr "Verkkoesikatselu"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:24
 msgid "Get a preview your work in a web page"
-msgstr ""
+msgstr "Näytä esikatselu työstäsi verkkosivulla"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:77
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:119
 msgid "Web preview"
-msgstr ""
+msgstr "Verkkoesikatselu"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:86
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:87
 msgid "Get preview!"
-msgstr ""
+msgstr "Näytä esikatselu!"
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:18
 msgid "Spell Checker"
@@ -591,7 +591,7 @@ msgstr "Avaa sovelluksella"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr ""
+msgstr "Avaa muokkaamiasi tiedostoja muilla sovelluksilla"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:55
 msgid "Open With..."
@@ -646,20 +646,20 @@ msgstr "Sulje kansio"
 
 #: /home/mario/elementary/scratch/po/../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
-msgstr ""
+msgstr "Jaa tiedostoja Contractor-jakamispalvelun kautta"
 
 #: /home/mario/elementary/scratch/po/../plugins/strip-trailing-save/strip-trailing-save.vala:18
 msgid "Strip trailing whitespace"
-msgstr ""
+msgstr "Poista taakse jäävä tyhjätila"
 
 #: /home/mario/elementary/scratch/po/../plugins/strip-trailing-save/strip-trailing-save.vala:19
 msgid "Strip trailing whitespace on save"
-msgstr ""
+msgstr "Poista taakse jäävä tyhjätila tallennuksen yhteydessä"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:20
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:197
 msgid "Source Tree"
-msgstr ""
+msgstr "Lähdepuu"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:21
 msgid "Have a look at your sources organized in a nice tree"
