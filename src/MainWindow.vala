@@ -144,7 +144,7 @@ namespace Scratch {
             var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 
             // Toolbar
-            this.toolbar = new Scratch.Widgets.Toolbar (this);
+            this.toolbar = new Scratch.Widgets.Toolbar (main_actions);
             this.toolbar.title = this.title;
             this.toolbar.show_close_button = true;
             this.set_titlebar (this.toolbar);
