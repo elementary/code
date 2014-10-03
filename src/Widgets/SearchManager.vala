@@ -88,13 +88,9 @@ namespace Scratch.Widgets {
             previous.image = i;
             
             // Replace entry
-<<<<<<< TREE
             replace_entry = new Gtk.SearchEntry ();
             replace_entry.placeholder_text = _("Replace With");
-=======
-            replace_entry = new Granite.Widgets.SearchBar (_("Replace With"));
             replace_entry.set_icon_from_icon_name (Gtk.EntryIconPosition.PRIMARY, "edit-symbolic");
->>>>>>> MERGE-SOURCE
             replace_entry.width_request = 250;
             
             // Go To entry
