@@ -202,10 +202,13 @@ namespace Scratch.Services {
 
             message ("Closing \"%s\"", get_basename ());
 
-            bool ret_value = false;
+            bool ret_value = true;
 
+            if (this.is_file_temporery) {
+                this.save ();
+            }
             // Check for unsaved changes
-            if (!this.saved && !this.is_file_temporery) {
+            else if (!this.saved) {
                 debug ("There are unsaved changes, showing a Message Dialog!");
 
                 // Create a GtkDialog
@@ -237,25 +240,19 @@ namespace Scratch.Services {
                         break;
                     case Gtk.ResponseType.YES:
                         this.save ();
-                        ret_value = true;
                         break;
                     case Gtk.ResponseType.NO:
-                        ret_value = true;
                         break;
                 }
                 dialog.destroy ();
+            }          
+
+            if (ret_value) {
+                // Delete backup copy file
+                delete_backup ();
+                // Delete empty temporary files
+                delete_empty_temporary_file ();
             }
-            else if (this.is_file_temporery) {
-                this.save ();
-                ret_value = true;
-            }
-
-            // Delete backup copy file
-            delete_backup ();
-
-            // Delete empty temporary files
-            delelte_empty_temporary_file ();
-
 #if HAVE_ZEITGEIST
             // Zeitgeist integration
             zg_log.close_insert (file.get_uri (), get_mime_type ());
@@ -660,7 +657,7 @@ namespace Scratch.Services {
             }
         }
 
-        private void delelte_empty_temporary_file () {
+        private void delete_empty_temporary_file () {
             if (!is_file_temporery || get_text ().length > 0) 
                 return;
             try {
