@@ -512,7 +512,6 @@ namespace Scratch {
         void action_quit () {
             handle_quit ();
             check_unsaved_changes ();
-            
             destroy ();
         }
 
@@ -554,7 +553,7 @@ namespace Scratch {
         }
 
         void action_save () {
-            //this.get_current_document ().save ();
+            this.get_current_document ().save ();
         }
 
         void action_save_as () {

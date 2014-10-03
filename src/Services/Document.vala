@@ -261,7 +261,7 @@ namespace Scratch.Services {
             return ret_value;
         }
 
-        private bool save () {
+        public bool save () {
             if (last_saved_content == get_text ())
                 return false;
 
@@ -322,7 +322,7 @@ namespace Scratch.Services {
                 try {
                     File.new_for_path (current_file).delete ();
                 } catch (Error err) {
-                    message ("Temporary file can't be deleted: %s", current_file);
+                    message ("Temporary file cannot be deleted: %s", current_file);
                 }
             }
             // Change syntax highlight
