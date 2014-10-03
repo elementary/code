@@ -204,8 +204,10 @@ namespace Scratch.Services {
 
             bool ret_value = true;
 
-            if (this.is_file_temporary && !delete_empty_temporary_file ()) {
-                this.save ();
+            // Check for temporary files
+            if (this.is_file_temporary) {
+                if (!delete_empty_temporary_file ())
+                    this.save ();
             }
             // Check for unsaved changes
             else if (!this.saved) {
@@ -248,7 +250,7 @@ namespace Scratch.Services {
             }          
 
             if (ret_value) {
-                // Delete backup copy file
+                // Delete backup copy file                
                 delete_backup ();
             }
 #if HAVE_ZEITGEIST
@@ -259,7 +261,7 @@ namespace Scratch.Services {
             return ret_value;
         }
 
-        public bool save () {
+        private bool save () {
             if (last_saved_content == get_text ())
                 return false;
 
@@ -645,11 +647,17 @@ namespace Scratch.Services {
         }
 
         private void delete_backup () {
-            var backup = File.new_for_path (this.file.get_path () + "~");
-            if (!backup.query_exists ())
+            string backup_file = file.get_path () + "~";
+            debug ("Backup file deleting: %s", backup_file);
+            
+            var backup = File.new_for_path (backup_file);
+            if (backup == null || !backup.query_exists ()) {
+                debug ("Backup file doesn't exists: %s", backup.get_path ());
                 return;
-            try {
+            }
+            try {               
                 backup.delete ();
+                debug ("Backup file deleted: %s", backup_file);
             } catch (Error e) {
                 warning ("Cannot delete backup for file \"%s\": %s", get_basename (), e.message);
             }

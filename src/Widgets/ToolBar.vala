@@ -30,6 +30,7 @@ namespace Scratch.Widgets {
         public ToolButton save_button;
         public ToolButton save_as_button;
         public ToolButton revert_button;
+        public ToolButton open_temporary_files;
         public ToolButton find_button;
 
         public Gtk.Menu share_menu;
@@ -38,20 +39,24 @@ namespace Scratch.Widgets {
         public Granite.Widgets.ToolButtonWithMenu share_app_menu;
         public AppMenu app_menu;
 
-        public Toolbar (Gtk.ActionGroup main_actions) {
+        private weak MainWindow window;
 
+        public Toolbar (MainWindow window) {
+            this.window = window;
             // Toolbar properties
             // compliant with elementary HIG
             get_style_context ().add_class ("primary-toolbar");
             
             // Create ToolButtons
-            open_button = main_actions.get_action ("Open").create_tool_item() as Gtk.ToolButton;
-            templates_button = main_actions.get_action ("Templates").create_tool_item() as Gtk.ToolButton;
-            save_button = main_actions.get_action ("SaveFile").create_tool_item() as Gtk.ToolButton;
-            save_as_button = main_actions.get_action ("SaveFileAs").create_tool_item() as Gtk.ToolButton;
-            revert_button = main_actions.get_action ("Revert").create_tool_item() as Gtk.ToolButton;
-            find_button = main_actions.get_action ("Fetch").create_tool_item() as Gtk.ToolButton;
-            
+            open_button = window.main_actions.get_action ("Open").create_tool_item () as Gtk.ToolButton;
+            templates_button = window.main_actions.get_action ("Templates").create_tool_item () as Gtk.ToolButton;
+            save_button = window.main_actions.get_action ("SaveFile").create_tool_item () as Gtk.ToolButton;
+            save_as_button = window.main_actions.get_action ("SaveFileAs").create_tool_item () as Gtk.ToolButton;
+            revert_button = window.main_actions.get_action ("Revert").create_tool_item () as Gtk.ToolButton;
+            open_temporary_files = window.main_actions.get_action ("OpenTemporaryFiles").create_tool_item () as Gtk.ToolButton;
+            open_temporary_files.set_icon_widget (new Gtk.Image.from_icon_name ("document-open-recent", IconSize.MENU));           
+            find_button = window.main_actions.get_action ("Fetch").create_tool_item () as Gtk.ToolButton;
+
             // Create Share and AppMenu
             share_menu = new Gtk.Menu ();
             share_app_menu = new Granite.Widgets.ToolButtonWithMenu (new Image.from_icon_name ("document-export", IconSize.MENU), _("Share"), share_menu);
@@ -88,6 +93,7 @@ namespace Scratch.Widgets {
             pack_start (save_as_button);
             pack_start (new SeparatorToolItem ());
             pack_start (revert_button);
+            pack_start (open_temporary_files);
             pack_start (new SeparatorToolItem ());
             pack_start (find_button);
 

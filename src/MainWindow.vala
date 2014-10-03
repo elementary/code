@@ -144,7 +144,7 @@ namespace Scratch {
             var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 
             // Toolbar
-            this.toolbar = new Scratch.Widgets.Toolbar (main_actions);
+            this.toolbar = new Scratch.Widgets.Toolbar (this);
             this.toolbar.title = this.title;
             this.toolbar.show_close_button = true;
             this.set_titlebar (this.toolbar);
@@ -244,6 +244,7 @@ namespace Scratch {
 
             this.search_revealer.set_reveal_child (false);
             
+            main_actions.get_action ("OpenTemporaryFiles").visible = this.has_temporary_files ();
             main_actions.get_action ("SaveFile").visible = !settings.autosave;
             main_actions.get_action ("Templates").visible = plugins.plugin_iface.template_manager.template_available;
             plugins.plugin_iface.template_manager.notify["template_available"].connect ( () => {
@@ -538,20 +539,23 @@ namespace Scratch {
             filech.close ();
         }
 
-        void action_open_temporery_files () {
+        void action_open_temporary_files () {
 			FileEnumerator enumerator = File.new_for_path (app.data_home_folder_unsaved).enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME, 0, null);
 			var fileinfo = enumerator.next_file (null);
 			while (fileinfo != null) {
-		        var file = File.new_for_path(app.data_home_folder_unsaved + fileinfo.get_name ());
-	            var doc = new Scratch.Services.Document (this.main_actions, file);
-	            this.open_document (doc);
+				if (!fileinfo.get_name ().has_suffix ("~")) {
+					debug ("open temporary file: %s", fileinfo.get_name ());
+			        var file = File.new_for_path(app.data_home_folder_unsaved + fileinfo.get_name ());
+		            var doc = new Scratch.Services.Document (this.main_actions, file);
+		            this.open_document (doc);
+				}				
 	            // Next file info
 		        fileinfo = enumerator.next_file (null);
 			}
         }
 
         void action_save () {
-            this.get_current_document ().save ();
+            //this.get_current_document ().save ();
         }
 
         void action_save_as () {
@@ -740,9 +744,9 @@ namespace Scratch {
           /* tooltip */                  N_("Open a file"),
                                          action_open },
            { "OpenTemporaryFiles", Gtk.Stock.OPEN,
-          /* label, accelerator */       N_("Open"), "<Control>o",
-          /* tooltip */                  N_("Open temporery files"),
-                                         action_open_temporery_files },
+          /* label, accelerator */       N_("Restore"), "<Control>t",
+          /* tooltip */                  N_("Restore temporary files"),
+                                         action_open_temporary_files },
            { "SaveFile", Gtk.Stock.SAVE,
           /* label, accelerator */       N_("Save"), "<Control>s",
           /* tooltip */                  N_("Save this file"),
