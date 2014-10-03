@@ -68,7 +68,7 @@ namespace Scratch.Services {
         public string? last_saved_content = null;
         public bool saved = true;
         private bool error_shown = false;
-        private bool is_file_temporery {
+        private bool is_file_temporary {
             get {
                 return file.get_path ().has_prefix (ScratchApp.instance.data_home_folder_unsaved);
             }
@@ -204,7 +204,7 @@ namespace Scratch.Services {
 
             bool ret_value = true;
 
-            if (this.is_file_temporery) {
+            if (this.is_file_temporary && !delete_empty_temporary_file ()) {
                 this.save ();
             }
             // Check for unsaved changes
@@ -250,8 +250,6 @@ namespace Scratch.Services {
             if (ret_value) {
                 // Delete backup copy file
                 delete_backup ();
-                // Delete empty temporary files
-                delete_empty_temporary_file ();
             }
 #if HAVE_ZEITGEIST
             // Zeitgeist integration
@@ -301,7 +299,7 @@ namespace Scratch.Services {
             var filech = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.SAVE, _("Save File"), null);
 
             string current_file = file.get_path ();
-            bool is_current_file_temporary = this.is_file_temporery;
+            bool is_current_file_temporary = this.is_file_temporary;
 
             if (filech.run () == Gtk.ResponseType.ACCEPT) {
                 this.file = File.new_for_uri (filech.get_file ().get_uri ());
@@ -318,7 +316,7 @@ namespace Scratch.Services {
             last_saved_content = null;            
 
             if (save () && is_current_file_temporary) {
-                // Delete temporery file              
+                // Delete temporary file              
                 try {
                     File.new_for_path (current_file).delete ();
                 } catch (Error err) {
@@ -657,15 +655,16 @@ namespace Scratch.Services {
             }
         }
 
-        private void delete_empty_temporary_file () {
-            if (!is_file_temporery || get_text ().length > 0) 
-                return;
+        private bool delete_empty_temporary_file () {
+            if (!is_file_temporary || get_text ().length > 0) 
+                return false;
             try {
                 file.delete();
+                return true;
             } catch (Error e) {
                 warning ("Cannot delete termporary file \"%s\": %s", get_basename (), e.message);
             }   
-
+            return false;
         }
 
         // Return true if the file is writable
