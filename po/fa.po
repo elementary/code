@@ -7,16 +7,119 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-06 22:02-0500\n"
-"PO-Revision-Date: 2013-08-19 20:13+0000\n"
-"Last-Translator: reza abbasi <rasez_secure@yahoo.com>\n"
+"POT-Creation-Date: 2014-08-30 09:08-0500\n"
+"PO-Revision-Date: 2014-08-26 14:32+0000\n"
+"Last-Translator: Ali Makhmali <ali.mkh86@gmail.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-08 06:42+0000\n"
-"X-Generator: Launchpad (build 17156)\n"
+"X-Launchpad-Export-Date: 2014-08-31 07:12+0000\n"
+"X-Generator: Launchpad (build 17176)\n"
 "Language: \n"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:52
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:722
+msgid "Preferences"
+msgstr "تنظیمات"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:70
+msgid "Behavior"
+msgstr "رفتار"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
+msgid "Interface"
+msgstr "واسط"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:86
+msgid "Extensions"
+msgstr "افزونه‌ها"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:90
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:666
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:667
+msgid "Close"
+msgstr "بستن"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:135
+msgid "Show welcome screen"
+msgstr "نمایش صفحه آغاز"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:136
+msgid "Show last open tabs"
+msgstr "نمایش برگه‌های پیشین"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
+msgid "General:"
+msgstr "عمومی:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:158
+msgid "When Scratch starts:"
+msgstr "در آغاز کار اسکرچ:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:161
+msgid "Save files when changed:"
+msgstr "ذخیره پرونده‌ها پس از تغییر:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:166
+msgid "Tabs:"
+msgstr "برگه‌ها:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:171
+msgid "Automatic indentation:"
+msgstr "دندانه‌گذاری خودکار:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:174
+msgid "Insert spaces instead of tabs:"
+msgstr "قرار دادن فاصله بجای پرش:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:178
+msgid "Tab width:"
+msgstr "طول پرش:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:206
+msgid "Editor:"
+msgstr "ویرایشگر:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
+msgid "Highlight current line:"
+msgstr "نمایش خط کنونی:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:225
+msgid "Highlight matching brackets:"
+msgstr "نمایش کروشه مطابق:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:226
+msgid "Split long text in many lines:"
+msgstr "نمایش خطوط طولانی در چند خط:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:227
+msgid "Draw spaces:"
+msgstr "نمایش فاصله‌ها:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:228
+msgid "Show line numbers:"
+msgstr "نمایش شماره خطوط:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:231
+msgid "Line width guide:"
+msgstr "پهنای خط راهنما:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:247
+msgid "Font and Color Scheme:"
+msgstr "طرح قلم و رنگ:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:261
+msgid "Select font:"
+msgstr "انتخاب قلم:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:264
+msgid "Color scheme:"
+msgstr "طرح رنگ:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:269
+msgid "Custom font:"
+msgstr "قلم سفارشی:"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:99
 msgid "Zeitgeist Datasource for Scratch"
@@ -26,151 +129,227 @@ msgstr "منبع Zeitgeist برای اسکرچ"
 msgid "Trash"
 msgstr "زباله‌دان"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:502
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:504
 msgid "Open some files"
-msgstr ""
+msgstr "باز کردن چند پرونده"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:593
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:599
 msgid "Hide search bar"
 msgstr "پنهان کردن نوار جستجو"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:648
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:649
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:654
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:655
 msgid "Find…"
 msgstr "پیدا کردن..."
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:652
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:653
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:658
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:659
 msgid "Go to line…"
 msgstr "رفتن به خط ..."
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:656
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:657
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:662
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:663
 msgid "Quit"
 msgstr "خروج"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:660
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:661
-msgid "Close"
-msgstr "بستن"
-
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:664
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:665
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:670
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:671
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:111
 msgid "Replace"
 msgstr "جایگزینی"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:668
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:674
 msgid "Reopen closed document"
 msgstr "بازکردن سند بسته شده"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:669
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:675
 msgid "Open last closed document in a new tab"
 msgstr "باز کردن آخرین سند بسته شده در زبانه جدید"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:672
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:678
 msgid "Add New Tab"
 msgstr "ایجاد زبانه جدید"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:673
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:679
 msgid "Add a new tab"
 msgstr "ایجاد زبانه جدید"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:676
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:682
 msgid "Add New View"
 msgstr "افزودن نمای جدید"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:677
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:683
 msgid "Add a new view"
 msgstr "افزودن یک نمای جدید"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:680
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:686
 msgid "Remove Current View"
 msgstr "حذف نمای کنونی"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:681
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:687
 msgid "Remove this view"
 msgstr "حذف کردن نمای کنونی"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:684
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:690
 msgid "Undo"
 msgstr "واگرد"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:685
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:691
 msgid "Undo the last action"
 msgstr "پاک کردن آخرین کنش"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:688
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:694
 msgid "Redo"
 msgstr "بازگرد"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:689
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:695
 msgid "Redo the last undone action"
 msgstr "انجام دوباره آخرین کنش"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:692
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:698
 msgid "Revert"
 msgstr "برگشت"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:693
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:699
 msgid "Restore this file"
 msgstr "بازیابی این پرونده"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:696
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:697
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:702
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:703
 msgid "Duplicate selected strings"
 msgstr "تکرار جمله انتخاب شده"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:700
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:706
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileView.vala:281
 msgid "Open"
 msgstr "باز کردن"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:701
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:707
 msgid "Open a file"
 msgstr "باز کردن یک پرونده"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:704
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:710
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:584
 msgid "Save"
 msgstr "ذخیره"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:705
-msgid "Save the current file"
-msgstr "ذخیره کردن پرونده کنونی"
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:711
+msgid "Save this file"
+msgstr "ذخیره کردن این پرونده"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:708
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:714
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:576
+msgid "Save As…"
+msgstr "ذخیره به عنوان ..."
+
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:715
+msgid "Save this file with a different name"
+msgstr "ذخیره این پرونده با نام متفاوت"
+
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:718
 #: /home/mario/elementary/scratch/po/../src/Services/TemplateManager.vala:230
 msgid "Templates"
 msgstr "قالب‌ها"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:709
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:719
 msgid "Project templates"
 msgstr "قالب پروژه ها"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:712
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:48
-msgid "Preferences"
-msgstr "تنظیمات"
-
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:713
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:723
 msgid "Change Scratch settings"
 msgstr "تغییر دادن تنظیمات اسکرچ"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:716
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:717
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:726
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:727
 msgid "Next Tab"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:720
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:721
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:730
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:731
 msgid "Previous Tab"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:737
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:738
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:747
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:748
 msgid "Fullscreen"
 msgstr "تمام‌صفحه"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/ToolBar.vala:57
+msgid "Share"
+msgstr "اشتراک‌گذاری"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:46
+msgid "No Files Open"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:47
+msgid "Open a file to begin editing."
+msgstr "برای آغاز ویرایش یک پرونده را باز کنید."
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:51
+msgid "New file"
+msgstr "پرونده جدید"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:51
+msgid "Create a new empty file."
+msgstr "ساخت یک پرونده خالی."
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:52
+msgid "Open file"
+msgstr "باز کردن پرونده"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:52
+msgid "Open a saved file."
+msgstr "باز کردن یک پرونده از روی رایانه."
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:97
+msgid "Syntax Highlighting"
+msgstr "نمایش نگارش"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:108
+msgid "Normal Text"
+msgstr "متن عادی"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/LoadingView.vala:36
+msgid "Wait while restoring last session..."
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:71
+msgid "Find"
+msgstr "جستجو"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:90
+msgid "Replace With"
+msgstr "جایگزینی با"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:115
+msgid "Replace all"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:123
+msgid "Go To Line:"
+msgstr "رفتن به خط:"
+
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:222
+msgid "New Tab"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:223
+#: /home/mario/elementary/scratch/po/../src/config.vala:18
+msgid "New Window"
+msgstr "پنجره جدید"
+
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:224
+msgid "Print version info and exit"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:225
+msgid "Set of plugins"
+msgstr "مجموعه افزونه‌ها"
+
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:226
+msgid "Current working directoy"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:248
 #, c-format
@@ -209,10 +388,6 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:574
 msgid "was unmounted. Do you want to save somewhere else?"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:576
-msgid "Save As…"
 msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:581
@@ -269,170 +444,17 @@ msgstr "ویرایش پرونده‌های متنی"
 msgid "Text Editor"
 msgstr "ویرایشگر متنی"
 
-#: /home/mario/elementary/scratch/po/../src/config.vala:18
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:219
-msgid "New Window"
-msgstr "پنجره جدید"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:62
-msgid "Behavior"
-msgstr "رفتار"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:66
-msgid "Interface"
-msgstr "واسط"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:74
-msgid "Extensions"
-msgstr "افزونه‌ها"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
-msgid "Show welcome screen"
-msgstr "نمایش صفحه آغاز"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:122
-msgid "Show last open tabs"
-msgstr "نمایش برگه‌های پیشین"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:138
-msgid "General:"
-msgstr "عمومی:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:144
-msgid "When Scratch starts:"
-msgstr "در آغاز کار اسکرچ:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
-msgid "Save files when changed:"
-msgstr "ذخیره پرونده‌ها پس از تغییر:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
-msgid "Tabs:"
-msgstr "برگه‌ها:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:157
-msgid "Automatic indentation:"
-msgstr "دندانه‌گذاری خودکار:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:160
-msgid "Insert spaces instead of tabs:"
-msgstr "قرار دادن فاصله بجای پرش:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:164
-msgid "Tab width:"
-msgstr "طول پرش:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:192
-msgid "Editor:"
-msgstr "ویرایشگر:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:210
-msgid "Highlight current line:"
-msgstr "نمایش خط کنونی:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:211
-msgid "Highlight matching brackets:"
-msgstr "نمایش کروشه مطابق:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:212
-msgid "Split long text in many lines:"
-msgstr "نمایش خطوط طولانی در چند خط:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:213
-msgid "Draw spaces:"
-msgstr "نمایش فاصله‌ها:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:214
-msgid "Show line numbers:"
-msgstr "نمایش شماره خطوط:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:217
-msgid "Line width guide:"
-msgstr "پهنای خط راهنما:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:233
-msgid "Font and Color Scheme:"
-msgstr "طرح قلم و رنگ:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:247
-msgid "Select font:"
-msgstr "انتخاب قلم:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:250
-msgid "Color scheme:"
-msgstr "طرح رنگ:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:255
-msgid "Custom font:"
-msgstr "قلم سفارشی:"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:71
-msgid "Find"
-msgstr "جستجو"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:90
-msgid "Replace With"
-msgstr "جایگزینی با"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:115
-msgid "Replace all"
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:23
+msgid "Pastebin"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:123
-msgid "Go To Line:"
-msgstr "رفتن به خط:"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:46
-msgid "No Files Open"
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:24
+msgid "Share files with pastebin service"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:47
-msgid "Open a file to begin editing."
-msgstr "برای آغاز ویرایش یک پرونده را باز کنید."
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:51
-msgid "New file"
-msgstr "پرونده جدید"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:51
-msgid "Create a new empty file."
-msgstr "ساخت یک پرونده خالی."
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:52
-msgid "Open file"
-msgstr "باز کردن پرونده"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:52
-msgid "Open a saved file."
-msgstr "باز کردن یک پرونده از روی رایانه."
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/LoadingView.vala:36
-msgid "Wait while restoring last session..."
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:134
+msgid "Upload to Pastebin"
 msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:97
-msgid "Syntax Highlighting"
-msgstr "نمایش نگارش"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:108
-msgid "Normal Text"
-msgstr "متن عادی"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/ToolBar.vala:55
-msgid "Share"
-msgstr "اشتراک‌گذاری"
-
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:218
-msgid "New Tab"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:220
-msgid "Print version info and exit"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:221
-msgid "Set of plugins"
-msgstr "مجموعه افزونه‌ها"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
@@ -486,16 +508,8 @@ msgstr "یک روز"
 msgid "One month"
 msgstr "یک ماه"
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:23
-msgid "Pastebin"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:24
-msgid "Share files with pastebin service"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:134
-msgid "Upload to Pastebin"
+#: /home/mario/elementary/scratch/po/../plugins/filemanager/FileView.vala:90
+msgid "/New File"
 msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:21
@@ -524,12 +538,8 @@ msgstr ""
 msgid "File Manager"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../plugins/filemanager/FileView.vala:90
-msgid "/New File"
-msgstr ""
-
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:23
-#: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:104
+#: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:158
 msgid "Terminal"
 msgstr ""
 
@@ -537,11 +547,11 @@ msgstr ""
 msgid "A terminal in your text editor"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:67
+#: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:121
 msgid "Copy"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:74
+#: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:128
 msgid "Paste"
 msgstr ""
 
@@ -609,10 +619,6 @@ msgstr ""
 msgid "%s - Word Completion"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../plugins/folder-manager/FileView.vala:330
-msgid "Close Folder"
-msgstr ""
-
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:71
 msgid "Folders"
 msgstr ""
@@ -628,6 +634,10 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:96
 msgid "_Open"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../plugins/folder-manager/FileView.vala:330
+msgid "Close Folder"
 msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/contractor/contractor.vala:21
@@ -696,6 +706,9 @@ msgstr ""
 
 #~ msgid "Previous Search"
 #~ msgstr "جستجوی قبلی"
+
+#~ msgid "Save the current file"
+#~ msgstr "ذخیره کردن پرونده کنونی"
 
 #~ msgid "Save as"
 #~ msgstr "ذخیره به نام"

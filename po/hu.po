@@ -7,15 +7,118 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-08-06 22:02-0500\n"
-"PO-Revision-Date: 2014-07-13 10:37+0000\n"
-"Last-Translator: Mark Lutring <marcus@elitemail.hu>\n"
+"POT-Creation-Date: 2014-08-30 09:08-0500\n"
+"PO-Revision-Date: 2014-09-24 07:17+0000\n"
+"Last-Translator: moonwatcher <moonwatcher2k1@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-08 06:41+0000\n"
-"X-Generator: Launchpad (build 17156)\n"
+"X-Launchpad-Export-Date: 2014-09-25 06:31+0000\n"
+"X-Generator: Launchpad (build 17196)\n"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:52
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:722
+msgid "Preferences"
+msgstr "Beállítások"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:70
+msgid "Behavior"
+msgstr "Viselkedés"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
+msgid "Interface"
+msgstr "Felület"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:86
+msgid "Extensions"
+msgstr "Bővítmények"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:90
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:666
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:667
+msgid "Close"
+msgstr "Bezárás"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:135
+msgid "Show welcome screen"
+msgstr "Üdvözlőképernyő megjelenítése"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:136
+msgid "Show last open tabs"
+msgstr "Legutóbbi lapok megjelenítése"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
+msgid "General:"
+msgstr "Általános:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:158
+msgid "When Scratch starts:"
+msgstr "Scratch indításakor:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:161
+msgid "Save files when changed:"
+msgstr "Fájlok mentése változtatáskor:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:166
+msgid "Tabs:"
+msgstr "Tabulátorok:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:171
+msgid "Automatic indentation:"
+msgstr "Automatikus behúzás:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:174
+msgid "Insert spaces instead of tabs:"
+msgstr "Szóközök beillesztése tabulátorok helyett:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:178
+msgid "Tab width:"
+msgstr "Tabulátor szélessége:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:206
+msgid "Editor:"
+msgstr "Szerkesztő:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
+msgid "Highlight current line:"
+msgstr "Jelenlegi sor kiemelése:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:225
+msgid "Highlight matching brackets:"
+msgstr "Zárójelpárok kiemelése:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:226
+msgid "Split long text in many lines:"
+msgstr "Hosszú szöveg több sorba tördelése:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:227
+msgid "Draw spaces:"
+msgstr "Szóközök berajzolása:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:228
+msgid "Show line numbers:"
+msgstr "Sorok számának megjelenítése:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:231
+msgid "Line width guide:"
+msgstr ""
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:247
+msgid "Font and Color Scheme:"
+msgstr "Betűkészlet- és színséma:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:261
+msgid "Select font:"
+msgstr "Betűtípus:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:264
+msgid "Color scheme:"
+msgstr "Színséma:"
+
+#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:269
+msgid "Custom font:"
+msgstr "Egyéni betűtípus:"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:99
 msgid "Zeitgeist Datasource for Scratch"
@@ -25,151 +128,227 @@ msgstr "Zeitgeist adatforrás a Scratch számára"
 msgid "Trash"
 msgstr "Törölt elemek"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:502
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:504
 msgid "Open some files"
 msgstr ""
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:593
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:599
 msgid "Hide search bar"
 msgstr "Keresődoboz elrejtése"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:648
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:649
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:654
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:655
 msgid "Find…"
 msgstr "Keresés…"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:652
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:653
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:658
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:659
 msgid "Go to line…"
 msgstr "Ugrás a sorhoz..."
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:656
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:657
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:662
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:663
 msgid "Quit"
 msgstr "Kilépés"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:660
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:661
-msgid "Close"
-msgstr "Bezárás"
-
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:664
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:665
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:670
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:671
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:111
 msgid "Replace"
 msgstr "Csere"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:668
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:674
 msgid "Reopen closed document"
 msgstr "Bezárt dokumentum újranyitása"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:669
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:675
 msgid "Open last closed document in a new tab"
 msgstr "Az utoljára bezárt dokumentum megnyitása új lapon"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:672
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:678
 msgid "Add New Tab"
 msgstr "Új lap hozzáadása"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:673
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:679
 msgid "Add a new tab"
 msgstr "Új lap hozzáadása"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:676
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:682
 msgid "Add New View"
 msgstr "Új lapcsoport hozzáadása"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:677
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:683
 msgid "Add a new view"
 msgstr "Egy új lapcsoport hozzáadása"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:680
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:686
 msgid "Remove Current View"
 msgstr "Jelenlegi lapcsoport eltávolítása"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:681
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:687
 msgid "Remove this view"
 msgstr "Ezen lapcsoport eltávolítása"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:684
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:690
 msgid "Undo"
 msgstr "Visszavonás"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:685
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:691
 msgid "Undo the last action"
 msgstr "Utolsó művelet visszavonása"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:688
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:694
 msgid "Redo"
 msgstr "Mégis"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:689
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:695
 msgid "Redo the last undone action"
 msgstr "A visszavont művelet ismételt végrehajtása"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:692
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:698
 msgid "Revert"
 msgstr "Visszaállítás"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:693
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:699
 msgid "Restore this file"
 msgstr "Ezen fájl visszaállítása"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:696
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:697
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:702
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:703
 msgid "Duplicate selected strings"
 msgstr "Kiválasztott karakterláncok kettőzése"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:700
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:706
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileView.vala:281
 msgid "Open"
 msgstr "Megnyitás"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:701
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:707
 msgid "Open a file"
 msgstr "Fájl megnyitása"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:704
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:710
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:584
 msgid "Save"
 msgstr "Mentés"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:705
-msgid "Save the current file"
-msgstr "A jelenlegi fájl mentése"
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:711
+msgid "Save this file"
+msgstr "Fájl mentése"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:708
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:714
+#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:576
+msgid "Save As…"
+msgstr "Mentés másként…"
+
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:715
+msgid "Save this file with a different name"
+msgstr "Fájl mentés más néven"
+
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:718
 #: /home/mario/elementary/scratch/po/../src/Services/TemplateManager.vala:230
 msgid "Templates"
 msgstr "Sablonok"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:709
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:719
 msgid "Project templates"
 msgstr "Projektsablonok"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:712
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:48
-msgid "Preferences"
-msgstr "Beállítások"
-
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:713
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:723
 msgid "Change Scratch settings"
 msgstr "Scratch beállításainak módosítása"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:716
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:717
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:726
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:727
 msgid "Next Tab"
 msgstr "Következő lap"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:720
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:721
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:730
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:731
 msgid "Previous Tab"
 msgstr "Előző lap"
 
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:737
-#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:738
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:747
+#: /home/mario/elementary/scratch/po/../src/MainWindow.vala:748
 msgid "Fullscreen"
 msgstr "Teljes képernyő"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/ToolBar.vala:57
+msgid "Share"
+msgstr "Megosztás"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:46
+msgid "No Files Open"
+msgstr "Nincs megnyitott fájl"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:47
+msgid "Open a file to begin editing."
+msgstr "A szerkesztés megkezdéséhez nyisson meg egy fájlt."
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:51
+msgid "New file"
+msgstr "Új fájl"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:51
+msgid "Create a new empty file."
+msgstr "Üres fájl létrehozása."
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:52
+msgid "Open file"
+msgstr "Fájl megnyitása"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:52
+msgid "Open a saved file."
+msgstr "Mentett fájl megnyitása."
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:97
+msgid "Syntax Highlighting"
+msgstr "Szintaxiskiemelés:"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:108
+msgid "Normal Text"
+msgstr "Normál szöveg"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/LoadingView.vala:36
+msgid "Wait while restoring last session..."
+msgstr "Utolsó munkamenet visszaállítása..."
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:71
+msgid "Find"
+msgstr "Keresés"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:90
+msgid "Replace With"
+msgstr "Csere ezzel"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:115
+msgid "Replace all"
+msgstr "Mindet cseréli"
+
+#: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:123
+msgid "Go To Line:"
+msgstr "Ugrás erre a sorra:"
+
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:222
+msgid "New Tab"
+msgstr "Új lap"
+
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:223
+#: /home/mario/elementary/scratch/po/../src/config.vala:18
+msgid "New Window"
+msgstr "Új ablak"
+
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:224
+msgid "Print version info and exit"
+msgstr "Verzióinformáció kiírása és kilépés"
+
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:225
+msgid "Set of plugins"
+msgstr "Bővítménykészlet"
+
+#: /home/mario/elementary/scratch/po/../src/Scratch.vala:226
+msgid "Current working directoy"
+msgstr "Jelenlegi munkakönyvtár"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:248
 #, c-format
@@ -207,15 +386,11 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:573
 msgid "The location containing the file"
-msgstr ""
+msgstr "A fájl pontos helye"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:574
 msgid "was unmounted. Do you want to save somewhere else?"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Services/Document.vala:576
-msgid "Save As…"
-msgstr "Mentés másként…"
+msgstr "lecsatolásra került. El szeretné menteni máshová?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:581
 msgid "File"
@@ -227,7 +402,7 @@ msgstr "törölve lett. Mindenképpen el szeretné menteni?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:595
 msgid "You cannot save changes on file"
-msgstr ""
+msgstr "Nem lehet módosításokat végezni ezen a fájlon."
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:596
 msgid "Do you want to save the changes to this file in a different location?"
@@ -246,10 +421,12 @@ msgid ""
 "was modified by an external application. Do you want to load it again or "
 "continue your editing?"
 msgstr ""
+"módosítva lett egy másik alkalmazás által. Be  tölti újra, vagy folytatja a "
+"szerkesztést?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:626
 msgid "Load"
-msgstr ""
+msgstr "Betöltés"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:629
 msgid "Continue"
@@ -271,170 +448,17 @@ msgstr "Szövegfájlok szerkesztése"
 msgid "Text Editor"
 msgstr "Szövegszerkesztő"
 
-#: /home/mario/elementary/scratch/po/../src/config.vala:18
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:219
-msgid "New Window"
-msgstr "Új ablak"
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:23
+msgid "Pastebin"
+msgstr "Pastebin"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:62
-msgid "Behavior"
-msgstr "Viselkedés"
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:24
+msgid "Share files with pastebin service"
+msgstr "Fájlok megosztása Pastebin segítségével"
 
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:66
-msgid "Interface"
-msgstr "Felület"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:74
-msgid "Extensions"
-msgstr "Bővítmények"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:121
-msgid "Show welcome screen"
-msgstr "Üdvözlőképernyő megjelenítése"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:122
-msgid "Show last open tabs"
-msgstr "Legutóbbi lapok megjelenítése"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:138
-msgid "General:"
-msgstr "Általános:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:144
-msgid "When Scratch starts:"
-msgstr "Scratch indításakor:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:147
-msgid "Save files when changed:"
-msgstr "Fájlok mentése változtatáskor:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
-msgid "Tabs:"
-msgstr "Tabulátorok:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:157
-msgid "Automatic indentation:"
-msgstr "Automatikus behúzás:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:160
-msgid "Insert spaces instead of tabs:"
-msgstr "Szóközök beillesztése tabulátorok helyett:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:164
-msgid "Tab width:"
-msgstr "Tabulátor szélessége:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:192
-msgid "Editor:"
-msgstr "Szerkesztő:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:210
-msgid "Highlight current line:"
-msgstr "Jelenlegi sor kiemelése:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:211
-msgid "Highlight matching brackets:"
-msgstr "Zárójelpárok kiemelése:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:212
-msgid "Split long text in many lines:"
-msgstr "Hosszú szöveg több sorba tördelése:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:213
-msgid "Draw spaces:"
-msgstr "Szóközök berajzolása:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:214
-msgid "Show line numbers:"
-msgstr "Sorok számának megjelenítése:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:217
-msgid "Line width guide:"
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:233
-msgid "Font and Color Scheme:"
-msgstr "Betűkészlet- és színséma:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:247
-msgid "Select font:"
-msgstr "Betűtípus:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:250
-msgid "Color scheme:"
-msgstr "Színséma:"
-
-#: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:255
-msgid "Custom font:"
-msgstr "Egyéni betűtípus:"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:71
-msgid "Find"
-msgstr "Keresés"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:90
-msgid "Replace With"
-msgstr "Csere ezzel"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:115
-msgid "Replace all"
-msgstr "Mindet cseréli"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:123
-msgid "Go To Line:"
-msgstr "Ugrás erre a sorra:"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:46
-msgid "No Files Open"
-msgstr "Nincs megnyitott fájl"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:47
-msgid "Open a file to begin editing."
-msgstr "A szerkesztés megkezdéséhez nyisson meg egy fájlt."
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:51
-msgid "New file"
-msgstr "Új fájl"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:51
-msgid "Create a new empty file."
-msgstr "Üres fájl létrehozása."
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:52
-msgid "Open file"
-msgstr "Fájl megnyitása"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:52
-msgid "Open a saved file."
-msgstr "Mentett fájl megnyitása."
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/LoadingView.vala:36
-msgid "Wait while restoring last session..."
-msgstr ""
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:97
-msgid "Syntax Highlighting"
-msgstr "Szintaxiskiemelés:"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:108
-msgid "Normal Text"
-msgstr "Normál szöveg"
-
-#: /home/mario/elementary/scratch/po/../src/Widgets/ToolBar.vala:55
-msgid "Share"
-msgstr "Megosztás"
-
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:218
-msgid "New Tab"
-msgstr "Új lap"
-
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:220
-msgid "Print version info and exit"
-msgstr "Verzióinformáció kiírása és kilépés"
-
-#: /home/mario/elementary/scratch/po/../src/Scratch.vala:221
-msgid "Set of plugins"
-msgstr "Bővítménykészlet"
+#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:134
+msgid "Upload to Pastebin"
+msgstr "Feltöltés Pastebinre"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
@@ -488,17 +512,9 @@ msgstr "Egy nap"
 msgid "One month"
 msgstr "Egy hónap"
 
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:23
-msgid "Pastebin"
-msgstr "Pastebin"
-
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:24
-msgid "Share files with pastebin service"
-msgstr "Fájlok megosztása Pastebin segítségével"
-
-#: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:134
-msgid "Upload to Pastebin"
-msgstr "Feltöltés Pastebinre"
+#: /home/mario/elementary/scratch/po/../plugins/filemanager/FileView.vala:90
+msgid "/New File"
+msgstr "/Új fájl"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:21
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:21
@@ -508,7 +524,7 @@ msgstr "Mappakezelő"
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:22
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:22
 msgid "Basic folder manager with file browsing"
-msgstr ""
+msgstr "Egyszerű mappakezelő fájlböngészővel"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:71
 msgid "Go to parent"
@@ -526,34 +542,30 @@ msgstr "A fájl eltávolítása"
 msgid "File Manager"
 msgstr "Fájlkezelő"
 
-#: /home/mario/elementary/scratch/po/../plugins/filemanager/FileView.vala:90
-msgid "/New File"
-msgstr "/Új fájl"
-
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:23
-#: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:104
+#: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:158
 msgid "Terminal"
 msgstr "Terminál"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:24
 msgid "A terminal in your text editor"
-msgstr ""
+msgstr "Terminál a szövegszerkesztőben"
 
-#: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:67
+#: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:121
 msgid "Copy"
 msgstr "Másolás"
 
-#: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:74
+#: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:128
 msgid "Paste"
 msgstr "Beillesztés"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:23
 msgid "Browser Preview"
-msgstr ""
+msgstr "Böngészőnézet"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:24
 msgid "Get a preview your work in a web page"
-msgstr ""
+msgstr "Tekintse meg a munkáját egy weblapon"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:77
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:119
@@ -591,7 +603,7 @@ msgstr "Zárójel kiegészítés"
 
 #: /home/mario/elementary/scratch/po/../plugins/brackets-completion/brackets-completion.vala:22
 msgid "Complete brackets while typing"
-msgstr ""
+msgstr "Zárójelek automatikus bezárása gépelés során"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/completion-provider.vala:80
 #, c-format
@@ -611,10 +623,6 @@ msgstr ""
 msgid "%s - Word Completion"
 msgstr "%s - szókiegészítés"
 
-#: /home/mario/elementary/scratch/po/../plugins/folder-manager/FileView.vala:330
-msgid "Close Folder"
-msgstr "Mappa bezárása"
-
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:71
 msgid "Folders"
 msgstr "Mappák"
@@ -626,11 +634,15 @@ msgstr "Mappa megnyitása"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:95
 msgid "_Cancel"
-msgstr ""
+msgstr "_Mégsem"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:96
 msgid "_Open"
-msgstr ""
+msgstr "Meg_nyitás"
+
+#: /home/mario/elementary/scratch/po/../plugins/folder-manager/FileView.vala:330
+msgid "Close Folder"
+msgstr "Mappa bezárása"
 
 #: /home/mario/elementary/scratch/po/../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
@@ -647,11 +659,11 @@ msgstr ""
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:20
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:197
 msgid "Source Tree"
-msgstr ""
+msgstr "Forrás fa"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:21
 msgid "Have a look at your sources organized in a nice tree"
-msgstr ""
+msgstr "Vessen egy pillantást a fába rendezett forrásaira"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:42
 msgid "Loading..."
@@ -701,6 +713,9 @@ msgstr "Vim parancsok használata a Scratchben"
 
 #~ msgid "Save as"
 #~ msgstr "Mentés másként"
+
+#~ msgid "Save the current file"
+#~ msgstr "A jelenlegi fájl mentése"
 
 #~ msgid "Save the current file with a different name"
 #~ msgstr "A jelenlegi fájl mentése más néven"
