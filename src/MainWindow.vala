@@ -386,11 +386,11 @@ namespace Scratch {
         }
 
         public bool has_temporary_files () {
-        	FileEnumerator enumerator = File.new_for_path (app.data_home_folder_unsaved).enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME, 0, null);
-			var fileinfo = enumerator.next_file(null);
-			if (fileinfo != null)
-				return true;
-			return false;
+            FileEnumerator enumerator = File.new_for_path (app.data_home_folder_unsaved).enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME, 0, null);
+            var fileinfo = enumerator.next_file(null);
+            if (fileinfo != null)
+                return true;
+            return false;
         }
         
         // Check if there no unsaved changes
@@ -399,8 +399,8 @@ namespace Scratch {
                 foreach (var w in this.split_view.views) {
                     var view = w as Scratch.Widgets.DocumentView;
                     foreach (var doc in view.docs) {
-                    	if(!doc.close ())
-                    		return false;
+                        if(!doc.close ())
+                            return false;
                     }
                 }
             }
@@ -429,13 +429,13 @@ namespace Scratch {
         }
 
         private void create_unsaved_documentes_directory () {
-        	File directory = File.new_for_path(app.data_home_folder_unsaved);
-		    if (!directory.query_exists ()) {
-		        debug ("create 'unsaved' directory: %s", directory.get_path());
-		        directory.make_directory_with_parents ();
-		        return;
-		    }
-		    debug ("'unsaved' directory already exists.");
+            File directory = File.new_for_path (app.data_home_folder_unsaved);
+            if (!directory.query_exists ()) {
+                debug ("create 'unsaved' directory: %s", directory.get_path ());
+                directory.make_directory_with_parents ();
+                return;
+            }
+            debug ("'unsaved' directory already exists.");
         }
 
         private void update_saved_state () {
@@ -510,7 +510,6 @@ namespace Scratch {
         }
 
         void action_quit () {
-        	debug ("action_quit");
             handle_quit ();
             check_unsaved_changes ();
             
@@ -540,18 +539,18 @@ namespace Scratch {
         }
 
         void action_open_temporary_files () {
-			FileEnumerator enumerator = File.new_for_path (app.data_home_folder_unsaved).enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME, 0, null);
-			var fileinfo = enumerator.next_file (null);
-			while (fileinfo != null) {
-				if (!fileinfo.get_name ().has_suffix ("~")) {
-					debug ("open temporary file: %s", fileinfo.get_name ());
-			        var file = File.new_for_path(app.data_home_folder_unsaved + fileinfo.get_name ());
-		            var doc = new Scratch.Services.Document (this.main_actions, file);
-		            this.open_document (doc);
-				}				
-	            // Next file info
-		        fileinfo = enumerator.next_file (null);
-			}
+            FileEnumerator enumerator = File.new_for_path (app.data_home_folder_unsaved).enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME, 0, null);
+            var fileinfo = enumerator.next_file (null);
+            while (fileinfo != null) {
+                if (!fileinfo.get_name ().has_suffix ("~")) {
+                    debug ("open temporary file: %s", fileinfo.get_name ());
+                    var file = File.new_for_path(app.data_home_folder_unsaved + fileinfo.get_name ());
+                    var doc = new Scratch.Services.Document (this.main_actions, file);
+                    this.open_document (doc);
+                }
+                // Next file info
+                fileinfo = enumerator.next_file (null);
+            }
         }
 
         void action_save () {
