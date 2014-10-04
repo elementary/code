@@ -317,14 +317,18 @@ namespace Scratch.Services {
             // Reset the last saved content
             last_saved_content = null;            
 
-            if (save () && is_current_file_temporary) {
-                // Delete temporary file              
+            if (save () && is_current_file_temporary) {                              
                 try {
+                    // Delete temporary file
                     File.new_for_path (current_file).delete ();
                 } catch (Error err) {
                     message ("Temporary file cannot be deleted: %s", current_file);
                 }
             }
+
+            // Delete backup file
+            delete_backup (current_file + "~");
+
             // Change syntax highlight
             this.source_view.change_syntax_highlight_from_file (this.file);
 
@@ -640,8 +644,15 @@ namespace Scratch.Services {
             }
         }
 
-        private void delete_backup () {
-            string backup_file = file.get_path () + "~";
+        private void delete_backup (string? backup_path = null) {
+
+            string backup_file  = "";
+
+            if (backup_path == null)
+                backup_file = file.get_path () + "~";
+            else
+                backup_file = backup_path;
+
             debug ("Backup file deleting: %s", backup_file);
             
             var backup = File.new_for_path (backup_file);
