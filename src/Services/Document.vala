@@ -582,7 +582,7 @@ namespace Scratch.Services {
                     show_error_dialog ();
                     return;
                 }
-                if (!text.validate())
+                if (!text.validate ())
                     text = file_content_to_utf8 (file, text);
                 // Reload automatically if auto save is ON
                 if (last_saved_content != null && text != last_saved_content) {
@@ -607,7 +607,7 @@ namespace Scratch.Services {
         public void check_undoable_actions () {
             main_actions.get_action ("Undo").sensitive = this.source_view.buffer.can_undo;
             main_actions.get_action ("Redo").sensitive = this.source_view.buffer.can_redo;
-            main_actions.get_action ("Revert").sensitive = (file != null && original_content != source_view.buffer.text);
+            main_actions.get_action ("Revert").sensitive = (original_content != source_view.buffer.text);
         }
 
         // Set saved status
@@ -661,7 +661,7 @@ namespace Scratch.Services {
             if (!is_file_temporary || get_text ().length > 0) 
                 return false;
             try {
-                file.delete();
+                file.delete ();
                 return true;
             } catch (Error e) {
                 warning ("Cannot delete termporary file \"%s\": %s", get_basename (), e.message);
