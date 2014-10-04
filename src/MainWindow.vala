@@ -387,11 +387,14 @@ namespace Scratch {
 
         public bool has_temporary_files () {
             FileEnumerator enumerator = File.new_for_path (app.data_home_folder_unsaved).enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME, 0, null);
-            var fileinfo = enumerator.next_file(null);
-            if (fileinfo != null)
-                return true;
-            return false;
-        }
+            var fileinfo = enumerator.next_file (null);
+            while (fileinfo != null) {
+                if (!fileinfo.get_name ().has_suffix ("~")) {
+                    return true;
+                }
+                fileinfo = enumerator.next_file (null);
+            }
+            return false;        }
         
         // Check if there no unsaved changes
         private bool check_unsaved_changes () {
