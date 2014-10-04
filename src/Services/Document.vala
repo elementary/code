@@ -536,77 +536,71 @@ namespace Scratch.Services {
         
         // Check if the file was deleted/changed by an external source
         public void check_file_status () {
-            if (file != null) {
-                // If the file does not exist anymore
-                if (!exists ()) {
-                    if (mounted == false) {
-                        string message = _("The location containing the file") +  " \"<b>%s</b>\" ".printf (get_basename ()) +
-                                         _("was unmounted. Do you want to save somewhere else?");
+            // If the file does not exist anymore
+            if (!exists ()) {
+                if (mounted == false) {
+                    string message = _("The location containing the file") +  " \"<b>%s</b>\" ".printf (get_basename ()) +
+                                     _("was unmounted. Do you want to save somewhere else?");
 
-                        set_message (Gtk.MessageType.WARNING, message, _("Save As…"), () => {
-                            this.save_as ();
-                            hide_info_bar ();
-                        });
-                    } else {
-                        string message = _("File") +  " \"<b>%s</b>\" ".printf (get_basename ()) +
-                                         _("was deleted. Do you want to save it anyway?");
-
-                        set_message (Gtk.MessageType.WARNING, message, _("Save"), () => {
-                            this.save ();
-                            hide_info_bar ();
-                        });
-                    }
-                    main_actions.get_action ("SaveFile").sensitive = false;
-                    this.source_view.editable = false;
-                    return;
-                }
-                // If the file can't be written
-                if (!can_write ()) {
-                    string message = _("You cannot save changes on file") +  " \"<b>%s</b>\". ".printf (get_basename ()) +
-                                     _("Do you want to save the changes to this file in a different location?");
-
-                    set_message (Gtk.MessageType.WARNING, message, _("Save changes elsewhere"), () => {
+                    set_message (Gtk.MessageType.WARNING, message, _("Save As…"), () => {
                         this.save_as ();
                         hide_info_bar ();
                     });
-                    main_actions.get_action ("SaveFile").sensitive = false;
-                    this.source_view.editable = !settings.autosave;
-                }
-                else {
-                    main_actions.get_action ("SaveFile").sensitive = true;
-                    this.source_view.editable = true;
-                }
-                // Detect external changes
-                FileHandler.load_content_from_file.begin (file, (obj, res) => {
-                    var text = FileHandler.load_content_from_file.end (res);
-                    if (text == null) {
-                        show_error_dialog ();
-                        return;
-                    }
-                    if (!text.validate())
-                        text = file_content_to_utf8 (file, text);
-                    // Reload automatically if auto save is ON
-                    if (last_saved_content != null && text != last_saved_content) {
-                        if (settings.autosave)
-                            this.source_view.set_text (text, false);
-                        else {
-                            string message = _("File ") +  " \"<b>%s</b>\" ".printf (get_basename ()) +
-                                             _("was modified by an external application. Do you want to load it again or continue your editing?");
+                } else {
+                    string message = _("File") +  " \"<b>%s</b>\" ".printf (get_basename ()) +
+                                     _("was deleted. Do you want to save it anyway?");
 
-                            set_message (Gtk.MessageType.WARNING, message, _("Load"), () => {
-                                this.source_view.set_text (text, false);
-                                hide_info_bar ();
-                            }, _("Continue"), () => {
-                                hide_info_bar ();
-                            });
-                        }
-                    }
+                    set_message (Gtk.MessageType.WARNING, message, _("Save"), () => {
+                        this.save ();
+                        hide_info_bar ();
+                    });
+                }
+                main_actions.get_action ("SaveFile").sensitive = false;
+                this.source_view.editable = false;
+                return;
+            }
+            // If the file can't be written
+            if (!can_write ()) {
+                string message = _("You cannot save changes on file") +  " \"<b>%s</b>\". ".printf (get_basename ()) +
+                                 _("Do you want to save the changes to this file in a different location?");
+
+                set_message (Gtk.MessageType.WARNING, message, _("Save changes elsewhere"), () => {
+                    this.save_as ();
+                    hide_info_bar ();
                 });
+                main_actions.get_action ("SaveFile").sensitive = false;
+                this.source_view.editable = !settings.autosave;
             }
             else {
                 main_actions.get_action ("SaveFile").sensitive = true;
                 this.source_view.editable = true;
             }
+            // Detect external changes
+            FileHandler.load_content_from_file.begin (file, (obj, res) => {
+                var text = FileHandler.load_content_from_file.end (res);
+                if (text == null) {
+                    show_error_dialog ();
+                    return;
+                }
+                if (!text.validate())
+                    text = file_content_to_utf8 (file, text);
+                // Reload automatically if auto save is ON
+                if (last_saved_content != null && text != last_saved_content) {
+                    if (settings.autosave)
+                        this.source_view.set_text (text, false);
+                    else {
+                        string message = _("File ") +  " \"<b>%s</b>\" ".printf (get_basename ()) +
+                                         _("was modified by an external application. Do you want to load it again or continue your editing?");
+
+                        set_message (Gtk.MessageType.WARNING, message, _("Load"), () => {
+                            this.source_view.set_text (text, false);
+                            hide_info_bar ();
+                        }, _("Continue"), () => {
+                            hide_info_bar ();
+                        });
+                    }
+                }
+            });
         }
 
         // Set Undo/Redo action sensitive property
@@ -681,18 +675,13 @@ namespace Scratch.Services {
 
             bool writable = false;
 
-            if (this.file == null)
-                return writable = true;
-
             try {
                 info = this.file.query_info (FileAttribute.ACCESS_CAN_WRITE, FileQueryInfoFlags.NONE, null);
                 writable = info.get_attribute_boolean (FileAttribute.ACCESS_CAN_WRITE);
                 return writable;
             } catch (Error e) {
-                if (this.file != null ) {
-                    warning ("query_info failed, but filename appears to be correct, allowing as new file");
-                    writable = true;
-                }
+                warning ("query_info failed, but filename appears to be correct, allowing as new file");
+                writable = true;
                 return writable;
             }
         }
