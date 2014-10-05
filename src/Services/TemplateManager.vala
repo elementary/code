@@ -209,7 +209,7 @@ public class TemplateButton : Button {
  **/
 public class Scratch.TemplateManager : GLib.Object {
     
-    private Granite.Widgets.LightWindow dialog;
+    private Gtk.Dialog dialog;
     
     private Scratch.Template current_template;
     
@@ -227,7 +227,8 @@ public class Scratch.TemplateManager : GLib.Object {
     public signal void template_loaded (Template template, File file);
     
     public TemplateManager () {
-        dialog = new Granite.Widgets.LightWindow (_("Templates"));
+        dialog = new Gtk.Dialog ();
+        dialog.title = _("Templates");
         
         this.grid = new Gtk.Grid ();
         this.grid.margin = 5;
@@ -267,7 +268,8 @@ public class Scratch.TemplateManager : GLib.Object {
         button.clicked.connect (() => {
             current_template = (Scratch.Template) Object.new (template_type);
             this.dialog.hide ();
-            var window = new Granite.Widgets.LightWindow (label);
+            var window = new Gtk.Dialog ();
+            window.title = label;
             if (parent != null) window.set_transient_for ((Gtk.Window)parent);
             window.add (current_template.get_creation_box ());
             window.show_all ();
