@@ -152,7 +152,7 @@ namespace Scratch {
             // SearchManager
             this.search_revealer = new Gtk.Revealer ();
             this.search_manager = new Scratch.Widgets.SearchManager (this);
-            this.search_manager.get_style_context ().add_class ("secondary-toolbar");
+            this.search_manager.get_style_context ().add_class ("search-bar");
             this.search_revealer.add (this.search_manager);
 
             // SlitView
