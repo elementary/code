@@ -223,7 +223,7 @@ namespace Scratch {
             { "new-window", 'n', 0, OptionArg.NONE, out create_new_window, N_("New Window"), null },
             { "version", 'v', 0, OptionArg.NONE, out print_version, N_("Print version info and exit"), null },
             { "set", 's', 0, OptionArg.STRING, ref _app_cmd_name, N_("Set of plugins"), "" },
-            { "cwd", 'c', 0, OptionArg.STRING, ref _cwd, N_("Current working directoy"), "" },            
+            { "cwd", 'c', 0, OptionArg.STRING, ref _cwd, N_("Current working directory"), "" },            
             { null }
         };
 
