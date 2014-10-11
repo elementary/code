@@ -315,9 +315,9 @@ namespace Scratch.Services {
             }
 
             // Reset the last saved content
-            last_saved_content = null;            
+            last_saved_content = null;
 
-            if (save () && is_current_file_temporary) {                              
+            if (save () && is_current_file_temporary) {
                 try {
                     // Delete temporary file
                     File.new_for_path (current_file).delete ();
@@ -361,7 +361,7 @@ namespace Scratch.Services {
             } catch (Error e) {
                 warning ("%s", e.message);
                 return "undefined";
-            }            
+            }
         }
 
         // Focus the SourceView
@@ -386,7 +386,7 @@ namespace Scratch.Services {
         // Get file uri
         public string get_uri () {
             return this.file.get_uri ();
-        }        
+        }
         
         // Get file name
         public string get_basename () {
@@ -660,7 +660,7 @@ namespace Scratch.Services {
                 debug ("Backup file doesn't exists: %s", backup.get_path ());
                 return;
             }
-            try {               
+            try {
                 backup.delete ();
                 debug ("Backup file deleted: %s", backup_file);
             } catch (Error e) {
@@ -669,7 +669,7 @@ namespace Scratch.Services {
         }
 
         private bool delete_empty_temporary_file () {
-            if (!is_file_temporary || get_text ().length > 0) 
+            if (!is_file_temporary || get_text ().length > 0)
                 return false;
             try {
                 file.delete ();
