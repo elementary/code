@@ -93,7 +93,7 @@ namespace Scratch {
             windows = new GLib.List <MainWindow> ();
             
             // Init data home folder for unsaved text files
-            _data_home_folder_unsaved = Environment.get_user_cache_dir () + "/" + exec_name + "/unsaved/";
+            _data_home_folder_unsaved = Environment.get_user_data_dir () + "/" + exec_name + "/unsaved/";
         }
 
         public static ScratchApp _instance = null;

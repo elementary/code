@@ -30,7 +30,6 @@ namespace Scratch.Widgets {
         public ToolButton save_button;
         public ToolButton save_as_button;
         public ToolButton revert_button;
-        public ToolButton open_temporary_files;
         public ToolButton find_button;
 
         public Gtk.Menu share_menu;
@@ -50,8 +49,6 @@ namespace Scratch.Widgets {
             save_button = main_actions.get_action ("SaveFile").create_tool_item () as Gtk.ToolButton;
             save_as_button = main_actions.get_action ("SaveFileAs").create_tool_item () as Gtk.ToolButton;
             revert_button = main_actions.get_action ("Revert").create_tool_item () as Gtk.ToolButton;
-            open_temporary_files = main_actions.get_action ("OpenTemporaryFiles").create_tool_item () as Gtk.ToolButton;
-            open_temporary_files.set_icon_widget (new Gtk.Image.from_icon_name ("document-open-recent", IconSize.MENU));           
             find_button = main_actions.get_action ("Fetch").create_tool_item () as Gtk.ToolButton;
 
             // Create Share and AppMenu
@@ -90,7 +87,6 @@ namespace Scratch.Widgets {
             pack_start (save_as_button);
             pack_start (new SeparatorToolItem ());
             pack_start (revert_button);
-            pack_start (open_temporary_files);
             pack_start (new SeparatorToolItem ());
             pack_start (find_button);
 

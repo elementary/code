@@ -49,15 +49,11 @@ namespace Scratch.Widgets {
             this.welcome_screen.halign = Gtk.Align.FILL;
             this.welcome_screen.vexpand = true;
             this.welcome_screen.append ("document-new", _("New file"), _("Create a new empty file."));
-            this.welcome_screen.append ("document-open-recent", _("Restore temorary files"), _("Restore all unsaved temorary files."));
-            this.welcome_screen.set_item_visible (1, window.has_temporary_files ());
             this.welcome_screen.append ("document-open", _("Open file"), _("Open a saved file."));
             this.welcome_screen.activated.connect ((i) => {
                 // New file
                 if (i == 0)
                     window.main_actions.get_action ("NewTab").activate ();
-                else if (i == 1)
-                    window.main_actions.get_action ("OpenTemporaryFiles").activate ();
                 // Open
                 else if (i == 2)
                     window.main_actions.get_action ("Open").activate ();

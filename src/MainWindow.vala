@@ -251,8 +251,10 @@ namespace Scratch {
                 main_actions.get_action ("Templates").visible = plugins.plugin_iface.template_manager.template_available;
             });
 
-            // Show welcome by default
-            this.split_view.show_welcome ();
+            if (has_temporary_files ())
+                action_open_temporary_files ();
+            else
+                this.split_view.show_welcome ();
 
             // Plugins hook
             HookFunc hook_func = () => {
@@ -272,7 +274,6 @@ namespace Scratch {
                 hook_func ();
             });
             hook_func ();
-
         }
 
          private void on_plugin_toggled (Gtk.Notebook notebook) {
@@ -746,10 +747,6 @@ namespace Scratch {
           /* label, accelerator */       N_("Open"), "<Control>o",
           /* tooltip */                  N_("Open a file"),
                                          action_open },
-           { "OpenTemporaryFiles", Gtk.Stock.OPEN,
-          /* label, accelerator */       N_("Restore"), "<Control>t",
-          /* tooltip */                  N_("Restore temporary files"),
-                                         action_open_temporary_files },
            { "SaveFile", Gtk.Stock.SAVE,
           /* label, accelerator */       N_("Save"), "<Control>s",
           /* tooltip */                  N_("Save this file"),
