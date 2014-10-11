@@ -593,9 +593,7 @@ namespace Scratch.Services {
                     if (settings.autosave)
                         this.source_view.set_text (text, false);
                     else {
-                        string message = _("File ") +  " \"<b>%s</b>\" ".printf (get_basename ()) +
-                                         _("was modified by an external application. Do you want to load it again or continue your editing?");
-
+                        string message =  _("File %s was modified by an external application. Do you want to load it again or continue your editing?").printf ("<b>%s</b>".printf (get_basename ()));
                         set_message (Gtk.MessageType.WARNING, message, _("Load"), () => {
                             this.source_view.set_text (text, false);
                             hide_info_bar ();

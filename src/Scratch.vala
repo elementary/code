@@ -93,7 +93,7 @@ namespace Scratch {
             windows = new GLib.List <MainWindow> ();
             
             // Init data home folder for unsaved text files
-            _data_home_folder_unsaved = Environment.get_user_data_dir () + "/" + exec_name + "/unsaved/";
+            _data_home_folder_unsaved = Environment.get_user_cache_dir () + "/" + exec_name + "/unsaved/";
         }
 
         public static ScratchApp _instance = null;
@@ -237,7 +237,7 @@ namespace Scratch {
             { "new-window", 'n', 0, OptionArg.NONE, out create_new_window, N_("New Window"), null },
             { "version", 'v', 0, OptionArg.NONE, out print_version, N_("Print version info and exit"), null },
             { "set", 's', 0, OptionArg.STRING, ref _app_cmd_name, N_("Set of plugins"), "" },
-            { "cwd", 'c', 0, OptionArg.STRING, ref _cwd, N_("Current working directoy"), "" },            
+            { "cwd", 'c', 0, OptionArg.STRING, ref _cwd, N_("Current working directory"), "" },            
             { null }
         };
 
