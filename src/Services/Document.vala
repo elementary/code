@@ -670,7 +670,7 @@ namespace Scratch.Services {
                 file.delete ();
                 return true;
             } catch (Error e) {
-                warning ("Cannot delete termporary file \"%s\": %s", get_basename (), e.message);
+                warning ("Cannot delete temporary file \"%s\": %s", get_basename (), e.message);
             }   
             return false;
         }
