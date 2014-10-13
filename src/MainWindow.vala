@@ -87,7 +87,7 @@ namespace Scratch {
             restore_saved_state_extra ();
 
             // Crate folder for unsaved documents
-            create_unsaved_documentes_directory ();
+            create_unsaved_documents_directory ();
 
 #if HAVE_ZEITGEIST
             // Set up the Data Source Registry for Zeitgeist
@@ -395,7 +395,8 @@ namespace Scratch {
                 }
                 fileinfo = enumerator.next_file (null);
             }
-            return false;        }
+            return false;        
+        }
         
         // Check if there no unsaved changes
         private bool check_unsaved_changes () {
@@ -434,7 +435,7 @@ namespace Scratch {
             vp.set_position (Scratch.saved_state.vp_size);
         }
 
-        private void create_unsaved_documentes_directory () {
+        private void create_unsaved_documents_directory () {
             File directory = File.new_for_path (app.data_home_folder_unsaved);
             if (!directory.query_exists ()) {
                 debug ("create 'unsaved' directory: %s", directory.get_path ());
@@ -549,7 +550,7 @@ namespace Scratch {
             while (fileinfo != null) {
                 if (!fileinfo.get_name ().has_suffix ("~")) {
                     debug ("open temporary file: %s", fileinfo.get_name ());
-                    var file = File.new_for_path(app.data_home_folder_unsaved + fileinfo.get_name ());
+                    var file = File.new_for_path (app.data_home_folder_unsaved + fileinfo.get_name ());
                     var doc = new Scratch.Services.Document (this.main_actions, file);
                     this.open_document (doc);
                 }

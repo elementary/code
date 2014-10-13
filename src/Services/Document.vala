@@ -527,7 +527,7 @@ namespace Scratch.Services {
             if (this.error_shown)
                 return;
             this.error_shown = true;
-            string message = _("File \"<b>%s</b>\" cannot be read. Maybe it is corrupt\nor you do not have the necessary permissions to read it.").printf (get_basename ());
+            string message = _("File \"%s\" cannot be read. Maybe it is corrupt\nor you do not have the necessary permissions to read it.").printf ("<b>%s</b>".printf (get_basename ()));
             var parent_window = source_view.get_toplevel () as Gtk.Window;
             var dialog = new Gtk.MessageDialog.with_markup (parent_window, Gtk.DialogFlags.MODAL,
                                                  Gtk.MessageType.ERROR,
@@ -543,16 +543,14 @@ namespace Scratch.Services {
             // If the file does not exist anymore
             if (!exists ()) {
                 if (mounted == false) {
-                    string message = _("The location containing the file") +  " \"<b>%s</b>\" ".printf (get_basename ()) +
-                                     _("was unmounted. Do you want to save somewhere else?");
+                    string message = _("The location containing the file \"%s\" was unmounted. Do you want to save somewhere else?").printf ("<b>%s</b>".printf (get_basename ()));
 
                     set_message (Gtk.MessageType.WARNING, message, _("Save As…"), () => {
                         this.save_as ();
                         hide_info_bar ();
                     });
                 } else {
-                    string message = _("File") +  " \"<b>%s</b>\" ".printf (get_basename ()) +
-                                     _("was deleted. Do you want to save it anyway?");
+                    string message = _("File \"%s\" was deleted. Do you want to save it anyway?").printf ("<b>%s</b>".printf (get_basename ()));
 
                     set_message (Gtk.MessageType.WARNING, message, _("Save"), () => {
                         this.save ();
@@ -565,8 +563,7 @@ namespace Scratch.Services {
             }
             // If the file can't be written
             if (!can_write ()) {
-                string message = _("You cannot save changes on file") +  " \"<b>%s</b>\". ".printf (get_basename ()) +
-                                 _("Do you want to save the changes to this file in a different location?");
+                string message = _("You cannot save changes on file \"%s\". Do you want to save the changes to this file in a different location?").printf ("<b>%s</b>".printf (get_basename ()));
 
                 set_message (Gtk.MessageType.WARNING, message, _("Save changes elsewhere"), () => {
                     this.save_as ();
@@ -593,7 +590,7 @@ namespace Scratch.Services {
                     if (settings.autosave)
                         this.source_view.set_text (text, false);
                     else {
-                        string message =  _("File %s was modified by an external application. Do you want to load it again or continue your editing?").printf ("<b>%s</b>".printf (get_basename ()));
+                        string message =  _("File \"%s\" was modified by an external application. Do you want to load it again or continue your editing?").printf ("<b>%s</b>".printf (get_basename ()));
                         set_message (Gtk.MessageType.WARNING, message, _("Load"), () => {
                             this.source_view.set_text (text, false);
                             hide_info_bar ();
