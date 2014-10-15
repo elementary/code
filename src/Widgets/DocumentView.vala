@@ -88,7 +88,7 @@ namespace Scratch.Widgets {
 
         private string unsaved_file_path_builder () {
             DateTime timestamp = new DateTime.now_local ();
-            string new_text_file = _("Text file from ") + timestamp.format ("%Y-%m-%d %H:%M:%S.");
+            string new_text_file = _("Text file from ") + timestamp.format ("%Y-%m-%d %H:%M:%S");
 
             return ScratchApp.instance.data_home_folder_unsaved + new_text_file;
         }
