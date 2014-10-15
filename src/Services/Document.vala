@@ -204,13 +204,8 @@ namespace Scratch.Services {
 
             bool ret_value = true;
 
-            // Check for temporary files
-            if (this.is_file_temporary) {
-                if (!delete_empty_temporary_file ())
-                    this.save ();
-            }
             // Check for unsaved changes
-            else if (!this.saved) {
+            if (!this.saved || !delete_temporary_file ()) {
                 debug ("There are unsaved changes, showing a Message Dialog!");
 
                 // Create a GtkDialog
@@ -241,9 +236,14 @@ namespace Scratch.Services {
                         ret_value = false;
                         break;
                     case Gtk.ResponseType.YES:
-                        this.save ();
+                        if (this.is_file_temporary)
+                            this.save_as();
+                        else
+                            this.save ();
                         break;
                     case Gtk.ResponseType.NO:
+                        if (this.is_file_temporary)
+                            delete_temporary_file (true);
                         break;
                 }
                 dialog.destroy ();
@@ -380,7 +380,10 @@ namespace Scratch.Services {
             box.pack_start (scroll, true, true, 0);
 
             this.page = box;
-            this.label = get_basename ();
+            if (is_file_temporary)
+                this.label = _("New Document");
+            else
+                this.label = get_basename ();
         }
 
         // Get file uri
@@ -390,7 +393,7 @@ namespace Scratch.Services {
         
         // Get file name
         public string get_basename () {
-                return file.get_basename ();
+            return file.get_basename ();
         }
 
         // Set InfoBars message
@@ -663,8 +666,10 @@ namespace Scratch.Services {
             }
         }
 
-        private bool delete_empty_temporary_file () {
-            if (!is_file_temporary || get_text ().length > 0)
+        private bool delete_temporary_file (bool force = false) {
+            if(!is_file_temporary)
+                return true;
+            else if (get_text ().length > 0 && !force)
                 return false;
             try {
                 file.delete ();
