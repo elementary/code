@@ -380,10 +380,7 @@ namespace Scratch.Services {
             box.pack_start (scroll, true, true, 0);
 
             this.page = box;
-            if (is_file_temporary)
-                this.label = _("New Document");
-            else
-                this.label = get_basename ();
+            this.label = get_basename ();
         }
 
         // Get file uri
@@ -393,7 +390,10 @@ namespace Scratch.Services {
         
         // Get file name
         public string get_basename () {
-            return file.get_basename ();
+            if (is_file_temporary)
+                return _("New Document");
+            else
+                return file.get_basename ();
         }
 
         // Set InfoBars message
