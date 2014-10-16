@@ -237,7 +237,7 @@ namespace Scratch.Services {
                         break;
                     case Gtk.ResponseType.YES:
                         if (this.is_file_temporary)
-                            this.save_as();
+                            this.save_as ();
                         else
                             this.save ();
                         break;
