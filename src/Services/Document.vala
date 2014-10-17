@@ -68,7 +68,7 @@ namespace Scratch.Services {
         public string? last_saved_content = null;
         public bool saved = true;
         private bool error_shown = false;
-        private bool is_file_temporary {
+        public bool is_file_temporary {
             get {
                 return file.get_path ().has_prefix (ScratchApp.instance.data_home_folder_unsaved);
             }
@@ -198,14 +198,17 @@ namespace Scratch.Services {
             return true;
         }
 
-        public new bool close () {
+        public new bool close (bool app_closing = false) {
 
             message ("Closing \"%s\"", get_basename ());
 
             bool ret_value = true;
-
+            if (app_closing && is_file_temporary && !delete_temporary_file ()) {
+            	debug ("Save temporary file!");
+                this.save ();
+            }
             // Check for unsaved changes
-            if (!this.saved || !delete_temporary_file ()) {
+            else if (!this.saved || (!app_closing && is_file_temporary && !delete_temporary_file ())) {
                 debug ("There are unsaved changes, showing a Message Dialog!");
 
                 // Create a GtkDialog
@@ -667,15 +670,13 @@ namespace Scratch.Services {
         }
 
         private bool delete_temporary_file (bool force = false) {
-            if(!is_file_temporary)
-                return true;
-            else if (get_text ().length > 0 && !force)
+            if (!is_file_temporary || (get_text ().length > 0 && !force))
                 return false;
             try {
                 file.delete ();
                 return true;
             } catch (Error e) {
-                warning ("Cannot delete temporary file \"%s\": %s", get_basename (), e.message);
+                warning ("Cannot delete temporary file \"%s\": %s", file.get_uri (), e.message);
             }   
             return false;
         }

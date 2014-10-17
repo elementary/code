@@ -184,7 +184,12 @@ namespace Scratch {
                         path = _("Trash");
 
                     path = Uri.unescape_string (path);
-                    this.toolbar.title = doc.file.get_basename () + " (%s)".printf(path);
+
+                    string toolbar_title = doc.file.get_basename () + " (%s)".printf(path);
+                    if (doc.is_file_temporary)
+                        toolbar_title = "(%s)".printf(doc.get_basename ());
+
+                    this.toolbar.title = toolbar_title;
                 }
                 else {
                     this.toolbar.title = this.app.app_cmd_name;
@@ -404,7 +409,7 @@ namespace Scratch {
                 foreach (var w in this.split_view.views) {
                     var view = w as Scratch.Widgets.DocumentView;
                     foreach (var doc in view.docs) {
-                        if (!doc.close ()) {
+                        if (!doc.close (true)) {
                             view.set_current_document (doc);
                             return false;
                         }
