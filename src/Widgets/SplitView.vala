@@ -55,7 +55,7 @@ namespace Scratch.Widgets {
                 if (i == 0)
                     window.main_actions.get_action ("NewTab").activate ();
                 // Open
-                else if (i == 2)
+                else if (i == 1)
                     window.main_actions.get_action ("Open").activate ();
             });
 
