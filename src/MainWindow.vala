@@ -185,9 +185,9 @@ namespace Scratch {
 
                     path = Uri.unescape_string (path);
 
-                    string toolbar_title = doc.file.get_basename () + " (%s)".printf(path);
+                    string toolbar_title = doc.file.get_basename () + " (%s)".printf (path);
                     if (doc.is_file_temporary)
-                        toolbar_title = "(%s)".printf(doc.get_basename ());
+                        toolbar_title = "(%s)".printf (doc.get_basename ());
 
                     this.toolbar.title = toolbar_title;
                 }
