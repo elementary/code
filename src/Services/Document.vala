@@ -204,7 +204,7 @@ namespace Scratch.Services {
 
             bool ret_value = true;
             if (app_closing && is_file_temporary && !delete_temporary_file ()) {
-            	debug ("Save temporary file!");
+                debug ("Save temporary file!");
                 this.save ();
             }
             // Check for unsaved changes
