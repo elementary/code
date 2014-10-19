@@ -39,19 +39,18 @@ namespace Scratch.Widgets {
         public AppMenu app_menu;
 
         public Toolbar (Gtk.ActionGroup main_actions) {
-
             // Toolbar properties
             // compliant with elementary HIG
             get_style_context ().add_class ("primary-toolbar");
             
             // Create ToolButtons
-            open_button = main_actions.get_action ("Open").create_tool_item() as Gtk.ToolButton;
-            templates_button = main_actions.get_action ("Templates").create_tool_item() as Gtk.ToolButton;
-            save_button = main_actions.get_action ("SaveFile").create_tool_item() as Gtk.ToolButton;
-            save_as_button = main_actions.get_action ("SaveFileAs").create_tool_item() as Gtk.ToolButton;
-            revert_button = main_actions.get_action ("Revert").create_tool_item() as Gtk.ToolButton;
-            find_button = main_actions.get_action ("Fetch").create_tool_item() as Gtk.ToolButton;
-            
+            open_button = main_actions.get_action ("Open").create_tool_item () as Gtk.ToolButton;
+            templates_button = main_actions.get_action ("Templates").create_tool_item () as Gtk.ToolButton;
+            save_button = main_actions.get_action ("SaveFile").create_tool_item () as Gtk.ToolButton;
+            save_as_button = main_actions.get_action ("SaveFileAs").create_tool_item () as Gtk.ToolButton;
+            revert_button = main_actions.get_action ("Revert").create_tool_item () as Gtk.ToolButton;
+            find_button = main_actions.get_action ("Fetch").create_tool_item () as Gtk.ToolButton;
+
             // Create Share and AppMenu
             share_menu = new Gtk.Menu ();
             share_app_menu = new Granite.Widgets.ToolButtonWithMenu (new Image.from_icon_name ("document-export", IconSize.MENU), _("Share"), share_menu);

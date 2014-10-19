@@ -288,10 +288,6 @@ namespace Scratch.Dialogs {
                 var scheme = scheme_manager.get_scheme (scheme_id);
                 style_scheme.append (scheme.id, scheme.name);
             }
-            
-
         }
-
     }
-
 } // Namespace

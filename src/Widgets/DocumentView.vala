@@ -85,11 +85,21 @@ namespace Scratch.Widgets {
             
             show_all ();
         }
+
+        private string unsaved_file_path_builder () {
+            DateTime timestamp = new DateTime.now_local ();
+            string new_text_file = _("Text file from ") + timestamp.format ("%Y-%m-%d %H:%M:%S");
+
+            return ScratchApp.instance.data_home_folder_unsaved + new_text_file;
+        }
         
         public void new_document () {
-            var doc = new Document (window.main_actions);
+            File file = File.new_for_path (unsaved_file_path_builder ());
+            file.create (FileCreateFlags.PRIVATE);
+
+            var doc = new Document (window.main_actions, file);
             doc.create_page ();
-           
+            
             this.notebook.insert_tab (doc, -1);
             this.notebook.current = doc;
             

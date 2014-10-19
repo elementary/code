@@ -86,6 +86,9 @@ namespace Scratch {
             // Restore session
             restore_saved_state_extra ();
 
+            // Crate folder for unsaved documents
+            create_unsaved_documents_directory ();
+
 #if HAVE_ZEITGEIST
             // Set up the Data Source Registry for Zeitgeist
             registry = new DataSourceRegistry ();
@@ -181,7 +184,12 @@ namespace Scratch {
                         path = _("Trash");
 
                     path = Uri.unescape_string (path);
-                    this.toolbar.title = doc.file.get_basename () + " (%s)".printf(path);
+
+                    string toolbar_title = doc.file.get_basename () + " (%s)".printf (path);
+                    if (doc.is_file_temporary)
+                        toolbar_title = "(%s)".printf (doc.get_basename ());
+
+                    this.toolbar.title = toolbar_title;
                 }
                 else {
                     this.toolbar.title = this.app.app_cmd_name;
@@ -241,14 +249,17 @@ namespace Scratch {
 
             this.search_revealer.set_reveal_child (false);
             
+            main_actions.get_action ("OpenTemporaryFiles").visible = this.has_temporary_files ();
             main_actions.get_action ("SaveFile").visible = !settings.autosave;
             main_actions.get_action ("Templates").visible = plugins.plugin_iface.template_manager.template_available;
             plugins.plugin_iface.template_manager.notify["template_available"].connect ( () => {
                 main_actions.get_action ("Templates").visible = plugins.plugin_iface.template_manager.template_available;
             });
 
-            // Show welcome by default
-            this.split_view.show_welcome ();
+            if (has_temporary_files ())
+                action_open_temporary_files ();
+            else
+                this.split_view.show_welcome ();
 
             // Plugins hook
             HookFunc hook_func = () => {
@@ -268,7 +279,6 @@ namespace Scratch {
                 hook_func ();
             });
             hook_func ();
-
         }
 
          private void on_plugin_toggled (Gtk.Notebook notebook) {
@@ -381,13 +391,25 @@ namespace Scratch {
             return split_view.is_empty ();
         }
 
+        public bool has_temporary_files () {
+            FileEnumerator enumerator = File.new_for_path (app.data_home_folder_unsaved).enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME, 0, null);
+            var fileinfo = enumerator.next_file (null);
+            while (fileinfo != null) {
+                if (!fileinfo.get_name ().has_suffix ("~")) {
+                    return true;
+                }
+                fileinfo = enumerator.next_file (null);
+            }
+            return false;        
+        }
+        
         // Check if there no unsaved changes
         private bool check_unsaved_changes () {
             if (!is_empty ()) {
                 foreach (var w in this.split_view.views) {
                     var view = w as Scratch.Widgets.DocumentView;
                     foreach (var doc in view.docs) {
-                        if (!doc.close ()) {
+                        if (!doc.close (true)) {
                             view.set_current_document (doc);
                             return false;
                         }
@@ -416,6 +438,16 @@ namespace Scratch {
             hp1.set_position (Scratch.saved_state.hp1_size);
             hp2.set_position (Scratch.saved_state.hp2_size);
             vp.set_position (Scratch.saved_state.vp_size);
+        }
+
+        private void create_unsaved_documents_directory () {
+            File directory = File.new_for_path (app.data_home_folder_unsaved);
+            if (!directory.query_exists ()) {
+                debug ("create 'unsaved' directory: %s", directory.get_path ());
+                directory.make_directory_with_parents ();
+                return;
+            }
+            debug ("'unsaved' directory already exists.");
         }
 
         private void update_saved_state () {
@@ -515,6 +547,21 @@ namespace Scratch {
             }
 
             filech.close ();
+        }
+
+        void action_open_temporary_files () {
+            FileEnumerator enumerator = File.new_for_path (app.data_home_folder_unsaved).enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME, 0, null);
+            var fileinfo = enumerator.next_file (null);
+            while (fileinfo != null) {
+                if (!fileinfo.get_name ().has_suffix ("~")) {
+                    debug ("open temporary file: %s", fileinfo.get_name ());
+                    var file = File.new_for_path (app.data_home_folder_unsaved + fileinfo.get_name ());
+                    var doc = new Scratch.Services.Document (this.main_actions, file);
+                    this.open_document (doc);
+                }
+                // Next file info
+                fileinfo = enumerator.next_file (null);
+            }
         }
 
         void action_save () {
@@ -694,7 +741,7 @@ namespace Scratch {
           /* label, accelerator */       N_("Redo"), "<Control><shift>z",
           /* tooltip */                  N_("Redo the last undone action"),
                                          action_redo },
-          { "Revert", Gtk.Stock.REVERT_TO_SAVED,
+           { "Revert", Gtk.Stock.REVERT_TO_SAVED,
           /* label, accelerator */       N_("Revert"), "<Control><shift>o",
           /* tooltip */                  N_("Restore this file"),
                                          action_revert },
