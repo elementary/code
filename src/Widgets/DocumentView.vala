@@ -133,8 +133,7 @@ namespace Scratch.Widgets {
         }
 
         public void duplicate_document (Document original) {
-
-        	File file = File.new_for_path (unsaved_file_path_builder ());
+            File file = File.new_for_path (unsaved_file_path_builder ());
             file.create (FileCreateFlags.PRIVATE);
 
             var doc = new Document (window.main_actions, file);
@@ -142,9 +141,9 @@ namespace Scratch.Widgets {
             
             // Set a copy of content
             try {
-	            string s;
-	            doc.file.replace_contents (original.source_view.buffer.text.data, null, false, 0, out s);
-	        } catch (Error e) {
+                string s;
+                doc.file.replace_contents (original.source_view.buffer.text.data, null, false, 0, out s);
+            } catch (Error e) {
                 warning ("Cannot copy \"%s\": %s", original.get_basename (), e.message);
             }
 
