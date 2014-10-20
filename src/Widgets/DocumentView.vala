@@ -56,6 +56,7 @@ namespace Scratch.Widgets {
             this.notebook.allow_restoring = true;
             this.notebook.allow_new_window = true;
             this.notebook.allow_drag = true;
+            this.notebook.allow_duplication = true;
             this.notebook.tab_added.connect (on_doc_added);
             this.notebook.tab_removed.connect (on_doc_removed);
             this.notebook.tab_reordered.connect (on_doc_reordered);
@@ -80,7 +81,11 @@ namespace Scratch.Widgets {
                 var doc = new Document (window.main_actions, File.new_for_uri (restore_data));
                 open_document (doc);
             });
-            
+
+            this.notebook.tab_duplicated.connect ((tab) => {
+                duplicate_document (tab as Document);
+            });
+
             this.pack_start (notebook, true, true, 0);
             
             show_all ();
@@ -124,6 +129,28 @@ namespace Scratch.Widgets {
             this.notebook.insert_tab (doc, -1);
             this.notebook.current = doc;
             
+            doc.focus ();
+        }
+
+        public void duplicate_document (Document original) {
+
+        	File file = File.new_for_path (unsaved_file_path_builder ());
+            file.create (FileCreateFlags.PRIVATE);
+
+            var doc = new Document (window.main_actions, file);
+            doc.create_page ();
+            
+            // Set a copy of content
+            try {
+	            string s;
+	            doc.file.replace_contents (original.source_view.buffer.text.data, null, false, 0, out s);
+	        } catch (Error e) {
+                warning ("Cannot copy \"%s\": %s", original.get_basename (), e.message);
+            }
+
+            this.notebook.insert_tab (doc, -1);
+            this.notebook.current = doc;
+
             doc.focus ();
         }
         
