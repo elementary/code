@@ -50,6 +50,9 @@ namespace Scratch.Widgets {
             this.welcome_screen.vexpand = true;
             this.welcome_screen.append ("document-new", _("New file"), _("Create a new empty file."));
             this.welcome_screen.append ("document-open", _("Open file"), _("Open a saved file."));
+            this.welcome_screen.append ("edit-paste", _("New file from clipboard"), _("Create a new file from the contents of your clipboard."));
+            welcome_screen.set_item_visible (2, window.clipboard.wait_is_text_available ());
+            
             this.welcome_screen.activated.connect ((i) => {
                 // New file
                 if (i == 0)
@@ -57,6 +60,9 @@ namespace Scratch.Widgets {
                 // Open
                 else if (i == 1)
                     window.main_actions.get_action ("Open").activate ();
+                // Clipboard
+                else if (i == 2)
+                	window.main_actions.get_action ("Clipboard").activate ();
             });
 
             // Handle Drag-and-drop functionality on source-view

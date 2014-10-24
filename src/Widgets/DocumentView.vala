@@ -110,6 +110,27 @@ namespace Scratch.Widgets {
             
             doc.focus ();
         }
+
+        public void new_document_from_clipboart (string clipboard) {
+            File file = File.new_for_path (unsaved_file_path_builder ());
+            file.create (FileCreateFlags.PRIVATE);
+
+            var doc = new Document (window.main_actions, file);
+            doc.create_page ();
+            
+            // Set clipboard content
+            try {
+                string s;
+                doc.file.replace_contents (clipboard.data, null, false, 0, out s);
+            } catch (Error e) {
+                warning ("Cannot insert clipboard: %s", clipboard);
+            }
+
+            this.notebook.insert_tab (doc, -1);
+            this.notebook.current = doc;
+
+            doc.focus ();
+        }
         
         public void open_document (Document doc) {
             for (int n = 0; n <= docs.length (); n++) {
@@ -167,8 +188,8 @@ namespace Scratch.Widgets {
             if (current_index > 0) {
                 Document? previous_doc = docs.nth_data (--current_index);
                 this.notebook.current = previous_doc;
-                previous_doc.focus();   
-            }        
+                previous_doc.focus ();
+            }
         }
         
         public void close_document (Document doc) {

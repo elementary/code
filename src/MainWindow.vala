@@ -57,6 +57,8 @@ namespace Scratch {
         public Gtk.ActionGroup main_actions;
         public Gtk.UIManager ui;
 
+        public Clipboard clipboard;
+
 #if HAVE_ZEITGEIST
         // Zeitgeist integration
         private Zeitgeist.DataSourceRegistry registry;
@@ -74,6 +76,9 @@ namespace Scratch {
             this.set_hide_titlebar_when_maximized (false);
             restore_saved_state ();
             this.icon_name = "accessories-text-editor";
+            
+            clipboard = Clipboard.get_for_display (this.get_display (), Gdk.SELECTION_CLIPBOARD);
+            
 
             plugins = new Scratch.Services.PluginsManager (this, app.app_cmd_name.down ());
 
@@ -591,12 +596,23 @@ namespace Scratch {
             Scratch.Widgets.DocumentView? view = null;
             if (this.split_view.is_empty ()) {
                 view = split_view.add_view ();
-                view.new_document ();
             }
             else {
                 view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
-                view.new_document ();
             }
+            view.new_document ();
+        }
+
+        void action_new_tab_from_clipboard () {
+            Scratch.Widgets.DocumentView? view = null;
+            if (this.split_view.is_empty ()) {
+                view = split_view.add_view ();
+            }
+            else {
+                view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;                
+            }
+            string text_from_clipboard = clipboard.wait_for_text ();
+            view.new_document_from_clipboart (text_from_clipboard);
         }
 
         void action_new_view () {
@@ -753,6 +769,10 @@ namespace Scratch {
           /* label, accelerator */       N_("Open"), "<Control>o",
           /* tooltip */                  N_("Open a file"),
                                          action_open },
+           { "Clipboard", Gtk.Stock.OPEN,
+          /* label, accelerator */       N_("Clipboard"), null,
+          /* tooltip */                  N_("New file from Clipboard"),
+                                         action_new_tab_from_clipboard },
            { "SaveFile", Gtk.Stock.SAVE,
           /* label, accelerator */       N_("Save"), "<Control>s",
           /* tooltip */                  N_("Save this file"),
