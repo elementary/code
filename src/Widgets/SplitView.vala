@@ -37,19 +37,22 @@ namespace Scratch.Widgets {
         public signal void document_change (Scratch.Services.Document document);
 
         private weak MainWindow window;
-        
+
         public SplitView (MainWindow window) {
             base (Gtk.Orientation.HORIZONTAL);
             this.window = window;
 
             // Welcome screen
-            this.welcome_screen = new Granite.Widgets.Welcome (_("No Files Open"), 
+            this.welcome_screen = new Granite.Widgets.Welcome (_("No Files Open"),
                                                                _("Open a file to begin editing."));
             this.welcome_screen.valign = Gtk.Align.FILL;
             this.welcome_screen.halign = Gtk.Align.FILL;
             this.welcome_screen.vexpand = true;
             this.welcome_screen.append ("document-new", _("New file"), _("Create a new empty file."));
             this.welcome_screen.append ("document-open", _("Open file"), _("Open a saved file."));
+            this.welcome_screen.append ("edit-paste", _("New file from clipboard"), _("Create a new file from the contents of your clipboard."));
+            welcome_screen.set_item_visible (2, window.clipboard.wait_is_text_available ());
+
             this.welcome_screen.activated.connect ((i) => {
                 // New file
                 if (i == 0)
@@ -57,6 +60,9 @@ namespace Scratch.Widgets {
                 // Open
                 else if (i == 1)
                     window.main_actions.get_action ("Open").activate ();
+                // Clipboard
+                else if (i == 2)
+                    window.main_actions.get_action ("Clipboard").activate ();
             });
 
             // Handle Drag-and-drop functionality on source-view
@@ -99,7 +105,7 @@ namespace Scratch.Widgets {
                 view.empty.connect (() => {
                     remove_view (view);
                 });
-            } else { 
+            } else {
                 view = hidden_views.nth_data (0);
                 hidden_views.remove (view);
             }
@@ -130,7 +136,7 @@ namespace Scratch.Widgets {
                 view = get_focus_child () as Scratch.Widgets.DocumentView;
             if (view == null) {
                 warning ("The is no focused view to remove!");
-                return;                
+                return;
             }
 
             this.remove (view);
