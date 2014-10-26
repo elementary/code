@@ -21,7 +21,7 @@
 using Gtk;
 using Gdk;
 using Pango;
- 
+
 #if HAVE_ZEITGEIST
 using Zeitgeist;
 #endif
@@ -30,7 +30,7 @@ using Granite.Widgets;
 using Granite.Services;
 
 namespace Scratch {
-    
+
     public class MainWindow : Gtk.Window {
         public weak ScratchApp app;
 
@@ -48,7 +48,7 @@ namespace Scratch {
         public Gtk.Notebook sidebar;
         public Gtk.Notebook contextbar;
         public Gtk.Notebook bottombar;
-        
+
         private Granite.Widgets.ThinPaned hp1;
         private Granite.Widgets.ThinPaned hp2;
         private Granite.Widgets.ThinPaned vp;
@@ -63,10 +63,10 @@ namespace Scratch {
         // Zeitgeist integration
         private Zeitgeist.DataSourceRegistry registry;
 #endif
-        
+
         // Delegates
         delegate void HookFunc ();
-        
+
         public MainWindow (Scratch.ScratchApp scratch_app) {
             this.app = scratch_app;
             set_application (this.app);
@@ -76,9 +76,9 @@ namespace Scratch {
             this.set_hide_titlebar_when_maximized (false);
             restore_saved_state ();
             this.icon_name = "accessories-text-editor";
-            
+
             clipboard = Clipboard.get_for_display (this.get_display (), Gdk.SELECTION_CLIPBOARD);
-            
+
 
             plugins = new Scratch.Services.PluginsManager (this, app.app_cmd_name.down ());
 
@@ -165,14 +165,14 @@ namespace Scratch {
 
             // SlitView
             this.split_view = new Scratch.Widgets.SplitView (this);
-    
+
             // LoadingView
             this.loading_view = new Scratch.Widgets.LoadingView ();
-                
+
             // Signals
             this.split_view.welcome_shown.connect (() => {
                 set_widgets_sensitive (false);
-                
+
             });
             this.split_view.welcome_hidden.connect (() => {
                 set_widgets_sensitive (true);
@@ -227,12 +227,12 @@ namespace Scratch {
             vp.orientation = Orientation.VERTICAL;
 
             var content = new Gtk.Box (Orientation.VERTICAL, 0);
-            content.pack_start (search_revealer, false, true, 0);            
-            content.pack_start (split_view, true, true, 0);            
+            content.pack_start (search_revealer, false, true, 0);
+            content.pack_start (split_view, true, true, 0);
             // Set a proper position for ThinPaned widgets
             int width, height;
             this.get_size (out width, out height);
-            
+
             hp1.position = 180;
             hp2.position = (width - 180);
             vp.position = (height - 150);
@@ -253,7 +253,7 @@ namespace Scratch {
             show_all ();
 
             this.search_revealer.set_reveal_child (false);
-            
+
             main_actions.get_action ("OpenTemporaryFiles").visible = this.has_temporary_files ();
             main_actions.get_action ("SaveFile").visible = !settings.autosave;
             main_actions.get_action ("Templates").visible = plugins.plugin_iface.template_manager.template_available;
@@ -339,14 +339,14 @@ namespace Scratch {
         public Scratch.Widgets.DocumentView? add_view () {
             return split_view.add_view ();
         }
-        
+
         // Show LoadingView
         public void start_loading () {
             this.loading_view.start ();
             this.vp.visible = false;
             this.toolbar.sensitive = false;
         }
-        
+
         // Hide LoadingView
         public void stop_loading () {
             this.loading_view.stop ();
@@ -356,13 +356,13 @@ namespace Scratch {
             var doc = this.get_current_document ();
             doc.load_content ();
         }
-        
+
         // Open a document
         public void open_document (Scratch.Services.Document doc) {
             while (Gtk.events_pending ()) {
                 Gtk.main_iteration ();
             }
-            
+
             Scratch.Widgets.DocumentView? view = null;
             if (this.split_view.is_empty ()) {
                 view = split_view.add_view ();
@@ -375,7 +375,7 @@ namespace Scratch {
                 view.open_document (doc);
             }
         }
-        
+
         // Close a document
         public void close_document (Scratch.Services.Document doc) {
             Scratch.Widgets.DocumentView? view = null;
@@ -405,9 +405,9 @@ namespace Scratch {
                 }
                 fileinfo = enumerator.next_file (null);
             }
-            return false;        
+            return false;
         }
-        
+
         // Check if there no unsaved changes
         private bool check_unsaved_changes () {
             if (!is_empty ()) {
@@ -428,7 +428,7 @@ namespace Scratch {
         private void restore_saved_state () {
             default_width = Scratch.saved_state.window_width;
             default_height = Scratch.saved_state.window_height;
-            
+
             if (Scratch.saved_state.window_state == ScratchWindowState.MAXIMIZED)
                 maximize ();
             else if (Scratch.saved_state.window_state == ScratchWindowState.FULLSCREEN)
@@ -436,7 +436,7 @@ namespace Scratch {
             else
                 this.move (Scratch.saved_state.window_x, Scratch.saved_state.window_y);
         }
-        
+
         // Save session informations different from window state
         private void restore_saved_state_extra () {
             // Plugin panes size
@@ -472,13 +472,13 @@ namespace Scratch {
                 Scratch.saved_state.window_width = width;
                 Scratch.saved_state.window_height = height;
             }
-            
+
             // Save window position
             int x, y;
             this.get_position (out x, out y);
             Scratch.saved_state.window_x = x;
             Scratch.saved_state.window_y = y;
-            
+
             // Plugin panes size
             Scratch.saved_state.hp1_size = hp1.get_position ();
             Scratch.saved_state.hp2_size = hp2.get_position ();
@@ -609,10 +609,10 @@ namespace Scratch {
                 view = split_view.add_view ();
             }
             else {
-                view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;                
+                view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
             }
             string text_from_clipboard = clipboard.wait_for_text ();
-            view.new_document_from_clipboart (text_from_clipboard);
+            view.new_document_from_clipboard (text_from_clipboard);
         }
 
         void action_new_view () {
@@ -668,26 +668,26 @@ namespace Scratch {
         void action_templates () {
             plugins.plugin_iface.template_manager.show_window (this);
         }
-        
+
         void action_next_tab () {
             Scratch.Widgets.DocumentView? view = null;
             view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
             view.next_document ();
         }
-        
+
         void action_previous_tab () {
             Scratch.Widgets.DocumentView? view = null;
             view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
             view.previous_document ();
         }
-        
+
         void action_to_lower_case () {
             Scratch.Widgets.DocumentView? view = null;
             view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
             var doc = view.get_current_document ();
             if (doc == null) return;
             var source_view = doc.source_view;
-            
+
             TextIter start, end;
             source_view.buffer.get_selection_bounds (out start, out end);
             string selected = source_view.buffer.get_text (start, end, true);
@@ -695,14 +695,14 @@ namespace Scratch {
             source_view.buffer.delete (ref start, ref end);
             source_view.buffer.insert (ref start, selected.down (), -1);
         }
-        
+
         void action_to_upper_case () {
             Scratch.Widgets.DocumentView? view = null;
             view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
             var doc = view.get_current_document ();
             if (doc == null) return;
             var source_view = doc.source_view;
-            
+
             TextIter start, end;
             source_view.buffer.get_selection_bounds (out start, out end);
             string selected = source_view.buffer.get_text (start, end, true);
@@ -797,16 +797,16 @@ namespace Scratch {
           /* label, accelerator */       N_("Previous Tab"), "<Control><Alt>Page_Down",
           /* tooltip */                  N_("Previous Tab"),
                                          action_previous_tab },
-                                         
+
            { "ToLowerCase", null,
           /* label, accelerator */       null, "<Control>l",
           /* tooltip */                  null,
                                          action_to_lower_case },
-                                         
+
             { "ToUpperCase", null,
           /* label, accelerator */       null, "<Control>u",
           /* tooltip */                  null,
-                                         action_to_upper_case }                           
+                                         action_to_upper_case }
         };
 
          static const Gtk.ToggleActionEntry[] toggle_entries = {

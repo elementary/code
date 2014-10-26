@@ -111,7 +111,7 @@ namespace Scratch.Widgets {
             doc.focus ();
         }
 
-        public void new_document_from_clipboart (string clipboard) {
+        public void new_document_from_clipboard (string clipboard) {
             File file = File.new_for_path (unsaved_file_path_builder ());
             file.create (FileCreateFlags.PRIVATE);
 
