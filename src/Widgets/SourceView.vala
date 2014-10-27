@@ -91,7 +91,7 @@ namespace Scratch.Widgets {
                     return true;
                 }
                 else if (modifier_is_pressed (key_event, Gdk.ModifierType.CONTROL_MASK) && key_event.delta_y > 0) {
-                     Scratch.ScratchApp.instance.get_last_window ().zoom_out ();
+                    Scratch.ScratchApp.instance.get_last_window ().zoom_out ();
                     return true;
                 }
                 return false;
@@ -103,7 +103,7 @@ namespace Scratch.Widgets {
             update_settings ();
         }
 
-        private bool modifier_is_pressed (Gdk.EventScroll event, Gdk.ModifierType modifier) { 
+        private bool modifier_is_pressed (Gdk.EventScroll event, Gdk.ModifierType modifier) {
             return (event.state & modifier) == modifier;
         }
 
