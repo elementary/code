@@ -112,6 +112,7 @@ namespace Scratch.Widgets {
                         }
                     break; 
                 }
+
                 return false;
             });
         }
@@ -173,9 +174,7 @@ namespace Scratch.Widgets {
             if (!value) // if false, simply return null
                 return;
 
-            var settings = new GLib.Settings ("org.gnome.desktop.interface");
-            this.font = settings.get_string ("monospace-font-name");
-
+            this.font = ScratchApp.instance.default_font;
         }
 
         public void change_syntax_highlight_from_file (File file) {

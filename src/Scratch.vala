@@ -35,6 +35,7 @@ namespace Scratch {
 
         public string app_cmd_name { get { return _app_cmd_name; } }
         public string data_home_folder_unsaved { get { return _data_home_folder_unsaved; } }
+        public string default_font { get; set; }
         private static string _app_cmd_name;
         private static string _data_home_folder_unsaved;
         private static string _cwd;
@@ -87,6 +88,7 @@ namespace Scratch {
             Logger.DisplayLevel = LogLevel.DEBUG;
 
             // Init settings
+            default_font = new GLib.Settings ("org.gnome.desktop.interface").get_string ("monospace-font-name");
             saved_state = new SavedState ();
             settings = new Settings ();
             services = new ServicesSettings ();

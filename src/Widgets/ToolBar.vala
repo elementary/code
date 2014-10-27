@@ -31,6 +31,7 @@ namespace Scratch.Widgets {
         public ToolButton save_as_button;
         public ToolButton revert_button;
         public ToolButton find_button;
+        public ToolButton zoom_default;
 
         public Gtk.Menu share_menu;
         public Gtk.Menu menu;
@@ -50,6 +51,7 @@ namespace Scratch.Widgets {
             save_as_button = main_actions.get_action ("SaveFileAs").create_tool_item () as Gtk.ToolButton;
             revert_button = main_actions.get_action ("Revert").create_tool_item () as Gtk.ToolButton;
             find_button = main_actions.get_action ("Fetch").create_tool_item () as Gtk.ToolButton;
+            zoom_default = main_actions.get_action ("Zoom").create_tool_item () as Gtk.ToolButton;
 
             // Create Share and AppMenu
             share_menu = new Gtk.Menu ();
@@ -89,8 +91,9 @@ namespace Scratch.Widgets {
             pack_start (revert_button);
             pack_start (new SeparatorToolItem ());
             pack_start (find_button);
-
+           
             pack_end (share_app_menu);
+            pack_end (zoom_default);
 
             // Show/Hide widgets
             show_all ();
@@ -98,6 +101,7 @@ namespace Scratch.Widgets {
             // Some signals...
             settings.changed.connect (() => {
                 save_button.visible = !settings.autosave;
+                zoom_default.visible = settings.font != ScratchApp.instance.default_font;
             });
 
         }
