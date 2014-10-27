@@ -32,8 +32,8 @@ using Granite.Services;
 namespace Scratch {
 
     public class MainWindow : Gtk.Window {
-        public int FONT_SIZE_MAX;
-        public int FONT_SIZE_MIN;
+        public int FONT_SIZE_MAX = 72;
+        public int FONT_SIZE_MIN = 7;
 
         public weak ScratchApp app;
 
@@ -71,8 +71,6 @@ namespace Scratch {
         delegate void HookFunc ();
 
         public MainWindow (Scratch.ScratchApp scratch_app) {
-            FONT_SIZE_MIN = 7;
-            FONT_SIZE_MAX = 72;
             this.app = scratch_app;
             set_application (this.app);
             this.title = this.app.app_cmd_name;
@@ -544,7 +542,7 @@ namespace Scratch {
                 if (font_size_numeric > FONT_SIZE_MAX)
                     return;
             }
-            
+
             string new_font = font.substring (0, font.last_index_of (" ")) + " " + font_size_numeric.to_string ();
             Scratch.settings.font = new_font;
         }
