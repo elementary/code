@@ -86,10 +86,10 @@ namespace Scratch.Widgets {
             settings.changed.connect (restore_settings);
 
             this.scroll_event.connect ((key_event) => {
-                if (((key_event.state & Gdk.ModifierType.CONTROL_MASK) == Gdk.ModifierType.CONTROL_MASK) && key_event.delta_y < 0) {
+                if ((Gdk.ModifierType.CONTROL_MASK in key_event.state) && key_event.delta_y < 0) {
                     Scratch.ScratchApp.instance.get_last_window ().zoom_in ();
                     return true;
-                } else if (((key_event.state & Gdk.ModifierType.CONTROL_MASK) == Gdk.ModifierType.CONTROL_MASK) && key_event.delta_y > 0) {
+                } else if ((Gdk.ModifierType.CONTROL_MASK in key_event.state) && key_event.delta_y > 0) {
                     Scratch.ScratchApp.instance.get_last_window ().zoom_out ();
                     return true;
                 }
@@ -100,13 +100,13 @@ namespace Scratch.Widgets {
             this.key_press_event.connect ((key_event) => {
                 switch (key_event.keyval) {
                     case Gdk.Key.plus:
-                        if ((key_event.state & Gdk.ModifierType.CONTROL_MASK) == Gdk.ModifierType.CONTROL_MASK) {
+                        if (Gdk.ModifierType.CONTROL_MASK in key_event.state) {
                             Scratch.ScratchApp.instance.get_last_window ().zoom_in ();
                             return true;
                         }
                     break;
                     case Gdk.Key.minus:
-                        if ((key_event.state & Gdk.ModifierType.CONTROL_MASK) == Gdk.ModifierType.CONTROL_MASK) {
+                        if (Gdk.ModifierType.CONTROL_MASK in key_event.state) {
                             Scratch.ScratchApp.instance.get_last_window ().zoom_out ();
                             return true;
                         }
