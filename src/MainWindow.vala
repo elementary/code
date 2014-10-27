@@ -543,7 +543,8 @@ namespace Scratch {
                 font_size_numeric ++;
                 if (font_size_numeric > FONT_SIZE_MAX)
                     return;
-            } 
+            }
+            
             string new_font = font.substring (0, font.last_index_of (" ")) + " " + font_size_numeric.to_string ();
             Scratch.settings.font = new_font;
         }
