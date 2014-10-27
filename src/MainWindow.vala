@@ -32,6 +32,9 @@ using Granite.Services;
 namespace Scratch {
 
     public class MainWindow : Gtk.Window {
+        public int FONT_SIZE_MAX;
+        public int FONT_SIZE_MIN;
+
         public weak ScratchApp app;
 
         // Widgets
@@ -68,6 +71,8 @@ namespace Scratch {
         delegate void HookFunc ();
 
         public MainWindow (Scratch.ScratchApp scratch_app) {
+            FONT_SIZE_MIN = 7;
+            FONT_SIZE_MAX = 72;
             this.app = scratch_app;
             set_application (this.app);
             this.title = this.app.app_cmd_name;
@@ -195,8 +200,7 @@ namespace Scratch {
                         toolbar_title = "(%s)".printf (doc.get_basename ());
 
                     this.toolbar.title = toolbar_title;
-                }
-                else {
+                } else {
                     this.toolbar.title = this.app.app_cmd_name;
                 }
                 // Set actions sensitive property
@@ -514,6 +518,34 @@ namespace Scratch {
         void handle_quit () {
             update_saved_state ();
             update_opened_files ();
+        }
+
+        // Ctrl + scroll
+        public void zoom_in () {
+             zooming (ScrollDirection.UP);
+        }
+
+        // Ctrl + scroll
+        public void zoom_out () {
+            zooming (ScrollDirection.DOWN);
+        }
+
+        void zooming (ScrollDirection direction) {
+            string font = Scratch.settings.font;
+            string font_size = font.substring (font.last_index_of (" ") + 1);
+            int font_size_numeric = (int)double.parse (font_size);
+
+            if (direction == ScrollDirection.DOWN) {
+                font_size_numeric --;
+                if (font_size_numeric < FONT_SIZE_MIN)
+                    return;
+            } else if (direction  == ScrollDirection.UP) {
+                font_size_numeric ++;
+                if (font_size_numeric > FONT_SIZE_MAX)
+                    return;
+            } 
+            string new_font = font.substring (0, font.last_index_of (" ")) + " " + font_size_numeric.to_string ();
+            Scratch.settings.font = new_font;
         }
 
         // Actions functions

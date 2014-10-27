@@ -84,11 +84,28 @@ namespace Scratch.Widgets {
             // Settings
             restore_settings ();
             settings.changed.connect (restore_settings);
+
+            this.scroll_event.connect ((key_event) => {
+                if (modifier_is_pressed (key_event, Gdk.ModifierType.CONTROL_MASK) && key_event.delta_y < 0) {
+                    Scratch.ScratchApp.instance.get_last_window ().zoom_in ();
+                    return true;
+                }
+                else if (modifier_is_pressed (key_event, Gdk.ModifierType.CONTROL_MASK) && key_event.delta_y > 0) {
+                     Scratch.ScratchApp.instance.get_last_window ().zoom_out ();
+                    return true;
+                }
+                return false;
+            });
         }
 
         ~SourceView () {
             // Update settings when an instance is deleted
             update_settings ();
+        }
+
+        private bool modifier_is_pressed (Gdk.EventScroll event, Gdk.ModifierType modifier)
+        {
+            return (event.state & modifier) == modifier;
         }
 
         void on_populate_menu (Gtk.Menu menu) {
