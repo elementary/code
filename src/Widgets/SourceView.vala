@@ -103,7 +103,7 @@ namespace Scratch.Widgets {
             update_settings ();
         }
 
-        private bool modifier_is_pressed (Gdk.EventScroll event, Gdk.ModifierType modifier) {
+        private bool modifier_is_pressed (Gdk.EventScroll event, Gdk.ModifierType modifier) { 
             return (event.state & modifier) == modifier;
         }
 
