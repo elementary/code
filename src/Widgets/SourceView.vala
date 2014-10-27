@@ -110,6 +110,12 @@ namespace Scratch.Widgets {
                             Scratch.ScratchApp.instance.get_last_window ().zoom_out ();
                             return true;
                         }
+                    break;
+                    case 0x30:
+                        if (Gdk.ModifierType.CONTROL_MASK in key_event.state) {
+                            Scratch.ScratchApp.instance.get_last_window ().set_default_zoom ();
+                            return true;
+                        }
                     break; 
                 }
 
