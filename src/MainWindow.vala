@@ -821,7 +821,7 @@ namespace Scratch {
                                          action_new_tab_from_clipboard },
            { "Zoom", "zoom-original",
           /* label, accelerator */       N_("Zoom"), "<Control>0",
-          /* tooltip */                  N_("Default font"),
+          /* tooltip */                  N_("Zoom 1:1"),
                                          action_set_default_zoom },
            { "SaveFile", Gtk.Stock.SAVE,
           /* label, accelerator */       N_("Save"), "<Control>s",
