@@ -86,10 +86,10 @@ namespace Scratch.Widgets {
             settings.changed.connect (restore_settings);
 
             this.scroll_event.connect ((key_event) => {
-                if (modifier_is_pressed_on_scroll (key_event, Gdk.ModifierType.CONTROL_MASK) && key_event.delta_y < 0) {
+                if (((key_event.state & Gdk.ModifierType.CONTROL_MASK) == Gdk.ModifierType.CONTROL_MASK) && key_event.delta_y < 0) {
                     Scratch.ScratchApp.instance.get_last_window ().zoom_in ();
                     return true;
-                } else if (modifier_is_pressed_on_scroll (key_event, Gdk.ModifierType.CONTROL_MASK) && key_event.delta_y > 0) {
+                } else if (((key_event.state & Gdk.ModifierType.CONTROL_MASK) == Gdk.ModifierType.CONTROL_MASK) && key_event.delta_y > 0) {
                     Scratch.ScratchApp.instance.get_last_window ().zoom_out ();
                     return true;
                 }
@@ -100,13 +100,13 @@ namespace Scratch.Widgets {
             this.key_press_event.connect ((key_event) => {
                 switch (key_event.keyval) {
                     case Gdk.Key.plus:
-                        if (modifier_is_pressed (key_event, Gdk.ModifierType.CONTROL_MASK)) {
+                        if ((key_event.state & Gdk.ModifierType.CONTROL_MASK) == Gdk.ModifierType.CONTROL_MASK) {
                             Scratch.ScratchApp.instance.get_last_window ().zoom_in ();
                             return true;
                         }
                     break;
                     case Gdk.Key.minus:
-                        if (modifier_is_pressed (key_event, Gdk.ModifierType.CONTROL_MASK)) {
+                        if ((key_event.state & Gdk.ModifierType.CONTROL_MASK) == Gdk.ModifierType.CONTROL_MASK) {
                             Scratch.ScratchApp.instance.get_last_window ().zoom_out ();
                             return true;
                         }
@@ -119,14 +119,6 @@ namespace Scratch.Widgets {
         ~SourceView () {
             // Update settings when an instance is deleted
             update_settings ();
-        }
-
-        private bool modifier_is_pressed_on_scroll (Gdk.EventScroll event, Gdk.ModifierType modifier) {
-            return (event.state & modifier) == modifier;
-        }
-
-        private bool modifier_is_pressed (Gdk.EventKey event, Gdk.ModifierType modifier) {
-            return (event.state & modifier) == modifier;
         }
 
         void on_populate_menu (Gtk.Menu menu) {
