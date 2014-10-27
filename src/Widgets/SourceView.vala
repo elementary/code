@@ -89,11 +89,11 @@ namespace Scratch.Widgets {
                 if (modifier_is_pressed (key_event, Gdk.ModifierType.CONTROL_MASK) && key_event.delta_y < 0) {
                     Scratch.ScratchApp.instance.get_last_window ().zoom_in ();
                     return true;
-                }
-                else if (modifier_is_pressed (key_event, Gdk.ModifierType.CONTROL_MASK) && key_event.delta_y > 0) {
+                } else if (modifier_is_pressed (key_event, Gdk.ModifierType.CONTROL_MASK) && key_event.delta_y > 0) {
                     Scratch.ScratchApp.instance.get_last_window ().zoom_out ();
                     return true;
                 }
+                
                 return false;
             });
         }
