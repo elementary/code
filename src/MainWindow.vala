@@ -520,7 +520,7 @@ namespace Scratch {
         }
 
         public void set_default_zoom () {
-            Scratch.settings.font = app.default_font;
+            Scratch.settings.font = get_current_font () + " " + get_default_font_size ().to_string ();
         }
 
         // Ctrl + scroll
@@ -535,28 +535,54 @@ namespace Scratch {
 
         void zooming (ScrollDirection direction) {
 
-            string font = Scratch.settings.font;
-
+            string font = get_current_font ();
+            int font_size = (int)get_current_font_size ();
+            
             if (Scratch.settings.use_system_font) {
-                Scratch.settings.use_system_font = false;
-                font = app.default_font;
-            }
 
-            string font_size = font.substring (font.last_index_of (" ") + 1);
-            int font_size_numeric = (int)double.parse (font_size);
+                Scratch.settings.use_system_font = false;
+
+                font = get_default_font ();
+                font_size = (int)get_default_font_size ();
+            }
+            
 
             if (direction == ScrollDirection.DOWN) {
-                font_size_numeric --;
-                if (font_size_numeric < FONT_SIZE_MIN)
+                font_size --;
+                if (font_size < FONT_SIZE_MIN)
                     return;
             } else if (direction  == ScrollDirection.UP) {
-                font_size_numeric ++;
-                if (font_size_numeric > FONT_SIZE_MAX)
+                font_size ++;
+                if (font_size > FONT_SIZE_MAX)
                     return;
             }
 
-            string new_font = font.substring (0, font.last_index_of (" ")) + " " + font_size_numeric.to_string ();
+            string new_font = font + " " + font_size.to_string ();
             Scratch.settings.font = new_font;
+        }
+
+        public string get_current_font () {
+            string font = Scratch.settings.font;
+            string font_family = font.substring (0, font.last_index_of (" "));
+            return font_family;
+        }
+
+        public double get_current_font_size () {
+            string font = Scratch.settings.font;
+            string font_size = font.substring (font.last_index_of (" ") + 1);
+            return double.parse (font_size);
+        }
+
+        public string get_default_font () {
+            string font = app.default_font;
+            string font_family = font.substring (0, font.last_index_of (" "));
+            return font_family;
+        }
+
+        public double get_default_font_size () {
+            string font = app.default_font;
+            string font_size = font.substring (font.last_index_of (" ") + 1);
+            return double.parse (font_size);
         }
 
         // Actions functions
