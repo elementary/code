@@ -101,7 +101,7 @@ namespace Scratch.Widgets {
             // Some signals...
             settings.changed.connect (() => {
                 save_button.visible = !settings.autosave;
-                zoom_default.visible = settings.font != ScratchApp.instance.default_font;
+                zoom_default.visible = ScratchApp.instance.get_last_window ().get_default_font_size () != ScratchApp.instance.get_last_window ().get_current_font_size ();
             });
 
         }

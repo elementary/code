@@ -204,7 +204,7 @@ namespace Scratch {
                 // Set actions sensitive property
                 main_actions.get_action ("SaveFile").visible = (!settings.autosave || doc.file == null);
                 main_actions.get_action ("SaveFileAs").visible = (doc.file != null);
-                main_actions.get_action ("Zoom").visible = settings.font != ScratchApp.instance.default_font;
+                main_actions.get_action ("Zoom").visible = get_current_font_size () != get_default_font_size ();
                 doc.check_undoable_actions ();
             });
 
