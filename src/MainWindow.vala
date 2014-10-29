@@ -157,7 +157,7 @@ namespace Scratch {
             this.toolbar.show_close_button = true;
             this.set_titlebar (this.toolbar);
             toolbar.menu = ui.get_widget ("ui/AppMenu") as Gtk.Menu;
-            var app_menu = (app as Granite.Application).create_appmenu (toolbar.menu);            
+            var app_menu = (app as Granite.Application).create_appmenu (toolbar.menu);
             toolbar.pack_end (app_menu);
 
             // SearchManager
@@ -537,7 +537,7 @@ namespace Scratch {
 
             string font = get_current_font ();
             int font_size = (int)get_current_font_size ();
-            
+
             if (Scratch.settings.use_system_font) {
 
                 Scratch.settings.use_system_font = false;
@@ -545,7 +545,7 @@ namespace Scratch {
                 font = get_default_font ();
                 font_size = (int)get_default_font_size ();
             }
-            
+
 
             if (direction == ScrollDirection.DOWN) {
                 font_size --;
@@ -785,23 +785,23 @@ namespace Scratch {
 
         // Actions array
         static const Gtk.ActionEntry[] main_entries = {
-            { "Fetch", Gtk.Stock.FIND,
+            { "Fetch", "edit-find",
           /* label, accelerator */       N_("Find…"), "<Control>f",
           /* tooltip */                  N_("Find…"),
                                          action_fetch },
-           { "ShowGoTo", Gtk.Stock.OK,
+           { "ShowGoTo", "dialog-ok",
           /* label, accelerator */       N_("Go to line…"), "<Control>i",
           /* tooltip */                  N_("Go to line…"),
                                          action_go_to },
-           { "Quit", Gtk.Stock.QUIT,
+           { "Quit", "application-exit",
           /* label, accelerator */       N_("Quit"), "<Control>q",
           /* tooltip */                  N_("Quit"),
                                          action_quit },
-           { "CloseTab", Gtk.Stock.CLOSE,
+           { "CloseTab", "window-close",
           /* label, accelerator */       N_("Close"), "<Control>w",
           /* tooltip */                  N_("Close"),
                                          action_close_tab },
-           { "ShowReplace", Gtk.Stock.OK,
+           { "ShowReplace", "dialog-ok",
           /* label, accelerator */       N_("Replace"), "<Control>r",
           /* tooltip */                  N_("Replace"),
                                          action_fetch },
@@ -809,27 +809,27 @@ namespace Scratch {
           /* label, accelerator */       N_("Reopen closed document"), "<Control><Shift>t",
           /* tooltip */                  N_("Open last closed document in a new tab"),
                                          action_restore_tab },
-           { "NewTab", Gtk.Stock.NEW,
+           { "NewTab", "add",
           /* label, accelerator */       N_("Add New Tab"), "<Control>n",
           /* tooltip */                  N_("Add a new tab"),
                                          action_new_tab },
-           { "NewView", Gtk.Stock.NEW,
+           { "NewView", "add",
           /* label, accelerator */       N_("Add New View"), "F3",
           /* tooltip */                  N_("Add a new view"),
                                          action_new_view },
-           { "RemoveView", Gtk.Stock.CLOSE,
+           { "RemoveView", "window-close",
           /* label, accelerator */       N_("Remove Current View"), null,
           /* tooltip */                  N_("Remove this view"),
                                          action_remove_view },
-           { "Undo", Gtk.Stock.UNDO,
+           { "Undo", "edit-undo",
           /* label, accelerator */       N_("Undo"), "<Control>z",
           /* tooltip */                  N_("Undo the last action"),
                                          action_undo },
-           { "Redo", Gtk.Stock.REDO,
+           { "Redo", "edit-redo",
           /* label, accelerator */       N_("Redo"), "<Control><shift>z",
           /* tooltip */                  N_("Redo the last undone action"),
                                          action_redo },
-           { "Revert", Gtk.Stock.REVERT_TO_SAVED,
+           { "Revert", "document-revert",
           /* label, accelerator */       N_("Revert"), "<Control><shift>o",
           /* tooltip */                  N_("Restore this file"),
                                          action_revert },
@@ -837,11 +837,11 @@ namespace Scratch {
           /* label, accelerator */       N_("Duplicate selected strings"), "<Control>d",
           /* tooltip */                  N_("Duplicate selected strings"),
                                          action_duplicate },
-           { "Open", Gtk.Stock.OPEN,
+           { "Open", "document-open",
           /* label, accelerator */       N_("Open"), "<Control>o",
           /* tooltip */                  N_("Open a file"),
                                          action_open },
-           { "Clipboard", Gtk.Stock.OPEN,
+           { "Clipboard", "edit-paste",
           /* label, accelerator */       N_("Clipboard"), null,
           /* tooltip */                  N_("New file from Clipboard"),
                                          action_new_tab_from_clipboard },
@@ -849,11 +849,11 @@ namespace Scratch {
           /* label, accelerator */       N_("Zoom"), "<Control>0",
           /* tooltip */                  N_("Zoom 1:1"),
                                          action_set_default_zoom },
-           { "SaveFile", Gtk.Stock.SAVE,
+           { "SaveFile", "document-save",
           /* label, accelerator */       N_("Save"), "<Control>s",
           /* tooltip */                  N_("Save this file"),
                                          action_save },
-           { "SaveFileAs", Gtk.Stock.SAVE_AS,
+           { "SaveFileAs", "document-save-as",
           /* label, accelerator */       N_("Save As…"), "<Control><shift>s",
           /* tooltip */                  N_("Save this file with a different name"),
                                          action_save_as },
@@ -861,7 +861,7 @@ namespace Scratch {
           /* label, accelerator */       N_("Templates"), null,
           /* tooltip */                  N_("Project templates"),
                                          action_templates },
-           { "Preferences", Gtk.Stock.PREFERENCES,
+           { "Preferences", "preferences-desktop",
           /* label, accelerator */       N_("Preferences"), null,
           /* tooltip */                  N_("Change Scratch settings"),
                                          action_preferences },
@@ -886,7 +886,7 @@ namespace Scratch {
         };
 
          static const Gtk.ToggleActionEntry[] toggle_entries = {
-           { "Fullscreen", Gtk.Stock.FULLSCREEN,
+           { "Fullscreen", "view-fullscreen",
           /* label, accelerator */       N_("Fullscreen"), "F11",
           /* tooltip */                  N_("Fullscreen"),
                                          action_fullscreen }

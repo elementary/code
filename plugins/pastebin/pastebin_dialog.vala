@@ -1,21 +1,21 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /***
   BEGIN LICENSE
-	
+
   Copyright (C) 2011-2012 Giulio Collura <random.cpp@gmail.com>
-  This program is free software: you can redistribute it and/or modify it	
-  under the terms of the GNU Lesser General Public License version 3, as published	
+  This program is free software: you can redistribute it and/or modify it
+  under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
-	
-  This program is distributed in the hope that it will be useful, but	
-  WITHOUT ANY WARRANTY; without even the implied warranties of	
-  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR	
+
+  This program is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranties of
+  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
   PURPOSE.  See the GNU General Public License for more details.
-	
-  You should have received a copy of the GNU General Public License along	
-  with this program.  If not, see <http://www.gnu.org/licenses/>	
-  
-  END LICENSE	
+
+  You should have received a copy of the GNU General Public License along
+  with this program.  If not, see <http://www.gnu.org/licenses/>
+
+  END LICENSE
 ***/
 
 using Gtk;
@@ -25,7 +25,7 @@ using Scratch.Services;
 namespace Scratch.Dialogs {
 
     public class PasteBinDialog : Granite.Widgets.LightWindow {
-        
+
 		public string[,] languages = {
 			//if default, code, desc, scratch-equivalent
 			{"n", "4cs", "4CS", ""},
@@ -228,16 +228,16 @@ namespace Scratch.Dialogs {
 			{"n", "yaml", "YAML", ""},
 			{"n", "z80", "Z80 Assembler", ""},
 			{"n", "zxbasic", "ZXBasic", ""} };
-            
+
             private Scratch.Services.Document doc;
-            
+
 			private Box content;
 			private Box padding;
 
 			private Entry name_entry;
 			private ComboBoxText expiry_combo;
 			private CheckButton private_check;
-			
+
 			private ComboBoxText format_combo;
 			private Window format_others_win;
 			private TreeView format_others_view;
@@ -245,15 +245,15 @@ namespace Scratch.Dialogs {
 
 			private Button send_button;
 
-        
+
         public PasteBinDialog (Gtk.Window? parent, Scratch.Services.Document doc) {
-            this.doc = doc; 
-            
+            this.doc = doc;
+
             if (parent != null)
                 this.set_transient_for (parent);
             this.title = _("Share via PasteBin");
             this.type_hint = Gdk.WindowTypeHint.DIALOG;
-            
+
             create_dialog ();
 
             send_button.clicked.connect (send_button_clicked);
@@ -279,26 +279,26 @@ namespace Scratch.Dialogs {
 			format_combo = new ComboBoxText();
 			var format_button = new Button.with_label (_("Others..."));
 				format_button.clicked.connect (format_button_clicked);
-			
+
 			//populate combo box
 			var sel_lang = doc.get_language_id ();
 			for (var i=0; i < languages.length[0]; i++) {
-			
+
 				//insert all languages that are in the scratch combo, and also those that are marked with "y"
 				if ( (languages[i, 3] != "") || (languages[i, 0] == "y")) format_combo.append (languages[i, 1], languages[i, 2]);
 				//if the inserted language is selected in scratch combo, select it as default
 				if ( languages[i, 3] == sel_lang ) format_combo.set_active_id(languages[i, 1]);
 			}
-			
+
 			//if no language is selected, select text as default
 			if (format_combo.get_active_id() == null) format_combo.set_active_id("text");
-		
-		
+
+
 			var format_box = new Box (Gtk.Orientation.HORIZONTAL, 28);
 			format_box.pack_start (format_label);
 			format_box.pack_start (format_combo);
 			format_box.pack_start (format_button);
-			
+
 
             expiry_combo = new ComboBoxText ();
             populate_expiry_combo ();
@@ -329,77 +329,77 @@ namespace Scratch.Dialogs {
             read_settings ();
 
             show_all ();
-            
+
             send_button.grab_focus ();
 
         }
 
 
 		private void format_button_clicked() {
-		
+
 			format_others_win = new Window();
 			format_others_win.set_modal(true);
 			format_others_win.set_title(_("Other formats"));
 			format_others_win.set_default_size (250, 300);
-			
+
 				format_others_view = new TreeView();
 		        format_others_view.set_headers_visible(false);
 				format_store = new ListStore (2, typeof (string), typeof (string));
 				format_others_view.set_model (format_store);
-				format_others_view.insert_column_with_attributes (-1, "Language", new CellRendererText (), "text", 0);				
+				format_others_view.insert_column_with_attributes (-1, "Language", new CellRendererText (), "text", 0);
 
 				TreeIter iter;
-				for (var i=0; i < languages.length[0]; i++) {			
+				for (var i=0; i < languages.length[0]; i++) {
 					format_store.append (out iter);
 					format_store.set (iter, 0, languages[i, 2], 1, languages[i, 1]);
 				}
 
 			var format_others_scroll = new ScrolledWindow(null, null);
 				format_others_scroll.add(format_others_view);
-				
-			var format_others_ok = new Button.from_stock ("gtk-ok");
-				format_others_ok.clicked.connect (format_others_ok_clicked);			
-			var format_others_cancel = new Button.from_stock ("gtk-cancel");
+
+			var format_others_ok = new Button.from_icon_name ("dialog-ok", IconSize.BUTTON);
+				format_others_ok.clicked.connect (format_others_ok_clicked);
+			var format_others_cancel = new Button.from_icon_name ("dialog-cancel", IconSize.BUTTON);
 				format_others_cancel.clicked.connect (format_others_cancel_clicked);
 			var format_others_buttons = new ButtonBox (Orientation.HORIZONTAL);
 				format_others_buttons.set_layout (ButtonBoxStyle.CENTER);
 				format_others_buttons.pack_start (format_others_cancel);
 				format_others_buttons.pack_start (format_others_ok);
-				
+
 			var format_others_box = new Box (Gtk.Orientation.VERTICAL, 10);
 				format_others_box.pack_start (format_others_scroll);
-				format_others_box.pack_start (format_others_buttons);				
-				
+				format_others_box.pack_start (format_others_buttons);
+
 			format_others_win.add (format_others_box);
 			format_others_win.show_all();
-	
+
 		}
-		
+
 		private void format_others_cancel_clicked() {
 			format_others_win.destroy();
 		}
 
 		private void format_others_ok_clicked() {
-		
+
 			var selection = format_others_view.get_selection ();
 			TreeIter iter;
 			if (selection.get_selected (null, out iter) == true) {
-			
+
 				Value lang_name;
-				Value lang_code;				
+				Value lang_code;
 				format_store.get_value(iter, 0, out lang_name);
 				format_store.get_value(iter, 1, out lang_code);
-				
+
 				format_combo.append ((string) lang_code, (string) lang_name);
 				format_combo.set_active_id((string) lang_code);
-				
+
 			}
-			
+
 			format_others_win.destroy();
-			
+
 		}
 
-		
+
         private static Alignment wrap_alignment (Widget widget, int top, int right,
                                                  int bottom, int left) {
 
@@ -408,7 +408,7 @@ namespace Scratch.Dialogs {
             alignment.right_padding = right;
             alignment.bottom_padding = bottom;
             alignment.left_padding = left;
-            
+
             alignment.add(widget);
             return alignment;
 
@@ -450,17 +450,17 @@ namespace Scratch.Dialogs {
             spinner.hide ();
 
             var box = new Box (Gtk.Orientation.VERTICAL, 10);
-           
+
             if (submit_result == 0) {
-            
+
                 //paste successfully
                 var link_button = new LinkButton (link);
                 box.pack_start (link_button, false, true, 25);
             } else {
-            
+
                 //paste error
                 var error_desc = new StringBuilder();
-                
+
                 switch(submit_result) {
                     case 2:
                     error_desc.append("The text is void!");
@@ -469,11 +469,11 @@ namespace Scratch.Dialogs {
                     case 3:
                     error_desc.append("The text format doesn't exist");
                     break;
-                    
+
                     default:
-                    error_desc.append("An error occured");                    
+                    error_desc.append("An error occured");
                     break;
-                       
+
                 }
 
                 error_desc.append("\n" + "The text was sent");
