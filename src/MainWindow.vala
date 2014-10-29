@@ -721,7 +721,7 @@ namespace Scratch {
           /* label, accelerator */       N_("Go to line…"), "<Control>i",
           /* tooltip */                  N_("Go to line…"),
                                          action_go_to },
-           { "Quit", null,
+           { "Quit", "application-exit",
           /* label, accelerator */       N_("Quit"), "<Control>q",
           /* tooltip */                  N_("Quit"),
                                          action_quit },
@@ -785,7 +785,7 @@ namespace Scratch {
           /* label, accelerator */       N_("Templates"), null,
           /* tooltip */                  N_("Project templates"),
                                          action_templates },
-           { "Preferences", null,
+           { "Preferences", "preferences-desktop",
           /* label, accelerator */       N_("Preferences"), null,
           /* tooltip */                  N_("Change Scratch settings"),
                                          action_preferences },
@@ -810,7 +810,7 @@ namespace Scratch {
         };
 
          static const Gtk.ToggleActionEntry[] toggle_entries = {
-           { "Fullscreen", null,
+           { "Fullscreen", "view-fullscreen",
           /* label, accelerator */       N_("Fullscreen"), "F11",
           /* tooltip */                  N_("Fullscreen"),
                                          action_fullscreen }
