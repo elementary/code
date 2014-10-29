@@ -769,7 +769,7 @@ namespace Scratch {
           /* label, accelerator */       N_("Open"), "<Control>o",
           /* tooltip */                  N_("Open a file"),
                                          action_open },
-           { "Clipboard", null,
+           { "Clipboard", "edit-paste",
           /* label, accelerator */       N_("Clipboard"), null,
           /* tooltip */                  N_("New file from Clipboard"),
                                          action_new_tab_from_clipboard },
