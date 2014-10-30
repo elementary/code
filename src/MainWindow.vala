@@ -32,6 +32,9 @@ using Granite.Services;
 namespace Scratch {
 
     public class MainWindow : Gtk.Window {
+        public int FONT_SIZE_MAX = 72;
+        public int FONT_SIZE_MIN = 7;
+
         public weak ScratchApp app;
 
         // Widgets
@@ -195,13 +198,13 @@ namespace Scratch {
                         toolbar_title = "(%s)".printf (doc.get_basename ());
 
                     this.toolbar.title = toolbar_title;
-                }
-                else {
+                } else {
                     this.toolbar.title = this.app.app_cmd_name;
                 }
                 // Set actions sensitive property
                 main_actions.get_action ("SaveFile").visible = (!settings.autosave || doc.file == null);
                 main_actions.get_action ("SaveFileAs").visible = (doc.file != null);
+                main_actions.get_action ("Zoom").visible = get_current_font_size () != get_default_font_size ();
                 doc.check_undoable_actions ();
             });
 
@@ -516,7 +519,76 @@ namespace Scratch {
             update_opened_files ();
         }
 
+        public void set_default_zoom () {
+            Scratch.settings.font = get_current_font () + " " + get_default_font_size ().to_string ();
+        }
+
+        // Ctrl + scroll
+        public void zoom_in () {
+             zooming (ScrollDirection.UP);
+        }
+
+        // Ctrl + scroll
+        public void zoom_out () {
+            zooming (ScrollDirection.DOWN);
+        }
+
+        void zooming (ScrollDirection direction) {
+
+            string font = get_current_font ();
+            int font_size = (int) get_current_font_size ();
+
+            if (Scratch.settings.use_system_font) {
+
+                Scratch.settings.use_system_font = false;
+
+                font = get_default_font ();
+                font_size = (int) get_default_font_size ();
+            }
+
+
+            if (direction == ScrollDirection.DOWN) {
+                font_size --;
+                if (font_size < FONT_SIZE_MIN)
+                    return;
+            } else if (direction  == ScrollDirection.UP) {
+                font_size ++;
+                if (font_size > FONT_SIZE_MAX)
+                    return;
+            }
+
+            string new_font = font + " " + font_size.to_string ();
+            Scratch.settings.font = new_font;
+        }
+
+        public string get_current_font () {
+            string font = Scratch.settings.font;
+            string font_family = font.substring (0, font.last_index_of (" "));
+            return font_family;
+        }
+
+        public double get_current_font_size () {
+            string font = Scratch.settings.font;
+            string font_size = font.substring (font.last_index_of (" ") + 1);
+            return double.parse (font_size);
+        }
+
+        public string get_default_font () {
+            string font = app.default_font;
+            string font_family = font.substring (0, font.last_index_of (" "));
+            return font_family;
+        }
+
+        public double get_default_font_size () {
+            string font = app.default_font;
+            string font_size = font.substring (font.last_index_of (" ") + 1);
+            return double.parse (font_size);
+        }
+
         // Actions functions
+        void action_set_default_zoom () {
+            set_default_zoom ();
+        }
         void action_preferences () {
             var dialog = new Scratch.Dialogs.Preferences (this, plugins);
             dialog.show_all ();
@@ -773,6 +845,10 @@ namespace Scratch {
           /* label, accelerator */       N_("Clipboard"), null,
           /* tooltip */                  N_("New file from Clipboard"),
                                          action_new_tab_from_clipboard },
+           { "Zoom", "zoom-original",
+          /* label, accelerator */       N_("Zoom"), "<Control>0",
+          /* tooltip */                  N_("Zoom 1:1"),
+                                         action_set_default_zoom },
            { "SaveFile", "document-save",
           /* label, accelerator */       N_("Save"), "<Control>s",
           /* tooltip */                  N_("Save this file"),

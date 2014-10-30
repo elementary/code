@@ -40,13 +40,13 @@ namespace Scratch.Widgets {
         private uint selection_changed_timer = 0;
         private TextIter last_select_start_iter;
         private TextIter last_select_end_iter;
-        
-        
-        // Consts        
+
+
+        // Consts
         // Pause after end user highlighting to confirm select,in ms
-        private const uint SELECTION_CHANGED_PAUSE = 400; 
-        
-        
+        private const uint SELECTION_CHANGED_PAUSE = 400;
+
+
         // Signals
         public signal void style_changed (SourceStyleScheme style);
         public signal void language_changed (SourceLanguage language);
@@ -84,6 +84,43 @@ namespace Scratch.Widgets {
             // Settings
             restore_settings ();
             settings.changed.connect (restore_settings);
+
+            this.scroll_event.connect ((key_event) => {
+                if ((Gdk.ModifierType.CONTROL_MASK in key_event.state) && key_event.delta_y < 0) {
+                    Scratch.ScratchApp.instance.get_last_window ().zoom_in ();
+                    return true;
+                } else if ((Gdk.ModifierType.CONTROL_MASK in key_event.state) && key_event.delta_y > 0) {
+                    Scratch.ScratchApp.instance.get_last_window ().zoom_out ();
+                    return true;
+                }
+
+                return false;
+            });
+
+            this.key_press_event.connect ((key_event) => {
+                switch (key_event.keyval) {
+                    case Gdk.Key.plus:
+                        if (Gdk.ModifierType.CONTROL_MASK in key_event.state) {
+                            Scratch.ScratchApp.instance.get_last_window ().zoom_in ();
+                            return true;
+                        }
+                        break;
+                    case Gdk.Key.minus:
+                        if (Gdk.ModifierType.CONTROL_MASK in key_event.state) {
+                            Scratch.ScratchApp.instance.get_last_window ().zoom_out ();
+                            return true;
+                        }
+                        break;
+                    case 0x30:
+                        if (Gdk.ModifierType.CONTROL_MASK in key_event.state) {
+                            Scratch.ScratchApp.instance.get_last_window ().set_default_zoom ();
+                            return true;
+                        }
+                        break;
+                }
+
+                return false;
+            });
         }
 
         ~SourceView () {
@@ -143,9 +180,7 @@ namespace Scratch.Widgets {
             if (!value) // if false, simply return null
                 return;
 
-            var settings = new GLib.Settings ("org.gnome.desktop.interface");
-            this.font = settings.get_string ("monospace-font-name");
-
+            this.font = ScratchApp.instance.default_font;
         }
 
         public void change_syntax_highlight_from_file (File file) {
@@ -197,7 +232,7 @@ namespace Scratch.Widgets {
             override_font (Pango.FontDescription.from_string (this.font));
 
             buffer.style_scheme = style_scheme_manager.get_scheme (Scratch.settings.style_scheme);
-        
+
             this.style_changed (buffer.style_scheme);
         }
 
@@ -211,7 +246,7 @@ namespace Scratch.Widgets {
             Scratch.settings.indent_width = (int) tab_width;
             Scratch.settings.font = this.font;
             Scratch.settings.style_scheme = buffer.style_scheme.id;
-            
+
             this.style_changed (buffer.style_scheme);
         }
 
@@ -270,41 +305,41 @@ namespace Scratch.Widgets {
             buffer.get_start_iter (out start);
             buffer.place_cursor (start);
         }
-        
+
         public void set_language (SourceLanguage lang) {
             this.buffer.set_language (lang);
             this.language_changed (lang);
         }
-        
-        
+
+
         void on_mark_set (TextIter loc,TextMark mar) {
             // Weed out user movement for text selection changes
             TextIter start, end;
             this.buffer.get_selection_bounds (out start,out end);
-            
+
             if (start == last_select_start_iter && end == last_select_end_iter)
                 return;
-                                                
+
             if (selection_changed_timer !=0 &&
                 MainContext.get_thread_default ().find_source_by_id (selection_changed_timer) != null)
                 Source.remove (selection_changed_timer);
-            
+
             // Fire deselected immediatly
             if (!this.buffer.get_has_selection ())
                 deselected ();
             // Don't fire signal till we think select movement is done
             else
                 selection_changed_timer = Timeout.add (SELECTION_CHANGED_PAUSE, selection_changed_event);
-            
+
         }
-        
+
         bool selection_changed_event () {
             TextIter start, end;
             bool selected = this.buffer.get_selection_bounds (out start,out end);
             if (selected)
-                selection_changed (start,end);        
+                selection_changed (start,end);
             else
-                deselected ();                    
+                deselected ();
             return false;
         }
 
