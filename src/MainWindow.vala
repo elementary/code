@@ -536,14 +536,14 @@ namespace Scratch {
         void zooming (ScrollDirection direction) {
 
             string font = get_current_font ();
-            int font_size = (int)get_current_font_size ();
+            int font_size = (int) get_current_font_size ();
 
             if (Scratch.settings.use_system_font) {
 
                 Scratch.settings.use_system_font = false;
 
                 font = get_default_font ();
-                font_size = (int)get_default_font_size ();
+                font_size = (int) get_default_font_size ();
             }
 
 
