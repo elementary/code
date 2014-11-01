@@ -1,21 +1,21 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /***
   BEGIN LICENSE
-	
+
   Copyright (C) 2011-2013 Mario Guerriero <mario@elementaryos.org>
-  This program is free software: you can redistribute it and/or modify it	
-  under the terms of the GNU Lesser General Public License version 3, as published	
+  This program is free software: you can redistribute it and/or modify it
+  under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
-	
-  This program is distributed in the hope that it will be useful, but	
-  WITHOUT ANY WARRANTY; without even the implied warranties of	
-  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR	
+
+  This program is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranties of
+  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
   PURPOSE.  See the GNU General Public License for more details.
-	
-  You should have received a copy of the GNU General Public License along	
-  with this program.  If not, see <http://www.gnu.org/licenses/>	
-  
-  END LICENSE	
+
+  You should have received a copy of the GNU General Public License along
+  with this program.  If not, see <http://www.gnu.org/licenses/>
+
+  END LICENSE
 ***/
 
 using Vte;
@@ -24,20 +24,20 @@ public const string NAME = N_("Terminal");
 public const string DESCRIPTION = N_("A terminal in your text editor");
 
 public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
-    
+
     Gtk.Notebook? bottombar = null;
     Vte.Terminal terminal;
     Gtk.Grid grid;
-    
+
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
-   
+
     public void update_state () {
     }
 
     public void activate () {
-        plugins = (Scratch.Services.Interface) object;        
-        plugins.hook_notebook_bottom.connect ((n) => { 
+        plugins = (Scratch.Services.Interface) object;
+        plugins.hook_notebook_bottom.connect ((n) => {
             if (bottombar == null) {
                 this.bottombar = n;
                 on_hook (this.bottombar);
@@ -51,11 +51,11 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         if (terminal != null)
             grid.destroy ();
     }
-    
+
     void on_hook (Gtk.Notebook notebook) {
         this.terminal = new Vte.Terminal ();
         this.terminal.scrollback_lines = -1;
-        
+
         // Set terminal font to system default font
         var system_settings = new GLib.Settings ("org.gnome.desktop.interface");
         string font_name = system_settings.get_string ("monospace-font-name");
@@ -117,21 +117,21 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
 
         // Popup menu
         var menu = new Gtk.Menu ();
-            
+
         var copy = new Gtk.MenuItem.with_label (_("Copy"));
         copy.activate.connect (() => {
             terminal.copy_clipboard ();
         });
         menu.append (copy);
         copy.show ();
-            
+
         var paste = new Gtk.MenuItem.with_label (_("Paste"));
         paste.activate.connect (() => {
             terminal.paste_clipboard ();
         });
         menu.append (paste);
         paste.show ();
-            
+
         this.terminal.button_press_event.connect ((event) => {
             if (event.button == 3) {
                 menu.select_first (false);
@@ -139,24 +139,40 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             }
             return false;
         });
-            
+
+        this.terminal.key_press_event.connect ((event) => {
+            if (event.keyval == Gdk.Key.F12) {
+                (ScratchApp.instance.get_last_window ().split_view.current_view.notebook.current as Scratch.Services.Document).focus ();
+                return true;
+            }
+            return false;
+        });
+
+        ScratchApp.instance.get_last_window ().split_view.current_view.notebook.key_press_event.connect ((event) => {
+            if (event.keyval == Gdk.Key.F12) {
+                terminal.grab_focus ();
+                return true;
+            }
+            return false;
+        });
+
         try {
-           this.terminal.fork_command_full (Vte.PtyFlags.DEFAULT, "~/", { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, null);
+            this.terminal.fork_command_full (Vte.PtyFlags.DEFAULT, "~/", { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, null);
         } catch (GLib.Error e) {
             warning (e.message);
         }
-            
+
         grid = new Gtk.Grid ();
         var sb = new Gtk.Scrollbar (Gtk.Orientation.VERTICAL, terminal.vadjustment);
         grid.attach (terminal, 0, 0, 1, 1);
         grid.attach (sb, 1, 0, 1, 1);
-            
+
         // Make the terminal occupy the whole GUI
         terminal.vexpand = true;
         terminal.hexpand = true;
-            
+
         notebook.append_page (grid, new Gtk.Label (_("Terminal")));
-        
+
         grid.show_all ();
 
     }
