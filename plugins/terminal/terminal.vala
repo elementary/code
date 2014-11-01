@@ -28,6 +28,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
     Gtk.Notebook? bottombar = null;
     Vte.Terminal terminal;
     Gtk.Grid grid;
+    ulong? connect_handler;
 
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
@@ -50,6 +51,8 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
     public void deactivate () {
         if (terminal != null)
             grid.destroy ();
+        if (connect_handler != null)
+            ScratchApp.instance.get_last_window ().split_view.current_view.notebook.disconnect ((ulong)connect_handler);
     }
 
     void on_hook (Gtk.Notebook notebook) {
@@ -148,14 +151,14 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             return false;
         });
 
-        ScratchApp.instance.get_last_window ().split_view.current_view.notebook.key_press_event.connect ((event) => {
+        connect_handler = ScratchApp.instance.get_last_window ().split_view.current_view.notebook.key_press_event.connect ((event) => {
             if (event.keyval == Gdk.Key.F12) {
                 terminal.grab_focus ();
                 return true;
             }
             return false;
         });
-
+       
         try {
             this.terminal.fork_command_full (Vte.PtyFlags.DEFAULT, "~/", { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, null);
         } catch (GLib.Error e) {
