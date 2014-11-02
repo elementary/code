@@ -25,6 +25,7 @@ public const string DESCRIPTION = N_("A terminal in your text editor");
 
 public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
 
+    MainWindow window;
     Gtk.Notebook? bottombar = null;
     Vte.Terminal terminal;
     Gtk.Grid grid;
@@ -38,6 +39,18 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
 
     public void activate () {
         plugins = (Scratch.Services.Interface) object;
+
+        plugins.hook_window.connect ((w) => {
+            window = w;
+            connect_handler = window.split_view.current_view.notebook.key_press_event.connect ((event) => {
+                if (event.keyval == Gdk.Key.F12) {
+                    terminal.grab_focus ();
+                    return true;
+                }
+                return false;
+            });
+        });
+
         plugins.hook_notebook_bottom.connect ((n) => {
             if (bottombar == null) {
                 this.bottombar = n;
@@ -145,16 +158,10 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
 
         this.terminal.key_press_event.connect ((event) => {
             if (event.keyval == Gdk.Key.F12) {
-                (ScratchApp.instance.get_last_window ().split_view.current_view.notebook.current as Scratch.Services.Document).focus ();
-                return true;
-            }
-            return false;
-        });
-
-        connect_handler = ScratchApp.instance.get_last_window ().split_view.current_view.notebook.key_press_event.connect ((event) => {
-            if (event.keyval == Gdk.Key.F12) {
-                terminal.grab_focus ();
-                return true;
+                if (window.split_view.current_view != null) {
+                    (window.split_view.current_view.notebook.current as Scratch.Services.Document).focus ();
+                    return true;
+                }
             }
             return false;
         });
