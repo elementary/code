@@ -25,9 +25,13 @@ public const string DESCRIPTION = N_("A terminal in your text editor");
 
 public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
     
+    MainWindow window;
     Gtk.Notebook? bottombar = null;
+    Gtk.Notebook? contextbar = null;
     Vte.Terminal terminal;
     Gtk.Grid grid;
+
+    ulong? allocate_handler = null;
     
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
@@ -37,22 +41,46 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
 
     public void activate () {
         plugins = (Scratch.Services.Interface) object;        
+
+        plugins.hook_window.connect ((w) => {
+            window = w;
+            allocate_handler = window.size_allocate.connect ((alloc) => { set_terminal_location (alloc.width); });
+        });
+
         plugins.hook_notebook_bottom.connect ((n) => { 
             if (bottombar == null) {
                 this.bottombar = n;
-                on_hook (this.bottombar);
             }
         });
-        if (bottombar != null)
-            on_hook (this.bottombar);
+        plugins.hook_notebook_context.connect ((n) => { 
+            if (contextbar == null) {
+                this.contextbar = n;
+            }
+        });
+        
+        on_hook ();
+        set_terminal_location (window.get_allocated_width ());
     }
 
     public void deactivate () {
         if (terminal != null)
             grid.destroy ();
+
+        if (allocate_handler != null)
+            window.disconnect ((ulong)allocate_handler);
+    }
+
+    void set_terminal_location (int actual_window_width) {
+    	if (actual_window_width > 1360 && contextbar.page_num (grid) == -1) {
+            bottombar.remove_page (bottombar.page_num (grid));
+    		contextbar.append_page (grid, new Gtk.Label (_("Terminal")));
+    	} else if (actual_window_width <= 1360 && bottombar.page_num (grid) == -1) {
+            contextbar.remove_page (contextbar.page_num (grid));
+            bottombar.append_page (grid, new Gtk.Label (_("Terminal")));
+        }
     }
     
-    void on_hook (Gtk.Notebook notebook) {
+    void on_hook () {
         this.terminal = new Vte.Terminal ();
         this.terminal.scrollback_lines = -1;
         
@@ -154,8 +182,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         // Make the terminal occupy the whole GUI
         terminal.vexpand = true;
         terminal.hexpand = true;
-            
-        notebook.append_page (grid, new Gtk.Label (_("Terminal")));
         
         grid.show_all ();
 
