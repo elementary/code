@@ -70,7 +70,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         if (terminal != null)
             grid.destroy ();
         if (connect_handler != null)
-            ScratchApp.instance.get_last_window ().split_view.current_view.notebook.disconnect ((ulong)connect_handler);
+            window.disconnect ((ulong)connect_handler);
     }
 
     void on_hook (Gtk.Notebook notebook) {
