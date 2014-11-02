@@ -334,8 +334,13 @@ namespace Scratch {
 
         // Get current document
         public Scratch.Services.Document? get_current_document () {
+            Scratch.Services.Document? doc = null;
+            
             var view = this.get_current_view ();
-            return view.get_current_document ();
+            if (view != null)
+                doc = view.get_current_document ();
+
+            return doc;
         }
 
         // Add new view

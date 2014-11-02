@@ -42,10 +42,15 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
 
         plugins.hook_window.connect ((w) => {
             window = w;
-            connect_handler = window.split_view.current_view.notebook.key_press_event.connect ((event) => {
+            connect_handler = window.key_press_event.connect ((event) => {
                 if (event.keyval == Gdk.Key.F12) {
-                    terminal.grab_focus ();
-                    return true;
+                    if (terminal.has_focus && window.get_current_document () != null) {
+                        window.get_current_document ().focus ();
+                        return true;
+                    } else if (window.get_current_document () != null && window.get_current_document ().source_view.has_focus) {
+                        terminal.grab_focus ();
+                        return true;
+                    }                    
                 }
                 return false;
             });
@@ -152,16 +157,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             if (event.button == 3) {
                 menu.select_first (false);
                 menu.popup (null, null, null, event.button, event.time);
-            }
-            return false;
-        });
-
-        this.terminal.key_press_event.connect ((event) => {
-            if (event.keyval == Gdk.Key.F12) {
-                if (window.split_view.current_view != null) {
-                    (window.split_view.current_view.notebook.current as Scratch.Services.Document).focus ();
-                    return true;
-                }
             }
             return false;
         });
