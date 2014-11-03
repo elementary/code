@@ -43,6 +43,8 @@ public class Scratch.Plugins.BrowserPreview : Peas.ExtensionBase,  Peas.Activata
 
         plugins.hook_document.connect ((d) => {
             this.doc = d;
+            this.doc.doc_saved.disconnect (show_preview);
+            this.doc.doc_saved.connect (show_preview);
         });
         
         plugins.hook_split_view.connect (on_hook_split_view);
@@ -86,14 +88,7 @@ public class Scratch.Plugins.BrowserPreview : Peas.ExtensionBase,  Peas.Activata
         tool_button = new Gtk.ToolButton (icon, _("Get preview!"));
         tool_button.tooltip_text = _("Get preview!");
         tool_button.clicked.connect (() => {
-            // Get uri
-            if (this.doc.file == null)
-                return;
-            string uri = this.doc.file.get_uri ();
-
-            debug ("Previewing: " + this.doc.file.get_basename ());
-
-            view.load_uri (uri);
+            show_preview () ;
         });
 
         icon.show ();
@@ -121,6 +116,16 @@ public class Scratch.Plugins.BrowserPreview : Peas.ExtensionBase,  Peas.Activata
         scrolled.show_all ();
     }
 
+    void show_preview () {
+        // Get uri
+        if (this.doc.file == null)
+            return;
+        string uri = this.doc.file.get_uri ();
+
+        debug ("Previewing: " + this.doc.file.get_basename ());
+
+        view.load_uri (uri);
+    }
 }
 
 [ModuleInit]
