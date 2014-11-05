@@ -71,10 +71,10 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
     }
 
     void set_terminal_location (int actual_window_width) {
-    	if (actual_window_width > 1366 && contextbar.page_num (grid) == -1) {
+        if (actual_window_width > 1366 && contextbar.page_num (grid) == -1) {
             bottombar.remove_page (bottombar.page_num (grid));
-    		contextbar.append_page (grid, new Gtk.Label (_("Terminal")));
-    	} else if (actual_window_width <= 1366 && bottombar.page_num (grid) == -1) {
+            contextbar.append_page (grid, new Gtk.Label (_("Terminal")));
+        } else if (actual_window_width <= 1366 && bottombar.page_num (grid) == -1) {
             contextbar.remove_page (contextbar.page_num (grid));
             bottombar.append_page (grid, new Gtk.Label (_("Terminal")));
         }
