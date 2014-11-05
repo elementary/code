@@ -25,7 +25,7 @@ public const string DESCRIPTION = N_("A terminal in your text editor");
 
 public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
 
-    MainWindow window;
+    MainWindow window = null;
     Gtk.Notebook? bottombar = null;
     Vte.Terminal terminal;
     Gtk.Grid grid;
@@ -41,16 +41,21 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         plugins = (Scratch.Services.Interface) object;
 
         plugins.hook_window.connect ((w) => {
+            if (window != null)
+                return;
+                
             window = w;
             connect_handler = window.key_press_event.connect ((event) => {
                 if (event.keyval == Gdk.Key.F12) {
                     if (terminal.has_focus && window.get_current_document () != null) {
                         window.get_current_document ().focus ();
+                        debug ("Move focus: EDITOR.");
                         return true;
                     } else if (window.get_current_document () != null && window.get_current_document ().source_view.has_focus) {
                         terminal.grab_focus ();
+                        debug ("Move focus: TERMINAL.");
                         return true;
-                    }                    
+                    }
                 }
                 return false;
             });
