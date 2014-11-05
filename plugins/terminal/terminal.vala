@@ -31,8 +31,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
     Vte.Terminal terminal;
     Gtk.Grid grid;
 
-    ulong? allocate_handler = null;
-    
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
    
@@ -44,7 +42,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
 
         plugins.hook_window.connect ((w) => {
             window = w;
-            allocate_handler = window.size_allocate.connect ((alloc) => { set_terminal_location (alloc.width); });
+            window.size_allocate.connect (set_terminal_location);
         });
 
         plugins.hook_notebook_bottom.connect ((n) => { 
@@ -59,22 +57,23 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         });
         
         on_hook ();
-        set_terminal_location (window.get_allocated_width ());
+        Gtk.Allocation alloc;
+        window.get_allocation (out alloc);
+        set_terminal_location (alloc);
     }
 
     public void deactivate () {
         if (terminal != null)
             grid.destroy ();
 
-        if (allocate_handler != null)
-            window.disconnect ((ulong)allocate_handler);
+        window.size_allocate.disconnect (set_terminal_location);
     }
 
-    void set_terminal_location (int actual_window_width) {
-        if (actual_window_width > 1366 && contextbar.page_num (grid) == -1) {
+    void set_terminal_location (Gtk.Allocation alloc) {
+        if (alloc.width > 1366 && contextbar.page_num (grid) == -1) {
             bottombar.remove_page (bottombar.page_num (grid));
             contextbar.append_page (grid, new Gtk.Label (_("Terminal")));
-        } else if (actual_window_width <= 1366 && bottombar.page_num (grid) == -1) {
+        } else if (alloc.width <= 1366 && bottombar.page_num (grid) == -1) {
             contextbar.remove_page (contextbar.page_num (grid));
             bottombar.append_page (grid, new Gtk.Label (_("Terminal")));
         }
