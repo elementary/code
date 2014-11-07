@@ -19,7 +19,7 @@
 ***/
 
 public const string NAME = N_("Clipboard History");
-public const string DESCRIPTION = N_("Clipboard History");
+public const string DESCRIPTION = N_("Clipboard to view history");
 
 public class Scratch.Plugins.ClipboardHistory : Peas.ExtensionBase,  Peas.Activatable {
 
