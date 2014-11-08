@@ -124,4 +124,3 @@ public void peas_register_types (GLib.TypeModule module) {
     objmodule.register_extension_type (typeof (Peas.Activatable),
                                      typeof (Scratch.Plugins.BrowserPreviewPlugin));
 }
-

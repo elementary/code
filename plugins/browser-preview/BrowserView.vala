@@ -27,7 +27,7 @@ namespace Scratch.Plugins.BrowserPreview {
         Gtk.Paned? window = null;
 
         private unowned WebView show_inspector_view (WebView v) {
-            debug("Show inspector");
+            debug ("Show inspector");
 
             WebView inspector = new WebView ();
       
@@ -44,16 +44,16 @@ namespace Scratch.Plugins.BrowserPreview {
         }
 
         private void hook_on_popup_menu (WebKit.WebView web_view, Gtk.Menu menu) {
-            debug("Webview popup menu showed");
+            debug ("Webview popup menu showed");
            
-            if (window.get_child2() == null)
+            if (window.get_child2 () == null)
                 return;
 
             Gtk.MenuItem close_inspector = new Gtk.MenuItem.with_label (_("Close Inspector"));
-            menu.append(close_inspector);
+            menu.append (close_inspector);
 
-            close_inspector.activate.connect(() => {
-                    window.remove(window.get_child2());
+            close_inspector.activate.connect ( () => {
+                    window.remove (window.get_child2 ());
                 });
 
             menu.show_all ();
@@ -62,12 +62,12 @@ namespace Scratch.Plugins.BrowserPreview {
         public BrowserView (Gtk.Paned? window) {
             this.window = window;
 
-            this.get_settings().set_property ("enable-file-access-from-file-uris", true);
-            this.get_settings().set_property ("enable-developer-extras", true);
+            this.get_settings ().set_property ("enable-file-access-from-file-uris", true);
+            this.get_settings ().set_property ("enable-developer-extras", true);
 
-            this.get_inspector().inspect_web_view.connect (show_inspector_view);
+            this.get_inspector ().inspect_web_view.connect (show_inspector_view);
 
-            this.populate_popup.connect(hook_on_popup_menu);
+            this.populate_popup.connect (hook_on_popup_menu);
 
             Gtk.ScrolledWindow sw = new Gtk.ScrolledWindow (null, null);
             sw.add (this);
@@ -76,4 +76,3 @@ namespace Scratch.Plugins.BrowserPreview {
         }
     }
 }
-
