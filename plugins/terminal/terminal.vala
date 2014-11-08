@@ -46,7 +46,9 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
                 
             window = w;
             connect_handler = window.key_press_event.connect ((event) => {
-                if (event.keyval == Gdk.Key.F12) {
+                if (event.keyval == Gdk.Key.t
+                    && Gdk.ModifierType.MOD1_MASK in event.state
+                    && Gdk.ModifierType.CONTROL_MASK in event.state) {
                     if (terminal.has_focus && window.get_current_document () != null) {
                         window.get_current_document ().focus ();
                         debug ("Move focus: EDITOR.");
