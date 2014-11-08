@@ -18,114 +18,110 @@
   END LICENSE
 ***/
 
-using WebKit;
-
 public const string NAME = N_("Browser Preview");
 public const string DESCRIPTION = N_("Get a preview your work in a web page");
 
-public class Scratch.Plugins.BrowserPreview : Peas.ExtensionBase,  Peas.Activatable {
+namespace Scratch.Plugins {
 
-    Gtk.ToolButton? tool_button = null;
-    WebView? view = null;
-    Gtk.ScrolledWindow? scrolled = null;
-    Scratch.Services.Document? doc = null;
+    public class BrowserPreviewPlugin : Peas.ExtensionBase,  Peas.Activatable {
 
-    Gtk.Notebook notebook;
+        Gtk.ToolButton? tool_button = null;
+        BrowserPreview.BrowserView? view = null;
+        Gtk.Paned? window = null;
+        Scratch.Services.Document? doc = null;
 
-    Scratch.Services.Interface plugins;
-    public Object object { owned get; construct; }
+        Gtk.Notebook notebook;
 
-    public void update_state () {
-    }
+        Scratch.Services.Interface plugins;
+        public Object object { owned get; construct; }
 
-    public void activate () {
-        plugins = (Scratch.Services.Interface) object;
+        public void update_state () {
+        }
 
-        plugins.hook_document.connect ((d) => {
-            this.doc = d;
-        });
+        public void activate () {
+            plugins = (Scratch.Services.Interface) object;
+
+            plugins.hook_document.connect ((d) => {
+                this.doc = d;
+            });
+            
+            plugins.hook_split_view.connect (on_hook_split_view);
+            
+            plugins.hook_notebook_context.connect (on_hook_context);
+
+            plugins.hook_toolbar.connect (on_hook_toolbar);
+        }
+
+        public void deactivate () {
+            if (tool_button != null)
+                tool_button.destroy ();
+
+            if (window!= null)
+                window.destroy ();
+        }
+
+        void on_hook_split_view (Scratch.Widgets.SplitView view) {
+            this.tool_button.visible = ! view.is_empty ();
+            this.tool_button.no_show_all = view.is_empty ();
+            view.welcome_shown.connect (() => {
+                this.tool_button.visible = false;
+                this.tool_button.no_show_all = true;
+                if (notebook.page_num (window) != -1)
+                    notebook.remove (window);
+            });
+            view.welcome_hidden.connect (() => {
+                this.tool_button.visible = true;
+                this.tool_button.no_show_all = false;
+                if (notebook.page_num (window) == -1)
+                    notebook.append_page (window, new Gtk.Label (_("Web preview")));
+            });
+        }
         
-        plugins.hook_split_view.connect (on_hook_split_view);
-        
-        plugins.hook_notebook_context.connect (on_hook_context);
-
-        plugins.hook_toolbar.connect (on_hook_toolbar);
-    }
-
-    public void deactivate () {
-        if (tool_button != null)
-            tool_button.destroy ();
-
-        if (scrolled != null)
-            scrolled.destroy ();
-
-    }
-    
-    void on_hook_split_view (Scratch.Widgets.SplitView view) {
-        this.tool_button.visible = ! view.is_empty ();
-        this.tool_button.no_show_all = view.is_empty ();
-        view.welcome_shown.connect (() => {
-            this.tool_button.visible = false;
-            this.tool_button.no_show_all = true;
-            if (notebook.page_num (scrolled) != -1)
-                notebook.remove (scrolled);
-        });
-        view.welcome_hidden.connect (() => {
-            this.tool_button.visible = true;
-            this.tool_button.no_show_all = false;
-            if (notebook.page_num (scrolled) == -1)
-                notebook.append_page (scrolled, new Gtk.Label (_("Web preview")));
-        });
-    }
-    
-    void on_hook_toolbar (Scratch.Widgets.Toolbar toolbar) {
-        if (tool_button != null)
-            return;
-
-        var icon = new Gtk.Image.from_icon_name ("emblem-web", Gtk.IconSize.LARGE_TOOLBAR);
-        tool_button = new Gtk.ToolButton (icon, _("Get preview!"));
-        tool_button.tooltip_text = _("Get preview!");
-        tool_button.clicked.connect (() => {
-            // Get uri
-            if (this.doc.file == null)
+        void on_hook_toolbar (Scratch.Widgets.Toolbar toolbar) {
+            if (tool_button != null)
                 return;
-            string uri = this.doc.file.get_uri ();
 
-            debug ("Previewing: " + this.doc.file.get_basename ());
+            var icon = new Gtk.Image.from_icon_name ("emblem-web", Gtk.IconSize.LARGE_TOOLBAR);
+            tool_button = new Gtk.ToolButton (icon, _("Get preview!"));
+            tool_button.tooltip_text = _("Get preview!");
+            tool_button.clicked.connect (() => {
+                // Get uri
+                if (this.doc.file == null)
+                    return;
+                string uri = this.doc.file.get_uri ();
 
-            view.load_uri (uri);
-        });
+                debug ("Previewing: " + this.doc.file.get_basename ());
 
-        icon.show ();
-        tool_button.show ();
+                view.load_uri (uri);
+            });
 
-        toolbar.pack_start (tool_button);
+            icon.show ();
+            tool_button.show ();
+
+            toolbar.pack_start (tool_button);
+        }
+
+        void on_hook_context (Gtk.Notebook notebook) {
+            if (window != null)
+                return;
+
+            this.notebook = notebook;
+
+            window = new Gtk.Paned (Gtk.Orientation.VERTICAL);
+
+            view = new BrowserPreview.BrowserView (window);
+
+            notebook.append_page (window, new Gtk.Label (_("Web preview")));
+
+            window.show_all ();
+        }
     }
-
-    void on_hook_context (Gtk.Notebook notebook) {
-        if (scrolled != null)
-            return;
-
-        this.notebook = notebook;
-
-        view = new WebView ();
-        // Enable local loading
-        var settings = view.get_settings ();
-        settings.enable_file_access_from_file_uris = true;
-
-        scrolled = new Gtk.ScrolledWindow (null, null);
-        scrolled.add (view);
-
-        notebook.append_page (scrolled, new Gtk.Label (_("Web preview")));
-
-        scrolled.show_all ();
-    }
-
 }
 
 [ModuleInit]
 public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
     objmodule.register_extension_type (typeof (Peas.Activatable),
-                                     typeof (Scratch.Plugins.BrowserPreview));
+                                     typeof (Scratch.Plugins.BrowserPreviewPlugin));
 }
+

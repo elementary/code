@@ -10,6 +10,7 @@ link_directories (${WEBKIT_LIBRARY_DIRS})
 
 vala_precompile(VALA_C
     browser-preview.vala
+    BrowserView.vala
 PACKAGES
     webkitgtk-3.0
     granite
