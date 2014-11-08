@@ -23,99 +23,105 @@ public const string DESCRIPTION = N_("Get a preview your work in a web page");
 
 namespace Scratch.Plugins {
 
-    public class BrowserPreviewPlugin : Peas.ExtensionBase,  Peas.Activatable {
+	public class BrowserPreviewPlugin : Peas.ExtensionBase,  Peas.Activatable {
 
-        Gtk.ToolButton? tool_button = null;
-        BrowserPreview.BrowserView? view = null;
-        Gtk.Paned? window = null;
-        Scratch.Services.Document? doc = null;
+		Gtk.ToolButton? tool_button = null;
+		BrowserPreview.BrowserView? view = null;
+		Gtk.Paned? window = null;
+		Scratch.Services.Document? doc = null;
 
-        Gtk.Notebook notebook;
+		Gtk.Notebook notebook;
 
-        Scratch.Services.Interface plugins;
-        public Object object { owned get; construct; }
+		Scratch.Services.Interface plugins;
+		public Object object { owned get; construct; }
 
-        public void update_state () {
-        }
+		public void update_state () {
+		}
 
-        public void activate () {
-            plugins = (Scratch.Services.Interface) object;
+		public void activate () {
+		    plugins = (Scratch.Services.Interface) object;
 
-            plugins.hook_document.connect ((d) => {
-                this.doc = d;
-            });
-            
-            plugins.hook_split_view.connect (on_hook_split_view);
-            
-            plugins.hook_notebook_context.connect (on_hook_context);
+		    plugins.hook_document.connect ((d) => {
+		        this.doc = d;
+		        this.doc.doc_saved.disconnect (show_preview);
+		        this.doc.doc_saved.connect (show_preview);
+		    });
+		    
+		    plugins.hook_split_view.connect (on_hook_split_view);
+		    
+		    plugins.hook_notebook_context.connect (on_hook_context);
 
-            plugins.hook_toolbar.connect (on_hook_toolbar);
-        }
+		    plugins.hook_toolbar.connect (on_hook_toolbar);
+		}
 
-        public void deactivate () {
-            if (tool_button != null)
-                tool_button.destroy ();
+		public void deactivate () {
+		    if (tool_button != null)
+		        tool_button.destroy ();
 
-            if (window!= null)
-                window.destroy ();
-        }
+		    if (window != null)
+		        window.destroy ();
 
-        void on_hook_split_view (Scratch.Widgets.SplitView view) {
-            this.tool_button.visible = ! view.is_empty ();
-            this.tool_button.no_show_all = view.is_empty ();
-            view.welcome_shown.connect (() => {
-                this.tool_button.visible = false;
-                this.tool_button.no_show_all = true;
-                if (notebook.page_num (window) != -1)
-                    notebook.remove (window);
-            });
-            view.welcome_hidden.connect (() => {
-                this.tool_button.visible = true;
-                this.tool_button.no_show_all = false;
-                if (notebook.page_num (window) == -1)
-                    notebook.append_page (window, new Gtk.Label (_("Web preview")));
-            });
-        }
-        
-        void on_hook_toolbar (Scratch.Widgets.Toolbar toolbar) {
-            if (tool_button != null)
-                return;
+		}
+		
+		void on_hook_split_view (Scratch.Widgets.SplitView view) {
+		    this.tool_button.visible = ! view.is_empty ();
+		    this.tool_button.no_show_all = view.is_empty ();
+		    view.welcome_shown.connect (() => {
+		        this.tool_button.visible = false;
+		        this.tool_button.no_show_all = true;
+		        if (notebook.page_num (window) != -1)
+		            notebook.remove (window);
+		    });
+		    view.welcome_hidden.connect (() => {
+		        this.tool_button.visible = true;
+		        this.tool_button.no_show_all = false;
+		        if (notebook.page_num (window) == -1)
+		            notebook.append_page (window, new Gtk.Label (_("Web preview")));
+		    });
+		}
+		
+		void on_hook_toolbar (Scratch.Widgets.Toolbar toolbar) {
+		    if (tool_button != null)
+		        return;
 
-            var icon = new Gtk.Image.from_icon_name ("emblem-web", Gtk.IconSize.LARGE_TOOLBAR);
-            tool_button = new Gtk.ToolButton (icon, _("Get preview!"));
-            tool_button.tooltip_text = _("Get preview!");
-            tool_button.clicked.connect (() => {
-                // Get uri
-                if (this.doc.file == null)
-                    return;
-                string uri = this.doc.file.get_uri ();
+		    var icon = new Gtk.Image.from_icon_name ("emblem-web", Gtk.IconSize.LARGE_TOOLBAR);
+		    tool_button = new Gtk.ToolButton (icon, _("Get preview!"));
+		    tool_button.tooltip_text = _("Get preview!");
+		    tool_button.clicked.connect (() => {
+		        show_preview () ;
+		    });
 
-                debug ("Previewing: " + this.doc.file.get_basename ());
+		    icon.show ();
+		    tool_button.show ();
 
-                view.load_uri (uri);
-            });
+		    toolbar.pack_start (tool_button);
+		}
 
-            icon.show ();
-            tool_button.show ();
+		void on_hook_context (Gtk.Notebook notebook) {
+		    if (window != null)
+		        return;
 
-            toolbar.pack_start (tool_button);
-        }
+		    this.notebook = notebook;
 
-        void on_hook_context (Gtk.Notebook notebook) {
-            if (window != null)
-                return;
+			window = new Gtk.Paned (Gtk.Orientation.VERTICAL);
+		    view = new BrowserPreview.BrowserView (window);    
 
-            this.notebook = notebook;
+		    notebook.append_page (window, new Gtk.Label (_("Web preview")));
 
-            window = new Gtk.Paned (Gtk.Orientation.VERTICAL);
+		    window.show_all ();
+		}
 
-            view = new BrowserPreview.BrowserView (window);
+		void show_preview () {
+		    // Get uri
+		    if (this.doc.file == null)
+		        return;
+		    string uri = this.doc.file.get_uri ();
 
-            notebook.append_page (window, new Gtk.Label (_("Web preview")));
+		    debug ("Previewing: " + this.doc.file.get_basename ());
 
-            window.show_all ();
-        }
-    }
+		    view.load_uri (uri);
+		}
+	}
 }
 
 [ModuleInit]
@@ -124,3 +130,4 @@ public void peas_register_types (GLib.TypeModule module) {
     objmodule.register_extension_type (typeof (Peas.Activatable),
                                      typeof (Scratch.Plugins.BrowserPreviewPlugin));
 }
+
