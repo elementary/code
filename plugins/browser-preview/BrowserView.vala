@@ -18,18 +18,16 @@
   END LICENSE
 ***/
 
-using WebKit;
-
 namespace Scratch.Plugins.BrowserPreview {
 
-    internal class BrowserView : WebView {
+    internal class BrowserView : WebKit.WebView {
        
         Gtk.Paned? window = null;
 
-        private unowned WebView show_inspector_view (WebView v) {
+        private unowned WebKit.WebView show_inspector_view (WebKit.WebView v) {
             debug ("Show inspector");
 
-            WebView inspector = new WebView ();
+            WebKit.WebView inspector = new WebKit.WebView ();
       
             Gtk.ScrolledWindow sw = new Gtk.ScrolledWindow (null, null);
             sw.add (inspector); 
@@ -39,7 +37,7 @@ namespace Scratch.Plugins.BrowserPreview {
             window.add2 (sw);
             sw.show_all ();
 
-            unowned WebView r = inspector;
+            unowned WebKit.WebView r = inspector;
             return r;
         }
 
@@ -76,3 +74,4 @@ namespace Scratch.Plugins.BrowserPreview {
         }
     }
 }
+
