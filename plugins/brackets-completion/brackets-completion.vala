@@ -79,7 +79,10 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
             
             this.last_inserted = text;
             buf.insert (ref pos, text, len);
-            
+
+            //To make " and ' brackets work correctly (opening and closing chars are the same)
+            this.last_inserted = null;
+
             pos.backward_chars (len);
             buf.place_cursor (pos);
         }
