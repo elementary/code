@@ -21,20 +21,19 @@
 namespace Scratch.Plugins.BrowserPreview {
 
     internal class BrowserView : WebKit.WebView {
-       
-        Gtk.Paned? window = null;
+
+        Gtk.Paned? paned = null;
 
         private unowned WebKit.WebView show_inspector_view (WebKit.WebView v) {
             debug ("Show inspector");
 
             WebKit.WebView inspector = new WebKit.WebView ();
-      
-            Gtk.ScrolledWindow sw = new Gtk.ScrolledWindow (null, null);
-            sw.add (inspector); 
-            sw.show_all ();
 
-            window.set_position (200);
-            window.add2 (sw);
+            Gtk.ScrolledWindow sw = new Gtk.ScrolledWindow (null, null);
+            sw.add (inspector);
+
+            paned.set_position (200);
+            paned.add2 (sw);
             sw.show_all ();
 
             unowned WebKit.WebView r = inspector;
@@ -43,22 +42,22 @@ namespace Scratch.Plugins.BrowserPreview {
 
         private void hook_on_popup_menu (WebKit.WebView web_view, Gtk.Menu menu) {
             debug ("Webview popup menu showed");
-           
-            if (window.get_child2 () == null)
+
+            if (paned.get_child2 () == null)
                 return;
 
             Gtk.MenuItem close_inspector = new Gtk.MenuItem.with_label (_("Close Inspector"));
             menu.append (close_inspector);
 
             close_inspector.activate.connect ( () => {
-                    window.remove (window.get_child2 ());
+                    paned.remove (paned.get_child2 ());
                 });
 
             menu.show_all ();
         }
 
-        public BrowserView (Gtk.Paned? window) {
-            this.window = window;
+        public BrowserView (Gtk.Paned? paned) {
+            this.paned = paned;
 
             this.get_settings ().set_property ("enable-file-access-from-file-uris", true);
             this.get_settings ().set_property ("enable-developer-extras", true);
@@ -69,7 +68,7 @@ namespace Scratch.Plugins.BrowserPreview {
 
             Gtk.ScrolledWindow sw = new Gtk.ScrolledWindow (null, null);
             sw.add (this);
-            this.window.add1 (sw);
+            this.paned.add1 (sw);
             sw.show_all ();
         }
     }

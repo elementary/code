@@ -25,9 +25,9 @@ namespace Scratch.Plugins {
 
     public class BrowserPreviewPlugin : Peas.ExtensionBase,  Peas.Activatable {
 
-    Gtk.ToolButton? tool_button = null;
+        Gtk.ToolButton? tool_button = null;
         BrowserPreview.BrowserView? view = null;
-        Gtk.Paned? window = null;
+        Gtk.Paned? plugin_tab = null;
         Scratch.Services.Document? doc = null;
 
         Gtk.Notebook notebook;
@@ -58,8 +58,8 @@ namespace Scratch.Plugins {
             if (tool_button != null)
                 tool_button.destroy ();
 
-            if (window != null)
-                window.destroy ();
+            if (plugin_tab != null)
+                plugin_tab.destroy ();
 
         }
 
@@ -69,14 +69,14 @@ namespace Scratch.Plugins {
             view.welcome_shown.connect (() => {
                 this.tool_button.visible = false;
                 this.tool_button.no_show_all = true;
-                if (notebook.page_num (window) != -1)
-                    notebook.remove (window);
+                if (notebook.page_num (plugin_tab) != -1)
+                    notebook.remove (plugin_tab);
             });
             view.welcome_hidden.connect (() => {
                 this.tool_button.visible = true;
                 this.tool_button.no_show_all = false;
-                if (notebook.page_num (window) == -1)
-                    notebook.append_page (window, new Gtk.Label (_("Web preview")));
+                if (notebook.page_num (plugin_tab) == -1)
+                    notebook.append_page (plugin_tab, new Gtk.Label (_("Web preview")));
             });
         }
 
@@ -98,17 +98,17 @@ namespace Scratch.Plugins {
         }
 
         void on_hook_context (Gtk.Notebook notebook) {
-            if (window != null)
+            if (plugin_tab != null)
                 return;
 
             this.notebook = notebook;
 
-            window = new Gtk.Paned (Gtk.Orientation.VERTICAL);
-            view = new BrowserPreview.BrowserView (window);
+            plugin_tab = new Gtk.Paned (Gtk.Orientation.VERTICAL);
+            view = new BrowserPreview.BrowserView (plugin_tab);
 
-            notebook.append_page (window, new Gtk.Label (_("Web preview")));
+            notebook.append_page (plugin_tab, new Gtk.Label (_("Web preview")));
 
-            window.show_all ();
+            plugin_tab.show_all ();
         }
 
         void show_preview () {
