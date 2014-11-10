@@ -10,6 +10,7 @@ Categories=GNOME;GTK;Utility;TextEditor;
 Keywords=Notepad;IDE;Plain
 MimeType=text/plain;
 StartupNotify=true
+Actions=AboutDialog;
 
 X-Ayatana-Desktop-Shortcuts=NewWindow;NewDocument
 
@@ -25,3 +26,6 @@ Name=New Window
 Exec=scratch-text-editor --new-window
 TargetEnvironment=Unity
 
+[Desktop Action AboutDialog]
+Exec=scratch-text-editor --about
+Name=About Scratch

@@ -157,7 +157,7 @@ namespace Scratch {
             this.toolbar.show_close_button = true;
             this.set_titlebar (this.toolbar);
             toolbar.menu = ui.get_widget ("ui/AppMenu") as Gtk.Menu;
-            var app_menu = (app as Granite.Application).create_appmenu (toolbar.menu);
+            var app_menu = new Granite.Widgets.AppMenu (toolbar.menu);
             toolbar.pack_end (app_menu);
 
             // SearchManager
@@ -335,7 +335,7 @@ namespace Scratch {
         // Get current document
         public Scratch.Services.Document? get_current_document () {
             Scratch.Services.Document? doc = null;
-            
+
             var view = this.get_current_view ();
             if (view != null)
                 doc = view.get_current_document ();
@@ -898,3 +898,4 @@ namespace Scratch {
         };
     }
 }
+
