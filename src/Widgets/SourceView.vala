@@ -307,7 +307,10 @@ namespace Scratch.Widgets {
             buffer.place_cursor (start);
         }
 
-        public void set_language (SourceLanguage lang) {
+        public void set_language (SourceLanguage? lang) {
+            if (lang == null)
+                return;
+                
             this.buffer.set_language (lang);
             this.language_changed (lang);
         }

@@ -38,9 +38,6 @@ public class Scratch.Plugins.ClipboardHistory : Peas.ExtensionBase,  Peas.Activa
     Gtk.MenuItem menu_paste;
     Gtk.MenuItem menu_delete;
 
-    List <Scratch.Widgets.SourceView> source_views = new List<Scratch.Widgets.SourceView> ();
-    Scratch.Services.Document current_document = null;
-
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
 
@@ -57,10 +54,8 @@ public class Scratch.Plugins.ClipboardHistory : Peas.ExtensionBase,  Peas.Activa
                 return;
 
             window = w;
-            add_document(window.get_current_document ());
+            window.clipboard.owner_change.connect (clipboard_action);
         });
-
-        plugins.hook_document.connect (add_document);
 
         plugins.hook_notebook_context.connect ((n) => { 
             if (contextbar == null) {
@@ -76,29 +71,13 @@ public class Scratch.Plugins.ClipboardHistory : Peas.ExtensionBase,  Peas.Activa
 
         contextbar.remove_page (contextbar.page_num (scrolled));
 
-        foreach (Scratch.Widgets.SourceView item in source_views) {
-            item.copy_clipboard.disconnect (clipboard_action);
-            item.cut_clipboard.disconnect (clipboard_action);
-        }
+        window.clipboard.owner_change.disconnect (clipboard_action);
     }
 
-    void add_document (Scratch.Services.Document doc){
-        if (doc == null)
-            return;
-
-        current_document = doc;
-        if (source_views.index (doc.source_view) >= 0)
-            return;          
-
-        source_views.append (doc.source_view);
-
-        // connect Copy and Cut events
-        doc.source_view.copy_clipboard.connect (clipboard_action);
-        doc.source_view.cut_clipboard.connect (clipboard_action);
-    }
-
-    void clipboard_action() {
-        add_clipboard_item (current_document.source_view.get_selected_text (false));
+    void clipboard_action(Gdk.Event event) {
+        string? clipboard_content = window.clipboard.wait_for_text ();
+        if (clipboard_content != null)
+            add_clipboard_item (clipboard_content);
     }
 
     void add_clipboard_item (string clipboard_content) {
@@ -217,6 +196,10 @@ public class Scratch.Plugins.ClipboardHistory : Peas.ExtensionBase,  Peas.Activa
         model.get_value(iter, 2, out content);
         string clipboard_string = content.get_string ();
 
+        Scratch.Services.Document? current_document = window.get_current_document ();
+
+        if (current_document == null)
+            return;
         // Set focus on active document, delete selected text and paste the value from selected item.
         current_document.focus();
         current_document.source_view.delete_from_cursor (Gtk.DeleteType.CHARS, current_document.source_view.get_selected_text ().length);
