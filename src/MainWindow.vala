@@ -175,7 +175,6 @@ namespace Scratch {
             // Signals
             this.split_view.welcome_shown.connect (() => {
                 set_widgets_sensitive (false);
-
             });
             this.split_view.welcome_hidden.connect (() => {
                 set_widgets_sensitive (true);
@@ -216,13 +215,21 @@ namespace Scratch {
 
             this.contextbar = new Gtk.Notebook ();
             this.contextbar.no_show_all = true;
-            this.contextbar.page_added.connect (() => { on_plugin_toggled (contextbar); });
             this.contextbar.page_removed.connect (() => { on_plugin_toggled (contextbar); });
+            this.contextbar.page_added.connect (() => { 
+                if (!this.split_view.is_empty ())
+                    on_plugin_toggled (contextbar); 
+            });
+            
+
 
             this.bottombar = new Gtk.Notebook ();
             this.bottombar.no_show_all = true;
-            this.bottombar.page_added.connect (() => { on_plugin_toggled (bottombar); });
             this.bottombar.page_removed.connect (() => { on_plugin_toggled (bottombar); });
+            this.bottombar.page_added.connect (() => { 
+                if (!this.split_view.is_empty ())
+                    on_plugin_toggled (bottombar); 
+            });            
 
             hp1 = new Granite.Widgets.ThinPaned ();
             hp2 = new Granite.Widgets.ThinPaned ();
@@ -278,18 +285,18 @@ namespace Scratch {
                 plugins.hook_notebook_sidebar (this.sidebar);
                 plugins.hook_notebook_context (this.contextbar);
                 plugins.hook_notebook_bottom (this.bottombar);
-                this.split_view.document_change.connect ((doc) => {
-                    plugins.hook_document (doc);
-                });
+                this.split_view.document_change.connect ((doc) => { plugins.hook_document (doc); });
                 plugins.hook_split_view (this.split_view);
             };
             plugins.extension_added.connect (() => {
                 hook_func ();
             });
             hook_func ();
+
+            set_widgets_sensitive (!split_view.is_empty ());
         }
 
-         private void on_plugin_toggled (Gtk.Notebook notebook) {
+        private void on_plugin_toggled (Gtk.Notebook notebook) {
             var pages = notebook.get_n_pages ();
             notebook.set_show_tabs (pages > 1);
             notebook.no_show_all = (pages == 0);
@@ -317,6 +324,15 @@ namespace Scratch {
             main_actions.get_action ("Redo").sensitive = val;
             main_actions.get_action ("Revert").sensitive = val;
             this.toolbar.share_app_menu.sensitive = val;
+
+            // PlugIns
+            if (val) {
+                on_plugin_toggled (this.contextbar);
+                on_plugin_toggled (this.bottombar);
+            } else {
+                this.contextbar.visible = val;
+                this.bottombar.visible = val;
+            }
         }
 
         // Get current view
@@ -334,8 +350,13 @@ namespace Scratch {
 
         // Get current document
         public Scratch.Services.Document? get_current_document () {
+            Scratch.Services.Document? doc = null;
+
             var view = this.get_current_view ();
-            return view.get_current_document ();
+            if (view != null)
+                doc = view.get_current_document ();
+
+            return doc;
         }
 
         // Add new view
