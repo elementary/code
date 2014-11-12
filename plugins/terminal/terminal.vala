@@ -45,7 +45,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         plugins.hook_window.connect ((w) => {
             if (window != null)
                 return;
-                
+
             window = w;
             window.size_allocate.connect (set_terminal_location);
             window.key_press_event.connect (switch_focus);
@@ -57,20 +57,20 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             }
         });
 
-        plugins.hook_notebook_context.connect ((n) => { 
+        plugins.hook_notebook_context.connect ((n) => {
             if (contextbar == null) {
                 this.contextbar = n;
             }
         });
 
         plugins.hook_split_view.connect ((s) => {
-        	if (splitview != null)
+            if (splitview != null)
                 return;
 
-        	this.splitview = s;
-            splitview.views_changed.connect ((u) => { set_terminal_location (); });        	
+            this.splitview = s;
+            splitview.views_changed.connect ((u) => { set_terminal_location (); });
         });
-        
+
         on_hook ();
         set_terminal_location ();
     }
@@ -124,7 +124,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         }
         return false;
     }
-    
+
     void on_hook () {
         this.terminal = new Vte.Terminal ();
         this.terminal.scrollback_lines = -1;
@@ -212,7 +212,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             }
             return false;
         });
-       
+
         try {
             this.terminal.fork_command_full (Vte.PtyFlags.DEFAULT, "~/", { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, null);
         } catch (GLib.Error e) {
