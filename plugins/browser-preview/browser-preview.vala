@@ -41,11 +41,11 @@ namespace Scratch.Plugins {
         public void activate () {
             plugins = (Scratch.Services.Interface) object;
 
-            plugins.hook_document.connect ((d) => {
-                this.doc = d;
-                this.doc.doc_saved.disconnect (show_preview);
-                this.doc.doc_saved.connect (show_preview);
+            plugins.hook_window.connect ((w) => {
+                set_current_document (w.get_current_document ());
             });
+
+            plugins.hook_document.connect (set_current_document);
 
             plugins.hook_split_view.connect (on_hook_split_view);
 
@@ -60,23 +60,15 @@ namespace Scratch.Plugins {
 
             if (plugin_tab != null)
                 plugin_tab.destroy ();
-
         }
 
         void on_hook_split_view (Scratch.Widgets.SplitView view) {
             this.tool_button.visible = ! view.is_empty ();
-            this.tool_button.no_show_all = view.is_empty ();
             view.welcome_shown.connect (() => {
                 this.tool_button.visible = false;
-                this.tool_button.no_show_all = true;
-                if (notebook.page_num (plugin_tab) != -1)
-                    notebook.remove (plugin_tab);
             });
             view.welcome_hidden.connect (() => {
                 this.tool_button.visible = true;
-                this.tool_button.no_show_all = false;
-                if (notebook.page_num (plugin_tab) == -1)
-                    notebook.append_page (plugin_tab, new Gtk.Label (_("Web preview")));
             });
         }
 
@@ -86,10 +78,8 @@ namespace Scratch.Plugins {
 
             var icon = new Gtk.Image.from_icon_name ("emblem-web", Gtk.IconSize.LARGE_TOOLBAR);
             tool_button = new Gtk.ToolButton (icon, _("Get preview!"));
-            tool_button.tooltip_text = _("Get preview!");
-            tool_button.clicked.connect (() => {
-                show_preview () ;
-            });
+            tool_button.tooltip_text = _("Hide preview");
+            tool_button.clicked.connect (toggle_plugin_visibility);
 
             icon.show ();
             tool_button.show ();
@@ -104,11 +94,31 @@ namespace Scratch.Plugins {
             this.notebook = notebook;
 
             plugin_tab = new Gtk.Paned (Gtk.Orientation.VERTICAL);
+            
             view = new BrowserPreview.BrowserView (plugin_tab);
 
             notebook.append_page (plugin_tab, new Gtk.Label (_("Web preview")));
 
             plugin_tab.show_all ();
+        }
+
+        void toggle_plugin_visibility () {            
+            if (notebook.page_num (plugin_tab) == -1) {
+                notebook.append_page (plugin_tab, new Gtk.Label (_("Web preview")));
+                tool_button.tooltip_text = _("Hide preview");
+            } else {
+                notebook.remove (plugin_tab);
+                tool_button.tooltip_text = _("Show preview");
+            }
+        }
+
+        void set_current_document (Scratch.Services.Document? d) {
+            if (d != null) {
+                this.doc = d;
+                this.doc.doc_saved.disconnect (show_preview);
+                this.doc.doc_saved.connect (show_preview);
+                show_preview ();
+            }
         }
 
         void show_preview () {

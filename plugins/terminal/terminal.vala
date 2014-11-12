@@ -29,7 +29,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
     Gtk.Notebook? bottombar = null;
     Vte.Terminal terminal;
     Gtk.Grid grid;
-    ulong? connect_handler;
 
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
@@ -45,22 +44,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
                 return;
                 
             window = w;
-            connect_handler = window.key_press_event.connect ((event) => {
-                if (event.keyval == Gdk.Key.t
-                    && Gdk.ModifierType.MOD1_MASK in event.state
-                    && Gdk.ModifierType.CONTROL_MASK in event.state) {
-                    if (terminal.has_focus && window.get_current_document () != null) {
-                        window.get_current_document ().focus ();
-                        debug ("Move focus: EDITOR.");
-                        return true;
-                    } else if (window.get_current_document () != null && window.get_current_document ().source_view.has_focus) {
-                        terminal.grab_focus ();
-                        debug ("Move focus: TERMINAL.");
-                        return true;
-                    }
-                }
-                return false;
-            });
+            window.key_press_event.connect (switch_focus);
         });
 
         plugins.hook_notebook_bottom.connect ((n) => {
@@ -76,8 +60,25 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
     public void deactivate () {
         if (terminal != null)
             grid.destroy ();
-        if (connect_handler != null)
-            window.disconnect ((ulong)connect_handler);
+        if (window != null)
+            window.key_press_event.disconnect (switch_focus);
+    }
+
+    bool switch_focus (Gdk.EventKey event) {
+        if (event.keyval == Gdk.Key.t
+            && Gdk.ModifierType.MOD1_MASK in event.state
+            && Gdk.ModifierType.CONTROL_MASK in event.state) {
+            if (terminal.has_focus && window.get_current_document () != null) {
+                window.get_current_document ().focus ();
+                debug ("Move focus: EDITOR.");
+                return true;
+            } else if (window.get_current_document () != null && window.get_current_document ().source_view.has_focus) {
+                terminal.grab_focus ();
+                debug ("Move focus: TERMINAL.");
+                return true;
+            }
+        }
+        return false;
     }
 
     void on_hook (Gtk.Notebook notebook) {

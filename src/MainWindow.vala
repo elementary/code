@@ -175,7 +175,6 @@ namespace Scratch {
             // Signals
             this.split_view.welcome_shown.connect (() => {
                 set_widgets_sensitive (false);
-
             });
             this.split_view.welcome_hidden.connect (() => {
                 set_widgets_sensitive (true);
@@ -278,15 +277,15 @@ namespace Scratch {
                 plugins.hook_notebook_sidebar (this.sidebar);
                 plugins.hook_notebook_context (this.contextbar);
                 plugins.hook_notebook_bottom (this.bottombar);
-                this.split_view.document_change.connect ((doc) => {
-                    plugins.hook_document (doc);
-                });
+                this.split_view.document_change.connect ((doc) => { plugins.hook_document (doc); });
                 plugins.hook_split_view (this.split_view);
             };
             plugins.extension_added.connect (() => {
                 hook_func ();
             });
             hook_func ();
+
+            set_widgets_sensitive (!split_view.is_empty ());
         }
 
          private void on_plugin_toggled (Gtk.Notebook notebook) {
@@ -317,6 +316,15 @@ namespace Scratch {
             main_actions.get_action ("Redo").sensitive = val;
             main_actions.get_action ("Revert").sensitive = val;
             this.toolbar.share_app_menu.sensitive = val;
+
+            // PlugIns
+            if (val) {
+                on_plugin_toggled (this.contextbar);
+                on_plugin_toggled (this.bottombar);
+            } else {
+                this.contextbar.visible = val;
+                this.bottombar.visible = val;
+            }
         }
 
         // Get current view
@@ -335,7 +343,7 @@ namespace Scratch {
         // Get current document
         public Scratch.Services.Document? get_current_document () {
             Scratch.Services.Document? doc = null;
-            
+
             var view = this.get_current_view ();
             if (view != null)
                 doc = view.get_current_document ();
