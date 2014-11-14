@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-08-30 09:08-0500\n"
-"PO-Revision-Date: 2013-10-11 11:14+0000\n"
+"PO-Revision-Date: 2014-11-13 13:18+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-31 07:13+0000\n"
-"X-Generator: Launchpad (build 17176)\n"
+"X-Launchpad-Export-Date: 2014-11-14 06:22+0000\n"
+"X-Generator: Launchpad (build 17241)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:52
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:722
@@ -234,16 +234,16 @@ msgstr "儲存"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:711
 msgid "Save this file"
-msgstr ""
+msgstr "儲存此檔案"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:714
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:576
 msgid "Save As…"
-msgstr ""
+msgstr "另儲存為…"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:715
 msgid "Save this file with a different name"
-msgstr ""
+msgstr "以不同名稱儲存這份檔案"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:718
 #: /home/mario/elementary/scratch/po/../src/Services/TemplateManager.vala:230
@@ -261,12 +261,12 @@ msgstr "變更 Scratch 設定值"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:726
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:727
 msgid "Next Tab"
-msgstr ""
+msgstr "後個分頁"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:730
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:731
 msgid "Previous Tab"
-msgstr ""
+msgstr "前個分頁"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:747
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:748
@@ -323,7 +323,7 @@ msgstr "替換為"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:115
 msgid "Replace all"
-msgstr ""
+msgstr "全部取代"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:123
 msgid "Go To Line:"
@@ -340,7 +340,7 @@ msgstr "新增視窗"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:224
 msgid "Print version info and exit"
-msgstr ""
+msgstr "列印版本資訊並離開"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:225
 msgid "Set of plugins"
@@ -348,7 +348,7 @@ msgstr "外掛設定"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:226
 msgid "Current working directoy"
-msgstr ""
+msgstr "目前的工作目錄"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:248
 #, c-format
@@ -384,15 +384,15 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:573
 msgid "The location containing the file"
-msgstr ""
+msgstr "檔案所在的位置"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:574
 msgid "was unmounted. Do you want to save somewhere else?"
-msgstr ""
+msgstr "尚未掛載。您是否想要改儲存到其他地方？"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:581
 msgid "File"
-msgstr ""
+msgstr "檔案"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:582
 msgid "was deleted. Do you want to save it anyway?"
@@ -630,11 +630,11 @@ msgstr "開啟資料夾"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:95
 msgid "_Cancel"
-msgstr ""
+msgstr "取消(_C)"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:96
 msgid "_Open"
-msgstr ""
+msgstr "開啟(_O)"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FileView.vala:330
 msgid "Close Folder"
