@@ -30,7 +30,8 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
     Gtk.Notebook? bottombar = null;
     Gtk.Notebook? contextbar = null;
     
-    Gtk.MenuItem location = null;
+    Gtk.RadioMenuItem location_bottom = null;
+    Gtk.RadioMenuItem location_right = null;
 
     Vte.Terminal terminal;
     Gtk.Grid grid;
@@ -78,18 +79,16 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
 
     void switch_terminal_location () {
      
-     	if (bottombar.page_num (grid) == -1) {
+     	if (bottombar.page_num (grid) == -1 && this.location_bottom.active) {
 
             contextbar.remove_page (contextbar.page_num (grid));
             bottombar.append_page (grid, new Gtk.Label (_("Terminal")));
-            location.set_label (_("Move Terminal into contextbar"));
             debug ("Move Terminal: BOTTOMBAR.");
             
-        } else if (contextbar.page_num (grid) == -1 ) {
+        } else if (contextbar.page_num (grid) == -1 && this.location_right.active) {
 
             bottombar.remove_page (bottombar.page_num (grid));
             contextbar.append_page (grid, new Gtk.Label (_("Terminal")));
-            location.set_label (_("Move Terminal into bottombar"));
             debug ("Move Terminal: CONTEXTBAR.");
 
         }
@@ -183,27 +182,39 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         // Popup menu
         var menu = new Gtk.Menu ();
 
+        // COPY
         Gtk.MenuItem copy = new Gtk.MenuItem.with_label (_("Copy"));
         copy.activate.connect (() => {
             terminal.copy_clipboard ();
         });
         menu.append (copy);
-        copy.show ();
 
+        // PASTE
         Gtk.MenuItem paste = new Gtk.MenuItem.with_label (_("Paste"));
         paste.activate.connect (() => {
             terminal.paste_clipboard ();
         });
         menu.append (paste);
-        paste.show ();
 
-        location = new Gtk.MenuItem.with_label ("");
-        location.activate.connect (() => {
-        	switch_terminal_location ();
+        // SEPARATOR
+        menu.append (new Gtk.SeparatorMenuItem ());
+
+        // ON RIGHT
+        location_right = new Gtk.RadioMenuItem.with_label (null, _("Terminal on Right"));
+        location_right.toggled.connect (() => {
+            switch_terminal_location ();
         });
+        menu.append (location_right);
 
-        menu.append (location);
-        location.show ();
+        // ON BOTTOM
+        location_bottom = new Gtk.RadioMenuItem.with_label (location_right.get_group (), _("Terminal on Bottom"));
+        location_bottom.active = true;
+        location_bottom.toggled.connect (() => {
+            switch_terminal_location ();
+        });
+        menu.append (location_bottom);
+
+        menu.show_all ();
 
         this.terminal.button_press_event.connect ((event) => {
             if (event.button == 3) {
