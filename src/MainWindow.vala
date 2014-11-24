@@ -203,7 +203,6 @@ namespace Scratch {
                 // Set actions sensitive property
                 main_actions.get_action ("SaveFile").visible = (!settings.autosave || doc.file == null);
                 main_actions.get_action ("SaveFileAs").visible = (doc.file != null);
-                main_actions.get_action ("Zoom").visible = get_current_font_size () != get_default_font_size ();
                 doc.check_undoable_actions ();
             });
 
@@ -316,6 +315,9 @@ namespace Scratch {
             main_actions.get_action ("Redo").sensitive = val;
             main_actions.get_action ("Revert").sensitive = val;
             this.toolbar.share_app_menu.sensitive = val;
+
+            // Zoom button
+            main_actions.get_action ("Zoom").visible = get_current_font_size () != get_default_font_size () && val;
 
             // PlugIns
             if (val) {
@@ -559,7 +561,6 @@ namespace Scratch {
                 font_size = (int) get_default_font_size ();
             }
 
-
             if (direction == ScrollDirection.DOWN) {
                 font_size --;
                 if (font_size < FONT_SIZE_MIN)
@@ -572,6 +573,8 @@ namespace Scratch {
 
             string new_font = font + " " + font_size.to_string ();
             Scratch.settings.font = new_font;
+
+            main_actions.get_action ("Zoom").visible = get_current_font_size () != get_default_font_size () && !split_view.is_empty ();
         }
 
         public string get_current_font () {
