@@ -26,9 +26,12 @@ public const string DESCRIPTION = N_("A terminal in your text editor");
 public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
 
     MainWindow window = null;
-    Scratch.Widgets.SplitView splitview = null;
+
     Gtk.Notebook? bottombar = null;
     Gtk.Notebook? contextbar = null;
+    
+    Gtk.MenuItem location = null;
+
     Vte.Terminal terminal;
     Gtk.Grid grid;
 
@@ -47,7 +50,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
                 return;
 
             window = w;
-            window.size_allocate.connect (set_terminal_location);
             window.key_press_event.connect (switch_focus);
         });
 
@@ -55,6 +57,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             if (bottombar == null) {
                 this.bottombar = n;
             }
+            switch_terminal_location ();
         });
 
         plugins.hook_notebook_context.connect ((n) => {
@@ -63,42 +66,31 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             }
         });
 
-        plugins.hook_split_view.connect ((s) => {
-            if (splitview != null)
-                return;
-
-            this.splitview = s;
-            splitview.views_changed.connect ((u) => { set_terminal_location (); });
-        });
-
         on_hook ();
-        set_terminal_location ();
     }
 
     public void deactivate () {
         if (terminal != null)
             grid.destroy ();
 
-        window.size_allocate.disconnect (set_terminal_location);
         window.key_press_event.disconnect (switch_focus);
     }
 
-    void set_terminal_location (Gtk.Allocation? alloc = null) {
-        if (alloc == null) {
-            window.get_allocation (out alloc);
-        }
-
-        if (alloc.width > 1366 && splitview.views.length () == 1 && contextbar.page_num (grid) == -1 ) {
-
-            bottombar.remove_page (bottombar.page_num (grid));
-            contextbar.append_page (grid, new Gtk.Label (_("Terminal")));
-            debug ("Move Terminal: CONTEXTBAR.");
-
-        } else if ((alloc.width <= 1366 || splitview.views.length () > 1) && bottombar.page_num (grid) == -1) {
+    void switch_terminal_location () {
+     
+     	if (bottombar.page_num (grid) == -1) {
 
             contextbar.remove_page (contextbar.page_num (grid));
             bottombar.append_page (grid, new Gtk.Label (_("Terminal")));
+            location.set_label (_("Move Terminal into contextbar"));
             debug ("Move Terminal: BOTTOMBAR.");
+            
+        } else if (contextbar.page_num (grid) == -1 ) {
+
+            bottombar.remove_page (bottombar.page_num (grid));
+            contextbar.append_page (grid, new Gtk.Label (_("Terminal")));
+            location.set_label (_("Move Terminal into bottombar"));
+            debug ("Move Terminal: CONTEXTBAR.");
 
         }
     }
@@ -191,19 +183,27 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         // Popup menu
         var menu = new Gtk.Menu ();
 
-        var copy = new Gtk.MenuItem.with_label (_("Copy"));
+        Gtk.MenuItem copy = new Gtk.MenuItem.with_label (_("Copy"));
         copy.activate.connect (() => {
             terminal.copy_clipboard ();
         });
         menu.append (copy);
         copy.show ();
 
-        var paste = new Gtk.MenuItem.with_label (_("Paste"));
+        Gtk.MenuItem paste = new Gtk.MenuItem.with_label (_("Paste"));
         paste.activate.connect (() => {
             terminal.paste_clipboard ();
         });
         menu.append (paste);
         paste.show ();
+
+        location = new Gtk.MenuItem.with_label ("");
+        location.activate.connect (() => {
+        	switch_terminal_location ();
+        });
+
+        menu.append (location);
+        location.show ();
 
         this.terminal.button_press_event.connect ((event) => {
             if (event.button == 3) {
