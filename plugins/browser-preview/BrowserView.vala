@@ -22,7 +22,7 @@ namespace Scratch.Plugins.BrowserPreview {
 
     internal class BrowserView : WebKit.WebView {
 
-        Gtk.Paned? paned = null;
+        public Gtk.Paned? paned = null;
 
         private unowned WebKit.WebView show_inspector_view (WebKit.WebView v) {
             debug ("Show inspector");

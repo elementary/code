@@ -26,11 +26,12 @@ namespace Scratch.Plugins {
     public class BrowserPreviewPlugin : Peas.ExtensionBase,  Peas.Activatable {
 
         Gtk.ToolButton? tool_button = null;
+        GLib.HashTable<Scratch.Services.Document, BrowserPreview.BrowserView> previews = new  GLib.HashTable<Scratch.Services.Document, BrowserPreview.BrowserView> (null, null);
+
         BrowserPreview.BrowserView? view = null;
-        Gtk.Paned? plugin_tab = null;
         Scratch.Services.Document? doc = null;
 
-        Gtk.Notebook notebook;
+        Gtk.Notebook? notebook = null;
 
         Scratch.Services.Interface plugins;
         public Object object { owned get; construct; }
@@ -42,7 +43,7 @@ namespace Scratch.Plugins {
             plugins = (Scratch.Services.Interface) object;
 
             plugins.hook_window.connect ((w) => {
-                set_current_document (w.get_current_document ());
+                this.doc = w.get_current_document ();
             });
 
             plugins.hook_document.connect (set_current_document);
@@ -58,8 +59,10 @@ namespace Scratch.Plugins {
             if (tool_button != null)
                 tool_button.destroy ();
 
-            if (plugin_tab != null)
-                plugin_tab.destroy ();
+            previews.foreach ((key, val) => {
+                key.doc_saved.disconnect (show_preview);
+                val.paned.destroy ();
+            });
         }
 
         void on_hook_split_view (Scratch.Widgets.SplitView view) {
@@ -88,48 +91,70 @@ namespace Scratch.Plugins {
         }
 
         void on_hook_context (Gtk.Notebook notebook) {
-            if (plugin_tab != null)
+            if (this.notebook != null)
                 return;
 
             this.notebook = notebook;
 
-            plugin_tab = new Gtk.Paned (Gtk.Orientation.VERTICAL);
-            
-            view = new BrowserPreview.BrowserView (plugin_tab);
-
-            notebook.append_page (plugin_tab, new Gtk.Label (_("Web preview")));
-
-            plugin_tab.show_all ();
+            set_current_document (this.doc);
         }
 
-        void toggle_plugin_visibility () {            
-            if (notebook.page_num (plugin_tab) == -1) {
-                notebook.append_page (plugin_tab, new Gtk.Label (_("Web preview")));
+        void toggle_plugin_visibility () {
+            if (notebook.page_num (view.paned) == -1) {
+                notebook.append_page (view.paned, new Gtk.Label (_("Web preview")));
                 tool_button.tooltip_text = _("Hide preview");
             } else {
-                notebook.remove (plugin_tab);
+                notebook.remove (view.paned);
                 tool_button.tooltip_text = _("Show preview");
             }
         }
 
         void set_current_document (Scratch.Services.Document? d) {
             if (d != null) {
+
                 this.doc = d;
-                this.doc.doc_saved.disconnect (show_preview);
-                this.doc.doc_saved.connect (show_preview);
+
+                if (previews.get (this.doc) == null) {
+
+                    previews.insert (this.doc, new BrowserPreview.BrowserView (new Gtk.Paned (Gtk.Orientation.VERTICAL)));
+
+                    this.doc.doc_saved.disconnect (show_preview);
+                    this.doc.doc_saved.connect (show_preview);
+                }
+
                 show_preview ();
             }
         }
 
         void show_preview () {
-            // Get uri
-            if (this.doc.file == null)
-                return;
-            string uri = this.doc.file.get_uri ();
 
-            debug ("Previewing: " + this.doc.file.get_basename ());
+            bool tab_is_selected = false;
+            int tab_page_number = 0;
 
-            view.load_uri (uri);
+            // Remove preview tab
+            if (view != null) {
+                // Check if Preview-Tab is selected
+                tab_page_number = notebook.page_num (view.paned);
+                tab_is_selected = notebook.get_current_page () == tab_page_number;
+                notebook.remove (view.paned);
+            }
+
+            view = previews.get (this.doc);          
+            view.paned.show_all ();
+
+            // Check if removed tab was visible
+            if (tab_page_number > -1) {
+                notebook.insert_page (view.paned, new Gtk.Label (_("Web preview")), tab_page_number);
+
+                // Select new tab if the removed tab was selected
+                if (tab_is_selected)
+                    notebook.set_current_page (tab_page_number);
+            }
+
+            if (view.uri == null || view.uri == "")
+                view.load_uri (this.doc.file.get_uri ());
+            else 
+                view.reload ();
         }
     }
 }
