@@ -42,7 +42,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         plugins.hook_window.connect ((w) => {
             if (window != null)
                 return;
-                
+
             window = w;
             window.key_press_event.connect (switch_focus);
         });
@@ -88,7 +88,12 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         // Set terminal font to system default font
         var system_settings = new GLib.Settings ("org.gnome.desktop.interface");
         string font_name = system_settings.get_string ("monospace-font-name");
+        #if ! VTE291
         this.terminal.set_font_from_string (font_name);
+        #else
+        var fd = Pango.FontDescription.from_string (font_name);
+        this.terminal.set_font (fd);
+        #endif
 
         // Set allow-bold, audible-bell, background, foreground, and palette of pantheon-terminal
         var schema_source = SettingsSchemaSource.get_default ();
@@ -102,15 +107,27 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             bool audible_bell_setting = pantheon_terminal_settings.get_boolean ("audible-bell");
             this.terminal.set_audible_bell (audible_bell_setting);
 
+            #if ! VTE291
             this.terminal.set_background_image (null); // allows background and foreground settings to take effect
+            #endif
 
             string background_setting = pantheon_terminal_settings.get_string ("background");
+            #if ! VTE291
             Gdk.Color background_color;
             Gdk.Color.parse (background_setting, out background_color);
+            #else
+            Gdk.RGBA background_color = Gdk.RGBA ();
+            background_color.parse (background_setting);
+            #endif
 
             string foreground_setting = pantheon_terminal_settings.get_string ("foreground");
+            #if ! VTE291
             Gdk.Color foreground_color;
             Gdk.Color.parse (foreground_setting, out foreground_color);
+            #else
+            Gdk.RGBA foreground_color = Gdk.RGBA ();
+            foreground_color.parse (foreground_setting);
+            #endif
 
             string palette_setting = pantheon_terminal_settings.get_string ("palette");
 
@@ -131,11 +148,20 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
                 }
             }
 
+            #if ! VTE291
             Gdk.Color[] palette = new Gdk.Color[16];
+            #else
+            Gdk.RGBA[] palette = new Gdk.RGBA[16];
+            #endif
 
             for (int i = 0; i < hex_palette.length; i++) {
+                #if ! VTE291
                 Gdk.Color new_color;
                 Gdk.Color.parse (hex_palette[i], out new_color);
+                #else
+                Gdk.RGBA new_color = Gdk.RGBA ();
+                new_color.parse (hex_palette[i]);
+                #endif
 
                 palette[i] = new_color;
             }
@@ -168,9 +194,13 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             }
             return false;
         });
-       
+
         try {
+            #if ! VTE291
             this.terminal.fork_command_full (Vte.PtyFlags.DEFAULT, "~/", { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, null);
+            #else
+            this.terminal.spawn_sync (Vte.PtyFlags.DEFAULT, "~/", { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, null, null);
+            #endif
         } catch (GLib.Error e) {
             warning (e.message);
         }
