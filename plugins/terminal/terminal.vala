@@ -42,7 +42,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         plugins.hook_window.connect ((w) => {
             if (window != null)
                 return;
-                
+
             window = w;
             window.key_press_event.connect (switch_focus);
         });
@@ -91,8 +91,8 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         #if ! VTE291
         this.terminal.set_font_from_string (font_name);
         #else
-        var fd = Pango.FontDescription.from_string(font_name);
-        this.terminal.set_font(fd);
+        var fd = Pango.FontDescription.from_string (font_name);
+        this.terminal.set_font (fd);
         #endif
 
         // Set allow-bold, audible-bell, background, foreground, and palette of pantheon-terminal
@@ -117,7 +117,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             Gdk.Color.parse (background_setting, out background_color);
             #else
             Gdk.RGBA background_color = Gdk.RGBA ();
-            background_color.parse(background_setting);
+            background_color.parse (background_setting);
             #endif
 
             string foreground_setting = pantheon_terminal_settings.get_string ("foreground");
@@ -126,7 +126,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             Gdk.Color.parse (foreground_setting, out foreground_color);
             #else
             Gdk.RGBA foreground_color = Gdk.RGBA ();
-            foreground_color.parse(foreground_setting);
+            foreground_color.parse (foreground_setting);
             #endif
 
             string palette_setting = pantheon_terminal_settings.get_string ("palette");
@@ -160,7 +160,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
                 Gdk.Color.parse (hex_palette[i], out new_color);
                 #else
                 Gdk.RGBA new_color = Gdk.RGBA ();
-                new_color.parse(hex_palette[i]);
+                new_color.parse (hex_palette[i]);
                 #endif
 
                 palette[i] = new_color;
@@ -194,7 +194,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             }
             return false;
         });
-       
+
         try {
             #if ! VTE291
             this.terminal.fork_command_full (Vte.PtyFlags.DEFAULT, "~/", { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, null);
