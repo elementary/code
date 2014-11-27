@@ -27,6 +27,8 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
 
     MainWindow window = null;
     Gtk.Notebook? bottombar = null;
+    Scratch.Widgets.Toolbar? toolbar = null;
+    Gtk.ToggleToolButton? tool_button = null;
     Vte.Terminal terminal;
     Gtk.Grid grid;
 
@@ -50,11 +52,19 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         plugins.hook_notebook_bottom.connect ((n) => {
             if (bottombar == null) {
                 this.bottombar = n;
-                on_hook (this.bottombar);
+                on_hook_notebook (this.bottombar);
+            }
+        });
+        plugins.hook_toolbar.connect ((n) => { 
+            if (toolbar == null) {
+                this.toolbar = n;
+                on_hook_toolbar (this.toolbar);
             }
         });
         if (bottombar != null)
-            on_hook (this.bottombar);
+            on_hook_notebook (this.bottombar);
+        if (toolbar != null)
+            on_hook_toolbar (this.toolbar);
     }
 
     public void deactivate () {
@@ -80,8 +90,32 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         }
         return false;
     }
+    
+    void on_hook_toolbar (Scratch.Widgets.Toolbar toolbar) {
+        if (tool_button != null)
+            return;
 
-    void on_hook (Gtk.Notebook notebook) {
+        var icon = new Gtk.Image.from_icon_name ("utilities-terminal", Gtk.IconSize.LARGE_TOOLBAR);
+        tool_button = new Gtk.ToggleToolButton ();
+        tool_button.set_icon_widget (icon);
+        tool_button.set_label (_("Show Terminal"));
+        tool_button.set_active (true);
+        tool_button.tooltip_text = _("Show Terminal");
+        tool_button.toggled.connect (() => {
+        	if (!this.tool_button.get_active ()) {
+        		this.bottombar.remove (this.grid);
+        	} else {
+		        this.bottombar.append_page (grid, new Gtk.Label (_("Terminal")));
+        	}
+        });
+
+        icon.show ();
+        tool_button.show ();
+
+        toolbar.pack_start (tool_button);
+    }
+
+    void on_hook_notebook (Gtk.Notebook notebook) {
         this.terminal = new Vte.Terminal ();
         this.terminal.scrollback_lines = -1;
 
