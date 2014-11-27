@@ -70,6 +70,8 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
     public void deactivate () {
         if (terminal != null)
             grid.destroy ();
+        if (tool_button != null)
+            tool_button.destroy ();
         if (window != null)
             window.key_press_event.disconnect (switch_focus);
     }
@@ -99,7 +101,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         tool_button = new Gtk.ToggleToolButton ();
         tool_button.set_icon_widget (icon);
         tool_button.set_label (_("Show Terminal"));
-        tool_button.set_active (true);
+        tool_button.set_active (false);
         tool_button.tooltip_text = _("Show Terminal");
         tool_button.toggled.connect (() => {
         	if (!this.tool_button.get_active ()) {
@@ -247,8 +249,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         // Make the terminal occupy the whole GUI
         terminal.vexpand = true;
         terminal.hexpand = true;
-
-        notebook.append_page (grid, new Gtk.Label (_("Terminal")));
 
         grid.show_all ();
 
