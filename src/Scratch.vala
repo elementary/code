@@ -126,11 +126,13 @@ namespace Scratch {
                 return Posix.EXIT_FAILURE;
             }
 
+            bool is_app_launch = (get_last_window () == null ? true : false);
+
             // Create (or show) the first window
             activate ();
 
-            // Create a second window if requested
-            if (create_new_window) {
+            // Create a next window if requested and it's not the app launch 
+            if (create_new_window && !is_app_launch) {
                 create_new_window = false;
                 this.new_window ();
             }
