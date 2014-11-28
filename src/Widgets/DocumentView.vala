@@ -265,8 +265,8 @@ namespace Scratch.Widgets {
             return true;  
         }
         
-        private bool drag_motion(Gdk.DragContext ctx, int x, int y, uint time){
-			return true;
+        private bool drag_motion (Gdk.DragContext ctx, int x, int y, uint time){
+            return true;
         }
         
         private void drag_received(Gdk.DragContext ctx, int x, int y, Gtk.SelectionData sel,  uint info, uint time){
