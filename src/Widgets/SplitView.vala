@@ -71,7 +71,7 @@ namespace Scratch.Widgets {
             this.welcome_screen.drag_data_received.connect ((ctx, x, y, sel, info, time) => {
                 var uris = sel.get_uris ();
                 if (uris.length > 0) {
-                    var view = this.current_view ?? this.add_view ();
+                    var view = this.add_view ();
 
                     for (var i = 0; i < uris.length; i++) {
                         string filename = uris[i];
@@ -202,3 +202,4 @@ namespace Scratch.Widgets {
         }
     }
 }
+
