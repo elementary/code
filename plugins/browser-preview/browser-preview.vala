@@ -151,7 +151,7 @@ namespace Scratch.Plugins {
                     notebook.set_current_page (tab_page_number);
             }
 
-            if (view.uri == null || view.uri == "")
+            if (view.uri == null || view.uri == "" || view.uri != this.doc.file.get_uri ())
                 view.load_uri (this.doc.file.get_uri ());
             else 
                 view.reload ();
