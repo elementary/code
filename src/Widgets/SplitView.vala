@@ -35,6 +35,7 @@ namespace Scratch.Widgets {
         public signal void welcome_shown ();
         public signal void welcome_hidden ();
         public signal void document_change (Scratch.Services.Document document);
+        public signal void views_changed (uint count);
 
         private weak MainWindow window;
 
@@ -126,7 +127,6 @@ namespace Scratch.Widgets {
 
             // Enbale/Disable useless GtkActions about views
             check_actions ();
-
             return view;
         }
 
@@ -199,6 +199,8 @@ namespace Scratch.Widgets {
         private void check_actions () {
             window.main_actions.get_action ("NewView").sensitive = (views.length () < 2);
             window.main_actions.get_action ("RemoveView").sensitive = (views.length () > 1);
+
+            views_changed (views.length ());
         }
     }
 }
