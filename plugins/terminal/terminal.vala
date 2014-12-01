@@ -26,9 +26,16 @@ public const string DESCRIPTION = N_("A terminal in your text editor");
 public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
 
     MainWindow window = null;
+
     Gtk.Notebook? bottombar = null;
     Scratch.Widgets.Toolbar? toolbar = null;
     Gtk.ToggleToolButton? tool_button = null;
+    Gtk.Notebook? contextbar = null;
+    bool on_side = false;
+    
+    Gtk.RadioMenuItem location_bottom = null;
+    Gtk.RadioMenuItem location_right = null;
+
     Vte.Terminal terminal;
     Gtk.Grid grid;
 
@@ -39,6 +46,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
     }
 
     public void activate () {
+
         plugins = (Scratch.Services.Interface) object;
 
         plugins.hook_window.connect ((w) => {
@@ -52,7 +60,12 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         plugins.hook_notebook_bottom.connect ((n) => {
             if (bottombar == null) {
                 this.bottombar = n;
-                on_hook_notebook (this.bottombar);
+            }
+            switch_terminal_location ();
+        });
+        plugins.hook_notebook_context.connect ((n) => {
+            if (contextbar == null) {
+                this.contextbar = n;
             }
         });
         plugins.hook_toolbar.connect ((n) => { 
@@ -61,10 +74,8 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
                 on_hook_toolbar (this.toolbar);
             }
         });
-        if (bottombar != null)
-            on_hook_notebook (this.bottombar);
-        if (toolbar != null)
-            on_hook_toolbar (this.toolbar);
+        
+        on_hook_notebook (this.bottombar);
     }
 
     public void deactivate () {
@@ -72,22 +83,46 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             grid.destroy ();
         if (tool_button != null)
             tool_button.destroy ();
-        if (window != null)
-            window.key_press_event.disconnect (switch_focus);
+
+        window.key_press_event.disconnect (switch_focus);
+    }
+
+    void switch_terminal_location () {
+     
+         if (bottombar.page_num (grid) == -1 && this.location_bottom.active) {
+
+            contextbar.remove_page (contextbar.page_num (grid));
+            bottombar.append_page (grid, new Gtk.Label (_("Terminal")));
+            on_side = false;
+            debug ("Move Terminal: BOTTOMBAR.");
+            
+        } else if (contextbar.page_num (grid) == -1 && this.location_right.active) {
+
+            bottombar.remove_page (bottombar.page_num (grid));
+            contextbar.append_page (grid, new Gtk.Label (_("Terminal")));
+            on_side = true;
+            debug ("Move Terminal: CONTEXTBAR.");
+
+        }
     }
 
     bool switch_focus (Gdk.EventKey event) {
         if (event.keyval == Gdk.Key.t
             && Gdk.ModifierType.MOD1_MASK in event.state
             && Gdk.ModifierType.CONTROL_MASK in event.state) {
+
             if (terminal.has_focus && window.get_current_document () != null) {
+
                 window.get_current_document ().focus ();
                 debug ("Move focus: EDITOR.");
                 return true;
+
             } else if (window.get_current_document () != null && window.get_current_document ().source_view.has_focus) {
+
                 terminal.grab_focus ();
                 debug ("Move focus: TERMINAL.");
                 return true;
+
             }
         }
         return false;
@@ -104,11 +139,19 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         tool_button.set_active (false);
         tool_button.tooltip_text = _("Show Terminal");
         tool_button.toggled.connect (() => {
-        	if (!this.tool_button.get_active ()) {
-        		this.bottombar.remove (this.grid);
-        	} else {
-		        this.bottombar.append_page (grid, new Gtk.Label (_("Terminal")));
-        	}
+            if (!this.tool_button.get_active ()) {
+                if (on_side == true) {
+                    contextbar.remove_page (contextbar.page_num (grid));
+                } else {
+                    bottombar.remove_page (bottombar.page_num (grid));
+                }
+            } else {
+                if (on_side == true) {
+                    contextbar.append_page (grid, new Gtk.Label (_("Terminal")));
+                } else {
+                    bottombar.append_page (grid, new Gtk.Label (_("Terminal")));
+                }
+            }
         });
 
         icon.show ();
@@ -209,19 +252,39 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         // Popup menu
         var menu = new Gtk.Menu ();
 
-        var copy = new Gtk.MenuItem.with_label (_("Copy"));
+        // COPY
+        Gtk.MenuItem copy = new Gtk.MenuItem.with_label (_("Copy"));
         copy.activate.connect (() => {
             terminal.copy_clipboard ();
         });
         menu.append (copy);
-        copy.show ();
 
-        var paste = new Gtk.MenuItem.with_label (_("Paste"));
+        // PASTE
+        Gtk.MenuItem paste = new Gtk.MenuItem.with_label (_("Paste"));
         paste.activate.connect (() => {
             terminal.paste_clipboard ();
         });
         menu.append (paste);
-        paste.show ();
+
+        // SEPARATOR
+        menu.append (new Gtk.SeparatorMenuItem ());
+
+        // ON RIGHT
+        location_right = new Gtk.RadioMenuItem.with_label (null, _("Terminal on Right"));
+        location_right.toggled.connect (() => {
+            switch_terminal_location ();
+        });
+        menu.append (location_right);
+
+        // ON BOTTOM
+        location_bottom = new Gtk.RadioMenuItem.with_label (location_right.get_group (), _("Terminal on Bottom"));
+        location_bottom.active = true;
+        location_bottom.toggled.connect (() => {
+            switch_terminal_location ();
+        });
+        menu.append (location_bottom);
+
+        menu.show_all ();
 
         this.terminal.button_press_event.connect ((event) => {
             if (event.button == 3) {
@@ -251,7 +314,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         terminal.hexpand = true;
 
         grid.show_all ();
-
     }
 }
 

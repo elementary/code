@@ -23,12 +23,12 @@ using Granite;
 using Granite.Services;
 
 namespace Scratch {
-    
+
     // Settings
     public SavedState saved_state;
     public Settings settings;
     public ServicesSettings services;
-    
+
     public class ScratchApp : Granite.Application {
 
         private GLib.List <MainWindow> windows;
@@ -42,7 +42,7 @@ namespace Scratch {
         private static bool print_version = false;
         private static bool create_new_tab = false;
         private static bool create_new_window = false;
-        
+
         construct {
             flags |= ApplicationFlags.HANDLES_OPEN;
             flags |= ApplicationFlags.HANDLES_COMMAND_LINE;
@@ -93,7 +93,7 @@ namespace Scratch {
             settings = new Settings ();
             services = new ServicesSettings ();
             windows = new GLib.List <MainWindow> ();
-            
+
             // Init data home folder for unsaved text files
             _data_home_folder_unsaved = Environment.get_user_data_dir () + "/" + exec_name + "/unsaved/";
         }
@@ -126,11 +126,13 @@ namespace Scratch {
                 return Posix.EXIT_FAILURE;
             }
 
+            bool is_app_launch = (get_last_window () == null);
+
             // Create (or show) the first window
             activate ();
 
-            // Create a second window if requested
-            if (create_new_window) {
+            // Create a next window if requested and it's not the app launch
+            if (create_new_window && !is_app_launch) {
                 create_new_window = false;
                 this.new_window ();
             }
@@ -143,7 +145,7 @@ namespace Scratch {
             }
 
             // Set Current Directory
-            Environment.set_current_dir (_cwd); 
+            Environment.set_current_dir (_cwd);
 
             // Open all files given as arguments
             if (unclaimed_args > 0) {
@@ -168,9 +170,9 @@ namespace Scratch {
                 // Restore opened documents
                 if (settings.show_at_start == "last-tabs") {
                     window.start_loading ();
-                    
+
                     string[] uris = settings.schema.get_strv ("opened-files");
-                
+
                     foreach (string uri in uris) {
                        if (uri != "") {
                             var file = File.new_for_uri (uri);
@@ -187,7 +189,7 @@ namespace Scratch {
             }
 
         }
-        
+
         protected override void open (File[] files, string hint) {
             // Add a view if there aren't and get the current DocumentView
             Scratch.Widgets.DocumentView? view = null;
@@ -197,7 +199,7 @@ namespace Scratch {
                 view = window.add_view ();
             else
                 view = window.get_current_view ();
-            
+
             for (int i = 0; i < files.length; i++) {
                 // Check if the given path is a directory
                 try {
@@ -233,13 +235,13 @@ namespace Scratch {
             windows.remove (window as MainWindow);
             base.window_removed (window);
         }
-        
+
         static const OptionEntry[] entries = {
             { "new-tab", 't', 0, OptionArg.NONE, out create_new_tab, N_("New Tab"), null },
             { "new-window", 'n', 0, OptionArg.NONE, out create_new_window, N_("New Window"), null },
             { "version", 'v', 0, OptionArg.NONE, out print_version, N_("Print version info and exit"), null },
             { "set", 's', 0, OptionArg.STRING, ref _app_cmd_name, N_("Set of plugins"), "" },
-            { "cwd", 'c', 0, OptionArg.STRING, ref _cwd, N_("Current working directory"), "" },            
+            { "cwd", 'c', 0, OptionArg.STRING, ref _cwd, N_("Current working directory"), "" },
             { null }
         };
 
@@ -252,7 +254,7 @@ namespace Scratch {
 
             string[] args_primary_instance = args;
             args_primary_instance += "-c";
-            args_primary_instance += Environment.get_current_dir (); 
+            args_primary_instance += Environment.get_current_dir ();
 
             try {
                 context.parse (ref args);

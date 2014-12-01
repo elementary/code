@@ -214,13 +214,21 @@ namespace Scratch {
 
             this.contextbar = new Gtk.Notebook ();
             this.contextbar.no_show_all = true;
-            this.contextbar.page_added.connect (() => { on_plugin_toggled (contextbar); });
             this.contextbar.page_removed.connect (() => { on_plugin_toggled (contextbar); });
+            this.contextbar.page_added.connect (() => { 
+                if (!this.split_view.is_empty ())
+                    on_plugin_toggled (contextbar); 
+            });
+            
+
 
             this.bottombar = new Gtk.Notebook ();
             this.bottombar.no_show_all = true;
-            this.bottombar.page_added.connect (() => { on_plugin_toggled (bottombar); });
             this.bottombar.page_removed.connect (() => { on_plugin_toggled (bottombar); });
+            this.bottombar.page_added.connect (() => { 
+                if (!this.split_view.is_empty ())
+                    on_plugin_toggled (bottombar); 
+            });            
 
             hp1 = new Granite.Widgets.ThinPaned ();
             hp2 = new Granite.Widgets.ThinPaned ();
@@ -287,7 +295,7 @@ namespace Scratch {
             set_widgets_sensitive (!split_view.is_empty ());
         }
 
-         private void on_plugin_toggled (Gtk.Notebook notebook) {
+        private void on_plugin_toggled (Gtk.Notebook notebook) {
             var pages = notebook.get_n_pages ();
             notebook.set_show_tabs (pages > 1);
             notebook.no_show_all = (pages == 0);

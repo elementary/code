@@ -91,6 +91,7 @@ namespace Scratch.Widgets {
             pack_start (revert_button);
             pack_start (new SeparatorToolItem ());
             pack_start (find_button);
+            pack_start (find_button);
            
             pack_end (share_app_menu);
             pack_end (zoom_default);
