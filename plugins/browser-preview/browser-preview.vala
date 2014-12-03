@@ -101,7 +101,7 @@ namespace Scratch.Plugins {
 
         void toggle_plugin_visibility () {
             if (notebook.page_num (view.paned) == -1) {
-                notebook.set_current_page(notebook.append_page (view.paned, new Gtk.Label (_("Web preview"))));
+                notebook.set_current_page (notebook.append_page (view.paned, new Gtk.Label (_("Web preview"))));
                 tool_button.tooltip_text = _("Hide preview");
             } else {
                 notebook.remove (view.paned);
