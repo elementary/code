@@ -94,14 +94,14 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
      	if (bottombar.page_num (grid) == -1 && this.location_bottom.active) {
 
             contextbar.remove_page (contextbar.page_num (grid));
-            bottombar.append_page (grid, new Gtk.Label (_("Terminal")));
+            bottombar.set_current_page(bottombar.append_page (grid, new Gtk.Label (_("Terminal"))));
             on_bottom = true;
             debug ("Move Terminal: BOTTOMBAR.");
 
         } else if (contextbar.page_num (grid) == -1 && this.location_right.active) {
 
             bottombar.remove_page (bottombar.page_num (grid));
-            contextbar.append_page (grid, new Gtk.Label (_("Terminal")));
+            contextbar.set_current_page(contextbar.append_page (grid, new Gtk.Label (_("Terminal"))));
             on_bottom = false;
             debug ("Move Terminal: CONTEXTBAR.");
 
@@ -141,9 +141,9 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             if (this.toolbutton.active) {
                 toolbutton.tooltip_text = _("Hide Terminal");
                 if (on_bottom) {
-                    bottombar.append_page (grid, new Gtk.Label (_("Terminal")));
+                    bottombar.set_current_page(bottombar.append_page (grid, new Gtk.Label (_("Terminal"))));
                 } else {
-                    contextbar.append_page (grid, new Gtk.Label (_("Terminal")));
+                    contextbar.set_current_page(contextbar.append_page (grid, new Gtk.Label (_("Terminal"))));
                 }
             } else {
                 toolbutton.tooltip_text = _("Show Terminal");
