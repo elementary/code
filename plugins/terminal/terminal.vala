@@ -29,7 +29,11 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
 
     Gtk.Notebook? bottombar = null;
     Gtk.Notebook? contextbar = null;
-    
+    Scratch.Widgets.Toolbar? toolbar = null;
+    Gtk.ToggleToolButton? toolbutton = null;
+
+    bool on_bottom = true;
+
     Gtk.RadioMenuItem location_bottom = null;
     Gtk.RadioMenuItem location_right = null;
 
@@ -58,7 +62,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             if (bottombar == null) {
                 this.bottombar = n;
             }
-            switch_terminal_location ();
         });
 
         plugins.hook_notebook_context.connect ((n) => {
@@ -67,28 +70,39 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             }
         });
 
-        on_hook ();
+        plugins.hook_toolbar.connect ((n) => {
+            if (toolbar == null) {
+                this.toolbar = n;
+                on_hook_toolbar (this.toolbar);
+            }
+        });
+
+        on_hook_notebook ();
     }
 
     public void deactivate () {
         if (terminal != null)
             grid.destroy ();
+        if (toolbutton != null)
+            toolbutton.destroy ();
 
         window.key_press_event.disconnect (switch_focus);
     }
 
     void switch_terminal_location () {
-     
+
      	if (bottombar.page_num (grid) == -1 && this.location_bottom.active) {
 
             contextbar.remove_page (contextbar.page_num (grid));
-            bottombar.append_page (grid, new Gtk.Label (_("Terminal")));
+            bottombar.set_current_page (bottombar.append_page (grid, new Gtk.Label (_("Terminal"))));
+            on_bottom = true;
             debug ("Move Terminal: BOTTOMBAR.");
-            
+
         } else if (contextbar.page_num (grid) == -1 && this.location_right.active) {
 
             bottombar.remove_page (bottombar.page_num (grid));
-            contextbar.append_page (grid, new Gtk.Label (_("Terminal")));
+            contextbar.set_current_page (contextbar.append_page (grid, new Gtk.Label (_("Terminal"))));
+            on_bottom = false;
             debug ("Move Terminal: CONTEXTBAR.");
 
         }
@@ -116,7 +130,36 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         return false;
     }
 
-    void on_hook () {
+    void on_hook_toolbar (Scratch.Widgets.Toolbar toolbar) {
+        var icon = new Gtk.Image.from_icon_name ("utilities-terminal", Gtk.IconSize.LARGE_TOOLBAR);
+        toolbutton = new Gtk.ToggleToolButton ();
+        toolbutton.set_icon_widget (icon);
+        toolbutton.set_active (false);
+        toolbutton.tooltip_text = _("Show Terminal");
+        toolbutton.toggled.connect (() => {
+            if (this.toolbutton.active) {
+                toolbutton.tooltip_text = _("Hide Terminal");
+                if (on_bottom) {
+                    bottombar.set_current_page (bottombar.append_page (grid, new Gtk.Label (_("Terminal"))));
+                } else {
+                    contextbar.set_current_page (contextbar.append_page (grid, new Gtk.Label (_("Terminal"))));
+                }
+            } else {
+                toolbutton.tooltip_text = _("Show Terminal");
+                if (on_bottom) {
+                    bottombar.remove_page (bottombar.page_num (grid));
+                } else {
+                    contextbar.remove_page (contextbar.page_num (grid));
+                }
+            }
+        });
+
+        toolbutton.show_all ();
+
+        toolbar.pack_start (toolbutton);
+    }
+
+    void on_hook_notebook () {
         this.terminal = new Vte.Terminal ();
         this.terminal.scrollback_lines = -1;
 
