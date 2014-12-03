@@ -139,7 +139,7 @@ namespace Scratch.Plugins {
                 notebook.remove (view.paned);
             }
 
-            view = previews.get (this.doc);
+            view = previews.get (this.doc);          
             view.paned.show_all ();
 
             // Check if removed tab was visible
@@ -153,7 +153,7 @@ namespace Scratch.Plugins {
 
             if (view.uri == null || view.uri == "" || view.uri != this.doc.file.get_uri ())
                 view.load_uri (this.doc.file.get_uri ());
-            else
+            else 
                 view.reload ();
         }
     }
