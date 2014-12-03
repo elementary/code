@@ -31,9 +31,9 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
     Gtk.Notebook? contextbar = null;
     Scratch.Widgets.Toolbar? toolbar = null;
     Gtk.ToggleToolButton? toolbutton = null;
-    
+
     bool on_bottom = true;
-    
+
     Gtk.RadioMenuItem location_bottom = null;
     Gtk.RadioMenuItem location_right = null;
 
@@ -69,8 +69,8 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
                 this.contextbar = n;
             }
         });
-        
-        plugins.hook_toolbar.connect ((n) => { 
+
+        plugins.hook_toolbar.connect ((n) => {
             if (toolbar == null) {
                 this.toolbar = n;
                 on_hook_toolbar (this.toolbar);
@@ -90,14 +90,14 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
     }
 
     void switch_terminal_location () {
-     
+
      	if (bottombar.page_num (grid) == -1 && this.location_bottom.active) {
 
             contextbar.remove_page (contextbar.page_num (grid));
             bottombar.append_page (grid, new Gtk.Label (_("Terminal")));
             on_bottom = true;
             debug ("Move Terminal: BOTTOMBAR.");
-            
+
         } else if (contextbar.page_num (grid) == -1 && this.location_right.active) {
 
             bottombar.remove_page (bottombar.page_num (grid));
@@ -129,32 +129,33 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         }
         return false;
     }
-    
+
     void on_hook_toolbar (Scratch.Widgets.Toolbar toolbar) {
         var icon = new Gtk.Image.from_icon_name ("utilities-terminal", Gtk.IconSize.LARGE_TOOLBAR);
         toolbutton = new Gtk.ToggleToolButton ();
         toolbutton.set_icon_widget (icon);
-        toolbutton.set_label (_("Show Terminal"));
+        toolbutton.set_label (_("Get Terminal!"));
         toolbutton.set_active (false);
         toolbutton.tooltip_text = _("Show Terminal");
         toolbutton.toggled.connect (() => {
             if (this.toolbutton.active) {
+                toolbutton.tooltip_text = _("Hide Terminal");
                 if (on_bottom) {
                     bottombar.append_page (grid, new Gtk.Label (_("Terminal")));
                 } else {
                     contextbar.append_page (grid, new Gtk.Label (_("Terminal")));
                 }
             } else {
+                toolbutton.tooltip_text = _("Show Terminal");
                 if (on_bottom) {
                     bottombar.remove_page (bottombar.page_num (grid));
                 } else {
                     contextbar.remove_page (contextbar.page_num (grid));
-                } 
+                }
             }
         });
 
-        icon.show ();
-        toolbutton.show ();
+        toolbutton.show_all ();
 
         toolbar.pack_start (toolbutton);
     }
