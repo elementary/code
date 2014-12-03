@@ -156,7 +156,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
 
         toolbutton.show_all ();
 
-        toolbar.pack_start (toolbutton);
+        toolbar.pack_end (toolbutton);
     }
 
     void on_hook_notebook () {

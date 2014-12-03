@@ -25,7 +25,7 @@ namespace Scratch.Plugins {
 
     public class BrowserPreviewPlugin : Peas.ExtensionBase,  Peas.Activatable {
 
-        Gtk.ToolButton? tool_button = null;
+        Gtk.ToggleToolButton? tool_button = null;
         GLib.HashTable<Scratch.Services.Document, BrowserPreview.BrowserView> previews = new  GLib.HashTable<Scratch.Services.Document, BrowserPreview.BrowserView> (null, null);
 
         BrowserPreview.BrowserView? view = null;
@@ -80,14 +80,14 @@ namespace Scratch.Plugins {
                 return;
 
             var icon = new Gtk.Image.from_icon_name ("emblem-web", Gtk.IconSize.LARGE_TOOLBAR);
-            tool_button = new Gtk.ToolButton (icon, _("Get preview!"));
-            tool_button.tooltip_text = _("Hide preview");
-            tool_button.clicked.connect (toggle_plugin_visibility);
+            tool_button = new Gtk.ToggleToolButton ();
+            tool_button.set_icon_widget (icon);
+            tool_button.tooltip_text = _("Hide Preview");
+            tool_button.toggled.connect (toggle_plugin_visibility);
 
-            icon.show ();
-            tool_button.show ();
+            tool_button.show_all ();
 
-            toolbar.pack_start (tool_button);
+            toolbar.pack_end (tool_button);
         }
 
         void on_hook_context (Gtk.Notebook notebook) {
@@ -100,12 +100,12 @@ namespace Scratch.Plugins {
         }
 
         void toggle_plugin_visibility () {
-            if (notebook.page_num (view.paned) == -1) {
-                notebook.set_current_page (notebook.append_page (view.paned, new Gtk.Label (_("Web preview"))));
-                tool_button.tooltip_text = _("Hide preview");
+            if (tool_button.active) {
+                notebook.set_current_page (notebook.append_page (view.paned, new Gtk.Label (_("Web Preview"))));
+                tool_button.tooltip_text = _("Hide Preview");
             } else {
                 notebook.remove (view.paned);
-                tool_button.tooltip_text = _("Show preview");
+                tool_button.tooltip_text = _("Show Preview");
             }
         }
 
@@ -143,8 +143,8 @@ namespace Scratch.Plugins {
             view.paned.show_all ();
 
             // Check if removed tab was visible
-            if (tab_page_number > -1) {
-                notebook.insert_page (view.paned, new Gtk.Label (_("Web preview")), tab_page_number);
+            if (tool_button.active) {
+                notebook.insert_page (view.paned, new Gtk.Label (_("Web Preview")), tab_page_number);
 
                 // Select new tab if the removed tab was selected
                 if (tab_is_selected)
