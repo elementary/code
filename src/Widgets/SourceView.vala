@@ -260,11 +260,12 @@ namespace Scratch.Widgets {
         }
 
         // Get selected text
-        public string get_selected_text () {
+        public string get_selected_text (bool replace_new_line = true) {
             TextIter start, end;
             this.buffer.get_selection_bounds (out start, out end);
             string selected = this.buffer.get_text (start, end, true);
-            selected = selected.chomp ().replace ("\n", " ");
+            if (replace_new_line)
+                selected = selected.chomp ().replace ("\n", " ");
             return selected;
         }
 
@@ -306,7 +307,10 @@ namespace Scratch.Widgets {
             buffer.place_cursor (start);
         }
 
-        public void set_language (SourceLanguage lang) {
+        public void set_language (SourceLanguage? lang) {
+            if (lang == null)
+                return;
+                
             this.buffer.set_language (lang);
             this.language_changed (lang);
         }
