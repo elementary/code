@@ -166,7 +166,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             }
         });
 
-		tool_button.show_all ();
+        tool_button.show_all ();
 
         toolbar.pack_end (tool_button);
     }
