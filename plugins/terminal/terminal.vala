@@ -30,7 +30,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
     Gtk.Notebook? bottombar = null;
     Gtk.Notebook? contextbar = null;
     Scratch.Widgets.Toolbar? toolbar = null;
-    Gtk.ToggleToolButton? toolbutton = null;
+    Gtk.ToggleToolButton? tool_button = null;
 
     bool on_bottom = true;
 
@@ -77,21 +77,23 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             }
         });
 
+        plugins.hook_split_view.connect (on_hook_split_view);
+
         on_hook_notebook ();
     }
 
     public void deactivate () {
         if (terminal != null)
             grid.destroy ();
-        if (toolbutton != null)
-            toolbutton.destroy ();
+        if (tool_button != null)
+            tool_button.destroy ();
 
         window.key_press_event.disconnect (switch_focus);
     }
 
     void switch_terminal_location () {
 
-     	if (bottombar.page_num (grid) == -1 && this.location_bottom.active) {
+        if (bottombar.page_num (grid) == -1 && this.location_bottom.active) {
 
             contextbar.remove_page (contextbar.page_num (grid));
             bottombar.set_current_page (bottombar.append_page (grid, new Gtk.Label (_("Terminal"))));
@@ -130,22 +132,32 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         return false;
     }
 
+    void on_hook_split_view (Scratch.Widgets.SplitView view) {
+        this.tool_button.visible = ! view.is_empty ();
+        view.welcome_shown.connect (() => {
+            this.tool_button.visible = false;
+        });
+        view.welcome_hidden.connect (() => {
+            this.tool_button.visible = true;
+        });
+    }
+
     void on_hook_toolbar (Scratch.Widgets.Toolbar toolbar) {
         var icon = new Gtk.Image.from_icon_name ("utilities-terminal", Gtk.IconSize.LARGE_TOOLBAR);
-        toolbutton = new Gtk.ToggleToolButton ();
-        toolbutton.set_icon_widget (icon);
-        toolbutton.set_active (false);
-        toolbutton.tooltip_text = _("Show Terminal");
-        toolbutton.toggled.connect (() => {
-            if (this.toolbutton.active) {
-                toolbutton.tooltip_text = _("Hide Terminal");
+        tool_button = new Gtk.ToggleToolButton ();
+        tool_button.set_icon_widget (icon);
+        tool_button.set_active (false);
+        tool_button.tooltip_text = _("Show Terminal");
+        tool_button.toggled.connect (() => {
+            if (this.tool_button.active) {
+                tool_button.tooltip_text = _("Hide Terminal");
                 if (on_bottom) {
                     bottombar.set_current_page (bottombar.append_page (grid, new Gtk.Label (_("Terminal"))));
                 } else {
                     contextbar.set_current_page (contextbar.append_page (grid, new Gtk.Label (_("Terminal"))));
                 }
             } else {
-                toolbutton.tooltip_text = _("Show Terminal");
+                tool_button.tooltip_text = _("Show Terminal");
                 if (on_bottom) {
                     bottombar.remove_page (bottombar.page_num (grid));
                 } else {
@@ -154,9 +166,9 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             }
         });
 
-        toolbutton.show_all ();
+        tool_button.show_all ();
 
-        toolbar.pack_end (toolbutton);
+        toolbar.pack_end (tool_button);
     }
 
     void on_hook_notebook () {
