@@ -61,12 +61,20 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         plugins.hook_notebook_bottom.connect ((n) => {
             if (bottombar == null) {
                 this.bottombar = n;
+                this.bottombar.switch_page.connect ((page, page_num) => {
+                    if(tool_button.active != (grid == page) && bottombar.page_num(grid) > -1)
+                        tool_button.active = (grid == page);
+                });
             }
         });
 
         plugins.hook_notebook_context.connect ((n) => {
             if (contextbar == null) {
                 this.contextbar = n;
+                this.contextbar.switch_page.connect ((page, page_num) => {
+                    if(tool_button.active != (grid == page) && contextbar.page_num(grid) > -1)
+                        tool_button.active = (grid == page);
+                });
             }
         });
 
