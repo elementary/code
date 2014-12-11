@@ -47,19 +47,22 @@ namespace Scratch.Plugins {
 
         public void activate () {
             scratch_interface = (Scratch.Services.Interface)object;
-            
+
             scratch_interface.hook_document.connect (on_hook_document);
 
             scratch_interface.hook_split_view.connect (on_hook_split_view);
 
             scratch_interface.hook_notebook_context.connect (on_hook_context);
-            
+
             scratch_interface.hook_toolbar.connect (on_hook_toolbar);
-            
+
             views = new Gee.LinkedList<SymbolOutline> ();
         }
 
         public void deactivate () {
+            if (tool_button != null)
+                tool_button.destroy ();
+
             container.destroy ();
         }
 
@@ -96,7 +99,7 @@ namespace Scratch.Plugins {
                 return;
             if (this.notebook == null)
                 this.notebook = notebook;
-            
+
             this.notebook.switch_page.connect ((page, page_num) => {
                 if(tool_button.active != (container == page))
                     tool_button.active = (container == page);
@@ -109,7 +112,7 @@ namespace Scratch.Plugins {
         }
 
         void on_hook_document (Scratch.Services.Document doc) {
-            if (current_view != null && current_view.doc == doc) 
+            if (current_view != null && current_view.doc == doc)
                 return;
 
             if (current_view != null)
@@ -147,19 +150,19 @@ namespace Scratch.Plugins {
                 remove_container ();
             }
         }
-        
+
         void add_container () {
             if(notebook.page_num (container) == -1) {
                 notebook.append_page (container, new Gtk.Label (_("Symbols")));
                 container.show_all ();
             }
         }
-        
+
         void remove_container () {
             if (notebook.page_num (container) != -1)
                 notebook.remove (container);
         }
-        
+
         void on_hook_split_view (Scratch.Widgets.SplitView view) {
             this.tool_button.visible = ! view.is_empty ();
             view.welcome_shown.connect (() => {
@@ -169,7 +172,7 @@ namespace Scratch.Plugins {
                 this.tool_button.visible = true;
             });
         }
-        
+
         void update_timeout () {
             if (refresh_timeout != 0)
                 Source.remove (refresh_timeout);
