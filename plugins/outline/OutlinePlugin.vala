@@ -35,7 +35,7 @@ namespace Scratch.Plugins {
     public class OutlinePlugin : Peas.ExtensionBase, Peas.Activatable {
         public Object object { owned get; construct; }
 
-        Gtk.ToggleToolButton? tool_button = null;
+        //Gtk.ToggleToolButton? tool_button = null;
         Scratch.Services.Interface scratch_interface;
         SymbolOutline? current_view = null;
         Gtk.EventBox? container = null;
@@ -50,64 +50,27 @@ namespace Scratch.Plugins {
 
             scratch_interface.hook_document.connect (on_hook_document);
 
-            scratch_interface.hook_split_view.connect (on_hook_split_view);
-
-            scratch_interface.hook_notebook_context.connect (on_hook_context);
-
-            scratch_interface.hook_toolbar.connect (on_hook_toolbar);
+            scratch_interface.hook_notebook_sidebar.connect (on_hook_sidebar);
 
             views = new Gee.LinkedList<SymbolOutline> ();
         }
 
         public void deactivate () {
-            if (tool_button != null)
-                tool_button.destroy ();
-
             container.destroy ();
         }
 
         public void update_state () {
         }
 
-        void on_hook_toolbar (Scratch.Widgets.Toolbar toolbar) {
-            if (tool_button != null)
-                return;
-
-            var icon = new Gtk.Image.from_icon_name ("error", Gtk.IconSize.LARGE_TOOLBAR);
-            tool_button = new Gtk.ToggleToolButton ();
-            tool_button.set_icon_widget (icon);
-            tool_button.tooltip_text = _("Show Ouline");
-            tool_button.toggled.connect (toggle_plugin_visibility);
-
-            tool_button.show_all ();
-
-            toolbar.pack_end (tool_button);
-        }
-
-        void toggle_plugin_visibility () {
-            if (tool_button.active) {
-                notebook.set_current_page (notebook.append_page (container, new Gtk.Label (_("Symbols"))));
-                tool_button.tooltip_text = _("Hide Outline");
-            } else {
-                notebook.remove (container);
-                tool_button.tooltip_text = _("Show Outline");
-            }
-        }
-
-        void on_hook_context (Gtk.Notebook notebook) {
+        void on_hook_sidebar (Gtk.Notebook notebook) {
             if (container != null)
                 return;
             if (this.notebook == null)
                 this.notebook = notebook;
 
-            this.notebook.switch_page.connect ((page, page_num) => {
-                if(tool_button.active != (container == page))
-                    tool_button.active = (container == page);
-            });
-
             container = new Gtk.EventBox ();
             container.visible = false;
-            if (this.notebook == null)
+            if (this.notebook != null)
                 notebook.append_page (container, new Gtk.Label (_("Symbols")));
         }
 
@@ -125,6 +88,7 @@ namespace Scratch.Plugins {
                     break;
                 }
             }
+
             if (view == null && doc.file != null) {
                 if (doc.get_mime_type () == "text/x-vala") {
                     view = new ValaSymbolOutline (doc);
@@ -163,16 +127,6 @@ namespace Scratch.Plugins {
                 notebook.remove (container);
         }
 
-        void on_hook_split_view (Scratch.Widgets.SplitView view) {
-            this.tool_button.visible = ! view.is_empty ();
-            view.welcome_shown.connect (() => {
-                this.tool_button.visible = false;
-            });
-            view.welcome_hidden.connect (() => {
-                this.tool_button.visible = true;
-            });
-        }
-
         void update_timeout () {
             if (refresh_timeout != 0)
                 Source.remove (refresh_timeout);
@@ -206,6 +160,6 @@ namespace Scratch.Plugins {
 [ModuleInit]
 public void peas_register_types (GLib.TypeModule module)
 {
-  var objmodule = module as Peas.ObjectModule;
-  objmodule.register_extension_type (typeof (Peas.Activatable), typeof (Scratch.Plugins.OutlinePlugin));
+    var objmodule = module as Peas.ObjectModule;
+    objmodule.register_extension_type (typeof (Peas.Activatable), typeof (Scratch.Plugins.OutlinePlugin));
 }
