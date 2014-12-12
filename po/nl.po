@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-30 09:08-0500\n"
-"PO-Revision-Date: 2014-04-13 16:17+0000\n"
-"Last-Translator: Marvin Parlevliet <mrvnp@msn.com>\n"
+"PO-Revision-Date: 2014-12-11 19:27+0000\n"
+"Last-Translator: Thomas Berends <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-12-01 06:18+0000\n"
-"X-Generator: Launchpad (build 17274)\n"
+"X-Launchpad-Export-Date: 2014-12-12 06:23+0000\n"
+"X-Generator: Launchpad (build 17286)\n"
 "Language: nl\n"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:52
@@ -235,16 +235,16 @@ msgstr "Opslaan"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:711
 msgid "Save this file"
-msgstr ""
+msgstr "Sla dit bestand op"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:714
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:576
 msgid "Save As…"
-msgstr ""
+msgstr "Opslaan als…"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:715
 msgid "Save this file with a different name"
-msgstr ""
+msgstr "Sla dit bestand op met een andere naam"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:718
 #: /home/mario/elementary/scratch/po/../src/Services/TemplateManager.vala:230
@@ -262,12 +262,12 @@ msgstr "Wijzig Scratch-instellingen"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:726
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:727
 msgid "Next Tab"
-msgstr ""
+msgstr "Volgende tab"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:730
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:731
 msgid "Previous Tab"
-msgstr ""
+msgstr "Vorige tab"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:747
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:748
@@ -324,7 +324,7 @@ msgstr "Vervangen met"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:115
 msgid "Replace all"
-msgstr ""
+msgstr "Vervang alles"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:123
 msgid "Go To Line:"
@@ -341,7 +341,7 @@ msgstr "Nieuw venster"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:224
 msgid "Print version info and exit"
-msgstr ""
+msgstr "Toon versie informatie en verlaat applicatie"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:225
 msgid "Set of plugins"
@@ -349,7 +349,7 @@ msgstr "Pluginset"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:226
 msgid "Current working directoy"
-msgstr ""
+msgstr "Huidige werkmap"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:248
 #, c-format
@@ -388,15 +388,15 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:573
 msgid "The location containing the file"
-msgstr ""
+msgstr "De locatie waar het bestand zich bevindt"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:574
 msgid "was unmounted. Do you want to save somewhere else?"
-msgstr ""
+msgstr "is ontkoppelt. Wil je dit bestand ergens anders opslaan?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:581
 msgid "File"
-msgstr ""
+msgstr "Bestand"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:582
 msgid "was deleted. Do you want to save it anyway?"
@@ -638,11 +638,11 @@ msgstr "Open een map"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:95
 msgid "_Cancel"
-msgstr ""
+msgstr "_Annuleer"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:96
 msgid "_Open"
-msgstr ""
+msgstr "_Open"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FileView.vala:330
 msgid "Close Folder"
