@@ -220,6 +220,7 @@ namespace Scratch.Widgets {
             this.docs.append (doc);
             doc.source_view.focus_in_event.connect (this.on_focus_in_event);
             doc.source_view.drag_data_received.connect (this.drag_received);
+            doc.source_view.drag_motion.connect (this.drag_motion);
 
         }
 
@@ -229,6 +230,7 @@ namespace Scratch.Widgets {
             this.docs.remove (doc);
             doc.source_view.focus_in_event.disconnect (this.on_focus_in_event);
             doc.source_view.drag_data_received.disconnect (this.drag_received);
+            doc.source_view.drag_motion.disconnect (this.drag_motion);
 
             // Check if the view is empty
             if (this.is_empty ())
@@ -261,6 +263,10 @@ namespace Scratch.Widgets {
             }
 
             return true;  
+        }
+        
+        private bool drag_motion (Gdk.DragContext ctx, int x, int y, uint time){
+            return true;
         }
         
         private void drag_received(Gdk.DragContext ctx, int x, int y, Gtk.SelectionData sel,  uint info, uint time){
