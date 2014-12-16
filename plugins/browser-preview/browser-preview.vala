@@ -96,7 +96,7 @@ namespace Scratch.Plugins {
 
             this.notebook = notebook;
             this.notebook.switch_page.connect ((page, page_num) => {
-                if(tool_button.active != (view.paned == page))
+                if (tool_button.active != (view.paned == page))
                     tool_button.active = (view.paned == page);
             });
             set_current_document (this.doc);
