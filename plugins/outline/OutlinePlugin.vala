@@ -46,9 +46,11 @@ namespace Scratch.Plugins {
 
         public void activate () {
             scratch_interface = (Scratch.Services.Interface)object;
-            scratch_interface.hook_notebook_context.connect (on_hook_context);
+
             scratch_interface.hook_document.connect (on_hook_document);
-            scratch_interface.hook_split_view.connect (on_hook_split_view);
+
+            scratch_interface.hook_notebook_sidebar.connect (on_hook_sidebar);
+
             views = new Gee.LinkedList<SymbolOutline> ();
         }
 
@@ -59,18 +61,20 @@ namespace Scratch.Plugins {
         public void update_state () {
         }
 
-        void on_hook_context (Gtk.Notebook notebook) {
+        void on_hook_sidebar (Gtk.Notebook notebook) {
             if (container != null)
                 return;
             if (this.notebook == null)
                 this.notebook = notebook;
-                
+
             container = new Gtk.EventBox ();
             container.visible = false;
+            if (this.notebook != null)
+                notebook.append_page (container, new Gtk.Label (_("Symbols")));
         }
 
         void on_hook_document (Scratch.Services.Document doc) {
-            if (current_view != null && current_view.doc == doc) 
+            if (current_view != null && current_view.doc == doc)
                 return;
 
             if (current_view != null)
@@ -83,6 +87,7 @@ namespace Scratch.Plugins {
                     break;
                 }
             }
+
             if (view == null && doc.file != null) {
                 if (doc.get_mime_type () == "text/x-vala") {
                     view = new ValaSymbolOutline (doc);
@@ -108,28 +113,19 @@ namespace Scratch.Plugins {
                 remove_container ();
             }
         }
-        
+
         void add_container () {
             if(notebook.page_num (container) == -1) {
                 notebook.append_page (container, new Gtk.Label (_("Symbols")));
                 container.show_all ();
             }
         }
-        
+
         void remove_container () {
             if (notebook.page_num (container) != -1)
                 notebook.remove (container);
         }
-        
-        void on_hook_split_view (Scratch.Widgets.SplitView view) {
-            view.welcome_shown.connect (() => {
-                remove_container ();
-            });
-            view.welcome_hidden.connect (() => {
-                add_container ();
-            });
-        }
-        
+
         void update_timeout () {
             if (refresh_timeout != 0)
                 Source.remove (refresh_timeout);
@@ -163,6 +159,6 @@ namespace Scratch.Plugins {
 [ModuleInit]
 public void peas_register_types (GLib.TypeModule module)
 {
-  var objmodule = module as Peas.ObjectModule;
-  objmodule.register_extension_type (typeof (Peas.Activatable), typeof (Scratch.Plugins.OutlinePlugin));
+    var objmodule = module as Peas.ObjectModule;
+    objmodule.register_extension_type (typeof (Peas.Activatable), typeof (Scratch.Plugins.OutlinePlugin));
 }

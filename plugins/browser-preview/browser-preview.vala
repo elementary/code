@@ -82,7 +82,7 @@ namespace Scratch.Plugins {
             var icon = new Gtk.Image.from_icon_name ("emblem-web", Gtk.IconSize.LARGE_TOOLBAR);
             tool_button = new Gtk.ToggleToolButton ();
             tool_button.set_icon_widget (icon);
-            tool_button.tooltip_text = _("Hide Preview");
+            tool_button.tooltip_text = _("Show Preview");
             tool_button.toggled.connect (toggle_plugin_visibility);
 
             tool_button.show_all ();
@@ -95,7 +95,10 @@ namespace Scratch.Plugins {
                 return;
 
             this.notebook = notebook;
-
+            this.notebook.switch_page.connect ((page, page_num) => {
+                if (tool_button.active != (view.paned == page))
+                    tool_button.active = (view.paned == page);
+            });
             set_current_document (this.doc);
         }
 
