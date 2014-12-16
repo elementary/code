@@ -62,7 +62,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             if (bottombar == null) {
                 this.bottombar = n;
                 this.bottombar.switch_page.connect ((page, page_num) => {
-                    if(tool_button.active != (grid == page) && bottombar.page_num(grid) > -1)
+                    if (tool_button.active != (grid == page) && bottombar.page_num (grid) > -1)
                         tool_button.active = (grid == page);
                 });
             }
@@ -72,7 +72,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             if (contextbar == null) {
                 this.contextbar = n;
                 this.contextbar.switch_page.connect ((page, page_num) => {
-                    if(tool_button.active != (grid == page) && contextbar.page_num(grid) > -1)
+                    if (tool_button.active != (grid == page) && contextbar.page_num (grid) > -1)
                         tool_button.active = (grid == page);
                 });
             }

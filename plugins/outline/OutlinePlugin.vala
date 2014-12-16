@@ -35,7 +35,6 @@ namespace Scratch.Plugins {
     public class OutlinePlugin : Peas.ExtensionBase, Peas.Activatable {
         public Object object { owned get; construct; }
 
-        //Gtk.ToggleToolButton? tool_button = null;
         Scratch.Services.Interface scratch_interface;
         SymbolOutline? current_view = null;
         Gtk.EventBox? container = null;
