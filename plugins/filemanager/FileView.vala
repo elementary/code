@@ -128,7 +128,8 @@ namespace Scratch.Plugins.FileManager {
         }
         
         private void restore_settings () {
-            if (settings.opened_folder == "" || settings.opened_folder == null)
+            File folder = new File (settings.opened_folder);
+            if (settings.opened_folder == "" || settings.opened_folder == null || !folder.is_valid_directory)
                 settings.opened_folder = GLib.Environment.get_home_dir ();
             open_folder (new File (settings.opened_folder));
         }
