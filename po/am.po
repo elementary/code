@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-08-30 09:08-0500\n"
-"PO-Revision-Date: 2014-03-26 16:00+0000\n"
+"PO-Revision-Date: 2014-12-18 20:50+0000\n"
 "Last-Translator: samson <Unknown>\n"
 "Language-Team: Amharic <am@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-12-01 06:17+0000\n"
-"X-Generator: Launchpad (build 17274)\n"
+"X-Launchpad-Export-Date: 2014-12-19 06:37+0000\n"
+"X-Generator: Launchpad (build 17286)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:52
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:722
@@ -42,11 +42,11 @@ msgstr "መዝጊያ"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:135
 msgid "Show welcome screen"
-msgstr ""
+msgstr "እንኳን ደህና መጡ መመልከቻ ማሳያ"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:136
 msgid "Show last open tabs"
-msgstr ""
+msgstr "መጨረሻ የተከፈተውን ንዑስ መስኮት"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "General:"
@@ -54,19 +54,19 @@ msgstr "ባጠቃላይ :"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:158
 msgid "When Scratch starts:"
-msgstr ""
+msgstr "ስክራች በሚጀምር ጊዜ:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:161
 msgid "Save files when changed:"
-msgstr ""
+msgstr "ፋይሎች በሚቀየሩ ጊዜ ማስቀመጫ:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:166
 msgid "Tabs:"
-msgstr ""
+msgstr "ንዑስ መስኮት:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:171
 msgid "Automatic indentation:"
-msgstr ""
+msgstr "ራሱ በራሱ ማስረጊያ:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:174
 msgid "Insert spaces instead of tabs:"
@@ -74,19 +74,19 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:178
 msgid "Tab width:"
-msgstr ""
+msgstr "የ ንዑስ መስኮት ስፋት:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:206
 msgid "Editor:"
-msgstr ""
+msgstr "አራሚ:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
 msgid "Highlight current line:"
-msgstr ""
+msgstr "የ አሁኑን መስመር ማድመቂያ:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:225
 msgid "Highlight matching brackets:"
-msgstr ""
+msgstr "ተመሳሳይ ቅንፎችን ማድመቂያ:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:226
 msgid "Split long text in many lines:"
@@ -98,7 +98,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:228
 msgid "Show line numbers:"
-msgstr ""
+msgstr "የ መስመር ቁጥር ማሳያ:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:231
 msgid "Line width guide:"
@@ -106,7 +106,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:247
 msgid "Font and Color Scheme:"
-msgstr ""
+msgstr "የ ፊደል እና ቀለም ገጽታዎች:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:261
 msgid "Select font:"
@@ -114,7 +114,7 @@ msgstr "ፊደል ይምረጡ :"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:264
 msgid "Color scheme:"
-msgstr ""
+msgstr "የ ቀለም ገጽታ:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:269
 msgid "Custom font:"
@@ -159,7 +159,7 @@ msgstr "መቀየሪያ"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:674
 msgid "Reopen closed document"
-msgstr ""
+msgstr "የ ተዘጉ ሰነዶችን እንደገና መክፈቻ"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:675
 msgid "Open last closed document in a new tab"
@@ -183,11 +183,11 @@ msgstr "አዲስ መመለከቻ መጨመሪያ"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:686
 msgid "Remove Current View"
-msgstr ""
+msgstr "የ አሁኑን መመልከቻ ማስወገጃ"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:687
 msgid "Remove this view"
-msgstr ""
+msgstr "ይህን መመልከቻ ማስወገጃ"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:690
 msgid "Undo"
@@ -234,16 +234,16 @@ msgstr "ማስቀመጫ"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:711
 msgid "Save this file"
-msgstr ""
+msgstr "ይህን ፋይል ማስቀመጫ"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:714
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:576
 msgid "Save As…"
-msgstr ""
+msgstr "ማስቀመጫ እንደ..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:715
 msgid "Save this file with a different name"
-msgstr ""
+msgstr "ይህን ፋይል በ ሌላ ስም ማስቀመጫ"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:718
 #: /home/mario/elementary/scratch/po/../src/Services/TemplateManager.vala:230
@@ -261,12 +261,12 @@ msgstr ""
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:726
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:727
 msgid "Next Tab"
-msgstr ""
+msgstr "የሚቀጥለው ንዑስ መስኮት"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:730
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:731
 msgid "Previous Tab"
-msgstr ""
+msgstr "ቀደም ያለው ንዑስ መስኮት"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:747
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:748
@@ -279,7 +279,7 @@ msgstr "ማካፈያ"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:46
 msgid "No Files Open"
-msgstr ""
+msgstr "የተከፈቱ ፋይሎች የሉም"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:47
 msgid "Open a file to begin editing."
@@ -291,7 +291,7 @@ msgstr "አዲስ ፋይል"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:51
 msgid "Create a new empty file."
-msgstr ""
+msgstr "አዲስ ባዶ ፋይል መፍጠሪያ"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:52
 msgid "Open file"
@@ -307,7 +307,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:108
 msgid "Normal Text"
-msgstr ""
+msgstr "መደበኛ ጽሁፍ"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/LoadingView.vala:36
 msgid "Wait while restoring last session..."
@@ -323,7 +323,7 @@ msgstr "መተኪያ በ"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:115
 msgid "Replace all"
-msgstr ""
+msgstr "ኩሉንም መቀየሪያ"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:123
 msgid "Go To Line:"
@@ -331,7 +331,7 @@ msgstr "ወደ መስመር መሄጃ :"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:222
 msgid "New Tab"
-msgstr ""
+msgstr "አዲስ ንዑስ መስኮት"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:223
 #: /home/mario/elementary/scratch/po/../src/config.vala:18
@@ -362,11 +362,11 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:253
 msgid "Close without saving"
-msgstr ""
+msgstr "ሳያስቀምጡ መዝጊያ"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:331
 msgid "Save File"
-msgstr ""
+msgstr "ፋይል ማስቀመጫ"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:419
 #: /home/mario/elementary/scratch/po/../src/config.vala:17
@@ -382,7 +382,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:573
 msgid "The location containing the file"
-msgstr ""
+msgstr "ፋይሉ ያለበት አካባቢ"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:574
 msgid "was unmounted. Do you want to save somewhere else?"
@@ -390,7 +390,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:581
 msgid "File"
-msgstr ""
+msgstr "ፋይል"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:582
 msgid "was deleted. Do you want to save it anyway?"
@@ -410,7 +410,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:623
 msgid "File "
-msgstr ""
+msgstr "ፋይል "
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:624
 msgid ""
@@ -420,11 +420,11 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:626
 msgid "Load"
-msgstr ""
+msgstr "መጫኛ"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:629
 msgid "Continue"
-msgstr ""
+msgstr "ይቀጥሉ"
 
 #: /home/mario/elementary/scratch/po/../src/Utils.vala:42
 msgid "All files"
@@ -500,20 +500,20 @@ msgstr "አንድ ሰአት"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:514
 msgid "One day"
-msgstr ""
+msgstr "አንድ ቀን"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:515
 msgid "One month"
-msgstr ""
+msgstr "አንድ ወር"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileView.vala:90
 msgid "/New File"
-msgstr ""
+msgstr "/አዲስ ፋይል"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:21
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:21
 msgid "Folder Manager"
-msgstr ""
+msgstr "የ ፎልደር አስተዳዳሪ"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:22
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:22
@@ -526,20 +526,20 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:82
 msgid "Add file"
-msgstr ""
+msgstr "ፋይል መጨመሪያ"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:89
 msgid "Remove file"
-msgstr ""
+msgstr "ፋይል ማስወገጃ"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:104
 msgid "File Manager"
-msgstr ""
+msgstr "የ ፋይል አስተዳዳሪ"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:23
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:158
 msgid "Terminal"
-msgstr ""
+msgstr "ተርሚናል"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:24
 msgid "A terminal in your text editor"
@@ -547,11 +547,11 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:121
 msgid "Copy"
-msgstr ""
+msgstr "ኮፒ"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:128
 msgid "Paste"
-msgstr ""
+msgstr "መለጠፊያ"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:23
 msgid "Browser Preview"
@@ -573,7 +573,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:18
 msgid "Spell Checker"
-msgstr ""
+msgstr "ፊደል አራሚ"
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
@@ -581,7 +581,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:21
 msgid "Open With"
-msgstr ""
+msgstr "መከፈቻ በ"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
@@ -589,7 +589,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:55
 msgid "Open With..."
-msgstr ""
+msgstr "መክፈቻ በ..."
 
 #: /home/mario/elementary/scratch/po/../plugins/brackets-completion/brackets-completion.vala:21
 msgid "Brackets Completion"
@@ -619,24 +619,24 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:71
 msgid "Folders"
-msgstr ""
+msgstr "ፎልደሮች"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:89
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:90
 msgid "Open a folder"
-msgstr ""
+msgstr "ፎልደር መክፈቻ"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:95
 msgid "_Cancel"
-msgstr ""
+msgstr "_መሰረዣ"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:96
 msgid "_Open"
-msgstr ""
+msgstr "_መክፈቻ"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FileView.vala:330
 msgid "Close Folder"
-msgstr ""
+msgstr "ፎልደር መዝጊያ"
 
 #: /home/mario/elementary/scratch/po/../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
@@ -661,23 +661,23 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:42
 msgid "Loading..."
-msgstr ""
+msgstr "በመጫን ላይ..."
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:175
 msgid "Bookmark"
-msgstr ""
+msgstr "ምልክት ማድረጊያ"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:234
 msgid "Files"
-msgstr ""
+msgstr "ፋይሎች"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:235
 msgid "Project"
-msgstr ""
+msgstr "እቅድ"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:236
 msgid "Bookmarks"
-msgstr ""
+msgstr "ምልክት ማድረጊያዎች"
 
 #: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
