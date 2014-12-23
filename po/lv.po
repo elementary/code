@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-08-30 09:08-0500\n"
-"PO-Revision-Date: 2013-10-23 14:28+0000\n"
-"Last-Translator: Jānis Marks Gailis <jm-gailis@fai-vianet.fr>\n"
+"PO-Revision-Date: 2014-12-22 13:59+0000\n"
+"Last-Translator: ERX <eriksh@inbox.lv>\n"
 "Language-Team: Latvian <lv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-12-01 06:18+0000\n"
-"X-Generator: Launchpad (build 17274)\n"
+"X-Launchpad-Export-Date: 2014-12-23 07:04+0000\n"
+"X-Generator: Launchpad (build 17286)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:52
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:722
@@ -58,7 +58,7 @@ msgstr "Pie Scratch uzsākšanas:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:161
 msgid "Save files when changed:"
-msgstr ""
+msgstr "Saglabāt failus pēc izmaņām:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:166
 msgid "Tabs:"
@@ -110,15 +110,15 @@ msgstr "Fonts un krāsu shēma:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:261
 msgid "Select font:"
-msgstr ""
+msgstr "Izvēlēties fontu:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:264
 msgid "Color scheme:"
-msgstr ""
+msgstr "Krāsu motīvs"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:269
 msgid "Custom font:"
-msgstr ""
+msgstr "Mainīt fontus:"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:99
 msgid "Zeitgeist Datasource for Scratch"
@@ -130,7 +130,7 @@ msgstr "Miskaste"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:504
 msgid "Open some files"
-msgstr ""
+msgstr "Atvērt failus"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:599
 msgid "Hide search bar"
@@ -144,7 +144,7 @@ msgstr "Meklēt..."
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:658
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:659
 msgid "Go to line…"
-msgstr ""
+msgstr "Pāriet uz rindu..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:662
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:663
@@ -159,19 +159,19 @@ msgstr "Aizstāt"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:674
 msgid "Reopen closed document"
-msgstr ""
+msgstr "Atkārtoti atvērt dokumentu"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:675
 msgid "Open last closed document in a new tab"
-msgstr ""
+msgstr "Atvēr pēdējo aizvērto dokumentu jaunā cilnē"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:678
 msgid "Add New Tab"
-msgstr ""
+msgstr "Jauna cilni"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:679
 msgid "Add a new tab"
-msgstr ""
+msgstr "Pievienot jaunā cilnē"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:682
 msgid "Add New View"
@@ -191,27 +191,27 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:690
 msgid "Undo"
-msgstr ""
+msgstr "Atcelt"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:691
 msgid "Undo the last action"
-msgstr ""
+msgstr "Atcelt pēdējo darbību"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:694
 msgid "Redo"
-msgstr ""
+msgstr "Atatsaukt"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:695
 msgid "Redo the last undone action"
-msgstr ""
+msgstr "Atsaukt pēdējo darbības atsaukšanu"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:698
 msgid "Revert"
-msgstr ""
+msgstr "Atgriezties"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:699
 msgid "Restore this file"
-msgstr ""
+msgstr "Atjaunot šo failu"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:702
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:703
@@ -234,16 +234,16 @@ msgstr "Saglabāt"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:711
 msgid "Save this file"
-msgstr ""
+msgstr "Saglabāt šo failu"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:714
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:576
 msgid "Save As…"
-msgstr ""
+msgstr "Saglabāt kā..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:715
 msgid "Save this file with a different name"
-msgstr ""
+msgstr "Saglabāt šo failu ar citu nosaukumu"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:718
 #: /home/mario/elementary/scratch/po/../src/Services/TemplateManager.vala:230
@@ -261,12 +261,12 @@ msgstr "Mainīt iestatījumus"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:726
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:727
 msgid "Next Tab"
-msgstr ""
+msgstr "Nākamā cilne"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:730
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:731
 msgid "Previous Tab"
-msgstr ""
+msgstr "Iepriekšējā cilne"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:747
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:748
@@ -303,11 +303,11 @@ msgstr "Atvērt saglabāto failu."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:97
 msgid "Syntax Highlighting"
-msgstr ""
+msgstr "Sintakses Izcelšana"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:108
 msgid "Normal Text"
-msgstr ""
+msgstr "Normāls teksts"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/LoadingView.vala:36
 msgid "Wait while restoring last session..."
@@ -315,23 +315,23 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:71
 msgid "Find"
-msgstr ""
+msgstr "Meklēt"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:90
 msgid "Replace With"
-msgstr ""
+msgstr "Aizvietot ar"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:115
 msgid "Replace all"
-msgstr ""
+msgstr "Aizvietot visus"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:123
 msgid "Go To Line:"
-msgstr ""
+msgstr "Doties uz Rindu:"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:222
 msgid "New Tab"
-msgstr ""
+msgstr "Jauna cilne"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:223
 #: /home/mario/elementary/scratch/po/../src/config.vala:18
@@ -340,7 +340,7 @@ msgstr "Jauns logs"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:224
 msgid "Print version info and exit"
-msgstr ""
+msgstr "Drukāt versijas info un iziet"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:225
 msgid "Set of plugins"
@@ -353,20 +353,21 @@ msgstr ""
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:248
 #, c-format
 msgid "Save changes to document %s before closing?"
-msgstr ""
+msgstr "Saglabāt dokumenta %s izmaiņas pirms aizvēršanas?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:251
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
+"Ja nesaglabāsieties,- pēdējo 4 sekužu izmaiņas tiks neatgriezeniski zaudētas."
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:253
 msgid "Close without saving"
-msgstr ""
+msgstr "Aizvērt nesaglabājot"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:331
 msgid "Save File"
-msgstr ""
+msgstr "Saglabāt failu"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:419
 #: /home/mario/elementary/scratch/po/../src/config.vala:17
@@ -379,6 +380,8 @@ msgid ""
 "File \"<b>%s</b>\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
+"Fails \"<b>%s</b>\" nav izlasāms. Iespējams viņš ir bojāts\n"
+"vai arī Jums nav nepieciešamās pielaides tā atvēršanai."
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:573
 msgid "The location containing the file"
@@ -386,23 +389,23 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:574
 msgid "was unmounted. Do you want to save somewhere else?"
-msgstr ""
+msgstr "tika atvienots. Vēlaties saglabāt citur?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:581
 msgid "File"
-msgstr ""
+msgstr "Fails"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:582
 msgid "was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "tika dzēsts. Joprojām vēlaties saglabāt?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:595
 msgid "You cannot save changes on file"
-msgstr ""
+msgstr "Jūs nevarat saglabāt izmaiņas failā."
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:596
 msgid "Do you want to save the changes to this file in a different location?"
-msgstr ""
+msgstr "Vai jūs vēlaties saglabāt faila izmaiņas kādā citā vietā?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:598
 msgid "Save changes elsewhere"
@@ -417,14 +420,16 @@ msgid ""
 "was modified by an external application. Do you want to load it again or "
 "continue your editing?"
 msgstr ""
+"tika mainīts citā programmā. Vēlaties palais velreiz vai arī turpināsiet "
+"veikt izmaiņas."
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:626
 msgid "Load"
-msgstr ""
+msgstr "Ielādēt"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:629
 msgid "Continue"
-msgstr ""
+msgstr "Turpina"
 
 #: /home/mario/elementary/scratch/po/../src/Utils.vala:42
 msgid "All files"
@@ -444,31 +449,31 @@ msgstr "Teksta redaktors"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
-msgstr ""
+msgstr "Pastebin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
-msgstr ""
+msgstr "Dalīties failiem ar Pastebin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:134
 msgid "Upload to Pastebin"
-msgstr ""
+msgstr "Augšuplādēt ar Pastebin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
-msgstr ""
+msgstr "Dalīties ar Pastebin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:272
 msgid "Name:"
-msgstr ""
+msgstr "Nosaukums:"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:278
 msgid "Format: "
-msgstr ""
+msgstr "Formāts: "
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:280
 msgid "Others..."
-msgstr ""
+msgstr "Citi..."
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:305
 msgid "Expiry time:"
@@ -480,78 +485,78 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:312
 msgid "Upload"
-msgstr ""
+msgstr "Augšupielāde"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:342
 msgid "Other formats"
-msgstr ""
+msgstr "Citi formāti"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:511
 msgid "Never"
-msgstr ""
+msgstr "Nekad"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:512
 msgid "Ten minutes"
-msgstr ""
+msgstr "10 minūtes"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:513
 msgid "One hour"
-msgstr ""
+msgstr "1 stunda"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:514
 msgid "One day"
-msgstr ""
+msgstr "1 diena"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:515
 msgid "One month"
-msgstr ""
+msgstr "1 mēnesis"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileView.vala:90
 msgid "/New File"
-msgstr ""
+msgstr "/Jauns Fails"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:21
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:21
 msgid "Folder Manager"
-msgstr ""
+msgstr "Mapju Pārvaldnieks"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:22
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:22
 msgid "Basic folder manager with file browsing"
-msgstr ""
+msgstr "Pamata mapju pārvaldnieks failu pārlūkošanai"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:71
 msgid "Go to parent"
-msgstr ""
+msgstr "Pāriet agstāk"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:82
 msgid "Add file"
-msgstr ""
+msgstr "Pievienot failus"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:89
 msgid "Remove file"
-msgstr ""
+msgstr "Dzēst failus"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:104
 msgid "File Manager"
-msgstr ""
+msgstr "Failu Pārvaldnieks"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:23
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:158
 msgid "Terminal"
-msgstr ""
+msgstr "Terminālis"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:24
 msgid "A terminal in your text editor"
-msgstr ""
+msgstr "Terminālis teksta redaktorā"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:121
 msgid "Copy"
-msgstr ""
+msgstr "Kopēt"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:128
 msgid "Paste"
-msgstr ""
+msgstr "Ielīmēt"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:23
 msgid "Browser Preview"
@@ -573,15 +578,15 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:18
 msgid "Spell Checker"
-msgstr ""
+msgstr "Pareizrakstības Parbaudītājs"
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
-msgstr ""
+msgstr "Pārbaudīt pareizrakstību"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:21
 msgid "Open With"
-msgstr ""
+msgstr "Atvērt Ar"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
@@ -589,7 +594,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:55
 msgid "Open With..."
-msgstr ""
+msgstr "Atvērt Ar..."
 
 #: /home/mario/elementary/scratch/po/../plugins/brackets-completion/brackets-completion.vala:21
 msgid "Brackets Completion"
@@ -619,24 +624,24 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:71
 msgid "Folders"
-msgstr ""
+msgstr "Mapes"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:89
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:90
 msgid "Open a folder"
-msgstr ""
+msgstr "Atvērt mapi"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:95
 msgid "_Cancel"
-msgstr ""
+msgstr "_Atcelt"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:96
 msgid "_Open"
-msgstr ""
+msgstr "_Atvērt"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FileView.vala:330
 msgid "Close Folder"
-msgstr ""
+msgstr "Aizvērt mapi"
 
 #: /home/mario/elementary/scratch/po/../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
@@ -661,31 +666,31 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:42
 msgid "Loading..."
-msgstr ""
+msgstr "Notiek ielāde..."
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:175
 msgid "Bookmark"
-msgstr ""
+msgstr "Grāmatzīme"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:234
 msgid "Files"
-msgstr ""
+msgstr "Faili"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:235
 msgid "Project"
-msgstr ""
+msgstr "Projekts"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:236
 msgid "Bookmarks"
-msgstr ""
+msgstr "Grāmatzīmes"
 
 #: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
-msgstr ""
+msgstr "Vim Emulācija"
 
 #: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
-msgstr ""
+msgstr "Lietot Vim komandas"
 
 #~ msgid "New document"
 #~ msgstr "Jauns dokuments"
