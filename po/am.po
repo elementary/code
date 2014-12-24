@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-08-30 09:08-0500\n"
-"PO-Revision-Date: 2014-12-18 20:50+0000\n"
+"PO-Revision-Date: 2014-12-24 01:14+0000\n"
 "Last-Translator: samson <Unknown>\n"
 "Language-Team: Amharic <am@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-12-19 06:37+0000\n"
+"X-Launchpad-Export-Date: 2014-12-24 06:42+0000\n"
 "X-Generator: Launchpad (build 17286)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:52
@@ -90,11 +90,11 @@ msgstr "ተመሳሳይ ቅንፎችን ማድመቂያ:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:226
 msgid "Split long text in many lines:"
-msgstr ""
+msgstr "ረጅም ጽሁፍ ወደ በርካታ መስመሮች መክፈያ:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:227
 msgid "Draw spaces:"
-msgstr ""
+msgstr "ክፍተት ማስገቢያ:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:228
 msgid "Show line numbers:"
@@ -102,7 +102,7 @@ msgstr "የ መስመር ቁጥር ማሳያ:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:231
 msgid "Line width guide:"
-msgstr ""
+msgstr "የ መስመር ስፋት ምምሪያ:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:247
 msgid "Font and Color Scheme:"
@@ -163,15 +163,15 @@ msgstr "የ ተዘጉ ሰነዶችን እንደገና መክፈቻ"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:675
 msgid "Open last closed document in a new tab"
-msgstr ""
+msgstr "መጨረሻ የተዘጋውን ሰነድ በ አዲስ መስኮት መክፈቻ"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:678
 msgid "Add New Tab"
-msgstr ""
+msgstr "አዲስ ንዑስ መስኮት መጨመሪያ"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:679
 msgid "Add a new tab"
-msgstr ""
+msgstr "አዲስ ንዑስ መስኮት መጨመሪያ"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:682
 msgid "Add New View"
@@ -216,7 +216,7 @@ msgstr "ይህን ፋይል እንደነበር መመለሻ"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:702
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:703
 msgid "Duplicate selected strings"
-msgstr ""
+msgstr "የተመረጠውን ሐረግ ማባዣ"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:706
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileView.vala:281
@@ -252,11 +252,11 @@ msgstr "ቴምፕሌትስ"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:719
 msgid "Project templates"
-msgstr ""
+msgstr "የ እቅድ ቴምፕሌቶች"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:723
 msgid "Change Scratch settings"
-msgstr ""
+msgstr "የ ስክራች ማሰናጃዎች መቀየሪያ"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:726
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:727
@@ -283,7 +283,7 @@ msgstr "የተከፈቱ ፋይሎች የሉም"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:47
 msgid "Open a file to begin editing."
-msgstr ""
+msgstr "ፋይል መክፈቻ ለማረም"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:51
 msgid "New file"
@@ -311,7 +311,7 @@ msgstr "መደበኛ ጽሁፍ"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/LoadingView.vala:36
 msgid "Wait while restoring last session..."
-msgstr ""
+msgstr "እባክዎን ይቆዩ የመጨረሻውን ክፍለ ጊዜ እንደነ በር እስከሚመለስ..."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:71
 msgid "Find"
@@ -340,11 +340,11 @@ msgstr "አዲስ መስኮት"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:224
 msgid "Print version info and exit"
-msgstr ""
+msgstr "የ እትሙን መረጃ ማተሚያ እና መውጫ"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:225
 msgid "Set of plugins"
-msgstr ""
+msgstr "የ ተሰኪዎች ማሰናጃ"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:226
 msgid "Current working directoy"
@@ -398,7 +398,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:595
 msgid "You cannot save changes on file"
-msgstr ""
+msgstr "ለውጦቹን በ ፋይሉ ላይ ማስቀመጥ አይችሉም"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:596
 msgid "Do you want to save the changes to this file in a different location?"
@@ -406,7 +406,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:598
 msgid "Save changes elsewhere"
-msgstr ""
+msgstr "ለውጦቹን ሌላ ቦታ ማስቀመጫ"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:623
 msgid "File "

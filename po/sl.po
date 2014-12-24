@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-08-30 09:08-0500\n"
-"PO-Revision-Date: 2013-09-24 10:43+0000\n"
-"Last-Translator: Damir Jerovšek <Unknown>\n"
+"PO-Revision-Date: 2014-12-23 22:27+0000\n"
+"Last-Translator: Jernej Virag <Unknown>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-12-01 06:19+0000\n"
-"X-Generator: Launchpad (build 17274)\n"
+"X-Launchpad-Export-Date: 2014-12-24 06:42+0000\n"
+"X-Generator: Launchpad (build 17286)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:52
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:722
@@ -102,7 +102,7 @@ msgstr "Pokaži številke vrstic:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:231
 msgid "Line width guide:"
-msgstr ""
+msgstr "Vodilo za širino vrstice"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:247
 msgid "Font and Color Scheme:"
@@ -234,16 +234,16 @@ msgstr "Shrani"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:711
 msgid "Save this file"
-msgstr ""
+msgstr "Shrani to datoteko"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:714
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:576
 msgid "Save As…"
-msgstr ""
+msgstr "Shrani kot …"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:715
 msgid "Save this file with a different name"
-msgstr ""
+msgstr "Shrani to datoteko pod drugim imenom"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:718
 #: /home/mario/elementary/scratch/po/../src/Services/TemplateManager.vala:230
@@ -261,12 +261,12 @@ msgstr "Spremeni nastavitve programa"
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:726
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:727
 msgid "Next Tab"
-msgstr ""
+msgstr "Naslednji zavihek"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:730
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:731
 msgid "Previous Tab"
-msgstr ""
+msgstr "Prejšnji zavihek"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:747
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:748
@@ -311,7 +311,7 @@ msgstr "Običajno besedilo"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/LoadingView.vala:36
 msgid "Wait while restoring last session..."
-msgstr ""
+msgstr "Prejšnja seja se obnavlja..."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:71
 msgid "Find"
@@ -323,7 +323,7 @@ msgstr "Zamenjaj z"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:115
 msgid "Replace all"
-msgstr ""
+msgstr "Zamenjaj vse"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:123
 msgid "Go To Line:"
@@ -340,7 +340,7 @@ msgstr "Novo okno"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:224
 msgid "Print version info and exit"
-msgstr ""
+msgstr "Prikaži različico in končaj"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:225
 msgid "Set of plugins"
@@ -348,7 +348,7 @@ msgstr "Nabor vtičnikov"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:226
 msgid "Current working directoy"
-msgstr ""
+msgstr "Delovni direktorij"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:248
 #, c-format
@@ -380,18 +380,20 @@ msgid ""
 "File \"<b>%s</b>\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
+"Datoteka \"<b>%s</b>\" ni berljiva. Morda je poškodovana\n"
+"ali pa nimate dovoljenja za dostop."
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:573
 msgid "The location containing the file"
-msgstr ""
+msgstr "Lokacija datoteke"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:574
 msgid "was unmounted. Do you want to save somewhere else?"
-msgstr ""
+msgstr "je bil odklopljen. Ali želite datoteko shraniti kje drugje?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:581
 msgid "File"
-msgstr ""
+msgstr "Datoteka"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:582
 msgid "was deleted. Do you want to save it anyway?"
@@ -558,7 +560,7 @@ msgstr "Prilepi"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:23
 msgid "Browser Preview"
-msgstr ""
+msgstr "Predogled v brskalniku"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:24
 msgid "Get a preview your work in a web page"
@@ -633,11 +635,11 @@ msgstr "Odpri mapo"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:95
 msgid "_Cancel"
-msgstr ""
+msgstr "_Prekliči"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:96
 msgid "_Open"
-msgstr ""
+msgstr "_Odpri"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FileView.vala:330
 msgid "Close Folder"
@@ -649,11 +651,11 @@ msgstr "Delite svoje datoteke s Contractorjem"
 
 #: /home/mario/elementary/scratch/po/../plugins/strip-trailing-save/strip-trailing-save.vala:18
 msgid "Strip trailing whitespace"
-msgstr ""
+msgstr "Zbriši prazne znake na koncu"
 
 #: /home/mario/elementary/scratch/po/../plugins/strip-trailing-save/strip-trailing-save.vala:19
 msgid "Strip trailing whitespace on save"
-msgstr ""
+msgstr "Zbriši prazne znake na koncu ob shranjevanju"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:20
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:197
@@ -662,7 +664,7 @@ msgstr "Drevo vira"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:21
 msgid "Have a look at your sources organized in a nice tree"
-msgstr ""
+msgstr "Pogled v obliki lepega drevesa"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:42
 msgid "Loading..."
