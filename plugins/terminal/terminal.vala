@@ -27,18 +27,21 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
 
     MainWindow window = null;
 
+    Scratch.Plugins.TerminalViewer.Settings settings;
+    Scratch.Plugins.TerminalViewer.TerminalPosition position;
+
     Gtk.Notebook? bottombar = null;
     Gtk.Notebook? contextbar = null;
     Scratch.Widgets.Toolbar? toolbar = null;
     Gtk.ToggleToolButton? tool_button = null;
-
-    bool on_bottom = true;
 
     Gtk.RadioMenuItem location_bottom = null;
     Gtk.RadioMenuItem location_right = null;
 
     Vte.Terminal terminal;
     Gtk.Grid grid;
+
+    GLib.Pid child_pid;
 
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
@@ -56,6 +59,8 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
 
             window = w;
             window.key_press_event.connect (switch_focus);
+            window.destroy.connect (save_last_working_directory);
+
         });
 
         plugins.hook_notebook_bottom.connect ((n) => {
@@ -93,29 +98,28 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
     public void deactivate () {
         if (terminal != null)
             grid.destroy ();
+
         if (tool_button != null)
             tool_button.destroy ();
 
         window.key_press_event.disconnect (switch_focus);
+        window.destroy.disconnect (save_last_working_directory);
     }
 
-    void switch_terminal_location () {
+    void save_last_working_directory () {
+        settings.last_opened_path = get_shell_location ();
+    }
 
-        if (bottombar.page_num (grid) == -1 && this.location_bottom.active) {
+    void move_terminal_bottombar () {
+        contextbar.remove_page (contextbar.page_num (grid));
+        bottombar.set_current_page (bottombar.append_page (grid, new Gtk.Label (_("Terminal"))));
+        debug ("Move Terminal: BOTTOMBAR.");
+    }
 
-            contextbar.remove_page (contextbar.page_num (grid));
-            bottombar.set_current_page (bottombar.append_page (grid, new Gtk.Label (_("Terminal"))));
-            on_bottom = true;
-            debug ("Move Terminal: BOTTOMBAR.");
-
-        } else if (contextbar.page_num (grid) == -1 && this.location_right.active) {
-
-            bottombar.remove_page (bottombar.page_num (grid));
-            contextbar.set_current_page (contextbar.append_page (grid, new Gtk.Label (_("Terminal"))));
-            on_bottom = false;
-            debug ("Move Terminal: CONTEXTBAR.");
-
-        }
+    void move_terminal_contextbar () {
+        bottombar.remove_page (bottombar.page_num (grid));
+        contextbar.set_current_page (contextbar.append_page (grid, new Gtk.Label (_("Terminal"))));
+        debug ("Move Terminal: CONTEXTBAR.");
     }
 
     bool switch_focus (Gdk.EventKey event) {
@@ -159,14 +163,14 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         tool_button.toggled.connect (() => {
             if (this.tool_button.active) {
                 tool_button.tooltip_text = _("Hide Terminal");
-                if (on_bottom) {
+                if (settings.position == Scratch.Plugins.TerminalViewer.TerminalPosition.BOTTOM) {
                     bottombar.set_current_page (bottombar.append_page (grid, new Gtk.Label (_("Terminal"))));
                 } else {
                     contextbar.set_current_page (contextbar.append_page (grid, new Gtk.Label (_("Terminal"))));
                 }
             } else {
                 tool_button.tooltip_text = _("Show Terminal");
-                if (on_bottom) {
+                if (settings.position == Scratch.Plugins.TerminalViewer.TerminalPosition.BOTTOM) {
                     bottombar.remove_page (bottombar.page_num (grid));
                 } else {
                     contextbar.remove_page (contextbar.page_num (grid));
@@ -179,7 +183,27 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         toolbar.pack_end (tool_button);
     }
 
+    public string get_shell_location () {
+        int pid = (!) (this.child_pid);
+
+        try {
+            return GLib.FileUtils.read_link ("/proc/%d/cwd".printf (pid));
+        } catch (GLib.FileError error) {
+            warning ("An error occured while fetching the current dir of shell");
+            return "";
+        }
+    }
+
+    public void settings_changed () {
+        if (settings.position == position.BOTTOM)
+            move_terminal_bottombar ();
+        else
+            move_terminal_contextbar ();
+    }
+
     void on_hook_notebook () {
+        this.settings = new Scratch.Plugins.TerminalViewer.Settings ();
+        settings.changed.connect (settings_changed);
         this.terminal = new Vte.Terminal ();
         this.terminal.scrollback_lines = -1;
 
@@ -291,17 +315,23 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         // ON RIGHT
         location_right = new Gtk.RadioMenuItem.with_label (null, _("Terminal on Right"));
         location_right.toggled.connect (() => {
-            switch_terminal_location ();
+            if (settings.position != Scratch.Plugins.TerminalViewer.TerminalPosition.RIGHT)
+                settings.position = Scratch.Plugins.TerminalViewer.TerminalPosition.RIGHT;
         });
         menu.append (location_right);
 
         // ON BOTTOM
         location_bottom = new Gtk.RadioMenuItem.with_label (location_right.get_group (), _("Terminal on Bottom"));
-        location_bottom.active = true;
         location_bottom.toggled.connect (() => {
-            switch_terminal_location ();
+            if (settings.position != Scratch.Plugins.TerminalViewer.TerminalPosition.BOTTOM)
+                settings.position = Scratch.Plugins.TerminalViewer.TerminalPosition.BOTTOM;
         });
         menu.append (location_bottom);
+
+        if (settings.position == Scratch.Plugins.TerminalViewer.TerminalPosition.BOTTOM)
+            location_bottom.active = true;
+        else
+            location_right.active = true;
 
         menu.show_all ();
 
@@ -314,10 +344,11 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         });
 
         try {
+            string last_opened_path = settings.last_opened_path == "" ? "~/" : settings.last_opened_path;
             #if ! VTE291
-            this.terminal.fork_command_full (Vte.PtyFlags.DEFAULT, "~/", { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, null);
+            this.terminal.fork_command_full (Vte.PtyFlags.DEFAULT, last_opened_path, { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, out child_pid);
             #else
-            this.terminal.spawn_sync (Vte.PtyFlags.DEFAULT, "~/", { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, null, null);
+            this.terminal.spawn_sync (Vte.PtyFlags.DEFAULT, last_opened_path, { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, null, out child_pid);
             #endif
         } catch (GLib.Error e) {
             warning (e.message);

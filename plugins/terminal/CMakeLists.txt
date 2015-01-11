@@ -14,6 +14,7 @@ link_directories (${VTE_LIBRARY_DIRS})
 
 if (${VTE_VERSION} VERSION_LESS "0.38.0")
 vala_precompile(VALA_C
+    Settings.vala
     terminal.vala
 PACKAGES
     vte-2.90
@@ -32,6 +33,7 @@ OPTIONS
 )
 else()
 vala_precompile(VALA_C
+    Settings.vala
     terminal.vala
 PACKAGES
     vte-2.91
