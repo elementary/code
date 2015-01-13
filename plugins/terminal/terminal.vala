@@ -1,4 +1,4 @@
-// -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
+asdadsasdfasdf// -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /***
   BEGIN LICENSE
 
@@ -168,6 +168,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
                 } else {
                     contextbar.set_current_page (contextbar.append_page (grid, new Gtk.Label (_("Terminal"))));
                 }
+                terminal.grab_focus ();
             } else {
                 tool_button.tooltip_text = _("Show Terminal");
                 if (settings.position == Scratch.Plugins.TerminalViewer.TerminalPosition.BOTTOM) {
@@ -175,6 +176,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
                 } else {
                     contextbar.remove_page (contextbar.page_num (grid));
                 }
+                window.get_current_document ().focus ();
             }
         });
 
