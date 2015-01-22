@@ -514,13 +514,14 @@ namespace Scratch {
         // Update files-opened settings key
         void update_opened_files () {
             // File list
-            var docs = new GLib.List<Scratch.Services.Document> ();
+            var tabs = new GLib.List<Granite.Widgets.Tab> ();
             this.split_view.views.foreach ((view) => {
-                docs.concat (view.docs.copy ());
+                tabs.concat (view.notebook.tabs.copy ());
             });
 
-            string[] opened_files = {};//new string[docs.length ()];
-            docs.foreach ((doc) => {
+            string[] opened_files = {};
+            tabs.foreach ((tab) => {
+                var doc = tab as Scratch.Services.Document;
                 if (doc.file != null && doc.exists ())
                     opened_files += doc.file.get_uri ();
             });
