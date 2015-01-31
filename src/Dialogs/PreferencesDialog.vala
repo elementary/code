@@ -45,16 +45,12 @@ namespace Scratch.Dialogs {
         FontButton select_font;
         
         public Preferences (Gtk.Window? parent, PluginsManager plugins) {           
-            Object (use_header_bar: 1);
-
             if (parent != null)
                 set_transient_for (parent);
             title = _("Preferences");
             set_default_size (630, 330);
             resizable = false;
-            
-            (get_header_bar () as Gtk.HeaderBar).show_close_button = false;
-            get_header_bar ().get_style_context ().remove_class ("header-bar");
+            deletable = false;
 
             main_stack = new Gtk.Stack ();
             main_stackswitcher = new Gtk.StackSwitcher ();

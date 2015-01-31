@@ -28,7 +28,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
     MainWindow window = null;
 
     Scratch.Plugins.TerminalViewer.Settings settings;
-    Scratch.Plugins.TerminalViewer.TerminalPosition position;
 
     Gtk.Notebook? bottombar = null;
     Gtk.Notebook? contextbar = null;
@@ -197,7 +196,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
     }
 
     public void settings_changed () {
-        if (settings.position == position.BOTTOM)
+        if (settings.position == Scratch.Plugins.TerminalViewer.TerminalPosition.BOTTOM)
             move_terminal_bottombar ();
         else
             move_terminal_contextbar ();
