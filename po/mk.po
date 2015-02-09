@@ -1,16 +1,16 @@
-# Slovak translation for scratch
-# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# Macedonian translation for scratch
+# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the scratch package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-08-30 09:08-0500\n"
-"PO-Revision-Date: 2015-02-08 11:18+0000\n"
-"Last-Translator: Ivan Cizik <Unknown>\n"
-"Language-Team: Slovak <sk@li.org>\n"
+"PO-Revision-Date: 2015-02-08 13:29+0000\n"
+"Last-Translator: Aleksandar Neskovski <Unknown>\n"
+"Language-Team: Macedonian <mk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,358 +20,358 @@ msgstr ""
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:52
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:722
 msgid "Preferences"
-msgstr "Nastavenia"
+msgstr "Преференции"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:70
 msgid "Behavior"
-msgstr "Správanie"
+msgstr "Однесување"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
 msgid "Interface"
-msgstr "Rozhranie"
+msgstr "Интерфејс"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:86
 msgid "Extensions"
-msgstr "Rozšírenie"
+msgstr "Екстензии"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:90
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:666
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:667
 msgid "Close"
-msgstr "Zavrieť"
+msgstr "Затвори"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:135
 msgid "Show welcome screen"
-msgstr "Ukázať uvítaciu obrazovku"
+msgstr "Прикажи го екранот за добредојде"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:136
 msgid "Show last open tabs"
-msgstr "Ukázať naposledy otvorené karty"
+msgstr "Прикажи ги последните оторени табови"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "General:"
-msgstr "Základné"
+msgstr "Општо:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:158
 msgid "When Scratch starts:"
-msgstr "Po naštartovaní Scratch"
+msgstr "Кога Scratch почнува:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:161
 msgid "Save files when changed:"
-msgstr "Uložiť súbory keď sa zmení:"
+msgstr "Зачувај ги фајловите по направени промени"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:166
 msgid "Tabs:"
-msgstr "Karty:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:171
 msgid "Automatic indentation:"
-msgstr "Automatické vytvorenie odstavca:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:174
 msgid "Insert spaces instead of tabs:"
-msgstr "Vložiť medzery namiesto tabulátorov:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:178
 msgid "Tab width:"
-msgstr "Šírka tabulátora"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:206
 msgid "Editor:"
-msgstr "Editor:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
 msgid "Highlight current line:"
-msgstr "Zvýrazniť tento riadok:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:225
 msgid "Highlight matching brackets:"
-msgstr "Zvýrazniť zhodujúce sa zátvorky:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:226
 msgid "Split long text in many lines:"
-msgstr "Rozdeliť dlhý text do viacerých riadkov:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:227
 msgid "Draw spaces:"
-msgstr "Vykresľovanie medzier:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:228
 msgid "Show line numbers:"
-msgstr "Ukázať očíslovanie riadkov:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:231
 msgid "Line width guide:"
-msgstr "Príručka pre šírku čiary"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:247
 msgid "Font and Color Scheme:"
-msgstr "Písmo a farebná schéma:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:261
 msgid "Select font:"
-msgstr "Vybrať písmo:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:264
 msgid "Color scheme:"
-msgstr "Farebná schéma"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:269
 msgid "Custom font:"
-msgstr "Vlastné písmo:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:99
 msgid "Zeitgeist Datasource for Scratch"
-msgstr "Zeitgeist zdroj dát pre Scratch"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:181
 msgid "Trash"
-msgstr "Kôš"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:504
 msgid "Open some files"
-msgstr "Otvoriť niektoré súbory"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:599
 msgid "Hide search bar"
-msgstr "Skryť vyhľadávací panel"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:654
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:655
 msgid "Find…"
-msgstr "Nájsť…"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:658
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:659
 msgid "Go to line…"
-msgstr "Prejsť na riadok..."
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:662
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:663
 msgid "Quit"
-msgstr "Ukončit"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:670
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:671
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:111
 msgid "Replace"
-msgstr "Nahradiť"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:674
 msgid "Reopen closed document"
-msgstr "Znovu otvoriť zatvorený dokument"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:675
 msgid "Open last closed document in a new tab"
-msgstr "Otvoriť posledný zatvorený dokument na novej karte"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:678
 msgid "Add New Tab"
-msgstr "Pridať novú kartu"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:679
 msgid "Add a new tab"
-msgstr "Pridať novú kartu"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:682
 msgid "Add New View"
-msgstr "Pridať nové zobrazenie"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:683
 msgid "Add a new view"
-msgstr "Pridať nové zobrazenie"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:686
 msgid "Remove Current View"
-msgstr "Odstrániť současné zobrazenie"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:687
 msgid "Remove this view"
-msgstr "Odstraniť toto zobrazenie"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:690
 msgid "Undo"
-msgstr "Späť"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:691
 msgid "Undo the last action"
-msgstr "Vrátiť poslednú akciu"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:694
 msgid "Redo"
-msgstr "Opakovať"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:695
 msgid "Redo the last undone action"
-msgstr "Opakovať poslednú vrátenú akciu"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:698
 msgid "Revert"
-msgstr "Vrátiť"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:699
 msgid "Restore this file"
-msgstr "Obnoviť tento súbor"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:702
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:703
 msgid "Duplicate selected strings"
-msgstr "Duplikovať vybrané reťazce"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:706
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileView.vala:281
 msgid "Open"
-msgstr "Otvoriť"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:707
 msgid "Open a file"
-msgstr "Otvoriť súbor"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:710
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:584
 msgid "Save"
-msgstr "Uložiť"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:711
 msgid "Save this file"
-msgstr "Uložiť tento súbor"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:714
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:576
 msgid "Save As…"
-msgstr "Uložiť ako…"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:715
 msgid "Save this file with a different name"
-msgstr "Uložiť tento súbor s iným menom"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:718
 #: /home/mario/elementary/scratch/po/../src/Services/TemplateManager.vala:230
 msgid "Templates"
-msgstr "Šablony"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:719
 msgid "Project templates"
-msgstr "Projekt šablón"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:723
 msgid "Change Scratch settings"
-msgstr "Zmeniť nastavenia editora Scratch"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:726
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:727
 msgid "Next Tab"
-msgstr "Ďalšia karta"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:730
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:731
 msgid "Previous Tab"
-msgstr "Predchádzajúca karta"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:747
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:748
 msgid "Fullscreen"
-msgstr "Na celú obrazovku"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ToolBar.vala:57
 msgid "Share"
-msgstr "Zdieľať"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:46
 msgid "No Files Open"
-msgstr "Žiadne otvorené súbory"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:47
 msgid "Open a file to begin editing."
-msgstr "Otvorte súbor a začnite editovať"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:51
 msgid "New file"
-msgstr "Nový súbor"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:51
 msgid "Create a new empty file."
-msgstr "Vytvoriť nový prázdny súbor."
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:52
 msgid "Open file"
-msgstr "Otvoriť súbor"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:52
 msgid "Open a saved file."
-msgstr "Otvoriť uložený súbor."
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:97
 msgid "Syntax Highlighting"
-msgstr "Zvýrazňovanie syntaxe"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:108
 msgid "Normal Text"
-msgstr "Normálny text"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/LoadingView.vala:36
 msgid "Wait while restoring last session..."
-msgstr "Čakať na obnovenie poslednej relácie..."
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:71
 msgid "Find"
-msgstr "Hľadať"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:90
 msgid "Replace With"
-msgstr "Nahradiť za"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:115
 msgid "Replace all"
-msgstr "Nahradiť všetko"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:123
 msgid "Go To Line:"
-msgstr "Ísť na riadok:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:222
 msgid "New Tab"
-msgstr "Nová karta"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:223
 #: /home/mario/elementary/scratch/po/../src/config.vala:18
 msgid "New Window"
-msgstr "Nové Okno"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:224
 msgid "Print version info and exit"
-msgstr "Vytlačiť informácie o verzii a ukončiť"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:225
 msgid "Set of plugins"
-msgstr "Set pluginov"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:226
 msgid "Current working directoy"
-msgstr "Aktuálny pracovný adresár"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:248
 #, c-format
 msgid "Save changes to document %s before closing?"
-msgstr "Uložiť zmeny do %s pred ukončením?"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:251
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr "Ak neuložíte, zmeny z posledných 4 sekúnd budú navždy stratené."
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:253
 msgid "Close without saving"
-msgstr "Zavrieť bez uloženia"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:331
 msgid "Save File"
-msgstr "Uložiť súbor"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:419
 #: /home/mario/elementary/scratch/po/../src/config.vala:17
 msgid "New Document"
-msgstr "Nový dokument"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:556
 #, c-format
@@ -379,238 +379,234 @@ msgid ""
 "File \"<b>%s</b>\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
-"Súbor \"%s<b></b>\" sa nedá prečítať. Môže byť poškodený\n"
-"alebo nemáte potrebné oprávnenia na čítanie."
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:573
 msgid "The location containing the file"
-msgstr "Miesto umiestnenia súboru"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:574
 msgid "was unmounted. Do you want to save somewhere else?"
-msgstr "bol odobratý. Chete uložiť súbor niekam inam?"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:581
 msgid "File"
-msgstr "Súbor"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:582
 msgid "was deleted. Do you want to save it anyway?"
-msgstr "bol odstránený. Prajete si ho uložiť aj napriek tomu ?"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:595
 msgid "You cannot save changes on file"
-msgstr "Nemôžete uložiť zmeny do súboru"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:596
 msgid "Do you want to save the changes to this file in a different location?"
-msgstr "Chcete uložiť zmeny v tomto súbore na inom mieste?"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:598
 msgid "Save changes elsewhere"
-msgstr "Uložiť zmeny inde"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:623
 msgid "File "
-msgstr "Súbor "
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:624
 msgid ""
 "was modified by an external application. Do you want to load it again or "
 "continue your editing?"
 msgstr ""
-"bol zmenený inou aplikáciou. Chcete súbor načítať znova a pokračovať v "
-"úpravách?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:626
 msgid "Load"
-msgstr "Nahrať"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:629
 msgid "Continue"
-msgstr "Pokračovať"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Utils.vala:42
 msgid "All files"
-msgstr "Všetky súbory"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Utils.vala:45
 msgid "Text files"
-msgstr "Textové súbory"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:15
 msgid "Edit text files"
-msgstr "Úprava textových súborov"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:16
 msgid "Text Editor"
-msgstr "Textový Editor"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
-msgstr "Kôš"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
-msgstr "Zdieľať súbory v službe pastebin"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:134
 msgid "Upload to Pastebin"
-msgstr "Odoslať do pastebin"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
-msgstr "Zdieľať použitím PasteBin"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:272
 msgid "Name:"
-msgstr "Meno:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:278
 msgid "Format: "
-msgstr "Formát: "
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:280
 msgid "Others..."
-msgstr "Iné..."
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:305
 msgid "Expiry time:"
-msgstr "Čas vypršania platnosti:"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:310
 msgid "Keep this paste private"
-msgstr "Ponechať toto prilepenie súkromné"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:312
 msgid "Upload"
-msgstr "Nahrať"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:342
 msgid "Other formats"
-msgstr "Iné formáty"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:511
 msgid "Never"
-msgstr "Nikdy"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:512
 msgid "Ten minutes"
-msgstr "Desať minút"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:513
 msgid "One hour"
-msgstr "Jedna hodina"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:514
 msgid "One day"
-msgstr "Jeden deň"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:515
 msgid "One month"
-msgstr "Jeden mesiac"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileView.vala:90
 msgid "/New File"
-msgstr "/Nový súbor"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:21
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:21
 msgid "Folder Manager"
-msgstr "Správca priečinkov"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:22
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:22
 msgid "Basic folder manager with file browsing"
-msgstr "Základný správca priečinkov s prehliadaním súborov"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:71
 msgid "Go to parent"
-msgstr "O úroveň vyššie"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:82
 msgid "Add file"
-msgstr "Pridať súbor"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:89
 msgid "Remove file"
-msgstr "Odstrániť súbor"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:104
 msgid "File Manager"
-msgstr "Správca súborov"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:23
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:158
 msgid "Terminal"
-msgstr "Terminál"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:24
 msgid "A terminal in your text editor"
-msgstr "Terminál vo vašom textovom editore"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:121
 msgid "Copy"
-msgstr "Kopírovať"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:128
 msgid "Paste"
-msgstr "Vložiť"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:23
 msgid "Browser Preview"
-msgstr "Náhľad prehliadača"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:24
 msgid "Get a preview your work in a web page"
-msgstr "Získajte náhľad svojej práce na webovej stránke"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:77
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:119
 msgid "Web preview"
-msgstr "Náhľad webu"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:86
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:87
 msgid "Get preview!"
-msgstr "Získať náhľad"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:18
 msgid "Spell Checker"
-msgstr "Kontrola pravopisu"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
-msgstr "Kontrola pravopisu vašich dokumentov"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:21
 msgid "Open With"
-msgstr "Otvoriť pomocou"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr "Otvorte súbory, ktoré upravujete inou aplikáciou"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:55
 msgid "Open With..."
-msgstr "Otvoriť pomocou..."
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/brackets-completion/brackets-completion.vala:21
 msgid "Brackets Completion"
-msgstr "Automatické zátvorky"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/brackets-completion/brackets-completion.vala:22
 msgid "Complete brackets while typing"
-msgstr "Automaticky pridaj zátvorky pri písaní"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/completion-provider.vala:80
 #, c-format
 msgid "Could not load icon theme: %s\n"
-msgstr "Nepodarilo sa načítať motív ikôn: %s\n"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
-msgstr "Dokončovanie slov"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:35
 msgid "Show a completion dialog with most used words from your files"
@@ -623,151 +619,70 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:71
 msgid "Folders"
-msgstr "Priečinky"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:89
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:90
 msgid "Open a folder"
-msgstr "Otvoriť priečinok"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:95
 msgid "_Cancel"
-msgstr "_Zrušiť"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:96
 msgid "_Open"
-msgstr "_Otvoriť"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FileView.vala:330
 msgid "Close Folder"
-msgstr "Zatvoriť priečinok"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
-msgstr "Zdieľajte vaše súbory cez Contractor"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/strip-trailing-save/strip-trailing-save.vala:18
 msgid "Strip trailing whitespace"
-msgstr "Odstrániť koncové medzery"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/strip-trailing-save/strip-trailing-save.vala:19
 msgid "Strip trailing whitespace on save"
-msgstr "Odstrániť koncové medzery pri uložení"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:20
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:197
 msgid "Source Tree"
-msgstr "Zdrojový strom"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:21
 msgid "Have a look at your sources organized in a nice tree"
-msgstr "Pozrite sa na svoje zdroje organizované v strome"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:42
 msgid "Loading..."
-msgstr "Načítava sa..."
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:175
 msgid "Bookmark"
-msgstr "Záložka"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:234
 msgid "Files"
-msgstr "Súbory"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:235
 msgid "Project"
-msgstr "Projekt"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:236
 msgid "Bookmarks"
-msgstr "Záložky"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
-msgstr "Emulácia Vim"
+msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
-msgstr "Použiť Vim príkazy v Scratch"
-
-#~ msgid "Go to line..."
-#~ msgstr "Ísť na riadok..."
-
-#~ msgid "Find..."
-#~ msgstr "Nájsť..."
-
-#~ msgid "New document"
-#~ msgstr "Nový dokument"
-
-#~ msgid "Create a new document from a template"
-#~ msgstr "Vytvoriť nový dokument zo šablóny"
-
-#~ msgid "Argument for the set of plugins"
-#~ msgstr "Argument pre set pluginov"
-
-#~ msgid "Bottom Panel"
-#~ msgstr "Dolní panel"
-
-#~ msgid "Status Bar"
-#~ msgstr "Stavová lišta"
-
-#~ msgid "Context View"
-#~ msgstr "Kontextové zobrazenie"
-
-#~ msgid "Sidebar"
-#~ msgstr "Bočný panel"
-
-#~ msgid "Choose the new location"
-#~ msgstr "Vyberte novú lokáciu"
-
-#~ msgid "Create a new instance"
-#~ msgstr "Vytvoriť novú inštanciu"
-
-#~ msgid "No files are open."
-#~ msgstr "Nie sú otvorené žiadne súbory."
-
-#~ msgid "Normal text"
-#~ msgstr "Normální text"
-
-#~ msgid "Next Search"
-#~ msgstr "Ďalšie"
-
-#~ msgid "Previous Search"
-#~ msgstr "Predchádzajúci"
-
-#~ msgid "Save as"
-#~ msgstr "Uložiť ako"
-
-#~ msgid "Save the current file"
-#~ msgstr "Uložiť súčasný súbor"
-
-#~ msgid "Save the current file with a different name"
-#~ msgstr "Uložiť súčasný súbor pod iným menom"
-
-#~ msgid "Save unsaved changes to file before closing?"
-#~ msgstr "Uložiť neuložené zmeny pred zatvorením?"
-
-#~ msgid "You can't save changes to:"
-#~ msgstr "Nemôžete uložiť zmeny v:"
-
-#~ msgid "Changes to this file haven't been saved."
-#~ msgstr "Zmeny v tomto súbore neboli uložené."
-
-#~ msgid "Do you want to save changes before closing this file?"
-#~ msgstr "Chcete uložiť zmeny pred zatvorením tohoto súboru?"
-
-#~ msgid "Do you want to reload it?"
-#~ msgstr "Chcete to načítať znova?"
-
-#~ msgid "Do you want to create it again?"
-#~ msgstr "Chcete to vytvoriť znova?"
-
-#~ msgid "Show margin on right:"
-#~ msgstr "Zobraziť okraj napravo:"
-
-#~ msgid "Margin width:"
-#~ msgstr "Šírka okraja:"
-
-#~ msgid "Create a new document in a new tab"
-#~ msgstr "Vytvoriť nový dokument v novej záložke"
+msgstr ""
