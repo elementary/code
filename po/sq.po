@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-08-30 09:08-0500\n"
-"PO-Revision-Date: 2015-02-16 16:36+0000\n"
+"PO-Revision-Date: 2015-02-19 18:21+0000\n"
 "Last-Translator: Indrit Bashkimi <indrit.bashkimi@gmail.com>\n"
 "Language-Team: Albanian <sq@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-02-17 06:10+0000\n"
+"X-Launchpad-Export-Date: 2015-02-20 05:53+0000\n"
 "X-Generator: Launchpad (build 17341)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:52
@@ -24,7 +24,7 @@ msgstr "Parapëlqimet"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:70
 msgid "Behavior"
-msgstr ""
+msgstr "Sjellja"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:73
 msgid "Interface"
@@ -32,7 +32,7 @@ msgstr "Ndërfaqja"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:86
 msgid "Extensions"
-msgstr "Prapashtesa"
+msgstr "Prapashtesat"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:90
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:666
@@ -50,11 +50,11 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:152
 msgid "General:"
-msgstr ""
+msgstr "Të përgjithshme:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:158
 msgid "When Scratch starts:"
-msgstr ""
+msgstr "Kur Scratch niset:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:161
 msgid "Save files when changed:"
@@ -78,11 +78,11 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:206
 msgid "Editor:"
-msgstr ""
+msgstr "Redaktuesi:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:224
 msgid "Highlight current line:"
-msgstr ""
+msgstr "Thekso rreshtin e tanishëm:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:225
 msgid "Highlight matching brackets:"
@@ -94,7 +94,7 @@ msgstr "Ndaj tekte të gjata në disa rreshta:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:227
 msgid "Draw spaces:"
-msgstr ""
+msgstr "Vizato hapësirat"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:228
 msgid "Show line numbers:"
@@ -114,7 +114,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:264
 msgid "Color scheme:"
-msgstr ""
+msgstr "Skema e ngjyrave:"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:269
 msgid "Custom font:"
@@ -134,7 +134,7 @@ msgstr "Hap disa skedarë"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:599
 msgid "Hide search bar"
-msgstr ""
+msgstr "Fshehe shiritin e kërkimit"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:654
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:655
@@ -163,31 +163,31 @@ msgstr "Rihap dokumentin e sapo mbyllur"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:675
 msgid "Open last closed document in a new tab"
-msgstr ""
+msgstr "Hap dokumentin e mbyllur së fundmi në një tab të ri"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:678
 msgid "Add New Tab"
-msgstr ""
+msgstr "Shto tab të ri"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:679
 msgid "Add a new tab"
-msgstr ""
+msgstr "Shto një tab të ri"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:682
 msgid "Add New View"
-msgstr ""
+msgstr "Shto pamje të re"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:683
 msgid "Add a new view"
-msgstr ""
+msgstr "Shto një pamje të re"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:686
 msgid "Remove Current View"
-msgstr ""
+msgstr "Hiq pamjen e tanishme"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:687
 msgid "Remove this view"
-msgstr ""
+msgstr "Hiqe këtë pamje"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:690
 msgid "Undo"
@@ -195,7 +195,7 @@ msgstr "Zhbëj"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:691
 msgid "Undo the last action"
-msgstr ""
+msgstr "Anulo veprimin e fundit"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:694
 msgid "Redo"
@@ -203,11 +203,11 @@ msgstr "Ribëje"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:695
 msgid "Redo the last undone action"
-msgstr ""
+msgstr "Përsërit veprimin e fundit të anuluar"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:698
 msgid "Revert"
-msgstr ""
+msgstr "Rikthe"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:699
 msgid "Restore this file"
@@ -256,7 +256,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:723
 msgid "Change Scratch settings"
-msgstr ""
+msgstr "Ndrysho rregullimet e Scratch"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:726
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:727
@@ -271,11 +271,11 @@ msgstr ""
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:747
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:748
 msgid "Fullscreen"
-msgstr ""
+msgstr "Ekran të plotë"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/ToolBar.vala:57
 msgid "Share"
-msgstr ""
+msgstr "Shpërndaje"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:46
 msgid "No Files Open"
@@ -283,7 +283,7 @@ msgstr "Asnjë skedar të hapur"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:47
 msgid "Open a file to begin editing."
-msgstr ""
+msgstr "Hap një skedar për të filluar redaktimin."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SplitView.vala:51
 msgid "New file"
@@ -303,7 +303,7 @@ msgstr "Hap një skedar të ruajtur."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:97
 msgid "Syntax Highlighting"
-msgstr ""
+msgstr "Vënia në dukje e sintaksës"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SourceView.vala:108
 msgid "Normal Text"
@@ -311,7 +311,7 @@ msgstr "Tekst Normal"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/LoadingView.vala:36
 msgid "Wait while restoring last session..."
-msgstr ""
+msgstr "Prit sa të restaurohet seanca e fundit..."
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:71
 msgid "Find"
@@ -323,7 +323,7 @@ msgstr "Zëvendësoje me"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:115
 msgid "Replace all"
-msgstr ""
+msgstr "Zëvendësoji të gjitha"
 
 #: /home/mario/elementary/scratch/po/../src/Widgets/SearchManager.vala:123
 msgid "Go To Line:"
@@ -331,7 +331,7 @@ msgstr "Shko tek rreshti:"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:222
 msgid "New Tab"
-msgstr ""
+msgstr "Tab i ri"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:223
 #: /home/mario/elementary/scratch/po/../src/config.vala:18
@@ -340,7 +340,7 @@ msgstr "Dritare e re"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:224
 msgid "Print version info and exit"
-msgstr ""
+msgstr "Shtyp informacione mbi versionin dhe dil"
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:225
 msgid "Set of plugins"
@@ -348,12 +348,12 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Scratch.vala:226
 msgid "Current working directoy"
-msgstr ""
+msgstr "Dosja aktuale e punës"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:248
 #, c-format
 msgid "Save changes to document %s before closing?"
-msgstr ""
+msgstr "Të ruaj ndryshimet e dokumentit %s para mbylljes?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:251
 msgid ""
@@ -373,7 +373,7 @@ msgstr "Ruaje skedarin"
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:419
 #: /home/mario/elementary/scratch/po/../src/config.vala:17
 msgid "New Document"
-msgstr ""
+msgstr "Dokument i ri"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:556
 #, c-format
@@ -386,11 +386,11 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:573
 msgid "The location containing the file"
-msgstr ""
+msgstr "Vendndodhja që përmban skedarin"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:574
 msgid "was unmounted. Do you want to save somewhere else?"
-msgstr ""
+msgstr "është çmontuar. Dëshiron ta ruash diku tjetër?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:581
 msgid "File"
@@ -407,6 +407,7 @@ msgstr "Nuk mund të ruash ndryshimet në skedar"
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:596
 msgid "Do you want to save the changes to this file in a different location?"
 msgstr ""
+"Dëshiron të ruash ndryshimet e këtij skedari në një vendndodhje tjetër?"
 
 #: /home/mario/elementary/scratch/po/../src/Services/Document.vala:598
 msgid "Save changes elsewhere"
@@ -442,15 +443,15 @@ msgstr "Skedarë teksti"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:15
 msgid "Edit text files"
-msgstr ""
+msgstr "Përpuno skedarë teksti"
 
 #: /home/mario/elementary/scratch/po/../src/config.vala:16
 msgid "Text Editor"
-msgstr ""
+msgstr "Përpunues Tekstesh"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
-msgstr ""
+msgstr "Pastebin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
@@ -458,7 +459,7 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin.vala:134
 msgid "Upload to Pastebin"
-msgstr ""
+msgstr "Ngarko tek Pastebin"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
@@ -466,11 +467,11 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:272
 msgid "Name:"
-msgstr ""
+msgstr "Emri:"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:278
 msgid "Format: "
-msgstr ""
+msgstr "Formati: "
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:280
 msgid "Others..."
@@ -486,31 +487,31 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:312
 msgid "Upload"
-msgstr ""
+msgstr "Ngarko"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:342
 msgid "Other formats"
-msgstr ""
+msgstr "Formatet e tjera"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:511
 msgid "Never"
-msgstr ""
+msgstr "Kurrë"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:512
 msgid "Ten minutes"
-msgstr ""
+msgstr "Dhjetë minuta"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:513
 msgid "One hour"
-msgstr ""
+msgstr "Një orë"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:514
 msgid "One day"
-msgstr ""
+msgstr "Një ditë"
 
 #: /home/mario/elementary/scratch/po/../plugins/pastebin/pastebin_dialog.vala:515
 msgid "One month"
-msgstr ""
+msgstr "Një muaj"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileView.vala:90
 msgid "/New File"
@@ -532,11 +533,11 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:82
 msgid "Add file"
-msgstr ""
+msgstr "Shto skedar"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:89
 msgid "Remove file"
-msgstr ""
+msgstr "Hiq skedar"
 
 #: /home/mario/elementary/scratch/po/../plugins/filemanager/FileManagerPlugin.vala:104
 msgid "File Manager"
@@ -553,11 +554,11 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:121
 msgid "Copy"
-msgstr ""
+msgstr "Kopjo"
 
 #: /home/mario/elementary/scratch/po/../plugins/terminal/terminal.vala:128
 msgid "Paste"
-msgstr ""
+msgstr "Ngjit"
 
 #: /home/mario/elementary/scratch/po/../plugins/browser-preview/browser-preview.vala:23
 msgid "Browser Preview"
@@ -579,40 +580,40 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:18
 msgid "Spell Checker"
-msgstr ""
+msgstr "Kontrolluesi i drejtshkrimit"
 
 #: /home/mario/elementary/scratch/po/../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
-msgstr ""
+msgstr "Kontrollon drejtshkrimin e dokumenteve tuaja"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:21
 msgid "Open With"
-msgstr ""
+msgstr "Hap me"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr ""
+msgstr "Hap skedarët që po përpunon me një program tjetër"
 
 #: /home/mario/elementary/scratch/po/../plugins/open-with/open-with.vala:55
 msgid "Open With..."
-msgstr ""
+msgstr "Hap me..."
 
 #: /home/mario/elementary/scratch/po/../plugins/brackets-completion/brackets-completion.vala:21
 msgid "Brackets Completion"
-msgstr ""
+msgstr "Plotësimi kllapave"
 
 #: /home/mario/elementary/scratch/po/../plugins/brackets-completion/brackets-completion.vala:22
 msgid "Complete brackets while typing"
-msgstr ""
+msgstr "Plotëson kllapat gjatë shtypjes"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/completion-provider.vala:80
 #, c-format
 msgid "Could not load icon theme: %s\n"
-msgstr ""
+msgstr "Nuk ishte i mundur ngarkimi i temës së ikonave: %s\n"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
-msgstr ""
+msgstr "Plotësimi i fjalëve"
 
 #: /home/mario/elementary/scratch/po/../plugins/word-completion/plugin.vala:35
 msgid "Show a completion dialog with most used words from your files"
@@ -625,28 +626,28 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:71
 msgid "Folders"
-msgstr ""
+msgstr "Dosjet"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:89
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:90
 msgid "Open a folder"
-msgstr ""
+msgstr "Hap një dosje"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:95
 msgid "_Cancel"
-msgstr ""
+msgstr "_Anulo"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FolderManagerPlugin.vala:96
 msgid "_Open"
-msgstr ""
+msgstr "_Hap"
 
 #: /home/mario/elementary/scratch/po/../plugins/folder-manager/FileView.vala:330
 msgid "Close Folder"
-msgstr ""
+msgstr "Mbyll dosjen"
 
 #: /home/mario/elementary/scratch/po/../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
-msgstr ""
+msgstr "Shpërndaj skedarët tuaj me Contractor"
 
 #: /home/mario/elementary/scratch/po/../plugins/strip-trailing-save/strip-trailing-save.vala:18
 msgid "Strip trailing whitespace"
@@ -663,11 +664,11 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:21
 msgid "Have a look at your sources organized in a nice tree"
-msgstr ""
+msgstr "Shiko burimet tuaja të organizuara në një pemë të këndshme"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:42
 msgid "Loading..."
-msgstr ""
+msgstr "Duke ngarkuar..."
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:175
 msgid "Bookmark"
@@ -675,11 +676,11 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:234
 msgid "Files"
-msgstr ""
+msgstr "Skedarët"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:235
 msgid "Project"
-msgstr ""
+msgstr "Projekti"
 
 #: /home/mario/elementary/scratch/po/../plugins/source-tree/SourceTreePlugin.vala:236
 msgid "Bookmarks"
@@ -691,4 +692,4 @@ msgstr ""
 
 #: /home/mario/elementary/scratch/po/../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
-msgstr ""
+msgstr "Përdor komandat e programit Vim në Scratch"
