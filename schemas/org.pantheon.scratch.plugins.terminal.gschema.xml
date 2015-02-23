@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+    <schema path="/org/pantheon/scratch/plugins/terminal/" id="org.pantheon.scratch.plugins.terminal" gettext-domain="scratch">
+        <key name="position" type="i">
+            <default>0</default>
+            <summary>Terminal position</summary>
+            <description>0: Position on bottom bar. 1: Postion on right bar.</description>
+        </key>
+        <key name="last-opened-path" type="s">
+            <default>''</default>
+            <summary>Last opened path</summary>
+            <description>Last opened path in the terminal plugin</description>
+        </key>
+    </schema>
+</schemalist>
