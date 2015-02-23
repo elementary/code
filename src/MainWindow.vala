@@ -422,7 +422,7 @@ namespace Scratch {
         }
 
         public bool has_temporary_files () {
-            FileEnumerator enumerator = File.new_for_path (app.data_home_folder_unsaved).enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME, 0, null);
+            FileEnumerator enumerator = File.new_for_path (app.data_home_folder_unsaved).enumerate_children (FileAttribute.STANDARD_NAME, 0, null);
             var fileinfo = enumerator.next_file (null);
             while (fileinfo != null) {
                 if (!fileinfo.get_name ().has_suffix ("~")) {
@@ -648,7 +648,7 @@ namespace Scratch {
         }
 
         void action_open_temporary_files () {
-            FileEnumerator enumerator = File.new_for_path (app.data_home_folder_unsaved).enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME, 0, null);
+            FileEnumerator enumerator = File.new_for_path (app.data_home_folder_unsaved).enumerate_children (FileAttribute.STANDARD_NAME, 0, null);
             var fileinfo = enumerator.next_file (null);
             while (fileinfo != null) {
                 if (!fileinfo.get_name ().has_suffix ("~")) {
