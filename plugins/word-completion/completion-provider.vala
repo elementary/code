@@ -121,7 +121,7 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
 
     public bool get_start_iter (Gtk.SourceCompletionContext context,
                                 Gtk.SourceCompletionProposal proposal,
-                                Gtk.TextIter iter) {
+                                out Gtk.TextIter iter) {
         var mark = buffer.get_insert ();
         Gtk.TextIter cursor_iter;
         buffer.get_iter_at_mark (out cursor_iter, mark);

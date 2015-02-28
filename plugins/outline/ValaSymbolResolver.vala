@@ -85,7 +85,7 @@ public class ValaSymbolOutline : Object, SymbolOutline
         context.report = new Report ();
     }
     
-    ~ValaSymbolResolver ()
+    ~ValaSymbolOutline ()
     {
         doc.doc_closed.disconnect (doc_closed);
     }

@@ -241,7 +241,7 @@ namespace Scratch.Dialogs {
 			private ComboBoxText format_combo;
 			private Window format_others_win;
 			private TreeView format_others_view;
-			private ListStore format_store;
+			private Gtk.ListStore format_store;
 
 			private Button send_button;
 
@@ -344,7 +344,7 @@ namespace Scratch.Dialogs {
 
 				format_others_view = new TreeView();
 		        format_others_view.set_headers_visible(false);
-				format_store = new ListStore (2, typeof (string), typeof (string));
+				format_store = new Gtk.ListStore (2, typeof (string), typeof (string));
 				format_others_view.set_model (format_store);
 				format_others_view.insert_column_with_attributes (-1, "Language", new CellRendererText (), "text", 0);
 
