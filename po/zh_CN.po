@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-08-30 09:08-0500\n"
-"PO-Revision-Date: 2014-09-03 03:59+0000\n"
+"PO-Revision-Date: 2015-03-01 06:43+0000\n"
 "Last-Translator: colindemian <dengmengpc@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-01-07 05:53+0000\n"
-"X-Generator: Launchpad (build 17286)\n"
+"X-Launchpad-Export-Date: 2015-03-02 05:27+0000\n"
+"X-Generator: Launchpad (build 17361)\n"
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:52
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:722
@@ -54,11 +54,11 @@ msgstr "常规："
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:158
 msgid "When Scratch starts:"
-msgstr "在 Scratch 启动时："
+msgstr "Scratch 启动时："
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:161
 msgid "Save files when changed:"
-msgstr "当变更时保存文件："
+msgstr "变更时保存文件："
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:166
 msgid "Tabs:"
@@ -70,11 +70,11 @@ msgstr "自动缩进："
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:174
 msgid "Insert spaces instead of tabs:"
-msgstr "使用空格代替制表符："
+msgstr "空格代替制表符："
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:178
 msgid "Tab width:"
-msgstr "制表符宽度:"
+msgstr "制表符宽度："
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:206
 msgid "Editor:"
@@ -86,11 +86,11 @@ msgstr "高亮当前行："
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:225
 msgid "Highlight matching brackets:"
-msgstr "高亮匹配的括号："
+msgstr "高亮匹配括号："
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:226
 msgid "Split long text in many lines:"
-msgstr "自动换行"
+msgstr "自动换行："
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:227
 msgid "Draw spaces:"
@@ -106,7 +106,7 @@ msgstr "线宽指南："
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:247
 msgid "Font and Color Scheme:"
-msgstr "字体和颜色方案："
+msgstr "字体和颜色："
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:261
 msgid "Select font:"
@@ -114,7 +114,7 @@ msgstr "选择字体："
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:264
 msgid "Color scheme:"
-msgstr "颜色方案:"
+msgstr "颜色方案："
 
 #: /home/mario/elementary/scratch/po/../src/Dialogs/PreferencesDialog.vala:269
 msgid "Custom font:"
@@ -243,7 +243,7 @@ msgstr "另存为..."
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:715
 msgid "Save this file with a different name"
-msgstr "将次文件以不同的名称另存为"
+msgstr "以不同的名称另存此文件"
 
 #: /home/mario/elementary/scratch/po/../src/MainWindow.vala:718
 #: /home/mario/elementary/scratch/po/../src/Services/TemplateManager.vala:230
