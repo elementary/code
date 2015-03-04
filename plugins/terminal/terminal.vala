@@ -349,7 +349,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             #if ! VTE291
             this.terminal.fork_command_full (Vte.PtyFlags.DEFAULT, last_opened_path, { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, out child_pid);
             #else
-            this.terminal.spawn_sync (Vte.PtyFlags.DEFAULT, last_opened_path, { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, null, out child_pid);
+            this.terminal.spawn_sync (Vte.PtyFlags.DEFAULT, last_opened_path, { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, out child_pid);
             #endif
         } catch (GLib.Error e) {
             warning (e.message);
