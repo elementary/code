@@ -50,7 +50,7 @@
 	</schema>
 	<schema path="/org/pantheon/scratch/settings/" id="org.pantheon.scratch.settings" gettext-domain="scratch">
 		<key type="as" name="plugins-enabled">
-			<default>['contractor']</default>
+			<default>['folder-manager', 'contractor']</default>
 			<summary>Enabled Plugins</summary>
 			<description>Enabled Plugins</description>
 		</key>
