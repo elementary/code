@@ -8,7 +8,7 @@ public class Report : Vala.Report
     public override void depr (Vala.SourceReference? ref, string msg) {}
 }
 
-public class Symbol : Granite.Widgets.SourceList.ExpandableItem
+public class Symbol : Granite.Widgets.SourceList.ExpandableItem, Granite.Widgets.SourceListSortable
 {
     public Scratch.Services.Document doc { get; construct set; }
     public Vala.Symbol symbol { get; construct set; }
@@ -16,6 +16,14 @@ public class Symbol : Granite.Widgets.SourceList.ExpandableItem
     public Symbol (Scratch.Services.Document doc, Vala.Symbol symbol)
     {
         Object (symbol: symbol, name: symbol.name, doc: doc);
+    }
+
+    public int compare (Granite.Widgets.SourceList.Item a, Granite.Widgets.SourceList.Item b) {
+        return Comparison.sort_function (a, b);
+    }
+
+    public bool allow_dnd_sorting () {
+        return false;
     }
 }
 
@@ -45,32 +53,23 @@ public class ValaSymbolOutline : Object, SymbolOutline
     
     SymbolIter cache;
 
-    Gee.List<Vala.Field> field_blacklist;
-
     public ValaSymbolOutline (Scratch.Services.Document _doc)
     {
         doc = _doc;
         doc.doc_closed.connect (doc_closed);
 
-        field_blacklist = new Gee.LinkedList<Vala.Field> ();
         cache = new SymbolIter ();
-
         store = new Granite.Widgets.SourceList ();
-        store.get_style_context ().add_class ("sidebar");
         store.item_selected.connect ((selected) => {
-            if (selected == null) return;
             goto (doc, (selected as Symbol).symbol.source_reference.begin.line);
-            store.selected = null;
         });
+
         root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));
         store.root.add (root);
 
         parser = new Vala.Parser ();
         resolver = new SymbolResolver ();
         resolver.add_symbol.connect (add_symbol);
-        resolver.blacklist.connect ((f) => {
-            field_blacklist.add (f);
-        });
 
         this.n_symbols = 0;
 
@@ -102,8 +101,6 @@ public class ValaSymbolOutline : Object, SymbolOutline
 
     async void parse_symbols_async ()
     {
-        field_blacklist.clear ();
-
         lock (context)
         {
             Vala.CodeContext.push (context);
@@ -119,14 +116,13 @@ public class ValaSymbolOutline : Object, SymbolOutline
     {
         cache.children.clear ();
         init_context ();
-        
+
         Thread<void*> thread = new Thread<void*>("parse-symbols", () => {
             parse_symbols_async.begin ();
             return null;
         });
 
         thread.join ();
-
         root.clear ();
         construct_tree (cache, root);
 
@@ -136,9 +132,17 @@ public class ValaSymbolOutline : Object, SymbolOutline
     void construct_tree (SymbolIter iter_parent,
         Granite.Widgets.SourceList.ExpandableItem tree_parent)
     {
+        var fields = resolver.get_properties_fields ();
+
         foreach (var iter_child in iter_parent.children) {
             if (iter_child == null)
                 continue;
+
+            if (iter_child.symbol is Vala.Field) {
+                if (fields.contains ((Vala.Field)iter_child.symbol))
+                    continue;
+            }
+
             var tree_child = new Symbol (doc, iter_child.symbol);
             tree_child.icon = iter_child.icon;
             tree_parent.add (tree_child);
@@ -164,7 +168,7 @@ public class ValaSymbolOutline : Object, SymbolOutline
         return match;
     }
 
-    void add_symbol (Vala.Symbol symbol, string icon = "", Icon? real_icon = null)
+    void add_symbol (Vala.Symbol symbol, string icon = "")
     {
         if (symbol.name == null)
             return;
@@ -180,7 +184,9 @@ public class ValaSymbolOutline : Object, SymbolOutline
             return;
         }
 
-        var i = real_icon != null ? real_icon : new ThemedIcon.with_default_fallbacks (icon);
+        GLib.Icon i = null;
+        if (icon != null && icon != "")
+            i = new ThemedIcon (icon);
         var s = new SymbolIter (symbol, i);
         parent.children.add (s);
     }
@@ -189,17 +195,28 @@ public class ValaSymbolOutline : Object, SymbolOutline
 public class SymbolResolver : Vala.SymbolResolver
 {
     public signal void add_symbol (Vala.Symbol s, string icon = "", Icon? real_icon = null);
-    public signal void blacklist (Vala.Field f);
+    public signal void blacklist (Vala.Field? f);
+    private Gee.TreeSet<Vala.Property> properties = new Gee.TreeSet<Vala.Property> ();
+
+    public Gee.TreeSet<Vala.Field> get_properties_fields () {
+        var return_fields = new Gee.TreeSet<Vala.Field> ();
+        foreach (var prop in properties) {
+            if (prop.field != null) {
+                warning (prop.name);
+                return_fields.add (prop.field);
+            }
+        }
+        return return_fields;
+    }
 
     public override void visit_class (Vala.Class s)
     {
-        add_symbol (s, "user-home-symbolic",
-            new ThemedIcon.from_names ({"user-home-symbolic", "go-home-symbolic", "user-home", "go-home", "home"}));
+        add_symbol (s, "class-symbolic");
         base.visit_class (s);
     }
     public override void visit_constant (Vala.Constant s)
     {
-        add_symbol (s, "view-grid-symbolic");
+        add_symbol (s, "constant-symbolic");
         base.visit_constant (s);
     }
     public override void visit_delegate (Vala.Delegate s)
@@ -210,55 +227,53 @@ public class SymbolResolver : Vala.SymbolResolver
     //FIXME both constructor and destructor are currently not added for some reason
     public override void visit_constructor (Vala.Constructor s)
     {
-        add_symbol (s, "media-playback-start-symbolic");
+        add_symbol (s);
         base.visit_constructor (s);
     }
     public override void visit_destructor (Vala.Destructor s)
     {
-        add_symbol (s, "edit-delete-symbolic");
+        add_symbol (s);
         base.visit_destructor (s);
     }
     public override void visit_enum (Vala.Enum s)
     {
-        add_symbol (s, "view-list-compact-symbolic");
+        add_symbol (s, "enum-symbolic");
         base.visit_enum (s);
     }
     public override void visit_field (Vala.Field s)
     {
-        add_symbol (s, "view-grid-symbolic");
+        add_symbol (s, "field-symbolic");
         base.visit_field (s);
     }
     public override void visit_interface (Vala.Interface s)
     {
-        add_symbol (s, "", 
-            new ThemedIcon.from_names ({"dialog-information-symbolic", "help-info-symbolic", "dialog-information", "help-info", "information", "info"}));
+        add_symbol (s, "interface-symbolic");
         base.visit_interface (s);
     }
     public override void visit_method (Vala.Method s)
     {
-        add_symbol (s, "document-properties-symbolic");
+        add_symbol (s);
         base.visit_method (s);
     }
     public override void visit_namespace (Vala.Namespace s)
     {
-        add_symbol (s, "view-fullscreen-symbolic");
+        add_symbol (s);
         base.visit_namespace (s);
     }
     public override void visit_property (Vala.Property s)
     {
-        add_symbol (s, "format-indent-more-symbolic");
-        blacklist (s.field);
         base.visit_property (s);
+        properties.add (s);
+        add_symbol (s, "property-symbolic");
     }
     public override void visit_signal (Vala.Signal s)
     {
-        add_symbol (s);
+        add_symbol (s, "signal-symbolic");
         base.visit_signal (s);
     }
     public override void visit_struct (Vala.Struct s)
     {
-        add_symbol (s, "user-home-symbolic",
-            new ThemedIcon.from_names ({"user-home-symbolic", "go-home-symbolic", "user-home", "go-home", "home"}));
+        add_symbol (s, "structure-symbolic");
         base.visit_struct (s);
     }
 }
