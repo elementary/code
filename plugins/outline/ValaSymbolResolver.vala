@@ -8,14 +8,22 @@ public class Report : Vala.Report
     public override void depr (Vala.SourceReference? ref, string msg) {}
 }
 
-public class Symbol : Granite.Widgets.SourceList.ExpandableItem, Granite.Widgets.SourceListSortable
+public class SymbolItem : Granite.Widgets.SourceList.ExpandableItem, Granite.Widgets.SourceListSortable
 {
     public Scratch.Services.Document doc { get; construct set; }
     public Vala.Symbol symbol { get; construct set; }
 
-    public Symbol (Scratch.Services.Document doc, Vala.Symbol symbol)
+    public SymbolItem (Scratch.Services.Document doc, Vala.Symbol symbol)
     {
-        Object (symbol: symbol, name: symbol.name, doc: doc);
+        string given_name = symbol.name;
+        if (symbol is Vala.CreationMethod) {
+            if (symbol.name == ".new")
+                given_name = ((Vala.CreationMethod)symbol).class_name;
+            else
+                given_name = "%s.%s".printf (((Vala.CreationMethod)symbol).class_name, symbol.name);
+        }
+
+        Object (symbol: symbol, name: given_name, doc: doc);
     }
 
     public int compare (Granite.Widgets.SourceList.Item a, Granite.Widgets.SourceList.Item b) {
@@ -24,19 +32,6 @@ public class Symbol : Granite.Widgets.SourceList.ExpandableItem, Granite.Widgets
 
     public bool allow_dnd_sorting () {
         return false;
-    }
-}
-
-class SymbolIter : Object
-{
-    public Vala.Symbol? symbol { get; construct set; default = null; }
-    public Icon? icon { get; construct set; default = null; }
-    public Gee.LinkedList<SymbolIter> children { get; private set; }
-
-    public SymbolIter (Vala.Symbol? symbol = null, Icon? icon = null)
-    {
-        Object(symbol: symbol, icon: icon);
-        children = new Gee.LinkedList<SymbolIter> ();
     }
 }
 
@@ -50,18 +45,15 @@ public class ValaSymbolOutline : Object, SymbolOutline
     SymbolResolver resolver;
     
     public int n_symbols { get; protected set; }
-    
-    SymbolIter cache;
 
     public ValaSymbolOutline (Scratch.Services.Document _doc)
     {
         doc = _doc;
         doc.doc_closed.connect (doc_closed);
 
-        cache = new SymbolIter ();
         store = new Granite.Widgets.SourceList ();
         store.item_selected.connect ((selected) => {
-            goto (doc, (selected as Symbol).symbol.source_reference.begin.line);
+            goto (doc, (selected as SymbolItem).symbol.source_reference.begin.line);
         });
 
         root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));
@@ -69,7 +61,6 @@ public class ValaSymbolOutline : Object, SymbolOutline
 
         parser = new Vala.Parser ();
         resolver = new SymbolResolver ();
-        resolver.add_symbol.connect (add_symbol);
 
         this.n_symbols = 0;
 
@@ -99,64 +90,97 @@ public class ValaSymbolOutline : Object, SymbolOutline
         return store;
     }
 
-    async void parse_symbols_async ()
-    {
-        lock (context)
-        {
-            Vala.CodeContext.push (context);
-
-            parser.parse (context);
-            resolver.resolve (context);
-
-            Vala.CodeContext.pop ();
-        }
-    }
-
     public void parse_symbols ()
     {
-        cache.children.clear ();
         init_context ();
 
+        store.root.clear ();
         Thread<void*> thread = new Thread<void*>("parse-symbols", () => {
-            parse_symbols_async.begin ();
-            return null;
-        });
+            lock (context)
+            {
+                Vala.CodeContext.push (context);
 
-        thread.join ();
-        root.clear ();
-        construct_tree (cache, root);
+                parser.parse (context);
+                resolver.clear ();
+                resolver.resolve (context);
 
-        store.root.expand_all ();
-    }
-
-    void construct_tree (SymbolIter iter_parent,
-        Granite.Widgets.SourceList.ExpandableItem tree_parent)
-    {
-        var fields = resolver.get_properties_fields ();
-
-        foreach (var iter_child in iter_parent.children) {
-            if (iter_child == null)
-                continue;
-
-            if (iter_child.symbol is Vala.Field) {
-                if (fields.contains ((Vala.Field)iter_child.symbol))
-                    continue;
+                Vala.CodeContext.pop ();
             }
 
-            var tree_child = new Symbol (doc, iter_child.symbol);
-            tree_child.icon = iter_child.icon;
-            tree_parent.add (tree_child);
+            construct_tree ();
+            Idle.add (() => {
+                store.root.add (root);
+                store.root.expand_all ();
+                return false;
+            });
+            return null;
+        });
+    }
 
-            construct_tree (iter_child, tree_child);
+    void construct_tree ()
+    {
+        var fields = resolver.get_properties_fields ();
+        var symbols = resolver.get_symbols ();
+        foreach (var symbol in symbols) {
+            var exist = find_existing (symbol);
+            if (exist != null)
+                continue;
+
+            if (symbol.name == null)
+                continue;
+
+            if (symbol is Vala.Field && fields.contains ((Vala.Field)symbol))
+                continue;
+
+            construct_child (symbol);
             this.n_symbols++;
         }
     }
 
-    SymbolIter? find_existing (Vala.Symbol symbol, SymbolIter parent = cache)
+    private SymbolItem construct_child (Vala.Symbol symbol)
     {
-        SymbolIter match = null;
-        foreach (var child in parent.children) {
-            if (child.symbol== symbol) {
+        Granite.Widgets.SourceList.ExpandableItem parent;
+        if (symbol.scope.parent_scope.owner.name == null)
+            parent = root;
+        else
+            parent = find_existing (symbol.scope.parent_scope.owner);
+
+        if (parent == null) {
+            parent = construct_child (symbol.scope.parent_scope.owner);
+        }
+
+        var tree_child = new SymbolItem (doc, symbol);
+        if (symbol is Vala.Struct) {
+            tree_child.icon = new ThemedIcon ("structure-symbolic");
+        } else if (symbol is Vala.Class) {
+            tree_child.icon = new ThemedIcon ("class-symbolic");
+        } else if (symbol is Vala.Constant) {
+            tree_child.icon = new ThemedIcon ("constant-symbolic");
+        } else if (symbol is Vala.Enum) {
+            tree_child.icon = new ThemedIcon ("enum-symbolic");
+        } else if (symbol is Vala.Field) {
+            tree_child.icon = new ThemedIcon ("field-symbolic");
+        } else if (symbol is Vala.Interface) {
+            tree_child.icon = new ThemedIcon ("interface-symbolic");
+        } else if (symbol is Vala.Property) {
+            tree_child.icon = new ThemedIcon ("property-symbolic");
+        } else if (symbol is Vala.Signal) {
+            tree_child.icon = new ThemedIcon ("signal-symbolic");
+        }
+
+        parent.add (tree_child);
+        return tree_child;
+    }
+
+    SymbolItem? find_existing (Vala.Symbol symbol, Granite.Widgets.SourceList.ExpandableItem parent = root)
+    {
+        SymbolItem match = null;
+        foreach (var _child in parent.children) {
+            var child = _child as SymbolItem;
+            if (child == null)
+                continue;
+
+            if (child.symbol == symbol) {
                 match = child;
                 break;
             } else {
@@ -165,115 +189,108 @@ public class ValaSymbolOutline : Object, SymbolOutline
                     return res;
             }
         }
+
         return match;
-    }
-
-    void add_symbol (Vala.Symbol symbol, string icon = "")
-    {
-        if (symbol.name == null)
-            return;
-
-        SymbolIter parent;
-        if (symbol.scope.parent_scope.owner.name == null)
-            parent = cache;
-        else
-            parent = find_existing (symbol.scope.parent_scope.owner);
-
-        if (parent == null) {
-            warning ("Could not find parent scope of symbol");
-            return;
-        }
-
-        GLib.Icon i = null;
-        if (icon != null && icon != "")
-            i = new ThemedIcon (icon);
-        var s = new SymbolIter (symbol, i);
-        parent.children.add (s);
     }
 }
 
 public class SymbolResolver : Vala.SymbolResolver
 {
-    public signal void add_symbol (Vala.Symbol s, string icon = "", Icon? real_icon = null);
-    public signal void blacklist (Vala.Field? f);
     private Gee.TreeSet<Vala.Property> properties = new Gee.TreeSet<Vala.Property> ();
+    private Gee.TreeSet<Vala.Symbol> symbols = new Gee.TreeSet<Vala.Symbol> ();
 
     public Gee.TreeSet<Vala.Field> get_properties_fields () {
         var return_fields = new Gee.TreeSet<Vala.Field> ();
         foreach (var prop in properties) {
             if (prop.field != null) {
-                warning (prop.name);
                 return_fields.add (prop.field);
             }
         }
+
         return return_fields;
+    }
+
+    public Gee.TreeSet<Vala.Symbol> get_symbols () {
+        var return_symbols = new Gee.TreeSet<Vala.Symbol> ();
+        return_symbols.add_all (symbols);
+        return return_symbols;
+    }
+
+    public void clear () {
+        properties.clear ();
+        symbols.clear ();
     }
 
     public override void visit_class (Vala.Class s)
     {
-        add_symbol (s, "class-symbolic");
+        symbols.add (s);
         base.visit_class (s);
     }
     public override void visit_constant (Vala.Constant s)
     {
-        add_symbol (s, "constant-symbolic");
+        symbols.add (s);
         base.visit_constant (s);
     }
     public override void visit_delegate (Vala.Delegate s)
     {
-        add_symbol (s);
+        symbols.add (s);
         base.visit_delegate (s);
     }
     //FIXME both constructor and destructor are currently not added for some reason
     public override void visit_constructor (Vala.Constructor s)
     {
-        add_symbol (s);
+        symbols.add (s);
         base.visit_constructor (s);
     }
     public override void visit_destructor (Vala.Destructor s)
     {
-        add_symbol (s);
+        symbols.add (s);
         base.visit_destructor (s);
+    }
+    public override void visit_creation_method (Vala.CreationMethod s)
+    {
+        symbols.add (s);
+        base.visit_creation_method (s);
     }
     public override void visit_enum (Vala.Enum s)
     {
-        add_symbol (s, "enum-symbolic");
+        symbols.add (s);
         base.visit_enum (s);
     }
     public override void visit_field (Vala.Field s)
     {
-        add_symbol (s, "field-symbolic");
+        symbols.add (s);
         base.visit_field (s);
     }
     public override void visit_interface (Vala.Interface s)
     {
-        add_symbol (s, "interface-symbolic");
+        symbols.add (s);
         base.visit_interface (s);
     }
     public override void visit_method (Vala.Method s)
     {
-        add_symbol (s);
+        symbols.add (s);
         base.visit_method (s);
     }
     public override void visit_namespace (Vala.Namespace s)
     {
-        add_symbol (s);
+        symbols.add (s);
         base.visit_namespace (s);
     }
     public override void visit_property (Vala.Property s)
     {
-        base.visit_property (s);
+        symbols.add (s);
         properties.add (s);
-        add_symbol (s, "property-symbolic");
+        base.visit_property (s);
     }
     public override void visit_signal (Vala.Signal s)
     {
-        add_symbol (s, "signal-symbolic");
+        symbols.add (s);
         base.visit_signal (s);
     }
     public override void visit_struct (Vala.Struct s)
     {
-        add_symbol (s, "structure-symbolic");
+        symbols.add (s);
         base.visit_struct (s);
     }
 }

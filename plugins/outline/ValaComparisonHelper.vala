@@ -1,10 +1,10 @@
 
 namespace Comparison {
     int sort_function (Granite.Widgets.SourceList.Item str1, Granite.Widgets.SourceList.Item str2) {
-        if (!(str1 is Symbol && str2 is Symbol))
+        if (!(str1 is SymbolItem && str2 is SymbolItem))
             return str1.name.collate (str2.name);
-        var a = (Symbol) str1;
-        var b = (Symbol) str2;
+        var a = (SymbolItem) str1;
+        var b = (SymbolItem) str2;
         var sa = a.symbol;
         var sb = b.symbol;
         if (sa is Vala.Class)
@@ -17,6 +17,8 @@ namespace Comparison {
             return (compare_constructor ((Vala.Constructor) sa, sb));
         else if (sa is Vala.Destructor)
             return (compare_destructor ((Vala.Destructor) sa, sb));
+        else if (sa is Vala.CreationMethod)
+            return (compare_creationmethod ((Vala.CreationMethod) sa, sb));
         else if (sa is Vala.Enum)
             return (compare_enum ((Vala.Enum) sa, sb));
         else if (sa is Vala.Field)
@@ -41,6 +43,8 @@ namespace Comparison {
         if (s2 is Vala.Constant)
             return 1;
         else if (s2 is Vala.Delegate)
+            return 1;
+        else if (s2 is Vala.CreationMethod)
             return 1;
         else if (s2 is Vala.Constructor)
             return 1;
@@ -70,6 +74,8 @@ namespace Comparison {
             return -1;
         else if (s2 is Vala.Delegate)
             return -1;
+        else if (s2 is Vala.CreationMethod)
+            return -1;
         else if (s2 is Vala.Constructor)
             return -1;
         else if (s2 is Vala.Destructor)
@@ -98,6 +104,8 @@ namespace Comparison {
             return 1;
         else if (s2 is Vala.Class)
             return -1;
+        else if (s2 is Vala.CreationMethod)
+            return 1;
         else if (s2 is Vala.Constructor)
             return 1;
         else if (s2 is Vala.Destructor)
@@ -128,6 +136,8 @@ namespace Comparison {
             return -1;
         else if (s2 is Vala.Class)
             return -1;
+        else if (s2 is Vala.CreationMethod)
+            return 1;
         else if (s2 is Vala.Destructor)
             return -1;
         else if (s2 is Vala.Enum)
@@ -154,6 +164,8 @@ namespace Comparison {
             return 1;
         else if (s2 is Vala.Delegate)
             return -1;
+        else if (s2 is Vala.CreationMethod)
+            return 1;
         else if (s2 is Vala.Constructor)
             return 1;
         else if (s2 is Vala.Class)
@@ -176,11 +188,50 @@ namespace Comparison {
             return -1;
         return s.name.collate (s2.name);
     }
+    int compare_creationmethod (Vala.CreationMethod s, Vala.Symbol s2)
+    {
+        if (s2 is Vala.Constant)
+            return 1;
+        else if (s2 is Vala.Delegate)
+            return -1;
+        else if (s2 is Vala.Class)
+            return -1;
+        else if (s2 is Vala.Constructor)
+            return -1;
+        else if (s2 is Vala.Destructor)
+            return -1;
+        else if (s2 is Vala.Enum)
+            return 1;
+        else if (s2 is Vala.Field)
+            return 1;
+        else if (s2 is Vala.Interface)
+            return -1;
+        else if (s2 is Vala.Method)
+            return -1;
+        else if (s2 is Vala.Namespace)
+            return -1;
+        else if (s2 is Vala.Property)
+            return 1;
+        else if (s2 is Vala.Signal)
+            return 1;
+        else if (s2 is Vala.Struct)
+            return -1;
+
+        if (s.name == ".new")
+            return -1;
+
+        if (s2.name == ".new")
+            return 1;
+
+        return s.name.collate (s2.name);
+    }
     int compare_enum (Vala.Enum s, Vala.Symbol s2)
     {
         if (s2 is Vala.Constant)
             return -1;
         else if (s2 is Vala.Delegate)
+            return -1;
+        else if (s2 is Vala.CreationMethod)
             return -1;
         else if (s2 is Vala.Constructor)
             return -1;
@@ -210,6 +261,8 @@ namespace Comparison {
             return 1;
         else if (s2 is Vala.Delegate)
             return -1;
+        else if (s2 is Vala.CreationMethod)
+            return -1;
         else if (s2 is Vala.Constructor)
             return -1;
         else if (s2 is Vala.Destructor)
@@ -237,6 +290,8 @@ namespace Comparison {
         if (s2 is Vala.Constant)
             return 1;
         else if (s2 is Vala.Delegate)
+            return -1;
+        else if (s2 is Vala.CreationMethod)
             return -1;
         else if (s2 is Vala.Constructor)
             return -1;
@@ -266,6 +321,8 @@ namespace Comparison {
             return 1;
         else if (s2 is Vala.Delegate)
             return 1;
+        else if (s2 is Vala.CreationMethod)
+            return 1;
         else if (s2 is Vala.Constructor)
             return 1;
         else if (s2 is Vala.Destructor)
@@ -293,6 +350,8 @@ namespace Comparison {
         if (s2 is Vala.Constant)
             return -1;
         else if (s2 is Vala.Delegate)
+            return -1;
+        else if (s2 is Vala.CreationMethod)
             return -1;
         else if (s2 is Vala.Constructor)
             return -1;
@@ -322,6 +381,8 @@ namespace Comparison {
             return 1;
         else if (s2 is Vala.Delegate)
             return -1;
+        else if (s2 is Vala.CreationMethod)
+            return -1;
         else if (s2 is Vala.Constructor)
             return -1;
         else if (s2 is Vala.Destructor)
@@ -350,6 +411,8 @@ namespace Comparison {
             return 1;
         else if (s2 is Vala.Delegate)
             return -1;
+        else if (s2 is Vala.CreationMethod)
+            return -1;
         else if (s2 is Vala.Constructor)
             return -1;
         else if (s2 is Vala.Destructor)
@@ -377,6 +440,8 @@ namespace Comparison {
         if (s2 is Vala.Constant)
             return -1;
         else if (s2 is Vala.Delegate)
+            return -1;
+        else if (s2 is Vala.CreationMethod)
             return -1;
         else if (s2 is Vala.Constructor)
             return -1;
