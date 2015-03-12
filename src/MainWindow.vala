@@ -52,9 +52,9 @@ namespace Scratch {
         public Gtk.Notebook contextbar;
         public Gtk.Notebook bottombar;
 
-        private Granite.Widgets.ThinPaned hp1;
-        private Granite.Widgets.ThinPaned hp2;
-        private Granite.Widgets.ThinPaned vp;
+        private Gtk.Paned hp1;
+        private Gtk.Paned hp2;
+        private Gtk.Paned vp;
 
         // GtkActions
         public Gtk.ActionGroup main_actions;
@@ -230,10 +230,9 @@ namespace Scratch {
                     on_plugin_toggled (bottombar); 
             });            
 
-            hp1 = new Granite.Widgets.ThinPaned ();
-            hp2 = new Granite.Widgets.ThinPaned ();
-            vp = new Granite.Widgets.ThinPaned ();
-            vp.orientation = Orientation.VERTICAL;
+            hp1 = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
+            hp2 = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
+            vp = new Gtk.Paned (Gtk.Orientation.VERTICAL);
 
             var content = new Gtk.Box (Orientation.VERTICAL, 0);
             content.pack_start (search_revealer, false, true, 0);
@@ -423,7 +422,7 @@ namespace Scratch {
         }
 
         public bool has_temporary_files () {
-            FileEnumerator enumerator = File.new_for_path (app.data_home_folder_unsaved).enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME, 0, null);
+            FileEnumerator enumerator = File.new_for_path (app.data_home_folder_unsaved).enumerate_children (FileAttribute.STANDARD_NAME, 0, null);
             var fileinfo = enumerator.next_file (null);
             while (fileinfo != null) {
                 if (!fileinfo.get_name ().has_suffix ("~")) {
@@ -649,7 +648,7 @@ namespace Scratch {
         }
 
         void action_open_temporary_files () {
-            FileEnumerator enumerator = File.new_for_path (app.data_home_folder_unsaved).enumerate_children (FILE_ATTRIBUTE_STANDARD_NAME, 0, null);
+            FileEnumerator enumerator = File.new_for_path (app.data_home_folder_unsaved).enumerate_children (FileAttribute.STANDARD_NAME, 0, null);
             var fileinfo = enumerator.next_file (null);
             while (fileinfo != null) {
                 if (!fileinfo.get_name ().has_suffix ("~")) {

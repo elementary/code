@@ -228,8 +228,8 @@ namespace Scratch.Services {
                 button.show ();
 
                 dialog.add_action_widget (button, Gtk.ResponseType.NO);
-                dialog.add_button (Gtk.Stock.CANCEL, Gtk.ResponseType.CANCEL);
-                dialog.add_button (Gtk.Stock.SAVE, Gtk.ResponseType.YES);
+                dialog.add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
+                dialog.add_button (_("Save"), Gtk.ResponseType.YES);
                 dialog.set_default_response (Gtk.ResponseType.ACCEPT);
 
                 int response = dialog.run ();
