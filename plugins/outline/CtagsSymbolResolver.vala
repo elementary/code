@@ -30,16 +30,12 @@ public class CtagsSymbolOutline : Object, SymbolOutline
     Granite.Widgets.SourceList store;
     Granite.Widgets.SourceList.ExpandableItem root;
 
-    public int n_symbols { get; protected set; }
-
     public CtagsSymbolOutline (Scratch.Services.Document _doc)
     {
         doc = _doc;
         doc.doc_closed.connect (doc_closed);
 
         root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));
-
-        this.n_symbols = 0;
 
         store = new Granite.Widgets.SourceList ();
         store.get_style_context ().add_class ("sidebar");
@@ -137,7 +133,6 @@ public class CtagsSymbolOutline : Object, SymbolOutline
             } else
                 parent_dependent.add (new CtagsSymbolIter (name, parent, line, icon));
         }
-        this.n_symbols++;
 
         var found_something = true;
         while (found_something && parent_dependent.size > 0) {

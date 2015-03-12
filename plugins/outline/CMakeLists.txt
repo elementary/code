@@ -1,10 +1,13 @@
 add_definitions(${NORMAL_CFLAGS})
 link_directories(${NORMAL_LINK_DIRS})
 vala_precompile(VALA_C
-    OutlinePlugin.vala
-    ValaSymbolResolver.vala
-    ValaComparisonHelper.vala
     CtagsSymbolResolver.vala
+    OutlinePlugin.vala
+    ValaProcessing/ComparisonHelper.vala
+    ValaProcessing/SymbolItem.vala
+    ValaProcessing/SymbolOutline.vala
+    ValaProcessing/SymbolResolver.vala
+    SymbolOutline.vala
 PACKAGES
     gtk+-3.0
     gee-0.8

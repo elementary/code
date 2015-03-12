@@ -37,9 +37,8 @@ namespace Comparison {
             return (compare_struct ((Vala.Struct) sa, sb));
         return str1.name.collate (str2.name);
     }
-    
-    int compare_class (Vala.Class s, Vala.Symbol s2)
-    {
+
+    int compare_class (Vala.Class s, Vala.Symbol s2) {
         if (s2 is Vala.Constant)
             return 1;
         else if (s2 is Vala.Delegate)
@@ -68,8 +67,8 @@ namespace Comparison {
             return 1;
         return s.name.collate (s2.name);
     }
-    int compare_constant (Vala.Constant s, Vala.Symbol s2)
-    {
+
+    int compare_constant (Vala.Constant s, Vala.Symbol s2) {
         if (s2 is Vala.Class)
             return -1;
         else if (s2 is Vala.Delegate)
@@ -98,8 +97,8 @@ namespace Comparison {
             return -1;
         return s.name.collate (s2.name);
     }
-    int compare_delegate (Vala.Delegate s, Vala.Symbol s2)
-    {
+
+    int compare_delegate (Vala.Delegate s, Vala.Symbol s2) {
         if (s2 is Vala.Constant)
             return 1;
         else if (s2 is Vala.Class)
@@ -128,8 +127,8 @@ namespace Comparison {
             return -1;
         return s.name.collate (s2.name);
     }
-    int compare_constructor (Vala.Constructor s, Vala.Symbol s2)
-    {
+
+    int compare_constructor (Vala.Constructor s, Vala.Symbol s2) {
         if (s2 is Vala.Constant)
             return 1;
         else if (s2 is Vala.Delegate)
@@ -158,8 +157,8 @@ namespace Comparison {
             return -1;
         return s.name.collate (s2.name);
     }
-    int compare_destructor (Vala.Destructor s, Vala.Symbol s2)
-    {
+
+    int compare_destructor (Vala.Destructor s, Vala.Symbol s2) {
         if (s2 is Vala.Constant)
             return 1;
         else if (s2 is Vala.Delegate)
@@ -188,8 +187,8 @@ namespace Comparison {
             return -1;
         return s.name.collate (s2.name);
     }
-    int compare_creationmethod (Vala.CreationMethod s, Vala.Symbol s2)
-    {
+
+    int compare_creationmethod (Vala.CreationMethod s, Vala.Symbol s2) {
         if (s2 is Vala.Constant)
             return 1;
         else if (s2 is Vala.Delegate)
@@ -225,8 +224,8 @@ namespace Comparison {
 
         return s.name.collate (s2.name);
     }
-    int compare_enum (Vala.Enum s, Vala.Symbol s2)
-    {
+
+    int compare_enum (Vala.Enum s, Vala.Symbol s2) {
         if (s2 is Vala.Constant)
             return -1;
         else if (s2 is Vala.Delegate)
@@ -255,8 +254,8 @@ namespace Comparison {
             return -1;
         return s.name.collate (s2.name);
     }
-    int compare_field (Vala.Field s, Vala.Symbol s2)
-    {
+
+    int compare_field (Vala.Field s, Vala.Symbol s2) {
         if (s2 is Vala.Constant)
             return 1;
         else if (s2 is Vala.Delegate)
@@ -285,8 +284,8 @@ namespace Comparison {
             return -1;
         return s.name.collate (s2.name);
     }
-    int compare_interface (Vala.Interface s, Vala.Symbol s2)
-    {
+
+    int compare_interface (Vala.Interface s, Vala.Symbol s2) {
         if (s2 is Vala.Constant)
             return 1;
         else if (s2 is Vala.Delegate)
@@ -315,8 +314,8 @@ namespace Comparison {
             return -1;
         return s.name.collate (s2.name);
     }
-    int compare_method (Vala.Method s, Vala.Symbol s2)
-    {
+
+    int compare_method (Vala.Method s, Vala.Symbol s2) {
         if (s2 is Vala.Constant)
             return 1;
         else if (s2 is Vala.Delegate)
@@ -345,8 +344,8 @@ namespace Comparison {
             return -1;
         return s.name.collate (s2.name);
     }
-    int compare_namespace (Vala.Namespace s, Vala.Symbol s2)
-    {
+
+    int compare_namespace (Vala.Namespace s, Vala.Symbol s2) {
         if (s2 is Vala.Constant)
             return -1;
         else if (s2 is Vala.Delegate)
@@ -375,8 +374,8 @@ namespace Comparison {
             return -1;
         return s.name.collate (s2.name);
     }
-    int compare_property (Vala.Property s, Vala.Symbol s2)
-    {
+
+    int compare_property (Vala.Property s, Vala.Symbol s2) {
         if (s2 is Vala.Constant)
             return 1;
         else if (s2 is Vala.Delegate)
@@ -405,8 +404,8 @@ namespace Comparison {
             return -1;
         return s.name.collate (s2.name);
     }
-    int compare_signal (Vala.Signal s, Vala.Symbol s2)
-    {
+
+    int compare_signal (Vala.Signal s, Vala.Symbol s2) {
         if (s2 is Vala.Constant)
             return 1;
         else if (s2 is Vala.Delegate)
@@ -435,8 +434,8 @@ namespace Comparison {
             return -1;
         return s.name.collate (s2.name);
     }
-    int compare_struct (Vala.Struct s, Vala.Symbol s2)
-    {
+
+    int compare_struct (Vala.Struct s, Vala.Symbol s2) {
         if (s2 is Vala.Constant)
             return -1;
         else if (s2 is Vala.Delegate)
