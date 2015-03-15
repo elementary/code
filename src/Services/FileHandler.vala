@@ -35,10 +35,12 @@ namespace Scratch.Services {
                 var dis = new DataInputStream (file.read ());
                 string line = null;
                 while ((line = yield dis.read_line_async (Priority.DEFAULT)) != null) {
+                    if (text.len != 0)
+                        text.append_c ('\n');
+
                     text.append (line);
-                    text.append_c ('\n');
                 }
-                return text.erase(text.len - 1, 1).str;
+                return text.str;
             } catch (Error e) {
                 warning ("Cannot read \"%s\": %s", file.get_basename (), e.message);
                 return null;
@@ -53,11 +55,13 @@ namespace Scratch.Services {
                 string line = null;
                 while ((line = dis.read_line (null, null)) != null) {
                     if (line != "\n") {
+                        if (text.len != 0)
+                            text.append_c ('\n');
+
                         text.append (line);
-                        text.append_c ('\n');
                     }
                 }
-                return text.erase(text.len - 1, 1).str;
+                return text.str;
             } catch (Error e) {
                 warning ("Cannot read \"%s\": %s", file.get_basename (), e.message);
                 return null;

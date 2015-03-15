@@ -277,9 +277,7 @@ namespace Scratch.Services {
             // Replace old content with the new one
             try {
                 FileOutputStream fostream = file.replace (null, false, 0);
-                fostream.write (this.source_view.buffer.text.data);              
-                uint8[] eof = { '\n' };
-                fostream.write (eof);
+                fostream.write (this.source_view.buffer.text.data);
             } catch (Error e) {
                 warning ("Cannot save \"%s\": %s", get_basename (), e.message);
                 return false;
