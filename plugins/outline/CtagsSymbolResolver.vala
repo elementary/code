@@ -26,6 +26,7 @@ class CtagsSymbolIter : Object
 
 public class CtagsSymbolOutline : Object, SymbolOutline
 {
+    public const string OUTLINE_RESOURCE_URI = "resource:///org/pantheon/scratch/plugin/outline/";
     public Scratch.Services.Document doc { get; protected set; }
     Granite.Widgets.SourceList store;
     Granite.Widgets.SourceList.ExpandableItem root;
@@ -33,6 +34,7 @@ public class CtagsSymbolOutline : Object, SymbolOutline
     public CtagsSymbolOutline (Scratch.Services.Document _doc)
     {
         doc = _doc;
+        doc.doc_saved.connect (() => {parse_symbols ();});
         doc.doc_closed.connect (doc_closed);
 
         root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));
@@ -91,39 +93,34 @@ public class CtagsSymbolOutline : Object, SymbolOutline
             Icon? icon = null;
             switch (type) {
                 case "class":
+                    icon = new FileIcon (File.new_for_uri (OUTLINE_RESOURCE_URI + "class-symbolic.svg"));
+                    break;
                 case "struct":
-                    icon = new ThemedIcon.from_names ({"user-home-symbolic", "go-home-symbolic", "user-home", "go-home", "home"});
+                    icon = new FileIcon (File.new_for_uri (OUTLINE_RESOURCE_URI + "structure-symbolic.svg"));
                     break;
                 case "field":
-                case "constant":
                 case "enumerator":
                 case "member":
                 case "variable":
-                    icon = new ThemedIcon.with_default_fallbacks ("view-grid-symbolic");
-                    break;
-                case "constructor":
-                    icon = new ThemedIcon.with_default_fallbacks ("media-playback-start-symbolic");
-                    break;
-                case "desctructor":
-                    icon = new ThemedIcon.with_default_fallbacks ("edit-delete-symbolic");
+                    icon = new FileIcon (File.new_for_uri (OUTLINE_RESOURCE_URI + "field-symbolic.svg"));
                     break;
                 case "enum":
-                case "typedef":
-                    icon = new ThemedIcon.with_default_fallbacks ("view-list-compact-symbolic");
-                    break;
-                case "method":
-                case "function":
-                    icon = new ThemedIcon.with_default_fallbacks ("document-properties-symbolic");
-                    break;
-                case "namespace":
-                case "package":
-                    icon = new ThemedIcon.with_default_fallbacks ("view-fullscreen-symbolic");
-                    break;
-                case "property":
-                    icon = new ThemedIcon.with_default_fallbacks ("format-indent-more-symbolic");
+                    icon = new FileIcon (File.new_for_uri (OUTLINE_RESOURCE_URI + "enum-symbolic.svg"));
                     break;
                 case "macro":
-                    icon = new ThemedIcon.with_default_fallbacks ("mail-attachment-symbolic");
+                case "constant":
+                case "typedef":
+                    icon = new FileIcon (File.new_for_uri (OUTLINE_RESOURCE_URI + "constant-symbolic.svg"));
+                    break;
+                case "constructor":
+                case "destructor":
+                case "method":
+                case "function":
+                case "namespace":
+                case "package":
+                    break;
+                case "property":
+                    icon = new FileIcon (File.new_for_uri (OUTLINE_RESOURCE_URI + "property-symbolic.svg"));
                     break;
             }
 
@@ -150,8 +147,7 @@ public class CtagsSymbolOutline : Object, SymbolOutline
                 } else {
                     // anonymous enum
                     if (i.parent.substring (0, 6) == "__anon") {
-                        var e = new CtagsSymbol (doc, i.parent, i.line - 1,
-                            new ThemedIcon.with_default_fallbacks ("view-list-compact-symbolic"));
+                        var e = new CtagsSymbol (doc, i.parent, i.line - 1, new FileIcon (File.new_for_uri (OUTLINE_RESOURCE_URI + "enum-symbolic.svg")));
                         root.add (e);
 
                         e.add (new CtagsSymbol (doc, i.name, i.line, i.icon));

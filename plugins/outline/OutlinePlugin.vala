@@ -27,19 +27,17 @@ namespace Scratch.Plugins {
 
         Scratch.Services.Interface scratch_interface;
         SymbolOutline? current_view = null;
-        Gtk.EventBox? container = null;
+
+        Gtk.Stack? container = null;
         Gtk.Notebook? notebook = null;
 
-        Gee.List<SymbolOutline> views;
+        Gee.LinkedList<SymbolOutline> views;
 
         public void activate () {
-            scratch_interface = (Scratch.Services.Interface)object;
-
-            scratch_interface.hook_document.connect (on_hook_document);
-
-            scratch_interface.hook_notebook_sidebar.connect (on_hook_sidebar);
-
             views = new Gee.LinkedList<SymbolOutline> ();
+            scratch_interface = (Scratch.Services.Interface)object;
+            scratch_interface.hook_document.connect (on_hook_document);
+            scratch_interface.hook_notebook_sidebar.connect (on_hook_sidebar);
         }
 
         public void deactivate () {
@@ -47,15 +45,17 @@ namespace Scratch.Plugins {
         }
 
         public void update_state () {
+            
         }
 
         void on_hook_sidebar (Gtk.Notebook notebook) {
             if (container != null)
                 return;
+
             if (this.notebook == null)
                 this.notebook = notebook;
 
-            container = new Gtk.EventBox ();
+            container = new Gtk.Stack ();
             container.visible = false;
             if (this.notebook != null)
                 notebook.append_page (container, new Gtk.Label (_("Symbols")));
@@ -65,17 +65,10 @@ namespace Scratch.Plugins {
             if (current_view != null && current_view.doc == doc)
                 return;
 
-            if (current_view != null) {
-                var source_list = current_view.get_source_list ();
-                if (source_list.get_parent () == container)
-                    container.remove (source_list);
-            }
-
             SymbolOutline view = null;
             foreach (var v in views) {
                 if (v.doc == doc) {
                     view = v;
-                    current_view = view;
                     break;
                 }
             }
@@ -95,19 +88,20 @@ namespace Scratch.Plugins {
                 }
 
                 if (view != null) {
-                    current_view = view;
-                    view.closed.connect (remove_view);
+                    view.closed.connect (() => {remove_view (view);});
                     view.goto.connect (goto);
                     views.add (view);
                     view.parse_symbols ();
                 }
-
-                doc.doc_saved.connect (update_view);
             }
 
             if (view != null) {
-                container.add (view.get_source_list ());
+                var source_list = view.get_source_list ();
+                if (source_list.parent == null)
+                    container.add (source_list);
+                container.set_visible_child (source_list);
                 container.show_all ();
+                current_view = view;
                 add_container ();
             } else {
                 remove_container ();
@@ -115,29 +109,28 @@ namespace Scratch.Plugins {
         }
 
         void add_container () {
-            if(notebook.page_num (container) == -1) {
+            if (notebook.page_num (container) == -1) {
                 notebook.append_page (container, new Gtk.Label (_("Symbols")));
                 container.show_all ();
             }
         }
 
         void remove_container () {
-            if (notebook.page_num (container) != -1 && container.get_parent () == notebook)
+            if (notebook.page_num (container) != -1)
                 notebook.remove (container);
-        }
-
-        void update_view () {
-            current_view.parse_symbols ();
         }
 
         void remove_view (SymbolOutline view) {
             views.remove (view);
-            view.doc.doc_saved.disconnect (update_view);
-            view.closed.disconnect (remove_view);
+            var source_list = view.get_source_list ();
+            if (source_list.parent == container)
+                container.remove (source_list);
+            if (views.is_empty)
+                remove_container ();
             view.goto.disconnect (goto);
         }
 
-        void goto (Scratch.Services.Document doc, int line)    {
+        void goto (Scratch.Services.Document doc, int line) {
             scratch_interface.open_file (doc.file);
 
             var text = doc.source_view;
