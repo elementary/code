@@ -21,37 +21,23 @@
 public const string NAME = N_("Outline");
 public const string DESCRIPTION = N_("Outline symbols in your current file in vala");
 
-public interface SymbolOutline : Object
-{
-    public abstract Scratch.Services.Document doc { get; protected set; }
-    public abstract void parse_symbols ();
-    public abstract int n_symbols { get; protected set; }
-    public abstract Granite.Widgets.SourceList get_source_list ();
-    public signal void closed ();
-    public signal void goto (Scratch.Services.Document doc, int line);
-}
-
 namespace Scratch.Plugins {
     public class OutlinePlugin : Peas.ExtensionBase, Peas.Activatable {
         public Object object { owned get; construct; }
 
         Scratch.Services.Interface scratch_interface;
         SymbolOutline? current_view = null;
-        Gtk.EventBox? container = null;
+
+        Gtk.Stack? container = null;
         Gtk.Notebook? notebook = null;
 
-        uint refresh_timeout = 0;
-
-        Gee.List<SymbolOutline> views;
+        Gee.LinkedList<SymbolOutline> views;
 
         public void activate () {
-            scratch_interface = (Scratch.Services.Interface)object;
-
-            scratch_interface.hook_document.connect (on_hook_document);
-
-            scratch_interface.hook_notebook_sidebar.connect (on_hook_sidebar);
-
             views = new Gee.LinkedList<SymbolOutline> ();
+            scratch_interface = (Scratch.Services.Interface)object;
+            scratch_interface.hook_document.connect (on_hook_document);
+            scratch_interface.hook_notebook_sidebar.connect (on_hook_sidebar);
         }
 
         public void deactivate () {
@@ -59,26 +45,23 @@ namespace Scratch.Plugins {
         }
 
         public void update_state () {
+            
         }
 
         void on_hook_sidebar (Gtk.Notebook notebook) {
             if (container != null)
                 return;
+
             if (this.notebook == null)
                 this.notebook = notebook;
 
-            container = new Gtk.EventBox ();
+            container = new Gtk.Stack ();
             container.visible = false;
-            if (this.notebook != null)
-                notebook.append_page (container, new Gtk.Label (_("Symbols")));
         }
 
         void on_hook_document (Scratch.Services.Document doc) {
             if (current_view != null && current_view.doc == doc)
                 return;
-
-            if (current_view != null)
-                container.remove (current_view.get_source_list ());
 
             SymbolOutline view = null;
             foreach (var v in views) {
@@ -89,33 +72,42 @@ namespace Scratch.Plugins {
             }
 
             if (view == null && doc.file != null) {
-                if (doc.get_mime_type () == "text/x-vala") {
-                    view = new ValaSymbolOutline (doc);
-                } else {
-                    view = new CtagsSymbolOutline (doc);
+                var mime_type = doc.get_mime_type ();
+                switch (mime_type) {
+                    case "text/x-vala":
+                        view = new ValaSymbolOutline (doc);
+                        break;
+                    case "text/x-csrc":
+                    case "text/x-chdr":
+                    case "text/x-c++src":
+                    case "text/x-c++hdr":
+                        view = new CtagsSymbolOutline (doc);
+                        break;
                 }
-                view.closed.connect (remove_view);
-                view.goto.connect (goto);
-                views.add (view);
-                view.parse_symbols ();
 
-                doc.doc_saved.connect (update_timeout);
+                if (view != null) {
+                    view.closed.connect (() => {remove_view (view);});
+                    view.goto.connect (goto);
+                    views.add (view);
+                    view.parse_symbols ();
+                }
             }
 
-            container.add (view.get_source_list ());
-            container.show_all ();
-            current_view = view;
-
-            if (view.n_symbols > 1) {
+            if (view != null) {
+                var source_list = view.get_source_list ();
+                if (source_list.parent == null)
+                    container.add (source_list);
+                container.set_visible_child (source_list);
+                container.show_all ();
+                current_view = view;
                 add_container ();
-            }
-            else if (doc.file == null || view.n_symbols <= 1) {
+            } else {
                 remove_container ();
             }
         }
 
         void add_container () {
-            if(notebook.page_num (container) == -1) {
+            if (notebook.page_num (container) == -1) {
                 notebook.append_page (container, new Gtk.Label (_("Symbols")));
                 container.show_all ();
             }
@@ -126,25 +118,17 @@ namespace Scratch.Plugins {
                 notebook.remove (container);
         }
 
-        void update_timeout () {
-            if (refresh_timeout != 0)
-                Source.remove (refresh_timeout);
-
-            refresh_timeout = Timeout.add (1000, () => {
-                current_view.parse_symbols ();
-                refresh_timeout = 0;
-                return false;
-            });
-        }
-
         void remove_view (SymbolOutline view) {
             views.remove (view);
-            view.doc.doc_saved.disconnect (update_timeout);
-            view.closed.disconnect (remove_view);
+            var source_list = view.get_source_list ();
+            if (source_list.parent == container)
+                container.remove (source_list);
+            if (views.is_empty)
+                remove_container ();
             view.goto.disconnect (goto);
         }
 
-        void goto (Scratch.Services.Document doc, int line)    {
+        void goto (Scratch.Services.Document doc, int line) {
             scratch_interface.open_file (doc.file);
 
             var text = doc.source_view;

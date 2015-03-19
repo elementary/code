@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/org/pantheon/scratch/plugin/outline">
+    <file compressed="true" preprocess="xml-stripblanks">class-symbolic.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks">constant-symbolic.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks">enum-symbolic.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks">field-symbolic.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks">interface-symbolic.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks">property-symbolic.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks">signal-symbolic.svg</file>
+    <file compressed="true" preprocess="xml-stripblanks">structure-symbolic.svg</file>
+  </gresource>
+</gresources>

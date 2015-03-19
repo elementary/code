@@ -250,7 +250,7 @@ namespace Scratch.Services {
                         break;
                 }
                 dialog.destroy ();
-            }          
+            }
 
             if (ret_value) {
                 // Delete backup copy file                
@@ -260,7 +260,9 @@ namespace Scratch.Services {
             // Zeitgeist integration
             zg_log.close_insert (file.get_uri (), get_mime_type ());
 #endif
-            
+            if (ret_value == true)
+                doc_closed ();
+
             return ret_value;
         }
 
