@@ -126,12 +126,17 @@ namespace Scratch {
                 return Posix.EXIT_FAILURE;
             }
 
-            bool is_app_launch = (get_last_window () == null);
+            if (print_version) {
+                stdout.printf ("Scratch Text Editor %s\n", build_version);
+                stdout.printf ("Copyright %s Scratch Text Editor Developers.\n".printf (app_years));
+                return Posix.EXIT_SUCCESS;
+            }
 
             // Create (or show) the first window
             activate ();
 
             // Create a next window if requested and it's not the app launch
+            bool is_app_launch = (get_last_window () == null);
             if (create_new_window && !is_app_launch) {
                 create_new_window = false;
                 this.new_window ();
@@ -247,32 +252,8 @@ namespace Scratch {
 
         public static int main (string[] args) {
             _app_cmd_name = "Scratch";
-
-            var context = new OptionContext ("File");
-            context.add_main_entries (entries, Constants.GETTEXT_PACKAGE);
-            context.add_group (Gtk.get_option_group (true));
-
-            string[] args_primary_instance = args;
-            args_primary_instance += "-c";
-            args_primary_instance += Environment.get_current_dir ();
-
-            try {
-                context.parse (ref args);
-            } catch(Error e) {
-                print (e.message + "\n");
-
-                return Posix.EXIT_FAILURE;
-            }
-
-            if (print_version) {
-                stdout.printf ("Scratch Text Editor %s\n", Constants.VERSION);
-                stdout.printf ("Copyright 2011-2014 Scratch Text Editor Developers.\n");
-
-                return Posix.EXIT_SUCCESS;
-            }
-
             ScratchApp app = ScratchApp.instance;
-            return app.run (args_primary_instance);
+            return app.run (args);
         }
     }
 }

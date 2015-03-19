@@ -157,7 +157,7 @@ namespace Scratch {
             this.toolbar.show_close_button = true;
             this.set_titlebar (this.toolbar);
             toolbar.menu = ui.get_widget ("ui/AppMenu") as Gtk.Menu;
-            var app_menu = (app as Granite.Application).create_appmenu (toolbar.menu);
+            var app_menu = new Granite.Widgets.AppMenu (toolbar.menu);
             toolbar.pack_end (app_menu);
 
             // SearchManager
