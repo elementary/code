@@ -2,7 +2,9 @@ add_definitions(${NORMAL_CFLAGS})
 include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/scratchcore/)
 link_directories(${NORMAL_LINK_DIRS})
 
-vala_precompile(VALA_C
+set (PLUGIN_NAME "strip-trailing-save")
+
+vala_precompile(VALA_C ${PLUGIN_NAME}
     strip-trailing-save.vala
 PACKAGES
     granite
@@ -18,8 +20,10 @@ OPTIONS
     --vapidir=${CMAKE_SOURCE_DIR}/vapi/
     --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
 )
-add_library(strip-trailing-save MODULE ${VALA_C})
-add_dependencies(strip-trailing-save scratchcore scratch)
-install(TARGETS strip-trailing-save DESTINATION lib/scratch/plugins/strip-trailing-save/)
-install(FILES strip-trailing-save.plugin DESTINATION lib/scratch/plugins/strip-trailing-save/)
+add_library(${PLUGIN_NAME} MODULE ${VALA_C})
+add_dependencies(${PLUGIN_NAME} ${LIBNAME} scratch)
+
+install(TARGETS ${PLUGIN_NAME} DESTINATION ${PLUGINDIR}/${PLUGIN_NAME})
+install(FILES ${PLUGIN_NAME}.plugin DESTINATION ${PLUGINDIR}/${PLUGIN_NAME})
+
 message("-- StripTrailSave plugin will be compiled")

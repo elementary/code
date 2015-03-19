@@ -12,8 +12,10 @@ add_definitions (${VTE_CFLAGS})
 link_libraries (${VTE_LIBRARIES})
 link_directories (${VTE_LIBRARY_DIRS})
 
+set (PLUGIN_NAME "terminal")
+
 if (${VTE_VERSION} VERSION_LESS "0.38.0")
-vala_precompile(VALA_C
+vala_precompile(VALA_C ${PLUGIN_NAME}
     Settings.vala
     terminal.vala
 PACKAGES
@@ -32,7 +34,7 @@ OPTIONS
     --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
 )
 else()
-vala_precompile(VALA_C
+vala_precompile(VALA_C ${PLUGIN_NAME}
     Settings.vala
     terminal.vala
 PACKAGES
@@ -52,10 +54,11 @@ OPTIONS
     --define=VTE291
 )
 endif()
-add_library(terminal MODULE ${VALA_C})
-add_dependencies(terminal scratchcore scratch)
-install(TARGETS terminal DESTINATION lib/scratch/plugins/terminal/)
-install(FILES terminal.plugin DESTINATION lib/scratch/plugins/terminal/)
+add_library(${PLUGIN_NAME} MODULE ${VALA_C})
+add_dependencies(${PLUGIN_NAME} ${LIBNAME} scratch)
+
+install(TARGETS ${PLUGIN_NAME} DESTINATION ${PLUGINDIR}/${PLUGIN_NAME})
+install(FILES ${PLUGIN_NAME}.plugin DESTINATION ${PLUGINDIR}/${PLUGIN_NAME})
 message("-- Terminal plugin will be compiled")
 else()
 message("-- Terminal plugin will NOT be compiled")

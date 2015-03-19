@@ -1,7 +1,10 @@
 add_definitions(${NORMAL_CFLAGS})
 link_directories(${NORMAL_LINK_DIRS})
-vala_precompile(VALA_C
-	SourceTreePlugin.vala
+
+set (PLUGIN_NAME "source-tree")
+
+vala_precompile(VALA_C ${PLUGIN_NAME}
+    SourceTreePlugin.vala
 PACKAGES
     gtk+-3.0
     gee-0.8
@@ -15,9 +18,9 @@ OPTIONS
     --vapidir=${CMAKE_BINARY_DIR}/src/
     --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
 )
-add_library(source-tree MODULE ${VALA_C})
-target_link_libraries(source-tree ${NORMAL_LIBRARIES})
-install(TARGETS source-tree DESTINATION lib/scratch/plugins/source-tree/)
-install(FILES source-tree.plugin DESTINATION lib/scratch/plugins/source-tree/)
-add_dependencies(source-tree scratchcore scratch)
+add_library(${PLUGIN_NAME} MODULE ${VALA_C})
+add_dependencies(${PLUGIN_NAME} ${LIBNAME} scratch)
+
+install(TARGETS ${PLUGIN_NAME} DESTINATION ${PLUGINDIR}/${PLUGIN_NAME})
+install(FILES ${PLUGIN_NAME}.plugin DESTINATION ${PLUGINDIR}/${PLUGIN_NAME})
 message("-- Source Tree plugin will be compiled")

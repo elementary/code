@@ -3,7 +3,9 @@ if(WITH_CONTRACTOR)
 add_definitions(${NORMAL_CFLAGS})
 include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/scratchcore/)
 link_directories(${NORMAL_LINK_DIRS})
-vala_precompile(VALA_C
+set (PLUGIN_NAME "contractor")
+
+vala_precompile(VALA_C ${PLUGIN_NAME}
     contractor.vala
 PACKAGES
     granite
@@ -18,10 +20,13 @@ OPTIONS
     --vapidir=${CMAKE_SOURCE_DIR}/vapi/
     --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
 )
-add_library(contractor MODULE ${VALA_C})
-add_dependencies(contractor scratchcore scratch)
-install(TARGETS contractor DESTINATION lib/scratch/plugins/contractor/)
-install(FILES contractor.plugin DESTINATION lib/scratch/plugins/contractor/)
+
+add_library(${PLUGIN_NAME} MODULE ${VALA_C})
+add_dependencies(${PLUGIN_NAME} ${LIBNAME} scratch)
+
+install(TARGETS ${PLUGIN_NAME} DESTINATION ${PLUGINDIR}/${PLUGIN_NAME})
+install(FILES ${PLUGIN_NAME}.plugin DESTINATION ${PLUGINDIR}/${PLUGIN_NAME})
+
 message("-- Contractor plugin will be compiled")
 else()
 message("-- Contractor plugin will NOT be compiled")

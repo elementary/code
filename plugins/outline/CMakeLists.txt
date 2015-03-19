@@ -1,6 +1,28 @@
 add_definitions(${NORMAL_CFLAGS})
 link_directories(${NORMAL_LINK_DIRS})
-vala_precompile(VALA_C
+
+set (PLUGIN_NAME "outline")
+
+# Compute VALA_SHORTVER
+execute_process(
+    COMMAND
+      ${VALA_EXECUTABLE} "--version"
+    OUTPUT_VARIABLE
+      VALA_VERSION
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+)
+string(REPLACE "Vala " "" VALA_VERSION "${VALA_VERSION}")
+string(REGEX REPLACE "^([0-9]+).*" "\\1" maj_ver "${VALA_VERSION}")
+string(REGEX REPLACE "^[0-9]+\\.([0-9]+).*" "\\1" min_ver "${VALA_VERSION}")
+math(EXPR is_odd "${min_ver} % 2")
+if(${is_odd} EQUAL 1)
+    math(EXPR min_ver "${min_ver} + 1")
+endif()
+set(VALA_SHORTVER "${maj_ver}.${min_ver}" CACHE INTERNAL "")
+
+
+
+vala_precompile(VALA_C ${PLUGIN_NAME}
     CtagsSymbolResolver.vala
     OutlinePlugin.vala
     ValaProcessing/ComparisonHelper.vala
@@ -31,10 +53,11 @@ pkg_check_modules(OUTLINE_DEPS libvala-${VALA_SHORTVER})
 link_directories(${OUTLINE_DEPS_LIBRARY_DRIS})
 add_definitions(${OUTLINE_DEPS_CFLAGS})
 
-add_library(outline MODULE ${VALA_C} ${GLIB_RESOURCES_OUTLINE})
-target_link_libraries(outline ${NORMAL_LIBRARIES} ${OUTLINE_DEPS_LIBRARIES})
-install(TARGETS outline DESTINATION lib/scratch/plugins/outline/)
-install(FILES outline.plugin DESTINATION lib/scratch/plugins/outline/)
-add_dependencies(outline scratchcore scratch)
+add_library(${PLUGIN_NAME} MODULE ${VALA_C} ${GLIB_RESOURCES_OUTLINE})
+add_dependencies(${PLUGIN_NAME} ${LIBNAME} scratch)
+target_link_libraries(${PLUGIN_NAME} ${NORMAL_LIBRARIES} ${OUTLINE_DEPS_LIBRARIES})
+
+install(TARGETS ${PLUGIN_NAME} DESTINATION ${PLUGINDIR}/${PLUGIN_NAME})
+install(FILES ${PLUGIN_NAME}.plugin DESTINATION ${PLUGINDIR}/${PLUGIN_NAME})
 
 message("-- Outline plugin will be compiled")

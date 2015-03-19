@@ -1,4 +1,4 @@
-vala_precompile(VALA_C
+vala_precompile(VALA_C ${EXEC_NAME}
     MainWindow.vala
     Scratch.vala
     Utils.vala
@@ -31,10 +31,10 @@ GENERATE_HEADER
 )
 # tranlation stuff
 
-add_executable (scratch-text-editor ${VALA_C})
+add_executable (${EXEC_NAME} ${VALA_C})
 
-install (TARGETS scratch-text-editor RUNTIME DESTINATION bin)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/scratch-ui.xml DESTINATION share/scratch/)
+install (TARGETS ${EXEC_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_FULL_BINDIR})
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/scratch-ui.xml DESTINATION ${DATADIR})
 
 #####
 # Plugin Library
@@ -57,10 +57,10 @@ set_target_properties (${LIBNAME} PROPERTIES
     VERSION ${LIBVERSION}.0
     SOVERSION ${SOVERSION})
 
-install (TARGETS ${LIBNAME} DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+install (TARGETS ${LIBNAME} DESTINATION ${CMAKE_INSTALL_FULL_LIBDIR})
 
 # Install lib stuffs
-install (FILES ${CMAKE_BINARY_DIR}/src/${LIBNAME}.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/lib/pkgconfig/)
-install (FILES ${CMAKE_CURRENT_BINARY_DIR}/${LIBNAME}.vapi DESTINATION share/vala/vapi/)
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/${LIBNAME}.deps DESTINATION share/vala/vapi/)
-install (FILES ${CMAKE_CURRENT_BINARY_DIR}/${LIBNAME}.h DESTINATION include/scratch/)
+install (FILES ${CMAKE_BINARY_DIR}/src/${LIBNAME}.pc DESTINATION ${CMAKE_INSTALL_FULL_LIBDIR}/pkgconfig/)
+install (FILES ${CMAKE_CURRENT_BINARY_DIR}/${LIBNAME}.vapi DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/vala/vapi/)
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/${LIBNAME}.deps DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/vala/vapi/)
+install (FILES ${CMAKE_CURRENT_BINARY_DIR}/${LIBNAME}.h DESTINATION ${CMAKE_INSTALL_FULL_INCLUDEDIR}/scratch/)

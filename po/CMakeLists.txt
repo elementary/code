@@ -1,22 +1,6 @@
-include(Translations)
-add_translations_directory("scratch-text-editor")
-add_translations_catalog("scratch-text-editor"
+include (Translations)
+add_translations_directory (${GETTEXT_PACKAGE})
+add_translations_catalog (${GETTEXT_PACKAGE}
     ../src
-    ../src/Widgets
-    ../src/Dialogs
-    ../src/Services
-    ../plugins/pastebin
-    ../plugins/filemanager
-    ../plugins/terminal
-    ../plugins/browser-preview
-    ../plugins/spell
-    ../plugins/open-with
-    ../plugins/terminal
-    ../plugins/brackets-completion
-    ../plugins/word-completion
-    ../plugins/folder-manager
-    ../plugins/contractor
-    ../plugins/strip-trailing-save
-    ../plugins/source-tree
-    ../plugins/vim-emulation
+    ../plugins
 )

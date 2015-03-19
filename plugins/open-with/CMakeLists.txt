@@ -1,7 +1,10 @@
 add_definitions(${NORMAL_CFLAGS})
 include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/scratchcore/)
 link_directories(${NORMAL_LINK_DIRS})
-vala_precompile(VALA_C
+
+set (PLUGIN_NAME "open-with")
+
+vala_precompile(VALA_C ${PLUGIN_NAME}
     open-with.vala
 PACKAGES
     granite
@@ -16,8 +19,10 @@ OPTIONS
     --vapidir=${CMAKE_SOURCE_DIR}/vapi/
     --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
 )
-add_library(open-with MODULE ${VALA_C})
-add_dependencies(open-with scratchcore scratch)
-install(TARGETS open-with DESTINATION lib/scratch/plugins/open-with/)
-install(FILES open-with.plugin DESTINATION lib/scratch/plugins/open-with/)
+
+add_library(${PLUGIN_NAME} MODULE ${VALA_C})
+add_dependencies(${PLUGIN_NAME} ${LIBNAME} scratch)
+
+install(TARGETS ${PLUGIN_NAME} DESTINATION ${PLUGINDIR}/${PLUGIN_NAME})
+install(FILES ${PLUGIN_NAME}.plugin DESTINATION ${PLUGINDIR}/${PLUGIN_NAME})
 message("-- Open With plugin will be compiled")

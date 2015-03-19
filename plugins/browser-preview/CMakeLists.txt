@@ -8,7 +8,9 @@ add_definitions (${WEBKIT_CFLAGS})
 link_libraries (${WEBKIT_LIBRARIES})
 link_directories (${WEBKIT_LIBRARY_DIRS})
 
-vala_precompile(VALA_C
+set (PLUGIN_NAME "browser-preview")
+
+vala_precompile(VALA_C ${PLUGIN_NAME}
     browser-preview.vala
     BrowserView.vala
 PACKAGES
@@ -26,10 +28,13 @@ OPTIONS
     --vapidir=${CMAKE_BINARY_DIR}/src/
     --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
 )
-add_library(browserpreview MODULE ${VALA_C})
-add_dependencies(browserpreview scratchcore scratch)
-install(TARGETS browserpreview DESTINATION lib/scratch/plugins/browser-preview/)
-install(FILES browser-preview.plugin DESTINATION lib/scratch/plugins/browser-preview/)
+
+add_library(${PLUGIN_NAME} MODULE ${VALA_C})
+add_dependencies(${PLUGIN_NAME} ${LIBNAME} scratch)
+
+install(TARGETS ${PLUGIN_NAME} DESTINATION ${PLUGINDIR}/${PLUGIN_NAME})
+install(FILES ${PLUGIN_NAME}.plugin DESTINATION ${PLUGINDIR}/${PLUGIN_NAME})
+
 message("-- Browser preview plugin will be compiled")
 else()
 message("-- Browser preview plugin will NOT be compiled")

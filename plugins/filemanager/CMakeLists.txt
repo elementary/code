@@ -1,6 +1,9 @@
 add_definitions(${NORMAL_CFLAGS})
 link_directories(${NORMAL_LINK_DIRS})
-vala_precompile(VALA_C
+
+set (PLUGIN_NAME "filemanager")
+
+vala_precompile(VALA_C ${PLUGIN_NAME}
     FileManagerPlugin.vala
     File.vala
     Settings.vala
@@ -18,9 +21,11 @@ OPTIONS
     --vapidir=${CMAKE_BINARY_DIR}/src/
     --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
 )
-add_library(filemanager MODULE ${VALA_C})
-target_link_libraries(filemanager ${NORMAL_LIBRARIES})
-install(TARGETS filemanager DESTINATION lib/scratch/plugins/filemanager/)
-install(FILES filemanager.plugin DESTINATION lib/scratch/plugins/filemanager/)
-add_dependencies(filemanager scratchcore scratch)
+
+add_library(${PLUGIN_NAME} MODULE ${VALA_C})
+add_dependencies(${PLUGIN_NAME} ${LIBNAME} scratch)
+
+install(TARGETS ${PLUGIN_NAME} DESTINATION ${PLUGINDIR}/${PLUGIN_NAME})
+install(FILES ${PLUGIN_NAME}.plugin DESTINATION ${PLUGINDIR}/${PLUGIN_NAME})
+
 message("-- File Manager plugin will be compiled")

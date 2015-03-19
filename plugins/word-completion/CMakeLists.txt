@@ -2,7 +2,9 @@ add_definitions(${NORMAL_CFLAGS})
 include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/scratchcore/)
 link_directories(${NORMAL_LINK_DIRS})
 
-vala_precompile(VALA_C
+set (PLUGIN_NAME "word-completion")
+
+vala_precompile(VALA_C ${PLUGIN_NAME}
     plugin.vala
     engine.vala
     completion-provider.vala
@@ -21,10 +23,10 @@ OPTIONS
     --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
 )
 
-add_library(word-completion MODULE ${VALA_C})
-add_dependencies(word-completion scratchcore scratch)
+add_library(${PLUGIN_NAME} MODULE ${VALA_C})
+add_dependencies(${PLUGIN_NAME} ${LIBNAME} scratch)
 
-install(TARGETS word-completion DESTINATION lib/scratch/plugins/word-completion/)
-install(FILES word-completion.plugin DESTINATION lib/scratch/plugins/word-completion/)
+install(TARGETS ${PLUGIN_NAME} DESTINATION ${PLUGINDIR}/${PLUGIN_NAME})
+install(FILES ${PLUGIN_NAME}.plugin DESTINATION ${PLUGINDIR}/${PLUGIN_NAME})
 
 message("-- Word completion plugin will be compiled")

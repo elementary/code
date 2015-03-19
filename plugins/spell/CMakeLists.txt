@@ -19,7 +19,9 @@ add_definitions (${SPELL_CFLAGS})
 link_libraries (${SPELL_LIBRARIES})
 link_directories (${SPELL_LIBRARY_DIRS})
 
-vala_precompile(VALA_C
+set (PLUGIN_NAME "spell")
+
+vala_precompile(VALA_C ${PLUGIN_NAME}
     spell.vala
 PACKAGES
     ${SPELLPACKAGE}
@@ -39,10 +41,11 @@ OPTIONS
     ${VALAFLAGS}
     ${SPELLLEGACY_FLAGS}
 )
-add_library(spell MODULE ${VALA_C})
-add_dependencies(spell scratchcore scratch)
-install(TARGETS spell DESTINATION lib/scratch/plugins/spell/)
-install(FILES spell.plugin DESTINATION lib/scratch/plugins/spell/)
+add_library(${PLUGIN_NAME} MODULE ${VALA_C})
+add_dependencies(${PLUGIN_NAME} ${LIBNAME} scratch)
+
+install(TARGETS ${PLUGIN_NAME} DESTINATION ${PLUGINDIR}/${PLUGIN_NAME})
+install(FILES ${PLUGIN_NAME}.plugin DESTINATION ${PLUGINDIR}/${PLUGIN_NAME})
 message("-- Spell check plugin will be compiled")
 else()
 message("-- Spell check plugin will NOT be compiled")
