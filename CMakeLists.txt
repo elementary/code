@@ -94,9 +94,7 @@ include_directories(${CMAKE_BINARY_DIR}/scratchcore)
 include_directories(${CMAKE_BINARY_DIR}/src)
 
 # Subdirectories
-#add_subdirectory(scratchcore)
 add_subdirectory (src)
-add_subdirectory (scripts)
 add_subdirectory (plugins)
 add_subdirectory (schemas)
 add_subdirectory (po)

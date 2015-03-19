@@ -139,7 +139,6 @@ namespace Scratch.Widgets {
                 if (docs.nth_data (n).file != null 
                         && docs.nth_data (n).file.get_uri () == doc.file.get_uri ()) {
                     this.notebook.current = docs.nth_data (n);
-                    docs.nth_data (n).load_content ();
                     warning ("This Document was already opened! Not opening a duplicate!");
                     return;
                 }
