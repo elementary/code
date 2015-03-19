@@ -6,7 +6,6 @@ public class ValaSymbolOutline : Object, SymbolOutline {
     Granite.Widgets.SourceList.ExpandableItem root;
     SymbolResolver resolver;
     Vala.Parser parser;
-    Thread<void*> thread;
     GLib.Cancellable cancellable;
 
     public ValaSymbolOutline (Scratch.Services.Document _doc) {
@@ -46,8 +45,7 @@ public class ValaSymbolOutline : Object, SymbolOutline {
         if (cancellable != null)
             cancellable.cancel ();
         cancellable = new GLib.Cancellable ();
-        double adjustment_value = store.vadjustment.value;
-        thread = new Thread<void*>("parse-symbols", () => {
+        new Thread<void*>("parse-symbols", () => {
             Vala.CodeContext.push (context);
             parser.parse (context);
             resolver.clear ();
@@ -57,6 +55,7 @@ public class ValaSymbolOutline : Object, SymbolOutline {
             var new_root = construct_tree (cancellable);
             if (cancellable.is_cancelled () == false) {
                 Idle.add (() => {
+                    double adjustment_value = store.vadjustment.value;
                     store.root.clear ();
                     store.root.add (new_root);
                     store.root.expand_all ();
