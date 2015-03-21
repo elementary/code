@@ -376,9 +376,6 @@ namespace Scratch {
             this.loading_view.stop ();
             this.vp.visible = true;
             this.toolbar.sensitive = true;
-            // Load the content of the shown document
-            var doc = this.get_current_document ();
-            doc.load_content ();
         }
 
         // Open a document
@@ -662,11 +659,11 @@ namespace Scratch {
         }
 
         void action_save () {
-            this.get_current_document ().save ();
+            this.get_current_document ().save.begin ();
         }
 
         void action_save_as () {
-            this.get_current_document ().save_as ();
+            this.get_current_document ().save_as.begin ();
         }
 
         void action_undo () {

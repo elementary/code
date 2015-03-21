@@ -58,7 +58,6 @@ namespace Scratch.Widgets {
             manager = SourceLanguageManager.get_default ();
             style_scheme_manager = new SourceStyleSchemeManager ();
             buffer = new SourceBuffer (null);
-
             this.set_buffer (buffer);
 
             // Set some settings
