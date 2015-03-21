@@ -294,6 +294,7 @@ namespace Scratch.Services {
             try {
                 yield source_file_saver.save_async (GLib.Priority.DEFAULT, save_cancellable, null);
             } catch (Error e) {
+                // We don't need to send an error message at cancellation (corresponding to error code 19)
                 if (e.code != 19)
                     warning ("Cannot save \"%s\": %s", get_basename (), e.message);
                 return false;
