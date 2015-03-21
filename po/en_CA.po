@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-03-19 15:27+0100\n"
-"PO-Revision-Date: 2013-08-14 03:51+0000\n"
-"Last-Translator: Xavier L. <Unknown>\n"
+"PO-Revision-Date: 2015-03-21 02:54+0000\n"
+"Last-Translator: Aleck <aleck.r.pang@gmail.com>\n"
 "Language-Team: English (Canada) <en_CA@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-20 05:04+0000\n"
+"X-Launchpad-Export-Date: 2015-03-21 05:33+0000\n"
 "X-Generator: Launchpad (build 17405)\n"
 
 #: ../src/MainWindow.vala:110
@@ -126,19 +126,19 @@ msgstr "Open a file"
 
 #: ../src/MainWindow.vala:865
 msgid "Clipboard"
-msgstr ""
+msgstr "Clipboard"
 
 #: ../src/MainWindow.vala:866
 msgid "New file from Clipboard"
-msgstr ""
+msgstr "New file from Clipboard"
 
 #: ../src/MainWindow.vala:869
 msgid "Zoom"
-msgstr ""
+msgstr "Zoom"
 
 #: ../src/MainWindow.vala:870
 msgid "Zoom 1:1"
-msgstr ""
+msgstr "Zoom 1:1"
 
 #: ../src/MainWindow.vala:873 ../src/Services/Document.vala:232
 #: ../src/Services/Document.vala:565 ../src/Utils.vala:33
@@ -147,15 +147,15 @@ msgstr "Save"
 
 #: ../src/MainWindow.vala:874
 msgid "Save this file"
-msgstr ""
+msgstr "Save this file"
 
 #: ../src/MainWindow.vala:877 ../src/Services/Document.vala:558
 msgid "Save As…"
-msgstr ""
+msgstr "Save As…"
 
 #: ../src/MainWindow.vala:878
 msgid "Save this file with a different name"
-msgstr ""
+msgstr "Save this file with a different name"
 
 #: ../src/MainWindow.vala:881 ../src/Services/TemplateManager.vala:231
 msgid "Templates"
@@ -175,11 +175,11 @@ msgstr "Change Scratch settings"
 
 #: ../src/MainWindow.vala:889 ../src/MainWindow.vala:890
 msgid "Next Tab"
-msgstr ""
+msgstr "Next Tab"
 
 #: ../src/MainWindow.vala:893 ../src/MainWindow.vala:894
 msgid "Previous Tab"
-msgstr ""
+msgstr "Previous Tab"
 
 #: ../src/MainWindow.vala:910 ../src/MainWindow.vala:911
 msgid "Fullscreen"
@@ -195,7 +195,7 @@ msgstr "New Window"
 
 #: ../src/Scratch.vala:247
 msgid "Print version info and exit"
-msgstr ""
+msgstr "Print version info and exit"
 
 #: ../src/Scratch.vala:248
 msgid "Set of plugins"
