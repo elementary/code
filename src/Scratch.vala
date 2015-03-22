@@ -54,7 +54,7 @@ namespace Scratch {
 
             program_name = app_cmd_name;
             exec_name = "scratch-text-editor";
-            app_years = "2011-2013";
+            app_years = "2011-2015";
             app_icon = "accessories-text-editor";
             app_launcher = "scratch-text-editor.desktop";
             application_id = "org.elementary." + app_cmd_name.down ();

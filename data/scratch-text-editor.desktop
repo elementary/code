@@ -10,7 +10,7 @@ Categories=GNOME;GTK;Utility;TextEditor;
 Keywords=Notepad;IDE;Plain
 MimeType=text/plain;
 StartupNotify=true
-Actions=AboutDialog;NewWindow;NewDocument;
+Actions=NewWindow;NewDocument;AboutDialog;
 X-GNOME-Gettext-Domain=scratch-text-editor
 
 [Desktop Action NewDocument]
