@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-03-19 15:27+0100\n"
-"PO-Revision-Date: 2015-03-15 19:22+0000\n"
+"PO-Revision-Date: 2015-03-21 16:00+0000\n"
 "Last-Translator: lem8r <Unknown>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-20 05:04+0000\n"
+"X-Launchpad-Export-Date: 2015-03-22 05:21+0000\n"
 "X-Generator: Launchpad (build 17405)\n"
 
 #: ../src/MainWindow.vala:110
@@ -65,7 +65,7 @@ msgstr "Відкрити останній закритий документ в �
 
 #: ../src/MainWindow.vala:833
 msgid "Add New Tab"
-msgstr "Нова вкладка"
+msgstr "Додати нову вкладку"
 
 #: ../src/MainWindow.vala:834
 msgid "Add a new tab"
@@ -73,11 +73,11 @@ msgstr "Додати нову вкладку"
 
 #: ../src/MainWindow.vala:837
 msgid "Add New View"
-msgstr "Додати Нову Вкладку"
+msgstr "Додати новий перегляд"
 
 #: ../src/MainWindow.vala:838
 msgid "Add a new view"
-msgstr "Розділити вікно навпіл"
+msgstr "Додати новий перегляд"
 
 #: ../src/MainWindow.vala:841
 msgid "Remove Current View"
@@ -126,19 +126,19 @@ msgstr "Відкрити файл"
 
 #: ../src/MainWindow.vala:865
 msgid "Clipboard"
-msgstr ""
+msgstr "Буфер обміну"
 
 #: ../src/MainWindow.vala:866
 msgid "New file from Clipboard"
-msgstr ""
+msgstr "Новий файл з буферу обміну"
 
 #: ../src/MainWindow.vala:869
 msgid "Zoom"
-msgstr ""
+msgstr "Масштаб"
 
 #: ../src/MainWindow.vala:870
 msgid "Zoom 1:1"
-msgstr ""
+msgstr "Масштаб 1:1"
 
 #: ../src/MainWindow.vala:873 ../src/Services/Document.vala:232
 #: ../src/Services/Document.vala:565 ../src/Utils.vala:33
@@ -203,7 +203,7 @@ msgstr "Набір плагінів"
 
 #: ../src/Scratch.vala:249
 msgid "Current working directory"
-msgstr ""
+msgstr "Поточна робоча тека"
 
 #: ../src/Services/Document.vala:222
 msgid "Save changes to document %s before closing?"
@@ -221,7 +221,7 @@ msgstr "Закрити без збереження"
 
 #: ../src/Services/Document.vala:231 ../src/Utils.vala:29
 msgid "Cancel"
-msgstr ""
+msgstr "Скасувати"
 
 #: ../src/Services/Document.vala:308
 msgid "Save File"
@@ -229,29 +229,35 @@ msgstr "Зберегти файл"
 
 #: ../src/Services/Document.vala:401 ../src/config.vala:17
 msgid "New Document"
-msgstr "Новий Документ"
+msgstr "Новий документ"
 
 #: ../src/Services/Document.vala:540
 msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
+"Файл \"%s\" неможливо прочитати. Можливо його пошкоджено\n"
+"або у вас недостатньо прав доступу для його читання."
 
 #: ../src/Services/Document.vala:556
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
+"Розташування, що містить файл \"%s\" було відмонтовано. Бажаєте зберегти "
+"його в іншому місці?"
 
 #: ../src/Services/Document.vala:563
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "Файл \"%s\" було вилучено. Бажаєте все рівно зберегти його?"
 
 #: ../src/Services/Document.vala:576
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 msgstr ""
+"Ви не можете зберегти зміни зроблені в файлі \"%s\". Бажаєте зберегти зміни "
+"до цього файлу в іншому місці?"
 
 #: ../src/Services/Document.vala:578
 msgid "Save changes elsewhere"
@@ -262,6 +268,8 @@ msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
+"Файл \"%s\" було змінено іншою програмою. Бажаєте завантажити оновлену "
+"версію чи продовжити редагування?"
 
 #: ../src/Services/Document.vala:604
 msgid "Load"
@@ -273,7 +281,7 @@ msgstr "Далі"
 
 #: ../src/Widgets/SplitView.vala:47
 msgid "No Files Open"
-msgstr "Немає Відкритих Файлів"
+msgstr "Немає відкритих файлів"
 
 #: ../src/Widgets/SplitView.vala:48
 msgid "Open a file to begin editing."
@@ -297,11 +305,11 @@ msgstr "Відкрити попередньо збережений файл."
 
 #: ../src/Widgets/SplitView.vala:54
 msgid "New file from clipboard"
-msgstr ""
+msgstr "Новий файл з буферу обміну"
 
 #: ../src/Widgets/SplitView.vala:54
 msgid "Create a new file from the contents of your clipboard."
-msgstr ""
+msgstr "Створити новий файл з вмісту вашого буферу обміну."
 
 #: ../src/Widgets/SourceView.vala:134
 msgid "Syntax Highlighting"
@@ -329,7 +337,7 @@ msgstr "Перейти до рядка:"
 
 #: ../src/Widgets/DocumentView.vala:96
 msgid "Text file from "
-msgstr ""
+msgstr "Текстовий файл з "
 
 #: ../src/Widgets/LoadingView.vala:36
 msgid "Wait while restoring last session..."
@@ -337,7 +345,7 @@ msgstr "Зачекайте, поки остання сесія відновлю�
 
 #: ../src/Widgets/ToolBar.vala:58
 msgid "Share"
-msgstr "Опублікувати"
+msgstr "Поділитися"
 
 #: ../src/Dialogs/PreferencesDialog.vala:66
 msgid "Behavior"
@@ -349,7 +357,7 @@ msgstr "Iнтерфейс"
 
 #: ../src/Dialogs/PreferencesDialog.vala:82
 msgid "Extensions"
-msgstr "Розширення"
+msgstr "Додатки"
 
 #: ../src/Dialogs/PreferencesDialog.vala:131
 msgid "Show welcome screen"
@@ -441,7 +449,7 @@ msgstr "Текстовий редактор"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr ""
+msgstr "Про Scratch"
 
 #: ../src/Utils.vala:42
 msgid "All files"
@@ -469,7 +477,7 @@ msgstr "Завантажити на PasteBin"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:272
 msgid "Name:"
-msgstr "ім'я:"
+msgstr "Ім'я:"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:278
 msgid "Format: "
@@ -527,11 +535,11 @@ msgstr "Термінал у вашому текстовому редакторі
 
 #: ../plugins/terminal/terminal.vala:161 ../plugins/terminal/terminal.vala:172
 msgid "Show Terminal"
-msgstr ""
+msgstr "Показати термінал"
 
 #: ../plugins/terminal/terminal.vala:164
 msgid "Hide Terminal"
-msgstr ""
+msgstr "Сховати термінал"
 
 #: ../plugins/terminal/terminal.vala:300
 msgid "Copy"
@@ -544,11 +552,11 @@ msgstr "Вставити"
 
 #: ../plugins/terminal/terminal.vala:317
 msgid "Terminal on Right"
-msgstr ""
+msgstr "Термінал праворуч"
 
 #: ../plugins/terminal/terminal.vala:325
 msgid "Terminal on Bottom"
-msgstr ""
+msgstr "Термінал знизу"
 
 #: ../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
@@ -560,29 +568,29 @@ msgstr "Використовувати команди Vim у Scratch"
 
 #: ../plugins/browser-preview/BrowserView.vala:49
 msgid "Close Inspector"
-msgstr ""
+msgstr "Закрити інспектор"
 
 #: ../plugins/browser-preview/browser-preview.vala:21
 msgid "Browser Preview"
-msgstr "Перегляд у Браузері"
+msgstr "Попередній перегляд у браузері"
 
 #: ../plugins/browser-preview/browser-preview.vala:22
 msgid "Get a preview your work in a web page"
-msgstr "Перегляд вашої роботи на веб сторінці"
+msgstr "Попередній перегляд вашої роботи на веб сторінці"
 
 #: ../plugins/browser-preview/browser-preview.vala:85
 #: ../plugins/browser-preview/browser-preview.vala:111
 msgid "Show Preview"
-msgstr ""
+msgstr "Показати попередній перегляд"
 
 #: ../plugins/browser-preview/browser-preview.vala:107
 #: ../plugins/browser-preview/browser-preview.vala:150
 msgid "Web Preview"
-msgstr ""
+msgstr "Попередній перегляд у вебі"
 
 #: ../plugins/browser-preview/browser-preview.vala:108
 msgid "Hide Preview"
-msgstr ""
+msgstr "Сховати попередній перегляд"
 
 #: ../plugins/open-with/open-with.vala:21
 msgid "Open With"
@@ -590,7 +598,7 @@ msgstr "Відкрити за допомогою"
 
 #: ../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr "Редагування файлів які ви створили за допомогою інших програм"
+msgstr "Відкрити файли які ви редагуєте за допомогою іншого застосунку"
 
 #: ../plugins/open-with/open-with.vala:55
 msgid "Open With..."
@@ -599,12 +607,12 @@ msgstr "Відкрити за допомогою…"
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:21
 #: ../plugins/filemanager/FileManagerPlugin.vala:21
 msgid "Folder Manager"
-msgstr "Менеджер каталогів"
+msgstr "Менеджер тек"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:22
 #: ../plugins/filemanager/FileManagerPlugin.vala:22
 msgid "Basic folder manager with file browsing"
-msgstr "Простий менеджер каталогів з переглядом файлів"
+msgstr "Простий менеджер тек з переглядом файлів"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:71
 msgid "Folders"
@@ -613,7 +621,7 @@ msgstr "Теки"
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:89
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:90
 msgid "Open a folder"
-msgstr "Відкрити каталог"
+msgstr "Відкрити теку"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:95
 msgid "_Cancel"
@@ -629,11 +637,11 @@ msgstr "Закрити теку"
 
 #: ../plugins/brackets-completion/brackets-completion.vala:21
 msgid "Brackets Completion"
-msgstr "Доповнення дужок"
+msgstr "Закривання дужок"
 
 #: ../plugins/brackets-completion/brackets-completion.vala:22
 msgid "Complete brackets while typing"
-msgstr "Автоматично доповнювати дужки при написанні"
+msgstr "Автоматично закривати дужки при друці"
 
 #: ../plugins/word-completion/completion-provider.vala:80
 msgid "Could not load icon theme: %s\n"
@@ -641,7 +649,7 @@ msgstr "Неможливо завантажити тему іконок: %s\n"
 
 #: ../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
-msgstr "Доповнення слів"
+msgstr "Завершення слів"
 
 #: ../plugins/word-completion/plugin.vala:35
 msgid "Show a completion dialog with most used words from your files"
@@ -651,7 +659,7 @@ msgstr ""
 
 #: ../plugins/word-completion/plugin.vala:177
 msgid "%s - Word Completion"
-msgstr "%s - Доповнення слів"
+msgstr "%s - завершення слів"
 
 #: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
 msgid "Strip trailing whitespace"
@@ -664,19 +672,19 @@ msgstr "Вилучати пробіли в кінці рядків при збе
 #: ../plugins/clipboard-history/ClipboardHistory.vala:21
 #: ../plugins/clipboard-history/ClipboardHistory.vala:89
 msgid "Clipboard History"
-msgstr ""
+msgstr "Історія буферу обміну"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:22
 msgid "Clipboard to view history"
-msgstr ""
+msgstr "Скористайтесь буфером обміну для перегляду історії"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:28
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:156
 msgid "Delete"
-msgstr ""
+msgstr "Вилучити"
 
 #: ../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
@@ -684,7 +692,7 @@ msgstr "Надати доступ до ваших файлів за допомо
 
 #: ../plugins/spell/spell.vala:18
 msgid "Spell Checker"
-msgstr "Перевірка орфографії"
+msgstr "Перевірка правопису"
 
 #: ../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
@@ -696,23 +704,23 @@ msgstr "Перевіряє помилки правопису у ваших до�
 #: ../plugins/outline/CtagsSymbolResolver.vala:68
 #: ../plugins/outline/OutlinePlugin.vala:111
 msgid "Symbols"
-msgstr ""
+msgstr "Символи"
 
 #: ../plugins/outline/OutlinePlugin.vala:21
 msgid "Outline"
-msgstr ""
+msgstr "Обрис"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
-msgstr ""
+msgstr "Огляд символів у вашому поточному файлі vala"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
 msgid "Highlight Selected Words"
-msgstr ""
+msgstr "Підсвічувати виділені слова"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
 msgid "Highlights all occurrences of words that are selected"
-msgstr ""
+msgstr "Підсвічувати всі розташування виділених слів"
 
 #: ../plugins/filemanager/FileView.vala:90
 msgid "/New File"
@@ -737,7 +745,7 @@ msgstr "Файловий менеджер"
 #: ../plugins/source-tree/SourceTreePlugin.vala:20
 #: ../plugins/source-tree/SourceTreePlugin.vala:197
 msgid "Source Tree"
-msgstr "Дерево Джерел"
+msgstr "Дерево сирців"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:21
 msgid "Have a look at your sources organized in a nice tree"
