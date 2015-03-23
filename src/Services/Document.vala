@@ -69,7 +69,6 @@ namespace Scratch.Services {
         private Gtk.SourceFile source_file = new Gtk.SourceFile ();
 
         public string original_content;
-        public string? last_saved_content = null;
         public bool saved = true;
         private bool error_shown = false;
         public bool is_file_temporary {
@@ -200,7 +199,7 @@ namespace Scratch.Services {
                 return false;
             }
 
-            last_saved_content = source_view.buffer.text;
+            source_view.buffer.set_modified (false);
             original_content = source_view.buffer.text;
             loaded = true;
 
@@ -264,24 +263,20 @@ namespace Scratch.Services {
             }
 
             if (ret_value) {
-                // Delete backup copy file                
+                // Delete backup copy file
                 delete_backup ();
-            }
 #if HAVE_ZEITGEIST
-            // Zeitgeist integration
-            zg_log.close_insert (file.get_uri (), get_mime_type ());
+                // Zeitgeist integration
+                zg_log.close_insert (file.get_uri (), get_mime_type ());
 #endif
-            if (ret_value == true)
                 doc_closed ();
+            }
 
             return ret_value;
         }
 
         public async bool save () {
-            if (last_saved_content == get_text ())
-                return false;
-
-            if (!this.loaded)
+            if (source_view.buffer.get_modified () == false || this.loaded == false)
                 return false;
 
             // Create backup copy file
@@ -299,7 +294,8 @@ namespace Scratch.Services {
                     warning ("Cannot save \"%s\": %s", get_basename (), e.message);
                 return false;
             }
-            last_saved_content = get_text ();
+
+            source_view.buffer.set_modified (false);
 #if HAVE_ZEITGEIST
             // Zeitgeist integration
             zg_log.save_insert (file.get_uri (), get_mime_type ());
@@ -331,9 +327,7 @@ namespace Scratch.Services {
                 return false;
             }
 
-            // Reset the last saved content
-            last_saved_content = null;
-
+            source_view.buffer.set_modified (true);
             var is_saved = yield save ();
             if (is_saved && is_current_file_temporary) {
                 try {
@@ -484,7 +478,6 @@ namespace Scratch.Services {
         // Revert
         public void revert () {
             this.source_view.set_text (original_content, false);
-            this.last_saved_content = original_content;
             check_undoable_actions ();
         }
 
@@ -588,7 +581,7 @@ namespace Scratch.Services {
                         return;
                     }
 
-                    if (last_saved_content != null && new_buffer.text != last_saved_content) {
+                    if (source_view.buffer.get_modified ()) {
                         if (settings.autosave) {
                             source_view.set_text (new_buffer.text, false);
                         } else {
