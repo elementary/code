@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-03-19 15:27+0100\n"
-"PO-Revision-Date: 2015-03-21 01:38+0000\n"
+"PO-Revision-Date: 2015-03-25 13:44+0000\n"
 "Last-Translator: Indrit Bashkimi <indrit.bashkimi@gmail.com>\n"
 "Language-Team: Albanian <sq@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-22 05:21+0000\n"
-"X-Generator: Launchpad (build 17405)\n"
+"X-Launchpad-Export-Date: 2015-03-26 05:18+0000\n"
+"X-Generator: Launchpad (build 17413)\n"
 
 #: ../src/MainWindow.vala:110
 msgid "Zeitgeist Datasource for Scratch"
@@ -269,6 +269,8 @@ msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
+"Skedari \"%s\" është ndryshuar nga një program i jashtëm. Dëshiron ta "
+"ngarkosh përsëri ose të vazhdosh përpunimin?"
 
 #: ../src/Services/Document.vala:604
 msgid "Load"
@@ -336,7 +338,7 @@ msgstr "Shko tek rreshti:"
 
 #: ../src/Widgets/DocumentView.vala:96
 msgid "Text file from "
-msgstr ""
+msgstr "Skedar teksti nga "
 
 #: ../src/Widgets/LoadingView.vala:36
 msgid "Wait while restoring last session..."
@@ -551,11 +553,11 @@ msgstr "Ngjit"
 
 #: ../plugins/terminal/terminal.vala:317
 msgid "Terminal on Right"
-msgstr ""
+msgstr "Terminal në të djathtë"
 
 #: ../plugins/terminal/terminal.vala:325
 msgid "Terminal on Bottom"
-msgstr ""
+msgstr "Terminal poshtë"
 
 #: ../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
@@ -580,7 +582,7 @@ msgstr "Paraqit shikimin paraprak të punës tënde në një faqe ueb"
 #: ../plugins/browser-preview/browser-preview.vala:85
 #: ../plugins/browser-preview/browser-preview.vala:111
 msgid "Show Preview"
-msgstr ""
+msgstr "Shfaq shikimin paraprak"
 
 #: ../plugins/browser-preview/browser-preview.vala:107
 #: ../plugins/browser-preview/browser-preview.vala:150
@@ -589,7 +591,7 @@ msgstr ""
 
 #: ../plugins/browser-preview/browser-preview.vala:108
 msgid "Hide Preview"
-msgstr ""
+msgstr "Fshih shikimin paraprak"
 
 #: ../plugins/open-with/open-with.vala:21
 msgid "Open With"
@@ -678,11 +680,11 @@ msgstr ""
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:28
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:156
 msgid "Delete"
-msgstr ""
+msgstr "Fshij"
 
 #: ../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
@@ -702,7 +704,7 @@ msgstr "Kontrollon drejtshkrimin e dokumenteve tuaja"
 #: ../plugins/outline/CtagsSymbolResolver.vala:68
 #: ../plugins/outline/OutlinePlugin.vala:111
 msgid "Symbols"
-msgstr ""
+msgstr "Simbolet"
 
 #: ../plugins/outline/OutlinePlugin.vala:21
 msgid "Outline"
@@ -714,7 +716,7 @@ msgstr ""
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
 msgid "Highlight Selected Words"
-msgstr ""
+msgstr "Vënia në dukje e fjalëve të përzgjedhura"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
 msgid "Highlights all occurrences of words that are selected"
