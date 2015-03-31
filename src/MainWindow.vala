@@ -214,20 +214,20 @@ namespace Scratch {
             this.contextbar = new Gtk.Notebook ();
             this.contextbar.no_show_all = true;
             this.contextbar.page_removed.connect (() => { on_plugin_toggled (contextbar); });
-            this.contextbar.page_added.connect (() => { 
+            this.contextbar.page_added.connect (() => {
                 if (!this.split_view.is_empty ())
-                    on_plugin_toggled (contextbar); 
+                    on_plugin_toggled (contextbar);
             });
-            
+
 
 
             this.bottombar = new Gtk.Notebook ();
             this.bottombar.no_show_all = true;
             this.bottombar.page_removed.connect (() => { on_plugin_toggled (bottombar); });
-            this.bottombar.page_added.connect (() => { 
+            this.bottombar.page_added.connect (() => {
                 if (!this.split_view.is_empty ())
-                    on_plugin_toggled (bottombar); 
-            });            
+                    on_plugin_toggled (bottombar);
+            });
 
             hp1 = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
             hp2 = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
@@ -612,7 +612,9 @@ namespace Scratch {
         }
 
         void action_close_tab () {
-
+            var view = get_current_view ();
+            if (view != null)
+                view.close_current_document ();
         }
 
         void action_quit () {

@@ -97,6 +97,7 @@ namespace Scratch.Widgets {
             });
 
             this.key_press_event.connect ((key_event) => {
+
                 switch (key_event.keyval) {
                     case Gdk.Key.plus:
                         if (Gdk.ModifierType.CONTROL_MASK in key_event.state) {
@@ -309,7 +310,7 @@ namespace Scratch.Widgets {
         public void set_language (SourceLanguage? lang) {
             if (lang == null)
                 return;
-                
+
             this.buffer.set_language (lang);
             this.language_changed (lang);
         }
@@ -345,7 +346,5 @@ namespace Scratch.Widgets {
                 deselected ();
             return false;
         }
-
     }
-
 }
