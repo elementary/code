@@ -115,16 +115,15 @@ namespace Scratch.Widgets {
             File file = File.new_for_path (unsaved_file_path_builder ());
             file.create (FileCreateFlags.PRIVATE);
 
-            var doc = new Document (window.main_actions, file);
-            doc.create_page ();
-
             // Set clipboard content
             try {
-                string s;
-                doc.file.replace_contents (clipboard.data, null, false, 0, out s);
+                file.replace_contents (clipboard.data, null, false, 0, null);
             } catch (Error e) {
                 warning ("Cannot insert clipboard: %s", clipboard);
             }
+
+            var doc = new Document (window.main_actions, file);
+            doc.create_page ();
 
             this.notebook.insert_tab (doc, -1);
             this.notebook.current = doc;
