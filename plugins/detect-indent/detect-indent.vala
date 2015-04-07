@@ -1,5 +1,3 @@
-using Gtk;
-
 public const string NAME = N_("Detect Indent");
 public const string DESCRIPTION = N_("Heuristically detect tab or space settings");
 
@@ -21,7 +19,7 @@ public class Scratch.Plugins.DetectIndent: Peas.ExtensionBase, Peas.Activatable 
             if (!view.get_editable ())
                 return;
 
-            TextIter it;
+            Gtk.TextIter it;
             view.buffer.get_iter_at_line (out it, 0);
 
             int tabs_found = 0;
