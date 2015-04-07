@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-03-19 15:27+0100\n"
-"PO-Revision-Date: 2015-02-08 11:30+0000\n"
-"Last-Translator: Ivan Cizik <Unknown>\n"
+"PO-Revision-Date: 2015-04-06 19:08+0000\n"
+"Last-Translator: Ivan Vrljić <vrlja92@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-20 05:03+0000\n"
-"X-Generator: Launchpad (build 17405)\n"
+"X-Launchpad-Export-Date: 2015-04-07 05:21+0000\n"
+"X-Generator: Launchpad (build 17413)\n"
 
 #: ../src/MainWindow.vala:110
 msgid "Zeitgeist Datasource for Scratch"
@@ -126,19 +126,19 @@ msgstr "Otvori datoteku"
 
 #: ../src/MainWindow.vala:865
 msgid "Clipboard"
-msgstr ""
+msgstr "Međuspremnik"
 
 #: ../src/MainWindow.vala:866
 msgid "New file from Clipboard"
-msgstr ""
+msgstr "Novi dokument iz međuspremnika"
 
 #: ../src/MainWindow.vala:869
 msgid "Zoom"
-msgstr ""
+msgstr "Uvećanje"
 
 #: ../src/MainWindow.vala:870
 msgid "Zoom 1:1"
-msgstr ""
+msgstr "Uvećanje 1:1"
 
 #: ../src/MainWindow.vala:873 ../src/Services/Document.vala:232
 #: ../src/Services/Document.vala:565 ../src/Utils.vala:33
@@ -203,7 +203,7 @@ msgstr "Skup dodataka"
 
 #: ../src/Scratch.vala:249
 msgid "Current working directory"
-msgstr ""
+msgstr "Trenutna radna mapa"
 
 #: ../src/Services/Document.vala:222
 msgid "Save changes to document %s before closing?"
@@ -222,7 +222,7 @@ msgstr "Zatvori bez spremanja"
 
 #: ../src/Services/Document.vala:231 ../src/Utils.vala:29
 msgid "Cancel"
-msgstr ""
+msgstr "Otkaži"
 
 #: ../src/Services/Document.vala:308
 msgid "Save File"
@@ -246,7 +246,7 @@ msgstr ""
 
 #: ../src/Services/Document.vala:563
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "Datoteka \"%s\" je obrisana. Želite li ju svejedno spremiti?"
 
 #: ../src/Services/Document.vala:576
 msgid ""
@@ -298,7 +298,7 @@ msgstr "Otvori snimljenu datoteku."
 
 #: ../src/Widgets/SplitView.vala:54
 msgid "New file from clipboard"
-msgstr ""
+msgstr "Nova datoteka iz međuspremnika"
 
 #: ../src/Widgets/SplitView.vala:54
 msgid "Create a new file from the contents of your clipboard."
@@ -330,7 +330,7 @@ msgstr "Idi na liniju:"
 
 #: ../src/Widgets/DocumentView.vala:96
 msgid "Text file from "
-msgstr ""
+msgstr "Tekstualna datoteka iz "
 
 #: ../src/Widgets/LoadingView.vala:36
 msgid "Wait while restoring last session..."
@@ -442,7 +442,7 @@ msgstr "Uređivač teksta"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr ""
+msgstr "O Scratch-u"
 
 #: ../src/Utils.vala:42
 msgid "All files"
@@ -528,11 +528,11 @@ msgstr "Terminal u uređivaču teksta"
 
 #: ../plugins/terminal/terminal.vala:161 ../plugins/terminal/terminal.vala:172
 msgid "Show Terminal"
-msgstr ""
+msgstr "Pokaži terminal"
 
 #: ../plugins/terminal/terminal.vala:164
 msgid "Hide Terminal"
-msgstr ""
+msgstr "Sakrij terminal"
 
 #: ../plugins/terminal/terminal.vala:300
 msgid "Copy"
@@ -545,11 +545,11 @@ msgstr "Zalijepi"
 
 #: ../plugins/terminal/terminal.vala:317
 msgid "Terminal on Right"
-msgstr ""
+msgstr "Terminal nadesno"
 
 #: ../plugins/terminal/terminal.vala:325
 msgid "Terminal on Bottom"
-msgstr ""
+msgstr "Terminal dolje"
 
 #: ../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
@@ -579,11 +579,11 @@ msgstr ""
 #: ../plugins/browser-preview/browser-preview.vala:107
 #: ../plugins/browser-preview/browser-preview.vala:150
 msgid "Web Preview"
-msgstr ""
+msgstr "Web pregled"
 
 #: ../plugins/browser-preview/browser-preview.vala:108
 msgid "Hide Preview"
-msgstr ""
+msgstr "Sakrij pregled"
 
 #: ../plugins/open-with/open-with.vala:21
 msgid "Open With"
@@ -663,7 +663,7 @@ msgstr ""
 #: ../plugins/clipboard-history/ClipboardHistory.vala:21
 #: ../plugins/clipboard-history/ClipboardHistory.vala:89
 msgid "Clipboard History"
-msgstr ""
+msgstr "Povijest međuspremnika"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:22
 msgid "Clipboard to view history"
@@ -671,11 +671,11 @@ msgstr ""
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:28
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:156
 msgid "Delete"
-msgstr ""
+msgstr "Ukloni"
 
 #: ../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
@@ -695,11 +695,11 @@ msgstr "Provjerava pravopis u dokumentu"
 #: ../plugins/outline/CtagsSymbolResolver.vala:68
 #: ../plugins/outline/OutlinePlugin.vala:111
 msgid "Symbols"
-msgstr ""
+msgstr "Znakovi"
 
 #: ../plugins/outline/OutlinePlugin.vala:21
 msgid "Outline"
-msgstr ""
+msgstr "Obrub"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
