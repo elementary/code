@@ -8,14 +8,22 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_main_window_close_document@Base 2.0.2bzr1327
  scratch_main_window_construct@Base 2.0.2bzr1327
  scratch_main_window_get_current_document@Base 2.0.2bzr1327
+ scratch_main_window_get_current_font@Base 2.1.0
+ scratch_main_window_get_current_font_size@Base 2.1.0
  scratch_main_window_get_current_view@Base 2.0.2bzr1327
+ scratch_main_window_get_default_font@Base 2.1.0
+ scratch_main_window_get_default_font_size@Base 2.1.0
  scratch_main_window_get_type@Base 2.0.2bzr1327
+ scratch_main_window_has_temporary_files@Base 2.1.0
  scratch_main_window_is_empty@Base 2.0.2bzr1327
  scratch_main_window_new@Base 2.0.2bzr1327
  scratch_main_window_open_document@Base 2.0.2bzr1327
  scratch_main_window_quit_source_func@Base 2.0.2bzr1327
+ scratch_main_window_set_default_zoom@Base 2.1.0
  scratch_main_window_start_loading@Base 2.0.2bzr1327
  scratch_main_window_stop_loading@Base 2.0.2bzr1327
+ scratch_main_window_zoom_in@Base 2.1.0
+ scratch_main_window_zoom_out@Base 2.1.0
  scratch_saved_state@Base 2.0.2bzr1327
  scratch_saved_state_construct@Base 2.0.2bzr1327
  scratch_saved_state_get_hp1_size@Base 2.0.2bzr1327
@@ -36,13 +44,18 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_saved_state_set_window_width@Base 2.0.2bzr1327
  scratch_saved_state_set_window_x@Base 2.0.2bzr1327
  scratch_saved_state_set_window_y@Base 2.0.2bzr1327
+ scratch_scratch_app__instance@Base 2.1.0
  scratch_scratch_app_construct@Base 2.0.2bzr1327
  scratch_scratch_app_get_app_cmd_name@Base 2.0.2bzr1327
+ scratch_scratch_app_get_data_home_folder_unsaved@Base 2.1.0
+ scratch_scratch_app_get_default_font@Base 2.1.0
+ scratch_scratch_app_get_instance@Base 2.1.0
  scratch_scratch_app_get_last_window@Base 2.0.2bzr1327
  scratch_scratch_app_get_type@Base 2.0.2bzr1327
  scratch_scratch_app_main@Base 2.0.2bzr1327
  scratch_scratch_app_new@Base 2.0.2bzr1327
  scratch_scratch_app_new_window@Base 2.0.2bzr1327
+ scratch_scratch_app_set_default_font@Base 2.1.0
  scratch_scratch_window_state_get_type@Base 2.0.2bzr1327
  scratch_services@Base 2.0.2bzr1327
  scratch_services_document_can_write@Base 2.0.2bzr1327
@@ -56,6 +69,7 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_services_document_focus@Base 2.0.2bzr1327
  scratch_services_document_get_basename@Base 2.0.2bzr1327
  scratch_services_document_get_file@Base 2.0.2bzr1327
+ scratch_services_document_get_is_file_temporary@Base 2.1.0
  scratch_services_document_get_language_id@Base 2.0.2bzr1327
  scratch_services_document_get_language_name@Base 2.0.2bzr1327
  scratch_services_document_get_main_actions@Base 2.0.2bzr1327
@@ -65,7 +79,6 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_services_document_get_type@Base 2.0.2bzr1327
  scratch_services_document_get_uri@Base 2.0.2bzr1327
  scratch_services_document_hide_info_bar@Base 2.0.2bzr1327
- scratch_services_document_load_content@Base 2.0.2bzr1327
  scratch_services_document_move@Base 2.0.2bzr1327
  scratch_services_document_new@Base 2.0.2bzr1327
  scratch_services_document_open@Base 2.0.2bzr1327
@@ -74,6 +87,8 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_services_document_revert@Base 2.0.2bzr1327
  scratch_services_document_save@Base 2.0.2bzr1327
  scratch_services_document_save_as@Base 2.0.2bzr1327
+ scratch_services_document_save_as_finish@Base 2.1.0
+ scratch_services_document_save_finish@Base 2.1.0
  scratch_services_document_set_file@Base 2.0.2bzr1327
  scratch_services_document_set_main_actions@Base 2.0.2bzr1327
  scratch_services_document_set_message@Base 2.0.2bzr1327
@@ -87,7 +102,6 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_services_encoding_free@Base 2.0.2bzr1327
  scratch_services_encoding_get_type@Base 2.0.2bzr1327
  scratch_services_encoding_type_get_type@Base 2.0.2bzr1327
- scratch_services_file_content_to_utf8@Base 2.0.2bzr1327
  scratch_services_file_handler_construct@Base 2.0.2bzr1327
  scratch_services_file_handler_copy@Base 2.0.2bzr1327
  scratch_services_file_handler_get_type@Base 2.0.2bzr1327
@@ -98,7 +112,6 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_services_file_handler_move_uri@Base 2.0.2bzr1327
  scratch_services_file_handler_new@Base 2.0.2bzr1327
  scratch_services_file_option_get_type@Base 2.0.2bzr1327
- scratch_services_get_charset@Base 2.0.2bzr1327
  scratch_services_interface_close_document@Base 2.0.2bzr1327
  scratch_services_interface_construct@Base 2.0.2bzr1327
  scratch_services_interface_get_template_manager@Base 2.0.2bzr1327
@@ -120,7 +133,6 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_services_settings_set_expiry_time@Base 2.0.2bzr1327
  scratch_services_settings_set_paste_format_code@Base 2.0.2bzr1327
  scratch_services_settings_set_set_private@Base 2.0.2bzr1327
- scratch_services_test@Base 2.0.2bzr1327
  scratch_services_value_get_zeitgeist_logger@Base 2.0.2bzr1327
  scratch_services_value_set_zeitgeist_logger@Base 2.0.2bzr1327
  scratch_services_value_take_zeitgeist_logger@Base 2.0.2bzr1327
@@ -187,13 +199,16 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_test_template_new@Base 2.0.2bzr1327
  scratch_utils_last_path@Base 2.0.2bzr1327
  scratch_utils_new_file_chooser_dialog@Base 2.0.2bzr1327
+ scratch_widgets_document_view_close_current_document@Base 2.1.0
  scratch_widgets_document_view_close_document@Base 2.0.2bzr1327
  scratch_widgets_document_view_construct@Base 2.0.2bzr1327
+ scratch_widgets_document_view_duplicate_document@Base 2.1.0
  scratch_widgets_document_view_focus@Base 2.0.2bzr1327
  scratch_widgets_document_view_get_current_document@Base 2.0.2bzr1327
  scratch_widgets_document_view_get_type@Base 2.0.2bzr1327
  scratch_widgets_document_view_is_empty@Base 2.0.2bzr1327
  scratch_widgets_document_view_new@Base 2.0.2bzr1327
+ scratch_widgets_document_view_new_document_from_clipboard@Base 2.1.0
  scratch_widgets_document_view_new_document@Base 2.0.2bzr1327
  scratch_widgets_document_view_next_document@Base 2.0.2bzr1327
  scratch_widgets_document_view_open_document@Base 2.0.2bzr1327
