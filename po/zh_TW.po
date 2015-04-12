@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-03-19 15:27+0100\n"
-"PO-Revision-Date: 2014-11-13 13:18+0000\n"
+"PO-Revision-Date: 2015-04-12 01:49+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-20 05:04+0000\n"
-"X-Generator: Launchpad (build 17405)\n"
+"X-Launchpad-Export-Date: 2015-04-12 05:45+0000\n"
+"X-Generator: Launchpad (build 17423)\n"
 
 #: ../src/MainWindow.vala:110
 msgid "Zeitgeist Datasource for Scratch"
@@ -126,19 +126,19 @@ msgstr "開啟檔案"
 
 #: ../src/MainWindow.vala:865
 msgid "Clipboard"
-msgstr ""
+msgstr "剪貼簿"
 
 #: ../src/MainWindow.vala:866
 msgid "New file from Clipboard"
-msgstr ""
+msgstr "從剪貼簿新增檔案"
 
 #: ../src/MainWindow.vala:869
 msgid "Zoom"
-msgstr ""
+msgstr "遠近"
 
 #: ../src/MainWindow.vala:870
 msgid "Zoom 1:1"
-msgstr ""
+msgstr "遠近 1:1"
 
 #: ../src/MainWindow.vala:873 ../src/Services/Document.vala:232
 #: ../src/Services/Document.vala:565 ../src/Utils.vala:33
@@ -203,7 +203,7 @@ msgstr "外掛設定"
 
 #: ../src/Scratch.vala:249
 msgid "Current working directory"
-msgstr ""
+msgstr "目前的工作目錄"
 
 #: ../src/Services/Document.vala:222
 msgid "Save changes to document %s before closing?"
@@ -220,7 +220,7 @@ msgstr "關閉且不儲存"
 
 #: ../src/Services/Document.vala:231 ../src/Utils.vala:29
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: ../src/Services/Document.vala:308
 msgid "Save File"
@@ -235,22 +235,24 @@ msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
+"無法讀取「%s」檔案。可能檔案損毀\n"
+"或您沒有讀取它的必要權限"
 
 #: ../src/Services/Document.vala:556
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
-msgstr ""
+msgstr "包含「%s」檔案的位置已經卸載。您是否想將它儲存到其他地方？"
 
 #: ../src/Services/Document.vala:563
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "「%s」檔案已經刪除。您是否無論如何都想要儲存它？"
 
 #: ../src/Services/Document.vala:576
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
-msgstr ""
+msgstr "您無法儲存到「%s」檔案。您是否想要將此檔案儲存到其他位置上？"
 
 #: ../src/Services/Document.vala:578
 msgid "Save changes elsewhere"
@@ -260,7 +262,7 @@ msgstr "將更動儲存於別處"
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
-msgstr ""
+msgstr "「%s」檔案已被外部程式修改過。您是否要重新載入，或者繼續編輯？"
 
 #: ../src/Services/Document.vala:604
 msgid "Load"
@@ -296,11 +298,11 @@ msgstr "開啟儲存的檔案。"
 
 #: ../src/Widgets/SplitView.vala:54
 msgid "New file from clipboard"
-msgstr ""
+msgstr "從剪貼簿新增檔案"
 
 #: ../src/Widgets/SplitView.vala:54
 msgid "Create a new file from the contents of your clipboard."
-msgstr ""
+msgstr "從您的剪貼簿內容製作新的檔案。"
 
 #: ../src/Widgets/SourceView.vala:134
 msgid "Syntax Highlighting"
@@ -328,7 +330,7 @@ msgstr "前往列號："
 
 #: ../src/Widgets/DocumentView.vala:96
 msgid "Text file from "
-msgstr ""
+msgstr "文字檔來自 "
 
 #: ../src/Widgets/LoadingView.vala:36
 msgid "Wait while restoring last session..."
@@ -440,7 +442,7 @@ msgstr "文字編輯器"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr ""
+msgstr "關於 Scratch"
 
 #: ../src/Utils.vala:42
 msgid "All files"
@@ -526,11 +528,11 @@ msgstr "您文字編輯器中的終端機"
 
 #: ../plugins/terminal/terminal.vala:161 ../plugins/terminal/terminal.vala:172
 msgid "Show Terminal"
-msgstr ""
+msgstr "顯示終端機"
 
 #: ../plugins/terminal/terminal.vala:164
 msgid "Hide Terminal"
-msgstr ""
+msgstr "隱藏終端機"
 
 #: ../plugins/terminal/terminal.vala:300
 msgid "Copy"
@@ -543,11 +545,11 @@ msgstr "貼上"
 
 #: ../plugins/terminal/terminal.vala:317
 msgid "Terminal on Right"
-msgstr ""
+msgstr "終端機放置右側"
 
 #: ../plugins/terminal/terminal.vala:325
 msgid "Terminal on Bottom"
-msgstr ""
+msgstr "終端機放置底部"
 
 #: ../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
@@ -559,7 +561,7 @@ msgstr "在 Scratch 中使用指令"
 
 #: ../plugins/browser-preview/BrowserView.vala:49
 msgid "Close Inspector"
-msgstr ""
+msgstr "關閉檢測器"
 
 #: ../plugins/browser-preview/browser-preview.vala:21
 msgid "Browser Preview"
@@ -572,16 +574,16 @@ msgstr "取得工作的網頁呈現預覽"
 #: ../plugins/browser-preview/browser-preview.vala:85
 #: ../plugins/browser-preview/browser-preview.vala:111
 msgid "Show Preview"
-msgstr ""
+msgstr "顯示預覽"
 
 #: ../plugins/browser-preview/browser-preview.vala:107
 #: ../plugins/browser-preview/browser-preview.vala:150
 msgid "Web Preview"
-msgstr ""
+msgstr "網頁預覽"
 
 #: ../plugins/browser-preview/browser-preview.vala:108
 msgid "Hide Preview"
-msgstr ""
+msgstr "隱藏預覽"
 
 #: ../plugins/open-with/open-with.vala:21
 msgid "Open With"
@@ -661,19 +663,19 @@ msgstr "儲存時截去蔓生空白"
 #: ../plugins/clipboard-history/ClipboardHistory.vala:21
 #: ../plugins/clipboard-history/ClipboardHistory.vala:89
 msgid "Clipboard History"
-msgstr ""
+msgstr "剪貼簿歷史記錄"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:22
 msgid "Clipboard to view history"
-msgstr ""
+msgstr "剪貼簿以檢視歷史記錄"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:28
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:156
 msgid "Delete"
-msgstr ""
+msgstr "刪除"
 
 #: ../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
@@ -693,23 +695,23 @@ msgstr "檢查文件中的拼字是否正確"
 #: ../plugins/outline/CtagsSymbolResolver.vala:68
 #: ../plugins/outline/OutlinePlugin.vala:111
 msgid "Symbols"
-msgstr ""
+msgstr "符號"
 
 #: ../plugins/outline/OutlinePlugin.vala:21
 msgid "Outline"
-msgstr ""
+msgstr "勾勒"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
-msgstr ""
+msgstr "勾勒您目前 vala 語言檔案中的符號"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
 msgid "Highlight Selected Words"
-msgstr ""
+msgstr "標明選取的字詞"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
 msgid "Highlights all occurrences of words that are selected"
-msgstr ""
+msgstr "標明所選字詞的所有出現位置"
 
 #: ../plugins/filemanager/FileView.vala:90
 msgid "/New File"
