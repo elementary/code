@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-03-19 15:27+0100\n"
-"PO-Revision-Date: 2015-03-01 12:02+0000\n"
-"Last-Translator: Mikael Nyberg <mikanybe@gmail.com>\n"
+"PO-Revision-Date: 2015-04-12 10:25+0000\n"
+"Last-Translator: Larsson <Unknown>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-20 05:03+0000\n"
-"X-Generator: Launchpad (build 17405)\n"
+"X-Launchpad-Export-Date: 2015-04-13 05:31+0000\n"
+"X-Generator: Launchpad (build 17423)\n"
 
 #: ../src/MainWindow.vala:110
 msgid "Zeitgeist Datasource for Scratch"
@@ -126,7 +126,7 @@ msgstr "Öppna en fil"
 
 #: ../src/MainWindow.vala:865
 msgid "Clipboard"
-msgstr ""
+msgstr "Urklipp"
 
 #: ../src/MainWindow.vala:866
 msgid "New file from Clipboard"
@@ -134,11 +134,11 @@ msgstr ""
 
 #: ../src/MainWindow.vala:869
 msgid "Zoom"
-msgstr ""
+msgstr "Zooma"
 
 #: ../src/MainWindow.vala:870
 msgid "Zoom 1:1"
-msgstr ""
+msgstr "Zooma 1:1"
 
 #: ../src/MainWindow.vala:873 ../src/Services/Document.vala:232
 #: ../src/Services/Document.vala:565 ../src/Utils.vala:33
@@ -222,7 +222,7 @@ msgstr "Stäng utan att spara"
 
 #: ../src/Services/Document.vala:231 ../src/Utils.vala:29
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 #: ../src/Services/Document.vala:308
 msgid "Save File"
@@ -237,6 +237,8 @@ msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
+"Filen \"%s\" kan inte läsas. Kanske har den skadats, \n"
+"eller så har du inte tillräckliga rättigheter för att läsa den."
 
 #: ../src/Services/Document.vala:556
 msgid ""
@@ -246,13 +248,15 @@ msgstr ""
 
 #: ../src/Services/Document.vala:563
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "Filen \"%s\" war raderad. Vill du spara den ändå?"
 
 #: ../src/Services/Document.vala:576
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 msgstr ""
+"Du kan inte spara ändringar i filen \"%s\". Vill du spara ändringarna i "
+"denna fil på annan plats?"
 
 #: ../src/Services/Document.vala:578
 msgid "Save changes elsewhere"
@@ -330,7 +334,7 @@ msgstr "Gå till rad:"
 
 #: ../src/Widgets/DocumentView.vala:96
 msgid "Text file from "
-msgstr ""
+msgstr "Textfil från "
 
 #: ../src/Widgets/LoadingView.vala:36
 msgid "Wait while restoring last session..."
@@ -442,7 +446,7 @@ msgstr "Textredigerare"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr ""
+msgstr "Om Scratch"
 
 #: ../src/Utils.vala:42
 msgid "All files"
@@ -528,11 +532,11 @@ msgstr "Ett terminalfönster i din textredigerare"
 
 #: ../plugins/terminal/terminal.vala:161 ../plugins/terminal/terminal.vala:172
 msgid "Show Terminal"
-msgstr ""
+msgstr "Visa Terminal"
 
 #: ../plugins/terminal/terminal.vala:164
 msgid "Hide Terminal"
-msgstr ""
+msgstr "Dölj Terminal"
 
 #: ../plugins/terminal/terminal.vala:300
 msgid "Copy"
@@ -545,11 +549,11 @@ msgstr "Klistra in"
 
 #: ../plugins/terminal/terminal.vala:317
 msgid "Terminal on Right"
-msgstr ""
+msgstr "Terminal till Höger"
 
 #: ../plugins/terminal/terminal.vala:325
 msgid "Terminal on Bottom"
-msgstr ""
+msgstr "Terminal på Botten"
 
 #: ../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
@@ -574,7 +578,7 @@ msgstr "En förhandsvisning av ditt arbete i webbläsaren"
 #: ../plugins/browser-preview/browser-preview.vala:85
 #: ../plugins/browser-preview/browser-preview.vala:111
 msgid "Show Preview"
-msgstr ""
+msgstr "Visa Förhandsgranskning"
 
 #: ../plugins/browser-preview/browser-preview.vala:107
 #: ../plugins/browser-preview/browser-preview.vala:150
@@ -583,7 +587,7 @@ msgstr ""
 
 #: ../plugins/browser-preview/browser-preview.vala:108
 msgid "Hide Preview"
-msgstr ""
+msgstr "Dölj Förhandsgranskning"
 
 #: ../plugins/open-with/open-with.vala:21
 msgid "Open With"
@@ -671,11 +675,11 @@ msgstr ""
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:28
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:156
 msgid "Delete"
-msgstr ""
+msgstr "Radera"
 
 #: ../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
@@ -695,11 +699,11 @@ msgstr "Kontrollerar stavningen i dina dokument"
 #: ../plugins/outline/CtagsSymbolResolver.vala:68
 #: ../plugins/outline/OutlinePlugin.vala:111
 msgid "Symbols"
-msgstr ""
+msgstr "Symboler"
 
 #: ../plugins/outline/OutlinePlugin.vala:21
 msgid "Outline"
-msgstr ""
+msgstr "Kontur"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"

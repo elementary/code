@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-19 15:27+0100\n"
-"PO-Revision-Date: 2015-04-09 12:22+0000\n"
-"Last-Translator: Felix <reditec@outlook.com>\n"
+"PO-Revision-Date: 2015-04-12 11:57+0000\n"
+"Last-Translator: Phillip Sz <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-04-10 05:04+0000\n"
-"X-Generator: Launchpad (build 17413)\n"
+"X-Launchpad-Export-Date: 2015-04-13 05:31+0000\n"
+"X-Generator: Launchpad (build 17423)\n"
 "Language: de\n"
 
 #: ../src/MainWindow.vala:110
@@ -204,7 +204,7 @@ msgstr "Erweiterungssammlung"
 
 #: ../src/Scratch.vala:249
 msgid "Current working directory"
-msgstr ""
+msgstr "Aktuelles Arbeitsverzeichnis"
 
 #: ../src/Services/Document.vala:222
 msgid "Save changes to document %s before closing?"
@@ -453,7 +453,7 @@ msgstr "Textbearbeitung"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr ""
+msgstr "Über Scratch"
 
 #: ../src/Utils.vala:42
 msgid "All files"
@@ -678,7 +678,7 @@ msgstr "Zwischenablagen-Chronik"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:22
 msgid "Clipboard to view history"
-msgstr ""
+msgstr "Zwischenablage um Chronik anzuschauen"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:28
 msgid "..."
@@ -686,7 +686,7 @@ msgstr "…"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:156
 msgid "Delete"
-msgstr ""
+msgstr "Entfernen"
 
 #: ../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
@@ -706,15 +706,15 @@ msgstr "Überprüft die Rechtschreibung in Ihrem Dokument"
 #: ../plugins/outline/CtagsSymbolResolver.vala:68
 #: ../plugins/outline/OutlinePlugin.vala:111
 msgid "Symbols"
-msgstr ""
+msgstr "Symbole"
 
 #: ../plugins/outline/OutlinePlugin.vala:21
 msgid "Outline"
-msgstr ""
+msgstr "Entwerfen"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
-msgstr ""
+msgstr "Entwerfen Sie Symbole in Ihrer aktuellen Datei in Vala"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
 msgid "Highlight Selected Words"
