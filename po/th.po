@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-03-19 15:27+0100\n"
-"PO-Revision-Date: 2014-07-06 10:58+0000\n"
-"Last-Translator: Jirayu Yingthawornsuk <me@jirayu.in.th>\n"
+"PO-Revision-Date: 2015-04-14 16:06+0000\n"
+"Last-Translator: Jeerapat Sripumngoen <jeerapat.sep@gmail.com>\n"
 "Language-Team: Thai <th@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-20 05:03+0000\n"
-"X-Generator: Launchpad (build 17405)\n"
+"X-Launchpad-Export-Date: 2015-04-15 05:23+0000\n"
+"X-Generator: Launchpad (build 17428)\n"
 
 #: ../src/MainWindow.vala:110
 msgid "Zeitgeist Datasource for Scratch"
@@ -644,7 +644,7 @@ msgstr "เติมคำอัตโนมัติ"
 
 #: ../plugins/word-completion/plugin.vala:35
 msgid "Show a completion dialog with most used words from your files"
-msgstr "แสดงหน้าต่างเติมคำ ด้วยคำที่ใช้มากที่สุดในไฟล์ข้องคุณ"
+msgstr "แสดงหน้าต่างเติมคำ ด้วยคำที่ใช้มากสุดจากไฟล์ของคุณ"
 
 #: ../plugins/word-completion/plugin.vala:177
 msgid "%s - Word Completion"
@@ -661,19 +661,19 @@ msgstr "เอาที่ว่างท้ายข้อความออก
 #: ../plugins/clipboard-history/ClipboardHistory.vala:21
 #: ../plugins/clipboard-history/ClipboardHistory.vala:89
 msgid "Clipboard History"
-msgstr ""
+msgstr "ประวัติคลิปบอร์ด"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:22
 msgid "Clipboard to view history"
-msgstr ""
+msgstr "คลิปบอร์ดเพื่อดูประวัติ"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:28
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:156
 msgid "Delete"
-msgstr ""
+msgstr "ลบทิ้ง"
 
 #: ../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
@@ -693,23 +693,23 @@ msgstr "ตรวจสอบการสะกดในเอกสาร"
 #: ../plugins/outline/CtagsSymbolResolver.vala:68
 #: ../plugins/outline/OutlinePlugin.vala:111
 msgid "Symbols"
-msgstr ""
+msgstr "สัญลักษณ์"
 
 #: ../plugins/outline/OutlinePlugin.vala:21
 msgid "Outline"
-msgstr ""
+msgstr "ภาพร่าง"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
-msgstr ""
+msgstr "ร่างสัญลักษณ์ในไฟล์ปัจจุบันของคุณใน vala"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
 msgid "Highlight Selected Words"
-msgstr ""
+msgstr "เน้นคำที่เลือก"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
 msgid "Highlights all occurrences of words that are selected"
-msgstr ""
+msgstr "เน้นคำที่เกิดขึ้นทั้งหมดที่เลือก"
 
 #: ../plugins/filemanager/FileView.vala:90
 msgid "/New File"
@@ -717,7 +717,7 @@ msgstr "/ไฟล์ใหม่"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:71
 msgid "Go to parent"
-msgstr "กลับสู่ระดับบน"
+msgstr "ไปยังข้างบน"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:82
 msgid "Add file"
