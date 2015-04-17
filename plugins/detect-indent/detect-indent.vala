@@ -61,7 +61,7 @@ public class Scratch.Plugins.DetectIndent: Peas.ExtensionBase, Peas.Activatable 
             float tr = (float)tabs_found / lines_processed;
 
             // Make sure we have a meaningful amount of data to do the hard decisions.
-            if (Math.fabsf (tr - sr) > 0.3f)
+            if (Math.fabsf (tr - sr) > 0.1f)
                 view.set_insert_spaces_instead_of_tabs (sr > tr);
         });
     }
