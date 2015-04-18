@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-03-19 15:27+0100\n"
-"PO-Revision-Date: 2014-10-05 19:03+0000\n"
-"Last-Translator: Deavmi <deavmi@gmail.com>\n"
+"PO-Revision-Date: 2015-04-17 14:09+0000\n"
+"Last-Translator: Christo <christogoosen@gmail.com>\n"
 "Language-Team: Afrikaans <af@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-20 05:02+0000\n"
-"X-Generator: Launchpad (build 17405)\n"
+"X-Launchpad-Export-Date: 2015-04-18 05:37+0000\n"
+"X-Generator: Launchpad (build 17430)\n"
 
 #: ../src/MainWindow.vala:110
 msgid "Zeitgeist Datasource for Scratch"
@@ -360,11 +360,11 @@ msgstr ""
 
 #: ../src/Dialogs/PreferencesDialog.vala:148
 msgid "General:"
-msgstr ""
+msgstr "Algemeen"
 
 #: ../src/Dialogs/PreferencesDialog.vala:154
 msgid "When Scratch starts:"
-msgstr ""
+msgstr "Wanneer Scratch begin"
 
 #: ../src/Dialogs/PreferencesDialog.vala:157
 msgid "Save files when changed:"
@@ -388,7 +388,7 @@ msgstr ""
 
 #: ../src/Dialogs/PreferencesDialog.vala:202
 msgid "Editor:"
-msgstr ""
+msgstr "Redigeerder:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:220
 msgid "Highlight current line:"
@@ -396,15 +396,15 @@ msgstr ""
 
 #: ../src/Dialogs/PreferencesDialog.vala:221
 msgid "Highlight matching brackets:"
-msgstr ""
+msgstr "Onderstreep bypassende hakies"
 
 #: ../src/Dialogs/PreferencesDialog.vala:222
 msgid "Split long text in many lines:"
-msgstr ""
+msgstr "Verdeel lang teks in baie lyne"
 
 #: ../src/Dialogs/PreferencesDialog.vala:223
 msgid "Draw spaces:"
-msgstr ""
+msgstr "Teken spasies"
 
 #: ../src/Dialogs/PreferencesDialog.vala:224
 msgid "Show line numbers:"
@@ -412,7 +412,7 @@ msgstr ""
 
 #: ../src/Dialogs/PreferencesDialog.vala:227
 msgid "Line width guide:"
-msgstr ""
+msgstr "Lyn wydte gids"
 
 #: ../src/Dialogs/PreferencesDialog.vala:243
 msgid "Font and Color Scheme:"
@@ -420,15 +420,15 @@ msgstr ""
 
 #: ../src/Dialogs/PreferencesDialog.vala:257
 msgid "Select font:"
-msgstr ""
+msgstr "Selekteer font"
 
 #: ../src/Dialogs/PreferencesDialog.vala:260
 msgid "Color scheme:"
-msgstr ""
+msgstr "Kleurskema"
 
 #: ../src/Dialogs/PreferencesDialog.vala:265
 msgid "Custom font:"
-msgstr ""
+msgstr "Persoonlike font"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -440,15 +440,15 @@ msgstr ""
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr ""
+msgstr "Inligting oor Scratch"
 
 #: ../src/Utils.vala:42
 msgid "All files"
-msgstr ""
+msgstr "Alle lêers"
 
 #: ../src/Utils.vala:45
 msgid "Text files"
-msgstr ""
+msgstr "Teks lêers"
 
 #: ../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
@@ -464,23 +464,23 @@ msgstr ""
 
 #: ../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
-msgstr ""
+msgstr "Deel via PasteBin"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:272
 msgid "Name:"
-msgstr ""
+msgstr "Naam:"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:278
 msgid "Format: "
-msgstr ""
+msgstr "Formaat "
 
 #: ../plugins/pastebin/pastebin_dialog.vala:280
 msgid "Others..."
-msgstr ""
+msgstr "Andere..."
 
 #: ../plugins/pastebin/pastebin_dialog.vala:305
 msgid "Expiry time:"
-msgstr ""
+msgstr "Verval tyd"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:310
 msgid "Keep this paste private"
@@ -488,37 +488,37 @@ msgstr ""
 
 #: ../plugins/pastebin/pastebin_dialog.vala:312
 msgid "Upload"
-msgstr ""
+msgstr "Oplaai"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:342
 msgid "Other formats"
-msgstr ""
+msgstr "Ander formate"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:511
 msgid "Never"
-msgstr ""
+msgstr "Nooit"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:512
 msgid "Ten minutes"
-msgstr ""
+msgstr "Tien minute"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:513
 msgid "One hour"
-msgstr ""
+msgstr "Een uur"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:514
 msgid "One day"
-msgstr ""
+msgstr "Een dag"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:515
 msgid "One month"
-msgstr ""
+msgstr "Een maand"
 
 #: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:114
 #: ../plugins/terminal/terminal.vala:120 ../plugins/terminal/terminal.vala:166
 #: ../plugins/terminal/terminal.vala:168
 msgid "Terminal"
-msgstr ""
+msgstr "Terminaal"
 
 #: ../plugins/terminal/terminal.vala:24
 msgid "A terminal in your text editor"
@@ -530,16 +530,16 @@ msgstr ""
 
 #: ../plugins/terminal/terminal.vala:164
 msgid "Hide Terminal"
-msgstr ""
+msgstr "Steek terminaal weg"
 
 #: ../plugins/terminal/terminal.vala:300
 msgid "Copy"
-msgstr ""
+msgstr "Kopieër"
 
 #: ../plugins/terminal/terminal.vala:307
 #: ../plugins/clipboard-history/ClipboardHistory.vala:159
 msgid "Paste"
-msgstr ""
+msgstr "Plak"
 
 #: ../plugins/terminal/terminal.vala:317
 msgid "Terminal on Right"
@@ -547,7 +547,7 @@ msgstr ""
 
 #: ../plugins/terminal/terminal.vala:325
 msgid "Terminal on Bottom"
-msgstr ""
+msgstr "Terminaal onder"
 
 #: ../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
