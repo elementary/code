@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-03-19 15:27+0100\n"
-"PO-Revision-Date: 2015-04-13 17:48+0000\n"
-"Last-Translator: Larsson <Unknown>\n"
+"PO-Revision-Date: 2015-04-25 22:48+0000\n"
+"Last-Translator: Mikael Nyberg <mikanybe@gmail.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-04-14 05:22+0000\n"
-"X-Generator: Launchpad (build 17423)\n"
+"X-Launchpad-Export-Date: 2015-04-26 05:34+0000\n"
+"X-Generator: Launchpad (build 17430)\n"
 
 #: ../src/MainWindow.vala:110
 msgid "Zeitgeist Datasource for Scratch"
@@ -267,6 +267,8 @@ msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
+"Filen \"%s\" ändrades av extern applikation. Vill du ladda den igen eller "
+"fortsätta redigeringen?"
 
 #: ../src/Services/Document.vala:604
 msgid "Load"
@@ -667,7 +669,7 @@ msgstr "Rensar onödigt tomt utrymme i slutet av filen när du sparar"
 #: ../plugins/clipboard-history/ClipboardHistory.vala:21
 #: ../plugins/clipboard-history/ClipboardHistory.vala:89
 msgid "Clipboard History"
-msgstr ""
+msgstr "Urklippshistorik"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:22
 msgid "Clipboard to view history"
