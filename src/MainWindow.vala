@@ -663,7 +663,7 @@ namespace Scratch {
         void action_save () {
             var doc = this.get_current_document ();
             if (doc.is_file_temporary == true){
-                action_save_as ();
+                this.action_save_as ();
             } else
                 doc.save.begin ();
         }
