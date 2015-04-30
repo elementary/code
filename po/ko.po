@@ -7,183 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-03-19 15:27+0100\n"
+"POT-Creation-Date: 2015-04-29 15:30-0500\n"
 "PO-Revision-Date: 2015-03-20 05:20+0000\n"
 "Last-Translator: 박정규(Jung-Kyu Park) <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-21 05:32+0000\n"
-"X-Generator: Launchpad (build 17405)\n"
-
-#: ../src/MainWindow.vala:110
-msgid "Zeitgeist Datasource for Scratch"
-msgstr "Scratch를 위한 Zeitgeist 데이터 소스"
-
-#: ../src/MainWindow.vala:192
-msgid "Trash"
-msgstr "휴지통"
-
-#: ../src/MainWindow.vala:633
-msgid "Open some files"
-msgstr "몇몇 파일 열기"
-
-#: ../src/MainWindow.vala:754
-msgid "Hide search bar"
-msgstr "검색 바 숨기기"
-
-#: ../src/MainWindow.vala:809 ../src/MainWindow.vala:810
-msgid "Find…"
-msgstr "찾기…"
-
-#: ../src/MainWindow.vala:813 ../src/MainWindow.vala:814
-msgid "Go to line…"
-msgstr "줄로 이동..."
-
-#: ../src/MainWindow.vala:817 ../src/MainWindow.vala:818
-msgid "Quit"
-msgstr "종료"
-
-#: ../src/MainWindow.vala:821 ../src/MainWindow.vala:822
-#: ../src/Dialogs/PreferencesDialog.vala:86
-msgid "Close"
-msgstr "닫기"
-
-#: ../src/MainWindow.vala:825 ../src/MainWindow.vala:826
-#: ../src/Widgets/SearchManager.vala:114
-msgid "Replace"
-msgstr "바꾸기"
-
-#: ../src/MainWindow.vala:829
-msgid "Reopen closed document"
-msgstr "닫힌 문서 다시 열기"
-
-#: ../src/MainWindow.vala:830
-msgid "Open last closed document in a new tab"
-msgstr "새 탭에서 마지막으로 닫힌 문서 열기"
-
-#: ../src/MainWindow.vala:833
-msgid "Add New Tab"
-msgstr "새 탭 추가"
-
-#: ../src/MainWindow.vala:834
-msgid "Add a new tab"
-msgstr "새 탭을 추가합니다."
-
-#: ../src/MainWindow.vala:837
-msgid "Add New View"
-msgstr "새로운 보기 설정"
-
-#: ../src/MainWindow.vala:838
-msgid "Add a new view"
-msgstr "새로운 보기를 설정합니다."
-
-#: ../src/MainWindow.vala:841
-msgid "Remove Current View"
-msgstr "현재 보기 삭제"
-
-#: ../src/MainWindow.vala:842
-msgid "Remove this view"
-msgstr "현재 보기를 삭제합니다."
-
-#: ../src/MainWindow.vala:845
-msgid "Undo"
-msgstr "실행 취소"
-
-#: ../src/MainWindow.vala:846
-msgid "Undo the last action"
-msgstr "마지막 동작을 실행 취소합니다"
-
-#: ../src/MainWindow.vala:849
-msgid "Redo"
-msgstr "다시 실행"
-
-#: ../src/MainWindow.vala:850
-msgid "Redo the last undone action"
-msgstr "마지막 실행 취소한 동작을 다시 실행합니다"
-
-#: ../src/MainWindow.vala:853
-msgid "Revert"
-msgstr "되돌리기"
-
-#: ../src/MainWindow.vala:854
-msgid "Restore this file"
-msgstr "이 파일을 원래대로 되돌립니다."
-
-#: ../src/MainWindow.vala:857 ../src/MainWindow.vala:858
-msgid "Duplicate selected strings"
-msgstr "선택한 항목을 복제하기"
-
-#: ../src/MainWindow.vala:861 ../src/Utils.vala:31
-#: ../plugins/filemanager/FileView.vala:282
-msgid "Open"
-msgstr "열기"
-
-#: ../src/MainWindow.vala:862
-msgid "Open a file"
-msgstr "파일 열기"
-
-#: ../src/MainWindow.vala:865
-msgid "Clipboard"
-msgstr "클립보드"
-
-#: ../src/MainWindow.vala:866
-msgid "New file from Clipboard"
-msgstr "클립보드의 새 파일"
-
-#: ../src/MainWindow.vala:869
-msgid "Zoom"
-msgstr "확대"
-
-#: ../src/MainWindow.vala:870
-msgid "Zoom 1:1"
-msgstr "1:1 크기"
-
-#: ../src/MainWindow.vala:873 ../src/Services/Document.vala:232
-#: ../src/Services/Document.vala:565 ../src/Utils.vala:33
-msgid "Save"
-msgstr "저장"
-
-#: ../src/MainWindow.vala:874
-msgid "Save this file"
-msgstr "이 파일 저장하기"
-
-#: ../src/MainWindow.vala:877 ../src/Services/Document.vala:558
-msgid "Save As…"
-msgstr "다른 이름으로 저장…"
-
-#: ../src/MainWindow.vala:878
-msgid "Save this file with a different name"
-msgstr "이 파일 다른 이름으로 저장하기"
-
-#: ../src/MainWindow.vala:881 ../src/Services/TemplateManager.vala:231
-msgid "Templates"
-msgstr "서식"
-
-#: ../src/MainWindow.vala:882
-msgid "Project templates"
-msgstr "프로젝트 템플릿"
-
-#: ../src/MainWindow.vala:885 ../src/Dialogs/PreferencesDialog.vala:50
-msgid "Preferences"
-msgstr "환경설정"
-
-#: ../src/MainWindow.vala:886
-msgid "Change Scratch settings"
-msgstr "Scratch 설정 변경하기"
-
-#: ../src/MainWindow.vala:889 ../src/MainWindow.vala:890
-msgid "Next Tab"
-msgstr "다음 탭"
-
-#: ../src/MainWindow.vala:893 ../src/MainWindow.vala:894
-msgid "Previous Tab"
-msgstr "이전 탭"
-
-#: ../src/MainWindow.vala:910 ../src/MainWindow.vala:911
-msgid "Fullscreen"
-msgstr "전체화면"
+"X-Launchpad-Export-Date: 2015-04-30 05:22+0000\n"
+"X-Generator: Launchpad (build 17453)\n"
 
 #: ../src/Scratch.vala:245
 msgid "New Tab"
@@ -205,70 +37,136 @@ msgstr "플러그인 모음"
 msgid "Current working directory"
 msgstr "지금 작업 중인 디렉터리"
 
-#: ../src/Services/Document.vala:222
+#: ../src/config.vala:15
+msgid "Edit text files"
+msgstr "텍스트 파일을 편집하기"
+
+#: ../src/config.vala:16
+msgid "Text Editor"
+msgstr "텍스트 편집기"
+
+#: ../src/config.vala:17 ../src/Services/Document.vala:406
+msgid "New Document"
+msgstr "새 문서"
+
+#: ../src/config.vala:19
+msgid "About Scratch"
+msgstr "스크래치 정보"
+
+#: ../src/Services/Document.vala:232
 msgid "Save changes to document %s before closing?"
 msgstr "닫기 전에 문서 %s에 대해 변경 사항을 저장하시겠습니까?"
 
-#: ../src/Services/Document.vala:225
+#: ../src/Services/Document.vala:235
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr "저장하지 않으면, 지난 4초 동안 변경한 내용은 손실됩니다."
 
-#: ../src/Services/Document.vala:227
+#: ../src/Services/Document.vala:237
 msgid "Close without saving"
 msgstr "저장하지 않고 종료"
 
-#: ../src/Services/Document.vala:231 ../src/Utils.vala:29
+#: ../src/Services/Document.vala:241 ../src/Utils.vala:29
 msgid "Cancel"
 msgstr "취소"
 
-#: ../src/Services/Document.vala:308
+#: ../src/Services/Document.vala:242 ../src/Services/Document.vala:547
+#: ../src/Utils.vala:33 ../src/MainWindow.vala:872
+msgid "Save"
+msgstr "저장"
+
+#: ../src/Services/Document.vala:314
 msgid "Save File"
 msgstr "파일 저장"
 
-#: ../src/Services/Document.vala:401 ../src/config.vala:17
-msgid "New Document"
-msgstr "새 문서"
-
-#: ../src/Services/Document.vala:540
+#: ../src/Services/Document.vala:522
 msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr "파일 \"%s\"를 읽을 수 없습니다. 파일이 깨졌거나 이 파일을 읽을 수 있는 권한이 없는 것일 수 있습니다."
 
-#: ../src/Services/Document.vala:556
+#: ../src/Services/Document.vala:538
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr "파일 \"%s\"를 포함한 위치가 언마운트 되었습니다. 다른 곳에 저장하시겠습니까?"
 
-#: ../src/Services/Document.vala:563
+#: ../src/Services/Document.vala:540 ../src/MainWindow.vala:876
+msgid "Save As…"
+msgstr "다른 이름으로 저장…"
+
+#: ../src/Services/Document.vala:545
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "파일 \"%s\"가 지워졌습니다. 그래도 저장하시겠습니까?"
 
-#: ../src/Services/Document.vala:576
+#: ../src/Services/Document.vala:558
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 msgstr "이 파일의 변경된 내용을 저장할 수 없습니다 \"%s\". 이 파일의 변경된 내용을 다른 위치에 저장하시겠습니까?"
 
-#: ../src/Services/Document.vala:578
+#: ../src/Services/Document.vala:560
 msgid "Save changes elsewhere"
 msgstr "다른 곳에 변경사항을 저장하기"
 
-#: ../src/Services/Document.vala:603
+#: ../src/Services/Document.vala:588
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr "파일 \"%s\" 는 외부 프로그램에 의해서 수정되었습니다. 다시 읽어 들일까요 아니면 편집을 계속하실건가요?"
 
-#: ../src/Services/Document.vala:604
+#: ../src/Services/Document.vala:589
 msgid "Load"
 msgstr "불러오기"
 
-#: ../src/Services/Document.vala:607
+#: ../src/Services/Document.vala:592
 msgid "Continue"
 msgstr "계속"
+
+#: ../src/Services/TemplateManager.vala:231 ../src/MainWindow.vala:880
+msgid "Templates"
+msgstr "서식"
+
+#: ../src/Widgets/DocumentView.vala:96
+msgid "Text file from "
+msgstr "이 텍스트 파일 "
+
+#: ../src/Widgets/SourceView.vala:134
+msgid "Syntax Highlighting"
+msgstr "구문 강조"
+
+#: ../src/Widgets/SourceView.vala:145
+msgid "Normal Text"
+msgstr "일반 텍스트"
+
+#: ../src/Widgets/LoadingView.vala:36
+msgid "Wait while restoring last session..."
+msgstr "마지막 세션을 복구하는 동안 기다려주세요..."
+
+#: ../src/Widgets/SearchManager.vala:72
+msgid "Find"
+msgstr "찾기"
+
+#: ../src/Widgets/SearchManager.vala:92
+msgid "Replace With"
+msgstr "바꿀 문자열"
+
+#: ../src/Widgets/SearchManager.vala:114 ../src/MainWindow.vala:824
+#: ../src/MainWindow.vala:825
+msgid "Replace"
+msgstr "바꾸기"
+
+#: ../src/Widgets/SearchManager.vala:118
+msgid "Replace all"
+msgstr "모두 바꾸기"
+
+#: ../src/Widgets/SearchManager.vala:126
+msgid "Go To Line:"
+msgstr "줄로 이동:"
+
+#: ../src/Widgets/ToolBar.vala:58
+msgid "Share"
+msgstr "공유"
 
 #: ../src/Widgets/SplitView.vala:47
 msgid "No Files Open"
@@ -302,41 +200,9 @@ msgstr "클립보드의 새 파일"
 msgid "Create a new file from the contents of your clipboard."
 msgstr "클립보드에 있는 것으로 새 파일 만들기."
 
-#: ../src/Widgets/SourceView.vala:134
-msgid "Syntax Highlighting"
-msgstr "구문 강조"
-
-#: ../src/Widgets/SourceView.vala:145
-msgid "Normal Text"
-msgstr "일반 텍스트"
-
-#: ../src/Widgets/SearchManager.vala:72
-msgid "Find"
-msgstr "찾기"
-
-#: ../src/Widgets/SearchManager.vala:92
-msgid "Replace With"
-msgstr "바꿀 문자열"
-
-#: ../src/Widgets/SearchManager.vala:118
-msgid "Replace all"
-msgstr "모두 바꾸기"
-
-#: ../src/Widgets/SearchManager.vala:126
-msgid "Go To Line:"
-msgstr "줄로 이동:"
-
-#: ../src/Widgets/DocumentView.vala:96
-msgid "Text file from "
-msgstr "이 텍스트 파일 "
-
-#: ../src/Widgets/LoadingView.vala:36
-msgid "Wait while restoring last session..."
-msgstr "마지막 세션을 복구하는 동안 기다려주세요..."
-
-#: ../src/Widgets/ToolBar.vala:58
-msgid "Share"
-msgstr "공유"
+#: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:884
+msgid "Preferences"
+msgstr "환경설정"
 
 #: ../src/Dialogs/PreferencesDialog.vala:66
 msgid "Behavior"
@@ -349,6 +215,11 @@ msgstr "사용자 환경"
 #: ../src/Dialogs/PreferencesDialog.vala:82
 msgid "Extensions"
 msgstr "확장 기능"
+
+#: ../src/Dialogs/PreferencesDialog.vala:86 ../src/MainWindow.vala:820
+#: ../src/MainWindow.vala:821
+msgid "Close"
+msgstr "닫기"
 
 #: ../src/Dialogs/PreferencesDialog.vala:131
 msgid "Show welcome screen"
@@ -430,17 +301,10 @@ msgstr "색상:"
 msgid "Custom font:"
 msgstr "사용자 정의 글꼴:"
 
-#: ../src/config.vala:15
-msgid "Edit text files"
-msgstr "텍스트 파일을 편집하기"
-
-#: ../src/config.vala:16
-msgid "Text Editor"
-msgstr "텍스트 편집기"
-
-#: ../src/config.vala:19
-msgid "About Scratch"
-msgstr "스크래치 정보"
+#: ../src/Utils.vala:31 ../src/MainWindow.vala:860
+#: ../plugins/filemanager/FileView.vala:282
+msgid "Open"
+msgstr "열기"
 
 #: ../src/Utils.vala:42
 msgid "All files"
@@ -449,6 +313,314 @@ msgstr "모든 파일"
 #: ../src/Utils.vala:45
 msgid "Text files"
 msgstr "텍스트 파일"
+
+#: ../src/MainWindow.vala:110
+msgid "Zeitgeist Datasource for Scratch"
+msgstr "Scratch를 위한 Zeitgeist 데이터 소스"
+
+#: ../src/MainWindow.vala:192
+msgid "Trash"
+msgstr "휴지통"
+
+#: ../src/MainWindow.vala:632
+msgid "Open some files"
+msgstr "몇몇 파일 열기"
+
+#: ../src/MainWindow.vala:753
+msgid "Hide search bar"
+msgstr "검색 바 숨기기"
+
+#: ../src/MainWindow.vala:808 ../src/MainWindow.vala:809
+msgid "Find…"
+msgstr "찾기…"
+
+#: ../src/MainWindow.vala:812 ../src/MainWindow.vala:813
+msgid "Go to line…"
+msgstr "줄로 이동..."
+
+#: ../src/MainWindow.vala:816 ../src/MainWindow.vala:817
+msgid "Quit"
+msgstr "종료"
+
+#: ../src/MainWindow.vala:828
+msgid "Reopen closed document"
+msgstr "닫힌 문서 다시 열기"
+
+#: ../src/MainWindow.vala:829
+msgid "Open last closed document in a new tab"
+msgstr "새 탭에서 마지막으로 닫힌 문서 열기"
+
+#: ../src/MainWindow.vala:832
+msgid "Add New Tab"
+msgstr "새 탭 추가"
+
+#: ../src/MainWindow.vala:833
+msgid "Add a new tab"
+msgstr "새 탭을 추가합니다."
+
+#: ../src/MainWindow.vala:836
+msgid "Add New View"
+msgstr "새로운 보기 설정"
+
+#: ../src/MainWindow.vala:837
+msgid "Add a new view"
+msgstr "새로운 보기를 설정합니다."
+
+#: ../src/MainWindow.vala:840
+msgid "Remove Current View"
+msgstr "현재 보기 삭제"
+
+#: ../src/MainWindow.vala:841
+msgid "Remove this view"
+msgstr "현재 보기를 삭제합니다."
+
+#: ../src/MainWindow.vala:844
+msgid "Undo"
+msgstr "실행 취소"
+
+#: ../src/MainWindow.vala:845
+msgid "Undo the last action"
+msgstr "마지막 동작을 실행 취소합니다"
+
+#: ../src/MainWindow.vala:848
+msgid "Redo"
+msgstr "다시 실행"
+
+#: ../src/MainWindow.vala:849
+msgid "Redo the last undone action"
+msgstr "마지막 실행 취소한 동작을 다시 실행합니다"
+
+#: ../src/MainWindow.vala:852
+msgid "Revert"
+msgstr "되돌리기"
+
+#: ../src/MainWindow.vala:853
+msgid "Restore this file"
+msgstr "이 파일을 원래대로 되돌립니다."
+
+#: ../src/MainWindow.vala:856 ../src/MainWindow.vala:857
+msgid "Duplicate selected strings"
+msgstr "선택한 항목을 복제하기"
+
+#: ../src/MainWindow.vala:861
+msgid "Open a file"
+msgstr "파일 열기"
+
+#: ../src/MainWindow.vala:864
+msgid "Clipboard"
+msgstr "클립보드"
+
+#: ../src/MainWindow.vala:865
+msgid "New file from Clipboard"
+msgstr "클립보드의 새 파일"
+
+#: ../src/MainWindow.vala:868
+msgid "Zoom"
+msgstr "확대"
+
+#: ../src/MainWindow.vala:869
+msgid "Zoom 1:1"
+msgstr "1:1 크기"
+
+#: ../src/MainWindow.vala:873
+msgid "Save this file"
+msgstr "이 파일 저장하기"
+
+#: ../src/MainWindow.vala:877
+msgid "Save this file with a different name"
+msgstr "이 파일 다른 이름으로 저장하기"
+
+#: ../src/MainWindow.vala:881
+msgid "Project templates"
+msgstr "프로젝트 템플릿"
+
+#: ../src/MainWindow.vala:885
+msgid "Change Scratch settings"
+msgstr "Scratch 설정 변경하기"
+
+#: ../src/MainWindow.vala:888 ../src/MainWindow.vala:889
+msgid "Next Tab"
+msgstr "다음 탭"
+
+#: ../src/MainWindow.vala:892 ../src/MainWindow.vala:893
+msgid "Previous Tab"
+msgstr "이전 탭"
+
+#: ../src/MainWindow.vala:909 ../src/MainWindow.vala:910
+msgid "Fullscreen"
+msgstr "전체화면"
+
+#: ../plugins/filemanager/FileManagerPlugin.vala:21
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:21
+msgid "Folder Manager"
+msgstr "폴더 관리자"
+
+#: ../plugins/filemanager/FileManagerPlugin.vala:22
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:22
+msgid "Basic folder manager with file browsing"
+msgstr "파일 탐색기가 탑재된 기본적인 폴더 관리자"
+
+#: ../plugins/filemanager/FileManagerPlugin.vala:71
+msgid "Go to parent"
+msgstr "상위 폴더로 이동"
+
+#: ../plugins/filemanager/FileManagerPlugin.vala:82
+msgid "Add file"
+msgstr "파일 추가"
+
+#: ../plugins/filemanager/FileManagerPlugin.vala:89
+msgid "Remove file"
+msgstr "파일 삭제"
+
+#: ../plugins/filemanager/FileManagerPlugin.vala:104
+msgid "File Manager"
+msgstr "파일 관리자"
+
+#: ../plugins/filemanager/FileView.vala:90
+msgid "/New File"
+msgstr "/새 파일"
+
+#: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
+msgid "Highlight Selected Words"
+msgstr "선택된 단어 하이라이트 표시"
+
+#: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
+msgid "Highlights all occurrences of words that are selected"
+msgstr "선택한 단어의 모든 항목을 강조하기"
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:21
+#: ../plugins/clipboard-history/ClipboardHistory.vala:89
+msgid "Clipboard History"
+msgstr "클립보드 기록"
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:22
+msgid "Clipboard to view history"
+msgstr "클립보드 기록 보기"
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:28
+msgid "..."
+msgstr "..."
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:156
+msgid "Delete"
+msgstr "지우기"
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:159
+#: ../plugins/terminal/terminal.vala:307
+msgid "Paste"
+msgstr "붙여넣기"
+
+#: ../plugins/browser-preview/BrowserView.vala:49
+msgid "Close Inspector"
+msgstr "검사기 닫기"
+
+#: ../plugins/browser-preview/browser-preview.vala:21
+msgid "Browser Preview"
+msgstr "브라우저 미리보기"
+
+#: ../plugins/browser-preview/browser-preview.vala:22
+msgid "Get a preview your work in a web page"
+msgstr "웹 페이지에서 작업 미리보기"
+
+#: ../plugins/browser-preview/browser-preview.vala:85
+#: ../plugins/browser-preview/browser-preview.vala:111
+msgid "Show Preview"
+msgstr "미리 보기"
+
+#: ../plugins/browser-preview/browser-preview.vala:107
+#: ../plugins/browser-preview/browser-preview.vala:150
+msgid "Web Preview"
+msgstr "웹 미리 보기"
+
+#: ../plugins/browser-preview/browser-preview.vala:108
+msgid "Hide Preview"
+msgstr "미리 보기 숨기기"
+
+#: ../plugins/contractor/contractor.vala:21
+msgid "Share your files with Contractor"
+msgstr "Contractor로 파일 공유"
+
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:71
+msgid "Folders"
+msgstr "폴더"
+
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:89
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:90
+msgid "Open a folder"
+msgstr "폴더 열기"
+
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:95
+msgid "_Cancel"
+msgstr "취소(_C)"
+
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:96
+msgid "_Open"
+msgstr "열기(_O)"
+
+#: ../plugins/folder-manager/FileView.vala:330
+msgid "Close Folder"
+msgstr "폴더 닫기"
+
+#: ../plugins/outline/OutlinePlugin.vala:21
+msgid "Outline"
+msgstr "외곽선"
+
+#: ../plugins/outline/OutlinePlugin.vala:22
+msgid "Outline symbols in your current file in vala"
+msgstr "발라로 작성된 현재 파일의 외곽선 기호"
+
+#: ../plugins/outline/OutlinePlugin.vala:111
+#: ../plugins/outline/CtagsSymbolResolver.vala:35
+#: ../plugins/outline/CtagsSymbolResolver.vala:68
+#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
+#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:94
+msgid "Symbols"
+msgstr "기호"
+
+#: ../plugins/brackets-completion/brackets-completion.vala:21
+msgid "Brackets Completion"
+msgstr "괄호 완성"
+
+#: ../plugins/brackets-completion/brackets-completion.vala:22
+msgid "Complete brackets while typing"
+msgstr "입력 시 자동 괄호 완성"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:20
+#: ../plugins/source-tree/SourceTreePlugin.vala:197
+msgid "Source Tree"
+msgstr "소스 트리"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:21
+msgid "Have a look at your sources organized in a nice tree"
+msgstr "트리 모양에 정리된 소스를 살펴보세요"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:42
+msgid "Loading..."
+msgstr "불러오는 중..."
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:175
+msgid "Bookmark"
+msgstr "책갈피"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:234
+msgid "Files"
+msgstr "파일"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:235
+msgid "Project"
+msgstr "프로젝트"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:236
+msgid "Bookmarks"
+msgstr "책갈피들"
+
+#: ../plugins/vim-emulation/vim-emulation.vala:21
+msgid "Vim Emulation"
+msgstr "Vim 에뮬레이션"
+
+#: ../plugins/vim-emulation/vim-emulation.vala:22
+msgid "Use Vim commands in Scratch"
+msgstr "Vim 명령어 사용하기"
 
 #: ../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
@@ -514,6 +686,42 @@ msgstr "하루"
 msgid "One month"
 msgstr "한 달"
 
+#: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
+msgid "Strip trailing whitespace"
+msgstr "따라오는 공백 제거"
+
+#: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
+msgid "Strip trailing whitespace on save"
+msgstr "저장시 따라오는 공백 제거"
+
+#: ../plugins/spell/spell.vala:18
+msgid "Spell Checker"
+msgstr "맞춤법 검사"
+
+#: ../plugins/spell/spell.vala:19
+msgid "Checks the spelling of your documents"
+msgstr "문서에서의 철자법 확인"
+
+#: ../plugins/open-with/open-with.vala:21
+msgid "Open With"
+msgstr "다음으로 열기"
+
+#: ../plugins/open-with/open-with.vala:22
+msgid "Open files you are editing with another application"
+msgstr "다른 응용 프로그램으로 작업 중인 파일 열기"
+
+#: ../plugins/open-with/open-with.vala:55
+msgid "Open With..."
+msgstr "다음으로 열기..."
+
+#: ../plugins/detect-indent/detect-indent.vala:1
+msgid "Detect Indent"
+msgstr ""
+
+#: ../plugins/detect-indent/detect-indent.vala:2
+msgid "Heuristically detect tab or space settings"
+msgstr ""
+
 #: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:114
 #: ../plugins/terminal/terminal.vala:120 ../plugins/terminal/terminal.vala:166
 #: ../plugins/terminal/terminal.vala:168
@@ -536,11 +744,6 @@ msgstr "터미널 숨기기"
 msgid "Copy"
 msgstr "복사"
 
-#: ../plugins/terminal/terminal.vala:307
-#: ../plugins/clipboard-history/ClipboardHistory.vala:159
-msgid "Paste"
-msgstr "붙여넣기"
-
 #: ../plugins/terminal/terminal.vala:317
 msgid "Terminal on Right"
 msgstr "오른쪽 터미널"
@@ -548,95 +751,6 @@ msgstr "오른쪽 터미널"
 #: ../plugins/terminal/terminal.vala:325
 msgid "Terminal on Bottom"
 msgstr "아래 터미널"
-
-#: ../plugins/vim-emulation/vim-emulation.vala:21
-msgid "Vim Emulation"
-msgstr "Vim 에뮬레이션"
-
-#: ../plugins/vim-emulation/vim-emulation.vala:22
-msgid "Use Vim commands in Scratch"
-msgstr "Vim 명령어 사용하기"
-
-#: ../plugins/browser-preview/BrowserView.vala:49
-msgid "Close Inspector"
-msgstr "검사기 닫기"
-
-#: ../plugins/browser-preview/browser-preview.vala:21
-msgid "Browser Preview"
-msgstr "브라우저 미리보기"
-
-#: ../plugins/browser-preview/browser-preview.vala:22
-msgid "Get a preview your work in a web page"
-msgstr "웹 페이지에서 작업 미리보기"
-
-#: ../plugins/browser-preview/browser-preview.vala:85
-#: ../plugins/browser-preview/browser-preview.vala:111
-msgid "Show Preview"
-msgstr "미리 보기"
-
-#: ../plugins/browser-preview/browser-preview.vala:107
-#: ../plugins/browser-preview/browser-preview.vala:150
-msgid "Web Preview"
-msgstr "웹 미리 보기"
-
-#: ../plugins/browser-preview/browser-preview.vala:108
-msgid "Hide Preview"
-msgstr "미리 보기 숨기기"
-
-#: ../plugins/open-with/open-with.vala:21
-msgid "Open With"
-msgstr "다음으로 열기"
-
-#: ../plugins/open-with/open-with.vala:22
-msgid "Open files you are editing with another application"
-msgstr "다른 응용 프로그램으로 작업 중인 파일 열기"
-
-#: ../plugins/open-with/open-with.vala:55
-msgid "Open With..."
-msgstr "다음으로 열기..."
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:21
-#: ../plugins/filemanager/FileManagerPlugin.vala:21
-msgid "Folder Manager"
-msgstr "폴더 관리자"
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:22
-#: ../plugins/filemanager/FileManagerPlugin.vala:22
-msgid "Basic folder manager with file browsing"
-msgstr "파일 탐색기가 탑재된 기본적인 폴더 관리자"
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:71
-msgid "Folders"
-msgstr "폴더"
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:89
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:90
-msgid "Open a folder"
-msgstr "폴더 열기"
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:95
-msgid "_Cancel"
-msgstr "취소(_C)"
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:96
-msgid "_Open"
-msgstr "열기(_O)"
-
-#: ../plugins/folder-manager/FileView.vala:330
-msgid "Close Folder"
-msgstr "폴더 닫기"
-
-#: ../plugins/brackets-completion/brackets-completion.vala:21
-msgid "Brackets Completion"
-msgstr "괄호 완성"
-
-#: ../plugins/brackets-completion/brackets-completion.vala:22
-msgid "Complete brackets while typing"
-msgstr "입력 시 자동 괄호 완성"
-
-#: ../plugins/word-completion/completion-provider.vala:80
-msgid "Could not load icon theme: %s\n"
-msgstr "아이콘 테마 불러오기 실패: %s\n"
 
 #: ../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
@@ -650,115 +764,9 @@ msgstr "파일들에서 자주 쓰인 단어 완성 다이얼로그 열기"
 msgid "%s - Word Completion"
 msgstr "%s - 단어 완성"
 
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
-msgid "Strip trailing whitespace"
-msgstr "따라오는 공백 제거"
-
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
-msgid "Strip trailing whitespace on save"
-msgstr "저장시 따라오는 공백 제거"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:21
-#: ../plugins/clipboard-history/ClipboardHistory.vala:89
-msgid "Clipboard History"
-msgstr "클립보드 기록"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:22
-msgid "Clipboard to view history"
-msgstr "클립보드 기록 보기"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:28
-msgid "..."
-msgstr "..."
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:156
-msgid "Delete"
-msgstr "지우기"
-
-#: ../plugins/contractor/contractor.vala:21
-msgid "Share your files with Contractor"
-msgstr "Contractor로 파일 공유"
-
-#: ../plugins/spell/spell.vala:18
-msgid "Spell Checker"
-msgstr "맞춤법 검사"
-
-#: ../plugins/spell/spell.vala:19
-msgid "Checks the spelling of your documents"
-msgstr "문서에서의 철자법 확인"
-
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:94
-#: ../plugins/outline/CtagsSymbolResolver.vala:35
-#: ../plugins/outline/CtagsSymbolResolver.vala:68
-#: ../plugins/outline/OutlinePlugin.vala:111
-msgid "Symbols"
-msgstr "기호"
-
-#: ../plugins/outline/OutlinePlugin.vala:21
-msgid "Outline"
-msgstr "외곽선"
-
-#: ../plugins/outline/OutlinePlugin.vala:22
-msgid "Outline symbols in your current file in vala"
-msgstr "발라로 작성된 현재 파일의 외곽선 기호"
-
-#: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
-msgid "Highlight Selected Words"
-msgstr "선택된 단어 하이라이트 표시"
-
-#: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
-msgid "Highlights all occurrences of words that are selected"
-msgstr "선택한 단어의 모든 항목을 강조하기"
-
-#: ../plugins/filemanager/FileView.vala:90
-msgid "/New File"
-msgstr "/새 파일"
-
-#: ../plugins/filemanager/FileManagerPlugin.vala:71
-msgid "Go to parent"
-msgstr "상위 폴더로 이동"
-
-#: ../plugins/filemanager/FileManagerPlugin.vala:82
-msgid "Add file"
-msgstr "파일 추가"
-
-#: ../plugins/filemanager/FileManagerPlugin.vala:89
-msgid "Remove file"
-msgstr "파일 삭제"
-
-#: ../plugins/filemanager/FileManagerPlugin.vala:104
-msgid "File Manager"
-msgstr "파일 관리자"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:20
-#: ../plugins/source-tree/SourceTreePlugin.vala:197
-msgid "Source Tree"
-msgstr "소스 트리"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:21
-msgid "Have a look at your sources organized in a nice tree"
-msgstr "트리 모양에 정리된 소스를 살펴보세요"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:42
-msgid "Loading..."
-msgstr "불러오는 중..."
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:175
-msgid "Bookmark"
-msgstr "책갈피"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:234
-msgid "Files"
-msgstr "파일"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:235
-msgid "Project"
-msgstr "프로젝트"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:236
-msgid "Bookmarks"
-msgstr "책갈피들"
+#: ../plugins/word-completion/completion-provider.vala:80
+msgid "Could not load icon theme: %s\n"
+msgstr "아이콘 테마 불러오기 실패: %s\n"
 
 #~ msgid "New document"
 #~ msgstr "새 문서"

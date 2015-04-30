@@ -7,183 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-03-19 15:27+0100\n"
+"POT-Creation-Date: 2015-04-29 15:30-0500\n"
 "PO-Revision-Date: 2015-03-26 17:48+0000\n"
 "Last-Translator: Nikola Lardev <nikolalardev@gmail.com>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-27 05:25+0000\n"
-"X-Generator: Launchpad (build 17413)\n"
-
-#: ../src/MainWindow.vala:110
-msgid "Zeitgeist Datasource for Scratch"
-msgstr "Зайтгайст източник за Драскутина"
-
-#: ../src/MainWindow.vala:192
-msgid "Trash"
-msgstr "Кошче"
-
-#: ../src/MainWindow.vala:633
-msgid "Open some files"
-msgstr "Отваряне на файлове"
-
-#: ../src/MainWindow.vala:754
-msgid "Hide search bar"
-msgstr "Скриване на лентата за търсене"
-
-#: ../src/MainWindow.vala:809 ../src/MainWindow.vala:810
-msgid "Find…"
-msgstr "Търсене…"
-
-#: ../src/MainWindow.vala:813 ../src/MainWindow.vala:814
-msgid "Go to line…"
-msgstr "Отиди на ред..."
-
-#: ../src/MainWindow.vala:817 ../src/MainWindow.vala:818
-msgid "Quit"
-msgstr "Изход"
-
-#: ../src/MainWindow.vala:821 ../src/MainWindow.vala:822
-#: ../src/Dialogs/PreferencesDialog.vala:86
-msgid "Close"
-msgstr "Затваряне"
-
-#: ../src/MainWindow.vala:825 ../src/MainWindow.vala:826
-#: ../src/Widgets/SearchManager.vala:114
-msgid "Replace"
-msgstr "Замени"
-
-#: ../src/MainWindow.vala:829
-msgid "Reopen closed document"
-msgstr "Отвори отново документа"
-
-#: ../src/MainWindow.vala:830
-msgid "Open last closed document in a new tab"
-msgstr "Отваряне на последно затворен документ в нов таб"
-
-#: ../src/MainWindow.vala:833
-msgid "Add New Tab"
-msgstr "Добавяне на нов подпрозорец"
-
-#: ../src/MainWindow.vala:834
-msgid "Add a new tab"
-msgstr "Добавяне на нов подпрозорец"
-
-#: ../src/MainWindow.vala:837
-msgid "Add New View"
-msgstr "Добавяне на нов изглед"
-
-#: ../src/MainWindow.vala:838
-msgid "Add a new view"
-msgstr "Добавяне на нов изглед"
-
-#: ../src/MainWindow.vala:841
-msgid "Remove Current View"
-msgstr "Премахване на текущия изглед"
-
-#: ../src/MainWindow.vala:842
-msgid "Remove this view"
-msgstr "Премахване на този изглед"
-
-#: ../src/MainWindow.vala:845
-msgid "Undo"
-msgstr "Отмяна"
-
-#: ../src/MainWindow.vala:846
-msgid "Undo the last action"
-msgstr "Отмени последното действие"
-
-#: ../src/MainWindow.vala:849
-msgid "Redo"
-msgstr "Повтаряне"
-
-#: ../src/MainWindow.vala:850
-msgid "Redo the last undone action"
-msgstr "Повтаряне на последното отменено действие"
-
-#: ../src/MainWindow.vala:853
-msgid "Revert"
-msgstr "Връщане"
-
-#: ../src/MainWindow.vala:854
-msgid "Restore this file"
-msgstr "Възстановяване на този файл"
-
-#: ../src/MainWindow.vala:857 ../src/MainWindow.vala:858
-msgid "Duplicate selected strings"
-msgstr "Дублиране на избрания текст"
-
-#: ../src/MainWindow.vala:861 ../src/Utils.vala:31
-#: ../plugins/filemanager/FileView.vala:282
-msgid "Open"
-msgstr "Отваряне"
-
-#: ../src/MainWindow.vala:862
-msgid "Open a file"
-msgstr "Отваряне на файл"
-
-#: ../src/MainWindow.vala:865
-msgid "Clipboard"
-msgstr ""
-
-#: ../src/MainWindow.vala:866
-msgid "New file from Clipboard"
-msgstr ""
-
-#: ../src/MainWindow.vala:869
-msgid "Zoom"
-msgstr "Приближаване"
-
-#: ../src/MainWindow.vala:870
-msgid "Zoom 1:1"
-msgstr "Мащаб 1:1"
-
-#: ../src/MainWindow.vala:873 ../src/Services/Document.vala:232
-#: ../src/Services/Document.vala:565 ../src/Utils.vala:33
-msgid "Save"
-msgstr "Запазване"
-
-#: ../src/MainWindow.vala:874
-msgid "Save this file"
-msgstr "Запази този файл"
-
-#: ../src/MainWindow.vala:877 ../src/Services/Document.vala:558
-msgid "Save As…"
-msgstr "Запази като…"
-
-#: ../src/MainWindow.vala:878
-msgid "Save this file with a different name"
-msgstr "Запази този файл под друго име"
-
-#: ../src/MainWindow.vala:881 ../src/Services/TemplateManager.vala:231
-msgid "Templates"
-msgstr "Шаблони"
-
-#: ../src/MainWindow.vala:882
-msgid "Project templates"
-msgstr "Проектни шаблони"
-
-#: ../src/MainWindow.vala:885 ../src/Dialogs/PreferencesDialog.vala:50
-msgid "Preferences"
-msgstr "Предпочитания"
-
-#: ../src/MainWindow.vala:886
-msgid "Change Scratch settings"
-msgstr "Промяна на настройките на Scratch"
-
-#: ../src/MainWindow.vala:889 ../src/MainWindow.vala:890
-msgid "Next Tab"
-msgstr "Следващ подпрозорец"
-
-#: ../src/MainWindow.vala:893 ../src/MainWindow.vala:894
-msgid "Previous Tab"
-msgstr "Предишен подпрозорец"
-
-#: ../src/MainWindow.vala:910 ../src/MainWindow.vala:911
-msgid "Fullscreen"
-msgstr "На цял екран"
+"X-Launchpad-Export-Date: 2015-04-30 05:21+0000\n"
+"X-Generator: Launchpad (build 17453)\n"
 
 #: ../src/Scratch.vala:245
 msgid "New Tab"
@@ -205,72 +37,138 @@ msgstr "Набор от добавки"
 msgid "Current working directory"
 msgstr "Текуща директория"
 
-#: ../src/Services/Document.vala:222
+#: ../src/config.vala:15
+msgid "Edit text files"
+msgstr "Редактирайте текстови файлове"
+
+#: ../src/config.vala:16
+msgid "Text Editor"
+msgstr "Текстов редактор"
+
+#: ../src/config.vala:17 ../src/Services/Document.vala:406
+msgid "New Document"
+msgstr "Нов документ"
+
+#: ../src/config.vala:19
+msgid "About Scratch"
+msgstr ""
+
+#: ../src/Services/Document.vala:232
 msgid "Save changes to document %s before closing?"
 msgstr "Записване на промените в документа %s преди затваряне?"
 
-#: ../src/Services/Document.vala:225
+#: ../src/Services/Document.vala:235
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
 "Ако не съхраните файла, промените от предходните 4 секунди ще бъдат загубени "
 "окончателно."
 
-#: ../src/Services/Document.vala:227
+#: ../src/Services/Document.vala:237
 msgid "Close without saving"
 msgstr "Затваряне без запазване"
 
-#: ../src/Services/Document.vala:231 ../src/Utils.vala:29
+#: ../src/Services/Document.vala:241 ../src/Utils.vala:29
 msgid "Cancel"
 msgstr "Отказ"
 
-#: ../src/Services/Document.vala:308
+#: ../src/Services/Document.vala:242 ../src/Services/Document.vala:547
+#: ../src/Utils.vala:33 ../src/MainWindow.vala:872
+msgid "Save"
+msgstr "Запазване"
+
+#: ../src/Services/Document.vala:314
 msgid "Save File"
 msgstr "Запазване на файл"
 
-#: ../src/Services/Document.vala:401 ../src/config.vala:17
-msgid "New Document"
-msgstr "Нов документ"
-
-#: ../src/Services/Document.vala:540
+#: ../src/Services/Document.vala:522
 msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
 
-#: ../src/Services/Document.vala:556
+#: ../src/Services/Document.vala:538
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
 
-#: ../src/Services/Document.vala:563
+#: ../src/Services/Document.vala:540 ../src/MainWindow.vala:876
+msgid "Save As…"
+msgstr "Запази като…"
+
+#: ../src/Services/Document.vala:545
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr ""
 
-#: ../src/Services/Document.vala:576
+#: ../src/Services/Document.vala:558
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 msgstr ""
 
-#: ../src/Services/Document.vala:578
+#: ../src/Services/Document.vala:560
 msgid "Save changes elsewhere"
 msgstr "Запазване на промените другаде"
 
-#: ../src/Services/Document.vala:603
+#: ../src/Services/Document.vala:588
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
 
-#: ../src/Services/Document.vala:604
+#: ../src/Services/Document.vala:589
 msgid "Load"
 msgstr "Зареди"
 
-#: ../src/Services/Document.vala:607
+#: ../src/Services/Document.vala:592
 msgid "Continue"
 msgstr "Продължи"
+
+#: ../src/Services/TemplateManager.vala:231 ../src/MainWindow.vala:880
+msgid "Templates"
+msgstr "Шаблони"
+
+#: ../src/Widgets/DocumentView.vala:96
+msgid "Text file from "
+msgstr ""
+
+#: ../src/Widgets/SourceView.vala:134
+msgid "Syntax Highlighting"
+msgstr "Синтактично Открояване"
+
+#: ../src/Widgets/SourceView.vala:145
+msgid "Normal Text"
+msgstr "Обикновен Текст"
+
+#: ../src/Widgets/LoadingView.vala:36
+msgid "Wait while restoring last session..."
+msgstr "Почакайте докато се възстанови предишното състояние..."
+
+#: ../src/Widgets/SearchManager.vala:72
+msgid "Find"
+msgstr "Търсене"
+
+#: ../src/Widgets/SearchManager.vala:92
+msgid "Replace With"
+msgstr "Замяна с"
+
+#: ../src/Widgets/SearchManager.vala:114 ../src/MainWindow.vala:824
+#: ../src/MainWindow.vala:825
+msgid "Replace"
+msgstr "Замени"
+
+#: ../src/Widgets/SearchManager.vala:118
+msgid "Replace all"
+msgstr "Заместване на всички"
+
+#: ../src/Widgets/SearchManager.vala:126
+msgid "Go To Line:"
+msgstr "Отиди на ред:"
+
+#: ../src/Widgets/ToolBar.vala:58
+msgid "Share"
+msgstr "Сподели"
 
 #: ../src/Widgets/SplitView.vala:47
 msgid "No Files Open"
@@ -304,41 +202,9 @@ msgstr ""
 msgid "Create a new file from the contents of your clipboard."
 msgstr ""
 
-#: ../src/Widgets/SourceView.vala:134
-msgid "Syntax Highlighting"
-msgstr "Синтактично Открояване"
-
-#: ../src/Widgets/SourceView.vala:145
-msgid "Normal Text"
-msgstr "Обикновен Текст"
-
-#: ../src/Widgets/SearchManager.vala:72
-msgid "Find"
-msgstr "Търсене"
-
-#: ../src/Widgets/SearchManager.vala:92
-msgid "Replace With"
-msgstr "Замяна с"
-
-#: ../src/Widgets/SearchManager.vala:118
-msgid "Replace all"
-msgstr "Заместване на всички"
-
-#: ../src/Widgets/SearchManager.vala:126
-msgid "Go To Line:"
-msgstr "Отиди на ред:"
-
-#: ../src/Widgets/DocumentView.vala:96
-msgid "Text file from "
-msgstr ""
-
-#: ../src/Widgets/LoadingView.vala:36
-msgid "Wait while restoring last session..."
-msgstr "Почакайте докато се възстанови предишното състояние..."
-
-#: ../src/Widgets/ToolBar.vala:58
-msgid "Share"
-msgstr "Сподели"
+#: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:884
+msgid "Preferences"
+msgstr "Предпочитания"
 
 #: ../src/Dialogs/PreferencesDialog.vala:66
 msgid "Behavior"
@@ -351,6 +217,11 @@ msgstr "Потребителска среда"
 #: ../src/Dialogs/PreferencesDialog.vala:82
 msgid "Extensions"
 msgstr "Разширения"
+
+#: ../src/Dialogs/PreferencesDialog.vala:86 ../src/MainWindow.vala:820
+#: ../src/MainWindow.vala:821
+msgid "Close"
+msgstr "Затваряне"
 
 #: ../src/Dialogs/PreferencesDialog.vala:131
 msgid "Show welcome screen"
@@ -432,17 +303,10 @@ msgstr "Цветова схема:"
 msgid "Custom font:"
 msgstr "Шрифт по избор:"
 
-#: ../src/config.vala:15
-msgid "Edit text files"
-msgstr "Редактирайте текстови файлове"
-
-#: ../src/config.vala:16
-msgid "Text Editor"
-msgstr "Текстов редактор"
-
-#: ../src/config.vala:19
-msgid "About Scratch"
-msgstr ""
+#: ../src/Utils.vala:31 ../src/MainWindow.vala:860
+#: ../plugins/filemanager/FileView.vala:282
+msgid "Open"
+msgstr "Отваряне"
 
 #: ../src/Utils.vala:42
 msgid "All files"
@@ -451,6 +315,314 @@ msgstr "Всички файлове"
 #: ../src/Utils.vala:45
 msgid "Text files"
 msgstr "Текстови файлове"
+
+#: ../src/MainWindow.vala:110
+msgid "Zeitgeist Datasource for Scratch"
+msgstr "Зайтгайст източник за Драскутина"
+
+#: ../src/MainWindow.vala:192
+msgid "Trash"
+msgstr "Кошче"
+
+#: ../src/MainWindow.vala:632
+msgid "Open some files"
+msgstr "Отваряне на файлове"
+
+#: ../src/MainWindow.vala:753
+msgid "Hide search bar"
+msgstr "Скриване на лентата за търсене"
+
+#: ../src/MainWindow.vala:808 ../src/MainWindow.vala:809
+msgid "Find…"
+msgstr "Търсене…"
+
+#: ../src/MainWindow.vala:812 ../src/MainWindow.vala:813
+msgid "Go to line…"
+msgstr "Отиди на ред..."
+
+#: ../src/MainWindow.vala:816 ../src/MainWindow.vala:817
+msgid "Quit"
+msgstr "Изход"
+
+#: ../src/MainWindow.vala:828
+msgid "Reopen closed document"
+msgstr "Отвори отново документа"
+
+#: ../src/MainWindow.vala:829
+msgid "Open last closed document in a new tab"
+msgstr "Отваряне на последно затворен документ в нов таб"
+
+#: ../src/MainWindow.vala:832
+msgid "Add New Tab"
+msgstr "Добавяне на нов подпрозорец"
+
+#: ../src/MainWindow.vala:833
+msgid "Add a new tab"
+msgstr "Добавяне на нов подпрозорец"
+
+#: ../src/MainWindow.vala:836
+msgid "Add New View"
+msgstr "Добавяне на нов изглед"
+
+#: ../src/MainWindow.vala:837
+msgid "Add a new view"
+msgstr "Добавяне на нов изглед"
+
+#: ../src/MainWindow.vala:840
+msgid "Remove Current View"
+msgstr "Премахване на текущия изглед"
+
+#: ../src/MainWindow.vala:841
+msgid "Remove this view"
+msgstr "Премахване на този изглед"
+
+#: ../src/MainWindow.vala:844
+msgid "Undo"
+msgstr "Отмяна"
+
+#: ../src/MainWindow.vala:845
+msgid "Undo the last action"
+msgstr "Отмени последното действие"
+
+#: ../src/MainWindow.vala:848
+msgid "Redo"
+msgstr "Повтаряне"
+
+#: ../src/MainWindow.vala:849
+msgid "Redo the last undone action"
+msgstr "Повтаряне на последното отменено действие"
+
+#: ../src/MainWindow.vala:852
+msgid "Revert"
+msgstr "Връщане"
+
+#: ../src/MainWindow.vala:853
+msgid "Restore this file"
+msgstr "Възстановяване на този файл"
+
+#: ../src/MainWindow.vala:856 ../src/MainWindow.vala:857
+msgid "Duplicate selected strings"
+msgstr "Дублиране на избрания текст"
+
+#: ../src/MainWindow.vala:861
+msgid "Open a file"
+msgstr "Отваряне на файл"
+
+#: ../src/MainWindow.vala:864
+msgid "Clipboard"
+msgstr ""
+
+#: ../src/MainWindow.vala:865
+msgid "New file from Clipboard"
+msgstr ""
+
+#: ../src/MainWindow.vala:868
+msgid "Zoom"
+msgstr "Приближаване"
+
+#: ../src/MainWindow.vala:869
+msgid "Zoom 1:1"
+msgstr "Мащаб 1:1"
+
+#: ../src/MainWindow.vala:873
+msgid "Save this file"
+msgstr "Запази този файл"
+
+#: ../src/MainWindow.vala:877
+msgid "Save this file with a different name"
+msgstr "Запази този файл под друго име"
+
+#: ../src/MainWindow.vala:881
+msgid "Project templates"
+msgstr "Проектни шаблони"
+
+#: ../src/MainWindow.vala:885
+msgid "Change Scratch settings"
+msgstr "Промяна на настройките на Scratch"
+
+#: ../src/MainWindow.vala:888 ../src/MainWindow.vala:889
+msgid "Next Tab"
+msgstr "Следващ подпрозорец"
+
+#: ../src/MainWindow.vala:892 ../src/MainWindow.vala:893
+msgid "Previous Tab"
+msgstr "Предишен подпрозорец"
+
+#: ../src/MainWindow.vala:909 ../src/MainWindow.vala:910
+msgid "Fullscreen"
+msgstr "На цял екран"
+
+#: ../plugins/filemanager/FileManagerPlugin.vala:21
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:21
+msgid "Folder Manager"
+msgstr "Папков Управител"
+
+#: ../plugins/filemanager/FileManagerPlugin.vala:22
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:22
+msgid "Basic folder manager with file browsing"
+msgstr "Основен папков управител с файлово разглеждане"
+
+#: ../plugins/filemanager/FileManagerPlugin.vala:71
+msgid "Go to parent"
+msgstr "Отиди на по-главната папкка"
+
+#: ../plugins/filemanager/FileManagerPlugin.vala:82
+msgid "Add file"
+msgstr "Добавяне на файл"
+
+#: ../plugins/filemanager/FileManagerPlugin.vala:89
+msgid "Remove file"
+msgstr "Отстраняване на файла"
+
+#: ../plugins/filemanager/FileManagerPlugin.vala:104
+msgid "File Manager"
+msgstr "Файлов Управител"
+
+#: ../plugins/filemanager/FileView.vala:90
+msgid "/New File"
+msgstr "/Нов Файл"
+
+#: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
+msgid "Highlight Selected Words"
+msgstr ""
+
+#: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
+msgid "Highlights all occurrences of words that are selected"
+msgstr ""
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:21
+#: ../plugins/clipboard-history/ClipboardHistory.vala:89
+msgid "Clipboard History"
+msgstr ""
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:22
+msgid "Clipboard to view history"
+msgstr ""
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:28
+msgid "..."
+msgstr ""
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:156
+msgid "Delete"
+msgstr ""
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:159
+#: ../plugins/terminal/terminal.vala:307
+msgid "Paste"
+msgstr "Постави"
+
+#: ../plugins/browser-preview/BrowserView.vala:49
+msgid "Close Inspector"
+msgstr ""
+
+#: ../plugins/browser-preview/browser-preview.vala:21
+msgid "Browser Preview"
+msgstr "Преглед"
+
+#: ../plugins/browser-preview/browser-preview.vala:22
+msgid "Get a preview your work in a web page"
+msgstr "Преглед на работата ви в мрежов страница"
+
+#: ../plugins/browser-preview/browser-preview.vala:85
+#: ../plugins/browser-preview/browser-preview.vala:111
+msgid "Show Preview"
+msgstr ""
+
+#: ../plugins/browser-preview/browser-preview.vala:107
+#: ../plugins/browser-preview/browser-preview.vala:150
+msgid "Web Preview"
+msgstr ""
+
+#: ../plugins/browser-preview/browser-preview.vala:108
+msgid "Hide Preview"
+msgstr ""
+
+#: ../plugins/contractor/contractor.vala:21
+msgid "Share your files with Contractor"
+msgstr "Споделете файловете си с Контрактор"
+
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:71
+msgid "Folders"
+msgstr "Папки"
+
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:89
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:90
+msgid "Open a folder"
+msgstr "Отвори папка"
+
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:95
+msgid "_Cancel"
+msgstr "_Отмени"
+
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:96
+msgid "_Open"
+msgstr "_Отвори"
+
+#: ../plugins/folder-manager/FileView.vala:330
+msgid "Close Folder"
+msgstr "Затвори Папка"
+
+#: ../plugins/outline/OutlinePlugin.vala:21
+msgid "Outline"
+msgstr ""
+
+#: ../plugins/outline/OutlinePlugin.vala:22
+msgid "Outline symbols in your current file in vala"
+msgstr ""
+
+#: ../plugins/outline/OutlinePlugin.vala:111
+#: ../plugins/outline/CtagsSymbolResolver.vala:35
+#: ../plugins/outline/CtagsSymbolResolver.vala:68
+#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
+#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:94
+msgid "Symbols"
+msgstr ""
+
+#: ../plugins/brackets-completion/brackets-completion.vala:21
+msgid "Brackets Completion"
+msgstr "Скобно Довършване"
+
+#: ../plugins/brackets-completion/brackets-completion.vala:22
+msgid "Complete brackets while typing"
+msgstr "Завършване на скобите по време на писане"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:20
+#: ../plugins/source-tree/SourceTreePlugin.vala:197
+msgid "Source Tree"
+msgstr "Програмно-кодово Дърво"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:21
+msgid "Have a look at your sources organized in a nice tree"
+msgstr "Прегледайте вашите източници във вид на едно приятно дърво"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:42
+msgid "Loading..."
+msgstr "Зарежда се..."
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:175
+msgid "Bookmark"
+msgstr "Отметка"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:234
+msgid "Files"
+msgstr "Файлове"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:235
+msgid "Project"
+msgstr "Проект"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:236
+msgid "Bookmarks"
+msgstr "Отметки"
+
+#: ../plugins/vim-emulation/vim-emulation.vala:21
+msgid "Vim Emulation"
+msgstr "Вим Емилация"
+
+#: ../plugins/vim-emulation/vim-emulation.vala:22
+msgid "Use Vim commands in Scratch"
+msgstr "Ползвайте Вим команди в Драскотина"
 
 #: ../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
@@ -516,6 +688,42 @@ msgstr "Един ден"
 msgid "One month"
 msgstr "Един месец"
 
+#: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
+msgid "Strip trailing whitespace"
+msgstr "Мажнете свободните места в края ва файла"
+
+#: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
+msgid "Strip trailing whitespace on save"
+msgstr "Мажнете свободните места в края ва файла при запис"
+
+#: ../plugins/spell/spell.vala:18
+msgid "Spell Checker"
+msgstr "Проверка на правописа"
+
+#: ../plugins/spell/spell.vala:19
+msgid "Checks the spelling of your documents"
+msgstr "Проверете правописа на вашите документите"
+
+#: ../plugins/open-with/open-with.vala:21
+msgid "Open With"
+msgstr "Отвори с"
+
+#: ../plugins/open-with/open-with.vala:22
+msgid "Open files you are editing with another application"
+msgstr "Отвоете текущите файлове с друго приложение"
+
+#: ../plugins/open-with/open-with.vala:55
+msgid "Open With..."
+msgstr "Отвори с..."
+
+#: ../plugins/detect-indent/detect-indent.vala:1
+msgid "Detect Indent"
+msgstr ""
+
+#: ../plugins/detect-indent/detect-indent.vala:2
+msgid "Heuristically detect tab or space settings"
+msgstr ""
+
 #: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:114
 #: ../plugins/terminal/terminal.vala:120 ../plugins/terminal/terminal.vala:166
 #: ../plugins/terminal/terminal.vala:168
@@ -538,11 +746,6 @@ msgstr ""
 msgid "Copy"
 msgstr "Копирай"
 
-#: ../plugins/terminal/terminal.vala:307
-#: ../plugins/clipboard-history/ClipboardHistory.vala:159
-msgid "Paste"
-msgstr "Постави"
-
 #: ../plugins/terminal/terminal.vala:317
 msgid "Terminal on Right"
 msgstr ""
@@ -550,95 +753,6 @@ msgstr ""
 #: ../plugins/terminal/terminal.vala:325
 msgid "Terminal on Bottom"
 msgstr ""
-
-#: ../plugins/vim-emulation/vim-emulation.vala:21
-msgid "Vim Emulation"
-msgstr "Вим Емилация"
-
-#: ../plugins/vim-emulation/vim-emulation.vala:22
-msgid "Use Vim commands in Scratch"
-msgstr "Ползвайте Вим команди в Драскотина"
-
-#: ../plugins/browser-preview/BrowserView.vala:49
-msgid "Close Inspector"
-msgstr ""
-
-#: ../plugins/browser-preview/browser-preview.vala:21
-msgid "Browser Preview"
-msgstr "Преглед"
-
-#: ../plugins/browser-preview/browser-preview.vala:22
-msgid "Get a preview your work in a web page"
-msgstr "Преглед на работата ви в мрежов страница"
-
-#: ../plugins/browser-preview/browser-preview.vala:85
-#: ../plugins/browser-preview/browser-preview.vala:111
-msgid "Show Preview"
-msgstr ""
-
-#: ../plugins/browser-preview/browser-preview.vala:107
-#: ../plugins/browser-preview/browser-preview.vala:150
-msgid "Web Preview"
-msgstr ""
-
-#: ../plugins/browser-preview/browser-preview.vala:108
-msgid "Hide Preview"
-msgstr ""
-
-#: ../plugins/open-with/open-with.vala:21
-msgid "Open With"
-msgstr "Отвори с"
-
-#: ../plugins/open-with/open-with.vala:22
-msgid "Open files you are editing with another application"
-msgstr "Отвоете текущите файлове с друго приложение"
-
-#: ../plugins/open-with/open-with.vala:55
-msgid "Open With..."
-msgstr "Отвори с..."
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:21
-#: ../plugins/filemanager/FileManagerPlugin.vala:21
-msgid "Folder Manager"
-msgstr "Папков Управител"
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:22
-#: ../plugins/filemanager/FileManagerPlugin.vala:22
-msgid "Basic folder manager with file browsing"
-msgstr "Основен папков управител с файлово разглеждане"
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:71
-msgid "Folders"
-msgstr "Папки"
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:89
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:90
-msgid "Open a folder"
-msgstr "Отвори папка"
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:95
-msgid "_Cancel"
-msgstr "_Отмени"
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:96
-msgid "_Open"
-msgstr "_Отвори"
-
-#: ../plugins/folder-manager/FileView.vala:330
-msgid "Close Folder"
-msgstr "Затвори Папка"
-
-#: ../plugins/brackets-completion/brackets-completion.vala:21
-msgid "Brackets Completion"
-msgstr "Скобно Довършване"
-
-#: ../plugins/brackets-completion/brackets-completion.vala:22
-msgid "Complete brackets while typing"
-msgstr "Завършване на скобите по време на писане"
-
-#: ../plugins/word-completion/completion-provider.vala:80
-msgid "Could not load icon theme: %s\n"
-msgstr "Не беше възможно зареждането на иконовата тема: %s\n"
 
 #: ../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
@@ -652,115 +766,9 @@ msgstr "Покажи прозорченцето с най-често изпол�
 msgid "%s - Word Completion"
 msgstr "%s - Довършване на думи"
 
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
-msgid "Strip trailing whitespace"
-msgstr "Мажнете свободните места в края ва файла"
-
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
-msgid "Strip trailing whitespace on save"
-msgstr "Мажнете свободните места в края ва файла при запис"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:21
-#: ../plugins/clipboard-history/ClipboardHistory.vala:89
-msgid "Clipboard History"
-msgstr ""
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:22
-msgid "Clipboard to view history"
-msgstr ""
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:28
-msgid "..."
-msgstr ""
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:156
-msgid "Delete"
-msgstr ""
-
-#: ../plugins/contractor/contractor.vala:21
-msgid "Share your files with Contractor"
-msgstr "Споделете файловете си с Контрактор"
-
-#: ../plugins/spell/spell.vala:18
-msgid "Spell Checker"
-msgstr "Проверка на правописа"
-
-#: ../plugins/spell/spell.vala:19
-msgid "Checks the spelling of your documents"
-msgstr "Проверете правописа на вашите документите"
-
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:94
-#: ../plugins/outline/CtagsSymbolResolver.vala:35
-#: ../plugins/outline/CtagsSymbolResolver.vala:68
-#: ../plugins/outline/OutlinePlugin.vala:111
-msgid "Symbols"
-msgstr ""
-
-#: ../plugins/outline/OutlinePlugin.vala:21
-msgid "Outline"
-msgstr ""
-
-#: ../plugins/outline/OutlinePlugin.vala:22
-msgid "Outline symbols in your current file in vala"
-msgstr ""
-
-#: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
-msgid "Highlight Selected Words"
-msgstr ""
-
-#: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
-msgid "Highlights all occurrences of words that are selected"
-msgstr ""
-
-#: ../plugins/filemanager/FileView.vala:90
-msgid "/New File"
-msgstr "/Нов Файл"
-
-#: ../plugins/filemanager/FileManagerPlugin.vala:71
-msgid "Go to parent"
-msgstr "Отиди на по-главната папкка"
-
-#: ../plugins/filemanager/FileManagerPlugin.vala:82
-msgid "Add file"
-msgstr "Добавяне на файл"
-
-#: ../plugins/filemanager/FileManagerPlugin.vala:89
-msgid "Remove file"
-msgstr "Отстраняване на файла"
-
-#: ../plugins/filemanager/FileManagerPlugin.vala:104
-msgid "File Manager"
-msgstr "Файлов Управител"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:20
-#: ../plugins/source-tree/SourceTreePlugin.vala:197
-msgid "Source Tree"
-msgstr "Програмно-кодово Дърво"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:21
-msgid "Have a look at your sources organized in a nice tree"
-msgstr "Прегледайте вашите източници във вид на едно приятно дърво"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:42
-msgid "Loading..."
-msgstr "Зарежда се..."
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:175
-msgid "Bookmark"
-msgstr "Отметка"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:234
-msgid "Files"
-msgstr "Файлове"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:235
-msgid "Project"
-msgstr "Проект"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:236
-msgid "Bookmarks"
-msgstr "Отметки"
+#: ../plugins/word-completion/completion-provider.vala:80
+msgid "Could not load icon theme: %s\n"
+msgstr "Не беше възможно зареждането на иконовата тема: %s\n"
 
 #~ msgid "Go to line..."
 #~ msgstr "Отиване на ред..."
