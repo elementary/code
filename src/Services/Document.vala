@@ -226,6 +226,7 @@ namespace Scratch.Services {
                 var dialog = new Gtk.MessageDialog (parent_window, Gtk.DialogFlags.MODAL,
                                                     Gtk.MessageType.WARNING, Gtk.ButtonsType.NONE, "");
                 dialog.type_hint = Gdk.WindowTypeHint.DIALOG;
+                dialog.deletable = false;
 
                 dialog.use_markup = true;
 
