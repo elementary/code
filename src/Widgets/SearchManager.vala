@@ -165,7 +165,7 @@ namespace Scratch.Widgets {
             }
             
             if (this.text_view != null)
-                this.text_buffer.changed.disconnect (on_text_buffer_changed);
+                this.text_buffer.modified_changed.disconnect (on_text_buffer_modified);
                 
             this.text_view = text_view;
             this.text_buffer = text_view.get_buffer ();
@@ -188,7 +188,7 @@ namespace Scratch.Widgets {
             }
             
             update_go_to_entry ();
-            this.text_buffer.changed.connect (on_text_buffer_changed);
+            this.text_buffer.modified_changed.connect (on_text_buffer_modified);
         }
         
         void on_go_to_entry_activate () {
@@ -223,17 +223,17 @@ namespace Scratch.Widgets {
             }
             string replace_string = replace_entry.text;
             // temporarily disable all textbuffer changed signal handlers
-            this.text_buffer.changed.disconnect (on_text_buffer_changed);
+            this.text_buffer.modified_changed.disconnect (on_text_buffer_modified);
             this.window.get_current_document ().toggle_changed_handlers (false);
             var replaced = search_context.replace_all (replace_string, replace_string.length);
             update_tool_arrows (search_entry.text);
             update_replace_tool_sensitivities (search_entry.text, false);
             // reenable all disabled buffer changed signal handlers
-            this.text_buffer.changed.connect (on_text_buffer_changed);
+            this.text_buffer.modified_changed.connect (on_text_buffer_modified);
             this.window.get_current_document ().toggle_changed_handlers (true);
             // notify the buffer of the change after replace all
             if (replaced > 0)
-                this.text_buffer.changed ();
+                this.text_buffer.modified_changed ();
         }
 
         public void set_search_string (string to_search) {
@@ -469,8 +469,8 @@ namespace Scratch.Widgets {
             //Set the maximum range of the "Go To Line" spinbutton.
             go_to_entry.set_range (1, text_buffer.get_line_count ());        
         }
-        
-        void on_text_buffer_changed () {
+
+        void on_text_buffer_modified () {
             update_go_to_entry ();
         }
     }
