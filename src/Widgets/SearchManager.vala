@@ -36,7 +36,7 @@ namespace Scratch.Widgets {
         public Gtk.SearchEntry replace_entry;
         public Gtk.SpinButton go_to_entry;
         private Gtk.Adjustment go_to_adj;
-        
+
         private Gtk.ToolButton replace_tool_button;
         private Gtk.ToolButton replace_all_tool_button;
 
@@ -163,10 +163,10 @@ namespace Scratch.Widgets {
                 warning ("No SourceView is associated with SearchManager!");
                 return;
             }
-            
+
             if (this.text_view != null)
                 this.text_buffer.modified_changed.disconnect (on_text_buffer_modified);
-                
+
             this.text_view = text_view;
             this.text_buffer = text_view.get_buffer ();
             this.search_context = new Gtk.SourceSearchContext (text_buffer as Gtk.SourceBuffer, null);
@@ -222,18 +222,11 @@ namespace Scratch.Widgets {
                 return;
             }
             string replace_string = replace_entry.text;
-            // temporarily disable all textbuffer changed signal handlers
-            this.text_buffer.modified_changed.disconnect (on_text_buffer_modified);
             this.window.get_current_document ().toggle_changed_handlers (false);
-            var replaced = search_context.replace_all (replace_string, replace_string.length);
+            search_context.replace_all (replace_string, replace_string.length);
             update_tool_arrows (search_entry.text);
             update_replace_tool_sensitivities (search_entry.text, false);
-            // reenable all disabled buffer changed signal handlers
-            this.text_buffer.modified_changed.connect (on_text_buffer_modified);
             this.window.get_current_document ().toggle_changed_handlers (true);
-            // notify the buffer of the change after replace all
-            if (replaced > 0)
-                this.text_buffer.modified_changed ();
         }
 
         public void set_search_string (string to_search) {
