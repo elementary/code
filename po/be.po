@@ -3,102 +3,107 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-29 15:30-0500\n"
-"PO-Revision-Date: 2015-03-20 04:04+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2015-06-03 18:18+0000\n"
+"Last-Translator: Mikel <mishkasta@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-04-30 05:21+0000\n"
-"X-Generator: Launchpad (build 17453)\n"
+"X-Launchpad-Export-Date: 2015-06-04 05:23+0000\n"
+"X-Generator: Launchpad (build 17540)\n"
 
 #: ../src/Scratch.vala:245
 msgid "New Tab"
-msgstr ""
+msgstr "Новая ўкладка"
 
 #: ../src/Scratch.vala:246 ../src/config.vala:18
 msgid "New Window"
-msgstr ""
+msgstr "Новае акно"
 
 #: ../src/Scratch.vala:247
 msgid "Print version info and exit"
-msgstr ""
+msgstr "Друкаваць інфармацыю пра версію і выйсці"
 
 #: ../src/Scratch.vala:248
 msgid "Set of plugins"
-msgstr ""
+msgstr "Збор убудоваў"
 
 #: ../src/Scratch.vala:249
 msgid "Current working directory"
-msgstr ""
+msgstr "Бягучая працоўная тэчка"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
-msgstr ""
+msgstr "Рэдагаванне тэкставых файлаў"
 
 #: ../src/config.vala:16
 msgid "Text Editor"
-msgstr ""
+msgstr "Тэкставы рэдактар"
 
 #: ../src/config.vala:17 ../src/Services/Document.vala:406
 msgid "New Document"
-msgstr ""
+msgstr "Новы дакумент"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr ""
+msgstr "Пра Scratch"
 
 #: ../src/Services/Document.vala:232
 msgid "Save changes to document %s before closing?"
-msgstr ""
+msgstr "Захаваць змены ў дакуменце %s перад закрыццём?"
 
 #: ../src/Services/Document.vala:235
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
+"Калі не захаваць, змены за апошнія 4 секунды будуць назаўсёды страчаны."
 
 #: ../src/Services/Document.vala:237
 msgid "Close without saving"
-msgstr ""
+msgstr "Закрыць не захоўваючы"
 
 #: ../src/Services/Document.vala:241 ../src/Utils.vala:29
 msgid "Cancel"
-msgstr ""
+msgstr "Скасаваць"
 
 #: ../src/Services/Document.vala:242 ../src/Services/Document.vala:547
 #: ../src/Utils.vala:33 ../src/MainWindow.vala:872
 msgid "Save"
-msgstr ""
+msgstr "Захаваць"
 
 #: ../src/Services/Document.vala:314
 msgid "Save File"
-msgstr ""
+msgstr "Захаваць файл"
 
 #: ../src/Services/Document.vala:522
 msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
+"Не магу прачытаць файл \"%s\". Магчыма, ён сапсаваны альбо Вы не маеце "
+"патрэбных прывілеяў, каб яго прачытаць."
 
 #: ../src/Services/Document.vala:538
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
-msgstr ""
+msgstr "Месца з файлам \"%s\" адмацавана. Хаціце захаваць у іншым месцы?"
 
 #: ../src/Services/Document.vala:540 ../src/MainWindow.vala:876
 msgid "Save As…"
-msgstr ""
+msgstr "Захаваць як..."
 
 #: ../src/Services/Document.vala:545
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "Файл \"%s\" быў выдалены. Захаваць усё роўна?"
 
 #: ../src/Services/Document.vala:558
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 msgstr ""
+"Вы не можаце захаваць змены ў файле \"%s\". Хаціце захаваць змены гэтага "
+"файла дзе-небудзь яшчэ?"
 
 #: ../src/Services/Document.vala:560
 msgid "Save changes elsewhere"
