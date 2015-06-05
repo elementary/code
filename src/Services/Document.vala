@@ -582,6 +582,9 @@ namespace Scratch.Services {
                         return;
                     }
 
+                    if (source_view.buffer.text == new_buffer.text)
+                        return;
+
                     if (!source_view.buffer.get_modified ()) {
                         if (settings.autosave) {
                             source_view.set_text (new_buffer.text, false);
