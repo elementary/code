@@ -134,6 +134,11 @@
 			<summary>Preferred Style Scheme</summary>
 			<description>Set the preferred style scheme.</description>
 		</key>
+		<key name="focused-document" type="s">
+			<default>''</default>
+			<summary>Remember the last focused document.</summary>
+			<description>Restore the focused document from a previous session when opening Scratch.</description>
+		</key>
 	</schema>
 	<schema path="/org/pantheon/scratch/services/" id="org.pantheon.scratch.services" gettext-domain="scratch">
 		<key name="paste-format-code" type="s">

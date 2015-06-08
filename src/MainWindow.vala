@@ -519,8 +519,23 @@ namespace Scratch {
             });
 
             // Update the opened-files setting
-            if (settings.show_at_start == "last-tabs")
-               settings.schema.set_strv ("opened-files", opened_files);
+            if (settings.show_at_start == "last-tabs") {
+                settings.schema.set_strv ("opened-files", opened_files);
+
+                // Update the focused-document setting
+                string file_uri = "";
+                if (this.split_view.current_view != null) {
+                    var current_document = this.split_view.current_view.get_current_document();
+                    if (current_document != null) {
+                        file_uri = current_document.file.get_uri();
+                    }
+                }
+
+                if (file_uri != "")
+                    settings.schema.set_string("focused-document", file_uri);
+                else
+                    settings.schema.reset("focused-document");
+            }
         }
 
         // SIGTERM/SIGINT Handling
