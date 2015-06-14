@@ -8,22 +8,22 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-04-29 15:30-0500\n"
-"PO-Revision-Date: 2015-02-08 13:29+0000\n"
-"Last-Translator: Aleksandar Neskovski <Unknown>\n"
+"PO-Revision-Date: 2015-06-13 17:47+0000\n"
+"Last-Translator: Goran Maksimovski <Unknown>\n"
 "Language-Team: Macedonian <mk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-04-30 05:22+0000\n"
-"X-Generator: Launchpad (build 17453)\n"
+"X-Launchpad-Export-Date: 2015-06-14 05:36+0000\n"
+"X-Generator: Launchpad (build 17557)\n"
 
 #: ../src/Scratch.vala:245
 msgid "New Tab"
-msgstr ""
+msgstr "Ново ливче"
 
 #: ../src/Scratch.vala:246 ../src/config.vala:18
 msgid "New Window"
-msgstr ""
+msgstr "Нов прозорец"
 
 #: ../src/Scratch.vala:247
 msgid "Print version info and exit"
@@ -35,19 +35,19 @@ msgstr ""
 
 #: ../src/Scratch.vala:249
 msgid "Current working directory"
-msgstr ""
+msgstr "Моментална работна директорија"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
-msgstr ""
+msgstr "Уредувај текстуални датотеки"
 
 #: ../src/config.vala:16
 msgid "Text Editor"
-msgstr ""
+msgstr "Уредувач на текст"
 
 #: ../src/config.vala:17 ../src/Services/Document.vala:406
 msgid "New Document"
-msgstr ""
+msgstr "Нов документ"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
@@ -55,35 +55,38 @@ msgstr ""
 
 #: ../src/Services/Document.vala:232
 msgid "Save changes to document %s before closing?"
-msgstr ""
+msgstr "Да се зачуваат промените во документот %s пред да се затвори?"
 
 #: ../src/Services/Document.vala:235
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
+"Ако не зачувате, промените од последните 4 секунди ќе бидат трајно изгубени."
 
 #: ../src/Services/Document.vala:237
 msgid "Close without saving"
-msgstr ""
+msgstr "Затвори без зачувување."
 
 #: ../src/Services/Document.vala:241 ../src/Utils.vala:29
 msgid "Cancel"
-msgstr ""
+msgstr "Откажи"
 
 #: ../src/Services/Document.vala:242 ../src/Services/Document.vala:547
 #: ../src/Utils.vala:33 ../src/MainWindow.vala:872
 msgid "Save"
-msgstr ""
+msgstr "Зачувај"
 
 #: ../src/Services/Document.vala:314
 msgid "Save File"
-msgstr ""
+msgstr "Зачувај датотека"
 
 #: ../src/Services/Document.vala:522
 msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
+"Датотеката \"%s\" не може да биде прочитана. Можеби е расипана\n"
+"или немате овластувања за да ја читате."
 
 #: ../src/Services/Document.vala:538
 msgid ""
@@ -93,17 +96,19 @@ msgstr ""
 
 #: ../src/Services/Document.vala:540 ../src/MainWindow.vala:876
 msgid "Save As…"
-msgstr ""
+msgstr "Зачувај како..."
 
 #: ../src/Services/Document.vala:545
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "Датотеката \"%s\" беше избришана. Дали сепак сакате да зачувате?"
 
 #: ../src/Services/Document.vala:558
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 msgstr ""
+"Не можете да ги зачувате промените на датотеката \"%s\". Дали сакате да ги "
+"зачувате промените на оваа датотека на друга локација?"
 
 #: ../src/Services/Document.vala:560
 msgid "Save changes elsewhere"
@@ -117,15 +122,15 @@ msgstr ""
 
 #: ../src/Services/Document.vala:589
 msgid "Load"
-msgstr ""
+msgstr "Вчитај"
 
 #: ../src/Services/Document.vala:592
 msgid "Continue"
-msgstr ""
+msgstr "Продолжи"
 
 #: ../src/Services/TemplateManager.vala:231 ../src/MainWindow.vala:880
 msgid "Templates"
-msgstr ""
+msgstr "Обрасци"
 
 #: ../src/Widgets/DocumentView.vala:96
 msgid "Text file from "
@@ -133,64 +138,64 @@ msgstr ""
 
 #: ../src/Widgets/SourceView.vala:134
 msgid "Syntax Highlighting"
-msgstr ""
+msgstr "Означување на синтакса"
 
 #: ../src/Widgets/SourceView.vala:145
 msgid "Normal Text"
-msgstr ""
+msgstr "Нормален текст"
 
 #: ../src/Widgets/LoadingView.vala:36
 msgid "Wait while restoring last session..."
-msgstr ""
+msgstr "Почекајте додека ја вратиме старата сесија..."
 
 #: ../src/Widgets/SearchManager.vala:72
 msgid "Find"
-msgstr ""
+msgstr "Најди"
 
 #: ../src/Widgets/SearchManager.vala:92
 msgid "Replace With"
-msgstr ""
+msgstr "Замени со"
 
 #: ../src/Widgets/SearchManager.vala:114 ../src/MainWindow.vala:824
 #: ../src/MainWindow.vala:825
 msgid "Replace"
-msgstr ""
+msgstr "Замени"
 
 #: ../src/Widgets/SearchManager.vala:118
 msgid "Replace all"
-msgstr ""
+msgstr "Замени ги сите"
 
 #: ../src/Widgets/SearchManager.vala:126
 msgid "Go To Line:"
-msgstr ""
+msgstr "Оди на линија:"
 
 #: ../src/Widgets/ToolBar.vala:58
 msgid "Share"
-msgstr ""
+msgstr "Сподели"
 
 #: ../src/Widgets/SplitView.vala:47
 msgid "No Files Open"
-msgstr ""
+msgstr "Нема отворени датотеки"
 
 #: ../src/Widgets/SplitView.vala:48
 msgid "Open a file to begin editing."
-msgstr ""
+msgstr "Отвори датотека за да започнете со изменување."
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "New file"
-msgstr ""
+msgstr "Нова датотека"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "Create a new empty file."
-msgstr ""
+msgstr "Создади нова празна датотека."
 
 #: ../src/Widgets/SplitView.vala:53
 msgid "Open file"
-msgstr ""
+msgstr "Отвори датотека"
 
 #: ../src/Widgets/SplitView.vala:53
 msgid "Open a saved file."
-msgstr ""
+msgstr "Отвори зачувана датотека"
 
 #: ../src/Widgets/SplitView.vala:54
 msgid "New file from clipboard"
@@ -202,7 +207,7 @@ msgstr ""
 
 #: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:884
 msgid "Preferences"
-msgstr "Преференции"
+msgstr "Преференци"
 
 #: ../src/Dialogs/PreferencesDialog.vala:66
 msgid "Behavior"
@@ -247,7 +252,7 @@ msgstr ""
 
 #: ../src/Dialogs/PreferencesDialog.vala:167
 msgid "Automatic indentation:"
-msgstr ""
+msgstr "Автоматско вдлабнување (на текст):"
 
 #: ../src/Dialogs/PreferencesDialog.vala:170
 msgid "Insert spaces instead of tabs:"
@@ -255,15 +260,15 @@ msgstr ""
 
 #: ../src/Dialogs/PreferencesDialog.vala:174
 msgid "Tab width:"
-msgstr ""
+msgstr "Ширина на табулатор:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:202
 msgid "Editor:"
-msgstr ""
+msgstr "Уредувач:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:220
 msgid "Highlight current line:"
-msgstr ""
+msgstr "Означи моментална линија:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:221
 msgid "Highlight matching brackets:"
@@ -271,7 +276,7 @@ msgstr ""
 
 #: ../src/Dialogs/PreferencesDialog.vala:222
 msgid "Split long text in many lines:"
-msgstr ""
+msgstr "Подели долг текст на многу линии:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:223
 msgid "Draw spaces:"
@@ -279,7 +284,7 @@ msgstr ""
 
 #: ../src/Dialogs/PreferencesDialog.vala:224
 msgid "Show line numbers:"
-msgstr ""
+msgstr "Прикажи број на ред."
 
 #: ../src/Dialogs/PreferencesDialog.vala:227
 msgid "Line width guide:"
@@ -291,7 +296,7 @@ msgstr ""
 
 #: ../src/Dialogs/PreferencesDialog.vala:257
 msgid "Select font:"
-msgstr ""
+msgstr "Избери фонт:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:260
 msgid "Color scheme:"
@@ -304,15 +309,15 @@ msgstr ""
 #: ../src/Utils.vala:31 ../src/MainWindow.vala:860
 #: ../plugins/filemanager/FileView.vala:282
 msgid "Open"
-msgstr ""
+msgstr "Отвори"
 
 #: ../src/Utils.vala:42
 msgid "All files"
-msgstr ""
+msgstr "Сите датотеки"
 
 #: ../src/Utils.vala:45
 msgid "Text files"
-msgstr ""
+msgstr "Текстуални датотеки"
 
 #: ../src/MainWindow.vala:110
 msgid "Zeitgeist Datasource for Scratch"
@@ -320,7 +325,7 @@ msgstr ""
 
 #: ../src/MainWindow.vala:192
 msgid "Trash"
-msgstr ""
+msgstr "Ѓубре"
 
 #: ../src/MainWindow.vala:632
 msgid "Open some files"
@@ -328,19 +333,19 @@ msgstr ""
 
 #: ../src/MainWindow.vala:753
 msgid "Hide search bar"
-msgstr ""
+msgstr "Скриј поле за пребарување"
 
 #: ../src/MainWindow.vala:808 ../src/MainWindow.vala:809
 msgid "Find…"
-msgstr ""
+msgstr "Најди..."
 
 #: ../src/MainWindow.vala:812 ../src/MainWindow.vala:813
 msgid "Go to line…"
-msgstr ""
+msgstr "Оди на ред..."
 
 #: ../src/MainWindow.vala:816 ../src/MainWindow.vala:817
 msgid "Quit"
-msgstr ""
+msgstr "Излез"
 
 #: ../src/MainWindow.vala:828
 msgid "Reopen closed document"
