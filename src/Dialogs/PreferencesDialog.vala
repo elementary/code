@@ -219,7 +219,7 @@ namespace Scratch.Dialogs {
 
             add_option (content, new Label (_("Highlight current line:")), highlight_current_line, ref row);
             add_option (content, new Label (_("Highlight matching brackets:")), highlight_matching_brackets, ref row);           
-            add_option (content, new Label (_("Split long text in many lines:")), line_break, ref row);    
+            add_option (content, new Label (_("Line wrap:")), line_break, ref row);
             add_option (content, new Label (_("Draw spaces:")), draw_spaces, ref row);           
             add_option (content, new Label (_("Show line numbers:")), line_numbers, ref row);
 
