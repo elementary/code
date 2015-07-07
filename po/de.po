@@ -7,34 +7,34 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-29 15:30-0500\n"
+"POT-Creation-Date: 2015-07-06 17:41-0500\n"
 "PO-Revision-Date: 2015-06-13 15:16+0000\n"
 "Last-Translator: Jannik Koch <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-06-14 05:36+0000\n"
-"X-Generator: Launchpad (build 17557)\n"
+"X-Launchpad-Export-Date: 2015-07-07 05:29+0000\n"
+"X-Generator: Launchpad (build 17597)\n"
 "Language: de\n"
 
-#: ../src/Scratch.vala:245
+#: ../src/Scratch.vala:262
 msgid "New Tab"
 msgstr "Neuer Tab"
 
-#: ../src/Scratch.vala:246 ../src/config.vala:18
+#: ../src/Scratch.vala:263 ../src/config.vala:18
 msgid "New Window"
 msgstr "Neues Fenster"
 
-#: ../src/Scratch.vala:247
+#: ../src/Scratch.vala:264
 msgid "Print version info and exit"
 msgstr "Versionsinformation anzeigen und beenden"
 
-#: ../src/Scratch.vala:248
+#: ../src/Scratch.vala:265
 msgid "Set of plugins"
 msgstr "Erweiterungssammlung"
 
-#: ../src/Scratch.vala:249
+#: ../src/Scratch.vala:266
 msgid "Current working directory"
 msgstr "Aktuelles Arbeitsverzeichnis"
 
@@ -46,7 +46,7 @@ msgstr "Textdateien bearbeiten"
 msgid "Text Editor"
 msgstr "Textbearbeitung"
 
-#: ../src/config.vala:17 ../src/Services/Document.vala:406
+#: ../src/config.vala:17 ../src/Services/Document.vala:407
 msgid "New Document"
 msgstr "Neues Dokument"
 
@@ -54,36 +54,36 @@ msgstr "Neues Dokument"
 msgid "About Scratch"
 msgstr "Über Scratch"
 
-#: ../src/Services/Document.vala:232
+#: ../src/Services/Document.vala:233
 msgid "Save changes to document %s before closing?"
 msgstr ""
 "Sollen die Änderungen am Dokument %s vor dem Schließen gespeichert werden?"
 
-#: ../src/Services/Document.vala:235
+#: ../src/Services/Document.vala:236
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
 "Wenn Sie nicht speichern, gehen Ihre Änderungen der letzten 4 Sekunden "
 "unwiderruflich verloren."
 
-#: ../src/Services/Document.vala:237
+#: ../src/Services/Document.vala:238
 msgid "Close without saving"
 msgstr "Schließen ohne zu speichern"
 
-#: ../src/Services/Document.vala:241 ../src/Utils.vala:29
+#: ../src/Services/Document.vala:242 ../src/Utils.vala:29
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: ../src/Services/Document.vala:242 ../src/Services/Document.vala:547
-#: ../src/Utils.vala:33 ../src/MainWindow.vala:872
+#: ../src/Services/Document.vala:243 ../src/Services/Document.vala:548
+#: ../src/Utils.vala:33 ../src/MainWindow.vala:891
 msgid "Save"
 msgstr "Speichern"
 
-#: ../src/Services/Document.vala:314
+#: ../src/Services/Document.vala:315
 msgid "Save File"
 msgstr "Datei speichern"
 
-#: ../src/Services/Document.vala:522
+#: ../src/Services/Document.vala:523
 msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
@@ -92,7 +92,7 @@ msgstr ""
 "beschädigt\n"
 "oder Sie verfügen nicht über die benötigten Rechte um sie zu lesen."
 
-#: ../src/Services/Document.vala:538
+#: ../src/Services/Document.vala:539
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
@@ -100,15 +100,15 @@ msgstr ""
 "Der Ort, an dem sich die Datei \"%s\" befindet, wurde ausgehängt. Möchten "
 "Sie an einem anderen Ort speichern?"
 
-#: ../src/Services/Document.vala:540 ../src/MainWindow.vala:876
+#: ../src/Services/Document.vala:541 ../src/MainWindow.vala:895
 msgid "Save As…"
 msgstr "Speichern unter …"
 
-#: ../src/Services/Document.vala:545
+#: ../src/Services/Document.vala:546
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Die Datei \"%s\" wurde gelöscht. Möchten Sie sie trotzdem speichern?"
 
-#: ../src/Services/Document.vala:558
+#: ../src/Services/Document.vala:559
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
@@ -116,11 +116,11 @@ msgstr ""
 "Sie können die Änderungen an der Datei \"%s\" nicht speichern. Möchten Sie "
 "die Änderungen an einem anderen Ort speichern?"
 
-#: ../src/Services/Document.vala:560
+#: ../src/Services/Document.vala:561
 msgid "Save changes elsewhere"
 msgstr "Änderungen woanders speichern"
 
-#: ../src/Services/Document.vala:588
+#: ../src/Services/Document.vala:592
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
@@ -128,15 +128,15 @@ msgstr ""
 "Die Datei \"%s\" wurde von einer externen Anwendung bearbeitet. Möchten Sie "
 "sie noch einmal laden oder mit Ihrer Bearbeitung fortfahren?"
 
-#: ../src/Services/Document.vala:589
+#: ../src/Services/Document.vala:593
 msgid "Load"
 msgstr "Laden"
 
-#: ../src/Services/Document.vala:592
+#: ../src/Services/Document.vala:596
 msgid "Continue"
 msgstr "Fortfahren"
 
-#: ../src/Services/TemplateManager.vala:231 ../src/MainWindow.vala:880
+#: ../src/Services/TemplateManager.vala:231 ../src/MainWindow.vala:899
 msgid "Templates"
 msgstr "Vorlagen"
 
@@ -164,8 +164,8 @@ msgstr "Suchen"
 msgid "Replace With"
 msgstr "Ersetzen durch"
 
-#: ../src/Widgets/SearchManager.vala:114 ../src/MainWindow.vala:824
-#: ../src/MainWindow.vala:825
+#: ../src/Widgets/SearchManager.vala:114 ../src/MainWindow.vala:843
+#: ../src/MainWindow.vala:844
 msgid "Replace"
 msgstr "Ersetzen"
 
@@ -213,7 +213,7 @@ msgstr "Neue Datei aus der Zwischenablage"
 msgid "Create a new file from the contents of your clipboard."
 msgstr "Erstellen Sie eine neue Datei aus dem Inhalt Ihrer Zwischenablage."
 
-#: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:884
+#: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:903
 msgid "Preferences"
 msgstr "Einstellungen"
 
@@ -229,8 +229,8 @@ msgstr "Oberfläche"
 msgid "Extensions"
 msgstr "Erweiterungen"
 
-#: ../src/Dialogs/PreferencesDialog.vala:86 ../src/MainWindow.vala:820
-#: ../src/MainWindow.vala:821
+#: ../src/Dialogs/PreferencesDialog.vala:86 ../src/MainWindow.vala:839
+#: ../src/MainWindow.vala:840
 msgid "Close"
 msgstr "Schließen"
 
@@ -283,8 +283,8 @@ msgid "Highlight matching brackets:"
 msgstr "Zusammengehörende Klammern hervorheben:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:222
-msgid "Split long text in many lines:"
-msgstr "Automatischer Zeilenumbruch:"
+msgid "Line wrap:"
+msgstr ""
 
 #: ../src/Dialogs/PreferencesDialog.vala:223
 msgid "Draw spaces:"
@@ -314,7 +314,7 @@ msgstr "Farbschema:"
 msgid "Custom font:"
 msgstr "Benutzerdefinierte Schrift:"
 
-#: ../src/Utils.vala:31 ../src/MainWindow.vala:860
+#: ../src/Utils.vala:31 ../src/MainWindow.vala:879
 #: ../plugins/filemanager/FileView.vala:282
 msgid "Open"
 msgstr "Öffnen"
@@ -335,131 +335,131 @@ msgstr "Zeitgeist-Datenquelle für Scratch"
 msgid "Trash"
 msgstr "Papierkorb"
 
-#: ../src/MainWindow.vala:632
+#: ../src/MainWindow.vala:647
 msgid "Open some files"
 msgstr "Ein paar Dateien öffnen"
 
-#: ../src/MainWindow.vala:753
+#: ../src/MainWindow.vala:772
 msgid "Hide search bar"
 msgstr "Suchleiste verstecken"
 
-#: ../src/MainWindow.vala:808 ../src/MainWindow.vala:809
+#: ../src/MainWindow.vala:827 ../src/MainWindow.vala:828
 msgid "Find…"
 msgstr "Suchen …"
 
-#: ../src/MainWindow.vala:812 ../src/MainWindow.vala:813
+#: ../src/MainWindow.vala:831 ../src/MainWindow.vala:832
 msgid "Go to line…"
 msgstr "Zur Zeile gehen …"
 
-#: ../src/MainWindow.vala:816 ../src/MainWindow.vala:817
+#: ../src/MainWindow.vala:835 ../src/MainWindow.vala:836
 msgid "Quit"
 msgstr "Beenden"
 
-#: ../src/MainWindow.vala:828
+#: ../src/MainWindow.vala:847
 msgid "Reopen closed document"
 msgstr "Geschlossenes Dokument öffnen"
 
-#: ../src/MainWindow.vala:829
+#: ../src/MainWindow.vala:848
 msgid "Open last closed document in a new tab"
 msgstr "Zuletzt geschlossenes Dokument in neuem Tab öffnen"
 
-#: ../src/MainWindow.vala:832
+#: ../src/MainWindow.vala:851
 msgid "Add New Tab"
 msgstr "Neuen Tab hinzufügen"
 
-#: ../src/MainWindow.vala:833
+#: ../src/MainWindow.vala:852
 msgid "Add a new tab"
 msgstr "Einen neuen Tab hinzufügen"
 
-#: ../src/MainWindow.vala:836
+#: ../src/MainWindow.vala:855
 msgid "Add New View"
 msgstr "Neue Ansicht hinzufügen"
 
-#: ../src/MainWindow.vala:837
+#: ../src/MainWindow.vala:856
 msgid "Add a new view"
 msgstr "Eine neue Ansicht hinzufügen"
 
-#: ../src/MainWindow.vala:840
+#: ../src/MainWindow.vala:859
 msgid "Remove Current View"
 msgstr "Aktuelle Ansicht entfernen"
 
-#: ../src/MainWindow.vala:841
+#: ../src/MainWindow.vala:860
 msgid "Remove this view"
 msgstr "Diese Ansicht entfernen"
 
-#: ../src/MainWindow.vala:844
+#: ../src/MainWindow.vala:863
 msgid "Undo"
 msgstr "Rückgängig"
 
-#: ../src/MainWindow.vala:845
+#: ../src/MainWindow.vala:864
 msgid "Undo the last action"
 msgstr "Die letzte Aktion rückgängig machen"
 
-#: ../src/MainWindow.vala:848
+#: ../src/MainWindow.vala:867
 msgid "Redo"
 msgstr "Wiederherstellen"
 
-#: ../src/MainWindow.vala:849
+#: ../src/MainWindow.vala:868
 msgid "Redo the last undone action"
 msgstr "Die zuletzt rückgängig gemachte Aktion wiederherstellen"
 
-#: ../src/MainWindow.vala:852
+#: ../src/MainWindow.vala:871
 msgid "Revert"
 msgstr "Wiederherstellen"
 
-#: ../src/MainWindow.vala:853
+#: ../src/MainWindow.vala:872
 msgid "Restore this file"
 msgstr "Diese Datei wiederherstellen"
 
-#: ../src/MainWindow.vala:856 ../src/MainWindow.vala:857
+#: ../src/MainWindow.vala:875 ../src/MainWindow.vala:876
 msgid "Duplicate selected strings"
 msgstr "Ausgewählte Zeichenketten verdoppeln"
 
-#: ../src/MainWindow.vala:861
+#: ../src/MainWindow.vala:880
 msgid "Open a file"
 msgstr "Datei öffnen"
 
-#: ../src/MainWindow.vala:864
+#: ../src/MainWindow.vala:883
 msgid "Clipboard"
 msgstr "Zwischenablage"
 
-#: ../src/MainWindow.vala:865
+#: ../src/MainWindow.vala:884
 msgid "New file from Clipboard"
 msgstr "Neue Datei aus der Zwischenablage"
 
-#: ../src/MainWindow.vala:868
+#: ../src/MainWindow.vala:887
 msgid "Zoom"
 msgstr "Vergrößerung"
 
-#: ../src/MainWindow.vala:869
+#: ../src/MainWindow.vala:888
 msgid "Zoom 1:1"
 msgstr "Normale Ansichtsgröße"
 
-#: ../src/MainWindow.vala:873
+#: ../src/MainWindow.vala:892
 msgid "Save this file"
 msgstr "Diese Datei speichern"
 
-#: ../src/MainWindow.vala:877
+#: ../src/MainWindow.vala:896
 msgid "Save this file with a different name"
 msgstr "Diese Datei unter anderem Namen speichern"
 
-#: ../src/MainWindow.vala:881
+#: ../src/MainWindow.vala:900
 msgid "Project templates"
 msgstr "Projektvorlagen"
 
-#: ../src/MainWindow.vala:885
+#: ../src/MainWindow.vala:904
 msgid "Change Scratch settings"
 msgstr "Scratch-Einstellungen ändern"
 
-#: ../src/MainWindow.vala:888 ../src/MainWindow.vala:889
+#: ../src/MainWindow.vala:907 ../src/MainWindow.vala:908
 msgid "Next Tab"
 msgstr "Nächster Tab"
 
-#: ../src/MainWindow.vala:892 ../src/MainWindow.vala:893
+#: ../src/MainWindow.vala:911 ../src/MainWindow.vala:912
 msgid "Previous Tab"
 msgstr "Vorheriger Tab"
 
-#: ../src/MainWindow.vala:909 ../src/MainWindow.vala:910
+#: ../src/MainWindow.vala:928 ../src/MainWindow.vala:929
 msgid "Fullscreen"
 msgstr "Vollbild"
 

@@ -7,33 +7,33 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-04-29 15:30-0500\n"
+"POT-Creation-Date: 2015-07-06 17:41-0500\n"
 "PO-Revision-Date: 2013-01-27 06:27+0000\n"
 "Last-Translator: Trung Ngô <ndtrung4419@gmail.com>\n"
 "Language-Team: Vietnamese <vi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-04-30 05:23+0000\n"
-"X-Generator: Launchpad (build 17453)\n"
+"X-Launchpad-Export-Date: 2015-07-07 05:31+0000\n"
+"X-Generator: Launchpad (build 17597)\n"
 
-#: ../src/Scratch.vala:245
+#: ../src/Scratch.vala:262
 msgid "New Tab"
 msgstr ""
 
-#: ../src/Scratch.vala:246 ../src/config.vala:18
+#: ../src/Scratch.vala:263 ../src/config.vala:18
 msgid "New Window"
 msgstr "Cửa sổ mới"
 
-#: ../src/Scratch.vala:247
+#: ../src/Scratch.vala:264
 msgid "Print version info and exit"
 msgstr ""
 
-#: ../src/Scratch.vala:248
+#: ../src/Scratch.vala:265
 msgid "Set of plugins"
 msgstr "Tập hợp plugin"
 
-#: ../src/Scratch.vala:249
+#: ../src/Scratch.vala:266
 msgid "Current working directory"
 msgstr ""
 
@@ -45,7 +45,7 @@ msgstr "Soạn thảo tập tin văn bản"
 msgid "Text Editor"
 msgstr "Bộ soạn thảo văn bản"
 
-#: ../src/config.vala:17 ../src/Services/Document.vala:406
+#: ../src/config.vala:17 ../src/Services/Document.vala:407
 msgid "New Document"
 msgstr "Tạo tài liệu mới"
 
@@ -53,77 +53,77 @@ msgstr "Tạo tài liệu mới"
 msgid "About Scratch"
 msgstr ""
 
-#: ../src/Services/Document.vala:232
+#: ../src/Services/Document.vala:233
 msgid "Save changes to document %s before closing?"
 msgstr "Bạn có muốn lưu các thay đổi vào tài liệu %s trước khi đóng không?"
 
-#: ../src/Services/Document.vala:235
+#: ../src/Services/Document.vala:236
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr "Nếu bạn không lưu, thay đổi trong 4 giây trước sẽ bị mất mãi mãi"
 
-#: ../src/Services/Document.vala:237
+#: ../src/Services/Document.vala:238
 msgid "Close without saving"
 msgstr "Đóng không lưu"
 
-#: ../src/Services/Document.vala:241 ../src/Utils.vala:29
+#: ../src/Services/Document.vala:242 ../src/Utils.vala:29
 msgid "Cancel"
 msgstr ""
 
-#: ../src/Services/Document.vala:242 ../src/Services/Document.vala:547
-#: ../src/Utils.vala:33 ../src/MainWindow.vala:872
+#: ../src/Services/Document.vala:243 ../src/Services/Document.vala:548
+#: ../src/Utils.vala:33 ../src/MainWindow.vala:891
 msgid "Save"
 msgstr "Lưu"
 
-#: ../src/Services/Document.vala:314
+#: ../src/Services/Document.vala:315
 msgid "Save File"
 msgstr ""
 
-#: ../src/Services/Document.vala:522
+#: ../src/Services/Document.vala:523
 msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
 
-#: ../src/Services/Document.vala:538
+#: ../src/Services/Document.vala:539
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
 
-#: ../src/Services/Document.vala:540 ../src/MainWindow.vala:876
+#: ../src/Services/Document.vala:541 ../src/MainWindow.vala:895
 msgid "Save As…"
 msgstr ""
 
-#: ../src/Services/Document.vala:545
+#: ../src/Services/Document.vala:546
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr ""
 
-#: ../src/Services/Document.vala:558
+#: ../src/Services/Document.vala:559
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 msgstr ""
 
-#: ../src/Services/Document.vala:560
+#: ../src/Services/Document.vala:561
 msgid "Save changes elsewhere"
 msgstr "Lưu thay đổi vào nơi khác"
 
-#: ../src/Services/Document.vala:588
+#: ../src/Services/Document.vala:592
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
 
-#: ../src/Services/Document.vala:589
+#: ../src/Services/Document.vala:593
 msgid "Load"
 msgstr ""
 
-#: ../src/Services/Document.vala:592
+#: ../src/Services/Document.vala:596
 msgid "Continue"
 msgstr ""
 
-#: ../src/Services/TemplateManager.vala:231 ../src/MainWindow.vala:880
+#: ../src/Services/TemplateManager.vala:231 ../src/MainWindow.vala:899
 msgid "Templates"
 msgstr "Các mẫu"
 
@@ -151,8 +151,8 @@ msgstr "Tìm kiếm"
 msgid "Replace With"
 msgstr "Thay thế bằng"
 
-#: ../src/Widgets/SearchManager.vala:114 ../src/MainWindow.vala:824
-#: ../src/MainWindow.vala:825
+#: ../src/Widgets/SearchManager.vala:114 ../src/MainWindow.vala:843
+#: ../src/MainWindow.vala:844
 msgid "Replace"
 msgstr "Thay thế"
 
@@ -200,7 +200,7 @@ msgstr ""
 msgid "Create a new file from the contents of your clipboard."
 msgstr ""
 
-#: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:884
+#: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:903
 msgid "Preferences"
 msgstr "Tùy chỉnh"
 
@@ -216,8 +216,8 @@ msgstr "Giao diện"
 msgid "Extensions"
 msgstr "Phần mở rộng"
 
-#: ../src/Dialogs/PreferencesDialog.vala:86 ../src/MainWindow.vala:820
-#: ../src/MainWindow.vala:821
+#: ../src/Dialogs/PreferencesDialog.vala:86 ../src/MainWindow.vala:839
+#: ../src/MainWindow.vala:840
 msgid "Close"
 msgstr "Đóng"
 
@@ -270,8 +270,8 @@ msgid "Highlight matching brackets:"
 msgstr "Làm nổi bật ngoặc tương ứng:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:222
-msgid "Split long text in many lines:"
-msgstr "Ngắt dòng dài thành nhiều dòng ngắn hơn:"
+msgid "Line wrap:"
+msgstr ""
 
 #: ../src/Dialogs/PreferencesDialog.vala:223
 msgid "Draw spaces:"
@@ -301,7 +301,7 @@ msgstr "Kiểu màu:"
 msgid "Custom font:"
 msgstr "Tùy biến phông:"
 
-#: ../src/Utils.vala:31 ../src/MainWindow.vala:860
+#: ../src/Utils.vala:31 ../src/MainWindow.vala:879
 #: ../plugins/filemanager/FileView.vala:282
 msgid "Open"
 msgstr "Mở"
@@ -322,131 +322,131 @@ msgstr "Nguồn dữ liệu Zeitgeist cho Scratch"
 msgid "Trash"
 msgstr "Thùng rác"
 
-#: ../src/MainWindow.vala:632
+#: ../src/MainWindow.vala:647
 msgid "Open some files"
 msgstr ""
 
-#: ../src/MainWindow.vala:753
+#: ../src/MainWindow.vala:772
 msgid "Hide search bar"
 msgstr "Ẩn thanh tìm kiếm"
 
-#: ../src/MainWindow.vala:808 ../src/MainWindow.vala:809
+#: ../src/MainWindow.vala:827 ../src/MainWindow.vala:828
 msgid "Find…"
 msgstr ""
 
-#: ../src/MainWindow.vala:812 ../src/MainWindow.vala:813
+#: ../src/MainWindow.vala:831 ../src/MainWindow.vala:832
 msgid "Go to line…"
 msgstr ""
 
-#: ../src/MainWindow.vala:816 ../src/MainWindow.vala:817
+#: ../src/MainWindow.vala:835 ../src/MainWindow.vala:836
 msgid "Quit"
 msgstr "Thoát"
 
-#: ../src/MainWindow.vala:828
+#: ../src/MainWindow.vala:847
 msgid "Reopen closed document"
 msgstr ""
 
-#: ../src/MainWindow.vala:829
+#: ../src/MainWindow.vala:848
 msgid "Open last closed document in a new tab"
 msgstr ""
 
-#: ../src/MainWindow.vala:832
+#: ../src/MainWindow.vala:851
 msgid "Add New Tab"
 msgstr ""
 
-#: ../src/MainWindow.vala:833
+#: ../src/MainWindow.vala:852
 msgid "Add a new tab"
 msgstr ""
 
-#: ../src/MainWindow.vala:836
+#: ../src/MainWindow.vala:855
 msgid "Add New View"
 msgstr "Thêm Khung nhìn mới"
 
-#: ../src/MainWindow.vala:837
+#: ../src/MainWindow.vala:856
 msgid "Add a new view"
 msgstr "Thêm Khung nhìn mới"
 
-#: ../src/MainWindow.vala:840
+#: ../src/MainWindow.vala:859
 msgid "Remove Current View"
 msgstr "Bỏ Khung nhìn hiện tại"
 
-#: ../src/MainWindow.vala:841
+#: ../src/MainWindow.vala:860
 msgid "Remove this view"
 msgstr "Bỏ Khung nhìn này"
 
-#: ../src/MainWindow.vala:844
+#: ../src/MainWindow.vala:863
 msgid "Undo"
 msgstr "Hoàn tác"
 
-#: ../src/MainWindow.vala:845
+#: ../src/MainWindow.vala:864
 msgid "Undo the last action"
 msgstr "Hồi lại hành động cuối"
 
-#: ../src/MainWindow.vala:848
+#: ../src/MainWindow.vala:867
 msgid "Redo"
 msgstr "Làm lại"
 
-#: ../src/MainWindow.vala:849
+#: ../src/MainWindow.vala:868
 msgid "Redo the last undone action"
 msgstr "Làm lại hành động hồi lại cuối cùng"
 
-#: ../src/MainWindow.vala:852
+#: ../src/MainWindow.vala:871
 msgid "Revert"
 msgstr "Trở lại"
 
-#: ../src/MainWindow.vala:853
+#: ../src/MainWindow.vala:872
 msgid "Restore this file"
 msgstr "Khôi phục tập tin này"
 
-#: ../src/MainWindow.vala:856 ../src/MainWindow.vala:857
+#: ../src/MainWindow.vala:875 ../src/MainWindow.vala:876
 msgid "Duplicate selected strings"
 msgstr "Lặp chuỗi đã chọn"
 
-#: ../src/MainWindow.vala:861
+#: ../src/MainWindow.vala:880
 msgid "Open a file"
 msgstr "Mở tập tin"
 
-#: ../src/MainWindow.vala:864
+#: ../src/MainWindow.vala:883
 msgid "Clipboard"
 msgstr ""
 
-#: ../src/MainWindow.vala:865
+#: ../src/MainWindow.vala:884
 msgid "New file from Clipboard"
 msgstr ""
 
-#: ../src/MainWindow.vala:868
+#: ../src/MainWindow.vala:887
 msgid "Zoom"
 msgstr ""
 
-#: ../src/MainWindow.vala:869
+#: ../src/MainWindow.vala:888
 msgid "Zoom 1:1"
 msgstr ""
 
-#: ../src/MainWindow.vala:873
+#: ../src/MainWindow.vala:892
 msgid "Save this file"
 msgstr ""
 
-#: ../src/MainWindow.vala:877
+#: ../src/MainWindow.vala:896
 msgid "Save this file with a different name"
 msgstr ""
 
-#: ../src/MainWindow.vala:881
+#: ../src/MainWindow.vala:900
 msgid "Project templates"
 msgstr ""
 
-#: ../src/MainWindow.vala:885
+#: ../src/MainWindow.vala:904
 msgid "Change Scratch settings"
 msgstr "Thay đổi tùy chỉnh của Scratch"
 
-#: ../src/MainWindow.vala:888 ../src/MainWindow.vala:889
+#: ../src/MainWindow.vala:907 ../src/MainWindow.vala:908
 msgid "Next Tab"
 msgstr ""
 
-#: ../src/MainWindow.vala:892 ../src/MainWindow.vala:893
+#: ../src/MainWindow.vala:911 ../src/MainWindow.vala:912
 msgid "Previous Tab"
 msgstr ""
 
-#: ../src/MainWindow.vala:909 ../src/MainWindow.vala:910
+#: ../src/MainWindow.vala:928 ../src/MainWindow.vala:929
 msgid "Fullscreen"
 msgstr "Toàn màn hình"
 
