@@ -25,8 +25,11 @@ Homepage: http://launchpad.net/scratch
 Package: scratch-text-editor
 Architecture: any
 Priority: optional
-Depends: ${gir:Depends}, ${misc:Depends}, ${shlibs:Depends},
-         exuberant-ctags, libscratchcore0 (= ${binary:Version})
+Depends: exuberant-ctags,
+         libscratchcore0 (= ${binary:Version}),
+         ${gir:Depends},
+         ${misc:Depends},
+         ${shlibs:Depends}
 Description: text editor that works for you
  Scratch is the text editor that works for you. It auto-saves your files,
  meaning they're always up-to-date. Plus it remembers your tabs so you never
@@ -77,8 +80,10 @@ Package: libscratchcore-dev
 Architecture: any
 Priority: optional
 Section: libdevel
-Depends: ${gir:Depends}, ${misc:Depends}, ${shlibs:Depends},
-         libscratchcore0 (= ${binary:Version})
+Depends: libscratchcore0 (= ${binary:Version}),
+         ${gir:Depends},
+         ${misc:Depends},
+         ${shlibs:Depends}
 Breaks: scratch-text-editor (<= 2.0.1)
 Description: text editor that works for you (plugin development files)
  Scratch is the text editor that works for you. It auto-saves your files,
