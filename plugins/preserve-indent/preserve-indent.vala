@@ -26,13 +26,12 @@ public const string DESCRIPTION = N_("Maintains indent level of pasted text when
 
 public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activatable {
     
-    private MainWindow window;
-    private int                last_clipboard_indent_level = 0;
+    public Object                      object { owned get; construct; }
 
-    Scratch.Services.Interface plugins;
-    public Object              object { owned get; construct; }
-
-    private Services.Document? active_document = null;        
+    private MainWindow                 window;
+    private int                        last_clipboard_indent_level = 0;
+    private Services.Document?         active_document = null;        
+    private Scratch.Services.Interface plugins;
 
     public void activate () {
         plugins = (Scratch.Services.Interface) object;
@@ -44,7 +43,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activata
         plugins.hook_document.connect ((d) => {
             this.active_document = this.window.get_current_document ();
 
-            if(this.active_document == d) {
+            if (this.active_document == d) {
                 d.source_view.copy_clipboard.connect(on_cut_or_copy_clipboard);
                 d.source_view.cut_clipboard.connect(on_cut_or_copy_clipboard);
                 d.source_view.paste_clipboard.connect(on_paste_clipboard);
@@ -59,11 +58,11 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activata
         });
     }
     
-    
     public void deactivate () {
     }
     public void update_state () {
     }
+
     // determine how many whitespace characters precede a given iterator position
     private int measure_indent_at_iter(Scratch.Widgets.SourceView view, TextIter iter) {
         TextIter line_begin, pos;
@@ -104,7 +103,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activata
             this.last_clipboard_indent_level = 0;
     }
 
-    // signal to be called at the outset of a paste event, before any text is inserted
+    // mark the current position, so that on_paste_done knows where the cursor was 
     private void on_paste_clipboard() {
         Scratch.Widgets.SourceView view = window.get_current_document ().source_view;
         if (! view.auto_indent)
@@ -113,12 +112,13 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activata
         TextBuffer buffer = view.buffer;
         TextIter insert;
 
-        buffer.get_iter_at_mark(out insert, buffer.get_insert());
-        buffer.create_mark("paste_start", insert, true);
-        // buffer.begin_user_action();
+        buffer.get_iter_at_mark (out insert, buffer.get_insert());
+        buffer.create_mark ("paste_start", insert, true);
     }
 
     // delegate to be called after the raw clipboard text has been inserted 
+    // finds all text that was inserted by pasting and adjusts the indent level of each 
+    // as necessary.
     private void on_paste_done() {
 
         Scratch.Widgets.SourceView view = window.get_current_document ().source_view;
@@ -135,7 +135,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activata
         view.buffer.get_iter_at_mark (out paste_begin, view.buffer.get_mark("paste_start"));
         view.buffer.get_iter_at_mark (out paste_end, view.buffer.get_insert());
 
-        // compare indent level based on the position of the beginning of the selection 
+        // compare indent level based on the indent level at last cut/copy event 
         // and the current position
         int indent_level = this.measure_indent_at_iter (view, paste_begin);
         int indent_diff  = indent_level - this.last_clipboard_indent_level;
@@ -152,7 +152,6 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activata
             return;
 
         view.buffer.delete_mark_by_name("paste_start");
-        // view.buffer.end_user_action();
     }
 
     private void increase_indent_in_region (Scratch.Widgets.SourceView view, 
