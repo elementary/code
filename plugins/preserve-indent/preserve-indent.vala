@@ -46,11 +46,13 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activata
 
             if(this.active_document == d) {
                 d.source_view.copy_clipboard.connect(on_cut_or_copy_clipboard);
+                d.source_view.cut_clipboard.connect(on_cut_or_copy_clipboard);
                 d.source_view.paste_clipboard.connect(on_paste_clipboard);
                 d.source_view.buffer.paste_done.connect(on_paste_done);       
             }
             else {
                 d.source_view.copy_clipboard.disconnect(on_cut_or_copy_clipboard);
+                d.source_view.cut_clipboard.disconnect(on_cut_or_copy_clipboard);
                 d.source_view.paste_clipboard.disconnect(on_paste_clipboard);
                 d.source_view.buffer.paste_done.disconnect(on_paste_done);       
             }
