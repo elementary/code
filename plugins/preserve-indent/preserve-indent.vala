@@ -72,7 +72,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activata
 
         pos = line_begin;
         int indent = 0;
-        int tabwidth = (int)view.tab_width;
+        int tabwidth = Scratch.settings.indent_width;
 
         unichar ch = pos.get_char();
         while (pos.get_offset() < iter.get_offset() && !ch.isgraph() && ch != '\n') {
@@ -174,7 +174,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activata
             indent_str = string.nfill(nchars, ' ');
 
         else {
-            int tabwidth = (int)view.tab_width;
+            int tabwidth = Scratch.settings.indent_width;
             int tabs = nchars / tabwidth;
             int spaces = nchars % tabwidth;
 
@@ -202,7 +202,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activata
             return;
 
         TextBuffer buffer = view.buffer;
-        int tabwidth = (int)view.tab_width;
+        int tabwidth = Scratch.settings.indent_width;
         TextIter del_begin, del_end, itr;
 
         for (var line = first_line; line <= last_line; ++line) {
