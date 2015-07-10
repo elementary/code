@@ -32,6 +32,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activata
     private int                        last_clipboard_indent_level = 0;
     private Services.Document?         active_document = null;        
     private Scratch.Services.Interface plugins;
+    private bool                       waiting_for_clipboard_text = false; 
 
     public void activate () {
         plugins = (Scratch.Services.Interface) object;
@@ -103,10 +104,10 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activata
             this.last_clipboard_indent_level = 0;
     }
 
-    // mark the current position, so that on_paste_done knows where the cursor was 
     private void on_paste_clipboard() {
         Widgets.SourceView view = this.active_document.source_view;
-        if (! view.auto_indent)
+
+        if (! view.auto_indent || this.waiting_for_clipboard_text)
             return;
 
         TextBuffer buffer = view.buffer;
@@ -114,6 +115,8 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activata
 
         buffer.get_iter_at_mark (out insert, buffer.get_insert());
         buffer.create_mark ("paste_start", insert, true);
+        
+        this.waiting_for_clipboard_text = true;
         buffer.begin_user_action ();
     }
 
@@ -149,6 +152,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activata
 
         view.buffer.delete_mark_by_name ("paste_start");
         view.buffer.end_user_action ();
+        this.waiting_for_clipboard_text = false;
     }
 
     private void increase_indent_in_region (Widgets.SourceView view, 
