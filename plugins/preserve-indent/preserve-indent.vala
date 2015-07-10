@@ -64,7 +64,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activata
     public void update_state () {
     }
 
-    // determine how many whitespace characters precede a given iterator position
+    // determine how many characters precede a given iterator position
     private int measure_indent_at_iter(Widgets.SourceView view, TextIter iter) {
         TextIter line_begin, pos;
 
@@ -75,11 +75,11 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activata
         int tabwidth = Scratch.settings.indent_width;
 
         unichar ch = pos.get_char();
-        while (pos.get_offset() < iter.get_offset() && !ch.isgraph() && ch != '\n') {
-            if (ch == ' ') 
-                ++indent;   
-            else if (ch == '\t') 
+        while (pos.get_offset() < iter.get_offset() && ch != '\n') {  
+            if (ch == '\t') 
                 indent += tabwidth;
+            else
+                ++indent;
 
             pos.forward_char ();
             ch = pos.get_char ();
