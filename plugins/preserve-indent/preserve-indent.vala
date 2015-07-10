@@ -64,7 +64,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activata
     }
 
     // determine how many whitespace characters precede a given iterator position
-    private int measure_indent_at_iter(Scratch.Widgets.SourceView view, TextIter iter) {
+    private int measure_indent_at_iter(Widgets.SourceView view, TextIter iter) {
         TextIter line_begin, pos;
 
         view.buffer.get_iter_at_line(out line_begin, iter.get_line());
@@ -87,7 +87,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activata
     }
 
     private void on_cut_or_copy_clipboard() {
-        Scratch.Widgets.SourceView view = window.get_current_document ().source_view;
+        Widgets.SourceView view = this.active_document.source_view;
         if (! view.auto_indent)
             return;
 
@@ -105,7 +105,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activata
 
     // mark the current position, so that on_paste_done knows where the cursor was 
     private void on_paste_clipboard() {
-        Scratch.Widgets.SourceView view = window.get_current_document ().source_view;
+        Widgets.SourceView view = this.active_document.source_view;
         if (! view.auto_indent)
             return;
 
@@ -122,7 +122,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activata
     // as necessary.
     private void on_paste_done() {
 
-        Scratch.Widgets.SourceView view = window.get_current_document ().source_view;
+        Widgets.SourceView view = this.active_document.source_view;
         if (! view.auto_indent)
             return;
             
@@ -151,7 +151,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activata
         view.buffer.end_user_action ();
     }
 
-    private void increase_indent_in_region (Scratch.Widgets.SourceView view, 
+    private void increase_indent_in_region (Widgets.SourceView view, 
                                             TextIter region_begin, 
                                             TextIter region_end, 
                                             int nchars) 
@@ -186,7 +186,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activata
         } 
     }
 
-    private void decrease_indent_in_region (Scratch.Widgets.SourceView view, 
+    private void decrease_indent_in_region (Widgets.SourceView view, 
                                             TextIter region_begin, TextIter region_end, 
                                             int nchars) 
     {
