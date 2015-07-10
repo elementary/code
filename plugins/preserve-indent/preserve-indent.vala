@@ -136,18 +136,16 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activata
         view.buffer.get_iter_at_mark (out paste_begin, view.buffer.get_mark("paste_start"));
         view.buffer.get_iter_at_mark (out paste_end, view.buffer.get_insert());
 
-        // compare indent level based on the indent level at last cut/copy event 
-        // and the current position
         int indent_level = this.measure_indent_at_iter (view, paste_begin);
         int indent_diff  = indent_level - this.last_clipboard_indent_level;
 
         paste_begin.forward_line ();
 
         if (indent_diff > 0) 
-            this.increase_indent_in_region(view, paste_begin, paste_end, indent_diff);
+            this.increase_indent_in_region (view, paste_begin, paste_end, indent_diff);
 
         else if (indent_diff < 0) 
-            this.decrease_indent_in_region(view, paste_begin, paste_end, indent_diff.abs());
+            this.decrease_indent_in_region (view, paste_begin, paste_end, indent_diff.abs());
 
         view.buffer.delete_mark_by_name ("paste_start");
         view.buffer.end_user_action ();
