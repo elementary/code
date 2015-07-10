@@ -114,6 +114,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activata
 
         buffer.get_iter_at_mark (out insert, buffer.get_insert());
         buffer.create_mark ("paste_start", insert, true);
+        buffer.begin_user_action ();
     }
 
     // delegate to be called after the raw clipboard text has been inserted 
@@ -140,18 +141,16 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activata
         int indent_level = this.measure_indent_at_iter (view, paste_begin);
         int indent_diff  = indent_level - this.last_clipboard_indent_level;
 
-        paste_begin.forward_line();
+        paste_begin.forward_line ();
 
         if (indent_diff > 0) 
             this.increase_indent_in_region(view, paste_begin, paste_end, indent_diff);
 
         else if (indent_diff < 0) 
             this.decrease_indent_in_region(view, paste_begin, paste_end, indent_diff.abs());
-        
-        else 
-            return;
 
-        view.buffer.delete_mark_by_name("paste_start");
+        view.buffer.delete_mark_by_name ("paste_start");
+        view.buffer.end_user_action ();
     }
 
     private void increase_indent_in_region (Scratch.Widgets.SourceView view, 
