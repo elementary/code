@@ -24,43 +24,40 @@ using Scratch;
 public const string NAME = N_("Preserve Indent");
 public const string DESCRIPTION = N_("Maintains indent level of pasted text when auto-indent is active");
 
-public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activatable {
-    
-    public Object                      object { owned get; construct; }
+public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatable {
 
-    private MainWindow                 window;
-    private int                        last_clipboard_indent_level = 0;
-    private Services.Document?         active_document = null;        
-    private Scratch.Services.Interface plugins;
-    private bool                       waiting_for_clipboard_text = false; 
+    private Scratch.Services.Interface          plugins;
+    private Gee.TreeSet<weak Services.Document> documents;        
+    private Services.Document                   active_document;
+    private int                                 last_clipboard_indent_level = 0;
+    private bool                                waiting_for_clipboard_text = false; 
+    
+    public Object object { owned get; construct; }
 
     public void activate () {
+        this.documents = new Gee.TreeSet<weak Services.Document> ();
         plugins = (Scratch.Services.Interface) object;
         
-        plugins.hook_window.connect((w) => {
-            window = w;
-        });
-
         plugins.hook_document.connect ((d) => {
-            this.active_document = this.window.get_current_document ();
+            this.active_document = d;
 
-            if (this.active_document == d) {
-                d.source_view.copy_clipboard.connect(on_cut_or_copy_clipboard);
-                d.source_view.cut_clipboard.connect(on_cut_or_copy_clipboard);
-                d.source_view.paste_clipboard.connect(on_paste_clipboard);
-                d.source_view.buffer.paste_done.connect(on_paste_done);       
-            }
-            else {
-                d.source_view.copy_clipboard.disconnect(on_cut_or_copy_clipboard);
-                d.source_view.cut_clipboard.disconnect(on_cut_or_copy_clipboard);
-                d.source_view.paste_clipboard.disconnect(on_paste_clipboard);
-                d.source_view.buffer.paste_done.disconnect(on_paste_done);       
+            if( documents.add (d)) {
+                d.source_view.copy_clipboard.connect (on_cut_or_copy_clipboard);
+                d.source_view.cut_clipboard.connect (on_cut_or_copy_clipboard);
+                d.source_view.paste_clipboard.connect (on_paste_clipboard);
+                d.source_view.buffer.paste_done.connect (on_paste_done);
+
+                d.doc_closed.connect ( (d) => { 
+                    this.documents.remove (d); 
+                });     
             }
         });
     }
     
     public void deactivate () {
+        this.documents.clear();
     }
+
     public void update_state () {
     }
 
@@ -236,8 +233,6 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase,  Peas.Activata
 
     }
 }
-
-
 
 [ModuleInit]
 public void peas_register_types (GLib.TypeModule module) {
