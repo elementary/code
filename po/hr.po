@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-07-06 17:41-0500\n"
-"PO-Revision-Date: 2015-04-07 13:57+0000\n"
-"Last-Translator: Ivan Vrljić <vrlja92@gmail.com>\n"
+"PO-Revision-Date: 2015-07-21 15:12+0000\n"
+"Last-Translator: Paulo Pavačić <pavacic.p@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-07-07 05:31+0000\n"
-"X-Generator: Launchpad (build 17597)\n"
+"X-Launchpad-Export-Date: 2015-07-22 05:28+0000\n"
+"X-Generator: Launchpad (build 17628)\n"
 
 #: ../src/Scratch.vala:262
 msgid "New Tab"
@@ -94,6 +94,8 @@ msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
+"Lokacija koja sadrži datoteku \"%s\" nije montirana. Želite li ju spremiti "
+"negdje drugdje?"
 
 #: ../src/Services/Document.vala:541 ../src/MainWindow.vala:895
 msgid "Save As…"
@@ -279,7 +281,7 @@ msgstr "Istakni podudarajuće zagrade:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:222
 msgid "Line wrap:"
-msgstr ""
+msgstr "Omatanje linija:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:223
 msgid "Draw spaces:"
@@ -291,7 +293,7 @@ msgstr "Prikaži brojeve linija:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:227
 msgid "Line width guide:"
-msgstr ""
+msgstr "Vodič širine linija:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:243
 msgid "Font and Color Scheme:"
@@ -466,7 +468,7 @@ msgstr "Upravitelj mapa"
 #: ../plugins/filemanager/FileManagerPlugin.vala:22
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:22
 msgid "Basic folder manager with file browsing"
-msgstr ""
+msgstr "Osnovi upravljač mapa s mogućnošću pretraživanja datoteka"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:71
 msgid "Go to parent"
@@ -490,11 +492,11 @@ msgstr "/Nova datoteka"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
 msgid "Highlight Selected Words"
-msgstr ""
+msgstr "Istakni Odabrane Riječi"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
 msgid "Highlights all occurrences of words that are selected"
-msgstr ""
+msgstr "Istakne sva ponavljanja označene riječi"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:21
 #: ../plugins/clipboard-history/ClipboardHistory.vala:89
@@ -503,7 +505,7 @@ msgstr "Povijest međuspremnika"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:22
 msgid "Clipboard to view history"
-msgstr ""
+msgstr "Međuspremnik za gledanje povijesti"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:28
 msgid "..."
@@ -533,7 +535,7 @@ msgstr "Pregled u web stranici"
 #: ../plugins/browser-preview/browser-preview.vala:85
 #: ../plugins/browser-preview/browser-preview.vala:111
 msgid "Show Preview"
-msgstr ""
+msgstr "Prikaži pregled"
 
 #: ../plugins/browser-preview/browser-preview.vala:107
 #: ../plugins/browser-preview/browser-preview.vala:150
@@ -575,7 +577,7 @@ msgstr "Obrub"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
-msgstr ""
+msgstr "Prikaži simbole u trenutnoj vala datoteci"
 
 #: ../plugins/outline/OutlinePlugin.vala:111
 #: ../plugins/outline/CtagsSymbolResolver.vala:35
@@ -596,11 +598,11 @@ msgstr "Automatske zagrade tokom tipkanja"
 #: ../plugins/source-tree/SourceTreePlugin.vala:20
 #: ../plugins/source-tree/SourceTreePlugin.vala:197
 msgid "Source Tree"
-msgstr ""
+msgstr "Stablo izvoda"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:21
 msgid "Have a look at your sources organized in a nice tree"
-msgstr ""
+msgstr "Pregled na temelju izvora"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:42
 msgid "Loading..."
@@ -700,7 +702,7 @@ msgstr "Ukloni prateće razmake"
 
 #: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
 msgid "Strip trailing whitespace on save"
-msgstr ""
+msgstr "Izbriši prazan prostor na početku reda pri spremanju"
 
 #: ../plugins/spell/spell.vala:18
 msgid "Spell Checker"
@@ -724,11 +726,11 @@ msgstr "Otvori pomoću..."
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
-msgstr ""
+msgstr "Prepoznaj uvlaku"
 
 #: ../plugins/detect-indent/detect-indent.vala:2
 msgid "Heuristically detect tab or space settings"
-msgstr ""
+msgstr "Pametno otkrivanje uvlaka i postavki razmana"
 
 #: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:114
 #: ../plugins/terminal/terminal.vala:120 ../plugins/terminal/terminal.vala:166
@@ -767,6 +769,7 @@ msgstr "Dovršavanje riječi"
 #: ../plugins/word-completion/plugin.vala:35
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
+"Prikaži dijalog za dovršavanje s često korištenim riječima iz datoteka"
 
 #: ../plugins/word-completion/plugin.vala:177
 msgid "%s - Word Completion"
