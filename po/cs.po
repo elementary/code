@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-07-06 17:41-0500\n"
-"PO-Revision-Date: 2015-02-23 16:35+0000\n"
+"PO-Revision-Date: 2015-07-24 16:29+0000\n"
 "Last-Translator: Tomo Moto <Unknown>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-07-07 05:29+0000\n"
-"X-Generator: Launchpad (build 17597)\n"
+"X-Launchpad-Export-Date: 2015-07-25 05:25+0000\n"
+"X-Generator: Launchpad (build 17628)\n"
 "Language: cs\n"
 
 #: ../src/Scratch.vala:262
@@ -36,7 +36,7 @@ msgstr "Set pluginů"
 
 #: ../src/Scratch.vala:266
 msgid "Current working directory"
-msgstr ""
+msgstr "Pracovní adresář"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -52,7 +52,7 @@ msgstr "Nový dokument"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr ""
+msgstr "O Scratch"
 
 #: ../src/Services/Document.vala:233
 msgid "Save changes to document %s before closing?"
@@ -69,7 +69,7 @@ msgstr "Zavřít bez uložení"
 
 #: ../src/Services/Document.vala:242 ../src/Utils.vala:29
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 #: ../src/Services/Document.vala:243 ../src/Services/Document.vala:548
 #: ../src/Utils.vala:33 ../src/MainWindow.vala:891
@@ -85,12 +85,15 @@ msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
+"Soubor \"%s\" nelze otevřít. Pravděpodobně je poškozený\n"
+"nebo pro jeho otevření nemáte potřebná práva."
 
 #: ../src/Services/Document.vala:539
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
+"Úložiště obsahující soubor \"%s\" bylo odpojeno. Přejete si jej uložit jinde?"
 
 #: ../src/Services/Document.vala:541 ../src/MainWindow.vala:895
 msgid "Save As…"
@@ -98,13 +101,15 @@ msgstr "Uložit jako…"
 
 #: ../src/Services/Document.vala:546
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "Soubor \"%s\" byl odstraněn. Přejete si jej přesto uložit?"
 
 #: ../src/Services/Document.vala:559
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 msgstr ""
+"Změny souboru \"%s\" nelze uložit.  Přejete si tyto změny uložit v jiném "
+"umístění?"
 
 #: ../src/Services/Document.vala:561
 msgid "Save changes elsewhere"
@@ -115,6 +120,8 @@ msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
+"Soubor \"%s\" byl pozměněn jinou aplikací. Přejete si jej otevřít znovu nebo "
+"chcete pokračovat v úpravách?"
 
 #: ../src/Services/Document.vala:593
 msgid "Load"
@@ -130,7 +137,7 @@ msgstr "Šablony"
 
 #: ../src/Widgets/DocumentView.vala:96
 msgid "Text file from "
-msgstr ""
+msgstr "Textový soubor z "
 
 #: ../src/Widgets/SourceView.vala:134
 msgid "Syntax Highlighting"
@@ -195,11 +202,11 @@ msgstr "Otevřít uložený soubor."
 
 #: ../src/Widgets/SplitView.vala:54
 msgid "New file from clipboard"
-msgstr ""
+msgstr "Nový soubor ze schránky"
 
 #: ../src/Widgets/SplitView.vala:54
 msgid "Create a new file from the contents of your clipboard."
-msgstr ""
+msgstr "Vytvořit nový soubor z obsahu vaší schránky"
 
 #: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:903
 msgid "Preferences"
@@ -272,7 +279,7 @@ msgstr "Zvýraznit odpovídající závorky:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:222
 msgid "Line wrap:"
-msgstr ""
+msgstr "Zalamovat řádky:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:223
 msgid "Draw spaces:"
@@ -409,19 +416,19 @@ msgstr "Otevřít soubor"
 
 #: ../src/MainWindow.vala:883
 msgid "Clipboard"
-msgstr ""
+msgstr "Schránka"
 
 #: ../src/MainWindow.vala:884
 msgid "New file from Clipboard"
-msgstr ""
+msgstr "Nový soubor ze schránky"
 
 #: ../src/MainWindow.vala:887
 msgid "Zoom"
-msgstr ""
+msgstr "Zvětšit"
 
 #: ../src/MainWindow.vala:888
 msgid "Zoom 1:1"
-msgstr ""
+msgstr "Zvětšení 1:1"
 
 #: ../src/MainWindow.vala:892
 msgid "Save this file"
@@ -483,28 +490,28 @@ msgstr "Nový soubor"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
 msgid "Highlight Selected Words"
-msgstr ""
+msgstr "Zvýraznit vybraná slova"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
 msgid "Highlights all occurrences of words that are selected"
-msgstr ""
+msgstr "Zobrazit všechny výskyty vybraného slova"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:21
 #: ../plugins/clipboard-history/ClipboardHistory.vala:89
 msgid "Clipboard History"
-msgstr ""
+msgstr "Historie schránky"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:22
 msgid "Clipboard to view history"
-msgstr ""
+msgstr "Historie schránky"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:28
 msgid "..."
-msgstr ""
+msgstr "…"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:156
 msgid "Delete"
-msgstr ""
+msgstr "Odstranit"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:159
 #: ../plugins/terminal/terminal.vala:307
@@ -526,7 +533,7 @@ msgstr "Zobrazit jako webovou stránku"
 #: ../plugins/browser-preview/browser-preview.vala:85
 #: ../plugins/browser-preview/browser-preview.vala:111
 msgid "Show Preview"
-msgstr ""
+msgstr "Zobrazit náhled"
 
 #: ../plugins/browser-preview/browser-preview.vala:107
 #: ../plugins/browser-preview/browser-preview.vala:150
@@ -535,11 +542,11 @@ msgstr ""
 
 #: ../plugins/browser-preview/browser-preview.vala:108
 msgid "Hide Preview"
-msgstr ""
+msgstr "Skrýt náhled"
 
 #: ../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
-msgstr ""
+msgstr "Sdílet soubory přes Contractor"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:71
 msgid "Folders"
@@ -552,11 +559,11 @@ msgstr "Otevřít složku"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:95
 msgid "_Cancel"
-msgstr ""
+msgstr "_Zrušit"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:96
 msgid "_Open"
-msgstr ""
+msgstr "_Otevřít"
 
 #: ../plugins/folder-manager/FileView.vala:330
 msgid "Close Folder"
@@ -564,7 +571,7 @@ msgstr "Zavřít složku"
 
 #: ../plugins/outline/OutlinePlugin.vala:21
 msgid "Outline"
-msgstr ""
+msgstr "Obrys"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
@@ -576,7 +583,7 @@ msgstr ""
 #: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
 #: ../plugins/outline/ValaProcessing/SymbolOutline.vala:94
 msgid "Symbols"
-msgstr ""
+msgstr "Znaky"
 
 #: ../plugins/brackets-completion/brackets-completion.vala:21
 msgid "Brackets Completion"
@@ -601,7 +608,7 @@ msgstr "Načítání..."
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:175
 msgid "Bookmark"
-msgstr ""
+msgstr "Vytvořit záložku"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:234
 msgid "Files"
@@ -617,11 +624,11 @@ msgstr "Záložky"
 
 #: ../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
-msgstr ""
+msgstr "Emulace Vimu"
 
 #: ../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
-msgstr ""
+msgstr "použít příkazy Vimu v Scratchi"
 
 #: ../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
@@ -717,11 +724,11 @@ msgstr "Otevřít s..."
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
-msgstr ""
+msgstr "Zjišťovat odsazení"
 
 #: ../plugins/detect-indent/detect-indent.vala:2
 msgid "Heuristically detect tab or space settings"
-msgstr ""
+msgstr "Heuristicky zjišťovat nastavení tabulátoru a mezer"
 
 #: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:114
 #: ../plugins/terminal/terminal.vala:120 ../plugins/terminal/terminal.vala:166
@@ -735,11 +742,11 @@ msgstr "Terminál ve vašem textovém editoru"
 
 #: ../plugins/terminal/terminal.vala:161 ../plugins/terminal/terminal.vala:172
 msgid "Show Terminal"
-msgstr ""
+msgstr "Zobrazit terminál"
 
 #: ../plugins/terminal/terminal.vala:164
 msgid "Hide Terminal"
-msgstr ""
+msgstr "Schovat terminál"
 
 #: ../plugins/terminal/terminal.vala:300
 msgid "Copy"
@@ -747,11 +754,11 @@ msgstr "Kopírovat"
 
 #: ../plugins/terminal/terminal.vala:317
 msgid "Terminal on Right"
-msgstr ""
+msgstr "Terminál v pravo"
 
 #: ../plugins/terminal/terminal.vala:325
 msgid "Terminal on Bottom"
-msgstr ""
+msgstr "Terminál dole"
 
 #: ../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
