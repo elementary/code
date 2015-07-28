@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-07-06 17:41-0500\n"
-"PO-Revision-Date: 2015-03-21 16:00+0000\n"
-"Last-Translator: Bogdan Lisnenko <Unknown>\n"
+"PO-Revision-Date: 2015-07-27 20:31+0000\n"
+"Last-Translator: Mozila <mr.mozila@gmail.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-07-07 05:31+0000\n"
-"X-Generator: Launchpad (build 17597)\n"
+"X-Launchpad-Export-Date: 2015-07-28 05:28+0000\n"
+"X-Generator: Launchpad (build 17628)\n"
 
 #: ../src/Scratch.vala:262
 msgid "New Tab"
@@ -280,7 +280,7 @@ msgstr "Виділяти поточний рядок:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:222
 msgid "Line wrap:"
-msgstr ""
+msgstr "Перенос рядку"
 
 #: ../src/Dialogs/PreferencesDialog.vala:223
 msgid "Draw spaces:"
@@ -725,11 +725,11 @@ msgstr "Відкрити за допомогою…"
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
-msgstr ""
+msgstr "Виявити відступ"
 
 #: ../plugins/detect-indent/detect-indent.vala:2
 msgid "Heuristically detect tab or space settings"
-msgstr ""
+msgstr "Евристично виявити налаштування відступу або табуляції"
 
 #: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:114
 #: ../plugins/terminal/terminal.vala:120 ../plugins/terminal/terminal.vala:166
