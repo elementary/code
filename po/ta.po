@@ -8,102 +8,107 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-07-06 17:41-0500\n"
-"PO-Revision-Date: 2014-03-19 16:04+0000\n"
-"Last-Translator: Khaleel Jageer <jskcse4@gmail.com>\n"
+"PO-Revision-Date: 2015-08-04 16:58+0000\n"
+"Last-Translator: anand roshan <anand.india99@gmail.com>\n"
 "Language-Team: Tamil <ta@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-07-07 05:31+0000\n"
-"X-Generator: Launchpad (build 17597)\n"
+"X-Launchpad-Export-Date: 2015-08-05 05:28+0000\n"
+"X-Generator: Launchpad (build 17656)\n"
 
 #: ../src/Scratch.vala:262
 msgid "New Tab"
-msgstr ""
+msgstr "புதிய தாவல்"
 
 #: ../src/Scratch.vala:263 ../src/config.vala:18
 msgid "New Window"
-msgstr ""
+msgstr "புதிய சாளரம்"
 
 #: ../src/Scratch.vala:264
 msgid "Print version info and exit"
-msgstr ""
+msgstr "பதிப்பின் தகவல்களை அச்சிட்டு வெளியேறவும்"
 
 #: ../src/Scratch.vala:265
 msgid "Set of plugins"
-msgstr ""
+msgstr "சொருகல்கள் தொகுப்பு"
 
 #: ../src/Scratch.vala:266
 msgid "Current working directory"
-msgstr ""
+msgstr "தற்போதைய பணியிடம்"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
-msgstr ""
+msgstr "உரை கோப்புகளை தொகுக்கவும்"
 
 #: ../src/config.vala:16
 msgid "Text Editor"
-msgstr ""
+msgstr "உரை தொகுப்பான்"
 
 #: ../src/config.vala:17 ../src/Services/Document.vala:407
 msgid "New Document"
-msgstr ""
+msgstr "புதிய ஆவணம்"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr ""
+msgstr "ஸ்க்ராட்ச் பற்றி"
 
 #: ../src/Services/Document.vala:233
 msgid "Save changes to document %s before closing?"
-msgstr ""
+msgstr "ஆவணம் %s ஐ மூடும் முன் சேமிக்கவும்"
 
 #: ../src/Services/Document.vala:236
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
+"நீங்கள் செமிக்கவில்லையெனில், கடைசி 4 நொடிகள் செய்த மாற்றங்கள் அழிந்துவிடும்"
 
 #: ../src/Services/Document.vala:238
 msgid "Close without saving"
-msgstr ""
+msgstr "சேமிக்காமல் மூடு"
 
 #: ../src/Services/Document.vala:242 ../src/Utils.vala:29
 msgid "Cancel"
-msgstr ""
+msgstr "ரத்துசெய்"
 
 #: ../src/Services/Document.vala:243 ../src/Services/Document.vala:548
 #: ../src/Utils.vala:33 ../src/MainWindow.vala:891
 msgid "Save"
-msgstr ""
+msgstr "சேமி"
 
 #: ../src/Services/Document.vala:315
 msgid "Save File"
-msgstr ""
+msgstr "கோப்பை சேமி"
 
 #: ../src/Services/Document.vala:523
 msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
-msgstr ""
+msgstr "ஆவணம் %s ஐ திறக்க இயலவில்லை, அது பாதிக்கப்பட்டிருக்கலாம்"
 
 #: ../src/Services/Document.vala:539
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
+"கோப்பு \"%s\" ஐ கொண்டிருக்கும் இடம் ஏற்றப்படவில்லை. வேறு இடத்தில் சேமிக்க "
+"வேண்டுமா?"
 
 #: ../src/Services/Document.vala:541 ../src/MainWindow.vala:895
 msgid "Save As…"
-msgstr ""
+msgstr "இவ்வாறு சேமி"
 
 #: ../src/Services/Document.vala:546
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "கோப்பு \"%s\" அழிக்கப்பட்டது. இருப்பினும் சேமிக்க விருப்பமா?"
 
 #: ../src/Services/Document.vala:559
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 msgstr ""
+"உங்களால் கோப்பு \"%s\" இன் மாற்றங்களை சேமிக்க முடியாது. இந்த கோப்பின் "
+"மாற்றங்களை வேறு இடத்தில் சேமிக்க விருப்பமா?"
 
 #: ../src/Services/Document.vala:561
 msgid "Save changes elsewhere"
