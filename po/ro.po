@@ -8,18 +8,18 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-07-06 17:41-0500\n"
-"PO-Revision-Date: 2013-03-05 20:33+0000\n"
-"Last-Translator: Richard B. <Unknown>\n"
+"PO-Revision-Date: 2015-08-07 12:50+0000\n"
+"Last-Translator: kobe <Unknown>\n"
 "Language-Team: Romanian <ro@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-07-07 05:30+0000\n"
-"X-Generator: Launchpad (build 17597)\n"
+"X-Launchpad-Export-Date: 2015-08-08 06:08+0000\n"
+"X-Generator: Launchpad (build 17656)\n"
 
 #: ../src/Scratch.vala:262
 msgid "New Tab"
-msgstr ""
+msgstr "Filă nouă"
 
 #: ../src/Scratch.vala:263 ../src/config.vala:18
 msgid "New Window"
@@ -27,7 +27,7 @@ msgstr "Fereastră nouă"
 
 #: ../src/Scratch.vala:264
 msgid "Print version info and exit"
-msgstr ""
+msgstr "Arată informații despre versiune și ieși"
 
 #: ../src/Scratch.vala:265
 msgid "Set of plugins"
@@ -35,7 +35,7 @@ msgstr "Set de module"
 
 #: ../src/Scratch.vala:266
 msgid "Current working directory"
-msgstr ""
+msgstr "Dosarul de lucru curent"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -51,7 +51,7 @@ msgstr "Document nou"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr ""
+msgstr "Despre Scratch"
 
 #: ../src/Services/Document.vala:233
 msgid "Save changes to document %s before closing?"
@@ -69,7 +69,7 @@ msgstr "Închide fără a salva"
 
 #: ../src/Services/Document.vala:242 ../src/Utils.vala:29
 msgid "Cancel"
-msgstr ""
+msgstr "Renunță"
 
 #: ../src/Services/Document.vala:243 ../src/Services/Document.vala:548
 #: ../src/Utils.vala:33 ../src/MainWindow.vala:891
@@ -78,33 +78,39 @@ msgstr "Salvează"
 
 #: ../src/Services/Document.vala:315
 msgid "Save File"
-msgstr ""
+msgstr "Salvează fişierul"
 
 #: ../src/Services/Document.vala:523
 msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
+"Fişierul \"%s\"  nu poate fi citit. Poate fi deteriorat\n"
+"sau nu aveţi permisiunea necesara pentru a-l citi."
 
 #: ../src/Services/Document.vala:539
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
+"Locaţia ce conţine fişierul \"%s\" a fost demontată. Doriţi sa salvaţi într-"
+"o locaţie diferită?"
 
 #: ../src/Services/Document.vala:541 ../src/MainWindow.vala:895
 msgid "Save As…"
-msgstr ""
+msgstr "Salvează ca…"
 
 #: ../src/Services/Document.vala:546
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "Fişierul %s a fost şters. Doriţi să îl salvaţi oricum?"
 
 #: ../src/Services/Document.vala:559
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 msgstr ""
+"Modificările aduse fișierului \"%s\" nu pot fi salvate. Doriți să salvați "
+"modificările într-o alta locație?"
 
 #: ../src/Services/Document.vala:561
 msgid "Save changes elsewhere"
@@ -115,14 +121,16 @@ msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
+"Fișierul \"%s\" a fost modificat de o aplicație externă. Doriți să-l "
+"reîncărcați sau să continuați editarea?"
 
 #: ../src/Services/Document.vala:593
 msgid "Load"
-msgstr ""
+msgstr "Încarcă"
 
 #: ../src/Services/Document.vala:596
 msgid "Continue"
-msgstr ""
+msgstr "Continuă"
 
 #: ../src/Services/TemplateManager.vala:231 ../src/MainWindow.vala:899
 msgid "Templates"
@@ -138,11 +146,11 @@ msgstr "Evidențiere sitaxă"
 
 #: ../src/Widgets/SourceView.vala:145
 msgid "Normal Text"
-msgstr ""
+msgstr "Text obișnuit"
 
 #: ../src/Widgets/LoadingView.vala:36
 msgid "Wait while restoring last session..."
-msgstr ""
+msgstr "Așteptați restaurarea ultime sesiuni"
 
 #: ../src/Widgets/SearchManager.vala:72
 msgid "Find"
@@ -159,7 +167,7 @@ msgstr "Înlocuiește"
 
 #: ../src/Widgets/SearchManager.vala:118
 msgid "Replace all"
-msgstr ""
+msgstr "Înlocuiește tot"
 
 #: ../src/Widgets/SearchManager.vala:126
 msgid "Go To Line:"
@@ -171,7 +179,7 @@ msgstr "Partajare"
 
 #: ../src/Widgets/SplitView.vala:47
 msgid "No Files Open"
-msgstr ""
+msgstr "Nici un fișier deschis"
 
 #: ../src/Widgets/SplitView.vala:48
 msgid "Open a file to begin editing."
@@ -325,7 +333,7 @@ msgstr "Gunoi"
 
 #: ../src/MainWindow.vala:647
 msgid "Open some files"
-msgstr ""
+msgstr "Deschide niște fișiere"
 
 #: ../src/MainWindow.vala:772
 msgid "Hide search bar"
@@ -333,7 +341,7 @@ msgstr "Ascunde bara de căutare"
 
 #: ../src/MainWindow.vala:827 ../src/MainWindow.vala:828
 msgid "Find…"
-msgstr ""
+msgstr "Caută..."
 
 #: ../src/MainWindow.vala:831 ../src/MainWindow.vala:832
 msgid "Go to line…"
@@ -345,19 +353,19 @@ msgstr "Termină"
 
 #: ../src/MainWindow.vala:847
 msgid "Reopen closed document"
-msgstr ""
+msgstr "Redeschide documentul închis"
 
 #: ../src/MainWindow.vala:848
 msgid "Open last closed document in a new tab"
-msgstr ""
+msgstr "Deschide ultimul document închis într-un tab nou"
 
 #: ../src/MainWindow.vala:851
 msgid "Add New Tab"
-msgstr ""
+msgstr "Deschide tab nou"
 
 #: ../src/MainWindow.vala:852
 msgid "Add a new tab"
-msgstr ""
+msgstr "Adaugă un tab nou"
 
 #: ../src/MainWindow.vala:855
 msgid "Add New View"
@@ -417,7 +425,7 @@ msgstr ""
 
 #: ../src/MainWindow.vala:887
 msgid "Zoom"
-msgstr ""
+msgstr "Mărire"
 
 #: ../src/MainWindow.vala:888
 msgid "Zoom 1:1"
@@ -433,7 +441,7 @@ msgstr ""
 
 #: ../src/MainWindow.vala:900
 msgid "Project templates"
-msgstr ""
+msgstr "Șablon proiect"
 
 #: ../src/MainWindow.vala:904
 msgid "Change Scratch settings"
@@ -441,11 +449,11 @@ msgstr "Schimbă configurările Scratch"
 
 #: ../src/MainWindow.vala:907 ../src/MainWindow.vala:908
 msgid "Next Tab"
-msgstr ""
+msgstr "Următoarea Filă"
 
 #: ../src/MainWindow.vala:911 ../src/MainWindow.vala:912
 msgid "Previous Tab"
-msgstr ""
+msgstr "Fila precedentă"
 
 #: ../src/MainWindow.vala:928 ../src/MainWindow.vala:929
 msgid "Fullscreen"
@@ -454,7 +462,7 @@ msgstr "Ecran complet"
 #: ../plugins/filemanager/FileManagerPlugin.vala:21
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:21
 msgid "Folder Manager"
-msgstr ""
+msgstr "Manager de dosar"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:22
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:22
