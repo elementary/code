@@ -60,7 +60,7 @@ namespace Scratch {
             application_id = "org.elementary." + app_cmd_name.down ();
             main_url = "https://launchpad.net/scratch";
             bug_url = "https://bugs.launchpad.net/scratch";
-            help_url = "http://elementaryos.org/answers/+/scratch/all/newest";
+            help_url = "https://answers.launchpad.net/scratch";
             translate_url = "https://translations.launchpad.net/scratch";
             about_authors = { "Mario Guerriero <mario@elementaryos.org>",
                          "Giulio Collura <random.cpp@gmail.com>",
