@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-07-06 17:41-0500\n"
-"PO-Revision-Date: 2015-04-12 11:07+0000\n"
-"Last-Translator: Milan Slovák <Unknown>\n"
+"PO-Revision-Date: 2015-08-17 13:26+0000\n"
+"Last-Translator: pyler <pyler.inbox@gmail.com>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-07-07 05:31+0000\n"
-"X-Generator: Launchpad (build 17597)\n"
+"X-Launchpad-Export-Date: 2015-08-18 05:48+0000\n"
+"X-Generator: Launchpad (build 17690)\n"
 
 #: ../src/Scratch.vala:262
 msgid "New Tab"
@@ -279,7 +279,7 @@ msgstr "Zvýrazniť zhodujúce sa zátvorky:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:222
 msgid "Line wrap:"
-msgstr ""
+msgstr "Zalomenie riadkov:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:223
 msgid "Draw spaces:"
@@ -575,7 +575,7 @@ msgstr "Obrys"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
-msgstr ""
+msgstr "Vyznačiť symboly v aktuálnom súbore vo vale"
 
 #: ../plugins/outline/OutlinePlugin.vala:111
 #: ../plugins/outline/CtagsSymbolResolver.vala:35
@@ -724,11 +724,11 @@ msgstr "Otvoriť pomocou..."
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
-msgstr ""
+msgstr "Detegovať odsadenie"
 
 #: ../plugins/detect-indent/detect-indent.vala:2
 msgid "Heuristically detect tab or space settings"
-msgstr ""
+msgstr "Detegovať nastavenia zarážiek a medzier"
 
 #: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:114
 #: ../plugins/terminal/terminal.vala:120 ../plugins/terminal/terminal.vala:166
