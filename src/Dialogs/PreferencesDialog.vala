@@ -103,7 +103,8 @@ namespace Scratch.Dialogs {
 
         void add_section (Gtk.Grid grid, Gtk.Label name, ref int row) {
             name.use_markup = true;
-            name.set_markup ("<b>%s</b>".printf (name.get_text ()));
+            name.set_markup (name.get_text ());
+            name.get_style_context ().add_class("h4");
             name.halign = Gtk.Align.START;
             grid.attach (name, 0, row, 1, 1);
             row ++;
