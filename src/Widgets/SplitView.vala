@@ -123,7 +123,7 @@ namespace Scratch.Widgets {
 
             views.append (view);
             this.current_view = view;
-            debug ("View added succefully");
+            debug ("View added successfully");
 
             // Enbale/Disable useless GtkActions about views
             check_actions ();
@@ -135,7 +135,7 @@ namespace Scratch.Widgets {
             if (view == null)
                 view = get_focus_child () as Scratch.Widgets.DocumentView;
             if (view == null) {
-                warning ("The is no focused view to remove!");
+                warning ("There is no focused view to remove!");
                 return;
             }
 
@@ -144,7 +144,7 @@ namespace Scratch.Widgets {
             view.document_change.disconnect (on_document_changed);
             view.visible = false;
             this.hidden_views.append (view);
-            debug ("View removed succefully");
+            debug ("View removed successfully");
 
             // Enbale/Disable useless GtkActions about views
             check_actions ();
@@ -177,7 +177,7 @@ namespace Scratch.Widgets {
             this.pack1 (welcome_screen, true, true);
             this.welcome_screen.show_all ();
             welcome_shown ();
-            debug ("WelcomeScreen shown succefully");
+            debug ("WelcomeScreen shown successfully");
         }
 
         // Hide welcome screen
@@ -185,7 +185,7 @@ namespace Scratch.Widgets {
             if (this.welcome_screen.get_parent () == this) {
                 this.remove (welcome_screen);
                 welcome_hidden ();
-                debug ("WelcomeScreen hidden succefully");
+                debug ("WelcomeScreen hidden successfully");
             }
         }
 
