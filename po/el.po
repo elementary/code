@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-07-06 17:41-0500\n"
-"PO-Revision-Date: 2015-02-10 22:36+0000\n"
-"Last-Translator: George Chalkitis <chalkitisge@gmail.com>\n"
+"PO-Revision-Date: 2015-08-31 07:26+0000\n"
+"Last-Translator: George Stefanakis <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-07-07 05:29+0000\n"
-"X-Generator: Launchpad (build 17597)\n"
+"X-Launchpad-Export-Date: 2015-09-01 05:25+0000\n"
+"X-Generator: Launchpad (build 17690)\n"
 
 #: ../src/Scratch.vala:262
 msgid "New Tab"
@@ -35,7 +35,7 @@ msgstr "Σετ προσθέτων"
 
 #: ../src/Scratch.vala:266
 msgid "Current working directory"
-msgstr ""
+msgstr "Τρέχον φάκελος εργασίας"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -51,7 +51,7 @@ msgstr "Νέο Έγγραφο"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr ""
+msgstr "Σχετικά με το Scratch"
 
 #: ../src/Services/Document.vala:233
 msgid "Save changes to document %s before closing?"
@@ -100,12 +100,15 @@ msgstr "Αποθήκευση Ως…"
 #: ../src/Services/Document.vala:546
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr ""
+"Το αρχείο \"%s\" έχει διαγραφεί. Θέλετε να το αποθηκεύσετε ούτως ή άλλως;"
 
 #: ../src/Services/Document.vala:559
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 msgstr ""
+"Δεν μπορείτε να αποθηκεύσετε τις αλλαγές στο αρχείο \"%s\". Θέλετε να "
+"αποθηκεύσετε τις αλλαγές σε αυτό το αρχείο σε μια διαφορετική τοποθεσία;"
 
 #: ../src/Services/Document.vala:561
 msgid "Save changes elsewhere"
@@ -131,7 +134,7 @@ msgstr "Πρότυπα"
 
 #: ../src/Widgets/DocumentView.vala:96
 msgid "Text file from "
-msgstr ""
+msgstr "Αρχείο κειμένου από "
 
 #: ../src/Widgets/SourceView.vala:134
 msgid "Syntax Highlighting"
@@ -196,11 +199,11 @@ msgstr "Άνοιγμα αποθηκευμένου αρχείου."
 
 #: ../src/Widgets/SplitView.vala:54
 msgid "New file from clipboard"
-msgstr ""
+msgstr "Νέο αρχείο από το πρόχειρο"
 
 #: ../src/Widgets/SplitView.vala:54
 msgid "Create a new file from the contents of your clipboard."
-msgstr ""
+msgstr "Δημιουργήστε ένα νέο αρχείο από τα περιεχόμενα του πρόχειρου σας."
 
 #: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:903
 msgid "Preferences"
@@ -273,7 +276,7 @@ msgstr "Επισήμανση ζεύγων αγκυλών:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:222
 msgid "Line wrap:"
-msgstr ""
+msgstr "Αναδίπλωση γραμμών:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:223
 msgid "Draw spaces:"
@@ -410,15 +413,15 @@ msgstr "Άνοιγμα αρχείου"
 
 #: ../src/MainWindow.vala:883
 msgid "Clipboard"
-msgstr ""
+msgstr "Πρόχειρο"
 
 #: ../src/MainWindow.vala:884
 msgid "New file from Clipboard"
-msgstr ""
+msgstr "Νέο αρχείο από το πρόχειρο"
 
 #: ../src/MainWindow.vala:887
 msgid "Zoom"
-msgstr ""
+msgstr "Μεγέθυνση"
 
 #: ../src/MainWindow.vala:888
 msgid "Zoom 1:1"
@@ -484,16 +487,16 @@ msgstr "/Νέο Αρχείο"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
 msgid "Highlight Selected Words"
-msgstr ""
+msgstr "Επισήμανση των επιλεγμένων λέξεων"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
 msgid "Highlights all occurrences of words that are selected"
-msgstr ""
+msgstr "Επισήμανση όλων των εμφανίσεων των λέξεων που έχουν επιλεγεί"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:21
 #: ../plugins/clipboard-history/ClipboardHistory.vala:89
 msgid "Clipboard History"
-msgstr ""
+msgstr "Ιστορικό Προχείρου"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:22
 msgid "Clipboard to view history"
@@ -501,11 +504,11 @@ msgstr ""
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:28
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:156
 msgid "Delete"
-msgstr ""
+msgstr "Διαγραφή"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:159
 #: ../plugins/terminal/terminal.vala:307
@@ -527,7 +530,7 @@ msgstr "Δείτε μια προεπισκόπηση της δουλειάς σ�
 #: ../plugins/browser-preview/browser-preview.vala:85
 #: ../plugins/browser-preview/browser-preview.vala:111
 msgid "Show Preview"
-msgstr ""
+msgstr "Εμφάνιση προεπισκόπησης"
 
 #: ../plugins/browser-preview/browser-preview.vala:107
 #: ../plugins/browser-preview/browser-preview.vala:150
@@ -536,7 +539,7 @@ msgstr ""
 
 #: ../plugins/browser-preview/browser-preview.vala:108
 msgid "Hide Preview"
-msgstr ""
+msgstr "Απόκρυψη προεπισκόπησης"
 
 #: ../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
@@ -577,7 +580,7 @@ msgstr ""
 #: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
 #: ../plugins/outline/ValaProcessing/SymbolOutline.vala:94
 msgid "Symbols"
-msgstr ""
+msgstr "Σύμβολα"
 
 #: ../plugins/brackets-completion/brackets-completion.vala:21
 msgid "Brackets Completion"
@@ -718,7 +721,7 @@ msgstr "Άνοιγμα Με..."
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
-msgstr ""
+msgstr "Εντοπισμός εσοχής"
 
 #: ../plugins/detect-indent/detect-indent.vala:2
 msgid "Heuristically detect tab or space settings"
@@ -736,11 +739,11 @@ msgstr "Ένα τερματικό στον επεξεργαστή κειμένο
 
 #: ../plugins/terminal/terminal.vala:161 ../plugins/terminal/terminal.vala:172
 msgid "Show Terminal"
-msgstr ""
+msgstr "Προβολή τερματικού"
 
 #: ../plugins/terminal/terminal.vala:164
 msgid "Hide Terminal"
-msgstr ""
+msgstr "Απόκρυψη τερματικού"
 
 #: ../plugins/terminal/terminal.vala:300
 msgid "Copy"
@@ -748,11 +751,11 @@ msgstr "Αντιγραφή"
 
 #: ../plugins/terminal/terminal.vala:317
 msgid "Terminal on Right"
-msgstr ""
+msgstr "Τερματικό στα δεξιά"
 
 #: ../plugins/terminal/terminal.vala:325
 msgid "Terminal on Bottom"
-msgstr ""
+msgstr "Τερματικό στο κάτω μέρος"
 
 #: ../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
