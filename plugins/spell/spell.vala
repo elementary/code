@@ -19,17 +19,21 @@ public const string NAME = N_("Spell Checker");
 public const string DESCRIPTION = N_("Checks the spelling of your documents");
 
 public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
-    
-    string lang = "en_US"; // FIXME
 
     Scratch.Services.Interface plugins;
+
+    Scratch.Plugins.SpellSettings.Settings settings;
+
     public Object object {owned get; construct;}
     
     public void update_state () {
     }
 
     public void activate () {
-        plugins = (Scratch.Services.Interface) object;   
+
+        this.settings = new Scratch.Plugins.SpellSettings.Settings ();
+
+        plugins = (Scratch.Services.Interface) object;
         plugins.hook_document.connect ((d) => {
             var view = d.source_view;
             // Create GtkSpell object
@@ -37,12 +41,12 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
             if (Gtk.Spell.get_from_text_view (view) == null) {
                 Gtk.Spell? spell = null;
                 try {
-                    spell = new Gtk.Spell.attach (view, lang);
+                    spell = new Gtk.Spell.attach (view, settings.language);
 #else
             if (GtkSpell.Checker.get_from_text_view (view) == null) {
                 GtkSpell.Checker spell = new GtkSpell.Checker ();
                 try {
-                    spell.set_language (lang);
+                    spell.set_language (settings.language);
                     spell.attach (view);
 #endif
                 } catch (Error e) {
@@ -57,11 +61,19 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
                 var lang = d.source_view.buffer.language;
                 if (lang != null)
                     spell.detach ();
+ 
                 // Detect language changed event
-                view.language_changed.connect ((lang) => {
+                view.language_changed.connect_after ((lang) => {
                     if (lang != null)
                         spell.detach ();
                 });
+
+#if SPELLLEGACY
+#else
+                spell.language_changed.connect ((lang) => {
+                    settings.language = lang;
+                });
+#endif
             }
         });
     }
