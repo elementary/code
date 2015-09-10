@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+    <schema path="/org/pantheon/scratch/plugins/spell/" id="org.pantheon.scratch.plugins.spell" gettext-domain="scratch">
+        <key name="language" type="s">
+            <default>'en_US'</default>
+            <summary>Selected Spellcheck Language</summary>
+            <description>Selected Spellcheck Language to be used by spell plugin</description>
+        </key>
+    </schema>
+</schemalist>
