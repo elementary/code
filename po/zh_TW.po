@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-07-06 17:41-0500\n"
-"PO-Revision-Date: 2015-04-12 01:49+0000\n"
+"PO-Revision-Date: 2015-09-13 13:58+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-07-07 05:31+0000\n"
-"X-Generator: Launchpad (build 17597)\n"
+"X-Launchpad-Export-Date: 2015-09-14 05:48+0000\n"
+"X-Generator: Launchpad (build 17720)\n"
 
 #: ../src/Scratch.vala:262
 msgid "New Tab"
@@ -273,7 +273,7 @@ msgstr "突顯對稱括號："
 
 #: ../src/Dialogs/PreferencesDialog.vala:222
 msgid "Line wrap:"
-msgstr ""
+msgstr "折行："
 
 #: ../src/Dialogs/PreferencesDialog.vala:223
 msgid "Draw spaces:"
@@ -718,11 +718,11 @@ msgstr "以此開啟..."
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
-msgstr ""
+msgstr "偵測縮排"
 
 #: ../plugins/detect-indent/detect-indent.vala:2
 msgid "Heuristically detect tab or space settings"
-msgstr ""
+msgstr "啟發式偵測 Tab 或空白設定"
 
 #: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:114
 #: ../plugins/terminal/terminal.vala:120 ../plugins/terminal/terminal.vala:166
