@@ -301,7 +301,9 @@ namespace Scratch {
         // Set sensitive property for 'delicate' Widgets/GtkActions while
         private void set_widgets_sensitive (bool val) {
             // SearchManager's stuffs
-            main_actions.get_action ("Fetch").sensitive = val;
+            var fetch = (Gtk.ToggleAction) main_actions.get_action ("Fetch");
+            fetch.sensitive = val;
+            fetch.active = (fetch.active && val);
             main_actions.get_action ("ShowGoTo").sensitive = val;
             main_actions.get_action ("ShowReplace").sensitive = val;
             // Toolbar Actions
@@ -749,16 +751,30 @@ namespace Scratch {
         private void action_fetch () {
             var fetch_action = (Gtk.ToggleAction) main_actions.get_action ("Fetch");
             var fetch_active = fetch_action.active;
-            search_revealer.set_reveal_child (fetch_active);
-            search_manager.highlight_none ();
-            if (fetch_active) {
-                fetch_action.tooltip = _("Hide search bar");
-                var selected_text = this.get_current_document ().get_selected_text ();
+            var current_doc = this.get_current_document ();
+            // This is also called when all documents are closed.
+            if (current_doc != null) {
+                var selected_text = current_doc.get_selected_text ();
                 if (selected_text != "") {
-                    this.search_manager.search_entry.text = selected_text;
+                    //If the user is selecting text, he plobably wants to search for it.
+                    search_manager.search_entry.text = selected_text;
+                    if (fetch_active == false) {
+                        fetch_action.active = true;
+                        return;
+                    }
                 }
 
-                this.search_manager.search_entry.grab_focus ();
+                if (search_manager.search_entry.text != "") {
+                    search_manager.search_next ();
+                } else {
+                    search_manager.highlight_none ();
+                }
+            }
+
+            search_revealer.set_reveal_child (fetch_active);
+            if (fetch_active) {
+                fetch_action.tooltip = _("Hide search bar");
+                search_manager.search_entry.grab_focus ();
             } else {
                 fetch_action.tooltip = _("Find…");
             }
