@@ -18,11 +18,6 @@
   END LICENSE
 ***/
 
-using Gtk;
-
-using Scratch.Services;
-using Granite.Widgets;
-
 namespace Scratch.Widgets {
 
     public class DocumentView : Gtk.Box {
@@ -31,28 +26,28 @@ namespace Scratch.Widgets {
         private weak MainWindow window;
 
         // Widgets
-        public DynamicNotebook notebook;
+        public Granite.Widgets.DynamicNotebook notebook;
 
-        public GLib.List<Document> docs;
+        public GLib.List<Services.Document> docs;
 
-        public Scratch.Services.Document current {
+        public Services.Document current {
             set {
                 notebook.current = value;
             }
         }
 
         // Signals
-        public signal void document_change (Document? document);
+        public signal void document_change (Services.Document? document);
         public signal void empty ();
 
         public DocumentView (MainWindow window) {
-            orientation = Orientation.VERTICAL;
+            orientation = Gtk.Orientation.VERTICAL;
             this.window = window;
 
-            docs = new GLib.List<Document> ();
+            docs = new GLib.List<Services.Document> ();
 
             // Layout
-            this.notebook = new DynamicNotebook ();
+            this.notebook = new Granite.Widgets.DynamicNotebook ();
             this.notebook.allow_restoring = true;
             this.notebook.allow_new_window = true;
             this.notebook.allow_drag = true;
@@ -68,22 +63,22 @@ namespace Scratch.Widgets {
             });
 
             this.notebook.close_tab_requested.connect ((tab) => {
-                if ((tab as Document).file != null)
-                    tab.restore_data = (tab as Document).get_uri ();
-                return (tab as Document).close ();
+                if ((tab as Services.Document).file != null)
+                    tab.restore_data = (tab as Services.Document).get_uri ();
+                return (tab as Services.Document).close ();
             });
 
             this.notebook.tab_switched.connect ((old_tab, new_tab) => {
-                document_change (new_tab as Document);
+                document_change (new_tab as Services.Document);
             });
 
             this.notebook.tab_restored.connect ((label, restore_data, icon) => {
-                var doc = new Document (window.main_actions, File.new_for_uri (restore_data));
+                var doc = new Services.Document (window.main_actions, File.new_for_uri (restore_data));
                 open_document (doc);
             });
 
             this.notebook.tab_duplicated.connect ((tab) => {
-                duplicate_document (tab as Document);
+                duplicate_document (tab as Services.Document);
             });
 
             this.pack_start (notebook, true, true, 0);
@@ -92,105 +87,106 @@ namespace Scratch.Widgets {
         }
 
         private string unsaved_file_path_builder () {
-            DateTime timestamp = new DateTime.now_local ();
+            var timestamp = new DateTime.now_local ();
             string new_text_file = _("Text file from ") + timestamp.format ("%Y-%m-%d %H:%M:%S");
 
             return ScratchApp.instance.data_home_folder_unsaved + new_text_file;
         }
 
         public void new_document () {
-            File file = File.new_for_path (unsaved_file_path_builder ());
-            file.create (FileCreateFlags.PRIVATE);
+            var file = File.new_for_path (unsaved_file_path_builder ());
+            try {
+                file.create (FileCreateFlags.PRIVATE);
 
-            var doc = new Document (window.main_actions, file);
-            doc.create_page ();
+                var doc = new Services.Document (window.main_actions, file);
+                doc.create_page ();
 
-            this.notebook.insert_tab (doc, -1);
-            this.notebook.current = doc;
+                this.notebook.insert_tab (doc, -1);
+                this.notebook.current = doc;
 
-            doc.focus ();
+                doc.focus ();
+            } catch (Error e) {
+                critical (e.message);
+            }
         }
 
         public void new_document_from_clipboard (string clipboard) {
-            File file = File.new_for_path (unsaved_file_path_builder ());
-            file.create (FileCreateFlags.PRIVATE);
+            var file = File.new_for_path (unsaved_file_path_builder ());
 
             // Set clipboard content
             try {
+                file.create (FileCreateFlags.PRIVATE);
                 file.replace_contents (clipboard.data, null, false, 0, null);
+
+                var doc = new Services.Document (window.main_actions, file);
+                doc.create_page ();
+
+                this.notebook.insert_tab (doc, -1);
+                this.notebook.current = doc;
+
+                doc.focus ();
             } catch (Error e) {
-                warning ("Cannot insert clipboard: %s", clipboard);
+                critical ("Cannot insert clipboard: %s", clipboard);
             }
-
-            var doc = new Document (window.main_actions, file);
-            doc.create_page ();
-
-            this.notebook.insert_tab (doc, -1);
-            this.notebook.current = doc;
-
-            doc.focus ();
         }
 
-        public void open_document (Document doc) {
+        public void open_document (Services.Document doc) {
             for (int n = 0; n <= docs.length (); n++) {
-                if (docs.nth_data (n) == null)
+                var nth_doc = docs.nth_data (n);
+                if (nth_doc == null) {
                     continue;
-                if (docs.nth_data (n).file != null
-                        && docs.nth_data (n).file.get_uri () == doc.file.get_uri ()) {
-                    this.notebook.current = docs.nth_data (n);
+                }
+
+                if (nth_doc.file != null && nth_doc.file.get_uri () == doc.file.get_uri ()) {
+                    this.notebook.current = nth_doc;
                     warning ("This Document was already opened! Not opening a duplicate!");
                     return;
                 }
             }
 
             doc.create_page ();
-
             this.notebook.insert_tab (doc, -1);
             this.notebook.current = doc;
-
             doc.focus ();
         }
 
-        public void duplicate_document (Document original) {
-            File file = File.new_for_path (unsaved_file_path_builder ());
-            file.create (FileCreateFlags.PRIVATE);
-
-            var doc = new Document (window.main_actions, file);
-            doc.create_page ();
-
-            // Set a copy of content
+        // Set a copy of content
+        public void duplicate_document (Services.Document original) {
             try {
+                var file = File.new_for_path (unsaved_file_path_builder ());
+                file.create (FileCreateFlags.PRIVATE);
+
+                var doc = new Services.Document (window.main_actions, file);
+                doc.create_page ();
                 string s;
                 doc.file.replace_contents (original.source_view.buffer.text.data, null, false, 0, out s);
+                this.notebook.insert_tab (doc, -1);
+                this.notebook.current = doc;
+                doc.focus ();
             } catch (Error e) {
                 warning ("Cannot copy \"%s\": %s", original.get_basename (), e.message);
             }
-
-            this.notebook.insert_tab (doc, -1);
-            this.notebook.current = doc;
-
-            doc.focus ();
         }
 
         public void next_document () {
             uint current_index = docs.index (get_current_document ()) + 1;
             if (current_index < docs.length ()) {
-                Document? next_doc = docs.nth_data (current_index++);
+                var next_doc = docs.nth_data (current_index++);
                 this.notebook.current = next_doc;
-                next_doc.focus();
+                next_doc.focus ();
             }
         }
 
         public void previous_document () {
             uint current_index = docs.index (get_current_document ());
             if (current_index > 0) {
-                Document? previous_doc = docs.nth_data (--current_index);
+                var previous_doc = docs.nth_data (--current_index);
                 this.notebook.current = previous_doc;
                 previous_doc.focus ();
             }
         }
 
-        public void close_document (Document doc) {
+        public void close_document (Services.Document doc) {
             this.notebook.remove_tab (doc);
             doc.close ();
         }
@@ -198,16 +194,17 @@ namespace Scratch.Widgets {
         public void close_current_document () {
             var doc = get_current_document ();
             if (doc != null) {
-                if(this.notebook.close_tab_requested (doc))
-                     this.notebook.remove_tab (doc);
+                if (this.notebook.close_tab_requested (doc)) {
+                    this.notebook.remove_tab (doc);
+                }
             }
         }
 
-        public Document? get_current_document () {
-            return this.notebook.current as Document;
+        public Services.Document? get_current_document () {
+            return this.notebook.current as Services.Document;
         }
 
-        public void set_current_document (Document doc) {
+        public void set_current_document (Services.Document doc) {
             this.notebook.current = doc;
         }
 
@@ -220,7 +217,7 @@ namespace Scratch.Widgets {
         }
 
         private void on_doc_added (Granite.Widgets.Tab tab) {
-            var doc = tab as Document;
+            var doc = tab as Services.Document;
             doc.main_actions = window.main_actions;
 
             this.docs.append (doc);
@@ -231,7 +228,7 @@ namespace Scratch.Widgets {
         }
 
         private void on_doc_removed (Granite.Widgets.Tab tab) {
-            var doc = tab as Document;
+            var doc = tab as Services.Document;
 
             this.docs.remove (doc);
             doc.source_view.focus_in_event.disconnect (this.on_focus_in_event);
@@ -239,12 +236,13 @@ namespace Scratch.Widgets {
             doc.source_view.drag_motion.disconnect (this.drag_motion);
 
             // Check if the view is empty
-            if (this.is_empty ())
+            if (this.is_empty ()) {
                 empty ();
+            }
         }
 
-        private void on_doc_moved (Tab tab, int x, int y) {
-            var doc = tab as Document;
+        private void on_doc_moved (Granite.Widgets.Tab tab, int x, int y) {
+            var doc = tab as Services.Document;
 
             var other_window = window.app.new_window ();
             other_window.move (x, y);
@@ -255,13 +253,12 @@ namespace Scratch.Widgets {
             other_view.notebook.insert_tab (doc, -1);
         }
 
-        private void on_doc_reordered (Tab tab) {
-            (tab as Document).focus ();
+        private void on_doc_reordered (Granite.Widgets.Tab tab) {
+            (tab as Services.Document).focus ();
         }
 
         private bool on_focus_in_event () {
             var doc = get_current_document ();
-
             if (doc == null) {
                 warning ("Focus event callback cannot get current document");
             } else {
@@ -275,15 +272,12 @@ namespace Scratch.Widgets {
             return true;
         }
 
-        private void drag_received(Gdk.DragContext ctx, int x, int y, Gtk.SelectionData sel,  uint info, uint time){
+        private void drag_received (Gdk.DragContext ctx, int x, int y, Gtk.SelectionData sel,  uint info, uint time){
             var uris = sel.get_uris ();
-            if (uris.length > 0) {
-                for (var i = 0; i < uris.length; i++) {
-                    string filename = uris[i];
-                    File file = File.new_for_uri (filename);
-                    Document doc = new Document (window.main_actions, file);
-                    this.open_document (doc);
-                }
+            foreach (var filename in uris) {
+                var file = File.new_for_uri (filename);
+                var doc = new Services.Document (window.main_actions, file);
+                this.open_document (doc);
 
                 Gtk.drag_finish (ctx, true, false, time);
             }

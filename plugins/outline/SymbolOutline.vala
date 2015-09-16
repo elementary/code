@@ -18,8 +18,7 @@
   END LICENSE
 ***/
 
-public interface SymbolOutline : Object
-{
+public interface SymbolOutline : Object {
     public abstract Scratch.Services.Document doc { get; protected set; }
     public abstract void parse_symbols ();
     public abstract Granite.Widgets.SourceList get_source_list ();

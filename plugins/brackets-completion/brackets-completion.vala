@@ -22,22 +22,21 @@ public const string NAME = N_("Brackets Completion");
 public const string DESCRIPTION = N_("Complete brackets while typing");
 
 public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Activatable {
-    
     Gee.HashMap<string, string> brackets;
-    
-    GLib.List<Gtk.TextBuffer> buffers;   
+
+    Gee.TreeSet<Gtk.TextBuffer> buffers;
     Gtk.TextBuffer current_buffer;
-    string last_inserted;    
-        
+    string last_inserted;
+
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
-   
+
     public void update_state () {
+        
     }
 
     public void activate () {
-        this.buffers = new GLib.List<Gtk.TextBuffer> ();
-        
+        this.buffers = new Gee.TreeSet<Gtk.TextBuffer> ();
         this.brackets = new Gee.HashMap<string, string> ();
         this.brackets.set ("(", ")");
         this.brackets.set ("[", "]");
@@ -49,34 +48,34 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
         this.brackets.set ("‘", "‘");
         this.brackets.set ("'", "'");
         this.brackets.set ("\"", "\"");
-        
-        plugins = (Scratch.Services.Interface) object;        
+
+        plugins = (Scratch.Services.Interface) object;
         plugins.hook_document.connect ((doc) => {
             var buf = doc.source_view.buffer;
             buf.insert_text.disconnect (on_insert_text);
             buf.insert_text.connect (on_insert_text);
-            this.buffers.append (buf);
+            this.buffers.add (buf);
             this.current_buffer = buf;
         });
     }
 
     public void deactivate () {
-        buffers.foreach ((buf) => {
+        foreach (var buf in buffers) {
             buf.insert_text.disconnect (on_insert_text);
-        });
+        }
     }
-    
+
     void on_insert_text (ref Gtk.TextIter pos, string new_text, int new_text_length) {
         // If you are copy/pasting a large amount of text...
-        if (new_text_length > 1)
+        if (new_text_length > 1) {
             return;
-        
+        }
+
         if (new_text in this.brackets.keys && this.last_inserted != new_text) {
             var buf = this.current_buffer;
 
             string text = this.brackets.get (new_text);
             int len = text.length;
-            
             this.last_inserted = text;
             buf.insert (ref pos, text, len);
 
@@ -87,7 +86,6 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
             buf.place_cursor (pos);
         }
     }
-    
 }
 
 [ModuleInit]

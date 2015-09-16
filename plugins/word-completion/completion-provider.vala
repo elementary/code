@@ -75,7 +75,7 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         if (this.icon == null) {
             Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
             try {
-                this.icon = theme.load_icon (Gtk.Stock.DIALOG_INFO, 16, 0);
+                this.icon = theme.load_icon ("help-info", 16, 0);
             } catch (GLib.Error e) {
                 warning (_("Could not load icon theme: %s\n"), e.message);
             }
@@ -83,8 +83,7 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         return this.icon;
     }
 
-    public bool activate_proposal (Gtk.SourceCompletionProposal proposal,
-                                   Gtk.TextIter iter) {
+    public bool activate_proposal (Gtk.SourceCompletionProposal proposal, Gtk.TextIter iter) {
         if (proposals_found) {
             /* Count backward from completion_mark instead of iter
              * (avoids wrong insertion if the user is typing fast) */
@@ -173,15 +172,13 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         /* There is no minimum length of word to find if the user requested a completion */
         if (no_minimum || to_find.length >= Euclide.Completion.Parser.MINIMUM_WORD_LENGTH) {
             /* Get proposals, if any */
-            var prop_word_list = new GLib.List<string> ();
+            Gee.TreeSet<string> prop_word_list;
             if (parser.get_for_word (to_find, out prop_word_list)) {
                 foreach (var word in prop_word_list) {
-                    var item = new Gtk.SourceCompletionItem (word,
-                                                             word,
-                                                             null,
-                                                             null);
+                    var item = new Gtk.SourceCompletionItem (word, word, null, null);
                     props.prepend (item);
                 }
+
                 return true;
             }
         }
