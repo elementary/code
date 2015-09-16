@@ -18,42 +18,38 @@
   END LICENSE
 ***/
 
-using Gtk;
-
 namespace Scratch.Widgets {
     public class LoadingView : Gtk.EventBox {
-        
-        private Spinner spinner;
-        private Label label;
-        
+        private Gtk.Spinner spinner;
+        private Gtk.Label label;
+
         public LoadingView () {
-            this.get_style_context().add_class (Granite.StyleClass.CONTENT_VIEW);
-            this.valign = Align.FILL;
-            
-            spinner = new Spinner ();
+            this.get_style_context ().add_class (Granite.StyleClass.CONTENT_VIEW);
+            this.valign = Gtk.Align.FILL;
+
+            spinner = new Gtk.Spinner ();
             spinner.set_size_request(32, 32);
 
-            label = new Label (_("Wait while restoring last session..."));
+            label = new Gtk.Label (_("Wait while restoring last session..."));
             label.margin = 15;
-            
-            var box = new Box (Orientation.VERTICAL, 0);
-            box.valign = Align.CENTER;
+
+            var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+            box.valign = Gtk.Align.CENTER;
             box.pack_start (spinner, false, true, 0);
-            box.pack_start (label, false, true, 0);    
-        
+            box.pack_start (label, false, true, 0);
+
             this.add (box);
-            
             this.visible = false;
             this.no_show_all = true;
         }
-        
+
         public void start () {
             this.visible = true;
             this.no_show_all = false;
             this.show_all ();
             spinner.start ();
         }
-        
+
         public void stop () {
             this.visible = false;
             this.no_show_all = true;

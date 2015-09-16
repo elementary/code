@@ -19,12 +19,6 @@
   END LICENSE
 ***/
 
-using Granite.Widgets;
-using Scratch.Widgets;
-#if HAVE_ZEITGEIST
-using Zeitgeist;
-#endif
-
 namespace Scratch.Services {
 
     public enum DocumentStates {
@@ -52,21 +46,18 @@ namespace Scratch.Services {
         public signal void doc_closed ();
 
         // Widgets
-        public Scratch.Widgets.SourceView source_view = new Scratch.Widgets.SourceView ();
-        private Gtk.InfoBar info_bar =                  new Gtk.InfoBar ();
+        public Scratch.Widgets.SourceView source_view;
+        private Gtk.InfoBar info_bar;
 
         // Objects
-        private File _file = null;
+        private Gtk.SourceFile source_file;
         public File file {
-            get { return _file; }
-            set { 
-                _file = value;
+            get { return source_file.location; }
+            set {
                 source_file.set_location (value);
                 file_changed ();
             }
         }
-
-        private Gtk.SourceFile source_file = new Gtk.SourceFile ();
 
         public string original_content;
         public bool saved = true;
@@ -99,13 +90,20 @@ namespace Scratch.Services {
             this.main_actions = actions;
             this.file = file;
 
+            open.begin ();
+        }
+
+        construct {
+            source_view = new Scratch.Widgets.SourceView ();
+            info_bar = new Gtk.InfoBar ();
+            source_file = new Gtk.SourceFile ();
+
             // Handle Drag-and-drop functionality on source-view
             Gtk.TargetEntry uris = {"text/uri-list", 0, 0};
             Gtk.TargetEntry text = {"text/plain", 0, 0};
             Gtk.drag_dest_set (source_view, Gtk.DestDefaults.ALL, {uris, text}, Gdk.DragAction.COPY);
 
             hide_info_bar ();
-            open.begin ();
         }
 
         public void toggle_changed_handlers (bool enabled) {

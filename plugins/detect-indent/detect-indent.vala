@@ -16,8 +16,9 @@ public class Scratch.Plugins.DetectIndent: Peas.ExtensionBase, Peas.Activatable 
         plugins.hook_document.connect ((d) => {
             var view = d.source_view;
 
-            if (!view.get_editable ())
+            if (!view.get_editable ()) {
                 return;
+            }
 
             Gtk.TextIter it;
             view.buffer.get_iter_at_line (out it, 0);
@@ -38,35 +39,40 @@ public class Scratch.Plugins.DetectIndent: Peas.ExtensionBase, Peas.Activatable 
 
                     // Avoid lines without any character
                     for (var i = 0; i < text.length && empty; i++) {
-                        if (text.valid_char (i) && !text.get_char (i).isspace ())
+                        if (text.valid_char (i) && !text.get_char (i).isspace ()) {
                             empty = false;
+                        }
                     }
 
                     if (!empty) {
-                        if (text[0] == '\t')
+                        if (text[0] == '\t') {
                             tabs_found += 1;
                         // Consider only two or more consecutive ' ' as indentation
-                        else if (text.length > 1 && text[0] == ' ' && text[1] == ' ')
+                        } else if (text.length > 1 && text[0] == ' ' && text[1] == ' ') {
                             spaces_found += 1;
+                        }
 
                         lines_processed += 1;
                     }
                 }
 
-                if (!it.forward_line ())
+                if (!it.forward_line ()) {
                     break;
+                }
             }
 
             float sr = (float)spaces_found / lines_processed;
             float tr = (float)tabs_found / lines_processed;
 
             // Make sure we have a meaningful amount of data to do the hard decisions.
-            if (Math.fabsf (tr - sr) > 0.1f)
+            if (Math.fabsf (tr - sr) > 0.1f) {
                 view.set_insert_spaces_instead_of_tabs (sr > tr);
+            }
         });
     }
 
     public void deactivate () {
+        
     }
 
 }

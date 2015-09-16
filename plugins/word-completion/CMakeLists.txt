@@ -16,6 +16,7 @@ PACKAGES
     libpeas-1.0
     ${ZEITGEIST_DEPS}
 OPTIONS
+    --target-glib=2.32
     --thread
     --vapidir=${CMAKE_BINARY_DIR}
     --vapidir=${CMAKE_BINARY_DIR}/src/

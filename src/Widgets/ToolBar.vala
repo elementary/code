@@ -18,26 +18,23 @@
   END LICENSE
 ***/
 
-using Gtk;
-using Granite.Widgets;
-
 namespace Scratch.Widgets {
 
     public class Toolbar : Gtk.HeaderBar {
 
-        public ToolButton open_button;
-        public ToolButton templates_button;
-        public ToolButton save_button;
-        public ToolButton save_as_button;
-        public ToolButton revert_button;
-        public ToolButton find_button;
-        public ToolButton zoom_default;
+        public Gtk.ToolButton open_button;
+        public Gtk.ToolButton templates_button;
+        public Gtk.ToolButton save_button;
+        public Gtk.ToolButton save_as_button;
+        public Gtk.ToolButton revert_button;
+        public Gtk.ToolButton find_button;
+        public Gtk.ToolButton zoom_default;
 
         public Gtk.Menu share_menu;
         public Gtk.Menu menu;
 
         public Granite.Widgets.ToolButtonWithMenu share_app_menu;
-        public AppMenu app_menu;
+        public Granite.Widgets.AppMenu app_menu;
 
         public Toolbar (Gtk.ActionGroup main_actions) {
             // Toolbar properties
@@ -55,31 +52,31 @@ namespace Scratch.Widgets {
 
             // Create Share and AppMenu
             share_menu = new Gtk.Menu ();
-            share_app_menu = new Granite.Widgets.ToolButtonWithMenu (new Image.from_icon_name ("document-export", IconSize.MENU), _("Share"), share_menu);
+            share_app_menu = new Granite.Widgets.ToolButtonWithMenu (new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.MENU), _("Share"), share_menu);
             share_menu.insert.connect (() => {
                 if (share_menu.get_children ().length () > 0) {
                     share_app_menu.no_show_all = false;
                     share_app_menu.visible = true;
                     share_app_menu.show_all ();
-                }
-                else {
+                } else {
                     share_app_menu.no_show_all = true;
                     share_app_menu.visible = false;
                     share_app_menu.hide ();
                 }
             });
+
             share_menu.remove.connect (() => {
                 if (share_menu.get_children ().length () > 0) {
                     share_app_menu.no_show_all = false;
                     share_app_menu.visible = true;
                     share_app_menu.show_all ();
-                }
-                else {
+                } else {
                     share_app_menu.no_show_all = true;
                     share_app_menu.visible = false;
                     share_app_menu.hide ();
                 }
             });
+
             share_app_menu.no_show_all = true;
 
             // Add everything to the toolbar
@@ -87,12 +84,12 @@ namespace Scratch.Widgets {
             pack_start (templates_button);
             pack_start (save_button);
             pack_start (save_as_button);
-            pack_start (new SeparatorToolItem ());
+            pack_start (new Gtk.SeparatorToolItem ());
             pack_start (revert_button);
-            pack_start (new SeparatorToolItem ());
+            pack_start (new Gtk.SeparatorToolItem ());
             pack_start (find_button);
             pack_start (find_button);
-           
+
             pack_end (share_app_menu);
             pack_end (zoom_default);
 

@@ -107,20 +107,18 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase,  Peas.Activatable 
 
     private bool on_timeout_update () {
         try {
-            GLib.Thread.create<void*> (threaded_update, true);
-        } catch (ThreadError e) {
+            new Thread<void*>.try ("word-completion-thread", () => {
+                if (current_view != null)
+                    parser.parse_text_view (current_view as Gtk.TextView);
+
+                return null;
+            });
+        } catch (Error e) {
             warning (e.message);
         }
 
         timeout_id = 0;
         return false;
-    }
-
-    void* threaded_update () {
-        if (current_view != null)
-            parser.parse_text_view (current_view as Gtk.TextView);
-
-        return null;
     }
 
     private bool on_key_press (Gtk.Widget view, Gdk.EventKey event) {

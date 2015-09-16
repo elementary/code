@@ -19,9 +19,7 @@
  */
 
 namespace Scratch.Widgets {
-
     public class SearchManager : Gtk.Toolbar {
-
         // Parent window
         private weak MainWindow window;
 
@@ -64,14 +62,14 @@ namespace Scratch.Widgets {
          *
          * following actions : Fetch, ShowGoTo, ShowRreplace, or null.
          **/
-        public SearchManager (MainWindow window) {            
+        public SearchManager (MainWindow window) {
             // Main entries
             // Search entry
             this.window = window;
             search_entry = new Gtk.SearchEntry ();
             search_entry.placeholder_text = _("Find");
             search_entry.width_request = 250;
-            
+
             // Back and Next buttons
             var next = new Gtk.Button ();
             next.clicked.connect (search_next);
@@ -79,20 +77,20 @@ namespace Scratch.Widgets {
             var i = new Gtk.Image.from_icon_name ("go-down-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
             i.pixel_size = 16;
             next.image = i;
-            
+
             var previous = new Gtk.Button ();
             previous.clicked.connect (search_previous);
             previous.set_relief (Gtk.ReliefStyle.NONE);
             i = new Gtk.Image.from_icon_name ("go-up-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
             i.pixel_size = 16;
             previous.image = i;
-            
+
             // Replace entry
             replace_entry = new Gtk.SearchEntry ();
             replace_entry.placeholder_text = _("Replace With");
             replace_entry.set_icon_from_icon_name (Gtk.EntryIconPosition.PRIMARY, "edit-symbolic");
             replace_entry.width_request = 250;
-            
+
             // Go To entry
             go_to_adj = new Gtk.Adjustment (0, 0, 1000, 1, 40, 0);
             go_to_entry = new Gtk.SpinButton (go_to_adj, 1, 1);
@@ -109,7 +107,7 @@ namespace Scratch.Widgets {
             tool_go_to_label = new Gtk.ToolItem ();
             tool_go_to_label.set_margin_right (5);
             tool_go_to_entry = new Gtk.ToolItem ();
-            
+
             // Replace GtkToolButton
             replace_tool_button = new Gtk.ToolButton (null, _("Replace"));
             replace_tool_button.clicked.connect (on_replace_entry_activate);
@@ -117,7 +115,7 @@ namespace Scratch.Widgets {
             // Replace all GtkToolButton
             replace_all_tool_button = new Gtk.ToolButton (null, _("Replace all"));
             replace_all_tool_button.clicked.connect (on_replace_all_entry_activate);
-            
+
             // Populate GtkToolItems
             tool_search_entry.add (search_entry);
             tool_arrow_up.add (next);
@@ -125,7 +123,7 @@ namespace Scratch.Widgets {
             tool_replace_entry.add (replace_entry);
             tool_go_to_label.add (new Gtk.Label (_("Go To Line:")));
             tool_go_to_entry.add (go_to_entry);
-            
+
             // Connecting to some signals
             search_entry.changed.connect (on_search_entry_text_changed);
             search_entry.key_press_event.connect (on_search_entry_key_press);
@@ -141,7 +139,7 @@ namespace Scratch.Widgets {
             entry_context.set_path (entry_path);
             entry_context.add_class ("entry");
             normal_color = entry_context.get_color (Gtk.StateFlags.FOCUSED);
-            
+
             // Add everything to SearchManager's toolbar
             this.add (tool_search_entry);
             this.add (tool_arrow_down);
@@ -164,8 +162,9 @@ namespace Scratch.Widgets {
                 return;
             }
 
-            if (this.text_view != null)
+            if (this.text_view != null) {
                 this.text_buffer.modified_changed.disconnect (on_text_buffer_modified);
+            }
 
             this.text_view = text_view;
             this.text_buffer = text_view.get_buffer ();
@@ -179,53 +178,64 @@ namespace Scratch.Widgets {
                 tool_arrow_down.sensitive = true;
                 tool_arrow_up.sensitive = false;
                 search_entry.override_color (Gtk.StateFlags.NORMAL, normal_color);
-            }
-            else {
-                if (search_entry.text != "") 
+            } else {
+                if (search_entry.text != "") {
                     search_entry.override_color (Gtk.StateFlags.NORMAL, {1.0, 0.0, 0.0, 1.0});
+                }
+
                 tool_arrow_down.sensitive = false;
                 tool_arrow_up.sensitive = false;
             }
-            
+
             update_go_to_entry ();
             this.text_buffer.modified_changed.connect (on_text_buffer_modified);
         }
-        
-        void on_go_to_entry_activate () {
-            if( text_view != null) {
-                text_view.go_to_line (int.parse(go_to_entry.text));
+
+        private void on_go_to_entry_activate () {
+            if (text_view != null) {
+                text_view.go_to_line (int.parse (go_to_entry.text));
             }
         }
 
-        void on_replace_entry_activate () {
+        private void on_replace_entry_activate () {
             if (text_buffer == null) {
                 warning ("No valid buffer to replace");
                 return;
             }
+
             Gtk.TextIter? start_iter, end_iter;
             text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
 
             if (search_for_iter (start_iter, out end_iter)) {
                 string replace_string = replace_entry.text;
-                search_context.replace (start_iter, end_iter,
-                                        replace_string, replace_string.length);
-                bool matches = search ();
-                update_replace_tool_sensitivities (search_entry.text, matches);
-                update_tool_arrows (search_entry.text);
-                debug ("Replace \"%s\" with \"%s\"", search_entry.text, replace_entry.text);
+                try {
+                    search_context.replace (start_iter, end_iter, replace_string, replace_string.length);
+                    bool matches = search ();
+                    update_replace_tool_sensitivities (search_entry.text, matches);
+                    update_tool_arrows (search_entry.text);
+                    debug ("Replace \"%s\" with \"%s\"", search_entry.text, replace_entry.text);
+                } catch (Error e) {
+                    critical (e.message);
+                }
             }
         }
 
-        void on_replace_all_entry_activate () {
+        private void on_replace_all_entry_activate () {
             if (text_buffer == null) {
-                warning ("No valid buffer to replace");
+                debug ("No valid buffer to replace");
                 return;
             }
+
             string replace_string = replace_entry.text;
             this.window.get_current_document ().toggle_changed_handlers (false);
-            search_context.replace_all (replace_string, replace_string.length);
-            update_tool_arrows (search_entry.text);
-            update_replace_tool_sensitivities (search_entry.text, false);
+            try {
+                search_context.replace_all (replace_string, replace_string.length);
+                update_tool_arrows (search_entry.text);
+                update_replace_tool_sensitivities (search_entry.text, false);
+            } catch (Error e) {
+                critical (e.message);
+            }
+
             this.window.get_current_document ().toggle_changed_handlers (true);
         }
 
@@ -233,7 +243,7 @@ namespace Scratch.Widgets {
             search_entry.text = to_search;
         }
 
-        void on_search_entry_text_changed () {
+        private void on_search_entry_text_changed () {
             var search_string = search_entry.text;
             search_context.settings.search_text = search_string;
             bool case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
@@ -244,15 +254,15 @@ namespace Scratch.Widgets {
             update_tool_arrows (search_entry.text);
         }
 
-        void update_replace_tool_sensitivities (string search_text, bool matches) {
+        private void update_replace_tool_sensitivities (string search_text, bool matches) {
             replace_tool_button.sensitive = matches && search_text != "";
             replace_all_tool_button.sensitive = matches && search_text != "";
         }
 
-        bool on_search_entry_focused_in (Gdk.EventFocus event) {           
+        private bool on_search_entry_focused_in (Gdk.EventFocus event) {
             Gtk.TextIter? start_iter, end_iter;
             text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
-            
+
             end_iter = start_iter;
             bool case_sensitive = !((search_entry.text.up () == search_entry.text) || (search_entry.text.down () == search_entry.text));
             bool found = start_iter.forward_search (search_entry.text,
@@ -261,10 +271,11 @@ namespace Scratch.Widgets {
             if (found) {
                 search_entry.override_color (Gtk.StateFlags.FOCUSED, normal_color);
                 return true;
-            }
-            else {
-                if (search_entry.text != "")
+            } else {
+                if (search_entry.text != "") {
                     search_entry.override_color (Gtk.StateFlags.FOCUSED, {1.0, 0.0, 0.0, 1.0});
+                }
+
                 return false;
             }
         }
@@ -273,9 +284,9 @@ namespace Scratch.Widgets {
             /* So, first, let's check we can really search something. */
             string search_string = search_entry.text;
             highlight_all (search_string);
-            
+
             if (text_buffer == null || text_buffer.text == "" || search_string == "") {
-                warning ("I can't search anything in an inexistant buffer and/or without anything to search.");
+                debug ("Can't search anything in an inexistant buffer and/or without anything to search.");
                 return false;
             }
 
@@ -284,61 +295,57 @@ namespace Scratch.Widgets {
 
             if (search_for_iter (start_iter, out end_iter)) {
                 search_entry.override_color (Gtk.StateFlags.FOCUSED, normal_color);
-            }
-            else {
+            } else {
                 text_buffer.get_start_iter (out start_iter);
                 if (search_for_iter (start_iter, out end_iter)) {
                     search_entry.override_color (Gtk.StateFlags.FOCUSED, normal_color);
-                }
-                else {
+                } else {
                     warning ("Not found : \"%s\"", search_string);
                     start_iter.set_offset (-1);
                     text_buffer.select_range (start_iter, start_iter);
                     search_entry.override_color (Gtk.StateFlags.FOCUSED, {1.0, 0.0, 0.0, 1.0});
                     return false;
                 }
-
             }
-           return true;
+
+            return true;
         }
 
         public void highlight_none () {
             search_context.highlight = false;
         }
 
-        bool highlight_all (string search_string) {
+        private bool highlight_all (string search_string) {
             search_context.highlight = true;
             return true;
         }
 
-        bool search_for_iter (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
+        private bool search_for_iter (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
             end_iter = start_iter;
-            bool found = search_context.forward (start_iter,
-                                                 out start_iter,
-                                                 out end_iter);
+            bool found = search_context.forward (start_iter, out start_iter, out end_iter);
             if (found) {
                 text_buffer.select_range (start_iter, end_iter);
                 text_view.scroll_to_iter (start_iter, 0, false, 0, 0);
             }
+
             return found;
         }
 
-        bool search_for_iter_backward (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
+        private bool search_for_iter_backward (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
             end_iter = start_iter;
-            bool found = search_context.backward (start_iter,
-                                                  out start_iter,
-                                                  out end_iter);
+            bool found = search_context.backward (start_iter, out start_iter, out end_iter);
             if (found) {
                 text_buffer.select_range (start_iter, end_iter);
                 text_view.scroll_to_iter (start_iter, 0, false, 0, 0);
             }
+
             return found;
         }
 
         public void search_previous () {
             /* Get selection range */
             Gtk.TextIter? start_iter, end_iter;
-            if(text_buffer != null) {
+            if (text_buffer != null) {
                 string search_string = search_entry.text;
                 text_buffer.get_selection_bounds (out start_iter, out end_iter);
                 if(!search_for_iter_backward (start_iter, out end_iter) && cycle_search) {
@@ -353,24 +360,22 @@ namespace Scratch.Widgets {
         public void search_next () {
             /* Get selection range */
             Gtk.TextIter? start_iter, end_iter, end_iter_tmp;
-            if(text_buffer != null) {
+            if (text_buffer != null) {
                 string search_string = search_entry.text;
                 text_buffer.get_selection_bounds (out start_iter, out end_iter);
                 if(!search_for_iter (end_iter, out end_iter_tmp) && cycle_search) {
                     text_buffer.get_start_iter (out start_iter);
                     search_for_iter (start_iter, out end_iter);
                 }
-                
+
                 update_tool_arrows (search_string);
             }
         }
 
-        private void update_tool_arrows(string search_string)
-        {
+        private void update_tool_arrows (string search_string) {
             /* We don't need to compute the sensitive states of these widgets
              * if they don't exist. */
             if (tool_arrow_up != null && tool_arrow_down != null) {
-
                 if (search_string == "") {
                     tool_arrow_up.sensitive = false;
                     tool_arrow_down.sensitive = false;
@@ -389,18 +394,14 @@ namespace Scratch.Widgets {
                     is_in_end = end_iter.compare(tmp_end_iter) == 0;
 
                     if (!is_in_end) {
-                        bool next_found = search_context.forward (end_iter,
-                                                                  out tmp_start_iter,
-                                                                  out tmp_end_iter);
+                        bool next_found = search_context.forward (end_iter, out tmp_start_iter, out tmp_end_iter);
                         tool_arrow_up.sensitive = next_found;
                     } else {
                         tool_arrow_up.sensitive = false;
                     }
 
                     if (!is_in_start) {
-                        bool previous_found = search_context.backward (start_iter,
-                                                                       out tmp_start_iter,
-                                                                       out end_iter);
+                        bool previous_found = search_context.backward (start_iter, out tmp_start_iter, out end_iter);
                         tool_arrow_down.sensitive = previous_found;
                     } else {
                         tool_arrow_down.sensitive = false;
@@ -409,61 +410,73 @@ namespace Scratch.Widgets {
             }
         }
 
-        bool on_search_entry_key_press (Gdk.EventKey event) {
+        private bool on_search_entry_key_press (Gdk.EventKey event) {
             /* We don't need to perform search if there is nothing to search... */
-            if (search_entry.text == "")
+            if (search_entry.text == "") {
                 return false;
+            }
+
             string key = Gdk.keyval_name (event.keyval);
-            if (event.state == Gdk.ModifierType.SHIFT_MASK)
+            if (event.state == Gdk.ModifierType.SHIFT_MASK) {
                 key = "<Shift>" + key;
+            }
+
             switch (key) {
-            case "<Shift>Return":
-            case "Up":
-                search_previous ();
-                return true;
-            case "Return":
-            case "Down":
-                search_next ();
-                return true;
-            case "Escape":
-                text_view.grab_focus ();
-                return true;
-            case "Tab":
-                if (search_entry.is_focus) replace_entry.grab_focus ();
-                return true;
+                case "<Shift>Return":
+                case "Up":
+                    search_previous ();
+                    return true;
+                case "Return":
+                case "Down":
+                    search_next ();
+                    return true;
+                case "Escape":
+                    text_view.grab_focus ();
+                    return true;
+                case "Tab":
+                    if (search_entry.is_focus) {
+                        replace_entry.grab_focus ();
+                    }
+
+                    return true;
             }
+
             return false;
-        }
-        
-        bool on_replace_entry_key_press (Gdk.EventKey event) {
-            /* We don't need to perform search if there is nothing to search... */
-            if (search_entry.text == "")
-                return false;
-            string key = Gdk.keyval_name (event.keyval);
-            switch (key)
-            {
-            case "Up":
-                search_previous ();
-                return true;
-            case "Down":
-                search_next ();
-                return true;
-            case "Escape":
-                text_view.grab_focus ();
-                return true;
-            case "Tab":
-                if (replace_entry.is_focus) go_to_entry.grab_focus ();
-                return true;
-            }
-            return false;
-        }
-        
-        void update_go_to_entry () {
-            //Set the maximum range of the "Go To Line" spinbutton.
-            go_to_entry.set_range (1, text_buffer.get_line_count ());        
         }
 
-        void on_text_buffer_modified () {
+        private bool on_replace_entry_key_press (Gdk.EventKey event) {
+            /* We don't need to perform search if there is nothing to search… */
+            if (search_entry.text == "") {
+                return false;
+            }
+
+            switch (Gdk.keyval_name (event.keyval)) {
+                case "Up":
+                    search_previous ();
+                    return true;
+                case "Down":
+                    search_next ();
+                    return true;
+                case "Escape":
+                    text_view.grab_focus ();
+                    return true;
+                case "Tab":
+                    if (replace_entry.is_focus) {
+                        go_to_entry.grab_focus ();
+                    }
+
+                    return true;
+            }
+
+            return false;
+        }
+
+        private void update_go_to_entry () {
+            //Set the maximum range of the "Go To Line" spinbutton.
+            go_to_entry.set_range (1, text_buffer.get_line_count ());
+        }
+
+        private void on_text_buffer_modified () {
             update_go_to_entry ();
         }
     }
