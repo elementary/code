@@ -8,18 +8,18 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-07-06 17:41-0500\n"
-"PO-Revision-Date: 2015-08-01 07:46+0000\n"
-"Last-Translator: colindemian <dengmengpc@gmail.com>\n"
+"PO-Revision-Date: 2015-09-20 08:51+0000\n"
+"Last-Translator: Wagaaa <wagaaa@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-08-02 05:23+0000\n"
-"X-Generator: Launchpad (build 17656)\n"
+"X-Launchpad-Export-Date: 2015-09-21 05:24+0000\n"
+"X-Generator: Launchpad (build 17746)\n"
 
 #: ../src/Scratch.vala:262
 msgid "New Tab"
-msgstr "新建标签"
+msgstr "新标签页"
 
 #: ../src/Scratch.vala:263 ../src/config.vala:18
 msgid "New Window"
@@ -55,7 +55,7 @@ msgstr "关于 Scratch"
 
 #: ../src/Services/Document.vala:233
 msgid "Save changes to document %s before closing?"
-msgstr "关闭文档 %s 之前要保存吗？"
+msgstr "关闭文档 %s 之前保存吗？"
 
 #: ../src/Services/Document.vala:236
 msgid ""
@@ -64,7 +64,7 @@ msgstr "若是您没有保存，最近 4 秒的改动将永久丢失。"
 
 #: ../src/Services/Document.vala:238
 msgid "Close without saving"
-msgstr "不保存而关闭"
+msgstr "不保存并关闭"
 
 #: ../src/Services/Document.vala:242 ../src/Utils.vala:29
 msgid "Cancel"
@@ -99,7 +99,7 @@ msgstr "另存为..."
 
 #: ../src/Services/Document.vala:546
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "文件 \"%s\" 已被删除。 您仍想保存此文件吗？"
+msgstr "文件 \"%s\" 已被删除。 您想储存此文件的副本吗？"
 
 #: ../src/Services/Document.vala:559
 msgid ""
@@ -172,11 +172,11 @@ msgstr "分享"
 
 #: ../src/Widgets/SplitView.vala:47
 msgid "No Files Open"
-msgstr "未打开文件"
+msgstr "没有打开的文件"
 
 #: ../src/Widgets/SplitView.vala:48
 msgid "Open a file to begin editing."
-msgstr "打开一个文件进行编辑。"
+msgstr "打开并编辑一个文件。"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "New file"
@@ -310,7 +310,7 @@ msgstr "打开"
 
 #: ../src/Utils.vala:42
 msgid "All files"
-msgstr "全部文件"
+msgstr "所有文件"
 
 #: ../src/Utils.vala:45
 msgid "Text files"
@@ -565,7 +565,7 @@ msgstr "关闭文件夹"
 
 #: ../plugins/outline/OutlinePlugin.vala:21
 msgid "Outline"
-msgstr "分级"
+msgstr "概况"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
@@ -748,15 +748,15 @@ msgstr "复制"
 
 #: ../plugins/terminal/terminal.vala:317
 msgid "Terminal on Right"
-msgstr "终端在右侧"
+msgstr "右侧终端"
 
 #: ../plugins/terminal/terminal.vala:325
 msgid "Terminal on Bottom"
-msgstr "终端在底部"
+msgstr "底部终端"
 
 #: ../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
-msgstr "词语补全"
+msgstr "语法补全"
 
 #: ../plugins/word-completion/plugin.vala:35
 msgid "Show a completion dialog with most used words from your files"
