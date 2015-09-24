@@ -126,6 +126,11 @@ namespace Scratch.Widgets {
             search_entry.changed.connect (on_search_entry_text_changed);
             search_entry.key_press_event.connect (on_search_entry_key_press);
             search_entry.focus_in_event.connect (on_search_entry_focused_in);
+            search_entry.icon_release.connect ((p0, p1) => {
+                if (p0 == Gtk.EntryIconPosition.PRIMARY) {
+                    search_next ();
+                }
+            });
             go_to_entry.activate.connect (on_go_to_entry_activate);
             replace_entry.activate.connect (on_replace_entry_activate);
             replace_entry.key_press_event.connect (on_replace_entry_key_press);
@@ -393,16 +398,16 @@ namespace Scratch.Widgets {
 
                     if (!is_in_end) {
                         bool next_found = search_context.forward (end_iter, out tmp_start_iter, out tmp_end_iter);
-                        tool_arrow_up.sensitive = next_found;
+                        tool_arrow_down.sensitive = next_found;
                     } else {
-                        tool_arrow_up.sensitive = false;
+                        tool_arrow_down.sensitive = false;
                     }
 
                     if (!is_in_start) {
                         bool previous_found = search_context.backward (start_iter, out tmp_start_iter, out end_iter);
-                        tool_arrow_down.sensitive = previous_found;
+                        tool_arrow_up.sensitive = previous_found;
                     } else {
-                        tool_arrow_down.sensitive = false;
+                        tool_arrow_up.sensitive = false;
                     }
                 }
             }

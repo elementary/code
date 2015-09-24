@@ -755,13 +755,11 @@ namespace Scratch {
             // This is also called when all documents are closed.
             if (current_doc != null) {
                 var selected_text = current_doc.get_selected_text ();
-                if (selected_text != "") {
+                if (fetch_active == false) {
+                    search_manager.search_entry.text = "";
+                } else if (selected_text != "") {
                     //If the user is selecting text, he plobably wants to search for it.
                     search_manager.search_entry.text = selected_text;
-                    if (fetch_active == false) {
-                        fetch_action.active = true;
-                        return;
-                    }
                 }
 
                 if (search_manager.search_entry.text != "") {
