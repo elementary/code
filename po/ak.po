@@ -3,120 +3,125 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-07-06 17:41-0500\n"
-"PO-Revision-Date: 2015-03-20 04:04+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2015-09-26 18:42+0000\n"
+"Last-Translator: karabuta <karabutaworld@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-07-07 05:28+0000\n"
-"X-Generator: Launchpad (build 17597)\n"
+"X-Launchpad-Export-Date: 2015-09-27 05:27+0000\n"
+"X-Generator: Launchpad (build 17754)\n"
 
 #: ../src/Scratch.vala:262
 msgid "New Tab"
-msgstr ""
+msgstr "Tab Foforɔ"
 
 #: ../src/Scratch.vala:263 ../src/config.vala:18
 msgid "New Window"
-msgstr ""
+msgstr "Window Foforɔ"
 
 #: ../src/Scratch.vala:264
 msgid "Print version info and exit"
-msgstr ""
+msgstr "Printe"
 
 #: ../src/Scratch.vala:265
 msgid "Set of plugins"
-msgstr ""
+msgstr "Plugins Ahoroɔ"
 
 #: ../src/Scratch.vala:266
 msgid "Current working directory"
-msgstr ""
+msgstr "Ɛha ara"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
-msgstr ""
+msgstr "Sesa file ahoroɔ ntwerɛyɛ"
 
 #: ../src/config.vala:16
 msgid "Text Editor"
-msgstr ""
+msgstr "Ntwerɛyɛ Dwumadi"
 
 #: ../src/config.vala:17 ../src/Services/Document.vala:407
 msgid "New Document"
-msgstr ""
+msgstr "Document Foforɔ"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr ""
+msgstr "Scratch Ho Nsɛm"
 
 #: ../src/Services/Document.vala:233
 msgid "Save changes to document %s before closing?"
-msgstr ""
+msgstr "Wopɛ sɛ wo kora %s to hɔ ansa wadum no anaa?"
 
 #: ../src/Services/Document.vala:236
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
+"Sɛ wo ankora anto hɔ a, wo bɛ hwere nsesayɛ  a waya no animmoho 4 a atwam no "
+"koraa."
 
 #: ../src/Services/Document.vala:238
 msgid "Close without saving"
-msgstr ""
+msgstr "Dum no. Mempɛ sɛ wo kora no"
 
 #: ../src/Services/Document.vala:242 ../src/Utils.vala:29
 msgid "Cancel"
-msgstr ""
+msgstr "Gyae"
 
 #: ../src/Services/Document.vala:243 ../src/Services/Document.vala:548
 #: ../src/Utils.vala:33 ../src/MainWindow.vala:891
 msgid "Save"
-msgstr ""
+msgstr "Kora"
 
 #: ../src/Services/Document.vala:315
 msgid "Save File"
-msgstr ""
+msgstr "Kora file no"
 
 #: ../src/Services/Document.vala:523
 msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
-msgstr ""
+msgstr "File %s antumi ambue. Ebia na asɛe anaa wo nni ho kwan sɛ wo bue."
 
 #: ../src/Services/Document.vala:539
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
+"Bɛbi a file %s wɔ no nnya mmounte yɛ. Wopɛ sɛ wo kora no baabi fofor anaa?"
 
 #: ../src/Services/Document.vala:541 ../src/MainWindow.vala:895
 msgid "Save As…"
-msgstr ""
+msgstr "Kora no sɛ ..."
 
 #: ../src/Services/Document.vala:546
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "File %s nni akoraɛ biara mu. Wo pɛ sɛ wo kora to hɔ anna?"
 
 #: ../src/Services/Document.vala:559
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
-msgstr ""
+msgstr "File %s ntumi nkora wɔ ɛha. Wopɛ sɛ wo kora to babi foforo anaa?"
 
 #: ../src/Services/Document.vala:561
 msgid "Save changes elsewhere"
-msgstr ""
+msgstr "Kora to baabi fororɔ"
 
 #: ../src/Services/Document.vala:592
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
+"Dwumadi foforɔ ayɛ nsesaɛ wɔ %s mu. Wopɛ sɛ wo hwɛ nsesaɛ no ansa na wakora "
+"no bio anaa?"
 
 #: ../src/Services/Document.vala:593
 msgid "Load"
-msgstr ""
+msgstr "Yi"
 
 #: ../src/Services/Document.vala:596
 msgid "Continue"
-msgstr ""
+msgstr "Toa so"
 
 #: ../src/Services/TemplateManager.vala:231 ../src/MainWindow.vala:899
 msgid "Templates"
@@ -124,68 +129,68 @@ msgstr ""
 
 #: ../src/Widgets/DocumentView.vala:96
 msgid "Text file from "
-msgstr ""
+msgstr "Yɛ ntwerɛe foforɔ firi "
 
 #: ../src/Widgets/SourceView.vala:134
 msgid "Syntax Highlighting"
-msgstr ""
+msgstr "Ma ntwereɛ no Kola"
 
 #: ../src/Widgets/SourceView.vala:145
 msgid "Normal Text"
-msgstr ""
+msgstr "Ntwerɛe kɛkɛ"
 
 #: ../src/Widgets/LoadingView.vala:36
 msgid "Wait while restoring last session..."
-msgstr ""
+msgstr "Twɛn ma enyi kane deɛ no"
 
 #: ../src/Widgets/SearchManager.vala:72
 msgid "Find"
-msgstr ""
+msgstr "Hwehwɛ"
 
 #: ../src/Widgets/SearchManager.vala:92
 msgid "Replace With"
-msgstr ""
+msgstr "Fa wei sesa no"
 
 #: ../src/Widgets/SearchManager.vala:114 ../src/MainWindow.vala:843
 #: ../src/MainWindow.vala:844
 msgid "Replace"
-msgstr ""
+msgstr "Sesa no"
 
 #: ../src/Widgets/SearchManager.vala:118
 msgid "Replace all"
-msgstr ""
+msgstr "Sesa ne nyinaa"
 
 #: ../src/Widgets/SearchManager.vala:126
 msgid "Go To Line:"
-msgstr ""
+msgstr "Kɔ line:"
 
 #: ../src/Widgets/ToolBar.vala:58
 msgid "Share"
-msgstr ""
+msgstr "Fa ma"
 
 #: ../src/Widgets/SplitView.vala:47
 msgid "No Files Open"
-msgstr ""
+msgstr "File biara mbuieɛ"
 
 #: ../src/Widgets/SplitView.vala:48
 msgid "Open a file to begin editing."
-msgstr ""
+msgstr "Bui file na tumi yɛ nsesaɛ"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "New file"
-msgstr ""
+msgstr "File foforɔ"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "Create a new empty file."
-msgstr ""
+msgstr "Buie file a bribiara nnim"
 
 #: ../src/Widgets/SplitView.vala:53
 msgid "Open file"
-msgstr ""
+msgstr "Buie file"
 
 #: ../src/Widgets/SplitView.vala:53
 msgid "Open a saved file."
-msgstr ""
+msgstr "Buie file a akora dadaa"
 
 #: ../src/Widgets/SplitView.vala:54
 msgid "New file from clipboard"
