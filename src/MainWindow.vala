@@ -132,7 +132,6 @@ namespace Scratch {
             ui.insert_action_group (main_actions, 0);
             ui.ensure_update ();
 
-            /* connect key presses with a handler function */
             this.key_press_event.connect (on_key_pressed);
         }
 
@@ -287,17 +286,12 @@ namespace Scratch {
             set_widgets_sensitive (!split_view.is_empty ());
         }
 
-        /**
-         * handle key presses
-         *
-         * @param the GDK key event object
-         *
-         * @return whether or not the event should propagate to child widgets
-         */
         private bool on_key_pressed (Gdk.EventKey event) {
             switch (Gdk.keyval_name (event.keyval)) {
                 case "Escape":
-                    action_hide_fetch_replace_goto ();
+                    if (this.search_revealer.get_child_revealed ()) {
+                        this.search_revealer.set_reveal_child (false);
+                    }
                     break;
             }
 
@@ -803,17 +797,6 @@ namespace Scratch {
             }
 
             return search_revealed;
-        }
-
-        /**
-         * action to hide the revealer which contains the fetch (find), replace
-         * and goto entries
-         */
-        private void action_hide_fetch_replace_goto () {
-            if (this.search_revealer.get_child_revealed ()) {
-                debug ("search bar hidden");
-                this.search_revealer.set_reveal_child (false);
-            }
         }
 
         private void action_templates () {
