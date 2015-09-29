@@ -70,7 +70,6 @@ namespace Scratch {
 
             clipboard = Gtk.Clipboard.get_for_display (this.get_display (), Gdk.SELECTION_CLIPBOARD);
 
-
             plugins = new Scratch.Services.PluginsManager (this, app.app_cmd_name.down ());
 
             // Set up GtkActions
@@ -133,6 +132,7 @@ namespace Scratch {
             ui.insert_action_group (main_actions, 0);
             ui.ensure_update ();
 
+            this.key_press_event.connect (on_key_pressed);
         }
 
         private void init_layout () {
@@ -211,8 +211,6 @@ namespace Scratch {
                 }
             });
 
-
-
             this.bottombar = new Gtk.Notebook ();
             this.bottombar.no_show_all = true;
             this.bottombar.page_removed.connect (() => { on_plugin_toggled (bottombar); });
@@ -286,6 +284,19 @@ namespace Scratch {
             hook_func ();
 
             set_widgets_sensitive (!split_view.is_empty ());
+        }
+
+        private bool on_key_pressed (Gdk.EventKey event) {
+            switch (Gdk.keyval_name (event.keyval)) {
+                case "Escape":
+                    if (this.search_revealer.get_child_revealed ()) {
+                        this.search_revealer.set_reveal_child (false);
+                    }
+                    break;
+            }
+
+            // propagate this event to child widgets
+            return false;
         }
 
         private void on_plugin_toggled (Gtk.Notebook notebook) {
@@ -645,7 +656,7 @@ namespace Scratch {
         }
 
         private void action_restore_tab () {
-            
+
         }
 
         private void action_open () {
