@@ -150,6 +150,7 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_settings_get_auto_indent@Base 2.0.2bzr1327
  scratch_settings_get_autosave@Base 2.0.2bzr1327
  scratch_settings_get_draw_spaces@Base 2.0.2bzr1327
+ scratch_settings_get_focused_document@Base 2.2.1
  scratch_settings_get_font@Base 2.0.2bzr1327
  scratch_settings_get_highlight_current_line@Base 2.0.2bzr1327
  scratch_settings_get_highlight_matching_brackets@Base 2.0.2bzr1327
@@ -169,6 +170,7 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_settings_set_auto_indent@Base 2.0.2bzr1327
  scratch_settings_set_autosave@Base 2.0.2bzr1327
  scratch_settings_set_draw_spaces@Base 2.0.2bzr1327
+ scratch_settings_set_focused_document@Base 2.2.1
  scratch_settings_set_font@Base 2.0.2bzr1327
  scratch_settings_set_highlight_current_line@Base 2.0.2bzr1327
  scratch_settings_set_highlight_matching_brackets@Base 2.0.2bzr1327
@@ -221,14 +223,12 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_widgets_loading_view_start@Base 2.0.2bzr1327
  scratch_widgets_loading_view_stop@Base 2.0.2bzr1327
  scratch_widgets_search_manager_construct@Base 2.0.2bzr1327
- scratch_widgets_search_manager_get_cycle_search@Base 2.0.2bzr1327
  scratch_widgets_search_manager_get_type@Base 2.0.2bzr1327
  scratch_widgets_search_manager_highlight_none@Base 2.0.2bzr1327
  scratch_widgets_search_manager_new@Base 2.0.2bzr1327
  scratch_widgets_search_manager_search@Base 2.0.2bzr1327
  scratch_widgets_search_manager_search_next@Base 2.0.2bzr1327
  scratch_widgets_search_manager_search_previous@Base 2.0.2bzr1327
- scratch_widgets_search_manager_set_cycle_search@Base 2.0.2bzr1327
  scratch_widgets_search_manager_set_search_string@Base 2.0.2bzr1327
  scratch_widgets_search_manager_set_text_view@Base 2.0.2bzr1327
  scratch_widgets_source_view_change_syntax_highlight_from_file@Base 2.0.2bzr1327
