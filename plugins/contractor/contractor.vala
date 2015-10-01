@@ -90,6 +90,7 @@ public class Scratch.Plugins.Contractor : Peas.ExtensionBase,  Peas.Activatable 
                 foreach (var contract in contracts) {
                     var menu_item = new ContractMenuItem (contract, doc.file);
                     menu.append (menu_item);
+                    menu_item.show_all ();
                     list.add (menu_item);
                 }
             } catch (Error e) {

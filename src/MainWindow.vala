@@ -139,13 +139,11 @@ namespace Scratch {
             var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
 
             // Toolbar
-            this.toolbar = new Scratch.Widgets.Toolbar (main_actions);
+            var menu = ui.get_widget ("ui/AppMenu") as Gtk.Menu;
+            this.toolbar = new Scratch.Widgets.Toolbar (main_actions, menu);
             this.toolbar.title = this.title;
             this.toolbar.show_close_button = true;
             this.set_titlebar (this.toolbar);
-            toolbar.menu = ui.get_widget ("ui/AppMenu") as Gtk.Menu;
-            var app_menu = new Granite.Widgets.AppMenu (toolbar.menu);
-            toolbar.pack_end (app_menu);
 
             // SearchManager
             this.search_revealer = new Gtk.Revealer ();
@@ -314,13 +312,11 @@ namespace Scratch {
         // Set sensitive property for 'delicate' Widgets/GtkActions while
         private void set_widgets_sensitive (bool val) {
             // SearchManager's stuffs
-            main_actions.get_action ("Fetch").sensitive = val;
+            var fetch = (Gtk.ToggleAction) main_actions.get_action ("Fetch");
+            fetch.sensitive = val;
+            fetch.active = (fetch.active && val);
             main_actions.get_action ("ShowGoTo").sensitive = val;
             main_actions.get_action ("ShowReplace").sensitive = val;
-            main_actions.get_action ("ShowReplace").sensitive = val;
-            if (val == false) {
-                this.search_revealer.set_reveal_child (false);
-            }
             // Toolbar Actions
             main_actions.get_action ("SaveFile").sensitive = val;
             main_actions.get_action ("SaveFileAs").sensitive = val;
@@ -764,39 +760,39 @@ namespace Scratch {
         }
 
         private void action_fetch () {
-            if (toggle_searchbar ()) {
-                var selected_text = this.get_current_document ().get_selected_text ();
-                if (selected_text != "") {
-                    this.search_manager.search_entry.text = selected_text;
+            var fetch_action = (Gtk.ToggleAction) main_actions.get_action ("Fetch");
+            var fetch_active = fetch_action.active;
+            var current_doc = this.get_current_document ();
+            // This is also called when all documents are closed.
+            if (current_doc != null) {
+                var selected_text = current_doc.get_selected_text ();
+                if (fetch_active == false) {
+                    search_manager.search_entry.text = "";
+                } else if (selected_text != "") {
+                    //If the user is selecting text, he plobably wants to search for it.
+                    search_manager.search_entry.text = selected_text;
                 }
 
-                this.search_manager.search_entry.grab_focus ();
+                if (search_manager.search_entry.text != "") {
+                    search_manager.search_next ();
+                } else {
+                    search_manager.highlight_none ();
+                }
+            }
+
+            search_revealer.set_reveal_child (fetch_active);
+            if (fetch_active) {
+                fetch_action.tooltip = _("Hide search bar");
+                search_manager.search_entry.grab_focus ();
+            } else {
+                fetch_action.tooltip = _("Find…");
             }
         }
 
         private void action_go_to () {
-            if (toggle_searchbar ()) {
-                this.search_manager.go_to_entry.grab_focus ();
-            }
-        }
-
-        private bool toggle_searchbar () {
-            var search_revealed = this.search_revealer.get_child_revealed ();
-            if (search_revealed == false ||
-                this.search_manager.search_entry.has_focus ||
-                this.search_manager.replace_entry.has_focus ||
-                this.search_manager.go_to_entry.has_focus) {
-
-                this.search_revealer.set_reveal_child (!search_revealed);
-                this.search_manager.highlight_none ();
-                this.toolbar.find_button.set_tooltip_text (
-                    (!search_revealed)
-                    ? _("Hide search bar")
-                    : main_actions.get_action ("Fetch").tooltip);
-                return !search_revealed;
-            }
-
-            return search_revealed;
+            var fetch_action = (Gtk.ToggleAction) main_actions.get_action ("Fetch");
+            fetch_action.active = true;
+            this.search_manager.go_to_entry.grab_focus ();
         }
 
         private void action_templates () {
@@ -851,10 +847,6 @@ namespace Scratch {
 
         // Actions array
         private static const Gtk.ActionEntry[] main_entries = {
-            { "Fetch", "edit-find",
-          /* label, accelerator */       N_("Find…"), "<Control>f",
-          /* tooltip */                  N_("Find…"),
-                                         action_fetch },
             { "ShowGoTo", "dialog-ok",
           /* label, accelerator */       N_("Go to line…"), "<Control>i",
           /* tooltip */                  N_("Go to line…"),
@@ -955,7 +947,11 @@ namespace Scratch {
             { "Fullscreen", "view-fullscreen",
           /* label, accelerator */       N_("Fullscreen"), "F11",
           /* tooltip */                  N_("Fullscreen"),
-                                         action_fullscreen }
+                                         action_fullscreen },
+            { "Fetch", "edit-find",
+          /* label, accelerator */       N_("Find…"), "<Control>f",
+          /* tooltip */                  N_("Find…"),
+                                         action_fetch }
         };
     }
 }

@@ -25,10 +25,16 @@ namespace Scratch.Widgets {
 
         private Gtk.ToolItem tool_search_entry;
         private Gtk.ToolItem tool_replace_entry;
-        private Gtk.ToolItem tool_go_to_label;
-        private Gtk.ToolItem tool_go_to_entry;
-        private Gtk.ToolItem tool_arrow_up;
-        private Gtk.ToolItem tool_arrow_down;
+        private Gtk.ToolItem tool_go_to;
+        private Gtk.ToolButton tool_arrow_up;
+        private Gtk.ToolButton tool_arrow_down;
+
+        /**
+         * Is the search cyclic? e.g., when you are at the bottom, if you press
+         * "Down", it will go at the start of the file to search for the content
+         * of the search entry.
+         **/
+        private Gtk.ToggleToolButton tool_cycle_search;
 
         public Gtk.SearchEntry search_entry;
         public Gtk.SearchEntry replace_entry;
@@ -47,13 +53,6 @@ namespace Scratch.Widgets {
          * color
          */
         private Gdk.RGBA normal_color;
-
-        /**
-         * Is the search cyclic? e.g., when you are at the bottom, if you press
-         * "Down", it will go at the start of the file to search for the content
-         * of the search entry.
-         **/
-        public bool cycle_search {get; set; default = false; }
         
         public signal void need_hide ();
 
@@ -66,24 +65,10 @@ namespace Scratch.Widgets {
             // Main entries
             // Search entry
             this.window = window;
+            icon_size = Gtk.IconSize.SMALL_TOOLBAR;
             search_entry = new Gtk.SearchEntry ();
             search_entry.placeholder_text = _("Find");
             search_entry.width_request = 250;
-
-            // Back and Next buttons
-            var next = new Gtk.Button ();
-            next.clicked.connect (search_next);
-            next.set_relief (Gtk.ReliefStyle.NONE);
-            var i = new Gtk.Image.from_icon_name ("go-down-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-            i.pixel_size = 16;
-            next.image = i;
-
-            var previous = new Gtk.Button ();
-            previous.clicked.connect (search_previous);
-            previous.set_relief (Gtk.ReliefStyle.NONE);
-            i = new Gtk.Image.from_icon_name ("go-up-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-            i.pixel_size = 16;
-            previous.image = i;
 
             // Replace entry
             replace_entry = new Gtk.SearchEntry ();
@@ -98,18 +83,29 @@ namespace Scratch.Widgets {
 
             // GtkToolItems
             tool_search_entry = new Gtk.ToolItem ();
-            tool_arrow_up = new Gtk.ToolItem ();
-            tool_arrow_up.sensitive = false;
-            tool_arrow_down = new Gtk.ToolItem ();
+            tool_arrow_down = new Gtk.ToolButton (null, null);
+            tool_arrow_down.icon_name = "go-down-symbolic";
+            tool_arrow_down.clicked.connect (search_next);
             tool_arrow_down.sensitive = false;
+            tool_arrow_down.margin_start = 3;
+            tool_arrow_down.tooltip_text = _("Search next");
+            tool_arrow_up = new Gtk.ToolButton (null, null);
+            tool_arrow_up.icon_name = "go-up-symbolic";
+            tool_arrow_up.clicked.connect (search_previous);
+            tool_arrow_up.sensitive = false;
+            tool_arrow_up.margin_end = 3;
+            tool_arrow_up.tooltip_text = _("Search previous");
             tool_replace_entry = new Gtk.ToolItem ();
-            tool_replace_entry.set_margin_left (5);
-            tool_go_to_label = new Gtk.ToolItem ();
-            tool_go_to_label.set_margin_right (5);
-            tool_go_to_entry = new Gtk.ToolItem ();
+            tool_go_to = new Gtk.ToolItem ();
+
+            tool_cycle_search = new Gtk.ToggleToolButton ();
+            tool_cycle_search.margin_end = tool_cycle_search.margin_start = 3;
+            tool_cycle_search.icon_name = "media-playlist-repeat-symbolic";
+            tool_cycle_search.tooltip_text = _("Cyclic Search");
 
             // Replace GtkToolButton
             replace_tool_button = new Gtk.ToolButton (null, _("Replace"));
+            replace_tool_button.margin_start = 3;
             replace_tool_button.clicked.connect (on_replace_entry_activate);
 
             // Replace all GtkToolButton
@@ -118,16 +114,23 @@ namespace Scratch.Widgets {
 
             // Populate GtkToolItems
             tool_search_entry.add (search_entry);
-            tool_arrow_up.add (next);
-            tool_arrow_down.add (previous);
             tool_replace_entry.add (replace_entry);
-            tool_go_to_label.add (new Gtk.Label (_("Go To Line:")));
-            tool_go_to_entry.add (go_to_entry);
+            var go_to_grid = new Gtk.Grid ();
+            go_to_grid.orientation = Gtk.Orientation.HORIZONTAL;
+            go_to_grid.column_spacing = 6;
+            go_to_grid.add (new Gtk.Label (_("Go To Line:")));
+            go_to_grid.add (go_to_entry);
+            tool_go_to.add (go_to_grid);
 
             // Connecting to some signals
             search_entry.changed.connect (on_search_entry_text_changed);
             search_entry.key_press_event.connect (on_search_entry_key_press);
             search_entry.focus_in_event.connect (on_search_entry_focused_in);
+            search_entry.icon_release.connect ((p0, p1) => {
+                if (p0 == Gtk.EntryIconPosition.PRIMARY) {
+                    search_next ();
+                }
+            });
             go_to_entry.activate.connect (on_go_to_entry_activate);
             replace_entry.activate.connect (on_replace_entry_activate);
             replace_entry.key_press_event.connect (on_replace_entry_key_press);
@@ -144,14 +147,14 @@ namespace Scratch.Widgets {
             this.add (tool_search_entry);
             this.add (tool_arrow_down);
             this.add (tool_arrow_up);
+            this.add (tool_cycle_search);
             this.add (tool_replace_entry);
             this.add (replace_tool_button);
             this.add (replace_all_tool_button);
             var spacer = new Gtk.ToolItem ();
             spacer.set_expand (true);
             this.add (spacer);
-            this.add (tool_go_to_label);
-            this.add (tool_go_to_entry);
+            this.add (tool_go_to);
 
             update_replace_tool_sensitivities (search_entry.text, false);
         }
@@ -169,7 +172,7 @@ namespace Scratch.Widgets {
             this.text_view = text_view;
             this.text_buffer = text_view.get_buffer ();
             this.search_context = new Gtk.SourceSearchContext (text_buffer as Gtk.SourceBuffer, null);
-            search_context.settings.wrap_around = cycle_search;
+            search_context.settings.wrap_around = tool_cycle_search.active;
             search_context.settings.regex_enabled = false;
 
             // Determine the search entry color
@@ -348,7 +351,7 @@ namespace Scratch.Widgets {
             if (text_buffer != null) {
                 string search_string = search_entry.text;
                 text_buffer.get_selection_bounds (out start_iter, out end_iter);
-                if(!search_for_iter_backward (start_iter, out end_iter) && cycle_search) {
+                if(!search_for_iter_backward (start_iter, out end_iter) && tool_cycle_search.active) {
                     text_buffer.get_end_iter (out start_iter);
                     search_for_iter_backward (start_iter, out end_iter);
                 }
@@ -363,7 +366,7 @@ namespace Scratch.Widgets {
             if (text_buffer != null) {
                 string search_string = search_entry.text;
                 text_buffer.get_selection_bounds (out start_iter, out end_iter);
-                if(!search_for_iter (end_iter, out end_iter_tmp) && cycle_search) {
+                if(!search_for_iter (end_iter, out end_iter_tmp) && tool_cycle_search.active) {
                     text_buffer.get_start_iter (out start_iter);
                     search_for_iter (start_iter, out end_iter);
                 }
@@ -395,16 +398,16 @@ namespace Scratch.Widgets {
 
                     if (!is_in_end) {
                         bool next_found = search_context.forward (end_iter, out tmp_start_iter, out tmp_end_iter);
-                        tool_arrow_up.sensitive = next_found;
+                        tool_arrow_down.sensitive = next_found;
                     } else {
-                        tool_arrow_up.sensitive = false;
+                        tool_arrow_down.sensitive = false;
                     }
 
                     if (!is_in_start) {
                         bool previous_found = search_context.backward (start_iter, out tmp_start_iter, out end_iter);
-                        tool_arrow_down.sensitive = previous_found;
+                        tool_arrow_up.sensitive = previous_found;
                     } else {
-                        tool_arrow_down.sensitive = false;
+                        tool_arrow_up.sensitive = false;
                     }
                 }
             }
