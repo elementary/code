@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-01 05:43-0500\n"
-"PO-Revision-Date: 2015-08-26 11:17+0000\n"
-"Last-Translator: Abdul Wakeel <awkhan978@gmail.com>\n"
+"PO-Revision-Date: 2015-10-09 11:06+0000\n"
+"Last-Translator: Waqar Ahmed <waqar.17a@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-02 05:34+0000\n"
-"X-Generator: Launchpad (build 17783)\n"
+"X-Launchpad-Export-Date: 2015-10-10 05:44+0000\n"
+"X-Generator: Launchpad (build 17802)\n"
 
 #: ../src/Scratch.vala:243
 msgid "New Tab"
@@ -30,7 +30,7 @@ msgstr "پلػ ان كاسيٹ"
 
 #: ../src/Scratch.vala:247
 msgid "Current working directory"
-msgstr ""
+msgstr "موجوده ڈائريكٹرى"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -56,12 +56,12 @@ msgstr "كياڈاكومنٹ  كوبندكرنے سے پہلے محفوظ كرن
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
-"آپ کو بچانے کے نہیں ہے تو ، گزشتہ 4 سیکنڈ سے تبدیلیوں کو مستقل طور پر ختم ہو "
-"جائے گا ."
+"اگر آپ ڈاکومنٹ محفوظ نہیں کریں گے تو گزشتہ 4 سیکنڈ میں کی گئی تبدیلیاں مستقل "
+"طور پر ختم کر دی جائیں گی۔"
 
 #: ../src/Services/Document.vala:236
 msgid "Close without saving"
-msgstr "محفوظ کئے بغیر بند"
+msgstr "محفوظ کئے بغیر بند کریں"
 
 #: ../src/Services/Document.vala:240 ../src/Utils.vala:29
 msgid "Cancel"
@@ -90,11 +90,11 @@ msgstr ""
 
 #: ../src/Services/Document.vala:539 ../src/MainWindow.vala:915
 msgid "Save As…"
-msgstr ""
+msgstr "محفوظ بطور"
 
 #: ../src/Services/Document.vala:544
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "فائل %s مٹا دی گئی تھی۔ کیا آپ اسے پھر بھی محفوظ کرنا چاہتے ہیں؟"
 
 #: ../src/Services/Document.vala:557
 msgid ""
