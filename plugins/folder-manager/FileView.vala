@@ -19,7 +19,6 @@
 ***/
 
 namespace Scratch.Plugins.FolderManager {
-
     Settings settings;
 
     /**
@@ -31,7 +30,6 @@ namespace Scratch.Plugins.FolderManager {
 
         public FileView () {
             this.width_request = 180;
-
             this.item_selected.connect ((item) => {
                 select ((item as FileItem).path);
             });
@@ -96,49 +94,12 @@ namespace Scratch.Plugins.FolderManager {
                     }
                 }
 
-                if (!saved)
+                if (!saved) {
                     to_save += (main_folder as Item).path;
+                }
             }
 
             settings.opened_folders = to_save;
-        }
-    }
-
-    internal class IconLoader {
-        private static IconLoader instance;
-
-        private int icon_size;
-        private Gee.HashMap<string, unowned Gdk.Pixbuf> icon_cache;
-        private Gtk.StyleContext style;
-
-        private IconLoader () {
-            icon_cache = new Gee.HashMap<string, unowned Gdk.Pixbuf> ();
-            style = new Gtk.StyleContext ();
-
-            int width, height;
-            Gtk.icon_size_lookup (Gtk.IconSize.MENU, out width, out height);
-            icon_size = int.max (width, height);
-        }
-
-        public static IconLoader get_default () {
-            if (instance == null)
-                instance = new IconLoader ();
-            return instance;
-        }
-
-        public Gdk.Pixbuf get_rendered_icon (GLib.Icon icon) {
-            string key = icon.to_string ();
-
-            var cached_pixbuf = icon_cache.get (key);
-
-            if (cached_pixbuf != null)
-                return cached_pixbuf;
-
-            var factory = Granite.Services.IconFactory.get_default ();
-            var new_pixbuf = factory.load_symbolic_icon_from_gicon (style, icon, icon_size);
-            icon_cache.set (key, new_pixbuf);
-
-            return new_pixbuf;
         }
     }
 
@@ -149,13 +110,13 @@ namespace Scratch.Plugins.FolderManager {
         public File file { get; construct; }
         public string path { get { return file.path; } }
 
-        public int compare (Granite.Widgets.SourceList.Item a,
-                            Granite.Widgets.SourceList.Item b) {
+        public int compare (Granite.Widgets.SourceList.Item a, Granite.Widgets.SourceList.Item b) {
             if (a is FolderItem && b is FileItem) {
                 return -1;
             } else if (a is FileItem && b is FolderItem) {
                 return 1;
             }
+
             return File.compare ((a as Item).file, (b as Item).file);
         }
 
@@ -179,7 +140,7 @@ namespace Scratch.Plugins.FolderManager {
             this.selectable = true;
             //this.editable = true;
             this.name = file.name;
-            this.icon = IconLoader.get_default ().get_rendered_icon (file.icon);
+            this.icon = file.icon;
         }
 
         /*public void rename (string new_name) {
@@ -216,7 +177,7 @@ namespace Scratch.Plugins.FolderManager {
             this.editable = false;
             this.selectable = false;
             this.name = file.name;
-            this.icon = IconLoader.get_default ().get_rendered_icon (file.icon);
+            this.icon = file.icon;
 
             this.add (new Granite.Widgets.SourceList.Item ("")); // dummy
             this.toggled.connect (() => {
@@ -276,7 +237,6 @@ namespace Scratch.Plugins.FolderManager {
             }
 
             switch (event) {
-
                 case GLib.FileMonitorEvent.DELETED:
                     var children_tmp = new Gee.ArrayList<Granite.Widgets.SourceList.Item> ();
                     children_tmp.add_all (children);
@@ -285,25 +245,30 @@ namespace Scratch.Plugins.FolderManager {
                             remove (item);
                         }
                     }
-                    break;
 
+                    break;
                 case GLib.FileMonitorEvent.CREATED:
                     if (source.query_exists () == false) {
                         return;
                     }
+
                     var file = new File (source.get_path ());
                     var exists = false;
-                    foreach (var item in children)
-                        if ((item as Item).path == file.path)
+                    foreach (var item in children) {
+                        if ((item as Item).path == file.path) {
                             exists = true;
+                            break;
+                        }
+                    }
 
                     if (!exists) {
-                        if (file.is_valid_textfile)
+                        if (file.is_valid_textfile) {
                             this.add (new FileItem (file));
-                        else if (file.is_valid_directory)
+                        } else if (file.is_valid_directory) {
                             this.add (new FolderItem (file));
-                        // this.file.reset_cache ();
+                        }
                     }
+
                     break;
             }
         }
@@ -314,6 +279,7 @@ namespace Scratch.Plugins.FolderManager {
      * TODO rename, create new file
      */
     internal class MainFolderItem : FolderItem {
+        public signal void closed ();
 
         Gtk.Menu menu;
         Gtk.MenuItem item_close;
@@ -322,8 +288,6 @@ namespace Scratch.Plugins.FolderManager {
         public MainFolderItem (File file) requires (file.is_valid_directory) {
             base (file);
         }
-
-        public signal void closed ();
 
         public override Gtk.Menu? get_context_menu () {
             menu = new Gtk.Menu ();

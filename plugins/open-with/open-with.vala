@@ -23,17 +23,16 @@ public const string DESCRIPTION = N_("Open files you are editing with another ap
 
 public class Scratch.Plugins.OpenWith : Peas.ExtensionBase,  Peas.Activatable {
     Gtk.MenuItem? item = null;
-    
-    [NoAcessorMethod]
+
     public Object object { owned get; construct; }
     Scratch.Services.Interface plugins;
-    
+
     public void update_state () {
+        
     }
 
     public void activate () {
-        plugins = (Scratch.Services.Interface) object;        
-        
+        plugins = (Scratch.Services.Interface) object;
         plugins.hook_share_menu.connect (on_hook);
     }
     
@@ -47,12 +46,12 @@ public class Scratch.Plugins.OpenWith : Peas.ExtensionBase,  Peas.Activatable {
             // Remove old item
             if (item != null) 
                 item.destroy ();
-            
+
             if (doc.file == null)
                 return;
 
             // Create new item
-            this.item = new Gtk.MenuItem.with_label (_("Open With..."));
+            this.item = new Gtk.MenuItem.with_label (_("Open With…"));
             this.item.activate.connect (() => {
                 var dialog = new Gtk.AppChooserDialog (new Gtk.Window (), Gtk.DialogFlags.MODAL, doc.file);
                 if (dialog.run () == Gtk.ResponseType.OK) {
@@ -67,9 +66,9 @@ public class Scratch.Plugins.OpenWith : Peas.ExtensionBase,  Peas.Activatable {
                         }
                     }
                 }
+
                 dialog.destroy ();
             });
-            
             menu.append (this.item);
         });
     }

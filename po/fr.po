@@ -7,34 +7,34 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-06 17:41-0500\n"
+"POT-Creation-Date: 2015-10-01 05:43-0500\n"
 "PO-Revision-Date: 2015-05-26 22:47+0000\n"
 "Last-Translator: XIA <xia.lady.3d@gmail.com>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-07-07 05:29+0000\n"
-"X-Generator: Launchpad (build 17597)\n"
+"X-Launchpad-Export-Date: 2015-10-02 05:32+0000\n"
+"X-Generator: Launchpad (build 17783)\n"
 "Language: fr\n"
 
-#: ../src/Scratch.vala:262
+#: ../src/Scratch.vala:243
 msgid "New Tab"
 msgstr "Nouvel Onglet"
 
-#: ../src/Scratch.vala:263 ../src/config.vala:18
+#: ../src/Scratch.vala:244 ../src/config.vala:18
 msgid "New Window"
 msgstr "Nouvelle Fenêtre"
 
-#: ../src/Scratch.vala:264
+#: ../src/Scratch.vala:245
 msgid "Print version info and exit"
 msgstr "Afficher les détails de la version et quitter"
 
-#: ../src/Scratch.vala:265
+#: ../src/Scratch.vala:246
 msgid "Set of plugins"
 msgstr "Réglage des greffons"
 
-#: ../src/Scratch.vala:266
+#: ../src/Scratch.vala:247
 msgid "Current working directory"
 msgstr "Répertoire de travail actuel"
 
@@ -46,7 +46,7 @@ msgstr "Éditer des fichiers texte"
 msgid "Text Editor"
 msgstr "Éditeur de texte"
 
-#: ../src/config.vala:17 ../src/Services/Document.vala:407
+#: ../src/config.vala:17 ../src/Services/Document.vala:405
 msgid "New Document"
 msgstr "Nouveau document"
 
@@ -54,36 +54,36 @@ msgstr "Nouveau document"
 msgid "About Scratch"
 msgstr "À propos de Scratch"
 
-#: ../src/Services/Document.vala:233
+#: ../src/Services/Document.vala:231
 msgid "Save changes to document %s before closing?"
 msgstr ""
 "Voulez-vous enregistrer les modifications apportées à %s avant de fermer ?"
 
-#: ../src/Services/Document.vala:236
+#: ../src/Services/Document.vala:234
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
 "Si vous n'enregistrez pas, les modifications des 4 dernières secondes seront "
 "perdues définitivement."
 
-#: ../src/Services/Document.vala:238
+#: ../src/Services/Document.vala:236
 msgid "Close without saving"
 msgstr "Fermer sans enregistrer"
 
-#: ../src/Services/Document.vala:242 ../src/Utils.vala:29
+#: ../src/Services/Document.vala:240 ../src/Utils.vala:29
 msgid "Cancel"
 msgstr "Annuler"
 
-#: ../src/Services/Document.vala:243 ../src/Services/Document.vala:548
-#: ../src/Utils.vala:33 ../src/MainWindow.vala:891
+#: ../src/Services/Document.vala:241 ../src/Services/Document.vala:546
+#: ../src/Utils.vala:33 ../src/MainWindow.vala:911
 msgid "Save"
 msgstr "Enregistrer"
 
-#: ../src/Services/Document.vala:315
+#: ../src/Services/Document.vala:313
 msgid "Save File"
 msgstr "Enregistrer le fichier"
 
-#: ../src/Services/Document.vala:523
+#: ../src/Services/Document.vala:521
 msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
@@ -91,7 +91,7 @@ msgstr ""
 "Impossible de libre le fichier \"%s\". Il est peut-être corrompu\n"
 "ou vous n'avez pas les droits nécessaires pour le lire."
 
-#: ../src/Services/Document.vala:539
+#: ../src/Services/Document.vala:537
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
@@ -99,16 +99,16 @@ msgstr ""
 "Le répertoire contenant le fichier \"%s\" a été démonté. Voulez-vous "
 "l'enregistrer ailleurs ?"
 
-#: ../src/Services/Document.vala:541 ../src/MainWindow.vala:895
+#: ../src/Services/Document.vala:539 ../src/MainWindow.vala:915
 msgid "Save As…"
 msgstr "Enregistrer sous…"
 
-#: ../src/Services/Document.vala:546
+#: ../src/Services/Document.vala:544
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr ""
 "Le fichier \"%s\" a été supprimé. Voulez-vous tout de même l'enregistrer ?"
 
-#: ../src/Services/Document.vala:559
+#: ../src/Services/Document.vala:557
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
@@ -116,11 +116,11 @@ msgstr ""
 "Impossible d'enregistrer les changements dans le fichier \"%s\". Voulez-vous "
 "les enregistrer dans un emplacement différent ?"
 
-#: ../src/Services/Document.vala:561
+#: ../src/Services/Document.vala:559
 msgid "Save changes elsewhere"
 msgstr "Enregistrer les modifications ailleurs"
 
-#: ../src/Services/Document.vala:592
+#: ../src/Services/Document.vala:590
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
@@ -128,52 +128,64 @@ msgstr ""
 "Le fichier \"%s\" a été modifié par une application externe. Voulez-vous le "
 "recharger ou continuer votre édition ?"
 
-#: ../src/Services/Document.vala:593
+#: ../src/Services/Document.vala:591
 msgid "Load"
 msgstr "Charger"
 
-#: ../src/Services/Document.vala:596
+#: ../src/Services/Document.vala:594
 msgid "Continue"
 msgstr "Continuer"
 
-#: ../src/Services/TemplateManager.vala:231 ../src/MainWindow.vala:899
+#: ../src/Services/TemplateManager.vala:194 ../src/MainWindow.vala:919
 msgid "Templates"
 msgstr "Modèles"
 
-#: ../src/Widgets/DocumentView.vala:96
+#: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
 msgstr "Fichier texte à partir de "
 
-#: ../src/Widgets/SourceView.vala:134
+#: ../src/Widgets/SourceView.vala:120
 msgid "Syntax Highlighting"
 msgstr "Coloration syntaxique"
 
-#: ../src/Widgets/SourceView.vala:145
+#: ../src/Widgets/SourceView.vala:131
 msgid "Normal Text"
 msgstr "Texte normal"
 
-#: ../src/Widgets/LoadingView.vala:36
+#: ../src/Widgets/LoadingView.vala:33
 msgid "Wait while restoring last session..."
 msgstr "Patientez pendant la restauration de votre session précédente..."
 
-#: ../src/Widgets/SearchManager.vala:72
+#: ../src/Widgets/SearchManager.vala:70
 msgid "Find"
 msgstr "Rechercher"
 
-#: ../src/Widgets/SearchManager.vala:92
+#: ../src/Widgets/SearchManager.vala:75
 msgid "Replace With"
 msgstr "Remplacer par"
 
-#: ../src/Widgets/SearchManager.vala:114 ../src/MainWindow.vala:843
-#: ../src/MainWindow.vala:844
+#: ../src/Widgets/SearchManager.vala:91
+msgid "Search next"
+msgstr ""
+
+#: ../src/Widgets/SearchManager.vala:97
+msgid "Search previous"
+msgstr ""
+
+#: ../src/Widgets/SearchManager.vala:104
+msgid "Cyclic Search"
+msgstr ""
+
+#: ../src/Widgets/SearchManager.vala:107 ../src/MainWindow.vala:863
+#: ../src/MainWindow.vala:864
 msgid "Replace"
 msgstr "Remplacer"
 
-#: ../src/Widgets/SearchManager.vala:118
+#: ../src/Widgets/SearchManager.vala:112
 msgid "Replace all"
 msgstr "Tout remplacer"
 
-#: ../src/Widgets/SearchManager.vala:126
+#: ../src/Widgets/SearchManager.vala:121
 msgid "Go To Line:"
 msgstr "Aller à la ligne :"
 
@@ -181,141 +193,141 @@ msgstr "Aller à la ligne :"
 msgid "Share"
 msgstr "Partager"
 
-#: ../src/Widgets/SplitView.vala:47
+#: ../src/Widgets/SplitView.vala:45
 msgid "No Files Open"
 msgstr "Aucun fichier ouvert"
 
-#: ../src/Widgets/SplitView.vala:48
+#: ../src/Widgets/SplitView.vala:46
 msgid "Open a file to begin editing."
 msgstr "Ouvrir un fichier pour commencer l'édition"
 
-#: ../src/Widgets/SplitView.vala:52
+#: ../src/Widgets/SplitView.vala:50
 msgid "New file"
 msgstr "Nouveau fichier"
 
-#: ../src/Widgets/SplitView.vala:52
+#: ../src/Widgets/SplitView.vala:50
 msgid "Create a new empty file."
 msgstr "Créer un fichier vide"
 
-#: ../src/Widgets/SplitView.vala:53
+#: ../src/Widgets/SplitView.vala:51
 msgid "Open file"
 msgstr "Ouvrir un fichier"
 
-#: ../src/Widgets/SplitView.vala:53
+#: ../src/Widgets/SplitView.vala:51
 msgid "Open a saved file."
 msgstr "Ouvrir un fichier sauvegardé"
 
-#: ../src/Widgets/SplitView.vala:54
+#: ../src/Widgets/SplitView.vala:52
 msgid "New file from clipboard"
 msgstr "Nouveau fichier à partir du presse-papier"
 
-#: ../src/Widgets/SplitView.vala:54
+#: ../src/Widgets/SplitView.vala:52
 msgid "Create a new file from the contents of your clipboard."
 msgstr "Créer un nouveau fichier avec le contenu de votre presse-papier."
 
-#: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:903
+#: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:923
 msgid "Preferences"
 msgstr "Préférences..."
 
-#: ../src/Dialogs/PreferencesDialog.vala:66
+#: ../src/Dialogs/PreferencesDialog.vala:63
 msgid "Behavior"
 msgstr "Comportement"
 
-#: ../src/Dialogs/PreferencesDialog.vala:69
+#: ../src/Dialogs/PreferencesDialog.vala:66
 msgid "Interface"
 msgstr "Interface"
 
-#: ../src/Dialogs/PreferencesDialog.vala:82
+#: ../src/Dialogs/PreferencesDialog.vala:79
 msgid "Extensions"
 msgstr "Extensions"
 
-#: ../src/Dialogs/PreferencesDialog.vala:86 ../src/MainWindow.vala:839
-#: ../src/MainWindow.vala:840
+#: ../src/Dialogs/PreferencesDialog.vala:83 ../src/MainWindow.vala:859
+#: ../src/MainWindow.vala:860
 msgid "Close"
 msgstr "Fermer"
 
-#: ../src/Dialogs/PreferencesDialog.vala:131
+#: ../src/Dialogs/PreferencesDialog.vala:128
 msgid "Show welcome screen"
 msgstr "Afficher l'écran d'accueil"
 
-#: ../src/Dialogs/PreferencesDialog.vala:132
+#: ../src/Dialogs/PreferencesDialog.vala:129
 msgid "Show last open tabs"
 msgstr "Afficher les derniers onglets ouverts"
 
-#: ../src/Dialogs/PreferencesDialog.vala:148
+#: ../src/Dialogs/PreferencesDialog.vala:145
 msgid "General:"
 msgstr "Général :"
 
-#: ../src/Dialogs/PreferencesDialog.vala:154
+#: ../src/Dialogs/PreferencesDialog.vala:151
 msgid "When Scratch starts:"
 msgstr "Quand Scratch démarre :"
 
-#: ../src/Dialogs/PreferencesDialog.vala:157
+#: ../src/Dialogs/PreferencesDialog.vala:154
 msgid "Save files when changed:"
 msgstr "Sauvegarder les fichiers lorsqu'ils sont modifiés :"
 
-#: ../src/Dialogs/PreferencesDialog.vala:162
+#: ../src/Dialogs/PreferencesDialog.vala:158
 msgid "Tabs:"
 msgstr "Onglets :"
 
-#: ../src/Dialogs/PreferencesDialog.vala:167
+#: ../src/Dialogs/PreferencesDialog.vala:163
 msgid "Automatic indentation:"
 msgstr "Tabulation automatique :"
 
-#: ../src/Dialogs/PreferencesDialog.vala:170
+#: ../src/Dialogs/PreferencesDialog.vala:166
 msgid "Insert spaces instead of tabs:"
 msgstr "Insérer des espaces au lieu de tabulations :"
 
-#: ../src/Dialogs/PreferencesDialog.vala:174
+#: ../src/Dialogs/PreferencesDialog.vala:170
 msgid "Tab width:"
 msgstr "Largeur des tabulations :"
 
-#: ../src/Dialogs/PreferencesDialog.vala:202
+#: ../src/Dialogs/PreferencesDialog.vala:195
 msgid "Editor:"
 msgstr "Éditeur :"
 
-#: ../src/Dialogs/PreferencesDialog.vala:220
+#: ../src/Dialogs/PreferencesDialog.vala:213
 msgid "Highlight current line:"
 msgstr "Surligner la ligne active :"
 
-#: ../src/Dialogs/PreferencesDialog.vala:221
+#: ../src/Dialogs/PreferencesDialog.vala:214
 msgid "Highlight matching brackets:"
 msgstr "Surligner les crochets correspondants :"
 
-#: ../src/Dialogs/PreferencesDialog.vala:222
+#: ../src/Dialogs/PreferencesDialog.vala:215
 msgid "Line wrap:"
 msgstr ""
 
-#: ../src/Dialogs/PreferencesDialog.vala:223
+#: ../src/Dialogs/PreferencesDialog.vala:216
 msgid "Draw spaces:"
 msgstr "Indiquer les espaces :"
 
-#: ../src/Dialogs/PreferencesDialog.vala:224
+#: ../src/Dialogs/PreferencesDialog.vala:217
 msgid "Show line numbers:"
 msgstr "Afficher les numéros de ligne :"
 
-#: ../src/Dialogs/PreferencesDialog.vala:227
+#: ../src/Dialogs/PreferencesDialog.vala:219
 msgid "Line width guide:"
 msgstr "Guide de largeur de ligne"
 
-#: ../src/Dialogs/PreferencesDialog.vala:243
+#: ../src/Dialogs/PreferencesDialog.vala:233
 msgid "Font and Color Scheme:"
 msgstr "Police et couleurs :"
 
-#: ../src/Dialogs/PreferencesDialog.vala:257
+#: ../src/Dialogs/PreferencesDialog.vala:247
 msgid "Select font:"
 msgstr "Choisissez une police :"
 
-#: ../src/Dialogs/PreferencesDialog.vala:260
+#: ../src/Dialogs/PreferencesDialog.vala:250
 msgid "Color scheme:"
 msgstr "Palette de couleurs :"
 
-#: ../src/Dialogs/PreferencesDialog.vala:265
+#: ../src/Dialogs/PreferencesDialog.vala:255
 msgid "Custom font:"
 msgstr "Police personnalisée :"
 
-#: ../src/Utils.vala:31 ../src/MainWindow.vala:879
-#: ../plugins/filemanager/FileView.vala:282
+#: ../src/Utils.vala:31 ../src/MainWindow.vala:899
+#: ../plugins/filemanager/FileView.vala:230
 msgid "Open"
 msgstr "Ouvrir"
 
@@ -327,139 +339,140 @@ msgstr "Tout les fichiers"
 msgid "Text files"
 msgstr "Fichiers texte"
 
-#: ../src/MainWindow.vala:110
+#: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Source de données Zeitgeist pour Scratch"
 
-#: ../src/MainWindow.vala:192
+#: ../src/MainWindow.vala:179
 msgid "Trash"
 msgstr "Corbeille"
 
-#: ../src/MainWindow.vala:647
+#: ../src/MainWindow.vala:660
 msgid "Open some files"
 msgstr "Ouvrez des fichiers"
 
-#: ../src/MainWindow.vala:772
+#: ../src/MainWindow.vala:785
 msgid "Hide search bar"
 msgstr "Cacher la barre de recherche"
 
-#: ../src/MainWindow.vala:827 ../src/MainWindow.vala:828
+#: ../src/MainWindow.vala:788 ../src/MainWindow.vala:952
+#: ../src/MainWindow.vala:953
 msgid "Find…"
 msgstr "Rechercher..."
 
-#: ../src/MainWindow.vala:831 ../src/MainWindow.vala:832
+#: ../src/MainWindow.vala:851 ../src/MainWindow.vala:852
 msgid "Go to line…"
 msgstr "Se rendre à la ligne..."
 
-#: ../src/MainWindow.vala:835 ../src/MainWindow.vala:836
+#: ../src/MainWindow.vala:855 ../src/MainWindow.vala:856
 msgid "Quit"
 msgstr "Quitter"
 
-#: ../src/MainWindow.vala:847
+#: ../src/MainWindow.vala:867
 msgid "Reopen closed document"
 msgstr "Réouvrir un document fermé"
 
-#: ../src/MainWindow.vala:848
+#: ../src/MainWindow.vala:868
 msgid "Open last closed document in a new tab"
 msgstr "Ouvrir le dernier document fermé dans un nouvel onglet"
 
-#: ../src/MainWindow.vala:851
+#: ../src/MainWindow.vala:871
 msgid "Add New Tab"
 msgstr "Ajouter un Nouvel Onglet"
 
-#: ../src/MainWindow.vala:852
+#: ../src/MainWindow.vala:872
 msgid "Add a new tab"
 msgstr "Ajouter un nouvel onglet"
 
-#: ../src/MainWindow.vala:855
+#: ../src/MainWindow.vala:875
 msgid "Add New View"
 msgstr "Nouvelle colonne"
 
-#: ../src/MainWindow.vala:856
+#: ../src/MainWindow.vala:876
 msgid "Add a new view"
 msgstr "Ajouter une nouvelle colonne"
 
-#: ../src/MainWindow.vala:859
+#: ../src/MainWindow.vala:879
 msgid "Remove Current View"
 msgstr "Fermer la colonne active"
 
-#: ../src/MainWindow.vala:860
+#: ../src/MainWindow.vala:880
 msgid "Remove this view"
 msgstr "Fermer cette colonne"
 
-#: ../src/MainWindow.vala:863
+#: ../src/MainWindow.vala:883
 msgid "Undo"
 msgstr "Annuler"
 
-#: ../src/MainWindow.vala:864
+#: ../src/MainWindow.vala:884
 msgid "Undo the last action"
 msgstr "Annuler la dernière action"
 
-#: ../src/MainWindow.vala:867
+#: ../src/MainWindow.vala:887
 msgid "Redo"
 msgstr "Rétablir"
 
-#: ../src/MainWindow.vala:868
+#: ../src/MainWindow.vala:888
 msgid "Redo the last undone action"
 msgstr "Rétablir la dernière action annulée"
 
-#: ../src/MainWindow.vala:871
+#: ../src/MainWindow.vala:891
 msgid "Revert"
 msgstr "Annuler"
 
-#: ../src/MainWindow.vala:872
+#: ../src/MainWindow.vala:892
 msgid "Restore this file"
 msgstr "Restaurer ce fichier"
 
-#: ../src/MainWindow.vala:875 ../src/MainWindow.vala:876
+#: ../src/MainWindow.vala:895 ../src/MainWindow.vala:896
 msgid "Duplicate selected strings"
 msgstr "Dupliquer la sélection"
 
-#: ../src/MainWindow.vala:880
+#: ../src/MainWindow.vala:900
 msgid "Open a file"
 msgstr "Ouvrir un fichier"
 
-#: ../src/MainWindow.vala:883
+#: ../src/MainWindow.vala:903
 msgid "Clipboard"
 msgstr "Presse-papier"
 
-#: ../src/MainWindow.vala:884
+#: ../src/MainWindow.vala:904
 msgid "New file from Clipboard"
 msgstr "Nouveau fichier à partir du presse-papier"
 
-#: ../src/MainWindow.vala:887
+#: ../src/MainWindow.vala:907
 msgid "Zoom"
 msgstr "Zoom"
 
-#: ../src/MainWindow.vala:888
+#: ../src/MainWindow.vala:908
 msgid "Zoom 1:1"
 msgstr "Zoom 1:1"
 
-#: ../src/MainWindow.vala:892
+#: ../src/MainWindow.vala:912
 msgid "Save this file"
 msgstr "Enregistrer le fichier"
 
-#: ../src/MainWindow.vala:896
+#: ../src/MainWindow.vala:916
 msgid "Save this file with a different name"
 msgstr "Enregistrer le fichier avec un nom différent"
 
-#: ../src/MainWindow.vala:900
+#: ../src/MainWindow.vala:920
 msgid "Project templates"
 msgstr "Modèles"
 
-#: ../src/MainWindow.vala:904
+#: ../src/MainWindow.vala:924
 msgid "Change Scratch settings"
 msgstr "Changer les paramètres de Scratch"
 
-#: ../src/MainWindow.vala:907 ../src/MainWindow.vala:908
+#: ../src/MainWindow.vala:927 ../src/MainWindow.vala:928
 msgid "Next Tab"
 msgstr "Onglet suivant"
 
-#: ../src/MainWindow.vala:911 ../src/MainWindow.vala:912
+#: ../src/MainWindow.vala:931 ../src/MainWindow.vala:932
 msgid "Previous Tab"
 msgstr "Onglet précédent"
 
-#: ../src/MainWindow.vala:928 ../src/MainWindow.vala:929
+#: ../src/MainWindow.vala:948 ../src/MainWindow.vala:949
 msgid "Fullscreen"
 msgstr "Plein écran"
 
@@ -489,9 +502,17 @@ msgstr "Supprimer le fichier"
 msgid "File Manager"
 msgstr "Gestionnaire de fichiers"
 
-#: ../plugins/filemanager/FileView.vala:90
+#: ../plugins/filemanager/FileView.vala:73
 msgid "/New File"
 msgstr "/Nouveau Fichier"
+
+#: ../plugins/preserve-indent/preserve-indent.vala:24
+msgid "Preserve Indent"
+msgstr ""
+
+#: ../plugins/preserve-indent/preserve-indent.vala:25
+msgid "Maintains indent level of pasted text when auto-indent is active"
+msgstr ""
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
 msgid "Highlight Selected Words"
@@ -519,7 +540,7 @@ msgid "Delete"
 msgstr "Supprimer"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:159
-#: ../plugins/terminal/terminal.vala:307
+#: ../plugins/terminal/terminal.vala:313
 msgid "Paste"
 msgstr "Coller"
 
@@ -553,24 +574,24 @@ msgstr "Cacher l'aperçu"
 msgid "Share your files with Contractor"
 msgstr "Partager vos fichiers avec Contractor"
 
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:71
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:70
 msgid "Folders"
 msgstr "Dossiers"
 
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:88
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:89
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:90
 msgid "Open a folder"
 msgstr "Ouvre ce dossier"
 
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:95
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:94
 msgid "_Cancel"
 msgstr "_Annuler"
 
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:96
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:95
 msgid "_Open"
 msgstr "_Ouvrir"
 
-#: ../plugins/folder-manager/FileView.vala:330
+#: ../plugins/folder-manager/FileView.vala:294
 msgid "Close Folder"
 msgstr "Ferme ce dossier"
 
@@ -724,9 +745,9 @@ msgstr "Ouvrir avec..."
 msgid "Open files you are editing with another application"
 msgstr "Ouvrir des fichiers déjà ouverts dans une autre application"
 
-#: ../plugins/open-with/open-with.vala:55
-msgid "Open With..."
-msgstr "Ouvrir avec..."
+#: ../plugins/open-with/open-with.vala:54
+msgid "Open With…"
+msgstr ""
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
@@ -736,9 +757,9 @@ msgstr "Détecter l'indentation"
 msgid "Heuristically detect tab or space settings"
 msgstr "Détecter heuristiquement les paramètres d'espace ou tabulation"
 
-#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:114
-#: ../plugins/terminal/terminal.vala:120 ../plugins/terminal/terminal.vala:166
-#: ../plugins/terminal/terminal.vala:168
+#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
+#: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
+#: ../plugins/terminal/terminal.vala:174
 msgid "Terminal"
 msgstr "Terminal"
 
@@ -746,23 +767,23 @@ msgstr "Terminal"
 msgid "A terminal in your text editor"
 msgstr "Un terminal dans votre éditeur de texte"
 
-#: ../plugins/terminal/terminal.vala:161 ../plugins/terminal/terminal.vala:172
+#: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
 msgid "Show Terminal"
 msgstr "Afficher le terminal"
 
-#: ../plugins/terminal/terminal.vala:164
+#: ../plugins/terminal/terminal.vala:170
 msgid "Hide Terminal"
 msgstr "Cacher le terminal"
 
-#: ../plugins/terminal/terminal.vala:300
+#: ../plugins/terminal/terminal.vala:306
 msgid "Copy"
 msgstr "Copier"
 
-#: ../plugins/terminal/terminal.vala:317
+#: ../plugins/terminal/terminal.vala:323
 msgid "Terminal on Right"
 msgstr "Terminal sur la droite"
 
-#: ../plugins/terminal/terminal.vala:325
+#: ../plugins/terminal/terminal.vala:331
 msgid "Terminal on Bottom"
 msgstr "Terminal en bas"
 
@@ -776,7 +797,7 @@ msgstr ""
 "Affiche une boîte informatique d'autocomplétion avec les mots les plus "
 "utilisés dans vos documents"
 
-#: ../plugins/word-completion/plugin.vala:177
+#: ../plugins/word-completion/plugin.vala:175
 msgid "%s - Word Completion"
 msgstr "%s - Saisie semi-automatique"
 

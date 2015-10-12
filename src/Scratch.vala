@@ -19,20 +19,13 @@
   END LICENSE
 ***/
 
-using Granite;
-using Granite.Services;
-
 namespace Scratch {
-
     // Settings
     public SavedState saved_state;
     public Settings settings;
     public ServicesSettings services;
 
     public class ScratchApp : Granite.Application {
-
-        private GLib.List <MainWindow> windows;
-
         public string app_cmd_name { get { return _app_cmd_name; } }
         public string data_home_folder_unsaved { get { return _data_home_folder_unsaved; } }
         public string default_font { get; set; }
@@ -84,15 +77,14 @@ namespace Scratch {
             Intl.bind_textdomain_codeset (Constants.GETTEXT_PACKAGE, "UTF-8");
             Intl.textdomain (Constants.GETTEXT_PACKAGE);
 
-            Logger.initialize ("Scratch");
-            Logger.DisplayLevel = LogLevel.DEBUG;
+            Granite.Services.Logger.initialize ("Scratch");
+            Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.DEBUG;
 
             // Init settings
             default_font = new GLib.Settings ("org.gnome.desktop.interface").get_string ("monospace-font-name");
             saved_state = new SavedState ();
             settings = new Settings ();
             services = new ServicesSettings ();
-            windows = new GLib.List <MainWindow> ();
 
             // Init data home folder for unsaved text files
             _data_home_folder_unsaved = Environment.get_user_data_dir () + "/" + exec_name + "/unsaved/";
@@ -239,23 +231,12 @@ namespace Scratch {
         }
 
         public MainWindow? get_last_window () {
-            uint length = windows.length ();
-
-            return length > 0 ? windows.nth_data (length - 1) : null;
+            unowned List<weak Gtk.Window> windows = get_windows ();
+            return windows.length () > 0 ? windows.last ().data as MainWindow : null;
         }
 
         public MainWindow new_window () {
             return new MainWindow (this);
-        }
-
-        protected override void window_added (Gtk.Window window) {
-            windows.append (window as MainWindow);
-            base.window_added (window);
-        }
-
-        protected override void window_removed (Gtk.Window window) {
-            windows.remove (window as MainWindow);
-            base.window_removed (window);
         }
 
         static const OptionEntry[] entries = {

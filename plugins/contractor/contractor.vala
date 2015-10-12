@@ -42,49 +42,56 @@ public class Scratch.Plugins.ContractMenuItem : Gtk.MenuItem {
 }
 
 public class Scratch.Plugins.Contractor : Peas.ExtensionBase,  Peas.Activatable {
-    GLib.List<Gtk.Widget>? list = null;
+    Gee.TreeSet<Gtk.Widget> list;
 
-    [NoAcessorMethod]
     public Object object { owned get; construct; }
     Scratch.Services.Interface plugins;
-    
+
+    construct {
+        list = new Gee.TreeSet<Gtk.Widget> ();
+    }
+
     public void update_state () {
     }
 
     public void activate () {
-        plugins = (Scratch.Services.Interface) object;        
-        
-        this.list = new List<Gtk.Widget> ();
-        
+        plugins = (Scratch.Services.Interface) object;
         plugins.hook_share_menu.connect (on_hook);
     }
     
     public void deactivate () {
-        if (list != null)
-            foreach (var w in list)
-                w.destroy ();
+        foreach (var item in list) {
+            var parent = item.get_parent ();
+            if (parent != null) {
+                parent.remove (item);
+            }
+        }
+
+        list.clear ();
     }
     
     private void on_hook (Gtk.Menu menu) {
         plugins.hook_document.connect ((doc) => {
             // Remove old contracts
-            this.list.foreach ((item) => { if (item != null) item.destroy (); });
-            
+            foreach (var item in list) {
+                var parent = item.get_parent ();
+                if (parent != null) {
+                    parent.remove (item);
+                }
+            }
+
+            list.clear ();
             if (doc.file == null)
                 return;
 
             // Create ContractorMenu widget
-            Gee.List<Granite.Services.Contract> contracts = null;
             try {
-                contracts = Granite.Services.ContractorProxy.get_contracts_by_mime (doc.get_mime_type ());
-
-                for (int i = 0; i < contracts.size; i++) {
-                    var contract = contracts.get (i);
-                    Gtk.MenuItem menu_item;
-
-                    menu_item = new ContractMenuItem (contract, doc.file);
+                var contracts = Granite.Services.ContractorProxy.get_contracts_by_mime (doc.get_mime_type ());
+                foreach (var contract in contracts) {
+                    var menu_item = new ContractMenuItem (contract, doc.file);
                     menu.append (menu_item);
-                    this.list.append (menu_item);
+                    menu_item.show_all ();
+                    list.add (menu_item);
                 }
             } catch (Error e) {
                 warning (e.message);

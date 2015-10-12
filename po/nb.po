@@ -7,33 +7,33 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-07-06 17:41-0500\n"
-"PO-Revision-Date: 2015-08-19 15:35+0000\n"
+"POT-Creation-Date: 2015-10-01 05:43-0500\n"
+"PO-Revision-Date: 2015-10-06 09:52+0000\n"
 "Last-Translator: ProsjektX <Unknown>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-08-20 05:48+0000\n"
-"X-Generator: Launchpad (build 17690)\n"
+"X-Launchpad-Export-Date: 2015-10-07 05:45+0000\n"
+"X-Generator: Launchpad (build 17802)\n"
 
-#: ../src/Scratch.vala:262
+#: ../src/Scratch.vala:243
 msgid "New Tab"
 msgstr "Ny fane"
 
-#: ../src/Scratch.vala:263 ../src/config.vala:18
+#: ../src/Scratch.vala:244 ../src/config.vala:18
 msgid "New Window"
 msgstr "Nytt vindu"
 
-#: ../src/Scratch.vala:264
+#: ../src/Scratch.vala:245
 msgid "Print version info and exit"
 msgstr "Skriv versjonsinfo og avslutt"
 
-#: ../src/Scratch.vala:265
+#: ../src/Scratch.vala:246
 msgid "Set of plugins"
 msgstr "Utvidelser"
 
-#: ../src/Scratch.vala:266
+#: ../src/Scratch.vala:247
 msgid "Current working directory"
 msgstr "Gjeldende arbeidsmappe"
 
@@ -45,7 +45,7 @@ msgstr "Redigér tekstfiler"
 msgid "Text Editor"
 msgstr "Tekstredigerer"
 
-#: ../src/config.vala:17 ../src/Services/Document.vala:407
+#: ../src/config.vala:17 ../src/Services/Document.vala:405
 msgid "New Document"
 msgstr "Nytt dokument"
 
@@ -53,34 +53,34 @@ msgstr "Nytt dokument"
 msgid "About Scratch"
 msgstr "Om Scratch"
 
-#: ../src/Services/Document.vala:233
+#: ../src/Services/Document.vala:231
 msgid "Save changes to document %s before closing?"
 msgstr "Lagre endringer i dokument %s før programmet avsluttes?"
 
-#: ../src/Services/Document.vala:236
+#: ../src/Services/Document.vala:234
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
 "Hvis du ikke lagrer vil du miste endringene som er gjort de siste 4 sekunder."
 
-#: ../src/Services/Document.vala:238
+#: ../src/Services/Document.vala:236
 msgid "Close without saving"
 msgstr "Lukk uten å lagre"
 
-#: ../src/Services/Document.vala:242 ../src/Utils.vala:29
+#: ../src/Services/Document.vala:240 ../src/Utils.vala:29
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: ../src/Services/Document.vala:243 ../src/Services/Document.vala:548
-#: ../src/Utils.vala:33 ../src/MainWindow.vala:891
+#: ../src/Services/Document.vala:241 ../src/Services/Document.vala:546
+#: ../src/Utils.vala:33 ../src/MainWindow.vala:911
 msgid "Save"
 msgstr "Lagre"
 
-#: ../src/Services/Document.vala:315
+#: ../src/Services/Document.vala:313
 msgid "Save File"
 msgstr "Lagre Fil"
 
-#: ../src/Services/Document.vala:523
+#: ../src/Services/Document.vala:521
 msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
@@ -88,7 +88,7 @@ msgstr ""
 "Fil \"%s\" kan ikke leses. Kanskje den er ødelagt\n"
 "eller du har ikke rettigheter for å lese den."
 
-#: ../src/Services/Document.vala:539
+#: ../src/Services/Document.vala:537
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
@@ -96,15 +96,15 @@ msgstr ""
 "Plasseringen som inneholder filen \"%s\" var umontert. Ønsker du å lagre et "
 "annet sted?"
 
-#: ../src/Services/Document.vala:541 ../src/MainWindow.vala:895
+#: ../src/Services/Document.vala:539 ../src/MainWindow.vala:915
 msgid "Save As…"
 msgstr "Lagre som …"
 
-#: ../src/Services/Document.vala:546
+#: ../src/Services/Document.vala:544
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Filen \"%s\" har blitt slettet. Ønsker du å lagre den likevel?"
 
-#: ../src/Services/Document.vala:559
+#: ../src/Services/Document.vala:557
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
@@ -112,11 +112,11 @@ msgstr ""
 "Du kan ikke lagre endringer på filen \"%s\". Ønsker du å lagre endringene i "
 "denne filen på et annet sted?"
 
-#: ../src/Services/Document.vala:561
+#: ../src/Services/Document.vala:559
 msgid "Save changes elsewhere"
 msgstr "Lagre endringer andre steder"
 
-#: ../src/Services/Document.vala:592
+#: ../src/Services/Document.vala:590
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
@@ -124,52 +124,64 @@ msgstr ""
 "Filen \"%s\" ble endret av et eksternt program. Ønsker du å laste den igjen "
 "eller fortsette redigeringen?"
 
-#: ../src/Services/Document.vala:593
+#: ../src/Services/Document.vala:591
 msgid "Load"
 msgstr "Last inn"
 
-#: ../src/Services/Document.vala:596
+#: ../src/Services/Document.vala:594
 msgid "Continue"
 msgstr "Fortsett"
 
-#: ../src/Services/TemplateManager.vala:231 ../src/MainWindow.vala:899
+#: ../src/Services/TemplateManager.vala:194 ../src/MainWindow.vala:919
 msgid "Templates"
 msgstr "Skisser"
 
-#: ../src/Widgets/DocumentView.vala:96
+#: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
 msgstr "Tekstfil fra "
 
-#: ../src/Widgets/SourceView.vala:134
+#: ../src/Widgets/SourceView.vala:120
 msgid "Syntax Highlighting"
 msgstr "Syntaksfremheving"
 
-#: ../src/Widgets/SourceView.vala:145
+#: ../src/Widgets/SourceView.vala:131
 msgid "Normal Text"
 msgstr "Normal Tekst"
 
-#: ../src/Widgets/LoadingView.vala:36
+#: ../src/Widgets/LoadingView.vala:33
 msgid "Wait while restoring last session..."
 msgstr "Vent mens foregående sesjon gjenopprettes..."
 
-#: ../src/Widgets/SearchManager.vala:72
+#: ../src/Widgets/SearchManager.vala:70
 msgid "Find"
 msgstr "Søk"
 
-#: ../src/Widgets/SearchManager.vala:92
+#: ../src/Widgets/SearchManager.vala:75
 msgid "Replace With"
 msgstr "Erstatt med"
 
-#: ../src/Widgets/SearchManager.vala:114 ../src/MainWindow.vala:843
-#: ../src/MainWindow.vala:844
+#: ../src/Widgets/SearchManager.vala:91
+msgid "Search next"
+msgstr "Søk neste"
+
+#: ../src/Widgets/SearchManager.vala:97
+msgid "Search previous"
+msgstr "Søk forrige"
+
+#: ../src/Widgets/SearchManager.vala:104
+msgid "Cyclic Search"
+msgstr "Syklisk søk"
+
+#: ../src/Widgets/SearchManager.vala:107 ../src/MainWindow.vala:863
+#: ../src/MainWindow.vala:864
 msgid "Replace"
 msgstr "Erstatt"
 
-#: ../src/Widgets/SearchManager.vala:118
+#: ../src/Widgets/SearchManager.vala:112
 msgid "Replace all"
 msgstr "Erstatt alle"
 
-#: ../src/Widgets/SearchManager.vala:126
+#: ../src/Widgets/SearchManager.vala:121
 msgid "Go To Line:"
 msgstr "Gå til linje:"
 
@@ -177,141 +189,141 @@ msgstr "Gå til linje:"
 msgid "Share"
 msgstr "Del"
 
-#: ../src/Widgets/SplitView.vala:47
+#: ../src/Widgets/SplitView.vala:45
 msgid "No Files Open"
 msgstr "Ingen åpne filer"
 
-#: ../src/Widgets/SplitView.vala:48
+#: ../src/Widgets/SplitView.vala:46
 msgid "Open a file to begin editing."
 msgstr "Åpne en fil for å komme i gang med redigeringa."
 
-#: ../src/Widgets/SplitView.vala:52
+#: ../src/Widgets/SplitView.vala:50
 msgid "New file"
 msgstr "Ny fil"
 
-#: ../src/Widgets/SplitView.vala:52
+#: ../src/Widgets/SplitView.vala:50
 msgid "Create a new empty file."
 msgstr "Lag en ny, tom fil."
 
-#: ../src/Widgets/SplitView.vala:53
+#: ../src/Widgets/SplitView.vala:51
 msgid "Open file"
 msgstr "Åpne fil"
 
-#: ../src/Widgets/SplitView.vala:53
+#: ../src/Widgets/SplitView.vala:51
 msgid "Open a saved file."
 msgstr "Åpne en lagret fil."
 
-#: ../src/Widgets/SplitView.vala:54
+#: ../src/Widgets/SplitView.vala:52
 msgid "New file from clipboard"
 msgstr "Ny fil fra utklippstavlen"
 
-#: ../src/Widgets/SplitView.vala:54
+#: ../src/Widgets/SplitView.vala:52
 msgid "Create a new file from the contents of your clipboard."
 msgstr "Lage en ny fil med innholdet fra utklippstavlen."
 
-#: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:903
+#: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:923
 msgid "Preferences"
 msgstr "Brukervalg"
 
-#: ../src/Dialogs/PreferencesDialog.vala:66
+#: ../src/Dialogs/PreferencesDialog.vala:63
 msgid "Behavior"
 msgstr "Oppførsel"
 
-#: ../src/Dialogs/PreferencesDialog.vala:69
+#: ../src/Dialogs/PreferencesDialog.vala:66
 msgid "Interface"
 msgstr "Brukergrensesnitt"
 
-#: ../src/Dialogs/PreferencesDialog.vala:82
+#: ../src/Dialogs/PreferencesDialog.vala:79
 msgid "Extensions"
 msgstr "Utvidelser"
 
-#: ../src/Dialogs/PreferencesDialog.vala:86 ../src/MainWindow.vala:839
-#: ../src/MainWindow.vala:840
+#: ../src/Dialogs/PreferencesDialog.vala:83 ../src/MainWindow.vala:859
+#: ../src/MainWindow.vala:860
 msgid "Close"
 msgstr "Lukk"
 
-#: ../src/Dialogs/PreferencesDialog.vala:131
+#: ../src/Dialogs/PreferencesDialog.vala:128
 msgid "Show welcome screen"
 msgstr "Vis velkomstskjerm"
 
-#: ../src/Dialogs/PreferencesDialog.vala:132
+#: ../src/Dialogs/PreferencesDialog.vala:129
 msgid "Show last open tabs"
 msgstr "Vis sist brukte faner"
 
-#: ../src/Dialogs/PreferencesDialog.vala:148
+#: ../src/Dialogs/PreferencesDialog.vala:145
 msgid "General:"
 msgstr "Generelt:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:154
+#: ../src/Dialogs/PreferencesDialog.vala:151
 msgid "When Scratch starts:"
 msgstr "Når programmet starter:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:157
+#: ../src/Dialogs/PreferencesDialog.vala:154
 msgid "Save files when changed:"
 msgstr "Lagre filer når de er endra:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:162
+#: ../src/Dialogs/PreferencesDialog.vala:158
 msgid "Tabs:"
 msgstr "Faner:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:167
+#: ../src/Dialogs/PreferencesDialog.vala:163
 msgid "Automatic indentation:"
 msgstr "Automatisk innrykk:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:170
+#: ../src/Dialogs/PreferencesDialog.vala:166
 msgid "Insert spaces instead of tabs:"
 msgstr "Sett inn mellomrom i stedet for tabulator:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:174
+#: ../src/Dialogs/PreferencesDialog.vala:170
 msgid "Tab width:"
 msgstr "Tabulatorbredde:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:202
+#: ../src/Dialogs/PreferencesDialog.vala:195
 msgid "Editor:"
 msgstr "Redigerer:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:220
+#: ../src/Dialogs/PreferencesDialog.vala:213
 msgid "Highlight current line:"
 msgstr "Uthev den valgte linja"
 
-#: ../src/Dialogs/PreferencesDialog.vala:221
+#: ../src/Dialogs/PreferencesDialog.vala:214
 msgid "Highlight matching brackets:"
 msgstr "Uthev klammer som hører sammen:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:222
+#: ../src/Dialogs/PreferencesDialog.vala:215
 msgid "Line wrap:"
 msgstr "Linjebryting:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:223
+#: ../src/Dialogs/PreferencesDialog.vala:216
 msgid "Draw spaces:"
 msgstr "Tegn mellomrom:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:224
+#: ../src/Dialogs/PreferencesDialog.vala:217
 msgid "Show line numbers:"
 msgstr "Vis linjenummer:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:227
+#: ../src/Dialogs/PreferencesDialog.vala:219
 msgid "Line width guide:"
 msgstr "Linjebredde guide:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:243
+#: ../src/Dialogs/PreferencesDialog.vala:233
 msgid "Font and Color Scheme:"
 msgstr "Skrifttype og fargevalg:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:257
+#: ../src/Dialogs/PreferencesDialog.vala:247
 msgid "Select font:"
 msgstr "Velg skrifttype:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:260
+#: ../src/Dialogs/PreferencesDialog.vala:250
 msgid "Color scheme:"
 msgstr "Fargetema:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:265
+#: ../src/Dialogs/PreferencesDialog.vala:255
 msgid "Custom font:"
 msgstr "Egendefinert skrifttype:"
 
-#: ../src/Utils.vala:31 ../src/MainWindow.vala:879
-#: ../plugins/filemanager/FileView.vala:282
+#: ../src/Utils.vala:31 ../src/MainWindow.vala:899
+#: ../plugins/filemanager/FileView.vala:230
 msgid "Open"
 msgstr "Åpne"
 
@@ -323,139 +335,140 @@ msgstr "Alle filer"
 msgid "Text files"
 msgstr "Tekstfiler"
 
-#: ../src/MainWindow.vala:110
+#: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Zeitgeist Datakilde for Scratch"
 
-#: ../src/MainWindow.vala:192
+#: ../src/MainWindow.vala:179
 msgid "Trash"
 msgstr "Papirkurv"
 
-#: ../src/MainWindow.vala:647
+#: ../src/MainWindow.vala:660
 msgid "Open some files"
 msgstr "Åpne noen filer"
 
-#: ../src/MainWindow.vala:772
+#: ../src/MainWindow.vala:785
 msgid "Hide search bar"
 msgstr "Skjul søkefeltet"
 
-#: ../src/MainWindow.vala:827 ../src/MainWindow.vala:828
+#: ../src/MainWindow.vala:788 ../src/MainWindow.vala:952
+#: ../src/MainWindow.vala:953
 msgid "Find…"
 msgstr "Finn..."
 
-#: ../src/MainWindow.vala:831 ../src/MainWindow.vala:832
+#: ../src/MainWindow.vala:851 ../src/MainWindow.vala:852
 msgid "Go to line…"
 msgstr "Gå til linje..."
 
-#: ../src/MainWindow.vala:835 ../src/MainWindow.vala:836
+#: ../src/MainWindow.vala:855 ../src/MainWindow.vala:856
 msgid "Quit"
 msgstr "Avslutt"
 
-#: ../src/MainWindow.vala:847
+#: ../src/MainWindow.vala:867
 msgid "Reopen closed document"
 msgstr "Gjenåpne lukket dokument"
 
-#: ../src/MainWindow.vala:848
+#: ../src/MainWindow.vala:868
 msgid "Open last closed document in a new tab"
 msgstr "Åpne sist lukkede dokument i en ny fane"
 
-#: ../src/MainWindow.vala:851
+#: ../src/MainWindow.vala:871
 msgid "Add New Tab"
 msgstr "Legg til ny fane"
 
-#: ../src/MainWindow.vala:852
+#: ../src/MainWindow.vala:872
 msgid "Add a new tab"
 msgstr "Legg til en ny fane"
 
-#: ../src/MainWindow.vala:855
+#: ../src/MainWindow.vala:875
 msgid "Add New View"
 msgstr "Legg til ny visning"
 
-#: ../src/MainWindow.vala:856
+#: ../src/MainWindow.vala:876
 msgid "Add a new view"
 msgstr "Legg til en ny visning"
 
-#: ../src/MainWindow.vala:859
+#: ../src/MainWindow.vala:879
 msgid "Remove Current View"
 msgstr "Fjern den valgte visninga"
 
-#: ../src/MainWindow.vala:860
+#: ../src/MainWindow.vala:880
 msgid "Remove this view"
 msgstr "Fjern denne visningen"
 
-#: ../src/MainWindow.vala:863
+#: ../src/MainWindow.vala:883
 msgid "Undo"
 msgstr "Angre"
 
-#: ../src/MainWindow.vala:864
+#: ../src/MainWindow.vala:884
 msgid "Undo the last action"
 msgstr "Angre siste handling"
 
-#: ../src/MainWindow.vala:867
+#: ../src/MainWindow.vala:887
 msgid "Redo"
 msgstr "Gjenta"
 
-#: ../src/MainWindow.vala:868
+#: ../src/MainWindow.vala:888
 msgid "Redo the last undone action"
 msgstr "Gjenopprett siste angrede handling"
 
-#: ../src/MainWindow.vala:871
+#: ../src/MainWindow.vala:891
 msgid "Revert"
 msgstr "Tilbakestill"
 
-#: ../src/MainWindow.vala:872
+#: ../src/MainWindow.vala:892
 msgid "Restore this file"
 msgstr "Gjenoprett denne fila"
 
-#: ../src/MainWindow.vala:875 ../src/MainWindow.vala:876
+#: ../src/MainWindow.vala:895 ../src/MainWindow.vala:896
 msgid "Duplicate selected strings"
 msgstr "Kopier de valgte strengene"
 
-#: ../src/MainWindow.vala:880
+#: ../src/MainWindow.vala:900
 msgid "Open a file"
 msgstr "Åpne en fil"
 
-#: ../src/MainWindow.vala:883
+#: ../src/MainWindow.vala:903
 msgid "Clipboard"
 msgstr "Utklippstavle"
 
-#: ../src/MainWindow.vala:884
+#: ../src/MainWindow.vala:904
 msgid "New file from Clipboard"
 msgstr "Ny fil med innhold fra utklippstavle"
 
-#: ../src/MainWindow.vala:887
+#: ../src/MainWindow.vala:907
 msgid "Zoom"
 msgstr "Forstørr"
 
-#: ../src/MainWindow.vala:888
+#: ../src/MainWindow.vala:908
 msgid "Zoom 1:1"
 msgstr "Forstørr 1:1"
 
-#: ../src/MainWindow.vala:892
+#: ../src/MainWindow.vala:912
 msgid "Save this file"
 msgstr "Lagre denne filen"
 
-#: ../src/MainWindow.vala:896
+#: ../src/MainWindow.vala:916
 msgid "Save this file with a different name"
 msgstr "Lagre denne filen med et annet navn"
 
-#: ../src/MainWindow.vala:900
+#: ../src/MainWindow.vala:920
 msgid "Project templates"
 msgstr "Prosjektmaler"
 
-#: ../src/MainWindow.vala:904
+#: ../src/MainWindow.vala:924
 msgid "Change Scratch settings"
 msgstr "Endre Scratch instillinger"
 
-#: ../src/MainWindow.vala:907 ../src/MainWindow.vala:908
+#: ../src/MainWindow.vala:927 ../src/MainWindow.vala:928
 msgid "Next Tab"
 msgstr "Neste fane"
 
-#: ../src/MainWindow.vala:911 ../src/MainWindow.vala:912
+#: ../src/MainWindow.vala:931 ../src/MainWindow.vala:932
 msgid "Previous Tab"
 msgstr "Forrige fane"
 
-#: ../src/MainWindow.vala:928 ../src/MainWindow.vala:929
+#: ../src/MainWindow.vala:948 ../src/MainWindow.vala:949
 msgid "Fullscreen"
 msgstr "Hele skjermen"
 
@@ -485,9 +498,18 @@ msgstr "Fjern fil"
 msgid "File Manager"
 msgstr "Filbehandler"
 
-#: ../plugins/filemanager/FileView.vala:90
+#: ../plugins/filemanager/FileView.vala:73
 msgid "/New File"
 msgstr "/Ny fil"
+
+#: ../plugins/preserve-indent/preserve-indent.vala:24
+msgid "Preserve Indent"
+msgstr "Bevar innrykk"
+
+#: ../plugins/preserve-indent/preserve-indent.vala:25
+msgid "Maintains indent level of pasted text when auto-indent is active"
+msgstr ""
+"Beholder dybde på innrykk av tekst som limes inn når auto-inntrykk er aktivt"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
 msgid "Highlight Selected Words"
@@ -515,7 +537,7 @@ msgid "Delete"
 msgstr "Slett"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:159
-#: ../plugins/terminal/terminal.vala:307
+#: ../plugins/terminal/terminal.vala:313
 msgid "Paste"
 msgstr "Lim inn"
 
@@ -549,24 +571,24 @@ msgstr "Skjul forhåndsvisning"
 msgid "Share your files with Contractor"
 msgstr "Del dine filer med Contractor"
 
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:71
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:70
 msgid "Folders"
 msgstr "Mapper"
 
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:88
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:89
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:90
 msgid "Open a folder"
 msgstr "Åpne en mappe"
 
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:95
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:94
 msgid "_Cancel"
 msgstr "_Avbryt"
 
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:96
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:95
 msgid "_Open"
 msgstr "_Åpne"
 
-#: ../plugins/folder-manager/FileView.vala:330
+#: ../plugins/folder-manager/FileView.vala:294
 msgid "Close Folder"
 msgstr "Lukk mappe"
 
@@ -719,8 +741,8 @@ msgstr "Åpne med"
 msgid "Open files you are editing with another application"
 msgstr "Åpne filene du behandler med annet program"
 
-#: ../plugins/open-with/open-with.vala:55
-msgid "Open With..."
+#: ../plugins/open-with/open-with.vala:54
+msgid "Open With…"
 msgstr "Åpne med..."
 
 #: ../plugins/detect-indent/detect-indent.vala:1
@@ -731,9 +753,9 @@ msgstr "Detekter innrykk"
 msgid "Heuristically detect tab or space settings"
 msgstr "Detekter innstillinger for tabulator og mellomrom"
 
-#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:114
-#: ../plugins/terminal/terminal.vala:120 ../plugins/terminal/terminal.vala:166
-#: ../plugins/terminal/terminal.vala:168
+#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
+#: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
+#: ../plugins/terminal/terminal.vala:174
 msgid "Terminal"
 msgstr "Terminal"
 
@@ -741,23 +763,23 @@ msgstr "Terminal"
 msgid "A terminal in your text editor"
 msgstr "En terminal i din tekstbehandler"
 
-#: ../plugins/terminal/terminal.vala:161 ../plugins/terminal/terminal.vala:172
+#: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
 msgid "Show Terminal"
 msgstr "Vis terminal"
 
-#: ../plugins/terminal/terminal.vala:164
+#: ../plugins/terminal/terminal.vala:170
 msgid "Hide Terminal"
 msgstr "Skjul terminal"
 
-#: ../plugins/terminal/terminal.vala:300
+#: ../plugins/terminal/terminal.vala:306
 msgid "Copy"
 msgstr "Kopiér"
 
-#: ../plugins/terminal/terminal.vala:317
+#: ../plugins/terminal/terminal.vala:323
 msgid "Terminal on Right"
 msgstr "Terminal til høyre"
 
-#: ../plugins/terminal/terminal.vala:325
+#: ../plugins/terminal/terminal.vala:331
 msgid "Terminal on Bottom"
 msgstr "Terminal nederst"
 
@@ -769,7 +791,7 @@ msgstr "Ordfullføring"
 msgid "Show a completion dialog with most used words from your files"
 msgstr "Vis fullføringsdialog med de oftest brukte ordebe fra dine filer"
 
-#: ../plugins/word-completion/plugin.vala:177
+#: ../plugins/word-completion/plugin.vala:175
 msgid "%s - Word Completion"
 msgstr "%s - Ordfullføring"
 

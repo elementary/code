@@ -18,8 +18,6 @@
   END LICENSE
 ***/
 
-using Gtk;
-
 namespace Scratch.Widgets {
 
     public class SplitView : Granite.Widgets.CollapsiblePaned {

@@ -7,33 +7,33 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-07-06 17:41-0500\n"
+"POT-Creation-Date: 2015-10-01 05:43-0500\n"
 "PO-Revision-Date: 2015-09-02 14:45+0000\n"
 "Last-Translator: Ivan <Unknown>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-09-03 05:27+0000\n"
-"X-Generator: Launchpad (build 17706)\n"
+"X-Launchpad-Export-Date: 2015-10-02 05:33+0000\n"
+"X-Generator: Launchpad (build 17783)\n"
 
-#: ../src/Scratch.vala:262
+#: ../src/Scratch.vala:243
 msgid "New Tab"
 msgstr "Новая вкладка"
 
-#: ../src/Scratch.vala:263 ../src/config.vala:18
+#: ../src/Scratch.vala:244 ../src/config.vala:18
 msgid "New Window"
 msgstr "Новое окно"
 
-#: ../src/Scratch.vala:264
+#: ../src/Scratch.vala:245
 msgid "Print version info and exit"
 msgstr "Распечатать информацию о версии и выйти"
 
-#: ../src/Scratch.vala:265
+#: ../src/Scratch.vala:246
 msgid "Set of plugins"
 msgstr "Набор надстроек"
 
-#: ../src/Scratch.vala:266
+#: ../src/Scratch.vala:247
 msgid "Current working directory"
 msgstr "Текущий рабочий каталог"
 
@@ -45,7 +45,7 @@ msgstr "Редактировать текстовые файлы"
 msgid "Text Editor"
 msgstr "Текстовый редактор"
 
-#: ../src/config.vala:17 ../src/Services/Document.vala:407
+#: ../src/config.vala:17 ../src/Services/Document.vala:405
 msgid "New Document"
 msgstr "Новый документ"
 
@@ -53,34 +53,34 @@ msgstr "Новый документ"
 msgid "About Scratch"
 msgstr "О программе"
 
-#: ../src/Services/Document.vala:233
+#: ../src/Services/Document.vala:231
 msgid "Save changes to document %s before closing?"
 msgstr "Сохранить изменения в документе %s перед закрытием?"
 
-#: ../src/Services/Document.vala:236
+#: ../src/Services/Document.vala:234
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
 "Если вы не сохраните файл, изменения за последние 4 секунды будут потеряны."
 
-#: ../src/Services/Document.vala:238
+#: ../src/Services/Document.vala:236
 msgid "Close without saving"
 msgstr "Закрыть без сохранения"
 
-#: ../src/Services/Document.vala:242 ../src/Utils.vala:29
+#: ../src/Services/Document.vala:240 ../src/Utils.vala:29
 msgid "Cancel"
 msgstr "Отменить"
 
-#: ../src/Services/Document.vala:243 ../src/Services/Document.vala:548
-#: ../src/Utils.vala:33 ../src/MainWindow.vala:891
+#: ../src/Services/Document.vala:241 ../src/Services/Document.vala:546
+#: ../src/Utils.vala:33 ../src/MainWindow.vala:911
 msgid "Save"
 msgstr "Сохранить"
 
-#: ../src/Services/Document.vala:315
+#: ../src/Services/Document.vala:313
 msgid "Save File"
 msgstr "Сохранить файл"
 
-#: ../src/Services/Document.vala:523
+#: ../src/Services/Document.vala:521
 msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
@@ -88,22 +88,22 @@ msgstr ""
 "Файл \"%s\" не может быть прочитан. Возможно, он поврежден\n"
 "или у вас нет необходимых прав для его чтения."
 
-#: ../src/Services/Document.vala:539
+#: ../src/Services/Document.vala:537
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
 "Источник, содержащий файл \"%s\", был извлечён . Сохранить в другом месте?"
 
-#: ../src/Services/Document.vala:541 ../src/MainWindow.vala:895
+#: ../src/Services/Document.vala:539 ../src/MainWindow.vala:915
 msgid "Save As…"
 msgstr "Сохранить как..."
 
-#: ../src/Services/Document.vala:546
+#: ../src/Services/Document.vala:544
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Файл \"%s\" был удален. Всё равно сохранить?"
 
-#: ../src/Services/Document.vala:559
+#: ../src/Services/Document.vala:557
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
@@ -111,11 +111,11 @@ msgstr ""
 "Невозможно сохранить изменения в файле \"%s\".  Сохранить измененную версию "
 "в другом месте?"
 
-#: ../src/Services/Document.vala:561
+#: ../src/Services/Document.vala:559
 msgid "Save changes elsewhere"
 msgstr "Сохранить изменения в другом месте"
 
-#: ../src/Services/Document.vala:592
+#: ../src/Services/Document.vala:590
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
@@ -123,52 +123,64 @@ msgstr ""
 "Файл \"%s\" был изменен другим приложением. Загрузить его снова или "
 "продолжить редактирование?"
 
-#: ../src/Services/Document.vala:593
+#: ../src/Services/Document.vala:591
 msgid "Load"
 msgstr "Загрузить"
 
-#: ../src/Services/Document.vala:596
+#: ../src/Services/Document.vala:594
 msgid "Continue"
 msgstr "Продолжить"
 
-#: ../src/Services/TemplateManager.vala:231 ../src/MainWindow.vala:899
+#: ../src/Services/TemplateManager.vala:194 ../src/MainWindow.vala:919
 msgid "Templates"
 msgstr "Шаблоны"
 
-#: ../src/Widgets/DocumentView.vala:96
+#: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
 msgstr "Текстовый файл из "
 
-#: ../src/Widgets/SourceView.vala:134
+#: ../src/Widgets/SourceView.vala:120
 msgid "Syntax Highlighting"
 msgstr "Подсветка синтаксиса"
 
-#: ../src/Widgets/SourceView.vala:145
+#: ../src/Widgets/SourceView.vala:131
 msgid "Normal Text"
 msgstr "Обычный текст"
 
-#: ../src/Widgets/LoadingView.vala:36
+#: ../src/Widgets/LoadingView.vala:33
 msgid "Wait while restoring last session..."
 msgstr "Подождите, восстанавливается предыдущая сессия..."
 
-#: ../src/Widgets/SearchManager.vala:72
+#: ../src/Widgets/SearchManager.vala:70
 msgid "Find"
 msgstr "Найти"
 
-#: ../src/Widgets/SearchManager.vala:92
+#: ../src/Widgets/SearchManager.vala:75
 msgid "Replace With"
 msgstr "Заменить на"
 
-#: ../src/Widgets/SearchManager.vala:114 ../src/MainWindow.vala:843
-#: ../src/MainWindow.vala:844
+#: ../src/Widgets/SearchManager.vala:91
+msgid "Search next"
+msgstr ""
+
+#: ../src/Widgets/SearchManager.vala:97
+msgid "Search previous"
+msgstr ""
+
+#: ../src/Widgets/SearchManager.vala:104
+msgid "Cyclic Search"
+msgstr ""
+
+#: ../src/Widgets/SearchManager.vala:107 ../src/MainWindow.vala:863
+#: ../src/MainWindow.vala:864
 msgid "Replace"
 msgstr "Заменить"
 
-#: ../src/Widgets/SearchManager.vala:118
+#: ../src/Widgets/SearchManager.vala:112
 msgid "Replace all"
 msgstr "Заменить все"
 
-#: ../src/Widgets/SearchManager.vala:126
+#: ../src/Widgets/SearchManager.vala:121
 msgid "Go To Line:"
 msgstr "Перейти к строке:"
 
@@ -176,141 +188,141 @@ msgstr "Перейти к строке:"
 msgid "Share"
 msgstr "Опубликовать"
 
-#: ../src/Widgets/SplitView.vala:47
+#: ../src/Widgets/SplitView.vala:45
 msgid "No Files Open"
 msgstr "Нет открытых файлов"
 
-#: ../src/Widgets/SplitView.vala:48
+#: ../src/Widgets/SplitView.vala:46
 msgid "Open a file to begin editing."
 msgstr "Откройте файл, чтобы начать редактирование."
 
-#: ../src/Widgets/SplitView.vala:52
+#: ../src/Widgets/SplitView.vala:50
 msgid "New file"
 msgstr "Новый файл"
 
-#: ../src/Widgets/SplitView.vala:52
+#: ../src/Widgets/SplitView.vala:50
 msgid "Create a new empty file."
 msgstr "Создать новый пустой файл."
 
-#: ../src/Widgets/SplitView.vala:53
+#: ../src/Widgets/SplitView.vala:51
 msgid "Open file"
 msgstr "Открыть файл"
 
-#: ../src/Widgets/SplitView.vala:53
+#: ../src/Widgets/SplitView.vala:51
 msgid "Open a saved file."
 msgstr "Открыть сохранённый файл."
 
-#: ../src/Widgets/SplitView.vala:54
+#: ../src/Widgets/SplitView.vala:52
 msgid "New file from clipboard"
 msgstr "Новый файл из буфера обмена"
 
-#: ../src/Widgets/SplitView.vala:54
+#: ../src/Widgets/SplitView.vala:52
 msgid "Create a new file from the contents of your clipboard."
 msgstr "Создать новый файл из содержимого буфера обмена."
 
-#: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:903
+#: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:923
 msgid "Preferences"
 msgstr "Настройки"
 
-#: ../src/Dialogs/PreferencesDialog.vala:66
+#: ../src/Dialogs/PreferencesDialog.vala:63
 msgid "Behavior"
 msgstr "Поведение"
 
-#: ../src/Dialogs/PreferencesDialog.vala:69
+#: ../src/Dialogs/PreferencesDialog.vala:66
 msgid "Interface"
 msgstr "Интерфейс"
 
-#: ../src/Dialogs/PreferencesDialog.vala:82
+#: ../src/Dialogs/PreferencesDialog.vala:79
 msgid "Extensions"
 msgstr "Расширения"
 
-#: ../src/Dialogs/PreferencesDialog.vala:86 ../src/MainWindow.vala:839
-#: ../src/MainWindow.vala:840
+#: ../src/Dialogs/PreferencesDialog.vala:83 ../src/MainWindow.vala:859
+#: ../src/MainWindow.vala:860
 msgid "Close"
 msgstr "Закрыть"
 
-#: ../src/Dialogs/PreferencesDialog.vala:131
+#: ../src/Dialogs/PreferencesDialog.vala:128
 msgid "Show welcome screen"
 msgstr "Отображать экран приветствия"
 
-#: ../src/Dialogs/PreferencesDialog.vala:132
+#: ../src/Dialogs/PreferencesDialog.vala:129
 msgid "Show last open tabs"
 msgstr "Показать последние открытые вкладки"
 
-#: ../src/Dialogs/PreferencesDialog.vala:148
+#: ../src/Dialogs/PreferencesDialog.vala:145
 msgid "General:"
 msgstr "Общие:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:154
+#: ../src/Dialogs/PreferencesDialog.vala:151
 msgid "When Scratch starts:"
 msgstr "При запуске Sсratch:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:157
+#: ../src/Dialogs/PreferencesDialog.vala:154
 msgid "Save files when changed:"
 msgstr "Сохранить файлы при изменении:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:162
+#: ../src/Dialogs/PreferencesDialog.vala:158
 msgid "Tabs:"
 msgstr "Табуляция:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:167
+#: ../src/Dialogs/PreferencesDialog.vala:163
 msgid "Automatic indentation:"
 msgstr "Автоматическая расстановка отступов:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:170
+#: ../src/Dialogs/PreferencesDialog.vala:166
 msgid "Insert spaces instead of tabs:"
 msgstr "Вставлять пробелы вместо табуляций:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:174
+#: ../src/Dialogs/PreferencesDialog.vala:170
 msgid "Tab width:"
 msgstr "Ширина табуляции:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:202
+#: ../src/Dialogs/PreferencesDialog.vala:195
 msgid "Editor:"
 msgstr "Редактор:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:220
+#: ../src/Dialogs/PreferencesDialog.vala:213
 msgid "Highlight current line:"
 msgstr "Выделять текущую строку:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:221
+#: ../src/Dialogs/PreferencesDialog.vala:214
 msgid "Highlight matching brackets:"
 msgstr "Выделять соответствующие скобки:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:222
+#: ../src/Dialogs/PreferencesDialog.vala:215
 msgid "Line wrap:"
 msgstr "Линия сворачивания:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:223
+#: ../src/Dialogs/PreferencesDialog.vala:216
 msgid "Draw spaces:"
 msgstr "Показывать непечатаемые символы:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:224
+#: ../src/Dialogs/PreferencesDialog.vala:217
 msgid "Show line numbers:"
 msgstr "Отображать номера строк:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:227
+#: ../src/Dialogs/PreferencesDialog.vala:219
 msgid "Line width guide:"
 msgstr "Настройка строки:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:243
+#: ../src/Dialogs/PreferencesDialog.vala:233
 msgid "Font and Color Scheme:"
 msgstr "Цветовая и шрифтовая схема:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:257
+#: ../src/Dialogs/PreferencesDialog.vala:247
 msgid "Select font:"
 msgstr "Выбрать шрифт:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:260
+#: ../src/Dialogs/PreferencesDialog.vala:250
 msgid "Color scheme:"
 msgstr "Цветовая схема:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:265
+#: ../src/Dialogs/PreferencesDialog.vala:255
 msgid "Custom font:"
 msgstr "Пользовательский шрифт:"
 
-#: ../src/Utils.vala:31 ../src/MainWindow.vala:879
-#: ../plugins/filemanager/FileView.vala:282
+#: ../src/Utils.vala:31 ../src/MainWindow.vala:899
+#: ../plugins/filemanager/FileView.vala:230
 msgid "Open"
 msgstr "Открыть"
 
@@ -322,139 +334,140 @@ msgstr "Все файлы"
 msgid "Text files"
 msgstr "Текстовые файлы"
 
-#: ../src/MainWindow.vala:110
+#: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Отслеживать источник данных для редактора Scratch"
 
-#: ../src/MainWindow.vala:192
+#: ../src/MainWindow.vala:179
 msgid "Trash"
 msgstr "Корзина"
 
-#: ../src/MainWindow.vala:647
+#: ../src/MainWindow.vala:660
 msgid "Open some files"
 msgstr "Открыть файлы"
 
-#: ../src/MainWindow.vala:772
+#: ../src/MainWindow.vala:785
 msgid "Hide search bar"
 msgstr "Скрыть панель поиска"
 
-#: ../src/MainWindow.vala:827 ../src/MainWindow.vala:828
+#: ../src/MainWindow.vala:788 ../src/MainWindow.vala:952
+#: ../src/MainWindow.vala:953
 msgid "Find…"
 msgstr "Поиск..."
 
-#: ../src/MainWindow.vala:831 ../src/MainWindow.vala:832
+#: ../src/MainWindow.vala:851 ../src/MainWindow.vala:852
 msgid "Go to line…"
 msgstr "Перейти к строке..."
 
-#: ../src/MainWindow.vala:835 ../src/MainWindow.vala:836
+#: ../src/MainWindow.vala:855 ../src/MainWindow.vala:856
 msgid "Quit"
 msgstr "Выход"
 
-#: ../src/MainWindow.vala:847
+#: ../src/MainWindow.vala:867
 msgid "Reopen closed document"
 msgstr "Заново открыть документ"
 
-#: ../src/MainWindow.vala:848
+#: ../src/MainWindow.vala:868
 msgid "Open last closed document in a new tab"
 msgstr "Открыть последний документ в новой вкладке"
 
-#: ../src/MainWindow.vala:851
+#: ../src/MainWindow.vala:871
 msgid "Add New Tab"
 msgstr "Новая вкладка"
 
-#: ../src/MainWindow.vala:852
+#: ../src/MainWindow.vala:872
 msgid "Add a new tab"
 msgstr "Новая вкладка"
 
-#: ../src/MainWindow.vala:855
+#: ../src/MainWindow.vala:875
 msgid "Add New View"
 msgstr "Разделить окно пополам"
 
-#: ../src/MainWindow.vala:856
+#: ../src/MainWindow.vala:876
 msgid "Add a new view"
 msgstr "Разделить окно пополам"
 
-#: ../src/MainWindow.vala:859
+#: ../src/MainWindow.vala:879
 msgid "Remove Current View"
 msgstr "Закрыть файл в текущей половине окна"
 
-#: ../src/MainWindow.vala:860
+#: ../src/MainWindow.vala:880
 msgid "Remove this view"
 msgstr "Закрыть файл в текущей половине окна"
 
-#: ../src/MainWindow.vala:863
+#: ../src/MainWindow.vala:883
 msgid "Undo"
 msgstr "Отменить"
 
-#: ../src/MainWindow.vala:864
+#: ../src/MainWindow.vala:884
 msgid "Undo the last action"
 msgstr "Отменить последнее действие"
 
-#: ../src/MainWindow.vala:867
+#: ../src/MainWindow.vala:887
 msgid "Redo"
 msgstr "Повторить"
 
-#: ../src/MainWindow.vala:868
+#: ../src/MainWindow.vala:888
 msgid "Redo the last undone action"
 msgstr "Повторить последнее отменённое действие"
 
-#: ../src/MainWindow.vala:871
+#: ../src/MainWindow.vala:891
 msgid "Revert"
 msgstr "Откатить"
 
-#: ../src/MainWindow.vala:872
+#: ../src/MainWindow.vala:892
 msgid "Restore this file"
 msgstr "Вернуть файл в первоначальное состояние"
 
-#: ../src/MainWindow.vala:875 ../src/MainWindow.vala:876
+#: ../src/MainWindow.vala:895 ../src/MainWindow.vala:896
 msgid "Duplicate selected strings"
 msgstr "Дублировать выбранные строки"
 
-#: ../src/MainWindow.vala:880
+#: ../src/MainWindow.vala:900
 msgid "Open a file"
 msgstr "Открыть файл"
 
-#: ../src/MainWindow.vala:883
+#: ../src/MainWindow.vala:903
 msgid "Clipboard"
 msgstr "Буфер обмена"
 
-#: ../src/MainWindow.vala:884
+#: ../src/MainWindow.vala:904
 msgid "New file from Clipboard"
 msgstr "Новый файл из буфера обмена"
 
-#: ../src/MainWindow.vala:887
+#: ../src/MainWindow.vala:907
 msgid "Zoom"
 msgstr "Масштабирование"
 
-#: ../src/MainWindow.vala:888
+#: ../src/MainWindow.vala:908
 msgid "Zoom 1:1"
 msgstr "Масштаб 1:1"
 
-#: ../src/MainWindow.vala:892
+#: ../src/MainWindow.vala:912
 msgid "Save this file"
 msgstr "Сохранить этот файл"
 
-#: ../src/MainWindow.vala:896
+#: ../src/MainWindow.vala:916
 msgid "Save this file with a different name"
 msgstr "Сохранить этот файл под другим именем"
 
-#: ../src/MainWindow.vala:900
+#: ../src/MainWindow.vala:920
 msgid "Project templates"
 msgstr "Шаблоны проекта"
 
-#: ../src/MainWindow.vala:904
+#: ../src/MainWindow.vala:924
 msgid "Change Scratch settings"
 msgstr "Изменить параметры Scratch"
 
-#: ../src/MainWindow.vala:907 ../src/MainWindow.vala:908
+#: ../src/MainWindow.vala:927 ../src/MainWindow.vala:928
 msgid "Next Tab"
 msgstr "Следующая вкладка"
 
-#: ../src/MainWindow.vala:911 ../src/MainWindow.vala:912
+#: ../src/MainWindow.vala:931 ../src/MainWindow.vala:932
 msgid "Previous Tab"
 msgstr "Предыдущая вкладка"
 
-#: ../src/MainWindow.vala:928 ../src/MainWindow.vala:929
+#: ../src/MainWindow.vala:948 ../src/MainWindow.vala:949
 msgid "Fullscreen"
 msgstr "Полноэкранный режим"
 
@@ -484,9 +497,17 @@ msgstr "Удалить файл"
 msgid "File Manager"
 msgstr "Файловый менеджер"
 
-#: ../plugins/filemanager/FileView.vala:90
+#: ../plugins/filemanager/FileView.vala:73
 msgid "/New File"
 msgstr "/Новый файл"
+
+#: ../plugins/preserve-indent/preserve-indent.vala:24
+msgid "Preserve Indent"
+msgstr ""
+
+#: ../plugins/preserve-indent/preserve-indent.vala:25
+msgid "Maintains indent level of pasted text when auto-indent is active"
+msgstr ""
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
 msgid "Highlight Selected Words"
@@ -514,7 +535,7 @@ msgid "Delete"
 msgstr "Удалить"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:159
-#: ../plugins/terminal/terminal.vala:307
+#: ../plugins/terminal/terminal.vala:313
 msgid "Paste"
 msgstr "Вставить"
 
@@ -548,24 +569,24 @@ msgstr "Скрыть предпросмотр"
 msgid "Share your files with Contractor"
 msgstr "Возможность обмениваться файлами с Contractor"
 
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:71
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:70
 msgid "Folders"
 msgstr "Папки"
 
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:88
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:89
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:90
 msgid "Open a folder"
 msgstr "Открыть папку"
 
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:95
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:94
 msgid "_Cancel"
 msgstr "_Отменить"
 
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:96
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:95
 msgid "_Open"
 msgstr "_Открыть"
 
-#: ../plugins/folder-manager/FileView.vala:330
+#: ../plugins/folder-manager/FileView.vala:294
 msgid "Close Folder"
 msgstr "Закрыть папку"
 
@@ -718,9 +739,9 @@ msgstr "Открыть с помощью"
 msgid "Open files you are editing with another application"
 msgstr "Открыть редактируемые файлы в другом приложении"
 
-#: ../plugins/open-with/open-with.vala:55
-msgid "Open With..."
-msgstr "Открыть с помощью…"
+#: ../plugins/open-with/open-with.vala:54
+msgid "Open With…"
+msgstr ""
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
@@ -730,9 +751,9 @@ msgstr "Обнаружить отступ"
 msgid "Heuristically detect tab or space settings"
 msgstr ""
 
-#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:114
-#: ../plugins/terminal/terminal.vala:120 ../plugins/terminal/terminal.vala:166
-#: ../plugins/terminal/terminal.vala:168
+#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
+#: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
+#: ../plugins/terminal/terminal.vala:174
 msgid "Terminal"
 msgstr "Терминал"
 
@@ -740,23 +761,23 @@ msgstr "Терминал"
 msgid "A terminal in your text editor"
 msgstr "Терминал в Вашем текстовом редакторе"
 
-#: ../plugins/terminal/terminal.vala:161 ../plugins/terminal/terminal.vala:172
+#: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
 msgid "Show Terminal"
 msgstr "Показать Терминал"
 
-#: ../plugins/terminal/terminal.vala:164
+#: ../plugins/terminal/terminal.vala:170
 msgid "Hide Terminal"
 msgstr "Скрыть Терминал"
 
-#: ../plugins/terminal/terminal.vala:300
+#: ../plugins/terminal/terminal.vala:306
 msgid "Copy"
 msgstr "Копировать"
 
-#: ../plugins/terminal/terminal.vala:317
+#: ../plugins/terminal/terminal.vala:323
 msgid "Terminal on Right"
 msgstr "Терминал справа"
 
-#: ../plugins/terminal/terminal.vala:325
+#: ../plugins/terminal/terminal.vala:331
 msgid "Terminal on Bottom"
 msgstr "Терминал снизу"
 
@@ -769,7 +790,7 @@ msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Показать диалог с наиболее часто используемыми словами в Ваших файлах"
 
-#: ../plugins/word-completion/plugin.vala:177
+#: ../plugins/word-completion/plugin.vala:175
 msgid "%s - Word Completion"
 msgstr "%s - Автозавершение слов"
 

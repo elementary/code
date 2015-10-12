@@ -31,11 +31,9 @@ public class Euclide.Completion.Parser : GLib.Object {
     public bool parsing_cancelled = false;
 
     private Gee.ArrayList<string> words;
-    private Mutex words_lock;
     private string last_word = "";
 
     public Parser () {
-         words_lock = new Mutex ();
          text_view_words = new Gee.HashMap<Gtk.TextView,Gee.ArrayList<string>> ();
     }
 
@@ -43,40 +41,41 @@ public class Euclide.Completion.Parser : GLib.Object {
         add_word (last_word);
     }
 
-    public bool get_for_word (string to_find, out List<string> list) {
-        bool success = false;
+    public bool get_for_word (string to_find, out Gee.TreeSet<string> list) {
         uint length = to_find.length;
-
-        list = null;
+        list = new Gee.TreeSet<string> ();
         last_word = to_find;
-
-        if (words != null && words_lock.trylock ()) {
-            foreach (var word in words) {
-                if (word.length > length && word.slice (0, length) == to_find) {
-                    success = true;
-                    list.prepend (word);
+        if (words != null) {
+            lock (words) {
+                foreach (var word in words) {
+                    if (word.length > length && word.slice (0, length) == to_find) {
+                        list.add (word);
+                    }
                 }
             }
-            words_lock.unlock ();
         }
-        return success;
+
+        return !list.is_empty;
     }
 
     public void rebuild_word_list (Gtk.TextView view) {
-        words_lock.lock ();
-        words.clear ();
-        words_lock.unlock ();
+        lock (words) {
+            words.clear ();
+        }
         parse_text_view (view);
     }
 
     public void parse_text_view (Gtk.TextView view) {
         /* If this view has already been parsed, restore the word list */
-        if (text_view_words.has_key (view)) {
-            words = text_view_words.@get (view);
-        } else {
-        /* Else create a new word list and parse the buffer text */
-            words = new Gee.ArrayList<string> ();
+        lock (words) {
+            if (text_view_words.has_key (view)) {
+                words = text_view_words.@get (view);
+            } else {
+            /* Else create a new word list and parse the buffer text */
+                words = new Gee.ArrayList<string> ();
+            }
         }
+
         if (view.buffer.text.length > 0) {
             parse_string (view.buffer.text);
             text_view_words.@set (view, words);
@@ -87,9 +86,10 @@ public class Euclide.Completion.Parser : GLib.Object {
         if (word.length < MINIMUM_WORD_LENGTH)
             return;
 
-        if (!(word in words) && words_lock.trylock ()) {
-            words.add (word);
-            words_lock.unlock ();
+        if (!(word in words)) {
+            lock (words) {
+                words.add (word);
+            }
         }
     }
 

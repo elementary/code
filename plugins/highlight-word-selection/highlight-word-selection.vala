@@ -23,70 +23,75 @@ public const string DESCRIPTION = N_("Highlights all occurrences of words that a
 
 public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase,  Peas.Activatable { 
     // Properties
-    List<Scratch.Widgets.SourceView> source_views;   
+    Gee.TreeSet<Scratch.Widgets.SourceView> source_views;
     Gee.HashMap<Scratch.Widgets.SourceView, Gtk.SourceSearchContext> search_contexts;
     Scratch.Widgets.SourceView current_source;
-    
+
     // Consts
     // Pneumonoultramicroscopicsilicovolcanoconiosis longest word in a major dictionary @ 45
     private const uint SELECTION_HIGHLIGHT_MAX_CHARS = 45;
-        
+
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
-   
+
     public void update_state () {
+        
     }
 
     public void activate () {
-        this.source_views = new List<Scratch.Widgets.SourceView> ();
+        this.source_views = new Gee.TreeSet<Scratch.Widgets.SourceView> ();
         this.search_contexts = new Gee.HashMap<Scratch.Widgets.SourceView, Gtk.SourceSearchContext> ();
-        
-        plugins = (Scratch.Services.Interface) object;        
+
+        plugins = (Scratch.Services.Interface) object;
         plugins.hook_document.connect ((doc) => {
             var src = doc.source_view;
             src.deselected.disconnect (on_deselection);
             src.deselected.connect (on_deselection);
             src.selection_changed.disconnect (on_selection_changed);
             src.selection_changed.connect (on_selection_changed);
-            this.source_views.append (src);
+            this.source_views.add (src);
             this.search_contexts.set (src, new Gtk.SourceSearchContext (src.buffer,null));
             this.current_source = src;
         });
     }
     
     public void on_selection_changed (Gtk.TextIter start,Gtk.TextIter end) {
-        if (this.current_source.buffer.get_has_selection ())
-        {
+        if (this.current_source.buffer.get_has_selection ()) {
             // Expand highlight to current word on
-            if (!start.starts_word ())
+            if (!start.starts_word ()) {
                 start.backward_word_start ();
-            if (!end.ends_word ())
+            }
+
+            if (!end.ends_word ()) {
                 end.forward_word_end ();
+            }
+
             string selected_text = this.current_source.buffer.get_text (start,end,false);
-            if (selected_text.length > SELECTION_HIGHLIGHT_MAX_CHARS)
+            if (selected_text.length > SELECTION_HIGHLIGHT_MAX_CHARS) {
                 return;
-            Gtk.SourceSearchContext context = search_contexts.get (this.current_source);
+            }
+
+            var context = search_contexts.get (this.current_source);
             context.settings.search_text = selected_text;
-            context.set_highlight (true);      
+            context.set_highlight (true);
         }
     }
-    
+
     public void on_deselection () {
-        Gtk.SourceSearchContext context = search_contexts.get (this.current_source);  
+        var context = search_contexts.get (this.current_source);
         context.settings.search_text = null;
-        context.set_highlight (false);      
+        context.set_highlight (false);
     }
-    
+
     public void deactivate () {
-        source_views.foreach ((src) => {
+        foreach (var src in source_views) {
             src.deselected.disconnect (on_deselection);
             src.selection_changed.disconnect (on_selection_changed);
-            Gtk.SourceSearchContext context = search_contexts.get (src);
+            var context = search_contexts.get (src);
             context.settings.search_text = null;
-            context.set_highlight (false);      
-        });
+            context.set_highlight (false);
+        }
     }
-    
 }
 
 [ModuleInit]
