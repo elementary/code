@@ -68,12 +68,10 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
                         spell.detach ();
                 });
 
-#if SPELLLEGACY
-#else
                 spell.language_changed.connect ((lang) => {
                     settings.language = lang;
                 });
-#endif
+
             }
         });
     }
