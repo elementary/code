@@ -23,6 +23,16 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
     Scratch.Services.Interface plugins;
 
     Scratch.Plugins.SpellSettings.Settings settings;
+    
+    MainWindow window = null;
+
+    private string lang_dict;
+
+#if SPELLLEGACY
+    Gtk.Spell? spell = null;
+#else
+    GtkSpell.Checker spell = null;
+#endif
 
     public Object object {owned get; construct;}
     
@@ -33,20 +43,25 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
 
         this.settings = new Scratch.Plugins.SpellSettings.Settings ();
 
+        //Restore the last dictionary used.
+        this.lang_dict = settings.language;
+
+        settings.changed.connect (settings_changed);
+
         plugins = (Scratch.Services.Interface) object;
         plugins.hook_document.connect ((d) => {
             var view = d.source_view;
             // Create GtkSpell object
 #if SPELLLEGACY
             if (Gtk.Spell.get_from_text_view (view) == null) {
-                Gtk.Spell? spell = null;
+                spell = null;
                 try {
-                    spell = new Gtk.Spell.attach (view, settings.language);
+                    spell = new Gtk.Spell.attach (view, lang_dict);
 #else
             if (GtkSpell.Checker.get_from_text_view (view) == null) {
-                GtkSpell.Checker spell = new GtkSpell.Checker ();
+                spell = new GtkSpell.Checker ();
                 try {
-                    spell.set_language (settings.language);
+                    spell.set_language (lang_dict);
                     spell.attach (view);
 #endif
                 } catch (Error e) {
@@ -63,20 +78,45 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
                     spell.detach ();
  
                 // Detect language changed event
-                view.language_changed.connect_after ((lang) => {
+                view.language_changed.connect ((lang) => {
                     if (lang != null)
                         spell.detach ();
                 });
 
+                // Detect changes in language dictionaries in spell instance
                 spell.language_changed.connect ((lang) => {
-                    settings.language = lang;
+                    this.lang_dict = lang;
                 });
 
             }
         });
+
+        plugins.hook_window.connect ((w) => {
+            if (window != null)
+                return;
+
+            window = w;
+            window.destroy.connect (save_settings);
+        });
+
+    }
+
+    public void settings_changed () {
+        this.lang_dict = settings.language;
+        if(spell != null)
+            spell.set_language (lang_dict);
+    }
+
+    public void save_settings () {
+        //Save the last dictionary used.
+        settings.language = this.lang_dict;
     }
 
     public void deactivate () {
+        //Save the last dictionary used.
+        settings.language = this.lang_dict;
+
+        window.destroy.disconnect (save_settings);
     }
 
 }
