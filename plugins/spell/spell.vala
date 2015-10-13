@@ -113,9 +113,7 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
     }
 
     public void deactivate () {
-        //Save the last dictionary used.
-        settings.language = this.lang_dict;
-
+        save_settings();
         window.destroy.disconnect (save_settings);
     }
 
