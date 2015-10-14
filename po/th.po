@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-10-01 05:43-0500\n"
-"PO-Revision-Date: 2015-04-14 16:06+0000\n"
-"Last-Translator: Jeerapat Sripumngoen <jeerapat.sep@gmail.com>\n"
+"PO-Revision-Date: 2015-10-13 21:01+0000\n"
+"Last-Translator: ABCDEFGH <aefgh7233@gmail.com>\n"
 "Language-Team: Thai <th@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-02 05:33+0000\n"
-"X-Generator: Launchpad (build 17783)\n"
+"X-Launchpad-Export-Date: 2015-10-14 05:43+0000\n"
+"X-Generator: Launchpad (build 17812)\n"
 
 #: ../src/Scratch.vala:243
 msgid "New Tab"
@@ -27,7 +27,7 @@ msgstr "หน้าต่างใหม่"
 
 #: ../src/Scratch.vala:245
 msgid "Print version info and exit"
-msgstr ""
+msgstr "พิมพ์ข้อมูลเวอร์ชั่นแล้วออกจากโปรแกรม"
 
 #: ../src/Scratch.vala:246
 msgid "Set of plugins"
@@ -35,7 +35,7 @@ msgstr "ชุดปลั๊กอิน"
 
 #: ../src/Scratch.vala:247
 msgid "Current working directory"
-msgstr ""
+msgstr "ไดเรกทอรีทำงานปัจจุบัน"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -51,7 +51,7 @@ msgstr "สร้างเอกสารใหม่"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr ""
+msgstr "เกี่ยวกับ Scratch"
 
 #: ../src/Services/Document.vala:231
 msgid "Save changes to document %s before closing?"
@@ -68,7 +68,7 @@ msgstr "ปิดโดยไม่ต้องบันทึก"
 
 #: ../src/Services/Document.vala:240 ../src/Utils.vala:29
 msgid "Cancel"
-msgstr ""
+msgstr "ยกเลิก"
 
 #: ../src/Services/Document.vala:241 ../src/Services/Document.vala:546
 #: ../src/Utils.vala:33 ../src/MainWindow.vala:911
@@ -84,26 +84,31 @@ msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
+"ไม่สามารถอ่านไฟล์ \"%s\" มันอาจจะสูญหายไปแล้ว\n"
+"หรือคุณไม่มีสิทธิ์เพียงพอที่จะอ่านมันได้"
 
 #: ../src/Services/Document.vala:537
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
+"ตำแหน่งที่มีไฟล์ \"%s\" ไม่ได้ถูกเมานท์ คุณต้องการบันทึกไว้ที่อื่น ๆ หรือไม่"
 
 #: ../src/Services/Document.vala:539 ../src/MainWindow.vala:915
 msgid "Save As…"
-msgstr ""
+msgstr "บันทึกเป็น…"
 
 #: ../src/Services/Document.vala:544
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "ลบไฟล์ \"%s\" แล้ว คุณต้องการบันทึกไว้เลยหรือไม่"
 
 #: ../src/Services/Document.vala:557
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 msgstr ""
+"คุณไม่สามารถบันทึกการเปลี่ยนแปลงให้กับไฟล์ \"%s\" "
+"คุณต้องการบันทึกการเปลี่ยนแปลงไปให้กับไฟล์นี้ในตำแหน่งอื่น ๆ หรือไม่"
 
 #: ../src/Services/Document.vala:559
 msgid "Save changes elsewhere"
@@ -114,6 +119,8 @@ msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
+"ไฟล์ \"%s\" ถูกแก้ไขโดยแอพพลิเคชั่นจากภายนอก "
+"คุณต้องการโหลดมันซ้ำอีกครั้งหรือทำการแก้ไขของคุณต่อไป?"
 
 #: ../src/Services/Document.vala:591
 msgid "Load"
@@ -129,7 +136,7 @@ msgstr "แม่แบบ"
 
 #: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
-msgstr ""
+msgstr "ไฟล์ข้อความจาก "
 
 #: ../src/Widgets/SourceView.vala:120
 msgid "Syntax Highlighting"
@@ -153,15 +160,15 @@ msgstr "แทนที่ด้วย"
 
 #: ../src/Widgets/SearchManager.vala:91
 msgid "Search next"
-msgstr ""
+msgstr "ค้นหาอันถัดไป"
 
 #: ../src/Widgets/SearchManager.vala:97
 msgid "Search previous"
-msgstr ""
+msgstr "ค้นหาอันที่แล้ว"
 
 #: ../src/Widgets/SearchManager.vala:104
 msgid "Cyclic Search"
-msgstr ""
+msgstr "ค้นหา Cyclic"
 
 #: ../src/Widgets/SearchManager.vala:107 ../src/MainWindow.vala:863
 #: ../src/MainWindow.vala:864
@@ -170,7 +177,7 @@ msgstr "แทนที่"
 
 #: ../src/Widgets/SearchManager.vala:112
 msgid "Replace all"
-msgstr ""
+msgstr "แทนที่ทั้งหมด"
 
 #: ../src/Widgets/SearchManager.vala:121
 msgid "Go To Line:"
@@ -206,11 +213,11 @@ msgstr "เปิดไฟล์ที่บันทึกไว้"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "New file from clipboard"
-msgstr ""
+msgstr "สร้างไฟล์จากคลิปบอร์ด"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "Create a new file from the contents of your clipboard."
-msgstr ""
+msgstr "สร้างไฟล์ใหม่จากเนื้อหาในคลิปบอร์ดของคุณ"
 
 #: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:923
 msgid "Preferences"
@@ -283,7 +290,7 @@ msgstr "แสดงแถบสีที่คู่วงเล็บ"
 
 #: ../src/Dialogs/PreferencesDialog.vala:215
 msgid "Line wrap:"
-msgstr ""
+msgstr "การตัดคำ:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:216
 msgid "Draw spaces:"
@@ -421,27 +428,27 @@ msgstr "เปิดไฟล์"
 
 #: ../src/MainWindow.vala:903
 msgid "Clipboard"
-msgstr ""
+msgstr "คลิปบอร์ด"
 
 #: ../src/MainWindow.vala:904
 msgid "New file from Clipboard"
-msgstr ""
+msgstr "ไฟล์ใหม่จากคลิปบอร์ด"
 
 #: ../src/MainWindow.vala:907
 msgid "Zoom"
-msgstr ""
+msgstr "ซูม"
 
 #: ../src/MainWindow.vala:908
 msgid "Zoom 1:1"
-msgstr ""
+msgstr "Zoom 1:1"
 
 #: ../src/MainWindow.vala:912
 msgid "Save this file"
-msgstr ""
+msgstr "บันทึกไฟล์นี้"
 
 #: ../src/MainWindow.vala:916
 msgid "Save this file with a different name"
-msgstr ""
+msgstr "บันทึกไฟล์นี้โดยใช้ชื่ออื่น"
 
 #: ../src/MainWindow.vala:920
 msgid "Project templates"
@@ -453,11 +460,11 @@ msgstr "เปลี่ยนการตั้งค่าของ Scratch"
 
 #: ../src/MainWindow.vala:927 ../src/MainWindow.vala:928
 msgid "Next Tab"
-msgstr ""
+msgstr "แท็บต่อไป"
 
 #: ../src/MainWindow.vala:931 ../src/MainWindow.vala:932
 msgid "Previous Tab"
-msgstr ""
+msgstr "แท็บก่อนหน้า"
 
 #: ../src/MainWindow.vala:948 ../src/MainWindow.vala:949
 msgid "Fullscreen"
@@ -533,7 +540,7 @@ msgstr "วาง"
 
 #: ../plugins/browser-preview/BrowserView.vala:49
 msgid "Close Inspector"
-msgstr ""
+msgstr "ปิด Inspector"
 
 #: ../plugins/browser-preview/browser-preview.vala:21
 msgid "Browser Preview"
@@ -546,16 +553,16 @@ msgstr "ดูตัวอย่างงานของคุณในหน้
 #: ../plugins/browser-preview/browser-preview.vala:85
 #: ../plugins/browser-preview/browser-preview.vala:111
 msgid "Show Preview"
-msgstr ""
+msgstr "แสดงตัวอย่าง"
 
 #: ../plugins/browser-preview/browser-preview.vala:107
 #: ../plugins/browser-preview/browser-preview.vala:150
 msgid "Web Preview"
-msgstr ""
+msgstr "ตัวอย่างเว็บ"
 
 #: ../plugins/browser-preview/browser-preview.vala:108
 msgid "Hide Preview"
-msgstr ""
+msgstr "ซ่อนตัวอย่าง"
 
 #: ../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
@@ -572,11 +579,11 @@ msgstr "เปิดโฟลเดอร์"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:94
 msgid "_Cancel"
-msgstr ""
+msgstr "_ยกเลิก"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:95
 msgid "_Open"
-msgstr ""
+msgstr "_เปิด"
 
 #: ../plugins/folder-manager/FileView.vala:294
 msgid "Close Folder"
