@@ -8,18 +8,18 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-10-01 05:43-0500\n"
-"PO-Revision-Date: 2012-09-09 06:50+0000\n"
-"Last-Translator: Adam Wood <Unknown>\n"
+"PO-Revision-Date: 2015-10-14 13:16+0000\n"
+"Last-Translator: ABCDEFGH <aefgh7233@gmail.com>\n"
 "Language-Team: Khmer <km@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-02 05:33+0000\n"
-"X-Generator: Launchpad (build 17783)\n"
+"X-Launchpad-Export-Date: 2015-10-15 05:51+0000\n"
+"X-Generator: Launchpad (build 17812)\n"
 
 #: ../src/Scratch.vala:243
 msgid "New Tab"
-msgstr ""
+msgstr "បង្កើតផ្ទាំងថ្មី"
 
 #: ../src/Scratch.vala:244 ../src/config.vala:18
 msgid "New Window"
@@ -27,7 +27,7 @@ msgstr "បង្អួច​ថ្មី"
 
 #: ../src/Scratch.vala:245
 msgid "Print version info and exit"
-msgstr ""
+msgstr "បោះពុម្ពពត៌មានកំណែ និងចាកចេញ"
 
 #: ../src/Scratch.vala:246
 msgid "Set of plugins"
@@ -51,7 +51,7 @@ msgstr "ឯកសារ​ថ្មី"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr ""
+msgstr "អំពី Scratch"
 
 #: ../src/Services/Document.vala:231
 msgid "Save changes to document %s before closing?"
@@ -70,7 +70,7 @@ msgstr "បិទ​ដោយ​មិន​រក្សា​ទុក"
 
 #: ../src/Services/Document.vala:240 ../src/Utils.vala:29
 msgid "Cancel"
-msgstr ""
+msgstr "បោះបង់"
 
 #: ../src/Services/Document.vala:241 ../src/Services/Document.vala:546
 #: ../src/Utils.vala:33 ../src/MainWindow.vala:911
@@ -79,7 +79,7 @@ msgstr "រក្សា​ទុក"
 
 #: ../src/Services/Document.vala:313
 msgid "Save File"
-msgstr ""
+msgstr "រក្សាទុកឯកសារ"
 
 #: ../src/Services/Document.vala:521
 msgid ""
@@ -95,11 +95,11 @@ msgstr ""
 
 #: ../src/Services/Document.vala:539 ../src/MainWindow.vala:915
 msgid "Save As…"
-msgstr ""
+msgstr "រក្សាទុកជា..."
 
 #: ../src/Services/Document.vala:544
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "បានលុបឯកសារ \"%s\" ហើយ ។ តើអ្នកចង់រក្សាទុកវាឬទេ?"
 
 #: ../src/Services/Document.vala:557
 msgid ""
@@ -119,11 +119,11 @@ msgstr ""
 
 #: ../src/Services/Document.vala:591
 msgid "Load"
-msgstr ""
+msgstr "ផ្ទុក"
 
 #: ../src/Services/Document.vala:594
 msgid "Continue"
-msgstr ""
+msgstr "បន្ត"
 
 #: ../src/Services/TemplateManager.vala:194 ../src/MainWindow.vala:919
 msgid "Templates"
@@ -139,7 +139,7 @@ msgstr "ការ​បន្លិច​វាក្យសម្ពន្ធ"
 
 #: ../src/Widgets/SourceView.vala:131
 msgid "Normal Text"
-msgstr ""
+msgstr "អត្ថបទធម្មតា"
 
 #: ../src/Widgets/LoadingView.vala:33
 msgid "Wait while restoring last session..."
@@ -155,15 +155,15 @@ msgstr "ជំនួស​ដោយ"
 
 #: ../src/Widgets/SearchManager.vala:91
 msgid "Search next"
-msgstr ""
+msgstr "ស្វែងរកពីក្រោយ"
 
 #: ../src/Widgets/SearchManager.vala:97
 msgid "Search previous"
-msgstr ""
+msgstr "ស្វែងរកពីមុន"
 
 #: ../src/Widgets/SearchManager.vala:104
 msgid "Cyclic Search"
-msgstr ""
+msgstr "ស្វែងរក Cyclic"
 
 #: ../src/Widgets/SearchManager.vala:107 ../src/MainWindow.vala:863
 #: ../src/MainWindow.vala:864
@@ -184,7 +184,7 @@ msgstr "ចែក​រំលែក"
 
 #: ../src/Widgets/SplitView.vala:45
 msgid "No Files Open"
-msgstr ""
+msgstr "គ្មានឯកសារដែលកំពុងបើក"
 
 #: ../src/Widgets/SplitView.vala:46
 msgid "Open a file to begin editing."
