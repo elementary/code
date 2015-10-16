@@ -207,7 +207,7 @@ public class Scratch.TemplateManager : GLib.Object {
         scroll.add_with_viewport (grid);
         scroll.set_shadow_type (Gtk.ShadowType.NONE);
 
-        dialog.add (scroll);
+        (dialog.get_content_area() as Gtk.Box).pack_start(scroll);
         //register_template ("text-editor", "Sample", "sample template", typeof(TestTemplate));
     }
 
