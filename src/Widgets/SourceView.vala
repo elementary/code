@@ -286,10 +286,7 @@ namespace Scratch.Widgets {
         }
 
         public void set_language (Gtk.SourceLanguage? lang) {
-            if (lang == null) {
-                return;
-            }
-
+            //lang can be null, in the case of *No highlight* aka Normal text
             this.buffer.set_language (lang);
             this.language_changed (lang);
         }
