@@ -228,6 +228,12 @@ namespace Scratch {
                     warning (e.message);
                 }
             }
+
+            //In the case when we still didn't manage to open a document
+            //we simply remove the view added before (the only reason to be empty).
+            if (view.get_current_document() == null) {
+                window.split_view.remove_view (view);
+            }
         }
 
         public MainWindow? get_last_window () {
