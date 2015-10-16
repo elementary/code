@@ -130,8 +130,9 @@ namespace Scratch.Widgets {
             item = new Gtk.RadioMenuItem (group);
             item.set_label (_("Normal Text"));
             item.toggled.connect (() => {
-                var lang = manager.get_language ("normal");
-                set_language (lang);
+
+                //"No style"
+                set_language (null);
             });
 
             submenu.add (item);
