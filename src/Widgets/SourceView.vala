@@ -131,7 +131,7 @@ namespace Scratch.Widgets {
             item.set_label (_("Normal Text"));
             item.toggled.connect (() => {
 
-                //"No style"
+                //"No highlight style"
                 set_language (null);
             });
 
@@ -287,7 +287,7 @@ namespace Scratch.Widgets {
         }
 
         public void set_language (Gtk.SourceLanguage? lang) {
-            //lang can be null, in the case of *No highlight* aka Normal text
+            //lang can be null, in the case of *No highlight style* aka Normal text
             this.buffer.set_language (lang);
             this.language_changed (lang);
         }
