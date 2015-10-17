@@ -43,7 +43,7 @@ namespace Scratch.Widgets {
 
         // Signals
         public signal void style_changed (Gtk.SourceStyleScheme style);
-        public signal void language_changed (Gtk.SourceLanguage language);
+        public signal void language_changed (Gtk.SourceLanguage? language);
         public signal void selection_changed (Gtk.TextIter start_iter, Gtk.TextIter end_iter);
         public signal void deselected ();
 
@@ -130,8 +130,9 @@ namespace Scratch.Widgets {
             item = new Gtk.RadioMenuItem (group);
             item.set_label (_("Normal Text"));
             item.toggled.connect (() => {
-                var lang = manager.get_language ("normal");
-                set_language (lang);
+
+                //"No highlight style"
+                set_language (null);
             });
 
             submenu.add (item);
@@ -286,10 +287,7 @@ namespace Scratch.Widgets {
         }
 
         public void set_language (Gtk.SourceLanguage? lang) {
-            if (lang == null) {
-                return;
-            }
-
+            //lang can be null, in the case of *No highlight style* aka Normal text
             this.buffer.set_language (lang);
             this.language_changed (lang);
         }
