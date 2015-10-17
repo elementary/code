@@ -43,7 +43,7 @@ namespace Scratch.Widgets {
 
         // Signals
         public signal void style_changed (Gtk.SourceStyleScheme style);
-        public signal void language_changed (Gtk.SourceLanguage language);
+        public signal void language_changed (Gtk.SourceLanguage? language);
         public signal void selection_changed (Gtk.TextIter start_iter, Gtk.TextIter end_iter);
         public signal void deselected ();
 
