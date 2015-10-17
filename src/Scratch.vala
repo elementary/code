@@ -157,8 +157,7 @@ namespace Scratch {
                             continue;
 
                         var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
-
-                        if (info.get_file_type () != FileType.DIRECTORY)
+                        if (info.get_file_type () != FileType.REGULAR)
                             files += file;
 
                     } catch (Error e) {
