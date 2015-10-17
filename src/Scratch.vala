@@ -150,10 +150,24 @@ namespace Scratch {
                 files.length = 0;
 
                 foreach (string arg in args[1:unclaimed_args + 1]) {
-                    files += File.new_for_commandline_arg (arg);
+                    try {
+                        var file = File.new_for_commandline_arg (arg);
+
+                        if (!file.query_exists ())
+                            continue;
+
+                        var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
+
+                        if (info.get_file_type () != FileType.DIRECTORY)
+                            files += file;
+
+                    } catch (Error e) {
+                        warning (e.message);
+                    }
                 }
 
-                open (files, "");
+                if (files.length > 0)
+                    open (files, "");
             }
 
             return Posix.EXIT_SUCCESS;
@@ -214,25 +228,9 @@ namespace Scratch {
             else
                 view = window.get_current_view ();
 
-            for (int i = 0; i < files.length; i++) {
-                // Check if the given path is a directory
-                try {
-                    var info = files[i].query_info ("standard::*", FileQueryInfoFlags.NONE, null);
-                    if (info.get_file_type () != FileType.DIRECTORY) {
-                        var doc = new Scratch.Services.Document (window.main_actions, files[i]);
-                        view.open_document (doc);
-                    }
-                    else
-                        warning ("\"%s\" is a directory, not opening it", files[i].get_basename ());
-                } catch (Error e) {
-                    warning (e.message);
-                }
-            }
-
-            //In the case when we still didn't manage to open a document
-            //we simply remove the view added before (the only reason to be empty).
-            if (view.get_current_document() == null) {
-                window.split_view.remove_view (view);
+            foreach (var file in files) {
+                var doc = new Scratch.Services.Document (window.main_actions, file);
+                view.open_document (doc);
             }
         }
 
