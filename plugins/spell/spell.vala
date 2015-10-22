@@ -126,10 +126,10 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
     }
 
     public void settings_changed () {
-        this.lang_dict = settings.language;
         if (spell != null) {
             try {
-                spell.set_language (lang_dict);
+                spell.set_language (settings.language);
+                this.lang_dict = settings.language;
             } catch (Error e) {
                     warning (e.message);
             }
