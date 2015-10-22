@@ -57,16 +57,40 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
                 spell = null;
                 try {
                     spell = new Gtk.Spell.attach (view, lang_dict);
+                } catch (Error e) {
+                    warning (e.message);
+                }
 #else
             if (GtkSpell.Checker.get_from_text_view (view) == null) {
                 spell = new GtkSpell.Checker ();
                 try {
-                    spell.set_language (lang_dict);
+                    bool exist = false;
+                    var language_list = spell.get_language_list ();
+                    foreach (var element in language_list) {
+                        if (strcmp (lang_dict, element) == 0) {
+                            exist = true;
+                            spell.set_language (lang_dict);
+                            break;
+                        }
+                    }
+
+                    if (language_list.length () == 0) {
+                        var dialog = new Gtk.MessageDialog (null, Gtk.DialogFlags.MODAL,
+                            Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, _("There are not suitable Dictionaries in your system please install one."));
+                        dialog.show ();
+                        dialog.response.connect ((response_id) => {
+                            dialog.destroy();
+                        });
+                        spell.set_language (null);
+                    } else if (!exist) {
+                        spell.set_language (language_list.first ().data);
+                    }
+
                     spell.attach (view);
-#endif
                 } catch (Error e) {
                     warning (e.message);
                 }
+#endif
                 // Deactivate Spell checker when it is no longer needed
                 plugins.manager.extension_removed.connect ((info) => {
                     if (info.get_module_name () == "spell")
@@ -103,8 +127,13 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
 
     public void settings_changed () {
         this.lang_dict = settings.language;
-        if(spell != null)
-            spell.set_language (lang_dict);
+        if (spell != null) {
+            try {
+                spell.set_language (lang_dict);
+            } catch (Error e) {
+                    warning (e.message);
+            }
+        }
     }
 
     public void save_settings () {
