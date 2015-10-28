@@ -54,7 +54,6 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
             // Create GtkSpell object
 #if SPELLLEGACY
             if (Gtk.Spell.get_from_text_view (view) == null) {
-                spell = null;
                 try {
                     spell = new Gtk.Spell.attach (view, lang_dict);
                 } catch (Error e) {
@@ -85,7 +84,8 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
                         spell.set_language (null); //This fallback to the LC used but might fail.
 
                     } else if (!exist_language) {
-                        spell.set_language (language_list.first ().data);
+                        this.lang_dict = language_list.first ().data;
+                        spell.set_language (lang_dict);
                     }
 
                     spell.attach (view);
