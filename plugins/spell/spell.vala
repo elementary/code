@@ -64,11 +64,11 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
             if (GtkSpell.Checker.get_from_text_view (view) == null) {
                 spell = new GtkSpell.Checker ();
                 try {
-                    bool exist = false;
-                    var language_list = spell.get_language_list ();
+                    bool exist_language = false;
+                    var language_list = GtkSpell.Checker.get_language_list ();
                     foreach (var element in language_list) {
                         if (strcmp (lang_dict, element) == 0) {
-                            exist = true;
+                            exist_language = true;
                             spell.set_language (lang_dict);
                             break;
                         }
@@ -81,8 +81,10 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
                         dialog.response.connect ((response_id) => {
                             dialog.destroy();
                         });
-                        spell.set_language (null);
-                    } else if (!exist) {
+
+                        spell.set_language (null); //This fallback to the LC used but might fail.
+
+                    } else if (!exist_language) {
                         spell.set_language (language_list.first ().data);
                     }
 
