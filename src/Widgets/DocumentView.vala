@@ -253,8 +253,13 @@ namespace Scratch.Widgets {
             other_view.notebook.insert_tab (doc, -1);
         }
 
-        private void on_doc_reordered (Granite.Widgets.Tab tab) {
-            (tab as Services.Document).focus ();
+        private void on_doc_reordered (Granite.Widgets.Tab tab, int new_pos) {
+            var doc = tab as Services.Document;
+
+            this.docs.remove (doc);
+            this.docs.insert (doc, new_pos);
+
+            doc.focus ();
         }
 
         private bool on_focus_in_event () {

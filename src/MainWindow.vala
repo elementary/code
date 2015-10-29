@@ -256,9 +256,10 @@ namespace Scratch {
                 main_actions.get_action ("Templates").visible = plugins.plugin_iface.template_manager.template_available;
             });
 
-            if (has_temporary_files ()) {
-                action_open_temporary_files ();
-            } else {
+            // All the files have already been opened in ScratchApp.activate (),
+            // if we reach this point without any document open let's just show
+            // the welcome screen.
+            if (is_empty ()) {
                 this.split_view.show_welcome ();
             }
 
@@ -531,6 +532,7 @@ namespace Scratch {
                     }
                 });
             });
+
 
             // Update the opened-files setting
             if (settings.show_at_start == "last-tabs") {
