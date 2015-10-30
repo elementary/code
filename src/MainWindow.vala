@@ -674,22 +674,6 @@ namespace Scratch {
             filech.close ();
         }
 
-        private void action_open_temporary_files () {
-            try {
-                var enumerator = File.new_for_path (app.data_home_folder_unsaved).enumerate_children (FileAttribute.STANDARD_NAME, 0, null);
-                for (var fileinfo = enumerator.next_file (null); fileinfo != null; fileinfo = enumerator.next_file (null)) {
-                    if (!fileinfo.get_name ().has_suffix ("~")) {
-                        debug ("open temporary file: %s", fileinfo.get_name ());
-                        var file = File.new_for_path (app.data_home_folder_unsaved + fileinfo.get_name ());
-                        var doc = new Scratch.Services.Document (this.main_actions, file);
-                        this.open_document (doc);
-                    }
-                }
-            } catch (Error e) {
-                critical (e.message);
-            }
-        }
-
         private void action_save () {
             var doc = this.get_current_document ();
             if (doc.is_file_temporary == true) {
