@@ -256,9 +256,10 @@ namespace Scratch {
                 main_actions.get_action ("Templates").visible = plugins.plugin_iface.template_manager.template_available;
             });
 
-            if (has_temporary_files ()) {
-                action_open_temporary_files ();
-            } else {
+            // All the files have already been opened in ScratchApp.activate (),
+            // if we reach this point without any document open let's just show
+            // the welcome screen.
+            if (is_empty ()) {
                 this.split_view.show_welcome ();
             }
 
@@ -532,6 +533,7 @@ namespace Scratch {
                 });
             });
 
+
             // Update the opened-files setting
             if (settings.show_at_start == "last-tabs") {
                 settings.opened_files = opened_files;
@@ -670,22 +672,6 @@ namespace Scratch {
             }
 
             filech.close ();
-        }
-
-        private void action_open_temporary_files () {
-            try {
-                var enumerator = File.new_for_path (app.data_home_folder_unsaved).enumerate_children (FileAttribute.STANDARD_NAME, 0, null);
-                for (var fileinfo = enumerator.next_file (null); fileinfo != null; fileinfo = enumerator.next_file (null)) {
-                    if (!fileinfo.get_name ().has_suffix ("~")) {
-                        debug ("open temporary file: %s", fileinfo.get_name ());
-                        var file = File.new_for_path (app.data_home_folder_unsaved + fileinfo.get_name ());
-                        var doc = new Scratch.Services.Document (this.main_actions, file);
-                        this.open_document (doc);
-                    }
-                }
-            } catch (Error e) {
-                critical (e.message);
-            }
         }
 
         private void action_save () {
