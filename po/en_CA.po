@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-10-01 05:43-0500\n"
-"PO-Revision-Date: 2015-03-21 02:54+0000\n"
-"Last-Translator: Aleck <aleck.r.pang@gmail.com>\n"
+"PO-Revision-Date: 2015-11-03 04:32+0000\n"
+"Last-Translator: Shawn McTear <Unknown>\n"
 "Language-Team: English (Canada) <en_CA@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-02 05:34+0000\n"
-"X-Generator: Launchpad (build 17783)\n"
+"X-Launchpad-Export-Date: 2015-11-03 05:22+0000\n"
+"X-Generator: Launchpad (build 17838)\n"
 
 #: ../src/Scratch.vala:243
 msgid "New Tab"
@@ -35,7 +35,7 @@ msgstr "Set of plugins"
 
 #: ../src/Scratch.vala:247
 msgid "Current working directory"
-msgstr ""
+msgstr "Current working directory"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -51,7 +51,7 @@ msgstr "New Document"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr ""
+msgstr "About Scratch"
 
 #: ../src/Services/Document.vala:231
 msgid "Save changes to document %s before closing?"
@@ -69,7 +69,7 @@ msgstr "Close without saving"
 
 #: ../src/Services/Document.vala:240 ../src/Utils.vala:29
 msgid "Cancel"
-msgstr ""
+msgstr "Cancel"
 
 #: ../src/Services/Document.vala:241 ../src/Services/Document.vala:546
 #: ../src/Utils.vala:33 ../src/MainWindow.vala:911
@@ -85,12 +85,16 @@ msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
+"File \"%s\" cannot be read. Maybe it is corrupt\n"
+"or you do not have the necessary permissions to read it."
 
 #: ../src/Services/Document.vala:537
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
+"The location containing the file \"%s\" was unmounted. Do you want to save "
+"somewhere else?"
 
 #: ../src/Services/Document.vala:539 ../src/MainWindow.vala:915
 msgid "Save As…"
@@ -98,13 +102,15 @@ msgstr "Save As…"
 
 #: ../src/Services/Document.vala:544
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "File \"%s\" was deleted. Do you want to save it anyway?"
 
 #: ../src/Services/Document.vala:557
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 msgstr ""
+"You cannot save changes on file \"%s\". Do you want to save the changes to "
+"this file in a different location?"
 
 #: ../src/Services/Document.vala:559
 msgid "Save changes elsewhere"
@@ -115,6 +121,8 @@ msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
+"File \"%s\" was modified by an external application. Do you want to load it "
+"again or continue your editing?"
 
 #: ../src/Services/Document.vala:591
 msgid "Load"
@@ -130,7 +138,7 @@ msgstr "Templates"
 
 #: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
-msgstr ""
+msgstr "Text file from "
 
 #: ../src/Widgets/SourceView.vala:120
 msgid "Syntax Highlighting"
@@ -154,15 +162,15 @@ msgstr "Replace With"
 
 #: ../src/Widgets/SearchManager.vala:91
 msgid "Search next"
-msgstr ""
+msgstr "Search next"
 
 #: ../src/Widgets/SearchManager.vala:97
 msgid "Search previous"
-msgstr ""
+msgstr "Search previous"
 
 #: ../src/Widgets/SearchManager.vala:104
 msgid "Cyclic Search"
-msgstr ""
+msgstr "Cyclic Search"
 
 #: ../src/Widgets/SearchManager.vala:107 ../src/MainWindow.vala:863
 #: ../src/MainWindow.vala:864
@@ -171,11 +179,11 @@ msgstr "Replace"
 
 #: ../src/Widgets/SearchManager.vala:112
 msgid "Replace all"
-msgstr ""
+msgstr "Replace all"
 
 #: ../src/Widgets/SearchManager.vala:121
 msgid "Go To Line:"
-msgstr "Got To Line:"
+msgstr "Go To Line:"
 
 #: ../src/Widgets/ToolBar.vala:58
 msgid "Share"
@@ -207,11 +215,11 @@ msgstr "Open a saved file."
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "New file from clipboard"
-msgstr ""
+msgstr "New file from clipboard"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "Create a new file from the contents of your clipboard."
-msgstr ""
+msgstr "Create a new file from the contents of your clipboard."
 
 #: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:923
 msgid "Preferences"
@@ -284,7 +292,7 @@ msgstr "Highlight matching brackets:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:215
 msgid "Line wrap:"
-msgstr ""
+msgstr "Line wrap:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:216
 msgid "Draw spaces:"
@@ -496,15 +504,15 @@ msgstr "/New File"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:24
 msgid "Preserve Indent"
-msgstr ""
+msgstr "Preserve Indent"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:25
 msgid "Maintains indent level of pasted text when auto-indent is active"
-msgstr ""
+msgstr "Maintains indent level of pasted text when auto-indent is active"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
 msgid "Highlight Selected Words"
-msgstr ""
+msgstr "Highlight Selected Words"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
 msgid "Highlights all occurrences of words that are selected"
@@ -513,19 +521,19 @@ msgstr ""
 #: ../plugins/clipboard-history/ClipboardHistory.vala:21
 #: ../plugins/clipboard-history/ClipboardHistory.vala:89
 msgid "Clipboard History"
-msgstr ""
+msgstr "Clipboard History"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:22
 msgid "Clipboard to view history"
-msgstr ""
+msgstr "Clipboard to view history"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:28
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:156
 msgid "Delete"
-msgstr ""
+msgstr "Delete"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:159
 #: ../plugins/terminal/terminal.vala:313
@@ -534,7 +542,7 @@ msgstr "Paste"
 
 #: ../plugins/browser-preview/BrowserView.vala:49
 msgid "Close Inspector"
-msgstr ""
+msgstr "Close Inspector"
 
 #: ../plugins/browser-preview/browser-preview.vala:21
 msgid "Browser Preview"
@@ -547,16 +555,16 @@ msgstr "Get a preview your work in a web page"
 #: ../plugins/browser-preview/browser-preview.vala:85
 #: ../plugins/browser-preview/browser-preview.vala:111
 msgid "Show Preview"
-msgstr ""
+msgstr "Show Preview"
 
 #: ../plugins/browser-preview/browser-preview.vala:107
 #: ../plugins/browser-preview/browser-preview.vala:150
 msgid "Web Preview"
-msgstr ""
+msgstr "Web Preview"
 
 #: ../plugins/browser-preview/browser-preview.vala:108
 msgid "Hide Preview"
-msgstr ""
+msgstr "Hide Preview"
 
 #: ../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
@@ -573,11 +581,11 @@ msgstr "Open a folder"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:94
 msgid "_Cancel"
-msgstr ""
+msgstr "_Cancel"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:95
 msgid "_Open"
-msgstr ""
+msgstr "_Open"
 
 #: ../plugins/folder-manager/FileView.vala:294
 msgid "Close Folder"
@@ -585,11 +593,11 @@ msgstr "Close Folder"
 
 #: ../plugins/outline/OutlinePlugin.vala:21
 msgid "Outline"
-msgstr ""
+msgstr "Outline"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
-msgstr ""
+msgstr "Outline symbols in your current file in vala"
 
 #: ../plugins/outline/OutlinePlugin.vala:111
 #: ../plugins/outline/CtagsSymbolResolver.vala:35
@@ -597,7 +605,7 @@ msgstr ""
 #: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
 #: ../plugins/outline/ValaProcessing/SymbolOutline.vala:94
 msgid "Symbols"
-msgstr ""
+msgstr "Symbols"
 
 #: ../plugins/brackets-completion/brackets-completion.vala:21
 msgid "Brackets Completion"
@@ -734,11 +742,11 @@ msgstr "Open files you are editing with another application"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr ""
+msgstr "Open With…"
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
-msgstr ""
+msgstr "Detect Indent"
 
 #: ../plugins/detect-indent/detect-indent.vala:2
 msgid "Heuristically detect tab or space settings"
@@ -756,11 +764,11 @@ msgstr "A terminal in your text editor"
 
 #: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
 msgid "Show Terminal"
-msgstr ""
+msgstr "Show Terminal"
 
 #: ../plugins/terminal/terminal.vala:170
 msgid "Hide Terminal"
-msgstr ""
+msgstr "Hide Terminal"
 
 #: ../plugins/terminal/terminal.vala:306
 msgid "Copy"
@@ -768,11 +776,11 @@ msgstr "Copy"
 
 #: ../plugins/terminal/terminal.vala:323
 msgid "Terminal on Right"
-msgstr ""
+msgstr "Terminal on Right"
 
 #: ../plugins/terminal/terminal.vala:331
 msgid "Terminal on Bottom"
-msgstr ""
+msgstr "Terminal on Bottom"
 
 #: ../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
