@@ -57,7 +57,7 @@ namespace Scratch.Services {
 
 			string api_url = "http://pastebin.com/api/api_post.php";
 	
-			var session = new SessionSync ();
+			var session = new Session ();
 			var message = new Message ("POST", api_url);
             
 			string request = Form.encode (
