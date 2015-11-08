@@ -243,14 +243,16 @@ namespace Scratch.Widgets {
 
         private void on_doc_moved (Granite.Widgets.Tab tab, int x, int y) {
             var doc = tab as Services.Document;
+            Idle.add (() => {
+                var other_window = window.app.new_window ();
+                other_window.move (x, y);
 
-            var other_window = window.app.new_window ();
-            other_window.move (x, y);
+                DocumentView other_view = other_window.add_view ();
 
-            DocumentView other_view = other_window.add_view ();
-
-            this.notebook.remove_tab (doc);
-            other_view.notebook.insert_tab (doc, -1);
+                this.notebook.remove_tab (doc);
+                other_view.notebook.insert_tab (doc, -1);
+                return false;
+            });
         }
 
         private void on_doc_reordered (Granite.Widgets.Tab tab, int new_pos) {
