@@ -243,12 +243,15 @@ namespace Scratch.Widgets {
 
         private void on_doc_moved (Granite.Widgets.Tab tab, int x, int y) {
             var doc = tab as Services.Document;
+            
+            var other_window = window.app.new_window ();
+            other_window.move (x, y);
+
+            DocumentView other_view = other_window.add_view ();
+
+            //We need to make sure switch back to the main thread
+            //when we are modifiying Gtk widget shared by two threads.
             Idle.add (() => {
-                var other_window = window.app.new_window ();
-                other_window.move (x, y);
-
-                DocumentView other_view = other_window.add_view ();
-
                 this.notebook.remove_tab (doc);
                 other_view.notebook.insert_tab (doc, -1);
                 return false;
