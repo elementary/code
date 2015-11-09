@@ -250,7 +250,7 @@ namespace Scratch.Widgets {
             DocumentView other_view = other_window.add_view ();
 
             //We need to make sure switch back to the main thread
-            //when we are modifiying Gtk widget shared by two threads.
+            //when we are modifiying Gtk widgets shared by two threads.
             Idle.add (() => {
                 this.notebook.remove_tab (doc);
                 other_view.notebook.insert_tab (doc, -1);
