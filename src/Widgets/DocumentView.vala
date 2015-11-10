@@ -249,8 +249,14 @@ namespace Scratch.Widgets {
 
             DocumentView other_view = other_window.add_view ();
 
-            this.notebook.remove_tab (doc);
-            other_view.notebook.insert_tab (doc, -1);
+            // We need to make sure switch back to the main thread
+            // when we are modifiying Gtk widgets shared by two threads.
+            Idle.add (() => {
+                this.notebook.remove_tab (doc);
+                other_view.notebook.insert_tab (doc, -1);
+
+                return false;
+            });
         }
 
         private void on_doc_reordered (Granite.Widgets.Tab tab, int new_pos) {
