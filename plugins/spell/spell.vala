@@ -43,7 +43,7 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
 
         this.settings = new Scratch.Plugins.SpellSettings.Settings ();
 
-        //Restore the last dictionary used.
+        // Restore the last dictionary used.
         this.lang_dict = settings.language;
 
         settings.changed.connect (settings_changed);
@@ -51,7 +51,8 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
         plugins = (Scratch.Services.Interface) object;
         plugins.hook_document.connect ((d) => {
             var view = d.source_view;
-            // Create GtkSpell object
+
+            // Create spell object
 #if SPELLLEGACY
             if (Gtk.Spell.get_from_text_view (view) == null) {
                 try {
@@ -75,13 +76,16 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
 
                     if (language_list.length () == 0) {
                         var dialog = new Gtk.MessageDialog (null, Gtk.DialogFlags.MODAL,
-                            Gtk.MessageType.WARNING, Gtk.ButtonsType.OK, _("There are not suitable Dictionaries in your system please install one."));
+                            Gtk.MessageType.WARNING, Gtk.ButtonsType.OK,
+                            _("There are not suitable Dictionaries in your system please install one."));
                         dialog.show ();
+
                         dialog.response.connect ((response_id) => {
-                            dialog.destroy();
+                            dialog.destroy ();
                         });
 
-                        spell.set_language (null); //This fallback to the LC used but might fail.
+                        // This fallback to the LC used but might fail.
+                        spell.set_language (null);
 
                     } else if (!exist_language) {
                         this.lang_dict = language_list.first ().data;
@@ -98,6 +102,7 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
                     if (info.get_module_name () == "spell")
                         spell.detach ();
                 });
+
                 // Deactivate Spell checker when we are editing a code file
                 var lang = d.source_view.buffer.language;
                 if (lang != null)
@@ -110,8 +115,8 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
                 });
 
                 // Detect changes in language dictionaries in spell instance
-                spell.language_changed.connect ((lang) => {
-                    this.lang_dict = lang;
+                spell.language_changed.connect ((lang_dict) => {
+                    this.lang_dict = lang_dict;
                 });
 
             }
@@ -139,12 +144,12 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
     }
 
     public void save_settings () {
-        //Save the last dictionary used.
+        // Save the last dictionary used.
         settings.language = this.lang_dict;
     }
 
     public void deactivate () {
-        save_settings();
+        save_settings ();
         window.destroy.disconnect (save_settings);
     }
 
