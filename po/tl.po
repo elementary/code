@@ -3,22 +3,22 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-01 05:43-0500\n"
-"PO-Revision-Date: 2015-03-20 04:04+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2015-11-12 17:38+0000\n"
+"Last-Translator: Arbyn Acosta <arbyn.acosta@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-02 05:33+0000\n"
-"X-Generator: Launchpad (build 17783)\n"
+"X-Launchpad-Export-Date: 2015-11-13 05:21+0000\n"
+"X-Generator: Launchpad (build 17845)\n"
 
 #: ../src/Scratch.vala:243
 msgid "New Tab"
-msgstr ""
+msgstr "Bagong Tab"
 
 #: ../src/Scratch.vala:244 ../src/config.vala:18
 msgid "New Window"
-msgstr ""
+msgstr "Bagong Window"
 
 #: ../src/Scratch.vala:245
 msgid "Print version info and exit"
@@ -56,14 +56,16 @@ msgstr ""
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
+"Kung ayaw mong gawing permanente ang mga nagawa mong pagbabago, mawawala "
+"lahat ng nagawa mo sa nakalipas na apat na segundo."
 
 #: ../src/Services/Document.vala:236
 msgid "Close without saving"
-msgstr ""
+msgstr "Isara ng hindi ginagawang permanente ang mga nagawang pagbabago"
 
 #: ../src/Services/Document.vala:240 ../src/Utils.vala:29
 msgid "Cancel"
-msgstr ""
+msgstr "Ikansela"
 
 #: ../src/Services/Document.vala:241 ../src/Services/Document.vala:546
 #: ../src/Utils.vala:33 ../src/MainWindow.vala:911
@@ -79,6 +81,8 @@ msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
+"Ang file na \"%s\" ay hindi mabasa. Maaaring may sira ito\n"
+"o wala kang sapat na karapatan para basahin ito."
 
 #: ../src/Services/Document.vala:537
 msgid ""
