@@ -150,18 +150,42 @@ namespace Scratch {
                 files.length = 0;
 
                 foreach (string arg in args[1:unclaimed_args + 1]) {
+                    // We set a message, that later is informed to the user
+                    // in a dialog if something noteworthy happens.
+                    string message = "";
                     try {
                         var file = File.new_for_commandline_arg (arg);
 
                         if (!file.query_exists ())
-                            continue;
+                            FileUtils.set_contents (file.get_path (), "");
 
                         var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
                         if (info.get_file_type () == FileType.REGULAR)
                             files += file;
+                        else
+                            message = _("File \"%s\" cannot be opened.\nIt's not a regular file.").printf ("<b>%s</b>".printf (file.get_uri ()));
 
                     } catch (Error e) {
+                        // In case we failed create the file
+                        if (e is FileError.PERM || e is FileError.ACCES) {
+                            var file = File.new_for_commandline_arg (arg);
+                            message = _("File \"%s\" cannot be created.\nMaybe you do not have the necessary permissions.").printf ("<b>%s</b>".printf (file.get_uri ()));
+                        }
+
                         warning (e.message);
+                    }
+
+                    // Notify the user that something happened.
+                    if (message.length > 0) {
+                        var parent_window = get_last_window () as Gtk.Window;
+                        var dialog = new Gtk.MessageDialog.with_markup (parent_window,
+                            Gtk.DialogFlags.MODAL,
+                            Gtk.MessageType.ERROR,
+                            Gtk.ButtonsType.CLOSE,
+                            message);
+                        dialog.run ();
+                        dialog.destroy ();
+                        dialog.close ();
                     }
                 }
 
