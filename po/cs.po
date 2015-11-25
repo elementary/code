@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-01 05:43-0500\n"
-"PO-Revision-Date: 2015-07-24 16:29+0000\n"
-"Last-Translator: Tomo Moto <Unknown>\n"
+"PO-Revision-Date: 2015-11-24 09:47+0000\n"
+"Last-Translator: Daniel <daniel.susik@gmail.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-02 05:32+0000\n"
-"X-Generator: Launchpad (build 17783)\n"
+"X-Launchpad-Export-Date: 2015-11-25 05:21+0000\n"
+"X-Generator: Launchpad (build 17850)\n"
 "Language: cs\n"
 
 #: ../src/Scratch.vala:243
@@ -161,15 +161,15 @@ msgstr "Nahradit za"
 
 #: ../src/Widgets/SearchManager.vala:91
 msgid "Search next"
-msgstr ""
+msgstr "Najít další"
 
 #: ../src/Widgets/SearchManager.vala:97
 msgid "Search previous"
-msgstr ""
+msgstr "Najít předchozí"
 
 #: ../src/Widgets/SearchManager.vala:104
 msgid "Cyclic Search"
-msgstr ""
+msgstr "Opakované hledání"
 
 #: ../src/Widgets/SearchManager.vala:107 ../src/MainWindow.vala:863
 #: ../src/MainWindow.vala:864
@@ -503,11 +503,12 @@ msgstr "Nový soubor"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:24
 msgid "Preserve Indent"
-msgstr ""
+msgstr "Zachovat odsazení"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:25
 msgid "Maintains indent level of pasted text when auto-indent is active"
 msgstr ""
+"Udržuje úroveň odsazení vloženého textu, když je aktivní automatické odsazení"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
 msgid "Highlight Selected Words"
@@ -541,7 +542,7 @@ msgstr "Vložit"
 
 #: ../plugins/browser-preview/BrowserView.vala:49
 msgid "Close Inspector"
-msgstr ""
+msgstr "Zavřít Inspektora"
 
 #: ../plugins/browser-preview/browser-preview.vala:21
 msgid "Browser Preview"
@@ -559,7 +560,7 @@ msgstr "Zobrazit náhled"
 #: ../plugins/browser-preview/browser-preview.vala:107
 #: ../plugins/browser-preview/browser-preview.vala:150
 msgid "Web Preview"
-msgstr ""
+msgstr "Náhled webu"
 
 #: ../plugins/browser-preview/browser-preview.vala:108
 msgid "Hide Preview"
@@ -741,7 +742,7 @@ msgstr "Otevřít editovaný soubor v jiné aplikaci"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr ""
+msgstr "Otevřít v..."
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
