@@ -77,7 +77,7 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
                     if (language_list.length () == 0) {
                         var dialog = new Gtk.MessageDialog (null, Gtk.DialogFlags.MODAL,
                             Gtk.MessageType.WARNING, Gtk.ButtonsType.OK,
-                            _("There are not suitable Dictionaries in your system please install one."));
+                            _("No suitable dictionaries were found.\nPlease install at least one [aspell] dictionary"));
                         dialog.show ();
 
                         dialog.response.connect ((response_id) => {
@@ -123,8 +123,9 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
         });
 
         plugins.hook_window.connect ((w) => {
-            if (window != null)
+            if (window != null) {
                 return;
+            }
 
             window = w;
             window.destroy.connect (save_settings);
@@ -138,7 +139,7 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
                 spell.set_language (settings.language);
                 this.lang_dict = settings.language;
             } catch (Error e) {
-                    warning (e.message);
+                warning (e.message);
             }
         }
     }
