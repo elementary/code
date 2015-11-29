@@ -67,7 +67,7 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
                     bool exist_language = false;
                     var language_list = GtkSpell.Checker.get_language_list ();
                     foreach (var element in language_list) {
-                        if (strcmp (lang_dict, element) == 0) {
+                        if (lang_dict == element) {
                             exist_language = true;
                             spell.set_language (lang_dict);
                             break;
@@ -109,10 +109,7 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
                     spell.detach ();
  
                 // Detect language changed event
-                view.language_changed.connect ((lang) => {
-                    if (lang != null)
-                        spell.detach ();
-                });
+                view.language_changed.connect (language_changed_spell);
 
                 // Detect changes in language dictionaries in spell instance
                 spell.language_changed.connect ((lang_dict) => {
@@ -132,6 +129,13 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
         });
 
     }
+
+
+
+    void language_changed_spell (Gtk.SourceLanguage? lang){
+        if (lang != null)
+            spell.detach ();
+    } 
 
     public void settings_changed () {
         if (spell != null) {
