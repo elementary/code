@@ -152,37 +152,61 @@ namespace Scratch {
                 foreach (string arg in args[1:unclaimed_args + 1]) {
                     // We set a message, that later is informed to the user
                     // in a dialog if something noteworthy happens.
-                    string message = "";
+                    string msg = "";
                     try {
                         var file = File.new_for_commandline_arg (arg);
 
-                        if (!file.query_exists ())
-                            FileUtils.set_contents (file.get_path (), "");
-
-                        var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
-                        if (info.get_file_type () == FileType.REGULAR)
-                            files += file;
-                        else
-                            message = _("File \"%s\" cannot be opened.\nIt's not a regular file.").printf ("<b>%s</b>".printf (file.get_uri ()));
-
-                    } catch (Error e) {
-                        // In case we failed create the file
-                        if (e is FileError.PERM || e is FileError.ACCES) {
-                            var file = File.new_for_commandline_arg (arg);
-                            message = _("File \"%s\" cannot be created.\nMaybe you do not have the necessary permissions.").printf ("<b>%s</b>".printf (file.get_uri ()));
+                        if (!file.query_exists ()) {
+                            try {
+                                FileUtils.set_contents (file.get_path (), "");
+                            } catch (Error e) {
+                                // We list some common errors for quick feedback
+                                if (e is FileError.ACCES) {
+                                    string reason = _("Maybe you do not have the necessary permissions.");
+                                    msg = _("File \"%s\" cannot be created.\n%s").printf ("<b>%s</b>".printf (file.get_uri ()), reason);                                    
+                                } else if (e is FileError.NOENT) {
+                                    string reason = _("Maybe the file path provided is not valid.");
+                                    msg = _("File \"%s\" cannot be created.\n%s").printf ("<b>%s</b>".printf (file.get_uri ()), reason);
+                                } else if (e is FileError.ROFS) {
+                                    string reason = _("The location is read-only.");
+                                    msg = _("File \"%s\" cannot be created.\n%s").printf ("<b>%s</b>".printf (file.get_uri ()), reason);
+                                } else {
+                                    // Otherwise we simple use the error notification from glib
+                                    msg = e.message;
+                                }
+                            }
                         }
 
+                        var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
+                        if (info.get_file_type () == FileType.REGULAR
+                            || info.get_file_type () == FileType.SYMBOLIC_LINK) {
+                            files += file;
+                        } else if (info.get_file_type () == FileType.MOUNTABLE){
+                            string reason = _("Is a mountable location.");
+                            msg = _("File \"%s\" cannot be opened.\n%s").printf ("<b>%s</b>".printf (file.get_uri ()), reason);
+                        } else if (info.get_file_type () == FileType.DIRECTORY ){
+                            string reason = _("Is a directory.");
+                            msg = _("File \"%s\" cannot be opened.\n%s").printf ("<b>%s</b>".printf (file.get_uri ()), reason);
+                        } else if (info.get_file_type () == FileType.SPECIAL ){
+                            string reason = _("Is a \"special\" file such as a socket,\n fifo, block device, or character device.");
+                            msg = _("File \"%s\" cannot be opened.\n%s").printf ("<b>%s</b>".printf (file.get_uri ()), reason);
+                        } else {
+                            string reason = _("Is a \"unknown\" file type.");
+                            msg = _("File \"%s\" cannot be opened.\n%s").printf ("<b>%s</b>".printf (file.get_uri ()), reason);
+                        }
+
+                    } catch (Error e) {
                         warning (e.message);
                     }
 
                     // Notify the user that something happened.
-                    if (message.length > 0) {
+                    if (msg.length > 0) {
                         var parent_window = get_last_window () as Gtk.Window;
                         var dialog = new Gtk.MessageDialog.with_markup (parent_window,
                             Gtk.DialogFlags.MODAL,
                             Gtk.MessageType.ERROR,
                             Gtk.ButtonsType.CLOSE,
-                            message);
+                            msg);
                         dialog.run ();
                         dialog.destroy ();
                         dialog.close ();
