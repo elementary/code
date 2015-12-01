@@ -15,8 +15,8 @@
 
 using Gtk;
 
-public const string NAME = N_("Strip trailing whitespace");
-public const string DESCRIPTION = N_("Strip trailing whitespace on save");
+public const string NAME = _("Strip trailing whitespace");
+public const string DESCRIPTION = _("Strip trailing whitespace on save");
 
 public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatable {
 
