@@ -21,8 +21,8 @@
 using Gtk;
 using Scratch;
 
-public const string NAME = N_("Preserve Indent");
-public const string DESCRIPTION = N_("Maintains indent level of pasted text when auto-indent is active");
+public const string NAME = _("Preserve Indent");
+public const string DESCRIPTION = _("Maintains indent level of pasted text when auto-indent is active");
 
 public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatable {
 
