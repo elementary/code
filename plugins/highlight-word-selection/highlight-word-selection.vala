@@ -18,8 +18,8 @@
   END LICENSE   
 ***/
 
-public const string NAME = N_("Highlight Selected Words");
-public const string DESCRIPTION = N_("Highlights all occurrences of words that are selected");
+public const string NAME = _("Highlight Selected Words");
+public const string DESCRIPTION = _("Highlights all occurrences of words that are selected");
 
 public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase,  Peas.Activatable { 
     // Properties
