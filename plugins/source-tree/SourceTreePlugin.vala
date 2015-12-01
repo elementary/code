@@ -17,8 +17,8 @@
   END LICENSE
 ***/
 
-public const string NAME = N_("Source Tree");
-public const string DESCRIPTION = N_("Have a look at your sources organized in a nice tree");
+public const string NAME = _("Source Tree");
+public const string DESCRIPTION = _("Have a look at your sources organized in a nice tree");
 
 const bool HIDE_TOOLBAR = true;
 
