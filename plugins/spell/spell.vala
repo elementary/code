@@ -15,8 +15,8 @@
 
 using Gtk;
 
-public const string NAME = N_("Spell Checker");
-public const string DESCRIPTION = N_("Checks the spelling of your documents");
+public const string NAME = _("Spell Checker");
+public const string DESCRIPTION = _("Checks the spelling of your documents");
 
 public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
     
