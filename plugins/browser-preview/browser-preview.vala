@@ -18,8 +18,8 @@
   END LICENSE
 ***/
 
-public const string NAME = N_("Browser Preview");
-public const string DESCRIPTION = N_("Get a preview your work in a web page");
+public const string NAME = _("Browser Preview");
+public const string DESCRIPTION = _("Get a preview your work in a web page");
 
 namespace Scratch.Plugins {
 
