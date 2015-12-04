@@ -65,7 +65,7 @@ namespace Scratch {
             about_artists = { "Harvey Cabaguio <harveycabaguio@gmail.com>",
                          null
                          };
-            about_translators = "Launchpad Translators";
+            about_translators = _("translator-credits");
             about_license_type = Gtk.License.GPL_3_0;
         }
 
