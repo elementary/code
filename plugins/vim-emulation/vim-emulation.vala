@@ -18,8 +18,8 @@
   END LICENSE    
 ***/
 
-public const string NAME = N_("Vim Emulation");
-public const string DESCRIPTION = N_("Use Vim commands in Scratch");
+public const string NAME = _("Vim Emulation");
+public const string DESCRIPTION = _("Use Vim commands in Scratch");
 
 public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase,  Peas.Activatable {
 

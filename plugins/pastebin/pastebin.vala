@@ -20,8 +20,8 @@
 
 using Soup;
  
-public const string NAME = N_("Pastebin");
-public const string DESCRIPTION = N_("Share files with pastebin service");
+public const string NAME = _("Pastebin");
+public const string DESCRIPTION = _("Share files with pastebin service");
  
 namespace Scratch.Services {
  

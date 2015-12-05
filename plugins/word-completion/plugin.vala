@@ -31,8 +31,8 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase,  Peas.Activatable 
     public Gtk.SourceView? current_view {get; private set;}
     public Scratch.Services.Document current_document {get; private set;}
 
-    private const string NAME = N_("Words Completion");
-    private const string DESCRIPTION = N_("Show a completion dialog with most used words from your files");
+    private const string NAME = _("Words Completion");
+    private const string DESCRIPTION = _("Show a completion dialog with most used words from your files");
 
     private const uint [] activate_keys = {Gdk.Key.Return,
                                            Gdk.Key.KP_Enter,

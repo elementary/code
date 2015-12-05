@@ -20,8 +20,8 @@
 
 using Vte;
 
-public const string NAME = N_("Terminal");
-public const string DESCRIPTION = N_("A terminal in your text editor");
+public const string NAME = _("Terminal");
+public const string DESCRIPTION = _("A terminal in your text editor");
 
 public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
 

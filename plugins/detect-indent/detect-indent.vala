@@ -1,5 +1,5 @@
-public const string NAME = N_("Detect Indent");
-public const string DESCRIPTION = N_("Heuristically detect tab or space settings");
+public const string NAME = _("Detect Indent");
+public const string DESCRIPTION = _("Heuristically detect tab or space settings");
 
 public class Scratch.Plugins.DetectIndent: Peas.ExtensionBase, Peas.Activatable {
     static const int MAX_LINES = 500;
