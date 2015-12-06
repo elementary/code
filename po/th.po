@@ -7,51 +7,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-10-01 05:43-0500\n"
+"POT-Creation-Date: 2015-12-01 09:46-0200\n"
 "PO-Revision-Date: 2015-10-14 17:04+0000\n"
 "Last-Translator: ABCDEFGH <aefgh7233@gmail.com>\n"
 "Language-Team: Thai <th@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-15 05:51+0000\n"
-"X-Generator: Launchpad (build 17812)\n"
+"X-Launchpad-Export-Date: 2015-12-06 05:53+0000\n"
+"X-Generator: Launchpad (build 17862)\n"
 
-#: ../src/Scratch.vala:243
-msgid "New Tab"
-msgstr "เปิดแท็บใหม่"
-
-#: ../src/Scratch.vala:244 ../src/config.vala:18
-msgid "New Window"
-msgstr "หน้าต่างใหม่"
-
-#: ../src/Scratch.vala:245
-msgid "Print version info and exit"
-msgstr "พิมพ์ข้อมูลเวอร์ชั่นแล้วออกจากโปรแกรม"
-
-#: ../src/Scratch.vala:246
-msgid "Set of plugins"
-msgstr "ชุดปลั๊กอิน"
-
-#: ../src/Scratch.vala:247
-msgid "Current working directory"
-msgstr "ไดเรกทอรีทำงานปัจจุบัน"
-
-#: ../src/config.vala:15
-msgid "Edit text files"
-msgstr "แก้ไขไฟล์ข้อความ"
-
-#: ../src/config.vala:16
-msgid "Text Editor"
-msgstr "โปรแกรมแก้ไขข้อความ"
-
-#: ../src/config.vala:17 ../src/Services/Document.vala:405
-msgid "New Document"
-msgstr "สร้างเอกสารใหม่"
-
-#: ../src/config.vala:19
-msgid "About Scratch"
-msgstr "เกี่ยวกับ Scratch"
+#: ../src/Services/TemplateManager.vala:194 ../src/MainWindow.vala:905
+msgid "Templates"
+msgstr "แม่แบบ"
 
 #: ../src/Services/Document.vala:231
 msgid "Save changes to document %s before closing?"
@@ -71,13 +39,17 @@ msgid "Cancel"
 msgstr "ยกเลิก"
 
 #: ../src/Services/Document.vala:241 ../src/Services/Document.vala:546
-#: ../src/Utils.vala:33 ../src/MainWindow.vala:911
+#: ../src/Utils.vala:33 ../src/MainWindow.vala:897
 msgid "Save"
 msgstr "บันทึก"
 
 #: ../src/Services/Document.vala:313
 msgid "Save File"
 msgstr "บันทึกไฟล์"
+
+#: ../src/Services/Document.vala:405 ../src/config.vala:17
+msgid "New Document"
+msgstr "สร้างเอกสารใหม่"
 
 #: ../src/Services/Document.vala:521
 msgid ""
@@ -94,7 +66,7 @@ msgid ""
 msgstr ""
 "ตำแหน่งที่มีไฟล์ \"%s\" ไม่ได้ถูกเมานท์ คุณต้องการบันทึกไว้ที่อื่น ๆ หรือไม่"
 
-#: ../src/Services/Document.vala:539 ../src/MainWindow.vala:915
+#: ../src/Services/Document.vala:539 ../src/MainWindow.vala:901
 msgid "Save As…"
 msgstr "บันทึกเป็น…"
 
@@ -130,96 +102,7 @@ msgstr "โหลด"
 msgid "Continue"
 msgstr "ทำต่อไป"
 
-#: ../src/Services/TemplateManager.vala:194 ../src/MainWindow.vala:919
-msgid "Templates"
-msgstr "แม่แบบ"
-
-#: ../src/Widgets/DocumentView.vala:91
-msgid "Text file from "
-msgstr "ไฟล์ข้อความจาก "
-
-#: ../src/Widgets/SourceView.vala:120
-msgid "Syntax Highlighting"
-msgstr "การเน้นไวยากรณ์"
-
-#: ../src/Widgets/SourceView.vala:131
-msgid "Normal Text"
-msgstr "ข้อความปกติ"
-
-#: ../src/Widgets/LoadingView.vala:33
-msgid "Wait while restoring last session..."
-msgstr "รอระหว่างกู้คืนเซสชันที่แล้ว..."
-
-#: ../src/Widgets/SearchManager.vala:70
-msgid "Find"
-msgstr "ค้นหา"
-
-#: ../src/Widgets/SearchManager.vala:75
-msgid "Replace With"
-msgstr "แทนที่ด้วย"
-
-#: ../src/Widgets/SearchManager.vala:91
-msgid "Search next"
-msgstr "ค้นหาอันถัดไป"
-
-#: ../src/Widgets/SearchManager.vala:97
-msgid "Search previous"
-msgstr "ค้นหาอันที่แล้ว"
-
-#: ../src/Widgets/SearchManager.vala:104
-msgid "Cyclic Search"
-msgstr "ค้นหา Cyclic"
-
-#: ../src/Widgets/SearchManager.vala:107 ../src/MainWindow.vala:863
-#: ../src/MainWindow.vala:864
-msgid "Replace"
-msgstr "แทนที่"
-
-#: ../src/Widgets/SearchManager.vala:112
-msgid "Replace all"
-msgstr "แทนที่ทั้งหมด"
-
-#: ../src/Widgets/SearchManager.vala:121
-msgid "Go To Line:"
-msgstr "ไปยังบรรทัด:"
-
-#: ../src/Widgets/ToolBar.vala:58
-msgid "Share"
-msgstr "ใช้งานร่วมกัน"
-
-#: ../src/Widgets/SplitView.vala:45
-msgid "No Files Open"
-msgstr "ไม่มีไฟล์ถูกเปิด"
-
-#: ../src/Widgets/SplitView.vala:46
-msgid "Open a file to begin editing."
-msgstr "เปิดไฟล์เพื่อเริ่มแก้ไข"
-
-#: ../src/Widgets/SplitView.vala:50
-msgid "New file"
-msgstr "สร้างไฟล์"
-
-#: ../src/Widgets/SplitView.vala:50
-msgid "Create a new empty file."
-msgstr "สร้างไฟล์เปล่า"
-
-#: ../src/Widgets/SplitView.vala:51
-msgid "Open file"
-msgstr "เปิดไฟล์"
-
-#: ../src/Widgets/SplitView.vala:51
-msgid "Open a saved file."
-msgstr "เปิดไฟล์ที่บันทึกไว้"
-
-#: ../src/Widgets/SplitView.vala:52
-msgid "New file from clipboard"
-msgstr "สร้างไฟล์จากคลิปบอร์ด"
-
-#: ../src/Widgets/SplitView.vala:52
-msgid "Create a new file from the contents of your clipboard."
-msgstr "สร้างไฟล์ใหม่จากเนื้อหาในคลิปบอร์ดของคุณ"
-
-#: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:923
+#: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:909
 msgid "Preferences"
 msgstr "ตั้งค่า"
 
@@ -235,8 +118,8 @@ msgstr "ส่วนติดต่อผู้ใช้"
 msgid "Extensions"
 msgstr "ส่วนขยาย"
 
-#: ../src/Dialogs/PreferencesDialog.vala:83 ../src/MainWindow.vala:859
-#: ../src/MainWindow.vala:860
+#: ../src/Dialogs/PreferencesDialog.vala:83 ../src/MainWindow.vala:845
+#: ../src/MainWindow.vala:846
 msgid "Close"
 msgstr "ปิด"
 
@@ -320,7 +203,7 @@ msgstr "รูปแบบสี:"
 msgid "Custom font:"
 msgstr "กำหนดแบบอักษร"
 
-#: ../src/Utils.vala:31 ../src/MainWindow.vala:899
+#: ../src/Utils.vala:31 ../src/MainWindow.vala:885
 #: ../plugins/filemanager/FileView.vala:230
 msgid "Open"
 msgstr "เปิด"
@@ -333,6 +216,123 @@ msgstr "ไฟล์ทั้งหมด"
 msgid "Text files"
 msgstr "ไฟล์ข้อความ"
 
+#: ../src/config.vala:15
+msgid "Edit text files"
+msgstr "แก้ไขไฟล์ข้อความ"
+
+#: ../src/config.vala:16
+msgid "Text Editor"
+msgstr "โปรแกรมแก้ไขข้อความ"
+
+#: ../src/config.vala:18 ../src/Scratch.vala:247
+msgid "New Window"
+msgstr "หน้าต่างใหม่"
+
+#: ../src/config.vala:19
+msgid "About Scratch"
+msgstr "เกี่ยวกับ Scratch"
+
+#: ../src/Scratch.vala:246
+msgid "New Tab"
+msgstr "เปิดแท็บใหม่"
+
+#: ../src/Scratch.vala:248
+msgid "Print version info and exit"
+msgstr "พิมพ์ข้อมูลเวอร์ชั่นแล้วออกจากโปรแกรม"
+
+#: ../src/Scratch.vala:249
+msgid "Set of plugins"
+msgstr "ชุดปลั๊กอิน"
+
+#: ../src/Scratch.vala:250
+msgid "Current working directory"
+msgstr "ไดเรกทอรีทำงานปัจจุบัน"
+
+#: ../src/Widgets/SourceView.vala:120
+msgid "Syntax Highlighting"
+msgstr "การเน้นไวยากรณ์"
+
+#: ../src/Widgets/SourceView.vala:131
+msgid "Normal Text"
+msgstr "ข้อความปกติ"
+
+#: ../src/Widgets/ToolBar.vala:58
+msgid "Share"
+msgstr "ใช้งานร่วมกัน"
+
+#: ../src/Widgets/LoadingView.vala:33
+msgid "Wait while restoring last session..."
+msgstr "รอระหว่างกู้คืนเซสชันที่แล้ว..."
+
+#: ../src/Widgets/DocumentView.vala:91
+msgid "Text file from "
+msgstr "ไฟล์ข้อความจาก "
+
+#: ../src/Widgets/SplitView.vala:45
+msgid "No Files Open"
+msgstr "ไม่มีไฟล์ถูกเปิด"
+
+#: ../src/Widgets/SplitView.vala:46
+msgid "Open a file to begin editing."
+msgstr "เปิดไฟล์เพื่อเริ่มแก้ไข"
+
+#: ../src/Widgets/SplitView.vala:50
+msgid "New file"
+msgstr "สร้างไฟล์"
+
+#: ../src/Widgets/SplitView.vala:50
+msgid "Create a new empty file."
+msgstr "สร้างไฟล์เปล่า"
+
+#: ../src/Widgets/SplitView.vala:51
+msgid "Open file"
+msgstr "เปิดไฟล์"
+
+#: ../src/Widgets/SplitView.vala:51
+msgid "Open a saved file."
+msgstr "เปิดไฟล์ที่บันทึกไว้"
+
+#: ../src/Widgets/SplitView.vala:52
+msgid "New file from clipboard"
+msgstr "สร้างไฟล์จากคลิปบอร์ด"
+
+#: ../src/Widgets/SplitView.vala:52
+msgid "Create a new file from the contents of your clipboard."
+msgstr "สร้างไฟล์ใหม่จากเนื้อหาในคลิปบอร์ดของคุณ"
+
+#: ../src/Widgets/SearchManager.vala:70
+msgid "Find"
+msgstr "ค้นหา"
+
+#: ../src/Widgets/SearchManager.vala:75
+msgid "Replace With"
+msgstr "แทนที่ด้วย"
+
+#: ../src/Widgets/SearchManager.vala:91
+msgid "Search next"
+msgstr "ค้นหาอันถัดไป"
+
+#: ../src/Widgets/SearchManager.vala:97
+msgid "Search previous"
+msgstr "ค้นหาอันที่แล้ว"
+
+#: ../src/Widgets/SearchManager.vala:104
+msgid "Cyclic Search"
+msgstr "ค้นหา Cyclic"
+
+#: ../src/Widgets/SearchManager.vala:107 ../src/MainWindow.vala:849
+#: ../src/MainWindow.vala:850
+msgid "Replace"
+msgstr "แทนที่"
+
+#: ../src/Widgets/SearchManager.vala:112
+msgid "Replace all"
+msgstr "แทนที่ทั้งหมด"
+
+#: ../src/Widgets/SearchManager.vala:121
+msgid "Go To Line:"
+msgstr "ไปยังบรรทัด:"
+
 #: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "แหล่งข้อมูล Zeitgeist สำหรับ Scratch"
@@ -341,135 +341,239 @@ msgstr "แหล่งข้อมูล Zeitgeist สำหรับ Scratch"
 msgid "Trash"
 msgstr "ถังขยะ"
 
-#: ../src/MainWindow.vala:660
+#: ../src/MainWindow.vala:662
 msgid "Open some files"
 msgstr "เปิดบางไฟล์"
 
-#: ../src/MainWindow.vala:785
+#: ../src/MainWindow.vala:771
 msgid "Hide search bar"
 msgstr "ซ่อนแถบค้นหา"
 
-#: ../src/MainWindow.vala:788 ../src/MainWindow.vala:952
-#: ../src/MainWindow.vala:953
+#: ../src/MainWindow.vala:774 ../src/MainWindow.vala:938
+#: ../src/MainWindow.vala:939
 msgid "Find…"
 msgstr "ค้นหา..."
 
-#: ../src/MainWindow.vala:851 ../src/MainWindow.vala:852
+#: ../src/MainWindow.vala:837 ../src/MainWindow.vala:838
 msgid "Go to line…"
 msgstr "ไปบรรทัด..."
 
-#: ../src/MainWindow.vala:855 ../src/MainWindow.vala:856
+#: ../src/MainWindow.vala:841 ../src/MainWindow.vala:842
 msgid "Quit"
 msgstr "ออก"
 
-#: ../src/MainWindow.vala:867
+#: ../src/MainWindow.vala:853
 msgid "Reopen closed document"
 msgstr "เปิดเอกสารที่ปิดไปแล้ว"
 
-#: ../src/MainWindow.vala:868
+#: ../src/MainWindow.vala:854
 msgid "Open last closed document in a new tab"
 msgstr "เปิดเอกสารที่ปิดไปล่าสุดในแท็บใหม่"
 
-#: ../src/MainWindow.vala:871
+#: ../src/MainWindow.vala:857
 msgid "Add New Tab"
 msgstr "เพิ่มแท็บใหม่"
 
-#: ../src/MainWindow.vala:872
+#: ../src/MainWindow.vala:858
 msgid "Add a new tab"
 msgstr "เพิ่มแท็บใหม่"
 
-#: ../src/MainWindow.vala:875
+#: ../src/MainWindow.vala:861
 msgid "Add New View"
 msgstr "เพิ่มมุมมองใหม่"
 
-#: ../src/MainWindow.vala:876
+#: ../src/MainWindow.vala:862
 msgid "Add a new view"
 msgstr "เพิ่มมุมมองใหม่"
 
-#: ../src/MainWindow.vala:879
+#: ../src/MainWindow.vala:865
 msgid "Remove Current View"
 msgstr "ลบมุมมองปัจจุบัน"
 
-#: ../src/MainWindow.vala:880
+#: ../src/MainWindow.vala:866
 msgid "Remove this view"
 msgstr "ลบมุมมองนี้"
 
-#: ../src/MainWindow.vala:883
+#: ../src/MainWindow.vala:869
 msgid "Undo"
 msgstr "เลิกทำ"
 
-#: ../src/MainWindow.vala:884
+#: ../src/MainWindow.vala:870
 msgid "Undo the last action"
 msgstr "ยกเลิกการกระทำล่าสุด"
 
-#: ../src/MainWindow.vala:887
+#: ../src/MainWindow.vala:873
 msgid "Redo"
 msgstr "ทำซ้ำ"
 
-#: ../src/MainWindow.vala:888
+#: ../src/MainWindow.vala:874
 msgid "Redo the last undone action"
 msgstr "ทำซ้ำการยกเลิกการกระทำล่าสุด"
 
-#: ../src/MainWindow.vala:891
+#: ../src/MainWindow.vala:877
 msgid "Revert"
 msgstr "กลับคืนค่าเดิม"
 
-#: ../src/MainWindow.vala:892
+#: ../src/MainWindow.vala:878
 msgid "Restore this file"
 msgstr "กู้คืนไฟล์นี้"
 
-#: ../src/MainWindow.vala:895 ../src/MainWindow.vala:896
+#: ../src/MainWindow.vala:881 ../src/MainWindow.vala:882
 msgid "Duplicate selected strings"
 msgstr "ทำสำเนาข้อความที่เลือก"
 
-#: ../src/MainWindow.vala:900
+#: ../src/MainWindow.vala:886
 msgid "Open a file"
 msgstr "เปิดไฟล์"
 
-#: ../src/MainWindow.vala:903
+#: ../src/MainWindow.vala:889
 msgid "Clipboard"
 msgstr "คลิปบอร์ด"
 
-#: ../src/MainWindow.vala:904
+#: ../src/MainWindow.vala:890
 msgid "New file from Clipboard"
 msgstr "ไฟล์ใหม่จากคลิปบอร์ด"
 
-#: ../src/MainWindow.vala:907
+#: ../src/MainWindow.vala:893
 msgid "Zoom"
 msgstr "ซูม"
 
-#: ../src/MainWindow.vala:908
+#: ../src/MainWindow.vala:894
 msgid "Zoom 1:1"
 msgstr "Zoom 1:1"
 
-#: ../src/MainWindow.vala:912
+#: ../src/MainWindow.vala:898
 msgid "Save this file"
 msgstr "บันทึกไฟล์นี้"
 
-#: ../src/MainWindow.vala:916
+#: ../src/MainWindow.vala:902
 msgid "Save this file with a different name"
 msgstr "บันทึกไฟล์นี้โดยใช้ชื่ออื่น"
 
-#: ../src/MainWindow.vala:920
+#: ../src/MainWindow.vala:906
 msgid "Project templates"
 msgstr "แม่แบบโครงการ"
 
-#: ../src/MainWindow.vala:924
+#: ../src/MainWindow.vala:910
 msgid "Change Scratch settings"
 msgstr "เปลี่ยนการตั้งค่าของ Scratch"
 
-#: ../src/MainWindow.vala:927 ../src/MainWindow.vala:928
+#: ../src/MainWindow.vala:913 ../src/MainWindow.vala:914
 msgid "Next Tab"
 msgstr "แท็บต่อไป"
 
-#: ../src/MainWindow.vala:931 ../src/MainWindow.vala:932
+#: ../src/MainWindow.vala:917 ../src/MainWindow.vala:918
 msgid "Previous Tab"
 msgstr "แท็บก่อนหน้า"
 
-#: ../src/MainWindow.vala:948 ../src/MainWindow.vala:949
+#: ../src/MainWindow.vala:934 ../src/MainWindow.vala:935
 msgid "Fullscreen"
 msgstr "เต็มจอ"
 
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/open-with/open-with.vala:21
+msgid "Open With"
+msgstr "เปิดด้วย"
+
+#: ../plugins/open-with/open-with.vala:22
+msgid "Open files you are editing with another application"
+msgstr "เปิดไฟล์ที่กำลังแก้ไขอยู่ด้วยโปรแกรมอื่น"
+
+#: ../plugins/open-with/open-with.vala:54
+msgid "Open With…"
+msgstr "เปิดด้วย..."
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/brackets-completion/brackets-completion.vala:21
+msgid "Brackets Completion"
+msgstr "เติมวงเล็บอัตโนมัติ"
+
+#: ../plugins/brackets-completion/brackets-completion.vala:22
+msgid "Complete brackets while typing"
+msgstr "เติมวงเล็บในระหว่างพิมพ์"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/vim-emulation/vim-emulation.vala:21
+msgid "Vim Emulation"
+msgstr "จำลอง Vim"
+
+#: ../plugins/vim-emulation/vim-emulation.vala:22
+msgid "Use Vim commands in Scratch"
+msgstr "ใช้คำสั่ง Vim ใน Scratch"
+
+#: ../plugins/word-completion/completion-provider.vala:80
+msgid "Could not load icon theme: %s\n"
+msgstr "ไม่สามารถโหลดชุดไอคอน: %s\n"
+
+#: ../plugins/word-completion/plugin.vala:34
+msgid "Words Completion"
+msgstr "เติมคำอัตโนมัติ"
+
+#: ../plugins/word-completion/plugin.vala:35
+msgid "Show a completion dialog with most used words from your files"
+msgstr "แสดงหน้าต่างเติมคำ ด้วยคำที่ใช้มากสุดจากไฟล์ของคุณ"
+
+#: ../plugins/word-completion/plugin.vala:175
+msgid "%s - Word Completion"
+msgstr "%s - เติมคำอัตโนมัติ"
+
+#: ../plugins/filemanager/FileView.vala:73
+msgid "/New File"
+msgstr "/ไฟล์ใหม่"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/filemanager/FileManagerPlugin.vala:21
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:21
 msgid "Folder Manager"
@@ -496,10 +600,6 @@ msgstr "ลบไฟล์"
 msgid "File Manager"
 msgstr "ตัวจัดการไฟล์"
 
-#: ../plugins/filemanager/FileView.vala:73
-msgid "/New File"
-msgstr "/ไฟล์ใหม่"
-
 #: ../plugins/preserve-indent/preserve-indent.vala:24
 msgid "Preserve Indent"
 msgstr "รักษาการเยื้องเอาไว้"
@@ -508,6 +608,20 @@ msgstr "รักษาการเยื้องเอาไว้"
 msgid "Maintains indent level of pasted text when auto-indent is active"
 msgstr ""
 
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
 msgid "Highlight Selected Words"
 msgstr "เน้นคำที่เลือก"
@@ -516,103 +630,20 @@ msgstr "เน้นคำที่เลือก"
 msgid "Highlights all occurrences of words that are selected"
 msgstr "เน้นคำที่เกิดขึ้นทั้งหมดที่เลือก"
 
-#: ../plugins/clipboard-history/ClipboardHistory.vala:21
-#: ../plugins/clipboard-history/ClipboardHistory.vala:89
-msgid "Clipboard History"
-msgstr "ประวัติคลิปบอร์ด"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:22
-msgid "Clipboard to view history"
-msgstr "คลิปบอร์ดเพื่อดูประวัติ"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:28
-msgid "..."
-msgstr "..."
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:156
-msgid "Delete"
-msgstr "ลบทิ้ง"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:159
-#: ../plugins/terminal/terminal.vala:313
-msgid "Paste"
-msgstr "วาง"
-
-#: ../plugins/browser-preview/BrowserView.vala:49
-msgid "Close Inspector"
-msgstr "ปิด Inspector"
-
-#: ../plugins/browser-preview/browser-preview.vala:21
-msgid "Browser Preview"
-msgstr "แสดงตัวอย่างในเบราเซอร์"
-
-#: ../plugins/browser-preview/browser-preview.vala:22
-msgid "Get a preview your work in a web page"
-msgstr "ดูตัวอย่างงานของคุณในหน้าเว็บ"
-
-#: ../plugins/browser-preview/browser-preview.vala:85
-#: ../plugins/browser-preview/browser-preview.vala:111
-msgid "Show Preview"
-msgstr "แสดงตัวอย่าง"
-
-#: ../plugins/browser-preview/browser-preview.vala:107
-#: ../plugins/browser-preview/browser-preview.vala:150
-msgid "Web Preview"
-msgstr "ตัวอย่างเว็บ"
-
-#: ../plugins/browser-preview/browser-preview.vala:108
-msgid "Hide Preview"
-msgstr "ซ่อนตัวอย่าง"
-
-#: ../plugins/contractor/contractor.vala:21
-msgid "Share your files with Contractor"
-msgstr "แบ่งปันไฟล์ผ่าน Contractor"
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:70
-msgid "Folders"
-msgstr "โฟลเดอร์"
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:88
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:89
-msgid "Open a folder"
-msgstr "เปิดโฟลเดอร์"
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:94
-msgid "_Cancel"
-msgstr "_ยกเลิก"
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:95
-msgid "_Open"
-msgstr "_เปิด"
-
-#: ../plugins/folder-manager/FileView.vala:294
-msgid "Close Folder"
-msgstr "ปิดโฟลเดอร์"
-
-#: ../plugins/outline/OutlinePlugin.vala:21
-msgid "Outline"
-msgstr "ภาพร่าง"
-
-#: ../plugins/outline/OutlinePlugin.vala:22
-msgid "Outline symbols in your current file in vala"
-msgstr "ร่างสัญลักษณ์ในไฟล์ปัจจุบันของคุณใน vala"
-
-#: ../plugins/outline/OutlinePlugin.vala:111
-#: ../plugins/outline/CtagsSymbolResolver.vala:35
-#: ../plugins/outline/CtagsSymbolResolver.vala:68
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:94
-msgid "Symbols"
-msgstr "สัญลักษณ์"
-
-#: ../plugins/brackets-completion/brackets-completion.vala:21
-msgid "Brackets Completion"
-msgstr "เติมวงเล็บอัตโนมัติ"
-
-#: ../plugins/brackets-completion/brackets-completion.vala:22
-msgid "Complete brackets while typing"
-msgstr "เติมวงเล็บในระหว่างพิมพ์"
-
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/source-tree/SourceTreePlugin.vala:20
 #: ../plugins/source-tree/SourceTreePlugin.vala:197
 msgid "Source Tree"
@@ -642,25 +673,204 @@ msgstr "โครงการ"
 msgid "Bookmarks"
 msgstr "ที่คั่นหน้า"
 
-#: ../plugins/vim-emulation/vim-emulation.vala:21
-msgid "Vim Emulation"
-msgstr "จำลอง Vim"
+#: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
+msgid "Strip trailing whitespace"
+msgstr "เอาที่ว่างท้ายข้อความออก"
 
-#: ../plugins/vim-emulation/vim-emulation.vala:22
-msgid "Use Vim commands in Scratch"
-msgstr "ใช้คำสั่ง Vim ใน Scratch"
+#: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
+msgid "Strip trailing whitespace on save"
+msgstr "เอาที่ว่างท้ายข้อความออกและบันทึก"
 
-#: ../plugins/pastebin/pastebin.vala:23
-msgid "Pastebin"
-msgstr "Pastebin"
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/browser-preview/browser-preview.vala:21
+msgid "Browser Preview"
+msgstr "แสดงตัวอย่างในเบราเซอร์"
 
-#: ../plugins/pastebin/pastebin.vala:24
-msgid "Share files with pastebin service"
-msgstr "แบ่งปันไฟล์นี้ไปยัง Pastebin"
+#: ../plugins/browser-preview/browser-preview.vala:22
+msgid "Get a preview your work in a web page"
+msgstr "ดูตัวอย่างงานของคุณในหน้าเว็บ"
 
-#: ../plugins/pastebin/pastebin.vala:134
-msgid "Upload to Pastebin"
-msgstr "อัพโหลดไปยัง Pastebin"
+#: ../plugins/browser-preview/browser-preview.vala:85
+#: ../plugins/browser-preview/browser-preview.vala:111
+msgid "Show Preview"
+msgstr "แสดงตัวอย่าง"
+
+#: ../plugins/browser-preview/browser-preview.vala:107
+#: ../plugins/browser-preview/browser-preview.vala:150
+msgid "Web Preview"
+msgstr "ตัวอย่างเว็บ"
+
+#: ../plugins/browser-preview/browser-preview.vala:108
+msgid "Hide Preview"
+msgstr "ซ่อนตัวอย่าง"
+
+#: ../plugins/browser-preview/BrowserView.vala:49
+msgid "Close Inspector"
+msgstr "ปิด Inspector"
+
+#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
+#: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
+#: ../plugins/terminal/terminal.vala:174
+msgid "Terminal"
+msgstr "เทอร์มินัล"
+
+#: ../plugins/terminal/terminal.vala:24
+msgid "A terminal in your text editor"
+msgstr "เทอร์มินัลในโปรแกรมแก้ไขข้อความของคุณ"
+
+#: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
+msgid "Show Terminal"
+msgstr "แสดงเทอร์มินัล"
+
+#: ../plugins/terminal/terminal.vala:170
+msgid "Hide Terminal"
+msgstr "ซ่อนเทอร์มินัล"
+
+#: ../plugins/terminal/terminal.vala:306
+msgid "Copy"
+msgstr "คัดลอก"
+
+#: ../plugins/terminal/terminal.vala:313
+#: ../plugins/clipboard-history/ClipboardHistory.vala:159
+msgid "Paste"
+msgstr "วาง"
+
+#: ../plugins/terminal/terminal.vala:323
+msgid "Terminal on Right"
+msgstr "ให้เทอร์มินัลอยู่ด้านขวา"
+
+#: ../plugins/terminal/terminal.vala:331
+msgid "Terminal on Bottom"
+msgstr "ให้เทอร์มินัลอยู่ด้านซ้าย"
+
+#: ../plugins/detect-indent/detect-indent.vala:1
+msgid "Detect Indent"
+msgstr "ตรวจหาย่อหน้า"
+
+#: ../plugins/detect-indent/detect-indent.vala:2
+msgid "Heuristically detect tab or space settings"
+msgstr ""
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/contractor/contractor.vala:21
+msgid "Share your files with Contractor"
+msgstr "แบ่งปันไฟล์ผ่าน Contractor"
+
+#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
+#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:94
+#: ../plugins/outline/CtagsSymbolResolver.vala:35
+#: ../plugins/outline/CtagsSymbolResolver.vala:68
+#: ../plugins/outline/OutlinePlugin.vala:111
+msgid "Symbols"
+msgstr "สัญลักษณ์"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/outline/OutlinePlugin.vala:21
+msgid "Outline"
+msgstr "ภาพร่าง"
+
+#: ../plugins/outline/OutlinePlugin.vala:22
+msgid "Outline symbols in your current file in vala"
+msgstr "ร่างสัญลักษณ์ในไฟล์ปัจจุบันของคุณใน vala"
+
+#: ../plugins/spell/spell.vala:18
+msgid "Spell Checker"
+msgstr "ตรวจคำสะกด"
+
+#: ../plugins/spell/spell.vala:19
+msgid "Checks the spelling of your documents"
+msgstr "ตรวจสอบการสะกดในเอกสาร"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/clipboard-history/ClipboardHistory.vala:21
+#: ../plugins/clipboard-history/ClipboardHistory.vala:89
+msgid "Clipboard History"
+msgstr "ประวัติคลิปบอร์ด"
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:22
+msgid "Clipboard to view history"
+msgstr "คลิปบอร์ดเพื่อดูประวัติ"
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:28
+msgid "..."
+msgstr "..."
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:156
+msgid "Delete"
+msgstr "ลบทิ้ง"
+
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:70
+msgid "Folders"
+msgstr "โฟลเดอร์"
+
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:88
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:89
+msgid "Open a folder"
+msgstr "เปิดโฟลเดอร์"
+
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:94
+msgid "_Cancel"
+msgstr "_ยกเลิก"
+
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:95
+msgid "_Open"
+msgstr "_เปิด"
+
+#: ../plugins/folder-manager/FileView.vala:294
+msgid "Close Folder"
+msgstr "ปิดโฟลเดอร์"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
@@ -714,87 +924,17 @@ msgstr "หนึ่งวัน"
 msgid "One month"
 msgstr "หนึ่งเดือน"
 
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
-msgid "Strip trailing whitespace"
-msgstr "เอาที่ว่างท้ายข้อความออก"
+#: ../plugins/pastebin/pastebin.vala:23
+msgid "Pastebin"
+msgstr "Pastebin"
 
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
-msgid "Strip trailing whitespace on save"
-msgstr "เอาที่ว่างท้ายข้อความออกและบันทึก"
+#: ../plugins/pastebin/pastebin.vala:24
+msgid "Share files with pastebin service"
+msgstr "แบ่งปันไฟล์นี้ไปยัง Pastebin"
 
-#: ../plugins/spell/spell.vala:18
-msgid "Spell Checker"
-msgstr "ตรวจคำสะกด"
-
-#: ../plugins/spell/spell.vala:19
-msgid "Checks the spelling of your documents"
-msgstr "ตรวจสอบการสะกดในเอกสาร"
-
-#: ../plugins/open-with/open-with.vala:21
-msgid "Open With"
-msgstr "เปิดด้วย"
-
-#: ../plugins/open-with/open-with.vala:22
-msgid "Open files you are editing with another application"
-msgstr "เปิดไฟล์ที่กำลังแก้ไขอยู่ด้วยโปรแกรมอื่น"
-
-#: ../plugins/open-with/open-with.vala:54
-msgid "Open With…"
-msgstr "เปิดด้วย..."
-
-#: ../plugins/detect-indent/detect-indent.vala:1
-msgid "Detect Indent"
-msgstr "ตรวจหาย่อหน้า"
-
-#: ../plugins/detect-indent/detect-indent.vala:2
-msgid "Heuristically detect tab or space settings"
-msgstr ""
-
-#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
-#: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
-#: ../plugins/terminal/terminal.vala:174
-msgid "Terminal"
-msgstr "เทอร์มินัล"
-
-#: ../plugins/terminal/terminal.vala:24
-msgid "A terminal in your text editor"
-msgstr "เทอร์มินัลในโปรแกรมแก้ไขข้อความของคุณ"
-
-#: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
-msgid "Show Terminal"
-msgstr "แสดงเทอร์มินัล"
-
-#: ../plugins/terminal/terminal.vala:170
-msgid "Hide Terminal"
-msgstr "ซ่อนเทอร์มินัล"
-
-#: ../plugins/terminal/terminal.vala:306
-msgid "Copy"
-msgstr "คัดลอก"
-
-#: ../plugins/terminal/terminal.vala:323
-msgid "Terminal on Right"
-msgstr "ให้เทอร์มินัลอยู่ด้านขวา"
-
-#: ../plugins/terminal/terminal.vala:331
-msgid "Terminal on Bottom"
-msgstr "ให้เทอร์มินัลอยู่ด้านซ้าย"
-
-#: ../plugins/word-completion/plugin.vala:34
-msgid "Words Completion"
-msgstr "เติมคำอัตโนมัติ"
-
-#: ../plugins/word-completion/plugin.vala:35
-msgid "Show a completion dialog with most used words from your files"
-msgstr "แสดงหน้าต่างเติมคำ ด้วยคำที่ใช้มากสุดจากไฟล์ของคุณ"
-
-#: ../plugins/word-completion/plugin.vala:175
-msgid "%s - Word Completion"
-msgstr "%s - เติมคำอัตโนมัติ"
-
-#: ../plugins/word-completion/completion-provider.vala:80
-msgid "Could not load icon theme: %s\n"
-msgstr "ไม่สามารถโหลดชุดไอคอน: %s\n"
+#: ../plugins/pastebin/pastebin.vala:134
+msgid "Upload to Pastebin"
+msgstr "อัพโหลดไปยัง Pastebin"
 
 #~ msgid "Go to line..."
 #~ msgstr "ไปยังบรรทัดที่..."
