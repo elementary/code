@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-12-01 09:46-0200\n"
-"PO-Revision-Date: 2015-07-27 20:31+0000\n"
-"Last-Translator: MozilaIP <mr.mozila@gmail.com>\n"
+"PO-Revision-Date: 2015-12-06 12:03+0000\n"
+"Last-Translator: svtlichnijj <svtlichnijj@online.ua>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-06 05:54+0000\n"
+"X-Launchpad-Export-Date: 2015-12-07 05:25+0000\n"
 "X-Generator: Launchpad (build 17862)\n"
 
 #: ../src/Services/TemplateManager.vala:194 ../src/MainWindow.vala:905
@@ -312,15 +312,15 @@ msgstr "Замінити на"
 
 #: ../src/Widgets/SearchManager.vala:91
 msgid "Search next"
-msgstr ""
+msgstr "Пошук наступного"
 
 #: ../src/Widgets/SearchManager.vala:97
 msgid "Search previous"
-msgstr ""
+msgstr "Пошук попереднього"
 
 #: ../src/Widgets/SearchManager.vala:104
 msgid "Cyclic Search"
-msgstr ""
+msgstr "Циклічний пошук"
 
 #: ../src/Widgets/SearchManager.vala:107 ../src/MainWindow.vala:849
 #: ../src/MainWindow.vala:850
@@ -496,7 +496,7 @@ msgstr "Відкрити файли які ви редагуєте за допо
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr ""
+msgstr "Відкрити за допомогою..."
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -606,11 +606,12 @@ msgstr "Файловий менеджер"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:24
 msgid "Preserve Indent"
-msgstr ""
+msgstr "Зберегти відступ"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:25
 msgid "Maintains indent level of pasted text when auto-indent is active"
 msgstr ""
+"Додає необхідні відступи у вставленому тексті, якщо автовідступ ввімкнений"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
