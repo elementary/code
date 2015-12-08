@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-12-01 09:46-0200\n"
-"PO-Revision-Date: 2014-11-12 16:32+0000\n"
-"Last-Translator: Michał Ziętara <mr.matryc@gmail.com>\n"
+"PO-Revision-Date: 2015-12-07 13:20+0000\n"
+"Last-Translator: Fisz <fiszet@gmail.com>\n"
 "Language-Team: polski <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-06 05:53+0000\n"
+"X-Launchpad-Export-Date: 2015-12-08 05:32+0000\n"
 "X-Generator: Launchpad (build 17862)\n"
 
 #: ../src/Services/TemplateManager.vala:194 ../src/MainWindow.vala:905
@@ -38,7 +38,7 @@ msgstr "Zamknij bez zapisywania"
 
 #: ../src/Services/Document.vala:240 ../src/Utils.vala:29
 msgid "Cancel"
-msgstr ""
+msgstr "Anuluj"
 
 #: ../src/Services/Document.vala:241 ../src/Services/Document.vala:546
 #: ../src/Utils.vala:33 ../src/MainWindow.vala:897
@@ -58,12 +58,16 @@ msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
+"Plik \"%s\" nie może być odczytany. Prawdopodobnie jest uszkodzony\n"
+"lub nie posiadasz uprawnień do jego odczytu."
 
 #: ../src/Services/Document.vala:537
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
+"Położenie zawierające plik \"%s\" jest niedostępne. Czy chcesz zapisać plik "
+"w innym miejscu?"
 
 #: ../src/Services/Document.vala:539 ../src/MainWindow.vala:901
 msgid "Save As…"
@@ -71,13 +75,15 @@ msgstr "Zapisz jako…"
 
 #: ../src/Services/Document.vala:544
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "Plik \"%s\" został usunięty. Czy mimo to chcesz go zapisać?"
 
 #: ../src/Services/Document.vala:557
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 msgstr ""
+"Nie można zapisać zmian w pliku \"%s\". Czy chcesz zapisać zmiany w innym "
+"miejscu?"
 
 #: ../src/Services/Document.vala:559
 msgid "Save changes elsewhere"
@@ -88,6 +94,8 @@ msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
+"Plik \"%s\" został zmieniony przez zewnętrzny program. Chcesz wczytać go "
+"ponownie, czy kontynuować edycję?"
 
 #: ../src/Services/Document.vala:591
 msgid "Load"
@@ -225,7 +233,7 @@ msgstr "Nowe okno"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr ""
+msgstr "O Scratch"
 
 #: ../src/Scratch.vala:246
 msgid "New Tab"
@@ -241,7 +249,7 @@ msgstr "Zestaw wtyczek"
 
 #: ../src/Scratch.vala:250
 msgid "Current working directory"
-msgstr ""
+msgstr "Bieżący katalog roboczy"
 
 #: ../src/Widgets/SourceView.vala:120
 msgid "Syntax Highlighting"
@@ -261,7 +269,7 @@ msgstr "Poczekaj, przywracam poprzednią sesję..."
 
 #: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
-msgstr ""
+msgstr "Plik tekstowy z "
 
 #: ../src/Widgets/SplitView.vala:45
 msgid "No Files Open"
@@ -289,11 +297,11 @@ msgstr "Otwiera zapisany dokument"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "New file from clipboard"
-msgstr ""
+msgstr "Nowy plik ze schowka"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "Create a new file from the contents of your clipboard."
-msgstr ""
+msgstr "Utwórz nowy plik z zawartości schowka."
 
 #: ../src/Widgets/SearchManager.vala:70
 msgid "Find"
@@ -305,11 +313,11 @@ msgstr "Zastąp przez"
 
 #: ../src/Widgets/SearchManager.vala:91
 msgid "Search next"
-msgstr ""
+msgstr "Wyszukaj następne"
 
 #: ../src/Widgets/SearchManager.vala:97
 msgid "Search previous"
-msgstr ""
+msgstr "Wyszukaj poprzednie"
 
 #: ../src/Widgets/SearchManager.vala:104
 msgid "Cyclic Search"
@@ -423,19 +431,19 @@ msgstr "Otwiera plik"
 
 #: ../src/MainWindow.vala:889
 msgid "Clipboard"
-msgstr ""
+msgstr "Schowek"
 
 #: ../src/MainWindow.vala:890
 msgid "New file from Clipboard"
-msgstr ""
+msgstr "Nowy plik ze schowka"
 
 #: ../src/MainWindow.vala:893
 msgid "Zoom"
-msgstr ""
+msgstr "Powiększenie"
 
 #: ../src/MainWindow.vala:894
 msgid "Zoom 1:1"
-msgstr ""
+msgstr "Skala 1:1"
 
 #: ../src/MainWindow.vala:898
 msgid "Save this file"
@@ -489,7 +497,7 @@ msgstr "Otwórz plik, który edytujesz za pomocą innej aplikacji"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr ""
+msgstr "Otwórz za pomocą..."
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -619,11 +627,11 @@ msgstr ""
 #. **
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
 msgid "Highlight Selected Words"
-msgstr ""
+msgstr "Podświetl wybrane słowa"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
 msgid "Highlights all occurrences of words that are selected"
-msgstr ""
+msgstr "Podświetl wszystkie wystąpienia słów, które są zaznaczone"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -701,20 +709,20 @@ msgstr "Zobacz efekty swojej pracy w postaci strony internetowej"
 #: ../plugins/browser-preview/browser-preview.vala:85
 #: ../plugins/browser-preview/browser-preview.vala:111
 msgid "Show Preview"
-msgstr ""
+msgstr "Pokaż podgląd"
 
 #: ../plugins/browser-preview/browser-preview.vala:107
 #: ../plugins/browser-preview/browser-preview.vala:150
 msgid "Web Preview"
-msgstr ""
+msgstr "Podgląd sieci"
 
 #: ../plugins/browser-preview/browser-preview.vala:108
 msgid "Hide Preview"
-msgstr ""
+msgstr "Ukryj podgląd"
 
 #: ../plugins/browser-preview/BrowserView.vala:49
 msgid "Close Inspector"
-msgstr ""
+msgstr "Zamknij inspektora"
 
 #: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
 #: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
@@ -728,11 +736,11 @@ msgstr "Terminal w Twoim edytorze tekstowym"
 
 #: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
 msgid "Show Terminal"
-msgstr ""
+msgstr "Pokaż terminal"
 
 #: ../plugins/terminal/terminal.vala:170
 msgid "Hide Terminal"
-msgstr ""
+msgstr "Ukryj terminal"
 
 #: ../plugins/terminal/terminal.vala:306
 msgid "Copy"
@@ -745,19 +753,19 @@ msgstr "Wklej"
 
 #: ../plugins/terminal/terminal.vala:323
 msgid "Terminal on Right"
-msgstr ""
+msgstr "Terminal po prawej"
 
 #: ../plugins/terminal/terminal.vala:331
 msgid "Terminal on Bottom"
-msgstr ""
+msgstr "Terminal na dole"
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
-msgstr ""
+msgstr "Wykryj wcięcie"
 
 #: ../plugins/detect-indent/detect-indent.vala:2
 msgid "Heuristically detect tab or space settings"
-msgstr ""
+msgstr "Wykryj ustawienia tabulatora lub spacji"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -783,7 +791,7 @@ msgstr "Udostępnij swoje pliki poprzez usługę Contractor"
 #: ../plugins/outline/CtagsSymbolResolver.vala:68
 #: ../plugins/outline/OutlinePlugin.vala:111
 msgid "Symbols"
-msgstr ""
+msgstr "Symbole"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -832,19 +840,19 @@ msgstr "Sprawdza poprawność pisowni w dokumencie"
 #: ../plugins/clipboard-history/ClipboardHistory.vala:21
 #: ../plugins/clipboard-history/ClipboardHistory.vala:89
 msgid "Clipboard History"
-msgstr ""
+msgstr "Historia schowka"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:22
 msgid "Clipboard to view history"
-msgstr ""
+msgstr "Schowek, aby zobaczyć historię"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:28
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:156
 msgid "Delete"
-msgstr ""
+msgstr "Usuń"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:70
 msgid "Folders"

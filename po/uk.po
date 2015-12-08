@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-12-01 09:46-0200\n"
-"PO-Revision-Date: 2015-12-06 12:03+0000\n"
-"Last-Translator: svtlichnijj <svtlichnijj@online.ua>\n"
+"PO-Revision-Date: 2015-12-07 12:34+0000\n"
+"Last-Translator: Dmytro Dmytrenko <dmytrenko.d@gmail.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-07 05:25+0000\n"
+"X-Launchpad-Export-Date: 2015-12-08 05:32+0000\n"
 "X-Generator: Launchpad (build 17862)\n"
 
 #: ../src/Services/TemplateManager.vala:194 ../src/MainWindow.vala:905
@@ -65,8 +65,8 @@ msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
-"Розташування, що містить файл \"%s\" було відмонтовано. Бажаєте зберегти "
-"його в іншому місці?"
+"Попереднє місцезнаходження файлу \"%s\" відмонтоване. Бажаєте зберегти його "
+"в іншому місці?"
 
 #: ../src/Services/Document.vala:539 ../src/MainWindow.vala:901
 msgid "Save As…"
@@ -110,11 +110,11 @@ msgstr "Параметри"
 
 #: ../src/Dialogs/PreferencesDialog.vala:63
 msgid "Behavior"
-msgstr "Поведінка"
+msgstr "Метод"
 
 #: ../src/Dialogs/PreferencesDialog.vala:66
 msgid "Interface"
-msgstr "Iнтерфейс"
+msgstr "Зовнішній вигляд"
 
 #: ../src/Dialogs/PreferencesDialog.vala:79
 msgid "Extensions"
@@ -127,11 +127,11 @@ msgstr "Закрити"
 
 #: ../src/Dialogs/PreferencesDialog.vala:128
 msgid "Show welcome screen"
-msgstr "Відображати екран привітання"
+msgstr "Показувати екран привітання"
 
 #: ../src/Dialogs/PreferencesDialog.vala:129
 msgid "Show last open tabs"
-msgstr "Відкрити останні вкладки"
+msgstr "Показати останні відкриті вкладки"
 
 #: ../src/Dialogs/PreferencesDialog.vala:145
 msgid "General:"
@@ -167,11 +167,11 @@ msgstr "Редактор:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:213
 msgid "Highlight current line:"
-msgstr "Підсвітити поточну строку:"
+msgstr "Виділяти поточний рядок:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:214
 msgid "Highlight matching brackets:"
-msgstr "Виділяти поточний рядок:"
+msgstr "Виділяти поточні дужки:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:215
 msgid "Line wrap:"
@@ -191,7 +191,7 @@ msgstr "Ширина рядка:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:233
 msgid "Font and Color Scheme:"
-msgstr "Схема шрифту та кольору:"
+msgstr "Шрифт та колір"
 
 #: ../src/Dialogs/PreferencesDialog.vala:247
 msgid "Select font:"
@@ -199,11 +199,11 @@ msgstr "Обрати шрифт:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:250
 msgid "Color scheme:"
-msgstr "Колірна схема:"
+msgstr "Колір:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:255
 msgid "Custom font:"
-msgstr "Користувацький шрифт:"
+msgstr "Власний шпифт:"
 
 #: ../src/Utils.vala:31 ../src/MainWindow.vala:885
 #: ../plugins/filemanager/FileView.vala:230
@@ -212,7 +212,7 @@ msgstr "Відкрити"
 
 #: ../src/Utils.vala:42
 msgid "All files"
-msgstr "Всі файли"
+msgstr "Усі файли"
 
 #: ../src/Utils.vala:45
 msgid "Text files"
@@ -240,7 +240,7 @@ msgstr "Нова вкладка"
 
 #: ../src/Scratch.vala:248
 msgid "Print version info and exit"
-msgstr "Показати версію та вийти"
+msgstr "Показати інформацію про версію та вийти"
 
 #: ../src/Scratch.vala:249
 msgid "Set of plugins"
@@ -264,7 +264,7 @@ msgstr "Поділитися"
 
 #: ../src/Widgets/LoadingView.vala:33
 msgid "Wait while restoring last session..."
-msgstr "Зачекайте, поки остання сесія відновлюється"
+msgstr "Очікуємо на відновлення останньої сесії"
 
 #: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
@@ -312,11 +312,11 @@ msgstr "Замінити на"
 
 #: ../src/Widgets/SearchManager.vala:91
 msgid "Search next"
-msgstr "Пошук наступного"
+msgstr "Шукати далі"
 
 #: ../src/Widgets/SearchManager.vala:97
 msgid "Search previous"
-msgstr "Пошук попереднього"
+msgstr "Шукати позаду"
 
 #: ../src/Widgets/SearchManager.vala:104
 msgid "Cyclic Search"
@@ -337,7 +337,7 @@ msgstr "Перейти до рядка:"
 
 #: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
-msgstr "Резервування джерел даних для Scratch"
+msgstr "Відслідковувати джерело данних для Scratch"
 
 #: ../src/MainWindow.vala:179
 msgid "Trash"
@@ -358,7 +358,7 @@ msgstr "Знайти..."
 
 #: ../src/MainWindow.vala:837 ../src/MainWindow.vala:838
 msgid "Go to line…"
-msgstr "Перейти до рядка"
+msgstr "Перейти до рядка..."
 
 #: ../src/MainWindow.vala:841 ../src/MainWindow.vala:842
 msgid "Quit"
@@ -366,11 +366,11 @@ msgstr "Вийти"
 
 #: ../src/MainWindow.vala:853
 msgid "Reopen closed document"
-msgstr "Перевідкрити закритий документ"
+msgstr "Відкрити закритий документ"
 
 #: ../src/MainWindow.vala:854
 msgid "Open last closed document in a new tab"
-msgstr "Відкрити останній закритий документ в новій вкладці"
+msgstr "Відкрити закритий документ в новій вкладці"
 
 #: ../src/MainWindow.vala:857
 msgid "Add New Tab"
@@ -382,19 +382,19 @@ msgstr "Додати нову вкладку"
 
 #: ../src/MainWindow.vala:861
 msgid "Add New View"
-msgstr "Додати новий перегляд"
+msgstr "Розділити вікно напвіл"
 
 #: ../src/MainWindow.vala:862
 msgid "Add a new view"
-msgstr "Додати новий перегляд"
+msgstr "Розділити вікно напвіл"
 
 #: ../src/MainWindow.vala:865
 msgid "Remove Current View"
-msgstr "Закрити поточну вкладку"
+msgstr "Не ділити вікно"
 
 #: ../src/MainWindow.vala:866
 msgid "Remove this view"
-msgstr "Закрити файл в поточній половині вікна"
+msgstr "Закрити цю половину вікна"
 
 #: ../src/MainWindow.vala:869
 msgid "Undo"
@@ -406,7 +406,7 @@ msgstr "Скасувати останню дію"
 
 #: ../src/MainWindow.vala:873
 msgid "Redo"
-msgstr "Повторити"
+msgstr "Повернути"
 
 #: ../src/MainWindow.vala:874
 msgid "Redo the last undone action"
@@ -418,7 +418,7 @@ msgstr "Повернути"
 
 #: ../src/MainWindow.vala:878
 msgid "Restore this file"
-msgstr "Повернути файл в первісний стан"
+msgstr "Повернути файл до початкового стану"
 
 #: ../src/MainWindow.vala:881 ../src/MainWindow.vala:882
 msgid "Duplicate selected strings"
@@ -470,7 +470,7 @@ msgstr "Попередня вкладка"
 
 #: ../src/MainWindow.vala:934 ../src/MainWindow.vala:935
 msgid "Fullscreen"
-msgstr "Повноэкранный режим"
+msgstr "На весь екран"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -492,7 +492,7 @@ msgstr "Відкрити за допомогою"
 
 #: ../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr "Відкрити файли які ви редагуєте за допомогою іншого застосунку"
+msgstr "Відкрити файли які ви редагуєте в іншій програмі"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
