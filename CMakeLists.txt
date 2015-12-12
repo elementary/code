@@ -100,4 +100,5 @@ add_subdirectory (schemas)
 add_subdirectory (po)
 
 # Data
+install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/scratch-text-editor.appdata.xml DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/appdata)
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/scratch-text-editor.desktop DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/applications)

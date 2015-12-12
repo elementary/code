@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2015 elementary, LLC <contact@elementary.io> -->
+<application>
+  <id type="desktop">scratch-text-editor.desktop</id>
+  <metadata_license>CC0</metadata_license>
+  <project_group>elementary</project_group>
+  <project_license>GPL-3.0+</project_license>
+  <name>Scratch</name>
+  <icon type="stock">accessories-text-editor</icon>
+  <summary>The text editor that works</summary>
+  <description>
+    <p>
+      Scratch is the text editor that works for you. It auto-saves your files, 
+      meaning they're always up-to-date. Plus it remembers your tabs so you never
+      lose your spot, even in between sessions.
+    </p>
+    <p>
+      Make it yours. Scratch is written from the ground up to be extensible. Keep
+      things super lightweight and simple, or install extensions to turn Scratch
+      into a full-blown IDE; it's your choice. And with a handful of useful preferences,
+      you can tweak the behavior and interface to your liking.
+    </p>
+    <p>
+      It's elementary. Scratch is made to be the perfect text editor for elementary,
+      meaning it closely follows the high standards of design, speed, and consistency.
+      It's sexy, but not distracting.
+    </p>
+    <p>
+      Works with your language. Whether you're crafting code in Vala, scripting
+      with PHP, or marking things up in HTML, Scratch has you covered. Experience
+      full syntax highlighting with nearly all programming, scripting, and markup
+      languages.
+    </p>
+    <p>
+      Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, .Desktop,
+      Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, Objective
+      C, Pascal, Perl, Python, Ruby, XML.
+    </p>
+    <p>
+      Additional features include:
+    </p>
+    <ul>
+      <li>syntax highlighting with gtksourceview-3</li>
+      <li>a find bar to search the words in the files</li>
+      <li>tab and split documents system</li>
+      <li>lots of others</li>
+    </ul>
+  </description>
+  <url type="homepage">http://elementary.io/</url>
+  <updatecontact>contact_at_elementary.io</updatecontact>
+</application>
