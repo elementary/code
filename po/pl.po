@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-12-01 09:46-0200\n"
-"PO-Revision-Date: 2015-12-07 13:20+0000\n"
-"Last-Translator: Fisz <fiszet@gmail.com>\n"
+"PO-Revision-Date: 2015-12-17 14:08+0000\n"
+"Last-Translator: Damian Woźniak <fiszet@gmail.com>\n"
 "Language-Team: polski <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-08 05:32+0000\n"
-"X-Generator: Launchpad (build 17862)\n"
+"X-Launchpad-Export-Date: 2015-12-18 05:39+0000\n"
+"X-Generator: Launchpad (build 17865)\n"
 
 #: ../src/Services/TemplateManager.vala:194 ../src/MainWindow.vala:905
 msgid "Templates"
@@ -176,7 +176,7 @@ msgstr "Podświetlanie pasujących nawiasów"
 
 #: ../src/Dialogs/PreferencesDialog.vala:215
 msgid "Line wrap:"
-msgstr ""
+msgstr "Zawijanie linii:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:216
 msgid "Draw spaces:"
@@ -321,7 +321,7 @@ msgstr "Wyszukaj poprzednie"
 
 #: ../src/Widgets/SearchManager.vala:104
 msgid "Cyclic Search"
-msgstr ""
+msgstr "Cykliczne wyszukiwanie"
 
 #: ../src/Widgets/SearchManager.vala:107 ../src/MainWindow.vala:849
 #: ../src/MainWindow.vala:850
@@ -605,11 +605,13 @@ msgstr "Menedżer plików"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:24
 msgid "Preserve Indent"
-msgstr ""
+msgstr "Zachowaj wcięcie"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:25
 msgid "Maintains indent level of pasted text when auto-indent is active"
 msgstr ""
+"Zachowuje poziom wcięcia wklejonego tekstu, gdy automatyczne wcięcie jest "
+"aktywne."
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -809,11 +811,11 @@ msgstr "Symbole"
 #. **
 #: ../plugins/outline/OutlinePlugin.vala:21
 msgid "Outline"
-msgstr ""
+msgstr "Kontur"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
-msgstr ""
+msgstr "Konturuj symbole w swoim bieżącym pliku w vala"
 
 #: ../plugins/spell/spell.vala:18
 msgid "Spell Checker"
