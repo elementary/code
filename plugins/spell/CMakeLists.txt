@@ -23,6 +23,7 @@ set (PLUGIN_NAME "spell")
 
 vala_precompile(VALA_C ${PLUGIN_NAME}
     spell.vala
+    Settings.vala
 PACKAGES
     ${SPELLPACKAGE}
     gtk+-3.0
