@@ -7,19 +7,75 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-12-01 09:46-0200\n"
-"PO-Revision-Date: 2015-11-29 22:22+0000\n"
-"Last-Translator: RDRR <rubendrr@gmail.com>\n"
+"POT-Creation-Date: 2015-12-18 13:57-0600\n"
+"PO-Revision-Date: 2015-12-18 20:01+0000\n"
+"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-06 05:53+0000\n"
-"X-Generator: Launchpad (build 17862)\n"
+"X-Launchpad-Export-Date: 2015-12-20 05:34+0000\n"
+"X-Generator: Launchpad (build 17865)\n"
 
-#: ../src/Services/TemplateManager.vala:194 ../src/MainWindow.vala:905
-msgid "Templates"
-msgstr "Modelos"
+#: ../src/Scratch.vala:68
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  André Carvalho https://launchpad.net/~andrecarvalhopt\n"
+"  António Miranda https://launchpad.net/~antoniom0910-deactivatedaccount\n"
+"  David Gomes https://launchpad.net/~davidgomes\n"
+"  Diogo Oliveira https://launchpad.net/~diogodesigns\n"
+"  Gonçalo Fernandes https://launchpad.net/~ilogico\n"
+"  Ivo Nunes https://launchpad.net/~ivonunes\n"
+"  Laurentino https://launchpad.net/~laurentinolopes\n"
+"  Luís Marques https://launchpad.net/~euluismarques\n"
+"  Pedro Monteiro https://launchpad.net/~pedro.monteiro\n"
+"  RDRR https://launchpad.net/~rubendrr\n"
+"  Rafael Neri https://launchpad.net/~rafepel\n"
+"  Sérgio Marques https://launchpad.net/~sergio+marques\n"
+"  Tiago Branco https://launchpad.net/~tiagombranco\n"
+"  Toupas https://launchpad.net/~dev-tiago\n"
+"  Willian Paixao https://launchpad.net/~willianpaixao-deactivatedaccount\n"
+"  Yan Gabriel Minario https://launchpad.net/~yangm97\n"
+"  fabiodan https://launchpad.net/~fabiosantosart\n"
+"  igorazevedo https://launchpad.net/~igor-azevedo\n"
+"  yEdubart https://launchpad.net/~vps1992"
+
+#: ../src/Scratch.vala:246
+msgid "New Tab"
+msgstr "Novo Separador"
+
+#: ../src/Scratch.vala:247 ../src/config.vala:18
+msgid "New Window"
+msgstr "Nova janela"
+
+#: ../src/Scratch.vala:248
+msgid "Print version info and exit"
+msgstr "Apresentar informação de versão e sair"
+
+#: ../src/Scratch.vala:249
+msgid "Set of plugins"
+msgstr "Conjunto de suplementos"
+
+#: ../src/Scratch.vala:250
+msgid "Current working directory"
+msgstr "Diretório de trabalho atual"
+
+#: ../src/config.vala:15
+msgid "Edit text files"
+msgstr "Editar ficheiros de texto"
+
+#: ../src/config.vala:16
+msgid "Text Editor"
+msgstr "Editor de texto"
+
+#: ../src/config.vala:17 ../src/Services/Document.vala:405
+msgid "New Document"
+msgstr "Novo documento"
+
+#: ../src/config.vala:19
+msgid "About Scratch"
+msgstr "Sobre o Scratch"
 
 #: ../src/Services/Document.vala:231
 msgid "Save changes to document %s before closing?"
@@ -48,10 +104,6 @@ msgstr "Guardar"
 #: ../src/Services/Document.vala:313
 msgid "Save File"
 msgstr "Guardar Ficheiro"
-
-#: ../src/Services/Document.vala:405 ../src/config.vala:17
-msgid "New Document"
-msgstr "Novo documento"
 
 #: ../src/Services/Document.vala:521
 msgid ""
@@ -104,6 +156,96 @@ msgstr "Carregar"
 #: ../src/Services/Document.vala:594
 msgid "Continue"
 msgstr "Continuar"
+
+#: ../src/Services/TemplateManager.vala:194 ../src/MainWindow.vala:905
+msgid "Templates"
+msgstr "Modelos"
+
+#: ../src/Widgets/DocumentView.vala:91
+msgid "Text file from "
+msgstr "Ficheiro de texto de "
+
+#: ../src/Widgets/SourceView.vala:120
+msgid "Syntax Highlighting"
+msgstr "Realce de sintaxe"
+
+#: ../src/Widgets/SourceView.vala:131
+msgid "Normal Text"
+msgstr "Texto Normal"
+
+#: ../src/Widgets/LoadingView.vala:33
+msgid "Wait while restoring last session..."
+msgstr "Aguarde enquanto a última sessão é restaurada..."
+
+#: ../src/Widgets/SearchManager.vala:70
+msgid "Find"
+msgstr "Localizar"
+
+#: ../src/Widgets/SearchManager.vala:75
+msgid "Replace With"
+msgstr "Substituir por"
+
+#: ../src/Widgets/SearchManager.vala:91
+msgid "Search next"
+msgstr "Encontrar seguinte"
+
+#: ../src/Widgets/SearchManager.vala:97
+msgid "Search previous"
+msgstr "Encontrar anterior"
+
+#: ../src/Widgets/SearchManager.vala:104
+msgid "Cyclic Search"
+msgstr "Procura cíclica"
+
+#: ../src/Widgets/SearchManager.vala:107 ../src/MainWindow.vala:849
+#: ../src/MainWindow.vala:850
+msgid "Replace"
+msgstr "Substituir"
+
+#: ../src/Widgets/SearchManager.vala:112
+msgid "Replace all"
+msgstr "Substituir tudo"
+
+#: ../src/Widgets/SearchManager.vala:121
+msgid "Go To Line:"
+msgstr "Ir para a linha:"
+
+#: ../src/Widgets/ToolBar.vala:58
+msgid "Share"
+msgstr "Partilhar"
+
+#: ../src/Widgets/SplitView.vala:45
+msgid "No Files Open"
+msgstr "Sem Ficheiros Abertos"
+
+#: ../src/Widgets/SplitView.vala:46
+msgid "Open a file to begin editing."
+msgstr "Abrir um ficheiro para o editar."
+
+#: ../src/Widgets/SplitView.vala:50
+msgid "New file"
+msgstr "Novo ficheiro"
+
+#: ../src/Widgets/SplitView.vala:50
+msgid "Create a new empty file."
+msgstr "Criar um novo ficheiro vazio"
+
+#: ../src/Widgets/SplitView.vala:51
+msgid "Open file"
+msgstr "Abrir ficheiro"
+
+#: ../src/Widgets/SplitView.vala:51
+msgid "Open a saved file."
+msgstr "Abrir um ficheiro existente"
+
+#: ../src/Widgets/SplitView.vala:52
+msgid "New file from clipboard"
+msgstr "Novo ficheiro da área de transferência"
+
+#: ../src/Widgets/SplitView.vala:52
+msgid "Create a new file from the contents of your clipboard."
+msgstr ""
+"Criar um novo ficheiro a partir do conteúdo da sua área de transferência."
 
 #: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:909
 msgid "Preferences"
@@ -218,124 +360,6 @@ msgstr "Todos os ficheiros"
 #: ../src/Utils.vala:45
 msgid "Text files"
 msgstr "Ficheiros de texto"
-
-#: ../src/config.vala:15
-msgid "Edit text files"
-msgstr "Editar ficheiros de texto"
-
-#: ../src/config.vala:16
-msgid "Text Editor"
-msgstr "Editor de texto"
-
-#: ../src/config.vala:18 ../src/Scratch.vala:247
-msgid "New Window"
-msgstr "Nova janela"
-
-#: ../src/config.vala:19
-msgid "About Scratch"
-msgstr "Sobre o Scratch"
-
-#: ../src/Scratch.vala:246
-msgid "New Tab"
-msgstr "Novo Separador"
-
-#: ../src/Scratch.vala:248
-msgid "Print version info and exit"
-msgstr "Apresentar informação de versão e sair"
-
-#: ../src/Scratch.vala:249
-msgid "Set of plugins"
-msgstr "Conjunto de suplementos"
-
-#: ../src/Scratch.vala:250
-msgid "Current working directory"
-msgstr "Diretório de trabalho atual"
-
-#: ../src/Widgets/SourceView.vala:120
-msgid "Syntax Highlighting"
-msgstr "Realce de sintaxe"
-
-#: ../src/Widgets/SourceView.vala:131
-msgid "Normal Text"
-msgstr "Texto Normal"
-
-#: ../src/Widgets/ToolBar.vala:58
-msgid "Share"
-msgstr "Partilhar"
-
-#: ../src/Widgets/LoadingView.vala:33
-msgid "Wait while restoring last session..."
-msgstr "Aguarde enquanto a última sessão é restaurada..."
-
-#: ../src/Widgets/DocumentView.vala:91
-msgid "Text file from "
-msgstr "Ficheiro de texto de "
-
-#: ../src/Widgets/SplitView.vala:45
-msgid "No Files Open"
-msgstr "Sem Ficheiros Abertos"
-
-#: ../src/Widgets/SplitView.vala:46
-msgid "Open a file to begin editing."
-msgstr "Abrir um ficheiro para o editar."
-
-#: ../src/Widgets/SplitView.vala:50
-msgid "New file"
-msgstr "Novo ficheiro"
-
-#: ../src/Widgets/SplitView.vala:50
-msgid "Create a new empty file."
-msgstr "Criar um novo ficheiro vazio"
-
-#: ../src/Widgets/SplitView.vala:51
-msgid "Open file"
-msgstr "Abrir ficheiro"
-
-#: ../src/Widgets/SplitView.vala:51
-msgid "Open a saved file."
-msgstr "Abrir um ficheiro existente"
-
-#: ../src/Widgets/SplitView.vala:52
-msgid "New file from clipboard"
-msgstr "Novo ficheiro da área de transferência"
-
-#: ../src/Widgets/SplitView.vala:52
-msgid "Create a new file from the contents of your clipboard."
-msgstr ""
-"Criar um novo ficheiro a partir do conteúdo da sua área de transferência."
-
-#: ../src/Widgets/SearchManager.vala:70
-msgid "Find"
-msgstr "Localizar"
-
-#: ../src/Widgets/SearchManager.vala:75
-msgid "Replace With"
-msgstr "Substituir por"
-
-#: ../src/Widgets/SearchManager.vala:91
-msgid "Search next"
-msgstr "Encontrar seguinte"
-
-#: ../src/Widgets/SearchManager.vala:97
-msgid "Search previous"
-msgstr "Encontrar anterior"
-
-#: ../src/Widgets/SearchManager.vala:104
-msgid "Cyclic Search"
-msgstr "Procura cíclica"
-
-#: ../src/Widgets/SearchManager.vala:107 ../src/MainWindow.vala:849
-#: ../src/MainWindow.vala:850
-msgid "Replace"
-msgstr "Substituir"
-
-#: ../src/Widgets/SearchManager.vala:112
-msgid "Replace all"
-msgstr "Substituir tudo"
-
-#: ../src/Widgets/SearchManager.vala:121
-msgid "Go To Line:"
-msgstr "Ir para a linha:"
 
 #: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
@@ -474,112 +498,6 @@ msgstr "Separador Anterior"
 msgid "Fullscreen"
 msgstr "Ecrã completo"
 
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#. 
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#. 
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
-#. END LICENSE
-#. **
-#: ../plugins/open-with/open-with.vala:21
-msgid "Open With"
-msgstr "Abrir Com"
-
-#: ../plugins/open-with/open-with.vala:22
-msgid "Open files you are editing with another application"
-msgstr "Abrir os ficheiros que está a editar com outra aplicação"
-
-#: ../plugins/open-with/open-with.vala:54
-msgid "Open With…"
-msgstr "Abrir Com..."
-
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#. 
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#. 
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
-#. END LICENSE
-#. **
-#: ../plugins/brackets-completion/brackets-completion.vala:21
-msgid "Brackets Completion"
-msgstr "Fechar Parêntesis"
-
-#: ../plugins/brackets-completion/brackets-completion.vala:22
-msgid "Complete brackets while typing"
-msgstr "Fechar automaticamente parêntesis  durante a escrita"
-
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#. 
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#. 
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
-#. END LICENSE
-#. **
-#: ../plugins/vim-emulation/vim-emulation.vala:21
-msgid "Vim Emulation"
-msgstr "Emulação VIM"
-
-#: ../plugins/vim-emulation/vim-emulation.vala:22
-msgid "Use Vim commands in Scratch"
-msgstr "Usar comandos VIM no Scratch"
-
-#: ../plugins/word-completion/completion-provider.vala:80
-msgid "Could not load icon theme: %s\n"
-msgstr "Impossível carregar ícones: %s\n"
-
-#: ../plugins/word-completion/plugin.vala:34
-msgid "Words Completion"
-msgstr "Acabar Palavras"
-
-#: ../plugins/word-completion/plugin.vala:35
-msgid "Show a completion dialog with most used words from your files"
-msgstr ""
-"Mostra um diálogo de acabamento com as palavras mais usadas nos seus "
-"ficheiros"
-
-#: ../plugins/word-completion/plugin.vala:175
-msgid "%s - Word Completion"
-msgstr "%s - Acabar Palavra"
-
-#: ../plugins/filemanager/FileView.vala:73
-msgid "/New File"
-msgstr "/Novo Ficheiro"
-
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#. 
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#. 
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
-#. END LICENSE
-#. **
 #: ../plugins/filemanager/FileManagerPlugin.vala:21
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:21
 msgid "Folder Manager"
@@ -606,6 +524,10 @@ msgstr "Remover ficheiro"
 msgid "File Manager"
 msgstr "Gestor de Ficheiros"
 
+#: ../plugins/filemanager/FileView.vala:73
+msgid "/New File"
+msgstr "/Novo Ficheiro"
+
 #: ../plugins/preserve-indent/preserve-indent.vala:24
 msgid "Preserve Indent"
 msgstr "Preservar indentação"
@@ -616,20 +538,6 @@ msgstr ""
 "Mantém nível de indentação do texto colado quando a auto-indentação está "
 "activa"
 
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#. 
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#. 
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
-#. END LICENSE
-#. **
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
 msgid "Highlight Selected Words"
 msgstr "Realçar as palavras selecionadas"
@@ -638,20 +546,103 @@ msgstr "Realçar as palavras selecionadas"
 msgid "Highlights all occurrences of words that are selected"
 msgstr "Realçar todas as ocurrências das palavras que estão selecionadas"
 
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#. 
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#. 
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
-#. END LICENSE
-#. **
+#: ../plugins/clipboard-history/ClipboardHistory.vala:21
+#: ../plugins/clipboard-history/ClipboardHistory.vala:89
+msgid "Clipboard History"
+msgstr "Histórico da área de transferência"
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:22
+msgid "Clipboard to view history"
+msgstr "Área de transferência para ver histórico"
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:28
+msgid "..."
+msgstr "..."
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:156
+msgid "Delete"
+msgstr "Eliminar"
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:159
+#: ../plugins/terminal/terminal.vala:313
+msgid "Paste"
+msgstr "Colar"
+
+#: ../plugins/browser-preview/BrowserView.vala:49
+msgid "Close Inspector"
+msgstr "Fechar o Inspector"
+
+#: ../plugins/browser-preview/browser-preview.vala:21
+msgid "Browser Preview"
+msgstr "Pré-visualização de Browser"
+
+#: ../plugins/browser-preview/browser-preview.vala:22
+msgid "Get a preview your work in a web page"
+msgstr "Pré-visualize o seu trabalho como uma página web"
+
+#: ../plugins/browser-preview/browser-preview.vala:85
+#: ../plugins/browser-preview/browser-preview.vala:111
+msgid "Show Preview"
+msgstr "Mostrar a Pré-visualização"
+
+#: ../plugins/browser-preview/browser-preview.vala:107
+#: ../plugins/browser-preview/browser-preview.vala:150
+msgid "Web Preview"
+msgstr "Pré-Visualização Web"
+
+#: ../plugins/browser-preview/browser-preview.vala:108
+msgid "Hide Preview"
+msgstr "Fechar a Pré-Visualização"
+
+#: ../plugins/contractor/contractor.vala:21
+msgid "Share your files with Contractor"
+msgstr "Partilhe os seu ficheiros com o Contractor"
+
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:70
+msgid "Folders"
+msgstr "Pastas"
+
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:88
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:89
+msgid "Open a folder"
+msgstr "Abrir uma pasta"
+
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:94
+msgid "_Cancel"
+msgstr "_Cancelar"
+
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:95
+msgid "_Open"
+msgstr "_Abrir"
+
+#: ../plugins/folder-manager/FileView.vala:294
+msgid "Close Folder"
+msgstr "Fechar Pasta"
+
+#: ../plugins/outline/OutlinePlugin.vala:21
+msgid "Outline"
+msgstr "Tópicos"
+
+#: ../plugins/outline/OutlinePlugin.vala:22
+msgid "Outline symbols in your current file in vala"
+msgstr "Evidenciar símbolos no ficheiro vala atual"
+
+#: ../plugins/outline/OutlinePlugin.vala:111
+#: ../plugins/outline/CtagsSymbolResolver.vala:35
+#: ../plugins/outline/CtagsSymbolResolver.vala:68
+#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
+#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:94
+msgid "Symbols"
+msgstr "Símbolos"
+
+#: ../plugins/brackets-completion/brackets-completion.vala:21
+msgid "Brackets Completion"
+msgstr "Fechar Parêntesis"
+
+#: ../plugins/brackets-completion/brackets-completion.vala:22
+msgid "Complete brackets while typing"
+msgstr "Fechar automaticamente parêntesis  durante a escrita"
+
 #: ../plugins/source-tree/SourceTreePlugin.vala:20
 #: ../plugins/source-tree/SourceTreePlugin.vala:197
 msgid "Source Tree"
@@ -681,204 +672,25 @@ msgstr "Projeto"
 msgid "Bookmarks"
 msgstr "Marcadores"
 
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
-msgid "Strip trailing whitespace"
-msgstr "Remover espaços em branco"
+#: ../plugins/vim-emulation/vim-emulation.vala:21
+msgid "Vim Emulation"
+msgstr "Emulação VIM"
 
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
-msgid "Strip trailing whitespace on save"
-msgstr "Remove espaços em branco ao gravar o ficheiro"
+#: ../plugins/vim-emulation/vim-emulation.vala:22
+msgid "Use Vim commands in Scratch"
+msgstr "Usar comandos VIM no Scratch"
 
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#. 
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#. 
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
-#. END LICENSE
-#. **
-#: ../plugins/browser-preview/browser-preview.vala:21
-msgid "Browser Preview"
-msgstr "Pré-visualização de Browser"
+#: ../plugins/pastebin/pastebin.vala:23
+msgid "Pastebin"
+msgstr "Pastebin"
 
-#: ../plugins/browser-preview/browser-preview.vala:22
-msgid "Get a preview your work in a web page"
-msgstr "Pré-visualize o seu trabalho como uma página web"
+#: ../plugins/pastebin/pastebin.vala:24
+msgid "Share files with pastebin service"
+msgstr "Partilhar ficheiros usando o pastebin"
 
-#: ../plugins/browser-preview/browser-preview.vala:85
-#: ../plugins/browser-preview/browser-preview.vala:111
-msgid "Show Preview"
-msgstr "Mostrar a Pré-visualização"
-
-#: ../plugins/browser-preview/browser-preview.vala:107
-#: ../plugins/browser-preview/browser-preview.vala:150
-msgid "Web Preview"
-msgstr "Pré-Visualização Web"
-
-#: ../plugins/browser-preview/browser-preview.vala:108
-msgid "Hide Preview"
-msgstr "Fechar a Pré-Visualização"
-
-#: ../plugins/browser-preview/BrowserView.vala:49
-msgid "Close Inspector"
-msgstr "Fechar o Inspector"
-
-#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
-#: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
-#: ../plugins/terminal/terminal.vala:174
-msgid "Terminal"
-msgstr "Terminal"
-
-#: ../plugins/terminal/terminal.vala:24
-msgid "A terminal in your text editor"
-msgstr "Uma linha de comandos no seu editor de texto"
-
-#: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
-msgid "Show Terminal"
-msgstr "Mostrar o Terminal"
-
-#: ../plugins/terminal/terminal.vala:170
-msgid "Hide Terminal"
-msgstr "Fechar o Terminal"
-
-#: ../plugins/terminal/terminal.vala:306
-msgid "Copy"
-msgstr "Copiar"
-
-#: ../plugins/terminal/terminal.vala:313
-#: ../plugins/clipboard-history/ClipboardHistory.vala:159
-msgid "Paste"
-msgstr "Colar"
-
-#: ../plugins/terminal/terminal.vala:323
-msgid "Terminal on Right"
-msgstr "Terminal à Direita"
-
-#: ../plugins/terminal/terminal.vala:331
-msgid "Terminal on Bottom"
-msgstr "Terminal em Baixo"
-
-#: ../plugins/detect-indent/detect-indent.vala:1
-msgid "Detect Indent"
-msgstr "Detetar Indentação"
-
-#: ../plugins/detect-indent/detect-indent.vala:2
-msgid "Heuristically detect tab or space settings"
-msgstr "Detetar indentação usada de forma heurística"
-
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#. 
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#. 
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
-#. END LICENSE
-#. **
-#: ../plugins/contractor/contractor.vala:21
-msgid "Share your files with Contractor"
-msgstr "Partilhe os seu ficheiros com o Contractor"
-
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:94
-#: ../plugins/outline/CtagsSymbolResolver.vala:35
-#: ../plugins/outline/CtagsSymbolResolver.vala:68
-#: ../plugins/outline/OutlinePlugin.vala:111
-msgid "Symbols"
-msgstr "Símbolos"
-
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#. 
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#. 
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
-#. END LICENSE
-#. **
-#: ../plugins/outline/OutlinePlugin.vala:21
-msgid "Outline"
-msgstr "Tópicos"
-
-#: ../plugins/outline/OutlinePlugin.vala:22
-msgid "Outline symbols in your current file in vala"
-msgstr "Evidenciar símbolos no ficheiro vala atual"
-
-#: ../plugins/spell/spell.vala:18
-msgid "Spell Checker"
-msgstr "Corretor Ortográfico"
-
-#: ../plugins/spell/spell.vala:19
-msgid "Checks the spelling of your documents"
-msgstr "Verifica erros de escrita nos seus documentos"
-
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#. 
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#. 
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
-#. END LICENSE
-#. **
-#: ../plugins/clipboard-history/ClipboardHistory.vala:21
-#: ../plugins/clipboard-history/ClipboardHistory.vala:89
-msgid "Clipboard History"
-msgstr "Histórico da área de transferência"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:22
-msgid "Clipboard to view history"
-msgstr "Área de transferência para ver histórico"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:28
-msgid "..."
-msgstr "..."
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:156
-msgid "Delete"
-msgstr "Eliminar"
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:70
-msgid "Folders"
-msgstr "Pastas"
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:88
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:89
-msgid "Open a folder"
-msgstr "Abrir uma pasta"
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:94
-msgid "_Cancel"
-msgstr "_Cancelar"
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:95
-msgid "_Open"
-msgstr "_Abrir"
-
-#: ../plugins/folder-manager/FileView.vala:294
-msgid "Close Folder"
-msgstr "Fechar Pasta"
+#: ../plugins/pastebin/pastebin.vala:134
+msgid "Upload to Pastebin"
+msgstr "Enviar para Pastebin"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
@@ -932,17 +744,89 @@ msgstr "Um dia"
 msgid "One month"
 msgstr "Um mês"
 
-#: ../plugins/pastebin/pastebin.vala:23
-msgid "Pastebin"
-msgstr "Pastebin"
+#: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
+msgid "Strip trailing whitespace"
+msgstr "Remover espaços em branco"
 
-#: ../plugins/pastebin/pastebin.vala:24
-msgid "Share files with pastebin service"
-msgstr "Partilhar ficheiros usando o pastebin"
+#: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
+msgid "Strip trailing whitespace on save"
+msgstr "Remove espaços em branco ao gravar o ficheiro"
 
-#: ../plugins/pastebin/pastebin.vala:134
-msgid "Upload to Pastebin"
-msgstr "Enviar para Pastebin"
+#: ../plugins/spell/spell.vala:18
+msgid "Spell Checker"
+msgstr "Corretor Ortográfico"
+
+#: ../plugins/spell/spell.vala:19
+msgid "Checks the spelling of your documents"
+msgstr "Verifica erros de escrita nos seus documentos"
+
+#: ../plugins/open-with/open-with.vala:21
+msgid "Open With"
+msgstr "Abrir Com"
+
+#: ../plugins/open-with/open-with.vala:22
+msgid "Open files you are editing with another application"
+msgstr "Abrir os ficheiros que está a editar com outra aplicação"
+
+#: ../plugins/open-with/open-with.vala:54
+msgid "Open With…"
+msgstr "Abrir Com..."
+
+#: ../plugins/detect-indent/detect-indent.vala:1
+msgid "Detect Indent"
+msgstr "Detetar Indentação"
+
+#: ../plugins/detect-indent/detect-indent.vala:2
+msgid "Heuristically detect tab or space settings"
+msgstr "Detetar indentação usada de forma heurística"
+
+#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
+#: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
+#: ../plugins/terminal/terminal.vala:174
+msgid "Terminal"
+msgstr "Terminal"
+
+#: ../plugins/terminal/terminal.vala:24
+msgid "A terminal in your text editor"
+msgstr "Uma linha de comandos no seu editor de texto"
+
+#: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
+msgid "Show Terminal"
+msgstr "Mostrar o Terminal"
+
+#: ../plugins/terminal/terminal.vala:170
+msgid "Hide Terminal"
+msgstr "Fechar o Terminal"
+
+#: ../plugins/terminal/terminal.vala:306
+msgid "Copy"
+msgstr "Copiar"
+
+#: ../plugins/terminal/terminal.vala:323
+msgid "Terminal on Right"
+msgstr "Terminal à Direita"
+
+#: ../plugins/terminal/terminal.vala:331
+msgid "Terminal on Bottom"
+msgstr "Terminal em Baixo"
+
+#: ../plugins/word-completion/plugin.vala:34
+msgid "Words Completion"
+msgstr "Acabar Palavras"
+
+#: ../plugins/word-completion/plugin.vala:35
+msgid "Show a completion dialog with most used words from your files"
+msgstr ""
+"Mostra um diálogo de acabamento com as palavras mais usadas nos seus "
+"ficheiros"
+
+#: ../plugins/word-completion/plugin.vala:175
+msgid "%s - Word Completion"
+msgstr "%s - Acabar Palavra"
+
+#: ../plugins/word-completion/completion-provider.vala:80
+msgid "Could not load icon theme: %s\n"
+msgstr "Impossível carregar ícones: %s\n"
 
 #~ msgid "Normal text"
 #~ msgstr "Texto normal"
