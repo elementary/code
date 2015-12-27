@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-12-18 13:57-0600\n"
-"PO-Revision-Date: 2015-12-21 13:38+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
+"PO-Revision-Date: 2015-12-27 02:05+0000\n"
+"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-22 04:51+0000\n"
+"X-Launchpad-Export-Date: 2015-12-27 05:18+0000\n"
 "X-Generator: Launchpad (build 17865)\n"
 
 #: ../src/Scratch.vala:68
@@ -169,15 +169,15 @@ msgstr "替換為"
 
 #: ../src/Widgets/SearchManager.vala:91
 msgid "Search next"
-msgstr ""
+msgstr "向後搜尋"
 
 #: ../src/Widgets/SearchManager.vala:97
 msgid "Search previous"
-msgstr ""
+msgstr "向前搜尋"
 
 #: ../src/Widgets/SearchManager.vala:104
 msgid "Cyclic Search"
-msgstr ""
+msgstr "前後循環搜尋"
 
 #: ../src/Widgets/SearchManager.vala:107 ../src/MainWindow.vala:849
 #: ../src/MainWindow.vala:850
@@ -511,11 +511,11 @@ msgstr "/新檔案"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:24
 msgid "Preserve Indent"
-msgstr ""
+msgstr "保留縮排"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:25
 msgid "Maintains indent level of pasted text when auto-indent is active"
-msgstr ""
+msgstr "當自動縮排啟用時，維持貼上文字的縮排層級"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
 msgid "Highlight Selected Words"
@@ -749,7 +749,7 @@ msgstr "開啟您正用其他應用程式編輯中的檔案"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr ""
+msgstr "開啟方式…"
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
