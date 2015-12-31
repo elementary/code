@@ -3,26 +3,28 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-18 13:57-0600\n"
-"PO-Revision-Date: 2015-12-18 20:01+0000\n"
-"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
+"PO-Revision-Date: 2015-12-30 21:09+0000\n"
+"Last-Translator: Mika Beckerich <beckerichmika@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-20 05:33+0000\n"
+"X-Launchpad-Export-Date: 2015-12-31 05:25+0000\n"
 "X-Generator: Launchpad (build 17865)\n"
 
 #: ../src/Scratch.vala:68
 msgid "translator-credits"
 msgstr ""
+"Launchpad Contributions:\n"
+"  Mika Beckerich https://launchpad.net/~beckerichmika"
 
 #: ../src/Scratch.vala:246
 msgid "New Tab"
-msgstr ""
+msgstr "Neien Tab"
 
 #: ../src/Scratch.vala:247 ../src/config.vala:18
 msgid "New Window"
-msgstr ""
+msgstr "Nei Fënster"
 
 #: ../src/Scratch.vala:248
 msgid "Print version info and exit"
@@ -34,69 +36,76 @@ msgstr ""
 
 #: ../src/Scratch.vala:250
 msgid "Current working directory"
-msgstr ""
+msgstr "Momentanen Bureau"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
-msgstr ""
+msgstr "Text-Fichieren änneren"
 
 #: ../src/config.vala:16
 msgid "Text Editor"
-msgstr ""
+msgstr "Text Editor"
 
 #: ../src/config.vala:17 ../src/Services/Document.vala:405
 msgid "New Document"
-msgstr ""
+msgstr "Neit Dokument"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr ""
+msgstr "Iwwert Scratch"
 
 #: ../src/Services/Document.vala:231
 msgid "Save changes to document %s before closing?"
-msgstr ""
+msgstr "Ännerungen virum zoumaachen späicheren?"
 
 #: ../src/Services/Document.vala:234
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
+"Wann Dier nët späichert, ginn äer Ännerungen vun den läschten 4 Sekonnen "
+"verworf."
 
 #: ../src/Services/Document.vala:236
 msgid "Close without saving"
-msgstr ""
+msgstr "Ouni ze späicheren zoumaachen"
 
 #: ../src/Services/Document.vala:240 ../src/Utils.vala:29
 msgid "Cancel"
-msgstr ""
+msgstr "Ofbriechen"
 
 #: ../src/Services/Document.vala:241 ../src/Services/Document.vala:546
 #: ../src/Utils.vala:33 ../src/MainWindow.vala:897
 msgid "Save"
-msgstr ""
+msgstr "Späicheren"
 
 #: ../src/Services/Document.vala:313
 msgid "Save File"
-msgstr ""
+msgstr "Fichier späicheren"
 
 #: ../src/Services/Document.vala:521
 msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
+"Den FIchier \"%s\" konnt nët geliess ginn. Den Fichier kéint beschiedegt "
+"sinn\n"
+"oder Dier hudd nët d'Erlaabnis fir deen Fichier liesen ze kënnen."
 
 #: ../src/Services/Document.vala:537
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
+"Déi Plaatz, wou den Fichier \"%s\" ofgespäicher war, war nët agehaangen. "
+"Wëllt Dier den Fichier iergendswou aaneschters ofspäicheren?"
 
 #: ../src/Services/Document.vala:539 ../src/MainWindow.vala:901
 msgid "Save As…"
-msgstr ""
+msgstr "Ofspäicheren als..."
 
 #: ../src/Services/Document.vala:544
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "Den Fichier \"%s gouf geläscht. Wëllt Dier en trotzdem späicheren?"
 
 #: ../src/Services/Document.vala:557
 msgid ""
@@ -116,15 +125,15 @@ msgstr ""
 
 #: ../src/Services/Document.vala:591
 msgid "Load"
-msgstr ""
+msgstr "Lueden"
 
 #: ../src/Services/Document.vala:594
 msgid "Continue"
-msgstr ""
+msgstr "Weidermaachen"
 
 #: ../src/Services/TemplateManager.vala:194 ../src/MainWindow.vala:905
 msgid "Templates"
-msgstr ""
+msgstr "Vierlaagen"
 
 #: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
@@ -136,7 +145,7 @@ msgstr ""
 
 #: ../src/Widgets/SourceView.vala:131
 msgid "Normal Text"
-msgstr ""
+msgstr "Normalen Text"
 
 #: ../src/Widgets/LoadingView.vala:33
 msgid "Wait while restoring last session..."
@@ -144,11 +153,11 @@ msgstr ""
 
 #: ../src/Widgets/SearchManager.vala:70
 msgid "Find"
-msgstr ""
+msgstr "Sichen"
 
 #: ../src/Widgets/SearchManager.vala:75
 msgid "Replace With"
-msgstr ""
+msgstr "Ersetzen duerch"
 
 #: ../src/Widgets/SearchManager.vala:91
 msgid "Search next"
@@ -165,11 +174,11 @@ msgstr ""
 #: ../src/Widgets/SearchManager.vala:107 ../src/MainWindow.vala:849
 #: ../src/MainWindow.vala:850
 msgid "Replace"
-msgstr ""
+msgstr "Ersetzen"
 
 #: ../src/Widgets/SearchManager.vala:112
 msgid "Replace all"
-msgstr ""
+msgstr "All ersetzen"
 
 #: ../src/Widgets/SearchManager.vala:121
 msgid "Go To Line:"
@@ -177,7 +186,7 @@ msgstr ""
 
 #: ../src/Widgets/ToolBar.vala:58
 msgid "Share"
-msgstr ""
+msgstr "Deelen"
 
 #: ../src/Widgets/SplitView.vala:45
 msgid "No Files Open"
