@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-12-18 13:57-0600\n"
-"PO-Revision-Date: 2015-12-27 02:05+0000\n"
+"PO-Revision-Date: 2016-01-02 10:16+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-28 05:17+0000\n"
+"X-Launchpad-Export-Date: 2016-01-03 05:19+0000\n"
 "X-Generator: Launchpad (build 17865)\n"
 
 #: ../src/Scratch.vala:68
@@ -149,7 +149,7 @@ msgstr "文字檔來自 "
 
 #: ../src/Widgets/SourceView.vala:120
 msgid "Syntax Highlighting"
-msgstr "語法突顯"
+msgstr "語法標明"
 
 #: ../src/Widgets/SourceView.vala:131
 msgid "Normal Text"
@@ -295,11 +295,11 @@ msgstr "突顯目前列："
 
 #: ../src/Dialogs/PreferencesDialog.vala:214
 msgid "Highlight matching brackets:"
-msgstr "突顯對稱括號："
+msgstr "標明對稱括號："
 
 #: ../src/Dialogs/PreferencesDialog.vala:215
 msgid "Line wrap:"
-msgstr "折行："
+msgstr "自動折行："
 
 #: ../src/Dialogs/PreferencesDialog.vala:216
 msgid "Draw spaces:"
