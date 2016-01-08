@@ -178,23 +178,28 @@ namespace Scratch {
                         }
 
                         var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
-                        if (info.get_file_type () == FileType.REGULAR
-                            || info.get_file_type () == FileType.SYMBOLIC_LINK) {
-                            files += file;
-                        } else if (info.get_file_type () == FileType.MOUNTABLE){
-                            string reason = _("Is a mountable location.");
-                            msg = _("File \"%s\" cannot be opened.\n%s").printf ("<b>%s</b>".printf (file.get_uri ()), reason);
-                        } else if (info.get_file_type () == FileType.DIRECTORY ){
-                            string reason = _("Is a directory.");
-                            msg = _("File \"%s\" cannot be opened.\n%s").printf ("<b>%s</b>".printf (file.get_uri ()), reason);
-                        } else if (info.get_file_type () == FileType.SPECIAL ){
-                            string reason = _("Is a \"special\" file such as a socket,\n fifo, block device, or character device.");
-                            msg = _("File \"%s\" cannot be opened.\n%s").printf ("<b>%s</b>".printf (file.get_uri ()), reason);
-                        } else {
-                            string reason = _("Is a \"unknown\" file type.");
-                            msg = _("File \"%s\" cannot be opened.\n%s").printf ("<b>%s</b>".printf (file.get_uri ()), reason);
+                        switch (info.get_file_type ()) {
+                            case FileType.REGULAR:
+                            case FileType.SYMBOLIC_LINK:
+                                files += file;
+                                break;
+                            case FileType.MOUNTABLE:
+                                string reason = _("Is a mountable location.");
+                                msg = _("File \"%s\" cannot be opened.\n%s").printf ("<b>%s</b>".printf (file.get_uri ()), reason);    
+                                break;
+                            case FileType.DIRECTORY:
+                                string reason = _("Is a directory.");
+                                msg = _("File \"%s\" cannot be opened.\n%s").printf ("<b>%s</b>".printf (file.get_uri ()), reason);
+                                break;
+                            case FileType.SPECIAL:
+                                string reason = _("Is a \"special\" file such as a socket,\n fifo, block device, or character device.");
+                                msg = _("File \"%s\" cannot be opened.\n%s").printf ("<b>%s</b>".printf (file.get_uri ()), reason);
+                                break;
+                            default:
+                                string reason = _("Is a \"unknown\" file type.");
+                                msg = _("File \"%s\" cannot be opened.\n%s").printf ("<b>%s</b>".printf (file.get_uri ()), reason);
+                                break;
                         }
-
                     } catch (Error e) {
                         warning (e.message);
                     }
