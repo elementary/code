@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-12-18 13:57-0600\n"
-"PO-Revision-Date: 2015-12-21 13:39+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
+"PO-Revision-Date: 2016-01-09 09:50+0000\n"
+"Last-Translator: Lukáš Papík <stereo839@gmail.com>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-22 04:51+0000\n"
-"X-Generator: Launchpad (build 17865)\n"
+"X-Launchpad-Export-Date: 2016-01-10 05:19+0000\n"
+"X-Generator: Launchpad (build 17881)\n"
 
 #: ../src/Scratch.vala:68
 msgid "translator-credits"
@@ -24,6 +24,7 @@ msgstr ""
 "  Daniel Foxik https://launchpad.net/~foxik0169\n"
 "  Igor Štefanko https://launchpad.net/~istefanko\n"
 "  Ivan Cizik https://launchpad.net/~ivancizik\n"
+"  Lukáš Papík https://launchpad.net/~stereo839\n"
 "  Marek https://launchpad.net/~sveco86\n"
 "  Marek Zelinka https://launchpad.net/~mzelinka\n"
 "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
@@ -176,15 +177,15 @@ msgstr "Nahradiť za"
 
 #: ../src/Widgets/SearchManager.vala:91
 msgid "Search next"
-msgstr ""
+msgstr "Hľadať ďalší"
 
 #: ../src/Widgets/SearchManager.vala:97
 msgid "Search previous"
-msgstr ""
+msgstr "Hľadať predchozí"
 
 #: ../src/Widgets/SearchManager.vala:104
 msgid "Cyclic Search"
-msgstr ""
+msgstr "Cyklické hľadanie"
 
 #: ../src/Widgets/SearchManager.vala:107 ../src/MainWindow.vala:849
 #: ../src/MainWindow.vala:850
@@ -518,11 +519,12 @@ msgstr "/Nový súbor"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:24
 msgid "Preserve Indent"
-msgstr ""
+msgstr "Zachovať odsadenie"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:25
 msgid "Maintains indent level of pasted text when auto-indent is active"
 msgstr ""
+"Udržujte odsadenie úrovne vloženého textu, keď je aktívna automatická odrážka"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
 msgid "Highlight Selected Words"
@@ -756,7 +758,7 @@ msgstr "Otvorte súbory, ktoré upravujete inou aplikáciou"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr ""
+msgstr "Otvoriť s..."
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
