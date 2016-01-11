@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-12-18 13:57-0600\n"
-"PO-Revision-Date: 2016-01-09 09:50+0000\n"
-"Last-Translator: Lukáš Papík <stereo839@gmail.com>\n"
+"PO-Revision-Date: 2016-01-10 21:43+0000\n"
+"Last-Translator: Ľubomír Hlavko <5lubo555@azet.sk>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-01-10 05:19+0000\n"
+"X-Launchpad-Export-Date: 2016-01-11 04:51+0000\n"
 "X-Generator: Launchpad (build 17881)\n"
 
 #: ../src/Scratch.vala:68
@@ -31,7 +31,8 @@ msgstr ""
 "  Martin Maričák https://launchpad.net/~matko-maricak\n"
 "  Matej Kovac https://launchpad.net/~matejkovaclc2\n"
 "  Milan Slovák https://launchpad.net/~milboys\n"
-"  pyler https://launchpad.net/~pyler-inbox"
+"  pyler https://launchpad.net/~pyler-inbox\n"
+"  Ľubomír Hlavko https://launchpad.net/~5lubo555"
 
 #: ../src/Scratch.vala:246
 msgid "New Tab"
@@ -59,7 +60,7 @@ msgstr "Úprava textových súborov"
 
 #: ../src/config.vala:16
 msgid "Text Editor"
-msgstr "Textový Editor"
+msgstr "Textový editor"
 
 #: ../src/config.vala:17 ../src/Services/Document.vala:405
 msgid "New Document"
@@ -129,7 +130,7 @@ msgstr ""
 
 #: ../src/Services/Document.vala:559
 msgid "Save changes elsewhere"
-msgstr "Uložiť zmeny inde"
+msgstr "Uložiť zmeny inam"
 
 #: ../src/Services/Document.vala:590
 msgid ""
@@ -181,7 +182,7 @@ msgstr "Hľadať ďalší"
 
 #: ../src/Widgets/SearchManager.vala:97
 msgid "Search previous"
-msgstr "Hľadať predchozí"
+msgstr "Hľadať predošlý"
 
 #: ../src/Widgets/SearchManager.vala:104
 msgid "Cyclic Search"
@@ -210,7 +211,7 @@ msgstr "Žiadne otvorené súbory"
 
 #: ../src/Widgets/SplitView.vala:46
 msgid "Open a file to begin editing."
-msgstr "Otvorte súbor a začnite editovať"
+msgstr "Otvorte súbor a začnite upravovať."
 
 #: ../src/Widgets/SplitView.vala:50
 msgid "New file"
@@ -250,7 +251,7 @@ msgstr "Rozhranie"
 
 #: ../src/Dialogs/PreferencesDialog.vala:79
 msgid "Extensions"
-msgstr "Rozšírenie"
+msgstr "Rozšírenia"
 
 #: ../src/Dialogs/PreferencesDialog.vala:83 ../src/MainWindow.vala:845
 #: ../src/MainWindow.vala:846
@@ -263,19 +264,19 @@ msgstr "Ukázať uvítaciu obrazovku"
 
 #: ../src/Dialogs/PreferencesDialog.vala:129
 msgid "Show last open tabs"
-msgstr "Ukázať naposledy otvorené karty"
+msgstr "Zobraziť naposledy otvorené karty"
 
 #: ../src/Dialogs/PreferencesDialog.vala:145
 msgid "General:"
-msgstr "Základné"
+msgstr "Základné:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:151
 msgid "When Scratch starts:"
-msgstr "Po naštartovaní Scratch"
+msgstr "Po spustení Scratch:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:154
 msgid "Save files when changed:"
-msgstr "Uložiť súbory keď sa zmení:"
+msgstr "Uložiť súbory pri ich zmene:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:158
 msgid "Tabs:"
@@ -291,7 +292,7 @@ msgstr "Vložiť medzery namiesto tabulátorov:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:170
 msgid "Tab width:"
-msgstr "Šírka tabulátora"
+msgstr "Šírka tabulátora:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:195
 msgid "Editor:"
@@ -315,7 +316,7 @@ msgstr "Vykresľovanie medzier:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:217
 msgid "Show line numbers:"
-msgstr "Ukázať očíslovanie riadkov:"
+msgstr "Zobraziť číslovanie riadkov:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:219
 msgid "Line width guide:"
@@ -331,7 +332,7 @@ msgstr "Vybrať písmo:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:250
 msgid "Color scheme:"
-msgstr "Farebná schéma"
+msgstr "Farebná schéma:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:255
 msgid "Custom font:"
@@ -385,7 +386,7 @@ msgstr "Znovu otvoriť zatvorený dokument"
 
 #: ../src/MainWindow.vala:854
 msgid "Open last closed document in a new tab"
-msgstr "Otvoriť posledný zatvorený dokument na novej karte"
+msgstr "Otvoriť posledný zatvorený dokument v novej karte"
 
 #: ../src/MainWindow.vala:857
 msgid "Add New Tab"
@@ -453,7 +454,7 @@ msgstr "Nový súbor zo schránky"
 
 #: ../src/MainWindow.vala:893
 msgid "Zoom"
-msgstr "Priblížiť"
+msgstr "Priblíženie"
 
 #: ../src/MainWindow.vala:894
 msgid "Zoom 1:1"
@@ -469,7 +470,7 @@ msgstr "Uložiť tento súbor s iným menom"
 
 #: ../src/MainWindow.vala:906
 msgid "Project templates"
-msgstr "Projekt šablón"
+msgstr "Šablóny projektu"
 
 #: ../src/MainWindow.vala:910
 msgid "Change Scratch settings"
@@ -532,7 +533,7 @@ msgstr "Zvýrazniť označený text"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
 msgid "Highlights all occurrences of words that are selected"
-msgstr "Zvýrazniť výskyt všetkých vybraných slov"
+msgstr "Zvýrazňuje výskyt všetkých vybraných slov"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:21
 #: ../plugins/clipboard-history/ClipboardHistory.vala:89
@@ -754,7 +755,7 @@ msgstr "Otvoriť pomocou"
 
 #: ../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr "Otvorte súbory, ktoré upravujete inou aplikáciou"
+msgstr "Otvoriťsúbory, ktoré upravujete inou aplikáciou"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
@@ -808,7 +809,7 @@ msgstr "Zobraziť dialógové okno s väčšinou používaných slov z vašich s
 
 #: ../plugins/word-completion/plugin.vala:175
 msgid "%s - Word Completion"
-msgstr "%s - dokončovanie slov"
+msgstr "Dokončovanie slova: %s"
 
 #: ../plugins/word-completion/completion-provider.vala:80
 msgid "Could not load icon theme: %s\n"
