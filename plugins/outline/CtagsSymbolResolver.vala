@@ -87,34 +87,40 @@ public class CtagsSymbolOutline : Object, SymbolOutline {
                 Icon? icon = null;
                 switch (type) {
                     case "class":
-                        icon = new FileIcon (File.new_for_uri (OUTLINE_RESOURCE_URI + "class-symbolic.svg"));
+                        icon = new ThemedIcon ("lang-class");
                         break;
                     case "struct":
-                        icon = new FileIcon (File.new_for_uri (OUTLINE_RESOURCE_URI + "structure-symbolic.svg"));
+                        icon = new ThemedIcon ("lang-struct");
                         break;
                     case "field":
                     case "enumerator":
                     case "member":
                     case "variable":
-                        icon = new FileIcon (File.new_for_uri (OUTLINE_RESOURCE_URI + "field-symbolic.svg"));
+                        icon = new ThemedIcon ("lang-property");
                         break;
                     case "enum":
-                        icon = new FileIcon (File.new_for_uri (OUTLINE_RESOURCE_URI + "enum-symbolic.svg"));
+                        icon = new ThemedIcon ("lang-enum");
                         break;
                     case "macro":
                     case "constant":
                     case "typedef":
-                        icon = new FileIcon (File.new_for_uri (OUTLINE_RESOURCE_URI + "constant-symbolic.svg"));
+                        icon = new ThemedIcon ("lang-constant");
                         break;
                     case "constructor":
+                        icon = new ThemedIcon ("lang-constructor");
+                        break;
                     case "destructor":
                     case "method":
                     case "function":
+                        icon = new ThemedIcon ("lang-method");
+                        break;
                     case "namespace":
+                        icon = new ThemedIcon ("lang-namespace");
+                        break;
                     case "package":
                         break;
                     case "property":
-                        icon = new FileIcon (File.new_for_uri (OUTLINE_RESOURCE_URI + "property-symbolic.svg"));
+                        icon = new ThemedIcon ("lang-property");
                         break;
                 }
 
@@ -141,7 +147,7 @@ public class CtagsSymbolOutline : Object, SymbolOutline {
                     } else {
                         // anonymous enum
                         if (i.parent.substring (0, 6) == "__anon") {
-                            var e = new CtagsSymbol (doc, i.parent, i.line - 1, new FileIcon (File.new_for_uri (OUTLINE_RESOURCE_URI + "enum-symbolic.svg")));
+                            var e = new CtagsSymbol (doc, i.parent, i.line - 1, new ThemedIcon ("lang-enum"));
                             new_root.add (e);
 
                             e.add (new CtagsSymbol (doc, i.name, i.line, i.icon));

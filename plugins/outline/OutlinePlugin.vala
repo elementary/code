@@ -33,8 +33,13 @@ namespace Scratch.Plugins {
 
         Gee.LinkedList<SymbolOutline> views;
 
-        public void activate () {
+        construct {
             views = new Gee.LinkedList<SymbolOutline> ();
+            weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
+            default_theme.add_resource_path ("/org/pantheon/scratch/plugin/outline");
+        }
+
+        public void activate () {
             scratch_interface = (Scratch.Services.Interface)object;
             scratch_interface.hook_document.connect (on_hook_document);
             scratch_interface.hook_notebook_sidebar.connect (on_hook_sidebar);
