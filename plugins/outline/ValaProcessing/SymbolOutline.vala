@@ -30,6 +30,11 @@ public class ValaSymbolOutline : Object, SymbolOutline {
     }
 
     void doc_closed (Scratch.Services.Document doc) {
+        if (cancellable != null) {
+            cancellable.cancel ();
+            cancellable = null;
+        }
+
         closed ();
     }
 
@@ -129,21 +134,51 @@ public class ValaSymbolOutline : Object, SymbolOutline {
 
         var tree_child = new SymbolItem (symbol);
         if (symbol is Vala.Struct) {
-            tree_child.icon = new FileIcon (File.new_for_uri (OUTLINE_RESOURCE_URI + "structure-symbolic.svg"));
+            tree_child.icon = new ThemedIcon ("lang-struct");
         } else if (symbol is Vala.Class) {
-            tree_child.icon = new FileIcon (File.new_for_uri (OUTLINE_RESOURCE_URI + "class-symbolic.svg"));
+            if (((Vala.Class) symbol).is_abstract) {
+                tree_child.icon = new ThemedIcon ("lang-class-abstract");
+            } else {
+                tree_child.icon = new ThemedIcon ("lang-class");
+            }
         } else if (symbol is Vala.Constant) {
-            tree_child.icon = new FileIcon (File.new_for_uri (OUTLINE_RESOURCE_URI + "constant-symbolic.svg"));
+            tree_child.icon = new ThemedIcon ("lang-constant");
         } else if (symbol is Vala.Enum) {
-            tree_child.icon = new FileIcon (File.new_for_uri (OUTLINE_RESOURCE_URI + "enum-symbolic.svg"));
+            tree_child.icon = new ThemedIcon ("lang-enum");
         } else if (symbol is Vala.Field) {
-            tree_child.icon = new FileIcon (File.new_for_uri (OUTLINE_RESOURCE_URI + "field-symbolic.svg"));
+            tree_child.icon = new ThemedIcon ("lang-property");
         } else if (symbol is Vala.Interface) {
-            tree_child.icon = new FileIcon (File.new_for_uri (OUTLINE_RESOURCE_URI + "interface-symbolic.svg"));
+            tree_child.icon = new ThemedIcon ("lang-interface");
         } else if (symbol is Vala.Property) {
-            tree_child.icon = new FileIcon (File.new_for_uri (OUTLINE_RESOURCE_URI + "property-symbolic.svg"));
+            if (((Vala.Property) symbol).is_abstract) {
+                tree_child.icon = new ThemedIcon ("lang-property-abstract");
+            } else if (((Vala.Property) symbol).is_virtual) {
+                tree_child.icon = new ThemedIcon ("lang-property-virtual");
+            } else {
+                tree_child.icon = new ThemedIcon ("lang-property");
+            }
         } else if (symbol is Vala.Signal) {
-            tree_child.icon = new FileIcon (File.new_for_uri (OUTLINE_RESOURCE_URI + "signal-symbolic.svg"));
+            tree_child.icon = new ThemedIcon ("lang-signal");
+        } else if (symbol is Vala.CreationMethod) {
+            tree_child.icon = new ThemedIcon ("lang-constructor");
+        } else if (symbol is Vala.Method) {
+            if (((Vala.Method) symbol).is_abstract) {
+                tree_child.icon = new ThemedIcon ("lang-method-abstract");
+            } else if (((Vala.Method) symbol).is_virtual) {
+                tree_child.icon = new ThemedIcon ("lang-method-virtual");
+            } else if (((Vala.Method) symbol).binding == Vala.MemberBinding.STATIC) {
+                tree_child.icon = new ThemedIcon ("lang-method-static");
+            } else {
+                tree_child.icon = new ThemedIcon ("lang-method");
+            }
+        } else if (symbol is Vala.Namespace) {
+            tree_child.icon = new ThemedIcon ("lang-namespace");
+        } else if (symbol is Vala.ErrorDomain) {
+            tree_child.icon = new ThemedIcon ("lang-errordomain");
+        } else if (symbol is Vala.Delegate) {
+            tree_child.icon = new ThemedIcon ("lang-delegate");
+        } else {
+            warning (symbol.type_name);
         }
 
         parent.add (tree_child);
