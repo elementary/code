@@ -3,21 +3,22 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-18 13:57-0600\n"
-"PO-Revision-Date: 2015-12-21 13:38+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
+"PO-Revision-Date: 2016-01-16 18:26+0000\n"
+"Last-Translator: Minus12 <minus12@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-22 04:50+0000\n"
-"X-Generator: Launchpad (build 17865)\n"
+"X-Launchpad-Export-Date: 2016-01-17 05:18+0000\n"
+"X-Generator: Launchpad (build 17886)\n"
 
 #: ../src/Scratch.vala:68
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
-"  Mikel https://launchpad.net/~mishkasta"
+"  Mikel https://launchpad.net/~mishkasta\n"
+"  Minus12 https://launchpad.net/~minus12"
 
 #: ../src/Scratch.vala:246
 msgid "New Tab"
@@ -114,25 +115,27 @@ msgstr ""
 
 #: ../src/Services/Document.vala:559
 msgid "Save changes elsewhere"
-msgstr ""
+msgstr "Захаваць змены ў іншым месцы"
 
 #: ../src/Services/Document.vala:590
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
+"Файл \"%s\" быў зменены знешнім прыкладаннем. Загрузіць яго зноў ці "
+"працягнуць рэдагаванне?"
 
 #: ../src/Services/Document.vala:591
 msgid "Load"
-msgstr ""
+msgstr "Загрузіць"
 
 #: ../src/Services/Document.vala:594
 msgid "Continue"
-msgstr ""
+msgstr "Працягваць"
 
 #: ../src/Services/TemplateManager.vala:194 ../src/MainWindow.vala:905
 msgid "Templates"
-msgstr ""
+msgstr "Шаблоны"
 
 #: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
@@ -140,141 +143,141 @@ msgstr ""
 
 #: ../src/Widgets/SourceView.vala:120
 msgid "Syntax Highlighting"
-msgstr ""
+msgstr "Падсветка сінтаксісу"
 
 #: ../src/Widgets/SourceView.vala:131
 msgid "Normal Text"
-msgstr ""
+msgstr "Звычайны тэкст"
 
 #: ../src/Widgets/LoadingView.vala:33
 msgid "Wait while restoring last session..."
-msgstr ""
+msgstr "Дачакайцеся аднаўлення мінулай сессіі..."
 
 #: ../src/Widgets/SearchManager.vala:70
 msgid "Find"
-msgstr ""
+msgstr "Пошук"
 
 #: ../src/Widgets/SearchManager.vala:75
 msgid "Replace With"
-msgstr ""
+msgstr "Замяніць на"
 
 #: ../src/Widgets/SearchManager.vala:91
 msgid "Search next"
-msgstr ""
+msgstr "Шукаць далей"
 
 #: ../src/Widgets/SearchManager.vala:97
 msgid "Search previous"
-msgstr ""
+msgstr "Шукаць раней"
 
 #: ../src/Widgets/SearchManager.vala:104
 msgid "Cyclic Search"
-msgstr ""
+msgstr "Цыклічны пошук"
 
 #: ../src/Widgets/SearchManager.vala:107 ../src/MainWindow.vala:849
 #: ../src/MainWindow.vala:850
 msgid "Replace"
-msgstr ""
+msgstr "Замяніць"
 
 #: ../src/Widgets/SearchManager.vala:112
 msgid "Replace all"
-msgstr ""
+msgstr "Замяніць усё"
 
 #: ../src/Widgets/SearchManager.vala:121
 msgid "Go To Line:"
-msgstr ""
+msgstr "Перайсці да радку:"
 
 #: ../src/Widgets/ToolBar.vala:58
 msgid "Share"
-msgstr ""
+msgstr "Падзяліцца"
 
 #: ../src/Widgets/SplitView.vala:45
 msgid "No Files Open"
-msgstr ""
+msgstr "Няма адкрытых файлаў"
 
 #: ../src/Widgets/SplitView.vala:46
 msgid "Open a file to begin editing."
-msgstr ""
+msgstr "Адкрыйце файл, каб пачаць рэдагаваць."
 
 #: ../src/Widgets/SplitView.vala:50
 msgid "New file"
-msgstr ""
+msgstr "Новы файл"
 
 #: ../src/Widgets/SplitView.vala:50
 msgid "Create a new empty file."
-msgstr ""
+msgstr "Стварыць новы пусты файл."
 
 #: ../src/Widgets/SplitView.vala:51
 msgid "Open file"
-msgstr ""
+msgstr "Адкрыць файл"
 
 #: ../src/Widgets/SplitView.vala:51
 msgid "Open a saved file."
-msgstr ""
+msgstr "Адкрыць захаваны файл."
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "New file from clipboard"
-msgstr ""
+msgstr "Новы файл з буферу абмену"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "Create a new file from the contents of your clipboard."
-msgstr ""
+msgstr "Стварыць новы файл са зместу буферу абмену"
 
 #: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:909
 msgid "Preferences"
-msgstr ""
+msgstr "Параметры"
 
 #: ../src/Dialogs/PreferencesDialog.vala:63
 msgid "Behavior"
-msgstr ""
+msgstr "Паводзіны"
 
 #: ../src/Dialogs/PreferencesDialog.vala:66
 msgid "Interface"
-msgstr ""
+msgstr "Інтэрфэйс"
 
 #: ../src/Dialogs/PreferencesDialog.vala:79
 msgid "Extensions"
-msgstr ""
+msgstr "Пашырэнні"
 
 #: ../src/Dialogs/PreferencesDialog.vala:83 ../src/MainWindow.vala:845
 #: ../src/MainWindow.vala:846
 msgid "Close"
-msgstr ""
+msgstr "Закрыць"
 
 #: ../src/Dialogs/PreferencesDialog.vala:128
 msgid "Show welcome screen"
-msgstr ""
+msgstr "Паказваць экран прывітання"
 
 #: ../src/Dialogs/PreferencesDialog.vala:129
 msgid "Show last open tabs"
-msgstr ""
+msgstr "Паказаць апошнія адкрытыя ўкладкі"
 
 #: ../src/Dialogs/PreferencesDialog.vala:145
 msgid "General:"
-msgstr ""
+msgstr "Агульныя:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:151
 msgid "When Scratch starts:"
-msgstr ""
+msgstr "Калі Scratch запускаецца:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:154
 msgid "Save files when changed:"
-msgstr ""
+msgstr "Захоўваць файлы пры змяненні:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:158
 msgid "Tabs:"
-msgstr ""
+msgstr "Укладкі:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:163
 msgid "Automatic indentation:"
-msgstr ""
+msgstr "Аўтаматычнае структураванне:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:166
 msgid "Insert spaces instead of tabs:"
-msgstr ""
+msgstr "Устаўляць прабелы замест табаў:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:170
 msgid "Tab width:"
-msgstr ""
+msgstr "Шырыня ўкладкі:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:195
 msgid "Editor:"
