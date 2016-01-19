@@ -174,32 +174,40 @@ namespace Scratch {
                                     // Otherwise we simple use the error notification from glib
                                     msg = e.message;
                                 }
+
+                                // Escape to the outer catch clause, and overwrite
+                                // the weird glib's standard errors.
+                                throw new Error (e.domain, e.code, msg);
                             }
                         }
 
                         var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
+                        string err_msg = _("File \"%s\" cannot be opened.\n%s");
+                        string reason = "";
+
                         switch (info.get_file_type ()) {
                             case FileType.REGULAR:
                             case FileType.SYMBOLIC_LINK:
                                 files += file;
                                 break;
                             case FileType.MOUNTABLE:
-                                string reason = _("Is a mountable location.");
-                                msg = _("File \"%s\" cannot be opened.\n%s").printf ("<b>%s</b>".printf (file.get_uri ()), reason);    
+                                reason = _("It is a mountable location.");
                                 break;
                             case FileType.DIRECTORY:
-                                string reason = _("Is a directory.");
-                                msg = _("File \"%s\" cannot be opened.\n%s").printf ("<b>%s</b>".printf (file.get_uri ()), reason);
+                                reason = _("It is a directory.");
                                 break;
                             case FileType.SPECIAL:
-                                string reason = _("Is a \"special\" file such as a socket,\n fifo, block device, or character device.");
-                                msg = _("File \"%s\" cannot be opened.\n%s").printf ("<b>%s</b>".printf (file.get_uri ()), reason);
+                                reason = _("It is a \"special\" file such as a socket,\n fifo, block device, or character device.");
                                 break;
                             default:
-                                string reason = _("Is a \"unknown\" file type.");
-                                msg = _("File \"%s\" cannot be opened.\n%s").printf ("<b>%s</b>".printf (file.get_uri ()), reason);
+                                reason = _("It is an \"unknown\" file type.");
                                 break;
                         }
+
+                        if (reason.length > 0) {
+                            msg = err_msg.printf ("<b>%s</b>".printf (file.get_uri ()), reason);    
+                        }
+
                     } catch (Error e) {
                         warning (e.message);
                     }
