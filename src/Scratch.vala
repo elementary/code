@@ -160,19 +160,23 @@ namespace Scratch {
                             try {
                                 FileUtils.set_contents (file.get_path (), "");
                             } catch (Error e) {
+                                string reason = "";
                                 // We list some common errors for quick feedback
                                 if (e is FileError.ACCES) {
-                                    string reason = _("Maybe you do not have the necessary permissions.");
-                                    msg = _("File \"%s\" cannot be created.\n%s").printf ("<b>%s</b>".printf (file.get_uri ()), reason);                                    
+                                    reason = _("Maybe you do not have the necessary permissions.");
                                 } else if (e is FileError.NOENT) {
-                                    string reason = _("Maybe the file path provided is not valid.");
-                                    msg = _("File \"%s\" cannot be created.\n%s").printf ("<b>%s</b>".printf (file.get_uri ()), reason);
+                                    reason = _("Maybe the file path provided is not valid.");
                                 } else if (e is FileError.ROFS) {
-                                    string reason = _("The location is read-only.");
-                                    msg = _("File \"%s\" cannot be created.\n%s").printf ("<b>%s</b>".printf (file.get_uri ()), reason);
+                                    reason = _("The location is read-only.");
+                                } else if (e is FileError.NOTDIR) {
+                                    reason = _("The parent directory doesn't exist.");
                                 } else {
                                     // Otherwise we simple use the error notification from glib
                                     msg = e.message;
+                                }
+
+                                if (reason.length > 0) {
+                                    msg = _("File \"%s\" cannot be created.\n%s").printf ("<b>%s</b>".printf (file.get_path ()), reason);                                    
                                 }
 
                                 // Escape to the outer catch clause, and overwrite
@@ -205,7 +209,7 @@ namespace Scratch {
                         }
 
                         if (reason.length > 0) {
-                            msg = err_msg.printf ("<b>%s</b>".printf (file.get_uri ()), reason);    
+                            msg = err_msg.printf ("<b>%s</b>".printf (file.get_path ()), reason);    
                         }
 
                     } catch (Error e) {
