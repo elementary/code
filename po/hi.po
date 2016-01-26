@@ -8,19 +8,20 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-12-18 13:57-0600\n"
-"PO-Revision-Date: 2015-12-21 13:39+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
+"PO-Revision-Date: 2016-01-25 19:46+0000\n"
+"Last-Translator: Anurag kushwaha <kanurag078@gmail.com>\n"
 "Language-Team: Hindi <hi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-22 04:51+0000\n"
-"X-Generator: Launchpad (build 17865)\n"
+"X-Launchpad-Export-Date: 2016-01-26 05:22+0000\n"
+"X-Generator: Launchpad (build 17902)\n"
 
 #: ../src/Scratch.vala:68
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
+"  Anurag kushwaha https://launchpad.net/~kanurag078\n"
 "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
 "  Satchit Bhogle https://launchpad.net/~satchitb\n"
 "  Vishal Biswas https://launchpad.net/~vshlbiswas\n"
@@ -36,7 +37,7 @@ msgstr "नई विंडो"
 
 #: ../src/Scratch.vala:248
 msgid "Print version info and exit"
-msgstr "संस्करण बताकर बहार"
+msgstr "प्रिन्ट संस्करण जानकारी और बाहर"
 
 #: ../src/Scratch.vala:249
 msgid "Set of plugins"
@@ -70,8 +71,8 @@ msgstr "डाँकयुमेन्ट बंद  करनेसे पह�
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
-"अगर आप फाइल को नहीं सहेजेंगे, तो पिछले ४ सेकंड में बनाए बदलाव हमेशा के लिए "
-"खोए जाएँगे."
+"अगर आप फाइल को नहीं सहेजेंगे, तो पिछले ४ सेकंड में किए  बदलाव हमेशा के लिए "
+"खो जाएँगे |"
 
 #: ../src/Services/Document.vala:236
 msgid "Close without saving"
@@ -79,12 +80,12 @@ msgstr "बिना सहेजे बंद करें"
 
 #: ../src/Services/Document.vala:240 ../src/Utils.vala:29
 msgid "Cancel"
-msgstr "रद्द"
+msgstr "रद्द करें"
 
 #: ../src/Services/Document.vala:241 ../src/Services/Document.vala:546
 #: ../src/Utils.vala:33 ../src/MainWindow.vala:897
 msgid "Save"
-msgstr "सुरक्षित करें"
+msgstr "सहेजें"
 
 #: ../src/Services/Document.vala:313
 msgid "Save File"
@@ -103,7 +104,7 @@ msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
-"फ़ाइल \"%s\" युक्त स्थान हटा दिया गया था। आप कहीं और सहेजना चाहते हैं?"
+"फ़ाइल \"%s\" उक्त स्थान हटा दिया गया था। आप कहीं और सहेजना चाहते हैं?"
 
 #: ../src/Services/Document.vala:539 ../src/MainWindow.vala:901
 msgid "Save As…"
@@ -118,6 +119,8 @@ msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 msgstr ""
+"आप फाइल \"%स \" में किए बदलाव सुरक्षित नहीं कर सकते । क्या आप फाइल में किए "
+"गए बदलाव को अन्य स्थान पर सुरक्षित करना चाहते है ?"
 
 #: ../src/Services/Document.vala:559
 msgid "Save changes elsewhere"
@@ -131,15 +134,15 @@ msgstr ""
 
 #: ../src/Services/Document.vala:591
 msgid "Load"
-msgstr ""
+msgstr "लोड करें"
 
 #: ../src/Services/Document.vala:594
 msgid "Continue"
-msgstr ""
+msgstr "जारी रखें"
 
 #: ../src/Services/TemplateManager.vala:194 ../src/MainWindow.vala:905
 msgid "Templates"
-msgstr ""
+msgstr "नमूने"
 
 #: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
@@ -151,23 +154,23 @@ msgstr ""
 
 #: ../src/Widgets/SourceView.vala:131
 msgid "Normal Text"
-msgstr ""
+msgstr "सामान्य लेख"
 
 #: ../src/Widgets/LoadingView.vala:33
 msgid "Wait while restoring last session..."
-msgstr ""
+msgstr "पिछले सत्र के वापस आने तक प्रतीक्षा करे"
 
 #: ../src/Widgets/SearchManager.vala:70
 msgid "Find"
-msgstr ""
+msgstr "खोजें"
 
 #: ../src/Widgets/SearchManager.vala:75
 msgid "Replace With"
-msgstr ""
+msgstr "के साथ बदलें"
 
 #: ../src/Widgets/SearchManager.vala:91
 msgid "Search next"
-msgstr ""
+msgstr "अगला खोजे"
 
 #: ../src/Widgets/SearchManager.vala:97
 msgid "Search previous"
@@ -192,7 +195,7 @@ msgstr ""
 
 #: ../src/Widgets/ToolBar.vala:58
 msgid "Share"
-msgstr ""
+msgstr "साझा करें"
 
 #: ../src/Widgets/SplitView.vala:45
 msgid "No Files Open"
@@ -208,7 +211,7 @@ msgstr "नया फाइल"
 
 #: ../src/Widgets/SplitView.vala:50
 msgid "Create a new empty file."
-msgstr "नया गुप्त फाइल बनाएँ"
+msgstr "नई ख़ाली फाइल बनाएँ"
 
 #: ../src/Widgets/SplitView.vala:51
 msgid "Open file"
@@ -240,7 +243,7 @@ msgstr "अंतरफलक"
 
 #: ../src/Dialogs/PreferencesDialog.vala:79
 msgid "Extensions"
-msgstr ""
+msgstr "एक्सटेंशन्स"
 
 #: ../src/Dialogs/PreferencesDialog.vala:83 ../src/MainWindow.vala:845
 #: ../src/MainWindow.vala:846
@@ -265,7 +268,7 @@ msgstr "जब स्क्रेच शुरु होता है:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:154
 msgid "Save files when changed:"
-msgstr ""
+msgstr "बदलाव करने पर फाइलों को सहेजे"
 
 #: ../src/Dialogs/PreferencesDialog.vala:158
 msgid "Tabs:"
@@ -273,7 +276,7 @@ msgstr "टैब"
 
 #: ../src/Dialogs/PreferencesDialog.vala:163
 msgid "Automatic indentation:"
-msgstr ""
+msgstr "स्व हाशिया"
 
 #: ../src/Dialogs/PreferencesDialog.vala:166
 msgid "Insert spaces instead of tabs:"
@@ -325,7 +328,7 @@ msgstr ""
 
 #: ../src/Dialogs/PreferencesDialog.vala:255
 msgid "Custom font:"
-msgstr ""
+msgstr "मनपसंद फ़ॉन्ट:"
 
 #: ../src/Utils.vala:31 ../src/MainWindow.vala:885
 #: ../plugins/filemanager/FileView.vala:230
@@ -346,7 +349,7 @@ msgstr ""
 
 #: ../src/MainWindow.vala:179
 msgid "Trash"
-msgstr ""
+msgstr "रद्दी"
 
 #: ../src/MainWindow.vala:662
 msgid "Open some files"
@@ -359,7 +362,7 @@ msgstr ""
 #: ../src/MainWindow.vala:774 ../src/MainWindow.vala:938
 #: ../src/MainWindow.vala:939
 msgid "Find…"
-msgstr ""
+msgstr "ढूंढें..."
 
 #: ../src/MainWindow.vala:837 ../src/MainWindow.vala:838
 msgid "Go to line…"
@@ -383,7 +386,7 @@ msgstr ""
 
 #: ../src/MainWindow.vala:858
 msgid "Add a new tab"
-msgstr ""
+msgstr "एक नया टैब  जोड़े"
 
 #: ../src/MainWindow.vala:861
 msgid "Add New View"
@@ -423,7 +426,7 @@ msgstr "लौटिएँ"
 
 #: ../src/MainWindow.vala:878
 msgid "Restore this file"
-msgstr ""
+msgstr "इस फाइल को वापस लौटाएँ"
 
 #: ../src/MainWindow.vala:881 ../src/MainWindow.vala:882
 msgid "Duplicate selected strings"
@@ -443,11 +446,11 @@ msgstr ""
 
 #: ../src/MainWindow.vala:893
 msgid "Zoom"
-msgstr ""
+msgstr "ज़ूम करें"
 
 #: ../src/MainWindow.vala:894
 msgid "Zoom 1:1"
-msgstr ""
+msgstr "ज़ूम 1:1"
 
 #: ../src/MainWindow.vala:898
 msgid "Save this file"
@@ -467,11 +470,11 @@ msgstr "स्क्रेच अनुकूलित करें"
 
 #: ../src/MainWindow.vala:913 ../src/MainWindow.vala:914
 msgid "Next Tab"
-msgstr ""
+msgstr "अगला टैब"
 
 #: ../src/MainWindow.vala:917 ../src/MainWindow.vala:918
 msgid "Previous Tab"
-msgstr ""
+msgstr "पिछला टैब"
 
 #: ../src/MainWindow.vala:934 ../src/MainWindow.vala:935
 msgid "Fullscreen"
@@ -493,19 +496,19 @@ msgstr ""
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:82
 msgid "Add file"
-msgstr ""
+msgstr "फ़ाइल जोड़ें"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:89
 msgid "Remove file"
-msgstr ""
+msgstr "फ़ाइल मिटाएं"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:104
 msgid "File Manager"
-msgstr ""
+msgstr "फ़ाइल मैनेजर"
 
 #: ../plugins/filemanager/FileView.vala:73
 msgid "/New File"
-msgstr ""
+msgstr "/नई फाइल"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:24
 msgid "Preserve Indent"
@@ -534,11 +537,11 @@ msgstr ""
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:28
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:156
 msgid "Delete"
-msgstr ""
+msgstr "हटाएं"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:159
 #: ../plugins/terminal/terminal.vala:313
@@ -560,7 +563,7 @@ msgstr ""
 #: ../plugins/browser-preview/browser-preview.vala:85
 #: ../plugins/browser-preview/browser-preview.vala:111
 msgid "Show Preview"
-msgstr ""
+msgstr "पूर्वावलोकन दिखाएँ"
 
 #: ../plugins/browser-preview/browser-preview.vala:107
 #: ../plugins/browser-preview/browser-preview.vala:150
@@ -569,7 +572,7 @@ msgstr ""
 
 #: ../plugins/browser-preview/browser-preview.vala:108
 msgid "Hide Preview"
-msgstr ""
+msgstr "पूर्वावलोकन छुपाएँ"
 
 #: ../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
@@ -577,7 +580,7 @@ msgstr ""
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:70
 msgid "Folders"
-msgstr ""
+msgstr "फोल्डर"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:88
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:89
@@ -586,11 +589,11 @@ msgstr ""
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:94
 msgid "_Cancel"
-msgstr ""
+msgstr "रद्द करें (_C)"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:95
 msgid "_Open"
-msgstr ""
+msgstr "खोलें (_O)"
 
 #: ../plugins/folder-manager/FileView.vala:294
 msgid "Close Folder"
@@ -598,7 +601,7 @@ msgstr ""
 
 #: ../plugins/outline/OutlinePlugin.vala:21
 msgid "Outline"
-msgstr ""
+msgstr "बाहरी रूपरेखा"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
@@ -610,7 +613,7 @@ msgstr ""
 #: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
 #: ../plugins/outline/ValaProcessing/SymbolOutline.vala:94
 msgid "Symbols"
-msgstr ""
+msgstr "संकेत"
 
 #: ../plugins/brackets-completion/brackets-completion.vala:21
 msgid "Brackets Completion"
@@ -631,19 +634,19 @@ msgstr ""
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:42
 msgid "Loading..."
-msgstr ""
+msgstr "लोड हो रहा है..."
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:175
 msgid "Bookmark"
-msgstr ""
+msgstr "पसंद"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:234
 msgid "Files"
-msgstr ""
+msgstr "फ़ाइलें"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:235
 msgid "Project"
-msgstr ""
+msgstr "प्रोजेक्ट"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:236
 msgid "Bookmarks"
@@ -659,7 +662,7 @@ msgstr ""
 
 #: ../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
-msgstr ""
+msgstr "पेस्टबिन"
 
 #: ../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
@@ -667,15 +670,15 @@ msgstr ""
 
 #: ../plugins/pastebin/pastebin.vala:134
 msgid "Upload to Pastebin"
-msgstr ""
+msgstr "पेस्टबिन पर अपलोड करे"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
-msgstr ""
+msgstr "पेस्टबिन  के द्वारा  साझा करे"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:272
 msgid "Name:"
-msgstr ""
+msgstr "नाम:"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:278
 msgid "Format: "
@@ -683,11 +686,11 @@ msgstr ""
 
 #: ../plugins/pastebin/pastebin_dialog.vala:280
 msgid "Others..."
-msgstr ""
+msgstr "अन्य..."
 
 #: ../plugins/pastebin/pastebin_dialog.vala:305
 msgid "Expiry time:"
-msgstr ""
+msgstr "एक्सपायरी तिथि (समाप्ति तिथि )"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:310
 msgid "Keep this paste private"
@@ -695,7 +698,7 @@ msgstr ""
 
 #: ../plugins/pastebin/pastebin_dialog.vala:312
 msgid "Upload"
-msgstr ""
+msgstr "अपलोड करें"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:342
 msgid "Other formats"
@@ -703,7 +706,7 @@ msgstr ""
 
 #: ../plugins/pastebin/pastebin_dialog.vala:511
 msgid "Never"
-msgstr ""
+msgstr "कभी नहीं"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:512
 msgid "Ten minutes"
@@ -711,7 +714,7 @@ msgstr ""
 
 #: ../plugins/pastebin/pastebin_dialog.vala:513
 msgid "One hour"
-msgstr ""
+msgstr "एक घंटा"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:514
 msgid "One day"
@@ -731,7 +734,7 @@ msgstr ""
 
 #: ../plugins/spell/spell.vala:18
 msgid "Spell Checker"
-msgstr ""
+msgstr "वर्तनी जाँचकर्ता"
 
 #: ../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
@@ -739,7 +742,7 @@ msgstr ""
 
 #: ../plugins/open-with/open-with.vala:21
 msgid "Open With"
-msgstr ""
+msgstr "के साथ खोलें"
 
 #: ../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
@@ -747,7 +750,7 @@ msgstr ""
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr ""
+msgstr "के साथ खोलें"
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
