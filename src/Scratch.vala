@@ -150,18 +150,83 @@ namespace Scratch {
                 files.length = 0;
 
                 foreach (string arg in args[1:unclaimed_args + 1]) {
+                    // We set a message, that later is informed to the user
+                    // in a dialog if something noteworthy happens.
+                    string msg = "";
                     try {
                         var file = File.new_for_commandline_arg (arg);
 
-                        if (!file.query_exists ())
-                            continue;
+                        if (!file.query_exists ()) {
+                            try {
+                                FileUtils.set_contents (file.get_path (), "");
+                            } catch (Error e) {
+                                string reason = "";
+                                // We list some common errors for quick feedback
+                                if (e is FileError.ACCES) {
+                                    reason = _("Maybe you do not have the necessary permissions.");
+                                } else if (e is FileError.NOENT) {
+                                    reason = _("Maybe the file path provided is not valid.");
+                                } else if (e is FileError.ROFS) {
+                                    reason = _("The location is read-only.");
+                                } else if (e is FileError.NOTDIR) {
+                                    reason = _("The parent directory doesn't exist.");
+                                } else {
+                                    // Otherwise we simple use the error notification from glib
+                                    msg = e.message;
+                                }
+
+                                if (reason.length > 0) {
+                                    msg = _("File \"%s\" cannot be created.\n%s").printf ("<b>%s</b>".printf (file.get_path ()), reason);                                    
+                                }
+
+                                // Escape to the outer catch clause, and overwrite
+                                // the weird glib's standard errors.
+                                throw new Error (e.domain, e.code, msg);
+                            }
+                        }
 
                         var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
-                        if (info.get_file_type () == FileType.REGULAR)
-                            files += file;
+                        string err_msg = _("File \"%s\" cannot be opened.\n%s");
+                        string reason = "";
+
+                        switch (info.get_file_type ()) {
+                            case FileType.REGULAR:
+                            case FileType.SYMBOLIC_LINK:
+                                files += file;
+                                break;
+                            case FileType.MOUNTABLE:
+                                reason = _("It is a mountable location.");
+                                break;
+                            case FileType.DIRECTORY:
+                                reason = _("It is a directory.");
+                                break;
+                            case FileType.SPECIAL:
+                                reason = _("It is a \"special\" file such as a socket,\n fifo, block device, or character device.");
+                                break;
+                            default:
+                                reason = _("It is an \"unknown\" file type.");
+                                break;
+                        }
+
+                        if (reason.length > 0) {
+                            msg = err_msg.printf ("<b>%s</b>".printf (file.get_path ()), reason);    
+                        }
 
                     } catch (Error e) {
                         warning (e.message);
+                    }
+
+                    // Notify the user that something happened.
+                    if (msg.length > 0) {
+                        var parent_window = get_last_window () as Gtk.Window;
+                        var dialog = new Gtk.MessageDialog.with_markup (parent_window,
+                            Gtk.DialogFlags.MODAL,
+                            Gtk.MessageType.ERROR,
+                            Gtk.ButtonsType.CLOSE,
+                            msg);
+                        dialog.run ();
+                        dialog.destroy ();
+                        dialog.close ();
                     }
                 }
 
