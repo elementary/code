@@ -3,21 +3,22 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-18 13:57-0600\n"
-"PO-Revision-Date: 2015-12-21 13:36+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
+"PO-Revision-Date: 2016-02-23 19:14+0000\n"
+"Last-Translator: Tamim Arafat <tamim.arafat@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-22 04:50+0000\n"
-"X-Generator: Launchpad (build 17865)\n"
+"X-Launchpad-Export-Date: 2016-02-24 05:33+0000\n"
+"X-Generator: Launchpad (build 17925)\n"
 
 #: ../src/Scratch.vala:68
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
-"  Tamim Arafat https://launchpad.net/~tamim-arafat"
+"  Tamim Arafat https://launchpad.net/~tamim-arafat\n"
+"  momit rahman https://launchpad.net/~momitrahman"
 
 #: ../src/Scratch.vala:246
 msgid "New Tab"
@@ -53,11 +54,11 @@ msgstr "নতুন ডকুমেন্ট"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr ""
+msgstr "Scratch সম্বন্ধে"
 
 #: ../src/Services/Document.vala:231
 msgid "Save changes to document %s before closing?"
-msgstr ""
+msgstr "বন্ধ করার আগে ডকুমেন্টে  %s সংরক্ষণ করতে চান?"
 
 #: ../src/Services/Document.vala:234
 msgid ""
@@ -104,6 +105,7 @@ msgstr "নতুনভাবে সংরক্ষণ করুন..."
 #: ../src/Services/Document.vala:544
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr ""
+"\"%s\" ফাইলটি মুছে দেওয়া হয়েছিলো। যাই হোক আপনি কি এটি সংরক্ষণ করতে চান?"
 
 #: ../src/Services/Document.vala:557
 msgid ""
@@ -125,15 +127,15 @@ msgstr ""
 
 #: ../src/Services/Document.vala:591
 msgid "Load"
-msgstr ""
+msgstr "লোড"
 
 #: ../src/Services/Document.vala:594
 msgid "Continue"
-msgstr ""
+msgstr "পরবর্তী"
 
 #: ../src/Services/TemplateManager.vala:194 ../src/MainWindow.vala:905
 msgid "Templates"
-msgstr ""
+msgstr "টেমপ্লেট"
 
 #: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
@@ -153,11 +155,11 @@ msgstr ""
 
 #: ../src/Widgets/SearchManager.vala:70
 msgid "Find"
-msgstr ""
+msgstr "খুঁজুন"
 
 #: ../src/Widgets/SearchManager.vala:75
 msgid "Replace With"
-msgstr ""
+msgstr "দিয়ে বদলাও"
 
 #: ../src/Widgets/SearchManager.vala:91
 msgid "Search next"
