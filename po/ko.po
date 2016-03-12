@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-12-18 13:57-0600\n"
-"PO-Revision-Date: 2016-01-04 20:53+0000\n"
+"PO-Revision-Date: 2016-03-11 19:13+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-01-05 05:18+0000\n"
-"X-Generator: Launchpad (build 17876)\n"
+"X-Launchpad-Export-Date: 2016-03-12 05:54+0000\n"
+"X-Generator: Launchpad (build 17939)\n"
 
 #: ../src/Scratch.vala:68
 msgid "translator-credits"
@@ -275,7 +275,7 @@ msgstr "자동 들여쓰기:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:166
 msgid "Insert spaces instead of tabs:"
-msgstr "탭 대신 띄어쓰기를 삽입하기"
+msgstr "탭 대신 빈칸 표시"
 
 #: ../src/Dialogs/PreferencesDialog.vala:170
 msgid "Tab width:"
@@ -283,15 +283,15 @@ msgstr "탭 너비:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:195
 msgid "Editor:"
-msgstr "편집자:"
+msgstr "편집기:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:213
 msgid "Highlight current line:"
-msgstr "현재 줄을 강조표시하기:"
+msgstr "현재 줄을 강조하기:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:214
 msgid "Highlight matching brackets:"
-msgstr "대응되는 괄호를 강조표시하기:"
+msgstr "상응하는 괄호 강조하기:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:215
 msgid "Line wrap:"
@@ -299,15 +299,15 @@ msgstr "줄 덮기:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:216
 msgid "Draw spaces:"
-msgstr "띄어쓰기 그리기"
+msgstr "빈칸 표시:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:217
 msgid "Show line numbers:"
-msgstr "줄 수를 보여주기:"
+msgstr "줄 번호 표시:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:219
 msgid "Line width guide:"
-msgstr "줄 폭 도우미:"
+msgstr "줄 폭 가이드:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:233
 msgid "Font and Color Scheme:"
@@ -323,7 +323,7 @@ msgstr "색상:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:255
 msgid "Custom font:"
-msgstr "사용자 정의 글꼴:"
+msgstr "사용자 지정 글꼴:"
 
 #: ../src/Utils.vala:31 ../src/MainWindow.vala:885
 #: ../plugins/filemanager/FileView.vala:230
@@ -385,19 +385,19 @@ msgstr "새 탭을 추가합니다."
 
 #: ../src/MainWindow.vala:861
 msgid "Add New View"
-msgstr "새로운 보기 설정"
+msgstr "새 페이지 추가"
 
 #: ../src/MainWindow.vala:862
 msgid "Add a new view"
-msgstr "새로운 보기를 설정합니다."
+msgstr "새 페이지를 추가합니다"
 
 #: ../src/MainWindow.vala:865
 msgid "Remove Current View"
-msgstr "현재 보기 삭제"
+msgstr "이 페이지 제거"
 
 #: ../src/MainWindow.vala:866
 msgid "Remove this view"
-msgstr "현재 보기를 삭제합니다."
+msgstr "이 페이지를 제거합니다"
 
 #: ../src/MainWindow.vala:869
 msgid "Undo"
