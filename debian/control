@@ -13,12 +13,12 @@ Build-Depends: cmake (>= 2.8),
                libgtkspell-3-dev | libgtkspell3-3-dev,
                libpeas-dev,
                libsoup2.4-dev,
-               libvala-0.30-dev,
+               libvala-0.32-dev,
                libvte-2.91-dev,
                libwebkitgtk-3.0-dev,
                libzeitgeist-2.0-dev,
-               valac (>= 0.30),
-               valac (<< 0.31)
+               valac (>= 0.32),
+               valac (<< 0.33)
 Standards-Version: 3.9.5
 Homepage: http://launchpad.net/scratch
 
