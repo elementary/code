@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-18 13:57-0600\n"
-"PO-Revision-Date: 2015-12-21 13:37+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
+"PO-Revision-Date: 2016-03-27 22:34+0000\n"
+"Last-Translator: Gonzalo <gegismero@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-22 04:51+0000\n"
-"X-Generator: Launchpad (build 17865)\n"
+"X-Launchpad-Export-Date: 2016-03-28 05:30+0000\n"
+"X-Generator: Launchpad (build 17967)\n"
 "Language: es\n"
 
 #: ../src/Scratch.vala:68
@@ -34,11 +34,13 @@ msgstr ""
 "  David Martínez https://launchpad.net/~davitdmp15\n"
 "  ERIC https://launchpad.net/~galleto-balu\n"
 "  Eddie https://launchpad.net/~bayaney\n"
+"  Edwin Trejo https://launchpad.net/~el6667-et\n"
 "  Emmanuel https://launchpad.net/~802-11h\n"
 "  Erasmo Marín https://launchpad.net/~erasmo-marin\n"
 "  Ezequiel Sapo https://launchpad.net/~ezesapo\n"
 "  Félix Brezo https://launchpad.net/~febrezo\n"
 "  Gabriel_P https://launchpad.net/~gabp\n"
+"  Gonzalo https://launchpad.net/~gegismero\n"
 "  Héctor Molinero Fernández https://launchpad.net/~zant95\n"
 "  Israel Perez https://launchpad.net/~isra1998isra-3\n"
 "  Ivan https://launchpad.net/~ivi-o\n"
@@ -47,6 +49,7 @@ msgstr ""
 "  Jorge https://launchpad.net/~esegoreloco\n"
 "  Jorge Ferrer https://launchpad.net/~jferrer991\n"
 "  Jorge Toledo https://launchpad.net/~eldelacajita\n"
+"  Jose Luis Tirado https://launchpad.net/~txelu70\n"
 "  Juan David Angarita https://launchpad.net/~jangarita11\n"
 "  Juan Pablo Lozano https://launchpad.net/~libredeb\n"
 "  Kalprestito@Yahoo.Es https://launchpad.net/~kalprestito\n"
@@ -101,7 +104,7 @@ msgstr "Conjunto de conectores"
 
 #: ../src/Scratch.vala:250
 msgid "Current working directory"
-msgstr ""
+msgstr "Carpeta de trabajo actual"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -117,7 +120,7 @@ msgstr "Documento nuevo"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr ""
+msgstr "Acerca de Scratch"
 
 #: ../src/Services/Document.vala:231
 msgid "Save changes to document %s before closing?"
@@ -136,7 +139,7 @@ msgstr "Cerrar sin guardar cambios"
 
 #: ../src/Services/Document.vala:240 ../src/Utils.vala:29
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: ../src/Services/Document.vala:241 ../src/Services/Document.vala:546
 #: ../src/Utils.vala:33 ../src/MainWindow.vala:897
@@ -152,12 +155,16 @@ msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
+"No se puede leer el archivo «%s». Puede que esté dañado\n"
+"o que no tenga los permisos necesarios para leerlo."
 
 #: ../src/Services/Document.vala:537
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
+"La ubicación que contiene el archivo «%s» fue desmontada. ¿Quiere guardarlo "
+"en otra ubicación?"
 
 #: ../src/Services/Document.vala:539 ../src/MainWindow.vala:901
 msgid "Save As…"
@@ -165,13 +172,15 @@ msgstr "Guardar como…"
 
 #: ../src/Services/Document.vala:544
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "El archivo «%s» fue eliminado. ¿Quiere guardarlo de todos modos?"
 
 #: ../src/Services/Document.vala:557
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 msgstr ""
+"No puede guardar los cambios en el archivo «%s». ¿Quiere guardar los cambios "
+"de este archivo en otra ubicación?"
 
 #: ../src/Services/Document.vala:559
 msgid "Save changes elsewhere"
@@ -182,6 +191,8 @@ msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
+"El archivo «%s» fue modificado por una aplicación externa. ¿Quiere cargarlo "
+"nuevamente o continuar editándolo?"
 
 #: ../src/Services/Document.vala:591
 msgid "Load"
@@ -197,7 +208,7 @@ msgstr "Plantillas"
 
 #: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
-msgstr ""
+msgstr "Archivo de texto de "
 
 #: ../src/Widgets/SourceView.vala:120
 msgid "Syntax Highlighting"
@@ -221,15 +232,15 @@ msgstr "Reemplazar con"
 
 #: ../src/Widgets/SearchManager.vala:91
 msgid "Search next"
-msgstr ""
+msgstr "Buscar siguiente"
 
 #: ../src/Widgets/SearchManager.vala:97
 msgid "Search previous"
-msgstr ""
+msgstr "Buscar anterior"
 
 #: ../src/Widgets/SearchManager.vala:104
 msgid "Cyclic Search"
-msgstr ""
+msgstr "Búsqueda cíclica"
 
 #: ../src/Widgets/SearchManager.vala:107 ../src/MainWindow.vala:849
 #: ../src/MainWindow.vala:850
@@ -274,11 +285,11 @@ msgstr "Abrir un archivo guardado."
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "New file from clipboard"
-msgstr ""
+msgstr "Archivo nuevo desde portapapeles"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "Create a new file from the contents of your clipboard."
-msgstr ""
+msgstr "Crear un archivo nuevo a partir de los contenidos del portapapeles."
 
 #: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:909
 msgid "Preferences"
@@ -351,7 +362,7 @@ msgstr "Destacar la pareja de corchetes:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:215
 msgid "Line wrap:"
-msgstr ""
+msgstr "Ajuste de línea:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:216
 msgid "Draw spaces:"
@@ -489,7 +500,7 @@ msgstr "Abrir un archivo"
 
 #: ../src/MainWindow.vala:889
 msgid "Clipboard"
-msgstr ""
+msgstr "Portapapeles"
 
 #: ../src/MainWindow.vala:890
 msgid "New file from Clipboard"
@@ -497,11 +508,11 @@ msgstr ""
 
 #: ../src/MainWindow.vala:893
 msgid "Zoom"
-msgstr ""
+msgstr "Escala"
 
 #: ../src/MainWindow.vala:894
 msgid "Zoom 1:1"
-msgstr ""
+msgstr "Escala 1∶1"
 
 #: ../src/MainWindow.vala:898
 msgid "Save this file"
@@ -571,7 +582,7 @@ msgstr ""
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
 msgid "Highlight Selected Words"
-msgstr ""
+msgstr "Resaltar palabras seleccionadas"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
 msgid "Highlights all occurrences of words that are selected"
@@ -580,7 +591,7 @@ msgstr ""
 #: ../plugins/clipboard-history/ClipboardHistory.vala:21
 #: ../plugins/clipboard-history/ClipboardHistory.vala:89
 msgid "Clipboard History"
-msgstr ""
+msgstr "Historial del portapapeles"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:22
 msgid "Clipboard to view history"
@@ -588,11 +599,11 @@ msgstr ""
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:28
 msgid "..."
-msgstr ""
+msgstr "…"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:156
 msgid "Delete"
-msgstr ""
+msgstr "Eliminar"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:159
 #: ../plugins/terminal/terminal.vala:313
@@ -601,7 +612,7 @@ msgstr "Pegar"
 
 #: ../plugins/browser-preview/BrowserView.vala:49
 msgid "Close Inspector"
-msgstr ""
+msgstr "Cerrar inspector"
 
 #: ../plugins/browser-preview/browser-preview.vala:21
 msgid "Browser Preview"
@@ -614,16 +625,16 @@ msgstr "Obtenga una vista previa de su trabajo en una página web"
 #: ../plugins/browser-preview/browser-preview.vala:85
 #: ../plugins/browser-preview/browser-preview.vala:111
 msgid "Show Preview"
-msgstr ""
+msgstr "Mostrar previsualización"
 
 #: ../plugins/browser-preview/browser-preview.vala:107
 #: ../plugins/browser-preview/browser-preview.vala:150
 msgid "Web Preview"
-msgstr ""
+msgstr "Previsualización web"
 
 #: ../plugins/browser-preview/browser-preview.vala:108
 msgid "Hide Preview"
-msgstr ""
+msgstr "Ocultar previsualización"
 
 #: ../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
@@ -664,7 +675,7 @@ msgstr ""
 #: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
 #: ../plugins/outline/ValaProcessing/SymbolOutline.vala:94
 msgid "Symbols"
-msgstr ""
+msgstr "Símbolos"
 
 #: ../plugins/brackets-completion/brackets-completion.vala:21
 msgid "Brackets Completion"
@@ -805,7 +816,7 @@ msgstr ""
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
-msgstr ""
+msgstr "Detectar sangrías"
 
 #: ../plugins/detect-indent/detect-indent.vala:2
 msgid "Heuristically detect tab or space settings"
@@ -823,11 +834,11 @@ msgstr "Un terminal en el editor de textos"
 
 #: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
 msgid "Show Terminal"
-msgstr ""
+msgstr "Mostrar consola"
 
 #: ../plugins/terminal/terminal.vala:170
 msgid "Hide Terminal"
-msgstr ""
+msgstr "Ocultar consola"
 
 #: ../plugins/terminal/terminal.vala:306
 msgid "Copy"
@@ -835,7 +846,7 @@ msgstr "Copiar"
 
 #: ../plugins/terminal/terminal.vala:323
 msgid "Terminal on Right"
-msgstr ""
+msgstr "Consola a la derecha"
 
 #: ../plugins/terminal/terminal.vala:331
 msgid "Terminal on Bottom"

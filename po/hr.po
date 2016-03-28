@@ -8,21 +8,21 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-12-18 13:57-0600\n"
-"PO-Revision-Date: 2015-12-21 13:38+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
+"PO-Revision-Date: 2016-03-27 07:59+0000\n"
+"Last-Translator: zvacet <ikoli@yahoo.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-22 04:51+0000\n"
-"X-Generator: Launchpad (build 17865)\n"
+"X-Launchpad-Export-Date: 2016-03-28 05:30+0000\n"
+"X-Generator: Launchpad (build 17967)\n"
 
 #: ../src/Scratch.vala:68
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  AnSukkal https://launchpad.net/~ansukkal\n"
-"  Borna Bilas https://launchpad.net/~borna-bilas\n"
+"  Borna Bilas https://launchpad.net/~bobachhr\n"
 "  Ivan https://launchpad.net/~ivan-os\n"
 "  Ivan Cizik https://launchpad.net/~ivancizik\n"
 "  Ivan Vrljić https://launchpad.net/~vrlja92\n"
@@ -31,7 +31,8 @@ msgstr ""
 "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
 "  Paulo Pavačić https://launchpad.net/~pavacic-p\n"
 "  gogo https://launchpad.net/~trebelnik-stefina\n"
-"  xskydevilx https://launchpad.net/~xskydevilx-deactivatedaccount"
+"  xskydevilx https://launchpad.net/~xskydevilx-deactivatedaccount\n"
+"  zvacet https://launchpad.net/~ivicakolic"
 
 #: ../src/Scratch.vala:246
 msgid "New Tab"
@@ -179,11 +180,11 @@ msgstr "Zamijeni sa:"
 
 #: ../src/Widgets/SearchManager.vala:91
 msgid "Search next"
-msgstr ""
+msgstr "Traži tekst"
 
 #: ../src/Widgets/SearchManager.vala:97
 msgid "Search previous"
-msgstr ""
+msgstr "Traži prethodno"
 
 #: ../src/Widgets/SearchManager.vala:104
 msgid "Cyclic Search"
@@ -759,7 +760,7 @@ msgstr "Otvori datoteke koje uređuješ sa drugom aplikacijom"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr ""
+msgstr "Otvori pomoću..."
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
