@@ -65,6 +65,7 @@ namespace Scratch {
         public string[] opened_files { get; set; }
         public bool autosave { get; set; }
         public string focused_document { get; set; }
+        public bool show_mini_map { get; set; }
         
         public Settings ()  {
             base ("org.pantheon.scratch.settings");
