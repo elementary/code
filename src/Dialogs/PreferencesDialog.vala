@@ -33,6 +33,11 @@ namespace Scratch.Dialogs {
         Gtk.Switch draw_spaces;
         Gtk.Switch spaces_instead_of_tabs;
         Gtk.Switch auto_indent;
+
+#if GTKSOURCEVIEW_3_18
+        Gtk.Switch show_mini_map;
+#endif
+
         Gtk.SpinButton indent_width;
         Gtk.ComboBoxText style_scheme;
         Gtk.Switch use_custom_font;
@@ -48,7 +53,7 @@ namespace Scratch.Dialogs {
 
         construct {
             title = _("Preferences");
-            set_default_size (630, 330);
+            set_default_size (630, 430);
             resizable = false;
             deletable = false;
 
@@ -216,6 +221,11 @@ namespace Scratch.Dialogs {
             add_option (content, new Gtk.Label (_("Draw spaces:")), draw_spaces, ref row);
             add_option (content, new Gtk.Label (_("Show line numbers:")), line_numbers, ref row);
 
+#if GTKSOURCEVIEW_3_18
+            show_mini_map = new Gtk.Switch ();
+            Scratch.settings.schema.bind ("show-mini-map", show_mini_map, "active", SettingsBindFlags.DEFAULT);
+            add_option (content, new Gtk.Label (_("Show Mini Map:")), show_mini_map, ref row);
+#endif
             var label = new Gtk.Label (_("Line width guide:"));
             var show_right_margin = new Gtk.Switch ();
             Scratch.settings.schema.bind ("show-right-margin", show_right_margin, "active", SettingsBindFlags.DEFAULT);

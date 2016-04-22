@@ -49,6 +49,10 @@ namespace Scratch.Services {
         public Scratch.Widgets.SourceView source_view;
         private Gtk.InfoBar info_bar;
 
+#if GTKSOURCEVIEW_3_18
+        private Gtk.SourceMap source_map;
+#endif
+
         // Objects
         private Gtk.SourceFile source_file;
         public File file {
@@ -97,6 +101,9 @@ namespace Scratch.Services {
             source_view = new Scratch.Widgets.SourceView ();
             info_bar = new Gtk.InfoBar ();
             source_file = new Gtk.SourceFile ();
+#if GTKSOURCEVIEW_3_18
+            source_map = new Gtk.SourceMap ();
+#endif
 
             // Handle Drag-and-drop functionality on source-view
             Gtk.TargetEntry uris = {"text/uri-list", 0, 0};
@@ -104,6 +111,10 @@ namespace Scratch.Services {
             Gtk.drag_dest_set (source_view, Gtk.DestDefaults.ALL, {uris, text}, Gdk.DragAction.COPY);
 
             hide_info_bar ();
+
+            restore_settings ();
+
+            settings.changed.connect (restore_settings);
         }
 
         public void toggle_changed_handlers (bool enabled) {
@@ -375,6 +386,18 @@ namespace Scratch.Services {
             }
         }
 
+
+        private void restore_settings () {
+
+#if GTKSOURCEVIEW_3_18
+            if (settings.show_mini_map) {
+                source_map.show ();
+            } else {
+                source_map.hide ();
+                source_map.no_show_all = true;
+            }
+#endif
+        }
         // Focus the SourceView
         public new void focus () {
             this.source_view.grab_focus ();
@@ -387,9 +410,19 @@ namespace Scratch.Services {
             var scroll = new Gtk.ScrolledWindow (null, null);
             scroll.add (this.source_view);
 
+#if GTKSOURCEVIEW_3_18
+            var hbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+            source_map.set_view (source_view);
+
+            hbox.pack_start (scroll, true, true, 0);
+            hbox.pack_start (source_map, false, true, 0);
+
+            box.pack_start (info_bar, false, true, 0);
+            box.pack_start (hbox, true, true, 0);
+#else
             box.pack_start (info_bar, false, true, 0);
             box.pack_start (scroll, true, true, 0);
-
+#endif
             this.page = box;
             this.label = get_basename ();
         }
