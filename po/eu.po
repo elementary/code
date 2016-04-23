@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-12-18 13:57-0600\n"
-"PO-Revision-Date: 2016-02-19 15:25+0000\n"
-"Last-Translator: Félix Brezo <felixbrezo@gmail.com>\n"
+"PO-Revision-Date: 2016-04-22 20:05+0000\n"
+"Last-Translator: Thadah Denyse <juchuf@gmail.com>\n"
 "Language-Team: Basque <eu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-02-20 05:25+0000\n"
-"X-Generator: Launchpad (build 17925)\n"
+"X-Launchpad-Export-Date: 2016-04-23 05:24+0000\n"
+"X-Generator: Launchpad (build 17995)\n"
 
 #: ../src/Scratch.vala:68
 msgid "translator-credits"
@@ -127,6 +127,8 @@ msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
+"\"%s\" fitxategia kanpoko aplikazio batengatik aldatua izan da. Berriro "
+"kargatu nahi duzu ala zure edizioa jarraitu?"
 
 #: ../src/Services/Document.vala:591
 msgid "Load"
@@ -166,15 +168,15 @@ msgstr "Ordezkatu honekin"
 
 #: ../src/Widgets/SearchManager.vala:91
 msgid "Search next"
-msgstr ""
+msgstr "Hurrengoa bilatu"
 
 #: ../src/Widgets/SearchManager.vala:97
 msgid "Search previous"
-msgstr ""
+msgstr "Aurrekoa bilatu"
 
 #: ../src/Widgets/SearchManager.vala:104
 msgid "Cyclic Search"
-msgstr ""
+msgstr "Bilaketa ziklikoa"
 
 #: ../src/Widgets/SearchManager.vala:107 ../src/MainWindow.vala:849
 #: ../src/MainWindow.vala:850
@@ -223,7 +225,7 @@ msgstr "Fitxategi berria arbeletik"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "Create a new file from the contents of your clipboard."
-msgstr ""
+msgstr "Fitxategi berri bat sortu arbeleko edukitik."
 
 #: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:909
 msgid "Preferences"
@@ -349,7 +351,7 @@ msgstr "Zakarrontzia"
 
 #: ../src/MainWindow.vala:662
 msgid "Open some files"
-msgstr "Ireki fitxategiak"
+msgstr "Fitxategi batzuk ireki"
 
 #: ../src/MainWindow.vala:771
 msgid "Hide search bar"
@@ -442,11 +444,11 @@ msgstr "Fitxategi berria arbeletik"
 
 #: ../src/MainWindow.vala:893
 msgid "Zoom"
-msgstr ""
+msgstr "Zoom-a"
 
 #: ../src/MainWindow.vala:894
 msgid "Zoom 1:1"
-msgstr ""
+msgstr "Zoom-a 1:1"
 
 #: ../src/MainWindow.vala:898
 msgid "Save this file"
@@ -564,7 +566,7 @@ msgstr "Erakutsi aurreikuspena"
 #: ../plugins/browser-preview/browser-preview.vala:107
 #: ../plugins/browser-preview/browser-preview.vala:150
 msgid "Web Preview"
-msgstr ""
+msgstr "Web aurreikuspena"
 
 #: ../plugins/browser-preview/browser-preview.vala:108
 msgid "Hide Preview"
@@ -746,11 +748,11 @@ msgstr "Ireki editatzen ari zaren fitxategiak beste aplikazio batekin"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr ""
+msgstr "Honekin zabaldu..."
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
-msgstr ""
+msgstr "Identazioa detektatu"
 
 #: ../plugins/detect-indent/detect-indent.vala:2
 msgid "Heuristically detect tab or space settings"
@@ -780,11 +782,11 @@ msgstr "Kopiatu"
 
 #: ../plugins/terminal/terminal.vala:323
 msgid "Terminal on Right"
-msgstr ""
+msgstr "Terminala eskuinean"
 
 #: ../plugins/terminal/terminal.vala:331
 msgid "Terminal on Bottom"
-msgstr ""
+msgstr "Terminala azpian"
 
 #: ../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
