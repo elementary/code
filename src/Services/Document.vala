@@ -47,6 +47,7 @@ namespace Scratch.Services {
 
         // Widgets
         public Scratch.Widgets.SourceView source_view;
+        private Gtk.ScrolledWindow scroll;
         private Gtk.InfoBar info_bar;
 
 #if GTKSOURCEVIEW_3_18
@@ -99,6 +100,8 @@ namespace Scratch.Services {
 
         construct {
             source_view = new Scratch.Widgets.SourceView ();
+            scroll = new Gtk.ScrolledWindow (null, null);
+            scroll.add (source_view);
             info_bar = new Gtk.InfoBar ();
             source_file = new Gtk.SourceFile ();
 #if GTKSOURCEVIEW_3_18
@@ -392,9 +395,11 @@ namespace Scratch.Services {
 #if GTKSOURCEVIEW_3_18
             if (settings.show_mini_map) {
                 source_map.show ();
+                scroll.vscrollbar_policy = Gtk.PolicyType.EXTERNAL;
             } else {
                 source_map.hide ();
                 source_map.no_show_all = true;
+                scroll.vscrollbar_policy = Gtk.PolicyType.AUTOMATIC;
             }
 #endif
         }
@@ -406,9 +411,6 @@ namespace Scratch.Services {
         // Create the page
         public void create_page () {
             var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-
-            var scroll = new Gtk.ScrolledWindow (null, null);
-            scroll.add (this.source_view);
 
 #if GTKSOURCEVIEW_3_18
             var hbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
