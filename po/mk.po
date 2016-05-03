@@ -8,20 +8,21 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-12-18 13:57-0600\n"
-"PO-Revision-Date: 2015-12-21 13:37+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
+"PO-Revision-Date: 2016-05-02 23:53+0000\n"
+"Last-Translator: Atanas <Unknown>\n"
 "Language-Team: Macedonian <mk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-22 04:51+0000\n"
-"X-Generator: Launchpad (build 17865)\n"
+"X-Launchpad-Export-Date: 2016-05-03 05:30+0000\n"
+"X-Generator: Launchpad (build 17995)\n"
 
 #: ../src/Scratch.vala:68
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  Aleksandar Neskovski https://launchpad.net/~aneskovski\n"
+"  Atanas https://launchpad.net/~atanasmk16\n"
 "  Goran Maksimovski https://launchpad.net/~goran--\n"
 "  Mario Guerriero https://launchpad.net/~mefrio-g"
 
@@ -101,6 +102,8 @@ msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
+"Локацијата која ја содржи датотеката \"%s\" е отстранета. Дали сакате да "
+"зачувате на друго место?"
 
 #: ../src/Services/Document.vala:539 ../src/MainWindow.vala:901
 msgid "Save As…"
@@ -120,13 +123,15 @@ msgstr ""
 
 #: ../src/Services/Document.vala:559
 msgid "Save changes elsewhere"
-msgstr ""
+msgstr "Зачувај ги промените на друга локација"
 
 #: ../src/Services/Document.vala:590
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
+"Датотеката \"%s\" е модифицирана од надворешна апликација. Дали сакате да ја "
+"прочитате одново и да продолжите со уредување?"
 
 #: ../src/Services/Document.vala:591
 msgid "Load"
@@ -142,7 +147,7 @@ msgstr "Обрасци"
 
 #: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
-msgstr ""
+msgstr "Текстуална датотека од "
 
 #: ../src/Widgets/SourceView.vala:120
 msgid "Syntax Highlighting"
@@ -166,15 +171,15 @@ msgstr "Замени со"
 
 #: ../src/Widgets/SearchManager.vala:91
 msgid "Search next"
-msgstr ""
+msgstr "Пребарај понатаму"
 
 #: ../src/Widgets/SearchManager.vala:97
 msgid "Search previous"
-msgstr ""
+msgstr "Пребарај назад"
 
 #: ../src/Widgets/SearchManager.vala:104
 msgid "Cyclic Search"
-msgstr ""
+msgstr "Кружно пребарување"
 
 #: ../src/Widgets/SearchManager.vala:107 ../src/MainWindow.vala:849
 #: ../src/MainWindow.vala:850
@@ -268,7 +273,7 @@ msgstr "Зачувај ги фајловите по направени пром�
 
 #: ../src/Dialogs/PreferencesDialog.vala:158
 msgid "Tabs:"
-msgstr ""
+msgstr "Листови:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:163
 msgid "Automatic indentation:"
@@ -276,7 +281,7 @@ msgstr "Автоматско вдлабнување (на текст):"
 
 #: ../src/Dialogs/PreferencesDialog.vala:166
 msgid "Insert spaces instead of tabs:"
-msgstr ""
+msgstr "Вметни празни места наместо табови:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:170
 msgid "Tab width:"
@@ -349,7 +354,7 @@ msgstr "Ѓубре"
 
 #: ../src/MainWindow.vala:662
 msgid "Open some files"
-msgstr ""
+msgstr "Отвори неколку датотеки"
 
 #: ../src/MainWindow.vala:771
 msgid "Hide search bar"
@@ -374,27 +379,27 @@ msgstr ""
 
 #: ../src/MainWindow.vala:854
 msgid "Open last closed document in a new tab"
-msgstr ""
+msgstr "Отвори го последниот затворен документ во нов лист"
 
 #: ../src/MainWindow.vala:857
 msgid "Add New Tab"
-msgstr ""
+msgstr "Додади Нов Лист"
 
 #: ../src/MainWindow.vala:858
 msgid "Add a new tab"
-msgstr ""
+msgstr "Додади нов лист"
 
 #: ../src/MainWindow.vala:861
 msgid "Add New View"
-msgstr ""
+msgstr "Додади Нов Поглед"
 
 #: ../src/MainWindow.vala:862
 msgid "Add a new view"
-msgstr ""
+msgstr "Додади нов поглед"
 
 #: ../src/MainWindow.vala:865
 msgid "Remove Current View"
-msgstr ""
+msgstr "Отстрани го сегашниот поглед"
 
 #: ../src/MainWindow.vala:866
 msgid "Remove this view"
@@ -402,19 +407,19 @@ msgstr ""
 
 #: ../src/MainWindow.vala:869
 msgid "Undo"
-msgstr ""
+msgstr "Врати"
 
 #: ../src/MainWindow.vala:870
 msgid "Undo the last action"
-msgstr ""
+msgstr "Врати ја последната акција"
 
 #: ../src/MainWindow.vala:873
 msgid "Redo"
-msgstr ""
+msgstr "Повтори"
 
 #: ../src/MainWindow.vala:874
 msgid "Redo the last undone action"
-msgstr ""
+msgstr "Повтори ја незавршената акција"
 
 #: ../src/MainWindow.vala:877
 msgid "Revert"
@@ -434,7 +439,7 @@ msgstr ""
 
 #: ../src/MainWindow.vala:889
 msgid "Clipboard"
-msgstr ""
+msgstr "Инсерти"
 
 #: ../src/MainWindow.vala:890
 msgid "New file from Clipboard"
@@ -450,7 +455,7 @@ msgstr ""
 
 #: ../src/MainWindow.vala:898
 msgid "Save this file"
-msgstr ""
+msgstr "Зачувај ја датотеката"
 
 #: ../src/MainWindow.vala:902
 msgid "Save this file with a different name"
@@ -474,7 +479,7 @@ msgstr ""
 
 #: ../src/MainWindow.vala:934 ../src/MainWindow.vala:935
 msgid "Fullscreen"
-msgstr ""
+msgstr "Цел екран"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:21
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:21
