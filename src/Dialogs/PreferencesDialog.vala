@@ -106,7 +106,7 @@ namespace Scratch.Dialogs {
             general_grid.column_spacing = 12;
             general_grid.margin = 12;
 
-            var general_header = new SettingsHeader (_("General:"));
+            var general_header = new SettingsHeader (_("General"));
 
             var start_label = new SettingsLabel (_("When Scratch starts:"));
             start_combo = new Gtk.ComboBoxText ();
@@ -117,7 +117,7 @@ namespace Scratch.Dialogs {
             var autosave_label = new SettingsLabel (_("Save files when changed:"));
             var autosave_switch = new SettingsSwitch ("autosave");
 
-            var tabs_header = new SettingsHeader (_("Tabs:"));
+            var tabs_header = new SettingsHeader (_("Tabs"));
 
             var autoindent_label = new SettingsLabel (_("Automatic indentation:"));
             autoindent_switch = new SettingsSwitch ("auto-indent");
@@ -151,7 +151,7 @@ namespace Scratch.Dialogs {
             content.column_spacing = 12;
             content.margin = 12;
 
-            var editor_header = new SettingsHeader (_("Editor:"));
+            var editor_header = new SettingsHeader (_("Editor"));
 
             var highlight_current_line_label = new SettingsLabel (_("Highlight current line:"));
             highlight_current_line = new SettingsSwitch ("highlight-current-line");
@@ -180,7 +180,7 @@ namespace Scratch.Dialogs {
             Scratch.settings.schema.bind ("right-margin-position", right_margin_position, "value", SettingsBindFlags.DEFAULT);
             Scratch.settings.schema.bind ("show-right-margin", right_margin_position, "sensitive", SettingsBindFlags.DEFAULT);
 
-            var font_header = new SettingsHeader (_("Font and Color Scheme:"));
+            var font_header = new SettingsHeader (_("Font and Color Scheme"));
 
             var style_scheme_label = new SettingsLabel (_("Color scheme:"));
             style_scheme = new Gtk.ComboBoxText ();
