@@ -172,6 +172,7 @@ namespace Scratch.Dialogs {
             var show_mini_map_label = new SettingsLabel (_("Show Mini Map:"));
             show_mini_map = new SettingsSwitch ("show-mini-map");
 #endif
+
             var show_right_margin_label = new SettingsLabel (_("Line width guide:"));
             var show_right_margin = new SettingsSwitch ("show-right-margin");
 
