@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-18 13:57-0600\n"
-"PO-Revision-Date: 2015-12-21 13:37+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
+"PO-Revision-Date: 2016-05-20 21:44+0000\n"
+"Last-Translator: Daniel <daniel.susik@gmail.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-22 04:50+0000\n"
-"X-Generator: Launchpad (build 17865)\n"
+"X-Launchpad-Export-Date: 2016-05-21 05:32+0000\n"
+"X-Generator: Launchpad (build 18025)\n"
 "Language: cs\n"
 
 #: ../src/Scratch.vala:68
@@ -58,7 +58,7 @@ msgstr "Zobrazit informace o verzi a ukončit"
 
 #: ../src/Scratch.vala:249
 msgid "Set of plugins"
-msgstr "Set pluginů"
+msgstr "Sada doplňků"
 
 #: ../src/Scratch.vala:250
 msgid "Current working directory"
@@ -127,7 +127,7 @@ msgstr "Uložit jako…"
 
 #: ../src/Services/Document.vala:544
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "Soubor \"%s\" byl odstraněn. Přejete si jej přesto uložit?"
+msgstr "Soubor \"%s\" byl smazán. Přejete si jej přesto uložit?"
 
 #: ../src/Services/Document.vala:557
 msgid ""
@@ -623,7 +623,7 @@ msgstr "Obrys"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
-msgstr ""
+msgstr "Obtáhnout symboly v aktuálním vala souboru"
 
 #: ../plugins/outline/OutlinePlugin.vala:111
 #: ../plugins/outline/CtagsSymbolResolver.vala:35

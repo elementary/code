@@ -8,20 +8,21 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-12-18 13:57-0600\n"
-"PO-Revision-Date: 2015-12-21 13:38+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
+"PO-Revision-Date: 2016-05-20 08:54+0000\n"
+"Last-Translator: Kevi Beqiraj <kevi.beqiraj.5@hotmail.co.uk>\n"
 "Language-Team: Albanian <sq@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-22 04:50+0000\n"
-"X-Generator: Launchpad (build 17865)\n"
+"X-Launchpad-Export-Date: 2016-05-21 05:32+0000\n"
+"X-Generator: Launchpad (build 18025)\n"
 
 #: ../src/Scratch.vala:68
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  Indrit Bashkimi https://launchpad.net/~indritbsh\n"
+"  Kevi Beqiraj https://launchpad.net/~kevi-beqiraj-5\n"
 "  Mario Guerriero https://launchpad.net/~mefrio-g"
 
 #: ../src/Scratch.vala:246
@@ -550,7 +551,7 @@ msgstr "Ngjit"
 
 #: ../plugins/browser-preview/BrowserView.vala:49
 msgid "Close Inspector"
-msgstr ""
+msgstr "Mbylle kontrolluesin"
 
 #: ../plugins/browser-preview/browser-preview.vala:21
 msgid "Browser Preview"
@@ -568,7 +569,7 @@ msgstr "Shfaq shikimin paraprak"
 #: ../plugins/browser-preview/browser-preview.vala:107
 #: ../plugins/browser-preview/browser-preview.vala:150
 msgid "Web Preview"
-msgstr ""
+msgstr "Shiko në web"
 
 #: ../plugins/browser-preview/browser-preview.vala:108
 msgid "Hide Preview"
@@ -601,7 +602,7 @@ msgstr "Mbyll dosjen"
 
 #: ../plugins/outline/OutlinePlugin.vala:21
 msgid "Outline"
-msgstr ""
+msgstr "Struktura"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
@@ -754,7 +755,7 @@ msgstr "Hap me…"
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
-msgstr ""
+msgstr "Zbulo porositë"
 
 #: ../plugins/detect-indent/detect-indent.vala:2
 msgid "Heuristically detect tab or space settings"
