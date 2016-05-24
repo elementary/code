@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-12-18 13:57-0600\n"
-"PO-Revision-Date: 2015-12-21 13:38+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
+"PO-Revision-Date: 2016-05-24 01:57+0000\n"
+"Last-Translator: abuyop <Unknown>\n"
 "Language-Team: Malay <ms@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-22 04:51+0000\n"
-"X-Generator: Launchpad (build 17865)\n"
+"X-Launchpad-Export-Date: 2016-05-24 06:16+0000\n"
+"X-Generator: Launchpad (build 18053)\n"
 
 #: ../src/Scratch.vala:68
 msgid "translator-credits"
@@ -43,7 +43,7 @@ msgstr "Set pemalam"
 
 #: ../src/Scratch.vala:250
 msgid "Current working directory"
-msgstr ""
+msgstr "Direktori kerja semasa"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -59,7 +59,7 @@ msgstr "Dokumen Baru"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr ""
+msgstr "Perihal Scratch"
 
 #: ../src/Services/Document.vala:231
 msgid "Save changes to document %s before closing?"
@@ -76,7 +76,7 @@ msgstr "Tutup tanpa menyimpan"
 
 #: ../src/Services/Document.vala:240 ../src/Utils.vala:29
 msgid "Cancel"
-msgstr ""
+msgstr "Batal"
 
 #: ../src/Services/Document.vala:241 ../src/Services/Document.vala:546
 #: ../src/Utils.vala:33 ../src/MainWindow.vala:897
@@ -92,12 +92,16 @@ msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
+"Fail \"%s\" tidak dapat dibaca. Mungkin telah rosak\n"
+"atau anda tidak mempunyai keizinan untuk membacanya."
 
 #: ../src/Services/Document.vala:537
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
+"Lokasi mengandungi fail \"%s\" telah dinyahlekap. Anda mahu simpan ditempat "
+"lain?"
 
 #: ../src/Services/Document.vala:539 ../src/MainWindow.vala:901
 msgid "Save As…"
@@ -105,13 +109,15 @@ msgstr "Simpan Sebagai..."
 
 #: ../src/Services/Document.vala:544
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "Fail \"%s\" telah dipadam. Anda mahu simpan ia jua?"
 
 #: ../src/Services/Document.vala:557
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 msgstr ""
+"Anda tidak dapat simpan perubahan pada fail \"%s\". Anda mahu simpan "
+"perubahan pada fail ini dalam lokasi yang berlainan?"
 
 #: ../src/Services/Document.vala:559
 msgid "Save changes elsewhere"
@@ -122,6 +128,8 @@ msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
+"Fail \"%s\" telah diubahsuai oleh aplikasi luar. Anda mahu muatkannya sekali "
+"lagi atau teruskan penyuntingan anda?"
 
 #: ../src/Services/Document.vala:591
 msgid "Load"
@@ -137,7 +145,7 @@ msgstr "Templat"
 
 #: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
-msgstr ""
+msgstr "Fail teks dari "
 
 #: ../src/Widgets/SourceView.vala:120
 msgid "Syntax Highlighting"
@@ -161,15 +169,15 @@ msgstr "Ganti Dengan"
 
 #: ../src/Widgets/SearchManager.vala:91
 msgid "Search next"
-msgstr ""
+msgstr "Gelintar berikutnya"
 
 #: ../src/Widgets/SearchManager.vala:97
 msgid "Search previous"
-msgstr ""
+msgstr "Gelintar terdahulu"
 
 #: ../src/Widgets/SearchManager.vala:104
 msgid "Cyclic Search"
-msgstr ""
+msgstr "Gelintar Kitar"
 
 #: ../src/Widgets/SearchManager.vala:107 ../src/MainWindow.vala:849
 #: ../src/MainWindow.vala:850
@@ -214,11 +222,11 @@ msgstr "Buka fail tersimpan."
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "New file from clipboard"
-msgstr ""
+msgstr "Fail baharu dari papan keratan"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "Create a new file from the contents of your clipboard."
-msgstr ""
+msgstr "Cipta fail baharu daripada kandungan papan keratan anda."
 
 #: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:909
 msgid "Preferences"
@@ -291,7 +299,7 @@ msgstr "Sorot kurungan sepadan:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:215
 msgid "Line wrap:"
-msgstr ""
+msgstr "Lilit baris:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:216
 msgid "Draw spaces:"
@@ -429,19 +437,19 @@ msgstr "Buka fail"
 
 #: ../src/MainWindow.vala:889
 msgid "Clipboard"
-msgstr ""
+msgstr "Papan Keratan"
 
 #: ../src/MainWindow.vala:890
 msgid "New file from Clipboard"
-msgstr ""
+msgstr "Fail baharu dari Papan Keratan"
 
 #: ../src/MainWindow.vala:893
 msgid "Zoom"
-msgstr ""
+msgstr "Zum"
 
 #: ../src/MainWindow.vala:894
 msgid "Zoom 1:1"
-msgstr ""
+msgstr "Zum 1:1"
 
 #: ../src/MainWindow.vala:898
 msgid "Save this file"
@@ -503,36 +511,36 @@ msgstr "/Fail Baru"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:24
 msgid "Preserve Indent"
-msgstr ""
+msgstr "Kekal Inden"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:25
 msgid "Maintains indent level of pasted text when auto-indent is active"
-msgstr ""
+msgstr "Kekalkan tahap inden bagi teks ditampal bila auto-inden aktif"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
 msgid "Highlight Selected Words"
-msgstr ""
+msgstr "Sorot Perkataan Terpilih"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
 msgid "Highlights all occurrences of words that are selected"
-msgstr ""
+msgstr "Sorot semua kemunculan perkataan yang terpilih"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:21
 #: ../plugins/clipboard-history/ClipboardHistory.vala:89
 msgid "Clipboard History"
-msgstr ""
+msgstr "Sejarah Papan Keratan"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:22
 msgid "Clipboard to view history"
-msgstr ""
+msgstr "Papan keratan untuk melihat sejarah"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:28
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:156
 msgid "Delete"
-msgstr ""
+msgstr "Padam"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:159
 #: ../plugins/terminal/terminal.vala:313
@@ -541,7 +549,7 @@ msgstr "Tampal"
 
 #: ../plugins/browser-preview/BrowserView.vala:49
 msgid "Close Inspector"
-msgstr ""
+msgstr "Tutup Pemeriksa"
 
 #: ../plugins/browser-preview/browser-preview.vala:21
 msgid "Browser Preview"
@@ -554,16 +562,16 @@ msgstr "Dapatkan pratonton kerja anda dalam halaman sesawang"
 #: ../plugins/browser-preview/browser-preview.vala:85
 #: ../plugins/browser-preview/browser-preview.vala:111
 msgid "Show Preview"
-msgstr ""
+msgstr "Tunjuk Pratonton"
 
 #: ../plugins/browser-preview/browser-preview.vala:107
 #: ../plugins/browser-preview/browser-preview.vala:150
 msgid "Web Preview"
-msgstr ""
+msgstr "Pratonton Sesawang"
 
 #: ../plugins/browser-preview/browser-preview.vala:108
 msgid "Hide Preview"
-msgstr ""
+msgstr "Sembunyi Pratonton"
 
 #: ../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
@@ -592,11 +600,11 @@ msgstr "Tutup Folder"
 
 #: ../plugins/outline/OutlinePlugin.vala:21
 msgid "Outline"
-msgstr ""
+msgstr "Garis Luar"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
-msgstr ""
+msgstr "Garis luarkan simbol dalam fail semasa anda di dalam vala"
 
 #: ../plugins/outline/OutlinePlugin.vala:111
 #: ../plugins/outline/CtagsSymbolResolver.vala:35
@@ -604,7 +612,7 @@ msgstr ""
 #: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
 #: ../plugins/outline/ValaProcessing/SymbolOutline.vala:94
 msgid "Symbols"
-msgstr ""
+msgstr "Simbol"
 
 #: ../plugins/brackets-completion/brackets-completion.vala:21
 msgid "Brackets Completion"
@@ -741,15 +749,15 @@ msgstr "Buka fail yang anda sunting dengan aplikasi lain"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr ""
+msgstr "Buka Dengan..."
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
-msgstr ""
+msgstr "Kesan Inden"
 
 #: ../plugins/detect-indent/detect-indent.vala:2
 msgid "Heuristically detect tab or space settings"
-msgstr ""
+msgstr "Kesan tetapan tab atau jarak secara heuristik"
 
 #: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
 #: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
@@ -763,11 +771,11 @@ msgstr "Merupakan terminal dalam penyunting teks anda"
 
 #: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
 msgid "Show Terminal"
-msgstr ""
+msgstr "Tunjuk Terminal"
 
 #: ../plugins/terminal/terminal.vala:170
 msgid "Hide Terminal"
-msgstr ""
+msgstr "Sembunyi Terminal"
 
 #: ../plugins/terminal/terminal.vala:306
 msgid "Copy"
@@ -775,11 +783,11 @@ msgstr "Salin"
 
 #: ../plugins/terminal/terminal.vala:323
 msgid "Terminal on Right"
-msgstr ""
+msgstr "Terminal disebelah Kanan"
 
 #: ../plugins/terminal/terminal.vala:331
 msgid "Terminal on Bottom"
-msgstr ""
+msgstr "Terminal di Bawah"
 
 #: ../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
