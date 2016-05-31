@@ -7,45 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-12-18 13:57-0600\n"
+"POT-Creation-Date: 2016-05-30 11:22-0700\n"
 "PO-Revision-Date: 2015-12-20 14:59+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-21 05:19+0000\n"
-"X-Generator: Launchpad (build 17865)\n"
-
-#: ../src/Scratch.vala:68
-msgid "translator-credits"
-msgstr ""
-"Launchpad Contributions:\n"
-"  Alfredo Hernández https://launchpad.net/~aldomann\n"
-"  Arniroig https://launchpad.net/~arniroig\n"
-"  David Martínez https://launchpad.net/~davitdmp15\n"
-"  Mario Guerriero https://launchpad.net/~mefrio-g\n"
-"  Sergio Tortosa https://launchpad.net/~sheosi"
-
-#: ../src/Scratch.vala:246
-msgid "New Tab"
-msgstr "Pestanya nova"
-
-#: ../src/Scratch.vala:247 ../src/config.vala:18
-msgid "New Window"
-msgstr "Finestra nova"
-
-#: ../src/Scratch.vala:248
-msgid "Print version info and exit"
-msgstr "Imprimeix informació de la versió i surt"
-
-#: ../src/Scratch.vala:249
-msgid "Set of plugins"
-msgstr "Conjunt de connectors"
-
-#: ../src/Scratch.vala:250
-msgid "Current working directory"
-msgstr ""
+"X-Launchpad-Export-Date: 2016-05-31 06:23+0000\n"
+"X-Generator: Launchpad (build 18053)\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -55,105 +25,158 @@ msgstr "Editeu fitxers de text"
 msgid "Text Editor"
 msgstr "Editor de textos"
 
-#: ../src/config.vala:17 ../src/Services/Document.vala:405
+#: ../src/config.vala:17 ../src/Services/Document.vala:440
 msgid "New Document"
 msgstr "Document nou"
+
+#: ../src/config.vala:18 ../src/Scratch.vala:312
+msgid "New Window"
+msgstr "Finestra nova"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
 msgstr ""
 
-#: ../src/Services/Document.vala:231
-msgid "Save changes to document %s before closing?"
-msgstr "Voleu desar els canvis fets a %s abans de tancar-lo?"
+#: ../src/Dialogs/PreferencesDialog.vala:56 ../src/MainWindow.vala:909
+msgid "Preferences"
+msgstr "Preferències"
 
-#: ../src/Services/Document.vala:234
-msgid ""
-"If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr ""
-"Si no deseu el document, els canvis dels darrers 4 segons es pedran "
-"permanentment."
+#: ../src/Dialogs/PreferencesDialog.vala:68
+msgid "Behavior"
+msgstr "Comportament"
 
-#: ../src/Services/Document.vala:236
-msgid "Close without saving"
-msgstr "Tanca sense desar"
+#: ../src/Dialogs/PreferencesDialog.vala:69
+msgid "Interface"
+msgstr "Interfície"
 
-#: ../src/Services/Document.vala:240 ../src/Utils.vala:29
-msgid "Cancel"
-msgstr ""
+#: ../src/Dialogs/PreferencesDialog.vala:80
+msgid "Extensions"
+msgstr "Extensions"
 
-#: ../src/Services/Document.vala:241 ../src/Services/Document.vala:546
-#: ../src/Utils.vala:33 ../src/MainWindow.vala:897
-msgid "Save"
-msgstr "Desa"
+#: ../src/Dialogs/PreferencesDialog.vala:84 ../src/MainWindow.vala:845
+#: ../src/MainWindow.vala:846
+msgid "Close"
+msgstr "Tanca"
 
-#: ../src/Services/Document.vala:313
-msgid "Save File"
-msgstr "Desa el fitxer"
-
-#: ../src/Services/Document.vala:521
-msgid ""
-"File \"%s\" cannot be read. Maybe it is corrupt\n"
-"or you do not have the necessary permissions to read it."
+#: ../src/Dialogs/PreferencesDialog.vala:109
+msgid "General"
 msgstr ""
 
-#: ../src/Services/Document.vala:537
-msgid ""
-"The location containing the file \"%s\" was unmounted. Do you want to save "
-"somewhere else?"
+#: ../src/Dialogs/PreferencesDialog.vala:111
+msgid "When Scratch starts:"
+msgstr "Quan s'iniciï l'Scratch:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:113
+msgid "Show welcome screen"
+msgstr "Mostra la finestra de benvinguda"
+
+#: ../src/Dialogs/PreferencesDialog.vala:114
+msgid "Show last open tabs"
+msgstr "Mostra les pestanyes obertes recentment"
+
+#: ../src/Dialogs/PreferencesDialog.vala:117
+msgid "Save files when changed:"
+msgstr "Desa els fitxers quan es produeixin canvis:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:120
+msgid "Tabs"
 msgstr ""
 
-#: ../src/Services/Document.vala:539 ../src/MainWindow.vala:901
-msgid "Save As…"
-msgstr "Anomena i desa…"
+#: ../src/Dialogs/PreferencesDialog.vala:122
+msgid "Automatic indentation:"
+msgstr "Sagnat automàtic:"
 
-#: ../src/Services/Document.vala:544
-msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+#: ../src/Dialogs/PreferencesDialog.vala:125
+msgid "Insert spaces instead of tabs:"
+msgstr "Inserir espais en comptes de tabulacions:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:128
+msgid "Tab width:"
+msgstr "Amplada del tabulador:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:154
+msgid "Editor"
 msgstr ""
 
-#: ../src/Services/Document.vala:557
-msgid ""
-"You cannot save changes on file \"%s\". Do you want to save the changes to "
-"this file in a different location?"
+#: ../src/Dialogs/PreferencesDialog.vala:156
+msgid "Highlight current line:"
+msgstr "Realça la línia actual:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:159
+msgid "Highlight matching brackets:"
+msgstr "Realça la parella de claudàtors:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:162
+msgid "Line wrap:"
 msgstr ""
 
-#: ../src/Services/Document.vala:559
-msgid "Save changes elsewhere"
-msgstr "Desa els canvis a una altra ubicació"
-
-#: ../src/Services/Document.vala:590
-msgid ""
-"File \"%s\" was modified by an external application. Do you want to load it "
-"again or continue your editing?"
+#: ../src/Dialogs/PreferencesDialog.vala:165
+msgid "Draw Spaces:"
 msgstr ""
 
-#: ../src/Services/Document.vala:591
-msgid "Load"
-msgstr "Carrega"
+#: ../src/Dialogs/PreferencesDialog.vala:168
+msgid "Show line numbers:"
+msgstr "Mostrar el nombres de línia:"
 
-#: ../src/Services/Document.vala:594
-msgid "Continue"
-msgstr "Continua"
+#: ../src/Dialogs/PreferencesDialog.vala:172
+msgid "Show Mini Map:"
+msgstr ""
 
-#: ../src/Services/TemplateManager.vala:194 ../src/MainWindow.vala:905
-msgid "Templates"
-msgstr "Plantilles"
+#: ../src/Dialogs/PreferencesDialog.vala:176
+msgid "Line width guide:"
+msgstr "Guia d'amplada de línia:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:184
+msgid "Font and Color Scheme"
+msgstr ""
+
+#: ../src/Dialogs/PreferencesDialog.vala:186
+msgid "Color scheme:"
+msgstr "Esquema de colors:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:191
+msgid "Custom font:"
+msgstr "Tipus de lletra personalitzada:"
 
 #: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
 msgstr ""
 
-#: ../src/Widgets/SourceView.vala:120
-msgid "Syntax Highlighting"
-msgstr "Realçat de sintaxi"
-
-#: ../src/Widgets/SourceView.vala:131
-msgid "Normal Text"
-msgstr "Text normal"
-
 #: ../src/Widgets/LoadingView.vala:33
 msgid "Wait while restoring last session..."
 msgstr "Espereu mentre es restableix l'última sessió…"
+
+#: ../src/Widgets/SplitView.vala:45
+msgid "No Files Open"
+msgstr "No hi ha cap fitxer obert"
+
+#: ../src/Widgets/SplitView.vala:46
+msgid "Open a file to begin editing."
+msgstr "Obriu un fitxer per començar l'edició."
+
+#: ../src/Widgets/SplitView.vala:50
+msgid "New file"
+msgstr "Fitxer nou"
+
+#: ../src/Widgets/SplitView.vala:50
+msgid "Create a new empty file."
+msgstr "Crea un fitxer nou buit."
+
+#: ../src/Widgets/SplitView.vala:51
+msgid "Open file"
+msgstr "Obre un fitxer"
+
+#: ../src/Widgets/SplitView.vala:51
+msgid "Open a saved file."
+msgstr "Obre un fitxer desat."
+
+#: ../src/Widgets/SplitView.vala:52
+msgid "New file from clipboard"
+msgstr ""
+
+#: ../src/Widgets/SplitView.vala:52
+msgid "Create a new file from the contents of your clipboard."
+msgstr ""
 
 #: ../src/Widgets/SearchManager.vala:70
 msgid "Find"
@@ -192,151 +215,13 @@ msgstr "Ves a la línia:"
 msgid "Share"
 msgstr "Comparteix"
 
-#: ../src/Widgets/SplitView.vala:45
-msgid "No Files Open"
-msgstr "No hi ha cap fitxer obert"
+#: ../src/Widgets/SourceView.vala:120
+msgid "Syntax Highlighting"
+msgstr "Realçat de sintaxi"
 
-#: ../src/Widgets/SplitView.vala:46
-msgid "Open a file to begin editing."
-msgstr "Obriu un fitxer per començar l'edició."
-
-#: ../src/Widgets/SplitView.vala:50
-msgid "New file"
-msgstr "Fitxer nou"
-
-#: ../src/Widgets/SplitView.vala:50
-msgid "Create a new empty file."
-msgstr "Crea un fitxer nou buit."
-
-#: ../src/Widgets/SplitView.vala:51
-msgid "Open file"
-msgstr "Obre un fitxer"
-
-#: ../src/Widgets/SplitView.vala:51
-msgid "Open a saved file."
-msgstr "Obre un fitxer desat."
-
-#: ../src/Widgets/SplitView.vala:52
-msgid "New file from clipboard"
-msgstr ""
-
-#: ../src/Widgets/SplitView.vala:52
-msgid "Create a new file from the contents of your clipboard."
-msgstr ""
-
-#: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:909
-msgid "Preferences"
-msgstr "Preferències"
-
-#: ../src/Dialogs/PreferencesDialog.vala:63
-msgid "Behavior"
-msgstr "Comportament"
-
-#: ../src/Dialogs/PreferencesDialog.vala:66
-msgid "Interface"
-msgstr "Interfície"
-
-#: ../src/Dialogs/PreferencesDialog.vala:79
-msgid "Extensions"
-msgstr "Extensions"
-
-#: ../src/Dialogs/PreferencesDialog.vala:83 ../src/MainWindow.vala:845
-#: ../src/MainWindow.vala:846
-msgid "Close"
-msgstr "Tanca"
-
-#: ../src/Dialogs/PreferencesDialog.vala:128
-msgid "Show welcome screen"
-msgstr "Mostra la finestra de benvinguda"
-
-#: ../src/Dialogs/PreferencesDialog.vala:129
-msgid "Show last open tabs"
-msgstr "Mostra les pestanyes obertes recentment"
-
-#: ../src/Dialogs/PreferencesDialog.vala:145
-msgid "General:"
-msgstr "General:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:151
-msgid "When Scratch starts:"
-msgstr "Quan s'iniciï l'Scratch:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:154
-msgid "Save files when changed:"
-msgstr "Desa els fitxers quan es produeixin canvis:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:158
-msgid "Tabs:"
-msgstr "Tabulacions:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:163
-msgid "Automatic indentation:"
-msgstr "Sagnat automàtic:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:166
-msgid "Insert spaces instead of tabs:"
-msgstr "Inserir espais en comptes de tabulacions:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:170
-msgid "Tab width:"
-msgstr "Amplada del tabulador:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:195
-msgid "Editor:"
-msgstr "Editor:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:213
-msgid "Highlight current line:"
-msgstr "Realça la línia actual:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:214
-msgid "Highlight matching brackets:"
-msgstr "Realça la parella de claudàtors:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:215
-msgid "Line wrap:"
-msgstr ""
-
-#: ../src/Dialogs/PreferencesDialog.vala:216
-msgid "Draw spaces:"
-msgstr "Dibuixa espais:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:217
-msgid "Show line numbers:"
-msgstr "Mostrar el nombres de línia:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:219
-msgid "Line width guide:"
-msgstr "Guia d'amplada de línia:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:233
-msgid "Font and Color Scheme:"
-msgstr "Combinació de tipus de lletra i colors:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:247
-msgid "Select font:"
-msgstr "Seleccioneu un tipus de lletra:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:250
-msgid "Color scheme:"
-msgstr "Esquema de colors:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:255
-msgid "Custom font:"
-msgstr "Tipus de lletra personalitzada:"
-
-#: ../src/Utils.vala:31 ../src/MainWindow.vala:885
-#: ../plugins/filemanager/FileView.vala:230
-msgid "Open"
-msgstr "Obre"
-
-#: ../src/Utils.vala:42
-msgid "All files"
-msgstr "Tots els fitxers"
-
-#: ../src/Utils.vala:45
-msgid "Text files"
-msgstr "Fitxers de text"
+#: ../src/Widgets/SourceView.vala:131
+msgid "Normal Text"
+msgstr "Text normal"
 
 #: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
@@ -427,6 +312,11 @@ msgstr "Restaura aquest fitxer"
 msgid "Duplicate selected strings"
 msgstr "Duplica la línia seleccionada"
 
+#: ../src/MainWindow.vala:885 ../src/Utils.vala:31
+#: ../plugins/filemanager/FileView.vala:230
+msgid "Open"
+msgstr "Obre"
+
 #: ../src/MainWindow.vala:886
 msgid "Open a file"
 msgstr "Obre un fitxer"
@@ -447,13 +337,26 @@ msgstr ""
 msgid "Zoom 1:1"
 msgstr ""
 
+#: ../src/MainWindow.vala:897 ../src/Services/Document.vala:255
+#: ../src/Services/Document.vala:581 ../src/Utils.vala:33
+msgid "Save"
+msgstr "Desa"
+
 #: ../src/MainWindow.vala:898
 msgid "Save this file"
 msgstr "Desa aquest fitxer"
 
+#: ../src/MainWindow.vala:901 ../src/Services/Document.vala:574
+msgid "Save As…"
+msgstr "Anomena i desa…"
+
 #: ../src/MainWindow.vala:902
 msgid "Save this file with a different name"
 msgstr "Desa aquest fitxer amb un nom diferent"
+
+#: ../src/MainWindow.vala:905 ../src/Services/TemplateManager.vala:194
+msgid "Templates"
+msgstr "Plantilles"
 
 #: ../src/MainWindow.vala:906
 msgid "Project templates"
@@ -475,6 +378,309 @@ msgstr "Pestanya anterior"
 msgid "Fullscreen"
 msgstr "Pantalla completa"
 
+#: ../src/Services/Document.vala:245
+msgid "Save changes to document %s before closing?"
+msgstr "Voleu desar els canvis fets a %s abans de tancar-lo?"
+
+#: ../src/Services/Document.vala:248
+msgid ""
+"If you don't save, changes from the last 4 seconds will be permanently lost."
+msgstr ""
+"Si no deseu el document, els canvis dels darrers 4 segons es pedran "
+"permanentment."
+
+#: ../src/Services/Document.vala:250
+msgid "Close without saving"
+msgstr "Tanca sense desar"
+
+#: ../src/Services/Document.vala:254 ../src/Utils.vala:29
+msgid "Cancel"
+msgstr ""
+
+#: ../src/Services/Document.vala:327
+msgid "Save File"
+msgstr "Desa el fitxer"
+
+#: ../src/Services/Document.vala:556
+msgid ""
+"File \"%s\" cannot be read. Maybe it is corrupt\n"
+"or you do not have the necessary permissions to read it."
+msgstr ""
+
+#: ../src/Services/Document.vala:572
+msgid ""
+"The location containing the file \"%s\" was unmounted. Do you want to save "
+"somewhere else?"
+msgstr ""
+
+#: ../src/Services/Document.vala:579
+msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+msgstr ""
+
+#: ../src/Services/Document.vala:592
+msgid ""
+"You cannot save changes on file \"%s\". Do you want to save the changes to "
+"this file in a different location?"
+msgstr ""
+
+#: ../src/Services/Document.vala:594
+msgid "Save changes elsewhere"
+msgstr "Desa els canvis a una altra ubicació"
+
+#: ../src/Services/Document.vala:625
+msgid ""
+"File \"%s\" was modified by an external application. Do you want to load it "
+"again or continue your editing?"
+msgstr ""
+
+#: ../src/Services/Document.vala:626
+msgid "Load"
+msgstr "Carrega"
+
+#: ../src/Services/Document.vala:629
+msgid "Continue"
+msgstr "Continua"
+
+#: ../src/Scratch.vala:68
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  Alfredo Hernández https://launchpad.net/~aldomann\n"
+"  Arniroig https://launchpad.net/~arniroig\n"
+"  David Martínez https://launchpad.net/~davitdmp15\n"
+"  Mario Guerriero https://launchpad.net/~mefrio-g\n"
+"  NeoMahler https://launchpad.net/~roc-humet\n"
+"  Roger https://launchpad.net/~rogergm70\n"
+"  Sergio Tortosa https://launchpad.net/~sheosi"
+
+#: ../src/Scratch.vala:166
+msgid "Maybe you do not have the necessary permissions."
+msgstr ""
+
+#: ../src/Scratch.vala:168
+msgid "Maybe the file path provided is not valid."
+msgstr ""
+
+#: ../src/Scratch.vala:170
+msgid "The location is read-only."
+msgstr ""
+
+#: ../src/Scratch.vala:172
+msgid "The parent directory doesn't exist."
+msgstr ""
+
+#: ../src/Scratch.vala:179
+msgid ""
+"File \"%s\" cannot be created.\n"
+"%s"
+msgstr ""
+
+#: ../src/Scratch.vala:189
+msgid ""
+"File \"%s\" cannot be opened.\n"
+"%s"
+msgstr ""
+
+#: ../src/Scratch.vala:198
+msgid "It is a mountable location."
+msgstr ""
+
+#: ../src/Scratch.vala:201
+msgid "It is a directory."
+msgstr ""
+
+#: ../src/Scratch.vala:204
+msgid ""
+"It is a \"special\" file such as a socket,\n"
+" fifo, block device, or character device."
+msgstr ""
+
+#: ../src/Scratch.vala:207
+msgid "It is an \"unknown\" file type."
+msgstr ""
+
+#: ../src/Scratch.vala:311
+msgid "New Tab"
+msgstr "Pestanya nova"
+
+#: ../src/Scratch.vala:313
+msgid "Print version info and exit"
+msgstr "Imprimeix informació de la versió i surt"
+
+#: ../src/Scratch.vala:314
+msgid "Set of plugins"
+msgstr "Conjunt de connectors"
+
+#: ../src/Scratch.vala:315
+msgid "Current working directory"
+msgstr ""
+
+#: ../src/Utils.vala:42
+msgid "All files"
+msgstr "Tots els fitxers"
+
+#: ../src/Utils.vala:45
+msgid "Text files"
+msgstr "Fitxers de text"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/outline/OutlinePlugin.vala:21
+msgid "Outline"
+msgstr ""
+
+#: ../plugins/outline/OutlinePlugin.vala:22
+msgid "Outline symbols in your current file in vala"
+msgstr ""
+
+#: ../plugins/outline/OutlinePlugin.vala:116
+#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
+#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:99
+#: ../plugins/outline/CtagsSymbolResolver.vala:35
+#: ../plugins/outline/CtagsSymbolResolver.vala:68
+msgid "Symbols"
+msgstr ""
+
+#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
+#: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
+#: ../plugins/terminal/terminal.vala:174
+msgid "Terminal"
+msgstr "Terminal"
+
+#: ../plugins/terminal/terminal.vala:24
+msgid "A terminal in your text editor"
+msgstr "Un terminal a l'editor de textos"
+
+#: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
+msgid "Show Terminal"
+msgstr ""
+
+#: ../plugins/terminal/terminal.vala:170
+msgid "Hide Terminal"
+msgstr ""
+
+#: ../plugins/terminal/terminal.vala:306
+msgid "Copy"
+msgstr "Copia"
+
+#: ../plugins/terminal/terminal.vala:313
+#: ../plugins/clipboard-history/ClipboardHistory.vala:159
+msgid "Paste"
+msgstr "Enganxa"
+
+#: ../plugins/terminal/terminal.vala:323
+msgid "Terminal on Right"
+msgstr ""
+
+#: ../plugins/terminal/terminal.vala:331
+msgid "Terminal on Bottom"
+msgstr ""
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/brackets-completion/brackets-completion.vala:21
+msgid "Brackets Completion"
+msgstr "Compleció de claudàtors"
+
+#: ../plugins/brackets-completion/brackets-completion.vala:22
+msgid "Complete brackets while typing"
+msgstr "Completa els claudàtors mentre s'escriu"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/source-tree/SourceTreePlugin.vala:20
+#: ../plugins/source-tree/SourceTreePlugin.vala:197
+msgid "Source Tree"
+msgstr "Arbre d'origen"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:21
+msgid "Have a look at your sources organized in a nice tree"
+msgstr "Feu una ullada als vostres orígens organitzats en un arbre"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:42
+msgid "Loading..."
+msgstr "S'està carregant…"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:175
+msgid "Bookmark"
+msgstr "Adreça d'interès"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:234
+msgid "Files"
+msgstr "Fitxers"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:235
+msgid "Project"
+msgstr "Projecte"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:236
+msgid "Bookmarks"
+msgstr "Adreces d'interès"
+
+#: ../plugins/spell/spell.vala:18
+msgid "Spell Checker"
+msgstr "Corrector ortogràfic"
+
+#: ../plugins/spell/spell.vala:19
+msgid "Checks the spelling of your documents"
+msgstr "Revisa l'ortografia dels vostres documents"
+
+#: ../plugins/spell/spell.vala:80
+msgid ""
+"No suitable dictionaries were found.\n"
+"Please install at least one [aspell] dictionary"
+msgstr ""
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/filemanager/FileManagerPlugin.vala:21
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:21
 msgid "Folder Manager"
@@ -505,48 +711,32 @@ msgstr "Gestor de fitxers"
 msgid "/New File"
 msgstr "Fitxer /nou"
 
-#: ../plugins/preserve-indent/preserve-indent.vala:24
-msgid "Preserve Indent"
-msgstr ""
+#: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
+msgid "Strip trailing whitespace"
+msgstr "Suprimeix els espais en blanc"
 
-#: ../plugins/preserve-indent/preserve-indent.vala:25
-msgid "Maintains indent level of pasted text when auto-indent is active"
-msgstr ""
-
-#: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
-msgid "Highlight Selected Words"
-msgstr ""
-
-#: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
-msgid "Highlights all occurrences of words that are selected"
-msgstr ""
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:21
-#: ../plugins/clipboard-history/ClipboardHistory.vala:89
-msgid "Clipboard History"
-msgstr ""
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:22
-msgid "Clipboard to view history"
-msgstr ""
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:28
-msgid "..."
-msgstr ""
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:156
-msgid "Delete"
-msgstr ""
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:159
-#: ../plugins/terminal/terminal.vala:313
-msgid "Paste"
-msgstr "Enganxa"
+#: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
+msgid "Strip trailing whitespace on save"
+msgstr "Suprimeix els espais en blanc en desar"
 
 #: ../plugins/browser-preview/BrowserView.vala:49
 msgid "Close Inspector"
 msgstr ""
 
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/browser-preview/browser-preview.vala:21
 msgid "Browser Preview"
 msgstr "Previsualització al navegador"
@@ -569,9 +759,36 @@ msgstr ""
 msgid "Hide Preview"
 msgstr ""
 
-#: ../plugins/contractor/contractor.vala:21
-msgid "Share your files with Contractor"
-msgstr "Compartiu els vostres fitxers amb el Contractor"
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/clipboard-history/ClipboardHistory.vala:21
+#: ../plugins/clipboard-history/ClipboardHistory.vala:89
+msgid "Clipboard History"
+msgstr ""
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:22
+msgid "Clipboard to view history"
+msgstr ""
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:28
+msgid "..."
+msgstr ""
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:156
+msgid "Delete"
+msgstr ""
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:70
 msgid "Folders"
@@ -594,59 +811,20 @@ msgstr "_Obre"
 msgid "Close Folder"
 msgstr "Tanca la carpeta"
 
-#: ../plugins/outline/OutlinePlugin.vala:21
-msgid "Outline"
-msgstr ""
-
-#: ../plugins/outline/OutlinePlugin.vala:22
-msgid "Outline symbols in your current file in vala"
-msgstr ""
-
-#: ../plugins/outline/OutlinePlugin.vala:111
-#: ../plugins/outline/CtagsSymbolResolver.vala:35
-#: ../plugins/outline/CtagsSymbolResolver.vala:68
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:94
-msgid "Symbols"
-msgstr ""
-
-#: ../plugins/brackets-completion/brackets-completion.vala:21
-msgid "Brackets Completion"
-msgstr "Compleció de claudàtors"
-
-#: ../plugins/brackets-completion/brackets-completion.vala:22
-msgid "Complete brackets while typing"
-msgstr "Completa els claudàtors mentre s'escriu"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:20
-#: ../plugins/source-tree/SourceTreePlugin.vala:197
-msgid "Source Tree"
-msgstr "Arbre d'origen"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:21
-msgid "Have a look at your sources organized in a nice tree"
-msgstr "Feu una ullada als vostres orígens organitzats en un arbre"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:42
-msgid "Loading..."
-msgstr "S'està carregant…"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:175
-msgid "Bookmark"
-msgstr "Adreça d'interès"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:234
-msgid "Files"
-msgstr "Fitxers"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:235
-msgid "Project"
-msgstr "Projecte"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:236
-msgid "Bookmarks"
-msgstr "Adreces d'interès"
-
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
 msgstr "Emulació del Vim"
@@ -654,6 +832,46 @@ msgstr "Emulació del Vim"
 #: ../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
 msgstr "Utilitza ordres del Vim a l'Scratch"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/contractor/contractor.vala:21
+msgid "Share your files with Contractor"
+msgstr "Compartiu els vostres fitxers amb el Contractor"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
+msgid "Highlight Selected Words"
+msgstr ""
+
+#: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
+msgid "Highlights all occurrences of words that are selected"
+msgstr ""
 
 #: ../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
@@ -719,71 +937,17 @@ msgstr "Un dia"
 msgid "One month"
 msgstr "Un mes"
 
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
-msgid "Strip trailing whitespace"
-msgstr "Suprimeix els espais en blanc"
-
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
-msgid "Strip trailing whitespace on save"
-msgstr "Suprimeix els espais en blanc en desar"
-
-#: ../plugins/spell/spell.vala:18
-msgid "Spell Checker"
-msgstr "Corrector ortogràfic"
-
-#: ../plugins/spell/spell.vala:19
-msgid "Checks the spelling of your documents"
-msgstr "Revisa l'ortografia dels vostres documents"
-
-#: ../plugins/open-with/open-with.vala:21
-msgid "Open With"
-msgstr "Obre amb"
-
-#: ../plugins/open-with/open-with.vala:22
-msgid "Open files you are editing with another application"
-msgstr "Obre fitxers que s'estiguin editant amb una altra apliació."
-
-#: ../plugins/open-with/open-with.vala:54
-msgid "Open With…"
+#: ../plugins/preserve-indent/preserve-indent.vala:24
+msgid "Preserve Indent"
 msgstr ""
 
-#: ../plugins/detect-indent/detect-indent.vala:1
-msgid "Detect Indent"
+#: ../plugins/preserve-indent/preserve-indent.vala:25
+msgid "Maintains indent level of pasted text when auto-indent is active"
 msgstr ""
 
-#: ../plugins/detect-indent/detect-indent.vala:2
-msgid "Heuristically detect tab or space settings"
-msgstr ""
-
-#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
-#: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
-#: ../plugins/terminal/terminal.vala:174
-msgid "Terminal"
-msgstr "Terminal"
-
-#: ../plugins/terminal/terminal.vala:24
-msgid "A terminal in your text editor"
-msgstr "Un terminal a l'editor de textos"
-
-#: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
-msgid "Show Terminal"
-msgstr ""
-
-#: ../plugins/terminal/terminal.vala:170
-msgid "Hide Terminal"
-msgstr ""
-
-#: ../plugins/terminal/terminal.vala:306
-msgid "Copy"
-msgstr "Copia"
-
-#: ../plugins/terminal/terminal.vala:323
-msgid "Terminal on Right"
-msgstr ""
-
-#: ../plugins/terminal/terminal.vala:331
-msgid "Terminal on Bottom"
-msgstr ""
+#: ../plugins/word-completion/completion-provider.vala:80
+msgid "Could not load icon theme: %s\n"
+msgstr "No s'ha pogut carregar el tema d'icones: %s\n"
 
 #: ../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
@@ -799,9 +963,39 @@ msgstr ""
 msgid "%s - Word Completion"
 msgstr "%s - Compleció de paraules"
 
-#: ../plugins/word-completion/completion-provider.vala:80
-msgid "Could not load icon theme: %s\n"
-msgstr "No s'ha pogut carregar el tema d'icones: %s\n"
+#: ../plugins/detect-indent/detect-indent.vala:1
+msgid "Detect Indent"
+msgstr ""
+
+#: ../plugins/detect-indent/detect-indent.vala:2
+msgid "Heuristically detect tab or space settings"
+msgstr ""
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/open-with/open-with.vala:21
+msgid "Open With"
+msgstr "Obre amb"
+
+#: ../plugins/open-with/open-with.vala:22
+msgid "Open files you are editing with another application"
+msgstr "Obre fitxers que s'estiguin editant amb una altra apliació."
+
+#: ../plugins/open-with/open-with.vala:54
+msgid "Open With…"
+msgstr ""
 
 #~ msgid "No files are open."
 #~ msgstr "No hi ha cap fitxer obert."
@@ -812,6 +1006,12 @@ msgstr "No s'ha pogut carregar el tema d'icones: %s\n"
 #~ msgid "Normal text"
 #~ msgstr "Text normal"
 
+#~ msgid "General:"
+#~ msgstr "General:"
+
+#~ msgid "Editor:"
+#~ msgstr "Editor:"
+
 #~ msgid "Margin width:"
 #~ msgstr "Amplada del marge:"
 
@@ -821,8 +1021,14 @@ msgstr "No s'ha pogut carregar el tema d'icones: %s\n"
 #~ msgid "New document"
 #~ msgstr "Document nou"
 
+#~ msgid "Tabs:"
+#~ msgstr "Tabulacions:"
+
 #~ msgid "Do you want to reload it?"
 #~ msgstr "Voleu tornar a carregar el document?"
+
+#~ msgid "Draw spaces:"
+#~ msgstr "Dibuixa espais:"
 
 #~ msgid "Previous Search"
 #~ msgstr "Cerca anterior"
@@ -881,11 +1087,17 @@ msgstr "No s'ha pogut carregar el tema d'icones: %s\n"
 #~ msgid "Show margin on right:"
 #~ msgstr "Mostra un marge a la dreta:"
 
+#~ msgid "Select font:"
+#~ msgstr "Seleccioneu un tipus de lletra:"
+
 #~ msgid "There are unsaved changes in Scratch!"
 #~ msgstr "Hi ha canvis sense desar a l'Scratch."
 
 #~ msgid "There are unsaved changes!"
 #~ msgstr "Hi ha canvis sense desar."
+
+#~ msgid "Font and Color Scheme:"
+#~ msgstr "Combinació de tipus de lletra i colors:"
 
 #, c-format
 #~ msgid "The file %s was modified."

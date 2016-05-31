@@ -7,47 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-12-18 13:57-0600\n"
-"PO-Revision-Date: 2016-05-24 06:56+0000\n"
+"POT-Creation-Date: 2016-05-30 11:22-0700\n"
+"PO-Revision-Date: 2016-05-30 20:12+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-25 05:59+0000\n"
+"X-Launchpad-Export-Date: 2016-05-31 06:24+0000\n"
 "X-Generator: Launchpad (build 18053)\n"
-
-#: ../src/Scratch.vala:68
-msgid "translator-credits"
-msgstr ""
-"Launchpad Contributions:\n"
-"  Jung-Kyu Park https://launchpad.net/~bagjunggyu\n"
-"  Kenny Kim https://launchpad.net/~kennykim12\n"
-"  Kyu-Seok Yang https://launchpad.net/~lklk9110-3\n"
-"  LeeHoseok https://launchpad.net/~neochain\n"
-"  Mario Guerriero https://launchpad.net/~mefrio-g\n"
-"  MinSik CHO https://launchpad.net/~mscho527\n"
-"  cafeinoz https://launchpad.net/~cafeinoz"
-
-#: ../src/Scratch.vala:246
-msgid "New Tab"
-msgstr "새 탭"
-
-#: ../src/Scratch.vala:247 ../src/config.vala:18
-msgid "New Window"
-msgstr "새 창"
-
-#: ../src/Scratch.vala:248
-msgid "Print version info and exit"
-msgstr "버전 정보를 출력하고 나가기"
-
-#: ../src/Scratch.vala:249
-msgid "Set of plugins"
-msgstr "플러그인 모음"
-
-#: ../src/Scratch.vala:250
-msgid "Current working directory"
-msgstr "지금 작업 중인 디렉터리"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -57,103 +25,158 @@ msgstr "텍스트 파일을 편집하기"
 msgid "Text Editor"
 msgstr "텍스트 편집기"
 
-#: ../src/config.vala:17 ../src/Services/Document.vala:405
+#: ../src/config.vala:17 ../src/Services/Document.vala:440
 msgid "New Document"
 msgstr "새 문서"
+
+#: ../src/config.vala:18 ../src/Scratch.vala:312
+msgid "New Window"
+msgstr "새 창"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
 msgstr "스크래치 소개"
 
-#: ../src/Services/Document.vala:231
-msgid "Save changes to document %s before closing?"
-msgstr "닫기 전에 문서 %s의 변경 사항을 저장하시겠습니까?"
+#: ../src/Dialogs/PreferencesDialog.vala:56 ../src/MainWindow.vala:909
+msgid "Preferences"
+msgstr "환경설정"
 
-#: ../src/Services/Document.vala:234
-msgid ""
-"If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr "저장하지 않으면, 지난 4초 동안 변경한 내용은 손실됩니다."
+#: ../src/Dialogs/PreferencesDialog.vala:68
+msgid "Behavior"
+msgstr "동작"
 
-#: ../src/Services/Document.vala:236
-msgid "Close without saving"
-msgstr "저장하지 않고 닫기"
+#: ../src/Dialogs/PreferencesDialog.vala:69
+msgid "Interface"
+msgstr "사용자 환경"
 
-#: ../src/Services/Document.vala:240 ../src/Utils.vala:29
-msgid "Cancel"
-msgstr "취소"
+#: ../src/Dialogs/PreferencesDialog.vala:80
+msgid "Extensions"
+msgstr "확장 기능"
 
-#: ../src/Services/Document.vala:241 ../src/Services/Document.vala:546
-#: ../src/Utils.vala:33 ../src/MainWindow.vala:897
-msgid "Save"
-msgstr "저장"
+#: ../src/Dialogs/PreferencesDialog.vala:84 ../src/MainWindow.vala:845
+#: ../src/MainWindow.vala:846
+msgid "Close"
+msgstr "닫기"
 
-#: ../src/Services/Document.vala:313
-msgid "Save File"
-msgstr "파일 저장"
+#: ../src/Dialogs/PreferencesDialog.vala:109
+msgid "General"
+msgstr "일반"
 
-#: ../src/Services/Document.vala:521
-msgid ""
-"File \"%s\" cannot be read. Maybe it is corrupt\n"
-"or you do not have the necessary permissions to read it."
-msgstr "파일 \"%s\"를 읽을 수 없습니다. 파일이 깨졌거나 이 파일을 읽을 수 있는 권한이 없는 것일 수 있습니다."
+#: ../src/Dialogs/PreferencesDialog.vala:111
+msgid "When Scratch starts:"
+msgstr "스크래치 시작할 때:"
 
-#: ../src/Services/Document.vala:537
-msgid ""
-"The location containing the file \"%s\" was unmounted. Do you want to save "
-"somewhere else?"
-msgstr "파일 \"%s\"를 포함한 위치가 언마운트 되었습니다. 다른 곳에 저장하시겠습니까?"
+#: ../src/Dialogs/PreferencesDialog.vala:113
+msgid "Show welcome screen"
+msgstr "시작 화면을 표시"
 
-#: ../src/Services/Document.vala:539 ../src/MainWindow.vala:901
-msgid "Save As…"
-msgstr "다른 이름으로 저장…"
+#: ../src/Dialogs/PreferencesDialog.vala:114
+msgid "Show last open tabs"
+msgstr "마지막에 연 탭 표시"
 
-#: ../src/Services/Document.vala:544
-msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "파일 \"%s\"가 지워졌습니다. 그래도 저장하시겠습니까?"
+#: ../src/Dialogs/PreferencesDialog.vala:117
+msgid "Save files when changed:"
+msgstr "변경사항이 있으면 저장하기:"
 
-#: ../src/Services/Document.vala:557
-msgid ""
-"You cannot save changes on file \"%s\". Do you want to save the changes to "
-"this file in a different location?"
-msgstr "이 파일의 변경된 내용을 저장할 수 없습니다 \"%s\". 이 파일의 변경된 내용을 다른 위치에 저장하시겠습니까?"
+#: ../src/Dialogs/PreferencesDialog.vala:120
+msgid "Tabs"
+msgstr "탭"
 
-#: ../src/Services/Document.vala:559
-msgid "Save changes elsewhere"
-msgstr "다른 곳에 변경사항을 저장하기"
+#: ../src/Dialogs/PreferencesDialog.vala:122
+msgid "Automatic indentation:"
+msgstr "자동 들여쓰기:"
 
-#: ../src/Services/Document.vala:590
-msgid ""
-"File \"%s\" was modified by an external application. Do you want to load it "
-"again or continue your editing?"
-msgstr "파일 \"%s\" 는 외부 프로그램에 의해서 수정되었습니다. 다시 읽어 들일까요 아니면 편집을 계속하실건가요?"
+#: ../src/Dialogs/PreferencesDialog.vala:125
+msgid "Insert spaces instead of tabs:"
+msgstr "탭 대신 빈칸 표시"
 
-#: ../src/Services/Document.vala:591
-msgid "Load"
-msgstr "불러오기"
+#: ../src/Dialogs/PreferencesDialog.vala:128
+msgid "Tab width:"
+msgstr "탭 너비:"
 
-#: ../src/Services/Document.vala:594
-msgid "Continue"
-msgstr "계속"
+#: ../src/Dialogs/PreferencesDialog.vala:154
+msgid "Editor"
+msgstr "편집기"
 
-#: ../src/Services/TemplateManager.vala:194 ../src/MainWindow.vala:905
-msgid "Templates"
-msgstr "서식"
+#: ../src/Dialogs/PreferencesDialog.vala:156
+msgid "Highlight current line:"
+msgstr "현재 줄을 강조하기:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:159
+msgid "Highlight matching brackets:"
+msgstr "상응하는 괄호 강조하기:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:162
+msgid "Line wrap:"
+msgstr "줄 덮기:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:165
+msgid "Draw Spaces:"
+msgstr "빈칸 표시:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:168
+msgid "Show line numbers:"
+msgstr "줄 번호 표시:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:172
+msgid "Show Mini Map:"
+msgstr "미니맵 표시:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:176
+msgid "Line width guide:"
+msgstr "줄 폭 가이드:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:184
+msgid "Font and Color Scheme"
+msgstr "글꼴과 색상 설정:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:186
+msgid "Color scheme:"
+msgstr "색상:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:191
+msgid "Custom font:"
+msgstr "사용자 지정 글꼴:"
 
 #: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
 msgstr "이 텍스트 파일 "
 
-#: ../src/Widgets/SourceView.vala:120
-msgid "Syntax Highlighting"
-msgstr "구문 강조"
-
-#: ../src/Widgets/SourceView.vala:131
-msgid "Normal Text"
-msgstr "일반 텍스트"
-
 #: ../src/Widgets/LoadingView.vala:33
 msgid "Wait while restoring last session..."
 msgstr "마지막 세션을 복구하는 동안 기다려주세요..."
+
+#: ../src/Widgets/SplitView.vala:45
+msgid "No Files Open"
+msgstr "파일이 열려있지 않음"
+
+#: ../src/Widgets/SplitView.vala:46
+msgid "Open a file to begin editing."
+msgstr "편집하시려는 파일을 여세요."
+
+#: ../src/Widgets/SplitView.vala:50
+msgid "New file"
+msgstr "새 파일"
+
+#: ../src/Widgets/SplitView.vala:50
+msgid "Create a new empty file."
+msgstr "파일을 새로 만듭니다."
+
+#: ../src/Widgets/SplitView.vala:51
+msgid "Open file"
+msgstr "파일 열기"
+
+#: ../src/Widgets/SplitView.vala:51
+msgid "Open a saved file."
+msgstr "저장된 파일을 엽니다."
+
+#: ../src/Widgets/SplitView.vala:52
+msgid "New file from clipboard"
+msgstr "클립보드의 새 파일"
+
+#: ../src/Widgets/SplitView.vala:52
+msgid "Create a new file from the contents of your clipboard."
+msgstr "클립보드에 있는 내용으로 파일을 새로 만듭니다."
 
 #: ../src/Widgets/SearchManager.vala:70
 msgid "Find"
@@ -192,151 +215,13 @@ msgstr "줄로 이동:"
 msgid "Share"
 msgstr "공유"
 
-#: ../src/Widgets/SplitView.vala:45
-msgid "No Files Open"
-msgstr "파일이 열려있지 않음"
+#: ../src/Widgets/SourceView.vala:120
+msgid "Syntax Highlighting"
+msgstr "구문 강조"
 
-#: ../src/Widgets/SplitView.vala:46
-msgid "Open a file to begin editing."
-msgstr "편집하시려는 파일을 여세요."
-
-#: ../src/Widgets/SplitView.vala:50
-msgid "New file"
-msgstr "새 파일"
-
-#: ../src/Widgets/SplitView.vala:50
-msgid "Create a new empty file."
-msgstr "파일을 새로 만듭니다."
-
-#: ../src/Widgets/SplitView.vala:51
-msgid "Open file"
-msgstr "파일 열기"
-
-#: ../src/Widgets/SplitView.vala:51
-msgid "Open a saved file."
-msgstr "저장된 파일을 엽니다."
-
-#: ../src/Widgets/SplitView.vala:52
-msgid "New file from clipboard"
-msgstr "클립보드의 새 파일"
-
-#: ../src/Widgets/SplitView.vala:52
-msgid "Create a new file from the contents of your clipboard."
-msgstr "클립보드에 있는 내용으로 파일을 새로 만듭니다."
-
-#: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:909
-msgid "Preferences"
-msgstr "환경설정"
-
-#: ../src/Dialogs/PreferencesDialog.vala:63
-msgid "Behavior"
-msgstr "동작"
-
-#: ../src/Dialogs/PreferencesDialog.vala:66
-msgid "Interface"
-msgstr "사용자 환경"
-
-#: ../src/Dialogs/PreferencesDialog.vala:79
-msgid "Extensions"
-msgstr "확장 기능"
-
-#: ../src/Dialogs/PreferencesDialog.vala:83 ../src/MainWindow.vala:845
-#: ../src/MainWindow.vala:846
-msgid "Close"
-msgstr "닫기"
-
-#: ../src/Dialogs/PreferencesDialog.vala:128
-msgid "Show welcome screen"
-msgstr "시작 화면을 표시"
-
-#: ../src/Dialogs/PreferencesDialog.vala:129
-msgid "Show last open tabs"
-msgstr "마지막에 연 탭 표시"
-
-#: ../src/Dialogs/PreferencesDialog.vala:145
-msgid "General:"
-msgstr "일반:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:151
-msgid "When Scratch starts:"
-msgstr "스크래치 시작할 때:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:154
-msgid "Save files when changed:"
-msgstr "변경사항이 있으면 저장하기:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:158
-msgid "Tabs:"
-msgstr "탭:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:163
-msgid "Automatic indentation:"
-msgstr "자동 들여쓰기:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:166
-msgid "Insert spaces instead of tabs:"
-msgstr "탭 대신 빈칸 표시"
-
-#: ../src/Dialogs/PreferencesDialog.vala:170
-msgid "Tab width:"
-msgstr "탭 너비:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:195
-msgid "Editor:"
-msgstr "편집기:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:213
-msgid "Highlight current line:"
-msgstr "현재 줄을 강조하기:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:214
-msgid "Highlight matching brackets:"
-msgstr "상응하는 괄호 강조하기:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:215
-msgid "Line wrap:"
-msgstr "줄 덮기:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:216
-msgid "Draw spaces:"
-msgstr "빈칸 표시:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:217
-msgid "Show line numbers:"
-msgstr "줄 번호 표시:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:219
-msgid "Line width guide:"
-msgstr "줄 폭 가이드:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:233
-msgid "Font and Color Scheme:"
-msgstr "글꼴과 색상 설정:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:247
-msgid "Select font:"
-msgstr "글꼴 선택:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:250
-msgid "Color scheme:"
-msgstr "색상:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:255
-msgid "Custom font:"
-msgstr "사용자 지정 글꼴:"
-
-#: ../src/Utils.vala:31 ../src/MainWindow.vala:885
-#: ../plugins/filemanager/FileView.vala:230
-msgid "Open"
-msgstr "열기"
-
-#: ../src/Utils.vala:42
-msgid "All files"
-msgstr "모든 파일"
-
-#: ../src/Utils.vala:45
-msgid "Text files"
-msgstr "텍스트 파일"
+#: ../src/Widgets/SourceView.vala:131
+msgid "Normal Text"
+msgstr "일반 텍스트"
 
 #: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
@@ -427,6 +312,11 @@ msgstr "원본으로 되돌리기"
 msgid "Duplicate selected strings"
 msgstr "선택한 항목을 복제하기"
 
+#: ../src/MainWindow.vala:885 ../src/Utils.vala:31
+#: ../plugins/filemanager/FileView.vala:230
+msgid "Open"
+msgstr "열기"
+
 #: ../src/MainWindow.vala:886
 msgid "Open a file"
 msgstr "파일 열기"
@@ -447,13 +337,26 @@ msgstr "확대"
 msgid "Zoom 1:1"
 msgstr "1:1 크기"
 
+#: ../src/MainWindow.vala:897 ../src/Services/Document.vala:255
+#: ../src/Services/Document.vala:581 ../src/Utils.vala:33
+msgid "Save"
+msgstr "저장"
+
 #: ../src/MainWindow.vala:898
 msgid "Save this file"
 msgstr "이 파일 저장하기"
 
+#: ../src/MainWindow.vala:901 ../src/Services/Document.vala:574
+msgid "Save As…"
+msgstr "다른 이름으로 저장…"
+
 #: ../src/MainWindow.vala:902
 msgid "Save this file with a different name"
 msgstr "다른 이름으로 저장하기"
+
+#: ../src/MainWindow.vala:905 ../src/Services/TemplateManager.vala:194
+msgid "Templates"
+msgstr "서식"
 
 #: ../src/MainWindow.vala:906
 msgid "Project templates"
@@ -475,6 +378,315 @@ msgstr "이전 탭"
 msgid "Fullscreen"
 msgstr "전체화면"
 
+#: ../src/Services/Document.vala:245
+msgid "Save changes to document %s before closing?"
+msgstr "닫기 전에 문서 %s의 변경 사항을 저장하시겠습니까?"
+
+#: ../src/Services/Document.vala:248
+msgid ""
+"If you don't save, changes from the last 4 seconds will be permanently lost."
+msgstr "저장하지 않으면, 지난 4초 동안 변경한 내용은 손실됩니다."
+
+#: ../src/Services/Document.vala:250
+msgid "Close without saving"
+msgstr "저장하지 않고 닫기"
+
+#: ../src/Services/Document.vala:254 ../src/Utils.vala:29
+msgid "Cancel"
+msgstr "취소"
+
+#: ../src/Services/Document.vala:327
+msgid "Save File"
+msgstr "파일 저장"
+
+#: ../src/Services/Document.vala:556
+msgid ""
+"File \"%s\" cannot be read. Maybe it is corrupt\n"
+"or you do not have the necessary permissions to read it."
+msgstr "파일 \"%s\"를 읽을 수 없습니다. 파일이 깨졌거나 이 파일을 읽을 수 있는 권한이 없는 것일 수 있습니다."
+
+#: ../src/Services/Document.vala:572
+msgid ""
+"The location containing the file \"%s\" was unmounted. Do you want to save "
+"somewhere else?"
+msgstr "파일 \"%s\"를 포함한 위치가 언마운트 되었습니다. 다른 곳에 저장하시겠습니까?"
+
+#: ../src/Services/Document.vala:579
+msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+msgstr "파일 \"%s\"가 지워졌습니다. 그래도 저장하시겠습니까?"
+
+#: ../src/Services/Document.vala:592
+msgid ""
+"You cannot save changes on file \"%s\". Do you want to save the changes to "
+"this file in a different location?"
+msgstr "이 파일의 변경된 내용을 저장할 수 없습니다 \"%s\". 이 파일의 변경된 내용을 다른 위치에 저장하시겠습니까?"
+
+#: ../src/Services/Document.vala:594
+msgid "Save changes elsewhere"
+msgstr "다른 곳에 변경사항을 저장하기"
+
+#: ../src/Services/Document.vala:625
+msgid ""
+"File \"%s\" was modified by an external application. Do you want to load it "
+"again or continue your editing?"
+msgstr "파일 \"%s\" 는 외부 프로그램에 의해서 수정되었습니다. 다시 읽어 들일까요 아니면 편집을 계속하실건가요?"
+
+#: ../src/Services/Document.vala:626
+msgid "Load"
+msgstr "불러오기"
+
+#: ../src/Services/Document.vala:629
+msgid "Continue"
+msgstr "계속"
+
+#: ../src/Scratch.vala:68
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  Jung-Kyu Park https://launchpad.net/~bagjunggyu\n"
+"  Kenny Kim https://launchpad.net/~kennykim12\n"
+"  Kyu-Seok Yang https://launchpad.net/~lklk9110-3\n"
+"  LeeHoseok https://launchpad.net/~neochain\n"
+"  Mario Guerriero https://launchpad.net/~mefrio-g\n"
+"  MinSik CHO https://launchpad.net/~mscho527\n"
+"  cafeinoz https://launchpad.net/~cafeinoz"
+
+#: ../src/Scratch.vala:166
+msgid "Maybe you do not have the necessary permissions."
+msgstr "필요한 권한을 가지고 계시지 않는 것 같습니다."
+
+#: ../src/Scratch.vala:168
+msgid "Maybe the file path provided is not valid."
+msgstr "지정하신 경로가 잘못된 것 같습니다."
+
+#: ../src/Scratch.vala:170
+msgid "The location is read-only."
+msgstr "그 폴더는 읽기 전용입니다."
+
+#: ../src/Scratch.vala:172
+msgid "The parent directory doesn't exist."
+msgstr "상위 디렉토리가 없습니다."
+
+#: ../src/Scratch.vala:179
+msgid ""
+"File \"%s\" cannot be created.\n"
+"%s"
+msgstr ""
+"\"%s\" 파일을 만들 수 없습니다.\n"
+"%s"
+
+#: ../src/Scratch.vala:189
+msgid ""
+"File \"%s\" cannot be opened.\n"
+"%s"
+msgstr ""
+"\"%s\" 파일을 열 수 없습니다.\n"
+"%s"
+
+#: ../src/Scratch.vala:198
+msgid "It is a mountable location."
+msgstr "마운트 가능한 폴더입니다."
+
+#: ../src/Scratch.vala:201
+msgid "It is a directory."
+msgstr "디렉토리입니다."
+
+#: ../src/Scratch.vala:204
+msgid ""
+"It is a \"special\" file such as a socket,\n"
+" fifo, block device, or character device."
+msgstr ""
+"다음과 같은 \"특별한\" 파일입니다 socket,\n"
+" fifo, block device, 또는 character device."
+
+#: ../src/Scratch.vala:207
+msgid "It is an \"unknown\" file type."
+msgstr "\"알 수 없는\" 파일 형식입니다."
+
+#: ../src/Scratch.vala:311
+msgid "New Tab"
+msgstr "새 탭"
+
+#: ../src/Scratch.vala:313
+msgid "Print version info and exit"
+msgstr "버전 정보를 출력하고 나가기"
+
+#: ../src/Scratch.vala:314
+msgid "Set of plugins"
+msgstr "플러그인 모음"
+
+#: ../src/Scratch.vala:315
+msgid "Current working directory"
+msgstr "지금 작업 중인 디렉터리"
+
+#: ../src/Utils.vala:42
+msgid "All files"
+msgstr "모든 파일"
+
+#: ../src/Utils.vala:45
+msgid "Text files"
+msgstr "텍스트 파일"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/outline/OutlinePlugin.vala:21
+msgid "Outline"
+msgstr "외곽선"
+
+#: ../plugins/outline/OutlinePlugin.vala:22
+msgid "Outline symbols in your current file in vala"
+msgstr "발라로 작성된 현재 파일의 외곽선 기호"
+
+#: ../plugins/outline/OutlinePlugin.vala:116
+#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
+#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:99
+#: ../plugins/outline/CtagsSymbolResolver.vala:35
+#: ../plugins/outline/CtagsSymbolResolver.vala:68
+msgid "Symbols"
+msgstr "기호"
+
+#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
+#: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
+#: ../plugins/terminal/terminal.vala:174
+msgid "Terminal"
+msgstr "터미널"
+
+#: ../plugins/terminal/terminal.vala:24
+msgid "A terminal in your text editor"
+msgstr "텍스트 편집기에서의 터미널"
+
+#: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
+msgid "Show Terminal"
+msgstr "터미널 보이기"
+
+#: ../plugins/terminal/terminal.vala:170
+msgid "Hide Terminal"
+msgstr "터미널 숨기기"
+
+#: ../plugins/terminal/terminal.vala:306
+msgid "Copy"
+msgstr "복사"
+
+#: ../plugins/terminal/terminal.vala:313
+#: ../plugins/clipboard-history/ClipboardHistory.vala:159
+msgid "Paste"
+msgstr "붙여넣기"
+
+#: ../plugins/terminal/terminal.vala:323
+msgid "Terminal on Right"
+msgstr "오른쪽 터미널"
+
+#: ../plugins/terminal/terminal.vala:331
+msgid "Terminal on Bottom"
+msgstr "아래 터미널"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/brackets-completion/brackets-completion.vala:21
+msgid "Brackets Completion"
+msgstr "괄호 완성"
+
+#: ../plugins/brackets-completion/brackets-completion.vala:22
+msgid "Complete brackets while typing"
+msgstr "입력 시 자동 괄호 완성"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/source-tree/SourceTreePlugin.vala:20
+#: ../plugins/source-tree/SourceTreePlugin.vala:197
+msgid "Source Tree"
+msgstr "소스 트리"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:21
+msgid "Have a look at your sources organized in a nice tree"
+msgstr "트리 모양에 정리된 소스를 살펴보세요"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:42
+msgid "Loading..."
+msgstr "불러오는 중..."
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:175
+msgid "Bookmark"
+msgstr "책갈피"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:234
+msgid "Files"
+msgstr "파일"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:235
+msgid "Project"
+msgstr "프로젝트"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:236
+msgid "Bookmarks"
+msgstr "책갈피들"
+
+#: ../plugins/spell/spell.vala:18
+msgid "Spell Checker"
+msgstr "맞춤법 검사"
+
+#: ../plugins/spell/spell.vala:19
+msgid "Checks the spelling of your documents"
+msgstr "문서에서의 철자법 확인"
+
+#: ../plugins/spell/spell.vala:80
+msgid ""
+"No suitable dictionaries were found.\n"
+"Please install at least one [aspell] dictionary"
+msgstr ""
+"사용할 만한 사전이 없습니다.\n"
+"최소 맞춤 법 사전 [aspell] 한 개는 설치해주세요"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/filemanager/FileManagerPlugin.vala:21
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:21
 msgid "Folder Manager"
@@ -505,48 +717,32 @@ msgstr "파일 관리자"
 msgid "/New File"
 msgstr "/새 파일"
 
-#: ../plugins/preserve-indent/preserve-indent.vala:24
-msgid "Preserve Indent"
-msgstr "들여 쓰기 유지"
+#: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
+msgid "Strip trailing whitespace"
+msgstr "따라오는 공백 제거"
 
-#: ../plugins/preserve-indent/preserve-indent.vala:25
-msgid "Maintains indent level of pasted text when auto-indent is active"
-msgstr "자동 들여 쓰기를 활성화하면 붙여 넣은 문장의 들여 쓰기 정도를 유지하기"
-
-#: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
-msgid "Highlight Selected Words"
-msgstr "선택된 단어 하이라이트 표시"
-
-#: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
-msgid "Highlights all occurrences of words that are selected"
-msgstr "선택한 단어의 모든 항목을 강조하기"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:21
-#: ../plugins/clipboard-history/ClipboardHistory.vala:89
-msgid "Clipboard History"
-msgstr "클립보드 기록"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:22
-msgid "Clipboard to view history"
-msgstr "클립보드 기록 보기"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:28
-msgid "..."
-msgstr "..."
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:156
-msgid "Delete"
-msgstr "지우기"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:159
-#: ../plugins/terminal/terminal.vala:313
-msgid "Paste"
-msgstr "붙여넣기"
+#: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
+msgid "Strip trailing whitespace on save"
+msgstr "저장시 따라오는 공백 제거"
 
 #: ../plugins/browser-preview/BrowserView.vala:49
 msgid "Close Inspector"
 msgstr "검사기 닫기"
 
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/browser-preview/browser-preview.vala:21
 msgid "Browser Preview"
 msgstr "브라우저 미리보기"
@@ -569,9 +765,36 @@ msgstr "웹 미리 보기"
 msgid "Hide Preview"
 msgstr "미리 보기 숨기기"
 
-#: ../plugins/contractor/contractor.vala:21
-msgid "Share your files with Contractor"
-msgstr "Contractor로 파일 공유"
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/clipboard-history/ClipboardHistory.vala:21
+#: ../plugins/clipboard-history/ClipboardHistory.vala:89
+msgid "Clipboard History"
+msgstr "클립보드 기록"
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:22
+msgid "Clipboard to view history"
+msgstr "클립보드 기록 보기"
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:28
+msgid "..."
+msgstr "..."
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:156
+msgid "Delete"
+msgstr "지우기"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:70
 msgid "Folders"
@@ -594,59 +817,20 @@ msgstr "열기(_O)"
 msgid "Close Folder"
 msgstr "폴더 닫기"
 
-#: ../plugins/outline/OutlinePlugin.vala:21
-msgid "Outline"
-msgstr "외곽선"
-
-#: ../plugins/outline/OutlinePlugin.vala:22
-msgid "Outline symbols in your current file in vala"
-msgstr "발라로 작성된 현재 파일의 외곽선 기호"
-
-#: ../plugins/outline/OutlinePlugin.vala:111
-#: ../plugins/outline/CtagsSymbolResolver.vala:35
-#: ../plugins/outline/CtagsSymbolResolver.vala:68
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:94
-msgid "Symbols"
-msgstr "기호"
-
-#: ../plugins/brackets-completion/brackets-completion.vala:21
-msgid "Brackets Completion"
-msgstr "괄호 완성"
-
-#: ../plugins/brackets-completion/brackets-completion.vala:22
-msgid "Complete brackets while typing"
-msgstr "입력 시 자동 괄호 완성"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:20
-#: ../plugins/source-tree/SourceTreePlugin.vala:197
-msgid "Source Tree"
-msgstr "소스 트리"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:21
-msgid "Have a look at your sources organized in a nice tree"
-msgstr "트리 모양에 정리된 소스를 살펴보세요"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:42
-msgid "Loading..."
-msgstr "불러오는 중..."
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:175
-msgid "Bookmark"
-msgstr "책갈피"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:234
-msgid "Files"
-msgstr "파일"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:235
-msgid "Project"
-msgstr "프로젝트"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:236
-msgid "Bookmarks"
-msgstr "책갈피들"
-
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
 msgstr "Vim 에뮬레이션"
@@ -654,6 +838,46 @@ msgstr "Vim 에뮬레이션"
 #: ../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
 msgstr "스크래치에 Vim 명령어 사용하기"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/contractor/contractor.vala:21
+msgid "Share your files with Contractor"
+msgstr "Contractor로 파일 공유"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
+msgid "Highlight Selected Words"
+msgstr "선택된 단어 하이라이트 표시"
+
+#: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
+msgid "Highlights all occurrences of words that are selected"
+msgstr "선택한 단어의 모든 항목을 강조하기"
 
 #: ../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
@@ -719,71 +943,17 @@ msgstr "하루"
 msgid "One month"
 msgstr "한 달"
 
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
-msgid "Strip trailing whitespace"
-msgstr "따라오는 공백 제거"
+#: ../plugins/preserve-indent/preserve-indent.vala:24
+msgid "Preserve Indent"
+msgstr "들여 쓰기 유지"
 
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
-msgid "Strip trailing whitespace on save"
-msgstr "저장시 따라오는 공백 제거"
+#: ../plugins/preserve-indent/preserve-indent.vala:25
+msgid "Maintains indent level of pasted text when auto-indent is active"
+msgstr "자동 들여 쓰기를 활성화하면 붙여 넣은 문장의 들여 쓰기 정도를 유지하기"
 
-#: ../plugins/spell/spell.vala:18
-msgid "Spell Checker"
-msgstr "맞춤법 검사"
-
-#: ../plugins/spell/spell.vala:19
-msgid "Checks the spelling of your documents"
-msgstr "문서에서의 철자법 확인"
-
-#: ../plugins/open-with/open-with.vala:21
-msgid "Open With"
-msgstr "다음으로 열기"
-
-#: ../plugins/open-with/open-with.vala:22
-msgid "Open files you are editing with another application"
-msgstr "다른 응용 프로그램으로 작업 중인 파일 열기"
-
-#: ../plugins/open-with/open-with.vala:54
-msgid "Open With…"
-msgstr "다음 으로 열기..."
-
-#: ../plugins/detect-indent/detect-indent.vala:1
-msgid "Detect Indent"
-msgstr "들여 쓰기 감지"
-
-#: ../plugins/detect-indent/detect-indent.vala:2
-msgid "Heuristically detect tab or space settings"
-msgstr "경험에 따라 탭을 감지하거나 여백을 조절"
-
-#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
-#: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
-#: ../plugins/terminal/terminal.vala:174
-msgid "Terminal"
-msgstr "터미널"
-
-#: ../plugins/terminal/terminal.vala:24
-msgid "A terminal in your text editor"
-msgstr "텍스트 편집기에서의 터미널"
-
-#: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
-msgid "Show Terminal"
-msgstr "터미널 보이기"
-
-#: ../plugins/terminal/terminal.vala:170
-msgid "Hide Terminal"
-msgstr "터미널 숨기기"
-
-#: ../plugins/terminal/terminal.vala:306
-msgid "Copy"
-msgstr "복사"
-
-#: ../plugins/terminal/terminal.vala:323
-msgid "Terminal on Right"
-msgstr "오른쪽 터미널"
-
-#: ../plugins/terminal/terminal.vala:331
-msgid "Terminal on Bottom"
-msgstr "아래 터미널"
+#: ../plugins/word-completion/completion-provider.vala:80
+msgid "Could not load icon theme: %s\n"
+msgstr "아이콘 테마 불러오기 실패: %s\n"
 
 #: ../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
@@ -797,12 +967,48 @@ msgstr "파일들에서 자주 쓰인 단어 완성 다이얼로그 열기"
 msgid "%s - Word Completion"
 msgstr "%s - 단어 완성"
 
-#: ../plugins/word-completion/completion-provider.vala:80
-msgid "Could not load icon theme: %s\n"
-msgstr "아이콘 테마 불러오기 실패: %s\n"
+#: ../plugins/detect-indent/detect-indent.vala:1
+msgid "Detect Indent"
+msgstr "들여 쓰기 감지"
+
+#: ../plugins/detect-indent/detect-indent.vala:2
+msgid "Heuristically detect tab or space settings"
+msgstr "경험에 따라 탭을 감지하거나 여백을 조절"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/open-with/open-with.vala:21
+msgid "Open With"
+msgstr "다음으로 열기"
+
+#: ../plugins/open-with/open-with.vala:22
+msgid "Open files you are editing with another application"
+msgstr "다른 응용 프로그램으로 작업 중인 파일 열기"
+
+#: ../plugins/open-with/open-with.vala:54
+msgid "Open With…"
+msgstr "다음 으로 열기..."
 
 #~ msgid "New document"
 #~ msgstr "새 문서"
+
+#~ msgid "General:"
+#~ msgstr "일반:"
+
+#~ msgid "Tabs:"
+#~ msgstr "탭:"
 
 #~ msgid "No files are open."
 #~ msgstr "열려있는 파일이 없습니다."
@@ -864,5 +1070,17 @@ msgstr "아이콘 테마 불러오기 실패: %s\n"
 #~ msgid "Margin width:"
 #~ msgstr "여백 너비"
 
+#~ msgid "Select font:"
+#~ msgstr "글꼴 선택:"
+
 #~ msgid "Do you want to save the changes to this file in a different location?"
 #~ msgstr "다른 장소에서 이 파일의 변경 사항을 저장하시겠습니까?"
+
+#~ msgid "Editor:"
+#~ msgstr "편집기:"
+
+#~ msgid "Draw spaces:"
+#~ msgstr "빈칸 표시:"
+
+#~ msgid "Font and Color Scheme:"
+#~ msgstr "글꼴과 색상 설정:"

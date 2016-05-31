@@ -2,42 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-18 13:57-0600\n"
+"POT-Creation-Date: 2016-05-30 11:22-0700\n"
 "PO-Revision-Date: 2015-12-21 13:38+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-22 04:51+0000\n"
-"X-Generator: Launchpad (build 17865)\n"
-
-#: ../src/Scratch.vala:68
-msgid "translator-credits"
-msgstr ""
-"Launchpad Contributions:\n"
-"  Beqa Arabuli https://launchpad.net/~arabulibeqa\n"
-"  Mario Guerriero https://launchpad.net/~mefrio-g"
-
-#: ../src/Scratch.vala:246
-msgid "New Tab"
-msgstr "ახალი ჩანართი"
-
-#: ../src/Scratch.vala:247 ../src/config.vala:18
-msgid "New Window"
-msgstr "ახალი ფანჯარა"
-
-#: ../src/Scratch.vala:248
-msgid "Print version info and exit"
-msgstr "ვერსიის ინფორმაციის გამოტანა და გამოსვლა"
-
-#: ../src/Scratch.vala:249
-msgid "Set of plugins"
-msgstr "გაფართოებების კომპლექტი"
-
-#: ../src/Scratch.vala:250
-msgid "Current working directory"
-msgstr "მიმდინარე სამუშაო ცნობარი"
+"X-Launchpad-Export-Date: 2016-05-31 06:23+0000\n"
+"X-Generator: Launchpad (build 18053)\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -47,111 +20,158 @@ msgstr "ტექსტური ფაილების რედაქტი�
 msgid "Text Editor"
 msgstr "ტექსტის რედაქტორი"
 
-#: ../src/config.vala:17 ../src/Services/Document.vala:405
+#: ../src/config.vala:17 ../src/Services/Document.vala:440
 msgid "New Document"
 msgstr "ახალი დოკუმენტი"
+
+#: ../src/config.vala:18 ../src/Scratch.vala:312
+msgid "New Window"
+msgstr "ახალი ფანჯარა"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
 msgstr "Scratch-ის შესახებ"
 
-#: ../src/Services/Document.vala:231
-msgid "Save changes to document %s before closing?"
-msgstr "შეინახოს დოკუმენტ %s-ის ცვლილებები დახურვამდე?"
+#: ../src/Dialogs/PreferencesDialog.vala:56 ../src/MainWindow.vala:909
+msgid "Preferences"
+msgstr "პარამეტრები"
 
-#: ../src/Services/Document.vala:234
-msgid ""
-"If you don't save, changes from the last 4 seconds will be permanently lost."
+#: ../src/Dialogs/PreferencesDialog.vala:68
+msgid "Behavior"
+msgstr "ქცევა"
+
+#: ../src/Dialogs/PreferencesDialog.vala:69
+msgid "Interface"
+msgstr "ინტერფეისი"
+
+#: ../src/Dialogs/PreferencesDialog.vala:80
+msgid "Extensions"
+msgstr "გაფართოებები"
+
+#: ../src/Dialogs/PreferencesDialog.vala:84 ../src/MainWindow.vala:845
+#: ../src/MainWindow.vala:846
+msgid "Close"
+msgstr "დახურვა"
+
+#: ../src/Dialogs/PreferencesDialog.vala:109
+msgid "General"
 msgstr ""
-"თუ არ დიამახსოვრებთ, ბოლო 4 წამის განმავლობაში განცხორცილებული ცვლილებები "
-"სამუდამო დაიკარგება."
 
-#: ../src/Services/Document.vala:236
-msgid "Close without saving"
-msgstr "დახურვა შენახვის გარეშე"
+#: ../src/Dialogs/PreferencesDialog.vala:111
+msgid "When Scratch starts:"
+msgstr "როდესაც Scratch ჩაირთვება:"
 
-#: ../src/Services/Document.vala:240 ../src/Utils.vala:29
-msgid "Cancel"
-msgstr "გაუქმება"
+#: ../src/Dialogs/PreferencesDialog.vala:113
+msgid "Show welcome screen"
+msgstr "მისასალმებელი ეკრანის ჩვენება"
 
-#: ../src/Services/Document.vala:241 ../src/Services/Document.vala:546
-#: ../src/Utils.vala:33 ../src/MainWindow.vala:897
-msgid "Save"
-msgstr "შენახვა"
+#: ../src/Dialogs/PreferencesDialog.vala:114
+msgid "Show last open tabs"
+msgstr "ბოლოს გახსნილი ჩანართების ჩვენება"
 
-#: ../src/Services/Document.vala:313
-msgid "Save File"
-msgstr "ფაილის შენახვა"
+#: ../src/Dialogs/PreferencesDialog.vala:117
+msgid "Save files when changed:"
+msgstr "ფაილების შენახვა ცვლილებისას:"
 
-#: ../src/Services/Document.vala:521
-msgid ""
-"File \"%s\" cannot be read. Maybe it is corrupt\n"
-"or you do not have the necessary permissions to read it."
+#: ../src/Dialogs/PreferencesDialog.vala:120
+msgid "Tabs"
 msgstr ""
-"ფაილ \"%s\"-ის წაკითხვა ვერ მოხერხდა. შესაძლოა ის დაზიანებულია\n"
-"ან თქვენ არ გაქვთ მისი ნახვისთვის საჭირო უფლებები."
 
-#: ../src/Services/Document.vala:537
-msgid ""
-"The location containing the file \"%s\" was unmounted. Do you want to save "
-"somewhere else?"
-msgstr "ფაილ \"%s\"-ის შემცველი მდებარეობა მოიხსნა. გსურთ სხვაგან შენახვა?"
+#: ../src/Dialogs/PreferencesDialog.vala:122
+msgid "Automatic indentation:"
+msgstr "ავტომატური აბზაცი:"
 
-#: ../src/Services/Document.vala:539 ../src/MainWindow.vala:901
-msgid "Save As…"
-msgstr "შენახვა როგორც ..."
+#: ../src/Dialogs/PreferencesDialog.vala:125
+msgid "Insert spaces instead of tabs:"
+msgstr "ტაბის ნაცვლად გამოტოვებების ჩასმა:"
 
-#: ../src/Services/Document.vala:544
-msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "ფაილი \"%s\" წაიშალა. მაინც გსურთ შენახვა?"
+#: ../src/Dialogs/PreferencesDialog.vala:128
+msgid "Tab width:"
+msgstr "ტაბულაციის სიგანე:"
 
-#: ../src/Services/Document.vala:557
-msgid ""
-"You cannot save changes on file \"%s\". Do you want to save the changes to "
-"this file in a different location?"
+#: ../src/Dialogs/PreferencesDialog.vala:154
+msgid "Editor"
 msgstr ""
-"თქვენ არ შეგიძლიათ ფაილ \"%s\"-ზე ცვლილებების შენახვა. გსურთ განხორციელებული "
-"ცვლილებების სხვა მდებარეობაში შენახვა?"
 
-#: ../src/Services/Document.vala:559
-msgid "Save changes elsewhere"
-msgstr "ცვლილებების სხვაგან შენახვა"
+#: ../src/Dialogs/PreferencesDialog.vala:156
+msgid "Highlight current line:"
+msgstr "მიმდინარე ხაზის შეფერადება:"
 
-#: ../src/Services/Document.vala:590
-msgid ""
-"File \"%s\" was modified by an external application. Do you want to load it "
-"again or continue your editing?"
+#: ../src/Dialogs/PreferencesDialog.vala:159
+msgid "Highlight matching brackets:"
+msgstr "შესაფერისი ფრჩხილების შეფერადება:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:162
+msgid "Line wrap:"
+msgstr "ხაზის გახვევა:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:165
+msgid "Draw Spaces:"
 msgstr ""
-"ფაილი \"%s\" შეიცვალა გარე პროგრამის მიერ. მისი ხელახლა ჩატვირთვა გსურთ თუ "
-"რედაქტირების გაგრძელება?"
 
-#: ../src/Services/Document.vala:591
-msgid "Load"
-msgstr "ჩატვირთვა"
+#: ../src/Dialogs/PreferencesDialog.vala:168
+msgid "Show line numbers:"
+msgstr "ხაზის ციფრების ჩვენება:"
 
-#: ../src/Services/Document.vala:594
-msgid "Continue"
-msgstr "გაგრძელება"
+#: ../src/Dialogs/PreferencesDialog.vala:172
+msgid "Show Mini Map:"
+msgstr ""
 
-#: ../src/Services/TemplateManager.vala:194 ../src/MainWindow.vala:905
-msgid "Templates"
-msgstr "შაბლონები"
+#: ../src/Dialogs/PreferencesDialog.vala:176
+msgid "Line width guide:"
+msgstr "ხაზის სიგანის მეგზური:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:184
+msgid "Font and Color Scheme"
+msgstr ""
+
+#: ../src/Dialogs/PreferencesDialog.vala:186
+msgid "Color scheme:"
+msgstr "ფერის სქემა:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:191
+msgid "Custom font:"
+msgstr "შრიფტი ხელით:"
 
 #: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
 msgstr "ტექსტ-ფაილი "
 
-#: ../src/Widgets/SourceView.vala:120
-msgid "Syntax Highlighting"
-msgstr "სინტაქსის შეფერადება"
-
-#: ../src/Widgets/SourceView.vala:131
-msgid "Normal Text"
-msgstr "ჩვეულებრივი ტექსტი"
-
 #: ../src/Widgets/LoadingView.vala:33
 msgid "Wait while restoring last session..."
 msgstr "მოიცადეთ, სანამ ბოლო სესია აღდგება..."
+
+#: ../src/Widgets/SplitView.vala:45
+msgid "No Files Open"
+msgstr "ფაილები არაა გახსნილი"
+
+#: ../src/Widgets/SplitView.vala:46
+msgid "Open a file to begin editing."
+msgstr "რედაქტირების დასაწყებად გახსენით ფაილი"
+
+#: ../src/Widgets/SplitView.vala:50
+msgid "New file"
+msgstr "ახალი ფაილი"
+
+#: ../src/Widgets/SplitView.vala:50
+msgid "Create a new empty file."
+msgstr "ახალი ცარიელი ფაილის შექმნა"
+
+#: ../src/Widgets/SplitView.vala:51
+msgid "Open file"
+msgstr "ფაილის გახსნა"
+
+#: ../src/Widgets/SplitView.vala:51
+msgid "Open a saved file."
+msgstr "შენახული ფაილის გახსნა"
+
+#: ../src/Widgets/SplitView.vala:52
+msgid "New file from clipboard"
+msgstr "ახალი ფაილი გაცვლის ბუფერიდან"
+
+#: ../src/Widgets/SplitView.vala:52
+msgid "Create a new file from the contents of your clipboard."
+msgstr "ახალი ფაილის შექმნა თქვენი გაცვლის ბუფერის შიგთავსისგან."
 
 #: ../src/Widgets/SearchManager.vala:70
 msgid "Find"
@@ -190,151 +210,13 @@ msgstr "გადასვლა ხაზზე:"
 msgid "Share"
 msgstr "გაზიარება"
 
-#: ../src/Widgets/SplitView.vala:45
-msgid "No Files Open"
-msgstr "ფაილები არაა გახსნილი"
+#: ../src/Widgets/SourceView.vala:120
+msgid "Syntax Highlighting"
+msgstr "სინტაქსის შეფერადება"
 
-#: ../src/Widgets/SplitView.vala:46
-msgid "Open a file to begin editing."
-msgstr "რედაქტირების დასაწყებად გახსენით ფაილი"
-
-#: ../src/Widgets/SplitView.vala:50
-msgid "New file"
-msgstr "ახალი ფაილი"
-
-#: ../src/Widgets/SplitView.vala:50
-msgid "Create a new empty file."
-msgstr "ახალი ცარიელი ფაილის შექმნა"
-
-#: ../src/Widgets/SplitView.vala:51
-msgid "Open file"
-msgstr "ფაილის გახსნა"
-
-#: ../src/Widgets/SplitView.vala:51
-msgid "Open a saved file."
-msgstr "შენახული ფაილის გახსნა"
-
-#: ../src/Widgets/SplitView.vala:52
-msgid "New file from clipboard"
-msgstr "ახალი ფაილი გაცვლის ბუფერიდან"
-
-#: ../src/Widgets/SplitView.vala:52
-msgid "Create a new file from the contents of your clipboard."
-msgstr "ახალი ფაილის შექმნა თქვენი გაცვლის ბუფერის შიგთავსისგან."
-
-#: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:909
-msgid "Preferences"
-msgstr "პარამეტრები"
-
-#: ../src/Dialogs/PreferencesDialog.vala:63
-msgid "Behavior"
-msgstr "ქცევა"
-
-#: ../src/Dialogs/PreferencesDialog.vala:66
-msgid "Interface"
-msgstr "ინტერფეისი"
-
-#: ../src/Dialogs/PreferencesDialog.vala:79
-msgid "Extensions"
-msgstr "გაფართოებები"
-
-#: ../src/Dialogs/PreferencesDialog.vala:83 ../src/MainWindow.vala:845
-#: ../src/MainWindow.vala:846
-msgid "Close"
-msgstr "დახურვა"
-
-#: ../src/Dialogs/PreferencesDialog.vala:128
-msgid "Show welcome screen"
-msgstr "მისასალმებელი ეკრანის ჩვენება"
-
-#: ../src/Dialogs/PreferencesDialog.vala:129
-msgid "Show last open tabs"
-msgstr "ბოლოს გახსნილი ჩანართების ჩვენება"
-
-#: ../src/Dialogs/PreferencesDialog.vala:145
-msgid "General:"
-msgstr "საერთო:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:151
-msgid "When Scratch starts:"
-msgstr "როდესაც Scratch ჩაირთვება:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:154
-msgid "Save files when changed:"
-msgstr "ფაილების შენახვა ცვლილებისას:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:158
-msgid "Tabs:"
-msgstr "ჩანართები:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:163
-msgid "Automatic indentation:"
-msgstr "ავტომატური აბზაცი:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:166
-msgid "Insert spaces instead of tabs:"
-msgstr "ტაბის ნაცვლად გამოტოვებების ჩასმა:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:170
-msgid "Tab width:"
-msgstr "ტაბულაციის სიგანე:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:195
-msgid "Editor:"
-msgstr "რედაქტორი:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:213
-msgid "Highlight current line:"
-msgstr "მიმდინარე ხაზის შეფერადება:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:214
-msgid "Highlight matching brackets:"
-msgstr "შესაფერისი ფრჩხილების შეფერადება:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:215
-msgid "Line wrap:"
-msgstr "ხაზის გახვევა:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:216
-msgid "Draw spaces:"
-msgstr "გამოტოვებების აღნიშვნა:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:217
-msgid "Show line numbers:"
-msgstr "ხაზის ციფრების ჩვენება:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:219
-msgid "Line width guide:"
-msgstr "ხაზის სიგანის მეგზური:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:233
-msgid "Font and Color Scheme:"
-msgstr "შრიფტის და ფერის სქემა:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:247
-msgid "Select font:"
-msgstr "შრიფტის არჩევა:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:250
-msgid "Color scheme:"
-msgstr "ფერის სქემა:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:255
-msgid "Custom font:"
-msgstr "შრიფტი ხელით:"
-
-#: ../src/Utils.vala:31 ../src/MainWindow.vala:885
-#: ../plugins/filemanager/FileView.vala:230
-msgid "Open"
-msgstr "გახსნა"
-
-#: ../src/Utils.vala:42
-msgid "All files"
-msgstr "ყველა ფაილი"
-
-#: ../src/Utils.vala:45
-msgid "Text files"
-msgstr "ტექსტ ფაილები"
+#: ../src/Widgets/SourceView.vala:131
+msgid "Normal Text"
+msgstr "ჩვეულებრივი ტექსტი"
 
 #: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
@@ -425,6 +307,11 @@ msgstr "ამ ფაილის აღდგენა"
 msgid "Duplicate selected strings"
 msgstr "მონიშნული სტრიქონების დუბლირება"
 
+#: ../src/MainWindow.vala:885 ../src/Utils.vala:31
+#: ../plugins/filemanager/FileView.vala:230
+msgid "Open"
+msgstr "გახსნა"
+
 #: ../src/MainWindow.vala:886
 msgid "Open a file"
 msgstr "ფაილის გახსნა"
@@ -445,13 +332,26 @@ msgstr "გადიდება"
 msgid "Zoom 1:1"
 msgstr "გადიდება 1:1"
 
+#: ../src/MainWindow.vala:897 ../src/Services/Document.vala:255
+#: ../src/Services/Document.vala:581 ../src/Utils.vala:33
+msgid "Save"
+msgstr "შენახვა"
+
 #: ../src/MainWindow.vala:898
 msgid "Save this file"
 msgstr "ამ ფაილის შენახვა"
 
+#: ../src/MainWindow.vala:901 ../src/Services/Document.vala:574
+msgid "Save As…"
+msgstr "შენახვა როგორც ..."
+
 #: ../src/MainWindow.vala:902
 msgid "Save this file with a different name"
 msgstr "ამ ფაილის სხვა სახელით შენახვა"
+
+#: ../src/MainWindow.vala:905 ../src/Services/TemplateManager.vala:194
+msgid "Templates"
+msgstr "შაბლონები"
 
 #: ../src/MainWindow.vala:906
 msgid "Project templates"
@@ -473,6 +373,310 @@ msgstr "წინა ჩანართი"
 msgid "Fullscreen"
 msgstr "სრული ეკრანი"
 
+#: ../src/Services/Document.vala:245
+msgid "Save changes to document %s before closing?"
+msgstr "შეინახოს დოკუმენტ %s-ის ცვლილებები დახურვამდე?"
+
+#: ../src/Services/Document.vala:248
+msgid ""
+"If you don't save, changes from the last 4 seconds will be permanently lost."
+msgstr ""
+"თუ არ დიამახსოვრებთ, ბოლო 4 წამის განმავლობაში განცხორცილებული ცვლილებები "
+"სამუდამო დაიკარგება."
+
+#: ../src/Services/Document.vala:250
+msgid "Close without saving"
+msgstr "დახურვა შენახვის გარეშე"
+
+#: ../src/Services/Document.vala:254 ../src/Utils.vala:29
+msgid "Cancel"
+msgstr "გაუქმება"
+
+#: ../src/Services/Document.vala:327
+msgid "Save File"
+msgstr "ფაილის შენახვა"
+
+#: ../src/Services/Document.vala:556
+msgid ""
+"File \"%s\" cannot be read. Maybe it is corrupt\n"
+"or you do not have the necessary permissions to read it."
+msgstr ""
+"ფაილ \"%s\"-ის წაკითხვა ვერ მოხერხდა. შესაძლოა ის დაზიანებულია\n"
+"ან თქვენ არ გაქვთ მისი ნახვისთვის საჭირო უფლებები."
+
+#: ../src/Services/Document.vala:572
+msgid ""
+"The location containing the file \"%s\" was unmounted. Do you want to save "
+"somewhere else?"
+msgstr "ფაილ \"%s\"-ის შემცველი მდებარეობა მოიხსნა. გსურთ სხვაგან შენახვა?"
+
+#: ../src/Services/Document.vala:579
+msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+msgstr "ფაილი \"%s\" წაიშალა. მაინც გსურთ შენახვა?"
+
+#: ../src/Services/Document.vala:592
+msgid ""
+"You cannot save changes on file \"%s\". Do you want to save the changes to "
+"this file in a different location?"
+msgstr ""
+"თქვენ არ შეგიძლიათ ფაილ \"%s\"-ზე ცვლილებების შენახვა. გსურთ განხორციელებული "
+"ცვლილებების სხვა მდებარეობაში შენახვა?"
+
+#: ../src/Services/Document.vala:594
+msgid "Save changes elsewhere"
+msgstr "ცვლილებების სხვაგან შენახვა"
+
+#: ../src/Services/Document.vala:625
+msgid ""
+"File \"%s\" was modified by an external application. Do you want to load it "
+"again or continue your editing?"
+msgstr ""
+"ფაილი \"%s\" შეიცვალა გარე პროგრამის მიერ. მისი ხელახლა ჩატვირთვა გსურთ თუ "
+"რედაქტირების გაგრძელება?"
+
+#: ../src/Services/Document.vala:626
+msgid "Load"
+msgstr "ჩატვირთვა"
+
+#: ../src/Services/Document.vala:629
+msgid "Continue"
+msgstr "გაგრძელება"
+
+#: ../src/Scratch.vala:68
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  Beqa Arabuli https://launchpad.net/~arabulibeqa\n"
+"  Mario Guerriero https://launchpad.net/~mefrio-g"
+
+#: ../src/Scratch.vala:166
+msgid "Maybe you do not have the necessary permissions."
+msgstr ""
+
+#: ../src/Scratch.vala:168
+msgid "Maybe the file path provided is not valid."
+msgstr ""
+
+#: ../src/Scratch.vala:170
+msgid "The location is read-only."
+msgstr ""
+
+#: ../src/Scratch.vala:172
+msgid "The parent directory doesn't exist."
+msgstr ""
+
+#: ../src/Scratch.vala:179
+msgid ""
+"File \"%s\" cannot be created.\n"
+"%s"
+msgstr ""
+
+#: ../src/Scratch.vala:189
+msgid ""
+"File \"%s\" cannot be opened.\n"
+"%s"
+msgstr ""
+
+#: ../src/Scratch.vala:198
+msgid "It is a mountable location."
+msgstr ""
+
+#: ../src/Scratch.vala:201
+msgid "It is a directory."
+msgstr ""
+
+#: ../src/Scratch.vala:204
+msgid ""
+"It is a \"special\" file such as a socket,\n"
+" fifo, block device, or character device."
+msgstr ""
+
+#: ../src/Scratch.vala:207
+msgid "It is an \"unknown\" file type."
+msgstr ""
+
+#: ../src/Scratch.vala:311
+msgid "New Tab"
+msgstr "ახალი ჩანართი"
+
+#: ../src/Scratch.vala:313
+msgid "Print version info and exit"
+msgstr "ვერსიის ინფორმაციის გამოტანა და გამოსვლა"
+
+#: ../src/Scratch.vala:314
+msgid "Set of plugins"
+msgstr "გაფართოებების კომპლექტი"
+
+#: ../src/Scratch.vala:315
+msgid "Current working directory"
+msgstr "მიმდინარე სამუშაო ცნობარი"
+
+#: ../src/Utils.vala:42
+msgid "All files"
+msgstr "ყველა ფაილი"
+
+#: ../src/Utils.vala:45
+msgid "Text files"
+msgstr "ტექსტ ფაილები"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/outline/OutlinePlugin.vala:21
+msgid "Outline"
+msgstr "კონტური"
+
+#: ../plugins/outline/OutlinePlugin.vala:22
+msgid "Outline symbols in your current file in vala"
+msgstr "vala-ში თქვენი მიმდინარე ფაილის სიმბოლოების კონტური"
+
+#: ../plugins/outline/OutlinePlugin.vala:116
+#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
+#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:99
+#: ../plugins/outline/CtagsSymbolResolver.vala:35
+#: ../plugins/outline/CtagsSymbolResolver.vala:68
+msgid "Symbols"
+msgstr "სიმბოლოები"
+
+#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
+#: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
+#: ../plugins/terminal/terminal.vala:174
+msgid "Terminal"
+msgstr "ტერმინალი"
+
+#: ../plugins/terminal/terminal.vala:24
+msgid "A terminal in your text editor"
+msgstr "ტერმინალი თქვენს ტექსტის რედაქტორში"
+
+#: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
+msgid "Show Terminal"
+msgstr "ტერმინალის ჩვენება"
+
+#: ../plugins/terminal/terminal.vala:170
+msgid "Hide Terminal"
+msgstr "ტერმინალის დამალვა"
+
+#: ../plugins/terminal/terminal.vala:306
+msgid "Copy"
+msgstr "კოპირება"
+
+#: ../plugins/terminal/terminal.vala:313
+#: ../plugins/clipboard-history/ClipboardHistory.vala:159
+msgid "Paste"
+msgstr "ჩასმა"
+
+#: ../plugins/terminal/terminal.vala:323
+msgid "Terminal on Right"
+msgstr "ტერმინალი მარჯვნივ"
+
+#: ../plugins/terminal/terminal.vala:331
+msgid "Terminal on Bottom"
+msgstr "ტერმინალი დაბლა"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/brackets-completion/brackets-completion.vala:21
+msgid "Brackets Completion"
+msgstr "ფრჩხილების დაბოლოება"
+
+#: ../plugins/brackets-completion/brackets-completion.vala:22
+msgid "Complete brackets while typing"
+msgstr "ფრჩხილების დაბოლოება ბეჭდვისას"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/source-tree/SourceTreePlugin.vala:20
+#: ../plugins/source-tree/SourceTreePlugin.vala:197
+msgid "Source Tree"
+msgstr "წყაროს ხე"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:21
+msgid "Have a look at your sources organized in a nice tree"
+msgstr "გადახედეთ ლამაზ ხედ ორგანიზებულ თქვენს წყაროებს"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:42
+msgid "Loading..."
+msgstr "იტვირთება..."
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:175
+msgid "Bookmark"
+msgstr "სანიშნე"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:234
+msgid "Files"
+msgstr "ფაილები"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:235
+msgid "Project"
+msgstr "პროექტი"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:236
+msgid "Bookmarks"
+msgstr "სანიშნეები"
+
+#: ../plugins/spell/spell.vala:18
+msgid "Spell Checker"
+msgstr "მართლწერის შემმოწმებელი"
+
+#: ../plugins/spell/spell.vala:19
+msgid "Checks the spelling of your documents"
+msgstr "ამოწმებს თქვენი დოკუმენტების მართლწერას"
+
+#: ../plugins/spell/spell.vala:80
+msgid ""
+"No suitable dictionaries were found.\n"
+"Please install at least one [aspell] dictionary"
+msgstr ""
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/filemanager/FileManagerPlugin.vala:21
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:21
 msgid "Folder Manager"
@@ -503,48 +707,32 @@ msgstr "ფაილების მმართველი"
 msgid "/New File"
 msgstr "/ახალი ფაილი"
 
-#: ../plugins/preserve-indent/preserve-indent.vala:24
-msgid "Preserve Indent"
-msgstr "წინა აბზაცი"
+#: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
+msgid "Strip trailing whitespace"
+msgstr "მცოცავი თეთრი სივრცის შემოცლა"
 
-#: ../plugins/preserve-indent/preserve-indent.vala:25
-msgid "Maintains indent level of pasted text when auto-indent is active"
-msgstr "ინარჩუნებს ჩასმული ტექსტის აბზაცის დონეს, როცა ავტო-აბზაცი ჩართულია"
-
-#: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
-msgid "Highlight Selected Words"
-msgstr "მონიშნული სიტყვების შეფერადება"
-
-#: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
-msgid "Highlights all occurrences of words that are selected"
-msgstr "აფერადებს მონიშნული სიტყვების ყველა გამოვლინებას"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:21
-#: ../plugins/clipboard-history/ClipboardHistory.vala:89
-msgid "Clipboard History"
-msgstr "გაცვლის ბუფერის ისტორია"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:22
-msgid "Clipboard to view history"
-msgstr "გაცვლის ბუფერის ისტორია"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:28
-msgid "..."
-msgstr "..."
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:156
-msgid "Delete"
-msgstr "წაშლა"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:159
-#: ../plugins/terminal/terminal.vala:313
-msgid "Paste"
-msgstr "ჩასმა"
+#: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
+msgid "Strip trailing whitespace on save"
+msgstr "დამახსოვრებისას მცოცავი თეთრი სივრცის შემოცლა"
 
 #: ../plugins/browser-preview/BrowserView.vala:49
 msgid "Close Inspector"
 msgstr "დახურვის ინსპექტორი"
 
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/browser-preview/browser-preview.vala:21
 msgid "Browser Preview"
 msgstr "პრევიუ ბრაუზერში"
@@ -567,9 +755,36 @@ msgstr "ვებ-პრევიუ"
 msgid "Hide Preview"
 msgstr "პრევიუს დამალვა"
 
-#: ../plugins/contractor/contractor.vala:21
-msgid "Share your files with Contractor"
-msgstr "თქვენი ფაილების გაზიარება Contractor-თან"
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/clipboard-history/ClipboardHistory.vala:21
+#: ../plugins/clipboard-history/ClipboardHistory.vala:89
+msgid "Clipboard History"
+msgstr "გაცვლის ბუფერის ისტორია"
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:22
+msgid "Clipboard to view history"
+msgstr "გაცვლის ბუფერის ისტორია"
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:28
+msgid "..."
+msgstr "..."
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:156
+msgid "Delete"
+msgstr "წაშლა"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:70
 msgid "Folders"
@@ -592,59 +807,20 @@ msgstr "გახ_სნა"
 msgid "Close Folder"
 msgstr "საქაღალდის დახურვა"
 
-#: ../plugins/outline/OutlinePlugin.vala:21
-msgid "Outline"
-msgstr "კონტური"
-
-#: ../plugins/outline/OutlinePlugin.vala:22
-msgid "Outline symbols in your current file in vala"
-msgstr "vala-ში თქვენი მიმდინარე ფაილის სიმბოლოების კონტური"
-
-#: ../plugins/outline/OutlinePlugin.vala:111
-#: ../plugins/outline/CtagsSymbolResolver.vala:35
-#: ../plugins/outline/CtagsSymbolResolver.vala:68
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:94
-msgid "Symbols"
-msgstr "სიმბოლოები"
-
-#: ../plugins/brackets-completion/brackets-completion.vala:21
-msgid "Brackets Completion"
-msgstr "ფრჩხილების დაბოლოება"
-
-#: ../plugins/brackets-completion/brackets-completion.vala:22
-msgid "Complete brackets while typing"
-msgstr "ფრჩხილების დაბოლოება ბეჭდვისას"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:20
-#: ../plugins/source-tree/SourceTreePlugin.vala:197
-msgid "Source Tree"
-msgstr "წყაროს ხე"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:21
-msgid "Have a look at your sources organized in a nice tree"
-msgstr "გადახედეთ ლამაზ ხედ ორგანიზებულ თქვენს წყაროებს"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:42
-msgid "Loading..."
-msgstr "იტვირთება..."
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:175
-msgid "Bookmark"
-msgstr "სანიშნე"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:234
-msgid "Files"
-msgstr "ფაილები"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:235
-msgid "Project"
-msgstr "პროექტი"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:236
-msgid "Bookmarks"
-msgstr "სანიშნეები"
-
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
 msgstr "Vim ემულაცია"
@@ -652,6 +828,46 @@ msgstr "Vim ემულაცია"
 #: ../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
 msgstr "Vim-ის ბრძანებების გამოყენება Scratch-ში"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/contractor/contractor.vala:21
+msgid "Share your files with Contractor"
+msgstr "თქვენი ფაილების გაზიარება Contractor-თან"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
+msgid "Highlight Selected Words"
+msgstr "მონიშნული სიტყვების შეფერადება"
+
+#: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
+msgid "Highlights all occurrences of words that are selected"
+msgstr "აფერადებს მონიშნული სიტყვების ყველა გამოვლინებას"
 
 #: ../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
@@ -717,71 +933,17 @@ msgstr "ერთი დღე"
 msgid "One month"
 msgstr "ერთი თვე"
 
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
-msgid "Strip trailing whitespace"
-msgstr "მცოცავი თეთრი სივრცის შემოცლა"
+#: ../plugins/preserve-indent/preserve-indent.vala:24
+msgid "Preserve Indent"
+msgstr "წინა აბზაცი"
 
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
-msgid "Strip trailing whitespace on save"
-msgstr "დამახსოვრებისას მცოცავი თეთრი სივრცის შემოცლა"
+#: ../plugins/preserve-indent/preserve-indent.vala:25
+msgid "Maintains indent level of pasted text when auto-indent is active"
+msgstr "ინარჩუნებს ჩასმული ტექსტის აბზაცის დონეს, როცა ავტო-აბზაცი ჩართულია"
 
-#: ../plugins/spell/spell.vala:18
-msgid "Spell Checker"
-msgstr "მართლწერის შემმოწმებელი"
-
-#: ../plugins/spell/spell.vala:19
-msgid "Checks the spelling of your documents"
-msgstr "ამოწმებს თქვენი დოკუმენტების მართლწერას"
-
-#: ../plugins/open-with/open-with.vala:21
-msgid "Open With"
-msgstr "გახსნა პროგრამით"
-
-#: ../plugins/open-with/open-with.vala:22
-msgid "Open files you are editing with another application"
-msgstr "თქვენ მიერ რედაქტირებული ფაილების სხვა პროგრამით გახსნა"
-
-#: ../plugins/open-with/open-with.vala:54
-msgid "Open With…"
-msgstr "გახსნა პროგრამით..."
-
-#: ../plugins/detect-indent/detect-indent.vala:1
-msgid "Detect Indent"
-msgstr "აბზაცის დადგენა"
-
-#: ../plugins/detect-indent/detect-indent.vala:2
-msgid "Heuristically detect tab or space settings"
-msgstr "ტაბის და გამოტოვების პარამეტრების ევრისტიკულად დადგენა"
-
-#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
-#: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
-#: ../plugins/terminal/terminal.vala:174
-msgid "Terminal"
-msgstr "ტერმინალი"
-
-#: ../plugins/terminal/terminal.vala:24
-msgid "A terminal in your text editor"
-msgstr "ტერმინალი თქვენს ტექსტის რედაქტორში"
-
-#: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
-msgid "Show Terminal"
-msgstr "ტერმინალის ჩვენება"
-
-#: ../plugins/terminal/terminal.vala:170
-msgid "Hide Terminal"
-msgstr "ტერმინალის დამალვა"
-
-#: ../plugins/terminal/terminal.vala:306
-msgid "Copy"
-msgstr "კოპირება"
-
-#: ../plugins/terminal/terminal.vala:323
-msgid "Terminal on Right"
-msgstr "ტერმინალი მარჯვნივ"
-
-#: ../plugins/terminal/terminal.vala:331
-msgid "Terminal on Bottom"
-msgstr "ტერმინალი დაბლა"
+#: ../plugins/word-completion/completion-provider.vala:80
+msgid "Could not load icon theme: %s\n"
+msgstr "ხატულების თემა ვერ ჩაიტვირთა: %s\n"
 
 #: ../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
@@ -796,6 +958,54 @@ msgstr ""
 msgid "%s - Word Completion"
 msgstr "%s - სიტყვის დაბოლოება"
 
-#: ../plugins/word-completion/completion-provider.vala:80
-msgid "Could not load icon theme: %s\n"
-msgstr "ხატულების თემა ვერ ჩაიტვირთა: %s\n"
+#: ../plugins/detect-indent/detect-indent.vala:1
+msgid "Detect Indent"
+msgstr "აბზაცის დადგენა"
+
+#: ../plugins/detect-indent/detect-indent.vala:2
+msgid "Heuristically detect tab or space settings"
+msgstr "ტაბის და გამოტოვების პარამეტრების ევრისტიკულად დადგენა"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/open-with/open-with.vala:21
+msgid "Open With"
+msgstr "გახსნა პროგრამით"
+
+#: ../plugins/open-with/open-with.vala:22
+msgid "Open files you are editing with another application"
+msgstr "თქვენ მიერ რედაქტირებული ფაილების სხვა პროგრამით გახსნა"
+
+#: ../plugins/open-with/open-with.vala:54
+msgid "Open With…"
+msgstr "გახსნა პროგრამით..."
+
+#~ msgid "General:"
+#~ msgstr "საერთო:"
+
+#~ msgid "Editor:"
+#~ msgstr "რედაქტორი:"
+
+#~ msgid "Draw spaces:"
+#~ msgstr "გამოტოვებების აღნიშვნა:"
+
+#~ msgid "Tabs:"
+#~ msgstr "ჩანართები:"
+
+#~ msgid "Font and Color Scheme:"
+#~ msgstr "შრიფტის და ფერის სქემა:"
+
+#~ msgid "Select font:"
+#~ msgstr "შრიფტის არჩევა:"

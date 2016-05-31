@@ -7,62 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-18 13:57-0600\n"
+"POT-Creation-Date: 2016-05-30 11:22-0700\n"
 "PO-Revision-Date: 2016-05-20 21:44+0000\n"
 "Last-Translator: Daniel <daniel.susik@gmail.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-21 05:32+0000\n"
-"X-Generator: Launchpad (build 18025)\n"
+"X-Launchpad-Export-Date: 2016-05-31 06:23+0000\n"
+"X-Generator: Launchpad (build 18053)\n"
 "Language: cs\n"
-
-#: ../src/Scratch.vala:68
-msgid "translator-credits"
-msgstr ""
-"Launchpad Contributions:\n"
-"  Daniel https://launchpad.net/~daniel-susik\n"
-"  Hlobil Vaclav https://launchpad.net/~vaclav-hlobil\n"
-"  Honza Lafek https://launchpad.net/~hlafek99\n"
-"  Jakub Jezbera https://launchpad.net/~kubajezbera\n"
-"  Jan Hrdina https://launchpad.net/~jan-hrdina\n"
-"  Jaroslav Staněk https://launchpad.net/~fleury08\n"
-"  Jiří Šebele https://launchpad.net/~sindriava+launchpad\n"
-"  Kuvaly [LCT] https://launchpad.net/~kuvaly\n"
-"  Lubos Baja https://launchpad.net/~lubos-baja\n"
-"  Marek Suchánek https://launchpad.net/~suchm\n"
-"  Marek Zelinka https://launchpad.net/~marekzelinka\n"
-"  Mario Guerriero https://launchpad.net/~mefrio-g\n"
-"  Michal Fikejs https://launchpad.net/~fikimichal\n"
-"  Mirek2 https://launchpad.net/~mazelm-gmail\n"
-"  Ondra Voves https://launchpad.net/~o-voves\n"
-"  Ondřej Brabec https://launchpad.net/~kaktus-ob\n"
-"  Petr Dombek https://launchpad.net/~dombek\n"
-"  Radek Starosta https://launchpad.net/~rstarosta\n"
-"  Radim Hvizdák https://launchpad.net/~rhvizdak\n"
-"  Tomo Moto https://launchpad.net/~tomasivanek\n"
-"  xskydevilx https://launchpad.net/~xskydevilx-deactivatedaccount"
-
-#: ../src/Scratch.vala:246
-msgid "New Tab"
-msgstr "Nová karta"
-
-#: ../src/Scratch.vala:247 ../src/config.vala:18
-msgid "New Window"
-msgstr "Nové okno"
-
-#: ../src/Scratch.vala:248
-msgid "Print version info and exit"
-msgstr "Zobrazit informace o verzi a ukončit"
-
-#: ../src/Scratch.vala:249
-msgid "Set of plugins"
-msgstr "Sada doplňků"
-
-#: ../src/Scratch.vala:250
-msgid "Current working directory"
-msgstr "Pracovní adresář"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -72,110 +26,158 @@ msgstr "Upravit textové soubory"
 msgid "Text Editor"
 msgstr "Textový editor"
 
-#: ../src/config.vala:17 ../src/Services/Document.vala:405
+#: ../src/config.vala:17 ../src/Services/Document.vala:440
 msgid "New Document"
 msgstr "Nový dokument"
+
+#: ../src/config.vala:18 ../src/Scratch.vala:312
+msgid "New Window"
+msgstr "Nové okno"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
 msgstr "O Scratch"
 
-#: ../src/Services/Document.vala:231
-msgid "Save changes to document %s before closing?"
-msgstr "Uložit před ukončením změny do dokumentu %s?"
+#: ../src/Dialogs/PreferencesDialog.vala:56 ../src/MainWindow.vala:909
+msgid "Preferences"
+msgstr "Předvolby"
 
-#: ../src/Services/Document.vala:234
-msgid ""
-"If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr "Pokud neuložíte, změny za posledních 4 sekundy se nenávratně ztratí."
+#: ../src/Dialogs/PreferencesDialog.vala:68
+msgid "Behavior"
+msgstr "Chování"
 
-#: ../src/Services/Document.vala:236
-msgid "Close without saving"
-msgstr "Zavřít bez uložení"
+#: ../src/Dialogs/PreferencesDialog.vala:69
+msgid "Interface"
+msgstr "Rozhraní"
 
-#: ../src/Services/Document.vala:240 ../src/Utils.vala:29
-msgid "Cancel"
-msgstr "Zrušit"
+#: ../src/Dialogs/PreferencesDialog.vala:80
+msgid "Extensions"
+msgstr "Rozšíření"
 
-#: ../src/Services/Document.vala:241 ../src/Services/Document.vala:546
-#: ../src/Utils.vala:33 ../src/MainWindow.vala:897
-msgid "Save"
-msgstr "Uložit"
+#: ../src/Dialogs/PreferencesDialog.vala:84 ../src/MainWindow.vala:845
+#: ../src/MainWindow.vala:846
+msgid "Close"
+msgstr "Zavřít"
 
-#: ../src/Services/Document.vala:313
-msgid "Save File"
-msgstr "Uložit soubor"
-
-#: ../src/Services/Document.vala:521
-msgid ""
-"File \"%s\" cannot be read. Maybe it is corrupt\n"
-"or you do not have the necessary permissions to read it."
+#: ../src/Dialogs/PreferencesDialog.vala:109
+msgid "General"
 msgstr ""
-"Soubor \"%s\" nelze otevřít. Pravděpodobně je poškozený\n"
-"nebo pro jeho otevření nemáte potřebná práva."
 
-#: ../src/Services/Document.vala:537
-msgid ""
-"The location containing the file \"%s\" was unmounted. Do you want to save "
-"somewhere else?"
+#: ../src/Dialogs/PreferencesDialog.vala:111
+msgid "When Scratch starts:"
+msgstr "Když se Scratch spustí:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:113
+msgid "Show welcome screen"
+msgstr "Zobrazit uvítací obrazovku"
+
+#: ../src/Dialogs/PreferencesDialog.vala:114
+msgid "Show last open tabs"
+msgstr "Zobrazit posledně otevřené karty"
+
+#: ../src/Dialogs/PreferencesDialog.vala:117
+msgid "Save files when changed:"
+msgstr "Automaticky ukládat soubory po upravení:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:120
+msgid "Tabs"
 msgstr ""
-"Úložiště obsahující soubor \"%s\" bylo odpojeno. Přejete si jej uložit jinde?"
 
-#: ../src/Services/Document.vala:539 ../src/MainWindow.vala:901
-msgid "Save As…"
-msgstr "Uložit jako…"
+#: ../src/Dialogs/PreferencesDialog.vala:122
+msgid "Automatic indentation:"
+msgstr "Automatické odsazování:"
 
-#: ../src/Services/Document.vala:544
-msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "Soubor \"%s\" byl smazán. Přejete si jej přesto uložit?"
+#: ../src/Dialogs/PreferencesDialog.vala:125
+msgid "Insert spaces instead of tabs:"
+msgstr "Vkládat mezery místo tabulátorů:"
 
-#: ../src/Services/Document.vala:557
-msgid ""
-"You cannot save changes on file \"%s\". Do you want to save the changes to "
-"this file in a different location?"
+#: ../src/Dialogs/PreferencesDialog.vala:128
+msgid "Tab width:"
+msgstr "Šířka tabulátoru:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:154
+msgid "Editor"
 msgstr ""
-"Změny souboru \"%s\" nelze uložit.  Přejete si tyto změny uložit v jiném "
-"umístění?"
 
-#: ../src/Services/Document.vala:559
-msgid "Save changes elsewhere"
-msgstr "Uložit změny jinam"
+#: ../src/Dialogs/PreferencesDialog.vala:156
+msgid "Highlight current line:"
+msgstr "Zvýraznit aktuální řádek:"
 
-#: ../src/Services/Document.vala:590
-msgid ""
-"File \"%s\" was modified by an external application. Do you want to load it "
-"again or continue your editing?"
+#: ../src/Dialogs/PreferencesDialog.vala:159
+msgid "Highlight matching brackets:"
+msgstr "Zvýraznit odpovídající závorky:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:162
+msgid "Line wrap:"
+msgstr "Zalamovat řádky:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:165
+msgid "Draw Spaces:"
 msgstr ""
-"Soubor \"%s\" byl pozměněn jinou aplikací. Přejete si jej otevřít znovu nebo "
-"chcete pokračovat v úpravách?"
 
-#: ../src/Services/Document.vala:591
-msgid "Load"
-msgstr "Načíst"
+#: ../src/Dialogs/PreferencesDialog.vala:168
+msgid "Show line numbers:"
+msgstr "Zobrazit čísla řádků:"
 
-#: ../src/Services/Document.vala:594
-msgid "Continue"
-msgstr "Pokračovat"
+#: ../src/Dialogs/PreferencesDialog.vala:172
+msgid "Show Mini Map:"
+msgstr ""
 
-#: ../src/Services/TemplateManager.vala:194 ../src/MainWindow.vala:905
-msgid "Templates"
-msgstr "Šablony"
+#: ../src/Dialogs/PreferencesDialog.vala:176
+msgid "Line width guide:"
+msgstr "Vodítko délky řádku:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:184
+msgid "Font and Color Scheme"
+msgstr ""
+
+#: ../src/Dialogs/PreferencesDialog.vala:186
+msgid "Color scheme:"
+msgstr "Barevné schéma:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:191
+msgid "Custom font:"
+msgstr "Vlastní písmo:"
 
 #: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
 msgstr "Textový soubor z "
 
-#: ../src/Widgets/SourceView.vala:120
-msgid "Syntax Highlighting"
-msgstr "Zvýraznění syntaxe"
-
-#: ../src/Widgets/SourceView.vala:131
-msgid "Normal Text"
-msgstr "Normální text"
-
 #: ../src/Widgets/LoadingView.vala:33
 msgid "Wait while restoring last session..."
 msgstr "Počkejte na obnovení naposledy otevřených souborů"
+
+#: ../src/Widgets/SplitView.vala:45
+msgid "No Files Open"
+msgstr "Žádné otevřené soubory"
+
+#: ../src/Widgets/SplitView.vala:46
+msgid "Open a file to begin editing."
+msgstr "Otevřete soubor a začněte editovat."
+
+#: ../src/Widgets/SplitView.vala:50
+msgid "New file"
+msgstr "Nový soubor"
+
+#: ../src/Widgets/SplitView.vala:50
+msgid "Create a new empty file."
+msgstr "Vytvořit nový prázdný soubor."
+
+#: ../src/Widgets/SplitView.vala:51
+msgid "Open file"
+msgstr "Otevřít soubor"
+
+#: ../src/Widgets/SplitView.vala:51
+msgid "Open a saved file."
+msgstr "Otevřít uložený soubor."
+
+#: ../src/Widgets/SplitView.vala:52
+msgid "New file from clipboard"
+msgstr "Nový soubor ze schránky"
+
+#: ../src/Widgets/SplitView.vala:52
+msgid "Create a new file from the contents of your clipboard."
+msgstr "Vytvořit nový soubor z obsahu vaší schránky"
 
 #: ../src/Widgets/SearchManager.vala:70
 msgid "Find"
@@ -214,151 +216,13 @@ msgstr "Přejít na řádek:"
 msgid "Share"
 msgstr "Sdílet"
 
-#: ../src/Widgets/SplitView.vala:45
-msgid "No Files Open"
-msgstr "Žádné otevřené soubory"
+#: ../src/Widgets/SourceView.vala:120
+msgid "Syntax Highlighting"
+msgstr "Zvýraznění syntaxe"
 
-#: ../src/Widgets/SplitView.vala:46
-msgid "Open a file to begin editing."
-msgstr "Otevřete soubor a začněte editovat."
-
-#: ../src/Widgets/SplitView.vala:50
-msgid "New file"
-msgstr "Nový soubor"
-
-#: ../src/Widgets/SplitView.vala:50
-msgid "Create a new empty file."
-msgstr "Vytvořit nový prázdný soubor."
-
-#: ../src/Widgets/SplitView.vala:51
-msgid "Open file"
-msgstr "Otevřít soubor"
-
-#: ../src/Widgets/SplitView.vala:51
-msgid "Open a saved file."
-msgstr "Otevřít uložený soubor."
-
-#: ../src/Widgets/SplitView.vala:52
-msgid "New file from clipboard"
-msgstr "Nový soubor ze schránky"
-
-#: ../src/Widgets/SplitView.vala:52
-msgid "Create a new file from the contents of your clipboard."
-msgstr "Vytvořit nový soubor z obsahu vaší schránky"
-
-#: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:909
-msgid "Preferences"
-msgstr "Předvolby"
-
-#: ../src/Dialogs/PreferencesDialog.vala:63
-msgid "Behavior"
-msgstr "Chování"
-
-#: ../src/Dialogs/PreferencesDialog.vala:66
-msgid "Interface"
-msgstr "Rozhraní"
-
-#: ../src/Dialogs/PreferencesDialog.vala:79
-msgid "Extensions"
-msgstr "Rozšíření"
-
-#: ../src/Dialogs/PreferencesDialog.vala:83 ../src/MainWindow.vala:845
-#: ../src/MainWindow.vala:846
-msgid "Close"
-msgstr "Zavřít"
-
-#: ../src/Dialogs/PreferencesDialog.vala:128
-msgid "Show welcome screen"
-msgstr "Zobrazit uvítací obrazovku"
-
-#: ../src/Dialogs/PreferencesDialog.vala:129
-msgid "Show last open tabs"
-msgstr "Zobrazit posledně otevřené karty"
-
-#: ../src/Dialogs/PreferencesDialog.vala:145
-msgid "General:"
-msgstr "Obecné:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:151
-msgid "When Scratch starts:"
-msgstr "Když se Scratch spustí:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:154
-msgid "Save files when changed:"
-msgstr "Automaticky ukládat soubory po upravení:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:158
-msgid "Tabs:"
-msgstr "Tabulátory:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:163
-msgid "Automatic indentation:"
-msgstr "Automatické odsazování:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:166
-msgid "Insert spaces instead of tabs:"
-msgstr "Vkládat mezery místo tabulátorů:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:170
-msgid "Tab width:"
-msgstr "Šířka tabulátoru:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:195
-msgid "Editor:"
-msgstr "Editor:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:213
-msgid "Highlight current line:"
-msgstr "Zvýraznit aktuální řádek:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:214
-msgid "Highlight matching brackets:"
-msgstr "Zvýraznit odpovídající závorky:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:215
-msgid "Line wrap:"
-msgstr "Zalamovat řádky:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:216
-msgid "Draw spaces:"
-msgstr "Zvýrazňovat mezery:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:217
-msgid "Show line numbers:"
-msgstr "Zobrazit čísla řádků:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:219
-msgid "Line width guide:"
-msgstr "Vodítko délky řádku:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:233
-msgid "Font and Color Scheme:"
-msgstr "Písmo a barvy:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:247
-msgid "Select font:"
-msgstr "Vybrat písmo:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:250
-msgid "Color scheme:"
-msgstr "Barevné schéma:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:255
-msgid "Custom font:"
-msgstr "Vlastní písmo:"
-
-#: ../src/Utils.vala:31 ../src/MainWindow.vala:885
-#: ../plugins/filemanager/FileView.vala:230
-msgid "Open"
-msgstr "Otevřít"
-
-#: ../src/Utils.vala:42
-msgid "All files"
-msgstr "Všechny soubory"
-
-#: ../src/Utils.vala:45
-msgid "Text files"
-msgstr "Textové soubory"
+#: ../src/Widgets/SourceView.vala:131
+msgid "Normal Text"
+msgstr "Normální text"
 
 #: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
@@ -449,6 +313,11 @@ msgstr "Obnovit tento soubor"
 msgid "Duplicate selected strings"
 msgstr "Duplikovat vybrané řetězce"
 
+#: ../src/MainWindow.vala:885 ../src/Utils.vala:31
+#: ../plugins/filemanager/FileView.vala:230
+msgid "Open"
+msgstr "Otevřít"
+
 #: ../src/MainWindow.vala:886
 msgid "Open a file"
 msgstr "Otevřít soubor"
@@ -469,13 +338,26 @@ msgstr "Zvětšit"
 msgid "Zoom 1:1"
 msgstr "Zvětšení 1:1"
 
+#: ../src/MainWindow.vala:897 ../src/Services/Document.vala:255
+#: ../src/Services/Document.vala:581 ../src/Utils.vala:33
+msgid "Save"
+msgstr "Uložit"
+
 #: ../src/MainWindow.vala:898
 msgid "Save this file"
 msgstr "Uložit"
 
+#: ../src/MainWindow.vala:901 ../src/Services/Document.vala:574
+msgid "Save As…"
+msgstr "Uložit jako…"
+
 #: ../src/MainWindow.vala:902
 msgid "Save this file with a different name"
 msgstr "Uložit soubor pod jiným názvem"
+
+#: ../src/MainWindow.vala:905 ../src/Services/TemplateManager.vala:194
+msgid "Templates"
+msgstr "Šablony"
 
 #: ../src/MainWindow.vala:906
 msgid "Project templates"
@@ -497,6 +379,328 @@ msgstr "Předchozí karta"
 msgid "Fullscreen"
 msgstr "Na celou obrazovku"
 
+#: ../src/Services/Document.vala:245
+msgid "Save changes to document %s before closing?"
+msgstr "Uložit před ukončením změny do dokumentu %s?"
+
+#: ../src/Services/Document.vala:248
+msgid ""
+"If you don't save, changes from the last 4 seconds will be permanently lost."
+msgstr "Pokud neuložíte, změny za posledních 4 sekundy se nenávratně ztratí."
+
+#: ../src/Services/Document.vala:250
+msgid "Close without saving"
+msgstr "Zavřít bez uložení"
+
+#: ../src/Services/Document.vala:254 ../src/Utils.vala:29
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: ../src/Services/Document.vala:327
+msgid "Save File"
+msgstr "Uložit soubor"
+
+#: ../src/Services/Document.vala:556
+msgid ""
+"File \"%s\" cannot be read. Maybe it is corrupt\n"
+"or you do not have the necessary permissions to read it."
+msgstr ""
+"Soubor \"%s\" nelze otevřít. Pravděpodobně je poškozený\n"
+"nebo pro jeho otevření nemáte potřebná práva."
+
+#: ../src/Services/Document.vala:572
+msgid ""
+"The location containing the file \"%s\" was unmounted. Do you want to save "
+"somewhere else?"
+msgstr ""
+"Úložiště obsahující soubor \"%s\" bylo odpojeno. Přejete si jej uložit jinde?"
+
+#: ../src/Services/Document.vala:579
+msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+msgstr "Soubor \"%s\" byl smazán. Přejete si jej přesto uložit?"
+
+#: ../src/Services/Document.vala:592
+msgid ""
+"You cannot save changes on file \"%s\". Do you want to save the changes to "
+"this file in a different location?"
+msgstr ""
+"Změny souboru \"%s\" nelze uložit.  Přejete si tyto změny uložit v jiném "
+"umístění?"
+
+#: ../src/Services/Document.vala:594
+msgid "Save changes elsewhere"
+msgstr "Uložit změny jinam"
+
+#: ../src/Services/Document.vala:625
+msgid ""
+"File \"%s\" was modified by an external application. Do you want to load it "
+"again or continue your editing?"
+msgstr ""
+"Soubor \"%s\" byl pozměněn jinou aplikací. Přejete si jej otevřít znovu nebo "
+"chcete pokračovat v úpravách?"
+
+#: ../src/Services/Document.vala:626
+msgid "Load"
+msgstr "Načíst"
+
+#: ../src/Services/Document.vala:629
+msgid "Continue"
+msgstr "Pokračovat"
+
+#: ../src/Scratch.vala:68
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  Daniel https://launchpad.net/~daniel-susik\n"
+"  Hlobil Vaclav https://launchpad.net/~vaclav-hlobil\n"
+"  Honza Lafek https://launchpad.net/~hlafek99\n"
+"  Jakub Jezbera https://launchpad.net/~kubajezbera\n"
+"  Jan Hrdina https://launchpad.net/~jan-hrdina\n"
+"  Jaroslav Staněk https://launchpad.net/~fleury08\n"
+"  Jiří Šebele https://launchpad.net/~sindriava+launchpad\n"
+"  Kuvaly [LCT] https://launchpad.net/~kuvaly\n"
+"  Lubos Baja https://launchpad.net/~lubos-baja\n"
+"  Marek Suchánek https://launchpad.net/~suchm\n"
+"  Marek Zelinka https://launchpad.net/~marekzelinka\n"
+"  Mario Guerriero https://launchpad.net/~mefrio-g\n"
+"  Michal Fikejs https://launchpad.net/~fikimichal\n"
+"  Mirek2 https://launchpad.net/~mazelm-gmail\n"
+"  Ondra Voves https://launchpad.net/~o-voves\n"
+"  Ondřej Brabec https://launchpad.net/~kaktus-ob\n"
+"  Petr Dombek https://launchpad.net/~dombek\n"
+"  Radek Starosta https://launchpad.net/~rstarosta\n"
+"  Radim Hvizdák https://launchpad.net/~rhvizdak\n"
+"  Tomo Moto https://launchpad.net/~tomasivanek\n"
+"  xskydevilx https://launchpad.net/~xskydevilx-deactivatedaccount"
+
+#: ../src/Scratch.vala:166
+msgid "Maybe you do not have the necessary permissions."
+msgstr ""
+
+#: ../src/Scratch.vala:168
+msgid "Maybe the file path provided is not valid."
+msgstr ""
+
+#: ../src/Scratch.vala:170
+msgid "The location is read-only."
+msgstr ""
+
+#: ../src/Scratch.vala:172
+msgid "The parent directory doesn't exist."
+msgstr ""
+
+#: ../src/Scratch.vala:179
+msgid ""
+"File \"%s\" cannot be created.\n"
+"%s"
+msgstr ""
+
+#: ../src/Scratch.vala:189
+msgid ""
+"File \"%s\" cannot be opened.\n"
+"%s"
+msgstr ""
+
+#: ../src/Scratch.vala:198
+msgid "It is a mountable location."
+msgstr ""
+
+#: ../src/Scratch.vala:201
+msgid "It is a directory."
+msgstr ""
+
+#: ../src/Scratch.vala:204
+msgid ""
+"It is a \"special\" file such as a socket,\n"
+" fifo, block device, or character device."
+msgstr ""
+
+#: ../src/Scratch.vala:207
+msgid "It is an \"unknown\" file type."
+msgstr ""
+
+#: ../src/Scratch.vala:311
+msgid "New Tab"
+msgstr "Nová karta"
+
+#: ../src/Scratch.vala:313
+msgid "Print version info and exit"
+msgstr "Zobrazit informace o verzi a ukončit"
+
+#: ../src/Scratch.vala:314
+msgid "Set of plugins"
+msgstr "Sada doplňků"
+
+#: ../src/Scratch.vala:315
+msgid "Current working directory"
+msgstr "Pracovní adresář"
+
+#: ../src/Utils.vala:42
+msgid "All files"
+msgstr "Všechny soubory"
+
+#: ../src/Utils.vala:45
+msgid "Text files"
+msgstr "Textové soubory"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/outline/OutlinePlugin.vala:21
+msgid "Outline"
+msgstr "Obrys"
+
+#: ../plugins/outline/OutlinePlugin.vala:22
+msgid "Outline symbols in your current file in vala"
+msgstr "Obtáhnout symboly v aktuálním vala souboru"
+
+#: ../plugins/outline/OutlinePlugin.vala:116
+#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
+#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:99
+#: ../plugins/outline/CtagsSymbolResolver.vala:35
+#: ../plugins/outline/CtagsSymbolResolver.vala:68
+msgid "Symbols"
+msgstr "Znaky"
+
+#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
+#: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
+#: ../plugins/terminal/terminal.vala:174
+msgid "Terminal"
+msgstr "Terminál"
+
+#: ../plugins/terminal/terminal.vala:24
+msgid "A terminal in your text editor"
+msgstr "Terminál ve vašem textovém editoru"
+
+#: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
+msgid "Show Terminal"
+msgstr "Zobrazit terminál"
+
+#: ../plugins/terminal/terminal.vala:170
+msgid "Hide Terminal"
+msgstr "Schovat terminál"
+
+#: ../plugins/terminal/terminal.vala:306
+msgid "Copy"
+msgstr "Kopírovat"
+
+#: ../plugins/terminal/terminal.vala:313
+#: ../plugins/clipboard-history/ClipboardHistory.vala:159
+msgid "Paste"
+msgstr "Vložit"
+
+#: ../plugins/terminal/terminal.vala:323
+msgid "Terminal on Right"
+msgstr "Terminál v pravo"
+
+#: ../plugins/terminal/terminal.vala:331
+msgid "Terminal on Bottom"
+msgstr "Terminál dole"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/brackets-completion/brackets-completion.vala:21
+msgid "Brackets Completion"
+msgstr "Doplňování závorek"
+
+#: ../plugins/brackets-completion/brackets-completion.vala:22
+msgid "Complete brackets while typing"
+msgstr "Doplňování závorek během psaní"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/source-tree/SourceTreePlugin.vala:20
+#: ../plugins/source-tree/SourceTreePlugin.vala:197
+msgid "Source Tree"
+msgstr "Strom souborů"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:21
+msgid "Have a look at your sources organized in a nice tree"
+msgstr "Prohlédněte si vaše soubory v hezkém stromu"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:42
+msgid "Loading..."
+msgstr "Načítání..."
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:175
+msgid "Bookmark"
+msgstr "Vytvořit záložku"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:234
+msgid "Files"
+msgstr "Správce souborů"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:235
+msgid "Project"
+msgstr "Projekt"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:236
+msgid "Bookmarks"
+msgstr "Záložky"
+
+#: ../plugins/spell/spell.vala:18
+msgid "Spell Checker"
+msgstr "Kontrola pravopisu"
+
+#: ../plugins/spell/spell.vala:19
+msgid "Checks the spelling of your documents"
+msgstr "Zkontrolovat pravopis"
+
+#: ../plugins/spell/spell.vala:80
+msgid ""
+"No suitable dictionaries were found.\n"
+"Please install at least one [aspell] dictionary"
+msgstr ""
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/filemanager/FileManagerPlugin.vala:21
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:21
 msgid "Folder Manager"
@@ -527,49 +731,32 @@ msgstr "Správce souborů"
 msgid "/New File"
 msgstr "Nový soubor"
 
-#: ../plugins/preserve-indent/preserve-indent.vala:24
-msgid "Preserve Indent"
-msgstr "Zachovat odsazení"
+#: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
+msgid "Strip trailing whitespace"
+msgstr "Odstraňovat koncové mezery"
 
-#: ../plugins/preserve-indent/preserve-indent.vala:25
-msgid "Maintains indent level of pasted text when auto-indent is active"
-msgstr ""
-"Udržuje úroveň odsazení vloženého textu, když je aktivní automatické odsazení"
-
-#: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
-msgid "Highlight Selected Words"
-msgstr "Zvýraznit vybraná slova"
-
-#: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
-msgid "Highlights all occurrences of words that are selected"
-msgstr "Zobrazit všechny výskyty vybraného slova"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:21
-#: ../plugins/clipboard-history/ClipboardHistory.vala:89
-msgid "Clipboard History"
-msgstr "Historie schránky"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:22
-msgid "Clipboard to view history"
-msgstr "Historie schránky"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:28
-msgid "..."
-msgstr "…"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:156
-msgid "Delete"
-msgstr "Odstranit"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:159
-#: ../plugins/terminal/terminal.vala:313
-msgid "Paste"
-msgstr "Vložit"
+#: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
+msgid "Strip trailing whitespace on save"
+msgstr "Odstraňovat koncové mezery při uložení"
 
 #: ../plugins/browser-preview/BrowserView.vala:49
 msgid "Close Inspector"
 msgstr "Zavřít Inspektora"
 
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/browser-preview/browser-preview.vala:21
 msgid "Browser Preview"
 msgstr "Zobrazit v prohlížeči"
@@ -592,9 +779,36 @@ msgstr "Náhled webu"
 msgid "Hide Preview"
 msgstr "Skrýt náhled"
 
-#: ../plugins/contractor/contractor.vala:21
-msgid "Share your files with Contractor"
-msgstr "Sdílet soubory přes Contractor"
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/clipboard-history/ClipboardHistory.vala:21
+#: ../plugins/clipboard-history/ClipboardHistory.vala:89
+msgid "Clipboard History"
+msgstr "Historie schránky"
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:22
+msgid "Clipboard to view history"
+msgstr "Historie schránky"
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:28
+msgid "..."
+msgstr "…"
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:156
+msgid "Delete"
+msgstr "Odstranit"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:70
 msgid "Folders"
@@ -617,59 +831,20 @@ msgstr "_Otevřít"
 msgid "Close Folder"
 msgstr "Zavřít složku"
 
-#: ../plugins/outline/OutlinePlugin.vala:21
-msgid "Outline"
-msgstr "Obrys"
-
-#: ../plugins/outline/OutlinePlugin.vala:22
-msgid "Outline symbols in your current file in vala"
-msgstr "Obtáhnout symboly v aktuálním vala souboru"
-
-#: ../plugins/outline/OutlinePlugin.vala:111
-#: ../plugins/outline/CtagsSymbolResolver.vala:35
-#: ../plugins/outline/CtagsSymbolResolver.vala:68
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:94
-msgid "Symbols"
-msgstr "Znaky"
-
-#: ../plugins/brackets-completion/brackets-completion.vala:21
-msgid "Brackets Completion"
-msgstr "Doplňování závorek"
-
-#: ../plugins/brackets-completion/brackets-completion.vala:22
-msgid "Complete brackets while typing"
-msgstr "Doplňování závorek během psaní"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:20
-#: ../plugins/source-tree/SourceTreePlugin.vala:197
-msgid "Source Tree"
-msgstr "Strom souborů"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:21
-msgid "Have a look at your sources organized in a nice tree"
-msgstr "Prohlédněte si vaše soubory v hezkém stromu"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:42
-msgid "Loading..."
-msgstr "Načítání..."
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:175
-msgid "Bookmark"
-msgstr "Vytvořit záložku"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:234
-msgid "Files"
-msgstr "Správce souborů"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:235
-msgid "Project"
-msgstr "Projekt"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:236
-msgid "Bookmarks"
-msgstr "Záložky"
-
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
 msgstr "Emulace Vimu"
@@ -677,6 +852,46 @@ msgstr "Emulace Vimu"
 #: ../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
 msgstr "použít příkazy Vimu v Scratchi"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/contractor/contractor.vala:21
+msgid "Share your files with Contractor"
+msgstr "Sdílet soubory přes Contractor"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
+msgid "Highlight Selected Words"
+msgstr "Zvýraznit vybraná slova"
+
+#: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
+msgid "Highlights all occurrences of words that are selected"
+msgstr "Zobrazit všechny výskyty vybraného slova"
 
 #: ../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
@@ -742,71 +957,18 @@ msgstr "Jeden den"
 msgid "One month"
 msgstr "Jeden měsíc"
 
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
-msgid "Strip trailing whitespace"
-msgstr "Odstraňovat koncové mezery"
+#: ../plugins/preserve-indent/preserve-indent.vala:24
+msgid "Preserve Indent"
+msgstr "Zachovat odsazení"
 
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
-msgid "Strip trailing whitespace on save"
-msgstr "Odstraňovat koncové mezery při uložení"
+#: ../plugins/preserve-indent/preserve-indent.vala:25
+msgid "Maintains indent level of pasted text when auto-indent is active"
+msgstr ""
+"Udržuje úroveň odsazení vloženého textu, když je aktivní automatické odsazení"
 
-#: ../plugins/spell/spell.vala:18
-msgid "Spell Checker"
-msgstr "Kontrola pravopisu"
-
-#: ../plugins/spell/spell.vala:19
-msgid "Checks the spelling of your documents"
-msgstr "Zkontrolovat pravopis"
-
-#: ../plugins/open-with/open-with.vala:21
-msgid "Open With"
-msgstr "Otevřít s"
-
-#: ../plugins/open-with/open-with.vala:22
-msgid "Open files you are editing with another application"
-msgstr "Otevřít editovaný soubor v jiné aplikaci"
-
-#: ../plugins/open-with/open-with.vala:54
-msgid "Open With…"
-msgstr "Otevřít v..."
-
-#: ../plugins/detect-indent/detect-indent.vala:1
-msgid "Detect Indent"
-msgstr "Zjišťovat odsazení"
-
-#: ../plugins/detect-indent/detect-indent.vala:2
-msgid "Heuristically detect tab or space settings"
-msgstr "Heuristicky zjišťovat nastavení tabulátoru a mezer"
-
-#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
-#: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
-#: ../plugins/terminal/terminal.vala:174
-msgid "Terminal"
-msgstr "Terminál"
-
-#: ../plugins/terminal/terminal.vala:24
-msgid "A terminal in your text editor"
-msgstr "Terminál ve vašem textovém editoru"
-
-#: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
-msgid "Show Terminal"
-msgstr "Zobrazit terminál"
-
-#: ../plugins/terminal/terminal.vala:170
-msgid "Hide Terminal"
-msgstr "Schovat terminál"
-
-#: ../plugins/terminal/terminal.vala:306
-msgid "Copy"
-msgstr "Kopírovat"
-
-#: ../plugins/terminal/terminal.vala:323
-msgid "Terminal on Right"
-msgstr "Terminál v pravo"
-
-#: ../plugins/terminal/terminal.vala:331
-msgid "Terminal on Bottom"
-msgstr "Terminál dole"
+#: ../plugins/word-completion/completion-provider.vala:80
+msgid "Could not load icon theme: %s\n"
+msgstr "Nelze načíst motiv ikon: %s\n"
 
 #: ../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
@@ -821,9 +983,42 @@ msgstr ""
 msgid "%s - Word Completion"
 msgstr "%s - dokončených slov"
 
-#: ../plugins/word-completion/completion-provider.vala:80
-msgid "Could not load icon theme: %s\n"
-msgstr "Nelze načíst motiv ikon: %s\n"
+#: ../plugins/detect-indent/detect-indent.vala:1
+msgid "Detect Indent"
+msgstr "Zjišťovat odsazení"
+
+#: ../plugins/detect-indent/detect-indent.vala:2
+msgid "Heuristically detect tab or space settings"
+msgstr "Heuristicky zjišťovat nastavení tabulátoru a mezer"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/open-with/open-with.vala:21
+msgid "Open With"
+msgstr "Otevřít s"
+
+#: ../plugins/open-with/open-with.vala:22
+msgid "Open files you are editing with another application"
+msgstr "Otevřít editovaný soubor v jiné aplikaci"
+
+#: ../plugins/open-with/open-with.vala:54
+msgid "Open With…"
+msgstr "Otevřít v..."
+
+#~ msgid "Select font:"
+#~ msgstr "Vybrat písmo:"
 
 #~ msgid "Changes to this file haven't been saved."
 #~ msgstr "Změny v tomto souboru nebyly dosud uloženy."
@@ -831,11 +1026,20 @@ msgstr "Nelze načíst motiv ikon: %s\n"
 #~ msgid "No files are open."
 #~ msgstr "Nejsou otevřeny žádné soubory."
 
+#~ msgid "General:"
+#~ msgstr "Obecné:"
+
 #~ msgid "New document"
 #~ msgstr "Nový dokument"
 
+#~ msgid "Tabs:"
+#~ msgstr "Tabulátory:"
+
 #~ msgid "Do you want to reload it?"
 #~ msgstr "Chcete jej znovu načíst?"
+
+#~ msgid "Editor:"
+#~ msgstr "Editor:"
 
 #~ msgid "Previous Search"
 #~ msgstr "Předchozí"
@@ -863,6 +1067,9 @@ msgstr "Nelze načíst motiv ikon: %s\n"
 
 #~ msgid "Sidebar"
 #~ msgstr "Postranní panel"
+
+#~ msgid "Draw spaces:"
+#~ msgstr "Zvýrazňovat mezery:"
 
 #~ msgid "You can't save changes to:"
 #~ msgstr "Nemůžete uložit změny v:"
@@ -916,6 +1123,9 @@ msgstr "Nelze načíst motiv ikon: %s\n"
 
 #~ msgid "Margin width:"
 #~ msgstr "Šířka okraje:"
+
+#~ msgid "Font and Color Scheme:"
+#~ msgstr "Písmo a barvy:"
 
 #, c-format
 #~ msgid "Save unsaved changes to file %s before closing?"

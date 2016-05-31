@@ -7,67 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-12-18 13:57-0600\n"
+"POT-Creation-Date: 2016-05-30 11:22-0700\n"
 "PO-Revision-Date: 2015-12-21 13:39+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-22 04:51+0000\n"
-"X-Generator: Launchpad (build 17865)\n"
-
-#: ../src/Scratch.vala:68
-msgid "translator-credits"
-msgstr ""
-"Launchpad Contributions:\n"
-"  A.Onur https://launchpad.net/~usbehci\n"
-"  Ahmet Akif DERE https://launchpad.net/~dereakif\n"
-"  Atbeyi https://launchpad.net/~atbeyi\n"
-"  Bilal https://launchpad.net/~kira-gazerock\n"
-"  Caner https://launchpad.net/~mysticwalker\n"
-"  CarnageTR https://launchpad.net/~birkanozer\n"
-"  Erberk A. https://launchpad.net/~erberk108\n"
-"  Eren Inan Canpolat https://launchpad.net/~eren-canpolat-t\n"
-"  Fatih Dayioglu https://launchpad.net/~fthd\n"
-"  Fatih ERDEM https://launchpad.net/~93-fatiherdem\n"
-"  Ferhat TUNÇTAN https://launchpad.net/~ferhattnctn66\n"
-"  Halil https://launchpad.net/~halil--erz\n"
-"  Halit Alptekin https://launchpad.net/~halitalptekin\n"
-"  Hamza https://launchpad.net/~ckr-hamza\n"
-"  Keke Magnon https://launchpad.net/~kekemagnon\n"
-"  Mario Guerriero https://launchpad.net/~mefrio-g\n"
-"  Mehmet Bozoklu https://launchpad.net/~mehmet-bozoklu\n"
-"  Muhammet Kara https://launchpad.net/~muhammet-k\n"
-"  Mustafa https://launchpad.net/~merakliben\n"
-"  Onur KAYA https://launchpad.net/~empatisoft\n"
-"  Sadık Poyraz https://launchpad.net/~sadikpoyraz01\n"
-"  Salih https://launchpad.net/~hernandomtoto\n"
-"  asdasdqwdq qwd qwq https://launchpad.net/~onlycodetr-deactivatedaccount-"
-"deactivatedaccount\n"
-"  bubuntu https://launchpad.net/~bpardusd\n"
-"  furkan https://launchpad.net/~furkan-isildak\n"
-"  Çağatay Çöl https://launchpad.net/~cagataycol"
-
-#: ../src/Scratch.vala:246
-msgid "New Tab"
-msgstr "Yeni Sekme"
-
-#: ../src/Scratch.vala:247 ../src/config.vala:18
-msgid "New Window"
-msgstr "Yeni Pencere"
-
-#: ../src/Scratch.vala:248
-msgid "Print version info and exit"
-msgstr "Sürüm bilgisini yazdır ve çık"
-
-#: ../src/Scratch.vala:249
-msgid "Set of plugins"
-msgstr "Eklenti kümesi"
-
-#: ../src/Scratch.vala:250
-msgid "Current working directory"
-msgstr "şu andaki çalışma dizini"
+"X-Launchpad-Export-Date: 2016-05-31 06:25+0000\n"
+"X-Generator: Launchpad (build 18053)\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -77,113 +25,158 @@ msgstr "Metin dosyalarını düzenle"
 msgid "Text Editor"
 msgstr "Metin Düzenleyici"
 
-#: ../src/config.vala:17 ../src/Services/Document.vala:405
+#: ../src/config.vala:17 ../src/Services/Document.vala:440
 msgid "New Document"
 msgstr "Yeni Belge"
+
+#: ../src/config.vala:18 ../src/Scratch.vala:312
+msgid "New Window"
+msgstr "Yeni Pencere"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
 msgstr "Scratch Hakkında"
 
-#: ../src/Services/Document.vala:231
-msgid "Save changes to document %s before closing?"
-msgstr "Kapatmadan önce değişiklikler %s belgesine kaydedilsin mi?"
+#: ../src/Dialogs/PreferencesDialog.vala:56 ../src/MainWindow.vala:909
+msgid "Preferences"
+msgstr "Tercihler"
 
-#: ../src/Services/Document.vala:234
-msgid ""
-"If you don't save, changes from the last 4 seconds will be permanently lost."
+#: ../src/Dialogs/PreferencesDialog.vala:68
+msgid "Behavior"
+msgstr "Davranış"
+
+#: ../src/Dialogs/PreferencesDialog.vala:69
+msgid "Interface"
+msgstr "Arayüz"
+
+#: ../src/Dialogs/PreferencesDialog.vala:80
+msgid "Extensions"
+msgstr "Eklentiler"
+
+#: ../src/Dialogs/PreferencesDialog.vala:84 ../src/MainWindow.vala:845
+#: ../src/MainWindow.vala:846
+msgid "Close"
+msgstr "Kapat"
+
+#: ../src/Dialogs/PreferencesDialog.vala:109
+msgid "General"
 msgstr ""
-"Eğer kaydetmezseniz, son 4 saniyedeki değişiklikler kalıcı olarak "
-"silinecektir."
 
-#: ../src/Services/Document.vala:236
-msgid "Close without saving"
-msgstr "Kaydetmeden kapat"
+#: ../src/Dialogs/PreferencesDialog.vala:111
+msgid "When Scratch starts:"
+msgstr "Scratch başladığında:"
 
-#: ../src/Services/Document.vala:240 ../src/Utils.vala:29
-msgid "Cancel"
-msgstr "İptal"
+#: ../src/Dialogs/PreferencesDialog.vala:113
+msgid "Show welcome screen"
+msgstr "Karşılama ekranını göster"
 
-#: ../src/Services/Document.vala:241 ../src/Services/Document.vala:546
-#: ../src/Utils.vala:33 ../src/MainWindow.vala:897
-msgid "Save"
-msgstr "Kaydet"
+#: ../src/Dialogs/PreferencesDialog.vala:114
+msgid "Show last open tabs"
+msgstr "En son açılmış sekmeleri göster"
 
-#: ../src/Services/Document.vala:313
-msgid "Save File"
-msgstr "Dosyayı Kaydet"
+#: ../src/Dialogs/PreferencesDialog.vala:117
+msgid "Save files when changed:"
+msgstr "Dosyalar değiştiğinde kaydet:"
 
-#: ../src/Services/Document.vala:521
-msgid ""
-"File \"%s\" cannot be read. Maybe it is corrupt\n"
-"or you do not have the necessary permissions to read it."
+#: ../src/Dialogs/PreferencesDialog.vala:120
+msgid "Tabs"
 msgstr ""
-"\"%s\" dosyası okunamıyor. Dosya bozuk olabilir veya dosyanın görüntülenmesi "
-"için gerekli izinlere sahip değilsiniz."
 
-#: ../src/Services/Document.vala:537
-msgid ""
-"The location containing the file \"%s\" was unmounted. Do you want to save "
-"somewhere else?"
+#: ../src/Dialogs/PreferencesDialog.vala:122
+msgid "Automatic indentation:"
+msgstr "Otomatik girintileme:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:125
+msgid "Insert spaces instead of tabs:"
+msgstr "Sekme yerine boşluk ekle:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:128
+msgid "Tab width:"
+msgstr "Sekme genişliği:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:154
+msgid "Editor"
 msgstr ""
-"\"%s\" dosyasının konumu bağlanmamış durumda. Dosyayı başka bir konuma "
-"kaydetmek ister misiniz?"
 
-#: ../src/Services/Document.vala:539 ../src/MainWindow.vala:901
-msgid "Save As…"
-msgstr "Farklı Kaydet…"
+#: ../src/Dialogs/PreferencesDialog.vala:156
+msgid "Highlight current line:"
+msgstr "Geçerli satırı vurgula"
 
-#: ../src/Services/Document.vala:544
-msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "\"%s\"  dosyası silindi. Yine de kaydetmek istiyor musunuz?"
+#: ../src/Dialogs/PreferencesDialog.vala:159
+msgid "Highlight matching brackets:"
+msgstr "Eşlenenleri vurgula"
 
-#: ../src/Services/Document.vala:557
-msgid ""
-"You cannot save changes on file \"%s\". Do you want to save the changes to "
-"this file in a different location?"
+#: ../src/Dialogs/PreferencesDialog.vala:162
+msgid "Line wrap:"
+msgstr "Satırları Kaydır"
+
+#: ../src/Dialogs/PreferencesDialog.vala:165
+msgid "Draw Spaces:"
 msgstr ""
-"\"%s\" dosyasındaki değişikliklerini kaydedemezsiniz. Bu dosya üzerindeki "
-"değişiklikleri farklı bir konumda kaydetmek istiyor musunuz?"
 
-#: ../src/Services/Document.vala:559
-msgid "Save changes elsewhere"
-msgstr "Değişiklikleri başka yere kaydet"
+#: ../src/Dialogs/PreferencesDialog.vala:168
+msgid "Show line numbers:"
+msgstr "Satır numaralarını göster:"
 
-#: ../src/Services/Document.vala:590
-msgid ""
-"File \"%s\" was modified by an external application. Do you want to load it "
-"again or continue your editing?"
+#: ../src/Dialogs/PreferencesDialog.vala:172
+msgid "Show Mini Map:"
 msgstr ""
-"\"%s\" dosyası başka bir uygulama tarafından değiştirilmiş. Dosyayı tekrar "
-"yükleyip düzenlemeye devam etmek istiyor musunuz?"
 
-#: ../src/Services/Document.vala:591
-msgid "Load"
-msgstr "Yükle"
+#: ../src/Dialogs/PreferencesDialog.vala:176
+msgid "Line width guide:"
+msgstr "Satır genişliği kılavuzu:"
 
-#: ../src/Services/Document.vala:594
-msgid "Continue"
-msgstr "Devam Et"
+#: ../src/Dialogs/PreferencesDialog.vala:184
+msgid "Font and Color Scheme"
+msgstr ""
 
-#: ../src/Services/TemplateManager.vala:194 ../src/MainWindow.vala:905
-msgid "Templates"
-msgstr "Şablonlar"
+#: ../src/Dialogs/PreferencesDialog.vala:186
+msgid "Color scheme:"
+msgstr "Renk şeması:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:191
+msgid "Custom font:"
+msgstr "Özel yazıtipi:"
 
 #: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
 msgstr "konumundan metin dosyası "
 
-#: ../src/Widgets/SourceView.vala:120
-msgid "Syntax Highlighting"
-msgstr "Sözdizimi Vurgulaması"
-
-#: ../src/Widgets/SourceView.vala:131
-msgid "Normal Text"
-msgstr "Normal Metin"
-
 #: ../src/Widgets/LoadingView.vala:33
 msgid "Wait while restoring last session..."
 msgstr "Son oturum onarılana kadar bekleyin..."
+
+#: ../src/Widgets/SplitView.vala:45
+msgid "No Files Open"
+msgstr "Açık Dosya Yok"
+
+#: ../src/Widgets/SplitView.vala:46
+msgid "Open a file to begin editing."
+msgstr "Düzenlemeye başlamak için bir dosya açın."
+
+#: ../src/Widgets/SplitView.vala:50
+msgid "New file"
+msgstr "Yeni dosya"
+
+#: ../src/Widgets/SplitView.vala:50
+msgid "Create a new empty file."
+msgstr "Yeni bir boş dosya oluştur."
+
+#: ../src/Widgets/SplitView.vala:51
+msgid "Open file"
+msgstr "Dosya aç"
+
+#: ../src/Widgets/SplitView.vala:51
+msgid "Open a saved file."
+msgstr "Kaydedilmiş bir dosyayı aç."
+
+#: ../src/Widgets/SplitView.vala:52
+msgid "New file from clipboard"
+msgstr "Panodan yeni dosya"
+
+#: ../src/Widgets/SplitView.vala:52
+msgid "Create a new file from the contents of your clipboard."
+msgstr "Panodaki içeriklerle yeni bir dosya oluştur"
 
 #: ../src/Widgets/SearchManager.vala:70
 msgid "Find"
@@ -222,151 +215,13 @@ msgstr "Satıra Git:"
 msgid "Share"
 msgstr "Paylaş"
 
-#: ../src/Widgets/SplitView.vala:45
-msgid "No Files Open"
-msgstr "Açık Dosya Yok"
+#: ../src/Widgets/SourceView.vala:120
+msgid "Syntax Highlighting"
+msgstr "Sözdizimi Vurgulaması"
 
-#: ../src/Widgets/SplitView.vala:46
-msgid "Open a file to begin editing."
-msgstr "Düzenlemeye başlamak için bir dosya açın."
-
-#: ../src/Widgets/SplitView.vala:50
-msgid "New file"
-msgstr "Yeni dosya"
-
-#: ../src/Widgets/SplitView.vala:50
-msgid "Create a new empty file."
-msgstr "Yeni bir boş dosya oluştur."
-
-#: ../src/Widgets/SplitView.vala:51
-msgid "Open file"
-msgstr "Dosya aç"
-
-#: ../src/Widgets/SplitView.vala:51
-msgid "Open a saved file."
-msgstr "Kaydedilmiş bir dosyayı aç."
-
-#: ../src/Widgets/SplitView.vala:52
-msgid "New file from clipboard"
-msgstr "Panodan yeni dosya"
-
-#: ../src/Widgets/SplitView.vala:52
-msgid "Create a new file from the contents of your clipboard."
-msgstr "Panodaki içeriklerle yeni bir dosya oluştur"
-
-#: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:909
-msgid "Preferences"
-msgstr "Tercihler"
-
-#: ../src/Dialogs/PreferencesDialog.vala:63
-msgid "Behavior"
-msgstr "Davranış"
-
-#: ../src/Dialogs/PreferencesDialog.vala:66
-msgid "Interface"
-msgstr "Arayüz"
-
-#: ../src/Dialogs/PreferencesDialog.vala:79
-msgid "Extensions"
-msgstr "Eklentiler"
-
-#: ../src/Dialogs/PreferencesDialog.vala:83 ../src/MainWindow.vala:845
-#: ../src/MainWindow.vala:846
-msgid "Close"
-msgstr "Kapat"
-
-#: ../src/Dialogs/PreferencesDialog.vala:128
-msgid "Show welcome screen"
-msgstr "Karşılama ekranını göster"
-
-#: ../src/Dialogs/PreferencesDialog.vala:129
-msgid "Show last open tabs"
-msgstr "En son açılmış sekmeleri göster"
-
-#: ../src/Dialogs/PreferencesDialog.vala:145
-msgid "General:"
-msgstr "Genel:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:151
-msgid "When Scratch starts:"
-msgstr "Scratch başladığında:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:154
-msgid "Save files when changed:"
-msgstr "Dosyalar değiştiğinde kaydet:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:158
-msgid "Tabs:"
-msgstr "Sekmeler:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:163
-msgid "Automatic indentation:"
-msgstr "Otomatik girintileme:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:166
-msgid "Insert spaces instead of tabs:"
-msgstr "Sekme yerine boşluk ekle:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:170
-msgid "Tab width:"
-msgstr "Sekme genişliği:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:195
-msgid "Editor:"
-msgstr "Düzenleyici"
-
-#: ../src/Dialogs/PreferencesDialog.vala:213
-msgid "Highlight current line:"
-msgstr "Geçerli satırı vurgula"
-
-#: ../src/Dialogs/PreferencesDialog.vala:214
-msgid "Highlight matching brackets:"
-msgstr "Eşlenenleri vurgula"
-
-#: ../src/Dialogs/PreferencesDialog.vala:215
-msgid "Line wrap:"
-msgstr "Satırları Kaydır"
-
-#: ../src/Dialogs/PreferencesDialog.vala:216
-msgid "Draw spaces:"
-msgstr "Yazı boşluğu:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:217
-msgid "Show line numbers:"
-msgstr "Satır numaralarını göster:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:219
-msgid "Line width guide:"
-msgstr "Satır genişliği kılavuzu:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:233
-msgid "Font and Color Scheme:"
-msgstr "Yazı Tipi ve Renk Şeması:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:247
-msgid "Select font:"
-msgstr "Yazı tipi seç:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:250
-msgid "Color scheme:"
-msgstr "Renk şeması:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:255
-msgid "Custom font:"
-msgstr "Özel yazıtipi:"
-
-#: ../src/Utils.vala:31 ../src/MainWindow.vala:885
-#: ../plugins/filemanager/FileView.vala:230
-msgid "Open"
-msgstr "Aç"
-
-#: ../src/Utils.vala:42
-msgid "All files"
-msgstr "Tüm dosyalar"
-
-#: ../src/Utils.vala:45
-msgid "Text files"
-msgstr "Metin dosyaları"
+#: ../src/Widgets/SourceView.vala:131
+msgid "Normal Text"
+msgstr "Normal Metin"
 
 #: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
@@ -457,6 +312,11 @@ msgstr "Dosyayı kurtar"
 msgid "Duplicate selected strings"
 msgstr "Seçili diziyi çoğalt"
 
+#: ../src/MainWindow.vala:885 ../src/Utils.vala:31
+#: ../plugins/filemanager/FileView.vala:230
+msgid "Open"
+msgstr "Aç"
+
 #: ../src/MainWindow.vala:886
 msgid "Open a file"
 msgstr "Bir dosya aç"
@@ -477,13 +337,26 @@ msgstr "Yakınlık"
 msgid "Zoom 1:1"
 msgstr "Yakınlaşma 1:1"
 
+#: ../src/MainWindow.vala:897 ../src/Services/Document.vala:255
+#: ../src/Services/Document.vala:581 ../src/Utils.vala:33
+msgid "Save"
+msgstr "Kaydet"
+
 #: ../src/MainWindow.vala:898
 msgid "Save this file"
 msgstr "Dosyayı kaydet"
 
+#: ../src/MainWindow.vala:901 ../src/Services/Document.vala:574
+msgid "Save As…"
+msgstr "Farklı Kaydet…"
+
 #: ../src/MainWindow.vala:902
 msgid "Save this file with a different name"
 msgstr "Bu dosyayı farklı bir adla kaydet"
+
+#: ../src/MainWindow.vala:905 ../src/Services/TemplateManager.vala:194
+msgid "Templates"
+msgstr "Şablonlar"
 
 #: ../src/MainWindow.vala:906
 msgid "Project templates"
@@ -505,6 +378,337 @@ msgstr "Önceki Sekme"
 msgid "Fullscreen"
 msgstr "Tam ekran"
 
+#: ../src/Services/Document.vala:245
+msgid "Save changes to document %s before closing?"
+msgstr "Kapatmadan önce değişiklikler %s belgesine kaydedilsin mi?"
+
+#: ../src/Services/Document.vala:248
+msgid ""
+"If you don't save, changes from the last 4 seconds will be permanently lost."
+msgstr ""
+"Eğer kaydetmezseniz, son 4 saniyedeki değişiklikler kalıcı olarak "
+"silinecektir."
+
+#: ../src/Services/Document.vala:250
+msgid "Close without saving"
+msgstr "Kaydetmeden kapat"
+
+#: ../src/Services/Document.vala:254 ../src/Utils.vala:29
+msgid "Cancel"
+msgstr "İptal"
+
+#: ../src/Services/Document.vala:327
+msgid "Save File"
+msgstr "Dosyayı Kaydet"
+
+#: ../src/Services/Document.vala:556
+msgid ""
+"File \"%s\" cannot be read. Maybe it is corrupt\n"
+"or you do not have the necessary permissions to read it."
+msgstr ""
+"\"%s\" dosyası okunamıyor. Dosya bozuk olabilir veya dosyanın görüntülenmesi "
+"için gerekli izinlere sahip değilsiniz."
+
+#: ../src/Services/Document.vala:572
+msgid ""
+"The location containing the file \"%s\" was unmounted. Do you want to save "
+"somewhere else?"
+msgstr ""
+"\"%s\" dosyasının konumu bağlanmamış durumda. Dosyayı başka bir konuma "
+"kaydetmek ister misiniz?"
+
+#: ../src/Services/Document.vala:579
+msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+msgstr "\"%s\"  dosyası silindi. Yine de kaydetmek istiyor musunuz?"
+
+#: ../src/Services/Document.vala:592
+msgid ""
+"You cannot save changes on file \"%s\". Do you want to save the changes to "
+"this file in a different location?"
+msgstr ""
+"\"%s\" dosyasındaki değişikliklerini kaydedemezsiniz. Bu dosya üzerindeki "
+"değişiklikleri farklı bir konumda kaydetmek istiyor musunuz?"
+
+#: ../src/Services/Document.vala:594
+msgid "Save changes elsewhere"
+msgstr "Değişiklikleri başka yere kaydet"
+
+#: ../src/Services/Document.vala:625
+msgid ""
+"File \"%s\" was modified by an external application. Do you want to load it "
+"again or continue your editing?"
+msgstr ""
+"\"%s\" dosyası başka bir uygulama tarafından değiştirilmiş. Dosyayı tekrar "
+"yükleyip düzenlemeye devam etmek istiyor musunuz?"
+
+#: ../src/Services/Document.vala:626
+msgid "Load"
+msgstr "Yükle"
+
+#: ../src/Services/Document.vala:629
+msgid "Continue"
+msgstr "Devam Et"
+
+#: ../src/Scratch.vala:68
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  A.Onur https://launchpad.net/~usbehci\n"
+"  Ahmet Akif DERE https://launchpad.net/~dereakif\n"
+"  Atbeyi https://launchpad.net/~atbeyi\n"
+"  Bilal https://launchpad.net/~kira-gazerock\n"
+"  Caner https://launchpad.net/~mysticwalker\n"
+"  CarnageTR https://launchpad.net/~birkanozer\n"
+"  Erberk A. https://launchpad.net/~erberk108\n"
+"  Eren Inan Canpolat https://launchpad.net/~eren-canpolat-t\n"
+"  Fatih Dayioglu https://launchpad.net/~fthd\n"
+"  Fatih ERDEM https://launchpad.net/~93-fatiherdem\n"
+"  Ferhat TUNÇTAN https://launchpad.net/~ferhattnctn66\n"
+"  Halil https://launchpad.net/~halil--erz\n"
+"  Halit Alptekin https://launchpad.net/~halitalptekin\n"
+"  Hamza https://launchpad.net/~ckr-hamza\n"
+"  Keke Magnon https://launchpad.net/~kekemagnon\n"
+"  Mario Guerriero https://launchpad.net/~mefrio-g\n"
+"  Mehmet Bozoklu https://launchpad.net/~mehmet-bozoklu\n"
+"  Muhammet Kara https://launchpad.net/~muhammet-k\n"
+"  Mustafa https://launchpad.net/~merakliben\n"
+"  Onur KAYA https://launchpad.net/~empatisoft\n"
+"  Sadık Poyraz https://launchpad.net/~sadikpoyraz01\n"
+"  Salih https://launchpad.net/~hernandomtoto\n"
+"  asdasdqwdq qwd qwq https://launchpad.net/~onlycodetr-deactivatedaccount-"
+"deactivatedaccount\n"
+"  bubuntu https://launchpad.net/~bpardusd\n"
+"  furkan https://launchpad.net/~furkan-isildak\n"
+"  Çağatay Çöl https://launchpad.net/~cagataycol"
+
+#: ../src/Scratch.vala:166
+msgid "Maybe you do not have the necessary permissions."
+msgstr ""
+
+#: ../src/Scratch.vala:168
+msgid "Maybe the file path provided is not valid."
+msgstr ""
+
+#: ../src/Scratch.vala:170
+msgid "The location is read-only."
+msgstr ""
+
+#: ../src/Scratch.vala:172
+msgid "The parent directory doesn't exist."
+msgstr ""
+
+#: ../src/Scratch.vala:179
+msgid ""
+"File \"%s\" cannot be created.\n"
+"%s"
+msgstr ""
+
+#: ../src/Scratch.vala:189
+msgid ""
+"File \"%s\" cannot be opened.\n"
+"%s"
+msgstr ""
+
+#: ../src/Scratch.vala:198
+msgid "It is a mountable location."
+msgstr ""
+
+#: ../src/Scratch.vala:201
+msgid "It is a directory."
+msgstr ""
+
+#: ../src/Scratch.vala:204
+msgid ""
+"It is a \"special\" file such as a socket,\n"
+" fifo, block device, or character device."
+msgstr ""
+
+#: ../src/Scratch.vala:207
+msgid "It is an \"unknown\" file type."
+msgstr ""
+
+#: ../src/Scratch.vala:311
+msgid "New Tab"
+msgstr "Yeni Sekme"
+
+#: ../src/Scratch.vala:313
+msgid "Print version info and exit"
+msgstr "Sürüm bilgisini yazdır ve çık"
+
+#: ../src/Scratch.vala:314
+msgid "Set of plugins"
+msgstr "Eklenti kümesi"
+
+#: ../src/Scratch.vala:315
+msgid "Current working directory"
+msgstr "şu andaki çalışma dizini"
+
+#: ../src/Utils.vala:42
+msgid "All files"
+msgstr "Tüm dosyalar"
+
+#: ../src/Utils.vala:45
+msgid "Text files"
+msgstr "Metin dosyaları"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/outline/OutlinePlugin.vala:21
+msgid "Outline"
+msgstr "Taslak"
+
+#: ../plugins/outline/OutlinePlugin.vala:22
+msgid "Outline symbols in your current file in vala"
+msgstr "Vala'daki mevcut dosya için taslak sembolleri"
+
+#: ../plugins/outline/OutlinePlugin.vala:116
+#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
+#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:99
+#: ../plugins/outline/CtagsSymbolResolver.vala:35
+#: ../plugins/outline/CtagsSymbolResolver.vala:68
+msgid "Symbols"
+msgstr "Semboller"
+
+#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
+#: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
+#: ../plugins/terminal/terminal.vala:174
+msgid "Terminal"
+msgstr "Uçbirim"
+
+#: ../plugins/terminal/terminal.vala:24
+msgid "A terminal in your text editor"
+msgstr "Metin düzenleyiciniz için bir uçbirim"
+
+#: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
+msgid "Show Terminal"
+msgstr "Terminali göster"
+
+#: ../plugins/terminal/terminal.vala:170
+msgid "Hide Terminal"
+msgstr "Terminali gizle"
+
+#: ../plugins/terminal/terminal.vala:306
+msgid "Copy"
+msgstr "Kopyala"
+
+#: ../plugins/terminal/terminal.vala:313
+#: ../plugins/clipboard-history/ClipboardHistory.vala:159
+msgid "Paste"
+msgstr "Yapıştır"
+
+#: ../plugins/terminal/terminal.vala:323
+msgid "Terminal on Right"
+msgstr "Terminal Sağda"
+
+#: ../plugins/terminal/terminal.vala:331
+msgid "Terminal on Bottom"
+msgstr "Terminal Altta"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/brackets-completion/brackets-completion.vala:21
+msgid "Brackets Completion"
+msgstr "Parantez Tamamlama"
+
+#: ../plugins/brackets-completion/brackets-completion.vala:22
+msgid "Complete brackets while typing"
+msgstr "Yazım esnasında parantezleri tamamla"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/source-tree/SourceTreePlugin.vala:20
+#: ../plugins/source-tree/SourceTreePlugin.vala:197
+msgid "Source Tree"
+msgstr "Kaynak Ağacı"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:21
+msgid "Have a look at your sources organized in a nice tree"
+msgstr "Kaynakları ağaç diyagramı şeklinde görüntüle"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:42
+msgid "Loading..."
+msgstr "Yükleniyor..."
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:175
+msgid "Bookmark"
+msgstr "Yer imi"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:234
+msgid "Files"
+msgstr "Dosyalar"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:235
+msgid "Project"
+msgstr "Tasarı"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:236
+msgid "Bookmarks"
+msgstr "Yer imleri"
+
+#: ../plugins/spell/spell.vala:18
+msgid "Spell Checker"
+msgstr "Yazım Denetleyicisi"
+
+#: ../plugins/spell/spell.vala:19
+msgid "Checks the spelling of your documents"
+msgstr "Belgelerinizin yazım denetimini yapar"
+
+#: ../plugins/spell/spell.vala:80
+msgid ""
+"No suitable dictionaries were found.\n"
+"Please install at least one [aspell] dictionary"
+msgstr ""
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/filemanager/FileManagerPlugin.vala:21
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:21
 msgid "Folder Manager"
@@ -535,49 +739,32 @@ msgstr "Dosya Yöneticisi"
 msgid "/New File"
 msgstr "/Yeni Dosya"
 
-#: ../plugins/preserve-indent/preserve-indent.vala:24
-msgid "Preserve Indent"
-msgstr "Girintiyi Artır"
+#: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
+msgid "Strip trailing whitespace"
+msgstr "Satır sonundaki boşlukları sil"
 
-#: ../plugins/preserve-indent/preserve-indent.vala:25
-msgid "Maintains indent level of pasted text when auto-indent is active"
-msgstr ""
-"Otomatik girinti aktif olduğunda yapıştırılan metnin girinti düzeyini korur"
-
-#: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
-msgid "Highlight Selected Words"
-msgstr "Seçili kelimeleri vurgula"
-
-#: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
-msgid "Highlights all occurrences of words that are selected"
-msgstr "Seçilen kelimelerin tümünü vurgula"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:21
-#: ../plugins/clipboard-history/ClipboardHistory.vala:89
-msgid "Clipboard History"
-msgstr "Pano Geçmişi"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:22
-msgid "Clipboard to view history"
-msgstr "Pano geçmişini göster"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:28
-msgid "..."
-msgstr "..."
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:156
-msgid "Delete"
-msgstr "Sil"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:159
-#: ../plugins/terminal/terminal.vala:313
-msgid "Paste"
-msgstr "Yapıştır"
+#: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
+msgid "Strip trailing whitespace on save"
+msgstr "Kayıtta satır sonundaki boşlukları siler"
 
 #: ../plugins/browser-preview/BrowserView.vala:49
 msgid "Close Inspector"
 msgstr "Denetleyiciyi kapat"
 
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/browser-preview/browser-preview.vala:21
 msgid "Browser Preview"
 msgstr "Tarayıcı Önizlemesi"
@@ -600,9 +787,36 @@ msgstr "Web Önizlemesi"
 msgid "Hide Preview"
 msgstr "Önizlemeyi Gizle"
 
-#: ../plugins/contractor/contractor.vala:21
-msgid "Share your files with Contractor"
-msgstr "Dosyalarınızı Contractor ile paylaşın"
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/clipboard-history/ClipboardHistory.vala:21
+#: ../plugins/clipboard-history/ClipboardHistory.vala:89
+msgid "Clipboard History"
+msgstr "Pano Geçmişi"
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:22
+msgid "Clipboard to view history"
+msgstr "Pano geçmişini göster"
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:28
+msgid "..."
+msgstr "..."
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:156
+msgid "Delete"
+msgstr "Sil"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:70
 msgid "Folders"
@@ -625,59 +839,20 @@ msgstr "_Aç"
 msgid "Close Folder"
 msgstr "Klasörü Kapat"
 
-#: ../plugins/outline/OutlinePlugin.vala:21
-msgid "Outline"
-msgstr "Taslak"
-
-#: ../plugins/outline/OutlinePlugin.vala:22
-msgid "Outline symbols in your current file in vala"
-msgstr "Vala'daki mevcut dosya için taslak sembolleri"
-
-#: ../plugins/outline/OutlinePlugin.vala:111
-#: ../plugins/outline/CtagsSymbolResolver.vala:35
-#: ../plugins/outline/CtagsSymbolResolver.vala:68
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:94
-msgid "Symbols"
-msgstr "Semboller"
-
-#: ../plugins/brackets-completion/brackets-completion.vala:21
-msgid "Brackets Completion"
-msgstr "Parantez Tamamlama"
-
-#: ../plugins/brackets-completion/brackets-completion.vala:22
-msgid "Complete brackets while typing"
-msgstr "Yazım esnasında parantezleri tamamla"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:20
-#: ../plugins/source-tree/SourceTreePlugin.vala:197
-msgid "Source Tree"
-msgstr "Kaynak Ağacı"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:21
-msgid "Have a look at your sources organized in a nice tree"
-msgstr "Kaynakları ağaç diyagramı şeklinde görüntüle"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:42
-msgid "Loading..."
-msgstr "Yükleniyor..."
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:175
-msgid "Bookmark"
-msgstr "Yer imi"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:234
-msgid "Files"
-msgstr "Dosyalar"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:235
-msgid "Project"
-msgstr "Tasarı"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:236
-msgid "Bookmarks"
-msgstr "Yer imleri"
-
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
 msgstr "Vim Emülasyonu"
@@ -685,6 +860,46 @@ msgstr "Vim Emülasyonu"
 #: ../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
 msgstr "Vim komutlarını Scratch'te kullan"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/contractor/contractor.vala:21
+msgid "Share your files with Contractor"
+msgstr "Dosyalarınızı Contractor ile paylaşın"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
+msgid "Highlight Selected Words"
+msgstr "Seçili kelimeleri vurgula"
+
+#: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
+msgid "Highlights all occurrences of words that are selected"
+msgstr "Seçilen kelimelerin tümünü vurgula"
 
 #: ../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
@@ -750,71 +965,18 @@ msgstr "Bir gün"
 msgid "One month"
 msgstr "Bir ay"
 
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
-msgid "Strip trailing whitespace"
-msgstr "Satır sonundaki boşlukları sil"
+#: ../plugins/preserve-indent/preserve-indent.vala:24
+msgid "Preserve Indent"
+msgstr "Girintiyi Artır"
 
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
-msgid "Strip trailing whitespace on save"
-msgstr "Kayıtta satır sonundaki boşlukları siler"
+#: ../plugins/preserve-indent/preserve-indent.vala:25
+msgid "Maintains indent level of pasted text when auto-indent is active"
+msgstr ""
+"Otomatik girinti aktif olduğunda yapıştırılan metnin girinti düzeyini korur"
 
-#: ../plugins/spell/spell.vala:18
-msgid "Spell Checker"
-msgstr "Yazım Denetleyicisi"
-
-#: ../plugins/spell/spell.vala:19
-msgid "Checks the spelling of your documents"
-msgstr "Belgelerinizin yazım denetimini yapar"
-
-#: ../plugins/open-with/open-with.vala:21
-msgid "Open With"
-msgstr "Birlikte Aç"
-
-#: ../plugins/open-with/open-with.vala:22
-msgid "Open files you are editing with another application"
-msgstr "Düzenlediğiniz dosyaları başka bir uygulama ile açın"
-
-#: ../plugins/open-with/open-with.vala:54
-msgid "Open With…"
-msgstr "Birlikte aç"
-
-#: ../plugins/detect-indent/detect-indent.vala:1
-msgid "Detect Indent"
-msgstr "Girintileri algıla"
-
-#: ../plugins/detect-indent/detect-indent.vala:2
-msgid "Heuristically detect tab or space settings"
-msgstr "Sekme ve boşluk ayarlarını sezgiyle algıla"
-
-#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
-#: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
-#: ../plugins/terminal/terminal.vala:174
-msgid "Terminal"
-msgstr "Uçbirim"
-
-#: ../plugins/terminal/terminal.vala:24
-msgid "A terminal in your text editor"
-msgstr "Metin düzenleyiciniz için bir uçbirim"
-
-#: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
-msgid "Show Terminal"
-msgstr "Terminali göster"
-
-#: ../plugins/terminal/terminal.vala:170
-msgid "Hide Terminal"
-msgstr "Terminali gizle"
-
-#: ../plugins/terminal/terminal.vala:306
-msgid "Copy"
-msgstr "Kopyala"
-
-#: ../plugins/terminal/terminal.vala:323
-msgid "Terminal on Right"
-msgstr "Terminal Sağda"
-
-#: ../plugins/terminal/terminal.vala:331
-msgid "Terminal on Bottom"
-msgstr "Terminal Altta"
+#: ../plugins/word-completion/completion-provider.vala:80
+msgid "Could not load icon theme: %s\n"
+msgstr "Simge teması yüklenemedi: %s\n"
 
 #: ../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
@@ -830,9 +992,39 @@ msgstr ""
 msgid "%s - Word Completion"
 msgstr "%s - Kelime Tamamlama"
 
-#: ../plugins/word-completion/completion-provider.vala:80
-msgid "Could not load icon theme: %s\n"
-msgstr "Simge teması yüklenemedi: %s\n"
+#: ../plugins/detect-indent/detect-indent.vala:1
+msgid "Detect Indent"
+msgstr "Girintileri algıla"
+
+#: ../plugins/detect-indent/detect-indent.vala:2
+msgid "Heuristically detect tab or space settings"
+msgstr "Sekme ve boşluk ayarlarını sezgiyle algıla"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/open-with/open-with.vala:21
+msgid "Open With"
+msgstr "Birlikte Aç"
+
+#: ../plugins/open-with/open-with.vala:22
+msgid "Open files you are editing with another application"
+msgstr "Düzenlediğiniz dosyaları başka bir uygulama ile açın"
+
+#: ../plugins/open-with/open-with.vala:54
+msgid "Open With…"
+msgstr "Birlikte aç"
 
 #~ msgid "Normal text"
 #~ msgstr "Normal metin"
@@ -842,6 +1034,15 @@ msgstr "Simge teması yüklenemedi: %s\n"
 
 #~ msgid "New document"
 #~ msgstr "Yeni belge"
+
+#~ msgid "General:"
+#~ msgstr "Genel:"
+
+#~ msgid "Editor:"
+#~ msgstr "Düzenleyici"
+
+#~ msgid "Tabs:"
+#~ msgstr "Sekmeler:"
 
 #~ msgid "Save unsaved changes to file before closing?"
 #~ msgstr "Kapatmadan önce değişiklikler dosyaya kaydedilsin mi?"
@@ -921,6 +1122,9 @@ msgstr "Simge teması yüklenemedi: %s\n"
 #~ msgid "There are unsaved changes in Scratch!"
 #~ msgstr "Scratch'ta kaydedilmemiş değişiklikler var!"
 
+#~ msgid "Font and Color Scheme:"
+#~ msgstr "Yazı Tipi ve Renk Şeması:"
+
 #, c-format
 #~ msgid "Save unsaved changes to file %s before closing?"
 #~ msgstr ""
@@ -936,3 +1140,9 @@ msgstr "Simge teması yüklenemedi: %s\n"
 #, c-format
 #~ msgid "The file %s was deleted."
 #~ msgstr "%s dosyası silindi."
+
+#~ msgid "Select font:"
+#~ msgstr "Yazı tipi seç:"
+
+#~ msgid "Draw spaces:"
+#~ msgstr "Yazı boşluğu:"

@@ -7,45 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-12-18 13:57-0600\n"
+"POT-Creation-Date: 2016-05-30 11:22-0700\n"
 "PO-Revision-Date: 2016-01-26 11:48+0000\n"
 "Last-Translator: Anurag kushwaha <kanurag078@gmail.com>\n"
 "Language-Team: Hindi <hi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-01-27 05:22+0000\n"
-"X-Generator: Launchpad (build 17902)\n"
-
-#: ../src/Scratch.vala:68
-msgid "translator-credits"
-msgstr ""
-"Launchpad Contributions:\n"
-"  Anurag kushwaha https://launchpad.net/~kanurag078\n"
-"  Mario Guerriero https://launchpad.net/~mefrio-g\n"
-"  Satchit Bhogle https://launchpad.net/~satchitb\n"
-"  Vishal Biswas https://launchpad.net/~vshlbiswas\n"
-"  saumitra https://launchpad.net/~saumitra1181996"
-
-#: ../src/Scratch.vala:246
-msgid "New Tab"
-msgstr "नया टैब"
-
-#: ../src/Scratch.vala:247 ../src/config.vala:18
-msgid "New Window"
-msgstr "नई विंडो"
-
-#: ../src/Scratch.vala:248
-msgid "Print version info and exit"
-msgstr "प्रिन्ट संस्करण जानकारी और बाहर"
-
-#: ../src/Scratch.vala:249
-msgid "Set of plugins"
-msgstr "प्लगइन्स का समूह"
-
-#: ../src/Scratch.vala:250
-msgid "Current working directory"
-msgstr "वर्त्तमान फोल्डर"
+"X-Launchpad-Export-Date: 2016-05-31 06:24+0000\n"
+"X-Generator: Launchpad (build 18053)\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -55,110 +25,158 @@ msgstr "लेख फ़ाइलें संपादित करें"
 msgid "Text Editor"
 msgstr "लेख संपादक"
 
-#: ../src/config.vala:17 ../src/Services/Document.vala:405
+#: ../src/config.vala:17 ../src/Services/Document.vala:440
 msgid "New Document"
 msgstr "नया दस्तावेज़"
+
+#: ../src/config.vala:18 ../src/Scratch.vala:312
+msgid "New Window"
+msgstr "नई विंडो"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
 msgstr "स्क्रँच के बारेमे"
 
-#: ../src/Services/Document.vala:231
-msgid "Save changes to document %s before closing?"
-msgstr "डाँकयुमेन्ट बंद  करनेसे पहले बदलाव सेव कीजिये"
+#: ../src/Dialogs/PreferencesDialog.vala:56 ../src/MainWindow.vala:909
+msgid "Preferences"
+msgstr "पसंद"
 
-#: ../src/Services/Document.vala:234
-msgid ""
-"If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr ""
-"अगर आप फाइल को नहीं सहेजेंगे, तो पिछले ४ सेकंड में किए  बदलाव हमेशा के लिए "
-"खो जाएँगे |"
+#: ../src/Dialogs/PreferencesDialog.vala:68
+msgid "Behavior"
+msgstr "व्‍यवहार"
 
-#: ../src/Services/Document.vala:236
-msgid "Close without saving"
-msgstr "बिना सहेजे बंद करें"
+#: ../src/Dialogs/PreferencesDialog.vala:69
+msgid "Interface"
+msgstr "अंतरफलक"
 
-#: ../src/Services/Document.vala:240 ../src/Utils.vala:29
-msgid "Cancel"
-msgstr "रद्द करें"
+#: ../src/Dialogs/PreferencesDialog.vala:80
+msgid "Extensions"
+msgstr "एक्सटेंशन्स"
 
-#: ../src/Services/Document.vala:241 ../src/Services/Document.vala:546
-#: ../src/Utils.vala:33 ../src/MainWindow.vala:897
-msgid "Save"
-msgstr "सहेजें"
+#: ../src/Dialogs/PreferencesDialog.vala:84 ../src/MainWindow.vala:845
+#: ../src/MainWindow.vala:846
+msgid "Close"
+msgstr "बंद करें"
 
-#: ../src/Services/Document.vala:313
-msgid "Save File"
-msgstr "फ़ाइल सहेजें"
-
-#: ../src/Services/Document.vala:521
-msgid ""
-"File \"%s\" cannot be read. Maybe it is corrupt\n"
-"or you do not have the necessary permissions to read it."
-msgstr ""
-"फ़ाइल \"%s\" पढ़ा नहीं जा सकता। शायद यह ख़राब है।\n"
-"या आपके पास इसे पढ़ने के लिए आवश्यक अनुमति नहीं है।"
-
-#: ../src/Services/Document.vala:537
-msgid ""
-"The location containing the file \"%s\" was unmounted. Do you want to save "
-"somewhere else?"
-msgstr ""
-"फ़ाइल \"%s\" उक्त स्थान हटा दिया गया था। आप कहीं और सहेजना चाहते हैं?"
-
-#: ../src/Services/Document.vala:539 ../src/MainWindow.vala:901
-msgid "Save As…"
-msgstr "इस रूप में सहेजें..."
-
-#: ../src/Services/Document.vala:544
-msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "फ़ाइल \"%s\" हटा दी गई थी।आप फिर भी सहेजना चाहते हैं?"
-
-#: ../src/Services/Document.vala:557
-msgid ""
-"You cannot save changes on file \"%s\". Do you want to save the changes to "
-"this file in a different location?"
-msgstr ""
-"आप फाइल \"%स \" में किए बदलाव सुरक्षित नहीं कर सकते । क्या आप फाइल में किए "
-"गए बदलाव को अन्य स्थान पर सुरक्षित करना चाहते है ?"
-
-#: ../src/Services/Document.vala:559
-msgid "Save changes elsewhere"
+#: ../src/Dialogs/PreferencesDialog.vala:109
+msgid "General"
 msgstr ""
 
-#: ../src/Services/Document.vala:590
-msgid ""
-"File \"%s\" was modified by an external application. Do you want to load it "
-"again or continue your editing?"
+#: ../src/Dialogs/PreferencesDialog.vala:111
+msgid "When Scratch starts:"
+msgstr "जब स्क्रेच शुरु होता है:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:113
+msgid "Show welcome screen"
+msgstr "स्वागत स्क्रीन दिखाएँ"
+
+#: ../src/Dialogs/PreferencesDialog.vala:114
+msgid "Show last open tabs"
+msgstr "पहले खोले हुए टैबों को दिखाएँ"
+
+#: ../src/Dialogs/PreferencesDialog.vala:117
+msgid "Save files when changed:"
+msgstr "बदलाव करने पर फाइलों को सहेजे"
+
+#: ../src/Dialogs/PreferencesDialog.vala:120
+msgid "Tabs"
 msgstr ""
 
-#: ../src/Services/Document.vala:591
-msgid "Load"
-msgstr "लोड करें"
+#: ../src/Dialogs/PreferencesDialog.vala:122
+msgid "Automatic indentation:"
+msgstr "स्व हाशिया"
 
-#: ../src/Services/Document.vala:594
-msgid "Continue"
-msgstr "जारी रखें"
+#: ../src/Dialogs/PreferencesDialog.vala:125
+msgid "Insert spaces instead of tabs:"
+msgstr "टैब की जगह रिक्ति डालें:"
 
-#: ../src/Services/TemplateManager.vala:194 ../src/MainWindow.vala:905
-msgid "Templates"
-msgstr "नमूने"
+#: ../src/Dialogs/PreferencesDialog.vala:128
+msgid "Tab width:"
+msgstr "टैब चौड़ाईः"
+
+#: ../src/Dialogs/PreferencesDialog.vala:154
+msgid "Editor"
+msgstr ""
+
+#: ../src/Dialogs/PreferencesDialog.vala:156
+msgid "Highlight current line:"
+msgstr ""
+
+#: ../src/Dialogs/PreferencesDialog.vala:159
+msgid "Highlight matching brackets:"
+msgstr ""
+
+#: ../src/Dialogs/PreferencesDialog.vala:162
+msgid "Line wrap:"
+msgstr ""
+
+#: ../src/Dialogs/PreferencesDialog.vala:165
+msgid "Draw Spaces:"
+msgstr ""
+
+#: ../src/Dialogs/PreferencesDialog.vala:168
+msgid "Show line numbers:"
+msgstr "पंक्ति नंबर दिखाएँ:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:172
+msgid "Show Mini Map:"
+msgstr ""
+
+#: ../src/Dialogs/PreferencesDialog.vala:176
+msgid "Line width guide:"
+msgstr ""
+
+#: ../src/Dialogs/PreferencesDialog.vala:184
+msgid "Font and Color Scheme"
+msgstr ""
+
+#: ../src/Dialogs/PreferencesDialog.vala:186
+msgid "Color scheme:"
+msgstr ""
+
+#: ../src/Dialogs/PreferencesDialog.vala:191
+msgid "Custom font:"
+msgstr "मनपसंद फ़ॉन्ट:"
 
 #: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
 msgstr ""
 
-#: ../src/Widgets/SourceView.vala:120
-msgid "Syntax Highlighting"
-msgstr ""
-
-#: ../src/Widgets/SourceView.vala:131
-msgid "Normal Text"
-msgstr "सामान्य लेख"
-
 #: ../src/Widgets/LoadingView.vala:33
 msgid "Wait while restoring last session..."
 msgstr "पिछले सत्र के वापस आने तक प्रतीक्षा करे"
+
+#: ../src/Widgets/SplitView.vala:45
+msgid "No Files Open"
+msgstr ""
+
+#: ../src/Widgets/SplitView.vala:46
+msgid "Open a file to begin editing."
+msgstr "संपादित करने के लिए फाइल को खोलें."
+
+#: ../src/Widgets/SplitView.vala:50
+msgid "New file"
+msgstr "नया फाइल"
+
+#: ../src/Widgets/SplitView.vala:50
+msgid "Create a new empty file."
+msgstr "नई ख़ाली फाइल बनाएँ"
+
+#: ../src/Widgets/SplitView.vala:51
+msgid "Open file"
+msgstr "फ़ाइल खोलें"
+
+#: ../src/Widgets/SplitView.vala:51
+msgid "Open a saved file."
+msgstr "सहेजी गई फाइल को खोलें."
+
+#: ../src/Widgets/SplitView.vala:52
+msgid "New file from clipboard"
+msgstr ""
+
+#: ../src/Widgets/SplitView.vala:52
+msgid "Create a new file from the contents of your clipboard."
+msgstr ""
 
 #: ../src/Widgets/SearchManager.vala:70
 msgid "Find"
@@ -197,151 +215,13 @@ msgstr ""
 msgid "Share"
 msgstr "साझा करें"
 
-#: ../src/Widgets/SplitView.vala:45
-msgid "No Files Open"
+#: ../src/Widgets/SourceView.vala:120
+msgid "Syntax Highlighting"
 msgstr ""
 
-#: ../src/Widgets/SplitView.vala:46
-msgid "Open a file to begin editing."
-msgstr "संपादित करने के लिए फाइल को खोलें."
-
-#: ../src/Widgets/SplitView.vala:50
-msgid "New file"
-msgstr "नया फाइल"
-
-#: ../src/Widgets/SplitView.vala:50
-msgid "Create a new empty file."
-msgstr "नई ख़ाली फाइल बनाएँ"
-
-#: ../src/Widgets/SplitView.vala:51
-msgid "Open file"
-msgstr "फ़ाइल खोलें"
-
-#: ../src/Widgets/SplitView.vala:51
-msgid "Open a saved file."
-msgstr "सहेजी गई फाइल को खोलें."
-
-#: ../src/Widgets/SplitView.vala:52
-msgid "New file from clipboard"
-msgstr ""
-
-#: ../src/Widgets/SplitView.vala:52
-msgid "Create a new file from the contents of your clipboard."
-msgstr ""
-
-#: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:909
-msgid "Preferences"
-msgstr "पसंद"
-
-#: ../src/Dialogs/PreferencesDialog.vala:63
-msgid "Behavior"
-msgstr "व्‍यवहार"
-
-#: ../src/Dialogs/PreferencesDialog.vala:66
-msgid "Interface"
-msgstr "अंतरफलक"
-
-#: ../src/Dialogs/PreferencesDialog.vala:79
-msgid "Extensions"
-msgstr "एक्सटेंशन्स"
-
-#: ../src/Dialogs/PreferencesDialog.vala:83 ../src/MainWindow.vala:845
-#: ../src/MainWindow.vala:846
-msgid "Close"
-msgstr "बंद करें"
-
-#: ../src/Dialogs/PreferencesDialog.vala:128
-msgid "Show welcome screen"
-msgstr "स्वागत स्क्रीन दिखाएँ"
-
-#: ../src/Dialogs/PreferencesDialog.vala:129
-msgid "Show last open tabs"
-msgstr "पहले खोले हुए टैबों को दिखाएँ"
-
-#: ../src/Dialogs/PreferencesDialog.vala:145
-msgid "General:"
-msgstr "सामान्य"
-
-#: ../src/Dialogs/PreferencesDialog.vala:151
-msgid "When Scratch starts:"
-msgstr "जब स्क्रेच शुरु होता है:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:154
-msgid "Save files when changed:"
-msgstr "बदलाव करने पर फाइलों को सहेजे"
-
-#: ../src/Dialogs/PreferencesDialog.vala:158
-msgid "Tabs:"
-msgstr "टैब"
-
-#: ../src/Dialogs/PreferencesDialog.vala:163
-msgid "Automatic indentation:"
-msgstr "स्व हाशिया"
-
-#: ../src/Dialogs/PreferencesDialog.vala:166
-msgid "Insert spaces instead of tabs:"
-msgstr "टैब की जगह रिक्ति डालें:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:170
-msgid "Tab width:"
-msgstr "टैब चौड़ाईः"
-
-#: ../src/Dialogs/PreferencesDialog.vala:195
-msgid "Editor:"
-msgstr "संपादकः"
-
-#: ../src/Dialogs/PreferencesDialog.vala:213
-msgid "Highlight current line:"
-msgstr ""
-
-#: ../src/Dialogs/PreferencesDialog.vala:214
-msgid "Highlight matching brackets:"
-msgstr ""
-
-#: ../src/Dialogs/PreferencesDialog.vala:215
-msgid "Line wrap:"
-msgstr ""
-
-#: ../src/Dialogs/PreferencesDialog.vala:216
-msgid "Draw spaces:"
-msgstr ""
-
-#: ../src/Dialogs/PreferencesDialog.vala:217
-msgid "Show line numbers:"
-msgstr "पंक्ति नंबर दिखाएँ:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:219
-msgid "Line width guide:"
-msgstr ""
-
-#: ../src/Dialogs/PreferencesDialog.vala:233
-msgid "Font and Color Scheme:"
-msgstr ""
-
-#: ../src/Dialogs/PreferencesDialog.vala:247
-msgid "Select font:"
-msgstr ""
-
-#: ../src/Dialogs/PreferencesDialog.vala:250
-msgid "Color scheme:"
-msgstr ""
-
-#: ../src/Dialogs/PreferencesDialog.vala:255
-msgid "Custom font:"
-msgstr "मनपसंद फ़ॉन्ट:"
-
-#: ../src/Utils.vala:31 ../src/MainWindow.vala:885
-#: ../plugins/filemanager/FileView.vala:230
-msgid "Open"
-msgstr "खोलें"
-
-#: ../src/Utils.vala:42
-msgid "All files"
-msgstr "सभी फाइलें"
-
-#: ../src/Utils.vala:45
-msgid "Text files"
-msgstr "टेक्स्ट फाइलें"
+#: ../src/Widgets/SourceView.vala:131
+msgid "Normal Text"
+msgstr "सामान्य लेख"
 
 #: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
@@ -432,6 +312,11 @@ msgstr "इस फाइल को वापस लौटाएँ"
 msgid "Duplicate selected strings"
 msgstr "चुनी हुइ पंक्तियों को दोहराएँ"
 
+#: ../src/MainWindow.vala:885 ../src/Utils.vala:31
+#: ../plugins/filemanager/FileView.vala:230
+msgid "Open"
+msgstr "खोलें"
+
 #: ../src/MainWindow.vala:886
 msgid "Open a file"
 msgstr "फाइल खोलें"
@@ -452,13 +337,26 @@ msgstr "ज़ूम करें"
 msgid "Zoom 1:1"
 msgstr "ज़ूम 1:1"
 
+#: ../src/MainWindow.vala:897 ../src/Services/Document.vala:255
+#: ../src/Services/Document.vala:581 ../src/Utils.vala:33
+msgid "Save"
+msgstr "सहेजें"
+
 #: ../src/MainWindow.vala:898
 msgid "Save this file"
 msgstr ""
 
+#: ../src/MainWindow.vala:901 ../src/Services/Document.vala:574
+msgid "Save As…"
+msgstr "इस रूप में सहेजें..."
+
 #: ../src/MainWindow.vala:902
 msgid "Save this file with a different name"
 msgstr ""
+
+#: ../src/MainWindow.vala:905 ../src/Services/TemplateManager.vala:194
+msgid "Templates"
+msgstr "नमूने"
 
 #: ../src/MainWindow.vala:906
 msgid "Project templates"
@@ -480,6 +378,312 @@ msgstr "पिछला टैब"
 msgid "Fullscreen"
 msgstr "पूरा स्क्रीन"
 
+#: ../src/Services/Document.vala:245
+msgid "Save changes to document %s before closing?"
+msgstr "डाँकयुमेन्ट बंद  करनेसे पहले बदलाव सेव कीजिये"
+
+#: ../src/Services/Document.vala:248
+msgid ""
+"If you don't save, changes from the last 4 seconds will be permanently lost."
+msgstr ""
+"अगर आप फाइल को नहीं सहेजेंगे, तो पिछले ४ सेकंड में किए  बदलाव हमेशा के लिए "
+"खो जाएँगे |"
+
+#: ../src/Services/Document.vala:250
+msgid "Close without saving"
+msgstr "बिना सहेजे बंद करें"
+
+#: ../src/Services/Document.vala:254 ../src/Utils.vala:29
+msgid "Cancel"
+msgstr "रद्द करें"
+
+#: ../src/Services/Document.vala:327
+msgid "Save File"
+msgstr "फ़ाइल सहेजें"
+
+#: ../src/Services/Document.vala:556
+msgid ""
+"File \"%s\" cannot be read. Maybe it is corrupt\n"
+"or you do not have the necessary permissions to read it."
+msgstr ""
+"फ़ाइल \"%s\" पढ़ा नहीं जा सकता। शायद यह ख़राब है।\n"
+"या आपके पास इसे पढ़ने के लिए आवश्यक अनुमति नहीं है।"
+
+#: ../src/Services/Document.vala:572
+msgid ""
+"The location containing the file \"%s\" was unmounted. Do you want to save "
+"somewhere else?"
+msgstr ""
+"फ़ाइल \"%s\" उक्त स्थान हटा दिया गया था। आप कहीं और सहेजना चाहते हैं?"
+
+#: ../src/Services/Document.vala:579
+msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+msgstr "फ़ाइल \"%s\" हटा दी गई थी।आप फिर भी सहेजना चाहते हैं?"
+
+#: ../src/Services/Document.vala:592
+msgid ""
+"You cannot save changes on file \"%s\". Do you want to save the changes to "
+"this file in a different location?"
+msgstr ""
+"आप फाइल \"%स \" में किए बदलाव सुरक्षित नहीं कर सकते । क्या आप फाइल में किए "
+"गए बदलाव को अन्य स्थान पर सुरक्षित करना चाहते है ?"
+
+#: ../src/Services/Document.vala:594
+msgid "Save changes elsewhere"
+msgstr ""
+
+#: ../src/Services/Document.vala:625
+msgid ""
+"File \"%s\" was modified by an external application. Do you want to load it "
+"again or continue your editing?"
+msgstr ""
+
+#: ../src/Services/Document.vala:626
+msgid "Load"
+msgstr "लोड करें"
+
+#: ../src/Services/Document.vala:629
+msgid "Continue"
+msgstr "जारी रखें"
+
+#: ../src/Scratch.vala:68
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  Anurag kushwaha https://launchpad.net/~kanurag078\n"
+"  Mario Guerriero https://launchpad.net/~mefrio-g\n"
+"  Satchit Bhogle https://launchpad.net/~satchitb\n"
+"  Vishal Biswas https://launchpad.net/~vshlbiswas\n"
+"  saumitra https://launchpad.net/~saumitra1181996"
+
+#: ../src/Scratch.vala:166
+msgid "Maybe you do not have the necessary permissions."
+msgstr ""
+
+#: ../src/Scratch.vala:168
+msgid "Maybe the file path provided is not valid."
+msgstr ""
+
+#: ../src/Scratch.vala:170
+msgid "The location is read-only."
+msgstr ""
+
+#: ../src/Scratch.vala:172
+msgid "The parent directory doesn't exist."
+msgstr ""
+
+#: ../src/Scratch.vala:179
+msgid ""
+"File \"%s\" cannot be created.\n"
+"%s"
+msgstr ""
+
+#: ../src/Scratch.vala:189
+msgid ""
+"File \"%s\" cannot be opened.\n"
+"%s"
+msgstr ""
+
+#: ../src/Scratch.vala:198
+msgid "It is a mountable location."
+msgstr ""
+
+#: ../src/Scratch.vala:201
+msgid "It is a directory."
+msgstr ""
+
+#: ../src/Scratch.vala:204
+msgid ""
+"It is a \"special\" file such as a socket,\n"
+" fifo, block device, or character device."
+msgstr ""
+
+#: ../src/Scratch.vala:207
+msgid "It is an \"unknown\" file type."
+msgstr ""
+
+#: ../src/Scratch.vala:311
+msgid "New Tab"
+msgstr "नया टैब"
+
+#: ../src/Scratch.vala:313
+msgid "Print version info and exit"
+msgstr "प्रिन्ट संस्करण जानकारी और बाहर"
+
+#: ../src/Scratch.vala:314
+msgid "Set of plugins"
+msgstr "प्लगइन्स का समूह"
+
+#: ../src/Scratch.vala:315
+msgid "Current working directory"
+msgstr "वर्त्तमान फोल्डर"
+
+#: ../src/Utils.vala:42
+msgid "All files"
+msgstr "सभी फाइलें"
+
+#: ../src/Utils.vala:45
+msgid "Text files"
+msgstr "टेक्स्ट फाइलें"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/outline/OutlinePlugin.vala:21
+msgid "Outline"
+msgstr "बाहरी रूपरेखा"
+
+#: ../plugins/outline/OutlinePlugin.vala:22
+msgid "Outline symbols in your current file in vala"
+msgstr ""
+
+#: ../plugins/outline/OutlinePlugin.vala:116
+#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
+#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:99
+#: ../plugins/outline/CtagsSymbolResolver.vala:35
+#: ../plugins/outline/CtagsSymbolResolver.vala:68
+msgid "Symbols"
+msgstr "संकेत"
+
+#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
+#: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
+#: ../plugins/terminal/terminal.vala:174
+msgid "Terminal"
+msgstr ""
+
+#: ../plugins/terminal/terminal.vala:24
+msgid "A terminal in your text editor"
+msgstr ""
+
+#: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
+msgid "Show Terminal"
+msgstr ""
+
+#: ../plugins/terminal/terminal.vala:170
+msgid "Hide Terminal"
+msgstr ""
+
+#: ../plugins/terminal/terminal.vala:306
+msgid "Copy"
+msgstr ""
+
+#: ../plugins/terminal/terminal.vala:313
+#: ../plugins/clipboard-history/ClipboardHistory.vala:159
+msgid "Paste"
+msgstr ""
+
+#: ../plugins/terminal/terminal.vala:323
+msgid "Terminal on Right"
+msgstr ""
+
+#: ../plugins/terminal/terminal.vala:331
+msgid "Terminal on Bottom"
+msgstr ""
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/brackets-completion/brackets-completion.vala:21
+msgid "Brackets Completion"
+msgstr ""
+
+#: ../plugins/brackets-completion/brackets-completion.vala:22
+msgid "Complete brackets while typing"
+msgstr ""
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/source-tree/SourceTreePlugin.vala:20
+#: ../plugins/source-tree/SourceTreePlugin.vala:197
+msgid "Source Tree"
+msgstr ""
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:21
+msgid "Have a look at your sources organized in a nice tree"
+msgstr ""
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:42
+msgid "Loading..."
+msgstr "लोड हो रहा है..."
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:175
+msgid "Bookmark"
+msgstr "पसंद"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:234
+msgid "Files"
+msgstr "फ़ाइलें"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:235
+msgid "Project"
+msgstr "प्रोजेक्ट"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:236
+msgid "Bookmarks"
+msgstr ""
+
+#: ../plugins/spell/spell.vala:18
+msgid "Spell Checker"
+msgstr "वर्तनी जाँचकर्ता"
+
+#: ../plugins/spell/spell.vala:19
+msgid "Checks the spelling of your documents"
+msgstr ""
+
+#: ../plugins/spell/spell.vala:80
+msgid ""
+"No suitable dictionaries were found.\n"
+"Please install at least one [aspell] dictionary"
+msgstr ""
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/filemanager/FileManagerPlugin.vala:21
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:21
 msgid "Folder Manager"
@@ -510,48 +714,32 @@ msgstr "फ़ाइल मैनेजर"
 msgid "/New File"
 msgstr "/नई फाइल"
 
-#: ../plugins/preserve-indent/preserve-indent.vala:24
-msgid "Preserve Indent"
+#: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
+msgid "Strip trailing whitespace"
 msgstr ""
 
-#: ../plugins/preserve-indent/preserve-indent.vala:25
-msgid "Maintains indent level of pasted text when auto-indent is active"
-msgstr ""
-
-#: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
-msgid "Highlight Selected Words"
-msgstr ""
-
-#: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
-msgid "Highlights all occurrences of words that are selected"
-msgstr ""
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:21
-#: ../plugins/clipboard-history/ClipboardHistory.vala:89
-msgid "Clipboard History"
-msgstr ""
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:22
-msgid "Clipboard to view history"
-msgstr ""
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:28
-msgid "..."
-msgstr "..."
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:156
-msgid "Delete"
-msgstr "हटाएं"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:159
-#: ../plugins/terminal/terminal.vala:313
-msgid "Paste"
+#: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
+msgid "Strip trailing whitespace on save"
 msgstr ""
 
 #: ../plugins/browser-preview/BrowserView.vala:49
 msgid "Close Inspector"
 msgstr ""
 
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/browser-preview/browser-preview.vala:21
 msgid "Browser Preview"
 msgstr ""
@@ -574,9 +762,36 @@ msgstr ""
 msgid "Hide Preview"
 msgstr "पूर्वावलोकन छुपाएँ"
 
-#: ../plugins/contractor/contractor.vala:21
-msgid "Share your files with Contractor"
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/clipboard-history/ClipboardHistory.vala:21
+#: ../plugins/clipboard-history/ClipboardHistory.vala:89
+msgid "Clipboard History"
 msgstr ""
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:22
+msgid "Clipboard to view history"
+msgstr ""
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:28
+msgid "..."
+msgstr "..."
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:156
+msgid "Delete"
+msgstr "हटाएं"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:70
 msgid "Folders"
@@ -599,65 +814,66 @@ msgstr "खोलें (_O)"
 msgid "Close Folder"
 msgstr ""
 
-#: ../plugins/outline/OutlinePlugin.vala:21
-msgid "Outline"
-msgstr "बाहरी रूपरेखा"
-
-#: ../plugins/outline/OutlinePlugin.vala:22
-msgid "Outline symbols in your current file in vala"
-msgstr ""
-
-#: ../plugins/outline/OutlinePlugin.vala:111
-#: ../plugins/outline/CtagsSymbolResolver.vala:35
-#: ../plugins/outline/CtagsSymbolResolver.vala:68
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:94
-msgid "Symbols"
-msgstr "संकेत"
-
-#: ../plugins/brackets-completion/brackets-completion.vala:21
-msgid "Brackets Completion"
-msgstr ""
-
-#: ../plugins/brackets-completion/brackets-completion.vala:22
-msgid "Complete brackets while typing"
-msgstr ""
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:20
-#: ../plugins/source-tree/SourceTreePlugin.vala:197
-msgid "Source Tree"
-msgstr ""
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:21
-msgid "Have a look at your sources organized in a nice tree"
-msgstr ""
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:42
-msgid "Loading..."
-msgstr "लोड हो रहा है..."
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:175
-msgid "Bookmark"
-msgstr "पसंद"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:234
-msgid "Files"
-msgstr "फ़ाइलें"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:235
-msgid "Project"
-msgstr "प्रोजेक्ट"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:236
-msgid "Bookmarks"
-msgstr ""
-
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
 msgstr ""
 
 #: ../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
+msgstr ""
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/contractor/contractor.vala:21
+msgid "Share your files with Contractor"
+msgstr ""
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
+msgid "Highlight Selected Words"
+msgstr ""
+
+#: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
+msgid "Highlights all occurrences of words that are selected"
 msgstr ""
 
 #: ../plugins/pastebin/pastebin.vala:23
@@ -724,70 +940,16 @@ msgstr ""
 msgid "One month"
 msgstr ""
 
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
-msgid "Strip trailing whitespace"
+#: ../plugins/preserve-indent/preserve-indent.vala:24
+msgid "Preserve Indent"
 msgstr ""
 
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
-msgid "Strip trailing whitespace on save"
+#: ../plugins/preserve-indent/preserve-indent.vala:25
+msgid "Maintains indent level of pasted text when auto-indent is active"
 msgstr ""
 
-#: ../plugins/spell/spell.vala:18
-msgid "Spell Checker"
-msgstr "वर्तनी जाँचकर्ता"
-
-#: ../plugins/spell/spell.vala:19
-msgid "Checks the spelling of your documents"
-msgstr ""
-
-#: ../plugins/open-with/open-with.vala:21
-msgid "Open With"
-msgstr "के साथ खोलें"
-
-#: ../plugins/open-with/open-with.vala:22
-msgid "Open files you are editing with another application"
-msgstr ""
-
-#: ../plugins/open-with/open-with.vala:54
-msgid "Open With…"
-msgstr "के साथ खोलें"
-
-#: ../plugins/detect-indent/detect-indent.vala:1
-msgid "Detect Indent"
-msgstr ""
-
-#: ../plugins/detect-indent/detect-indent.vala:2
-msgid "Heuristically detect tab or space settings"
-msgstr ""
-
-#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
-#: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
-#: ../plugins/terminal/terminal.vala:174
-msgid "Terminal"
-msgstr ""
-
-#: ../plugins/terminal/terminal.vala:24
-msgid "A terminal in your text editor"
-msgstr ""
-
-#: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
-msgid "Show Terminal"
-msgstr ""
-
-#: ../plugins/terminal/terminal.vala:170
-msgid "Hide Terminal"
-msgstr ""
-
-#: ../plugins/terminal/terminal.vala:306
-msgid "Copy"
-msgstr ""
-
-#: ../plugins/terminal/terminal.vala:323
-msgid "Terminal on Right"
-msgstr ""
-
-#: ../plugins/terminal/terminal.vala:331
-msgid "Terminal on Bottom"
+#: ../plugins/word-completion/completion-provider.vala:80
+msgid "Could not load icon theme: %s\n"
 msgstr ""
 
 #: ../plugins/word-completion/plugin.vala:34
@@ -802,9 +964,39 @@ msgstr ""
 msgid "%s - Word Completion"
 msgstr ""
 
-#: ../plugins/word-completion/completion-provider.vala:80
-msgid "Could not load icon theme: %s\n"
+#: ../plugins/detect-indent/detect-indent.vala:1
+msgid "Detect Indent"
 msgstr ""
+
+#: ../plugins/detect-indent/detect-indent.vala:2
+msgid "Heuristically detect tab or space settings"
+msgstr ""
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/open-with/open-with.vala:21
+msgid "Open With"
+msgstr "के साथ खोलें"
+
+#: ../plugins/open-with/open-with.vala:22
+msgid "Open files you are editing with another application"
+msgstr ""
+
+#: ../plugins/open-with/open-with.vala:54
+msgid "Open With…"
+msgstr "के साथ खोलें"
 
 #~ msgid "Go to line..."
 #~ msgstr "पंक्ति नंबर... पर जाएँ"
@@ -841,6 +1033,15 @@ msgstr ""
 
 #~ msgid "Sidebar"
 #~ msgstr "बाजू की पट्टी"
+
+#~ msgid "Editor:"
+#~ msgstr "संपादकः"
+
+#~ msgid "General:"
+#~ msgstr "सामान्य"
+
+#~ msgid "Tabs:"
+#~ msgstr "टैब"
 
 #~ msgid "Do you want to save changes before closing this file?"
 #~ msgstr "फाइल बंद करने के पहले, क्या आप बदलाव को सहेजना चाहेंगे?"

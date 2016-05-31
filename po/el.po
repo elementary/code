@@ -7,54 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-12-18 13:57-0600\n"
+"POT-Creation-Date: 2016-05-30 11:22-0700\n"
 "PO-Revision-Date: 2015-12-21 13:38+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-12-22 04:51+0000\n"
-"X-Generator: Launchpad (build 17865)\n"
-
-#: ../src/Scratch.vala:68
-msgid "translator-credits"
-msgstr ""
-"Launchpad Contributions:\n"
-"  Antonios Zapantis https://launchpad.net/~antonzapant\n"
-"  Filippos Kolyvas https://launchpad.net/~fkol-k4\n"
-"  George Stefanakis https://launchpad.net/~george-stefanakis\n"
-"  Jim Spentzos https://launchpad.net/~jamesspentzos\n"
-"  Mario Guerriero https://launchpad.net/~mefrio-g\n"
-"  Nick Risvas https://launchpad.net/~lambolighting\n"
-"  Nikos Raptopoulos https://launchpad.net/~nraptopoulos\n"
-"  Stefanos Papanatsios https://launchpad.net/~stefan0spapanatsi0s\n"
-"  Thanasis Naskos https://launchpad.net/~naskoos\n"
-"  Thanos Gram https://launchpad.net/~darkthanos-gr\n"
-"  Theodore Grammenos https://launchpad.net/~theodorewii121\n"
-"  koleoptero https://launchpad.net/~vaggus-deactivatedaccount\n"
-"  onIaom https://launchpad.net/~onlaom\n"
-"  tsallinia https://launchpad.net/~tsalinia86"
-
-#: ../src/Scratch.vala:246
-msgid "New Tab"
-msgstr "Νέα Καρτέλα"
-
-#: ../src/Scratch.vala:247 ../src/config.vala:18
-msgid "New Window"
-msgstr "Νέο Παράθυρο"
-
-#: ../src/Scratch.vala:248
-msgid "Print version info and exit"
-msgstr "Εκτύπωση πληροφοριών έκδοσης και έξοδος"
-
-#: ../src/Scratch.vala:249
-msgid "Set of plugins"
-msgstr "Σετ προσθέτων"
-
-#: ../src/Scratch.vala:250
-msgid "Current working directory"
-msgstr "Τρέχον φάκελος εργασίας"
+"X-Launchpad-Export-Date: 2016-05-31 06:24+0000\n"
+"X-Generator: Launchpad (build 18053)\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -64,108 +25,158 @@ msgstr "Επεξεργασία αρχείων κειμένου"
 msgid "Text Editor"
 msgstr "Επεξεργαστής Κειμένου"
 
-#: ../src/config.vala:17 ../src/Services/Document.vala:405
+#: ../src/config.vala:17 ../src/Services/Document.vala:440
 msgid "New Document"
 msgstr "Νέο Έγγραφο"
+
+#: ../src/config.vala:18 ../src/Scratch.vala:312
+msgid "New Window"
+msgstr "Νέο Παράθυρο"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
 msgstr "Σχετικά με το Scratch"
 
-#: ../src/Services/Document.vala:231
-msgid "Save changes to document %s before closing?"
-msgstr "Αποθήκευση των αλλαγών στο έγγραφο %s πριν την έξοδο;"
+#: ../src/Dialogs/PreferencesDialog.vala:56 ../src/MainWindow.vala:909
+msgid "Preferences"
+msgstr "Προτιμήσεις"
 
-#: ../src/Services/Document.vala:234
-msgid ""
-"If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr ""
-"Αν δεν αποθηκεύσετε, οι αλλαγές των τελευταίων 4 δευτερολέπτων θα χαθούν "
-"μόνιμα."
+#: ../src/Dialogs/PreferencesDialog.vala:68
+msgid "Behavior"
+msgstr "Συμπεριφορά"
 
-#: ../src/Services/Document.vala:236
-msgid "Close without saving"
-msgstr "Κλείσιμο χωρίς αποθήκευση"
+#: ../src/Dialogs/PreferencesDialog.vala:69
+msgid "Interface"
+msgstr "Περιβάλλον Χρήστη"
 
-#: ../src/Services/Document.vala:240 ../src/Utils.vala:29
-msgid "Cancel"
-msgstr ""
+#: ../src/Dialogs/PreferencesDialog.vala:80
+msgid "Extensions"
+msgstr "Επεκτάσεις"
 
-#: ../src/Services/Document.vala:241 ../src/Services/Document.vala:546
-#: ../src/Utils.vala:33 ../src/MainWindow.vala:897
-msgid "Save"
-msgstr "Αποθήκευση"
+#: ../src/Dialogs/PreferencesDialog.vala:84 ../src/MainWindow.vala:845
+#: ../src/MainWindow.vala:846
+msgid "Close"
+msgstr "Κλείσιμο"
 
-#: ../src/Services/Document.vala:313
-msgid "Save File"
-msgstr "Αποθήκευση Αρχείου"
-
-#: ../src/Services/Document.vala:521
-msgid ""
-"File \"%s\" cannot be read. Maybe it is corrupt\n"
-"or you do not have the necessary permissions to read it."
+#: ../src/Dialogs/PreferencesDialog.vala:109
+msgid "General"
 msgstr ""
 
-#: ../src/Services/Document.vala:537
-msgid ""
-"The location containing the file \"%s\" was unmounted. Do you want to save "
-"somewhere else?"
+#: ../src/Dialogs/PreferencesDialog.vala:111
+msgid "When Scratch starts:"
+msgstr "Όταν ξεκινάει το Scratch:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:113
+msgid "Show welcome screen"
+msgstr "Εμφάνιση οθόνης υποδοχής"
+
+#: ../src/Dialogs/PreferencesDialog.vala:114
+msgid "Show last open tabs"
+msgstr "Εμφάνιση των τελευταίων ανοιχτών καρτελών"
+
+#: ../src/Dialogs/PreferencesDialog.vala:117
+msgid "Save files when changed:"
+msgstr "Αποθήκευση αρχείων όταν μεταβάλλονται:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:120
+msgid "Tabs"
 msgstr ""
 
-#: ../src/Services/Document.vala:539 ../src/MainWindow.vala:901
-msgid "Save As…"
-msgstr "Αποθήκευση Ως…"
+#: ../src/Dialogs/PreferencesDialog.vala:122
+msgid "Automatic indentation:"
+msgstr "Αυτόματη εσοχή:"
 
-#: ../src/Services/Document.vala:544
-msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
-"Το αρχείο \"%s\" έχει διαγραφεί. Θέλετε να το αποθηκεύσετε ούτως ή άλλως;"
+#: ../src/Dialogs/PreferencesDialog.vala:125
+msgid "Insert spaces instead of tabs:"
+msgstr "Εισαγωγή κενών αντί για καρτέλες:"
 
-#: ../src/Services/Document.vala:557
-msgid ""
-"You cannot save changes on file \"%s\". Do you want to save the changes to "
-"this file in a different location?"
-msgstr ""
-"Δεν μπορείτε να αποθηκεύσετε τις αλλαγές στο αρχείο \"%s\". Θέλετε να "
-"αποθηκεύσετε τις αλλαγές σε αυτό το αρχείο σε μια διαφορετική τοποθεσία;"
+#: ../src/Dialogs/PreferencesDialog.vala:128
+msgid "Tab width:"
+msgstr "Πλάτος καρτέλας:"
 
-#: ../src/Services/Document.vala:559
-msgid "Save changes elsewhere"
-msgstr "Αποθήκευση των αλλαγών αλλού"
-
-#: ../src/Services/Document.vala:590
-msgid ""
-"File \"%s\" was modified by an external application. Do you want to load it "
-"again or continue your editing?"
+#: ../src/Dialogs/PreferencesDialog.vala:154
+msgid "Editor"
 msgstr ""
 
-#: ../src/Services/Document.vala:591
-msgid "Load"
-msgstr "Φόρτωση"
+#: ../src/Dialogs/PreferencesDialog.vala:156
+msgid "Highlight current line:"
+msgstr "Επισήμανση τρέχουσας γραμμής:"
 
-#: ../src/Services/Document.vala:594
-msgid "Continue"
-msgstr "Συνέχεια"
+#: ../src/Dialogs/PreferencesDialog.vala:159
+msgid "Highlight matching brackets:"
+msgstr "Επισήμανση ζεύγων αγκυλών:"
 
-#: ../src/Services/TemplateManager.vala:194 ../src/MainWindow.vala:905
-msgid "Templates"
-msgstr "Πρότυπα"
+#: ../src/Dialogs/PreferencesDialog.vala:162
+msgid "Line wrap:"
+msgstr "Αναδίπλωση γραμμών:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:165
+msgid "Draw Spaces:"
+msgstr ""
+
+#: ../src/Dialogs/PreferencesDialog.vala:168
+msgid "Show line numbers:"
+msgstr "Εμφάνιση αριθμών γραμμών:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:172
+msgid "Show Mini Map:"
+msgstr ""
+
+#: ../src/Dialogs/PreferencesDialog.vala:176
+msgid "Line width guide:"
+msgstr "Οδηγός πλάτους γραμμής:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:184
+msgid "Font and Color Scheme"
+msgstr ""
+
+#: ../src/Dialogs/PreferencesDialog.vala:186
+msgid "Color scheme:"
+msgstr "Σχέδιο χρωμάτων:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:191
+msgid "Custom font:"
+msgstr "Προσαρμοσμένη γραμματοσειρά:"
 
 #: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
 msgstr "Αρχείο κειμένου από "
 
-#: ../src/Widgets/SourceView.vala:120
-msgid "Syntax Highlighting"
-msgstr "Επισήμανση Σύνταξης"
-
-#: ../src/Widgets/SourceView.vala:131
-msgid "Normal Text"
-msgstr "Κανονικό Κείμενο"
-
 #: ../src/Widgets/LoadingView.vala:33
 msgid "Wait while restoring last session..."
 msgstr "Περιμένετε όσο επαναφέρεται η τελευταία συνεδρία..."
+
+#: ../src/Widgets/SplitView.vala:45
+msgid "No Files Open"
+msgstr "Κανένα Ανοιχτό Αρχείο"
+
+#: ../src/Widgets/SplitView.vala:46
+msgid "Open a file to begin editing."
+msgstr "Ανοίξτε ένα αρχείο για να αρχίσετε την επεξεργασία."
+
+#: ../src/Widgets/SplitView.vala:50
+msgid "New file"
+msgstr "Νέο αρχείο"
+
+#: ../src/Widgets/SplitView.vala:50
+msgid "Create a new empty file."
+msgstr "Δημιουργία νέου κενού αρχείου"
+
+#: ../src/Widgets/SplitView.vala:51
+msgid "Open file"
+msgstr "Άνοιγμα αρχείου"
+
+#: ../src/Widgets/SplitView.vala:51
+msgid "Open a saved file."
+msgstr "Άνοιγμα αποθηκευμένου αρχείου."
+
+#: ../src/Widgets/SplitView.vala:52
+msgid "New file from clipboard"
+msgstr "Νέο αρχείο από το πρόχειρο"
+
+#: ../src/Widgets/SplitView.vala:52
+msgid "Create a new file from the contents of your clipboard."
+msgstr "Δημιουργήστε ένα νέο αρχείο από τα περιεχόμενα του πρόχειρου σας."
 
 #: ../src/Widgets/SearchManager.vala:70
 msgid "Find"
@@ -204,151 +215,13 @@ msgstr "Μετάβαση Στη Γραμμή:"
 msgid "Share"
 msgstr "Κοινή χρήση"
 
-#: ../src/Widgets/SplitView.vala:45
-msgid "No Files Open"
-msgstr "Κανένα Ανοιχτό Αρχείο"
+#: ../src/Widgets/SourceView.vala:120
+msgid "Syntax Highlighting"
+msgstr "Επισήμανση Σύνταξης"
 
-#: ../src/Widgets/SplitView.vala:46
-msgid "Open a file to begin editing."
-msgstr "Ανοίξτε ένα αρχείο για να αρχίσετε την επεξεργασία."
-
-#: ../src/Widgets/SplitView.vala:50
-msgid "New file"
-msgstr "Νέο αρχείο"
-
-#: ../src/Widgets/SplitView.vala:50
-msgid "Create a new empty file."
-msgstr "Δημιουργία νέου κενού αρχείου"
-
-#: ../src/Widgets/SplitView.vala:51
-msgid "Open file"
-msgstr "Άνοιγμα αρχείου"
-
-#: ../src/Widgets/SplitView.vala:51
-msgid "Open a saved file."
-msgstr "Άνοιγμα αποθηκευμένου αρχείου."
-
-#: ../src/Widgets/SplitView.vala:52
-msgid "New file from clipboard"
-msgstr "Νέο αρχείο από το πρόχειρο"
-
-#: ../src/Widgets/SplitView.vala:52
-msgid "Create a new file from the contents of your clipboard."
-msgstr "Δημιουργήστε ένα νέο αρχείο από τα περιεχόμενα του πρόχειρου σας."
-
-#: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:909
-msgid "Preferences"
-msgstr "Προτιμήσεις"
-
-#: ../src/Dialogs/PreferencesDialog.vala:63
-msgid "Behavior"
-msgstr "Συμπεριφορά"
-
-#: ../src/Dialogs/PreferencesDialog.vala:66
-msgid "Interface"
-msgstr "Περιβάλλον Χρήστη"
-
-#: ../src/Dialogs/PreferencesDialog.vala:79
-msgid "Extensions"
-msgstr "Επεκτάσεις"
-
-#: ../src/Dialogs/PreferencesDialog.vala:83 ../src/MainWindow.vala:845
-#: ../src/MainWindow.vala:846
-msgid "Close"
-msgstr "Κλείσιμο"
-
-#: ../src/Dialogs/PreferencesDialog.vala:128
-msgid "Show welcome screen"
-msgstr "Εμφάνιση οθόνης υποδοχής"
-
-#: ../src/Dialogs/PreferencesDialog.vala:129
-msgid "Show last open tabs"
-msgstr "Εμφάνιση των τελευταίων ανοιχτών καρτελών"
-
-#: ../src/Dialogs/PreferencesDialog.vala:145
-msgid "General:"
-msgstr "Γενικά:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:151
-msgid "When Scratch starts:"
-msgstr "Όταν ξεκινάει το Scratch:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:154
-msgid "Save files when changed:"
-msgstr "Αποθήκευση αρχείων όταν μεταβάλλονται:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:158
-msgid "Tabs:"
-msgstr "Καρτέλες:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:163
-msgid "Automatic indentation:"
-msgstr "Αυτόματη εσοχή:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:166
-msgid "Insert spaces instead of tabs:"
-msgstr "Εισαγωγή κενών αντί για καρτέλες:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:170
-msgid "Tab width:"
-msgstr "Πλάτος καρτέλας:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:195
-msgid "Editor:"
-msgstr "Επεξεργαστής:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:213
-msgid "Highlight current line:"
-msgstr "Επισήμανση τρέχουσας γραμμής:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:214
-msgid "Highlight matching brackets:"
-msgstr "Επισήμανση ζεύγων αγκυλών:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:215
-msgid "Line wrap:"
-msgstr "Αναδίπλωση γραμμών:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:216
-msgid "Draw spaces:"
-msgstr "Σχεδίαση κενών:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:217
-msgid "Show line numbers:"
-msgstr "Εμφάνιση αριθμών γραμμών:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:219
-msgid "Line width guide:"
-msgstr "Οδηγός πλάτους γραμμής:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:233
-msgid "Font and Color Scheme:"
-msgstr "Σχήμα Χρωμάτων και Γραμματοσειρών"
-
-#: ../src/Dialogs/PreferencesDialog.vala:247
-msgid "Select font:"
-msgstr "Επιλέξτε γραμματοσειρά:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:250
-msgid "Color scheme:"
-msgstr "Σχέδιο χρωμάτων:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:255
-msgid "Custom font:"
-msgstr "Προσαρμοσμένη γραμματοσειρά:"
-
-#: ../src/Utils.vala:31 ../src/MainWindow.vala:885
-#: ../plugins/filemanager/FileView.vala:230
-msgid "Open"
-msgstr "Άνοιγμα"
-
-#: ../src/Utils.vala:42
-msgid "All files"
-msgstr "Όλα τα Αρχεία"
-
-#: ../src/Utils.vala:45
-msgid "Text files"
-msgstr "Αρχεία κειμένου"
+#: ../src/Widgets/SourceView.vala:131
+msgid "Normal Text"
+msgstr "Κανονικό Κείμενο"
 
 #: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
@@ -439,6 +312,11 @@ msgstr "Επαναφορά αυτού του αρχείου"
 msgid "Duplicate selected strings"
 msgstr "Διπλοτυπία επιλεγμένων νημάτων"
 
+#: ../src/MainWindow.vala:885 ../src/Utils.vala:31
+#: ../plugins/filemanager/FileView.vala:230
+msgid "Open"
+msgstr "Άνοιγμα"
+
 #: ../src/MainWindow.vala:886
 msgid "Open a file"
 msgstr "Άνοιγμα αρχείου"
@@ -459,13 +337,26 @@ msgstr "Μεγέθυνση"
 msgid "Zoom 1:1"
 msgstr ""
 
+#: ../src/MainWindow.vala:897 ../src/Services/Document.vala:255
+#: ../src/Services/Document.vala:581 ../src/Utils.vala:33
+msgid "Save"
+msgstr "Αποθήκευση"
+
 #: ../src/MainWindow.vala:898
 msgid "Save this file"
 msgstr "Αποθήκευση αυτού του αρχείου"
 
+#: ../src/MainWindow.vala:901 ../src/Services/Document.vala:574
+msgid "Save As…"
+msgstr "Αποθήκευση Ως…"
+
 #: ../src/MainWindow.vala:902
 msgid "Save this file with a different name"
 msgstr "Αποθήκευση αυτού του αρχείου με διαφορετικό όνομα"
+
+#: ../src/MainWindow.vala:905 ../src/Services/TemplateManager.vala:194
+msgid "Templates"
+msgstr "Πρότυπα"
 
 #: ../src/MainWindow.vala:906
 msgid "Project templates"
@@ -487,6 +378,321 @@ msgstr "Προηγούμενη Καρτέλα"
 msgid "Fullscreen"
 msgstr "Πλήρης οθόνη"
 
+#: ../src/Services/Document.vala:245
+msgid "Save changes to document %s before closing?"
+msgstr "Αποθήκευση των αλλαγών στο έγγραφο %s πριν την έξοδο;"
+
+#: ../src/Services/Document.vala:248
+msgid ""
+"If you don't save, changes from the last 4 seconds will be permanently lost."
+msgstr ""
+"Αν δεν αποθηκεύσετε, οι αλλαγές των τελευταίων 4 δευτερολέπτων θα χαθούν "
+"μόνιμα."
+
+#: ../src/Services/Document.vala:250
+msgid "Close without saving"
+msgstr "Κλείσιμο χωρίς αποθήκευση"
+
+#: ../src/Services/Document.vala:254 ../src/Utils.vala:29
+msgid "Cancel"
+msgstr ""
+
+#: ../src/Services/Document.vala:327
+msgid "Save File"
+msgstr "Αποθήκευση Αρχείου"
+
+#: ../src/Services/Document.vala:556
+msgid ""
+"File \"%s\" cannot be read. Maybe it is corrupt\n"
+"or you do not have the necessary permissions to read it."
+msgstr ""
+
+#: ../src/Services/Document.vala:572
+msgid ""
+"The location containing the file \"%s\" was unmounted. Do you want to save "
+"somewhere else?"
+msgstr ""
+
+#: ../src/Services/Document.vala:579
+msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+msgstr ""
+"Το αρχείο \"%s\" έχει διαγραφεί. Θέλετε να το αποθηκεύσετε ούτως ή άλλως;"
+
+#: ../src/Services/Document.vala:592
+msgid ""
+"You cannot save changes on file \"%s\". Do you want to save the changes to "
+"this file in a different location?"
+msgstr ""
+"Δεν μπορείτε να αποθηκεύσετε τις αλλαγές στο αρχείο \"%s\". Θέλετε να "
+"αποθηκεύσετε τις αλλαγές σε αυτό το αρχείο σε μια διαφορετική τοποθεσία;"
+
+#: ../src/Services/Document.vala:594
+msgid "Save changes elsewhere"
+msgstr "Αποθήκευση των αλλαγών αλλού"
+
+#: ../src/Services/Document.vala:625
+msgid ""
+"File \"%s\" was modified by an external application. Do you want to load it "
+"again or continue your editing?"
+msgstr ""
+
+#: ../src/Services/Document.vala:626
+msgid "Load"
+msgstr "Φόρτωση"
+
+#: ../src/Services/Document.vala:629
+msgid "Continue"
+msgstr "Συνέχεια"
+
+#: ../src/Scratch.vala:68
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  Antonios Zapantis https://launchpad.net/~antonzapant\n"
+"  Filippos Kolyvas https://launchpad.net/~fkol-k4\n"
+"  George Stefanakis https://launchpad.net/~george-stefanakis\n"
+"  Jim Spentzos https://launchpad.net/~jamesspentzos\n"
+"  Mario Guerriero https://launchpad.net/~mefrio-g\n"
+"  Nick Reird https://launchpad.net/~motorcycle-boy\n"
+"  Nick Risvas https://launchpad.net/~lambolighting\n"
+"  Nikos Raptopoulos https://launchpad.net/~nraptopoulos\n"
+"  PliachasPaschalis https://launchpad.net/~pliahas\n"
+"  Stefanos Papanatsios https://launchpad.net/~stefan0spapanatsi0s\n"
+"  Thanasis Naskos https://launchpad.net/~naskoos\n"
+"  Thanos Gram https://launchpad.net/~darkthanos-gr\n"
+"  Theodore Grammenos https://launchpad.net/~theodorewii121\n"
+"  koleoptero https://launchpad.net/~vaggus-deactivatedaccount\n"
+"  onIaom https://launchpad.net/~onlaom\n"
+"  tsallinia https://launchpad.net/~tsalinia86"
+
+#: ../src/Scratch.vala:166
+msgid "Maybe you do not have the necessary permissions."
+msgstr ""
+
+#: ../src/Scratch.vala:168
+msgid "Maybe the file path provided is not valid."
+msgstr ""
+
+#: ../src/Scratch.vala:170
+msgid "The location is read-only."
+msgstr ""
+
+#: ../src/Scratch.vala:172
+msgid "The parent directory doesn't exist."
+msgstr ""
+
+#: ../src/Scratch.vala:179
+msgid ""
+"File \"%s\" cannot be created.\n"
+"%s"
+msgstr ""
+
+#: ../src/Scratch.vala:189
+msgid ""
+"File \"%s\" cannot be opened.\n"
+"%s"
+msgstr ""
+
+#: ../src/Scratch.vala:198
+msgid "It is a mountable location."
+msgstr ""
+
+#: ../src/Scratch.vala:201
+msgid "It is a directory."
+msgstr ""
+
+#: ../src/Scratch.vala:204
+msgid ""
+"It is a \"special\" file such as a socket,\n"
+" fifo, block device, or character device."
+msgstr ""
+
+#: ../src/Scratch.vala:207
+msgid "It is an \"unknown\" file type."
+msgstr ""
+
+#: ../src/Scratch.vala:311
+msgid "New Tab"
+msgstr "Νέα Καρτέλα"
+
+#: ../src/Scratch.vala:313
+msgid "Print version info and exit"
+msgstr "Εκτύπωση πληροφοριών έκδοσης και έξοδος"
+
+#: ../src/Scratch.vala:314
+msgid "Set of plugins"
+msgstr "Σετ προσθέτων"
+
+#: ../src/Scratch.vala:315
+msgid "Current working directory"
+msgstr "Τρέχον φάκελος εργασίας"
+
+#: ../src/Utils.vala:42
+msgid "All files"
+msgstr "Όλα τα Αρχεία"
+
+#: ../src/Utils.vala:45
+msgid "Text files"
+msgstr "Αρχεία κειμένου"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/outline/OutlinePlugin.vala:21
+msgid "Outline"
+msgstr ""
+
+#: ../plugins/outline/OutlinePlugin.vala:22
+msgid "Outline symbols in your current file in vala"
+msgstr ""
+
+#: ../plugins/outline/OutlinePlugin.vala:116
+#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
+#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:99
+#: ../plugins/outline/CtagsSymbolResolver.vala:35
+#: ../plugins/outline/CtagsSymbolResolver.vala:68
+msgid "Symbols"
+msgstr "Σύμβολα"
+
+#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
+#: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
+#: ../plugins/terminal/terminal.vala:174
+msgid "Terminal"
+msgstr "Τερματικό"
+
+#: ../plugins/terminal/terminal.vala:24
+msgid "A terminal in your text editor"
+msgstr "Ένα τερματικό στον επεξεργαστή κειμένου"
+
+#: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
+msgid "Show Terminal"
+msgstr "Προβολή τερματικού"
+
+#: ../plugins/terminal/terminal.vala:170
+msgid "Hide Terminal"
+msgstr "Απόκρυψη τερματικού"
+
+#: ../plugins/terminal/terminal.vala:306
+msgid "Copy"
+msgstr "Αντιγραφή"
+
+#: ../plugins/terminal/terminal.vala:313
+#: ../plugins/clipboard-history/ClipboardHistory.vala:159
+msgid "Paste"
+msgstr "Επικόλληση"
+
+#: ../plugins/terminal/terminal.vala:323
+msgid "Terminal on Right"
+msgstr "Τερματικό στα δεξιά"
+
+#: ../plugins/terminal/terminal.vala:331
+msgid "Terminal on Bottom"
+msgstr "Τερματικό στο κάτω μέρος"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/brackets-completion/brackets-completion.vala:21
+msgid "Brackets Completion"
+msgstr "Συμπλήρωση Αγκυλών"
+
+#: ../plugins/brackets-completion/brackets-completion.vala:22
+msgid "Complete brackets while typing"
+msgstr "Συμπλήρωση αγκυλών ενώ πληκτρολογείτε"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/source-tree/SourceTreePlugin.vala:20
+#: ../plugins/source-tree/SourceTreePlugin.vala:197
+msgid "Source Tree"
+msgstr "Δέντρο Πηγών"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:21
+msgid "Have a look at your sources organized in a nice tree"
+msgstr "Δείτε τις πηγές σας ωραία οργανωμένες σε ένα δέντρο"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:42
+msgid "Loading..."
+msgstr "Φόρτωση..."
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:175
+msgid "Bookmark"
+msgstr "Σελιδοδείκτης"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:234
+msgid "Files"
+msgstr "Αρχεία"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:235
+msgid "Project"
+msgstr "Έργο"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:236
+msgid "Bookmarks"
+msgstr "Σελιδοδείκτες"
+
+#: ../plugins/spell/spell.vala:18
+msgid "Spell Checker"
+msgstr "Ορθογραφικός Έλεγχος"
+
+#: ../plugins/spell/spell.vala:19
+msgid "Checks the spelling of your documents"
+msgstr "Ελέγχει την ορθογραφία των εγγράφων σας"
+
+#: ../plugins/spell/spell.vala:80
+msgid ""
+"No suitable dictionaries were found.\n"
+"Please install at least one [aspell] dictionary"
+msgstr ""
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/filemanager/FileManagerPlugin.vala:21
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:21
 msgid "Folder Manager"
@@ -517,48 +723,32 @@ msgstr "Διαχειριστής Αρχείων"
 msgid "/New File"
 msgstr "/Νέο Αρχείο"
 
-#: ../plugins/preserve-indent/preserve-indent.vala:24
-msgid "Preserve Indent"
-msgstr ""
+#: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
+msgid "Strip trailing whitespace"
+msgstr "Αφαίρεση κενών από το τέλος των γραμμών"
 
-#: ../plugins/preserve-indent/preserve-indent.vala:25
-msgid "Maintains indent level of pasted text when auto-indent is active"
-msgstr ""
-
-#: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
-msgid "Highlight Selected Words"
-msgstr "Επισήμανση των επιλεγμένων λέξεων"
-
-#: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
-msgid "Highlights all occurrences of words that are selected"
-msgstr "Επισήμανση όλων των εμφανίσεων των λέξεων που έχουν επιλεγεί"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:21
-#: ../plugins/clipboard-history/ClipboardHistory.vala:89
-msgid "Clipboard History"
-msgstr "Ιστορικό Προχείρου"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:22
-msgid "Clipboard to view history"
-msgstr ""
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:28
-msgid "..."
-msgstr "..."
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:156
-msgid "Delete"
-msgstr "Διαγραφή"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:159
-#: ../plugins/terminal/terminal.vala:313
-msgid "Paste"
-msgstr "Επικόλληση"
+#: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
+msgid "Strip trailing whitespace on save"
+msgstr "Αφαίρεση κενών από το τέλος των γραμμών κατά την αποθήκευση"
 
 #: ../plugins/browser-preview/BrowserView.vala:49
 msgid "Close Inspector"
 msgstr ""
 
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/browser-preview/browser-preview.vala:21
 msgid "Browser Preview"
 msgstr "Προεπισκόπηση Περιηγητή"
@@ -581,9 +771,36 @@ msgstr ""
 msgid "Hide Preview"
 msgstr "Απόκρυψη προεπισκόπησης"
 
-#: ../plugins/contractor/contractor.vala:21
-msgid "Share your files with Contractor"
-msgstr "Κοινή χρήση αρχείων σας με το Contractor"
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/clipboard-history/ClipboardHistory.vala:21
+#: ../plugins/clipboard-history/ClipboardHistory.vala:89
+msgid "Clipboard History"
+msgstr "Ιστορικό Προχείρου"
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:22
+msgid "Clipboard to view history"
+msgstr ""
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:28
+msgid "..."
+msgstr "..."
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:156
+msgid "Delete"
+msgstr "Διαγραφή"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:70
 msgid "Folders"
@@ -606,59 +823,20 @@ msgstr "_Άνοιγμα"
 msgid "Close Folder"
 msgstr "Κλείσιμο Φακέλου"
 
-#: ../plugins/outline/OutlinePlugin.vala:21
-msgid "Outline"
-msgstr ""
-
-#: ../plugins/outline/OutlinePlugin.vala:22
-msgid "Outline symbols in your current file in vala"
-msgstr ""
-
-#: ../plugins/outline/OutlinePlugin.vala:111
-#: ../plugins/outline/CtagsSymbolResolver.vala:35
-#: ../plugins/outline/CtagsSymbolResolver.vala:68
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:94
-msgid "Symbols"
-msgstr "Σύμβολα"
-
-#: ../plugins/brackets-completion/brackets-completion.vala:21
-msgid "Brackets Completion"
-msgstr "Συμπλήρωση Αγκυλών"
-
-#: ../plugins/brackets-completion/brackets-completion.vala:22
-msgid "Complete brackets while typing"
-msgstr "Συμπλήρωση αγκυλών ενώ πληκτρολογείτε"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:20
-#: ../plugins/source-tree/SourceTreePlugin.vala:197
-msgid "Source Tree"
-msgstr "Δέντρο Πηγών"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:21
-msgid "Have a look at your sources organized in a nice tree"
-msgstr "Δείτε τις πηγές σας ωραία οργανωμένες σε ένα δέντρο"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:42
-msgid "Loading..."
-msgstr "Φόρτωση..."
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:175
-msgid "Bookmark"
-msgstr "Σελιδοδείκτης"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:234
-msgid "Files"
-msgstr "Αρχεία"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:235
-msgid "Project"
-msgstr "Έργο"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:236
-msgid "Bookmarks"
-msgstr "Σελιδοδείκτες"
-
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
 msgstr "Προσομοίωση Vim"
@@ -666,6 +844,46 @@ msgstr "Προσομοίωση Vim"
 #: ../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
 msgstr "Χρήση εντολών του Vim στο Scratch"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/contractor/contractor.vala:21
+msgid "Share your files with Contractor"
+msgstr "Κοινή χρήση αρχείων σας με το Contractor"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
+msgid "Highlight Selected Words"
+msgstr "Επισήμανση των επιλεγμένων λέξεων"
+
+#: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
+msgid "Highlights all occurrences of words that are selected"
+msgstr "Επισήμανση όλων των εμφανίσεων των λέξεων που έχουν επιλεγεί"
 
 #: ../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
@@ -731,71 +949,17 @@ msgstr "Μία ημέρα"
 msgid "One month"
 msgstr "Ένας μήνας"
 
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
-msgid "Strip trailing whitespace"
-msgstr "Αφαίρεση κενών από το τέλος των γραμμών"
-
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
-msgid "Strip trailing whitespace on save"
-msgstr "Αφαίρεση κενών από το τέλος των γραμμών κατά την αποθήκευση"
-
-#: ../plugins/spell/spell.vala:18
-msgid "Spell Checker"
-msgstr "Ορθογραφικός Έλεγχος"
-
-#: ../plugins/spell/spell.vala:19
-msgid "Checks the spelling of your documents"
-msgstr "Ελέγχει την ορθογραφία των εγγράφων σας"
-
-#: ../plugins/open-with/open-with.vala:21
-msgid "Open With"
-msgstr "Άνοιγμα Με"
-
-#: ../plugins/open-with/open-with.vala:22
-msgid "Open files you are editing with another application"
-msgstr "Ανοίξτε αρχεία που επεξεργάζεστε με μια άλλη εφαρμογή"
-
-#: ../plugins/open-with/open-with.vala:54
-msgid "Open With…"
+#: ../plugins/preserve-indent/preserve-indent.vala:24
+msgid "Preserve Indent"
 msgstr ""
 
-#: ../plugins/detect-indent/detect-indent.vala:1
-msgid "Detect Indent"
-msgstr "Εντοπισμός εσοχής"
-
-#: ../plugins/detect-indent/detect-indent.vala:2
-msgid "Heuristically detect tab or space settings"
+#: ../plugins/preserve-indent/preserve-indent.vala:25
+msgid "Maintains indent level of pasted text when auto-indent is active"
 msgstr ""
 
-#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
-#: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
-#: ../plugins/terminal/terminal.vala:174
-msgid "Terminal"
-msgstr "Τερματικό"
-
-#: ../plugins/terminal/terminal.vala:24
-msgid "A terminal in your text editor"
-msgstr "Ένα τερματικό στον επεξεργαστή κειμένου"
-
-#: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
-msgid "Show Terminal"
-msgstr "Προβολή τερματικού"
-
-#: ../plugins/terminal/terminal.vala:170
-msgid "Hide Terminal"
-msgstr "Απόκρυψη τερματικού"
-
-#: ../plugins/terminal/terminal.vala:306
-msgid "Copy"
-msgstr "Αντιγραφή"
-
-#: ../plugins/terminal/terminal.vala:323
-msgid "Terminal on Right"
-msgstr "Τερματικό στα δεξιά"
-
-#: ../plugins/terminal/terminal.vala:331
-msgid "Terminal on Bottom"
-msgstr "Τερματικό στο κάτω μέρος"
+#: ../plugins/word-completion/completion-provider.vala:80
+msgid "Could not load icon theme: %s\n"
+msgstr "Αδυναμία φόρτωσης θέματος εικονιδίων: %s\n"
 
 #: ../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
@@ -811,9 +975,39 @@ msgstr ""
 msgid "%s - Word Completion"
 msgstr "%s - Συμπλήρωση Λέξεων"
 
-#: ../plugins/word-completion/completion-provider.vala:80
-msgid "Could not load icon theme: %s\n"
-msgstr "Αδυναμία φόρτωσης θέματος εικονιδίων: %s\n"
+#: ../plugins/detect-indent/detect-indent.vala:1
+msgid "Detect Indent"
+msgstr "Εντοπισμός εσοχής"
+
+#: ../plugins/detect-indent/detect-indent.vala:2
+msgid "Heuristically detect tab or space settings"
+msgstr ""
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/open-with/open-with.vala:21
+msgid "Open With"
+msgstr "Άνοιγμα Με"
+
+#: ../plugins/open-with/open-with.vala:22
+msgid "Open files you are editing with another application"
+msgstr "Ανοίξτε αρχεία που επεξεργάζεστε με μια άλλη εφαρμογή"
+
+#: ../plugins/open-with/open-with.vala:54
+msgid "Open With…"
+msgstr ""
 
 #~ msgid "Choose the new location"
 #~ msgstr "Επιλέξτε την νέα τοποθεσία"
@@ -826,6 +1020,15 @@ msgstr "Αδυναμία φόρτωσης θέματος εικονιδίων: %
 
 #~ msgid "Normal text"
 #~ msgstr "Κανονικό κείμενο"
+
+#~ msgid "Editor:"
+#~ msgstr "Επεξεργαστής:"
+
+#~ msgid "General:"
+#~ msgstr "Γενικά:"
+
+#~ msgid "Tabs:"
+#~ msgstr "Καρτέλες:"
 
 #~ msgid "Show margin on right:"
 #~ msgstr "Εμφάνιση δεξιού περιθωρίου:"
@@ -863,6 +1066,9 @@ msgstr "Αδυναμία φόρτωσης θέματος εικονιδίων: %
 #, c-format
 #~ msgid "The file %s was deleted."
 #~ msgstr "Το αρχείο %s διεγράφη."
+
+#~ msgid "Draw spaces:"
+#~ msgstr "Σχεδίαση κενών:"
 
 #~ msgid "There are unsaved changes!"
 #~ msgstr "Υπάρχουν μη αποθηκευμένες αλλαγές!"
@@ -918,3 +1124,9 @@ msgstr "Αδυναμία φόρτωσης θέματος εικονιδίων: %
 #~ msgid "Do you want to save the changes to this file in a different location?"
 #~ msgstr ""
 #~ "Θέλετε να αποθηκεύσετε τις αλλαγές σε αυτό το αρχείο σε μια άλλη τοποθεσία;"
+
+#~ msgid "Font and Color Scheme:"
+#~ msgstr "Σχήμα Χρωμάτων και Γραμματοσειρών"
+
+#~ msgid "Select font:"
+#~ msgstr "Επιλέξτε γραμματοσειρά:"

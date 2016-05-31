@@ -7,64 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-12-18 13:57-0600\n"
+"POT-Creation-Date: 2016-05-30 11:22-0700\n"
 "PO-Revision-Date: 2016-04-29 19:18+0000\n"
 "Last-Translator: Dmytro Dmytrenko <dmytrenko.d@gmail.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-30 05:27+0000\n"
-"X-Generator: Launchpad (build 17995)\n"
-
-#: ../src/Scratch.vala:68
-msgid "translator-credits"
-msgstr ""
-"Launchpad Contributions:\n"
-"  Adam https://launchpad.net/~l2velial\n"
-"  Andre https://launchpad.net/~chipqq1\n"
-"  Andy Karaushu https://launchpad.net/~karandriy\n"
-"  Asteo https://launchpad.net/~disterion-h\n"
-"  Bogdan Lisnenko https://launchpad.net/~lem8r\n"
-"  Djaler https://launchpad.net/~djaler1\n"
-"  Dmytro Dmytrenko https://launchpad.net/~dmytrenko-d\n"
-"  Eugene https://launchpad.net/~razerer\n"
-"  Fedik https://launchpad.net/~fedikw\n"
-"  Kurai https://launchpad.net/~kuraitengu\n"
-"  Mario Guerriero https://launchpad.net/~mefrio-g\n"
-"  Max_ym https://launchpad.net/~kontact-cat\n"
-"  MozilaIP https://launchpad.net/~mr-mozila\n"
-"  Paul https://launchpad.net/~udovykpaul\n"
-"  Pavlo https://launchpad.net/~zhavoronkov-p\n"
-"  Sergey Koptev https://launchpad.net/~djdante\n"
-"  Sergii Cynailo https://launchpad.net/~funeral20\n"
-"  Sho0ter https://launchpad.net/~sho0ter\n"
-"  Vlad https://launchpad.net/~vladykz98\n"
-"  maximillian https://launchpad.net/~maxi-ua-1996\n"
-"  neiron13 https://launchpad.net/~heneral\n"
-"  paul akimenko https://launchpad.net/~paulakimenko\n"
-"  slav https://launchpad.net/~slav464\n"
-"  svtlichnijj https://launchpad.net/~svtlichnijj"
-
-#: ../src/Scratch.vala:246
-msgid "New Tab"
-msgstr "Нова вкладка"
-
-#: ../src/Scratch.vala:247 ../src/config.vala:18
-msgid "New Window"
-msgstr "Нове вікно"
-
-#: ../src/Scratch.vala:248
-msgid "Print version info and exit"
-msgstr "Показати інформацію про версію та вийти"
-
-#: ../src/Scratch.vala:249
-msgid "Set of plugins"
-msgstr "Набір плагінів"
-
-#: ../src/Scratch.vala:250
-msgid "Current working directory"
-msgstr "Поточна робоча тека"
+"X-Launchpad-Export-Date: 2016-05-31 06:25+0000\n"
+"X-Generator: Launchpad (build 18053)\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -74,113 +25,158 @@ msgstr "Редагувати текстові файли"
 msgid "Text Editor"
 msgstr "Текстовий редактор"
 
-#: ../src/config.vala:17 ../src/Services/Document.vala:405
+#: ../src/config.vala:17 ../src/Services/Document.vala:440
 msgid "New Document"
 msgstr "Новий документ"
+
+#: ../src/config.vala:18 ../src/Scratch.vala:312
+msgid "New Window"
+msgstr "Нове вікно"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
 msgstr "Про Scratch"
 
-#: ../src/Services/Document.vala:231
-msgid "Save changes to document %s before closing?"
-msgstr "Зберегти зміни в документі %s перед закриттям?"
+#: ../src/Dialogs/PreferencesDialog.vala:56 ../src/MainWindow.vala:909
+msgid "Preferences"
+msgstr "Параметри"
 
-#: ../src/Services/Document.vala:234
-msgid ""
-"If you don't save, changes from the last 4 seconds will be permanently lost."
+#: ../src/Dialogs/PreferencesDialog.vala:68
+msgid "Behavior"
+msgstr "Метод"
+
+#: ../src/Dialogs/PreferencesDialog.vala:69
+msgid "Interface"
+msgstr "Зовнішній вигляд"
+
+#: ../src/Dialogs/PreferencesDialog.vala:80
+msgid "Extensions"
+msgstr "Додатки"
+
+#: ../src/Dialogs/PreferencesDialog.vala:84 ../src/MainWindow.vala:845
+#: ../src/MainWindow.vala:846
+msgid "Close"
+msgstr "Закрити"
+
+#: ../src/Dialogs/PreferencesDialog.vala:109
+msgid "General"
 msgstr ""
-"Якщо ви не збережете файл, зміни за останні 4 секунди будуть втрачені."
 
-#: ../src/Services/Document.vala:236
-msgid "Close without saving"
-msgstr "Закрити без збереження"
+#: ../src/Dialogs/PreferencesDialog.vala:111
+msgid "When Scratch starts:"
+msgstr "При запуску Sсratch:"
 
-#: ../src/Services/Document.vala:240 ../src/Utils.vala:29
-msgid "Cancel"
-msgstr "Скасувати"
+#: ../src/Dialogs/PreferencesDialog.vala:113
+msgid "Show welcome screen"
+msgstr "Показувати екран привітання"
 
-#: ../src/Services/Document.vala:241 ../src/Services/Document.vala:546
-#: ../src/Utils.vala:33 ../src/MainWindow.vala:897
-msgid "Save"
-msgstr "Зберегти"
+#: ../src/Dialogs/PreferencesDialog.vala:114
+msgid "Show last open tabs"
+msgstr "Показати останні відкриті вкладки"
 
-#: ../src/Services/Document.vala:313
-msgid "Save File"
-msgstr "Зберегти файл"
+#: ../src/Dialogs/PreferencesDialog.vala:117
+msgid "Save files when changed:"
+msgstr "Збереження змінених файлів:"
 
-#: ../src/Services/Document.vala:521
-msgid ""
-"File \"%s\" cannot be read. Maybe it is corrupt\n"
-"or you do not have the necessary permissions to read it."
+#: ../src/Dialogs/PreferencesDialog.vala:120
+msgid "Tabs"
 msgstr ""
-"Файл \"%s\" неможливо прочитати. Він ймовірно пошкоджений\n"
-"або Ви не маєте необхідних прав доступу."
 
-#: ../src/Services/Document.vala:537
-msgid ""
-"The location containing the file \"%s\" was unmounted. Do you want to save "
-"somewhere else?"
+#: ../src/Dialogs/PreferencesDialog.vala:122
+msgid "Automatic indentation:"
+msgstr "Автоматична розстановка:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:125
+msgid "Insert spaces instead of tabs:"
+msgstr "Вставляти пробіли замість табуляцій:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:128
+msgid "Tab width:"
+msgstr "Ширина табуляції:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:154
+msgid "Editor"
 msgstr ""
-"Попереднє місцезнаходження файлу \"%s\" відмонтоване. Бажаєте зберегти його "
-"в іншому місці?"
 
-#: ../src/Services/Document.vala:539 ../src/MainWindow.vala:901
-msgid "Save As…"
-msgstr "Зберегти як…"
+#: ../src/Dialogs/PreferencesDialog.vala:156
+msgid "Highlight current line:"
+msgstr "Виділяти поточний рядок:"
 
-#: ../src/Services/Document.vala:544
-msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+#: ../src/Dialogs/PreferencesDialog.vala:159
+msgid "Highlight matching brackets:"
+msgstr "Виділяти поточні дужки:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:162
+msgid "Line wrap:"
+msgstr "Перенос рядку"
+
+#: ../src/Dialogs/PreferencesDialog.vala:165
+msgid "Draw Spaces:"
 msgstr ""
-"Файл \"%s\" вже видалений. Бажаєте зберегти його в будь-якому випадку?"
 
-#: ../src/Services/Document.vala:557
-msgid ""
-"You cannot save changes on file \"%s\". Do you want to save the changes to "
-"this file in a different location?"
+#: ../src/Dialogs/PreferencesDialog.vala:168
+msgid "Show line numbers:"
+msgstr "Відображати номери рядків:"
+
+#: ../src/Dialogs/PreferencesDialog.vala:172
+msgid "Show Mini Map:"
 msgstr ""
-"Ви не можете зберегти зміни в файлі \"%s\". Бажаєте зберегти їх в іншому "
-"місці?"
 
-#: ../src/Services/Document.vala:559
-msgid "Save changes elsewhere"
-msgstr "Зберегти зміни в іншому місці"
+#: ../src/Dialogs/PreferencesDialog.vala:176
+msgid "Line width guide:"
+msgstr "Ширина рядка:"
 
-#: ../src/Services/Document.vala:590
-msgid ""
-"File \"%s\" was modified by an external application. Do you want to load it "
-"again or continue your editing?"
+#: ../src/Dialogs/PreferencesDialog.vala:184
+msgid "Font and Color Scheme"
 msgstr ""
-"Файл \"%s\" було змінено іншою програмою. Бажаєте завантажити оновлену "
-"версію чи продовжити редагування?"
 
-#: ../src/Services/Document.vala:591
-msgid "Load"
-msgstr "Завантажити"
+#: ../src/Dialogs/PreferencesDialog.vala:186
+msgid "Color scheme:"
+msgstr "Колір:"
 
-#: ../src/Services/Document.vala:594
-msgid "Continue"
-msgstr "Далі"
-
-#: ../src/Services/TemplateManager.vala:194 ../src/MainWindow.vala:905
-msgid "Templates"
-msgstr "Шаблони"
+#: ../src/Dialogs/PreferencesDialog.vala:191
+msgid "Custom font:"
+msgstr "Власний шпифт:"
 
 #: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
 msgstr "Текстовий файл з "
 
-#: ../src/Widgets/SourceView.vala:120
-msgid "Syntax Highlighting"
-msgstr "Підсвічування синтаксису"
-
-#: ../src/Widgets/SourceView.vala:131
-msgid "Normal Text"
-msgstr "Звичайний текст"
-
 #: ../src/Widgets/LoadingView.vala:33
 msgid "Wait while restoring last session..."
 msgstr "Очікуємо на відновлення останньої сесії"
+
+#: ../src/Widgets/SplitView.vala:45
+msgid "No Files Open"
+msgstr "Немає відкритих файлів"
+
+#: ../src/Widgets/SplitView.vala:46
+msgid "Open a file to begin editing."
+msgstr "Відкрийте файл для редагування."
+
+#: ../src/Widgets/SplitView.vala:50
+msgid "New file"
+msgstr "Новий файл"
+
+#: ../src/Widgets/SplitView.vala:50
+msgid "Create a new empty file."
+msgstr "Створити порожній файл."
+
+#: ../src/Widgets/SplitView.vala:51
+msgid "Open file"
+msgstr "Відкрити файл"
+
+#: ../src/Widgets/SplitView.vala:51
+msgid "Open a saved file."
+msgstr "Відкрити попередньо збережений файл."
+
+#: ../src/Widgets/SplitView.vala:52
+msgid "New file from clipboard"
+msgstr "Новий файл з буферу обміну"
+
+#: ../src/Widgets/SplitView.vala:52
+msgid "Create a new file from the contents of your clipboard."
+msgstr "Створити новий файл з вмісту вашого буферу обміну."
 
 #: ../src/Widgets/SearchManager.vala:70
 msgid "Find"
@@ -219,151 +215,13 @@ msgstr "Перейти до рядка:"
 msgid "Share"
 msgstr "Поділитися"
 
-#: ../src/Widgets/SplitView.vala:45
-msgid "No Files Open"
-msgstr "Немає відкритих файлів"
+#: ../src/Widgets/SourceView.vala:120
+msgid "Syntax Highlighting"
+msgstr "Підсвічування синтаксису"
 
-#: ../src/Widgets/SplitView.vala:46
-msgid "Open a file to begin editing."
-msgstr "Відкрийте файл для редагування."
-
-#: ../src/Widgets/SplitView.vala:50
-msgid "New file"
-msgstr "Новий файл"
-
-#: ../src/Widgets/SplitView.vala:50
-msgid "Create a new empty file."
-msgstr "Створити порожній файл."
-
-#: ../src/Widgets/SplitView.vala:51
-msgid "Open file"
-msgstr "Відкрити файл"
-
-#: ../src/Widgets/SplitView.vala:51
-msgid "Open a saved file."
-msgstr "Відкрити попередньо збережений файл."
-
-#: ../src/Widgets/SplitView.vala:52
-msgid "New file from clipboard"
-msgstr "Новий файл з буферу обміну"
-
-#: ../src/Widgets/SplitView.vala:52
-msgid "Create a new file from the contents of your clipboard."
-msgstr "Створити новий файл з вмісту вашого буферу обміну."
-
-#: ../src/Dialogs/PreferencesDialog.vala:50 ../src/MainWindow.vala:909
-msgid "Preferences"
-msgstr "Параметри"
-
-#: ../src/Dialogs/PreferencesDialog.vala:63
-msgid "Behavior"
-msgstr "Метод"
-
-#: ../src/Dialogs/PreferencesDialog.vala:66
-msgid "Interface"
-msgstr "Зовнішній вигляд"
-
-#: ../src/Dialogs/PreferencesDialog.vala:79
-msgid "Extensions"
-msgstr "Додатки"
-
-#: ../src/Dialogs/PreferencesDialog.vala:83 ../src/MainWindow.vala:845
-#: ../src/MainWindow.vala:846
-msgid "Close"
-msgstr "Закрити"
-
-#: ../src/Dialogs/PreferencesDialog.vala:128
-msgid "Show welcome screen"
-msgstr "Показувати екран привітання"
-
-#: ../src/Dialogs/PreferencesDialog.vala:129
-msgid "Show last open tabs"
-msgstr "Показати останні відкриті вкладки"
-
-#: ../src/Dialogs/PreferencesDialog.vala:145
-msgid "General:"
-msgstr "Загальні:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:151
-msgid "When Scratch starts:"
-msgstr "При запуску Sсratch:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:154
-msgid "Save files when changed:"
-msgstr "Збереження змінених файлів:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:158
-msgid "Tabs:"
-msgstr "Табуляції:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:163
-msgid "Automatic indentation:"
-msgstr "Автоматична розстановка:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:166
-msgid "Insert spaces instead of tabs:"
-msgstr "Вставляти пробіли замість табуляцій:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:170
-msgid "Tab width:"
-msgstr "Ширина табуляції:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:195
-msgid "Editor:"
-msgstr "Редактор:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:213
-msgid "Highlight current line:"
-msgstr "Виділяти поточний рядок:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:214
-msgid "Highlight matching brackets:"
-msgstr "Виділяти поточні дужки:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:215
-msgid "Line wrap:"
-msgstr "Перенос рядку"
-
-#: ../src/Dialogs/PreferencesDialog.vala:216
-msgid "Draw spaces:"
-msgstr "Показувати прогалини точками:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:217
-msgid "Show line numbers:"
-msgstr "Відображати номери рядків:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:219
-msgid "Line width guide:"
-msgstr "Ширина рядка:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:233
-msgid "Font and Color Scheme:"
-msgstr "Шрифт та колір"
-
-#: ../src/Dialogs/PreferencesDialog.vala:247
-msgid "Select font:"
-msgstr "Обрати шрифт:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:250
-msgid "Color scheme:"
-msgstr "Колір:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:255
-msgid "Custom font:"
-msgstr "Власний шпифт:"
-
-#: ../src/Utils.vala:31 ../src/MainWindow.vala:885
-#: ../plugins/filemanager/FileView.vala:230
-msgid "Open"
-msgstr "Відкрити"
-
-#: ../src/Utils.vala:42
-msgid "All files"
-msgstr "Усі файли"
-
-#: ../src/Utils.vala:45
-msgid "Text files"
-msgstr "Текстові файли"
+#: ../src/Widgets/SourceView.vala:131
+msgid "Normal Text"
+msgstr "Звичайний текст"
 
 #: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
@@ -454,6 +312,11 @@ msgstr "Повернути файл до початкового стану"
 msgid "Duplicate selected strings"
 msgstr "Дублювати вибрані рядки"
 
+#: ../src/MainWindow.vala:885 ../src/Utils.vala:31
+#: ../plugins/filemanager/FileView.vala:230
+msgid "Open"
+msgstr "Відкрити"
+
 #: ../src/MainWindow.vala:886
 msgid "Open a file"
 msgstr "Відкрити файл"
@@ -474,13 +337,26 @@ msgstr "Масштаб"
 msgid "Zoom 1:1"
 msgstr "Масштаб 1:1"
 
+#: ../src/MainWindow.vala:897 ../src/Services/Document.vala:255
+#: ../src/Services/Document.vala:581 ../src/Utils.vala:33
+msgid "Save"
+msgstr "Зберегти"
+
 #: ../src/MainWindow.vala:898
 msgid "Save this file"
 msgstr "Зберегти цей файл"
 
+#: ../src/MainWindow.vala:901 ../src/Services/Document.vala:574
+msgid "Save As…"
+msgstr "Зберегти як…"
+
 #: ../src/MainWindow.vala:902
 msgid "Save this file with a different name"
 msgstr "Зберегти цей файл під іншим ім'ям"
+
+#: ../src/MainWindow.vala:905 ../src/Services/TemplateManager.vala:194
+msgid "Templates"
+msgstr "Шаблони"
 
 #: ../src/MainWindow.vala:906
 msgid "Project templates"
@@ -502,6 +378,334 @@ msgstr "Попередня вкладка"
 msgid "Fullscreen"
 msgstr "На весь екран"
 
+#: ../src/Services/Document.vala:245
+msgid "Save changes to document %s before closing?"
+msgstr "Зберегти зміни в документі %s перед закриттям?"
+
+#: ../src/Services/Document.vala:248
+msgid ""
+"If you don't save, changes from the last 4 seconds will be permanently lost."
+msgstr ""
+"Якщо ви не збережете файл, зміни за останні 4 секунди будуть втрачені."
+
+#: ../src/Services/Document.vala:250
+msgid "Close without saving"
+msgstr "Закрити без збереження"
+
+#: ../src/Services/Document.vala:254 ../src/Utils.vala:29
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: ../src/Services/Document.vala:327
+msgid "Save File"
+msgstr "Зберегти файл"
+
+#: ../src/Services/Document.vala:556
+msgid ""
+"File \"%s\" cannot be read. Maybe it is corrupt\n"
+"or you do not have the necessary permissions to read it."
+msgstr ""
+"Файл \"%s\" неможливо прочитати. Він ймовірно пошкоджений\n"
+"або Ви не маєте необхідних прав доступу."
+
+#: ../src/Services/Document.vala:572
+msgid ""
+"The location containing the file \"%s\" was unmounted. Do you want to save "
+"somewhere else?"
+msgstr ""
+"Попереднє місцезнаходження файлу \"%s\" відмонтоване. Бажаєте зберегти його "
+"в іншому місці?"
+
+#: ../src/Services/Document.vala:579
+msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+msgstr ""
+"Файл \"%s\" вже видалений. Бажаєте зберегти його в будь-якому випадку?"
+
+#: ../src/Services/Document.vala:592
+msgid ""
+"You cannot save changes on file \"%s\". Do you want to save the changes to "
+"this file in a different location?"
+msgstr ""
+"Ви не можете зберегти зміни в файлі \"%s\". Бажаєте зберегти їх в іншому "
+"місці?"
+
+#: ../src/Services/Document.vala:594
+msgid "Save changes elsewhere"
+msgstr "Зберегти зміни в іншому місці"
+
+#: ../src/Services/Document.vala:625
+msgid ""
+"File \"%s\" was modified by an external application. Do you want to load it "
+"again or continue your editing?"
+msgstr ""
+"Файл \"%s\" було змінено іншою програмою. Бажаєте завантажити оновлену "
+"версію чи продовжити редагування?"
+
+#: ../src/Services/Document.vala:626
+msgid "Load"
+msgstr "Завантажити"
+
+#: ../src/Services/Document.vala:629
+msgid "Continue"
+msgstr "Далі"
+
+#: ../src/Scratch.vala:68
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  Adam https://launchpad.net/~l2velial\n"
+"  Andre https://launchpad.net/~chipqq1\n"
+"  Andy Karaushu https://launchpad.net/~karandriy\n"
+"  Asteo https://launchpad.net/~disterion-h\n"
+"  Bogdan Lisnenko https://launchpad.net/~lem8r\n"
+"  Djaler https://launchpad.net/~djaler1\n"
+"  Dmytro Dmytrenko https://launchpad.net/~dmytrenko-d\n"
+"  Eugene https://launchpad.net/~razerer\n"
+"  Fedik https://launchpad.net/~fedikw\n"
+"  Kurai https://launchpad.net/~kuraitengu\n"
+"  Mario Guerriero https://launchpad.net/~mefrio-g\n"
+"  Max_ym https://launchpad.net/~kontact-cat\n"
+"  MozilaIP https://launchpad.net/~mr-mozila\n"
+"  Paul https://launchpad.net/~udovykpaul\n"
+"  Pavlo https://launchpad.net/~zhavoronkov-p\n"
+"  Sergey Koptev https://launchpad.net/~djdante\n"
+"  Sergii Cynailo https://launchpad.net/~funeral20\n"
+"  Sho0ter https://launchpad.net/~sho0ter\n"
+"  Vlad https://launchpad.net/~vladykz98\n"
+"  maximillian https://launchpad.net/~maxi-ua-1996\n"
+"  neiron13 https://launchpad.net/~heneral\n"
+"  paul akimenko https://launchpad.net/~paulakimenko\n"
+"  slav https://launchpad.net/~slav464\n"
+"  svtlichnijj https://launchpad.net/~svtlichnijj"
+
+#: ../src/Scratch.vala:166
+msgid "Maybe you do not have the necessary permissions."
+msgstr ""
+
+#: ../src/Scratch.vala:168
+msgid "Maybe the file path provided is not valid."
+msgstr ""
+
+#: ../src/Scratch.vala:170
+msgid "The location is read-only."
+msgstr ""
+
+#: ../src/Scratch.vala:172
+msgid "The parent directory doesn't exist."
+msgstr ""
+
+#: ../src/Scratch.vala:179
+msgid ""
+"File \"%s\" cannot be created.\n"
+"%s"
+msgstr ""
+
+#: ../src/Scratch.vala:189
+msgid ""
+"File \"%s\" cannot be opened.\n"
+"%s"
+msgstr ""
+
+#: ../src/Scratch.vala:198
+msgid "It is a mountable location."
+msgstr ""
+
+#: ../src/Scratch.vala:201
+msgid "It is a directory."
+msgstr ""
+
+#: ../src/Scratch.vala:204
+msgid ""
+"It is a \"special\" file such as a socket,\n"
+" fifo, block device, or character device."
+msgstr ""
+
+#: ../src/Scratch.vala:207
+msgid "It is an \"unknown\" file type."
+msgstr ""
+
+#: ../src/Scratch.vala:311
+msgid "New Tab"
+msgstr "Нова вкладка"
+
+#: ../src/Scratch.vala:313
+msgid "Print version info and exit"
+msgstr "Показати інформацію про версію та вийти"
+
+#: ../src/Scratch.vala:314
+msgid "Set of plugins"
+msgstr "Набір плагінів"
+
+#: ../src/Scratch.vala:315
+msgid "Current working directory"
+msgstr "Поточна робоча тека"
+
+#: ../src/Utils.vala:42
+msgid "All files"
+msgstr "Усі файли"
+
+#: ../src/Utils.vala:45
+msgid "Text files"
+msgstr "Текстові файли"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/outline/OutlinePlugin.vala:21
+msgid "Outline"
+msgstr "Обрис"
+
+#: ../plugins/outline/OutlinePlugin.vala:22
+msgid "Outline symbols in your current file in vala"
+msgstr "Огляд символів у вашому поточному файлі vala"
+
+#: ../plugins/outline/OutlinePlugin.vala:116
+#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
+#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:99
+#: ../plugins/outline/CtagsSymbolResolver.vala:35
+#: ../plugins/outline/CtagsSymbolResolver.vala:68
+msgid "Symbols"
+msgstr "Символи"
+
+#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
+#: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
+#: ../plugins/terminal/terminal.vala:174
+msgid "Terminal"
+msgstr "Термінал"
+
+#: ../plugins/terminal/terminal.vala:24
+msgid "A terminal in your text editor"
+msgstr "Термінал у вашому текстовому редакторі"
+
+#: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
+msgid "Show Terminal"
+msgstr "Показати термінал"
+
+#: ../plugins/terminal/terminal.vala:170
+msgid "Hide Terminal"
+msgstr "Сховати термінал"
+
+#: ../plugins/terminal/terminal.vala:306
+msgid "Copy"
+msgstr "Копіювати"
+
+#: ../plugins/terminal/terminal.vala:313
+#: ../plugins/clipboard-history/ClipboardHistory.vala:159
+msgid "Paste"
+msgstr "Вставити"
+
+#: ../plugins/terminal/terminal.vala:323
+msgid "Terminal on Right"
+msgstr "Термінал праворуч"
+
+#: ../plugins/terminal/terminal.vala:331
+msgid "Terminal on Bottom"
+msgstr "Термінал знизу"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/brackets-completion/brackets-completion.vala:21
+msgid "Brackets Completion"
+msgstr "Закривання дужок"
+
+#: ../plugins/brackets-completion/brackets-completion.vala:22
+msgid "Complete brackets while typing"
+msgstr "Автоматично закривати дужки під час друку"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/source-tree/SourceTreePlugin.vala:20
+#: ../plugins/source-tree/SourceTreePlugin.vala:197
+msgid "Source Tree"
+msgstr "Дерево сирців"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:21
+msgid "Have a look at your sources organized in a nice tree"
+msgstr "Переглядайте файли джерельних кодів організовані у дерево"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:42
+msgid "Loading..."
+msgstr "Завантаження..."
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:175
+msgid "Bookmark"
+msgstr "Закладка"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:234
+msgid "Files"
+msgstr "Файли"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:235
+msgid "Project"
+msgstr "Проект"
+
+#: ../plugins/source-tree/SourceTreePlugin.vala:236
+msgid "Bookmarks"
+msgstr "Закладки"
+
+#: ../plugins/spell/spell.vala:18
+msgid "Spell Checker"
+msgstr "Перевірка правопису"
+
+#: ../plugins/spell/spell.vala:19
+msgid "Checks the spelling of your documents"
+msgstr "Перевіряє правопис у ваших документах"
+
+#: ../plugins/spell/spell.vala:80
+msgid ""
+"No suitable dictionaries were found.\n"
+"Please install at least one [aspell] dictionary"
+msgstr ""
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/filemanager/FileManagerPlugin.vala:21
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:21
 msgid "Folder Manager"
@@ -532,49 +736,32 @@ msgstr "Файловий менеджер"
 msgid "/New File"
 msgstr "/Новий файл"
 
-#: ../plugins/preserve-indent/preserve-indent.vala:24
-msgid "Preserve Indent"
-msgstr "Зберегти відступ"
+#: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
+msgid "Strip trailing whitespace"
+msgstr "Вилучати пробіли в кінці рядків"
 
-#: ../plugins/preserve-indent/preserve-indent.vala:25
-msgid "Maintains indent level of pasted text when auto-indent is active"
-msgstr ""
-"Додає необхідні відступи у вставленому тексті, якщо автовідступ ввімкнений"
-
-#: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
-msgid "Highlight Selected Words"
-msgstr "Підсвічувати виділені слова"
-
-#: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
-msgid "Highlights all occurrences of words that are selected"
-msgstr "Підсвічувати місцезнаходження виділених слів"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:21
-#: ../plugins/clipboard-history/ClipboardHistory.vala:89
-msgid "Clipboard History"
-msgstr "Історія буферу обміну"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:22
-msgid "Clipboard to view history"
-msgstr "Скористайтесь буфером обміну для перегляду історії"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:28
-msgid "..."
-msgstr "..."
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:156
-msgid "Delete"
-msgstr "Вилучити"
-
-#: ../plugins/clipboard-history/ClipboardHistory.vala:159
-#: ../plugins/terminal/terminal.vala:313
-msgid "Paste"
-msgstr "Вставити"
+#: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
+msgid "Strip trailing whitespace on save"
+msgstr "Вилучати пробіли в кінці рядків при збереженні"
 
 #: ../plugins/browser-preview/BrowserView.vala:49
 msgid "Close Inspector"
 msgstr "Закрити інспектор"
 
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/browser-preview/browser-preview.vala:21
 msgid "Browser Preview"
 msgstr "Попередній перегляд у браузері"
@@ -597,9 +784,36 @@ msgstr "Попередній перегляд у вебі"
 msgid "Hide Preview"
 msgstr "Сховати попередній перегляд"
 
-#: ../plugins/contractor/contractor.vala:21
-msgid "Share your files with Contractor"
-msgstr "Поділитися своїми файлами за допомогою Contractor"
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/clipboard-history/ClipboardHistory.vala:21
+#: ../plugins/clipboard-history/ClipboardHistory.vala:89
+msgid "Clipboard History"
+msgstr "Історія буферу обміну"
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:22
+msgid "Clipboard to view history"
+msgstr "Скористайтесь буфером обміну для перегляду історії"
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:28
+msgid "..."
+msgstr "..."
+
+#: ../plugins/clipboard-history/ClipboardHistory.vala:156
+msgid "Delete"
+msgstr "Вилучити"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:70
 msgid "Folders"
@@ -622,59 +836,20 @@ msgstr "_Відкрити"
 msgid "Close Folder"
 msgstr "Закрити теку"
 
-#: ../plugins/outline/OutlinePlugin.vala:21
-msgid "Outline"
-msgstr "Обрис"
-
-#: ../plugins/outline/OutlinePlugin.vala:22
-msgid "Outline symbols in your current file in vala"
-msgstr "Огляд символів у вашому поточному файлі vala"
-
-#: ../plugins/outline/OutlinePlugin.vala:111
-#: ../plugins/outline/CtagsSymbolResolver.vala:35
-#: ../plugins/outline/CtagsSymbolResolver.vala:68
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:94
-msgid "Symbols"
-msgstr "Символи"
-
-#: ../plugins/brackets-completion/brackets-completion.vala:21
-msgid "Brackets Completion"
-msgstr "Закривання дужок"
-
-#: ../plugins/brackets-completion/brackets-completion.vala:22
-msgid "Complete brackets while typing"
-msgstr "Автоматично закривати дужки під час друку"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:20
-#: ../plugins/source-tree/SourceTreePlugin.vala:197
-msgid "Source Tree"
-msgstr "Дерево сирців"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:21
-msgid "Have a look at your sources organized in a nice tree"
-msgstr "Переглядайте файли джерельних кодів організовані у дерево"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:42
-msgid "Loading..."
-msgstr "Завантаження..."
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:175
-msgid "Bookmark"
-msgstr "Закладка"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:234
-msgid "Files"
-msgstr "Файли"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:235
-msgid "Project"
-msgstr "Проект"
-
-#: ../plugins/source-tree/SourceTreePlugin.vala:236
-msgid "Bookmarks"
-msgstr "Закладки"
-
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
 #: ../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
 msgstr "Емуляція Vim"
@@ -682,6 +857,46 @@ msgstr "Емуляція Vim"
 #: ../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
 msgstr "Використовувати команди Vim у Scratch"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/contractor/contractor.vala:21
+msgid "Share your files with Contractor"
+msgstr "Поділитися своїми файлами за допомогою Contractor"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
+msgid "Highlight Selected Words"
+msgstr "Підсвічувати виділені слова"
+
+#: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
+msgid "Highlights all occurrences of words that are selected"
+msgstr "Підсвічувати місцезнаходження виділених слів"
 
 #: ../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
@@ -747,71 +962,18 @@ msgstr "Один день"
 msgid "One month"
 msgstr "Один місяць"
 
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
-msgid "Strip trailing whitespace"
-msgstr "Вилучати пробіли в кінці рядків"
+#: ../plugins/preserve-indent/preserve-indent.vala:24
+msgid "Preserve Indent"
+msgstr "Зберегти відступ"
 
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
-msgid "Strip trailing whitespace on save"
-msgstr "Вилучати пробіли в кінці рядків при збереженні"
+#: ../plugins/preserve-indent/preserve-indent.vala:25
+msgid "Maintains indent level of pasted text when auto-indent is active"
+msgstr ""
+"Додає необхідні відступи у вставленому тексті, якщо автовідступ ввімкнений"
 
-#: ../plugins/spell/spell.vala:18
-msgid "Spell Checker"
-msgstr "Перевірка правопису"
-
-#: ../plugins/spell/spell.vala:19
-msgid "Checks the spelling of your documents"
-msgstr "Перевіряє правопис у ваших документах"
-
-#: ../plugins/open-with/open-with.vala:21
-msgid "Open With"
-msgstr "Відкрити за допомогою"
-
-#: ../plugins/open-with/open-with.vala:22
-msgid "Open files you are editing with another application"
-msgstr "Відкрити файли які ви редагуєте в іншій програмі"
-
-#: ../plugins/open-with/open-with.vala:54
-msgid "Open With…"
-msgstr "Відкрити за допомогою..."
-
-#: ../plugins/detect-indent/detect-indent.vala:1
-msgid "Detect Indent"
-msgstr "Виявити відступ"
-
-#: ../plugins/detect-indent/detect-indent.vala:2
-msgid "Heuristically detect tab or space settings"
-msgstr "Евристично виявити налаштування відступу або табуляції"
-
-#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
-#: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
-#: ../plugins/terminal/terminal.vala:174
-msgid "Terminal"
-msgstr "Термінал"
-
-#: ../plugins/terminal/terminal.vala:24
-msgid "A terminal in your text editor"
-msgstr "Термінал у вашому текстовому редакторі"
-
-#: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
-msgid "Show Terminal"
-msgstr "Показати термінал"
-
-#: ../plugins/terminal/terminal.vala:170
-msgid "Hide Terminal"
-msgstr "Сховати термінал"
-
-#: ../plugins/terminal/terminal.vala:306
-msgid "Copy"
-msgstr "Копіювати"
-
-#: ../plugins/terminal/terminal.vala:323
-msgid "Terminal on Right"
-msgstr "Термінал праворуч"
-
-#: ../plugins/terminal/terminal.vala:331
-msgid "Terminal on Bottom"
-msgstr "Термінал знизу"
+#: ../plugins/word-completion/completion-provider.vala:80
+msgid "Could not load icon theme: %s\n"
+msgstr "Неможливо завантажити тему іконок: %s\n"
 
 #: ../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
@@ -827,15 +989,48 @@ msgstr ""
 msgid "%s - Word Completion"
 msgstr "%s - завершення слів"
 
-#: ../plugins/word-completion/completion-provider.vala:80
-msgid "Could not load icon theme: %s\n"
-msgstr "Неможливо завантажити тему іконок: %s\n"
+#: ../plugins/detect-indent/detect-indent.vala:1
+msgid "Detect Indent"
+msgstr "Виявити відступ"
+
+#: ../plugins/detect-indent/detect-indent.vala:2
+msgid "Heuristically detect tab or space settings"
+msgstr "Евристично виявити налаштування відступу або табуляції"
+
+#. /or modify it
+#. under the terms of the GNU Lesser General Public License version 3, as published
+#. by the Free Software Foundation.
+#. 
+#. This program is distributed in the hope that it will be useful, but
+#. WITHOUT ANY WARRANTY; without even the implied warranties of
+#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#. PURPOSE.  See the GNU General Public License for more details.
+#. 
+#. You should have received a copy of the GNU General Public License along
+#. with this program.  If not, see <http://www.gnu.org/licenses/>
+#. 
+#. END LICENSE
+#. **
+#: ../plugins/open-with/open-with.vala:21
+msgid "Open With"
+msgstr "Відкрити за допомогою"
+
+#: ../plugins/open-with/open-with.vala:22
+msgid "Open files you are editing with another application"
+msgstr "Відкрити файли які ви редагуєте в іншій програмі"
+
+#: ../plugins/open-with/open-with.vala:54
+msgid "Open With…"
+msgstr "Відкрити за допомогою..."
 
 #~ msgid "No files are open."
 #~ msgstr "Немає відкритих файлів"
 
 #~ msgid "Do you want to save changes before closing this file?"
 #~ msgstr "Бажаєте зберегти зміни перед закриттям файлу?"
+
+#~ msgid "Select font:"
+#~ msgstr "Обрати шрифт:"
 
 #~ msgid "Changes to this file haven't been saved."
 #~ msgstr "Зміни в цьому файлі не були збережені."
@@ -894,6 +1089,18 @@ msgstr "Неможливо завантажити тему іконок: %s\n"
 #~ msgid "Choose the new location"
 #~ msgstr "Виберіть нове місце"
 
+#~ msgid "General:"
+#~ msgstr "Загальні:"
+
+#~ msgid "Tabs:"
+#~ msgstr "Табуляції:"
+
+#~ msgid "Editor:"
+#~ msgstr "Редактор:"
+
+#~ msgid "Draw spaces:"
+#~ msgstr "Показувати прогалини точками:"
+
 #~ msgid "Show margin on right:"
 #~ msgstr "Показувати відступ справа:"
 
@@ -932,3 +1139,6 @@ msgstr "Неможливо завантажити тему іконок: %s\n"
 #, c-format
 #~ msgid "The file %s was deleted."
 #~ msgstr "Файл %s було виделаено."
+
+#~ msgid "Font and Color Scheme:"
+#~ msgstr "Шрифт та колір"
