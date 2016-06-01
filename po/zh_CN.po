@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-30 11:22-0700\n"
-"PO-Revision-Date: 2016-03-03 14:36+0000\n"
-"Last-Translator: colindemian <dengmengpc@gmail.com>\n"
+"PO-Revision-Date: 2016-05-31 10:04+0000\n"
+"Last-Translator: Menci <huanghaorui301@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-31 06:26+0000\n"
+"X-Launchpad-Export-Date: 2016-06-01 05:46+0000\n"
 "X-Generator: Launchpad (build 18053)\n"
 
 #: ../src/config.vala:15
@@ -60,7 +60,7 @@ msgstr "关闭"
 
 #: ../src/Dialogs/PreferencesDialog.vala:109
 msgid "General"
-msgstr ""
+msgstr "一般设置"
 
 #: ../src/Dialogs/PreferencesDialog.vala:111
 msgid "When Scratch starts:"
@@ -80,7 +80,7 @@ msgstr "自动保存变更："
 
 #: ../src/Dialogs/PreferencesDialog.vala:120
 msgid "Tabs"
-msgstr ""
+msgstr "标签页"
 
 #: ../src/Dialogs/PreferencesDialog.vala:122
 msgid "Automatic indentation:"
@@ -96,7 +96,7 @@ msgstr "制表符宽度："
 
 #: ../src/Dialogs/PreferencesDialog.vala:154
 msgid "Editor"
-msgstr ""
+msgstr "编辑器"
 
 #: ../src/Dialogs/PreferencesDialog.vala:156
 msgid "Highlight current line:"
@@ -128,7 +128,7 @@ msgstr "线宽指南："
 
 #: ../src/Dialogs/PreferencesDialog.vala:184
 msgid "Font and Color Scheme"
-msgstr ""
+msgstr "字体及颜色主题"
 
 #: ../src/Dialogs/PreferencesDialog.vala:186
 msgid "Color scheme:"
@@ -446,6 +446,7 @@ msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
+"  Menci https://launchpad.net/~menci\n"
 "  Tolbkni Kao https://launchpad.net/~tolbkni\n"
 "  Wagaaa https://launchpad.net/~wagaaa\n"
 "  Wang Dianjin https://launchpad.net/~tuhaihe\n"
@@ -461,11 +462,11 @@ msgstr ""
 
 #: ../src/Scratch.vala:168
 msgid "Maybe the file path provided is not valid."
-msgstr ""
+msgstr "可能是提供的文件路径无效。"
 
 #: ../src/Scratch.vala:170
 msgid "The location is read-only."
-msgstr ""
+msgstr "此路径是只读的。"
 
 #: ../src/Scratch.vala:172
 msgid "The parent directory doesn't exist."
@@ -476,20 +477,24 @@ msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
 msgstr ""
+"无法创建文件 “%s”。\n"
+"%s"
 
 #: ../src/Scratch.vala:189
 msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
 msgstr ""
+"无法打开文件 “%s”。\n"
+"%s"
 
 #: ../src/Scratch.vala:198
 msgid "It is a mountable location."
-msgstr ""
+msgstr "这是一个可挂载的路径。"
 
 #: ../src/Scratch.vala:201
 msgid "It is a directory."
-msgstr ""
+msgstr "这是一个目录。"
 
 #: ../src/Scratch.vala:204
 msgid ""
@@ -499,7 +504,7 @@ msgstr ""
 
 #: ../src/Scratch.vala:207
 msgid "It is an \"unknown\" file type."
-msgstr ""
+msgstr "这是一种“未知”文件类型。"
 
 #: ../src/Scratch.vala:311
 msgid "New Tab"
@@ -668,6 +673,8 @@ msgid ""
 "No suitable dictionaries were found.\n"
 "Please install at least one [aspell] dictionary"
 msgstr ""
+"找不到合适的字典。\n"
+"请安装至少一个 [aspell] 字典。"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
