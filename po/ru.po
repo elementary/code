@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-30 11:22-0700\n"
-"PO-Revision-Date: 2016-05-30 18:54+0000\n"
-"Last-Translator: Maxim Taranov <png2378@gmail.com>\n"
+"PO-Revision-Date: 2016-06-04 17:25+0000\n"
+"Last-Translator: Sergey Kislyakov <Unknown>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-31 06:25+0000\n"
-"X-Generator: Launchpad (build 18053)\n"
+"X-Launchpad-Export-Date: 2016-06-05 05:42+0000\n"
+"X-Generator: Launchpad (build 18086)\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -476,6 +476,7 @@ msgstr ""
 "  Paul https://launchpad.net/~eternal-jest3r\n"
 "  Serfion https://launchpad.net/~s-buzuikin\n"
 "  Sergey \"Shnatsel\" Davidoff https://launchpad.net/~shnatsel\n"
+"  Sergey Kislyakov https://launchpad.net/~defman21\n"
 "  Sergey Koptev https://launchpad.net/~djdante\n"
 "  Sergii Cynailo https://launchpad.net/~funeral20\n"
 "  Vadym https://launchpad.net/~vadym32b\n"
@@ -491,49 +492,55 @@ msgstr ""
 
 #: ../src/Scratch.vala:166
 msgid "Maybe you do not have the necessary permissions."
-msgstr ""
+msgstr "Возможно, у вас нет нужных прав."
 
 #: ../src/Scratch.vala:168
 msgid "Maybe the file path provided is not valid."
-msgstr ""
+msgstr "Возможно, предоставленный путь неправильный."
 
 #: ../src/Scratch.vala:170
 msgid "The location is read-only."
-msgstr ""
+msgstr "Путь доступен только для чтения."
 
 #: ../src/Scratch.vala:172
 msgid "The parent directory doesn't exist."
-msgstr ""
+msgstr "Родительская директория не существует."
 
 #: ../src/Scratch.vala:179
 msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
 msgstr ""
+"Файл «%s» не может быть создан.\n"
+"%s"
 
 #: ../src/Scratch.vala:189
 msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
 msgstr ""
+"Файл «%s» не может быть открыт.\n"
+"%s"
 
 #: ../src/Scratch.vala:198
 msgid "It is a mountable location."
-msgstr ""
+msgstr "Это примонтированный путь."
 
 #: ../src/Scratch.vala:201
 msgid "It is a directory."
-msgstr ""
+msgstr "Это директория."
 
 #: ../src/Scratch.vala:204
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " fifo, block device, or character device."
 msgstr ""
+"Это «специальный» файл, как сокет,\n"
+" fifo, блочное или символьное устройство."
 
 #: ../src/Scratch.vala:207
 msgid "It is an \"unknown\" file type."
-msgstr ""
+msgstr "Это «неизвестный» тип файла."
 
 #: ../src/Scratch.vala:311
 msgid "New Tab"
@@ -702,6 +709,8 @@ msgid ""
 "No suitable dictionaries were found.\n"
 "Please install at least one [aspell] dictionary"
 msgstr ""
+"Не найдено подходящих словарей.\n"
+"Установите хотя бы один [aspell] словарь."
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
