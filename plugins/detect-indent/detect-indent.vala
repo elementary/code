@@ -2,7 +2,7 @@ public const string NAME = _("Detect Indent");
 public const string DESCRIPTION = _("Heuristically detect tab or space settings");
 
 public class Scratch.Plugins.DetectIndent: Peas.ExtensionBase, Peas.Activatable {
-    static const int MAX_LINES = 500;
+    const int MAX_LINES = 500;
 
     Scratch.Services.Interface plugins;
     public Object object {owned get; construct;}

@@ -107,7 +107,7 @@ namespace Scratch.Services {
         public string? name;
     }
 
-    public static const Encoding[] encodings = {
+    public const Encoding[] encodings = {
 
         { EncodingType.ISO_8859_1,
             "ISO-8859-1", "Western" },

@@ -832,7 +832,7 @@ namespace Scratch {
         }
 
         // Actions array
-        private static const Gtk.ActionEntry[] main_entries = {
+        private const Gtk.ActionEntry[] main_entries = {
             { "ShowGoTo", "dialog-ok",
           /* label, accelerator */       N_("Go to line…"), "<Control>i",
           /* tooltip */                  N_("Go to line…"),
@@ -929,7 +929,7 @@ namespace Scratch {
                                          action_to_upper_case }
         };
 
-        private static const Gtk.ToggleActionEntry[] toggle_entries = {
+        private const Gtk.ToggleActionEntry[] toggle_entries = {
             { "Fullscreen", "view-fullscreen",
           /* label, accelerator */       N_("Fullscreen"), "F11",
           /* tooltip */                  N_("Fullscreen"),

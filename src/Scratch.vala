@@ -307,7 +307,7 @@ namespace Scratch {
             return new MainWindow (this);
         }
 
-        static const OptionEntry[] entries = {
+        const OptionEntry[] entries = {
             { "new-tab", 't', 0, OptionArg.NONE, out create_new_tab, N_("New Tab"), null },
             { "new-window", 'n', 0, OptionArg.NONE, out create_new_window, N_("New Window"), null },
             { "version", 'v', 0, OptionArg.NONE, out print_version, N_("Print version info and exit"), null },
