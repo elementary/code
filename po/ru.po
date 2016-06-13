@@ -8,14 +8,15 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-30 11:22-0700\n"
-"PO-Revision-Date: 2016-06-05 14:39+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
+"PO-Revision-Date: 2016-06-13 05:29+0000\n"
+"Last-Translator: Pasha. P. Komar <Unknown>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-06-06 05:07+0000\n"
-"X-Generator: Launchpad (build 18086)\n"
+"X-Launchpad-Export-Date: 2016-06-13 05:49+0000\n"
+"X-Generator: Launchpad (build 18097)\n"
+"Language: ru\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -112,7 +113,7 @@ msgstr "Линия сворачивания:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:165
 msgid "Draw Spaces:"
-msgstr "Показывать пробелы"
+msgstr "Показывать пробелы:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:168
 msgid "Show line numbers:"
@@ -120,7 +121,7 @@ msgstr "Отображать номера строк:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:172
 msgid "Show Mini Map:"
-msgstr "Показывать мини-карту"
+msgstr "Показывать мини-карту:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:176
 msgid "Line width guide:"
@@ -144,7 +145,7 @@ msgstr "Текстовый файл из "
 
 #: ../src/Widgets/LoadingView.vala:33
 msgid "Wait while restoring last session..."
-msgstr "Подождите, восстанавливается предыдущая сессия..."
+msgstr "Подождите, восстанавливается предыдущая сессия…"
 
 #: ../src/Widgets/SplitView.vala:45
 msgid "No Files Open"
@@ -205,7 +206,7 @@ msgstr "Заменить"
 
 #: ../src/Widgets/SearchManager.vala:112
 msgid "Replace all"
-msgstr "Заменить все"
+msgstr "Заменить всё"
 
 #: ../src/Widgets/SearchManager.vala:121
 msgid "Go To Line:"
@@ -242,11 +243,11 @@ msgstr "Скрыть панель поиска"
 #: ../src/MainWindow.vala:774 ../src/MainWindow.vala:938
 #: ../src/MainWindow.vala:939
 msgid "Find…"
-msgstr "Поиск..."
+msgstr "Поиск…"
 
 #: ../src/MainWindow.vala:837 ../src/MainWindow.vala:838
 msgid "Go to line…"
-msgstr "Перейти к строке..."
+msgstr "Перейти к строке…"
 
 #: ../src/MainWindow.vala:841 ../src/MainWindow.vala:842
 msgid "Quit"
@@ -348,7 +349,7 @@ msgstr "Сохранить этот файл"
 
 #: ../src/MainWindow.vala:901 ../src/Services/Document.vala:574
 msgid "Save As…"
-msgstr "Сохранить как..."
+msgstr "Сохранить как…"
 
 #: ../src/MainWindow.vala:902
 msgid "Save this file with a different name"
@@ -405,7 +406,7 @@ msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
-"Файл \"%s\" не может быть прочитан. Возможно, он поврежден\n"
+"Файл «%s» не может быть прочитан. Возможно, он повреждён\n"
 "или у вас нет необходимых прав для его чтения."
 
 #: ../src/Services/Document.vala:572
@@ -413,19 +414,19 @@ msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
-"Источник, содержащий файл \"%s\", был извлечён . Сохранить в другом месте?"
+"Источник, содержащий файл «%s», был извлечён. Сохранить в другом месте?"
 
 #: ../src/Services/Document.vala:579
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "Файл \"%s\" был удален. Всё равно сохранить?"
+msgstr "Файл «%s» был удалён. Всё равно сохранить?"
 
 #: ../src/Services/Document.vala:592
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 msgstr ""
-"Невозможно сохранить изменения в файле \"%s\".  Сохранить измененную версию "
-"в другом месте?"
+"Невозможно сохранить изменения в файле «%s».  Сохранить изменённую версию в "
+"другом месте?"
 
 #: ../src/Services/Document.vala:594
 msgid "Save changes elsewhere"
@@ -436,8 +437,8 @@ msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
-"Файл \"%s\" был изменен другим приложением. Загрузить его снова или "
-"продолжить редактирование?"
+"Файл «%s» был изменён другим приложением. Загрузить его снова или продолжить "
+"редактирование?"
 
 #: ../src/Services/Document.vala:626
 msgid "Load"
@@ -678,7 +679,7 @@ msgstr "Все Ваши исходники организованы в акку�
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:42
 msgid "Loading..."
-msgstr "Загрузка..."
+msgstr "Загрузка…"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:175
 msgid "Bookmark"
@@ -710,7 +711,7 @@ msgid ""
 "Please install at least one [aspell] dictionary"
 msgstr ""
 "Не найдено подходящих словарей.\n"
-"Установите хотя бы один [aspell] словарь."
+"Установите хотя бы один [aspell] словарь"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -788,7 +789,7 @@ msgstr "Предварительный просмотр в браузере"
 
 #: ../plugins/browser-preview/browser-preview.vala:22
 msgid "Get a preview your work in a web page"
-msgstr "Предварительный просмотр вашей работы в виде веб-страници"
+msgstr "Предварительный просмотр вашей работы в виде веб-страницы"
 
 #: ../plugins/browser-preview/browser-preview.vala:85
 #: ../plugins/browser-preview/browser-preview.vala:111
@@ -944,7 +945,7 @@ msgstr "Формат: "
 
 #: ../plugins/pastebin/pastebin_dialog.vala:280
 msgid "Others..."
-msgstr "Другие..."
+msgstr "Другие…"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:305
 msgid "Expiry time:"
@@ -1005,7 +1006,7 @@ msgstr ""
 
 #: ../plugins/word-completion/plugin.vala:175
 msgid "%s - Word Completion"
-msgstr "%s - Автозавершение слов"
+msgstr "%s — Автозавершение слов"
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
@@ -1039,7 +1040,7 @@ msgstr "Открыть редактируемые файлы в другом п�
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr "Открыть с помощью..."
+msgstr "Открыть с помощью…"
 
 #~ msgid "New document"
 #~ msgstr "Новый документ"
