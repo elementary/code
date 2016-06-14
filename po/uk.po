@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-30 11:22-0700\n"
-"PO-Revision-Date: 2016-04-29 19:18+0000\n"
-"Last-Translator: Dmytro Dmytrenko <dmytrenko.d@gmail.com>\n"
+"PO-Revision-Date: 2016-06-13 21:02+0000\n"
+"Last-Translator: Roman Sytnyk <Unknown>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-31 06:25+0000\n"
-"X-Generator: Launchpad (build 18053)\n"
+"X-Launchpad-Export-Date: 2016-06-14 06:12+0000\n"
+"X-Generator: Launchpad (build 18097)\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -60,7 +60,7 @@ msgstr "Закрити"
 
 #: ../src/Dialogs/PreferencesDialog.vala:109
 msgid "General"
-msgstr ""
+msgstr "Загальне"
 
 #: ../src/Dialogs/PreferencesDialog.vala:111
 msgid "When Scratch starts:"
@@ -80,7 +80,7 @@ msgstr "Збереження змінених файлів:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:120
 msgid "Tabs"
-msgstr ""
+msgstr "Вкладки"
 
 #: ../src/Dialogs/PreferencesDialog.vala:122
 msgid "Automatic indentation:"
@@ -96,7 +96,7 @@ msgstr "Ширина табуляції:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:154
 msgid "Editor"
-msgstr ""
+msgstr "Редактор"
 
 #: ../src/Dialogs/PreferencesDialog.vala:156
 msgid "Highlight current line:"
@@ -120,7 +120,7 @@ msgstr "Відображати номери рядків:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:172
 msgid "Show Mini Map:"
-msgstr ""
+msgstr "Показати Міні карту"
 
 #: ../src/Dialogs/PreferencesDialog.vala:176
 msgid "Line width guide:"
@@ -128,7 +128,7 @@ msgstr "Ширина рядка:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:184
 msgid "Font and Color Scheme"
-msgstr ""
+msgstr "Шрифт і колірна схема"
 
 #: ../src/Dialogs/PreferencesDialog.vala:186
 msgid "Color scheme:"
@@ -468,6 +468,7 @@ msgstr ""
 "  MozilaIP https://launchpad.net/~mr-mozila\n"
 "  Paul https://launchpad.net/~udovykpaul\n"
 "  Pavlo https://launchpad.net/~zhavoronkov-p\n"
+"  Roman Sytnyk https://launchpad.net/~roman-sytnyk\n"
 "  Sergey Koptev https://launchpad.net/~djdante\n"
 "  Sergii Cynailo https://launchpad.net/~funeral20\n"
 "  Sho0ter https://launchpad.net/~sho0ter\n"
@@ -480,11 +481,11 @@ msgstr ""
 
 #: ../src/Scratch.vala:166
 msgid "Maybe you do not have the necessary permissions."
-msgstr ""
+msgstr "Можливо, у вас немає необхідних дозволів."
 
 #: ../src/Scratch.vala:168
 msgid "Maybe the file path provided is not valid."
-msgstr ""
+msgstr "Можливо, шлях до файлу не є дійсним."
 
 #: ../src/Scratch.vala:170
 msgid "The location is read-only."
@@ -492,27 +493,31 @@ msgstr ""
 
 #: ../src/Scratch.vala:172
 msgid "The parent directory doesn't exist."
-msgstr ""
+msgstr "Батьківський каталог не існує."
 
 #: ../src/Scratch.vala:179
 msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
 msgstr ""
+"Неможливо створити файл \"%s\"\n"
+"%s"
 
 #: ../src/Scratch.vala:189
 msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
 msgstr ""
+"Неможливо відкрити файл \"%s\"\n"
+"%s"
 
 #: ../src/Scratch.vala:198
 msgid "It is a mountable location."
-msgstr ""
+msgstr "Це монтуєме розташування."
 
 #: ../src/Scratch.vala:201
 msgid "It is a directory."
-msgstr ""
+msgstr "Це каталог"
 
 #: ../src/Scratch.vala:204
 msgid ""
@@ -522,7 +527,7 @@ msgstr ""
 
 #: ../src/Scratch.vala:207
 msgid "It is an \"unknown\" file type."
-msgstr ""
+msgstr "Це \"невідомий\" тип файлу"
 
 #: ../src/Scratch.vala:311
 msgid "New Tab"
