@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-30 11:22-0700\n"
-"PO-Revision-Date: 2016-06-13 16:42+0000\n"
+"PO-Revision-Date: 2016-06-14 15:42+0000\n"
 "Last-Translator: Kristjan Vool <tictac7x@gmail.com>\n"
 "Language-Team: Estonian <et@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-06-14 06:12+0000\n"
+"X-Launchpad-Export-Date: 2016-06-15 06:09+0000\n"
 "X-Generator: Launchpad (build 18097)\n"
 
 #: ../src/config.vala:15
@@ -112,7 +112,7 @@ msgstr "Teksti murdmine:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:165
 msgid "Draw Spaces:"
-msgstr ""
+msgstr "Vahemärkide kuvamine:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:168
 msgid "Show line numbers:"
@@ -120,7 +120,7 @@ msgstr "Rea numbrite näitamine:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:172
 msgid "Show Mini Map:"
-msgstr ""
+msgstr "Pisikuva kuvamine:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:176
 msgid "Line width guide:"
@@ -128,7 +128,7 @@ msgstr "Abistav lehe laius:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:184
 msgid "Font and Color Scheme"
-msgstr ""
+msgstr "Välimus"
 
 #: ../src/Dialogs/PreferencesDialog.vala:186
 msgid "Color scheme:"
@@ -476,30 +476,36 @@ msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
 msgstr ""
+"Faili \"%s\" pole võimalik luua.\n"
+"%s"
 
 #: ../src/Scratch.vala:189
 msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
 msgstr ""
+"Faili \"%s\" pole võimalik avada.\n"
+"%s"
 
 #: ../src/Scratch.vala:198
 msgid "It is a mountable location."
-msgstr ""
+msgstr "See on haagitav asukoht."
 
 #: ../src/Scratch.vala:201
 msgid "It is a directory."
-msgstr ""
+msgstr "See on kaust."
 
 #: ../src/Scratch.vala:204
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " fifo, block device, or character device."
 msgstr ""
+"See on \"eriline\" fail, nagu näiteks soket,\n"
+"fifo, bloki- või karakterseadeldis."
 
 #: ../src/Scratch.vala:207
 msgid "It is an \"unknown\" file type."
-msgstr ""
+msgstr "See on \"tundmatu\" failitüüp."
 
 #: ../src/Scratch.vala:311
 msgid "New Tab"
@@ -668,6 +674,8 @@ msgid ""
 "No suitable dictionaries were found.\n"
 "Please install at least one [aspell] dictionary"
 msgstr ""
+"Sobiliku sõnastiku ei leitud.\n"
+"Palun paigalda vähemalt üks õigekirja sõnastik"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
