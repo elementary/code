@@ -48,7 +48,7 @@ namespace Scratch.Widgets {
             save_button = main_actions.get_action ("SaveFile").create_tool_item () as Gtk.ToolButton;
             save_as_button = main_actions.get_action ("SaveFileAs").create_tool_item () as Gtk.ToolButton;
             revert_button = main_actions.get_action ("Revert").create_tool_item () as Gtk.ToolButton;
-            find_button = main_actions.get_action ("Fetch").create_tool_item () as Gtk.ToggleToolButton;
+            find_button = main_actions.get_action ("ShowFetch").create_tool_item () as Gtk.ToggleToolButton;
             zoom_default = main_actions.get_action ("Zoom").create_tool_item () as Gtk.ToolButton;
 
             // Create Share and AppMenu
