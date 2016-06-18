@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-30 11:22-0700\n"
-"PO-Revision-Date: 2016-06-16 17:35+0000\n"
+"PO-Revision-Date: 2016-06-17 17:32+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-06-17 05:34+0000\n"
+"X-Launchpad-Export-Date: 2016-06-18 05:53+0000\n"
 "X-Generator: Launchpad (build 18097)\n"
 
 #: ../src/config.vala:15
@@ -72,7 +72,7 @@ msgstr "显示欢迎界面"
 
 #: ../src/Dialogs/PreferencesDialog.vala:114
 msgid "Show last open tabs"
-msgstr "显示上次打开的标签"
+msgstr "打开上次标签"
 
 #: ../src/Dialogs/PreferencesDialog.vala:117
 msgid "Save files when changed:"
@@ -120,11 +120,11 @@ msgstr "显示行号："
 
 #: ../src/Dialogs/PreferencesDialog.vala:172
 msgid "Show Mini Map:"
-msgstr "显示概览"
+msgstr "显示概览："
 
 #: ../src/Dialogs/PreferencesDialog.vala:176
 msgid "Line width guide:"
-msgstr "线宽指南："
+msgstr "线宽引导："
 
 #: ../src/Dialogs/PreferencesDialog.vala:184
 msgid "Font and Color Scheme"
@@ -278,7 +278,7 @@ msgstr "添加新视图"
 
 #: ../src/MainWindow.vala:865
 msgid "Remove Current View"
-msgstr "删除当前视图"
+msgstr "删除此视图"
 
 #: ../src/MainWindow.vala:866
 msgid "Remove this view"

@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-30 11:22-0700\n"
-"PO-Revision-Date: 2016-05-31 16:25+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
+"PO-Revision-Date: 2016-06-17 17:04+0000\n"
+"Last-Translator: Fabio Zaramella <FFabio.96.X@Gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-06-01 05:46+0000\n"
-"X-Generator: Launchpad (build 18053)\n"
+"X-Launchpad-Export-Date: 2016-06-18 05:53+0000\n"
+"X-Generator: Launchpad (build 18097)\n"
 "Language: \n"
 
 #: ../src/config.vala:15
@@ -61,7 +61,7 @@ msgstr "Chiudi"
 
 #: ../src/Dialogs/PreferencesDialog.vala:109
 msgid "General"
-msgstr ""
+msgstr "Generali"
 
 #: ../src/Dialogs/PreferencesDialog.vala:111
 msgid "When Scratch starts:"
@@ -81,7 +81,7 @@ msgstr "Salva i file appena modificati:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:120
 msgid "Tabs"
-msgstr ""
+msgstr "Tabulazioni"
 
 #: ../src/Dialogs/PreferencesDialog.vala:122
 msgid "Automatic indentation:"
@@ -93,11 +93,11 @@ msgstr "Inserire spazi invece di tabulazioni:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:128
 msgid "Tab width:"
-msgstr "Larghezza tabulazione:"
+msgstr "Larghezza di tabulazione:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:154
 msgid "Editor"
-msgstr ""
+msgstr "Editor"
 
 #: ../src/Dialogs/PreferencesDialog.vala:156
 msgid "Highlight current line:"
@@ -113,7 +113,7 @@ msgstr "A capo automatico:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:165
 msgid "Draw Spaces:"
-msgstr ""
+msgstr "Mostra gli spazi:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:168
 msgid "Show line numbers:"
@@ -121,7 +121,7 @@ msgstr "Mostra numeri di riga:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:172
 msgid "Show Mini Map:"
-msgstr ""
+msgstr "Mostra Mini Map:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:176
 msgid "Line width guide:"
@@ -129,7 +129,7 @@ msgstr "Linea guida di larghezza:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:184
 msgid "Font and Color Scheme"
-msgstr ""
+msgstr "Carattere e schema di colori"
 
 #: ../src/Dialogs/PreferencesDialog.vala:186
 msgid "Color scheme:"
@@ -459,6 +459,7 @@ msgstr ""
 "  Andrea Basso https://launchpad.net/~voluntatefaber\n"
 "  Andrea Visentin https://launchpad.net/~andrea-vise90\n"
 "  Antonio Bisconti https://launchpad.net/~coonkies\n"
+"  Antonio Martino https://launchpad.net/~ant-mar94\n"
 "  Bennici Piercarlo https://launchpad.net/~piercarlo-bennici-"
 "deactivatedaccount-deactivatedaccount\n"
 "  Carlo Guerra https://launchpad.net/~ruroka-musou\n"
@@ -473,55 +474,63 @@ msgstr ""
 "  Griffon https://launchpad.net/~grifonchan\n"
 "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
 "  Massimo Neri https://launchpad.net/~mneri\n"
+"  Mattia https://launchpad.net/~mattihappy\n"
 "  Quirico Tursi https://launchpad.net/~quirico-tursi\n"
+"  Simone https://launchpad.net/~simsar78\n"
 "  Vesnar Teach https://launchpad.net/~vesnar\n"
 "  xskydevilx https://launchpad.net/~xskydevilx-deactivatedaccount"
 
 #: ../src/Scratch.vala:166
 msgid "Maybe you do not have the necessary permissions."
-msgstr ""
+msgstr "Forse non disponi delle autorizzazioni necessarie."
 
 #: ../src/Scratch.vala:168
 msgid "Maybe the file path provided is not valid."
-msgstr ""
+msgstr "Probabilmente il percorso del file fornito non è valido."
 
 #: ../src/Scratch.vala:170
 msgid "The location is read-only."
-msgstr ""
+msgstr "La posizione è di sola lettura."
 
 #: ../src/Scratch.vala:172
 msgid "The parent directory doesn't exist."
-msgstr ""
+msgstr "La cartella genitore non esiste."
 
 #: ../src/Scratch.vala:179
 msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
 msgstr ""
+"Il file \"%s\" non può essere creato.\n"
+"%s"
 
 #: ../src/Scratch.vala:189
 msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
 msgstr ""
+"Il file \"%s\" non può essere aperto.\n"
+"%s"
 
 #: ../src/Scratch.vala:198
 msgid "It is a mountable location."
-msgstr ""
+msgstr "È un percorso montabile."
 
 #: ../src/Scratch.vala:201
 msgid "It is a directory."
-msgstr ""
+msgstr "È una cartella."
 
 #: ../src/Scratch.vala:204
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " fifo, block device, or character device."
 msgstr ""
+"È un file \"speciale\", come ad esempio un socket,\n"
+" un fifo, un dispositivo a blocchi o un dispositivo a caratteri."
 
 #: ../src/Scratch.vala:207
 msgid "It is an \"unknown\" file type."
-msgstr ""
+msgstr "È un tipo di file \"sconosciuto\"."
 
 #: ../src/Scratch.vala:311
 msgid "New Tab"
@@ -690,6 +699,8 @@ msgid ""
 "No suitable dictionaries were found.\n"
 "Please install at least one [aspell] dictionary"
 msgstr ""
+"Non sono stati trovati dizionari adatti.\n"
+"Per favore installa almeno un dizionario [aspell]"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
