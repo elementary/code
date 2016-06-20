@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-30 11:22-0700\n"
-"PO-Revision-Date: 2016-05-31 16:29+0000\n"
-"Last-Translator: Félix Brezo <felixbrezo@gmail.com>\n"
+"PO-Revision-Date: 2016-06-19 21:39+0000\n"
+"Last-Translator: Arturo Torres Sánchez <r2d2.art2005@gmail.com>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-06-01 05:46+0000\n"
-"X-Generator: Launchpad (build 18053)\n"
+"X-Launchpad-Export-Date: 2016-06-20 06:04+0000\n"
+"X-Generator: Launchpad (build 18097)\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -60,7 +60,7 @@ msgstr "Fermi"
 
 #: ../src/Dialogs/PreferencesDialog.vala:109
 msgid "General"
-msgstr ""
+msgstr "Generala"
 
 #: ../src/Dialogs/PreferencesDialog.vala:111
 msgid "When Scratch starts:"
@@ -76,11 +76,11 @@ msgstr "Montri lastajn malfermitajn langetojn"
 
 #: ../src/Dialogs/PreferencesDialog.vala:117
 msgid "Save files when changed:"
-msgstr ""
+msgstr "Konservi dosierojn kiam modifitaj:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:120
 msgid "Tabs"
-msgstr ""
+msgstr "Langetoj"
 
 #: ../src/Dialogs/PreferencesDialog.vala:122
 msgid "Automatic indentation:"
@@ -120,7 +120,7 @@ msgstr "Montri liniajn numerojn:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:172
 msgid "Show Mini Map:"
-msgstr ""
+msgstr "Montru minimapo"
 
 #: ../src/Dialogs/PreferencesDialog.vala:176
 msgid "Line width guide:"
