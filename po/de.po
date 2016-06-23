@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-30 11:22-0700\n"
-"PO-Revision-Date: 2016-05-31 16:25+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
+"PO-Revision-Date: 2016-06-22 12:03+0000\n"
+"Last-Translator: Phillip Sz <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-06-01 05:46+0000\n"
-"X-Generator: Launchpad (build 18053)\n"
+"X-Launchpad-Export-Date: 2016-06-23 05:28+0000\n"
+"X-Generator: Launchpad (build 18111)\n"
 "Language: de\n"
 
 #: ../src/config.vala:15
@@ -61,7 +61,7 @@ msgstr "Schließen"
 
 #: ../src/Dialogs/PreferencesDialog.vala:109
 msgid "General"
-msgstr ""
+msgstr "Allgemein"
 
 #: ../src/Dialogs/PreferencesDialog.vala:111
 msgid "When Scratch starts:"
@@ -81,7 +81,7 @@ msgstr "Dateien nach Änderung speichern:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:120
 msgid "Tabs"
-msgstr ""
+msgstr "Tabs"
 
 #: ../src/Dialogs/PreferencesDialog.vala:122
 msgid "Automatic indentation:"
@@ -97,7 +97,7 @@ msgstr "Tabulatorbreite:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:154
 msgid "Editor"
-msgstr ""
+msgstr "Editor"
 
 #: ../src/Dialogs/PreferencesDialog.vala:156
 msgid "Highlight current line:"
@@ -113,7 +113,7 @@ msgstr "Zeilenumbruch:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:165
 msgid "Draw Spaces:"
-msgstr ""
+msgstr "Leerstellen erzeugen:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:168
 msgid "Show line numbers:"
@@ -121,7 +121,7 @@ msgstr "Zeilennummern anzeigen:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:172
 msgid "Show Mini Map:"
-msgstr ""
+msgstr "Miniansicht zeigen:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:176
 msgid "Line width guide:"
@@ -129,7 +129,7 @@ msgstr "Zeilenbreitenführungslinie:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:184
 msgid "Font and Color Scheme"
-msgstr ""
+msgstr "Schrift- und Farbschema"
 
 #: ../src/Dialogs/PreferencesDialog.vala:186
 msgid "Color scheme:"
@@ -456,6 +456,7 @@ msgstr "Fortfahren"
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
+"  Alex Luxat https://launchpad.net/~m-alex-n\n"
 "  Alexander Wilms https://launchpad.net/~alexander-wilms\n"
 "  Artem Anufrij https://launchpad.net/~artem-anufrij\n"
 "  Ben Dietze https://launchpad.net/~benjamin-dietze\n"
@@ -489,39 +490,39 @@ msgstr ""
 
 #: ../src/Scratch.vala:166
 msgid "Maybe you do not have the necessary permissions."
-msgstr ""
+msgstr "Vielleicht fehlen die nötigen Rechte."
 
 #: ../src/Scratch.vala:168
 msgid "Maybe the file path provided is not valid."
-msgstr ""
+msgstr "Vielleicht ein ungültiger Dateipfad."
 
 #: ../src/Scratch.vala:170
 msgid "The location is read-only."
-msgstr ""
+msgstr "Nur Leserechte an diesem Ort."
 
 #: ../src/Scratch.vala:172
 msgid "The parent directory doesn't exist."
-msgstr ""
+msgstr "Das übergeordne Verzeichnis existiert nicht."
 
 #: ../src/Scratch.vala:179
 msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
-msgstr ""
+msgstr "Datei »%s« kann nicht erstellt werden."
 
 #: ../src/Scratch.vala:189
 msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
-msgstr ""
+msgstr "Datei »%s« kann nicht geöffnet werden."
 
 #: ../src/Scratch.vala:198
 msgid "It is a mountable location."
-msgstr ""
+msgstr "Dies ist ein mountbarer Ort."
 
 #: ../src/Scratch.vala:201
 msgid "It is a directory."
-msgstr ""
+msgstr "Dies ist ein Verzeichnis."
 
 #: ../src/Scratch.vala:204
 msgid ""
@@ -531,7 +532,7 @@ msgstr ""
 
 #: ../src/Scratch.vala:207
 msgid "It is an \"unknown\" file type."
-msgstr ""
+msgstr "Dies ist ein »unbekannter« Dateityp."
 
 #: ../src/Scratch.vala:311
 msgid "New Tab"
@@ -701,6 +702,8 @@ msgid ""
 "No suitable dictionaries were found.\n"
 "Please install at least one [aspell] dictionary"
 msgstr ""
+"Es wurde kein passendes Wörterbuch gefunden.\n"
+"Bitte mindestens ein Wörterbuch installieren."
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
