@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2015 elementary, LLC <contact@elementary.io> -->
-<application>
-  <id type="desktop">scratch-text-editor.desktop</id>
-  <metadata_license>CC0</metadata_license>
+<component type="desktop">
+  <id>scratch-text-editor.desktop</id>
+  <metadata_license>CC0-1/0</metadata_license>
   <project_group>elementary</project_group>
   <project_license>GPL-3.0+</project_license>
   <name>Scratch</name>
-  <icon type="stock">accessories-text-editor</icon>
   <summary>The text editor that works</summary>
   <description>
     <p>
@@ -46,6 +45,13 @@
       <li>lots of others</li>
     </ul>
   </description>
+  <provides>
+    <binary>scratch-text-editor</binary>
+  </provides>
+  <developer_name>elementary LLC.</developer_name>
   <url type="homepage">http://elementary.io/</url>
+  <url type="bugtracker">https://bugs.launchpad.net/scratch</url>
+  <url type="donation">https://elementary.io/get-involved#funding</url>
+  <url type="help">https://elementaryos.stackexchange.com/questions/tagged/scratch</url>
   <updatecontact>contact_at_elementary.io</updatecontact>
-</application>
+</component>
