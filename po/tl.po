@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-30 11:22-0700\n"
-"PO-Revision-Date: 2016-06-03 16:04+0000\n"
-"Last-Translator: yavinfour <anjelo.passionist@gmail.com>\n"
+"PO-Revision-Date: 2016-06-25 19:06+0000\n"
+"Last-Translator: Jacques Ivan Arroyo <jaksarroyo@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-06-04 05:52+0000\n"
-"X-Generator: Launchpad (build 18086)\n"
+"X-Launchpad-Export-Date: 2016-06-26 05:50+0000\n"
+"X-Generator: Launchpad (build 18111)\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -38,11 +38,11 @@ msgstr "Mga Kagustuhan"
 
 #: ../src/Dialogs/PreferencesDialog.vala:68
 msgid "Behavior"
-msgstr "Pag-uugali"
+msgstr "Pagkilos"
 
 #: ../src/Dialogs/PreferencesDialog.vala:69
 msgid "Interface"
-msgstr ""
+msgstr "Interpeys"
 
 #: ../src/Dialogs/PreferencesDialog.vala:80
 msgid "Extensions"
@@ -59,7 +59,7 @@ msgstr "Pangkalahatan"
 
 #: ../src/Dialogs/PreferencesDialog.vala:111
 msgid "When Scratch starts:"
-msgstr "Pag nagsimula ang Scratch"
+msgstr "Kapag nagsimula ang Scratch"
 
 #: ../src/Dialogs/PreferencesDialog.vala:113
 msgid "Show welcome screen"
@@ -67,7 +67,7 @@ msgstr "Ipakita ang Welcome Screen"
 
 #: ../src/Dialogs/PreferencesDialog.vala:114
 msgid "Show last open tabs"
-msgstr ""
+msgstr "Ipakita ang mga huling bukas na tabs"
 
 #: ../src/Dialogs/PreferencesDialog.vala:117
 msgid "Save files when changed:"
@@ -79,27 +79,27 @@ msgstr "Mga Tab"
 
 #: ../src/Dialogs/PreferencesDialog.vala:122
 msgid "Automatic indentation:"
-msgstr ""
+msgstr "Automatikong pag-urong"
 
 #: ../src/Dialogs/PreferencesDialog.vala:125
 msgid "Insert spaces instead of tabs:"
-msgstr ""
+msgstr "Magpasok ng ispasiyo sa halip ng mga tab"
 
 #: ../src/Dialogs/PreferencesDialog.vala:128
 msgid "Tab width:"
-msgstr ""
+msgstr "Lapad ng tab"
 
 #: ../src/Dialogs/PreferencesDialog.vala:154
 msgid "Editor"
-msgstr ""
+msgstr "Taga-edit"
 
 #: ../src/Dialogs/PreferencesDialog.vala:156
 msgid "Highlight current line:"
-msgstr ""
+msgstr "I-haylayt ang kasalukuyang linya"
 
 #: ../src/Dialogs/PreferencesDialog.vala:159
 msgid "Highlight matching brackets:"
-msgstr ""
+msgstr "I-haylayt ang tumutugmang panaklong"
 
 #: ../src/Dialogs/PreferencesDialog.vala:162
 msgid "Line wrap:"
@@ -111,35 +111,35 @@ msgstr ""
 
 #: ../src/Dialogs/PreferencesDialog.vala:168
 msgid "Show line numbers:"
-msgstr ""
+msgstr "Ipakita ang mga numero ng linya"
 
 #: ../src/Dialogs/PreferencesDialog.vala:172
 msgid "Show Mini Map:"
-msgstr ""
+msgstr "Ipakita ang Mini Map"
 
 #: ../src/Dialogs/PreferencesDialog.vala:176
 msgid "Line width guide:"
-msgstr ""
+msgstr "Gabay ng lapad ng linya"
 
 #: ../src/Dialogs/PreferencesDialog.vala:184
 msgid "Font and Color Scheme"
-msgstr ""
+msgstr "Pamamaraan ng Font at Kulay"
 
 #: ../src/Dialogs/PreferencesDialog.vala:186
 msgid "Color scheme:"
-msgstr ""
+msgstr "Pamamaraan ng Kulay"
 
 #: ../src/Dialogs/PreferencesDialog.vala:191
 msgid "Custom font:"
-msgstr ""
+msgstr "Pasadyang font"
 
 #: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
-msgstr ""
+msgstr "Text file mula sa "
 
 #: ../src/Widgets/LoadingView.vala:33
 msgid "Wait while restoring last session..."
-msgstr ""
+msgstr "Maghintay habang ibinabalik ang nakaraang sesyon"
 
 #: ../src/Widgets/SplitView.vala:45
 msgid "No Files Open"
@@ -147,7 +147,7 @@ msgstr "Walang Nakabukas na File"
 
 #: ../src/Widgets/SplitView.vala:46
 msgid "Open a file to begin editing."
-msgstr ""
+msgstr "Magbukas ng file para simulang ang pag-eedit"
 
 #: ../src/Widgets/SplitView.vala:50
 msgid "New file"
@@ -155,7 +155,7 @@ msgstr "Bagong File"
 
 #: ../src/Widgets/SplitView.vala:50
 msgid "Create a new empty file."
-msgstr "Bumuo ng bagong file na walang laman"
+msgstr "Gumawa ng bagong file na walang lamang"
 
 #: ../src/Widgets/SplitView.vala:51
 msgid "Open file"
@@ -167,11 +167,11 @@ msgstr "Magbukas ng nakasave na file"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "New file from clipboard"
-msgstr ""
+msgstr "Bagong file mula sa clipboard"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "Create a new file from the contents of your clipboard."
-msgstr ""
+msgstr "Gumawa ng bagong file mula sa mga nilalaman ng iyong clipboard"
 
 #: ../src/Widgets/SearchManager.vala:70
 msgid "Find"
@@ -179,19 +179,19 @@ msgstr "Hanapin"
 
 #: ../src/Widgets/SearchManager.vala:75
 msgid "Replace With"
-msgstr ""
+msgstr "Palitan ng"
 
 #: ../src/Widgets/SearchManager.vala:91
 msgid "Search next"
-msgstr ""
+msgstr "Hanapin ang kasunod"
 
 #: ../src/Widgets/SearchManager.vala:97
 msgid "Search previous"
-msgstr ""
+msgstr "Hanapin ang nakaraan"
 
 #: ../src/Widgets/SearchManager.vala:104
 msgid "Cyclic Search"
-msgstr ""
+msgstr "Paikot na paghanap"
 
 #: ../src/Widgets/SearchManager.vala:107 ../src/MainWindow.vala:849
 #: ../src/MainWindow.vala:850
@@ -212,7 +212,7 @@ msgstr "Ibahagi"
 
 #: ../src/Widgets/SourceView.vala:120
 msgid "Syntax Highlighting"
-msgstr ""
+msgstr "Paghighlight ng Palaugnayan"
 
 #: ../src/Widgets/SourceView.vala:131
 msgid "Normal Text"
@@ -224,113 +224,113 @@ msgstr ""
 
 #: ../src/MainWindow.vala:179
 msgid "Trash"
-msgstr ""
+msgstr "Basurahan"
 
 #: ../src/MainWindow.vala:662
 msgid "Open some files"
-msgstr ""
+msgstr "Magbukas ng ilang mga file"
 
 #: ../src/MainWindow.vala:771
 msgid "Hide search bar"
-msgstr ""
+msgstr "Itago ang search bar"
 
 #: ../src/MainWindow.vala:774 ../src/MainWindow.vala:938
 #: ../src/MainWindow.vala:939
 msgid "Find…"
-msgstr ""
+msgstr "Hanapin..."
 
 #: ../src/MainWindow.vala:837 ../src/MainWindow.vala:838
 msgid "Go to line…"
-msgstr ""
+msgstr "Pumunta sa linya..."
 
 #: ../src/MainWindow.vala:841 ../src/MainWindow.vala:842
 msgid "Quit"
-msgstr ""
+msgstr "Umalis"
 
 #: ../src/MainWindow.vala:853
 msgid "Reopen closed document"
-msgstr ""
+msgstr "Buksan muli ang isinarang dokumento"
 
 #: ../src/MainWindow.vala:854
 msgid "Open last closed document in a new tab"
-msgstr ""
+msgstr "Buksan ang huling isinarang dokumento sa bagong tab"
 
 #: ../src/MainWindow.vala:857
 msgid "Add New Tab"
-msgstr ""
+msgstr "Magdagdag ng mga Bagong Tab"
 
 #: ../src/MainWindow.vala:858
 msgid "Add a new tab"
-msgstr ""
+msgstr "Magdagdag ng Bagong Tab"
 
 #: ../src/MainWindow.vala:861
 msgid "Add New View"
-msgstr ""
+msgstr "Magdagdag ng mga Bagong View"
 
 #: ../src/MainWindow.vala:862
 msgid "Add a new view"
-msgstr ""
+msgstr "Magdagdag ng Bagong View"
 
 #: ../src/MainWindow.vala:865
 msgid "Remove Current View"
-msgstr ""
+msgstr "Alisin ang Kasalukuyang View"
 
 #: ../src/MainWindow.vala:866
 msgid "Remove this view"
-msgstr ""
+msgstr "Alisin ang view na ito"
 
 #: ../src/MainWindow.vala:869
 msgid "Undo"
-msgstr ""
+msgstr "Ibalik"
 
 #: ../src/MainWindow.vala:870
 msgid "Undo the last action"
-msgstr ""
+msgstr "Ibalik ang huling aksyon"
 
 #: ../src/MainWindow.vala:873
 msgid "Redo"
-msgstr ""
+msgstr "Gawin muli"
 
 #: ../src/MainWindow.vala:874
 msgid "Redo the last undone action"
-msgstr ""
+msgstr "Gawin muli ang huling ibinalik na aksyon"
 
 #: ../src/MainWindow.vala:877
 msgid "Revert"
-msgstr ""
+msgstr "Ibalik"
 
 #: ../src/MainWindow.vala:878
 msgid "Restore this file"
-msgstr ""
+msgstr "Ibalik ang file na ito"
 
 #: ../src/MainWindow.vala:881 ../src/MainWindow.vala:882
 msgid "Duplicate selected strings"
-msgstr ""
+msgstr "Doblehin ang mga piniling strings"
 
 #: ../src/MainWindow.vala:885 ../src/Utils.vala:31
 #: ../plugins/filemanager/FileView.vala:230
 msgid "Open"
-msgstr ""
+msgstr "Buksan"
 
 #: ../src/MainWindow.vala:886
 msgid "Open a file"
-msgstr ""
+msgstr "Magbukas ng file"
 
 #: ../src/MainWindow.vala:889
 msgid "Clipboard"
-msgstr ""
+msgstr "Clipboard"
 
 #: ../src/MainWindow.vala:890
 msgid "New file from Clipboard"
-msgstr ""
+msgstr "Bagong file mula sa Clipboard"
 
 #: ../src/MainWindow.vala:893
 msgid "Zoom"
-msgstr ""
+msgstr "Palakihin"
 
 #: ../src/MainWindow.vala:894
 msgid "Zoom 1:1"
-msgstr ""
+msgstr "Palakihin 1:1"
 
 #: ../src/MainWindow.vala:897 ../src/Services/Document.vala:255
 #: ../src/Services/Document.vala:581 ../src/Utils.vala:33
@@ -339,7 +339,7 @@ msgstr "I-save"
 
 #: ../src/MainWindow.vala:898
 msgid "Save this file"
-msgstr ""
+msgstr "I-save ang file na ito"
 
 #: ../src/MainWindow.vala:901 ../src/Services/Document.vala:574
 msgid "Save As…"
@@ -347,42 +347,42 @@ msgstr "I-save bilang..."
 
 #: ../src/MainWindow.vala:902
 msgid "Save this file with a different name"
-msgstr ""
+msgstr "I-save ang file na ito gamit ang ibang pangalan"
 
 #: ../src/MainWindow.vala:905 ../src/Services/TemplateManager.vala:194
 msgid "Templates"
-msgstr ""
+msgstr "Mga Templeyt"
 
 #: ../src/MainWindow.vala:906
 msgid "Project templates"
-msgstr ""
+msgstr "Mga templeyt ng proyekto"
 
 #: ../src/MainWindow.vala:910
 msgid "Change Scratch settings"
-msgstr ""
+msgstr "Ibahin ang mga setting ng Scratch"
 
 #: ../src/MainWindow.vala:913 ../src/MainWindow.vala:914
 msgid "Next Tab"
-msgstr ""
+msgstr "Susunod na Tab"
 
 #: ../src/MainWindow.vala:917 ../src/MainWindow.vala:918
 msgid "Previous Tab"
-msgstr ""
+msgstr "Nakaraang tab"
 
 #: ../src/MainWindow.vala:934 ../src/MainWindow.vala:935
 msgid "Fullscreen"
-msgstr ""
+msgstr "Buong screen"
 
 #: ../src/Services/Document.vala:245
 msgid "Save changes to document %s before closing?"
-msgstr ""
+msgstr "I-save ang mga nabago sa dokumento bago isara?"
 
 #: ../src/Services/Document.vala:248
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
-"Kung ayaw mong gawing permanente ang mga nagawa mong pagbabago, mawawala "
-"lahat ng nagawa mo sa nakalipas na apat na segundo."
+"Kung hindi mo ise-save ang mga nagawa mong pagbabago, mawawala lahat ng "
+"nagawa mo sa nakalipas na apat na segundo."
 
 #: ../src/Services/Document.vala:250
 msgid "Close without saving"
@@ -402,37 +402,44 @@ msgid ""
 "or you do not have the necessary permissions to read it."
 msgstr ""
 "Ang file na \"%s\" ay hindi mabasa. Maaaring may sira ito\n"
-"o wala kang sapat na karapatan para basahin ito."
+"o wala kang sapat na pahintulot para basahin ito."
 
 #: ../src/Services/Document.vala:572
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
+"Ang lokasyon na naglalaman ng file na \"%s\" ay hindi makita. Gusto mo bang "
+"i-save sa iba pang lugar?"
 
 #: ../src/Services/Document.vala:579
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr ""
+"Ang file na \"%s\" ay tinanggal na. Gusto mo bang i-save gayon pa man?"
 
 #: ../src/Services/Document.vala:592
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 msgstr ""
+"Hindi mo maaaraing i-save ang mga pagbabago sa file na \"%s\". Gusto mo bang "
+"i-save ang mga pagbabago sa file na ito sa ibang lugar?"
 
 #: ../src/Services/Document.vala:594
 msgid "Save changes elsewhere"
-msgstr ""
+msgstr "I-save ang mga pagbabago sa ibang lugar"
 
 #: ../src/Services/Document.vala:625
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
+"Ang file na \"%s\" ay nabago ng eksternal na aplikasyon. Gusto mo bang i-"
+"load ito ulit o ituloy ang iyong pag-edit?"
 
 #: ../src/Services/Document.vala:626
 msgid "Load"
-msgstr ""
+msgstr "I-load"
 
 #: ../src/Services/Document.vala:629
 msgid "Continue"
@@ -443,54 +450,55 @@ msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  Arbyn Acosta https://launchpad.net/~arbyn-acosta\n"
+"  Jacques Ivan Arroyo https://launchpad.net/~jaksarroyo\n"
 "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
 "  yavinfour https://launchpad.net/~anjelo.delcarmen"
 
 #: ../src/Scratch.vala:166
 msgid "Maybe you do not have the necessary permissions."
-msgstr ""
+msgstr "Maaaring wala kang sapat na kaukulang pahintulot."
 
 #: ../src/Scratch.vala:168
 msgid "Maybe the file path provided is not valid."
-msgstr ""
+msgstr "Maaaring ang path ng file na ibinigay ay hindi balido."
 
 #: ../src/Scratch.vala:170
 msgid "The location is read-only."
-msgstr ""
+msgstr "Ang lokasyon ay maaaring basahin lamang."
 
 #: ../src/Scratch.vala:172
 msgid "The parent directory doesn't exist."
-msgstr ""
+msgstr "Ang pinagmulang direktori ay hindi umiiral."
 
 #: ../src/Scratch.vala:179
 msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
-msgstr ""
+msgstr "Ang file na \"%s\" ay hindi maaaring mailikha."
 
 #: ../src/Scratch.vala:189
 msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
-msgstr ""
+msgstr "Ang file na \"%s\" ay hindi maaaring buksan."
 
 #: ../src/Scratch.vala:198
 msgid "It is a mountable location."
-msgstr ""
+msgstr "Ito ay isang mountable na lokasyon."
 
 #: ../src/Scratch.vala:201
 msgid "It is a directory."
-msgstr ""
+msgstr "Ito ay isang direktori"
 
 #: ../src/Scratch.vala:204
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " fifo, block device, or character device."
-msgstr ""
+msgstr "Ang file na ito ay \"espesyal\" tulad ng isang socket."
 
 #: ../src/Scratch.vala:207
 msgid "It is an \"unknown\" file type."
-msgstr ""
+msgstr "Ang uri ng file na ito ay \"hindi kilala\"."
 
 #: ../src/Scratch.vala:311
 msgid "New Tab"
@@ -498,23 +506,23 @@ msgstr "Bagong Tab"
 
 #: ../src/Scratch.vala:313
 msgid "Print version info and exit"
-msgstr ""
+msgstr "I-print ang impormasyon ng bersyon at lumabas"
 
 #: ../src/Scratch.vala:314
 msgid "Set of plugins"
-msgstr ""
+msgstr "Hanay ng mga plugin"
 
 #: ../src/Scratch.vala:315
 msgid "Current working directory"
-msgstr ""
+msgstr "Kasalukuyang gumaganang direktori"
 
 #: ../src/Utils.vala:42
 msgid "All files"
-msgstr ""
+msgstr "Lahat ng mga File"
 
 #: ../src/Utils.vala:45
 msgid "Text files"
-msgstr ""
+msgstr "Tekstong mga file"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -532,11 +540,11 @@ msgstr ""
 #. **
 #: ../plugins/outline/OutlinePlugin.vala:21
 msgid "Outline"
-msgstr ""
+msgstr "Balangkas"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
-msgstr ""
+msgstr "Banghayin ang mga simbolo sa iyong kasalukuyang file sa vala"
 
 #: ../plugins/outline/OutlinePlugin.vala:116
 #: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
@@ -544,42 +552,42 @@ msgstr ""
 #: ../plugins/outline/CtagsSymbolResolver.vala:35
 #: ../plugins/outline/CtagsSymbolResolver.vala:68
 msgid "Symbols"
-msgstr ""
+msgstr "Mga Simbolo"
 
 #: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
 #: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
 #: ../plugins/terminal/terminal.vala:174
 msgid "Terminal"
-msgstr ""
+msgstr "Terminal"
 
 #: ../plugins/terminal/terminal.vala:24
 msgid "A terminal in your text editor"
-msgstr ""
+msgstr "Isang terminal sa iyong text editor"
 
 #: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
 msgid "Show Terminal"
-msgstr ""
+msgstr "Ipakita ang Terminal"
 
 #: ../plugins/terminal/terminal.vala:170
 msgid "Hide Terminal"
-msgstr ""
+msgstr "Itago ang Terminal"
 
 #: ../plugins/terminal/terminal.vala:306
 msgid "Copy"
-msgstr ""
+msgstr "Kopyahin"
 
 #: ../plugins/terminal/terminal.vala:313
 #: ../plugins/clipboard-history/ClipboardHistory.vala:159
 msgid "Paste"
-msgstr ""
+msgstr "Idikit"
 
 #: ../plugins/terminal/terminal.vala:323
 msgid "Terminal on Right"
-msgstr ""
+msgstr "Ilagay ang Terminal sa Kanan"
 
 #: ../plugins/terminal/terminal.vala:331
 msgid "Terminal on Bottom"
-msgstr ""
+msgstr "Ilagay ang Terminal sa ibaba"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -597,11 +605,11 @@ msgstr ""
 #. **
 #: ../plugins/brackets-completion/brackets-completion.vala:21
 msgid "Brackets Completion"
-msgstr ""
+msgstr "Kumpletuhin ang mga Panaklong"
 
 #: ../plugins/brackets-completion/brackets-completion.vala:22
 msgid "Complete brackets while typing"
-msgstr ""
+msgstr "Kumpletuhin ang mga Panaklong habang nagta-type"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -628,37 +636,39 @@ msgstr ""
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:42
 msgid "Loading..."
-msgstr ""
+msgstr "Naglo-Load..."
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:175
 msgid "Bookmark"
-msgstr ""
+msgstr "Bookmark"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:234
 msgid "Files"
-msgstr ""
+msgstr "Mga File"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:235
 msgid "Project"
-msgstr ""
+msgstr "Proyekto"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:236
 msgid "Bookmarks"
-msgstr ""
+msgstr "Mga Bookmark"
 
 #: ../plugins/spell/spell.vala:18
 msgid "Spell Checker"
-msgstr ""
+msgstr "Taga-tsek ng baybay"
 
 #: ../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
-msgstr ""
+msgstr "Pag-tsek ng baybay ng iyong mga dokumento"
 
 #: ../plugins/spell/spell.vala:80
 msgid ""
 "No suitable dictionaries were found.\n"
 "Please install at least one [aspell] dictionary"
 msgstr ""
+"Walang angkop na mga diksyunaryo ang natagpuan.\n"
+"Mangyaring mag-install ng kahit isang [aspell] diksyunaryo"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -677,7 +687,7 @@ msgstr ""
 #: ../plugins/filemanager/FileManagerPlugin.vala:21
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:21
 msgid "Folder Manager"
-msgstr ""
+msgstr "Folder Manager"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:22
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:22
@@ -686,19 +696,19 @@ msgstr ""
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:71
 msgid "Go to parent"
-msgstr ""
+msgstr "Pumunta sa pinagmulan"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:82
 msgid "Add file"
-msgstr ""
+msgstr "Magdagdag ng file"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:89
 msgid "Remove file"
-msgstr ""
+msgstr "Magtanggal ng file"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:104
 msgid "File Manager"
-msgstr ""
+msgstr "File Manager"
 
 #: ../plugins/filemanager/FileView.vala:73
 msgid "/New File"
@@ -706,7 +716,7 @@ msgstr ""
 
 #: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
 msgid "Strip trailing whitespace"
-msgstr ""
+msgstr "Alisin ang mga sumusunod na whitespace"
 
 #: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
 msgid "Strip trailing whitespace on save"
@@ -714,7 +724,7 @@ msgstr ""
 
 #: ../plugins/browser-preview/BrowserView.vala:49
 msgid "Close Inspector"
-msgstr ""
+msgstr "Isarado ang Inspektor"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -732,7 +742,7 @@ msgstr ""
 #. **
 #: ../plugins/browser-preview/browser-preview.vala:21
 msgid "Browser Preview"
-msgstr ""
+msgstr "Prebiyu ng Browser"
 
 #: ../plugins/browser-preview/browser-preview.vala:22
 msgid "Get a preview your work in a web page"
@@ -741,16 +751,16 @@ msgstr ""
 #: ../plugins/browser-preview/browser-preview.vala:85
 #: ../plugins/browser-preview/browser-preview.vala:111
 msgid "Show Preview"
-msgstr ""
+msgstr "Ipakita ang Prebiyu"
 
 #: ../plugins/browser-preview/browser-preview.vala:107
 #: ../plugins/browser-preview/browser-preview.vala:150
 msgid "Web Preview"
-msgstr ""
+msgstr "Prebiyu sa Web"
 
 #: ../plugins/browser-preview/browser-preview.vala:108
 msgid "Hide Preview"
-msgstr ""
+msgstr "Itago ang Prebiyu"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -777,7 +787,7 @@ msgstr ""
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:28
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:156
 msgid "Delete"
