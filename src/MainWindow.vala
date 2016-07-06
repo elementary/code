@@ -289,7 +289,8 @@ namespace Scratch {
             switch (Gdk.keyval_name (event.keyval)) {
                 case "Escape":
                     if (this.search_revealer.get_child_revealed ()) {
-                        this.search_revealer.set_reveal_child (false);
+                        var fetch_action = (Gtk.ToggleAction) main_actions.get_action ("ShowFetch");
+                        fetch_action.active = false;
                     }
                     break;
             }
