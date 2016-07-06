@@ -1,6 +1,7 @@
 <ui>
     <popup name="ItemTool">
-        <menuitem name="Fetch" action="Fetch"/>
+        <menuitem action="Fetch" />
+        <menuitem name="ShowFetch" action="ShowFetch"/>
         <menuitem name="CloseTab" action="CloseTab"/>
         <menuitem name="Quit" action="Quit"/>
         <menuitem name="ShowGoTo" action="ShowGoTo"/>

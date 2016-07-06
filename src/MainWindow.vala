@@ -313,7 +313,7 @@ namespace Scratch {
         // Set sensitive property for 'delicate' Widgets/GtkActions while
         private void set_widgets_sensitive (bool val) {
             // SearchManager's stuffs
-            var fetch = (Gtk.ToggleAction) main_actions.get_action ("Fetch");
+            var fetch = (Gtk.ToggleAction) main_actions.get_action ("ShowFetch");
             fetch.sensitive = val;
             fetch.active = (fetch.active && val);
             main_actions.get_action ("ShowGoTo").sensitive = val;
@@ -745,38 +745,53 @@ namespace Scratch {
             }
         }
 
+        /** Not a toggle action - linked to keyboard short cut (Ctrl-f). **/
         private void action_fetch () {
-            var fetch_action = (Gtk.ToggleAction) main_actions.get_action ("Fetch");
-            var fetch_active = fetch_action.active;
-            var current_doc = this.get_current_document ();
-            // This is also called when all documents are closed.
-            if (current_doc != null) {
-                var selected_text = current_doc.get_selected_text ();
-                if (fetch_active == false) {
-                    search_manager.search_entry.text = "";
-                } else if (selected_text != "") {
-                    //If the user is selecting text, he plobably wants to search for it.
-                    search_manager.search_entry.text = selected_text;
+            if (!search_revealer.child_revealed) {
+                var fetch_action = (Gtk.ToggleAction) main_actions.get_action ("ShowFetch");
+                 /* This triggers action_show_fetch () which will recall action fetch ()
+                  * with the child revealed. */
+                fetch_action.active = true;
+            } else {
+                var current_doc = this.get_current_document ();
+                // This is also called when all documents are closed.
+                if (current_doc != null) {
+                    var selected_text = current_doc.get_selected_text ();
+
+                    if (selected_text != "") {
+                        //If the user is selecting text, he probably wants to search for it.
+                        search_manager.search_entry.text = selected_text;
+                    }
+
+                    if (search_manager.search_entry.text != "") {
+                        search_manager.search_next ();
+                    } else {
+                        search_manager.highlight_none ();
+                    }
                 }
 
-                if (search_manager.search_entry.text != "") {
-                    search_manager.search_next ();
-                } else {
-                    search_manager.highlight_none ();
-                }
+                search_manager.search_entry.grab_focus ();
             }
+        }
+
+        /** Toggle action - linked to toolbar togglebutton. **/
+        private void action_show_fetch () {
+            var fetch_action = (Gtk.ToggleAction) main_actions.get_action ("ShowFetch");
+            var fetch_active = fetch_action.active;
 
             search_revealer.set_reveal_child (fetch_active);
-            if (fetch_active) {
-                fetch_action.tooltip = _("Hide search bar");
-                search_manager.search_entry.grab_focus ();
-            } else {
+
+            if (fetch_active == false) {
+                search_manager.search_entry.text = "";
                 fetch_action.tooltip = _("Find…");
+            } else {
+                fetch_action.tooltip = _("Hide search bar");
+                action_fetch ();
             }
         }
 
         private void action_go_to () {
-            var fetch_action = (Gtk.ToggleAction) main_actions.get_action ("Fetch");
+            var fetch_action = (Gtk.ToggleAction) main_actions.get_action ("ShowFetch");
             fetch_action.active = true;
             this.search_manager.go_to_entry.grab_focus ();
         }
@@ -922,11 +937,14 @@ namespace Scratch {
           /* label, accelerator */       null, "<Control>l",
           /* tooltip */                  null,
                                          action_to_lower_case },
-
             { "ToUpperCase", null,
           /* label, accelerator */       null, "<Control>u",
           /* tooltip */                  null,
-                                         action_to_upper_case }
+                                         action_to_upper_case },
+            { "Fetch", null,
+          /* label, accelerator */       N_("Find…"), "<Control>f",
+          /* tooltip */                  N_("Find…"),
+                                         action_fetch }
         };
 
         private const Gtk.ToggleActionEntry[] toggle_entries = {
@@ -934,10 +952,11 @@ namespace Scratch {
           /* label, accelerator */       N_("Fullscreen"), "F11",
           /* tooltip */                  N_("Fullscreen"),
                                          action_fullscreen },
-            { "Fetch", "edit-find",
-          /* label, accelerator */       N_("Find…"), "<Control>f",
+
+            { "ShowFetch", "edit-find",
+          /* label, accelerator */       N_("Find…"), "",
           /* tooltip */                  N_("Find…"),
-                                         action_fetch }
+                                         action_show_fetch }
         };
     }
 }
