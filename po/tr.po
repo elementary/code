@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-30 11:22-0700\n"
-"PO-Revision-Date: 2015-12-21 13:39+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
+"PO-Revision-Date: 2016-06-30 19:06+0000\n"
+"Last-Translator: Mehmet <darkmehmet3@gmail.com>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-31 06:25+0000\n"
-"X-Generator: Launchpad (build 18053)\n"
+"X-Launchpad-Export-Date: 2016-07-01 05:49+0000\n"
+"X-Generator: Launchpad (build 18115)\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -60,7 +60,7 @@ msgstr "Kapat"
 
 #: ../src/Dialogs/PreferencesDialog.vala:109
 msgid "General"
-msgstr ""
+msgstr "Genel"
 
 #: ../src/Dialogs/PreferencesDialog.vala:111
 msgid "When Scratch starts:"
@@ -80,7 +80,7 @@ msgstr "Dosyalar değiştiğinde kaydet:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:120
 msgid "Tabs"
-msgstr ""
+msgstr "Sekmeler"
 
 #: ../src/Dialogs/PreferencesDialog.vala:122
 msgid "Automatic indentation:"
@@ -96,7 +96,7 @@ msgstr "Sekme genişliği:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:154
 msgid "Editor"
-msgstr ""
+msgstr "Düzenleyici"
 
 #: ../src/Dialogs/PreferencesDialog.vala:156
 msgid "Highlight current line:"
@@ -112,7 +112,7 @@ msgstr "Satırları Kaydır"
 
 #: ../src/Dialogs/PreferencesDialog.vala:165
 msgid "Draw Spaces:"
-msgstr ""
+msgstr "Çizim Alanları"
 
 #: ../src/Dialogs/PreferencesDialog.vala:168
 msgid "Show line numbers:"
@@ -120,7 +120,7 @@ msgstr "Satır numaralarını göster:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:172
 msgid "Show Mini Map:"
-msgstr ""
+msgstr "Mini Haritayı Göster"
 
 #: ../src/Dialogs/PreferencesDialog.vala:176
 msgid "Line width guide:"
@@ -128,7 +128,7 @@ msgstr "Satır genişliği kılavuzu:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:184
 msgid "Font and Color Scheme"
-msgstr ""
+msgstr "Font ve Yazı Rengi Seçimi"
 
 #: ../src/Dialogs/PreferencesDialog.vala:186
 msgid "Color scheme:"
@@ -456,6 +456,7 @@ msgstr ""
 "  A.Onur https://launchpad.net/~usbehci\n"
 "  Ahmet Akif DERE https://launchpad.net/~dereakif\n"
 "  Atbeyi https://launchpad.net/~atbeyi\n"
+"  Beyhan Karadağ https://launchpad.net/~beyhankaradag00\n"
 "  Bilal https://launchpad.net/~kira-gazerock\n"
 "  Caner https://launchpad.net/~mysticwalker\n"
 "  CarnageTR https://launchpad.net/~birkanozer\n"
@@ -469,6 +470,7 @@ msgstr ""
 "  Hamza https://launchpad.net/~ckr-hamza\n"
 "  Keke Magnon https://launchpad.net/~kekemagnon\n"
 "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
+"  Mehmet https://launchpad.net/~darkmehmet3\n"
 "  Mehmet Bozoklu https://launchpad.net/~mehmet-bozoklu\n"
 "  Muhammet Kara https://launchpad.net/~muhammet-k\n"
 "  Mustafa https://launchpad.net/~merakliben\n"
@@ -483,7 +485,7 @@ msgstr ""
 
 #: ../src/Scratch.vala:166
 msgid "Maybe you do not have the necessary permissions."
-msgstr ""
+msgstr "Bu kısım için yeterli izniniz yok"
 
 #: ../src/Scratch.vala:168
 msgid "Maybe the file path provided is not valid."
@@ -491,31 +493,35 @@ msgstr ""
 
 #: ../src/Scratch.vala:170
 msgid "The location is read-only."
-msgstr ""
+msgstr "Konum yalnızca okumaya açık"
 
 #: ../src/Scratch.vala:172
 msgid "The parent directory doesn't exist."
-msgstr ""
+msgstr "Ana dizin mevcut değil."
 
 #: ../src/Scratch.vala:179
 msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
 msgstr ""
+"\"%s\" dosyası oluşturulamadı.\n"
+"%s"
 
 #: ../src/Scratch.vala:189
 msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
 msgstr ""
+"\"%s\" dosyası açılamadı.\n"
+"%s"
 
 #: ../src/Scratch.vala:198
 msgid "It is a mountable location."
-msgstr ""
+msgstr "Burası yerleştirilebilir bir konum."
 
 #: ../src/Scratch.vala:201
 msgid "It is a directory."
-msgstr ""
+msgstr "Bu bir dizin."
 
 #: ../src/Scratch.vala:204
 msgid ""
@@ -525,7 +531,7 @@ msgstr ""
 
 #: ../src/Scratch.vala:207
 msgid "It is an \"unknown\" file type."
-msgstr ""
+msgstr "Bilinmeyen dosya türü."
 
 #: ../src/Scratch.vala:311
 msgid "New Tab"

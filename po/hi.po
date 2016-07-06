@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-30 11:22-0700\n"
-"PO-Revision-Date: 2016-01-26 11:48+0000\n"
-"Last-Translator: Anurag kushwaha <kanurag078@gmail.com>\n"
+"PO-Revision-Date: 2016-06-24 12:52+0000\n"
+"Last-Translator: Anand Kumar <Unknown>\n"
 "Language-Team: Hindi <hi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-31 06:24+0000\n"
-"X-Generator: Launchpad (build 18053)\n"
+"X-Launchpad-Export-Date: 2016-06-26 05:50+0000\n"
+"X-Generator: Launchpad (build 18111)\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -31,15 +31,15 @@ msgstr "नया दस्तावेज़"
 
 #: ../src/config.vala:18 ../src/Scratch.vala:312
 msgid "New Window"
-msgstr "नई विंडो"
+msgstr "नया विंडो"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr "स्क्रँच के बारेमे"
+msgstr "स्क्रँच के बारे मे"
 
 #: ../src/Dialogs/PreferencesDialog.vala:56 ../src/MainWindow.vala:909
 msgid "Preferences"
-msgstr "पसंद"
+msgstr "वरीयताएँ"
 
 #: ../src/Dialogs/PreferencesDialog.vala:68
 msgid "Behavior"
@@ -47,7 +47,7 @@ msgstr "व्‍यवहार"
 
 #: ../src/Dialogs/PreferencesDialog.vala:69
 msgid "Interface"
-msgstr "अंतरफलक"
+msgstr "इंटरफ़ेस"
 
 #: ../src/Dialogs/PreferencesDialog.vala:80
 msgid "Extensions"
@@ -60,7 +60,7 @@ msgstr "बंद करें"
 
 #: ../src/Dialogs/PreferencesDialog.vala:109
 msgid "General"
-msgstr ""
+msgstr "सामान्य"
 
 #: ../src/Dialogs/PreferencesDialog.vala:111
 msgid "When Scratch starts:"
@@ -80,7 +80,7 @@ msgstr "बदलाव करने पर फाइलों को सहे�
 
 #: ../src/Dialogs/PreferencesDialog.vala:120
 msgid "Tabs"
-msgstr ""
+msgstr "टैब्स"
 
 #: ../src/Dialogs/PreferencesDialog.vala:122
 msgid "Automatic indentation:"
@@ -96,11 +96,11 @@ msgstr "टैब चौड़ाईः"
 
 #: ../src/Dialogs/PreferencesDialog.vala:154
 msgid "Editor"
-msgstr ""
+msgstr "एडीटर"
 
 #: ../src/Dialogs/PreferencesDialog.vala:156
 msgid "Highlight current line:"
-msgstr ""
+msgstr "वर्तमान लाइन को चिन्हांकित करें"
 
 #: ../src/Dialogs/PreferencesDialog.vala:159
 msgid "Highlight matching brackets:"
@@ -112,7 +112,7 @@ msgstr ""
 
 #: ../src/Dialogs/PreferencesDialog.vala:165
 msgid "Draw Spaces:"
-msgstr ""
+msgstr "स्पेस बनायें"
 
 #: ../src/Dialogs/PreferencesDialog.vala:168
 msgid "Show line numbers:"
@@ -120,7 +120,7 @@ msgstr "पंक्ति नंबर दिखाएँ:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:172
 msgid "Show Mini Map:"
-msgstr ""
+msgstr "लघु मानचित्र चित्रित करें"
 
 #: ../src/Dialogs/PreferencesDialog.vala:176
 msgid "Line width guide:"
@@ -323,7 +323,7 @@ msgstr "फाइल खोलें"
 
 #: ../src/MainWindow.vala:889
 msgid "Clipboard"
-msgstr ""
+msgstr "क्लिपबोर्ड"
 
 #: ../src/MainWindow.vala:890
 msgid "New file from Clipboard"
@@ -380,7 +380,7 @@ msgstr "पूरा स्क्रीन"
 
 #: ../src/Services/Document.vala:245
 msgid "Save changes to document %s before closing?"
-msgstr "डाँकयुमेन्ट बंद  करनेसे पहले बदलाव सेव कीजिये"
+msgstr "डाँकयुमेन्ट बंद करनेसे पहले %s के बदलाव सेव करे?"
 
 #: ../src/Services/Document.vala:248
 msgid ""
@@ -450,6 +450,7 @@ msgstr "जारी रखें"
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
+"  Anand Kumar https://launchpad.net/~anandkumar\n"
 "  Anurag kushwaha https://launchpad.net/~kanurag078\n"
 "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
 "  Satchit Bhogle https://launchpad.net/~satchitb\n"
@@ -581,7 +582,7 @@ msgstr ""
 #: ../plugins/terminal/terminal.vala:313
 #: ../plugins/clipboard-history/ClipboardHistory.vala:159
 msgid "Paste"
-msgstr ""
+msgstr "चिपकाएं"
 
 #: ../plugins/terminal/terminal.vala:323
 msgid "Terminal on Right"

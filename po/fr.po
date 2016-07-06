@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-30 11:22-0700\n"
-"PO-Revision-Date: 2015-12-21 13:37+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
+"PO-Revision-Date: 2016-06-18 14:16+0000\n"
+"Last-Translator: Corentin Noël <corentin@elementaryos.org>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-31 06:23+0000\n"
-"X-Generator: Launchpad (build 18053)\n"
+"X-Launchpad-Export-Date: 2016-06-19 05:46+0000\n"
+"X-Generator: Launchpad (build 18097)\n"
 "Language: fr\n"
 
 #: ../src/config.vala:15
@@ -61,7 +61,7 @@ msgstr "Fermer"
 
 #: ../src/Dialogs/PreferencesDialog.vala:109
 msgid "General"
-msgstr ""
+msgstr "Général"
 
 #: ../src/Dialogs/PreferencesDialog.vala:111
 msgid "When Scratch starts:"
@@ -81,7 +81,7 @@ msgstr "Sauvegarder les fichiers lorsqu'ils sont modifiés :"
 
 #: ../src/Dialogs/PreferencesDialog.vala:120
 msgid "Tabs"
-msgstr ""
+msgstr "Tabulation"
 
 #: ../src/Dialogs/PreferencesDialog.vala:122
 msgid "Automatic indentation:"
@@ -97,7 +97,7 @@ msgstr "Largeur des tabulations :"
 
 #: ../src/Dialogs/PreferencesDialog.vala:154
 msgid "Editor"
-msgstr ""
+msgstr "Éditeur"
 
 #: ../src/Dialogs/PreferencesDialog.vala:156
 msgid "Highlight current line:"
@@ -113,7 +113,7 @@ msgstr "Retour à la ligne"
 
 #: ../src/Dialogs/PreferencesDialog.vala:165
 msgid "Draw Spaces:"
-msgstr ""
+msgstr "Afficher les espaces :"
 
 #: ../src/Dialogs/PreferencesDialog.vala:168
 msgid "Show line numbers:"
@@ -121,7 +121,7 @@ msgstr "Afficher les numéros de ligne :"
 
 #: ../src/Dialogs/PreferencesDialog.vala:172
 msgid "Show Mini Map:"
-msgstr ""
+msgstr "Afficher l'aperçu du fichier :"
 
 #: ../src/Dialogs/PreferencesDialog.vala:176
 msgid "Line width guide:"
@@ -129,7 +129,7 @@ msgstr "Guide de largeur de ligne"
 
 #: ../src/Dialogs/PreferencesDialog.vala:184
 msgid "Font and Color Scheme"
-msgstr ""
+msgstr "Police et palette de couleurs"
 
 #: ../src/Dialogs/PreferencesDialog.vala:186
 msgid "Color scheme:"
@@ -488,7 +488,7 @@ msgstr ""
 "  TcodingT https://launchpad.net/~tcodingt\n"
 "  Tristan Cormier https://launchpad.net/~tristanc\n"
 "  Vannier Jean-Charbel https://launchpad.net/~jean-charbel\n"
-"  XIA https://launchpad.net/~xia-lady-3d\n"
+"  XIA https://launchpad.net/~xia-lady-3d-deactivatedaccount\n"
 "  Xavier L. https://launchpad.net/~xav0989\n"
 "  benjamin SIENTZOFF https://launchpad.net/~benjamin-sientzoff\n"
 "  denis morgan https://launchpad.net/~morgan-denis-60\n"
@@ -496,44 +496,47 @@ msgstr ""
 "  michel_95 https://launchpad.net/~michel-95\n"
 "  miyoyo https://launchpad.net/~smartandroidtv95\n"
 "  obibann https://launchpad.net/~obibann\n"
-"  qperroit https://launchpad.net/~quentin-perroit\n"
-"  xapantu https://launchpad.net/~xapantu"
+"  qperroit https://launchpad.net/~quentin-perroit"
 
 #: ../src/Scratch.vala:166
 msgid "Maybe you do not have the necessary permissions."
-msgstr ""
+msgstr "Peut-être n'avez-vous pas les permissions nécessaires."
 
 #: ../src/Scratch.vala:168
 msgid "Maybe the file path provided is not valid."
-msgstr ""
+msgstr "Peut-être que le chemin spécifié est invalide."
 
 #: ../src/Scratch.vala:170
 msgid "The location is read-only."
-msgstr ""
+msgstr "L'emplacement est en lecture-seule."
 
 #: ../src/Scratch.vala:172
 msgid "The parent directory doesn't exist."
-msgstr ""
+msgstr "Le répertoire parent n'existe pas."
 
 #: ../src/Scratch.vala:179
 msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
 msgstr ""
+"Le fichier \"%s\" n'a pas pu être créé.\n"
+"%s"
 
 #: ../src/Scratch.vala:189
 msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
 msgstr ""
+"Le fichier \"%s\" n'a pas pu être ouvert.\n"
+"%s"
 
 #: ../src/Scratch.vala:198
 msgid "It is a mountable location."
-msgstr ""
+msgstr "Il s'agit d'un emplacement montable."
 
 #: ../src/Scratch.vala:201
 msgid "It is a directory."
-msgstr ""
+msgstr "Il s'agit d'un répertoire."
 
 #: ../src/Scratch.vala:204
 msgid ""
@@ -543,7 +546,7 @@ msgstr ""
 
 #: ../src/Scratch.vala:207
 msgid "It is an \"unknown\" file type."
-msgstr ""
+msgstr "Il s'agit d'un fichier de type inconnu."
 
 #: ../src/Scratch.vala:311
 msgid "New Tab"
@@ -713,6 +716,8 @@ msgid ""
 "No suitable dictionaries were found.\n"
 "Please install at least one [aspell] dictionary"
 msgstr ""
+"Aucun dictionnaire n'a été trouvé.\n"
+"Veuillez installer au moins un dictionnaire [aspell]"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published

@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-30 11:22-0700\n"
-"PO-Revision-Date: 2016-06-01 15:45+0000\n"
-"Last-Translator: Menci <huanghaorui301@gmail.com>\n"
+"PO-Revision-Date: 2016-06-17 17:32+0000\n"
+"Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-06-02 06:11+0000\n"
-"X-Generator: Launchpad (build 18053)\n"
+"X-Launchpad-Export-Date: 2016-06-18 05:53+0000\n"
+"X-Generator: Launchpad (build 18097)\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -72,7 +72,7 @@ msgstr "显示欢迎界面"
 
 #: ../src/Dialogs/PreferencesDialog.vala:114
 msgid "Show last open tabs"
-msgstr "显示上次打开的标签"
+msgstr "打开上次标签"
 
 #: ../src/Dialogs/PreferencesDialog.vala:117
 msgid "Save files when changed:"
@@ -80,7 +80,7 @@ msgstr "自动保存变更："
 
 #: ../src/Dialogs/PreferencesDialog.vala:120
 msgid "Tabs"
-msgstr "标签页"
+msgstr "标签设置"
 
 #: ../src/Dialogs/PreferencesDialog.vala:122
 msgid "Automatic indentation:"
@@ -112,7 +112,7 @@ msgstr "自动换行："
 
 #: ../src/Dialogs/PreferencesDialog.vala:165
 msgid "Draw Spaces:"
-msgstr ""
+msgstr "标出空格："
 
 #: ../src/Dialogs/PreferencesDialog.vala:168
 msgid "Show line numbers:"
@@ -120,15 +120,15 @@ msgstr "显示行号："
 
 #: ../src/Dialogs/PreferencesDialog.vala:172
 msgid "Show Mini Map:"
-msgstr ""
+msgstr "显示概览："
 
 #: ../src/Dialogs/PreferencesDialog.vala:176
 msgid "Line width guide:"
-msgstr "线宽指南："
+msgstr "线宽引导："
 
 #: ../src/Dialogs/PreferencesDialog.vala:184
 msgid "Font and Color Scheme"
-msgstr "字体及颜色主题"
+msgstr "主题"
 
 #: ../src/Dialogs/PreferencesDialog.vala:186
 msgid "Color scheme:"
@@ -136,7 +136,7 @@ msgstr "颜色方案："
 
 #: ../src/Dialogs/PreferencesDialog.vala:191
 msgid "Custom font:"
-msgstr "字体选择："
+msgstr "更改字体："
 
 #: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
@@ -148,11 +148,11 @@ msgstr "正在恢复上次会话，请稍等..."
 
 #: ../src/Widgets/SplitView.vala:45
 msgid "No Files Open"
-msgstr "没有打开的文件"
+msgstr "未打开任何文件"
 
 #: ../src/Widgets/SplitView.vala:46
 msgid "Open a file to begin editing."
-msgstr "打开并编辑文件。"
+msgstr "请打开您要编辑的文件。"
 
 #: ../src/Widgets/SplitView.vala:50
 msgid "New file"
@@ -168,7 +168,7 @@ msgstr "打开文件"
 
 #: ../src/Widgets/SplitView.vala:51
 msgid "Open a saved file."
-msgstr "打开已保存的文件。"
+msgstr "打开已保存的本地文件。"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "New file from clipboard"
@@ -278,7 +278,7 @@ msgstr "添加新视图"
 
 #: ../src/MainWindow.vala:865
 msgid "Remove Current View"
-msgstr "删除当前视图"
+msgstr "删除此视图"
 
 #: ../src/MainWindow.vala:866
 msgid "Remove this view"
@@ -458,7 +458,7 @@ msgstr ""
 
 #: ../src/Scratch.vala:166
 msgid "Maybe you do not have the necessary permissions."
-msgstr ""
+msgstr "您可能没有所需的权限。"
 
 #: ../src/Scratch.vala:168
 msgid "Maybe the file path provided is not valid."
@@ -470,7 +470,7 @@ msgstr "此路径是只读的。"
 
 #: ../src/Scratch.vala:172
 msgid "The parent directory doesn't exist."
-msgstr ""
+msgstr "上级目录不存在。"
 
 #: ../src/Scratch.vala:179
 msgid ""
@@ -501,6 +501,8 @@ msgid ""
 "It is a \"special\" file such as a socket,\n"
 " fifo, block device, or character device."
 msgstr ""
+"这是一个“特殊”文件，如 Socket 文件、\n"
+"FIFO 文件、区块设备或字符设备等。"
 
 #: ../src/Scratch.vala:207
 msgid "It is an \"unknown\" file type."
