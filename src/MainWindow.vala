@@ -937,12 +937,10 @@ namespace Scratch {
           /* label, accelerator */       null, "<Control>l",
           /* tooltip */                  null,
                                          action_to_lower_case },
-
             { "ToUpperCase", null,
           /* label, accelerator */       null, "<Control>u",
           /* tooltip */                  null,
                                          action_to_upper_case },
-
             { "Fetch", null,
           /* label, accelerator */       N_("Find…"), "<Control>f",
           /* tooltip */                  N_("Find…"),
