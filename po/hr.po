@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-30 11:22-0700\n"
-"PO-Revision-Date: 2016-07-04 17:16+0000\n"
+"PO-Revision-Date: 2016-07-08 20:02+0000\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-07-05 05:47+0000\n"
+"X-Launchpad-Export-Date: 2016-07-09 06:12+0000\n"
 "X-Generator: Launchpad (build 18115)\n"
 
 #: ../src/config.vala:15
@@ -60,7 +60,7 @@ msgstr "Zatvori"
 
 #: ../src/Dialogs/PreferencesDialog.vala:109
 msgid "General"
-msgstr ""
+msgstr "Općenito"
 
 #: ../src/Dialogs/PreferencesDialog.vala:111
 msgid "When Scratch starts:"
@@ -68,11 +68,11 @@ msgstr "Kada se Scratch pokreće:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:113
 msgid "Show welcome screen"
-msgstr "Prikaži ekran dobrodošlice"
+msgstr "Prikaži zaslon dobrodošlice"
 
 #: ../src/Dialogs/PreferencesDialog.vala:114
 msgid "Show last open tabs"
-msgstr "Pokaži zadnje otvorene kartice"
+msgstr "Prikaži zadnje otvorene kartice"
 
 #: ../src/Dialogs/PreferencesDialog.vala:117
 msgid "Save files when changed:"
@@ -80,7 +80,7 @@ msgstr "Spremi datoteke kada je promjenjeno:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:120
 msgid "Tabs"
-msgstr ""
+msgstr "Kartice"
 
 #: ../src/Dialogs/PreferencesDialog.vala:122
 msgid "Automatic indentation:"
@@ -88,19 +88,19 @@ msgstr "Automatsko uvlačenje:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:125
 msgid "Insert spaces instead of tabs:"
-msgstr "Umetni razmake umjesto tabulatora:"
+msgstr "Umetni razmake umjesto taba:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:128
 msgid "Tab width:"
-msgstr "Širina kartice:"
+msgstr "Širina taba:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:154
 msgid "Editor"
-msgstr ""
+msgstr "Uređivač"
 
 #: ../src/Dialogs/PreferencesDialog.vala:156
 msgid "Highlight current line:"
-msgstr "Istakni trenutnu liniju"
+msgstr "Istakni trenutni redak"
 
 #: ../src/Dialogs/PreferencesDialog.vala:159
 msgid "Highlight matching brackets:"
@@ -108,51 +108,51 @@ msgstr "Istakni podudarajuće zagrade:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:162
 msgid "Line wrap:"
-msgstr "Omatanje linija:"
+msgstr "Prijelom redka:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:165
 msgid "Draw Spaces:"
-msgstr ""
+msgstr "Prostor crteža:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:168
 msgid "Show line numbers:"
-msgstr "Prikaži brojeve linija:"
+msgstr "Prikaži brojeve redaka:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:172
 msgid "Show Mini Map:"
-msgstr ""
+msgstr "Prikaži mini mapu:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:176
 msgid "Line width guide:"
-msgstr "Vodič širine linija:"
+msgstr "Širina redka vodiča:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:184
 msgid "Font and Color Scheme"
-msgstr ""
+msgstr "Shema slova i boja"
 
 #: ../src/Dialogs/PreferencesDialog.vala:186
 msgid "Color scheme:"
-msgstr "Shema boja"
+msgstr "Shema boja:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:191
 msgid "Custom font:"
-msgstr "Prilagođen font:"
+msgstr "Prilagođena slova:"
 
 #: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
-msgstr "Tekstualna datoteka iz "
+msgstr "Tekstovna datoteka iz "
 
 #: ../src/Widgets/LoadingView.vala:33
 msgid "Wait while restoring last session..."
-msgstr "Pričekajte dok se obnovi prijašnja sesija..."
+msgstr "Pričekajte dok se obnoavlja prijašnja sesija..."
 
 #: ../src/Widgets/SplitView.vala:45
 msgid "No Files Open"
-msgstr "Nema otvorenih dokumenata"
+msgstr "Nema otvorenih datoteka"
 
 #: ../src/Widgets/SplitView.vala:46
 msgid "Open a file to begin editing."
-msgstr "Otvori datoteku za uređivanje"
+msgstr "Otvori datoteku za početak uređivanja,"
 
 #: ../src/Widgets/SplitView.vala:50
 msgid "New file"
@@ -160,7 +160,7 @@ msgstr "Nova datoteka"
 
 #: ../src/Widgets/SplitView.vala:50
 msgid "Create a new empty file."
-msgstr "Stvori praznu datoteku."
+msgstr "Stvori novu praznu datoteku."
 
 #: ../src/Widgets/SplitView.vala:51
 msgid "Open file"
@@ -168,7 +168,7 @@ msgstr "Otvori datoteku"
 
 #: ../src/Widgets/SplitView.vala:51
 msgid "Open a saved file."
-msgstr "Otvori snimljenu datoteku."
+msgstr "Otvori spremljenu datoteku."
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "New file from clipboard"
@@ -176,27 +176,27 @@ msgstr "Nova datoteka iz međuspremnika"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "Create a new file from the contents of your clipboard."
-msgstr "Stvori novu datoteku sa sadržajem iz međuspremnika."
+msgstr "Stvori novu datoteku iz sadržaja vašeg međuspremnika."
 
 #: ../src/Widgets/SearchManager.vala:70
 msgid "Find"
-msgstr "Pronađi"
+msgstr "Pretraži"
 
 #: ../src/Widgets/SearchManager.vala:75
 msgid "Replace With"
-msgstr "Zamijeni sa:"
+msgstr "Zamijeni s(a):"
 
 #: ../src/Widgets/SearchManager.vala:91
 msgid "Search next"
-msgstr "Traži tekst"
+msgstr "Pretraži tekst"
 
 #: ../src/Widgets/SearchManager.vala:97
 msgid "Search previous"
-msgstr "Traži prethodno"
+msgstr "Pretraži prijašnje"
 
 #: ../src/Widgets/SearchManager.vala:104
 msgid "Cyclic Search"
-msgstr ""
+msgstr "Ciklička pretraga"
 
 #: ../src/Widgets/SearchManager.vala:107 ../src/MainWindow.vala:849
 #: ../src/MainWindow.vala:850
@@ -209,7 +209,7 @@ msgstr "Zamijeni sve"
 
 #: ../src/Widgets/SearchManager.vala:121
 msgid "Go To Line:"
-msgstr "Idi na liniju:"
+msgstr "Idi na redak:"
 
 #: ../src/Widgets/ToolBar.vala:58
 msgid "Share"
@@ -237,20 +237,20 @@ msgstr "Otvori datoteke"
 
 #: ../src/MainWindow.vala:771
 msgid "Hide search bar"
-msgstr "Sakrij traku pretraživanja"
+msgstr "Sakrij traku pretrage"
 
 #: ../src/MainWindow.vala:774 ../src/MainWindow.vala:938
 #: ../src/MainWindow.vala:939
 msgid "Find…"
-msgstr "Pronađi..."
+msgstr "Pretraži..."
 
 #: ../src/MainWindow.vala:837 ../src/MainWindow.vala:838
 msgid "Go to line…"
-msgstr "Idi na liniju..."
+msgstr "Idi na redak..."
 
 #: ../src/MainWindow.vala:841 ../src/MainWindow.vala:842
 msgid "Quit"
-msgstr "Odustani"
+msgstr "Zatvori"
 
 #: ../src/MainWindow.vala:853
 msgid "Reopen closed document"
@@ -258,7 +258,7 @@ msgstr "Ponovno otvori zatvoreni dokument"
 
 #: ../src/MainWindow.vala:854
 msgid "Open last closed document in a new tab"
-msgstr "Otvori zadnji zatvoreni dokument u novoj kartici"
+msgstr "Otvori posljednji zatvoreni dokument u novoj kartici"
 
 #: ../src/MainWindow.vala:857
 msgid "Add New Tab"
@@ -294,23 +294,23 @@ msgstr "Vrati zadnju radnju"
 
 #: ../src/MainWindow.vala:873
 msgid "Redo"
-msgstr "Vrati natrag"
+msgstr "Ponovi"
 
 #: ../src/MainWindow.vala:874
 msgid "Redo the last undone action"
-msgstr "Vrati natrag zadnje poništenu radnju"
+msgstr "Ponovi zadnje poništenu radnju"
 
 #: ../src/MainWindow.vala:877
 msgid "Revert"
-msgstr "Povrati"
+msgstr "Vrati"
 
 #: ../src/MainWindow.vala:878
 msgid "Restore this file"
-msgstr "Povrati ovu datoteku"
+msgstr "Vrati ovu datoteku"
 
 #: ../src/MainWindow.vala:881 ../src/MainWindow.vala:882
 msgid "Duplicate selected strings"
-msgstr "Udvostruči obilježeni string"
+msgstr "Udvostruči obilježeni niz"
 
 #: ../src/MainWindow.vala:885 ../src/Utils.vala:31
 #: ../plugins/filemanager/FileView.vala:230
@@ -352,7 +352,7 @@ msgstr "Spremi kao..."
 
 #: ../src/MainWindow.vala:902
 msgid "Save this file with a different name"
-msgstr "Spremi datoteku s drugim imenom"
+msgstr "Spremi ovu datoteku pod drugim nazivom"
 
 #: ../src/MainWindow.vala:905 ../src/Services/TemplateManager.vala:194
 msgid "Templates"
@@ -372,7 +372,7 @@ msgstr "Sljedeća kartica"
 
 #: ../src/MainWindow.vala:917 ../src/MainWindow.vala:918
 msgid "Previous Tab"
-msgstr "Prethodna kartica"
+msgstr "Prijašnja kartica"
 
 #: ../src/MainWindow.vala:934 ../src/MainWindow.vala:935
 msgid "Fullscreen"
@@ -380,13 +380,13 @@ msgstr "Cijeli zaslon"
 
 #: ../src/Services/Document.vala:245
 msgid "Save changes to document %s before closing?"
-msgstr "Želite li prije izlaska iz programa spremiti izmjene u dokument %s?"
+msgstr "Spremi promjene u dokument %s prije zatvaranja?"
 
 #: ../src/Services/Document.vala:248
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
-"Ako ne spremite, promjene nastale u zadnje 4 sekunde će zauvijek biti "
+"Ako ne spremite, promjene nastale u zadnje 4 sekunde biti će trajno "
 "izgubljene."
 
 #: ../src/Services/Document.vala:250
@@ -395,7 +395,7 @@ msgstr "Zatvori bez spremanja"
 
 #: ../src/Services/Document.vala:254 ../src/Utils.vala:29
 msgid "Cancel"
-msgstr "Otkaži"
+msgstr "Odustani"
 
 #: ../src/Services/Document.vala:327
 msgid "Save File"
@@ -406,8 +406,8 @@ msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
-"Nemoguće pročitati datoteku \"%s\". Mougće da je oštećena\n"
-"ili ne postoje potrebna prava pristupa za čitanje."
+"Datoteku \"%s\" je nemoguće pročitati. Možda je oštećena\n"
+"ili nemate potrebne dozvole za čitanje."
 
 #: ../src/Services/Document.vala:572
 msgid ""
@@ -426,20 +426,20 @@ msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 msgstr ""
-"Nemoguće spremiti promjene na datoteci \"%s\". Želite li promjene na ovoj "
-"datoteci spremiti drugdje?"
+"Ne možete spremiti promjene na datoteci \"%s\". Želite li promjene na ovoj "
+"datoteci spremiti na drugu lokaciju?"
 
 #: ../src/Services/Document.vala:594
 msgid "Save changes elsewhere"
-msgstr "Spremi promjene nekamo drugdje"
+msgstr "Spremi promjene negdje drugdje"
 
 #: ../src/Services/Document.vala:625
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
-"Datoteka \"%s\" je uređena vanjskim programom. Želite li učitati ponovno i "
-"nastaviti uređivanje?"
+"Datoteka \"%s\" je promijenjena vanjskom aplikacijom. Želite li ju ponovno "
+"učitati i nastaviti uređivanje?"
 
 #: ../src/Services/Document.vala:626
 msgid "Load"
@@ -468,49 +468,55 @@ msgstr ""
 
 #: ../src/Scratch.vala:166
 msgid "Maybe you do not have the necessary permissions."
-msgstr ""
+msgstr "Možda nemate potrebne dozvole."
 
 #: ../src/Scratch.vala:168
 msgid "Maybe the file path provided is not valid."
-msgstr ""
+msgstr "Možda zadana putanja nije valjana."
 
 #: ../src/Scratch.vala:170
 msgid "The location is read-only."
-msgstr ""
+msgstr "Lokacija je samo za čitanje."
 
 #: ../src/Scratch.vala:172
 msgid "The parent directory doesn't exist."
-msgstr ""
+msgstr "Sadržajna mapa ne postoji."
 
 #: ../src/Scratch.vala:179
 msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
 msgstr ""
+"Datoteka \"%s\" se ne može stvoriti.\n"
+"%s"
 
 #: ../src/Scratch.vala:189
 msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
 msgstr ""
+"Datoteka \"%s\" se ne može otvoriti.\n"
+"%s"
 
 #: ../src/Scratch.vala:198
 msgid "It is a mountable location."
-msgstr ""
+msgstr "To je lokacija koja se može montirati."
 
 #: ../src/Scratch.vala:201
 msgid "It is a directory."
-msgstr ""
+msgstr "To je direkrotij."
 
 #: ../src/Scratch.vala:204
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " fifo, block device, or character device."
 msgstr ""
+"To je \"posebna\" datoteka poput priključnice,\n"
+" fifo, bloka uređaja, uređaja znakova."
 
 #: ../src/Scratch.vala:207
 msgid "It is an \"unknown\" file type."
-msgstr ""
+msgstr "To je \"nepoznata\" vrsta datoteke."
 
 #: ../src/Scratch.vala:311
 msgid "New Tab"
@@ -522,7 +528,7 @@ msgstr "Ispiši informacije o inačici i izađi"
 
 #: ../src/Scratch.vala:314
 msgid "Set of plugins"
-msgstr "Skup dodataka"
+msgstr "Skup priključaka"
 
 #: ../src/Scratch.vala:315
 msgid "Current working directory"
@@ -534,7 +540,7 @@ msgstr "Sve datoteke"
 
 #: ../src/Utils.vala:45
 msgid "Text files"
-msgstr "Tekstualne datoteke"
+msgstr "Tekstovne datoteke"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -556,7 +562,7 @@ msgstr "Obrub"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
-msgstr "Prikaži simbole u trenutnoj vala datoteci"
+msgstr "Simboli obruba vaše trenutne datoteke u vali"
 
 #: ../plugins/outline/OutlinePlugin.vala:116
 #: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
@@ -564,7 +570,7 @@ msgstr "Prikaži simbole u trenutnoj vala datoteci"
 #: ../plugins/outline/CtagsSymbolResolver.vala:35
 #: ../plugins/outline/CtagsSymbolResolver.vala:68
 msgid "Symbols"
-msgstr "Znakovi"
+msgstr "Simboli"
 
 #: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
 #: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
@@ -574,11 +580,11 @@ msgstr "Terminal"
 
 #: ../plugins/terminal/terminal.vala:24
 msgid "A terminal in your text editor"
-msgstr "Terminal u uređivaču teksta"
+msgstr "Terminal u vašem uređivaču teksta"
 
 #: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
 msgid "Show Terminal"
-msgstr "Pokaži terminal"
+msgstr "Prikaži terminal"
 
 #: ../plugins/terminal/terminal.vala:170
 msgid "Hide Terminal"
@@ -595,11 +601,11 @@ msgstr "Zalijepi"
 
 #: ../plugins/terminal/terminal.vala:323
 msgid "Terminal on Right"
-msgstr "Terminal nadesno"
+msgstr "Terminal na desno"
 
 #: ../plugins/terminal/terminal.vala:331
 msgid "Terminal on Bottom"
-msgstr "Terminal dolje"
+msgstr "Terminal na dnu"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -621,7 +627,7 @@ msgstr "Automatske zagrade"
 
 #: ../plugins/brackets-completion/brackets-completion.vala:22
 msgid "Complete brackets while typing"
-msgstr "Automatske zagrade tokom tipkanja"
+msgstr "Automatske zagrade tijekom tipkanja"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -640,11 +646,11 @@ msgstr "Automatske zagrade tokom tipkanja"
 #: ../plugins/source-tree/SourceTreePlugin.vala:20
 #: ../plugins/source-tree/SourceTreePlugin.vala:197
 msgid "Source Tree"
-msgstr "Stablo izvoda"
+msgstr "Stablo izvora"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:21
 msgid "Have a look at your sources organized in a nice tree"
-msgstr "Pregled na temelju izvora"
+msgstr "Pregled vaših izvora organiziranih u stablo"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:42
 msgid "Loading..."
@@ -652,7 +658,7 @@ msgstr "Učitavanje..."
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:175
 msgid "Bookmark"
-msgstr "Oznaka"
+msgstr "Zabilješka"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:234
 msgid "Files"
@@ -664,7 +670,7 @@ msgstr "Projekt"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:236
 msgid "Bookmarks"
-msgstr "Oznake"
+msgstr "Zabilješke"
 
 #: ../plugins/spell/spell.vala:18
 msgid "Spell Checker"
@@ -672,13 +678,15 @@ msgstr "Provjera pravopisa"
 
 #: ../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
-msgstr "Provjerava pravopis u dokumentu"
+msgstr "Provjerava pravopis vaših dokumentata"
 
 #: ../plugins/spell/spell.vala:80
 msgid ""
 "No suitable dictionaries were found.\n"
 "Please install at least one [aspell] dictionary"
 msgstr ""
+"Nema prikladnih rječnika pronađenih.\n"
+"Instalirajte barem jedan [aspell] rječnik"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -697,16 +705,16 @@ msgstr ""
 #: ../plugins/filemanager/FileManagerPlugin.vala:21
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:21
 msgid "Folder Manager"
-msgstr "Upravitelj mapa"
+msgstr "Upravitelj mapama"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:22
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:22
 msgid "Basic folder manager with file browsing"
-msgstr "Osnovi upravljač mapa s mogućnošću pretraživanja datoteka"
+msgstr "Osnovni upravtelj mapama s mogućnošću pregleda datoteka"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:71
 msgid "Go to parent"
-msgstr "Idi na roditelja"
+msgstr "Idi u sadržajnu mapu"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:82
 msgid "Add file"
@@ -730,11 +738,11 @@ msgstr "Ukloni prateće razmake"
 
 #: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
 msgid "Strip trailing whitespace on save"
-msgstr "Izbriši prazan prostor na početku reda pri spremanju"
+msgstr "Ukloni prateće razmake pri spremanju"
 
 #: ../plugins/browser-preview/BrowserView.vala:49
 msgid "Close Inspector"
-msgstr ""
+msgstr "Inspektor zatvaranja"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -752,11 +760,11 @@ msgstr ""
 #. **
 #: ../plugins/browser-preview/browser-preview.vala:21
 msgid "Browser Preview"
-msgstr "Pogled Web preglednika"
+msgstr "Pogled web preglednika"
 
 #: ../plugins/browser-preview/browser-preview.vala:22
 msgid "Get a preview your work in a web page"
-msgstr "Pregled u web stranici"
+msgstr "Pogledajte svoj rad u web pregledniku"
 
 #: ../plugins/browser-preview/browser-preview.vala:85
 #: ../plugins/browser-preview/browser-preview.vala:111
@@ -793,7 +801,7 @@ msgstr "Povijest međuspremnika"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:22
 msgid "Clipboard to view history"
-msgstr "Međuspremnik za gledanje povijesti"
+msgstr "Međuspremnik za pogledati povijest"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:28
 msgid "..."
@@ -801,7 +809,7 @@ msgstr "..."
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:156
 msgid "Delete"
-msgstr "Ukloni"
+msgstr "Obriši"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:70
 msgid "Folders"
@@ -840,11 +848,11 @@ msgstr "Zatvori mapu"
 #. **
 #: ../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
-msgstr "Vim Imitacija"
+msgstr "Vim emulacija"
 
 #: ../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
-msgstr "Krositi Vim naredbe u programu Scratch"
+msgstr "Krositi Vim naredbe u Scratchu"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -880,11 +888,11 @@ msgstr "Podijeli svoje datoteke sa Contractorom"
 #. **
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
 msgid "Highlight Selected Words"
-msgstr "Istakni Odabrane Riječi"
+msgstr "Istakni udabrane riječi"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
 msgid "Highlights all occurrences of words that are selected"
-msgstr "Istakne sva ponavljanja označene riječi"
+msgstr "Istakni sva pjavljivanja odabranih riječi"
 
 #: ../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
@@ -892,19 +900,19 @@ msgstr "Pastebin"
 
 #: ../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
-msgstr "Dijeli datoteke sa pastebin uslugom"
+msgstr "Podijeli datoteke na pastebin uslugi"
 
 #: ../plugins/pastebin/pastebin.vala:134
 msgid "Upload to Pastebin"
-msgstr "Prenesi na Pastebin"
+msgstr "Pošalji na Pastebin"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
-msgstr "Podijeli na PasteBin"
+msgstr "Podijeli na PasteBinu"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:272
 msgid "Name:"
-msgstr "Ime:"
+msgstr "Naziv:"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:278
 msgid "Format: "
@@ -912,19 +920,19 @@ msgstr "Format: "
 
 #: ../plugins/pastebin/pastebin_dialog.vala:280
 msgid "Others..."
-msgstr "Ostali..."
+msgstr "Ostalo..."
 
 #: ../plugins/pastebin/pastebin_dialog.vala:305
 msgid "Expiry time:"
-msgstr "Prestanak važenja:"
+msgstr "Vrijeme isteka:"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:310
 msgid "Keep this paste private"
-msgstr "Zadrži ovaj paste privatnim"
+msgstr "Zadrži ovaj zalijepljeni tekst privatnim"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:312
 msgid "Upload"
-msgstr "Učitaj"
+msgstr "Pošalji"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:342
 msgid "Other formats"
@@ -932,7 +940,7 @@ msgstr "Ostali formati"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:511
 msgid "Never"
-msgstr "Nikad"
+msgstr "Nikada"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:512
 msgid "Ten minutes"
@@ -952,11 +960,13 @@ msgstr "Jedan mjesec"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:24
 msgid "Preserve Indent"
-msgstr ""
+msgstr "Očuvaj identitet"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:25
 msgid "Maintains indent level of pasted text when auto-indent is active"
 msgstr ""
+"Održavaj razinu poravnanja zalijepljenog teksta kada je automatsko "
+"poravnanje aktivno"
 
 #: ../plugins/word-completion/completion-provider.vala:80
 msgid "Could not load icon theme: %s\n"
@@ -977,11 +987,11 @@ msgstr "%s - Dovršavanje riječi"
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
-msgstr "Prepoznaj uvlaku"
+msgstr "Otkrij poravnanje"
 
 #: ../plugins/detect-indent/detect-indent.vala:2
 msgid "Heuristically detect tab or space settings"
-msgstr "Pametno otkrivanje uvlaka i postavki razmana"
+msgstr "heuristički otkrij postavku tab ili razmaka"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -999,15 +1009,15 @@ msgstr "Pametno otkrivanje uvlaka i postavki razmana"
 #. **
 #: ../plugins/open-with/open-with.vala:21
 msgid "Open With"
-msgstr "Otvori pomoću"
+msgstr "Otvori s(a)"
 
 #: ../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr "Otvori datoteke koje uređuješ sa drugom aplikacijom"
+msgstr "Otvori datoteke koje uređujete s drugom aplikacijom"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr "Otvori pomoću..."
+msgstr "Otvori s(a)..."
 
 #~ msgid "No files are open."
 #~ msgstr "Nema otvorenih datoteka"
