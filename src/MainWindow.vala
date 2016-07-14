@@ -22,7 +22,7 @@ namespace Scratch {
     public class MainWindow : Gtk.Window {
         public int FONT_SIZE_MAX = 72;
         public int FONT_SIZE_MIN = 7;
-
+        private const uint MAX_SEARCH_TEXT_LENGTH = 255;
         public weak ScratchApp app;
 
         // Widgets
@@ -150,6 +150,14 @@ namespace Scratch {
             this.search_manager = new Scratch.Widgets.SearchManager (this);
             this.search_manager.get_style_context ().add_class ("search-bar");
             this.search_revealer.add (this.search_manager);
+
+            search_manager.map.connect_after ((w) => { /* signalled when reveal child */
+                set_search_text ();
+            });
+            search_manager.search_entry.unmap.connect_after (() => { /* signalled when reveal child */
+                search_manager.set_search_string ("");
+                search_manager.highlight_none ();
+            });
 
             // SlitView
             this.split_view = new Scratch.Widgets.SplitView (this);
@@ -750,28 +758,32 @@ namespace Scratch {
         private void action_fetch () {
             if (!search_revealer.child_revealed) {
                 var fetch_action = (Gtk.ToggleAction) main_actions.get_action ("ShowFetch");
-                 /* This triggers action_show_fetch () which will recall action fetch ()
-                  * with the child revealed. */
-                fetch_action.active = true;
+                if (fetch_action.sensitive) {
+                    /* Toggling the fetch action causes this function to be called again but the search_revealer child
+                     * is still not revealed so nothing more happens.  We use the map signal on the search entry
+                     * to set it up once it has been revealed. */  
+                    fetch_action.active = true;
+                } 
             } else {
-                var current_doc = this.get_current_document ();
-                // This is also called when all documents are closed.
-                if (current_doc != null) {
-                    var selected_text = current_doc.get_selected_text ();
+                set_search_text ();
+            }
+        }
 
-                    if (selected_text != "") {
-                        //If the user is selecting text, he probably wants to search for it.
-                        search_manager.search_entry.text = selected_text;
-                    }
-
-                    if (search_manager.search_entry.text != "") {
-                        search_manager.search_next ();
-                    } else {
-                        search_manager.highlight_none ();
-                    }
+        private void set_search_text () {
+            var current_doc = this.get_current_document ();
+            // This is also called when all documents are closed.
+            if (current_doc != null) {
+                var selected_text = current_doc.get_selected_text ();
+                if (selected_text.length < MAX_SEARCH_TEXT_LENGTH) {
+                    search_manager.set_search_string (selected_text);
                 }
 
-                search_manager.search_entry.grab_focus ();
+                search_manager.search_entry.grab_focus (); /* causes loss of document selection */
+
+                if (selected_text != "") {
+                    search_manager.search_next (); /* this selects the next match (if any) */
+                }
+
             }
         }
 
@@ -780,15 +792,14 @@ namespace Scratch {
             var fetch_action = (Gtk.ToggleAction) main_actions.get_action ("ShowFetch");
             var fetch_active = fetch_action.active;
 
-            search_revealer.set_reveal_child (fetch_active);
-
             if (fetch_active == false) {
-                search_manager.search_entry.text = "";
                 fetch_action.tooltip = _("Find…");
             } else {
                 fetch_action.tooltip = _("Hide search bar");
-                action_fetch ();
             }
+
+            /* The search entry map signal is used to set up the entry text */
+            search_revealer.set_reveal_child (fetch_active);
         }
 
         private void action_go_to () {

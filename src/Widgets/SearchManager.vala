@@ -286,12 +286,14 @@ namespace Scratch.Widgets {
         public bool search () {
             /* So, first, let's check we can really search something. */
             string search_string = search_entry.text;
-            highlight_all (search_string);
+            search_context.highlight = false;
 
             if (text_buffer == null || text_buffer.text == "" || search_string == "") {
                 debug ("Can't search anything in an inexistant buffer and/or without anything to search.");
                 return false;
             }
+
+            search_context.highlight = true;
 
             Gtk.TextIter? start_iter, end_iter;
             text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
@@ -316,11 +318,6 @@ namespace Scratch.Widgets {
 
         public void highlight_none () {
             search_context.highlight = false;
-        }
-
-        private bool highlight_all (string search_string) {
-            search_context.highlight = true;
-            return true;
         }
 
         private bool search_for_iter (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
