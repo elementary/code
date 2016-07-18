@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-30 11:22-0700\n"
-"PO-Revision-Date: 2016-07-05 18:48+0000\n"
-"Last-Translator: Lukáš Papík <stereo839@gmail.com>\n"
+"PO-Revision-Date: 2016-07-17 14:14+0000\n"
+"Last-Translator: Igor Štefanko <istefanko@gmail.com>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-07-06 05:31+0000\n"
-"X-Generator: Launchpad (build 18115)\n"
+"X-Launchpad-Export-Date: 2016-07-18 05:27+0000\n"
+"X-Generator: Launchpad (build 18140)\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -124,11 +124,11 @@ msgstr "Zobraziť mini-mapu:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:176
 msgid "Line width guide:"
-msgstr "Príručka pre šírku čiary"
+msgstr "Šírka vodiacej čiary"
 
 #: ../src/Dialogs/PreferencesDialog.vala:184
 msgid "Font and Color Scheme"
-msgstr ""
+msgstr "Písmo a farebná schéma"
 
 #: ../src/Dialogs/PreferencesDialog.vala:186
 msgid "Color scheme:"
@@ -278,7 +278,7 @@ msgstr "Pridať nové zobrazenie"
 
 #: ../src/MainWindow.vala:865
 msgid "Remove Current View"
-msgstr "Odstrániť současné zobrazenie"
+msgstr "Odstrániť aktuálne zobrazenie"
 
 #: ../src/MainWindow.vala:866
 msgid "Remove this view"
@@ -356,7 +356,7 @@ msgstr "Uložiť tento súbor s iným menom"
 
 #: ../src/MainWindow.vala:905 ../src/Services/TemplateManager.vala:194
 msgid "Templates"
-msgstr "Šablony"
+msgstr "Šablóny"
 
 #: ../src/MainWindow.vala:906
 msgid "Project templates"
@@ -385,7 +385,7 @@ msgstr "Uložiť zmeny do dokumentu %s pred ukončením?"
 #: ../src/Services/Document.vala:248
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr "Ak neuložíte, zmeny z posledných 4 sekúnd budú navždy stratené."
+msgstr "Ak ich neuložíte, zmeny z posledných 4 sekúnd budú navždy stratené."
 
 #: ../src/Services/Document.vala:250
 msgid "Close without saving"
@@ -404,7 +404,7 @@ msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
-"Súbor \"%s\" sa nedá prečítať. Môže byť poškodený\n"
+"Súbor \"%s\" sa nedá prečítať. Môže byť poškodený,\n"
 "alebo nemáte potrebné oprávnenie na jeho čítanie."
 
 #: ../src/Services/Document.vala:572
@@ -436,7 +436,7 @@ msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
-"Súbor \"%s\" bol zmenený inou aplikáciou.  Chcete ho opätovne načítať alebo "
+"Súbor \"%s\" bol zmenený inou aplikáciou. Chcete ho opätovne načítať, alebo "
 "pokračovať v úpravách?"
 
 #: ../src/Services/Document.vala:626
@@ -470,7 +470,7 @@ msgstr "Možno nemáte potrebné oprávnenia."
 
 #: ../src/Scratch.vala:168
 msgid "Maybe the file path provided is not valid."
-msgstr "Možno cesta k súboru nie je platná."
+msgstr "Zadaná cesta k súboru pravdepodobne nie je platná"
 
 #: ../src/Scratch.vala:170
 msgid "The location is read-only."
@@ -498,7 +498,7 @@ msgstr ""
 
 #: ../src/Scratch.vala:198
 msgid "It is a mountable location."
-msgstr "Pripojiteľná lokácia."
+msgstr "Pripojiteľné umiestnenie"
 
 #: ../src/Scratch.vala:201
 msgid "It is a directory."
@@ -509,6 +509,8 @@ msgid ""
 "It is a \"special\" file such as a socket,\n"
 " fifo, block device, or character device."
 msgstr ""
+"Je to \"špeciálny\" súbor ako socket,\n"
+" fifo, blokové zariadenie, alebo znakové zariadenie"
 
 #: ../src/Scratch.vala:207
 msgid "It is an \"unknown\" file type."
@@ -524,7 +526,7 @@ msgstr "Vytlačiť informácie o verzii a ukončiť"
 
 #: ../src/Scratch.vala:314
 msgid "Set of plugins"
-msgstr "Set pluginov"
+msgstr "Sada zásuvných modulov"
 
 #: ../src/Scratch.vala:315
 msgid "Current working directory"
@@ -619,7 +621,7 @@ msgstr "Terminál dole"
 #. **
 #: ../plugins/brackets-completion/brackets-completion.vala:21
 msgid "Brackets Completion"
-msgstr "Automatické ukončenie zátvorôk"
+msgstr "Ukončovanie zátvoriek"
 
 #: ../plugins/brackets-completion/brackets-completion.vala:22
 msgid "Complete brackets while typing"
@@ -650,7 +652,7 @@ msgstr "Pozrite sa na svoje zdroje organizované v strome"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:42
 msgid "Loading..."
-msgstr "Načítava sa..."
+msgstr "Načítavam..."
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:175
 msgid "Bookmark"
@@ -681,6 +683,8 @@ msgid ""
 "No suitable dictionaries were found.\n"
 "Please install at least one [aspell] dictionary"
 msgstr ""
+"Neboli nájdené vhodné slovníky.\n"
+"Nainštalujte prosím aspoň jeden [aspell] slovník"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -890,7 +894,7 @@ msgstr "Zvýrazňuje výskyt všetkých vybraných slov"
 
 #: ../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
-msgstr "Kôš"
+msgstr "Pastebin"
 
 #: ../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
@@ -898,7 +902,7 @@ msgstr "Zdieľať súbory v službe pastebin"
 
 #: ../plugins/pastebin/pastebin.vala:134
 msgid "Upload to Pastebin"
-msgstr "Odoslať do pastebin"
+msgstr "Odoslať do Pastebin"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
@@ -964,7 +968,7 @@ msgstr ""
 
 #: ../plugins/word-completion/completion-provider.vala:80
 msgid "Could not load icon theme: %s\n"
-msgstr "Nepodarilo sa načítať motív ikôn: %s\n"
+msgstr "Nepodarilo sa načítať motív ikon: %s\n"
 
 #: ../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
@@ -984,7 +988,7 @@ msgstr "Zistiť odsadenie"
 
 #: ../plugins/detect-indent/detect-indent.vala:2
 msgid "Heuristically detect tab or space settings"
-msgstr "Zistiťnastavenia záražiek a medzier"
+msgstr "Zistiť nastavenia záražiek a medzier"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -1006,7 +1010,7 @@ msgstr "Otvoriť pomocou"
 
 #: ../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr "Otvoriťsúbory, ktoré upravujete inou aplikáciou"
+msgstr "Otvoriť súbory, ktoré upravujete inou aplikáciou"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
