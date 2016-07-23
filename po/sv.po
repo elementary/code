@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-30 11:22-0700\n"
-"PO-Revision-Date: 2016-07-20 13:12+0000\n"
-"Last-Translator: Alexander Högberg <alexhogberg@gmail.com>\n"
+"PO-Revision-Date: 2016-07-22 16:06+0000\n"
+"Last-Translator: Mikael Nyberg <mikanybe@gmail.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-07-21 05:36+0000\n"
+"X-Launchpad-Export-Date: 2016-07-23 05:29+0000\n"
 "X-Generator: Launchpad (build 18147)\n"
 
 #: ../src/config.vala:15
@@ -60,7 +60,7 @@ msgstr "Stäng"
 
 #: ../src/Dialogs/PreferencesDialog.vala:109
 msgid "General"
-msgstr ""
+msgstr "Allmänt"
 
 #: ../src/Dialogs/PreferencesDialog.vala:111
 msgid "When Scratch starts:"
@@ -80,7 +80,7 @@ msgstr "Spara filer när de ändrats"
 
 #: ../src/Dialogs/PreferencesDialog.vala:120
 msgid "Tabs"
-msgstr ""
+msgstr "Tabbsteg"
 
 #: ../src/Dialogs/PreferencesDialog.vala:122
 msgid "Automatic indentation:"
@@ -96,7 +96,7 @@ msgstr "Tabulatorbredd:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:154
 msgid "Editor"
-msgstr ""
+msgstr "Redigerare"
 
 #: ../src/Dialogs/PreferencesDialog.vala:156
 msgid "Highlight current line:"
@@ -112,7 +112,7 @@ msgstr "Radbrytning:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:165
 msgid "Draw Spaces:"
-msgstr ""
+msgstr "Rita ut mellanslag"
 
 #: ../src/Dialogs/PreferencesDialog.vala:168
 msgid "Show line numbers:"
