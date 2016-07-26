@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-30 11:22-0700\n"
-"PO-Revision-Date: 2016-07-24 15:21+0000\n"
+"PO-Revision-Date: 2016-07-25 19:44+0000\n"
 "Last-Translator: Jernej Virag <Unknown>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-07-25 05:25+0000\n"
-"X-Generator: Launchpad (build 18147)\n"
+"X-Launchpad-Export-Date: 2016-07-26 05:25+0000\n"
+"X-Generator: Launchpad (build 18153)\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -180,7 +180,7 @@ msgstr "Ustvari novo datoteko z vsebine vašega odložišča."
 
 #: ../src/Widgets/SearchManager.vala:70
 msgid "Find"
-msgstr "Najdi"
+msgstr "Iskanje"
 
 #: ../src/Widgets/SearchManager.vala:75
 msgid "Replace With"
@@ -242,7 +242,7 @@ msgstr "Skrij iskalno vrstico"
 #: ../src/MainWindow.vala:774 ../src/MainWindow.vala:938
 #: ../src/MainWindow.vala:939
 msgid "Find…"
-msgstr "Najdi..."
+msgstr "Iskanje"
 
 #: ../src/MainWindow.vala:837 ../src/MainWindow.vala:838
 msgid "Go to line…"
@@ -306,7 +306,7 @@ msgstr "Povrni"
 
 #: ../src/MainWindow.vala:878
 msgid "Restore this file"
-msgstr "Obnovi to datoteko"
+msgstr "Obnovi datoteko"
 
 #: ../src/MainWindow.vala:881 ../src/MainWindow.vala:882
 msgid "Duplicate selected strings"
@@ -344,7 +344,7 @@ msgstr "Shrani"
 
 #: ../src/MainWindow.vala:898
 msgid "Save this file"
-msgstr "Shrani to datoteko"
+msgstr "Shrani datoteko"
 
 #: ../src/MainWindow.vala:901 ../src/Services/Document.vala:574
 msgid "Save As…"
@@ -352,7 +352,7 @@ msgstr "Shrani kot …"
 
 #: ../src/MainWindow.vala:902
 msgid "Save this file with a different name"
-msgstr "Shrani to datoteko pod drugim imenom"
+msgstr "Shrani datoteko pod drugim imenom"
 
 #: ../src/MainWindow.vala:905 ../src/Services/TemplateManager.vala:194
 msgid "Templates"
