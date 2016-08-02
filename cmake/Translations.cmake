@@ -1,4 +1,5 @@
 # Translations.cmake, CMake macros written for Marlin, feel free to re-use them
+include(CMakeParseArguments)
 
 macro (add_translations_directory NLS_PACKAGE)
     add_custom_target (i18n ALL COMMENT “Building i18n messages.”)
@@ -85,16 +86,44 @@ macro (create_po_file LANGUAGE_NEEDED)
     endif ()
 endmacro (create_po_file)
 
+macro (configure_file_translation SOURCE RESULT PO_DIR)
+    find_program (INTLTOOL_MERGE_EXECUTABLE intltool-merge)
+    set(EXTRA_PO_DIR ${PO_DIR}/extra/)
+    get_filename_component(EXTRA_PO_DIR ${EXTRA_PO_DIR} ABSOLUTE)
+
+    # Intltool can't create a new directory.
+    get_filename_component(RESULT_DIRECTORY ${RESULT} DIRECTORY)
+    file(MAKE_DIRECTORY ${RESULT_DIRECTORY})
+
+    set (INTLTOOL_FLAG "")
+    if (${SOURCE} MATCHES ".desktop")
+        set (INTLTOOL_FLAG "--desktop-style")
+    elseif (${SOURCE} MATCHES ".gschema")
+        set (INTLTOOL_FLAG "--schemas-style")
+    elseif (${SOURCE} MATCHES ".xml")
+        set (INTLTOOL_FLAG "--xml-style")
+    endif ()
+    execute_process (WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} COMMAND ${INTLTOOL_MERGE_EXECUTABLE} --quiet ${INTLTOOL_FLAG} ${EXTRA_PO_DIR} ${SOURCE} ${RESULT})
+endmacro ()
+
 macro (add_translations_catalog NLS_PACKAGE)
+    cmake_parse_arguments (ARGS "" "" "DESKTOP_FILES;APPDATA_FILES;SCHEMA_FILES" ${ARGN})
     add_custom_target (pot COMMENT “Building translation catalog.”)
     find_program (XGETTEXT_EXECUTABLE xgettext)
+    find_program (INTLTOOL_EXTRACT_EXECUTABLE intltool-extract)
+
+    set(EXTRA_PO_DIR ${CMAKE_CURRENT_SOURCE_DIR}/extra)
 
     set(C_SOURCE "")
     set(VALA_SOURCE "")
     set(GLADE_SOURCE "")
 
     foreach(FILES_INPUT ${ARGN})
-        set(BASE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${FILES_INPUT})
+        if((${FILES_INPUT} MATCHES ${CMAKE_SOURCE_DIR}) OR (${FILES_INPUT} MATCHES ${CMAKE_BINARY_DIR}))
+            set(BASE_DIRECTORY ${FILES_INPUT})
+        else ()
+            set(BASE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${FILES_INPUT})
+        endif ()
 
         file (GLOB_RECURSE SOURCE_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/ ${BASE_DIRECTORY}/*.c)
         foreach(C_FILE ${SOURCE_FILES})
@@ -102,22 +131,30 @@ macro (add_translations_catalog NLS_PACKAGE)
         endforeach()
 
         file (GLOB_RECURSE SOURCE_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/ ${BASE_DIRECTORY}/*.vala)
-        foreach(VALA_C_FILE ${SOURCE_FILES})
-            set(VALA_SOURCE ${VALA_SOURCE} ${VALA_C_FILE})
+        foreach(VALA_FILE ${SOURCE_FILES})
+            set(VALA_SOURCE ${VALA_SOURCE} ${VALA_FILE})
         endforeach()
 
         file (GLOB_RECURSE SOURCE_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/ ${BASE_DIRECTORY}/*.ui)
-        foreach(GLADE_C_FILE ${SOURCE_FILES})
-            set(GLADE_SOURCE ${GLADE_SOURCE} ${GLADE_C_FILE})
+        foreach(GLADE_FILE ${SOURCE_FILES})
+            set(GLADE_SOURCE ${GLADE_SOURCE} ${GLADE_FILE})
         endforeach()
     endforeach()
 
+    set (XGETTEXT_C_ARGS --add-comments="/" --keyword="_" --keyword="N_" --keyword="C_:1c,2" --keyword="NC_:1c,2" --keyword="ngettext:1,2" --keyword="Q_:1g")
     set(BASE_XGETTEXT_COMMAND
         ${XGETTEXT_EXECUTABLE} -d ${NLS_PACKAGE}
         -o ${CMAKE_CURRENT_SOURCE_DIR}/${NLS_PACKAGE}.pot
-        --add-comments="/" --keyword="_" --keyword="N_" --keyword="C_:1c,2" --keyword="NC_:1c,2" --keyword="ngettext:1,2" --keyword="Q_:1g" --from-code=UTF-8)
+        ${XGETTEXT_C_ARGS} --from-code=UTF-8)
 
-   set(CONTINUE_FLAG "")
+    set(EXTRA_XGETTEXT_COMMAND
+        ${XGETTEXT_EXECUTABLE} -d extra
+        -o ${EXTRA_PO_DIR}/extra.pot --no-location --from-code=UTF-8)
+
+    set (INTLTOOL_EXTRACT_COMMAND
+        ${INTLTOOL_EXTRACT_EXECUTABLE} --local --srcdir=/)
+
+    set(CONTINUE_FLAG "")
 
     IF(NOT "${C_SOURCE}" STREQUAL "")
         add_custom_command(TARGET pot WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} COMMAND ${BASE_XGETTEXT_COMMAND} ${C_SOURCE})
@@ -131,5 +168,36 @@ macro (add_translations_catalog NLS_PACKAGE)
 
     IF(NOT "${GLADE_SOURCE}" STREQUAL "")
         add_custom_command (TARGET pot WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} COMMAND ${BASE_XGETTEXT_COMMAND} ${CONTINUE_FLAG} -LGlade ${GLADE_SOURCE})
-    ENDIF()  
+    ENDIF()
+
+    # We need to create the directory if one extra content exists.
+    IF((NOT "${ARGS_DESKTOP_FILES}" STREQUAL "") OR (NOT "${ARGS_APPDATA_SOURCE}" STREQUAL "") OR (NOT "${ARGS_SCHEMA_SOURCE}" STREQUAL ""))
+        file(MAKE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/extra/)
+    ENDIF()
+
+    set(CONTINUE_FLAG "")
+
+    foreach(DESKTOP_SOURCE ${ARGS_DESKTOP_FILES})
+        get_filename_component(DESKTOP_SOURCE ${DESKTOP_SOURCE} ABSOLUTE)
+        add_custom_command(TARGET pot WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR} COMMAND ${INTLTOOL_EXTRACT_COMMAND} --type=gettext/keys ${DESKTOP_SOURCE})
+        get_filename_component(DESKTOP_SOURCE_NAME ${DESKTOP_SOURCE} NAME)
+        add_custom_command(TARGET pot WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} COMMAND ${EXTRA_XGETTEXT_COMMAND} ${CONTINUE_FLAG} ${XGETTEXT_C_ARGS} ${CMAKE_CURRENT_BINARY_DIR}/tmp/${DESKTOP_SOURCE_NAME}.h)
+        set(CONTINUE_FLAG "-j")
+    endforeach()
+
+    foreach(APPDATA_SOURCE ${ARGS_APPDATA_FILES})
+        get_filename_component(APPDATA_SOURCE ${APPDATA_SOURCE} ABSOLUTE)
+        add_custom_command(TARGET pot WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR} COMMAND ${INTLTOOL_EXTRACT_COMMAND} --type=gettext/xml ${APPDATA_SOURCE})
+        get_filename_component(APPDATA_SOURCE_NAME ${APPDATA_SOURCE} NAME)
+        add_custom_command(TARGET pot WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} COMMAND ${EXTRA_XGETTEXT_COMMAND} ${CONTINUE_FLAG} ${XGETTEXT_C_ARGS} ${CMAKE_CURRENT_BINARY_DIR}/tmp/${APPDATA_SOURCE_NAME}.h)
+        set(CONTINUE_FLAG "-j")
+    endforeach()
+
+    foreach(SCHEMA_SOURCE ${ARGS_SCHEMA_FILES})
+        get_filename_component(SCHEMA_SOURCE ${SCHEMA_SOURCE} ABSOLUTE)
+        add_custom_command(TARGET pot WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR} COMMAND ${INTLTOOL_EXTRACT_COMMAND} --type=gettext/schemas ${SCHEMA_SOURCE})
+        get_filename_component(SCHEMA_SOURCE_NAME ${SCHEMA_SOURCE} NAME)
+        add_custom_command(TARGET pot WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} COMMAND ${EXTRA_XGETTEXT_COMMAND} ${CONTINUE_FLAG} ${XGETTEXT_C_ARGS} ${CMAKE_CURRENT_BINARY_DIR}/tmp/${SCHEMA_SOURCE_NAME}.h)
+        set(CONTINUE_FLAG "-j")
+    endforeach()
 endmacro ()
