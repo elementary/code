@@ -1,13 +1,13 @@
 [Desktop Entry]
 Type=Application
-Name=Scratch
-Comment=Edit text files
+_Name=Scratch
+_Comment=Edit text files
 GenericName=Text Editor
 Exec=scratch-text-editor %U
 Icon=accessories-text-editor
 Terminal=false
 Categories=GNOME;GTK;Utility;TextEditor;
-Keywords=Notepad;IDE;Plain;
+_Keywords=Notepad;IDE;Plain;
 MimeType=text/plain;
 StartupNotify=true
 Actions=NewWindow;NewDocument;AboutDialog;
@@ -23,4 +23,4 @@ Exec=scratch-text-editor --new-window
 
 [Desktop Action AboutDialog]
 Exec=scratch-text-editor --about
-Name=About Scratch
+_Name=About Scratch
