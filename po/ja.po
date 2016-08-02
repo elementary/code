@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-30 11:22-0700\n"
-"PO-Revision-Date: 2015-12-21 13:37+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
+"PO-Revision-Date: 2016-08-02 02:15+0000\n"
+"Last-Translator: BALLOON a.k.a. Fu-sen. (Keiichi SHIGA) <Unknown>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-31 06:24+0000\n"
-"X-Generator: Launchpad (build 18053)\n"
+"X-Launchpad-Export-Date: 2016-08-02 05:48+0000\n"
+"X-Generator: Launchpad (build 18169)\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -35,7 +35,7 @@ msgstr "新しいウィンドウ"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr ""
+msgstr "Scratchについて"
 
 #: ../src/Dialogs/PreferencesDialog.vala:56 ../src/MainWindow.vala:909
 msgid "Preferences"
@@ -60,7 +60,7 @@ msgstr "閉じる"
 
 #: ../src/Dialogs/PreferencesDialog.vala:109
 msgid "General"
-msgstr ""
+msgstr "一般"
 
 #: ../src/Dialogs/PreferencesDialog.vala:111
 msgid "When Scratch starts:"
@@ -80,7 +80,7 @@ msgstr "変更が加えられた時にファイルを保存:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:120
 msgid "Tabs"
-msgstr ""
+msgstr "タブ"
 
 #: ../src/Dialogs/PreferencesDialog.vala:122
 msgid "Automatic indentation:"
@@ -96,7 +96,7 @@ msgstr "タブ幅"
 
 #: ../src/Dialogs/PreferencesDialog.vala:154
 msgid "Editor"
-msgstr ""
+msgstr "エディター"
 
 #: ../src/Dialogs/PreferencesDialog.vala:156
 msgid "Highlight current line:"
@@ -112,7 +112,7 @@ msgstr ""
 
 #: ../src/Dialogs/PreferencesDialog.vala:165
 msgid "Draw Spaces:"
-msgstr ""
+msgstr "空白を表示する"
 
 #: ../src/Dialogs/PreferencesDialog.vala:168
 msgid "Show line numbers:"
@@ -120,7 +120,7 @@ msgstr "行番号を表示:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:172
 msgid "Show Mini Map:"
-msgstr ""
+msgstr "ミニマップの表示:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:176
 msgid "Line width guide:"
@@ -128,7 +128,7 @@ msgstr ""
 
 #: ../src/Dialogs/PreferencesDialog.vala:184
 msgid "Font and Color Scheme"
-msgstr ""
+msgstr "フォントと配色"
 
 #: ../src/Dialogs/PreferencesDialog.vala:186
 msgid "Color scheme:"
@@ -144,11 +144,11 @@ msgstr ""
 
 #: ../src/Widgets/LoadingView.vala:33
 msgid "Wait while restoring last session..."
-msgstr ""
+msgstr "前回の作業に戻っていますので、少々お待ちください..."
 
 #: ../src/Widgets/SplitView.vala:45
 msgid "No Files Open"
-msgstr ""
+msgstr "開いているファイルはありません"
 
 #: ../src/Widgets/SplitView.vala:46
 msgid "Open a file to begin editing."
@@ -156,11 +156,11 @@ msgstr "編集を開始するにはファイルを開いて下さい。"
 
 #: ../src/Widgets/SplitView.vala:50
 msgid "New file"
-msgstr "新規ファイル"
+msgstr "新しいファイル"
 
 #: ../src/Widgets/SplitView.vala:50
 msgid "Create a new empty file."
-msgstr "新しい空のファイルを作成します。"
+msgstr "新しい空ファイルを作成します"
 
 #: ../src/Widgets/SplitView.vala:51
 msgid "Open file"
@@ -172,15 +172,15 @@ msgstr "保存されたファイルを開く。"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "New file from clipboard"
-msgstr ""
+msgstr "クリップボードから新しいファイル"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "Create a new file from the contents of your clipboard."
-msgstr ""
+msgstr "クリックポードの内容から新しいファイルを作成します。"
 
 #: ../src/Widgets/SearchManager.vala:70
 msgid "Find"
-msgstr ""
+msgstr "検索"
 
 #: ../src/Widgets/SearchManager.vala:75
 msgid "Replace With"
@@ -188,11 +188,11 @@ msgstr "置き換え"
 
 #: ../src/Widgets/SearchManager.vala:91
 msgid "Search next"
-msgstr ""
+msgstr "次を検索"
 
 #: ../src/Widgets/SearchManager.vala:97
 msgid "Search previous"
-msgstr ""
+msgstr "前を検索"
 
 #: ../src/Widgets/SearchManager.vala:104
 msgid "Cyclic Search"
@@ -205,7 +205,7 @@ msgstr "置き換え"
 
 #: ../src/Widgets/SearchManager.vala:112
 msgid "Replace all"
-msgstr ""
+msgstr "すべて置換"
 
 #: ../src/Widgets/SearchManager.vala:121
 msgid "Go To Line:"
@@ -221,7 +221,7 @@ msgstr "構文ハイライト"
 
 #: ../src/Widgets/SourceView.vala:131
 msgid "Normal Text"
-msgstr ""
+msgstr "標準のテキスト"
 
 #: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
@@ -242,11 +242,11 @@ msgstr "検索バーを隠す"
 #: ../src/MainWindow.vala:774 ../src/MainWindow.vala:938
 #: ../src/MainWindow.vala:939
 msgid "Find…"
-msgstr ""
+msgstr "検索..."
 
 #: ../src/MainWindow.vala:837 ../src/MainWindow.vala:838
 msgid "Go to line…"
-msgstr ""
+msgstr "行へ移動..."
 
 #: ../src/MainWindow.vala:841 ../src/MainWindow.vala:842
 msgid "Quit"
@@ -254,19 +254,19 @@ msgstr "終了"
 
 #: ../src/MainWindow.vala:853
 msgid "Reopen closed document"
-msgstr ""
+msgstr "閉じた文章をもう一度開く"
 
 #: ../src/MainWindow.vala:854
 msgid "Open last closed document in a new tab"
-msgstr ""
+msgstr "再度に閉じた文章を新しいタブで開く"
 
 #: ../src/MainWindow.vala:857
 msgid "Add New Tab"
-msgstr ""
+msgstr "新しいタブを追加"
 
 #: ../src/MainWindow.vala:858
 msgid "Add a new tab"
-msgstr ""
+msgstr "新しいタブを追加"
 
 #: ../src/MainWindow.vala:861
 msgid "Add New View"
@@ -331,7 +331,7 @@ msgstr ""
 
 #: ../src/MainWindow.vala:893
 msgid "Zoom"
-msgstr ""
+msgstr "ズーム"
 
 #: ../src/MainWindow.vala:894
 msgid "Zoom 1:1"
@@ -348,7 +348,7 @@ msgstr ""
 
 #: ../src/MainWindow.vala:901 ../src/Services/Document.vala:574
 msgid "Save As…"
-msgstr ""
+msgstr "名前を付けて保存…"
 
 #: ../src/MainWindow.vala:902
 msgid "Save this file with a different name"
@@ -368,19 +368,19 @@ msgstr "アプリケーションの設定を変更"
 
 #: ../src/MainWindow.vala:913 ../src/MainWindow.vala:914
 msgid "Next Tab"
-msgstr ""
+msgstr "次のタブ"
 
 #: ../src/MainWindow.vala:917 ../src/MainWindow.vala:918
 msgid "Previous Tab"
-msgstr ""
+msgstr "前のタブ"
 
 #: ../src/MainWindow.vala:934 ../src/MainWindow.vala:935
 msgid "Fullscreen"
-msgstr "全画面"
+msgstr "全画面表示"
 
 #: ../src/Services/Document.vala:245
 msgid "Save changes to document %s before closing?"
-msgstr ""
+msgstr "閉じる前に文書%sの変更を保存しますか?"
 
 #: ../src/Services/Document.vala:248
 msgid ""
@@ -393,11 +393,11 @@ msgstr "保存せずに閉じる"
 
 #: ../src/Services/Document.vala:254 ../src/Utils.vala:29
 msgid "Cancel"
-msgstr ""
+msgstr "キャンセル"
 
 #: ../src/Services/Document.vala:327
 msgid "Save File"
-msgstr ""
+msgstr "ファイルの保存"
 
 #: ../src/Services/Document.vala:556
 msgid ""
@@ -437,14 +437,17 @@ msgstr ""
 
 #: ../src/Services/Document.vala:629
 msgid "Continue"
-msgstr ""
+msgstr "続行"
 
 #: ../src/Scratch.vala:68
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
+"  BALLOON a.k.a. Fu-sen. (Keiichi SHIGA) https://launchpad.net/~balloon\n"
 "  Fabien Cortina https://launchpad.net/~fabien.cortina\n"
+"  Jeff Shee https://launchpad.net/~jeffshee8969\n"
 "  Joji Bronner https://launchpad.net/~jojiinchrist\n"
+"  Jun Takeda https://launchpad.net/~takeda-jun\n"
 "  Kurisu Brooks https://launchpad.net/~kurisubrooks\n"
 "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
 "  Naoki Kephart https://launchpad.net/~naoki-kephart\n"
@@ -499,7 +502,7 @@ msgstr ""
 
 #: ../src/Scratch.vala:311
 msgid "New Tab"
-msgstr ""
+msgstr "新しいタブ"
 
 #: ../src/Scratch.vala:313
 msgid "Print version info and exit"
@@ -511,7 +514,7 @@ msgstr "プラグイン"
 
 #: ../src/Scratch.vala:315
 msgid "Current working directory"
-msgstr ""
+msgstr "現在の作業ディレクトリ"
 
 #: ../src/Utils.vala:42
 msgid "All files"
@@ -571,12 +574,12 @@ msgstr ""
 
 #: ../plugins/terminal/terminal.vala:306
 msgid "Copy"
-msgstr ""
+msgstr "コピー"
 
 #: ../plugins/terminal/terminal.vala:313
 #: ../plugins/clipboard-history/ClipboardHistory.vala:159
 msgid "Paste"
-msgstr ""
+msgstr "貼り付け"
 
 #: ../plugins/terminal/terminal.vala:323
 msgid "Terminal on Right"
@@ -637,23 +640,23 @@ msgstr ""
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:175
 msgid "Bookmark"
-msgstr ""
+msgstr "ブックマーク"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:234
 msgid "Files"
-msgstr ""
+msgstr "ファイル"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:235
 msgid "Project"
-msgstr ""
+msgstr "プロジェクト"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:236
 msgid "Bookmarks"
-msgstr ""
+msgstr "ブックマーク"
 
 #: ../plugins/spell/spell.vala:18
 msgid "Spell Checker"
-msgstr ""
+msgstr "スペルチェック"
 
 #: ../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
@@ -695,15 +698,15 @@ msgstr ""
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:82
 msgid "Add file"
-msgstr ""
+msgstr "ファイルを追加"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:89
 msgid "Remove file"
-msgstr ""
+msgstr "ファイルを削除"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:104
 msgid "File Manager"
-msgstr ""
+msgstr "ファイルマネージャー"
 
 #: ../plugins/filemanager/FileView.vala:73
 msgid "/New File"
@@ -786,28 +789,28 @@ msgstr ""
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:156
 msgid "Delete"
-msgstr ""
+msgstr "削除"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:70
 msgid "Folders"
-msgstr ""
+msgstr "フォルダー"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:88
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:89
 msgid "Open a folder"
-msgstr ""
+msgstr "フォルダーを開く"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:94
 msgid "_Cancel"
-msgstr ""
+msgstr "キャンセル(_C)"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:95
 msgid "_Open"
-msgstr ""
+msgstr "開く(_O)"
 
 #: ../plugins/folder-manager/FileView.vala:294
 msgid "Close Folder"
-msgstr ""
+msgstr "フォルダーを閉じる"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
