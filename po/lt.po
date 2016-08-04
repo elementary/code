@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-08-02 10:38-0700\n"
-"PO-Revision-Date: 2015-12-21 13:38+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
+"PO-Revision-Date: 2016-08-03 22:53+0000\n"
+"Last-Translator: shookees <Unknown>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-03 05:40+0000\n"
+"X-Launchpad-Export-Date: 2016-08-04 05:34+0000\n"
 "X-Generator: Launchpad (build 18169)\n"
 
 #: ../src/MainWindow.vala:97
@@ -23,7 +23,7 @@ msgstr ""
 
 #: ../src/MainWindow.vala:187
 msgid "Trash"
-msgstr ""
+msgstr "Šiukšlinė"
 
 #: ../src/MainWindow.vala:671
 msgid "Open some files"
@@ -33,77 +33,77 @@ msgstr ""
 #: ../src/MainWindow.vala:958 ../src/MainWindow.vala:969
 #: ../src/MainWindow.vala:970
 msgid "Find…"
-msgstr ""
+msgstr "Rasti…"
 
 #: ../src/MainWindow.vala:798
 msgid "Hide search bar"
-msgstr ""
+msgstr "Slėpti paieškos juostą"
 
 #: ../src/MainWindow.vala:864 ../src/MainWindow.vala:865
 msgid "Go to line…"
-msgstr ""
+msgstr "Pereiti į eilutę..."
 
 #: ../src/MainWindow.vala:868 ../src/MainWindow.vala:869
 msgid "Quit"
-msgstr ""
+msgstr "Išeiti"
 
 #: ../src/MainWindow.vala:872 ../src/MainWindow.vala:873
 #: ../src/Dialogs/PreferencesDialog.vala:84
 msgid "Close"
-msgstr ""
+msgstr "Užverti"
 
 #: ../src/MainWindow.vala:876 ../src/MainWindow.vala:877
 #: ../src/Widgets/SearchManager.vala:107
 msgid "Replace"
-msgstr ""
+msgstr "Pakeisti"
 
 #: ../src/MainWindow.vala:880
 msgid "Reopen closed document"
-msgstr ""
+msgstr "Iš naujo atverti užvertą dokumentą"
 
 #: ../src/MainWindow.vala:881
 msgid "Open last closed document in a new tab"
-msgstr ""
+msgstr "Atverti paskiausiai užvertą dokumentą naujoje kortelėje"
 
 #: ../src/MainWindow.vala:884
 msgid "Add New Tab"
-msgstr ""
+msgstr "Pridėti naują kortelę"
 
 #: ../src/MainWindow.vala:885
 msgid "Add a new tab"
-msgstr ""
+msgstr "Pridėti naują kortelę"
 
 #: ../src/MainWindow.vala:888
 msgid "Add New View"
-msgstr ""
+msgstr "Pridėti naują rodinį"
 
 #: ../src/MainWindow.vala:889
 msgid "Add a new view"
-msgstr ""
+msgstr "Pridėti naują rodinį"
 
 #: ../src/MainWindow.vala:892
 msgid "Remove Current View"
-msgstr ""
+msgstr "Šalinti esamą rodinį"
 
 #: ../src/MainWindow.vala:893
 msgid "Remove this view"
-msgstr ""
+msgstr "Šalinti šį rodinį"
 
 #: ../src/MainWindow.vala:896
 msgid "Undo"
-msgstr ""
+msgstr "Atšaukti"
 
 #: ../src/MainWindow.vala:897
 msgid "Undo the last action"
-msgstr ""
+msgstr "Atšaukti paskiausią veiksmą"
 
 #: ../src/MainWindow.vala:900
 msgid "Redo"
-msgstr ""
+msgstr "Grąžinti"
 
 #: ../src/MainWindow.vala:901
 msgid "Redo the last undone action"
-msgstr ""
+msgstr "Grąžinti paskiausiai atšauktą veiksmą"
 
 #: ../src/MainWindow.vala:904
 msgid "Revert"
@@ -111,7 +111,7 @@ msgstr ""
 
 #: ../src/MainWindow.vala:905
 msgid "Restore this file"
-msgstr ""
+msgstr "Atkurti šį failą"
 
 #: ../src/MainWindow.vala:908 ../src/MainWindow.vala:909
 msgid "Duplicate selected strings"
@@ -120,19 +120,19 @@ msgstr ""
 #: ../src/MainWindow.vala:912 ../src/Utils.vala:31
 #: ../plugins/filemanager/FileView.vala:230
 msgid "Open"
-msgstr ""
+msgstr "Atverti"
 
 #: ../src/MainWindow.vala:913
 msgid "Open a file"
-msgstr ""
+msgstr "Atverti failą"
 
 #: ../src/MainWindow.vala:916
 msgid "Clipboard"
-msgstr ""
+msgstr "Iškarpinė"
 
 #: ../src/MainWindow.vala:917
 msgid "New file from Clipboard"
-msgstr ""
+msgstr "Naujas failas iš iškarpinės"
 
 #: ../src/MainWindow.vala:920
 msgid "Zoom"
@@ -145,23 +145,23 @@ msgstr ""
 #: ../src/MainWindow.vala:924 ../src/Services/Document.vala:255
 #: ../src/Services/Document.vala:581 ../src/Utils.vala:33
 msgid "Save"
-msgstr ""
+msgstr "Įrašyti"
 
 #: ../src/MainWindow.vala:925
 msgid "Save this file"
-msgstr ""
+msgstr "Įrašyti šį failą"
 
 #: ../src/MainWindow.vala:928 ../src/Services/Document.vala:574
 msgid "Save As…"
-msgstr ""
+msgstr "Įrašyti kaip..."
 
 #: ../src/MainWindow.vala:929
 msgid "Save this file with a different name"
-msgstr ""
+msgstr "Įrašyti šį failą kitu pavadinimu"
 
 #: ../src/MainWindow.vala:932 ../src/Services/TemplateManager.vala:194
 msgid "Templates"
-msgstr ""
+msgstr "Šablonai"
 
 #: ../src/MainWindow.vala:933
 msgid "Project templates"
@@ -169,47 +169,47 @@ msgstr ""
 
 #: ../src/MainWindow.vala:936 ../src/Dialogs/PreferencesDialog.vala:56
 msgid "Preferences"
-msgstr ""
+msgstr "Nuostatos"
 
 #: ../src/MainWindow.vala:937
 msgid "Change Scratch settings"
-msgstr ""
+msgstr "Keisti Scratch nustatymus"
 
 #: ../src/MainWindow.vala:940 ../src/MainWindow.vala:941
 msgid "Next Tab"
-msgstr ""
+msgstr "Kita kortelė"
 
 #: ../src/MainWindow.vala:944 ../src/MainWindow.vala:945
 msgid "Previous Tab"
-msgstr ""
+msgstr "Ankstesnė kortelė"
 
 #: ../src/MainWindow.vala:964 ../src/MainWindow.vala:965
 msgid "Fullscreen"
-msgstr ""
+msgstr "Visas ekranas"
 
 #: ../src/Dialogs/PreferencesDialog.vala:68
 msgid "Behavior"
-msgstr ""
+msgstr "Elgsena"
 
 #: ../src/Dialogs/PreferencesDialog.vala:69
 msgid "Interface"
-msgstr ""
+msgstr "Sąsaja"
 
 #: ../src/Dialogs/PreferencesDialog.vala:80
 msgid "Extensions"
-msgstr ""
+msgstr "Plėtiniai"
 
 #: ../src/Dialogs/PreferencesDialog.vala:109
 msgid "General"
-msgstr ""
+msgstr "Bendra"
 
 #: ../src/Dialogs/PreferencesDialog.vala:111
 msgid "When Scratch starts:"
-msgstr ""
+msgstr "Paleidus Scratch:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:113
 msgid "Show welcome screen"
-msgstr ""
+msgstr "Rodyti pasisveikinimo ekraną"
 
 #: ../src/Dialogs/PreferencesDialog.vala:114
 msgid "Show last open tabs"
@@ -221,7 +221,7 @@ msgstr ""
 
 #: ../src/Dialogs/PreferencesDialog.vala:120
 msgid "Tabs"
-msgstr ""
+msgstr "Kortelės"
 
 #: ../src/Dialogs/PreferencesDialog.vala:122
 msgid "Automatic indentation:"
@@ -277,7 +277,7 @@ msgstr ""
 
 #: ../src/Dialogs/PreferencesDialog.vala:191
 msgid "Custom font:"
-msgstr ""
+msgstr "Tinkintas šriftas:"
 
 #: ../src/Services/Document.vala:245
 msgid "Save changes to document %s before closing?"
@@ -290,19 +290,19 @@ msgstr ""
 
 #: ../src/Services/Document.vala:250
 msgid "Close without saving"
-msgstr ""
+msgstr "Užverti neįrašant"
 
 #: ../src/Services/Document.vala:254 ../src/Utils.vala:29
 msgid "Cancel"
-msgstr ""
+msgstr "Atsisakyti"
 
 #: ../src/Services/Document.vala:327
 msgid "Save File"
-msgstr ""
+msgstr "Įrašyti failą"
 
 #: ../src/Services/Document.vala:440 ../src/config.vala:17
 msgid "New Document"
-msgstr ""
+msgstr "Naujas dokumentas"
 
 #: ../src/Services/Document.vala:556
 msgid ""
@@ -318,7 +318,7 @@ msgstr ""
 
 #: ../src/Services/Document.vala:579
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "Failas \"%s\" buvo ištrintas. Ar vis tiek norite jį įrašyti?"
 
 #: ../src/Services/Document.vala:592
 msgid ""
@@ -338,27 +338,27 @@ msgstr ""
 
 #: ../src/Services/Document.vala:626
 msgid "Load"
-msgstr ""
+msgstr "Įkelti"
 
 #: ../src/Services/Document.vala:629
 msgid "Continue"
-msgstr ""
+msgstr "Tęsti"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
-msgstr ""
+msgstr "Redaguoti tekstų failus"
 
 #: ../src/config.vala:16
 msgid "Text Editor"
-msgstr ""
+msgstr "Tekstų redaktorius"
 
 #: ../src/config.vala:18 ../src/Scratch.vala:312
 msgid "New Window"
-msgstr ""
+msgstr "Naujas langas"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr ""
+msgstr "Apie Scratch"
 
 #: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
@@ -366,39 +366,39 @@ msgstr ""
 
 #: ../src/Widgets/SourceView.vala:120
 msgid "Syntax Highlighting"
-msgstr ""
+msgstr "Sintaksės paryškinimas"
 
 #: ../src/Widgets/SourceView.vala:131
 msgid "Normal Text"
-msgstr ""
+msgstr "Paprastas tekstas"
 
 #: ../src/Widgets/SplitView.vala:45
 msgid "No Files Open"
-msgstr ""
+msgstr "Nėra atvertų failų"
 
 #: ../src/Widgets/SplitView.vala:46
 msgid "Open a file to begin editing."
-msgstr ""
+msgstr "Atverkite failą, kad pradėtumėte redagavimą."
 
 #: ../src/Widgets/SplitView.vala:50
 msgid "New file"
-msgstr ""
+msgstr "Naujas failas"
 
 #: ../src/Widgets/SplitView.vala:50
 msgid "Create a new empty file."
-msgstr ""
+msgstr "Sukurkite naują tuščią failą."
 
 #: ../src/Widgets/SplitView.vala:51
 msgid "Open file"
-msgstr ""
+msgstr "Atverti failą"
 
 #: ../src/Widgets/SplitView.vala:51
 msgid "Open a saved file."
-msgstr ""
+msgstr "Atverkite įrašytą failą."
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "New file from clipboard"
-msgstr ""
+msgstr "Naujas failas iš iškarpinės"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "Create a new file from the contents of your clipboard."
@@ -406,7 +406,7 @@ msgstr ""
 
 #: ../src/Widgets/ToolBar.vala:58
 msgid "Share"
-msgstr ""
+msgstr "Bendrinti"
 
 #: ../src/Widgets/LoadingView.vala:33
 msgid "Wait while restoring last session..."
@@ -422,15 +422,15 @@ msgstr ""
 
 #: ../src/Widgets/SearchManager.vala:91
 msgid "Search next"
-msgstr ""
+msgstr "Ieškoti kito"
 
 #: ../src/Widgets/SearchManager.vala:97
 msgid "Search previous"
-msgstr ""
+msgstr "Ieškoti ankstesnio"
 
 #: ../src/Widgets/SearchManager.vala:104
 msgid "Cyclic Search"
-msgstr ""
+msgstr "Ciklinė paieška"
 
 #: ../src/Widgets/SearchManager.vala:112
 msgid "Replace all"
@@ -446,6 +446,7 @@ msgstr ""
 "Launchpad Contributions:\n"
 "  Erikas https://launchpad.net/~erikasras\n"
 "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
+"  Moo https://launchpad.net/~mooo\n"
 "  Rolandas Barysas https://launchpad.net/~rb---deactivatedaccount\n"
 "  gi https://launchpad.net/~gintaras-u\n"
 "  shookees https://launchpad.net/~shookees"
@@ -460,31 +461,35 @@ msgstr ""
 
 #: ../src/Scratch.vala:170
 msgid "The location is read-only."
-msgstr ""
+msgstr "Vieta yra tik skaitymui."
 
 #: ../src/Scratch.vala:172
 msgid "The parent directory doesn't exist."
-msgstr ""
+msgstr "Virškatalogio nėra."
 
 #: ../src/Scratch.vala:179
 msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
 msgstr ""
+"Failas \"%s\" negali būti sukurtas.\n"
+"%s"
 
 #: ../src/Scratch.vala:189
 msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
 msgstr ""
+"Failas \"%s\" negali būti atvertas.\n"
+"%s"
 
 #: ../src/Scratch.vala:198
 msgid "It is a mountable location."
-msgstr ""
+msgstr "Tai yra prijungiama vieta."
 
 #: ../src/Scratch.vala:201
 msgid "It is a directory."
-msgstr ""
+msgstr "Tai yra katalogas."
 
 #: ../src/Scratch.vala:204
 msgid ""
@@ -494,15 +499,15 @@ msgstr ""
 
 #: ../src/Scratch.vala:207
 msgid "It is an \"unknown\" file type."
-msgstr ""
+msgstr "Tai yra \"nežinomas\" failo tipas."
 
 #: ../src/Scratch.vala:311
 msgid "New Tab"
-msgstr ""
+msgstr "Nauja kortelė"
 
 #: ../src/Scratch.vala:313
 msgid "Print version info and exit"
-msgstr ""
+msgstr "Rodyti versijos informaciją ir išeiti"
 
 #: ../src/Scratch.vala:314
 msgid "Set of plugins"
@@ -510,11 +515,11 @@ msgstr ""
 
 #: ../src/Scratch.vala:315
 msgid "Current working directory"
-msgstr ""
+msgstr "Esamas darbinis katalogas"
 
 #: ../src/Utils.vala:42
 msgid "All files"
-msgstr ""
+msgstr "Visi failai"
 
 #: ../src/Utils.vala:45
 msgid "Text files"

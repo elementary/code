@@ -1,4 +1,4 @@
-# Japanese translation for scratch
+# Finnish translation for scratch
 # Copyright (c) 2016 Rosetta Contributors and Canonical Ltd 2016
 # This file is distributed under the same license as the scratch package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-08-02 10:38-0700\n"
-"PO-Revision-Date: 2016-08-03 01:23+0000\n"
-"Last-Translator: BALLOON a.k.a. Fu-sen. (Keiichi SHIGA) <Unknown>\n"
-"Language-Team: Japanese <ja@li.org>\n"
+"PO-Revision-Date: 2016-08-03 11:09+0000\n"
+"Last-Translator: Jiri Grönroos <Unknown>\n"
+"Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,22 +21,25 @@ msgid "Scratch"
 msgstr "Scratch"
 
 msgid "Edit text files"
-msgstr "テキストファイルを編集します"
+msgstr "Muokkaa tekstitiedostoja"
 
 msgid "Notepad;IDE;Plain;"
-msgstr "Notepad;IDE;Plain;"
+msgstr "Notepad;IDE;Plain;muistio;teksti;"
 
 msgid "About Scratch"
-msgstr "Scratch について"
+msgstr "Tietoja - Scratch"
 
 msgid "The text editor that works"
-msgstr ""
+msgstr "Toimiva tekstimuokkain"
 
 msgid ""
 "Scratch is the text editor that works for you. It auto-saves your files, "
 "meaning they're always up-to-date. Plus it remembers your tabs so you never "
 "lose your spot, even in between sessions."
 msgstr ""
+"Scratch on toimiva tekstimuokkain. Se tallentaa tiedostot automaattisesti, "
+"eli tiedostot pysyvät ajan tasalla. Lisäksi se muistaa avoinna olevat "
+"välilehdet jopa eri istuntojen välillä."
 
 msgid ""
 "Make it yours. Scratch is written from the ground up to be extensible. Keep "
@@ -44,12 +47,18 @@ msgid ""
 "into a full-blown IDE; it's your choice. And with a handful of useful "
 "preferences, you can tweak the behavior and interface to your liking."
 msgstr ""
+"Tee siitä omasi. Scratch on tehty alusta lähtien laajennettavaksi. Pidä "
+"asiat kevyinä ja yksinkertaisina, tai asenna laajennuksia ja tee Scratchista "
+"kelvollinen ohjelmointiympäristö. Kätevien asetusten avulla voit muokata "
+"toiminnan ja käyttöliittymän mieluiseksesi."
 
 msgid ""
 "It's elementary. Scratch is made to be the perfect text editor for "
 "elementary, meaning it closely follows the high standards of design, speed, "
 "and consistency. It's sexy, but not distracting."
 msgstr ""
+"Se on osa elementarya. Scratch seuraa elementaryn standardeja muotoilun, "
+"nopeuden ja yhtenäisyyden osalta. Se on nätti, eikä se hypi silmille."
 
 msgid ""
 "Works with your language. Whether you're crafting code in Vala, scripting "
@@ -57,24 +66,30 @@ msgid ""
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
+"Toimii valitsemasi kielen kanssa. Mitä hyvänsä teet, koodaat Valalla, "
+"skriptaat PHP:llä tai kuvailet HTML:llä, Scratch sopii tarpeisiisi. Koe "
+"syntaksikorostus melkein kaikilla ohjelmointi-, skriptaus- ja kuvauskielillä."
 
 msgid ""
 "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, .Desktop, "
 "Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
 "Objective C, Pascal, Perl, Python, Ruby, XML."
 msgstr ""
+"Muita syntaksikorostettuja kieliä: Bash, C, C#, C++. Cmake, CSS, .Desktop, "
+"Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
+"Objective C, Pascal, Perl, Python, Ruby, XML."
 
 msgid "Additional features include:"
-msgstr ""
+msgstr "Lisäominaisuudet:"
 
 msgid "syntax highlighting with gtksourceview-3"
-msgstr ""
+msgstr "syntaksikorostus gtksourceview-3:a käyttäen"
 
 msgid "a find bar to search the words in the files"
-msgstr ""
+msgstr "hakupalkki, jonka avulla löydät etsimäsi tiedostoista"
 
 msgid "tab and split documents system"
-msgstr ""
+msgstr "välilehti- ja jakonäkymäjärjestelmä"
 
 msgid "lots of others"
-msgstr ""
+msgstr "paljon muuta"
