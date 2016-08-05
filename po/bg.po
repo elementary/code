@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-08-02 10:38-0700\n"
-"PO-Revision-Date: 2015-12-21 13:38+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
+"PO-Revision-Date: 2016-08-04 09:56+0000\n"
+"Last-Translator: KVG <kvgkvg@gmail.com>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-03 05:39+0000\n"
+"X-Launchpad-Export-Date: 2016-08-05 05:33+0000\n"
 "X-Generator: Launchpad (build 18169)\n"
 
 #: ../src/MainWindow.vala:97
@@ -55,7 +55,7 @@ msgstr "Затваряне"
 #: ../src/MainWindow.vala:876 ../src/MainWindow.vala:877
 #: ../src/Widgets/SearchManager.vala:107
 msgid "Replace"
-msgstr "Замени"
+msgstr "Заместване"
 
 #: ../src/MainWindow.vala:880
 msgid "Reopen closed document"
@@ -153,7 +153,7 @@ msgstr "Запази този файл"
 
 #: ../src/MainWindow.vala:928 ../src/Services/Document.vala:574
 msgid "Save As…"
-msgstr "Запази като…"
+msgstr "Запазване като…"
 
 #: ../src/MainWindow.vala:929
 msgid "Save this file with a different name"
@@ -173,7 +173,7 @@ msgstr "Предпочитания"
 
 #: ../src/MainWindow.vala:937
 msgid "Change Scratch settings"
-msgstr "Промяна на настройките на Scratch"
+msgstr "Промяна на настройките на програмата"
 
 #: ../src/MainWindow.vala:940 ../src/MainWindow.vala:941
 msgid "Next Tab"
@@ -201,11 +201,11 @@ msgstr "Разширения"
 
 #: ../src/Dialogs/PreferencesDialog.vala:109
 msgid "General"
-msgstr ""
+msgstr "Основни"
 
 #: ../src/Dialogs/PreferencesDialog.vala:111
 msgid "When Scratch starts:"
-msgstr "При стартиране на Драскутина:"
+msgstr "При пускане на програмата:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:113
 msgid "Show welcome screen"
@@ -213,7 +213,7 @@ msgstr "Показване на началния екран"
 
 #: ../src/Dialogs/PreferencesDialog.vala:114
 msgid "Show last open tabs"
-msgstr "Покажи последно отворените раздели"
+msgstr "Показване на последните отворени подпрозорци"
 
 #: ../src/Dialogs/PreferencesDialog.vala:117
 msgid "Save files when changed:"
@@ -221,7 +221,7 @@ msgstr "Записвай файловете при промяна:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:120
 msgid "Tabs"
-msgstr ""
+msgstr "Подпрозорци"
 
 #: ../src/Dialogs/PreferencesDialog.vala:122
 msgid "Automatic indentation:"
@@ -237,7 +237,7 @@ msgstr "Широчина на табулацията:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:154
 msgid "Editor"
-msgstr ""
+msgstr "Редактор"
 
 #: ../src/Dialogs/PreferencesDialog.vala:156
 msgid "Highlight current line:"
@@ -261,7 +261,7 @@ msgstr "Покажи номерата на редовете"
 
 #: ../src/Dialogs/PreferencesDialog.vala:172
 msgid "Show Mini Map:"
-msgstr ""
+msgstr "Показване на карта"
 
 #: ../src/Dialogs/PreferencesDialog.vala:176
 msgid "Line width guide:"
@@ -348,11 +348,11 @@ msgstr ""
 
 #: ../src/Services/Document.vala:626
 msgid "Load"
-msgstr "Зареди"
+msgstr "Зареждане"
 
 #: ../src/Services/Document.vala:629
 msgid "Continue"
-msgstr "Продължи"
+msgstr "Продължаване"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -376,11 +376,11 @@ msgstr ""
 
 #: ../src/Widgets/SourceView.vala:120
 msgid "Syntax Highlighting"
-msgstr "Синтактично Открояване"
+msgstr "Синтактично открояване"
 
 #: ../src/Widgets/SourceView.vala:131
 msgid "Normal Text"
-msgstr "Обикновен Текст"
+msgstr "Обикновен текст"
 
 #: ../src/Widgets/SplitView.vala:45
 msgid "No Files Open"
@@ -416,7 +416,7 @@ msgstr "Създай нов файл от съдържанието на буфе
 
 #: ../src/Widgets/ToolBar.vala:58
 msgid "Share"
-msgstr "Сподели"
+msgstr "Споделяне"
 
 #: ../src/Widgets/LoadingView.vala:33
 msgid "Wait while restoring last session..."
@@ -463,7 +463,8 @@ msgstr ""
 "  Nikola Lardev https://launchpad.net/~nikolalardev\n"
 "  ShanoDJ https://launchpad.net/~shanodj\n"
 "  Veselin Trakiyski https://launchpad.net/~wesako\n"
-"  Yennefer of Vengerberg https://launchpad.net/~yennefer1251"
+"  Yennefer of Vengerberg https://launchpad.net/~yennefer1251\n"
+"  Адмирал АнимЕ https://launchpad.net/~aeternus-arcis"
 
 #: ../src/Scratch.vala:166
 msgid "Maybe you do not have the necessary permissions."
