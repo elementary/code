@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-02 10:38-0700\n"
-"PO-Revision-Date: 2016-08-03 22:07+0000\n"
-"Last-Translator: Gonzalo <gegismero@gmail.com>\n"
+"PO-Revision-Date: 2016-08-06 01:04+0000\n"
+"Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-04 05:34+0000\n"
+"X-Launchpad-Export-Date: 2016-08-06 05:33+0000\n"
 "X-Generator: Launchpad (build 18169)\n"
 "Language: es\n"
 
@@ -60,7 +60,7 @@ msgstr "Reemplazar"
 
 #: ../src/MainWindow.vala:880
 msgid "Reopen closed document"
-msgstr "Reabrir documento cerrado"
+msgstr "Abrir otra vez el documento cerrado"
 
 #: ../src/MainWindow.vala:881
 msgid "Open last closed document in a new tab"
@@ -76,7 +76,7 @@ msgstr "Añadir una pestaña nueva"
 
 #: ../src/MainWindow.vala:888
 msgid "Add New View"
-msgstr "Añadir Nueva Vista"
+msgstr "Añadir vista nueva"
 
 #: ../src/MainWindow.vala:889
 msgid "Add a new view"
@@ -84,11 +84,11 @@ msgstr "Añadir nueva vista"
 
 #: ../src/MainWindow.vala:892
 msgid "Remove Current View"
-msgstr "Eliminar vista actual"
+msgstr "Quitar vista actual"
 
 #: ../src/MainWindow.vala:893
 msgid "Remove this view"
-msgstr "Eliminar esta vista"
+msgstr "Quitar esta vista"
 
 #: ../src/MainWindow.vala:896
 msgid "Undo"
@@ -133,7 +133,7 @@ msgstr "Portapapeles"
 
 #: ../src/MainWindow.vala:917
 msgid "New file from Clipboard"
-msgstr ""
+msgstr "Archivo nuevo a partir del portapapeles"
 
 #: ../src/MainWindow.vala:920
 msgid "Zoom"
@@ -202,11 +202,11 @@ msgstr "Extensiones"
 
 #: ../src/Dialogs/PreferencesDialog.vala:109
 msgid "General"
-msgstr ""
+msgstr "Generales"
 
 #: ../src/Dialogs/PreferencesDialog.vala:111
 msgid "When Scratch starts:"
-msgstr "Cuando Scratch inicia:"
+msgstr "Cuando Scratch inicie:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:113
 msgid "Show welcome screen"
@@ -214,15 +214,15 @@ msgstr "Mostrar pantalla de bienvenida"
 
 #: ../src/Dialogs/PreferencesDialog.vala:114
 msgid "Show last open tabs"
-msgstr "Mostrar las últimas pestañas abiertas"
+msgstr "Mostrar últimas pestañas abiertas"
 
 #: ../src/Dialogs/PreferencesDialog.vala:117
 msgid "Save files when changed:"
-msgstr "Guardar archivos cuando son modificados:"
+msgstr "Guardar archivos al ser modificados:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:120
 msgid "Tabs"
-msgstr ""
+msgstr "Pestañas"
 
 #: ../src/Dialogs/PreferencesDialog.vala:122
 msgid "Automatic indentation:"
@@ -234,19 +234,19 @@ msgstr "Insertar espacios en lugar de tabulaciones:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:128
 msgid "Tab width:"
-msgstr "Ancho de tabulador:"
+msgstr "Anchura del tabulador:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:154
 msgid "Editor"
-msgstr ""
+msgstr "Editor"
 
 #: ../src/Dialogs/PreferencesDialog.vala:156
 msgid "Highlight current line:"
-msgstr "Destacar la línea activa:"
+msgstr "Resaltar la línea actual:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:159
 msgid "Highlight matching brackets:"
-msgstr "Destacar la pareja de corchetes:"
+msgstr "Resaltar corchetes correspondientes:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:162
 msgid "Line wrap:"
@@ -258,11 +258,11 @@ msgstr ""
 
 #: ../src/Dialogs/PreferencesDialog.vala:168
 msgid "Show line numbers:"
-msgstr "Mostrar números de línea"
+msgstr "Mostrar números de renglones:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:172
 msgid "Show Mini Map:"
-msgstr ""
+msgstr "Mostrar el minimapa:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:176
 msgid "Line width guide:"
@@ -270,19 +270,19 @@ msgstr "Guía de ancho de línea:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:184
 msgid "Font and Color Scheme"
-msgstr ""
+msgstr "Tipo de letra y combinación de colores"
 
 #: ../src/Dialogs/PreferencesDialog.vala:186
 msgid "Color scheme:"
-msgstr "Esquema de colores"
+msgstr "Combinación de colores:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:191
 msgid "Custom font:"
-msgstr "Fuente personalizada:"
+msgstr "Tipo de letra personalizado:"
 
 #: ../src/Services/Document.vala:245
 msgid "Save changes to document %s before closing?"
-msgstr "¿Desea guardar los cambios al documento %s antes de cerrar?"
+msgstr "¿Quiere guardar los cambios del documento «%s» antes de cerrar?"
 
 #: ../src/Services/Document.vala:248
 msgid ""
@@ -337,7 +337,7 @@ msgstr ""
 
 #: ../src/Services/Document.vala:594
 msgid "Save changes elsewhere"
-msgstr "Guardar los cambios en otra ubicación"
+msgstr "Guardar cambios en otro sitio"
 
 #: ../src/Services/Document.vala:625
 msgid ""
@@ -357,7 +357,7 @@ msgstr "Continuar"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
-msgstr "Editar archivos de texto"
+msgstr "Edite archivos de texto"
 
 #: ../src/config.vala:16
 msgid "Text Editor"
@@ -377,7 +377,7 @@ msgstr "Archivo de texto de "
 
 #: ../src/Widgets/SourceView.vala:120
 msgid "Syntax Highlighting"
-msgstr "Resaltado de sintaxis"
+msgstr "Resalte de sintaxis"
 
 #: ../src/Widgets/SourceView.vala:131
 msgid "Normal Text"
@@ -529,31 +529,35 @@ msgstr ""
 
 #: ../src/Scratch.vala:166
 msgid "Maybe you do not have the necessary permissions."
-msgstr ""
+msgstr "Probablemente no cuenta con los permisos necesarios."
 
 #: ../src/Scratch.vala:168
 msgid "Maybe the file path provided is not valid."
-msgstr ""
+msgstr "Probablemente la ruta de archivo proporcionada no es válida."
 
 #: ../src/Scratch.vala:170
 msgid "The location is read-only."
-msgstr ""
+msgstr "La ubicación es de solo lectura."
 
 #: ../src/Scratch.vala:172
 msgid "The parent directory doesn't exist."
-msgstr ""
+msgstr "La carpeta contenedora no existe."
 
 #: ../src/Scratch.vala:179
 msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
 msgstr ""
+"No se puede crear el archivo «%s».\n"
+"%s"
 
 #: ../src/Scratch.vala:189
 msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
 msgstr ""
+"No se puede abrir el archivo «%s».\n"
+"%s"
 
 #: ../src/Scratch.vala:198
 msgid "It is a mountable location."
@@ -561,7 +565,7 @@ msgstr ""
 
 #: ../src/Scratch.vala:201
 msgid "It is a directory."
-msgstr ""
+msgstr "Es una carpeta."
 
 #: ../src/Scratch.vala:204
 msgid ""
@@ -571,7 +575,7 @@ msgstr ""
 
 #: ../src/Scratch.vala:207
 msgid "It is an \"unknown\" file type."
-msgstr ""
+msgstr "Es un tipo de archivo desconocido."
 
 #: ../src/Scratch.vala:311
 msgid "New Tab"
@@ -579,11 +583,11 @@ msgstr "Pestaña nueva"
 
 #: ../src/Scratch.vala:313
 msgid "Print version info and exit"
-msgstr "Imprimir información de la versión y salir"
+msgstr "Mostrar información de la versión y salir"
 
 #: ../src/Scratch.vala:314
 msgid "Set of plugins"
-msgstr "Conjunto de conectores"
+msgstr "Conjunto de complementos"
 
 #: ../src/Scratch.vala:315
 msgid "Current working directory"
@@ -780,11 +784,11 @@ msgstr "Abrir con"
 
 #: ../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr "Abrir archivos que esté editando con otra aplicación."
+msgstr "Abrir archivos que esté editando con otra aplicación"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr ""
+msgstr "Abrir con…"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -853,7 +857,7 @@ msgstr "Utilizar órdenes de Vim en Scratch"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:24
 msgid "Preserve Indent"
-msgstr ""
+msgstr "Conservar sangría"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:25
 msgid "Maintains indent level of pasted text when auto-indent is active"
@@ -893,7 +897,7 @@ msgstr "Gestor de carpetas"
 #: ../plugins/filemanager/FileManagerPlugin.vala:22
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:22
 msgid "Basic folder manager with file browsing"
-msgstr "Gestor de carpetas básicos con navegación de archivos"
+msgstr "Gestor de carpetas básico con navegación de archivos"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:71
 msgid "Go to parent"
@@ -915,11 +919,11 @@ msgstr "Gestor de archivos"
 #: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
 #: ../plugins/terminal/terminal.vala:174
 msgid "Terminal"
-msgstr "Terminal"
+msgstr "Consola"
 
 #: ../plugins/terminal/terminal.vala:24
 msgid "A terminal in your text editor"
-msgstr "Un terminal en el editor de textos"
+msgstr "Una consola en el editor de textos"
 
 #: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
 msgid "Show Terminal"
@@ -939,7 +943,7 @@ msgstr "Consola a la derecha"
 
 #: ../plugins/terminal/terminal.vala:331
 msgid "Terminal on Bottom"
-msgstr ""
+msgstr "Consola abajo"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
@@ -1025,7 +1029,7 @@ msgstr "Resaltar palabras seleccionadas"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
 msgid "Highlights all occurrences of words that are selected"
-msgstr ""
+msgstr "Resalta todas las ocurrencias de las palabras seleccionadas"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
