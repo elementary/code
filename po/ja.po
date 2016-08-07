@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-08-02 10:38-0700\n"
-"PO-Revision-Date: 2016-08-03 02:26+0000\n"
-"Last-Translator: BALLOON a.k.a. Fu-sen. (Keiichi SHIGA) <Unknown>\n"
+"PO-Revision-Date: 2016-08-06 07:37+0000\n"
+"Last-Translator: Jun Takeda <takeda.jun@gmail.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-04 05:34+0000\n"
+"X-Launchpad-Export-Date: 2016-08-07 05:25+0000\n"
 "X-Generator: Launchpad (build 18169)\n"
 
 #: ../src/MainWindow.vala:97
@@ -396,7 +396,7 @@ msgstr "ファイルを開く"
 
 #: ../src/Widgets/SplitView.vala:51
 msgid "Open a saved file."
-msgstr "保存されたファイルを開く。"
+msgstr "保存されているファイルを開きます。"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "New file from clipboard"
@@ -404,7 +404,7 @@ msgstr "クリップボードから新しいファイル"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "Create a new file from the contents of your clipboard."
-msgstr "クリックポードの内容から新しいファイルを作成します。"
+msgstr "クリップポードの内容から新しいファイルを作成します。"
 
 #: ../src/Widgets/ToolBar.vala:58
 msgid "Share"
@@ -513,7 +513,7 @@ msgstr "新しいタブ"
 
 #: ../src/Scratch.vala:313
 msgid "Print version info and exit"
-msgstr ""
+msgstr "バージョン情報を表示して終了する"
 
 #: ../src/Scratch.vala:314
 msgid "Set of plugins"
@@ -588,7 +588,7 @@ msgstr ""
 #: ../plugins/clipboard-history/ClipboardHistory.vala:21
 #: ../plugins/clipboard-history/ClipboardHistory.vala:89
 msgid "Clipboard History"
-msgstr "クリックポードの履歴"
+msgstr "クリップボードの履歴"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:22
 msgid "Clipboard to view history"
