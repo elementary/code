@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-02 10:38-0700\n"
-"PO-Revision-Date: 2016-06-29 16:25+0000\n"
+"PO-Revision-Date: 2016-08-09 20:57+0000\n"
 "Last-Translator: yavinfour <anjelo.passionist@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-03 05:41+0000\n"
+"X-Launchpad-Export-Date: 2016-08-10 05:31+0000\n"
 "X-Generator: Launchpad (build 18169)\n"
 
 #: ../src/MainWindow.vala:97
@@ -244,7 +244,7 @@ msgstr "I-haylayt ang tumutugmang panaklong"
 
 #: ../src/Dialogs/PreferencesDialog.vala:162
 msgid "Line wrap:"
-msgstr ""
+msgstr "Pagbabalot ng linya:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:165
 msgid "Draw Spaces:"
@@ -629,19 +629,21 @@ msgstr ""
 
 #: ../plugins/word-completion/completion-provider.vala:80
 msgid "Could not load icon theme: %s\n"
-msgstr ""
+msgstr "Hindi mai-load ang icon theme: %s\n"
 
 #: ../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
-msgstr ""
+msgstr "Pagkumpleto ng mga salita"
 
 #: ../plugins/word-completion/plugin.vala:35
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
+"Magpakita ng isang completion dialog na naglaman ng mga pinakaginagamit na "
+"mga salita mula sa mga files mo"
 
 #: ../plugins/word-completion/plugin.vala:175
 msgid "%s - Word Completion"
-msgstr ""
+msgstr "%s - Pagkumpleto ng salita"
 
 #: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
 #: ../plugins/outline/ValaProcessing/SymbolOutline.vala:99
@@ -705,7 +707,7 @@ msgstr ""
 #. **
 #: ../plugins/open-with/open-with.vala:21
 msgid "Open With"
-msgstr ""
+msgstr "Buksan Gamit Ang"
 
 #: ../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
@@ -713,7 +715,7 @@ msgstr ""
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr ""
+msgstr "Buksan Gamit Ang..."
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -778,11 +780,11 @@ msgstr ""
 
 #: ../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
-msgstr ""
+msgstr "Gamitin ang mga Vim commands sa Scratch"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:24
 msgid "Preserve Indent"
-msgstr ""
+msgstr "Panatilihin ang Pagi-indent"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:25
 msgid "Maintains indent level of pasted text when auto-indent is active"
@@ -872,7 +874,7 @@ msgstr "Ilagay ang Terminal sa ibaba"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
-msgstr ""
+msgstr "I-share gamit ang PasteBin"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:272
 msgid "Name:"
@@ -888,11 +890,11 @@ msgstr "Iba pa..."
 
 #: ../plugins/pastebin/pastebin_dialog.vala:305
 msgid "Expiry time:"
-msgstr ""
+msgstr "Oras ng pageexpire:"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:310
 msgid "Keep this paste private"
-msgstr ""
+msgstr "Panatilihing pribado ang file na ito"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:312
 msgid "Upload"
@@ -924,15 +926,15 @@ msgstr "Isang buwan"
 
 #: ../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
-msgstr ""
+msgstr "Pastebin"
 
 #: ../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
-msgstr ""
+msgstr "Magshare ng mga files gamit ang pastebin service"
 
 #: ../plugins/pastebin/pastebin.vala:134
 msgid "Upload to Pastebin"
-msgstr ""
+msgstr "Iupload sa Pastebin"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -950,11 +952,11 @@ msgstr ""
 #. **
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
 msgid "Highlight Selected Words"
-msgstr ""
+msgstr "I-highlight ang mga Napiling mga Salita"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
 msgid "Highlights all occurrences of words that are selected"
-msgstr ""
+msgstr "I-hihighlight ang lahat ng mga salitang napili"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published

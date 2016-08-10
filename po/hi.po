@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-08-02 10:38-0700\n"
-"PO-Revision-Date: 2016-06-24 12:52+0000\n"
+"PO-Revision-Date: 2016-08-09 13:58+0000\n"
 "Last-Translator: Anand Kumar <Unknown>\n"
 "Language-Team: Hindi <hi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-03 05:40+0000\n"
+"X-Launchpad-Export-Date: 2016-08-10 05:31+0000\n"
 "X-Generator: Launchpad (build 18169)\n"
 
 #: ../src/MainWindow.vala:97
@@ -27,7 +27,7 @@ msgstr "रद्दी"
 
 #: ../src/MainWindow.vala:671
 msgid "Open some files"
-msgstr ""
+msgstr "कुछ फ़ाइल खोलें"
 
 #: ../src/MainWindow.vala:796 ../src/MainWindow.vala:957
 #: ../src/MainWindow.vala:958 ../src/MainWindow.vala:969
@@ -37,7 +37,7 @@ msgstr "ढूंढें..."
 
 #: ../src/MainWindow.vala:798
 msgid "Hide search bar"
-msgstr ""
+msgstr "सर्च बार छुपायें"
 
 #: ../src/MainWindow.vala:864 ../src/MainWindow.vala:865
 msgid "Go to line…"
@@ -59,15 +59,15 @@ msgstr "बदलें"
 
 #: ../src/MainWindow.vala:880
 msgid "Reopen closed document"
-msgstr ""
+msgstr "बंद किये डॉक्यूमेंट को पुनः खोलें"
 
 #: ../src/MainWindow.vala:881
 msgid "Open last closed document in a new tab"
-msgstr ""
+msgstr "अंतिम बंद डॉक्यूमेंट को पुनः खोलें"
 
 #: ../src/MainWindow.vala:884
 msgid "Add New Tab"
-msgstr ""
+msgstr "एक नया टैब जोड़ें"
 
 #: ../src/MainWindow.vala:885
 msgid "Add a new tab"
@@ -149,7 +149,7 @@ msgstr "सहेजें"
 
 #: ../src/MainWindow.vala:925
 msgid "Save this file"
-msgstr ""
+msgstr "इस फाइल को सुरक्षित करें"
 
 #: ../src/MainWindow.vala:928 ../src/Services/Document.vala:574
 msgid "Save As…"
@@ -157,7 +157,7 @@ msgstr "इस रूप में सहेजें..."
 
 #: ../src/MainWindow.vala:929
 msgid "Save this file with a different name"
-msgstr ""
+msgstr "इस फाइल को किसी अन्य नाम से सुरक्षित करें"
 
 #: ../src/MainWindow.vala:932 ../src/Services/TemplateManager.vala:194
 msgid "Templates"
@@ -165,7 +165,7 @@ msgstr "नमूने"
 
 #: ../src/MainWindow.vala:933
 msgid "Project templates"
-msgstr ""
+msgstr "प्रोजेक्ट टेम्प्लेट"
 
 #: ../src/MainWindow.vala:936 ../src/Dialogs/PreferencesDialog.vala:56
 msgid "Preferences"
@@ -245,7 +245,7 @@ msgstr "वर्तमान लाइन को चिन्हांकित
 
 #: ../src/Dialogs/PreferencesDialog.vala:159
 msgid "Highlight matching brackets:"
-msgstr ""
+msgstr "सामान कोष्ठकों को हाईलाइट करें"
 
 #: ../src/Dialogs/PreferencesDialog.vala:162
 msgid "Line wrap:"
@@ -269,11 +269,11 @@ msgstr ""
 
 #: ../src/Dialogs/PreferencesDialog.vala:184
 msgid "Font and Color Scheme"
-msgstr ""
+msgstr "लिपि और रंग संयोजन"
 
 #: ../src/Dialogs/PreferencesDialog.vala:186
 msgid "Color scheme:"
-msgstr ""
+msgstr "रंग संयोजन"
 
 #: ../src/Dialogs/PreferencesDialog.vala:191
 msgid "Custom font:"
