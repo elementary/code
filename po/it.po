@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-02 10:38-0700\n"
-"PO-Revision-Date: 2016-06-18 14:17+0000\n"
-"Last-Translator: Fabio Zaramella <FFabio.96.X@Gmail.com>\n"
+"PO-Revision-Date: 2016-08-25 09:58+0000\n"
+"Last-Translator: Alessio Schreiber <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-03 05:40+0000\n"
-"X-Generator: Launchpad (build 18169)\n"
+"X-Launchpad-Export-Date: 2016-08-26 05:45+0000\n"
+"X-Generator: Launchpad (build 18179)\n"
 "Language: \n"
 
 #: ../src/MainWindow.vala:97
@@ -28,7 +28,7 @@ msgstr "Cestino"
 
 #: ../src/MainWindow.vala:671
 msgid "Open some files"
-msgstr "Aprire alcuni file"
+msgstr "Apri alcuni file"
 
 #: ../src/MainWindow.vala:796 ../src/MainWindow.vala:957
 #: ../src/MainWindow.vala:958 ../src/MainWindow.vala:969
@@ -38,7 +38,7 @@ msgstr "Trova..."
 
 #: ../src/MainWindow.vala:798
 msgid "Hide search bar"
-msgstr "Nascondi barra di ricerca"
+msgstr "Nascondi la barra di ricerca"
 
 #: ../src/MainWindow.vala:864 ../src/MainWindow.vala:865
 msgid "Go to line…"
@@ -60,19 +60,19 @@ msgstr "Sostituisci"
 
 #: ../src/MainWindow.vala:880
 msgid "Reopen closed document"
-msgstr "Riaprire il documento chiuso"
+msgstr "Riapri il documento chiuso"
 
 #: ../src/MainWindow.vala:881
 msgid "Open last closed document in a new tab"
-msgstr "Aprire l'ultimo documento chiuso in una nuova scheda"
+msgstr "Apri l'ultimo documento chiuso in una nuova scheda"
 
 #: ../src/MainWindow.vala:884
 msgid "Add New Tab"
-msgstr "Aggiungi Nuova Scheda"
+msgstr "Aggiungi nuova scheda"
 
 #: ../src/MainWindow.vala:885
 msgid "Add a new tab"
-msgstr "Aggiungi nuova scheda"
+msgstr "Aggiungi una nuova scheda"
 
 #: ../src/MainWindow.vala:888
 msgid "Add New View"
@@ -80,7 +80,7 @@ msgstr "Aggiungi nuova vista"
 
 #: ../src/MainWindow.vala:889
 msgid "Add a new view"
-msgstr "Aggiunge un nuovo gruppo di schede"
+msgstr "Aggiungi un nuovo gruppo di schede"
 
 #: ../src/MainWindow.vala:892
 msgid "Remove Current View"
@@ -88,7 +88,7 @@ msgstr "Rimuovi vista corrente"
 
 #: ../src/MainWindow.vala:893
 msgid "Remove this view"
-msgstr "Rimuove questo gruppo di schede"
+msgstr "Rimuovi questo gruppo di schede"
 
 #: ../src/MainWindow.vala:896
 msgid "Undo"
@@ -104,7 +104,7 @@ msgstr "Ripeti"
 
 #: ../src/MainWindow.vala:901
 msgid "Redo the last undone action"
-msgstr "Ripete l'ultima azione annullata"
+msgstr "Ripeti l'ultima azione annullata"
 
 #: ../src/MainWindow.vala:904
 msgid "Revert"
@@ -125,7 +125,7 @@ msgstr "Apri"
 
 #: ../src/MainWindow.vala:913
 msgid "Open a file"
-msgstr "Apre un file"
+msgstr "Apri un file"
 
 #: ../src/MainWindow.vala:916
 msgid "Clipboard"
@@ -154,7 +154,7 @@ msgstr "Salva questo file"
 
 #: ../src/MainWindow.vala:928 ../src/Services/Document.vala:574
 msgid "Save As…"
-msgstr "Salva come…"
+msgstr "Salva come..."
 
 #: ../src/MainWindow.vala:929
 msgid "Save this file with a different name"
@@ -230,7 +230,7 @@ msgstr "Capoverso automatico:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:125
 msgid "Insert spaces instead of tabs:"
-msgstr "Inserire spazi invece di tabulazioni:"
+msgstr "Inserisci spazi invece di tabulazioni:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:128
 msgid "Tab width:"
@@ -288,8 +288,8 @@ msgstr "Salvare le modifiche al documento «%s» prima di chiudere?"
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
-"Se non si esegue il salvataggio, le modifiche apportate negli ultimi 4 "
-"secondi andranno persi."
+"Se non esegui il salvataggio, le modifiche apportate negli ultimi 4 secondi "
+"andranno perse."
 
 #: ../src/Services/Document.vala:250
 msgid "Close without saving"
@@ -313,7 +313,7 @@ msgid ""
 "or you do not have the necessary permissions to read it."
 msgstr ""
 "Il file \"%s\" non può essere letto. Forse è corrotto\n"
-"o non si dispone delle autorizzazioni necessarie per leggerlo."
+"o non disponi delle autorizzazioni necessarie per leggerlo."
 
 #: ../src/Services/Document.vala:572
 msgid ""
@@ -389,7 +389,7 @@ msgstr "Nessun file aperto"
 
 #: ../src/Widgets/SplitView.vala:46
 msgid "Open a file to begin editing."
-msgstr "Aprire un file per iniziarne la modifica."
+msgstr "Apri un file per iniziarne la modifica."
 
 #: ../src/Widgets/SplitView.vala:50
 msgid "New file"
@@ -405,7 +405,7 @@ msgstr "Apri file"
 
 #: ../src/Widgets/SplitView.vala:51
 msgid "Open a saved file."
-msgstr "Apre un file salvato."
+msgstr "Apri un file esistente."
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "New file from clipboard"
