@@ -271,6 +271,8 @@ namespace Scratch {
                 this.split_view.show_welcome ();
             }
 
+            this.split_view.document_change.connect ((doc) => { plugins.hook_document (doc); });
+
             // Plugins hook
             HookFunc hook_func = () => {
                 plugins.hook_window (this);
@@ -280,7 +282,6 @@ namespace Scratch {
                 plugins.hook_notebook_sidebar (this.sidebar);
                 plugins.hook_notebook_context (this.contextbar);
                 plugins.hook_notebook_bottom (this.bottombar);
-                this.split_view.document_change.connect ((doc) => { plugins.hook_document (doc); });
                 plugins.hook_split_view (this.split_view);
             };
 
