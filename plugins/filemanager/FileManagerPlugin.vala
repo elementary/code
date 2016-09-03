@@ -85,17 +85,9 @@ namespace Scratch.Plugins {
                 view.add_file ();
             });
 
-            var remove = new Gtk.ToolButton (null, null);
-            remove.tooltip_text = _("Remove file");
-            remove.icon_name = "edit-delete-symbolic";
-            remove.clicked.connect (() => {
-                view.remove_file ();
-            });
-
             toolbar.insert (parent, -1);
             toolbar.insert (spacer, -1);
             toolbar.insert (add, -1);
-            toolbar.insert (remove, -1);
 
             box.pack_start (view, true, true, 0);
             box.pack_start (toolbar, false, false, 0);

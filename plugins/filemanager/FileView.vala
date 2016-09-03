@@ -68,9 +68,13 @@ namespace Scratch.Plugins.FileManager {
             this.folder.expanded = expand;
             write_settings ();
         }
-        
-        public void add_file () {
+
+        public void add_file (GLib.File? to_directory = null) {
             string path = folder.file.file.get_path () + _("/New File");
+            if (to_directory != null) {
+                path = to_directory.get_path () + _("/New File");
+            }
+
             var file = GLib.File.new_for_path (path);
             int n = 1;
             while (file.query_exists ()) {
@@ -86,20 +90,6 @@ namespace Scratch.Plugins.FileManager {
 
             var item = new FileItem (new File (file.get_path ()));
             this.folder.add (item);
-        }
-
-        public void remove_file () {
-            if (this.selected is FileItem) {
-                var file = GLib.File.new_for_path (((FileItem)selected).file.file.get_path ());
-                try {
-                    file.delete ();
-                    this.root.remove (selected);
-                } catch (Error e) {
-                    warning (e.message);
-                }
-            }
-
-            this.selected = null;
         }
 
         private bool is_open (File folder) {
@@ -228,8 +218,11 @@ namespace Scratch.Plugins.FileManager {
 
             var menu = new Gtk.Menu ();
             var item = new Gtk.MenuItem.with_label (_("Open"));
+            var new_file_item = new Gtk.MenuItem.with_label (_("Add file"));
             item.activate.connect (() => { this.folder_open (this.file.file); });
+            new_file_item.activate.connect (() => view.add_file (this.file.file));
             menu.append (item);
+            menu.append (new_file_item);
             menu.show_all ();
             return menu;
         }
