@@ -1,11 +1,3 @@
-pkg_check_modules(OUTLINE_DEPS libvala-${VALA_SHORTVER})
-if (${OUTLINE_DEPS_FOUND})
-
-add_definitions(${NORMAL_CFLAGS})
-link_directories(${NORMAL_LINK_DIRS})
-
-set (PLUGIN_NAME "outline")
-
 # Compute VALA_SHORTVER
 execute_process(
     COMMAND
@@ -23,7 +15,13 @@ if(${is_odd} EQUAL 1)
 endif()
 set(VALA_SHORTVER "${maj_ver}.${min_ver}" CACHE INTERNAL "")
 
+pkg_check_modules(OUTLINE_DEPS libvala-${VALA_SHORTVER})
+if (${OUTLINE_DEPS_FOUND})
 
+add_definitions(${NORMAL_CFLAGS})
+link_directories(${NORMAL_LINK_DIRS})
+
+set (PLUGIN_NAME "outline")
 
 vala_precompile(VALA_C ${PLUGIN_NAME}
     CtagsSymbolResolver.vala
