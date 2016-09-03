@@ -1,3 +1,6 @@
+pkg_check_modules(OUTLINE_DEPS libvala-${VALA_SHORTVER})
+if (${OUTLINE_DEPS_FOUND})
+
 add_definitions(${NORMAL_CFLAGS})
 link_directories(${NORMAL_LINK_DIRS})
 
@@ -40,24 +43,22 @@ PACKAGES
     ${ZEITGEIST_DEPS}
     libvala-${VALA_SHORTVER}
 OPTIONS
-    --vapidir=${CMAKE_BINARY_DIR}
-    --vapidir=${CMAKE_BINARY_DIR}/src/
-    --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
-    --target-glib=2.32
+    ${DEFAULT_PLUGIN_OPTIONS}
 )
 
 include (GResource)
 glib_compile_resources (GLIB_RESOURCES_OUTLINE SOURCE icons/outline.gresource.xml)
-
-pkg_check_modules(OUTLINE_DEPS libvala-${VALA_SHORTVER})
 link_directories(${OUTLINE_DEPS_LIBRARY_DRIS})
 add_definitions(${OUTLINE_DEPS_CFLAGS})
 
 add_library(${PLUGIN_NAME} MODULE ${VALA_C} ${GLIB_RESOURCES_OUTLINE})
-add_dependencies(${PLUGIN_NAME} ${LIBNAME} scratch)
+add_dependencies(${PLUGIN_NAME} ${LIBNAME})
 target_link_libraries(${PLUGIN_NAME} ${NORMAL_LIBRARIES} ${OUTLINE_DEPS_LIBRARIES})
 
 install(TARGETS ${PLUGIN_NAME} DESTINATION ${PLUGINDIR}/${PLUGIN_NAME})
 install(FILES ${PLUGIN_NAME}.plugin DESTINATION ${PLUGINDIR}/${PLUGIN_NAME})
 
 message("-- Outline plugin will be compiled")
+else()
+message("-- Outline plugin will NOT be compiled")
+endif()
