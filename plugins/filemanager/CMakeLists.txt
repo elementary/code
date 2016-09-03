@@ -17,13 +17,11 @@ PACKAGES
     gtksourceview-3.0
     ${ZEITGEIST_DEPS}
 OPTIONS
-    --vapidir=${CMAKE_BINARY_DIR}
-    --vapidir=${CMAKE_BINARY_DIR}/src/
-    --vapidir=${CMAKE_BINARY_DIR}/scratchcore/
+    ${DEFAULT_PLUGIN_OPTIONS}
 )
 
 add_library(${PLUGIN_NAME} MODULE ${VALA_C})
-add_dependencies(${PLUGIN_NAME} ${LIBNAME} scratch)
+add_dependencies(${PLUGIN_NAME} ${LIBNAME})
 
 install(TARGETS ${PLUGIN_NAME} DESTINATION ${PLUGINDIR}/${PLUGIN_NAME})
 install(FILES ${PLUGIN_NAME}.plugin DESTINATION ${PLUGINDIR}/${PLUGIN_NAME})

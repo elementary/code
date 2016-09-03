@@ -1,3 +1,10 @@
+set (DEFAULT_PLUGIN_OPTIONS
+    --thread
+    --vapidir=${CMAKE_SOURCE_DIR}/vapi/
+    --vapidir=${CMAKE_BINARY_DIR}/src/
+    --target-glib=2.32
+)
+
 add_subdirectory (contractor)
 add_subdirectory (pastebin)
 add_subdirectory (filemanager)
