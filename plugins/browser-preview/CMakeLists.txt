@@ -1,4 +1,4 @@
-pkg_check_modules (WEBKIT REQUIRED "webkitgtk-3.0")
+pkg_check_modules (WEBKIT REQUIRED "webkit2gtk-4.0")
 if(${WEBKIT_FOUND})
 add_definitions(${NORMAL_CFLAGS})
 include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/scratchcore/)
@@ -14,7 +14,7 @@ vala_precompile(VALA_C ${PLUGIN_NAME}
     browser-preview.vala
     BrowserView.vala
 PACKAGES
-    webkitgtk-3.0
+    webkit2gtk-4.0
     granite
     gtksourceview-3.0
     scratchcore
