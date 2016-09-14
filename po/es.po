@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-02 10:38-0700\n"
-"PO-Revision-Date: 2016-08-07 23:49+0000\n"
-"Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
+"PO-Revision-Date: 2016-09-13 07:01+0000\n"
+"Last-Translator: Félix Brezo <felixbrezo@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-09 05:33+0000\n"
-"X-Generator: Launchpad (build 18169)\n"
+"X-Launchpad-Export-Date: 2016-09-14 06:01+0000\n"
+"X-Generator: Launchpad (build 18186)\n"
 "Language: es\n"
 
 #: ../src/MainWindow.vala:97
@@ -254,7 +254,7 @@ msgstr "Ajuste de línea:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:165
 msgid "Draw Spaces:"
-msgstr ""
+msgstr "Dibujar espacios:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:168
 msgid "Show line numbers:"
@@ -479,6 +479,7 @@ msgstr ""
 "  Gabriel Ballesteros https://launchpad.net/~gbrlballesteros\n"
 "  Gabriel_P https://launchpad.net/~gabp\n"
 "  Gonzalo https://launchpad.net/~gegismero\n"
+"  Haggen https://launchpad.net/~h2gn\n"
 "  Héctor Molinero Fernández https://launchpad.net/~zant95\n"
 "  Israel Perez https://launchpad.net/~isra1998isra-3\n"
 "  Ivan https://launchpad.net/~ivi-o\n"
@@ -526,7 +527,8 @@ msgstr ""
 "  jacob https://launchpad.net/~jacob-lugo\n"
 "  kerunaru https://launchpad.net/~kerunaru\n"
 "  redraw https://launchpad.net/~elmonotremendo9\n"
-"  ttosttos https://launchpad.net/~ttosttos"
+"  ttosttos https://launchpad.net/~ttosttos\n"
+"  ush https://launchpad.net/~ushme"
 
 #: ../src/Scratch.vala:166
 msgid "Maybe you do not have the necessary permissions."
@@ -562,7 +564,7 @@ msgstr ""
 
 #: ../src/Scratch.vala:198
 msgid "It is a mountable location."
-msgstr ""
+msgstr "Es una localización montable."
 
 #: ../src/Scratch.vala:201
 msgid "It is a directory."
@@ -573,6 +575,8 @@ msgid ""
 "It is a \"special\" file such as a socket,\n"
 " fifo, block device, or character device."
 msgstr ""
+"Es un archivo «especial», como un socket,\n"
+"  FIFO, un dispositivo de bloqueo o un dispositivo de caracteres."
 
 #: ../src/Scratch.vala:207
 msgid "It is an \"unknown\" file type."
@@ -684,7 +688,7 @@ msgstr "Detectar sangrías"
 
 #: ../plugins/detect-indent/detect-indent.vala:2
 msgid "Heuristically detect tab or space settings"
-msgstr ""
+msgstr "Detectar ajustes de tabulación y espaciado heurísticamente"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -745,11 +749,11 @@ msgstr "Símbolos"
 #. **
 #: ../plugins/outline/OutlinePlugin.vala:21
 msgid "Outline"
-msgstr ""
+msgstr "Esquema"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
-msgstr ""
+msgstr "Resalta los símbolos en el archivo actual en vala"
 
 #: ../plugins/spell/spell.vala:18
 msgid "Spell Checker"
@@ -764,6 +768,8 @@ msgid ""
 "No suitable dictionaries were found.\n"
 "Please install at least one [aspell] dictionary"
 msgstr ""
+"No se encontraron los diccionarios adecuados.\n"
+"Por favor, instale al menos un diccionario [aspell]"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -863,6 +869,8 @@ msgstr "Conservar sangría"
 #: ../plugins/preserve-indent/preserve-indent.vala:25
 msgid "Maintains indent level of pasted text when auto-indent is active"
 msgstr ""
+"Mantiene el nivel de indentación del texto copiado cuando la auto-"
+"indentación está activa"
 
 #: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
 msgid "Strip trailing whitespace"
