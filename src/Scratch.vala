@@ -50,7 +50,7 @@ namespace Scratch {
             app_years = "2011-2015";
             app_icon = "accessories-text-editor";
             app_launcher = "scratch-text-editor.desktop";
-            application_id = "org.elementary." + app_cmd_name.down ();
+            application_id = "org.pantheon." + app_cmd_name.down ();
             main_url = "https://launchpad.net/scratch";
             bug_url = "https://bugs.launchpad.net/scratch";
             help_url = "https://elementary.io/help/scratch";
@@ -176,7 +176,7 @@ namespace Scratch {
                                 }
 
                                 if (reason.length > 0) {
-                                    msg = _("File \"%s\" cannot be created.\n%s").printf ("<b>%s</b>".printf (file.get_path ()), reason);                                    
+                                    msg = _("File \"%s\" cannot be created.\n%s").printf ("<b>%s</b>".printf (file.get_path ()), reason);
                                 }
 
                                 // Escape to the outer catch clause, and overwrite
@@ -209,7 +209,7 @@ namespace Scratch {
                         }
 
                         if (reason.length > 0) {
-                            msg = err_msg.printf ("<b>%s</b>".printf (file.get_path ()), reason);    
+                            msg = err_msg.printf ("<b>%s</b>".printf (file.get_path ()), reason);
                         }
 
                     } catch (Error e) {
