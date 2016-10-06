@@ -71,7 +71,12 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
             return;
         }
 
-        if (new_text in this.brackets.keys && this.last_inserted != new_text) {
+        // To avoid infinite loop
+        if (this.last_inserted == new_text) {
+            return;
+        }
+
+        if (new_text in this.brackets.keys) {
             var buf = this.current_buffer;
 
             string text = this.brackets.get (new_text);
@@ -84,6 +89,15 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
 
             pos.backward_chars (len);
             buf.place_cursor (pos);
+        } else if (new_text in this.brackets.values) { // Handle matching closing brackets.
+            var buf = this.current_buffer;
+            var end_pos = pos;
+            end_pos.forward_chars (1);
+
+            if (new_text == buf.get_text (pos, end_pos, true)) {
+                buf.delete (ref pos, ref end_pos);
+                buf.place_cursor (pos);
+            }
         }
     }
 }
