@@ -214,21 +214,16 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         this.terminal = new Vte.Terminal ();
         this.terminal.scrollback_lines = -1;
 
-        // Set terminal font to system default font
-        var system_settings = new GLib.Settings ("org.gnome.desktop.interface");
-        string font_name = system_settings.get_string ("monospace-font-name");
-        #if ! VTE291
-        this.terminal.set_font_from_string (font_name);
-        #else
-        var fd = Pango.FontDescription.from_string (font_name);
-        this.terminal.set_font (fd);
-        #endif
+        // Font name will come from Pantheon Terminal settings if available, else default monospace font
+        string font_name = "";
 
-        // Set allow-bold, audible-bell, background, foreground, and palette of pantheon-terminal
+        // Set font, allow-bold, audible-bell, background, foreground, and palette of pantheon-terminal
         var schema_source = SettingsSchemaSource.get_default ();
         var terminal_schema = schema_source.lookup ("org.pantheon.terminal.settings", true);
         if (terminal_schema != null) {
             var pantheon_terminal_settings = new GLib.Settings ("org.pantheon.terminal.settings");
+
+            font_name = pantheon_terminal_settings.get_string ("font");
 
             bool allow_bold_setting = pantheon_terminal_settings.get_boolean ("allow-bold");
             this.terminal.set_allow_bold (allow_bold_setting);
@@ -298,6 +293,18 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             this.terminal.set_colors (foreground_color, background_color, palette);
 
         } // end pantheon-terminal settings
+
+        // Set terminal font
+        if (font_name == "") {
+            var system_settings = new GLib.Settings ("org.gnome.desktop.interface");
+            font_name = system_settings.get_string ("monospace-font-name");
+        }
+        #if ! VTE291
+        this.terminal.set_font_from_string (font_name);
+        #else
+        var fd = Pango.FontDescription.from_string (font_name);
+        this.terminal.set_font (fd);
+        #endif
 
         // Popup menu
         var menu = new Gtk.Menu ();
