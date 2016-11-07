@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-08-02 10:38-0700\n"
-"PO-Revision-Date: 2016-08-18 12:59+0000\n"
-"Last-Translator: Jun Takeda <takeda.jun@gmail.com>\n"
+"PO-Revision-Date: 2016-11-06 15:40+0000\n"
+"Last-Translator: masashi tanimura <Unknown>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-19 05:33+0000\n"
-"X-Generator: Launchpad (build 18176)\n"
+"X-Launchpad-Export-Date: 2016-11-07 06:20+0000\n"
+"X-Generator: Launchpad (build 18246)\n"
 
 #: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
@@ -455,7 +455,8 @@ msgstr ""
 "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
 "  Naoki Kephart https://launchpad.net/~naoki-kephart\n"
 "  Shota Shimazu https://launchpad.net/~hornet-live-mf\n"
-"  Yushin Washio https://launchpad.net/~yuwash"
+"  Yushin Washio https://launchpad.net/~yuwash\n"
+"  masashi tanimura https://launchpad.net/~mtanimura"
 
 #: ../src/Scratch.vala:166
 msgid "Maybe you do not have the necessary permissions."
@@ -976,11 +977,11 @@ msgstr "選択単語の全存在場所をハイライト表示する"
 #. **
 #: ../plugins/brackets-completion/brackets-completion.vala:21
 msgid "Brackets Completion"
-msgstr ""
+msgstr "ブラケット補完"
 
 #: ../plugins/brackets-completion/brackets-completion.vala:22
 msgid "Complete brackets while typing"
-msgstr ""
+msgstr "入力中ブラケット補完"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:70
 msgid "Folders"
