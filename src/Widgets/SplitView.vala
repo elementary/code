@@ -137,7 +137,16 @@ namespace Scratch.Widgets {
                 return;
             }
 
-            this.remove (view);
+            // Swap the position of the second view in the pane when we delete the first one
+            if (get_child1 () == view && get_child2 () != null) {
+                var right_view = get_child2 ();
+                remove (view);
+                remove (right_view);
+                pack1 (right_view, true, true);
+            } else {
+                remove (view);
+            }
+
             this.views.remove (view);
             view.document_change.disconnect (on_document_changed);
             view.visible = false;
