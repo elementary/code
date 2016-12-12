@@ -168,6 +168,9 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase,  Peas.Activatable 
     }
 
     private void on_propose (bool can_propose) {
+        if (!can_propose)
+            current_view.completion.hide ();
+
         completion_visible = can_propose;
     }
 
