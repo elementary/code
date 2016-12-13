@@ -62,9 +62,11 @@ namespace Scratch {
         public string style_scheme { get; set; }
         public string[] plugins_enabled { get; set;}
         public string show_at_start { get; set; }
-        public string[] opened_files { get; set; }
+        public string[] opened_files_view1 { get; set; }
+        public string[] opened_files_view2 { get; set; }
         public bool autosave { get; set; }
-        public string focused_document { get; set; }
+        public string focused_document_view1 { get; set; }
+        public string focused_document_view2 { get; set; }
         public bool show_mini_map { get; set; }
         
         public Settings ()  {

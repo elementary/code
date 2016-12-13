@@ -294,6 +294,74 @@ namespace Scratch {
             set_widgets_sensitive (!split_view.is_empty ());
         }
 
+        public void restore_opened_documents () {
+            if (settings.show_at_start == "last-tabs") {
+                start_loading ();
+
+                string[] uris_view1 = settings.opened_files_view1;
+                string[] uris_view2 = settings.opened_files_view2;
+                string focused_document1 = settings.focused_document_view1;
+                string focused_document2 = settings.focused_document_view2;
+
+                if (uris_view1.length > 0) {
+                    var view = add_view ();
+                    load_files_for_view (view, uris_view1);
+                    set_focused_document (view, focused_document1);
+
+                    if (view.is_empty ()) {
+                        split_view.remove_view (view);
+                    }
+                }
+
+                if (uris_view2.length > 0) {
+                    var view = add_view ();
+                    load_files_for_view (view, uris_view2);
+                    set_focused_document (view, focused_document2);
+
+                    if (view.is_empty ()) {
+                        split_view.remove_view (view);
+                    }
+                }
+
+                stop_loading ();
+            }
+        }
+
+        private void load_files_for_view (Scratch.Widgets.DocumentView view, string[] uris) {
+            foreach (string uri in uris) {
+               if (uri != "") {
+                    var file = File.new_for_uri (uri);
+                    if (file.query_exists ()) {
+                        var doc = new Scratch.Services.Document (main_actions, file);
+
+                        if (!doc.is_file_temporary || doc.exists ()) {
+                            open_document (doc, view);
+                        }
+                    }
+                }
+            }
+        }
+
+        // Set focus to last focused document, after all documents finished loading
+        private void set_focused_document (Scratch.Widgets.DocumentView view, string focused_document) {
+            if (focused_document != "") {
+                Scratch.Services.Document document_to_focus = null;
+
+                foreach (Scratch.Services.Document doc in view.docs) {
+                    if (doc.file != null) {
+                        if (doc.file.get_uri() == focused_document) {
+                            document_to_focus = doc;
+                            break;
+                        }
+                    }
+                }
+
+                if (document_to_focus != null) {
+                    view.notebook.current = document_to_focus;
+                }
+            }
+        }
+
         private bool on_key_pressed (Gdk.EventKey event) {
             switch (Gdk.keyval_name (event.keyval)) {
                 case "Escape":
@@ -392,17 +460,25 @@ namespace Scratch {
         }
 
         // Open a document
-        public void open_document (Scratch.Services.Document doc) {
+        public void open_document (Scratch.Services.Document doc, Scratch.Widgets.DocumentView? view_ = null) {
             while (Gtk.events_pending ()) {
                 Gtk.main_iteration ();
             }
 
-            Scratch.Widgets.DocumentView? view = null;
+            Scratch.Widgets.DocumentView view = null;
+
+            if (view_ != null) {
+                view = view_;
+            }
+
             if (this.split_view.is_empty ()) {
                 view = split_view.add_view ();
                 view.open_document (doc);
             } else {
-                view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
+                if (view == null) {
+                    view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
+                }
+
                 if (view == null) {
                     view = this.split_view.current_view;
                 }
@@ -452,6 +528,7 @@ namespace Scratch {
             if (!is_empty ()) {
                 foreach (var w in this.split_view.views) {
                     var view = w as Scratch.Widgets.DocumentView;
+                    view.is_closing = true;
                     foreach (var doc in view.docs) {
                         if (!doc.close (true)) {
                             view.set_current_document (doc);
@@ -530,41 +607,6 @@ namespace Scratch {
             Scratch.saved_state.vp_size = vp.get_position ();
         }
 
-        // Update files-opened settings key
-        private void update_opened_files () {
-            // File list
-            string[] opened_files = {};
-            this.split_view.views.foreach ((view) => {
-                view.notebook.tabs.foreach ((tab) => {
-                    var doc = tab as Scratch.Services.Document;
-                    if (doc.file != null && doc.exists ()) {
-                        opened_files += doc.file.get_uri ();
-                    }
-                });
-            });
-
-
-            // Update the opened-files setting
-            if (settings.show_at_start == "last-tabs") {
-                settings.opened_files = opened_files;
-
-                // Update the focused-document setting
-                string file_uri = "";
-                if (this.split_view.current_view != null) {
-                    var current_document = this.split_view.current_view.get_current_document();
-                    if (current_document != null) {
-                        file_uri = current_document.file.get_uri();
-                    }
-                }
-
-                if (file_uri != "") {
-                    settings.focused_document = file_uri;
-                } else {
-                    settings.schema.reset ("focused-document");
-                }
-            }
-        }
-
         // SIGTERM/SIGINT Handling
         public bool quit_source_func () {
             action_quit ();
@@ -574,7 +616,6 @@ namespace Scratch {
         // For exit cleanup
         private void handle_quit () {
             update_saved_state ();
-            update_opened_files ();
         }
 
         public void set_default_zoom () {
@@ -762,9 +803,9 @@ namespace Scratch {
                 if (fetch_action.sensitive) {
                     /* Toggling the fetch action causes this function to be called again but the search_revealer child
                      * is still not revealed so nothing more happens.  We use the map signal on the search entry
-                     * to set it up once it has been revealed. */  
+                     * to set it up once it has been revealed. */
                     fetch_action.active = true;
-                } 
+                }
             } else {
                 set_search_text ();
             }
