@@ -59,9 +59,14 @@
 			<summary>Show the welcome screen or the last opened files at Scratch launch</summary>
 			<description>Show the welcome screen or the last opened files at Scratch launch.</description>
 		</key>
-		<key type="as" name="opened-files">
-			<default>['']</default>
-			<summary>Files opened in the previously session of Scratch</summary>
+		<key name="opened-files-view1" type="as">
+			<default>[]</default>
+			<summary>Files opened in the previously session of Scratch on the first view</summary>
+			<description>It is used to open the files opened in the last Scratch session</description>
+		</key>
+		<key name="opened-files-view2" type="as">
+			<default>[]</default>
+			<summary>Files opened in the previously session of Scratch on the second view</summary>
 			<description>It is used to open the files opened in the last Scratch session</description>
 		</key>
 		<key name="autosave" type="b">
@@ -139,7 +144,12 @@
 			<summary>Preferred Style Scheme</summary>
 			<description>Set the preferred style scheme.</description>
 		</key>
-		<key name="focused-document" type="s">
+		<key name="focused-document-view1" type="s">
+			<default>''</default>
+			<summary>Remember the last focused document.</summary>
+			<description>Restore the focused document from a previous session when opening Scratch.</description>
+		</key>
+		<key name="focused-document-view2" type="s">
 			<default>''</default>
 			<summary>Remember the last focused document.</summary>
 			<description>Restore the focused document from a previous session when opening Scratch.</description>

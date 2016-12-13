@@ -242,44 +242,10 @@ namespace Scratch {
             if (window == null) {
                 window = this.new_window ();
                 window.show ();
-                // Restore opened documents
-                if (settings.show_at_start == "last-tabs") {
-                    window.start_loading ();
-
-                    string[] uris = settings.schema.get_strv ("opened-files");
-
-                    foreach (string uri in uris) {
-                       if (uri != "") {
-                            var file = File.new_for_uri (uri);
-                            if (file.query_exists ()) {
-                                var doc = new Scratch.Services.Document (window.main_actions, file);
-                                window.open_document (doc);
-                            }
-                        }
-                    }
-
-                    // Set focus to last focused document, after all documents finished loading
-                    string focused_document = settings.schema.get_string("focused-document");
-                    if (focused_document != "" && window.split_view.current_view != null) {
-                        Scratch.Services.Document document_to_focus = null;
-                        var document_view = window.split_view.current_view;
-                        foreach (Scratch.Services.Document doc in document_view.docs) {
-                            if (doc.file != null) {
-                                if (doc.file.get_uri() == focused_document) {
-                                    document_to_focus = doc;
-                                    break;
-                                }
-                            }
-                        }
-                        if (document_to_focus != null)
-                            window.split_view.current_view.notebook.current = document_to_focus;
-                    }
-                    window.stop_loading ();
-                }
+                window.restore_opened_documents ();
             } else {
                 window.present ();
             }
-
         }
 
         protected override void open (File[] files, string hint) {

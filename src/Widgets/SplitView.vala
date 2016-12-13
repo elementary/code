@@ -120,11 +120,13 @@ namespace Scratch.Widgets {
             view.show_all ();
 
             views.append (view);
+            view.view_id = views.length ();
             this.current_view = view;
             debug ("View added successfully");
 
             // Enbale/Disable useless GtkActions about views
             check_actions ();
+
             return view;
         }
 
@@ -137,12 +139,25 @@ namespace Scratch.Widgets {
                 return;
             }
 
+            foreach (var doc in view.docs) {
+                if (!doc.close (true)) {
+                    view.set_current_document (doc);
+                    return;
+                }
+            }
+
             // Swap the position of the second view in the pane when we delete the first one
             if (get_child1 () == view && get_child2 () != null) {
-                var right_view = get_child2 ();
+                var right_view = get_child2 () as Scratch.Widgets.DocumentView;
                 remove (view);
                 remove (right_view);
                 pack1 (right_view, true, true);
+
+                view.view_id = 2;
+                right_view.view_id = 1;
+
+                view.save_opened_files ();
+                right_view.save_opened_files ();
             } else {
                 remove (view);
             }

@@ -36,6 +36,9 @@ namespace Scratch.Widgets {
             }
         }
 
+        public uint view_id = -1;
+        public bool is_closing = false;
+
         // Signals
         public signal void document_change (Services.Document? document);
         public signal void empty ();
@@ -70,6 +73,7 @@ namespace Scratch.Widgets {
 
             this.notebook.tab_switched.connect ((old_tab, new_tab) => {
                 document_change (new_tab as Services.Document);
+                save_current_file (new_tab as Services.Document);
             });
 
             this.notebook.tab_restored.connect ((label, restore_data, icon) => {
@@ -224,7 +228,7 @@ namespace Scratch.Widgets {
             doc.source_view.focus_in_event.connect (this.on_focus_in_event);
             doc.source_view.drag_data_received.connect (this.drag_received);
             doc.source_view.drag_motion.connect (this.drag_motion);
-
+            save_opened_files ();
         }
 
         private void on_doc_removed (Granite.Widgets.Tab tab) {
@@ -238,6 +242,10 @@ namespace Scratch.Widgets {
             // Check if the view is empty
             if (this.is_empty ()) {
                 empty ();
+            }
+
+            if (!is_closing) {
+                save_opened_files ();
             }
         }
 
@@ -266,6 +274,8 @@ namespace Scratch.Widgets {
             this.docs.insert (doc, new_pos);
 
             doc.focus ();
+
+            save_opened_files ();
         }
 
         private bool on_focus_in_event () {
@@ -291,6 +301,47 @@ namespace Scratch.Widgets {
                 this.open_document (doc);
 
                 Gtk.drag_finish (ctx, true, false, time);
+            }
+        }
+
+        public void save_opened_files () {
+            if (settings.show_at_start == "last-tabs") {
+                string[] opened_files = {};
+
+                notebook.tabs.foreach ((tab) => {
+                    var doc = tab as Scratch.Services.Document;
+                    if (doc.file != null && doc.exists ()) {
+                        opened_files += doc.file.get_uri ();
+                    }
+                });
+
+                if (view_id == 1) {
+                    settings.opened_files_view1 = opened_files;
+                } else {
+                    settings.opened_files_view2 = opened_files;
+                }
+            }
+        }
+
+        public void save_current_file (Services.Document? current_document) {
+            string file_uri = "";
+
+            if (current_document != null) {
+                file_uri = current_document.file.get_uri();
+            }
+
+            if (file_uri != "") {
+                if (view_id == 1) {
+                    settings.focused_document_view1 = file_uri;
+                } else {
+                    settings.focused_document_view2 = file_uri;
+                }
+            } else {
+                if (view_id == 1) {
+                    settings.schema.reset ("focused-document_view1");
+                } else {
+                    settings.schema.reset ("focused-document_view2");
+                }
             }
         }
     }
