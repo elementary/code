@@ -19,6 +19,7 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_main_window_new@Base 2.0.2bzr1327
  scratch_main_window_open_document@Base 2.0.2bzr1327
  scratch_main_window_quit_source_func@Base 2.0.2bzr1327
+ scratch_main_window_restore_opened_documents@Base 2.3bzr1790
  scratch_main_window_set_default_zoom@Base 2.1.0
  scratch_main_window_start_loading@Base 2.0.2bzr1327
  scratch_main_window_stop_loading@Base 2.0.2bzr1327
@@ -150,17 +151,20 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_settings_get_auto_indent@Base 2.0.2bzr1327
  scratch_settings_get_autosave@Base 2.0.2bzr1327
  scratch_settings_get_draw_spaces@Base 2.0.2bzr1327
- scratch_settings_get_focused_document@Base 2.2.1
+ scratch_settings_get_focused_document_view1@Base 2.3bzr1790
+ scratch_settings_get_focused_document_view2@Base 2.3bzr1790
  scratch_settings_get_font@Base 2.0.2bzr1327
  scratch_settings_get_highlight_current_line@Base 2.0.2bzr1327
  scratch_settings_get_highlight_matching_brackets@Base 2.0.2bzr1327
  scratch_settings_get_indent_width@Base 2.0.2bzr1327
  scratch_settings_get_line_break@Base 2.0.2bzr1327
- scratch_settings_get_opened_files@Base 2.0.2bzr1327
+ scratch_settings_get_opened_files_view1@Base 2.3bzr1790
+ scratch_settings_get_opened_files_view2@Base 2.3bzr1790
  scratch_settings_get_plugins_enabled@Base 2.0.2bzr1327
  scratch_settings_get_right_margin_position@Base 2.0.2bzr1327
  scratch_settings_get_show_at_start@Base 2.0.2bzr1327
  scratch_settings_get_show_line_numbers@Base 2.0.2bzr1327
+ scratch_settings_get_show_mini_map@Base 2.3bzr1790
  scratch_settings_get_show_right_margin@Base 2.0.2bzr1327
  scratch_settings_get_spaces_instead_of_tabs@Base 2.0.2bzr1327
  scratch_settings_get_style_scheme@Base 2.0.2bzr1327
@@ -170,17 +174,20 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_settings_set_auto_indent@Base 2.0.2bzr1327
  scratch_settings_set_autosave@Base 2.0.2bzr1327
  scratch_settings_set_draw_spaces@Base 2.0.2bzr1327
- scratch_settings_set_focused_document@Base 2.2.1
+ scratch_settings_set_focused_document_view1@Base 2.3bzr1790
+ scratch_settings_set_focused_document_view2@Base 2.3bzr1790
  scratch_settings_set_font@Base 2.0.2bzr1327
  scratch_settings_set_highlight_current_line@Base 2.0.2bzr1327
  scratch_settings_set_highlight_matching_brackets@Base 2.0.2bzr1327
  scratch_settings_set_indent_width@Base 2.0.2bzr1327
  scratch_settings_set_line_break@Base 2.0.2bzr1327
- scratch_settings_set_opened_files@Base 2.0.2bzr1327
+ scratch_settings_set_opened_files_view1@Base 2.3bzr1790
+ scratch_settings_set_opened_files_view2@Base 2.3bzr1790
  scratch_settings_set_plugins_enabled@Base 2.0.2bzr1327
  scratch_settings_set_right_margin_position@Base 2.0.2bzr1327
  scratch_settings_set_show_at_start@Base 2.0.2bzr1327
  scratch_settings_set_show_line_numbers@Base 2.0.2bzr1327
+ scratch_settings_set_show_mini_map@Base 2.3bzr1790
  scratch_settings_set_show_right_margin@Base 2.0.2bzr1327
  scratch_settings_set_spaces_instead_of_tabs@Base 2.0.2bzr1327
  scratch_settings_set_style_scheme@Base 2.0.2bzr1327
@@ -215,6 +222,8 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_widgets_document_view_next_document@Base 2.0.2bzr1327
  scratch_widgets_document_view_open_document@Base 2.0.2bzr1327
  scratch_widgets_document_view_previous_document@Base 2.0.2bzr1327
+ scratch_widgets_document_view_save_current_file@Base 2.3bzr1790
+ scratch_widgets_document_view_save_opened_files@Base 2.3bzr1790
  scratch_widgets_document_view_set_current@Base 2.0.2bzr1327
  scratch_widgets_document_view_set_current_document@Base 2.0.2bzr1327
  scratch_widgets_loading_view_construct@Base 2.0.2bzr1327
