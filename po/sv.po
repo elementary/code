@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-08-02 10:38-0700\n"
-"PO-Revision-Date: 2016-08-08 15:37+0000\n"
-"Last-Translator: Larsson <Unknown>\n"
+"PO-Revision-Date: 2016-12-20 23:17+0000\n"
+"Last-Translator: Tobias Ahlström <tobias.ahlstrom@gmail.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-09 05:33+0000\n"
-"X-Generator: Launchpad (build 18169)\n"
+"X-Launchpad-Export-Date: 2016-12-21 05:18+0000\n"
+"X-Generator: Launchpad (build 18298)\n"
 
 #: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
@@ -269,7 +269,7 @@ msgstr "Linjera med guidlinjen:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:184
 msgid "Font and Color Scheme"
-msgstr ""
+msgstr "Typsnitt och färgschema"
 
 #: ../src/Dialogs/PreferencesDialog.vala:186
 msgid "Color scheme:"
@@ -456,6 +456,9 @@ msgstr ""
 "Launchpad Contributions:\n"
 "  Alexander Högberg https://launchpad.net/~alexhogberg\n"
 "  Benjamin Bultman https://launchpad.net/~bultman-ben\n"
+"  Daniel Ruus https://launchpad.net/~daniel-ruus\n"
+"  Elias Gabrielsson https://launchpad.net/~eliasgabrielsson\n"
+"  Ellie https://launchpad.net/~magnonellie\n"
 "  Gustav Ekner https://launchpad.net/~gustav-ekner\n"
 "  Isak Alexander https://launchpad.net/~isak-c\n"
 "  Isak Westerlund https://launchpad.net/~isak1096\n"
@@ -468,22 +471,22 @@ msgstr ""
 "  Niclas Lockner https://launchpad.net/~niclasl\n"
 "  Repsej11 https://launchpad.net/~repsejk\n"
 "  Stefan T https://launchpad.net/~stefan-t-1\n"
-"  Tobi https://launchpad.net/~magnontobi\n"
+"  Tobias Ahlström https://launchpad.net/~tobias-ahlstrom\n"
 "  Zahirovic Mensur https://launchpad.net/~nookienoq\n"
 "  fredrik lundin https://launchpad.net/~flurick\n"
 "  wonderjake https://launchpad.net/~jakob-axelson"
 
 #: ../src/Scratch.vala:166
 msgid "Maybe you do not have the necessary permissions."
-msgstr ""
+msgstr "Du kanske inte har nödvändiga behörigheter."
 
 #: ../src/Scratch.vala:168
 msgid "Maybe the file path provided is not valid."
-msgstr ""
+msgstr "Sökvägen är kanske ogiltig"
 
 #: ../src/Scratch.vala:170
 msgid "The location is read-only."
-msgstr ""
+msgstr "Platsen är skrivskyddad."
 
 #: ../src/Scratch.vala:172
 msgid "The parent directory doesn't exist."
@@ -494,12 +497,16 @@ msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
 msgstr ""
+"Filen \"%s\" kan inte skapas.\n"
+"%s"
 
 #: ../src/Scratch.vala:189
 msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
 msgstr ""
+"Filen \"%s\" kan inte öppnas.\n"
+"%s"
 
 #: ../src/Scratch.vala:198
 msgid "It is a mountable location."
@@ -507,7 +514,7 @@ msgstr ""
 
 #: ../src/Scratch.vala:201
 msgid "It is a directory."
-msgstr ""
+msgstr "Det är en mapp."
 
 #: ../src/Scratch.vala:204
 msgid ""
@@ -704,6 +711,8 @@ msgid ""
 "No suitable dictionaries were found.\n"
 "Please install at least one [aspell] dictionary"
 msgstr ""
+"Inga lämpliga ordböcker hittades.\n"
+"Vänligen installera minst en [aspell] ordbok."
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
