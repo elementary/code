@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-02 10:38-0700\n"
-"PO-Revision-Date: 2016-09-14 07:39+0000\n"
-"Last-Translator: Félix Brezo <felixbrezo@gmail.com>\n"
+"PO-Revision-Date: 2017-01-05 18:52+0000\n"
+"Last-Translator: Gonzalo <gegismero@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-09-15 06:09+0000\n"
-"X-Generator: Launchpad (build 18186)\n"
+"X-Launchpad-Export-Date: 2017-01-06 06:04+0000\n"
+"X-Generator: Launchpad (build 18302)\n"
 "Language: es\n"
 
 #: ../src/MainWindow.vala:97
@@ -489,6 +489,7 @@ msgstr ""
 "  Jorge Ferrer https://launchpad.net/~jferrer991\n"
 "  Jorge Toledo https://launchpad.net/~eldelacajita\n"
 "  Jose Luis Tirado https://launchpad.net/~txelu70\n"
+"  José Gatica https://launchpad.net/~guitarjosegatica\n"
 "  Juan David Angarita https://launchpad.net/~jangarita11\n"
 "  Juan Pablo Lozano https://launchpad.net/~libredeb\n"
 "  Kalprestito@Yahoo.Es https://launchpad.net/~kalprestito\n"
@@ -626,7 +627,7 @@ msgstr "Cerrar inspector"
 #. **
 #: ../plugins/browser-preview/browser-preview.vala:21
 msgid "Browser Preview"
-msgstr "Previsualización en el navegador"
+msgstr "Previsualizar en navegador"
 
 #: ../plugins/browser-preview/browser-preview.vala:22
 msgid "Get a preview your work in a web page"
@@ -667,7 +668,7 @@ msgstr "Historial del portapapeles"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:22
 msgid "Clipboard to view history"
-msgstr ""
+msgstr "Portapapeles para ver el historial"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:28
 msgid "..."
@@ -814,11 +815,11 @@ msgstr "Abrir con…"
 #: ../plugins/source-tree/SourceTreePlugin.vala:20
 #: ../plugins/source-tree/SourceTreePlugin.vala:197
 msgid "Source Tree"
-msgstr "Árbol de origen"
+msgstr "Árbol de ficheros"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:21
 msgid "Have a look at your sources organized in a nice tree"
-msgstr "Eche un vistazo a sus orígenes organizados en un árbol"
+msgstr "Echa un vistazo a tus archivos de código organizados en un árbol"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:42
 msgid "Loading..."
@@ -910,7 +911,7 @@ msgstr "Gestor de carpetas básico con navegación de archivos"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:71
 msgid "Go to parent"
-msgstr "Ir al directorio principal"
+msgstr "Ir al directorio padre"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:82
 msgid "Add file"
@@ -976,7 +977,7 @@ msgstr "Fecha de vencimiento:"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:310
 msgid "Keep this paste private"
-msgstr "Conservar como privado el texto pegado"
+msgstr "Conservar el texto pegado como privado"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:312
 msgid "Upload"
