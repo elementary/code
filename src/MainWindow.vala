@@ -241,9 +241,12 @@ namespace Scratch {
             vp.position = (height - 150);
 
             hp1.pack1 (sidebar, false, false);
+            sidebar.width_request = 200;
             hp1.pack2 (content, true, false);
+            content.width_request = 200;
             hp2.pack1 (hp1, true, false);
             hp2.pack2 (contextbar, false, false);
+            contextbar.width_request = 200;
             vp.pack1 (hp2, true, false);
             vp.pack2 (bottombar, false, false);
 
