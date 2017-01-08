@@ -8,14 +8,22 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-08-02 10:38-0700\n"
-"PO-Revision-Date: 2016-06-10 06:36+0000\n"
+"PO-Revision-Date: 2017-01-08 01:32+0000\n"
 "Last-Translator: abuyop <Unknown>\n"
 "Language-Team: Malay <ms@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-03 05:40+0000\n"
-"X-Generator: Launchpad (build 18169)\n"
+"X-Launchpad-Export-Date: 2017-01-08 05:36+0000\n"
+"X-Generator: Launchpad (build 18302)\n"
+
+#: ../src/MainWindow.vala:798
+msgid "Hide search bar"
+msgstr "Sembunyikan bar carian"
+
+#: ../src/MainWindow.vala:881
+msgid "Open last closed document in a new tab"
+msgstr "Buka dokumen yang terakhir ditutup dalam tab baru"
 
 #: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
@@ -34,10 +42,6 @@ msgstr "Buka beberapa fail"
 #: ../src/MainWindow.vala:970
 msgid "Find…"
 msgstr "Cari..."
-
-#: ../src/MainWindow.vala:798
-msgid "Hide search bar"
-msgstr "Sembunyi palang gelintar"
 
 #: ../src/MainWindow.vala:864 ../src/MainWindow.vala:865
 msgid "Go to line…"
@@ -60,10 +64,6 @@ msgstr "Ganti"
 #: ../src/MainWindow.vala:880
 msgid "Reopen closed document"
 msgstr "Buka semula dokumen ditutup"
-
-#: ../src/MainWindow.vala:881
-msgid "Open last closed document in a new tab"
-msgstr "Buka dokumen tertutup yang terakhir dalam tab baru"
 
 #: ../src/MainWindow.vala:884
 msgid "Add New Tab"
@@ -452,6 +452,7 @@ msgstr "Pergi Ke Baris:"
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
+"  DivineSherX https://launchpad.net/~divinesherx\n"
 "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
 "  Nicholas Ng https://launchpad.net/~nbliang\n"
 "  abuyop https://launchpad.net/~abuyop"
