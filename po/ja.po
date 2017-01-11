@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-08-02 10:38-0700\n"
-"PO-Revision-Date: 2016-12-27 08:30+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
+"PO-Revision-Date: 2017-01-11 04:19+0000\n"
+"Last-Translator: BALLOON a.k.a. Fu-sen. (Keiichi SHIGA) <Unknown>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-12-28 04:46+0000\n"
-"X-Generator: Launchpad (build 18298)\n"
+"X-Launchpad-Export-Date: 2017-01-11 05:45+0000\n"
+"X-Generator: Launchpad (build 18302)\n"
 
 #: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
@@ -504,6 +504,8 @@ msgid ""
 "It is a \"special\" file such as a socket,\n"
 " fifo, block device, or character device."
 msgstr ""
+"これは、ソケット、FIFO、ブロックデバイス、\n"
+" キャラクタデバイスなどの \"特別\" なファイルです。"
 
 #: ../src/Scratch.vala:207
 msgid "It is an \"unknown\" file type."
@@ -687,13 +689,15 @@ msgstr "スペルチェック"
 
 #: ../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
-msgstr ""
+msgstr "ドキュメントのスペルチェック"
 
 #: ../plugins/spell/spell.vala:80
 msgid ""
 "No suitable dictionaries were found.\n"
 "Please install at least one [aspell] dictionary"
 msgstr ""
+"適切な辞書が見つかりませんでした。\n"
+"なにか [aspell] 辞書をインストールしてください"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -715,7 +719,7 @@ msgstr "他のアプリケーションで開く"
 
 #: ../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr ""
+msgstr "別のアプリケーションで編集中のファイルを開く"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
@@ -738,7 +742,7 @@ msgstr "他のアプリケーションで開く..."
 #: ../plugins/source-tree/SourceTreePlugin.vala:20
 #: ../plugins/source-tree/SourceTreePlugin.vala:197
 msgid "Source Tree"
-msgstr ""
+msgstr "ソースツリー"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:21
 msgid "Have a look at your sources organized in a nice tree"
@@ -792,7 +796,7 @@ msgstr "インテントを保持"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:25
 msgid "Maintains indent level of pasted text when auto-indent is active"
-msgstr ""
+msgstr "自動インデント有効時に貼り付けたテキストのインデントレベルを維持する"
 
 #: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
 msgid "Strip trailing whitespace"
@@ -800,7 +804,7 @@ msgstr "行末の余分な空白を削除"
 
 #: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
 msgid "Strip trailing whitespace on save"
-msgstr "保存時に行末の余分な空白を削除します"
+msgstr "保存時に行末の余分な空白を削除"
 
 #: ../plugins/filemanager/FileView.vala:73
 msgid "/New File"
@@ -828,7 +832,7 @@ msgstr "フォルダーマネージャー"
 #: ../plugins/filemanager/FileManagerPlugin.vala:22
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:22
 msgid "Basic folder manager with file browsing"
-msgstr ""
+msgstr "ファイルを参照する基本フォルダーマネージャー"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:71
 msgid "Go to parent"
@@ -854,7 +858,7 @@ msgstr "ターミナル"
 
 #: ../plugins/terminal/terminal.vala:24
 msgid "A terminal in your text editor"
-msgstr ""
+msgstr "テキストエディタのターミナル"
 
 #: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
 msgid "Show Terminal"
