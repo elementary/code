@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-08-02 10:38-0700\n"
-"PO-Revision-Date: 2015-12-21 13:38+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
+"PO-Revision-Date: 2017-01-12 09:14+0000\n"
+"Last-Translator: Nur Ikhsan Azizudin <karungboy@gmail.com>\n"
 "Language-Team: Sundanese <su@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-03 05:41+0000\n"
-"X-Generator: Launchpad (build 18169)\n"
+"X-Launchpad-Export-Date: 2017-01-13 06:12+0000\n"
+"X-Generator: Launchpad (build 18302)\n"
 
 #: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: ../src/MainWindow.vala:187
 msgid "Trash"
-msgstr ""
+msgstr "Runtah"
 
 #: ../src/MainWindow.vala:671
 msgid "Open some files"
@@ -33,7 +33,7 @@ msgstr ""
 #: ../src/MainWindow.vala:958 ../src/MainWindow.vala:969
 #: ../src/MainWindow.vala:970
 msgid "Find…"
-msgstr ""
+msgstr "Teangan..."
 
 #: ../src/MainWindow.vala:798
 msgid "Hide search bar"
@@ -41,25 +41,25 @@ msgstr ""
 
 #: ../src/MainWindow.vala:864 ../src/MainWindow.vala:865
 msgid "Go to line…"
-msgstr ""
+msgstr "Ka na garis..."
 
 #: ../src/MainWindow.vala:868 ../src/MainWindow.vala:869
 msgid "Quit"
-msgstr ""
+msgstr "Kaluar"
 
 #: ../src/MainWindow.vala:872 ../src/MainWindow.vala:873
 #: ../src/Dialogs/PreferencesDialog.vala:84
 msgid "Close"
-msgstr ""
+msgstr "Tutup"
 
 #: ../src/MainWindow.vala:876 ../src/MainWindow.vala:877
 #: ../src/Widgets/SearchManager.vala:107
 msgid "Replace"
-msgstr ""
+msgstr "Ganti"
 
 #: ../src/MainWindow.vala:880
 msgid "Reopen closed document"
-msgstr ""
+msgstr "Buka deui berkas katutup"
 
 #: ../src/MainWindow.vala:881
 msgid "Open last closed document in a new tab"
@@ -136,7 +136,7 @@ msgstr ""
 
 #: ../src/MainWindow.vala:920
 msgid "Zoom"
-msgstr ""
+msgstr "Gedean"
 
 #: ../src/MainWindow.vala:921
 msgid "Zoom 1:1"
@@ -145,7 +145,7 @@ msgstr ""
 #: ../src/MainWindow.vala:924 ../src/Services/Document.vala:255
 #: ../src/Services/Document.vala:581 ../src/Utils.vala:33
 msgid "Save"
-msgstr ""
+msgstr "Simpen"
 
 #: ../src/MainWindow.vala:925
 msgid "Save this file"
@@ -153,7 +153,7 @@ msgstr ""
 
 #: ../src/MainWindow.vala:928 ../src/Services/Document.vala:574
 msgid "Save As…"
-msgstr ""
+msgstr "Simpen jadi..."
 
 #: ../src/MainWindow.vala:929
 msgid "Save this file with a different name"
@@ -185,11 +185,11 @@ msgstr ""
 
 #: ../src/MainWindow.vala:964 ../src/MainWindow.vala:965
 msgid "Fullscreen"
-msgstr ""
+msgstr "Layar pinuh"
 
 #: ../src/Dialogs/PreferencesDialog.vala:68
 msgid "Behavior"
-msgstr ""
+msgstr "Kabiasaan"
 
 #: ../src/Dialogs/PreferencesDialog.vala:69
 msgid "Interface"
@@ -445,6 +445,7 @@ msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
+"  Nur Ikhsan Azizudin https://launchpad.net/~karungboy\n"
 "  Rizal Muttaqin https://launchpad.net/~sundaralinux"
 
 #: ../src/Scratch.vala:166
