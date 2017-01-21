@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-08-02 10:38-0700\n"
-"PO-Revision-Date: 2016-08-03 21:58+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
+"PO-Revision-Date: 2017-01-19 15:51+0000\n"
+"Last-Translator: George Stefanakis <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-04 05:34+0000\n"
-"X-Generator: Launchpad (build 18169)\n"
+"X-Launchpad-Export-Date: 2017-01-21 06:38+0000\n"
+"X-Generator: Launchpad (build 18302)\n"
 
 #: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
@@ -221,7 +221,7 @@ msgstr "Αποθήκευση αρχείων όταν μεταβάλλονται:
 
 #: ../src/Dialogs/PreferencesDialog.vala:120
 msgid "Tabs"
-msgstr ""
+msgstr "Καρτέλες"
 
 #: ../src/Dialogs/PreferencesDialog.vala:122
 msgid "Automatic indentation:"
@@ -296,7 +296,7 @@ msgstr "Κλείσιμο χωρίς αποθήκευση"
 
 #: ../src/Services/Document.vala:254 ../src/Utils.vala:29
 msgid "Cancel"
-msgstr ""
+msgstr "Ακύρωση"
 
 #: ../src/Services/Document.vala:327
 msgid "Save File"
@@ -450,9 +450,11 @@ msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
 "  Antonios Zapantis https://launchpad.net/~antonzapant\n"
+"  Belos https://launchpad.net/~sagoldenking\n"
 "  Filippos Kolyvas https://launchpad.net/~fkol-k4\n"
 "  George Stefanakis https://launchpad.net/~george-stefanakis\n"
 "  Jim Spentzos https://launchpad.net/~jamesspentzos\n"
+"  Kostas Fragkopoulos https://launchpad.net/~fragkopoulos\n"
 "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
 "  Nick Reird https://launchpad.net/~motorcycle-boy\n"
 "  Nick Risvas https://launchpad.net/~lambolighting\n"
@@ -462,10 +464,11 @@ msgstr ""
 "  Thanasis Naskos https://launchpad.net/~naskoos\n"
 "  Thanos Gram https://launchpad.net/~darkthanos-gr\n"
 "  Theodore Grammenos https://launchpad.net/~theodorewii121\n"
+"  bill https://launchpad.net/~panagiotopoulosbill\n"
 "  koleoptero https://launchpad.net/~vaggus-deactivatedaccount\n"
 "  onIaom https://launchpad.net/~onlaom\n"
 "  tsallinia https://launchpad.net/~tsalinia86\n"
-"  Ιωάννης Ανθυμίδης https://launchpad.net/~yannanth"
+"  Ιωάννης https://launchpad.net/~yannanth"
 
 #: ../src/Scratch.vala:166
 msgid "Maybe you do not have the necessary permissions."

@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-02 10:38-0700\n"
-"PO-Revision-Date: 2017-01-06 08:13+0000\n"
-"Last-Translator: Gonzalo <gegismero@gmail.com>\n"
+"PO-Revision-Date: 2017-01-19 20:04+0000\n"
+"Last-Translator: Félix Brezo <felixbrezo@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-01-07 06:15+0000\n"
+"X-Launchpad-Export-Date: 2017-01-21 06:38+0000\n"
 "X-Generator: Launchpad (build 18302)\n"
 "Language: es\n"
 
@@ -28,7 +28,7 @@ msgstr "Papelera"
 
 #: ../src/MainWindow.vala:671
 msgid "Open some files"
-msgstr "Abra algunos archivos"
+msgstr "Abre algunos archivos"
 
 #: ../src/MainWindow.vala:796 ../src/MainWindow.vala:957
 #: ../src/MainWindow.vala:958 ../src/MainWindow.vala:969
@@ -389,7 +389,7 @@ msgstr "No hay archivos abiertos"
 
 #: ../src/Widgets/SplitView.vala:46
 msgid "Open a file to begin editing."
-msgstr "Abra un archivo para comenzar la edición."
+msgstr "Abre un archivo para comenzar la edición."
 
 #: ../src/Widgets/SplitView.vala:50
 msgid "New file"
@@ -715,7 +715,7 @@ msgstr "No se pudo cargar el tema de iconos : %s\n"
 
 #: ../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
-msgstr "Compleción de palabras"
+msgstr "Completar palabras"
 
 #: ../plugins/word-completion/plugin.vala:35
 msgid "Show a completion dialog with most used words from your files"
@@ -724,7 +724,7 @@ msgstr ""
 
 #: ../plugins/word-completion/plugin.vala:175
 msgid "%s - Word Completion"
-msgstr "%s - Compleción de palabras"
+msgstr "%s - Completar palabras"
 
 #: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
 #: ../plugins/outline/ValaProcessing/SymbolOutline.vala:99
@@ -1184,9 +1184,6 @@ msgstr "Cerrar carpeta"
 #~ msgid "There are unsaved changes!"
 #~ msgstr "Hay cambios sin guardar."
 
-#~ msgid "Font and Color Scheme:"
-#~ msgstr "Combinación de tipografía y colores:"
-
 #, c-format
 #~ msgid "The file %s was modified."
 #~ msgstr "El archivo %s fue modificado."
@@ -1205,3 +1202,6 @@ msgstr "Cerrar carpeta"
 
 #~ msgid "Go to line..."
 #~ msgstr "Ir a la línea…"
+
+#~ msgid "Font and Color Scheme:"
+#~ msgstr "Esquema de fuente y color:"
