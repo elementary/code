@@ -34,7 +34,7 @@ namespace Scratch.Widgets {
         public Gtk.Menu menu;
 
         public Gtk.MenuButton share_app_menu;
-        public Granite.Widgets.AppMenu app_menu;
+        public Gtk.MenuButton app_menu;
 
         public Toolbar (Gtk.ActionGroup main_actions, Gtk.Menu menu) {
             this.menu = menu;
@@ -61,7 +61,10 @@ namespace Scratch.Widgets {
             var share_app_menu_tool = new Gtk.ToolItem ();
             share_app_menu_tool.add (share_app_menu);
 
-            var app_menu = new Granite.Widgets.AppMenu (menu);
+            var app_menu = new Gtk.MenuButton ();
+            app_menu.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
+            app_menu.tooltip_text = _("Menu");
+            app_menu.popup = menu;
 
             share_menu.insert.connect (() => {
                 if (share_menu.get_children ().length () > 0) {
