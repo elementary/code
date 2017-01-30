@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-02 10:38-0700\n"
-"PO-Revision-Date: 2017-01-28 01:28+0000\n"
+"PO-Revision-Date: 2017-01-29 17:53+0000\n"
 "Last-Translator: Rokar <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-01-29 04:53+0000\n"
+"X-Launchpad-Export-Date: 2017-01-30 05:39+0000\n"
 "X-Generator: Launchpad (build 18315)\n"
 
 #: ../src/MainWindow.vala:97
@@ -28,7 +28,7 @@ msgstr ""
 #: ../src/MainWindow.vala:958 ../src/MainWindow.vala:969
 #: ../src/MainWindow.vala:970
 msgid "Find…"
-msgstr ""
+msgstr "lê gerrîn..."
 
 #: ../src/MainWindow.vala:798
 msgid "Hide search bar"
@@ -156,7 +156,7 @@ msgstr ""
 
 #: ../src/MainWindow.vala:932 ../src/Services/TemplateManager.vala:194
 msgid "Templates"
-msgstr ""
+msgstr "Şablon"
 
 #: ../src/MainWindow.vala:933
 msgid "Project templates"
@@ -184,19 +184,19 @@ msgstr "Dîmender Tije"
 
 #: ../src/Dialogs/PreferencesDialog.vala:68
 msgid "Behavior"
-msgstr ""
+msgstr "Helwest"
 
 #: ../src/Dialogs/PreferencesDialog.vala:69
 msgid "Interface"
-msgstr ""
+msgstr "Navrû"
 
 #: ../src/Dialogs/PreferencesDialog.vala:80
 msgid "Extensions"
-msgstr ""
+msgstr "Pêvek"
 
 #: ../src/Dialogs/PreferencesDialog.vala:109
 msgid "General"
-msgstr "Giştî"
+msgstr "Gîştî"
 
 #: ../src/Dialogs/PreferencesDialog.vala:111
 msgid "When Scratch starts:"
@@ -353,7 +353,7 @@ msgstr "Paceya nû"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr ""
+msgstr "derbare Scratch"
 
 #: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
@@ -541,7 +541,7 @@ msgstr ""
 #: ../plugins/browser-preview/browser-preview.vala:85
 #: ../plugins/browser-preview/browser-preview.vala:111
 msgid "Show Preview"
-msgstr ""
+msgstr "Pêşdîtin Nîşan Bide"
 
 #: ../plugins/browser-preview/browser-preview.vala:107
 #: ../plugins/browser-preview/browser-preview.vala:150
@@ -577,16 +577,16 @@ msgstr ""
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:28
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:156
 msgid "Delete"
-msgstr ""
+msgstr "Jê bibe"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:159
 #: ../plugins/terminal/terminal.vala:313
 msgid "Paste"
-msgstr ""
+msgstr "Pêveke"
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
@@ -636,7 +636,7 @@ msgstr ""
 #: ../plugins/outline/CtagsSymbolResolver.vala:68
 #: ../plugins/outline/OutlinePlugin.vala:116
 msgid "Symbols"
-msgstr ""
+msgstr "Dawêr"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -654,7 +654,7 @@ msgstr ""
 #. **
 #: ../plugins/outline/OutlinePlugin.vala:21
 msgid "Outline"
-msgstr ""
+msgstr "Xeta derve"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
@@ -662,7 +662,7 @@ msgstr ""
 
 #: ../plugins/spell/spell.vala:18
 msgid "Spell Checker"
-msgstr ""
+msgstr "Kontrolkera Rastnivîsê"
 
 #: ../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
@@ -690,7 +690,7 @@ msgstr ""
 #. **
 #: ../plugins/open-with/open-with.vala:21
 msgid "Open With"
-msgstr ""
+msgstr "Veke bi"
 
 #: ../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
@@ -725,23 +725,23 @@ msgstr ""
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:42
 msgid "Loading..."
-msgstr ""
+msgstr "Tê barkirin..."
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:175
 msgid "Bookmark"
-msgstr ""
+msgstr "Bijare"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:234
 msgid "Files"
-msgstr ""
+msgstr "Dosya"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:235
 msgid "Project"
-msgstr ""
+msgstr "Proje"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:236
 msgid "Bookmarks"
-msgstr ""
+msgstr "Bijare"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -815,7 +815,7 @@ msgstr ""
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:82
 msgid "Add file"
-msgstr ""
+msgstr "Pelî têxê"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:89
 msgid "Remove file"
@@ -823,13 +823,13 @@ msgstr ""
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:104
 msgid "File Manager"
-msgstr ""
+msgstr "Rêveberiya Pelan"
 
 #: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
 #: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
 #: ../plugins/terminal/terminal.vala:174
 msgid "Terminal"
-msgstr ""
+msgstr "Termînal"
 
 #: ../plugins/terminal/terminal.vala:24
 msgid "A terminal in your text editor"
@@ -845,7 +845,7 @@ msgstr ""
 
 #: ../plugins/terminal/terminal.vala:306
 msgid "Copy"
-msgstr ""
+msgstr "Kopî bike"
 
 #: ../plugins/terminal/terminal.vala:323
 msgid "Terminal on Right"
@@ -861,7 +861,7 @@ msgstr ""
 
 #: ../plugins/pastebin/pastebin_dialog.vala:272
 msgid "Name:"
-msgstr ""
+msgstr "Nav:"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:278
 msgid "Format: "
@@ -881,7 +881,7 @@ msgstr ""
 
 #: ../plugins/pastebin/pastebin_dialog.vala:312
 msgid "Upload"
-msgstr ""
+msgstr "Bar bike"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:342
 msgid "Other formats"
@@ -889,7 +889,7 @@ msgstr ""
 
 #: ../plugins/pastebin/pastebin_dialog.vala:511
 msgid "Never"
-msgstr ""
+msgstr "Hîç"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:512
 msgid "Ten minutes"
@@ -909,7 +909,7 @@ msgstr ""
 
 #: ../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
-msgstr ""
+msgstr "Pastebin"
 
 #: ../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
@@ -965,7 +965,7 @@ msgstr ""
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:70
 msgid "Folders"
-msgstr ""
+msgstr "Peldank"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:88
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:89
@@ -974,11 +974,11 @@ msgstr ""
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:94
 msgid "_Cancel"
-msgstr ""
+msgstr "_Betalbike"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:95
 msgid "_Open"
-msgstr ""
+msgstr "_Veke"
 
 #: ../plugins/folder-manager/FileView.vala:294
 msgid "Close Folder"
