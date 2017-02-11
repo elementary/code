@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-08-02 10:38-0700\n"
-"PO-Revision-Date: 2017-01-25 09:46+0000\n"
+"PO-Revision-Date: 2017-02-11 03:34+0000\n"
 "Last-Translator: Ryo Nakano <Unknown>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-01-26 06:02+0000\n"
-"X-Generator: Launchpad (build 18315)\n"
+"X-Launchpad-Export-Date: 2017-02-11 05:37+0000\n"
+"X-Generator: Launchpad (build 18326)\n"
 
 #: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
@@ -677,7 +677,7 @@ msgstr ""
 #. **
 #: ../plugins/outline/OutlinePlugin.vala:21
 msgid "Outline"
-msgstr ""
+msgstr "アウトライン"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
@@ -1110,3 +1110,21 @@ msgstr "フォルダーを閉じる"
 
 #~ msgid "There are unsaved changes in Scratch!"
 #~ msgstr "スクラッチに保存されてない変化が有ります！"
+
+#~ msgid "There are unsaved changes!"
+#~ msgstr "保存されていない編集箇所があります!"
+
+#, c-format
+#~ msgid "The file %s was modified."
+#~ msgstr "ファイル %s は変更されました。"
+
+#, c-format
+#~ msgid "The file %s was deleted."
+#~ msgstr "ファイル %s は消去されました。"
+
+#, c-format
+#~ msgid "Save unsaved changes to file %s before closing?"
+#~ msgstr "閉じる前にファイル %s への保存されていない変更を保存しますか?"
+
+#~ msgid "Font and Color Scheme:"
+#~ msgstr "フォントと配色"
