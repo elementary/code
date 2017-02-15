@@ -143,8 +143,6 @@ namespace Scratch.Services {
                                 return false;
                             });
                         }
-                        else
-                            this.set_saved_status (false);
                      });
                 });
             } else if (onchange_handler_id != 0) {
@@ -214,6 +212,12 @@ namespace Scratch.Services {
             source_view.buffer.set_modified (false);
             original_content = source_view.buffer.text;
             loaded = true;
+
+            this.source_view.buffer.modified_changed.connect (() => {
+                if (this.source_view.buffer.get_modified() && !settings.autosave) {
+                    this.set_saved_status (false);
+                }
+            });
 
             doc_opened ();
 
