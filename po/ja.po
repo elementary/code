@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-08-02 10:38-0700\n"
-"PO-Revision-Date: 2017-02-11 03:34+0000\n"
+"PO-Revision-Date: 2017-02-15 15:20+0000\n"
 "Last-Translator: Ryo Nakano <Unknown>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-02-12 06:08+0000\n"
+"X-Launchpad-Export-Date: 2017-02-16 06:27+0000\n"
 "X-Generator: Launchpad (build 18326)\n"
 
 #: ../src/MainWindow.vala:97
@@ -457,7 +457,8 @@ msgstr ""
 "  Ryo Nakano https://launchpad.net/~uq3-him13de-9spzka7\n"
 "  Shota Shimazu https://launchpad.net/~hornet-live-mf\n"
 "  Yushin Washio https://launchpad.net/~yuwash\n"
-"  masashi tanimura https://launchpad.net/~mtanimura"
+"  masashi tanimura https://launchpad.net/~mtanimura\n"
+"  yasum https://launchpad.net/~nyma5a"
 
 #: ../src/Scratch.vala:166
 msgid "Maybe you do not have the necessary permissions."
@@ -617,7 +618,7 @@ msgstr "インデントを検出"
 
 #: ../plugins/detect-indent/detect-indent.vala:2
 msgid "Heuristically detect tab or space settings"
-msgstr ""
+msgstr "タブやスペースを自動で検知する"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -643,15 +644,15 @@ msgstr "アイコンテーマを読み込めません: %s\n"
 
 #: ../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
-msgstr ""
+msgstr "単語の補完"
 
 #: ../plugins/word-completion/plugin.vala:35
 msgid "Show a completion dialog with most used words from your files"
-msgstr ""
+msgstr "補完ダイアログとしてファイル内の頻出単語を表示する"
 
 #: ../plugins/word-completion/plugin.vala:175
 msgid "%s - Word Completion"
-msgstr ""
+msgstr "%s - 単語補完"
 
 #: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
 #: ../plugins/outline/ValaProcessing/SymbolOutline.vala:99
@@ -659,7 +660,7 @@ msgstr ""
 #: ../plugins/outline/CtagsSymbolResolver.vala:68
 #: ../plugins/outline/OutlinePlugin.vala:116
 msgid "Symbols"
-msgstr ""
+msgstr "シンボル"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -681,7 +682,7 @@ msgstr "アウトライン"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
-msgstr ""
+msgstr "vala ソースのシンボルをアウトライン表示する"
 
 #: ../plugins/spell/spell.vala:18
 msgid "Spell Checker"
