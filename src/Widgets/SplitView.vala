@@ -182,7 +182,11 @@ namespace Scratch.Widgets {
         }
 
         public Scratch.Widgets.DocumentView? get_current_view () {
-            current_view = get_focus_child () as Scratch.Widgets.DocumentView;
+            views.foreach ((v) => {
+                if (v.has_focus) {
+                    current_view = v;
+                }
+            });
             return current_view;
         }
 
