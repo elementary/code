@@ -90,7 +90,11 @@ public class Scratch.Plugins.ClipboardHistory : Peas.ExtensionBase,  Peas.Activa
         
         // Delete last item, if the size of the list store > MAX_SIZE
         if (list_store.get_iter_from_string (out iter, (MAX_SIZE - 1).to_string ()))
+#if VALA_0_36
+            list_store.remove (ref iter);
+#else
             list_store.remove (iter);
+#endif
 
         // Delete dupplicates from list store, if exists
         delete_dupplicates (clipboard_content);
@@ -143,7 +147,11 @@ public class Scratch.Plugins.ClipboardHistory : Peas.ExtensionBase,  Peas.Activa
         });
 
         if (to_delete != null)
+#if VALA_0_36
+            list_store.remove (ref to_delete);
+#else
             list_store.remove (to_delete);
+#endif
     }
 
     void build_plugin_ui () {
@@ -214,7 +222,11 @@ public class Scratch.Plugins.ClipboardHistory : Peas.ExtensionBase,  Peas.Activa
         if (!selection.get_selected(out model, out iter)) {
             return;
         }
+#if VALA_0_36
+        list_store.remove (ref iter);
+#else
         list_store.remove (iter);
+#endif
 
         // Hiding PlugIn, if no more items exist in the list store.
         if (!list_store.get_iter_first (out iter))
