@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-08-02 10:38-0700\n"
-"PO-Revision-Date: 2016-12-04 08:21+0000\n"
-"Last-Translator: Rūdolfs Strazdiņš <ruudolfs.strazdins@gmail.com>\n"
+"PO-Revision-Date: 2017-03-01 19:40+0000\n"
+"Last-Translator: draza <Unknown>\n"
 "Language-Team: Latvian <lv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-12-05 05:13+0000\n"
-"X-Generator: Launchpad (build 18282)\n"
+"X-Launchpad-Export-Date: 2017-03-02 05:44+0000\n"
+"X-Generator: Launchpad (build 18329)\n"
 "Language: Latvian\n"
 
 #: ../src/MainWindow.vala:97
@@ -129,11 +129,11 @@ msgstr "Atvērt datni"
 
 #: ../src/MainWindow.vala:916
 msgid "Clipboard"
-msgstr ""
+msgstr "Starpliktuve"
 
 #: ../src/MainWindow.vala:917
 msgid "New file from Clipboard"
-msgstr ""
+msgstr "Jauns dokuments no starpliktuves"
 
 #: ../src/MainWindow.vala:920
 msgid "Zoom"
@@ -266,7 +266,7 @@ msgstr "Rādīt mini karti:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:176
 msgid "Line width guide:"
-msgstr ""
+msgstr "Rindas platuma norāde"
 
 #: ../src/Dialogs/PreferencesDialog.vala:184
 msgid "Font and Color Scheme"
@@ -406,7 +406,7 @@ msgstr "Atvērt saglabāto failu."
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "New file from clipboard"
-msgstr ""
+msgstr "Jauns dokuments no starpliktuves"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "Create a new file from the contents of your clipboard."
@@ -460,19 +460,20 @@ msgstr ""
 "  Kārlis Lukstiņš https://launchpad.net/~karlis-lukstins\n"
 "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
 "  Rūdolfs Strazdiņš https://launchpad.net/~ruudolfs-strazdins\n"
+"  draza https://launchpad.net/~draza\n"
 "  marhis https://launchpad.net/~marhis"
 
 #: ../src/Scratch.vala:166
 msgid "Maybe you do not have the necessary permissions."
-msgstr ""
+msgstr "Iespējams jums nav nepieciešamās tiesības"
 
 #: ../src/Scratch.vala:168
 msgid "Maybe the file path provided is not valid."
-msgstr ""
+msgstr "Iespējams norādītais faila ceļš nav korekts"
 
 #: ../src/Scratch.vala:170
 msgid "The location is read-only."
-msgstr ""
+msgstr "Atrašanās vieta ir tikai-lasīt"
 
 #: ../src/Scratch.vala:172
 msgid "The parent directory doesn't exist."
@@ -560,7 +561,7 @@ msgstr ""
 
 #: ../plugins/browser-preview/browser-preview.vala:22
 msgid "Get a preview your work in a web page"
-msgstr ""
+msgstr "Skatīt web lapā"
 
 #: ../plugins/browser-preview/browser-preview.vala:85
 #: ../plugins/browser-preview/browser-preview.vala:111

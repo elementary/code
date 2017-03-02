@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-08-02 10:38-0700\n"
-"PO-Revision-Date: 2016-09-03 13:19+0000\n"
+"PO-Revision-Date: 2017-03-02 03:20+0000\n"
 "Last-Translator: Anand Kumar <Unknown>\n"
 "Language-Team: Hindi <hi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-09-04 07:13+0000\n"
-"X-Generator: Launchpad (build 18179)\n"
+"X-Launchpad-Export-Date: 2017-03-02 05:44+0000\n"
+"X-Generator: Launchpad (build 18329)\n"
 
 #: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
@@ -45,7 +45,7 @@ msgstr "लाइन पर जाएँ। ..."
 
 #: ../src/MainWindow.vala:868 ../src/MainWindow.vala:869
 msgid "Quit"
-msgstr "बंद करें"
+msgstr "छोड़ें"
 
 #: ../src/MainWindow.vala:872 ../src/MainWindow.vala:873
 #: ../src/Dialogs/PreferencesDialog.vala:84
@@ -91,7 +91,7 @@ msgstr "इस दृश्य को निकालें"
 
 #: ../src/MainWindow.vala:896
 msgid "Undo"
-msgstr "रद्द करें"
+msgstr "पहले जैसा"
 
 #: ../src/MainWindow.vala:897
 msgid "Undo the last action"
@@ -103,11 +103,11 @@ msgstr "पुनः करें"
 
 #: ../src/MainWindow.vala:901
 msgid "Redo the last undone action"
-msgstr "पिछली रद्द क्रिया को पुनः करें"
+msgstr "अंतिम पूर्ववत् किए क्रिया को दोहराएँ"
 
 #: ../src/MainWindow.vala:904
 msgid "Revert"
-msgstr "लौटिएँ"
+msgstr "पलटें"
 
 #: ../src/MainWindow.vala:905
 msgid "Restore this file"
@@ -136,7 +136,7 @@ msgstr ""
 
 #: ../src/MainWindow.vala:920
 msgid "Zoom"
-msgstr "ज़ूम करें"
+msgstr ""
 
 #: ../src/MainWindow.vala:921
 msgid "Zoom 1:1"
