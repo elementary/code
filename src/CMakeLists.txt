@@ -4,6 +4,7 @@ vala_precompile(VALA_C ${EXEC_NAME}
     MainWindow.vala
     Scratch.vala
     Utils.vala
+    DrawSpacesUtils.vala
     Dialogs/PreferencesDialog.vala
     Widgets/DocumentView.vala
     Widgets/ToolBar.vala
