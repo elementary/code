@@ -1,16 +1,16 @@
 namespace Scratch.Utils {
-    static void get_end_iter (Gtk.TextView text_view, Gtk.TextIter start_iter, out Gtk.TextIter end_iter, int x, int y, bool is_wrapping)
-    {
+    static void get_end_iter (Gtk.TextView text_view, Gtk.TextIter start_iter, out Gtk.TextIter end_iter, int x, int y, bool is_wrapping) {
         int min, max, i;
         Gdk.Rectangle rect;
 
         end_iter.assign (start_iter);
-        if (!end_iter.ends_line ())
-        {
+
+        if (!end_iter.ends_line ()) {
             end_iter.forward_to_line_end ();
         }
 
         text_view.get_iter_location (end_iter, out rect);
+
         if ((is_wrapping && rect.y < y) || (!is_wrapping && rect.x < x)) {
             return;
         }
@@ -18,24 +18,22 @@ namespace Scratch.Utils {
         min = start_iter.get_line_offset ();
         max = end_iter.get_line_offset ();
 
-        while (max >= min)
-        {
+        while (max >= min) {
             i = (min + max) >> 1;
             end_iter.set_line_offset (i);
             text_view.get_iter_location (end_iter, out rect);
 
             if ((is_wrapping && rect.y < y) || (!is_wrapping && rect.x < x)) {
-	            min = i + 1;
+                min = i + 1;
             } else if ((is_wrapping && rect.y > y) || (!is_wrapping && rect.x > x)) {
-	            max = i - 1;
+                max = i - 1;
             } else {
-	            break;
+                break;
             }
         }
     }
 
-    static void draw_space_at_iter (Cairo.Context cr, Gtk.TextView view, Gtk.TextIter iter, Gdk.Rectangle rect)
-    {
+    static void draw_space_at_iter (Cairo.Context cr, Gtk.TextView view, Gtk.TextIter iter, Gdk.Rectangle rect) {
         int x, y;
         double w;
 
@@ -49,8 +47,7 @@ namespace Scratch.Utils {
         cr.restore ();
     }
 
-    static void draw_tab_at_iter (Cairo.Context cr, Gtk.TextView view, Gtk.TextIter iter, Gdk.Rectangle rect)
-    {
+    static void draw_tab_at_iter (Cairo.Context cr, Gtk.TextView view, Gtk.TextIter iter, Gdk.Rectangle rect) {
         int x, y;
         double w, h;
 
@@ -68,8 +65,7 @@ namespace Scratch.Utils {
         cr.restore ();
     }
 
-    static void draw_nbsp_at_iter (Cairo.Context cr, Gtk.TextView view, Gtk.TextIter iter, Gdk.Rectangle rect, bool narrowed)
-    {
+    static void draw_nbsp_at_iter (Cairo.Context cr, Gtk.TextView view, Gtk.TextIter iter, Gdk.Rectangle rect, bool narrowed) {
         int x, y;
         double w, h;
 
@@ -86,17 +82,14 @@ namespace Scratch.Utils {
 
         if (narrowed) {
             cr.fill ();
-        }
-        else {
+        } else {
             cr.stroke ();
         }
 
         cr.restore ();
     }
 
-
-    static void draw_spaces_at_iter (Cairo.Context cr, Gtk.TextView text_view, Gtk.TextIter iter)
-    {
+    static void draw_spaces_at_iter (Cairo.Context cr, Gtk.TextView text_view, Gtk.TextIter iter) {
         unichar c;
         Gdk.Rectangle rect;
 
@@ -115,8 +108,7 @@ namespace Scratch.Utils {
         }
     }
 
-    static void draw_tabs_and_spaces (Gtk.SourceView view, Cairo.Context cr)
-    {
+    static void draw_tabs_and_spaces (Gtk.SourceView view, Cairo.Context cr) {
         Gtk.TextIter selection_start, selection_end;
         view.buffer.get_selection_bounds (out selection_start, out selection_end);
 
@@ -133,7 +125,7 @@ namespace Scratch.Utils {
 
         text_view = view;
 
-        is_wrapping = text_view.get_wrap_mode() != Gtk.WrapMode.NONE;
+        is_wrapping = text_view.get_wrap_mode () != Gtk.WrapMode.NONE;
 
         x1 = clip.x;
         y1 = clip.y;
@@ -146,7 +138,6 @@ namespace Scratch.Utils {
         text_view.get_iter_at_location (out s, x1, y1);
         text_view.get_iter_at_location (out e, x2, y2);
 
-        // TODO: Load color from style
         cr.set_source_rgba (1.0, 1.0, 1.0, 1.0);
 
         cr.set_line_width (0.8);
@@ -159,32 +150,32 @@ namespace Scratch.Utils {
             int ly;
 
             if (c.isspace () && s.compare (selection_start) >= 0 && s.compare (selection_end) <= 0) {
-	            draw_spaces_at_iter (cr, text_view, s);
+                draw_spaces_at_iter (cr, text_view, s);
             }
 
             if (!s.forward_char ()) {
-	            break;
+                break;
             }
 
             if (s.compare (lineend) > 0) {
-	            if (s.compare (e) > 0) {
-		            break;
-	            }
+                if (s.compare (e) > 0) {
+                    break;
+                }
 
-	            if (!s.starts_line () && !s.forward_line ()) {
-		            break;
-	            }
+                if (!s.starts_line () && !s.forward_line ()) {
+                    break;
+                }
 
-	            text_view.get_line_yrange (s, out ly, null);
-	            text_view.get_iter_at_location (out s, x1, ly);
+                text_view.get_line_yrange (s, out ly, null);
+                text_view.get_iter_at_location (out s, x1, ly);
 
-	            if (!s.starts_line ()) {
-		            s.backward_char ();
-	            }
+                if (!s.starts_line ()) {
+                    s.backward_char ();
+                }
 
-	            get_end_iter (text_view, s, out lineend, x2, y2, is_wrapping);
+                get_end_iter (text_view, s, out lineend, x2, y2, is_wrapping);
             }
-        };
+        }
 
         cr.stroke ();
     }
