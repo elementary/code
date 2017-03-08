@@ -3,7 +3,7 @@ namespace Scratch.Utils {
         int min, max, i;
         Gdk.Rectangle rect;
 
-        end_iter.assign (start_iter);
+        end_iter = start_iter;
 
         if (!end_iter.ends_line ()) {
             end_iter.forward_to_line_end ();
@@ -116,7 +116,7 @@ namespace Scratch.Utils {
         Gdk.Rectangle clip;
         int x1, y1, x2, y2;
         Gtk.TextIter s, e;
-        Gtk.TextIter leading, trailing, lineend;
+        Gtk.TextIter lineend;
         bool is_wrapping;
 
         if (!Gdk.cairo_get_clip_rectangle (cr, out clip)) {
@@ -149,7 +149,7 @@ namespace Scratch.Utils {
             unichar c = s.get_char ();
             int ly;
 
-            if (c.isspace () && s.compare (selection_start) >= 0 && s.compare (selection_end) <= 0) {
+            if (c.isspace () && s.compare (selection_start) >= 0 && s.compare (selection_end) < 0) {
                 draw_spaces_at_iter (cr, text_view, s);
             }
 
