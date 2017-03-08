@@ -1,5 +1,3 @@
-link_libraries(${DEPS_LIBRARIES} -lm)
-
 vala_precompile(VALA_C ${EXEC_NAME}
     MainWindow.vala
     Scratch.vala
