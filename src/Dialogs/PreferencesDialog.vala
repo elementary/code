@@ -31,7 +31,6 @@ namespace Scratch.Dialogs {
         Gtk.Switch highlight_current_line;
         Gtk.Switch highlight_matching_brackets;
         Gtk.Switch line_break;
-        Gtk.Switch draw_spaces;
         Gtk.Switch spaces_instead_of_tabs_switch;
         Gtk.Switch autoindent_switch;
 
@@ -163,7 +162,11 @@ namespace Scratch.Dialogs {
             line_break = new SettingsSwitch ("line-break");
 
             var draw_spaces_label = new SettingsLabel (_("Draw Spaces:"));
-            draw_spaces = new SettingsSwitch ("draw-spaces");
+            var draw_spaces_combo = new Gtk.ComboBoxText ();
+            draw_spaces_combo.append ("never", _("Never"));
+            draw_spaces_combo.append ("for-selected", _("For selected text"));
+            draw_spaces_combo.append ("always", _("Always"));
+            Scratch.settings.schema.bind ("draw-spaces", draw_spaces_combo, "active-id", SettingsBindFlags.DEFAULT);
 
             var line_numbers_label = new SettingsLabel (_("Show line numbers:"));
             var line_numbers = new SettingsSwitch ("show-line-numbers");
@@ -206,7 +209,7 @@ namespace Scratch.Dialogs {
             content.attach (line_break_label, 0, 3, 1, 1);
             content.attach (line_break, 1, 3, 1, 1);
             content.attach (draw_spaces_label, 0, 4, 1, 1);
-            content.attach (draw_spaces, 1, 4, 1, 1);
+            content.attach (draw_spaces_combo, 1, 4, 1, 1);
             content.attach (line_numbers_label, 0, 5, 1, 1);
             content.attach (line_numbers, 1, 5, 1, 1);
 #if GTKSOURCEVIEW_3_18
