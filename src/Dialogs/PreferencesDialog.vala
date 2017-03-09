@@ -163,9 +163,9 @@ namespace Scratch.Dialogs {
 
             var draw_spaces_label = new SettingsLabel (_("Draw Spaces:"));
             var draw_spaces_combo = new Gtk.ComboBoxText ();
-            draw_spaces_combo.append ("never", _("Never"));
-            draw_spaces_combo.append ("for-selected", _("For selected text"));
-            draw_spaces_combo.append ("always", _("Always"));
+            draw_spaces_combo.append ("Never", _("Never"));
+            draw_spaces_combo.append ("For Selection", _("For selected text"));
+            draw_spaces_combo.append ("Always", _("Always"));
             Scratch.settings.schema.bind ("draw-spaces", draw_spaces_combo, "active-id", SettingsBindFlags.DEFAULT);
 
             var line_numbers_label = new SettingsLabel (_("Show line numbers:"));

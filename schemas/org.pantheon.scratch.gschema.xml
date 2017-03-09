@@ -5,6 +5,11 @@
 		<value nick="Maximized" value="1" />
 		<value nick="Fullscreen" value="2" />
 	</enum>
+	<enum id="draw-spaces-states">
+		<value nick="Never" value="0" />
+		<value nick="For Selection" value="1" />
+		<value nick="Always" value="2" />
+	</enum>
 	<schema path="/org/pantheon/scratch/saved-state/" id="org.pantheon.scratch.saved-state" gettext-domain="scratch">
 		<key name="window-state" enum="scratch-window-states">
 			<default>"Normal"</default>
@@ -104,8 +109,8 @@
 			<summary>Highlight Matching Brackets</summary>
 			<description>Whether Scratch should highlight matching brackets.</description>
 		</key>
-		<key name="draw-spaces" type="s">
-			<default>'never'</default>
+		<key name="draw-spaces" enum="draw-spaces-states">
+			<default>"Never"</default>
 			<summary>Draw spaces and tabs with symbols</summary>
 			<description>Draw spaces and tabs with symbols.</description>
 		</key>

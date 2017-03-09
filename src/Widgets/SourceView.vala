@@ -190,7 +190,7 @@ namespace Scratch.Widgets {
             show_line_numbers = Scratch.settings.show_line_numbers;
             highlight_current_line = Scratch.settings.highlight_current_line;
             buffer.highlight_matching_brackets = Scratch.settings.highlight_matching_brackets;
-            if (settings.draw_spaces == "always") {
+            if (settings.draw_spaces == ScratchDrawSpacesState.ALWAYS) {
                 draw_spaces = Gtk.SourceDrawSpacesFlags.TAB;
                 draw_spaces |= Gtk.SourceDrawSpacesFlags.SPACE;
             } else {
@@ -328,7 +328,7 @@ namespace Scratch.Widgets {
         }
 
         public override void draw_layer (Gtk.TextViewLayer layer, Cairo.Context context) {
-            if (layer == Gtk.TextViewLayer.ABOVE && this.buffer.get_has_selection () && settings.draw_spaces == "for-selected") {
+            if (layer == Gtk.TextViewLayer.ABOVE && this.buffer.get_has_selection () && settings.draw_spaces == ScratchDrawSpacesState.FOR_SELECTION) {
                 context.save ();
                 Utils.draw_tabs_and_spaces (this, context);
                 context.restore ();
