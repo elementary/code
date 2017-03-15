@@ -194,6 +194,8 @@ namespace Scratch.Widgets {
                 draw_spaces = Gtk.SourceDrawSpacesFlags.TAB;
                 draw_spaces |= Gtk.SourceDrawSpacesFlags.SPACE;
             } else {
+                // Ensure we change the draw_spaces variable at least once to trigger redraw
+                draw_spaces = Gtk.SourceDrawSpacesFlags.TAB;
                 draw_spaces = Gtk.SourceDrawSpacesFlags.NBSP;
             }
 
