@@ -27,6 +27,12 @@ namespace Scratch {
         FULLSCREEN = 2
     }
 
+    public enum ScratchDrawSpacesState {
+        NEVER = 0,
+        FOR_SELECTION = 1,
+        ALWAYS = 2
+    }
+
     public class SavedState : Granite.Services.Settings {
 
         public int window_width { get; set; }
@@ -51,7 +57,7 @@ namespace Scratch {
         public bool line_break { get; set; }
         public bool highlight_current_line { get; set; }
         public bool highlight_matching_brackets { get; set; }
-        public bool draw_spaces { get; set; }
+        public ScratchDrawSpacesState draw_spaces { get; set; }
         public bool spaces_instead_of_tabs { get; set; }
         public bool auto_indent { get; set; }
         public int indent_width { get; set; }
