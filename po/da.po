@@ -8,18 +8,18 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-08-02 10:38-0700\n"
-"PO-Revision-Date: 2016-05-31 16:28+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
+"PO-Revision-Date: 2017-03-20 15:04+0000\n"
+"Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish <da@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-03 05:39+0000\n"
-"X-Generator: Launchpad (build 18169)\n"
+"X-Launchpad-Export-Date: 2017-03-22 06:48+0000\n"
+"X-Generator: Launchpad (build 18334)\n"
 
 #: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
-msgstr "Zeitgeist Datakilde til Scratch"
+msgstr "Zeitgeist-datakilde til Scratch"
 
 #: ../src/MainWindow.vala:187
 msgid "Trash"
@@ -33,7 +33,7 @@ msgstr "Åbn nogle filer"
 #: ../src/MainWindow.vala:958 ../src/MainWindow.vala:969
 #: ../src/MainWindow.vala:970
 msgid "Find…"
-msgstr ""
+msgstr "Find…"
 
 #: ../src/MainWindow.vala:798
 msgid "Hide search bar"
@@ -41,7 +41,7 @@ msgstr "Skjul søgelinjen"
 
 #: ../src/MainWindow.vala:864 ../src/MainWindow.vala:865
 msgid "Go to line…"
-msgstr "Gå til linje..."
+msgstr "Gå til linje…"
 
 #: ../src/MainWindow.vala:868 ../src/MainWindow.vala:869
 msgid "Quit"
@@ -128,19 +128,19 @@ msgstr "Åbn en fil"
 
 #: ../src/MainWindow.vala:916
 msgid "Clipboard"
-msgstr ""
+msgstr "Udklipsholder"
 
 #: ../src/MainWindow.vala:917
 msgid "New file from Clipboard"
-msgstr ""
+msgstr "Ny fil fra udklipsholder"
 
 #: ../src/MainWindow.vala:920
 msgid "Zoom"
-msgstr ""
+msgstr "Zoom"
 
 #: ../src/MainWindow.vala:921
 msgid "Zoom 1:1"
-msgstr ""
+msgstr "Zoom 1:1"
 
 #: ../src/MainWindow.vala:924 ../src/Services/Document.vala:255
 #: ../src/Services/Document.vala:581 ../src/Utils.vala:33
@@ -153,7 +153,7 @@ msgstr "Gem denne fil"
 
 #: ../src/MainWindow.vala:928 ../src/Services/Document.vala:574
 msgid "Save As…"
-msgstr ""
+msgstr "Gem som…"
 
 #: ../src/MainWindow.vala:929
 msgid "Save this file with a different name"
@@ -177,11 +177,11 @@ msgstr "Ændre Scratch indstillinger"
 
 #: ../src/MainWindow.vala:940 ../src/MainWindow.vala:941
 msgid "Next Tab"
-msgstr ""
+msgstr "Næste faneblad"
 
 #: ../src/MainWindow.vala:944 ../src/MainWindow.vala:945
 msgid "Previous Tab"
-msgstr ""
+msgstr "Forrige faneblad"
 
 #: ../src/MainWindow.vala:964 ../src/MainWindow.vala:965
 msgid "Fullscreen"
@@ -201,7 +201,7 @@ msgstr "Udvidelser"
 
 #: ../src/Dialogs/PreferencesDialog.vala:109
 msgid "General"
-msgstr ""
+msgstr "Generalt"
 
 #: ../src/Dialogs/PreferencesDialog.vala:111
 msgid "When Scratch starts:"
@@ -221,7 +221,7 @@ msgstr "Gem filer ved ændring:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:120
 msgid "Tabs"
-msgstr ""
+msgstr "Faneblade"
 
 #: ../src/Dialogs/PreferencesDialog.vala:122
 msgid "Automatic indentation:"
@@ -229,7 +229,7 @@ msgstr "Automatisk indrykning:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:125
 msgid "Insert spaces instead of tabs:"
-msgstr "Insæt mellemrum i stedet for tabulator:"
+msgstr "Indsæt mellemrum i stedet for tabulator:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:128
 msgid "Tab width:"
@@ -237,7 +237,7 @@ msgstr "Tabulator bredde:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:154
 msgid "Editor"
-msgstr ""
+msgstr "Redigering"
 
 #: ../src/Dialogs/PreferencesDialog.vala:156
 msgid "Highlight current line:"
@@ -249,11 +249,11 @@ msgstr "Fremhæv matchende klammer (brackets):"
 
 #: ../src/Dialogs/PreferencesDialog.vala:162
 msgid "Line wrap:"
-msgstr ""
+msgstr "Linjeombrydning:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:165
 msgid "Draw Spaces:"
-msgstr ""
+msgstr "Tegn mellemrum:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:168
 msgid "Show line numbers:"
@@ -261,7 +261,7 @@ msgstr "Vis linjenumre:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:172
 msgid "Show Mini Map:"
-msgstr ""
+msgstr "Vis minikort"
 
 #: ../src/Dialogs/PreferencesDialog.vala:176
 msgid "Line width guide:"
@@ -269,7 +269,7 @@ msgstr "Linje bredde guide:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:184
 msgid "Font and Color Scheme"
-msgstr ""
+msgstr "Skriftype og farveskema"
 
 #: ../src/Dialogs/PreferencesDialog.vala:186
 msgid "Color scheme:"
@@ -281,14 +281,14 @@ msgstr "Tilpasset skrifttype:"
 
 #: ../src/Services/Document.vala:245
 msgid "Save changes to document %s before closing?"
-msgstr "Gem ændringerne i dokumentet %s, før det lukkes?"
+msgstr "Gem ændringer til dokumentet %s, inden lukning?"
 
 #: ../src/Services/Document.vala:248
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
-"Hvis du ikke gemmer, vil ændringer fra de sidste 4 sekunder gå permanent "
-"tabt."
+"Hvis ikke du gemmer, vil ændringer fra de sidste 4 sekunder gå tabt "
+"permanent."
 
 #: ../src/Services/Document.vala:250
 msgid "Close without saving"
@@ -296,7 +296,7 @@ msgstr "Luk uden at gemme"
 
 #: ../src/Services/Document.vala:254 ../src/Utils.vala:29
 msgid "Cancel"
-msgstr ""
+msgstr "Annuller"
 
 #: ../src/Services/Document.vala:327
 msgid "Save File"
@@ -311,22 +311,28 @@ msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
+"Filen \"%s\" kan ikke læses. Den er muligvis beskadiget\n"
+"eller du har ikke de nødvendige tilladelser til at læse den."
 
 #: ../src/Services/Document.vala:572
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
+"Placeringen som indeholder filen \"%s\" blev afmonteret. Vil du gemme et "
+"andet sted?"
 
 #: ../src/Services/Document.vala:579
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "Filen \"%s\" blev slettet. Vil du gemme den alligevel?"
 
 #: ../src/Services/Document.vala:592
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 msgstr ""
+"Du kan ikke gemme ændringer til filen \"%s\". Vil du gemme ændringerne til "
+"denne fil et andet sted?"
 
 #: ../src/Services/Document.vala:594
 msgid "Save changes elsewhere"
@@ -337,6 +343,8 @@ msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
+"Filen \"%s\" var ændret af et andet program. Vil du indlæse den igen eller "
+"fortsætte med dine ændringer?"
 
 #: ../src/Services/Document.vala:626
 msgid "Load"
@@ -352,7 +360,7 @@ msgstr "Redigér tekstfiler"
 
 #: ../src/config.vala:16
 msgid "Text Editor"
-msgstr "Tekstbehandler"
+msgstr "Tekstredigeringsprogram"
 
 #: ../src/config.vala:18 ../src/Scratch.vala:312
 msgid "New Window"
@@ -360,11 +368,11 @@ msgstr "Nyt vindue"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr ""
+msgstr "Om Scratch"
 
 #: ../src/Widgets/DocumentView.vala:91
 msgid "Text file from "
-msgstr ""
+msgstr "Tekstfil fra "
 
 #: ../src/Widgets/SourceView.vala:120
 msgid "Syntax Highlighting"
@@ -380,7 +388,7 @@ msgstr "Ingen Filer Åbne"
 
 #: ../src/Widgets/SplitView.vala:46
 msgid "Open a file to begin editing."
-msgstr "Indlæs fil for at begynde redigering"
+msgstr "Åbn en fil for at begynde redigering."
 
 #: ../src/Widgets/SplitView.vala:50
 msgid "New file"
@@ -400,11 +408,11 @@ msgstr "Åben en gemt fil."
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "New file from clipboard"
-msgstr ""
+msgstr "Ny fil fra udklipsholder"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "Create a new file from the contents of your clipboard."
-msgstr ""
+msgstr "Opret en ny fil ud fra indholdet i udklipsholderen."
 
 #: ../src/Widgets/ToolBar.vala:58
 msgid "Share"
@@ -424,19 +432,19 @@ msgstr "Erstat med"
 
 #: ../src/Widgets/SearchManager.vala:91
 msgid "Search next"
-msgstr ""
+msgstr "Søg næste"
 
 #: ../src/Widgets/SearchManager.vala:97
 msgid "Search previous"
-msgstr ""
+msgstr "Søg forrige"
 
 #: ../src/Widgets/SearchManager.vala:104
 msgid "Cyclic Search"
-msgstr ""
+msgstr "Start forfra når bunden er nået"
 
 #: ../src/Widgets/SearchManager.vala:112
 msgid "Replace all"
-msgstr ""
+msgstr "Erstat alle"
 
 #: ../src/Widgets/SearchManager.vala:121
 msgid "Go To Line:"
@@ -457,72 +465,80 @@ msgstr ""
 "  Kristoffer Andersen https://launchpad.net/~kris24\n"
 "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
 "  Mickas Jensen https://launchpad.net/~qrank\n"
+"  Mikael https://launchpad.net/~mikael2933\n"
 "  Niclas Moeslund Overby https://launchpad.net/~nimoov\n"
 "  Simon https://launchpad.net/~sims73\n"
 "  jegjessing https://launchpad.net/~jarlgjessing\n"
-"  mjjzf https://launchpad.net/~mjjzf"
+"  mjjzf https://launchpad.net/~mjjzf\n"
+"  scootergrisen https://launchpad.net/~scootergrisen"
 
 #: ../src/Scratch.vala:166
 msgid "Maybe you do not have the necessary permissions."
-msgstr ""
+msgstr "Du har muligvis ikke de nødvendige tilladelser."
 
 #: ../src/Scratch.vala:168
 msgid "Maybe the file path provided is not valid."
-msgstr ""
+msgstr "Måske er den angive filsti ikke gyldig."
 
 #: ../src/Scratch.vala:170
 msgid "The location is read-only."
-msgstr ""
+msgstr "Placeringen er skrivebeskyttet."
 
 #: ../src/Scratch.vala:172
 msgid "The parent directory doesn't exist."
-msgstr ""
+msgstr "Forældermappen findes ikke."
 
 #: ../src/Scratch.vala:179
 msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
 msgstr ""
+"Filen \"%s\" kan ikke oprettes.\n"
+"%s"
 
 #: ../src/Scratch.vala:189
 msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
 msgstr ""
+"Filen \"%s\" kan ikke åbnes.\n"
+"%s"
 
 #: ../src/Scratch.vala:198
 msgid "It is a mountable location."
-msgstr ""
+msgstr "Det er en monterbar placering."
 
 #: ../src/Scratch.vala:201
 msgid "It is a directory."
-msgstr ""
+msgstr "Det er en mappe."
 
 #: ../src/Scratch.vala:204
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " fifo, block device, or character device."
 msgstr ""
+"Det er en \"speciel\" fil, såsom en sokkel,\n"
+" fifo, blokenhed eller tegnenhed."
 
 #: ../src/Scratch.vala:207
 msgid "It is an \"unknown\" file type."
-msgstr ""
+msgstr "Det er en \"ukendt\" filtype."
 
 #: ../src/Scratch.vala:311
 msgid "New Tab"
-msgstr ""
+msgstr "Nyt faneblad"
 
 #: ../src/Scratch.vala:313
 msgid "Print version info and exit"
-msgstr ""
+msgstr "Print versionsinfo og afslut"
 
 #: ../src/Scratch.vala:314
 msgid "Set of plugins"
-msgstr "Sæt af plugins"
+msgstr "Pluginsæt"
 
 #: ../src/Scratch.vala:315
 msgid "Current working directory"
-msgstr ""
+msgstr "Aktuelle arbejdsmappe"
 
 #: ../src/Utils.vala:42
 msgid "All files"
@@ -534,7 +550,7 @@ msgstr "Tekstfiler"
 
 #: ../plugins/browser-preview/BrowserView.vala:49
 msgid "Close Inspector"
-msgstr ""
+msgstr "Luk inspektør"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -556,21 +572,21 @@ msgstr "Browser udsnit"
 
 #: ../plugins/browser-preview/browser-preview.vala:22
 msgid "Get a preview your work in a web page"
-msgstr ""
+msgstr "Få en forhåndsvisning af dit arbejde på en webside"
 
 #: ../plugins/browser-preview/browser-preview.vala:85
 #: ../plugins/browser-preview/browser-preview.vala:111
 msgid "Show Preview"
-msgstr ""
+msgstr "Vis forhåndsvisning"
 
 #: ../plugins/browser-preview/browser-preview.vala:107
 #: ../plugins/browser-preview/browser-preview.vala:150
 msgid "Web Preview"
-msgstr ""
+msgstr "Webforhåndsvisning"
 
 #: ../plugins/browser-preview/browser-preview.vala:108
 msgid "Hide Preview"
-msgstr ""
+msgstr "Skjul forhåndsvisning"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -589,19 +605,19 @@ msgstr ""
 #: ../plugins/clipboard-history/ClipboardHistory.vala:21
 #: ../plugins/clipboard-history/ClipboardHistory.vala:89
 msgid "Clipboard History"
-msgstr ""
+msgstr "Udklipsholderhistorik"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:22
 msgid "Clipboard to view history"
-msgstr ""
+msgstr "Udklipsholder til visningshistorik"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:28
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:156
 msgid "Delete"
-msgstr ""
+msgstr "Slet"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:159
 #: ../plugins/terminal/terminal.vala:313
@@ -610,11 +626,11 @@ msgstr "Indsæt"
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
-msgstr ""
+msgstr "Registrer indrykning"
 
 #: ../plugins/detect-indent/detect-indent.vala:2
 msgid "Heuristically detect tab or space settings"
-msgstr ""
+msgstr "Systematisk registrering af tabulator- eller mellemrumsindstillinger"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -640,7 +656,7 @@ msgstr "Kunne ikke indlæse ikon tema: %s\n"
 
 #: ../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
-msgstr ""
+msgstr "Fuldførsel af ord"
 
 #: ../plugins/word-completion/plugin.vala:35
 msgid "Show a completion dialog with most used words from your files"
@@ -648,7 +664,7 @@ msgstr "Vis en dialog med de mest anvendte ord i dine filer"
 
 #: ../plugins/word-completion/plugin.vala:175
 msgid "%s - Word Completion"
-msgstr ""
+msgstr "%s - Fuldførsel af ord"
 
 #: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
 #: ../plugins/outline/ValaProcessing/SymbolOutline.vala:99
@@ -656,7 +672,7 @@ msgstr ""
 #: ../plugins/outline/CtagsSymbolResolver.vala:68
 #: ../plugins/outline/OutlinePlugin.vala:116
 msgid "Symbols"
-msgstr ""
+msgstr "Symboler"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -674,15 +690,15 @@ msgstr ""
 #. **
 #: ../plugins/outline/OutlinePlugin.vala:21
 msgid "Outline"
-msgstr ""
+msgstr "Omrids"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
-msgstr ""
+msgstr "Omrids symboler i din aktuelle fil i vala"
 
 #: ../plugins/spell/spell.vala:18
 msgid "Spell Checker"
-msgstr ""
+msgstr "Stavekontrol"
 
 #: ../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
@@ -693,6 +709,8 @@ msgid ""
 "No suitable dictionaries were found.\n"
 "Please install at least one [aspell] dictionary"
 msgstr ""
+"Ingen egnede mapper blev fundet.\n"
+"Installer venligt mindst en [aspell]-mappe"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -710,7 +728,7 @@ msgstr ""
 #. **
 #: ../plugins/open-with/open-with.vala:21
 msgid "Open With"
-msgstr ""
+msgstr "Åbn med"
 
 #: ../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
@@ -718,7 +736,7 @@ msgstr "Åbn filer du redigerer med et andet program"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr ""
+msgstr "Open With…"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -741,15 +759,15 @@ msgstr "Kildetræ"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:21
 msgid "Have a look at your sources organized in a nice tree"
-msgstr ""
+msgstr "Se dine kilder organiseret i et flot træ"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:42
 msgid "Loading..."
-msgstr ""
+msgstr "Indlæser..."
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:175
 msgid "Bookmark"
-msgstr ""
+msgstr "Bogmærke"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:234
 msgid "Files"
@@ -757,11 +775,11 @@ msgstr "Filer"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:235
 msgid "Project"
-msgstr ""
+msgstr "Projekt"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:236
 msgid "Bookmarks"
-msgstr ""
+msgstr "Bogmærker"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -779,19 +797,21 @@ msgstr ""
 #. **
 #: ../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
-msgstr "Vim Emulation"
+msgstr "Vim-emulering"
 
 #: ../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
-msgstr ""
+msgstr "Brug Vim-kommandoer i Scratch"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:24
 msgid "Preserve Indent"
-msgstr ""
+msgstr "Bevar indrykning"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:25
 msgid "Maintains indent level of pasted text when auto-indent is active"
 msgstr ""
+"Bevarer indrykningsniveau for indsat tekst, når automatisk indrykning er "
+"aktiv"
 
 #: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
 msgid "Strip trailing whitespace"
@@ -799,7 +819,7 @@ msgstr "Fjern overskydende mellemrum"
 
 #: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
 msgid "Strip trailing whitespace on save"
-msgstr ""
+msgstr "Fjern efterstillede mellemrum når der gemmes"
 
 #: ../plugins/filemanager/FileView.vala:73
 msgid "/New File"
@@ -831,19 +851,19 @@ msgstr "Simpel mappe manager med fil visning"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:71
 msgid "Go to parent"
-msgstr ""
+msgstr "Gå til forælder"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:82
 msgid "Add file"
-msgstr ""
+msgstr "Tilføj fil"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:89
 msgid "Remove file"
-msgstr ""
+msgstr "Fjern fil"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:104
 msgid "File Manager"
-msgstr ""
+msgstr "Filhåndtering"
 
 #: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
 #: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
@@ -857,23 +877,23 @@ msgstr "En terminal i din tekst editor"
 
 #: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
 msgid "Show Terminal"
-msgstr ""
+msgstr "Vis terminal"
 
 #: ../plugins/terminal/terminal.vala:170
 msgid "Hide Terminal"
-msgstr ""
+msgstr "Skjul terminal"
 
 #: ../plugins/terminal/terminal.vala:306
 msgid "Copy"
-msgstr ""
+msgstr "Kopiér"
 
 #: ../plugins/terminal/terminal.vala:323
 msgid "Terminal on Right"
-msgstr ""
+msgstr "Terminal til højre"
 
 #: ../plugins/terminal/terminal.vala:331
 msgid "Terminal on Bottom"
-msgstr ""
+msgstr "Terminal i bunden"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
@@ -929,7 +949,7 @@ msgstr "En måned"
 
 #: ../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
-msgstr ""
+msgstr "Pastebin"
 
 #: ../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
@@ -955,11 +975,11 @@ msgstr "Upload til Pastebin"
 #. **
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
 msgid "Highlight Selected Words"
-msgstr ""
+msgstr "Fremhæv valgte ord"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
 msgid "Highlights all occurrences of words that are selected"
-msgstr ""
+msgstr "Fremhæver alle fremkomster af ord der er valgt"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -985,7 +1005,7 @@ msgstr "Fuldender slutklammer imens du skriver"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:70
 msgid "Folders"
-msgstr ""
+msgstr "Mapper"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:88
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:89
@@ -994,11 +1014,11 @@ msgstr "Åbn en mappe"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:94
 msgid "_Cancel"
-msgstr ""
+msgstr "_Annuller"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:95
 msgid "_Open"
-msgstr ""
+msgstr "_Åbn"
 
 #: ../plugins/folder-manager/FileView.vala:294
 msgid "Close Folder"
