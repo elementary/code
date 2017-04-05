@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-08-02 10:38-0700\n"
-"PO-Revision-Date: 2015-12-21 13:37+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
+"PO-Revision-Date: 2017-04-01 22:33+0000\n"
+"Last-Translator: Allan Nordhøy <comradekingu@gmail.com>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-03 05:40+0000\n"
-"X-Generator: Launchpad (build 18169)\n"
+"X-Launchpad-Export-Date: 2017-04-05 07:03+0000\n"
+"X-Generator: Launchpad (build 18335)\n"
 
 #: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
@@ -269,7 +269,7 @@ msgstr "Linjebredde guide:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:184
 msgid "Font and Color Scheme"
-msgstr ""
+msgstr "Skrift og fargevalg"
 
 #: ../src/Dialogs/PreferencesDialog.vala:186
 msgid "Color scheme:"
@@ -453,22 +453,22 @@ msgstr "Gå til linje:"
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
+"  Allan Nordhøy https://launchpad.net/~comradekingu\n"
 "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
 "  Mathias Bynke https://launchpad.net/~mabynke\n"
 "  Niklas Fjeldberg https://launchpad.net/~niklasolai\n"
 "  ProsjektX https://launchpad.net/~prosjektx\n"
 "  Thomas Lekanger https://launchpad.net/~datagutt\n"
-"  kingu https://launchpad.net/~comradekingu\n"
 "  pingu https://launchpad.net/~hangud\n"
 "  Åka Sikrom https://launchpad.net/~akrosikam"
 
 #: ../src/Scratch.vala:166
 msgid "Maybe you do not have the necessary permissions."
-msgstr ""
+msgstr "Kanskje du ikke har de påkrevde rettighetene?"
 
 #: ../src/Scratch.vala:168
 msgid "Maybe the file path provided is not valid."
-msgstr ""
+msgstr "Kanskje stien du oppga ikke er gyldig?"
 
 #: ../src/Scratch.vala:170
 msgid "The location is read-only."
@@ -476,27 +476,31 @@ msgstr ""
 
 #: ../src/Scratch.vala:172
 msgid "The parent directory doesn't exist."
-msgstr ""
+msgstr "Overnevnt mappe finnes ikke"
 
 #: ../src/Scratch.vala:179
 msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
 msgstr ""
+"Kan ikke lage fila \"%s\".\n"
+"%s"
 
 #: ../src/Scratch.vala:189
 msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
 msgstr ""
+"Kan ikke åpne fila \"%s\".\n"
+"%s"
 
 #: ../src/Scratch.vala:198
 msgid "It is a mountable location."
-msgstr ""
+msgstr "Det er en plassering som kan monteres."
 
 #: ../src/Scratch.vala:201
 msgid "It is a directory."
-msgstr ""
+msgstr "Det er ei mappe."
 
 #: ../src/Scratch.vala:204
 msgid ""
@@ -506,7 +510,7 @@ msgstr ""
 
 #: ../src/Scratch.vala:207
 msgid "It is an \"unknown\" file type."
-msgstr ""
+msgstr "Det er en \"ukjent\" filtype."
 
 #: ../src/Scratch.vala:311
 msgid "New Tab"
@@ -693,6 +697,8 @@ msgid ""
 "No suitable dictionaries were found.\n"
 "Please install at least one [aspell] dictionary"
 msgstr ""
+"Fant ingen passende ordbøker.\n"
+"Installer minst ei [aspell]-ordbok"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
