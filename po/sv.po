@@ -6,11 +6,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
 "PO-Revision-Date: 2017-04-09 20:36+0000\n"
 "Last-Translator: Tobias Ahlström <tobias.ahlstrom@gmail.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -614,15 +615,15 @@ msgstr "Rensar onödigt tomt utrymme i slutet av filen när du sparar"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
@@ -636,15 +637,15 @@ msgstr "Markerar alla förekomster av valda ord"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/brackets-completion/brackets-completion.vala:21
@@ -658,15 +659,15 @@ msgstr "Kompletterar automatiskt parentes-tecken medan du skriver"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/source-tree/SourceTreePlugin.vala:20
@@ -701,15 +702,15 @@ msgstr "Bokmärken"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/vim-emulation/vim-emulation.vala:21
@@ -723,15 +724,15 @@ msgstr "Använd Vim-kommandon i Scratch"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/clipboard-history/ClipboardHistory.vala:21
@@ -762,15 +763,15 @@ msgstr "Symboler"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/outline/OutlinePlugin.vala:21
@@ -784,15 +785,15 @@ msgstr "Dispositionssymboler i den aktuella filen i vala"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/filemanager/FileManagerPlugin.vala:21
@@ -844,15 +845,15 @@ msgstr ""
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/browser-preview/browser-preview.vala:21
@@ -956,15 +957,15 @@ msgstr "Ladda upp till Pastebin"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/contractor/contractor.vala:21
@@ -1005,15 +1006,15 @@ msgstr ""
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/open-with/open-with.vala:21
@@ -1120,15 +1121,12 @@ msgstr "Heuristiskt identifiera inställningar för tab eller blanksteg"
 #~ msgid "There are unsaved changes!"
 #~ msgstr "Det finns osparade ändringar!"
 
-#, c-format
 #~ msgid "The file %s was modified."
 #~ msgstr "Filen %s har blivit ändrad."
 
-#, c-format
 #~ msgid "The file %s was deleted."
 #~ msgstr "Filen %s har blivit borttagen."
 
-#, c-format
 #~ msgid "Save unsaved changes to file %s before closing?"
 #~ msgstr "Spara osparade ändringar till filen %s innan stängning?"
 
@@ -1141,7 +1139,8 @@ msgstr "Heuristiskt identifiera inställningar för tab eller blanksteg"
 #~ msgid "Save the current file"
 #~ msgstr "Spara den aktuella filen"
 
-#~ msgid "Do you want to save the changes to this file in a different location?"
+#~ msgid ""
+#~ "Do you want to save the changes to this file in a different location?"
 #~ msgstr "Vill du spara ändringarna för denna fil på en annan plats?"
 
 #~ msgid "Editor:"

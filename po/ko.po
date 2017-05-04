@@ -6,11 +6,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
 "PO-Revision-Date: 2016-06-01 05:36+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <ko@li.org>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -232,13 +233,16 @@ msgstr "파일 저장"
 msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
-msgstr "파일 \"%s\"를 읽을 수 없습니다. 파일이 깨졌거나 이 파일을 읽을 수 있는 권한이 없는 것일 수 있습니다."
+msgstr ""
+"파일 \"%s\"를 읽을 수 없습니다. 파일이 깨졌거나 이 파일을 읽을 수 있는 권한"
+"이 없는 것일 수 있습니다."
 
 #: ../src/Services/Document.vala:576
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
-msgstr "파일 \"%s\"를 포함한 위치가 언마운트 되었습니다. 다른 곳에 저장하시겠습니까?"
+msgstr ""
+"파일 \"%s\"를 포함한 위치가 언마운트 되었습니다. 다른 곳에 저장하시겠습니까?"
 
 #: ../src/Services/Document.vala:583
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
@@ -248,7 +252,9 @@ msgstr "파일 \"%s\"가 지워졌습니다. 그래도 저장하시겠습니까?
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
-msgstr "이 파일의 변경된 내용을 저장할 수 없습니다 \"%s\". 이 파일의 변경된 내용을 다른 위치에 저장하시겠습니까?"
+msgstr ""
+"이 파일의 변경된 내용을 저장할 수 없습니다 \"%s\". 이 파일의 변경된 내용을 다"
+"른 위치에 저장하시겠습니까?"
 
 #: ../src/Services/Document.vala:598
 msgid "Save changes elsewhere"
@@ -258,7 +264,9 @@ msgstr "다른 곳에 변경사항을 저장하기"
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
-msgstr "파일 \"%s\" 는 외부 프로그램에 의해서 수정되었습니다. 다시 읽어 들일까요 아니면 편집을 계속하실건가요?"
+msgstr ""
+"파일 \"%s\" 는 외부 프로그램에 의해서 수정되었습니다. 다시 읽어 들일까요 아니"
+"면 편집을 계속하실건가요?"
 
 #: ../src/Services/Document.vala:630
 msgid "Load"
@@ -591,15 +599,15 @@ msgstr "저장시 따라오는 공백 제거"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
@@ -613,15 +621,15 @@ msgstr "선택한 단어의 모든 항목을 강조하기"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/brackets-completion/brackets-completion.vala:21
@@ -635,15 +643,15 @@ msgstr "입력 시 자동 괄호 완성"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/source-tree/SourceTreePlugin.vala:20
@@ -678,15 +686,15 @@ msgstr "책갈피들"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/vim-emulation/vim-emulation.vala:21
@@ -700,15 +708,15 @@ msgstr "스크래치에 Vim 명령어 사용하기"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/clipboard-history/ClipboardHistory.vala:21
@@ -739,15 +747,15 @@ msgstr "기호"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/outline/OutlinePlugin.vala:21
@@ -761,15 +769,15 @@ msgstr "발라로 작성된 현재 파일의 외곽선 기호"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/filemanager/FileManagerPlugin.vala:21
@@ -821,15 +829,15 @@ msgstr ""
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/browser-preview/browser-preview.vala:21
@@ -933,15 +941,15 @@ msgstr "Pastebin에 업로드"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/contractor/contractor.vala:21
@@ -980,15 +988,15 @@ msgstr "자동 들여 쓰기를 활성화하면 붙여 넣은 문장의 들여 �
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/open-with/open-with.vala:21
@@ -1083,7 +1091,8 @@ msgstr "경험에 따라 탭을 감지하거나 여백을 조절"
 #~ msgid "Select font:"
 #~ msgstr "글꼴 선택:"
 
-#~ msgid "Do you want to save the changes to this file in a different location?"
+#~ msgid ""
+#~ "Do you want to save the changes to this file in a different location?"
 #~ msgstr "다른 장소에서 이 파일의 변경 사항을 저장하시겠습니까?"
 
 #~ msgid "Editor:"
