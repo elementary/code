@@ -8,7 +8,7 @@ You'll need the following dependencies:
 * libgconf-2.0-dev
 * libgtk-3.0-dev
 * libgtksourceview-3.0-dev
-* libgranite >= 0.3.0
+* libgranite
 * libzeitgeist-2.0
 * valac
 

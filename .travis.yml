@@ -1,0 +1,16 @@
+language: generic
+
+services:
+ - docker
+
+env:
+ - DEPENDENCY_PACKAGES="cmake libgtk-3.0-dev libgtksourceview-3.0-dev libgranite libzeitgeist-2.0 valac"
+
+install:
+ - docker pull elementary/docker:loki
+ - docker run -v "$PWD":/tmp/build-dir elementary/docker:loki /bin/sh -c "apt-get update && apt-get -y install $DEPENDENCY_PACKAGES && cd /tmp/build-dir && cmake . && env CTEST_OUTPUT_ON_FAILURE=true make all test"
+ - docker pull elementary/docker:loki-unstable
+ - docker run -v "$PWD":/tmp/build-dir elementary/docker:loki-unstable /bin/sh -c "apt-get update && apt-get -y install $DEPENDENCY_PACKAGES && cd /tmp/build-dir && cmake . && env CTEST_OUTPUT_ON_FAILURE=true make all test"
+
+script:
+ - echo BUILDS PASSED
