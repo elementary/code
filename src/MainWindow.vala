@@ -136,8 +136,6 @@ namespace Scratch {
         }
 
         private void init_layout () {
-            var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-
             // Toolbar
             var menu = ui.get_widget ("ui/AppMenu") as Gtk.Menu;
             this.toolbar = new Scratch.Widgets.Toolbar (main_actions, menu);
@@ -146,9 +144,9 @@ namespace Scratch {
             this.set_titlebar (this.toolbar);
 
             // SearchManager
-            this.search_revealer = new Gtk.Revealer ();
             this.search_manager = new Scratch.Widgets.SearchManager (this);
             this.search_manager.get_style_context ().add_class ("search-bar");
+            this.search_revealer = new Gtk.Revealer ();
             this.search_revealer.add (this.search_manager);
 
             search_manager.map.connect_after ((w) => { /* signalled when reveal child */
@@ -205,11 +203,13 @@ namespace Scratch {
             // Plugins widgets
             this.sidebar = new Gtk.Notebook ();
             this.sidebar.no_show_all = true;
+            sidebar.width_request = 200;
             this.sidebar.page_added.connect (() => { on_plugin_toggled (sidebar); });
             this.sidebar.page_removed.connect (() => { on_plugin_toggled (sidebar); });
 
             this.contextbar = new Gtk.Notebook ();
             this.contextbar.no_show_all = true;
+            contextbar.width_request = 200;
             this.contextbar.page_removed.connect (() => { on_plugin_toggled (contextbar); });
             this.contextbar.page_added.connect (() => {
                 if (!this.split_view.is_empty ()) {
@@ -225,32 +225,31 @@ namespace Scratch {
                     on_plugin_toggled (bottombar);
             });
 
-            hp1 = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-            hp2 = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-            vp = new Gtk.Paned (Gtk.Orientation.VERTICAL);
-
             var content = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+            content.width_request = 200;
             content.pack_start (search_revealer, false, true, 0);
             content.pack_start (split_view, true, true, 0);
+
             // Set a proper position for ThinPaned widgets
             int width, height;
             this.get_size (out width, out height);
 
+            hp1 = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
             hp1.position = 180;
-            hp2.position = (width - 180);
-            vp.position = (height - 150);
-
             hp1.pack1 (sidebar, false, false);
-            sidebar.width_request = 200;
             hp1.pack2 (content, true, false);
-            content.width_request = 200;
+
+            hp2 = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
+            hp2.position = (width - 180);
             hp2.pack1 (hp1, true, false);
             hp2.pack2 (contextbar, false, false);
-            contextbar.width_request = 200;
+
+            vp = new Gtk.Paned (Gtk.Orientation.VERTICAL);
+            vp.position = (height - 150);
             vp.pack1 (hp2, true, false);
             vp.pack2 (bottombar, false, false);
 
-            // Add everything to the window
+            var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
             main_box.pack_start (loading_view, true, true, 0);
             main_box.pack_start (vp, false, true, 0);
             this.add (main_box);
