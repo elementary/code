@@ -6,7 +6,7 @@
 You'll need the following dependencies:
 * cmake
 * libgtksourceview-3.0-dev
-* libgranite
+* libgranite-dev
 * libzeitgeist-2.0
 * valac
 

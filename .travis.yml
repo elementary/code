@@ -4,7 +4,7 @@ services:
  - docker
 
 env:
- - DEPENDENCY_PACKAGES="cmake libgtksourceview-3.0-dev libgranite libzeitgeist-2.0 valac"
+ - DEPENDENCY_PACKAGES="cmake libgtksourceview-3.0-dev libgranite-dev libzeitgeist-2.0 valac"
 
 install:
  - docker pull elementary/docker:loki
