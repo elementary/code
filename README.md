@@ -5,8 +5,6 @@
 
 You'll need the following dependencies:
 * cmake
-* libgconf-2.0-dev
-* libgtk-3.0-dev
 * libgtksourceview-3.0-dev
 * libgranite
 * libzeitgeist-2.0
