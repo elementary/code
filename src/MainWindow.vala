@@ -59,14 +59,16 @@ namespace Scratch {
         delegate void HookFunc ();
 
         public MainWindow (Scratch.ScratchApp scratch_app) {
+            Object (application: scratch_app,
+                    icon_name: "accessories-text-editor",
+                    title: app.app_cmd_name);
             this.app = scratch_app;
-            set_application (this.app);
-            this.title = this.app.app_cmd_name;
-            this.window_position = Gtk.WindowPosition.CENTER;
+        }
+
+        construct {
             this.set_size_request (450, 400);
             this.set_hide_titlebar_when_maximized (false);
             restore_saved_state ();
-            this.icon_name = "accessories-text-editor";
 
             clipboard = Gtk.Clipboard.get_for_display (this.get_display (), Gdk.SELECTION_CLIPBOARD);
 
