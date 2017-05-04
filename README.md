@@ -5,10 +5,17 @@
 
 You'll need the following dependencies:
 * cmake
-* libgconf-2.0-dev
-* libgtk-3.0-dev
+* libdevhelp-dev
+* libgail-3-dev
+* libgee-0.8-dev
 * libgtksourceview-3.0-dev
-* libgranite >= 0.3.0
+* libgtkspell-3-dev
+* libgranite-dev
+* libpeas-dev
+* libsoup2.4-dev
+* libvala-0.34-dev
+* libvte-2.91-dev
+* libwebkit2gtk-4.0-dev
 * libzeitgeist-2.0
 * valac
 
