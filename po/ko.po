@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
-"PO-Revision-Date: 2017-05-05 07:14+0000\n"
+"PO-Revision-Date: 2017-05-05 07:17+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean "
 "<https://l10n.elementary.io/projects/scratch/scratch/ko/>\n"
@@ -64,7 +64,7 @@ msgstr "검색 바 숨기기"
 
 #: ../src/MainWindow.vala:909 ../src/MainWindow.vala:910
 msgid "Go to line…"
-msgstr "줄로 이동..."
+msgstr "줄로 이동…"
 
 #: ../src/MainWindow.vala:913 ../src/MainWindow.vala:914
 msgid "Quit"
@@ -94,7 +94,7 @@ msgstr "새 탭 추가"
 
 #: ../src/MainWindow.vala:930
 msgid "Add a new tab"
-msgstr "새 탭을 추가합니다."
+msgstr "새 탭을 추가합니다"
 
 #: ../src/MainWindow.vala:933
 msgid "Add New View"
@@ -492,7 +492,7 @@ msgstr "자동 들여쓰기:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:124
 msgid "Insert spaces instead of tabs:"
-msgstr "탭 대신 빈칸 표시"
+msgstr "탭 대신 빈칸 표시:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:127
 msgid "Tab width:"
@@ -545,7 +545,7 @@ msgstr "줄 폭 가이드:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:187
 msgid "Font and Color Scheme"
-msgstr "글꼴과 색상 설정:"
+msgstr "글꼴과 색 구성표"
 
 #: ../src/Dialogs/PreferencesDialog.vala:189
 msgid "Color scheme:"
@@ -902,7 +902,7 @@ msgstr "만료 시간:"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:310
 msgid "Keep this paste private"
-msgstr "이 붙여넣기를 비공개합니다."
+msgstr "이 붙여 넣기를 공개하지 않습니다"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:312
 msgid "Upload"
@@ -930,7 +930,7 @@ msgstr "한 달"
 
 #: ../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
-msgstr "Pastebin"
+msgstr "붙여 넣기"
 
 #: ../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
@@ -1011,7 +1011,7 @@ msgstr "다른 응용 프로그램으로 작업 중인 파일 열기"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr "다음 으로 열기..."
+msgstr "다음 으로 열기…"
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
