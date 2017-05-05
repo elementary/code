@@ -69,7 +69,7 @@ namespace Scratch.Services {
         private bool error_shown = false;
         public bool is_file_temporary {
             get {
-                return file.get_path ().has_prefix (ScratchApp.instance.data_home_folder_unsaved);
+                return file.get_path ().has_prefix (Application.instance.data_home_folder_unsaved);
             }
         }
 
