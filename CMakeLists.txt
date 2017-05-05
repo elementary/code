@@ -111,3 +111,5 @@ configure_file_translation(${CMAKE_SOURCE_DIR}/data/org.pantheon.scratch.appdata
 
 install (FILES ${CMAKE_BINARY_DIR}/data/org.pantheon.scratch.desktop DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/applications)
 install (FILES ${CMAKE_BINARY_DIR}/data/org.pantheon.scratch.appdata.xml DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/appdata)
+
+install (FILES ${CMAKE_SOURCE_DIR}/data/icons/64/io.elementary.code.svg DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/icons/hicolor/64x64/apps)
