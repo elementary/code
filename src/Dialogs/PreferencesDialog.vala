@@ -209,7 +209,7 @@ namespace Scratch.Dialogs {
             content.attach (line_break_label, 0, 3, 1, 1);
             content.attach (line_break, 1, 3, 1, 1);
             content.attach (draw_spaces_label, 0, 4, 1, 1);
-            content.attach (draw_spaces_combo, 1, 4, 1, 1);
+            content.attach (draw_spaces_combo, 1, 4, 2, 1);
             content.attach (line_numbers_label, 0, 5, 1, 1);
             content.attach (line_numbers, 1, 5, 1, 1);
 #if GTKSOURCEVIEW_3_18
