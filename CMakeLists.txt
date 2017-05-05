@@ -107,7 +107,7 @@ add_subdirectory (po)
 
 # Data
 configure_file_translation(${CMAKE_SOURCE_DIR}/data/org.pantheon.scratch.desktop.in ${CMAKE_BINARY_DIR}/data/org.pantheon.scratch.desktop ${CMAKE_SOURCE_DIR}/po/)
-configure_file_translation(${CMAKE_SOURCE_DIR}/data/org.pantheon.scratch.appdata.xml.in ${CMAKE_BINARY_DIR}/data/org.pantheon.scratch.appdata.xml ${CMAKE_SOURCE_DIR}/po/)
+configure_file_translation(${CMAKE_SOURCE_DIR}/data/io.elementary.code.appdata.xml.in ${CMAKE_BINARY_DIR}/data/io.elementary.code.appdata.xml ${CMAKE_SOURCE_DIR}/po/)
 
 install (FILES ${CMAKE_BINARY_DIR}/data/org.pantheon.scratch.desktop DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/applications)
-install (FILES ${CMAKE_BINARY_DIR}/data/org.pantheon.scratch.appdata.xml DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/appdata)
+install (FILES ${CMAKE_BINARY_DIR}/data/io.elementary.code.appdata.xml DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/appdata)
