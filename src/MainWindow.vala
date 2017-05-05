@@ -60,9 +60,9 @@ namespace Scratch {
 
         public MainWindow (Scratch.ScratchApp scratch_app) {
             Object (application: scratch_app,
-                    icon_name: "accessories-text-editor",
-                    title: app.app_cmd_name);
-            this.app = scratch_app;
+                    icon_name: "accessories-text-editor");
+            app = scratch_app;
+            title = app.app_cmd_name;
         }
 
         construct {
