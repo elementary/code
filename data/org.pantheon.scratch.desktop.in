@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-_Name=Scratch
+_Name=Code
 _Comment=Edit text files
 GenericName=Text Editor
 Exec=scratch-text-editor %U
@@ -23,4 +23,4 @@ Exec=scratch-text-editor --new-window
 
 [Desktop Action AboutDialog]
 Exec=scratch-text-editor --about
-_Name=About Scratch
+_Name=About Code
