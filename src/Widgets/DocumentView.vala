@@ -94,7 +94,7 @@ namespace Scratch.Widgets {
             var timestamp = new DateTime.now_local ();
             string new_text_file = _("Text file from ") + timestamp.format ("%Y-%m-%d %H:%M:%S");
 
-            return ScratchApp.instance.data_home_folder_unsaved + new_text_file;
+            return Application.instance.data_home_folder_unsaved + new_text_file;
         }
 
         public void new_document () {

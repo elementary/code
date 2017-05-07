@@ -25,7 +25,7 @@ namespace Scratch {
     public Settings settings;
     public ServicesSettings services;
 
-    public class ScratchApp : Granite.Application {
+    public class Application : Granite.Application {
         public string app_cmd_name { get { return _app_cmd_name; } }
         public string data_home_folder_unsaved { get { return _data_home_folder_unsaved; } }
         public string default_font { get; set; }
@@ -69,7 +69,7 @@ namespace Scratch {
             about_license_type = Gtk.License.GPL_3_0;
         }
 
-        public ScratchApp () {
+        public Application () {
             // Init internationalization support
             Intl.setlocale (LocaleCategory.ALL, "");
             string langpack_dir = Path.build_filename (Constants.INSTALL_PREFIX, "share", "locale");
@@ -90,12 +90,12 @@ namespace Scratch {
             _data_home_folder_unsaved = Environment.get_user_data_dir () + "/" + exec_name + "/unsaved/";
         }
 
-        public static ScratchApp _instance = null;
+        public static Application _instance = null;
 
-        public static ScratchApp instance {
+        public static Application instance {
             get {
                 if (_instance == null)
-                    _instance = new ScratchApp ();
+                    _instance = new Application ();
                 return _instance;
             }
         }
@@ -284,7 +284,7 @@ namespace Scratch {
 
         public static int main (string[] args) {
             _app_cmd_name = "Scratch";
-            ScratchApp app = ScratchApp.instance;
+            Application app = Application.instance;
             return app.run (args);
         }
     }
