@@ -27,7 +27,6 @@ namespace Scratch.Dialogs {
         private Gtk.Stack main_stack;
         private Gtk.StackSwitcher main_stackswitcher;
 
-        Gtk.ComboBoxText start_combo;
         Gtk.Switch highlight_current_line;
         Gtk.Switch highlight_matching_brackets;
         Gtk.Switch line_break;
@@ -107,12 +106,6 @@ namespace Scratch.Dialogs {
 
             var general_header = new SettingsHeader (_("General"));
 
-            var start_label = new SettingsLabel (_("When Scratch starts:"));
-            start_combo = new Gtk.ComboBoxText ();
-            start_combo.append ("welcome", _("Show welcome screen"));
-            start_combo.append ("last-tabs", _("Show last open tabs"));
-            Scratch.settings.schema.bind ("show-at-start", start_combo, "active-id", SettingsBindFlags.DEFAULT);
-
             var autosave_label = new SettingsLabel (_("Save files when changed:"));
             var autosave_switch = new SettingsSwitch ("autosave");
 
@@ -129,17 +122,15 @@ namespace Scratch.Dialogs {
             Scratch.settings.schema.bind ("indent-width", indent_width, "value", SettingsBindFlags.DEFAULT);
 
             general_grid.attach (general_header, 0, 0, 2, 1);
-            general_grid.attach (start_label, 0, 1, 1, 1);
-            general_grid.attach (start_combo, 1, 1, 1, 1);
-            general_grid.attach (autosave_label, 0, 2, 1, 1);
-            general_grid.attach (autosave_switch, 1, 2, 1, 1);
-            general_grid.attach (tabs_header, 0, 3, 2, 1);
-            general_grid.attach (autoindent_label, 0, 4, 1, 1);
-            general_grid.attach (autoindent_switch, 1, 4, 1, 1);
-            general_grid.attach (spaces_instead_of_tabs_label, 0, 5, 1, 1);
-            general_grid.attach (spaces_instead_of_tabs_switch, 1, 5, 1, 1);
-            general_grid.attach (indent_width_label, 0, 6, 1, 1);
-            general_grid.attach (indent_width, 1, 6, 1, 1);
+            general_grid.attach (autosave_label, 0, 1, 1, 1);
+            general_grid.attach (autosave_switch, 1, 1, 1, 1);
+            general_grid.attach (tabs_header, 0, 2, 2, 1);
+            general_grid.attach (autoindent_label, 0, 3, 1, 1);
+            general_grid.attach (autoindent_switch, 1, 3, 1, 1);
+            general_grid.attach (spaces_instead_of_tabs_label, 0, 4, 1, 1);
+            general_grid.attach (spaces_instead_of_tabs_switch, 1, 4, 1, 1);
+            general_grid.attach (indent_width_label, 0, 5, 1, 1);
+            general_grid.attach (indent_width, 1, 5, 1, 1);
 
             return general_grid;
         }

@@ -305,21 +305,19 @@ namespace Scratch.Widgets {
         }
 
         public void save_opened_files () {
-            if (settings.show_at_start == "last-tabs") {
-                string[] opened_files = {};
+            string[] opened_files = {};
 
-                notebook.tabs.foreach ((tab) => {
-                    var doc = tab as Scratch.Services.Document;
-                    if (doc.file != null && doc.exists ()) {
-                        opened_files += doc.file.get_uri ();
-                    }
-                });
-
-                if (view_id == 1) {
-                    settings.opened_files_view1 = opened_files;
-                } else {
-                    settings.opened_files_view2 = opened_files;
+            notebook.tabs.foreach ((tab) => {
+                var doc = tab as Scratch.Services.Document;
+                if (doc.file != null && doc.exists ()) {
+                    opened_files += doc.file.get_uri ();
                 }
+            });
+
+            if (view_id == 1) {
+                settings.opened_files_view1 = opened_files;
+            } else {
+                settings.opened_files_view2 = opened_files;
             }
         }
 
