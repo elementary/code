@@ -24,7 +24,7 @@ namespace Scratch {
         public int FONT_SIZE_MAX = 72;
         public int FONT_SIZE_MIN = 7;
         private const uint MAX_SEARCH_TEXT_LENGTH = 255;
-        public weak ScratchApp app;
+        public weak Application app;
 
         // Widgets
         public Scratch.Widgets.Toolbar toolbar;
@@ -59,7 +59,7 @@ namespace Scratch {
         // Delegates
         delegate void HookFunc ();
 
-        public MainWindow (Scratch.ScratchApp scratch_app) {
+        public MainWindow (Application scratch_app) {
             Object (application: scratch_app,
                     icon_name: "accessories-text-editor");
             app = scratch_app;
@@ -269,7 +269,7 @@ namespace Scratch {
                 main_actions.get_action ("Templates").visible = plugins.plugin_iface.template_manager.template_available;
             });
 
-            // All the files have already been opened in ScratchApp.activate (),
+            // All the files have already been opened in Application.activate (),
             // if we reach this point without any document open let's just show
             // the welcome screen.
             if (is_empty ()) {
