@@ -8,15 +8,17 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
-"PO-Revision-Date: 2017-03-07 11:39+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
-"Language-Team: Japanese <ja@li.org>\n"
+"PO-Revision-Date: 2017-05-07 09:58+0000\n"
+"Last-Translator: Ryo Nakano <nscnskichiro0911@gmail.com>\n"
+"Language-Team: Japanese "
+"<https://l10n.elementary.io/projects/scratch/scratch/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.13-dev\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -54,7 +56,7 @@ msgstr "複数のファイルを開く"
 #: ../src/MainWindow.vala:1003 ../src/MainWindow.vala:1014
 #: ../src/MainWindow.vala:1015
 msgid "Find…"
-msgstr "検索..."
+msgstr "検索…"
 
 #: ../src/MainWindow.vala:843
 msgid "Hide search bar"
@@ -62,7 +64,7 @@ msgstr "検索バーを隠す"
 
 #: ../src/MainWindow.vala:909 ../src/MainWindow.vala:910
 msgid "Go to line…"
-msgstr "行へ移動..."
+msgstr "行へ移動…"
 
 #: ../src/MainWindow.vala:913 ../src/MainWindow.vala:914
 msgid "Quit"
@@ -174,7 +176,7 @@ msgstr "このファイルを保存"
 
 #: ../src/MainWindow.vala:973 ../src/Services/Document.vala:578
 msgid "Save As…"
-msgstr "名前を付けて保存..."
+msgstr "名前を付けて保存…"
 
 #: ../src/MainWindow.vala:974
 msgid "Save this file with a different name"
@@ -370,7 +372,7 @@ msgstr "共有"
 
 #: ../src/Widgets/ToolBar.vala:66
 msgid "Menu"
-msgstr ""
+msgstr "メニュー"
 
 #: ../src/Widgets/SplitView.vala:45
 msgid "No Files Open"
@@ -502,7 +504,7 @@ msgstr "タブの代わりにスペースを挿入:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:127
 msgid "Tab width:"
-msgstr "タブ幅"
+msgstr "タブ幅："
 
 #: ../src/Dialogs/PreferencesDialog.vala:153
 msgid "Editor"
@@ -522,7 +524,7 @@ msgstr "行の折り返し："
 
 #: ../src/Dialogs/PreferencesDialog.vala:164
 msgid "Draw Spaces:"
-msgstr "空白を表示する"
+msgstr "空白を表示する："
 
 #: ../src/Dialogs/PreferencesDialog.vala:166
 #: ../plugins/pastebin/pastebin_dialog.vala:511
@@ -555,7 +557,7 @@ msgstr "フォントと配色"
 
 #: ../src/Dialogs/PreferencesDialog.vala:189
 msgid "Color scheme:"
-msgstr "配色"
+msgstr "配色："
 
 #: ../src/Dialogs/PreferencesDialog.vala:194
 msgid "Custom font:"
@@ -1017,7 +1019,7 @@ msgstr "別のアプリケーションで編集中のファイルを開く"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr "他のアプリケーションで開く..."
+msgstr "他のアプリケーションで開く…"
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
