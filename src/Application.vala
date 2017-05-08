@@ -48,7 +48,7 @@ namespace Scratch {
             program_name = app_cmd_name;
             exec_name = "scratch-text-editor";
             app_years = "2011-2015";
-            app_icon = "accessories-text-editor";
+            app_icon = "io.elementary.code";
             app_launcher = "scratch-text-editor.desktop";
             application_id = "org.pantheon." + app_cmd_name.down ();
             main_url = "https://launchpad.net/scratch";
