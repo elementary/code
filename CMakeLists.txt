@@ -111,3 +111,10 @@ configure_file_translation(${CMAKE_SOURCE_DIR}/data/io.elementary.code.appdata.x
 
 install (FILES ${CMAKE_BINARY_DIR}/data/org.pantheon.scratch.desktop DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/applications)
 install (FILES ${CMAKE_BINARY_DIR}/data/io.elementary.code.appdata.xml DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/metainfo)
+
+install (FILES ${CMAKE_SOURCE_DIR}/data/icons/16/io.elementary.code.svg DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/icons/hicolor/16x16/apps)
+install (FILES ${CMAKE_SOURCE_DIR}/data/icons/24/io.elementary.code.svg DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/icons/hicolor/24x24/apps)
+install (FILES ${CMAKE_SOURCE_DIR}/data/icons/32/io.elementary.code.svg DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/icons/hicolor/32x32/apps)
+install (FILES ${CMAKE_SOURCE_DIR}/data/icons/48/io.elementary.code.svg DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/icons/hicolor/48x48/apps)
+install (FILES ${CMAKE_SOURCE_DIR}/data/icons/64/io.elementary.code.svg DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/icons/hicolor/64x64/apps)
+install (FILES ${CMAKE_SOURCE_DIR}/data/icons/128/io.elementary.code.svg DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/icons/hicolor/128x128/apps)
