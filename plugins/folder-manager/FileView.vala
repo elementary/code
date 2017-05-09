@@ -131,8 +131,8 @@ namespace Scratch.Plugins.FolderManager {
      */
     internal class FileItem : Item {
 
-        //Gtk.Menu menu;
-        //Gtk.MenuItem item_trash;
+        Gtk.Menu menu;
+        Gtk.MenuItem item_trash;
 
         public FileItem (File file) requires (file.is_valid_textfile) {
             Object (file: file);
@@ -147,14 +147,19 @@ namespace Scratch.Plugins.FolderManager {
             file.rename (new_name);
         }*/
 
-        /*public override Gtk.Menu? get_context_menu () {
-            menu = new Gtk.Menu ();
+        public override Gtk.Menu? get_context_menu () {
             item_trash = new Gtk.MenuItem.with_label (_("Move to Trash"));
+
+            menu = new Gtk.Menu ();
             menu.append (item_trash);
-            item_trash.activate.connect (() => { file.trash (); });
             menu.show_all ();
+
+            item_trash.activate.connect (() => {
+                file.trash ();
+            });
+
             return menu;
-        }*/
+        }
     }
 
     /**
