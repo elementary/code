@@ -8,15 +8,17 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
-"PO-Revision-Date: 2016-07-07 10:27+0000\n"
-"Last-Translator: Nikos <Unknown>\n"
-"Language-Team: French <fr@li.org>\n"
+"PO-Revision-Date: 2017-05-09 14:56+0000\n"
+"Last-Translator: Corentin Noël <corentin@elementary.io>\n"
+"Language-Team: French "
+"<https://l10n.elementary.io/projects/scratch/scratch/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.13-dev\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -54,7 +56,7 @@ msgstr "Ouvrez des fichiers"
 #: ../src/MainWindow.vala:1003 ../src/MainWindow.vala:1014
 #: ../src/MainWindow.vala:1015
 msgid "Find…"
-msgstr "Rechercher..."
+msgstr "Rechercher…"
 
 #: ../src/MainWindow.vala:843
 msgid "Hide search bar"
@@ -62,7 +64,7 @@ msgstr "Cacher la barre de recherche"
 
 #: ../src/MainWindow.vala:909 ../src/MainWindow.vala:910
 msgid "Go to line…"
-msgstr "Se rendre à la ligne..."
+msgstr "Se rendre à la ligne…"
 
 #: ../src/MainWindow.vala:913 ../src/MainWindow.vala:914
 msgid "Quit"
@@ -190,7 +192,7 @@ msgstr "Modèles"
 
 #: ../src/MainWindow.vala:981 ../src/Dialogs/PreferencesDialog.vala:55
 msgid "Preferences"
-msgstr "Préférences..."
+msgstr "Préférences…"
 
 #: ../src/MainWindow.vala:982
 msgid "Change Scratch settings"
@@ -401,7 +403,7 @@ msgstr "Partager"
 
 #: ../src/Widgets/ToolBar.vala:66
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 #: ../src/Widgets/SplitView.vala:45
 msgid "No Files Open"
@@ -409,7 +411,7 @@ msgstr "Aucun fichier ouvert"
 
 #: ../src/Widgets/SplitView.vala:46
 msgid "Open a file to begin editing."
-msgstr "Ouvrir un fichier pour commencer l'édition"
+msgstr "Ouvrir un fichier pour commencer l'édition."
 
 #: ../src/Widgets/SplitView.vala:50
 msgid "New file"
@@ -417,7 +419,7 @@ msgstr "Nouveau fichier"
 
 #: ../src/Widgets/SplitView.vala:50
 msgid "Create a new empty file."
-msgstr "Créer un fichier vide"
+msgstr "Créer un fichier vide."
 
 #: ../src/Widgets/SplitView.vala:51
 msgid "Open file"
@@ -425,7 +427,7 @@ msgstr "Ouvrir un fichier"
 
 #: ../src/Widgets/SplitView.vala:51
 msgid "Open a saved file."
-msgstr "Ouvrir un fichier sauvegardé"
+msgstr "Ouvrir un fichier enregistré."
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "New file from clipboard"
@@ -549,7 +551,7 @@ msgstr "Surligner les crochets correspondants :"
 
 #: ../src/Dialogs/PreferencesDialog.vala:161
 msgid "Line wrap:"
-msgstr "Retour à la ligne"
+msgstr "Retour à la ligne :"
 
 #: ../src/Dialogs/PreferencesDialog.vala:164
 msgid "Draw Spaces:"
@@ -562,11 +564,11 @@ msgstr "Jamais"
 
 #: ../src/Dialogs/PreferencesDialog.vala:167
 msgid "For selected text"
-msgstr ""
+msgstr "Pour le texte sélectionné"
 
 #: ../src/Dialogs/PreferencesDialog.vala:168
 msgid "Always"
-msgstr ""
+msgstr "Toujours"
 
 #: ../src/Dialogs/PreferencesDialog.vala:171
 msgid "Show line numbers:"
@@ -578,7 +580,7 @@ msgstr "Afficher l'aperçu du fichier :"
 
 #: ../src/Dialogs/PreferencesDialog.vala:179
 msgid "Line width guide:"
-msgstr "Guide de largeur de ligne"
+msgstr "Guide de largeur de ligne :"
 
 #: ../src/Dialogs/PreferencesDialog.vala:187
 msgid "Font and Color Scheme"
@@ -1045,7 +1047,7 @@ msgstr ""
 #. **
 #: ../plugins/open-with/open-with.vala:21
 msgid "Open With"
-msgstr "Ouvrir avec..."
+msgstr "Ouvrir avec"
 
 #: ../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
@@ -1053,7 +1055,7 @@ msgstr "Ouvrir des fichiers déjà ouverts dans une autre application"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr "Ouvrir avec..."
+msgstr "Ouvrir avec…"
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
