@@ -66,7 +66,6 @@ namespace Scratch {
         public string font { get; set; }
         public string style_scheme { get; set; }
         public string[] plugins_enabled { get; set;}
-        public string show_at_start { get; set; }
         public string[] opened_files_view1 { get; set; }
         public string[] opened_files_view2 { get; set; }
         public bool autosave { get; set; }

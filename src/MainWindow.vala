@@ -300,36 +300,34 @@ namespace Scratch {
         }
 
         public void restore_opened_documents () {
-            if (settings.show_at_start == "last-tabs") {
-                start_loading ();
+            start_loading ();
 
-                string[] uris_view1 = settings.opened_files_view1;
-                string[] uris_view2 = settings.opened_files_view2;
-                string focused_document1 = settings.focused_document_view1;
-                string focused_document2 = settings.focused_document_view2;
+            string[] uris_view1 = settings.opened_files_view1;
+            string[] uris_view2 = settings.opened_files_view2;
+            string focused_document1 = settings.focused_document_view1;
+            string focused_document2 = settings.focused_document_view2;
 
-                if (uris_view1.length > 0) {
-                    var view = add_view ();
-                    load_files_for_view (view, uris_view1);
-                    set_focused_document (view, focused_document1);
+            if (uris_view1.length > 0) {
+                var view = add_view ();
+                load_files_for_view (view, uris_view1);
+                set_focused_document (view, focused_document1);
 
-                    if (view.is_empty ()) {
-                        split_view.remove_view (view);
-                    }
+                if (view.is_empty ()) {
+                    split_view.remove_view (view);
                 }
-
-                if (uris_view2.length > 0) {
-                    var view = add_view ();
-                    load_files_for_view (view, uris_view2);
-                    set_focused_document (view, focused_document2);
-
-                    if (view.is_empty ()) {
-                        split_view.remove_view (view);
-                    }
-                }
-
-                stop_loading ();
             }
+
+            if (uris_view2.length > 0) {
+                var view = add_view ();
+                load_files_for_view (view, uris_view2);
+                set_focused_document (view, focused_document2);
+
+                if (view.is_empty ()) {
+                    split_view.remove_view (view);
+                }
+            }
+
+            stop_loading ();
         }
 
         private void load_files_for_view (Scratch.Widgets.DocumentView view, string[] uris) {
