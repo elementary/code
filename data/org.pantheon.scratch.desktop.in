@@ -3,24 +3,24 @@ Type=Application
 _Name=Scratch
 _Comment=Edit text files
 GenericName=Text Editor
-Exec=scratch-text-editor %U
-Icon=accessories-text-editor
+Exec=io.elementary.code %U
+Icon=io.elementary.code
 Terminal=false
 Categories=GNOME;GTK;Utility;TextEditor;
 _Keywords=Notepad;IDE;Plain;
 MimeType=text/plain;
 StartupNotify=true
 Actions=NewWindow;NewDocument;AboutDialog;
-X-GNOME-Gettext-Domain=scratch-text-editor
+X-GNOME-Gettext-Domain=io.elementary.code
 
 [Desktop Action NewDocument]
 Name=New Document
-Exec=scratch-text-editor --new-tab
+Exec=io.elementary.code --new-tab
 
 [Desktop Action NewWindow]
 Name=New Window
-Exec=scratch-text-editor --new-window
+Exec=io.elementary.code --new-window
 
 [Desktop Action AboutDialog]
-Exec=scratch-text-editor --about
+Exec=io.elementary.code --about
 _Name=About Scratch
