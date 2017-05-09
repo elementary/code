@@ -77,7 +77,7 @@ namespace Scratch {
             Intl.bind_textdomain_codeset (Constants.GETTEXT_PACKAGE, "UTF-8");
             Intl.textdomain (Constants.GETTEXT_PACKAGE);
 
-            Granite.Services.Logger.initialize ("Scratch");
+            Granite.Services.Logger.initialize ("Code");
             Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.DEBUG;
 
             // Init settings
@@ -119,8 +119,8 @@ namespace Scratch {
             }
 
             if (print_version) {
-                stdout.printf ("Scratch Text Editor %s\n", build_version);
-                stdout.printf ("Copyright %s Scratch Text Editor Developers.\n".printf (app_years));
+                stdout.printf ("Code %s\n", build_version);
+                stdout.printf ("Copyright %s elementary LLC.\n".printf (app_years));
                 return Posix.EXIT_SUCCESS;
             }
 
@@ -283,7 +283,7 @@ namespace Scratch {
         };
 
         public static int main (string[] args) {
-            _app_cmd_name = "Scratch";
+            _app_cmd_name = "Code";
             Application app = Application.instance;
             return app.run (args);
         }
