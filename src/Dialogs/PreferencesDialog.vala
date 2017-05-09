@@ -30,7 +30,6 @@ namespace Scratch.Dialogs {
         Gtk.ComboBoxText start_combo;
         Gtk.Switch highlight_current_line;
         Gtk.Switch highlight_matching_brackets;
-        Gtk.Switch line_break;
         Gtk.Switch spaces_instead_of_tabs_switch;
         Gtk.Switch autoindent_switch;
 
@@ -158,9 +157,6 @@ namespace Scratch.Dialogs {
             var highlight_matching_brackets_label = new SettingsLabel (_("Highlight matching brackets:"));
             highlight_matching_brackets = new SettingsSwitch ("highlight-matching-brackets");
 
-            var line_break_label = new SettingsLabel (_("Line wrap:"));
-            line_break = new SettingsSwitch ("line-break");
-
             var draw_spaces_label = new SettingsLabel (_("Draw Spaces:"));
             var draw_spaces_combo = new Gtk.ComboBoxText ();
             draw_spaces_combo.append ("Never", _("Never"));
@@ -206,25 +202,23 @@ namespace Scratch.Dialogs {
             content.attach (highlight_current_line, 1, 1, 1, 1);
             content.attach (highlight_matching_brackets_label, 0, 2, 1, 1);
             content.attach (highlight_matching_brackets, 1, 2, 1, 1);
-            content.attach (line_break_label, 0, 3, 1, 1);
-            content.attach (line_break, 1, 3, 1, 1);
-            content.attach (draw_spaces_label, 0, 4, 1, 1);
-            content.attach (draw_spaces_combo, 1, 4, 2, 1);
-            content.attach (line_numbers_label, 0, 5, 1, 1);
-            content.attach (line_numbers, 1, 5, 1, 1);
+            content.attach (draw_spaces_label, 0, 3, 1, 1);
+            content.attach (draw_spaces_combo, 1, 3, 2, 1);
+            content.attach (line_numbers_label, 0, 4, 1, 1);
+            content.attach (line_numbers, 1, 4, 1, 1);
 #if GTKSOURCEVIEW_3_18
-            content.attach (show_mini_map_label, 0, 6, 1, 1);
-            content.attach (show_mini_map, 1, 6, 1, 1);
+            content.attach (show_mini_map_label, 0, 5, 1, 1);
+            content.attach (show_mini_map, 1, 5, 1, 1);
 #endif
-            content.attach (show_right_margin_label, 0, 7, 1, 1);
-            content.attach (show_right_margin, 1, 7, 1, 1);
-            content.attach (right_margin_position, 2, 7, 1, 1);
-            content.attach (font_header, 0, 8, 3, 1);
-            content.attach (style_scheme_label, 0, 9, 1, 1);
-            content.attach (style_scheme, 1, 9, 2, 1);
-            content.attach (use_custom_font_label , 0, 10, 1, 1);
-            content.attach (use_custom_font, 1, 10, 1, 1);
-            content.attach (select_font, 2, 10, 1, 1);
+            content.attach (show_right_margin_label, 0, 6, 1, 1);
+            content.attach (show_right_margin, 1, 6, 1, 1);
+            content.attach (right_margin_position, 2, 6, 1, 1);
+            content.attach (font_header, 0, 7, 3, 1);
+            content.attach (style_scheme_label, 0, 8, 1, 1);
+            content.attach (style_scheme, 1, 8, 2, 1);
+            content.attach (use_custom_font_label , 0, 9, 1, 1);
+            content.attach (use_custom_font, 1, 9, 1, 1);
+            content.attach (select_font, 2, 9, 1, 1);
 
             return content;
         }
