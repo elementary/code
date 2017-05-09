@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-_Name=Scratch
+_Name=Code
 _Comment=Edit text files
 GenericName=Text Editor
 Exec=io.elementary.code %U
@@ -23,4 +23,4 @@ Exec=io.elementary.code --new-window
 
 [Desktop Action AboutDialog]
 Exec=io.elementary.code --about
-_Name=About Scratch
+_Name=About Code
