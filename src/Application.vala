@@ -46,11 +46,11 @@ namespace Scratch {
             build_version_info = Constants.VERSION_INFO;
 
             program_name = app_cmd_name;
-            exec_name = "scratch-text-editor";
+            exec_name = "io.elementary.code";
             app_years = "2011-2015";
-            app_icon = "accessories-text-editor";
+            app_icon = "io.elementary.code";
             app_launcher = "scratch-text-editor.desktop";
-            application_id = "org.pantheon." + app_cmd_name.down ();
+            application_id = "io.elementary.code";
             main_url = "https://launchpad.net/scratch";
             bug_url = "https://bugs.launchpad.net/scratch";
             help_url = "https://elementary.io/help/scratch";
