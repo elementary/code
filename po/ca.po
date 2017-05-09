@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
-"PO-Revision-Date: 2017-05-09 16:02+0000\n"
+"PO-Revision-Date: 2017-05-09 16:06+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan "
 "<https://l10n.elementary.io/projects/scratch/scratch/ca/>\n"
@@ -319,13 +319,17 @@ msgstr "El directori pare no existeix."
 msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
-msgstr "No es pot crear el fitxer %s."
+msgstr ""
+"No es pot crear el fitxer %s.\n"
+"%s"
 
 #: ../src/Scratch.vala:189
 msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
-msgstr "No espot obrir el fitxer %s."
+msgstr ""
+"No espot obrir el fitxer %s.\n"
+"%s"
 
 #: ../src/Scratch.vala:198
 msgid "It is a mountable location."
@@ -993,8 +997,8 @@ msgstr "Conserva el sagnat"
 #: ../plugins/preserve-indent/preserve-indent.vala:25
 msgid "Maintains indent level of pasted text when auto-indent is active"
 msgstr ""
-"Manté el nivell de sagnat del text enganxat quan el sagnat automàtic està "
-"actiu."
+"Mantén el nivell de sagnat del text enganxat quan el sagnat automàtic "
+"estigui actiu."
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -1016,11 +1020,11 @@ msgstr "Obre amb"
 
 #: ../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr "Obre fitxers que s'estiguin editant amb una altra apliació."
+msgstr "Obre fitxers que s'estiguin editant amb una altra aplicació"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr "Obre amb..."
+msgstr "Obre amb…"
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
