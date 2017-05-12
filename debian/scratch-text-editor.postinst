@@ -9,7 +9,7 @@ case "$1" in
             --install \
                 /usr/bin/gnome-text-editor \
                 gnome-text-editor \
-                /usr/bin/scratch-text-editor \
+                /usr/bin/io.elementary.code \
                 50 \
     ;;
 
