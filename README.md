@@ -29,7 +29,7 @@ Run `cmake` to configure the build environment and then `make` to build
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     make
     
-To install, use `make install`, then execute with `scratch-text-editor`
+To install, use `make install`, then execute with `io.elementary.code`
 
     sudo make install
-    scratch-text-editor
+    io.elementary.code
