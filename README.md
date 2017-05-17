@@ -3,13 +3,6 @@
 
 ![Screenshot](data/screenshot.png?raw=true)
 
-Code is the editor that works for you. It auto-saves your files, meaning they're always up-to-date. Plus it remembers your tabs so you never lose your spot, even in between sessions.
-
-Code is written from the ground up to be extensible and closely follows our high standards of design, speed, and consistency. It's sexy, but not distracting.
-
-Whether you're crafting code in Vala, scripting with PHP, or marking things up in HTML, Code has you covered. Experience full syntax highlighting with nearly all programming, scripting, and markup languages.
-
-
 ## Building, Testing, and Installation
 
 You'll need the following dependencies:
