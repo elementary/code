@@ -1,5 +1,7 @@
-# Scratch
+# Code
 [![Translation status](https://l10n.elementary.io/widgets/scratch/-/svg-badge.svg)](https://l10n.elementary.io/projects/scratch/?utm_source=widget)
+
+![Screenshot](data/screenshot.png?raw=true)
 
 ## Building, Testing, and Installation
 
@@ -23,12 +25,12 @@ It's recommended to create a clean build environment
 
     mkdir build
     cd build/
-    
+
 Run `cmake` to configure the build environment and then `make` to build
 
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     make
-    
+
 To install, use `make install`, then execute with `io.elementary.code`
 
     sudo make install
