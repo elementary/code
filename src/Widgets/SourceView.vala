@@ -80,10 +80,10 @@ namespace Scratch.Widgets {
 
             this.scroll_event.connect ((key_event) => {
                 if ((Gdk.ModifierType.CONTROL_MASK in key_event.state) && key_event.delta_y < 0) {
-                    Scratch.ScratchApp.instance.get_last_window ().zoom_in ();
+                    Application.instance.get_last_window ().zoom_in ();
                     return true;
                 } else if ((Gdk.ModifierType.CONTROL_MASK in key_event.state) && key_event.delta_y > 0) {
-                    Scratch.ScratchApp.instance.get_last_window ().zoom_out ();
+                    Application.instance.get_last_window ().zoom_out ();
                     return true;
                 }
 
@@ -94,13 +94,13 @@ namespace Scratch.Widgets {
                 if (Gdk.ModifierType.CONTROL_MASK in key_event.state) {
                     switch (key_event.keyval) {
                         case Gdk.Key.plus:
-                            Scratch.ScratchApp.instance.get_last_window ().zoom_in ();
+                            Application.instance.get_last_window ().zoom_in ();
                             return true;
                         case Gdk.Key.minus:
-                            Scratch.ScratchApp.instance.get_last_window ().zoom_out ();
+                            Application.instance.get_last_window ().zoom_out ();
                             return true;
                         case 0x30:
-                            Scratch.ScratchApp.instance.get_last_window ().set_default_zoom ();
+                            Application.instance.get_last_window ().set_default_zoom ();
                             return true;
                     }
                 }
@@ -163,7 +163,7 @@ namespace Scratch.Widgets {
             if (!value)
                 return;
 
-            this.font = ScratchApp.instance.default_font;
+            this.font = Application.instance.default_font;
         }
 
         public void change_syntax_highlight_from_file (File file) {
@@ -201,11 +201,6 @@ namespace Scratch.Widgets {
 
             insert_spaces_instead_of_tabs = Scratch.settings.spaces_instead_of_tabs;
             tab_width = (uint) Scratch.settings.indent_width;
-            if (settings.line_break) {
-                set_wrap_mode (Gtk.WrapMode.WORD);
-            } else {
-                set_wrap_mode (Gtk.WrapMode.NONE);
-            }
 
             this.font = Scratch.settings.font;
             use_default_font (Scratch.settings.use_system_font);

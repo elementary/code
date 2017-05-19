@@ -59,11 +59,6 @@
 			<summary>Enabled Plugins</summary>
 			<description>Enabled Plugins</description>
 		</key>
-		<key name="show-at-start" type="s">
-			<default>'last-tabs'</default>
-			<summary>Show the welcome screen or the last opened files at Scratch launch</summary>
-			<description>Show the welcome screen or the last opened files at Scratch launch.</description>
-		</key>
 		<key name="opened-files-view1" type="as">
 			<default>[]</default>
 			<summary>Files opened in the previously session of Scratch on the first view</summary>
@@ -93,11 +88,6 @@
 			<default>false</default>
 			<summary>Display Line Numbers</summary>
 			<description>Whether Scratch should display line numbers in the editing area.</description>
-		</key>
-		<key name="line-break" type="b">
-			<default>false</default>
-			<summary>Split words in many lines</summary>
-			<description>Split words in many lines.</description>
 		</key>
 		<key name="highlight-current-line" type="b">
 			<default>false</default>
