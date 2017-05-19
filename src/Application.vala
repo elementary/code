@@ -25,7 +25,7 @@ namespace Scratch {
     public Settings settings;
     public ServicesSettings services;
 
-    public class ScratchApp : Granite.Application {
+    public class Application : Granite.Application {
         public string app_cmd_name { get { return _app_cmd_name; } }
         public string data_home_folder_unsaved { get { return _data_home_folder_unsaved; } }
         public string default_font { get; set; }
@@ -46,11 +46,11 @@ namespace Scratch {
             build_version_info = Constants.VERSION_INFO;
 
             program_name = app_cmd_name;
-            exec_name = "scratch-text-editor";
+            exec_name = "io.elementary.code";
             app_years = "2011-2015";
-            app_icon = "accessories-text-editor";
+            app_icon = "io.elementary.code";
             app_launcher = "scratch-text-editor.desktop";
-            application_id = "org.pantheon." + app_cmd_name.down ();
+            application_id = "io.elementary.code";
             main_url = "https://launchpad.net/scratch";
             bug_url = "https://bugs.launchpad.net/scratch";
             help_url = "https://elementary.io/help/scratch";
@@ -69,7 +69,7 @@ namespace Scratch {
             about_license_type = Gtk.License.GPL_3_0;
         }
 
-        public ScratchApp () {
+        public Application () {
             // Init internationalization support
             Intl.setlocale (LocaleCategory.ALL, "");
             string langpack_dir = Path.build_filename (Constants.INSTALL_PREFIX, "share", "locale");
@@ -77,7 +77,7 @@ namespace Scratch {
             Intl.bind_textdomain_codeset (Constants.GETTEXT_PACKAGE, "UTF-8");
             Intl.textdomain (Constants.GETTEXT_PACKAGE);
 
-            Granite.Services.Logger.initialize ("Scratch");
+            Granite.Services.Logger.initialize ("Code");
             Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.DEBUG;
 
             // Init settings
@@ -87,15 +87,15 @@ namespace Scratch {
             services = new ServicesSettings ();
 
             // Init data home folder for unsaved text files
-            _data_home_folder_unsaved = Environment.get_user_data_dir () + "/" + exec_name + "/unsaved/";
+            _data_home_folder_unsaved = Environment.get_user_data_dir () + "/" + "scratch-text-editor" + "/unsaved/";
         }
 
-        public static ScratchApp _instance = null;
+        public static Application _instance = null;
 
-        public static ScratchApp instance {
+        public static Application instance {
             get {
                 if (_instance == null)
-                    _instance = new ScratchApp ();
+                    _instance = new Application ();
                 return _instance;
             }
         }
@@ -119,8 +119,8 @@ namespace Scratch {
             }
 
             if (print_version) {
-                stdout.printf ("Scratch Text Editor %s\n", build_version);
-                stdout.printf ("Copyright %s Scratch Text Editor Developers.\n".printf (app_years));
+                stdout.printf ("Code %s\n", build_version);
+                stdout.printf ("Copyright %s elementary LLC.\n".printf (app_years));
                 return Posix.EXIT_SUCCESS;
             }
 
@@ -283,8 +283,8 @@ namespace Scratch {
         };
 
         public static int main (string[] args) {
-            _app_cmd_name = "Scratch";
-            ScratchApp app = ScratchApp.instance;
+            _app_cmd_name = "Code";
+            Application app = Application.instance;
             return app.run (args);
         }
     }

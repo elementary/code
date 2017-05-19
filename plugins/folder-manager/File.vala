@@ -177,7 +177,7 @@ namespace Scratch.Plugins.FolderManager {
             } catch (GLib.Error error) {
                 warning (error.message);
             }
-        }
+        }*/
 
         public void trash () {
             try {
@@ -185,7 +185,7 @@ namespace Scratch.Plugins.FolderManager {
             } catch (GLib.Error error) {
                 warning (error.message);
             }
-        }*/
+        }
 
         public void reset_cache () {
             _name = null;

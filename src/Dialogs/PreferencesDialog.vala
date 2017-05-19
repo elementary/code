@@ -27,10 +27,8 @@ namespace Scratch.Dialogs {
         private Gtk.Stack main_stack;
         private Gtk.StackSwitcher main_stackswitcher;
 
-        Gtk.ComboBoxText start_combo;
         Gtk.Switch highlight_current_line;
         Gtk.Switch highlight_matching_brackets;
-        Gtk.Switch line_break;
         Gtk.Switch spaces_instead_of_tabs_switch;
         Gtk.Switch autoindent_switch;
 
@@ -107,12 +105,6 @@ namespace Scratch.Dialogs {
 
             var general_header = new SettingsHeader (_("General"));
 
-            var start_label = new SettingsLabel (_("When Scratch starts:"));
-            start_combo = new Gtk.ComboBoxText ();
-            start_combo.append ("welcome", _("Show welcome screen"));
-            start_combo.append ("last-tabs", _("Show last open tabs"));
-            Scratch.settings.schema.bind ("show-at-start", start_combo, "active-id", SettingsBindFlags.DEFAULT);
-
             var autosave_label = new SettingsLabel (_("Save files when changed:"));
             var autosave_switch = new SettingsSwitch ("autosave");
 
@@ -129,17 +121,15 @@ namespace Scratch.Dialogs {
             Scratch.settings.schema.bind ("indent-width", indent_width, "value", SettingsBindFlags.DEFAULT);
 
             general_grid.attach (general_header, 0, 0, 2, 1);
-            general_grid.attach (start_label, 0, 1, 1, 1);
-            general_grid.attach (start_combo, 1, 1, 1, 1);
-            general_grid.attach (autosave_label, 0, 2, 1, 1);
-            general_grid.attach (autosave_switch, 1, 2, 1, 1);
-            general_grid.attach (tabs_header, 0, 3, 2, 1);
-            general_grid.attach (autoindent_label, 0, 4, 1, 1);
-            general_grid.attach (autoindent_switch, 1, 4, 1, 1);
-            general_grid.attach (spaces_instead_of_tabs_label, 0, 5, 1, 1);
-            general_grid.attach (spaces_instead_of_tabs_switch, 1, 5, 1, 1);
-            general_grid.attach (indent_width_label, 0, 6, 1, 1);
-            general_grid.attach (indent_width, 1, 6, 1, 1);
+            general_grid.attach (autosave_label, 0, 1, 1, 1);
+            general_grid.attach (autosave_switch, 1, 1, 1, 1);
+            general_grid.attach (tabs_header, 0, 2, 2, 1);
+            general_grid.attach (autoindent_label, 0, 3, 1, 1);
+            general_grid.attach (autoindent_switch, 1, 3, 1, 1);
+            general_grid.attach (spaces_instead_of_tabs_label, 0, 4, 1, 1);
+            general_grid.attach (spaces_instead_of_tabs_switch, 1, 4, 1, 1);
+            general_grid.attach (indent_width_label, 0, 5, 1, 1);
+            general_grid.attach (indent_width, 1, 5, 1, 1);
 
             return general_grid;
         }
@@ -157,9 +147,6 @@ namespace Scratch.Dialogs {
 
             var highlight_matching_brackets_label = new SettingsLabel (_("Highlight matching brackets:"));
             highlight_matching_brackets = new SettingsSwitch ("highlight-matching-brackets");
-
-            var line_break_label = new SettingsLabel (_("Line wrap:"));
-            line_break = new SettingsSwitch ("line-break");
 
             var draw_spaces_label = new SettingsLabel (_("Draw Spaces:"));
             var draw_spaces_combo = new Gtk.ComboBoxText ();
@@ -206,25 +193,23 @@ namespace Scratch.Dialogs {
             content.attach (highlight_current_line, 1, 1, 1, 1);
             content.attach (highlight_matching_brackets_label, 0, 2, 1, 1);
             content.attach (highlight_matching_brackets, 1, 2, 1, 1);
-            content.attach (line_break_label, 0, 3, 1, 1);
-            content.attach (line_break, 1, 3, 1, 1);
-            content.attach (draw_spaces_label, 0, 4, 1, 1);
-            content.attach (draw_spaces_combo, 1, 4, 1, 1);
-            content.attach (line_numbers_label, 0, 5, 1, 1);
-            content.attach (line_numbers, 1, 5, 1, 1);
+            content.attach (draw_spaces_label, 0, 3, 1, 1);
+            content.attach (draw_spaces_combo, 1, 3, 2, 1);
+            content.attach (line_numbers_label, 0, 4, 1, 1);
+            content.attach (line_numbers, 1, 4, 1, 1);
 #if GTKSOURCEVIEW_3_18
-            content.attach (show_mini_map_label, 0, 6, 1, 1);
-            content.attach (show_mini_map, 1, 6, 1, 1);
+            content.attach (show_mini_map_label, 0, 5, 1, 1);
+            content.attach (show_mini_map, 1, 5, 1, 1);
 #endif
-            content.attach (show_right_margin_label, 0, 7, 1, 1);
-            content.attach (show_right_margin, 1, 7, 1, 1);
-            content.attach (right_margin_position, 2, 7, 1, 1);
-            content.attach (font_header, 0, 8, 3, 1);
-            content.attach (style_scheme_label, 0, 9, 1, 1);
-            content.attach (style_scheme, 1, 9, 2, 1);
-            content.attach (use_custom_font_label , 0, 10, 1, 1);
-            content.attach (use_custom_font, 1, 10, 1, 1);
-            content.attach (select_font, 2, 10, 1, 1);
+            content.attach (show_right_margin_label, 0, 6, 1, 1);
+            content.attach (show_right_margin, 1, 6, 1, 1);
+            content.attach (right_margin_position, 2, 6, 1, 1);
+            content.attach (font_header, 0, 7, 3, 1);
+            content.attach (style_scheme_label, 0, 8, 1, 1);
+            content.attach (style_scheme, 1, 8, 2, 1);
+            content.attach (use_custom_font_label , 0, 9, 1, 1);
+            content.attach (use_custom_font, 1, 9, 1, 1);
+            content.attach (select_font, 2, 9, 1, 1);
 
             return content;
         }
