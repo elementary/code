@@ -8,19 +8,21 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
-"PO-Revision-Date: 2016-09-12 07:07+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
-"Language-Team: Hebrew <he@li.org>\n"
+"PO-Revision-Date: 2017-05-20 22:55+0000\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: Hebrew "
+"<https://l10n.elementary.io/projects/scratch/scratch/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.14\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
-msgstr "עריכת קבצי טקסט"
+msgstr "עריכת קובצי טקסט"
 
 #: ../src/config.vala:16
 msgid "Text Editor"
@@ -62,7 +64,7 @@ msgstr "הסתרת סרגל החיפוש"
 
 #: ../src/MainWindow.vala:909 ../src/MainWindow.vala:910
 msgid "Go to line…"
-msgstr "מעבר לשורה..."
+msgstr "מעבר לשורה…"
 
 #: ../src/MainWindow.vala:913 ../src/MainWindow.vala:914
 msgid "Quit"
@@ -174,7 +176,7 @@ msgstr "שמירת קובץ זה"
 
 #: ../src/MainWindow.vala:973 ../src/Services/Document.vala:578
 msgid "Save As…"
-msgstr "שמירה בשם..."
+msgstr "שמירה בשם…"
 
 #: ../src/MainWindow.vala:974
 msgid "Save this file with a different name"
@@ -360,7 +362,7 @@ msgstr "שיתוף"
 
 #: ../src/Widgets/ToolBar.vala:66
 msgid "Menu"
-msgstr ""
+msgstr "תפריט"
 
 #: ../src/Widgets/SplitView.vala:45
 msgid "No Files Open"
@@ -521,11 +523,11 @@ msgstr "לעולם לא"
 
 #: ../src/Dialogs/PreferencesDialog.vala:167
 msgid "For selected text"
-msgstr ""
+msgstr "עבור הטקסט הנבחר"
 
 #: ../src/Dialogs/PreferencesDialog.vala:168
 msgid "Always"
-msgstr ""
+msgstr "תמיד"
 
 #: ../src/Dialogs/PreferencesDialog.vala:171
 msgid "Show line numbers:"
@@ -541,7 +543,7 @@ msgstr "הנחיית רוחב שורה:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:187
 msgid "Font and Color Scheme"
-msgstr "גופן ותכנית צבעים:"
+msgstr "גופן וערכת צבעים"
 
 #: ../src/Dialogs/PreferencesDialog.vala:189
 msgid "Color scheme:"
@@ -822,7 +824,7 @@ msgid ""
 "Please install at least one [aspell] dictionary"
 msgstr ""
 "לא נמצאו מילונים מתאימים.\n"
-"נא להתקין מילון [aspell] אחד לפחות."
+"נא להתקין מילון [aspell] אחד לפחות"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -866,7 +868,7 @@ msgstr "השלמת מילים"
 
 #: ../plugins/word-completion/plugin.vala:35
 msgid "Show a completion dialog with most used words from your files"
-msgstr "הצגת תיבת דו־שיח להשלמה עם המילים הנפוצות ביותר."
+msgstr "הצגת תיבת דו־שיח להשלמה עם המילים הנפוצות ביותר מהקבצים שלך"
 
 #: ../plugins/word-completion/plugin.vala:178
 msgid "%s - Word Completion"
@@ -1003,11 +1005,11 @@ msgstr "פתיחה באמצעות"
 
 #: ../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr "פתיחת הקבצים הנערכים באמצעות יישום אחר."
+msgstr "פתיחת הקבצים הנערכים באמצעות יישום אחר"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr "פתיחה באמצעות..."
+msgstr "פתיחה באמצעות…"
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
@@ -1015,7 +1017,7 @@ msgstr "זיהוי הזחה"
 
 #: ../plugins/detect-indent/detect-indent.vala:2
 msgid "Heuristically detect tab or space settings"
-msgstr "זיהוי היוריסטי של הגדרות רווחים או טאבים."
+msgstr "זיהוי היוריסטי של הגדרות רווחים או טאבים"
 
 #~ msgid "No files are open."
 #~ msgstr "אין קבצים פתוחים."
