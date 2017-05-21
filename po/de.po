@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
-"PO-Revision-Date: 2017-05-21 21:12+0000\n"
+"PO-Revision-Date: 2017-05-21 21:16+0000\n"
 "Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German "
 "<https://l10n.elementary.io/projects/scratch/scratch/de/>\n"
@@ -38,7 +38,7 @@ msgstr "Neues Fenster"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr "Über Scratch"
+msgstr "Info zu Scratch"
 
 #: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
@@ -344,13 +344,17 @@ msgstr "Das übergeordne Verzeichnis existiert nicht."
 msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
-msgstr "Datei »%s« kann nicht erstellt werden."
+msgstr ""
+"Datei »%s« kann nicht erstellt werden.\n"
+"%s"
 
 #: ../src/Scratch.vala:189
 msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
-msgstr "Datei »%s« kann nicht geöffnet werden."
+msgstr ""
+"Datei »%s« kann nicht geöffnet werden.\n"
+"%s"
 
 #: ../src/Scratch.vala:198
 msgid "It is a mountable location."
@@ -411,7 +415,7 @@ msgstr "Neue Datei"
 
 #: ../src/Widgets/SplitView.vala:50
 msgid "Create a new empty file."
-msgstr "Eine neue leere Datei erstellen"
+msgstr "Neue leere Datei erstellen"
 
 #: ../src/Widgets/SplitView.vala:51
 msgid "Open file"
@@ -419,7 +423,7 @@ msgstr "Datei öffnen"
 
 #: ../src/Widgets/SplitView.vala:51
 msgid "Open a saved file."
-msgstr "Eine gespeicherte Datei öffnen"
+msgstr "Gespeicherte Datei öffnen"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "New file from clipboard"
@@ -427,7 +431,7 @@ msgstr "Neue Datei aus der Zwischenablage"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "Create a new file from the contents of your clipboard."
-msgstr "Eine neue Datei mit dem Inhalt der Zwischenablage erstellen"
+msgstr "Neue Datei mit dem Inhalt der Zwischenablage erstellen"
 
 #: ../src/Widgets/DocumentView.vala:95
 msgid "Text file from "
@@ -693,6 +697,7 @@ msgid "Source Tree"
 msgstr "Quelltextbaum"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:21
+#, fuzzy
 msgid "Have a look at your sources organized in a nice tree"
 msgstr ""
 "Ihre Quellen, in einem gut organisierten Verzeichnisbaum, im Blick haben."
@@ -858,7 +863,7 @@ msgid ""
 "Please install at least one [aspell] dictionary"
 msgstr ""
 "Es wurde kein passendes Wörterbuch gefunden.\n"
-"Bitte mindestens ein Wörterbuch installieren."
+"Bitte mindestens ein [aspell]-Wörterbuch installieren."
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
