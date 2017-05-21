@@ -8,15 +8,17 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
-"PO-Revision-Date: 2017-04-09 19:32+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
-"Language-Team: German <de@li.org>\n"
+"PO-Revision-Date: 2017-05-21 21:12+0000\n"
+"Last-Translator: Uwe S <saabisto@gmx.de>\n"
+"Language-Team: German "
+"<https://l10n.elementary.io/projects/scratch/scratch/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.14\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -393,7 +395,7 @@ msgstr "Freigeben"
 
 #: ../src/Widgets/ToolBar.vala:66
 msgid "Menu"
-msgstr ""
+msgstr "Menü"
 
 #: ../src/Widgets/SplitView.vala:45
 msgid "No Files Open"
@@ -554,11 +556,11 @@ msgstr "Nie"
 
 #: ../src/Dialogs/PreferencesDialog.vala:167
 msgid "For selected text"
-msgstr ""
+msgstr "Für markierten Text"
 
 #: ../src/Dialogs/PreferencesDialog.vala:168
 msgid "Always"
-msgstr ""
+msgstr "Immer"
 
 #: ../src/Dialogs/PreferencesDialog.vala:171
 msgid "Show line numbers:"
