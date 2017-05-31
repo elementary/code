@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
-"PO-Revision-Date: 2017-05-31 22:11+0000\n"
+"PO-Revision-Date: 2017-05-31 22:12+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
 "Language-Team: Slovenian "
 "<https://l10n.elementary.io/projects/scratch/scratch/sl/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: ../src/config.vala:15
 msgid "Edit text files"
-msgstr "Uredi besedilne datoteke"
+msgstr "Urejajte besedilne datoteke"
 
 #: ../src/config.vala:16
 msgid "Text Editor"
@@ -57,7 +57,7 @@ msgstr "Odpri nekaj datotek"
 #: ../src/MainWindow.vala:1003 ../src/MainWindow.vala:1014
 #: ../src/MainWindow.vala:1015
 msgid "Find…"
-msgstr "Iskanje"
+msgstr "Išči…"
 
 #: ../src/MainWindow.vala:843
 msgid "Hide search bar"
@@ -65,7 +65,7 @@ msgstr "Skrij iskalno vrstico"
 
 #: ../src/MainWindow.vala:909 ../src/MainWindow.vala:910
 msgid "Go to line…"
-msgstr "Pojdi v vrstico ..."
+msgstr "Pojdi v vrstico…"
 
 #: ../src/MainWindow.vala:913 ../src/MainWindow.vala:914
 msgid "Quit"
@@ -518,7 +518,7 @@ msgstr "Prelom vrstice:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:164
 msgid "Draw Spaces:"
-msgstr "Prikaži presledke"
+msgstr "Prikaži presledke:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:166
 #: ../plugins/pastebin/pastebin_dialog.vala:511
@@ -543,7 +543,7 @@ msgstr "Prikaži mini pregled:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:179
 msgid "Line width guide:"
-msgstr "Vodilo za širino vrstice"
+msgstr "Vodilo za širino vrstice:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:187
 msgid "Font and Color Scheme"
@@ -620,7 +620,7 @@ msgstr "Osvetli izbrane besede"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
 msgid "Highlights all occurrences of words that are selected"
-msgstr "Osvetli vse ponovitve izbranih besed."
+msgstr "Osvetli vse ponovitve izbranih besed"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -1012,11 +1012,11 @@ msgstr "Odpri z"
 
 #: ../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr "Odpre datoteke, ki jih urejate, z drugo aplikacijo."
+msgstr "Odpre datoteke v urejevalniku z drugo aplikacijo"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr "Odpri z..."
+msgstr "Odpri z…"
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
