@@ -6,20 +6,23 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
-"PO-Revision-Date: 2016-09-12 07:07+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
-"Language-Team: Hebrew <he@li.org>\n"
+"PO-Revision-Date: 2017-05-20 22:55+0000\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: Hebrew "
+"<https://l10n.elementary.io/projects/scratch/scratch/he/>\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.14\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
-msgstr "עריכת קבצי טקסט"
+msgstr "עריכת קובצי טקסט"
 
 #: ../src/config.vala:16
 msgid "Text Editor"
@@ -61,7 +64,7 @@ msgstr "הסתרת סרגל החיפוש"
 
 #: ../src/MainWindow.vala:909 ../src/MainWindow.vala:910
 msgid "Go to line…"
-msgstr "מעבר לשורה..."
+msgstr "מעבר לשורה…"
 
 #: ../src/MainWindow.vala:913 ../src/MainWindow.vala:914
 msgid "Quit"
@@ -173,7 +176,7 @@ msgstr "שמירת קובץ זה"
 
 #: ../src/MainWindow.vala:973 ../src/Services/Document.vala:578
 msgid "Save As…"
-msgstr "שמירה בשם..."
+msgstr "שמירה בשם…"
 
 #: ../src/MainWindow.vala:974
 msgid "Save this file with a different name"
@@ -359,7 +362,7 @@ msgstr "שיתוף"
 
 #: ../src/Widgets/ToolBar.vala:66
 msgid "Menu"
-msgstr ""
+msgstr "תפריט"
 
 #: ../src/Widgets/SplitView.vala:45
 msgid "No Files Open"
@@ -520,11 +523,11 @@ msgstr "לעולם לא"
 
 #: ../src/Dialogs/PreferencesDialog.vala:167
 msgid "For selected text"
-msgstr ""
+msgstr "עבור הטקסט הנבחר"
 
 #: ../src/Dialogs/PreferencesDialog.vala:168
 msgid "Always"
-msgstr ""
+msgstr "תמיד"
 
 #: ../src/Dialogs/PreferencesDialog.vala:171
 msgid "Show line numbers:"
@@ -540,7 +543,7 @@ msgstr "הנחיית רוחב שורה:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:187
 msgid "Font and Color Scheme"
-msgstr "גופן ותכנית צבעים:"
+msgstr "גופן וערכת צבעים"
 
 #: ../src/Dialogs/PreferencesDialog.vala:189
 msgid "Color scheme:"
@@ -596,15 +599,15 @@ msgstr "הסרה בעת שמירה של הרווחים בסוף השורה"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
@@ -618,15 +621,15 @@ msgstr "הדגשת כל המופעים של מילים שנבחרו"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/brackets-completion/brackets-completion.vala:21
@@ -640,15 +643,15 @@ msgstr "השלמת הסוגריים במהלך ההקלדה"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/source-tree/SourceTreePlugin.vala:20
@@ -683,15 +686,15 @@ msgstr "סימניות"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/vim-emulation/vim-emulation.vala:21
@@ -705,15 +708,15 @@ msgstr "שימוש בפקודות Vim ברישום"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/clipboard-history/ClipboardHistory.vala:21
@@ -744,15 +747,15 @@ msgstr "סמלים"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/outline/OutlinePlugin.vala:21
@@ -766,15 +769,15 @@ msgstr "תיאור סמלי vala בקובץ הנוכחי"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/filemanager/FileManagerPlugin.vala:21
@@ -821,20 +824,20 @@ msgid ""
 "Please install at least one [aspell] dictionary"
 msgstr ""
 "לא נמצאו מילונים מתאימים.\n"
-"נא להתקין מילון [aspell] אחד לפחות."
+"נא להתקין מילון [aspell] אחד לפחות"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/browser-preview/browser-preview.vala:21
@@ -865,7 +868,7 @@ msgstr "השלמת מילים"
 
 #: ../plugins/word-completion/plugin.vala:35
 msgid "Show a completion dialog with most used words from your files"
-msgstr "הצגת תיבת דו־שיח להשלמה עם המילים הנפוצות ביותר."
+msgstr "הצגת תיבת דו־שיח להשלמה עם המילים הנפוצות ביותר מהקבצים שלך"
 
 #: ../plugins/word-completion/plugin.vala:178
 msgid "%s - Word Completion"
@@ -938,15 +941,15 @@ msgstr "העלאה ל־Pastebin"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/contractor/contractor.vala:21
@@ -985,15 +988,15 @@ msgstr "תמיכה ברמת ההזחה של טקסט מודבק כאשר הזח�
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/open-with/open-with.vala:21
@@ -1002,11 +1005,11 @@ msgstr "פתיחה באמצעות"
 
 #: ../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr "פתיחת הקבצים הנערכים באמצעות יישום אחר."
+msgstr "פתיחת הקבצים הנערכים באמצעות יישום אחר"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr "פתיחה באמצעות..."
+msgstr "פתיחה באמצעות…"
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
@@ -1014,7 +1017,7 @@ msgstr "זיהוי הזחה"
 
 #: ../plugins/detect-indent/detect-indent.vala:2
 msgid "Heuristically detect tab or space settings"
-msgstr "זיהוי היוריסטי של הגדרות רווחים או טאבים."
+msgstr "זיהוי היוריסטי של הגדרות רווחים או טאבים"
 
 #~ msgid "No files are open."
 #~ msgstr "אין קבצים פתוחים."
@@ -1073,7 +1076,8 @@ msgstr "זיהוי היוריסטי של הגדרות רווחים או טאבי
 #~ msgid "Select font:"
 #~ msgstr "בחירת גופן:"
 
-#~ msgid "Do you want to save the changes to this file in a different location?"
+#~ msgid ""
+#~ "Do you want to save the changes to this file in a different location?"
 #~ msgstr "האם ברצונך לשמור את השינויים לקובץ זה במיקום שונה?"
 
 #~ msgid "Do you want to create it again?"
@@ -1109,14 +1113,12 @@ msgstr "זיהוי היוריסטי של הגדרות רווחים או טאבי
 #~ msgid "Sidebar"
 #~ msgstr "פאנל צד"
 
-#, c-format
 #~ msgid "The file %s was modified."
 #~ msgstr "הקובץ %s התחדש."
 
 #~ msgid "Choose the new location"
 #~ msgstr "בחר מיקום חדש"
 
-#, c-format
 #~ msgid "The file %s was deleted."
 #~ msgstr "הקובץ %s נמחק."
 
@@ -1129,7 +1131,6 @@ msgstr "זיהוי היוריסטי של הגדרות רווחים או טאבי
 #~ msgid "You can't save changes to:"
 #~ msgstr "לא ניתן לשמור את השינויים ל:"
 
-#, c-format
 #~ msgid "Save unsaved changes to file %s before closing?"
 #~ msgstr "האם לשמור שינויים שלא נשמרו לתוך קובץ %s לפני סגירה?"
 
