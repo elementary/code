@@ -6,11 +6,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
 "PO-Revision-Date: 2016-08-10 18:13+0000\n"
 "Last-Translator: Fedik <Unknown>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -214,8 +215,7 @@ msgstr "Зберегти зміни в документі %s перед закр
 #: ../src/Services/Document.vala:252
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr ""
-"Якщо ви не збережете файл, зміни за останні 4 секунди будуть втрачені."
+msgstr "Якщо ви не збережете файл, зміни за останні 4 секунди будуть втрачені."
 
 #: ../src/Services/Document.vala:254
 msgid "Close without saving"
@@ -247,8 +247,7 @@ msgstr ""
 
 #: ../src/Services/Document.vala:583
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
-"Файл \"%s\" вже видалений. Бажаєте зберегти його в будь-якому випадку?"
+msgstr "Файл \"%s\" вже видалений. Бажаєте зберегти його в будь-якому випадку?"
 
 #: ../src/Services/Document.vala:596
 msgid ""
@@ -619,15 +618,15 @@ msgstr "Вилучати пробіли в кінці рядків при збе
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
@@ -641,15 +640,15 @@ msgstr "Підсвічувати місцезнаходження виділен
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/brackets-completion/brackets-completion.vala:21
@@ -663,15 +662,15 @@ msgstr "Автоматично закривати дужки під час др�
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/source-tree/SourceTreePlugin.vala:20
@@ -706,15 +705,15 @@ msgstr "Закладки"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/vim-emulation/vim-emulation.vala:21
@@ -728,15 +727,15 @@ msgstr "Використовувати команди Vim у Scratch"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/clipboard-history/ClipboardHistory.vala:21
@@ -767,15 +766,15 @@ msgstr "Символи"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/outline/OutlinePlugin.vala:21
@@ -789,15 +788,15 @@ msgstr "Огляд символів у вашому поточному файл�
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/filemanager/FileManagerPlugin.vala:21
@@ -849,15 +848,15 @@ msgstr ""
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/browser-preview/browser-preview.vala:21
@@ -963,15 +962,15 @@ msgstr "Завантажити на Pastebin"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/contractor/contractor.vala:21
@@ -1011,15 +1010,15 @@ msgstr ""
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/open-with/open-with.vala:21
@@ -1138,7 +1137,8 @@ msgstr "Евристично виявити налаштування відст�
 #~ msgid "You can't save changes to:"
 #~ msgstr "Ви не можете записувати зміни до:"
 
-#~ msgid "Do you want to save the changes to this file in a different location?"
+#~ msgid ""
+#~ "Do you want to save the changes to this file in a different location?"
 #~ msgstr "Зберегти зміни в іншому місці?"
 
 #~ msgid "There are unsaved changes in Scratch!"
@@ -1147,15 +1147,12 @@ msgstr "Евристично виявити налаштування відст�
 #~ msgid "There are unsaved changes!"
 #~ msgstr "Є незбережені зміни!"
 
-#, c-format
 #~ msgid "The file %s was modified."
 #~ msgstr "Файл %s було змінено."
 
-#, c-format
 #~ msgid "Save unsaved changes to file %s before closing?"
 #~ msgstr "Зберегти зміни в файлі %s перед закриттям?"
 
-#, c-format
 #~ msgid "The file %s was deleted."
 #~ msgstr "Файл %s було виделаено."
 
