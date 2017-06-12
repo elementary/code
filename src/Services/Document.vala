@@ -75,7 +75,7 @@ namespace Scratch.Services {
 
         private bool loaded = false;
         private GLib.Cancellable save_cancellable;
-        
+
 #if HAVE_ZEITGEIST
         // Zeitgeist integration
         private ZeitgeistLogger zg_log = new ZeitgeistLogger();
@@ -335,6 +335,7 @@ namespace Scratch.Services {
 
             if (filech.run () == Gtk.ResponseType.ACCEPT) {
                 this.file = File.new_for_uri (filech.get_file ().get_uri ());
+                yield save ();
                 // Update last visited path
                 Utils.last_path = Path.get_dirname (filech.get_file ().get_uri ());
                 filech.destroy ();
@@ -437,7 +438,7 @@ namespace Scratch.Services {
         public string get_uri () {
             return this.file.get_uri ();
         }
-        
+
         // Get file name
         public string get_basename () {
             if (is_file_temporary)
@@ -551,7 +552,7 @@ namespace Scratch.Services {
         public void duplicate_selection () {
             this.source_view.duplicate_selection ();
         }
-        
+
         // Show an error dialog which says "Hey, I cannot read that file!"
         private void show_error_dialog () {
             if (this.error_shown)
@@ -567,7 +568,7 @@ namespace Scratch.Services {
             dialog.destroy ();
             this.close ();
         }
-        
+
         // Check if the file was deleted/changed by an external source
         public void check_file_status () {
             // If the file does not exist anymore
@@ -686,7 +687,7 @@ namespace Scratch.Services {
                 backup_file = backup_path;
 
             debug ("Backup file deleting: %s", backup_file);
-            
+
             var backup = File.new_for_path (backup_file);
             if (backup == null || !backup.query_exists ()) {
                 debug ("Backup file doesn't exists: %s", backup.get_path ());
@@ -708,7 +709,7 @@ namespace Scratch.Services {
                 return true;
             } catch (Error e) {
                 warning ("Cannot delete temporary file \"%s\": %s", file.get_uri (), e.message);
-            }   
+            }
             return false;
         }
 
