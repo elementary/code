@@ -329,43 +329,47 @@ namespace Scratch.Services {
         public async bool save_as () {
             // New file
             var filech = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.SAVE, _("Save File"), null);
+            filech.do_overwrite_confirmation = true;
 
+            bool success = false;
             string current_file = file.get_path ();
             bool is_current_file_temporary = this.is_file_temporary;
 
             if (filech.run () == Gtk.ResponseType.ACCEPT) {
                 this.file = File.new_for_uri (filech.get_file ().get_uri ());
-                yield save ();
                 // Update last visited path
                 Utils.last_path = Path.get_dirname (filech.get_file ().get_uri ());
-                filech.destroy ();
-            }
-            else {
-                filech.destroy ();
-                return false;
+                success = true;
             }
 
-            source_view.buffer.set_modified (true);
-            var is_saved = yield save ();
-            if (is_saved && is_current_file_temporary) {
-                try {
-                    // Delete temporary file
-                    File.new_for_path (current_file).delete ();
-                } catch (Error err) {
-                    message ("Temporary file cannot be deleted: %s", current_file);
+            if (success) {
+                source_view.buffer.set_modified (true);
+                var is_saved = yield save ();
+
+                if (is_saved && is_current_file_temporary) {
+                    try {
+                        // Delete temporary file
+                        File.new_for_path (current_file).delete ();
+                    } catch (Error err) {
+                        message ("Temporary file cannot be deleted: %s", current_file);
+                    }
                 }
+
+                // Delete backup file
+                delete_backup (current_file + "~");
+
+                // Change syntax highlight
+                this.source_view.change_syntax_highlight_from_file (this.file);
+
+                // Change label
+                this.label = get_basename ();
             }
 
-            // Delete backup file
-            delete_backup (current_file + "~");
-
-            // Change syntax highlight
-            this.source_view.change_syntax_highlight_from_file (this.file);
-
-            // Change label
-            this.label = get_basename ();
-
-            return true;
+            /* We delay destruction of file chooser dialog til to avoid the document focussing in,
+             * which triggers premature loading of overwritten content.
+             */
+            filech.destroy ();
+            return success;
         }
 
         public bool move (File new_dest) {
