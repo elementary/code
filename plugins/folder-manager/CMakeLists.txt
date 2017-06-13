@@ -6,8 +6,9 @@ set (PLUGIN_NAME "folder-manager")
 vala_precompile(VALA_C ${PLUGIN_NAME}
     FolderManagerPlugin.vala
     File.vala
-    Settings.vala
     FileView.vala
+    Item.vala
+    Settings.vala
 PACKAGES
     gtk+-3.0
     gee-0.8
