@@ -35,11 +35,6 @@ namespace Scratch.Plugins.FolderManager {
         public FolderItem (File file) requires (file.is_valid_directory) {
             Object (file: file);
 
-            this.editable = false;
-            this.selectable = false;
-            this.name = file.name;
-            this.icon = file.icon;
-
             this.add (new Granite.Widgets.SourceList.Item ("")); // dummy
             this.toggled.connect (() => {
                 if (this.expanded && this.n_children <= 1) {

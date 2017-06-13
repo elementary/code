@@ -29,11 +29,6 @@ namespace Scratch.Plugins.FolderManager {
 
         public FileItem (File file) requires (file.is_valid_textfile) {
             Object (file: file);
-
-            this.selectable = true;
-            //this.editable = true;
-            this.name = file.name;
-            this.icon = file.icon;
         }
 
         /*public void rename (string new_name) {
