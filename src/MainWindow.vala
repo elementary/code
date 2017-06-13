@@ -24,7 +24,9 @@ namespace Scratch {
         public int FONT_SIZE_MAX = 72;
         public int FONT_SIZE_MIN = 7;
         private const uint MAX_SEARCH_TEXT_LENGTH = 255;
-        public weak Application app;
+
+        /* Make app a construct property so can be used in construct block */
+        public weak Application app {get; construct;}
 
         // Widgets
         public Scratch.Widgets.Toolbar toolbar;
@@ -61,14 +63,16 @@ namespace Scratch {
 
         public MainWindow (Application scratch_app) {
             Object (application: scratch_app,
+                    app: scratch_app,
                     icon_name: "accessories-text-editor");
-            app = scratch_app;
+
             title = app.app_cmd_name;
         }
 
         construct {
             set_size_request (450, 400);
             set_hide_titlebar_when_maximized (false);
+
             restore_saved_state ();
 
             clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
