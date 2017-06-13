@@ -25,8 +25,7 @@ namespace Scratch {
         public int FONT_SIZE_MIN = 7;
         private const uint MAX_SEARCH_TEXT_LENGTH = 255;
 
-        /* Make app a construct property so can be used in construct block */
-        public weak Application app {get; construct;}
+        public weak Application app { get; construct; }
 
         // Widgets
         public Scratch.Widgets.Toolbar toolbar;
