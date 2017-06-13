@@ -19,12 +19,11 @@
 ***/
 
 namespace Scratch.Plugins.FolderManager {
-    Settings settings;
-
     /**
      * SourceList that displays folders and their contents.
      */
     internal class FileView : Granite.Widgets.SourceList {
+        private Settings settings;
 
         public signal void select (string file);
 
