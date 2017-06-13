@@ -266,7 +266,6 @@ namespace Scratch {
 
             search_revealer.set_reveal_child (false);
 
-            main_actions.get_action ("OpenTemporaryFiles").visible = has_temporary_files ();
             main_actions.get_action ("SaveFile").visible = !settings.autosave;
             main_actions.get_action ("Templates").visible = plugins.plugin_iface.template_manager.template_available;
             plugins.plugin_iface.template_manager.notify["template_available"].connect ( () => {
