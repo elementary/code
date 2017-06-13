@@ -104,43 +104,6 @@ namespace Scratch.Plugins.FolderManager {
     }
 
     /**
-     * Normal item in the source list, represents a textfile.
-     * TODO Remove, Rename
-     */
-    internal class FileItem : Item {
-
-        Gtk.Menu menu;
-        Gtk.MenuItem item_trash;
-
-        public FileItem (File file) requires (file.is_valid_textfile) {
-            Object (file: file);
-
-            this.selectable = true;
-            //this.editable = true;
-            this.name = file.name;
-            this.icon = file.icon;
-        }
-
-        /*public void rename (string new_name) {
-            file.rename (new_name);
-        }*/
-
-        public override Gtk.Menu? get_context_menu () {
-            item_trash = new Gtk.MenuItem.with_label (_("Move to Trash"));
-
-            menu = new Gtk.Menu ();
-            menu.append (item_trash);
-            menu.show_all ();
-
-            item_trash.activate.connect (() => {
-                file.trash ();
-            });
-
-            return menu;
-        }
-    }
-
-    /**
      * Expandable item in the source list, represents a folder.
      * Monitored for changes inside the directory.
      * TODO remove, rename, create new file
