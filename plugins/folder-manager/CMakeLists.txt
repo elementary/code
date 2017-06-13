@@ -8,6 +8,7 @@ vala_precompile(VALA_C ${PLUGIN_NAME}
     File.vala
     FileItem.vala
     FileView.vala
+    FolderItem.vala
     Item.vala
     Settings.vala
 PACKAGES
