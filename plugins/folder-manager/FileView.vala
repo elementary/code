@@ -104,28 +104,6 @@ namespace Scratch.Plugins.FolderManager {
     }
 
     /**
-     * Common abstract class for file and filder items.
-     */
-    internal class Item: Granite.Widgets.SourceList.ExpandableItem, Granite.Widgets.SourceListSortable {
-        public File file { get; construct; }
-        public string path { get { return file.path; } }
-
-        public int compare (Granite.Widgets.SourceList.Item a, Granite.Widgets.SourceList.Item b) {
-            if (a is FolderItem && b is FileItem) {
-                return -1;
-            } else if (a is FileItem && b is FolderItem) {
-                return 1;
-            }
-
-            return File.compare ((a as Item).file, (b as Item).file);
-        }
-
-        public bool allow_dnd_sorting () { 
-            return false;
-        }
-    }
-
-    /**
      * Normal item in the source list, represents a textfile.
      * TODO Remove, Rename
      */
