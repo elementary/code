@@ -59,10 +59,7 @@ namespace Scratch.Plugins {
 
             view = new FolderManager.FileView ();
 
-            view.select.connect ((a) => {
-                var file = GLib.File.new_for_path (a);
-                plugins.open_file (file);
-            });
+            view.select.connect ((file) => plugins.open_file (file));
 
             view.root.child_added.connect (() => {
                 if (view.get_n_visible_children (view.root) == 0) {
@@ -75,7 +72,7 @@ namespace Scratch.Plugins {
                     notebook.remove_page (index);
             });
 
-            view.restore_saved_state ();
+            view.restore_settings ();
         }
 
         void on_hook_toolbar (Gtk.HeaderBar toolbar) {
@@ -98,7 +95,7 @@ namespace Scratch.Plugins {
                     SList<string> uris = chooser.get_uris ();
                     foreach (unowned string uri in uris) {
                         var folder = new FolderManager.File (uri.replace ("file:///", "/"));
-                        view.open_folder (folder); // emit signal
+                        view.open_folder (folder.file.get_path ());
                     }
                 }
 
