@@ -62,6 +62,16 @@ namespace Scratch.Plugins {
 
             view = new FolderManager.FileView ();
             view.select.connect ((file) => plugins.open_file (file));
+            view.welcome_visible.connect ((visible) => {
+                if (visible) {
+                    view.parent.remove (view);
+                } else if (view.parent == null) {
+                    view.show_all ();
+                    var icon = new Gtk.Image.from_icon_name ("folder-symbolic", Gtk.IconSize.MENU);
+                    icon.tooltip_text = _("Folder Manager");
+                    notebook.append_page (view, icon);
+                }
+            });
             
             view.restore_settings ();
         }
