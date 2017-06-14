@@ -14,22 +14,29 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Authored by: Julien Spautz <spautz.julien@gmail.com>
+ * Authored by: Julien Spautz <spautz.julien@gmail.com>, Andrei-Costin Zisu <matzipan@gmail.com>
  */
 
 namespace Scratch.Plugins.FolderManager {
-
     /**
-     * Class for interacting with gsettings.
+     * Common abstract class for file and filder items.
      */
-    internal class Settings : Granite.Services.Settings {
+    internal class Item: Granite.Widgets.SourceList.ExpandableItem, Granite.Widgets.SourceListSortable {
+        public File file { get; construct; }
+        public string path { get { return file.path; } }
 
-        private const string SCHEMA = "org.pantheon.scratch.plugins.folder-manager";
+        public int compare (Granite.Widgets.SourceList.Item a, Granite.Widgets.SourceList.Item b) {
+            if (a is FolderItem && b is FileItem) {
+                return -1;
+            } else if (a is FileItem && b is FolderItem) {
+                return 1;
+            }
 
-        public string[] opened_folders { get; set; }
+            return File.compare ((a as Item).file, (b as Item).file);
+        }
 
-        public Settings () {
-            base (SCHEMA);
+        public bool allow_dnd_sorting () { 
+            return false;
         }
     }
 }
