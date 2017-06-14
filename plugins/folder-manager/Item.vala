@@ -24,7 +24,10 @@ namespace Scratch.Plugins.FolderManager {
      */
     internal class Item: Granite.Widgets.SourceList.ExpandableItem, Granite.Widgets.SourceListSortable {
         public File file { get; construct; }
-        public string path { get { return file.path; } }
+        public string path {
+            owned get { return file.path; }
+            set { file.path = value; }
+        }
 
         public int compare (Granite.Widgets.SourceList.Item a, Granite.Widgets.SourceList.Item b) {
             if (a is FolderItem && b is FileItem) {
