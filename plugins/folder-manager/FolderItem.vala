@@ -61,7 +61,7 @@ namespace Scratch.Plugins.FolderManager {
                 menu.append (item);
             } else {
                 var item = new Gtk.MenuItem.with_label (_("Open"));
-                /*item.activate.connect (() => { view.open_folder (file.path); });*/
+                item.activate.connect (() => { view.open_folder (file.path); });
                 menu.append (item);
             }
             
@@ -99,7 +99,7 @@ namespace Scratch.Plugins.FolderManager {
         
         private void do_close () {
             monitor.cancel ();
-            /*view.close_folder (path);*/
+            view.close_folder (path);
         }
 
         private new void do_remove () {
