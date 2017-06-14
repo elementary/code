@@ -145,11 +145,12 @@ namespace Scratch.Plugins.FolderManager {
         }
 
         // returns a list of all children of a directory
-        GLib.List <File> _children = null;
+        GLib.List <File>? _children = null;
         public GLib.List <File> children {
             get {
-                if (_children != null)
+                if (_children != null) {
                     return _children;
+                }
 
                 var parent = GLib.File.new_for_path (file.get_path ());
                 try {
@@ -161,7 +162,11 @@ namespace Scratch.Plugins.FolderManager {
                     var file_info = new FileInfo ();
                     while ((file_info = enumerator.next_file ()) != null) {
                         var child = parent.get_child (file_info.get_name ());
-                        _children.append (new File (child.get_path ()));
+                        var file = new File (child.get_path ());
+
+                        if (file.is_valid_directory || file.is_valid_textfile) {
+                            _children.append (new File (child.get_path ()));
+                        }
                     }
                 } catch (GLib.Error error) {
                     warning (error.message);
