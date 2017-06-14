@@ -1,22 +1,21 @@
-// -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
-/***
-  BEGIN LICENSE
-
-  Copyright (C) 2013 Julien Spautz <spautz.julien@gmail.com>
-  This program is free software: you can redistribute it and/or modify it
-  under the terms of the GNU Lesser General Public License version 3, as published
-  by the Free Software Foundation.
-
-  This program is distributed in the hope that it will be useful, but
-  WITHOUT ANY WARRANTY; without even the implied warranties of
-  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-  PURPOSE.  See the GNU General Public License for more details.
-
-  You should have received a copy of the GNU General Public License along
-  with this program.  If not, see <http://www.gnu.org/licenses/>
-
-  END LICENSE
-***/
+/*-
+ * Copyright (c) 2017 elementary LLC. (https://elementary.io)
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Authored by: Julien Spautz <spautz.julien@gmail.com>, Andrei-Costin Zisu <matzipan@gmail.com>
+ */
 
 namespace Scratch.Plugins.FolderManager {
 
@@ -25,55 +24,46 @@ namespace Scratch.Plugins.FolderManager {
      */
     internal class File : GLib.Object {
 
-        public GLib.File file;
+        public GLib.File file { get; private set; }
         private GLib.FileInfo info;
 
-        private enum Type {
-            VALID_FILE,
-            VALID_FOLDER,
-            UNKNOWN,
-            INVALID
-        }
-
         public File (string path) {
-            file = GLib.File.new_for_path (path);
-
-            info = new FileInfo ();
-            try {
-                info = file.query_info (
-                    GLib.FileAttribute.STANDARD_CONTENT_TYPE + "," +
-                    GLib.FileAttribute.STANDARD_IS_BACKUP + "," +
-                    GLib.FileAttribute.STANDARD_IS_HIDDEN + "," +
-                    GLib.FileAttribute.STANDARD_DISPLAY_NAME + "," +
-                    GLib.FileAttribute.STANDARD_TYPE,
-                    FileQueryInfoFlags.NONE);
-            } catch (GLib.Error error) {
-                info = null;
-                warning (error.message);
-            }
+            Object (path: path);
         }
 
         // returns the path the file
-        string _path = null;
         public string path {
-            get { return _path != null ? _path : _path = file.get_path (); }
+            owned get { 
+                return file.get_path ();
+            }
+            set construct {
+                load_file_for_path (value);
+            }
         }
 
         // returns the basename of the file
-        string _name = null;
+        private string _name;
         public string name {
-            get { return _name != null ? _name : _name = info.get_display_name (); }
+            get {
+                if (info == null) {
+                    return "";                
+                }
+
+                _name = info.get_display_name ();
+                return _name; 
+            }
         }
 
         // returns the icon of the file's content type
-        GLib.Icon _icon = null;
+        private GLib.Icon? _icon = null;
         public GLib.Icon icon {
             get {
-                if (_icon != null)
+                if (_icon != null) {
                     return _icon;
-                //var content_type = info.get_attribute_string (FileAttribute.STANDARD_FAST_CONTENT_TYPE);
-                var content_type = info.get_content_type ();
-                return _icon = GLib.ContentType.get_icon (content_type);
+                }
+
+                _icon = GLib.ContentType.get_icon (info.get_content_type ());
+                return _icon;
             }
         }
 
@@ -82,37 +72,15 @@ namespace Scratch.Plugins.FolderManager {
             get { return file.query_exists (); }
         }
 
-        Type _type = Type.UNKNOWN;
         // checks if we're dealing with a non-hidden, non-backup directory
         public bool is_valid_directory {
             get {
-                if (_type == Type.VALID_FILE)
+                if (info.get_is_hidden () || info.get_is_backup ()) {
                     return false;
-                if (_type == Type.VALID_FOLDER)
+                }
+
+                if (info.get_file_type () == FileType.DIRECTORY) {
                     return true;
-                if (_type == Type.INVALID)
-                    return false;
-
-                if (info.get_file_type () != FileType.DIRECTORY ||
-                    info.get_is_hidden () || info.get_is_backup ()) {
-                    return false;
-                }
-
-                bool has_valid_children = false;
-
-                foreach (var child in children) {
-                    if (child.is_valid_textfile) {
-                        _type = Type.VALID_FOLDER;
-                        return has_valid_children = true;
-                    }
-                }
-
-                foreach (var child in children) {
-                    if (child.is_valid_directory) {
-                        has_valid_children = true;
-                        _type = Type.VALID_FOLDER;
-                    return has_valid_children = true;
-                    }
                 }
 
                 return false;
@@ -122,34 +90,37 @@ namespace Scratch.Plugins.FolderManager {
         // checks if we're dealing with a textfile
         public bool is_valid_textfile {
             get {
-                if (_type == Type.VALID_FILE)
-                    return true;
-                if (_type == Type.VALID_FOLDER)
+                if (info.get_is_hidden () || info.get_is_backup ()) {
                     return false;
-                if (_type == Type.INVALID)
-                    return false;
+                }
 
-                if (info.get_file_type () == FileType.REGULAR) {
-                    //var content_type = info.get_attribute_string (FileAttribute.STANDARD_FAST_CONTENT_TYPE);
-                    var content_type = info.get_content_type ();
-                    if (ContentType.is_a (content_type, "text/*") &&
-                        !info.get_is_backup () &&
-                        !info.get_is_hidden ()) {
-                        _type = Type.VALID_FILE;
-                        return true;
-                    }
+                if (info.get_file_type () == FileType.REGULAR && 
+                    ContentType.is_a (info.get_content_type (), "text/*")) {
+                    return true;
                 }
 
                 return false;
             }
         }
+        
+        // Files can be executed and folders can be cd'd into
+        public bool is_executable {
+            get {
+                try {
+                    return get_boolean_file_attribute(GLib.FileAttribute.ACCESS_CAN_EXECUTE);
+                } catch (GLib.Error error) {
+                    return false;
+                }
+            }
+        }
 
         // returns a list of all children of a directory
-        GLib.List <File> _children = null;
+        GLib.List <File>? _children = null;
         public GLib.List <File> children {
             get {
-                if (_children != null)
+                if (_children != null) {
                     return _children;
+                }
 
                 var parent = GLib.File.new_for_path (file.get_path ());
                 try {
@@ -161,7 +132,11 @@ namespace Scratch.Plugins.FolderManager {
                     var file_info = new FileInfo ();
                     while ((file_info = enumerator.next_file ()) != null) {
                         var child = parent.get_child (file_info.get_name ());
-                        _children.append (new File (child.get_path ()));
+                        var file = new File (child.get_path ());
+
+                        if (file.is_valid_directory || file.is_valid_textfile) {
+                            _children.append (new File (child.get_path ()));
+                        }
                     }
                 } catch (GLib.Error error) {
                     warning (error.message);
@@ -170,14 +145,38 @@ namespace Scratch.Plugins.FolderManager {
                 return _children;
             }
         }
+        
+        private bool get_boolean_file_attribute(string attribute) throws GLib.Error {
+            var info = file.query_info(attribute, GLib.FileQueryInfoFlags.NONE);
+                
+            return info.get_attribute_boolean(attribute);
+        }
+        
+        private void load_file_for_path (string path) {
+            file = GLib.File.new_for_path (path);
 
-        /*public void rename (string name) {
+            info = new FileInfo ();
+            try {
+                var query_string = GLib.FileAttribute.STANDARD_CONTENT_TYPE + "," +
+                                    GLib.FileAttribute.STANDARD_IS_BACKUP + "," +
+                                    GLib.FileAttribute.STANDARD_IS_HIDDEN + "," +
+                                    GLib.FileAttribute.STANDARD_DISPLAY_NAME + "," +
+                                    GLib.FileAttribute.STANDARD_TYPE;
+
+                info = file.query_info (query_string, FileQueryInfoFlags.NONE);
+            } catch (GLib.Error error) {
+                info = null;
+                warning (error.message);
+            }
+        }
+
+        public void rename (string name) {
             try {
                 file.set_display_name (name);
             } catch (GLib.Error error) {
                 warning (error.message);
             }
-        }*/
+        }
 
         public void trash () {
             try {
@@ -187,21 +186,20 @@ namespace Scratch.Plugins.FolderManager {
             }
         }
 
-        public void reset_cache () {
-            _name = null;
-            _path = null;
-            _icon = null;
-            _children = null;
-            _type = Type.UNKNOWN;
-        }
-
         public static int compare (File a, File b) {
-            if (a.is_valid_directory && b.is_valid_textfile)
+            if (a.is_valid_directory && b.is_valid_textfile) {
                 return -1;
-            if (a.is_valid_textfile && b.is_valid_directory)
+            }
+            if (a.is_valid_textfile && b.is_valid_directory) {
                 return 1;
+            }
+            
             return strcmp (a.path.collate_key_for_filename (),
                            b.path.collate_key_for_filename ());
+        }
+        
+        public void invalidate_cache () {
+            _children = null;
         }
     }
 }
