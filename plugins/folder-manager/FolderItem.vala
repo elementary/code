@@ -142,7 +142,7 @@ namespace Scratch.Plugins.FolderManager {
                             if ((item as Item).path == source.get_path ()) {
                                 // This is a workaround for SourceList silliness: you cannot remove an item 
                                 // without it automatically selecting another one.
-                                view.ignore_next_select = true;
+                                /*view.ignore_next_select = true;*/
                                 remove (item);
                                 view.selected = null;
                             }
