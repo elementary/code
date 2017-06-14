@@ -143,6 +143,17 @@ namespace Scratch.Plugins.FolderManager {
                 return false;
             }
         }
+        
+        // Files can be executed and folders can be cd'd into
+        public bool is_executable {
+            get {
+                try {
+                    return get_boolean_file_attribute(GLib.FileAttribute.ACCESS_CAN_EXECUTE);
+                } catch (GLib.Error error) {
+                    return false;
+                }
+            }
+        }
 
         // returns a list of all children of a directory
         GLib.List <File> _children = null;
@@ -169,6 +180,12 @@ namespace Scratch.Plugins.FolderManager {
 
                 return _children;
             }
+        }
+        
+        private bool get_boolean_file_attribute(string attribute) throws GLib.Error {
+            var info = file.query_info(attribute, GLib.FileQueryInfoFlags.NONE);
+                
+            return info.get_attribute_boolean(attribute);
         }
 
         public void rename (string name) {
