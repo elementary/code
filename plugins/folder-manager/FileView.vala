@@ -24,80 +24,121 @@ namespace Scratch.Plugins.FolderManager {
     internal class FileView : Granite.Widgets.SourceList {
         private Settings settings;
 
-        public signal void select (string file);
+        public signal void select (GLib.File file);
+        public signal void welcome_visible (bool visible);
+        
+        // This is a workaround for SourceList silliness: you cannot remove an item
+        // without it automatically selecting another one.
+        public bool ignore_next_select = false;
 
         public FileView () {
-            this.width_request = 180;
-            this.item_selected.connect ((item) => {
-                select ((item as FileItem).path);
-            });
+            width_request = 180;
+            
+            item_selected.connect (on_item_selected);
 
             settings = new Settings ();
         }
-
-        public void restore_saved_state () {
-            foreach (var path in settings.opened_folders)
-                add_folder (new File (path), false);
-        }
-
-        public void open_folder (File folder) {
-            if (is_open (folder)) {
-                warning ("Folder '%s' is already open.", folder.path);
-                return;
-            } else if (!folder.is_valid_directory) {
-                warning ("Cannot open invalid directory.");
+        
+        private void on_item_selected (Granite.Widgets.SourceList.Item? item) {
+            // This is a workaround for SourceList silliness: you cannot remove an item
+            // without it automatically selecting another one.
+            if (ignore_next_select) {
+                ignore_next_select = false;
                 return;
             }
 
-            add_folder (folder, true);
+            if (item is FileItem) {
+                select ((item as FileItem).file.file);
+            }
+        }
+
+        public void restore_settings () {
+            foreach (var folder_path in settings.opened_folders) {
+                add_folder (folder_path);
+            }
+        }
+
+        public void open_folder (string folder_path) {
+            add_folder (folder_path);
             write_settings ();
         }
 
-        private void add_folder (File folder, bool expand) {
-            if (is_open (folder)) {
-                warning ("Folder '%s' is already open.", folder.path);
+        public void close_folder (string folder_path) {
+            foreach (var child in root.children) {
+                var folder = child as FolderItem;
+
+                if (folder != null && folder.path == folder_path) {
+                    // This is a workaround for SourceList silliness: you cannot remove an item
+                    // without it automatically selecting another one.
+                    ignore_next_select = true;
+                    root.remove(folder);
+                    selected = null;
+                }
+            }
+
+            if (root.n_children == 0) {
+                welcome_visible (true);
+            }
+
+            write_settings ();
+        }
+
+        // Adds the folder to the view without saving to settings
+        private void add_folder (string folder_path, bool expand = true) {
+            if (folder_path == null) {
+                warning ("Was given null folder path to add");
+            } else if (is_open (folder_path)) {
+                warning ("Folder '%s' is already open.", folder_path);
                 return;
-            } else if (!folder.is_valid_directory) {
+            }
+
+            var folder = new File(folder_path);
+
+            if (!folder.is_valid_directory) {
                 warning ("Cannot open invalid directory.");
                 return;
             }
-            
+
+            bool has_valid_children = false;
+
+            foreach (var child in folder.children) {
+                if (child.is_valid_textfile || child.is_valid_directory) {
+                    has_valid_children = true;
+                    break;
+                }
+            }
+
+            if (!has_valid_children) {
+                warning ("Cannot open empty directory due to limitations with Granite.SourceList.");
+                return;
+            }
+
             var folder_item = new FolderItem (folder, this);
             folder_item.expanded = expand;
             root.add (folder_item);
 
-            /*folder_item.closed.connect (() => {
-                root.remove (folder_root);
-                write_settings ();
-            });*/
+            welcome_visible (false);
         }
 
-        private bool is_open (File folder) {
-            foreach (var child in root.children)
-                if (folder.path == (child as Item).path)
+        private bool is_open (string folder_path) {
+            foreach (var child in root.children) {
+                if (folder_path == (child as Item).path) {
                     return true;
+                }
+            }
+
             return false;
         }
 
         private void write_settings () {
-            string[] to_save = {};
-
-            foreach (var main_folder in root.children) {
-                var saved = false;
-
-                foreach (var saved_folder in to_save) {
-                    if ((main_folder as Item).path == saved_folder) {
-                        saved = true;
-                        break;
-                    }
-                }
-
-                if (!saved) {
-                    to_save += (main_folder as Item).path;
+            string[] paths = {};
+            foreach (var child in root.children) {
+                if (child is FolderItem) {
+                    paths += ((FolderItem) child).path;
                 }
             }
 
-            settings.opened_folders = to_save;
+            settings.opened_folders = paths;
         }
     }
 }
