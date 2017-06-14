@@ -19,10 +19,11 @@
 
 namespace Scratch.Plugins.FolderManager {
     /**
-     * Common abstract class for file and filder items.
+     * Common abstract class for file and folder items.
      */
-    internal class Item: Granite.Widgets.SourceList.ExpandableItem, Granite.Widgets.SourceListSortable {
+    internal abstract class Item: Granite.Widgets.SourceList.ExpandableItem, Granite.Widgets.SourceListSortable {
         public File file { get; construct; }
+        public FileView view { get; construct; }
         public string path { get { return file.path; } }
         
         construct {
@@ -30,6 +31,16 @@ namespace Scratch.Plugins.FolderManager {
             editable = true;
             name = file.name;
             icon = file.icon;
+            
+            edited.connect (rename);
+        }
+
+        protected void rename (string new_name) {
+            file.rename (new_name);
+        }
+
+        protected void do_remove () {
+            file.trash ();
         }
 
         public int compare (Granite.Widgets.SourceList.Item a, Granite.Widgets.SourceList.Item b) {

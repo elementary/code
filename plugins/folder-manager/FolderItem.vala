@@ -32,8 +32,8 @@ namespace Scratch.Plugins.FolderManager {
         private GLib.FileMonitor monitor;
         private bool children_loaded = false;
 
-        public FolderItem (File file) requires (file.is_valid_directory) {
-            Object (file: file);
+        public FolderItem (File file, FileView view) requires (file.is_valid_directory) {
+            Object (file: file, view: view);
 
             this.add (new Granite.Widgets.SourceList.Item ("")); // dummy
             this.toggled.connect (() => {
@@ -75,10 +75,10 @@ namespace Scratch.Plugins.FolderManager {
         internal void add_children () {
             foreach (var child in file.children) {
                 if (child.is_valid_directory) {
-                    var item = new FolderItem (child);
+                    var item = new FolderItem (child, view);
                     add (item);
                 } else if (child.is_valid_textfile) {
-                    var item = new FileItem (child);
+                    var item = new FileItem (child, view);
                     add (item);
                     //item.edited.connect (item.rename);
                 }
@@ -119,9 +119,9 @@ namespace Scratch.Plugins.FolderManager {
 
                     if (!exists) {
                         if (file.is_valid_textfile) {
-                            this.add (new FileItem (file));
+                            this.add (new FileItem (file, view));
                         } else if (file.is_valid_directory) {
-                            this.add (new FolderItem (file));
+                            this.add (new FolderItem (file, view));
                         }
                     }
 

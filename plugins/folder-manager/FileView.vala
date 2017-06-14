@@ -61,15 +61,15 @@ namespace Scratch.Plugins.FolderManager {
                 warning ("Cannot open invalid directory.");
                 return;
             }
+            
+            var folder_item = new FolderItem (folder, this);
+            folder_item.expanded = expand;
+            root.add (folder_item);
 
-            var folder_root = new MainFolderItem (folder);
-            this.root.add (folder_root);
-
-            folder_root.expanded = expand;
-            folder_root.closed.connect (() => {
+            /*folder_item.closed.connect (() => {
                 root.remove (folder_root);
                 write_settings ();
-            });
+            });*/
         }
 
         private bool is_open (File folder) {
