@@ -79,34 +79,29 @@ namespace Scratch.Plugins {
             if (tool_button != null)
                 return;
 
-            //(toolbar as Scratch.Widgets.Toolbar).open_button.visible = false;
             var icon = new Gtk.Image.from_icon_name ("folder-saved-search", Gtk.IconSize.LARGE_TOOLBAR);
             tool_button = new Gtk.ToolButton (icon, _("Open a folder"));
             tool_button.tooltip_text = _("Open a folder");
-            tool_button.clicked.connect (() => {
-                Gtk.Window window = plugins.manager.window;
-                Gtk.FileChooserDialog chooser = new Gtk.FileChooserDialog (
-                    "Select a folder.", window, Gtk.FileChooserAction.SELECT_FOLDER,
-                    _("_Cancel"), Gtk.ResponseType.CANCEL,
-                    _("_Open"), Gtk.ResponseType.ACCEPT);
-                chooser.select_multiple = true;
-
-                if (chooser.run () == Gtk.ResponseType.ACCEPT) {
-                    SList<string> uris = chooser.get_uris ();
-                    foreach (unowned string uri in uris) {
-                        var folder = new FolderManager.File (uri.replace ("file:///", "/"));
-                        view.open_folder (folder.file.get_path ());
-                    }
-                }
-
-                chooser.close ();
-            });
-
-            icon.show ();
-            tool_button.show ();
-
+            tool_button.clicked.connect (open_dialog);
+            tool_button.show_all ();
             toolbar.pack_start (tool_button);
-            //toolbar.insert (tool_button, 1);
+        }
+        
+        private void open_dialog () {
+            Gtk.Window window = plugins.manager.window;
+            Gtk.FileChooserDialog chooser = new Gtk.FileChooserDialog (
+                _("Select a folder"), window, Gtk.FileChooserAction.SELECT_FOLDER,
+                _("_Cancel"), Gtk.ResponseType.CANCEL,
+                _("_Open"), Gtk.ResponseType.ACCEPT);
+            chooser.select_multiple = true;
+
+            if (chooser.run () == Gtk.ResponseType.ACCEPT) {
+                chooser.get_files ().foreach ((file) => {
+                    view.open_folder (file.get_path ());
+                });
+            }
+
+            chooser.close ();
         }
     }
 }
