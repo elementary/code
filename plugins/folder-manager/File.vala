@@ -203,21 +203,20 @@ namespace Scratch.Plugins.FolderManager {
             }
         }
 
-        public void reset_cache () {
-            _name = null;
-            _path = null;
-            _icon = null;
-            _children = null;
-            _type = Type.UNKNOWN;
-        }
-
         public static int compare (File a, File b) {
-            if (a.is_valid_directory && b.is_valid_textfile)
+            if (a.is_valid_directory && b.is_valid_textfile) {
                 return -1;
-            if (a.is_valid_textfile && b.is_valid_directory)
+            }
+            if (a.is_valid_textfile && b.is_valid_directory) {
                 return 1;
+            }
+            
             return strcmp (a.path.collate_key_for_filename (),
                            b.path.collate_key_for_filename ());
+        }
+        
+        public void invalidate_cache () {
+            _children = null;
         }
     }
 }
