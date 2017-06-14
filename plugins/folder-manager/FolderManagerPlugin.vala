@@ -61,20 +61,8 @@ namespace Scratch.Plugins {
                 return;
 
             view = new FolderManager.FileView ();
-
             view.select.connect ((file) => plugins.open_file (file));
-
-            view.root.child_added.connect (() => {
-                if (view.get_n_visible_children (view.root) == 0) {
-                    index = notebook.append_page (view, new Gtk.Label (_("Folders")));
-                }
-            });
-
-            view.root.child_removed.connect (() => {
-                if (view.get_n_visible_children (view.root) == 1)
-                    notebook.remove_page (index);
-            });
-
+            
             view.restore_settings ();
         }
 
