@@ -69,11 +69,11 @@ namespace Scratch.Plugins.FolderManager {
             menu.append (rename_item);
 
             var new_file_item = new Gtk.MenuItem.with_label (_("Add File"));
-            /*new_file_item.activate.connect (() => add_file ());*/
+            new_file_item.activate.connect (() => add_file ());
             menu.append (new_file_item);
 
             var new_folder_item = new Gtk.MenuItem.with_label (_("Add Folder"));
-            /*new_folder_item.activate.connect(() => add_folder ());*/
+            new_folder_item.activate.connect(() => add_folder ());
             menu.append (new_folder_item);
 
             var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
@@ -150,6 +150,58 @@ namespace Scratch.Plugins.FolderManager {
                     }
 
                     break;
+            }
+        }
+        
+        private void add_folder () {
+            if (!file.is_executable) {
+                // This is necessary to avoid infinite loop below
+                warning("Unable to open parent folder");
+                return;
+            }
+
+            var new_folder = file.file.get_child (_("untitled folder"));
+
+            var n = 1;
+            while (new_folder.query_exists ()) {
+                new_folder = file.file.get_child (_("untitled folder %d").printf (n));
+                n++;
+            }
+
+            try {
+                expanded = true;
+
+                new_folder.make_directory ();
+
+                /*newly_created_path = new_folder.get_path ();*/
+            } catch (Error e) {
+                warning (e.message);
+            }
+        }
+
+        private void add_file () {
+            if (!file.is_executable) {
+                // This is necessary to avoid infinite loop below
+                warning("Unable to open parent folder");
+                return;
+            }
+
+            var new_file = file.file.get_child (_("new file"));
+
+            var n = 1;
+            while (new_file.query_exists ()) {
+                new_file = file.file.get_child (_("new file %d").printf (n));
+                n++;
+            }
+
+            try {
+                expanded = true;
+
+                new_file.create (FileCreateFlags.NONE);
+
+                /*newly_created_path = new_file.get_path ();*/
+            } catch (Error e) {
+                warning (e.message);
             }
         }
     }
