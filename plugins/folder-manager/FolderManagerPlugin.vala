@@ -42,11 +42,14 @@ namespace Scratch.Plugins {
         }
 
         public void deactivate () {
-            if (view != null)
+            if (view != null) {
                 view.destroy();
+                view = null;
+            }
+
             if (tool_button != null) {
-                //(tool_button.parent as Scratch.Widgets.Toolbar).open_button.visible = true;
-                tool_button.destroy ();
+                tool_button.destroy();
+                tool_button = null;
             }
         }
 
