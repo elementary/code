@@ -21,15 +21,14 @@
 namespace Scratch.Plugins.FolderManager {
     /**
      * Normal item in the source list, represents a textfile.
-     * TODO Remove, Rename
      */
     internal class FileItem : Item {
 
         Gtk.Menu menu;
         Gtk.MenuItem item_trash;
 
-        public FileItem (File file) requires (file.is_valid_textfile) {
-            Object (file: file);
+        public FileItem (File file, FileView view) requires (file.is_valid_textfile) {
+            Object (file: file, view: view);
         }
 
         /*public void rename (string new_name) {

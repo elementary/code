@@ -64,7 +64,7 @@ namespace Scratch.Plugins.FolderManager {
                 return;
             }
 
-            var folder_root = new MainFolderItem (folder);
+            var folder_root = new MainFolderItem (folder, this);
             this.root.add (folder_root);
 
             folder_root.expanded = expand;
