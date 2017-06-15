@@ -32,6 +32,16 @@ namespace Scratch.Plugins.FolderManager {
             editable = true;
             name = file.name;
             icon = file.icon;
+            
+            edited.connect (rename);
+        }
+        
+        protected void rename (string new_name) {
+            file.rename (new_name);
+        }
+
+        protected void do_remove () {
+            file.trash ();
         }
 
         public int compare (Granite.Widgets.SourceList.Item a, Granite.Widgets.SourceList.Item b) {
