@@ -32,6 +32,10 @@ namespace Scratch.Plugins.FolderManager {
             Object (file: file, view: view);        
         }
         
+        ~FolderItem () {
+            monitor.cancel ();
+        }
+        
         construct {
             if (file.children.length () > 0) {
                 add (new Granite.Widgets.SourceList.Item ("")); // dummy
@@ -96,6 +100,20 @@ namespace Scratch.Plugins.FolderManager {
                     add (item);
                 }
             }
+        }
+        
+        private void remove_all_children () {
+            foreach (var child in children) {
+                remove (child);
+            }
+        }
+        
+        private new void remove (Granite.Widgets.SourceList.Item item) {
+            if (item is FolderItem) {
+                (item as FolderItem).remove_all_children ();
+            }
+            
+            base.remove (item);
         }
         
         private void do_close () {
