@@ -64,14 +64,14 @@ namespace Scratch.Plugins.FolderManager {
                 return;
             }
 
-            var folder_root = new MainFolderItem (folder, this);
+            var folder_root = new FolderItem (folder, this);
             this.root.add (folder_root);
 
             folder_root.expanded = expand;
-            folder_root.closed.connect (() => {
+            /*folder_root.closed.connect (() => {
                 root.remove (folder_root);
                 write_settings ();
-            });
+            });*/
         }
 
         private bool is_open (File folder) {
