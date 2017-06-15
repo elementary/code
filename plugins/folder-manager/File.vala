@@ -154,7 +154,6 @@ namespace Scratch.Plugins.FolderManager {
             _path = null;
             _icon = null;
             _children = null;
-            _type = Type.UNKNOWN;
         }
 
         public static int compare (File a, File b) {
