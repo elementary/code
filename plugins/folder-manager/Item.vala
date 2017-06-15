@@ -40,7 +40,7 @@ namespace Scratch.Plugins.FolderManager {
             file.rename (new_name);
         }
 
-        protected void do_remove () {
+        protected void trash () {
             file.trash ();
         }
 

@@ -52,26 +52,39 @@ namespace Scratch.Plugins.FolderManager {
             }
         }
         
-        /*public override Gtk.Menu? get_context_menu () {
-            menu = new Gtk.Menu ();
-            item_trash = new Gtk.MenuItem.with_label (_("Move to Trash"));
-            item_create = new Gtk.MenuItem.with_label (_("Create new File"));
-            menu.append (item_trash);
-            menu.append (item_create);
-            item_trash.activate.connect (() => { file.trash (); });
-            item_create.activate.connect (() => {
-                var new_file = GLib.File.new_for_path (file.path + "/new File");
+        public override Gtk.Menu? get_context_menu () {
+            var menu = new Gtk.Menu ();
+            
+            if (parent == view.root) {
+                var item = new Gtk.MenuItem.with_label (_("Close Folder"));
+                item.activate.connect (do_close);
+                menu.append (item);
+            } else {
+                var item = new Gtk.MenuItem.with_label (_("Open"));
+                /*item.activate.connect (() => { view.open_folder (file.path); });*/
+                menu.append (item);
+            }
+            
+            var rename_item = new Gtk.MenuItem.with_label (_("Rename"));
+            rename_item.activate.connect (() => view.start_editing_item (this));
+            menu.append (rename_item);
 
-                try {
-		            FileOutputStream os = new_file.create (FileCreateFlags.NONE);
-	            } catch (Error e) {
-		            warning ("Error: %s\n", e.message);
-	            }
-            });
+            var new_file_item = new Gtk.MenuItem.with_label (_("Add File"));
+            /*new_file_item.activate.connect (() => add_file ());*/
+            menu.append (new_file_item);
+
+            var new_folder_item = new Gtk.MenuItem.with_label (_("Add Folder"));
+            /*new_folder_item.activate.connect(() => add_folder ());*/
+            menu.append (new_folder_item);
+
+            var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
+            delete_item.activate.connect (() => trash ());
+            menu.append (delete_item);
+            
             menu.show_all ();
             return menu;
-        }*/
-
+        }
+        
         internal void add_children () {
             foreach (var child in file.children) {
                 if (child.is_valid_directory) {
@@ -80,9 +93,20 @@ namespace Scratch.Plugins.FolderManager {
                 } else if (child.is_valid_textfile) {
                     var item = new FileItem (child, view);
                     add (item);
-                    //item.edited.connect (item.rename);
                 }
             }
+        }
+        
+        private void do_close () {
+            /*view.close_folder (path);*/
+        }
+
+        private new void trash () {
+            if (parent == view.root) {
+                do_close ();
+            }
+
+            base.trash ();
         }
 
         private void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
