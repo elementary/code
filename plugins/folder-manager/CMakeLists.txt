@@ -10,7 +10,6 @@ vala_precompile(VALA_C ${PLUGIN_NAME}
     FileView.vala
     FolderItem.vala
     Item.vala
-    MainFolderItem.vala
     Settings.vala
 PACKAGES
     gtk+-3.0
