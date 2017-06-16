@@ -42,20 +42,32 @@ namespace Scratch.Plugins.FolderManager {
         }
 
         // returns the basename of the file
-        string _name = null;
+        private string _name;
         public string name {
-            get { return _name != null ? _name : _name = info.get_display_name (); }
+            get {
+                if (_name != null) {
+                    return _name; 
+                }
+                
+                if (info == null) {
+                    return "";                
+                }
+
+                _name = info.get_display_name ();
+                return _name; 
+            }
         }
 
         // returns the icon of the file's content type
-        GLib.Icon _icon = null;
+        private GLib.Icon? _icon = null;
         public GLib.Icon icon {
             get {
-                if (_icon != null)
+                if (_icon != null) {
                     return _icon;
-                //var content_type = info.get_attribute_string (FileAttribute.STANDARD_FAST_CONTENT_TYPE);
-                var content_type = info.get_content_type ();
-                return _icon = GLib.ContentType.get_icon (content_type);
+                }
+
+                _icon = GLib.ContentType.get_icon (info.get_content_type ());
+                return _icon;
             }
         }
 
