@@ -4,14 +4,14 @@
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License version 3
- * as published by the Free Software Foundation, either version 3 of the 
+ * as published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranties of
- * MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR 
+ * MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
  * PURPOSE. See the GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
@@ -86,33 +86,12 @@ namespace Scratch.Plugins.FolderManager {
         // checks if we're dealing with a non-hidden, non-backup directory
         public bool is_valid_directory {
             get {
-                if (_type == Type.VALID_FILE)
+                if (info.get_is_hidden () || info.get_is_backup ()) {
                     return false;
-                if (_type == Type.VALID_FOLDER)
+                }
+
+                if (info.get_file_type () == FileType.DIRECTORY) {
                     return true;
-                if (_type == Type.INVALID)
-                    return false;
-
-                if (info.get_file_type () != FileType.DIRECTORY ||
-                    info.get_is_hidden () || info.get_is_backup ()) {
-                    return false;
-                }
-
-                bool has_valid_children = false;
-
-                foreach (var child in children) {
-                    if (child.is_valid_textfile) {
-                        _type = Type.VALID_FOLDER;
-                        return has_valid_children = true;
-                    }
-                }
-
-                foreach (var child in children) {
-                    if (child.is_valid_directory) {
-                        has_valid_children = true;
-                        _type = Type.VALID_FOLDER;
-                    return has_valid_children = true;
-                    }
                 }
 
                 return false;
@@ -145,12 +124,9 @@ namespace Scratch.Plugins.FolderManager {
         }
 
         // returns a list of all children of a directory
-        GLib.List <File>? _children = null;
-        public GLib.List <File> children {
-            get {
-                if (_children != null) {
-                    return _children;
-                }
+        public Gee.List <File> children {
+            owned get {
+                var children_list = new Gee.ArrayList <File> ();
 
                 var parent = GLib.File.new_for_path (file.get_path ());
                 try {
@@ -165,14 +141,14 @@ namespace Scratch.Plugins.FolderManager {
                         var file = new File (child.get_path ());
 
                         if (file.is_valid_directory || file.is_valid_textfile) {
-                            _children.append (new File (child.get_path ()));
+                            children_list.add (new File (child.get_path ()));
                         }
                     }
                 } catch (GLib.Error error) {
                     warning (error.message);
                 }
 
-                return _children;
+                return children_list;
             }
         }
 
@@ -196,7 +172,6 @@ namespace Scratch.Plugins.FolderManager {
             _name = null;
             _path = null;
             _icon = null;
-            _children = null;
             _type = Type.UNKNOWN;
         }
 
