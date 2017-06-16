@@ -35,24 +35,24 @@ namespace Scratch.Plugins.FolderManager {
 
         public FolderItem (File file) requires (file.is_valid_directory) {
             Object (file: file);
+        }
 
-            this.editable = false;
-            this.selectable = false;
-            this.name = file.name;
-            this.icon = file.icon;
+        construct {
+            if (file.children.length () > 0) {
+                add (new Granite.Widgets.SourceList.Item ("")); // dummy
+            }
 
-            this.add (new Granite.Widgets.SourceList.Item ("")); // dummy
-            this.toggled.connect (() => {
-                if (this.expanded && this.n_children <= 1) {
-                    this.clear ();
-                    this.add_children ();
+            toggled.connect (() => {
+                if (expanded && n_children <= 1) {
+                    clear ();
+                    add_children ();
                     children_loaded = true;
                 }
             });
 
             try {
                 monitor = file.file.monitor_directory (GLib.FileMonitorFlags.NONE);
-                monitor.changed.connect ((s,d,e) => { on_changed (s,d,e); });
+                monitor.changed.connect (on_changed);
             } catch (GLib.Error e) {
                 warning (e.message);
             }
