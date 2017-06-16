@@ -27,6 +27,7 @@ namespace Scratch.Plugins.FolderManager {
         public string path {
             owned get { return file.path; }
             set { file.path = value; }
+        }
         
         construct {
             selectable = true;
