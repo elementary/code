@@ -127,6 +127,10 @@ namespace Scratch.Plugins.FolderManager {
         private Gee.ArrayList <File> _children = new Gee.ArrayList <File> ();
         public Gee.Collection <File> children {
             owned get {
+                if (_children.size != 0) {
+                    return _children;
+                }
+
                 var parent = GLib.File.new_for_path (file.get_path ());
                 try {
                     var enumerator = parent.enumerate_children (
