@@ -28,13 +28,6 @@ namespace Scratch.Plugins.FolderManager {
         public GLib.File file;
         private GLib.FileInfo info;
 
-        private enum Type {
-            VALID_FILE,
-            VALID_FOLDER,
-            UNKNOWN,
-            INVALID
-        }
-
         public File (string path) {
             file = GLib.File.new_for_path (path);
 
@@ -82,37 +75,15 @@ namespace Scratch.Plugins.FolderManager {
             get { return file.query_exists (); }
         }
 
-        Type _type = Type.UNKNOWN;
         // checks if we're dealing with a non-hidden, non-backup directory
         public bool is_valid_directory {
             get {
-                if (_type == Type.VALID_FILE)
+                if (info.get_is_hidden () || info.get_is_backup ()) {
                     return false;
-                if (_type == Type.VALID_FOLDER)
+                }
+
+                if (info.get_file_type () == FileType.DIRECTORY) {
                     return true;
-                if (_type == Type.INVALID)
-                    return false;
-
-                if (info.get_file_type () != FileType.DIRECTORY ||
-                    info.get_is_hidden () || info.get_is_backup ()) {
-                    return false;
-                }
-
-                bool has_valid_children = false;
-
-                foreach (var child in children) {
-                    if (child.is_valid_textfile) {
-                        _type = Type.VALID_FOLDER;
-                        return has_valid_children = true;
-                    }
-                }
-
-                foreach (var child in children) {
-                    if (child.is_valid_directory) {
-                        has_valid_children = true;
-                        _type = Type.VALID_FOLDER;
-                    return has_valid_children = true;
-                    }
                 }
 
                 return false;
@@ -122,22 +93,13 @@ namespace Scratch.Plugins.FolderManager {
         // checks if we're dealing with a textfile
         public bool is_valid_textfile {
             get {
-                if (_type == Type.VALID_FILE)
-                    return true;
-                if (_type == Type.VALID_FOLDER)
+                if (info.get_is_hidden () || info.get_is_backup ()) {
                     return false;
-                if (_type == Type.INVALID)
-                    return false;
+                }
 
-                if (info.get_file_type () == FileType.REGULAR) {
-                    //var content_type = info.get_attribute_string (FileAttribute.STANDARD_FAST_CONTENT_TYPE);
-                    var content_type = info.get_content_type ();
-                    if (ContentType.is_a (content_type, "text/*") &&
-                        !info.get_is_backup () &&
-                        !info.get_is_hidden ()) {
-                        _type = Type.VALID_FILE;
-                        return true;
-                    }
+                if (info.get_file_type () == FileType.REGULAR && 
+                    ContentType.is_a (info.get_content_type (), "text/*")) {
+                    return true;
                 }
 
                 return false;
@@ -192,7 +154,6 @@ namespace Scratch.Plugins.FolderManager {
             _path = null;
             _icon = null;
             _children = null;
-            _type = Type.UNKNOWN;
         }
 
         public static int compare (File a, File b) {
