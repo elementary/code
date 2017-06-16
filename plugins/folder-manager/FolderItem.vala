@@ -34,14 +34,14 @@ namespace Scratch.Plugins.FolderManager {
         private bool children_loaded = false;
 
         public FolderItem (File file) requires (file.is_valid_directory) {
-            Object (file: file);        
+            Object (file: file);
         }
-        
+
         construct {
             if (file.children.length () > 0) {
                 add (new Granite.Widgets.SourceList.Item ("")); // dummy
             }
-            
+
             toggled.connect (() => {
                 if (expanded && n_children <= 1) {
                     clear ();
@@ -49,7 +49,7 @@ namespace Scratch.Plugins.FolderManager {
                     children_loaded = true;
                 }
             });
-            
+
             try {
                 monitor = file.file.monitor_directory (GLib.FileMonitorFlags.NONE);
                 monitor.changed.connect (on_changed);
@@ -57,7 +57,7 @@ namespace Scratch.Plugins.FolderManager {
                 warning (e.message);
             }
         }
-        
+
         /*public override Gtk.Menu? get_context_menu () {
             menu = new Gtk.Menu ();
             item_trash = new Gtk.MenuItem.with_label (_("Move to Trash"));
