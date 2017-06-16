@@ -24,49 +24,50 @@ namespace Scratch.Plugins.FolderManager {
      * Class for easily dealing with files.
      */
     internal class File : GLib.Object {
-
-        public GLib.File file;
+        public GLib.File file { get; private set; }
         private GLib.FileInfo info;
 
         public File (string path) {
-            file = GLib.File.new_for_path (path);
-
-            info = new FileInfo ();
-            try {
-                info = file.query_info (
-                    GLib.FileAttribute.STANDARD_CONTENT_TYPE + "," +
-                    GLib.FileAttribute.STANDARD_IS_BACKUP + "," +
-                    GLib.FileAttribute.STANDARD_IS_HIDDEN + "," +
-                    GLib.FileAttribute.STANDARD_DISPLAY_NAME + "," +
-                    GLib.FileAttribute.STANDARD_TYPE,
-                    FileQueryInfoFlags.NONE);
-            } catch (GLib.Error error) {
-                info = null;
-                warning (error.message);
-            }
+            Object (path: path);
         }
 
         // returns the path the file
-        string _path = null;
         public string path {
-            get { return _path != null ? _path : _path = file.get_path (); }
+            owned get { 
+                return file.get_path ();
+            }
+            set construct {
+                load_file_for_path (value);
+            }
         }
 
         // returns the basename of the file
-        string _name = null;
+        private string _name;
         public string name {
-            get { return _name != null ? _name : _name = info.get_display_name (); }
+            get {
+                if (_name != null) {
+                    return _name; 
+                }
+                
+                if (info == null) {
+                    return "";                
+                }
+
+                _name = info.get_display_name ();
+                return _name; 
+            }
         }
 
         // returns the icon of the file's content type
-        GLib.Icon _icon = null;
+        private GLib.Icon? _icon = null;
         public GLib.Icon icon {
             get {
-                if (_icon != null)
+                if (_icon != null) {
                     return _icon;
-                //var content_type = info.get_attribute_string (FileAttribute.STANDARD_FAST_CONTENT_TYPE);
-                var content_type = info.get_content_type ();
-                return _icon = GLib.ContentType.get_icon (content_type);
+                }
+
+                _icon = GLib.ContentType.get_icon (info.get_content_type ());
+                return _icon;
             }
         }
 
@@ -132,6 +133,24 @@ namespace Scratch.Plugins.FolderManager {
                 return _children;
             }
         }
+        
+        private void load_file_for_path (string path) {
+            file = GLib.File.new_for_path (path);
+
+            info = new FileInfo ();
+            try {
+                var query_string = GLib.FileAttribute.STANDARD_CONTENT_TYPE + "," +
+                                    GLib.FileAttribute.STANDARD_IS_BACKUP + "," +
+                                    GLib.FileAttribute.STANDARD_IS_HIDDEN + "," +
+                                    GLib.FileAttribute.STANDARD_DISPLAY_NAME + "," +
+                                    GLib.FileAttribute.STANDARD_TYPE;
+
+                info = file.query_info (query_string, FileQueryInfoFlags.NONE);
+            } catch (GLib.Error error) {
+                info = null;
+                warning (error.message);
+            }
+        }
 
         public void rename (string name) {
             try {
@@ -151,7 +170,6 @@ namespace Scratch.Plugins.FolderManager {
 
         public void reset_cache () {
             _name = null;
-            _path = null;
             _icon = null;
             _children = null;
         }
