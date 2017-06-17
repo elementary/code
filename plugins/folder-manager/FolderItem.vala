@@ -22,14 +22,8 @@ namespace Scratch.Plugins.FolderManager {
     /**
      * Expandable item in the source list, represents a folder.
      * Monitored for changes inside the directory.
-     * TODO remove, rename, create new file
      */
     internal class FolderItem : Item {
-
-        //Gtk.Menu menu;
-        //Gtk.MenuItem item_trash;
-        //Gtk.MenuItem item_create;
-
         private GLib.FileMonitor monitor;
         private bool children_loaded = false;
 
@@ -58,25 +52,21 @@ namespace Scratch.Plugins.FolderManager {
             }
         }
 
-        /*public override Gtk.Menu? get_context_menu () {
-            menu = new Gtk.Menu ();
-            item_trash = new Gtk.MenuItem.with_label (_("Move to Trash"));
-            item_create = new Gtk.MenuItem.with_label (_("Create new File"));
-            menu.append (item_trash);
-            menu.append (item_create);
-            item_trash.activate.connect (() => { file.trash (); });
-            item_create.activate.connect (() => {
-                var new_file = GLib.File.new_for_path (file.path + "/new File");
+        public override Gtk.Menu? get_context_menu () {
+            var rename_item = new Gtk.MenuItem.with_label (_("Rename"));
+            rename_item.activate.connect (() => view.start_editing_item (this));
 
-                try {
-		            FileOutputStream os = new_file.create (FileCreateFlags.NONE);
-	            } catch (Error e) {
-		            warning ("Error: %s\n", e.message);
-	            }
-            });
+            var trash_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
+            trash_item.activate.connect (trash);
+
+            var menu = new Gtk.Menu ();
+            menu.append (rename_item);
+            menu.append (trash_item);
+
             menu.show_all ();
+
             return menu;
-        }*/
+        }
 
         private void add_children () {
             foreach (var child in file.children) {
@@ -86,7 +76,6 @@ namespace Scratch.Plugins.FolderManager {
                 } else if (child.is_valid_textfile) {
                     var item = new FileItem (child, view);
                     add (item);
-                    //item.edited.connect (item.rename);
                 }
             }
         }
