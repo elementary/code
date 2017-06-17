@@ -68,7 +68,7 @@ namespace Scratch.Plugins.FolderManager {
             return menu;
         }
 
-        internal void add_children () {
+        private void add_children () {
             foreach (var child in file.children) {
                 if (child.is_valid_directory) {
                     var item = new FolderItem (child, view);
