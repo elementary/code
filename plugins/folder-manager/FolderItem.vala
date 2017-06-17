@@ -53,21 +53,22 @@ namespace Scratch.Plugins.FolderManager {
         }
 
         public override Gtk.Menu? get_context_menu () {
-            var menu = new Gtk.Menu ();
-
             var item = new Gtk.MenuItem.with_label (_("Open"));
             item.activate.connect (() => { view.open_folder (file); });
-            menu.append (item);
 
             var rename_item = new Gtk.MenuItem.with_label (_("Rename"));
             rename_item.activate.connect (() => view.start_editing_item (this));
-            menu.append (rename_item);
 
             var trash_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
             trash_item.activate.connect (trash);
+
+            var menu = new Gtk.Menu ();
+            menu.append (item);
+            menu.append (rename_item);
             menu.append (trash_item);
 
             menu.show_all ();
+
             return menu;
         }
 
