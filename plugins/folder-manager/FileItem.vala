@@ -30,9 +30,7 @@ namespace Scratch.Plugins.FolderManager {
 
         public override Gtk.Menu? get_context_menu () {
             var trash_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
-            trash_item.activate.connect (() => {
-                file.trash ();
-            });
+            trash_item.activate.connect (trash);
 
             var menu = new Gtk.Menu ();
             menu.append (trash_item);
