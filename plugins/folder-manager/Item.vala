@@ -47,6 +47,10 @@ namespace Scratch.Plugins.FolderManager {
             file.trash ();
         }
 
+        protected void trash () {
+            file.trash ();
+        }
+
         public int compare (Granite.Widgets.SourceList.Item a, Granite.Widgets.SourceList.Item b) {
             if (a is FolderItem && b is FileItem) {
                 return -1;
