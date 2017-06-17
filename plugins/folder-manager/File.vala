@@ -4,14 +4,14 @@
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License version 3
- * as published by the Free Software Foundation, either version 3 of the 
+ * as published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranties of
- * MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR 
+ * MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
  * PURPOSE. See the GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
@@ -33,7 +33,7 @@ namespace Scratch.Plugins.FolderManager {
 
         // returns the path the file
         public string path {
-            owned get { 
+            owned get {
                 return file.get_path ();
             }
             set construct {
@@ -46,15 +46,15 @@ namespace Scratch.Plugins.FolderManager {
         public string name {
             get {
                 if (_name != null) {
-                    return _name; 
+                    return _name;
                 }
-                
+
                 if (info == null) {
-                    return "";                
+                    return "";
                 }
 
                 _name = info.get_display_name ();
-                return _name; 
+                return _name;
             }
         }
 
@@ -98,7 +98,7 @@ namespace Scratch.Plugins.FolderManager {
                     return false;
                 }
 
-                if (info.get_file_type () == FileType.REGULAR && 
+                if (info.get_file_type () == FileType.REGULAR &&
                     ContentType.is_a (info.get_content_type (), "text/*")) {
                     return true;
                 }
@@ -133,7 +133,7 @@ namespace Scratch.Plugins.FolderManager {
                 return _children;
             }
         }
-        
+
         private void load_file_for_path (string path) {
             file = GLib.File.new_for_path (path);
 
@@ -152,13 +152,13 @@ namespace Scratch.Plugins.FolderManager {
             }
         }
 
-        /*public void rename (string name) {
+        public void rename (string name) {
             try {
                 file.set_display_name (name);
             } catch (GLib.Error error) {
                 warning (error.message);
             }
-        }*/
+        }
 
         public void trash () {
             try {
