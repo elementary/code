@@ -152,13 +152,13 @@ namespace Scratch.Plugins.FolderManager {
             }
         }
 
-        /*public void rename (string name) {
+        public void rename (string name) {
             try {
                 file.set_display_name (name);
             } catch (GLib.Error error) {
                 warning (error.message);
             }
-        }*/
+        }
 
         public void trash () {
             try {

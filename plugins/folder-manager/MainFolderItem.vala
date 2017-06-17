@@ -30,8 +30,8 @@ namespace Scratch.Plugins.FolderManager {
         Gtk.MenuItem item_close;
         //Gtk.MenuItem item_create;
 
-        public MainFolderItem (File file) requires (file.is_valid_directory) {
-            base (file);
+        public MainFolderItem (File file, FileView view) requires (file.is_valid_directory) {
+            base (file, view);
         }
 
         public override Gtk.Menu? get_context_menu () {
