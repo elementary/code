@@ -33,7 +33,7 @@ namespace Scratch.Plugins.FolderManager {
 
         // returns the path the file
         public string path {
-            owned get { 
+            owned get {
                 return file.get_path ();
             }
             set construct {
@@ -46,15 +46,15 @@ namespace Scratch.Plugins.FolderManager {
         public string name {
             get {
                 if (_name != null) {
-                    return _name; 
+                    return _name;
                 }
-                
+
                 if (info == null) {
-                    return "";                
+                    return "";
                 }
 
                 _name = info.get_display_name ();
-                return _name; 
+                return _name;
             }
         }
 
@@ -98,7 +98,7 @@ namespace Scratch.Plugins.FolderManager {
                     return false;
                 }
 
-                if (info.get_file_type () == FileType.REGULAR && 
+                if (info.get_file_type () == FileType.REGULAR &&
                     ContentType.is_a (info.get_content_type (), "text/*")) {
                     return true;
                 }
@@ -108,12 +108,15 @@ namespace Scratch.Plugins.FolderManager {
         }
 
         // returns a list of all children of a directory
+        private bool children_valid = false;
         private Gee.ArrayList <File> _children = new Gee.ArrayList <File> ();
         public Gee.Collection <File> children {
             owned get {
-                if (_children.size != 0) {
+                if (children_valid) {
                     return _children;
                 }
+
+                _children.clear ();
 
                 var parent = GLib.File.new_for_path (file.get_path ());
                 try {
@@ -131,6 +134,8 @@ namespace Scratch.Plugins.FolderManager {
                             _children.add (new File (child.get_path ()));
                         }
                     }
+
+                    children_valid = true;
                 } catch (GLib.Error error) {
                     warning (error.message);
                 }
@@ -138,7 +143,7 @@ namespace Scratch.Plugins.FolderManager {
                 return _children;
             }
         }
-        
+
         private void load_file_for_path (string path) {
             file = GLib.File.new_for_path (path);
 
@@ -176,7 +181,7 @@ namespace Scratch.Plugins.FolderManager {
         public void reset_cache () {
             _name = null;
             _icon = null;
-            _children.clear ();
+            children_valid = false;
         }
 
         public static int compare (File a, File b) {
