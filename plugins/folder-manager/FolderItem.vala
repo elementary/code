@@ -32,7 +32,7 @@ namespace Scratch.Plugins.FolderManager {
         }
 
         construct {
-            if (file.children.length () > 0) {
+            if (file.children.size > 0) {
                 add (new Granite.Widgets.SourceList.Item ("")); // dummy
             }
 
