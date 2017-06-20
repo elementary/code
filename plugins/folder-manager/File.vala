@@ -108,11 +108,15 @@ namespace Scratch.Plugins.FolderManager {
         }
 
         // returns a list of all children of a directory
-        GLib.List <File> _children = null;
-        public GLib.List <File> children {
-            get {
-                if (_children != null)
+        private bool children_valid = false;
+        private Gee.ArrayList <File> _children = new Gee.ArrayList <File> ();
+        public Gee.Collection <File> children {
+            owned get {
+                if (children_valid) {
                     return _children;
+                }
+
+                _children.clear ();
 
                 var parent = GLib.File.new_for_path (file.get_path ());
                 try {
@@ -124,8 +128,14 @@ namespace Scratch.Plugins.FolderManager {
                     var file_info = new FileInfo ();
                     while ((file_info = enumerator.next_file ()) != null) {
                         var child = parent.get_child (file_info.get_name ());
-                        _children.append (new File (child.get_path ()));
+                        var file = new File (child.get_path ());
+
+                        if (file.is_valid_directory || file.is_valid_textfile) {
+                            _children.add (new File (child.get_path ()));
+                        }
                     }
+
+                    children_valid = true;
                 } catch (GLib.Error error) {
                     warning (error.message);
                 }
@@ -171,7 +181,7 @@ namespace Scratch.Plugins.FolderManager {
         public void reset_cache () {
             _name = null;
             _icon = null;
-            _children = null;
+            children_valid = false;
         }
 
         public static int compare (File a, File b) {
