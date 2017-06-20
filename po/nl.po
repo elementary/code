@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
-"PO-Revision-Date: 2017-05-12 16:30+0000\n"
+"PO-Revision-Date: 2017-06-17 21:33+0000\n"
 "Last-Translator: Dieter Debast <dieter_debast@hotmail.com>\n"
 "Language-Team: Dutch "
 "<https://l10n.elementary.io/projects/scratch/scratch/nl/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.13-dev\n"
+"X-Generator: Weblate 2.14\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: ../src/config.vala:15
@@ -337,15 +337,15 @@ msgstr ""
 
 #: ../src/Scratch.vala:166
 msgid "Maybe you do not have the necessary permissions."
-msgstr ""
+msgstr "Misschien heeft u niet de benodigde rechten."
 
 #: ../src/Scratch.vala:168
 msgid "Maybe the file path provided is not valid."
-msgstr ""
+msgstr "Misschien is het bestandspad niet geldig."
 
 #: ../src/Scratch.vala:170
 msgid "The location is read-only."
-msgstr ""
+msgstr "De locatie is alleen-lezen."
 
 #: ../src/Scratch.vala:172
 msgid "The parent directory doesn't exist."
@@ -356,12 +356,16 @@ msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
 msgstr ""
+"Bestand \"%s\" kan niet aangemaakt worden.\n"
+"%s"
 
 #: ../src/Scratch.vala:189
 msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
 msgstr ""
+"Bestand \"%s\" kan niet geopend worden.\n"
+"%s"
 
 #: ../src/Scratch.vala:198
 msgid "It is a mountable location."
@@ -369,7 +373,7 @@ msgstr ""
 
 #: ../src/Scratch.vala:201
 msgid "It is a directory."
-msgstr ""
+msgstr "Het is een map."
 
 #: ../src/Scratch.vala:204
 msgid ""
@@ -379,7 +383,7 @@ msgstr ""
 
 #: ../src/Scratch.vala:207
 msgid "It is an \"unknown\" file type."
-msgstr ""
+msgstr "Het is een \"onbekend\" bestandstype."
 
 #: ../src/Scratch.vala:277
 msgid "New Tab"
@@ -403,7 +407,7 @@ msgstr "Deel"
 
 #: ../src/Widgets/ToolBar.vala:66
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 #: ../src/Widgets/SplitView.vala:45
 msgid "No Files Open"
@@ -455,11 +459,11 @@ msgstr "Vervangen met"
 
 #: ../src/Widgets/SearchManager.vala:91
 msgid "Search next"
-msgstr ""
+msgstr "Volgende zoeken"
 
 #: ../src/Widgets/SearchManager.vala:97
 msgid "Search previous"
-msgstr ""
+msgstr "Vorige zoeken"
 
 #: ../src/Widgets/SearchManager.vala:104
 msgid "Cyclic Search"
@@ -503,7 +507,7 @@ msgstr "Uitbreidingen"
 
 #: ../src/Dialogs/PreferencesDialog.vala:108
 msgid "General"
-msgstr ""
+msgstr "Algemeen"
 
 #: ../src/Dialogs/PreferencesDialog.vala:110
 msgid "When Scratch starts:"
@@ -523,7 +527,7 @@ msgstr "Bestanden opslaan indien gewijzigd:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:119
 msgid "Tabs"
-msgstr ""
+msgstr "Tabbladen"
 
 #: ../src/Dialogs/PreferencesDialog.vala:121
 msgid "Automatic indentation:"
@@ -564,11 +568,11 @@ msgstr "Nooit"
 
 #: ../src/Dialogs/PreferencesDialog.vala:167
 msgid "For selected text"
-msgstr ""
+msgstr "Voor de geselecteerde tekst"
 
 #: ../src/Dialogs/PreferencesDialog.vala:168
 msgid "Always"
-msgstr ""
+msgstr "Altijd"
 
 #: ../src/Dialogs/PreferencesDialog.vala:171
 msgid "Show line numbers:"
@@ -584,7 +588,7 @@ msgstr "Lijnbreedte bepaling:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:187
 msgid "Font and Color Scheme"
-msgstr ""
+msgstr "Lettertype en kleurenschema"
 
 #: ../src/Dialogs/PreferencesDialog.vala:189
 msgid "Color scheme:"
@@ -1048,7 +1052,7 @@ msgstr "Open bestanden die u aan het bewerken bent met een andere applicatie"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr ""
+msgstr "Openen met…"
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
