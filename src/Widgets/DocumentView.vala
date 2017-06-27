@@ -53,42 +53,42 @@ namespace Scratch.Widgets {
             docs = new GLib.List<Services.Document> ();
 
             // Layout
-            this.notebook = new Granite.Widgets.DynamicNotebook ();
-            this.notebook.allow_restoring = true;
-            this.notebook.allow_new_window = true;
-            this.notebook.allow_drag = true;
-            this.notebook.allow_duplication = true;
-            this.notebook.tab_added.connect (on_doc_added);
-            this.notebook.tab_removed.connect (on_doc_removed);
-            this.notebook.tab_reordered.connect (on_doc_reordered);
-            this.notebook.tab_moved.connect (on_doc_moved);
-            this.notebook.group_name = "scratch-text-editor";
+            notebook = new Granite.Widgets.DynamicNotebook ();
+            notebook.allow_restoring = true;
+            notebook.allow_new_window = true;
+            notebook.allow_drag = true;
+            notebook.allow_duplication = true;
+            notebook.tab_added.connect (on_doc_added);
+            notebook.tab_removed.connect (on_doc_removed);
+            notebook.tab_reordered.connect (on_doc_reordered);
+            notebook.tab_moved.connect (on_doc_moved);
+            notebook.group_name = "scratch-text-editor";
 
-            this.notebook.new_tab_requested.connect (() => {
+            notebook.new_tab_requested.connect (() => {
                 new_document ();
             });
 
-            this.notebook.close_tab_requested.connect ((tab) => {
+            notebook.close_tab_requested.connect ((tab) => {
                 if ((tab as Services.Document).file != null)
                     tab.restore_data = (tab as Services.Document).get_uri ();
                 return (tab as Services.Document).close ();
             });
 
-            this.notebook.tab_switched.connect ((old_tab, new_tab) => {
+            notebook.tab_switched.connect ((old_tab, new_tab) => {
                 document_change (new_tab as Services.Document);
                 save_current_file (new_tab as Services.Document);
             });
 
-            this.notebook.tab_restored.connect ((label, restore_data, icon) => {
+            notebook.tab_restored.connect ((label, restore_data, icon) => {
                 var doc = new Services.Document (window.main_actions, File.new_for_uri (restore_data));
                 open_document (doc);
             });
 
-            this.notebook.tab_duplicated.connect ((tab) => {
+            notebook.tab_duplicated.connect ((tab) => {
                 duplicate_document (tab as Services.Document);
             });
 
-            this.pack_start (notebook, true, true, 0);
+            pack_start (notebook, true, true, 0);
 
             show_all ();
         }
@@ -108,7 +108,7 @@ namespace Scratch.Widgets {
                 var doc = new Services.Document (window.main_actions, file);
                 doc.create_page ();
 
-                this.notebook.insert_tab (doc, -1);
+                notebook.insert_tab (doc, -1);
                 current_document = doc;
 
                 doc.focus ();
@@ -128,7 +128,7 @@ namespace Scratch.Widgets {
                 var doc = new Services.Document (window.main_actions, file);
                 doc.create_page ();
 
-                this.notebook.insert_tab (doc, -1);
+                notebook.insert_tab (doc, -1);
                 current_document = doc;
 
                 doc.focus ();
@@ -152,7 +152,7 @@ namespace Scratch.Widgets {
             }
 
             doc.create_page ();
-            this.notebook.insert_tab (doc, -1);
+            notebook.insert_tab (doc, -1);
             current_document = doc;
             doc.focus ();
         }
@@ -167,7 +167,8 @@ namespace Scratch.Widgets {
                 doc.create_page ();
                 string s;
                 doc.file.replace_contents (original.source_view.buffer.text.data, null, false, 0, out s);
-                this.notebook.insert_tab (doc, -1);
+
+                notebook.insert_tab (doc, -1);
                 current_document = doc;
                 doc.focus ();
             } catch (Error e) {
@@ -194,21 +195,21 @@ namespace Scratch.Widgets {
         }
 
         public void close_document (Services.Document doc) {
-            this.notebook.remove_tab (doc);
+            notebook.remove_tab (doc);
             doc.close ();
         }
 
         public void close_current_document () {
             var doc = current_document;
             if (doc != null) {
-                if (this.notebook.close_tab_requested (doc)) {
-                    this.notebook.remove_tab (doc);
+                if (notebook.close_tab_requested (doc)) {
+                    notebook.remove_tab (doc);
                 }
             }
         }
 
         public bool is_empty () {
-            return this.docs.length () == 0;
+            return docs.length () == 0;
         }
 
         public new void focus () {
@@ -219,23 +220,23 @@ namespace Scratch.Widgets {
             var doc = tab as Services.Document;
             doc.main_actions = window.main_actions;
 
-            this.docs.append (doc);
-            doc.source_view.focus_in_event.connect (this.on_focus_in_event);
-            doc.source_view.drag_data_received.connect (this.drag_received);
-            doc.source_view.drag_motion.connect (this.drag_motion);
+            docs.append (doc);
+            doc.source_view.focus_in_event.connect (on_focus_in_event);
+            doc.source_view.drag_data_received.connect (drag_received);
+            doc.source_view.drag_motion.connect (drag_motion);
             save_opened_files ();
         }
 
         private void on_doc_removed (Granite.Widgets.Tab tab) {
             var doc = tab as Services.Document;
 
-            this.docs.remove (doc);
-            doc.source_view.focus_in_event.disconnect (this.on_focus_in_event);
-            doc.source_view.drag_data_received.disconnect (this.drag_received);
-            doc.source_view.drag_motion.disconnect (this.drag_motion);
+            docs.remove (doc);
+            doc.source_view.focus_in_event.disconnect (on_focus_in_event);
+            doc.source_view.drag_data_received.disconnect (drag_received);
+            doc.source_view.drag_motion.disconnect (drag_motion);
 
             // Check if the view is empty
-            if (this.is_empty ()) {
+            if (is_empty ()) {
                 empty ();
             }
 
@@ -255,7 +256,7 @@ namespace Scratch.Widgets {
             // We need to make sure switch back to the main thread
             // when we are modifiying Gtk widgets shared by two threads.
             Idle.add (() => {
-                this.notebook.remove_tab (doc);
+                notebook.remove_tab (doc);
                 other_view.notebook.insert_tab (doc, -1);
 
                 return false;
@@ -265,8 +266,8 @@ namespace Scratch.Widgets {
         private void on_doc_reordered (Granite.Widgets.Tab tab, int new_pos) {
             var doc = tab as Services.Document;
 
-            this.docs.remove (doc);
-            this.docs.insert (doc, new_pos);
+            docs.remove (doc);
+            docs.insert (doc, new_pos);
 
             doc.focus ();
 
@@ -293,7 +294,7 @@ namespace Scratch.Widgets {
             foreach (var filename in uris) {
                 var file = File.new_for_uri (filename);
                 var doc = new Services.Document (window.main_actions, file);
-                this.open_document (doc);
+                open_document (doc);
 
                 Gtk.drag_finish (ctx, true, false, time);
             }
