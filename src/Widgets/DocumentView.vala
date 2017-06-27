@@ -30,7 +30,10 @@ namespace Scratch.Widgets {
 
         public GLib.List<Services.Document> docs;
 
-        public Services.Document current {
+        public Services.Document current_document {
+            get {
+                return (Services.Document) notebook.current;
+            }
             set {
                 notebook.current = value;
             }
@@ -173,7 +176,7 @@ namespace Scratch.Widgets {
         }
 
         public void next_document () {
-            uint current_index = docs.index (get_current_document ()) + 1;
+            uint current_index = docs.index (current_document) + 1;
             if (current_index < docs.length ()) {
                 var next_doc = docs.nth_data (current_index++);
                 this.notebook.current = next_doc;
@@ -182,7 +185,7 @@ namespace Scratch.Widgets {
         }
 
         public void previous_document () {
-            uint current_index = docs.index (get_current_document ());
+            uint current_index = docs.index (current_document);
             if (current_index > 0) {
                 var previous_doc = docs.nth_data (--current_index);
                 this.notebook.current = previous_doc;
@@ -196,7 +199,7 @@ namespace Scratch.Widgets {
         }
 
         public void close_current_document () {
-            var doc = get_current_document ();
+            var doc = current_document;
             if (doc != null) {
                 if (this.notebook.close_tab_requested (doc)) {
                     this.notebook.remove_tab (doc);
@@ -204,20 +207,12 @@ namespace Scratch.Widgets {
             }
         }
 
-        public Services.Document? get_current_document () {
-            return this.notebook.current as Services.Document;
-        }
-
-        public void set_current_document (Services.Document doc) {
-            this.notebook.current = doc;
-        }
-
         public bool is_empty () {
             return this.docs.length () == 0;
         }
 
         public new void focus () {
-            get_current_document ().focus ();
+            current_document.focus ();
         }
 
         private void on_doc_added (Granite.Widgets.Tab tab) {
@@ -279,7 +274,7 @@ namespace Scratch.Widgets {
         }
 
         private bool on_focus_in_event () {
-            var doc = get_current_document ();
+            var doc = current_document;
             if (doc == null) {
                 warning ("Focus event callback cannot get current document");
             } else {
