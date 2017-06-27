@@ -21,14 +21,18 @@
 namespace Scratch.Widgets {
 
     public class DocumentView : Gtk.Box {
+        public signal void document_change (Services.Document? document);
+        public signal void empty ();
 
-        // Parent window
-        private weak MainWindow window;
-
-        // Widgets
-        private Granite.Widgets.DynamicNotebook notebook;
-
-        public GLib.List<Services.Document> docs;
+        private weak MainWindow _window;
+        public MainWindow window {
+            get {
+                return _window;
+            }
+            construct set {
+                _window = value;
+            }
+        }
 
         public Services.Document current_document {
             get {
@@ -39,16 +43,18 @@ namespace Scratch.Widgets {
             }
         }
 
+        private Granite.Widgets.DynamicNotebook notebook;
+        public GLib.List<Services.Document> docs;
+
         public uint view_id = -1;
         public bool is_closing = false;
 
-        // Signals
-        public signal void document_change (Services.Document? document);
-        public signal void empty ();
-
         public DocumentView (MainWindow window) {
+            Object (window: window);
+        }
+
+        construct {
             orientation = Gtk.Orientation.VERTICAL;
-            this.window = window;
 
             docs = new GLib.List<Services.Document> ();
 
