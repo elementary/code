@@ -26,7 +26,7 @@ namespace Scratch.Widgets {
         private weak MainWindow window;
 
         // Widgets
-        public Granite.Widgets.DynamicNotebook notebook;
+        private Granite.Widgets.DynamicNotebook notebook;
 
         public GLib.List<Services.Document> docs;
 

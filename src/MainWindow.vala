@@ -362,7 +362,7 @@ namespace Scratch {
                 }
 
                 if (document_to_focus != null) {
-                    view.notebook.current = document_to_focus;
+                    view.current_document = document_to_focus;
                 }
             }
         }
