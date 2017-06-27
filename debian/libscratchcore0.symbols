@@ -19,6 +19,7 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_main_window_add_view@Base 2.0.2bzr1327
  scratch_main_window_close_document@Base 2.0.2bzr1327
  scratch_main_window_construct@Base 2.0.2bzr1327
+ scratch_main_window_get_app@Base 2.4.1
  scratch_main_window_get_current_document@Base 2.0.2bzr1327
  scratch_main_window_get_current_font@Base 2.1.0
  scratch_main_window_get_current_font_size@Base 2.1.0
@@ -218,6 +219,7 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_widgets_document_view_focus@Base 2.0.2bzr1327
  scratch_widgets_document_view_get_current_document@Base 2.0.2bzr1327
  scratch_widgets_document_view_get_type@Base 2.0.2bzr1327
+ scratch_widgets_document_view_get_window@Base 2.4.1
  scratch_widgets_document_view_is_empty@Base 2.0.2bzr1327
  scratch_widgets_document_view_new@Base 2.0.2bzr1327
  scratch_widgets_document_view_new_document@Base 2.0.2bzr1327
@@ -227,8 +229,8 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_widgets_document_view_previous_document@Base 2.0.2bzr1327
  scratch_widgets_document_view_save_current_file@Base 2.3bzr1790
  scratch_widgets_document_view_save_opened_files@Base 2.3bzr1790
- scratch_widgets_document_view_set_current@Base 2.0.2bzr1327
  scratch_widgets_document_view_set_current_document@Base 2.0.2bzr1327
+ scratch_widgets_document_view_set_window@Base 2.4.1
  scratch_widgets_loading_view_construct@Base 2.0.2bzr1327
  scratch_widgets_loading_view_get_type@Base 2.0.2bzr1327
  scratch_widgets_loading_view_new@Base 2.0.2bzr1327
