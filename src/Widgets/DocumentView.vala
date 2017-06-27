@@ -109,7 +109,7 @@ namespace Scratch.Widgets {
                 doc.create_page ();
 
                 this.notebook.insert_tab (doc, -1);
-                this.notebook.current = doc;
+                current_document = doc;
 
                 doc.focus ();
             } catch (Error e) {
@@ -129,7 +129,7 @@ namespace Scratch.Widgets {
                 doc.create_page ();
 
                 this.notebook.insert_tab (doc, -1);
-                this.notebook.current = doc;
+                current_document = doc;
 
                 doc.focus ();
             } catch (Error e) {
@@ -145,7 +145,7 @@ namespace Scratch.Widgets {
                 }
 
                 if (nth_doc.file != null && nth_doc.file.get_uri () == doc.file.get_uri ()) {
-                    this.notebook.current = nth_doc;
+                    current_document = nth_doc;
                     warning ("This Document was already opened! Not opening a duplicate!");
                     return;
                 }
@@ -153,7 +153,7 @@ namespace Scratch.Widgets {
 
             doc.create_page ();
             this.notebook.insert_tab (doc, -1);
-            this.notebook.current = doc;
+            current_document = doc;
             doc.focus ();
         }
 
@@ -168,7 +168,7 @@ namespace Scratch.Widgets {
                 string s;
                 doc.file.replace_contents (original.source_view.buffer.text.data, null, false, 0, out s);
                 this.notebook.insert_tab (doc, -1);
-                this.notebook.current = doc;
+                current_document = doc;
                 doc.focus ();
             } catch (Error e) {
                 warning ("Cannot copy \"%s\": %s", original.get_basename (), e.message);
@@ -179,7 +179,7 @@ namespace Scratch.Widgets {
             uint current_index = docs.index (current_document) + 1;
             if (current_index < docs.length ()) {
                 var next_doc = docs.nth_data (current_index++);
-                this.notebook.current = next_doc;
+                current_document = next_doc;
                 next_doc.focus ();
             }
         }
@@ -188,7 +188,7 @@ namespace Scratch.Widgets {
             uint current_index = docs.index (current_document);
             if (current_index > 0) {
                 var previous_doc = docs.nth_data (--current_index);
-                this.notebook.current = previous_doc;
+                current_document = previous_doc;
                 previous_doc.focus ();
             }
         }
