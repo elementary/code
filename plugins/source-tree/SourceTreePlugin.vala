@@ -28,7 +28,7 @@ public class Folder : Granite.Widgets.SourceList.ExpandableItem {
     public File file { get; construct set; }
     bool loaded = false;
 
-    const string ATTRIBUTES = FileAttribute.STANDARD_NAME + "," + FileAttribute.STANDARD_TYPE + 
+    const string ATTRIBUTES = FileAttribute.STANDARD_NAME + "," + FileAttribute.STANDARD_TYPE +
         "," + FileAttribute.STANDARD_ICON;
     const string[] IGNORED = { "pyc", "class", "pyo", "o" };
 
@@ -37,16 +37,16 @@ public class Folder : Granite.Widgets.SourceList.ExpandableItem {
         file = dir;
         name = dir.get_basename ();
         selectable = false;
-        
+
         //need to add one item to make the folder appear
         add (new Granite.Widgets.SourceList.Item (_("Loading...")));
-        
+
         toggled.connect (() => {
             if (!expanded || loaded)
                 return;
-            
+
             loaded = true;
-            
+
             load ();
             var children_tmp = new Gee.ArrayList<Granite.Widgets.SourceList.Item> ();
             children_tmp.add_all (children);
@@ -56,21 +56,21 @@ public class Folder : Granite.Widgets.SourceList.ExpandableItem {
             }
         });
     }
-    
+
     public void load () {
         try {
             var enumerator = file.enumerate_children (ATTRIBUTES, FileQueryInfoFlags.NOFOLLOW_SYMLINKS, null);
             FileInfo? file_info = null;
-            
+
             while ((file_info = enumerator.next_file ()) != null) {
                 var file_name = file_info.get_name ();
                 var file_type = file_info.get_file_type ();
-                
+
                 if (file_type == FileType.REGULAR && !file_name.has_suffix ("~") && !file_name.has_prefix (".")) {
                     // Ignore some kind of temporany files
 
                     bool ignore = false;
-                    for (int n = 0; n < IGNORED.length; n++) { 
+                    for (int n = 0; n < IGNORED.length; n++) {
                         string ignored_suffix = IGNORED[n];
                         debug (ignored_suffix);
                         var tmp = file_name.split (".");
@@ -97,13 +97,13 @@ public class Document : Granite.Widgets.SourceList.Item
     public Document (File file, Icon icon)
     {
         Object (file: file, icon: icon);
-        
+
         name = file.get_basename ();
-        
+
         action_activated.connect (() => {
             if (parent == null)
                 return;
-                
+
             scratch_interface.close_document (doc);
             parent.remove (this);
         });
@@ -119,7 +119,7 @@ public class Document : Granite.Widgets.SourceList.Item
         doc = _doc;
         try {
             activatable = Gtk.IconTheme.get_default ().lookup_by_gicon (new ThemedIcon ("window-close-symbolic"), 16, 0).load_symbolic ({1, 1, 1, 1});
-        } catch (Error e) { warning (e.message); }      
+        } catch (Error e) { warning (e.message); }
     }
 }
 
@@ -139,7 +139,7 @@ public class Bookmark : Granite.Widgets.SourceList.Item
         action_activated.connect (() => {
             if (parent == null)
                 return;
-            
+
             parent.remove (this);
         });
     }
@@ -149,7 +149,7 @@ namespace Scratch.Plugins {
     public class SourceTreePlugin : Peas.ExtensionBase, Peas.Activatable {
         Scratch.Services.Interface plugins;
         public Object object { owned get; construct; }
-        
+
         Gtk.ToolButton? new_button = null;
         Gtk.ToolButton? bookmark_tool_button = null;
         Gtk.Notebook scratch_notebook;
@@ -163,13 +163,26 @@ namespace Scratch.Plugins {
 
         bool my_select = false;
 
+        bool _in_side_notebook;
+        bool in_side_notebook {
+            get {
+                return _in_side_notebook;
+            }
+
+            set {
+                _in_side_notebook = value;
+                this.bookmark_tool_button.visible = value;
+                this.bookmark_tool_button.no_show_all = value;
+            }
+        }
+
         public void activate () {
             plugins = (Scratch.Services.Interface) object;
             plugins.hook_notebook_sidebar.connect (on_hook_sidebar);
             plugins.hook_document.connect (on_hook_document);
             plugins.hook_toolbar.connect ((toolbar) => {
                 MainWindow window = plugins.manager.window;
-                if (this.bookmark_tool_button != null && this.new_button != null) 
+                if (this.bookmark_tool_button != null && this.new_button != null)
                     return;
                 this.new_button = window.main_actions.get_action ("NewTab").create_tool_item() as Gtk.ToolButton;
                 this.bookmark_tool_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("bookmark-new", Gtk.IconSize.LARGE_TOOLBAR), _("Bookmark"));
@@ -179,25 +192,20 @@ namespace Scratch.Plugins {
                 toolbar.pack_start (new_button);
                 //toolbar.insert (bookmark_tool_button, toolbar.get_item_index (toolbar.find_button) + 1);
                 //toolbar.insert (new_button, 0);
+                in_side_notebook = false;
             });
             plugins.hook_split_view.connect ((view) => {
                 this.bookmark_tool_button.visible = ! view.is_empty ();
                 this.bookmark_tool_button.no_show_all = view.is_empty ();
                 view.welcome_shown.connect (() => {
-                    this.bookmark_tool_button.visible = false;
-                    this.bookmark_tool_button.no_show_all = true;
                     int current_page = this.side_notebook.get_current_page ();
                     if (this.side_notebook.get_nth_page (current_page) == this.view) {
                         this.side_notebook.remove_page (current_page);
+                        in_side_notebook = false;
                     }
                 });
-                view.welcome_hidden.connect (() => {
-                    this.bookmark_tool_button.visible = true;
-                    this.bookmark_tool_button.no_show_all = false;
-                    this.side_notebook.append_page (this.view, new Gtk.Label (_("Source Tree")));
-                });
             });
-            
+
             scratch_interface = ((Scratch.Services.Interface)object);
         }
 
@@ -217,23 +225,14 @@ namespace Scratch.Plugins {
         void on_hook_sidebar (Gtk.Notebook notebook) {
             if (view != null)
                 return;
+
             side_notebook = notebook;
             view = new Granite.Widgets.SourceList ();
-            view.set_sort_func ((a, b) => {
-                if (a is Folder && b is Folder)
-                    return a.name.collate (b.name);
-                if (a is Folder)
-                    return -1;
-                if (b is Folder)
-                    return 1;
-
-                return a.parent == view.root && a.name == "Bookmarks" ? 1 : a.name.collate (b.name);
-            });
 
             view.get_style_context ().add_class ("sidebar");
-            category_files = new Granite.Widgets.SourceList.ExpandableItem (_("Files"));
-            category_project = new Granite.Widgets.SourceList.ExpandableItem (_("Project"));
-            category_bookmarks = new Granite.Widgets.SourceList.ExpandableItem (_("Bookmarks"));
+            category_files = new SourceTreePluginExpandableItem (_("Files"));
+            category_project = new SourceTreePluginExpandableItem (_("Project"));
+            category_bookmarks = new SourceTreePluginExpandableItem (_("Bookmarks"));
             view.root.add (category_files);
             view.root.add (category_project);
             view.root.add (category_bookmarks);
@@ -254,13 +253,12 @@ namespace Scratch.Plugins {
                 var doc = new_current as Document;
                 ((Scratch.Services.Interface)object).open_file (doc.file);
             });
-
         }
 
         void on_hook_document (Scratch.Services.Document doc) {
             scratch_notebook = (doc.get_parent () as Gtk.Notebook);
             scratch_notebook.set_show_tabs (!HIDE_TOOLBAR);
-            
+
             foreach (var d in category_files.children) {
                 if ((d as Document).file == doc.file) {
                     view.selected = d;
@@ -274,6 +272,15 @@ namespace Scratch.Plugins {
             }
 
             add_doc (doc);
+
+            ensure_in_notebook ();
+        }
+
+        void ensure_in_notebook () {
+            if (!in_side_notebook) {
+                side_notebook.append_page (this.view, new Gtk.Label (_("Source Tree")));
+                in_side_notebook = true;
+            }
         }
 
         void wait_for_save (Scratch.Services.Document doc) {
@@ -287,11 +294,11 @@ namespace Scratch.Plugins {
             my_select = true;
             view.selected = item;
             my_select = false;
-            
+
             var new_root = detect_project (doc.file);
             if (root == null || root.get_path () != new_root.get_path ()) {
                 root = new_root;
-                category_project.clear ();              
+                category_project.clear ();
                 category_project.expand_all ();
                 category_project.add (new Folder (root));
             }
@@ -327,8 +334,39 @@ namespace Scratch.Plugins {
             } else if (dir.get_parent ().get_basename () == "src") {
                 dir = dir.get_parent ().get_parent ();
             }
-            
+
             return dir;
+        }
+    }
+
+    internal class SourceTreePluginExpandableItem : Granite.Widgets.SourceList.ExpandableItem, Granite.Widgets.SourceListSortable {
+
+        public SourceTreePluginExpandableItem (string name) {
+            base (name);
+        }
+
+        public int compare (Granite.Widgets.SourceList.Item a, Granite.Widgets.SourceList.Item b) {
+            if (a.get_type () ==  b.get_type ()) {
+                return a.name.collate (b.name);
+            } else if (a is Folder ) {
+                return -1;
+            } else if (b is Folder ) {
+                return 1;
+            } else if (a is Document ) {
+                return -1;
+            } else if (b is Document ) {
+                return 1;
+            } else if (a is Bookmark ) {
+                return -1;
+            } else if (b is Bookmark ) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+
+        public bool allow_dnd_sorting () {
+            return false;
         }
     }
 }

@@ -109,6 +109,10 @@ namespace Scratch.Widgets {
             });
         }
 
+        construct {
+            wrap_mode = Gtk.WrapMode.WORD;
+        }
+
         ~SourceView () {
             // Update settings when an instance is deleted
             update_settings ();
