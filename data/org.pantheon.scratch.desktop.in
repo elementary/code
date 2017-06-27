@@ -1,13 +1,13 @@
 [Desktop Entry]
 Type=Application
 _Name=Code
-_Comment=Edit text files
-GenericName=Text Editor
+_Comment=Edit code files
+GenericName=Code Editor
 Exec=io.elementary.code %U
 Icon=io.elementary.code
 Terminal=false
-Categories=GNOME;GTK;Utility;TextEditor;
-_Keywords=Notepad;IDE;Plain;
+Categories=GNOME;GTK;IDE;Utility;TextEditor;WebDevelopment;
+_Keywords=IDE;
 MimeType=text/plain;
 StartupNotify=true
 Actions=NewWindow;NewDocument;AboutDialog;
