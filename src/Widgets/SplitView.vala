@@ -21,15 +21,6 @@
 namespace Scratch.Widgets {
 
     public class SplitView : Granite.Widgets.CollapsiblePaned {
-
-        // Widgets
-        private Granite.Widgets.Welcome welcome_screen;
-        public Scratch.Widgets.DocumentView? current_view = null;
-
-        public GLib.List<Scratch.Widgets.DocumentView> views;
-        private GLib.List<Scratch.Widgets.DocumentView> hidden_views;
-
-        // Signals
         public signal void welcome_shown ();
         public signal void welcome_hidden ();
         public signal void document_change (Scratch.Services.Document document);
@@ -44,6 +35,12 @@ namespace Scratch.Widgets {
                 _window = value;
             }
         }
+
+        private Granite.Widgets.Welcome welcome_screen;
+        public Scratch.Widgets.DocumentView? current_view = null;
+
+        public GLib.List<Scratch.Widgets.DocumentView> views;
+        private GLib.List<Scratch.Widgets.DocumentView> hidden_views;
 
         public SplitView (MainWindow window) {
             Object (orientation: Gtk.Orientation.HORIZONTAL, window: window);
