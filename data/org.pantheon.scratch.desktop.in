@@ -10,6 +10,7 @@ Categories=GNOME;GTK;IDE;Utility;TextEditor;WebDevelopment;
 _Keywords=IDE;
 MimeType=text/plain;
 StartupNotify=true
+Actions=NewWindow;NewDocument;
 X-GNOME-Gettext-Domain=io.elementary.code
 
 [Desktop Action NewDocument]
