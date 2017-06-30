@@ -21,56 +21,60 @@
 namespace Scratch.Widgets {
 
     public class SplitView : Granite.Widgets.CollapsiblePaned {
-
-        // Widgets
-        public Granite.Widgets.Welcome welcome_screen;
-        public Scratch.Widgets.DocumentView? current_view = null;
-
-        public GLib.List<Scratch.Widgets.DocumentView> views;
-        private GLib.List<Scratch.Widgets.DocumentView> hidden_views;
-
-        // Signals
         public signal void welcome_shown ();
         public signal void welcome_hidden ();
         public signal void document_change (Scratch.Services.Document document);
         public signal void views_changed (uint count);
 
-        private weak MainWindow window;
+        private weak MainWindow _window;
+        public MainWindow window {
+            get {
+                return _window;
+            }
+            construct set {
+                _window = value;
+            }
+        }
+
+        private Granite.Widgets.Welcome welcome_screen;
+        public Scratch.Widgets.DocumentView? current_view = null;
+
+        public GLib.List<Scratch.Widgets.DocumentView> views;
+        private GLib.List<Scratch.Widgets.DocumentView> hidden_views;
 
         public SplitView (MainWindow window) {
-            base (Gtk.Orientation.HORIZONTAL);
-            this.window = window;
+            Object (orientation: Gtk.Orientation.HORIZONTAL, window: window);
+        }
 
-            // Welcome screen
-            this.welcome_screen = new Granite.Widgets.Welcome (_("No Files Open"),
+        construct {
+            welcome_screen = new Granite.Widgets.Welcome (_("No Files Open"),
                                                                _("Open a file to begin editing."));
-            this.welcome_screen.valign = Gtk.Align.FILL;
-            this.welcome_screen.halign = Gtk.Align.FILL;
-            this.welcome_screen.vexpand = true;
-            this.welcome_screen.append ("document-new", _("New file"), _("Create a new empty file."));
-            this.welcome_screen.append ("document-open", _("Open file"), _("Open a saved file."));
-            this.welcome_screen.append ("edit-paste", _("New file from clipboard"), _("Create a new file from the contents of your clipboard."));
+            welcome_screen.valign = Gtk.Align.FILL;
+            welcome_screen.halign = Gtk.Align.FILL;
+            welcome_screen.vexpand = true;
+            welcome_screen.append ("document-new", _("New file"), _("Create a new empty file."));
+            welcome_screen.append ("document-open", _("Open file"), _("Open a saved file."));
+            welcome_screen.append ("edit-paste", _("New file from clipboard"), _("Create a new file from the contents of your clipboard."));
             welcome_screen.set_item_visible (2, window.clipboard.wait_is_text_available ());
 
-            this.welcome_screen.activated.connect ((i) => {
+            welcome_screen.activated.connect ((i) => {
                 // New file
-                if (i == 0)
+                if (i == 0) {
                     window.main_actions.get_action ("NewTab").activate ();
-                // Open
-                else if (i == 1)
+                } else if (i == 1) {
                     window.main_actions.get_action ("Open").activate ();
-                // Clipboard
-                else if (i == 2)
+                } else if (i == 2) {
                     window.main_actions.get_action ("Clipboard").activate ();
+                }
             });
 
             // Handle Drag-and-drop functionality on source-view
             Gtk.TargetEntry target = {"text/uri-list", 0, 0};
-            Gtk.drag_dest_set (this.welcome_screen, Gtk.DestDefaults.ALL, {target}, Gdk.DragAction.COPY);
-            this.welcome_screen.drag_data_received.connect ((ctx, x, y, sel, info, time) => {
+            Gtk.drag_dest_set (welcome_screen, Gtk.DestDefaults.ALL, {target}, Gdk.DragAction.COPY);
+            welcome_screen.drag_data_received.connect ((ctx, x, y, sel, info, time) => {
                 var uris = sel.get_uris ();
                 if (uris.length > 0) {
-                    var view = this.add_view ();
+                    var view = add_view ();
 
                     for (var i = 0; i < uris.length; i++) {
                         string filename = uris[i];
@@ -83,8 +87,8 @@ namespace Scratch.Widgets {
                 }
             });
 
-            this.views = new GLib.List<Scratch.Widgets.DocumentView> ();
-            this.hidden_views = new GLib.List<Scratch.Widgets.DocumentView> ();
+            views = new GLib.List<Scratch.Widgets.DocumentView> ();
+            hidden_views = new GLib.List<Scratch.Widgets.DocumentView> ();
         }
 
         public Scratch.Widgets.DocumentView? add_view () {
@@ -94,8 +98,9 @@ namespace Scratch.Widgets {
             }
 
             // Hide welcome screen
-            if (get_children ().length () > 0)
+            if (get_children ().length () > 0) {
                 hide_welcome ();
+            }
 
             Scratch.Widgets.DocumentView view;
             if (hidden_views.length () == 0) {
@@ -112,16 +117,17 @@ namespace Scratch.Widgets {
             view.document_change.connect (on_document_changed);
             view.vexpand = true;
 
-            if (views.length () < 1)
-                this.pack1 (view, true, true);
-            else
-                this.pack2 (view, true, true);
+            if (views.length () < 1) {
+                pack1 (view, true, true);
+            } else {
+                pack2 (view, true, true);
+            }
 
             view.show_all ();
 
             views.append (view);
             view.view_id = views.length ();
-            this.current_view = view;
+            current_view = view;
             debug ("View added successfully");
 
             // Enbale/Disable useless GtkActions about views
@@ -132,8 +138,10 @@ namespace Scratch.Widgets {
 
         public void remove_view (Scratch.Widgets.DocumentView? view = null) {
             // If no specific view is required to be removed, just remove the current one
-            if (view == null)
+            if (view == null) {
                 view = get_focus_child () as Scratch.Widgets.DocumentView;
+            }
+
             if (view == null) {
                 warning ("There is no focused view to remove!");
                 return;
@@ -141,7 +149,7 @@ namespace Scratch.Widgets {
 
             foreach (var doc in view.docs) {
                 if (!doc.close (true)) {
-                    view.set_current_document (doc);
+                    view.current_document = doc;
                     return;
                 }
             }
@@ -162,10 +170,10 @@ namespace Scratch.Widgets {
                 remove (view);
             }
 
-            this.views.remove (view);
+            views.remove (view);
             view.document_change.disconnect (on_document_changed);
             view.visible = false;
-            this.hidden_views.append (view);
+            hidden_views.append (view);
             debug ("View removed successfully");
 
             // Enbale/Disable useless GtkActions about views
@@ -177,8 +185,9 @@ namespace Scratch.Widgets {
             }
 
             // Show/Hide welcome screen
-            if (this.views.length () == 0)
+            if (this.views.length () == 0) {
                 show_welcome ();
+            }
         }
 
         public Scratch.Widgets.DocumentView? get_current_view () {
@@ -194,18 +203,16 @@ namespace Scratch.Widgets {
             return (views.length () == 0);
         }
 
-        // Show welcome screen
         public void show_welcome () {
-            this.pack1 (welcome_screen, true, true);
-            this.welcome_screen.show_all ();
+            pack1 (welcome_screen, true, true);
+            welcome_screen.show_all ();
             welcome_shown ();
             debug ("WelcomeScreen shown successfully");
         }
 
-        // Hide welcome screen
         public void hide_welcome () {
-            if (this.welcome_screen.get_parent () == this) {
-                this.remove (welcome_screen);
+            if (welcome_screen.get_parent () == this) {
+                remove (welcome_screen);
                 welcome_hidden ();
                 debug ("WelcomeScreen hidden successfully");
             }
@@ -213,8 +220,9 @@ namespace Scratch.Widgets {
 
         // Detect the last focused Document throw a signal
         private void on_document_changed (Scratch.Services.Document? document) {
-            if (document != null)
+            if (document != null) {
                 document_change (document);
+            }
         }
 
         // Check the possibility to add or not a new view

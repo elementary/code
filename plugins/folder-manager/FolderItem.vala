@@ -1,92 +1,81 @@
-// -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
-/***
-  BEGIN LICENSE
-
-  Copyright (C) 2013 Julien Spautz <spautz.julien@gmail.com>
-  This program is free software: you can redistribute it and/or modify it
-  under the terms of the GNU Lesser General Public License version 3, as published
-  by the Free Software Foundation.
-
-  This program is distributed in the hope that it will be useful, but
-  WITHOUT ANY WARRANTY; without even the implied warranties of
-  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-  PURPOSE.  See the GNU General Public License for more details.
-
-  You should have received a copy of the GNU General Public License along
-  with this program.  If not, see <http://www.gnu.org/licenses/>
-
-  END LICENSE
-***/
+/*-
+ * Copyright (c) 2017 elementary LLC. (https://elementary.io),
+ *               2013 Julien Spautz <spautz.julien@gmail.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License version 3
+ * as published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranties of
+ * MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+ * PURPOSE. See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Authored by: Julien Spautz <spautz.julien@gmail.com>, Andrei-Costin Zisu <matzipan@gmail.com>
+ */
 
 namespace Scratch.Plugins.FolderManager {
     /**
      * Expandable item in the source list, represents a folder.
      * Monitored for changes inside the directory.
-     * TODO remove, rename, create new file
      */
     internal class FolderItem : Item {
-
-        //Gtk.Menu menu;
-        //Gtk.MenuItem item_trash;
-        //Gtk.MenuItem item_create;
-
         private GLib.FileMonitor monitor;
         private bool children_loaded = false;
 
-        public FolderItem (File file) requires (file.is_valid_directory) {
-            Object (file: file);
+        public FolderItem (File file, FileView view) requires (file.is_valid_directory) {
+            Object (file: file, view: view);
+        }
 
-            this.editable = false;
-            this.selectable = false;
-            this.name = file.name;
-            this.icon = file.icon;
+        construct {
+            if (file.children.size > 0) {
+                add (new Granite.Widgets.SourceList.Item ("")); // dummy
+            }
 
-            this.add (new Granite.Widgets.SourceList.Item ("")); // dummy
-            this.toggled.connect (() => {
-                if (this.expanded && this.n_children <= 1) {
-                    this.clear ();
-                    this.add_children ();
+            toggled.connect (() => {
+                if (expanded && n_children <= 1) {
+                    clear ();
+                    add_children ();
                     children_loaded = true;
                 }
             });
 
             try {
                 monitor = file.file.monitor_directory (GLib.FileMonitorFlags.NONE);
-                monitor.changed.connect ((s,d,e) => { on_changed (s,d,e); });
+                monitor.changed.connect (on_changed);
             } catch (GLib.Error e) {
                 warning (e.message);
             }
         }
 
-        /*public override Gtk.Menu? get_context_menu () {
-            menu = new Gtk.Menu ();
-            item_trash = new Gtk.MenuItem.with_label (_("Move to Trash"));
-            item_create = new Gtk.MenuItem.with_label (_("Create new File"));
-            menu.append (item_trash);
-            menu.append (item_create);
-            item_trash.activate.connect (() => { file.trash (); });
-            item_create.activate.connect (() => {
-                var new_file = GLib.File.new_for_path (file.path + "/new File");
+        public override Gtk.Menu? get_context_menu () {
+            var rename_item = new Gtk.MenuItem.with_label (_("Rename"));
+            rename_item.activate.connect (() => view.start_editing_item (this));
 
-                try {
-		            FileOutputStream os = new_file.create (FileCreateFlags.NONE);
-	            } catch (Error e) {
-		            warning ("Error: %s\n", e.message);
-	            }
-            });
+            var trash_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
+            trash_item.activate.connect (trash);
+
+            var menu = new Gtk.Menu ();
+            menu.append (rename_item);
+            menu.append (trash_item);
+
             menu.show_all ();
-            return menu;
-        }*/
 
-        internal void add_children () {
+            return menu;
+        }
+
+        private void add_children () {
             foreach (var child in file.children) {
                 if (child.is_valid_directory) {
-                    var item = new FolderItem (child);
+                    var item = new FolderItem (child, view);
                     add (item);
                 } else if (child.is_valid_textfile) {
-                    var item = new FileItem (child);
+                    var item = new FileItem (child, view);
                     add (item);
-                    //item.edited.connect (item.rename);
                 }
             }
         }
@@ -125,9 +114,9 @@ namespace Scratch.Plugins.FolderManager {
 
                     if (!exists) {
                         if (file.is_valid_textfile) {
-                            this.add (new FileItem (file));
+                            this.add (new FileItem (file, view));
                         } else if (file.is_valid_directory) {
-                            this.add (new FolderItem (file));
+                            this.add (new FolderItem (file, view));
                         }
                     }
 

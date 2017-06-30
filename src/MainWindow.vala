@@ -362,7 +362,7 @@ namespace Scratch {
                 }
 
                 if (document_to_focus != null) {
-                    view.notebook.current = document_to_focus;
+                    view.current_document = document_to_focus;
                 }
             }
         }
@@ -439,7 +439,7 @@ namespace Scratch {
         public Scratch.Services.Document? get_current_document () {
             var view = get_current_view ();
             if (view != null) {
-                return view.get_current_document ();
+                return view.current_document;
             }
 
             return null;
@@ -536,7 +536,7 @@ namespace Scratch {
                     view.is_closing = true;
                     foreach (var doc in view.docs) {
                         if (!doc.close (true)) {
-                            view.set_current_document (doc);
+                            view.current_document = doc;
                             return false;
                         }
                     }
@@ -874,7 +874,7 @@ namespace Scratch {
         private void action_to_lower_case () {
             Scratch.Widgets.DocumentView? view = null;
             view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
-            var doc = view.get_current_document ();
+            var doc = view.current_document;
             if (doc == null) {
                 return;
             }
@@ -891,7 +891,7 @@ namespace Scratch {
         private void action_to_upper_case () {
             Scratch.Widgets.DocumentView? view = null;
             view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
-            var doc = view.get_current_document ();
+            var doc = view.current_document;
             if (doc == null) {
                 return;
             }
