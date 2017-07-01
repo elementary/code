@@ -191,7 +191,6 @@ namespace Scratch.Widgets {
             auto_indent = Scratch.settings.auto_indent;
             show_right_margin = Scratch.settings.show_right_margin;
             right_margin_position = Scratch.settings.right_margin_position;
-            show_line_numbers = Scratch.settings.show_line_numbers;
             highlight_current_line = Scratch.settings.highlight_current_line;
             buffer.highlight_matching_brackets = Scratch.settings.highlight_matching_brackets;
             if (settings.draw_spaces == ScratchDrawSpacesState.ALWAYS) {
@@ -214,7 +213,6 @@ namespace Scratch.Widgets {
         }
 
         private void update_settings () {
-            Scratch.settings.show_line_numbers = show_line_numbers;
             Scratch.settings.show_right_margin = show_right_margin;
             Scratch.settings.right_margin_position = (int) right_margin_position;
             Scratch.settings.highlight_current_line = highlight_current_line;
