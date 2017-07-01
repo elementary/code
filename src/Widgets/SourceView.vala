@@ -58,6 +58,8 @@ namespace Scratch.Widgets {
             buffer.highlight_syntax = true;
             smart_home_end = Gtk.SourceSmartHomeEndType.AFTER;
             buffer.mark_set.connect (on_mark_set);
+            show_line_numbers = true;
+
             // Create common tags
             this.warning_tag = new Gtk.TextTag ("warning_bg");
             this.warning_tag.background_rgba = Gdk.RGBA () { red = 1.0, green = 1.0, blue = 0, alpha = 0.8 };
