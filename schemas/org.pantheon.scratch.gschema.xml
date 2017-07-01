@@ -36,7 +36,7 @@
 			<summary></summary>
 			<description></description>
 		</key>
-		
+
 		<key name="hp1-size" type="i">
 			<default>125</default>
 			<summary></summary>
@@ -90,7 +90,7 @@
 			<description>Whether Scratch should display line numbers in the editing area.</description>
 		</key>
 		<key name="highlight-current-line" type="b">
-			<default>false</default>
+			<default>true</default>
 			<summary>Highlight Current Line</summary>
 			<description>Whether Scratch should highlight the current line.</description>
 		</key>
