@@ -47,26 +47,9 @@ namespace Scratch {
 
             program_name = app_cmd_name;
             exec_name = "io.elementary.code";
-            app_years = "2011-2015";
             app_icon = "io.elementary.code";
             app_launcher = "scratch-text-editor.desktop";
             application_id = "io.elementary.code";
-            main_url = "https://launchpad.net/scratch";
-            bug_url = "https://bugs.launchpad.net/scratch";
-            help_url = "https://elementary.io/help/scratch";
-            translate_url = "https://translations.launchpad.net/scratch";
-            about_authors = { "Mario Guerriero <mario@elementaryos.org>",
-                         "Giulio Collura <random.cpp@gmail.com>",
-                         "Lucas Baudin <xapantu@gmail.com>",
-                         null
-                         };
-            about_documenters = { "Mario Guerriero <mario@elementaryos.org>",
-                              null };
-            about_artists = { "Harvey Cabaguio <harveycabaguio@gmail.com>",
-                         null
-                         };
-            about_translators = _("translator-credits");
-            about_license_type = Gtk.License.GPL_3_0;
         }
 
         public Application () {
