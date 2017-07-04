@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
-"PO-Revision-Date: 2017-07-04 08:54+0000\n"
+"PO-Revision-Date: 2017-07-04 08:55+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) "
 "<https://l10n.elementary.io/projects/scratch/scratch/zh_CN/>\n"
@@ -56,7 +56,7 @@ msgstr "打开一些文件"
 #: ../src/MainWindow.vala:1003 ../src/MainWindow.vala:1014
 #: ../src/MainWindow.vala:1015
 msgid "Find…"
-msgstr "查找..."
+msgstr "查找…"
 
 #: ../src/MainWindow.vala:843
 msgid "Hide search bar"
@@ -64,7 +64,7 @@ msgstr "隐藏搜索栏"
 
 #: ../src/MainWindow.vala:909 ../src/MainWindow.vala:910
 msgid "Go to line…"
-msgstr "跳转到行..."
+msgstr "跳转到行…"
 
 #: ../src/MainWindow.vala:913 ../src/MainWindow.vala:914
 msgid "Quit"
@@ -176,7 +176,7 @@ msgstr "保存此文件"
 
 #: ../src/MainWindow.vala:973 ../src/Services/Document.vala:578
 msgid "Save As…"
-msgstr "另存为..."
+msgstr "另存为…"
 
 #: ../src/MainWindow.vala:974
 msgid "Save this file with a different name"
@@ -824,7 +824,7 @@ msgid ""
 "Please install at least one [aspell] dictionary"
 msgstr ""
 "找不到合适的字典。\n"
-"请安装至少一个 [aspell] 字典。"
+"请至少安装一个 [aspell] 字典。"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -928,7 +928,7 @@ msgstr "一月"
 
 #: ../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
-msgstr "Pastebin"
+msgstr "剪贴板"
 
 #: ../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
@@ -1009,7 +1009,7 @@ msgstr "用其他程序打开您所编辑的文件"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr "打开方式..."
+msgstr "打开方式…"
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
