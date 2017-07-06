@@ -130,6 +130,9 @@ namespace Scratch.Plugins {
         }
 
         void show_preview () {
+            if (this.doc == null) {
+                return;
+            }
 
             bool tab_is_selected = false;
             int tab_page_number = 0;
