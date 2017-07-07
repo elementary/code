@@ -7,10 +7,10 @@ Exec=io.elementary.code %U
 Icon=io.elementary.code
 Terminal=false
 Categories=GNOME;GTK;IDE;Utility;TextEditor;WebDevelopment;
-_Keywords=IDE;
+_Keywords=IDE;scratch;
 MimeType=text/plain;
 StartupNotify=true
-Actions=NewWindow;NewDocument;AboutDialog;
+Actions=NewWindow;NewDocument;
 X-GNOME-Gettext-Domain=io.elementary.code
 
 [Desktop Action NewDocument]
@@ -20,7 +20,3 @@ Exec=io.elementary.code --new-tab
 [Desktop Action NewWindow]
 Name=New Window
 Exec=io.elementary.code --new-window
-
-[Desktop Action AboutDialog]
-Exec=io.elementary.code --about
-_Name=About Code
