@@ -731,32 +731,49 @@ namespace Scratch {
         }
 
         private void action_save () {
-            var doc = get_current_document ();
-            if (doc.is_file_temporary == true) {
-                action_save_as ();
-            } else {
-                doc.save.begin ();
+            var doc = get_current_document (); /* may return null */
+            if (doc != null) {
+                if (doc.is_file_temporary == true) {
+                    action_save_as ();
+                } else {
+                    doc.save.begin ();
+                }
             }
         }
 
         private void action_save_as () {
-            get_current_document ().save_as.begin ();
+            var doc = get_current_document ();
+            if (doc != null) {
+                doc.save_as.begin ();
+            }
         }
 
         private void action_undo () {
-            get_current_document ().undo ();
+            var doc = get_current_document ();
+            if (doc != null) {
+                doc.undo ();
+            }
         }
 
         private void action_redo () {
-            get_current_document ().redo ();
+            var doc = get_current_document ();
+            if (doc != null) {
+                doc.redo ();
+            }
         }
 
         private void action_revert () {
-            get_current_document ().revert ();
+            var doc = get_current_document ();
+            if (doc != null) {
+                doc.revert ();
+            }
         }
 
         private void action_duplicate () {
-            get_current_document ().duplicate_selection ();
+            var doc = get_current_document ();
+            if (doc != null) {
+                doc.duplicate_selection ();
+            }
         }
 
         private void action_new_tab () {
