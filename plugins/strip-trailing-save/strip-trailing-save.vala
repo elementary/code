@@ -30,7 +30,7 @@ public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatabl
      * Activate plugin.
      */
     public void activate () {
-        plugins = (Scratch.Services.Interface) object;   
+        plugins = (Scratch.Services.Interface) object;
         plugins.hook_window.connect ((w) => {
             this.main_window = w;
             w.main_actions.pre_activate.connect (on_save);
@@ -49,7 +49,7 @@ public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatabl
      * Strip trailing spaces in document.
      */
     void on_save (Gtk.Action action) {
-        if (action==action_save) {
+        if (action == action_save && main_window.get_current_document () != null) {
             var text_view = main_window.get_current_document ().source_view;
             var buffer = text_view.buffer;
             buffer.begin_user_action();
