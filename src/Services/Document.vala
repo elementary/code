@@ -75,7 +75,7 @@ namespace Scratch.Services {
 
         private bool loaded = false;
         private GLib.Cancellable save_cancellable;
-        
+
 #if HAVE_ZEITGEIST
         // Zeitgeist integration
         private ZeitgeistLogger zg_log = new ZeitgeistLogger();
@@ -329,7 +329,9 @@ namespace Scratch.Services {
         public async bool save_as () {
             // New file
             var filech = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.SAVE, _("Save File"), null);
+            filech.do_overwrite_confirmation = true;
 
+            bool success = false;
             string current_file = file.get_path ();
             bool is_current_file_temporary = this.is_file_temporary;
 
@@ -337,34 +339,37 @@ namespace Scratch.Services {
                 this.file = File.new_for_uri (filech.get_file ().get_uri ());
                 // Update last visited path
                 Utils.last_path = Path.get_dirname (filech.get_file ().get_uri ());
-                filech.destroy ();
-            }
-            else {
-                filech.destroy ();
-                return false;
+                success = true;
             }
 
-            source_view.buffer.set_modified (true);
-            var is_saved = yield save ();
-            if (is_saved && is_current_file_temporary) {
-                try {
-                    // Delete temporary file
-                    File.new_for_path (current_file).delete ();
-                } catch (Error err) {
-                    message ("Temporary file cannot be deleted: %s", current_file);
+            if (success) {
+                source_view.buffer.set_modified (true);
+                var is_saved = yield save ();
+
+                if (is_saved && is_current_file_temporary) {
+                    try {
+                        // Delete temporary file
+                        File.new_for_path (current_file).delete ();
+                    } catch (Error err) {
+                        message ("Temporary file cannot be deleted: %s", current_file);
+                    }
                 }
+
+                // Delete backup file
+                delete_backup (current_file + "~");
+
+                // Change syntax highlight
+                this.source_view.change_syntax_highlight_from_file (this.file);
+
+                // Change label
+                this.label = get_basename ();
             }
 
-            // Delete backup file
-            delete_backup (current_file + "~");
-
-            // Change syntax highlight
-            this.source_view.change_syntax_highlight_from_file (this.file);
-
-            // Change label
-            this.label = get_basename ();
-
-            return true;
+            /* We delay destruction of file chooser dialog til to avoid the document focussing in,
+             * which triggers premature loading of overwritten content.
+             */
+            filech.destroy ();
+            return success;
         }
 
         public bool move (File new_dest) {
@@ -437,7 +442,7 @@ namespace Scratch.Services {
         public string get_uri () {
             return this.file.get_uri ();
         }
-        
+
         // Get file name
         public string get_basename () {
             if (is_file_temporary)
@@ -551,7 +556,7 @@ namespace Scratch.Services {
         public void duplicate_selection () {
             this.source_view.duplicate_selection ();
         }
-        
+
         // Show an error dialog which says "Hey, I cannot read that file!"
         private void show_error_dialog () {
             if (this.error_shown)
@@ -567,7 +572,7 @@ namespace Scratch.Services {
             dialog.destroy ();
             this.close ();
         }
-        
+
         // Check if the file was deleted/changed by an external source
         public void check_file_status () {
             // If the file does not exist anymore
@@ -686,7 +691,7 @@ namespace Scratch.Services {
                 backup_file = backup_path;
 
             debug ("Backup file deleting: %s", backup_file);
-            
+
             var backup = File.new_for_path (backup_file);
             if (backup == null || !backup.query_exists ()) {
                 debug ("Backup file doesn't exists: %s", backup.get_path ());
@@ -708,7 +713,7 @@ namespace Scratch.Services {
                 return true;
             } catch (Error e) {
                 warning ("Cannot delete temporary file \"%s\": %s", file.get_uri (), e.message);
-            }   
+            }
             return false;
         }
 
