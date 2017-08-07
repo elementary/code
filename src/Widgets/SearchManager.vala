@@ -53,7 +53,7 @@ namespace Scratch.Widgets {
          * color
          */
         private Gdk.RGBA normal_color;
-        
+
         public signal void need_hide ();
 
         /**
@@ -135,7 +135,7 @@ namespace Scratch.Widgets {
             replace_entry.activate.connect (on_replace_entry_activate);
             replace_entry.key_press_event.connect (on_replace_entry_key_press);
 
-            // Get default text color in Gtk.Entry 
+            // Get default text color in Gtk.Entry
             var entry_context = new Gtk.StyleContext ();
             var entry_path = new Gtk.WidgetPath ();
             entry_path.append_type (typeof (Gtk.Widget));
@@ -224,7 +224,7 @@ namespace Scratch.Widgets {
         }
 
         private void on_replace_all_entry_activate () {
-            if (text_buffer == null) {
+            if (text_buffer == null || this.window.get_current_document () == null) {
                 debug ("No valid buffer to replace");
                 return;
             }
@@ -352,7 +352,7 @@ namespace Scratch.Widgets {
                     text_buffer.get_end_iter (out start_iter);
                     search_for_iter_backward (start_iter, out end_iter);
                 }
-                
+
                 update_tool_arrows (search_string);
             }
         }
@@ -387,9 +387,9 @@ namespace Scratch.Widgets {
 
                     text_buffer.get_start_iter (out tmp_start_iter);
                     text_buffer.get_end_iter (out tmp_end_iter);
-                    
+
                     text_buffer.get_selection_bounds (out start_iter, out end_iter);
-                    
+
                     is_in_start = start_iter.compare(tmp_start_iter) == 0;
                     is_in_end = end_iter.compare(tmp_end_iter) == 0;
 

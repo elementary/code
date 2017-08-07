@@ -6,11 +6,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
 "PO-Revision-Date: 2016-03-20 18:10+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: English (Canada) <en_CA@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -594,15 +595,15 @@ msgstr "Strip trailing whitespace on save"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
@@ -616,15 +617,15 @@ msgstr "Highlights all occurrences of words that are selected"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/brackets-completion/brackets-completion.vala:21
@@ -638,15 +639,15 @@ msgstr "Complete brackets while typing"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/source-tree/SourceTreePlugin.vala:20
@@ -681,15 +682,15 @@ msgstr "Bookmarks"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/vim-emulation/vim-emulation.vala:21
@@ -703,15 +704,15 @@ msgstr "Use Vim commands in Scratch"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/clipboard-history/ClipboardHistory.vala:21
@@ -742,15 +743,15 @@ msgstr "Symbols"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/outline/OutlinePlugin.vala:21
@@ -764,15 +765,15 @@ msgstr "Outline symbols in your current file in vala"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/filemanager/FileManagerPlugin.vala:21
@@ -822,15 +823,15 @@ msgstr ""
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/browser-preview/browser-preview.vala:21
@@ -934,15 +935,15 @@ msgstr "Upload to Pastebin"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/contractor/contractor.vala:21
@@ -981,15 +982,15 @@ msgstr "Maintains indent level of pasted text when auto-indent is active"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/open-with/open-with.vala:21
@@ -1096,7 +1097,8 @@ msgstr "Heuristically detect tab or space settings"
 #~ msgid "You can't save changes to:"
 #~ msgstr "You can't save changes to:"
 
-#~ msgid "Do you want to save the changes to this file in a different location?"
+#~ msgid ""
+#~ "Do you want to save the changes to this file in a different location?"
 #~ msgstr ""
 #~ "Do you want to save the changes to this file in a different location?"
 
@@ -1115,7 +1117,6 @@ msgstr "Heuristically detect tab or space settings"
 #~ msgid "There are unsaved changes in Scratch!"
 #~ msgstr "There are unsaved changes in Scratch!"
 
-#, c-format
 #~ msgid "Save unsaved changes to file %s before closing?"
 #~ msgstr "Save unsaved changes to file %s before closing?"
 
@@ -1125,10 +1126,8 @@ msgstr "Heuristically detect tab or space settings"
 #~ msgid "Font and Color Scheme:"
 #~ msgstr "Font and Colour Scheme:"
 
-#, c-format
 #~ msgid "The file %s was modified."
 #~ msgstr "The file %s was modified."
 
-#, c-format
 #~ msgid "The file %s was deleted."
 #~ msgstr "The file %s was deleted."

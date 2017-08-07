@@ -2,24 +2,26 @@
 # Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
 # This file is distributed under the same license as the scratch package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
-"PO-Revision-Date: 2017-04-09 20:37+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
-"Language-Team: Indonesian <id@li.org>\n"
+"PO-Revision-Date: 2017-07-20 03:04+0000\n"
+"Last-Translator: Kukuh Syafaat <syafaatkukuh@gmail.com>\n"
+"Language-Team: Indonesian "
+"<https://weblate.elementary.io/projects/scratch/scratch/id/>\n"
+"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.15\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
-msgstr "Sunting berkas teks"
+msgstr "Edit file teks"
 
 #: ../src/config.vala:16
 msgid "Text Editor"
@@ -35,7 +37,7 @@ msgstr "Jendela Baru"
 
 #: ../src/config.vala:19
 msgid "About Scratch"
-msgstr ""
+msgstr "Tentang Scratch"
 
 #: ../src/MainWindow.vala:97
 msgid "Zeitgeist Datasource for Scratch"
@@ -53,7 +55,7 @@ msgstr "Buka beberapa file"
 #: ../src/MainWindow.vala:1003 ../src/MainWindow.vala:1014
 #: ../src/MainWindow.vala:1015
 msgid "Find…"
-msgstr "Cari..."
+msgstr "Cari…"
 
 #: ../src/MainWindow.vala:843
 msgid "Hide search bar"
@@ -148,19 +150,19 @@ msgstr "Buka berkas"
 
 #: ../src/MainWindow.vala:961
 msgid "Clipboard"
-msgstr ""
+msgstr "Papan klip"
 
 #: ../src/MainWindow.vala:962
 msgid "New file from Clipboard"
-msgstr ""
+msgstr "Berkas baru dari Papan Klip"
 
 #: ../src/MainWindow.vala:965
 msgid "Zoom"
-msgstr ""
+msgstr "Zum"
 
 #: ../src/MainWindow.vala:966
 msgid "Zoom 1:1"
-msgstr ""
+msgstr "Zum 1:1"
 
 #: ../src/MainWindow.vala:969 ../src/Services/Document.vala:259
 #: ../src/Services/Document.vala:585 ../src/Utils.vala:33
@@ -169,15 +171,15 @@ msgstr "Simpan"
 
 #: ../src/MainWindow.vala:970
 msgid "Save this file"
-msgstr ""
+msgstr "Simpan berkas ini"
 
 #: ../src/MainWindow.vala:973 ../src/Services/Document.vala:578
 msgid "Save As…"
-msgstr ""
+msgstr "Simpan Sebagai…"
 
 #: ../src/MainWindow.vala:974
 msgid "Save this file with a different name"
-msgstr ""
+msgstr "Simpan berkas ini dengan nama yang berbeda"
 
 #: ../src/MainWindow.vala:977 ../src/Services/TemplateManager.vala:194
 msgid "Templates"
@@ -197,11 +199,11 @@ msgstr "Ubah pengaturan Scratch"
 
 #: ../src/MainWindow.vala:985 ../src/MainWindow.vala:986
 msgid "Next Tab"
-msgstr ""
+msgstr "Tab Selanjutnya"
 
 #: ../src/MainWindow.vala:989 ../src/MainWindow.vala:990
 msgid "Previous Tab"
-msgstr ""
+msgstr "Tab Sebelumnya"
 
 #: ../src/MainWindow.vala:1009 ../src/MainWindow.vala:1010
 msgid "Fullscreen"
@@ -223,7 +225,7 @@ msgstr "Tutup tanpa menyimpan"
 
 #: ../src/Services/Document.vala:258 ../src/Utils.vala:29
 msgid "Cancel"
-msgstr ""
+msgstr "Batal"
 
 #: ../src/Services/Document.vala:331
 msgid "Save File"
@@ -234,22 +236,28 @@ msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
+"Berkas \"%s\" tidak dapat dibaca. Mungkin itu rusak\n"
+"atau Anda tidak memiliki izin yang diperlukan untuk membacanya."
 
 #: ../src/Services/Document.vala:576
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
+"Lokasi yang berisi berkas \"%s\" tidak terisi. Apakah Anda ingin menyimpan "
+"tempat lain?"
 
 #: ../src/Services/Document.vala:583
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "Berkas \"%s\" telah dihapus Apakah Anda ingin menyimpannya?"
 
 #: ../src/Services/Document.vala:596
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 msgstr ""
+"Anda tidak dapat menyimpan perubahan pada berkas \"%s\". Apakah Anda ingin "
+"menyimpan perubahan ke berkas ini di lokasi yang berbeda?"
 
 #: ../src/Services/Document.vala:598
 msgid "Save changes elsewhere"
@@ -260,6 +268,8 @@ msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
+"Berkas \"%s\" telah dimodifikasi oleh aplikasi eksternal. Apakah Anda ingin "
+"memuatnya lagi atau melanjutkan penyuntingan Anda?"
 
 #: ../src/Services/Document.vala:630
 msgid "Load"
@@ -299,49 +309,55 @@ msgstr ""
 
 #: ../src/Scratch.vala:166
 msgid "Maybe you do not have the necessary permissions."
-msgstr ""
+msgstr "Mungkin Anda tidak memiliki izin yang diperlukan."
 
 #: ../src/Scratch.vala:168
 msgid "Maybe the file path provided is not valid."
-msgstr ""
+msgstr "Mungkin path berkas yang disediakan tidak valid."
 
 #: ../src/Scratch.vala:170
 msgid "The location is read-only."
-msgstr ""
+msgstr "Lokasinya hanya-baca."
 
 #: ../src/Scratch.vala:172
 msgid "The parent directory doesn't exist."
-msgstr ""
+msgstr "Direktori induk tidak ada."
 
 #: ../src/Scratch.vala:179
 msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
 msgstr ""
+"Berkas \"%s\" tidak dapat dibuat\n"
+"%s"
 
 #: ../src/Scratch.vala:189
 msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
 msgstr ""
+"Berkas \"%s\" tidak dapat dibuka\n"
+"%s"
 
 #: ../src/Scratch.vala:198
 msgid "It is a mountable location."
-msgstr ""
+msgstr "Ini adalah lokasi yang dapat dikait."
 
 #: ../src/Scratch.vala:201
 msgid "It is a directory."
-msgstr ""
+msgstr "Ini adalah sebuah direktori."
 
 #: ../src/Scratch.vala:204
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " fifo, block device, or character device."
 msgstr ""
+"Ini adalah berkas \"spesial\" seperti soket,\n"
+"  fifo, perangkat blok, atau perangkat karakter."
 
 #: ../src/Scratch.vala:207
 msgid "It is an \"unknown\" file type."
-msgstr ""
+msgstr "Ini adalah jenis berkas \"tidak diketahui\"."
 
 #: ../src/Scratch.vala:277
 msgid "New Tab"
@@ -349,7 +365,7 @@ msgstr "Tab Baru"
 
 #: ../src/Scratch.vala:279
 msgid "Print version info and exit"
-msgstr ""
+msgstr "Cetak info versi dan keluar"
 
 #: ../src/Scratch.vala:280
 msgid "Set of plugins"
@@ -357,7 +373,7 @@ msgstr "Kumpulan pengaya"
 
 #: ../src/Scratch.vala:281
 msgid "Current working directory"
-msgstr ""
+msgstr "Direktori kerja saat ini"
 
 #: ../src/Widgets/ToolBar.vala:58
 msgid "Share"
@@ -365,7 +381,7 @@ msgstr "Bagikan"
 
 #: ../src/Widgets/ToolBar.vala:66
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 #: ../src/Widgets/SplitView.vala:45
 msgid "No Files Open"
@@ -393,15 +409,15 @@ msgstr "Buka berkas tersimpan."
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "New file from clipboard"
-msgstr ""
+msgstr "Berkas baru dari papan klip"
 
 #: ../src/Widgets/SplitView.vala:52
 msgid "Create a new file from the contents of your clipboard."
-msgstr ""
+msgstr "Buat berkas baru dari isi papan klip Anda."
 
 #: ../src/Widgets/DocumentView.vala:95
 msgid "Text file from "
-msgstr ""
+msgstr "Berkas teks dari "
 
 #: ../src/Widgets/LoadingView.vala:33
 msgid "Wait while restoring last session..."
@@ -417,19 +433,19 @@ msgstr "Ganti Dengan"
 
 #: ../src/Widgets/SearchManager.vala:91
 msgid "Search next"
-msgstr ""
+msgstr "Cari kemunculan selanjutnya"
 
 #: ../src/Widgets/SearchManager.vala:97
 msgid "Search previous"
-msgstr ""
+msgstr "Cari kemunculan sebelumnya"
 
 #: ../src/Widgets/SearchManager.vala:104
 msgid "Cyclic Search"
-msgstr ""
+msgstr "Pencarian Siklik"
 
 #: ../src/Widgets/SearchManager.vala:112
 msgid "Replace all"
-msgstr ""
+msgstr "Ganti semua"
 
 #: ../src/Widgets/SearchManager.vala:121
 msgid "Go To Line:"
@@ -465,7 +481,7 @@ msgstr "Ekstensi"
 
 #: ../src/Dialogs/PreferencesDialog.vala:108
 msgid "General"
-msgstr ""
+msgstr "Umum"
 
 #: ../src/Dialogs/PreferencesDialog.vala:110
 msgid "When Scratch starts:"
@@ -485,7 +501,7 @@ msgstr "Simpan berkas ketika diubah:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:119
 msgid "Tabs"
-msgstr ""
+msgstr "Tab"
 
 #: ../src/Dialogs/PreferencesDialog.vala:121
 msgid "Automatic indentation:"
@@ -501,7 +517,7 @@ msgstr "Lebar tab:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:153
 msgid "Editor"
-msgstr ""
+msgstr "Penyunting"
 
 #: ../src/Dialogs/PreferencesDialog.vala:155
 msgid "Highlight current line:"
@@ -513,11 +529,11 @@ msgstr "Sorot yang cocok dengan tanda kurung:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:161
 msgid "Line wrap:"
-msgstr ""
+msgstr "Lipat baris:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:164
 msgid "Draw Spaces:"
-msgstr ""
+msgstr "Gambar Spasi:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:166
 #: ../plugins/pastebin/pastebin_dialog.vala:511
@@ -526,11 +542,11 @@ msgstr "Jangan Pernah"
 
 #: ../src/Dialogs/PreferencesDialog.vala:167
 msgid "For selected text"
-msgstr ""
+msgstr "Untuk teks terpilih"
 
 #: ../src/Dialogs/PreferencesDialog.vala:168
 msgid "Always"
-msgstr ""
+msgstr "Selalu"
 
 #: ../src/Dialogs/PreferencesDialog.vala:171
 msgid "Show line numbers:"
@@ -538,7 +554,7 @@ msgstr "Tampilkan nomor baris:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:175
 msgid "Show Mini Map:"
-msgstr ""
+msgstr "Tampilkan Peta Mini:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:179
 msgid "Line width guide:"
@@ -546,7 +562,7 @@ msgstr "Pedoman lebar baris:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:187
 msgid "Font and Color Scheme"
-msgstr ""
+msgstr "Fonta dan Skema Warna"
 
 #: ../src/Dialogs/PreferencesDialog.vala:189
 msgid "Color scheme:"
@@ -568,11 +584,11 @@ msgstr "Terminal dalam pengolah teks"
 
 #: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
 msgid "Show Terminal"
-msgstr ""
+msgstr "Tampilkan Terminal"
 
 #: ../plugins/terminal/terminal.vala:170
 msgid "Hide Terminal"
-msgstr ""
+msgstr "Sembunyikan Terminal"
 
 #: ../plugins/terminal/terminal.vala:313
 msgid "Copy"
@@ -585,11 +601,11 @@ msgstr "Tempel"
 
 #: ../plugins/terminal/terminal.vala:330
 msgid "Terminal on Right"
-msgstr ""
+msgstr "Terminal ke Kanan"
 
 #: ../plugins/terminal/terminal.vala:338
 msgid "Terminal on Bottom"
-msgstr ""
+msgstr "Terminal ke Bawah"
 
 #: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
 msgid "Strip trailing whitespace"
@@ -602,37 +618,37 @@ msgstr "Hapus spasi dan tab di belakan baris saat menyimpan"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
 msgid "Highlight Selected Words"
-msgstr ""
+msgstr "Sorot Kata yang Dipilih"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
 msgid "Highlights all occurrences of words that are selected"
-msgstr ""
+msgstr "Sorot semua kemunculan kata-kata yang dipilih"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/brackets-completion/brackets-completion.vala:21
@@ -646,15 +662,15 @@ msgstr "Menutup tanda kurung yang anda buat secara otomatis"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/source-tree/SourceTreePlugin.vala:20
@@ -689,15 +705,15 @@ msgstr "Penanda"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/vim-emulation/vim-emulation.vala:21
@@ -711,33 +727,33 @@ msgstr "Gunakan perintah Vim dalam Scratch"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/clipboard-history/ClipboardHistory.vala:21
 #: ../plugins/clipboard-history/ClipboardHistory.vala:89
 msgid "Clipboard History"
-msgstr ""
+msgstr "Riwayat Papan Klip"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:22
 msgid "Clipboard to view history"
-msgstr ""
+msgstr "Papan Klip untuk melihat riwayat"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:28
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:164
 msgid "Delete"
-msgstr ""
+msgstr "Hapus"
 
 #: ../plugins/outline/CtagsSymbolResolver.vala:35
 #: ../plugins/outline/CtagsSymbolResolver.vala:68
@@ -745,42 +761,42 @@ msgstr ""
 #: ../plugins/outline/ValaProcessing/SymbolOutline.vala:99
 #: ../plugins/outline/OutlinePlugin.vala:116
 msgid "Symbols"
-msgstr ""
+msgstr "Simbol"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/outline/OutlinePlugin.vala:21
 msgid "Outline"
-msgstr ""
+msgstr "Garis Besar"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
-msgstr ""
+msgstr "Simbol garis besar pada berkas Anda saat ini di vala"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/filemanager/FileManagerPlugin.vala:21
@@ -795,7 +811,7 @@ msgstr "Dapat mendaftar seluruh isi folder"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:71
 msgid "Go to parent"
-msgstr ""
+msgstr "Pergi ke induk"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:82
 msgid "Add file"
@@ -826,19 +842,21 @@ msgid ""
 "No suitable dictionaries were found.\n"
 "Please install at least one [aspell] dictionary"
 msgstr ""
+"Tidak ditemukan kamus yang sesuai.\n"
+"Harap pasang setidaknya satu kamus [aspell]"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/browser-preview/browser-preview.vala:21
@@ -852,16 +870,16 @@ msgstr "tampilkan preview berkas web yang anda edti"
 #: ../plugins/browser-preview/browser-preview.vala:85
 #: ../plugins/browser-preview/browser-preview.vala:111
 msgid "Show Preview"
-msgstr ""
+msgstr "Tampilkan Pratinjau"
 
 #: ../plugins/browser-preview/browser-preview.vala:107
 #: ../plugins/browser-preview/browser-preview.vala:150
 msgid "Web Preview"
-msgstr ""
+msgstr "Pratinjau Web"
 
 #: ../plugins/browser-preview/browser-preview.vala:108
 msgid "Hide Preview"
-msgstr ""
+msgstr "Sembunyikan Pratinjau"
 
 #: ../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
@@ -944,15 +962,15 @@ msgstr "Unggah ke Pastebin"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/contractor/contractor.vala:21
@@ -970,11 +988,11 @@ msgstr "Buka Folder"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:94
 msgid "_Cancel"
-msgstr ""
+msgstr "_Batal"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:95
 msgid "_Open"
-msgstr ""
+msgstr "_Buka"
 
 #: ../plugins/folder-manager/FileView.vala:294
 msgid "Close Folder"
@@ -982,24 +1000,25 @@ msgstr "Tutup Folder"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:24
 msgid "Preserve Indent"
-msgstr ""
+msgstr "Pertahankan Indentasi"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:25
 msgid "Maintains indent level of pasted text when auto-indent is active"
 msgstr ""
+"Pertahankan tingkat indentasi teks tempelan saat indentasi otomatis aktif"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/open-with/open-with.vala:21
@@ -1012,15 +1031,15 @@ msgstr "Buka berkas yang anda olah dengan aplikasi lain"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr ""
+msgstr "Buka Dengan…"
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
-msgstr ""
+msgstr "Deteksi Inden"
 
 #: ../plugins/detect-indent/detect-indent.vala:2
 msgid "Heuristically detect tab or space settings"
-msgstr ""
+msgstr "Secara heuristik mendeteksi tab atau pengaturan spasi"
 
 #~ msgid "Do you want to save changes before closing this file?"
 #~ msgstr "Anda ingin menyimpan perubahan sebelum menutup berkas ini?"
@@ -1079,7 +1098,8 @@ msgstr ""
 #~ msgid "Do you want to reload it?"
 #~ msgstr "Anda ingin memuat ulang ini?"
 
-#~ msgid "Do you want to save the changes to this file in a different location?"
+#~ msgid ""
+#~ "Do you want to save the changes to this file in a different location?"
 #~ msgstr "Apakah anda ingin menyimpan berkas ini di tempat yang berbeda?"
 
 #~ msgid "Do you want to create it again?"
@@ -1124,20 +1144,17 @@ msgstr ""
 #~ msgid "There are unsaved changes!"
 #~ msgstr "Ada perubahan yang tak tersimpan!"
 
-#, c-format
 #~ msgid "Save unsaved changes to file %s before closing?"
 #~ msgstr "Simpan perubahan yang belum tersimpan dalam %s sebelum menutup?"
 
 #~ msgid "Font and Color Scheme:"
 #~ msgstr "Huruf dan Skema Warna:"
 
-#, c-format
 #~ msgid "The file %s was modified."
 #~ msgstr "Berkas %s telah diubah."
 
 #~ msgid "Sidebar"
 #~ msgstr "Bilah Samping"
 
-#, c-format
 #~ msgid "The file %s was deleted."
 #~ msgstr "Berkas %s telah dihapus."

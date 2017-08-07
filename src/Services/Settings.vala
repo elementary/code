@@ -40,11 +40,11 @@ namespace Scratch {
         public ScratchWindowState window_state { get; set; }
         public int window_x { get; set; }
         public int window_y { get; set; }
-        
+
         public int hp1_size { get; set; }
         public int hp2_size { get; set; }
         public int vp_size { get; set; }
-        
+
         public SavedState () {
             base ("org.pantheon.scratch.saved-state");
         }
@@ -53,8 +53,6 @@ namespace Scratch {
 
     public class Settings : Granite.Services.Settings {
 
-        public bool show_line_numbers { get; set; }
-        public bool line_break { get; set; }
         public bool highlight_current_line { get; set; }
         public bool highlight_matching_brackets { get; set; }
         public ScratchDrawSpacesState draw_spaces { get; set; }
@@ -67,14 +65,13 @@ namespace Scratch {
         public string font { get; set; }
         public string style_scheme { get; set; }
         public string[] plugins_enabled { get; set;}
-        public string show_at_start { get; set; }
         public string[] opened_files_view1 { get; set; }
         public string[] opened_files_view2 { get; set; }
         public bool autosave { get; set; }
         public string focused_document_view1 { get; set; }
         public string focused_document_view2 { get; set; }
         public bool show_mini_map { get; set; }
-        
+
         public Settings ()  {
             base ("org.pantheon.scratch.settings");
         }

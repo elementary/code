@@ -6,20 +6,23 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
-"PO-Revision-Date: 2017-03-07 11:39+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
-"Language-Team: Japanese <ja@li.org>\n"
+"PO-Revision-Date: 2017-06-24 10:33+0000\n"
+"Last-Translator: Ryo Nakano <rmfmada3q@gmail.com>\n"
+"Language-Team: Japanese "
+"<https://l10n.elementary.io/projects/scratch/scratch/ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.14\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
-msgstr "テキストファイルを編集する"
+msgstr "テキストファイルを編集します"
 
 #: ../src/config.vala:16
 msgid "Text Editor"
@@ -53,7 +56,7 @@ msgstr "複数のファイルを開く"
 #: ../src/MainWindow.vala:1003 ../src/MainWindow.vala:1014
 #: ../src/MainWindow.vala:1015
 msgid "Find…"
-msgstr "検索..."
+msgstr "検索…"
 
 #: ../src/MainWindow.vala:843
 msgid "Hide search bar"
@@ -61,7 +64,7 @@ msgstr "検索バーを隠す"
 
 #: ../src/MainWindow.vala:909 ../src/MainWindow.vala:910
 msgid "Go to line…"
-msgstr "行へ移動..."
+msgstr "行へ移動…"
 
 #: ../src/MainWindow.vala:913 ../src/MainWindow.vala:914
 msgid "Quit"
@@ -173,7 +176,7 @@ msgstr "このファイルを保存"
 
 #: ../src/MainWindow.vala:973 ../src/Services/Document.vala:578
 msgid "Save As…"
-msgstr "名前を付けて保存..."
+msgstr "名前を付けて保存…"
 
 #: ../src/MainWindow.vala:974
 msgid "Save this file with a different name"
@@ -240,7 +243,9 @@ msgstr ""
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
-msgstr "ファイル \"%s\" を含む場所はアンマウントされています。どこか別の場所に保存しますか？"
+msgstr ""
+"ファイル \"%s\" を含む場所はアンマウントされています。どこか別の場所に保存し"
+"ますか？"
 
 #: ../src/Services/Document.vala:583
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
@@ -250,7 +255,9 @@ msgstr "\"%s\" は削除されています。それでも保存しますか？"
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
-msgstr "ファイル \"%s\" の変更内容を保存できません。別の場所に変更されたファイルを保存しますか？"
+msgstr ""
+"ファイル \"%s\" の変更内容を保存できません。別の場所に変更されたファイルを保"
+"存しますか？"
 
 #: ../src/Services/Document.vala:598
 msgid "Save changes elsewhere"
@@ -260,7 +267,9 @@ msgstr "他の場所へ変更を保存する"
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
-msgstr "ファイル \"%s\" は外部アプリケーションによって変更されました。この内容を読み込みますか？または編集を続行しますか？"
+msgstr ""
+"ファイル \"%s\" は外部アプリケーションによって変更されました。この内容を読み"
+"込みますか？または編集を続行しますか？"
 
 #: ../src/Services/Document.vala:630
 msgid "Load"
@@ -363,7 +372,7 @@ msgstr "共有"
 
 #: ../src/Widgets/ToolBar.vala:66
 msgid "Menu"
-msgstr ""
+msgstr "メニュー"
 
 #: ../src/Widgets/SplitView.vala:45
 msgid "No Files Open"
@@ -495,7 +504,7 @@ msgstr "タブの代わりにスペースを挿入:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:127
 msgid "Tab width:"
-msgstr "タブ幅"
+msgstr "タブ幅："
 
 #: ../src/Dialogs/PreferencesDialog.vala:153
 msgid "Editor"
@@ -515,7 +524,7 @@ msgstr "行の折り返し："
 
 #: ../src/Dialogs/PreferencesDialog.vala:164
 msgid "Draw Spaces:"
-msgstr "空白を表示する"
+msgstr "空白を表示する："
 
 #: ../src/Dialogs/PreferencesDialog.vala:166
 #: ../plugins/pastebin/pastebin_dialog.vala:511
@@ -548,7 +557,7 @@ msgstr "フォントと配色"
 
 #: ../src/Dialogs/PreferencesDialog.vala:189
 msgid "Color scheme:"
-msgstr "配色"
+msgstr "配色："
 
 #: ../src/Dialogs/PreferencesDialog.vala:194
 msgid "Custom font:"
@@ -600,15 +609,15 @@ msgstr "保存時に行末の余分な空白を削除"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
@@ -622,15 +631,15 @@ msgstr "選択単語の全存在場所をハイライト表示する"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/brackets-completion/brackets-completion.vala:21
@@ -644,15 +653,15 @@ msgstr "入力中ブラケット補完"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/source-tree/SourceTreePlugin.vala:20
@@ -687,15 +696,15 @@ msgstr "ブックマーク"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/vim-emulation/vim-emulation.vala:21
@@ -709,15 +718,15 @@ msgstr "Scratch で Vim コマンドを使用"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/clipboard-history/ClipboardHistory.vala:21
@@ -748,15 +757,15 @@ msgstr "シンボル"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/outline/OutlinePlugin.vala:21
@@ -770,15 +779,15 @@ msgstr "vala ソースのシンボルをアウトライン表示する"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/filemanager/FileManagerPlugin.vala:21
@@ -830,15 +839,15 @@ msgstr ""
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/browser-preview/browser-preview.vala:21
@@ -942,15 +951,15 @@ msgstr "Pastebin へアップロード"
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/contractor/contractor.vala:21
@@ -989,15 +998,15 @@ msgstr "自動インデント有効時に貼り付けたテキストのインデ
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
 #. by the Free Software Foundation.
-#. 
+#.
 #. This program is distributed in the hope that it will be useful, but
 #. WITHOUT ANY WARRANTY; without even the implied warranties of
 #. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 #. PURPOSE.  See the GNU General Public License for more details.
-#. 
+#.
 #. You should have received a copy of the GNU General Public License along
 #. with this program.  If not, see <http://www.gnu.org/licenses/>
-#. 
+#.
 #. END LICENSE
 #. **
 #: ../plugins/open-with/open-with.vala:21
@@ -1010,7 +1019,7 @@ msgstr "別のアプリケーションで編集中のファイルを開く"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr "他のアプリケーションで開く..."
+msgstr "他のアプリケーションで開く…"
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
@@ -1092,7 +1101,8 @@ msgstr "タブやスペースを自動で検知する"
 #~ msgid "You can't save changes to:"
 #~ msgstr "次のファイルに変更を保存できません:"
 
-#~ msgid "Do you want to save the changes to this file in a different location?"
+#~ msgid ""
+#~ "Do you want to save the changes to this file in a different location?"
 #~ msgstr "このファイルへの変更を別の場所に保存しますか？"
 
 #~ msgid "Do you want to reload it?"
@@ -1125,15 +1135,12 @@ msgstr "タブやスペースを自動で検知する"
 #~ msgid "There are unsaved changes!"
 #~ msgstr "保存されていない編集箇所があります!"
 
-#, c-format
 #~ msgid "The file %s was modified."
 #~ msgstr "ファイル %s は変更されました。"
 
-#, c-format
 #~ msgid "The file %s was deleted."
 #~ msgstr "ファイル %s は消去されました。"
 
-#, c-format
 #~ msgid "Save unsaved changes to file %s before closing?"
 #~ msgstr "閉じる前にファイル %s への保存されていない変更を保存しますか?"
 

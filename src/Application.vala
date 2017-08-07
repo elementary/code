@@ -47,26 +47,9 @@ namespace Scratch {
 
             program_name = app_cmd_name;
             exec_name = "io.elementary.code";
-            app_years = "2011-2015";
             app_icon = "io.elementary.code";
             app_launcher = "scratch-text-editor.desktop";
             application_id = "io.elementary.code";
-            main_url = "https://launchpad.net/scratch";
-            bug_url = "https://bugs.launchpad.net/scratch";
-            help_url = "https://elementary.io/help/scratch";
-            translate_url = "https://translations.launchpad.net/scratch";
-            about_authors = { "Mario Guerriero <mario@elementaryos.org>",
-                         "Giulio Collura <random.cpp@gmail.com>",
-                         "Lucas Baudin <xapantu@gmail.com>",
-                         null
-                         };
-            about_documenters = { "Mario Guerriero <mario@elementaryos.org>",
-                              null };
-            about_artists = { "Harvey Cabaguio <harveycabaguio@gmail.com>",
-                         null
-                         };
-            about_translators = _("translator-credits");
-            about_license_type = Gtk.License.GPL_3_0;
         }
 
         public Application () {
@@ -77,7 +60,7 @@ namespace Scratch {
             Intl.bind_textdomain_codeset (Constants.GETTEXT_PACKAGE, "UTF-8");
             Intl.textdomain (Constants.GETTEXT_PACKAGE);
 
-            Granite.Services.Logger.initialize ("Scratch");
+            Granite.Services.Logger.initialize ("Code");
             Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.DEBUG;
 
             // Init settings
@@ -87,7 +70,7 @@ namespace Scratch {
             services = new ServicesSettings ();
 
             // Init data home folder for unsaved text files
-            _data_home_folder_unsaved = Environment.get_user_data_dir () + "/" + exec_name + "/unsaved/";
+            _data_home_folder_unsaved = Environment.get_user_data_dir () + "/" + "scratch-text-editor" + "/unsaved/";
         }
 
         public static Application _instance = null;
@@ -119,8 +102,8 @@ namespace Scratch {
             }
 
             if (print_version) {
-                stdout.printf ("Scratch Text Editor %s\n", build_version);
-                stdout.printf ("Copyright %s Scratch Text Editor Developers.\n".printf (app_years));
+                stdout.printf ("Code %s\n", build_version);
+                stdout.printf ("Copyright %s elementary LLC.\n".printf (app_years));
                 return Posix.EXIT_SUCCESS;
             }
 
@@ -283,7 +266,7 @@ namespace Scratch {
         };
 
         public static int main (string[] args) {
-            _app_cmd_name = "Scratch";
+            _app_cmd_name = "Code";
             Application app = Application.instance;
             return app.run (args);
         }
