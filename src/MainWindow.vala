@@ -210,6 +210,7 @@ namespace Scratch {
             sidebar = new Gtk.Notebook ();
             sidebar.no_show_all = true;
             sidebar.width_request = 200;
+            sidebar.get_style_context ().remove_class (Gtk.STYLE_CLASS_FRAME);
             sidebar.page_added.connect (() => { on_plugin_toggled (sidebar); });
             sidebar.page_removed.connect (() => { on_plugin_toggled (sidebar); });
 
