@@ -94,7 +94,7 @@ namespace Scratch.Plugins.FolderManager {
         // checks if we're dealing with a textfile
         public bool is_valid_textfile {
             get {
-                if (info.get_is_hidden () || info.get_is_backup ()) {
+                if (info.get_is_backup ()) {
                     return false;
                 }
 
