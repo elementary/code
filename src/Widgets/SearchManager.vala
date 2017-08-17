@@ -44,12 +44,6 @@ namespace Scratch.Widgets {
         private Gtk.TextBuffer? text_buffer = null;
         private Gtk.SourceSearchContext search_context = null;
 
-        /* The normal color for GtkEntry, used when we put the text in red
-         * (when something is not found), and/or we want to re-put the normal
-         * color
-         */
-        private Gdk.RGBA normal_color;
-
         public signal void need_hide ();
 
         /**
@@ -139,8 +133,6 @@ namespace Scratch.Widgets {
             entry_context.set_path (entry_path);
             entry_context.add_class ("entry");
 
-            normal_color = entry_context.get_color (Gtk.StateFlags.FOCUSED);
-
             add (search_grid);
             add (replace_grid);
             add (go_to_label);
@@ -170,10 +162,10 @@ namespace Scratch.Widgets {
             if (found) {
                 tool_arrow_down.sensitive = true;
                 tool_arrow_up.sensitive = false;
-                search_entry.override_color (Gtk.StateFlags.NORMAL, normal_color);
+                search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
             } else {
                 if (search_entry.text != "") {
-                    search_entry.override_color (Gtk.StateFlags.NORMAL, {1.0, 0.0, 0.0, 1.0});
+                    search_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ERROR);
                 }
 
                 tool_arrow_down.sensitive = false;
@@ -262,11 +254,11 @@ namespace Scratch.Widgets {
                                                     case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
                                                     out start_iter, out end_iter, null);
             if (found) {
-                search_entry.override_color (Gtk.StateFlags.FOCUSED, normal_color);
+                search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
                 return true;
             } else {
                 if (search_entry.text != "") {
-                    search_entry.override_color (Gtk.StateFlags.FOCUSED, {1.0, 0.0, 0.0, 1.0});
+                    search_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ERROR);
                 }
 
                 return false;
@@ -289,16 +281,16 @@ namespace Scratch.Widgets {
             text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
 
             if (search_for_iter (start_iter, out end_iter)) {
-                search_entry.override_color (Gtk.StateFlags.FOCUSED, normal_color);
+                search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
             } else {
                 text_buffer.get_start_iter (out start_iter);
                 if (search_for_iter (start_iter, out end_iter)) {
-                    search_entry.override_color (Gtk.StateFlags.FOCUSED, normal_color);
+                    search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
                 } else {
                     warning ("Not found : \"%s\"", search_string);
                     start_iter.set_offset (-1);
                     text_buffer.select_range (start_iter, start_iter);
-                    search_entry.override_color (Gtk.StateFlags.FOCUSED, {1.0, 0.0, 0.0, 1.0});
+                    search_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ERROR);
                     return false;
                 }
             }
