@@ -210,6 +210,7 @@ namespace Scratch {
             sidebar = new Gtk.Notebook ();
             sidebar.no_show_all = true;
             sidebar.width_request = 200;
+            sidebar.get_style_context ().remove_class (Gtk.STYLE_CLASS_FRAME);
             sidebar.page_added.connect (() => { on_plugin_toggled (sidebar); });
             sidebar.page_removed.connect (() => { on_plugin_toggled (sidebar); });
 
@@ -362,7 +363,7 @@ namespace Scratch {
                 }
 
                 if (document_to_focus != null) {
-                    view.notebook.current = document_to_focus;
+                    view.current_document = document_to_focus;
                 }
             }
         }
@@ -439,7 +440,7 @@ namespace Scratch {
         public Scratch.Services.Document? get_current_document () {
             var view = get_current_view ();
             if (view != null) {
-                return view.get_current_document ();
+                return view.current_document;
             }
 
             return null;
@@ -536,7 +537,7 @@ namespace Scratch {
                     view.is_closing = true;
                     foreach (var doc in view.docs) {
                         if (!doc.close (true)) {
-                            view.set_current_document (doc);
+                            view.current_document = doc;
                             return false;
                         }
                     }
@@ -731,32 +732,49 @@ namespace Scratch {
         }
 
         private void action_save () {
-            var doc = get_current_document ();
-            if (doc.is_file_temporary == true) {
-                action_save_as ();
-            } else {
-                doc.save.begin ();
+            var doc = get_current_document (); /* may return null */
+            if (doc != null) {
+                if (doc.is_file_temporary == true) {
+                    action_save_as ();
+                } else {
+                    doc.save.begin ();
+                }
             }
         }
 
         private void action_save_as () {
-            get_current_document ().save_as.begin ();
+            var doc = get_current_document ();
+            if (doc != null) {
+                doc.save_as.begin ();
+            }
         }
 
         private void action_undo () {
-            get_current_document ().undo ();
+            var doc = get_current_document ();
+            if (doc != null) {
+                doc.undo ();
+            }
         }
 
         private void action_redo () {
-            get_current_document ().redo ();
+            var doc = get_current_document ();
+            if (doc != null) {
+                doc.redo ();
+            }
         }
 
         private void action_revert () {
-            get_current_document ().revert ();
+            var doc = get_current_document ();
+            if (doc != null) {
+                doc.revert ();
+            }
         }
 
         private void action_duplicate () {
-            get_current_document ().duplicate_selection ();
+            var doc = get_current_document ();
+            if (doc != null) {
+                doc.duplicate_selection ();
+            }
         }
 
         private void action_new_tab () {
@@ -874,7 +892,7 @@ namespace Scratch {
         private void action_to_lower_case () {
             Scratch.Widgets.DocumentView? view = null;
             view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
-            var doc = view.get_current_document ();
+            var doc = view.current_document;
             if (doc == null) {
                 return;
             }
@@ -891,7 +909,7 @@ namespace Scratch {
         private void action_to_upper_case () {
             Scratch.Widgets.DocumentView? view = null;
             view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
-            var doc = view.get_current_document ();
+            var doc = view.current_document;
             if (doc == null) {
                 return;
             }

@@ -4,14 +4,14 @@
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License version 3
- * as published by the Free Software Foundation, either version 3 of the 
+ * as published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranties of
- * MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR 
+ * MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
  * PURPOSE. See the GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
@@ -28,11 +28,11 @@ namespace Scratch.Plugins.FolderManager {
         private bool children_loaded = false;
 
         public FolderItem (File file, FileView view) requires (file.is_valid_directory) {
-            Object (file: file, view: view);        
+            Object (file: file, view: view);
         }
-        
+
         construct {
-            if (file.children.length () > 0) {
+            if (file.children.size > 0) {
                 add (new Granite.Widgets.SourceList.Item ("")); // dummy
             }
 
@@ -43,7 +43,7 @@ namespace Scratch.Plugins.FolderManager {
                     children_loaded = true;
                 }
             });
-            
+
             try {
                 monitor = file.file.monitor_directory (GLib.FileMonitorFlags.NONE);
                 monitor.changed.connect (on_changed);
@@ -51,10 +51,10 @@ namespace Scratch.Plugins.FolderManager {
                 warning (e.message);
             }
         }
-        
+
         public override Gtk.Menu? get_context_menu () {
             var menu = new Gtk.Menu ();
-            
+
             if (parent == view.root) {
                 var item = new Gtk.MenuItem.with_label (_("Close Folder"));
                 item.activate.connect (do_close);
@@ -64,7 +64,7 @@ namespace Scratch.Plugins.FolderManager {
                 item.activate.connect (() => { view.open_folder (file); });
                 menu.append (item);
             }
-            
+
             var rename_item = new Gtk.MenuItem.with_label (_("Rename"));
             rename_item.activate.connect (() => view.start_editing_item (this));
             menu.append (rename_item);
@@ -80,11 +80,12 @@ namespace Scratch.Plugins.FolderManager {
             var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
             delete_item.activate.connect (() => trash ());
             menu.append (delete_item);
-            
+
             menu.show_all ();
+
             return menu;
         }
-        
+
         private void add_children () {
             foreach (var child in file.children) {
                 if (child.is_valid_directory) {
@@ -96,7 +97,7 @@ namespace Scratch.Plugins.FolderManager {
                 }
             }
         }
-        
+
         private void do_close () {
             /*view.close_folder (path);*/
         }
@@ -152,7 +153,7 @@ namespace Scratch.Plugins.FolderManager {
                     break;
             }
         }
-        
+
         private void add_folder () {
             if (!file.is_executable) {
                 // This is necessary to avoid infinite loop below
