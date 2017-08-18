@@ -29,7 +29,7 @@ namespace Scratch.Plugins {
         SymbolOutline? current_view = null;
 
         Gtk.Stack? container = null;
-        Gtk.Notebook? notebook = null;
+        Gtk.Stack? sidebar = null;
 
         Gee.LinkedList<SymbolOutline> views;
 
@@ -42,7 +42,7 @@ namespace Scratch.Plugins {
         public void activate () {
             scratch_interface = (Scratch.Services.Interface)object;
             scratch_interface.hook_document.connect (on_hook_document);
-            scratch_interface.hook_notebook_sidebar.connect (on_hook_sidebar);
+            scratch_interface.hook_sidebar.connect (on_hook_sidebar);
         }
 
         public void deactivate () {
@@ -53,12 +53,12 @@ namespace Scratch.Plugins {
             
         }
 
-        void on_hook_sidebar (Gtk.Notebook notebook) {
+        void on_hook_sidebar (Gtk.Stack sidebar) {
             if (container != null)
                 return;
 
-            if (this.notebook == null)
-                this.notebook = notebook;
+            if (this.sidebar == null)
+                this.sidebar = sidebar;
 
             container = new Gtk.Stack ();
             container.visible = false;
@@ -112,15 +112,16 @@ namespace Scratch.Plugins {
         }
 
         void add_container () {
-            if (notebook.page_num (container) == -1) {
-                notebook.append_page (container, new Gtk.Label (_("Symbols")));
+            if (sidebar.get_child_by_name ("symbols") == null) {
+                sidebar.add_titled (container, "symbols", _("Symbols"));
                 container.show_all ();
             }
         }
 
         void remove_container () {
-            if (notebook.page_num (container) != -1)
-                notebook.remove (container);
+            if (sidebar.get_child_by_name ("symbols") != null) {
+                sidebar.remove (container);
+            }
         }
 
         void remove_view (SymbolOutline view) {

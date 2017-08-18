@@ -36,7 +36,7 @@ namespace Scratch.Plugins {
 
         public void activate () {
             plugins = (Scratch.Services.Interface) object;
-            plugins.hook_notebook_sidebar.connect (on_hook_sidebar);
+            plugins.hook_sidebar.connect (on_hook_sidebar);
         }
 
         public void deactivate () {
@@ -48,7 +48,7 @@ namespace Scratch.Plugins {
             
         }
 
-        void on_hook_sidebar (Gtk.Notebook notebook) {
+        void on_hook_sidebar (Gtk.Stack sidebar) {
             if (view != null)
                 return;
 
@@ -101,7 +101,7 @@ namespace Scratch.Plugins {
             box.pack_start (toolbar, false, false, 0);
             box.show_all ();
 
-            notebook.append_page (box, new Gtk.Label (_("File Manager")));
+            sidebar.add_titled (box, "box", _("File Manager"));
         }
     }
 }
