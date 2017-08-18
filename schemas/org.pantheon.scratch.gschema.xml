@@ -55,7 +55,7 @@
 	</schema>
 	<schema path="/org/pantheon/scratch/settings/" id="org.pantheon.scratch.settings" gettext-domain="scratch">
 		<key type="as" name="plugins-enabled">
-			<default>['detect-indent', 'folder-manager', 'contractor']</default>
+			<default>['detect-indent', 'folder-manager', 'contractor', 'outline']</default>
 			<summary>Enabled Plugins</summary>
 			<description>Enabled Plugins</description>
 		</key>
