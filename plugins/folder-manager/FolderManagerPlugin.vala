@@ -66,6 +66,7 @@ namespace Scratch.Plugins {
             view.root.child_added.connect (() => {
                 if (view.get_n_visible_children (view.root) == 0) {
                     sidebar.add_titled (view, "folders", _("Folders"));
+                    sidebar.child_set_property (view, "position", 0);
                     sidebar.show_all ();
                 }
             });

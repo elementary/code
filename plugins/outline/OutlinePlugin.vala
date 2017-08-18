@@ -114,6 +114,7 @@ namespace Scratch.Plugins {
         void add_container () {
             if (sidebar.get_child_by_name ("symbols") == null) {
                 sidebar.add_titled (container, "symbols", _("Symbols"));
+                sidebar.child_set_property (container, "position", 1);
                 container.show_all ();
             }
         }
