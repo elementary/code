@@ -79,13 +79,8 @@ namespace Scratch.Widgets {
 
             show_all ();
 
-            share_menu.insert.connect (() => {
-                on_share_menu_changed ();
-            });
-
-            share_menu.remove.connect (() => {
-                on_share_menu_changed ();
-            });
+            share_menu.insert.connect (on_share_menu_changed);
+            share_menu.remove.connect (on_share_menu_changed);
 
             settings.changed.connect (() => {
                 save_button.visible = !settings.autosave;
