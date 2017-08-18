@@ -120,7 +120,6 @@ namespace Scratch.Widgets {
         }
 
         void on_populate_menu (Gtk.Menu menu) {
-
             var syntax_menu = new Gtk.MenuItem ();
             syntax_menu.set_label (_("Syntax Highlighting"));
 
@@ -131,12 +130,9 @@ namespace Scratch.Widgets {
             unowned SList<Gtk.RadioMenuItem> group = null;
             Gtk.RadioMenuItem? item = null;
 
-            // "No Language" entry
             item = new Gtk.RadioMenuItem (group);
             item.set_label (_("Normal Text"));
             item.toggled.connect (() => {
-
-                //"No highlight style"
                 language = null;
             });
 
@@ -226,7 +222,6 @@ namespace Scratch.Widgets {
             style_changed (buffer.style_scheme);
         }
 
-        // Move cursor to a given line
         public void go_to_line (int line) {
             Gtk.TextIter it;
             buffer.get_iter_at_line (out it, line-1);
@@ -235,7 +230,6 @@ namespace Scratch.Widgets {
             set_highlight_current_line (true);
         }
 
-        // Get selected text
         public string get_selected_text (bool replace_new_line = true) {
             Gtk.TextIter start, end;
             buffer.get_selection_bounds (out start, out end);
@@ -249,9 +243,8 @@ namespace Scratch.Widgets {
 
         // Duplicate selected text if exists, else duplicate current line
         public void duplicate_selection () {
-            // Selection
             var selection = get_selected_text ();
-            // Iters
+
             Gtk.TextIter start, end;
             buffer.get_selection_bounds (out start, out end);
 
@@ -292,12 +285,13 @@ namespace Scratch.Widgets {
             Gtk.TextIter start, end;
             buffer.get_selection_bounds (out start,out end);
 
-            if (start == last_select_start_iter && end == last_select_end_iter)
+            if (start == last_select_start_iter && end == last_select_end_iter) {
                 return;
+            }
 
-            if (selection_changed_timer !=0 &&
-                MainContext.get_thread_default ().find_source_by_id (selection_changed_timer) != null)
+            if (selection_changed_timer !=0 && MainContext.get_thread_default ().find_source_by_id (selection_changed_timer) != null) {
                 Source.remove (selection_changed_timer);
+            }
 
             // Fire deselected immediatly
             if (!buffer.get_has_selection ()) {
