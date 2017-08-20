@@ -29,6 +29,8 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
     Gee.TreeSet<Gtk.TextBuffer> buffers;
     Gtk.TextBuffer current_buffer;
     string last_inserted;
+    
+    bool AttentionBracket;
 
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
@@ -53,7 +55,19 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
         this.brackets.set ("\"", "\"");
         
         
+        this.bracketsDALD = new Gee.HashMap<string, bool> ();
+        this.bracketsDALD.set ("(", ")");
+        this.bracketsDALD.set ("[", "]");
+        this.bracketsDALD.set ("{", "}");
+        this.bracketsDALD.set ("<", ">");
+        this.bracketsDALD.set ("⟨", "⟩");
+        this.bracketsDALD.set ("｢", "｣");
+        this.bracketsDALD.set ("⸤", "⸥");
+        this.bracketsDALD.set ("‘", "‘");
+        this.bracketsDALD.set ("'", "'");
+        this.bracketsDALD.set ("\"", "\"");
         
+        AttentionBracket = false;    
 
         plugins = (Scratch.Services.Interface) object;
         plugins.hook_document.connect ((doc) => {
@@ -89,6 +103,8 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
             int len = text.length;
             this.last_inserted = text;
             buf.insert (ref pos, text, len);
+
+            AttentionBracket = true;
 
             //To make " and ' brackets work correctly (opening and closing chars are the same)
             this.last_inserted = null;
