@@ -219,11 +219,13 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         // Set font, allow-bold, audible-bell, background, foreground, and palette of pantheon-terminal
         var schema_source = SettingsSchemaSource.get_default ();
         var terminal_schema = schema_source.lookup ("io.elementary.terminal.settings", true);
-        var legacy_terminal_schema = schema_source.lookup ("org.pantheon.terminal.settings", true);
         if (terminal_schema != null) {
             update_terminal_settings ("io.elementary.terminal.settings");
-        } else if (legacy_terminal_schema != null) {
-            update_terminal_settings ("org.pantheon.terminal.settings");
+        } else {
+            var legacy_terminal_schema = schema_source.lookup ("org.pantheon.terminal.settings", true);
+            if (legacy_terminal_schema != null) {
+                update_terminal_settings ("org.pantheon.terminal.settings");
+            }    
         }
 
         // Set terminal font
