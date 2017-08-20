@@ -22,11 +22,4 @@
         <menuitem action="ToLowerCase" />
         <menuitem action="ToUpperCase" />
     </popup>
-    
-    <popup name="AppMenu">
-        <menuitem action="NewView" />
-        <menuitem action="RemoveView" />
-        <separator />
-        <menuitem action="Preferences" />
-    </popup>
 </ui>
