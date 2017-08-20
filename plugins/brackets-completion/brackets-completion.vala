@@ -23,6 +23,8 @@ public const string DESCRIPTION = _("Complete brackets while typing");
 
 public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Activatable {
     Gee.HashMap<string, string> brackets;
+    // saves, when left bracket is deleted, if right bracket will also be deleted 
+    Gee.HashMap<string, bool> bracketsDALD;
 
     Gee.TreeSet<Gtk.TextBuffer> buffers;
     Gtk.TextBuffer current_buffer;
@@ -37,6 +39,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
 
     public void activate () {
         this.buffers = new Gee.TreeSet<Gtk.TextBuffer> ();
+        
         this.brackets = new Gee.HashMap<string, string> ();
         this.brackets.set ("(", ")");
         this.brackets.set ("[", "]");
@@ -48,6 +51,9 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
         this.brackets.set ("‘", "‘");
         this.brackets.set ("'", "'");
         this.brackets.set ("\"", "\"");
+        
+        
+        
 
         plugins = (Scratch.Services.Interface) object;
         plugins.hook_document.connect ((doc) => {
