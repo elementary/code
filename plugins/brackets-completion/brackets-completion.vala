@@ -56,16 +56,16 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
         
         
         this.bracketsDALD = new Gee.HashMap<string, bool> ();
-        this.bracketsDALD.set ("(", ")");
-        this.bracketsDALD.set ("[", "]");
-        this.bracketsDALD.set ("{", "}");
-        this.bracketsDALD.set ("<", ">");
-        this.bracketsDALD.set ("⟨", "⟩");
-        this.bracketsDALD.set ("｢", "｣");
-        this.bracketsDALD.set ("⸤", "⸥");
-        this.bracketsDALD.set ("‘", "‘");
-        this.bracketsDALD.set ("'", "'");
-        this.bracketsDALD.set ("\"", "\"");
+        this.bracketsDALD.set ("(", true);
+        this.bracketsDALD.set ("[", true);
+        this.bracketsDALD.set ("{", true);
+        this.bracketsDALD.set ("<", true);
+        this.bracketsDALD.set ("⟨", true);
+        this.bracketsDALD.set ("｢", true);
+        this.bracketsDALD.set ("⸤", true);
+        this.bracketsDALD.set ("‘", false);
+        this.bracketsDALD.set ("'", false);
+        this.bracketsDALD.set ("\"", false);
         
         AttentionBracket = false;    
 
