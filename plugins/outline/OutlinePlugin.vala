@@ -115,6 +115,7 @@ namespace Scratch.Plugins {
             if (sidebar.get_child_by_name ("symbols") == null) {
                 sidebar.add_titled (container, "symbols", _("Symbols"));
                 sidebar.child_set_property (container, "position", 1);
+                sidebar.child_set_property (container, "icon-name", "plugin-outline-symbolic");
                 container.show_all ();
             }
         }
