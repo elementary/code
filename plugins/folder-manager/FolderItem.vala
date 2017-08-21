@@ -53,34 +53,27 @@ namespace Scratch.Plugins.FolderManager {
         }
 
         public override Gtk.Menu? get_context_menu () {
-            var menu = new Gtk.Menu ();
-
-            if (parent == view.root) {
-                var item = new Gtk.MenuItem.with_label (_("Close Folder"));
-                item.activate.connect (do_close);
-                menu.append (item);
-            } else {
-                var item = new Gtk.MenuItem.with_label (_("Open"));
-                item.activate.connect (() => { view.open_folder (file); });
-                menu.append (item);
-            }
+            var open_item = new Gtk.MenuItem.with_label (_("Open"));
+            open_item.activate.connect (() => { view.open_folder (file); });
 
             var rename_item = new Gtk.MenuItem.with_label (_("Rename"));
             rename_item.activate.connect (() => view.start_editing_item (this));
-            menu.append (rename_item);
 
             var new_file_item = new Gtk.MenuItem.with_label (_("Add File"));
             new_file_item.activate.connect (() => add_file ());
-            menu.append (new_file_item);
 
             var new_folder_item = new Gtk.MenuItem.with_label (_("Add Folder"));
             new_folder_item.activate.connect(() => add_folder ());
-            menu.append (new_folder_item);
 
             var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
             delete_item.activate.connect (() => trash ());
-            menu.append (delete_item);
 
+            var menu = new Gtk.Menu ();
+            menu.append (open_item);
+            menu.append (rename_item);
+            menu.append (new_file_item);
+            menu.append (new_folder_item);
+            menu.append (delete_item);
             menu.show_all ();
 
             return menu;
@@ -98,20 +91,7 @@ namespace Scratch.Plugins.FolderManager {
             }
         }
 
-        private void do_close () {
-            /*view.close_folder (path);*/
-        }
-
-        private new void trash () {
-            if (parent == view.root) {
-                do_close ();
-            }
-
-            base.trash ();
-        }
-
         private void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
-
             if (!children_loaded) {
                 this.file.reset_cache ();
                 return;
@@ -173,8 +153,6 @@ namespace Scratch.Plugins.FolderManager {
                 expanded = true;
 
                 new_folder.make_directory ();
-
-                /*newly_created_path = new_folder.get_path ();*/
             } catch (Error e) {
                 warning (e.message);
             }
@@ -199,8 +177,6 @@ namespace Scratch.Plugins.FolderManager {
                 expanded = true;
 
                 new_file.create (FileCreateFlags.NONE);
-
-                /*newly_created_path = new_file.get_path ();*/
             } catch (Error e) {
                 warning (e.message);
             }
