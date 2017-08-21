@@ -236,6 +236,7 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_widgets_loading_view_stop@Base 2.0.2bzr1327
  scratch_widgets_search_manager_construct@Base 2.0.2bzr1327
  scratch_widgets_search_manager_get_type@Base 2.0.2bzr1327
+ scratch_widgets_search_manager_get_window@Base 2.4.1
  scratch_widgets_search_manager_highlight_none@Base 2.0.2bzr1327
  scratch_widgets_search_manager_new@Base 2.0.2bzr1327
  scratch_widgets_search_manager_search@Base 2.0.2bzr1327
@@ -250,7 +251,6 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_widgets_source_view_get_type@Base 2.0.2bzr1327
  scratch_widgets_source_view_go_to_line@Base 2.0.2bzr1327
  scratch_widgets_source_view_new@Base 2.0.2bzr1327
- scratch_widgets_source_view_set_language@Base 2.0.2bzr1327
  scratch_widgets_source_view_set_text@Base 2.0.2bzr1327
  scratch_widgets_source_view_use_default_font@Base 2.0.2bzr1327
  scratch_widgets_split_view_add_view@Base 2.0.2bzr1327
@@ -265,6 +265,8 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_widgets_split_view_set_window@Base 2.4.1
  scratch_widgets_split_view_show_welcome@Base 2.0.2bzr1327
  scratch_widgets_toolbar_construct@Base 2.0.2bzr1327
+ scratch_widgets_toolbar_get_main_actions@Base 2.4.1
+ scratch_widgets_toolbar_get_menu@Base 2.4.1
  scratch_widgets_toolbar_get_type@Base 2.0.2bzr1327
  scratch_widgets_toolbar_new@Base 2.0.2bzr1327
  template_button_construct@Base 2.0.2bzr1327
