@@ -729,10 +729,6 @@ namespace Scratch {
             destroy ();
         }
 
-        private void action_restore_tab () {
-
-        }
-
         private void action_open () {
             // Show a GtkFileChooserDialog
             var filech = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.OPEN, _("Open some files"), this, true);
@@ -960,10 +956,6 @@ namespace Scratch {
           /* label, accelerator */       N_("Replace"), "<Control>r",
           /* tooltip */                  N_("Replace"),
                                          action_fetch },
-            { "RestoreTab", null,
-          /* label, accelerator */       N_("Reopen closed document"), "<Control><Shift>t",
-          /* tooltip */                  N_("Open last closed document in a new tab"),
-                                         action_restore_tab },
             { "NewTab", "add",
           /* label, accelerator */       N_("Add New Tab"), "<Control>n",
           /* tooltip */                  N_("Add a new tab"),
