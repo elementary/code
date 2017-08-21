@@ -710,10 +710,6 @@ namespace Scratch {
             destroy ();
         }
 
-        private void action_restore_tab () {
-
-        }
-
         private void action_open () {
             // Show a GtkFileChooserDialog
             var filech = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.OPEN, _("Open some files"), this, true);
@@ -941,10 +937,6 @@ namespace Scratch {
           /* label, accelerator */       N_("Replace"), "<Control>r",
           /* tooltip */                  N_("Replace"),
                                          action_fetch },
-            { "RestoreTab", null,
-          /* label, accelerator */       N_("Reopen closed document"), "<Control><Shift>t",
-          /* tooltip */                  N_("Open last closed document in a new tab"),
-                                         action_restore_tab },
             { "NewTab", "add",
           /* label, accelerator */       N_("Add New Tab"), "<Control>n",
           /* tooltip */                  N_("Add a new tab"),
@@ -965,38 +957,20 @@ namespace Scratch {
           /* label, accelerator */       N_("Redo"), "<Control><shift>z",
           /* tooltip */                  N_("Redo the last undone action"),
                                          action_redo },
-            { "Revert", "document-revert",
-          /* label, accelerator */       N_("Revert"), "<Control><shift>o",
-          /* tooltip */                  N_("Restore this file"),
-                                         action_revert },
+            { "Revert", null, null, "<Control><shift>o", null, action_revert },
             { "Duplicate", null,
           /* label, accelerator */       N_("Duplicate selected strings"), "<Control>d",
           /* tooltip */                  N_("Duplicate selected strings"),
                                          action_duplicate },
-            { "Open", "document-open",
-          /* label, accelerator */       N_("Open"), "<Control>o",
-          /* tooltip */                  N_("Open a file"),
-                                         action_open },
+            { "Open", null, null, "<Control>o", null, action_open },
             { "Clipboard", "edit-paste",
           /* label, accelerator */       N_("Clipboard"), null,
           /* tooltip */                  N_("New file from Clipboard"),
                                          action_new_tab_from_clipboard },
-            { "Zoom", "zoom-original",
-          /* label, accelerator */       N_("Zoom"), "<Control>0",
-          /* tooltip */                  N_("Zoom 1:1"),
-                                         action_set_default_zoom },
-            { "SaveFile", "document-save",
-          /* label, accelerator */       N_("Save"), "<Control>s",
-          /* tooltip */                  N_("Save this file"),
-                                         action_save },
-            { "SaveFileAs", "document-save-as",
-          /* label, accelerator */       N_("Save As…"), "<Control><shift>s",
-          /* tooltip */                  N_("Save this file with a different name"),
-                                         action_save_as },
-            { "Templates", "text-x-generic-template",
-          /* label, accelerator */       N_("Templates"), null,
-          /* tooltip */                  N_("Project templates"),
-                                         action_templates },
+            { "Zoom", null, null, "<Control>0", null, action_set_default_zoom },
+            { "SaveFile", null, null, "<Control>s", null, action_save },
+            { "SaveFileAs", null, null, "<Control><shift>s", null, action_save_as },
+            { "Templates", null, null, null, null, action_templates },
             { "Preferences", "preferences-desktop",
           /* label, accelerator */       N_("Preferences"), null,
           /* tooltip */                  N_("Change Scratch settings"),
@@ -1030,10 +1004,7 @@ namespace Scratch {
           /* tooltip */                  N_("Fullscreen"),
                                          action_fullscreen },
 
-            { "ShowFetch", "edit-find",
-          /* label, accelerator */       N_("Find…"), "",
-          /* tooltip */                  N_("Find…"),
-                                         action_show_fetch }
+            { "ShowFetch", null, null, "", null, action_show_fetch }
         };
     }
 }
