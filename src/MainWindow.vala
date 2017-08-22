@@ -142,9 +142,7 @@ namespace Scratch {
         }
 
         private void init_layout () {
-            // Toolbar
-            var menu = ui.get_widget ("ui/AppMenu") as Gtk.Menu;
-            toolbar = new Scratch.Widgets.Toolbar (main_actions, menu);
+            toolbar = new Scratch.Widgets.Toolbar (main_actions);
             toolbar.title = title;
             toolbar.show_close_button = true;
             set_titlebar (toolbar);
