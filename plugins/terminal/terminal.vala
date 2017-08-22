@@ -42,6 +42,9 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
 
     GLib.Pid child_pid;
 
+    private const string SETTINGS_SCHEMA = "io.elementary.terminal.settings";
+    private const string LEGACY_SETTINGS_SCHEMA = "org.pantheon.terminal.settings";
+
     private string font_name = "";
 
     Scratch.Services.Interface plugins;
@@ -218,13 +221,13 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
 
         // Set font, allow-bold, audible-bell, background, foreground, and palette of pantheon-terminal
         var schema_source = SettingsSchemaSource.get_default ();
-        var terminal_schema = schema_source.lookup ("io.elementary.terminal.settings", true);
+        var terminal_schema = schema_source.lookup (SETTINGS_SCHEMA, true);
         if (terminal_schema != null) {
-            update_terminal_settings ("io.elementary.terminal.settings");
+            update_terminal_settings (SETTINGS_SCHEMA);
         } else {
-            var legacy_terminal_schema = schema_source.lookup ("org.pantheon.terminal.settings", true);
+            var legacy_terminal_schema = schema_source.lookup (LEGACY_SETTINGS_SCHEMA, true);
             if (legacy_terminal_schema != null) {
-                update_terminal_settings ("org.pantheon.terminal.settings");
+                update_terminal_settings (LEGACY_SETTINGS_SCHEMA);
             }    
         }
 
