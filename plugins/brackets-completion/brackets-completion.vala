@@ -86,13 +86,13 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
                 if (AttentionBracket) {
                     
                     Gtk.TextIter leftiter;
-                    buf.get_iter_at_mark(leftiter, buf.get_insert());
+                    buf.get_iter_at_mark(out leftiter, buf.get_insert());
                     
                     var rightiter = leftiter;
                     
                     leftiter.backward_cursor_positions (1);
                     rightiter.backward_cursor_positions (2);
-                    buf.@delete(leftier, rightiter);       
+                    buf.@delete(ref leftiter, ref rightiter);       
                 
                     // https://valadoc.org/gtk+-3.0/Gtk.TextBuffer.get_insert.html hier bekommt TextMark
                     // dann https://valadoc.org/gtk+-3.0/Gtk.TextBuffer.get_iter_at_mark.html 
