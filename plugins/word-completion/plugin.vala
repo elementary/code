@@ -87,7 +87,6 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase,  Peas.Activatable 
         if (text_view_list.find (current_view) == null)
             text_view_list.append (current_view);
 
-
         var comp_provider = new Scratch.Plugins.CompletionProvider (this);
         comp_provider.priority = 1;
         comp_provider.name = provider_name_from_document (doc);
@@ -95,7 +94,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase,  Peas.Activatable 
 
         try {
             current_view.completion.add_provider (comp_provider);
-            current_view.completion.show_headers = true;
+            current_view.completion.show_headers = false;
             current_view.completion.show_icons = true;
             /* Wait a bit to allow text to load then run parser*/
             timeout_id = Timeout.add (1000, on_timeout_update);
