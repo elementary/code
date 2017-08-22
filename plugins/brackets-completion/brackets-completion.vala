@@ -68,7 +68,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
         this.bracketsDALD.set ("\"", false);
         
         AttentionBracket = false;    
-
+        
         plugins = (Scratch.Services.Interface) object;
         plugins.hook_document.connect ((doc) => {
             var buf = doc.source_view.buffer;
@@ -76,6 +76,36 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
             buf.insert_text.connect (on_insert_text);
             this.buffers.add (buf);
             this.current_buffer = buf;
+            
+            doc.source_view.move_cursor.connect ((a, b, c) => {
+                // if cursor moves around code doesnt care about brackets anymore
+                AttentionBracket = false;
+            });
+            
+            doc.source_view.backspace.connect (() => {
+                if (AttentionBracket) {
+                    
+                    Gtk.TextIter leftiter;
+                    buf.get_iter_at_mark(leftiter, buf.get_insert());
+                    
+                    var rightiter = leftiter;
+                    
+                    leftiter.backward_cursor_positions (1);
+                    rightiter.backward_cursor_positions (2);
+                    buf.@delete(leftier, rightiter);       
+                
+                    // https://valadoc.org/gtk+-3.0/Gtk.TextBuffer.get_insert.html hier bekommt TextMark
+                    // dann https://valadoc.org/gtk+-3.0/Gtk.TextBuffer.get_iter_at_mark.html 
+                    
+                    
+                
+                
+                }
+            });
+            
+            // TODO: Habe Funktion, die Textbuffer und Position übernimmt, damit rechtes Zeichen gelöscht wird
+            
+            
         });
     }
 
@@ -86,6 +116,9 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
     }
 
     void on_insert_text (ref Gtk.TextIter pos, string new_text, int new_text_length) {
+        // if text changes code doesnt care about last brackets anymore
+        AttentionBracket = false;
+        
         // If you are copy/pasting a large amount of text...
         if (new_text_length > 1) {
             return;
@@ -104,7 +137,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
             this.last_inserted = text;
             buf.insert (ref pos, text, len);
 
-            AttentionBracket = true;
+            AttentionBracket = this.bracketsDALD.get (new_text);
 
             //To make " and ' brackets work correctly (opening and closing chars are the same)
             this.last_inserted = null;
