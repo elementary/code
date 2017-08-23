@@ -107,6 +107,17 @@ namespace Scratch.Plugins.FolderManager {
             }
         }
 
+        // Files can be executed and folders can be cd'd into
+        public bool is_executable {
+            get {
+                try {
+                    return get_boolean_file_attribute (GLib.FileAttribute.ACCESS_CAN_EXECUTE);
+                } catch (GLib.Error error) {
+                    return false;
+                }
+            }
+        }
+
         // returns a list of all children of a directory
         private bool children_valid = false;
         private Gee.ArrayList <File> _children = new Gee.ArrayList <File> ();
@@ -142,6 +153,12 @@ namespace Scratch.Plugins.FolderManager {
 
                 return _children;
             }
+        }
+
+        private bool get_boolean_file_attribute (string attribute) throws GLib.Error {
+            var info = file.query_info (attribute, GLib.FileQueryInfoFlags.NONE);
+
+            return info.get_attribute_boolean (attribute);
         }
 
         private void load_file_for_path (string path) {
