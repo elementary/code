@@ -60,6 +60,18 @@ namespace Scratch {
         // Delegates
         delegate void HookFunc ();
 
+        public SimpleActionGroup actions;
+
+        public const string ACTION_NEW_VIEW = "action_new_view";
+        public const string ACTION_PREFERENCES = "preferences";
+        public const string ACTION_REMOVE_VIEW = "action_remove_view";
+
+        private const ActionEntry[] action_entries = {
+            { ACTION_NEW_VIEW, action_new_view },
+            { ACTION_PREFERENCES, action_preferences },
+            { ACTION_REMOVE_VIEW, action_remove_view }
+        };
+
         public MainWindow (Application scratch_app) {
             Object (application: scratch_app,
                     app: scratch_app,
@@ -69,6 +81,10 @@ namespace Scratch {
         }
 
         construct {
+            actions = new SimpleActionGroup ();
+            actions.add_action_entries (action_entries, this);
+            insert_action_group ("win", actions);
+
             set_size_request (450, 400);
             set_hide_titlebar_when_maximized (false);
 
@@ -924,14 +940,6 @@ namespace Scratch {
             { "CloseTab", null, null, "<Control>w", null, action_close_tab },
             { "ShowReplace", null, null, "<Control>r", null, action_fetch },
             { "NewTab", null, null, "<Control>n", null, action_new_tab },
-            { "NewView", "add",
-          /* label, accelerator */       N_("Add New View"), "F3",
-          /* tooltip */                  N_("Add a new view"),
-                                         action_new_view },
-            { "RemoveView", "window-close",
-          /* label, accelerator */       N_("Remove Current View"), null,
-          /* tooltip */                  N_("Remove this view"),
-                                         action_remove_view },
             { "Undo", null, null, "<Control>z", null, action_undo },
             { "Redo", null, null, "<Control><shift>z", null, action_redo },
             { "Revert", null, null, "<Control><shift>o", null, action_revert },
@@ -942,10 +950,6 @@ namespace Scratch {
             { "SaveFile", null, null, "<Control>s", null, action_save },
             { "SaveFileAs", null, null, "<Control><shift>s", null, action_save_as },
             { "Templates", null, null, null, null, action_templates },
-            { "Preferences", "preferences-desktop",
-          /* label, accelerator */       N_("Preferences"), null,
-          /* tooltip */                  N_("Change Scratch settings"),
-                                         action_preferences },
             { "NextTab", null, null, "<Control><Alt>Page_Up", null, action_next_tab },
             { "PreviousTab", null, null, "<Control><Alt>Page_Down", null, action_previous_tab },
             { "ToLowerCase", null, null, "<Control>l", null, action_to_lower_case },
