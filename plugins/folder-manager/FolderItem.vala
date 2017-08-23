@@ -53,26 +53,28 @@ namespace Scratch.Plugins.FolderManager {
         }
 
         public override Gtk.Menu? get_context_menu () {
-            var open_item = new Gtk.MenuItem.with_label (_("Open"));
-            open_item.activate.connect (() => { view.open_folder (file); });
-
             var rename_item = new Gtk.MenuItem.with_label (_("Rename"));
             rename_item.activate.connect (() => view.start_editing_item (this));
 
-            var new_file_item = new Gtk.MenuItem.with_label (_("Add File"));
+            var new_folder_item = new Gtk.MenuItem.with_label (_("Folder"));
+            new_folder_item.activate.connect(() => add_folder ());
+
+            var new_file_item = new Gtk.MenuItem.with_label (_("Empty File"));
             new_file_item.activate.connect (() => add_file ());
 
-            var new_folder_item = new Gtk.MenuItem.with_label (_("Add Folder"));
-            new_folder_item.activate.connect(() => add_folder ());
+            var new_menu = new Gtk.Menu ();
+            new_menu.append (new_folder_item);
+            new_menu.append (new_file_item);
+
+            var new_item = new Gtk.MenuItem.with_label (_("New"));
+            new_item.set_submenu (new_menu);
 
             var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
             delete_item.activate.connect (() => trash ());
 
             var menu = new Gtk.Menu ();
-            menu.append (open_item);
             menu.append (rename_item);
-            menu.append (new_file_item);
-            menu.append (new_folder_item);
+            menu.append (new_item);
             menu.append (delete_item);
             menu.show_all ();
 
