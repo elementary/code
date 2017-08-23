@@ -11,7 +11,7 @@ You'll need the following dependencies:
 * libgail-3-dev
 * libgee-0.8-dev
 * libgtksourceview-3.0-dev
-* libgtkspell-3-dev
+* libgtkspell3-3-dev
 * libgranite-dev
 * libpeas-dev
 * libsoup2.4-dev
