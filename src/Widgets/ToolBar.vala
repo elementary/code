@@ -27,11 +27,10 @@ namespace Scratch.Widgets {
         public Gtk.MenuButton share_app_menu;
         public Gtk.MenuButton app_menu;
 
-        public Toolbar (Gtk.ActionGroup main_actions, Gtk.Menu menu) {
+        public Toolbar (Gtk.ActionGroup main_actions) {
             Object (
                 has_subtitle: false,
-                main_actions: main_actions,
-                menu: menu
+                main_actions: main_actions
             );
         }
 
@@ -76,6 +75,12 @@ namespace Scratch.Widgets {
             share_app_menu.image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
             share_app_menu.tooltip_text = _("Share");
             share_app_menu.set_popup (share_menu);
+
+            menu = new Gtk.Menu ();
+            menu.add (main_actions.get_action ("NewView").create_menu_item () as Gtk.MenuItem);
+            menu.add (main_actions.get_action ("RemoveView").create_menu_item () as Gtk.MenuItem);
+            menu.add (new Gtk.SeparatorMenuItem ());
+            menu.add (main_actions.get_action ("Preferences").create_menu_item () as Gtk.MenuItem);
 
             var app_menu = new Gtk.MenuButton ();
             app_menu.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
