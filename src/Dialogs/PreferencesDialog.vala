@@ -27,9 +27,6 @@ namespace Scratch.Dialogs {
         private Gtk.Stack main_stack;
         private Gtk.Switch highlight_current_line;
         private Gtk.Switch highlight_matching_brackets;
-        private Gtk.Switch spaces_instead_of_tabs_switch;
-        private Gtk.Switch autoindent_switch;
-        private Gtk.SpinButton indent_width;
         private Gtk.ComboBoxText style_scheme;
         private Gtk.Switch use_custom_font;
         private Gtk.FontButton select_font;
@@ -51,11 +48,28 @@ namespace Scratch.Dialogs {
         }
 
         construct {
+            var indent_width = new Gtk.SpinButton.with_range (1, 24, 1);
+            Scratch.settings.schema.bind ("indent-width", indent_width, "value", SettingsBindFlags.DEFAULT);
+
+            var general_grid = new Gtk.Grid ();
+            general_grid.column_spacing = 12;
+            general_grid.row_spacing = 6;
+            general_grid.attach (new SettingsHeader (_("General")), 0, 0, 2, 1);
+            general_grid.attach (new SettingsLabel (_("Save files when changed:")), 0, 1, 1, 1);
+            general_grid.attach (new SettingsSwitch ("autosave"), 1, 1, 1, 1);
+            general_grid.attach (new SettingsHeader (_("Tabs")), 0, 2, 2, 1);
+            general_grid.attach (new SettingsLabel (_("Automatic indentation:")), 0, 3, 1, 1);
+            general_grid.attach (new SettingsSwitch ("auto-indent"), 1, 3, 1, 1);
+            general_grid.attach (new SettingsLabel (_("Insert spaces instead of tabs:")), 0, 4, 1, 1);
+            general_grid.attach (new SettingsSwitch ("spaces-instead-of-tabs"), 1, 4, 1, 1);
+            general_grid.attach (new SettingsLabel (_("Tab width:")), 0, 5, 1, 1);
+            general_grid.attach (indent_width, 1, 5, 1, 1);
+
             main_stack = new Gtk.Stack ();
             main_stack.margin = 6;
             main_stack.margin_bottom = 18;
             main_stack.margin_top = 24;
-            main_stack.add_titled (get_general_box (), "behavior", _("Behavior"));
+            main_stack.add_titled (general_grid, "behavior", _("Behavior"));
             main_stack.add_titled (get_editor_box (), "interface", _("Interface"));
 
             var main_stackswitcher = new Gtk.StackSwitcher ();
@@ -86,42 +100,6 @@ namespace Scratch.Dialogs {
 
                 main_stack.add_titled (pbox, "extensions", _("Extensions"));
             }
-        }
-
-        private Gtk.Widget get_general_box () {
-            var general_grid = new Gtk.Grid ();
-            general_grid.row_spacing = 6;
-            general_grid.column_spacing = 12;
-
-            var general_header = new SettingsHeader (_("General"));
-
-            var autosave_label = new SettingsLabel (_("Save files when changed:"));
-            var autosave_switch = new SettingsSwitch ("autosave");
-
-            var tabs_header = new SettingsHeader (_("Tabs"));
-
-            var autoindent_label = new SettingsLabel (_("Automatic indentation:"));
-            autoindent_switch = new SettingsSwitch ("auto-indent");
-
-            var spaces_instead_of_tabs_label = new SettingsLabel (_("Insert spaces instead of tabs:"));
-            spaces_instead_of_tabs_switch = new SettingsSwitch ("spaces-instead-of-tabs");
-
-            var indent_width_label = new SettingsLabel (_("Tab width:"));
-            indent_width = new Gtk.SpinButton.with_range (1, 24, 1);
-            Scratch.settings.schema.bind ("indent-width", indent_width, "value", SettingsBindFlags.DEFAULT);
-
-            general_grid.attach (general_header, 0, 0, 2, 1);
-            general_grid.attach (autosave_label, 0, 1, 1, 1);
-            general_grid.attach (autosave_switch, 1, 1, 1, 1);
-            general_grid.attach (tabs_header, 0, 2, 2, 1);
-            general_grid.attach (autoindent_label, 0, 3, 1, 1);
-            general_grid.attach (autoindent_switch, 1, 3, 1, 1);
-            general_grid.attach (spaces_instead_of_tabs_label, 0, 4, 1, 1);
-            general_grid.attach (spaces_instead_of_tabs_switch, 1, 4, 1, 1);
-            general_grid.attach (indent_width_label, 0, 5, 1, 1);
-            general_grid.attach (indent_width, 1, 5, 1, 1);
-
-            return general_grid;
         }
 
         private Gtk.Widget get_editor_box () {
