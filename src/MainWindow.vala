@@ -435,7 +435,7 @@ namespace Scratch {
             main_actions.get_action ("SaveFileAs").sensitive = val;
             main_actions.get_action ("Undo").sensitive = val;
             main_actions.get_action ("Redo").sensitive = val;
-            ((SimpleAction) actions.lookup_action (ACTION_REVERT)).set_enabled (val);
+            main_actions.get_action ("Revert").sensitive = val;
             toolbar.share_app_menu.sensitive = val;
 
             // Zoom button
@@ -956,6 +956,7 @@ namespace Scratch {
             { "NewTab", null, null, "<Control>n", null, action_new_tab },
             { "Undo", null, null, "<Control>z", null, action_undo },
             { "Redo", null, null, "<Control><shift>z", null, action_redo },
+            { "Revert", null, null, "<Control><shift>o", null, action_revert },
             { "Duplicate", null, null, "<Control>d", null, action_duplicate },
             { "Clipboard", null, null, null, null, action_new_tab_from_clipboard },
             { "Zoom", null, null, "<Control>0", null, action_set_default_zoom },
