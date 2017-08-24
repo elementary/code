@@ -25,7 +25,7 @@ namespace Scratch {
         public int FONT_SIZE_MIN = 7;
         private const uint MAX_SEARCH_TEXT_LENGTH = 255;
 
-        public weak Application app { get; construct; }
+        public weak Scratch.Application app { get; construct; }
 
         // Widgets
         public Scratch.Widgets.Toolbar toolbar;
@@ -74,12 +74,13 @@ namespace Scratch {
             { ACTION_REMOVE_VIEW, action_remove_view }
         };
 
-        public MainWindow (Application scratch_app) {
-            Object (application: scratch_app,
-                    app: scratch_app,
-                    icon_name: "accessories-text-editor");
-
-            title = app.app_cmd_name;
+        public MainWindow (Scratch.Application scratch_app) {
+            Object (
+                application: scratch_app,
+                app: scratch_app,
+                icon_name: "io.elementary.code",
+                title: _("Code")
+            );
         }
 
         static construct {
