@@ -60,8 +60,9 @@ namespace Scratch {
         // Delegates
         delegate void HookFunc ();
 
-        public SimpleActionGroup actions;
+        public SimpleActionGroup actions { get; construct; }
 
+        public const string ACTION_PREFIX = "win.";
         public const string ACTION_NEW_VIEW = "action_new_view";
         public const string ACTION_PREFERENCES = "preferences";
         public const string ACTION_REMOVE_VIEW = "action_remove_view";
@@ -78,6 +79,7 @@ namespace Scratch {
                     icon_name: "accessories-text-editor");
 
             title = app.app_cmd_name;
+            application.set_accels_for_action (ACTION_PREFIX + ACTION_NEW_VIEW, { "F3" });
         }
 
         construct {

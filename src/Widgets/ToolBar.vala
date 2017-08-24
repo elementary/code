@@ -78,13 +78,13 @@ namespace Scratch.Widgets {
             share_app_menu.set_popup (share_menu);
 
             var new_view_menuitem = new Gtk.MenuItem.with_label (_("Add New View"));
-            new_view_menuitem.action_name = "win." + MainWindow.ACTION_NEW_VIEW;
+            new_view_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_VIEW;
 
             var remove_view_menuitem = new Gtk.MenuItem.with_label (_("Remove Current View"));
-            remove_view_menuitem.action_name = "win." + MainWindow.ACTION_REMOVE_VIEW;
+            remove_view_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_REMOVE_VIEW;
 
             var preferences_menuitem = new Gtk.MenuItem.with_label (_("Preferences"));
-            preferences_menuitem.action_name = "win." + MainWindow.ACTION_PREFERENCES;
+            preferences_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_PREFERENCES;
 
             menu = new Gtk.Menu ();
             menu.add (new_view_menuitem);
