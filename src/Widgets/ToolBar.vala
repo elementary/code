@@ -39,34 +39,29 @@ namespace Scratch.Widgets {
             open_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN;
             open_button.tooltip_text = _("Open a file");
 
-            var templates_button = new Gtk.Button ();
-            templates_button.related_action = main_actions.get_action ("Templates");
-            templates_button.image = new Gtk.Image.from_icon_name ("text-x-generic-template", Gtk.IconSize.LARGE_TOOLBAR);
+            var templates_button = new Gtk.Button.from_icon_name ("text-x-generic-template", Gtk.IconSize.LARGE_TOOLBAR);
+            templates_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TEMPLATES;
             templates_button.tooltip_text = _("Project templates");
 
-            var save_button = new Gtk.Button ();
-            save_button.related_action = main_actions.get_action ("SaveFile");
-            save_button.image = new Gtk.Image.from_icon_name ("document-save", Gtk.IconSize.LARGE_TOOLBAR);
+            var save_button = new Gtk.Button.from_icon_name ("document-save", Gtk.IconSize.LARGE_TOOLBAR);
+            save_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SAVE;
             save_button.tooltip_text = _("Save this file");
 
-            var save_as_button = new Gtk.Button ();
-            save_as_button.related_action = main_actions.get_action ("SaveFileAs");
-            save_as_button.image = new Gtk.Image.from_icon_name ("document-save-as", Gtk.IconSize.LARGE_TOOLBAR);
+            var save_as_button = new Gtk.Button.from_icon_name ("document-save-as", Gtk.IconSize.LARGE_TOOLBAR);
+            save_as_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SAVE_AS;
             save_as_button.tooltip_text = _("Save this file with a different name");
 
-            var revert_button = new Gtk.Button ();
-            revert_button.related_action = main_actions.get_action ("Revert");
-            revert_button.image = new Gtk.Image.from_icon_name ("document-revert", Gtk.IconSize.LARGE_TOOLBAR);
+            var revert_button = new Gtk.Button.from_icon_name ("document-revert", Gtk.IconSize.LARGE_TOOLBAR);
+            revert_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_REVERT;
             revert_button.tooltip_text = _("Restore this file");
 
             var find_button = new Gtk.ToggleButton ();
-            find_button.related_action = main_actions.get_action ("ShowFetch");
+            find_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SHOW_FIND;
             find_button.image = new Gtk.Image.from_icon_name ("edit-find", Gtk.IconSize.LARGE_TOOLBAR);
             find_button.tooltip_text = _("Find…");
 
-            var zoom_default = new Gtk.Button ();
-            zoom_default.related_action = main_actions.get_action ("Zoom");
-            zoom_default.image = new Gtk.Image.from_icon_name ("zoom-original", Gtk.IconSize.LARGE_TOOLBAR);
+            var zoom_default = new Gtk.Button.from_icon_name ("zoom-original", Gtk.IconSize.LARGE_TOOLBAR);
+            zoom_default.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_DEFAULT;
             zoom_default.tooltip_text = _("Zoom 1:1");
 
             share_menu = new Gtk.Menu ();

@@ -63,17 +63,57 @@ namespace Scratch {
         public SimpleActionGroup actions { get; construct; }
 
         public const string ACTION_PREFIX = "win.";
+        public const string ACTION_FIND = "action_find";
         public const string ACTION_NEW_VIEW = "action_new_view";
         public const string ACTION_OPEN = "action_open";
         public const string ACTION_PREFERENCES = "preferences";
         public const string ACTION_REMOVE_VIEW = "action_remove_view";
+        public const string ACTION_REVERT = "action_revert";
+        public const string ACTION_SAVE = "action_save";
+        public const string ACTION_SAVE_AS = "action_save_as";
+        public const string ACTION_SHOW_FIND = "action_show_find";
+        public const string ACTION_TEMPLATES = "action_templates";
+        public const string ACTION_ZOOM_DEFAULT = "action_zoom_default";
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
+        private const Gtk.ActionEntry[] main_entries = {
+            { "ShowGoTo", null, null, "<Control>i", null, action_go_to },
+            { "Quit", null, null, "<Control>q", null, action_quit },
+            { "CloseTab", null, null, "<Control>w", null, action_close_tab },
+            { "ShowReplace", null, null, "<Control>r", null, action_fetch },
+            { "NewTab", null, null, "<Control>n", null, action_new_tab },
+            { "Undo", null, null, "<Control>z", null, action_undo },
+            { "Redo", null, null, "<Control><shift>z", null, action_redo },
+            //{ "Revert", null, null, "<Control><shift>o", null, action_revert },
+            { "Duplicate", null, null, "<Control>d", null, action_duplicate },
+            { "Clipboard", null, null, null, null, action_new_tab_from_clipboard },
+            //{ "Zoom", null, null, "<Control>0", null, action_set_default_zoom },
+            //{ "SaveFile", null, null, "<Control>s", null, action_save },
+            //{ "SaveFileAs", null, null, "<Control><shift>s", null, action_save_as },
+            //{ "Templates", null, null, null, null, action_templates },
+            { "NextTab", null, null, "<Control><Alt>Page_Up", null, action_next_tab },
+            { "PreviousTab", null, null, "<Control><Alt>Page_Down", null, action_previous_tab },
+            { "ToLowerCase", null, null, "<Control>l", null, action_to_lower_case },
+            { "ToUpperCase", null, null, "<Control>u", null, action_to_upper_case }
+            //{ "Fetch", null, null, null, null, action_fetch }
+        };
+
+        private const Gtk.ToggleActionEntry[] toggle_entries = {
+            { "Fullscreen", null, null, "F11", null, action_fullscreen },
+            { "ShowFetch", null, null, "", null, action_show_fetch }
+        };
+
         private const ActionEntry[] action_entries = {
+            { ACTION_FIND, action_fetch },
             { ACTION_NEW_VIEW, action_new_view },
             { ACTION_OPEN, action_open },
             { ACTION_PREFERENCES, action_preferences },
-            { ACTION_REMOVE_VIEW, action_remove_view }
+            { ACTION_REMOVE_VIEW, action_remove_view },
+            { ACTION_REVERT, action_revert },
+            { ACTION_SAVE, action_save },
+            { ACTION_SAVE_AS, action_save_as },
+            { ACTION_TEMPLATES, action_templates },
+            { ACTION_ZOOM_DEFAULT, action_set_default_zoom }
         };
 
         public MainWindow (Scratch.Application scratch_app) {
@@ -86,8 +126,13 @@ namespace Scratch {
         }
 
         static construct {
+            action_accelerators.set (ACTION_FIND, "<Control>f");
             action_accelerators.set (ACTION_NEW_VIEW, "F3");
             action_accelerators.set (ACTION_OPEN, "<Control>o");
+            action_accelerators.set (ACTION_REVERT, "<Control><shift>o");
+            action_accelerators.set (ACTION_SAVE, "<Control>s");
+            action_accelerators.set (ACTION_SAVE_AS, "<Control><shift>s");
+            action_accelerators.set (ACTION_ZOOM_DEFAULT, "<Control>0");
         }
 
         construct {
@@ -946,33 +991,5 @@ namespace Scratch {
             buffer.delete (ref start, ref end);
             buffer.insert (ref start, selected.up (), -1);
         }
-
-        // Actions array
-        private const Gtk.ActionEntry[] main_entries = {
-            { "ShowGoTo", null, null, "<Control>i", null, action_go_to },
-            { "Quit", null, null, "<Control>q", null, action_quit },
-            { "CloseTab", null, null, "<Control>w", null, action_close_tab },
-            { "ShowReplace", null, null, "<Control>r", null, action_fetch },
-            { "NewTab", null, null, "<Control>n", null, action_new_tab },
-            { "Undo", null, null, "<Control>z", null, action_undo },
-            { "Redo", null, null, "<Control><shift>z", null, action_redo },
-            { "Revert", null, null, "<Control><shift>o", null, action_revert },
-            { "Duplicate", null, null, "<Control>d", null, action_duplicate },
-            { "Clipboard", null, null, null, null, action_new_tab_from_clipboard },
-            { "Zoom", null, null, "<Control>0", null, action_set_default_zoom },
-            { "SaveFile", null, null, "<Control>s", null, action_save },
-            { "SaveFileAs", null, null, "<Control><shift>s", null, action_save_as },
-            { "Templates", null, null, null, null, action_templates },
-            { "NextTab", null, null, "<Control><Alt>Page_Up", null, action_next_tab },
-            { "PreviousTab", null, null, "<Control><Alt>Page_Down", null, action_previous_tab },
-            { "ToLowerCase", null, null, "<Control>l", null, action_to_lower_case },
-            { "ToUpperCase", null, null, "<Control>u", null, action_to_upper_case },
-            { "Fetch", null, null, "<Control>f", null, action_fetch }
-        };
-
-        private const Gtk.ToggleActionEntry[] toggle_entries = {
-            { "Fullscreen", null, null, "F11", null, action_fullscreen },
-            { "ShowFetch", null, null, "", null, action_show_fetch }
-        };
     }
 }
