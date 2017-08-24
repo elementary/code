@@ -140,6 +140,8 @@ namespace Scratch.Plugins.FolderManager {
                         break;
                 }
             } else {
+                // No cache invalidation is needed here because the entire state is kept in the tree
+
                 switch (event) {
                     case GLib.FileMonitorEvent.DELETED:
                         var children_tmp = new Gee.ArrayList<Granite.Widgets.SourceList.Item> ();
