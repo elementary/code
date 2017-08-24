@@ -64,12 +64,14 @@ namespace Scratch {
 
         public const string ACTION_PREFIX = "win.";
         public const string ACTION_NEW_VIEW = "action_new_view";
+        public const string ACTION_OPEN = "action_open";
         public const string ACTION_PREFERENCES = "preferences";
         public const string ACTION_REMOVE_VIEW = "action_remove_view";
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
         private const ActionEntry[] action_entries = {
             { ACTION_NEW_VIEW, action_new_view },
+            { ACTION_OPEN, action_open },
             { ACTION_PREFERENCES, action_preferences },
             { ACTION_REMOVE_VIEW, action_remove_view }
         };
@@ -85,6 +87,7 @@ namespace Scratch {
 
         static construct {
             action_accelerators.set (ACTION_NEW_VIEW, "F3");
+            action_accelerators.set (ACTION_OPEN, "<Control>o");
         }
 
         construct {
@@ -432,7 +435,7 @@ namespace Scratch {
             main_actions.get_action ("SaveFileAs").sensitive = val;
             main_actions.get_action ("Undo").sensitive = val;
             main_actions.get_action ("Redo").sensitive = val;
-            main_actions.get_action ("Revert").sensitive = val;
+            ((SimpleAction) actions.lookup_action (ACTION_REVERT)).set_enabled (val);
             toolbar.share_app_menu.sensitive = val;
 
             // Zoom button
@@ -953,9 +956,7 @@ namespace Scratch {
             { "NewTab", null, null, "<Control>n", null, action_new_tab },
             { "Undo", null, null, "<Control>z", null, action_undo },
             { "Redo", null, null, "<Control><shift>z", null, action_redo },
-            { "Revert", null, null, "<Control><shift>o", null, action_revert },
             { "Duplicate", null, null, "<Control>d", null, action_duplicate },
-            { "Open", null, null, "<Control>o", null, action_open },
             { "Clipboard", null, null, null, null, action_new_tab_from_clipboard },
             { "Zoom", null, null, "<Control>0", null, action_set_default_zoom },
             { "SaveFile", null, null, "<Control>s", null, action_save },

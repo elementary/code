@@ -35,9 +35,8 @@ namespace Scratch.Widgets {
         }
 
         construct {
-            var open_button = new Gtk.Button ();
-            open_button.related_action = main_actions.get_action ("Open");
-            open_button.image = new Gtk.Image.from_icon_name ("document-open", Gtk.IconSize.LARGE_TOOLBAR);
+            var open_button = new Gtk.Button.from_icon_name ("document-open", Gtk.IconSize.LARGE_TOOLBAR);
+            open_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN;
             open_button.tooltip_text = _("Open a file");
 
             var templates_button = new Gtk.Button ();
