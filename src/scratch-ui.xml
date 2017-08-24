@@ -3,7 +3,6 @@
         <menuitem action="Fetch" />
         <menuitem name="ShowFetch" action="ShowFetch"/>
         <menuitem name="CloseTab" action="CloseTab"/>
-        <menuitem name="ShowReplace" action="ShowReplace"/>
         <menuitem name="NewTab" action="NewTab"/>
         <menuitem name="NewView" action="NewView"/>
         <menuitem name="Fullscreen" action="Fullscreen"/>
@@ -14,8 +13,6 @@
         <menuitem name="Undo" action="Undo"/>
         <menuitem name="Redo" action="Redo"/>
         <menuitem action="Templates" />
-        <menuitem action="NextTab" />
-        <menuitem action="PreviousTab" />
         <menuitem action="ToLowerCase" />
         <menuitem action="ToUpperCase" />
     </popup>
