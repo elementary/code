@@ -63,15 +63,19 @@ namespace Scratch {
         public SimpleActionGroup actions { get; construct; }
 
         public const string ACTION_PREFIX = "win.";
+        public const string ACTION_GO_TO = "action_go_to";
         public const string ACTION_NEW_VIEW = "action_new_view";
         public const string ACTION_PREFERENCES = "preferences";
         public const string ACTION_REMOVE_VIEW = "action_remove_view";
+        public const string ACTION_QUIT = "action_quit";
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
         private const ActionEntry[] action_entries = {
+            { ACTION_GO_TO, action_go_to },
             { ACTION_NEW_VIEW, action_new_view },
             { ACTION_PREFERENCES, action_preferences },
-            { ACTION_REMOVE_VIEW, action_remove_view }
+            { ACTION_REMOVE_VIEW, action_remove_view },
+            { ACTION_QUIT, action_quit }
         };
 
         public MainWindow (Scratch.Application scratch_app) {
@@ -84,7 +88,9 @@ namespace Scratch {
         }
 
         static construct {
+            action_accelerators.set (ACTION_GO_TO, "<Control>i");
             action_accelerators.set (ACTION_NEW_VIEW, "F3");
+            action_accelerators.set (ACTION_QUIT, "<Control>q");
         }
 
         construct {
@@ -425,7 +431,7 @@ namespace Scratch {
             var fetch = (Gtk.ToggleAction) main_actions.get_action ("ShowFetch");
             fetch.sensitive = val;
             fetch.active = (fetch.active && val);
-            main_actions.get_action ("ShowGoTo").sensitive = val;
+            ((SimpleAction) actions.lookup_action (ACTION_GO_TO)).set_enabled (val);
             main_actions.get_action ("ShowReplace").sensitive = val;
             // Toolbar Actions
             main_actions.get_action ("SaveFile").sensitive = val;
@@ -946,8 +952,6 @@ namespace Scratch {
 
         // Actions array
         private const Gtk.ActionEntry[] main_entries = {
-            { "ShowGoTo", null, null, "<Control>i", null, action_go_to },
-            { "Quit", null, null, "<Control>q", null, action_quit },
             { "CloseTab", null, null, "<Control>w", null, action_close_tab },
             { "ShowReplace", null, null, "<Control>r", null, action_fetch },
             { "NewTab", null, null, "<Control>n", null, action_new_tab },
