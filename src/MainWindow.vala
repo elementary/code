@@ -60,10 +60,10 @@ namespace Scratch {
         // Delegates
         delegate void HookFunc ();
 
-        public MainWindow (Scratch.Application application) {
+        public MainWindow (Scratch.Application scratch_app) {
             Object (
-                application: application,
-                app: application,
+                application: scratch_app,
+                app: scratch_app,
                 icon_name: "io.elementary.code",
                 title: _("Code")
             );
