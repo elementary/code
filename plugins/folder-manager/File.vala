@@ -129,7 +129,7 @@ namespace Scratch.Plugins.FolderManager {
 
                 _children.clear ();
 
-                var parent = GLib.File.new_for_path (file.get_path ()); //@TODO why not use file?
+                var parent = GLib.File.new_for_path (file.get_path ());
                 try {
                     var enumerator = parent.enumerate_children (
                         GLib.FileAttribute.STANDARD_NAME,
