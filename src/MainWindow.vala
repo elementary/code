@@ -70,6 +70,8 @@ namespace Scratch {
         public const string ACTION_PREVIOUS_TAB = "action_previous_tab";
         public const string ACTION_REMOVE_VIEW = "action_remove_view";
         public const string ACTION_SHOW_REPLACE = "action_show_replace";
+        public const string ACTION_TO_LOWER_CASE = "action_to_lower_case";
+        public const string ACTION_TO_UPPER_CASE = "action_to_upper_case";
         public const string ACTION_QUIT = "action_quit";
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
@@ -81,6 +83,8 @@ namespace Scratch {
             { ACTION_PREVIOUS_TAB, action_previous_tab },
             { ACTION_REMOVE_VIEW, action_remove_view },
             { ACTION_SHOW_REPLACE, action_fetch },
+            { ACTION_TO_LOWER_CASE, action_to_lower_case },
+            { ACTION_TO_UPPER_CASE, action_to_upper_case },
             { ACTION_QUIT, action_quit }
         };
 
@@ -99,6 +103,8 @@ namespace Scratch {
             action_accelerators.set (ACTION_NEXT_TAB, "<Control><Alt>Page_Up");
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control><Alt>Page_Down");
             action_accelerators.set (ACTION_SHOW_REPLACE, "<Control>r");
+            action_accelerators.set (ACTION_TO_LOWER_CASE, "<Control>l");
+            action_accelerators.set (ACTION_TO_UPPER_CASE, "<Control>u");
             action_accelerators.set (ACTION_QUIT, "<Control>q");
         }
 
@@ -973,8 +979,6 @@ namespace Scratch {
             { "SaveFile", null, null, "<Control>s", null, action_save },
             { "SaveFileAs", null, null, "<Control><shift>s", null, action_save_as },
             { "Templates", null, null, null, null, action_templates },
-            { "ToLowerCase", null, null, "<Control>l", null, action_to_lower_case },
-            { "ToUpperCase", null, null, "<Control>u", null, action_to_upper_case },
             { "Fetch", null, null, "<Control>f", null, action_fetch }
         };
 
