@@ -56,13 +56,26 @@ namespace Scratch.Plugins.FolderManager {
             var rename_item = new Gtk.MenuItem.with_label (_("Rename"));
             rename_item.activate.connect (() => view.start_editing_item (this));
 
-            var trash_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
-            trash_item.activate.connect (trash);
+            var new_folder_item = new Gtk.MenuItem.with_label (_("Folder"));
+            new_folder_item.activate.connect(() => add_folder ());
+
+            var new_file_item = new Gtk.MenuItem.with_label (_("Empty File"));
+            new_file_item.activate.connect (() => add_file ());
+
+            var new_menu = new Gtk.Menu ();
+            new_menu.append (new_folder_item);
+            new_menu.append (new_file_item);
+
+            var new_item = new Gtk.MenuItem.with_label (_("New"));
+            new_item.set_submenu (new_menu);
+
+            var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
+            delete_item.activate.connect (() => trash ());
 
             var menu = new Gtk.Menu ();
             menu.append (rename_item);
-            menu.append (trash_item);
-
+            menu.append (new_item);
+            menu.append (delete_item);
             menu.show_all ();
 
             return menu;
@@ -81,7 +94,6 @@ namespace Scratch.Plugins.FolderManager {
         }
 
         private void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
-
             if (!children_loaded) {
                 this.file.reset_cache ();
                 return;
@@ -121,6 +133,54 @@ namespace Scratch.Plugins.FolderManager {
                     }
 
                     break;
+            }
+        }
+
+        private void add_folder () {
+            if (!file.is_executable) {
+                // This is necessary to avoid infinite loop below
+                warning("Unable to open parent folder");
+                return;
+            }
+
+            var new_folder = file.file.get_child (_("untitled folder"));
+
+            var n = 1;
+            while (new_folder.query_exists ()) {
+                new_folder = file.file.get_child (_("untitled folder %d").printf (n));
+                n++;
+            }
+
+            try {
+                expanded = true;
+
+                new_folder.make_directory ();
+            } catch (Error e) {
+                warning (e.message);
+            }
+        }
+
+        private void add_file () {
+            if (!file.is_executable) {
+                // This is necessary to avoid infinite loop below
+                warning("Unable to open parent folder");
+                return;
+            }
+
+            var new_file = file.file.get_child (_("new file"));
+
+            var n = 1;
+            while (new_file.query_exists ()) {
+                new_file = file.file.get_child (_("new file %d").printf (n));
+                n++;
+            }
+
+            try {
+                expanded = true;
+
+                new_file.create (FileCreateFlags.NONE);
+            } catch (Error e) {
+                warning (e.message);
             }
         }
     }
