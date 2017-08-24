@@ -44,7 +44,6 @@ namespace Scratch.Plugins.FolderManager {
             toggled.connect (() => {
                 if (!children_loaded && expanded && n_children <= 1) {
                     clear ();
-                    file.invalidate_cache ();
                     add_children ();
                     children_loaded = true;
                 }
@@ -120,8 +119,10 @@ namespace Scratch.Plugins.FolderManager {
                         // This is a pretty intensive operation. For each file deleted, the cache will be
                         // invalidated and recreated again, from disk. If it turns out users are seeing
                         // slugishness or slowness when deleting a lot of files, then it might be worth
-                        // doing some sort of timer deferred action.
+                        // storing file.children.size in a variable and subtracting from it with every
+                        // delete
                         file.invalidate_cache ();
+
                         if (file.children.size == 0) {
                             clear ();
                         }
@@ -130,6 +131,8 @@ namespace Scratch.Plugins.FolderManager {
                         if (source.query_exists () == false) {
                             return;
                         }
+
+                        file.invalidate_cache ();
 
                         if (n_children == 0) {
                             add (new Granite.Widgets.SourceList.Item ("")); // dummy
