@@ -19,7 +19,7 @@
  */
 
 public class Euclide.Completion.Parser : GLib.Object {
-    public const int MINIMUM_WORD_LENGTH = 3;
+    public const int MINIMUM_WORD_LENGTH = 1;
     public const int MAX_TOKENS = 1000000;
 
     public const string delimiters = " .,;:?{}[]()0123456789+-=&|-<>*\\/\n\t\'\"";

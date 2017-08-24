@@ -36,7 +36,7 @@
 			<summary></summary>
 			<description></description>
 		</key>
-		
+
 		<key name="hp1-size" type="i">
 			<default>125</default>
 			<summary></summary>
@@ -55,7 +55,7 @@
 	</schema>
 	<schema path="/org/pantheon/scratch/settings/" id="org.pantheon.scratch.settings" gettext-domain="scratch">
 		<key type="as" name="plugins-enabled">
-			<default>['detect-indent', 'folder-manager', 'contractor']</default>
+			<default>['detect-indent', 'folder-manager', 'contractor', 'outline']</default>
 			<summary>Enabled Plugins</summary>
 			<description>Enabled Plugins</description>
 		</key>
@@ -84,13 +84,8 @@
 			<summary>Right margin position</summary>
 			<description>Specifies the right margin position.</description>
 		</key>
-		<key name="show-line-numbers" type="b">
-			<default>false</default>
-			<summary>Display Line Numbers</summary>
-			<description>Whether Scratch should display line numbers in the editing area.</description>
-		</key>
 		<key name="highlight-current-line" type="b">
-			<default>false</default>
+			<default>true</default>
 			<summary>Highlight Current Line</summary>
 			<description>Whether Scratch should highlight the current line.</description>
 		</key>

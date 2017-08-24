@@ -142,9 +142,7 @@ namespace Scratch {
         }
 
         private void init_layout () {
-            // Toolbar
-            var menu = ui.get_widget ("ui/AppMenu") as Gtk.Menu;
-            toolbar = new Scratch.Widgets.Toolbar (main_actions, menu);
+            toolbar = new Scratch.Widgets.Toolbar (main_actions);
             toolbar.title = title;
             toolbar.show_close_button = true;
             set_titlebar (toolbar);
@@ -210,6 +208,7 @@ namespace Scratch {
             sidebar = new Gtk.Notebook ();
             sidebar.no_show_all = true;
             sidebar.width_request = 200;
+            sidebar.get_style_context ().remove_class (Gtk.STYLE_CLASS_FRAME);
             sidebar.page_added.connect (() => { on_plugin_toggled (sidebar); });
             sidebar.page_removed.connect (() => { on_plugin_toggled (sidebar); });
 
@@ -362,7 +361,7 @@ namespace Scratch {
                 }
 
                 if (document_to_focus != null) {
-                    view.notebook.current = document_to_focus;
+                    view.current_document = document_to_focus;
                 }
             }
         }
@@ -439,7 +438,7 @@ namespace Scratch {
         public Scratch.Services.Document? get_current_document () {
             var view = get_current_view ();
             if (view != null) {
-                return view.get_current_document ();
+                return view.current_document;
             }
 
             return null;
@@ -536,7 +535,7 @@ namespace Scratch {
                     view.is_closing = true;
                     foreach (var doc in view.docs) {
                         if (!doc.close (true)) {
-                            view.set_current_document (doc);
+                            view.current_document = doc;
                             return false;
                         }
                     }
@@ -709,10 +708,6 @@ namespace Scratch {
             destroy ();
         }
 
-        private void action_restore_tab () {
-
-        }
-
         private void action_open () {
             // Show a GtkFileChooserDialog
             var filech = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.OPEN, _("Open some files"), this, true);
@@ -731,32 +726,49 @@ namespace Scratch {
         }
 
         private void action_save () {
-            var doc = get_current_document ();
-            if (doc.is_file_temporary == true) {
-                action_save_as ();
-            } else {
-                doc.save.begin ();
+            var doc = get_current_document (); /* may return null */
+            if (doc != null) {
+                if (doc.is_file_temporary == true) {
+                    action_save_as ();
+                } else {
+                    doc.save.begin ();
+                }
             }
         }
 
         private void action_save_as () {
-            get_current_document ().save_as.begin ();
+            var doc = get_current_document ();
+            if (doc != null) {
+                doc.save_as.begin ();
+            }
         }
 
         private void action_undo () {
-            get_current_document ().undo ();
+            var doc = get_current_document ();
+            if (doc != null) {
+                doc.undo ();
+            }
         }
 
         private void action_redo () {
-            get_current_document ().redo ();
+            var doc = get_current_document ();
+            if (doc != null) {
+                doc.redo ();
+            }
         }
 
         private void action_revert () {
-            get_current_document ().revert ();
+            var doc = get_current_document ();
+            if (doc != null) {
+                doc.revert ();
+            }
         }
 
         private void action_duplicate () {
-            get_current_document ().duplicate_selection ();
+            var doc = get_current_document ();
+            if (doc != null) {
+                doc.duplicate_selection ();
+            }
         }
 
         private void action_new_tab () {
@@ -874,7 +886,7 @@ namespace Scratch {
         private void action_to_lower_case () {
             Scratch.Widgets.DocumentView? view = null;
             view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
-            var doc = view.get_current_document ();
+            var doc = view.current_document;
             if (doc == null) {
                 return;
             }
@@ -891,7 +903,7 @@ namespace Scratch {
         private void action_to_upper_case () {
             Scratch.Widgets.DocumentView? view = null;
             view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
-            var doc = view.get_current_document ();
+            var doc = view.current_document;
             if (doc == null) {
                 return;
             }
@@ -907,30 +919,11 @@ namespace Scratch {
 
         // Actions array
         private const Gtk.ActionEntry[] main_entries = {
-            { "ShowGoTo", "dialog-ok",
-          /* label, accelerator */       N_("Go to line…"), "<Control>i",
-          /* tooltip */                  N_("Go to line…"),
-                                         action_go_to },
-            { "Quit", "application-exit",
-          /* label, accelerator */       N_("Quit"), "<Control>q",
-          /* tooltip */                  N_("Quit"),
-                                         action_quit },
-            { "CloseTab", "window-close",
-          /* label, accelerator */       N_("Close"), "<Control>w",
-          /* tooltip */                  N_("Close"),
-                                         action_close_tab },
-            { "ShowReplace", "dialog-ok",
-          /* label, accelerator */       N_("Replace"), "<Control>r",
-          /* tooltip */                  N_("Replace"),
-                                         action_fetch },
-            { "RestoreTab", null,
-          /* label, accelerator */       N_("Reopen closed document"), "<Control><Shift>t",
-          /* tooltip */                  N_("Open last closed document in a new tab"),
-                                         action_restore_tab },
-            { "NewTab", "add",
-          /* label, accelerator */       N_("Add New Tab"), "<Control>n",
-          /* tooltip */                  N_("Add a new tab"),
-                                         action_new_tab },
+            { "ShowGoTo", null, null, "<Control>i", null, action_go_to },
+            { "Quit", null, null, "<Control>q", null, action_quit },
+            { "CloseTab", null, null, "<Control>w", null, action_close_tab },
+            { "ShowReplace", null, null, "<Control>r", null, action_fetch },
+            { "NewTab", null, null, "<Control>n", null, action_new_tab },
             { "NewView", "add",
           /* label, accelerator */       N_("Add New View"), "F3",
           /* tooltip */                  N_("Add a new view"),
@@ -939,83 +932,30 @@ namespace Scratch {
           /* label, accelerator */       N_("Remove Current View"), null,
           /* tooltip */                  N_("Remove this view"),
                                          action_remove_view },
-            { "Undo", "edit-undo",
-          /* label, accelerator */       N_("Undo"), "<Control>z",
-          /* tooltip */                  N_("Undo the last action"),
-                                         action_undo },
-            { "Redo", "edit-redo",
-          /* label, accelerator */       N_("Redo"), "<Control><shift>z",
-          /* tooltip */                  N_("Redo the last undone action"),
-                                         action_redo },
-            { "Revert", "document-revert",
-          /* label, accelerator */       N_("Revert"), "<Control><shift>o",
-          /* tooltip */                  N_("Restore this file"),
-                                         action_revert },
-            { "Duplicate", null,
-          /* label, accelerator */       N_("Duplicate selected strings"), "<Control>d",
-          /* tooltip */                  N_("Duplicate selected strings"),
-                                         action_duplicate },
-            { "Open", "document-open",
-          /* label, accelerator */       N_("Open"), "<Control>o",
-          /* tooltip */                  N_("Open a file"),
-                                         action_open },
-            { "Clipboard", "edit-paste",
-          /* label, accelerator */       N_("Clipboard"), null,
-          /* tooltip */                  N_("New file from Clipboard"),
-                                         action_new_tab_from_clipboard },
-            { "Zoom", "zoom-original",
-          /* label, accelerator */       N_("Zoom"), "<Control>0",
-          /* tooltip */                  N_("Zoom 1:1"),
-                                         action_set_default_zoom },
-            { "SaveFile", "document-save",
-          /* label, accelerator */       N_("Save"), "<Control>s",
-          /* tooltip */                  N_("Save this file"),
-                                         action_save },
-            { "SaveFileAs", "document-save-as",
-          /* label, accelerator */       N_("Save As…"), "<Control><shift>s",
-          /* tooltip */                  N_("Save this file with a different name"),
-                                         action_save_as },
-            { "Templates", "text-x-generic-template",
-          /* label, accelerator */       N_("Templates"), null,
-          /* tooltip */                  N_("Project templates"),
-                                         action_templates },
+            { "Undo", null, null, "<Control>z", null, action_undo },
+            { "Redo", null, null, "<Control><shift>z", null, action_redo },
+            { "Revert", null, null, "<Control><shift>o", null, action_revert },
+            { "Duplicate", null, null, "<Control>d", null, action_duplicate },
+            { "Open", null, null, "<Control>o", null, action_open },
+            { "Clipboard", null, null, null, null, action_new_tab_from_clipboard },
+            { "Zoom", null, null, "<Control>0", null, action_set_default_zoom },
+            { "SaveFile", null, null, "<Control>s", null, action_save },
+            { "SaveFileAs", null, null, "<Control><shift>s", null, action_save_as },
+            { "Templates", null, null, null, null, action_templates },
             { "Preferences", "preferences-desktop",
           /* label, accelerator */       N_("Preferences"), null,
           /* tooltip */                  N_("Change Scratch settings"),
                                          action_preferences },
-            { "NextTab", "next-tab",
-          /* label, accelerator */       N_("Next Tab"), "<Control><Alt>Page_Up",
-          /* tooltip */                  N_("Next Tab"),
-                                         action_next_tab },
-            { "PreviousTab", "previous-tab",
-          /* label, accelerator */       N_("Previous Tab"), "<Control><Alt>Page_Down",
-          /* tooltip */                  N_("Previous Tab"),
-                                         action_previous_tab },
-
-            { "ToLowerCase", null,
-          /* label, accelerator */       null, "<Control>l",
-          /* tooltip */                  null,
-                                         action_to_lower_case },
-            { "ToUpperCase", null,
-          /* label, accelerator */       null, "<Control>u",
-          /* tooltip */                  null,
-                                         action_to_upper_case },
-            { "Fetch", null,
-          /* label, accelerator */       N_("Find…"), "<Control>f",
-          /* tooltip */                  N_("Find…"),
-                                         action_fetch }
+            { "NextTab", null, null, "<Control><Alt>Page_Up", null, action_next_tab },
+            { "PreviousTab", null, null, "<Control><Alt>Page_Down", null, action_previous_tab },
+            { "ToLowerCase", null, null, "<Control>l", null, action_to_lower_case },
+            { "ToUpperCase", null, null, "<Control>u", null, action_to_upper_case },
+            { "Fetch", null, null, "<Control>f", null, action_fetch }
         };
 
         private const Gtk.ToggleActionEntry[] toggle_entries = {
-            { "Fullscreen", "view-fullscreen",
-          /* label, accelerator */       N_("Fullscreen"), "F11",
-          /* tooltip */                  N_("Fullscreen"),
-                                         action_fullscreen },
-
-            { "ShowFetch", "edit-find",
-          /* label, accelerator */       N_("Find…"), "",
-          /* tooltip */                  N_("Find…"),
-                                         action_show_fetch }
+            { "Fullscreen", null, null, "F11", null, action_fullscreen },
+            { "ShowFetch", null, null, "", null, action_show_fetch }
         };
     }
 }

@@ -4,14 +4,14 @@
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License version 3
- * as published by the Free Software Foundation, either version 3 of the 
+ * as published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranties of
- * MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR 
+ * MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
  * PURPOSE. See the GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
@@ -27,13 +27,29 @@ namespace Scratch.Plugins.FolderManager {
 
         public signal void select (string file);
 
-        public FileView () {
-            this.width_request = 180;
-            this.item_selected.connect ((item) => {
-                select ((item as FileItem).path);
-            });
+        // This is a workaround for SourceList silliness: you cannot remove an item
+        // without it automatically selecting another one.
+        public bool ignore_next_select = false;
+
+        construct {
+            width_request = 180;
+
+            item_selected.connect (on_item_selected);
 
             settings = new Settings ();
+        }
+
+        private void on_item_selected (Granite.Widgets.SourceList.Item? item) {
+            // This is a workaround for SourceList silliness: you cannot remove an item
+            // without it automatically selecting another one.
+            if (ignore_next_select) {
+                ignore_next_select = false;
+                return;
+            }
+
+            if (item is FileItem) {
+                select ((item as FileItem).file.path);
+            }
         }
 
         public void restore_saved_state () {
