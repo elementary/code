@@ -66,6 +66,7 @@ namespace Scratch {
         public const string ACTION_NEW_VIEW = "action_new_view";
         public const string ACTION_PREFERENCES = "preferences";
         public const string ACTION_REMOVE_VIEW = "action_remove_view";
+        public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
         private const ActionEntry[] action_entries = {
             { ACTION_NEW_VIEW, action_new_view },
@@ -79,13 +80,20 @@ namespace Scratch {
                     icon_name: "accessories-text-editor");
 
             title = app.app_cmd_name;
-            application.set_accels_for_action (ACTION_PREFIX + ACTION_NEW_VIEW, { "F3" });
+        }
+
+        static construct {
+            action_accelerators.set (ACTION_NEW_VIEW, "F3");
         }
 
         construct {
             actions = new SimpleActionGroup ();
             actions.add_action_entries (action_entries, this);
             insert_action_group ("win", actions);
+
+            foreach (var action in action_accelerators.get_keys ()) {
+                app.set_accels_for_action (ACTION_PREFIX + action, action_accelerators[action].to_array ());
+            }
 
             set_size_request (450, 400);
             set_hide_titlebar_when_maximized (false);
