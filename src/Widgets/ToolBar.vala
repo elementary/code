@@ -73,21 +73,30 @@ namespace Scratch.Widgets {
             share_menu = new Gtk.Menu ();
             share_app_menu = new Gtk.MenuButton ();
             share_app_menu.image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
+            share_app_menu.no_show_all = true;
             share_app_menu.tooltip_text = _("Share");
             share_app_menu.set_popup (share_menu);
 
+            var new_view_menuitem = new Gtk.MenuItem.with_label (_("Add New View"));
+            new_view_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_VIEW;
+
+            var remove_view_menuitem = new Gtk.MenuItem.with_label (_("Remove Current View"));
+            remove_view_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_REMOVE_VIEW;
+
+            var preferences_menuitem = new Gtk.MenuItem.with_label (_("Preferences"));
+            preferences_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_PREFERENCES;
+
             menu = new Gtk.Menu ();
-            menu.add (main_actions.get_action ("NewView").create_menu_item () as Gtk.MenuItem);
-            menu.add (main_actions.get_action ("RemoveView").create_menu_item () as Gtk.MenuItem);
+            menu.add (new_view_menuitem);
+            menu.add (remove_view_menuitem);
             menu.add (new Gtk.SeparatorMenuItem ());
-            menu.add (main_actions.get_action ("Preferences").create_menu_item () as Gtk.MenuItem);
+            menu.add (preferences_menuitem);
+            menu.show_all ();
 
             var app_menu = new Gtk.MenuButton ();
             app_menu.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
             app_menu.tooltip_text = _("Menu");
             app_menu.popup = menu;
-
-            share_app_menu.no_show_all = true;
 
             pack_start (open_button);
             pack_start (templates_button);
@@ -108,7 +117,8 @@ namespace Scratch.Widgets {
 
             settings.changed.connect (() => {
                 save_button.visible = !settings.autosave;
-                zoom_default.visible = Application.instance.get_last_window ().get_default_font_size () != Application.instance.get_last_window ().get_current_font_size ();
+                var last_window = Application.instance.get_last_window ();
+                zoom_default.visible = last_window.get_default_font_size () != last_window.get_current_font_size ();
             });
 
         }
