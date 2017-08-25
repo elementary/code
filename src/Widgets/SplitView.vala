@@ -227,9 +227,8 @@ namespace Scratch.Widgets {
 
         // Check the possibility to add or not a new view
         private void check_actions () {
-            window.main_actions.get_action ("NewView").sensitive = (views.length () < 2);
-            window.main_actions.get_action ("RemoveView").sensitive = (views.length () > 1);
-
+            ((SimpleAction) window.actions.lookup_action (MainWindow.ACTION_NEW_VIEW)).set_enabled (views.length () < 2);
+            ((SimpleAction) window.actions.lookup_action (MainWindow.ACTION_REMOVE_VIEW)).set_enabled (views.length () > 1);
             views_changed (views.length ());
         }
     }
