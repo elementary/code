@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/com/github/scratch/vala-completion">
+    <file alias="lang-class-abstract.svg" compressed="true" preprocess="xml-stripblanks">abstractclass.svg</file>
+    <file alias="lang-method-abstract.svg" compressed="true" preprocess="xml-stripblanks">abstractmethod.svg</file>
+    <file alias="lang-property-abstract.svg" compressed="true" preprocess="xml-stripblanks">abstractproperty.svg</file>
+    <file alias="lang-class.svg" compressed="true" preprocess="xml-stripblanks">class.svg</file>
+    <file alias="lang-constant.svg" compressed="true" preprocess="xml-stripblanks">constant.svg</file>
+    <file alias="lang-constructor.svg" compressed="true" preprocess="xml-stripblanks">constructor.svg</file>
+    <file alias="lang-delegate.svg" compressed="true" preprocess="xml-stripblanks">delegate.svg</file>
+    <file alias="lang-enum.svg" compressed="true" preprocess="xml-stripblanks">enum.svg</file>
+    <file alias="lang-error-domain.svg" compressed="true" preprocess="xml-stripblanks">errordomain.svg</file>
+    <file alias="lang-interface.svg" compressed="true" preprocess="xml-stripblanks">interface.svg</file>
+    <file alias="lang-method.svg" compressed="true" preprocess="xml-stripblanks">method.svg</file>
+    <file alias="lang-namespace.svg" compressed="true" preprocess="xml-stripblanks">namespace.svg</file>
+    <file alias="lang-property.svg" compressed="true" preprocess="xml-stripblanks">property.svg</file>
+    <file alias="lang-signal.svg" compressed="true" preprocess="xml-stripblanks">signal.svg</file>
+    <file alias="lang-method-static.svg" compressed="true" preprocess="xml-stripblanks">staticmethod.svg</file>
+    <file alias="lang-struct.svg" compressed="true" preprocess="xml-stripblanks">struct.svg</file>
+    <file alias="lang-method-virtual.svg" compressed="true" preprocess="xml-stripblanks">virtualmethod.svg</file>
+    <file alias="lang-property-virtual.svg" compressed="true" preprocess="xml-stripblanks">virtualproperty.svg</file>
+  </gresource>
+</gresources>
