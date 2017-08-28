@@ -42,6 +42,11 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
 
     GLib.Pid child_pid;
 
+    private const string SETTINGS_SCHEMA = "io.elementary.terminal.settings";
+    private const string LEGACY_SETTINGS_SCHEMA = "org.pantheon.terminal.settings";
+
+    private string font_name = "";
+
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
 
@@ -214,85 +219,17 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         this.terminal = new Vte.Terminal ();
         this.terminal.scrollback_lines = -1;
 
-        // Font name will come from Pantheon Terminal settings if available, else default monospace font
-        string font_name = "";
-
         // Set font, allow-bold, audible-bell, background, foreground, and palette of pantheon-terminal
         var schema_source = SettingsSchemaSource.get_default ();
-        var terminal_schema = schema_source.lookup ("org.pantheon.terminal.settings", true);
+        var terminal_schema = schema_source.lookup (SETTINGS_SCHEMA, true);
         if (terminal_schema != null) {
-            var pantheon_terminal_settings = new GLib.Settings ("org.pantheon.terminal.settings");
-
-            font_name = pantheon_terminal_settings.get_string ("font");
-
-            bool allow_bold_setting = pantheon_terminal_settings.get_boolean ("allow-bold");
-            this.terminal.set_allow_bold (allow_bold_setting);
-
-            bool audible_bell_setting = pantheon_terminal_settings.get_boolean ("audible-bell");
-            this.terminal.set_audible_bell (audible_bell_setting);
-
-            #if ! VTE291
-            this.terminal.set_background_image (null); // allows background and foreground settings to take effect
-            #endif
-
-            string background_setting = pantheon_terminal_settings.get_string ("background");
-            #if ! VTE291
-            Gdk.Color background_color;
-            Gdk.Color.parse (background_setting, out background_color);
-            #else
-            Gdk.RGBA background_color = Gdk.RGBA ();
-            background_color.parse (background_setting);
-            #endif
-
-            string foreground_setting = pantheon_terminal_settings.get_string ("foreground");
-            #if ! VTE291
-            Gdk.Color foreground_color;
-            Gdk.Color.parse (foreground_setting, out foreground_color);
-            #else
-            Gdk.RGBA foreground_color = Gdk.RGBA ();
-            foreground_color.parse (foreground_setting);
-            #endif
-
-            string palette_setting = pantheon_terminal_settings.get_string ("palette");
-
-            string[] hex_palette = {"#000000", "#FF6C60", "#A8FF60", "#FFFFCC", "#96CBFE",
-                                    "#FF73FE", "#C6C5FE", "#EEEEEE", "#000000", "#FF6C60",
-                                    "#A8FF60", "#FFFFB6", "#96CBFE", "#FF73FE", "#C6C5FE",
-                                    "#EEEEEE"};
-
-            string current_string = "";
-            int current_color = 0;
-            for (var i = 0; i < palette_setting.length; i++) {
-                if (palette_setting[i] == ':') {
-                    hex_palette[current_color] = current_string;
-                    current_string = "";
-                    current_color++;
-                } else {
-                    current_string += palette_setting[i].to_string ();
-                }
-            }
-
-            #if ! VTE291
-            Gdk.Color[] palette = new Gdk.Color[16];
-            #else
-            Gdk.RGBA[] palette = new Gdk.RGBA[16];
-            #endif
-
-            for (int i = 0; i < hex_palette.length; i++) {
-                #if ! VTE291
-                Gdk.Color new_color;
-                Gdk.Color.parse (hex_palette[i], out new_color);
-                #else
-                Gdk.RGBA new_color = Gdk.RGBA ();
-                new_color.parse (hex_palette[i]);
-                #endif
-
-                palette[i] = new_color;
-            }
-
-            this.terminal.set_colors (foreground_color, background_color, palette);
-
-        } // end pantheon-terminal settings
+            update_terminal_settings (SETTINGS_SCHEMA);
+        } else {
+            var legacy_terminal_schema = schema_source.lookup (LEGACY_SETTINGS_SCHEMA, true);
+            if (legacy_terminal_schema != null) {
+                update_terminal_settings (LEGACY_SETTINGS_SCHEMA);
+            }    
+        }
 
         // Set terminal font
         if (font_name == "") {
@@ -378,6 +315,79 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         terminal.hexpand = true;
 
         grid.show_all ();
+    }
+
+    private void update_terminal_settings (string settings_schema) {
+        var pantheon_terminal_settings = new GLib.Settings (settings_schema);
+
+        font_name = pantheon_terminal_settings.get_string ("font");
+
+        bool allow_bold_setting = pantheon_terminal_settings.get_boolean ("allow-bold");
+        this.terminal.set_allow_bold (allow_bold_setting);
+
+        bool audible_bell_setting = pantheon_terminal_settings.get_boolean ("audible-bell");
+        this.terminal.set_audible_bell (audible_bell_setting);
+
+        #if ! VTE291
+        this.terminal.set_background_image (null); // allows background and foreground settings to take effect
+        #endif
+
+        string background_setting = pantheon_terminal_settings.get_string ("background");
+        #if ! VTE291
+        Gdk.Color background_color;
+        Gdk.Color.parse (background_setting, out background_color);
+        #else
+        Gdk.RGBA background_color = Gdk.RGBA ();
+        background_color.parse (background_setting);
+        #endif
+
+        string foreground_setting = pantheon_terminal_settings.get_string ("foreground");
+        #if ! VTE291
+        Gdk.Color foreground_color;
+        Gdk.Color.parse (foreground_setting, out foreground_color);
+        #else
+        Gdk.RGBA foreground_color = Gdk.RGBA ();
+        foreground_color.parse (foreground_setting);
+        #endif
+
+        string palette_setting = pantheon_terminal_settings.get_string ("palette");
+
+        string[] hex_palette = {"#000000", "#FF6C60", "#A8FF60", "#FFFFCC", "#96CBFE",
+                                "#FF73FE", "#C6C5FE", "#EEEEEE", "#000000", "#FF6C60",
+                                "#A8FF60", "#FFFFB6", "#96CBFE", "#FF73FE", "#C6C5FE",
+                                "#EEEEEE"};
+
+        string current_string = "";
+        int current_color = 0;
+        for (var i = 0; i < palette_setting.length; i++) {
+            if (palette_setting[i] == ':') {
+                hex_palette[current_color] = current_string;
+                current_string = "";
+                current_color++;
+            } else {
+                current_string += palette_setting[i].to_string ();
+            }
+        }
+
+        #if ! VTE291
+        Gdk.Color[] palette = new Gdk.Color[16];
+        #else
+        Gdk.RGBA[] palette = new Gdk.RGBA[16];
+        #endif
+
+        for (int i = 0; i < hex_palette.length; i++) {
+            #if ! VTE291
+            Gdk.Color new_color;
+            Gdk.Color.parse (hex_palette[i], out new_color);
+            #else
+            Gdk.RGBA new_color = Gdk.RGBA ();
+            new_color.parse (hex_palette[i]);
+            #endif
+
+            palette[i] = new_color;
+        }
+
+        this.terminal.set_colors (foreground_color, background_color, palette);
     }
 }
 

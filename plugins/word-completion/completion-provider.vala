@@ -114,8 +114,7 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
     }
 
     public int get_interactive_delay () {
-        /* Use default delay (250 milliseconds) */
-        return -1;
+        return 0;
     }
 
     public bool get_start_iter (Gtk.SourceCompletionContext context,

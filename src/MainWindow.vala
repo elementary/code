@@ -25,7 +25,7 @@ namespace Scratch {
         public int FONT_SIZE_MIN = 7;
         private const uint MAX_SEARCH_TEXT_LENGTH = 255;
 
-        public weak Application app { get; construct; }
+        public weak Scratch.Application app { get; construct; }
 
         // Widgets
         public Scratch.Widgets.Toolbar toolbar;
@@ -60,15 +60,42 @@ namespace Scratch {
         // Delegates
         delegate void HookFunc ();
 
-        public MainWindow (Application scratch_app) {
-            Object (application: scratch_app,
-                    app: scratch_app,
-                    icon_name: "accessories-text-editor");
+        public SimpleActionGroup actions { get; construct; }
 
-            title = app.app_cmd_name;
+        public const string ACTION_PREFIX = "win.";
+        public const string ACTION_NEW_VIEW = "action_new_view";
+        public const string ACTION_PREFERENCES = "preferences";
+        public const string ACTION_REMOVE_VIEW = "action_remove_view";
+        public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
+
+        private const ActionEntry[] action_entries = {
+            { ACTION_NEW_VIEW, action_new_view },
+            { ACTION_PREFERENCES, action_preferences },
+            { ACTION_REMOVE_VIEW, action_remove_view }
+        };
+
+        public MainWindow (Scratch.Application scratch_app) {
+            Object (
+                application: scratch_app,
+                app: scratch_app,
+                icon_name: "io.elementary.code",
+                title: _("Code")
+            );
+        }
+
+        static construct {
+            action_accelerators.set (ACTION_NEW_VIEW, "F3");
         }
 
         construct {
+            actions = new SimpleActionGroup ();
+            actions.add_action_entries (action_entries, this);
+            insert_action_group ("win", actions);
+
+            foreach (var action in action_accelerators.get_keys ()) {
+                app.set_accels_for_action (ACTION_PREFIX + action, action_accelerators[action].to_array ());
+            }
+
             set_size_request (450, 400);
             set_hide_titlebar_when_maximized (false);
 
@@ -142,9 +169,7 @@ namespace Scratch {
         }
 
         private void init_layout () {
-            // Toolbar
-            var menu = ui.get_widget ("ui/AppMenu") as Gtk.Menu;
-            toolbar = new Scratch.Widgets.Toolbar (main_actions, menu);
+            toolbar = new Scratch.Widgets.Toolbar (main_actions);
             toolbar.title = title;
             toolbar.show_close_button = true;
             set_titlebar (toolbar);
@@ -710,10 +735,6 @@ namespace Scratch {
             destroy ();
         }
 
-        private void action_restore_tab () {
-
-        }
-
         private void action_open () {
             // Show a GtkFileChooserDialog
             var filech = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.OPEN, _("Open some files"), this, true);
@@ -925,115 +946,31 @@ namespace Scratch {
 
         // Actions array
         private const Gtk.ActionEntry[] main_entries = {
-            { "ShowGoTo", "dialog-ok",
-          /* label, accelerator */       N_("Go to line…"), "<Control>i",
-          /* tooltip */                  N_("Go to line…"),
-                                         action_go_to },
-            { "Quit", "application-exit",
-          /* label, accelerator */       N_("Quit"), "<Control>q",
-          /* tooltip */                  N_("Quit"),
-                                         action_quit },
-            { "CloseTab", "window-close",
-          /* label, accelerator */       N_("Close"), "<Control>w",
-          /* tooltip */                  N_("Close"),
-                                         action_close_tab },
-            { "ShowReplace", "dialog-ok",
-          /* label, accelerator */       N_("Replace"), "<Control>r",
-          /* tooltip */                  N_("Replace"),
-                                         action_fetch },
-            { "RestoreTab", null,
-          /* label, accelerator */       N_("Reopen closed document"), "<Control><Shift>t",
-          /* tooltip */                  N_("Open last closed document in a new tab"),
-                                         action_restore_tab },
-            { "NewTab", "add",
-          /* label, accelerator */       N_("Add New Tab"), "<Control>n",
-          /* tooltip */                  N_("Add a new tab"),
-                                         action_new_tab },
-            { "NewView", "add",
-          /* label, accelerator */       N_("Add New View"), "F3",
-          /* tooltip */                  N_("Add a new view"),
-                                         action_new_view },
-            { "RemoveView", "window-close",
-          /* label, accelerator */       N_("Remove Current View"), null,
-          /* tooltip */                  N_("Remove this view"),
-                                         action_remove_view },
-            { "Undo", "edit-undo",
-          /* label, accelerator */       N_("Undo"), "<Control>z",
-          /* tooltip */                  N_("Undo the last action"),
-                                         action_undo },
-            { "Redo", "edit-redo",
-          /* label, accelerator */       N_("Redo"), "<Control><shift>z",
-          /* tooltip */                  N_("Redo the last undone action"),
-                                         action_redo },
-            { "Revert", "document-revert",
-          /* label, accelerator */       N_("Revert"), "<Control><shift>o",
-          /* tooltip */                  N_("Restore this file"),
-                                         action_revert },
-            { "Duplicate", null,
-          /* label, accelerator */       N_("Duplicate selected strings"), "<Control>d",
-          /* tooltip */                  N_("Duplicate selected strings"),
-                                         action_duplicate },
-            { "Open", "document-open",
-          /* label, accelerator */       N_("Open"), "<Control>o",
-          /* tooltip */                  N_("Open a file"),
-                                         action_open },
-            { "Clipboard", "edit-paste",
-          /* label, accelerator */       N_("Clipboard"), null,
-          /* tooltip */                  N_("New file from Clipboard"),
-                                         action_new_tab_from_clipboard },
-            { "Zoom", "zoom-original",
-          /* label, accelerator */       N_("Zoom"), "<Control>0",
-          /* tooltip */                  N_("Zoom 1:1"),
-                                         action_set_default_zoom },
-            { "SaveFile", "document-save",
-          /* label, accelerator */       N_("Save"), "<Control>s",
-          /* tooltip */                  N_("Save this file"),
-                                         action_save },
-            { "SaveFileAs", "document-save-as",
-          /* label, accelerator */       N_("Save As…"), "<Control><shift>s",
-          /* tooltip */                  N_("Save this file with a different name"),
-                                         action_save_as },
-            { "Templates", "text-x-generic-template",
-          /* label, accelerator */       N_("Templates"), null,
-          /* tooltip */                  N_("Project templates"),
-                                         action_templates },
-            { "Preferences", "preferences-desktop",
-          /* label, accelerator */       N_("Preferences"), null,
-          /* tooltip */                  N_("Change Scratch settings"),
-                                         action_preferences },
-            { "NextTab", "next-tab",
-          /* label, accelerator */       N_("Next Tab"), "<Control><Alt>Page_Up",
-          /* tooltip */                  N_("Next Tab"),
-                                         action_next_tab },
-            { "PreviousTab", "previous-tab",
-          /* label, accelerator */       N_("Previous Tab"), "<Control><Alt>Page_Down",
-          /* tooltip */                  N_("Previous Tab"),
-                                         action_previous_tab },
-
-            { "ToLowerCase", null,
-          /* label, accelerator */       null, "<Control>l",
-          /* tooltip */                  null,
-                                         action_to_lower_case },
-            { "ToUpperCase", null,
-          /* label, accelerator */       null, "<Control>u",
-          /* tooltip */                  null,
-                                         action_to_upper_case },
-            { "Fetch", null,
-          /* label, accelerator */       N_("Find…"), "<Control>f",
-          /* tooltip */                  N_("Find…"),
-                                         action_fetch }
+            { "ShowGoTo", null, null, "<Control>i", null, action_go_to },
+            { "Quit", null, null, "<Control>q", null, action_quit },
+            { "CloseTab", null, null, "<Control>w", null, action_close_tab },
+            { "ShowReplace", null, null, "<Control>r", null, action_fetch },
+            { "NewTab", null, null, "<Control>n", null, action_new_tab },
+            { "Undo", null, null, "<Control>z", null, action_undo },
+            { "Redo", null, null, "<Control><shift>z", null, action_redo },
+            { "Revert", null, null, "<Control><shift>o", null, action_revert },
+            { "Duplicate", null, null, "<Control>d", null, action_duplicate },
+            { "Open", null, null, "<Control>o", null, action_open },
+            { "Clipboard", null, null, null, null, action_new_tab_from_clipboard },
+            { "Zoom", null, null, "<Control>0", null, action_set_default_zoom },
+            { "SaveFile", null, null, "<Control>s", null, action_save },
+            { "SaveFileAs", null, null, "<Control><shift>s", null, action_save_as },
+            { "Templates", null, null, null, null, action_templates },
+            { "NextTab", null, null, "<Control><Alt>Page_Up", null, action_next_tab },
+            { "PreviousTab", null, null, "<Control><Alt>Page_Down", null, action_previous_tab },
+            { "ToLowerCase", null, null, "<Control>l", null, action_to_lower_case },
+            { "ToUpperCase", null, null, "<Control>u", null, action_to_upper_case },
+            { "Fetch", null, null, "<Control>f", null, action_fetch }
         };
 
         private const Gtk.ToggleActionEntry[] toggle_entries = {
-            { "Fullscreen", "view-fullscreen",
-          /* label, accelerator */       N_("Fullscreen"), "F11",
-          /* tooltip */                  N_("Fullscreen"),
-                                         action_fullscreen },
-
-            { "ShowFetch", "edit-find",
-          /* label, accelerator */       N_("Find…"), "",
-          /* tooltip */                  N_("Find…"),
-                                         action_show_fetch }
+            { "Fullscreen", null, null, "F11", null, action_fullscreen },
+            { "ShowFetch", null, null, "", null, action_show_fetch }
         };
     }
 }
