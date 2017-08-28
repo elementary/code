@@ -23,14 +23,19 @@ public const string DESCRIPTION = _("Complete brackets while typing");
 
 public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Activatable {
     Gee.HashMap<string, string> brackets;
-    // saves, when left bracket is deleted, if right bracket will also be deleted 
-    Gee.HashMap<string, bool> bracketsDALD;
+    
+    /* saves, when left bracket is deleted, if right bracket will also be deleted 
+    We take ( and " as an example. If you type '(' and then you also get ')' and then you hit Backspace
+    it is very unlikely the user wants to keep ')'
+    But it might be different with " because the user maybe wants to have only one.
+    */
+    Gee.HashMap<string, bool> brackets_DALD;
 
     Gee.TreeSet<Gtk.TextBuffer> buffers;
     Gtk.TextBuffer current_buffer;
     string last_inserted;
     
-    bool AttentionBracket;
+    bool attention_bracket;
 
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
@@ -53,21 +58,20 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
         this.brackets.set ("‘", "‘");
         this.brackets.set ("'", "'");
         this.brackets.set ("\"", "\"");
+           
+        this.brackets_DALD = new Gee.HashMap<string, bool> ();
+        this.brackets_DALD.set ("(", true);
+        this.brackets_DALD.set ("[", true);
+        this.brackets_DALD.set ("{", true);
+        this.brackets_DALD.set ("<", true);
+        this.brackets_DALD.set ("⟨", true);
+        this.brackets_DALD.set ("｢", true);
+        this.brackets_DALD.set ("⸤", true);
+        this.brackets_DALD.set ("‘", false);
+        this.brackets_DALD.set ("'", false);
+        this.brackets_DALD.set ("\"", false);
         
-        
-        this.bracketsDALD = new Gee.HashMap<string, bool> ();
-        this.bracketsDALD.set ("(", true);
-        this.bracketsDALD.set ("[", true);
-        this.bracketsDALD.set ("{", true);
-        this.bracketsDALD.set ("<", true);
-        this.bracketsDALD.set ("⟨", true);
-        this.bracketsDALD.set ("｢", true);
-        this.bracketsDALD.set ("⸤", true);
-        this.bracketsDALD.set ("‘", false);
-        this.bracketsDALD.set ("'", false);
-        this.bracketsDALD.set ("\"", false);
-        
-        AttentionBracket = false;    
+        attention_bracket = false;    
         
         plugins = (Scratch.Services.Interface) object;
         plugins.hook_document.connect ((doc) => {
@@ -79,33 +83,21 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
             
             doc.source_view.move_cursor.connect ((a, b, c) => {
                 // if cursor moves around code doesnt care about brackets anymore
-                AttentionBracket = false;
+                attention_bracket = false;
             });
             
             doc.source_view.backspace.connect (() => {
-                if (AttentionBracket) {
+                if (attention_bracket) {
                     
-                    Gtk.TextIter leftiter;
-                    buf.get_iter_at_mark(out leftiter, buf.get_insert());
+                    Gtk.TextIter left_iter;
+                    buf.get_iter_at_mark(out left_iter, buf.get_insert());
                     
-                    var rightiter = leftiter;
+                    var right_iter = left_iter;
                     
-                    //leftiter.backward_cursor_positions (1);
-                     rightiter.forward_cursor_positions (1);
-                     buf.@delete(ref leftiter, ref rightiter);       
-                
-                    // https://valadoc.org/gtk+-3.0/Gtk.TextBuffer.get_insert.html hier bekommt TextMark
-                    // dann https://valadoc.org/gtk+-3.0/Gtk.TextBuffer.get_iter_at_mark.html 
-                    
-                    
-                
-                
+                    right_iter.forward_cursor_positions (1);
+                    buf.@delete(ref left_iter, ref right_iter);                       
                 }
-            });
-            
-           
-            
-            
+            });  
         });
     }
 
@@ -117,7 +109,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
 
     void on_insert_text (ref Gtk.TextIter pos, string new_text, int new_text_length) {
         // if text changes code doesnt care about last brackets anymore
-        AttentionBracket = false;
+        attention_bracket = false;
         
         // If you are copy/pasting a large amount of text...
         if (new_text_length > 1) {
@@ -137,7 +129,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
             this.last_inserted = text;
             buf.insert (ref pos, text, len);
 
-            AttentionBracket = this.bracketsDALD.get (new_text);
+            attention_bracket = this.brackets_DALD.get (new_text);
 
             //To make " and ' brackets work correctly (opening and closing chars are the same)
             this.last_inserted = null;
