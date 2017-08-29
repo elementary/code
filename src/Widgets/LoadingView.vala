@@ -32,6 +32,7 @@ namespace Scratch.Widgets {
 
             var label = new Gtk.Label (_("Wait while restoring last session..."));
             label.margin = 12;
+            label.hexpand = true;
 
             var grid = new Gtk.Grid ();
             grid.orientation = Gtk.Orientation.VERTICAL;
