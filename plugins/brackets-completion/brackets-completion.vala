@@ -1,104 +1,104 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /***
   BEGIN LICENSE
-	
+
   Copyright (C) 2013 Mario Guerriero <mario@elementaryos.org>
-  This program is free software: you can redistribute it and/or modify it	
-  under the terms of the GNU Lesser General Public License version 3, as published	
+  This program is free software: you can redistribute it and/or modify it
+  under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
-	
-  This program is distributed in the hope that it will be useful, but	
-  WITHOUT ANY WARRANTY; without even the implied warranties of	
-  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR	
+
+  This program is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranties of
+  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
   PURPOSE.  See the GNU General Public License for more details.
-	
-  You should have received a copy of the GNU General Public License along	
-  with this program.  If not, see <http://www.gnu.org/licenses/>	
-  
-  END LICENSE	
+
+  You should have received a copy of the GNU General Public License along
+  with this program.  If not, see <http://www.gnu.org/licenses/>
+
+  END LICENSE
 ***/
 
 public const string NAME = _("Brackets Completion");
 public const string DESCRIPTION = _("Complete brackets while typing");
 
 public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Activatable {
-    Gee.HashMap<string, string> brackets;
 
     Gee.TreeSet<Gtk.TextBuffer> buffers;
     Gtk.TextBuffer current_buffer;
-    string last_inserted;
+    MainWindow window;
+
+    Gee.HashMap<uint, int> keys;
+    string[] opening_brackets;
+    string[] closing_brackets;
 
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
 
     public void update_state () {
-        
+
     }
 
     public void activate () {
-        this.buffers = new Gee.TreeSet<Gtk.TextBuffer> ();
-        this.brackets = new Gee.HashMap<string, string> ();
-        this.brackets.set ("(", ")");
-        this.brackets.set ("[", "]");
-        this.brackets.set ("{", "}");
-        this.brackets.set ("<", ">");
-        this.brackets.set ("⟨", "⟩");
-        this.brackets.set ("｢", "｣");
-        this.brackets.set ("⸤", "⸥");
-        this.brackets.set ("‘", "‘");
-        this.brackets.set ("'", "'");
-        this.brackets.set ("\"", "\"");
+        buffers = new Gee.TreeSet<Gtk.TextBuffer> ();
+        opening_brackets = {"{", "[", "(", "'", "\"", "`"};
+        closing_brackets = {"}", "]", ")", "'", "\"", "`"};
+
+        keys = new Gee.HashMap<uint, int> ();
+        keys.set (Gdk.Key.braceleft, 0);
+        keys.set (Gdk.Key.bracketleft, 1);
+        keys.set (Gdk.Key.parenleft, 2);
+        keys.set (Gdk.Key.quoteright, 3);
+        keys.set (Gdk.Key.quotedbl, 4);
+        keys.set (Gdk.Key.grave, 5);
 
         plugins = (Scratch.Services.Interface) object;
+
+        plugins.hook_window.connect ((w) => {
+            window = w;
+            window.key_press_event.connect (on_key_press);
+        });
+
         plugins.hook_document.connect ((doc) => {
             var buf = doc.source_view.buffer;
-            buf.insert_text.disconnect (on_insert_text);
-            buf.insert_text.connect (on_insert_text);
-            this.buffers.add (buf);
-            this.current_buffer = buf;
+            buffers.add (buf);
+            current_buffer = buf;
         });
     }
 
     public void deactivate () {
-        foreach (var buf in buffers) {
-            buf.insert_text.disconnect (on_insert_text);
-        }
+        window.key_press_event.disconnect (on_key_press);
     }
 
-    void on_insert_text (ref Gtk.TextIter pos, string new_text, int new_text_length) {
-        // If you are copy/pasting a large amount of text...
-        if (new_text_length > 1) {
-            return;
-        }
+    bool on_key_press (Gdk.EventKey event) {
+        var doc = window.get_current_document ();
+        if (doc != null && doc.source_view.has_focus) {
+            GLib.print(Gdk.keyval_name (event.keyval));
+            if (event.keyval in keys) {
 
-        // To avoid infinite loop
-        if (this.last_inserted == new_text) {
-            return;
-        }
+                var buf = this.current_buffer;
+                Gtk.TextIter start, end;
 
-        if (new_text in this.brackets.keys) {
-            var buf = this.current_buffer;
+                buf.get_selection_bounds (out start, out end);
+                var current_text = buf.get_text (start, end, true);
 
-            string text = this.brackets.get (new_text);
-            int len = text.length;
-            this.last_inserted = text;
-            buf.insert (ref pos, text, len);
+                var index = keys.get (event.keyval);
+                var open_bracket = opening_brackets[index];
+                var close_bracket = closing_brackets[index];
+                var text = open_bracket + current_text + close_bracket;
 
-            //To make " and ' brackets work correctly (opening and closing chars are the same)
-            this.last_inserted = null;
+                buf.delete_selection (false, false);
+                buf.insert_at_cursor (text, text.length);
+                buf.get_selection_bounds (out start, out end);
+                start.backward_chars (text.length - 1);
+                end.backward_char ();
 
-            pos.backward_chars (len);
-            buf.place_cursor (pos);
-        } else if (new_text in this.brackets.values) { // Handle matching closing brackets.
-            var buf = this.current_buffer;
-            var end_pos = pos;
-            end_pos.forward_chars (1);
+                buf.select_range (end, start);
 
-            if (new_text == buf.get_text (pos, end_pos, true)) {
-                buf.delete (ref pos, ref end_pos);
-                buf.place_cursor (pos);
+                return true;
             }
         }
+
+        return false;
     }
 }
 
@@ -106,5 +106,5 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
 public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
     objmodule.register_extension_type (typeof (Peas.Activatable),
-                                     typeof (Scratch.Plugins.BracketsCompletion));
+                                       typeof (Scratch.Plugins.BracketsCompletion));
 }
