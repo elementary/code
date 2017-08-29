@@ -72,7 +72,6 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
     bool on_key_press (Gdk.EventKey event) {
         var doc = window.get_current_document ();
         if (doc != null && doc.source_view.has_focus) {
-            GLib.print(Gdk.keyval_name (event.keyval));
             if (event.keyval in keys) {
 
                 var buf = this.current_buffer;
