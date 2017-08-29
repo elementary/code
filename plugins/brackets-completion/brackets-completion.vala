@@ -36,6 +36,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
     string last_inserted;
     
     bool attention_bracket;
+    
 
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
@@ -95,7 +96,9 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
                     var right_iter = left_iter;
                     
                     right_iter.forward_cursor_positions (1);
-                    buf.@delete(ref left_iter, ref right_iter);                       
+                    buf.@delete(ref left_iter, ref right_iter); 
+                    
+                    attention_bracket = false;                      
                 }
             });  
         });
