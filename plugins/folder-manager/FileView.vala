@@ -29,7 +29,7 @@ namespace Scratch.Plugins.FolderManager {
 
         // This is a workaround for SourceList silliness: you cannot remove an item
         // without it automatically selecting another one.
-        public bool ignore_next_select { get; set; default = false }
+        public bool ignore_next_select { get; set; default = false; }
 
         construct {
             width_request = 180;
