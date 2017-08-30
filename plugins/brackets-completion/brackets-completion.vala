@@ -29,7 +29,6 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
     it is very unlikely the user wants to keep ')'
     But it might be different with " because the user maybe wants to have only one.
     */
-    Gee.HashMap<string, bool> brackets_DALD;
 
     Gee.TreeSet<Gtk.TextBuffer> buffers;
     Gtk.TextBuffer current_buffer;
@@ -59,18 +58,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
         this.brackets.set ("‘", "‘");
         this.brackets.set ("'", "'");
         this.brackets.set ("\"", "\"");
-           
-        this.brackets_DALD = new Gee.HashMap<string, bool> ();
-        this.brackets_DALD.set ("(", true);
-        this.brackets_DALD.set ("[", true);
-        this.brackets_DALD.set ("{", true);
-        this.brackets_DALD.set ("<", true);
-        this.brackets_DALD.set ("⟨", true);
-        this.brackets_DALD.set ("｢", true);
-        this.brackets_DALD.set ("⸤", true);
-        this.brackets_DALD.set ("‘", false);
-        this.brackets_DALD.set ("'", false);
-        this.brackets_DALD.set ("\"", false);
+  
         
         attention_bracket = false;    
         
@@ -132,7 +120,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
             this.last_inserted = text;
             buf.insert (ref pos, text, len);
 
-            attention_bracket = this.brackets_DALD.get (new_text);
+            attention_bracket = true;
 
             //To make " and ' brackets work correctly (opening and closing chars are the same)
             this.last_inserted = null;
