@@ -191,7 +191,7 @@ namespace Scratch.Plugins.FolderManager {
                                  * Avoid race condition between adding and editing folder item
                                  * (not required for file items).
                                  */
-                                GLib.Idle.add(() => {
+                                GLib.Idle.add (() => {
                                     view.start_editing_item (item);
                                     return false;
                                 });
