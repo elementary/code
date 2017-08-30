@@ -23,15 +23,11 @@ public const string DESCRIPTION = _("Complete brackets while typing");
 
 public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Activatable {
     Gee.HashMap<string, string> brackets;
-    
-
-
     Gee.TreeSet<Gtk.TextBuffer> buffers;
     Gtk.TextBuffer current_buffer;
     string last_inserted;
     
     bool attention_bracket;
-    
 
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
@@ -55,7 +51,6 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
         this.brackets.set ("'", "'");
         this.brackets.set ("\"", "\"");
   
-        
         attention_bracket = false;    
         
         plugins = (Scratch.Services.Interface) object;
@@ -73,15 +68,12 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
             
             doc.source_view.backspace.connect (() => {
                 if (attention_bracket) {
-                    
                     Gtk.TextIter left_iter;
-                    buf.get_iter_at_mark(out left_iter, buf.get_insert());
-                    
+                    buf.get_iter_at_mark (out left_iter, buf.get_insert ());
                     var right_iter = left_iter;
-                    
                     right_iter.forward_cursor_positions (1);
-                    buf.@delete(ref left_iter, ref right_iter); 
-                    
+                    buf.@delete (ref left_iter, ref right_iter);
+
                     attention_bracket = false;                      
                 }
             });  
