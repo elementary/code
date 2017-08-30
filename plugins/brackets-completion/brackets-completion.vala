@@ -24,11 +24,7 @@ public const string DESCRIPTION = _("Complete brackets while typing");
 public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Activatable {
     Gee.HashMap<string, string> brackets;
     
-    /* saves, when left bracket is deleted, if right bracket will also be deleted 
-    We take ( and " as an example. If you type '(' and then you also get ')' and then you hit Backspace
-    it is very unlikely the user wants to keep ')'
-    But it might be different with " because the user maybe wants to have only one.
-    */
+
 
     Gee.TreeSet<Gtk.TextBuffer> buffers;
     Gtk.TextBuffer current_buffer;
