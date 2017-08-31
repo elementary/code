@@ -4,14 +4,14 @@
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License version 3
- * as published by the Free Software Foundation, either version 3 of the 
+ * as published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranties of
- * MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR 
+ * MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
  * PURPOSE. See the GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
@@ -24,8 +24,8 @@ public const string DESCRIPTION = _("Basic folder manager with file browsing");
 namespace Scratch.Plugins {
     public class FolderManagerPlugin : Peas.ExtensionBase, Peas.Activatable {
 
+        Gtk.ToolButton folder_open_button;
         FolderManager.FileView view;
-        Gtk.ToolButton tool_button;
 
         int index = 0;
 
@@ -45,13 +45,15 @@ namespace Scratch.Plugins {
         public void deactivate () {
             if (view != null)
                 view.destroy();
-            if (tool_button != null) {
-                //(tool_button.parent as Scratch.Widgets.Toolbar).open_button.visible = true;
-                tool_button.destroy ();
+
+            if (folder_open_button != null) {
+                folder_open_button.destroy();
+                folder_open_button = null;
             }
         }
 
         public void update_state () {
+            plugins.hook_toolbar.disconnect (on_hook_toolbar);
         }
 
         void on_hook_sidebar (Gtk.Notebook notebook) {
@@ -79,38 +81,36 @@ namespace Scratch.Plugins {
             view.restore_saved_state ();
         }
 
-        void on_hook_toolbar (Gtk.HeaderBar toolbar) {
-            if (tool_button != null)
+        private void on_hook_toolbar (Gtk.HeaderBar toolbar) {
+            if (folder_open_button != null) {
                 return;
+            }
 
-            //(toolbar as Scratch.Widgets.Toolbar).open_button.visible = false;
             var icon = new Gtk.Image.from_icon_name ("folder-saved-search", Gtk.IconSize.LARGE_TOOLBAR);
-            tool_button = new Gtk.ToolButton (icon, _("Open a folder"));
-            tool_button.tooltip_text = _("Open a folder");
-            tool_button.clicked.connect (() => {
-                Gtk.Window window = plugins.manager.window;
-                Gtk.FileChooserDialog chooser = new Gtk.FileChooserDialog (
-                    "Select a folder.", window, Gtk.FileChooserAction.SELECT_FOLDER,
-                    _("_Cancel"), Gtk.ResponseType.CANCEL,
-                    _("_Open"), Gtk.ResponseType.ACCEPT);
-                chooser.select_multiple = true;
+            folder_open_button = new Gtk.ToolButton (icon, _("Open a folder"));
+            folder_open_button.tooltip_text = _("Open a folder");
+            folder_open_button.clicked.connect (() => open_dialog ());
+            folder_open_button.show_all ();
+            toolbar.pack_start (folder_open_button);
+        }
 
-                if (chooser.run () == Gtk.ResponseType.ACCEPT) {
-                    SList<string> uris = chooser.get_uris ();
-                    foreach (unowned string uri in uris) {
-                        var folder = new FolderManager.File (uri.replace ("file:///", "/"));
-                        view.open_folder (folder); // emit signal
-                    }
-                }
 
-                chooser.close ();
-            });
+        private void open_dialog () {
+            Gtk.Window window = plugins.manager.window;
+            Gtk.FileChooserDialog chooser = new Gtk.FileChooserDialog (
+                "Select a folder.", window, Gtk.FileChooserAction.SELECT_FOLDER,
+                _("_Cancel"), Gtk.ResponseType.CANCEL,
+                _("_Open"), Gtk.ResponseType.ACCEPT);
+            chooser.select_multiple = true;
 
-            icon.show ();
-            tool_button.show ();
+            if (chooser.run () == Gtk.ResponseType.ACCEPT) {
+                chooser.get_files ().foreach ((glib_file) => {
+                    var foldermanager_file = new FolderManager.File (glib_file.get_path ());
+                    view.open_folder (foldermanager_file);
+                });
+            }
 
-            toolbar.pack_start (tool_button);
-            //toolbar.insert (tool_button, 1);
+            chooser.close ();
         }
     }
 }
