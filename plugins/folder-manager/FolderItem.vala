@@ -136,7 +136,7 @@ namespace Scratch.Plugins.FolderManager {
             }
         }
 
-        private void add_folder () {
+        protected void add_folder () {
             if (!file.is_executable) {
                 // This is necessary to avoid infinite loop below
                 warning("Unable to open parent folder");
@@ -160,7 +160,7 @@ namespace Scratch.Plugins.FolderManager {
             }
         }
 
-        private void add_file () {
+        protected void add_file () {
             if (!file.is_executable) {
                 // This is necessary to avoid infinite loop below
                 warning("Unable to open parent folder");
