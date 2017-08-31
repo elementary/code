@@ -56,6 +56,14 @@ namespace Scratch.Plugins.FolderManager {
             var rename_item = new Gtk.MenuItem.with_label (_("Rename"));
             rename_item.activate.connect (() => view.start_editing_item (this));
 
+            var menu = create_common_menu ();
+            menu.prepend (rename_item);
+            menu.show_all ();
+
+            return menu;
+        }
+
+        protected Gtk.Menu create_common_menu () {
             var new_folder_item = new Gtk.MenuItem.with_label (_("Folder"));
             new_folder_item.activate.connect(() => add_folder ());
 
@@ -73,10 +81,8 @@ namespace Scratch.Plugins.FolderManager {
             delete_item.activate.connect (() => trash ());
 
             var menu = new Gtk.Menu ();
-            menu.append (rename_item);
             menu.append (new_item);
             menu.append (delete_item);
-            menu.show_all ();
 
             return menu;
         }

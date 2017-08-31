@@ -30,26 +30,8 @@ namespace Scratch.Plugins.FolderManager {
             var close_item = new Gtk.MenuItem.with_label (_("Close Folder"));
             close_item.activate.connect (() => { closed (); });
 
-            var new_folder_item = new Gtk.MenuItem.with_label (_("Folder"));
-            new_folder_item.activate.connect(() => add_folder ());
-
-            var new_file_item = new Gtk.MenuItem.with_label (_("Empty File"));
-            new_file_item.activate.connect (() => add_file ());
-
-            var new_menu = new Gtk.Menu ();
-            new_menu.append (new_folder_item);
-            new_menu.append (new_file_item);
-
-            var new_item = new Gtk.MenuItem.with_label (_("New"));
-            new_item.set_submenu (new_menu);
-
-            var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
-            delete_item.activate.connect (() => trash ());
-
-            var menu = new Gtk.Menu ();
-            menu.append (close_item);
-            menu.append (new_item);
-            menu.append (delete_item);
+            var menu = create_common_menu ();
+            menu.prepend (close_item);
             menu.show_all ();
 
             return menu;
