@@ -23,11 +23,8 @@ public const string DESCRIPTION = _("Basic folder manager with file browsing");
 
 namespace Scratch.Plugins {
     public class FolderManagerPlugin : Peas.ExtensionBase, Peas.Activatable {
-
         FolderManager.FileView view;
         Gtk.ToolButton tool_button;
-
-        int index = 0;
 
         Scratch.Services.Interface plugins;
         public Object object { owned get; construct; }
@@ -38,7 +35,7 @@ namespace Scratch.Plugins {
 
         public void activate () {
             plugins = (Scratch.Services.Interface) object;
-            plugins.hook_notebook_sidebar.connect (on_hook_sidebar);
+            plugins.hook_sidebar.connect (on_hook_sidebar);
             plugins.hook_toolbar.connect (on_hook_toolbar);
         }
 
@@ -54,9 +51,10 @@ namespace Scratch.Plugins {
         public void update_state () {
         }
 
-        void on_hook_sidebar (Gtk.Notebook notebook) {
-            if (view != null)
+        void on_hook_sidebar (Gtk.Stack sidebar) {
+            if (view != null) {
                 return;
+            }
 
             view = new FolderManager.FileView ();
 
@@ -67,13 +65,17 @@ namespace Scratch.Plugins {
 
             view.root.child_added.connect (() => {
                 if (view.get_n_visible_children (view.root) == 0) {
-                    index = notebook.append_page (view, new Gtk.Label (_("Folders")));
+                    sidebar.add_titled (view, "folders", _("Folders"));
+                    sidebar.child_set_property (view, "icon-name", "folder-symbolic");
+                    sidebar.child_set_property (view, "position", 0);
+                    sidebar.show_all ();
                 }
             });
 
             view.root.child_removed.connect (() => {
-                if (view.get_n_visible_children (view.root) == 1)
-                    notebook.remove_page (index);
+                if (view.get_n_visible_children (view.root) == 1) {
+                    sidebar.remove (view);
+                }
             });
 
             view.restore_saved_state ();

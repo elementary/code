@@ -38,13 +38,15 @@ namespace Scratch {
         private Scratch.Services.PluginsManager plugins;
 
         // Widgets for Plugins
-        public Gtk.Notebook sidebar;
         public Gtk.Notebook contextbar;
         public Gtk.Notebook bottombar;
+        public Gtk.Stack sidebar_stack;
 
+        private Gtk.Grid sidebar;
         private Gtk.Paned hp1;
         private Gtk.Paned hp2;
         private Gtk.Paned vp;
+        private Gtk.StackSwitcher sidebar_stack_switcher;
 
         // GtkActions
         public Gtk.ActionGroup main_actions;
@@ -252,13 +254,20 @@ namespace Scratch {
                 doc.check_undoable_actions ();
             });
 
-            // Plugins widgets
-            sidebar = new Gtk.Notebook ();
-            sidebar.no_show_all = true;
+            sidebar_stack = new Gtk.Stack ();
+            sidebar_stack.add.connect (on_sidebar_changed);
+            sidebar_stack.remove.connect (on_sidebar_changed);
+
+            sidebar_stack_switcher = new Gtk.StackSwitcher ();
+            sidebar_stack_switcher.homogeneous = true;
+            sidebar_stack_switcher.stack = sidebar_stack;
+
+            sidebar = new Gtk.Grid ();
+            sidebar.get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
+            sidebar.orientation = Gtk.Orientation.VERTICAL;
             sidebar.width_request = 200;
-            sidebar.get_style_context ().remove_class (Gtk.STYLE_CLASS_FRAME);
-            sidebar.page_added.connect (() => { on_plugin_toggled (sidebar); });
-            sidebar.page_removed.connect (() => { on_plugin_toggled (sidebar); });
+            sidebar.add (sidebar_stack_switcher);
+            sidebar.add (sidebar_stack);
 
             contextbar = new Gtk.Notebook ();
             contextbar.no_show_all = true;
@@ -333,7 +342,7 @@ namespace Scratch {
                 plugins.hook_toolbar (toolbar);
                 plugins.hook_main_menu (toolbar.menu);
                 plugins.hook_share_menu (toolbar.share_menu);
-                plugins.hook_notebook_sidebar (sidebar);
+                plugins.hook_sidebar (sidebar_stack);
                 plugins.hook_notebook_context (contextbar);
                 plugins.hook_notebook_bottom (bottombar);
                 plugins.hook_split_view (split_view);
@@ -433,6 +442,16 @@ namespace Scratch {
             notebook.set_show_tabs (pages > 1);
             notebook.no_show_all = (pages == 0);
             notebook.visible = (pages > 0);
+        }
+
+        private void on_sidebar_changed () {
+            int pages = 0;
+            foreach (unowned Gtk.Widget child in sidebar_stack.get_children ()) {
+                pages++;
+            }
+            sidebar_stack_switcher.visible = pages > 1;
+            sidebar.no_show_all = (pages == 0);
+            sidebar.visible = (pages > 0);
         }
 
         protected override bool delete_event (Gdk.EventAny event) {
