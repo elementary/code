@@ -86,7 +86,7 @@ namespace Scratch.Services {
             this.main_actions = actions;
             this.file = file;
 
-            open.begin ();
+//~             open.begin ();
         }
 
         construct {
@@ -143,20 +143,48 @@ namespace Scratch.Services {
         }
 
         public async bool open () {
-            this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
-
             // If it does not exists, let's create it!
             if (!exists ()) {
                 try {
                     FileUtils.set_contents (file.get_path (), "");
                 } catch (FileError e) {
                     warning ("Cannot create file \"%s\": %s", get_basename (), e.message);
+                    return false;
                 }
             }
 
-            // Start loading
+            // Start loading - do not assume it will succeed
             this.working = true;
             message ("Opening \"%s\"", get_basename ());
+
+            /* Loading improper files may hang so we cancel after a certain time */
+            var cancellable = new Cancellable ();
+            uint timeout_id = 0;
+            timeout_id = Timeout.add_seconds (2, () => {
+                cancellable.cancel ();
+                timeout_id = 0;
+                return false;
+            });
+
+            try {
+                var source_file_loader = new Gtk.SourceFileLoader (source_view.buffer, source_file);
+                yield source_file_loader.load_async (GLib.Priority.DEFAULT, cancellable, null);
+                loaded = true;
+            } catch (Error e) {
+                critical (e.message);
+                source_view.buffer.text = "";
+                show_error_dialog ();
+
+                return false;
+            } finally {
+                this.working = false;
+                if (timeout_id > 0) {
+                    Source.remove (timeout_id);
+                }
+            }
+
+            /* Successful load - now do rest of set up */
+            this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
 
             toggle_changed_handlers (true);
 
@@ -181,9 +209,6 @@ namespace Scratch.Services {
             // Change syntax highlight
             this.source_view.change_syntax_highlight_from_file (this.file);
 
-            // Stop loading
-            this.working = false;
-
 #if HAVE_ZEITGEIST
             // Zeitgeist integration
             zg_log.open_insert (file.get_uri (), get_mime_type ());
@@ -192,18 +217,8 @@ namespace Scratch.Services {
             // Grab focus
             this.source_view.grab_focus ();
 
-            var source_file_loader = new Gtk.SourceFileLoader (source_view.buffer, source_file);
-            try {
-                yield source_file_loader.load_async (GLib.Priority.DEFAULT, null, null);
-            } catch (Error e) {
-                critical (e.message);
-                show_error_dialog ();
-                return false;
-            }
-
             source_view.buffer.set_modified (false);
             original_content = source_view.buffer.text;
-            loaded = true;
 
             this.source_view.buffer.modified_changed.connect (() => {
                 if (this.source_view.buffer.get_modified() && !settings.autosave) {
@@ -218,6 +233,10 @@ namespace Scratch.Services {
 
         public new bool close (bool app_closing = false) {
             message ("Closing \"%s\"", get_basename ());
+
+            if (!loaded) {
+                return true;
+            }
 
             bool ret_value = true;
             if (app_closing && is_file_temporary && !delete_temporary_file ()) {
@@ -319,6 +338,12 @@ namespace Scratch.Services {
 
         public async bool save_as () {
             // New file
+
+            if (!loaded) {
+                return false;
+            }
+
+
             var filech = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.SAVE, _("Save File"), null);
             filech.do_overwrite_confirmation = true;
 
@@ -556,9 +581,9 @@ namespace Scratch.Services {
             }
 
             this.error_shown = true;
-            string message = _("File \"%s\" cannot be read. Maybe it is corrupt\nor you do not have the necessary permissions to read it.").printf ("<b>%s</b>".printf (get_basename ()));
+            string message = _("File \"%s\" cannot be read. Maybe it is corrupt\nor you do not have the necessary permissions to read it\nor it is too large.").printf (get_basename ());
             var parent_window = source_view.get_toplevel () as Gtk.Window;
-            var dialog = new Gtk.MessageDialog.with_markup (parent_window, Gtk.DialogFlags.MODAL,
+            var dialog = new Gtk.MessageDialog (parent_window, Gtk.DialogFlags.MODAL,
                                                  Gtk.MessageType.ERROR,
                                                  Gtk.ButtonsType.CLOSE,
                                                  message);
