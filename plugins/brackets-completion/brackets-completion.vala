@@ -22,14 +22,13 @@ public const string NAME = _("Brackets Completion");
 public const string DESCRIPTION = _("Complete brackets while typing");
 
 public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Activatable {
-
     Gee.TreeSet<Gtk.TextBuffer> buffers;
     Gtk.TextBuffer current_buffer;
     MainWindow window;
 
-    Gee.HashMap<uint, int> keys;
-    string[] opening_brackets;
-    string[] closing_brackets;
+    const Gee.HashMap<uint, int> keys;
+    const string[] opening_brackets;
+    const string[] closing_brackets;
 
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
@@ -44,13 +43,13 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
         closing_brackets = {"}", "]", ")", "'", "\"", "`"};
 
         keys = new Gee.HashMap<uint, int> ();
-        keys.set (Gdk.Key.braceleft, 0);
-        keys.set (Gdk.Key.bracketleft, 1);
-        keys.set (Gdk.Key.parenleft, 2);
-        keys.set (Gdk.Key.quoteright, 3);
-        keys.set (Gdk.Key.quotedbl, 4);
-        keys.set (Gdk.Key.grave, 5);
-
+        keys[Gdk.Key.braceleft] = 0;
+        keys[Gdk.Key.bracketleft] = 1;
+        keys[Gdk.Key.parenleft] = 2;
+        keys[Gdk.Key.quoteright] = 3;
+        keys[Gdk.Key.quotedbl] = 4;
+        keys[Gdk.Key.grave] = 5;
+        
         plugins = (Scratch.Services.Interface) object;
 
         plugins.hook_window.connect ((w) => {
@@ -77,7 +76,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
             buf.get_selection_bounds (out start, out end);
             var current_text = buf.get_text (start, end, true);
 
-            var index = keys.get (event.keyval);
+            var index = keys[event.keyval];
             var open_bracket = opening_brackets[index];
             var close_bracket = closing_brackets[index];
             var text = open_bracket + current_text + close_bracket;
