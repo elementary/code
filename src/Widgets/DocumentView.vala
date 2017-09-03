@@ -157,7 +157,6 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
 
         doc.create_page ();
         doc.working = true;
-        var tab_index = notebook.insert_tab (doc, -1);
         current_document = doc;
 
         Idle.add (() => { // This ensures new tab is drawn before opening document.

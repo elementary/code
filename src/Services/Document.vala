@@ -27,6 +27,8 @@ namespace Scratch.Services {
     }
 
     public class Document : Granite.Widgets.Tab {
+        private const uint LOAD_TIMEOUT_SEC = 2;
+
         public delegate void VoidFunc ();
         public signal void doc_opened ();
         public signal void doc_saved ();
@@ -158,7 +160,7 @@ namespace Scratch.Services {
             /* Loading improper files may hang so we cancel after a certain time */
             var cancellable = new Cancellable ();
             uint timeout_id = 0;
-            timeout_id = Timeout.add_seconds (2, () => {
+            timeout_id = Timeout.add_seconds (LOAD_TIMEOUT_SEC, () => {
                 cancellable.cancel ();
                 timeout_id = 0;
                 return false;
@@ -580,12 +582,17 @@ namespace Scratch.Services {
             }
 
             this.error_shown = true;
-            string message = _("File \"%s\" cannot be read. Maybe it is corrupt\nor you do not have the necessary permissions to read it\nor it is too large.").printf (get_basename ());
+
             var parent_window = source_view.get_toplevel () as Gtk.Window;
-            var dialog = new Gtk.MessageDialog (parent_window, Gtk.DialogFlags.MODAL,
+            /* Using ".with_markup () " constructor does not work properly */
+            /* NOTE: This dialog needs changing to Elementary HIG style */
+            var dialog = new Gtk.MessageDialog  (parent_window,
+                                                 Gtk.DialogFlags.MODAL,
                                                  Gtk.MessageType.ERROR,
-                                                 Gtk.ButtonsType.CLOSE,
-                                                 message);
+                                                 Gtk.ButtonsType.CLOSE, null);
+
+            /* Setting markup now works */
+            dialog.set_markup ( _("File \"%s\" cannot be read. Maybe it is corrupt\nor you do not have the necessary permissions to read it.").printf ("<b>%s</b>".printf (get_basename ())));
             dialog.run ();
             dialog.destroy ();
             this.close ();
