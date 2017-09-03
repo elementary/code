@@ -43,18 +43,19 @@ namespace Scratch.Plugins {
         }
 
         public void deactivate () {
-            if (view != null)
+            if (view != null) {
                 view.destroy();
+            }
 
             if (folder_open_button != null) {
                 folder_open_button.destroy();
                 folder_open_button = null;
             }
-        }
 
-        public void update_state () {
             plugins.hook_toolbar.disconnect (on_hook_toolbar);
         }
+        
+        public void update_state () { }
 
         void on_hook_sidebar (Gtk.Notebook notebook) {
             if (view != null)
@@ -89,7 +90,7 @@ namespace Scratch.Plugins {
             var icon = new Gtk.Image.from_icon_name ("folder-saved-search", Gtk.IconSize.LARGE_TOOLBAR);
             folder_open_button = new Gtk.ToolButton (icon, _("Open a folder"));
             folder_open_button.tooltip_text = _("Open a folder");
-            folder_open_button.clicked.connect (() => open_dialog ());
+            folder_open_button.clicked.connect (open_dialog);
             folder_open_button.show_all ();
             toolbar.pack_start (folder_open_button);
         }
