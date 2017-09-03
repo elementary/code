@@ -143,6 +143,12 @@ namespace Scratch {
 
             Unix.signal_add (Posix.SIGINT, quit_source_func, Priority.HIGH);
             Unix.signal_add (Posix.SIGTERM, quit_source_func, Priority.HIGH);
+
+            /* Showing welcome sets widgets insensitive.
+             * Welcome view will be removed and the widgets set sensitive
+             * if a document is successfully loaded.
+             */
+            split_view.show_welcome ();
         }
 
         private void init_actions () {
@@ -306,13 +312,6 @@ namespace Scratch {
                 main_actions.get_action ("Templates").visible = plugins.plugin_iface.template_manager.template_available;
             });
 
-//~             // All the files have already been opened in Application.activate (),
-//~             // if we reach this point without any document open let's just show
-//~             // the welcome screen.
-//~             if (is_empty ()) {
-                split_view.show_welcome ();
-//~             }
-
             split_view.document_change.connect ((doc) => { plugins.hook_document (doc); });
 
             // Plugins hook
@@ -332,8 +331,6 @@ namespace Scratch {
             });
 
             hook_func ();
-
-//~             set_widgets_sensitive (!split_view.is_empty ());
         }
 
         public void restore_opened_documents () {

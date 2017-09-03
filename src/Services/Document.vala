@@ -85,8 +85,6 @@ namespace Scratch.Services {
         public Document (Gtk.ActionGroup actions, File? file = null) {
             this.main_actions = actions;
             this.file = file;
-
-//~             open.begin ();
         }
 
         construct {
@@ -168,6 +166,7 @@ namespace Scratch.Services {
 
             try {
                 var source_file_loader = new Gtk.SourceFileLoader (source_view.buffer, source_file);
+                /* Tab spinner freezes during this */
                 yield source_file_loader.load_async (GLib.Priority.DEFAULT, cancellable, null);
                 loaded = true;
             } catch (Error e) {

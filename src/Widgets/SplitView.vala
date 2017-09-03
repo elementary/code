@@ -92,7 +92,6 @@ namespace Scratch.Widgets {
         }
 
         public Scratch.Widgets.DocumentView? add_view () {
-message ("add view");
             if (views.length () >= 2) {
                 warning ("Maximum view number was already reached!");
                 return null;
@@ -138,7 +137,6 @@ message ("add view");
         }
 
         public void remove_view (Scratch.Widgets.DocumentView? view = null) {
-message ("remove view");
             // If no specific view is required to be removed, just remove the current one
             if (view == null) {
                 view = get_focus_child () as Scratch.Widgets.DocumentView;

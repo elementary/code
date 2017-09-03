@@ -156,17 +156,17 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         }
 
         doc.create_page ();
+        doc.working = true;
         var tab_index = notebook.insert_tab (doc, -1);
         current_document = doc;
 
         Idle.add (() => { // This ensures new tab is drawn before opening document.
             doc.open.begin ((obj, res) => {
-                var success = doc.open.end (res);
-    message ("success is %s", success.to_string ());
-                if (success) {
+                if (doc.open.end (res)) {
                     doc.focus ();
+                    save_opened_files ();
                 } else  {
-                   notebook.remove_tab (notebook.get_tab_by_index ((int)tab_index));
+                   notebook.remove_tab (doc);
                 }
             });
 
@@ -241,7 +241,6 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         doc.source_view.focus_in_event.connect (on_focus_in_event);
         doc.source_view.drag_data_received.connect (drag_received);
         doc.source_view.drag_motion.connect (drag_motion);
-//~         save_opened_files ();
     }
 
     private void on_doc_removed (Granite.Widgets.Tab tab) {
