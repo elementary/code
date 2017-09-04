@@ -65,15 +65,29 @@ namespace Scratch {
         public SimpleActionGroup actions { get; construct; }
 
         public const string ACTION_PREFIX = "win.";
+        public const string ACTION_GO_TO = "action_go_to";
         public const string ACTION_NEW_VIEW = "action_new_view";
+        public const string ACTION_NEXT_TAB = "action_next_tab";
         public const string ACTION_PREFERENCES = "preferences";
+        public const string ACTION_PREVIOUS_TAB = "action_previous_tab";
         public const string ACTION_REMOVE_VIEW = "action_remove_view";
+        public const string ACTION_SHOW_REPLACE = "action_show_replace";
+        public const string ACTION_TO_LOWER_CASE = "action_to_lower_case";
+        public const string ACTION_TO_UPPER_CASE = "action_to_upper_case";
+        public const string ACTION_QUIT = "action_quit";
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
         private const ActionEntry[] action_entries = {
+            { ACTION_GO_TO, action_go_to },
             { ACTION_NEW_VIEW, action_new_view },
+            { ACTION_NEXT_TAB, action_next_tab },
             { ACTION_PREFERENCES, action_preferences },
-            { ACTION_REMOVE_VIEW, action_remove_view }
+            { ACTION_PREVIOUS_TAB, action_previous_tab },
+            { ACTION_REMOVE_VIEW, action_remove_view },
+            { ACTION_SHOW_REPLACE, action_fetch },
+            { ACTION_TO_LOWER_CASE, action_to_lower_case },
+            { ACTION_TO_UPPER_CASE, action_to_upper_case },
+            { ACTION_QUIT, action_quit }
         };
 
         public MainWindow (Scratch.Application scratch_app) {
@@ -86,7 +100,14 @@ namespace Scratch {
         }
 
         static construct {
+            action_accelerators.set (ACTION_GO_TO, "<Control>i");
             action_accelerators.set (ACTION_NEW_VIEW, "F3");
+            action_accelerators.set (ACTION_NEXT_TAB, "<Control><Alt>Page_Up");
+            action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control><Alt>Page_Down");
+            action_accelerators.set (ACTION_SHOW_REPLACE, "<Control>r");
+            action_accelerators.set (ACTION_TO_LOWER_CASE, "<Control>l");
+            action_accelerators.set (ACTION_TO_UPPER_CASE, "<Control>u");
+            action_accelerators.set (ACTION_QUIT, "<Control>q");
         }
 
         construct {
@@ -444,8 +465,8 @@ namespace Scratch {
             var fetch = (Gtk.ToggleAction) main_actions.get_action ("ShowFetch");
             fetch.sensitive = val;
             fetch.active = (fetch.active && val);
-            main_actions.get_action ("ShowGoTo").sensitive = val;
-            main_actions.get_action ("ShowReplace").sensitive = val;
+            Utils.action_from_group (ACTION_GO_TO, actions).set_enabled (val);
+            Utils.action_from_group (ACTION_SHOW_REPLACE, actions).set_enabled (val);
             // Toolbar Actions
             main_actions.get_action ("SaveFile").sensitive = val;
             main_actions.get_action ("SaveFileAs").sensitive = val;
@@ -965,10 +986,7 @@ namespace Scratch {
 
         // Actions array
         private const Gtk.ActionEntry[] main_entries = {
-            { "ShowGoTo", null, null, "<Control>i", null, action_go_to },
-            { "Quit", null, null, "<Control>q", null, action_quit },
             { "CloseTab", null, null, "<Control>w", null, action_close_tab },
-            { "ShowReplace", null, null, "<Control>r", null, action_fetch },
             { "NewTab", null, null, "<Control>n", null, action_new_tab },
             { "Undo", null, null, "<Control>z", null, action_undo },
             { "Redo", null, null, "<Control><shift>z", null, action_redo },
@@ -980,10 +998,6 @@ namespace Scratch {
             { "SaveFile", null, null, "<Control>s", null, action_save },
             { "SaveFileAs", null, null, "<Control><shift>s", null, action_save_as },
             { "Templates", null, null, null, null, action_templates },
-            { "NextTab", null, null, "<Control><Alt>Page_Up", null, action_next_tab },
-            { "PreviousTab", null, null, "<Control><Alt>Page_Down", null, action_previous_tab },
-            { "ToLowerCase", null, null, "<Control>l", null, action_to_lower_case },
-            { "ToUpperCase", null, null, "<Control>u", null, action_to_upper_case },
             { "Fetch", null, null, "<Control>f", null, action_fetch }
         };
 
