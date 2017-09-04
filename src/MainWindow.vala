@@ -465,8 +465,8 @@ namespace Scratch {
             var fetch = (Gtk.ToggleAction) main_actions.get_action ("ShowFetch");
             fetch.sensitive = val;
             fetch.active = (fetch.active && val);
-            ((SimpleAction) actions.lookup_action (ACTION_GO_TO)).set_enabled (val);
-            ((SimpleAction) actions.lookup_action (ACTION_SHOW_REPLACE)).set_enabled (val);
+            Utils.action_from_group (ACTION_GO_TO, actions).set_enabled (val);
+            Utils.action_from_group (ACTION_SHOW_REPLACE, actions).set_enabled (val);
             // Toolbar Actions
             main_actions.get_action ("SaveFile").sensitive = val;
             main_actions.get_action ("SaveFileAs").sensitive = val;
