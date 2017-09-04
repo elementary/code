@@ -38,13 +38,15 @@ namespace Scratch {
         private Scratch.Services.PluginsManager plugins;
 
         // Widgets for Plugins
-        public Gtk.Notebook sidebar;
         public Gtk.Notebook contextbar;
         public Gtk.Notebook bottombar;
+        public Gtk.Stack sidebar_stack;
 
+        private Gtk.Grid sidebar;
         private Gtk.Paned hp1;
         private Gtk.Paned hp2;
         private Gtk.Paned vp;
+        private Gtk.StackSwitcher sidebar_stack_switcher;
 
         // GtkActions
         public Gtk.ActionGroup main_actions;
@@ -64,9 +66,12 @@ namespace Scratch {
 
         public const string ACTION_PREFIX = "win.";
         public const string ACTION_FIND = "action_find";
-        public const string ACTION_NEW_VIEW = "action_new_view";
         public const string ACTION_OPEN = "action_open";
+        public const string ACTION_GO_TO = "action_go_to";
+        public const string ACTION_NEW_VIEW = "action_new_view";
+        public const string ACTION_NEXT_TAB = "action_next_tab";
         public const string ACTION_PREFERENCES = "preferences";
+        public const string ACTION_PREVIOUS_TAB = "action_previous_tab";
         public const string ACTION_REMOVE_VIEW = "action_remove_view";
         public const string ACTION_REVERT = "action_revert";
         public const string ACTION_SAVE = "action_save";
@@ -74,6 +79,11 @@ namespace Scratch {
         public const string ACTION_SHOW_FIND = "action_show_find";
         public const string ACTION_TEMPLATES = "action_templates";
         public const string ACTION_ZOOM_DEFAULT = "action_zoom_default";
+        public const string ACTION_SHOW_REPLACE = "action_show_replace";
+        public const string ACTION_TO_LOWER_CASE = "action_to_lower_case";
+        public const string ACTION_TO_UPPER_CASE = "action_to_upper_case";
+        public const string ACTION_QUIT = "action_quit";
+
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
         private const Gtk.ActionEntry[] main_entries = {
@@ -105,7 +115,6 @@ namespace Scratch {
 
         private const ActionEntry[] action_entries = {
             { ACTION_FIND, action_fetch },
-            { ACTION_NEW_VIEW, action_new_view },
             { ACTION_OPEN, action_open },
             { ACTION_PREFERENCES, action_preferences },
             { ACTION_REMOVE_VIEW, action_remove_view },
@@ -113,7 +122,17 @@ namespace Scratch {
             { ACTION_SAVE, action_save },
             { ACTION_SAVE_AS, action_save_as },
             { ACTION_TEMPLATES, action_templates },
-            { ACTION_ZOOM_DEFAULT, action_set_default_zoom }
+            { ACTION_ZOOM_DEFAULT, action_set_default_zoom },
+            { ACTION_GO_TO, action_go_to },
+            { ACTION_NEW_VIEW, action_new_view },
+            { ACTION_NEXT_TAB, action_next_tab },
+            { ACTION_PREFERENCES, action_preferences },
+            { ACTION_PREVIOUS_TAB, action_previous_tab },
+            { ACTION_REMOVE_VIEW, action_remove_view },
+            { ACTION_SHOW_REPLACE, action_fetch },
+            { ACTION_TO_LOWER_CASE, action_to_lower_case },
+            { ACTION_TO_UPPER_CASE, action_to_upper_case },
+            { ACTION_QUIT, action_quit }
         };
 
         public MainWindow (Scratch.Application scratch_app) {
@@ -127,12 +146,19 @@ namespace Scratch {
 
         static construct {
             action_accelerators.set (ACTION_FIND, "<Control>f");
-            action_accelerators.set (ACTION_NEW_VIEW, "F3");
             action_accelerators.set (ACTION_OPEN, "<Control>o");
             action_accelerators.set (ACTION_REVERT, "<Control><shift>o");
             action_accelerators.set (ACTION_SAVE, "<Control>s");
             action_accelerators.set (ACTION_SAVE_AS, "<Control><shift>s");
             action_accelerators.set (ACTION_ZOOM_DEFAULT, "<Control>0");
+            action_accelerators.set (ACTION_GO_TO, "<Control>i");
+            action_accelerators.set (ACTION_NEW_VIEW, "F3");
+            action_accelerators.set (ACTION_NEXT_TAB, "<Control><Alt>Page_Up");
+            action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control><Alt>Page_Down");
+            action_accelerators.set (ACTION_SHOW_REPLACE, "<Control>r");
+            action_accelerators.set (ACTION_TO_LOWER_CASE, "<Control>l");
+            action_accelerators.set (ACTION_TO_UPPER_CASE, "<Control>u");
+            action_accelerators.set (ACTION_QUIT, "<Control>q");
         }
 
         construct {
@@ -279,13 +305,20 @@ namespace Scratch {
                 doc.check_undoable_actions ();
             });
 
-            // Plugins widgets
-            sidebar = new Gtk.Notebook ();
-            sidebar.no_show_all = true;
+            sidebar_stack = new Gtk.Stack ();
+            sidebar_stack.add.connect (on_sidebar_changed);
+            sidebar_stack.remove.connect (on_sidebar_changed);
+
+            sidebar_stack_switcher = new Gtk.StackSwitcher ();
+            sidebar_stack_switcher.homogeneous = true;
+            sidebar_stack_switcher.stack = sidebar_stack;
+
+            sidebar = new Gtk.Grid ();
+            sidebar.get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
+            sidebar.orientation = Gtk.Orientation.VERTICAL;
             sidebar.width_request = 200;
-            sidebar.get_style_context ().remove_class (Gtk.STYLE_CLASS_FRAME);
-            sidebar.page_added.connect (() => { on_plugin_toggled (sidebar); });
-            sidebar.page_removed.connect (() => { on_plugin_toggled (sidebar); });
+            sidebar.add (sidebar_stack_switcher);
+            sidebar.add (sidebar_stack);
 
             contextbar = new Gtk.Notebook ();
             contextbar.no_show_all = true;
@@ -360,7 +393,7 @@ namespace Scratch {
                 plugins.hook_toolbar (toolbar);
                 plugins.hook_main_menu (toolbar.menu);
                 plugins.hook_share_menu (toolbar.share_menu);
-                plugins.hook_notebook_sidebar (sidebar);
+                plugins.hook_sidebar (sidebar_stack);
                 plugins.hook_notebook_context (contextbar);
                 plugins.hook_notebook_bottom (bottombar);
                 plugins.hook_split_view (split_view);
@@ -462,6 +495,16 @@ namespace Scratch {
             notebook.visible = (pages > 0);
         }
 
+        private void on_sidebar_changed () {
+            int pages = 0;
+            foreach (unowned Gtk.Widget child in sidebar_stack.get_children ()) {
+                pages++;
+            }
+            sidebar_stack_switcher.visible = pages > 1;
+            sidebar.no_show_all = (pages == 0);
+            sidebar.visible = (pages > 0);
+        }
+
         protected override bool delete_event (Gdk.EventAny event) {
             handle_quit ();
             return !check_unsaved_changes ();
@@ -473,8 +516,8 @@ namespace Scratch {
             var fetch = (Gtk.ToggleAction) main_actions.get_action ("ShowFetch");
             fetch.sensitive = val;
             fetch.active = (fetch.active && val);
-            main_actions.get_action ("ShowGoTo").sensitive = val;
-            main_actions.get_action ("ShowReplace").sensitive = val;
+            Utils.action_from_group (ACTION_GO_TO, actions).set_enabled (val);
+            Utils.action_from_group (ACTION_SHOW_REPLACE, actions).set_enabled (val);
             // Toolbar Actions
             main_actions.get_action ("SaveFile").sensitive = val;
             main_actions.get_action ("SaveFileAs").sensitive = val;
