@@ -23,10 +23,11 @@ public const string DESCRIPTION = _("Complete brackets while typing");
 
 public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Activatable {
     Gee.HashMap<string, string> brackets;
-
     Gee.TreeSet<Gtk.TextBuffer> buffers;
     Gtk.TextBuffer current_buffer;
     string last_inserted;
+    
+    bool attention_bracket;
 
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
@@ -37,6 +38,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
 
     public void activate () {
         this.buffers = new Gee.TreeSet<Gtk.TextBuffer> ();
+        
         this.brackets = new Gee.HashMap<string, string> ();
         this.brackets.set ("(", ")");
         this.brackets.set ("[", "]");
@@ -48,7 +50,9 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
         this.brackets.set ("‘", "‘");
         this.brackets.set ("'", "'");
         this.brackets.set ("\"", "\"");
-
+  
+        attention_bracket = false;    
+        
         plugins = (Scratch.Services.Interface) object;
         plugins.hook_document.connect ((doc) => {
             var buf = doc.source_view.buffer;
@@ -56,6 +60,23 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
             buf.insert_text.connect (on_insert_text);
             this.buffers.add (buf);
             this.current_buffer = buf;
+            
+            doc.source_view.move_cursor.connect ((a, b, c) => {
+                // if cursor moves around code doesnt care about brackets anymore
+                attention_bracket = false;
+            });
+            
+            doc.source_view.backspace.connect (() => {
+                if (attention_bracket) {
+                    Gtk.TextIter left_iter;
+                    buf.get_iter_at_mark (out left_iter, buf.get_insert ());
+                    var right_iter = left_iter;
+                    right_iter.forward_cursor_positions (1);
+                    buf.@delete (ref left_iter, ref right_iter);
+
+                    attention_bracket = false;                      
+                }
+            });  
         });
     }
 
@@ -66,6 +87,9 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
     }
 
     void on_insert_text (ref Gtk.TextIter pos, string new_text, int new_text_length) {
+        // if text changes code doesnt care about last brackets anymore
+        attention_bracket = false;
+        
         // If you are copy/pasting a large amount of text...
         if (new_text_length > 1) {
             return;
@@ -83,6 +107,8 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
             int len = text.length;
             this.last_inserted = text;
             buf.insert (ref pos, text, len);
+
+            attention_bracket = true;
 
             //To make " and ' brackets work correctly (opening and closing chars are the same)
             this.last_inserted = null;
