@@ -56,6 +56,19 @@ namespace Scratch.Plugins.FolderManager {
             var rename_item = new Gtk.MenuItem.with_label (_("Rename"));
             rename_item.activate.connect (() => view.start_editing_item (this));
 
+            var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
+            delete_item.activate.connect (trash);
+
+            var menu = new Gtk.Menu ();
+            menu.append (rename_item);
+            menu.append (create_submenu_for_new ());
+            menu.append (delete_item);
+            menu.show_all ();
+
+            return menu;
+        }
+
+        protected Gtk.MenuItem create_submenu_for_new () {
             var new_folder_item = new Gtk.MenuItem.with_label (_("Folder"));
             new_folder_item.activate.connect(() => add_folder ());
 
@@ -69,16 +82,7 @@ namespace Scratch.Plugins.FolderManager {
             var new_item = new Gtk.MenuItem.with_label (_("New"));
             new_item.set_submenu (new_menu);
 
-            var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
-            delete_item.activate.connect (() => trash ());
-
-            var menu = new Gtk.Menu ();
-            menu.append (rename_item);
-            menu.append (new_item);
-            menu.append (delete_item);
-            menu.show_all ();
-
-            return menu;
+            return new_item;
         }
 
         private void add_children () {
@@ -136,7 +140,7 @@ namespace Scratch.Plugins.FolderManager {
             }
         }
 
-        private void add_folder () {
+        protected void add_folder () {
             if (!file.is_executable) {
                 // This is necessary to avoid infinite loop below
                 warning("Unable to open parent folder");
@@ -160,7 +164,7 @@ namespace Scratch.Plugins.FolderManager {
             }
         }
 
-        private void add_file () {
+        protected void add_file () {
             if (!file.is_executable) {
                 // This is necessary to avoid infinite loop below
                 warning("Unable to open parent folder");
