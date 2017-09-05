@@ -23,7 +23,6 @@ public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatabl
     Scratch.Services.Interface plugins;
     public Object object {owned get; construct;}
     Scratch.MainWindow main_window;
-    Gtk.Action action_save;
     public void update_state () {return;}
 
     /*
@@ -33,8 +32,8 @@ public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatabl
         plugins = (Scratch.Services.Interface) object;
         plugins.hook_window.connect ((w) => {
             this.main_window = w;
-            w.main_actions.pre_activate.connect (on_save);
-            action_save = w.main_actions.get_action ("SaveFile");
+            var action = w.actions.lookup_action ("action_save") as SimpleAction;
+            action.activate.connect (on_save);
         });
     }
 
@@ -42,14 +41,15 @@ public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatabl
      * Deactivate plugin.
      */
     public void deactivate () {
-        this.main_window.main_actions.pre_activate.disconnect(on_save);
+        var action = this.main_window.actions.lookup_action ("action_save") as SimpleAction;
+        action.activate.disconnect (on_save);
     }
 
     /*
      * Strip trailing spaces in document.
      */
-    void on_save (Gtk.Action action) {
-        if (action == action_save && main_window.get_current_document () != null) {
+    void on_save () {
+        if (main_window.get_current_document () != null) {
             var text_view = main_window.get_current_document ().source_view;
             var buffer = text_view.buffer;
             buffer.begin_user_action();

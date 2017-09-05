@@ -21,16 +21,16 @@
 
 namespace Scratch.Widgets {
     public class Toolbar : Gtk.HeaderBar {
-        public Gtk.ActionGroup main_actions { get; construct; }
         public Gtk.Menu menu { get; construct; }
         public Gtk.Menu share_menu;
         public Gtk.MenuButton share_app_menu;
         public Gtk.MenuButton app_menu;
+        public Gtk.ToggleButton find_button;
+        public Gtk.Button templates_button;
 
-        public Toolbar (Gtk.ActionGroup main_actions) {
+        public Toolbar () {
             Object (
-                has_subtitle: false,
-                main_actions: main_actions
+                has_subtitle: false
             );
         }
 
@@ -39,7 +39,7 @@ namespace Scratch.Widgets {
             open_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN;
             open_button.tooltip_text = _("Open a file");
 
-            var templates_button = new Gtk.Button.from_icon_name ("text-x-generic-template", Gtk.IconSize.LARGE_TOOLBAR);
+            templates_button = new Gtk.Button.from_icon_name ("text-x-generic-template", Gtk.IconSize.LARGE_TOOLBAR);
             templates_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TEMPLATES;
             templates_button.tooltip_text = _("Project templates");
 
@@ -55,7 +55,7 @@ namespace Scratch.Widgets {
             revert_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_REVERT;
             revert_button.tooltip_text = _("Restore this file");
 
-            var find_button = new Gtk.ToggleButton ();
+            find_button = new Gtk.ToggleButton ();
             find_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SHOW_FIND;
             find_button.image = new Gtk.Image.from_icon_name ("edit-find", Gtk.IconSize.LARGE_TOOLBAR);
             find_button.tooltip_text = _("Find…");

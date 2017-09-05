@@ -33,13 +33,13 @@ namespace Scratch.Services {
         public signal void doc_closed ();
 
         // The parent window's actions
-        private weak Gtk.ActionGroup _main_actions;
-        public Gtk.ActionGroup main_actions {
+        private weak SimpleActionGroup _actions;
+        public SimpleActionGroup actions {
             get {
-                return _main_actions;
+                return _actions;
             }
             set {
-                _main_actions = value;
+                _actions = value;
             }
         }
 
@@ -82,8 +82,8 @@ namespace Scratch.Services {
         // Zeitgeist integration
         private ZeitgeistLogger zg_log = new ZeitgeistLogger();
 #endif
-        public Document (Gtk.ActionGroup actions, File? file = null) {
-            this.main_actions = actions;
+        public Document (SimpleActionGroup actions, File? file = null) {
+            this.actions = actions;
             this.file = file;
 
             open.begin ();
@@ -162,7 +162,6 @@ namespace Scratch.Services {
 
             // Focus in event for SourceView
             this.source_view.focus_in_event.connect (() => {
-                main_actions.get_action ("SaveFile").visible = !(settings.autosave);
                 check_file_status ();
                 check_undoable_actions ();
 
@@ -587,7 +586,7 @@ namespace Scratch.Services {
                     });
                 }
 
-                main_actions.get_action ("SaveFile").sensitive = false;
+                Utils.action_from_group (MainWindow.ACTION_SAVE, actions).set_enabled (false);
                 this.source_view.editable = false;
                 return;
             }
@@ -601,10 +600,10 @@ namespace Scratch.Services {
                     hide_info_bar ();
                 });
 
-                main_actions.get_action ("SaveFile").sensitive = false;
+                Utils.action_from_group (MainWindow.ACTION_SAVE, actions).set_enabled (false);
                 this.source_view.editable = !settings.autosave;
             } else {
-                main_actions.get_action ("SaveFile").sensitive = true;
+                Utils.action_from_group (MainWindow.ACTION_SAVE, actions).set_enabled (true);
                 this.source_view.editable = true;
             }
 
@@ -644,9 +643,9 @@ namespace Scratch.Services {
 
         // Set Undo/Redo action sensitive property
         public void check_undoable_actions () {
-            main_actions.get_action ("Undo").sensitive = this.source_view.buffer.can_undo;
-            main_actions.get_action ("Redo").sensitive = this.source_view.buffer.can_redo;
-            main_actions.get_action ("Revert").sensitive = (original_content != source_view.buffer.text);
+            Utils.action_from_group (MainWindow.ACTION_UNDO, actions).set_enabled (source_view.buffer.can_undo);
+            Utils.action_from_group (MainWindow.ACTION_REDO, actions).set_enabled (source_view.buffer.can_redo);
+            Utils.action_from_group (MainWindow.ACTION_REVERT, actions).set_enabled (original_content != source_view.buffer.text);
         }
 
         // Set saved status

@@ -121,7 +121,7 @@ namespace Scratch {
             if (create_new_tab) {
                 create_new_tab = false;
                 var window = get_last_window ();
-                window.main_actions.get_action ("NewTab").activate ();
+                Utils.action_from_group (MainWindow.ACTION_NEW_TAB, window.actions).activate (null);
             }
 
             // Set Current Directory
@@ -242,7 +242,7 @@ namespace Scratch {
                 view = window.get_current_view ();
 
             foreach (var file in files) {
-                var doc = new Scratch.Services.Document (window.main_actions, file);
+                var doc = new Scratch.Services.Document (window.actions, file);
                 view.open_document (doc);
             }
         }
