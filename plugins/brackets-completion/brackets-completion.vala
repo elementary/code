@@ -47,13 +47,9 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
         brackets["("] = ")";
         brackets["["] = "]";
         brackets["{"] = "}";
-        brackets["<"] = ">";
-        brackets["⟨"] = "⟩";
-        brackets["｢"] = "｣";
-        brackets["⸤"] = "⸥";
-        brackets["‘"] = "‘";
         brackets["'"] = "'";
         brackets["\""] = "\"";
+        brackets["`"] = "`";
 
         keys = new Gee.HashMap<uint, string> ();
         keys[Gdk.Key.braceleft] = "{";
