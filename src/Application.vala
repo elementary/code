@@ -61,7 +61,6 @@ namespace Scratch {
             Intl.textdomain (Constants.GETTEXT_PACKAGE);
 
             Granite.Services.Logger.initialize ("Code");
-            Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.DEBUG;
 
             // Init settings
             default_font = new GLib.Settings ("org.gnome.desktop.interface").get_string ("monospace-font-name");
