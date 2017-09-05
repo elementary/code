@@ -287,7 +287,7 @@ namespace Scratch.Widgets {
                 if (search_for_iter (start_iter, out end_iter)) {
                     search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
                 } else {
-                    warning ("Not found : \"%s\"", search_string);
+                    debug ("Not found: \"%s\"", search_string);
                     start_iter.set_offset (-1);
                     text_buffer.select_range (start_iter, start_iter);
                     search_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ERROR);
