@@ -26,9 +26,9 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
     Gtk.TextBuffer current_buffer;
     MainWindow window;
 
-    const Gee.HashMap<uint, int> keys;
-    const string[] opening_brackets;
-    const string[] closing_brackets;
+    Gee.HashMap<uint, int> keys;
+    const string[] opening_brackets = {"{", "[", "(", "'", "\"", "`"};
+    const string[] closing_brackets = {"}", "]", ")", "'", "\"", "`"};
 
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
@@ -39,8 +39,6 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
 
     public void activate () {
         buffers = new Gee.TreeSet<Gtk.TextBuffer> ();
-        opening_brackets = {"{", "[", "(", "'", "\"", "`"};
-        closing_brackets = {"}", "]", ")", "'", "\"", "`"};
 
         keys = new Gee.HashMap<uint, int> ();
         keys[Gdk.Key.braceleft] = 0;
@@ -70,24 +68,23 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
     bool on_key_press (Gdk.EventKey event) {
         var doc = window.get_current_document ();
         if (doc != null && doc.source_view.has_focus && event.keyval in keys) {
-            var buf = this.current_buffer;
             Gtk.TextIter start, end;
 
-            buf.get_selection_bounds (out start, out end);
-            var current_text = buf.get_text (start, end, true);
+            current_buffer.get_selection_bounds (out start, out end);
+            var current_text = current_buffer.get_text (start, end, true);
 
             var index = keys[event.keyval];
             var open_bracket = opening_brackets[index];
             var close_bracket = closing_brackets[index];
             var text = open_bracket + current_text + close_bracket;
 
-            buf.delete_selection (false, false);
-            buf.insert_at_cursor (text, text.length);
-            buf.get_selection_bounds (out start, out end);
+            current_buffer.delete_selection (false, false);
+            current_buffer.insert_at_cursor (text, text.length);
+            current_buffer.get_selection_bounds (out start, out end);
             start.backward_chars (text.length - 1);
             end.backward_char ();
 
-            buf.select_range (end, start);
+            current_buffer.select_range (end, start);
 
             return true;
         }
