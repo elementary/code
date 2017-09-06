@@ -164,7 +164,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
                 if (doc.open.end (res)) {
                     doc.focus ();
                     save_opened_files ();
-                } else  {
+                } else {
                    notebook.remove_tab (doc);
                 }
             });
