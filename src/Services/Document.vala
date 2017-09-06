@@ -585,7 +585,7 @@ namespace Scratch.Services {
 
             var parent_window = source_view.get_toplevel () as Gtk.Window;
             /* Using ".with_markup () " constructor does not work properly */
-            /* NOTE: This dialog needs changing to Elementary HIG style */
+            /* FIXME: This dialog needs changing to Elementary HIG style */
             var dialog = new Gtk.MessageDialog  (parent_window,
                                                  Gtk.DialogFlags.MODAL,
                                                  Gtk.MessageType.ERROR,
