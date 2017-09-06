@@ -20,7 +20,6 @@
 */
 
 namespace Scratch.Utils {
-    public const string UI_PATH = Constants.DATADIR + "/scratch-ui.xml";
     public string? last_path = null;
 
     public Gtk.FileChooserDialog new_file_chooser_dialog (Gtk.FileChooserAction action, string title, Gtk.Window? parent, bool select_multiple = false) {

@@ -48,10 +48,6 @@ namespace Scratch {
         private Gtk.Paned vp;
         private Gtk.StackSwitcher sidebar_stack_switcher;
 
-        // GtkActions
-        public Gtk.ActionGroup main_actions;
-        public Gtk.UIManager ui;
-
         public Gtk.Clipboard clipboard;
 
 #if HAVE_ZEITGEIST
@@ -65,28 +61,60 @@ namespace Scratch {
         public SimpleActionGroup actions { get; construct; }
 
         public const string ACTION_PREFIX = "win.";
+        public const string ACTION_FIND = "action_find";
+        public const string ACTION_OPEN = "action_open";
         public const string ACTION_GO_TO = "action_go_to";
         public const string ACTION_NEW_VIEW = "action_new_view";
+        public const string ACTION_NEW_TAB = "action_new_tab";
+        public const string ACTION_NEW_FROM_CLIPBOARD = "action_new_from_clipboard";
         public const string ACTION_NEXT_TAB = "action_next_tab";
         public const string ACTION_PREFERENCES = "preferences";
         public const string ACTION_PREVIOUS_TAB = "action_previous_tab";
         public const string ACTION_REMOVE_VIEW = "action_remove_view";
+        public const string ACTION_UNDO = "action_undo";
+        public const string ACTION_REDO = "action_redo";
+        public const string ACTION_REVERT = "action_revert";
+        public const string ACTION_SAVE = "action_save";
+        public const string ACTION_SAVE_AS = "action_save_as";
+        public const string ACTION_SHOW_FIND = "action_show_find";
+        public const string ACTION_TEMPLATES = "action_templates";
+        public const string ACTION_ZOOM_DEFAULT = "action_zoom_default";
         public const string ACTION_SHOW_REPLACE = "action_show_replace";
         public const string ACTION_TO_LOWER_CASE = "action_to_lower_case";
         public const string ACTION_TO_UPPER_CASE = "action_to_upper_case";
+        public const string ACTION_DUPLICATE = "action_duplicate";
+        public const string ACTION_FULLSCREEN = "action_fullscreen";
+        public const string ACTION_CLOSE_TAB = "action_close_tab";
         public const string ACTION_QUIT = "action_quit";
+
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
         private const ActionEntry[] action_entries = {
+            { ACTION_FIND, action_fetch },
+            { ACTION_OPEN, action_open },
+            { ACTION_PREFERENCES, action_preferences },
+            { ACTION_REVERT, action_revert },
+            { ACTION_SAVE, action_save },
+            { ACTION_SAVE_AS, action_save_as },
+            { ACTION_SHOW_FIND, action_show_fetch, null, "false" },
+            { ACTION_TEMPLATES, action_templates },
+            { ACTION_ZOOM_DEFAULT, action_set_default_zoom },
             { ACTION_GO_TO, action_go_to },
             { ACTION_NEW_VIEW, action_new_view },
+            { ACTION_NEW_TAB, action_new_tab },
+            { ACTION_NEW_FROM_CLIPBOARD, action_new_tab_from_clipboard },
             { ACTION_NEXT_TAB, action_next_tab },
             { ACTION_PREFERENCES, action_preferences },
             { ACTION_PREVIOUS_TAB, action_previous_tab },
             { ACTION_REMOVE_VIEW, action_remove_view },
+            { ACTION_UNDO, action_undo },
+            { ACTION_REDO, action_redo },
             { ACTION_SHOW_REPLACE, action_fetch },
             { ACTION_TO_LOWER_CASE, action_to_lower_case },
             { ACTION_TO_UPPER_CASE, action_to_upper_case },
+            { ACTION_DUPLICATE, action_duplicate },
+            { ACTION_FULLSCREEN, action_fullscreen },
+            { ACTION_CLOSE_TAB, action_close_tab },
             { ACTION_QUIT, action_quit }
         };
 
@@ -100,13 +128,25 @@ namespace Scratch {
         }
 
         static construct {
+            action_accelerators.set (ACTION_FIND, "<Control>f");
+            action_accelerators.set (ACTION_OPEN, "<Control>o");
+            action_accelerators.set (ACTION_REVERT, "<Control><shift>o");
+            action_accelerators.set (ACTION_SAVE, "<Control>s");
+            action_accelerators.set (ACTION_SAVE_AS, "<Control><shift>s");
+            action_accelerators.set (ACTION_ZOOM_DEFAULT, "<Control>0");
             action_accelerators.set (ACTION_GO_TO, "<Control>i");
             action_accelerators.set (ACTION_NEW_VIEW, "F3");
+            action_accelerators.set (ACTION_NEW_TAB, "<Control>n");
             action_accelerators.set (ACTION_NEXT_TAB, "<Control><Alt>Page_Up");
             action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control><Alt>Page_Down");
+            action_accelerators.set (ACTION_UNDO, "<Control>z");
+            action_accelerators.set (ACTION_REDO, "<Control><shift>z");
             action_accelerators.set (ACTION_SHOW_REPLACE, "<Control>r");
             action_accelerators.set (ACTION_TO_LOWER_CASE, "<Control>l");
             action_accelerators.set (ACTION_TO_UPPER_CASE, "<Control>u");
+            action_accelerators.set (ACTION_DUPLICATE, "<Control>d");
+            action_accelerators.set (ACTION_FULLSCREEN, "F11");
+            action_accelerators.set (ACTION_CLOSE_TAB, "<Control>w");
             action_accelerators.set (ACTION_QUIT, "<Control>q");
         }
 
@@ -114,6 +154,18 @@ namespace Scratch {
             actions = new SimpleActionGroup ();
             actions.add_action_entries (action_entries, this);
             insert_action_group ("win", actions);
+
+            actions.action_state_changed.connect ((name, new_state) => {
+                if (name == ACTION_SHOW_FIND) {
+                    if (new_state.get_boolean () == false) {
+                        toolbar.find_button.tooltip_text = _("Find…");
+                    } else {
+                        toolbar.find_button.tooltip_text = _("Hide search bar");
+                    }
+
+                    search_revealer.set_reveal_child (new_state.get_boolean ());
+                }
+            });
 
             foreach (var action in action_accelerators.get_keys ()) {
                 app.set_accels_for_action (ACTION_PREFIX + action, action_accelerators[action].to_array ());
@@ -128,11 +180,15 @@ namespace Scratch {
 
             plugins = new Scratch.Services.PluginsManager (this, app.app_cmd_name.down ());
 
-            // Set up GtkActions
-            init_actions ();
+            key_press_event.connect (on_key_pressed);
 
             // Set up layout
             init_layout ();
+
+            toolbar.templates_button.visible = (plugins.plugin_iface.template_manager.template_available);
+            plugins.plugin_iface.template_manager.notify["template_available"].connect (() => {
+                toolbar.templates_button.visible = (plugins.plugin_iface.template_manager.template_available);
+            });
 
             // Restore session
             restore_saved_state_extra ();
@@ -166,33 +222,8 @@ namespace Scratch {
             Unix.signal_add (Posix.SIGTERM, quit_source_func, Priority.HIGH);
         }
 
-        private void init_actions () {
-            // Actions
-            main_actions = new Gtk.ActionGroup ("MainActionGroup"); /* Actions and UIManager */
-            main_actions.set_translation_domain (Constants.GETTEXT_PACKAGE);
-            main_actions.add_actions (main_entries, this);
-            main_actions.add_toggle_actions (toggle_entries, this);
-
-            // UIManager
-            ui = new Gtk.UIManager ();
-
-            try {
-                ui.add_ui_from_file (Utils.UI_PATH);
-            } catch(Error e) {
-                error ("Couldn't load the UI: %s", e.message);
-            }
-
-            Gtk.AccelGroup accel_group = ui.get_accel_group();
-            add_accel_group (accel_group);
-
-            ui.insert_action_group (main_actions, 0);
-            ui.ensure_update ();
-
-            key_press_event.connect (on_key_pressed);
-        }
-
         private void init_layout () {
-            toolbar = new Scratch.Widgets.Toolbar (main_actions);
+            toolbar = new Scratch.Widgets.Toolbar ();
             toolbar.title = title;
             toolbar.show_close_button = true;
             set_titlebar (toolbar);
@@ -249,8 +280,7 @@ namespace Scratch {
                     toolbar.title = toolbar_title;
                 }
                 // Set actions sensitive property
-                main_actions.get_action ("SaveFile").visible = (!settings.autosave || doc.file == null);
-                main_actions.get_action ("SaveFileAs").visible = (doc.file != null);
+                Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (doc.file != null);
                 doc.check_undoable_actions ();
             });
 
@@ -321,12 +351,6 @@ namespace Scratch {
 
             search_revealer.set_reveal_child (false);
 
-            main_actions.get_action ("SaveFile").visible = !settings.autosave;
-            main_actions.get_action ("Templates").visible = plugins.plugin_iface.template_manager.template_available;
-            plugins.plugin_iface.template_manager.notify["template_available"].connect ( () => {
-                main_actions.get_action ("Templates").visible = plugins.plugin_iface.template_manager.template_available;
-            });
-
             // All the files have already been opened in Application.activate (),
             // if we reach this point without any document open let's just show
             // the welcome screen.
@@ -393,7 +417,7 @@ namespace Scratch {
                if (uri != "") {
                     var file = File.new_for_uri (uri);
                     if (file.query_exists ()) {
-                        var doc = new Scratch.Services.Document (main_actions, file);
+                        var doc = new Scratch.Services.Document (actions, file);
 
                         if (!doc.is_file_temporary || doc.exists ()) {
                             open_document (doc, view);
@@ -427,8 +451,8 @@ namespace Scratch {
             switch (Gdk.keyval_name (event.keyval)) {
                 case "Escape":
                     if (search_revealer.get_child_revealed ()) {
-                        var fetch_action = (Gtk.ToggleAction) main_actions.get_action ("ShowFetch");
-                        fetch_action.active = false;
+                        var fetch_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
+                        fetch_action.set_state (false);
                     }
                     break;
             }
@@ -462,21 +486,16 @@ namespace Scratch {
         // Set sensitive property for 'delicate' Widgets/GtkActions while
         private void set_widgets_sensitive (bool val) {
             // SearchManager's stuffs
-            var fetch = (Gtk.ToggleAction) main_actions.get_action ("ShowFetch");
-            fetch.sensitive = val;
-            fetch.active = (fetch.active && val);
+            Utils.action_from_group (ACTION_FIND, actions).set_enabled (val);
             Utils.action_from_group (ACTION_GO_TO, actions).set_enabled (val);
             Utils.action_from_group (ACTION_SHOW_REPLACE, actions).set_enabled (val);
             // Toolbar Actions
-            main_actions.get_action ("SaveFile").sensitive = val;
-            main_actions.get_action ("SaveFileAs").sensitive = val;
-            main_actions.get_action ("Undo").sensitive = val;
-            main_actions.get_action ("Redo").sensitive = val;
-            main_actions.get_action ("Revert").sensitive = val;
+            Utils.action_from_group (ACTION_SAVE, actions).set_enabled (val);
+            Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (val);
+            Utils.action_from_group (ACTION_UNDO, actions).set_enabled (val);
+            Utils.action_from_group (ACTION_REDO, actions).set_enabled (val);
+            Utils.action_from_group (ACTION_REVERT, actions).set_enabled (val);
             toolbar.share_app_menu.sensitive = val;
-
-            // Zoom button
-            main_actions.get_action ("Zoom").visible = get_current_font_size () != get_default_font_size () && val;
 
             // PlugIns
             if (val) {
@@ -726,7 +745,6 @@ namespace Scratch {
 
             string new_font = font + " " + font_size.to_string ();
             Scratch.settings.font = new_font;
-            main_actions.get_action ("Zoom").visible = get_current_font_size () != get_default_font_size () && !split_view.is_empty ();
         }
 
         public string get_current_font () {
@@ -784,7 +802,7 @@ namespace Scratch {
                     Utils.last_path = Path.get_dirname (uri);
                     // Open the file
                     var file = File.new_for_uri (uri);
-                    var doc = new Scratch.Services.Document (main_actions, file);
+                    var doc = new Scratch.Services.Document (actions, file);
                     open_document (doc);
                 }
             }
@@ -883,12 +901,12 @@ namespace Scratch {
         /** Not a toggle action - linked to keyboard short cut (Ctrl-f). **/
         private void action_fetch () {
             if (!search_revealer.child_revealed) {
-                var fetch_action = (Gtk.ToggleAction) main_actions.get_action ("ShowFetch");
-                if (fetch_action.sensitive) {
+                var fetch_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
+                if (fetch_action.enabled) {
                     /* Toggling the fetch action causes this function to be called again but the search_revealer child
                      * is still not revealed so nothing more happens.  We use the map signal on the search entry
                      * to set it up once it has been revealed. */
-                    fetch_action.active = true;
+                    fetch_action.set_state (true);
                 }
             } else {
                 set_search_text ();
@@ -915,22 +933,13 @@ namespace Scratch {
 
         /** Toggle action - linked to toolbar togglebutton. **/
         private void action_show_fetch () {
-            var fetch_action = (Gtk.ToggleAction) main_actions.get_action ("ShowFetch");
-            var fetch_active = fetch_action.active;
-
-            if (fetch_active == false) {
-                fetch_action.tooltip = _("Find…");
-            } else {
-                fetch_action.tooltip = _("Hide search bar");
-            }
-
-            /* The search entry map signal is used to set up the entry text */
-            search_revealer.set_reveal_child (fetch_active);
+            var fetch_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
+            fetch_action.set_state (!fetch_action.get_state ().get_boolean ());
         }
 
         private void action_go_to () {
-            var fetch_action = (Gtk.ToggleAction) main_actions.get_action ("ShowFetch");
-            fetch_action.active = true;
+            var fetch_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
+            fetch_action.set_state (true);
             search_manager.go_to_entry.grab_focus ();
         }
 
@@ -983,27 +992,5 @@ namespace Scratch {
             buffer.delete (ref start, ref end);
             buffer.insert (ref start, selected.up (), -1);
         }
-
-        // Actions array
-        private const Gtk.ActionEntry[] main_entries = {
-            { "CloseTab", null, null, "<Control>w", null, action_close_tab },
-            { "NewTab", null, null, "<Control>n", null, action_new_tab },
-            { "Undo", null, null, "<Control>z", null, action_undo },
-            { "Redo", null, null, "<Control><shift>z", null, action_redo },
-            { "Revert", null, null, "<Control><shift>o", null, action_revert },
-            { "Duplicate", null, null, "<Control>d", null, action_duplicate },
-            { "Open", null, null, "<Control>o", null, action_open },
-            { "Clipboard", null, null, null, null, action_new_tab_from_clipboard },
-            { "Zoom", null, null, "<Control>0", null, action_set_default_zoom },
-            { "SaveFile", null, null, "<Control>s", null, action_save },
-            { "SaveFileAs", null, null, "<Control><shift>s", null, action_save_as },
-            { "Templates", null, null, null, null, action_templates },
-            { "Fetch", null, null, "<Control>f", null, action_fetch }
-        };
-
-        private const Gtk.ToggleActionEntry[] toggle_entries = {
-            { "Fullscreen", null, null, "F11", null, action_fullscreen },
-            { "ShowFetch", null, null, "", null, action_show_fetch }
-        };
     }
 }
