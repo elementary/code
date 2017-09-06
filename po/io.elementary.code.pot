@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-24 15:27-0700\n"
+"POT-Creation-Date: 2017-09-06 15:00-0600\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,73 +17,73 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/Application.vala:149
+#: ../src/Application.vala:148
 msgid "Maybe you do not have the necessary permissions."
 msgstr ""
 
-#: ../src/Application.vala:151
+#: ../src/Application.vala:150
 msgid "Maybe the file path provided is not valid."
 msgstr ""
 
-#: ../src/Application.vala:153
+#: ../src/Application.vala:152
 msgid "The location is read-only."
 msgstr ""
 
-#: ../src/Application.vala:155
+#: ../src/Application.vala:154
 msgid "The parent directory doesn't exist."
 msgstr ""
 
-#: ../src/Application.vala:162
+#: ../src/Application.vala:161
 msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
 msgstr ""
 
-#: ../src/Application.vala:172
+#: ../src/Application.vala:171
 msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
 msgstr ""
 
-#: ../src/Application.vala:181
+#: ../src/Application.vala:180
 msgid "It is a mountable location."
 msgstr ""
 
-#: ../src/Application.vala:184
+#: ../src/Application.vala:183
 msgid "It is a directory."
 msgstr ""
 
-#: ../src/Application.vala:187
+#: ../src/Application.vala:186
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " fifo, block device, or character device."
 msgstr ""
 
-#: ../src/Application.vala:190
+#: ../src/Application.vala:189
 msgid "It is an \"unknown\" file type."
 msgstr ""
 
-#: ../src/Application.vala:260
+#: ../src/Application.vala:259
 msgid "New Tab"
 msgstr ""
 
-#: ../src/Application.vala:261 ../src/config.vala:18
+#: ../src/Application.vala:260 ../src/config.vala:18
 msgid "New Window"
 msgstr ""
 
-#: ../src/Application.vala:262
+#: ../src/Application.vala:261
 msgid "Print version info and exit"
 msgstr ""
 
-#: ../src/Application.vala:263
+#: ../src/Application.vala:262
 msgid "Set of plugins"
 msgstr ""
 
-#: ../src/Application.vala:264
+#: ../src/Application.vala:263
 msgid "Current working directory"
 msgstr ""
 
-#: ../src/Dialogs/PreferencesDialog.vala:43 ../src/Widgets/ToolBar.vala:86
+#: ../src/Dialogs/PreferencesDialog.vala:43 ../src/Widgets/ToolBar.vala:80
 msgid "Preferences"
 msgstr ""
 
@@ -177,101 +177,101 @@ msgstr ""
 msgid "Custom font:"
 msgstr ""
 
-#: ../src/MainWindow.vala:82
+#: ../src/MainWindow.vala:126
 msgid "Code"
 msgstr ""
 
-#: ../src/MainWindow.vala:130
-msgid "Zeitgeist Datasource for Scratch"
-msgstr ""
-
-#: ../src/MainWindow.vala:216
-msgid "Trash"
-msgstr ""
-
-#: ../src/MainWindow.vala:740
-msgid "Open some files"
-msgstr ""
-
-#: ../src/MainWindow.vala:882 ../src/Widgets/ToolBar.vala:66
+#: ../src/MainWindow.vala:161 ../src/Widgets/ToolBar.vala:61
 msgid "Find…"
 msgstr ""
 
-#: ../src/MainWindow.vala:884
+#: ../src/MainWindow.vala:163
 msgid "Hide search bar"
 msgstr ""
 
-#: ../src/Services/Document.vala:240
+#: ../src/MainWindow.vala:209
+msgid "Zeitgeist Datasource for Scratch"
+msgstr ""
+
+#: ../src/MainWindow.vala:270
+msgid "Trash"
+msgstr ""
+
+#: ../src/MainWindow.vala:798
+msgid "Open some files"
+msgstr ""
+
+#: ../src/Services/Document.vala:239
 msgid "Save changes to document %s before closing?"
 msgstr ""
 
-#: ../src/Services/Document.vala:243
+#: ../src/Services/Document.vala:242
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
 
-#: ../src/Services/Document.vala:245
+#: ../src/Services/Document.vala:244
 msgid "Close without saving"
 msgstr ""
 
-#: ../src/Services/Document.vala:249 ../src/Utils.vala:36
+#: ../src/Services/Document.vala:248 ../src/Utils.vala:35
 msgid "Cancel"
 msgstr ""
 
-#: ../src/Services/Document.vala:250 ../src/Services/Document.vala:584
-#: ../src/Utils.vala:47
+#: ../src/Services/Document.vala:249 ../src/Services/Document.vala:583
+#: ../src/Utils.vala:46
 msgid "Save"
 msgstr ""
 
-#: ../src/Services/Document.vala:322
+#: ../src/Services/Document.vala:321
 msgid "Save File"
 msgstr ""
 
-#: ../src/Services/Document.vala:433 ../src/config.vala:17
+#: ../src/Services/Document.vala:432 ../src/config.vala:17
 msgid "New Document"
 msgstr ""
 
-#: ../src/Services/Document.vala:559
+#: ../src/Services/Document.vala:558
 msgid ""
 "File \"%s\" cannot be read. Maybe it is corrupt\n"
 "or you do not have the necessary permissions to read it."
 msgstr ""
 
-#: ../src/Services/Document.vala:575
+#: ../src/Services/Document.vala:574
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
 
-#: ../src/Services/Document.vala:577
+#: ../src/Services/Document.vala:576
 msgid "Save As…"
 msgstr ""
 
-#: ../src/Services/Document.vala:582
+#: ../src/Services/Document.vala:581
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr ""
 
-#: ../src/Services/Document.vala:597
+#: ../src/Services/Document.vala:596
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 msgstr ""
 
-#: ../src/Services/Document.vala:599
+#: ../src/Services/Document.vala:598
 msgid "Save changes elsewhere"
 msgstr ""
 
-#: ../src/Services/Document.vala:632
+#: ../src/Services/Document.vala:631
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
 
-#: ../src/Services/Document.vala:633
+#: ../src/Services/Document.vala:632
 msgid "Load"
 msgstr ""
 
-#: ../src/Services/Document.vala:636
+#: ../src/Services/Document.vala:635
 msgid "Continue"
 msgstr ""
 
@@ -279,15 +279,15 @@ msgstr ""
 msgid "Templates"
 msgstr ""
 
-#: ../src/Utils.vala:28
+#: ../src/Utils.vala:27
 msgid "All files"
 msgstr ""
 
-#: ../src/Utils.vala:32
+#: ../src/Utils.vala:31
 msgid "Text files"
 msgstr ""
 
-#: ../src/Utils.vala:45
+#: ../src/Utils.vala:44
 msgid "Open"
 msgstr ""
 
@@ -371,43 +371,43 @@ msgstr ""
 msgid "Create a new file from the contents of your clipboard."
 msgstr ""
 
-#: ../src/Widgets/ToolBar.vala:41
+#: ../src/Widgets/ToolBar.vala:40
 msgid "Open a file"
 msgstr ""
 
-#: ../src/Widgets/ToolBar.vala:46
+#: ../src/Widgets/ToolBar.vala:44
 msgid "Project templates"
 msgstr ""
 
-#: ../src/Widgets/ToolBar.vala:51
+#: ../src/Widgets/ToolBar.vala:48
 msgid "Save this file"
 msgstr ""
 
-#: ../src/Widgets/ToolBar.vala:56
+#: ../src/Widgets/ToolBar.vala:52
 msgid "Save this file with a different name"
 msgstr ""
 
-#: ../src/Widgets/ToolBar.vala:61
+#: ../src/Widgets/ToolBar.vala:56
 msgid "Restore this file"
 msgstr ""
 
-#: ../src/Widgets/ToolBar.vala:71
+#: ../src/Widgets/ToolBar.vala:65
 msgid "Zoom 1:1"
 msgstr ""
 
-#: ../src/Widgets/ToolBar.vala:77
+#: ../src/Widgets/ToolBar.vala:71
 msgid "Share"
 msgstr ""
 
-#: ../src/Widgets/ToolBar.vala:80
+#: ../src/Widgets/ToolBar.vala:74
 msgid "Add New View"
 msgstr ""
 
-#: ../src/Widgets/ToolBar.vala:83
+#: ../src/Widgets/ToolBar.vala:77
 msgid "Remove Current View"
 msgstr ""
 
-#: ../src/Widgets/ToolBar.vala:98
+#: ../src/Widgets/ToolBar.vala:92
 msgid "Menu"
 msgstr ""
 
@@ -513,35 +513,36 @@ msgid "Rename"
 msgstr ""
 
 #: ../plugins/folder-manager/FileItem.vala:35
-#: ../plugins/folder-manager/FolderItem.vala:72
+#: ../plugins/folder-manager/FolderItem.vala:59
+#: ../plugins/folder-manager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr ""
 
-#: ../plugins/folder-manager/FolderItem.vala:59
+#: ../plugins/folder-manager/FolderItem.vala:72
 msgid "Folder"
 msgstr ""
 
-#: ../plugins/folder-manager/FolderItem.vala:62
+#: ../plugins/folder-manager/FolderItem.vala:75
 msgid "Empty File"
 msgstr ""
 
-#: ../plugins/folder-manager/FolderItem.vala:69
+#: ../plugins/folder-manager/FolderItem.vala:82
 msgid "New"
 msgstr ""
 
-#: ../plugins/folder-manager/FolderItem.vala:146
+#: ../plugins/folder-manager/FolderItem.vala:150
 msgid "untitled folder"
 msgstr ""
 
-#: ../plugins/folder-manager/FolderItem.vala:150
+#: ../plugins/folder-manager/FolderItem.vala:154
 msgid "untitled folder %d"
 msgstr ""
 
-#: ../plugins/folder-manager/FolderItem.vala:170
+#: ../plugins/folder-manager/FolderItem.vala:174
 msgid "new file"
 msgstr ""
 
-#: ../plugins/folder-manager/FolderItem.vala:174
+#: ../plugins/folder-manager/FolderItem.vala:178
 msgid "new file %d"
 msgstr ""
 
@@ -571,24 +572,24 @@ msgstr ""
 msgid "Basic folder manager with file browsing"
 msgstr ""
 
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:70
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:71
 msgid "Folders"
 msgstr ""
 
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:88
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:89
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:93
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:94
 msgid "Open a folder"
 msgstr ""
 
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:94
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:105
 msgid "_Cancel"
 msgstr ""
 
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:95
+#: ../plugins/folder-manager/FolderManagerPlugin.vala:106
 msgid "_Open"
 msgstr ""
 
-#: ../plugins/folder-manager/MainFolderItem.vala:39
+#: ../plugins/folder-manager/MainFolderItem.vala:30
 msgid "Close Folder"
 msgstr ""
 
