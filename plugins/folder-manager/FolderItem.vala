@@ -172,6 +172,7 @@ namespace Scratch.Plugins.FolderManager {
                         foreach (var item in children) {
                             if ((item as Item).path == file.path) {
                                 exists = true;
+                                break;
                             }
                         }
 
