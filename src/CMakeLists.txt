@@ -36,7 +36,6 @@ GENERATE_HEADER
 add_executable (${EXEC_NAME} ${VALA_C})
 
 install (TARGETS ${EXEC_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_FULL_BINDIR})
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/scratch-ui.xml DESTINATION ${DATADIR})
 
 #####
 # Plugin Library

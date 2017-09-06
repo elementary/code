@@ -32,7 +32,7 @@ namespace Scratch.Plugins.FolderManager {
             rename_item.activate.connect (() => view.start_editing_item (this));
 
             var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
-            delete_item.activate.connect (() => trash ());
+            delete_item.activate.connect (trash);
 
             var menu = new Gtk.Menu ();
             menu.append (rename_item);
