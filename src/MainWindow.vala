@@ -747,7 +747,7 @@ namespace Scratch {
             // Show a GtkFileChooserDialog
             var filech = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.OPEN, _("Open some files"), this, true);
             var response = filech.run ();
-            filech.close (); //Close now so does not stau open during lengthy or failed loading
+            filech.close (); // Close now so it does not stay open during lengthy or failed loading
 
             if (response == Gtk.ResponseType.ACCEPT) {
                 foreach (string uri in filech.get_uris ()) {
