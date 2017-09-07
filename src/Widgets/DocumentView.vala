@@ -84,7 +84,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         });
 
         notebook.tab_restored.connect ((label, restore_data, icon) => {
-            var doc = new Services.Document (window.main_actions, File.new_for_uri (restore_data));
+            var doc = new Services.Document (window.actions, File.new_for_uri (restore_data));
             open_document (doc);
         });
 
@@ -109,7 +109,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         try {
             file.create (FileCreateFlags.PRIVATE);
 
-            var doc = new Services.Document (window.main_actions, file);
+            var doc = new Services.Document (window.actions, file);
             doc.create_page ();
 
             notebook.insert_tab (doc, -1);
@@ -129,7 +129,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             file.create (FileCreateFlags.PRIVATE);
             file.replace_contents (clipboard.data, null, false, 0, null);
 
-            var doc = new Services.Document (window.main_actions, file);
+            var doc = new Services.Document (window.actions, file);
             doc.create_page ();
 
             notebook.insert_tab (doc, -1);
@@ -179,7 +179,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             var file = File.new_for_path (unsaved_file_path_builder ());
             file.create (FileCreateFlags.PRIVATE);
 
-            var doc = new Services.Document (window.main_actions, file);
+            var doc = new Services.Document (window.actions, file);
             doc.create_page ();
             string s;
             doc.file.replace_contents (original.source_view.buffer.text.data, null, false, 0, out s);
@@ -234,7 +234,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
 
     private void on_doc_added (Granite.Widgets.Tab tab) {
         var doc = tab as Services.Document;
-        doc.main_actions = window.main_actions;
+        doc.actions = window.actions;
 
         docs.append (doc);
         doc.source_view.focus_in_event.connect (on_focus_in_event);
@@ -308,7 +308,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         var uris = sel.get_uris ();
         foreach (var filename in uris) {
             var file = File.new_for_uri (filename);
-            var doc = new Services.Document (window.main_actions, file);
+            var doc = new Services.Document (window.actions, file);
             open_document (doc);
 
             Gtk.drag_finish (ctx, true, false, time);
