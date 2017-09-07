@@ -23,7 +23,6 @@ namespace Scratch.Plugins.FolderManager {
      * Normal item in the source list, represents a textfile.
      */
     internal class FileItem : Item {
-
         public FileItem (File file, FileView view) requires (file.is_valid_textfile) {
             Object (file: file, view: view);
         }

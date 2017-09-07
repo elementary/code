@@ -60,11 +60,11 @@ namespace Scratch.Widgets {
             welcome_screen.activated.connect ((i) => {
                 // New file
                 if (i == 0) {
-                    window.main_actions.get_action ("NewTab").activate ();
+                    Utils.action_from_group (MainWindow.ACTION_NEW_TAB, window.actions).activate (null);
                 } else if (i == 1) {
-                    window.main_actions.get_action ("Open").activate ();
+                    Utils.action_from_group (MainWindow.ACTION_OPEN, window.actions).activate (null);
                 } else if (i == 2) {
-                    window.main_actions.get_action ("Clipboard").activate ();
+                    Utils.action_from_group (MainWindow.ACTION_NEW_FROM_CLIPBOARD, window.actions).activate (null);
                 }
             });
 
@@ -79,7 +79,7 @@ namespace Scratch.Widgets {
                     for (var i = 0; i < uris.length; i++) {
                         string filename = uris[i];
                         File file = File.new_for_uri (filename);
-                        Scratch.Services.Document doc = new Scratch.Services.Document (window.main_actions, file);
+                        Scratch.Services.Document doc = new Scratch.Services.Document (window.actions, file);
                         view.open_document (doc);
                     }
 
