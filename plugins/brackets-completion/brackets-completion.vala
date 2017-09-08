@@ -30,9 +30,9 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
     bool should_complete = false;
     string last_inserted = "";
 
-    MainWindow window;
     Gee.TreeSet<Gtk.TextBuffer> buffers;
     Gtk.TextBuffer current_buffer;
+    Gtk.SourceView current_view;
 
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
@@ -61,75 +61,85 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
 
         plugins = (Scratch.Services.Interface) object;
 
-        plugins.hook_window.connect ((w) => {
-            window = w;
-            window.key_press_event.disconnect (on_key_press);
-            window.key_press_event.connect (on_key_press);
-        });
-
         plugins.hook_document.connect ((doc) => {
             current_buffer = doc.source_view.buffer;
-            current_buffer.insert_text.disconnect (on_insert_text);
-            current_buffer.insert_text.connect (on_insert_text);
-            current_buffer.end_user_action.disconnect (on_action_finished);
-            current_buffer.end_user_action.connect (on_action_finished);
+            current_view = doc.source_view;
             buffers.add (current_buffer);
-
-            doc.source_view.backspace.connect (() => {
-                Gtk.TextIter start, end;
-
-                current_buffer.get_selection_bounds (out start, out end);
-                current_selection = current_buffer.get_text (start, end, true);
-
-                if (current_selection.length == 0) {
-                    start.backward_char ();
-                    var left_char = current_buffer.get_text (start, end, true);
-
-                    if (left_char in opening_brackets) {
-                        end.forward_char ();
-                        current_buffer.select_range (start, end);
-                    }
-                }
-            });
+            doc.source_view.key_press_event.connect (on_key_press);
+            doc.source_view.backspace.connect (on_backspace);
         });
     }
 
     public void deactivate () {
-        window.key_press_event.disconnect (on_key_press);
+    }
 
-        foreach (var buf in buffers) {
-            buf.insert_text.disconnect (on_insert_text);
-            buf.end_user_action.disconnect (on_action_finished);
+    string get_next_char () {
+        Gtk.TextIter start, end;
+
+        current_buffer.get_selection_bounds (out start, out end);
+        end.forward_char ();
+        return current_buffer.get_text (start, end, true) ;
+    }
+
+    void on_backspace () {
+        Gtk.TextIter start, end;
+
+        current_buffer.get_selection_bounds (out start, out end);
+        current_selection = current_buffer.get_text (start, end, true);
+
+        if (current_selection.length == 0) {
+            start.backward_char ();
+            var left_char = current_buffer.get_text (start, end, true);
+
+            current_buffer.get_selection_bounds (out start, out end);
+            end.forward_char ();
+            var right_char = current_buffer.get_text (start, end, true);
+            if (left_char in opening_brackets && right_char in closing_brackets) {
+                start.backward_char ();
+                current_buffer.select_range (start, end);
+            }
         }
     }
 
-    bool on_key_press (Gdk.EventKey event) {
-        var doc = window.get_current_document ();
-        if (doc != null && doc.source_view.has_focus && event.keyval in keys) {
-            Gtk.TextIter start, end;
+    void complete_brackets () {
+        Gtk.TextIter start, end;
 
-            current_buffer.get_selection_bounds (out start, out end);
-            current_selection = current_buffer.get_text (start, end, true);
-            should_complete = true;
+        current_buffer.get_selection_bounds (out start, out end);
+        current_selection = current_buffer.get_text (start, end, true);
+
+        string opening_bracket = keys[event.keyval];
+        string closing_bracket = brackets[opening_bracket];
+        string text = opening_bracket + current_selection + closing_bracket;
+
+        current_buffer.begin_user_action();
+        current_buffer.delete (ref start, ref end);
+        current_buffer.insert (ref start, text, text.length);
+
+        current_buffer.get_selection_bounds (out start, out end);
+        end.backward_char ();
+        start.backward_chars (current_selection.length + 1);
+        current_buffer.select_range (start, end);
+
+        current_buffer.end_user_action();
+    }
+
+    bool on_key_press (Gdk.EventKey event) {
+        string bracket = keys[event.keyval];
+        if (current_view.has_focus && event.keyval in keys) {
+            if (keys[event.keyval] in opening_brackets) {
+                complete_brackets ();
+            } else if (keys[event.keyval] in closing_brackets) {
+                print("nope");
+            }
+
+            return true;
         }
 
         return false;
     }
 
-    void on_action_finished () {
-        if (should_complete) {
-            int len = current_selection.length;
-            Gtk.TextIter start, end;
-
-            current_buffer.get_selection_bounds (out start, out end);
-            end.forward_chars (len);
-            current_buffer.select_range (start, end);
-
-            should_complete = false;
-        }
-    }
-
     void on_insert_text (ref Gtk.TextIter pos, string new_text, int new_text_length) {
+        print("This never happened");
         if (last_inserted == new_text) {
             return;
         }
