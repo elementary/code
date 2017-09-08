@@ -73,41 +73,49 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
     public void deactivate () {
     }
 
-    string get_next_char () {
+    string get_next_char () { // This breaks on the last character
         Gtk.TextIter start, end;
 
         current_buffer.get_selection_bounds (out start, out end);
         end.forward_char ();
-        return current_buffer.get_text (start, end, true) ;
+        string current_text = current_buffer.get_text (start, end, true) ;
+        int len = current_text.length;
+        return current_text[len - 1:len];
     }
 
-    void on_backspace () {
+    string get_previous_char () { // This breaks when it is first character
         Gtk.TextIter start, end;
 
         current_buffer.get_selection_bounds (out start, out end);
-        current_selection = current_buffer.get_text (start, end, true);
+        start.backward_char ();
+        string current_text = current_buffer.get_text (start, end, true);
+        int len = current_text.length;
 
-        if (current_selection.length == 0) {
-            start.backward_char ();
-            var left_char = current_buffer.get_text (start, end, true);
+        return current_text[0:1];
+    }
 
-            current_buffer.get_selection_bounds (out start, out end);
-            end.forward_char ();
-            var right_char = current_buffer.get_text (start, end, true);
+    void on_backspace () {
+        if (!current_buffer.has_selection) {
+            var left_char = get_previous_char ();
+            var right_char = get_next_char ();
+
             if (left_char in opening_brackets && right_char in closing_brackets) {
+                Gtk.TextIter start, end;
+
+                current_buffer.get_selection_bounds (out start, out end);
                 start.backward_char ();
+                end.forward_char ();
                 current_buffer.select_range (start, end);
             }
         }
     }
 
-    void complete_brackets () {
+    void complete_brackets (string opening_bracket) {
         Gtk.TextIter start, end;
 
         current_buffer.get_selection_bounds (out start, out end);
         current_selection = current_buffer.get_text (start, end, true);
 
-        string opening_bracket = keys[event.keyval];
         string closing_bracket = brackets[opening_bracket];
         string text = opening_bracket + current_selection + closing_bracket;
 
@@ -124,11 +132,11 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
     }
 
     bool on_key_press (Gdk.EventKey event) {
-        string bracket = keys[event.keyval];
         if (current_view.has_focus && event.keyval in keys) {
-            if (keys[event.keyval] in opening_brackets) {
-                complete_brackets ();
-            } else if (keys[event.keyval] in closing_brackets) {
+            string bracket = keys[event.keyval];
+            if (bracket in opening_brackets) {
+                complete_brackets (bracket);
+            } else if (bracket in closing_brackets) {
                 print("nope");
             }
 
