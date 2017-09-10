@@ -24,8 +24,6 @@ public const string DESCRIPTION = _("Complete brackets while typing");
 public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Activatable {
     Gee.HashMap<string, string> brackets;
     Gee.HashMap<uint, string> keys;
-    const string[] opening_brackets = {"{", "[", "(", "'", "\"", "`"};
-    const string[] closing_brackets = {"}", "]", ")", "'", "\"", "`"};
 
     Gtk.TextBuffer current_buffer;
     Gtk.SourceView current_view;
@@ -96,7 +94,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
             string left_char = get_previous_char ();
             string right_char = get_next_char ();
 
-            if (left_char in opening_brackets && right_char in closing_brackets) {
+            if (left_char in brackets && right_char in brackets.values) {
                 Gtk.TextIter start, end;
 
                 current_buffer.get_selection_bounds (out start, out end);
@@ -140,13 +138,14 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
         if (event.keyval in keys &&
             !(Gdk.ModifierType.MOD1_MASK in event.state) &&
             !(Gdk.ModifierType.CONTROL_MASK in event.state)) {
+
             string bracket = keys[event.keyval];
             string next_char = get_next_char ();
 
-            if (bracket in opening_brackets) {
+            if (bracket in brackets) {
                 complete_brackets (bracket);
                 return true;
-            } else if (bracket in closing_brackets && next_char == bracket) {
+            } else if (bracket in brackets.values && next_char == bracket) {
                 skip_char ();
                 return true;
             }
