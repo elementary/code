@@ -27,7 +27,7 @@ namespace Scratch.Services {
     }
 
     public class Document : Granite.Widgets.Tab {
-        private const uint LOAD_TIMEOUT_SEC = 2;
+        private const uint LOAD_TIMEOUT_MSEC = 1000;
 
         public delegate void VoidFunc ();
         public signal void doc_opened ();
@@ -153,32 +153,48 @@ namespace Scratch.Services {
                 }
             }
 
-            // Start loading - do not assume it will succeed
-            this.working = true;
-            message ("Opening \"%s\"", get_basename ());
-
-            /* Loading improper files may hang so we cancel after a certain time */
+            /* Loading improper files may hang so we cancel after a certain time as a fallback.
+             * In most cases, an error will be thrown and caught. */
             var cancellable = new Cancellable ();
+            uint callbacks = 0;
+
             uint timeout_id = 0;
-            timeout_id = Timeout.add_seconds (LOAD_TIMEOUT_SEC, () => {
-                cancellable.cancel ();
-                timeout_id = 0;
-                return false;
+            timeout_id = Timeout.add (LOAD_TIMEOUT_MSEC, () => {
+                /* Do not cancel if data is still loading rapidly (in case loading a huge text file). */
+                if (callbacks < 10) {
+                    cancellable.cancel ();
+                    timeout_id = 0;
+                    return false;
+                } else {
+                    callbacks = 0;
+                    return true;
+                }
             });
 
+            while (Gtk.events_pending ()) {
+                Gtk.main_iteration ();
+            }
+
+            var buffer = new Gtk.SourceBuffer (null); /* Faster to load into a separate buffer */
+
             try {
-                var source_file_loader = new Gtk.SourceFileLoader (source_view.buffer, source_file);
-                /* Tab spinner freezes during this */
-                yield source_file_loader.load_async (GLib.Priority.DEFAULT, cancellable, null);
+                var source_file_loader = new Gtk.SourceFileLoader (buffer, source_file);
+                yield source_file_loader.load_async (GLib.Priority.LOW, cancellable, () => {
+                    callbacks++;
+                });
+
+                source_view.buffer.text = buffer.text;
                 loaded = true;
             } catch (Error e) {
                 critical (e.message);
                 source_view.buffer.text = "";
-                show_error_dialog ();
+                Idle.add (() => {
+                    show_error_dialog ();
+                    return false;
+                });
 
                 return false;
             } finally {
-                this.working = false;
                 if (timeout_id > 0) {
                     Source.remove (timeout_id);
                 }
@@ -227,6 +243,7 @@ namespace Scratch.Services {
             });
 
             doc_opened ();
+            this.working = false;
 
             return true;
         }

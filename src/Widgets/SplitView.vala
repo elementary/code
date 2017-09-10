@@ -108,6 +108,7 @@ namespace Scratch.Widgets {
 
                 view.empty.connect (() => {
                     remove_view (view);
+                    show_welcome ();
                 });
             } else {
                 view = hidden_views.nth_data (0);

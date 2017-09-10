@@ -156,10 +156,13 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         }
 
         doc.create_page ();
+        notebook.insert_tab (doc, -1);
+
         doc.working = true;
+
         current_document = doc;
 
-        Idle.add (() => { // This ensures new tab is drawn before opening document.
+        Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
             doc.open.begin ((obj, res) => {
                 if (doc.open.end (res)) {
                     doc.focus ();
