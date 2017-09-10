@@ -27,7 +27,7 @@ namespace Scratch.Services {
     }
 
     public class Document : Granite.Widgets.Tab {
-        private const uint LOAD_TIMEOUT_MSEC = 1000;
+        private const uint LOAD_TIMEOUT_MSEC = 5000;
 
         public delegate void VoidFunc ();
         public signal void doc_opened ();
@@ -74,6 +74,7 @@ namespace Scratch.Services {
 #endif
 
         private GLib.Cancellable save_cancellable;
+        private GLib.Cancellable load_cancellable;
         private ulong onchange_handler_id = 0; // It is used to not mark files as changed on load
         private bool error_shown = false;
         private bool loaded = false;
@@ -155,14 +156,18 @@ namespace Scratch.Services {
 
             /* Loading improper files may hang so we cancel after a certain time as a fallback.
              * In most cases, an error will be thrown and caught. */
-            var cancellable = new Cancellable ();
+            if (load_cancellable != null) { /* just in case */
+                load_cancellable.cancel ();
+            }
+
+            load_cancellable = new Cancellable ();
             uint callbacks = 0;
 
             uint timeout_id = 0;
             timeout_id = Timeout.add (LOAD_TIMEOUT_MSEC, () => {
                 /* Do not cancel if data is still loading rapidly (in case loading a huge text file). */
                 if (callbacks < 10) {
-                    cancellable.cancel ();
+                    load_cancellable.cancel ();
                     timeout_id = 0;
                     return false;
                 } else {
@@ -179,7 +184,7 @@ namespace Scratch.Services {
 
             try {
                 var source_file_loader = new Gtk.SourceFileLoader (buffer, source_file);
-                yield source_file_loader.load_async (GLib.Priority.LOW, cancellable, () => {
+                yield source_file_loader.load_async (GLib.Priority.LOW, load_cancellable, () => {
                     callbacks++;
                 });
 
@@ -198,6 +203,8 @@ namespace Scratch.Services {
                 if (timeout_id > 0) {
                     Source.remove (timeout_id);
                 }
+
+                load_cancellable = null;
             }
 
             /* Successful load - now do rest of set up */
@@ -252,6 +259,7 @@ namespace Scratch.Services {
             message ("Closing \"%s\"", get_basename ());
 
             if (!loaded) {
+                load_cancellable.cancel ();
                 return true;
             }
 
