@@ -137,9 +137,9 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
     }
 
     bool on_key_press (Gdk.EventKey event) {
-        if (event.keyval in keys
-        && !(Gdk.ModifierType.MOD1_MASK in event.state)
-        && !(Gdk.ModifierType.CONTROL_MASK in event.state)) {
+        if (event.keyval in keys &&
+            !(Gdk.ModifierType.MOD1_MASK in event.state) &&
+            !(Gdk.ModifierType.CONTROL_MASK in event.state)) {
             string bracket = keys[event.keyval];
             string next_char = get_next_char ();
 
