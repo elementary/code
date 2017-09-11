@@ -158,7 +158,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         doc.create_page ();
         notebook.insert_tab (doc, -1);
 
-        doc.working = true;
+//~         doc.working = true;
 
         current_document = doc;
 

@@ -110,6 +110,10 @@ namespace Scratch.Services {
             restore_settings ();
 
             settings.changed.connect (restore_settings);
+            /* Block user editing while working */
+            source_view.key_press_event.connect (() => {
+                return working;
+            });
         }
 
         public void toggle_changed_handlers (bool enabled) {
@@ -153,6 +157,8 @@ namespace Scratch.Services {
                     return false;
                 }
             }
+
+            this.working = true;
 
             /* Loading improper files may hang so we cancel after a certain time as a fallback.
              * In most cases, an error will be thrown and caught. */
@@ -249,7 +255,14 @@ namespace Scratch.Services {
             });
 
             doc_opened ();
-            this.working = false;
+
+            /* Do not stop working (blocks editing) until idle
+             * (large documents take time to format/display after loading)
+             */
+            Idle.add (() => {
+                this.working = false;
+                return false;
+            });
 
             return true;
         }
