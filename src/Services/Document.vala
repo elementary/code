@@ -184,20 +184,6 @@ namespace Scratch.Services {
             }
 
             load_cancellable = new Cancellable ();
-            uint callbacks = 0;
-
-            uint timeout_id = 0;
-            timeout_id = Timeout.add (LOAD_TIMEOUT_MSEC, () => {
-                /* Do not cancel if data is still loading rapidly (in case loading a huge text file). */
-                if (callbacks < 10) {
-                    load_cancellable.cancel ();
-                    timeout_id = 0;
-                    return false;
-                } else {
-                    callbacks = 0;
-                    return true;
-                }
-            });
 
             while (Gtk.events_pending ()) {
                 Gtk.main_iteration ();
@@ -207,26 +193,16 @@ namespace Scratch.Services {
 
             try {
                 var source_file_loader = new Gtk.SourceFileLoader (buffer, source_file);
-                yield source_file_loader.load_async (GLib.Priority.LOW, load_cancellable, () => {
-                    callbacks++;
-                });
+                yield source_file_loader.load_async (GLib.Priority.LOW, load_cancellable, null);
 
                 source_view.buffer.text = buffer.text;
                 loaded = true;
             } catch (Error e) {
                 critical (e.message);
                 source_view.buffer.text = "";
-                Idle.add (() => {
-                    show_error_dialog ();
-                    return false;
-                });
-
+                show_error_dialog ();
                 return false;
             } finally {
-                if (timeout_id > 0) {
-                    Source.remove (timeout_id);
-                }
-
                 load_cancellable = null;
             }
 
