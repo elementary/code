@@ -160,6 +160,29 @@ namespace Scratch.Services {
                 load_cancellable.cancel ();
             }
 
+            string content_type = ContentType.from_mime_type (get_mime_type ());
+
+            if (!(ContentType.is_a (content_type, "text/plain"))) {
+                // Create a GtkDialog in app style. TODO: Style for elementary
+                // TODO: Give option to continue and try to load?
+                var dialog = new Gtk.MessageDialog ((Gtk.Window?)source_view.get_toplevel (),
+                                                    Gtk.DialogFlags.MODAL,
+                                                    Gtk.MessageType.WARNING,
+                                                    Gtk.ButtonsType.CANCEL,
+                                                    "");
+
+                dialog.deletable = false;
+                dialog.use_markup = true;
+
+                dialog.text = ("<b>" + _("%s is not a text document.") +
+                               "</b>").printf (this.get_basename ());
+                dialog.format_secondary_markup (_("Cannot load this type of file"));
+
+                dialog.run ();
+                dialog.destroy ();
+                return false;
+            }
+
             load_cancellable = new Cancellable ();
             uint callbacks = 0;
 
