@@ -59,9 +59,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
             current_buffer = doc.source_view.buffer;
             current_view = doc.source_view;
 
-            current_view.key_press_event.disconnect (on_key_press);
             current_view.key_press_event.connect (on_key_press);
-            current_view.backspace.disconnect (on_backspace);
             current_view.backspace.connect (on_backspace);
         });
     }
