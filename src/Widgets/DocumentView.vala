@@ -94,7 +94,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
 
         pack_start (notebook, true, true, 0);
 
-        show_all ();
+        /* SplitView shows view as required */
     }
 
     private string unsaved_file_path_builder () {
@@ -157,8 +157,6 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
 
         doc.create_page ();
         notebook.insert_tab (doc, -1);
-
-//~         doc.working = true;
 
         current_document = doc;
 

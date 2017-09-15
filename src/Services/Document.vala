@@ -92,6 +92,7 @@ namespace Scratch.Services {
 
         construct {
             source_view = new Scratch.Widgets.SourceView ();
+
             scroll = new Gtk.ScrolledWindow (null, null);
             scroll.add (source_view);
             info_bar = new Gtk.InfoBar ();
@@ -196,12 +197,13 @@ namespace Scratch.Services {
             }
 
             var buffer = new Gtk.SourceBuffer (null); /* Faster to load into a separate buffer */
+            source_view.visible = false;
 
             try {
                 var source_file_loader = new Gtk.SourceFileLoader (buffer, source_file);
                 yield source_file_loader.load_async (GLib.Priority.LOW, load_cancellable, null);
 
-                source_view.buffer.text = buffer.text;
+                source_view.set_text (buffer.text);
                 loaded = true;
             } catch (Error e) {
                 critical (e.message);
@@ -216,7 +218,6 @@ namespace Scratch.Services {
             this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
 
             toggle_changed_handlers (true);
-
             // Focus in event for SourceView
             this.source_view.focus_in_event.connect (() => {
                 check_file_status ();
@@ -241,7 +242,6 @@ namespace Scratch.Services {
             // Zeitgeist integration
             zg_log.open_insert (file.get_uri (), get_mime_type ());
 #endif
-
             // Grab focus
             this.source_view.grab_focus ();
 
@@ -260,6 +260,7 @@ namespace Scratch.Services {
              * (large documents take time to format/display after loading)
              */
             Idle.add (() => {
+                source_view.visible = true;
                 this.working = false;
                 return false;
             });
