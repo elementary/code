@@ -66,7 +66,7 @@ set (SCRATCH_DEPS
   glib-2.0
   gio-2.0
   gtk+-3.0
-  granite>=0.3.0
+  granite>=0.4.0
   ${ZEITGEIST_DEPS})
 
 find_package (PkgConfig)

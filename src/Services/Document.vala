@@ -170,20 +170,12 @@ namespace Scratch.Services {
             string content_type = ContentType.from_mime_type (get_mime_type ());
 
             if (!(ContentType.is_a (content_type, "text/plain"))) {
-                // Create a GtkDialog in app style. TODO: Style for elementary
-                // TODO: Give option to continue and try to load?
-                var dialog = new Gtk.MessageDialog ((Gtk.Window?)source_view.get_toplevel (),
-                                                    Gtk.DialogFlags.MODAL,
-                                                    Gtk.MessageType.WARNING,
-                                                    Gtk.ButtonsType.CANCEL,
-                                                    "");
+                var primary_text = _("%s is not a text file.").printf (this.get_basename ());
+                var secondary_text = _("Code will not load this type of file");
 
-                dialog.deletable = false;
-                dialog.use_markup = true;
-
-                dialog.text = ("<b>" + _("%s is not a text document.") +
-                               "</b>").printf (this.get_basename ());
-                dialog.format_secondary_markup (_("Cannot load this type of file"));
+                var dialog = new Granite.MessageDialog (primary_text,
+                                                        secondary_text,
+                                                        new ThemedIcon.with_default_fallbacks ("dialog-warning"));
 
                 dialog.run ();
                 dialog.destroy ();
