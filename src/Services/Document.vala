@@ -178,7 +178,7 @@ namespace Scratch.Services {
             var primary_format = _("%s is not a text file.");
             var secondary_text = _("Code will not load this type of file");
 
-#if GRANITE_0_4_1
+#if GRANITE_MESSAGEDIALOG
             var dialog = new Granite.MessageDialog (primary_format.printf (this.get_basename ()),
                                                     secondary_text,
                                                     new ThemedIcon.with_default_fallbacks ("dialog-warning"));
