@@ -115,6 +115,9 @@ namespace Scratch.Services {
             source_view.key_press_event.connect (() => {
                 return working;
             });
+
+            /* Create as loaded - could be new document */
+            loaded = true;
         }
 
         public void toggle_changed_handlers (bool enabled) {
@@ -160,6 +163,7 @@ namespace Scratch.Services {
             }
 
             this.working = true;
+            loaded = false;
 
             /* Loading improper files may hang so we cancel after a certain time as a fallback.
              * In most cases, an error will be thrown and caught. */
@@ -368,7 +372,6 @@ namespace Scratch.Services {
 
         public async bool save_as () {
             // New file
-
             if (!loaded) {
                 return false;
             }
