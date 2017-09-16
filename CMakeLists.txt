@@ -66,7 +66,7 @@ set (SCRATCH_DEPS
   glib-2.0
   gio-2.0
   gtk+-3.0
-  granite>=0.4.0
+  granite>=0.3.0
   ${ZEITGEIST_DEPS})
 
 find_package (PkgConfig)
@@ -84,6 +84,12 @@ pkg_check_modules (GTKSOURCEVIEW_3_18 QUIET gtksourceview-3.0>=3.18)
 if (GTKSOURCEVIEW_3_18_FOUND)
   set(GTKSOURCEVIEW_FLAGS "--define=GTKSOURCEVIEW_3_18")
   message ("-- Found gtksourceview >=3.18 GtkSourceMap available")
+endif ()
+
+pkg_check_modules (GRANITE_0_4_1 QUIET granite>=0.4.1)
+if (GRANITE_0_4_1_FOUND)
+  set(GRANITE_FLAGS "--define=GRANITE_0_4_1")
+  message ("-- Found granite >=0.3.1 GraniteMessageDialog available")
 endif ()
 
 set(NORMAL_CFLAGS ${DEPS_CFLAGS} ${LIBSOURCE_CFLAGS} ${GCONF_CFLAGS})
