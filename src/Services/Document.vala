@@ -175,19 +175,19 @@ namespace Scratch.Services {
 
             if (!(ContentType.is_a (content_type, "text/plain"))) {
 
-            var primary_format = _("%s is not a text file.");
-            var secondary_text = _("Code will not load this type of file");
+                var primary_format = _("%s is not a text file.");
+                var secondary_text = _("Code will not load this type of file");
 
 #if GRANITE_MESSAGEDIALOG
-            var dialog = new Granite.MessageDialog (primary_format.printf (this.get_basename ()),
-                                                    secondary_text,
-                                                    new ThemedIcon.with_default_fallbacks ("dialog-warning"));
+                var dialog = new Granite.MessageDialog (primary_format.printf (this.get_basename ()),
+                                                        secondary_text,
+                                                        new ThemedIcon.with_default_fallbacks ("dialog-warning"));
 #else
-            var dialog = new Gtk.MessageDialog ((Gtk.Window?)source_view.get_toplevel (),
-                                                Gtk.DialogFlags.MODAL,
-                                                Gtk.MessageType.WARNING,
-                                                Gtk.ButtonsType.CANCEL,
-                                                "");
+                var dialog = new Gtk.MessageDialog ((Gtk.Window?)source_view.get_toplevel (),
+                                                    Gtk.DialogFlags.MODAL,
+                                                    Gtk.MessageType.WARNING,
+                                                    Gtk.ButtonsType.CANCEL,
+                                                    "");
 
 
                 dialog.deletable = false;
