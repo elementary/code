@@ -24,6 +24,7 @@ public const string DESCRIPTION = _("Complete brackets while typing");
 public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Activatable {
     Gee.HashMap<string, string> brackets;
     Gee.HashMap<uint, string> keys;
+    const string[] valid_next_chars = {"", " ", "\b", "\r", "\n", "\t"};
 
     Gtk.TextBuffer current_buffer;
     Gtk.SourceView current_view;
@@ -140,7 +141,10 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
             string bracket = keys[event.keyval];
             string next_char = get_next_char ();
 
-            if (bracket in brackets) {
+            if (bracket in brackets &&
+                (current_buffer.has_selection ||
+                next_char in valid_next_chars ||
+                next_char in brackets.values)) {
                 complete_brackets (bracket);
                 return true;
             } else if (bracket in brackets.values && next_char == bracket) {
