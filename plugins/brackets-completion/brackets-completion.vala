@@ -133,6 +133,12 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
         current_buffer.place_cursor (end);
     }
 
+    bool has_valid_next_char (string next_char) {
+        return next_char in valid_next_chars ||
+               next_char in brackets.values  ||
+               next_char in brackets;
+    }
+
     bool on_key_press (Gdk.EventKey event) {
         if (event.keyval in keys &&
             !(Gdk.ModifierType.MOD1_MASK in event.state) &&
@@ -143,8 +149,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
 
             if (bracket in brackets &&
                 (current_buffer.has_selection ||
-                next_char in valid_next_chars ||
-                next_char in brackets.values)) {
+                has_valid_next_char (next_char))) {
                 complete_brackets (bracket);
                 return true;
             } else if (bracket in brackets.values && next_char == bracket) {
