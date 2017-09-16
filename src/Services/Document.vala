@@ -351,8 +351,8 @@ namespace Scratch.Services {
             return ret_value;
         }
 
-        public async bool save () {
-            if (source_view.buffer.get_modified () == false || this.loaded == false) {
+        public async bool save (bool force = false) {
+            if (!force && (source_view.buffer.get_modified () == false || this.loaded == false)) {
                 return false;
             }
 

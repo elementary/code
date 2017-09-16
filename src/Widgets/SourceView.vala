@@ -280,6 +280,10 @@ namespace Scratch.Widgets {
             buffer.place_cursor (start);
         }
 
+        public string get_text () {
+            return buffer.text;
+        }
+
         void on_mark_set (Gtk.TextIter loc, Gtk.TextMark mar) {
             // Weed out user movement for text selection changes
             Gtk.TextIter start, end;

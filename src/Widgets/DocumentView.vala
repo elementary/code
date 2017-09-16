@@ -182,8 +182,11 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
 
             var doc = new Services.Document (window.actions, file);
             doc.create_page ();
-            string s;
-            doc.file.replace_contents (original.source_view.buffer.text.data, null, false, 0, out s);
+            doc.source_view.set_text (original.get_text ());
+
+            if (settings.autosave) {
+                doc.save.begin (true);
+            }
 
             notebook.insert_tab (doc, -1);
             current_document = doc;
