@@ -56,18 +56,19 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
 
         plugins = (Scratch.Services.Interface) object;
 
-        plugins.hook_document.connect ((doc) => {
-            current_buffer = doc.source_view.buffer;
-            current_view = doc.source_view;
-
-            current_view.backspace.connect (on_backspace);
-            current_view.key_press_event.connect (on_key_press);
-        });
+        plugins.hook_document.connect (on_hook_document);
     }
 
     public void deactivate () {
-        current_view.backspace.disconnect (on_backspace);
-        current_view.key_press_event.disconnect (on_key_press);
+        plugins.hook_document.disconnect (on_hook_document);
+    }
+
+    void on_hook_document (Scratch.Services.Document doc) {
+        current_buffer = doc.source_view.buffer;
+        current_view = doc.source_view;
+
+        current_view.backspace.connect (on_backspace);
+        current_view.key_press_event.connect (on_key_press);
     }
 
     string get_next_char () {
@@ -140,6 +141,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
     }
 
     bool on_key_press (Gdk.EventKey event) {
+        print("I happened");
         if (event.keyval in keys &&
             !(Gdk.ModifierType.MOD1_MASK in event.state) &&
             !(Gdk.ModifierType.CONTROL_MASK in event.state)) {
