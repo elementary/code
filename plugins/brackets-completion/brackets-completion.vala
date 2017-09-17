@@ -25,7 +25,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
     Gee.HashMap<string, string> brackets;
     Gee.HashMap<uint, string> keys;
     const string[] valid_next_chars = {
-        "", " ", "\b", "\r", "\n", "\t", ",", ".", ";"
+        "", " ", "\b", "\r", "\n", "\t", ",", ".", ";", ":"
     };
 
     Gtk.TextBuffer buffer;
