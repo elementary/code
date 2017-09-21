@@ -196,6 +196,7 @@ namespace Scratch.Services {
                 dialog.text = ("<b>" + primary_format + "</b>").printf (this.get_basename ());
                 dialog.format_secondary_markup (secondary_text);
 #endif
+                source_view.visible = false;
                 dialog.run ();
                 dialog.destroy ();
                 return false;
@@ -208,7 +209,6 @@ namespace Scratch.Services {
             }
 
             var buffer = new Gtk.SourceBuffer (null); /* Faster to load into a separate buffer */
-            source_view.visible = false;
 
             try {
                 var source_file_loader = new Gtk.SourceFileLoader (buffer, source_file);
