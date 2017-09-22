@@ -16,9 +16,11 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_dialogs_preferences_construct@Base 2.0.2bzr1327
  scratch_dialogs_preferences_get_type@Base 2.0.2bzr1327
  scratch_dialogs_preferences_new@Base 2.0.2bzr1327
+ scratch_main_window_action_accelerators@Base 2.4.1
  scratch_main_window_add_view@Base 2.0.2bzr1327
  scratch_main_window_close_document@Base 2.0.2bzr1327
  scratch_main_window_construct@Base 2.0.2bzr1327
+ scratch_main_window_get_actions@Base 2.4.1
  scratch_main_window_get_app@Base 2.4.1
  scratch_main_window_get_current_document@Base 2.0.2bzr1327
  scratch_main_window_get_current_font@Base 2.1.0
@@ -70,12 +72,12 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_services_document_duplicate_selection@Base 2.0.2bzr1327
  scratch_services_document_exists@Base 2.0.2bzr1327
  scratch_services_document_focus@Base 2.0.2bzr1327
+ scratch_services_document_get_actions@Base 2.4.1
  scratch_services_document_get_basename@Base 2.0.2bzr1327
  scratch_services_document_get_file@Base 2.0.2bzr1327
  scratch_services_document_get_is_file_temporary@Base 2.1.0
  scratch_services_document_get_language_id@Base 2.0.2bzr1327
  scratch_services_document_get_language_name@Base 2.0.2bzr1327
- scratch_services_document_get_main_actions@Base 2.0.2bzr1327
  scratch_services_document_get_mime_type@Base 2.0.2bzr1327
  scratch_services_document_get_selected_text@Base 2.0.2bzr1327
  scratch_services_document_get_text@Base 2.0.2bzr1327
@@ -92,8 +94,8 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_services_document_save_as@Base 2.0.2bzr1327
  scratch_services_document_save_as_finish@Base 2.1.0
  scratch_services_document_save_finish@Base 2.1.0
+ scratch_services_document_set_actions@Base 2.4.1
  scratch_services_document_set_file@Base 2.0.2bzr1327
- scratch_services_document_set_main_actions@Base 2.0.2bzr1327
  scratch_services_document_set_message@Base 2.0.2bzr1327
  scratch_services_document_set_saved_status@Base 2.0.2bzr1327
  scratch_services_document_states_get_type@Base 2.0.2bzr1327
@@ -202,6 +204,7 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_test_template_construct@Base 2.0.2bzr1327
  scratch_test_template_get_type@Base 2.0.2bzr1327
  scratch_test_template_new@Base 2.0.2bzr1327
+ scratch_utils_action_from_group@Base 2.4.1
  scratch_utils_draw_nbsp_at_iter@Base 2.4.1
  scratch_utils_draw_space_at_iter@Base 2.4.1
  scratch_utils_draw_spaces_at_iter@Base 2.4.1
@@ -248,6 +251,7 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_widgets_source_view_construct@Base 2.0.2bzr1327
  scratch_widgets_source_view_duplicate_selection@Base 2.0.2bzr1327
  scratch_widgets_source_view_get_selected_text@Base 2.0.2bzr1327
+ scratch_widgets_source_view_get_text@Base 2.4.1
  scratch_widgets_source_view_get_type@Base 2.0.2bzr1327
  scratch_widgets_source_view_go_to_line@Base 2.0.2bzr1327
  scratch_widgets_source_view_new@Base 2.0.2bzr1327
