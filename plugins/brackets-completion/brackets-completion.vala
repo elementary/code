@@ -28,7 +28,8 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
         "", " ", "\b", "\r", "\n", "\t", ",", ".", ";", ":"
     };
 
-    Gtk.TextBuffer buffer;
+    Gtk.TextBuffer current_buffer;
+    Scratch.Widgets.SourceView current_source_view;
 
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
@@ -64,73 +65,80 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
     }
 
     void on_hook_document (Scratch.Services.Document doc) {
-        buffer = doc.source_view.buffer;
+        current_buffer = doc.source_view.buffer;
 
-        doc.source_view.backspace.connect (on_backspace);
-        doc.source_view.key_press_event.connect (on_key_press);
+        if (current_source_view != null) {
+            current_source_view.key_press_event.disconnect (on_key_press);
+            current_source_view.backspace.disconnect (on_backspace);
+        }
+
+        current_source_view = doc.source_view;
+
+        current_source_view.key_press_event.connect (on_key_press);
+        current_source_view.backspace.connect (on_backspace);
     }
 
     string get_next_char () {
         Gtk.TextIter start, end;
 
-        buffer.get_selection_bounds (out start, out end);
+        current_buffer.get_selection_bounds (out start, out end);
         end.forward_char ();
 
-        return buffer.get_text (start, end, true) ;
+        return current_buffer.get_text (start, end, true) ;
     }
 
     string get_previous_char () {
         Gtk.TextIter start, end;
 
-        buffer.get_selection_bounds (out start, out end);
+        current_buffer.get_selection_bounds (out start, out end);
         start.backward_char ();
 
-        return buffer.get_text (start, end, true);
+        return current_buffer.get_text (start, end, true);
     }
 
     void on_backspace () {
-        if (!buffer.has_selection) {
+        if (!current_buffer.has_selection) {
             string left_char = get_previous_char ();
             string right_char = get_next_char ();
 
             if (left_char in brackets && right_char in brackets.values) {
                 Gtk.TextIter start, end;
 
-                buffer.get_selection_bounds (out start, out end);
+                current_buffer.get_selection_bounds (out start, out end);
                 start.backward_char ();
                 end.forward_char ();
-                buffer.select_range (start, end);
+                current_buffer.select_range (start, end);
             }
         }
     }
 
     void complete_brackets (string opening_bracket) {
         Gtk.TextIter start, end;
-        buffer.get_selection_bounds (out start, out end);
+        current_buffer.get_selection_bounds (out start, out end);
 
-        string current_selection = buffer.get_text (start, end, true);
+        string current_selection = current_buffer.get_text (start, end, true);
         string closing_bracket = brackets[opening_bracket];
         string text = opening_bracket + current_selection + closing_bracket;
 
-        buffer.begin_user_action();
+        current_buffer.begin_user_action();
 
-        buffer.delete (ref start, ref end);
-        buffer.insert (ref start, text, text.length);
+        current_buffer.delete (ref start, ref end);
+        current_buffer.insert (ref start, text, text.length);
 
-        buffer.get_selection_bounds (out start, out end);
+        current_buffer.get_selection_bounds (out start, out end);
         end.backward_char ();
         start.backward_chars (current_selection.length + 1);
-        buffer.select_range (start, end);
+        current_buffer.select_range (start, end);
 
-        buffer.end_user_action();
+        current_buffer.end_user_action();
     }
 
     void skip_char () {
         Gtk.TextIter start, end;
 
-        buffer.get_selection_bounds (out start, out end);
+        current_buffer.get_selection_bounds (out start, out end);
         end.forward_char ();
-        buffer.place_cursor (end);
+        current_buffer.place_cursor (end);
     }
 
     bool has_valid_next_char (string next_char) {
@@ -148,7 +156,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
             string next_char = get_next_char ();
 
             if (bracket in brackets &&
-                (buffer.has_selection || has_valid_next_char (next_char))) {
+                (current_buffer.has_selection || has_valid_next_char (next_char))) {
                 complete_brackets (bracket);
                 return true;
             } else if (bracket in brackets.values && next_char == bracket) {
