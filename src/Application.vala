@@ -1,26 +1,26 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
-/***
-  BEGIN LICENSE
-
-  Copyright (C) 2011-2012 Giulio Collura <random.cpp@gmail.com>
-                2013      Mario Guerriero <mario@elementaryos.org>
-  This program is free software: you can redistribute it and/or modify it
-  under the terms of the GNU Lesser General Public License version 3, as
-  published    by the Free Software Foundation.
-
-  This program is distributed in the hope that it will be useful, but
-  WITHOUT ANY WARRANTY; without even the implied warranties of
-  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-  PURPOSE.  See the GNU General Public License for more details.
-
-  You should have received a copy of the GNU General Public License along
-  with this program.  If not, see <http://www.gnu.org/licenses>
-
-  END LICENSE
-***/
+/*
+* Copyright (c) 2011-2012 Giulio Collura <random.cpp@gmail.com>
+*               2013 Mario Guerriero <mefrio.g@gmail.com>
+*               2017 elementary LLC. <https://elementary.io>
+*
+* This program is free software; you can redistribute it and/or
+* modify it under the terms of the GNU General Public
+* License as published by the Free Software Foundation; either
+* version 3 of the License, or (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+* General Public License for more details.
+*
+* You should have received a copy of the GNU General Public
+* License along with this program; if not, write to the
+* Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+* Boston, MA 02110-1301 USA
+*/
 
 namespace Scratch {
-    // Settings
     public SavedState saved_state;
     public Settings settings;
     public ServicesSettings services;
@@ -76,8 +76,9 @@ namespace Scratch {
 
         public static Application instance {
             get {
-                if (_instance == null)
+                if (_instance == null) {
                     _instance = new Application ();
+                }
                 return _instance;
             }
         }
@@ -143,26 +144,30 @@ namespace Scratch {
                                 FileUtils.set_contents (file.get_path (), "");
                             } catch (Error e) {
                                 string reason = "";
-                                // We list some common errors for quick feedback
-                                if (e is FileError.ACCES) {
-                                    reason = _("Maybe you do not have the necessary permissions.");
-                                } else if (e is FileError.NOENT) {
-                                    reason = _("Maybe the file path provided is not valid.");
-                                } else if (e is FileError.ROFS) {
-                                    reason = _("The location is read-only.");
-                                } else if (e is FileError.NOTDIR) {
-                                    reason = _("The parent directory doesn't exist.");
-                                } else {
-                                    // Otherwise we simple use the error notification from glib
-                                    msg = e.message;
+
+                                switch (e) {
+                                    case FileError.ACCES:
+                                        reason = _("Maybe you do not have the necessary permissions.");
+                                        break;
+                                    case FileError.NOENT:
+                                        reason = _("Maybe the file path provided is not valid.");
+                                        break;
+                                    case FileError.ROFS:
+                                        reason = _("The location is read-only.");
+                                        break;
+                                    case FileError.NOTDIR:
+                                        reason = _("The parent directory doesn't exist.");
+                                        break;
+                                    default:
+                                        msg = e.message;
+                                        break;
                                 }
 
                                 if (reason.length > 0) {
                                     msg = _("File \"%s\" cannot be created.\n%s").printf ("<b>%s</b>".printf (file.get_path ()), reason);
                                 }
 
-                                // Escape to the outer catch clause, and overwrite
-                                // the weird glib's standard errors.
+                                // Escape to the outer catch clause, and overwrite the weird glib's standard errors.
                                 throw new Error (e.domain, e.code, msg);
                             }
                         }
@@ -212,8 +217,9 @@ namespace Scratch {
                     }
                 }
 
-                if (files.length > 0)
+                if (files.length > 0) {
                     open (files, "");
+                }
             }
 
             return Posix.EXIT_SUCCESS;
@@ -235,10 +241,11 @@ namespace Scratch {
             Scratch.Widgets.DocumentView? view = null;
             var window = get_last_window ();
 
-            if (window.is_empty ())
+            if (window.is_empty ()) {
                 view = window.add_view ();
-            else
+            } else {
                 view = window.get_current_view ();
+            }
 
             foreach (var file in files) {
                 var doc = new Scratch.Services.Document (window.actions, file);
