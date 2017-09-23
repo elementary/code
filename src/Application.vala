@@ -237,7 +237,7 @@ namespace Scratch {
             Scratch.Widgets.DocumentView? view = null;
             var window = get_last_window ();
 
-            if (window.is_empty ()) 
+            if (window.is_empty ()) {
                 view = window.add_view ();
             } else {
                 view = window.get_current_view ();
