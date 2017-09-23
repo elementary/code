@@ -144,30 +144,26 @@ namespace Scratch {
                                 FileUtils.set_contents (file.get_path (), "");
                             } catch (Error e) {
                                 string reason = "";
-
-                                switch (e) {
-                                    case FileError.ACCES:
-                                        reason = _("Maybe you do not have the necessary permissions.");
-                                        break;
-                                    case FileError.NOENT:
-                                        reason = _("Maybe the file path provided is not valid.");
-                                        break;
-                                    case FileError.ROFS:
-                                        reason = _("The location is read-only.");
-                                        break;
-                                    case FileError.NOTDIR:
-                                        reason = _("The parent directory doesn't exist.");
-                                        break;
-                                    default:
-                                        msg = e.message;
-                                        break;
+                                // We list some common errors for quick feedback
+                                if (e is FileError.ACCES) {
+                                    reason = _("Maybe you do not have the necessary permissions.");
+                                } else if (e is FileError.NOENT) {
+                                    reason = _("Maybe the file path provided is not valid.");
+                                } else if (e is FileError.ROFS) {
+                                    reason = _("The location is read-only.");
+                                } else if (e is FileError.NOTDIR) {
+                                    reason = _("The parent directory doesn't exist.");
+                                } else {
+                                    // Otherwise we simple use the error notification from glib
+                                    msg = e.message;
                                 }
 
                                 if (reason.length > 0) {
                                     msg = _("File \"%s\" cannot be created.\n%s").printf ("<b>%s</b>".printf (file.get_path ()), reason);
                                 }
 
-                                // Escape to the outer catch clause, and overwrite the weird glib's standard errors.
+                                // Escape to the outer catch clause, and overwrite
+                                // the weird glib's standard errors.
                                 throw new Error (e.domain, e.code, msg);
                             }
                         }
@@ -241,7 +237,7 @@ namespace Scratch {
             Scratch.Widgets.DocumentView? view = null;
             var window = get_last_window ();
 
-            if (window.is_empty ()) {
+            if (window.is_empty ()) 
                 view = window.add_view ();
             } else {
                 view = window.get_current_view ();
