@@ -1,21 +1,21 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /***
   BEGIN LICENSE
-	
+
   Copyright (C) 2013 Mario Guerriero <mario@elementaryos.org>
-  This program is free software: you can redistribute it and/or modify it	
-  under the terms of the GNU Lesser General Public License version 3, as published	
+  This program is free software: you can redistribute it and/or modify it
+  under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
-	
-  This program is distributed in the hope that it will be useful, but	
-  WITHOUT ANY WARRANTY; without even the implied warranties of	
-  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR	
+
+  This program is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranties of
+  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
   PURPOSE.  See the GNU General Public License for more details.
-	
-  You should have received a copy of the GNU General Public License along	
-  with this program.  If not, see <http://www.gnu.org/licenses/>	
-  
-  END LICENSE	
+
+  You should have received a copy of the GNU General Public License along
+  with this program.  If not, see <http://www.gnu.org/licenses/>
+
+  END LICENSE
 ***/
 
 public const string NAME = _("Brackets Completion");
@@ -23,82 +23,149 @@ public const string DESCRIPTION = _("Complete brackets while typing");
 
 public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Activatable {
     Gee.HashMap<string, string> brackets;
+    Gee.HashMap<uint, string> keys;
+    const string[] valid_next_chars = {
+        "", " ", "\b", "\r", "\n", "\t", ",", ".", ";", ":"
+    };
 
-    Gee.TreeSet<Gtk.TextBuffer> buffers;
     Gtk.TextBuffer current_buffer;
-    string last_inserted;
+    Scratch.Widgets.SourceView current_source_view;
 
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
 
-    public void update_state () {
-        
-    }
+    public void update_state () {}
 
     public void activate () {
-        this.buffers = new Gee.TreeSet<Gtk.TextBuffer> ();
-        this.brackets = new Gee.HashMap<string, string> ();
-        this.brackets.set ("(", ")");
-        this.brackets.set ("[", "]");
-        this.brackets.set ("{", "}");
-        this.brackets.set ("<", ">");
-        this.brackets.set ("⟨", "⟩");
-        this.brackets.set ("｢", "｣");
-        this.brackets.set ("⸤", "⸥");
-        this.brackets.set ("‘", "‘");
-        this.brackets.set ("'", "'");
-        this.brackets.set ("\"", "\"");
+        brackets = new Gee.HashMap<string, string> ();
+        brackets["("] = ")";
+        brackets["["] = "]";
+        brackets["{"] = "}";
+        brackets["'"] = "'";
+        brackets["\""] = "\"";
+        brackets["`"] = "`";
+
+        keys = new Gee.HashMap<uint, string> ();
+        keys[Gdk.Key.braceleft] = "{";
+        keys[Gdk.Key.bracketleft] = "[";
+        keys[Gdk.Key.parenleft] = "(";
+        keys[Gdk.Key.braceright] = "}";
+        keys[Gdk.Key.bracketright] = "]";
+        keys[Gdk.Key.parenright] = ")";
+        keys[Gdk.Key.quoteright] = "'";
+        keys[Gdk.Key.quotedbl] = "\"";
+        keys[Gdk.Key.grave] = "`";
 
         plugins = (Scratch.Services.Interface) object;
-        plugins.hook_document.connect ((doc) => {
-            var buf = doc.source_view.buffer;
-            buf.insert_text.disconnect (on_insert_text);
-            buf.insert_text.connect (on_insert_text);
-            this.buffers.add (buf);
-            this.current_buffer = buf;
-        });
+        plugins.hook_document.connect (on_hook_document);
     }
 
     public void deactivate () {
-        foreach (var buf in buffers) {
-            buf.insert_text.disconnect (on_insert_text);
+        plugins.hook_document.disconnect (on_hook_document);
+    }
+
+    void on_hook_document (Scratch.Services.Document doc) {
+        current_buffer = doc.source_view.buffer;
+
+        if (current_source_view != null) {
+            current_source_view.key_press_event.disconnect (on_key_press);
+            current_source_view.backspace.disconnect (on_backspace);
+        }
+
+        current_source_view = doc.source_view;
+
+        current_source_view.key_press_event.connect (on_key_press);
+        current_source_view.backspace.connect (on_backspace);
+    }
+
+    string get_next_char () {
+        Gtk.TextIter start, end;
+
+        current_buffer.get_selection_bounds (out start, out end);
+        end.forward_char ();
+
+        return current_buffer.get_text (start, end, true) ;
+    }
+
+    string get_previous_char () {
+        Gtk.TextIter start, end;
+
+        current_buffer.get_selection_bounds (out start, out end);
+        start.backward_char ();
+
+        return current_buffer.get_text (start, end, true);
+    }
+
+    void on_backspace () {
+        if (!current_buffer.has_selection) {
+            string left_char = get_previous_char ();
+            string right_char = get_next_char ();
+
+            if (left_char in brackets && right_char in brackets.values) {
+                Gtk.TextIter start, end;
+
+                current_buffer.get_selection_bounds (out start, out end);
+                start.backward_char ();
+                end.forward_char ();
+                current_buffer.select_range (start, end);
+            }
         }
     }
 
-    void on_insert_text (ref Gtk.TextIter pos, string new_text, int new_text_length) {
-        // If you are copy/pasting a large amount of text...
-        if (new_text_length > 1) {
-            return;
-        }
+    void complete_brackets (string opening_bracket) {
+        Gtk.TextIter start, end;
+        current_buffer.get_selection_bounds (out start, out end);
 
-        // To avoid infinite loop
-        if (this.last_inserted == new_text) {
-            return;
-        }
+        string current_selection = current_buffer.get_text (start, end, true);
+        string closing_bracket = brackets[opening_bracket];
+        string text = opening_bracket + current_selection + closing_bracket;
 
-        if (new_text in this.brackets.keys) {
-            var buf = this.current_buffer;
+        current_buffer.begin_user_action();
 
-            string text = this.brackets.get (new_text);
-            int len = text.length;
-            this.last_inserted = text;
-            buf.insert (ref pos, text, len);
+        current_buffer.delete (ref start, ref end);
+        current_buffer.insert (ref start, text, text.length);
 
-            //To make " and ' brackets work correctly (opening and closing chars are the same)
-            this.last_inserted = null;
+        current_buffer.get_selection_bounds (out start, out end);
+        end.backward_char ();
+        start.backward_chars (current_selection.length + 1);
+        current_buffer.select_range (start, end);
 
-            pos.backward_chars (len);
-            buf.place_cursor (pos);
-        } else if (new_text in this.brackets.values) { // Handle matching closing brackets.
-            var buf = this.current_buffer;
-            var end_pos = pos;
-            end_pos.forward_chars (1);
+        current_buffer.end_user_action();
+    }
 
-            if (new_text == buf.get_text (pos, end_pos, true)) {
-                buf.delete (ref pos, ref end_pos);
-                buf.place_cursor (pos);
+    void skip_char () {
+        Gtk.TextIter start, end;
+
+        current_buffer.get_selection_bounds (out start, out end);
+        end.forward_char ();
+        current_buffer.place_cursor (end);
+    }
+
+    bool has_valid_next_char (string next_char) {
+        return next_char in valid_next_chars ||
+               next_char in brackets.values  ||
+               next_char in brackets;
+    }
+
+    bool on_key_press (Gdk.EventKey event) {
+        if (event.keyval in keys &&
+            !(Gdk.ModifierType.MOD1_MASK in event.state) &&
+            !(Gdk.ModifierType.CONTROL_MASK in event.state)) {
+
+            string bracket = keys[event.keyval];
+            string next_char = get_next_char ();
+
+            if (bracket in brackets &&
+                (current_buffer.has_selection || has_valid_next_char (next_char))) {
+                complete_brackets (bracket);
+                return true;
+            } else if (bracket in brackets.values && next_char == bracket) {
+                skip_char ();
+                return true;
             }
         }
+
+        return false;
     }
 }
 
