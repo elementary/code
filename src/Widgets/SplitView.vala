@@ -68,9 +68,10 @@ namespace Scratch.Widgets {
                 }
             });
 
-            // Handle Drag-and-drop functionality on source-view
+            // Handle Drag-and-drop for files functionality on welcome screen
             Gtk.TargetEntry target = {"text/uri-list", 0, 0};
             Gtk.drag_dest_set (welcome_screen, Gtk.DestDefaults.ALL, {target}, Gdk.DragAction.COPY);
+
             welcome_screen.drag_data_received.connect ((ctx, x, y, sel, info, time) => {
                 var uris = sel.get_uris ();
                 if (uris.length > 0) {
