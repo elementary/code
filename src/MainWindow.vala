@@ -220,6 +220,12 @@ namespace Scratch {
 
             Unix.signal_add (Posix.SIGINT, quit_source_func, Priority.HIGH);
             Unix.signal_add (Posix.SIGTERM, quit_source_func, Priority.HIGH);
+
+            /* Showing welcome sets widgets insensitive.
+             * Welcome view will be removed and the widgets set sensitive
+             * if a document is successfully loaded.
+             */
+            split_view.show_welcome ();
         }
 
         private void init_layout () {
@@ -351,13 +357,6 @@ namespace Scratch {
 
             search_revealer.set_reveal_child (false);
 
-            // All the files have already been opened in Application.activate (),
-            // if we reach this point without any document open let's just show
-            // the welcome screen.
-            if (is_empty ()) {
-                split_view.show_welcome ();
-            }
-
             split_view.document_change.connect ((doc) => { plugins.hook_document (doc); });
 
             // Plugins hook
@@ -377,8 +376,6 @@ namespace Scratch {
             });
 
             hook_func ();
-
-            set_widgets_sensitive (!split_view.is_empty ());
         }
 
         public void restore_opened_documents () {
@@ -393,20 +390,12 @@ namespace Scratch {
                 var view = add_view ();
                 load_files_for_view (view, uris_view1);
                 set_focused_document (view, focused_document1);
-
-                if (view.is_empty ()) {
-                    split_view.remove_view (view);
-                }
             }
 
             if (uris_view2.length > 0) {
                 var view = add_view ();
                 load_files_for_view (view, uris_view2);
                 set_focused_document (view, focused_document2);
-
-                if (view.is_empty ()) {
-                    split_view.remove_view (view);
-                }
             }
 
             stop_loading ();
@@ -796,7 +785,10 @@ namespace Scratch {
         private void action_open () {
             // Show a GtkFileChooserDialog
             var filech = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.OPEN, _("Open some files"), this, true);
-            if (filech.run () == Gtk.ResponseType.ACCEPT) {
+            var response = filech.run ();
+            filech.close (); // Close now so it does not stay open during lengthy or failed loading
+
+            if (response == Gtk.ResponseType.ACCEPT) {
                 foreach (string uri in filech.get_uris ()) {
                     // Update last visited path
                     Utils.last_path = Path.get_dirname (uri);
@@ -806,8 +798,6 @@ namespace Scratch {
                     open_document (doc);
                 }
             }
-
-            filech.close ();
         }
 
         private void action_save () {
