@@ -86,6 +86,12 @@ if (GTKSOURCEVIEW_3_18_FOUND)
   message ("-- Found gtksourceview >=3.18 GtkSourceMap available")
 endif ()
 
+pkg_check_modules (GRANITE_0_4_2 QUIET granite>=0.4.2)
+if (GRANITE_0_4_2_FOUND)
+  set(GRANITE_FLAGS "--define=GRANITE_MESSAGEDIALOG")
+  message ("-- GraniteMessageDialog available")
+endif ()
+
 set(NORMAL_CFLAGS ${DEPS_CFLAGS} ${LIBSOURCE_CFLAGS} ${GCONF_CFLAGS})
 set(NORMAL_LINK_DIRS ${DEPS_LIBRARY_DIRS} ${LIBSOURCE_LIBRARY_DIRS} ${GCONF_LIBRARY_DIRS})
 set(NORMAL_LIBRARIES ${DEPS_LIBRARIES} ${LIBSOURCE_LIBRARIES} ${GCONF_LIBRARIES})

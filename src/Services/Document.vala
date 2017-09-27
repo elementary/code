@@ -27,6 +27,8 @@ namespace Scratch.Services {
     }
 
     public class Document : Granite.Widgets.Tab {
+        private const uint LOAD_TIMEOUT_MSEC = 5000;
+
         public delegate void VoidFunc ();
         public signal void doc_opened ();
         public signal void doc_saved ();
@@ -72,6 +74,7 @@ namespace Scratch.Services {
 #endif
 
         private GLib.Cancellable save_cancellable;
+        private GLib.Cancellable load_cancellable;
         private ulong onchange_handler_id = 0; // It is used to not mark files as changed on load
         private bool error_shown = false;
         private bool loaded = false;
@@ -85,12 +88,11 @@ namespace Scratch.Services {
         public Document (SimpleActionGroup actions, File? file = null) {
             this.actions = actions;
             this.file = file;
-
-            open.begin ();
         }
 
         construct {
             source_view = new Scratch.Widgets.SourceView ();
+
             scroll = new Gtk.ScrolledWindow (null, null);
             scroll.add (source_view);
             info_bar = new Gtk.InfoBar ();
@@ -109,6 +111,13 @@ namespace Scratch.Services {
             restore_settings ();
 
             settings.changed.connect (restore_settings);
+            /* Block user editing while working */
+            source_view.key_press_event.connect (() => {
+                return working;
+            });
+
+            /* Create as loaded - could be new document */
+            loaded = true;
         }
 
         public void toggle_changed_handlers (bool enabled) {
@@ -143,23 +152,83 @@ namespace Scratch.Services {
         }
 
         public async bool open () {
-            this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
-
             // If it does not exists, let's create it!
             if (!exists ()) {
                 try {
                     FileUtils.set_contents (file.get_path (), "");
                 } catch (FileError e) {
                     warning ("Cannot create file \"%s\": %s", get_basename (), e.message);
+                    return false;
                 }
             }
 
-            // Start loading
             this.working = true;
-            message ("Opening \"%s\"", get_basename ());
+            loaded = false;
+
+            /* Loading improper files may hang so we cancel after a certain time as a fallback.
+             * In most cases, an error will be thrown and caught. */
+            if (load_cancellable != null) { /* just in case */
+                load_cancellable.cancel ();
+            }
+
+            string content_type = ContentType.from_mime_type (get_mime_type ());
+
+            if (!(ContentType.is_a (content_type, "text/plain"))) {
+
+                var primary_format = _("%s is not a text file.");
+                var secondary_text = _("Code will not load this type of file");
+
+#if GRANITE_MESSAGEDIALOG
+                var dialog = new Granite.MessageDialog (primary_format.printf (this.get_basename ()),
+                                                        secondary_text,
+                                                        new ThemedIcon.with_default_fallbacks ("dialog-warning"));
+#else
+                var dialog = new Gtk.MessageDialog ((Gtk.Window?)source_view.get_toplevel (),
+                                                    Gtk.DialogFlags.MODAL,
+                                                    Gtk.MessageType.WARNING,
+                                                    Gtk.ButtonsType.CANCEL,
+                                                    "");
+
+
+                dialog.deletable = false;
+                dialog.use_markup = true;
+
+                dialog.text = ("<b>" + primary_format + "</b>").printf (this.get_basename ());
+                dialog.format_secondary_markup (secondary_text);
+#endif
+                source_view.visible = false;
+                dialog.run ();
+                dialog.destroy ();
+                return false;
+            }
+
+            load_cancellable = new Cancellable ();
+
+            while (Gtk.events_pending ()) {
+                Gtk.main_iteration ();
+            }
+
+            var buffer = new Gtk.SourceBuffer (null); /* Faster to load into a separate buffer */
+
+            try {
+                var source_file_loader = new Gtk.SourceFileLoader (buffer, source_file);
+                yield source_file_loader.load_async (GLib.Priority.LOW, load_cancellable, null);
+
+                source_view.set_text (buffer.text);
+                loaded = true;
+            } catch (Error e) {
+                critical (e.message);
+                source_view.buffer.text = "";
+                show_error_dialog ();
+                return false;
+            } finally {
+                load_cancellable = null;
+            }
+
+            /* Successful load - now do rest of set up */
+            this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
 
             toggle_changed_handlers (true);
-
             // Focus in event for SourceView
             this.source_view.focus_in_event.connect (() => {
                 check_file_status ();
@@ -180,29 +249,15 @@ namespace Scratch.Services {
             // Change syntax highlight
             this.source_view.change_syntax_highlight_from_file (this.file);
 
-            // Stop loading
-            this.working = false;
-
 #if HAVE_ZEITGEIST
             // Zeitgeist integration
             zg_log.open_insert (file.get_uri (), get_mime_type ());
 #endif
-
             // Grab focus
             this.source_view.grab_focus ();
 
-            var source_file_loader = new Gtk.SourceFileLoader (source_view.buffer, source_file);
-            try {
-                yield source_file_loader.load_async (GLib.Priority.DEFAULT, null, null);
-            } catch (Error e) {
-                critical (e.message);
-                show_error_dialog ();
-                return false;
-            }
-
             source_view.buffer.set_modified (false);
             original_content = source_view.buffer.text;
-            loaded = true;
 
             this.source_view.buffer.modified_changed.connect (() => {
                 if (this.source_view.buffer.get_modified() && !settings.autosave) {
@@ -212,11 +267,25 @@ namespace Scratch.Services {
 
             doc_opened ();
 
+            /* Do not stop working (blocks editing) until idle
+             * (large documents take time to format/display after loading)
+             */
+            Idle.add (() => {
+                source_view.visible = true;
+                this.working = false;
+                return false;
+            });
+
             return true;
         }
 
         public new bool close (bool app_closing = false) {
             message ("Closing \"%s\"", get_basename ());
+
+            if (!loaded) {
+                load_cancellable.cancel ();
+                return true;
+            }
 
             bool ret_value = true;
             if (app_closing && is_file_temporary && !delete_temporary_file ()) {
@@ -318,6 +387,11 @@ namespace Scratch.Services {
 
         public async bool save_as () {
             // New file
+            if (!loaded) {
+                return false;
+            }
+
+
             var filech = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.SAVE, _("Save File"), null);
             filech.do_overwrite_confirmation = true;
 
@@ -555,12 +629,17 @@ namespace Scratch.Services {
             }
 
             this.error_shown = true;
-            string message = _("File \"%s\" cannot be read. Maybe it is corrupt\nor you do not have the necessary permissions to read it.").printf ("<b>%s</b>".printf (get_basename ()));
+
             var parent_window = source_view.get_toplevel () as Gtk.Window;
-            var dialog = new Gtk.MessageDialog.with_markup (parent_window, Gtk.DialogFlags.MODAL,
+            /* Using ".with_markup () " constructor does not work properly */
+            /* FIXME: This dialog needs changing to Elementary HIG style */
+            var dialog = new Gtk.MessageDialog  (parent_window,
+                                                 Gtk.DialogFlags.MODAL,
                                                  Gtk.MessageType.ERROR,
-                                                 Gtk.ButtonsType.CLOSE,
-                                                 message);
+                                                 Gtk.ButtonsType.CLOSE, null);
+
+            /* Setting markup now works */
+            dialog.set_markup ( _("File \"%s\" cannot be read. Maybe it is corrupt\nor you do not have the necessary permissions to read it.").printf ("<b>%s</b>".printf (get_basename ())));
             dialog.run ();
             dialog.destroy ();
             this.close ();

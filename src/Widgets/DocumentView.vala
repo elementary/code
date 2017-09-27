@@ -94,7 +94,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
 
         pack_start (notebook, true, true, 0);
 
-        show_all ();
+        /* SplitView shows view as required */
     }
 
     private string unsaved_file_path_builder () {
@@ -157,8 +157,21 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
 
         doc.create_page ();
         notebook.insert_tab (doc, -1);
+
         current_document = doc;
-        doc.focus ();
+
+        Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
+            doc.open.begin ((obj, res) => {
+                if (doc.open.end (res)) {
+                    doc.focus ();
+                    save_opened_files ();
+                } else {
+                   notebook.remove_tab (doc);
+                }
+            });
+
+            return false;
+        });
     }
 
     // Set a copy of content
@@ -230,7 +243,6 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         docs.append (doc);
         doc.source_view.focus_in_event.connect (on_focus_in_event);
         doc.source_view.drag_data_received.connect (drag_received);
-        save_opened_files ();
     }
 
     private void on_doc_removed (Granite.Widgets.Tab tab) {
