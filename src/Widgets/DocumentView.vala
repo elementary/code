@@ -243,7 +243,6 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         docs.append (doc);
         doc.source_view.focus_in_event.connect (on_focus_in_event);
         doc.source_view.drag_data_received.connect (drag_received);
-        doc.source_view.drag_motion.connect (drag_motion);
     }
 
     private void on_doc_removed (Granite.Widgets.Tab tab) {
@@ -252,7 +251,6 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         docs.remove (doc);
         doc.source_view.focus_in_event.disconnect (on_focus_in_event);
         doc.source_view.drag_data_received.disconnect (drag_received);
-        doc.source_view.drag_motion.disconnect (drag_motion);
 
         // Check if the view is empty
         if (is_empty ()) {
@@ -304,19 +302,15 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         return true;
     }
 
-    private bool drag_motion (Gdk.DragContext ctx, int x, int y, uint time){
-        return true;
-    }
-
-    private void drag_received (Gdk.DragContext ctx, int x, int y, Gtk.SelectionData sel,  uint info, uint time){
+    private void drag_received (Gtk.Widget w, Gdk.DragContext ctx, int x, int y, Gtk.SelectionData sel,  uint info, uint time) {
         var uris = sel.get_uris ();
         foreach (var filename in uris) {
             var file = File.new_for_uri (filename);
             var doc = new Services.Document (window.actions, file);
             open_document (doc);
-
-            Gtk.drag_finish (ctx, true, false, time);
         }
+
+       Gtk.drag_finish (ctx, true, false, time);
     }
 
     public void save_opened_files () {
