@@ -241,7 +241,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         doc.actions = window.actions;
 
         docs.append (doc);
-        doc.source_view.focus_in_event.connect (on_focus_in_event);
+        doc.source_view.focus_in_event.connect_after (on_focus_in_event);
         doc.source_view.drag_data_received.connect (drag_received);
     }
 
