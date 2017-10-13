@@ -5,13 +5,12 @@ vala_precompile(VALA_C ${EXEC_NAME}
     DrawSpacesUtils.vala
     Dialogs/PreferencesDialog.vala
     Widgets/DocumentView.vala
-    Widgets/ToolBar.vala
+    Widgets/HeaderBar.vala
     Widgets/LoadingView.vala
-    Widgets/SearchManager.vala
+    Widgets/SearchBar.vala
     Widgets/SplitView.vala
     Widgets/SourceView.vala
     Services/Document.vala
-    Services/Encoding.vala
     Services/FileHandler.vala
     Services/PluginManager.vala
     Services/Settings.vala

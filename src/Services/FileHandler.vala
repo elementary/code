@@ -117,17 +117,7 @@ namespace Scratch.Services {
             }
             else
                 return false;
-        }/*
-
-        public static bool backup (string path) {
         }
-
-        public static bool backup_uri (string uri) {
-        }
-
-        public static bool query_option (FileOption option) {
-        }*/
-
     }
 
 }
