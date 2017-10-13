@@ -19,7 +19,7 @@
  */
 
 namespace Scratch.Widgets {
-    public class SearchManager : Gtk.Grid {
+    public class SearchBar : Gtk.Grid {
         public weak MainWindow window { get; construct; }
 
         private Gtk.Button tool_arrow_up;
@@ -47,11 +47,11 @@ namespace Scratch.Widgets {
         public signal void need_hide ();
 
         /**
-         * Create a new SearchManager object.
+         * Create a new SearchBar widget.
          *
          * following actions : Fetch, ShowGoTo, ShowRreplace, or null.
          **/
-        public SearchManager (MainWindow window) {
+        public SearchBar (MainWindow window) {
             Object (
                 column_spacing: 6,
                 window: window
@@ -59,6 +59,7 @@ namespace Scratch.Widgets {
         }
 
         construct {
+            get_style_context ().add_class ("search-bar");
             search_entry = new Gtk.SearchEntry ();
             search_entry.hexpand = true;
             search_entry.placeholder_text = _("Find");
