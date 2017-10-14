@@ -20,7 +20,7 @@
 */
 
 namespace Scratch.Widgets {
-    public class Toolbar : Gtk.HeaderBar {
+    public class HeaderBar : Gtk.HeaderBar {
         public Gtk.Menu menu { get; construct; }
         public Gtk.Menu share_menu;
         public Gtk.MenuButton share_app_menu;
@@ -28,9 +28,10 @@ namespace Scratch.Widgets {
         public Gtk.ToggleButton find_button;
         public Gtk.Button templates_button;
 
-        public Toolbar () {
+        public HeaderBar () {
             Object (
-                has_subtitle: false
+                has_subtitle: false,
+                show_close_button: true
             );
         }
 

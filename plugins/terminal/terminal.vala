@@ -31,7 +31,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
 
     Gtk.Notebook? bottombar = null;
     Gtk.Notebook? contextbar = null;
-    Scratch.Widgets.Toolbar? toolbar = null;
+    Scratch.Widgets.HeaderBar? toolbar = null;
     Gtk.ToggleToolButton? tool_button = null;
 
     Gtk.RadioMenuItem location_bottom = null;
@@ -164,7 +164,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         });
     }
 
-    void on_hook_toolbar (Scratch.Widgets.Toolbar toolbar) {
+    void on_hook_toolbar (Scratch.Widgets.HeaderBar toolbar) {
         var icon = new Gtk.Image.from_icon_name ("utilities-terminal", Gtk.IconSize.LARGE_TOOLBAR);
         tool_button = new Gtk.ToggleToolButton ();
         tool_button.set_icon_widget (icon);

@@ -28,9 +28,9 @@ namespace Scratch {
         public weak Scratch.Application app { get; construct; }
 
         // Widgets
-        public Scratch.Widgets.Toolbar toolbar;
+        public Scratch.Widgets.HeaderBar toolbar;
         private Gtk.Revealer search_revealer;
-        public Scratch.Widgets.SearchManager search_manager;
+        public Scratch.Widgets.SearchBar search_bar;
         public Scratch.Widgets.LoadingView loading_view;
         public Scratch.Widgets.SplitView split_view;
 
@@ -229,23 +229,21 @@ namespace Scratch {
         }
 
         private void init_layout () {
-            toolbar = new Scratch.Widgets.Toolbar ();
+            toolbar = new Scratch.Widgets.HeaderBar ();
             toolbar.title = title;
-            toolbar.show_close_button = true;
             set_titlebar (toolbar);
 
-            // SearchManager
-            search_manager = new Scratch.Widgets.SearchManager (this);
-            search_manager.get_style_context ().add_class ("search-bar");
+            // SearchBar
+            search_bar = new Scratch.Widgets.SearchBar (this);
             search_revealer = new Gtk.Revealer ();
-            search_revealer.add (search_manager);
+            search_revealer.add (search_bar);
 
-            search_manager.map.connect_after ((w) => { /* signalled when reveal child */
+            search_bar.map.connect_after ((w) => { /* signalled when reveal child */
                 set_search_text ();
             });
-            search_manager.search_entry.unmap.connect_after (() => { /* signalled when reveal child */
-                search_manager.set_search_string ("");
-                search_manager.highlight_none ();
+            search_bar.search_entry.unmap.connect_after (() => { /* signalled when reveal child */
+                search_bar.set_search_string ("");
+                search_bar.highlight_none ();
             });
 
             // SlitView
@@ -265,7 +263,7 @@ namespace Scratch {
             });
 
             split_view.document_change.connect ((doc) => {
-                search_manager.set_text_view (doc.source_view);
+                search_bar.set_text_view (doc.source_view);
                 // Update MainWindow title
                 if (doc != null && doc.file != null) {
                     var home_dir = Environment.get_home_dir ();
@@ -909,13 +907,13 @@ namespace Scratch {
             if (current_doc != null) {
                 var selected_text = current_doc.get_selected_text ();
                 if (selected_text.length < MAX_SEARCH_TEXT_LENGTH) {
-                    search_manager.set_search_string (selected_text);
+                    search_bar.set_search_string (selected_text);
                 }
 
-                search_manager.search_entry.grab_focus (); /* causes loss of document selection */
+                search_bar.search_entry.grab_focus (); /* causes loss of document selection */
 
                 if (selected_text != "") {
-                    search_manager.search_next (); /* this selects the next match (if any) */
+                    search_bar.search_next (); /* this selects the next match (if any) */
                 }
 
             }
@@ -930,7 +928,7 @@ namespace Scratch {
         private void action_go_to () {
             var fetch_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
             fetch_action.set_state (true);
-            search_manager.go_to_entry.grab_focus ();
+            search_bar.go_to_entry.grab_focus ();
         }
 
         private void action_templates () {
