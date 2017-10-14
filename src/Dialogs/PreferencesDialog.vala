@@ -91,9 +91,6 @@ namespace Scratch.Dialogs {
         }
 
         private void create_layout (Services.PluginsManager plugins) {
-            // Plugin hook function
-            plugins.hook_preferences_dialog (this);
-
             if (Peas.Engine.get_default ().get_plugin_list ().length () > 0) {
                 var pbox = plugins.get_view ();
                 pbox.vexpand = true;

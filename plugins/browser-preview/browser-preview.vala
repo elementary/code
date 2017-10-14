@@ -23,7 +23,8 @@ public const string DESCRIPTION = _("Get a preview your work in a web page");
 
 namespace Scratch.Plugins {
 
-    public class BrowserPreviewPlugin : Peas.ExtensionBase,  Peas.Activatable {
+    public class BrowserPreviewPlugin : Peas.ExtensionBase, Code.Plugin {
+        public unowned Code.Editor editor { get; construct; }
 
         Gtk.ToggleToolButton? tool_button = null;
         GLib.HashTable<Scratch.Services.Document, BrowserPreview.BrowserView> previews = new  GLib.HashTable<Scratch.Services.Document, BrowserPreview.BrowserView> (null, null);
@@ -33,16 +34,8 @@ namespace Scratch.Plugins {
 
         Gtk.Notebook? notebook = null;
 
-        Scratch.Services.Interface plugins;
-        public Object object { owned get; construct; }
-
-        public void update_state () {
-        }
-
         public void activate () {
-            plugins = (Scratch.Services.Interface) object;
-
-            plugins.hook_window.connect ((w) => {
+            /*plugins.hook_window.connect ((w) => {
                 this.doc = w.get_current_document ();
             });
 
@@ -52,7 +45,7 @@ namespace Scratch.Plugins {
 
             plugins.hook_notebook_context.connect (on_hook_context);
 
-            plugins.hook_toolbar.connect (on_hook_toolbar);
+            plugins.hook_toolbar.connect (on_hook_toolbar);*/
         }
 
         public void deactivate () {
@@ -168,7 +161,7 @@ namespace Scratch.Plugins {
 [ModuleInit]
 public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type (typeof (Peas.Activatable),
+    objmodule.register_extension_type (typeof (Code.Plugin),
                                      typeof (Scratch.Plugins.BrowserPreviewPlugin));
 }
 

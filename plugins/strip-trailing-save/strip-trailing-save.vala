@@ -18,23 +18,19 @@ using Gtk;
 public const string NAME = _("Strip trailing whitespace");
 public const string DESCRIPTION = _("Strip trailing whitespace on save");
 
-public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatable {
-
-    Scratch.Services.Interface plugins;
-    public Object object {owned get; construct;}
+public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Code.Plugin {
+    public unowned Code.Editor editor { get; construct; }
     Scratch.MainWindow main_window;
-    public void update_state () {return;}
 
     /*
      * Activate plugin.
      */
     public void activate () {
-        plugins = (Scratch.Services.Interface) object;
-        plugins.hook_window.connect ((w) => {
+        /*plugins.hook_window.connect ((w) => {
             this.main_window = w;
             var action = w.actions.lookup_action ("action_save") as SimpleAction;
             action.activate.connect (on_save);
-        });
+        });*/
     }
 
     /*
@@ -109,6 +105,6 @@ public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatabl
 [ModuleInit]
 public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type(typeof(Peas.Activatable),
+    objmodule.register_extension_type(typeof(Code.Plugin),
                                       typeof(Scratch.Plugins.StripTrailSave));
 }

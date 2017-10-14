@@ -22,21 +22,40 @@ public const string NAME = _("Folder Manager");
 public const string DESCRIPTION = _("Basic folder manager with file browsing");
 
 namespace Scratch.Plugins {
-    public class FolderManagerPlugin : Peas.ExtensionBase, Peas.Activatable {
+    public class FolderManagerPlugin : Peas.ExtensionBase, Code.Plugin {
         Gtk.ToolButton folder_open_button;
         FolderManager.FileView view;
 
-        Scratch.Services.Interface plugins;
-        public Object object { owned get; construct; }
+        public unowned Code.Editor editor { get; construct; }
 
-        public FolderManagerPlugin () {
+        construct {
             message ("Starting Folder Manager Plugin");
         }
 
         public void activate () {
-            plugins = (Scratch.Services.Interface) object;
-            plugins.hook_sidebar.connect (on_hook_sidebar);
-            plugins.hook_toolbar.connect (on_hook_toolbar);
+            view = new FolderManager.FileView ();
+            view.show_all ();
+            view.sensitive = false;
+            editor.add_tab_widget (view, Code.Tab.Scope.PROJECT);
+
+            view.select.connect ((a) => {
+                var file = GLib.File.new_for_path (a);
+                editor.open_file (file);
+            });
+
+            view.root.child_added.connect (() => {
+                if (view.get_n_visible_children (view.root) == 0) {
+                    view.sensitive = true;
+                }
+            });
+
+            view.root.child_removed.connect (() => {
+                if (view.get_n_visible_children (view.root) == 1) {
+                    view.sensitive = false;
+                }
+            });
+
+            view.restore_saved_state ();
         }
 
         public void deactivate () {
@@ -48,40 +67,6 @@ namespace Scratch.Plugins {
                 folder_open_button.destroy();
                 folder_open_button = null;
             }
-
-            plugins.hook_toolbar.disconnect (on_hook_toolbar);
-        }
-        
-        public void update_state () { }
-
-        void on_hook_sidebar (Gtk.Stack sidebar) {
-            if (view != null) {
-                return;
-            }
-
-            view = new FolderManager.FileView ();
-
-            view.select.connect ((a) => {
-                var file = GLib.File.new_for_path (a);
-                plugins.open_file (file);
-            });
-
-            view.root.child_added.connect (() => {
-                if (view.get_n_visible_children (view.root) == 0) {
-                    sidebar.add_titled (view, "folders", _("Folders"));
-                    sidebar.child_set_property (view, "icon-name", "folder-symbolic");
-                    sidebar.child_set_property (view, "position", 0);
-                    sidebar.show_all ();
-                }
-            });
-
-            view.root.child_removed.connect (() => {
-                if (view.get_n_visible_children (view.root) == 1) {
-                    sidebar.remove (view);
-                }
-            });
-
-            view.restore_saved_state ();
         }
 
         private void on_hook_toolbar (Gtk.HeaderBar toolbar) {
@@ -99,9 +84,8 @@ namespace Scratch.Plugins {
 
 
         private void open_dialog () {
-            Gtk.Window window = plugins.manager.window;
             Gtk.FileChooserDialog chooser = new Gtk.FileChooserDialog (
-                "Select a folder.", window, Gtk.FileChooserAction.SELECT_FOLDER,
+                "Select a folder.", (Gtk.Window)editor, Gtk.FileChooserAction.SELECT_FOLDER,
                 _("_Cancel"), Gtk.ResponseType.CANCEL,
                 _("_Open"), Gtk.ResponseType.ACCEPT);
             chooser.select_multiple = true;
@@ -121,5 +105,5 @@ namespace Scratch.Plugins {
 [ModuleInit]
 public void peas_register_types (GLib.TypeModule module) {
   var objmodule = module as Peas.ObjectModule;
-  objmodule.register_extension_type (typeof (Peas.Activatable), typeof (Scratch.Plugins.FolderManagerPlugin));
+  objmodule.register_extension_type (typeof (Code.Plugin), typeof (Scratch.Plugins.FolderManagerPlugin));
 }

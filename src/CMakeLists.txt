@@ -6,13 +6,17 @@ vala_precompile(VALA_C ${EXEC_NAME}
     Dialogs/PreferencesDialog.vala
     Widgets/DocumentView.vala
     Widgets/HeaderBar.vala
+    Widgets/IconStack.vala
     Widgets/LoadingView.vala
     Widgets/SearchBar.vala
     Widgets/SplitView.vala
     Widgets/SourceView.vala
+    Widgets/Tab.vala
     Services/Document.vala
+    Services/Editor.vala
     Services/FileHandler.vala
     Services/PluginManager.vala
+    Services/Project.vala
     Services/Settings.vala
     Services/TemplateManager.vala
     Services/ZeitgeistLogger.vala

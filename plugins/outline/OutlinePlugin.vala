@@ -22,10 +22,9 @@ public const string NAME = _("Outline");
 public const string DESCRIPTION = _("Outline symbols in your current file in vala");
 
 namespace Scratch.Plugins {
-    public class OutlinePlugin : Peas.ExtensionBase, Peas.Activatable {
-        public Object object { owned get; construct; }
+    public class OutlinePlugin : Peas.ExtensionBase, Code.Plugin {
+        public unowned Code.Editor editor { get; construct; }
 
-        Scratch.Services.Interface scratch_interface;
         SymbolOutline? current_view = null;
 
         Gtk.Stack? container = null;
@@ -40,17 +39,13 @@ namespace Scratch.Plugins {
         }
 
         public void activate () {
-            scratch_interface = (Scratch.Services.Interface)object;
+            /*scratch_interface = (Scratch.Services.Interface)object;
             scratch_interface.hook_document.connect (on_hook_document);
-            scratch_interface.hook_sidebar.connect (on_hook_sidebar);
+            scratch_interface.hook_sidebar.connect (on_hook_sidebar);*/
         }
 
         public void deactivate () {
             container.destroy ();
-        }
-
-        public void update_state () {
-            
         }
 
         void on_hook_sidebar (Gtk.Stack sidebar) {
@@ -137,7 +132,7 @@ namespace Scratch.Plugins {
         }
 
         void goto (Scratch.Services.Document doc, int line) {
-            scratch_interface.open_file (doc.file);
+            editor.open_file (doc.file);
 
             var text = doc.source_view;
             Gtk.TextIter iter;
@@ -151,5 +146,5 @@ namespace Scratch.Plugins {
 [ModuleInit]
 public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type (typeof (Peas.Activatable), typeof (Scratch.Plugins.OutlinePlugin));
+    objmodule.register_extension_type (typeof (Code.Plugin), typeof (Scratch.Plugins.OutlinePlugin));
 }

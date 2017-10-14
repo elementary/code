@@ -21,7 +21,8 @@
 public const string NAME = _("Highlight Selected Words");
 public const string DESCRIPTION = _("Highlights all occurrences of words that are selected");
 
-public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase,  Peas.Activatable { 
+public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Code.Plugin {
+    public unowned Code.Editor editor { get; construct; }
     // Properties
     Gee.TreeSet<Scratch.Widgets.SourceView> source_views;
     Gee.HashMap<Scratch.Widgets.SourceView, Gtk.SourceSearchContext> search_contexts;
@@ -31,18 +32,13 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase,  Peas.
     // Pneumonoultramicroscopicsilicovolcanoconiosis longest word in a major dictionary @ 45
     private const uint SELECTION_HIGHLIGHT_MAX_CHARS = 45;
 
-    Scratch.Services.Interface plugins;
-    public Object object { owned get; construct; }
-
-    public void update_state () {
-        
+    construct {
+        source_views = new Gee.TreeSet<Scratch.Widgets.SourceView> ();
+        search_contexts = new Gee.HashMap<Scratch.Widgets.SourceView, Gtk.SourceSearchContext> ();
     }
 
     public void activate () {
-        this.source_views = new Gee.TreeSet<Scratch.Widgets.SourceView> ();
-        this.search_contexts = new Gee.HashMap<Scratch.Widgets.SourceView, Gtk.SourceSearchContext> ();
-
-        plugins = (Scratch.Services.Interface) object;
+        /*plugins = (Scratch.Services.Interface) object;
         plugins.hook_document.connect ((doc) => {
             var src = doc.source_view;
             src.deselected.disconnect (on_deselection);
@@ -52,7 +48,7 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase,  Peas.
             this.source_views.add (src);
             this.search_contexts.set (src, new Gtk.SourceSearchContext (src.buffer,null));
             this.current_source = src;
-        });
+        });*/
     }
     
     public void on_selection_changed (Gtk.TextIter start,Gtk.TextIter end) {
@@ -97,6 +93,6 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase,  Peas.
 [ModuleInit]
 public void peas_register_types (TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type (typeof (Peas.Activatable),
+    objmodule.register_extension_type (typeof (Code.Plugin),
                                      typeof (Scratch.Plugins.HighlightSelectedWords));
 }
