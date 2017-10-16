@@ -62,6 +62,28 @@ namespace Scratch.Services {
             }
         }
 
+        private string? _mime_type = null;
+        public string? mime_type {
+            get {
+                if (_mime_type == null) {
+                    try {
+                        var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
+                        var content_type = info.get_attribute_as_string (FileAttribute.STANDARD_CONTENT_TYPE);
+                        _mime_type = ContentType.get_mime_type (content_type);
+                        return _mime_type;
+                    } catch (Error e) {
+                        debug (e.message);
+                    }
+                }
+
+                if (_mime_type == null) {
+                    _mime_type = "undefined";
+                }
+
+                return _mime_type;
+            }
+        }
+
         public Scratch.Widgets.SourceView source_view;
         public string original_content;
         public bool saved = true;
@@ -171,7 +193,7 @@ namespace Scratch.Services {
                 load_cancellable.cancel ();
             }
 
-            string content_type = ContentType.from_mime_type (get_mime_type ());
+            string content_type = ContentType.from_mime_type (mime_type);
 
             if (!(ContentType.is_a (content_type, "text/plain"))) {
 
@@ -251,7 +273,7 @@ namespace Scratch.Services {
 
 #if HAVE_ZEITGEIST
             // Zeitgeist integration
-            zg_log.open_insert (file.get_uri (), get_mime_type ());
+            zg_log.open_insert (file.get_uri (), mime_type);
 #endif
             // Grab focus
             this.source_view.grab_focus ();
@@ -343,7 +365,7 @@ namespace Scratch.Services {
                 delete_backup ();
 #if HAVE_ZEITGEIST
                 // Zeitgeist integration
-                zg_log.close_insert (file.get_uri (), get_mime_type ());
+                zg_log.close_insert (file.get_uri (), mime_type);
 #endif
                 doc_closed ();
             }
@@ -374,7 +396,7 @@ namespace Scratch.Services {
             source_view.buffer.set_modified (false);
 #if HAVE_ZEITGEIST
             // Zeitgeist integration
-            zg_log.save_insert (file.get_uri (), get_mime_type ());
+            zg_log.save_insert (file.get_uri (), mime_type);
 #endif
 
             doc_saved ();
@@ -439,22 +461,10 @@ namespace Scratch.Services {
 
 #if HAVE_ZEITGEIST
             // Zeitgeist integration
-            zg_log.move_insert (file.get_uri (), new_dest.get_uri (), get_mime_type ());
+            zg_log.move_insert (file.get_uri (), new_dest.get_uri (), mime_type);
 #endif
 
             return true;
-        }
-
-        // Get mime type for the document
-        public string get_mime_type () {
-            try {
-                var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
-                var mime_type = ContentType.get_mime_type (info.get_attribute_as_string (FileAttribute.STANDARD_CONTENT_TYPE));
-                return mime_type;
-            } catch (Error e) {
-                debug (e.message);
-                return "undefined";
-            }
         }
 
         private void restore_settings () {

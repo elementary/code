@@ -77,7 +77,7 @@ namespace Scratch.Plugins {
             }
 
             if (view == null && doc.file != null) {
-                var mime_type = doc.get_mime_type ();
+                var mime_type = doc.mime_type;
                 switch (mime_type) {
                     case "text/x-vala":
                         view = new ValaSymbolOutline (doc);
