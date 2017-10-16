@@ -221,7 +221,11 @@ namespace Scratch {
             Unix.signal_add (Posix.SIGINT, quit_source_func, Priority.HIGH);
             Unix.signal_add (Posix.SIGTERM, quit_source_func, Priority.HIGH);
 
-            /* Splitview controls showing and hiding of Welcome view */
+            /* Showing welcome sets widgets insensitive.
+             * Welcome view will be removed and the widgets set sensitive
+             * if a document is successfully loaded.
+             */
+            split_view.show_welcome ();
         }
 
         private void init_layout () {
@@ -398,16 +402,13 @@ namespace Scratch {
         private void load_files_for_view (Scratch.Widgets.DocumentView view, string[] uris) {
             foreach (string uri in uris) {
                if (uri != "") {
-                    GLib.File file;
-                    if (Uri.parse_scheme (uri) != null) {
-                        file = File.new_for_uri (uri);
-                    } else {
-                        file = File.new_for_commandline_arg (uri);
-                    }
-                    /* Leave it to doc to handle problematic files properly */
-                    var doc = new Scratch.Services.Document (actions, file);
-                    if (!doc.is_file_temporary) {
-                        open_document (doc, view);
+                    var file = File.new_for_uri (uri);
+                    if (file.query_exists ()) {
+                        var doc = new Scratch.Services.Document (actions, file);
+
+                        if (!doc.is_file_temporary || doc.exists ()) {
+                            open_document (doc, view);
+                        }
                     }
                 }
             }
@@ -522,14 +523,14 @@ namespace Scratch {
         }
 
         // Show LoadingView
-        private void start_loading () {
+        public void start_loading () {
             loading_view.start ();
             vp.visible = false;
             toolbar.sensitive = false;
         }
 
         // Hide LoadingView
-        private void stop_loading () {
+        public void stop_loading () {
             loading_view.stop ();
             vp.visible = true;
             toolbar.sensitive = true;

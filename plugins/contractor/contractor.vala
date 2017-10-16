@@ -86,7 +86,7 @@ public class Scratch.Plugins.Contractor : Peas.ExtensionBase,  Peas.Activatable 
 
             // Create ContractorMenu widget
             try {
-                var contracts = Granite.Services.ContractorProxy.get_contracts_by_mime (doc.mime_type);
+                var contracts = Granite.Services.ContractorProxy.get_contracts_by_mime (doc.get_mime_type ());
                 foreach (var contract in contracts) {
                     var menu_item = new ContractMenuItem (contract, doc.file);
                     menu.append (menu_item);
