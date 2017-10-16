@@ -26,9 +26,14 @@ namespace Scratch.Plugins.FolderManager {
     internal class FolderItem : Item {
         private GLib.FileMonitor monitor;
         private bool children_loaded = false;
+        private string? newly_created_path = null;
 
         public FolderItem (File file, FileView view) requires (file.is_valid_directory) {
             Object (file: file, view: view);
+        }
+
+        ~FolderItem () {
+            monitor.cancel ();
         }
 
         construct {
@@ -37,7 +42,7 @@ namespace Scratch.Plugins.FolderManager {
             }
 
             toggled.connect (() => {
-                if (expanded && n_children <= 1) {
+                if (!children_loaded && expanded && n_children <= 1) {
                     clear ();
                     add_children ();
                     children_loaded = true;
@@ -56,16 +61,33 @@ namespace Scratch.Plugins.FolderManager {
             var rename_item = new Gtk.MenuItem.with_label (_("Rename"));
             rename_item.activate.connect (() => view.start_editing_item (this));
 
-            var trash_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
-            trash_item.activate.connect (trash);
+            var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
+            delete_item.activate.connect (trash);
 
             var menu = new Gtk.Menu ();
             menu.append (rename_item);
-            menu.append (trash_item);
-
+            menu.append (create_submenu_for_new ());
+            menu.append (delete_item);
             menu.show_all ();
 
             return menu;
+        }
+
+        protected Gtk.MenuItem create_submenu_for_new () {
+            var new_folder_item = new Gtk.MenuItem.with_label (_("Folder"));
+            new_folder_item.activate.connect(() => add_folder ());
+
+            var new_file_item = new Gtk.MenuItem.with_label (_("Empty File"));
+            new_file_item.activate.connect (() => add_file ());
+
+            var new_menu = new Gtk.Menu ();
+            new_menu.append (new_folder_item);
+            new_menu.append (new_file_item);
+
+            var new_item = new Gtk.MenuItem.with_label (_("New"));
+            new_item.set_submenu (new_menu);
+
+            return new_item;
         }
 
         private void add_children () {
@@ -80,47 +102,161 @@ namespace Scratch.Plugins.FolderManager {
             }
         }
 
-        private void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
+        private void remove_all_children () {
+            foreach (var child in children) {
+                remove (child);
+            }
+        }
 
+        private new void remove (Granite.Widgets.SourceList.Item item) {
+            if (item is FolderItem) {
+                (item as FolderItem).remove_all_children ();
+            }
+
+            base.remove (item);
+        }
+
+        private void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
             if (!children_loaded) {
-                this.file.reset_cache ();
+                switch (event) {
+                    case GLib.FileMonitorEvent.DELETED:
+                        // This is a pretty intensive operation. For each file deleted, the cache will be
+                        // invalidated and recreated again, from disk. If it turns out users are seeing
+                        // slugishness or slowness when deleting a lot of files, then it might be worth
+                        // storing file.children.size in a variable and subtracting from it with every
+                        // delete
+                        file.invalidate_cache ();
+
+                        if (file.children.size == 0) {
+                            clear ();
+                        }
+                        break;
+                    case GLib.FileMonitorEvent.CREATED:
+                        if (source.query_exists () == false) {
+                            return;
+                        }
+
+                        file.invalidate_cache ();
+
+                        if (n_children == 0) {
+                            add (new Granite.Widgets.SourceList.Item ("")); // dummy
+                        }
+                        break;
+                }
+            } else {
+                // No cache invalidation is needed here because the entire state is kept in the tree
+
+                switch (event) {
+                    case GLib.FileMonitorEvent.DELETED:
+                        var children_tmp = new Gee.ArrayList<Granite.Widgets.SourceList.Item> ();
+                        children_tmp.add_all (children);
+                        foreach (var item in children_tmp) {
+                            if ((item as Item).path == source.get_path ()) {
+                                // This is a workaround for SourceList silliness: you cannot remove an item
+                                // without it automatically selecting another one.
+
+                                view.ignore_next_select = true;
+                                remove (item);
+                                view.selected = null;
+                            }
+                        }
+
+                        break;
+                    case GLib.FileMonitorEvent.CREATED:
+                        if (source.query_exists () == false) {
+                            return;
+                        }
+
+                        var file = new File (source.get_path ());
+                        var exists = false;
+                        foreach (var item in children) {
+                            if ((item as Item).path == file.path) {
+                                exists = true;
+                                break;
+                            }
+                        }
+
+                        Item? item = null;
+
+                        if (!exists) {
+                            if (file.is_valid_textfile) {
+                                item = new FileItem (file, view);
+                            } else if (file.is_valid_directory) {
+                                item = new FolderItem (file, view);
+                            }
+                        }
+
+                        if (item != null) {
+                            add (item);
+
+                            if (source.get_path () == newly_created_path) {
+                                newly_created_path = null;
+
+                                /*
+                                 * Avoid race condition between adding and editing folder item
+                                 * (not required for file items).
+                                 */
+                                GLib.Idle.add (() => {
+                                    view.start_editing_item (item);
+                                    return false;
+                                });
+                            }
+                        }
+
+                        break;
+                }
+            }
+        }
+
+        protected void add_folder () {
+            if (!file.is_executable) {
+                // This is necessary to avoid infinite loop below
+                warning("Unable to open parent folder");
                 return;
             }
 
-            switch (event) {
-                case GLib.FileMonitorEvent.DELETED:
-                    var children_tmp = new Gee.ArrayList<Granite.Widgets.SourceList.Item> ();
-                    children_tmp.add_all (children);
-                    foreach (var item in children_tmp) {
-                        if ((item as Item).path == source.get_path ()) {
-                            remove (item);
-                        }
-                    }
+            var new_folder = file.file.get_child (_("untitled folder"));
 
-                    break;
-                case GLib.FileMonitorEvent.CREATED:
-                    if (source.query_exists () == false) {
-                        return;
-                    }
+            var n = 1;
+            while (new_folder.query_exists ()) {
+                new_folder = file.file.get_child (_("untitled folder %d").printf (n));
+                n++;
+            }
 
-                    var file = new File (source.get_path ());
-                    var exists = false;
-                    foreach (var item in children) {
-                        if ((item as Item).path == file.path) {
-                            exists = true;
-                            break;
-                        }
-                    }
+            try {
+                expanded = true;
 
-                    if (!exists) {
-                        if (file.is_valid_textfile) {
-                            this.add (new FileItem (file, view));
-                        } else if (file.is_valid_directory) {
-                            this.add (new FolderItem (file, view));
-                        }
-                    }
+                new_folder.make_directory ();
 
-                    break;
+                newly_created_path = new_folder.get_path ();
+            } catch (Error e) {
+                warning (e.message);
+            }
+        }
+
+        protected void add_file () {
+            if (!file.is_executable) {
+                // This is necessary to avoid infinite loop below
+                warning("Unable to open parent folder");
+                return;
+            }
+
+            var new_file = file.file.get_child (_("new file"));
+
+            var n = 1;
+            while (new_file.query_exists ()) {
+                new_file = file.file.get_child (_("new file %d").printf (n));
+                n++;
+            }
+
+            try {
+                expanded = true;
+
+                new_file.create (FileCreateFlags.NONE);
+
+                newly_created_path = new_file.get_path ();
+            } catch (Error e) {
+                warning (e.message);
             }
         }
     }

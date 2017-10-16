@@ -13,8 +13,8 @@
  *
  * You should have received a copy of the GNU General Public
  * License along with this program; see the file COPYING.  If not,
- * write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
- * Boston, MA 02111-1307, USA.
+ * write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA 02110-1301 USA.
  *
  */
 
@@ -114,8 +114,7 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
     }
 
     public int get_interactive_delay () {
-        /* Use default delay (250 milliseconds) */
-        return -1;
+        return 0;
     }
 
     public bool get_start_iter (Gtk.SourceCompletionContext context,

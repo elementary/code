@@ -13,13 +13,13 @@
  *
  * You should have received a copy of the GNU General Public
  * License along with this program; see the file COPYING.  If not,
- * write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
- * Boston, MA 02111-1307, USA.
+ * write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ * Boston, MA 02110-1301 USA.
  *
  */
 
 public class Euclide.Completion.Parser : GLib.Object {
-    public const int MINIMUM_WORD_LENGTH = 3;
+    public const int MINIMUM_WORD_LENGTH = 1;
     public const int MAX_TOKENS = 1000000;
 
     public const string delimiters = " .,;:?{}[]()0123456789+-=&|-<>*\\/\n\t\'\"";

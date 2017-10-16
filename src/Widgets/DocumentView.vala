@@ -84,7 +84,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         });
 
         notebook.tab_restored.connect ((label, restore_data, icon) => {
-            var doc = new Services.Document (window.main_actions, File.new_for_uri (restore_data));
+            var doc = new Services.Document (window.actions, File.new_for_uri (restore_data));
             open_document (doc);
         });
 
@@ -94,7 +94,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
 
         pack_start (notebook, true, true, 0);
 
-        show_all ();
+        /* SplitView shows view as required */
     }
 
     private string unsaved_file_path_builder () {
@@ -109,7 +109,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         try {
             file.create (FileCreateFlags.PRIVATE);
 
-            var doc = new Services.Document (window.main_actions, file);
+            var doc = new Services.Document (window.actions, file);
             doc.create_page ();
 
             notebook.insert_tab (doc, -1);
@@ -129,7 +129,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             file.create (FileCreateFlags.PRIVATE);
             file.replace_contents (clipboard.data, null, false, 0, null);
 
-            var doc = new Services.Document (window.main_actions, file);
+            var doc = new Services.Document (window.actions, file);
             doc.create_page ();
 
             notebook.insert_tab (doc, -1);
@@ -157,8 +157,21 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
 
         doc.create_page ();
         notebook.insert_tab (doc, -1);
+
         current_document = doc;
-        doc.focus ();
+
+        Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
+            doc.open.begin ((obj, res) => {
+                if (doc.open.end (res)) {
+                    doc.focus ();
+                    save_opened_files ();
+                } else {
+                   notebook.remove_tab (doc);
+                }
+            });
+
+            return false;
+        });
     }
 
     // Set a copy of content
@@ -167,10 +180,13 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             var file = File.new_for_path (unsaved_file_path_builder ());
             file.create (FileCreateFlags.PRIVATE);
 
-            var doc = new Services.Document (window.main_actions, file);
+            var doc = new Services.Document (window.actions, file);
             doc.create_page ();
-            string s;
-            doc.file.replace_contents (original.source_view.buffer.text.data, null, false, 0, out s);
+            doc.source_view.set_text (original.get_text ());
+
+            if (settings.autosave) {
+                doc.save.begin (true);
+            }
 
             notebook.insert_tab (doc, -1);
             current_document = doc;
@@ -222,13 +238,11 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
 
     private void on_doc_added (Granite.Widgets.Tab tab) {
         var doc = tab as Services.Document;
-        doc.main_actions = window.main_actions;
+        doc.actions = window.actions;
 
         docs.append (doc);
-        doc.source_view.focus_in_event.connect (on_focus_in_event);
+        doc.source_view.focus_in_event.connect_after (on_focus_in_event);
         doc.source_view.drag_data_received.connect (drag_received);
-        doc.source_view.drag_motion.connect (drag_motion);
-        save_opened_files ();
     }
 
     private void on_doc_removed (Granite.Widgets.Tab tab) {
@@ -237,7 +251,6 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         docs.remove (doc);
         doc.source_view.focus_in_event.disconnect (on_focus_in_event);
         doc.source_view.drag_data_received.disconnect (drag_received);
-        doc.source_view.drag_motion.disconnect (drag_motion);
 
         // Check if the view is empty
         if (is_empty ()) {
@@ -289,19 +302,15 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         return true;
     }
 
-    private bool drag_motion (Gdk.DragContext ctx, int x, int y, uint time){
-        return true;
-    }
-
-    private void drag_received (Gdk.DragContext ctx, int x, int y, Gtk.SelectionData sel,  uint info, uint time){
+    private void drag_received (Gtk.Widget w, Gdk.DragContext ctx, int x, int y, Gtk.SelectionData sel,  uint info, uint time) {
         var uris = sel.get_uris ();
         foreach (var filename in uris) {
             var file = File.new_for_uri (filename);
-            var doc = new Services.Document (window.main_actions, file);
+            var doc = new Services.Document (window.actions, file);
             open_document (doc);
-
-            Gtk.drag_finish (ctx, true, false, time);
         }
+
+       Gtk.drag_finish (ctx, true, false, time);
     }
 
     public void save_opened_files () {

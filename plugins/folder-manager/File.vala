@@ -94,7 +94,7 @@ namespace Scratch.Plugins.FolderManager {
         // checks if we're dealing with a textfile
         public bool is_valid_textfile {
             get {
-                if (info.get_is_hidden () || info.get_is_backup ()) {
+                if (info.get_is_backup ()) {
                     return false;
                 }
 
@@ -104,6 +104,17 @@ namespace Scratch.Plugins.FolderManager {
                 }
 
                 return false;
+            }
+        }
+
+        // Files can be executed and folders can be cd'd into
+        public bool is_executable {
+            get {
+                try {
+                    return get_boolean_file_attribute (GLib.FileAttribute.ACCESS_CAN_EXECUTE);
+                } catch (GLib.Error error) {
+                    return false;
+                }
             }
         }
 
@@ -118,16 +129,15 @@ namespace Scratch.Plugins.FolderManager {
 
                 _children.clear ();
 
-                var parent = GLib.File.new_for_path (file.get_path ());
                 try {
-                    var enumerator = parent.enumerate_children (
+                    var enumerator = file.enumerate_children (
                         GLib.FileAttribute.STANDARD_NAME,
                         FileQueryInfoFlags.NONE
                     );
 
                     var file_info = new FileInfo ();
                     while ((file_info = enumerator.next_file ()) != null) {
-                        var child = parent.get_child (file_info.get_name ());
+                        var child = file.get_child (file_info.get_name ());
                         var file = new File (child.get_path ());
 
                         if (file.is_valid_directory || file.is_valid_textfile) {
@@ -142,6 +152,12 @@ namespace Scratch.Plugins.FolderManager {
 
                 return _children;
             }
+        }
+
+        private bool get_boolean_file_attribute (string attribute) throws GLib.Error {
+            var info = file.query_info (attribute, GLib.FileQueryInfoFlags.NONE);
+
+            return info.get_attribute_boolean (attribute);
         }
 
         private void load_file_for_path (string path) {
@@ -178,19 +194,20 @@ namespace Scratch.Plugins.FolderManager {
             }
         }
 
-        public void reset_cache () {
-            _name = null;
-            _icon = null;
-            children_valid = false;
-        }
-
         public static int compare (File a, File b) {
-            if (a.is_valid_directory && b.is_valid_textfile)
+            if (a.is_valid_directory && b.is_valid_textfile) {
                 return -1;
-            if (a.is_valid_textfile && b.is_valid_directory)
+            }
+            if (a.is_valid_textfile && b.is_valid_directory) {
                 return 1;
+            }
+
             return strcmp (a.path.collate_key_for_filename (),
                            b.path.collate_key_for_filename ());
+        }
+
+        public void invalidate_cache () {
+            children_valid = false;
         }
     }
 }

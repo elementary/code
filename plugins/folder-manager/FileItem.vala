@@ -23,22 +23,20 @@ namespace Scratch.Plugins.FolderManager {
      * Normal item in the source list, represents a textfile.
      */
     internal class FileItem : Item {
-
         public FileItem (File file, FileView view) requires (file.is_valid_textfile) {
             Object (file: file, view: view);
         }
 
         public override Gtk.Menu? get_context_menu () {
-            var trash_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
-            trash_item.activate.connect (trash);
-
             var rename_item = new Gtk.MenuItem.with_label (_("Rename"));
             rename_item.activate.connect (() => view.start_editing_item (this));
 
-            var menu = new Gtk.Menu ();
-            menu.append (trash_item);
-            menu.append (rename_item);
+            var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
+            delete_item.activate.connect (trash);
 
+            var menu = new Gtk.Menu ();
+            menu.append (rename_item);
+            menu.append (delete_item);
             menu.show_all ();
 
             return menu;

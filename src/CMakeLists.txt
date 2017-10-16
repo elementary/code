@@ -5,13 +5,12 @@ vala_precompile(VALA_C ${EXEC_NAME}
     DrawSpacesUtils.vala
     Dialogs/PreferencesDialog.vala
     Widgets/DocumentView.vala
-    Widgets/ToolBar.vala
+    Widgets/HeaderBar.vala
     Widgets/LoadingView.vala
-    Widgets/SearchManager.vala
+    Widgets/SearchBar.vala
     Widgets/SplitView.vala
     Widgets/SourceView.vala
     Services/Document.vala
-    Services/Encoding.vala
     Services/FileHandler.vala
     Services/PluginManager.vala
     Services/Settings.vala
@@ -26,6 +25,7 @@ OPTIONS
     --thread
     ${ZEITGEIST_OPTIONS}
     ${GTKSOURCEVIEW_FLAGS}
+    ${GRANITE_FLAGS}
 GENERATE_VAPI
     ${LIBNAME}
 GENERATE_HEADER
@@ -36,7 +36,6 @@ GENERATE_HEADER
 add_executable (${EXEC_NAME} ${VALA_C})
 
 install (TARGETS ${EXEC_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_FULL_BINDIR})
-install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/scratch-ui.xml DESTINATION ${DATADIR})
 
 #####
 # Plugin Library

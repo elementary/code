@@ -75,7 +75,7 @@ namespace Scratch.Plugins {
             });
         }
 
-        void on_hook_toolbar (Scratch.Widgets.Toolbar toolbar) {
+        void on_hook_toolbar (Scratch.Widgets.HeaderBar toolbar) {
             if (tool_button != null)
                 return;
 

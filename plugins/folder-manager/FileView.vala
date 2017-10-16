@@ -27,13 +27,29 @@ namespace Scratch.Plugins.FolderManager {
 
         public signal void select (string file);
 
-        public FileView () {
-            this.width_request = 180;
-            this.item_selected.connect ((item) => {
-                select ((item as FileItem).path);
-            });
+        // This is a workaround for SourceList silliness: you cannot remove an item
+        // without it automatically selecting another one.
+        public bool ignore_next_select { get; set; default = false; }
+
+        construct {
+            width_request = 180;
+
+            item_selected.connect (on_item_selected);
 
             settings = new Settings ();
+        }
+
+        private void on_item_selected (Granite.Widgets.SourceList.Item? item) {
+            // This is a workaround for SourceList silliness: you cannot remove an item
+            // without it automatically selecting another one.
+            if (ignore_next_select) {
+                ignore_next_select = false;
+                return;
+            }
+
+            if (item is FileItem) {
+                select ((item as FileItem).file.path);
+            }
         }
 
         public void restore_saved_state () {

@@ -1,26 +1,26 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
-/***
-  BEGIN LICENSE
-
-  Copyright (C) 2011-2012 Giulio Collura <random.cpp@gmail.com>
-                2013      Mario Guerriero <mario@elementaryos.org>
-  This program is free software: you can redistribute it and/or modify it
-  under the terms of the GNU Lesser General Public License version 3, as
-  published    by the Free Software Foundation.
-
-  This program is distributed in the hope that it will be useful, but
-  WITHOUT ANY WARRANTY; without even the implied warranties of
-  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-  PURPOSE.  See the GNU General Public License for more details.
-
-  You should have received a copy of the GNU General Public License along
-  with this program.  If not, see <http://www.gnu.org/licenses>
-
-  END LICENSE
-***/
+/*
+* Copyright (c) 2011-2012 Giulio Collura <random.cpp@gmail.com>
+*               2013 Mario Guerriero <mefrio.g@gmail.com>
+*               2017 elementary LLC. <https://elementary.io>
+*
+* This program is free software; you can redistribute it and/or
+* modify it under the terms of the GNU General Public
+* License as published by the Free Software Foundation; either
+* version 3 of the License, or (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+* General Public License for more details.
+*
+* You should have received a copy of the GNU General Public
+* License along with this program; if not, write to the
+* Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+* Boston, MA 02110-1301 USA
+*/
 
 namespace Scratch {
-    // Settings
     public SavedState saved_state;
     public Settings settings;
     public ServicesSettings services;
@@ -61,7 +61,6 @@ namespace Scratch {
             Intl.textdomain (Constants.GETTEXT_PACKAGE);
 
             Granite.Services.Logger.initialize ("Code");
-            Granite.Services.Logger.DisplayLevel = Granite.Services.LogLevel.DEBUG;
 
             // Init settings
             default_font = new GLib.Settings ("org.gnome.desktop.interface").get_string ("monospace-font-name");
@@ -77,8 +76,9 @@ namespace Scratch {
 
         public static Application instance {
             get {
-                if (_instance == null)
+                if (_instance == null) {
                     _instance = new Application ();
+                }
                 return _instance;
             }
         }
@@ -121,7 +121,7 @@ namespace Scratch {
             if (create_new_tab) {
                 create_new_tab = false;
                 var window = get_last_window ();
-                window.main_actions.get_action ("NewTab").activate ();
+                Utils.action_from_group (MainWindow.ACTION_NEW_TAB, window.actions).activate (null);
             }
 
             // Set Current Directory
@@ -213,8 +213,9 @@ namespace Scratch {
                     }
                 }
 
-                if (files.length > 0)
+                if (files.length > 0) {
                     open (files, "");
+                }
             }
 
             return Posix.EXIT_SUCCESS;
@@ -236,13 +237,14 @@ namespace Scratch {
             Scratch.Widgets.DocumentView? view = null;
             var window = get_last_window ();
 
-            if (window.is_empty ())
+            if (window.is_empty ()) {
                 view = window.add_view ();
-            else
+            } else {
                 view = window.get_current_view ();
+            }
 
             foreach (var file in files) {
-                var doc = new Scratch.Services.Document (window.main_actions, file);
+                var doc = new Scratch.Services.Document (window.actions, file);
                 view.open_document (doc);
             }
         }
