@@ -90,7 +90,6 @@ namespace Scratch.Widgets {
 
             views = new GLib.List<Scratch.Widgets.DocumentView> ();
             hidden_views = new GLib.List<Scratch.Widgets.DocumentView> ();
-            show_welcome ();
         }
 
         public Scratch.Widgets.DocumentView? add_view () {
@@ -109,7 +108,8 @@ namespace Scratch.Widgets {
                 view = new Scratch.Widgets.DocumentView (window);
 
                 view.empty.connect (() => {
-                    remove_view (view); /* Welcome will show if no views left */
+                    remove_view (view);
+                    show_welcome ();
                 });
             } else {
                 view = hidden_views.nth_data (0);
@@ -205,7 +205,7 @@ namespace Scratch.Widgets {
             return (views.length () == 0);
         }
 
-        private void show_welcome () {
+        public void show_welcome () {
             pack1 (welcome_screen, true, true);
             welcome_screen.show_all ();
             welcome_shown ();
