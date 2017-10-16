@@ -486,22 +486,20 @@ namespace Scratch.Services {
 
         // Create the page
         public void create_page () {
-            var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+            var grid = new Gtk.Grid ();
+            grid.orientation = Gtk.Orientation.VERTICAL;
 
 #if GTKSOURCEVIEW_3_18
-            var hbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
             source_map.set_view (source_view);
 
-            hbox.pack_start (scroll, true, true, 0);
-            hbox.pack_start (source_map, false, true, 0);
-
-            box.pack_start (info_bar, false, true, 0);
-            box.pack_start (hbox, true, true, 0);
+            grid.attach (info_bar, 0, 0, 2, 1);
+            grid.attach (scroll, 0, 1, 1, 1);
+            grid.attach (source_map, 1, 1, 1, 1);
 #else
-            box.pack_start (info_bar, false, true, 0);
-            box.pack_start (scroll, true, true, 0);
+            grid.add (info_bar);
+            grid.add (scroll);
 #endif
-            this.page = box;
+            this.page = grid;
             this.label = get_basename ();
         }
 
@@ -529,13 +527,13 @@ namespace Scratch.Services {
             info_bar.visible = true;
 
             // Clear from useless widgets
-            ((Gtk.Box) info_bar.get_content_area ()).get_children ().foreach ((widget) => {
+            info_bar.get_content_area ().get_children ().foreach ((widget) => {
                 if (widget != null) {
                     widget.destroy ();
                 }
             });
 
-            ((Gtk.Box) info_bar.get_action_area ()).get_children ().foreach ((widget) => {
+            ((Gtk.Container) info_bar.get_action_area ()).get_children ().foreach ((widget) => {
                 if (widget != null) {
                     widget.destroy ();
                 }
