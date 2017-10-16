@@ -50,7 +50,7 @@ namespace Scratch.Plugins {
         }
 
         public void update_state () {
-            
+
         }
 
         void on_hook_sidebar (Gtk.Stack sidebar) {
