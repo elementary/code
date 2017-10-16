@@ -69,7 +69,7 @@ namespace Scratch {
             services = new ServicesSettings ();
 
             // Init data home folder for unsaved text files
-            _data_home_folder_unsaved = Environment.get_user_data_dir () + "/" + "scratch-text-editor" + "/unsaved/";
+            _data_home_folder_unsaved = Path.build_filename (Environment.get_user_data_dir (), "scratch-text-editor", "unsaved");
         }
 
         public static Application _instance = null;

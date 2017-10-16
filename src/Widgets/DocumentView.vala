@@ -18,90 +18,76 @@
   END LICENSE
 ***/
 
-public class Scratch.Widgets.DocumentView : Gtk.Box {
+public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     public signal void document_change (Services.Document? document);
     public signal void empty ();
 
-    private weak MainWindow _window;
-    public MainWindow window {
-        get {
-            return _window;
-        }
-        construct set {
-            _window = value;
-        }
-    }
+    public unowned MainWindow window { get; construct set; }
 
     public Services.Document current_document {
         get {
-            return (Services.Document) notebook.current;
+            return (Services.Document) current;
         }
         set {
-            notebook.current = value;
+            current = value;
         }
     }
 
-    private Granite.Widgets.DynamicNotebook notebook;
     public GLib.List<Services.Document> docs;
 
     public uint view_id = -1;
     public bool is_closing = false;
 
     public DocumentView (MainWindow window) {
-        Object (window: window);
+        base ();
+        this.window = window;
     }
 
     construct {
-        orientation = Gtk.Orientation.VERTICAL;
-
         docs = new GLib.List<Services.Document> ();
 
         // Layout
-        notebook = new Granite.Widgets.DynamicNotebook ();
-        notebook.allow_restoring = true;
-        notebook.allow_new_window = true;
-        notebook.allow_drag = true;
-        notebook.allow_duplication = true;
-        notebook.tab_added.connect (on_doc_added);
-        notebook.tab_removed.connect (on_doc_removed);
-        notebook.tab_reordered.connect (on_doc_reordered);
-        notebook.tab_moved.connect (on_doc_moved);
-        notebook.group_name = "scratch-text-editor";
+        allow_restoring = true;
+        allow_new_window = true;
+        allow_drag = true;
+        allow_duplication = true;
+        tab_added.connect (on_doc_added);
+        tab_removed.connect (on_doc_removed);
+        tab_reordered.connect (on_doc_reordered);
+        tab_moved.connect (on_doc_moved);
+        group_name = "scratch-text-editor";
 
-        notebook.new_tab_requested.connect (() => {
+        new_tab_requested.connect (() => {
             new_document ();
         });
 
-        notebook.close_tab_requested.connect ((tab) => {
+        close_tab_requested.connect ((tab) => {
             if ((tab as Services.Document).file != null)
                 tab.restore_data = (tab as Services.Document).get_uri ();
             return (tab as Services.Document).close ();
         });
 
-        notebook.tab_switched.connect ((old_tab, new_tab) => {
+        tab_switched.connect ((old_tab, new_tab) => {
             document_change (new_tab as Services.Document);
             save_current_file (new_tab as Services.Document);
         });
 
-        notebook.tab_restored.connect ((label, restore_data, icon) => {
+        tab_restored.connect ((label, restore_data, icon) => {
             var doc = new Services.Document (window.actions, File.new_for_uri (restore_data));
             open_document (doc);
         });
 
-        notebook.tab_duplicated.connect ((tab) => {
+        tab_duplicated.connect ((tab) => {
             duplicate_document (tab as Services.Document);
         });
-
-        pack_start (notebook, true, true, 0);
-
         /* SplitView shows view as required */
     }
 
     private string unsaved_file_path_builder () {
         var timestamp = new DateTime.now_local ();
-        string new_text_file = _("Text file from ") + timestamp.format ("%Y-%m-%d %H:%M:%S");
+        string new_text_file = _("Text file from %s").printf (timestamp.format ("%Y-%m-%d %H:%M:%S"));
 
-        return Application.instance.data_home_folder_unsaved + new_text_file;
+        return Path.build_filename (Application.instance.data_home_folder_unsaved, new_text_file);
     }
 
     public void new_document () {
@@ -112,7 +98,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             var doc = new Services.Document (window.actions, file);
             doc.create_page ();
 
-            notebook.insert_tab (doc, -1);
+            insert_tab (doc, -1);
             current_document = doc;
 
             doc.focus ();
@@ -132,7 +118,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
             var doc = new Services.Document (window.actions, file);
             doc.create_page ();
 
-            notebook.insert_tab (doc, -1);
+            insert_tab (doc, -1);
             current_document = doc;
 
             doc.focus ();
@@ -156,7 +142,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         }
 
         doc.create_page ();
-        notebook.insert_tab (doc, -1);
+        insert_tab (doc, -1);
 
         current_document = doc;
 
@@ -166,7 +152,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
                     doc.focus ();
                     save_opened_files ();
                 } else {
-                   notebook.remove_tab (doc);
+                   remove_tab (doc);
                 }
             });
 
@@ -188,7 +174,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
                 doc.save.begin (true);
             }
 
-            notebook.insert_tab (doc, -1);
+            insert_tab (doc, -1);
             current_document = doc;
             doc.focus ();
         } catch (Error e) {
@@ -215,15 +201,15 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     }
 
     public void close_document (Services.Document doc) {
-        notebook.remove_tab (doc);
+        remove_tab (doc);
         doc.close ();
     }
 
     public void close_current_document () {
         var doc = current_document;
         if (doc != null) {
-            if (notebook.close_tab_requested (doc)) {
-                notebook.remove_tab (doc);
+            if (close_tab_requested (doc)) {
+                remove_tab (doc);
             }
         }
     }
@@ -273,8 +259,8 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
         // We need to make sure switch back to the main thread
         // when we are modifiying Gtk widgets shared by two threads.
         Idle.add (() => {
-            notebook.remove_tab (doc);
-            other_view.notebook.insert_tab (doc, -1);
+            remove_tab (doc);
+            other_view.insert_tab (doc, -1);
 
             return false;
         });
@@ -316,7 +302,7 @@ public class Scratch.Widgets.DocumentView : Gtk.Box {
     public void save_opened_files () {
         string[] opened_files = {};
 
-        notebook.tabs.foreach ((tab) => {
+        tabs.foreach ((tab) => {
             var doc = tab as Scratch.Services.Document;
             if (doc.file != null && doc.exists ()) {
                 opened_files += doc.file.get_uri ();
