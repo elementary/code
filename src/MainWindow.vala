@@ -221,11 +221,7 @@ namespace Scratch {
             Unix.signal_add (Posix.SIGINT, quit_source_func, Priority.HIGH);
             Unix.signal_add (Posix.SIGTERM, quit_source_func, Priority.HIGH);
 
-            /* Showing welcome sets widgets insensitive.
-             * Welcome view will be removed and the widgets set sensitive
-             * if a document is successfully loaded.
-             */
-            split_view.show_welcome ();
+            /* Splitview controls showing and hiding of Welcome view */
         }
 
         private void init_layout () {
