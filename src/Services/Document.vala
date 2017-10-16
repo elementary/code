@@ -62,6 +62,28 @@ namespace Scratch.Services {
             }
         }
 
+        private string? _mime_type = null;
+        public string? mime_type {
+            get {
+                if (_mime_type == null) {
+                    try {
+                        var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
+                        var content_type = info.get_content_type ();
+                        _mime_type = ContentType.get_mime_type (content_type);
+                        return mime_type;
+                    } catch (Error e) {
+                        debug (e.message);
+                    }
+                }
+
+                if (_mime_type == null) {
+                    _mime_type = "undefined";
+                }
+
+                return _mime_type;
+            }
+        }
+
         public Scratch.Widgets.SourceView source_view;
         public string original_content;
         public bool saved = true;
@@ -151,9 +173,18 @@ namespace Scratch.Services {
             }
         }
 
+        private uint load_timout_id = 0;
         public async bool open () {
+            /* Loading improper files may hang so we cancel after a certain time as a fallback.
+             * In most cases, an error will be thrown and caught. */
+            if (load_cancellable != null) { /* just in case */
+                load_cancellable.cancel ();
+            }
+
+            load_cancellable = new Cancellable ();
+
             // If it does not exists, let's create it!
-            if (!exists ()) {
+            if (!exists (load_cancellable)) {
                 try {
                     FileUtils.set_contents (file.get_path (), "");
                 } catch (FileError e) {
@@ -165,44 +196,14 @@ namespace Scratch.Services {
             this.working = true;
             loaded = false;
 
-            /* Loading improper files may hang so we cancel after a certain time as a fallback.
-             * In most cases, an error will be thrown and caught. */
-            if (load_cancellable != null) { /* just in case */
-                load_cancellable.cancel ();
-            }
-
-            string content_type = ContentType.from_mime_type (get_mime_type ());
-
+            var content_type = ContentType.from_mime_type (mime_type);
             if (!(ContentType.is_a (content_type, "text/plain"))) {
-
                 var primary_format = _("%s is not a text file.");
                 var secondary_text = _("Code will not load this type of file");
 
-#if GRANITE_MESSAGEDIALOG
-                var dialog = new Granite.MessageDialog (primary_format.printf (this.get_basename ()),
-                                                        secondary_text,
-                                                        new ThemedIcon.with_default_fallbacks ("dialog-warning"));
-#else
-                var dialog = new Gtk.MessageDialog ((Gtk.Window?)source_view.get_toplevel (),
-                                                    Gtk.DialogFlags.MODAL,
-                                                    Gtk.MessageType.WARNING,
-                                                    Gtk.ButtonsType.CANCEL,
-                                                    "");
-
-
-                dialog.deletable = false;
-                dialog.use_markup = true;
-
-                dialog.text = ("<b>" + primary_format + "</b>").printf (this.get_basename ());
-                dialog.format_secondary_markup (secondary_text);
-#endif
-                source_view.visible = false;
-                dialog.run ();
-                dialog.destroy ();
+                show_error_dialog (primary_format, secondary_text);
                 return false;
             }
-
-            load_cancellable = new Cancellable ();
 
             while (Gtk.events_pending ()) {
                 Gtk.main_iteration ();
@@ -210,19 +211,38 @@ namespace Scratch.Services {
 
             var buffer = new Gtk.SourceBuffer (null); /* Faster to load into a separate buffer */
 
+            load_timout_id = Timeout.add_seconds_full (GLib.Priority.HIGH, 5, () => {
+                if (load_cancellable != null && !load_cancellable.is_cancelled ()) {
+                    var primary_format = _("Loading file \"%s\" is taking a long time.");
+
+                    if (confirm_cancel_dialog (primary_format)) {
+                        load_timout_id = 0;
+                        load_cancellable.cancel ();
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+
+                load_timout_id = 0;
+                return false;
+            });
+
             try {
                 var source_file_loader = new Gtk.SourceFileLoader (buffer, source_file);
                 yield source_file_loader.load_async (GLib.Priority.LOW, load_cancellable, null);
-
                 source_view.set_text (buffer.text);
                 loaded = true;
             } catch (Error e) {
                 critical (e.message);
                 source_view.buffer.text = "";
-                show_error_dialog ();
+                show_default_load_error_dialog ();
                 return false;
             } finally {
                 load_cancellable = null;
+                if (load_timout_id > 0) {
+                    Source.remove (load_timout_id);
+                }
             }
 
             /* Successful load - now do rest of set up */
@@ -251,7 +271,7 @@ namespace Scratch.Services {
 
 #if HAVE_ZEITGEIST
             // Zeitgeist integration
-            zg_log.open_insert (file.get_uri (), get_mime_type ());
+            zg_log.open_insert (file.get_uri (), mime_type);
 #endif
             // Grab focus
             this.source_view.grab_focus ();
@@ -343,7 +363,7 @@ namespace Scratch.Services {
                 delete_backup ();
 #if HAVE_ZEITGEIST
                 // Zeitgeist integration
-                zg_log.close_insert (file.get_uri (), get_mime_type ());
+                zg_log.close_insert (file.get_uri (), mime_type);
 #endif
                 doc_closed ();
             }
@@ -374,7 +394,7 @@ namespace Scratch.Services {
             source_view.buffer.set_modified (false);
 #if HAVE_ZEITGEIST
             // Zeitgeist integration
-            zg_log.save_insert (file.get_uri (), get_mime_type ());
+            zg_log.save_insert (file.get_uri (), mime_type);
 #endif
 
             doc_saved ();
@@ -439,22 +459,10 @@ namespace Scratch.Services {
 
 #if HAVE_ZEITGEIST
             // Zeitgeist integration
-            zg_log.move_insert (file.get_uri (), new_dest.get_uri (), get_mime_type ());
+            zg_log.move_insert (file.get_uri (), new_dest.get_uri (), mime_type);
 #endif
 
             return true;
-        }
-
-        // Get mime type for the document
-        public string get_mime_type () {
-            try {
-                var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
-                var mime_type = ContentType.get_mime_type (info.get_attribute_as_string (FileAttribute.STANDARD_CONTENT_TYPE));
-                return mime_type;
-            } catch (Error e) {
-                debug (e.message);
-                return "undefined";
-            }
         }
 
         private void restore_settings () {
@@ -620,27 +628,68 @@ namespace Scratch.Services {
             this.source_view.duplicate_selection ();
         }
 
+        /** primary format must contain a single %s where the file basename will be printed (in bold) **/
+        private Gtk.Dialog get_modal_dialog (string primary_format, string secondary_text) {
+            string message =  primary_format.printf ("<b>%s</b>".printf (get_basename ()));
+#if GRANITE_MESSAGEDIALOG
+            var dialog = new Granite.MessageDialog (message,
+                                                    secondary_text,
+                                                    new ThemedIcon.with_default_fallbacks ("dialog-warning"),
+                                                    Gtk.ButtonsType.NONE);
+
+#else
+            var dialog = new Gtk.MessageDialog ((Gtk.Window?)source_view.get_toplevel (),
+                                                Gtk.DialogFlags.MODAL,
+                                                Gtk.MessageType.WARNING,
+                                                Gtk.ButtonsType.NONE,
+                                                "");
+
+
+            dialog.deletable = false;
+            dialog.use_markup = true;
+
+            dialog.text = (message);
+            dialog.format_secondary_markup (secondary_text);
+#endif
+            return dialog;
+        }
+
+        private bool confirm_cancel_dialog (string primary_format) {
+
+            string secondary_text = _("Do you wish to continue or cancel?");
+
+            var dialog = get_modal_dialog (primary_format, secondary_text);
+            dialog.add_button (_("Continue"), Gtk.ResponseType.CANCEL);
+            dialog.add_button (_("Cancel"), Gtk.ResponseType.YES);
+            dialog.run ();
+
+            var res = dialog.run ();
+            dialog.destroy ();
+
+            return res == Gtk.ResponseType.YES;
+        }
+
         // Show an error dialog which says "Hey, I cannot read that file!"
-        private void show_error_dialog () {
+        private void show_default_load_error_dialog () {
+            string primary_format = _("File \"%s\" cannot be read.");
+            string secondary_text = _("Maybe it is corrupt or you do not have the necessary permissions to read it.");
+
+            show_error_dialog (primary_format, secondary_text);
+        }
+
+        /** @primary_format must contain a single %s where the filename will be displayed **/
+        private void show_error_dialog (string primary_format, string secondary_text) {
             if (this.error_shown) {
                 return;
             }
 
             this.error_shown = true;
 
-            var parent_window = source_view.get_toplevel () as Gtk.Window;
-            /* Using ".with_markup () " constructor does not work properly */
-            /* FIXME: This dialog needs changing to Elementary HIG style */
-            var dialog = new Gtk.MessageDialog  (parent_window,
-                                                 Gtk.DialogFlags.MODAL,
-                                                 Gtk.MessageType.ERROR,
-                                                 Gtk.ButtonsType.CLOSE, null);
-
-            /* Setting markup now works */
-            dialog.set_markup ( _("File \"%s\" cannot be read. Maybe it is corrupt\nor you do not have the necessary permissions to read it.").printf ("<b>%s</b>".printf (get_basename ())));
+            var dialog = get_modal_dialog (primary_format, secondary_text);
+            dialog.add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
+            source_view.visible = false;
             dialog.run ();
             dialog.destroy ();
-            this.close ();
         }
 
         // Check if the file was deleted/changed by an external source
@@ -693,7 +742,7 @@ namespace Scratch.Services {
                         source_file_loader.load_async.end (res);
                     } catch (Error e) {
                         critical (e.message);
-                        show_error_dialog ();
+                        show_default_load_error_dialog ();
                         return;
                     }
 
@@ -814,8 +863,8 @@ namespace Scratch.Services {
         }
 
         // Return true if the file exists
-        public bool exists () {
-            return this.file.query_exists ();
+        public bool exists (Cancellable? cancellable = null) {
+            return this.file.query_exists (cancellable); /* May block */
         }
 
         private void file_changed () {
