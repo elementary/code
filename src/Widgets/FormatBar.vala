@@ -34,7 +34,6 @@ public class Code.FormatBar : Gtk.Grid {
     private unowned Scratch.Services.Document? doc = null;
 
     construct {
-        orientation = Gtk.Orientation.HORIZONTAL;
         get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
 
         manager = Gtk.SourceLanguageManager.get_default ();
@@ -61,9 +60,6 @@ public class Code.FormatBar : Gtk.Grid {
     }
 
     private void create_language_popover () {
-        var sizegroup = new Gtk.SizeGroup (Gtk.SizeGroupMode.HORIZONTAL);
-        sizegroup.add_widget (lang_toggle);
-
         lang_selection_listbox = new Gtk.ListBox ();
         lang_selection_listbox.selection_mode = Gtk.SelectionMode.SINGLE;
         lang_selection_listbox.set_sort_func ((row1, row2) => {
@@ -74,19 +70,19 @@ public class Code.FormatBar : Gtk.Grid {
         lang_scrolled.hscrollbar_policy = Gtk.PolicyType.NEVER;
         lang_scrolled.height_request = 350;
         lang_scrolled.expand = true;
+        lang_scrolled.margin_top = lang_scrolled.margin_bottom = 3;
         lang_scrolled.add (lang_selection_listbox);
+
         unowned string[]? ids = manager.get_language_ids ();
         unowned SList<Gtk.RadioButton> group = null;
         foreach (unowned string id in ids) {
             weak Gtk.SourceLanguage lang = manager.get_language (id);
             var entry = new LangEntry (id, lang.name, group);
-            sizegroup.add_widget (entry);
             group = entry.get_radio_group ();
             lang_selection_listbox.add (entry);
         }
 
-        normal_entry = new LangEntry (null, _("Normal Text"), group);
-        sizegroup.add_widget (normal_entry);
+        normal_entry = new LangEntry (null, _("Plain Text"), group);
         lang_selection_listbox.add (normal_entry);
 
         lang_scrolled.show_all ();
@@ -105,36 +101,41 @@ public class Code.FormatBar : Gtk.Grid {
     }
 
     private void create_tabulation_popover () {
-        var tab_popover = new Gtk.Popover (tab_toggle);
-        var tab_grid = new Gtk.Grid ();
-        tab_grid.margin = 6;
-        tab_grid.column_spacing = 12;
-        tab_grid.row_spacing = 6;
-        tab_popover.add (tab_grid);
         var space_tab_label = new Gtk.Label (_("Insert spaces instead of tabs:"));
         space_tab_label.xalign = 1;
+
         var width_label = new Gtk.Label (_("Tab width:"));
         width_label.xalign = 1;
+
         var autoindent_label = new Gtk.Label (_("Automatic indentation:"));
         autoindent_label.xalign = 1;
 
-        tab_width = new Gtk.SpinButton.with_range (1, 24, 1);
-        Scratch.settings.schema.bind ("indent-width", tab_width, "value", SettingsBindFlags.DEFAULT);
-        space_tab_switch = new Gtk.Switch ();
-        space_tab_switch.halign = Gtk.Align.START;
-        Scratch.settings.schema.bind ("spaces-instead-of-tabs", space_tab_switch, "active", SettingsBindFlags.DEFAULT);
         autoindent_switch = new Gtk.Switch ();
         autoindent_switch.halign = Gtk.Align.START;
         Scratch.settings.schema.bind ("auto-indent", autoindent_switch, "active", SettingsBindFlags.DEFAULT);
 
-        tab_grid.attach (space_tab_label, 0, 0, 1, 1);
-        tab_grid.attach (space_tab_switch, 1, 0, 1, 1);
-        tab_grid.attach (width_label, 0, 1, 1, 1);
-        tab_grid.attach (tab_width, 1, 1, 1, 1);
-        tab_grid.attach (autoindent_label, 0, 2, 1, 1);
-        tab_grid.attach (autoindent_switch, 1, 2, 1, 1);
+        tab_width = new Gtk.SpinButton.with_range (1, 24, 1);
+        Scratch.settings.schema.bind ("indent-width", tab_width, "value", SettingsBindFlags.DEFAULT);
 
+        space_tab_switch = new Gtk.Switch ();
+        space_tab_switch.halign = Gtk.Align.START;
+        Scratch.settings.schema.bind ("spaces-instead-of-tabs", space_tab_switch, "active", SettingsBindFlags.DEFAULT);
+
+        var tab_grid = new Gtk.Grid ();
+        tab_grid.margin = 12;
+        tab_grid.column_spacing = 12;
+        tab_grid.row_spacing = 12;
+        tab_grid.attach (autoindent_label, 0, 0, 1, 1);
+        tab_grid.attach (autoindent_switch, 1, 0, 1, 1);
+        tab_grid.attach (space_tab_label, 0, 1, 1, 1);
+        tab_grid.attach (space_tab_switch, 1, 1, 1, 1);
+        tab_grid.attach (width_label, 0, 2, 1, 1);
+        tab_grid.attach (tab_width, 1, 2, 1, 1);
         tab_grid.show_all ();
+
+        var tab_popover = new Gtk.Popover (tab_toggle);
+        tab_popover.add (tab_grid);
+
         tab_toggle.bind_property ("active", tab_popover, "visible", GLib.BindingFlags.BIDIRECTIONAL);
         Scratch.settings.schema.changed["indent-width"].connect (() => format_tab_header ());
         Scratch.settings.schema.changed["spaces-instead-of-tabs"].connect (() => format_tab_header ());
@@ -154,28 +155,30 @@ public class Code.FormatBar : Gtk.Grid {
         var position = buffer.cursor_position;
         Gtk.TextIter iter;
         buffer.get_iter_at_offset (out iter, position);
+
         var line = iter.get_line () + 1;
         line_toggle.text = "%d:%d".printf (line, iter.get_line_offset ());
+
         goto_spin.value = line;
         goto_spin.adjustment.upper = buffer.get_line_count ();
     }
 
     private void create_line_popover () {
-        var line_popover = new Gtk.Popover (line_toggle);
-        var line_grid = new Gtk.Grid ();
-        line_grid.margin = 6;
-        line_grid.column_spacing = 12;
-        line_grid.row_spacing = 6;
-        line_popover.add (line_grid);
         var goto_label = new Gtk.Label (_("Go To Line:"));
         goto_label.xalign = 1;
 
         goto_spin = new Gtk.SpinButton.with_range (1, 1, 1);
 
+        var line_grid = new Gtk.Grid ();
+        line_grid.margin = 12;
+        line_grid.column_spacing = 12;
         line_grid.attach (goto_label, 0, 0, 1, 1);
         line_grid.attach (goto_spin, 1, 0, 1, 1);
-
         line_grid.show_all ();
+
+        var line_popover = new Gtk.Popover (line_toggle);
+        line_popover.add (line_grid);
+
         line_toggle.bind_property ("active", line_popover, "visible", GLib.BindingFlags.BIDIRECTIONAL);
         // We need to connect_after because otherwise, the text isn't parsed into the "value" property and we only get the previous value
         goto_spin.activate.connect_after (() => {
@@ -226,11 +229,15 @@ public class Code.FormatBar : Gtk.Grid {
 
         private Gtk.Image img;
         private Gtk.Label label_widget;
+
         construct {
-            img = new Gtk.Image ();
             width_request = 100;
+
+            img = new Gtk.Image ();
             img.icon_size = Gtk.IconSize.SMALL_TOOLBAR;
+
             label_widget = new Gtk.Label (null);
+
             var grid = new Gtk.Grid ();
             grid.halign = Gtk.Align.CENTER;
             grid.add (img);
@@ -256,8 +263,11 @@ public class Code.FormatBar : Gtk.Grid {
         private Gtk.RadioButton lang_radio;
         public LangEntry (string? lang_id, string lang_name, SList<Gtk.RadioButton> group) {
             Object (lang_id: lang_id, lang_name: lang_name);
+
+            get_style_context ().add_class ("menuitem");
+
             lang_radio = new Gtk.RadioButton.with_label (group, lang_name);
-            lang_radio.margin = 6;
+            lang_radio.margin_start = 4;
             add (lang_radio);
             lang_radio.toggled.connect (() => {
                 if (lang_radio.active) {
