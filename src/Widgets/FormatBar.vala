@@ -33,8 +33,27 @@ public class Code.FormatBar : Gtk.Grid {
 
     private unowned Scratch.Services.Document? doc = null;
 
+    private const string CSS = """
+        .format-bar {
+            background-color: @bg_color;
+            border-radius: 3px;
+        }
+    """;
+
+    static construct {
+       var provider = new Gtk.CssProvider ();
+        try {
+            provider.load_from_data (CSS, CSS.length);
+            Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        } catch (Error e) {
+            critical (e.message);
+        }
+    }
+
     construct {
-        get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+        var style_context = get_style_context ();
+        style_context.add_class ("format-bar");
+        style_context.add_class (Gtk.STYLE_CLASS_LINKED);
 
         manager = Gtk.SourceLanguageManager.get_default ();
 
