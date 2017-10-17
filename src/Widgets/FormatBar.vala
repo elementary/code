@@ -47,7 +47,7 @@ public class Code.FormatBar : Gtk.Grid {
         lang_toggle.tooltip_text = _("Syntax Highlighting");
 
         line_toggle = new FormatButton ();
-        line_toggle.icon = new ThemedIcon ("selection-start-symbolic");
+        line_toggle.icon = new ThemedIcon ("view-continuous-symbolic");
         line_toggle.tooltip_text = _("Line number");
 
         add (tab_toggle);
@@ -157,7 +157,7 @@ public class Code.FormatBar : Gtk.Grid {
         buffer.get_iter_at_offset (out iter, position);
 
         var line = iter.get_line () + 1;
-        line_toggle.text = "%d:%d".printf (line, iter.get_line_offset ());
+        line_toggle.text = "%d.%d".printf (line, iter.get_line_offset ());
 
         goto_spin.value = line;
         goto_spin.adjustment.upper = buffer.get_line_count ();
