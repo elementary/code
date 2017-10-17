@@ -26,6 +26,7 @@ set (PLUGIN_NAME "outline")
 vala_precompile(VALA_C ${PLUGIN_NAME}
     CtagsSymbolResolver.vala
     OutlinePlugin.vala
+    OutlinePane.vala
     ValaProcessing/ComparisonHelper.vala
     ValaProcessing/SymbolItem.vala
     ValaProcessing/SymbolOutline.vala

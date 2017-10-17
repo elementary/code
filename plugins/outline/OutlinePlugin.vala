@@ -27,9 +27,9 @@ namespace Scratch.Plugins {
 
         Scratch.Services.Interface scratch_interface;
         SymbolOutline? current_view = null;
+        unowned Scratch.MainWindow window;
 
-        Gtk.Stack? container = null;
-        Gtk.Stack? sidebar = null;
+        OutlinePane? container = null;
 
         Gee.LinkedList<SymbolOutline> views;
 
@@ -42,7 +42,7 @@ namespace Scratch.Plugins {
         public void activate () {
             scratch_interface = (Scratch.Services.Interface)object;
             scratch_interface.hook_document.connect (on_hook_document);
-            scratch_interface.hook_sidebar.connect (on_hook_sidebar);
+            scratch_interface.hook_window.connect (on_hook_window);
         }
 
         public void deactivate () {
@@ -53,14 +53,13 @@ namespace Scratch.Plugins {
 
         }
 
-        void on_hook_sidebar (Gtk.Stack sidebar) {
+        void on_hook_window (Scratch.MainWindow window) {
             if (container != null)
                 return;
 
-            if (this.sidebar == null)
-                this.sidebar = sidebar;
+            this.window = window;
 
-            container = new Gtk.Stack ();
+            container = new OutlinePane ();
             container.visible = false;
         }
 
@@ -112,17 +111,16 @@ namespace Scratch.Plugins {
         }
 
         void add_container () {
-            if (sidebar.get_child_by_name ("symbols") == null) {
-                sidebar.add_titled (container, "symbols", _("Symbols"));
-                sidebar.child_set_property (container, "position", 1);
-                sidebar.child_set_property (container, "icon-name", "plugin-outline-symbolic");
+            if (container.get_parent () == null) {
+                window.project_pane.add_tab (container);
                 container.show_all ();
             }
         }
 
         void remove_container () {
-            if (sidebar.get_child_by_name ("symbols") != null) {
-                sidebar.remove (container);
+            var parent = container.get_parent ();
+            if (parent != null) {
+                parent.remove (container);
             }
         }
 

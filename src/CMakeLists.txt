@@ -8,6 +8,8 @@ vala_precompile(VALA_C ${EXEC_NAME}
     Widgets/FormatBar.vala
     Widgets/HeaderBar.vala
     Widgets/LoadingView.vala
+    Widgets/Pane.vala
+    Widgets/PaneSwitcher.vala
     Widgets/SearchBar.vala
     Widgets/SplitView.vala
     Widgets/SourceView.vala
