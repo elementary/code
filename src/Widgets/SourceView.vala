@@ -37,15 +37,16 @@ namespace Scratch.Widgets {
         private const uint SELECTION_CHANGED_PAUSE = 400;
 
         public signal void style_changed (Gtk.SourceStyleScheme style);
-        public signal void language_changed (Gtk.SourceLanguage? language);
         public signal void selection_changed (Gtk.TextIter start_iter, Gtk.TextIter end_iter);
         public signal void deselected ();
 
         //lang can be null, in the case of *No highlight style* aka Normal text
-        private Gtk.SourceLanguage? language {
+        public Gtk.SourceLanguage? language {
             set {
                 buffer.language = value;
-                language_changed (value);
+            }
+            get {
+                return buffer.language;
             }
         }
 
@@ -76,8 +77,6 @@ namespace Scratch.Widgets {
             error_tag.underline = Pango.Underline.ERROR;
 
             restore_settings ();
-
-            populate_popup.connect (on_populate_menu);
 
             Gtk.drag_dest_add_uri_targets (this);
 
@@ -118,47 +117,6 @@ namespace Scratch.Widgets {
         ~SourceView () {
             // Update settings when an instance is deleted
             update_settings ();
-        }
-
-        void on_populate_menu (Gtk.Menu menu) {
-            var syntax_menu = new Gtk.MenuItem ();
-            syntax_menu.set_label (_("Syntax Highlighting"));
-
-            var submenu = new Gtk.Menu ();
-            syntax_menu.set_submenu (submenu);
-
-            // Create menu
-            unowned SList<Gtk.RadioMenuItem> group = null;
-            Gtk.RadioMenuItem? item = null;
-
-            item = new Gtk.RadioMenuItem (group);
-            item.set_label (_("Normal Text"));
-            item.toggled.connect (() => {
-                language = null;
-            });
-
-            submenu.add (item);
-
-            // Language entries
-            var ids = manager.get_language_ids ();
-            foreach (var id in ids) {
-                var lang = manager.get_language (id);
-                group = item.get_group ();
-                item = new Gtk.RadioMenuItem (group);
-                item.set_label (lang.name);
-
-                submenu.add (item);
-                item.toggled.connect (() => {
-                    language = lang;
-                });
-                // Active item
-                if (buffer.language != null && id == buffer.language.id) {
-                    item.active = true;
-                }
-            }
-
-            menu.add (syntax_menu);
-            menu.show_all ();
         }
 
         public void use_default_font (bool value) {

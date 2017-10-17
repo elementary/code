@@ -5,6 +5,7 @@ vala_precompile(VALA_C ${EXEC_NAME}
     DrawSpacesUtils.vala
     Dialogs/PreferencesDialog.vala
     Widgets/DocumentView.vala
+    Widgets/FormatBar.vala
     Widgets/HeaderBar.vala
     Widgets/LoadingView.vala
     Widgets/SearchBar.vala

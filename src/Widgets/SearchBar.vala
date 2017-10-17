@@ -34,8 +34,6 @@ namespace Scratch.Widgets {
 
         public Gtk.SearchEntry search_entry;
         public Gtk.SearchEntry replace_entry;
-        public Gtk.SpinButton go_to_entry;
-        private Gtk.Adjustment go_to_adj;
 
         private Gtk.Button replace_tool_button;
         private Gtk.Button replace_all_tool_button;
@@ -104,16 +102,6 @@ namespace Scratch.Widgets {
             replace_grid.add (replace_tool_button);
             replace_grid.add (replace_all_tool_button);
 
-            var go_to_label = new Gtk.Label (_("Go To Line:"));
-            go_to_label.hexpand = true;
-            go_to_label.xalign = 1;
-
-            go_to_adj = new Gtk.Adjustment (0, 0, 1000, 1, 40, 0);
-            go_to_entry = new Gtk.SpinButton (go_to_adj, 1, 1);
-            go_to_entry.digits = 0;
-            go_to_entry.valign = Gtk.Align.CENTER;
-            go_to_entry.margin_end = 3;
-
             // Connecting to some signals
             search_entry.changed.connect (on_search_entry_text_changed);
             search_entry.key_press_event.connect (on_search_entry_key_press);
@@ -123,7 +111,6 @@ namespace Scratch.Widgets {
                     search_next ();
                 }
             });
-            go_to_entry.activate.connect (on_go_to_entry_activate);
             replace_entry.activate.connect (on_replace_entry_activate);
             replace_entry.key_press_event.connect (on_replace_entry_key_press);
 
@@ -136,8 +123,6 @@ namespace Scratch.Widgets {
 
             add (search_grid);
             add (replace_grid);
-            add (go_to_label);
-            add (go_to_entry);
 
             update_replace_tool_sensitivities (search_entry.text, false);
         }
@@ -146,10 +131,6 @@ namespace Scratch.Widgets {
             if (text_view == null) {
                 warning ("No SourceView is associated with SearchManager!");
                 return;
-            }
-
-            if (this.text_view != null) {
-                this.text_buffer.modified_changed.disconnect (on_text_buffer_modified);
             }
 
             this.text_view = text_view;
@@ -171,15 +152,6 @@ namespace Scratch.Widgets {
 
                 tool_arrow_down.sensitive = false;
                 tool_arrow_up.sensitive = false;
-            }
-
-            update_go_to_entry ();
-            this.text_buffer.modified_changed.connect (on_text_buffer_modified);
-        }
-
-        private void on_go_to_entry_activate () {
-            if (text_view != null) {
-                text_view.go_to_line (int.parse (go_to_entry.text));
             }
         }
 
@@ -445,22 +417,13 @@ namespace Scratch.Widgets {
                     return true;
                 case "Tab":
                     if (replace_entry.is_focus) {
-                        go_to_entry.grab_focus ();
+                        search_entry.grab_focus ();
                     }
 
                     return true;
             }
 
             return false;
-        }
-
-        private void update_go_to_entry () {
-            //Set the maximum range of the "Go To Line" spinbutton.
-            go_to_entry.set_range (1, text_buffer.get_line_count ());
-        }
-
-        private void on_text_buffer_modified () {
-            update_go_to_entry ();
         }
     }
 }

@@ -251,34 +251,22 @@ namespace Scratch {
             // Signals
             split_view.welcome_shown.connect (() => {
                 toolbar.title = app.app_cmd_name;
+                toolbar.document_available (false);
                 set_widgets_sensitive (false);
             });
 
             split_view.welcome_hidden.connect (() => {
+                toolbar.document_available (true);
                 set_widgets_sensitive (true);
             });
 
             split_view.document_change.connect ((doc) => {
                 search_bar.set_text_view (doc.source_view);
                 // Update MainWindow title
-                if (doc != null && doc.file != null) {
-                    var home_dir = Environment.get_home_dir ();
-                    var path = Path.get_dirname (doc.file.get_uri ()).replace (home_dir, "~");
-                    path = path.replace ("file://", "");
-
-                    if ("trash://" in path) {
-                        path = _("Trash");
-                    }
-
-                    path = Uri.unescape_string (path);
-
-                    string toolbar_title = doc.file.get_basename () + " (%s)".printf (path);
-                    if (doc.is_file_temporary) {
-                        toolbar_title = "(%s)".printf (doc.get_basename ());
-                    }
-
-                    toolbar.title = toolbar_title;
+                if (doc != null) {
+                    toolbar.set_document_focus (doc);
                 }
+
                 // Set actions sensitive property
                 Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (doc.file != null);
                 doc.check_undoable_actions ();
@@ -925,9 +913,7 @@ namespace Scratch {
         }
 
         private void action_go_to () {
-            var fetch_action = Utils.action_from_group (ACTION_SHOW_FIND, actions);
-            fetch_action.set_state (true);
-            search_bar.go_to_entry.grab_focus ();
+            toolbar.format_bar.line_toggle.active = true;
         }
 
         private void action_templates () {
