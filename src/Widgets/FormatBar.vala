@@ -63,15 +63,18 @@ public class Code.FormatBar : Gtk.Grid {
     private void create_language_popover () {
         var sizegroup = new Gtk.SizeGroup (Gtk.SizeGroupMode.HORIZONTAL);
         sizegroup.add_widget (lang_toggle);
-        var lang_popover = new Gtk.Popover (lang_toggle);
+
         lang_selection_listbox = new Gtk.ListBox ();
         lang_selection_listbox.selection_mode = Gtk.SelectionMode.SINGLE;
+        lang_selection_listbox.set_sort_func ((row1, row2) => {
+            return ((LangEntry) row1).lang_name.collate (((LangEntry) row2).lang_name);
+        });
+
         var lang_scrolled = new Gtk.ScrolledWindow (null, null);
         lang_scrolled.hscrollbar_policy = Gtk.PolicyType.NEVER;
         lang_scrolled.height_request = 350;
         lang_scrolled.expand = true;
         lang_scrolled.add (lang_selection_listbox);
-        lang_popover.add (lang_scrolled);
         unowned string[]? ids = manager.get_language_ids ();
         unowned SList<Gtk.RadioButton> group = null;
         foreach (unowned string id in ids) {
@@ -87,6 +90,9 @@ public class Code.FormatBar : Gtk.Grid {
         lang_selection_listbox.add (normal_entry);
 
         lang_scrolled.show_all ();
+
+        var lang_popover = new Gtk.Popover (lang_toggle);
+        lang_popover.add (lang_scrolled);
         lang_toggle.bind_property ("active", lang_popover, "visible", GLib.BindingFlags.BIDIRECTIONAL);
 
         lang_selection_listbox.row_activated.connect ((row) => {
