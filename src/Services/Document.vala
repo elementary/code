@@ -68,9 +68,9 @@ namespace Scratch.Services {
                 if (_mime_type == null) {
                     try {
                         var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
-                        var content_type = info.get_content_type ();
+                        var content_type = info.get_attribute_as_string (FileAttribute.STANDARD_CONTENT_TYPE);
                         _mime_type = ContentType.get_mime_type (content_type);
-                        return mime_type;
+                        return _mime_type;
                     } catch (Error e) {
                         debug (e.message);
                     }
@@ -197,6 +197,7 @@ namespace Scratch.Services {
             loaded = false;
 
             var content_type = ContentType.from_mime_type (mime_type);
+
             if (!(ContentType.is_a (content_type, "text/plain"))) {
                 var primary_format = _("%s is not a text file.");
                 var secondary_text = _("Code will not load this type of file");
@@ -484,22 +485,20 @@ namespace Scratch.Services {
 
         // Create the page
         public void create_page () {
-            var box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+            var grid = new Gtk.Grid ();
+            grid.orientation = Gtk.Orientation.VERTICAL;
 
 #if GTKSOURCEVIEW_3_18
-            var hbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
             source_map.set_view (source_view);
 
-            hbox.pack_start (scroll, true, true, 0);
-            hbox.pack_start (source_map, false, true, 0);
-
-            box.pack_start (info_bar, false, true, 0);
-            box.pack_start (hbox, true, true, 0);
+            grid.attach (info_bar, 0, 0, 2, 1);
+            grid.attach (scroll, 0, 1, 1, 1);
+            grid.attach (source_map, 1, 1, 1, 1);
 #else
-            box.pack_start (info_bar, false, true, 0);
-            box.pack_start (scroll, true, true, 0);
+            grid.add (info_bar);
+            grid.add (scroll);
 #endif
-            this.page = box;
+            this.page = grid;
             this.label = get_basename ();
         }
 
@@ -527,13 +526,13 @@ namespace Scratch.Services {
             info_bar.visible = true;
 
             // Clear from useless widgets
-            ((Gtk.Box) info_bar.get_content_area ()).get_children ().foreach ((widget) => {
+            info_bar.get_content_area ().get_children ().foreach ((widget) => {
                 if (widget != null) {
                     widget.destroy ();
                 }
             });
 
-            ((Gtk.Box) info_bar.get_action_area ()).get_children ().foreach ((widget) => {
+            ((Gtk.Container) info_bar.get_action_area ()).get_children ().foreach ((widget) => {
                 if (widget != null) {
                     widget.destroy ();
                 }
