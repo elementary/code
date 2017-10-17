@@ -57,6 +57,7 @@ namespace Scratch.Widgets {
         }
 
         construct {
+            expand = true;
             manager = Gtk.SourceLanguageManager.get_default ();
             style_scheme_manager = new Gtk.SourceStyleSchemeManager ();
 

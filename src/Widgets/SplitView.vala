@@ -36,7 +36,7 @@ namespace Scratch.Widgets {
             }
         }
 
-        private Granite.Widgets.Welcome welcome_screen;
+        private Code.WelcomeView welcome_view;
         public Scratch.Widgets.DocumentView? current_view = null;
 
         public GLib.List<Scratch.Widgets.DocumentView> views;
@@ -47,32 +47,13 @@ namespace Scratch.Widgets {
         }
 
         construct {
-            welcome_screen = new Granite.Widgets.Welcome (_("No Files Open"),
-                                                               _("Open a file to begin editing."));
-            welcome_screen.valign = Gtk.Align.FILL;
-            welcome_screen.halign = Gtk.Align.FILL;
-            welcome_screen.vexpand = true;
-            welcome_screen.append ("document-new", _("New file"), _("Create a new empty file."));
-            welcome_screen.append ("document-open", _("Open file"), _("Open a saved file."));
-            welcome_screen.append ("edit-paste", _("New file from clipboard"), _("Create a new file from the contents of your clipboard."));
-            welcome_screen.set_item_visible (2, window.clipboard.wait_is_text_available ());
-
-            welcome_screen.activated.connect ((i) => {
-                // New file
-                if (i == 0) {
-                    Utils.action_from_group (MainWindow.ACTION_NEW_TAB, window.actions).activate (null);
-                } else if (i == 1) {
-                    Utils.action_from_group (MainWindow.ACTION_OPEN, window.actions).activate (null);
-                } else if (i == 2) {
-                    Utils.action_from_group (MainWindow.ACTION_NEW_FROM_CLIPBOARD, window.actions).activate (null);
-                }
-            });
+            welcome_view = new Code.WelcomeView (window);
 
             // Handle Drag-and-drop for files functionality on welcome screen
             Gtk.TargetEntry target = {"text/uri-list", 0, 0};
-            Gtk.drag_dest_set (welcome_screen, Gtk.DestDefaults.ALL, {target}, Gdk.DragAction.COPY);
+            Gtk.drag_dest_set (welcome_view, Gtk.DestDefaults.ALL, {target}, Gdk.DragAction.COPY);
 
-            welcome_screen.drag_data_received.connect ((ctx, x, y, sel, info, time) => {
+            welcome_view.drag_data_received.connect ((ctx, x, y, sel, info, time) => {
                 var uris = sel.get_uris ();
                 if (uris.length > 0) {
                     var view = add_view ();
@@ -90,6 +71,7 @@ namespace Scratch.Widgets {
 
             views = new GLib.List<Scratch.Widgets.DocumentView> ();
             hidden_views = new GLib.List<Scratch.Widgets.DocumentView> ();
+            show_welcome ();
         }
 
         public Scratch.Widgets.DocumentView? add_view () {
@@ -108,8 +90,7 @@ namespace Scratch.Widgets {
                 view = new Scratch.Widgets.DocumentView (window);
 
                 view.empty.connect (() => {
-                    remove_view (view);
-                    show_welcome ();
+                    remove_view (view); /* Welcome will show if no views left */
                 });
             } else {
                 view = hidden_views.nth_data (0);
@@ -206,15 +187,15 @@ namespace Scratch.Widgets {
         }
 
         public void show_welcome () {
-            pack1 (welcome_screen, true, true);
-            welcome_screen.show_all ();
+            pack1 (welcome_view, true, true);
+            welcome_view.show_all ();
             welcome_shown ();
             debug ("WelcomeScreen shown successfully");
         }
 
         public void hide_welcome () {
-            if (welcome_screen.get_parent () == this) {
-                remove (welcome_screen);
+            if (welcome_view.get_parent () == this) {
+                remove (welcome_view);
                 welcome_hidden ();
                 debug ("WelcomeScreen hidden successfully");
             }

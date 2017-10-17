@@ -10,6 +10,7 @@ vala_precompile(VALA_C ${EXEC_NAME}
     Widgets/SearchBar.vala
     Widgets/SplitView.vala
     Widgets/SourceView.vala
+    Widgets/WelcomeView.vala
     Services/Document.vala
     Services/FileHandler.vala
     Services/PluginManager.vala
