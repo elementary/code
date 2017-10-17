@@ -386,13 +386,16 @@ namespace Scratch {
         private void load_files_for_view (Scratch.Widgets.DocumentView view, string[] uris) {
             foreach (string uri in uris) {
                if (uri != "") {
-                    var file = File.new_for_uri (uri);
-                    if (file.query_exists ()) {
-                        var doc = new Scratch.Services.Document (actions, file);
-
-                        if (!doc.is_file_temporary || doc.exists ()) {
-                            open_document (doc, view);
-                        }
+                    GLib.File file;
+                    if (Uri.parse_scheme (uri) != null) {
+                        file = File.new_for_uri (uri);
+                    } else {
+                        file = File.new_for_commandline_arg (uri);
+                    }
+                    /* Leave it to doc to handle problematic files properly */
+                    var doc = new Scratch.Services.Document (actions, file);
+                    if (!doc.is_file_temporary) {
+                        open_document (doc, view);
                     }
                 }
             }
@@ -507,14 +510,14 @@ namespace Scratch {
         }
 
         // Show LoadingView
-        public void start_loading () {
+        private void start_loading () {
             loading_view.start ();
             vp.visible = false;
             toolbar.sensitive = false;
         }
 
         // Hide LoadingView
-        public void stop_loading () {
+        private void stop_loading () {
             loading_view.stop ();
             vp.visible = true;
             toolbar.sensitive = true;
