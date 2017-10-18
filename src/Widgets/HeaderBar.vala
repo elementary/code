@@ -27,6 +27,7 @@ namespace Scratch.Widgets {
         public Gtk.MenuButton app_menu;
         public Gtk.ToggleButton find_button;
         public Gtk.Button templates_button;
+        public Code.FormatBar format_bar;
 
         public HeaderBar () {
             Object (
@@ -93,6 +94,10 @@ namespace Scratch.Widgets {
             app_menu.tooltip_text = _("Menu");
             app_menu.popup = menu;
 
+            format_bar = new Code.FormatBar ();
+            format_bar.no_show_all = true;
+            set_custom_title (format_bar);
+
             pack_start (open_button);
             pack_start (templates_button);
             pack_start (save_button);
@@ -128,6 +133,20 @@ namespace Scratch.Widgets {
                 share_app_menu.visible = false;
                 share_app_menu.hide ();
             }
+        }
+
+        public void document_available (bool has_document) {
+            if (has_document) {
+                format_bar.no_show_all = false;
+                format_bar.show_all ();
+            } else {
+                format_bar.no_show_all = true;
+                format_bar.hide ();
+            }
+        }
+
+        public void set_document_focus (Scratch.Services.Document doc) {
+            format_bar.set_document (doc);
         }
     }
 }

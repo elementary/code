@@ -109,7 +109,7 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
                     spell.detach ();
  
                 // Detect language changed event
-                view.language_changed.connect (language_changed_spell);
+                view.notify["language"].connect (() => language_changed_spell (view));
 
                 // Detect changes in language dictionaries in spell instance
                 spell.language_changed.connect ((lang_dict) => {
@@ -132,8 +132,8 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
 
 
 
-    void language_changed_spell (Gtk.SourceLanguage? lang){
-        if (lang != null)
+    void language_changed_spell (Scratch.Widgets.SourceView view){
+        if (view.language != null)
             spell.detach ();
     } 
 
