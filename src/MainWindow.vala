@@ -31,7 +31,6 @@ namespace Scratch {
         public Scratch.Widgets.HeaderBar toolbar;
         private Gtk.Revealer search_revealer;
         public Scratch.Widgets.SearchBar search_bar;
-        public Scratch.Widgets.LoadingView loading_view;
         public Scratch.Widgets.SplitView split_view;
 
         // Plugins
@@ -243,9 +242,6 @@ namespace Scratch {
             // SlitView
             split_view = new Scratch.Widgets.SplitView (this);
 
-            // LoadingView
-            loading_view = new Scratch.Widgets.LoadingView ();
-
             // Signals
             split_view.welcome_shown.connect (() => {
                 toolbar.title = app.app_cmd_name;
@@ -314,10 +310,7 @@ namespace Scratch {
             vp.pack1 (hp2, true, false);
             vp.pack2 (bottombar, false, false);
 
-            var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-            main_box.pack_start (loading_view, true, true, 0);
-            main_box.pack_start (vp, false, true, 0);
-            add (main_box);
+            add (vp);
 
             // Show/Hide widgets
             show_all ();
@@ -345,8 +338,6 @@ namespace Scratch {
         }
 
         public void restore_opened_documents () {
-            start_loading ();
-
             string[] uris_view1 = settings.opened_files_view1;
             string[] uris_view2 = settings.opened_files_view2;
             string focused_document1 = settings.focused_document_view1;
@@ -363,8 +354,6 @@ namespace Scratch {
                 load_files_for_view (view, uris_view2);
                 set_focused_document (view, focused_document2);
             }
-
-            stop_loading ();
         }
 
         private void load_files_for_view (Scratch.Widgets.DocumentView view, string[] uris) {
@@ -481,20 +470,6 @@ namespace Scratch {
         // Add new view
         public Scratch.Widgets.DocumentView? add_view () {
             return split_view.add_view ();
-        }
-
-        // Show LoadingView
-        private void start_loading () {
-            loading_view.start ();
-            vp.visible = false;
-            toolbar.sensitive = false;
-        }
-
-        // Hide LoadingView
-        private void stop_loading () {
-            loading_view.stop ();
-            vp.visible = true;
-            toolbar.sensitive = true;
         }
 
         // Open a document
