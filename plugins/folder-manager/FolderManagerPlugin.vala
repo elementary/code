@@ -35,7 +35,7 @@ namespace Scratch.Plugins {
 
         public void activate () {
             plugins = (Scratch.Services.Interface) object;
-            plugins.hook_sidebar.connect (on_hook_sidebar);
+            plugins.hook_window.connect (on_hook_window);
             plugins.hook_toolbar.connect (on_hook_toolbar);
         }
 
@@ -54,7 +54,7 @@ namespace Scratch.Plugins {
         
         public void update_state () { }
 
-        void on_hook_sidebar (Gtk.Stack sidebar) {
+        void on_hook_window (Scratch.MainWindow window) {
             if (view != null) {
                 return;
             }
@@ -68,16 +68,14 @@ namespace Scratch.Plugins {
 
             view.root.child_added.connect (() => {
                 if (view.get_n_visible_children (view.root) == 0) {
-                    sidebar.add_titled (view, "folders", _("Folders"));
-                    sidebar.child_set_property (view, "icon-name", "folder-symbolic");
-                    sidebar.child_set_property (view, "position", 0);
-                    sidebar.show_all ();
+                    window.project_pane.add_tab (view);
+                    view.show_all ();
                 }
             });
 
             view.root.child_removed.connect (() => {
                 if (view.get_n_visible_children (view.root) == 1) {
-                    sidebar.remove (view);
+                    view.parent.remove (view);
                 }
             });
 
