@@ -22,7 +22,7 @@ namespace Scratch.Plugins.FolderManager {
     /**
      * SourceList that displays folders and their contents.
      */
-    internal class FileView : Granite.Widgets.SourceList {
+    internal class FileView : Granite.Widgets.SourceList, Code.PaneSwitcher {
         private Settings settings;
 
         public signal void select (string file);
@@ -30,9 +30,13 @@ namespace Scratch.Plugins.FolderManager {
         // This is a workaround for SourceList silliness: you cannot remove an item
         // without it automatically selecting another one.
         public bool ignore_next_select { get; set; default = false; }
+        public string icon_name { get; set; }
+        public string title { get; set; }
 
         construct {
             width_request = 180;
+            icon_name = "folder-symbolic";
+            title = _("Folders");
 
             item_selected.connect (on_item_selected);
 
