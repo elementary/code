@@ -86,7 +86,6 @@ namespace Scratch.Services {
 
         public Gtk.Stack main_stack;
         public Scratch.Widgets.SourceView source_view;
-        public Scratch.Widgets.LoadingView loading_view;
         public string original_content;
         public bool saved = true;
 
@@ -117,7 +116,6 @@ namespace Scratch.Services {
         construct {
             main_stack = new Gtk.Stack ();
             source_view = new Scratch.Widgets.SourceView ();
-            loading_view = new Scratch.Widgets.LoadingView ();
 
             scroll = new Gtk.ScrolledWindow (null, null);
             scroll.add (source_view);
@@ -197,8 +195,7 @@ namespace Scratch.Services {
                 }
             }
 
-            loading_view.start ();
-            main_stack.visible_child_name = "loading";
+            source_view.sensitive = false;
             this.working = true;
             loaded = false;
 
@@ -298,9 +295,7 @@ namespace Scratch.Services {
              * (large documents take time to format/display after loading)
              */
             Idle.add (() => {
-                loading_view.stop ();
-                main_stack.visible_child_name = "content";
-                source_view.visible = true;
+                source_view.sensitive = true;
                 this.working = false;
                 return false;
             });
@@ -507,7 +502,6 @@ namespace Scratch.Services {
             grid.add (scroll);
 #endif
             main_stack.add_named (grid, "content");
-            main_stack.add_named (loading_view, "loading");
             this.page = main_stack;
             this.label = get_basename ();
         }
@@ -698,7 +692,6 @@ namespace Scratch.Services {
 
             var dialog = get_modal_dialog (primary_format, secondary_text);
             dialog.add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
-            source_view.visible = false;
             dialog.run ();
             dialog.destroy ();
         }
