@@ -345,18 +345,16 @@ namespace Scratch {
 
             if (uris_view1.length > 0) {
                 var view = add_view ();
-                load_files_for_view (view, uris_view1);
-                set_focused_document (view, focused_document1);
+                load_files_for_view (view, uris_view1, focused_document1);
             }
 
             if (uris_view2.length > 0) {
                 var view = add_view ();
-                load_files_for_view (view, uris_view2);
-                set_focused_document (view, focused_document2);
+                load_files_for_view (view, uris_view2, focused_document2);
             }
         }
 
-        private void load_files_for_view (Scratch.Widgets.DocumentView view, string[] uris) {
+        private void load_files_for_view (Scratch.Widgets.DocumentView view, string[] uris, string focused_document) {
             foreach (string uri in uris) {
                if (uri != "") {
                     GLib.File file;
@@ -368,28 +366,8 @@ namespace Scratch {
                     /* Leave it to doc to handle problematic files properly */
                     var doc = new Scratch.Services.Document (actions, file);
                     if (!doc.is_file_temporary) {
-                        open_document (doc, view);
+                        open_document (doc, view, file.get_uri () == focused_document);
                     }
-                }
-            }
-        }
-
-        // Set focus to last focused document, after all documents finished loading
-        private void set_focused_document (Scratch.Widgets.DocumentView view, string focused_document) {
-            if (focused_document != "") {
-                Scratch.Services.Document document_to_focus = null;
-
-                foreach (Scratch.Services.Document doc in view.docs) {
-                    if (doc.file != null) {
-                        if (doc.file.get_uri() == focused_document) {
-                            document_to_focus = doc;
-                            break;
-                        }
-                    }
-                }
-
-                if (document_to_focus != null) {
-                    view.current_document = document_to_focus;
                 }
             }
         }
@@ -473,7 +451,7 @@ namespace Scratch {
         }
 
         // Open a document
-        public void open_document (Scratch.Services.Document doc, Scratch.Widgets.DocumentView? view_ = null) {
+        public void open_document (Scratch.Services.Document doc, Scratch.Widgets.DocumentView? view_ = null, bool focus = true) {
             while (Gtk.events_pending ()) {
                 Gtk.main_iteration ();
             }
@@ -497,6 +475,9 @@ namespace Scratch {
                 }
 
                 view.open_document (doc);
+                if (focus) {
+                    view.current_document = doc;
+                }
             }
         }
 
