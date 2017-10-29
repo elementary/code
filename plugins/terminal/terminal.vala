@@ -115,7 +115,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
     }
 
     void move_terminal_bottombar () {
-        if (bottombar.page_num (grid) == -1) {
+        if (bottombar != null && bottombar.page_num (grid) == -1) {
             debug ("Remove Terminal page: %d", contextbar.page_num (grid));
             contextbar.remove_page (contextbar.page_num (grid));
             bottombar.set_current_page (bottombar.append_page (grid, new Gtk.Label (_("Terminal"))));
@@ -124,7 +124,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
     }
 
     void move_terminal_contextbar () {
-        if (contextbar.page_num (grid) == -1) {
+        if (contextbar != null && contextbar.page_num (grid) == -1) {
             debug ("Remove Terminal page: %d", bottombar.page_num (grid));
             bottombar.remove_page (bottombar.page_num (grid));
             contextbar.set_current_page (contextbar.append_page (grid, new Gtk.Label (_("Terminal"))));
