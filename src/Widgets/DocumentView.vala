@@ -41,6 +41,11 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
     public DocumentView (MainWindow window) {
         base ();
+        allow_restoring = true;
+        allow_new_window = true;
+        allow_drag = true;
+        allow_duplication = true;
+        group_name = "scratch-text-editor";
         this.window = window;
     }
 
@@ -48,15 +53,10 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         docs = new GLib.List<Services.Document> ();
 
         // Layout
-        allow_restoring = true;
-        allow_new_window = true;
-        allow_drag = true;
-        allow_duplication = true;
         tab_added.connect (on_doc_added);
         tab_removed.connect (on_doc_removed);
         tab_reordered.connect (on_doc_reordered);
         tab_moved.connect (on_doc_moved);
-        group_name = "scratch-text-editor";
 
         new_tab_requested.connect (() => {
             new_document ();
