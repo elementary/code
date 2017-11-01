@@ -31,7 +31,6 @@ namespace Scratch {
         public Scratch.Widgets.HeaderBar toolbar;
         private Gtk.Revealer search_revealer;
         public Scratch.Widgets.SearchBar search_bar;
-        public Scratch.Widgets.LoadingView loading_view;
         public Scratch.Widgets.SplitView split_view;
 
         // Plugins
@@ -243,9 +242,6 @@ namespace Scratch {
             // SlitView
             split_view = new Scratch.Widgets.SplitView (this);
 
-            // LoadingView
-            loading_view = new Scratch.Widgets.LoadingView ();
-
             // Signals
             split_view.welcome_shown.connect (() => {
                 toolbar.title = app.app_cmd_name;
@@ -314,10 +310,7 @@ namespace Scratch {
             vp.pack1 (hp2, true, false);
             vp.pack2 (bottombar, false, false);
 
-            var main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-            main_box.pack_start (loading_view, true, true, 0);
-            main_box.pack_start (vp, false, true, 0);
-            add (main_box);
+            add (vp);
 
             // Show/Hide widgets
             show_all ();
@@ -345,8 +338,6 @@ namespace Scratch {
         }
 
         public void restore_opened_documents () {
-            start_loading ();
-
             string[] uris_view1 = settings.opened_files_view1;
             string[] uris_view2 = settings.opened_files_view2;
             string focused_document1 = settings.focused_document_view1;
@@ -354,20 +345,16 @@ namespace Scratch {
 
             if (uris_view1.length > 0) {
                 var view = add_view ();
-                load_files_for_view (view, uris_view1);
-                set_focused_document (view, focused_document1);
+                load_files_for_view (view, uris_view1, focused_document1);
             }
 
             if (uris_view2.length > 0) {
                 var view = add_view ();
-                load_files_for_view (view, uris_view2);
-                set_focused_document (view, focused_document2);
+                load_files_for_view (view, uris_view2, focused_document2);
             }
-
-            stop_loading ();
         }
 
-        private void load_files_for_view (Scratch.Widgets.DocumentView view, string[] uris) {
+        private void load_files_for_view (Scratch.Widgets.DocumentView view, string[] uris, string focused_document) {
             foreach (string uri in uris) {
                if (uri != "") {
                     GLib.File file;
@@ -379,28 +366,8 @@ namespace Scratch {
                     /* Leave it to doc to handle problematic files properly */
                     var doc = new Scratch.Services.Document (actions, file);
                     if (!doc.is_file_temporary) {
-                        open_document (doc, view);
+                        open_document (doc, view, file.get_uri () == focused_document);
                     }
-                }
-            }
-        }
-
-        // Set focus to last focused document, after all documents finished loading
-        private void set_focused_document (Scratch.Widgets.DocumentView view, string focused_document) {
-            if (focused_document != "") {
-                Scratch.Services.Document document_to_focus = null;
-
-                foreach (Scratch.Services.Document doc in view.docs) {
-                    if (doc.file != null) {
-                        if (doc.file.get_uri() == focused_document) {
-                            document_to_focus = doc;
-                            break;
-                        }
-                    }
-                }
-
-                if (document_to_focus != null) {
-                    view.current_document = document_to_focus;
                 }
             }
         }
@@ -483,22 +450,8 @@ namespace Scratch {
             return split_view.add_view ();
         }
 
-        // Show LoadingView
-        private void start_loading () {
-            loading_view.start ();
-            vp.visible = false;
-            toolbar.sensitive = false;
-        }
-
-        // Hide LoadingView
-        private void stop_loading () {
-            loading_view.stop ();
-            vp.visible = true;
-            toolbar.sensitive = true;
-        }
-
         // Open a document
-        public void open_document (Scratch.Services.Document doc, Scratch.Widgets.DocumentView? view_ = null) {
+        public void open_document (Scratch.Services.Document doc, Scratch.Widgets.DocumentView? view_ = null, bool focus = true) {
             while (Gtk.events_pending ()) {
                 Gtk.main_iteration ();
             }
@@ -522,6 +475,9 @@ namespace Scratch {
                 }
 
                 view.open_document (doc);
+                if (focus) {
+                    view.current_document = doc;
+                }
             }
         }
 

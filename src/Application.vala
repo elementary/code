@@ -245,7 +245,7 @@ namespace Scratch {
 
             foreach (var file in files) {
                 var doc = new Scratch.Services.Document (window.actions, file);
-                view.open_document (doc);
+                window.open_document (doc, view);
             }
         }
 
