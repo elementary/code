@@ -682,6 +682,7 @@ namespace Scratch {
 
         private void action_preferences () {
             var dialog = new Scratch.Dialogs.Preferences (this, plugins);
+            dialog.set_modal (true);
             dialog.show_all ();
         }
 
