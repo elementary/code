@@ -59,6 +59,7 @@ namespace Scratch.Services {
             set {
                 source_file.set_location (value);
                 file_changed ();
+                label = get_basename ();
             }
         }
 
@@ -111,6 +112,7 @@ namespace Scratch.Services {
         public Document (SimpleActionGroup actions, File? file = null) {
             this.actions = actions;
             this.file = file;
+            page = main_stack;
         }
 
         construct {
@@ -139,6 +141,21 @@ namespace Scratch.Services {
             source_view.key_press_event.connect (() => {
                 return working;
             });
+
+            var grid = new Gtk.Grid ();
+            grid.orientation = Gtk.Orientation.VERTICAL;
+
+#if GTKSOURCEVIEW_3_18
+            source_map.set_view (source_view);
+
+            grid.attach (info_bar, 0, 0, 2, 1);
+            grid.attach (scroll, 0, 1, 1, 1);
+            grid.attach (source_map, 1, 1, 1, 1);
+#else
+            grid.add (info_bar);
+            grid.add (scroll);
+#endif
+            main_stack.add_named (grid, "content");
 
             /* Create as loaded - could be new document */
             loaded = true;
@@ -445,9 +462,6 @@ namespace Scratch.Services {
 
                 delete_backup (current_file + "~");
                 this.source_view.change_syntax_highlight_from_file (this.file);
-
-                // Change label
-                this.label = get_basename ();
             }
 
             /* We delay destruction of file chooser dialog til to avoid the document focussing in,
@@ -484,26 +498,6 @@ namespace Scratch.Services {
         // Focus the SourceView
         public new void focus () {
             this.source_view.grab_focus ();
-        }
-
-        // Create the page
-        public void create_page () {
-            var grid = new Gtk.Grid ();
-            grid.orientation = Gtk.Orientation.VERTICAL;
-
-#if GTKSOURCEVIEW_3_18
-            source_map.set_view (source_view);
-
-            grid.attach (info_bar, 0, 0, 2, 1);
-            grid.attach (scroll, 0, 1, 1, 1);
-            grid.attach (source_map, 1, 1, 1, 1);
-#else
-            grid.add (info_bar);
-            grid.add (scroll);
-#endif
-            main_stack.add_named (grid, "content");
-            this.page = main_stack;
-            this.label = get_basename ();
         }
 
         // Get file uri
