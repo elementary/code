@@ -29,6 +29,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             return (Services.Document) current;
         }
         set {
+            warning ("");
             current = value;
         }
     }
@@ -75,6 +76,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         tab_restored.connect ((label, restore_data, icon) => {
             var doc = new Services.Document (window.actions, File.new_for_uri (restore_data));
             open_document (doc);
+            current_document = doc;
         });
 
         tab_duplicated.connect ((tab) => {
@@ -143,8 +145,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
         doc.create_page ();
         insert_tab (doc, -1);
-
-        current_document = doc;
 
         Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
             doc.open.begin ((obj, res) => {
@@ -294,6 +294,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             var file = File.new_for_uri (filename);
             var doc = new Services.Document (window.actions, file);
             open_document (doc);
+            current_document = doc;
         }
 
        Gtk.drag_finish (ctx, true, false, time);
