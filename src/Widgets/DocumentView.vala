@@ -35,7 +35,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
     public GLib.List<Services.Document> docs;
 
-    public uint view_id = -1;
     public bool is_closing = false;
 
     public DocumentView (MainWindow window) {
@@ -249,13 +248,11 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         var other_window = window.app.new_window ();
         other_window.move (x, y);
 
-        DocumentView other_view = other_window.add_view ();
-
         // We need to make sure switch back to the main thread
         // when we are modifiying Gtk widgets shared by two threads.
         Idle.add (() => {
             remove_tab (doc);
-            other_view.insert_tab (doc, -1);
+            other_window.document_view.insert_tab (doc, -1);
 
             return false;
         });
@@ -305,11 +302,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             }
         });
 
-        if (view_id == 1) {
-            settings.opened_files_view1 = opened_files;
-        } else {
-            settings.opened_files_view2 = opened_files;
-        }
+        settings.opened_files_view1 = opened_files;
     }
 
     public void save_current_file (Services.Document? current_document) {
@@ -320,17 +313,9 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
 
         if (file_uri != "") {
-            if (view_id == 1) {
-                settings.focused_document_view1 = file_uri;
-            } else {
-                settings.focused_document_view2 = file_uri;
-            }
+            settings.focused_document_view1 = file_uri;
         } else {
-            if (view_id == 1) {
-                settings.schema.reset ("focused-document_view1");
-            } else {
-                settings.schema.reset ("focused-document_view2");
-            }
+            settings.schema.reset ("focused-document_view1");
         }
     }
 }
