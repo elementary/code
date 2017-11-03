@@ -198,7 +198,7 @@ namespace Scratch {
             registry = new Zeitgeist.DataSourceRegistry ();
 
             var ds_event = new Zeitgeist.Event ();
-            ds_event.actor = "application://scratch-text-editor.desktop";
+            ds_event.actor = "application://io.elementary.code.desktop";
             ds_event.add_subject (new Zeitgeist.Subject ());
             var ds_events = new GenericArray<Zeitgeist.Event> ();
             ds_events.add(ds_event);
