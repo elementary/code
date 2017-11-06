@@ -5,7 +5,7 @@ endif()
 
 if (${VTE_FOUND})
 add_definitions(${NORMAL_CFLAGS})
-include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/scratchcore/)
+include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/${LIBNAME}/)
 link_directories(${NORMAL_LINK_DIRS})
 
 add_definitions (${VTE_CFLAGS})
@@ -22,7 +22,7 @@ PACKAGES
     vte-2.90
     granite
     gtksourceview-3.0
-    scratchcore
+    ${LIBNAME}
     gee-0.8
     libpeas-1.0
     ${ZEITGEIST_DEPS}
@@ -37,7 +37,7 @@ PACKAGES
     vte-2.91
     granite
     gtksourceview-3.0
-    scratchcore
+    ${LIBNAME}
     gee-0.8
     libpeas-1.0
     ${ZEITGEIST_DEPS}

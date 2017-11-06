@@ -1,7 +1,7 @@
 pkg_check_modules(DEPS_PASTEBIN libsoup-2.4)
 if(${DEPS_PASTEBIN_FOUND})
 add_definitions(${NORMAL_CFLAGS} ${DEPS_PASTEBIN_CFLAGS} ${DEPS_PASTEBIN_CFLAGS_OTHER})
-include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/scratchcore/)
+include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/${LIBNAME}/)
 link_libraries (${DEPS_PASTEBIN_LIBRARIES})
 link_directories(${NORMAL_LINK_DIRS} ${DEPS_PASTEBIN_LIBRARY_DIRS})
 
@@ -14,7 +14,7 @@ PACKAGES
     libsoup-2.4
     granite
     gtksourceview-3.0
-    scratchcore
+    ${LIBNAME}
     gee-0.8
     libpeas-1.0
     ${ZEITGEIST_DEPS}

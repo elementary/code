@@ -102,7 +102,7 @@ link_directories (${DEPS_LIBRARY_DIRS} ${LIBSOURCE_LIBRARY_DIRS} ${GCONF_LIBRARY
 
 
 # Some include paths
-include_directories(${CMAKE_BINARY_DIR}/scratchcore)
+include_directories(${CMAKE_BINARY_DIR}/${LIBNAME})
 include_directories(${CMAKE_BINARY_DIR}/src)
 
 # Subdirectories
