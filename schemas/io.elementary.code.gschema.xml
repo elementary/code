@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-	<enum id="scratch-window-states">
+	<enum id="io.elementary.code.window-states">
 		<value nick="Normal" value="0" />
 		<value nick="Maximized" value="1" />
 		<value nick="Fullscreen" value="2" />
@@ -10,8 +10,8 @@
 		<value nick="For Selection" value="1" />
 		<value nick="Always" value="2" />
 	</enum>
-	<schema path="/io/elementary/code/saved-state/" id="io.elementary.code.saved-state" gettext-domain="scratch">
-		<key name="window-state" enum="scratch-window-states">
+	<schema path="/io/elementary/code/saved-state/" id="io.elementary.code.saved-state" gettext-domain="io.elementary.code">
+		<key name="window-state" enum="io.elementary.code.window-states">
 			<default>"Normal"</default>
 			<summary>The saved state of the window.</summary>
 			<description>The saved state of the window.</description>
@@ -53,7 +53,7 @@
 			<description></description>
 		</key>
 	</schema>
-	<schema path="/io/elementary/code/settings/" id="io.elementary.code.settings" gettext-domain="scratch">
+	<schema path="/io/elementary/code/settings/" id="io.elementary.code.settings" gettext-domain="io.elementary.code">
 		<key type="as" name="plugins-enabled">
 			<default>['detect-indent', 'folder-manager', 'contractor', 'outline']</default>
 			<summary>Enabled Plugins</summary>
@@ -145,7 +145,7 @@
 			<description>Restore the focused document from a previous session when opening Scratch.</description>
 		</key>
 	</schema>
-	<schema path="/io/elementary/code/services/" id="io.elementary.code.services" gettext-domain="scratch">
+	<schema path="/io/elementary/code/services/" id="io.elementary.code.services" gettext-domain="io.elementary.code">
 		<key name="paste-format-code" type="s">
 			<default>'None'</default>
 			<summary>Default PasteBin text highlight</summary>
