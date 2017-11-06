@@ -46,10 +46,10 @@ namespace Scratch {
             build_version_info = Constants.VERSION_INFO;
 
             program_name = app_cmd_name;
-            exec_name = "io.elementary.code";
-            app_icon = "io.elementary.code";
+            exec_name = Constants.PROJECT_NAME;
+            app_icon = Constants.PROJECT_NAME;
             app_launcher = "scratch-text-editor.desktop";
-            application_id = "io.elementary.code";
+            application_id = Constants.PROJECT_NAME;
         }
 
         public Application () {
