@@ -1,4 +1,36 @@
 libscratchcore.so.0 libscratchcore0 #MINVER#
+ code_format_bar_construct@Base 2.4.1
+ code_format_bar_format_button_construct@Base 2.4.1
+ code_format_bar_format_button_get_icon@Base 2.4.1
+ code_format_bar_format_button_get_type@Base 2.4.1
+ code_format_bar_format_button_new@Base 2.4.1
+ code_format_bar_format_button_set_icon@Base 2.4.1
+ code_format_bar_format_button_set_text@Base 2.4.1
+ code_format_bar_get_type@Base 2.4.1
+ code_format_bar_lang_entry_construct@Base 2.4.1
+ code_format_bar_lang_entry_get_active@Base 2.4.1
+ code_format_bar_lang_entry_get_lang_id@Base 2.4.1
+ code_format_bar_lang_entry_get_lang_name@Base 2.4.1
+ code_format_bar_lang_entry_get_radio_group@Base 2.4.1
+ code_format_bar_lang_entry_get_type@Base 2.4.1
+ code_format_bar_lang_entry_new@Base 2.4.1
+ code_format_bar_lang_entry_set_active@Base 2.4.1
+ code_format_bar_new@Base 2.4.1
+ code_format_bar_set_document@Base 2.4.1
+ code_pane_add_tab@Base 2.4.1
+ code_pane_construct@Base 2.4.1
+ code_pane_get_stack@Base 2.4.1
+ code_pane_get_type@Base 2.4.1
+ code_pane_new@Base 2.4.1
+ code_pane_switcher_get_icon_name@Base 2.4.1
+ code_pane_switcher_get_title@Base 2.4.1
+ code_pane_switcher_get_type@Base 2.4.1
+ code_pane_switcher_set_icon_name@Base 2.4.1
+ code_pane_switcher_set_title@Base 2.4.1
+ code_welcome_view_construct@Base 2.4.1
+ code_welcome_view_get_type@Base 2.4.1
+ code_welcome_view_get_window@Base 2.4.1
+ code_welcome_view_new@Base 2.4.1
  main@Base 2.0.2bzr1327
  scratch_application__instance@Base 2.4.1
  scratch_application_construct@Base 2.4.1
@@ -35,8 +67,6 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_main_window_quit_source_func@Base 2.0.2bzr1327
  scratch_main_window_restore_opened_documents@Base 2.3bzr1790
  scratch_main_window_set_default_zoom@Base 2.1.0
- scratch_main_window_start_loading@Base 2.0.2bzr1327
- scratch_main_window_stop_loading@Base 2.0.2bzr1327
  scratch_main_window_zoom_in@Base 2.1.0
  scratch_main_window_zoom_out@Base 2.1.0
  scratch_saved_state@Base 2.0.2bzr1327
@@ -67,7 +97,6 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_services_document_check_undoable_actions@Base 2.0.2bzr1327
  scratch_services_document_close@Base 2.0.2bzr1327
  scratch_services_document_construct@Base 2.0.2bzr1327
- scratch_services_document_create_page@Base 2.0.2bzr1327
  scratch_services_document_duplicate_selection@Base 2.0.2bzr1327
  scratch_services_document_exists@Base 2.0.2bzr1327
  scratch_services_document_focus@Base 2.0.2bzr1327
@@ -226,14 +255,11 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_widgets_document_view_set_current_document@Base 2.0.2bzr1327
  scratch_widgets_document_view_set_window@Base 2.4.1
  scratch_widgets_header_bar_construct@Base 2.4.1
+ scratch_widgets_header_bar_document_available@Base 2.4.1
  scratch_widgets_header_bar_get_menu@Base 2.4.1
  scratch_widgets_header_bar_get_type@Base 2.4.1
  scratch_widgets_header_bar_new@Base 2.4.1
- scratch_widgets_loading_view_construct@Base 2.0.2bzr1327
- scratch_widgets_loading_view_get_type@Base 2.0.2bzr1327
- scratch_widgets_loading_view_new@Base 2.0.2bzr1327
- scratch_widgets_loading_view_start@Base 2.0.2bzr1327
- scratch_widgets_loading_view_stop@Base 2.0.2bzr1327
+ scratch_widgets_header_bar_set_document_focus@Base 2.4.1
  scratch_widgets_search_bar_construct@Base 2.4.1
  scratch_widgets_search_bar_get_type@Base 2.4.1
  scratch_widgets_search_bar_get_window@Base 2.4.1
@@ -248,11 +274,13 @@ libscratchcore.so.0 libscratchcore0 #MINVER#
  scratch_widgets_source_view_change_syntax_highlight_from_file@Base 2.0.2bzr1327
  scratch_widgets_source_view_construct@Base 2.0.2bzr1327
  scratch_widgets_source_view_duplicate_selection@Base 2.0.2bzr1327
+ scratch_widgets_source_view_get_language@Base 2.4.1
  scratch_widgets_source_view_get_selected_text@Base 2.0.2bzr1327
  scratch_widgets_source_view_get_text@Base 2.4.1
  scratch_widgets_source_view_get_type@Base 2.0.2bzr1327
  scratch_widgets_source_view_go_to_line@Base 2.0.2bzr1327
  scratch_widgets_source_view_new@Base 2.0.2bzr1327
+ scratch_widgets_source_view_set_language@Base 2.4.1
  scratch_widgets_source_view_set_text@Base 2.0.2bzr1327
  scratch_widgets_source_view_use_default_font@Base 2.0.2bzr1327
  scratch_widgets_split_view_add_view@Base 2.0.2bzr1327
