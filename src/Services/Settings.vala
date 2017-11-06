@@ -35,8 +35,6 @@ namespace Scratch {
 
     public class SavedState : Granite.Services.Settings {
 
-        private const string SCHEMA = Constants.PROJECT_NAME + ".saved-state";
-
         public int window_width { get; set; }
         public int window_height { get; set; }
         public ScratchWindowState window_state { get; set; }
@@ -48,14 +46,12 @@ namespace Scratch {
         public int vp_size { get; set; }
 
         public SavedState () {
-            base (SCHEMA);
+            base (Constants.PROJECT_NAME + ".saved-state");
         }
 
     }
 
     public class Settings : Granite.Services.Settings {
-
-        private const string SCHEMA = Constants.PROJECT_NAME + ".settings";
 
         public bool highlight_current_line { get; set; }
         public bool highlight_matching_brackets { get; set; }
@@ -77,21 +73,19 @@ namespace Scratch {
         public bool show_mini_map { get; set; }
 
         public Settings ()  {
-            base (SCHEMA);
+            base (Constants.PROJECT_NAME + ".settings");
         }
 
     }
 
     public class ServicesSettings : Granite.Services.Settings {
 
-        private const string SCHEMA = Constants.PROJECT_NAME + ".services";
-
         public string paste_format_code { get; set; }
         public string expiry_time { get; set; }
         public bool set_private { get; set; }
 
         public ServicesSettings () {
-            base (SCHEMA);
+            base (Constants.PROJECT_NAME + ".services");
         }
 
     }
