@@ -25,7 +25,7 @@ namespace Scratch.Plugins.FolderManager {
      */
     internal class Settings : Granite.Services.Settings {
 
-        private const string SCHEMA = "org.pantheon.scratch.plugins.folder-manager";
+        private const string SCHEMA = Constants.PROJECT_NAME + ".plugins.folder-manager";
 
         public string[] opened_folders { get; set; }
 

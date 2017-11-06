@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/org/pantheon/scratch/plugin/outline">
+  <gresource prefix="/io/elementary/code/plugin/outline">
     <file alias="lang-class-abstract.svg" compressed="true" preprocess="xml-stripblanks">abstractclass.svg</file>
     <file alias="lang-method-abstract.svg" compressed="true" preprocess="xml-stripblanks">abstractmethod.svg</file>
     <file alias="lang-property-abstract.svg" compressed="true" preprocess="xml-stripblanks">abstractproperty.svg</file>

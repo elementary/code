@@ -3,20 +3,20 @@ Type=Application
 _Name=Code
 _Comment=Edit code files
 GenericName=Code Editor
-Exec=@EXEC_NAME@ %U
-Icon=@CMAKE_PROJECT_NAME@
+Exec=io.elementary.code %U
+Icon=io.elementary.code
 Terminal=false
 Categories=GNOME;GTK;IDE;Utility;TextEditor;WebDevelopment;
 _Keywords=IDE;scratch;
 MimeType=text/plain;
 StartupNotify=true
 Actions=NewWindow;NewDocument;
-X-GNOME-Gettext-Domain=@GETTEXT_PACKAGE@
+X-GNOME-Gettext-Domain=io.elementary.code
 
 [Desktop Action NewDocument]
 Name=New Document
-Exec=@EXEC_NAME@ --new-tab
+Exec=io.elementary.code --new-tab
 
 [Desktop Action NewWindow]
 Name=New Window
-Exec=@EXEC_NAME@ --new-window
+Exec=io.elementary.code --new-window

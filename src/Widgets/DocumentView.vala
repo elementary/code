@@ -44,7 +44,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         allow_new_window = true;
         allow_drag = true;
         allow_duplication = true;
-        group_name = "scratch-text-editor";
+        group_name = Constants.PROJECT_NAME;
         this.window = window;
     }
 
