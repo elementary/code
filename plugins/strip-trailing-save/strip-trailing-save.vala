@@ -51,10 +51,10 @@ public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatabl
     void on_save () {
         if (main_window.get_current_document () != null) {
             var text_view = main_window.get_current_document ().source_view;
-            var buffer = text_view.buffer;
-            buffer.begin_user_action();
-            strip_trailing_spaces(buffer);
-            buffer.end_user_action();
+            var source_buffer = (Gtk.SourceBuffer) text_view.buffer;
+            source_buffer.begin_user_action();
+            strip_trailing_spaces(source_buffer);
+            source_buffer.end_user_action();
         }
     }
 
