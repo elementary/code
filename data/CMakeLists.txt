@@ -1,3 +1,4 @@
+configure_file(${CMAKE_SOURCE_DIR}/data/org.pantheon.scratch.desktop.in.in ${CMAKE_SOURCE_DIR}/data/org.pantheon.scratch.desktop.in)
 configure_file_translation(${CMAKE_SOURCE_DIR}/data/org.pantheon.scratch.desktop.in ${CMAKE_BINARY_DIR}/data/org.pantheon.scratch.desktop ${CMAKE_SOURCE_DIR}/po/)
 configure_file_translation(${CMAKE_SOURCE_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml.in ${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml ${CMAKE_SOURCE_DIR}/po/)
 
