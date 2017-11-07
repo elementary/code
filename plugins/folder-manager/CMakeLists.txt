@@ -16,7 +16,7 @@ PACKAGES
     gtk+-3.0
     gee-0.8
     granite
-    scratchcore
+    ${LIBNAME}
     libpeas-1.0
     gtksourceview-3.0
     ${ZEITGEIST_DEPS}
