@@ -1,4 +1,4 @@
-# These warnings are triggered because of scratch-text-editor shipping the plugin library as private for now.
+# These warnings are triggered because of io.elementary.code shipping the plugin library as private for now.
 # These overrides will not be valid once the library is made shared.
 # See debian/README.source for details.
 io.elementary.code: pkg-has-shlibs-control-file-but-no-actual-shared-libs

@@ -1,6 +1,6 @@
-Source: scratch-text-editor
+Source: io.elementary.code
 Section: editors
-Maintainer: Sergey "Shnatsel" Davidoff <sergey@elementaryos.org>
+Maintainer: Cody Garver <cody@elementary.io>
 Build-Depends: cmake (>= 2.8),
                debhelper (>= 9),
                exuberant-ctags,
@@ -21,13 +21,13 @@ Build-Depends: cmake (>= 2.8),
                valac (>= 0.34),
                valac (<< 0.39)
 Standards-Version: 3.9.5
-Homepage: http://launchpad.net/scratch
+Homepage: https://github.com/elementary/code
 
-Package: scratch-text-editor
+Package: io.elementary.code
 Architecture: any
 Priority: optional
 Depends: exuberant-ctags,
-         libscratchcore0 (= ${binary:Version}),
+         libcodecore0 (= ${binary:Version}),
          ${gir:Depends},
          ${misc:Depends},
          ${shlibs:Depends}
@@ -50,12 +50,11 @@ Description: text editor that works for you
  syntax highlighting with nearly all programming, scripting, and markup
  languages.
 
-Package: libscratchcore0
+Package: libcodecore0
 Architecture: any
 Priority: optional
 Section: libs
 Depends: ${gir:Depends}, ${misc:Depends}, ${shlibs:Depends}
-Breaks: scratch-text-editor (<= 2.0.1)
 Description: text editor that works for you (shared library)
  Scratch is the text editor that works for you. It auto-saves your files,
  meaning they're always up-to-date. Plus it remembers your tabs so you never
@@ -77,15 +76,14 @@ Description: text editor that works for you (shared library)
  .
  This package contains the shared library used by Scratch plugins.
 
-Package: libscratchcore-dev
+Package: libcodecore-dev
 Architecture: any
 Priority: optional
 Section: libdevel
-Depends: libscratchcore0 (= ${binary:Version}),
+Depends: libcodecore0 (= ${binary:Version}),
          ${gir:Depends},
          ${misc:Depends},
          ${shlibs:Depends}
-Breaks: scratch-text-editor (<= 2.0.1)
 Description: text editor that works for you (plugin development files)
  Scratch is the text editor that works for you. It auto-saves your files,
  meaning they're always up-to-date. Plus it remembers your tabs so you never
@@ -107,11 +105,11 @@ Description: text editor that works for you (plugin development files)
  .
  This package contains the development headers for writing Scratch plugins.
 
-Package: scratch-text-editor-dbg
+Package: io.elementary.code-dbg
 Architecture: any
 Section: debug
 Priority: extra
-Depends: scratch-text-editor (= ${binary:Version}), ${misc:Depends}
+Depends: io.elementary.code (= ${binary:Version}), ${misc:Depends}
 Description: text editor that works for you (debugging symbols)
  Scratch is the text editor that works for you. It auto-saves your files,
  meaning they're always up-to-date. Plus it remembers your tabs so you never
@@ -131,4 +129,4 @@ Description: text editor that works for you (debugging symbols)
  syntax highlighting with nearly all programming, scripting, and markup
  languages.
  .
- This package contains debugging symbols for scratch-text-editor.
+ This package contains debugging symbols for io.elementary.code.

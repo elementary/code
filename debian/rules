@@ -14,4 +14,4 @@ override_dh_install:
 	dh_install --fail-missing
 
 override_dh_strip:
-	dh_strip --dbg-package=scratch-text-editor-dbg
+	dh_strip --dbg-package=io.elementary.code-dbg

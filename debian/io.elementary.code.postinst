@@ -4,7 +4,7 @@ set -e
 
 case "$1" in
     configure)
-        # register scratch as a gnome-text-editor in the alternatives system
+        # register io.elementary.code as a gnome-text-editor in the alternatives system
         update-alternatives \
             --install \
                 /usr/bin/gnome-text-editor \

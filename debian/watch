@@ -1,4 +1,0 @@
-version=3
-opts=dversionmangle=s/\+dfsg$// \
-https://launchpad.net/scratch/ \
-.*/scratch-(\d\S*)\.(?:tar\.xz|txz|tar\.bz2|tbz2|tar\.gz|tgz)

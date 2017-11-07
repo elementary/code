@@ -4,7 +4,7 @@ set -e
 
 case "$1" in
     remove|upgrade|deconfigure)
-        # unregister scratch-text-editor as a gnome-text-editor in the alternatives system
+        # unregister io.elementary.code as a gnome-text-editor in the alternatives system
         update-alternatives --remove gnome-text-editor /usr/bin/io.elementary.code || true
     ;;
 
