@@ -1,5 +1,5 @@
 configure_file(${CMAKE_SOURCE_DIR}/data/${CMAKE_PROJECT_NAME}.desktop.in.in ${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.desktop.in)
-configure_file_translation(${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.desktop.in ${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.scratch.desktop ${CMAKE_SOURCE_DIR}/po/)
+configure_file_translation(${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.desktop.in ${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.desktop ${CMAKE_SOURCE_DIR}/po/)
 configure_file(${CMAKE_SOURCE_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml.in.in ${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml.in)
 configure_file_translation(${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml.in ${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml ${CMAKE_SOURCE_DIR}/po/)
 
