@@ -20,8 +20,9 @@ public class Scratch.Plugins.DetectIndent: Peas.ExtensionBase, Peas.Activatable 
                 return;
             }
 
+            var source_buffer = (Gtk.SourceBuffer) view.buffer;
             Gtk.TextIter it;
-            view.buffer.get_iter_at_line (out it, 0);
+            source_buffer.get_iter_at_line (out it, 0);
 
             int tabs_found = 0;
             int spaces_found = 0;
@@ -30,7 +31,7 @@ public class Scratch.Plugins.DetectIndent: Peas.ExtensionBase, Peas.Activatable 
             while (lines_processed < MAX_LINES) {
                 // Don't take into account the comment sections nor the lines containing only a
                 // carriage return
-                if (!it.ends_line () && !view.buffer.iter_has_context_class (it, "comment")) {
+                if (!it.ends_line () && !source_buffer.iter_has_context_class (it, "comment")) {
                     var line_end = it;
                     line_end.forward_to_line_end ();
                     var text = it.get_text (line_end);
