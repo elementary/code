@@ -21,7 +21,7 @@ class CtagsSymbolIter : Object {
 }
 
 public class CtagsSymbolOutline : Object, SymbolOutline {
-    public const string OUTLINE_RESOURCE_URI = "resource:///io/elementary/code/plugin/outline/";
+    public const string OUTLINE_RESOURCE_URI = "resource://" + Constants.URI_ROOT + "/plugin/outline/";
     public Scratch.Services.Document doc { get; protected set; }
     Granite.Widgets.SourceList store;
     Granite.Widgets.SourceList.ExpandableItem root;

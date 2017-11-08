@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-    <schema path="/io/elementary/code/plugins/spell/" id="io.elementary.code.plugins.spell" gettext-domain="io.elementary.code">
+    <schema path="@URI_ROOT@/plugins/spell/" id="@PROJECT_NAME@.plugins.spell" gettext-domain="@GETTEXT_PACKAGE@">
         <key name="language" type="s">
             <default>'en_US'</default>
             <summary>Selected Spellcheck Language</summary>
