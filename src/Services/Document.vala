@@ -252,7 +252,7 @@ namespace Scratch.Services {
             try {
                 var source_file_loader = new Gtk.SourceFileLoader (buffer, source_file);
                 yield source_file_loader.load_async (GLib.Priority.LOW, load_cancellable, null);
-                source_view.set_text (buffer.text);
+                source_view.buffer.text = buffer.text;
                 loaded = true;
             } catch (Error e) {
                 critical (e.message);
@@ -294,8 +294,6 @@ namespace Scratch.Services {
             // Zeitgeist integration
             zg_log.open_insert (file.get_uri (), mime_type);
 #endif
-            // Grab focus
-            this.source_view.grab_focus ();
 
             source_view.buffer.set_modified (false);
             original_content = source_view.buffer.text;
@@ -307,12 +305,12 @@ namespace Scratch.Services {
             });
 
             doc_opened ();
+            source_view.sensitive = true;
 
             /* Do not stop working (blocks editing) until idle
              * (large documents take time to format/display after loading)
              */
             Idle.add (() => {
-                source_view.sensitive = true;
                 this.working = false;
                 return false;
             });
@@ -402,7 +400,7 @@ namespace Scratch.Services {
             // Replace old content with the new one
             save_cancellable.cancel ();
             save_cancellable = new GLib.Cancellable ();
-            var source_file_saver = new Gtk.SourceFileSaver (source_view.buffer, source_file);
+            var source_file_saver = new Gtk.SourceFileSaver ((Gtk.SourceBuffer) source_view.buffer, source_file);
             try {
                 yield source_file_saver.save_async (GLib.Priority.DEFAULT, save_cancellable, null);
             } catch (Error e) {
@@ -604,7 +602,8 @@ namespace Scratch.Services {
 
         // Get language name
         public string get_language_name () {
-            var lang = this.source_view.buffer.language;
+            var source_buffer = (Gtk.SourceBuffer) source_view.buffer;
+            var lang = source_buffer.language;
             if (lang != null) {
                 return lang.name;
             } else {
@@ -614,7 +613,8 @@ namespace Scratch.Services {
 
         // Get language id
         public string get_language_id () {
-            var lang = this.source_view.buffer.language;
+            var source_buffer = (Gtk.SourceBuffer) source_view.buffer;
+            var lang = source_buffer.language;
             if (lang != null) {
                 return lang.id;
             } else {
@@ -767,9 +767,10 @@ namespace Scratch.Services {
 
         // Set Undo/Redo action sensitive property
         public void check_undoable_actions () {
-            Utils.action_from_group (MainWindow.ACTION_UNDO, actions).set_enabled (source_view.buffer.can_undo);
-            Utils.action_from_group (MainWindow.ACTION_REDO, actions).set_enabled (source_view.buffer.can_redo);
-            Utils.action_from_group (MainWindow.ACTION_REVERT, actions).set_enabled (original_content != source_view.buffer.text);
+            var source_buffer = (Gtk.SourceBuffer) source_view.buffer;
+            Utils.action_from_group (MainWindow.ACTION_UNDO, actions).set_enabled (source_buffer.can_undo);
+            Utils.action_from_group (MainWindow.ACTION_REDO, actions).set_enabled (source_buffer.can_redo);
+            Utils.action_from_group (MainWindow.ACTION_REVERT, actions).set_enabled (original_content != source_buffer.text);
         }
 
         // Set saved status
