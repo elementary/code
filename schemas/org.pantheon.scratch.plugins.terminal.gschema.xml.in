@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-    <schema path="/org/pantheon/scratch/plugins/terminal/" id="org.pantheon.scratch.plugins.terminal" gettext-domain="scratch">
+    <schema path="@URI_ROOT@/plugins/terminal/" id="org.pantheon.scratch.plugins.terminal" gettext-domain="@GETTEXT_PACKAGE@">
         <key name="position" type="i">
             <default>0</default>
             <summary>Terminal position</summary>

@@ -45,8 +45,6 @@ OPTIONS
     ${DEFAULT_PLUGIN_OPTIONS}
 )
 
-include (GResource)
-glib_compile_resources (GLIB_RESOURCES_OUTLINE SOURCE icons/outline.gresource.xml)
 link_directories(${OUTLINE_DEPS_LIBRARY_DRIS})
 add_definitions(${OUTLINE_DEPS_CFLAGS})
 
@@ -61,3 +59,5 @@ message("-- Outline plugin will be compiled")
 else()
 message("-- Outline plugin will NOT be compiled")
 endif()
+
+add_subdirectory(icons)

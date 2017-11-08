@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-    <schema path="/org/pantheon/scratch/plugins/folder-manager/" id="org.pantheon.scratch.plugins.folder-manager" gettext-domain="scratch">
+    <schema path="@URI_ROOT@/plugins/folder-manager/" id="org.pantheon.scratch.plugins.folder-manager" gettext-domain="@GETTEXT_PACKAGE@">
         <key name="opened-folders" type="as">
             <default>[]</default>
             <summary>Opened folders.</summary>

@@ -1,3 +1,9 @@
+configure_file(${CMAKE_SOURCE_DIR}/schemas/org.pantheon.scratch.plugins.file-manager.gschema.xml.in ${CMAKE_BINARY_DIR}/schemas/org.pantheon.scratch.plugins.file-manager.gschema.xml)
+configure_file(${CMAKE_SOURCE_DIR}/schemas/org.pantheon.scratch.plugins.folder-manager.gschema.xml.in ${CMAKE_BINARY_DIR}/schemas/org.pantheon.scratch.plugins.folder-manager.gschema.xml)
+configure_file(${CMAKE_SOURCE_DIR}/schemas/org.pantheon.scratch.plugins.spell.gschema.xml.in ${CMAKE_BINARY_DIR}/schemas/org.pantheon.scratch.plugins.spell.gschema.xml)
+configure_file(${CMAKE_SOURCE_DIR}/schemas/org.pantheon.scratch.plugins.terminal.gschema.xml.in ${CMAKE_BINARY_DIR}/schemas/org.pantheon.scratch.plugins.terminal.gschema.xml)
+configure_file(${CMAKE_SOURCE_DIR}/schemas/org.pantheon.scratch.gschema.xml.in ${CMAKE_BINARY_DIR}/schemas/org.pantheon.scratch.gschema.xml)
+
 include(GSettings)
 add_schema("org.pantheon.scratch.gschema.xml")
 add_schema("org.pantheon.scratch.plugins.folder-manager.gschema.xml")

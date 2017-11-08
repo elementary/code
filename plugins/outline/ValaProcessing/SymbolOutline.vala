@@ -1,6 +1,6 @@
 
 public class ValaSymbolOutline : Object, SymbolOutline {
-    public const string OUTLINE_RESOURCE_URI = "resource:///org/pantheon/scratch/plugin/outline/";
+    public const string OUTLINE_RESOURCE_URI = "resource://" + Constants.URI_ROOT + "/plugin/outline/";
     public Scratch.Services.Document doc { get; protected set; }
     public Granite.Widgets.SourceList store { get; private set; }
     Granite.Widgets.SourceList.ExpandableItem root;

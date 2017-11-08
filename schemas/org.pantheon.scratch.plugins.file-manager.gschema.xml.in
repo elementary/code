@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-    <schema path="/org/pantheon/scratch/plugins/file-manager/" id="org.pantheon.scratch.plugins.file-manager" gettext-domain="scratch">
+    <schema path="@URI_ROOT@/plugins/file-manager/" id="org.pantheon.scratch.plugins.file-manager" gettext-domain="@GETTEXT_PACKAGE@">
         <key name="opened-folder" type="s">
             <default>''</default>
             <summary>Opened folder.</summary>
