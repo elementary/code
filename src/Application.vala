@@ -46,10 +46,9 @@ namespace Scratch {
             build_version_info = Constants.VERSION_INFO;
 
             program_name = app_cmd_name;
-            exec_name = "io.elementary.code";
-            app_icon = "io.elementary.code";
+            exec_name = Constants.PROJECT_NAME;
             app_launcher = "scratch-text-editor.desktop";
-            application_id = "io.elementary.code";
+            application_id = Constants.PROJECT_NAME;
         }
 
         public Application () {
@@ -103,7 +102,6 @@ namespace Scratch {
 
             if (print_version) {
                 stdout.printf ("Code %s\n", build_version);
-                stdout.printf ("Copyright %s elementary LLC.\n".printf (app_years));
                 return Posix.EXIT_SUCCESS;
             }
 

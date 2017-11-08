@@ -1,7 +1,7 @@
 pkg_check_modules (WEBKIT REQUIRED "webkit2gtk-4.0")
 if(${WEBKIT_FOUND})
 add_definitions(${NORMAL_CFLAGS})
-include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/scratchcore/)
+include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/${LIBNAME}/)
 link_directories(${NORMAL_LINK_DIRS})
 
 add_definitions (${WEBKIT_CFLAGS})
@@ -17,7 +17,7 @@ PACKAGES
     webkit2gtk-4.0
     granite
     gtksourceview-3.0
-    scratchcore
+    ${LIBNAME}
     gee-0.8
     libpeas-1.0
     ${ZEITGEIST_DEPS}

@@ -21,7 +21,6 @@
 
 namespace Scratch.Widgets {
     public class SourceView : Gtk.SourceView {
-        public new Gtk.SourceBuffer buffer;
         public Gtk.TextMark mark;
         public Gtk.SourceLanguageManager manager;
         public Gtk.SourceStyleSchemeManager style_scheme_manager;
@@ -43,10 +42,10 @@ namespace Scratch.Widgets {
         //lang can be null, in the case of *No highlight style* aka Normal text
         public Gtk.SourceLanguage? language {
             set {
-                buffer.language = value;
+                ((Gtk.SourceBuffer) buffer).language = value;
             }
             get {
-                return buffer.language;
+                return ((Gtk.SourceBuffer) buffer).language;
             }
         }
 
@@ -62,11 +61,11 @@ namespace Scratch.Widgets {
             manager = Gtk.SourceLanguageManager.get_default ();
             style_scheme_manager = new Gtk.SourceStyleSchemeManager ();
 
-            buffer = new Gtk.SourceBuffer (null);
-            buffer.highlight_syntax = true;
-            buffer.mark_set.connect (on_mark_set);
+            var source_buffer = new Gtk.SourceBuffer (null);
+            set_buffer (source_buffer);
+            source_buffer.highlight_syntax = true;
+            source_buffer.mark_set.connect (on_mark_set);
 
-            set_buffer (buffer);
             smart_home_end = Gtk.SourceSmartHomeEndType.AFTER;
 
             // Create common tags
@@ -149,7 +148,8 @@ namespace Scratch.Widgets {
             show_right_margin = Scratch.settings.show_right_margin;
             right_margin_position = Scratch.settings.right_margin_position;
             highlight_current_line = Scratch.settings.highlight_current_line;
-            buffer.highlight_matching_brackets = Scratch.settings.highlight_matching_brackets;
+            var source_buffer = (Gtk.SourceBuffer) buffer;
+            source_buffer.highlight_matching_brackets = Scratch.settings.highlight_matching_brackets;
             if (settings.draw_spaces == ScratchDrawSpacesState.ALWAYS) {
                 draw_spaces = Gtk.SourceDrawSpacesFlags.TAB;
                 draw_spaces |= Gtk.SourceDrawSpacesFlags.SPACE;
@@ -165,20 +165,21 @@ namespace Scratch.Widgets {
             font = Scratch.settings.font;
             use_default_font (Scratch.settings.use_system_font);
             override_font (Pango.FontDescription.from_string (font));
-            buffer.style_scheme = style_scheme_manager.get_scheme (Scratch.settings.style_scheme);
-            style_changed (buffer.style_scheme);
+            source_buffer.style_scheme = style_scheme_manager.get_scheme (Scratch.settings.style_scheme);
+            style_changed (source_buffer.style_scheme);
         }
 
         private void update_settings () {
+            var source_buffer = (Gtk.SourceBuffer) buffer;
             Scratch.settings.show_right_margin = show_right_margin;
             Scratch.settings.right_margin_position = (int) right_margin_position;
             Scratch.settings.highlight_current_line = highlight_current_line;
-            Scratch.settings.highlight_matching_brackets = buffer.highlight_matching_brackets;
+            Scratch.settings.highlight_matching_brackets = source_buffer.highlight_matching_brackets;
             Scratch.settings.spaces_instead_of_tabs = insert_spaces_instead_of_tabs;
             Scratch.settings.indent_width = (int) tab_width;
             Scratch.settings.font = font;
-            Scratch.settings.style_scheme = buffer.style_scheme.id;
-            style_changed (buffer.style_scheme);
+            Scratch.settings.style_scheme = source_buffer.style_scheme.id;
+            style_changed (source_buffer.style_scheme);
         }
 
         public void go_to_line (int line) {
@@ -224,14 +225,15 @@ namespace Scratch.Widgets {
         }
 
         public void set_text (string text, bool opening = true) {
+            var source_buffer = (Gtk.SourceBuffer) buffer;
             if (opening) {
-                buffer.begin_not_undoable_action ();
+                source_buffer.begin_not_undoable_action ();
             }
 
-            buffer.text = text;
+            source_buffer.text = text;
 
             if (opening) {
-                buffer.end_not_undoable_action ();
+                source_buffer.end_not_undoable_action ();
             }
 
             Gtk.TextIter? start = null;

@@ -277,7 +277,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             document_change (doc);
         }
 
-        return true;
+        return false;
     }
 
     private void drag_received (Gtk.Widget w, Gdk.DragContext ctx, int x, int y, Gtk.SelectionData sel,  uint info, uint time) {
