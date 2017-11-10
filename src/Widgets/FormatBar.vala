@@ -107,6 +107,7 @@ public class Code.FormatBar : Gtk.Grid {
         lang_scrolled.show_all ();
 
         var lang_popover = new Gtk.Popover (lang_toggle);
+        lang_popover.position = Gtk.PositionType.BOTTOM;
         lang_popover.add (lang_scrolled);
         lang_toggle.bind_property ("active", lang_popover, "visible", GLib.BindingFlags.BIDIRECTIONAL);
 
@@ -153,6 +154,7 @@ public class Code.FormatBar : Gtk.Grid {
         tab_grid.show_all ();
 
         var tab_popover = new Gtk.Popover (tab_toggle);
+        tab_popover.position = Gtk.PositionType.BOTTOM;
         tab_popover.add (tab_grid);
 
         tab_toggle.bind_property ("active", tab_popover, "visible", GLib.BindingFlags.BIDIRECTIONAL);
@@ -196,6 +198,7 @@ public class Code.FormatBar : Gtk.Grid {
         line_grid.show_all ();
 
         var line_popover = new Gtk.Popover (line_toggle);
+        line_popover.position = Gtk.PositionType.BOTTOM;
         line_popover.add (line_grid);
 
         line_toggle.bind_property ("active", line_popover, "visible", GLib.BindingFlags.BIDIRECTIONAL);
