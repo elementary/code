@@ -1,5 +1,5 @@
 add_definitions(${NORMAL_CFLAGS})
-include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/scratchcore/)
+include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/${LIBNAME}/)
 link_directories(${NORMAL_LINK_DIRS})
 
 set (PLUGIN_NAME "brackets-completion")
@@ -9,7 +9,7 @@ vala_precompile(VALA_C ${PLUGIN_NAME}
 PACKAGES
     granite
     gtksourceview-3.0
-    scratchcore
+    ${LIBNAME}
     gee-0.8
     libpeas-1.0
     ${ZEITGEIST_DEPS}

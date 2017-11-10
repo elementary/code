@@ -12,7 +12,7 @@ endif()
 if (SPELLLEGACY_FOUND OR SPELL_FOUND)
 pkg_check_modules (SPELL REQUIRED ${SPELLPACKAGE})
 add_definitions(${NORMAL_CFLAGS})
-include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/scratchcore/)
+include_directories(${CMAKE_BINARY_DIR} ${CMAKE_BINARY_DIR}/${LIBNAME}/)
 link_directories(${NORMAL_LINK_DIRS})
 
 add_definitions (${SPELL_CFLAGS})
@@ -29,7 +29,7 @@ PACKAGES
     gtk+-3.0
     granite
     gtksourceview-3.0
-    scratchcore
+    ${LIBNAME}
     gee-0.8
     libpeas-1.0
     ${ZEITGEIST_DEPS}

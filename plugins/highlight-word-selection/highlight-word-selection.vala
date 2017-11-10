@@ -45,12 +45,13 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase,  Peas.
         plugins = (Scratch.Services.Interface) object;
         plugins.hook_document.connect ((doc) => {
             var src = doc.source_view;
+            var source_buffer = (Gtk.SourceBuffer) src.buffer;
             src.deselected.disconnect (on_deselection);
             src.deselected.connect (on_deselection);
             src.selection_changed.disconnect (on_selection_changed);
             src.selection_changed.connect (on_selection_changed);
             this.source_views.add (src);
-            this.search_contexts.set (src, new Gtk.SourceSearchContext (src.buffer,null));
+            this.search_contexts.set (src, new Gtk.SourceSearchContext (source_buffer,null));
             this.current_source = src;
         });
     }

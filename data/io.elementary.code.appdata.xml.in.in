@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2015 elementary, LLC <contact@elementary.io> -->
 <component type="desktop">
-  <id>scratch-text-editor.desktop</id>
+  <id>@CMAKE_PROJECT_NAME@.desktop</id>
   <metadata_license>CC0-1/0</metadata_license>
   <project_group>elementary</project_group>
   <project_license>GPL-3.0+</project_license>
@@ -46,7 +46,7 @@
     </ul>
   </description>
   <provides>
-    <binary>io.elementary.code</binary>
+    <binary>@CMAKE_PROJECT_NAME@</binary>
   </provides>
   <developer_name>elementary LLC.</developer_name>
   <url type="homepage">http://elementary.io/</url>

@@ -29,7 +29,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             return (Services.Document) current;
         }
         set {
-            warning ("");
             current = value;
         }
     }
@@ -98,7 +97,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             file.create (FileCreateFlags.PRIVATE);
 
             var doc = new Services.Document (window.actions, file);
-            doc.create_page ();
 
             insert_tab (doc, -1);
             current_document = doc;
@@ -118,7 +116,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             file.replace_contents (clipboard.data, null, false, 0, null);
 
             var doc = new Services.Document (window.actions, file);
-            doc.create_page ();
 
             insert_tab (doc, -1);
             current_document = doc;
@@ -143,7 +140,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             }
         }
 
-        doc.create_page ();
         insert_tab (doc, -1);
 
         Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
@@ -167,7 +163,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             file.create (FileCreateFlags.PRIVATE);
 
             var doc = new Services.Document (window.actions, file);
-            doc.create_page ();
             doc.source_view.set_text (original.get_text ());
 
             if (settings.autosave) {
@@ -285,7 +280,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             document_change (doc);
         }
 
-        return true;
+        return false;
     }
 
     private void drag_received (Gtk.Widget w, Gdk.DragContext ctx, int x, int y, Gtk.SelectionData sel,  uint info, uint time) {
