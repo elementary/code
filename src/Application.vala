@@ -91,9 +91,8 @@ namespace Scratch {
             int unclaimed_args;
 
             try {
-                unowned string[] tmp = args;
-                context.parse (ref tmp);
-                unclaimed_args = tmp.length - 1;
+                context.parse_strv (ref args);
+                unclaimed_args = args.length - 1;
             } catch(Error e) {
                 print (e.message + "\n");
 
