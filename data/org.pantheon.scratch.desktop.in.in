@@ -22,5 +22,5 @@ Name=New Window
 Exec=@EXEC_NAME@ --new-window
 
 [Desktop Action NewWindowRoot]
-Name=New Root Window
+Name=New Window As Administrator
 Exec=io.elementary.code-pkexec

@@ -17,6 +17,6 @@ namespace Constants {
    public const string GENERIC = N_("Text Editor");
    public const string NEW_DOCUMENT = N_("New Document");
    public const string NEW_WINDOW = N_("New Window");
-   public const string NEW_ROOT_WINDOW = N_("New Root Window");
+   public const string NEW_ROOT_WINDOW = N_("New Window As Administrator");
    public const string ABOUT_SCRATCH = N_("About Scratch");
 }
