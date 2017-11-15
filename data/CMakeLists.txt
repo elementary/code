@@ -2,9 +2,15 @@ configure_file(${CMAKE_SOURCE_DIR}/data/org.pantheon.scratch.desktop.in.in ${CMA
 configure_file_translation(${CMAKE_BINARY_DIR}/data/org.pantheon.scratch.desktop.in ${CMAKE_BINARY_DIR}/data/org.pantheon.scratch.desktop ${CMAKE_SOURCE_DIR}/po/)
 configure_file(${CMAKE_SOURCE_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml.in.in ${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml.in)
 configure_file_translation(${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml.in ${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml ${CMAKE_SOURCE_DIR}/po/)
+configure_file(io.elementary.code-pkexec.cmake ${CMAKE_CURRENT_BINARY_DIR}/io.elementary.code-pkexec)
+configure_file(io.elementary.code.policy.xml.in.in ${CMAKE_CURRENT_BINARY_DIR}/io.elementary.code.policy.xml.in)
+configure_file_translation(${CMAKE_CURRENT_BINARY_DIR}/io.elementary.code.policy.xml.in ${CMAKE_CURRENT_BINARY_DIR}/io.elementary.code.policy ${CMAKE_SOURCE_DIR}/po/)
+
 
 install (FILES ${CMAKE_BINARY_DIR}/data/org.pantheon.scratch.desktop DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/applications)
 install (FILES ${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/metainfo)
+install (PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/io.elementary.code-pkexec DESTINATION bin)
+install (FILES ${CMAKE_CURRENT_BINARY_DIR}/io.elementary.code.policy DESTINATION share/polkit-1/actions/)
 
 install (FILES ${CMAKE_SOURCE_DIR}/data/icons/16/${CMAKE_PROJECT_NAME}.svg DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/icons/hicolor/16x16/apps)
 install (FILES ${CMAKE_SOURCE_DIR}/data/icons/16/${CMAKE_PROJECT_NAME}.svg DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/icons/hicolor/16x16@2/apps)
