@@ -182,9 +182,10 @@ namespace Scratch.Widgets {
             style_changed (source_buffer.style_scheme);
         }
 
-        public void go_to_line (int line) {
+        public void go_to_line (int line, int offset = 0) {
             Gtk.TextIter it;
-            buffer.get_iter_at_line (out it, line-1);
+            buffer.get_iter_at_line (out it, line - 1);
+            it.forward_chars (offset);
             scroll_to_iter (it, 0, false, 0, 0);
             buffer.place_cursor (it);
             set_highlight_current_line (true);
