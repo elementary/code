@@ -21,6 +21,7 @@ public class Code.FormatBar : Gtk.Grid {
     private Gtk.SourceLanguageManager manager;
     private FormatButton lang_toggle;
     private Gtk.ListBox lang_selection_listbox;
+    private Gtk.Entry lang_selection_filter;
     private LangEntry normal_entry;
 
     private FormatButton tab_toggle;
@@ -84,13 +85,31 @@ public class Code.FormatBar : Gtk.Grid {
         lang_selection_listbox.set_sort_func ((row1, row2) => {
             return ((LangEntry) row1).lang_name.collate (((LangEntry) row2).lang_name);
         });
+        
+        lang_selection_filter = new Gtk.Entry();
+        lang_selection_filter.margin_left = 4;
+        lang_selection_filter.margin_right = 4;
+        lang_selection_filter.margin_top = 4;
+        lang_selection_filter.placeholder_text = _("Filter languages");
+        lang_selection_filter.changed.connect(() => {
+            lang_selection_listbox.set_filter_func((row) => {
+                //Both are uppercased so that the case doesn't matter when comparing.
+                return (((LangEntry) row).lang_name.up ().contains (lang_selection_filter.text.up ()));
+            });
+        });
 
         var lang_scrolled = new Gtk.ScrolledWindow (null, null);
         lang_scrolled.hscrollbar_policy = Gtk.PolicyType.NEVER;
         lang_scrolled.height_request = 350;
         lang_scrolled.expand = true;
         lang_scrolled.margin_top = lang_scrolled.margin_bottom = 3;
-        lang_scrolled.add (lang_selection_listbox);
+        
+        var container_box = new Gtk.Box(Gtk.Orientation.VERTICAL, 10);
+        
+        container_box.add (lang_selection_filter);
+        container_box.add (lang_selection_listbox);
+
+        lang_scrolled.add (container_box);
 
         unowned string[]? ids = manager.get_language_ids ();
         unowned SList<Gtk.RadioButton> group = null;
