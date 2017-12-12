@@ -85,17 +85,20 @@ public class Code.FormatBar : Gtk.Grid {
         lang_selection_listbox.set_sort_func ((row1, row2) => {
             return ((LangEntry) row1).lang_name.collate (((LangEntry) row2).lang_name);
         });
+        lang_selection_listbox.set_filter_func ((row) => {
+            //Both are lowercased so that the case doesn't matter when comparing.
+            return (((LangEntry) row).lang_name.down ().contains (lang_selection_filter.text.down ().strip ()));
+        });
         
         lang_selection_filter = new Gtk.Entry();
         lang_selection_filter.margin_left = 4;
         lang_selection_filter.margin_right = 4;
         lang_selection_filter.margin_top = 4;
         lang_selection_filter.placeholder_text = _("Filter languages");
-        lang_selection_filter.changed.connect(() => {
-            lang_selection_listbox.set_filter_func((row) => {
-                //Both are uppercased so that the case doesn't matter when comparing.
-                return (((LangEntry) row).lang_name.up ().contains (lang_selection_filter.text.up ()));
-            });
+        lang_selection_filter.changed.connect (() => {
+            if (lang_selection_filter.text.strip ().length != 0) {
+                lang_selection_listbox.invalidate_filter ();
+            }
         });
 
         var lang_scrolled = new Gtk.ScrolledWindow (null, null);
