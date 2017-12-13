@@ -91,9 +91,7 @@ public class Code.FormatBar : Gtk.Grid {
         });
         
         lang_selection_filter = new Gtk.Entry();
-        lang_selection_filter.margin_left = 4;
-        lang_selection_filter.margin_right = 4;
-        lang_selection_filter.margin_top = 4;
+        lang_selection_filter.margin = 4;
         lang_selection_filter.placeholder_text = _("Filter languages");
         lang_selection_filter.changed.connect (() => {
             if (lang_selection_filter.text.strip ().length != 0) {
@@ -106,13 +104,8 @@ public class Code.FormatBar : Gtk.Grid {
         lang_scrolled.height_request = 350;
         lang_scrolled.expand = true;
         lang_scrolled.margin_top = lang_scrolled.margin_bottom = 3;
-        
-        var container_box = new Gtk.Box(Gtk.Orientation.VERTICAL, 10);
-        
-        container_box.add (lang_selection_filter);
-        container_box.add (lang_selection_listbox);
-
-        lang_scrolled.add (container_box);
+       
+        lang_scrolled.add (lang_selection_listbox);
 
         unowned string[]? ids = manager.get_language_ids ();
         unowned SList<Gtk.RadioButton> group = null;
@@ -126,11 +119,15 @@ public class Code.FormatBar : Gtk.Grid {
         normal_entry = new LangEntry (null, _("Plain Text"), group);
         lang_selection_listbox.add (normal_entry);
 
-        lang_scrolled.show_all ();
+        var popover_content = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        popover_content.add (lang_selection_filter);
+        popover_content.add (lang_scrolled);
+        
+        popover_content.show_all ();
 
         var lang_popover = new Gtk.Popover (lang_toggle);
         lang_popover.position = Gtk.PositionType.BOTTOM;
-        lang_popover.add (lang_scrolled);
+        lang_popover.add (popover_content);
         lang_toggle.bind_property ("active", lang_popover, "visible", GLib.BindingFlags.BIDIRECTIONAL);
 
         lang_selection_listbox.row_activated.connect ((row) => {
