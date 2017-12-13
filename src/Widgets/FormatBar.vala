@@ -94,9 +94,7 @@ public class Code.FormatBar : Gtk.Grid {
         lang_selection_filter.margin = 4;
         lang_selection_filter.placeholder_text = _("Filter languages");
         lang_selection_filter.changed.connect (() => {
-            if (lang_selection_filter.text.strip ().length != 0) {
-                lang_selection_listbox.invalidate_filter ();
-            }
+            lang_selection_listbox.invalidate_filter ();
         });
 
         var lang_scrolled = new Gtk.ScrolledWindow (null, null);
