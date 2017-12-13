@@ -30,7 +30,7 @@ public class Code.FormatBar : Gtk.Grid {
     private Gtk.Switch autoindent_switch;
 
     public FormatButton line_toggle;
-    private Gtk.SpinButton goto_spin;
+    private Gtk.Entry goto_entry;
 
     private unowned Scratch.Services.Document? doc = null;
 
@@ -193,25 +193,23 @@ public class Code.FormatBar : Gtk.Grid {
         var position = buffer.cursor_position;
         Gtk.TextIter iter;
         buffer.get_iter_at_offset (out iter, position);
-
         var line = iter.get_line () + 1;
+        
         line_toggle.text = "%d.%d".printf (line, iter.get_line_offset ());
-
-        goto_spin.value = line;
-        goto_spin.adjustment.upper = buffer.get_line_count ();
+        goto_entry.text = "%d.%d".printf (line, iter.get_line_offset ());
     }
 
     private void create_line_popover () {
         var goto_label = new Gtk.Label (_("Go To Line:"));
         goto_label.xalign = 1;
 
-        goto_spin = new Gtk.SpinButton.with_range (1, 1, 1);
+        goto_entry = new Gtk.Entry ();
 
         var line_grid = new Gtk.Grid ();
         line_grid.margin = 12;
         line_grid.column_spacing = 12;
         line_grid.attach (goto_label, 0, 0, 1, 1);
-        line_grid.attach (goto_spin, 1, 0, 1, 1);
+        line_grid.attach (goto_entry, 1, 0, 1, 1);
         line_grid.show_all ();
 
         var line_popover = new Gtk.Popover (line_toggle);
@@ -220,8 +218,12 @@ public class Code.FormatBar : Gtk.Grid {
 
         line_toggle.bind_property ("active", line_popover, "visible", GLib.BindingFlags.BIDIRECTIONAL);
         // We need to connect_after because otherwise, the text isn't parsed into the "value" property and we only get the previous value
-        goto_spin.activate.connect_after (() => {
-            doc.source_view.go_to_line (goto_spin.get_value_as_int ());
+        goto_entry.activate.connect_after (() => {
+            int line, offset;
+            goto_entry.text.scanf("%i.%i", out line, out offset);
+            doc.source_view.go_to_line (line, offset);
+            // Focuses parent to the source view, so that the cursor, which indicates line and column is actually visible.
+            doc.source_view.grab_focus ();
         });
     }
 
