@@ -628,8 +628,10 @@ namespace Scratch.Services {
         }
 
         /** primary format must contain a single %s where the file basename will be printed (in bold) **/
+        /** Markup should not be used for primary label as it will be overridden in the Granite MessageDialog **/
         private Gtk.Dialog get_modal_dialog (string primary_format, string secondary_text) {
-            string message =  primary_format.printf ("<b>%s</b>".printf (get_basename ()));
+            string message =  primary_format.printf ("'%s'".printf (get_basename ()));
+
 #if GRANITE_MESSAGEDIALOG
             var dialog = new Granite.MessageDialog (message,
                                                     secondary_text,
@@ -645,10 +647,8 @@ namespace Scratch.Services {
 
 
             dialog.deletable = false;
-            dialog.use_markup = true;
-
-            dialog.text = (message);
-            dialog.format_secondary_markup (secondary_text);
+            dialog.text = message;
+            dialog.secondary_text = secondary_text;
 #endif
             return dialog;
         }
