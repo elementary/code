@@ -48,8 +48,6 @@ namespace Scratch.Plugins {
 
             plugins.hook_document.connect (set_current_document);
 
-            plugins.hook_split_view.connect (on_hook_split_view);
-
             plugins.hook_notebook_context.connect (on_hook_context);
 
             plugins.hook_toolbar.connect (on_hook_toolbar);
@@ -62,16 +60,6 @@ namespace Scratch.Plugins {
             previews.foreach ((key, val) => {
                 key.doc_saved.disconnect (show_preview);
                 val.paned.destroy ();
-            });
-        }
-
-        void on_hook_split_view (Scratch.Widgets.SplitView view) {
-            this.tool_button.visible = ! view.is_empty ();
-            view.welcome_shown.connect (() => {
-                this.tool_button.visible = false;
-            });
-            view.welcome_hidden.connect (() => {
-                this.tool_button.visible = true;
             });
         }
 

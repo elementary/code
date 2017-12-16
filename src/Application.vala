@@ -223,26 +223,17 @@ namespace Scratch {
             if (window == null) {
                 window = this.new_window ();
                 window.show ();
-                window.restore_opened_documents ();
             } else {
                 window.present ();
             }
         }
 
         protected override void open (File[] files, string hint) {
-            // Add a view if there aren't and get the current DocumentView
-            Scratch.Widgets.DocumentView? view = null;
             var window = get_last_window ();
-
-            if (window.is_empty ()) {
-                view = window.add_view ();
-            } else {
-                view = window.get_current_view ();
-            }
 
             foreach (var file in files) {
                 var doc = new Scratch.Services.Document (window.actions, file);
-                window.open_document (doc, view);
+                window.open_document (doc);
             }
         }
 

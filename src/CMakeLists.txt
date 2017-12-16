@@ -10,7 +10,6 @@ vala_precompile(VALA_C ${EXEC_NAME}
     Widgets/Pane.vala
     Widgets/PaneSwitcher.vala
     Widgets/SearchBar.vala
-    Widgets/SplitView.vala
     Widgets/SourceView.vala
     Widgets/WelcomeView.vala
     Services/Document.vala

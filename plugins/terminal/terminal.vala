@@ -94,8 +94,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             }
         });
 
-        plugins.hook_split_view.connect (on_hook_split_view);
-
         on_hook_notebook ();
     }
 
@@ -152,16 +150,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             }
         }
         return false;
-    }
-
-    void on_hook_split_view (Scratch.Widgets.SplitView view) {
-        this.tool_button.visible = ! view.is_empty ();
-        view.welcome_shown.connect (() => {
-            this.tool_button.visible = false;
-        });
-        view.welcome_hidden.connect (() => {
-            this.tool_button.visible = true;
-        });
     }
 
     void on_hook_toolbar (Scratch.Widgets.HeaderBar toolbar) {
