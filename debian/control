@@ -26,6 +26,8 @@ Homepage: https://github.com/elementary/code
 Package: io.elementary.code
 Architecture: any
 Priority: optional
+Conflicts: scratch-text-editor
+Replaces: scratch-text-editor
 Depends: exuberant-ctags,
          libcodecore0 (= ${binary:Version}),
          ${gir:Depends},
