@@ -45,7 +45,6 @@ OPTIONS
     ${DEFAULT_PLUGIN_OPTIONS}
 )
 
-configure_file(${CMAKE_SOURCE_DIR}/plugins/outline/icons/outline.gresource.xml.in ${CMAKE_BINARY_DIR}/plugins/outline/icons/outline.gresource.xml)
 include (GResource)
 glib_compile_resources (GLIB_RESOURCES_OUTLINE SOURCE icons/outline.gresource.xml)
 link_directories(${OUTLINE_DEPS_LIBRARY_DRIS})

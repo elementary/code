@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-    <schema path="@URI_ROOT@/plugins/terminal/" id="@PROJECT_NAME@.plugins.terminal" gettext-domain="@GETTEXT_PACKAGE@">
+    <schema path="/io/elementary/code/plugins/terminal/" id="io.elementary.code.plugins.terminal" gettext-domain="io.elementary.code">
         <key name="position" type="i">
             <default>0</default>
             <summary>Terminal position</summary>

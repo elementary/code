@@ -1,9 +1,3 @@
-configure_file(${CMAKE_SOURCE_DIR}/schemas/${CMAKE_PROJECT_NAME}.gschema.xml.in ${CMAKE_BINARY_DIR}/schemas/${CMAKE_PROJECT_NAME}.gschema.xml)
-configure_file(${CMAKE_SOURCE_DIR}/schemas/${CMAKE_PROJECT_NAME}.plugins.folder-manager.gschema.xml.in ${CMAKE_BINARY_DIR}/schemas/${CMAKE_PROJECT_NAME}.plugins.folder-manager.gschema.xml)
-configure_file(${CMAKE_SOURCE_DIR}/schemas/${CMAKE_PROJECT_NAME}.plugins.file-manager.gschema.xml.in ${CMAKE_BINARY_DIR}/schemas/${CMAKE_PROJECT_NAME}.plugins.file-manager.gschema.xml)
-configure_file(${CMAKE_SOURCE_DIR}/schemas/${CMAKE_PROJECT_NAME}.plugins.terminal.gschema.xml.in ${CMAKE_BINARY_DIR}/schemas/${CMAKE_PROJECT_NAME}.plugins.terminal.gschema.xml)
-configure_file(${CMAKE_SOURCE_DIR}/schemas/${CMAKE_PROJECT_NAME}.plugins.spell.gschema.xml.in ${CMAKE_BINARY_DIR}/schemas/${CMAKE_PROJECT_NAME}.plugins.spell.gschema.xml)
-
 include(GSettings)
 add_schema("${CMAKE_PROJECT_NAME}.gschema.xml")
 add_schema("${CMAKE_PROJECT_NAME}.plugins.folder-manager.gschema.xml")

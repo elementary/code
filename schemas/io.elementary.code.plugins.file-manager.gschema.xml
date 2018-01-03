@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-    <schema path="@URI_ROOT@/plugins/file-manager/" id="@PROJECT_NAME@.plugins.file-manager" gettext-domain="@GETTEXT_PACKAGE@">
+    <schema path="/io/elementary/code/plugins/file-manager/" id="io.elementary.code.plugins.file-manager" gettext-domain="io.elementary.code">
         <key name="opened-folder" type="s">
             <default>''</default>
             <summary>Opened folder.</summary>

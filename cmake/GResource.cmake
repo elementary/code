@@ -28,7 +28,7 @@ FUNCTION(GLIB_COMPILE_RESOURCES output)
   SET(out_files "")
 
   FOREACH(src ${ARGS_SOURCE} ${ARGS_UNPARSED_ARGUMENTS})
-    SET(in_file "${CMAKE_CURRENT_BINARY_DIR}/${src}")
+    SET(in_file "${CMAKE_CURRENT_SOURCE_DIR}/${src}")
     GET_FILENAME_COMPONENT(WORKING_DIR ${in_file} PATH)
     STRING(REPLACE ".xml" ".c" src ${src})
     SET(out_file "${DIRECTORY}/${src}")
