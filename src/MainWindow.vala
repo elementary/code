@@ -474,10 +474,7 @@ namespace Scratch {
                     view = split_view.current_view;
                 }
 
-                view.open_document (doc);
-                if (focus) {
-                    view.current_document = doc;
-                }
+                view.open_document (doc, focus);
             }
         }
 

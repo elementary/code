@@ -54,10 +54,10 @@ namespace Scratch.Dialogs {
             var general_grid = new Gtk.Grid ();
             general_grid.column_spacing = 12;
             general_grid.row_spacing = 6;
-            general_grid.attach (new SettingsHeader (_("General")), 0, 0, 2, 1);
+            general_grid.attach (new Granite.HeaderLabel (_("General")), 0, 0, 2, 1);
             general_grid.attach (new SettingsLabel (_("Save files when changed:")), 0, 1, 1, 1);
             general_grid.attach (new SettingsSwitch ("autosave"), 1, 1, 1, 1);
-            general_grid.attach (new SettingsHeader (_("Tabs")), 0, 2, 2, 1);
+            general_grid.attach (new Granite.HeaderLabel (_("Tabs")), 0, 2, 2, 1);
             general_grid.attach (new SettingsLabel (_("Automatic indentation:")), 0, 3, 1, 1);
             general_grid.attach (new SettingsSwitch ("auto-indent"), 1, 3, 1, 1);
             general_grid.attach (new SettingsLabel (_("Insert spaces instead of tabs:")), 0, 4, 1, 1);
@@ -107,7 +107,7 @@ namespace Scratch.Dialogs {
             content.row_spacing = 6;
             content.column_spacing = 12;
 
-            var editor_header = new SettingsHeader (_("Editor"));
+            var editor_header = new Granite.HeaderLabel (_("Editor"));
 
             var highlight_current_line_label = new SettingsLabel (_("Highlight current line:"));
             highlight_current_line = new SettingsSwitch ("highlight-current-line");
@@ -136,7 +136,7 @@ namespace Scratch.Dialogs {
             Scratch.settings.schema.bind ("right-margin-position", right_margin_position, "value", SettingsBindFlags.DEFAULT);
             Scratch.settings.schema.bind ("show-right-margin", right_margin_position, "sensitive", SettingsBindFlags.DEFAULT);
 
-            var font_header = new SettingsHeader (_("Font and Color Scheme"));
+            var font_header = new Granite.HeaderLabel (_("Font and Color Scheme"));
 
             var style_scheme_label = new SettingsLabel (_("Color scheme:"));
             style_scheme = new Gtk.ComboBoxText ();
@@ -187,14 +187,6 @@ namespace Scratch.Dialogs {
             foreach (string scheme_id in scheme_ids) {
                 var scheme = scheme_manager.get_scheme (scheme_id);
                 style_scheme.append (scheme.id, scheme.name);
-            }
-        }
-
-        private class SettingsHeader : Gtk.Label {
-            public SettingsHeader (string text) {
-                label = text;
-                get_style_context ().add_class ("h4");
-                halign = Gtk.Align.START;
             }
         }
 
