@@ -10,7 +10,7 @@ Categories=GNOME;GTK;IDE;Utility;TextEditor;WebDevelopment;
 _Keywords=IDE;scratch;
 MimeType=text/plain;
 StartupNotify=true
-Actions=NewWindow;NewDocument;
+Actions=NewWindow;NewDocument;NewWindowRoot;
 X-GNOME-Gettext-Domain=@GETTEXT_PACKAGE@
 
 [Desktop Action NewDocument]
@@ -20,3 +20,7 @@ Exec=@EXEC_NAME@ --new-tab
 [Desktop Action NewWindow]
 Name=New Window
 Exec=@EXEC_NAME@ --new-window
+
+[Desktop Action NewWindowRoot]
+Name=New Window As Administrator
+Exec=io.elementary.code-pkexec
