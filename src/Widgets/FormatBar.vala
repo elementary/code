@@ -21,7 +21,7 @@ public class Code.FormatBar : Gtk.Grid {
     private Gtk.SourceLanguageManager manager;
     private FormatButton lang_toggle;
     private Gtk.ListBox lang_selection_listbox;
-    private Gtk.Entry lang_selection_filter;
+    private Gtk.SearchEntry lang_selection_filter;
     private LangEntry normal_entry;
 
     private FormatButton tab_toggle;
@@ -90,8 +90,8 @@ public class Code.FormatBar : Gtk.Grid {
             return (((LangEntry) row).lang_name.down ().contains (lang_selection_filter.text.down ().strip ()));
         });
         
-        lang_selection_filter = new Gtk.Entry();
-        lang_selection_filter.margin = 4;
+        lang_selection_filter = new Gtk.SearchEntry ();
+        lang_selection_filter.margin = 6;
         lang_selection_filter.placeholder_text = _("Filter languages");
         lang_selection_filter.changed.connect (() => {
             lang_selection_listbox.invalidate_filter ();
