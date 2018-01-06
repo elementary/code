@@ -1,6 +1,5 @@
 include(GSettings)
 add_schema("org.pantheon.scratch.gschema.xml")
 add_schema("org.pantheon.scratch.plugins.folder-manager.gschema.xml")
-add_schema("org.pantheon.scratch.plugins.file-manager.gschema.xml")
 add_schema("org.pantheon.scratch.plugins.terminal.gschema.xml")
 add_schema("org.pantheon.scratch.plugins.spell.gschema.xml")
