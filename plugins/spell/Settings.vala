@@ -25,7 +25,7 @@ namespace Scratch.Plugins.SpellSettings {
      */
     internal class Settings : Granite.Services.Settings {
 
-        private const string SCHEMA = "org.pantheon.scratch.plugins.spell";
+        private const string SCHEMA = Constants.PROJECT_NAME + ".plugins.spell";
 
         public string language { get; set; }
 
