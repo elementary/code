@@ -63,6 +63,7 @@ namespace Scratch {
         public int right_margin_position { get; set; }
         public bool use_system_font { get; set; }
         public string font { get; set; }
+        public bool prefer_dark_style { get; set; }
         public string style_scheme { get; set; }
         public string[] plugins_enabled { get; set;}
         public string[] opened_files_view1 { get; set; }
