@@ -1,9 +1,9 @@
-configure_file(${CMAKE_SOURCE_DIR}/data/org.pantheon.scratch.desktop.in.in ${CMAKE_BINARY_DIR}/data/org.pantheon.scratch.desktop.in)
-configure_file_translation(${CMAKE_BINARY_DIR}/data/org.pantheon.scratch.desktop.in ${CMAKE_BINARY_DIR}/data/org.pantheon.scratch.desktop ${CMAKE_SOURCE_DIR}/po/)
+configure_file(${CMAKE_SOURCE_DIR}/data/${CMAKE_PROJECT_NAME}.desktop.in.in ${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.desktop.in)
+configure_file_translation(${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.desktop.in ${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.desktop ${CMAKE_SOURCE_DIR}/po/)
 configure_file(${CMAKE_SOURCE_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml.in.in ${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml.in)
 configure_file_translation(${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml.in ${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml ${CMAKE_SOURCE_DIR}/po/)
 
-install (FILES ${CMAKE_BINARY_DIR}/data/org.pantheon.scratch.desktop DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/applications)
+install (FILES ${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.desktop DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/applications)
 install (FILES ${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/metainfo)
 
 install (FILES ${CMAKE_SOURCE_DIR}/data/icons/16/${CMAKE_PROJECT_NAME}.svg DESTINATION ${CMAKE_INSTALL_FULL_DATAROOTDIR}/icons/hicolor/16x16/apps)

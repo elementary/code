@@ -46,7 +46,7 @@ namespace Scratch {
         public int vp_size { get; set; }
 
         public SavedState () {
-            base ("org.pantheon.scratch.saved-state");
+            base (Constants.PROJECT_NAME + ".saved-state");
         }
 
     }
@@ -73,7 +73,7 @@ namespace Scratch {
         public bool show_mini_map { get; set; }
 
         public Settings ()  {
-            base ("org.pantheon.scratch.settings");
+            base (Constants.PROJECT_NAME + ".settings");
         }
 
     }
@@ -85,7 +85,7 @@ namespace Scratch {
         public bool set_private { get; set; }
 
         public ServicesSettings () {
-            base ("org.pantheon.scratch.services");
+            base (Constants.PROJECT_NAME + ".services");
         }
 
     }

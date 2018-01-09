@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-    <schema path="/org/pantheon/scratch/plugins/spell/" id="org.pantheon.scratch.plugins.spell" gettext-domain="scratch">
+    <schema path="/io/elementary/code/plugins/spell/" id="io.elementary.code.plugins.spell">
         <key name="language" type="s">
             <default>'en_US'</default>
             <summary>Selected Spellcheck Language</summary>
