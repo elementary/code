@@ -55,7 +55,7 @@
 	</schema>
 	<schema path="/io/elementary/code/settings/" id="io.elementary.code.settings" gettext-domain="io.elementary.code">
 		<key type="as" name="plugins-enabled">
-			<default>['detect-indent', 'folder-manager', 'contractor', 'outline']</default>
+			<default>['brackets-completion', 'detect-indent', 'folder-manager', 'contractor', 'outline']</default>
 			<summary>Enabled Plugins</summary>
 			<description>Enabled Plugins</description>
 		</key>
