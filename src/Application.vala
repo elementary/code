@@ -47,7 +47,7 @@ namespace Scratch {
 
             program_name = app_cmd_name;
             exec_name = Constants.PROJECT_NAME;
-            app_launcher = "scratch-text-editor.desktop";
+            app_launcher = Constants.PROJECT_NAME + ".desktop";
             application_id = Constants.PROJECT_NAME;
         }
 
@@ -68,7 +68,7 @@ namespace Scratch {
             services = new ServicesSettings ();
 
             // Init data home folder for unsaved text files
-            _data_home_folder_unsaved = Path.build_filename (Environment.get_user_data_dir (), "scratch-text-editor", "unsaved");
+            _data_home_folder_unsaved = Path.build_filename (Environment.get_user_data_dir (), Constants.PROJECT_NAME, "unsaved");
         }
 
         public static Application _instance = null;

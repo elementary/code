@@ -29,7 +29,7 @@ namespace Scratch.Plugins.TerminalViewer {
      */
     internal class Settings : Granite.Services.Settings {
 
-        private const string SCHEMA = "org.pantheon.scratch.plugins.terminal";
+        private const string SCHEMA = Constants.PROJECT_NAME + ".plugins.terminal";
 
         public int position { get; set; }
         public string last_opened_path { get; set; }

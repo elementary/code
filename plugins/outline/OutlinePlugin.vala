@@ -36,7 +36,7 @@ namespace Scratch.Plugins {
         construct {
             views = new Gee.LinkedList<SymbolOutline> ();
             weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
-            default_theme.add_resource_path ("/org/pantheon/scratch/plugin/outline");
+            default_theme.add_resource_path ("/io/elementary/code/plugin/outline");
         }
 
         public void activate () {

@@ -119,7 +119,7 @@ namespace Scratch {
             Object (
                 application: scratch_app,
                 app: scratch_app,
-                icon_name: "io.elementary.code",
+                icon_name: Constants.PROJECT_NAME,
                 title: _("Code")
             );
         }
@@ -198,7 +198,7 @@ namespace Scratch {
             registry = new Zeitgeist.DataSourceRegistry ();
 
             var ds_event = new Zeitgeist.Event ();
-            ds_event.actor = "application://scratch-text-editor.desktop";
+            ds_event.actor = "application://" + Constants.PROJECT_NAME + ".desktop";
             ds_event.add_subject (new Zeitgeist.Subject ());
             var ds_events = new GenericArray<Zeitgeist.Event> ();
             ds_events.add(ds_event);
@@ -474,10 +474,7 @@ namespace Scratch {
                     view = split_view.current_view;
                 }
 
-                view.open_document (doc);
-                if (focus) {
-                    view.current_document = doc;
-                }
+                view.open_document (doc, focus);
             }
         }
 

@@ -44,7 +44,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         allow_new_window = true;
         allow_drag = true;
         allow_duplication = true;
-        group_name = "scratch-text-editor";
+        group_name = Constants.PROJECT_NAME;
         this.window = window;
     }
 
@@ -75,7 +75,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         tab_restored.connect ((label, restore_data, icon) => {
             var doc = new Services.Document (window.actions, File.new_for_uri (restore_data));
             open_document (doc);
-            current_document = doc;
         });
 
         tab_duplicated.connect ((tab) => {
@@ -126,7 +125,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
     }
 
-    public void open_document (Services.Document doc) {
+    public void open_document (Services.Document doc, bool focus = true) {
         for (int n = 0; n <= docs.length (); n++) {
             var nth_doc = docs.nth_data (n);
             if (nth_doc == null) {
@@ -141,6 +140,9 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
 
         insert_tab (doc, -1);
+        if (focus) {
+            current_document = doc;
+        }
 
         Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
             doc.open.begin ((obj, res) => {
@@ -289,7 +291,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             var file = File.new_for_uri (filename);
             var doc = new Services.Document (window.actions, file);
             open_document (doc);
-            current_document = doc;
         }
 
        Gtk.drag_finish (ctx, true, false, time);
