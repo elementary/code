@@ -101,7 +101,6 @@ namespace Scratch.Widgets {
             app_menu.tooltip_text = _("Menu");
             app_menu.popover = menu;
 
-
             format_bar = new Code.FormatBar ();
             format_bar.no_show_all = true;
             set_custom_title (format_bar);
