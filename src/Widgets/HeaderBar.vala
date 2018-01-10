@@ -84,10 +84,6 @@ namespace Scratch.Widgets {
             preferences_menuitem.text = _("Preferences");
             preferences_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_PREFERENCES;
 
-            var app_menu = new Gtk.MenuButton ();
-            app_menu.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
-            app_menu.tooltip_text = _("Menu");
-
             var menu_grid = new Gtk.Grid ();
             menu_grid.margin_top = menu_grid.margin_bottom = 3;
             menu_grid.orientation = Gtk.Orientation.VERTICAL;
@@ -97,9 +93,14 @@ namespace Scratch.Widgets {
             menu_grid.add (preferences_menuitem);
             menu_grid.show_all ();
 
-            var menu = new Gtk.Popover (app_menu);
+            var menu = new Gtk.Popover (null);
             menu.add (menu_grid);
+
+            var app_menu = new Gtk.MenuButton ();
+            app_menu.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
+            app_menu.tooltip_text = _("Menu");
             app_menu.popover = menu;
+
 
             format_bar = new Code.FormatBar ();
             format_bar.no_show_all = true;
