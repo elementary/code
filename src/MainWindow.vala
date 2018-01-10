@@ -323,7 +323,6 @@ namespace Scratch {
             HookFunc hook_func = () => {
                 plugins.hook_window (this);
                 plugins.hook_toolbar (toolbar);
-                plugins.hook_main_menu (toolbar.menu);
                 plugins.hook_share_menu (toolbar.share_menu);
                 plugins.hook_notebook_context (contextbar);
                 plugins.hook_notebook_bottom (bottombar);

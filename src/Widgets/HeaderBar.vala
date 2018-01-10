@@ -21,7 +21,6 @@
 
 namespace Scratch.Widgets {
     public class HeaderBar : Gtk.HeaderBar {
-        public Gtk.Menu menu { get; construct; }
         public Gtk.Menu share_menu;
         public Gtk.MenuButton share_app_menu;
         public Gtk.MenuButton app_menu;
@@ -73,26 +72,34 @@ namespace Scratch.Widgets {
             share_app_menu.tooltip_text = _("Share");
             share_app_menu.set_popup (share_menu);
 
-            var new_view_menuitem = new Gtk.MenuItem.with_label (_("Add New View"));
+            var new_view_menuitem = new Gtk.ModelButton ();
+            new_view_menuitem.text = _("Add New View");
             new_view_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_VIEW;
 
-            var remove_view_menuitem = new Gtk.MenuItem.with_label (_("Remove Current View"));
+            var remove_view_menuitem = new Gtk.ModelButton ();
+            remove_view_menuitem.text = _("Remove Current View");
             remove_view_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_REMOVE_VIEW;
 
-            var preferences_menuitem = new Gtk.MenuItem.with_label (_("Preferences"));
+            var preferences_menuitem = new Gtk.ModelButton ();
+            preferences_menuitem.text = _("Preferences");
             preferences_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_PREFERENCES;
-
-            menu = new Gtk.Menu ();
-            menu.add (new_view_menuitem);
-            menu.add (remove_view_menuitem);
-            menu.add (new Gtk.SeparatorMenuItem ());
-            menu.add (preferences_menuitem);
-            menu.show_all ();
 
             var app_menu = new Gtk.MenuButton ();
             app_menu.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
             app_menu.tooltip_text = _("Menu");
-            app_menu.popup = menu;
+
+            var menu_grid = new Gtk.Grid ();
+            menu_grid.margin_top = menu_grid.margin_bottom = 3;
+            menu_grid.orientation = Gtk.Orientation.VERTICAL;
+            menu_grid.add (new_view_menuitem);
+            menu_grid.add (remove_view_menuitem);
+            menu_grid.add (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
+            menu_grid.add (preferences_menuitem);
+            menu_grid.show_all ();
+
+            var menu = new Gtk.Popover (app_menu);
+            menu.add (menu_grid);
+            app_menu.popover = menu;
 
             format_bar = new Code.FormatBar ();
             format_bar.no_show_all = true;
