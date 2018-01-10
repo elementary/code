@@ -21,6 +21,7 @@ public class Code.FormatBar : Gtk.Grid {
     private Gtk.SourceLanguageManager manager;
     private FormatButton lang_toggle;
     private Gtk.ListBox lang_selection_listbox;
+    private Gtk.SearchEntry lang_selection_filter;
     private LangEntry normal_entry;
 
     private FormatButton tab_toggle;
@@ -84,12 +85,24 @@ public class Code.FormatBar : Gtk.Grid {
         lang_selection_listbox.set_sort_func ((row1, row2) => {
             return ((LangEntry) row1).lang_name.collate (((LangEntry) row2).lang_name);
         });
+        lang_selection_listbox.set_filter_func ((row) => {
+            //Both are lowercased so that the case doesn't matter when comparing.
+            return (((LangEntry) row).lang_name.down ().contains (lang_selection_filter.text.down ().strip ()));
+        });
+        
+        lang_selection_filter = new Gtk.SearchEntry ();
+        lang_selection_filter.margin = 6;
+        lang_selection_filter.placeholder_text = _("Filter languages");
+        lang_selection_filter.changed.connect (() => {
+            lang_selection_listbox.invalidate_filter ();
+        });
 
         var lang_scrolled = new Gtk.ScrolledWindow (null, null);
         lang_scrolled.hscrollbar_policy = Gtk.PolicyType.NEVER;
         lang_scrolled.height_request = 350;
         lang_scrolled.expand = true;
         lang_scrolled.margin_top = lang_scrolled.margin_bottom = 3;
+       
         lang_scrolled.add (lang_selection_listbox);
 
         unowned string[]? ids = manager.get_language_ids ();
@@ -104,11 +117,15 @@ public class Code.FormatBar : Gtk.Grid {
         normal_entry = new LangEntry (null, _("Plain Text"), group);
         lang_selection_listbox.add (normal_entry);
 
-        lang_scrolled.show_all ();
+        var popover_content = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
+        popover_content.add (lang_selection_filter);
+        popover_content.add (lang_scrolled);
+        
+        popover_content.show_all ();
 
         var lang_popover = new Gtk.Popover (lang_toggle);
         lang_popover.position = Gtk.PositionType.BOTTOM;
-        lang_popover.add (lang_scrolled);
+        lang_popover.add (popover_content);
         lang_toggle.bind_property ("active", lang_popover, "visible", GLib.BindingFlags.BIDIRECTIONAL);
 
         lang_selection_listbox.row_activated.connect ((row) => {
