@@ -102,7 +102,7 @@ namespace Scratch.Widgets {
             preferences_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_PREFERENCES;
 
             var menu_grid = new Gtk.Grid ();
-            menu_grid.margin_top = menu_grid.margin_bottom = 3;
+            menu_grid.margin_bottom = 3;
             menu_grid.orientation = Gtk.Orientation.VERTICAL;
             menu_grid.width_request = 200;
             menu_grid.add (font_size_grid);
