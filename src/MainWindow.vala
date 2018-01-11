@@ -75,7 +75,6 @@ namespace Scratch {
         public const string ACTION_SAVE_AS = "action_save_as";
         public const string ACTION_SHOW_FIND = "action_show_find";
         public const string ACTION_TEMPLATES = "action_templates";
-        public const string ACTION_ZOOM_DEFAULT = "action_zoom_default";
         public const string ACTION_SHOW_REPLACE = "action_show_replace";
         public const string ACTION_TO_LOWER_CASE = "action_to_lower_case";
         public const string ACTION_TO_UPPER_CASE = "action_to_upper_case";
@@ -83,6 +82,9 @@ namespace Scratch {
         public const string ACTION_FULLSCREEN = "action_fullscreen";
         public const string ACTION_CLOSE_TAB = "action_close_tab";
         public const string ACTION_QUIT = "action_quit";
+        public const string ACTION_ZOOM_DEFAULT = "action_zoom_default";
+        public const string ACTION_ZOOM_IN = "action_zoom_in";
+        public const string ACTION_ZOOM_OUT = "action_zoom_out";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
@@ -95,7 +97,6 @@ namespace Scratch {
             { ACTION_SAVE_AS, action_save_as },
             { ACTION_SHOW_FIND, action_show_fetch, null, "false" },
             { ACTION_TEMPLATES, action_templates },
-            { ACTION_ZOOM_DEFAULT, action_set_default_zoom },
             { ACTION_GO_TO, action_go_to },
             { ACTION_NEW_VIEW, action_new_view },
             { ACTION_NEW_TAB, action_new_tab },
@@ -112,7 +113,10 @@ namespace Scratch {
             { ACTION_DUPLICATE, action_duplicate },
             { ACTION_FULLSCREEN, action_fullscreen },
             { ACTION_CLOSE_TAB, action_close_tab },
-            { ACTION_QUIT, action_quit }
+            { ACTION_QUIT, action_quit },
+            { ACTION_ZOOM_DEFAULT, action_set_default_zoom },
+            { ACTION_ZOOM_IN, action_zoom_in },
+            { ACTION_ZOOM_OUT, action_zoom_out}
         };
 
         public MainWindow (Scratch.Application scratch_app) {
@@ -130,7 +134,6 @@ namespace Scratch {
             action_accelerators.set (ACTION_REVERT, "<Control><shift>o");
             action_accelerators.set (ACTION_SAVE, "<Control>s");
             action_accelerators.set (ACTION_SAVE_AS, "<Control><shift>s");
-            action_accelerators.set (ACTION_ZOOM_DEFAULT, "<Control>0");
             action_accelerators.set (ACTION_GO_TO, "<Control>i");
             action_accelerators.set (ACTION_NEW_VIEW, "F3");
             action_accelerators.set (ACTION_NEW_TAB, "<Control>n");
@@ -145,6 +148,9 @@ namespace Scratch {
             action_accelerators.set (ACTION_FULLSCREEN, "F11");
             action_accelerators.set (ACTION_CLOSE_TAB, "<Control>w");
             action_accelerators.set (ACTION_QUIT, "<Control>q");
+            action_accelerators.set (ACTION_ZOOM_DEFAULT, "<Control>0");
+            action_accelerators.set (ACTION_ZOOM_IN, "<Control>plus");
+            action_accelerators.set (ACTION_ZOOM_OUT, "<Control>minus");
         }
 
         construct {
@@ -613,12 +619,12 @@ namespace Scratch {
         }
 
         // Ctrl + scroll
-        public void zoom_in () {
+        public void action_zoom_in () {
              zooming (Gdk.ScrollDirection.UP);
         }
 
         // Ctrl + scroll
-        public void zoom_out () {
+        public void action_zoom_out () {
             zooming (Gdk.ScrollDirection.DOWN);
         }
 

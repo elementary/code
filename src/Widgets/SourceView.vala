@@ -84,29 +84,11 @@ namespace Scratch.Widgets {
 
             scroll_event.connect ((key_event) => {
                 if ((Gdk.ModifierType.CONTROL_MASK in key_event.state) && key_event.delta_y < 0) {
-                    Application.instance.get_last_window ().zoom_in ();
+                    Application.instance.get_last_window ().action_zoom_in ();
                     return true;
                 } else if ((Gdk.ModifierType.CONTROL_MASK in key_event.state) && key_event.delta_y > 0) {
-                    Application.instance.get_last_window ().zoom_out ();
+                    Application.instance.get_last_window ().action_zoom_out ();
                     return true;
-                }
-
-                return false;
-            });
-
-            key_press_event.connect ((key_event) => {
-                if (Gdk.ModifierType.CONTROL_MASK in key_event.state) {
-                    switch (key_event.keyval) {
-                        case Gdk.Key.plus:
-                            Application.instance.get_last_window ().zoom_in ();
-                            return true;
-                        case Gdk.Key.minus:
-                            Application.instance.get_last_window ().zoom_out ();
-                            return true;
-                        case 0x30:
-                            Application.instance.get_last_window ().set_default_zoom ();
-                            return true;
-                    }
                 }
 
                 return false;
