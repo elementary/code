@@ -1,7 +1,7 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /*
 * Copyright (c) 2013 Mario Guerriero <mefrio.g@gmail.com>
-*               2017 elementary LLC. <https://elementary.io>
+*               2017-2018 elementary LLC. <https://elementary.io>
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
