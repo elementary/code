@@ -26,7 +26,6 @@ namespace Scratch.Services {
         
         // Signals
         public signal void hook_window (Scratch.MainWindow window);
-        public signal void hook_main_menu (Gtk.Menu menu);
         public signal void hook_share_menu (Gtk.Menu menu);
         public signal void hook_toolbar (Scratch.Widgets.HeaderBar toolbar);
         public signal void hook_notebook_sidebar (Gtk.Notebook notebook);
@@ -73,7 +72,6 @@ namespace Scratch.Services {
         
         // Signals
         public signal void hook_window (Scratch.MainWindow window);
-        public signal void hook_main_menu (Gtk.Menu menu);
         public signal void hook_share_menu (Gtk.Menu menu);
         public signal void hook_toolbar (Scratch.Widgets.HeaderBar toolbar);
         public signal void hook_notebook_context (Gtk.Notebook notebook);
@@ -141,9 +139,7 @@ namespace Scratch.Services {
             this.hook_window.connect ((w) => {
                 plugin_iface.hook_window (w);
             });
-            this.hook_main_menu.connect ((m) => {
-                plugin_iface.hook_main_menu (m);
-            });
+
             this.hook_share_menu.connect ((m) => {
                 plugin_iface.hook_share_menu (m);
             });
