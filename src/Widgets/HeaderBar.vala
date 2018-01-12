@@ -1,7 +1,7 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /*
 * Copyright (c) 2013 Mario Guerriero <mefrio.g@gmail.com>
-*               2017 elementary LLC. <https://elementary.io>
+*               2017-2018 elementary LLC. <https://elementary.io>
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -61,16 +61,33 @@ namespace Scratch.Widgets {
             find_button.image = new Gtk.Image.from_icon_name ("edit-find", Gtk.IconSize.LARGE_TOOLBAR);
             find_button.tooltip_text = _("Find…");
 
-            var zoom_default = new Gtk.Button.from_icon_name ("zoom-original", Gtk.IconSize.LARGE_TOOLBAR);
-            zoom_default.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_DEFAULT;
-            zoom_default.tooltip_text = _("Zoom 1:1");
-
             share_menu = new Gtk.Menu ();
             share_app_menu = new Gtk.MenuButton ();
             share_app_menu.image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
             share_app_menu.no_show_all = true;
             share_app_menu.tooltip_text = _("Share");
             share_app_menu.set_popup (share_menu);
+
+            var zoom_out_button = new Gtk.Button.from_icon_name ("zoom-out-symbolic", Gtk.IconSize.MENU);
+            zoom_out_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_OUT;
+            zoom_out_button.tooltip_text = _("Zoom Out");
+
+            var zoom_default_button = new Gtk.Button.with_label ("100%");
+            zoom_default_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_DEFAULT;
+            zoom_default_button.tooltip_text = _("Zoom 1:1");
+
+            var zoom_in_button = new Gtk.Button.from_icon_name ("zoom-in-symbolic", Gtk.IconSize.MENU);
+            zoom_in_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_IN;
+            zoom_in_button.tooltip_text = _("Zoom In");
+
+            var font_size_grid = new Gtk.Grid ();
+            font_size_grid.column_homogeneous = true;
+            font_size_grid.hexpand = true;
+            font_size_grid.margin = 12;
+            font_size_grid.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+            font_size_grid.add (zoom_out_button);
+            font_size_grid.add (zoom_default_button);
+            font_size_grid.add (zoom_in_button);
 
             var new_view_menuitem = new Gtk.ModelButton ();
             new_view_menuitem.text = _("Add New View");
@@ -85,11 +102,13 @@ namespace Scratch.Widgets {
             preferences_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_PREFERENCES;
 
             var menu_grid = new Gtk.Grid ();
-            menu_grid.margin_top = menu_grid.margin_bottom = 3;
+            menu_grid.margin_bottom = 3;
             menu_grid.orientation = Gtk.Orientation.VERTICAL;
+            menu_grid.width_request = 200;
+            menu_grid.add (font_size_grid);
+            menu_grid.add (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
             menu_grid.add (new_view_menuitem);
             menu_grid.add (remove_view_menuitem);
-            menu_grid.add (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
             menu_grid.add (preferences_menuitem);
             menu_grid.show_all ();
 
@@ -115,7 +134,6 @@ namespace Scratch.Widgets {
             pack_end (share_app_menu);
             pack_end (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
             pack_end (find_button);
-            pack_end (zoom_default);
 
             show_all ();
 
@@ -125,7 +143,7 @@ namespace Scratch.Widgets {
             settings.changed.connect (() => {
                 save_button.visible = !settings.autosave;
                 var last_window = Application.instance.get_last_window ();
-                zoom_default.visible = last_window.get_default_font_size () != last_window.get_current_font_size ();
+                zoom_default_button.label = "%.0f%%".printf (last_window.get_current_font_size () * 10);
             });
 
         }
