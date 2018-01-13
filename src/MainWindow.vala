@@ -154,6 +154,10 @@ namespace Scratch {
             action_accelerators.set (ACTION_ZOOM_IN, "<Control>KP_Add");
             action_accelerators.set (ACTION_ZOOM_OUT, "<Control>minus");
             action_accelerators.set (ACTION_ZOOM_OUT, "<Control>KP_Subtract");
+
+            var provider = new Gtk.CssProvider ();
+            provider.load_from_resource ("io/elementary/code/Application.css");
+            Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
         }
 
         construct {

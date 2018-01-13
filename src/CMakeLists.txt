@@ -36,7 +36,10 @@ GENERATE_HEADER
 )
 # tranlation stuff
 
-add_executable (${EXEC_NAME} ${VALA_C})
+include (GResource)
+glib_compile_resources (GLIB_RESOURCES_CSS SOURCE ../data/io.elementary.code.gresource.xml)
+
+add_executable (${EXEC_NAME} ${VALA_C} ${GLIB_RESOURCES_CSS})
 
 install (TARGETS ${EXEC_NAME} RUNTIME DESTINATION ${CMAKE_INSTALL_FULL_BINDIR})
 
