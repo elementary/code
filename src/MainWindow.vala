@@ -177,6 +177,11 @@ namespace Scratch {
                 app.set_accels_for_action (ACTION_PREFIX + action, action_accelerators[action].to_array ());
             }
 
+            var settings = new Settings ();
+            settings.changed["prefer_dark_style"].connect (() => {
+                Gtk.Settings.get_default().gtk_application_prefer_dark_theme = settings.prefer_dark_style;
+            });
+
             set_size_request (450, 400);
             set_hide_titlebar_when_maximized (false);
 
