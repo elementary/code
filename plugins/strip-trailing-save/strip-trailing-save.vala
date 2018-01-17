@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011-2012 Mario Guerriero <mefrio.g@gmail.com> This program
+ * Copyright (C) 2011-2018 Mario Guerriero <mefrio.g@gmail.com> This program
  * is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License version 3, as published by
  * the Free Software Foundation.
@@ -75,11 +75,14 @@ public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatabl
         buffer.get_end_iter (out end_iter);
         var text = buffer.get_text (start_iter, end_iter, true);
 
-        var regex = new Regex ("[ \t]+$", RegexCompileFlags.MULTILINE);
-        text = regex.replace (text, -1, 0, "");
-        buffer.begin_not_undoable_action ();
+        try {
+            var regex = new Regex ("[ \t]+$", RegexCompileFlags.MULTILINE);
+            text = regex.replace (text, -1, 0, "");
+        } catch (RegexError e) {
+            warning ("Error while replacing trailing whitespace: %s", e.message);
+        }
+
         buffer.set_text (text);
-        buffer.end_not_undoable_action ();
 
         buffer.get_iter_at_line_offset (out temp_iter, orig_line, orig_offset);
         buffer.place_cursor (temp_iter);
