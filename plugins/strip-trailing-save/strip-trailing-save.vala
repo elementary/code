@@ -64,16 +64,14 @@ public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatabl
      */
     void strip_trailing_spaces (Gtk.SourceBuffer buffer)
     {
-        TextIter start_iter, end_iter, temp_iter;
+        TextIter iter;
 
         var cursor_pos = buffer.cursor_position;
-        buffer.get_iter_at_offset (out temp_iter, cursor_pos);
-        var orig_line = temp_iter.get_line ();
-        var orig_offset = temp_iter.get_line_offset ();
+        buffer.get_iter_at_offset (out iter, cursor_pos);
+        var orig_line = iter.get_line ();
+        var orig_offset = iter.get_line_offset ();
 
-        buffer.get_start_iter (out start_iter);
-        buffer.get_end_iter (out end_iter);
-        var text = buffer.get_text (start_iter, end_iter, true);
+        var text = buffer.text;
 
         try {
             var regex = new Regex ("[ \t]+$", RegexCompileFlags.MULTILINE);
@@ -82,10 +80,10 @@ public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatabl
             warning ("Error while replacing trailing whitespace: %s", e.message);
         }
 
-        buffer.set_text (text);
+        buffer.text = text;
 
-        buffer.get_iter_at_line_offset (out temp_iter, orig_line, orig_offset);
-        buffer.place_cursor (temp_iter);
+        buffer.get_iter_at_line_offset (out iter, orig_line, orig_offset);
+        buffer.place_cursor (iter);
     }
 }
 
