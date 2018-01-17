@@ -61,48 +61,28 @@ public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatabl
     /*
      * Pull the buffer into an array and then work out which parts are to
      * be deleted.
-     * NOTE: there are other implementations of this method that use regular
-     * expressions.
      */
-    void strip_trailing_spaces(Gtk.SourceBuffer buffer)
+    void strip_trailing_spaces (Gtk.SourceBuffer buffer)
     {
-        char* ini, end, ptr;
-        int line_idx=0, whitespace=0, counter=0;
-        TextIter ini_iter, end_iter;
+        TextIter start_iter, end_iter, temp_iter;
 
-        buffer.get_start_iter(out ini_iter);
-        buffer.get_end_iter(out end_iter);
-        var text = buffer.get_text(ini_iter, end_iter, true);
-        line_idx = buffer.get_line_count();
-        ini = text.data;
-        ptr = end = ini+text.length;
+        var cursor_pos = buffer.cursor_position;
+        buffer.get_iter_at_offset (out temp_iter, cursor_pos);
+        var orig_line = temp_iter.get_line ();
+        var orig_offset = temp_iter.get_line_offset ();
 
-        while (ini<=ptr) {
-            if (*ptr=='\n' || ptr==end) {
-                line_idx--;
-                whitespace = counter = 0;
-                for (ptr--; ((*ptr).isspace() && (*ptr)!='\n') && ini<=ptr;
-                     ptr--)
-                {
-                    whitespace++;
-                    counter++;
-                }
-                for (; (*ptr)!='\n' && ini<=ptr; ptr--) {
-                    counter++;
-                }
-                if (whitespace==0) {
-                    continue;
-                }
-                ini_iter.set_line(line_idx);
-                end_iter.set_line(line_idx);
-                ini_iter.set_line_offset(counter-whitespace);
-                end_iter.set_line_offset(counter);
-                buffer.delete(ref ini_iter, ref end_iter);
-            }
-            else {
-                ptr--;
-            }
-        }
+        buffer.get_start_iter (out start_iter);
+        buffer.get_end_iter (out end_iter);
+        var text = buffer.get_text (start_iter, end_iter, true);
+
+        var regex = new Regex ("[ \t]+$", RegexCompileFlags.MULTILINE);
+        text = regex.replace (text, -1, 0, "");
+        buffer.begin_not_undoable_action ();
+        buffer.set_text (text);
+        buffer.end_not_undoable_action ();
+
+        buffer.get_iter_at_line_offset (out temp_iter, orig_line, orig_offset);
+        buffer.place_cursor (temp_iter);
     }
 }
 
