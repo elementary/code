@@ -77,6 +77,7 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
         start = null;
         end = null;
 
+        // Prefer block comments for multiline code
         if (num_lines > 1) {
             start = lang.get_metadata ("block-comment-start");
             end = lang.get_metadata ("block-comment-end");
@@ -84,6 +85,7 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
             if (start != null && end != null) {
                 return CommentType.BLOCK;
             } else {
+                // Block comments weren't available for this language, try a single line
                 return get_comment_tags (lang, 1, out start, out end);
             }
         } else {
@@ -92,7 +94,16 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
             if (start != null) {
                 return CommentType.LINE;
             } else {
-                return CommentType.NONE;
+                // Single line comments weren't available for this language, last ditch attempt at block comments
+                // on a single line
+                start = lang.get_metadata ("block-comment-start");
+                end = lang.get_metadata ("block-comment-end");
+
+                if (start != null && end != null) {
+                    return CommentType.BLOCK;
+                } else {
+                    return CommentType.NONE;
+                }
             }
         }
     }
