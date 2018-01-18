@@ -97,6 +97,10 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
         }
     }
 
+    // Returns whether or not all lines within a region are already commented.
+    // This is to detect whether to toggle comments on or off. If all lines are commented, then we want to remove
+    // those comments. If only some are commented, then the user likely selected a chunk of code that already contained
+    // a couple of comments. In that case, we still want to insert comments.
     private static bool lines_already_commented (Gtk.SourceBuffer buffer,
                                                  Gtk.TextIter start,
                                                  Gtk.TextIter end,
@@ -126,8 +130,49 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
                                       CommentType type,
                                       string? start_tag,
                                       string? end_tag) {
+        buffer.begin_user_action ();
 
+        var smark = buffer.create_mark ("start", start, false);
+        var imark = buffer.create_mark ("iter", start, false);
+        var emark = buffer.create_mark ("end", end, false);
 
+        Gtk.TextIter iter;
+
+        if (type == CommentType.BLOCK) {
+            buffer.insert (ref start, start_tag, -1);
+
+            buffer.get_iter_at_mark (out iter, emark);
+            buffer.insert (ref iter, end_tag, -1);
+        } else if (type == CommentType.LINE) {
+            buffer.get_iter_at_mark (out iter, imark);
+
+            for (int i = 0; i < num_lines; i++) {
+                if (!iter.ends_line ()) {
+                    buffer.insert (ref iter, start_tag, -1);
+                }
+
+                buffer.get_iter_at_mark (out iter, imark);
+                iter.forward_line ();
+                buffer.delete_mark (imark);
+                imark = buffer.create_mark ("iter", iter, false);
+            }
+        }
+
+        buffer.end_user_action ();
+        buffer.delete_mark (imark);
+
+        Gtk.TextIter new_start, new_end;
+
+        buffer.get_iter_at_mark (out new_start, smark);
+        buffer.get_iter_at_mark (out new_end, emark);
+
+        if (!new_start.starts_line ()) {
+            new_start.set_line_offset (0);
+        }
+
+        buffer.select_range (new_start, new_end);
+        buffer.delete_mark (smark);
+        buffer.delete_mark (emark);
     }
 
     private void on_toggle_comment () {
