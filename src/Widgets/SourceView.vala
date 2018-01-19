@@ -66,6 +66,10 @@ namespace Scratch.Widgets {
             source_buffer.highlight_syntax = true;
             source_buffer.mark_set.connect (on_mark_set);
 
+            var draw_spaces_tag = new Gtk.SourceTag ("draw_spaces");
+            draw_spaces_tag.draw_spaces = true;
+            source_buffer.tag_table.add (draw_spaces_tag);
+
             smart_home_end = Gtk.SourceSmartHomeEndType.AFTER;
 
             // Create common tags
@@ -256,20 +260,19 @@ namespace Scratch.Widgets {
             bool selected = buffer.get_selection_bounds (out start,out end);
             if (selected) {
                 selection_changed (start,end);
+                if (settings.draw_spaces == ScratchDrawSpacesState.FOR_SELECTION) {
+                    buffer.apply_tag_by_name ("draw_spaces", start, end);
+                }
             } else {
                 deselected ();
+                if (settings.draw_spaces == ScratchDrawSpacesState.FOR_SELECTION) {
+                    buffer.get_start_iter (out start);
+                    buffer.get_end_iter (out end);
+                    buffer.remove_tag_by_name ("draw_spaces", start, end);
+                }
             }
 
             return false;
-        }
-
-        public override void draw_layer (Gtk.TextViewLayer layer, Cairo.Context context) {
-            if (layer == Gtk.TextViewLayer.ABOVE && buffer.get_has_selection () && settings.draw_spaces == ScratchDrawSpacesState.FOR_SELECTION) {
-                context.save ();
-                Utils.draw_tabs_and_spaces (this, context);
-                context.restore ();
-            }
-            base.draw_layer (layer, context);
         }
     }
 }
