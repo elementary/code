@@ -176,10 +176,12 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
                                          CommentType type,
                                          string? start_tag,
                                          string? end_tag) {
+
+        buffer.begin_user_action ();
+
         if (type == CommentType.BLOCK) {
             var emark = buffer.create_mark ("end", end, false);
 
-            buffer.begin_user_action ();
             var iter = start;
             var head_iter = start;
             head_iter.forward_chars (start_tag.length);
@@ -210,8 +212,38 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
                 head_iter.backward_char ();
             }
 
-            buffer.end_user_action ();
+            buffer.delete_mark (emark);
+        } else if (type == CommentType.LINE) {
+            var imark = buffer.create_mark ("iter", start, false);
+            var lines_processed = 0;
+            var iter = start;
+            var head_iter = start;
+
+            while (lines_processed < num_lines) {
+                buffer.get_iter_at_mark (out iter, imark);
+                buffer.get_iter_at_mark (out head_iter, imark);
+                head_iter.forward_chars (start_tag.length);
+
+                var text = "";
+                while (!iter.ends_line ()) {
+                    text = buffer.get_slice (iter, head_iter, true);
+                    if (text == start_tag) {
+                        buffer.delete (ref head_iter, ref iter);
+                        break;
+                    }
+
+                    iter.forward_char ();
+                    head_iter.forward_char ();
+                }
+
+                buffer.get_iter_at_mark (out iter, imark);
+                iter.forward_line ();
+                lines_processed++;
+                imark = buffer.create_mark ("iter", iter, false);
+            }
         }
+
+        buffer.end_user_action ();
     }
 
     private static void add_comments (Gtk.SourceBuffer buffer,
