@@ -27,7 +27,6 @@ namespace Scratch.Dialogs {
         private Gtk.Stack main_stack;
         private Gtk.Switch highlight_current_line;
         private Gtk.Switch highlight_matching_brackets;
-        private Gtk.Switch prefer_dark_style;
         private Gtk.ComboBoxText style_scheme;
         private Gtk.Switch use_custom_font;
         private Gtk.FontButton select_font;
@@ -49,9 +48,6 @@ namespace Scratch.Dialogs {
         }
 
         construct {
-
-
-
             var indent_width = new Gtk.SpinButton.with_range (1, 24, 1);
             Scratch.settings.schema.bind ("indent-width", indent_width, "value", SettingsBindFlags.DEFAULT);
 
@@ -107,7 +103,6 @@ namespace Scratch.Dialogs {
         }
 
         private Gtk.Widget get_editor_box () {
-            var gtk_settings = Gtk.Settings.get_default ();
             var content = new Gtk.Grid ();
             content.row_spacing = 6;
             content.column_spacing = 12;
@@ -143,11 +138,6 @@ namespace Scratch.Dialogs {
 
             var font_header = new Granite.HeaderLabel (_("Font and Color Scheme"));
 
-            var gtk_theme_label = new SettingsLabel (_("Dark Theme:"));
-            prefer_dark_style = new Gtk.Switch();
-            Scratch.settings.schema.bind ("prefer-dark-style", prefer_dark_style, "active", SettingsBindFlags.DEFAULT);
-            prefer_dark_style.notify["active"].connect (() => { gtk_settings.gtk_application_prefer_dark_theme = settings.prefer_dark_style;});
-
             var style_scheme_label = new SettingsLabel (_("Color scheme:"));
             style_scheme = new Gtk.ComboBoxText ();
             populate_style_scheme ();
@@ -180,13 +170,11 @@ namespace Scratch.Dialogs {
             content.attach (show_right_margin, 1, 6, 1, 1);
             content.attach (right_margin_position, 2, 6, 1, 1);
             content.attach (font_header, 0, 7, 3, 1);
-            content.attach (gtk_theme_label, 0, 8, 1, 1);
-            content.attach (prefer_dark_style, 1, 8, 1, 1);
-            content.attach (style_scheme_label, 0, 9, 1, 1);
-            content.attach (style_scheme, 1, 9, 2, 1);
-            content.attach (use_custom_font_label , 0, 10, 1, 1);
-            content.attach (use_custom_font, 1, 10, 1, 1);
-            content.attach (select_font, 2, 10, 1, 1);
+            content.attach (style_scheme_label, 0, 8, 1, 1);
+            content.attach (style_scheme, 1, 8, 2, 1);
+            content.attach (use_custom_font_label , 0, 9, 1, 1);
+            content.attach (use_custom_font, 1, 9, 1, 1);
+            content.attach (select_font, 2, 9, 1, 1);
 
             return content;
         }

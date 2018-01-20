@@ -35,7 +35,6 @@ namespace Scratch {
         private static bool print_version = false;
         private static bool create_new_tab = false;
         private static bool create_new_window = false;
-        private static bool use_dark_theme = false;
 
         construct {
             flags |= ApplicationFlags.HANDLES_OPEN;

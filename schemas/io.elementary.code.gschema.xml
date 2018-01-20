@@ -129,11 +129,6 @@
 			<summary>Preferred Font</summary>
 			<description>Set the preferred font.</description>
 		</key>
-		<key name="prefer-dark-style" type="b">
-		    <default>false</default>
-		    <summary>Use Dark Theme</summary>
-		    <description>Whether Code should use the dark GTK theme variant</description>
-	    </key>
 		<key name="style-scheme" type="s">
 			<default>'solarized-light'</default>
 			<summary>Preferred Style Scheme</summary>
