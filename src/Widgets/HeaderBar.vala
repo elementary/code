@@ -36,38 +36,34 @@ namespace Scratch.Widgets {
         }
 
         construct {
-            var open_button = new Gtk.Button.from_icon_name ("document-open-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            var open_button = new Gtk.Button.from_icon_name ("document-open", Gtk.IconSize.LARGE_TOOLBAR);
             open_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN;
             open_button.tooltip_text = _("Open a file");
 
-            templates_button = new Gtk.Button.from_icon_name ("text-x-generic-template-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            templates_button = new Gtk.Button.from_icon_name ("text-x-generic-template", Gtk.IconSize.LARGE_TOOLBAR);
             templates_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TEMPLATES;
             templates_button.tooltip_text = _("Project templates");
 
-            var save_button = new Gtk.Button.from_icon_name ("document-save-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            var save_button = new Gtk.Button.from_icon_name ("document-save", Gtk.IconSize.LARGE_TOOLBAR);
             save_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SAVE;
             save_button.tooltip_text = _("Save this file");
 
-            var save_as_button = new Gtk.Button.from_icon_name ("document-save-as-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            var save_as_button = new Gtk.Button.from_icon_name ("document-save-as", Gtk.IconSize.LARGE_TOOLBAR);
             save_as_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SAVE_AS;
             save_as_button.tooltip_text = _("Save this file with a different name");
 
-            var revert_button = new Gtk.Button.from_icon_name ("document-revert-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            var revert_button = new Gtk.Button.from_icon_name ("document-revert", Gtk.IconSize.LARGE_TOOLBAR);
             revert_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_REVERT;
             revert_button.tooltip_text = _("Restore this file");
 
             find_button = new Gtk.ToggleButton ();
             find_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SHOW_FIND;
-            find_button.image = new Gtk.Image.from_icon_name ("edit-find-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            find_button.image = new Gtk.Image.from_icon_name ("edit-find", Gtk.IconSize.LARGE_TOOLBAR);
             find_button.tooltip_text = _("Find…");
-
-            var zoom_default = new Gtk.Button.from_icon_name ("zoom-original-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-            zoom_default.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_DEFAULT;
-            zoom_default.tooltip_text = _("Zoom 1:1");
 
             share_menu = new Gtk.Menu ();
             share_app_menu = new Gtk.MenuButton ();
-            share_app_menu.image = new Gtk.Image.from_icon_name ("document-export-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            share_app_menu.image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
             share_app_menu.no_show_all = true;
             share_app_menu.tooltip_text = _("Share");
             share_app_menu.set_popup (share_menu);
@@ -120,7 +116,7 @@ namespace Scratch.Widgets {
             menu.add (menu_grid);
 
             var app_menu = new Gtk.MenuButton ();
-            app_menu.image = new Gtk.Image.from_icon_name ("open-menu-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            app_menu.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
             app_menu.tooltip_text = _("Menu");
             app_menu.popover = menu;
 
