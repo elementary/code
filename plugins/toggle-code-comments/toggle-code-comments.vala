@@ -69,33 +69,32 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
         return null;
     }
 
-    private static CommentType get_comment_tags (Gtk.SourceLanguage lang,
-                                                 uint num_lines,
-                                                 out string? start,
-                                                 out string? end) {
-
+    private static CommentType get_comment_tags_for_lang (Gtk.SourceLanguage lang,
+                                                          CommentType type,
+                                                          out string? start,
+                                                          out string? end) {
         start = null;
         end = null;
 
-        // Prefer block comments for multiline code
-        if (num_lines > 1) {
+        if (type == CommentType.BLOCK) {
             start = lang.get_metadata ("block-comment-start");
             end = lang.get_metadata ("block-comment-end");
 
             if (start != null && end != null) {
                 return CommentType.BLOCK;
             } else {
-                // Block comments weren't available for this language, try a single line
-                return get_comment_tags (lang, 1, out start, out end);
+                start = lang.get_metadata ("line-comment-start");
+                if (start != null) {
+                    return CommentType.LINE;
+                } else {
+                    return CommentType.NONE;
+                }
             }
-        } else {
+        } else if (type == CommentType.LINE) {
             start = lang.get_metadata ("line-comment-start");
-
             if (start != null) {
                 return CommentType.LINE;
             } else {
-                // Single line comments weren't available for this language, last ditch attempt at block comments
-                // on a single line
                 start = lang.get_metadata ("block-comment-start");
                 end = lang.get_metadata ("block-comment-end");
 
@@ -106,21 +105,68 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
                 }
             }
         }
+
+        return CommentType.NONE;
+    }
+
+    private static CommentType get_preferred_comment_tags (Gtk.SourceLanguage lang,
+                                                           uint num_lines,
+                                                           out string? start,
+                                                           out string? end) {
+
+        start = null;
+        end = null;
+
+        // Prefer block comments for multiline code
+        if (num_lines > 1) {
+            return get_comment_tags_for_lang (lang, CommentType.BLOCK, out start, out end);
+        } else {
+            return get_comment_tags_for_lang (lang, CommentType.LINE, out start, out end);
+        }
     }
 
     // Returns whether or not all lines within a region are already commented.
     // This is to detect whether to toggle comments on or off. If all lines are commented, then we want to remove
     // those comments. If only some are commented, then the user likely selected a chunk of code that already contained
     // a couple of comments. In that case, we still want to insert comments.
-    private static bool lines_already_commented (Gtk.SourceBuffer buffer,
-                                                 Gtk.TextIter start,
-                                                 Gtk.TextIter end,
-                                                 uint num_lines,
-                                                 CommentType type,
-                                                 string? start_tag,
-                                                 string? end_tag) {
+    private static CommentType lines_already_commented (Gtk.SourceBuffer buffer,
+                                                        Gtk.TextIter start,
+                                                        Gtk.TextIter end,
+                                                        uint num_lines,
+                                                        Gtk.SourceLanguage lang) {
 
-        return false;
+        string start_tag, end_tag;
+        var type = get_comment_tags_for_lang (lang, CommentType.BLOCK, out start_tag, out end_tag);
+        var selection = buffer.get_slice (start, end, true);
+        if (type == CommentType.BLOCK) {
+            var regex_string = """^\s*(?:%s)+[\s\S]*(?:%s)+$""";
+            regex_string = regex_string.printf (Regex.escape_string (start_tag), Regex.escape_string (end_tag));
+            if (Regex.match_simple (regex_string, selection)) {
+                return CommentType.BLOCK;
+            }
+        }
+
+        type = get_comment_tags_for_lang (lang, CommentType.LINE, out start_tag, out end_tag);
+        if (type == CommentType.LINE) {
+            var regex_string = """^\s*(?:%s)+.*$""";
+            regex_string = regex_string.printf (Regex.escape_string (start_tag));
+
+            string[] lines = Regex.split_simple ("""[\r\n]""", selection);
+            if (lines.length != num_lines) {
+                warning ("Line number mismatch when trying to detect comments");
+                return CommentType.NONE;
+            }
+
+            foreach (var line in lines) {
+                if (!Regex.match_simple (regex_string, line)) {
+                    return CommentType.NONE;
+                }
+            }
+
+            return CommentType.LINE;
+        }
+
+        return CommentType.NONE;
     }
 
     private static void remove_comments (Gtk.SourceBuffer buffer,
@@ -217,17 +263,18 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
                 num_lines = end.get_line () - start.get_line () + 1;
             }
 
-            var lang = buffer.get_language ();
             string? start_tag, end_tag;
+            var lang = buffer.get_language ();
+            var lines_commented = lines_already_commented (buffer, start, end, num_lines, lang);
 
-            var type = get_comment_tags (lang, num_lines, out start_tag, out end_tag);
-
-            if (type != CommentType.NONE) {
-                var lines_commented = lines_already_commented (buffer, start, end, num_lines, type, start_tag, end_tag);
-
-                if (lines_commented) {
-                    remove_comments (buffer, start, end, num_lines, type, start_tag, end_tag);
-                } else {
+            if (lines_commented != CommentType.NONE) {
+                var existing_comment_tags = get_comment_tags_for_lang (lang, lines_commented, out start_tag, out end_tag);
+                if (lines_commented == existing_comment_tags) {
+                    remove_comments (buffer, start, end, num_lines, lines_commented, start_tag, end_tag);
+                }
+            } else {
+                var type = get_preferred_comment_tags (lang, num_lines, out start_tag, out end_tag);
+                if (type != CommentType.NONE) {
                     add_comments (buffer, start, end, num_lines, type, start_tag, end_tag);
                 }
             }
