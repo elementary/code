@@ -136,6 +136,7 @@ namespace Scratch.Widgets {
             highlight_current_line = Scratch.settings.highlight_current_line;
             var source_buffer = (Gtk.SourceBuffer) buffer;
             source_buffer.highlight_matching_brackets = Scratch.settings.highlight_matching_brackets;
+
             if (settings.draw_spaces == ScratchDrawSpacesState.ALWAYS) {
                 draw_spaces = Gtk.SourceDrawSpacesFlags.TAB;
                 draw_spaces |= Gtk.SourceDrawSpacesFlags.SPACE;
@@ -144,6 +145,8 @@ namespace Scratch.Widgets {
                 draw_spaces = Gtk.SourceDrawSpacesFlags.TAB;
                 draw_spaces = Gtk.SourceDrawSpacesFlags.NBSP;
             }
+
+            update_draw_spaces ();
 
             insert_spaces_instead_of_tabs = Scratch.settings.spaces_instead_of_tabs;
             tab_width = (uint) Scratch.settings.indent_width;
@@ -232,14 +235,33 @@ namespace Scratch.Widgets {
             return buffer.text;
         }
 
+        private void update_draw_spaces () {
+            Gtk.TextIter doc_start, doc_end;
+            buffer.get_start_iter (out doc_start);
+            buffer.get_end_iter (out doc_end);
+            buffer.remove_tag_by_name ("draw_spaces", doc_start, doc_end);
+
+            Gtk.TextIter start, end;
+            var selection = buffer.get_selection_bounds (out start, out end);
+
+            if (selection && settings.draw_spaces == ScratchDrawSpacesState.FOR_SELECTION) {
+                buffer.apply_tag_by_name ("draw_spaces", start, end);
+            }
+        }
+
         void on_mark_set (Gtk.TextIter loc, Gtk.TextMark mar) {
             // Weed out user movement for text selection changes
             Gtk.TextIter start, end;
-            buffer.get_selection_bounds (out start,out end);
+            buffer.get_selection_bounds (out start, out end);
 
-            if (start == last_select_start_iter && end == last_select_end_iter) {
+            if (start.equal (last_select_start_iter) && end.equal (last_select_end_iter)) {
                 return;
             }
+
+            last_select_start_iter.assign (start);
+            last_select_end_iter.assign (end);
+
+            update_draw_spaces ();
 
             if (selection_changed_timer !=0 && MainContext.get_thread_default ().find_source_by_id (selection_changed_timer) != null) {
                 Source.remove (selection_changed_timer);
@@ -260,16 +282,8 @@ namespace Scratch.Widgets {
             bool selected = buffer.get_selection_bounds (out start,out end);
             if (selected) {
                 selection_changed (start,end);
-                if (settings.draw_spaces == ScratchDrawSpacesState.FOR_SELECTION) {
-                    buffer.apply_tag_by_name ("draw_spaces", start, end);
-                }
             } else {
                 deselected ();
-                if (settings.draw_spaces == ScratchDrawSpacesState.FOR_SELECTION) {
-                    buffer.get_start_iter (out start);
-                    buffer.get_end_iter (out end);
-                    buffer.remove_tag_by_name ("draw_spaces", start, end);
-                }
             }
 
             return false;
