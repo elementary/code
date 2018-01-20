@@ -176,8 +176,42 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
                                          CommentType type,
                                          string? start_tag,
                                          string? end_tag) {
+        if (type == CommentType.BLOCK) {
+            var emark = buffer.create_mark ("end", end, false);
 
+            buffer.begin_user_action ();
+            var iter = start;
+            var head_iter = start;
+            head_iter.forward_chars (start_tag.length);
 
+            while (!iter.ends_line ()) {
+                var text = buffer.get_slice (iter, head_iter, true);
+                if (text == start_tag) {
+                    buffer.delete (ref iter, ref head_iter);
+                    break;
+                }
+
+                iter.forward_char ();
+                head_iter.forward_char ();
+            }
+
+            buffer.get_iter_at_mark (out iter, emark);
+            head_iter = iter;
+            head_iter.backward_chars (end_tag.length);
+
+            while (!iter.starts_line ()) {
+                var text = buffer.get_slice (head_iter, iter, true);
+                if (text == end_tag) {
+                    buffer.delete (ref head_iter, ref iter);
+                    break;
+                }
+
+                iter.backward_char ();
+                head_iter.backward_char ();
+            }
+
+            buffer.end_user_action ();
+        }
     }
 
     private static void add_comments (Gtk.SourceBuffer buffer,
