@@ -278,7 +278,6 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
             new_start.set_line_offset (0);
         }
 
-        buffer.select_range (new_start, new_end);
         buffer.delete_mark (smark);
         buffer.delete_mark (emark);
     }
