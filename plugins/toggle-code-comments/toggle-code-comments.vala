@@ -109,22 +109,6 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
         return CommentType.NONE;
     }
 
-    private static CommentType get_preferred_comment_tags (Gtk.SourceLanguage lang,
-                                                           uint num_lines,
-                                                           out string? start,
-                                                           out string? end) {
-
-        start = null;
-        end = null;
-
-        // Prefer block comments for multiline code
-        if (num_lines > 1) {
-            return get_comment_tags_for_lang (lang, CommentType.BLOCK, out start, out end);
-        } else {
-            return get_comment_tags_for_lang (lang, CommentType.LINE, out start, out end);
-        }
-    }
-
     // Returns whether or not all lines within a region are already commented.
     // This is to detect whether to toggle comments on or off. If all lines are commented, then we want to remove
     // those comments. If only some are commented, then the user likely selected a chunk of code that already contained
@@ -158,7 +142,8 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
             }
 
             foreach (var line in lines) {
-                if (!Regex.match_simple (regex_string, line)) {
+                var empty_line = line.chomp ().chug () == "";
+                if (!Regex.match_simple (regex_string, line) && !empty_line) {
                     return CommentType.NONE;
                 }
             }
@@ -339,7 +324,7 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
                     remove_comments (buffer, start, end, num_lines, lines_commented, start_tag, end_tag);
                 }
             } else {
-                var type = get_preferred_comment_tags (lang, num_lines, out start_tag, out end_tag);
+                var type = get_comment_tags_for_lang (lang, CommentType.LINE, out start_tag, out end_tag);
                 if (type != CommentType.NONE) {
                     add_comments (buffer, start, end, num_lines, type, start_tag, end_tag);
                 }
