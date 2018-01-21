@@ -256,6 +256,16 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
 
             for (int i = 0; i < num_lines; i++) {
                 if (!iter.ends_line ()) {
+                    var head_iter = iter;
+                    head_iter.forward_char ();
+
+                    if (buffer.get_slice (iter, head_iter, true).chomp () == "") {
+                        while (buffer.get_slice (iter, head_iter, true).chomp () == "") {
+                            iter.forward_char ();
+                            head_iter.forward_char ();
+                        }
+                    }
+
                     buffer.insert (ref iter, start_tag, -1);
                 }
 
