@@ -690,6 +690,10 @@ namespace Scratch {
             if (preferences_dialog == null) {
                 preferences_dialog = new Scratch.Dialogs.Preferences (this, plugins);
                 preferences_dialog.show_all ();
+
+                preferences_dialog.destroy.connect (() => {
+                    preferences_dialog = null;
+                });
             }
 
             preferences_dialog.present ();
