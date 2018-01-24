@@ -240,17 +240,45 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
         Gtk.TextIter iter;
         buffer.get_iter_at_mark (out iter, imark);
 
+        int min_indent = int.MAX;
+
         for (int i = 0; i < num_lines; i++) {
+            int cur_indent = 0;
+
             if (!iter.ends_line ()) {
                 var head_iter = iter;
                 head_iter.forward_char ();
 
-                if (buffer.get_slice (iter, head_iter, true).chomp () == "") {
-                    while (buffer.get_slice (iter, head_iter, true).chomp () == "") {
-                        iter.forward_char ();
-                        head_iter.forward_char ();
+                while (buffer.get_slice (iter, head_iter, true).chomp () == "") {
+                    cur_indent++;
+
+                    if (cur_indent > min_indent) {
+                        break;
                     }
+
+                    iter.forward_char ();
+                    head_iter.forward_char ();
                 }
+
+                if (cur_indent < min_indent) {
+                    min_indent = cur_indent;
+                }
+            }
+
+            buffer.get_iter_at_mark (out iter, imark);
+            iter.forward_line ();
+            buffer.delete_mark (imark);
+            imark = buffer.create_mark ("iter", iter, false);
+        }
+
+        buffer.get_iter_at_mark (out iter, imark);
+        iter.backward_lines ((int)num_lines);
+        buffer.delete_mark (imark);
+        imark = buffer.create_mark ("iter", iter, false);
+        
+        for (int i = 0; i < num_lines; i++) {
+            if (!iter.ends_line ()) {
+                iter.forward_chars (min_indent);
 
                 buffer.insert (ref iter, start_tag, -1);
             }
