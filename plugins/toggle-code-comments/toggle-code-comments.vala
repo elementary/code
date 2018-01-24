@@ -164,17 +164,18 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
 
         buffer.begin_user_action ();
 
-        if (type == CommentType.BLOCK) {
-            var emark = buffer.create_mark ("end", end, false);
+        var imark = buffer.create_mark ("iter", start, false);
+        var lines_processed = 0;
+        var iter = start;
+        var head_iter = start;
 
-            var iter = start;
-            var head_iter = start;
-            head_iter.forward_chars (start_tag.length);
+        while (lines_processed < num_lines) {
+            buffer.get_iter_at_mark (out iter, imark);
+            buffer.get_iter_at_mark (out head_iter, imark);
+            head_iter.forward_char ();
 
             while (!iter.ends_line ()) {
-                var text = buffer.get_slice (iter, head_iter, true);
-                if (text == start_tag) {
-                    buffer.delete (ref iter, ref head_iter);
+                if (buffer.get_slice (iter, head_iter, true).chomp () != "") {
                     break;
                 }
 
@@ -182,51 +183,43 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
                 head_iter.forward_char ();
             }
 
-            buffer.get_iter_at_mark (out iter, emark);
-            head_iter = iter;
-            head_iter.backward_chars (end_tag.length);
-
-            while (!iter.starts_line ()) {
-                var text = buffer.get_slice (head_iter, iter, true);
-                if (text == end_tag) {
-                    buffer.delete (ref head_iter, ref iter);
-                    break;
+            if (!iter.ends_line ()) {
+                head_iter.forward_chars (start_tag.length - 1);
+                if (buffer.get_slice (iter, head_iter, true) == start_tag) {
+                    buffer.delete (ref iter, ref head_iter);
                 }
-
-                iter.backward_char ();
-                head_iter.backward_char ();
             }
 
-            buffer.delete_mark (emark);
-        } else if (type == CommentType.LINE) {
-            var imark = buffer.create_mark ("iter", start, false);
-            var lines_processed = 0;
-            var iter = start;
-            var head_iter = start;
-
-            while (lines_processed < num_lines) {
+            if (type == CommentType.BLOCK) {
                 buffer.get_iter_at_mark (out iter, imark);
-                buffer.get_iter_at_mark (out head_iter, imark);
-                head_iter.forward_chars (start_tag.length);
+                iter.forward_to_line_end ();
+                head_iter = iter;
+                head_iter.backward_char ();
 
-                var text = "";
-                while (!iter.ends_line ()) {
-                    text = buffer.get_slice (iter, head_iter, true);
-                    if (text == start_tag) {
-                        buffer.delete (ref head_iter, ref iter);
+                while (!iter.starts_line ()) {
+                    if (buffer.get_slice (head_iter, iter, true).chomp () != "") {
                         break;
                     }
 
-                    iter.forward_char ();
-                    head_iter.forward_char ();
+                    iter.backward_char ();
+                    head_iter.backward_char ();
                 }
 
-                buffer.get_iter_at_mark (out iter, imark);
-                iter.forward_line ();
-                lines_processed++;
-                imark = buffer.create_mark ("iter", iter, false);
+                if (!iter.starts_line ()) {
+                    head_iter.backward_chars (end_tag.length - 1);
+                    if (buffer.get_slice (head_iter, iter, true) == end_tag) {
+                        buffer.delete (ref head_iter, ref iter);
+                    }
+                }
             }
+
+            buffer.get_iter_at_mark (out iter, imark);
+            iter.forward_line ();
+            lines_processed++;
+            imark = buffer.create_mark ("iter", iter, false);
         }
+
+        buffer.delete_mark (imark);
 
         buffer.end_user_action ();
     }
@@ -245,35 +238,32 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
         var emark = buffer.create_mark ("end", end, false);
 
         Gtk.TextIter iter;
+        buffer.get_iter_at_mark (out iter, imark);
 
-        if (type == CommentType.BLOCK) {
-            buffer.insert (ref start, start_tag, -1);
+        for (int i = 0; i < num_lines; i++) {
+            if (!iter.ends_line ()) {
+                var head_iter = iter;
+                head_iter.forward_char ();
 
-            buffer.get_iter_at_mark (out iter, emark);
-            buffer.insert (ref iter, end_tag, -1);
-        } else if (type == CommentType.LINE) {
-            buffer.get_iter_at_mark (out iter, imark);
-
-            for (int i = 0; i < num_lines; i++) {
-                if (!iter.ends_line ()) {
-                    var head_iter = iter;
-                    head_iter.forward_char ();
-
-                    if (buffer.get_slice (iter, head_iter, true).chomp () == "") {
-                        while (buffer.get_slice (iter, head_iter, true).chomp () == "") {
-                            iter.forward_char ();
-                            head_iter.forward_char ();
-                        }
+                if (buffer.get_slice (iter, head_iter, true).chomp () == "") {
+                    while (buffer.get_slice (iter, head_iter, true).chomp () == "") {
+                        iter.forward_char ();
+                        head_iter.forward_char ();
                     }
-
-                    buffer.insert (ref iter, start_tag, -1);
                 }
 
-                buffer.get_iter_at_mark (out iter, imark);
-                iter.forward_line ();
-                buffer.delete_mark (imark);
-                imark = buffer.create_mark ("iter", iter, false);
+                buffer.insert (ref iter, start_tag, -1);
             }
+
+            if (type == CommentType.BLOCK) {
+                iter.forward_to_line_end ();
+                buffer.insert (ref iter, end_tag, -1);
+            }
+
+            buffer.get_iter_at_mark (out iter, imark);
+            iter.forward_line ();
+            buffer.delete_mark (imark);
+            imark = buffer.create_mark ("iter", iter, false);
         }
 
         buffer.end_user_action ();
