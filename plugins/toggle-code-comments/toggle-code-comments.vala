@@ -356,6 +356,10 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
                     add_comments (buffer, start, end, num_lines, type, start_tag, end_tag);
                 }
             }
+
+            Gtk.TextIter select_iter;
+            buffer.get_iter_at_offset (out select_iter, buffer.cursor_position);
+            buffer.select_range (select_iter, select_iter);
         }
     }
 }
