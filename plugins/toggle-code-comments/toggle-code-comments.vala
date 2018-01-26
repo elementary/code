@@ -184,9 +184,15 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
             }
 
             if (!iter.ends_line ()) {
-                head_iter.forward_chars (start_tag.length - 1);
-                if (buffer.get_slice (iter, head_iter, true) == start_tag) {
+                head_iter.forward_chars (start_tag.length);
+                if (buffer.get_slice (iter, head_iter, true) == start_tag + " ") {
                     buffer.delete (ref iter, ref head_iter);
+                } else {
+                    head_iter.backward_char ();
+
+                    if (buffer.get_slice (iter, head_iter, true) == start_tag) {
+                        buffer.delete (ref iter, ref head_iter);
+                    }
                 }
             }
 
@@ -240,6 +246,12 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
         Gtk.TextIter iter;
         buffer.get_iter_at_mark (out iter, imark);
 
+        var formatted_start_tag = start_tag;
+
+        if (type == CommentType.LINE) {
+            formatted_start_tag = formatted_start_tag + " ";
+        }
+
         int min_indent = int.MAX;
 
         for (int i = 0; i < num_lines; i++) {
@@ -275,12 +287,11 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
         iter.backward_lines ((int)num_lines);
         buffer.delete_mark (imark);
         imark = buffer.create_mark ("iter", iter, false);
-        
+
         for (int i = 0; i < num_lines; i++) {
             if (!iter.ends_line ()) {
                 iter.forward_chars (min_indent);
-
-                buffer.insert (ref iter, start_tag, -1);
+                buffer.insert (ref iter, formatted_start_tag, -1);
             }
 
             if (type == CommentType.BLOCK) {
