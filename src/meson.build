@@ -16,7 +16,7 @@ config_header = configure_file(
     configuration : conf_data
 )
 
-photos_files = files(
+code_files = files(
     'Application.vala',
     'DrawSpacesUtils.vala',
     'MainWindow.vala',
@@ -41,7 +41,7 @@ photos_files = files(
 
 executable(
     meson.project_name(),
-    photos_files,
+    code_files,
     library_files,
     config_header,
     dependencies: dependencies,

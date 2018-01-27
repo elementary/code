@@ -39,7 +39,6 @@ namespace Scratch {
         construct {
             flags |= ApplicationFlags.HANDLES_OPEN;
             flags |= ApplicationFlags.HANDLES_COMMAND_LINE;
-            build_data_dir = Constants.DATADIR;
             build_version = Constants.VERSION;
 
             program_name = app_cmd_name;
