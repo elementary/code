@@ -41,11 +41,17 @@ executable(
     install: true
 )
 
-library(
+codecore = library(
     'codecore',
     code_files,
     config_header,
     dependencies: dependencies,
     install: true,
     install_dir: [true, true, true]
+)
+
+codecore_dep = declare_dependency(
+    link_with: codecore,
+    dependencies: dependencies,
+    include_directories: [include_directories('.')]
 )
