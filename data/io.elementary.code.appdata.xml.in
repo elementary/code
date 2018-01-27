@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2015 elementary, LLC <contact@elementary.io> -->
+<!-- Copyright 2018 elementary, LLC <contact@elementary.io> -->
 <component type="desktop">
-  <id>@CMAKE_PROJECT_NAME@.desktop</id>
+  <id>io.elementary.code.desktop</id>
   <metadata_license>CC0-1/0</metadata_license>
   <project_group>elementary</project_group>
   <project_license>GPL-3.0+</project_license>
-  <_name>Code</_name>
-  <_summary>The editor that works</_summary>
+  <name>Code</name>
+  <summary>The editor that works</summary>
   <description>
-    <_p>
+    <p>
       Code is the editor that works for you. It auto-saves your files,
       meaning they're always up-to-date. Plus it remembers your tabs so you never
       lose your spot, even in between sessions.
-    </_p>
-    <_p>
+    </p>
+    <p>
       Make it yours. Code is written from the ground up to be extensible. Keep
       things super lightweight and simple, or install extensions to turn Code
       into a full-blown IDE; it's your choice. And with a handful of useful preferences,
       you can tweak the behavior and interface to your liking.
-    </_p>
-    <_p>
+    </p>
+    <p>
       It's elementary. Code is made to be the perfect editor for elementary,
       meaning it closely follows the high standards of design, speed, and consistency.
       It's sexy, but not distracting.
-    </_p>
-    <_p>
+    </p>
+    <p>
       Works with your language. Whether you're crafting code in Vala, scripting
       with PHP, or marking things up in HTML, Code has you covered. Experience
       full syntax highlighting with nearly all programming, scripting, and markup
       languages.
-    </_p>
-    <_p>
+    </p>
+    <p>
       Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, .Desktop,
       Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, Objective
       C, Pascal, Perl, Python, Ruby, XML.
-    </_p>
-    <_p>
+    </p>
+    <p>
       Additional features include:
-    </_p>
+    </p>
     <ul>
-      <_li>syntax highlighting with gtksourceview-3</_li>
-      <_li>a find bar to search the words in the files</_li>
-      <_li>tab and split documents system</_li>
-      <_li>lots of others</_li>
+      <li>syntax highlighting with gtksourceview-3</li>
+      <li>a find bar to search the words in the files</li>
+      <li>tab and split documents system</li>
+      <li>lots of others</li>
     </ul>
   </description>
   <provides>
-    <binary>@CMAKE_PROJECT_NAME@</binary>
+    <binary>io.elementary.code</binary>
   </provides>
   <developer_name>elementary LLC.</developer_name>
   <url type="homepage">http://elementary.io/</url>
