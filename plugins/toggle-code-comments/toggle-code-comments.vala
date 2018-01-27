@@ -236,7 +236,8 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
                                       uint num_lines,
                                       CommentType type,
                                       string? start_tag,
-                                      string? end_tag) {
+                                      string? end_tag,
+                                      bool select) {
         buffer.begin_user_action ();
 
         var smark = buffer.create_mark ("start", start, false);
@@ -305,18 +306,21 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
             imark = buffer.create_mark ("iter", iter, false);
         }
 
-        buffer.end_user_action ();
-        buffer.delete_mark (imark);
+        if (select) {
+            Gtk.TextIter new_start, new_end;
 
-        Gtk.TextIter new_start, new_end;
+            buffer.get_iter_at_mark (out new_start, smark);
+            buffer.get_iter_at_mark (out new_end, emark);
 
-        buffer.get_iter_at_mark (out new_start, smark);
-        buffer.get_iter_at_mark (out new_end, emark);
+            if (!new_start.starts_line ()) {
+                new_start.set_line_offset (0);
+            }
 
-        if (!new_start.starts_line ()) {
-            new_start.set_line_offset (0);
+            buffer.select_range (new_start, new_end);
         }
 
+        buffer.end_user_action ();
+        buffer.delete_mark (imark);
         buffer.delete_mark (smark);
         buffer.delete_mark (emark);
     }
@@ -332,22 +336,13 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
             if (!sel) {
                 buffer.get_iter_at_mark (out start, buffer.get_insert ());
                 start.set_line_offset (0);
-                end.assign (start);
+                end = start;
                 end.forward_to_line_end ();
                 num_lines = 1;
             } else {
                 // Move the start and end of the selection to the appropriate start/end of lines
-                if (start.ends_line ()) {
-                    start.forward_line ();
-                } else if (!start.starts_line ()) {
-                    start.set_line_offset (0);
-                }
-
-                if (end.starts_line ()) {
-                    end.backward_char ();
-                } else if (!end.ends_line ()) {
-                    end.forward_to_line_end ();
-                }
+                start.set_line_offset (0);
+                end.forward_to_line_end ();
 
                 num_lines = end.get_line () - start.get_line () + 1;
             }
@@ -364,13 +359,9 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
             } else {
                 var type = get_comment_tags_for_lang (lang, CommentType.LINE, out start_tag, out end_tag);
                 if (type != CommentType.NONE) {
-                    add_comments (buffer, start, end, num_lines, type, start_tag, end_tag);
+                    add_comments (buffer, start, end, num_lines, type, start_tag, end_tag, sel);
                 }
             }
-
-            Gtk.TextIter select_iter;
-            buffer.get_iter_at_offset (out select_iter, buffer.cursor_position);
-            buffer.select_range (select_iter, select_iter);
         }
     }
 }
