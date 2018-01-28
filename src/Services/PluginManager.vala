@@ -94,7 +94,6 @@ namespace Scratch.Services {
             /* Let's init the engine */
             engine = Peas.Engine.get_default ();
             engine.enable_loader ("python");
-            engine.enable_loader ("gjs");
             engine.add_search_path (Constants.PLUGINDIR, null);
             settings.bind("plugins-enabled", engine, "loaded-plugins", SettingsBindFlags.DEFAULT);
             
@@ -118,7 +117,6 @@ namespace Scratch.Services {
                 /* The core now */
                 engine_core = new Peas.Engine ();
                 engine_core.enable_loader ("python");
-                engine_core.enable_loader ("gjs");
                 engine_core.add_search_path (Constants.PLUGINDIR + "/" + set_name + "/", null);
 
                 var core_list = engine_core.get_plugin_list ().copy ();
