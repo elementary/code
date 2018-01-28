@@ -1,15 +1,11 @@
-module_name = 'browser-preview'
+module_name = 'highlight-word-selection'
 
 module_files = [
-    'browser-preview.vala',
-    'BrowserView.vala'
+    'highlight-word-selection.vala',
 ]
-
-webkit_dep = dependency('webkit2gtk-4.0')
 
 module_deps = [
     codecore_dep,
-    webkit_dep,
 ]
 
 shared_module(

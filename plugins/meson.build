@@ -1,2 +1,7 @@
 subdir('brackets-completion')
 subdir('browser-preview')
+subdir('contractor')
+subdir('detect-indent')
+subdir('folder-manager')
+subdir('highlight-word-selection')
+subdir('open-with')

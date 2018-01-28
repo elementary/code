@@ -3,5 +3,6 @@ i18n.gettext('plugins',
            '--from-code=UTF-8',
            '--language=Desktop',
            '--keyword=Name',
-           '--keyword=Description']
+           '--keyword=Description'],
+    install: false,
 )
