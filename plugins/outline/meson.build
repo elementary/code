@@ -21,9 +21,12 @@ module_deps = [
     vala_dep
 ]
 
+icons_gresource = gnome.compile_resources('gresource_icons', 'icons/outline.gresource.xml', source_dir: 'icons')
+
 shared_module(
     module_name,
     module_files,
+    icons_gresource,
     dependencies: module_deps,
     install: true,
     install_dir: join_paths(pluginsdir, module_name),
