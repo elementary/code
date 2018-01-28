@@ -11,7 +11,10 @@ module_files = [
     'ValaProcessing/SymbolResolver.vala'
 ]
 
-vala_dep = dependency('libvala-0.40')
+vala_dep = dependency('libvala-0.40', required: false)
+if vala_dep.found () != true
+    vala_dep = dependency('libvala-0.36', required: true)
+endif
 
 module_deps = [
     codecore_dep,
