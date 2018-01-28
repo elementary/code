@@ -1,11 +1,21 @@
-module_name = 'contractor'
+module_name = 'outline'
 
 module_files = [
-    'contractor.vala',
+    'CtagsSymbolResolver.vala',
+    'OutlinePane.vala',
+    'OutlinePlugin.vala',
+    'SymbolOutline.vala',
+    'ValaProcessing/ComparisonHelper.vala',
+    'ValaProcessing/SymbolItem.vala',
+    'ValaProcessing/SymbolOutline.vala',
+    'ValaProcessing/SymbolResolver.vala'
 ]
+
+vala_dep = dependency('libvala-0.40')
 
 module_deps = [
     codecore_dep,
+    vala_dep
 ]
 
 shared_module(
