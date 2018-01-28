@@ -60,7 +60,7 @@ pkg.generate(
     filebase: 'codecore'
 )
 
-install_data ('codecore.deps', install_dir: 'share/vala/vapi')
+install_data ('codecore.deps', install_dir: join_paths(get_option('prefix'), get_option('datadir'), 'vala', 'vapi'))
 
 codecore_dep = declare_dependency(
     link_with: codecore,
