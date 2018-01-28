@@ -50,6 +50,18 @@ codecore = library(
     install_dir: [true, true, true]
 )
 
+pkg = import('pkgconfig')
+
+pkg.generate(
+    version: '0.1',
+    libraries: codecore,
+    description: 'elementary Code headers',
+    name: 'codecore',
+    filebase: 'codecore'
+)
+
+install_data ('codecore.deps', install_dir: 'share/vala/vapi')
+
 codecore_dep = declare_dependency(
     link_with: codecore,
     dependencies: dependencies,
