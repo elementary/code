@@ -1,11 +1,15 @@
-module_name = 'brackets-completion'
+module_name = 'browser-preview'
 
 module_files = [
-    'brackets-completion.vala',
+    'browser-preview.vala',
+    'BrowserView.vala'
 ]
+
+webkit_dep = dependency('webkit2gtk-4.0')
 
 module_deps = [
     codecore_dep,
+    webkit_dep,
 ]
 
 shared_module(
