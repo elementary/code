@@ -18,9 +18,6 @@
  * Authored by: Julien Spautz <spautz.julien@gmail.com>, Andrei-Costin Zisu <matzipan@gmail.com>
  */
 
-public const string NAME = _("Folder Manager");
-public const string DESCRIPTION = _("Basic folder manager with file browsing");
-
 namespace Scratch.Plugins {
     public class FolderManagerPlugin : Peas.ExtensionBase, Peas.Activatable {
         Gtk.ToolButton folder_open_button;
@@ -51,7 +48,7 @@ namespace Scratch.Plugins {
 
             plugins.hook_toolbar.disconnect (on_hook_toolbar);
         }
-        
+
         public void update_state () { }
 
         void on_hook_window (Scratch.MainWindow window) {
