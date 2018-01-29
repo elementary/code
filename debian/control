@@ -1,8 +1,10 @@
 Source: io.elementary.code
 Section: editors
 Maintainer: Cody Garver <cody@elementary.io>
-Build-Depends: cmake (>= 2.8),
+Build-Depends: meson (>= 0.44.0),
                debhelper (>= 9),
+               desktop-file-utils,
+               appstream,
                exuberant-ctags,
                intltool,
                libdevhelp-dev,
