@@ -201,6 +201,7 @@ namespace Scratch.Dialogs {
         private class SettingsSwitch : Gtk.Switch {
             public SettingsSwitch (string setting) {
                 halign = Gtk.Align.START;
+                valign = Gtk.Align.CENTER;
                 Scratch.settings.schema.bind (setting, this, "active", SettingsBindFlags.DEFAULT);
             }
         }
