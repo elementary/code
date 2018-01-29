@@ -41,6 +41,7 @@ namespace Scratch {
         public Gtk.Notebook bottombar;
         public Code.Pane project_pane;
 
+        private Gtk.Dialog? preferences_dialog = null;
         private Gtk.Paned hp1;
         private Gtk.Paned hp2;
         private Gtk.Paned vp;
@@ -690,9 +691,16 @@ namespace Scratch {
         }
 
         private void action_preferences () {
-            var dialog = new Scratch.Dialogs.Preferences (this, plugins);
-            dialog.set_modal (true);
-            dialog.show_all ();
+            if (preferences_dialog == null) {
+                preferences_dialog = new Scratch.Dialogs.Preferences (this, plugins);
+                preferences_dialog.show_all ();
+
+                preferences_dialog.destroy.connect (() => {
+                    preferences_dialog = null;
+                });
+            }
+
+            preferences_dialog.present ();
         }
 
         private void action_close_tab () {
