@@ -342,7 +342,11 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
             } else {
                 // Move the start and end of the selection to the appropriate start/end of lines
                 start.set_line_offset (0);
-                end.forward_to_line_end ();
+                if (end.starts_line ()) {
+                    end.backward_char ();
+                } else if (!end.ends_line ()) {
+                    end.forward_to_line_end ();
+                }
 
                 num_lines = end.get_line () - start.get_line () + 1;
             }
