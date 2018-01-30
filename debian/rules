@@ -8,7 +8,7 @@ export DEB_BUILD_OPTIONS=nocheck
 export DEB_BUILD_MAINT_OPTIONS=hardening=+all
 
 %:
-	dh $@
+	dh $@ --buildsystem=meson
 
 override_dh_install:
 	dh_install --fail-missing
