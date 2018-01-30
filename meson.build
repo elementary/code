@@ -38,6 +38,8 @@ zeitgeist_dep = dependency('zeitgeist-2.0', required: false)
 if zeitgeist_dep.found ()
     add_project_arguments('--define=HAVE_ZEITGEIST', language : 'vala')
     dependencies += zeitgeist_dep
+else
+    warning ('Zeitgeist integration will NOT be built due to missing dependency')
 endif
 
 subdir('data')
