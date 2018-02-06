@@ -218,10 +218,10 @@ namespace Scratch.Services {
             var content_type = ContentType.from_mime_type (mime_type);
 
             if (!force && !(ContentType.is_a (content_type, "text/plain"))) {
-                var title = _("%s is not a text file.").printf (get_basename ());
-                var description = _("Code will not load this type of file");
+                var title = _("%s Is Not a Text File").printf (get_basename ());
+                var description = _("Code will not load this type of file.");
                 var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-warning");
-                alert_view.show_action (_("Load anyway"));
+                alert_view.show_action (_("Load Anyway"));
                 alert_view.show_all ();
                 main_stack.add_named (alert_view, "load_alert");
                 main_stack.set_visible_child (alert_view);
@@ -242,10 +242,10 @@ namespace Scratch.Services {
 
             load_timout_id = Timeout.add_seconds_full (GLib.Priority.HIGH, 5, () => {
                 if (load_cancellable != null && !load_cancellable.is_cancelled ()) {
-                    var title = _("Loading file \"%s\" is taking a long time.").printf (get_basename ());
+                    var title = _("Loading File \"%s\" Is Taking a Long Time").printf (get_basename ());
                     var description = _("Please wait while Code is loading the file.");
                     var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-information");
-                    alert_view.show_action (_("Cancel load"));
+                    alert_view.show_action (_("Cancel Load"));
                     alert_view.show_all ();
                     main_stack.add_named (alert_view, "wait_alert");
                     main_stack.set_visible_child (alert_view);
@@ -643,7 +643,7 @@ namespace Scratch.Services {
 
         // Show an error view which says "Hey, I cannot read that file!"
         private void show_default_load_error_view () {
-            var title = _("File \"%s\" cannot be read.").printf (get_basename ());
+            var title = _("File \"%s\" Cannot Be Read").printf (get_basename ());
             var description = _("Maybe it is corrupt or you do not have the necessary permissions to read it.");
             var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-error");
             alert_view.show_all ();
