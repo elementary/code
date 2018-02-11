@@ -284,8 +284,7 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
             imark = buffer.create_mark ("iter", iter, false);
         }
 
-        buffer.get_iter_at_mark (out iter, imark);
-        iter.backward_lines ((int)num_lines);
+        buffer.get_iter_at_mark (out iter, smark);
         buffer.delete_mark (imark);
         imark = buffer.create_mark ("iter", iter, false);
 
