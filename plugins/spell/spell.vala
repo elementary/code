@@ -15,15 +15,12 @@
 
 using Gtk;
 
-public const string NAME = _("Spell Checker");
-public const string DESCRIPTION = _("Checks the spelling of your documents");
-
 public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
 
     Scratch.Services.Interface plugins;
 
     Scratch.Plugins.SpellSettings.Settings settings;
-    
+
     MainWindow window = null;
 
     private string lang_dict;
@@ -35,7 +32,7 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
 #endif
 
     public Object object {owned get; construct;}
-    
+
     public void update_state () {
     }
 
@@ -108,7 +105,7 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
                 var lang = source_buffer.language;
                 if (lang != null)
                     spell.detach ();
- 
+
                 // Detect language changed event
                 view.notify["language"].connect (() => language_changed_spell (view));
 
@@ -136,7 +133,7 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
     void language_changed_spell (Scratch.Widgets.SourceView view){
         if (view.language != null)
             spell.detach ();
-    } 
+    }
 
     public void settings_changed () {
         if (spell != null) {

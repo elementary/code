@@ -31,9 +31,6 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase,  Peas.Activatable 
     public Gtk.SourceView? current_view {get; private set;}
     public Scratch.Services.Document current_document {get; private set;}
 
-    private const string NAME = _("Words Completion");
-    private const string DESCRIPTION = _("Show a completion dialog with most used words from your files");
-
     private const uint [] activate_keys = {Gdk.Key.Return,
                                            Gdk.Key.KP_Enter,
                                            Gdk.Key.ISO_Enter,
@@ -133,7 +130,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase,  Peas.Activatable 
              * but this is trapped elsewhere. Control + USER_REQUESTED_KEY acts as an
              * alternative and also purges spelling mistakes and unused words from the list.
              * If used when a word or part of a word is selected, the selection will be
-             * used as the word to find. */ 
+             * used as the word to find. */
             if ((mods & Gdk.ModifierType.CONTROL_MASK) > 0 && (kv == USER_REQUESTED_KEY)) {
                 parser.rebuild_word_list (current_view);
                 current_view.show_completion ();
@@ -143,7 +140,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase,  Peas.Activatable 
         }
 
         bool activating = kv in activate_keys;
-            
+
         if (completion_visible && activating) {
             current_view.completion.activate_proposal ();
             parser.add_last_word ();

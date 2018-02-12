@@ -1,30 +1,27 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /***
   BEGIN LICENSE
-	
+
   Copyright (C) 2011-2012 Giulio Collura <random.cpp@gmail.com>
-  This program is free software: you can redistribute it and/or modify it	
-  under the terms of the GNU Lesser General Public License version 3, as published	
+  This program is free software: you can redistribute it and/or modify it
+  under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
-	
-  This program is distributed in the hope that it will be useful, but	
-  WITHOUT ANY WARRANTY; without even the implied warranties of	
-  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR	
+
+  This program is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranties of
+  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
   PURPOSE.  See the GNU General Public License for more details.
-	
-  You should have received a copy of the GNU General Public License along	
-  with this program.  If not, see <http://www.gnu.org/licenses/>	
-  
-  END LICENSE	
+
+  You should have received a copy of the GNU General Public License along
+  with this program.  If not, see <http://www.gnu.org/licenses/>
+
+  END LICENSE
 ***/
 
 using Soup;
- 
-public const string NAME = _("Pastebin");
-public const string DESCRIPTION = _("Share files with pastebin service");
- 
+
 namespace Scratch.Services {
- 
+
     public class PasteBin : GLib.Object {
 
         public const int PASTE_ID_LEN = 8;
@@ -39,8 +36,8 @@ namespace Scratch.Services {
 		public const string PUBLIC = "0";
 
 
-		public static int submit (out string link, string paste_code, string paste_name, 
-                                     string paste_private, string paste_expire_date, 
+		public static int submit (out string link, string paste_code, string paste_name,
+                                     string paste_private, string paste_expire_date,
                                      string paste_format) {
 
             /* Code meaning:
@@ -56,10 +53,10 @@ namespace Scratch.Services {
 
 
 			string api_url = "http://pastebin.com/api/api_post.php";
-	
+
 			var session = new Session ();
 			var message = new Message ("POST", api_url);
-            
+
 			string request = Form.encode (
 				"api_option", "paste",
 				"api_dev_key", "67480801fa55fc0977f7561cf650a339",
@@ -68,28 +65,28 @@ namespace Scratch.Services {
 				"api_paste_private", paste_private,
 				"api_paste_expire_date", paste_expire_date,
 				"api_paste_format", paste_format);
-            
+
 			message.set_request ("application/x-www-form-urlencoded", MemoryUse.COPY, request.data);
 			message.set_flags (MessageFlags.NO_REDIRECT);
-            
+
 			session.send_message (message);
 
 			var output = (string) message.response_body.data;
 
 			//check return value
 			if (output[0:6] != "ERROR:") {
-			
+
                 //we need only pastebin url len + id len
 			    output = output[0:20+PASTE_ID_LEN];
-    			debug(output);			    
-			    
+    			debug(output);
+
     			link = output;
-                
+
 			} else {
 
                 //paste error
 
-                link = "";				
+                link = "";
                 switch(output) {
                     case "ERROR: Invalid POST request, or \"paste_code\" value empty":
                     return 2;
@@ -99,34 +96,34 @@ namespace Scratch.Services {
 
                     default:
                     return 1;
-                        
+
                 }
-	            
+
 			}
-			
+
             return 0;
-			
+
 		}
-			 
+
     }
 }
 
 public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Peas.Activatable {
     Gtk.MenuItem? menuitem = null;
-    
+
     [NoAcessorMethod]
     public Object object { owned get; construct; }
     Scratch.Services.Interface plugins;
-   
+
     public void update_state () {
     }
 
     public void activate () {
-        plugins = (Scratch.Services.Interface) object;        
-        
+        plugins = (Scratch.Services.Interface) object;
+
         plugins.hook_share_menu.connect (on_hook);
     }
-    
+
     void on_hook (Gtk.Menu menu) {
         plugins.hook_document.connect ((doc) => {
             if (menuitem != null)
@@ -140,11 +137,11 @@ public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Peas.Activatable {
             menuitem.show_all ();
         });
     }
-    
+
     public void deactivate () {
         menuitem.destroy ();
-    } 
-    
+    }
+
 }
 
 [ModuleInit]

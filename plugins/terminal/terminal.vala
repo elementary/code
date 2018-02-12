@@ -20,9 +20,6 @@
 
 using Vte;
 
-public const string NAME = _("Terminal");
-public const string DESCRIPTION = _("A terminal in your text editor");
-
 public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
 
     MainWindow window = null;
@@ -228,7 +225,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             var legacy_terminal_schema = schema_source.lookup (LEGACY_SETTINGS_SCHEMA, true);
             if (legacy_terminal_schema != null) {
                 update_terminal_settings (LEGACY_SETTINGS_SCHEMA);
-            }    
+            }
         }
 
         // Set terminal font
