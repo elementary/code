@@ -1,17 +1,16 @@
 [Desktop Entry]
 Type=Application
-_Name=Code
-_Comment=Edit code files
+Name=Code
+Comment=Edit code files
 GenericName=Code Editor
 Exec=@EXEC_NAME@ %U
-Icon=@CMAKE_PROJECT_NAME@
+Icon=io.elementary.code
 Terminal=false
 Categories=GNOME;GTK;IDE;Utility;TextEditor;WebDevelopment;
-_Keywords=IDE;scratch;
+Keywords=IDE;scratch;
 MimeType=text/plain;
 StartupNotify=true
 Actions=NewWindow;NewDocument;
-X-GNOME-Gettext-Domain=@GETTEXT_PACKAGE@
 
 [Desktop Action NewDocument]
 Name=New Document
