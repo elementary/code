@@ -8,21 +8,21 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
-"PO-Revision-Date: 2017-07-01 22:15+0000\n"
+"PO-Revision-Date: 2018-02-09 00:10+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish "
-"<https://l10n.elementary.io/projects/scratch/scratch/da/>\n"
+"<https://weblate.elementary.io/projects/scratch/scratch/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.14\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
-msgstr "Redigér tekstfiler"
+msgstr "Rediger tekstfiler"
 
 #: ../src/config.vala:16
 msgid "Text Editor"
@@ -550,7 +550,7 @@ msgstr "Vis linjenumre:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:175
 msgid "Show Mini Map:"
-msgstr "Vis minikort"
+msgstr "Vis minikort:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:179
 msgid "Line width guide:"
@@ -1026,7 +1026,7 @@ msgstr "Åbn filer du redigerer med et andet program"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr "Open With…"
+msgstr "Åbn med…"
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"

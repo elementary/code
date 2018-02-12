@@ -100,7 +100,6 @@ namespace Scratch.Services {
         private GLib.Cancellable save_cancellable;
         private GLib.Cancellable load_cancellable;
         private ulong onchange_handler_id = 0; // It is used to not mark files as changed on load
-        private bool error_shown = false;
         private bool loaded = false;
         private bool mounted = true; // Mount state of the file
         private Mount mount;
@@ -193,7 +192,7 @@ namespace Scratch.Services {
         }
 
         private uint load_timout_id = 0;
-        public async bool open () {
+        public async void open (bool force = false) {
             /* Loading improper files may hang so we cancel after a certain time as a fallback.
              * In most cases, an error will be thrown and caught. */
             if (load_cancellable != null) { /* just in case */
@@ -208,7 +207,7 @@ namespace Scratch.Services {
                     FileUtils.set_contents (file.get_path (), "");
                 } catch (FileError e) {
                     warning ("Cannot create file \"%s\": %s", get_basename (), e.message);
-                    return false;
+                    return;
                 }
             }
 
@@ -218,12 +217,21 @@ namespace Scratch.Services {
 
             var content_type = ContentType.from_mime_type (mime_type);
 
-            if (!(ContentType.is_a (content_type, "text/plain"))) {
-                var primary_format = _("%s is not a text file.");
-                var secondary_text = _("Code will not load this type of file");
+            if (!force && !(ContentType.is_a (content_type, "text/plain"))) {
+                var title = _("%s Is Not a Text File").printf (get_basename ());
+                var description = _("Code will not load this type of file.");
+                var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-warning");
+                alert_view.show_action (_("Load Anyway"));
+                alert_view.show_all ();
+                main_stack.add_named (alert_view, "load_alert");
+                main_stack.set_visible_child (alert_view);
+                alert_view.action_activated.connect (() => {
+                    open.begin (true);
+                    alert_view.destroy ();
+                });
 
-                show_error_dialog (primary_format, secondary_text);
-                return false;
+                working = false;
+                return;
             }
 
             while (Gtk.events_pending ()) {
@@ -234,19 +242,24 @@ namespace Scratch.Services {
 
             load_timout_id = Timeout.add_seconds_full (GLib.Priority.HIGH, 5, () => {
                 if (load_cancellable != null && !load_cancellable.is_cancelled ()) {
-                    var primary_format = _("Loading file \"%s\" is taking a long time.");
-
-                    if (confirm_cancel_dialog (primary_format)) {
-                        load_timout_id = 0;
+                    var title = _("Loading File \"%s\" Is Taking a Long Time").printf (get_basename ());
+                    var description = _("Please wait while Code is loading the file.");
+                    var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-information");
+                    alert_view.show_action (_("Cancel Load"));
+                    alert_view.show_all ();
+                    main_stack.add_named (alert_view, "wait_alert");
+                    main_stack.set_visible_child (alert_view);
+                    alert_view.action_activated.connect (() => {
                         load_cancellable.cancel ();
-                        return false;
-                    } else {
-                        return true;
-                    }
+                        doc_closed ();
+                    });
+                    load_timout_id = 0;
+
+                    return GLib.Source.REMOVE;
                 }
 
                 load_timout_id = 0;
-                return false;
+                return GLib.Source.REMOVE;
             });
 
             try {
@@ -257,8 +270,9 @@ namespace Scratch.Services {
             } catch (Error e) {
                 critical (e.message);
                 source_view.buffer.text = "";
-                show_default_load_error_dialog ();
-                return false;
+                show_default_load_error_view ();
+                working = false;
+                return;
             } finally {
                 load_cancellable = null;
                 if (load_timout_id > 0) {
@@ -315,7 +329,7 @@ namespace Scratch.Services {
                 return false;
             });
 
-            return true;
+            return;
         }
 
         public new bool close (bool app_closing = false) {
@@ -627,67 +641,14 @@ namespace Scratch.Services {
             this.source_view.duplicate_selection ();
         }
 
-        /** primary format must contain a single %s where the file basename will be printed (in bold) **/
-        /** Markup should not be used for primary label as it will be overridden in the Granite MessageDialog **/
-        private Gtk.Dialog get_modal_dialog (string primary_format, string secondary_text) {
-            string message =  primary_format.printf ("'%s'".printf (get_basename ()));
-
-#if GRANITE_MESSAGEDIALOG
-            var dialog = new Granite.MessageDialog (message,
-                                                    secondary_text,
-                                                    new ThemedIcon.with_default_fallbacks ("dialog-warning"),
-                                                    Gtk.ButtonsType.NONE);
-
-#else
-            var dialog = new Gtk.MessageDialog ((Gtk.Window?)source_view.get_toplevel (),
-                                                Gtk.DialogFlags.MODAL,
-                                                Gtk.MessageType.WARNING,
-                                                Gtk.ButtonsType.NONE,
-                                                "");
-
-
-            dialog.deletable = false;
-            dialog.text = message;
-            dialog.secondary_text = secondary_text;
-#endif
-            return dialog;
-        }
-
-        private bool confirm_cancel_dialog (string primary_format) {
-
-            string secondary_text = _("Do you wish to continue or cancel?");
-
-            var dialog = get_modal_dialog (primary_format, secondary_text);
-            dialog.add_button (_("Continue"), Gtk.ResponseType.CANCEL);
-            dialog.add_button (_("Cancel"), Gtk.ResponseType.YES);
-            dialog.run ();
-
-            var res = dialog.run ();
-            dialog.destroy ();
-
-            return res == Gtk.ResponseType.YES;
-        }
-
-        // Show an error dialog which says "Hey, I cannot read that file!"
-        private void show_default_load_error_dialog () {
-            string primary_format = _("File \"%s\" cannot be read.");
-            string secondary_text = _("Maybe it is corrupt or you do not have the necessary permissions to read it.");
-
-            show_error_dialog (primary_format, secondary_text);
-        }
-
-        /** @primary_format must contain a single %s where the filename will be displayed **/
-        private void show_error_dialog (string primary_format, string secondary_text) {
-            if (this.error_shown) {
-                return;
-            }
-
-            this.error_shown = true;
-
-            var dialog = get_modal_dialog (primary_format, secondary_text);
-            dialog.add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
-            dialog.run ();
-            dialog.destroy ();
+        // Show an error view which says "Hey, I cannot read that file!"
+        private void show_default_load_error_view () {
+            var title = _("File \"%s\" Cannot Be Read").printf (get_basename ());
+            var description = _("Maybe it is corrupt or you do not have the necessary permissions to read it.");
+            var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-error");
+            alert_view.show_all ();
+            main_stack.add_named (alert_view, "error_alert");
+            main_stack.set_visible_child (alert_view);
         }
 
         // Check if the file was deleted/changed by an external source
@@ -740,7 +701,7 @@ namespace Scratch.Services {
                         source_file_loader.load_async.end (res);
                     } catch (Error e) {
                         critical (e.message);
-                        show_default_load_error_dialog ();
+                        show_default_load_error_view ();
                         return;
                     }
 
