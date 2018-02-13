@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-02 15:44-0500\n"
+"POT-Creation-Date: 2018-02-12 16:21-0800\n"
 "PO-Revision-Date: 2016-08-06 15:15+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
@@ -18,290 +18,24 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 "X-Generator: Launchpad (build 18366)\n"
 
-#: ../src/config.vala:15
-msgid "Edit text files"
-msgstr "編輯文字檔案"
-
-#: ../src/config.vala:16
-msgid "Text Editor"
-msgstr "文字編輯器"
-
-#: ../src/config.vala:17 ../src/Services/Document.vala:444
-msgid "New Document"
-msgstr "新增文件"
-
-#: ../src/config.vala:18 ../src/Scratch.vala:278
-msgid "New Window"
-msgstr "新增視窗"
-
-#: ../src/config.vala:19
-msgid "About Scratch"
-msgstr "關於 Scratch"
-
-#: ../src/MainWindow.vala:97
-msgid "Zeitgeist Datasource for Scratch"
-msgstr "供 Scratch 使用的 Zeitgeist 資料來源"
-
-#: ../src/MainWindow.vala:187
-msgid "Trash"
-msgstr "回收筒"
-
-#: ../src/MainWindow.vala:716
-msgid "Open some files"
-msgstr "開啟一些檔案"
-
-#: ../src/MainWindow.vala:841 ../src/MainWindow.vala:1002
-#: ../src/MainWindow.vala:1003 ../src/MainWindow.vala:1014
-#: ../src/MainWindow.vala:1015
-msgid "Find…"
-msgstr "尋找…"
-
-#: ../src/MainWindow.vala:843
-msgid "Hide search bar"
-msgstr "隱藏搜尋列"
-
-#: ../src/MainWindow.vala:909 ../src/MainWindow.vala:910
-msgid "Go to line…"
-msgstr "前往列號…"
-
-#: ../src/MainWindow.vala:913 ../src/MainWindow.vala:914
-msgid "Quit"
-msgstr "退出"
-
-#: ../src/MainWindow.vala:917 ../src/MainWindow.vala:918
-#: ../src/Dialogs/PreferencesDialog.vala:83
-msgid "Close"
-msgstr "關閉"
-
-#: ../src/MainWindow.vala:921 ../src/MainWindow.vala:922
-#: ../src/Widgets/SearchManager.vala:107
-msgid "Replace"
-msgstr "取代"
-
-#: ../src/MainWindow.vala:925
-msgid "Reopen closed document"
-msgstr "重新開啟關閉的文件"
-
-#: ../src/MainWindow.vala:926
-msgid "Open last closed document in a new tab"
-msgstr "在新分頁中開啟上次關閉的文件"
-
-#: ../src/MainWindow.vala:929
-msgid "Add New Tab"
-msgstr "新增分頁"
-
-#: ../src/MainWindow.vala:930
-msgid "Add a new tab"
-msgstr "新增一分頁"
-
-#: ../src/MainWindow.vala:933
-msgid "Add New View"
-msgstr "加入新檢視"
-
-#: ../src/MainWindow.vala:934
-msgid "Add a new view"
-msgstr "加入新的檢視"
-
-#: ../src/MainWindow.vala:937
-msgid "Remove Current View"
-msgstr "移除目前檢視"
-
-#: ../src/MainWindow.vala:938
-msgid "Remove this view"
-msgstr "移除此檢視"
-
-#: ../src/MainWindow.vala:941
-msgid "Undo"
-msgstr "取消動作"
-
-#: ../src/MainWindow.vala:942
-msgid "Undo the last action"
-msgstr "取消上個動作"
-
-#: ../src/MainWindow.vala:945
-msgid "Redo"
-msgstr "再次動作"
-
-#: ../src/MainWindow.vala:946
-msgid "Redo the last undone action"
-msgstr "再次執行上個已取消的動作"
-
-#: ../src/MainWindow.vala:949
-msgid "Revert"
-msgstr "回復"
-
-#: ../src/MainWindow.vala:950
-msgid "Restore this file"
-msgstr "還原此檔案"
-
-#: ../src/MainWindow.vala:953 ../src/MainWindow.vala:954
-msgid "Duplicate selected strings"
-msgstr "製作所選字串的複本"
-
-#: ../src/MainWindow.vala:957 ../src/Utils.vala:31
-#: ../plugins/filemanager/FileView.vala:230
-msgid "Open"
-msgstr "開啟"
-
-#: ../src/MainWindow.vala:958
-msgid "Open a file"
-msgstr "開啟檔案"
-
-#: ../src/MainWindow.vala:961
-msgid "Clipboard"
-msgstr "剪貼簿"
-
-#: ../src/MainWindow.vala:962
-msgid "New file from Clipboard"
-msgstr "從剪貼簿新增檔案"
-
-#: ../src/MainWindow.vala:965
-msgid "Zoom"
-msgstr "遠近"
-
-#: ../src/MainWindow.vala:966
-msgid "Zoom 1:1"
-msgstr "遠近 1:1"
-
-#: ../src/MainWindow.vala:969 ../src/Services/Document.vala:259
-#: ../src/Services/Document.vala:585 ../src/Utils.vala:33
-msgid "Save"
-msgstr "儲存"
-
-#: ../src/MainWindow.vala:970
-msgid "Save this file"
-msgstr "儲存此檔案"
-
-#: ../src/MainWindow.vala:973 ../src/Services/Document.vala:578
-msgid "Save As…"
-msgstr "另存為…"
-
-#: ../src/MainWindow.vala:974
-msgid "Save this file with a different name"
-msgstr "以不同名稱儲存這份檔案"
-
-#: ../src/MainWindow.vala:977 ../src/Services/TemplateManager.vala:194
-msgid "Templates"
-msgstr "範本"
-
-#: ../src/MainWindow.vala:978
-msgid "Project templates"
-msgstr "專案模板"
-
-#: ../src/MainWindow.vala:981 ../src/Dialogs/PreferencesDialog.vala:55
-msgid "Preferences"
-msgstr "偏好設定"
-
-#: ../src/MainWindow.vala:982
-msgid "Change Scratch settings"
-msgstr "變更 Scratch 設定值"
-
-#: ../src/MainWindow.vala:985 ../src/MainWindow.vala:986
-msgid "Next Tab"
-msgstr "後個分頁"
-
-#: ../src/MainWindow.vala:989 ../src/MainWindow.vala:990
-msgid "Previous Tab"
-msgstr "前個分頁"
-
-#: ../src/MainWindow.vala:1009 ../src/MainWindow.vala:1010
-msgid "Fullscreen"
-msgstr "全螢幕"
-
-#: ../src/Services/Document.vala:249
-msgid "Save changes to document %s before closing?"
-msgstr "是否在關閉之前將更動儲存至文件 %s？"
-
-#: ../src/Services/Document.vala:252
-msgid ""
-"If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr "若您不儲存，4 秒前的更動皆會永遠消失。"
-
-#: ../src/Services/Document.vala:254
-msgid "Close without saving"
-msgstr "關閉且不儲存"
-
-#: ../src/Services/Document.vala:258 ../src/Utils.vala:29
-msgid "Cancel"
-msgstr "取消"
-
-#: ../src/Services/Document.vala:331
-msgid "Save File"
-msgstr "儲存檔案"
-
-#: ../src/Services/Document.vala:560
-msgid ""
-"File \"%s\" cannot be read. Maybe it is corrupt\n"
-"or you do not have the necessary permissions to read it."
-msgstr ""
-"無法讀取「%s」檔案。可能檔案損毀\n"
-"或您沒有讀取它的必要權限"
-
-#: ../src/Services/Document.vala:576
-msgid ""
-"The location containing the file \"%s\" was unmounted. Do you want to save "
-"somewhere else?"
-msgstr "包含「%s」檔案的位置已經卸載。您是否想將它儲存到其他地方？"
-
-#: ../src/Services/Document.vala:583
-msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "「%s」檔案已經刪除。您是否無論如何都想要儲存它？"
-
-#: ../src/Services/Document.vala:596
-msgid ""
-"You cannot save changes on file \"%s\". Do you want to save the changes to "
-"this file in a different location?"
-msgstr "您無法儲存到「%s」檔案。您是否想要將此檔案儲存到其他位置上？"
-
-#: ../src/Services/Document.vala:598
-msgid "Save changes elsewhere"
-msgstr "將更動儲存於別處"
-
-#: ../src/Services/Document.vala:629
-msgid ""
-"File \"%s\" was modified by an external application. Do you want to load it "
-"again or continue your editing?"
-msgstr "「%s」檔案已被外部程式修改過。您是否要重新載入，或者繼續編輯？"
-
-#: ../src/Services/Document.vala:630
-msgid "Load"
-msgstr "載入"
-
-#: ../src/Services/Document.vala:633
-msgid "Continue"
-msgstr "繼續"
-
-#: ../src/Scratch.vala:68
-msgid "translator-credits"
-msgstr ""
-"Launchpad Contributions:\n"
-"  Cheng-Chia Tseng https://launchpad.net/~zerng07\n"
-"  Mario Guerriero https://launchpad.net/~mefrio-g\n"
-"  Mingye Wang https://launchpad.net/~artoria2e5\n"
-"  Rockworld https://launchpad.net/~rockrock2222222\n"
-"  TCHa https://launchpad.net/~haemophilic\n"
-"  ethan42411 https://launchpad.net/~jrpropo10282003\n"
-"  honki https://launchpad.net/~honkiaa\n"
-"  leo  https://launchpad.net/~shing80333\n"
-"  賴家亨 https://launchpad.net/~laichiaheng"
-
-#: ../src/Scratch.vala:166
+#: src/Application.vala:142
 msgid "Maybe you do not have the necessary permissions."
 msgstr "或許您沒有需要的權限。"
 
-#: ../src/Scratch.vala:168
+#: src/Application.vala:144
 msgid "Maybe the file path provided is not valid."
 msgstr "也許提供的檔案路徑無效。"
 
-#: ../src/Scratch.vala:170
+#: src/Application.vala:146
 msgid "The location is read-only."
 msgstr "該位置唯讀。"
 
-#: ../src/Scratch.vala:172
+#: src/Application.vala:148
 msgid "The parent directory doesn't exist."
 msgstr "不存在上層目錄。"
 
-#: ../src/Scratch.vala:179
+#: src/Application.vala:155
+#, c-format
 msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
@@ -309,7 +43,8 @@ msgstr ""
 "無法建立「%s」檔案\n"
 "%s"
 
-#: ../src/Scratch.vala:189
+#: src/Application.vala:165
+#, c-format
 msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
@@ -317,15 +52,15 @@ msgstr ""
 "無法開啟「%s」檔案。\n"
 "%s"
 
-#: ../src/Scratch.vala:198
+#: src/Application.vala:174
 msgid "It is a mountable location."
 msgstr "這是可掛載的位置。"
 
-#: ../src/Scratch.vala:201
+#: src/Application.vala:177
 msgid "It is a directory."
 msgstr "這是目錄。"
 
-#: ../src/Scratch.vala:204
+#: src/Application.vala:180
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " fifo, block device, or character device."
@@ -333,489 +68,595 @@ msgstr ""
 "這是「特殊」檔案，像是 socket、\n"
 " fifio、區塊裝置、或字元裝置。"
 
-#: ../src/Scratch.vala:207
+#: src/Application.vala:183
 msgid "It is an \"unknown\" file type."
 msgstr "這是「未知」檔案類型。"
 
-#: ../src/Scratch.vala:277
+#: src/Application.vala:255
 msgid "New Tab"
 msgstr "新增分頁"
 
-#: ../src/Scratch.vala:279
+#: src/Application.vala:256
+msgid "New Window"
+msgstr "新增視窗"
+
+#: src/Application.vala:257
 msgid "Print version info and exit"
 msgstr "列印版本資訊並離開"
 
-#: ../src/Scratch.vala:280
+#: src/Application.vala:258
 msgid "Set of plugins"
 msgstr "外掛設定"
 
-#: ../src/Scratch.vala:281
+#: src/Application.vala:259
 msgid "Current working directory"
 msgstr "目前的工作目錄"
 
-#: ../src/Widgets/ToolBar.vala:58
-msgid "Share"
-msgstr "分享"
-
-#: ../src/Widgets/ToolBar.vala:66
-msgid "Menu"
+#: src/MainWindow.vala:128
+msgid "Code"
 msgstr ""
 
-#: ../src/Widgets/SplitView.vala:45
-msgid "No Files Open"
-msgstr "無開啟的檔案"
+#: src/MainWindow.vala:168 src/Widgets/HeaderBar.vala:62
+msgid "Find…"
+msgstr "尋找…"
 
-#: ../src/Widgets/SplitView.vala:46
-msgid "Open a file to begin editing."
-msgstr "開啟檔案開始編輯。"
+#: src/MainWindow.vala:170
+msgid "Hide search bar"
+msgstr "隱藏搜尋列"
 
-#: ../src/Widgets/SplitView.vala:50
-msgid "New file"
-msgstr "新增檔案"
+#: src/MainWindow.vala:216
+msgid "Zeitgeist Datasource for Scratch"
+msgstr "供 Scratch 使用的 Zeitgeist 資料來源"
 
-#: ../src/Widgets/SplitView.vala:50
-msgid "Create a new empty file."
-msgstr "建立新的空白檔案。"
+#: src/MainWindow.vala:716
+msgid "Open some files"
+msgstr "開啟一些檔案"
 
-#: ../src/Widgets/SplitView.vala:51
-msgid "Open file"
-msgstr "開啟檔案"
-
-#: ../src/Widgets/SplitView.vala:51
-msgid "Open a saved file."
-msgstr "開啟儲存的檔案。"
-
-#: ../src/Widgets/SplitView.vala:52
-msgid "New file from clipboard"
-msgstr "從剪貼簿新增檔案"
-
-#: ../src/Widgets/SplitView.vala:52
-msgid "Create a new file from the contents of your clipboard."
-msgstr "從您的剪貼簿內容製作新的檔案。"
-
-#: ../src/Widgets/DocumentView.vala:95
-msgid "Text file from "
-msgstr "文字檔來自 "
-
-#: ../src/Widgets/LoadingView.vala:33
-msgid "Wait while restoring last session..."
-msgstr "請稍候，正在還原上次作業階段..."
-
-#: ../src/Widgets/SearchManager.vala:70
-msgid "Find"
-msgstr "尋找"
-
-#: ../src/Widgets/SearchManager.vala:75
-msgid "Replace With"
-msgstr "替換為"
-
-#: ../src/Widgets/SearchManager.vala:91
-msgid "Search next"
-msgstr "向後搜尋"
-
-#: ../src/Widgets/SearchManager.vala:97
-msgid "Search previous"
-msgstr "向前搜尋"
-
-#: ../src/Widgets/SearchManager.vala:104
-msgid "Cyclic Search"
-msgstr "前後循環搜尋"
-
-#: ../src/Widgets/SearchManager.vala:112
-msgid "Replace all"
-msgstr "全部取代"
-
-#: ../src/Widgets/SearchManager.vala:121
-msgid "Go To Line:"
-msgstr "前往列號："
-
-#: ../src/Widgets/SourceView.vala:120
-msgid "Syntax Highlighting"
-msgstr "語法標明"
-
-#: ../src/Widgets/SourceView.vala:131
-msgid "Normal Text"
-msgstr "一般文字"
-
-#: ../src/Utils.vala:42
+#: src/Utils.vala:27
 msgid "All files"
 msgstr "所有檔案"
 
-#: ../src/Utils.vala:45
+#: src/Utils.vala:31
 msgid "Text files"
 msgstr "文字檔案"
 
-#: ../src/Dialogs/PreferencesDialog.vala:67
-msgid "Behavior"
-msgstr "行為"
+#: src/Utils.vala:35 src/Services/Document.vala:370
+msgid "Cancel"
+msgstr "取消"
 
-#: ../src/Dialogs/PreferencesDialog.vala:68
-msgid "Interface"
-msgstr "介面"
+#: src/Utils.vala:44
+msgid "Open"
+msgstr "開啟"
 
-#: ../src/Dialogs/PreferencesDialog.vala:79
-msgid "Extensions"
-msgstr "擴充套件"
+#: src/Utils.vala:46 src/Services/Document.vala:371
+#: src/Services/Document.vala:668
+msgid "Save"
+msgstr "儲存"
 
-#: ../src/Dialogs/PreferencesDialog.vala:108
+#: src/Dialogs/PreferencesDialog.vala:43 src/Widgets/HeaderBar.vala:101
+msgid "Preferences"
+msgstr "偏好設定"
+
+#: src/Dialogs/PreferencesDialog.vala:57
 msgid "General"
 msgstr "一般"
 
-#: ../src/Dialogs/PreferencesDialog.vala:110
-msgid "When Scratch starts:"
-msgstr "當 Sractch 開始時："
-
-#: ../src/Dialogs/PreferencesDialog.vala:112
-msgid "Show welcome screen"
-msgstr "顯示歡迎畫面"
-
-#: ../src/Dialogs/PreferencesDialog.vala:113
-msgid "Show last open tabs"
-msgstr "顯示上次開啟的分頁"
-
-#: ../src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:58
 msgid "Save files when changed:"
 msgstr "當更動後儲存檔案："
 
-#: ../src/Dialogs/PreferencesDialog.vala:119
+#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
 msgstr "Tab"
 
-#: ../src/Dialogs/PreferencesDialog.vala:121
+#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:147
 msgid "Automatic indentation:"
 msgstr "自動縮排："
 
-#: ../src/Dialogs/PreferencesDialog.vala:124
+#: src/Dialogs/PreferencesDialog.vala:63 src/Widgets/FormatBar.vala:141
 msgid "Insert spaces instead of tabs:"
 msgstr "插入空格而不是跳格："
 
-#: ../src/Dialogs/PreferencesDialog.vala:127
+#: src/Dialogs/PreferencesDialog.vala:65 src/Widgets/FormatBar.vala:144
 msgid "Tab width:"
 msgstr "跳格寬度："
 
-#: ../src/Dialogs/PreferencesDialog.vala:153
+#: src/Dialogs/PreferencesDialog.vala:72
+msgid "Behavior"
+msgstr "行為"
+
+#: src/Dialogs/PreferencesDialog.vala:73
+msgid "Interface"
+msgstr "介面"
+
+#: src/Dialogs/PreferencesDialog.vala:85
+#: plugins/pastebin/pastebin_dialog.vala:323
+msgid "Close"
+msgstr "關閉"
+
+#: src/Dialogs/PreferencesDialog.vala:101
+msgid "Extensions"
+msgstr "擴充套件"
+
+#: src/Dialogs/PreferencesDialog.vala:110
 msgid "Editor"
 msgstr "編輯器"
 
-#: ../src/Dialogs/PreferencesDialog.vala:155
+#: src/Dialogs/PreferencesDialog.vala:112
 msgid "Highlight current line:"
 msgstr "突顯目前列："
 
-#: ../src/Dialogs/PreferencesDialog.vala:158
+#: src/Dialogs/PreferencesDialog.vala:115
 msgid "Highlight matching brackets:"
 msgstr "標明對稱括號："
 
-#: ../src/Dialogs/PreferencesDialog.vala:161
-msgid "Line wrap:"
-msgstr "自動折行："
-
-#: ../src/Dialogs/PreferencesDialog.vala:164
+#: src/Dialogs/PreferencesDialog.vala:118
 msgid "Draw Spaces:"
 msgstr "描繪空格數："
 
-#: ../src/Dialogs/PreferencesDialog.vala:166
-#: ../plugins/pastebin/pastebin_dialog.vala:511
+#: src/Dialogs/PreferencesDialog.vala:120
+#: plugins/pastebin/pastebin_dialog.vala:483
 msgid "Never"
 msgstr "永不"
 
-#: ../src/Dialogs/PreferencesDialog.vala:167
+#: src/Dialogs/PreferencesDialog.vala:121
 msgid "For selected text"
 msgstr ""
 
-#: ../src/Dialogs/PreferencesDialog.vala:168
+#: src/Dialogs/PreferencesDialog.vala:122
 msgid "Always"
 msgstr ""
 
-#: ../src/Dialogs/PreferencesDialog.vala:171
-msgid "Show line numbers:"
-msgstr "顯示列號："
-
-#: ../src/Dialogs/PreferencesDialog.vala:175
+#: src/Dialogs/PreferencesDialog.vala:127
 msgid "Show Mini Map:"
 msgstr "顯示迷你對應圖："
 
-#: ../src/Dialogs/PreferencesDialog.vala:179
+#: src/Dialogs/PreferencesDialog.vala:131
 msgid "Line width guide:"
 msgstr "線寬指引："
 
-#: ../src/Dialogs/PreferencesDialog.vala:187
+#: src/Dialogs/PreferencesDialog.vala:139
 msgid "Font and Color Scheme"
 msgstr "字型和配色方案"
 
-#: ../src/Dialogs/PreferencesDialog.vala:189
+#: src/Dialogs/PreferencesDialog.vala:141
 msgid "Color scheme:"
 msgstr "配色方案："
 
-#: ../src/Dialogs/PreferencesDialog.vala:194
+#: src/Dialogs/PreferencesDialog.vala:146
 msgid "Custom font:"
 msgstr "自訂字型："
 
-#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
-#: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
-#: ../plugins/terminal/terminal.vala:174
-msgid "Terminal"
-msgstr "終端機"
+#: src/Services/Document.vala:221
+#, c-format
+msgid "%s Is Not a Text File"
+msgstr ""
 
-#: ../plugins/terminal/terminal.vala:24
-msgid "A terminal in your text editor"
-msgstr "您文字編輯器中的終端機"
+#: src/Services/Document.vala:222
+msgid "Code will not load this type of file."
+msgstr ""
 
-#: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
-msgid "Show Terminal"
-msgstr "顯示終端機"
+#: src/Services/Document.vala:224
+msgid "Load Anyway"
+msgstr ""
 
-#: ../plugins/terminal/terminal.vala:170
-msgid "Hide Terminal"
-msgstr "隱藏終端機"
+#: src/Services/Document.vala:245
+#, c-format
+msgid "Loading File \"%s\" Is Taking a Long Time"
+msgstr ""
 
-#: ../plugins/terminal/terminal.vala:313
-msgid "Copy"
-msgstr "複製"
+#: src/Services/Document.vala:246
+msgid "Please wait while Code is loading the file."
+msgstr ""
 
-#: ../plugins/terminal/terminal.vala:320
-#: ../plugins/clipboard-history/ClipboardHistory.vala:167
-msgid "Paste"
-msgstr "貼上"
+#: src/Services/Document.vala:248
+#, fuzzy
+msgid "Cancel Load"
+msgstr "取消"
 
-#: ../plugins/terminal/terminal.vala:330
-msgid "Terminal on Right"
-msgstr "終端機放置右側"
+#: src/Services/Document.vala:361
+#, c-format
+msgid "Save changes to document %s before closing?"
+msgstr "是否在關閉之前將更動儲存至文件 %s？"
 
-#: ../plugins/terminal/terminal.vala:338
-msgid "Terminal on Bottom"
-msgstr "終端機放置底部"
+#: src/Services/Document.vala:364
+msgid ""
+"If you don't save, changes from the last 4 seconds will be permanently lost."
+msgstr "若您不儲存，4 秒前的更動皆會永遠消失。"
 
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
-msgid "Strip trailing whitespace"
-msgstr "截去蔓生空白"
+#: src/Services/Document.vala:366
+msgid "Close without saving"
+msgstr "關閉且不儲存"
 
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
-msgid "Strip trailing whitespace on save"
-msgstr "儲存時截去蔓生空白"
+#: src/Services/Document.vala:448
+msgid "Save File"
+msgstr "儲存檔案"
 
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#.
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#.
-#. END LICENSE
-#. **
-#: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
-msgid "Highlight Selected Words"
-msgstr "標明選取的字詞"
+#: src/Services/Document.vala:523
+msgid "New Document"
+msgstr "新增文件"
 
-#: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
-msgid "Highlights all occurrences of words that are selected"
-msgstr "標明所選字詞的所有出現位置"
+#: src/Services/Document.vala:646
+#, fuzzy, c-format
+msgid "File \"%s\" Cannot Be Read"
+msgstr ""
+"無法建立「%s」檔案\n"
+"%s"
 
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#.
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#.
-#. END LICENSE
-#. **
-#: ../plugins/brackets-completion/brackets-completion.vala:21
-msgid "Brackets Completion"
-msgstr "括號補完"
+#: src/Services/Document.vala:647
+#, fuzzy
+msgid ""
+"Maybe it is corrupt or you do not have the necessary permissions to read it."
+msgstr ""
+"無法讀取「%s」檔案。可能檔案損毀\n"
+"或您沒有讀取它的必要權限"
 
-#: ../plugins/brackets-completion/brackets-completion.vala:22
-msgid "Complete brackets while typing"
-msgstr "當輸入時自動補完括號"
+#: src/Services/Document.vala:659
+#, c-format
+msgid ""
+"The location containing the file \"%s\" was unmounted. Do you want to save "
+"somewhere else?"
+msgstr "包含「%s」檔案的位置已經卸載。您是否想將它儲存到其他地方？"
 
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#.
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#.
-#. END LICENSE
-#. **
-#: ../plugins/source-tree/SourceTreePlugin.vala:20
-#: ../plugins/source-tree/SourceTreePlugin.vala:197
-msgid "Source Tree"
-msgstr "來源樹"
+#: src/Services/Document.vala:661
+msgid "Save As…"
+msgstr "另存為…"
 
-#: ../plugins/source-tree/SourceTreePlugin.vala:21
-msgid "Have a look at your sources organized in a nice tree"
-msgstr "以整理良好的樹狀圖顯示您的來源"
+#: src/Services/Document.vala:666
+#, c-format
+msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+msgstr "「%s」檔案已經刪除。您是否無論如何都想要儲存它？"
 
-#: ../plugins/source-tree/SourceTreePlugin.vala:42
-msgid "Loading..."
-msgstr "載入中..."
+#: src/Services/Document.vala:681
+#, c-format
+msgid ""
+"You cannot save changes on file \"%s\". Do you want to save the changes to "
+"this file in a different location?"
+msgstr "您無法儲存到「%s」檔案。您是否想要將此檔案儲存到其他位置上？"
 
-#: ../plugins/source-tree/SourceTreePlugin.vala:175
-msgid "Bookmark"
-msgstr "書籤"
+#: src/Services/Document.vala:683
+msgid "Save changes elsewhere"
+msgstr "將更動儲存於別處"
 
-#: ../plugins/source-tree/SourceTreePlugin.vala:234
-msgid "Files"
-msgstr "檔案"
+#: src/Services/Document.vala:716
+#, c-format
+msgid ""
+"File \"%s\" was modified by an external application. Do you want to load it "
+"again or continue your editing?"
+msgstr "「%s」檔案已被外部程式修改過。您是否要重新載入，或者繼續編輯？"
 
-#: ../plugins/source-tree/SourceTreePlugin.vala:235
-msgid "Project"
-msgstr "專案"
+#: src/Services/Document.vala:717
+msgid "Load"
+msgstr "載入"
 
-#: ../plugins/source-tree/SourceTreePlugin.vala:236
-msgid "Bookmarks"
-msgstr "書籤"
+#: src/Services/Document.vala:720
+msgid "Continue"
+msgstr "繼續"
 
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#.
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#.
-#. END LICENSE
-#. **
-#: ../plugins/vim-emulation/vim-emulation.vala:21
-msgid "Vim Emulation"
-msgstr "Vim 模擬"
+#: src/Services/TemplateManager.vala:194
+msgid "Templates"
+msgstr "範本"
 
-#: ../plugins/vim-emulation/vim-emulation.vala:22
-msgid "Use Vim commands in Scratch"
-msgstr "在 Scratch 中使用指令"
+#: src/Widgets/DocumentView.vala:88
+#, fuzzy, c-format
+msgid "Text file from %s"
+msgstr "文字檔來自 "
 
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#.
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#.
-#. END LICENSE
-#. **
-#: ../plugins/clipboard-history/ClipboardHistory.vala:21
-#: ../plugins/clipboard-history/ClipboardHistory.vala:89
-msgid "Clipboard History"
-msgstr "剪貼簿歷史記錄"
+#: src/Widgets/FormatBar.vala:67
+msgid "Syntax Highlighting"
+msgstr "語法標明"
 
-#: ../plugins/clipboard-history/ClipboardHistory.vala:22
-msgid "Clipboard to view history"
-msgstr "剪貼簿以檢視歷史記錄"
+#: src/Widgets/FormatBar.vala:71
+#, fuzzy
+msgid "Line number"
+msgstr "顯示列號："
 
-#: ../plugins/clipboard-history/ClipboardHistory.vala:28
-msgid "..."
-msgstr "..."
+#: src/Widgets/FormatBar.vala:95
+msgid "Filter languages"
+msgstr ""
 
-#: ../plugins/clipboard-history/ClipboardHistory.vala:164
-msgid "Delete"
-msgstr "刪除"
+#: src/Widgets/FormatBar.vala:117
+msgid "Plain Text"
+msgstr ""
 
-#: ../plugins/outline/CtagsSymbolResolver.vala:35
-#: ../plugins/outline/CtagsSymbolResolver.vala:68
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:99
-#: ../plugins/outline/OutlinePlugin.vala:116
+#: src/Widgets/FormatBar.vala:185
+#, fuzzy, c-format
+msgid "%d Space"
+msgid_plural "%d Spaces"
+msgstr[0] "描繪空格數："
+msgstr[1] "描繪空格數："
+
+#: src/Widgets/FormatBar.vala:187
+#, fuzzy, c-format
+msgid "%d Tab"
+msgid_plural "%d Tabs"
+msgstr[0] "新增分頁"
+msgstr[1] "新增分頁"
+
+#: src/Widgets/FormatBar.vala:203
+msgid "Go To Line:"
+msgstr "前往列號："
+
+#: src/Widgets/HeaderBar.vala:41
+msgid "Open a file"
+msgstr "開啟檔案"
+
+#: src/Widgets/HeaderBar.vala:45
+msgid "Project templates"
+msgstr "專案模板"
+
+#: src/Widgets/HeaderBar.vala:49
+msgid "Save this file"
+msgstr "儲存此檔案"
+
+#: src/Widgets/HeaderBar.vala:53
+msgid "Save this file with a different name"
+msgstr "以不同名稱儲存這份檔案"
+
+#: src/Widgets/HeaderBar.vala:57
+msgid "Restore this file"
+msgstr "還原此檔案"
+
+#: src/Widgets/HeaderBar.vala:68
+msgid "Share"
+msgstr "分享"
+
+#: src/Widgets/HeaderBar.vala:73
+#, fuzzy
+msgid "Zoom Out"
+msgstr "遠近"
+
+#: src/Widgets/HeaderBar.vala:77
+msgid "Zoom 1:1"
+msgstr "遠近 1:1"
+
+#: src/Widgets/HeaderBar.vala:81
+#, fuzzy
+msgid "Zoom In"
+msgstr "遠近"
+
+#: src/Widgets/HeaderBar.vala:93
+msgid "Add New View"
+msgstr "加入新檢視"
+
+#: src/Widgets/HeaderBar.vala:97
+msgid "Remove Current View"
+msgstr "移除目前檢視"
+
+#: src/Widgets/HeaderBar.vala:120
+msgid "Menu"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:63
+msgid "Find"
+msgstr "尋找"
+
+#: src/Widgets/SearchBar.vala:68
+msgid "Search next"
+msgstr "向後搜尋"
+
+#: src/Widgets/SearchBar.vala:73
+msgid "Search previous"
+msgstr "向前搜尋"
+
+#: src/Widgets/SearchBar.vala:77
+msgid "Cyclic Search"
+msgstr "前後循環搜尋"
+
+#: src/Widgets/SearchBar.vala:89
+msgid "Replace With"
+msgstr "替換為"
+
+#: src/Widgets/SearchBar.vala:92
+msgid "Replace"
+msgstr "取代"
+
+#: src/Widgets/SearchBar.vala:95
+msgid "Replace all"
+msgstr "全部取代"
+
+#: src/Widgets/WelcomeView.vala:26
+msgid "No Files Open"
+msgstr "無開啟的檔案"
+
+#: src/Widgets/WelcomeView.vala:27
+msgid "Open a file to begin editing."
+msgstr "開啟檔案開始編輯。"
+
+#: src/Widgets/WelcomeView.vala:35
+msgid "New file"
+msgstr "新增檔案"
+
+#: src/Widgets/WelcomeView.vala:35
+msgid "Create a new empty file."
+msgstr "建立新的空白檔案。"
+
+#: src/Widgets/WelcomeView.vala:36
+msgid "Open file"
+msgstr "開啟檔案"
+
+#: src/Widgets/WelcomeView.vala:36
+msgid "Open a saved file."
+msgstr "開啟儲存的檔案。"
+
+#: src/Widgets/WelcomeView.vala:37
+msgid "New file from clipboard"
+msgstr "從剪貼簿新增檔案"
+
+#: src/Widgets/WelcomeView.vala:37
+msgid "Create a new file from the contents of your clipboard."
+msgstr "從您的剪貼簿內容製作新的檔案。"
+
+#: plugins/folder-manager/FileView.vala:39
+msgid "Folders"
+msgstr "資料夾"
+
+#: plugins/folder-manager/MainFolderItem.vala:30
+msgid "Close Folder"
+msgstr "關閉資料夾"
+
+#: plugins/folder-manager/MainFolderItem.vala:33
+#: plugins/folder-manager/FileItem.vala:34
+#: plugins/folder-manager/FolderItem.vala:64
+msgid "Move to Trash"
+msgstr ""
+
+#: plugins/folder-manager/FolderManagerPlugin.vala:88
+#: plugins/folder-manager/FolderManagerPlugin.vala:89
+msgid "Open a folder"
+msgstr "開啟資料夾"
+
+#: plugins/folder-manager/FolderManagerPlugin.vala:100
+msgid "_Cancel"
+msgstr "取消(_C)"
+
+#: plugins/folder-manager/FolderManagerPlugin.vala:101
+msgid "_Open"
+msgstr "開啟(_O)"
+
+#: plugins/folder-manager/FileItem.vala:31
+#: plugins/folder-manager/FolderItem.vala:61
+msgid "Rename"
+msgstr ""
+
+#: plugins/folder-manager/FolderItem.vala:77
+#, fuzzy
+msgid "Folder"
+msgstr "資料夾"
+
+#: plugins/folder-manager/FolderItem.vala:80
+msgid "Empty File"
+msgstr ""
+
+#: plugins/folder-manager/FolderItem.vala:87
+#, fuzzy
+msgid "New"
+msgstr "新增分頁"
+
+#: plugins/folder-manager/FolderItem.vala:218
+msgid "untitled folder"
+msgstr ""
+
+#: plugins/folder-manager/FolderItem.vala:222
+#, c-format
+msgid "untitled folder %d"
+msgstr ""
+
+#: plugins/folder-manager/FolderItem.vala:244
+#, fuzzy
+msgid "new file"
+msgstr "新增檔案"
+
+#: plugins/folder-manager/FolderItem.vala:248
+#, fuzzy, c-format
+msgid "new file %d"
+msgstr "新增檔案"
+
+#: plugins/pastebin/pastebin_dialog.vala:249
+msgid "Share via PasteBin"
+msgstr "透過 PasteBin 分享"
+
+#: plugins/pastebin/pastebin_dialog.vala:256
+msgid "Name:"
+msgstr "名稱："
+
+#: plugins/pastebin/pastebin_dialog.vala:259
+#, fuzzy
+msgid "Format:"
+msgstr "格式： "
+
+#: plugins/pastebin/pastebin_dialog.vala:264
+msgid "Others..."
+msgstr "其他..."
+
+#: plugins/pastebin/pastebin_dialog.vala:286
+msgid "Expiry time:"
+msgstr "截止時間："
+
+#: plugins/pastebin/pastebin_dialog.vala:292
+msgid "Keep this paste private"
+msgstr "保持該剪貼為私人使用"
+
+#: plugins/pastebin/pastebin_dialog.vala:321
+msgid "Upload"
+msgstr "上傳"
+
+#: plugins/pastebin/pastebin_dialog.vala:352
+msgid "Other formats"
+msgstr "其他格式"
+
+#: plugins/pastebin/pastebin_dialog.vala:484
+msgid "Ten minutes"
+msgstr "十分鐘"
+
+#: plugins/pastebin/pastebin_dialog.vala:485
+msgid "One hour"
+msgstr "一小時"
+
+#: plugins/pastebin/pastebin_dialog.vala:486
+msgid "One day"
+msgstr "一天"
+
+#: plugins/pastebin/pastebin_dialog.vala:487
+msgid "One month"
+msgstr "一個月"
+
+#: plugins/pastebin/pastebin.vala:131
+msgid "Upload to Pastebin"
+msgstr "上傳至 Pastebin"
+
+#: plugins/outline/ValaProcessing/SymbolOutline.vala:21
+#: plugins/outline/ValaProcessing/SymbolOutline.vala:99
+#: plugins/outline/OutlinePane.vala:27
+#: plugins/outline/CtagsSymbolResolver.vala:35
+#: plugins/outline/CtagsSymbolResolver.vala:68
 msgid "Symbols"
 msgstr "符號"
 
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#.
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#.
-#. END LICENSE
-#. **
-#: ../plugins/outline/OutlinePlugin.vala:21
-msgid "Outline"
-msgstr "勾勒"
+#: plugins/terminal/terminal.vala:118 plugins/terminal/terminal.vala:127
+#: plugins/terminal/terminal.vala:174 plugins/terminal/terminal.vala:176
+msgid "Terminal"
+msgstr "終端機"
 
-#: ../plugins/outline/OutlinePlugin.vala:22
-msgid "Outline symbols in your current file in vala"
-msgstr "勾勒您目前 vala 語言檔案中的符號"
+#: plugins/terminal/terminal.vala:169 plugins/terminal/terminal.vala:180
+msgid "Show Terminal"
+msgstr "顯示終端機"
 
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#.
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#.
-#. END LICENSE
-#. **
-#: ../plugins/filemanager/FileManagerPlugin.vala:21
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:21
-msgid "Folder Manager"
-msgstr "資料夾管理員"
+#: plugins/terminal/terminal.vala:172
+msgid "Hide Terminal"
+msgstr "隱藏終端機"
 
-#: ../plugins/filemanager/FileManagerPlugin.vala:22
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:22
-msgid "Basic folder manager with file browsing"
-msgstr "含檔案瀏覽功能的基本資料夾管理員"
+#: plugins/terminal/terminal.vala:247
+msgid "Copy"
+msgstr "複製"
 
-#: ../plugins/filemanager/FileManagerPlugin.vala:71
-msgid "Go to parent"
-msgstr "前往上一層"
+#: plugins/terminal/terminal.vala:254
+msgid "Paste"
+msgstr "貼上"
 
-#: ../plugins/filemanager/FileManagerPlugin.vala:82
-msgid "Add file"
-msgstr "新增檔案"
+#: plugins/terminal/terminal.vala:264
+msgid "Terminal on Right"
+msgstr "終端機放置右側"
 
-#: ../plugins/filemanager/FileManagerPlugin.vala:89
-msgid "Remove file"
-msgstr "移除檔案"
+#: plugins/terminal/terminal.vala:272
+msgid "Terminal on Bottom"
+msgstr "終端機放置底部"
 
-#: ../plugins/filemanager/FileManagerPlugin.vala:104
-msgid "File Manager"
-msgstr "檔案管理員"
+#: plugins/browser-preview/browser-preview.vala:82
+#: plugins/browser-preview/browser-preview.vala:108
+msgid "Show Preview"
+msgstr "顯示預覽"
 
-#: ../plugins/filemanager/FileView.vala:73
-msgid "/New File"
-msgstr "/新檔案"
+#: plugins/browser-preview/browser-preview.vala:104
+#: plugins/browser-preview/browser-preview.vala:150
+msgid "Web Preview"
+msgstr "網頁預覽"
 
-#: ../plugins/spell/spell.vala:18
-msgid "Spell Checker"
-msgstr "拼字檢查器"
+#: plugins/browser-preview/browser-preview.vala:105
+msgid "Hide Preview"
+msgstr "隱藏預覽"
 
-#: ../plugins/spell/spell.vala:19
-msgid "Checks the spelling of your documents"
-msgstr "檢查文件中的拼字是否正確"
-
-#: ../plugins/spell/spell.vala:80
+#: plugins/spell/spell.vala:77
 msgid ""
 "No suitable dictionaries were found.\n"
 "Please install at least one [aspell] dictionary"
@@ -823,198 +664,254 @@ msgstr ""
 "找不到合適的字典。\n"
 "請安裝至少一本 [aspell] 字典"
 
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#.
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#.
-#. END LICENSE
-#. **
-#: ../plugins/browser-preview/browser-preview.vala:21
-msgid "Browser Preview"
-msgstr "瀏覽器預覽"
-
-#: ../plugins/browser-preview/browser-preview.vala:22
-msgid "Get a preview your work in a web page"
-msgstr "取得工作的網頁呈現預覽"
-
-#: ../plugins/browser-preview/browser-preview.vala:85
-#: ../plugins/browser-preview/browser-preview.vala:111
-msgid "Show Preview"
-msgstr "顯示預覽"
-
-#: ../plugins/browser-preview/browser-preview.vala:107
-#: ../plugins/browser-preview/browser-preview.vala:150
-msgid "Web Preview"
-msgstr "網頁預覽"
-
-#: ../plugins/browser-preview/browser-preview.vala:108
-msgid "Hide Preview"
-msgstr "隱藏預覽"
-
-#: ../plugins/word-completion/plugin.vala:34
-msgid "Words Completion"
-msgstr "單字補完"
-
-#: ../plugins/word-completion/plugin.vala:35
-msgid "Show a completion dialog with most used words from your files"
-msgstr "顯示您檔案中最常使用單字的補完對話盒"
-
-#: ../plugins/word-completion/plugin.vala:178
+#: plugins/word-completion/plugin.vala:174
+#, c-format
 msgid "%s - Word Completion"
 msgstr "%s - 單字補完"
 
-#: ../plugins/word-completion/completion-provider.vala:80
+#: plugins/word-completion/completion-provider.vala:80
+#, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "無法載入圖示主題：%s\n"
 
-#: ../plugins/pastebin/pastebin_dialog.vala:254
-msgid "Share via PasteBin"
-msgstr "透過 PasteBin 分享"
-
-#: ../plugins/pastebin/pastebin_dialog.vala:272
-msgid "Name:"
-msgstr "名稱："
-
-#: ../plugins/pastebin/pastebin_dialog.vala:278
-msgid "Format: "
-msgstr "格式： "
-
-#: ../plugins/pastebin/pastebin_dialog.vala:280
-msgid "Others..."
-msgstr "其他..."
-
-#: ../plugins/pastebin/pastebin_dialog.vala:305
-msgid "Expiry time:"
-msgstr "截止時間："
-
-#: ../plugins/pastebin/pastebin_dialog.vala:310
-msgid "Keep this paste private"
-msgstr "保持該剪貼為私人使用"
-
-#: ../plugins/pastebin/pastebin_dialog.vala:312
-msgid "Upload"
-msgstr "上傳"
-
-#: ../plugins/pastebin/pastebin_dialog.vala:342
-msgid "Other formats"
-msgstr "其他格式"
-
-#: ../plugins/pastebin/pastebin_dialog.vala:512
-msgid "Ten minutes"
-msgstr "十分鐘"
-
-#: ../plugins/pastebin/pastebin_dialog.vala:513
-msgid "One hour"
-msgstr "一小時"
-
-#: ../plugins/pastebin/pastebin_dialog.vala:514
-msgid "One day"
-msgstr "一天"
-
-#: ../plugins/pastebin/pastebin_dialog.vala:515
-msgid "One month"
-msgstr "一個月"
-
-#: ../plugins/pastebin/pastebin.vala:23
-msgid "Pastebin"
-msgstr "Pastebin"
-
-#: ../plugins/pastebin/pastebin.vala:24
-msgid "Share files with pastebin service"
-msgstr "以 Pastebin 服務分享檔案"
-
-#: ../plugins/pastebin/pastebin.vala:134
-msgid "Upload to Pastebin"
-msgstr "上傳至 Pastebin"
-
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#.
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#.
-#. END LICENSE
-#. **
-#: ../plugins/contractor/contractor.vala:21
-msgid "Share your files with Contractor"
-msgstr "以 Contractor 分享您的檔案"
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:70
-msgid "Folders"
-msgstr "資料夾"
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:88
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:89
-msgid "Open a folder"
-msgstr "開啟資料夾"
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:94
-msgid "_Cancel"
-msgstr "取消(_C)"
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:95
-msgid "_Open"
-msgstr "開啟(_O)"
-
-#: ../plugins/folder-manager/FileView.vala:294
-msgid "Close Folder"
-msgstr "關閉資料夾"
-
-#: ../plugins/preserve-indent/preserve-indent.vala:24
-msgid "Preserve Indent"
-msgstr "保留縮排"
-
-#: ../plugins/preserve-indent/preserve-indent.vala:25
-msgid "Maintains indent level of pasted text when auto-indent is active"
-msgstr "當自動縮排啟用時，維持貼上文字的縮排層級"
-
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#.
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#.
-#. END LICENSE
-#. **
-#: ../plugins/open-with/open-with.vala:21
-msgid "Open With"
-msgstr "開啟方式"
-
-#: ../plugins/open-with/open-with.vala:22
-msgid "Open files you are editing with another application"
-msgstr "開啟您正用其他應用程式編輯中的檔案"
-
-#: ../plugins/open-with/open-with.vala:54
+#: plugins/open-with/open-with.vala:51
 msgid "Open With…"
 msgstr "開啟方式…"
 
-#: ../plugins/detect-indent/detect-indent.vala:1
-msgid "Detect Indent"
-msgstr "偵測縮排"
+#~ msgid "Edit text files"
+#~ msgstr "編輯文字檔案"
 
-#: ../plugins/detect-indent/detect-indent.vala:2
-msgid "Heuristically detect tab or space settings"
-msgstr "啟發式偵測 Tab 或空白設定"
+#~ msgid "Text Editor"
+#~ msgstr "文字編輯器"
+
+#~ msgid "About Scratch"
+#~ msgstr "關於 Scratch"
+
+#~ msgid "Trash"
+#~ msgstr "回收筒"
+
+#~ msgid "Go to line…"
+#~ msgstr "前往列號…"
+
+#~ msgid "Quit"
+#~ msgstr "退出"
+
+#~ msgid "Reopen closed document"
+#~ msgstr "重新開啟關閉的文件"
+
+#~ msgid "Open last closed document in a new tab"
+#~ msgstr "在新分頁中開啟上次關閉的文件"
+
+#~ msgid "Add New Tab"
+#~ msgstr "新增分頁"
+
+#~ msgid "Add a new tab"
+#~ msgstr "新增一分頁"
+
+#~ msgid "Add a new view"
+#~ msgstr "加入新的檢視"
+
+#~ msgid "Remove this view"
+#~ msgstr "移除此檢視"
+
+#~ msgid "Undo"
+#~ msgstr "取消動作"
+
+#~ msgid "Undo the last action"
+#~ msgstr "取消上個動作"
+
+#~ msgid "Redo"
+#~ msgstr "再次動作"
+
+#~ msgid "Redo the last undone action"
+#~ msgstr "再次執行上個已取消的動作"
+
+#~ msgid "Revert"
+#~ msgstr "回復"
+
+#~ msgid "Duplicate selected strings"
+#~ msgstr "製作所選字串的複本"
+
+#~ msgid "Clipboard"
+#~ msgstr "剪貼簿"
+
+#~ msgid "New file from Clipboard"
+#~ msgstr "從剪貼簿新增檔案"
+
+#~ msgid "Change Scratch settings"
+#~ msgstr "變更 Scratch 設定值"
+
+#~ msgid "Next Tab"
+#~ msgstr "後個分頁"
+
+#~ msgid "Previous Tab"
+#~ msgstr "前個分頁"
+
+#~ msgid "Fullscreen"
+#~ msgstr "全螢幕"
+
+#~ msgid "translator-credits"
+#~ msgstr ""
+#~ "Launchpad Contributions:\n"
+#~ "  Cheng-Chia Tseng https://launchpad.net/~zerng07\n"
+#~ "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
+#~ "  Mingye Wang https://launchpad.net/~artoria2e5\n"
+#~ "  Rockworld https://launchpad.net/~rockrock2222222\n"
+#~ "  TCHa https://launchpad.net/~haemophilic\n"
+#~ "  ethan42411 https://launchpad.net/~jrpropo10282003\n"
+#~ "  honki https://launchpad.net/~honkiaa\n"
+#~ "  leo  https://launchpad.net/~shing80333\n"
+#~ "  賴家亨 https://launchpad.net/~laichiaheng"
+
+#~ msgid "Wait while restoring last session..."
+#~ msgstr "請稍候，正在還原上次作業階段..."
+
+#~ msgid "Normal Text"
+#~ msgstr "一般文字"
+
+#~ msgid "When Scratch starts:"
+#~ msgstr "當 Sractch 開始時："
+
+#~ msgid "Show welcome screen"
+#~ msgstr "顯示歡迎畫面"
+
+#~ msgid "Show last open tabs"
+#~ msgstr "顯示上次開啟的分頁"
+
+#~ msgid "Line wrap:"
+#~ msgstr "自動折行："
+
+#~ msgid "A terminal in your text editor"
+#~ msgstr "您文字編輯器中的終端機"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "截去蔓生空白"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "儲存時截去蔓生空白"
+
+#~ msgid "Highlight Selected Words"
+#~ msgstr "標明選取的字詞"
+
+#~ msgid "Highlights all occurrences of words that are selected"
+#~ msgstr "標明所選字詞的所有出現位置"
+
+#~ msgid "Brackets Completion"
+#~ msgstr "括號補完"
+
+#~ msgid "Complete brackets while typing"
+#~ msgstr "當輸入時自動補完括號"
+
+#~ msgid "Source Tree"
+#~ msgstr "來源樹"
+
+#~ msgid "Have a look at your sources organized in a nice tree"
+#~ msgstr "以整理良好的樹狀圖顯示您的來源"
+
+#~ msgid "Loading..."
+#~ msgstr "載入中..."
+
+#~ msgid "Bookmark"
+#~ msgstr "書籤"
+
+#~ msgid "Files"
+#~ msgstr "檔案"
+
+#~ msgid "Project"
+#~ msgstr "專案"
+
+#~ msgid "Bookmarks"
+#~ msgstr "書籤"
+
+#~ msgid "Vim Emulation"
+#~ msgstr "Vim 模擬"
+
+#~ msgid "Use Vim commands in Scratch"
+#~ msgstr "在 Scratch 中使用指令"
+
+#~ msgid "Clipboard History"
+#~ msgstr "剪貼簿歷史記錄"
+
+#~ msgid "Clipboard to view history"
+#~ msgstr "剪貼簿以檢視歷史記錄"
+
+#~ msgid "..."
+#~ msgstr "..."
+
+#~ msgid "Delete"
+#~ msgstr "刪除"
+
+#~ msgid "Outline"
+#~ msgstr "勾勒"
+
+#~ msgid "Outline symbols in your current file in vala"
+#~ msgstr "勾勒您目前 vala 語言檔案中的符號"
+
+#~ msgid "Folder Manager"
+#~ msgstr "資料夾管理員"
+
+#~ msgid "Basic folder manager with file browsing"
+#~ msgstr "含檔案瀏覽功能的基本資料夾管理員"
+
+#~ msgid "Go to parent"
+#~ msgstr "前往上一層"
+
+#~ msgid "Add file"
+#~ msgstr "新增檔案"
+
+#~ msgid "Remove file"
+#~ msgstr "移除檔案"
+
+#~ msgid "File Manager"
+#~ msgstr "檔案管理員"
+
+#~ msgid "/New File"
+#~ msgstr "/新檔案"
+
+#~ msgid "Spell Checker"
+#~ msgstr "拼字檢查器"
+
+#~ msgid "Checks the spelling of your documents"
+#~ msgstr "檢查文件中的拼字是否正確"
+
+#~ msgid "Browser Preview"
+#~ msgstr "瀏覽器預覽"
+
+#~ msgid "Get a preview your work in a web page"
+#~ msgstr "取得工作的網頁呈現預覽"
+
+#~ msgid "Words Completion"
+#~ msgstr "單字補完"
+
+#~ msgid "Show a completion dialog with most used words from your files"
+#~ msgstr "顯示您檔案中最常使用單字的補完對話盒"
+
+#~ msgid "Pastebin"
+#~ msgstr "Pastebin"
+
+#~ msgid "Share files with pastebin service"
+#~ msgstr "以 Pastebin 服務分享檔案"
+
+#~ msgid "Share your files with Contractor"
+#~ msgstr "以 Contractor 分享您的檔案"
+
+#~ msgid "Preserve Indent"
+#~ msgstr "保留縮排"
+
+#~ msgid "Maintains indent level of pasted text when auto-indent is active"
+#~ msgstr "當自動縮排啟用時，維持貼上文字的縮排層級"
+
+#~ msgid "Open With"
+#~ msgstr "開啟方式"
+
+#~ msgid "Open files you are editing with another application"
+#~ msgstr "開啟您正用其他應用程式編輯中的檔案"
+
+#~ msgid "Detect Indent"
+#~ msgstr "偵測縮排"
+
+#~ msgid "Heuristically detect tab or space settings"
+#~ msgstr "啟發式偵測 Tab 或空白設定"
 
 #~ msgid "Go to line..."
 #~ msgstr "前往列號..."

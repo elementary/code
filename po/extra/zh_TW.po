@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-02 15:44-0500\n"
+"POT-Creation-Date: 2018-02-12 16:23-0800\n"
 "PO-Revision-Date: 2016-08-06 08:45+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
@@ -18,51 +18,54 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 "X-Generator: Launchpad (build 18366)\n"
 
-msgid "Scratch"
-msgstr "Scratch"
+#: data/io.elementary.code.appdata.xml.in:8
+#: data/io.elementary.code.desktop.in.in:4
+msgid "Code"
+msgstr ""
 
-msgid "Edit text files"
-msgstr "編輯文字檔"
-
-msgid "Notepad;IDE;Plain;"
-msgstr "Notepad;IDE;Plain;記事本;筆記本;純文字;整合式開發環境;紀事;"
-
-msgid "About Scratch"
-msgstr "關於 Scratch"
-
-msgid "The text editor that works"
+#: data/io.elementary.code.appdata.xml.in:9
+#, fuzzy
+msgid "The editor that works"
 msgstr "就是行的文字編輯器"
 
+#: data/io.elementary.code.appdata.xml.in:11
+#, fuzzy
 msgid ""
-"Scratch is the text editor that works for you. It auto-saves your files, "
-"meaning they're always up-to-date. Plus it remembers your tabs so you never "
-"lose your spot, even in between sessions."
+"Code is the editor that works for you. It auto-saves your files, meaning "
+"they're always up-to-date. Plus it remembers your tabs so you never lose "
+"your spot, even in between sessions."
 msgstr ""
 "Scratch 是為您打造的文字編輯器。它能自動儲存檔案，代表檔案總是自動更新到最新"
 "狀態。此外，它還能記住您使用的分頁，所以您永不失焦，而且即使是不同的作業階段"
 "也都記得住。"
 
+#: data/io.elementary.code.appdata.xml.in:16
+#, fuzzy
 msgid ""
-"Make it yours. Scratch is written from the ground up to be extensible. Keep "
-"things super lightweight and simple, or install extensions to turn Scratch "
-"into a full-blown IDE; it's your choice. And with a handful of useful "
+"Make it yours. Code is written from the ground up to be extensible. Keep "
+"things super lightweight and simple, or install extensions to turn Code into "
+"a full-blown IDE; it's your choice. And with a handful of useful "
 "preferences, you can tweak the behavior and interface to your liking."
 msgstr ""
 "請依偏好自行調整。Scratch 打從一開始就以擴充性為目標，不管是要讓它維持超輕量"
 "與簡單，或是要安裝擴充套件來讓 Scracth 成為膨風的 IDE 都行；全取決於您。還有"
 "許多方便運用的偏好設定，您可以將行為和介面調校成您喜愛的姿態。"
 
+#: data/io.elementary.code.appdata.xml.in:22
+#, fuzzy
 msgid ""
-"It's elementary. Scratch is made to be the perfect text editor for "
-"elementary, meaning it closely follows the high standards of design, speed, "
-"and consistency. It's sexy, but not distracting."
+"It's elementary. Code is made to be the perfect editor for elementary, "
+"meaning it closely follows the high standards of design, speed, and "
+"consistency. It's sexy, but not distracting."
 msgstr ""
 "這就是 elementary。Scratch 希望成為 elementary 的完美文字編輯器，這代表它緊密"
 "遵守設計、速度、一致… 等高標。它性感，卻又不亂了您的思緒。"
 
+#: data/io.elementary.code.appdata.xml.in:27
+#, fuzzy
 msgid ""
 "Works with your language. Whether you're crafting code in Vala, scripting "
-"with PHP, or marking things up in HTML, Scratch has you covered. Experience "
+"with PHP, or marking things up in HTML, Code has you covered. Experience "
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
@@ -70,6 +73,7 @@ msgstr ""
 "等，Scratch 都一把罩。請體驗它完整的語法標明功能，支援幾乎所有的程式設計、指"
 "令稿編排、標記等語言。"
 
+#: data/io.elementary.code.appdata.xml.in:33
 msgid ""
 "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, .Desktop, "
 "Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
@@ -79,17 +83,58 @@ msgstr ""
 "Gettext、ini、Java、JavaScript、LaTex、Lua、Makefile、Objective C、Pascal、"
 "Perl、Python、Ruby、XML 等。"
 
+#: data/io.elementary.code.appdata.xml.in:38
 msgid "Additional features include:"
 msgstr "額外功能包括："
 
+#: data/io.elementary.code.appdata.xml.in:42
 msgid "syntax highlighting with gtksourceview-3"
 msgstr "採用 gtksourceview-3 作語法標明"
 
+#: data/io.elementary.code.appdata.xml.in:43
 msgid "a find bar to search the words in the files"
 msgstr "搜尋檔案中字詞的尋找列"
 
+#: data/io.elementary.code.appdata.xml.in:44
 msgid "tab and split documents system"
 msgstr "分頁和文件切分系統"
 
+#: data/io.elementary.code.appdata.xml.in:45
 msgid "lots of others"
 msgstr "其他一堆有的沒的"
+
+#: data/io.elementary.code.appdata.xml.in:51
+msgid "elementary LLC."
+msgstr ""
+
+#: data/io.elementary.code.desktop.in.in:5
+#, fuzzy
+msgid "Edit code files"
+msgstr "編輯文字檔"
+
+#: data/io.elementary.code.desktop.in.in:6
+msgid "Code Editor"
+msgstr ""
+
+#: data/io.elementary.code.desktop.in.in:8
+msgid "io.elementary.code"
+msgstr ""
+
+#: data/io.elementary.code.desktop.in.in:11
+#, fuzzy
+msgid "IDE;scratch;"
+msgstr "Scratch"
+
+#: data/io.elementary.code.desktop.in.in:17
+msgid "New Document"
+msgstr ""
+
+#: data/io.elementary.code.desktop.in.in:21
+msgid "New Window"
+msgstr ""
+
+#~ msgid "Notepad;IDE;Plain;"
+#~ msgstr "Notepad;IDE;Plain;記事本;筆記本;純文字;整合式開發環境;紀事;"
+
+#~ msgid "About Scratch"
+#~ msgstr "關於 Scratch"
