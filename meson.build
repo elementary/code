@@ -48,3 +48,5 @@ if get_option('plugins')
     subdir('plugins')
 endif
 subdir('po')
+
+meson.add_install_script('meson/post_install.py')
