@@ -8,15 +8,17 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
-"PO-Revision-Date: 2016-09-19 23:36+0000\n"
-"Last-Translator: Beyhan Karadağ <beyhankaradag00@gmail.com>\n"
-"Language-Team: Turkish <tr@li.org>\n"
+"PO-Revision-Date: 2018-02-12 21:20+0000\n"
+"Last-Translator: Muha Aliss <muhaaliss@gmail.com>\n"
+"Language-Team: Turkish "
+"<https://weblate.elementary.io/projects/scratch/scratch/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -389,7 +391,7 @@ msgstr "Paylaş"
 
 #: ../src/Widgets/ToolBar.vala:66
 msgid "Menu"
-msgstr ""
+msgstr "Menü"
 
 #: ../src/Widgets/SplitView.vala:45
 msgid "No Files Open"
@@ -550,11 +552,11 @@ msgstr "Asla"
 
 #: ../src/Dialogs/PreferencesDialog.vala:167
 msgid "For selected text"
-msgstr ""
+msgstr "Seçilen metin için"
 
 #: ../src/Dialogs/PreferencesDialog.vala:168
 msgid "Always"
-msgstr ""
+msgstr "Her zaman"
 
 #: ../src/Dialogs/PreferencesDialog.vala:171
 msgid "Show line numbers:"

@@ -1,5 +1,0 @@
-include(GSettings)
-add_schema("${CMAKE_PROJECT_NAME}.gschema.xml")
-add_schema("${CMAKE_PROJECT_NAME}.plugins.folder-manager.gschema.xml")
-add_schema("${CMAKE_PROJECT_NAME}.plugins.terminal.gschema.xml")
-add_schema("${CMAKE_PROJECT_NAME}.plugins.spell.gschema.xml")

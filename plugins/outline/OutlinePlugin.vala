@@ -18,9 +18,6 @@
   END LICENSE
 ***/
 
-public const string NAME = _("Outline");
-public const string DESCRIPTION = _("Outline symbols in your current file in vala");
-
 namespace Scratch.Plugins {
     public class OutlinePlugin : Peas.ExtensionBase, Peas.Activatable {
         public Object object { owned get; construct; }
