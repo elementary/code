@@ -7,308 +7,38 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-02 15:44-0500\n"
+"POT-Creation-Date: 2018-02-12 16:21-0800\n"
 "PO-Revision-Date: 2017-05-31 22:12+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
-"Language-Team: Slovenian "
-"<https://l10n.elementary.io/projects/scratch/scratch/sl/>\n"
+"Language-Team: Slovenian <https://l10n.elementary.io/projects/scratch/"
+"scratch/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 2.14\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
-#: ../src/config.vala:15
-msgid "Edit text files"
-msgstr "Urejajte besedilne datoteke"
-
-#: ../src/config.vala:16
-msgid "Text Editor"
-msgstr "Urejevalnik besedila"
-
-#: ../src/config.vala:17 ../src/Services/Document.vala:444
-msgid "New Document"
-msgstr "Nov dokument"
-
-#: ../src/config.vala:18 ../src/Scratch.vala:278
-msgid "New Window"
-msgstr "Novo okno"
-
-#: ../src/config.vala:19
-msgid "About Scratch"
-msgstr "O Scratchu"
-
-#: ../src/MainWindow.vala:97
-msgid "Zeitgeist Datasource for Scratch"
-msgstr "Vir podatkov Zeitgeist za Scratch"
-
-#: ../src/MainWindow.vala:187
-msgid "Trash"
-msgstr "Smeti"
-
-#: ../src/MainWindow.vala:716
-msgid "Open some files"
-msgstr "Odpri nekaj datotek"
-
-#: ../src/MainWindow.vala:841 ../src/MainWindow.vala:1002
-#: ../src/MainWindow.vala:1003 ../src/MainWindow.vala:1014
-#: ../src/MainWindow.vala:1015
-msgid "Find…"
-msgstr "Išči…"
-
-#: ../src/MainWindow.vala:843
-msgid "Hide search bar"
-msgstr "Skrij iskalno vrstico"
-
-#: ../src/MainWindow.vala:909 ../src/MainWindow.vala:910
-msgid "Go to line…"
-msgstr "Pojdi v vrstico…"
-
-#: ../src/MainWindow.vala:913 ../src/MainWindow.vala:914
-msgid "Quit"
-msgstr "Končaj"
-
-#: ../src/MainWindow.vala:917 ../src/MainWindow.vala:918
-#: ../src/Dialogs/PreferencesDialog.vala:83
-msgid "Close"
-msgstr "Zapri"
-
-#: ../src/MainWindow.vala:921 ../src/MainWindow.vala:922
-#: ../src/Widgets/SearchManager.vala:107
-msgid "Replace"
-msgstr "Zamenjaj"
-
-#: ../src/MainWindow.vala:925
-msgid "Reopen closed document"
-msgstr "Znova odpri zaprt dokument"
-
-#: ../src/MainWindow.vala:926
-msgid "Open last closed document in a new tab"
-msgstr "Odpri nazadnje zaprt dokument v novem zavihku"
-
-#: ../src/MainWindow.vala:929
-msgid "Add New Tab"
-msgstr "Dodaj nov zavihek"
-
-#: ../src/MainWindow.vala:930
-msgid "Add a new tab"
-msgstr "Dodaj nov zavihek"
-
-#: ../src/MainWindow.vala:933
-msgid "Add New View"
-msgstr "Dodaj nov pogled"
-
-#: ../src/MainWindow.vala:934
-msgid "Add a new view"
-msgstr "Dodaj nov pogled"
-
-#: ../src/MainWindow.vala:937
-msgid "Remove Current View"
-msgstr "Odstrani trenutni pogled"
-
-#: ../src/MainWindow.vala:938
-msgid "Remove this view"
-msgstr "Odstrani ta pogled"
-
-#: ../src/MainWindow.vala:941
-msgid "Undo"
-msgstr "Razveljavi"
-
-#: ../src/MainWindow.vala:942
-msgid "Undo the last action"
-msgstr "Razveljavi zadnje dejanje"
-
-#: ../src/MainWindow.vala:945
-msgid "Redo"
-msgstr "Ponovi"
-
-#: ../src/MainWindow.vala:946
-msgid "Redo the last undone action"
-msgstr "Ponovi zadnje razveljavljeno dejanje"
-
-#: ../src/MainWindow.vala:949
-msgid "Revert"
-msgstr "Povrni"
-
-#: ../src/MainWindow.vala:950
-msgid "Restore this file"
-msgstr "Obnovi datoteko"
-
-#: ../src/MainWindow.vala:953 ../src/MainWindow.vala:954
-msgid "Duplicate selected strings"
-msgstr "Podvoji izbrani niz"
-
-#: ../src/MainWindow.vala:957 ../src/Utils.vala:31
-#: ../plugins/filemanager/FileView.vala:230
-msgid "Open"
-msgstr "Odpri"
-
-#: ../src/MainWindow.vala:958
-msgid "Open a file"
-msgstr "Odpri datoteko"
-
-#: ../src/MainWindow.vala:961
-msgid "Clipboard"
-msgstr "Odložišče"
-
-#: ../src/MainWindow.vala:962
-msgid "New file from Clipboard"
-msgstr "Nova datoteka z odložišča"
-
-#: ../src/MainWindow.vala:965
-msgid "Zoom"
-msgstr "Povečaj"
-
-#: ../src/MainWindow.vala:966
-msgid "Zoom 1:1"
-msgstr "1:1"
-
-#: ../src/MainWindow.vala:969 ../src/Services/Document.vala:259
-#: ../src/Services/Document.vala:585 ../src/Utils.vala:33
-msgid "Save"
-msgstr "Shrani"
-
-#: ../src/MainWindow.vala:970
-msgid "Save this file"
-msgstr "Shrani datoteko"
-
-#: ../src/MainWindow.vala:973 ../src/Services/Document.vala:578
-msgid "Save As…"
-msgstr "Shrani kot …"
-
-#: ../src/MainWindow.vala:974
-msgid "Save this file with a different name"
-msgstr "Shrani datoteko pod drugim imenom"
-
-#: ../src/MainWindow.vala:977 ../src/Services/TemplateManager.vala:194
-msgid "Templates"
-msgstr "Predloge"
-
-#: ../src/MainWindow.vala:978
-msgid "Project templates"
-msgstr "Projektne predloge"
-
-#: ../src/MainWindow.vala:981 ../src/Dialogs/PreferencesDialog.vala:55
-msgid "Preferences"
-msgstr "Možnosti"
-
-#: ../src/MainWindow.vala:982
-msgid "Change Scratch settings"
-msgstr "Spremeni nastavitve programa"
-
-#: ../src/MainWindow.vala:985 ../src/MainWindow.vala:986
-msgid "Next Tab"
-msgstr "Naslednji zavihek"
-
-#: ../src/MainWindow.vala:989 ../src/MainWindow.vala:990
-msgid "Previous Tab"
-msgstr "Prejšnji zavihek"
-
-#: ../src/MainWindow.vala:1009 ../src/MainWindow.vala:1010
-msgid "Fullscreen"
-msgstr "Celozaslonski način"
-
-#: ../src/Services/Document.vala:249
-msgid "Save changes to document %s before closing?"
-msgstr "Ali želite pred zaprtjem shraniti spremembe v dokument %s?"
-
-#: ../src/Services/Document.vala:252
-msgid ""
-"If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr ""
-"Če ne boste shranili, bodo spremembe zadnjih 4-ih sekund trajno izgubljene."
-
-#: ../src/Services/Document.vala:254
-msgid "Close without saving"
-msgstr "Zapri brez shranjevanja"
-
-#: ../src/Services/Document.vala:258 ../src/Utils.vala:29
-msgid "Cancel"
-msgstr "Prekliči"
-
-#: ../src/Services/Document.vala:331
-msgid "Save File"
-msgstr "Shrani datoteko"
-
-#: ../src/Services/Document.vala:560
-msgid ""
-"File \"%s\" cannot be read. Maybe it is corrupt\n"
-"or you do not have the necessary permissions to read it."
-msgstr ""
-"Datoteke \"%s\" ni mogoče brati. Morda je poškodovana\n"
-"ali pa nimate dovoljenja za branje."
-
-#: ../src/Services/Document.vala:576
-msgid ""
-"The location containing the file \"%s\" was unmounted. Do you want to save "
-"somewhere else?"
-msgstr ""
-"Imenik z datoteko \"%s\" je bil odklopljen. Ali želite datoteko shraniti kam "
-"drugam?"
-
-#: ../src/Services/Document.vala:583
-msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "Datoteka \"%s\" je bila izbrisana. Ali jo želite vseeno shraniti?"
-
-#: ../src/Services/Document.vala:596
-msgid ""
-"You cannot save changes on file \"%s\". Do you want to save the changes to "
-"this file in a different location?"
-msgstr ""
-"Sprememb v datoteki \"%s\" ne morete shraniti. Ali jo želite shraniti v drug "
-"imenik?"
-
-#: ../src/Services/Document.vala:598
-msgid "Save changes elsewhere"
-msgstr "Shrani spremembe drugje"
-
-#: ../src/Services/Document.vala:629
-msgid ""
-"File \"%s\" was modified by an external application. Do you want to load it "
-"again or continue your editing?"
-msgstr ""
-"Datoteko \"%s\" je spremenila druga apliakcija. Ali jo želite ponovno "
-"naložiti?"
-
-#: ../src/Services/Document.vala:630
-msgid "Load"
-msgstr "Naloži"
-
-#: ../src/Services/Document.vala:633
-msgid "Continue"
-msgstr "Nadaljuj"
-
-#: ../src/Scratch.vala:68
-msgid "translator-credits"
-msgstr ""
-"Launchpad Contributions:\n"
-"  Damir Jerovšek https://launchpad.net/~jierro\n"
-"  Jernej Virag https://launchpad.net/~jernej\n"
-"  Mario Guerriero https://launchpad.net/~mefrio-g\n"
-"  Marko Gajšt https://launchpad.net/~vxmxpx\n"
-"  MarkoD https://launchpad.net/~markodolar\n"
-"  greg https://launchpad.net/~gorencgregor"
-
-#: ../src/Scratch.vala:166
+#: src/Application.vala:142
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Morda nimate ustreznih pravic."
 
-#: ../src/Scratch.vala:168
+#: src/Application.vala:144
 msgid "Maybe the file path provided is not valid."
 msgstr "Morda pot do datoteke ni pravilna."
 
-#: ../src/Scratch.vala:170
+#: src/Application.vala:146
 msgid "The location is read-only."
 msgstr "Lokacija je dostopna samo za branje."
 
-#: ../src/Scratch.vala:172
+#: src/Application.vala:148
 msgid "The parent directory doesn't exist."
 msgstr "Mapa z datoteko več ne obstaja."
 
-#: ../src/Scratch.vala:179
+#: src/Application.vala:155
+#, c-format
 msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
@@ -316,7 +46,8 @@ msgstr ""
 "Datoteke  \"%s\" ni mogoče ustvariti.\n"
 "%s"
 
-#: ../src/Scratch.vala:189
+#: src/Application.vala:165
+#, c-format
 msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
@@ -324,15 +55,15 @@ msgstr ""
 "Datoteke  \"%s\" ni bilo mogoče odpreti.\n"
 "%s"
 
-#: ../src/Scratch.vala:198
+#: src/Application.vala:174
 msgid "It is a mountable location."
 msgstr "Je priklopna točka."
 
-#: ../src/Scratch.vala:201
+#: src/Application.vala:177
 msgid "It is a directory."
 msgstr "Je direktorij."
 
-#: ../src/Scratch.vala:204
+#: src/Application.vala:180
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " fifo, block device, or character device."
@@ -340,489 +71,606 @@ msgstr ""
 "Je \"posebna\" datoteka kot npr. vtičnica,\n"
 "fifo, blokovna ali znakovna naprava."
 
-#: ../src/Scratch.vala:207
+#: src/Application.vala:183
 msgid "It is an \"unknown\" file type."
 msgstr "Je \"neznan\" tip datoteke."
 
-#: ../src/Scratch.vala:277
+#: src/Application.vala:255
 msgid "New Tab"
 msgstr "Nov zavihek"
 
-#: ../src/Scratch.vala:279
+#: src/Application.vala:256
+msgid "New Window"
+msgstr "Novo okno"
+
+#: src/Application.vala:257
 msgid "Print version info and exit"
 msgstr "Prikaži različico in končaj"
 
-#: ../src/Scratch.vala:280
+#: src/Application.vala:258
 msgid "Set of plugins"
 msgstr "Nabor vtičnikov"
 
-#: ../src/Scratch.vala:281
+#: src/Application.vala:259
 msgid "Current working directory"
 msgstr "Trenutni imenik"
 
-#: ../src/Widgets/ToolBar.vala:58
-msgid "Share"
-msgstr "Deli"
+#: src/MainWindow.vala:128
+msgid "Code"
+msgstr ""
 
-#: ../src/Widgets/ToolBar.vala:66
-msgid "Menu"
-msgstr "Meni"
+#: src/MainWindow.vala:168 src/Widgets/HeaderBar.vala:62
+msgid "Find…"
+msgstr "Išči…"
 
-#: ../src/Widgets/SplitView.vala:45
-msgid "No Files Open"
-msgstr "Ni odprtih datotek"
+#: src/MainWindow.vala:170
+msgid "Hide search bar"
+msgstr "Skrij iskalno vrstico"
 
-#: ../src/Widgets/SplitView.vala:46
-msgid "Open a file to begin editing."
-msgstr "Odprite datoteko, da začnete z urejanjem."
+#: src/MainWindow.vala:216
+msgid "Zeitgeist Datasource for Scratch"
+msgstr "Vir podatkov Zeitgeist za Scratch"
 
-#: ../src/Widgets/SplitView.vala:50
-msgid "New file"
-msgstr "Nova datoteka"
+#: src/MainWindow.vala:716
+msgid "Open some files"
+msgstr "Odpri nekaj datotek"
 
-#: ../src/Widgets/SplitView.vala:50
-msgid "Create a new empty file."
-msgstr "Ustvarite novo prazno datoteko."
-
-#: ../src/Widgets/SplitView.vala:51
-msgid "Open file"
-msgstr "Odpri datoteko"
-
-#: ../src/Widgets/SplitView.vala:51
-msgid "Open a saved file."
-msgstr "Odprite shranjeno datoteko."
-
-#: ../src/Widgets/SplitView.vala:52
-msgid "New file from clipboard"
-msgstr "Nova datoteka z odložišča"
-
-#: ../src/Widgets/SplitView.vala:52
-msgid "Create a new file from the contents of your clipboard."
-msgstr "Ustvari novo datoteko z vsebine vašega odložišča."
-
-#: ../src/Widgets/DocumentView.vala:95
-msgid "Text file from "
-msgstr "Tekstovna datoteka iz "
-
-#: ../src/Widgets/LoadingView.vala:33
-msgid "Wait while restoring last session..."
-msgstr "Prejšnja seja se obnavlja..."
-
-#: ../src/Widgets/SearchManager.vala:70
-msgid "Find"
-msgstr "Iskanje"
-
-#: ../src/Widgets/SearchManager.vala:75
-msgid "Replace With"
-msgstr "Zamenjaj z"
-
-#: ../src/Widgets/SearchManager.vala:91
-msgid "Search next"
-msgstr "Išči naprej"
-
-#: ../src/Widgets/SearchManager.vala:97
-msgid "Search previous"
-msgstr "Išči nazaj"
-
-#: ../src/Widgets/SearchManager.vala:104
-msgid "Cyclic Search"
-msgstr "Išči ponovno od začetka"
-
-#: ../src/Widgets/SearchManager.vala:112
-msgid "Replace all"
-msgstr "Zamenjaj vse"
-
-#: ../src/Widgets/SearchManager.vala:121
-msgid "Go To Line:"
-msgstr "Pojdi na vrstico:"
-
-#: ../src/Widgets/SourceView.vala:120
-msgid "Syntax Highlighting"
-msgstr "Označevanje sintakse"
-
-#: ../src/Widgets/SourceView.vala:131
-msgid "Normal Text"
-msgstr "Običajno besedilo"
-
-#: ../src/Utils.vala:42
+#: src/Utils.vala:27
 msgid "All files"
 msgstr "Vse datoteke"
 
-#: ../src/Utils.vala:45
+#: src/Utils.vala:31
 msgid "Text files"
 msgstr "Datoteke z besedilom"
 
-#: ../src/Dialogs/PreferencesDialog.vala:67
-msgid "Behavior"
-msgstr "Vedenje"
+#: src/Utils.vala:35 src/Services/Document.vala:370
+msgid "Cancel"
+msgstr "Prekliči"
 
-#: ../src/Dialogs/PreferencesDialog.vala:68
-msgid "Interface"
-msgstr "Vmesnik"
+#: src/Utils.vala:44
+msgid "Open"
+msgstr "Odpri"
 
-#: ../src/Dialogs/PreferencesDialog.vala:79
-msgid "Extensions"
-msgstr "Razširitve"
+#: src/Utils.vala:46 src/Services/Document.vala:371
+#: src/Services/Document.vala:668
+msgid "Save"
+msgstr "Shrani"
 
-#: ../src/Dialogs/PreferencesDialog.vala:108
+#: src/Dialogs/PreferencesDialog.vala:43 src/Widgets/HeaderBar.vala:101
+msgid "Preferences"
+msgstr "Možnosti"
+
+#: src/Dialogs/PreferencesDialog.vala:57
 msgid "General"
 msgstr "Splošno"
 
-#: ../src/Dialogs/PreferencesDialog.vala:110
-msgid "When Scratch starts:"
-msgstr "Ko se program zažene:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:112
-msgid "Show welcome screen"
-msgstr "Pokaži pozdravni zaslon"
-
-#: ../src/Dialogs/PreferencesDialog.vala:113
-msgid "Show last open tabs"
-msgstr "Pokaži zadnje odprte zavihke"
-
-#: ../src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:58
 msgid "Save files when changed:"
 msgstr "Shrani datoteke ob spremembi:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:119
+#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
 msgstr "Zavihki"
 
-#: ../src/Dialogs/PreferencesDialog.vala:121
+#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:147
 msgid "Automatic indentation:"
 msgstr "Samodejno zamikanje:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:124
+#: src/Dialogs/PreferencesDialog.vala:63 src/Widgets/FormatBar.vala:141
 msgid "Insert spaces instead of tabs:"
 msgstr "Vstavi presledke namesto tabulatorjev:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:127
+#: src/Dialogs/PreferencesDialog.vala:65 src/Widgets/FormatBar.vala:144
 msgid "Tab width:"
 msgstr "Širina tabulatorja:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:153
+#: src/Dialogs/PreferencesDialog.vala:72
+msgid "Behavior"
+msgstr "Vedenje"
+
+#: src/Dialogs/PreferencesDialog.vala:73
+msgid "Interface"
+msgstr "Vmesnik"
+
+#: src/Dialogs/PreferencesDialog.vala:85
+#: plugins/pastebin/pastebin_dialog.vala:323
+msgid "Close"
+msgstr "Zapri"
+
+#: src/Dialogs/PreferencesDialog.vala:101
+msgid "Extensions"
+msgstr "Razširitve"
+
+#: src/Dialogs/PreferencesDialog.vala:110
 msgid "Editor"
 msgstr "Urejevalnik"
 
-#: ../src/Dialogs/PreferencesDialog.vala:155
+#: src/Dialogs/PreferencesDialog.vala:112
 msgid "Highlight current line:"
 msgstr "Poudari trenutno vrstico:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:158
+#: src/Dialogs/PreferencesDialog.vala:115
 msgid "Highlight matching brackets:"
 msgstr "Poudari ujemajoče oklepaje:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:161
-msgid "Line wrap:"
-msgstr "Prelom vrstice:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:164
+#: src/Dialogs/PreferencesDialog.vala:118
 msgid "Draw Spaces:"
 msgstr "Prikaži presledke:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:166
-#: ../plugins/pastebin/pastebin_dialog.vala:511
+#: src/Dialogs/PreferencesDialog.vala:120
+#: plugins/pastebin/pastebin_dialog.vala:483
 msgid "Never"
 msgstr "Nikoli"
 
-#: ../src/Dialogs/PreferencesDialog.vala:167
+#: src/Dialogs/PreferencesDialog.vala:121
 msgid "For selected text"
 msgstr "Za izbran tekst"
 
-#: ../src/Dialogs/PreferencesDialog.vala:168
+#: src/Dialogs/PreferencesDialog.vala:122
 msgid "Always"
 msgstr "Vedno"
 
-#: ../src/Dialogs/PreferencesDialog.vala:171
-msgid "Show line numbers:"
-msgstr "Pokaži številke vrstic:"
-
-#: ../src/Dialogs/PreferencesDialog.vala:175
+#: src/Dialogs/PreferencesDialog.vala:127
 msgid "Show Mini Map:"
 msgstr "Prikaži mini pregled:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:179
+#: src/Dialogs/PreferencesDialog.vala:131
 msgid "Line width guide:"
 msgstr "Vodilo za širino vrstice:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:187
+#: src/Dialogs/PreferencesDialog.vala:139
 msgid "Font and Color Scheme"
 msgstr "Barve in pisava"
 
-#: ../src/Dialogs/PreferencesDialog.vala:189
+#: src/Dialogs/PreferencesDialog.vala:141
 msgid "Color scheme:"
 msgstr "Barvna shema:"
 
-#: ../src/Dialogs/PreferencesDialog.vala:194
+#: src/Dialogs/PreferencesDialog.vala:146
 msgid "Custom font:"
 msgstr "Poljubna pisava:"
 
-#: ../plugins/terminal/terminal.vala:23 ../plugins/terminal/terminal.vala:116
-#: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
-#: ../plugins/terminal/terminal.vala:174
-msgid "Terminal"
-msgstr "Terminal"
+#: src/Services/Document.vala:221
+#, c-format
+msgid "%s Is Not a Text File"
+msgstr ""
 
-#: ../plugins/terminal/terminal.vala:24
-msgid "A terminal in your text editor"
-msgstr "Terminal v vašem urejevalniku besedil"
+#: src/Services/Document.vala:222
+msgid "Code will not load this type of file."
+msgstr ""
 
-#: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
-msgid "Show Terminal"
-msgstr "Pokaži terminal"
+#: src/Services/Document.vala:224
+msgid "Load Anyway"
+msgstr ""
 
-#: ../plugins/terminal/terminal.vala:170
-msgid "Hide Terminal"
-msgstr "Skrij terminal"
+#: src/Services/Document.vala:245
+#, c-format
+msgid "Loading File \"%s\" Is Taking a Long Time"
+msgstr ""
 
-#: ../plugins/terminal/terminal.vala:313
-msgid "Copy"
-msgstr "Kopiraj"
+#: src/Services/Document.vala:246
+msgid "Please wait while Code is loading the file."
+msgstr ""
 
-#: ../plugins/terminal/terminal.vala:320
-#: ../plugins/clipboard-history/ClipboardHistory.vala:167
-msgid "Paste"
-msgstr "Prilepi"
+#: src/Services/Document.vala:248
+#, fuzzy
+msgid "Cancel Load"
+msgstr "Prekliči"
 
-#: ../plugins/terminal/terminal.vala:330
-msgid "Terminal on Right"
-msgstr "Terminal na desni"
+#: src/Services/Document.vala:361
+#, c-format
+msgid "Save changes to document %s before closing?"
+msgstr "Ali želite pred zaprtjem shraniti spremembe v dokument %s?"
 
-#: ../plugins/terminal/terminal.vala:338
-msgid "Terminal on Bottom"
-msgstr "Terminal spodaj"
+#: src/Services/Document.vala:364
+msgid ""
+"If you don't save, changes from the last 4 seconds will be permanently lost."
+msgstr ""
+"Če ne boste shranili, bodo spremembe zadnjih 4-ih sekund trajno izgubljene."
 
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
-msgid "Strip trailing whitespace"
-msgstr "Zbriši prazne znake na koncu"
+#: src/Services/Document.vala:366
+msgid "Close without saving"
+msgstr "Zapri brez shranjevanja"
 
-#: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
-msgid "Strip trailing whitespace on save"
-msgstr "Zbriši prazne znake na koncu ob shranjevanju"
+#: src/Services/Document.vala:448
+msgid "Save File"
+msgstr "Shrani datoteko"
 
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#.
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#.
-#. END LICENSE
-#. **
-#: ../plugins/highlight-word-selection/highlight-word-selection.vala:21
-msgid "Highlight Selected Words"
-msgstr "Osvetli izbrane besede"
+#: src/Services/Document.vala:523
+msgid "New Document"
+msgstr "Nov dokument"
 
-#: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
-msgid "Highlights all occurrences of words that are selected"
-msgstr "Osvetli vse ponovitve izbranih besed"
+#: src/Services/Document.vala:646
+#, fuzzy, c-format
+msgid "File \"%s\" Cannot Be Read"
+msgstr ""
+"Datoteke  \"%s\" ni mogoče ustvariti.\n"
+"%s"
 
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#.
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#.
-#. END LICENSE
-#. **
-#: ../plugins/brackets-completion/brackets-completion.vala:21
-msgid "Brackets Completion"
-msgstr "Dopolnjevanje oklepajev"
+#: src/Services/Document.vala:647
+#, fuzzy
+msgid ""
+"Maybe it is corrupt or you do not have the necessary permissions to read it."
+msgstr ""
+"Datoteke \"%s\" ni mogoče brati. Morda je poškodovana\n"
+"ali pa nimate dovoljenja za branje."
 
-#: ../plugins/brackets-completion/brackets-completion.vala:22
-msgid "Complete brackets while typing"
-msgstr "Ob tipkanju dokonča oklepaje"
+#: src/Services/Document.vala:659
+#, c-format
+msgid ""
+"The location containing the file \"%s\" was unmounted. Do you want to save "
+"somewhere else?"
+msgstr ""
+"Imenik z datoteko \"%s\" je bil odklopljen. Ali želite datoteko shraniti kam "
+"drugam?"
 
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#.
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#.
-#. END LICENSE
-#. **
-#: ../plugins/source-tree/SourceTreePlugin.vala:20
-#: ../plugins/source-tree/SourceTreePlugin.vala:197
-msgid "Source Tree"
-msgstr "Drevo vira"
+#: src/Services/Document.vala:661
+msgid "Save As…"
+msgstr "Shrani kot …"
 
-#: ../plugins/source-tree/SourceTreePlugin.vala:21
-msgid "Have a look at your sources organized in a nice tree"
-msgstr "Pogled v obliki lepega drevesa"
+#: src/Services/Document.vala:666
+#, c-format
+msgid "File \"%s\" was deleted. Do you want to save it anyway?"
+msgstr "Datoteka \"%s\" je bila izbrisana. Ali jo želite vseeno shraniti?"
 
-#: ../plugins/source-tree/SourceTreePlugin.vala:42
-msgid "Loading..."
-msgstr "Nalaganje..."
+#: src/Services/Document.vala:681
+#, c-format
+msgid ""
+"You cannot save changes on file \"%s\". Do you want to save the changes to "
+"this file in a different location?"
+msgstr ""
+"Sprememb v datoteki \"%s\" ne morete shraniti. Ali jo želite shraniti v drug "
+"imenik?"
 
-#: ../plugins/source-tree/SourceTreePlugin.vala:175
-msgid "Bookmark"
-msgstr "Zaznamek"
+#: src/Services/Document.vala:683
+msgid "Save changes elsewhere"
+msgstr "Shrani spremembe drugje"
 
-#: ../plugins/source-tree/SourceTreePlugin.vala:234
-msgid "Files"
-msgstr "Datoteke"
+#: src/Services/Document.vala:716
+#, c-format
+msgid ""
+"File \"%s\" was modified by an external application. Do you want to load it "
+"again or continue your editing?"
+msgstr ""
+"Datoteko \"%s\" je spremenila druga apliakcija. Ali jo želite ponovno "
+"naložiti?"
 
-#: ../plugins/source-tree/SourceTreePlugin.vala:235
-msgid "Project"
-msgstr "Projekt"
+#: src/Services/Document.vala:717
+msgid "Load"
+msgstr "Naloži"
 
-#: ../plugins/source-tree/SourceTreePlugin.vala:236
-msgid "Bookmarks"
-msgstr "Zaznamki"
+#: src/Services/Document.vala:720
+msgid "Continue"
+msgstr "Nadaljuj"
 
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#.
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#.
-#. END LICENSE
-#. **
-#: ../plugins/vim-emulation/vim-emulation.vala:21
-msgid "Vim Emulation"
-msgstr "Posnemanje Vima"
+#: src/Services/TemplateManager.vala:194
+msgid "Templates"
+msgstr "Predloge"
 
-#: ../plugins/vim-emulation/vim-emulation.vala:22
-msgid "Use Vim commands in Scratch"
-msgstr "Uporabi ukaze Vima v Scratchu"
+#: src/Widgets/DocumentView.vala:88
+#, fuzzy, c-format
+msgid "Text file from %s"
+msgstr "Tekstovna datoteka iz "
 
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#.
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#.
-#. END LICENSE
-#. **
-#: ../plugins/clipboard-history/ClipboardHistory.vala:21
-#: ../plugins/clipboard-history/ClipboardHistory.vala:89
-msgid "Clipboard History"
-msgstr "Zgodovina odložišča"
+#: src/Widgets/FormatBar.vala:67
+msgid "Syntax Highlighting"
+msgstr "Označevanje sintakse"
 
-#: ../plugins/clipboard-history/ClipboardHistory.vala:22
-msgid "Clipboard to view history"
-msgstr "Zgodovina odložišča"
+#: src/Widgets/FormatBar.vala:71
+#, fuzzy
+msgid "Line number"
+msgstr "Pokaži številke vrstic:"
 
-#: ../plugins/clipboard-history/ClipboardHistory.vala:28
-msgid "..."
-msgstr "..."
+#: src/Widgets/FormatBar.vala:95
+msgid "Filter languages"
+msgstr ""
 
-#: ../plugins/clipboard-history/ClipboardHistory.vala:164
-msgid "Delete"
-msgstr "Izbriši"
+#: src/Widgets/FormatBar.vala:117
+msgid "Plain Text"
+msgstr ""
 
-#: ../plugins/outline/CtagsSymbolResolver.vala:35
-#: ../plugins/outline/CtagsSymbolResolver.vala:68
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:21
-#: ../plugins/outline/ValaProcessing/SymbolOutline.vala:99
-#: ../plugins/outline/OutlinePlugin.vala:116
+#: src/Widgets/FormatBar.vala:185
+#, fuzzy, c-format
+msgid "%d Space"
+msgid_plural "%d Spaces"
+msgstr[0] "Prikaži presledke:"
+msgstr[1] "Prikaži presledke:"
+msgstr[2] "Prikaži presledke:"
+msgstr[3] "Prikaži presledke:"
+
+#: src/Widgets/FormatBar.vala:187
+#, fuzzy, c-format
+msgid "%d Tab"
+msgid_plural "%d Tabs"
+msgstr[0] "Nov zavihek"
+msgstr[1] "Nov zavihek"
+msgstr[2] "Nov zavihek"
+msgstr[3] "Nov zavihek"
+
+#: src/Widgets/FormatBar.vala:203
+msgid "Go To Line:"
+msgstr "Pojdi na vrstico:"
+
+#: src/Widgets/HeaderBar.vala:41
+msgid "Open a file"
+msgstr "Odpri datoteko"
+
+#: src/Widgets/HeaderBar.vala:45
+msgid "Project templates"
+msgstr "Projektne predloge"
+
+#: src/Widgets/HeaderBar.vala:49
+msgid "Save this file"
+msgstr "Shrani datoteko"
+
+#: src/Widgets/HeaderBar.vala:53
+msgid "Save this file with a different name"
+msgstr "Shrani datoteko pod drugim imenom"
+
+#: src/Widgets/HeaderBar.vala:57
+msgid "Restore this file"
+msgstr "Obnovi datoteko"
+
+#: src/Widgets/HeaderBar.vala:68
+msgid "Share"
+msgstr "Deli"
+
+#: src/Widgets/HeaderBar.vala:73
+#, fuzzy
+msgid "Zoom Out"
+msgstr "Povečaj"
+
+#: src/Widgets/HeaderBar.vala:77
+msgid "Zoom 1:1"
+msgstr "1:1"
+
+#: src/Widgets/HeaderBar.vala:81
+#, fuzzy
+msgid "Zoom In"
+msgstr "Povečaj"
+
+#: src/Widgets/HeaderBar.vala:93
+msgid "Add New View"
+msgstr "Dodaj nov pogled"
+
+#: src/Widgets/HeaderBar.vala:97
+msgid "Remove Current View"
+msgstr "Odstrani trenutni pogled"
+
+#: src/Widgets/HeaderBar.vala:120
+msgid "Menu"
+msgstr "Meni"
+
+#: src/Widgets/SearchBar.vala:63
+msgid "Find"
+msgstr "Iskanje"
+
+#: src/Widgets/SearchBar.vala:68
+msgid "Search next"
+msgstr "Išči naprej"
+
+#: src/Widgets/SearchBar.vala:73
+msgid "Search previous"
+msgstr "Išči nazaj"
+
+#: src/Widgets/SearchBar.vala:77
+msgid "Cyclic Search"
+msgstr "Išči ponovno od začetka"
+
+#: src/Widgets/SearchBar.vala:89
+msgid "Replace With"
+msgstr "Zamenjaj z"
+
+#: src/Widgets/SearchBar.vala:92
+msgid "Replace"
+msgstr "Zamenjaj"
+
+#: src/Widgets/SearchBar.vala:95
+msgid "Replace all"
+msgstr "Zamenjaj vse"
+
+#: src/Widgets/WelcomeView.vala:26
+msgid "No Files Open"
+msgstr "Ni odprtih datotek"
+
+#: src/Widgets/WelcomeView.vala:27
+msgid "Open a file to begin editing."
+msgstr "Odprite datoteko, da začnete z urejanjem."
+
+#: src/Widgets/WelcomeView.vala:35
+msgid "New file"
+msgstr "Nova datoteka"
+
+#: src/Widgets/WelcomeView.vala:35
+msgid "Create a new empty file."
+msgstr "Ustvarite novo prazno datoteko."
+
+#: src/Widgets/WelcomeView.vala:36
+msgid "Open file"
+msgstr "Odpri datoteko"
+
+#: src/Widgets/WelcomeView.vala:36
+msgid "Open a saved file."
+msgstr "Odprite shranjeno datoteko."
+
+#: src/Widgets/WelcomeView.vala:37
+msgid "New file from clipboard"
+msgstr "Nova datoteka z odložišča"
+
+#: src/Widgets/WelcomeView.vala:37
+msgid "Create a new file from the contents of your clipboard."
+msgstr "Ustvari novo datoteko z vsebine vašega odložišča."
+
+#: plugins/folder-manager/FileView.vala:39
+msgid "Folders"
+msgstr "Mape"
+
+#: plugins/folder-manager/MainFolderItem.vala:30
+msgid "Close Folder"
+msgstr "Zapri mapo"
+
+#: plugins/folder-manager/MainFolderItem.vala:33
+#: plugins/folder-manager/FileItem.vala:34
+#: plugins/folder-manager/FolderItem.vala:64
+msgid "Move to Trash"
+msgstr ""
+
+#: plugins/folder-manager/FolderManagerPlugin.vala:88
+#: plugins/folder-manager/FolderManagerPlugin.vala:89
+msgid "Open a folder"
+msgstr "Odpri mapo"
+
+#: plugins/folder-manager/FolderManagerPlugin.vala:100
+msgid "_Cancel"
+msgstr "_Prekliči"
+
+#: plugins/folder-manager/FolderManagerPlugin.vala:101
+msgid "_Open"
+msgstr "_Odpri"
+
+#: plugins/folder-manager/FileItem.vala:31
+#: plugins/folder-manager/FolderItem.vala:61
+msgid "Rename"
+msgstr ""
+
+#: plugins/folder-manager/FolderItem.vala:77
+#, fuzzy
+msgid "Folder"
+msgstr "Mape"
+
+#: plugins/folder-manager/FolderItem.vala:80
+msgid "Empty File"
+msgstr ""
+
+#: plugins/folder-manager/FolderItem.vala:87
+#, fuzzy
+msgid "New"
+msgstr "Nov zavihek"
+
+#: plugins/folder-manager/FolderItem.vala:218
+msgid "untitled folder"
+msgstr ""
+
+#: plugins/folder-manager/FolderItem.vala:222
+#, c-format
+msgid "untitled folder %d"
+msgstr ""
+
+#: plugins/folder-manager/FolderItem.vala:244
+#, fuzzy
+msgid "new file"
+msgstr "Nova datoteka"
+
+#: plugins/folder-manager/FolderItem.vala:248
+#, fuzzy, c-format
+msgid "new file %d"
+msgstr "Nova datoteka"
+
+#: plugins/pastebin/pastebin_dialog.vala:249
+msgid "Share via PasteBin"
+msgstr "Deli preko PasteBin"
+
+#: plugins/pastebin/pastebin_dialog.vala:256
+msgid "Name:"
+msgstr "Ime:"
+
+#: plugins/pastebin/pastebin_dialog.vala:259
+#, fuzzy
+msgid "Format:"
+msgstr "Vrsta: "
+
+#: plugins/pastebin/pastebin_dialog.vala:264
+msgid "Others..."
+msgstr "Drugo ..."
+
+#: plugins/pastebin/pastebin_dialog.vala:286
+msgid "Expiry time:"
+msgstr "Čas poteka:"
+
+#: plugins/pastebin/pastebin_dialog.vala:292
+msgid "Keep this paste private"
+msgstr "Zasebna objava"
+
+#: plugins/pastebin/pastebin_dialog.vala:321
+msgid "Upload"
+msgstr "Naloži"
+
+#: plugins/pastebin/pastebin_dialog.vala:352
+msgid "Other formats"
+msgstr "Druge vrste"
+
+#: plugins/pastebin/pastebin_dialog.vala:484
+msgid "Ten minutes"
+msgstr "Deset minut"
+
+#: plugins/pastebin/pastebin_dialog.vala:485
+msgid "One hour"
+msgstr "Ena ura"
+
+#: plugins/pastebin/pastebin_dialog.vala:486
+msgid "One day"
+msgstr "En dan"
+
+#: plugins/pastebin/pastebin_dialog.vala:487
+msgid "One month"
+msgstr "En mesec"
+
+#: plugins/pastebin/pastebin.vala:131
+msgid "Upload to Pastebin"
+msgstr "Pošlji na Pastebin"
+
+#: plugins/outline/ValaProcessing/SymbolOutline.vala:21
+#: plugins/outline/ValaProcessing/SymbolOutline.vala:99
+#: plugins/outline/OutlinePane.vala:27
+#: plugins/outline/CtagsSymbolResolver.vala:35
+#: plugins/outline/CtagsSymbolResolver.vala:68
 msgid "Symbols"
 msgstr "Simboli"
 
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#.
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#.
-#. END LICENSE
-#. **
-#: ../plugins/outline/OutlinePlugin.vala:21
-msgid "Outline"
-msgstr "Oris"
+#: plugins/terminal/terminal.vala:118 plugins/terminal/terminal.vala:127
+#: plugins/terminal/terminal.vala:174 plugins/terminal/terminal.vala:176
+msgid "Terminal"
+msgstr "Terminal"
 
-#: ../plugins/outline/OutlinePlugin.vala:22
-msgid "Outline symbols in your current file in vala"
-msgstr "Oriši simbole v trenutni datoteki v Vali"
+#: plugins/terminal/terminal.vala:169 plugins/terminal/terminal.vala:180
+msgid "Show Terminal"
+msgstr "Pokaži terminal"
 
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#.
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#.
-#. END LICENSE
-#. **
-#: ../plugins/filemanager/FileManagerPlugin.vala:21
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:21
-msgid "Folder Manager"
-msgstr "Upravitelj map"
+#: plugins/terminal/terminal.vala:172
+msgid "Hide Terminal"
+msgstr "Skrij terminal"
 
-#: ../plugins/filemanager/FileManagerPlugin.vala:22
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:22
-msgid "Basic folder manager with file browsing"
-msgstr "Preprost upravljalnik map z brskanjem datotek"
+#: plugins/terminal/terminal.vala:247
+msgid "Copy"
+msgstr "Kopiraj"
 
-#: ../plugins/filemanager/FileManagerPlugin.vala:71
-msgid "Go to parent"
-msgstr "Pojdi do nadrejenega"
+#: plugins/terminal/terminal.vala:254
+msgid "Paste"
+msgstr "Prilepi"
 
-#: ../plugins/filemanager/FileManagerPlugin.vala:82
-msgid "Add file"
-msgstr "Dodaj datoteko"
+#: plugins/terminal/terminal.vala:264
+msgid "Terminal on Right"
+msgstr "Terminal na desni"
 
-#: ../plugins/filemanager/FileManagerPlugin.vala:89
-msgid "Remove file"
-msgstr "Odstrani datoteko"
+#: plugins/terminal/terminal.vala:272
+msgid "Terminal on Bottom"
+msgstr "Terminal spodaj"
 
-#: ../plugins/filemanager/FileManagerPlugin.vala:104
-msgid "File Manager"
-msgstr "Upravitelj datotek"
+#: plugins/browser-preview/browser-preview.vala:82
+#: plugins/browser-preview/browser-preview.vala:108
+msgid "Show Preview"
+msgstr "Pokaži predogled"
 
-#: ../plugins/filemanager/FileView.vala:73
-msgid "/New File"
-msgstr "/Nova datoteka"
+#: plugins/browser-preview/browser-preview.vala:104
+#: plugins/browser-preview/browser-preview.vala:150
+msgid "Web Preview"
+msgstr "Spletni predogled"
 
-#: ../plugins/spell/spell.vala:18
-msgid "Spell Checker"
-msgstr "Pregledovalnik pravopisa"
+#: plugins/browser-preview/browser-preview.vala:105
+msgid "Hide Preview"
+msgstr "Skrij predogled"
 
-#: ../plugins/spell/spell.vala:19
-msgid "Checks the spelling of your documents"
-msgstr "Preveri pravopis vaših dokumenov"
-
-#: ../plugins/spell/spell.vala:80
+#: plugins/spell/spell.vala:77
 msgid ""
 "No suitable dictionaries were found.\n"
 "Please install at least one [aspell] dictionary"
@@ -830,201 +678,254 @@ msgstr ""
 "Nobenega ustreznega slovarja ni mogoče najti.\n"
 "Namestite vsaj en [aspell] slovar"
 
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#.
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#.
-#. END LICENSE
-#. **
-#: ../plugins/browser-preview/browser-preview.vala:21
-msgid "Browser Preview"
-msgstr "Predogled v brskalniku"
-
-#: ../plugins/browser-preview/browser-preview.vala:22
-msgid "Get a preview your work in a web page"
-msgstr "Predogled vašega dela na spetni strani"
-
-#: ../plugins/browser-preview/browser-preview.vala:85
-#: ../plugins/browser-preview/browser-preview.vala:111
-msgid "Show Preview"
-msgstr "Pokaži predogled"
-
-#: ../plugins/browser-preview/browser-preview.vala:107
-#: ../plugins/browser-preview/browser-preview.vala:150
-msgid "Web Preview"
-msgstr "Spletni predogled"
-
-#: ../plugins/browser-preview/browser-preview.vala:108
-msgid "Hide Preview"
-msgstr "Skrij predogled"
-
-#: ../plugins/word-completion/plugin.vala:34
-msgid "Words Completion"
-msgstr "Dopolnjevanje besed"
-
-#: ../plugins/word-completion/plugin.vala:35
-msgid "Show a completion dialog with most used words from your files"
-msgstr ""
-"Pokaže pogovorno okno dopolnitve z najpogosteje uporabljenimi besedami iz "
-"vaših datotek"
-
-#: ../plugins/word-completion/plugin.vala:178
+#: plugins/word-completion/plugin.vala:174
+#, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Dopolnitev besede"
 
-#: ../plugins/word-completion/completion-provider.vala:80
+#: plugins/word-completion/completion-provider.vala:80
+#, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "Ni mogoče naložiti ikonske teme: %s\n"
 
-#: ../plugins/pastebin/pastebin_dialog.vala:254
-msgid "Share via PasteBin"
-msgstr "Deli preko PasteBin"
-
-#: ../plugins/pastebin/pastebin_dialog.vala:272
-msgid "Name:"
-msgstr "Ime:"
-
-#: ../plugins/pastebin/pastebin_dialog.vala:278
-msgid "Format: "
-msgstr "Vrsta: "
-
-#: ../plugins/pastebin/pastebin_dialog.vala:280
-msgid "Others..."
-msgstr "Drugo ..."
-
-#: ../plugins/pastebin/pastebin_dialog.vala:305
-msgid "Expiry time:"
-msgstr "Čas poteka:"
-
-#: ../plugins/pastebin/pastebin_dialog.vala:310
-msgid "Keep this paste private"
-msgstr "Zasebna objava"
-
-#: ../plugins/pastebin/pastebin_dialog.vala:312
-msgid "Upload"
-msgstr "Naloži"
-
-#: ../plugins/pastebin/pastebin_dialog.vala:342
-msgid "Other formats"
-msgstr "Druge vrste"
-
-#: ../plugins/pastebin/pastebin_dialog.vala:512
-msgid "Ten minutes"
-msgstr "Deset minut"
-
-#: ../plugins/pastebin/pastebin_dialog.vala:513
-msgid "One hour"
-msgstr "Ena ura"
-
-#: ../plugins/pastebin/pastebin_dialog.vala:514
-msgid "One day"
-msgstr "En dan"
-
-#: ../plugins/pastebin/pastebin_dialog.vala:515
-msgid "One month"
-msgstr "En mesec"
-
-#: ../plugins/pastebin/pastebin.vala:23
-msgid "Pastebin"
-msgstr "Pastebin"
-
-#: ../plugins/pastebin/pastebin.vala:24
-msgid "Share files with pastebin service"
-msgstr "Delite datoteke s storitvijo Pastebin"
-
-#: ../plugins/pastebin/pastebin.vala:134
-msgid "Upload to Pastebin"
-msgstr "Pošlji na Pastebin"
-
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#.
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#.
-#. END LICENSE
-#. **
-#: ../plugins/contractor/contractor.vala:21
-msgid "Share your files with Contractor"
-msgstr "Delite svoje datoteke s Contractorjem"
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:70
-msgid "Folders"
-msgstr "Mape"
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:88
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:89
-msgid "Open a folder"
-msgstr "Odpri mapo"
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:94
-msgid "_Cancel"
-msgstr "_Prekliči"
-
-#: ../plugins/folder-manager/FolderManagerPlugin.vala:95
-msgid "_Open"
-msgstr "_Odpri"
-
-#: ../plugins/folder-manager/FileView.vala:294
-msgid "Close Folder"
-msgstr "Zapri mapo"
-
-#: ../plugins/preserve-indent/preserve-indent.vala:24
-msgid "Preserve Indent"
-msgstr "Obdrži zamik"
-
-#: ../plugins/preserve-indent/preserve-indent.vala:25
-msgid "Maintains indent level of pasted text when auto-indent is active"
-msgstr ""
-"Obdrži zamik prilepljenega besedila ko je vklopljeno avtomatsko zamikanje"
-
-#. /or modify it
-#. under the terms of the GNU Lesser General Public License version 3, as published
-#. by the Free Software Foundation.
-#.
-#. This program is distributed in the hope that it will be useful, but
-#. WITHOUT ANY WARRANTY; without even the implied warranties of
-#. MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-#. PURPOSE.  See the GNU General Public License for more details.
-#.
-#. You should have received a copy of the GNU General Public License along
-#. with this program.  If not, see <http://www.gnu.org/licenses/>
-#.
-#. END LICENSE
-#. **
-#: ../plugins/open-with/open-with.vala:21
-msgid "Open With"
-msgstr "Odpri z"
-
-#: ../plugins/open-with/open-with.vala:22
-msgid "Open files you are editing with another application"
-msgstr "Odpre datoteke v urejevalniku z drugo aplikacijo"
-
-#: ../plugins/open-with/open-with.vala:54
+#: plugins/open-with/open-with.vala:51
 msgid "Open With…"
 msgstr "Odpri z…"
 
-#: ../plugins/detect-indent/detect-indent.vala:1
-msgid "Detect Indent"
-msgstr "Zaznaj zamik"
+#~ msgid "Edit text files"
+#~ msgstr "Urejajte besedilne datoteke"
 
-#: ../plugins/detect-indent/detect-indent.vala:2
-msgid "Heuristically detect tab or space settings"
-msgstr "Hevristično zaznaj nastavitve presledkov ali tabulatorjev"
+#~ msgid "Text Editor"
+#~ msgstr "Urejevalnik besedila"
+
+#~ msgid "About Scratch"
+#~ msgstr "O Scratchu"
+
+#~ msgid "Trash"
+#~ msgstr "Smeti"
+
+#~ msgid "Go to line…"
+#~ msgstr "Pojdi v vrstico…"
+
+#~ msgid "Quit"
+#~ msgstr "Končaj"
+
+#~ msgid "Reopen closed document"
+#~ msgstr "Znova odpri zaprt dokument"
+
+#~ msgid "Open last closed document in a new tab"
+#~ msgstr "Odpri nazadnje zaprt dokument v novem zavihku"
+
+#~ msgid "Add New Tab"
+#~ msgstr "Dodaj nov zavihek"
+
+#~ msgid "Add a new tab"
+#~ msgstr "Dodaj nov zavihek"
+
+#~ msgid "Add a new view"
+#~ msgstr "Dodaj nov pogled"
+
+#~ msgid "Remove this view"
+#~ msgstr "Odstrani ta pogled"
+
+#~ msgid "Undo"
+#~ msgstr "Razveljavi"
+
+#~ msgid "Undo the last action"
+#~ msgstr "Razveljavi zadnje dejanje"
+
+#~ msgid "Redo"
+#~ msgstr "Ponovi"
+
+#~ msgid "Redo the last undone action"
+#~ msgstr "Ponovi zadnje razveljavljeno dejanje"
+
+#~ msgid "Revert"
+#~ msgstr "Povrni"
+
+#~ msgid "Duplicate selected strings"
+#~ msgstr "Podvoji izbrani niz"
+
+#~ msgid "Clipboard"
+#~ msgstr "Odložišče"
+
+#~ msgid "New file from Clipboard"
+#~ msgstr "Nova datoteka z odložišča"
+
+#~ msgid "Change Scratch settings"
+#~ msgstr "Spremeni nastavitve programa"
+
+#~ msgid "Next Tab"
+#~ msgstr "Naslednji zavihek"
+
+#~ msgid "Previous Tab"
+#~ msgstr "Prejšnji zavihek"
+
+#~ msgid "Fullscreen"
+#~ msgstr "Celozaslonski način"
+
+#~ msgid "translator-credits"
+#~ msgstr ""
+#~ "Launchpad Contributions:\n"
+#~ "  Damir Jerovšek https://launchpad.net/~jierro\n"
+#~ "  Jernej Virag https://launchpad.net/~jernej\n"
+#~ "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
+#~ "  Marko Gajšt https://launchpad.net/~vxmxpx\n"
+#~ "  MarkoD https://launchpad.net/~markodolar\n"
+#~ "  greg https://launchpad.net/~gorencgregor"
+
+#~ msgid "Wait while restoring last session..."
+#~ msgstr "Prejšnja seja se obnavlja..."
+
+#~ msgid "Normal Text"
+#~ msgstr "Običajno besedilo"
+
+#~ msgid "When Scratch starts:"
+#~ msgstr "Ko se program zažene:"
+
+#~ msgid "Show welcome screen"
+#~ msgstr "Pokaži pozdravni zaslon"
+
+#~ msgid "Show last open tabs"
+#~ msgstr "Pokaži zadnje odprte zavihke"
+
+#~ msgid "Line wrap:"
+#~ msgstr "Prelom vrstice:"
+
+#~ msgid "A terminal in your text editor"
+#~ msgstr "Terminal v vašem urejevalniku besedil"
+
+#~ msgid "Strip trailing whitespace"
+#~ msgstr "Zbriši prazne znake na koncu"
+
+#~ msgid "Strip trailing whitespace on save"
+#~ msgstr "Zbriši prazne znake na koncu ob shranjevanju"
+
+#~ msgid "Highlight Selected Words"
+#~ msgstr "Osvetli izbrane besede"
+
+#~ msgid "Highlights all occurrences of words that are selected"
+#~ msgstr "Osvetli vse ponovitve izbranih besed"
+
+#~ msgid "Brackets Completion"
+#~ msgstr "Dopolnjevanje oklepajev"
+
+#~ msgid "Complete brackets while typing"
+#~ msgstr "Ob tipkanju dokonča oklepaje"
+
+#~ msgid "Source Tree"
+#~ msgstr "Drevo vira"
+
+#~ msgid "Have a look at your sources organized in a nice tree"
+#~ msgstr "Pogled v obliki lepega drevesa"
+
+#~ msgid "Loading..."
+#~ msgstr "Nalaganje..."
+
+#~ msgid "Bookmark"
+#~ msgstr "Zaznamek"
+
+#~ msgid "Files"
+#~ msgstr "Datoteke"
+
+#~ msgid "Project"
+#~ msgstr "Projekt"
+
+#~ msgid "Bookmarks"
+#~ msgstr "Zaznamki"
+
+#~ msgid "Vim Emulation"
+#~ msgstr "Posnemanje Vima"
+
+#~ msgid "Use Vim commands in Scratch"
+#~ msgstr "Uporabi ukaze Vima v Scratchu"
+
+#~ msgid "Clipboard History"
+#~ msgstr "Zgodovina odložišča"
+
+#~ msgid "Clipboard to view history"
+#~ msgstr "Zgodovina odložišča"
+
+#~ msgid "..."
+#~ msgstr "..."
+
+#~ msgid "Delete"
+#~ msgstr "Izbriši"
+
+#~ msgid "Outline"
+#~ msgstr "Oris"
+
+#~ msgid "Outline symbols in your current file in vala"
+#~ msgstr "Oriši simbole v trenutni datoteki v Vali"
+
+#~ msgid "Folder Manager"
+#~ msgstr "Upravitelj map"
+
+#~ msgid "Basic folder manager with file browsing"
+#~ msgstr "Preprost upravljalnik map z brskanjem datotek"
+
+#~ msgid "Go to parent"
+#~ msgstr "Pojdi do nadrejenega"
+
+#~ msgid "Add file"
+#~ msgstr "Dodaj datoteko"
+
+#~ msgid "Remove file"
+#~ msgstr "Odstrani datoteko"
+
+#~ msgid "File Manager"
+#~ msgstr "Upravitelj datotek"
+
+#~ msgid "/New File"
+#~ msgstr "/Nova datoteka"
+
+#~ msgid "Spell Checker"
+#~ msgstr "Pregledovalnik pravopisa"
+
+#~ msgid "Checks the spelling of your documents"
+#~ msgstr "Preveri pravopis vaših dokumenov"
+
+#~ msgid "Browser Preview"
+#~ msgstr "Predogled v brskalniku"
+
+#~ msgid "Get a preview your work in a web page"
+#~ msgstr "Predogled vašega dela na spetni strani"
+
+#~ msgid "Words Completion"
+#~ msgstr "Dopolnjevanje besed"
+
+#~ msgid "Show a completion dialog with most used words from your files"
+#~ msgstr ""
+#~ "Pokaže pogovorno okno dopolnitve z najpogosteje uporabljenimi besedami iz "
+#~ "vaših datotek"
+
+#~ msgid "Pastebin"
+#~ msgstr "Pastebin"
+
+#~ msgid "Share files with pastebin service"
+#~ msgstr "Delite datoteke s storitvijo Pastebin"
+
+#~ msgid "Share your files with Contractor"
+#~ msgstr "Delite svoje datoteke s Contractorjem"
+
+#~ msgid "Preserve Indent"
+#~ msgstr "Obdrži zamik"
+
+#~ msgid "Maintains indent level of pasted text when auto-indent is active"
+#~ msgstr ""
+#~ "Obdrži zamik prilepljenega besedila ko je vklopljeno avtomatsko zamikanje"
+
+#~ msgid "Open With"
+#~ msgstr "Odpri z"
+
+#~ msgid "Open files you are editing with another application"
+#~ msgstr "Odpre datoteke v urejevalniku z drugo aplikacijo"
+
+#~ msgid "Detect Indent"
+#~ msgstr "Zaznaj zamik"
+
+#~ msgid "Heuristically detect tab or space settings"
+#~ msgstr "Hevristično zaznaj nastavitve presledkov ali tabulatorjev"
 
 #~ msgid "Find..."
 #~ msgstr "Najdi ..."
