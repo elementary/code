@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-02 15:44-0500\n"
+"POT-Creation-Date: 2018-02-12 16:23-0800\n"
 "PO-Revision-Date: 2018-01-15 00:08+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock@gmail.com>\n"
-"Language-Team: Japanese "
-"<https://weblate.elementary.io/projects/scratch/extra/ja/>\n"
+"Language-Team: Japanese <https://weblate.elementary.io/projects/scratch/"
+"extra/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,34 +20,33 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
-msgid "Scratch"
-msgstr "Scratch"
+#: data/io.elementary.code.appdata.xml.in:8
+#: data/io.elementary.code.desktop.in.in:4
+msgid "Code"
+msgstr ""
 
-msgid "Edit text files"
-msgstr "テキストファイルを編集します"
-
-msgid "Notepad;IDE;Plain;"
-msgstr "Notepad;IDE;Plain;"
-
-msgid "About Scratch"
-msgstr "Scratch について"
-
-msgid "The text editor that works"
+#: data/io.elementary.code.appdata.xml.in:9
+#, fuzzy
+msgid "The editor that works"
 msgstr "働くテキストエディター"
 
+#: data/io.elementary.code.appdata.xml.in:11
+#, fuzzy
 msgid ""
-"Scratch is the text editor that works for you. It auto-saves your files, "
-"meaning they're always up-to-date. Plus it remembers your tabs so you never "
-"lose your spot, even in between sessions."
+"Code is the editor that works for you. It auto-saves your files, meaning "
+"they're always up-to-date. Plus it remembers your tabs so you never lose "
+"your spot, even in between sessions."
 msgstr ""
 "Scratch はあなたのために働くテキストエディターです。編集中のファイルを自動保"
 "存し、常に最新の状態になるようにします。さらに、セッション中でも編集中の場所"
 "を見失わないようにタブを記録します。"
 
+#: data/io.elementary.code.appdata.xml.in:16
+#, fuzzy
 msgid ""
-"Make it yours. Scratch is written from the ground up to be extensible. Keep "
-"things super lightweight and simple, or install extensions to turn Scratch "
-"into a full-blown IDE; it's your choice. And with a handful of useful "
+"Make it yours. Code is written from the ground up to be extensible. Keep "
+"things super lightweight and simple, or install extensions to turn Code into "
+"a full-blown IDE; it's your choice. And with a handful of useful "
 "preferences, you can tweak the behavior and interface to your liking."
 msgstr ""
 "あなたのものにする。Scratch は最大限に拡張可能という方針から書かれています。"
@@ -55,18 +54,22 @@ msgstr ""
 "それはあなた次第です。そしてひとつかみの便利な設定により、あなたの好みに応じ"
 "て動作やインターフェースを微調整できます。"
 
+#: data/io.elementary.code.appdata.xml.in:22
+#, fuzzy
 msgid ""
-"It's elementary. Scratch is made to be the perfect text editor for "
-"elementary, meaning it closely follows the high standards of design, speed, "
-"and consistency. It's sexy, but not distracting."
+"It's elementary. Code is made to be the perfect editor for elementary, "
+"meaning it closely follows the high standards of design, speed, and "
+"consistency. It's sexy, but not distracting."
 msgstr ""
 "Scratch は elementary 用の完璧なテキストエディターとして作られており、その結"
 "果高水準のデザイン、スピード、そして一貫性となります。セクシーですが、気をそ"
 "らすわけではありません。"
 
+#: data/io.elementary.code.appdata.xml.in:27
+#, fuzzy
 msgid ""
 "Works with your language. Whether you're crafting code in Vala, scripting "
-"with PHP, or marking things up in HTML, Scratch has you covered. Experience "
+"with PHP, or marking things up in HTML, Code has you covered. Experience "
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
@@ -75,6 +78,7 @@ msgstr ""
 "ます。ほぼすべてのプログラミング、スクリプティング、マークアップ言語で最大限"
 "の構文の強調を体験してください。"
 
+#: data/io.elementary.code.appdata.xml.in:33
 msgid ""
 "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, .Desktop, "
 "Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
@@ -84,17 +88,58 @@ msgstr ""
 "CSS, .Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
 "Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 
+#: data/io.elementary.code.appdata.xml.in:38
 msgid "Additional features include:"
 msgstr "その他の機能:"
 
+#: data/io.elementary.code.appdata.xml.in:42
 msgid "syntax highlighting with gtksourceview-3"
 msgstr "gtksourceview-3 によるシンタックスハイライト"
 
+#: data/io.elementary.code.appdata.xml.in:43
 msgid "a find bar to search the words in the files"
 msgstr "ファイル内で単語を探すための検索バー"
 
+#: data/io.elementary.code.appdata.xml.in:44
 msgid "tab and split documents system"
 msgstr "タブおよび分割文書システム"
 
+#: data/io.elementary.code.appdata.xml.in:45
 msgid "lots of others"
 msgstr "他の多く"
+
+#: data/io.elementary.code.appdata.xml.in:51
+msgid "elementary LLC."
+msgstr ""
+
+#: data/io.elementary.code.desktop.in.in:5
+#, fuzzy
+msgid "Edit code files"
+msgstr "テキストファイルを編集します"
+
+#: data/io.elementary.code.desktop.in.in:6
+msgid "Code Editor"
+msgstr ""
+
+#: data/io.elementary.code.desktop.in.in:8
+msgid "io.elementary.code"
+msgstr ""
+
+#: data/io.elementary.code.desktop.in.in:11
+#, fuzzy
+msgid "IDE;scratch;"
+msgstr "Scratch"
+
+#: data/io.elementary.code.desktop.in.in:17
+msgid "New Document"
+msgstr ""
+
+#: data/io.elementary.code.desktop.in.in:21
+msgid "New Window"
+msgstr ""
+
+#~ msgid "Notepad;IDE;Plain;"
+#~ msgstr "Notepad;IDE;Plain;"
+
+#~ msgid "About Scratch"
+#~ msgstr "Scratch について"

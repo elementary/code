@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-02 15:44-0500\n"
+"POT-Creation-Date: 2018-02-12 16:23-0800\n"
 "PO-Revision-Date: 2016-08-02 21:58+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <ko@li.org>\n"
@@ -18,34 +18,33 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 "X-Generator: Launchpad (build 18366)\n"
 
-msgid "Scratch"
-msgstr "스크래치"
+#: data/io.elementary.code.appdata.xml.in:8
+#: data/io.elementary.code.desktop.in.in:4
+msgid "Code"
+msgstr ""
 
-msgid "Edit text files"
-msgstr "텍스트 파일을 편집합니다"
-
-msgid "Notepad;IDE;Plain;"
-msgstr "노트패드;IDE;플레인;"
-
-msgid "About Scratch"
-msgstr "스크래치 소개"
-
-msgid "The text editor that works"
+#: data/io.elementary.code.appdata.xml.in:9
+#, fuzzy
+msgid "The editor that works"
 msgstr "텍스트 에디터"
 
+#: data/io.elementary.code.appdata.xml.in:11
+#, fuzzy
 msgid ""
-"Scratch is the text editor that works for you. It auto-saves your files, "
-"meaning they're always up-to-date. Plus it remembers your tabs so you never "
-"lose your spot, even in between sessions."
+"Code is the editor that works for you. It auto-saves your files, meaning "
+"they're always up-to-date. Plus it remembers your tabs so you never lose "
+"your spot, even in between sessions."
 msgstr ""
 "스크래치는 여러분을 위한 텍스트 에디터입니다. 스크래치는 파일을 항상 자동 저"
 "장합니다. 더해서 사용 중인 탭을 기억해서, 세션을 바꿔도 여러분이 작업 위치를 "
 "잃어버리지 않게 합니다."
 
+#: data/io.elementary.code.appdata.xml.in:16
+#, fuzzy
 msgid ""
-"Make it yours. Scratch is written from the ground up to be extensible. Keep "
-"things super lightweight and simple, or install extensions to turn Scratch "
-"into a full-blown IDE; it's your choice. And with a handful of useful "
+"Make it yours. Code is written from the ground up to be extensible. Keep "
+"things super lightweight and simple, or install extensions to turn Code into "
+"a full-blown IDE; it's your choice. And with a handful of useful "
 "preferences, you can tweak the behavior and interface to your liking."
 msgstr ""
 "마음껏 꾸며보세요. 스크래치는 기반부터 확장 가능하게 만들어졌습니다. 아주 가"
@@ -54,18 +53,22 @@ msgstr ""
 "한 설정을 할 수 있어서, 작동 방식과 인터페이스를 여러분들의 취향에 맞게 꾸밀 "
 "수 있습니다."
 
+#: data/io.elementary.code.appdata.xml.in:22
+#, fuzzy
 msgid ""
-"It's elementary. Scratch is made to be the perfect text editor for "
-"elementary, meaning it closely follows the high standards of design, speed, "
-"and consistency. It's sexy, but not distracting."
+"It's elementary. Code is made to be the perfect editor for elementary, "
+"meaning it closely follows the high standards of design, speed, and "
+"consistency. It's sexy, but not distracting."
 msgstr ""
 "elementary 자체입니다. 스크래치는 elementary에 완벽하게 맞춘 텍스트 에디터입"
 "니다, 이 말은 높은 디자인, 속도, 안정성 표준을 만족시킨다는 이야기입니다. 멋"
 "지고, 짜임새 있습니다."
 
+#: data/io.elementary.code.appdata.xml.in:27
+#, fuzzy
 msgid ""
 "Works with your language. Whether you're crafting code in Vala, scripting "
-"with PHP, or marking things up in HTML, Scratch has you covered. Experience "
+"with PHP, or marking things up in HTML, Code has you covered. Experience "
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
@@ -74,6 +77,7 @@ msgstr ""
 "그래밍, 스크립팅, 그리고 마크업 랭귀지들에서도 완벽한 구문 강조를 경험해보세"
 "요."
 
+#: data/io.elementary.code.appdata.xml.in:33
 msgid ""
 "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, .Desktop, "
 "Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
@@ -83,17 +87,58 @@ msgstr ""
 "Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, Objective C, "
 "Pascal, Perl, Python, Ruby, XML."
 
+#: data/io.elementary.code.appdata.xml.in:38
 msgid "Additional features include:"
 msgstr "추가 기능 포함:"
 
+#: data/io.elementary.code.appdata.xml.in:42
 msgid "syntax highlighting with gtksourceview-3"
 msgstr "gtksourceview-3를 포함한 구문 강조"
 
+#: data/io.elementary.code.appdata.xml.in:43
 msgid "a find bar to search the words in the files"
 msgstr "파일 안의 문자를 검색하는 검색창"
 
+#: data/io.elementary.code.appdata.xml.in:44
 msgid "tab and split documents system"
 msgstr "탭으로 문서를 나누는 시스템"
 
+#: data/io.elementary.code.appdata.xml.in:45
 msgid "lots of others"
 msgstr "그 외 많은 기능들"
+
+#: data/io.elementary.code.appdata.xml.in:51
+msgid "elementary LLC."
+msgstr ""
+
+#: data/io.elementary.code.desktop.in.in:5
+#, fuzzy
+msgid "Edit code files"
+msgstr "텍스트 파일을 편집합니다"
+
+#: data/io.elementary.code.desktop.in.in:6
+msgid "Code Editor"
+msgstr ""
+
+#: data/io.elementary.code.desktop.in.in:8
+msgid "io.elementary.code"
+msgstr ""
+
+#: data/io.elementary.code.desktop.in.in:11
+#, fuzzy
+msgid "IDE;scratch;"
+msgstr "스크래치"
+
+#: data/io.elementary.code.desktop.in.in:17
+msgid "New Document"
+msgstr ""
+
+#: data/io.elementary.code.desktop.in.in:21
+msgid "New Window"
+msgstr ""
+
+#~ msgid "Notepad;IDE;Plain;"
+#~ msgstr "노트패드;IDE;플레인;"
+
+#~ msgid "About Scratch"
+#~ msgstr "스크래치 소개"

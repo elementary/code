@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-02 15:44-0500\n"
+"POT-Creation-Date: 2018-02-12 16:23-0800\n"
 "PO-Revision-Date: 2016-08-04 12:00+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
@@ -18,35 +18,34 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 "X-Generator: Launchpad (build 18366)\n"
 
-msgid "Scratch"
-msgstr "Scratch"
+#: data/io.elementary.code.appdata.xml.in:8
+#: data/io.elementary.code.desktop.in.in:4
+msgid "Code"
+msgstr ""
 
-msgid "Edit text files"
-msgstr "Redaguoti tekstų failus"
-
-msgid "Notepad;IDE;Plain;"
-msgstr "Užrašinė;IDE;Paprasta;"
-
-msgid "About Scratch"
-msgstr "Apie Scratch"
-
-msgid "The text editor that works"
+#: data/io.elementary.code.appdata.xml.in:9
+#, fuzzy
+msgid "The editor that works"
 msgstr "Tekstų redaktorius, kuris veikia"
 
+#: data/io.elementary.code.appdata.xml.in:11
+#, fuzzy
 msgid ""
-"Scratch is the text editor that works for you. It auto-saves your files, "
-"meaning they're always up-to-date. Plus it remembers your tabs so you never "
-"lose your spot, even in between sessions."
+"Code is the editor that works for you. It auto-saves your files, meaning "
+"they're always up-to-date. Plus it remembers your tabs so you never lose "
+"your spot, even in between sessions."
 msgstr ""
 "Scratch yra tekstų redaktorius, kuris dirba jums. Jis automatiškai įrašo "
 "failus, o tai reiškia, kad jie yra visą laiką atnaujinti. Be to, jis "
 "prisimena jūsų korteles, taigi, niekada nepasimesite, netgi tarp skirtingų "
 "seansų."
 
+#: data/io.elementary.code.appdata.xml.in:16
+#, fuzzy
 msgid ""
-"Make it yours. Scratch is written from the ground up to be extensible. Keep "
-"things super lightweight and simple, or install extensions to turn Scratch "
-"into a full-blown IDE; it's your choice. And with a handful of useful "
+"Make it yours. Code is written from the ground up to be extensible. Keep "
+"things super lightweight and simple, or install extensions to turn Code into "
+"a full-blown IDE; it's your choice. And with a handful of useful "
 "preferences, you can tweak the behavior and interface to your liking."
 msgstr ""
 "Padarykite jį savu. Scratch iš pat pagrindų yra sukurtas būti išplečiamu. "
@@ -54,18 +53,22 @@ msgstr ""
 "paverstumėte Scratch visaverčiu IDE; tai jūsų pasirinkimas. Daugybės "
 "nuostatų dėka, galite keisti elgseną ir sąsają savo reikmėms."
 
+#: data/io.elementary.code.appdata.xml.in:22
+#, fuzzy
 msgid ""
-"It's elementary. Scratch is made to be the perfect text editor for "
-"elementary, meaning it closely follows the high standards of design, speed, "
-"and consistency. It's sexy, but not distracting."
+"It's elementary. Code is made to be the perfect editor for elementary, "
+"meaning it closely follows the high standards of design, speed, and "
+"consistency. It's sexy, but not distracting."
 msgstr ""
 "Tai elementaru. Scratch yra sukurtas, kad būtų tobulu tekstų redaktoriumi, "
 "skirtu elementary, o tai reiškia, kad jis visiškai atitinka aukštus dizaino, "
 "greičio ir darnos standartus. Jis patrauklus, tačiau neblaškantis dėmesio."
 
+#: data/io.elementary.code.appdata.xml.in:27
+#, fuzzy
 msgid ""
 "Works with your language. Whether you're crafting code in Vala, scripting "
-"with PHP, or marking things up in HTML, Scratch has you covered. Experience "
+"with PHP, or marking things up in HTML, Code has you covered. Experience "
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
@@ -74,6 +77,7 @@ msgstr ""
 "pilną sintaksės paryškinimą su beveik visomis programavimo, scenarijų ar "
 "ženklinimo kalbomis."
 
+#: data/io.elementary.code.appdata.xml.in:33
 msgid ""
 "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, .Desktop, "
 "Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
@@ -83,17 +87,58 @@ msgstr ""
 "Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
 "Objective C, Pascal, Perl, Python, Ruby, XML."
 
+#: data/io.elementary.code.appdata.xml.in:38
 msgid "Additional features include:"
 msgstr "Į papildomas ypatybės įeina:"
 
+#: data/io.elementary.code.appdata.xml.in:42
 msgid "syntax highlighting with gtksourceview-3"
 msgstr "sintaksės paryškinimas su gtksourceview-3"
 
+#: data/io.elementary.code.appdata.xml.in:43
 msgid "a find bar to search the words in the files"
 msgstr "paieškos juosta, skirta ieškoti žodžių failuose"
 
+#: data/io.elementary.code.appdata.xml.in:44
 msgid "tab and split documents system"
 msgstr "dokumentų kortelėse ir atskirtų dokumentų sistema"
 
+#: data/io.elementary.code.appdata.xml.in:45
 msgid "lots of others"
 msgstr "daugybė kitų"
+
+#: data/io.elementary.code.appdata.xml.in:51
+msgid "elementary LLC."
+msgstr ""
+
+#: data/io.elementary.code.desktop.in.in:5
+#, fuzzy
+msgid "Edit code files"
+msgstr "Redaguoti tekstų failus"
+
+#: data/io.elementary.code.desktop.in.in:6
+msgid "Code Editor"
+msgstr ""
+
+#: data/io.elementary.code.desktop.in.in:8
+msgid "io.elementary.code"
+msgstr ""
+
+#: data/io.elementary.code.desktop.in.in:11
+#, fuzzy
+msgid "IDE;scratch;"
+msgstr "Scratch"
+
+#: data/io.elementary.code.desktop.in.in:17
+msgid "New Document"
+msgstr ""
+
+#: data/io.elementary.code.desktop.in.in:21
+msgid "New Window"
+msgstr ""
+
+#~ msgid "Notepad;IDE;Plain;"
+#~ msgstr "Užrašinė;IDE;Paprasta;"
+
+#~ msgid "About Scratch"
+#~ msgstr "Apie Scratch"
