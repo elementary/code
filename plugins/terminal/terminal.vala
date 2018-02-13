@@ -325,6 +325,20 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         bool audible_bell_setting = pantheon_terminal_settings.get_boolean ("audible-bell");
         this.terminal.set_audible_bell (audible_bell_setting);
 
+        string cursor_shape_setting = pantheon_terminal_settings.get_string ("cursor-shape");
+
+        switch (cursor_shape_setting) {
+            case "Block":
+                this.terminal.cursor_shape = CursorShape.BLOCK;
+                break;
+            case "I-Beam":
+                this.terminal.cursor_shape = CursorShape.IBEAM;
+                break;
+            case "Underline":
+                this.terminal.cursor_shape = CursorShape.UNDERLINE;
+                break;
+        }
+
         #if ! VTE291
         this.terminal.set_background_image (null); // allows background and foreground settings to take effect
         #endif

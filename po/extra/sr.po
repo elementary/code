@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-02 15:44-0500\n"
+"POT-Creation-Date: 2018-02-12 16:23-0800\n"
 "PO-Revision-Date: 2017-01-06 22:19+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
@@ -18,34 +18,33 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 "X-Generator: Launchpad (build 18366)\n"
 
-msgid "Scratch"
-msgstr "Жврљко"
+#: data/io.elementary.code.appdata.xml.in:8
+#: data/io.elementary.code.desktop.in.in:4
+msgid "Code"
+msgstr ""
 
-msgid "Edit text files"
-msgstr "Уређујте текстуалне датотеке"
-
-msgid "Notepad;IDE;Plain;"
-msgstr "белешка;ИДЕ;обичан;"
-
-msgid "About Scratch"
-msgstr "О Жврљку"
-
-msgid "The text editor that works"
+#: data/io.elementary.code.appdata.xml.in:9
+#, fuzzy
+msgid "The editor that works"
 msgstr "Уређивач текста који ради"
 
+#: data/io.elementary.code.appdata.xml.in:11
+#, fuzzy
 msgid ""
-"Scratch is the text editor that works for you. It auto-saves your files, "
-"meaning they're always up-to-date. Plus it remembers your tabs so you never "
-"lose your spot, even in between sessions."
+"Code is the editor that works for you. It auto-saves your files, meaning "
+"they're always up-to-date. Plus it remembers your tabs so you never lose "
+"your spot, even in between sessions."
 msgstr ""
 "Жврљко је уређивач текста који ради за вас. Сам чува ваше датотеке, што "
 "значи да су увек у најновијем издању. Поред тога памти ваше језичке тако да "
 "никада не изгубите своје место, чак и између сесија."
 
+#: data/io.elementary.code.appdata.xml.in:16
+#, fuzzy
 msgid ""
-"Make it yours. Scratch is written from the ground up to be extensible. Keep "
-"things super lightweight and simple, or install extensions to turn Scratch "
-"into a full-blown IDE; it's your choice. And with a handful of useful "
+"Make it yours. Code is written from the ground up to be extensible. Keep "
+"things super lightweight and simple, or install extensions to turn Code into "
+"a full-blown IDE; it's your choice. And with a handful of useful "
 "preferences, you can tweak the behavior and interface to your liking."
 msgstr ""
 "Учините га вашим. Жврљко је написан из ничега да би био проширив. Држите "
@@ -53,18 +52,22 @@ msgstr ""
 "Жврљка у пуно радно ИДЕ; то је ваш избор. И са неколико корисних поставки, "
 "можете подесити понашање и сучеље по свом укусу."
 
+#: data/io.elementary.code.appdata.xml.in:22
+#, fuzzy
 msgid ""
-"It's elementary. Scratch is made to be the perfect text editor for "
-"elementary, meaning it closely follows the high standards of design, speed, "
-"and consistency. It's sexy, but not distracting."
+"It's elementary. Code is made to be the perfect editor for elementary, "
+"meaning it closely follows the high standards of design, speed, and "
+"consistency. It's sexy, but not distracting."
 msgstr ""
 "Он је елементарни. Жврљко је направљен да буде савршен уређивач текста за "
 "елементарни, што значи да пажљиво прати високе стандарде пројектовања, "
 "брзине и доследности. Врло је љубак, али не одвраћа пажњу."
 
+#: data/io.elementary.code.appdata.xml.in:27
+#, fuzzy
 msgid ""
 "Works with your language. Whether you're crafting code in Vala, scripting "
-"with PHP, or marking things up in HTML, Scratch has you covered. Experience "
+"with PHP, or marking things up in HTML, Code has you covered. Experience "
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
@@ -73,6 +76,7 @@ msgstr ""
 "доћи. Искусите пуно синтаксичко истицање у готово сваким језицима "
 "програмирања, скрипти и означавања."
 
+#: data/io.elementary.code.appdata.xml.in:33
 msgid ""
 "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, .Desktop, "
 "Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
@@ -82,17 +86,58 @@ msgstr ""
 "Дифф, Фортран, Геттекст, ини, Јава; Јава скрипт, ЛаТеКс, Луа, Мејкфајл, "
 "Објектни Ц, Паскал, Перл, Питон, Рубин, ИксМЛ."
 
+#: data/io.elementary.code.appdata.xml.in:38
 msgid "Additional features include:"
 msgstr "У додатне функције спадају:"
 
+#: data/io.elementary.code.appdata.xml.in:42
 msgid "syntax highlighting with gtksourceview-3"
 msgstr "истицање синтаксе са „gtksourceview-3“"
 
+#: data/io.elementary.code.appdata.xml.in:43
 msgid "a find bar to search the words in the files"
 msgstr "трака налажења за тражење речи у датотекама"
 
+#: data/io.elementary.code.appdata.xml.in:44
 msgid "tab and split documents system"
 msgstr "систем језичака и поделе докумената"
 
+#: data/io.elementary.code.appdata.xml.in:45
 msgid "lots of others"
 msgstr "много других"
+
+#: data/io.elementary.code.appdata.xml.in:51
+msgid "elementary LLC."
+msgstr ""
+
+#: data/io.elementary.code.desktop.in.in:5
+#, fuzzy
+msgid "Edit code files"
+msgstr "Уређујте текстуалне датотеке"
+
+#: data/io.elementary.code.desktop.in.in:6
+msgid "Code Editor"
+msgstr ""
+
+#: data/io.elementary.code.desktop.in.in:8
+msgid "io.elementary.code"
+msgstr ""
+
+#: data/io.elementary.code.desktop.in.in:11
+#, fuzzy
+msgid "IDE;scratch;"
+msgstr "Жврљко"
+
+#: data/io.elementary.code.desktop.in.in:17
+msgid "New Document"
+msgstr ""
+
+#: data/io.elementary.code.desktop.in.in:21
+msgid "New Window"
+msgstr ""
+
+#~ msgid "Notepad;IDE;Plain;"
+#~ msgstr "белешка;ИДЕ;обичан;"
+
+#~ msgid "About Scratch"
+#~ msgstr "О Жврљку"

@@ -1,5 +1,5 @@
 # Code
-[![Translation status](https://l10n.elementary.io/widgets/scratch/-/svg-badge.svg)](https://l10n.elementary.io/projects/scratch/?utm_source=widget)
+[![Translation status](https://l10n.elementary.io/widgets/code/-/svg-badge.svg)](https://l10n.elementary.io/projects/code/?utm_source=widget)
 
 ![Screenshot](data/screenshot.png?raw=true)
 
