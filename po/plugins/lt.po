@@ -8,31 +8,33 @@ msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-02-19 23:40+0000\n"
-"PO-Revision-Date: 2018-01-28 15:41+0000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2018-02-21 00:00+0000\n"
+"Last-Translator: Moo <hazap@hotmail.com>\n"
+"Language-Team: Lithuanian "
+"<https://weblate.elementary.io/projects/code/plugins/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n%10>=2 && (n%100<10 || "
+"n%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3;\n"
+"X-Generator: Weblate 2.18\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
-msgstr ""
+msgstr "Skliaustų užvėrimas"
 
 #: plugins/brackets-completion/brackets-completion.plugin:7
 msgid "Complete brackets while typing"
-msgstr ""
+msgstr "Rašant, užverti skliaustus"
 
 #: plugins/browser-preview/browser-preview.plugin:6
 msgid "Browser Preview"
-msgstr ""
+msgstr "Peržiūra naršyklėje"
 
 #: plugins/browser-preview/browser-preview.plugin:7
 msgid "Get a preview of your work in a web page"
-msgstr ""
+msgstr "Rodyti jūsų darbo peržiūrą saityno puslapyje"
 
 #: plugins/contractor/contractor.plugin:6
 msgid "Contractor"
@@ -44,35 +46,35 @@ msgstr ""
 
 #: plugins/detect-indent/detect-indent.plugin:6
 msgid "Detect Indent"
-msgstr ""
+msgstr "Aptikti įtrauką"
 
 #: plugins/detect-indent/detect-indent.plugin:7
 msgid "Heuristically detect tab or space settings"
-msgstr ""
+msgstr "Heuristiškai aptikti tabuliavimo ar tarpų nustatymus"
 
 #: plugins/folder-manager/folder-manager.plugin:6
 msgid "Folder Manager"
-msgstr ""
+msgstr "Aplankų tvarkytuvė"
 
 #: plugins/folder-manager/folder-manager.plugin:7
 msgid "Basic folder manager with file browsing"
-msgstr ""
+msgstr "Elementari aplankų tvarkytuvė su failų naršymu"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
-msgstr ""
+msgstr "Paryškinti pažymėtus žodžius"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:7
 msgid "Highlights all occurrences of words that are selected"
-msgstr ""
+msgstr "Paryškinti visus pažymėtų žodžių atitikmenis"
 
 #: plugins/open-with/open-with.plugin:6
 msgid "Open With"
-msgstr ""
+msgstr "Atverti naudojant"
 
 #: plugins/open-with/open-with.plugin:7
 msgid "Open files you are editing with another application"
-msgstr ""
+msgstr "Atverti redaguojamus failus, naudojant kitą programą"
 
 #: plugins/outline/outline.plugin:6
 msgid "Outline"
@@ -84,27 +86,27 @@ msgstr ""
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
-msgstr ""
+msgstr "Pastebin"
 
 #: plugins/pastebin/pastebin.plugin:7
 msgid "Share files with pastebin service"
-msgstr ""
+msgstr "Bendrinti failus su pastebin paslauga"
 
 #: plugins/preserve-indent/preserve-indent.plugin:6
 msgid "Preserve Indent"
-msgstr ""
+msgstr "Išlaikyti įtrauką"
 
 #: plugins/preserve-indent/preserve-indent.plugin:7
 msgid "Maintains relative indent level of pasted text"
-msgstr ""
+msgstr "Išlaiko įdėto teksto santykinį įtraukos lygį"
 
 #: plugins/spell/spell.plugin:6
 msgid "Spell Checker"
-msgstr ""
+msgstr "Rašybos tikrintuvė"
 
 #: plugins/spell/spell.plugin:7
 msgid "Checks the spelling of your documents"
-msgstr ""
+msgstr "Tikrina jūsų dokumentų rašybą"
 
 #: plugins/strip-trailing-save/strip-trailing-save.plugin:6
 msgid "Strip trailing whitespace"
@@ -116,11 +118,11 @@ msgstr ""
 
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
-msgstr ""
+msgstr "Terminalas"
 
 #: plugins/terminal/terminal.plugin:7
 msgid "A terminal in your text editor"
-msgstr ""
+msgstr "Terminalas jūsų tekstų redaktoriuje"
 
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
@@ -132,8 +134,9 @@ msgstr ""
 
 #: plugins/word-completion/word-completion.plugin:3
 msgid "Words Completion"
-msgstr ""
+msgstr "Žodžių užbaigimas"
 
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
+"Rodyti užbaigimo dialogą su daugiausiai naudojamais žodžiais iš jūsų failo"
