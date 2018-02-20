@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-02-12 16:21-0800\n"
-"PO-Revision-Date: 2017-09-25 13:04+0000\n"
+"PO-Revision-Date: 2018-02-21 00:00+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
-"Language-Team: Lithuanian <https://weblate.elementary.io/projects/scratch/"
-"scratch/lt/>\n"
+"Language-Team: Lithuanian "
+"<https://weblate.elementary.io/projects/code/code/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n%10>=2 && (n%100<10 || n"
-"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3;\n"
-"X-Generator: Weblate 2.16\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n%10>=2 && (n%100<10 || "
+"n%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3;\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:142
@@ -97,7 +97,7 @@ msgstr "Esamas darbinis katalogas"
 
 #: src/MainWindow.vala:128
 msgid "Code"
-msgstr ""
+msgstr "Kodas"
 
 #: src/MainWindow.vala:168 src/Widgets/HeaderBar.vala:62
 msgid "Find…"
@@ -233,29 +233,28 @@ msgstr "Tinkintas šriftas:"
 #: src/Services/Document.vala:221
 #, c-format
 msgid "%s Is Not a Text File"
-msgstr ""
+msgstr "%s nėra tekstinis failas"
 
 #: src/Services/Document.vala:222
 msgid "Code will not load this type of file."
-msgstr ""
+msgstr "Kodas neįkels šio failo tipo."
 
 #: src/Services/Document.vala:224
 msgid "Load Anyway"
-msgstr ""
+msgstr "Vis tiek įkelti"
 
 #: src/Services/Document.vala:245
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr ""
+msgstr "Failo \"%s\" įkėlimas užima daug laiko"
 
 #: src/Services/Document.vala:246
 msgid "Please wait while Code is loading the file."
-msgstr ""
+msgstr "Palaukite, kol Kodas įkelia failą."
 
 #: src/Services/Document.vala:248
-#, fuzzy
 msgid "Cancel Load"
-msgstr "Atsisakyti"
+msgstr "Atsisakyti įkėlimo"
 
 #: src/Services/Document.vala:361
 #, c-format
@@ -282,19 +281,15 @@ msgid "New Document"
 msgstr "Naujas dokumentas"
 
 #: src/Services/Document.vala:646
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Read"
-msgstr ""
-"Failas \"%s\" negali būti sukurtas.\n"
-"%s"
+msgstr "Failas \"%s\" negali būti perskaitytas"
 
 #: src/Services/Document.vala:647
-#, fuzzy
 msgid ""
 "Maybe it is corrupt or you do not have the necessary permissions to read it."
 msgstr ""
-"Nepavyko perskaityti failo \"%s\". Galbūt, jis yra pažeistas\n"
-"arba jūs neturite reikiamų leidimų jo skaityti."
+"Galbūt, jis yra pažeistas arba jūs neturite reikiamų leidimų jo skaityti."
 
 #: src/Services/Document.vala:659
 #, c-format
@@ -349,9 +344,9 @@ msgid "Templates"
 msgstr "Šablonai"
 
 #: src/Widgets/DocumentView.vala:88
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s"
-msgstr "Tekstinis failas iš "
+msgstr "Tekstinis failas iš %s"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
@@ -368,16 +363,16 @@ msgstr ""
 
 #: src/Widgets/FormatBar.vala:117
 msgid "Plain Text"
-msgstr ""
+msgstr "Grynasis tekstas"
 
 #: src/Widgets/FormatBar.vala:185
-#, fuzzy, c-format
+#, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
-msgstr[0] "Rodyti tarpus:"
-msgstr[1] "Rodyti tarpus:"
-msgstr[2] "Rodyti tarpus:"
-msgstr[3] "Rodyti tarpus:"
+msgstr[0] "%d tarpas"
+msgstr[1] "%d tarpai"
+msgstr[2] "%d tarpų"
+msgstr[3] ""
 
 #: src/Widgets/FormatBar.vala:187
 #, fuzzy, c-format
@@ -417,18 +412,16 @@ msgid "Share"
 msgstr "Bendrinti"
 
 #: src/Widgets/HeaderBar.vala:73
-#, fuzzy
 msgid "Zoom Out"
-msgstr "Mastelis"
+msgstr "Mažinti"
 
 #: src/Widgets/HeaderBar.vala:77
 msgid "Zoom 1:1"
 msgstr "Mastelis 1:1"
 
 #: src/Widgets/HeaderBar.vala:81
-#, fuzzy
 msgid "Zoom In"
-msgstr "Mastelis"
+msgstr "Didinti"
 
 #: src/Widgets/HeaderBar.vala:93
 msgid "Add New View"
@@ -514,7 +507,7 @@ msgstr "Užverti aplanką"
 #: plugins/folder-manager/FileItem.vala:34
 #: plugins/folder-manager/FolderItem.vala:64
 msgid "Move to Trash"
-msgstr ""
+msgstr "Perkelti į Šiukšlinę"
 
 #: plugins/folder-manager/FolderManagerPlugin.vala:88
 #: plugins/folder-manager/FolderManagerPlugin.vala:89
@@ -532,40 +525,37 @@ msgstr "At_verti"
 #: plugins/folder-manager/FileItem.vala:31
 #: plugins/folder-manager/FolderItem.vala:61
 msgid "Rename"
-msgstr ""
+msgstr "Pervadinti"
 
 #: plugins/folder-manager/FolderItem.vala:77
-#, fuzzy
 msgid "Folder"
-msgstr "Aplankai"
+msgstr "Aplankas"
 
 #: plugins/folder-manager/FolderItem.vala:80
 msgid "Empty File"
-msgstr ""
+msgstr "Tuščias failas"
 
 #: plugins/folder-manager/FolderItem.vala:87
-#, fuzzy
 msgid "New"
-msgstr "Nauja kortelė"
+msgstr "Naujas"
 
 #: plugins/folder-manager/FolderItem.vala:218
 msgid "untitled folder"
-msgstr ""
+msgstr "bevardis aplankas"
 
 #: plugins/folder-manager/FolderItem.vala:222
 #, c-format
 msgid "untitled folder %d"
-msgstr ""
+msgstr "bevardis aplankas %d"
 
 #: plugins/folder-manager/FolderItem.vala:244
-#, fuzzy
 msgid "new file"
-msgstr "Naujas failas"
+msgstr "naujas failas"
 
 #: plugins/folder-manager/FolderItem.vala:248
-#, fuzzy, c-format
+#, c-format
 msgid "new file %d"
-msgstr "Naujas failas"
+msgstr "naujas failas %d"
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via PasteBin"
@@ -576,9 +566,8 @@ msgid "Name:"
 msgstr "Pavadinimas:"
 
 #: plugins/pastebin/pastebin_dialog.vala:259
-#, fuzzy
 msgid "Format:"
-msgstr "Formatas: "
+msgstr "Formatas:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
 msgid "Others..."
