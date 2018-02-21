@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-02-12 16:21-0800\n"
-"PO-Revision-Date: 2018-02-21 00:00+0000\n"
+"PO-Revision-Date: 2018-02-21 22:33+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian "
 "<https://weblate.elementary.io/projects/code/code/lt/>\n"
@@ -353,13 +353,12 @@ msgid "Syntax Highlighting"
 msgstr "Sintaksės paryškinimas"
 
 #: src/Widgets/FormatBar.vala:71
-#, fuzzy
 msgid "Line number"
-msgstr "Rodyti eilučių numerius:"
+msgstr "Eilutės numeris"
 
 #: src/Widgets/FormatBar.vala:95
 msgid "Filter languages"
-msgstr ""
+msgstr "Filtruoti kalbas"
 
 #: src/Widgets/FormatBar.vala:117
 msgid "Plain Text"
@@ -375,13 +374,13 @@ msgstr[2] "%d tarpų"
 msgstr[3] ""
 
 #: src/Widgets/FormatBar.vala:187
-#, fuzzy, c-format
+#, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "Nauja kortelė"
-msgstr[1] "Nauja kortelė"
-msgstr[2] "Nauja kortelė"
-msgstr[3] "Nauja kortelė"
+msgstr[0] "%d Tab žymė"
+msgstr[1] "%d Tab žymės"
+msgstr[2] "%d Tab žymių"
+msgstr[3] ""
 
 #: src/Widgets/FormatBar.vala:203
 msgid "Go To Line:"
