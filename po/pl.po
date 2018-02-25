@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-02-12 16:21-0800\n"
-"PO-Revision-Date: 2017-09-14 10:42+0000\n"
+"PO-Revision-Date: 2018-02-25 16:50+0000\n"
 "Last-Translator: Piotr Strebski <strebski@o2.pl>\n"
-"Language-Team: Polish <https://weblate.elementary.io/projects/scratch/"
-"scratch/pl/>\n"
+"Language-Team: Polish <https://weblate.elementary.io/projects/code/code/pl/>"
+"\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.16\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:142
@@ -97,7 +97,7 @@ msgstr "Bieżący katalog roboczy"
 
 #: src/MainWindow.vala:128
 msgid "Code"
-msgstr ""
+msgstr "Kod"
 
 #: src/MainWindow.vala:168 src/Widgets/HeaderBar.vala:62
 msgid "Find…"
@@ -233,29 +233,28 @@ msgstr "Własna czcionka:"
 #: src/Services/Document.vala:221
 #, c-format
 msgid "%s Is Not a Text File"
-msgstr ""
+msgstr "%s nie jest plikiem tekstowym"
 
 #: src/Services/Document.vala:222
 msgid "Code will not load this type of file."
-msgstr ""
+msgstr "Kod nie wczyta tego rodzaju plików."
 
 #: src/Services/Document.vala:224
 msgid "Load Anyway"
-msgstr ""
+msgstr "Wczytaj mimo wszystko"
 
 #: src/Services/Document.vala:245
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr ""
+msgstr "Wczytywanie pliku \"%s\" trwa długi czas"
 
 #: src/Services/Document.vala:246
 msgid "Please wait while Code is loading the file."
-msgstr ""
+msgstr "Prosimy oczekiwać podczas wczytywania pliku przez Kod."
 
 #: src/Services/Document.vala:248
-#, fuzzy
 msgid "Cancel Load"
-msgstr "Anuluj"
+msgstr "Anuluj wczytywanie"
 
 #: src/Services/Document.vala:361
 #, c-format
@@ -282,19 +281,16 @@ msgid "New Document"
 msgstr "Nowy dokument"
 
 #: src/Services/Document.vala:646
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Read"
-msgstr ""
-"Plik \"%s\" nie może zostać utworzony.\n"
-"%s"
+msgstr "Plik \"%s\" nie może zostać odczytany"
 
 #: src/Services/Document.vala:647
-#, fuzzy
 msgid ""
 "Maybe it is corrupt or you do not have the necessary permissions to read it."
 msgstr ""
-"Plik \"%s\" nie może być odczytany. Prawdopodobnie jest uszkodzony\n"
-"lub nie posiadasz uprawnień do jego odczytu."
+"Prawdopodobnie jest uszkodzony lub nie posiadasz wystarczających uprawnień "
+"do jego odczytu."
 
 #: src/Services/Document.vala:659
 #, c-format
@@ -349,42 +345,41 @@ msgid "Templates"
 msgstr "Szablony"
 
 #: src/Widgets/DocumentView.vala:88
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s"
-msgstr "Plik tekstowy z "
+msgstr "Plik tekstowy z %s"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
 msgstr "Wyróżnienie składni"
 
 #: src/Widgets/FormatBar.vala:71
-#, fuzzy
 msgid "Line number"
-msgstr "Wyświetlanie numerów wierszy:"
+msgstr "Numer wiersza"
 
 #: src/Widgets/FormatBar.vala:95
 msgid "Filter languages"
-msgstr ""
+msgstr "Filtrowanie języków"
 
 #: src/Widgets/FormatBar.vala:117
 msgid "Plain Text"
-msgstr ""
+msgstr "Tekst bez formatowania"
 
 #: src/Widgets/FormatBar.vala:185
-#, fuzzy, c-format
+#, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
-msgstr[0] "Wyświetlaj spacje:"
-msgstr[1] "Wyświetlaj spacje:"
-msgstr[2] "Wyświetlaj spacje:"
+msgstr[0] "Jedna spacja"
+msgstr[1] "%d spacje"
+msgstr[2] "%d spacji"
 
 #: src/Widgets/FormatBar.vala:187
-#, fuzzy, c-format
+#, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "Nowa karta"
-msgstr[1] "Nowa karta"
-msgstr[2] "Nowa karta"
+msgstr[0] "Jeden tabulator"
+msgstr[1] "%d tabulatory"
+msgstr[2] "%d tabulatorów"
 
 #: src/Widgets/FormatBar.vala:203
 msgid "Go To Line:"
@@ -415,16 +410,14 @@ msgid "Share"
 msgstr "Udostępnia dokument"
 
 #: src/Widgets/HeaderBar.vala:73
-#, fuzzy
 msgid "Zoom Out"
-msgstr "Powiększenie"
+msgstr "Pomniejszenie"
 
 #: src/Widgets/HeaderBar.vala:77
 msgid "Zoom 1:1"
 msgstr "Skala 1:1"
 
 #: src/Widgets/HeaderBar.vala:81
-#, fuzzy
 msgid "Zoom In"
 msgstr "Powiększenie"
 
@@ -512,7 +505,7 @@ msgstr "Zamknij folder"
 #: plugins/folder-manager/FileItem.vala:34
 #: plugins/folder-manager/FolderItem.vala:64
 msgid "Move to Trash"
-msgstr ""
+msgstr "Przenieś do kosza"
 
 #: plugins/folder-manager/FolderManagerPlugin.vala:88
 #: plugins/folder-manager/FolderManagerPlugin.vala:89
@@ -530,40 +523,37 @@ msgstr "_Otwórz"
 #: plugins/folder-manager/FileItem.vala:31
 #: plugins/folder-manager/FolderItem.vala:61
 msgid "Rename"
-msgstr ""
+msgstr "Zmień nazwę"
 
 #: plugins/folder-manager/FolderItem.vala:77
-#, fuzzy
 msgid "Folder"
-msgstr "Foldery"
+msgstr "Katalog"
 
 #: plugins/folder-manager/FolderItem.vala:80
 msgid "Empty File"
-msgstr ""
+msgstr "Pusty plik"
 
 #: plugins/folder-manager/FolderItem.vala:87
-#, fuzzy
 msgid "New"
-msgstr "Nowa karta"
+msgstr "Nowy"
 
 #: plugins/folder-manager/FolderItem.vala:218
 msgid "untitled folder"
-msgstr ""
+msgstr "Katalog bez nazwy"
 
 #: plugins/folder-manager/FolderItem.vala:222
 #, c-format
 msgid "untitled folder %d"
-msgstr ""
+msgstr "Katalog bez nazwy %d"
 
 #: plugins/folder-manager/FolderItem.vala:244
-#, fuzzy
 msgid "new file"
-msgstr "Utwórz nowy"
+msgstr "Nowy plik"
 
 #: plugins/folder-manager/FolderItem.vala:248
-#, fuzzy, c-format
+#, c-format
 msgid "new file %d"
-msgstr "Utwórz nowy"
+msgstr "Nowy plik %d"
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via PasteBin"
@@ -574,9 +564,8 @@ msgid "Name:"
 msgstr "Nazwa:"
 
 #: plugins/pastebin/pastebin_dialog.vala:259
-#, fuzzy
 msgid "Format:"
-msgstr "Format: "
+msgstr "Format:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
 msgid "Others..."
