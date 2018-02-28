@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
-"PO-Revision-Date: 2017-05-21 19:11+0000\n"
+"PO-Revision-Date: 2018-03-01 00:03+0000\n"
 "Last-Translator: Luís Lima <geral@liqensoft.com>\n"
 "Language-Team: Portuguese "
-"<https://l10n.elementary.io/projects/scratch/scratch/pt/>\n"
+"<https://weblate.elementary.io/projects/code/code/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.14\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: ../src/config.vala:15
@@ -654,11 +654,11 @@ msgstr "Realçar todas as ocurrências das palavras que estão selecionadas"
 #. **
 #: ../plugins/brackets-completion/brackets-completion.vala:21
 msgid "Brackets Completion"
-msgstr "Fechar Parêntesis"
+msgstr "Completar Parêntese"
 
 #: ../plugins/brackets-completion/brackets-completion.vala:22
 msgid "Complete brackets while typing"
-msgstr "Fechar automaticamente parêntesis  durante a escrita"
+msgstr "Completar parênteses enquanto escreve"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -862,7 +862,7 @@ msgstr ""
 #. **
 #: ../plugins/browser-preview/browser-preview.vala:21
 msgid "Browser Preview"
-msgstr "Pré-visualização de Browser"
+msgstr "Pré-visualizar no navegador"
 
 #: ../plugins/browser-preview/browser-preview.vala:22
 msgid "Get a preview your work in a web page"
@@ -976,7 +976,7 @@ msgstr "Enviar para Pastebin"
 #. **
 #: ../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
-msgstr "Partilhe os seu ficheiros com o Contractor"
+msgstr "Partilhar os seus ficheiros com o Contractor"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:70
 msgid "Folders"
@@ -1037,7 +1037,7 @@ msgstr "Abrir Com..."
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
-msgstr "Detetar Indentação"
+msgstr "Indentação detetada"
 
 #: ../plugins/detect-indent/detect-indent.vala:2
 msgid "Heuristically detect tab or space settings"
