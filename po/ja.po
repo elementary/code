@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-02-12 16:21-0800\n"
-"PO-Revision-Date: 2018-02-22 00:07+0000\n"
+"PO-Revision-Date: 2018-03-07 00:09+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock@gmail.com>\n"
 "Language-Team: Japanese "
 "<https://weblate.elementary.io/projects/code/code/ja/>\n"
@@ -258,7 +258,7 @@ msgstr "読み込みをキャンセル"
 #: src/Services/Document.vala:361
 #, c-format
 msgid "Save changes to document %s before closing?"
-msgstr "閉じる前に文書 %s への変更を保存しますか?"
+msgstr "閉じる前にドキュメント %s への変更を保存しますか?"
 
 #: src/Services/Document.vala:364
 msgid ""
@@ -486,11 +486,11 @@ msgstr "クリップポードの内容から新しいファイルを作成しま
 
 #: plugins/folder-manager/FileView.vala:39
 msgid "Folders"
-msgstr "フォルダー"
+msgstr "フォルダ"
 
 #: plugins/folder-manager/MainFolderItem.vala:30
 msgid "Close Folder"
-msgstr "フォルダーを閉じる"
+msgstr "フォルダを閉じる"
 
 #: plugins/folder-manager/MainFolderItem.vala:33
 #: plugins/folder-manager/FileItem.vala:34
@@ -501,7 +501,7 @@ msgstr "ゴミ箱に移動"
 #: plugins/folder-manager/FolderManagerPlugin.vala:88
 #: plugins/folder-manager/FolderManagerPlugin.vala:89
 msgid "Open a folder"
-msgstr "フォルダーを開く"
+msgstr "フォルダを開く"
 
 #: plugins/folder-manager/FolderManagerPlugin.vala:100
 msgid "_Cancel"
@@ -518,7 +518,7 @@ msgstr "名前の変更"
 
 #: plugins/folder-manager/FolderItem.vala:77
 msgid "Folder"
-msgstr "フォルダー"
+msgstr "フォルダ"
 
 #: plugins/folder-manager/FolderItem.vala:80
 msgid "Empty File"
@@ -530,12 +530,12 @@ msgstr ""
 
 #: plugins/folder-manager/FolderItem.vala:218
 msgid "untitled folder"
-msgstr "名称未設定フォルダー"
+msgstr "名称未設定フォルダ"
 
 #: plugins/folder-manager/FolderItem.vala:222
 #, c-format
 msgid "untitled folder %d"
-msgstr "名称未設定フォルダー %d"
+msgstr "名称未設定フォルダ %d"
 
 #: plugins/folder-manager/FolderItem.vala:244
 msgid "new file"
