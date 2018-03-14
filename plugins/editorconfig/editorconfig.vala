@@ -5,7 +5,7 @@ public class Scratch.Plugins.EditorConfig: Peas.ExtensionBase, Peas.Activatable 
     public Object object {owned get; construct;}
 
     public void update_state () {
-    
+
     }
 
     public void activate () {
@@ -18,7 +18,7 @@ public class Scratch.Plugins.EditorConfig: Peas.ExtensionBase, Peas.Activatable 
             if (file == null) {
                 return;
             }
-        
+
             EditorConfigCore.Handle handle = new EditorConfigCore.Handle ();
             if (EditorConfigCore.parse (file.get_path (), handle) != 0) {
                 return;
@@ -38,10 +38,10 @@ public class Scratch.Plugins.EditorConfig: Peas.ExtensionBase, Peas.Activatable 
                         }
                         break;
                     case "indent_size":
-                        view.indent_width = val.to_int ();
+                        view.indent_width = int.parse (val);
                         break;
                     case "tab_width":
-                        view.tab_width = val.to_int ();
+                        view.tab_width = int.parse (val);
                         break;
                     case "end_of_line":
                         break;
@@ -52,7 +52,7 @@ public class Scratch.Plugins.EditorConfig: Peas.ExtensionBase, Peas.Activatable 
                     case "insert_final_newline":
                         break;
                     case "max_line_length":
-                        view.right_margin_position = val.to_int ();
+                        view.right_margin_position = int.parse (val);
                         break;
                 }
             }
