@@ -4,7 +4,7 @@ services:
  - docker
 
 env:
- - DEPENDENCY_PACKAGES="appstream desktop-file-utils libgail-3-dev libgee-0.8-dev libgtksourceview-3.0-dev libgtkspell3-3-dev libgranite-dev libpeas-dev libsoup2.4-dev libvala-0.36-dev libvte-2.91-dev libwebkit2gtk-4.0-dev libxml2-utils libzeitgeist-2.0 meson valac"
+ - DEPENDENCY_PACKAGES="appstream desktop-file-utils libgail-3-dev libgee-0.8-dev libeditorconfig-dev libgtksourceview-3.0-dev libgtkspell3-3-dev libgranite-dev libpeas-dev libsoup2.4-dev libvala-0.36-dev libvte-2.91-dev libwebkit2gtk-4.0-dev libxml2-utils libzeitgeist-2.0 meson valac"
 
 install:
  - docker pull elementary/docker:loki
