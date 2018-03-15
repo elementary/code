@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-14 17:43-0700\n"
+"POT-Creation-Date: 2018-03-15 19:14+0000\n"
 "PO-Revision-Date: 2018-03-04 00:07+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://weblate.elementary.io/projects/code/code/ko/"
@@ -94,25 +94,33 @@ msgstr "플러그인 모음"
 msgid "Current working directory"
 msgstr "지금 작업 중인 디렉터리"
 
-#: src/MainWindow.vala:130
+#: src/MainWindow.vala:133
 msgid "Code"
 msgstr "코드"
 
-#: src/MainWindow.vala:171 src/Widgets/HeaderBar.vala:62
+#: src/MainWindow.vala:174 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
 msgstr "찾기…"
 
-#: src/MainWindow.vala:173
+#: src/MainWindow.vala:176
 msgid "Hide search bar"
 msgstr "검색 바 숨기기"
 
-#: src/MainWindow.vala:219
+#: src/MainWindow.vala:222
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "스크래치를 위한 Zeitgeist 데이터 소스"
 
-#: src/MainWindow.vala:719
+#: src/MainWindow.vala:745
 msgid "Open some files"
 msgstr "파일 열기"
+
+#: src/MainWindow.vala:764
+msgid "_Cancel"
+msgstr "취소(_C)"
+
+#: src/MainWindow.vala:765
+msgid "_Open"
+msgstr "열기(_O)"
 
 #: src/Utils.vala:27
 msgid "All files"
@@ -135,7 +143,7 @@ msgstr "열기"
 msgid "Save"
 msgstr "저장"
 
-#: src/Dialogs/PreferencesDialog.vala:43 src/Widgets/HeaderBar.vala:101
+#: src/Dialogs/PreferencesDialog.vala:43 src/Widgets/HeaderBar.vala:105
 msgid "Preferences"
 msgstr "환경설정"
 
@@ -228,6 +236,56 @@ msgstr "색상:"
 #: src/Dialogs/PreferencesDialog.vala:146
 msgid "Custom font:"
 msgstr "사용자 지정 글꼴:"
+
+#: src/FolderManager/FileItem.vala:31 src/FolderManager/FolderItem.vala:61
+msgid "Rename"
+msgstr ""
+
+#: src/FolderManager/FileItem.vala:34 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/MainFolderItem.vala:33
+msgid "Move to Trash"
+msgstr ""
+
+#: src/FolderManager/FileView.vala:39
+msgid "Folders"
+msgstr "폴더"
+
+#: src/FolderManager/FolderItem.vala:77
+#, fuzzy
+msgid "Folder"
+msgstr "폴더"
+
+#: src/FolderManager/FolderItem.vala:80
+msgid "Empty File"
+msgstr ""
+
+#: src/FolderManager/FolderItem.vala:87
+#, fuzzy
+msgid "New"
+msgstr "새 탭"
+
+#: src/FolderManager/FolderItem.vala:218
+msgid "untitled folder"
+msgstr ""
+
+#: src/FolderManager/FolderItem.vala:222
+#, c-format
+msgid "untitled folder %d"
+msgstr ""
+
+#: src/FolderManager/FolderItem.vala:244
+#, fuzzy
+msgid "new file"
+msgstr "새 파일"
+
+#: src/FolderManager/FolderItem.vala:248
+#, fuzzy, c-format
+msgid "new file %d"
+msgstr "새 파일"
+
+#: src/FolderManager/MainFolderItem.vala:30
+msgid "Close Folder"
+msgstr "폴더 닫기"
 
 #: src/Services/Document.vala:221
 #, c-format
@@ -387,48 +445,52 @@ msgid "Open a file"
 msgstr "파일 열기"
 
 #: src/Widgets/HeaderBar.vala:45
+msgid "Open a folder"
+msgstr "폴더 열기"
+
+#: src/Widgets/HeaderBar.vala:49
 msgid "Project templates"
 msgstr "프로젝트 템플릿"
 
-#: src/Widgets/HeaderBar.vala:49
+#: src/Widgets/HeaderBar.vala:53
 msgid "Save this file"
 msgstr "이 파일 저장하기"
 
-#: src/Widgets/HeaderBar.vala:53
+#: src/Widgets/HeaderBar.vala:57
 msgid "Save this file with a different name"
 msgstr "다른 이름으로 저장하기"
 
-#: src/Widgets/HeaderBar.vala:57
+#: src/Widgets/HeaderBar.vala:61
 msgid "Restore this file"
 msgstr "원본으로 되돌리기"
 
-#: src/Widgets/HeaderBar.vala:68
+#: src/Widgets/HeaderBar.vala:72
 msgid "Share"
 msgstr "공유"
 
-#: src/Widgets/HeaderBar.vala:73
+#: src/Widgets/HeaderBar.vala:77
 #, fuzzy
 msgid "Zoom Out"
 msgstr "확대"
 
-#: src/Widgets/HeaderBar.vala:77
+#: src/Widgets/HeaderBar.vala:81
 msgid "Zoom 1:1"
 msgstr "1:1 크기"
 
-#: src/Widgets/HeaderBar.vala:81
+#: src/Widgets/HeaderBar.vala:85
 #, fuzzy
 msgid "Zoom In"
 msgstr "확대"
 
-#: src/Widgets/HeaderBar.vala:93
+#: src/Widgets/HeaderBar.vala:97
 msgid "Add New View"
 msgstr "새 페이지 추가"
 
-#: src/Widgets/HeaderBar.vala:97
+#: src/Widgets/HeaderBar.vala:101
 msgid "Remove Current View"
 msgstr "이 페이지 닫기"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:124
 msgid "Menu"
 msgstr "메뉴"
 
@@ -491,71 +553,6 @@ msgstr "클립보드의 새 파일"
 #: src/Widgets/WelcomeView.vala:37
 msgid "Create a new file from the contents of your clipboard."
 msgstr "클립보드에 있는 내용으로 파일을 새로 만듭니다."
-
-#: plugins/folder-manager/FileView.vala:39
-msgid "Folders"
-msgstr "폴더"
-
-#: plugins/folder-manager/MainFolderItem.vala:30
-msgid "Close Folder"
-msgstr "폴더 닫기"
-
-#: plugins/folder-manager/MainFolderItem.vala:33
-#: plugins/folder-manager/FileItem.vala:34
-#: plugins/folder-manager/FolderItem.vala:64
-msgid "Move to Trash"
-msgstr ""
-
-#: plugins/folder-manager/FolderManagerPlugin.vala:88
-#: plugins/folder-manager/FolderManagerPlugin.vala:89
-msgid "Open a folder"
-msgstr "폴더 열기"
-
-#: plugins/folder-manager/FolderManagerPlugin.vala:100
-msgid "_Cancel"
-msgstr "취소(_C)"
-
-#: plugins/folder-manager/FolderManagerPlugin.vala:101
-msgid "_Open"
-msgstr "열기(_O)"
-
-#: plugins/folder-manager/FileItem.vala:31
-#: plugins/folder-manager/FolderItem.vala:61
-msgid "Rename"
-msgstr ""
-
-#: plugins/folder-manager/FolderItem.vala:77
-#, fuzzy
-msgid "Folder"
-msgstr "폴더"
-
-#: plugins/folder-manager/FolderItem.vala:80
-msgid "Empty File"
-msgstr ""
-
-#: plugins/folder-manager/FolderItem.vala:87
-#, fuzzy
-msgid "New"
-msgstr "새 탭"
-
-#: plugins/folder-manager/FolderItem.vala:218
-msgid "untitled folder"
-msgstr ""
-
-#: plugins/folder-manager/FolderItem.vala:222
-#, c-format
-msgid "untitled folder %d"
-msgstr ""
-
-#: plugins/folder-manager/FolderItem.vala:244
-#, fuzzy
-msgid "new file"
-msgstr "새 파일"
-
-#: plugins/folder-manager/FolderItem.vala:248
-#, fuzzy, c-format
-msgid "new file %d"
-msgstr "새 파일"
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via PasteBin"

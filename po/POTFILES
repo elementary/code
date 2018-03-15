@@ -3,6 +3,12 @@ src/DrawSpacesUtils.vala
 src/MainWindow.vala
 src/Utils.vala
 src/Dialogs/PreferencesDialog.vala
+src/FolderManager/File.vala
+src/FolderManager/FileItem.vala
+src/FolderManager/FileView.vala
+src/FolderManager/FolderItem.vala
+src/FolderManager/Item.vala
+src/FolderManager/MainFolderItem.vala
 src/Services/Document.vala
 src/Services/FileHandler.vala
 src/Services/PluginManager.vala
@@ -18,14 +24,6 @@ src/Widgets/SearchBar.vala
 src/Widgets/SourceView.vala
 src/Widgets/SplitView.vala
 src/Widgets/WelcomeView.vala
-plugins/folder-manager/Settings.vala
-plugins/folder-manager/FileView.vala
-plugins/folder-manager/Item.vala
-plugins/folder-manager/MainFolderItem.vala
-plugins/folder-manager/FolderManagerPlugin.vala
-plugins/folder-manager/FileItem.vala
-plugins/folder-manager/FolderItem.vala
-plugins/folder-manager/File.vala
 plugins/pastebin/pastebin_dialog.vala
 plugins/pastebin/pastebin.vala
 plugins/outline/ValaProcessing/ComparisonHelper.vala
