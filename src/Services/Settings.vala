@@ -89,5 +89,16 @@ namespace Scratch {
         }
 
     }
+    
+    public class FolderManagerSettings : Granite.Services.Settings {
+
+        private const string SCHEMA = Constants.PROJECT_NAME + ".folder-manager";
+
+        public string[] opened_folders { get; set; }
+
+        public FolderManagerSettings () {
+            base (SCHEMA);
+        }
+    }
 
 }
