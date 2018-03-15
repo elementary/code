@@ -16,6 +16,7 @@ code_files = files(
     'MainWindow.vala',
     'Utils.vala',
     'Dialogs/PreferencesDialog.vala',
+    'Services/CommentToggler.vala',
     'Services/Document.vala',
     'Services/FileHandler.vala',
     'Services/PluginManager.vala',

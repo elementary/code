@@ -17,56 +17,11 @@
  * Authored by: David Hewitt <davidmhewitt@gmail.com>
  */
 
-public const string NAME = _("Toggle Code Comments");
-public const string DESCRIPTION = _("Add/remove comments with Ctrl+M");
-
-public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activatable {
-
-    Scratch.Services.Interface plugins;
-    public Object object { owned get; construct; }
-    Scratch.MainWindow main_window;
-    public void update_state () { return; }
-
+public class Scratch.CommentToggler {
     private enum CommentType {
         NONE,
         LINE,
         BLOCK
-    }
-
-    /*
-     * Activate plugin.
-     */
-    public void activate () {
-        plugins = (Scratch.Services.Interface) object;
-        plugins.hook_window.connect ((w) => {
-            main_window = w;
-
-            var comment_action = new SimpleAction ("toggle-comment", null);
-            comment_action.activate.connect (on_toggle_comment);
-            main_window.actions.add_action (comment_action);
-
-            var app = main_window.app;
-            app.add_accelerator ("<Primary>m", "win.toggle-comment", null);
-        });
-    }
-
-    /*
-     * Deactivate plugin.
-     */
-    public void deactivate () {
-        var app = main_window.app;
-        app.remove_accelerator ("win.toggle-comment", null);
-
-        main_window.actions.remove_action ("toggle-comment");
-    }
-
-    private Gtk.SourceBuffer? get_buffer () {
-        if (main_window.get_current_document () != null) {
-            var text_view = main_window.get_current_document ().source_view;
-            return (Gtk.SourceBuffer) text_view.buffer;
-        }
-
-        return null;
     }
 
     private static CommentType get_comment_tags_for_lang (Gtk.SourceLanguage lang,
@@ -324,8 +279,7 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
         buffer.delete_mark (emark);
     }
 
-    private void on_toggle_comment () {
-        var buffer = get_buffer ();
+    public static void toggle_comment (Gtk.SourceBuffer? buffer) {
         if (buffer != null) {
             Gtk.TextIter start, end;
             var sel = buffer.get_selection_bounds (out start, out end);
@@ -367,11 +321,4 @@ public class Scratch.Plugins.ToggleCodeComments: Peas.ExtensionBase, Peas.Activa
             }
         }
     }
-}
-
-[ModuleInit]
-public void peas_register_types (GLib.TypeModule module) {
-    var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type(typeof(Peas.Activatable),
-                                      typeof(Scratch.Plugins.ToggleCodeComments));
 }
