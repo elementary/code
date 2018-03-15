@@ -18,7 +18,7 @@
  * Authored by: Julien Spautz <spautz.julien@gmail.com>, Andrei-Costin Zisu <matzipan@gmail.com>
  */
 
-namespace Scratch.Plugins.FolderManager {
+namespace Scratch.FolderManager {
     internal class MainFolderItem : FolderItem {
         public signal void closed ();
 
