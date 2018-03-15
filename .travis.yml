@@ -1,16 +1,41 @@
-language: generic
+---
+
+language: node_js
+
+node_js:
+  - lts/*
+
+sudo: required
 
 services:
- - docker
+  - docker
 
-env:
- - DEPENDENCY_PACKAGES="appstream desktop-file-utils libgail-3-dev libgee-0.8-dev libgtksourceview-3.0-dev libgtkspell3-3-dev libgranite-dev libpeas-dev libsoup2.4-dev libvala-0.36-dev libvte-2.91-dev libwebkit2gtk-4.0-dev libxml2-utils libzeitgeist-2.0 meson valac"
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - libstdc++-5-dev
+
+cache:
+  directories:
+    - /tmp/liftoff
+
+matrix:
+  include:
+    - env: DIST=loki
+    - env: DIST=juno
+
+before_install:
+  - docker pull ubuntu:16.04
 
 install:
- - docker pull elementary/docker:loki
- - docker run -v "$PWD":/tmp/build-dir elementary/docker:loki /bin/sh -c "apt-get update && apt-get -y install $DEPENDENCY_PACKAGES && cd /tmp/build-dir && meson build --prefix=/usr && cd build && ninja test"
- - docker pull elementary/docker:loki-unstable
- - docker run -v "$PWD":/tmp/build-dir elementary/docker:loki-unstable /bin/sh -c "apt-get update && apt-get -y install $DEPENDENCY_PACKAGES && cd /tmp/build-dir && rm -rf build && meson build --prefix=/usr && cd build && ninja test"
+  - npm install @elementaryos/houston
 
 script:
- - echo BUILDS PASSED
+  - houston ci
+    --type system-app
+    --name-appstream io.elementary.code.desktop
+    --name-domain io.elementary.code
+    --name-human Code
+    --distribution $DIST
