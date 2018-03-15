@@ -86,6 +86,7 @@ namespace Scratch {
         public const string ACTION_ZOOM_DEFAULT = "action_zoom_default";
         public const string ACTION_ZOOM_IN = "action_zoom_in";
         public const string ACTION_ZOOM_OUT = "action_zoom_out";
+        public const string ACTION_TOGGLE_COMMENT = "action_toggle_comment";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
@@ -117,7 +118,8 @@ namespace Scratch {
             { ACTION_QUIT, action_quit },
             { ACTION_ZOOM_DEFAULT, action_set_default_zoom },
             { ACTION_ZOOM_IN, action_zoom_in },
-            { ACTION_ZOOM_OUT, action_zoom_out}
+            { ACTION_ZOOM_OUT, action_zoom_out},
+            { ACTION_TOGGLE_COMMENT, action_toggle_comment }
         };
 
         public MainWindow (Scratch.Application scratch_app) {
@@ -155,6 +157,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_ZOOM_IN, "<Control>KP_Add");
             action_accelerators.set (ACTION_ZOOM_OUT, "<Control>minus");
             action_accelerators.set (ACTION_ZOOM_OUT, "<Control>KP_Subtract");
+            action_accelerators.set (ACTION_TOGGLE_COMMENT, "<Control>m");
         }
 
         construct {
@@ -908,6 +911,20 @@ namespace Scratch {
 
             buffer.delete (ref start, ref end);
             buffer.insert (ref start, selected.up (), -1);
+        }
+
+        private void action_toggle_comment () {
+            Scratch.Widgets.DocumentView? view = null;
+            view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
+            var doc = view.current_document;
+            if (doc == null) {
+                return;
+            }
+
+            var buffer = doc.source_view.buffer;
+            if (buffer is Gtk.SourceBuffer) {
+                CommentToggler.toggle_comment (buffer as Gtk.SourceBuffer);
+            }
         }
     }
 }
