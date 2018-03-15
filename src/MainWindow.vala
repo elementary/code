@@ -338,7 +338,7 @@ namespace Scratch {
             hp1.position = 180;
             hp1.pack1 (project_pane, false, false);
             hp1.pack2 (content, true, false);
-            
+
             hp2 = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
             hp2.position = (width - 180);
             hp2.pack1 (hp1, true, false);
