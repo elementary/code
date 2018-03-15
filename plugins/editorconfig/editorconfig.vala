@@ -38,7 +38,7 @@ public class Scratch.Plugins.EditorConfig: Peas.ExtensionBase, Peas.Activatable 
                         }
                         break;
                     case "indent_size":
-                        view.indent_width = int.parse (val);
+                        view.tab_width = int.parse (val);
                         break;
                     case "tab_width":
                         view.tab_width = int.parse (val);
