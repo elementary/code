@@ -18,12 +18,12 @@
  * Authored by: Julien Spautz <spautz.julien@gmail.com>, Andrei-Costin Zisu <matzipan@gmail.com>
  */
 
-namespace Scratch.Plugins.FolderManager {
+namespace Scratch.FolderManager {
     /**
      * SourceList that displays folders and their contents.
      */
     internal class FileView : Granite.Widgets.SourceList, Code.PaneSwitcher {
-        private Settings settings;
+        private FolderManagerSettings settings;
 
         public signal void select (string file);
 
@@ -40,7 +40,7 @@ namespace Scratch.Plugins.FolderManager {
 
             item_selected.connect (on_item_selected);
 
-            settings = new Settings ();
+            settings = new FolderManagerSettings ();
         }
 
         private void on_item_selected (Granite.Widgets.SourceList.Item? item) {

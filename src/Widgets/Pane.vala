@@ -22,6 +22,9 @@ public class Code.Pane : Gtk.Grid {
     private Gtk.StackSwitcher stack_switcher;
     construct {
         orientation = Gtk.Orientation.VERTICAL;
+        visible = false;
+        no_show_all = true;
+        
         get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
         stack = new Gtk.Stack ();
         stack_switcher = new Gtk.StackSwitcher ();

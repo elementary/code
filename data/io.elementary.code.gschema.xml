@@ -162,4 +162,11 @@
 			<description>Set the preferred policy.</description>
 		</key>
 	</schema>
+    <schema path="/io/elementary/code/folder-manager/" id="io.elementary.code.folder-manager">
+        <key name="opened-folders" type="as">
+            <default>[]</default>
+            <summary>Opened folders.</summary>
+            <description>Opened folders that should be restored in startup.</description>
+        </key>
+    </schema>
 </schemalist>
