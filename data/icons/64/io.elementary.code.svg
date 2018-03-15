@@ -6,12 +6,47 @@
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.1"
    width="64"
    height="64"
-   id="svg3130">
+   id="svg3130"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="io.elementary.code.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview34"
+     showgrid="false"
+     inkscape:zoom="3.6875"
+     inkscape:cx="32.885873"
+     inkscape:cy="11.851146"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3130" />
   <defs
      id="defs3132">
+    <linearGradient
+       id="linearGradient4162">
+      <stop
+         id="stop4164"
+         style="stop-color:#ad65d6;stop-opacity:1"
+         offset="0" />
+      <stop
+         id="stop4166"
+         style="stop-color:#4c158a;stop-opacity:1"
+         offset="1" />
+    </linearGradient>
     <linearGradient
        id="linearGradient5769">
       <stop
@@ -35,11 +70,11 @@
        id="linearGradient5736">
       <stop
          offset="0"
-         style="stop-color:#586e75;stop-opacity:1"
+         style="stop-color:#7a36b1;stop-opacity:1"
          id="stop5738" />
       <stop
          offset="1"
-         style="stop-color:#073642;stop-opacity:1"
+         style="stop-color:#4c158a;stop-opacity:1"
          id="stop5740" />
     </linearGradient>
     <linearGradient
@@ -98,7 +133,7 @@
          offset="1" />
     </radialGradient>
     <linearGradient
-       xlink:href="#linearGradient5736"
+       xlink:href="#linearGradient4162"
        id="linearGradient5857"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1.5163817,0.4032233,-0.24859898,0.92087263,3.95455,0.18711795)"
@@ -141,7 +176,7 @@
      transform="rotate(-5,44.653569,3.6722725)"
      id="g4688">
     <path
-       style="display:inline;fill:url(#linearGradient4523);fill-opacity:1;stroke:#001921;stroke-width:1;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.50196078"
+       style="display:inline;fill:url(#linearGradient4523);fill-opacity:1;stroke:#260063;stroke-width:1;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.50196078"
        id="path4521"
        d="m 51.50047,2.5365013 c 10e-7,12.6032927 -0.003,54.9999417 -0.003,54.9999417 l -42.9969715,5.9e-5 c 0,0 10e-7,-36.666668 -2e-7,-55.0000007 14.3333197,0 28.6666417,-10e-8 42.9999597,0 z" />
     <path
