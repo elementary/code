@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-12 16:21-0800\n"
+"POT-Creation-Date: 2018-03-14 17:43-0700\n"
 "PO-Revision-Date: 2018-02-22 00:07+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
-"Language-Team: Lithuanian "
-"<https://weblate.elementary.io/projects/code/code/lt/>\n"
+"Language-Team: Lithuanian <https://weblate.elementary.io/projects/code/code/"
+"lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n%10>=2 && (n%100<10 || "
-"n%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n%10>=2 && (n%100<10 || n"
+"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3;\n"
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
@@ -95,23 +95,23 @@ msgstr "Įskiepių rinkinys"
 msgid "Current working directory"
 msgstr "Esamas darbinis katalogas"
 
-#: src/MainWindow.vala:128
+#: src/MainWindow.vala:130
 msgid "Code"
 msgstr "Kodas"
 
-#: src/MainWindow.vala:168 src/Widgets/HeaderBar.vala:62
+#: src/MainWindow.vala:171 src/Widgets/HeaderBar.vala:62
 msgid "Find…"
 msgstr "Rasti…"
 
-#: src/MainWindow.vala:170
+#: src/MainWindow.vala:173
 msgid "Hide search bar"
 msgstr "Slėpti paieškos juostą"
 
-#: src/MainWindow.vala:216
+#: src/MainWindow.vala:219
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Zeitgeist duomenų šaltinis, skirtas Scratch"
 
-#: src/MainWindow.vala:716
+#: src/MainWindow.vala:719
 msgid "Open some files"
 msgstr "Atverti failus"
 
