@@ -81,7 +81,12 @@ namespace Scratch.FolderManager {
         private Granite.Widgets.SourceList.Item? find_path (Granite.Widgets.SourceList.ExpandableItem list, string path) {
             foreach (var item in list.children) {
                 if (item is Item) {
-                    if ((item as Item).path == path) {
+                    var code_item = item as Item;
+                    if (!path.has_prefix (code_item.path)) {
+                        continue;
+                    }
+
+                    if (code_item.path == path) {
                         return item;
                     }
                 }
