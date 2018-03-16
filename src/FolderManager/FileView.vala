@@ -82,24 +82,20 @@ namespace Scratch.FolderManager {
             foreach (var item in list.children) {
                 if (item is Item) {
                     var code_item = item as Item;
-                    if (!path.has_prefix (code_item.path)) {
-                        continue;
-                    }
-
                     if (code_item.path == path) {
                         return item;
                     }
-                }
 
-                if (item is Granite.Widgets.SourceList.ExpandableItem) {
-                    var expander = item as Granite.Widgets.SourceList.ExpandableItem;
-                    if (!expander.expanded) {
-                        continue;
-                    }
+                    if (item is Granite.Widgets.SourceList.ExpandableItem) {
+                        var expander = item as Granite.Widgets.SourceList.ExpandableItem;
+                        if (!expander.expanded || !path.has_prefix (code_item.path)) {
+                            continue;
+                        }
 
-                    var recurse_item = find_path (item as Granite.Widgets.SourceList.ExpandableItem, path);
-                    if (recurse_item != null) {
-                        return recurse_item;
+                        var recurse_item = find_path (expander, path);
+                        if (recurse_item != null) {
+                            return recurse_item;
+                        }
                     }
                 }
             }
