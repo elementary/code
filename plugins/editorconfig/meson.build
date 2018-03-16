@@ -2,7 +2,7 @@ module_name = 'editorconfig'
 
 module_files = [
     'editorconfig.vala',
-    'editorconfig_core.vapi'
+    'editorconfig.vapi'
 ]
 
 module_deps = [

@@ -18,7 +18,7 @@
 */
 
 [CCode (cheader_filename = "editorconfig/editorconfig_handle.h,editorconfig/editorconfig.h")]
-namespace EditorConfigCore {
+namespace EditorConfig {
 
     [CCode (cname = "void", free_function = "editorconfig_handle_destroy")]
     [Compact]

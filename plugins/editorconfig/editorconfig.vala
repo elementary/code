@@ -17,27 +17,25 @@
 * Boston, MA 02110-1301 USA
 */
 
-public class Scratch.Plugins.EditorConfig: Peas.ExtensionBase, Peas.Activatable {
+public class Scratch.Plugins.EditorConfigPlugin: Peas.ExtensionBase, Peas.Activatable {
     Scratch.Services.Interface plugins;
-    public Object object {owned get; construct;}
+    public Object object { owned get; construct; }
 
-    public void update_state () {
-
-    }
+    public void update_state () { }
 
     public void activate () {
         plugins = (Scratch.Services.Interface) object;
 
         plugins.hook_document.connect ((d) => {
-            Gtk.SourceView view = d.source_view;
+            Scratch.Widgets.SourceView view = d.source_view;
             File file = d.file;
 
             if (file == null) {
                 return;
             }
 
-            EditorConfigCore.Handle handle = new EditorConfigCore.Handle ();
-            if (EditorConfigCore.parse (file.get_path (), handle) != 0) {
+            EditorConfig.Handle handle = new EditorConfig.Handle ();
+            if (EditorConfig.parse (file.get_path (), handle) != 0) {
                 return;
             }
 
@@ -76,14 +74,11 @@ public class Scratch.Plugins.EditorConfig: Peas.ExtensionBase, Peas.Activatable 
         });
     }
 
-    public void deactivate () {
-
-    }
+    public void deactivate () { }
 }
 
 [ModuleInit]
 public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type (typeof(Peas.Activatable),
-                                      typeof(Scratch.Plugins.EditorConfig));
+    objmodule.register_extension_type (typeof(Peas.Activatable), typeof(Scratch.Plugins.EditorConfigPlugin));
 }
