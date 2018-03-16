@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-12 16:21-0800\n"
+"POT-Creation-Date: 2018-03-15 19:14+0000\n"
 "PO-Revision-Date: 2017-01-08 07:33+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Malay <ms@li.org>\n"
@@ -92,25 +92,33 @@ msgstr "Set pemalam"
 msgid "Current working directory"
 msgstr "Direktori kerja semasa"
 
-#: src/MainWindow.vala:128
+#: src/MainWindow.vala:133
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:168 src/Widgets/HeaderBar.vala:62
+#: src/MainWindow.vala:174 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
 msgstr "Cari..."
 
-#: src/MainWindow.vala:170
+#: src/MainWindow.vala:176
 msgid "Hide search bar"
 msgstr "Sembunyikan bar carian"
 
-#: src/MainWindow.vala:216
+#: src/MainWindow.vala:222
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Sumber Data Zeitgeist untuk Scratch"
 
-#: src/MainWindow.vala:716
+#: src/MainWindow.vala:745
 msgid "Open some files"
 msgstr "Buka beberapa fail"
+
+#: src/MainWindow.vala:764
+msgid "_Cancel"
+msgstr "_Batal"
+
+#: src/MainWindow.vala:765
+msgid "_Open"
+msgstr "B_uka"
 
 #: src/Utils.vala:27
 msgid "All files"
@@ -133,7 +141,7 @@ msgstr "Buka"
 msgid "Save"
 msgstr "Simpan"
 
-#: src/Dialogs/PreferencesDialog.vala:43 src/Widgets/HeaderBar.vala:101
+#: src/Dialogs/PreferencesDialog.vala:43 src/Widgets/HeaderBar.vala:105
 msgid "Preferences"
 msgstr "Keutamaan"
 
@@ -226,6 +234,56 @@ msgstr "Skema warna:"
 #: src/Dialogs/PreferencesDialog.vala:146
 msgid "Custom font:"
 msgstr "Fon suai:"
+
+#: src/FolderManager/FileItem.vala:31 src/FolderManager/FolderItem.vala:61
+msgid "Rename"
+msgstr ""
+
+#: src/FolderManager/FileItem.vala:34 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/MainFolderItem.vala:33
+msgid "Move to Trash"
+msgstr ""
+
+#: src/FolderManager/FileView.vala:39
+msgid "Folders"
+msgstr "Folder"
+
+#: src/FolderManager/FolderItem.vala:77
+#, fuzzy
+msgid "Folder"
+msgstr "Folder"
+
+#: src/FolderManager/FolderItem.vala:80
+msgid "Empty File"
+msgstr ""
+
+#: src/FolderManager/FolderItem.vala:87
+#, fuzzy
+msgid "New"
+msgstr "Tab Baru"
+
+#: src/FolderManager/FolderItem.vala:218
+msgid "untitled folder"
+msgstr ""
+
+#: src/FolderManager/FolderItem.vala:222
+#, c-format
+msgid "untitled folder %d"
+msgstr ""
+
+#: src/FolderManager/FolderItem.vala:244
+#, fuzzy
+msgid "new file"
+msgstr "Fail baru"
+
+#: src/FolderManager/FolderItem.vala:248
+#, fuzzy, c-format
+msgid "new file %d"
+msgstr "Fail baru"
+
+#: src/FolderManager/MainFolderItem.vala:30
+msgid "Close Folder"
+msgstr "Tutup Folder"
 
 #: src/Services/Document.vala:221
 #, c-format
@@ -388,48 +446,52 @@ msgid "Open a file"
 msgstr "Buka fail"
 
 #: src/Widgets/HeaderBar.vala:45
+msgid "Open a folder"
+msgstr "Buka satu folder"
+
+#: src/Widgets/HeaderBar.vala:49
 msgid "Project templates"
 msgstr "Templat projek"
 
-#: src/Widgets/HeaderBar.vala:49
+#: src/Widgets/HeaderBar.vala:53
 msgid "Save this file"
 msgstr "Simpan fail ini"
 
-#: src/Widgets/HeaderBar.vala:53
+#: src/Widgets/HeaderBar.vala:57
 msgid "Save this file with a different name"
 msgstr "Siman fail ini dengan nama berbeza"
 
-#: src/Widgets/HeaderBar.vala:57
+#: src/Widgets/HeaderBar.vala:61
 msgid "Restore this file"
 msgstr "Pulih fail ini"
 
-#: src/Widgets/HeaderBar.vala:68
+#: src/Widgets/HeaderBar.vala:72
 msgid "Share"
 msgstr "Kongsi"
 
-#: src/Widgets/HeaderBar.vala:73
+#: src/Widgets/HeaderBar.vala:77
 #, fuzzy
 msgid "Zoom Out"
 msgstr "Zum"
 
-#: src/Widgets/HeaderBar.vala:77
+#: src/Widgets/HeaderBar.vala:81
 msgid "Zoom 1:1"
 msgstr "Zum 1:1"
 
-#: src/Widgets/HeaderBar.vala:81
+#: src/Widgets/HeaderBar.vala:85
 #, fuzzy
 msgid "Zoom In"
 msgstr "Zum"
 
-#: src/Widgets/HeaderBar.vala:93
+#: src/Widgets/HeaderBar.vala:97
 msgid "Add New View"
 msgstr "Tambah Paparan Baru"
 
-#: src/Widgets/HeaderBar.vala:97
+#: src/Widgets/HeaderBar.vala:101
 msgid "Remove Current View"
 msgstr "Buang Paparan Semasa"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:124
 msgid "Menu"
 msgstr ""
 
@@ -492,71 +554,6 @@ msgstr "Fail baharu dari papan keratan"
 #: src/Widgets/WelcomeView.vala:37
 msgid "Create a new file from the contents of your clipboard."
 msgstr "Cipta fail baharu daripada kandungan papan keratan anda."
-
-#: plugins/folder-manager/FileView.vala:39
-msgid "Folders"
-msgstr "Folder"
-
-#: plugins/folder-manager/MainFolderItem.vala:30
-msgid "Close Folder"
-msgstr "Tutup Folder"
-
-#: plugins/folder-manager/MainFolderItem.vala:33
-#: plugins/folder-manager/FileItem.vala:34
-#: plugins/folder-manager/FolderItem.vala:64
-msgid "Move to Trash"
-msgstr ""
-
-#: plugins/folder-manager/FolderManagerPlugin.vala:88
-#: plugins/folder-manager/FolderManagerPlugin.vala:89
-msgid "Open a folder"
-msgstr "Buka satu folder"
-
-#: plugins/folder-manager/FolderManagerPlugin.vala:100
-msgid "_Cancel"
-msgstr "_Batal"
-
-#: plugins/folder-manager/FolderManagerPlugin.vala:101
-msgid "_Open"
-msgstr "B_uka"
-
-#: plugins/folder-manager/FileItem.vala:31
-#: plugins/folder-manager/FolderItem.vala:61
-msgid "Rename"
-msgstr ""
-
-#: plugins/folder-manager/FolderItem.vala:77
-#, fuzzy
-msgid "Folder"
-msgstr "Folder"
-
-#: plugins/folder-manager/FolderItem.vala:80
-msgid "Empty File"
-msgstr ""
-
-#: plugins/folder-manager/FolderItem.vala:87
-#, fuzzy
-msgid "New"
-msgstr "Tab Baru"
-
-#: plugins/folder-manager/FolderItem.vala:218
-msgid "untitled folder"
-msgstr ""
-
-#: plugins/folder-manager/FolderItem.vala:222
-#, c-format
-msgid "untitled folder %d"
-msgstr ""
-
-#: plugins/folder-manager/FolderItem.vala:244
-#, fuzzy
-msgid "new file"
-msgstr "Fail baru"
-
-#: plugins/folder-manager/FolderItem.vala:248
-#, fuzzy, c-format
-msgid "new file %d"
-msgstr "Fail baru"
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via PasteBin"

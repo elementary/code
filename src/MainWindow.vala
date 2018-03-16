@@ -32,6 +32,7 @@ namespace Scratch {
         private Gtk.Revealer search_revealer;
         public Scratch.Widgets.SearchBar search_bar;
         public Scratch.Widgets.SplitView split_view;
+        private FolderManager.FileView folder_manager_view;
 
         // Plugins
         private Scratch.Services.PluginsManager plugins;
@@ -61,6 +62,7 @@ namespace Scratch {
         public const string ACTION_PREFIX = "win.";
         public const string ACTION_FIND = "action_find";
         public const string ACTION_OPEN = "action_open";
+        public const string ACTION_OPEN_FOLDER = "action_open_folder";
         public const string ACTION_GO_TO = "action_go_to";
         public const string ACTION_NEW_VIEW = "action_new_view";
         public const string ACTION_NEW_TAB = "action_new_tab";
@@ -86,12 +88,14 @@ namespace Scratch {
         public const string ACTION_ZOOM_DEFAULT = "action_zoom_default";
         public const string ACTION_ZOOM_IN = "action_zoom_in";
         public const string ACTION_ZOOM_OUT = "action_zoom_out";
+        public const string ACTION_TOGGLE_COMMENT = "action_toggle_comment";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
         private const ActionEntry[] action_entries = {
             { ACTION_FIND, action_fetch },
             { ACTION_OPEN, action_open },
+            { ACTION_OPEN_FOLDER, action_open_folder },
             { ACTION_PREFERENCES, action_preferences },
             { ACTION_REVERT, action_revert },
             { ACTION_SAVE, action_save },
@@ -117,7 +121,8 @@ namespace Scratch {
             { ACTION_QUIT, action_quit },
             { ACTION_ZOOM_DEFAULT, action_set_default_zoom },
             { ACTION_ZOOM_IN, action_zoom_in },
-            { ACTION_ZOOM_OUT, action_zoom_out}
+            { ACTION_ZOOM_OUT, action_zoom_out},
+            { ACTION_TOGGLE_COMMENT, action_toggle_comment }
         };
 
         public MainWindow (Scratch.Application scratch_app) {
@@ -155,6 +160,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_ZOOM_IN, "<Control>KP_Add");
             action_accelerators.set (ACTION_ZOOM_OUT, "<Control>minus");
             action_accelerators.set (ACTION_ZOOM_OUT, "<Control>KP_Subtract");
+            action_accelerators.set (ACTION_TOGGLE_COMMENT, "<Control>m");
         }
 
         construct {
@@ -277,6 +283,29 @@ namespace Scratch {
             });
 
             project_pane = new Code.Pane ();
+            
+            folder_manager_view = new FolderManager.FileView ();
+
+            folder_manager_view.select.connect ((a) => {
+                var file = GLib.File.new_for_path (a);
+                var doc = new Scratch.Services.Document (actions, file);
+                open_document (doc);
+            });
+
+            folder_manager_view.root.child_added.connect (() => {
+                if (folder_manager_view.get_n_visible_children (folder_manager_view.root) == 0) {
+                    project_pane.add_tab (folder_manager_view);
+                    folder_manager_view.show_all ();
+                }
+            });
+
+            folder_manager_view.root.child_removed.connect (() => {
+                if (folder_manager_view.get_n_visible_children (folder_manager_view.root) == 1) {
+                    folder_manager_view.parent.remove (folder_manager_view);
+                }
+            });
+
+            folder_manager_view.restore_saved_state ();
 
             contextbar = new Gtk.Notebook ();
             contextbar.no_show_all = true;
@@ -728,6 +757,23 @@ namespace Scratch {
                 }
             }
         }
+        
+        private void action_open_folder () {
+            var chooser = new Gtk.FileChooserDialog (
+                "Select a folder.", this, Gtk.FileChooserAction.SELECT_FOLDER,
+                _("_Cancel"), Gtk.ResponseType.CANCEL,
+                _("_Open"), Gtk.ResponseType.ACCEPT);
+            chooser.select_multiple = true;
+
+            if (chooser.run () == Gtk.ResponseType.ACCEPT) {
+                chooser.get_files ().foreach ((glib_file) => {
+                    var foldermanager_file = new FolderManager.File (glib_file.get_path ());
+                    folder_manager_view.open_folder (foldermanager_file);
+                });
+            }
+
+            chooser.close ();
+        }
 
         private void action_save () {
             var doc = get_current_document (); /* may return null */
@@ -908,6 +954,20 @@ namespace Scratch {
 
             buffer.delete (ref start, ref end);
             buffer.insert (ref start, selected.up (), -1);
+        }
+
+        private void action_toggle_comment () {
+            Scratch.Widgets.DocumentView? view = null;
+            view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
+            var doc = view.current_document;
+            if (doc == null) {
+                return;
+            }
+
+            var buffer = doc.source_view.buffer;
+            if (buffer is Gtk.SourceBuffer) {
+                CommentToggler.toggle_comment (buffer as Gtk.SourceBuffer);
+            }
         }
     }
 }

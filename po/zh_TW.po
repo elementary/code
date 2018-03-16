@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-12 16:21-0800\n"
+"POT-Creation-Date: 2018-03-15 19:14+0000\n"
 "PO-Revision-Date: 2018-02-24 11:33+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
-"Language-Team: Chinese (Traditional) "
-"<https://weblate.elementary.io/projects/code/code/zh_TW/>\n"
+"Language-Team: Chinese (Traditional) <https://weblate.elementary.io/projects/"
+"code/code/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -93,25 +93,33 @@ msgstr "插件集"
 msgid "Current working directory"
 msgstr "目前的工作目錄"
 
-#: src/MainWindow.vala:128
+#: src/MainWindow.vala:133
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:168 src/Widgets/HeaderBar.vala:62
+#: src/MainWindow.vala:174 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
 msgstr "尋找…"
 
-#: src/MainWindow.vala:170
+#: src/MainWindow.vala:176
 msgid "Hide search bar"
 msgstr "隱藏搜尋列"
 
-#: src/MainWindow.vala:216
+#: src/MainWindow.vala:222
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "供 Scratch 使用的 Zeitgeist 資料來源"
 
-#: src/MainWindow.vala:716
+#: src/MainWindow.vala:745
 msgid "Open some files"
 msgstr "開啟一些檔案"
+
+#: src/MainWindow.vala:764
+msgid "_Cancel"
+msgstr "取消(_C)"
+
+#: src/MainWindow.vala:765
+msgid "_Open"
+msgstr "開啟(_O)"
 
 #: src/Utils.vala:27
 msgid "All files"
@@ -134,7 +142,7 @@ msgstr "開啟"
 msgid "Save"
 msgstr "儲存"
 
-#: src/Dialogs/PreferencesDialog.vala:43 src/Widgets/HeaderBar.vala:101
+#: src/Dialogs/PreferencesDialog.vala:43 src/Widgets/HeaderBar.vala:105
 msgid "Preferences"
 msgstr "偏好設定"
 
@@ -227,6 +235,53 @@ msgstr "配色方案："
 #: src/Dialogs/PreferencesDialog.vala:146
 msgid "Custom font:"
 msgstr "自訂字型："
+
+#: src/FolderManager/FileItem.vala:31 src/FolderManager/FolderItem.vala:61
+msgid "Rename"
+msgstr "改名"
+
+#: src/FolderManager/FileItem.vala:34 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/MainFolderItem.vala:33
+msgid "Move to Trash"
+msgstr "移至垃圾桶"
+
+#: src/FolderManager/FileView.vala:39
+msgid "Folders"
+msgstr "資料夾"
+
+#: src/FolderManager/FolderItem.vala:77
+msgid "Folder"
+msgstr "資料夾"
+
+#: src/FolderManager/FolderItem.vala:80
+msgid "Empty File"
+msgstr "空白檔案"
+
+#: src/FolderManager/FolderItem.vala:87
+msgid "New"
+msgstr "新增"
+
+#: src/FolderManager/FolderItem.vala:218
+msgid "untitled folder"
+msgstr "無名資料夾"
+
+#: src/FolderManager/FolderItem.vala:222
+#, c-format
+msgid "untitled folder %d"
+msgstr "無名資料夾 %d"
+
+#: src/FolderManager/FolderItem.vala:244
+msgid "new file"
+msgstr "新檔案"
+
+#: src/FolderManager/FolderItem.vala:248
+#, c-format
+msgid "new file %d"
+msgstr "新檔案 %d"
+
+#: src/FolderManager/MainFolderItem.vala:30
+msgid "Close Folder"
+msgstr "關閉資料夾"
 
 #: src/Services/Document.vala:221
 #, c-format
@@ -374,46 +429,50 @@ msgid "Open a file"
 msgstr "開啟檔案"
 
 #: src/Widgets/HeaderBar.vala:45
+msgid "Open a folder"
+msgstr "開啟資料夾"
+
+#: src/Widgets/HeaderBar.vala:49
 msgid "Project templates"
 msgstr "專案模板"
 
-#: src/Widgets/HeaderBar.vala:49
+#: src/Widgets/HeaderBar.vala:53
 msgid "Save this file"
 msgstr "儲存此檔案"
 
-#: src/Widgets/HeaderBar.vala:53
+#: src/Widgets/HeaderBar.vala:57
 msgid "Save this file with a different name"
 msgstr "以不同名稱儲存這份檔案"
 
-#: src/Widgets/HeaderBar.vala:57
+#: src/Widgets/HeaderBar.vala:61
 msgid "Restore this file"
 msgstr "還原此檔案"
 
-#: src/Widgets/HeaderBar.vala:68
+#: src/Widgets/HeaderBar.vala:72
 msgid "Share"
 msgstr "分享"
 
-#: src/Widgets/HeaderBar.vala:73
+#: src/Widgets/HeaderBar.vala:77
 msgid "Zoom Out"
 msgstr "拉遠"
 
-#: src/Widgets/HeaderBar.vala:77
+#: src/Widgets/HeaderBar.vala:81
 msgid "Zoom 1:1"
 msgstr "遠近 1:1"
 
-#: src/Widgets/HeaderBar.vala:81
+#: src/Widgets/HeaderBar.vala:85
 msgid "Zoom In"
 msgstr "拉近"
 
-#: src/Widgets/HeaderBar.vala:93
+#: src/Widgets/HeaderBar.vala:97
 msgid "Add New View"
 msgstr "加入新檢視"
 
-#: src/Widgets/HeaderBar.vala:97
+#: src/Widgets/HeaderBar.vala:101
 msgid "Remove Current View"
 msgstr "移除目前檢視"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:124
 msgid "Menu"
 msgstr "選單"
 
@@ -476,68 +535,6 @@ msgstr "從剪貼簿新增檔案"
 #: src/Widgets/WelcomeView.vala:37
 msgid "Create a new file from the contents of your clipboard."
 msgstr "從您的剪貼簿內容製作新的檔案。"
-
-#: plugins/folder-manager/FileView.vala:39
-msgid "Folders"
-msgstr "資料夾"
-
-#: plugins/folder-manager/MainFolderItem.vala:30
-msgid "Close Folder"
-msgstr "關閉資料夾"
-
-#: plugins/folder-manager/MainFolderItem.vala:33
-#: plugins/folder-manager/FileItem.vala:34
-#: plugins/folder-manager/FolderItem.vala:64
-msgid "Move to Trash"
-msgstr "移至垃圾桶"
-
-#: plugins/folder-manager/FolderManagerPlugin.vala:88
-#: plugins/folder-manager/FolderManagerPlugin.vala:89
-msgid "Open a folder"
-msgstr "開啟資料夾"
-
-#: plugins/folder-manager/FolderManagerPlugin.vala:100
-msgid "_Cancel"
-msgstr "取消(_C)"
-
-#: plugins/folder-manager/FolderManagerPlugin.vala:101
-msgid "_Open"
-msgstr "開啟(_O)"
-
-#: plugins/folder-manager/FileItem.vala:31
-#: plugins/folder-manager/FolderItem.vala:61
-msgid "Rename"
-msgstr "改名"
-
-#: plugins/folder-manager/FolderItem.vala:77
-msgid "Folder"
-msgstr "資料夾"
-
-#: plugins/folder-manager/FolderItem.vala:80
-msgid "Empty File"
-msgstr "空白檔案"
-
-#: plugins/folder-manager/FolderItem.vala:87
-msgid "New"
-msgstr "新增"
-
-#: plugins/folder-manager/FolderItem.vala:218
-msgid "untitled folder"
-msgstr "無名資料夾"
-
-#: plugins/folder-manager/FolderItem.vala:222
-#, c-format
-msgid "untitled folder %d"
-msgstr "無名資料夾 %d"
-
-#: plugins/folder-manager/FolderItem.vala:244
-msgid "new file"
-msgstr "新檔案"
-
-#: plugins/folder-manager/FolderItem.vala:248
-#, c-format
-msgid "new file %d"
-msgstr "新檔案 %d"
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via PasteBin"
