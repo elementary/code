@@ -27,7 +27,6 @@ namespace Scratch.Dialogs {
         private Gtk.Stack main_stack;
         private Gtk.Switch highlight_current_line;
         private Gtk.Switch highlight_matching_brackets;
-        private Gtk.ComboBoxText style_scheme;
         private Gtk.Switch use_custom_font;
         private Gtk.FontButton select_font;
 
@@ -136,12 +135,7 @@ namespace Scratch.Dialogs {
             Scratch.settings.schema.bind ("right-margin-position", right_margin_position, "value", SettingsBindFlags.DEFAULT);
             Scratch.settings.schema.bind ("show-right-margin", right_margin_position, "sensitive", SettingsBindFlags.DEFAULT);
 
-            var font_header = new Granite.HeaderLabel (_("Font and Color Scheme"));
-
-            var style_scheme_label = new SettingsLabel (_("Color scheme:"));
-            style_scheme = new Gtk.ComboBoxText ();
-            populate_style_scheme ();
-            Scratch.settings.schema.bind ("style-scheme", style_scheme, "active-id", SettingsBindFlags.DEFAULT);
+            var font_header = new Granite.HeaderLabel (_("Font"));
 
             var use_custom_font_label = new SettingsLabel (_("Custom font:"));
             use_custom_font = new Gtk.Switch ();
@@ -170,24 +164,11 @@ namespace Scratch.Dialogs {
             content.attach (show_right_margin, 1, 6, 1, 1);
             content.attach (right_margin_position, 2, 6, 1, 1);
             content.attach (font_header, 0, 7, 3, 1);
-            content.attach (style_scheme_label, 0, 8, 1, 1);
-            content.attach (style_scheme, 1, 8, 2, 1);
             content.attach (use_custom_font_label , 0, 9, 1, 1);
             content.attach (use_custom_font, 1, 9, 1, 1);
             content.attach (select_font, 2, 9, 1, 1);
 
             return content;
-        }
-
-        private void populate_style_scheme () {
-            string[] scheme_ids;
-            var scheme_manager = new Gtk.SourceStyleSchemeManager ();
-            scheme_ids = scheme_manager.get_scheme_ids ();
-
-            foreach (string scheme_id in scheme_ids) {
-                var scheme = scheme_manager.get_scheme (scheme_id);
-                style_scheme.append (scheme.id, scheme.name);
-            }
         }
 
         private class SettingsLabel : Gtk.Label {
