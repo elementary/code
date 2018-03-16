@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-14 17:46-0700\n"
+"POT-Creation-Date: 2018-03-15 19:09+0000\n"
 "PO-Revision-Date: 2018-02-22 00:07+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://weblate.elementary.io/projects/code/plugins/"
@@ -50,14 +50,6 @@ msgstr "Detecta el sagnat"
 #: plugins/detect-indent/detect-indent.plugin:7
 msgid "Heuristically detect tab or space settings"
 msgstr "Detecta la configuració de pestanyes o espais heurísticament."
-
-#: plugins/folder-manager/folder-manager.plugin:6
-msgid "Folder Manager"
-msgstr "Gestor de carpetes"
-
-#: plugins/folder-manager/folder-manager.plugin:7
-msgid "Basic folder manager with file browsing"
-msgstr "Gestor de carpetes bàsic amb navegació per fitxers"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
@@ -140,3 +132,9 @@ msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Mostra un diàleg de compleció amb les paraules més usades segons els vostres "
 "fitxers."
+
+#~ msgid "Folder Manager"
+#~ msgstr "Gestor de carpetes"
+
+#~ msgid "Basic folder manager with file browsing"
+#~ msgstr "Gestor de carpetes bàsic amb navegació per fitxers"
