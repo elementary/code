@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-15 19:14+0000\n"
+"POT-Creation-Date: 2018-03-16 11:23-0700\n"
 "PO-Revision-Date: 2017-01-12 09:48+0000\n"
 "Last-Translator: Jeerapat Sripumngoen <jeerapatsepu@gmail.com>\n"
 "Language-Team: Thai <th@li.org>\n"
@@ -90,27 +90,27 @@ msgstr "ไดเรกทอรีที่ทำงานปัจจุบั
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:174 src/Widgets/HeaderBar.vala:66
+#: src/MainWindow.vala:178 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
 msgstr "ค้นหา..."
 
-#: src/MainWindow.vala:176
+#: src/MainWindow.vala:180
 msgid "Hide search bar"
 msgstr "ซ่อนแถบค้นหา"
 
-#: src/MainWindow.vala:222
+#: src/MainWindow.vala:226
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "แหล่งข้อมูล Zeitgeist สำหรับ Scratch"
 
-#: src/MainWindow.vala:745
+#: src/MainWindow.vala:752
 msgid "Open some files"
 msgstr "เปิดบางไฟล์"
 
-#: src/MainWindow.vala:764
+#: src/MainWindow.vala:771
 msgid "_Cancel"
 msgstr "_ยกเลิก"
 
-#: src/MainWindow.vala:765
+#: src/MainWindow.vala:772
 msgid "_Open"
 msgstr "_เปิด"
 
@@ -135,97 +135,93 @@ msgstr "เปิด"
 msgid "Save"
 msgstr "บันทึก"
 
-#: src/Dialogs/PreferencesDialog.vala:43 src/Widgets/HeaderBar.vala:105
+#: src/Dialogs/PreferencesDialog.vala:42 src/Widgets/HeaderBar.vala:138
 msgid "Preferences"
 msgstr "ปรับแต่ง"
 
-#: src/Dialogs/PreferencesDialog.vala:57
+#: src/Dialogs/PreferencesDialog.vala:56
 msgid "General"
 msgstr "ทั่วไป"
 
-#: src/Dialogs/PreferencesDialog.vala:58
+#: src/Dialogs/PreferencesDialog.vala:57
 msgid "Save files when changed:"
 msgstr "บันทึกไฟล์เมื่อมีการเปลี่ยนแปลง"
 
-#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:59 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
 msgstr "แท็บ"
 
-#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:147
+#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:147
 msgid "Automatic indentation:"
 msgstr "ย่อหน้าโดยอัตโนมัติ"
 
-#: src/Dialogs/PreferencesDialog.vala:63 src/Widgets/FormatBar.vala:141
+#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:141
 msgid "Insert spaces instead of tabs:"
 msgstr "ใช้เว้นวรรคแทนการแท็บ"
 
-#: src/Dialogs/PreferencesDialog.vala:65 src/Widgets/FormatBar.vala:144
+#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:144
 msgid "Tab width:"
 msgstr "ความกว้างของแท็บ:"
 
-#: src/Dialogs/PreferencesDialog.vala:72
+#: src/Dialogs/PreferencesDialog.vala:71
 msgid "Behavior"
 msgstr "พฤติกรรม"
 
-#: src/Dialogs/PreferencesDialog.vala:73
+#: src/Dialogs/PreferencesDialog.vala:72
 msgid "Interface"
 msgstr "ส่วนติดต่อกับผู้ใช้"
 
-#: src/Dialogs/PreferencesDialog.vala:85
+#: src/Dialogs/PreferencesDialog.vala:84
 #: plugins/pastebin/pastebin_dialog.vala:323
 msgid "Close"
 msgstr "ปิด"
 
-#: src/Dialogs/PreferencesDialog.vala:101
+#: src/Dialogs/PreferencesDialog.vala:100
 msgid "Extensions"
 msgstr "ส่วนขยาย"
 
-#: src/Dialogs/PreferencesDialog.vala:110
+#: src/Dialogs/PreferencesDialog.vala:109
 msgid "Editor"
 msgstr "เครื่องมือแก้ไข"
 
-#: src/Dialogs/PreferencesDialog.vala:112
+#: src/Dialogs/PreferencesDialog.vala:111
 msgid "Highlight current line:"
 msgstr "แสดงแถบสีบรรทัดปัจจุบัน"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:114
 msgid "Highlight matching brackets:"
 msgstr "แสดงแถบสีที่คู่วงเล็บ"
 
-#: src/Dialogs/PreferencesDialog.vala:118
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Draw Spaces:"
 msgstr "สร้างพื้นที่"
 
-#: src/Dialogs/PreferencesDialog.vala:120
-#: plugins/pastebin/pastebin_dialog.vala:483
+#: src/Dialogs/PreferencesDialog.vala:119
+#: plugins/pastebin/pastebin_dialog.vala:460
 msgid "Never"
 msgstr "ไม่ต้อง"
 
-#: src/Dialogs/PreferencesDialog.vala:121
+#: src/Dialogs/PreferencesDialog.vala:120
 msgid "For selected text"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:122
+#: src/Dialogs/PreferencesDialog.vala:121
 msgid "Always"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:127
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Show Mini Map:"
 msgstr "แสดงแผนที่ขนาดเล็ก"
 
-#: src/Dialogs/PreferencesDialog.vala:131
+#: src/Dialogs/PreferencesDialog.vala:130
 msgid "Line width guide:"
 msgstr "แสดงเส้นแนะนำความกว้าง"
 
-#: src/Dialogs/PreferencesDialog.vala:139
-msgid "Font and Color Scheme"
-msgstr "ตัวอักษรและรูปแบบสี"
+#: src/Dialogs/PreferencesDialog.vala:138
+msgid "Font"
+msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:141
-msgid "Color scheme:"
-msgstr "รูปแบบสี:"
-
-#: src/Dialogs/PreferencesDialog.vala:146
+#: src/Dialogs/PreferencesDialog.vala:140
 msgid "Custom font:"
 msgstr "กำหนดแบบอักษร"
 
@@ -473,15 +469,27 @@ msgstr "Zoom 1:1"
 msgid "Zoom In"
 msgstr "ซูม"
 
-#: src/Widgets/HeaderBar.vala:97
+#: src/Widgets/HeaderBar.vala:100
+msgid "High Contrast"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:110
+msgid "Solarized Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:120
+msgid "Solarized Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:130
 msgid "Add New View"
 msgstr "เพิ่มมุมมองใหม่"
 
-#: src/Widgets/HeaderBar.vala:101
+#: src/Widgets/HeaderBar.vala:134
 msgid "Remove Current View"
 msgstr "ลบมุมมองปัจจุบัน"
 
-#: src/Widgets/HeaderBar.vala:124
+#: src/Widgets/HeaderBar.vala:160
 msgid "Menu"
 msgstr ""
 
@@ -578,23 +586,23 @@ msgstr "อัพโหลด"
 msgid "Other formats"
 msgstr "รูปแบบอื่นๆ"
 
-#: plugins/pastebin/pastebin_dialog.vala:484
+#: plugins/pastebin/pastebin_dialog.vala:461
 msgid "Ten minutes"
 msgstr "สิบนาที"
 
-#: plugins/pastebin/pastebin_dialog.vala:485
+#: plugins/pastebin/pastebin_dialog.vala:462
 msgid "One hour"
 msgstr "หนึ่งชั่วโมง"
 
-#: plugins/pastebin/pastebin_dialog.vala:486
+#: plugins/pastebin/pastebin_dialog.vala:463
 msgid "One day"
 msgstr "หนึ่งวัน"
 
-#: plugins/pastebin/pastebin_dialog.vala:487
+#: plugins/pastebin/pastebin_dialog.vala:464
 msgid "One month"
 msgstr "หนึ่งเดือน"
 
-#: plugins/pastebin/pastebin.vala:131
+#: plugins/pastebin/pastebin.vala:94
 msgid "Upload to Pastebin"
 msgstr "อัพโหลดไปยัง Pastebin"
 
@@ -668,6 +676,12 @@ msgstr "ไม่สามารถโหลดชุดไอคอน: %s\n"
 #: plugins/open-with/open-with.vala:51
 msgid "Open With…"
 msgstr "เปิดด้วย..."
+
+#~ msgid "Font and Color Scheme"
+#~ msgstr "ตัวอักษรและรูปแบบสี"
+
+#~ msgid "Color scheme:"
+#~ msgstr "รูปแบบสี:"
 
 #~ msgid "Edit text files"
 #~ msgstr "แก้ไขไฟล์ข้อความ"

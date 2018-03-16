@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-15 19:14+0000\n"
+"POT-Creation-Date: 2018-03-16 11:23-0700\n"
 "PO-Revision-Date: 2017-03-02 03:20+0000\n"
 "Last-Translator: Anand Kumar <Unknown>\n"
 "Language-Team: Hindi <hi@li.org>\n"
@@ -90,27 +90,27 @@ msgstr "वर्त्तमान फोल्डर"
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:174 src/Widgets/HeaderBar.vala:66
+#: src/MainWindow.vala:178 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
 msgstr "ढूंढें..."
 
-#: src/MainWindow.vala:176
+#: src/MainWindow.vala:180
 msgid "Hide search bar"
 msgstr "सर्च बार छुपायें"
 
-#: src/MainWindow.vala:222
+#: src/MainWindow.vala:226
 msgid "Zeitgeist Datasource for Scratch"
 msgstr ""
 
-#: src/MainWindow.vala:745
+#: src/MainWindow.vala:752
 msgid "Open some files"
 msgstr "कुछ फ़ाइल खोलें"
 
-#: src/MainWindow.vala:764
+#: src/MainWindow.vala:771
 msgid "_Cancel"
 msgstr "रद्द करें (_C)"
 
-#: src/MainWindow.vala:765
+#: src/MainWindow.vala:772
 msgid "_Open"
 msgstr "खोलें (_O)"
 
@@ -135,97 +135,93 @@ msgstr "खोलें"
 msgid "Save"
 msgstr "सहेजें"
 
-#: src/Dialogs/PreferencesDialog.vala:43 src/Widgets/HeaderBar.vala:105
+#: src/Dialogs/PreferencesDialog.vala:42 src/Widgets/HeaderBar.vala:138
 msgid "Preferences"
 msgstr "वरीयताएँ"
 
-#: src/Dialogs/PreferencesDialog.vala:57
+#: src/Dialogs/PreferencesDialog.vala:56
 msgid "General"
 msgstr "सामान्य"
 
-#: src/Dialogs/PreferencesDialog.vala:58
+#: src/Dialogs/PreferencesDialog.vala:57
 msgid "Save files when changed:"
 msgstr "बदलाव करने पर फाइलों को सहेजे"
 
-#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:59 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
 msgstr "टैब्स"
 
-#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:147
+#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:147
 msgid "Automatic indentation:"
 msgstr "स्व हाशिया"
 
-#: src/Dialogs/PreferencesDialog.vala:63 src/Widgets/FormatBar.vala:141
+#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:141
 msgid "Insert spaces instead of tabs:"
 msgstr "टैब की जगह रिक्ति डालें:"
 
-#: src/Dialogs/PreferencesDialog.vala:65 src/Widgets/FormatBar.vala:144
+#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:144
 msgid "Tab width:"
 msgstr "टैब चौड़ाईः"
 
-#: src/Dialogs/PreferencesDialog.vala:72
+#: src/Dialogs/PreferencesDialog.vala:71
 msgid "Behavior"
 msgstr "व्‍यवहार"
 
-#: src/Dialogs/PreferencesDialog.vala:73
+#: src/Dialogs/PreferencesDialog.vala:72
 msgid "Interface"
 msgstr "इंटरफ़ेस"
 
-#: src/Dialogs/PreferencesDialog.vala:85
+#: src/Dialogs/PreferencesDialog.vala:84
 #: plugins/pastebin/pastebin_dialog.vala:323
 msgid "Close"
 msgstr "बंद करें"
 
-#: src/Dialogs/PreferencesDialog.vala:101
+#: src/Dialogs/PreferencesDialog.vala:100
 msgid "Extensions"
 msgstr "एक्सटेंशन्स"
 
-#: src/Dialogs/PreferencesDialog.vala:110
+#: src/Dialogs/PreferencesDialog.vala:109
 msgid "Editor"
 msgstr "एडीटर"
 
-#: src/Dialogs/PreferencesDialog.vala:112
+#: src/Dialogs/PreferencesDialog.vala:111
 msgid "Highlight current line:"
 msgstr "वर्तमान लाइन को चिन्हांकित करें"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:114
 msgid "Highlight matching brackets:"
 msgstr "सामान कोष्ठकों को हाईलाइट करें"
 
-#: src/Dialogs/PreferencesDialog.vala:118
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Draw Spaces:"
 msgstr "स्पेस बनायें"
 
-#: src/Dialogs/PreferencesDialog.vala:120
-#: plugins/pastebin/pastebin_dialog.vala:483
+#: src/Dialogs/PreferencesDialog.vala:119
+#: plugins/pastebin/pastebin_dialog.vala:460
 msgid "Never"
 msgstr "कभी नहीं"
 
-#: src/Dialogs/PreferencesDialog.vala:121
+#: src/Dialogs/PreferencesDialog.vala:120
 msgid "For selected text"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:122
+#: src/Dialogs/PreferencesDialog.vala:121
 msgid "Always"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:127
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Show Mini Map:"
 msgstr "लघु मानचित्र चित्रित करें"
 
-#: src/Dialogs/PreferencesDialog.vala:131
+#: src/Dialogs/PreferencesDialog.vala:130
 msgid "Line width guide:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:139
-msgid "Font and Color Scheme"
-msgstr "लिपि और रंग संयोजन"
+#: src/Dialogs/PreferencesDialog.vala:138
+msgid "Font"
+msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:141
-msgid "Color scheme:"
-msgstr "रंग संयोजन"
-
-#: src/Dialogs/PreferencesDialog.vala:146
+#: src/Dialogs/PreferencesDialog.vala:140
 msgid "Custom font:"
 msgstr "मनपसंद फ़ॉन्ट:"
 
@@ -472,15 +468,27 @@ msgstr "ज़ूम 1:1"
 msgid "Zoom In"
 msgstr "ज़ूम 1:1"
 
-#: src/Widgets/HeaderBar.vala:97
+#: src/Widgets/HeaderBar.vala:100
+msgid "High Contrast"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:110
+msgid "Solarized Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:120
+msgid "Solarized Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:130
 msgid "Add New View"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:101
+#: src/Widgets/HeaderBar.vala:134
 msgid "Remove Current View"
 msgstr "वर्तमान दृश्य को निकालें"
 
-#: src/Widgets/HeaderBar.vala:124
+#: src/Widgets/HeaderBar.vala:160
 msgid "Menu"
 msgstr ""
 
@@ -576,23 +584,23 @@ msgstr "अपलोड करें"
 msgid "Other formats"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:484
+#: plugins/pastebin/pastebin_dialog.vala:461
 msgid "Ten minutes"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:485
+#: plugins/pastebin/pastebin_dialog.vala:462
 msgid "One hour"
 msgstr "एक घंटा"
 
-#: plugins/pastebin/pastebin_dialog.vala:486
+#: plugins/pastebin/pastebin_dialog.vala:463
 msgid "One day"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:487
+#: plugins/pastebin/pastebin_dialog.vala:464
 msgid "One month"
 msgstr ""
 
-#: plugins/pastebin/pastebin.vala:131
+#: plugins/pastebin/pastebin.vala:94
 msgid "Upload to Pastebin"
 msgstr "पेस्टबिन पर अपलोड करे"
 
@@ -666,6 +674,12 @@ msgstr ""
 #: plugins/open-with/open-with.vala:51
 msgid "Open With…"
 msgstr "के साथ खोलें"
+
+#~ msgid "Font and Color Scheme"
+#~ msgstr "लिपि और रंग संयोजन"
+
+#~ msgid "Color scheme:"
+#~ msgstr "रंग संयोजन"
 
 #~ msgid "Edit text files"
 #~ msgstr "लेख फ़ाइलें संपादित करें"

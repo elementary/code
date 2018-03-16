@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-15 19:14+0000\n"
+"POT-Creation-Date: 2018-03-16 11:23-0700\n"
 "PO-Revision-Date: 2018-03-04 00:07+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://weblate.elementary.io/projects/code/code/ko/"
@@ -98,27 +98,27 @@ msgstr "지금 작업 중인 디렉터리"
 msgid "Code"
 msgstr "코드"
 
-#: src/MainWindow.vala:174 src/Widgets/HeaderBar.vala:66
+#: src/MainWindow.vala:178 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
 msgstr "찾기…"
 
-#: src/MainWindow.vala:176
+#: src/MainWindow.vala:180
 msgid "Hide search bar"
 msgstr "검색 바 숨기기"
 
-#: src/MainWindow.vala:222
+#: src/MainWindow.vala:226
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "스크래치를 위한 Zeitgeist 데이터 소스"
 
-#: src/MainWindow.vala:745
+#: src/MainWindow.vala:752
 msgid "Open some files"
 msgstr "파일 열기"
 
-#: src/MainWindow.vala:764
+#: src/MainWindow.vala:771
 msgid "_Cancel"
 msgstr "취소(_C)"
 
-#: src/MainWindow.vala:765
+#: src/MainWindow.vala:772
 msgid "_Open"
 msgstr "열기(_O)"
 
@@ -143,97 +143,93 @@ msgstr "열기"
 msgid "Save"
 msgstr "저장"
 
-#: src/Dialogs/PreferencesDialog.vala:43 src/Widgets/HeaderBar.vala:105
+#: src/Dialogs/PreferencesDialog.vala:42 src/Widgets/HeaderBar.vala:138
 msgid "Preferences"
 msgstr "환경설정"
 
-#: src/Dialogs/PreferencesDialog.vala:57
+#: src/Dialogs/PreferencesDialog.vala:56
 msgid "General"
 msgstr "일반"
 
-#: src/Dialogs/PreferencesDialog.vala:58
+#: src/Dialogs/PreferencesDialog.vala:57
 msgid "Save files when changed:"
 msgstr "변경사항이 있으면 저장하기:"
 
-#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:59 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
 msgstr "탭"
 
-#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:147
+#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:147
 msgid "Automatic indentation:"
 msgstr "자동 들여쓰기:"
 
-#: src/Dialogs/PreferencesDialog.vala:63 src/Widgets/FormatBar.vala:141
+#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:141
 msgid "Insert spaces instead of tabs:"
 msgstr "탭 대신 빈칸 표시:"
 
-#: src/Dialogs/PreferencesDialog.vala:65 src/Widgets/FormatBar.vala:144
+#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:144
 msgid "Tab width:"
 msgstr "탭 너비:"
 
-#: src/Dialogs/PreferencesDialog.vala:72
+#: src/Dialogs/PreferencesDialog.vala:71
 msgid "Behavior"
 msgstr "동작"
 
-#: src/Dialogs/PreferencesDialog.vala:73
+#: src/Dialogs/PreferencesDialog.vala:72
 msgid "Interface"
 msgstr "사용자 환경"
 
-#: src/Dialogs/PreferencesDialog.vala:85
+#: src/Dialogs/PreferencesDialog.vala:84
 #: plugins/pastebin/pastebin_dialog.vala:323
 msgid "Close"
 msgstr "닫기"
 
-#: src/Dialogs/PreferencesDialog.vala:101
+#: src/Dialogs/PreferencesDialog.vala:100
 msgid "Extensions"
 msgstr "확장 기능"
 
-#: src/Dialogs/PreferencesDialog.vala:110
+#: src/Dialogs/PreferencesDialog.vala:109
 msgid "Editor"
 msgstr "편집기"
 
-#: src/Dialogs/PreferencesDialog.vala:112
+#: src/Dialogs/PreferencesDialog.vala:111
 msgid "Highlight current line:"
 msgstr "현재 줄을 강조하기:"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:114
 msgid "Highlight matching brackets:"
 msgstr "상응하는 괄호 강조하기:"
 
-#: src/Dialogs/PreferencesDialog.vala:118
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Draw Spaces:"
 msgstr "빈칸 표시:"
 
-#: src/Dialogs/PreferencesDialog.vala:120
-#: plugins/pastebin/pastebin_dialog.vala:483
+#: src/Dialogs/PreferencesDialog.vala:119
+#: plugins/pastebin/pastebin_dialog.vala:460
 msgid "Never"
 msgstr "사용 안 함"
 
-#: src/Dialogs/PreferencesDialog.vala:121
+#: src/Dialogs/PreferencesDialog.vala:120
 msgid "For selected text"
 msgstr "선택한 텍스트"
 
-#: src/Dialogs/PreferencesDialog.vala:122
+#: src/Dialogs/PreferencesDialog.vala:121
 msgid "Always"
 msgstr "언제나"
 
-#: src/Dialogs/PreferencesDialog.vala:127
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Show Mini Map:"
 msgstr "미니맵 표시:"
 
-#: src/Dialogs/PreferencesDialog.vala:131
+#: src/Dialogs/PreferencesDialog.vala:130
 msgid "Line width guide:"
 msgstr "줄 폭 가이드:"
 
-#: src/Dialogs/PreferencesDialog.vala:139
-msgid "Font and Color Scheme"
-msgstr "글꼴과 색 구성표"
+#: src/Dialogs/PreferencesDialog.vala:138
+msgid "Font"
+msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:141
-msgid "Color scheme:"
-msgstr "색상:"
-
-#: src/Dialogs/PreferencesDialog.vala:146
+#: src/Dialogs/PreferencesDialog.vala:140
 msgid "Custom font:"
 msgstr "사용자 지정 글꼴:"
 
@@ -482,15 +478,27 @@ msgstr "1:1 크기"
 msgid "Zoom In"
 msgstr "확대"
 
-#: src/Widgets/HeaderBar.vala:97
+#: src/Widgets/HeaderBar.vala:100
+msgid "High Contrast"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:110
+msgid "Solarized Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:120
+msgid "Solarized Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:130
 msgid "Add New View"
 msgstr "새 페이지 추가"
 
-#: src/Widgets/HeaderBar.vala:101
+#: src/Widgets/HeaderBar.vala:134
 msgid "Remove Current View"
 msgstr "이 페이지 닫기"
 
-#: src/Widgets/HeaderBar.vala:124
+#: src/Widgets/HeaderBar.vala:160
 msgid "Menu"
 msgstr "메뉴"
 
@@ -587,23 +595,23 @@ msgstr "업로드"
 msgid "Other formats"
 msgstr "다른 형식들"
 
-#: plugins/pastebin/pastebin_dialog.vala:484
+#: plugins/pastebin/pastebin_dialog.vala:461
 msgid "Ten minutes"
 msgstr "10분"
 
-#: plugins/pastebin/pastebin_dialog.vala:485
+#: plugins/pastebin/pastebin_dialog.vala:462
 msgid "One hour"
 msgstr "1시간"
 
-#: plugins/pastebin/pastebin_dialog.vala:486
+#: plugins/pastebin/pastebin_dialog.vala:463
 msgid "One day"
 msgstr "하루"
 
-#: plugins/pastebin/pastebin_dialog.vala:487
+#: plugins/pastebin/pastebin_dialog.vala:464
 msgid "One month"
 msgstr "한 달"
 
-#: plugins/pastebin/pastebin.vala:131
+#: plugins/pastebin/pastebin.vala:94
 msgid "Upload to Pastebin"
 msgstr "Pastebin에 업로드"
 
@@ -679,6 +687,12 @@ msgstr "아이콘 테마 불러오기 실패: %s\n"
 #: plugins/open-with/open-with.vala:51
 msgid "Open With…"
 msgstr "다음 으로 열기…"
+
+#~ msgid "Font and Color Scheme"
+#~ msgstr "글꼴과 색 구성표"
+
+#~ msgid "Color scheme:"
+#~ msgstr "색상:"
 
 #~ msgid "Edit text files"
 #~ msgstr "텍스트 파일을 편집합니다"
