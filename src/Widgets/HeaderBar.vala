@@ -190,16 +190,19 @@ namespace Scratch.Widgets {
             var gtk_settings = Gtk.Settings.get_default ();
 
             color_button_dark.clicked.connect (() => {
+                Scratch.settings.prefer_dark_style = true;
                 Scratch.settings.style_scheme = "solarized-dark";
                 gtk_settings.gtk_application_prefer_dark_theme = true;
             });
 
             color_button_light.clicked.connect (() => {
+                Scratch.settings.prefer_dark_style = false;
                 Scratch.settings.style_scheme = "solarized-light";
                 gtk_settings.gtk_application_prefer_dark_theme = false;
             });
 
             color_button_white.clicked.connect (() => {
+                Scratch.settings.prefer_dark_style = false;
                 Scratch.settings.style_scheme = "classic";
                 gtk_settings.gtk_application_prefer_dark_theme = false;
             });

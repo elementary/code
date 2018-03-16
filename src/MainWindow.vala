@@ -579,6 +579,9 @@ namespace Scratch {
             default_width = Scratch.saved_state.window_width;
             default_height = Scratch.saved_state.window_height;
 
+            var gtk_settings = Gtk.Settings.get_default ();
+            gtk_settings.gtk_application_prefer_dark_theme = Scratch.settings.prefer_dark_style;
+
             switch (Scratch.saved_state.window_state) {
                 case ScratchWindowState.MAXIMIZED:
                     maximize ();
