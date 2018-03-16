@@ -43,6 +43,7 @@ code_files = files(
 executable(
     meson.project_name(),
     code_files,
+    code_resources,
     config_header,
     dependencies: dependencies,
     install: true
