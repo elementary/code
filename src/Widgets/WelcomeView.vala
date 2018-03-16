@@ -34,7 +34,7 @@ public class Code.WelcomeView : Granite.Widgets.Welcome {
         vexpand = true;
         append ("document-new", _("New file"), _("Create a new empty file."));
         append ("document-open", _("Open file"), _("Open a saved file."));
-        append ("edit-paste", _("New file from clipboard"), _("Create a new file from the contents of your clipboard."));
+        append ("folder-saved-search", _("Open folder"), _("Open a saved folder."));
         set_item_visible (2, window.clipboard.wait_is_text_available ());
 
         activated.connect ((i) => {
@@ -44,7 +44,7 @@ public class Code.WelcomeView : Granite.Widgets.Welcome {
             } else if (i == 1) {
                 Scratch.Utils.action_from_group (Scratch.MainWindow.ACTION_OPEN, window.actions).activate (null);
             } else if (i == 2) {
-                Scratch.Utils.action_from_group (Scratch.MainWindow.ACTION_NEW_FROM_CLIPBOARD, window.actions).activate (null);
+                Scratch.Utils.action_from_group (Scratch.MainWindow.ACTION_OPEN_FOLDER, window.actions).activate (null);
             }
         });
     }
