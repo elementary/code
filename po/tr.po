@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-15 19:14+0000\n"
+"POT-Creation-Date: 2018-03-16 11:23-0700\n"
 "PO-Revision-Date: 2018-02-12 21:20+0000\n"
 "Last-Translator: Muha Aliss <muhaaliss@gmail.com>\n"
 "Language-Team: Turkish <https://weblate.elementary.io/projects/scratch/"
@@ -98,27 +98,27 @@ msgstr "şu andaki çalışma dizini"
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:174 src/Widgets/HeaderBar.vala:66
+#: src/MainWindow.vala:178 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
 msgstr "Bul…"
 
-#: src/MainWindow.vala:176
+#: src/MainWindow.vala:180
 msgid "Hide search bar"
 msgstr "Arama çubuğunu gizle"
 
-#: src/MainWindow.vala:222
+#: src/MainWindow.vala:226
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Scratch için Zeitgeist Verikaynağı"
 
-#: src/MainWindow.vala:745
+#: src/MainWindow.vala:752
 msgid "Open some files"
 msgstr "Bir dosya aç"
 
-#: src/MainWindow.vala:764
+#: src/MainWindow.vala:771
 msgid "_Cancel"
 msgstr "_İptal"
 
-#: src/MainWindow.vala:765
+#: src/MainWindow.vala:772
 msgid "_Open"
 msgstr "_Aç"
 
@@ -143,97 +143,93 @@ msgstr "Aç"
 msgid "Save"
 msgstr "Kaydet"
 
-#: src/Dialogs/PreferencesDialog.vala:43 src/Widgets/HeaderBar.vala:105
+#: src/Dialogs/PreferencesDialog.vala:42 src/Widgets/HeaderBar.vala:138
 msgid "Preferences"
 msgstr "Tercihler"
 
-#: src/Dialogs/PreferencesDialog.vala:57
+#: src/Dialogs/PreferencesDialog.vala:56
 msgid "General"
 msgstr "Genel"
 
-#: src/Dialogs/PreferencesDialog.vala:58
+#: src/Dialogs/PreferencesDialog.vala:57
 msgid "Save files when changed:"
 msgstr "Dosyalar değiştirildiğinde kaydet:"
 
-#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:59 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
 msgstr "Sekmeler"
 
-#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:147
+#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:147
 msgid "Automatic indentation:"
 msgstr "Otomatik girintileme:"
 
-#: src/Dialogs/PreferencesDialog.vala:63 src/Widgets/FormatBar.vala:141
+#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:141
 msgid "Insert spaces instead of tabs:"
 msgstr "Sekme yerine boşluk ekle:"
 
-#: src/Dialogs/PreferencesDialog.vala:65 src/Widgets/FormatBar.vala:144
+#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:144
 msgid "Tab width:"
 msgstr "Sekme genişliği:"
 
-#: src/Dialogs/PreferencesDialog.vala:72
+#: src/Dialogs/PreferencesDialog.vala:71
 msgid "Behavior"
 msgstr "Davranış"
 
-#: src/Dialogs/PreferencesDialog.vala:73
+#: src/Dialogs/PreferencesDialog.vala:72
 msgid "Interface"
 msgstr "Arayüz"
 
-#: src/Dialogs/PreferencesDialog.vala:85
+#: src/Dialogs/PreferencesDialog.vala:84
 #: plugins/pastebin/pastebin_dialog.vala:323
 msgid "Close"
 msgstr "Kapat"
 
-#: src/Dialogs/PreferencesDialog.vala:101
+#: src/Dialogs/PreferencesDialog.vala:100
 msgid "Extensions"
 msgstr "Eklentiler"
 
-#: src/Dialogs/PreferencesDialog.vala:110
+#: src/Dialogs/PreferencesDialog.vala:109
 msgid "Editor"
 msgstr "Düzenleyici"
 
-#: src/Dialogs/PreferencesDialog.vala:112
+#: src/Dialogs/PreferencesDialog.vala:111
 msgid "Highlight current line:"
 msgstr "Geçerli satırı vurgula:"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:114
 msgid "Highlight matching brackets:"
 msgstr "Eşlenenleri vurgula"
 
-#: src/Dialogs/PreferencesDialog.vala:118
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Draw Spaces:"
 msgstr "Çizim Alanları"
 
-#: src/Dialogs/PreferencesDialog.vala:120
-#: plugins/pastebin/pastebin_dialog.vala:483
+#: src/Dialogs/PreferencesDialog.vala:119
+#: plugins/pastebin/pastebin_dialog.vala:460
 msgid "Never"
 msgstr "Asla"
 
-#: src/Dialogs/PreferencesDialog.vala:121
+#: src/Dialogs/PreferencesDialog.vala:120
 msgid "For selected text"
 msgstr "Seçilen metin için"
 
-#: src/Dialogs/PreferencesDialog.vala:122
+#: src/Dialogs/PreferencesDialog.vala:121
 msgid "Always"
 msgstr "Her zaman"
 
-#: src/Dialogs/PreferencesDialog.vala:127
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Show Mini Map:"
 msgstr "Mini Haritayı Göster"
 
-#: src/Dialogs/PreferencesDialog.vala:131
+#: src/Dialogs/PreferencesDialog.vala:130
 msgid "Line width guide:"
 msgstr "Satır genişliği kılavuzu:"
 
-#: src/Dialogs/PreferencesDialog.vala:139
-msgid "Font and Color Scheme"
-msgstr "Font ve Yazı Rengi Seçimi"
+#: src/Dialogs/PreferencesDialog.vala:138
+msgid "Font"
+msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:141
-msgid "Color scheme:"
-msgstr "Renk şeması:"
-
-#: src/Dialogs/PreferencesDialog.vala:146
+#: src/Dialogs/PreferencesDialog.vala:140
 msgid "Custom font:"
 msgstr "Özel yazıtipi:"
 
@@ -487,15 +483,27 @@ msgstr "Yakınlaşma 1:1"
 msgid "Zoom In"
 msgstr "Yakınlık"
 
-#: src/Widgets/HeaderBar.vala:97
+#: src/Widgets/HeaderBar.vala:100
+msgid "High Contrast"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:110
+msgid "Solarized Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:120
+msgid "Solarized Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:130
 msgid "Add New View"
 msgstr "Yeni Görünüm Ekle"
 
-#: src/Widgets/HeaderBar.vala:101
+#: src/Widgets/HeaderBar.vala:134
 msgid "Remove Current View"
 msgstr "Seçili Görünümü Sil"
 
-#: src/Widgets/HeaderBar.vala:124
+#: src/Widgets/HeaderBar.vala:160
 msgid "Menu"
 msgstr "Menü"
 
@@ -592,23 +600,23 @@ msgstr "Karşıya Yükle"
 msgid "Other formats"
 msgstr "Diğer biçimler"
 
-#: plugins/pastebin/pastebin_dialog.vala:484
+#: plugins/pastebin/pastebin_dialog.vala:461
 msgid "Ten minutes"
 msgstr "On dakika"
 
-#: plugins/pastebin/pastebin_dialog.vala:485
+#: plugins/pastebin/pastebin_dialog.vala:462
 msgid "One hour"
 msgstr "Bir saat"
 
-#: plugins/pastebin/pastebin_dialog.vala:486
+#: plugins/pastebin/pastebin_dialog.vala:463
 msgid "One day"
 msgstr "Bir gün"
 
-#: plugins/pastebin/pastebin_dialog.vala:487
+#: plugins/pastebin/pastebin_dialog.vala:464
 msgid "One month"
 msgstr "Bir ay"
 
-#: plugins/pastebin/pastebin.vala:131
+#: plugins/pastebin/pastebin.vala:94
 msgid "Upload to Pastebin"
 msgstr "Pastebin'e Yükle"
 
@@ -684,6 +692,12 @@ msgstr "Simge teması yüklenemedi: %s\n"
 #: plugins/open-with/open-with.vala:51
 msgid "Open With…"
 msgstr "Birlikte aç"
+
+#~ msgid "Font and Color Scheme"
+#~ msgstr "Font ve Yazı Rengi Seçimi"
+
+#~ msgid "Color scheme:"
+#~ msgstr "Renk şeması:"
 
 #~ msgid "Edit text files"
 #~ msgstr "Metin dosyalarını düzenle"

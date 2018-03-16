@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-15 19:14+0000\n"
+"POT-Creation-Date: 2018-03-16 11:23-0700\n"
 "PO-Revision-Date: 2017-03-02 13:09+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Latvian <lv@li.org>\n"
@@ -94,27 +94,27 @@ msgstr "Pāsreizējā darba direktorija"
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:174 src/Widgets/HeaderBar.vala:66
+#: src/MainWindow.vala:178 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
 msgstr "Meklēt..."
 
-#: src/MainWindow.vala:176
+#: src/MainWindow.vala:180
 msgid "Hide search bar"
 msgstr "Paslēpt meklētāju"
 
-#: src/MainWindow.vala:222
+#: src/MainWindow.vala:226
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Zeitgeist datu avots priekš Scracth"
 
-#: src/MainWindow.vala:745
+#: src/MainWindow.vala:752
 msgid "Open some files"
 msgstr "Atvērt datnes"
 
-#: src/MainWindow.vala:764
+#: src/MainWindow.vala:771
 msgid "_Cancel"
 msgstr "_Atcelt"
 
-#: src/MainWindow.vala:765
+#: src/MainWindow.vala:772
 msgid "_Open"
 msgstr "_Atvērt"
 
@@ -139,97 +139,93 @@ msgstr "Atvērt"
 msgid "Save"
 msgstr "Saglabāt"
 
-#: src/Dialogs/PreferencesDialog.vala:43 src/Widgets/HeaderBar.vala:105
+#: src/Dialogs/PreferencesDialog.vala:42 src/Widgets/HeaderBar.vala:138
 msgid "Preferences"
 msgstr "Iestatījumi"
 
-#: src/Dialogs/PreferencesDialog.vala:57
+#: src/Dialogs/PreferencesDialog.vala:56
 msgid "General"
 msgstr "Vispārējs"
 
-#: src/Dialogs/PreferencesDialog.vala:58
+#: src/Dialogs/PreferencesDialog.vala:57
 msgid "Save files when changed:"
 msgstr "Saglabāt failus pēc izmaņām:"
 
-#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:59 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
 msgstr "Cilnes"
 
-#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:147
+#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:147
 msgid "Automatic indentation:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:63 src/Widgets/FormatBar.vala:141
+#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:141
 msgid "Insert spaces instead of tabs:"
 msgstr "Ievietot atstarpes cilnes vietā"
 
-#: src/Dialogs/PreferencesDialog.vala:65 src/Widgets/FormatBar.vala:144
+#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:144
 msgid "Tab width:"
 msgstr "Cilnes platums:"
 
-#: src/Dialogs/PreferencesDialog.vala:72
+#: src/Dialogs/PreferencesDialog.vala:71
 msgid "Behavior"
 msgstr "Izturēšanās"
 
-#: src/Dialogs/PreferencesDialog.vala:73
+#: src/Dialogs/PreferencesDialog.vala:72
 msgid "Interface"
 msgstr "Saskarne"
 
-#: src/Dialogs/PreferencesDialog.vala:85
+#: src/Dialogs/PreferencesDialog.vala:84
 #: plugins/pastebin/pastebin_dialog.vala:323
 msgid "Close"
 msgstr "Aizvērt"
 
-#: src/Dialogs/PreferencesDialog.vala:101
+#: src/Dialogs/PreferencesDialog.vala:100
 msgid "Extensions"
 msgstr "Paplašinājumi"
 
-#: src/Dialogs/PreferencesDialog.vala:110
+#: src/Dialogs/PreferencesDialog.vala:109
 msgid "Editor"
 msgstr "Redaktors"
 
-#: src/Dialogs/PreferencesDialog.vala:112
+#: src/Dialogs/PreferencesDialog.vala:111
 msgid "Highlight current line:"
 msgstr "Izcelt konkrēto līniju:"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:114
 msgid "Highlight matching brackets:"
 msgstr "Izvelt atbilstošās iekavas:"
 
-#: src/Dialogs/PreferencesDialog.vala:118
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Draw Spaces:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:120
-#: plugins/pastebin/pastebin_dialog.vala:483
+#: src/Dialogs/PreferencesDialog.vala:119
+#: plugins/pastebin/pastebin_dialog.vala:460
 msgid "Never"
 msgstr "Nekad"
 
-#: src/Dialogs/PreferencesDialog.vala:121
+#: src/Dialogs/PreferencesDialog.vala:120
 msgid "For selected text"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:122
+#: src/Dialogs/PreferencesDialog.vala:121
 msgid "Always"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:127
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Show Mini Map:"
 msgstr "Rādīt mini karti:"
 
-#: src/Dialogs/PreferencesDialog.vala:131
+#: src/Dialogs/PreferencesDialog.vala:130
 msgid "Line width guide:"
 msgstr "Rindas platuma norāde"
 
-#: src/Dialogs/PreferencesDialog.vala:139
-msgid "Font and Color Scheme"
-msgstr "Fontu un Krāsu motīvs"
+#: src/Dialogs/PreferencesDialog.vala:138
+msgid "Font"
+msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:141
-msgid "Color scheme:"
-msgstr "Krāsu motīvs"
-
-#: src/Dialogs/PreferencesDialog.vala:146
+#: src/Dialogs/PreferencesDialog.vala:140
 msgid "Custom font:"
 msgstr "Mainīt fontus:"
 
@@ -480,15 +476,27 @@ msgstr "Tālummainīt 1:1"
 msgid "Zoom In"
 msgstr "Tālummainīt"
 
-#: src/Widgets/HeaderBar.vala:97
+#: src/Widgets/HeaderBar.vala:100
+msgid "High Contrast"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:110
+msgid "Solarized Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:120
+msgid "Solarized Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:130
 msgid "Add New View"
 msgstr "Pievienot jaunu skatu"
 
-#: src/Widgets/HeaderBar.vala:101
+#: src/Widgets/HeaderBar.vala:134
 msgid "Remove Current View"
 msgstr "Noņemt pašreizējo skatu"
 
-#: src/Widgets/HeaderBar.vala:124
+#: src/Widgets/HeaderBar.vala:160
 msgid "Menu"
 msgstr ""
 
@@ -585,23 +593,23 @@ msgstr "Augšupielāde"
 msgid "Other formats"
 msgstr "Citi formāti"
 
-#: plugins/pastebin/pastebin_dialog.vala:484
+#: plugins/pastebin/pastebin_dialog.vala:461
 msgid "Ten minutes"
 msgstr "10 minūtes"
 
-#: plugins/pastebin/pastebin_dialog.vala:485
+#: plugins/pastebin/pastebin_dialog.vala:462
 msgid "One hour"
 msgstr "1 stunda"
 
-#: plugins/pastebin/pastebin_dialog.vala:486
+#: plugins/pastebin/pastebin_dialog.vala:463
 msgid "One day"
 msgstr "1 diena"
 
-#: plugins/pastebin/pastebin_dialog.vala:487
+#: plugins/pastebin/pastebin_dialog.vala:464
 msgid "One month"
 msgstr "1 mēnesis"
 
-#: plugins/pastebin/pastebin.vala:131
+#: plugins/pastebin/pastebin.vala:94
 msgid "Upload to Pastebin"
 msgstr "Augšuplādēt ar Pastebin"
 
@@ -675,6 +683,12 @@ msgstr ""
 #: plugins/open-with/open-with.vala:51
 msgid "Open With…"
 msgstr "Atvērt Ar..."
+
+#~ msgid "Font and Color Scheme"
+#~ msgstr "Fontu un Krāsu motīvs"
+
+#~ msgid "Color scheme:"
+#~ msgstr "Krāsu motīvs"
 
 #~ msgid "Edit text files"
 #~ msgstr "Rediģēt teksta datnes"
