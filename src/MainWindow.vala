@@ -275,6 +275,7 @@ namespace Scratch {
                 // Update MainWindow title
                 if (doc != null) {
                     toolbar.set_document_focus (doc);
+                    folder_manager_view.select_path (doc.file.get_path ());
                 }
 
                 // Set actions sensitive property
