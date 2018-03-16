@@ -34,8 +34,8 @@ public class Scratch.Plugins.EditorConfigPlugin: Peas.ExtensionBase, Peas.Activa
                 return;
             }
 
-            EditorConfig.Handle handle = new EditorConfig.Handle ();
-            if (EditorConfig.parse (file.get_path (), handle) != 0) {
+            var handle = new EditorConfig.Handle ();
+            if (handle.parse (file.get_path ()) != 0) {
                 return;
             }
 
