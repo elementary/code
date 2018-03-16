@@ -39,6 +39,10 @@ dependencies = [
     posix_dep,
 ]
 
+if gtksourceview_dep.version().version_compare('>=3.18')
+    add_project_arguments('--define=GTKSOURCEVIEW_3_18', language : 'vala')
+endif
+
 zeitgeist_dep = dependency('zeitgeist-2.0', required: false)
 if zeitgeist_dep.found ()
     add_project_arguments('--define=HAVE_ZEITGEIST', language : 'vala')
