@@ -22,6 +22,11 @@ peas_dep = dependency('libpeas-1.0')
 peasgtk_dep = dependency('libpeas-gtk-1.0')
 posix_dep = meson.get_compiler('vala').find_library('posix')
 
+code_resources = gnome.compile_resources(
+    'code-resources', 'data/' + meson.project_name() + '.gresource.xml',
+    source_dir: 'data'
+)
+
 dependencies = [
     glib_dep,
     gio_unix_dep,

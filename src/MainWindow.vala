@@ -161,6 +161,10 @@ namespace Scratch {
             action_accelerators.set (ACTION_ZOOM_OUT, "<Control>minus");
             action_accelerators.set (ACTION_ZOOM_OUT, "<Control>KP_Subtract");
             action_accelerators.set (ACTION_TOGGLE_COMMENT, "<Control>m");
+
+            var provider = new Gtk.CssProvider ();
+            provider.load_from_resource ("io/elementary/code/Application.css");
+            Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
         }
 
         construct {
@@ -574,6 +578,9 @@ namespace Scratch {
         private void restore_saved_state () {
             default_width = Scratch.saved_state.window_width;
             default_height = Scratch.saved_state.window_height;
+
+            var gtk_settings = Gtk.Settings.get_default ();
+            gtk_settings.gtk_application_prefer_dark_theme = Scratch.settings.prefer_dark_style;
 
             switch (Scratch.saved_state.window_state) {
                 case ScratchWindowState.MAXIMIZED:
