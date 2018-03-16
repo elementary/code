@@ -1,0 +1,142 @@
+# Polish translations for plugins package.
+# Copyright (C) 2018 THE plugins'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the plugins package.
+# Automatically generated, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-14 17:46-0700\n"
+"PO-Revision-Date: 2018-02-25 16:53+0000\n"
+"Last-Translator: Piotr Strebski <strebski@o2.pl>\n"
+"Language-Team: Polish <https://weblate.elementary.io/projects/code/plugins/"
+"pl/>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.18\n"
+
+#: plugins/brackets-completion/brackets-completion.plugin:6
+msgid "Brackets Completion"
+msgstr "Uzupełnianie nawiasów"
+
+#: plugins/brackets-completion/brackets-completion.plugin:7
+msgid "Complete brackets while typing"
+msgstr "Uzupełnia nawiasy podczas pisania"
+
+#: plugins/browser-preview/browser-preview.plugin:6
+msgid "Browser Preview"
+msgstr "Podgląd przeglądarki"
+
+#: plugins/browser-preview/browser-preview.plugin:7
+msgid "Get a preview of your work in a web page"
+msgstr "Uzyskuj podgląd swojej pracy jako strona w oknie przeglądarki"
+
+#: plugins/contractor/contractor.plugin:6
+msgid "Contractor"
+msgstr "Contractor"
+
+#: plugins/contractor/contractor.plugin:7
+msgid "Share your files with Contractor"
+msgstr "Współdziel swoje pliki poprzez Contractora"
+
+#: plugins/detect-indent/detect-indent.plugin:6
+msgid "Detect Indent"
+msgstr "Wykrywanie wcięć"
+
+#: plugins/detect-indent/detect-indent.plugin:7
+msgid "Heuristically detect tab or space settings"
+msgstr "Heurystyczne wykrywanie ustawień tabulacji i spacji"
+
+#: plugins/folder-manager/folder-manager.plugin:6
+msgid "Folder Manager"
+msgstr "Zarządzanie katalogami"
+
+#: plugins/folder-manager/folder-manager.plugin:7
+msgid "Basic folder manager with file browsing"
+msgstr "Proste zarządzanie katalogami z przeglądaniem plików"
+
+#: plugins/highlight-word-selection/highlight-word-selection.plugin:6
+msgid "Highlight Word Selection"
+msgstr "Zakreślające zaznaczanie słów"
+
+#: plugins/highlight-word-selection/highlight-word-selection.plugin:7
+msgid "Highlights all occurrences of words that are selected"
+msgstr "Zakreśla wszystkie wystąpienia wyznaczonych słów"
+
+#: plugins/open-with/open-with.plugin:6
+msgid "Open With"
+msgstr "Otwórz poprzez"
+
+#: plugins/open-with/open-with.plugin:7
+msgid "Open files you are editing with another application"
+msgstr "Otwieraj pliki, które modyfikujesz, poprzez inne programy"
+
+#: plugins/outline/outline.plugin:6
+msgid "Outline"
+msgstr "Podkreślanie"
+
+#: plugins/outline/outline.plugin:7
+msgid "Outline symbols in your current file for vala"
+msgstr "Podkreślanie symboli w Twoim bieżącym pliku vali"
+
+#: plugins/pastebin/pastebin.plugin:6
+msgid "Pastebin"
+msgstr "Pastebin"
+
+#: plugins/pastebin/pastebin.plugin:7
+msgid "Share files with pastebin service"
+msgstr "Współdziel pliki poprzez usługę pastebin"
+
+#: plugins/preserve-indent/preserve-indent.plugin:6
+msgid "Preserve Indent"
+msgstr "Zapobieganie wcięciom"
+
+#: plugins/preserve-indent/preserve-indent.plugin:7
+msgid "Maintains relative indent level of pasted text"
+msgstr "Zachowuje względny poziom wcięcia wklejonego tekstu"
+
+#: plugins/spell/spell.plugin:6
+msgid "Spell Checker"
+msgstr "Sprawdzanie pisowni"
+
+#: plugins/spell/spell.plugin:7
+msgid "Checks the spelling of your documents"
+msgstr "Sprawdzanie pisowni w Twoich dokumentach"
+
+#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
+msgid "Strip trailing whitespace"
+msgstr "Usuń białe spacje"
+
+#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
+msgid "Strip trailing whitespace on save"
+msgstr "Usuń końcowe białe znaki przy zapisywaniu"
+
+#: plugins/terminal/terminal.plugin:6
+msgid "Terminal"
+msgstr "Terminal"
+
+#: plugins/terminal/terminal.plugin:7
+msgid "A terminal in your text editor"
+msgstr "Terminal w Twoim edytorze tekstu"
+
+#: plugins/vim-emulation/vim-emulation.plugin:6
+msgid "Vim Emulation"
+msgstr "Emulacja Vim"
+
+#: plugins/vim-emulation/vim-emulation.plugin:7
+msgid "Use Vim commands in Scratch"
+msgstr "Użyj poleceń Vim w Kodzie"
+
+#: plugins/word-completion/word-completion.plugin:3
+msgid "Words Completion"
+msgstr "Uzupełnianie słów"
+
+#: plugins/word-completion/word-completion.plugin:7
+msgid "Show a completion dialog with most used words from your files"
+msgstr ""
+"Wyświetla okno uzupełniania z najczęściej używanymi słowami z Twoich plików"

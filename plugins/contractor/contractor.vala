@@ -18,8 +18,6 @@
   END LICENSE
 ***/
 
-public const string DESCRIPTION = _("Share your files with Contractor");
-
 public class Scratch.Plugins.ContractMenuItem : Gtk.MenuItem {
     private Granite.Services.Contract contract;
     private File file;

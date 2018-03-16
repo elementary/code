@@ -8,15 +8,17 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
-"PO-Revision-Date: 2017-05-03 17:04+0000\n"
-"Last-Translator: Fabio Zaramella <FFabio.96.X@Gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2018-03-10 00:03+0000\n"
+"Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
+"Language-Team: Italian <https://weblate.elementary.io/projects/code/code/it/>"
+"\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-04 05:45+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #: ../src/config.vala:15
 msgid "Edit text files"
@@ -54,7 +56,7 @@ msgstr "Apri alcuni file"
 #: ../src/MainWindow.vala:1003 ../src/MainWindow.vala:1014
 #: ../src/MainWindow.vala:1015
 msgid "Find…"
-msgstr "Trova..."
+msgstr "Trova…"
 
 #: ../src/MainWindow.vala:843
 msgid "Hide search bar"
@@ -62,7 +64,7 @@ msgstr "Nascondi la barra di ricerca"
 
 #: ../src/MainWindow.vala:909 ../src/MainWindow.vala:910
 msgid "Go to line…"
-msgstr "Vai alla linea..."
+msgstr "Vai alla linea…"
 
 #: ../src/MainWindow.vala:913 ../src/MainWindow.vala:914
 msgid "Quit"
@@ -375,7 +377,7 @@ msgstr "Raccolta di plugin"
 
 #: ../src/Scratch.vala:281
 msgid "Current working directory"
-msgstr "Directory di lavoro corrente"
+msgstr "Cartella di lavoro corrente"
 
 #: ../src/Widgets/ToolBar.vala:58
 msgid "Share"
@@ -423,7 +425,7 @@ msgstr "File di testo da "
 
 #: ../src/Widgets/LoadingView.vala:33
 msgid "Wait while restoring last session..."
-msgstr "Aspetta mentre ripristino l'ultima sessione..."
+msgstr "Attendi mentre ripristino l'ultima sessione..."
 
 #: ../src/Widgets/SearchManager.vala:70
 msgid "Find"
@@ -582,7 +584,7 @@ msgstr "Terminale"
 
 #: ../plugins/terminal/terminal.vala:24
 msgid "A terminal in your text editor"
-msgstr "Un terminale nel tuo editor di testo"
+msgstr "Un terminale all'interno tuo editor di testi"
 
 #: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
 msgid "Show Terminal"
@@ -687,7 +689,7 @@ msgstr "Mostra i tuoi sorgenti organizzati in un albero"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:42
 msgid "Loading..."
-msgstr "Caricamento in corso..."
+msgstr "Caricamento in corso…"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:175
 msgid "Bookmark"
@@ -752,7 +754,7 @@ msgstr "Appunti per visualizzare la cronologia"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:28
 msgid "..."
-msgstr "..."
+msgstr "…"
 
 #: ../plugins/clipboard-history/ClipboardHistory.vala:164
 msgid "Delete"
@@ -810,11 +812,11 @@ msgstr "Gestore di cartelle"
 #: ../plugins/filemanager/FileManagerPlugin.vala:22
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:22
 msgid "Basic folder manager with file browsing"
-msgstr "Gestore di cartelle semplice con file browsing"
+msgstr "Gestore di cartelle di base con ricerca file"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:71
 msgid "Go to parent"
-msgstr "Livello superiore"
+msgstr "Vai al livello superiore"
 
 #: ../plugins/filemanager/FileManagerPlugin.vala:82
 msgid "Add file"
@@ -838,7 +840,7 @@ msgstr "Controllo ortografico"
 
 #: ../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
-msgstr "Controlla ortografia del tuo documento"
+msgstr "Controlla l'ortografia dei tuoi documenti"
 
 #: ../plugins/spell/spell.vala:80
 msgid ""
@@ -864,11 +866,11 @@ msgstr ""
 #. **
 #: ../plugins/browser-preview/browser-preview.vala:21
 msgid "Browser Preview"
-msgstr "Anteprima Browser"
+msgstr "Anteprima browser"
 
 #: ../plugins/browser-preview/browser-preview.vala:22
 msgid "Get a preview your work in a web page"
-msgstr "Ottieni anteprima del lavoro in una pagina web"
+msgstr "Mostra anteprima del lavoro in una pagina web"
 
 #: ../plugins/browser-preview/browser-preview.vala:85
 #: ../plugins/browser-preview/browser-preview.vala:111
@@ -878,7 +880,7 @@ msgstr "Mostra anteprima"
 #: ../plugins/browser-preview/browser-preview.vala:107
 #: ../plugins/browser-preview/browser-preview.vala:150
 msgid "Web Preview"
-msgstr "Anteprima Web"
+msgstr "Anteprima web"
 
 #: ../plugins/browser-preview/browser-preview.vala:108
 msgid "Hide Preview"
@@ -899,7 +901,7 @@ msgstr "%s - Autocompletamento parole"
 
 #: ../plugins/word-completion/completion-provider.vala:80
 msgid "Could not load icon theme: %s\n"
-msgstr "Impossibile caricare il tema di icone  %s\n"
+msgstr "Impossibile caricare il tema di icone: %s\n"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:254
 msgid "Share via PasteBin"
@@ -915,7 +917,7 @@ msgstr "Formato: "
 
 #: ../plugins/pastebin/pastebin_dialog.vala:280
 msgid "Others..."
-msgstr "Altri..."
+msgstr "Altri…"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:305
 msgid "Expiry time:"
@@ -923,11 +925,11 @@ msgstr "Scadenza:"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:310
 msgid "Keep this paste private"
-msgstr "Mantieni privato"
+msgstr "Mantieni questa copia privata"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:312
 msgid "Upload"
-msgstr "Invia"
+msgstr "Carica"
 
 #: ../plugins/pastebin/pastebin_dialog.vala:342
 msgid "Other formats"
@@ -955,7 +957,7 @@ msgstr "Pastebin"
 
 #: ../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
-msgstr "Condividi i files tramite pastebin"
+msgstr "Condividi i file tramite pastebin"
 
 #: ../plugins/pastebin/pastebin.vala:134
 msgid "Upload to Pastebin"
@@ -977,7 +979,7 @@ msgstr "Carica su Pastebin"
 #. **
 #: ../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
-msgstr "Condividi file con Contractor"
+msgstr "Condividi i tuoi file con Contractor"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:70
 msgid "Folders"
@@ -1030,11 +1032,11 @@ msgstr "Apri con"
 
 #: ../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr "Apri i files che stai modificando con un'altra applicazione"
+msgstr "Apri i file che stai modificando con un'altra applicazione"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr "Apri con..."
+msgstr "Apri con…"
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"

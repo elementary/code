@@ -7,71 +7,73 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-02 15:44-0500\n"
-"PO-Revision-Date: 2016-08-23 17:34+0000\n"
-"Last-Translator: Maxim Taranov <png2378@gmail.com>\n"
-"Language-Team: Russian <ru@li.org>\n"
+"POT-Creation-Date: 2018-03-14 17:43-0700\n"
+"PO-Revision-Date: 2018-02-18 14:56+0000\n"
+"Last-Translator: Kirill Romanov <djaler1@gmail.com>\n"
+"Language-Team: Russian <https://weblate.elementary.io/projects/code/extra/ru/"
+">\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
-msgid "Scratch"
-msgstr "Scratch"
+#: data/io.elementary.code.appdata.xml.in:8
+#: data/io.elementary.code.desktop.in.in:4
+msgid "Code"
+msgstr "Code"
 
-msgid "Edit text files"
-msgstr "Редактирование текстовых файлов"
-
-msgid "Notepad;IDE;Plain;"
-msgstr "Notepad;IDE;Plain;Блокнот;Текст;"
-
-msgid "About Scratch"
-msgstr "О программе"
-
-msgid "The text editor that works"
+#: data/io.elementary.code.appdata.xml.in:9
+msgid "The editor that works"
 msgstr "Текстовый редактор, который работает"
 
+#: data/io.elementary.code.appdata.xml.in:11
 msgid ""
-"Scratch is the text editor that works for you. It auto-saves your files, "
-"meaning they're always up-to-date. Plus it remembers your tabs so you never "
-"lose your spot, even in between sessions."
+"Code is the editor that works for you. It auto-saves your files, meaning "
+"they're always up-to-date. Plus it remembers your tabs so you never lose "
+"your spot, even in between sessions."
 msgstr ""
-"Scratch — это текстовый редактор, который работает на вас. Он автоматически "
+"Code — это текстовый редактор, который работает на вас. Он автоматически "
 "сохраняет ваши файлы, а также запоминает открытые вкладки. Вы никогда не "
 "потеряете место, на котором остановились, даже в перерывах между сессиями."
 
+#: data/io.elementary.code.appdata.xml.in:16
 msgid ""
-"Make it yours. Scratch is written from the ground up to be extensible. Keep "
-"things super lightweight and simple, or install extensions to turn Scratch "
-"into a full-blown IDE; it's your choice. And with a handful of useful "
+"Make it yours. Code is written from the ground up to be extensible. Keep "
+"things super lightweight and simple, or install extensions to turn Code into "
+"a full-blown IDE; it's your choice. And with a handful of useful "
 "preferences, you can tweak the behavior and interface to your liking."
 msgstr ""
-"Сделайте его своим. Scratch написан с нуля, чтобы быть расширяемым. Оставьте "
-"его легковесным и простым или установите расширения, чтобы превратить "
-"Scratch в полномасштабный IDE, выбор за вами. А с горсткой полезных настроек "
-"вы сможете изменить поведение и интерфейс по своему вкусу."
+"Сделайте его своим. Code написан с нуля, чтобы быть расширяемым. Оставьте "
+"его легковесным и простым или установите расширения, чтобы превратить Code в "
+"полномасштабный IDE, выбор за вами. А с горсткой полезных настроек вы "
+"сможете изменить поведение и интерфейс по своему вкусу."
 
+#: data/io.elementary.code.appdata.xml.in:22
 msgid ""
-"It's elementary. Scratch is made to be the perfect text editor for "
-"elementary, meaning it closely follows the high standards of design, speed, "
-"and consistency. It's sexy, but not distracting."
+"It's elementary. Code is made to be the perfect editor for elementary, "
+"meaning it closely follows the high standards of design, speed, and "
+"consistency. It's sexy, but not distracting."
 msgstr ""
-"Это elementary. Scratch сделан, чтобы быть идеальным текстовым редактором "
-"для elementary, что означает следование высоким стандартам дизайна, скорость "
-"и последовательность. Это привлекательно, но не отвлекающе."
+"Это elementary. Code сделан, чтобы быть идеальным текстовым редактором для "
+"elementary, что означает следование высоким стандартам дизайна, скорость и "
+"последовательность. Это привлекательно, но не отвлекающе."
 
+#: data/io.elementary.code.appdata.xml.in:27
 msgid ""
 "Works with your language. Whether you're crafting code in Vala, scripting "
-"with PHP, or marking things up in HTML, Scratch has you covered. Experience "
+"with PHP, or marking things up in HTML, Code has you covered. Experience "
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
-"Работайте со своим языком. Строете ли вы код на Vala, пишите скрипты на PHP "
+"Работайте со своим языком. Строите ли вы код на Vala, пишите скрипты на PHP "
 "или делаете вещи на HTML, Scratch прикроет вас. Полная подсветка синтаксиса "
 "почти всех языков программирования, скриптинга и разметки."
 
+#: data/io.elementary.code.appdata.xml.in:33
 msgid ""
 "Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, .Desktop, "
 "Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
@@ -81,17 +83,56 @@ msgstr ""
 "Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, Objective C, "
 "Pascal, Perl, Python, Ruby, XML."
 
+#: data/io.elementary.code.appdata.xml.in:38
 msgid "Additional features include:"
 msgstr "Дополнительные возможности включают:"
 
+#: data/io.elementary.code.appdata.xml.in:42
 msgid "syntax highlighting with gtksourceview-3"
 msgstr "подсветка синтаксиса с gtksourceview-3"
 
+#: data/io.elementary.code.appdata.xml.in:43
 msgid "a find bar to search the words in the files"
 msgstr "поиск по словам в документах"
 
+#: data/io.elementary.code.appdata.xml.in:44
 msgid "tab and split documents system"
 msgstr "вкладки и режим разделения окна пополам"
 
+#: data/io.elementary.code.appdata.xml.in:45
 msgid "lots of others"
 msgstr "и многое другое"
+
+#: data/io.elementary.code.appdata.xml.in:51
+msgid "elementary LLC."
+msgstr "elementary LLC."
+
+#: data/io.elementary.code.desktop.in.in:5
+msgid "Edit code files"
+msgstr "Редактирование файлов с кодом"
+
+#: data/io.elementary.code.desktop.in.in:6
+msgid "Code Editor"
+msgstr "Редактор кода"
+
+#: data/io.elementary.code.desktop.in.in:8
+msgid "io.elementary.code"
+msgstr "io.elementary.code"
+
+#: data/io.elementary.code.desktop.in.in:11
+msgid "IDE;scratch;"
+msgstr "IDE;scratch;"
+
+#: data/io.elementary.code.desktop.in.in:17
+msgid "New Document"
+msgstr "Новый документ"
+
+#: data/io.elementary.code.desktop.in.in:21
+msgid "New Window"
+msgstr "Новое окно"
+
+#~ msgid "Notepad;IDE;Plain;"
+#~ msgstr "Notepad;IDE;Plain;Блокнот;Текст;"
+
+#~ msgid "About Scratch"
+#~ msgstr "О программе"

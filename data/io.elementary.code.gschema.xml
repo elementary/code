@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+	<enum id="io.elementary.code.window-states">
+		<value nick="Normal" value="0" />
+		<value nick="Maximized" value="1" />
+		<value nick="Fullscreen" value="2" />
+	</enum>
+	<enum id="io.elementary.code.draw-spaces-states">
+		<value nick="Never" value="0" />
+		<value nick="For Selection" value="1" />
+		<value nick="Always" value="2" />
+	</enum>
+	<schema path="/io/elementary/code/saved-state/" id="io.elementary.code.saved-state" gettext-domain="io.elementary.code">
+		<key name="window-state" enum="io.elementary.code.window-states">
+			<default>"Normal"</default>
+			<summary>The saved state of the window.</summary>
+			<description>The saved state of the window.</description>
+		</key>
+		<key name="window-width" type="i">
+			<default>850</default>
+			<summary>The saved width of the window.</summary>
+			<description>The saved width of the window. Must be greater than 700, or it will not take effect.</description>
+		</key>
+		<key name="window-height" type="i">
+			<default>550</default>
+			<summary>The saved height of the window.</summary>
+			<description>The saved height of the window. Must be greater than 400, or it will not take effect.</description>
+		</key>
+		<key name="window-x" type="i">
+			<default>250</default>
+			<summary></summary>
+			<description></description>
+		</key>
+		<key name="window-y" type="i">
+			<default>250</default>
+			<summary></summary>
+			<description></description>
+		</key>
+
+		<key name="hp1-size" type="i">
+			<default>125</default>
+			<summary></summary>
+			<description></description>
+		</key>
+		<key name="hp2-size" type="i">
+			<default>125</default>
+			<summary></summary>
+			<description></description>
+		</key>
+		<key name="vp-size" type="i">
+			<default>125</default>
+			<summary></summary>
+			<description></description>
+		</key>
+	</schema>
+	<schema path="/io/elementary/code/settings/" id="io.elementary.code.settings" gettext-domain="io.elementary.code">
+		<key type="as" name="plugins-enabled">
+			<default>['detect-indent', 'folder-manager', 'contractor', 'outline']</default>
+			<summary>Enabled Plugins</summary>
+			<description>Enabled Plugins</description>
+		</key>
+		<key name="opened-files-view1" type="as">
+			<default>[]</default>
+			<summary>Files opened in the previously session of Scratch on the first view</summary>
+			<description>It is used to open the files opened in the last Scratch session</description>
+		</key>
+		<key name="opened-files-view2" type="as">
+			<default>[]</default>
+			<summary>Files opened in the previously session of Scratch on the second view</summary>
+			<description>It is used to open the files opened in the last Scratch session</description>
+		</key>
+		<key name="autosave" type="b">
+			<default>true</default>
+			<summary>Autosave edited files</summary>
+			<description>Autosave edited files.</description>
+		</key>
+		<key name="show-right-margin" type="b">
+			<default>false</default>
+			<summary>Show the right margin</summary>
+			<description>Specifies if the Source view should show the right margin or not.</description>
+		</key>
+		<key name="right-margin-position" type="i">
+			<default>80</default>
+			<summary>Right margin position</summary>
+			<description>Specifies the right margin position.</description>
+		</key>
+		<key name="highlight-current-line" type="b">
+			<default>true</default>
+			<summary>Highlight Current Line</summary>
+			<description>Whether Scratch should highlight the current line.</description>
+		</key>
+		<key name="highlight-matching-brackets" type="b">
+			<default>true</default>
+			<summary>Highlight Matching Brackets</summary>
+			<description>Whether Scratch should highlight matching brackets.</description>
+		</key>
+		<key name="draw-spaces" enum="io.elementary.code.draw-spaces-states">
+			<default>"For Selection"</default>
+			<summary>Draw spaces and tabs with symbols</summary>
+			<description>Draw spaces and tabs with symbols.</description>
+		</key>
+		<key name="show-mini-map" type="b">
+			<default>false</default>
+			<summary>Show Mini Map</summary>
+			<description>Show Mini Map for quick code navigation.</description>
+		</key>
+		<key name="spaces-instead-of-tabs" type="b">
+			<default>true</default>
+			<summary>Use spaces instead of tabs</summary>
+			<description>Whether Scratch should replace tabs with spaces</description>
+		</key>
+		<key name="auto-indent" type="b">
+			<default>false</default>
+			<summary>Use auto indent</summary>
+			<description>Whether Scratch should use auto indentation</description>
+		</key>
+		<key name="indent-width" type="i">
+			<default>4</default>
+			<summary>Tab Size</summary>
+			<description>Specifies the number of spaces that should be displayed instead of Tab characters.</description>
+		</key>
+		<key name="use-system-font" type="b">
+			<default>true</default>
+			<summary>Use system font</summary>
+			<description>Whether Scratch should use the default system font</description>
+		</key>
+		<key name="font" type="s">
+			<default>'Droid Sans Mono 10'</default>
+			<summary>Preferred Font</summary>
+			<description>Set the preferred font.</description>
+		</key>
+		<key name="style-scheme" type="s">
+			<default>'solarized-light'</default>
+			<summary>Preferred Style Scheme</summary>
+			<description>Set the preferred style scheme.</description>
+		</key>
+		<key name="focused-document-view1" type="s">
+			<default>''</default>
+			<summary>Remember the last focused document.</summary>
+			<description>Restore the focused document from a previous session when opening Scratch.</description>
+		</key>
+		<key name="focused-document-view2" type="s">
+			<default>''</default>
+			<summary>Remember the last focused document.</summary>
+			<description>Restore the focused document from a previous session when opening Scratch.</description>
+		</key>
+	</schema>
+	<schema path="/io/elementary/code/services/" id="io.elementary.code.services" gettext-domain="io.elementary.code">
+		<key name="paste-format-code" type="s">
+			<default>'None'</default>
+			<summary>Default PasteBin text highlight</summary>
+			<description>Set the preferred text highlight.</description>
+		</key>
+		<key name="expiry-time" type="s">
+			<default>'N'</default>
+			<summary>Default PasteBin expiration time</summary>
+			<description>Set the preferred expiration time.</description>
+		</key>
+		<key name="set-private" type="b">
+			<default>false</default>
+			<summary>Default PasteBin policy</summary>
+			<description>Set the preferred policy.</description>
+		</key>
+	</schema>
+    <schema path="/io/elementary/code/folder-manager/" id="io.elementary.code.folder-manager">
+        <key name="opened-folders" type="as">
+            <default>[]</default>
+            <summary>Opened folders.</summary>
+            <description>Opened folders that should be restored in startup.</description>
+        </key>
+    </schema>
+</schemalist>
