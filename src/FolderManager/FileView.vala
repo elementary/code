@@ -74,6 +74,35 @@ namespace Scratch.FolderManager {
             write_settings ();
         }
 
+        public void select_path (string path) {
+            selected = find_path (root, path);
+        }
+
+        private Granite.Widgets.SourceList.Item? find_path (Granite.Widgets.SourceList.ExpandableItem list, string path) {
+            foreach (var item in list.children) {
+                if (item is Item) {
+                    var code_item = item as Item;
+                    if (code_item.path == path) {
+                        return item;
+                    }
+
+                    if (item is Granite.Widgets.SourceList.ExpandableItem) {
+                        var expander = item as Granite.Widgets.SourceList.ExpandableItem;
+                        if (!expander.expanded || !path.has_prefix (code_item.path)) {
+                            continue;
+                        }
+
+                        var recurse_item = find_path (expander, path);
+                        if (recurse_item != null) {
+                            return recurse_item;
+                        }
+                    }
+                }
+            }
+
+            return null;
+        }
+
         private void add_folder (File folder, bool expand) {
             if (is_open (folder)) {
                 warning ("Folder '%s' is already open.", folder.path);
