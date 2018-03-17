@@ -22,6 +22,11 @@ peas_dep = dependency('libpeas-1.0')
 peasgtk_dep = dependency('libpeas-gtk-1.0')
 posix_dep = meson.get_compiler('vala').find_library('posix')
 
+code_resources = gnome.compile_resources(
+    'code-resources', 'data/' + meson.project_name() + '.gresource.xml',
+    source_dir: 'data'
+)
+
 dependencies = [
     glib_dep,
     gio_unix_dep,
@@ -33,6 +38,10 @@ dependencies = [
     peasgtk_dep,
     posix_dep,
 ]
+
+if gtksourceview_dep.version().version_compare('>=3.18')
+    add_project_arguments('--define=GTKSOURCEVIEW_3_18', language : 'vala')
+endif
 
 zeitgeist_dep = dependency('zeitgeist-2.0', required: false)
 if zeitgeist_dep.found ()

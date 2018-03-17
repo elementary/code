@@ -71,6 +71,7 @@ namespace Scratch {
         public string focused_document_view1 { get; set; }
         public string focused_document_view2 { get; set; }
         public bool show_mini_map { get; set; }
+        public bool prefer_dark_style { get; set; }
 
         public Settings ()  {
             base (Constants.PROJECT_NAME + ".settings");
@@ -88,6 +89,17 @@ namespace Scratch {
             base (Constants.PROJECT_NAME + ".services");
         }
 
+    }
+    
+    public class FolderManagerSettings : Granite.Services.Settings {
+
+        private const string SCHEMA = Constants.PROJECT_NAME + ".folder-manager";
+
+        public string[] opened_folders { get; set; }
+
+        public FolderManagerSettings () {
+            base (SCHEMA);
+        }
     }
 
 }

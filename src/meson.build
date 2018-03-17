@@ -16,6 +16,12 @@ code_files = files(
     'MainWindow.vala',
     'Utils.vala',
     'Dialogs/PreferencesDialog.vala',
+    'FolderManager/File.vala',
+    'FolderManager/FileItem.vala',
+    'FolderManager/FileView.vala',
+    'FolderManager/FolderItem.vala',
+    'FolderManager/Item.vala',
+    'FolderManager/MainFolderItem.vala',
     'Services/CommentToggler.vala',
     'Services/Document.vala',
     'Services/FileHandler.vala',
@@ -37,6 +43,7 @@ code_files = files(
 executable(
     meson.project_name(),
     code_files,
+    code_resources,
     config_header,
     dependencies: dependencies,
     install: true

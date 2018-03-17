@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-14 17:43-0700\n"
+"POT-Creation-Date: 2018-03-16 11:23-0700\n"
 "PO-Revision-Date: 2018-02-21 07:41+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://weblate.elementary.io/projects/code/code/he/"
@@ -94,25 +94,33 @@ msgstr "ערכת תוספים"
 msgid "Current working directory"
 msgstr "תיקיית העבודה הנוכחית"
 
-#: src/MainWindow.vala:130
+#: src/MainWindow.vala:133
 msgid "Code"
 msgstr "קוד"
 
-#: src/MainWindow.vala:171 src/Widgets/HeaderBar.vala:62
+#: src/MainWindow.vala:178 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
 msgstr "חיפוש…"
 
-#: src/MainWindow.vala:173
+#: src/MainWindow.vala:180
 msgid "Hide search bar"
 msgstr "הסתרת סרגל החיפוש"
 
-#: src/MainWindow.vala:219
+#: src/MainWindow.vala:226
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "מקור נתונים צייטגייסט עבור רישום"
 
-#: src/MainWindow.vala:719
+#: src/MainWindow.vala:752
 msgid "Open some files"
 msgstr "פתיחת מספר קבצים"
+
+#: src/MainWindow.vala:771
+msgid "_Cancel"
+msgstr "_ביטול"
+
+#: src/MainWindow.vala:772
+msgid "_Open"
+msgstr "_פתיחה"
 
 #: src/Utils.vala:27
 msgid "All files"
@@ -135,99 +143,142 @@ msgstr "פתיחה"
 msgid "Save"
 msgstr "שמירה"
 
-#: src/Dialogs/PreferencesDialog.vala:43 src/Widgets/HeaderBar.vala:101
+#: src/Dialogs/PreferencesDialog.vala:42 src/Widgets/HeaderBar.vala:138
 msgid "Preferences"
 msgstr "העדפות"
 
-#: src/Dialogs/PreferencesDialog.vala:57
+#: src/Dialogs/PreferencesDialog.vala:56
 msgid "General"
 msgstr "כללי"
 
-#: src/Dialogs/PreferencesDialog.vala:58
+#: src/Dialogs/PreferencesDialog.vala:57
 msgid "Save files when changed:"
 msgstr "שמירת קבצים בעת שינוי:"
 
-#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:59 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
 msgstr "טבלרים"
 
-#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:147
+#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:147
 msgid "Automatic indentation:"
 msgstr "הזחה אוטומטית:"
 
-#: src/Dialogs/PreferencesDialog.vala:63 src/Widgets/FormatBar.vala:141
+#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:141
 msgid "Insert spaces instead of tabs:"
 msgstr "הוספת רווחים במקום טבלרים:"
 
-#: src/Dialogs/PreferencesDialog.vala:65 src/Widgets/FormatBar.vala:144
+#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:144
 msgid "Tab width:"
 msgstr "רוחב טבלר:"
 
-#: src/Dialogs/PreferencesDialog.vala:72
+#: src/Dialogs/PreferencesDialog.vala:71
 msgid "Behavior"
 msgstr "התנהגות"
 
-#: src/Dialogs/PreferencesDialog.vala:73
+#: src/Dialogs/PreferencesDialog.vala:72
 msgid "Interface"
 msgstr "ממשק"
 
-#: src/Dialogs/PreferencesDialog.vala:85
+#: src/Dialogs/PreferencesDialog.vala:84
 #: plugins/pastebin/pastebin_dialog.vala:323
 msgid "Close"
 msgstr "סגירה"
 
-#: src/Dialogs/PreferencesDialog.vala:101
+#: src/Dialogs/PreferencesDialog.vala:100
 msgid "Extensions"
 msgstr "הרחבות"
 
-#: src/Dialogs/PreferencesDialog.vala:110
+#: src/Dialogs/PreferencesDialog.vala:109
 msgid "Editor"
 msgstr "עורך"
 
-#: src/Dialogs/PreferencesDialog.vala:112
+#: src/Dialogs/PreferencesDialog.vala:111
 msgid "Highlight current line:"
 msgstr "הדגשת השורה הנוכחית:"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:114
 msgid "Highlight matching brackets:"
 msgstr "הדגשת הסוגר התואם:"
 
-#: src/Dialogs/PreferencesDialog.vala:118
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Draw Spaces:"
 msgstr "ציור רווחים:"
 
-#: src/Dialogs/PreferencesDialog.vala:120
-#: plugins/pastebin/pastebin_dialog.vala:483
+#: src/Dialogs/PreferencesDialog.vala:119
+#: plugins/pastebin/pastebin_dialog.vala:460
 msgid "Never"
 msgstr "לעולם לא"
 
-#: src/Dialogs/PreferencesDialog.vala:121
+#: src/Dialogs/PreferencesDialog.vala:120
 msgid "For selected text"
 msgstr "עבור הטקסט הנבחר"
 
-#: src/Dialogs/PreferencesDialog.vala:122
+#: src/Dialogs/PreferencesDialog.vala:121
 msgid "Always"
 msgstr "תמיד"
 
-#: src/Dialogs/PreferencesDialog.vala:127
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Show Mini Map:"
 msgstr "הצגת מפת סקירה:"
 
-#: src/Dialogs/PreferencesDialog.vala:131
+#: src/Dialogs/PreferencesDialog.vala:130
 msgid "Line width guide:"
 msgstr "הנחיית רוחב שורה:"
 
-#: src/Dialogs/PreferencesDialog.vala:139
-msgid "Font and Color Scheme"
-msgstr "גופן וערכת צבעים"
+#: src/Dialogs/PreferencesDialog.vala:138
+msgid "Font"
+msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:141
-msgid "Color scheme:"
-msgstr "תכנית הצבעים:"
-
-#: src/Dialogs/PreferencesDialog.vala:146
+#: src/Dialogs/PreferencesDialog.vala:140
 msgid "Custom font:"
 msgstr "גופן מותאם אישית:"
+
+#: src/FolderManager/FileItem.vala:31 src/FolderManager/FolderItem.vala:61
+msgid "Rename"
+msgstr "שינוי שם"
+
+#: src/FolderManager/FileItem.vala:34 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/MainFolderItem.vala:33
+msgid "Move to Trash"
+msgstr "העברה לאשפה"
+
+#: src/FolderManager/FileView.vala:39
+msgid "Folders"
+msgstr "תיקיות"
+
+#: src/FolderManager/FolderItem.vala:77
+msgid "Folder"
+msgstr "תיקייה"
+
+#: src/FolderManager/FolderItem.vala:80
+msgid "Empty File"
+msgstr "קובץ ריק"
+
+#: src/FolderManager/FolderItem.vala:87
+msgid "New"
+msgstr "חדש"
+
+#: src/FolderManager/FolderItem.vala:218
+msgid "untitled folder"
+msgstr "תיקייה ללא שם"
+
+#: src/FolderManager/FolderItem.vala:222
+#, c-format
+msgid "untitled folder %d"
+msgstr "תיקייה ללא שם %d"
+
+#: src/FolderManager/FolderItem.vala:244
+msgid "new file"
+msgstr "קובץ חדש"
+
+#: src/FolderManager/FolderItem.vala:248
+#, c-format
+msgid "new file %d"
+msgstr "קובץ חדש %d"
+
+#: src/FolderManager/MainFolderItem.vala:30
+msgid "Close Folder"
+msgstr "סגירת תיקייה"
 
 #: src/Services/Document.vala:221
 #, c-format
@@ -379,46 +430,62 @@ msgid "Open a file"
 msgstr "פתיחת קובץ"
 
 #: src/Widgets/HeaderBar.vala:45
+msgid "Open a folder"
+msgstr "פתיחת תיקייה"
+
+#: src/Widgets/HeaderBar.vala:49
 msgid "Project templates"
 msgstr "תבניות מיזם"
 
-#: src/Widgets/HeaderBar.vala:49
+#: src/Widgets/HeaderBar.vala:53
 msgid "Save this file"
 msgstr "שמירת קובץ זה"
 
-#: src/Widgets/HeaderBar.vala:53
+#: src/Widgets/HeaderBar.vala:57
 msgid "Save this file with a different name"
 msgstr "שמירת קובץ זה בשם שונה"
 
-#: src/Widgets/HeaderBar.vala:57
+#: src/Widgets/HeaderBar.vala:61
 msgid "Restore this file"
 msgstr "שחזור קובץ זה לקדמותו"
 
-#: src/Widgets/HeaderBar.vala:68
+#: src/Widgets/HeaderBar.vala:72
 msgid "Share"
 msgstr "שיתוף"
 
-#: src/Widgets/HeaderBar.vala:73
+#: src/Widgets/HeaderBar.vala:77
 msgid "Zoom Out"
 msgstr "התרחקות"
 
-#: src/Widgets/HeaderBar.vala:77
+#: src/Widgets/HeaderBar.vala:81
 msgid "Zoom 1:1"
 msgstr "תקריב 1:1"
 
-#: src/Widgets/HeaderBar.vala:81
+#: src/Widgets/HeaderBar.vala:85
 msgid "Zoom In"
 msgstr "התקרבות"
 
-#: src/Widgets/HeaderBar.vala:93
+#: src/Widgets/HeaderBar.vala:100
+msgid "High Contrast"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:110
+msgid "Solarized Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:120
+msgid "Solarized Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:130
 msgid "Add New View"
 msgstr "הוספת תצוגה חדשה"
 
-#: src/Widgets/HeaderBar.vala:97
+#: src/Widgets/HeaderBar.vala:134
 msgid "Remove Current View"
 msgstr "הסרת התצוגה הנוכחית"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:160
 msgid "Menu"
 msgstr "תפריט"
 
@@ -482,68 +549,6 @@ msgstr "קובץ חדש מלוח הגזירים"
 msgid "Create a new file from the contents of your clipboard."
 msgstr "יצירת קובץ חדש מתוכן לוח הגזירים."
 
-#: plugins/folder-manager/FileView.vala:39
-msgid "Folders"
-msgstr "תיקיות"
-
-#: plugins/folder-manager/MainFolderItem.vala:30
-msgid "Close Folder"
-msgstr "סגירת תיקייה"
-
-#: plugins/folder-manager/MainFolderItem.vala:33
-#: plugins/folder-manager/FileItem.vala:34
-#: plugins/folder-manager/FolderItem.vala:64
-msgid "Move to Trash"
-msgstr "העברה לאשפה"
-
-#: plugins/folder-manager/FolderManagerPlugin.vala:88
-#: plugins/folder-manager/FolderManagerPlugin.vala:89
-msgid "Open a folder"
-msgstr "פתיחת תיקייה"
-
-#: plugins/folder-manager/FolderManagerPlugin.vala:100
-msgid "_Cancel"
-msgstr "_ביטול"
-
-#: plugins/folder-manager/FolderManagerPlugin.vala:101
-msgid "_Open"
-msgstr "_פתיחה"
-
-#: plugins/folder-manager/FileItem.vala:31
-#: plugins/folder-manager/FolderItem.vala:61
-msgid "Rename"
-msgstr "שינוי שם"
-
-#: plugins/folder-manager/FolderItem.vala:77
-msgid "Folder"
-msgstr "תיקייה"
-
-#: plugins/folder-manager/FolderItem.vala:80
-msgid "Empty File"
-msgstr "קובץ ריק"
-
-#: plugins/folder-manager/FolderItem.vala:87
-msgid "New"
-msgstr "חדש"
-
-#: plugins/folder-manager/FolderItem.vala:218
-msgid "untitled folder"
-msgstr "תיקייה ללא שם"
-
-#: plugins/folder-manager/FolderItem.vala:222
-#, c-format
-msgid "untitled folder %d"
-msgstr "תיקייה ללא שם %d"
-
-#: plugins/folder-manager/FolderItem.vala:244
-msgid "new file"
-msgstr "קובץ חדש"
-
-#: plugins/folder-manager/FolderItem.vala:248
-#, c-format
-msgid "new file %d"
-msgstr "קובץ חדש %d"
-
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via PasteBin"
 msgstr "שיתוף באמצעות PasteBin"
@@ -576,23 +581,23 @@ msgstr "העלאה"
 msgid "Other formats"
 msgstr "פורמטים אחרים"
 
-#: plugins/pastebin/pastebin_dialog.vala:484
+#: plugins/pastebin/pastebin_dialog.vala:461
 msgid "Ten minutes"
 msgstr "עשר דקות"
 
-#: plugins/pastebin/pastebin_dialog.vala:485
+#: plugins/pastebin/pastebin_dialog.vala:462
 msgid "One hour"
 msgstr "שעה אחת"
 
-#: plugins/pastebin/pastebin_dialog.vala:486
+#: plugins/pastebin/pastebin_dialog.vala:463
 msgid "One day"
 msgstr "יום אחד"
 
-#: plugins/pastebin/pastebin_dialog.vala:487
+#: plugins/pastebin/pastebin_dialog.vala:464
 msgid "One month"
 msgstr "חודש אחד"
 
-#: plugins/pastebin/pastebin.vala:131
+#: plugins/pastebin/pastebin.vala:94
 msgid "Upload to Pastebin"
 msgstr "העלאה ל־Pastebin"
 
@@ -668,6 +673,12 @@ msgstr "לא ניתן לטעון ערכת נושא לסמלים: %s\n"
 #: plugins/open-with/open-with.vala:51
 msgid "Open With…"
 msgstr "פתיחה באמצעות…"
+
+#~ msgid "Font and Color Scheme"
+#~ msgstr "גופן וערכת צבעים"
+
+#~ msgid "Color scheme:"
+#~ msgstr "תכנית הצבעים:"
 
 #~ msgid "Edit text files"
 #~ msgstr "עריכת קובצי טקסט"

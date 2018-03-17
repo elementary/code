@@ -67,6 +67,7 @@ public class Scratch.Plugins.OpenWith : Peas.ExtensionBase,  Peas.Activatable {
                 dialog.destroy ();
             });
             menu.append (this.item);
+            this.item.show_all ();
         });
     }
 

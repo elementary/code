@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-14 17:43-0700\n"
+"POT-Creation-Date: 2018-03-16 11:23-0700\n"
 "PO-Revision-Date: 2017-08-22 19:20+0000\n"
 "Last-Translator: anjelo del carmen <anjelo2009@live.com>\n"
 "Language-Team: Tagalog <https://weblate.elementary.io/projects/scratch/"
@@ -87,25 +87,33 @@ msgstr "Hanay ng mga plugin"
 msgid "Current working directory"
 msgstr "Kasalukuyang gumaganang direktori"
 
-#: src/MainWindow.vala:130
+#: src/MainWindow.vala:133
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:171 src/Widgets/HeaderBar.vala:62
+#: src/MainWindow.vala:178 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
 msgstr "Hanapin…"
 
-#: src/MainWindow.vala:173
+#: src/MainWindow.vala:180
 msgid "Hide search bar"
 msgstr "Itago ang search bar"
 
-#: src/MainWindow.vala:219
+#: src/MainWindow.vala:226
 msgid "Zeitgeist Datasource for Scratch"
 msgstr ""
 
-#: src/MainWindow.vala:719
+#: src/MainWindow.vala:752
 msgid "Open some files"
 msgstr "Magbukas ng ilang mga file"
+
+#: src/MainWindow.vala:771
+msgid "_Cancel"
+msgstr "I_kansela"
+
+#: src/MainWindow.vala:772
+msgid "_Open"
+msgstr "_Buksan"
 
 #: src/Utils.vala:27
 msgid "All files"
@@ -128,99 +136,145 @@ msgstr "Buksan"
 msgid "Save"
 msgstr "I-save"
 
-#: src/Dialogs/PreferencesDialog.vala:43 src/Widgets/HeaderBar.vala:101
+#: src/Dialogs/PreferencesDialog.vala:42 src/Widgets/HeaderBar.vala:138
 msgid "Preferences"
 msgstr "Mga Kagustuhan"
 
-#: src/Dialogs/PreferencesDialog.vala:57
+#: src/Dialogs/PreferencesDialog.vala:56
 msgid "General"
 msgstr "Pangkalahatan"
 
-#: src/Dialogs/PreferencesDialog.vala:58
+#: src/Dialogs/PreferencesDialog.vala:57
 msgid "Save files when changed:"
 msgstr "I-save ang mga files pag may nabago:"
 
-#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:59 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
 msgstr "Mga Tab"
 
-#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:147
+#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:147
 msgid "Automatic indentation:"
 msgstr "Automatikong pag-urong:"
 
-#: src/Dialogs/PreferencesDialog.vala:63 src/Widgets/FormatBar.vala:141
+#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:141
 msgid "Insert spaces instead of tabs:"
 msgstr "Magpasok ng espasiyo sa halip ng mga tab:"
 
-#: src/Dialogs/PreferencesDialog.vala:65 src/Widgets/FormatBar.vala:144
+#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:144
 msgid "Tab width:"
 msgstr "Lapad ng tab:"
 
-#: src/Dialogs/PreferencesDialog.vala:72
+#: src/Dialogs/PreferencesDialog.vala:71
 msgid "Behavior"
 msgstr "Pagkilos"
 
-#: src/Dialogs/PreferencesDialog.vala:73
+#: src/Dialogs/PreferencesDialog.vala:72
 msgid "Interface"
 msgstr "Interpeys"
 
-#: src/Dialogs/PreferencesDialog.vala:85
+#: src/Dialogs/PreferencesDialog.vala:84
 #: plugins/pastebin/pastebin_dialog.vala:323
 msgid "Close"
 msgstr "Isara"
 
-#: src/Dialogs/PreferencesDialog.vala:101
+#: src/Dialogs/PreferencesDialog.vala:100
 msgid "Extensions"
 msgstr "Mga Ekstensiyon"
 
-#: src/Dialogs/PreferencesDialog.vala:110
+#: src/Dialogs/PreferencesDialog.vala:109
 msgid "Editor"
 msgstr "Taga-edit"
 
-#: src/Dialogs/PreferencesDialog.vala:112
+#: src/Dialogs/PreferencesDialog.vala:111
 msgid "Highlight current line:"
 msgstr "I-haylayt ang kasalukuyang linya:"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:114
 msgid "Highlight matching brackets:"
 msgstr "I-haylayt ang tumutugmang panaklong:"
 
-#: src/Dialogs/PreferencesDialog.vala:118
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Draw Spaces:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:120
-#: plugins/pastebin/pastebin_dialog.vala:483
+#: src/Dialogs/PreferencesDialog.vala:119
+#: plugins/pastebin/pastebin_dialog.vala:460
 msgid "Never"
 msgstr "Huwag kailanman"
 
-#: src/Dialogs/PreferencesDialog.vala:121
+#: src/Dialogs/PreferencesDialog.vala:120
 msgid "For selected text"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:122
+#: src/Dialogs/PreferencesDialog.vala:121
 msgid "Always"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:127
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Show Mini Map:"
 msgstr "Ipakita ang Mini Map:"
 
-#: src/Dialogs/PreferencesDialog.vala:131
+#: src/Dialogs/PreferencesDialog.vala:130
 msgid "Line width guide:"
 msgstr "Gabay ng lapad ng linya:"
 
-#: src/Dialogs/PreferencesDialog.vala:139
-msgid "Font and Color Scheme"
-msgstr "Pamamaraan ng Font at Kulay"
+#: src/Dialogs/PreferencesDialog.vala:138
+msgid "Font"
+msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:141
-msgid "Color scheme:"
-msgstr "Pamamaraan ng Kulay"
-
-#: src/Dialogs/PreferencesDialog.vala:146
+#: src/Dialogs/PreferencesDialog.vala:140
 msgid "Custom font:"
 msgstr "Pasadyang font:"
+
+#: src/FolderManager/FileItem.vala:31 src/FolderManager/FolderItem.vala:61
+msgid "Rename"
+msgstr ""
+
+#: src/FolderManager/FileItem.vala:34 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/MainFolderItem.vala:33
+msgid "Move to Trash"
+msgstr ""
+
+#: src/FolderManager/FileView.vala:39
+msgid "Folders"
+msgstr "Mga Polder"
+
+#: src/FolderManager/FolderItem.vala:77
+#, fuzzy
+msgid "Folder"
+msgstr "Mga Polder"
+
+#: src/FolderManager/FolderItem.vala:80
+msgid "Empty File"
+msgstr ""
+
+#: src/FolderManager/FolderItem.vala:87
+#, fuzzy
+msgid "New"
+msgstr "Bagong Tab"
+
+#: src/FolderManager/FolderItem.vala:218
+msgid "untitled folder"
+msgstr ""
+
+#: src/FolderManager/FolderItem.vala:222
+#, c-format
+msgid "untitled folder %d"
+msgstr ""
+
+#: src/FolderManager/FolderItem.vala:244
+#, fuzzy
+msgid "new file"
+msgstr "Bagong File"
+
+#: src/FolderManager/FolderItem.vala:248
+#, fuzzy, c-format
+msgid "new file %d"
+msgstr "Bagong File"
+
+#: src/FolderManager/MainFolderItem.vala:30
+msgid "Close Folder"
+msgstr "Isara ang Polder"
 
 #: src/Services/Document.vala:221
 #, c-format
@@ -383,48 +437,64 @@ msgid "Open a file"
 msgstr "Magbukas ng file"
 
 #: src/Widgets/HeaderBar.vala:45
+msgid "Open a folder"
+msgstr "Magbukas ng Polder"
+
+#: src/Widgets/HeaderBar.vala:49
 msgid "Project templates"
 msgstr "Mga templeyt ng proyekto"
 
-#: src/Widgets/HeaderBar.vala:49
+#: src/Widgets/HeaderBar.vala:53
 msgid "Save this file"
 msgstr "I-save ang file na ito"
 
-#: src/Widgets/HeaderBar.vala:53
+#: src/Widgets/HeaderBar.vala:57
 msgid "Save this file with a different name"
 msgstr "I-save ang file na ito gamit ang ibang pangalan"
 
-#: src/Widgets/HeaderBar.vala:57
+#: src/Widgets/HeaderBar.vala:61
 msgid "Restore this file"
 msgstr "Ibalik ang file na ito"
 
-#: src/Widgets/HeaderBar.vala:68
+#: src/Widgets/HeaderBar.vala:72
 msgid "Share"
 msgstr "Ibahagi"
 
-#: src/Widgets/HeaderBar.vala:73
+#: src/Widgets/HeaderBar.vala:77
 #, fuzzy
 msgid "Zoom Out"
 msgstr "Palakihin"
 
-#: src/Widgets/HeaderBar.vala:77
+#: src/Widgets/HeaderBar.vala:81
 msgid "Zoom 1:1"
 msgstr "Palakihin 1:1"
 
-#: src/Widgets/HeaderBar.vala:81
+#: src/Widgets/HeaderBar.vala:85
 #, fuzzy
 msgid "Zoom In"
 msgstr "Palakihin"
 
-#: src/Widgets/HeaderBar.vala:93
+#: src/Widgets/HeaderBar.vala:100
+msgid "High Contrast"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:110
+msgid "Solarized Light"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:120
+msgid "Solarized Dark"
+msgstr ""
+
+#: src/Widgets/HeaderBar.vala:130
 msgid "Add New View"
 msgstr "Magdagdag ng mga Bagong View"
 
-#: src/Widgets/HeaderBar.vala:97
+#: src/Widgets/HeaderBar.vala:134
 msgid "Remove Current View"
 msgstr "Alisin ang Kasalukuyang View"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:160
 msgid "Menu"
 msgstr ""
 
@@ -488,71 +558,6 @@ msgstr "Bagong file mula sa clipboard"
 msgid "Create a new file from the contents of your clipboard."
 msgstr "Gumawa ng bagong file mula sa mga laman ng iyong clipboard."
 
-#: plugins/folder-manager/FileView.vala:39
-msgid "Folders"
-msgstr "Mga Polder"
-
-#: plugins/folder-manager/MainFolderItem.vala:30
-msgid "Close Folder"
-msgstr "Isara ang Polder"
-
-#: plugins/folder-manager/MainFolderItem.vala:33
-#: plugins/folder-manager/FileItem.vala:34
-#: plugins/folder-manager/FolderItem.vala:64
-msgid "Move to Trash"
-msgstr ""
-
-#: plugins/folder-manager/FolderManagerPlugin.vala:88
-#: plugins/folder-manager/FolderManagerPlugin.vala:89
-msgid "Open a folder"
-msgstr "Magbukas ng Polder"
-
-#: plugins/folder-manager/FolderManagerPlugin.vala:100
-msgid "_Cancel"
-msgstr "I_kansela"
-
-#: plugins/folder-manager/FolderManagerPlugin.vala:101
-msgid "_Open"
-msgstr "_Buksan"
-
-#: plugins/folder-manager/FileItem.vala:31
-#: plugins/folder-manager/FolderItem.vala:61
-msgid "Rename"
-msgstr ""
-
-#: plugins/folder-manager/FolderItem.vala:77
-#, fuzzy
-msgid "Folder"
-msgstr "Mga Polder"
-
-#: plugins/folder-manager/FolderItem.vala:80
-msgid "Empty File"
-msgstr ""
-
-#: plugins/folder-manager/FolderItem.vala:87
-#, fuzzy
-msgid "New"
-msgstr "Bagong Tab"
-
-#: plugins/folder-manager/FolderItem.vala:218
-msgid "untitled folder"
-msgstr ""
-
-#: plugins/folder-manager/FolderItem.vala:222
-#, c-format
-msgid "untitled folder %d"
-msgstr ""
-
-#: plugins/folder-manager/FolderItem.vala:244
-#, fuzzy
-msgid "new file"
-msgstr "Bagong File"
-
-#: plugins/folder-manager/FolderItem.vala:248
-#, fuzzy, c-format
-msgid "new file %d"
-msgstr "Bagong File"
-
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via PasteBin"
 msgstr "I-share gamit ang PasteBin"
@@ -586,23 +591,23 @@ msgstr "I-upload"
 msgid "Other formats"
 msgstr "Iba pang mga format"
 
-#: plugins/pastebin/pastebin_dialog.vala:484
+#: plugins/pastebin/pastebin_dialog.vala:461
 msgid "Ten minutes"
 msgstr "Sampung minuto"
 
-#: plugins/pastebin/pastebin_dialog.vala:485
+#: plugins/pastebin/pastebin_dialog.vala:462
 msgid "One hour"
 msgstr "Isang oras"
 
-#: plugins/pastebin/pastebin_dialog.vala:486
+#: plugins/pastebin/pastebin_dialog.vala:463
 msgid "One day"
 msgstr "Isang araw"
 
-#: plugins/pastebin/pastebin_dialog.vala:487
+#: plugins/pastebin/pastebin_dialog.vala:464
 msgid "One month"
 msgstr "Isang buwan"
 
-#: plugins/pastebin/pastebin.vala:131
+#: plugins/pastebin/pastebin.vala:94
 msgid "Upload to Pastebin"
 msgstr "Iupload sa Pastebin"
 
@@ -678,6 +683,12 @@ msgstr "Hindi mai-load ang icon theme: %s\n"
 #: plugins/open-with/open-with.vala:51
 msgid "Open With…"
 msgstr "Buksan Gamit Ang…"
+
+#~ msgid "Font and Color Scheme"
+#~ msgstr "Pamamaraan ng Font at Kulay"
+
+#~ msgid "Color scheme:"
+#~ msgstr "Pamamaraan ng Kulay"
 
 #~ msgid "Edit text files"
 #~ msgstr "I-edit ang tekstong file"

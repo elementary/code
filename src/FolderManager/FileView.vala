@@ -18,12 +18,12 @@
  * Authored by: Julien Spautz <spautz.julien@gmail.com>, Andrei-Costin Zisu <matzipan@gmail.com>
  */
 
-namespace Scratch.Plugins.FolderManager {
+namespace Scratch.FolderManager {
     /**
      * SourceList that displays folders and their contents.
      */
     internal class FileView : Granite.Widgets.SourceList, Code.PaneSwitcher {
-        private Settings settings;
+        private FolderManagerSettings settings;
 
         public signal void select (string file);
 
@@ -40,7 +40,7 @@ namespace Scratch.Plugins.FolderManager {
 
             item_selected.connect (on_item_selected);
 
-            settings = new Settings ();
+            settings = new FolderManagerSettings ();
         }
 
         private void on_item_selected (Granite.Widgets.SourceList.Item? item) {
@@ -72,6 +72,35 @@ namespace Scratch.Plugins.FolderManager {
 
             add_folder (folder, true);
             write_settings ();
+        }
+
+        public void select_path (string path) {
+            selected = find_path (root, path);
+        }
+
+        private Granite.Widgets.SourceList.Item? find_path (Granite.Widgets.SourceList.ExpandableItem list, string path) {
+            foreach (var item in list.children) {
+                if (item is Item) {
+                    var code_item = item as Item;
+                    if (code_item.path == path) {
+                        return item;
+                    }
+
+                    if (item is Granite.Widgets.SourceList.ExpandableItem) {
+                        var expander = item as Granite.Widgets.SourceList.ExpandableItem;
+                        if (!expander.expanded || !path.has_prefix (code_item.path)) {
+                            continue;
+                        }
+
+                        var recurse_item = find_path (expander, path);
+                        if (recurse_item != null) {
+                            return recurse_item;
+                        }
+                    }
+                }
+            }
+
+            return null;
         }
 
         private void add_folder (File folder, bool expand) {
