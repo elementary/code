@@ -75,6 +75,9 @@ namespace Scratch.Widgets {
             error_tag = new Gtk.TextTag ("error_bg");
             error_tag.underline = Pango.Underline.ERROR;
 
+            source_buffer.tag_table.add (error_tag);
+            source_buffer.tag_table.add (warning_tag);
+
             restore_settings ();
 
             Gtk.drag_dest_add_uri_targets (this);
