@@ -17,7 +17,7 @@ gio_unix_dep = dependency('gio-unix-2.0', version: '>=2.20')
 gee_dep = dependency('gee-0.8', version: '>=0.8.5')
 gtk_dep = dependency('gtk+-3.0', version: '>=3.6.0')
 granite_dep = dependency('granite')
-gtksourceview_dep = dependency('gtksourceview-3.0')
+gtksourceview_dep = dependency('gtksourceview-3.0', version: '>=3.18.0')
 peas_dep = dependency('libpeas-1.0')
 peasgtk_dep = dependency('libpeas-gtk-1.0')
 posix_dep = meson.get_compiler('vala').find_library('posix')
@@ -38,10 +38,6 @@ dependencies = [
     peasgtk_dep,
     posix_dep,
 ]
-
-if gtksourceview_dep.version().version_compare('>=3.18')
-    add_project_arguments('--define=GTKSOURCEVIEW_3_18', language : 'vala')
-endif
 
 zeitgeist_dep = dependency('zeitgeist-2.0', required: false)
 if zeitgeist_dep.found ()
