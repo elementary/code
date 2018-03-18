@@ -17,8 +17,7 @@ shared_module(
     module_files,
     dependencies: module_deps,
     install: true,
-    install_dir: join_paths(pluginsdir, module_name),
-    vala_args: '--define=VTE291',
+    install_dir: join_paths(pluginsdir, module_name)
 )
 
 custom_target(module_name + '.plugin_merge',
