@@ -1,27 +1,24 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /***
   BEGIN LICENSE
-    
+
   Copyright (C) 2013 Madelynn May <madelynnmay@madelynnmay.com>
-  This program is free software: you can redistribute it and/or modify it   
-  under the terms of the GNU Lesser General Public License version 3, as published  
+  This program is free software: you can redistribute it and/or modify it
+  under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
-    
-  This program is distributed in the hope that it will be useful, but   
-  WITHOUT ANY WARRANTY; without even the implied warranties of  
-  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR    
+
+  This program is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranties of
+  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
   PURPOSE.  See the GNU General Public License for more details.
-    
-  You should have received a copy of the GNU General Public License along   
-  with this program.  If not, see <http://www.gnu.org/licenses/>    
-  
-  END LICENSE   
+
+  You should have received a copy of the GNU General Public License along
+  with this program.  If not, see <http://www.gnu.org/licenses/>
+
+  END LICENSE
 ***/
 
-public const string NAME = _("Highlight Selected Words");
-public const string DESCRIPTION = _("Highlights all occurrences of words that are selected");
-
-public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase,  Peas.Activatable { 
+public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase,  Peas.Activatable {
     // Properties
     Gee.TreeSet<Scratch.Widgets.SourceView> source_views;
     Gee.HashMap<Scratch.Widgets.SourceView, Gtk.SourceSearchContext> search_contexts;
@@ -35,7 +32,7 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase,  Peas.
     public Object object { owned get; construct; }
 
     public void update_state () {
-        
+
     }
 
     public void activate () {
@@ -55,7 +52,7 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase,  Peas.
             this.current_source = src;
         });
     }
-    
+
     public void on_selection_changed (Gtk.TextIter start,Gtk.TextIter end) {
         if (this.current_source.buffer.get_has_selection ()) {
             // Expand highlight to current word on

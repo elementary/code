@@ -18,9 +18,6 @@
   END LICENSE
 ***/
 
-public const string NAME = _("Browser Preview");
-public const string DESCRIPTION = _("Get a preview your work in a web page");
-
 namespace Scratch.Plugins {
 
     public class BrowserPreviewPlugin : Peas.ExtensionBase,  Peas.Activatable {
@@ -171,4 +168,3 @@ public void peas_register_types (GLib.TypeModule module) {
     objmodule.register_extension_type (typeof (Peas.Activatable),
                                      typeof (Scratch.Plugins.BrowserPreviewPlugin));
 }
-

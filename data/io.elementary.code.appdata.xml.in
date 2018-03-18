@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2018 elementary, LLC <contact@elementary.io> -->
+<component type="desktop">
+  <id>io.elementary.code</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_group>elementary</project_group>
+  <project_license>GPL-3.0+</project_license>
+  <name>Code</name>
+  <summary>The editor that works</summary>
+  <description>
+    <p>
+      Code is the editor that works for you. It auto-saves your files,
+      meaning they're always up-to-date. Plus it remembers your tabs so you never
+      lose your spot, even in between sessions.
+    </p>
+    <p>
+      Make it yours. Code is written from the ground up to be extensible. Keep
+      things super lightweight and simple, or install extensions to turn Code
+      into a full-blown IDE; it's your choice. And with a handful of useful preferences,
+      you can tweak the behavior and interface to your liking.
+    </p>
+    <p>
+      It's elementary. Code is made to be the perfect editor for elementary,
+      meaning it closely follows the high standards of design, speed, and consistency.
+      It's sexy, but not distracting.
+    </p>
+    <p>
+      Works with your language. Whether you're crafting code in Vala, scripting
+      with PHP, or marking things up in HTML, Code has you covered. Experience
+      full syntax highlighting with nearly all programming, scripting, and markup
+      languages.
+    </p>
+    <p>
+      Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, .Desktop,
+      Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, Objective
+      C, Pascal, Perl, Python, Ruby, XML.
+    </p>
+    <p>
+      Additional features include:
+    </p>
+    <ul>
+      <li>syntax highlighting with gtksourceview-3</li>
+      <li>a find bar to search the words in the files</li>
+      <li>tab and split documents system</li>
+      <li>lots of others</li>
+    </ul>
+  </description>
+  <releases>
+    <release version="2.4.1" date="2017-02-20"/>
+  </releases>
+  <provides>
+    <binary>io.elementary.code</binary>
+  </provides>
+  <content_rating type="oars-1.1">
+    <content_attribute id="violence-cartoon">none</content_attribute>
+    <content_attribute id="violence-fantasy">none</content_attribute>
+    <content_attribute id="violence-realistic">none</content_attribute>
+    <content_attribute id="violence-bloodshed">none</content_attribute>
+    <content_attribute id="violence-sexual">none</content_attribute>
+    <content_attribute id="violence-desecration">none</content_attribute>
+    <content_attribute id="violence-slavery">none</content_attribute>
+    <content_attribute id="violence-worship">none</content_attribute>
+    <content_attribute id="drugs-alcohol">none</content_attribute>
+    <content_attribute id="drugs-narcotics">none</content_attribute>
+    <content_attribute id="drugs-tobacco">none</content_attribute>
+    <content_attribute id="sex-nudity">none</content_attribute>
+    <content_attribute id="sex-themes">none</content_attribute>
+    <content_attribute id="sex-homosexuality">none</content_attribute>
+    <content_attribute id="sex-prostitution">none</content_attribute>
+    <content_attribute id="sex-adultery">none</content_attribute>
+    <content_attribute id="sex-appearance">none</content_attribute>
+    <content_attribute id="language-profanity">none</content_attribute>
+    <content_attribute id="language-humor">none</content_attribute>
+    <content_attribute id="language-discrimination">none</content_attribute>
+    <content_attribute id="social-chat">none</content_attribute>
+    <content_attribute id="social-info">none</content_attribute>
+    <content_attribute id="social-audio">none</content_attribute>
+    <content_attribute id="social-location">none</content_attribute>
+    <content_attribute id="social-contacts">none</content_attribute>
+    <content_attribute id="money-purchasing">none</content_attribute>
+    <content_attribute id="money-gambling">none</content_attribute>
+  </content_rating>
+  <developer_name>elementary LLC.</developer_name>
+  <url type="homepage">http://elementary.io/</url>
+  <url type="bugtracker">https://github.com/elementary/scratch/issues</url>
+  <url type="donation">https://elementary.io/get-involved#funding</url>
+  <url type="help">https://elementaryos.stackexchange.com/questions/tagged/scratch</url>
+  <url type="translate">https://l10n.elementary.io/projects/scratch</url>
+  <update_contact>contact_AT_elementary.io</update_contact>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/elementary/code/master/data/screenshot.png</image>
+    </screenshot>
+  </screenshots>
+</component>

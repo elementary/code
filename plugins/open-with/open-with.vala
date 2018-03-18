@@ -1,25 +1,22 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /***
   BEGIN LICENSE
-	
-  Copyright (C) 2011-2013 Mario Guerriero <mario@elementaryos.org>
-  This program is free software: you can redistribute it and/or modify it	
-  under the terms of the GNU Lesser General Public License version 3, as published	
-  by the Free Software Foundation.
-	
-  This program is distributed in the hope that it will be useful, but	
-  WITHOUT ANY WARRANTY; without even the implied warranties of	
-  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR	
-  PURPOSE.  See the GNU General Public License for more details.
-	
-  You should have received a copy of the GNU General Public License along	
-  with this program.  If not, see <http://www.gnu.org/licenses/>	
-  
-  END LICENSE	
-***/
 
-public const string NAME = _("Open With");
-public const string DESCRIPTION = _("Open files you are editing with another application");
+  Copyright (C) 2011-2013 Mario Guerriero <mario@elementaryos.org>
+  This program is free software: you can redistribute it and/or modify it
+  under the terms of the GNU Lesser General Public License version 3, as published
+  by the Free Software Foundation.
+
+  This program is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranties of
+  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+  PURPOSE.  See the GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License along
+  with this program.  If not, see <http://www.gnu.org/licenses/>
+
+  END LICENSE
+***/
 
 public class Scratch.Plugins.OpenWith : Peas.ExtensionBase,  Peas.Activatable {
     Gtk.MenuItem? item = null;
@@ -28,23 +25,23 @@ public class Scratch.Plugins.OpenWith : Peas.ExtensionBase,  Peas.Activatable {
     Scratch.Services.Interface plugins;
 
     public void update_state () {
-        
+
     }
 
     public void activate () {
         plugins = (Scratch.Services.Interface) object;
         plugins.hook_share_menu.connect (on_hook);
     }
-    
+
     public void deactivate () {
         if (item != null)
             item.destroy ();
     }
-    
+
     private void on_hook (Gtk.Menu menu) {
         plugins.hook_document.connect ((doc) => {
             // Remove old item
-            if (item != null) 
+            if (item != null)
                 item.destroy ();
 
             if (doc.file == null)
@@ -70,9 +67,10 @@ public class Scratch.Plugins.OpenWith : Peas.ExtensionBase,  Peas.Activatable {
                 dialog.destroy ();
             });
             menu.append (this.item);
+            this.item.show_all ();
         });
     }
-    
+
 }
 
 [ModuleInit]

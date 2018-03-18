@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+    <schema path="/io/elementary/code/plugins/terminal/" id="io.elementary.code.plugins.terminal">
+        <key name="last-opened-path" type="s">
+            <default>''</default>
+            <summary>Last opened path</summary>
+            <description>Last opened path in the terminal plugin</description>
+        </key>
+    </schema>
+</schemalist>

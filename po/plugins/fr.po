@@ -1,0 +1,138 @@
+# French translations for plugins package.
+# Copyright (C) 2018 THE plugins'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the plugins package.
+# Automatically generated, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-15 19:09+0000\n"
+"PO-Revision-Date: 2018-03-07 00:09+0000\n"
+"Last-Translator: Corentin Noël <corentin@elementary.io>\n"
+"Language-Team: French <https://weblate.elementary.io/projects/code/plugins/"
+"fr/>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.18\n"
+
+#: plugins/brackets-completion/brackets-completion.plugin:6
+msgid "Brackets Completion"
+msgstr "Complétion de parenthèses et crochets"
+
+#: plugins/brackets-completion/brackets-completion.plugin:7
+msgid "Complete brackets while typing"
+msgstr "Complétion de parenthèses pendant l'écriture"
+
+#: plugins/browser-preview/browser-preview.plugin:6
+msgid "Browser Preview"
+msgstr "Aperçu du navigateur"
+
+#: plugins/browser-preview/browser-preview.plugin:7
+msgid "Get a preview of your work in a web page"
+msgstr "Obtenez un aperçu de votre travail dans une page web"
+
+#: plugins/contractor/contractor.plugin:6
+msgid "Contractor"
+msgstr "Contractor"
+
+#: plugins/contractor/contractor.plugin:7
+msgid "Share your files with Contractor"
+msgstr "Partager vos fichiers avec Contractor"
+
+#: plugins/detect-indent/detect-indent.plugin:6
+msgid "Detect Indent"
+msgstr "Détecter l’indentation"
+
+#: plugins/detect-indent/detect-indent.plugin:7
+msgid "Heuristically detect tab or space settings"
+msgstr "Détection heuristique des paramètres de tabulation ou d'espacement"
+
+#: plugins/highlight-word-selection/highlight-word-selection.plugin:6
+msgid "Highlight Word Selection"
+msgstr "Surligner le mot sélectionné"
+
+#: plugins/highlight-word-selection/highlight-word-selection.plugin:7
+msgid "Highlights all occurrences of words that are selected"
+msgstr "Surligner toutes les occurrences des mots sélectionnés"
+
+#: plugins/open-with/open-with.plugin:6
+msgid "Open With"
+msgstr "Ouvrir Avec"
+
+#: plugins/open-with/open-with.plugin:7
+msgid "Open files you are editing with another application"
+msgstr "Ouvrez les fichiers que vous modifiez avec une autre application"
+
+#: plugins/outline/outline.plugin:6
+msgid "Outline"
+msgstr "Aperçu"
+
+#: plugins/outline/outline.plugin:7
+msgid "Outline symbols in your current file for vala"
+msgstr "Aperçu des symboles dans votre fichier Vala courant"
+
+#: plugins/pastebin/pastebin.plugin:6
+msgid "Pastebin"
+msgstr "Pastebin"
+
+#: plugins/pastebin/pastebin.plugin:7
+msgid "Share files with pastebin service"
+msgstr "Partager des fichiers avec le service pastebin"
+
+#: plugins/preserve-indent/preserve-indent.plugin:6
+msgid "Preserve Indent"
+msgstr "Conserver l'indentation"
+
+#: plugins/preserve-indent/preserve-indent.plugin:7
+msgid "Maintains relative indent level of pasted text"
+msgstr "Maintient le niveau relatif d'indentation du texte collé"
+
+#: plugins/spell/spell.plugin:6
+msgid "Spell Checker"
+msgstr "Vérificateur orthographique"
+
+#: plugins/spell/spell.plugin:7
+msgid "Checks the spelling of your documents"
+msgstr "Vérifie l'orthographe de vos documents"
+
+#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
+msgid "Strip trailing whitespace"
+msgstr "Enlever les espaces en fin de lignes"
+
+#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
+msgid "Strip trailing whitespace on save"
+msgstr "Enlever les espaces en fin de ligne à l'enregistrement"
+
+#: plugins/terminal/terminal.plugin:6
+msgid "Terminal"
+msgstr "Terminal"
+
+#: plugins/terminal/terminal.plugin:7
+msgid "A terminal in your text editor"
+msgstr "Un terminal dans votre éditeur de texte"
+
+#: plugins/vim-emulation/vim-emulation.plugin:6
+msgid "Vim Emulation"
+msgstr "Émulation de Vim"
+
+#: plugins/vim-emulation/vim-emulation.plugin:7
+msgid "Use Vim commands in Scratch"
+msgstr "Utiliser les commandes de Vim dans Scratch"
+
+#: plugins/word-completion/word-completion.plugin:3
+msgid "Words Completion"
+msgstr "Complétion automatique"
+
+#: plugins/word-completion/word-completion.plugin:7
+msgid "Show a completion dialog with most used words from your files"
+msgstr "Montrer une invite avec les mots les plus utilisés dans vos fichiers"
+
+#~ msgid "Folder Manager"
+#~ msgstr "Gestionnaire de dossiers"
+
+#~ msgid "Basic folder manager with file browsing"
+#~ msgstr "Simple gestionnaire de dossiers avec navigation dans les fichiers"

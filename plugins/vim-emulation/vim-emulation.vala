@@ -1,25 +1,22 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /***
   BEGIN LICENSE
-    
+
   Copyright (C) 2013 Mario Guerriero <mario@elementaryos.org>
-  This program is free software: you can redistribute it and/or modify it    
-  under the terms of the GNU Lesser General Public License version 3, as published    
+  This program is free software: you can redistribute it and/or modify it
+  under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
-    
-  This program is distributed in the hope that it will be useful, but    
-  WITHOUT ANY WARRANTY; without even the implied warranties of    
-  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR    
+
+  This program is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranties of
+  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
   PURPOSE.  See the GNU General Public License for more details.
-    
+
   You should have received a copy of the GNU General Public License along
   with this program.  If not, see <http://www.gnu.org/licenses/>
-  
-  END LICENSE    
-***/
 
-public const string NAME = _("Vim Emulation");
-public const string DESCRIPTION = _("Use Vim commands in Scratch");
+  END LICENSE
+***/
 
 public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase,  Peas.Activatable {
 
@@ -33,10 +30,10 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase,  Peas.Activatabl
     string number = "";
     string action = "";
     bool g = false;
-    
+
     Gee.TreeSet<Scratch.Widgets.SourceView> views;
     Scratch.Widgets.SourceView? view = null;
-    
+
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
 
@@ -45,7 +42,7 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase,  Peas.Activatabl
     }
 
     public void update_state () {
-        
+
     }
 
     public void activate () {
@@ -136,7 +133,7 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase,  Peas.Activatabl
                 number += "9";
                 break;
             //case 0, see below
-            
+
             //navigation
             case Gdk.Key.Left:
             case Gdk.Key.h:
@@ -183,7 +180,7 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase,  Peas.Activatabl
                 mode = Mode.INSERT;
                 var buffer = view.buffer;
                 Gtk.TextIter start, end;
-                buffer.get_selection_bounds (out start, out end); 
+                buffer.get_selection_bounds (out start, out end);
                 buffer.get_iter_at_mark (out start, buffer.get_insert ());
                 start.backward_sentence_start ();
                 buffer.place_cursor (start);
@@ -224,10 +221,10 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase,  Peas.Activatabl
         if (old_len == number.length) {
             number = "";
         }
-        
+
         return true;
     }
-    
+
     private void move_paragraph (bool up, bool select) {
         var buffer = view.buffer;
 
