@@ -151,8 +151,8 @@ namespace Scratch.Services {
 
             var doc_grid = new Gtk.Grid ();
             doc_grid.orientation = Gtk.Orientation.VERTICAL;
-            doc_grid.add (paned);
             doc_grid.add (info_bar);
+            doc_grid.add (paned);
             doc_grid.show_all ();
 
             main_stack.add_named (doc_grid, "content");
