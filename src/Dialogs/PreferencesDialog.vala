@@ -27,13 +27,9 @@ namespace Scratch.Dialogs {
         private Gtk.Stack main_stack;
         private Gtk.Switch highlight_current_line;
         private Gtk.Switch highlight_matching_brackets;
-        private Gtk.ComboBoxText style_scheme;
         private Gtk.Switch use_custom_font;
         private Gtk.FontButton select_font;
-
-#if GTKSOURCEVIEW_3_18
         private Gtk.Switch show_mini_map;
-#endif
 
         public Preferences (Gtk.Window? parent, Services.PluginsManager plugins) {
             Object (
@@ -122,11 +118,8 @@ namespace Scratch.Dialogs {
             draw_spaces_combo.append ("Always", _("Always"));
             Scratch.settings.schema.bind ("draw-spaces", draw_spaces_combo, "active-id", SettingsBindFlags.DEFAULT);
 
-
-#if GTKSOURCEVIEW_3_18
             var show_mini_map_label = new SettingsLabel (_("Show Mini Map:"));
             show_mini_map = new SettingsSwitch ("show-mini-map");
-#endif
 
             var show_right_margin_label = new SettingsLabel (_("Line width guide:"));
             var show_right_margin = new SettingsSwitch ("show-right-margin");
@@ -136,12 +129,7 @@ namespace Scratch.Dialogs {
             Scratch.settings.schema.bind ("right-margin-position", right_margin_position, "value", SettingsBindFlags.DEFAULT);
             Scratch.settings.schema.bind ("show-right-margin", right_margin_position, "sensitive", SettingsBindFlags.DEFAULT);
 
-            var font_header = new Granite.HeaderLabel (_("Font and Color Scheme"));
-
-            var style_scheme_label = new SettingsLabel (_("Color scheme:"));
-            style_scheme = new Gtk.ComboBoxText ();
-            populate_style_scheme ();
-            Scratch.settings.schema.bind ("style-scheme", style_scheme, "active-id", SettingsBindFlags.DEFAULT);
+            var font_header = new Granite.HeaderLabel (_("Font"));
 
             var use_custom_font_label = new SettingsLabel (_("Custom font:"));
             use_custom_font = new Gtk.Switch ();
@@ -160,34 +148,17 @@ namespace Scratch.Dialogs {
             content.attach (highlight_matching_brackets, 1, 2, 1, 1);
             content.attach (draw_spaces_label, 0, 3, 1, 1);
             content.attach (draw_spaces_combo, 1, 3, 2, 1);
-
-#if GTKSOURCEVIEW_3_18
             content.attach (show_mini_map_label, 0, 5, 1, 1);
             content.attach (show_mini_map, 1, 5, 1, 1);
-#endif
-
             content.attach (show_right_margin_label, 0, 6, 1, 1);
             content.attach (show_right_margin, 1, 6, 1, 1);
             content.attach (right_margin_position, 2, 6, 1, 1);
             content.attach (font_header, 0, 7, 3, 1);
-            content.attach (style_scheme_label, 0, 8, 1, 1);
-            content.attach (style_scheme, 1, 8, 2, 1);
             content.attach (use_custom_font_label , 0, 9, 1, 1);
             content.attach (use_custom_font, 1, 9, 1, 1);
             content.attach (select_font, 2, 9, 1, 1);
 
             return content;
-        }
-
-        private void populate_style_scheme () {
-            string[] scheme_ids;
-            var scheme_manager = new Gtk.SourceStyleSchemeManager ();
-            scheme_ids = scheme_manager.get_scheme_ids ();
-
-            foreach (string scheme_id in scheme_ids) {
-                var scheme = scheme_manager.get_scheme (scheme_id);
-                style_scheme.append (scheme.id, scheme.name);
-            }
         }
 
         private class SettingsLabel : Gtk.Label {

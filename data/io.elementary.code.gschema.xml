@@ -144,6 +144,11 @@
 			<summary>Remember the last focused document.</summary>
 			<description>Restore the focused document from a previous session when opening Scratch.</description>
 		</key>
+		<key name="prefer-dark-style" type="b">
+			<default>false</default>
+			<summary>Request dark Gtk stylesheet variant</summary>
+			<description>Switches between dark and light style</description>
+		</key>
 	</schema>
 	<schema path="/io/elementary/code/services/" id="io.elementary.code.services" gettext-domain="io.elementary.code">
 		<key name="paste-format-code" type="s">

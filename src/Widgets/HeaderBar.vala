@@ -93,6 +93,39 @@ namespace Scratch.Widgets {
             font_size_grid.add (zoom_default_button);
             font_size_grid.add (zoom_in_button);
 
+            var color_button_white = new Gtk.Button ();
+            color_button_white.halign = Gtk.Align.CENTER;
+            color_button_white.height_request = 32;
+            color_button_white.width_request = 32;
+            color_button_white.tooltip_text = _("High Contrast");
+
+            var color_button_white_context = color_button_white.get_style_context ();
+            color_button_white_context.add_class ("color-button");
+            color_button_white_context.add_class ("color-white");
+
+            var color_button_light = new Gtk.Button ();
+            color_button_light.halign = Gtk.Align.CENTER;
+            color_button_light.height_request = 32;
+            color_button_light.width_request = 32;
+            color_button_light.tooltip_text = _("Solarized Light");
+
+            var color_button_light_context = color_button_light.get_style_context ();
+            color_button_light_context.add_class ("color-button");
+            color_button_light_context.add_class ("color-light");
+
+            var color_button_dark = new Gtk.Button ();
+            color_button_dark.halign = Gtk.Align.CENTER;
+            color_button_dark.height_request = 32;
+            color_button_dark.width_request = 32;
+            color_button_dark.tooltip_text = _("Solarized Dark");
+
+            var color_button_dark_context = color_button_dark.get_style_context ();
+            color_button_dark_context.add_class ("color-button");
+            color_button_dark_context.add_class ("color-dark");
+
+            var menu_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
+            menu_separator.margin_top = 12;
+
             var new_view_menuitem = new Gtk.ModelButton ();
             new_view_menuitem.text = _("Add New View");
             new_view_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_VIEW;
@@ -109,11 +142,14 @@ namespace Scratch.Widgets {
             menu_grid.margin_bottom = 3;
             menu_grid.orientation = Gtk.Orientation.VERTICAL;
             menu_grid.width_request = 200;
-            menu_grid.add (font_size_grid);
-            menu_grid.add (new Gtk.Separator (Gtk.Orientation.HORIZONTAL));
-            menu_grid.add (new_view_menuitem);
-            menu_grid.add (remove_view_menuitem);
-            menu_grid.add (preferences_menuitem);
+            menu_grid.attach (font_size_grid, 0, 0, 3, 1);
+            menu_grid.attach (color_button_white, 0, 1, 1, 1);
+            menu_grid.attach (color_button_light, 1, 1, 1, 1);
+            menu_grid.attach (color_button_dark, 2, 1, 1, 1);
+            menu_grid.attach (menu_separator, 0, 2, 3, 1);
+            menu_grid.attach (new_view_menuitem, 0, 3, 3, 1);
+            menu_grid.attach (remove_view_menuitem, 0, 4, 3, 1);
+            menu_grid.attach (preferences_menuitem, 0, 5, 3, 1);
             menu_grid.show_all ();
 
             var menu = new Gtk.Popover (null);
@@ -151,6 +187,25 @@ namespace Scratch.Widgets {
                 zoom_default_button.label = "%.0f%%".printf (last_window.get_current_font_size () * 10);
             });
 
+            var gtk_settings = Gtk.Settings.get_default ();
+
+            color_button_dark.clicked.connect (() => {
+                Scratch.settings.prefer_dark_style = true;
+                Scratch.settings.style_scheme = "solarized-dark";
+                gtk_settings.gtk_application_prefer_dark_theme = true;
+            });
+
+            color_button_light.clicked.connect (() => {
+                Scratch.settings.prefer_dark_style = false;
+                Scratch.settings.style_scheme = "solarized-light";
+                gtk_settings.gtk_application_prefer_dark_theme = false;
+            });
+
+            color_button_white.clicked.connect (() => {
+                Scratch.settings.prefer_dark_style = false;
+                Scratch.settings.style_scheme = "classic";
+                gtk_settings.gtk_application_prefer_dark_theme = false;
+            });
         }
 
         private void on_share_menu_changed () {
