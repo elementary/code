@@ -45,19 +45,3 @@ appstream_file = i18n.merge_file(
     install_dir: join_paths(get_option('datadir'), 'metainfo'),
     install: true
 )
-
-# Test the Desktop files
-validate_desktop_exe = find_program('desktop-file-validate')
-test ('Validate Desktop file', validate_desktop_exe,
-    args: desktop_file
-)
-
-# Test the AppData file
-appstreamcli_exe = find_program('appstreamcli')
-
-test ('Validate AppStream file', appstreamcli_exe,
-    args: [
-        'validate',
-        appstream_file
-    ]
-)
