@@ -29,10 +29,7 @@ namespace Scratch.Dialogs {
         private Gtk.Switch highlight_matching_brackets;
         private Gtk.Switch use_custom_font;
         private Gtk.FontButton select_font;
-
-#if GTKSOURCEVIEW_3_18
         private Gtk.Switch show_mini_map;
-#endif
 
         public Preferences (Gtk.Window? parent, Services.PluginsManager plugins) {
             Object (
@@ -121,11 +118,8 @@ namespace Scratch.Dialogs {
             draw_spaces_combo.append ("Always", _("Always"));
             Scratch.settings.schema.bind ("draw-spaces", draw_spaces_combo, "active-id", SettingsBindFlags.DEFAULT);
 
-
-#if GTKSOURCEVIEW_3_18
             var show_mini_map_label = new SettingsLabel (_("Show Mini Map:"));
             show_mini_map = new SettingsSwitch ("show-mini-map");
-#endif
 
             var show_right_margin_label = new SettingsLabel (_("Line width guide:"));
             var show_right_margin = new SettingsSwitch ("show-right-margin");
@@ -154,12 +148,8 @@ namespace Scratch.Dialogs {
             content.attach (highlight_matching_brackets, 1, 2, 1, 1);
             content.attach (draw_spaces_label, 0, 3, 1, 1);
             content.attach (draw_spaces_combo, 1, 3, 2, 1);
-
-#if GTKSOURCEVIEW_3_18
             content.attach (show_mini_map_label, 0, 5, 1, 1);
             content.attach (show_mini_map, 1, 5, 1, 1);
-#endif
-
             content.attach (show_right_margin_label, 0, 6, 1, 1);
             content.attach (show_right_margin, 1, 6, 1, 1);
             content.attach (right_margin_position, 2, 6, 1, 1);

@@ -92,10 +92,7 @@ namespace Scratch.Services {
 
         private Gtk.ScrolledWindow scroll;
         private Gtk.InfoBar info_bar;
-
-#if GTKSOURCEVIEW_3_18
         private Gtk.SourceMap source_map;
-#endif
 
         private GLib.Cancellable save_cancellable;
         private GLib.Cancellable load_cancellable;
@@ -122,9 +119,7 @@ namespace Scratch.Services {
             scroll.add (source_view);
             info_bar = new Gtk.InfoBar ();
             source_file = new Gtk.SourceFile ();
-#if GTKSOURCEVIEW_3_18
             source_map = new Gtk.SourceMap ();
-#endif
 
             // Handle Drag-and-drop functionality on source-view
             Gtk.TargetEntry uris = {"text/uri-list", 0, 0};
@@ -144,16 +139,12 @@ namespace Scratch.Services {
             var grid = new Gtk.Grid ();
             grid.orientation = Gtk.Orientation.VERTICAL;
 
-#if GTKSOURCEVIEW_3_18
             source_map.set_view (source_view);
 
             grid.attach (info_bar, 0, 0, 2, 1);
             grid.attach (scroll, 0, 1, 1, 1);
             grid.attach (source_map, 1, 1, 1, 1);
-#else
-            grid.add (info_bar);
-            grid.add (scroll);
-#endif
+
             main_stack.add_named (grid, "content");
 
             /* Create as loaded - could be new document */
@@ -496,7 +487,6 @@ namespace Scratch.Services {
         }
 
         private void restore_settings () {
-#if GTKSOURCEVIEW_3_18
             if (settings.show_mini_map) {
                 source_map.show ();
                 scroll.vscrollbar_policy = Gtk.PolicyType.EXTERNAL;
@@ -505,8 +495,8 @@ namespace Scratch.Services {
                 source_map.no_show_all = true;
                 scroll.vscrollbar_policy = Gtk.PolicyType.AUTOMATIC;
             }
-#endif
         }
+
         // Focus the SourceView
         public new void focus () {
             this.source_view.grab_focus ();
