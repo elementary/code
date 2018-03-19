@@ -181,7 +181,13 @@ public class Code.FormatBar : Gtk.Grid {
 
     private void format_tab_header () {
         var indent_width = Scratch.settings.schema.get_int ("indent-width");
-        if (Scratch.settings.schema.get_boolean ("spaces-instead-of-tabs")) {
+        var spaces_instead_of_tabs = Scratch.settings.schema.get_boolean ("spaces-instead-of-tabs");
+        if (doc != null) {
+            indent_width = (int)doc.source_view.tab_width;
+            spaces_instead_of_tabs = doc.source_view.insert_spaces_instead_of_tabs;
+        }
+        
+        if (spaces_instead_of_tabs) {
             tab_toggle.text = ngettext ("%d Space", "%d Spaces", indent_width).printf (indent_width);
         } else {
             tab_toggle.text = ngettext ("%d Tab", "%d Tabs", indent_width).printf (indent_width);
