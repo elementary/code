@@ -38,13 +38,11 @@ namespace Scratch {
         private Scratch.Services.PluginsManager plugins;
 
         // Widgets for Plugins
-        public Gtk.Notebook contextbar;
         public Gtk.Notebook bottombar;
         public Code.Pane project_pane;
 
         private Gtk.Dialog? preferences_dialog = null;
         private Gtk.Paned hp1;
-        private Gtk.Paned hp2;
         private Gtk.Paned vp;
 
         public Gtk.Clipboard clipboard;
@@ -275,6 +273,8 @@ namespace Scratch {
             });
 
             split_view.document_change.connect ((doc) => {
+                plugins.hook_document (doc);
+                
                 search_bar.set_text_view (doc.source_view);
                 // Update MainWindow title
                 if (doc != null) {
@@ -312,16 +312,6 @@ namespace Scratch {
 
             folder_manager_view.restore_saved_state ();
 
-            contextbar = new Gtk.Notebook ();
-            contextbar.no_show_all = true;
-            contextbar.width_request = 200;
-            contextbar.page_removed.connect (() => { on_plugin_toggled (contextbar); });
-            contextbar.page_added.connect (() => {
-                if (!split_view.is_empty ()) {
-                    on_plugin_toggled (contextbar);
-                }
-            });
-
             bottombar = new Gtk.Notebook ();
             bottombar.no_show_all = true;
             bottombar.page_removed.connect (() => { on_plugin_toggled (bottombar); });
@@ -344,14 +334,9 @@ namespace Scratch {
             hp1.pack1 (project_pane, false, false);
             hp1.pack2 (content, true, false);
 
-            hp2 = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-            hp2.position = (width - 180);
-            hp2.pack1 (hp1, true, false);
-            hp2.pack2 (contextbar, false, false);
-
             vp = new Gtk.Paned (Gtk.Orientation.VERTICAL);
             vp.position = (height - 150);
-            vp.pack1 (hp2, true, false);
+            vp.pack1 (hp1, true, false);
             vp.pack2 (bottombar, false, false);
 
             add (vp);
@@ -361,14 +346,11 @@ namespace Scratch {
 
             search_revealer.set_reveal_child (false);
 
-            split_view.document_change.connect ((doc) => { plugins.hook_document (doc); });
-
             // Plugins hook
             HookFunc hook_func = () => {
                 plugins.hook_window (this);
                 plugins.hook_toolbar (toolbar);
                 plugins.hook_share_menu (toolbar.share_menu);
-                plugins.hook_notebook_context (contextbar);
                 plugins.hook_notebook_bottom (bottombar);
                 plugins.hook_split_view (split_view);
             };
@@ -457,10 +439,8 @@ namespace Scratch {
 
             // PlugIns
             if (val) {
-                on_plugin_toggled (contextbar);
                 on_plugin_toggled (bottombar);
             } else {
-                contextbar.visible = val;
                 bottombar.visible = val;
             }
         }
@@ -600,7 +580,6 @@ namespace Scratch {
         private void restore_saved_state_extra () {
             // Plugin panes size
             hp1.set_position (Scratch.saved_state.hp1_size);
-            hp2.set_position (Scratch.saved_state.hp2_size);
             vp.set_position (Scratch.saved_state.vp_size);
         }
 
@@ -640,7 +619,6 @@ namespace Scratch {
 
             // Plugin panes size
             Scratch.saved_state.hp1_size = hp1.get_position ();
-            Scratch.saved_state.hp2_size = hp2.get_position ();
             Scratch.saved_state.vp_size = vp.get_position ();
         }
 

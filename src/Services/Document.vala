@@ -87,6 +87,7 @@ namespace Scratch.Services {
 
         public Gtk.Stack main_stack;
         public Scratch.Widgets.SourceView source_view;
+        public Code.Pane pane;
         public string original_content;
         public bool saved = true;
 
@@ -120,6 +121,9 @@ namespace Scratch.Services {
             info_bar = new Gtk.InfoBar ();
             source_file = new Gtk.SourceFile ();
             source_map = new Gtk.SourceMap ();
+            source_map.set_view (source_view);
+
+            pane = new Code.Pane ();
 
             // Handle Drag-and-drop functionality on source-view
             Gtk.TargetEntry uris = {"text/uri-list", 0, 0};
@@ -136,16 +140,22 @@ namespace Scratch.Services {
                 return working;
             });
 
-            var grid = new Gtk.Grid ();
-            grid.orientation = Gtk.Orientation.VERTICAL;
+            var source_grid = new Gtk.Grid ();
+            source_grid.orientation = Gtk.Orientation.HORIZONTAL;
+            source_grid.add (scroll);
+            source_grid.add (source_map);
 
-            source_map.set_view (source_view);
+            var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
+            paned.pack1 (source_grid, true, false);
+            paned.pack2 (pane, false, false);
 
-            grid.attach (info_bar, 0, 0, 2, 1);
-            grid.attach (scroll, 0, 1, 1, 1);
-            grid.attach (source_map, 1, 1, 1, 1);
+            var doc_grid = new Gtk.Grid ();
+            doc_grid.orientation = Gtk.Orientation.VERTICAL;
+            doc_grid.add (info_bar);
+            doc_grid.add (paned);
+            doc_grid.show_all ();
 
-            main_stack.add_named (grid, "content");
+            main_stack.add_named (doc_grid, "content");
 
             /* Create as loaded - could be new document */
             loaded = true;
