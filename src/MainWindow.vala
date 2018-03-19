@@ -275,6 +275,8 @@ namespace Scratch {
             });
 
             split_view.document_change.connect ((doc) => {
+                plugins.hook_document (doc);
+                
                 search_bar.set_text_view (doc.source_view);
                 // Update MainWindow title
                 if (doc != null) {
@@ -360,8 +362,6 @@ namespace Scratch {
             show_all ();
 
             search_revealer.set_reveal_child (false);
-
-            split_view.document_change.connect ((doc) => { plugins.hook_document (doc); });
 
             // Plugins hook
             HookFunc hook_func = () => {
