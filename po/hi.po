@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-16 11:23-0700\n"
-"PO-Revision-Date: 2018-03-19 00:01+0000\n"
+"PO-Revision-Date: 2018-03-20 03:46+0000\n"
 "Last-Translator: Anand Kumar <anand@anandkumar.net>\n"
 "Language-Team: Hindi <https://weblate.elementary.io/projects/code/code/hi/>\n"
 "Language: hi\n"
@@ -222,7 +222,7 @@ msgstr "लघु मानचित्र चित्रित करें:"
 
 #: src/Dialogs/PreferencesDialog.vala:130
 msgid "Line width guide:"
-msgstr ""
+msgstr "पंक्ति चौड़ाई गाइड:"
 
 #: src/Dialogs/PreferencesDialog.vala:138
 msgid "Font"
@@ -290,7 +290,7 @@ msgstr "कोड इस प्रकार के फ़ाइल को लोड
 
 #: src/Services/Document.vala:224
 msgid "Load Anyway"
-msgstr ""
+msgstr "वैसे भी लोड करें"
 
 #: src/Services/Document.vala:245
 #, c-format
@@ -473,15 +473,15 @@ msgstr "अधिक कंट्रास्ट"
 
 #: src/Widgets/HeaderBar.vala:110
 msgid "Solarized Light"
-msgstr ""
+msgstr "सोलारिज्ड लाइट"
 
 #: src/Widgets/HeaderBar.vala:120
 msgid "Solarized Dark"
-msgstr ""
+msgstr "सोलारिज्ड डार्क"
 
 #: src/Widgets/HeaderBar.vala:130
 msgid "Add New View"
-msgstr ""
+msgstr "नया दृश्य जोड़ें"
 
 #: src/Widgets/HeaderBar.vala:134
 msgid "Remove Current View"
@@ -489,7 +489,7 @@ msgstr "वर्तमान दृश्य को निकालें"
 
 #: src/Widgets/HeaderBar.vala:160
 msgid "Menu"
-msgstr ""
+msgstr "मेन्यू"
 
 #: src/Widgets/SearchBar.vala:63
 msgid "Find"
@@ -501,11 +501,11 @@ msgstr "अगला खोजे"
 
 #: src/Widgets/SearchBar.vala:73
 msgid "Search previous"
-msgstr ""
+msgstr "पिछला खोजें"
 
 #: src/Widgets/SearchBar.vala:77
 msgid "Cyclic Search"
-msgstr ""
+msgstr "चक्रीय ख़ोज"
 
 #: src/Widgets/SearchBar.vala:89
 msgid "Replace With"
@@ -517,11 +517,11 @@ msgstr "बदलें"
 
 #: src/Widgets/SearchBar.vala:95
 msgid "Replace all"
-msgstr ""
+msgstr "सबको प्रतिस्थापित करें"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
-msgstr ""
+msgstr "कोई फाइल नहीं खुला"
 
 #: src/Widgets/WelcomeView.vala:27
 msgid "Open a file to begin editing."
@@ -545,11 +545,11 @@ msgstr "सहेजी गई फाइल को खोलें."
 
 #: src/Widgets/WelcomeView.vala:37
 msgid "New file from clipboard"
-msgstr ""
+msgstr "क्लिपबोर्ड से नई फ़ाइल"
 
 #: src/Widgets/WelcomeView.vala:37
 msgid "Create a new file from the contents of your clipboard."
-msgstr ""
+msgstr "अपने क्लिपबोर्ड की सामग्री से एक नई फ़ाइल बनाएं।"
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via PasteBin"
@@ -561,7 +561,7 @@ msgstr "नाम:"
 
 #: plugins/pastebin/pastebin_dialog.vala:259
 msgid "Format:"
-msgstr ""
+msgstr "प्रारूप:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
 msgid "Others..."
@@ -573,7 +573,7 @@ msgstr "समाप्ति (expiry) समय:"
 
 #: plugins/pastebin/pastebin_dialog.vala:292
 msgid "Keep this paste private"
-msgstr ""
+msgstr "इस 'पेस्ट' को निजी रखें"
 
 #: plugins/pastebin/pastebin_dialog.vala:321
 msgid "Upload"
@@ -581,11 +581,11 @@ msgstr "अपलोड करें"
 
 #: plugins/pastebin/pastebin_dialog.vala:352
 msgid "Other formats"
-msgstr ""
+msgstr "अन्य प्रारूप"
 
 #: plugins/pastebin/pastebin_dialog.vala:461
 msgid "Ten minutes"
-msgstr ""
+msgstr "दस मिनट"
 
 #: plugins/pastebin/pastebin_dialog.vala:462
 msgid "One hour"
@@ -593,11 +593,11 @@ msgstr "एक घंटा"
 
 #: plugins/pastebin/pastebin_dialog.vala:463
 msgid "One day"
-msgstr ""
+msgstr "एक दिन"
 
 #: plugins/pastebin/pastebin_dialog.vala:464
 msgid "One month"
-msgstr ""
+msgstr "एक महीना"
 
 #: plugins/pastebin/pastebin.vala:94
 msgid "Upload to Pastebin"
@@ -614,19 +614,19 @@ msgstr "संकेत"
 #: plugins/terminal/terminal.vala:118 plugins/terminal/terminal.vala:127
 #: plugins/terminal/terminal.vala:174 plugins/terminal/terminal.vala:176
 msgid "Terminal"
-msgstr ""
+msgstr "टर्मिनल"
 
 #: plugins/terminal/terminal.vala:169 plugins/terminal/terminal.vala:180
 msgid "Show Terminal"
-msgstr ""
+msgstr "टर्मिनल दिखाएँ"
 
 #: plugins/terminal/terminal.vala:172
 msgid "Hide Terminal"
-msgstr ""
+msgstr "टर्मिनल छिपाएं"
 
 #: plugins/terminal/terminal.vala:247
 msgid "Copy"
-msgstr ""
+msgstr "प्रतिलिपि"
 
 #: plugins/terminal/terminal.vala:254
 msgid "Paste"
@@ -634,11 +634,11 @@ msgstr "चिपकाएं"
 
 #: plugins/terminal/terminal.vala:264
 msgid "Terminal on Right"
-msgstr ""
+msgstr "टर्मिनल दाहिनी तरफ"
 
 #: plugins/terminal/terminal.vala:272
 msgid "Terminal on Bottom"
-msgstr ""
+msgstr "टर्मिनल नीचे"
 
 #: plugins/browser-preview/browser-preview.vala:82
 #: plugins/browser-preview/browser-preview.vala:108
@@ -648,7 +648,7 @@ msgstr "पूर्वावलोकन दिखाएँ"
 #: plugins/browser-preview/browser-preview.vala:104
 #: plugins/browser-preview/browser-preview.vala:150
 msgid "Web Preview"
-msgstr ""
+msgstr "वेब पूर्वावलोकन"
 
 #: plugins/browser-preview/browser-preview.vala:105
 msgid "Hide Preview"
@@ -659,16 +659,18 @@ msgid ""
 "No suitable dictionaries were found.\n"
 "Please install at least one [aspell] dictionary"
 msgstr ""
+"कोई उपयुक्त शब्दकोश नहीं मिला।\n"
+"कृपया कम से कम एक [aspell] शब्दकोश स्थापित/इनस्टॉल करें"
 
 #: plugins/word-completion/plugin.vala:174
 #, c-format
 msgid "%s - Word Completion"
-msgstr ""
+msgstr "%s - शब्द समापन"
 
 #: plugins/word-completion/completion-provider.vala:80
 #, c-format
 msgid "Could not load icon theme: %s\n"
-msgstr ""
+msgstr "आइकॉन थीम लोड नहीं किया जा सका: %s\n"
 
 #: plugins/open-with/open-with.vala:51
 msgid "Open With…"
