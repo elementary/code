@@ -1,10 +1,27 @@
+/*-
+ * Copyright (c) 2017-2018 elementary LLC. (https://elementary.io)
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
 
-namespace Comparison {
+namespace Code.Plugins.ValaComparison {
     int sort_function (Granite.Widgets.SourceList.Item str1, Granite.Widgets.SourceList.Item str2) {
-        if (!(str1 is SymbolItem && str2 is SymbolItem))
+        if (!(str1 is ValaSymbolItem && str2 is ValaSymbolItem))
             return str1.name.collate (str2.name);
-        var a = (SymbolItem) str1;
-        var b = (SymbolItem) str2;
+        var a = (ValaSymbolItem) str1;
+        var b = (ValaSymbolItem) str2;
         var sa = a.symbol;
         var sb = b.symbol;
         if (sa is Vala.Class)

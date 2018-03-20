@@ -1,10 +1,27 @@
+/*-
+ * Copyright (c) 2017-2018 elementary LLC. (https://elementary.io)
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
 
-public class ValaSymbolOutline : Object, SymbolOutline {
+public class Code.Plugins.ValaSymbolOutline : Object, Code.Plugins.SymbolOutline {
     public const string OUTLINE_RESOURCE_URI = "resource:///io/elementary/code/plugin/outline/";
     public Scratch.Services.Document doc { get; protected set; }
     public Granite.Widgets.SourceList store { get; private set; }
     Granite.Widgets.SourceList.ExpandableItem root;
-    SymbolResolver resolver;
+    Code.Plugins.ValaSymbolResolver resolver;
     Vala.Parser parser;
     GLib.Cancellable cancellable;
 
@@ -15,14 +32,14 @@ public class ValaSymbolOutline : Object, SymbolOutline {
 
         store = new Granite.Widgets.SourceList ();
         store.item_selected.connect ((selected) => {
-            goto (doc, (selected as SymbolItem).symbol.source_reference.begin.line);
+            goto (doc, (selected as ValaSymbolItem).symbol.source_reference.begin.line);
         });
 
         root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));
         store.root.add (root);
 
         parser = new Vala.Parser ();
-        resolver = new SymbolResolver ();
+        resolver = new Code.Plugins.ValaSymbolResolver ();
     }
 
     ~ValaSymbolOutline () {
@@ -113,15 +130,15 @@ public class ValaSymbolOutline : Object, SymbolOutline {
         return new_root;
     }
 
-    private Gee.TreeSet<SymbolItem> iterate_children (Granite.Widgets.SourceList.ExpandableItem parent) {
-        var result = new Gee.TreeSet<SymbolItem> ();
+    private Gee.TreeSet<ValaSymbolItem> iterate_children (Granite.Widgets.SourceList.ExpandableItem parent) {
+        var result = new Gee.TreeSet<ValaSymbolItem> ();
         foreach (var child in parent.children) {
-            result.add_all (iterate_children ((SymbolItem)child));
+            result.add_all (iterate_children ((ValaSymbolItem)child));
         }
         return result;
     }
 
-    private SymbolItem construct_child (Vala.Symbol symbol, Granite.Widgets.SourceList.ExpandableItem given_parent, GLib.Cancellable cancellable) {
+    private ValaSymbolItem construct_child (Vala.Symbol symbol, Granite.Widgets.SourceList.ExpandableItem given_parent, GLib.Cancellable cancellable) {
         Granite.Widgets.SourceList.ExpandableItem parent;
         if (symbol.scope.parent_scope.owner.name == null)
             parent = given_parent;
@@ -132,7 +149,7 @@ public class ValaSymbolOutline : Object, SymbolOutline {
             parent = construct_child (symbol.scope.parent_scope.owner, given_parent, cancellable);
         }
 
-        var tree_child = new SymbolItem (symbol);
+        var tree_child = new ValaSymbolItem (symbol);
         if (symbol is Vala.Struct) {
             tree_child.icon = new ThemedIcon ("lang-struct");
         } else if (symbol is Vala.Class) {
@@ -185,13 +202,13 @@ public class ValaSymbolOutline : Object, SymbolOutline {
         return tree_child;
     }
 
-    SymbolItem? find_existing (Vala.Symbol symbol, Granite.Widgets.SourceList.ExpandableItem parent, GLib.Cancellable cancellable) {
-        SymbolItem match = null;
+    ValaSymbolItem? find_existing (Vala.Symbol symbol, Granite.Widgets.SourceList.ExpandableItem parent, GLib.Cancellable cancellable) {
+        ValaSymbolItem match = null;
         foreach (var _child in parent.children) {
             if (cancellable.is_cancelled ())
                 break;
 
-            var child = _child as SymbolItem;
+            var child = _child as ValaSymbolItem;
             if (child == null)
                 continue;
 

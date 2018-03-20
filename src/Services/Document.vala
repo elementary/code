@@ -333,7 +333,7 @@ namespace Scratch.Services {
             return;
         }
 
-        public new bool close (bool app_closing = false) {
+        public bool do_close (bool app_closing = false) {
             message ("Closing \"%s\"", get_basename ());
 
             if (!loaded) {
