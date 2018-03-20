@@ -131,7 +131,7 @@ namespace Scratch.Widgets {
             }
 
             foreach (var doc in view.docs) {
-                if (!doc.close (true)) {
+                if (!doc.do_close (true)) {
                     view.current_document = doc;
                     return;
                 }
