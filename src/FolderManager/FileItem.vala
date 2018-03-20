@@ -34,7 +34,7 @@ namespace Scratch.FolderManager {
 
             var files_menuitem = new Gtk.MenuItem ();
             files_menuitem.add (files_item_grid);
-            files_menuitem.activate.connect (() => show_file_uri (file));
+            files_menuitem.activate.connect (() => launch_app_with_file (AppInfo.get_default_for_type ("inode/directory", true), file.file));
 
             var other_menuitem = new Gtk.MenuItem.with_label (_("Other Application…"));
             other_menuitem.activate.connect (() => show_app_chooser (file));
@@ -65,14 +65,7 @@ namespace Scratch.FolderManager {
                     item_app.add (menuitem_grid);
 
                     item_app.activate.connect (() => {
-                        var file_list = new List<GLib.File> ();
-                        file_list.append (file.file);
-
-                        try {
-                            app_info.launch (file_list, null);
-                        } catch (Error e) {
-                            warning (e.message);
-                        }
+                        launch_app_with_file (app_info, file.file);
                     });
                     open_in_menu.add (item_app);
                 }
@@ -104,24 +97,16 @@ namespace Scratch.FolderManager {
             if (dialog.run () == Gtk.ResponseType.OK) {
                 var app_info = dialog.get_app_info ();
                 if (app_info != null) {
-                    var file_list = new List<GLib.File> ();
-                    file_list.append (file.file);
-                    try {
-                        app_info.launch (file_list, null);
-                    } catch (Error e) {
-                        warning (e.message);
-                    }
+                    launch_app_with_file (app_info, file.file);
                 }
             }
 
             dialog.destroy ();
         }
 
-        private void show_file_uri (File file) {
+        private void launch_app_with_file (AppInfo app_info, GLib.File file) {
             var file_list = new List<GLib.File> ();
-            file_list.append (file.file);
-
-            var app_info = AppInfo.get_default_for_type ("inode/directory", true);
+            file_list.append (file);
 
             try {
                 app_info.launch (file_list, null);
