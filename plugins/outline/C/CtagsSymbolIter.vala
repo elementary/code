@@ -14,17 +14,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Authored by: Corentin Noël <corentin@elementary.io>
  */
 
-namespace Code.Plugins {
-    public class OutlinePane : Gtk.Stack, Code.PaneSwitcher {
-        public string icon_name { get; set; }
-        public string title { get; set; }
+public class Code.Plugins.CtagsSymbolIter : Object {
+    public string name { get; construct set; }
+    public string parent { get; construct set; }
+    public int line { get; construct set; }
+    public Icon icon { get; construct set; }
 
-        construct {
-            icon_name = "plugin-outline-symbolic";
-            title = _("Symbols");
-        }
+    public CtagsSymbolIter (string name, string parent, int line, Icon icon) {
+        Object(name: name, parent: parent, line: line, icon: icon);
     }
 }

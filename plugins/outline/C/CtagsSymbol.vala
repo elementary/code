@@ -14,17 +14,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Authored by: Corentin Noël <corentin@elementary.io>
  */
 
-namespace Code.Plugins {
-    public class OutlinePane : Gtk.Stack, Code.PaneSwitcher {
-        public string icon_name { get; set; }
-        public string title { get; set; }
+public class Code.Plugins.CtagsSymbol : Granite.Widgets.SourceList.ExpandableItem {
+    public Scratch.Services.Document doc { get; construct set; }
+    public int line { get; construct set; }
 
-        construct {
-            icon_name = "plugin-outline-symbolic";
-            title = _("Symbols");
-        }
+    public CtagsSymbol (Scratch.Services.Document doc, string name, int line, Icon? _icon) {
+        Object (doc: doc, name: name, line: line);
+        icon = _icon;
     }
 }
