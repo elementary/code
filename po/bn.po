@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-16 11:23-0700\n"
+"POT-Creation-Date: 2018-03-20 11:22-0700\n"
 "PO-Revision-Date: 2017-01-21 09:06+0000\n"
 "Last-Translator: Hasan Sumon <hsnsumon@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -87,31 +87,31 @@ msgstr "প্লাগিন এর সেট"
 msgid "Current working directory"
 msgstr "বর্তমান কাজের ডিরেক্টরি"
 
-#: src/MainWindow.vala:133
+#: src/MainWindow.vala:125
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:178 src/Widgets/HeaderBar.vala:66
+#: src/MainWindow.vala:167 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
 msgstr "খুঁজুন..."
 
-#: src/MainWindow.vala:180
+#: src/MainWindow.vala:169
 msgid "Hide search bar"
 msgstr "অনুসন্ধান বার লুকিয়ে রাখুন"
 
-#: src/MainWindow.vala:226
+#: src/MainWindow.vala:215
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "স্ক্র্যাচ এর জন্যে জেইটগেইস্ট ডাটাসোর্স"
 
-#: src/MainWindow.vala:752
+#: src/MainWindow.vala:716
 msgid "Open some files"
 msgstr "কিছু ফাইল খুলুন"
 
-#: src/MainWindow.vala:771
+#: src/MainWindow.vala:735
 msgid "_Cancel"
 msgstr "_বাতিল"
 
-#: src/MainWindow.vala:772
+#: src/MainWindow.vala:736
 msgid "_Open"
 msgstr "_খুলুন"
 
@@ -123,7 +123,7 @@ msgstr "সব ফাইল"
 msgid "Text files"
 msgstr "টেক্সট ফাইলসমূহ"
 
-#: src/Utils.vala:35 src/Services/Document.vala:370
+#: src/Utils.vala:35 src/Services/Document.vala:371
 msgid "Cancel"
 msgstr "বাতিল করুন"
 
@@ -131,106 +131,115 @@ msgstr "বাতিল করুন"
 msgid "Open"
 msgstr "খুলুন"
 
-#: src/Utils.vala:46 src/Services/Document.vala:371
+#: src/Utils.vala:46 src/Services/Document.vala:372
 #: src/Services/Document.vala:668
 msgid "Save"
 msgstr "সংরক্ষণ করুন"
 
-#: src/Dialogs/PreferencesDialog.vala:42 src/Widgets/HeaderBar.vala:138
+#: src/Dialogs/PreferencesDialog.vala:39 src/Widgets/HeaderBar.vala:138
 msgid "Preferences"
 msgstr "পছন্দসমূহ"
 
-#: src/Dialogs/PreferencesDialog.vala:56
+#: src/Dialogs/PreferencesDialog.vala:53
 msgid "General"
 msgstr "সাধারন"
 
-#: src/Dialogs/PreferencesDialog.vala:57
+#: src/Dialogs/PreferencesDialog.vala:54
 msgid "Save files when changed:"
 msgstr "ফাইল সংরক্ষণ করুন যখনঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:59 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
 msgstr "ট্যাবসমূহ"
 
-#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:147
+#: src/Dialogs/PreferencesDialog.vala:57 src/Widgets/FormatBar.vala:147
 msgid "Automatic indentation:"
 msgstr "স্বয়ংক্রিয় ইনডেন্টেশানঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:141
+#: src/Dialogs/PreferencesDialog.vala:59 src/Widgets/FormatBar.vala:141
 msgid "Insert spaces instead of tabs:"
 msgstr "ট্যাব এর বদলে স্পেস ব্যবহার করুনঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:144
+#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:144
 msgid "Tab width:"
 msgstr "ট্যাব এর প্রস্থঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:71
+#: src/Dialogs/PreferencesDialog.vala:68
 msgid "Behavior"
 msgstr "বৈশিষ্ট্য"
 
-#: src/Dialogs/PreferencesDialog.vala:72
+#: src/Dialogs/PreferencesDialog.vala:69
 msgid "Interface"
 msgstr "ইন্টারফেস"
 
-#: src/Dialogs/PreferencesDialog.vala:84
+#: src/Dialogs/PreferencesDialog.vala:81
 #: plugins/pastebin/pastebin_dialog.vala:323
 msgid "Close"
 msgstr "বন্ধ করুন"
 
-#: src/Dialogs/PreferencesDialog.vala:100
+#: src/Dialogs/PreferencesDialog.vala:97
 msgid "Extensions"
 msgstr "এক্সটেনশানসমূহ"
 
-#: src/Dialogs/PreferencesDialog.vala:109
+#: src/Dialogs/PreferencesDialog.vala:106
 msgid "Editor"
 msgstr "সম্পাদক"
 
-#: src/Dialogs/PreferencesDialog.vala:111
+#: src/Dialogs/PreferencesDialog.vala:108
 msgid "Highlight current line:"
 msgstr "বর্তমান লাইনটি হাইলাইট করুনঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:111
 msgid "Highlight matching brackets:"
 msgstr "একই ধরনের ব্র্যাকেট হাইলাইট করুনঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:114
 msgid "Draw Spaces:"
 msgstr "ফাঁকা স্থান বসানঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:119
+#: src/Dialogs/PreferencesDialog.vala:116
 #: plugins/pastebin/pastebin_dialog.vala:460
 msgid "Never"
 msgstr "কখনো নয়"
 
-#: src/Dialogs/PreferencesDialog.vala:120
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "For selected text"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:121
+#: src/Dialogs/PreferencesDialog.vala:118
 msgid "Always"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:126
+#: src/Dialogs/PreferencesDialog.vala:121
 msgid "Show Mini Map:"
 msgstr "ছোট ম্যাপ দেখানঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:130
+#: src/Dialogs/PreferencesDialog.vala:124
 msgid "Line width guide:"
 msgstr "লাইন এর প্রস্থ নির্দেশিকাঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:138
+#: src/Dialogs/PreferencesDialog.vala:132
 msgid "Font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:140
+#: src/Dialogs/PreferencesDialog.vala:134
 msgid "Custom font:"
 msgstr "কাস্টম ফন্টঃ"
 
-#: src/FolderManager/FileItem.vala:31 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:41
+msgid "Other Application…"
+msgstr ""
+
+#: src/FolderManager/FileItem.vala:82
+#, fuzzy
+msgid "Open In"
+msgstr "খুলুন"
+
+#: src/FolderManager/FileItem.vala:85 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:34 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:88 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr ""
@@ -276,50 +285,50 @@ msgstr "নতুন ফাইল"
 msgid "Close Folder"
 msgstr "ফোল্ডার বন্ধ করুন"
 
-#: src/Services/Document.vala:221
+#: src/Services/Document.vala:222
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:222
+#: src/Services/Document.vala:223
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:224
+#: src/Services/Document.vala:225
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:245
+#: src/Services/Document.vala:246
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:246
+#: src/Services/Document.vala:247
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:248
+#: src/Services/Document.vala:249
 #, fuzzy
 msgid "Cancel Load"
 msgstr "বাতিল করুন"
 
-#: src/Services/Document.vala:361
+#: src/Services/Document.vala:362
 #, c-format
 msgid "Save changes to document %s before closing?"
 msgstr "বন্ধ করার আগে ডকুমেন্টে  %s সংরক্ষণ করতে চান?"
 
-#: src/Services/Document.vala:364
+#: src/Services/Document.vala:365
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
 "যদি আপনি সংরক্ষণ না করেন, তাহলে গত ৪ সেকেন্ডের পরিবর্তনগুলো স্থায়ীভাবে হারিয়ে "
 "যাবে।"
 
-#: src/Services/Document.vala:366
+#: src/Services/Document.vala:367
 msgid "Close without saving"
 msgstr "সংরক্ষণ না করে বন্ধ করুন"
 
-#: src/Services/Document.vala:448
+#: src/Services/Document.vala:449
 msgid "Save File"
 msgstr "ফাইল সংরক্ষণ করুন"
 
@@ -394,7 +403,7 @@ msgstr "পরবর্তী"
 msgid "Templates"
 msgstr "টেমপ্লেট"
 
-#: src/Widgets/DocumentView.vala:88
+#: src/Widgets/DocumentView.vala:92
 #, fuzzy, c-format
 msgid "Text file from %s"
 msgstr "টেক্সট ফাইল এখান থেকে "
@@ -416,21 +425,21 @@ msgstr ""
 msgid "Plain Text"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:185
+#: src/Widgets/FormatBar.vala:191
 #, fuzzy, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "ফাঁকা স্থান বসানঃ"
 msgstr[1] "ফাঁকা স্থান বসানঃ"
 
-#: src/Widgets/FormatBar.vala:187
+#: src/Widgets/FormatBar.vala:193
 #, fuzzy, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "নতুন ট্যাব"
 msgstr[1] "নতুন ট্যাব"
 
-#: src/Widgets/FormatBar.vala:203
+#: src/Widgets/FormatBar.vala:209
 msgid "Go To Line:"
 msgstr "লাইন এ যানঃ"
 
@@ -613,54 +622,44 @@ msgstr "এক মাস"
 msgid "Upload to Pastebin"
 msgstr "পেস্টবিন এ আপলোড করুন"
 
-#: plugins/outline/ValaProcessing/SymbolOutline.vala:21
-#: plugins/outline/ValaProcessing/SymbolOutline.vala:99
+#: plugins/outline/C/CtagsSymbolOutline.vala:31
+#: plugins/outline/C/CtagsSymbolOutline.vala:64
+#: plugins/outline/Vala/ValaSymbolOutline.vala:38
+#: plugins/outline/Vala/ValaSymbolOutline.vala:116
 #: plugins/outline/OutlinePane.vala:27
-#: plugins/outline/CtagsSymbolResolver.vala:35
-#: plugins/outline/CtagsSymbolResolver.vala:68
 msgid "Symbols"
 msgstr "চিহ্নসমূহ"
 
-#: plugins/terminal/terminal.vala:118 plugins/terminal/terminal.vala:127
-#: plugins/terminal/terminal.vala:174 plugins/terminal/terminal.vala:176
-msgid "Terminal"
-msgstr "টার্মিনাল"
-
-#: plugins/terminal/terminal.vala:169 plugins/terminal/terminal.vala:180
+#: plugins/terminal/terminal.vala:135 plugins/terminal/terminal.vala:142
 msgid "Show Terminal"
 msgstr "টার্মিনাল দেখান"
 
-#: plugins/terminal/terminal.vala:172
+#: plugins/terminal/terminal.vala:138
 msgid "Hide Terminal"
 msgstr "টার্মিনাল লুকিয়ে রাখুন"
 
-#: plugins/terminal/terminal.vala:247
+#: plugins/terminal/terminal.vala:139
+msgid "Terminal"
+msgstr "টার্মিনাল"
+
+#: plugins/terminal/terminal.vala:194
 msgid "Copy"
 msgstr "অনুলিপি"
 
-#: plugins/terminal/terminal.vala:254
+#: plugins/terminal/terminal.vala:201
 msgid "Paste"
 msgstr "প্রতিলেপন"
 
-#: plugins/terminal/terminal.vala:264
-msgid "Terminal on Right"
-msgstr "টার্মিনাল ডানে"
-
-#: plugins/terminal/terminal.vala:272
-msgid "Terminal on Bottom"
-msgstr "টার্মিনাল নীচে"
-
-#: plugins/browser-preview/browser-preview.vala:82
-#: plugins/browser-preview/browser-preview.vala:108
-msgid "Show Preview"
-msgstr "প্রিভিউ দেখান"
-
-#: plugins/browser-preview/browser-preview.vala:104
-#: plugins/browser-preview/browser-preview.vala:150
+#: plugins/browser-preview/BrowserView.vala:32
 msgid "Web Preview"
 msgstr "ওয়েব প্রিভিউ"
 
-#: plugins/browser-preview/browser-preview.vala:105
+#: plugins/browser-preview/browser-preview.vala:74
+#: plugins/browser-preview/browser-preview.vala:100
+msgid "Show Preview"
+msgstr "প্রিভিউ দেখান"
+
+#: plugins/browser-preview/browser-preview.vala:92
 msgid "Hide Preview"
 msgstr "প্রিভিউ লুকিয়ে রাখুন"
 
@@ -685,6 +684,12 @@ msgstr "আইকন থিম লোড করা সম্ভব হয়নি�
 #: plugins/open-with/open-with.vala:51
 msgid "Open With…"
 msgstr "যে প্রোগ্রামের সাহায্যে খোলা হবে..."
+
+#~ msgid "Terminal on Right"
+#~ msgstr "টার্মিনাল ডানে"
+
+#~ msgid "Terminal on Bottom"
+#~ msgstr "টার্মিনাল নীচে"
 
 #~ msgid "Font and Color Scheme"
 #~ msgstr "ফন্ট এর রঙ এর স্কীম"
