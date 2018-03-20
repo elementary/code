@@ -28,20 +28,21 @@ namespace Scratch.FolderManager {
         }
 
         public override Gtk.Menu? get_context_menu () {
+            var files_appinfo = AppInfo.get_default_for_type ("inode/directory", true);
+
             var files_item_grid = new Gtk.Grid ();
-            files_item_grid.add (new Gtk.Image.from_icon_name ("system-file-manager", Gtk.IconSize.MENU));
-            files_item_grid.add (new Gtk.Label (_("File Manager")));
+            files_item_grid.add (new Gtk.Image.from_gicon (files_appinfo.get_icon (), Gtk.IconSize.MENU));
+            files_item_grid.add (new Gtk.Label (files_appinfo.get_name ()));
 
             var files_menuitem = new Gtk.MenuItem ();
             files_menuitem.add (files_item_grid);
-            files_menuitem.activate.connect (() => launch_app_with_file (AppInfo.get_default_for_type ("inode/directory", true), file.file));
+            files_menuitem.activate.connect (() => launch_app_with_file (files_appinfo, file.file));
 
             var other_menuitem = new Gtk.MenuItem.with_label (_("Other Application…"));
             other_menuitem.activate.connect (() => show_app_chooser (file));
 
             var open_in_menu = new Gtk.Menu ();
             open_in_menu.add (files_menuitem);
-            open_in_menu.add (new Gtk.SeparatorMenuItem ());
 
             GLib.FileInfo info = null;
 
@@ -75,6 +76,7 @@ namespace Scratch.FolderManager {
                 }
             }
 
+            open_in_menu.add (new Gtk.SeparatorMenuItem ());
             open_in_menu.add (other_menuitem);
 
             var open_in_item = new Gtk.MenuItem.with_label (_("Open In"));
