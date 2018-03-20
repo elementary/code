@@ -3,12 +3,12 @@ root = true
 
 # elementary defaults
 [*]
-end_of_line = lf
-insert_final_newline = true
 charset = utf-8
-max_line_length = 80
-indent_style = space
+end_of_line = lf
 indent_size = tab
+indent_style = space
+insert_final_newline = true
+max_line_length = 80
 tab_width = 4
 
 [{*.xml,*.xml.in,*.yml}]
