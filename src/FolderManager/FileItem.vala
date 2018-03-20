@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2017 elementary LLC. (https://elementary.io),
+ * Copyright (c) 2017-2018 elementary LLC. (https://elementary.io),
  *               2013 Julien Spautz <spautz.julien@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -42,6 +42,42 @@ namespace Scratch.FolderManager {
             var open_in_menu = new Gtk.Menu ();
             open_in_menu.add (files_menuitem);
             open_in_menu.add (new Gtk.SeparatorMenuItem ());
+
+            GLib.FileInfo info = null;
+
+            try {
+                info = file.file.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, 0);
+            } catch (Error e) {
+                warning (e.message);
+            }
+
+            if (info != null) {
+                var file_type = info.get_attribute_string (GLib.FileAttribute.STANDARD_CONTENT_TYPE);
+
+                List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type (file_type);
+
+                foreach (AppInfo app_info in external_apps) {
+                    var menuitem_grid = new Gtk.Grid ();
+                    menuitem_grid.add (new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.MENU));
+                    menuitem_grid.add (new Gtk.Label (app_info.get_name ()));
+
+                    var item_app = new Gtk.MenuItem ();
+                    item_app.add (menuitem_grid);
+
+                    item_app.activate.connect (() => {
+                        var file_list = new List<GLib.File> ();
+                        file_list.append (file.file);
+
+                        try {
+                            app_info.launch (file_list, null);
+                        } catch (Error e) {
+                            warning (e.message);
+                        }
+                    });
+                    open_in_menu.add (item_app);
+                }
+            }
+
             open_in_menu.add (other_menuitem);
 
             var open_in_item = new Gtk.MenuItem.with_label (_("Open In"));
@@ -90,7 +126,7 @@ namespace Scratch.FolderManager {
             try {
                 app_info.launch (file_list, null);
             } catch (Error e) {
-                warning ("Failed to open file manager: %s", e.message);
+                warning (e.message);
             }
         }
     }
