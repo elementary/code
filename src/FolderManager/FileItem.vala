@@ -58,7 +58,7 @@ namespace Scratch.FolderManager {
                 List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type (file_type);
 
                 foreach (AppInfo app_info in external_apps) {
-                    if (app_info.get_id () == Scratch.Application.instance.application_id + ".desktop") {
+                    if (app_info.get_id () == GLib.Application.get_default ().application_id + ".desktop") {
                         continue;
                     }
 
