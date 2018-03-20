@@ -1,9 +1,25 @@
+/*-
+ * Copyright (c) 2017-2018 elementary LLC. (https://elementary.io)
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
 
-
-public class SymbolItem : Granite.Widgets.SourceList.ExpandableItem, Granite.Widgets.SourceListSortable {
+public class Code.Plugins.ValaSymbolItem : Granite.Widgets.SourceList.ExpandableItem, Granite.Widgets.SourceListSortable {
     public Vala.Symbol symbol { get; set; }
 
-    public SymbolItem (Vala.Symbol symbol) {
+    public ValaSymbolItem (Vala.Symbol symbol) {
         this.symbol = symbol;
         this.name = symbol.name;
         if (symbol is Vala.CreationMethod) {
@@ -16,7 +32,7 @@ public class SymbolItem : Granite.Widgets.SourceList.ExpandableItem, Granite.Wid
     }
 
     public int compare (Granite.Widgets.SourceList.Item a, Granite.Widgets.SourceList.Item b) {
-        return Comparison.sort_function (a, b);
+        return ValaComparison.sort_function (a, b);
     }
 
     public bool allow_dnd_sorting () {
