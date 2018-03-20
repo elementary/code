@@ -28,6 +28,25 @@ namespace Scratch.FolderManager {
         }
 
         public override Gtk.Menu? get_context_menu () {
+            var files_item_grid = new Gtk.Grid ();
+            files_item_grid.add (new Gtk.Image.from_icon_name ("system-file-manager", Gtk.IconSize.MENU));
+            files_item_grid.add (new Gtk.Label (_("File Manager")));
+
+            var files_menuitem = new Gtk.MenuItem ();
+            files_menuitem.add (files_item_grid);
+            files_menuitem.activate.connect (() => show_file_uri (file));
+
+            var other_menuitem = new Gtk.MenuItem.with_label (_("Other Application…"));
+            other_menuitem.activate.connect (() => show_app_chooser (file));
+
+            var open_in_menu = new Gtk.Menu ();
+            open_in_menu.add (files_menuitem);
+            open_in_menu.add (new Gtk.SeparatorMenuItem ());
+            open_in_menu.add (other_menuitem);
+
+            var open_in_item = new Gtk.MenuItem.with_label (_("Open In"));
+            open_in_item.submenu = open_in_menu;
+
             var rename_item = new Gtk.MenuItem.with_label (_("Rename"));
             rename_item.activate.connect (() => view.start_editing_item (this));
 
@@ -35,11 +54,44 @@ namespace Scratch.FolderManager {
             delete_item.activate.connect (trash);
 
             var menu = new Gtk.Menu ();
+            menu.append (open_in_item);
+            menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (rename_item);
             menu.append (delete_item);
             menu.show_all ();
 
             return menu;
+        }
+
+        private void show_app_chooser (File file) {
+            var dialog = new Gtk.AppChooserDialog (new Gtk.Window (), Gtk.DialogFlags.MODAL, file.file);
+            if (dialog.run () == Gtk.ResponseType.OK) {
+                var app_info = dialog.get_app_info ();
+                if (app_info != null) {
+                    var file_list = new List<GLib.File> ();
+                    file_list.append (file.file);
+                    try {
+                        app_info.launch (file_list, null);
+                    } catch (Error e) {
+                        warning (e.message);
+                    }
+                }
+            }
+
+            dialog.destroy ();
+        }
+
+        private void show_file_uri (File file) {
+            var file_list = new List<GLib.File> ();
+            file_list.append (file.file);
+
+            var app_info = AppInfo.get_default_for_type ("inode/directory", true);
+
+            try {
+                app_info.launch (file_list, null);
+            } catch (Error e) {
+                warning ("Failed to open file manager: %s", e.message);
+            }
         }
     }
 }
