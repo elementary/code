@@ -57,6 +57,10 @@ namespace Scratch.FolderManager {
                 List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type (file_type);
 
                 foreach (AppInfo app_info in external_apps) {
+                    if (app_info.get_id () == Scratch.Application.instance.application_id + ".desktop") {
+                        continue;
+                    }
+
                     var menuitem_grid = new Gtk.Grid ();
                     menuitem_grid.add (new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.MENU));
                     menuitem_grid.add (new Gtk.Label (app_info.get_name ()));
