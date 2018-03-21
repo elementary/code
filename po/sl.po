@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-20 11:22-0700\n"
-"PO-Revision-Date: 2017-05-31 22:12+0000\n"
+"PO-Revision-Date: 2018-03-22 00:05+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
-"Language-Team: Slovenian <https://l10n.elementary.io/projects/scratch/"
-"scratch/sl/>\n"
+"Language-Team: Slovenian "
+"<https://weblate.elementary.io/projects/code/code/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2.14\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:142
@@ -97,7 +97,7 @@ msgstr "Trenutni imenik"
 
 #: src/MainWindow.vala:125
 msgid "Code"
-msgstr ""
+msgstr "Koda"
 
 #: src/MainWindow.vala:167 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
@@ -228,7 +228,7 @@ msgstr "Vodilo za širino vrstice:"
 
 #: src/Dialogs/PreferencesDialog.vala:132
 msgid "Font"
-msgstr ""
+msgstr "Pisava"
 
 #: src/Dialogs/PreferencesDialog.vala:134
 msgid "Custom font:"
@@ -236,58 +236,54 @@ msgstr "Poljubna pisava:"
 
 #: src/FolderManager/FileItem.vala:41
 msgid "Other Application…"
-msgstr ""
+msgstr "Druga aplikacija…"
 
 #: src/FolderManager/FileItem.vala:82
-#, fuzzy
 msgid "Open In"
-msgstr "Odpri"
+msgstr "Odpri v"
 
 #: src/FolderManager/FileItem.vala:85 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
-msgstr ""
+msgstr "Preimenuj"
 
 #: src/FolderManager/FileItem.vala:88 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
-msgstr ""
+msgstr "Premakni v smeti"
 
 #: src/FolderManager/FileView.vala:39
 msgid "Folders"
 msgstr "Mape"
 
 #: src/FolderManager/FolderItem.vala:77
-#, fuzzy
 msgid "Folder"
-msgstr "Mape"
+msgstr "Mapa"
 
 #: src/FolderManager/FolderItem.vala:80
 msgid "Empty File"
-msgstr ""
+msgstr "Prazna datoteka"
 
 #: src/FolderManager/FolderItem.vala:87
-#, fuzzy
 msgid "New"
 msgstr "Nov zavihek"
 
 #: src/FolderManager/FolderItem.vala:218
 msgid "untitled folder"
-msgstr ""
+msgstr "neimenovana mapa"
 
 #: src/FolderManager/FolderItem.vala:222
 #, c-format
 msgid "untitled folder %d"
-msgstr ""
+msgstr "neimenovana mapa %d"
 
 #: src/FolderManager/FolderItem.vala:244
-#, fuzzy
 msgid "new file"
 msgstr "Nova datoteka"
 
 #: src/FolderManager/FolderItem.vala:248
-#, fuzzy, c-format
+#, c-format
 msgid "new file %d"
-msgstr "Nova datoteka"
+msgstr "Nova datoteka %d"
 
 #: src/FolderManager/MainFolderItem.vala:30
 msgid "Close Folder"
