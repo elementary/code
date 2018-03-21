@@ -65,9 +65,7 @@ namespace Scratch {
         public const string ACTION_NEW_VIEW = "action_new_view";
         public const string ACTION_NEW_TAB = "action_new_tab";
         public const string ACTION_NEW_FROM_CLIPBOARD = "action_new_from_clipboard";
-        public const string ACTION_NEXT_TAB = "action_next_tab";
         public const string ACTION_PREFERENCES = "preferences";
-        public const string ACTION_PREVIOUS_TAB = "action_previous_tab";
         public const string ACTION_REMOVE_VIEW = "action_remove_view";
         public const string ACTION_UNDO = "action_undo";
         public const string ACTION_REDO = "action_redo";
@@ -81,7 +79,6 @@ namespace Scratch {
         public const string ACTION_TO_UPPER_CASE = "action_to_upper_case";
         public const string ACTION_DUPLICATE = "action_duplicate";
         public const string ACTION_FULLSCREEN = "action_fullscreen";
-        public const string ACTION_CLOSE_TAB = "action_close_tab";
         public const string ACTION_QUIT = "action_quit";
         public const string ACTION_ZOOM_DEFAULT = "action_zoom_default";
         public const string ACTION_ZOOM_IN = "action_zoom_in";
@@ -104,9 +101,7 @@ namespace Scratch {
             { ACTION_NEW_VIEW, action_new_view },
             { ACTION_NEW_TAB, action_new_tab },
             { ACTION_NEW_FROM_CLIPBOARD, action_new_tab_from_clipboard },
-            { ACTION_NEXT_TAB, action_next_tab },
             { ACTION_PREFERENCES, action_preferences },
-            { ACTION_PREVIOUS_TAB, action_previous_tab },
             { ACTION_REMOVE_VIEW, action_remove_view },
             { ACTION_UNDO, action_undo },
             { ACTION_REDO, action_redo },
@@ -115,7 +110,6 @@ namespace Scratch {
             { ACTION_TO_UPPER_CASE, action_to_upper_case },
             { ACTION_DUPLICATE, action_duplicate },
             { ACTION_FULLSCREEN, action_fullscreen },
-            { ACTION_CLOSE_TAB, action_close_tab },
             { ACTION_QUIT, action_quit },
             { ACTION_ZOOM_DEFAULT, action_set_default_zoom },
             { ACTION_ZOOM_IN, action_zoom_in },
@@ -141,8 +135,6 @@ namespace Scratch {
             action_accelerators.set (ACTION_GO_TO, "<Control>i");
             action_accelerators.set (ACTION_NEW_VIEW, "F3");
             action_accelerators.set (ACTION_NEW_TAB, "<Control>n");
-            action_accelerators.set (ACTION_NEXT_TAB, "<Control><Alt>Page_Up");
-            action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control><Alt>Page_Down");
             action_accelerators.set (ACTION_UNDO, "<Control>z");
             action_accelerators.set (ACTION_REDO, "<Control><shift>z");
             action_accelerators.set (ACTION_SHOW_REPLACE, "<Control>r");
@@ -150,7 +142,6 @@ namespace Scratch {
             action_accelerators.set (ACTION_TO_UPPER_CASE, "<Control>u");
             action_accelerators.set (ACTION_DUPLICATE, "<Control>d");
             action_accelerators.set (ACTION_FULLSCREEN, "F11");
-            action_accelerators.set (ACTION_CLOSE_TAB, "<Control>w");
             action_accelerators.set (ACTION_QUIT, "<Control>q");
             action_accelerators.set (ACTION_ZOOM_DEFAULT, "<Control>0");
             action_accelerators.set (ACTION_ZOOM_DEFAULT, "<Control>KP_0");
@@ -544,7 +535,7 @@ namespace Scratch {
                     var view = w as Scratch.Widgets.DocumentView;
                     view.is_closing = true;
                     foreach (var doc in view.docs) {
-                        if (!doc.close (true)) {
+                        if (!doc.do_close (true)) {
                             view.current_document = doc;
                             return false;
                         }
@@ -712,12 +703,6 @@ namespace Scratch {
             }
 
             preferences_dialog.present ();
-        }
-
-        private void action_close_tab () {
-            var view = get_current_view ();
-            if (view != null)
-                view.close_current_document ();
         }
 
         private void action_quit () {
@@ -894,18 +879,6 @@ namespace Scratch {
 
         private void action_templates () {
             plugins.plugin_iface.template_manager.show_window (this);
-        }
-
-        private void action_next_tab () {
-            Scratch.Widgets.DocumentView? view = null;
-            view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
-            view.next_document ();
-        }
-
-        private void action_previous_tab () {
-            Scratch.Widgets.DocumentView? view = null;
-            view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
-            view.previous_document ();
         }
 
         private void action_to_lower_case () {

@@ -97,6 +97,27 @@ namespace Scratch.Widgets {
 
                 return false;
             });
+
+            cut_clipboard.connect (() => {
+                /* If no text is selected, cut the current line */
+                if (!buffer.has_selection) {
+                    Gtk.TextIter iter_start;
+                    buffer.get_iter_at_offset (out iter_start, buffer.cursor_position);
+                    iter_start.backward_chars (iter_start.get_line_offset ());
+                    Gtk.TextIter iter_end = iter_start;
+                    iter_end.forward_line ();
+
+                    if (!iter_start.equal (iter_end)) {
+                        var clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
+                        string cut_text = iter_start.get_slice (iter_end);
+
+                        buffer.begin_user_action ();
+                        clipboard.set_text (cut_text, -1);
+                        buffer.delete_range (iter_start, iter_end);
+                        buffer.end_user_action ();
+                    }
+                }
+            });
         }
 
         ~SourceView () {
