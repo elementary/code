@@ -73,14 +73,32 @@ public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatabl
 
         var text = buffer.text;
 
-        try {
-            var regex = new Regex ("[ \t]+$", RegexCompileFlags.MULTILINE);
-            text = regex.replace (text, -1, 0, "");
-        } catch (RegexError e) {
-            warning ("Error while replacing trailing whitespace: %s", e.message);
+        string[] lines = Regex.split_simple ("""[\r\n]""", text);
+        if (lines.length != buffer.get_line_count ()) {
+            warning ("Mismatch between line counts when stripping trailing spaces, not continuing");
+            return;
         }
 
-        buffer.text = text;
+        MatchInfo info;
+        int line_no = 0;
+        TextIter start_delete, end_delete;
+        foreach (var line in lines) {
+            try {
+                var regex = new Regex ("[ \t]+$", 0);
+                if (regex.match (line, 0, out info)) {
+                    buffer.get_iter_at_line (out start_delete, line_no);
+                    start_delete.forward_to_line_end ();
+                    end_delete = start_delete;
+                    end_delete.backward_chars (info.fetch (0).length);
+
+                    buffer.@delete (ref start_delete, ref end_delete);
+                }
+            } catch (RegexError e) {
+                warning ("Error while replacing trailing whitespace: %s", e.message);
+            }
+
+            line_no++;
+        }
 
         buffer.get_iter_at_line_offset (out iter, orig_line, orig_offset);
         buffer.place_cursor (iter);
