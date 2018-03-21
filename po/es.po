@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-16 11:23-0700\n"
+"POT-Creation-Date: 2018-03-20 11:22-0700\n"
 "PO-Revision-Date: 2018-03-18 00:07+0000\n"
 "Last-Translator: Alain M. <alain23@protonmail.com>\n"
-"Language-Team: Spanish <https://weblate.elementary.io/projects/code/code/es/>"
-"\n"
+"Language-Team: Spanish <https://weblate.elementary.io/projects/code/code/es/"
+">\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -94,31 +94,31 @@ msgstr "Conjunto de complementos"
 msgid "Current working directory"
 msgstr "Carpeta de trabajo actual"
 
-#: src/MainWindow.vala:133
+#: src/MainWindow.vala:125
 msgid "Code"
 msgstr "Código"
 
-#: src/MainWindow.vala:178 src/Widgets/HeaderBar.vala:66
+#: src/MainWindow.vala:167 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
 msgstr "Buscar…"
 
-#: src/MainWindow.vala:180
+#: src/MainWindow.vala:169
 msgid "Hide search bar"
 msgstr "Ocultar barra de búsqueda"
 
-#: src/MainWindow.vala:226
+#: src/MainWindow.vala:215
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Fuente de datos de Zeitgeist para Scratch"
 
-#: src/MainWindow.vala:752
+#: src/MainWindow.vala:716
 msgid "Open some files"
 msgstr "Abre algunos archivos"
 
-#: src/MainWindow.vala:771
+#: src/MainWindow.vala:735
 msgid "_Cancel"
 msgstr "_Cancelar"
 
-#: src/MainWindow.vala:772
+#: src/MainWindow.vala:736
 msgid "_Open"
 msgstr "_Abrir"
 
@@ -130,7 +130,7 @@ msgstr "Todos los archivos"
 msgid "Text files"
 msgstr "Archivos de texto"
 
-#: src/Utils.vala:35 src/Services/Document.vala:370
+#: src/Utils.vala:35 src/Services/Document.vala:371
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -138,106 +138,115 @@ msgstr "Cancelar"
 msgid "Open"
 msgstr "Abrir"
 
-#: src/Utils.vala:46 src/Services/Document.vala:371
+#: src/Utils.vala:46 src/Services/Document.vala:372
 #: src/Services/Document.vala:668
 msgid "Save"
 msgstr "Guardar"
 
-#: src/Dialogs/PreferencesDialog.vala:42 src/Widgets/HeaderBar.vala:138
+#: src/Dialogs/PreferencesDialog.vala:39 src/Widgets/HeaderBar.vala:138
 msgid "Preferences"
 msgstr "Preferencias"
 
-#: src/Dialogs/PreferencesDialog.vala:56
+#: src/Dialogs/PreferencesDialog.vala:53
 msgid "General"
 msgstr "Generales"
 
-#: src/Dialogs/PreferencesDialog.vala:57
+#: src/Dialogs/PreferencesDialog.vala:54
 msgid "Save files when changed:"
 msgstr "Guardar archivos al ser modificados:"
 
-#: src/Dialogs/PreferencesDialog.vala:59 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
 msgstr "Pestañas"
 
-#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:147
+#: src/Dialogs/PreferencesDialog.vala:57 src/Widgets/FormatBar.vala:147
 msgid "Automatic indentation:"
 msgstr "Sangría automática:"
 
-#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:141
+#: src/Dialogs/PreferencesDialog.vala:59 src/Widgets/FormatBar.vala:141
 msgid "Insert spaces instead of tabs:"
 msgstr "Insertar espacios en lugar de tabulaciones:"
 
-#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:144
+#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:144
 msgid "Tab width:"
 msgstr "Anchura del tabulador:"
 
-#: src/Dialogs/PreferencesDialog.vala:71
+#: src/Dialogs/PreferencesDialog.vala:68
 msgid "Behavior"
 msgstr "Comportamiento"
 
-#: src/Dialogs/PreferencesDialog.vala:72
+#: src/Dialogs/PreferencesDialog.vala:69
 msgid "Interface"
 msgstr "Interfaz"
 
-#: src/Dialogs/PreferencesDialog.vala:84
+#: src/Dialogs/PreferencesDialog.vala:81
 #: plugins/pastebin/pastebin_dialog.vala:323
 msgid "Close"
 msgstr "Cerrar"
 
-#: src/Dialogs/PreferencesDialog.vala:100
+#: src/Dialogs/PreferencesDialog.vala:97
 msgid "Extensions"
 msgstr "Extensiones"
 
-#: src/Dialogs/PreferencesDialog.vala:109
+#: src/Dialogs/PreferencesDialog.vala:106
 msgid "Editor"
 msgstr "Editor"
 
-#: src/Dialogs/PreferencesDialog.vala:111
+#: src/Dialogs/PreferencesDialog.vala:108
 msgid "Highlight current line:"
 msgstr "Resaltar la línea actual:"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:111
 msgid "Highlight matching brackets:"
 msgstr "Resaltar corchetes correspondientes:"
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:114
 msgid "Draw Spaces:"
 msgstr "Dibujar espacios:"
 
-#: src/Dialogs/PreferencesDialog.vala:119
+#: src/Dialogs/PreferencesDialog.vala:116
 #: plugins/pastebin/pastebin_dialog.vala:460
 msgid "Never"
 msgstr "Nunca"
 
-#: src/Dialogs/PreferencesDialog.vala:120
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "For selected text"
 msgstr "Para el texto seleccionado"
 
-#: src/Dialogs/PreferencesDialog.vala:121
+#: src/Dialogs/PreferencesDialog.vala:118
 msgid "Always"
 msgstr "Siempre"
 
-#: src/Dialogs/PreferencesDialog.vala:126
+#: src/Dialogs/PreferencesDialog.vala:121
 msgid "Show Mini Map:"
 msgstr "Mostrar el minimapa:"
 
-#: src/Dialogs/PreferencesDialog.vala:130
+#: src/Dialogs/PreferencesDialog.vala:124
 msgid "Line width guide:"
 msgstr "Guía de ancho de línea:"
 
-#: src/Dialogs/PreferencesDialog.vala:138
+#: src/Dialogs/PreferencesDialog.vala:132
 msgid "Font"
 msgstr "Tipo de letra"
 
-#: src/Dialogs/PreferencesDialog.vala:140
+#: src/Dialogs/PreferencesDialog.vala:134
 msgid "Custom font:"
 msgstr "Tipo de letra personalizado:"
 
-#: src/FolderManager/FileItem.vala:31 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:41
+msgid "Other Application…"
+msgstr ""
+
+#: src/FolderManager/FileItem.vala:82
+#, fuzzy
+msgid "Open In"
+msgstr "Abrir"
+
+#: src/FolderManager/FileItem.vala:85 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
 msgstr "Renombrar"
 
-#: src/FolderManager/FileItem.vala:34 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:88 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr "Mover a la papelera"
@@ -280,49 +289,49 @@ msgstr "nuevo archivo %d"
 msgid "Close Folder"
 msgstr "Cerrar carpeta"
 
-#: src/Services/Document.vala:221
+#: src/Services/Document.vala:222
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s No es un archivo de texto"
 
-#: src/Services/Document.vala:222
+#: src/Services/Document.vala:223
 msgid "Code will not load this type of file."
 msgstr "Code no cargará este tipo de archivo."
 
-#: src/Services/Document.vala:224
+#: src/Services/Document.vala:225
 msgid "Load Anyway"
 msgstr "Cargar de todos modos"
 
-#: src/Services/Document.vala:245
+#: src/Services/Document.vala:246
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Cargar el archivo  \"%s 1\" está tomando demasiado tiempo"
 
-#: src/Services/Document.vala:246
+#: src/Services/Document.vala:247
 msgid "Please wait while Code is loading the file."
 msgstr "Por favor, espere mientras Code carga el archivo."
 
-#: src/Services/Document.vala:248
+#: src/Services/Document.vala:249
 msgid "Cancel Load"
 msgstr "Cancelar carga"
 
-#: src/Services/Document.vala:361
+#: src/Services/Document.vala:362
 #, c-format
 msgid "Save changes to document %s before closing?"
 msgstr "¿Quiere guardar los cambios del documento «%s» antes de cerrar?"
 
-#: src/Services/Document.vala:364
+#: src/Services/Document.vala:365
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
 "Si no guarda el documento, los cambios de los últimos 4 segundos se perderán "
 "permanentemente."
 
-#: src/Services/Document.vala:366
+#: src/Services/Document.vala:367
 msgid "Close without saving"
 msgstr "Cerrar sin guardar cambios"
 
-#: src/Services/Document.vala:448
+#: src/Services/Document.vala:449
 msgid "Save File"
 msgstr "Guardar archivo"
 
@@ -392,7 +401,7 @@ msgstr "Continuar"
 msgid "Templates"
 msgstr "Plantillas"
 
-#: src/Widgets/DocumentView.vala:88
+#: src/Widgets/DocumentView.vala:92
 #, c-format
 msgid "Text file from %s"
 msgstr "Archivo de texto de %s"
@@ -413,21 +422,21 @@ msgstr "Filtrar lenguajes"
 msgid "Plain Text"
 msgstr "Texto sin formato"
 
-#: src/Widgets/FormatBar.vala:185
+#: src/Widgets/FormatBar.vala:191
 #, fuzzy, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "Dibujar espacios:"
 msgstr[1] "Dibujar espacios:"
 
-#: src/Widgets/FormatBar.vala:187
+#: src/Widgets/FormatBar.vala:193
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "Pestaña nueva"
 msgstr[1] "Pestaña nueva"
 
-#: src/Widgets/FormatBar.vala:203
+#: src/Widgets/FormatBar.vala:209
 msgid "Go To Line:"
 msgstr "Ir a la línea:"
 
@@ -607,54 +616,44 @@ msgstr "Un mes"
 msgid "Upload to Pastebin"
 msgstr "Subir a Pastebin"
 
-#: plugins/outline/ValaProcessing/SymbolOutline.vala:21
-#: plugins/outline/ValaProcessing/SymbolOutline.vala:99
+#: plugins/outline/C/CtagsSymbolOutline.vala:31
+#: plugins/outline/C/CtagsSymbolOutline.vala:64
+#: plugins/outline/Vala/ValaSymbolOutline.vala:38
+#: plugins/outline/Vala/ValaSymbolOutline.vala:116
 #: plugins/outline/OutlinePane.vala:27
-#: plugins/outline/CtagsSymbolResolver.vala:35
-#: plugins/outline/CtagsSymbolResolver.vala:68
 msgid "Symbols"
 msgstr "Símbolos"
 
-#: plugins/terminal/terminal.vala:118 plugins/terminal/terminal.vala:127
-#: plugins/terminal/terminal.vala:174 plugins/terminal/terminal.vala:176
-msgid "Terminal"
-msgstr "Consola"
-
-#: plugins/terminal/terminal.vala:169 plugins/terminal/terminal.vala:180
+#: plugins/terminal/terminal.vala:135 plugins/terminal/terminal.vala:142
 msgid "Show Terminal"
 msgstr "Mostrar consola"
 
-#: plugins/terminal/terminal.vala:172
+#: plugins/terminal/terminal.vala:138
 msgid "Hide Terminal"
 msgstr "Ocultar consola"
 
-#: plugins/terminal/terminal.vala:247
+#: plugins/terminal/terminal.vala:139
+msgid "Terminal"
+msgstr "Consola"
+
+#: plugins/terminal/terminal.vala:194
 msgid "Copy"
 msgstr "Copiar"
 
-#: plugins/terminal/terminal.vala:254
+#: plugins/terminal/terminal.vala:201
 msgid "Paste"
 msgstr "Pegar"
 
-#: plugins/terminal/terminal.vala:264
-msgid "Terminal on Right"
-msgstr "Consola a la derecha"
-
-#: plugins/terminal/terminal.vala:272
-msgid "Terminal on Bottom"
-msgstr "Consola abajo"
-
-#: plugins/browser-preview/browser-preview.vala:82
-#: plugins/browser-preview/browser-preview.vala:108
-msgid "Show Preview"
-msgstr "Mostrar previsualización"
-
-#: plugins/browser-preview/browser-preview.vala:104
-#: plugins/browser-preview/browser-preview.vala:150
+#: plugins/browser-preview/BrowserView.vala:32
 msgid "Web Preview"
 msgstr "Previsualización web"
 
-#: plugins/browser-preview/browser-preview.vala:105
+#: plugins/browser-preview/browser-preview.vala:74
+#: plugins/browser-preview/browser-preview.vala:100
+msgid "Show Preview"
+msgstr "Mostrar previsualización"
+
+#: plugins/browser-preview/browser-preview.vala:92
 msgid "Hide Preview"
 msgstr "Ocultar previsualización"
 
@@ -679,6 +678,12 @@ msgstr "No se pudo cargar el tema de iconos : %s\n"
 #: plugins/open-with/open-with.vala:51
 msgid "Open With…"
 msgstr "Abrir con…"
+
+#~ msgid "Terminal on Right"
+#~ msgstr "Consola a la derecha"
+
+#~ msgid "Terminal on Bottom"
+#~ msgstr "Consola abajo"
 
 #~ msgid "Font and Color Scheme"
 #~ msgstr "Tipo de letra y combinación de colores"
