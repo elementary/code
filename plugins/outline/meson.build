@@ -1,15 +1,13 @@
 module_name = 'outline'
 
 module_files = [
-    'C/CtagsSymbol.vala',
-    'C/CtagsSymbolIter.vala',
-    'C/CtagsSymbolOutline.vala',
-    'OutlinePane.vala',
     'OutlinePlugin.vala',
-    'SymbolOutline.vala',
-    'Vala/ValaComparisonHelper.vala',
+    'SidePane.vala',
+    'SourceSymbol.vala',
+    'C/CSymbolItem.vala',
+    'C/CSidePane.vala',
     'Vala/ValaSymbolItem.vala',
-    'Vala/ValaSymbolOutline.vala',
+    'Vala/ValaSidePane.vala',
     'Vala/ValaSymbolResolver.vala'
 ]
 

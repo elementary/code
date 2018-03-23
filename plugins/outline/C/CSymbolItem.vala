@@ -16,13 +16,15 @@
  *
  */
 
-public class Code.Plugins.CtagsSymbolIter : Object {
-    public string name { get; construct set; }
-    public string parent { get; construct set; }
-    public int line { get; construct set; }
-    public Icon icon { get; construct set; }
+public class Code.Plugins.Outline.CSymbolItem : Code.Plugins.Outline.SourceSymbol {
+    public string? parent_name { get; construct; }
 
-    public CtagsSymbolIter (string name, string parent, int line, Icon icon) {
-        Object(name: name, parent: parent, line: line, icon: icon);
+    public CSymbolItem (string name, string? parent_name, int line, SourceSymbol.Type symbol_type) {
+        Object (
+            name: name,
+            line: line,
+            parent_name: parent_name,
+            symbol_type: symbol_type
+        );
     }
 }

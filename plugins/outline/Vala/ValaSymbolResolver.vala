@@ -16,7 +16,7 @@
  *
  */
 
-public class Code.Plugins.ValaSymbolResolver : Vala.SymbolResolver {
+public class Code.Plugins.Outline.ValaSymbolResolver : Vala.SymbolResolver {
     private Gee.TreeSet<Vala.Property> properties = new Gee.TreeSet<Vala.Property> ();
     private Gee.TreeSet<Vala.Symbol> symbols = new Gee.TreeSet<Vala.Symbol> ();
 

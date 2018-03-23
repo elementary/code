@@ -14,38 +14,26 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
+ * Authored by: Corentin Noël <corentin@elementary.io>
  */
 
-public class Code.Plugins.CtagsSymbolOutline : Object, Code.Plugins.SymbolOutline {
-    public const string OUTLINE_RESOURCE_URI = "resource:///io/elementary/code/plugin/outline/";
-    public Scratch.Services.Document doc { get; protected set; }
-    Granite.Widgets.SourceList store;
-    Granite.Widgets.SourceList.ExpandableItem root;
-    GLib.Cancellable cancellable;
+public class Code.Plugins.Outline.CSidePane : Code.Plugins.Outline.SidePane {
+    private Granite.Widgets.SourceList.ExpandableItem root;
+    private GLib.Cancellable cancellable;
 
-    public CtagsSymbolOutline (Scratch.Services.Document _doc) {
-        doc = _doc;
-        doc.doc_saved.connect (() => {parse_symbols ();});
-        doc.doc_closed.connect (doc_closed);
+    public CSidePane (Scratch.Services.Document doc) {
+        Object (doc: doc);
+    }
 
+    construct {
         root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));
-
-        store = new Granite.Widgets.SourceList ();
         store.root.add (root);
-        store.item_selected.connect ((selected) => {
-            if (selected == null) return;
-            goto (doc, (selected as CtagsSymbol).line);
-            store.selected = null;
-        });
+
+        fetching = true;
+        parse_symbols ();
+        doc.doc_saved.connect (() => parse_symbols ());
     }
 
-    ~CtagsSymbolOutline () {
-        doc.doc_closed.disconnect (doc_closed);
-    }
-
-    void doc_closed (Scratch.Services.Document doc) {
-        closed ();
-    }
 
     public void parse_symbols () {
         if (cancellable != null)
@@ -60,7 +48,7 @@ public class Code.Plugins.CtagsSymbolOutline : Object, Code.Plugins.SymbolOutlin
 
     void parse_output (Granite.Services.SimpleCommand command, int status, GLib.Cancellable _cancellable) {
         new Thread<void*>("parse-symbols", () => {
-            var parent_dependent = new Gee.LinkedList<CtagsSymbolIter> ();
+            var parent_dependent = new Gee.LinkedList<Outline.CSymbolItem> ();
             var new_root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));
 
             if (status != 0)
@@ -80,51 +68,48 @@ public class Code.Plugins.CtagsSymbolOutline : Object, Code.Plugins.SymbolOutlin
                 string? parent = null;
                 parse_fields (string.joinv (" ", parts[4:parts.length]), out line, out parent);
 
-                Icon? icon = null;
+                Outline.SourceSymbol.Type symbol_type = Outline.SourceSymbol.Type.CONSTANT;
                 switch (type) {
                     case "class":
-                        icon = new ThemedIcon ("lang-class");
+                        symbol_type = Outline.SourceSymbol.Type.CLASS;
                         break;
                     case "struct":
-                        icon = new ThemedIcon ("lang-struct");
+                        symbol_type = Outline.SourceSymbol.Type.STRUCT;
                         break;
                     case "field":
                     case "enumerator":
                     case "member":
                     case "variable":
-                        icon = new ThemedIcon ("lang-property");
+                    case "property":
+                        symbol_type = Outline.SourceSymbol.Type.PROPERTY;
                         break;
                     case "enum":
-                        icon = new ThemedIcon ("lang-enum");
+                        symbol_type = Outline.SourceSymbol.Type.ENUM;
                         break;
                     case "macro":
                     case "constant":
                     case "typedef":
-                        icon = new ThemedIcon ("lang-constant");
+                        symbol_type = Outline.SourceSymbol.Type.CONSTANT;
                         break;
                     case "constructor":
-                        icon = new ThemedIcon ("lang-constructor");
+                        symbol_type = Outline.SourceSymbol.Type.CONSTRUCTOR;
                         break;
                     case "destructor":
                     case "method":
                     case "function":
-                        icon = new ThemedIcon ("lang-method");
-                        break;
-                    case "namespace":
-                        icon = new ThemedIcon ("lang-namespace");
+                        symbol_type = Outline.SourceSymbol.Type.METHOD;
                         break;
                     case "package":
-                        break;
-                    case "property":
-                        icon = new ThemedIcon ("lang-property");
+                    case "namespace":
+                        symbol_type = Outline.SourceSymbol.Type.NAMESPACE;
                         break;
                 }
 
+                var source_symbol = new Outline.CSymbolItem (name, parent, line, symbol_type);
                 if (parent == null) {
-                    var s = new CtagsSymbol (doc, name, line, icon);
-                    new_root.add (s);
+                    new_root.add (source_symbol);
                 } else
-                    parent_dependent.add (new CtagsSymbolIter (name, parent, line, icon));
+                    parent_dependent.add (source_symbol);
             }
 
             var found_something = true;
@@ -134,27 +119,26 @@ public class Code.Plugins.CtagsSymbolOutline : Object, Code.Plugins.SymbolOutlin
                 while (iter.has_next ()) {
                     iter.next ();
                     var i = iter.get ();
-
-                    var parent = find_existing (i.parent, new_root);
+                    var parent = find_existing (i.parent_name, new_root);
                     if (parent != null) {
                         found_something = true;
-                        parent.add (new CtagsSymbol (doc, i.name, i.line, i.icon));
+                        parent.add (i);
                         iter.remove ();
                     } else {
                         // anonymous enum
-                        if (i.parent.substring (0, 6) == "__anon") {
-                            var e = new CtagsSymbol (doc, i.parent, i.line - 1, new ThemedIcon ("lang-enum"));
-                            new_root.add (e);
-
-                            e.add (new CtagsSymbol (doc, i.name, i.line, i.icon));
+                        if (i.parent_name.substring (0, 6) == "__anon") {
+                            var i_parent = new Outline.CSymbolItem (i.parent_name, i.parent_name, i.line - 1, Outline.SourceSymbol.Type.ENUM);
+                            new_root.add (i_parent);
+                            i_parent.add (i);
                             iter.remove ();
                         }
                     }
                 }
             }
+
             // just add the rest
             foreach (var symbol in parent_dependent) {
-                new_root.add (new CtagsSymbol (doc, symbol.name, symbol.line, symbol.icon));
+                new_root.add (symbol);
             }
 
             if (cancellable.is_cancelled () == false) {
@@ -167,6 +151,7 @@ public class Code.Plugins.CtagsSymbolOutline : Object, Code.Plugins.SymbolOutlin
 
                     destroy_root (root);
                     root = new_root;
+                    fetching = false;
 
                     return false;
                 });
@@ -189,11 +174,12 @@ public class Code.Plugins.CtagsSymbolOutline : Object, Code.Plugins.SymbolOutlin
         }
     }
 
-    private Gee.TreeSet<CtagsSymbol> iterate_children (Granite.Widgets.SourceList.ExpandableItem parent) {
-        var result = new Gee.TreeSet<CtagsSymbol> ();
+    private Gee.TreeSet<Outline.CSymbolItem> iterate_children (Granite.Widgets.SourceList.ExpandableItem parent) {
+        var result = new Gee.TreeSet<Outline.CSymbolItem> ();
         foreach (var child in parent.children) {
-            result.add_all (iterate_children ((CtagsSymbol)child));
+            result.add_all (iterate_children ((Outline.CSymbolItem)child));
         }
+
         return result;
     }
 
@@ -215,10 +201,10 @@ public class Code.Plugins.CtagsSymbolOutline : Object, Code.Plugins.SymbolOutlin
         }
     }
 
-    CtagsSymbol? find_existing (string name, Granite.Widgets.SourceList.ExpandableItem parent) {
-        CtagsSymbol match = null;
+    Outline.CSymbolItem? find_existing (string name, Granite.Widgets.SourceList.ExpandableItem parent) {
+        Outline.CSymbolItem match = null;
         foreach (var child in parent.children) {
-            var child_symbol = child as CtagsSymbol;
+            var child_symbol = child as Outline.CSymbolItem;
             if (child_symbol.name == name) {
                 match = child_symbol;
                 break;
@@ -241,9 +227,5 @@ public class Code.Plugins.CtagsSymbolOutline : Object, Code.Plugins.SymbolOutlin
         }
 
         return stdout.split ("\n");
-    }
-
-    public Granite.Widgets.SourceList get_source_list () {
-        return store;
     }
 }

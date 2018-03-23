@@ -16,46 +16,70 @@
  *
  */
 
-public class Code.Plugins.ValaSymbolItem : Granite.Widgets.SourceList.ExpandableItem, Granite.Widgets.SourceListSortable {
-    public Vala.Symbol symbol { get; set; }
+public class Code.Plugins.Outline.ValaSymbolItem : Code.Plugins.Outline.SourceSymbol {
+    public Vala.Symbol symbol { get; construct; }
 
     public ValaSymbolItem (Vala.Symbol symbol) {
-        this.symbol = symbol;
-        this.name = symbol.name;
+        Object (symbol: symbol);
+    }
+
+    construct {
+        line = symbol.source_reference.begin.line;
+        name = symbol.name;
         if (symbol is Vala.CreationMethod) {
-            if (symbol.name == ".new")
-                this.name = ((Vala.CreationMethod)symbol).class_name;
-            else
-                this.name = "%s.%s".printf (((Vala.CreationMethod)symbol).class_name, symbol.name);
-        }
-        
-    }
-
-    public int compare (Granite.Widgets.SourceList.Item a, Granite.Widgets.SourceList.Item b) {
-        return ValaComparison.sort_function (a, b);
-    }
-
-    public bool allow_dnd_sorting () {
-        return false;
-    }
-
-    public bool compare_symbol (Vala.Symbol comp_symbol) {
-        if (comp_symbol.name != symbol.name)
-            return false;
-
-        Vala.Symbol comp_parent = comp_symbol.parent_symbol;
-        for (var parent = symbol.parent_symbol; parent != null; parent = parent.parent_symbol) {
-            comp_parent = comp_parent.parent_symbol;
-            if (comp_parent == null)
-                return false;
-
-            if (comp_parent.name != parent.name)
-                return false;
+            if (symbol.name == ".new") {
+                name = ((Vala.CreationMethod)symbol).class_name;
+            } else {
+                name = "%s.%s".printf (((Vala.CreationMethod)symbol).class_name, symbol.name);
+            }
         }
 
-        if (comp_parent.parent_symbol != null)
-            return false;
-
-        return true;
+        if (symbol is Vala.Struct) {
+            symbol_type = Outline.SourceSymbol.Type.STRUCT;
+        } else if (symbol is Vala.Class) {
+            if (((Vala.Class) symbol).is_abstract) {
+                symbol_type = Outline.SourceSymbol.Type.ABSTRACT_CLASS;
+            } else {
+                symbol_type = Outline.SourceSymbol.Type.CLASS;
+            }
+        } else if (symbol is Vala.Constant) {
+            symbol_type = Outline.SourceSymbol.Type.CONSTANT;
+        } else if (symbol is Vala.Enum) {
+            symbol_type = Outline.SourceSymbol.Type.ENUM;
+        } else if (symbol is Vala.Field) {
+            symbol_type = Outline.SourceSymbol.Type.PROPERTY;
+        } else if (symbol is Vala.Interface) {
+            symbol_type = Outline.SourceSymbol.Type.INTERFACE;
+        } else if (symbol is Vala.Property) {
+            if (((Vala.Property) symbol).is_abstract) {
+                symbol_type = Outline.SourceSymbol.Type.ABSTRACT_PROPERTY;
+            } else if (((Vala.Property) symbol).is_virtual) {
+                symbol_type = Outline.SourceSymbol.Type.VIRTUAL_PROPERTY;
+            } else {
+                symbol_type = Outline.SourceSymbol.Type.PROPERTY;
+            }
+        } else if (symbol is Vala.Signal) {
+            symbol_type = Outline.SourceSymbol.Type.SIGNAL;
+        } else if (symbol is Vala.CreationMethod) {
+            symbol_type = Outline.SourceSymbol.Type.CONSTRUCTOR;
+        } else if (symbol is Vala.Method) {
+            if (((Vala.Method) symbol).is_abstract) {
+                symbol_type = Outline.SourceSymbol.Type.ABSTRACT_METHOD;
+            } else if (((Vala.Method) symbol).is_virtual) {
+                symbol_type = Outline.SourceSymbol.Type.VIRTUAL_METHOD;
+            } else if (((Vala.Method) symbol).binding == Vala.MemberBinding.STATIC) {
+                symbol_type = Outline.SourceSymbol.Type.STATIC_METHOD;
+            } else {
+                symbol_type = Outline.SourceSymbol.Type.METHOD;
+            }
+        } else if (symbol is Vala.Namespace) {
+            symbol_type = Outline.SourceSymbol.Type.NAMESPACE;
+        } else if (symbol is Vala.ErrorDomain) {
+            symbol_type = Outline.SourceSymbol.Type.ERRORDOMAIN;
+        } else if (symbol is Vala.Delegate) {
+            symbol_type = Outline.SourceSymbol.Type.DELEGATE;
+        } else {
+            warning (symbol.type_name);
+        }
     }
 }
