@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-20 11:22-0700\n"
-"PO-Revision-Date: 2018-03-23 00:05+0000\n"
+"PO-Revision-Date: 2018-03-24 15:18+0000\n"
 "Last-Translator: Kaj Printz Madsen <kajprintz@gmail.com>\n"
 "Language-Team: Danish <https://weblate.elementary.io/projects/code/code/da/>"
 "\n"
@@ -227,7 +227,7 @@ msgstr "Linje bredde guide:"
 
 #: src/Dialogs/PreferencesDialog.vala:132
 msgid "Font"
-msgstr ""
+msgstr "Font"
 
 #: src/Dialogs/PreferencesDialog.vala:134
 msgid "Custom font:"
@@ -235,58 +235,54 @@ msgstr "Tilpasset skrifttype:"
 
 #: src/FolderManager/FileItem.vala:41
 msgid "Other Application…"
-msgstr ""
+msgstr "Anden Applikation…"
 
 #: src/FolderManager/FileItem.vala:82
-#, fuzzy
 msgid "Open In"
-msgstr "Åbn"
+msgstr "Åbn I"
 
 #: src/FolderManager/FileItem.vala:85 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
-msgstr ""
+msgstr "Omdøb"
 
 #: src/FolderManager/FileItem.vala:88 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
-msgstr ""
+msgstr "Flyt til Skrald"
 
 #: src/FolderManager/FileView.vala:39
 msgid "Folders"
 msgstr "Mapper"
 
 #: src/FolderManager/FolderItem.vala:77
-#, fuzzy
 msgid "Folder"
-msgstr "Mapper"
+msgstr "Mappe"
 
 #: src/FolderManager/FolderItem.vala:80
 msgid "Empty File"
-msgstr ""
+msgstr "Tom Fil"
 
 #: src/FolderManager/FolderItem.vala:87
-#, fuzzy
 msgid "New"
-msgstr "Nyt faneblad"
+msgstr "Ny"
 
 #: src/FolderManager/FolderItem.vala:218
 msgid "untitled folder"
-msgstr ""
+msgstr "unavngivet mappe"
 
 #: src/FolderManager/FolderItem.vala:222
 #, c-format
 msgid "untitled folder %d"
-msgstr ""
+msgstr "unavngivet mappe %d"
 
 #: src/FolderManager/FolderItem.vala:244
-#, fuzzy
 msgid "new file"
-msgstr "Ny fil"
+msgstr "ny fil"
 
 #: src/FolderManager/FolderItem.vala:248
-#, fuzzy, c-format
+#, c-format
 msgid "new file %d"
-msgstr "Ny fil"
+msgstr "ny fil %d"
 
 #: src/FolderManager/MainFolderItem.vala:30
 msgid "Close Folder"
@@ -295,29 +291,28 @@ msgstr "Luk Mappen"
 #: src/Services/Document.vala:222
 #, c-format
 msgid "%s Is Not a Text File"
-msgstr ""
+msgstr "%s Er Ikke En Tekstfil"
 
 #: src/Services/Document.vala:223
 msgid "Code will not load this type of file."
-msgstr ""
+msgstr "Code kan ikke indlæse denne type fil."
 
 #: src/Services/Document.vala:225
 msgid "Load Anyway"
-msgstr ""
+msgstr "Indlæs Alligevel"
 
 #: src/Services/Document.vala:246
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr ""
+msgstr "Indlæsning af Filen \"%s\" Tager Lang Tid"
 
 #: src/Services/Document.vala:247
 msgid "Please wait while Code is loading the file."
-msgstr ""
+msgstr "Vent venligst, mens Code indlæser filen."
 
 #: src/Services/Document.vala:249
-#, fuzzy
 msgid "Cancel Load"
-msgstr "Annuller"
+msgstr "Annullér Indlæsning"
 
 #: src/Services/Document.vala:362
 #, c-format
@@ -344,19 +339,16 @@ msgid "New Document"
 msgstr "Nyt Dokument"
 
 #: src/Services/Document.vala:646
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Read"
-msgstr ""
-"Filen \"%s\" kan ikke oprettes.\n"
-"%s"
+msgstr "Filen \"%s\" Kan Ikke Læses"
 
 #: src/Services/Document.vala:647
-#, fuzzy
 msgid ""
 "Maybe it is corrupt or you do not have the necessary permissions to read it."
 msgstr ""
-"Filen \"%s\" kan ikke læses. Den er muligvis beskadiget\n"
-"eller du har ikke de nødvendige tilladelser til at læse den."
+"Måske er den korrupt, eller så du har ikke de nødvendige tilladelser til at "
+"læse det."
 
 #: src/Services/Document.vala:659
 #, c-format
@@ -411,40 +403,39 @@ msgid "Templates"
 msgstr "Skabeloner"
 
 #: src/Widgets/DocumentView.vala:92
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s"
-msgstr "Tekstfil fra "
+msgstr "Tekstfil fra  %s"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
 msgstr "Syntaksfremhævning"
 
 #: src/Widgets/FormatBar.vala:71
-#, fuzzy
 msgid "Line number"
-msgstr "Vis linjenumre:"
+msgstr "Linjenummer"
 
 #: src/Widgets/FormatBar.vala:95
 msgid "Filter languages"
-msgstr ""
+msgstr "Filtrér sprog"
 
 #: src/Widgets/FormatBar.vala:117
 msgid "Plain Text"
-msgstr ""
+msgstr "Simpel Tekst"
 
 #: src/Widgets/FormatBar.vala:191
-#, fuzzy, c-format
+#, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
-msgstr[0] "Tegn mellemrum:"
-msgstr[1] "Tegn mellemrum:"
+msgstr[0] "%d Mellemrum"
+msgstr[1] "%d Mellemrum"
 
 #: src/Widgets/FormatBar.vala:193
-#, fuzzy, c-format
+#, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "Nyt faneblad"
-msgstr[1] "Nyt faneblad"
+msgstr[0] "%d Faneblad"
+msgstr[1] "%d Faneblade"
 
 #: src/Widgets/FormatBar.vala:209
 msgid "Go To Line:"
@@ -479,30 +470,28 @@ msgid "Share"
 msgstr "Del"
 
 #: src/Widgets/HeaderBar.vala:77
-#, fuzzy
 msgid "Zoom Out"
-msgstr "Zoom"
+msgstr "Zoom Ud"
 
 #: src/Widgets/HeaderBar.vala:81
 msgid "Zoom 1:1"
 msgstr "Zoom 1:1"
 
 #: src/Widgets/HeaderBar.vala:85
-#, fuzzy
 msgid "Zoom In"
-msgstr "Zoom"
+msgstr "Zoom Ind"
 
 #: src/Widgets/HeaderBar.vala:100
 msgid "High Contrast"
-msgstr ""
+msgstr "Høj Kontrast"
 
 #: src/Widgets/HeaderBar.vala:110
 msgid "Solarized Light"
-msgstr ""
+msgstr "Solarized Light"
 
 #: src/Widgets/HeaderBar.vala:120
 msgid "Solarized Dark"
-msgstr ""
+msgstr "Solarized Dark"
 
 #: src/Widgets/HeaderBar.vala:130
 msgid "Add New View"
@@ -585,9 +574,8 @@ msgid "Name:"
 msgstr "Navn:"
 
 #: plugins/pastebin/pastebin_dialog.vala:259
-#, fuzzy
 msgid "Format:"
-msgstr "Format: "
+msgstr "Format:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
 msgid "Others..."
