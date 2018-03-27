@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-20 11:22-0700\n"
-"PO-Revision-Date: 2018-02-26 10:59+0000\n"
-"Last-Translator: Floris Remmert <fadenfisch95@gmail.com>\n"
-"Language-Team: German <https://weblate.elementary.io/projects/code/code/de/"
-">\n"
+"PO-Revision-Date: 2018-03-28 00:03+0000\n"
+"Last-Translator: Justin <justin.hucke@t-online.de>\n"
+"Language-Team: German <https://weblate.elementary.io/projects/code/code/de/>"
+"\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -228,7 +228,7 @@ msgstr "Zeilenbreitenführungslinie:"
 
 #: src/Dialogs/PreferencesDialog.vala:132
 msgid "Font"
-msgstr ""
+msgstr "Schriftart"
 
 #: src/Dialogs/PreferencesDialog.vala:134
 msgid "Custom font:"
@@ -236,12 +236,11 @@ msgstr "Benutzerdefinierte Schrift:"
 
 #: src/FolderManager/FileItem.vala:41
 msgid "Other Application…"
-msgstr ""
+msgstr "Anderes Programm…"
 
 #: src/FolderManager/FileItem.vala:82
-#, fuzzy
 msgid "Open In"
-msgstr "Öffnen"
+msgstr "Öffnen mit"
 
 #: src/FolderManager/FileItem.vala:85 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
@@ -486,15 +485,16 @@ msgstr "Vergrößern"
 
 #: src/Widgets/HeaderBar.vala:100
 msgid "High Contrast"
-msgstr ""
+msgstr "Hoher Kontrast"
 
 #: src/Widgets/HeaderBar.vala:110
 msgid "Solarized Light"
-msgstr ""
+msgstr "Solarized Light"
 
 #: src/Widgets/HeaderBar.vala:120
+#, fuzzy
 msgid "Solarized Dark"
-msgstr ""
+msgstr "Solarized Dark"
 
 #: src/Widgets/HeaderBar.vala:130
 msgid "Add New View"
