@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-20 11:22-0700\n"
+"POT-Creation-Date: 2018-03-28 15:29-0700\n"
 "PO-Revision-Date: 2018-03-21 10:52+0000\n"
 "Last-Translator: Corentin Noël <corentin@elementary.io>\n"
-"Language-Team: French <https://weblate.elementary.io/projects/code/code/fr/>"
-"\n"
+"Language-Team: French <https://weblate.elementary.io/projects/code/code/fr/"
+">\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -78,7 +78,7 @@ msgstr "Il s'agit d'un fichier de type inconnu."
 msgid "New Tab"
 msgstr "Nouvel Onglet"
 
-#: src/Application.vala:256
+#: src/Application.vala:256 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Nouvelle fenêtre"
 
@@ -233,19 +233,19 @@ msgstr "Police"
 msgid "Custom font:"
 msgstr "Police personnalisée :"
 
-#: src/FolderManager/FileItem.vala:41
+#: src/FolderManager/FileItem.vala:50
 msgid "Other Application…"
 msgstr "Une autre application…"
 
-#: src/FolderManager/FileItem.vala:82
+#: src/FolderManager/FileItem.vala:93
 msgid "Open In"
 msgstr "Ouvrir dans"
 
-#: src/FolderManager/FileItem.vala:85 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
 msgstr "Renommer"
 
-#: src/FolderManager/FileItem.vala:88 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr "Déplacer dans la corbeille"
@@ -266,20 +266,20 @@ msgstr "Fichier vide"
 msgid "New"
 msgstr "Nouveau"
 
-#: src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FolderItem.vala:223
 msgid "untitled folder"
 msgstr "dossier sans-titre"
 
-#: src/FolderManager/FolderItem.vala:222
+#: src/FolderManager/FolderItem.vala:227
 #, c-format
 msgid "untitled folder %d"
 msgstr "dossier sans-titre %d"
 
-#: src/FolderManager/FolderItem.vala:244
+#: src/FolderManager/FolderItem.vala:249
 msgid "new file"
 msgstr "nouveau fichier"
 
-#: src/FolderManager/FolderItem.vala:248
+#: src/FolderManager/FolderItem.vala:253
 #, c-format
 msgid "new file %d"
 msgstr "nouveau fichier %d"
@@ -678,9 +678,8 @@ msgstr "%s - Saisie semi-automatique"
 msgid "Could not load icon theme: %s\n"
 msgstr "Impossible de charger le thème d'icônes : %s\n"
 
-#: plugins/open-with/open-with.vala:51
-msgid "Open With…"
-msgstr "Ouvrir avec…"
+#~ msgid "Open With…"
+#~ msgstr "Ouvrir avec…"
 
 #~ msgid "Terminal on Right"
 #~ msgstr "Terminal sur la droite"

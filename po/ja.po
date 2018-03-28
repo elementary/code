@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-20 11:22-0700\n"
+"POT-Creation-Date: 2018-03-28 15:29-0700\n"
 "PO-Revision-Date: 2018-03-27 00:01+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock@gmail.com>\n"
-"Language-Team: Japanese "
-"<https://weblate.elementary.io/projects/code/code/ja/>\n"
+"Language-Team: Japanese <https://weblate.elementary.io/projects/code/code/ja/"
+">\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -78,7 +78,7 @@ msgstr "これは \"未知\" のファイルタイプです。"
 msgid "New Tab"
 msgstr "新しいタブ"
 
-#: src/Application.vala:256
+#: src/Application.vala:256 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "新しいウィンドウ"
 
@@ -233,19 +233,19 @@ msgstr "フォント"
 msgid "Custom font:"
 msgstr "カスタムフォント:"
 
-#: src/FolderManager/FileItem.vala:41
+#: src/FolderManager/FileItem.vala:50
 msgid "Other Application…"
 msgstr "その他のアプリケーション…"
 
-#: src/FolderManager/FileItem.vala:82
+#: src/FolderManager/FileItem.vala:93
 msgid "Open In"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:85 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
 msgstr "名前の変更"
 
-#: src/FolderManager/FileItem.vala:88 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr "ゴミ箱に移動"
@@ -266,20 +266,20 @@ msgstr "空のファイル"
 msgid "New"
 msgstr "新規作成"
 
-#: src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FolderItem.vala:223
 msgid "untitled folder"
 msgstr "名称未設定フォルダ"
 
-#: src/FolderManager/FolderItem.vala:222
+#: src/FolderManager/FolderItem.vala:227
 #, c-format
 msgid "untitled folder %d"
 msgstr "名称未設定フォルダ %d"
 
-#: src/FolderManager/FolderItem.vala:244
+#: src/FolderManager/FolderItem.vala:249
 msgid "new file"
 msgstr "新しいファイル"
 
-#: src/FolderManager/FolderItem.vala:248
+#: src/FolderManager/FolderItem.vala:253
 #, c-format
 msgid "new file %d"
 msgstr "新しいファイル %d"
@@ -670,9 +670,8 @@ msgstr "%s - 単語補完"
 msgid "Could not load icon theme: %s\n"
 msgstr "アイコンテーマを読み込めません: %s\n"
 
-#: plugins/open-with/open-with.vala:51
-msgid "Open With…"
-msgstr "他のアプリケーションで開く…"
+#~ msgid "Open With…"
+#~ msgstr "他のアプリケーションで開く…"
 
 #~ msgid "Terminal on Right"
 #~ msgstr "ターミナルを右へ"

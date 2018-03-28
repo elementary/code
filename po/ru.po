@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-20 11:22-0700\n"
+"POT-Creation-Date: 2018-03-28 15:29-0700\n"
 "PO-Revision-Date: 2018-03-12 20:21+0000\n"
 "Last-Translator: Kirill Romanov <djaler1@gmail.com>\n"
 "Language-Team: Russian <https://weblate.elementary.io/projects/code/code/ru/"
@@ -79,7 +79,7 @@ msgstr "Это «неизвестный» тип файла."
 msgid "New Tab"
 msgstr "Новая вкладка"
 
-#: src/Application.vala:256
+#: src/Application.vala:256 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Новое окно"
 
@@ -234,20 +234,20 @@ msgstr ""
 msgid "Custom font:"
 msgstr "Пользовательский шрифт:"
 
-#: src/FolderManager/FileItem.vala:41
+#: src/FolderManager/FileItem.vala:50
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:82
+#: src/FolderManager/FileItem.vala:93
 #, fuzzy
 msgid "Open In"
 msgstr "Открыть"
 
-#: src/FolderManager/FileItem.vala:85 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
 msgstr "Переименовать"
 
-#: src/FolderManager/FileItem.vala:88 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr "Переместить в корзину"
@@ -268,20 +268,20 @@ msgstr "Пустой файл"
 msgid "New"
 msgstr "Создать"
 
-#: src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FolderItem.vala:223
 msgid "untitled folder"
 msgstr "безымянная папка"
 
-#: src/FolderManager/FolderItem.vala:222
+#: src/FolderManager/FolderItem.vala:227
 #, c-format
 msgid "untitled folder %d"
 msgstr "безымянная папка %d"
 
-#: src/FolderManager/FolderItem.vala:244
+#: src/FolderManager/FolderItem.vala:249
 msgid "new file"
 msgstr "новый файл"
 
-#: src/FolderManager/FolderItem.vala:248
+#: src/FolderManager/FolderItem.vala:253
 #, c-format
 msgid "new file %d"
 msgstr "новый файл %d"
@@ -676,9 +676,8 @@ msgstr "%s — Автозавершение слов"
 msgid "Could not load icon theme: %s\n"
 msgstr "Не удалось загрузить тему иконок: %s\n"
 
-#: plugins/open-with/open-with.vala:51
-msgid "Open With…"
-msgstr "Открыть с помощью…"
+#~ msgid "Open With…"
+#~ msgstr "Открыть с помощью…"
 
 #~ msgid "Terminal on Right"
 #~ msgstr "Терминал справа"
