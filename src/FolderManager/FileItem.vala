@@ -39,8 +39,11 @@ namespace Scratch.FolderManager {
 
             var files_appinfo = AppInfo.get_default_for_type ("inode/directory", true);
 
+            var files_item_icon = new Gtk.Image.from_gicon (files_appinfo.get_icon (), Gtk.IconSize.MENU);
+            files_item_icon.pixel_size = 16;
+
             var files_item_grid = new Gtk.Grid ();
-            files_item_grid.add (new Gtk.Image.from_gicon (files_appinfo.get_icon (), Gtk.IconSize.MENU));
+            files_item_grid.add (files_item_icon);
             files_item_grid.add (new Gtk.Label (files_appinfo.get_name ()));
 
             var files_menuitem = new Gtk.MenuItem ();
@@ -73,8 +76,11 @@ namespace Scratch.FolderManager {
                         continue;
                     }
 
+                    var menuitem_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.MENU);
+                    menuitem_icon.pixel_size = 16;
+
                     var menuitem_grid = new Gtk.Grid ();
-                    menuitem_grid.add (new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.MENU));
+                    menuitem_grid.add (menuitem_icon);
                     menuitem_grid.add (new Gtk.Label (app_info.get_name ()));
 
                     var item_app = new Gtk.MenuItem ();
