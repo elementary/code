@@ -117,6 +117,8 @@ namespace Scratch.FolderManager {
 
         private void show_app_chooser (File file) {
             var dialog = new Gtk.AppChooserDialog (new Gtk.Window (), Gtk.DialogFlags.MODAL, file.file);
+            dialog.deletable = false;
+
             if (dialog.run () == Gtk.ResponseType.OK) {
                 var app_info = dialog.get_app_info ();
                 if (app_info != null) {
