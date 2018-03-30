@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-20 11:22-0700\n"
+"POT-Creation-Date: 2018-03-28 15:29-0700\n"
 "PO-Revision-Date: 2017-01-21 09:06+0000\n"
 "Last-Translator: Hasan Sumon <hsnsumon@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,7 +71,7 @@ msgstr "এটি একটি \"অপরিচিত\" ফাইল টাই�
 msgid "New Tab"
 msgstr "নতুন ট্যাব"
 
-#: src/Application.vala:256
+#: src/Application.vala:256 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "নতুন উইন্ডো"
 
@@ -226,20 +226,20 @@ msgstr ""
 msgid "Custom font:"
 msgstr "কাস্টম ফন্টঃ"
 
-#: src/FolderManager/FileItem.vala:41
+#: src/FolderManager/FileItem.vala:50
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:82
+#: src/FolderManager/FileItem.vala:93
 #, fuzzy
 msgid "Open In"
 msgstr "খুলুন"
 
-#: src/FolderManager/FileItem.vala:85 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:88 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr ""
@@ -262,21 +262,21 @@ msgstr ""
 msgid "New"
 msgstr "নতুন ট্যাব"
 
-#: src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FolderItem.vala:223
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:222
+#: src/FolderManager/FolderItem.vala:227
 #, c-format
 msgid "untitled folder %d"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:244
+#: src/FolderManager/FolderItem.vala:249
 #, fuzzy
 msgid "new file"
 msgstr "নতুন ফাইল"
 
-#: src/FolderManager/FolderItem.vala:248
+#: src/FolderManager/FolderItem.vala:253
 #, fuzzy, c-format
 msgid "new file %d"
 msgstr "নতুন ফাইল"
@@ -681,9 +681,8 @@ msgstr "%s - শব্দ পরিপূরণ"
 msgid "Could not load icon theme: %s\n"
 msgstr "আইকন থিম লোড করা সম্ভব হয়নিঃ %s\n"
 
-#: plugins/open-with/open-with.vala:51
-msgid "Open With…"
-msgstr "যে প্রোগ্রামের সাহায্যে খোলা হবে..."
+#~ msgid "Open With…"
+#~ msgstr "যে প্রোগ্রামের সাহায্যে খোলা হবে..."
 
 #~ msgid "Terminal on Right"
 #~ msgstr "টার্মিনাল ডানে"

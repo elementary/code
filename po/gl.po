@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-20 11:22-0700\n"
+"POT-Creation-Date: 2018-03-28 15:29-0700\n"
 "PO-Revision-Date: 2017-04-09 21:03+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Galician <gl@li.org>\n"
@@ -70,7 +70,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "Nova lapela"
 
-#: src/Application.vala:256
+#: src/Application.vala:256 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Nova xanela"
 
@@ -225,20 +225,20 @@ msgstr ""
 msgid "Custom font:"
 msgstr "Tipo de letra personalizado:"
 
-#: src/FolderManager/FileItem.vala:41
+#: src/FolderManager/FileItem.vala:50
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:82
+#: src/FolderManager/FileItem.vala:93
 #, fuzzy
 msgid "Open In"
 msgstr "Abrir"
 
-#: src/FolderManager/FileItem.vala:85 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:88 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr ""
@@ -261,21 +261,21 @@ msgstr ""
 msgid "New"
 msgstr "Nova lapela"
 
-#: src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FolderItem.vala:223
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:222
+#: src/FolderManager/FolderItem.vala:227
 #, c-format
 msgid "untitled folder %d"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:244
+#: src/FolderManager/FolderItem.vala:249
 #, fuzzy
 msgid "new file"
 msgstr "Novo ficheiro"
 
-#: src/FolderManager/FolderItem.vala:248
+#: src/FolderManager/FolderItem.vala:253
 #, fuzzy, c-format
 msgid "new file %d"
 msgstr "Novo ficheiro"
@@ -664,10 +664,6 @@ msgstr "%s - Completado de palabras"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "Non foi posíbel cargar o tema de iconas : %s\n"
-
-#: plugins/open-with/open-with.vala:51
-msgid "Open With…"
-msgstr ""
 
 #~ msgid "Color scheme:"
 #~ msgstr "Esquema de cores:"

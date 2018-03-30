@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-20 11:22-0700\n"
+"POT-Creation-Date: 2018-03-28 15:29-0700\n"
 "PO-Revision-Date: 2018-03-20 03:46+0000\n"
 "Last-Translator: Anand Kumar <anand@anandkumar.net>\n"
 "Language-Team: Hindi <https://weblate.elementary.io/projects/code/code/hi/>\n"
@@ -77,7 +77,7 @@ msgstr "यह एक \"अज्ञात\" फ़ाइल प्रकार 
 msgid "New Tab"
 msgstr "नया टैब"
 
-#: src/Application.vala:256
+#: src/Application.vala:256 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "नया विंडो"
 
@@ -232,20 +232,20 @@ msgstr "फॉन्ट"
 msgid "Custom font:"
 msgstr "मनपसंद फ़ॉन्ट:"
 
-#: src/FolderManager/FileItem.vala:41
+#: src/FolderManager/FileItem.vala:50
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:82
+#: src/FolderManager/FileItem.vala:93
 #, fuzzy
 msgid "Open In"
 msgstr "खोलें"
 
-#: src/FolderManager/FileItem.vala:85 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
 msgstr "पुनः नामकरण"
 
-#: src/FolderManager/FileItem.vala:88 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr "रद्दी में डालें"
@@ -266,20 +266,20 @@ msgstr "ख़ाली फ़ाइल"
 msgid "New"
 msgstr "नया"
 
-#: src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FolderItem.vala:223
 msgid "untitled folder"
 msgstr "अनाम फ़ोल्डर"
 
-#: src/FolderManager/FolderItem.vala:222
+#: src/FolderManager/FolderItem.vala:227
 #, c-format
 msgid "untitled folder %d"
 msgstr "अनाम फ़ोल्डर %d"
 
-#: src/FolderManager/FolderItem.vala:244
+#: src/FolderManager/FolderItem.vala:249
 msgid "new file"
 msgstr "नई फ़ाइल"
 
-#: src/FolderManager/FolderItem.vala:248
+#: src/FolderManager/FolderItem.vala:253
 #, c-format
 msgid "new file %d"
 msgstr "नई फ़ाइल %d"
@@ -671,9 +671,8 @@ msgstr "%s - शब्द समापन"
 msgid "Could not load icon theme: %s\n"
 msgstr "आइकॉन थीम लोड नहीं किया जा सका: %s\n"
 
-#: plugins/open-with/open-with.vala:51
-msgid "Open With…"
-msgstr "के साथ खोलें…"
+#~ msgid "Open With…"
+#~ msgstr "के साथ खोलें…"
 
 #~ msgid "Terminal on Right"
 #~ msgstr "टर्मिनल दाहिनी तरफ"
