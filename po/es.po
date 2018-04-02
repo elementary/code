@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-28 15:29-0700\n"
-"PO-Revision-Date: 2018-04-02 22:36+0000\n"
+"PO-Revision-Date: 2018-04-03 00:05+0000\n"
 "Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
 "Language-Team: Spanish <https://weblate.elementary.io/projects/code/code/es/>"
 "\n"
@@ -21,10 +21,12 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:142
+#, fuzzy
 msgid "Maybe you do not have the necessary permissions."
-msgstr "Probablemente no cuenta con los permisos necesarios."
+msgstr "Probablemente no cuentas con los permisos necesarios."
 
 #: src/Application.vala:144
+#, fuzzy
 msgid "Maybe the file path provided is not valid."
 msgstr "Probablemente la ruta de archivo proporcionada no es válida."
 
@@ -108,7 +110,7 @@ msgstr "Ocultar la barra de búsqueda"
 
 #: src/MainWindow.vala:215
 msgid "Zeitgeist Datasource for Scratch"
-msgstr "Fuente de datos de Zeitgeist para Scratch"
+msgstr "Fuente de datos de Zeitgeist para Code"
 
 #: src/MainWindow.vala:716
 msgid "Open some files"
@@ -148,8 +150,9 @@ msgid "Preferences"
 msgstr "Preferencias"
 
 #: src/Dialogs/PreferencesDialog.vala:53
+#, fuzzy
 msgid "General"
-msgstr "Generales"
+msgstr "General"
 
 #: src/Dialogs/PreferencesDialog.vala:54
 msgid "Save files when changed:"
@@ -302,9 +305,9 @@ msgid "Load Anyway"
 msgstr "Cargar de todos modos"
 
 #: src/Services/Document.vala:246
-#, c-format
+#, c-format, fuzzy
 msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr "Cargar archivo \"% s 1\" está tomando mucho tiempo"
+msgstr "La carga del archivo \"%s\" está tomando mucho tiempo"
 
 #: src/Services/Document.vala:247
 msgid "Please wait while Code is loading the file."
@@ -429,11 +432,11 @@ msgstr[0] "%d Espacio"
 msgstr[1] "%d Espacios"
 
 #: src/Widgets/FormatBar.vala:193
-#, c-format
+#, c-format, fuzzy
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "Pestaña nueva"
-msgstr[1] "Pestaña nueva"
+msgstr[0] "%d Pestaña"
+msgstr[1] "%d Pestañas"
 
 #: src/Widgets/FormatBar.vala:209
 msgid "Go To Line:"
@@ -632,8 +635,9 @@ msgid "Hide Terminal"
 msgstr "Ocultar consola"
 
 #: plugins/terminal/terminal.vala:139
+#, fuzzy
 msgid "Terminal"
-msgstr "Consola"
+msgstr "Terminal"
 
 #: plugins/terminal/terminal.vala:194
 msgid "Copy"
