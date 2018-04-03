@@ -8,16 +8,15 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-28 15:29-0700\n"
-"PO-Revision-Date: 2017-09-11 11:31+0000\n"
+"PO-Revision-Date: 2018-04-02 00:04+0000\n"
 "Last-Translator: Dieter Debast <dieter_debast@hotmail.com>\n"
-"Language-Team: Dutch <https://weblate.elementary.io/projects/scratch/scratch/"
-"nl/>\n"
+"Language-Team: Dutch <https://weblate.elementary.io/projects/code/code/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.16\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:142
@@ -238,9 +237,8 @@ msgid "Other Application…"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:93
-#, fuzzy
 msgid "Open In"
-msgstr "Openen"
+msgstr "Openen met"
 
 #: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
@@ -256,18 +254,16 @@ msgid "Folders"
 msgstr "Mappen"
 
 #: src/FolderManager/FolderItem.vala:77
-#, fuzzy
 msgid "Folder"
-msgstr "Mappen"
+msgstr "Map"
 
 #: src/FolderManager/FolderItem.vala:80
 msgid "Empty File"
 msgstr ""
 
 #: src/FolderManager/FolderItem.vala:87
-#, fuzzy
 msgid "New"
-msgstr "Nieuwe tab"
+msgstr "Nieuw"
 
 #: src/FolderManager/FolderItem.vala:223
 msgid "untitled folder"
@@ -279,14 +275,13 @@ msgid "untitled folder %d"
 msgstr ""
 
 #: src/FolderManager/FolderItem.vala:249
-#, fuzzy
 msgid "new file"
-msgstr "Nieuw bestand"
+msgstr "nieuw bestand"
 
 #: src/FolderManager/FolderItem.vala:253
-#, fuzzy, c-format
+#, c-format
 msgid "new file %d"
-msgstr "Nieuw bestand"
+msgstr "nieuw bestand %d"
 
 #: src/FolderManager/MainFolderItem.vala:30
 msgid "Close Folder"
@@ -315,9 +310,8 @@ msgid "Please wait while Code is loading the file."
 msgstr ""
 
 #: src/Services/Document.vala:249
-#, fuzzy
 msgid "Cancel Load"
-msgstr "Annuleer"
+msgstr "Annuleer inladen"
 
 #: src/Services/Document.vala:362
 #, c-format
@@ -344,19 +338,16 @@ msgid "New Document"
 msgstr "Nieuw Document"
 
 #: src/Services/Document.vala:646
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Read"
-msgstr ""
-"Bestand \"%s\" kan niet aangemaakt worden.\n"
-"%s"
+msgstr "Bestand \"%s\" kan niet gelezen worden"
 
 #: src/Services/Document.vala:647
-#, fuzzy
 msgid ""
 "Maybe it is corrupt or you do not have the necessary permissions to read it."
 msgstr ""
-"Het bestand \"%s\" kan niet gelezen worden. Het bestand kan beschadigd zijn\n"
-"of u heeft niet de benodigde rechten om het te lezen."
+"Het bestand kan beschadigd zijn of u heeft niet de benodigde rechten om het "
+"te lezen."
 
 #: src/Services/Document.vala:659
 #, c-format
@@ -411,18 +402,17 @@ msgid "Templates"
 msgstr "Sjablonen"
 
 #: src/Widgets/DocumentView.vala:92
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s"
-msgstr "Tekstbestand van "
+msgstr "Tekstbestand van %s"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
 msgstr "Syntaxiskleuring"
 
 #: src/Widgets/FormatBar.vala:71
-#, fuzzy
 msgid "Line number"
-msgstr "Laat regelnummers zien:"
+msgstr "Regelnummers"
 
 #: src/Widgets/FormatBar.vala:95
 msgid "Filter languages"
@@ -433,18 +423,18 @@ msgid "Plain Text"
 msgstr ""
 
 #: src/Widgets/FormatBar.vala:191
-#, fuzzy, c-format
+#, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
-msgstr[0] "Spaties weergeven:"
-msgstr[1] "Spaties weergeven:"
+msgstr[0] "%d spatie"
+msgstr[1] "%d spaties"
 
 #: src/Widgets/FormatBar.vala:193
-#, fuzzy, c-format
+#, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "Nieuwe tab"
-msgstr[1] "Nieuwe tab"
+msgstr[0] "%d tabblad"
+msgstr[1] "%d tabbladen"
 
 #: src/Widgets/FormatBar.vala:209
 msgid "Go To Line:"
@@ -479,18 +469,16 @@ msgid "Share"
 msgstr "Deel"
 
 #: src/Widgets/HeaderBar.vala:77
-#, fuzzy
 msgid "Zoom Out"
-msgstr "Vergroten/verkleinen"
+msgstr "Uitzoomen"
 
 #: src/Widgets/HeaderBar.vala:81
 msgid "Zoom 1:1"
 msgstr "Schaal 1:1"
 
 #: src/Widgets/HeaderBar.vala:85
-#, fuzzy
 msgid "Zoom In"
-msgstr "Vergroten/verkleinen"
+msgstr "Inzoomen"
 
 #: src/Widgets/HeaderBar.vala:100
 msgid "High Contrast"
@@ -585,9 +573,8 @@ msgid "Name:"
 msgstr "Naam:"
 
 #: plugins/pastebin/pastebin_dialog.vala:259
-#, fuzzy
 msgid "Format:"
-msgstr "Format: "
+msgstr "Formaat:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
 msgid "Others..."
