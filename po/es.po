@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-20 11:22-0700\n"
-"PO-Revision-Date: 2018-03-23 00:05+0000\n"
-"Last-Translator: haggen svastian <h2gn@openmailbox.org>\n"
+"POT-Creation-Date: 2018-03-28 15:29-0700\n"
+"PO-Revision-Date: 2018-04-03 00:05+0000\n"
+"Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
 "Language-Team: Spanish <https://weblate.elementary.io/projects/code/code/es/>"
 "\n"
 "Language: es\n"
@@ -21,10 +21,12 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:142
+#, fuzzy
 msgid "Maybe you do not have the necessary permissions."
-msgstr "Probablemente no cuenta con los permisos necesarios."
+msgstr "Probablemente no cuentas con los permisos necesarios."
 
 #: src/Application.vala:144
+#, fuzzy
 msgid "Maybe the file path provided is not valid."
 msgstr "Probablemente la ruta de archivo proporcionada no es válida."
 
@@ -34,7 +36,7 @@ msgstr "La ubicación es de solo lectura."
 
 #: src/Application.vala:148
 msgid "The parent directory doesn't exist."
-msgstr "La carpeta contenedora no existe."
+msgstr "El directorio principal no existe."
 
 #: src/Application.vala:155
 #, c-format
@@ -72,15 +74,15 @@ msgstr ""
 
 #: src/Application.vala:183
 msgid "It is an \"unknown\" file type."
-msgstr "Es un tipo de archivo desconocido."
+msgstr "Es un tipo de archivo \"desconocido\"."
 
 #: src/Application.vala:255
 msgid "New Tab"
-msgstr "Pestaña nueva"
+msgstr "Nueva Pestaña"
 
-#: src/Application.vala:256
+#: src/Application.vala:256 src/FolderManager/FileItem.vala:31
 msgid "New Window"
-msgstr "Nueva ventana"
+msgstr "Nueva Ventana"
 
 #: src/Application.vala:257
 msgid "Print version info and exit"
@@ -104,11 +106,11 @@ msgstr "Buscar…"
 
 #: src/MainWindow.vala:169
 msgid "Hide search bar"
-msgstr "Ocultar barra de búsqueda"
+msgstr "Ocultar la barra de búsqueda"
 
 #: src/MainWindow.vala:215
 msgid "Zeitgeist Datasource for Scratch"
-msgstr "Fuente de datos de Zeitgeist para Scratch"
+msgstr "Fuente de datos de Zeitgeist para Code"
 
 #: src/MainWindow.vala:716
 msgid "Open some files"
@@ -148,8 +150,9 @@ msgid "Preferences"
 msgstr "Preferencias"
 
 #: src/Dialogs/PreferencesDialog.vala:53
+#, fuzzy
 msgid "General"
-msgstr "Generales"
+msgstr "General"
 
 #: src/Dialogs/PreferencesDialog.vala:54
 msgid "Save files when changed:"
@@ -233,19 +236,19 @@ msgstr "Tipo de letra"
 msgid "Custom font:"
 msgstr "Tipo de letra personalizado:"
 
-#: src/FolderManager/FileItem.vala:41
+#: src/FolderManager/FileItem.vala:50
 msgid "Other Application…"
 msgstr "Otra aplicación …"
 
-#: src/FolderManager/FileItem.vala:82
+#: src/FolderManager/FileItem.vala:93
 msgid "Open In"
 msgstr "Abrir"
 
-#: src/FolderManager/FileItem.vala:85 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
 msgstr "Renombrar"
 
-#: src/FolderManager/FileItem.vala:88 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr "Mover a la papelera"
@@ -266,20 +269,20 @@ msgstr "Archivo vacío"
 msgid "New"
 msgstr "Nuevo"
 
-#: src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FolderItem.vala:223
 msgid "untitled folder"
 msgstr "carpeta sin título"
 
-#: src/FolderManager/FolderItem.vala:222
+#: src/FolderManager/FolderItem.vala:227
 #, c-format
 msgid "untitled folder %d"
 msgstr "carpeta sin título %d"
 
-#: src/FolderManager/FolderItem.vala:244
+#: src/FolderManager/FolderItem.vala:249
 msgid "new file"
 msgstr "Nuevo archivo"
 
-#: src/FolderManager/FolderItem.vala:248
+#: src/FolderManager/FolderItem.vala:253
 #, c-format
 msgid "new file %d"
 msgstr "nuevo archivo %d"
@@ -302,9 +305,9 @@ msgid "Load Anyway"
 msgstr "Cargar de todos modos"
 
 #: src/Services/Document.vala:246
-#, c-format
+#, c-format, fuzzy
 msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr "Cargar archivo \"% s 1\" está tomando mucho tiempo"
+msgstr "La carga del archivo \"%s\" está tomando mucho tiempo"
 
 #: src/Services/Document.vala:247
 msgid "Please wait while Code is loading the file."
@@ -422,18 +425,18 @@ msgid "Plain Text"
 msgstr "Texto sin formato"
 
 #: src/Widgets/FormatBar.vala:191
-#, fuzzy, c-format
+#, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
-msgstr[0] "Dibujar espacios:"
-msgstr[1] "Dibujar espacios:"
+msgstr[0] "%d Espacio"
+msgstr[1] "%d Espacios"
 
 #: src/Widgets/FormatBar.vala:193
-#, c-format
+#, c-format, fuzzy
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "Pestaña nueva"
-msgstr[1] "Pestaña nueva"
+msgstr[0] "%d Pestaña"
+msgstr[1] "%d Pestañas"
 
 #: src/Widgets/FormatBar.vala:209
 msgid "Go To Line:"
@@ -632,8 +635,9 @@ msgid "Hide Terminal"
 msgstr "Ocultar consola"
 
 #: plugins/terminal/terminal.vala:139
+#, fuzzy
 msgid "Terminal"
-msgstr "Consola"
+msgstr "Terminal"
 
 #: plugins/terminal/terminal.vala:194
 msgid "Copy"
@@ -674,9 +678,8 @@ msgstr "%s - Completar palabras"
 msgid "Could not load icon theme: %s\n"
 msgstr "No se pudo cargar el tema de iconos : %s\n"
 
-#: plugins/open-with/open-with.vala:51
-msgid "Open With…"
-msgstr "Abrir con…"
+#~ msgid "Open With…"
+#~ msgstr "Abrir con…"
 
 #~ msgid "Terminal on Right"
 #~ msgstr "Consola a la derecha"
