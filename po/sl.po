@@ -7,18 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-20 11:22-0700\n"
-"PO-Revision-Date: 2017-05-31 22:12+0000\n"
+"POT-Creation-Date: 2018-03-28 15:29-0700\n"
+"PO-Revision-Date: 2018-04-03 00:05+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
-"Language-Team: Slovenian <https://l10n.elementary.io/projects/scratch/"
-"scratch/sl/>\n"
+"Language-Team: Slovenian "
+"<https://weblate.elementary.io/projects/code/code/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2.14\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:142
@@ -79,7 +79,7 @@ msgstr "Je \"neznan\" tip datoteke."
 msgid "New Tab"
 msgstr "Nov zavihek"
 
-#: src/Application.vala:256
+#: src/Application.vala:256 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Novo okno"
 
@@ -97,7 +97,7 @@ msgstr "Trenutni imenik"
 
 #: src/MainWindow.vala:125
 msgid "Code"
-msgstr ""
+msgstr "Koda"
 
 #: src/MainWindow.vala:167 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
@@ -228,66 +228,62 @@ msgstr "Vodilo za širino vrstice:"
 
 #: src/Dialogs/PreferencesDialog.vala:132
 msgid "Font"
-msgstr ""
+msgstr "Pisava"
 
 #: src/Dialogs/PreferencesDialog.vala:134
 msgid "Custom font:"
 msgstr "Poljubna pisava:"
 
-#: src/FolderManager/FileItem.vala:41
+#: src/FolderManager/FileItem.vala:50
 msgid "Other Application…"
-msgstr ""
+msgstr "Druga aplikacija…"
 
-#: src/FolderManager/FileItem.vala:82
-#, fuzzy
+#: src/FolderManager/FileItem.vala:93
 msgid "Open In"
-msgstr "Odpri"
+msgstr "Odpri v"
 
-#: src/FolderManager/FileItem.vala:85 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
-msgstr ""
+msgstr "Preimenuj"
 
-#: src/FolderManager/FileItem.vala:88 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
-msgstr ""
+msgstr "Premakni v smeti"
 
 #: src/FolderManager/FileView.vala:39
 msgid "Folders"
 msgstr "Mape"
 
 #: src/FolderManager/FolderItem.vala:77
-#, fuzzy
 msgid "Folder"
-msgstr "Mape"
+msgstr "Mapa"
 
 #: src/FolderManager/FolderItem.vala:80
 msgid "Empty File"
-msgstr ""
+msgstr "Prazna datoteka"
 
 #: src/FolderManager/FolderItem.vala:87
-#, fuzzy
 msgid "New"
 msgstr "Nov zavihek"
 
-#: src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FolderItem.vala:223
 msgid "untitled folder"
-msgstr ""
+msgstr "neimenovana mapa"
 
-#: src/FolderManager/FolderItem.vala:222
+#: src/FolderManager/FolderItem.vala:227
 #, c-format
 msgid "untitled folder %d"
-msgstr ""
+msgstr "neimenovana mapa %d"
 
-#: src/FolderManager/FolderItem.vala:244
-#, fuzzy
+#: src/FolderManager/FolderItem.vala:249
 msgid "new file"
 msgstr "Nova datoteka"
 
-#: src/FolderManager/FolderItem.vala:248
-#, fuzzy, c-format
+#: src/FolderManager/FolderItem.vala:253
+#, c-format
 msgid "new file %d"
-msgstr "Nova datoteka"
+msgstr "Nova datoteka %d"
 
 #: src/FolderManager/MainFolderItem.vala:30
 msgid "Close Folder"
@@ -296,29 +292,28 @@ msgstr "Zapri mapo"
 #: src/Services/Document.vala:222
 #, c-format
 msgid "%s Is Not a Text File"
-msgstr ""
+msgstr "%s ni tekstovna datoteka"
 
 #: src/Services/Document.vala:223
 msgid "Code will not load this type of file."
-msgstr ""
+msgstr "Koda ne bo naložila tega tipa datoteke."
 
 #: src/Services/Document.vala:225
 msgid "Load Anyway"
-msgstr ""
+msgstr "Vseeno naloži"
 
 #: src/Services/Document.vala:246
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr ""
+msgstr "Nalaganje \"%s\" traja precej časa"
 
 #: src/Services/Document.vala:247
 msgid "Please wait while Code is loading the file."
-msgstr ""
+msgstr "Prosimo počakajte da Koda naloži datoteko."
 
 #: src/Services/Document.vala:249
-#, fuzzy
 msgid "Cancel Load"
-msgstr "Prekliči"
+msgstr "Prekliči nalaganje"
 
 #: src/Services/Document.vala:362
 #, c-format
@@ -344,19 +339,14 @@ msgid "New Document"
 msgstr "Nov dokument"
 
 #: src/Services/Document.vala:646
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Read"
-msgstr ""
-"Datoteke  \"%s\" ni mogoče ustvariti.\n"
-"%s"
+msgstr "Datoteke  \"%s\" ni mogoče brati"
 
 #: src/Services/Document.vala:647
-#, fuzzy
 msgid ""
 "Maybe it is corrupt or you do not have the necessary permissions to read it."
-msgstr ""
-"Datoteke \"%s\" ni mogoče brati. Morda je poškodovana\n"
-"ali pa nimate dovoljenja za branje."
+msgstr "Morda je poškodovana ali pa nimate dovoljenja za branje."
 
 #: src/Services/Document.vala:659
 #, c-format
@@ -411,44 +401,43 @@ msgid "Templates"
 msgstr "Predloge"
 
 #: src/Widgets/DocumentView.vala:92
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s"
-msgstr "Tekstovna datoteka iz "
+msgstr "Tekstovna datoteka iz %s"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
 msgstr "Označevanje sintakse"
 
 #: src/Widgets/FormatBar.vala:71
-#, fuzzy
 msgid "Line number"
-msgstr "Pokaži številke vrstic:"
+msgstr "Pokaži številke vrstic"
 
 #: src/Widgets/FormatBar.vala:95
 msgid "Filter languages"
-msgstr ""
+msgstr "Filtriraj jezike"
 
 #: src/Widgets/FormatBar.vala:117
 msgid "Plain Text"
-msgstr ""
+msgstr "Navadno besedilo"
 
 #: src/Widgets/FormatBar.vala:191
-#, fuzzy, c-format
+#, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
-msgstr[0] "Prikaži presledke:"
-msgstr[1] "Prikaži presledke:"
-msgstr[2] "Prikaži presledke:"
-msgstr[3] "Prikaži presledke:"
+msgstr[0] "%d presledek"
+msgstr[1] "%d presledka"
+msgstr[2] "%d presledki"
+msgstr[3] "%d presledkov"
 
 #: src/Widgets/FormatBar.vala:193
-#, fuzzy, c-format
+#, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "Nov zavihek"
-msgstr[1] "Nov zavihek"
-msgstr[2] "Nov zavihek"
-msgstr[3] "Nov zavihek"
+msgstr[0] "%d tabulator"
+msgstr[1] "%d tabulatorja"
+msgstr[2] "%d tabulatorji"
+msgstr[3] "%d tabulatorjev"
 
 #: src/Widgets/FormatBar.vala:209
 msgid "Go To Line:"
@@ -483,22 +472,20 @@ msgid "Share"
 msgstr "Deli"
 
 #: src/Widgets/HeaderBar.vala:77
-#, fuzzy
 msgid "Zoom Out"
-msgstr "Povečaj"
+msgstr "Pomanjšaj"
 
 #: src/Widgets/HeaderBar.vala:81
 msgid "Zoom 1:1"
 msgstr "1:1"
 
 #: src/Widgets/HeaderBar.vala:85
-#, fuzzy
 msgid "Zoom In"
 msgstr "Povečaj"
 
 #: src/Widgets/HeaderBar.vala:100
 msgid "High Contrast"
-msgstr ""
+msgstr "Visok kontrast"
 
 #: src/Widgets/HeaderBar.vala:110
 msgid "Solarized Light"
@@ -589,9 +576,8 @@ msgid "Name:"
 msgstr "Ime:"
 
 #: plugins/pastebin/pastebin_dialog.vala:259
-#, fuzzy
 msgid "Format:"
-msgstr "Vrsta: "
+msgstr "Vrsta:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
 msgid "Others..."
@@ -692,9 +678,8 @@ msgstr "%s - Dopolnitev besede"
 msgid "Could not load icon theme: %s\n"
 msgstr "Ni mogoče naložiti ikonske teme: %s\n"
 
-#: plugins/open-with/open-with.vala:51
-msgid "Open With…"
-msgstr "Odpri z…"
+#~ msgid "Open With…"
+#~ msgstr "Odpri z…"
 
 #~ msgid "Terminal on Right"
 #~ msgstr "Terminal na desni"

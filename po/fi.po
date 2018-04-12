@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
-"PO-Revision-Date: 2017-10-15 07:02+0000\n"
+"PO-Revision-Date: 2018-03-26 00:08+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
-"Language-Team: Finnish "
-"<https://weblate.elementary.io/projects/scratch/scratch/fi/>\n"
+"Language-Team: Finnish <https://weblate.elementary.io/projects/code/code/fi/>"
+"\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.16\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: ../src/config.vala:15
@@ -850,7 +850,7 @@ msgstr ""
 #. **
 #: ../plugins/browser-preview/browser-preview.vala:21
 msgid "Browser Preview"
-msgstr "Verkkoesikatselu"
+msgstr "Esikatselu selaimessa"
 
 #: ../plugins/browser-preview/browser-preview.vala:22
 msgid "Get a preview your work in a web page"
@@ -1023,7 +1023,7 @@ msgstr "Avaa sovelluksella…"
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
-msgstr "Tunnista sisennys"
+msgstr "Havaitse sisennys"
 
 #: ../plugins/detect-indent/detect-indent.vala:2
 msgid "Heuristically detect tab or space settings"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-20 11:22-0700\n"
+"POT-Creation-Date: 2018-03-28 15:29-0700\n"
 "PO-Revision-Date: 2015-12-21 13:39+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Tamil <ta@li.org>\n"
@@ -70,7 +70,7 @@ msgstr ""
 msgid "New Tab"
 msgstr "புதிய தாவல்"
 
-#: src/Application.vala:256
+#: src/Application.vala:256 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "புதிய சாளரம்"
 
@@ -225,19 +225,19 @@ msgstr ""
 msgid "Custom font:"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:41
+#: src/FolderManager/FileItem.vala:50
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:82
+#: src/FolderManager/FileItem.vala:93
 msgid "Open In"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:85 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:88 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr ""
@@ -259,21 +259,21 @@ msgstr ""
 msgid "New"
 msgstr "புதிய தாவல்"
 
-#: src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FolderItem.vala:223
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:222
+#: src/FolderManager/FolderItem.vala:227
 #, c-format
 msgid "untitled folder %d"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:244
+#: src/FolderManager/FolderItem.vala:249
 #, fuzzy
 msgid "new file"
 msgstr "உரை கோப்புகள்"
 
-#: src/FolderManager/FolderItem.vala:248
+#: src/FolderManager/FolderItem.vala:253
 #, c-format
 msgid "new file %d"
 msgstr ""
@@ -661,10 +661,6 @@ msgstr ""
 #: plugins/word-completion/completion-provider.vala:80
 #, c-format
 msgid "Could not load icon theme: %s\n"
-msgstr ""
-
-#: plugins/open-with/open-with.vala:51
-msgid "Open With…"
 msgstr ""
 
 #~ msgid "Edit text files"

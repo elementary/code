@@ -8,14 +8,16 @@ msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-15 19:09+0000\n"
-"PO-Revision-Date: 2018-01-28 15:41+0000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2018-03-26 00:08+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"Language-Team: Finnish "
+"<https://weblate.elementary.io/projects/code/plugins/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.18\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -27,7 +29,7 @@ msgstr ""
 
 #: plugins/browser-preview/browser-preview.plugin:6
 msgid "Browser Preview"
-msgstr ""
+msgstr "Esikatselu selaimessa"
 
 #: plugins/browser-preview/browser-preview.plugin:7
 msgid "Get a preview of your work in a web page"
@@ -35,7 +37,7 @@ msgstr ""
 
 #: plugins/contractor/contractor.plugin:6
 msgid "Contractor"
-msgstr ""
+msgstr "Contractor"
 
 #: plugins/contractor/contractor.plugin:7
 msgid "Share your files with Contractor"
@@ -43,7 +45,7 @@ msgstr ""
 
 #: plugins/detect-indent/detect-indent.plugin:6
 msgid "Detect Indent"
-msgstr ""
+msgstr "Havaitse sisennys"
 
 #: plugins/detect-indent/detect-indent.plugin:7
 msgid "Heuristically detect tab or space settings"
@@ -51,7 +53,7 @@ msgstr ""
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
-msgstr ""
+msgstr "Korosta sanavalinta"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:7
 msgid "Highlights all occurrences of words that are selected"
@@ -59,7 +61,7 @@ msgstr ""
 
 #: plugins/open-with/open-with.plugin:6
 msgid "Open With"
-msgstr ""
+msgstr "Avaa sovelluksella"
 
 #: plugins/open-with/open-with.plugin:7
 msgid "Open files you are editing with another application"
@@ -75,7 +77,7 @@ msgstr ""
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
-msgstr ""
+msgstr "Pastebin"
 
 #: plugins/pastebin/pastebin.plugin:7
 msgid "Share files with pastebin service"
@@ -91,7 +93,7 @@ msgstr ""
 
 #: plugins/spell/spell.plugin:6
 msgid "Spell Checker"
-msgstr ""
+msgstr "Oikoluku"
 
 #: plugins/spell/spell.plugin:7
 msgid "Checks the spelling of your documents"
@@ -107,7 +109,7 @@ msgstr ""
 
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
-msgstr ""
+msgstr "Pääte"
 
 #: plugins/terminal/terminal.plugin:7
 msgid "A terminal in your text editor"
@@ -115,7 +117,7 @@ msgstr ""
 
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
-msgstr ""
+msgstr "Vim-emulaatio"
 
 #: plugins/vim-emulation/vim-emulation.plugin:7
 msgid "Use Vim commands in Scratch"
@@ -123,7 +125,7 @@ msgstr ""
 
 #: plugins/word-completion/word-completion.plugin:3
 msgid "Words Completion"
-msgstr ""
+msgstr "Sanojen täydennys"
 
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
