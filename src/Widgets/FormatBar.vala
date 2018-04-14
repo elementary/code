@@ -226,6 +226,14 @@ public class Code.FormatBar : Gtk.Grid {
         // We need to connect_after because otherwise, the text isn't parsed into the "value" property and we only get the previous value
         goto_entry.activate.connect_after (() => {
             int line, offset;
+
+            try {
+                var regex = new GLib.Regex (":");
+                goto_entry.text = regex.replace_literal (goto_entry.text, -1, 0, ".");
+            } catch (Error e) {
+                critical (e.message);
+            }
+
             goto_entry.text.scanf("%i.%i", out line, out offset);
             doc.source_view.go_to_line (line, offset);
             // Focuses parent to the source view, so that the cursor, which indicates line and column is actually visible.
