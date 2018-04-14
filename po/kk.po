@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-16 11:23-0700\n"
+"POT-Creation-Date: 2018-03-28 15:29-0700\n"
 "PO-Revision-Date: 2016-07-08 22:28+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,7 +65,7 @@ msgstr ""
 msgid "New Tab"
 msgstr ""
 
-#: src/Application.vala:256
+#: src/Application.vala:256 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr ""
 
@@ -81,31 +81,31 @@ msgstr ""
 msgid "Current working directory"
 msgstr ""
 
-#: src/MainWindow.vala:133
+#: src/MainWindow.vala:125
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:178 src/Widgets/HeaderBar.vala:66
+#: src/MainWindow.vala:167 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
 msgstr ""
 
-#: src/MainWindow.vala:180
+#: src/MainWindow.vala:169
 msgid "Hide search bar"
 msgstr ""
 
-#: src/MainWindow.vala:226
+#: src/MainWindow.vala:215
 msgid "Zeitgeist Datasource for Scratch"
 msgstr ""
 
-#: src/MainWindow.vala:752
+#: src/MainWindow.vala:716
 msgid "Open some files"
 msgstr ""
 
-#: src/MainWindow.vala:771
+#: src/MainWindow.vala:735
 msgid "_Cancel"
 msgstr ""
 
-#: src/MainWindow.vala:772
+#: src/MainWindow.vala:736
 msgid "_Open"
 msgstr ""
 
@@ -117,7 +117,7 @@ msgstr ""
 msgid "Text files"
 msgstr ""
 
-#: src/Utils.vala:35 src/Services/Document.vala:370
+#: src/Utils.vala:35 src/Services/Document.vala:371
 msgid "Cancel"
 msgstr ""
 
@@ -125,106 +125,114 @@ msgstr ""
 msgid "Open"
 msgstr ""
 
-#: src/Utils.vala:46 src/Services/Document.vala:371
+#: src/Utils.vala:46 src/Services/Document.vala:372
 #: src/Services/Document.vala:668
 msgid "Save"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:42 src/Widgets/HeaderBar.vala:138
+#: src/Dialogs/PreferencesDialog.vala:39 src/Widgets/HeaderBar.vala:138
 msgid "Preferences"
 msgstr "Баптаулар"
 
-#: src/Dialogs/PreferencesDialog.vala:56
+#: src/Dialogs/PreferencesDialog.vala:53
 msgid "General"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:57
+#: src/Dialogs/PreferencesDialog.vala:54
 msgid "Save files when changed:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:59 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:147
+#: src/Dialogs/PreferencesDialog.vala:57 src/Widgets/FormatBar.vala:147
 msgid "Automatic indentation:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:141
+#: src/Dialogs/PreferencesDialog.vala:59 src/Widgets/FormatBar.vala:141
 msgid "Insert spaces instead of tabs:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:64 src/Widgets/FormatBar.vala:144
+#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:144
 msgid "Tab width:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:71
+#: src/Dialogs/PreferencesDialog.vala:68
 msgid "Behavior"
 msgstr "Тәртібі"
 
-#: src/Dialogs/PreferencesDialog.vala:72
+#: src/Dialogs/PreferencesDialog.vala:69
 msgid "Interface"
 msgstr "Интерфейс"
 
-#: src/Dialogs/PreferencesDialog.vala:84
+#: src/Dialogs/PreferencesDialog.vala:81
 #: plugins/pastebin/pastebin_dialog.vala:323
 msgid "Close"
 msgstr "Жабу"
 
-#: src/Dialogs/PreferencesDialog.vala:100
+#: src/Dialogs/PreferencesDialog.vala:97
 msgid "Extensions"
 msgstr "Кеңейтулер"
 
-#: src/Dialogs/PreferencesDialog.vala:109
+#: src/Dialogs/PreferencesDialog.vala:106
 msgid "Editor"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:111
+#: src/Dialogs/PreferencesDialog.vala:108
 msgid "Highlight current line:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:111
 msgid "Highlight matching brackets:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:114
 msgid "Draw Spaces:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:119
+#: src/Dialogs/PreferencesDialog.vala:116
 #: plugins/pastebin/pastebin_dialog.vala:460
 msgid "Never"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:120
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "For selected text"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:121
+#: src/Dialogs/PreferencesDialog.vala:118
 msgid "Always"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:126
+#: src/Dialogs/PreferencesDialog.vala:121
 msgid "Show Mini Map:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:130
+#: src/Dialogs/PreferencesDialog.vala:124
 msgid "Line width guide:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:138
+#: src/Dialogs/PreferencesDialog.vala:132
 msgid "Font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:140
+#: src/Dialogs/PreferencesDialog.vala:134
 msgid "Custom font:"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:31 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:50
+msgid "Other Application…"
+msgstr ""
+
+#: src/FolderManager/FileItem.vala:93
+msgid "Open In"
+msgstr ""
+
+#: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:34 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr ""
@@ -245,20 +253,20 @@ msgstr ""
 msgid "New"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:218
+#: src/FolderManager/FolderItem.vala:223
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:222
+#: src/FolderManager/FolderItem.vala:227
 #, c-format
 msgid "untitled folder %d"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:244
+#: src/FolderManager/FolderItem.vala:249
 msgid "new file"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:248
+#: src/FolderManager/FolderItem.vala:253
 #, c-format
 msgid "new file %d"
 msgstr ""
@@ -267,47 +275,47 @@ msgstr ""
 msgid "Close Folder"
 msgstr ""
 
-#: src/Services/Document.vala:221
+#: src/Services/Document.vala:222
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:222
+#: src/Services/Document.vala:223
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:224
+#: src/Services/Document.vala:225
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:245
+#: src/Services/Document.vala:246
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:246
+#: src/Services/Document.vala:247
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:248
+#: src/Services/Document.vala:249
 msgid "Cancel Load"
 msgstr ""
 
-#: src/Services/Document.vala:361
+#: src/Services/Document.vala:362
 #, c-format
 msgid "Save changes to document %s before closing?"
 msgstr ""
 
-#: src/Services/Document.vala:364
+#: src/Services/Document.vala:365
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
 
-#: src/Services/Document.vala:366
+#: src/Services/Document.vala:367
 msgid "Close without saving"
 msgstr ""
 
-#: src/Services/Document.vala:448
+#: src/Services/Document.vala:449
 msgid "Save File"
 msgstr ""
 
@@ -371,7 +379,7 @@ msgstr ""
 msgid "Templates"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:88
+#: src/Widgets/DocumentView.vala:92
 #, c-format
 msgid "Text file from %s"
 msgstr ""
@@ -392,21 +400,21 @@ msgstr ""
 msgid "Plain Text"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:185
+#: src/Widgets/FormatBar.vala:191
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Widgets/FormatBar.vala:187
+#: src/Widgets/FormatBar.vala:193
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Widgets/FormatBar.vala:203
+#: src/Widgets/FormatBar.vala:209
 msgid "Go To Line:"
 msgstr ""
 
@@ -586,54 +594,44 @@ msgstr ""
 msgid "Upload to Pastebin"
 msgstr ""
 
-#: plugins/outline/ValaProcessing/SymbolOutline.vala:21
-#: plugins/outline/ValaProcessing/SymbolOutline.vala:99
+#: plugins/outline/C/CtagsSymbolOutline.vala:31
+#: plugins/outline/C/CtagsSymbolOutline.vala:64
+#: plugins/outline/Vala/ValaSymbolOutline.vala:38
+#: plugins/outline/Vala/ValaSymbolOutline.vala:116
 #: plugins/outline/OutlinePane.vala:27
-#: plugins/outline/CtagsSymbolResolver.vala:35
-#: plugins/outline/CtagsSymbolResolver.vala:68
 msgid "Symbols"
 msgstr ""
 
-#: plugins/terminal/terminal.vala:118 plugins/terminal/terminal.vala:127
-#: plugins/terminal/terminal.vala:174 plugins/terminal/terminal.vala:176
-msgid "Terminal"
-msgstr ""
-
-#: plugins/terminal/terminal.vala:169 plugins/terminal/terminal.vala:180
+#: plugins/terminal/terminal.vala:135 plugins/terminal/terminal.vala:142
 msgid "Show Terminal"
 msgstr ""
 
-#: plugins/terminal/terminal.vala:172
+#: plugins/terminal/terminal.vala:138
 msgid "Hide Terminal"
 msgstr ""
 
-#: plugins/terminal/terminal.vala:247
+#: plugins/terminal/terminal.vala:139
+msgid "Terminal"
+msgstr ""
+
+#: plugins/terminal/terminal.vala:194
 msgid "Copy"
 msgstr ""
 
-#: plugins/terminal/terminal.vala:254
+#: plugins/terminal/terminal.vala:201
 msgid "Paste"
 msgstr ""
 
-#: plugins/terminal/terminal.vala:264
-msgid "Terminal on Right"
-msgstr ""
-
-#: plugins/terminal/terminal.vala:272
-msgid "Terminal on Bottom"
-msgstr ""
-
-#: plugins/browser-preview/browser-preview.vala:82
-#: plugins/browser-preview/browser-preview.vala:108
-msgid "Show Preview"
-msgstr ""
-
-#: plugins/browser-preview/browser-preview.vala:104
-#: plugins/browser-preview/browser-preview.vala:150
+#: plugins/browser-preview/BrowserView.vala:32
 msgid "Web Preview"
 msgstr ""
 
-#: plugins/browser-preview/browser-preview.vala:105
+#: plugins/browser-preview/browser-preview.vala:74
+#: plugins/browser-preview/browser-preview.vala:100
+msgid "Show Preview"
+msgstr ""
+
+#: plugins/browser-preview/browser-preview.vala:92
 msgid "Hide Preview"
 msgstr ""
 
@@ -651,10 +649,6 @@ msgstr ""
 #: plugins/word-completion/completion-provider.vala:80
 #, c-format
 msgid "Could not load icon theme: %s\n"
-msgstr ""
-
-#: plugins/open-with/open-with.vala:51
-msgid "Open With…"
 msgstr ""
 
 #~ msgid "Edit text files"

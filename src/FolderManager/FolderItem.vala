@@ -167,6 +167,11 @@ namespace Scratch.FolderManager {
                             return;
                         }
 
+                        // Temporary files from GLib that are present when saving a file
+                        if (source.get_basename ().has_prefix (".goutputstream")) {
+                            return;
+                        }
+
                         var file = new File (source.get_path ());
                         var exists = false;
                         foreach (var item in children) {
