@@ -27,6 +27,7 @@ public class Code.Pane : Gtk.Grid {
         
         get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
         stack = new Gtk.Stack ();
+        stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
         stack_switcher = new Gtk.StackSwitcher ();
         stack_switcher.no_show_all = true;
         stack_switcher.visible = false;
