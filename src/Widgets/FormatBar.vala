@@ -227,12 +227,7 @@ public class Code.FormatBar : Gtk.Grid {
         goto_entry.activate.connect_after (() => {
             int line, offset;
 
-            try {
-                var regex = new GLib.Regex (":");
-                goto_entry.text = regex.replace_literal (goto_entry.text, -1, 0, ".");
-            } catch (Error e) {
-                critical (e.message);
-            }
+            goto_entry.text = goto_entry.text.replace (":", ".");
 
             goto_entry.text.scanf("%i.%i", out line, out offset);
             doc.source_view.go_to_line (line, offset);
