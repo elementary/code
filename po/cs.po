@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-28 15:29-0700\n"
-"PO-Revision-Date: 2017-02-27 11:44+0000\n"
+"PO-Revision-Date: 2018-04-19 17:27+0000\n"
 "Last-Translator: Jan Marek <janmarek28@gmail.com>\n"
-"Language-Team: Czech <cs@li.org>\n"
+"Language-Team: Czech <https://weblate.elementary.io/projects/code/code/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #: src/Application.vala:142
 msgid "Maybe you do not have the necessary permissions."
@@ -54,7 +55,7 @@ msgstr ""
 
 #: src/Application.vala:174
 msgid "It is a mountable location."
-msgstr ""
+msgstr "Je to připojitelné umístění."
 
 #: src/Application.vala:177
 msgid "It is a directory."
@@ -65,10 +66,12 @@ msgid ""
 "It is a \"special\" file such as a socket,\n"
 " fifo, block device, or character device."
 msgstr ""
+"Je to \"speciální\" soubor jako socket,\n"
+"fifo, block device nebo character device."
 
 #: src/Application.vala:183
 msgid "It is an \"unknown\" file type."
-msgstr ""
+msgstr "Je to \"neznámý\" typ souboru."
 
 #: src/Application.vala:255
 msgid "New Tab"
@@ -92,7 +95,7 @@ msgstr "Pracovní adresář"
 
 #: src/MainWindow.vala:125
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
 #: src/MainWindow.vala:167 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
@@ -198,7 +201,7 @@ msgstr "Zvýraznit odpovídající závorky:"
 
 #: src/Dialogs/PreferencesDialog.vala:114
 msgid "Draw Spaces:"
-msgstr ""
+msgstr "Vykreslit mezery:"
 
 #: src/Dialogs/PreferencesDialog.vala:116
 #: plugins/pastebin/pastebin_dialog.vala:460
@@ -207,15 +210,15 @@ msgstr "Nikdy"
 
 #: src/Dialogs/PreferencesDialog.vala:117
 msgid "For selected text"
-msgstr ""
+msgstr "Pro vybraný text"
 
 #: src/Dialogs/PreferencesDialog.vala:118
 msgid "Always"
-msgstr ""
+msgstr "Vždy"
 
 #: src/Dialogs/PreferencesDialog.vala:121
 msgid "Show Mini Map:"
-msgstr ""
+msgstr "Zobrazit mini mapu:"
 
 #: src/Dialogs/PreferencesDialog.vala:124
 msgid "Line width guide:"
@@ -223,7 +226,7 @@ msgstr "Vodítko délky řádku:"
 
 #: src/Dialogs/PreferencesDialog.vala:132
 msgid "Font"
-msgstr ""
+msgstr "Písmo"
 
 #: src/Dialogs/PreferencesDialog.vala:134
 msgid "Custom font:"
@@ -231,58 +234,54 @@ msgstr "Vlastní písmo:"
 
 #: src/FolderManager/FileItem.vala:50
 msgid "Other Application…"
-msgstr ""
+msgstr "Jiná aplikace…"
 
 #: src/FolderManager/FileItem.vala:93
-#, fuzzy
 msgid "Open In"
-msgstr "Otevřít"
+msgstr "Otevřít v"
 
 #: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
-msgstr ""
+msgstr "Přejmenovat"
 
 #: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
-msgstr ""
+msgstr "Přesunout do koše"
 
 #: src/FolderManager/FileView.vala:39
 msgid "Folders"
 msgstr "Složky"
 
 #: src/FolderManager/FolderItem.vala:77
-#, fuzzy
 msgid "Folder"
-msgstr "Složky"
+msgstr "Složka"
 
 #: src/FolderManager/FolderItem.vala:80
 msgid "Empty File"
-msgstr ""
+msgstr "Prázdný soubor"
 
 #: src/FolderManager/FolderItem.vala:87
-#, fuzzy
 msgid "New"
-msgstr "Nová karta"
+msgstr "Nový"
 
 #: src/FolderManager/FolderItem.vala:223
 msgid "untitled folder"
-msgstr ""
+msgstr "složka bez názvu"
 
 #: src/FolderManager/FolderItem.vala:227
 #, c-format
 msgid "untitled folder %d"
-msgstr ""
+msgstr "složka bez názvu %d"
 
 #: src/FolderManager/FolderItem.vala:249
-#, fuzzy
 msgid "new file"
-msgstr "Nový soubor"
+msgstr "nový soubor"
 
 #: src/FolderManager/FolderItem.vala:253
-#, fuzzy, c-format
+#, c-format
 msgid "new file %d"
-msgstr "Nový soubor"
+msgstr "nový soubor %d"
 
 #: src/FolderManager/MainFolderItem.vala:30
 msgid "Close Folder"
@@ -291,29 +290,28 @@ msgstr "Zavřít složku"
 #: src/Services/Document.vala:222
 #, c-format
 msgid "%s Is Not a Text File"
-msgstr ""
+msgstr "%s není textový soubor"
 
 #: src/Services/Document.vala:223
 msgid "Code will not load this type of file."
-msgstr ""
+msgstr "Code nenačte tento typ souboru."
 
 #: src/Services/Document.vala:225
 msgid "Load Anyway"
-msgstr ""
+msgstr "Přesto načíst"
 
 #: src/Services/Document.vala:246
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr ""
+msgstr "Načítání souboru \"%s\" trvá hodně dlouho"
 
 #: src/Services/Document.vala:247
 msgid "Please wait while Code is loading the file."
-msgstr ""
+msgstr "Prosím počkejte, než Code načte soubor."
 
 #: src/Services/Document.vala:249
-#, fuzzy
 msgid "Cancel Load"
-msgstr "Zrušit"
+msgstr "Zrušit načítání"
 
 #: src/Services/Document.vala:362
 #, c-format
@@ -338,19 +336,14 @@ msgid "New Document"
 msgstr "Nový dokument"
 
 #: src/Services/Document.vala:646
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Read"
-msgstr ""
-"Soubor \"%s\" nemůže být vytvořen.\n"
-"%s"
+msgstr "Soubor \"%s\" nelze přečíst"
 
 #: src/Services/Document.vala:647
-#, fuzzy
 msgid ""
 "Maybe it is corrupt or you do not have the necessary permissions to read it."
-msgstr ""
-"Soubor \"%s\" nelze otevřít. Pravděpodobně je poškozený\n"
-"nebo pro jeho otevření nemáte potřebná práva."
+msgstr "Možná je poškozený nebo nemáte oprávnění potřebná k jeho čtení."
 
 #: src/Services/Document.vala:659
 #, c-format
@@ -404,40 +397,41 @@ msgid "Templates"
 msgstr "Šablony"
 
 #: src/Widgets/DocumentView.vala:92
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s"
-msgstr "Textový soubor z "
+msgstr "Textový soubor z  %s"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
 msgstr "Zvýraznění syntaxe"
 
 #: src/Widgets/FormatBar.vala:71
-#, fuzzy
 msgid "Line number"
-msgstr "Zobrazit čísla řádků:"
+msgstr "Číslo řádku"
 
 #: src/Widgets/FormatBar.vala:95
 msgid "Filter languages"
-msgstr ""
+msgstr "Filtrovat jazyky"
 
 #: src/Widgets/FormatBar.vala:117
 msgid "Plain Text"
-msgstr ""
+msgstr "Prostý text"
 
 #: src/Widgets/FormatBar.vala:191
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d mezera"
+msgstr[1] "%d mezer"
+msgstr[2] "%d mezery"
 
 #: src/Widgets/FormatBar.vala:193
-#, fuzzy, c-format
+#, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "Nová karta"
-msgstr[1] "Nová karta"
+msgstr[0] "%d karta"
+msgstr[1] "%d karet"
+msgstr[2] "%d karty"
 
 #: src/Widgets/FormatBar.vala:209
 msgid "Go To Line:"
@@ -472,30 +466,28 @@ msgid "Share"
 msgstr "Sdílet"
 
 #: src/Widgets/HeaderBar.vala:77
-#, fuzzy
 msgid "Zoom Out"
-msgstr "Zvětšit"
+msgstr "Oddálit"
 
 #: src/Widgets/HeaderBar.vala:81
 msgid "Zoom 1:1"
 msgstr "Zvětšení 1:1"
 
 #: src/Widgets/HeaderBar.vala:85
-#, fuzzy
 msgid "Zoom In"
-msgstr "Zvětšit"
+msgstr "Přiblížit"
 
 #: src/Widgets/HeaderBar.vala:100
 msgid "High Contrast"
-msgstr ""
+msgstr "Vysoký kontrast"
 
 #: src/Widgets/HeaderBar.vala:110
 msgid "Solarized Light"
-msgstr ""
+msgstr "Solarizovaný světlý"
 
 #: src/Widgets/HeaderBar.vala:120
 msgid "Solarized Dark"
-msgstr ""
+msgstr "Solarizovaný tmavý"
 
 #: src/Widgets/HeaderBar.vala:130
 msgid "Add New View"
@@ -507,7 +499,7 @@ msgstr "Odstranit současné zobrazení"
 
 #: src/Widgets/HeaderBar.vala:160
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 #: src/Widgets/SearchBar.vala:63
 msgid "Find"
@@ -567,7 +559,7 @@ msgstr "Nový soubor ze schránky"
 
 #: src/Widgets/WelcomeView.vala:37
 msgid "Create a new file from the contents of your clipboard."
-msgstr "Vytvořit nový soubor z obsahu vaší schránky"
+msgstr "Vytvořit nový soubor z obsahu vaší schránky."
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via PasteBin"
@@ -578,9 +570,8 @@ msgid "Name:"
 msgstr "Jméno:"
 
 #: plugins/pastebin/pastebin_dialog.vala:259
-#, fuzzy
 msgid "Format:"
-msgstr "Formát: "
+msgstr "Formát:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
 msgid "Others..."
@@ -669,7 +660,7 @@ msgid ""
 "Please install at least one [aspell] dictionary"
 msgstr ""
 "Nebyly nalezeny žádné použitelné slovníky.\n"
-"Nainstalujte si, prosím, alespoň jeden [aspell] slovník."
+"Nainstalujte prosím alespoň jeden [aspell] slovník"
 
 #: plugins/word-completion/plugin.vala:174
 #, c-format
