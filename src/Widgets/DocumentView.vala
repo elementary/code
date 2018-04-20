@@ -62,9 +62,12 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         });
 
         close_tab_requested.connect ((tab) => {
-            if ((tab as Services.Document).file != null)
-                tab.restore_data = (tab as Services.Document).get_uri ();
-            return (tab as Services.Document).close ();
+            var document = tab as Services.Document;
+            if (document.file != null) {
+                tab.restore_data = document.get_uri ();
+            }
+
+            return document.do_close ();
         });
 
         tab_switched.connect ((old_tab, new_tab) => {
@@ -80,6 +83,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         tab_duplicated.connect ((tab) => {
             duplicate_document (tab as Services.Document);
         });
+
         /* SplitView shows view as required */
     }
 
@@ -196,7 +200,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
     public void close_document (Services.Document doc) {
         remove_tab (doc);
-        doc.close ();
+        doc.do_close ();
     }
 
     public void close_current_document () {
