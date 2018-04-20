@@ -1,14 +1,16 @@
 module_name = 'outline'
 
 module_files = [
-    'CtagsSymbolResolver.vala',
+    'C/CtagsSymbol.vala',
+    'C/CtagsSymbolIter.vala',
+    'C/CtagsSymbolOutline.vala',
     'OutlinePane.vala',
     'OutlinePlugin.vala',
     'SymbolOutline.vala',
-    'ValaProcessing/ComparisonHelper.vala',
-    'ValaProcessing/SymbolItem.vala',
-    'ValaProcessing/SymbolOutline.vala',
-    'ValaProcessing/SymbolResolver.vala'
+    'Vala/ValaComparisonHelper.vala',
+    'Vala/ValaSymbolItem.vala',
+    'Vala/ValaSymbolOutline.vala',
+    'Vala/ValaSymbolResolver.vala'
 ]
 
 # We need libvala-X.XX library, but it changes depending on the version that is installed

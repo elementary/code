@@ -1,11 +1,13 @@
-module_name = 'open-with'
+module_name = 'editorconfig'
 
 module_files = [
-    'open-with.vala',
+    'editorconfig.vala',
+    'editorconfig.vapi'
 ]
 
 module_deps = [
     codecore_dep,
+    meson.get_compiler('c').find_library('libeditorconfig')
 ]
 
 shared_module(

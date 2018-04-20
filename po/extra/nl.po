@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-14 17:43-0700\n"
-"PO-Revision-Date: 2018-03-06 00:04+0000\n"
+"PO-Revision-Date: 2018-04-02 00:04+0000\n"
 "Last-Translator: Dieter Debast <dieter_debast@hotmail.com>\n"
-"Language-Team: Dutch <https://weblate.elementary.io/projects/code/extra/nl/"
-">\n"
+"Language-Team: Dutch <https://weblate.elementary.io/projects/code/extra/nl/>"
+"\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,20 +26,18 @@ msgid "Code"
 msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:9
-#, fuzzy
 msgid "The editor that works"
 msgstr "De tekstverwerker die werkt"
 
 #: data/io.elementary.code.appdata.xml.in:11
-#, fuzzy
 msgid ""
 "Code is the editor that works for you. It auto-saves your files, meaning "
 "they're always up-to-date. Plus it remembers your tabs so you never lose "
 "your spot, even in between sessions."
 msgstr ""
-"Scratch is de tekstverwerker die voor u werkt. Het slaat uw bestanden "
+"Code is de tekstverwerker die voor u werkt. Het slaat uw bestanden "
 "automatisch op, wat betekent dat ze altijd bijgewerkt zijn. Plus, het "
-"onthoudt uw tabs zodat u nooit uw locatie verliest, zelfs niet tussen "
+"onthoudt uw tabbladen zodat u nooit uw locatie verliest, zelfs niet tussen "
 "sessies in."
 
 #: data/io.elementary.code.appdata.xml.in:16
@@ -97,9 +95,8 @@ msgid "elementary LLC."
 msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:5
-#, fuzzy
 msgid "Edit code files"
-msgstr "Bewerk tekstbestanden"
+msgstr "Bewerk bronbestanden"
 
 #: data/io.elementary.code.desktop.in.in:6
 msgid "Code Editor"
@@ -110,9 +107,8 @@ msgid "io.elementary.code"
 msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:11
-#, fuzzy
 msgid "IDE;scratch;"
-msgstr "Scratch"
+msgstr "IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New Document"

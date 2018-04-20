@@ -42,7 +42,6 @@ namespace Scratch {
         public int window_y { get; set; }
 
         public int hp1_size { get; set; }
-        public int hp2_size { get; set; }
         public int vp_size { get; set; }
 
         public SavedState () {
