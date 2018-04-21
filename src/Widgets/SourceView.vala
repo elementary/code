@@ -52,6 +52,7 @@ namespace Scratch.Widgets {
         public SourceView () {
             Object (
                 show_line_numbers: true,
+                smart_backspace: true,
                 wrap_mode: Gtk.WrapMode.WORD
             );
         }
