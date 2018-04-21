@@ -52,6 +52,7 @@ namespace Scratch.Widgets {
         public SourceView () {
             Object (
                 show_line_numbers: true,
+                smart_home_end: Gtk.SourceSmartHomeEndType.BEFORE,
                 wrap_mode: Gtk.WrapMode.WORD
             );
         }
