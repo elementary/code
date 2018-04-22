@@ -98,7 +98,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
             string left_char = get_previous_char ();
             string right_char = get_next_char ();
 
-            if (left_char in brackets && right_char in brackets.values) {
+            if (brackets.has_key (left_char) && right_char in brackets.values) {
                 Gtk.TextIter start, end;
 
                 current_buffer.get_selection_bounds (out start, out end);
@@ -141,18 +141,18 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
     bool has_valid_next_char (string next_char) {
         return next_char in valid_next_chars ||
                next_char in brackets.values  ||
-               next_char in brackets;
+               brackets.has_key (next_char);
     }
 
     bool on_key_press (Gdk.EventKey event) {
-        if (event.keyval in keys &&
+        if (keys.has_key (event.keyval) &&
             !(Gdk.ModifierType.MOD1_MASK in event.state) &&
             !(Gdk.ModifierType.CONTROL_MASK in event.state)) {
 
             string bracket = keys[event.keyval];
             string next_char = get_next_char ();
 
-            if (bracket in brackets &&
+            if (brackets.has_key (bracket) &&
                 (current_buffer.has_selection || has_valid_next_char (next_char))) {
                 complete_brackets (bracket);
                 return true;
