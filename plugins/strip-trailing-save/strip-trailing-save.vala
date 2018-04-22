@@ -75,17 +75,16 @@ public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatabl
 
         string[] lines = Regex.split_simple ("""[\r\n]""", text);
         if (lines.length != buffer.get_line_count ()) {
-            warning ("Mismatch between line counts when stripping trailing spaces, not continuing");
+            critical ("Mismatch between line counts when stripping trailing spaces, not continuing");
             return;
         }
 
         MatchInfo info;
-        int line_no = 0;
         TextIter start_delete, end_delete;
-        foreach (var line in lines) {
+        for (int line_no = 0; line_no < lines.length; line_no++) {
             try {
                 var regex = new Regex ("[ \t]+$", 0);
-                if (regex.match (line, 0, out info)) {
+                if (regex.match (lines[line_no], 0, out info)) {
                     buffer.get_iter_at_line (out start_delete, line_no);
                     start_delete.forward_to_line_end ();
                     end_delete = start_delete;
@@ -94,10 +93,8 @@ public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatabl
                     buffer.@delete (ref start_delete, ref end_delete);
                 }
             } catch (RegexError e) {
-                warning ("Error while replacing trailing whitespace: %s", e.message);
+                critical ("Error while replacing trailing whitespace: %s", e.message);
             }
-
-            line_no++;
         }
 
         buffer.get_iter_at_line_offset (out iter, orig_line, orig_offset);
