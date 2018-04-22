@@ -167,7 +167,7 @@ namespace Scratch.Widgets {
             if (search_for_iter (start_iter, out end_iter)) {
                 string replace_string = replace_entry.text;
                 try {
-                    search_context.replace (start_iter, end_iter, replace_string, replace_string.length);
+                    search_context.replace2 (start_iter, end_iter, replace_string, replace_string.length);
                     bool matches = search ();
                     update_replace_tool_sensitivities (search_entry.text, matches);
                     update_tool_arrows (search_entry.text);
@@ -277,7 +277,7 @@ namespace Scratch.Widgets {
 
         private bool search_for_iter (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
             end_iter = start_iter;
-            bool found = search_context.forward (start_iter, out start_iter, out end_iter);
+            bool found = search_context.forward2 (start_iter, out start_iter, out end_iter, null);
             if (found) {
                 text_buffer.select_range (start_iter, end_iter);
                 text_view.scroll_to_iter (start_iter, 0, false, 0, 0);
@@ -288,7 +288,7 @@ namespace Scratch.Widgets {
 
         private bool search_for_iter_backward (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
             end_iter = start_iter;
-            bool found = search_context.backward (start_iter, out start_iter, out end_iter);
+            bool found = search_context.backward2 (start_iter, out start_iter, out end_iter, null);
             if (found) {
                 text_buffer.select_range (start_iter, end_iter);
                 text_view.scroll_to_iter (start_iter, 0, false, 0, 0);
@@ -349,14 +349,14 @@ namespace Scratch.Widgets {
                     is_in_end = end_iter.compare(tmp_end_iter) == 0;
 
                     if (!is_in_end) {
-                        bool next_found = search_context.forward (end_iter, out tmp_start_iter, out tmp_end_iter);
+                        bool next_found = search_context.forward2 (end_iter, out tmp_start_iter, out tmp_end_iter, null);
                         tool_arrow_down.sensitive = next_found;
                     } else {
                         tool_arrow_down.sensitive = false;
                     }
 
                     if (!is_in_start) {
-                        bool previous_found = search_context.backward (start_iter, out tmp_start_iter, out end_iter);
+                        bool previous_found = search_context.backward2 (start_iter, out tmp_start_iter, out end_iter, null);
                         tool_arrow_up.sensitive = previous_found;
                     } else {
                         tool_arrow_up.sensitive = false;
