@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-28 15:29-0700\n"
+"POT-Creation-Date: 2018-04-24 14:44-0700\n"
 "PO-Revision-Date: 2018-03-24 15:18+0000\n"
 "Last-Translator: Kaj Printz Madsen <kajprintz@gmail.com>\n"
 "Language-Team: Danish <https://weblate.elementary.io/projects/code/code/da/"
@@ -233,19 +233,19 @@ msgstr "Font"
 msgid "Custom font:"
 msgstr "Tilpasset skrifttype:"
 
-#: src/FolderManager/FileItem.vala:50
+#: src/FolderManager/FileItem.vala:53
 msgid "Other Application…"
 msgstr "Anden Applikation…"
 
-#: src/FolderManager/FileItem.vala:93
+#: src/FolderManager/FileItem.vala:99
 msgid "Open In"
 msgstr "Åbn I"
 
-#: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:102 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
 msgstr "Omdøb"
 
-#: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:105 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr "Flyt til Skrald"
@@ -542,15 +542,17 @@ msgid "Open a file to begin editing."
 msgstr "Åbn en fil for at begynde redigering."
 
 #: src/Widgets/WelcomeView.vala:35
-msgid "New file"
-msgstr "Ny fil"
+#, fuzzy
+msgid "New File"
+msgstr "/Ny Fil"
 
 #: src/Widgets/WelcomeView.vala:35
 msgid "Create a new empty file."
 msgstr "Opret en ny tom fil."
 
 #: src/Widgets/WelcomeView.vala:36
-msgid "Open file"
+#, fuzzy
+msgid "Open File"
 msgstr "Åbn fil"
 
 #: src/Widgets/WelcomeView.vala:36
@@ -558,12 +560,13 @@ msgid "Open a saved file."
 msgstr "Åben en gemt fil."
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "New file from clipboard"
-msgstr "Ny fil fra udklipsholder"
+#, fuzzy
+msgid "Open Folder"
+msgstr "Åbn en mappe"
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "Create a new file from the contents of your clipboard."
-msgstr "Opret en ny fil ud fra indholdet i udklipsholderen."
+msgid "Add a project folder to the sidebar."
+msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via PasteBin"
@@ -675,6 +678,15 @@ msgstr "%s - Fuldførsel af ord"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "Kunne ikke indlæse ikon tema: %s\n"
+
+#~ msgid "New file"
+#~ msgstr "Ny fil"
+
+#~ msgid "New file from clipboard"
+#~ msgstr "Ny fil fra udklipsholder"
+
+#~ msgid "Create a new file from the contents of your clipboard."
+#~ msgstr "Opret en ny fil ud fra indholdet i udklipsholderen."
 
 #~ msgid "Open With…"
 #~ msgstr "Åbn med…"
@@ -885,9 +897,6 @@ msgstr "Kunne ikke indlæse ikon tema: %s\n"
 
 #~ msgid "File Manager"
 #~ msgstr "Filhåndtering"
-
-#~ msgid "/New File"
-#~ msgstr "/Ny Fil"
 
 #~ msgid "Spell Checker"
 #~ msgstr "Stavekontrol"

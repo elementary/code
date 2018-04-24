@@ -32,9 +32,9 @@ public class Code.WelcomeView : Granite.Widgets.Welcome {
         valign = Gtk.Align.FILL;
         halign = Gtk.Align.FILL;
         vexpand = true;
-        append ("document-new", _("New file"), _("Create a new empty file."));
-        append ("document-open", _("Open file"), _("Open a saved file."));
-        append ("folder-saved-search", _("Open folder"), _("Open a saved folder."));
+        append ("document-new", _("New File"), _("Create a new empty file."));
+        append ("document-open", _("Open File"), _("Open a saved file."));
+        append ("folder-saved-search", _("Open Folder"), _("Add a project folder to the sidebar."));
         set_item_visible (2, window.clipboard.wait_is_text_available ());
 
         activated.connect ((i) => {

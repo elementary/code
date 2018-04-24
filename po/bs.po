@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-28 15:29-0700\n"
+"POT-Creation-Date: 2018-04-24 14:44-0700\n"
 "PO-Revision-Date: 2015-12-21 13:38+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -225,20 +225,20 @@ msgstr ""
 msgid "Custom font:"
 msgstr "Drugačiji font"
 
-#: src/FolderManager/FileItem.vala:50
+#: src/FolderManager/FileItem.vala:53
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:93
+#: src/FolderManager/FileItem.vala:99
 #, fuzzy
 msgid "Open In"
 msgstr "Otvori"
 
-#: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:102 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:105 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr ""
@@ -530,15 +530,17 @@ msgid "Open a file to begin editing."
 msgstr "Otvori datoteku da bi ste počeli da je mijenjate."
 
 #: src/Widgets/WelcomeView.vala:35
-msgid "New file"
-msgstr "Nova datoteka"
+#, fuzzy
+msgid "New File"
+msgstr "/Nova datoteka"
 
 #: src/Widgets/WelcomeView.vala:35
 msgid "Create a new empty file."
 msgstr "Napravi novu praznu datoteku."
 
 #: src/Widgets/WelcomeView.vala:36
-msgid "Open file"
+#, fuzzy
+msgid "Open File"
 msgstr "Otvori datoteku"
 
 #: src/Widgets/WelcomeView.vala:36
@@ -546,11 +548,12 @@ msgid "Open a saved file."
 msgstr "Otvori sačuvanu datoteku."
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "New file from clipboard"
-msgstr ""
+#, fuzzy
+msgid "Open Folder"
+msgstr "Otvori direktorij"
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "Create a new file from the contents of your clipboard."
+msgid "Add a project folder to the sidebar."
 msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:249
@@ -662,6 +665,9 @@ msgstr "%s - Automatski završetak riječi"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "Nije moguće učitati temu za ikonice: %s\n"
+
+#~ msgid "New file"
+#~ msgstr "Nova datoteka"
 
 #~ msgid "Color scheme:"
 #~ msgstr "Šema boja:"
@@ -806,9 +812,6 @@ msgstr "Nije moguće učitati temu za ikonice: %s\n"
 
 #~ msgid "File Manager"
 #~ msgstr "Upravnik datoteka"
-
-#~ msgid "/New File"
-#~ msgstr "/Nova datoteka"
 
 #~ msgid "Spell Checker"
 #~ msgstr "Provjera pravopisa"
