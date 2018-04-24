@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-28 15:29-0700\n"
 "PO-Revision-Date: 2018-04-24 07:25+0000\n"
-"Last-Translator: haggen svastian <h2gn@openmailbox.org>\n"
+"Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
 "Language-Team: Spanish <https://weblate.elementary.io/projects/code/code/es/>"
 "\n"
 "Language: es\n"
@@ -25,9 +25,8 @@ msgid "Maybe you do not have the necessary permissions."
 msgstr "Probablemente no cuentas con los permisos necesarios."
 
 #: src/Application.vala:144
-#, fuzzy
 msgid "Maybe the file path provided is not valid."
-msgstr "Probablemente la ruta de archivo proporcionada no es válida."
+msgstr "Probablemente la ruta del archivo proporcionada no es válida."
 
 #: src/Application.vala:146
 msgid "The location is read-only."
@@ -306,7 +305,7 @@ msgstr "Cargar de todos modos"
 #: src/Services/Document.vala:246
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr "La carga del archivo \"%s\" está tomando mucho tiempo"
+msgstr "La carga del archivo \"%s 1\" está tomando mucho tiempo"
 
 #: src/Services/Document.vala:247
 msgid "Please wait while Code is loading the file."
