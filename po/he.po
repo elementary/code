@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-28 15:29-0700\n"
+"POT-Creation-Date: 2018-04-24 14:44-0700\n"
 "PO-Revision-Date: 2018-03-21 05:58+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://weblate.elementary.io/projects/code/code/he/"
@@ -233,19 +233,19 @@ msgstr "גופן"
 msgid "Custom font:"
 msgstr "גופן מותאם אישית:"
 
-#: src/FolderManager/FileItem.vala:50
+#: src/FolderManager/FileItem.vala:53
 msgid "Other Application…"
 msgstr "יישום אחר…"
 
-#: src/FolderManager/FileItem.vala:93
+#: src/FolderManager/FileItem.vala:99
 msgid "Open In"
 msgstr "פתיחה עם"
 
-#: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:102 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
 msgstr "שינוי שם"
 
-#: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:105 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr "העברה לאשפה"
@@ -534,15 +534,17 @@ msgid "Open a file to begin editing."
 msgstr "פתחו קובץ כדי להתחיל לערוך."
 
 #: src/Widgets/WelcomeView.vala:35
-msgid "New file"
-msgstr "קובץ חדש"
+#, fuzzy
+msgid "New File"
+msgstr "/קובץ חדש"
 
 #: src/Widgets/WelcomeView.vala:35
 msgid "Create a new empty file."
 msgstr "יצירת קובץ ריק חדש."
 
 #: src/Widgets/WelcomeView.vala:36
-msgid "Open file"
+#, fuzzy
+msgid "Open File"
 msgstr "פתיחת קובץ"
 
 #: src/Widgets/WelcomeView.vala:36
@@ -550,12 +552,13 @@ msgid "Open a saved file."
 msgstr "פתיחת קובץ שמור."
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "New file from clipboard"
-msgstr "קובץ חדש מלוח הגזירים"
+#, fuzzy
+msgid "Open Folder"
+msgstr "פתיחת תיקייה"
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "Create a new file from the contents of your clipboard."
-msgstr "יצירת קובץ חדש מתוכן לוח הגזירים."
+msgid "Add a project folder to the sidebar."
+msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via PasteBin"
@@ -667,6 +670,15 @@ msgstr "%s - השלמת מילים"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "לא ניתן לטעון ערכת נושא לסמלים: %s\n"
+
+#~ msgid "New file"
+#~ msgstr "קובץ חדש"
+
+#~ msgid "New file from clipboard"
+#~ msgstr "קובץ חדש מלוח הגזירים"
+
+#~ msgid "Create a new file from the contents of your clipboard."
+#~ msgstr "יצירת קובץ חדש מתוכן לוח הגזירים."
 
 #~ msgid "Open With…"
 #~ msgstr "פתיחה באמצעות…"
@@ -868,9 +880,6 @@ msgstr "לא ניתן לטעון ערכת נושא לסמלים: %s\n"
 
 #~ msgid "File Manager"
 #~ msgstr "מנהל קבצים"
-
-#~ msgid "/New File"
-#~ msgstr "/קובץ חדש"
 
 #~ msgid "Spell Checker"
 #~ msgstr "בודק איות"

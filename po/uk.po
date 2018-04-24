@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-28 15:29-0700\n"
+"POT-Creation-Date: 2018-04-24 14:44-0700\n"
 "PO-Revision-Date: 2016-08-10 18:13+0000\n"
 "Last-Translator: Fedik <Unknown>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -231,20 +231,20 @@ msgstr ""
 msgid "Custom font:"
 msgstr "Власний шпифт:"
 
-#: src/FolderManager/FileItem.vala:50
+#: src/FolderManager/FileItem.vala:53
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:93
+#: src/FolderManager/FileItem.vala:99
 #, fuzzy
 msgid "Open In"
 msgstr "Відкрити"
 
-#: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:102 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:105 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr ""
@@ -549,15 +549,17 @@ msgid "Open a file to begin editing."
 msgstr "Відкрийте файл для редагування."
 
 #: src/Widgets/WelcomeView.vala:35
-msgid "New file"
-msgstr "Новий файл"
+#, fuzzy
+msgid "New File"
+msgstr "/Новий файл"
 
 #: src/Widgets/WelcomeView.vala:35
 msgid "Create a new empty file."
 msgstr "Створити порожній файл."
 
 #: src/Widgets/WelcomeView.vala:36
-msgid "Open file"
+#, fuzzy
+msgid "Open File"
 msgstr "Відкрити файл"
 
 #: src/Widgets/WelcomeView.vala:36
@@ -565,12 +567,13 @@ msgid "Open a saved file."
 msgstr "Відкрити попередньо збережений файл."
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "New file from clipboard"
-msgstr "Новий файл з буферу обміну"
+#, fuzzy
+msgid "Open Folder"
+msgstr "Відкрити теку"
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "Create a new file from the contents of your clipboard."
-msgstr "Створити новий файл з вмісту вашого буферу обміну."
+msgid "Add a project folder to the sidebar."
+msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via PasteBin"
@@ -683,6 +686,15 @@ msgstr "%s - завершення слів"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "Неможливо завантажити тему іконок: %s\n"
+
+#~ msgid "New file"
+#~ msgstr "Новий файл"
+
+#~ msgid "New file from clipboard"
+#~ msgstr "Новий файл з буферу обміну"
+
+#~ msgid "Create a new file from the contents of your clipboard."
+#~ msgstr "Створити новий файл з вмісту вашого буферу обміну."
 
 #~ msgid "Open With…"
 #~ msgstr "Відкрити за допомогою..."
@@ -901,9 +913,6 @@ msgstr "Неможливо завантажити тему іконок: %s\n"
 
 #~ msgid "File Manager"
 #~ msgstr "Файловий менеджер"
-
-#~ msgid "/New File"
-#~ msgstr "/Новий файл"
 
 #~ msgid "Spell Checker"
 #~ msgstr "Перевірка правопису"
