@@ -224,8 +224,8 @@ namespace Scratch {
             });
 #endif
 
-            Unix.signal_add (Posix.SIGINT, quit_source_func, Priority.HIGH);
-            Unix.signal_add (Posix.SIGTERM, quit_source_func, Priority.HIGH);
+            Unix.signal_add (Posix.Signal.INT, quit_source_func, Priority.HIGH);
+            Unix.signal_add (Posix.Signal.TERM, quit_source_func, Priority.HIGH);
 
             /* Splitview controls showing and hiding of Welcome view */
         }
@@ -265,7 +265,7 @@ namespace Scratch {
 
             split_view.document_change.connect ((doc) => {
                 plugins.hook_document (doc);
-                
+
                 search_bar.set_text_view (doc.source_view);
                 // Update MainWindow title
                 if (doc != null) {
@@ -279,7 +279,7 @@ namespace Scratch {
             });
 
             project_pane = new Code.Pane ();
-            
+
             folder_manager_view = new FolderManager.FileView ();
 
             folder_manager_view.select.connect ((a) => {
@@ -728,7 +728,7 @@ namespace Scratch {
                 }
             }
         }
-        
+
         private void action_open_folder () {
             var chooser = new Gtk.FileChooserDialog (
                 "Select a folder.", this, Gtk.FileChooserAction.SELECT_FOLDER,
