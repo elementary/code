@@ -81,19 +81,23 @@ public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatabl
 
         MatchInfo info;
         TextIter start_delete, end_delete;
-        for (int line_no = 0; line_no < lines.length; line_no++) {
-            try {
-                var regex = new Regex ("[ \t]+$", 0);
-                if (regex.match (lines[line_no], 0, out info)) {
-                    buffer.get_iter_at_line (out start_delete, line_no);
-                    start_delete.forward_to_line_end ();
-                    end_delete = start_delete;
-                    end_delete.backward_chars (info.fetch (0).length);
+        Regex whitespace;
 
-                    buffer.@delete (ref start_delete, ref end_delete);
-                }
-            } catch (RegexError e) {
-                critical ("Error while replacing trailing whitespace: %s", e.message);
+        try {
+            whitespace = new Regex ("[ \t]+$", 0);
+        } catch (RegexError e) {
+            critical ("Error while building regex to replace trailing whitespace: %s", e.message);
+            return;
+        }
+
+        for (int line_no = 0; line_no < lines.length; line_no++) {
+            if (whitespace.match (lines[line_no], 0, out info)) {
+                buffer.get_iter_at_line (out start_delete, line_no);
+                start_delete.forward_to_line_end ();
+                end_delete = start_delete;
+                end_delete.backward_chars (info.fetch (0).length);
+
+                buffer.@delete (ref start_delete, ref end_delete);
             }
         }
 
