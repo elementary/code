@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-28 15:29-0700\n"
-"PO-Revision-Date: 2018-04-03 00:05+0000\n"
+"POT-Creation-Date: 2018-04-24 14:44-0700\n"
+"PO-Revision-Date: 2018-04-24 07:25+0000\n"
 "Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
-"Language-Team: Spanish <https://weblate.elementary.io/projects/code/code/es/>"
-"\n"
+"Language-Team: Spanish <https://weblate.elementary.io/projects/code/code/es/"
+">\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,14 +21,12 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:142
-#, fuzzy
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Probablemente no cuentas con los permisos necesarios."
 
 #: src/Application.vala:144
-#, fuzzy
 msgid "Maybe the file path provided is not valid."
-msgstr "Probablemente la ruta de archivo proporcionada no es válida."
+msgstr "Probablemente la ruta del archivo proporcionada no es válida."
 
 #: src/Application.vala:146
 msgid "The location is read-only."
@@ -236,19 +234,19 @@ msgstr "Tipo de letra"
 msgid "Custom font:"
 msgstr "Tipo de letra personalizado:"
 
-#: src/FolderManager/FileItem.vala:50
+#: src/FolderManager/FileItem.vala:53
 msgid "Other Application…"
 msgstr "Otra aplicación …"
 
-#: src/FolderManager/FileItem.vala:93
+#: src/FolderManager/FileItem.vala:99
 msgid "Open In"
 msgstr "Abrir"
 
-#: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:102 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
 msgstr "Renombrar"
 
-#: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:105 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr "Mover a la papelera"
@@ -305,9 +303,9 @@ msgid "Load Anyway"
 msgstr "Cargar de todos modos"
 
 #: src/Services/Document.vala:246
-#, c-format, fuzzy
+#, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr "La carga del archivo \"%s\" está tomando mucho tiempo"
+msgstr "La carga del archivo \"%s 1\" está tomando mucho tiempo"
 
 #: src/Services/Document.vala:247
 msgid "Please wait while Code is loading the file."
@@ -432,7 +430,7 @@ msgstr[0] "%d Espacio"
 msgstr[1] "%d Espacios"
 
 #: src/Widgets/FormatBar.vala:193
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d Pestaña"
@@ -543,15 +541,17 @@ msgid "Open a file to begin editing."
 msgstr "Abre un archivo para comenzar la edición."
 
 #: src/Widgets/WelcomeView.vala:35
-msgid "New file"
-msgstr "Nuevo archivo"
+#, fuzzy
+msgid "New File"
+msgstr "Archivo /nuevo"
 
 #: src/Widgets/WelcomeView.vala:35
 msgid "Create a new empty file."
 msgstr "Crear un nuevo archivo vacío."
 
 #: src/Widgets/WelcomeView.vala:36
-msgid "Open file"
+#, fuzzy
+msgid "Open File"
 msgstr "Abrir un archivo"
 
 #: src/Widgets/WelcomeView.vala:36
@@ -559,12 +559,13 @@ msgid "Open a saved file."
 msgstr "Abrir un archivo guardado."
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "New file from clipboard"
-msgstr "Archivo nuevo desde portapapeles"
+#, fuzzy
+msgid "Open Folder"
+msgstr "Abrir una carpeta"
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "Create a new file from the contents of your clipboard."
-msgstr "Crear un archivo nuevo a partir de los contenidos del portapapeles."
+msgid "Add a project folder to the sidebar."
+msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via PasteBin"
@@ -677,6 +678,15 @@ msgstr "%s - Completar palabras"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "No se pudo cargar el tema de iconos : %s\n"
+
+#~ msgid "New file"
+#~ msgstr "Nuevo archivo"
+
+#~ msgid "New file from clipboard"
+#~ msgstr "Archivo nuevo desde portapapeles"
+
+#~ msgid "Create a new file from the contents of your clipboard."
+#~ msgstr "Crear un archivo nuevo a partir de los contenidos del portapapeles."
 
 #~ msgid "Open With…"
 #~ msgstr "Abrir con…"
@@ -945,9 +955,6 @@ msgstr "No se pudo cargar el tema de iconos : %s\n"
 
 #~ msgid "File Manager"
 #~ msgstr "Gestor de archivos"
-
-#~ msgid "/New File"
-#~ msgstr "Archivo /nuevo"
 
 #~ msgid "Spell Checker"
 #~ msgstr "Corrector ortográfico"

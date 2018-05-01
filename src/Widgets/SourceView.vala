@@ -53,11 +53,14 @@ namespace Scratch.Widgets {
             Object (
                 show_line_numbers: true,
                 smart_backspace: true,
+                smart_home_end: Gtk.SourceSmartHomeEndType.BEFORE,
                 wrap_mode: Gtk.WrapMode.WORD
             );
         }
 
         construct {
+            space_drawer.enable_matrix = true;
+
             expand = true;
             manager = Gtk.SourceLanguageManager.get_default ();
             style_scheme_manager = new Gtk.SourceStyleSchemeManager ();
@@ -159,12 +162,10 @@ namespace Scratch.Widgets {
             var source_buffer = (Gtk.SourceBuffer) buffer;
             source_buffer.highlight_matching_brackets = Scratch.settings.highlight_matching_brackets;
             if (settings.draw_spaces == ScratchDrawSpacesState.ALWAYS) {
-                draw_spaces = Gtk.SourceDrawSpacesFlags.TAB;
-                draw_spaces |= Gtk.SourceDrawSpacesFlags.SPACE;
+                space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.ALL,
+                    Gtk.SourceSpaceTypeFlags.SPACE | Gtk.SourceSpaceTypeFlags.TAB);
             } else {
-                // Ensure we change the draw_spaces variable at least once to trigger redraw
-                draw_spaces = Gtk.SourceDrawSpacesFlags.TAB;
-                draw_spaces = Gtk.SourceDrawSpacesFlags.NBSP;
+                space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.ALL, Gtk.SourceSpaceTypeFlags.NONE);
             }
 
             insert_spaces_instead_of_tabs = Scratch.settings.spaces_instead_of_tabs;

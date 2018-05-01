@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-28 15:29-0700\n"
+"POT-Creation-Date: 2018-04-24 14:44-0700\n"
 "PO-Revision-Date: 2017-01-21 09:06+0000\n"
 "Last-Translator: Hasan Sumon <hsnsumon@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -226,20 +226,20 @@ msgstr ""
 msgid "Custom font:"
 msgstr "কাস্টম ফন্টঃ"
 
-#: src/FolderManager/FileItem.vala:50
+#: src/FolderManager/FileItem.vala:53
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:93
+#: src/FolderManager/FileItem.vala:99
 #, fuzzy
 msgid "Open In"
 msgstr "খুলুন"
 
-#: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:102 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:105 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr ""
@@ -546,15 +546,17 @@ msgid "Open a file to begin editing."
 msgstr "সম্পাদনা শুরু করার জন্যে একটি ফাইল খুলুন"
 
 #: src/Widgets/WelcomeView.vala:35
-msgid "New file"
-msgstr "নতুন ফাইল"
+#, fuzzy
+msgid "New File"
+msgstr "/নতুন ফাইল"
 
 #: src/Widgets/WelcomeView.vala:35
 msgid "Create a new empty file."
 msgstr "একটি নতুন খালি ফাইল সৃষ্টি করুন"
 
 #: src/Widgets/WelcomeView.vala:36
-msgid "Open file"
+#, fuzzy
+msgid "Open File"
 msgstr "ফাইল খুলুন"
 
 #: src/Widgets/WelcomeView.vala:36
@@ -562,12 +564,13 @@ msgid "Open a saved file."
 msgstr "একটি সংরক্ষিত ফাইল খুলুন"
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "New file from clipboard"
-msgstr "ক্লিপবোর্ড থেকে নতুন ফাইল সৃষ্টি করুন"
+#, fuzzy
+msgid "Open Folder"
+msgstr "একটি ফোল্ডার খুলুন"
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "Create a new file from the contents of your clipboard."
-msgstr "আপনার ক্লিপবোর্ড এর তথ্য থেকে একটি নতুন ফাইল সৃষ্টি করুন"
+msgid "Add a project folder to the sidebar."
+msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via PasteBin"
@@ -680,6 +683,15 @@ msgstr "%s - শব্দ পরিপূরণ"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "আইকন থিম লোড করা সম্ভব হয়নিঃ %s\n"
+
+#~ msgid "New file"
+#~ msgstr "নতুন ফাইল"
+
+#~ msgid "New file from clipboard"
+#~ msgstr "ক্লিপবোর্ড থেকে নতুন ফাইল সৃষ্টি করুন"
+
+#~ msgid "Create a new file from the contents of your clipboard."
+#~ msgstr "আপনার ক্লিপবোর্ড এর তথ্য থেকে একটি নতুন ফাইল সৃষ্টি করুন"
 
 #~ msgid "Open With…"
 #~ msgstr "যে প্রোগ্রামের সাহায্যে খোলা হবে..."
@@ -878,9 +890,6 @@ msgstr "আইকন থিম লোড করা সম্ভব হয়নি�
 
 #~ msgid "File Manager"
 #~ msgstr "ফাইল ব্যবস্থাপক"
-
-#~ msgid "/New File"
-#~ msgstr "/নতুন ফাইল"
 
 #~ msgid "Spell Checker"
 #~ msgstr "বানান সংশোধক"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-28 15:29-0700\n"
+"POT-Creation-Date: 2018-04-24 14:44-0700\n"
 "PO-Revision-Date: 2018-03-21 09:24+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://weblate.elementary.io/projects/code/code/"
@@ -234,19 +234,19 @@ msgstr "Šriftas"
 msgid "Custom font:"
 msgstr "Tinkintas šriftas:"
 
-#: src/FolderManager/FileItem.vala:50
+#: src/FolderManager/FileItem.vala:53
 msgid "Other Application…"
 msgstr "Kitoje programoje…"
 
-#: src/FolderManager/FileItem.vala:93
+#: src/FolderManager/FileItem.vala:99
 msgid "Open In"
 msgstr "Kur atverti"
 
-#: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:102 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
 msgstr "Pervadinti"
 
-#: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:105 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr "Perkelti į Šiukšlinę"
@@ -546,15 +546,17 @@ msgid "Open a file to begin editing."
 msgstr "Atverkite failą, kad pradėtumėte redagavimą."
 
 #: src/Widgets/WelcomeView.vala:35
-msgid "New file"
-msgstr "Naujas failas"
+#, fuzzy
+msgid "New File"
+msgstr "/Naujas failas"
 
 #: src/Widgets/WelcomeView.vala:35
 msgid "Create a new empty file."
 msgstr "Sukurkite naują tuščią failą."
 
 #: src/Widgets/WelcomeView.vala:36
-msgid "Open file"
+#, fuzzy
+msgid "Open File"
 msgstr "Atverti failą"
 
 #: src/Widgets/WelcomeView.vala:36
@@ -562,12 +564,13 @@ msgid "Open a saved file."
 msgstr "Atverkite įrašytą failą."
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "New file from clipboard"
-msgstr "Naujas failas iš iškarpinės"
+#, fuzzy
+msgid "Open Folder"
+msgstr "Atverti aplanką"
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "Create a new file from the contents of your clipboard."
-msgstr "Sukurkite naują failą su turiniu iš savo iškarpinės."
+msgid "Add a project folder to the sidebar."
+msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via PasteBin"
@@ -679,6 +682,15 @@ msgstr "%s - Žodžių užbaigimas"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "Nepavyko įkelti piktogramų temos: %s\n"
+
+#~ msgid "New file"
+#~ msgstr "Naujas failas"
+
+#~ msgid "New file from clipboard"
+#~ msgstr "Naujas failas iš iškarpinės"
+
+#~ msgid "Create a new file from the contents of your clipboard."
+#~ msgstr "Sukurkite naują failą su turiniu iš savo iškarpinės."
 
 #~ msgid "Open With…"
 #~ msgstr "Atverti, naudojant…"
@@ -878,9 +890,6 @@ msgstr "Nepavyko įkelti piktogramų temos: %s\n"
 
 #~ msgid "File Manager"
 #~ msgstr "Failų tvarkytuvė"
-
-#~ msgid "/New File"
-#~ msgstr "/Naujas failas"
 
 #~ msgid "Spell Checker"
 #~ msgstr "Rašybos tikrinimas"
