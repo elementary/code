@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-28 15:29-0700\n"
+"POT-Creation-Date: 2018-04-24 14:44-0700\n"
 "PO-Revision-Date: 2018-03-21 16:04+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://weblate.elementary.io/projects/code/code/ca/"
@@ -233,19 +233,19 @@ msgstr "Lletra"
 msgid "Custom font:"
 msgstr "Tipus de lletra personalitzada:"
 
-#: src/FolderManager/FileItem.vala:50
+#: src/FolderManager/FileItem.vala:53
 msgid "Other Application…"
 msgstr "Una altra aplicació…"
 
-#: src/FolderManager/FileItem.vala:93
+#: src/FolderManager/FileItem.vala:99
 msgid "Open In"
 msgstr "Obre amb"
 
-#: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:102 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
 msgstr "Canvia'n el nom"
 
-#: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:105 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr "Mou a la paperera"
@@ -541,15 +541,17 @@ msgid "Open a file to begin editing."
 msgstr "Obriu un fitxer per començar l'edició."
 
 #: src/Widgets/WelcomeView.vala:35
-msgid "New file"
-msgstr "Fitxer nou"
+#, fuzzy
+msgid "New File"
+msgstr "Fitxer /nou"
 
 #: src/Widgets/WelcomeView.vala:35
 msgid "Create a new empty file."
 msgstr "Crea un fitxer nou buit."
 
 #: src/Widgets/WelcomeView.vala:36
-msgid "Open file"
+#, fuzzy
+msgid "Open File"
 msgstr "Obre un fitxer"
 
 #: src/Widgets/WelcomeView.vala:36
@@ -557,12 +559,13 @@ msgid "Open a saved file."
 msgstr "Obre un fitxer desat."
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "New file from clipboard"
-msgstr "Fitxer nou del porta-retalls"
+#, fuzzy
+msgid "Open Folder"
+msgstr "Obre una carpeta"
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "Create a new file from the contents of your clipboard."
-msgstr "Crea un fitxer nou a partir del contingut del porta-retalls."
+msgid "Add a project folder to the sidebar."
+msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via PasteBin"
@@ -674,6 +677,15 @@ msgstr "%s - Compleció de paraules"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "No s'ha pogut carregar el tema d'icones: %s\n"
+
+#~ msgid "New file"
+#~ msgstr "Fitxer nou"
+
+#~ msgid "New file from clipboard"
+#~ msgstr "Fitxer nou del porta-retalls"
+
+#~ msgid "Create a new file from the contents of your clipboard."
+#~ msgstr "Crea un fitxer nou a partir del contingut del porta-retalls."
 
 #~ msgid "Open With…"
 #~ msgstr "Obre amb…"
@@ -880,9 +892,6 @@ msgstr "No s'ha pogut carregar el tema d'icones: %s\n"
 
 #~ msgid "File Manager"
 #~ msgstr "Gestor de fitxers"
-
-#~ msgid "/New File"
-#~ msgstr "Fitxer /nou"
 
 #~ msgid "Spell Checker"
 #~ msgstr "Corrector ortogràfic"

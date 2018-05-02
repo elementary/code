@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-28 15:29-0700\n"
+"POT-Creation-Date: 2018-04-24 14:44-0700\n"
 "PO-Revision-Date: 2018-04-26 00:02+0000\n"
 "Last-Translator: Anand Kumar <anand@anandkumar.net>\n"
 "Language-Team: Hindi <https://weblate.elementary.io/projects/code/code/hi/>\n"
@@ -232,20 +232,20 @@ msgstr "फॉन्ट"
 msgid "Custom font:"
 msgstr "मनपसंद फ़ॉन्ट:"
 
-#: src/FolderManager/FileItem.vala:50
+#: src/FolderManager/FileItem.vala:53
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:93
+#: src/FolderManager/FileItem.vala:99
 #, fuzzy
 msgid "Open In"
 msgstr "खोलें"
 
-#: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:102 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
 msgstr "पुनः नामकरण"
 
-#: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:105 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr "रद्दी में डालें"
@@ -537,15 +537,17 @@ msgid "Open a file to begin editing."
 msgstr "संपादित करने के लिए फाइल को खोलें."
 
 #: src/Widgets/WelcomeView.vala:35
-msgid "New file"
-msgstr "नया फाइल"
+#, fuzzy
+msgid "New File"
+msgstr "/नई फाइल"
 
 #: src/Widgets/WelcomeView.vala:35
 msgid "Create a new empty file."
 msgstr "एक नई ख़ाली फाइल बनाएँ।"
 
 #: src/Widgets/WelcomeView.vala:36
-msgid "Open file"
+#, fuzzy
+msgid "Open File"
 msgstr "फ़ाइल खोलें"
 
 #: src/Widgets/WelcomeView.vala:36
@@ -553,12 +555,13 @@ msgid "Open a saved file."
 msgstr "सहेजी गई फाइल को खोलें."
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "New file from clipboard"
-msgstr "क्लिपबोर्ड से नई फ़ाइल"
+#, fuzzy
+msgid "Open Folder"
+msgstr "एक फ़ोल्डर खोलें"
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "Create a new file from the contents of your clipboard."
-msgstr "अपने क्लिपबोर्ड की सामग्री से एक नई फ़ाइल बनाएं।"
+msgid "Add a project folder to the sidebar."
+msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via PasteBin"
@@ -670,6 +673,15 @@ msgstr "%s - शब्द समापन"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "आइकॉन थीम लोड नहीं किया जा सका: %s\n"
+
+#~ msgid "New file"
+#~ msgstr "नया फाइल"
+
+#~ msgid "New file from clipboard"
+#~ msgstr "क्लिपबोर्ड से नई फ़ाइल"
+
+#~ msgid "Create a new file from the contents of your clipboard."
+#~ msgstr "अपने क्लिपबोर्ड की सामग्री से एक नई फ़ाइल बनाएं।"
 
 #~ msgid "Open With…"
 #~ msgstr "के साथ खोलें…"
@@ -806,9 +818,6 @@ msgstr "आइकॉन थीम लोड नहीं किया जा स
 
 #~ msgid "File Manager"
 #~ msgstr "फ़ाइल मैनेजर"
-
-#~ msgid "/New File"
-#~ msgstr "/नई फाइल"
 
 #~ msgid "Spell Checker"
 #~ msgstr "वर्तनी जाँचकर्ता"

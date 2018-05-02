@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-28 15:29-0700\n"
+"POT-Creation-Date: 2018-04-24 14:44-0700\n"
 "PO-Revision-Date: 2018-03-21 01:09+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://weblate.elementary.io/projects/"
@@ -232,19 +232,19 @@ msgstr "字型"
 msgid "Custom font:"
 msgstr "自訂字型："
 
-#: src/FolderManager/FileItem.vala:50
+#: src/FolderManager/FileItem.vala:53
 msgid "Other Application…"
 msgstr "其他應用程式…"
 
-#: src/FolderManager/FileItem.vala:93
+#: src/FolderManager/FileItem.vala:99
 msgid "Open In"
 msgstr "開啟於"
 
-#: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:102 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
 msgstr "改名"
 
-#: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:105 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr "移至垃圾桶"
@@ -529,15 +529,17 @@ msgid "Open a file to begin editing."
 msgstr "開啟檔案開始編輯。"
 
 #: src/Widgets/WelcomeView.vala:35
-msgid "New file"
-msgstr "新增檔案"
+#, fuzzy
+msgid "New File"
+msgstr "/新檔案"
 
 #: src/Widgets/WelcomeView.vala:35
 msgid "Create a new empty file."
 msgstr "建立新的空白檔案。"
 
 #: src/Widgets/WelcomeView.vala:36
-msgid "Open file"
+#, fuzzy
+msgid "Open File"
 msgstr "開啟檔案"
 
 #: src/Widgets/WelcomeView.vala:36
@@ -545,12 +547,13 @@ msgid "Open a saved file."
 msgstr "開啟儲存的檔案。"
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "New file from clipboard"
-msgstr "從剪貼簿新增檔案"
+#, fuzzy
+msgid "Open Folder"
+msgstr "開啟資料夾"
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "Create a new file from the contents of your clipboard."
-msgstr "從您的剪貼簿內容製作新的檔案。"
+msgid "Add a project folder to the sidebar."
+msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via PasteBin"
@@ -662,6 +665,15 @@ msgstr "%s - 單字補完"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "無法載入圖示主題：%s\n"
+
+#~ msgid "New file"
+#~ msgstr "新增檔案"
+
+#~ msgid "New file from clipboard"
+#~ msgstr "從剪貼簿新增檔案"
+
+#~ msgid "Create a new file from the contents of your clipboard."
+#~ msgstr "從您的剪貼簿內容製作新的檔案。"
 
 #~ msgid "Open With…"
 #~ msgstr "開啟方式…"
@@ -864,9 +876,6 @@ msgstr "無法載入圖示主題：%s\n"
 
 #~ msgid "File Manager"
 #~ msgstr "檔案管理員"
-
-#~ msgid "/New File"
-#~ msgstr "/新檔案"
 
 #~ msgid "Spell Checker"
 #~ msgstr "拼字檢查器"

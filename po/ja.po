@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-28 15:29-0700\n"
+"POT-Creation-Date: 2018-04-24 14:44-0700\n"
 "PO-Revision-Date: 2018-03-27 00:01+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/code/code/ja/"
@@ -233,19 +233,19 @@ msgstr "フォント"
 msgid "Custom font:"
 msgstr "カスタムフォント:"
 
-#: src/FolderManager/FileItem.vala:50
+#: src/FolderManager/FileItem.vala:53
 msgid "Other Application…"
 msgstr "その他のアプリケーション…"
 
-#: src/FolderManager/FileItem.vala:93
+#: src/FolderManager/FileItem.vala:99
 msgid "Open In"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:102 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
 msgstr "名前の変更"
 
-#: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:105 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr "ゴミ箱に移動"
@@ -536,15 +536,17 @@ msgid "Open a file to begin editing."
 msgstr "編集を開始するにはファイルを開いてください。"
 
 #: src/Widgets/WelcomeView.vala:35
-msgid "New file"
-msgstr "新しいファイル"
+#, fuzzy
+msgid "New File"
+msgstr "/New File"
 
 #: src/Widgets/WelcomeView.vala:35
 msgid "Create a new empty file."
 msgstr "新しい空ファイルを作成します。"
 
 #: src/Widgets/WelcomeView.vala:36
-msgid "Open file"
+#, fuzzy
+msgid "Open File"
 msgstr "ファイルを開く"
 
 #: src/Widgets/WelcomeView.vala:36
@@ -552,12 +554,13 @@ msgid "Open a saved file."
 msgstr "保存されているファイルを開きます。"
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "New file from clipboard"
-msgstr "クリップボードから新しいファイル"
+#, fuzzy
+msgid "Open Folder"
+msgstr "フォルダを開く"
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "Create a new file from the contents of your clipboard."
-msgstr "クリップポードの内容から新しいファイルを作成します。"
+msgid "Add a project folder to the sidebar."
+msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via PasteBin"
@@ -669,6 +672,15 @@ msgstr "%s - 単語補完"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "アイコンテーマを読み込めません: %s\n"
+
+#~ msgid "New file"
+#~ msgstr "新しいファイル"
+
+#~ msgid "New file from clipboard"
+#~ msgstr "クリップボードから新しいファイル"
+
+#~ msgid "Create a new file from the contents of your clipboard."
+#~ msgstr "クリップポードの内容から新しいファイルを作成します。"
 
 #~ msgid "Open With…"
 #~ msgstr "他のアプリケーションで開く…"
@@ -870,9 +882,6 @@ msgstr "アイコンテーマを読み込めません: %s\n"
 
 #~ msgid "File Manager"
 #~ msgstr "ファイルマネージャー"
-
-#~ msgid "/New File"
-#~ msgstr "/New File"
 
 #~ msgid "Spell Checker"
 #~ msgstr "スペルチェック"
