@@ -8,63 +8,70 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-24 14:44-0700\n"
-"PO-Revision-Date: 2017-01-12 09:48+0000\n"
-"Last-Translator: Jeerapat Sripumngoen <jeerapatsepu@gmail.com>\n"
-"Language-Team: Thai <th@li.org>\n"
+"PO-Revision-Date: 2018-05-04 00:03+0000\n"
+"Last-Translator: Park Evans <travellerpeira9@gmail.com>\n"
+"Language-Team: Thai <https://weblate.elementary.io/projects/code/code/th/>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #: src/Application.vala:142
 msgid "Maybe you do not have the necessary permissions."
-msgstr "บางทีคุณอาจจะไม่ได้รับสิทธิ์ที่จำเป็น"
+msgstr "คุณอาจไม่ได้รับสิทธิ์ที่จำเป็น"
 
 #: src/Application.vala:144
 msgid "Maybe the file path provided is not valid."
-msgstr "บางทีเส้นทางของแฟ้มที่ให้ไว้ไม่ถูกต้อง"
+msgstr "เส้นทางของไฟล์ที่ให้ไว้อาจไม่ถูกต้อง"
 
 #: src/Application.vala:146
 msgid "The location is read-only."
-msgstr "สถานที่ตั้งอ่านอย่างเดียว"
+msgstr "ตำแหน่งที่อยู่นี้เป็นแบบอ่านอย่างเดียว"
 
 #: src/Application.vala:148
 msgid "The parent directory doesn't exist."
-msgstr "ไดเรกทอรีหลักไม่มีอยู่"
+msgstr "ไม่พบไดเรกทอรีหลัก"
 
 #: src/Application.vala:155
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
-msgstr "ไม่สามารถสร้างแฟ้ม \"%s\""
+msgstr ""
+"ไม่สามารถสร้างไฟล์ \"%s\"\n"
+"%s"
 
 #: src/Application.vala:165
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
-msgstr "ไม่สามารถเปิดแฟ้ม \"%s\""
+msgstr ""
+"ไม่สามารถเปิดไฟล์ \"%s\"\n"
+"%s"
 
 #: src/Application.vala:174
 msgid "It is a mountable location."
-msgstr "สถานที่สามารถถอดได้"
+msgstr "ตำแหน่งที่สามารถจำลองได้"
 
 #: src/Application.vala:177
 msgid "It is a directory."
-msgstr "คือไดเรกทอรี"
+msgstr "นี่คือไดเรกทอรี"
 
 #: src/Application.vala:180
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " fifo, block device, or character device."
-msgstr "ไฟล์ \"พิเศษ\" เช่นซ็อกเก็ต"
+msgstr ""
+"\"ไฟล์พิเศษ\" เช่น socket,\n"
+" fifo, block device, หรือ character device"
 
 #: src/Application.vala:183
 msgid "It is an \"unknown\" file type."
-msgstr "\"ไม่ทราบ\" ประเภทของไฟล์"
+msgstr "ไม่ทราบประเภทของไฟล์"
 
 #: src/Application.vala:255
 msgid "New Tab"
@@ -84,7 +91,7 @@ msgstr "ชุดปลั๊กอิน"
 
 #: src/Application.vala:259
 msgid "Current working directory"
-msgstr "ไดเรกทอรีที่ทำงานปัจจุบัน"
+msgstr "ไดเรกทอรีปัจจุบัน"
 
 #: src/MainWindow.vala:125
 msgid "Code"
@@ -92,7 +99,7 @@ msgstr ""
 
 #: src/MainWindow.vala:167 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
-msgstr "ค้นหา..."
+msgstr "ค้นหา…"
 
 #: src/MainWindow.vala:169
 msgid "Hide search bar"
@@ -145,7 +152,7 @@ msgstr "ทั่วไป"
 
 #: src/Dialogs/PreferencesDialog.vala:54
 msgid "Save files when changed:"
-msgstr "บันทึกไฟล์เมื่อมีการเปลี่ยนแปลง"
+msgstr "บันทึกไฟล์เมื่อมีการเปลี่ยนแปลง:"
 
 #: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
@@ -190,7 +197,7 @@ msgstr "แสดงแถบสีบรรทัดปัจจุบัน"
 
 #: src/Dialogs/PreferencesDialog.vala:111
 msgid "Highlight matching brackets:"
-msgstr "แสดงแถบสีที่คู่วงเล็บ"
+msgstr "แสดงแถบสี ณ ส่วนที่ตรงกัน:"
 
 #: src/Dialogs/PreferencesDialog.vala:114
 msgid "Draw Spaces:"
@@ -211,11 +218,11 @@ msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:121
 msgid "Show Mini Map:"
-msgstr "แสดงแผนที่ขนาดเล็ก"
+msgstr "แสดงแผนที่ขนาดเล็ก:"
 
 #: src/Dialogs/PreferencesDialog.vala:124
 msgid "Line width guide:"
-msgstr "แสดงเส้นแนะนำความกว้าง"
+msgstr "เส้นพร้อมไกด์:"
 
 #: src/Dialogs/PreferencesDialog.vala:132
 msgid "Font"
@@ -223,7 +230,7 @@ msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:134
 msgid "Custom font:"
-msgstr "กำหนดแบบอักษร"
+msgstr "กำหนดแบบอักษร:"
 
 #: src/FolderManager/FileItem.vala:53
 msgid "Other Application…"
@@ -319,7 +326,8 @@ msgstr "ต้องการบันทึกการเปลี่ยนแ
 #: src/Services/Document.vala:365
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr "หากไม่ทำการบันทึก การเปลี่ยนแปลงใดๆ ใน 4 วินาทีล่าสุด จะไม่ถูกบันทึก"
+msgstr ""
+"หากไม่ทำการบันทึก การเปลี่ยนแปลงใดๆ ตั้งแต่ 4 วินาทีล่าสุด จะไม่ถูกบันทึก"
 
 #: src/Services/Document.vala:367
 msgid "Close without saving"
@@ -351,7 +359,7 @@ msgstr ""
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
-msgstr "ตำแหน่งไฟล์ \"%s\" ไม่ได้ถูกเมานท์ คุณต้องการบันทึกไว้ที่อื่นหรือไม่"
+msgstr "ตำแหน่งไฟล์ \"%s\" ไม่ได้ถูกเมานท์ คุณต้องการบันทึกที่อื่นหรือไม่?"
 
 #: src/Services/Document.vala:661
 msgid "Save As…"
@@ -360,7 +368,7 @@ msgstr "บันทึกเป็น…"
 #: src/Services/Document.vala:666
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "ลบไฟล์ \"%s\" แล้ว คุณต้องการบันทึกไว้เลยหรือไม่"
+msgstr "ไฟล์ \"%s\" ถูกลบ คุณต้องการบันทึกอยู่หรือไม่?"
 
 #: src/Services/Document.vala:681
 #, c-format
@@ -369,7 +377,7 @@ msgid ""
 "this file in a different location?"
 msgstr ""
 "คุณไม่สามารถบันทึกการเปลี่ยนแปลงให้กับไฟล์ \"%s\" "
-"คุณต้องการบันทึกการเปลี่ยนแปลงให้กับไฟล์นี้ในตำแหน่งอื่นหรือไม่"
+"คุณต้องการบันทึกการเปลี่ยนแปลงให้กับไฟล์นี้ในตำแหน่งอื่นหรือไม่?"
 
 #: src/Services/Document.vala:683
 msgid "Save changes elsewhere"
@@ -382,7 +390,7 @@ msgid ""
 "again or continue your editing?"
 msgstr ""
 "ไฟล์ \"%s\" ถูกแก้ไขโดยแอพพลิเคชั่นจากภายนอก "
-"คุณต้องการโหลดมันซ้ำอีกครั้งหรือทำการแก้ไขของคุณต่อไป?"
+"คุณต้องการโหลดซ้ำอีกครั้งหรือทำการแก้ไขของคุณต่อไป?"
 
 #: src/Services/Document.vala:717
 msgid "Load"
@@ -446,7 +454,7 @@ msgstr "เปิดโฟลเดอร์"
 
 #: src/Widgets/HeaderBar.vala:49
 msgid "Project templates"
-msgstr "แม่แบบโครงการ"
+msgstr "แม่แบบโปรเจกต์"
 
 #: src/Widgets/HeaderBar.vala:53
 msgid "Save this file"
@@ -512,11 +520,11 @@ msgstr "ค้นหาอันถัดไป"
 
 #: src/Widgets/SearchBar.vala:73
 msgid "Search previous"
-msgstr "ค้นหาอันที่แล้ว"
+msgstr "ค้นหาก่อนหน้า"
 
 #: src/Widgets/SearchBar.vala:77
 msgid "Cyclic Search"
-msgstr "ค้นหา Cyclic"
+msgstr "ค้นหาแบบ Cyclic"
 
 #: src/Widgets/SearchBar.vala:89
 msgid "Replace With"
