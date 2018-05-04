@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-24 14:44-0700\n"
-"PO-Revision-Date: 2018-05-04 06:17+0000\n"
+"PO-Revision-Date: 2018-05-05 00:10+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://weblate.elementary.io/projects/code/code/he/>"
 "\n"
@@ -26,7 +26,7 @@ msgstr "יתכן שלא נתקבלו ההרשאות הנדרשות."
 
 #: src/Application.vala:144
 msgid "Maybe the file path provided is not valid."
-msgstr "יתכן ונתיב הקובץ אינו תקף."
+msgstr "יתכן שנתיב הקובץ אינו תקף."
 
 #: src/Application.vala:146
 msgid "The location is read-only."
@@ -56,7 +56,7 @@ msgstr ""
 
 #: src/Application.vala:174
 msgid "It is a mountable location."
-msgstr "זהו מיקום ניתן לעגינה."
+msgstr "מיקום זה ניתן לעגינה."
 
 #: src/Application.vala:177
 msgid "It is a directory."
@@ -68,7 +68,7 @@ msgid ""
 " fifo, block device, or character device."
 msgstr ""
 "זה קובץ „מיוחד” כגון שקע,\n"
-"fifo, התקן בלוקים, או התקן תווים."
+"fifo, התקן בלוקים או התקן תווים."
 
 #: src/Application.vala:183
 msgid "It is an \"unknown\" file type."
@@ -108,7 +108,7 @@ msgstr "הסתרת סרגל החיפוש"
 
 #: src/MainWindow.vala:215
 msgid "Zeitgeist Datasource for Scratch"
-msgstr "מקור נתונים צייטגייסט עבור רישום"
+msgstr "מקור נתונים צייטגייסט עבור קוד"
 
 #: src/MainWindow.vala:716
 msgid "Open some files"
@@ -571,7 +571,7 @@ msgstr "תסדיר:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
 msgid "Others..."
-msgstr "אחרים..."
+msgstr "אחרים…"
 
 #: plugins/pastebin/pastebin_dialog.vala:286
 msgid "Expiry time:"
@@ -587,7 +587,7 @@ msgstr "העלאה"
 
 #: plugins/pastebin/pastebin_dialog.vala:352
 msgid "Other formats"
-msgstr "פורמטים אחרים"
+msgstr "תסדירים אחרים"
 
 #: plugins/pastebin/pastebin_dialog.vala:461
 msgid "Ten minutes"
