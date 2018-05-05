@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-24 14:44-0700\n"
-"PO-Revision-Date: 2018-04-02 00:04+0000\n"
+"PO-Revision-Date: 2018-05-06 00:09+0000\n"
 "Last-Translator: Dieter Debast <dieter_debast@hotmail.com>\n"
 "Language-Team: Dutch <https://weblate.elementary.io/projects/code/code/nl/>\n"
 "Language: nl\n"
@@ -541,16 +541,14 @@ msgid "Open a file to begin editing."
 msgstr "Open een bestand het te bewerken."
 
 #: src/Widgets/WelcomeView.vala:35
-#, fuzzy
 msgid "New File"
-msgstr "/Nieuw bestand"
+msgstr "Nieuw bestand"
 
 #: src/Widgets/WelcomeView.vala:35
 msgid "Create a new empty file."
 msgstr "Maak een nieuw leeg bestand."
 
 #: src/Widgets/WelcomeView.vala:36
-#, fuzzy
 msgid "Open File"
 msgstr "Bestand openen"
 
@@ -559,9 +557,8 @@ msgid "Open a saved file."
 msgstr "Een opgeslagen bestand openen."
 
 #: src/Widgets/WelcomeView.vala:37
-#, fuzzy
 msgid "Open Folder"
-msgstr "Open een map"
+msgstr "Map openen"
 
 #: src/Widgets/WelcomeView.vala:37
 msgid "Add a project folder to the sidebar."
