@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-24 14:44-0700\n"
 "PO-Revision-Date: 2018-05-05 23:05+0000\n"
-"Last-Translator: Luis Varandas Sales <lvsales@gmail.com>\n"
+"Last-Translator: Iuninefrendor <iuninefrendor@gmail.com>\n"
 "Language-Team: Spanish <https://weblate.elementary.io/projects/code/code/es/>"
 "\n"
 "Language: es\n"
@@ -148,7 +148,6 @@ msgid "Preferences"
 msgstr "Preferencias"
 
 #: src/Dialogs/PreferencesDialog.vala:53
-#, fuzzy
 msgid "General"
 msgstr "General"
 
@@ -430,7 +429,7 @@ msgstr[0] "%d Espacio"
 msgstr[1] "%d Espacios"
 
 #: src/Widgets/FormatBar.vala:193
-#, fuzzy, c-format
+#, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d Pestaña"
