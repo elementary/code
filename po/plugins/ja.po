@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-15 19:09+0000\n"
-"PO-Revision-Date: 2018-03-27 00:01+0000\n"
+"PO-Revision-Date: 2018-05-09 00:07+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock@gmail.com>\n"
 "Language-Team: Japanese "
 "<https://weblate.elementary.io/projects/code/plugins/ja/>\n"
@@ -81,7 +81,7 @@ msgstr "Pastebin"
 
 #: plugins/pastebin/pastebin.plugin:7
 msgid "Share files with pastebin service"
-msgstr "Pastebin サービスを利用してファイルを共有する"
+msgstr "Pastebin サービスを利用してファイルを共有します"
 
 #: plugins/preserve-indent/preserve-indent.plugin:6
 msgid "Preserve Indent"
@@ -89,7 +89,7 @@ msgstr "インデントを保持する"
 
 #: plugins/preserve-indent/preserve-indent.plugin:7
 msgid "Maintains relative indent level of pasted text"
-msgstr "ペーストされたテキストの相対的なインデントレベルを維持する"
+msgstr "ペーストされたテキストの相対的なインデントレベルを維持します"
 
 #: plugins/spell/spell.plugin:6
 msgid "Spell Checker"
@@ -97,15 +97,15 @@ msgstr "スペルチェッカー"
 
 #: plugins/spell/spell.plugin:7
 msgid "Checks the spelling of your documents"
-msgstr "ドキュメントのスペルをチェックする"
+msgstr "ドキュメントのスペルをチェックします"
 
 #: plugins/strip-trailing-save/strip-trailing-save.plugin:6
 msgid "Strip trailing whitespace"
-msgstr ""
+msgstr "ファイルの末尾の空白を削除する"
 
 #: plugins/strip-trailing-save/strip-trailing-save.plugin:7
 msgid "Strip trailing whitespace on save"
-msgstr ""
+msgstr "保存時にファイルの末尾の空白を削除します"
 
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
@@ -121,7 +121,7 @@ msgstr "Vim エミュレーション"
 
 #: plugins/vim-emulation/vim-emulation.plugin:7
 msgid "Use Vim commands in Scratch"
-msgstr "Scratch で Vim コマンドを使用する"
+msgstr "Scratch で Vim コマンドを使用します"
 
 #: plugins/word-completion/word-completion.plugin:3
 msgid "Words Completion"
@@ -129,7 +129,7 @@ msgstr "単語補完"
 
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
-msgstr "ファイル内で最も使用された単語を補完するダイアログを表示する"
+msgstr "ファイル内で最も使用された単語を補完するダイアログを表示します"
 
 #~ msgid "Folder Manager"
 #~ msgstr "フォルダマネージャー"
