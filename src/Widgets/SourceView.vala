@@ -27,7 +27,6 @@ namespace Scratch.Widgets {
         public Gtk.TextTag warning_tag;
         public Gtk.TextTag error_tag;
 
-
         private string font;
         private uint selection_changed_timer = 0;
         private Gtk.TextIter last_select_start_iter;
