@@ -707,8 +707,9 @@ namespace Scratch {
 
         private void action_quit () {
             handle_quit ();
-            check_unsaved_changes ();
-            destroy ();
+            if (check_unsaved_changes ()) {
+                destroy ();
+            }
         }
 
         private void action_open () {
