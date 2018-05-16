@@ -266,7 +266,15 @@ namespace Scratch.Services {
             try {
                 var source_file_loader = new Gtk.SourceFileLoader (buffer, source_file);
                 yield source_file_loader.load_async (GLib.Priority.LOW, load_cancellable, null);
-                source_view.buffer.text = buffer.text;
+                var source_buffer = source_view.buffer as Gtk.SourceBuffer;
+                if (source_buffer != null) {
+                    source_buffer.begin_not_undoable_action ();
+                    source_buffer.text = buffer.text;
+                    source_buffer.end_not_undoable_action ();
+                } else {
+                    source_view.buffer.text = buffer.text;
+                }
+
                 loaded = true;
             } catch (Error e) {
                 critical (e.message);
