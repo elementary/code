@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-14 17:43-0700\n"
-"PO-Revision-Date: 2018-04-19 14:32+0000\n"
-"Last-Translator: Jan Marek <janmarek28@gmail.com>\n"
+"PO-Revision-Date: 2018-05-17 00:01+0000\n"
+"Last-Translator: Daniel Zvir <zvir.daniel@seznam.cz>\n"
 "Language-Team: Czech <https://weblate.elementary.io/projects/code/extra/cs/>"
 "\n"
 "Language: cs\n"
@@ -48,8 +48,8 @@ msgid ""
 msgstr ""
 "Přizpůsob si ho. Code je napsaný od základu tak, aby byl rozšiřitelný. "
 "Ponech ho velmi jednoduchý a odlehčený, nebo si nainstaluj rozšíření a změň "
-"Code v plnohodnotné IDE. Je to jen tvá volba. S pomocí nemála užitečných "
-"nastavení, můžeš vyladit chování a prostředí podle svého vkusu."
+"Code v plnohodnotné IDE. Je to jen tvá volba. S pomocí mnoha užitečných "
+"nastavení lze vyladit chování i prostředí Code přesně dle tvého vkusu."
 
 #: data/io.elementary.code.appdata.xml.in:22
 msgid ""
@@ -78,13 +78,13 @@ msgid ""
 "Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
 "Objective C, Pascal, Perl, Python, Ruby, XML."
 msgstr ""
-"Další jazyky se zvýrazněním syntaxe: Bash, C, C#, C++. Cmake, CSS, .Desktop, "
+"Další jazyky se zvýrazněním syntaxe: Bash, C, C#, C++, Cmake, CSS, .Desktop, "
 "Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
-"Objective C, Pascal, Perl, Python, Ruby, XML."
+"Objective C, Pascal, Perl, Python, Ruby a XML."
 
 #: data/io.elementary.code.appdata.xml.in:38
 msgid "Additional features include:"
-msgstr "Mezi dalšími funkcemi jsou:"
+msgstr "Mezi další funkce patří:"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "syntax highlighting with gtksourceview-3"
@@ -108,7 +108,7 @@ msgstr "elementary LLC."
 
 #: data/io.elementary.code.desktop.in.in:5
 msgid "Edit code files"
-msgstr "Upravit soubory s kódem"
+msgstr "Uprav soubory s kódem"
 
 #: data/io.elementary.code.desktop.in.in:6
 msgid "Code Editor"
