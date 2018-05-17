@@ -130,11 +130,19 @@ public class Code.FormatBar : Gtk.Grid {
 
         lang_selection_listbox.row_activated.connect ((row) => {
             var lang_entry = ((LangEntry) row);
-            lang_entry.active = true;
-            lang_selection_listbox.select_row (lang_entry);
-            lang_toggle.text = lang_entry.lang_name;
-            doc.source_view.language = lang_entry.lang_id != null ? manager.get_language (lang_entry.lang_id) : null;
+            select_language (lang_entry);
         });
+    }
+
+    private void select_language (LangEntry lang, bool update_source_view = true) {
+        lang_selection_listbox.select_row (lang);
+        lang_toggle.text = lang.lang_name;
+        if (update_source_view) {
+            lang.active = true;
+            doc.source_view.language = lang.lang_id != null ? manager.get_language (lang.lang_id) : null;
+        } else {
+            lang.selected = true;
+        }
     }
 
     private void create_tabulation_popover () {
@@ -254,11 +262,11 @@ public class Code.FormatBar : Gtk.Grid {
             lang_selection_listbox.get_children ().foreach ((child) => {
                 var lang_entry = ((LangEntry) child);
                 if (lang_entry.lang_id == lang_id) {
-                    lang_entry.active = true;
+                    select_language (lang_entry, false);
                 }
             });
         } else {
-            normal_entry.active = true;
+            select_language (normal_entry, false);
         }
     }
 
@@ -310,6 +318,18 @@ public class Code.FormatBar : Gtk.Grid {
             }
         }
 
+        public bool selected {
+            get {
+                return lang_radio.active;
+            }
+
+            set {
+                lang_radio.toggled.disconnect (radio_toggled);
+                lang_radio.active = value;
+                lang_radio.toggled.connect (radio_toggled);
+            }
+        }
+
         private Gtk.RadioButton lang_radio;
         public LangEntry (string? lang_id, string lang_name, SList<Gtk.RadioButton> group) {
             Object (lang_id: lang_id, lang_name: lang_name);
@@ -319,11 +339,13 @@ public class Code.FormatBar : Gtk.Grid {
             lang_radio = new Gtk.RadioButton.with_label (group, lang_name);
             lang_radio.margin_start = 4;
             add (lang_radio);
-            lang_radio.toggled.connect (() => {
-                if (lang_radio.active) {
-                    activate ();
-                }
-            });
+            lang_radio.toggled.connect (radio_toggled);
+        }
+
+        private void radio_toggled () {
+            if (lang_radio.active) {
+                activate ();
+            }
         }
 
         public unowned SList<Gtk.RadioButton> get_radio_group () {
