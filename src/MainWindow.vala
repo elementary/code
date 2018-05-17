@@ -855,7 +855,7 @@ namespace Scratch {
             // This is also called when all documents are closed.
             if (current_doc != null) {
                 var selected_text = current_doc.get_selected_text ();
-                if (selected_text.length < MAX_SEARCH_TEXT_LENGTH) {
+                if (selected_text != "" && selected_text.length < MAX_SEARCH_TEXT_LENGTH) {
                     search_bar.set_search_string (selected_text);
                 }
 
