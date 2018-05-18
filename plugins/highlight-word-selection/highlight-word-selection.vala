@@ -19,7 +19,6 @@
 ***/
 
 public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase,  Peas.Activatable {
-    // Properties
     Scratch.Widgets.SourceView current_source;
     Gtk.SourceSearchContext current_search_context;
 
@@ -49,7 +48,7 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase,  Peas.
 
     public void on_selection_changed (ref Gtk.TextIter start, ref Gtk.TextIter end) {
         if (!start.equal (end)) {
-            // Expand highlight to current word on
+            // Expand highlight to current word
             if (!start.starts_word ()) {
                 start.backward_word_start ();
             }
@@ -69,7 +68,6 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase,  Peas.
     }
 
     public void on_deselection () {
-        warning ("deselect");
         if (current_search_context != null) {
             current_search_context.settings.search_text = null;
         }
