@@ -67,14 +67,16 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
         current_buffer = doc.source_view.buffer;
 
         if (current_source_view != null) {
-            current_source_view.key_press_event.disconnect (on_key_down);
+            current_source_view.deselected.disconnect (on_deselect);
+            current_source_view.selection_changed.disconnect (on_selection);
             current_source_view.event_after.disconnect (on_event_after);
             current_source_view.backspace.disconnect (on_backspace);
         }
 
         current_source_view = doc.source_view;
 
-        current_source_view.key_press_event.connect (on_key_down);
+        current_source_view.deselected.connect (on_key_down);
+        current_source_view.selection_changed.sconnect (on_selection);
         current_source_view.event_after.connect (on_event_after);
         current_source_view.backspace.connect (on_backspace);
     }
@@ -86,6 +88,10 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
         start = end;
         end.forward_char ();
 
+        if (start == end) {
+            return "";
+        }
+
         return current_buffer.get_text (start, end, true) ;
     }
 
@@ -95,6 +101,10 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
         current_buffer.get_selection_bounds (out start, null);
         end = start;
         start.backward_char ();
+
+        if (start == end) {
+            return "";
+        }
 
         return current_buffer.get_text (start, end, true) ;
     }
@@ -123,11 +133,11 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
         string text = previous_selection + closing_bracket;
 
         current_buffer.begin_user_action ();
-        current_buffer.insert (ref start, text, text.length);
+        current_buffer.insert (ref start, text, -1);
 
         current_buffer.get_selection_bounds (out start, out end);
         end.backward_char ();
-        start.backward_chars (previous_selection.length + 1);
+        start.backward_chars (previous_selection.char_count () + 1);
         current_buffer.select_range (start, end);
 
         current_buffer.end_user_action ();
@@ -150,7 +160,9 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
         current_buffer.get_iter_at_mark (out start, current_buffer.get_insert ());
         Gtk.TextIter end = start;
         end.forward_char ();
-        current_buffer.delete (ref start, ref end);
+        if (end != start) {
+            current_buffer.delete (ref start, ref end);
+        }
 
         current_buffer.end_user_action ();
     }
@@ -169,7 +181,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
             Gtk.TextIter start, end;
             current_buffer.get_selection_bounds (out start, out end);
 
-            previous_selection = current_buffer.get_text (start, end, true);
+            previous_selection = current_buffer.get_text (start, end, false);
         }
 
         return false;
@@ -189,13 +201,14 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
             string bracket = keys[event.keyval];
             string next_char = get_next_char ();
             string prev_char = get_previous_char ();
+            bool brackets_match = next_char == bracket && prev_char == bracket;
 
-            if (prev_char == bracket && bracket in brackets.values && next_char == bracket) {
+            if (brackets_match && !current_buffer.has_selection && bracket in brackets.values) {
                 delete_next_char ();
                 return;
             }
 
-            if (!(get_previous_char () in brackets)) {
+            if (!(prev_char in brackets)) {
                 return;
             }
 
