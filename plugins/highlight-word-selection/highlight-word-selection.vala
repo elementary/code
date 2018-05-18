@@ -19,10 +19,8 @@
 ***/
 
 public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase,  Peas.Activatable {
-    // Properties
-    Gee.TreeSet<Scratch.Widgets.SourceView> source_views;
-    Gee.HashMap<Scratch.Widgets.SourceView, Gtk.SourceSearchContext> search_contexts;
     Scratch.Widgets.SourceView current_source;
+    Gtk.SourceSearchContext current_search_context;
 
     // Consts
     // Pneumonoultramicroscopicsilicovolcanoconiosis longest word in a major dictionary @ 45
@@ -31,31 +29,26 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase,  Peas.
     Scratch.Services.Interface plugins;
     public Object object { owned get; construct; }
 
-    public void update_state () {
-
-    }
+    public void update_state () {}
 
     public void activate () {
-        this.source_views = new Gee.TreeSet<Scratch.Widgets.SourceView> ();
-        this.search_contexts = new Gee.HashMap<Scratch.Widgets.SourceView, Gtk.SourceSearchContext> ();
-
         plugins = (Scratch.Services.Interface) object;
         plugins.hook_document.connect ((doc) => {
-            var src = doc.source_view;
-            var source_buffer = (Gtk.SourceBuffer) src.buffer;
-            src.deselected.disconnect (on_deselection);
-            src.deselected.connect (on_deselection);
-            src.selection_changed.disconnect (on_selection_changed);
-            src.selection_changed.connect (on_selection_changed);
-            this.source_views.add (src);
-            this.search_contexts.set (src, new Gtk.SourceSearchContext (source_buffer,null));
-            this.current_source = src;
+            if (current_source != null) {
+                current_source.deselected.disconnect (on_deselection);
+                current_source.selection_changed.disconnect (on_selection_changed);
+            }
+
+            current_source = doc.source_view;
+            current_search_context = new Gtk.SourceSearchContext ((Gtk.SourceBuffer)current_source.buffer, null);
+            current_source.deselected.connect (on_deselection);
+            current_source.selection_changed.connect (on_selection_changed);
         });
     }
 
-    public void on_selection_changed (Gtk.TextIter start,Gtk.TextIter end) {
-        if (this.current_source.buffer.get_has_selection ()) {
-            // Expand highlight to current word on
+    public void on_selection_changed (ref Gtk.TextIter start, ref Gtk.TextIter end) {
+        if (!start.equal (end)) {
+            // Expand highlight to current word
             if (!start.starts_word ()) {
                 start.backward_word_start ();
             }
@@ -64,30 +57,26 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase,  Peas.
                 end.forward_word_end ();
             }
 
-            string selected_text = this.current_source.buffer.get_text (start,end,false);
-            if (selected_text.length > SELECTION_HIGHLIGHT_MAX_CHARS) {
+            string selected_text = start.get_buffer ().get_text (start, end, false);
+            if (selected_text.char_count () > SELECTION_HIGHLIGHT_MAX_CHARS) {
                 return;
             }
 
-            var context = search_contexts.get (this.current_source);
-            context.settings.search_text = selected_text;
-            context.set_highlight (true);
+            current_search_context.settings.search_text = selected_text;
+            current_search_context.set_highlight (true);
         }
     }
 
     public void on_deselection () {
-        var context = search_contexts.get (this.current_source);
-        context.settings.search_text = null;
-        context.set_highlight (false);
+        if (current_search_context != null) {
+            current_search_context.settings.search_text = null;
+        }
     }
 
     public void deactivate () {
-        foreach (var src in source_views) {
-            src.deselected.disconnect (on_deselection);
-            src.selection_changed.disconnect (on_selection_changed);
-            var context = search_contexts.get (src);
-            context.settings.search_text = null;
-            context.set_highlight (false);
+        if (current_source != null) {
+            current_source.deselected.disconnect (on_deselection);
+            current_source.selection_changed.disconnect (on_selection_changed);
         }
     }
 }
