@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-24 14:44-0700\n"
-"PO-Revision-Date: 2018-05-15 00:05+0000\n"
+"PO-Revision-Date: 2018-05-18 00:07+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://weblate.elementary.io/projects/code/code/mr/>"
 "\n"
@@ -317,29 +317,29 @@ msgstr "डॉक्युमेंट %s बंद करण्याअगो�
 #: src/Services/Document.vala:365
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr ""
+msgstr "आपण फाईल सेव्ह न केल्यास मागील ४ सेकंदांत केलेले बदल नाहीसे होतील."
 
 #: src/Services/Document.vala:367
 msgid "Close without saving"
-msgstr ""
+msgstr "सेव्ह न करता बंद करा"
 
 #: src/Services/Document.vala:449
 msgid "Save File"
-msgstr ""
+msgstr "फाईल सेव्ह करा"
 
 #: src/Services/Document.vala:523
 msgid "New Document"
-msgstr ""
+msgstr "नवीन दस्तऐवज"
 
 #: src/Services/Document.vala:646
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
-msgstr ""
+msgstr "\"%s\" फाईल वाचली जाऊ शकत नाही"
 
 #: src/Services/Document.vala:647
 msgid ""
 "Maybe it is corrupt or you do not have the necessary permissions to read it."
-msgstr ""
+msgstr "बहुतेक ही फाईल खराब आहे अथवा आपल्याला ही फाईल वाचण्याची अनुमती नाही."
 
 #: src/Services/Document.vala:659
 #, c-format
@@ -347,15 +347,17 @@ msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
+"\"%s\" फाईल असंलेली जागा अन माउंट करण्यात अली आहे. आपल्याला फाईल अन्य ठिकाणी "
+"सेव्ह करायची आहे का?"
 
 #: src/Services/Document.vala:661
 msgid "Save As…"
-msgstr ""
+msgstr "अन्य प्रकारे सेव्ह करा…"
 
 #: src/Services/Document.vala:666
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "\"%s\" फाईल हटविल्या गेली आहे. तरीही आपणांस सेव्ह करायची आहे का?"
 
 #: src/Services/Document.vala:681
 #, c-format
@@ -363,10 +365,12 @@ msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 msgstr ""
+"आपण \"%s\" फाईल मध्ये बदल सेव्ह करू शकत नाही. आपणांस  ह्या फाईल मधले बदल अन्"
+"य ठिकाणी सेव्ह करायचे आहेत का?"
 
 #: src/Services/Document.vala:683
 msgid "Save changes elsewhere"
-msgstr ""
+msgstr "बदल अन्य ठिकाणी सेव्ह करा"
 
 #: src/Services/Document.vala:716
 #, c-format
@@ -374,53 +378,55 @@ msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
+"फाईल \"%s\" एका बाह्य अप्लिकेशन द्वारे बदलल्या गेली आहे. आपणांस ती पुन्हा लो"
+"ड करायची आहे कि आपले लिखाण सुरु ठेवायचे आहे?"
 
 #: src/Services/Document.vala:717
 msgid "Load"
-msgstr ""
+msgstr "लोड करा"
 
 #: src/Services/Document.vala:720
 msgid "Continue"
-msgstr ""
+msgstr "सुरु ठेवा"
 
 #: src/Services/TemplateManager.vala:194
 msgid "Templates"
-msgstr ""
+msgstr "नमूने"
 
 #: src/Widgets/DocumentView.vala:92
 #, c-format
 msgid "Text file from %s"
-msgstr ""
+msgstr "%s मधल्या टेक्स्ट फाईल्स"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
-msgstr ""
+msgstr "सिंटेक्स हाईलाइटिंग"
 
 #: src/Widgets/FormatBar.vala:71
 msgid "Line number"
-msgstr ""
+msgstr "ओळ क्रमांक"
 
 #: src/Widgets/FormatBar.vala:95
 msgid "Filter languages"
-msgstr ""
+msgstr "भाषा फिल्टर करा"
 
 #: src/Widgets/FormatBar.vala:117
 msgid "Plain Text"
-msgstr ""
+msgstr "साधे लिखाण"
 
 #: src/Widgets/FormatBar.vala:191
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d रिकामी जागा"
+msgstr[1] "%d रिकाम्या जागा"
 
 #: src/Widgets/FormatBar.vala:193
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d टॅब"
+msgstr[1] "%d टॅब्स"
 
 #: src/Widgets/FormatBar.vala:209
 msgid "Go To Line:"
