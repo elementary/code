@@ -67,16 +67,14 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
         current_buffer = doc.source_view.buffer;
 
         if (current_source_view != null) {
-            current_source_view.deselected.disconnect (on_deselect);
-            current_source_view.selection_changed.disconnect (on_selection);
+            current_source_view.key_press_event.disconnect (on_key_down);
             current_source_view.event_after.disconnect (on_event_after);
             current_source_view.backspace.disconnect (on_backspace);
         }
 
         current_source_view = doc.source_view;
 
-        current_source_view.deselected.connect (on_key_down);
-        current_source_view.selection_changed.sconnect (on_selection);
+        current_source_view.key_press_event.connect (on_key_down);
         current_source_view.event_after.connect (on_event_after);
         current_source_view.backspace.connect (on_backspace);
     }
