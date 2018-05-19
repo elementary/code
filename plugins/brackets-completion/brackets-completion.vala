@@ -230,7 +230,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
 
         var event = root_event.key;
 
-        if (current_source_view.auto_indent && event.keyval == Gdk.Key.Return || event.keyval == Gdk.Key.KP_Enter) {
+        if (current_source_view.auto_indent && (event.keyval == Gdk.Key.Return || event.keyval == Gdk.Key.KP_Enter)) {
             check_bracket_indent ();
         }
 
