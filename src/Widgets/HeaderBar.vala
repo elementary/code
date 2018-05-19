@@ -21,6 +21,31 @@
 
 namespace Scratch.Widgets {
     public class HeaderBar : Gtk.HeaderBar {
+        class StyleButton : Gtk.Button {
+            public string style_id { get; construct; }
+            public bool prefer_dark_theme { get; construct; }
+
+            public StyleButton (string id, bool dark_theme) {
+                Object (style_id: id, prefer_dark_theme: dark_theme);
+            }
+
+            construct {
+                halign = Gtk.Align.CENTER;
+                height_request = 32;
+                width_request = 32;
+
+                var style_context = get_style_context ();
+                style_context.add_class ("color-button");
+
+                clicked.connect (() => {
+                    Scratch.settings.prefer_dark_style = prefer_dark_theme;
+                    Scratch.settings.style_scheme = style_id;
+                    var gtk_settings = Gtk.Settings.get_default ();
+                    gtk_settings.gtk_application_prefer_dark_theme = prefer_dark_theme;
+                });
+            }
+        }
+
         public Gtk.Menu share_menu;
         public Gtk.MenuButton share_app_menu;
         public Gtk.MenuButton app_menu;
@@ -93,35 +118,39 @@ namespace Scratch.Widgets {
             font_size_grid.add (zoom_default_button);
             font_size_grid.add (zoom_in_button);
 
-            var color_button_white = new Gtk.Button ();
-            color_button_white.halign = Gtk.Align.CENTER;
-            color_button_white.height_request = 32;
-            color_button_white.width_request = 32;
-            color_button_white.tooltip_text = _("High Contrast");
+            var style_buttons = new Gee.ArrayList<Gtk.Button> ();
+            var settings = new GLib.Settings (Constants.PROJECT_NAME + ".settings");
+            var style_array = settings.get_value ("style-schemes");
+            VariantIter iter = style_array.iterator ();
+            string style_id;
+            bool prefer_dark_theme;
 
-            var color_button_white_context = color_button_white.get_style_context ();
-            color_button_white_context.add_class ("color-button");
-            color_button_white_context.add_class ("color-white");
+            var sssm = Gtk.SourceStyleSchemeManager.get_default ();
+            while (iter.next ("{sb}", out style_id, out prefer_dark_theme)) {
+                var button = new StyleButton (style_id, prefer_dark_theme);
 
-            var color_button_light = new Gtk.Button ();
-            color_button_light.halign = Gtk.Align.CENTER;
-            color_button_light.height_request = 32;
-            color_button_light.width_request = 32;
-            color_button_light.tooltip_text = _("Solarized Light");
+                if (style_id in sssm.scheme_ids) {
+                    var style = sssm.get_scheme (style_id);
+                    button.tooltip_text = style.name;
 
-            var color_button_light_context = color_button_light.get_style_context ();
-            color_button_light_context.add_class ("color-button");
-            color_button_light_context.add_class ("color-light");
+                    var style_data = style.get_style ("background-pattern");
+                    if (style_data != null) {
+                        var button_context = button.get_style_context ();
 
-            var color_button_dark = new Gtk.Button ();
-            color_button_dark.halign = Gtk.Align.CENTER;
-            color_button_dark.height_request = 32;
-            color_button_dark.width_request = 32;
-            color_button_dark.tooltip_text = _("Solarized Dark");
+                        var css_provider = new Gtk.CssProvider ();
+                        var background_css = """
+                            .color-button {
+                                background-color: %s;
+                            }
+                        """.printf (style_data.background);
+                        css_provider.load_from_data (background_css);
 
-            var color_button_dark_context = color_button_dark.get_style_context ();
-            color_button_dark_context.add_class ("color-button");
-            color_button_dark_context.add_class ("color-dark");
+                        button_context.add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+                    }
+
+                    style_buttons.add (button);
+                }
+            }
 
             var menu_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
             menu_separator.margin_top = 12;
@@ -143,9 +172,10 @@ namespace Scratch.Widgets {
             menu_grid.orientation = Gtk.Orientation.VERTICAL;
             menu_grid.width_request = 200;
             menu_grid.attach (font_size_grid, 0, 0, 3, 1);
-            menu_grid.attach (color_button_white, 0, 1, 1, 1);
-            menu_grid.attach (color_button_light, 1, 1, 1, 1);
-            menu_grid.attach (color_button_dark, 2, 1, 1, 1);
+            for (int i = 0; i < style_buttons.size; i++) {
+                menu_grid.attach (style_buttons[i], i, 1, 1, 1);
+            }
+
             menu_grid.attach (menu_separator, 0, 2, 3, 1);
             menu_grid.attach (new_view_menuitem, 0, 3, 3, 1);
             menu_grid.attach (remove_view_menuitem, 0, 4, 3, 1);
@@ -181,30 +211,10 @@ namespace Scratch.Widgets {
             share_menu.insert.connect (on_share_menu_changed);
             share_menu.remove.connect (on_share_menu_changed);
 
-            settings.changed.connect (() => {
-                save_button.visible = !settings.autosave;
+            Scratch.settings.changed.connect (() => {
+                save_button.visible = !Scratch.settings.autosave;
                 var last_window = Application.instance.get_last_window ();
                 zoom_default_button.label = "%.0f%%".printf (last_window.get_current_font_size () * 10);
-            });
-
-            var gtk_settings = Gtk.Settings.get_default ();
-
-            color_button_dark.clicked.connect (() => {
-                Scratch.settings.prefer_dark_style = true;
-                Scratch.settings.style_scheme = "solarized-dark";
-                gtk_settings.gtk_application_prefer_dark_theme = true;
-            });
-
-            color_button_light.clicked.connect (() => {
-                Scratch.settings.prefer_dark_style = false;
-                Scratch.settings.style_scheme = "solarized-light";
-                gtk_settings.gtk_application_prefer_dark_theme = false;
-            });
-
-            color_button_white.clicked.connect (() => {
-                Scratch.settings.prefer_dark_style = false;
-                Scratch.settings.style_scheme = "classic";
-                gtk_settings.gtk_application_prefer_dark_theme = false;
             });
         }
 

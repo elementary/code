@@ -28,19 +28,6 @@
     border-color: @colorAccent;
 }
 
-.color-dark {
-    background-color: #252E32;
-    border-color: #151B1C;
-}
-
-.color-light {
-    background-color: #fdf6e3;
-}
-
-.color-white {
-    background-color: #fff;
-}
-
 textview.scrubber {
    border: 0;
 }

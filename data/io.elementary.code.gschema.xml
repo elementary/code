@@ -124,6 +124,11 @@
       <summary>Preferred Font</summary>
       <description>Set the preferred font.</description>
     </key>
+    <key name="style-schemes" type="a{sb}">
+      <default>{'classic': false, 'solarized-light': false, 'solarized-dark': true}</default>
+      <summary>List of available style schemes</summary>
+      <description>Array of style scheme IDs and whether they prefer the dark theme to be displayed in style switcher</description>
+    </key>
     <key name="style-scheme" type="s">
       <default>'solarized-light'</default>
       <summary>Preferred Style Scheme</summary>
