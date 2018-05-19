@@ -125,6 +125,19 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
 
     void complete_brackets (string opening_bracket) {
         Gtk.TextIter start, end;
+
+        if (opening_bracket == "'" || opening_bracket == "\"") {
+            current_buffer.get_selection_bounds (out start, null);
+            end = start;
+            start.backward_chars (2);
+            end.backward_char ();
+
+            var before_bracket_char = current_buffer.get_text (start, end, false);
+            if (before_bracket_char.get_char ().isalpha ()) {
+                return;
+            }
+        }
+
         current_buffer.get_selection_bounds (out start, out end);
 
         string closing_bracket = brackets[opening_bracket];
