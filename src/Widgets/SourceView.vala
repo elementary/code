@@ -164,6 +164,10 @@ namespace Scratch.Widgets {
             if (settings.draw_spaces == ScratchDrawSpacesState.ALWAYS) {
                 space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.ALL,
                     Gtk.SourceSpaceTypeFlags.SPACE | Gtk.SourceSpaceTypeFlags.TAB);
+            } else if (settings.draw_spaces == ScratchDrawSpacesState.FOR_SELECTION) {
+                space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.ALL, Gtk.SourceSpaceTypeFlags.NONE);
+                space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.TRAILING,
+                    Gtk.SourceSpaceTypeFlags.SPACE | Gtk.SourceSpaceTypeFlags.TAB);
             } else {
                 space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.ALL, Gtk.SourceSpaceTypeFlags.NONE);
             }
