@@ -250,7 +250,7 @@ namespace Scratch {
             // have different CWD
             for (int i = 0; i < arguments.length; i++) {
                 if (arguments[i] == ".") {
-                    arguments[i] = File.new_for_commandline_arg (arguments[i]).get_path ();
+                    arguments[i] = File.new_for_commandline_arg (".").get_path ();
                 }
             }
 
