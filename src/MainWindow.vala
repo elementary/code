@@ -59,6 +59,8 @@ namespace Scratch {
 
         public const string ACTION_PREFIX = "win.";
         public const string ACTION_FIND = "action_find";
+        public const string ACTION_FIND_NEXT = "action_find_next";
+        public const string ACTION_FIND_PREVIOUS = "action_find_previous";
         public const string ACTION_OPEN = "action_open";
         public const string ACTION_OPEN_FOLDER = "action_open_folder";
         public const string ACTION_GO_TO = "action_go_to";
@@ -89,6 +91,8 @@ namespace Scratch {
 
         private const ActionEntry[] action_entries = {
             { ACTION_FIND, action_fetch },
+            { ACTION_FIND_NEXT, action_find_next },
+            { ACTION_FIND_PREVIOUS, action_find_previous },
             { ACTION_OPEN, action_open },
             { ACTION_OPEN_FOLDER, action_open_folder },
             { ACTION_PREFERENCES, action_preferences },
@@ -128,6 +132,8 @@ namespace Scratch {
 
         static construct {
             action_accelerators.set (ACTION_FIND, "<Control>f");
+            action_accelerators.set (ACTION_FIND_NEXT, "<Control>g");
+            action_accelerators.set (ACTION_FIND_PREVIOUS, "<Control><shift>g");
             action_accelerators.set (ACTION_OPEN, "<Control>o");
             action_accelerators.set (ACTION_REVERT, "<Control><shift>o");
             action_accelerators.set (ACTION_SAVE, "<Control>s");
@@ -853,6 +859,14 @@ namespace Scratch {
             } else {
                 set_search_text ();
             }
+        }
+
+        private void action_find_next () {
+            search_bar.search_next ();
+        }
+
+        private void action_find_previous () {
+            search_bar.search_previous ();
         }
 
         private void set_search_text () {
