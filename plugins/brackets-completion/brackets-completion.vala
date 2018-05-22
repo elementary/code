@@ -112,7 +112,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
             string left_char = get_previous_char ();
             string right_char = get_next_char ();
 
-            if (brackets.has_key (left_char) && right_char in brackets.values && left_char == right_char) {
+            if (brackets.has_key (left_char) && right_char in brackets.values && brackets[left_char] == right_char) {
                 Gtk.TextIter start, end;
 
                 current_buffer.get_selection_bounds (out start, out end);
@@ -185,12 +185,54 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
         return false;
     }
 
+    void check_bracket_indent () {
+        var next_char = get_next_char ();
+        if (next_char in brackets.values) {
+            Gtk.TextIter start, end;
+
+            current_buffer.get_selection_bounds (out start, null);
+            start.backward_line ();
+            start.forward_to_line_end ();
+            end = start;
+            start.backward_char ();
+
+            var prev_char = current_buffer.get_text (start, end, false);
+            if (brackets[prev_char] == next_char) {
+                current_buffer.begin_user_action ();
+
+                current_buffer.get_selection_bounds (out start, out end);
+                start.backward_chars (start.get_line_offset ());
+
+                var current_indent = current_buffer.get_text (start, end, false);
+
+                var spaces = current_source_view.insert_spaces_instead_of_tabs;
+                var indent = spaces ? string.nfill (current_source_view.tab_width, ' ') : "\t";
+                current_buffer.insert_at_cursor (indent, -1);
+
+                Gtk.TextIter iter;
+                current_buffer.get_iter_at_mark (out iter, current_buffer.get_insert ());
+                var mark = current_buffer.create_mark (null, iter, true);
+                current_buffer.insert_at_cursor ("\n" + current_indent, -1);
+
+                current_buffer.get_iter_at_mark (out iter, mark);
+                current_buffer.place_cursor (iter);
+                current_buffer.delete_mark (mark);
+
+                current_buffer.end_user_action ();
+            }
+        }
+    }
+
     void on_event_after (Gdk.Event root_event) {
         if (root_event.type != Gdk.EventType.KEY_PRESS) {
             return;
         }
 
         var event = root_event.key;
+
+        if (current_source_view.auto_indent && (event.keyval == Gdk.Key.Return || event.keyval == Gdk.Key.KP_Enter)) {
+            check_bracket_indent ();
+        }
 
         if (keys.has_key (event.keyval) &&
             !(Gdk.ModifierType.MOD1_MASK in event.state) &&
