@@ -89,6 +89,7 @@ namespace Scratch.Services {
         public Scratch.Widgets.SourceView source_view;
         public Code.Pane pane;
         public string original_content;
+        private string last_save_content;
         public bool saved = true;
 
         private Gtk.ScrolledWindow scroll;
@@ -320,10 +321,13 @@ namespace Scratch.Services {
 
             source_view.buffer.set_modified (false);
             original_content = source_view.buffer.text;
+            last_save_content = source_view.buffer.text;
 
-            this.source_view.buffer.modified_changed.connect (() => {
-                if (this.source_view.buffer.get_modified() && !settings.autosave) {
-                    this.set_saved_status (false);
+            source_view.buffer.changed.connect (() => {
+                if (source_view.buffer.text != last_save_content && !settings.autosave) {
+                    set_saved_status (false);
+                } else {
+                    set_saved_status (true);
                 }
             });
 
@@ -441,6 +445,7 @@ namespace Scratch.Services {
 
             doc_saved ();
             this.set_saved_status (true);
+            last_save_content = source_view.buffer.text;
 
             message ("File \"%s\" saved succesfully", get_basename ());
 
