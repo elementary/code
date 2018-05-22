@@ -168,13 +168,11 @@ namespace Scratch {
                         switch (info.get_file_type ()) {
                             case FileType.REGULAR:
                             case FileType.SYMBOLIC_LINK:
+                            case FileType.DIRECTORY:
                                 files += file;
                                 break;
                             case FileType.MOUNTABLE:
                                 reason = _("It is a mountable location.");
-                                break;
-                            case FileType.DIRECTORY:
-                                reason = _("It is a directory.");
                                 break;
                             case FileType.SPECIAL:
                                 reason = _("It is a \"special\" file such as a socket,\n fifo, block device, or character device.");
@@ -237,9 +235,26 @@ namespace Scratch {
             }
 
             foreach (var file in files) {
-                var doc = new Scratch.Services.Document (window.actions, file);
-                window.open_document (doc, view);
+                var type = file.query_file_type (FileQueryInfoFlags.NONE);
+                if (type == FileType.DIRECTORY) {
+                    window.open_folder (file);
+                } else {
+                    var doc = new Scratch.Services.Document (window.actions, file);
+                    window.open_document (doc, view);
+                }
             }
+        }
+
+        public override bool local_command_line (ref weak string[] arguments, out int exit_status) {
+            // Resolve any CWD paths to explicit paths before passing to remote instance as that will
+            // have different CWD
+            for (int i = 0; i < arguments.length; i++) {
+                if (arguments[i] == ".") {
+                    arguments[i] = File.new_for_commandline_arg (".").get_path ();
+                }
+            }
+
+            return base.local_command_line (ref arguments, out exit_status);
         }
 
         public MainWindow? get_last_window () {

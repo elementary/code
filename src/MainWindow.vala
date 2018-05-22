@@ -470,6 +470,11 @@ namespace Scratch {
             return split_view.add_view ();
         }
 
+        public void open_folder (File folder) {
+            var foldermanager_file = new FolderManager.File (folder.get_path ());
+            folder_manager_view.open_folder (foldermanager_file);
+        }
+
         // Open a document
         public void open_document (Scratch.Services.Document doc, Scratch.Widgets.DocumentView? view_ = null, bool focus = true) {
             while (Gtk.events_pending ()) {
