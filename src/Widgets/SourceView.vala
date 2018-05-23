@@ -254,6 +254,14 @@ namespace Scratch.Widgets {
             buffer.get_selection_bounds (out start, out end);
 
             if (!start.equal (end)) {
+                if (!start.starts_line ()) {
+                    start.backward_chars (start.get_line_offset ());
+                }
+
+                if (!end.ends_line ()) {
+                    end.forward_to_line_end ();
+                }
+
                 string selected = buffer.get_text (start, end, true);
                 string[] lines = Regex.split_simple ("""[\r\n]""", selected);
                 if (lines.length <= 1) {
@@ -267,10 +275,8 @@ namespace Scratch.Widgets {
 
                 var sorted = string.joinv ("\n", line_array.to_array ());
                 buffer.begin_user_action ();
-                if (buffer.delete_selection (true, true)) {
-                    buffer.insert_at_cursor (sorted, -1);
-                }
-
+                buffer.@delete (ref start, ref end);
+                buffer.insert_at_cursor (sorted, -1);
                 buffer.end_user_action ();
             }
         }
