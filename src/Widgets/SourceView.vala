@@ -213,6 +213,19 @@ namespace Scratch.Widgets {
             return selected;
         }
 
+        private int get_selected_line_count () {
+            Gtk.TextIter start, end;
+            buffer.get_selection_bounds (out start, out end);
+
+            if (!start.equal (end)) {
+                string selected = buffer.get_text (start, end, true);
+                string[] lines = Regex.split_simple ("""[\r\n]""", selected);
+                return lines.length;
+            }
+
+            return 0;
+        }
+
         // Duplicate selected text if exists, else duplicate current line
         public void duplicate_selection () {
             var selection = get_selected_text ();
@@ -285,7 +298,7 @@ namespace Scratch.Widgets {
 
         private void on_context_menu (Gtk.Menu menu) {
             var sort_item = new Gtk.MenuItem.with_label (_("Sort Selected Lines"));
-            sort_item.sensitive = buffer.has_selection;
+            sort_item.sensitive = get_selected_line_count () > 1;
             sort_item.activate.connect (sort_selected_lines);
 
             menu.add (sort_item);
