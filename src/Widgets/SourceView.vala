@@ -234,6 +234,32 @@ namespace Scratch.Widgets {
             }
         }
 
+        public void sort_selected_lines () {
+            Gtk.TextIter start, end;
+            buffer.get_selection_bounds (out start, out end);
+
+            if (!start.equal (end)) {
+                string selected = buffer.get_text (start, end, true);
+                string[] lines = Regex.split_simple ("""[\r\n]""", selected);
+                if (lines.length <= 1) {
+                    return;
+                }
+
+                var line_array = new Gee.ArrayList<string>.wrap (lines);
+                line_array.sort ((a, b) => {
+                    return a.collate (b);
+                });
+
+                var sorted = string.joinv ("\n", line_array.to_array ());
+                buffer.begin_user_action ();
+                if (buffer.delete_selection (true, true)) {
+                    buffer.insert_at_cursor (sorted, -1);
+                }
+
+                buffer.end_user_action ();
+            }
+        }
+
         public void set_text (string text, bool opening = true) {
             var source_buffer = (Gtk.SourceBuffer) buffer;
             if (opening) {
