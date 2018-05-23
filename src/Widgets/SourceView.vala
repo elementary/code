@@ -284,14 +284,12 @@ namespace Scratch.Widgets {
         }
 
         private void on_context_menu (Gtk.Menu menu) {
-            if (buffer.has_selection) {
-                warning ("has selection");
-                var sort_item = new Gtk.MenuItem.with_label (_("Sort Selected Lines"));
-                sort_item.activate.connect (sort_selected_lines);
+            var sort_item = new Gtk.MenuItem.with_label (_("Sort Selected Lines"));
+            sort_item.sensitive = buffer.has_selection;
+            sort_item.activate.connect (sort_selected_lines);
 
-                menu.add (sort_item);
-                menu.show_all ();
-            }
+            menu.add (sort_item);
+            menu.show_all ();
         }
 
         void on_mark_set (Gtk.TextIter loc, Gtk.TextMark mar) {
