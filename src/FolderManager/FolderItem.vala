@@ -128,7 +128,6 @@ namespace Scratch.FolderManager {
                         if (file.children.size == 0) {
                             clear ();
                         }
-
                         break;
                     case GLib.FileMonitorEvent.CREATED:
                         if (source.query_exists () == false) {
