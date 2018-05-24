@@ -273,7 +273,7 @@ namespace Scratch.Widgets {
             }
 
             // Fire deselected immediatly
-            if (!buffer.get_has_selection ()) {
+            if (start.equal (end)) {
                 deselected ();
             // Don't fire signal till we think select movement is done
             } else {
