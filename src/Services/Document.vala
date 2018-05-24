@@ -118,7 +118,6 @@ namespace Scratch.Services {
 
         static construct {
             var fontpath = Path.build_filename (Constants.DATADIR, Constants.PROJECT_NAME, "fonts", "BuilderBlocks.ttf");
-            warning (fontpath);
             unowned Fc.Config config = Fc.init ();
             if (!config.add_app_font (fontpath)) {
                 warning ("Unable to load Builder Blocks font, SourceView map might not be pretty");
