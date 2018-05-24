@@ -103,6 +103,9 @@ namespace Scratch.Services {
         private bool mounted = true; // Mount state of the file
         private Mount mount;
 
+        private static Pango.FontDescription? builder_blocks_font = null;
+        private static Pango.FontMap? builder_font_map = null;
+
 #if HAVE_ZEITGEIST
         // Zeitgeist integration
         private ZeitgeistLogger zg_log = new ZeitgeistLogger();
@@ -111,6 +114,19 @@ namespace Scratch.Services {
             this.actions = actions;
             this.file = file;
             page = main_stack;
+        }
+
+        static construct {
+            var fontpath = Path.build_filename (Constants.DATADIR, Constants.PROJECT_NAME, "fonts", "BuilderBlocks.ttf");
+            warning (fontpath);
+            unowned Fc.Config config = Fc.init ();
+            if (!config.add_app_font (fontpath)) {
+                warning ("Unable to load Builder Blocks font, SourceView map might not be pretty");
+            } else {
+                builder_font_map = Pango.CairoFontMap.new_for_font_type (Cairo.FontType.FT);
+                PangoFc.attach_fontconfig_to_fontmap (builder_font_map, config);
+                builder_blocks_font = Pango.FontDescription.from_string ("Builder Blocks 1");
+            }
         }
 
         construct {
@@ -122,6 +138,11 @@ namespace Scratch.Services {
             info_bar = new Gtk.InfoBar ();
             source_file = new Gtk.SourceFile ();
             source_map = new Gtk.SourceMap ();
+            if (builder_blocks_font != null && builder_font_map != null) {
+                source_map.set_font_map (builder_font_map);
+                source_map.font_desc = builder_blocks_font;
+            }
+
             source_map.set_view (source_view);
 
             pane = new Code.Pane ();
