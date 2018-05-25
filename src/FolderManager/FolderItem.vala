@@ -273,6 +273,12 @@ namespace Scratch.FolderManager {
                     foreach (var modified_item in modified_items) {
                         modified_item.name = modified_item.file.name + " (*)";
                     }
+                } else if (Ggit.StatusFlags.WORKING_TREE_NEW in status) {
+                    var new_items = new Gee.ArrayList<Item> ();
+                    find_items (this, path, ref new_items);
+                    foreach (var new_item in new_items) {
+                        new_item.name = new_item.file.name + " (+)";
+                    }
                 }
 
                 return 0;
