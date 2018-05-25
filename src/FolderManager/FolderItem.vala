@@ -237,7 +237,15 @@ namespace Scratch.FolderManager {
                 return;
             }
 
-            warning (git_repo.list_remotes ()[0]);
+            try {
+                var head = git_repo.get_head ();
+                if (head.is_branch ()) {
+                    var branch = git_repo.get_head () as Ggit.Branch;
+                    name = "%s (%s)".printf (file.name, branch.get_name ());
+                }
+            } catch (Error e) {
+                warning ("An error occured while fetching the current git branch name: %s", e.message);
+            }
         }
 
         protected void add_folder () {
