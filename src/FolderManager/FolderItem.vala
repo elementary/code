@@ -27,6 +27,7 @@ namespace Scratch.FolderManager {
         private GLib.FileMonitor monitor;
         private bool children_loaded = false;
         private string? newly_created_path = null;
+        private Ggit.Repository? git_repo = null;
 
         public FolderItem (File file, FileView view) requires (file.is_valid_directory) {
             Object (file: file, view: view);
@@ -52,6 +53,19 @@ namespace Scratch.FolderManager {
                 monitor.changed.connect (on_changed);
             } catch (GLib.Error e) {
                 warning (e.message);
+            }
+
+            // If this is a toplevel project, see if it is a git repo
+            if (this is MainFolderItem) {
+                try {
+                    git_repo = Ggit.Repository.open (file.file);
+                } catch (Error e) {
+                    debug ("Error opening git repo, means this probably isn't one: %s", e.message);
+                }
+
+                if (git_repo != null) {
+                    update_git_status ();
+                }
             }
         }
 
@@ -216,6 +230,14 @@ namespace Scratch.FolderManager {
                         break;
                 }
             }
+        }
+
+        private void update_git_status () {
+            if (git_repo == null) {
+                return;
+            }
+
+            warning (git_repo.list_remotes ()[0]);
         }
 
         protected void add_folder () {
