@@ -238,6 +238,8 @@ namespace Scratch.FolderManager {
                         break;
                 }
             }
+
+            update_git_status ();
         }
 
         protected void update_git_status () {
@@ -262,6 +264,7 @@ namespace Scratch.FolderManager {
                 warning ("An error occured while fetching the current git branch name: %s", e.message);
             }
 
+            reset_all_children (this);
             var options = new Ggit.StatusOptions (Ggit.StatusOption.INCLUDE_UNTRACKED, Ggit.StatusShow.WORKDIR_ONLY, null);
             git_repo.file_status_foreach (options, (path, status) => {
                 if (Ggit.StatusFlags.WORKING_TREE_MODIFIED in status) {
@@ -270,12 +273,25 @@ namespace Scratch.FolderManager {
                     foreach (var modified_item in modified_items) {
                         modified_item.name = modified_item.file.name + " (*)";
                     }
-
-                    return 0;
                 }
 
                 return 0;
             });
+        }
+
+        private void reset_all_children (Item toplevel_item) {
+            foreach (var child in toplevel_item.children) {
+                var item = child as Item;
+                if (item == null) {
+                    continue;
+                }
+
+                item.name = item.file.name;
+
+                if (item is Granite.Widgets.SourceList.ExpandableItem) {
+                    reset_all_children (item);
+                }
+            }
         }
 
         private Granite.Widgets.SourceList.ExpandableItem get_root_folder (Granite.Widgets.SourceList.ExpandableItem start) {
