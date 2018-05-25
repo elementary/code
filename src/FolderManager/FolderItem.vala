@@ -28,6 +28,7 @@ namespace Scratch.FolderManager {
         private bool children_loaded = false;
         private string? newly_created_path = null;
         private Ggit.Repository? git_repo = null;
+        private string top_level_path;
 
         public FolderItem (File file, FileView view) requires (file.is_valid_directory) {
             Object (file: file, view: view);
@@ -37,6 +38,10 @@ namespace Scratch.FolderManager {
             monitor.cancel ();
         }
 
+        static construct {
+            Ggit.init ();
+        }
+
         construct {
             add (new Granite.Widgets.SourceList.Item ("")); // dummy
 
@@ -44,6 +49,7 @@ namespace Scratch.FolderManager {
                 if (!children_loaded && expanded && n_children <= 1 && file.children.size > 0) {
                     clear ();
                     add_children ();
+                    update_git_status ();
                     children_loaded = true;
                 }
             });
@@ -57,6 +63,8 @@ namespace Scratch.FolderManager {
 
             // If this is a toplevel project, see if it is a git repo
             if (this is MainFolderItem) {
+                top_level_path = file.file.get_path () + Path.DIR_SEPARATOR_S;
+
                 try {
                     git_repo = Ggit.Repository.open (file.file);
                 } catch (Error e) {
@@ -232,7 +240,14 @@ namespace Scratch.FolderManager {
             }
         }
 
-        private void update_git_status () {
+        protected void update_git_status () {
+            if (!(this is MainFolderItem)) {
+                var root_folder = get_root_folder (this);
+                if (root_folder != this && root_folder is FolderItem) {
+                    (root_folder as FolderItem).update_git_status ();
+                }
+            }
+
             if (git_repo == null) {
                 return;
             }
@@ -245,6 +260,62 @@ namespace Scratch.FolderManager {
                 }
             } catch (Error e) {
                 warning ("An error occured while fetching the current git branch name: %s", e.message);
+            }
+
+            var options = new Ggit.StatusOptions (Ggit.StatusOption.INCLUDE_UNTRACKED, Ggit.StatusShow.WORKDIR_ONLY, null);
+            git_repo.file_status_foreach (options, (path, status) => {
+                if (Ggit.StatusFlags.WORKING_TREE_MODIFIED in status) {
+                    var modified_items = new Gee.ArrayList<Item> ();
+                    find_items (this, path, ref modified_items);
+                    foreach (var modified_item in modified_items) {
+                        modified_item.name = modified_item.file.name + " (*)";
+                    }
+
+                    return 0;
+                }
+
+                return 0;
+            });
+        }
+
+        private Granite.Widgets.SourceList.ExpandableItem get_root_folder (Granite.Widgets.SourceList.ExpandableItem start) {
+            if (start.parent is MainFolderItem) {
+                return start.parent;
+            } else {
+                return get_root_folder (start.parent);
+            }
+        }
+
+        private void find_items (Item toplevel_item, string relative_path, ref Gee.ArrayList<Item> items) {
+            foreach (var child in toplevel_item.children) {
+                var item = child as Item;
+                if (item == null) {
+                    continue;
+                }
+
+                var item_relpath = item.path.replace (top_level_path, "");
+                var parts = item_relpath.split (Path.DIR_SEPARATOR_S);
+                var search_parts = relative_path.split (Path.DIR_SEPARATOR_S);
+
+                if (parts.length > search_parts.length) {
+                    continue;
+                }
+
+                bool match = true;
+                for (int i = 0; i < parts.length; i++) {
+                    if (parts[i] != search_parts[i]) {
+                        match = false;
+                        break;
+                    }
+                }
+
+                if (match) {
+                    items.add (item);
+                }
+
+                if (item is Granite.Widgets.SourceList.ExpandableItem) {
+                    find_items (item, relative_path, ref items);
+                }
             }
         }
 
