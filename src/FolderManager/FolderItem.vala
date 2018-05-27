@@ -30,6 +30,9 @@ namespace Scratch.FolderManager {
         private Ggit.Repository? git_repo = null;
         private string top_level_path;
 
+        private static Icon added_icon;
+        private static Icon modified_icon;
+
         public FolderItem (File file, FileView view) requires (file.is_valid_directory) {
             Object (file: file, view: view);
         }
@@ -40,6 +43,9 @@ namespace Scratch.FolderManager {
 
         static construct {
             Ggit.init ();
+
+            added_icon = new ThemedIcon ("user-available");
+            modified_icon = new ThemedIcon ("user-away");
         }
 
         construct {
@@ -271,13 +277,13 @@ namespace Scratch.FolderManager {
                     var modified_items = new Gee.ArrayList<Item> ();
                     find_items (this, path, ref modified_items);
                     foreach (var modified_item in modified_items) {
-                        modified_item.name = modified_item.file.name + " (*)";
+                        modified_item.activatable = modified_icon;
                     }
                 } else if (Ggit.StatusFlags.WORKING_TREE_NEW in status) {
                     var new_items = new Gee.ArrayList<Item> ();
                     find_items (this, path, ref new_items);
                     foreach (var new_item in new_items) {
-                        new_item.name = new_item.file.name + " (+)";
+                        new_item.activatable = added_icon;
                     }
                 }
 
@@ -293,6 +299,7 @@ namespace Scratch.FolderManager {
                 }
 
                 item.name = item.file.name;
+                item.activatable = null;
 
                 if (item is Granite.Widgets.SourceList.ExpandableItem) {
                     reset_all_children (item);
