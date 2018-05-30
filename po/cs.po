@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-24 14:44-0700\n"
-"PO-Revision-Date: 2018-05-10 06:42+0000\n"
+"PO-Revision-Date: 2018-05-24 00:09+0000\n"
 "Last-Translator: Jan Marek <janmarek28@gmail.com>\n"
 "Language-Team: Czech <https://weblate.elementary.io/projects/code/code/cs/>\n"
 "Language: cs\n"
@@ -21,11 +21,11 @@ msgstr ""
 
 #: src/Application.vala:142
 msgid "Maybe you do not have the necessary permissions."
-msgstr "Možná nemáte potřebná opravnění."
+msgstr "Možná nemáte potřebná oprávnění."
 
 #: src/Application.vala:144
 msgid "Maybe the file path provided is not valid."
-msgstr "Možná pokytnutá cesta k souboru není platná."
+msgstr "Je možné, že poskytnutá cesta k souboru není platná."
 
 #: src/Application.vala:146
 msgid "The location is read-only."
@@ -111,7 +111,7 @@ msgstr "Zdroj dat Zeitgeist pro Scratch"
 
 #: src/MainWindow.vala:716
 msgid "Open some files"
-msgstr "Otevřít soubory"
+msgstr "Otevřít nějaké soubory"
 
 #: src/MainWindow.vala:735
 msgid "_Cancel"
