@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-24 14:44-0700\n"
-"PO-Revision-Date: 2018-03-12 20:21+0000\n"
-"Last-Translator: Kirill Romanov <djaler1@gmail.com>\n"
-"Language-Team: Russian <https://weblate.elementary.io/projects/code/code/ru/"
-">\n"
+"PO-Revision-Date: 2018-05-30 16:02+0000\n"
+"Last-Translator: anonymous <noreply@weblate.org>\n"
+"Language-Team: Russian <https://weblate.elementary.io/projects/code/code/ru/>"
+"\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-04 05:45+0000\n"
 
@@ -228,7 +228,7 @@ msgstr "Настройка строки:"
 
 #: src/Dialogs/PreferencesDialog.vala:132
 msgid "Font"
-msgstr ""
+msgstr "Шрифт"
 
 #: src/Dialogs/PreferencesDialog.vala:134
 msgid "Custom font:"
@@ -236,12 +236,11 @@ msgstr "Пользовательский шрифт:"
 
 #: src/FolderManager/FileItem.vala:53
 msgid "Other Application…"
-msgstr ""
+msgstr "Другое приложение..."
 
 #: src/FolderManager/FileItem.vala:99
-#, fuzzy
 msgid "Open In"
-msgstr "Открыть"
+msgstr "Открыть в"
 
 #: src/FolderManager/FileItem.vala:102 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
@@ -483,15 +482,15 @@ msgstr "Увеличить масштаб"
 
 #: src/Widgets/HeaderBar.vala:100
 msgid "High Contrast"
-msgstr ""
+msgstr "Высокий контраст"
 
 #: src/Widgets/HeaderBar.vala:110
 msgid "Solarized Light"
-msgstr ""
+msgstr "Solarized Light"
 
 #: src/Widgets/HeaderBar.vala:120
 msgid "Solarized Dark"
-msgstr ""
+msgstr "Solarized Dark"
 
 #: src/Widgets/HeaderBar.vala:130
 msgid "Add New View"
@@ -542,16 +541,14 @@ msgid "Open a file to begin editing."
 msgstr "Откройте файл, чтобы начать редактирование."
 
 #: src/Widgets/WelcomeView.vala:35
-#, fuzzy
 msgid "New File"
-msgstr "/Новый файл"
+msgstr "Новый файл"
 
 #: src/Widgets/WelcomeView.vala:35
 msgid "Create a new empty file."
 msgstr "Создать новый пустой файл."
 
 #: src/Widgets/WelcomeView.vala:36
-#, fuzzy
 msgid "Open File"
 msgstr "Открыть файл"
 
@@ -560,13 +557,12 @@ msgid "Open a saved file."
 msgstr "Открыть сохранённый файл."
 
 #: src/Widgets/WelcomeView.vala:37
-#, fuzzy
 msgid "Open Folder"
 msgstr "Открыть папку"
 
 #: src/Widgets/WelcomeView.vala:37
 msgid "Add a project folder to the sidebar."
-msgstr ""
+msgstr "Добавить папку проекта в боковую панель"
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via PasteBin"
