@@ -8,24 +8,26 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-14 17:43-0700\n"
-"PO-Revision-Date: 2016-08-05 08:21+0000\n"
-"Last-Translator: krnkris <Unknown>\n"
-"Language-Team: Hungarian <hu@li.org>\n"
+"PO-Revision-Date: 2018-05-28 13:16+0000\n"
+"Last-Translator: Majer Tamás <mtamas@disroot.org>\n"
+"Language-Team: Hungarian "
+"<https://weblate.elementary.io/projects/code/extra/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
 #: data/io.elementary.code.desktop.in.in:4
 msgid "Code"
-msgstr ""
+msgstr "Kód"
 
 #: data/io.elementary.code.appdata.xml.in:9
 msgid "The editor that works"
-msgstr ""
+msgstr "A szerkesztő, ami működik"
 
 #: data/io.elementary.code.appdata.xml.in:11
 msgid ""
@@ -33,6 +35,9 @@ msgid ""
 "they're always up-to-date. Plus it remembers your tabs so you never lose "
 "your spot, even in between sessions."
 msgstr ""
+"A kód a megfelelő szerkesztő az Ön számára. Automatikusan menti a fájlokat, "
+"tehát azok mindig frissek lesznek. Megjegyzi a megnyitott lapokat, hogy soha "
+"ne veszítse el a fonalat, még a munkamenetek között sem."
 
 #: data/io.elementary.code.appdata.xml.in:16
 msgid ""
@@ -41,6 +46,11 @@ msgid ""
 "a full-blown IDE; it's your choice. And with a handful of useful "
 "preferences, you can tweak the behavior and interface to your liking."
 msgstr ""
+"Szabja testre. A Kódot az alapoktól kezdve bővíthetőnek fejlesztettük. "
+"Tarthatja a dolgokat egyszerűen, vagy telepítsen bővítményeket, hogy "
+"teljeskörű IDE környezeté alakítsa az alkalmazást. Az Ön választása. Néhány "
+"hasznos beállítási lehetőséggel teljesen a saját ízlésére alakíthatja a Kód "
+"viselkedését és felületét."
 
 #: data/io.elementary.code.appdata.xml.in:22
 msgid ""
@@ -48,6 +58,9 @@ msgid ""
 "meaning it closely follows the high standards of design, speed, and "
 "consistency. It's sexy, but not distracting."
 msgstr ""
+"Ez elementary. A Kódot úgy terveztük, hogy tökéletes szerkesztője legyen az "
+"elementary-nek, szorosan követi annak magas tervezési színvonalát. Gyors és "
+"kiszámítható. Szexi, de nem vonja el a figyelmet."
 
 #: data/io.elementary.code.appdata.xml.in:27
 msgid ""
@@ -56,6 +69,9 @@ msgid ""
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
+"Ismeri az Ön nyelvét. Akár Vala kódolással, PHP vagy HTML programozással "
+"foglalkozik, a Kód alkalmas a feladatra. Tapasztalja meg a teljes "
+"szintaxiskiemelést szinte minden programozási, szkriptelési és jelölőnyelven."
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid ""
@@ -63,55 +79,57 @@ msgid ""
 "Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
 "Objective C, Pascal, Perl, Python, Ruby, XML."
 msgstr ""
+"Egyéb nyelvek, amelyeken működik a szintaxis-kiemelés: C, C#, C++. Cmake, "
+"CSS, .Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
+"Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 
 #: data/io.elementary.code.appdata.xml.in:38
 msgid "Additional features include:"
-msgstr ""
+msgstr "További funkciók:"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "syntax highlighting with gtksourceview-3"
-msgstr ""
+msgstr "szintaxiskiemelés gtksourceview-3-vel"
 
 #: data/io.elementary.code.appdata.xml.in:43
 msgid "a find bar to search the words in the files"
-msgstr ""
+msgstr "kereső sáv a fájlokban található szavak keresésére"
 
 #: data/io.elementary.code.appdata.xml.in:44
 msgid "tab and split documents system"
-msgstr ""
+msgstr "fül és osztott dokumentum rendszer"
 
 #: data/io.elementary.code.appdata.xml.in:45
 msgid "lots of others"
-msgstr ""
+msgstr "sok egyéb"
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "elementary LLC."
-msgstr ""
+msgstr "elementary LLC."
 
 #: data/io.elementary.code.desktop.in.in:5
-#, fuzzy
 msgid "Edit code files"
-msgstr "Szövegfájlok szerkesztése"
+msgstr "Kódfájlok szerkesztése"
 
 #: data/io.elementary.code.desktop.in.in:6
 msgid "Code Editor"
-msgstr ""
+msgstr "Kód szerkesztő"
 
 #: data/io.elementary.code.desktop.in.in:8
 msgid "io.elementary.code"
-msgstr ""
+msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
 msgid "IDE;scratch;"
-msgstr ""
+msgstr "IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New Document"
-msgstr ""
+msgstr "Új dokumentum"
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
-msgstr ""
+msgstr "Új ablak"
 
 #~ msgid "Notepad;IDE;Plain;"
 #~ msgstr "Notepad;IDE;Plain;"

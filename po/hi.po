@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-24 14:44-0700\n"
-"PO-Revision-Date: 2018-03-20 03:46+0000\n"
+"PO-Revision-Date: 2018-05-11 06:16+0000\n"
 "Last-Translator: Anand Kumar <anand@anandkumar.net>\n"
 "Language-Team: Hindi <https://weblate.elementary.io/projects/code/code/hi/>\n"
 "Language: hi\n"
@@ -234,12 +234,11 @@ msgstr "मनपसंद फ़ॉन्ट:"
 
 #: src/FolderManager/FileItem.vala:53
 msgid "Other Application…"
-msgstr ""
+msgstr "अन्य अनुप्रयोग…"
 
 #: src/FolderManager/FileItem.vala:99
-#, fuzzy
 msgid "Open In"
-msgstr "खोलें"
+msgstr "में खोलें"
 
 #: src/FolderManager/FileItem.vala:102 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
@@ -423,7 +422,7 @@ msgstr "सादा पाठ"
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d स्पेस बनायें"
-msgstr[1] "%d स्पेस बनायें"
+msgstr[1] ""
 
 #: src/Widgets/FormatBar.vala:193
 #, c-format
@@ -537,31 +536,28 @@ msgid "Open a file to begin editing."
 msgstr "संपादित करने के लिए फाइल को खोलें."
 
 #: src/Widgets/WelcomeView.vala:35
-#, fuzzy
 msgid "New File"
-msgstr "/नई फाइल"
+msgstr "नई फाइल"
 
 #: src/Widgets/WelcomeView.vala:35
 msgid "Create a new empty file."
 msgstr "एक नई ख़ाली फाइल बनाएँ।"
 
 #: src/Widgets/WelcomeView.vala:36
-#, fuzzy
 msgid "Open File"
-msgstr "फ़ाइल खोलें"
+msgstr "फाइल खोलें"
 
 #: src/Widgets/WelcomeView.vala:36
 msgid "Open a saved file."
 msgstr "सहेजी गई फाइल को खोलें."
 
 #: src/Widgets/WelcomeView.vala:37
-#, fuzzy
 msgid "Open Folder"
-msgstr "एक फ़ोल्डर खोलें"
+msgstr "फाइल खोलें"
 
 #: src/Widgets/WelcomeView.vala:37
 msgid "Add a project folder to the sidebar."
-msgstr ""
+msgstr "प्रोजेक्ट फोल्डर को साइडबार में जोड़े।"
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via PasteBin"

@@ -260,16 +260,20 @@ namespace Scratch.Widgets {
             Gtk.TextIter start, end;
             buffer.get_selection_bounds (out start,out end);
 
-            if (start == last_select_start_iter && end == last_select_end_iter) {
+            if (start.equal (last_select_start_iter) && end.equal (last_select_end_iter)) {
                 return;
             }
 
-            if (selection_changed_timer !=0 && MainContext.get_thread_default ().find_source_by_id (selection_changed_timer) != null) {
+            last_select_start_iter = start;
+            last_select_end_iter = end;
+
+            if (selection_changed_timer != 0) {
                 Source.remove (selection_changed_timer);
+                selection_changed_timer = 0;
             }
 
             // Fire deselected immediatly
-            if (!buffer.get_has_selection ()) {
+            if (start.equal (end)) {
                 deselected ();
             // Don't fire signal till we think select movement is done
             } else {
@@ -287,6 +291,7 @@ namespace Scratch.Widgets {
                 deselected ();
             }
 
+            selection_changed_timer = 0;
             return false;
         }
 
