@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-15 19:09+0000\n"
-"PO-Revision-Date: 2018-05-31 00:02+0000\n"
+"PO-Revision-Date: 2018-06-02 00:04+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål "
 "<https://weblate.elementary.io/projects/code/plugins/nb/>\n"
@@ -49,8 +49,9 @@ msgid "Detect Indent"
 msgstr "Oppdag innrygg"
 
 #: plugins/detect-indent/detect-indent.plugin:7
+#, fuzzy
 msgid "Heuristically detect tab or space settings"
-msgstr ""
+msgstr "Heuristisk oppdagelse av Tab- eller mellomroms-innstillinger"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
