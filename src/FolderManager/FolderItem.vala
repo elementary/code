@@ -37,12 +37,10 @@ namespace Scratch.FolderManager {
         }
 
         construct {
-            if (file.children.size > 0) {
-                add (new Granite.Widgets.SourceList.Item ("")); // dummy
-            }
+            add (new Granite.Widgets.SourceList.Item ("")); // dummy
 
             toggled.connect (() => {
-                if (!children_loaded && expanded && n_children <= 1) {
+                if (!children_loaded && expanded && n_children <= 1 && file.children.size > 0) {
                     clear ();
                     add_children ();
                     children_loaded = true;
@@ -157,6 +155,13 @@ namespace Scratch.FolderManager {
 
                                 view.ignore_next_select = true;
                                 remove (item);
+                                if (file.children.size == 0) {
+                                    clear ();
+                                    add (new Granite.Widgets.SourceList.Item ("")); // dummy
+                                    expanded = false;
+                                    children_loaded = false;
+                                }
+
                                 view.selected = null;
                             }
                         }
@@ -234,6 +239,12 @@ namespace Scratch.FolderManager {
                 new_folder.make_directory ();
 
                 newly_created_path = new_folder.get_path ();
+
+                if (!children_loaded) {
+                    clear ();
+                    add_children ();
+                    children_loaded = true;
+                }
             } catch (Error e) {
                 warning (e.message);
             }
@@ -260,6 +271,12 @@ namespace Scratch.FolderManager {
                 new_file.create (FileCreateFlags.NONE);
 
                 newly_created_path = new_file.get_path ();
+
+                if (!children_loaded) {
+                    clear ();
+                    add_children ();
+                    children_loaded = true;
+                }
             } catch (Error e) {
                 warning (e.message);
             }
