@@ -246,7 +246,7 @@ namespace Scratch.Dialogs {
                 deletable: false,
                 doc: doc,
                 transient_for: parent,
-                title: _("Share via PasteBin")
+                title: _("Share via Pastebin")
             );
         }
 
