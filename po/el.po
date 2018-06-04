@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-24 14:44-0700\n"
-"PO-Revision-Date: 2017-03-17 13:43+0000\n"
-"Last-Translator: Filippos Kolyvas <Unknown>\n"
-"Language-Team: Greek <el@li.org>\n"
+"PO-Revision-Date: 2018-06-05 00:05+0000\n"
+"Last-Translator: Antony <antonykoinousis@gmail.com>\n"
+"Language-Team: Greek <https://weblate.elementary.io/projects/code/code/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #: src/Application.vala:142
 msgid "Maybe you do not have the necessary permissions."
@@ -647,7 +648,7 @@ msgstr "Επικόλληση"
 
 #: plugins/browser-preview/BrowserView.vala:32
 msgid "Web Preview"
-msgstr ""
+msgstr "Προεπισκόπηση στο διαδίκτυο"
 
 #: plugins/browser-preview/browser-preview.vala:74
 #: plugins/browser-preview/browser-preview.vala:100
