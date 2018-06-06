@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-24 14:44-0700\n"
-"PO-Revision-Date: 2018-05-28 12:38+0000\n"
+"PO-Revision-Date: 2018-06-06 00:07+0000\n"
 "Last-Translator: Majer Tamás <mtamas@disroot.org>\n"
 "Language-Team: Hungarian "
 "<https://weblate.elementary.io/projects/code/code/hu/>\n"
@@ -56,7 +56,7 @@ msgstr ""
 
 #: src/Application.vala:174
 msgid "It is a mountable location."
-msgstr "Ez egy felcsatolható hely."
+msgstr "Ez egy csatolható hely."
 
 #: src/Application.vala:177
 msgid "It is a directory."
@@ -132,7 +132,7 @@ msgstr "Szövegfájlok"
 
 #: src/Utils.vala:35 src/Services/Document.vala:371
 msgid "Cancel"
-msgstr "Mégse"
+msgstr "Mégsem"
 
 #: src/Utils.vala:44
 msgid "Open"
@@ -291,7 +291,7 @@ msgstr "Mappa bezárása"
 #: src/Services/Document.vala:222
 #, c-format
 msgid "%s Is Not a Text File"
-msgstr "%s nem szövegfájl"
+msgstr "A(z) %s nem szövegfájl"
 
 #: src/Services/Document.vala:223
 msgid "Code will not load this type of file."
@@ -304,7 +304,7 @@ msgstr "Betöltés mindenképp"
 #: src/Services/Document.vala:246
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr "\"%s\" fájl betöltése túl sokáig tart"
+msgstr "A(z) \"%s\" fájl betöltése túl sokáig tart"
 
 #: src/Services/Document.vala:247
 msgid "Please wait while Code is loading the file."
@@ -356,8 +356,8 @@ msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
-"A \"%s\"-t tartalmazó hely leválasztásra került. Szeretné valahova máshová "
-"menteni?"
+"Leválasztásra került a hely, ami tartalmazta ezt: \"%s\". Szeretné valahova "
+"máshová menteni?"
 
 #: src/Services/Document.vala:661
 msgid "Save As…"
@@ -366,7 +366,7 @@ msgstr "Mentés másként…"
 #: src/Services/Document.vala:666
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "\"%s\" törölve lett. Szeretné mégis menteni?"
+msgstr "A(z) \"%s\" törölve lett. Szeretné mégis menteni?"
 
 #: src/Services/Document.vala:681
 #, c-format
@@ -374,7 +374,7 @@ msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
 msgstr ""
-"Nem menthetők a \"%s\" fájlon végzett módosítások. Szeretné a fájl "
+"Nem menthetők a(z) \"%s\" fájlon végzett módosítások. Szeretné a fájl "
 "módosításait egy másik helyre menteni?"
 
 #: src/Services/Document.vala:683
@@ -387,8 +387,8 @@ msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
-"A \"%s\" fájl módosítva lett egy külső alkalmazásból. Szeretné újratölteni, "
-"vagy folytatja a szerkesztést?"
+"A(z) \"%s\" fájl módosítva lett egy külső alkalmazásból. Szeretné "
+"újratölteni, vagy folytatja a szerkesztést?"
 
 #: src/Services/Document.vala:717
 msgid "Load"
@@ -672,7 +672,7 @@ msgstr "%s - szókiegészítés"
 #: plugins/word-completion/completion-provider.vala:80
 #, c-format
 msgid "Could not load icon theme: %s\n"
-msgstr "%s ikontéma nem tölthető be\n"
+msgstr "A(z) %s ikontéma nem tölthető be\n"
 
 #~ msgid "New file"
 #~ msgstr "Új fájl"
