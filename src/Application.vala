@@ -175,7 +175,7 @@ namespace Scratch {
                                 reason = _("It is a mountable location.");
                                 break;
                             case FileType.SPECIAL:
-                                reason = _("It is a \"special\" file such as a socket,\n FIFO, block, or character device.");
+                                reason = _("It is a \"special\" file such as a socket,\n FIFO, block device, or character device.");
                                 break;
                             default:
                                 reason = _("It is an \"unknown\" file type.");
