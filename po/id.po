@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
-"PO-Revision-Date: 2017-08-31 15:14+0700\n"
-"Last-Translator: Kukuh Syafaat <syafaatkukuh@gmail.com>\n"
+"PO-Revision-Date: 2018-06-06 00:07+0000\n"
+"Last-Translator: seven3z <bangkitpratama73@gmail.com>\n"
 "Language-Team: Indonesian "
-"<https://weblate.elementary.io/projects/scratch/scratch/id/>\n"
+"<https://weblate.elementary.io/projects/code/code/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.0.3\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: ../src/config.vala:15
@@ -576,11 +576,11 @@ msgstr "Huruf pilihan:"
 #: ../plugins/terminal/terminal.vala:125 ../plugins/terminal/terminal.vala:172
 #: ../plugins/terminal/terminal.vala:174
 msgid "Terminal"
-msgstr "Terminal"
+msgstr "Aplikasi Terminal"
 
 #: ../plugins/terminal/terminal.vala:24
 msgid "A terminal in your text editor"
-msgstr "Terminal dalam pengolah teks"
+msgstr "Sebuah terminal di penyunting teks Anda"
 
 #: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
 msgid "Show Terminal"
@@ -609,11 +609,11 @@ msgstr "Terminal ke Bawah"
 
 #: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
 msgid "Strip trailing whitespace"
-msgstr "Hapus spasi dan tab dibelakang baris"
+msgstr "Hapus spasi di belakang spasi"
 
 #: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
 msgid "Strip trailing whitespace on save"
-msgstr "Hapus spasi dan tab di belakan baris saat menyimpan"
+msgstr "Hapus spasi di belakang spasi saat menyimpan"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -635,7 +635,7 @@ msgstr "Sorot Kata yang Dipilih"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
 msgid "Highlights all occurrences of words that are selected"
-msgstr "Sorot semua kemunculan kata-kata yang dipilih"
+msgstr "Menyoroti semua kemunculan kata yang dipilih"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -653,11 +653,11 @@ msgstr "Sorot semua kemunculan kata-kata yang dipilih"
 #. **
 #: ../plugins/brackets-completion/brackets-completion.vala:21
 msgid "Brackets Completion"
-msgstr "Pelengkap tanda kurung otomatis"
+msgstr "Tanda Kurung Otomatis"
 
 #: ../plugins/brackets-completion/brackets-completion.vala:22
 msgid "Complete brackets while typing"
-msgstr "Menutup tanda kurung yang anda buat secara otomatis"
+msgstr "Menutup tanda kurung sambil mengetik"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -722,7 +722,7 @@ msgstr "Emulasi Vim"
 
 #: ../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
-msgstr "Gunakan perintah Vim dalam Scratch"
+msgstr "Gunakan perintah Vim di Scratch"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -779,7 +779,7 @@ msgstr "Simbol"
 #. **
 #: ../plugins/outline/OutlinePlugin.vala:21
 msgid "Outline"
-msgstr "Garis Besar"
+msgstr "Ikhtisar"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
@@ -835,7 +835,7 @@ msgstr "Pemeriksa Ejaan"
 
 #: ../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
-msgstr "Memeriksa ejaan"
+msgstr "Memeriksa ejaan dari dokumen Anda"
 
 #: ../plugins/spell/spell.vala:80
 msgid ""
@@ -861,7 +861,7 @@ msgstr ""
 #. **
 #: ../plugins/browser-preview/browser-preview.vala:21
 msgid "Browser Preview"
-msgstr "Pratayang Peramban"
+msgstr "Pratinjau Browser"
 
 #: ../plugins/browser-preview/browser-preview.vala:22
 msgid "Get a preview your work in a web page"
@@ -883,13 +883,13 @@ msgstr "Sembunyikan Pratinjau"
 
 #: ../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
-msgstr "Pelengkap kata otomatis"
+msgstr "Penyelesai Kata"
 
 #: ../plugins/word-completion/plugin.vala:35
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
-"Menampilakn kata yang sering muncul untuk memudahkan menulis kata yang "
-"berulang"
+"Tampilkan dialog penyelesaian dengan kata-kata yang paling banyak digunakan "
+"dari berkas Anda"
 
 #: ../plugins/word-completion/plugin.vala:178
 msgid "%s - Word Completion"
@@ -949,11 +949,11 @@ msgstr "Satu bulan"
 
 #: ../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
-msgstr "Pastebin"
+msgstr "Situs Pastebin"
 
 #: ../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
-msgstr "Bagi berkas melalui layanan pastebin"
+msgstr "Bagikan berkas dengan layanan pastebin"
 
 #: ../plugins/pastebin/pastebin.vala:134
 msgid "Upload to Pastebin"
@@ -975,7 +975,7 @@ msgstr "Unggah ke Pastebin"
 #. **
 #: ../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
-msgstr "Bagikan berkas anda dengan Contractor"
+msgstr "Bagikan berkas Anda dengan Kontraktor"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:70
 msgid "Folders"
@@ -1027,7 +1027,7 @@ msgstr "Buka Dengan"
 
 #: ../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr "Buka berkas yang anda olah dengan aplikasi lain"
+msgstr "Buka berkas yang sedang Anda sunting dengan aplikasi lain"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
@@ -1035,11 +1035,11 @@ msgstr "Buka Dengan…"
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
-msgstr "Deteksi Inden"
+msgstr "Mendeteksi Indentasi"
 
 #: ../plugins/detect-indent/detect-indent.vala:2
 msgid "Heuristically detect tab or space settings"
-msgstr "Secara heuristik mendeteksi tab atau pengaturan spasi"
+msgstr "Secara heuristik mendeteksi tab atau pengaturan jarak"
 
 #~ msgid "Do you want to save changes before closing this file?"
 #~ msgstr "Anda ingin menyimpan perubahan sebelum menutup berkas ini?"
