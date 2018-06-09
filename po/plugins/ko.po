@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-15 19:09+0000\n"
-"PO-Revision-Date: 2018-05-15 00:05+0000\n"
+"PO-Revision-Date: 2018-06-03 16:25+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean "
 "<https://weblate.elementary.io/projects/code/plugins/ko/>\n"
@@ -49,63 +49,63 @@ msgstr "들여 쓰기 감지"
 
 #: plugins/detect-indent/detect-indent.plugin:7
 msgid "Heuristically detect tab or space settings"
-msgstr ""
+msgstr "경험으로 탭 또는 공간 설정 감지"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
-msgstr ""
+msgstr "단어 선택 강조"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:7
 msgid "Highlights all occurrences of words that are selected"
-msgstr ""
+msgstr "선택한 단어 모두 강조 표시합니다"
 
 #: plugins/open-with/open-with.plugin:6
 msgid "Open With"
-msgstr ""
+msgstr "열기"
 
 #: plugins/open-with/open-with.plugin:7
 msgid "Open files you are editing with another application"
-msgstr ""
+msgstr "편집 중인 파일을 다른 애플리케이션으로 열기"
 
 #: plugins/outline/outline.plugin:6
 msgid "Outline"
-msgstr ""
+msgstr "아웃라인"
 
 #: plugins/outline/outline.plugin:7
 msgid "Outline symbols in your current file for vala"
-msgstr ""
+msgstr "vala에 쓰이는 현재 파일 기호 아웃라인"
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
-msgstr ""
+msgstr "Pastebin"
 
 #: plugins/pastebin/pastebin.plugin:7
 msgid "Share files with pastebin service"
-msgstr ""
+msgstr "pastebin 서비스로 파일 공유"
 
 #: plugins/preserve-indent/preserve-indent.plugin:6
 msgid "Preserve Indent"
-msgstr ""
+msgstr "들여 쓰기 유지"
 
 #: plugins/preserve-indent/preserve-indent.plugin:7
 msgid "Maintains relative indent level of pasted text"
-msgstr ""
+msgstr "붙여 넣은 텍스트의 상대적인 들여 쓰기 정도를 유지합니다"
 
 #: plugins/spell/spell.plugin:6
 msgid "Spell Checker"
-msgstr ""
+msgstr "맞춤법 검사기"
 
 #: plugins/spell/spell.plugin:7
 msgid "Checks the spelling of your documents"
-msgstr ""
+msgstr "문서의 철자를 검사합니다"
 
 #: plugins/strip-trailing-save/strip-trailing-save.plugin:6
 msgid "Strip trailing whitespace"
-msgstr ""
+msgstr "후행 공백 제거"
 
 #: plugins/strip-trailing-save/strip-trailing-save.plugin:7
 msgid "Strip trailing whitespace on save"
-msgstr ""
+msgstr "저장할 때 후행 공백 제거"
 
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
@@ -113,20 +113,20 @@ msgstr "터미널"
 
 #: plugins/terminal/terminal.plugin:7
 msgid "A terminal in your text editor"
-msgstr ""
+msgstr "텍스트 에디터용 터미널"
 
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
-msgstr ""
+msgstr "Vim 에뮬레이션"
 
 #: plugins/vim-emulation/vim-emulation.plugin:7
 msgid "Use Vim commands in Scratch"
-msgstr ""
+msgstr "스크래치에 Vim 명령어 사용"
 
 #: plugins/word-completion/word-completion.plugin:3
 msgid "Words Completion"
-msgstr ""
+msgstr "단어 완성"
 
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
-msgstr ""
+msgstr "파일에서 가장 많이 사용한 단어로 완료 대화 상자 표시하기"
