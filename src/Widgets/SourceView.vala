@@ -280,11 +280,14 @@ namespace Scratch.Widgets {
                 // join them back together
                 var line_array = new Gee.ArrayList<string> ();
                 for (int i = 0; i < lines.length; i+= 2) {
+
+                    if (i + 1 <= lines.length - 1) {
+                        line_array.add (lines[i] + lines[i + 1]);
                     // If the EOF line was included, give it a newline character copied from the line above
-                    if (i == lines.length - 1 && end_included) {
+                    } else if (i == lines.length - 1 && end_included) {
                         line_array.add (lines[i] + lines[i - 1]);
                     } else {
-                        line_array.add (lines[i] + lines[i + 1]);
+                        break;
                     }
                 }
 
