@@ -264,7 +264,7 @@ namespace Scratch.FolderManager {
                 var head = git_repo.get_head ();
                 if (head.is_branch ()) {
                     var branch = git_repo.get_head () as Ggit.Branch;
-                    markup = "%s <small>(%s)</small>".printf (file.name, branch.get_name ());
+                    markup = "%s <span size='small' weight='normal'>%s</span>".printf (file.name, branch.get_name ());
                 }
             } catch (Error e) {
                 warning ("An error occured while fetching the current git branch name: %s", e.message);
