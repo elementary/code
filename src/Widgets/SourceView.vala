@@ -258,12 +258,14 @@ namespace Scratch.Widgets {
                     start.backward_chars (start.get_line_offset ());
                 }
 
-                if (!end.ends_line ()) {
-                    end.forward_to_line_end ();
+                // Go to the start of the next line so we get the newline character
+                if (!end.starts_line ()) {
+                    end.forward_line ();
                 }
 
                 string selected = buffer.get_text (start, end, true);
-                string[] lines = Regex.split_simple ("""[\r\n]""", selected);
+                string[] lines = Regex.split_simple ("""(.*[\r\n])""", selected);
+
                 if (lines.length <= 1) {
                     return;
                 }
@@ -273,7 +275,7 @@ namespace Scratch.Widgets {
                     return a.collate (b);
                 });
 
-                var sorted = string.joinv ("\n", line_array.to_array ());
+                var sorted = string.joinv ("", line_array.to_array ());
                 buffer.begin_user_action ();
                 buffer.@delete (ref start, ref end);
                 buffer.insert_at_cursor (sorted, -1);
