@@ -86,7 +86,7 @@ namespace Scratch.FolderManager {
                     var git_folder = GLib.File.new_for_path (Path.build_filename (top_level_path, ".git"));
                     if (git_folder.query_exists ()) {
                         git_monitor = git_folder.monitor_directory (GLib.FileMonitorFlags.NONE);
-                        monitor.changed.connect (() => update_git_status ());
+                        git_monitor.changed.connect (() => update_git_status ());
                     }
                 }
             }
@@ -317,8 +317,11 @@ namespace Scratch.FolderManager {
             }
         }
 
-        private Granite.Widgets.SourceList.ExpandableItem get_root_folder (Granite.Widgets.SourceList.ExpandableItem start) {
-            if (start.parent is MainFolderItem) {
+        private static Granite.Widgets.SourceList.ExpandableItem get_root_folder (
+            Granite.Widgets.SourceList.ExpandableItem start) {
+            if (start is MainFolderItem) {
+                return start;
+            } else if (start.parent is MainFolderItem) {
                 return start.parent;
             } else {
                 return get_root_folder (start.parent);
