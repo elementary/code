@@ -280,15 +280,15 @@ namespace Scratch.FolderManager {
             }
 
             reset_all_children (this);
-            var options = new Ggit.StatusOptions (Ggit.StatusOption.INCLUDE_UNTRACKED, Ggit.StatusShow.WORKDIR_ONLY, null);
+            var options = new Ggit.StatusOptions (Ggit.StatusOption.INCLUDE_UNTRACKED, Ggit.StatusShow.INDEX_AND_WORKDIR, null);
             git_repo.file_status_foreach (options, (path, status) => {
-                if (Ggit.StatusFlags.WORKING_TREE_MODIFIED in status) {
+                if (Ggit.StatusFlags.WORKING_TREE_MODIFIED in status || Ggit.StatusFlags.INDEX_MODIFIED in status) {
                     var modified_items = new Gee.ArrayList<Item> ();
                     find_items (this, path, ref modified_items);
                     foreach (var modified_item in modified_items) {
                         modified_item.activatable = modified_icon;
                     }
-                } else if (Ggit.StatusFlags.WORKING_TREE_NEW in status) {
+                } else if (Ggit.StatusFlags.WORKING_TREE_NEW in status || Ggit.StatusFlags.INDEX_NEW in status) {
                     var new_items = new Gee.ArrayList<Item> ();
                     find_items (this, path, ref new_items);
                     foreach (var new_item in new_items) {
