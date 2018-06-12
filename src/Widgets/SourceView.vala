@@ -219,7 +219,7 @@ namespace Scratch.Widgets {
 
             if (!start.equal (end)) {
                 string selected = buffer.get_text (start, end, true);
-                string[] lines = Regex.split_simple ("""[\r\n]""", selected);
+                string[] lines = Regex.split_simple ("""\R""", selected);
                 return lines.length;
             }
 
@@ -263,17 +263,42 @@ namespace Scratch.Widgets {
                     end.forward_line ();
                 }
 
+                bool end_included = false;
+                if (end.is_end ()) {
+                    end_included = true;
+                }
+
                 string selected = buffer.get_text (start, end, true);
-                string[] lines = Regex.split_simple ("""(.*[\r\n])""", selected);
+                string[] lines = Regex.split_simple ("""(\R)""", selected);
+                string eol_to_be_moved = "";
 
                 if (lines.length <= 1) {
                     return;
                 }
 
-                var line_array = new Gee.ArrayList<string>.wrap (lines);
+                // The split lines are split into pairs of the line itself and the newline character, so
+                // join them back together
+                var line_array = new Gee.ArrayList<string> ();
+                for (int i = 0; i < lines.length; i+= 2) {
+                    // If the EOF line was included, give it a newline character copied from the line above
+                    if (i == lines.length - 1 && end_included) {
+                        line_array.add (lines[i] + lines[i - 1]);
+                    } else {
+                        line_array.add (lines[i] + lines[i + 1]);
+                    }
+                }
+
                 line_array.sort ((a, b) => {
                     return a.collate (b);
                 });
+
+                // Strip the newline off the new last line in the file
+                if (end_included) {
+                    var orig_end = line_array[line_array.size - 1];
+                    if (Regex.match_simple ("""\R""", orig_end)) {
+                        line_array[line_array.size - 1] = Regex.split_simple ("""\R""", orig_end)[0];
+                    }
+                }
 
                 var sorted = string.joinv ("", line_array.to_array ());
                 buffer.begin_user_action ();
