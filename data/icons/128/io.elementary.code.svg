@@ -6,12 +6,50 @@
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.1"
    width="128"
    height="128"
-   id="svg3828">
+   id="svg3828"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="io.elementary.code.svg"
+   inkscape:export-filename="/home/micah/Downloads/code.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     id="namedview35"
+     showgrid="false"
+     inkscape:zoom="2.8284272"
+     inkscape:cx="135.74642"
+     inkscape:cy="60.495237"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3828" />
   <defs
      id="defs3830">
+    <linearGradient
+       id="linearGradient4163">
+      <stop
+         id="stop4165"
+         style="stop-color:#a56de2;stop-opacity:1"
+         offset="0" />
+      <stop
+         id="stop4167"
+         style="stop-color:#452981;stop-opacity:1"
+         offset="1" />
+    </linearGradient>
     <linearGradient
        x1="25.728966"
        y1="0.55226636"
@@ -74,11 +112,11 @@
        id="linearGradient5736">
       <stop
          offset="0"
-         style="stop-color:#586e75;stop-opacity:1"
+         style="stop-color:#7239b3;stop-opacity:1"
          id="stop5738" />
       <stop
          offset="1"
-         style="stop-color:#073642;stop-opacity:1"
+         style="stop-color:#452981;stop-opacity:1"
          id="stop5740" />
     </linearGradient>
     <linearGradient
@@ -93,7 +131,7 @@
          id="stop4341" />
     </linearGradient>
     <linearGradient
-       xlink:href="#linearGradient5736"
+       xlink:href="#linearGradient4163"
        id="linearGradient5857"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(2.9813606,0.79277801,-0.48877088,1.8105292,4.92847,-4.3609206)"
@@ -136,7 +174,7 @@
      transform="rotate(-5,47.403766,98.596334)"
      id="g4525">
     <path
-       style="display:inline;fill:url(#linearGradient4527);fill-opacity:1;stroke:#001921;stroke-linejoin:round;stroke-opacity:0.49803922"
+       style="display:inline;fill:url(#linearGradient4527);fill-opacity:1;stroke:#452981;stroke-linejoin:round;stroke-opacity:0.49803922"
        id="path4521"
        d="M 105.49501,121.49988 22.500005,121.5 V 12.5 H 105.5 Z" />
     <path
