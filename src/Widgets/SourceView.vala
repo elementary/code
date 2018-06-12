@@ -267,7 +267,8 @@ namespace Scratch.Widgets {
                 string selected = buffer.get_text (start, end, true);
                 string[] lines = Regex.split_simple ("""(\R)""", selected);
 
-                if (lines.length <= 1) {
+                // We have two array elements for every line, don't continue if we have only 1 line
+                if (lines.length <= 3) {
                     return;
                 }
 
