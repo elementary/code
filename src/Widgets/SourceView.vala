@@ -271,8 +271,8 @@ namespace Scratch.Widgets {
                     return;
                 }
 
-                // The split lines are split into pairs of the line itself and the newline character, so
-                // join them back together
+                // The split lines are split into pairs of the line's content and the newline character(s), so join them
+                // back together as standalone lines again
                 var line_array = new Gee.ArrayList<string> ();
                 for (int i = 0; i < lines.length; i+= 2) {
                     if (i + 1 <= lines.length - 1) {
@@ -289,7 +289,7 @@ namespace Scratch.Widgets {
                     return a.collate (b);
                 });
 
-                // Strip the newline off the new last line in the file
+                // Strip the newline off the new last line in the file if we need to
                 if (end_included) {
                     var orig_end = line_array[line_array.size - 1];
                     if (Regex.match_simple ("""\R""", orig_end)) {
