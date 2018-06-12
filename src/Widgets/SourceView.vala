@@ -283,8 +283,8 @@ namespace Scratch.Widgets {
 
                     if (i + 1 <= lines.length - 1) {
                         line_array.add (lines[i] + lines[i + 1]);
-                    // If the EOF line was included, give it a newline character copied from the line above
                     } else if (i == lines.length - 1 && end_included) {
+                        // If this is the EOF line, give it a newline character copied from the line above
                         line_array.add (lines[i] + lines[i - 1]);
                     } else {
                         break;
