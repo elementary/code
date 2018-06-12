@@ -264,7 +264,7 @@ namespace Scratch.FolderManager {
                 var head = git_repo.get_head ();
                 if (head.is_branch ()) {
                     var branch = git_repo.get_head () as Ggit.Branch;
-                    name = "%s (%s)".printf (file.name, branch.get_name ());
+                    markup = "%s <small>(%s)</small>".printf (file.name, branch.get_name ());
                 }
             } catch (Error e) {
                 warning ("An error occured while fetching the current git branch name: %s", e.message);
@@ -299,6 +299,7 @@ namespace Scratch.FolderManager {
                 }
 
                 item.name = item.file.name;
+                item.markup = null;
                 item.activatable = null;
 
                 if (item is Granite.Widgets.SourceList.ExpandableItem) {
