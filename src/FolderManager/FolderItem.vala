@@ -25,6 +25,7 @@ namespace Scratch.FolderManager {
      */
     internal class FolderItem : Item {
         private GLib.FileMonitor monitor;
+        private GLib.FileMonitor git_monitor;
         private bool children_loaded = false;
         private string? newly_created_path = null;
         private Ggit.Repository? git_repo = null;
@@ -39,6 +40,9 @@ namespace Scratch.FolderManager {
 
         ~FolderItem () {
             monitor.cancel ();
+            if (git_monitor != null) {
+                git_monitor.cancel ();
+            }
         }
 
         static construct {
@@ -79,6 +83,11 @@ namespace Scratch.FolderManager {
 
                 if (git_repo != null) {
                     update_git_status ();
+                    var git_folder = GLib.File.new_for_path (Path.build_filename (top_level_path, ".git"));
+                    if (git_folder.query_exists ()) {
+                        git_monitor = git_folder.monitor_directory (GLib.FileMonitorFlags.NONE);
+                        monitor.changed.connect (() => update_git_status ());
+                    }
                 }
             }
         }
