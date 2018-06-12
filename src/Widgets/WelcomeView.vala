@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2017 elementary LLC. (https://elementary.io)
+ * Copyright (c) 2017-2018 elementary LLC. (https://elementary.io)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,13 +29,9 @@ public class Code.WelcomeView : Granite.Widgets.Welcome {
     }
 
     construct {
-        valign = Gtk.Align.FILL;
-        halign = Gtk.Align.FILL;
-        vexpand = true;
-        append ("document-new", _("New file"), _("Create a new empty file."));
-        append ("document-open", _("Open file"), _("Open a saved file."));
-        append ("edit-paste", _("New file from clipboard"), _("Create a new file from the contents of your clipboard."));
-        set_item_visible (2, window.clipboard.wait_is_text_available ());
+        append ("document-new", _("New File"), _("Create a new empty file."));
+        append ("document-open", _("Open File"), _("Open a saved file."));
+        append ("folder-saved-search", _("Open Folder"), _("Add a project folder to the sidebar."));
 
         activated.connect ((i) => {
             // New file
@@ -44,7 +40,7 @@ public class Code.WelcomeView : Granite.Widgets.Welcome {
             } else if (i == 1) {
                 Scratch.Utils.action_from_group (Scratch.MainWindow.ACTION_OPEN, window.actions).activate (null);
             } else if (i == 2) {
-                Scratch.Utils.action_from_group (Scratch.MainWindow.ACTION_NEW_FROM_CLIPBOARD, window.actions).activate (null);
+                Scratch.Utils.action_from_group (Scratch.MainWindow.ACTION_OPEN_FOLDER, window.actions).activate (null);
             }
         });
     }

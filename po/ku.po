@@ -2,11 +2,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-28 15:29-0700\n"
-"PO-Revision-Date: 2018-02-11 00:07+0000\n"
+"POT-Creation-Date: 2018-04-24 14:44-0700\n"
+"PO-Revision-Date: 2018-06-01 00:06+0000\n"
 "Last-Translator: Rokar <mail@rokar.de>\n"
-"Language-Team: Kurdish <https://weblate.elementary.io/projects/scratch/"
-"scratch/ku/>\n"
+"Language-Team: Kurdish <https://weblate.elementary.io/projects/code/code/ku/>"
+"\n"
 "Language: ku\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -222,20 +222,19 @@ msgstr ""
 msgid "Custom font:"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:50
+#: src/FolderManager/FileItem.vala:53
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:93
-#, fuzzy
+#: src/FolderManager/FileItem.vala:99
 msgid "Open In"
-msgstr "Veke"
+msgstr "Veke tewe"
 
-#: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:102 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:105 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr ""
@@ -245,18 +244,16 @@ msgid "Folders"
 msgstr "Peldank"
 
 #: src/FolderManager/FolderItem.vala:77
-#, fuzzy
 msgid "Folder"
-msgstr "Peldank"
+msgstr "Peldanke"
 
 #: src/FolderManager/FolderItem.vala:80
 msgid "Empty File"
 msgstr ""
 
 #: src/FolderManager/FolderItem.vala:87
-#, fuzzy
 msgid "New"
-msgstr "Hilpekîna nû"
+msgstr "Nû"
 
 #: src/FolderManager/FolderItem.vala:223
 msgid "untitled folder"
@@ -268,14 +265,13 @@ msgid "untitled folder %d"
 msgstr ""
 
 #: src/FolderManager/FolderItem.vala:249
-#, fuzzy
 msgid "new file"
-msgstr "Pelgeh veke"
+msgstr "pelgeh veke"
 
 #: src/FolderManager/FolderItem.vala:253
-#, fuzzy, c-format
+#, c-format
 msgid "new file %d"
-msgstr "Pelgeh veke"
+msgstr "pelgeh veke %d"
 
 #: src/FolderManager/MainFolderItem.vala:30
 msgid "Close Folder"
@@ -304,7 +300,6 @@ msgid "Please wait while Code is loading the file."
 msgstr ""
 
 #: src/Services/Document.vala:249
-#, fuzzy
 msgid "Cancel Load"
 msgstr "Betal bike"
 
@@ -387,9 +382,9 @@ msgid "Templates"
 msgstr "Şablon"
 
 #: src/Widgets/DocumentView.vala:92
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s"
-msgstr "Dosiyên nivîsê"
+msgstr "Dosiyên nivîsê %s"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
@@ -415,11 +410,11 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: src/Widgets/FormatBar.vala:193
-#, fuzzy, c-format
+#, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "Hilpekîna nû"
-msgstr[1] "Hilpekîna nû"
+msgstr[0] "%d Hilpekîna nû"
+msgstr[1] "%d Hilpekîna nû e"
 
 #: src/Widgets/FormatBar.vala:209
 msgid "Go To Line:"
@@ -454,18 +449,16 @@ msgid "Share"
 msgstr "Parve bike"
 
 #: src/Widgets/HeaderBar.vala:77
-#, fuzzy
 msgid "Zoom Out"
-msgstr "Mezinkirin"
+msgstr ""
 
 #: src/Widgets/HeaderBar.vala:81
 msgid "Zoom 1:1"
 msgstr ""
 
 #: src/Widgets/HeaderBar.vala:85
-#, fuzzy
 msgid "Zoom In"
-msgstr "Mezinkirin"
+msgstr "Mezin bike"
 
 #: src/Widgets/HeaderBar.vala:100
 msgid "High Contrast"
@@ -528,27 +521,27 @@ msgid "Open a file to begin editing."
 msgstr ""
 
 #: src/Widgets/WelcomeView.vala:35
-msgid "New file"
-msgstr ""
+msgid "New File"
+msgstr "Pelgehê Tomar bike"
 
 #: src/Widgets/WelcomeView.vala:35
 msgid "Create a new empty file."
 msgstr ""
 
 #: src/Widgets/WelcomeView.vala:36
-msgid "Open file"
-msgstr "Pelgeh veke"
+msgid "Open File"
+msgstr "Pel veke"
 
 #: src/Widgets/WelcomeView.vala:36
 msgid "Open a saved file."
 msgstr ""
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "New file from clipboard"
-msgstr ""
+msgid "Open Folder"
+msgstr "Peldanke veke"
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "Create a new file from the contents of your clipboard."
+msgid "Add a project folder to the sidebar."
 msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:249

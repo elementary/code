@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-28 15:29-0700\n"
-"PO-Revision-Date: 2018-03-27 00:01+0000\n"
+"POT-Creation-Date: 2018-04-24 14:44-0700\n"
+"PO-Revision-Date: 2018-06-08 00:11+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock@gmail.com>\n"
-"Language-Team: Japanese <https://weblate.elementary.io/projects/code/code/ja/"
-">\n"
+"Language-Team: Japanese "
+"<https://weblate.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -108,7 +108,7 @@ msgstr "検索バーを隠す"
 
 #: src/MainWindow.vala:215
 msgid "Zeitgeist Datasource for Scratch"
-msgstr ""
+msgstr "Scratch 用の Zeitgeist データソース"
 
 #: src/MainWindow.vala:716
 msgid "Open some files"
@@ -169,7 +169,7 @@ msgstr "タブの代わりにスペースを挿入:"
 
 #: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:144
 msgid "Tab width:"
-msgstr "タブ幅："
+msgstr "タブ幅:"
 
 #: src/Dialogs/PreferencesDialog.vala:68
 msgid "Behavior"
@@ -233,30 +233,30 @@ msgstr "フォント"
 msgid "Custom font:"
 msgstr "カスタムフォント:"
 
-#: src/FolderManager/FileItem.vala:50
+#: src/FolderManager/FileItem.vala:53
 msgid "Other Application…"
-msgstr "その他のアプリケーション…"
+msgstr "他のアプリケーション…"
 
-#: src/FolderManager/FileItem.vala:93
+#: src/FolderManager/FileItem.vala:99
 msgid "Open In"
-msgstr ""
+msgstr "指定した方法で開く"
 
-#: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:102 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
 msgstr "名前の変更"
 
-#: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:105 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr "ゴミ箱に移動"
 
 #: src/FolderManager/FileView.vala:39
 msgid "Folders"
-msgstr "フォルダ"
+msgstr "フォルダー"
 
 #: src/FolderManager/FolderItem.vala:77
 msgid "Folder"
-msgstr "フォルダ"
+msgstr "フォルダー"
 
 #: src/FolderManager/FolderItem.vala:80
 msgid "Empty File"
@@ -268,12 +268,12 @@ msgstr "新規作成"
 
 #: src/FolderManager/FolderItem.vala:223
 msgid "untitled folder"
-msgstr "名称未設定フォルダ"
+msgstr "名称未設定フォルダー"
 
 #: src/FolderManager/FolderItem.vala:227
 #, c-format
 msgid "untitled folder %d"
-msgstr "名称未設定フォルダ %d"
+msgstr "名称未設定フォルダー %d"
 
 #: src/FolderManager/FolderItem.vala:249
 msgid "new file"
@@ -286,7 +286,7 @@ msgstr "新しいファイル %d"
 
 #: src/FolderManager/MainFolderItem.vala:30
 msgid "Close Folder"
-msgstr "フォルダを閉じる"
+msgstr "フォルダーを閉じる"
 
 #: src/Services/Document.vala:222
 #, c-format
@@ -299,7 +299,7 @@ msgstr "Code はこの種類のファイルを読み込むことができませ�
 
 #: src/Services/Document.vala:225
 msgid "Load Anyway"
-msgstr "強制的に読み込む"
+msgstr "とにかく読み込む"
 
 #: src/Services/Document.vala:246
 #, c-format
@@ -317,7 +317,7 @@ msgstr "読み込みをキャンセル"
 #: src/Services/Document.vala:362
 #, c-format
 msgid "Save changes to document %s before closing?"
-msgstr "閉じる前にドキュメント %s への変更を保存しますか?"
+msgstr "閉じる前にドキュメント %s への変更を保存しますか？"
 
 #: src/Services/Document.vala:365
 msgid ""
@@ -441,7 +441,7 @@ msgstr "ファイルを開く"
 
 #: src/Widgets/HeaderBar.vala:45
 msgid "Open a folder"
-msgstr "フォルダを開く"
+msgstr "フォルダーを開く"
 
 #: src/Widgets/HeaderBar.vala:49
 msgid "Project templates"
@@ -536,7 +536,7 @@ msgid "Open a file to begin editing."
 msgstr "編集を開始するにはファイルを開いてください。"
 
 #: src/Widgets/WelcomeView.vala:35
-msgid "New file"
+msgid "New File"
 msgstr "新しいファイル"
 
 #: src/Widgets/WelcomeView.vala:35
@@ -544,7 +544,7 @@ msgid "Create a new empty file."
 msgstr "新しい空ファイルを作成します。"
 
 #: src/Widgets/WelcomeView.vala:36
-msgid "Open file"
+msgid "Open File"
 msgstr "ファイルを開く"
 
 #: src/Widgets/WelcomeView.vala:36
@@ -552,12 +552,12 @@ msgid "Open a saved file."
 msgstr "保存されているファイルを開きます。"
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "New file from clipboard"
-msgstr "クリップボードから新しいファイル"
+msgid "Open Folder"
+msgstr "フォルダーを開く"
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "Create a new file from the contents of your clipboard."
-msgstr "クリップポードの内容から新しいファイルを作成します。"
+msgid "Add a project folder to the sidebar."
+msgstr "サイドバーにプロジェクトのフォルダーを追加します。"
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via PasteBin"
@@ -669,6 +669,15 @@ msgstr "%s - 単語補完"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "アイコンテーマを読み込めません: %s\n"
+
+#~ msgid "New file"
+#~ msgstr "新しいファイル"
+
+#~ msgid "New file from clipboard"
+#~ msgstr "クリップボードから新しいファイル"
+
+#~ msgid "Create a new file from the contents of your clipboard."
+#~ msgstr "クリップポードの内容から新しいファイルを作成します。"
 
 #~ msgid "Open With…"
 #~ msgstr "他のアプリケーションで開く…"
@@ -870,9 +879,6 @@ msgstr "アイコンテーマを読み込めません: %s\n"
 
 #~ msgid "File Manager"
 #~ msgstr "ファイルマネージャー"
-
-#~ msgid "/New File"
-#~ msgstr "/New File"
 
 #~ msgid "Spell Checker"
 #~ msgstr "スペルチェック"

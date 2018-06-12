@@ -59,6 +59,8 @@ namespace Scratch {
 
         public const string ACTION_PREFIX = "win.";
         public const string ACTION_FIND = "action_find";
+        public const string ACTION_FIND_NEXT = "action_find_next";
+        public const string ACTION_FIND_PREVIOUS = "action_find_previous";
         public const string ACTION_OPEN = "action_open";
         public const string ACTION_OPEN_FOLDER = "action_open_folder";
         public const string ACTION_GO_TO = "action_go_to";
@@ -89,6 +91,8 @@ namespace Scratch {
 
         private const ActionEntry[] action_entries = {
             { ACTION_FIND, action_fetch },
+            { ACTION_FIND_NEXT, action_find_next },
+            { ACTION_FIND_PREVIOUS, action_find_previous },
             { ACTION_OPEN, action_open },
             { ACTION_OPEN_FOLDER, action_open_folder },
             { ACTION_PREFERENCES, action_preferences },
@@ -128,6 +132,8 @@ namespace Scratch {
 
         static construct {
             action_accelerators.set (ACTION_FIND, "<Control>f");
+            action_accelerators.set (ACTION_FIND_NEXT, "<Control>g");
+            action_accelerators.set (ACTION_FIND_PREVIOUS, "<Control><shift>g");
             action_accelerators.set (ACTION_OPEN, "<Control>o");
             action_accelerators.set (ACTION_REVERT, "<Control><shift>o");
             action_accelerators.set (ACTION_SAVE, "<Control>s");
@@ -224,8 +230,8 @@ namespace Scratch {
             });
 #endif
 
-            Unix.signal_add (Posix.SIGINT, quit_source_func, Priority.HIGH);
-            Unix.signal_add (Posix.SIGTERM, quit_source_func, Priority.HIGH);
+            Unix.signal_add (Posix.Signal.INT, quit_source_func, Priority.HIGH);
+            Unix.signal_add (Posix.Signal.TERM, quit_source_func, Priority.HIGH);
 
             /* Splitview controls showing and hiding of Welcome view */
         }
@@ -265,7 +271,7 @@ namespace Scratch {
 
             split_view.document_change.connect ((doc) => {
                 plugins.hook_document (doc);
-                
+
                 search_bar.set_text_view (doc.source_view);
                 // Update MainWindow title
                 if (doc != null) {
@@ -279,7 +285,7 @@ namespace Scratch {
             });
 
             project_pane = new Code.Pane ();
-            
+
             folder_manager_view = new FolderManager.FileView ();
 
             folder_manager_view.select.connect ((a) => {
@@ -462,6 +468,11 @@ namespace Scratch {
         // Add new view
         public Scratch.Widgets.DocumentView? add_view () {
             return split_view.add_view ();
+        }
+
+        public void open_folder (File folder) {
+            var foldermanager_file = new FolderManager.File (folder.get_path ());
+            folder_manager_view.open_folder (foldermanager_file);
         }
 
         // Open a document
@@ -707,8 +718,9 @@ namespace Scratch {
 
         private void action_quit () {
             handle_quit ();
-            check_unsaved_changes ();
-            destroy ();
+            if (check_unsaved_changes ()) {
+                destroy ();
+            }
         }
 
         private void action_open () {
@@ -728,7 +740,7 @@ namespace Scratch {
                 }
             }
         }
-        
+
         private void action_open_folder () {
             var chooser = new Gtk.FileChooserDialog (
                 "Select a folder.", this, Gtk.FileChooserAction.SELECT_FOLDER,
@@ -849,12 +861,20 @@ namespace Scratch {
             }
         }
 
+        private void action_find_next () {
+            search_bar.search_next ();
+        }
+
+        private void action_find_previous () {
+            search_bar.search_previous ();
+        }
+
         private void set_search_text () {
             var current_doc = get_current_document ();
             // This is also called when all documents are closed.
             if (current_doc != null) {
                 var selected_text = current_doc.get_selected_text ();
-                if (selected_text.length < MAX_SEARCH_TEXT_LENGTH) {
+                if (selected_text != "" && selected_text.length < MAX_SEARCH_TEXT_LENGTH) {
                     search_bar.set_search_string (selected_text);
                 }
 

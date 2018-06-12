@@ -7,16 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-28 15:29-0700\n"
-"PO-Revision-Date: 2017-03-17 13:43+0000\n"
-"Last-Translator: Filippos Kolyvas <Unknown>\n"
-"Language-Team: Greek <el@li.org>\n"
+"POT-Creation-Date: 2018-04-24 14:44-0700\n"
+"PO-Revision-Date: 2018-06-05 00:05+0000\n"
+"Last-Translator: Antony <antonykoinousis@gmail.com>\n"
+"Language-Team: Greek <https://weblate.elementary.io/projects/code/code/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #: src/Application.vala:142
 msgid "Maybe you do not have the necessary permissions."
@@ -225,20 +226,20 @@ msgstr ""
 msgid "Custom font:"
 msgstr "Προσαρμοσμένη γραμματοσειρά:"
 
-#: src/FolderManager/FileItem.vala:50
+#: src/FolderManager/FileItem.vala:53
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:93
+#: src/FolderManager/FileItem.vala:99
 #, fuzzy
 msgid "Open In"
 msgstr "Άνοιγμα"
 
-#: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:102 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:105 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr ""
@@ -538,15 +539,17 @@ msgid "Open a file to begin editing."
 msgstr "Ανοίξτε ένα αρχείο για να αρχίσετε την επεξεργασία."
 
 #: src/Widgets/WelcomeView.vala:35
-msgid "New file"
-msgstr "Νέο αρχείο"
+#, fuzzy
+msgid "New File"
+msgstr "/Νέο αρχείο"
 
 #: src/Widgets/WelcomeView.vala:35
 msgid "Create a new empty file."
 msgstr "Δημιουργία νέου κενού αρχείου"
 
 #: src/Widgets/WelcomeView.vala:36
-msgid "Open file"
+#, fuzzy
+msgid "Open File"
 msgstr "Άνοιγμα αρχείου"
 
 #: src/Widgets/WelcomeView.vala:36
@@ -554,12 +557,13 @@ msgid "Open a saved file."
 msgstr "Άνοιγμα αποθηκευμένου αρχείου."
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "New file from clipboard"
-msgstr "Νέο αρχείο από το πρόχειρο"
+#, fuzzy
+msgid "Open Folder"
+msgstr "Άνοιγμα ενός φακέλου"
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "Create a new file from the contents of your clipboard."
-msgstr "Δημιουργήστε ένα νέο αρχείο από τα περιεχόμενα του πρόχειρου σας."
+msgid "Add a project folder to the sidebar."
+msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via PasteBin"
@@ -644,7 +648,7 @@ msgstr "Επικόλληση"
 
 #: plugins/browser-preview/BrowserView.vala:32
 msgid "Web Preview"
-msgstr ""
+msgstr "Προεπισκόπηση στο διαδίκτυο"
 
 #: plugins/browser-preview/browser-preview.vala:74
 #: plugins/browser-preview/browser-preview.vala:100
@@ -670,6 +674,15 @@ msgstr "%s - Συμπλήρωση Λέξεων"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "Αδυναμία φόρτωσης θέματος εικονιδίων: %s\n"
+
+#~ msgid "New file"
+#~ msgstr "Νέο αρχείο"
+
+#~ msgid "New file from clipboard"
+#~ msgstr "Νέο αρχείο από το πρόχειρο"
+
+#~ msgid "Create a new file from the contents of your clipboard."
+#~ msgstr "Δημιουργήστε ένα νέο αρχείο από τα περιεχόμενα του πρόχειρου σας."
 
 #~ msgid "Open With…"
 #~ msgstr "Άνοιγμα με..."
@@ -875,9 +888,6 @@ msgstr "Αδυναμία φόρτωσης θέματος εικονιδίων: %
 
 #~ msgid "File Manager"
 #~ msgstr "Διαχειριστής Αρχείων"
-
-#~ msgid "/New File"
-#~ msgstr "/Νέο αρχείο"
 
 #~ msgid "Spell Checker"
 #~ msgstr "Ορθογραφικός Έλεγχος"

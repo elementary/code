@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-28 15:29-0700\n"
+"POT-Creation-Date: 2018-04-24 14:44-0700\n"
 "PO-Revision-Date: 2015-12-21 13:37+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -220,19 +220,19 @@ msgstr ""
 msgid "Custom font:"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:50
+#: src/FolderManager/FileItem.vala:53
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:93
+#: src/FolderManager/FileItem.vala:99
 msgid "Open In"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:102 src/FolderManager/FolderItem.vala:61
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:105 src/FolderManager/FolderItem.vala:64
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr ""
@@ -523,27 +523,29 @@ msgid "Open a file to begin editing."
 msgstr ""
 
 #: src/Widgets/WelcomeView.vala:35
-msgid "New file"
-msgstr ""
+#, fuzzy
+msgid "New File"
+msgstr "Файл упраса хăвар"
 
 #: src/Widgets/WelcomeView.vala:35
 msgid "Create a new empty file."
 msgstr ""
 
 #: src/Widgets/WelcomeView.vala:36
-msgid "Open file"
-msgstr ""
+#, fuzzy
+msgid "Open File"
+msgstr "Файл упраса хăвар"
 
 #: src/Widgets/WelcomeView.vala:36
 msgid "Open a saved file."
 msgstr ""
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "New file from clipboard"
+msgid "Open Folder"
 msgstr ""
 
 #: src/Widgets/WelcomeView.vala:37
-msgid "Create a new file from the contents of your clipboard."
+msgid "Add a project folder to the sidebar."
 msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:249
