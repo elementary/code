@@ -263,14 +263,9 @@ namespace Scratch.Widgets {
                     end.forward_line ();
                 }
 
-                bool end_included = false;
-                if (end.is_end ()) {
-                    end_included = true;
-                }
-
+                bool end_included = end.is_end ();
                 string selected = buffer.get_text (start, end, true);
                 string[] lines = Regex.split_simple ("""(\R)""", selected);
-                string eol_to_be_moved = "";
 
                 if (lines.length <= 1) {
                     return;
@@ -280,7 +275,6 @@ namespace Scratch.Widgets {
                 // join them back together
                 var line_array = new Gee.ArrayList<string> ();
                 for (int i = 0; i < lines.length; i+= 2) {
-
                     if (i + 1 <= lines.length - 1) {
                         line_array.add (lines[i] + lines[i + 1]);
                     } else if (i == lines.length - 1 && end_included) {
