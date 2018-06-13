@@ -291,7 +291,9 @@ namespace Scratch {
             folder_manager_view.select.connect ((a) => {
                 var file = GLib.File.new_for_path (a);
                 var doc = new Scratch.Services.Document (actions, file);
-                open_document (doc);
+                if (!folder_manager_view.editing) {
+                    open_document (doc);
+                }
             });
 
             folder_manager_view.root.child_added.connect (() => {
