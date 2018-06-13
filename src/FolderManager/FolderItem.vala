@@ -24,12 +24,17 @@ namespace Scratch.FolderManager {
      * Monitored for changes inside the directory.
      */
     internal class FolderItem : Item {
+        // Minimum time to elapse before querying git folder again (ms)
+        private const uint GIT_UPDATE_RATE_LIMIT = 300;
+
         private GLib.FileMonitor monitor;
         private GLib.FileMonitor git_monitor;
         private bool children_loaded = false;
         private string? newly_created_path = null;
         private Ggit.Repository? git_repo = null;
         private string top_level_path;
+        // Static source ID for all instances of FolderItem, ensures we don't check for git updates too much
+        private static uint git_update_timer_id = 0;
 
         private static Icon added_icon;
         private static Icon modified_icon;
@@ -257,11 +262,24 @@ namespace Scratch.FolderManager {
             update_git_status ();
         }
 
-        protected void update_git_status () {
+        private void update_git_status () {
+            if (git_update_timer_id != 0) {
+                // Update already queued, ignore this request
+                return;
+            }
+
+            git_update_timer_id = Timeout.add (GIT_UPDATE_RATE_LIMIT, () => {
+                do_git_update ();
+                git_update_timer_id = 0;
+                return Source.REMOVE;
+            });
+        }
+
+        protected void do_git_update () {
             if (!(this is MainFolderItem)) {
                 var root_folder = get_root_folder (this);
                 if (root_folder != this && root_folder is FolderItem) {
-                    (root_folder as FolderItem).update_git_status ();
+                    (root_folder as FolderItem).do_git_update ();
                 }
             }
 
