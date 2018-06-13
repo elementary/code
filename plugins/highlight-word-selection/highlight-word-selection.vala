@@ -40,7 +40,6 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase,  Peas.
             }
 
             current_source = doc.source_view;
-            current_search_context = new Gtk.SourceSearchContext ((Gtk.SourceBuffer)current_source.buffer, null);
             current_source.deselected.connect (on_deselection);
             current_source.selection_changed.connect (on_selection_changed);
         });
@@ -62,6 +61,7 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase,  Peas.
                 return;
             }
 
+            current_search_context = new Gtk.SourceSearchContext ((Gtk.SourceBuffer)current_source.buffer, null);
             current_search_context.settings.search_text = selected_text;
             current_search_context.set_highlight (true);
         }
