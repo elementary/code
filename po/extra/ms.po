@@ -8,75 +8,71 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-14 17:43-0700\n"
-"PO-Revision-Date: 2016-12-27 03:04+0000\n"
-"Last-Translator: abuyop <Unknown>\n"
-"Language-Team: Malay <ms@li.org>\n"
+"PO-Revision-Date: 2018-06-13 00:02+0000\n"
+"Last-Translator: Timothy <timty97@gmail.com>\n"
+"Language-Team: Malay <https://weblate.elementary.io/projects/code/extra/ms/>"
+"\n"
 "Language: ms\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
 #: data/io.elementary.code.desktop.in.in:4
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
 #: data/io.elementary.code.appdata.xml.in:9
-#, fuzzy
 msgid "The editor that works"
-msgstr "Penyunting teks yang sangat berguna"
+msgstr "Penyunting teks yang berfungsi"
 
 #: data/io.elementary.code.appdata.xml.in:11
-#, fuzzy
 msgid ""
 "Code is the editor that works for you. It auto-saves your files, meaning "
 "they're always up-to-date. Plus it remembers your tabs so you never lose "
 "your spot, even in between sessions."
 msgstr ""
-"Scratch merupakan penyunting yang bekerja untuk anda. Ia menyimpan fail anda "
+"Code merupakan penyunting yang berfungsi untuk anda. Ia menyimpan fail anda "
 "secara automatik, iaitu sentiasa dikemaskini. Selain itu, ia juga mengingati "
-"tab-tab anda supaya anda tidak kehilangannya, walaupun diantara sesi."
+"tab-tab anda supaya anda tidak menghilangkannya, bahkan di antara sesi."
 
 #: data/io.elementary.code.appdata.xml.in:16
-#, fuzzy
 msgid ""
 "Make it yours. Code is written from the ground up to be extensible. Keep "
 "things super lightweight and simple, or install extensions to turn Code into "
 "a full-blown IDE; it's your choice. And with a handful of useful "
 "preferences, you can tweak the behavior and interface to your liking."
 msgstr ""
-"Jadikannya kepunyaan anda. Scratch ditulis dari asas dan boleh ditambah "
-"baik. Jadikan kerja lebih ringan and mudah, atau pasang sambungan untuk "
-"jadikan Scratch sebagai IDE serba-lengkap; ia pilihan anda. Dengan pelbagai "
-"jenis keutamaan yang berguna, anda boleh pulas kelakuan dan antaramuka "
+"Jadikannya kepunyaan anda. Code ditulis dari asas dan boleh ditambah baik. "
+"Jadikan kerja lebih ringan and mudah, atau pasang sambungan untuk jadikan "
+"Code sebagai IDE serba-lengkap; ia pilihan anda. Dengan pelbagai jenis "
+"penetapan yang berguna, anda boleh mengubahkan kelakuan dan antaramuka "
 "mengikut citarasa anda."
 
 #: data/io.elementary.code.appdata.xml.in:22
-#, fuzzy
 msgid ""
 "It's elementary. Code is made to be the perfect editor for elementary, "
 "meaning it closely follows the high standards of design, speed, and "
 "consistency. It's sexy, but not distracting."
 msgstr ""
-"Ianya elementary. Scratch dicipta sebagai penyunting teks sempurna untuk "
-"elementary, iaitu ia dapat menuruti piawaian tinggi dari segi rekaan, "
-"kelajuan, dan konsistensi. Ia sangat seksi, tetapi tidaklah mengganggukan "
-"kerja anda."
+"Ianya elementary. Code dicipta sebagai penyunting teks sempurna untuk "
+"elementary, iaitu ia menuruti piawaian tinggi dari segi rekaan, kelajuan, "
+"dan konsistensi. Ia sangat seksi, tetapi bukan sebuah kegangguan."
 
 #: data/io.elementary.code.appdata.xml.in:27
-#, fuzzy
 msgid ""
 "Works with your language. Whether you're crafting code in Vala, scripting "
 "with PHP, or marking things up in HTML, Code has you covered. Experience "
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
-"Berfungsi dengan bahasa anda. Sama ada anda mengekod menggunakan Vala, "
-"berskrip dengan PHP, ataupun menandakan perkara dengan HTML, Scratch "
-"meliputi semuanya. Alamilah penyorotan sintaks lengkap dengan hampir kesemua "
-"bahasa pengaturcaraan, penskripan dan penandaan."
+"Berfungsi dengan bahasa anda. Sama ada anda mengekod dalam Vala, berskrip "
+"dengan PHP, ataupun penandaan dengan HTML, Code meliputi semuanya. Alamilah "
+"penyorotan sintaks lengkap dengan hampir semua bahasa pengaturcaraan, skrip, "
+"dan penandaan."
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid ""
@@ -109,34 +105,35 @@ msgid "lots of others"
 msgstr "dan banyak lagi"
 
 #: data/io.elementary.code.appdata.xml.in:51
+#, fuzzy
 msgid "elementary LLC."
-msgstr ""
+msgstr "elementary LLC."
 
 #: data/io.elementary.code.desktop.in.in:5
-#, fuzzy
 msgid "Edit code files"
-msgstr "Sunting fail teks"
+msgstr "Sunting fail-fail kod"
 
 #: data/io.elementary.code.desktop.in.in:6
 msgid "Code Editor"
-msgstr ""
+msgstr "Penyunting Kod"
 
 #: data/io.elementary.code.desktop.in.in:8
+#, fuzzy
 msgid "io.elementary.code"
-msgstr ""
+msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
 #, fuzzy
 msgid "IDE;scratch;"
-msgstr "Scratch"
+msgstr "IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New Document"
-msgstr ""
+msgstr "Dokumen Baru"
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
-msgstr ""
+msgstr "Tetingkap Baru"
 
 #~ msgid "Notepad;IDE;Plain;"
 #~ msgstr "Notepad;IDE;Plain;"
