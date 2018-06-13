@@ -57,7 +57,10 @@ namespace Scratch.FolderManager {
 
         public override Gtk.Menu? get_context_menu () {
             var rename_item = new Gtk.MenuItem.with_label (_("Rename"));
-            rename_item.activate.connect (() => view.start_editing_item (this));
+            rename_item.activate.connect (() => {
+                view.ignore_next_select = true;
+                view.start_editing_item (this);
+            });
 
             var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
             delete_item.activate.connect (trash);
