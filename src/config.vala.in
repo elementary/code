@@ -4,4 +4,5 @@ namespace Constants {
     public const string VERSION = @VERSION@;
     public const string PLUGINDIR = @PLUGINDIR@;
     public const string INSTALL_PREFIX = @PREFIX@;
+    public const string DATADIR = @DATADIR@;
 }
