@@ -4,6 +4,7 @@ conf_data.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 conf_data.set_quoted('VERSION', meson.project_version())
 conf_data.set_quoted('PREFIX', get_option('prefix'))
 conf_data.set_quoted('PLUGINDIR', pluginsdir)
+conf_data.set_quoted('DATADIR', join_paths (get_option('prefix'), get_option('datadir')))
 config_header = configure_file(
     input : 'config.vala.in',
     output : 'config.vala',
