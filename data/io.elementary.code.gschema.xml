@@ -69,6 +69,11 @@
       <summary>Autosave edited files</summary>
       <description>Autosave edited files.</description>
     </key>
+    <key name="smart-cut-copy" type="b">
+      <default>true</default>
+      <summary>CTRL+C and CTRL+X copy/cut the current line when no selection</summary>
+      <description>If there is no selection, will the cut/copy shortcuts automatically act on the current line</description>
+    </key>
     <key name="show-right-margin" type="b">
       <default>false</default>
       <summary>Show the right margin</summary>

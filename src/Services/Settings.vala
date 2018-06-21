@@ -67,6 +67,7 @@ namespace Scratch {
         public string[] opened_files_view1 { get; set; }
         public string[] opened_files_view2 { get; set; }
         public bool autosave { get; set; }
+        public bool smart_cut_copy { get; set; }
         public string focused_document_view1 { get; set; }
         public string focused_document_view2 { get; set; }
         public bool show_mini_map { get; set; }
@@ -89,7 +90,7 @@ namespace Scratch {
         }
 
     }
-    
+
     public class FolderManagerSettings : Granite.Services.Settings {
 
         private const string SCHEMA = Constants.PROJECT_NAME + ".folder-manager";

@@ -103,6 +103,10 @@ namespace Scratch.Widgets {
             });
 
             cut_clipboard.connect (() => {
+                if (!Scratch.settings.smart_cut_copy) {
+                    return;
+                }
+
                 /* If no text is selected, cut the current line */
                 if (!buffer.has_selection) {
                     Gtk.TextIter iter_start, iter_end;
@@ -120,6 +124,10 @@ namespace Scratch.Widgets {
             });
 
             copy_clipboard.connect (() => {
+                if (!Scratch.settings.smart_cut_copy) {
+                    return;
+                }
+
                 /* If no text is selected, copy the current line */
                 if (!buffer.has_selection) {
                     Gtk.TextIter iter_start, iter_end;
