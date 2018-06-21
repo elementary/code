@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-15 19:09+0000\n"
-"PO-Revision-Date: 2018-05-29 00:11+0000\n"
+"PO-Revision-Date: 2018-06-13 11:16+0000\n"
 "Last-Translator: Majer Tamás <mtamas@disroot.org>\n"
 "Language-Team: Hungarian "
 "<https://weblate.elementary.io/projects/code/plugins/hu/>\n"
@@ -101,11 +101,11 @@ msgstr "Ellenőrzi a helyesírást a dokumentumaiban"
 
 #: plugins/strip-trailing-save/strip-trailing-save.plugin:6
 msgid "Strip trailing whitespace"
-msgstr ""
+msgstr "Whitespace karakterek levágása"
 
 #: plugins/strip-trailing-save/strip-trailing-save.plugin:7
 msgid "Strip trailing whitespace on save"
-msgstr ""
+msgstr "Levágja a sorok végén lévő whitespace karaktereket mentéskor"
 
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
@@ -130,4 +130,4 @@ msgstr "Szavak kiegészítése"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
-"Megjelenít egy párbeszédablakot amely segítségével kiegészítheti szavakat"
+"Megjelenít egy párbeszédablakot, amely segítségével kiegészítheti szavakat"
