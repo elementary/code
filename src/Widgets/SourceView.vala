@@ -347,7 +347,7 @@ namespace Scratch.Widgets {
                 buffer.apply_tag_by_name ("draw_spaces", start, end);
             }
         }
-        
+
         private void on_context_menu (Gtk.Menu menu) {
             var sort_item = new Gtk.MenuItem.with_label (_("Sort Selected Lines"));
             sort_item.sensitive = get_selected_line_count () > 1;
@@ -371,7 +371,7 @@ namespace Scratch.Widgets {
 
             update_draw_spaces ();
 
-            if (selection_changed_timer !=0 && MainContext.get_thread_default ().find_source_by_id (selection_changed_timer) != null) {
+            if (selection_changed_timer != 0) {
                 Source.remove (selection_changed_timer);
                 selection_changed_timer = 0;
             }
