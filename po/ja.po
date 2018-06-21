@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-24 14:44-0700\n"
-"PO-Revision-Date: 2018-06-08 00:11+0000\n"
+"PO-Revision-Date: 2018-06-17 00:07+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock@gmail.com>\n"
 "Language-Team: Japanese "
 "<https://weblate.elementary.io/projects/code/code/ja/>\n"
@@ -202,7 +202,7 @@ msgstr "対となるブラケットをハイライト:"
 
 #: src/Dialogs/PreferencesDialog.vala:114
 msgid "Draw Spaces:"
-msgstr "空白を表示する:"
+msgstr "空白を表示:"
 
 #: src/Dialogs/PreferencesDialog.vala:116
 #: plugins/pastebin/pastebin_dialog.vala:460
@@ -625,7 +625,7 @@ msgstr "ターミナルを表示"
 
 #: plugins/terminal/terminal.vala:138
 msgid "Hide Terminal"
-msgstr "ターミナルを非表示"
+msgstr "ターミナルを隠す"
 
 #: plugins/terminal/terminal.vala:139
 msgid "Terminal"
@@ -668,7 +668,7 @@ msgstr "%s - 単語補完"
 #: plugins/word-completion/completion-provider.vala:80
 #, c-format
 msgid "Could not load icon theme: %s\n"
-msgstr "アイコンテーマを読み込めません: %s\n"
+msgstr "アイコンテーマを読み込めませんでした: %s\n"
 
 #~ msgid "New file"
 #~ msgstr "新しいファイル"
