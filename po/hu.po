@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-04-24 14:44-0700\n"
-"PO-Revision-Date: 2018-06-15 00:10+0000\n"
+"PO-Revision-Date: 2018-06-22 00:03+0000\n"
 "Last-Translator: Majer Tamás <mtamas@disroot.org>\n"
 "Language-Team: Hungarian "
 "<https://weblate.elementary.io/projects/code/code/hu/>\n"
@@ -22,11 +22,11 @@ msgstr ""
 
 #: src/Application.vala:142
 msgid "Maybe you do not have the necessary permissions."
-msgstr "Úgy tűnik, nincsenek meg a szükséges jogaid."
+msgstr "Lehetséges, hogy nem rendelkezik a szükséges jogokkal."
 
 #: src/Application.vala:144
 msgid "Maybe the file path provided is not valid."
-msgstr "Úgy tűnik, a megadott útvonal érvénytelen."
+msgstr "Lehetséges, hogy a megadott elérési út érvénytelen."
 
 #: src/Application.vala:146
 msgid "The location is read-only."
@@ -67,12 +67,12 @@ msgid ""
 "It is a \"special\" file such as a socket,\n"
 " fifo, block device, or character device."
 msgstr ""
-"Ez egy speciális fájl, mint egy socket,\n"
+"Ez egy speciális fájl, például socket,\n"
 " fifo, blokk eszköz, vagy karakter eszköz."
 
 #: src/Application.vala:183
 msgid "It is an \"unknown\" file type."
-msgstr "Ez egy ismeretlen fájltípus."
+msgstr "Ez egy \"ismeretlen\" fájltípus."
 
 #: src/Application.vala:255
 msgid "New Tab"
@@ -104,7 +104,7 @@ msgstr "Keresés…"
 
 #: src/MainWindow.vala:169
 msgid "Hide search bar"
-msgstr "Keresődoboz elrejtése"
+msgstr "A keresősáv elrejtése"
 
 #: src/MainWindow.vala:215
 msgid "Zeitgeist Datasource for Scratch"
@@ -202,7 +202,7 @@ msgstr "Zárójelpárok kiemelése:"
 
 #: src/Dialogs/PreferencesDialog.vala:114
 msgid "Draw Spaces:"
-msgstr "Szóközök rajzolása:"
+msgstr "Szóközök megjelenítése:"
 
 #: src/Dialogs/PreferencesDialog.vala:116
 #: plugins/pastebin/pastebin_dialog.vala:460
@@ -219,11 +219,11 @@ msgstr "Mindig"
 
 #: src/Dialogs/PreferencesDialog.vala:121
 msgid "Show Mini Map:"
-msgstr "Mini térkép megjelenítése"
+msgstr "Minitérkép megjelenítése:"
 
 #: src/Dialogs/PreferencesDialog.vala:124
 msgid "Line width guide:"
-msgstr "Vonalvastagság útmutató:"
+msgstr "Sorhosszúság-mutató:"
 
 #: src/Dialogs/PreferencesDialog.vala:132
 msgid "Font"
@@ -317,7 +317,7 @@ msgstr "Betöltés megszakítása"
 #: src/Services/Document.vala:362
 #, c-format
 msgid "Save changes to document %s before closing?"
-msgstr "Menti a változtatásokat a(z) %s dokumentumba bezárás előtt?"
+msgstr "Menti a(z) %s dokumentumban történt változtatásokat bezárás előtt?"
 
 #: src/Services/Document.vala:365
 msgid ""
@@ -356,7 +356,7 @@ msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
-"Leválasztásra került a hely, ami tartalmazta ezt: \"%s\". Szeretné valahova "
+"A hely, amely tartalmazta a(z) \"%s\" fájlt, leválasztásra került. Szeretné  "
 "máshová menteni?"
 
 #: src/Services/Document.vala:661
@@ -366,7 +366,7 @@ msgstr "Mentés másként…"
 #: src/Services/Document.vala:666
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "A(z) \"%s\" törölve lett. Szeretné mégis menteni?"
+msgstr "A(z) \"%s\" fájl törölve lett. Szeretné mégis menteni?"
 
 #: src/Services/Document.vala:681
 #, c-format
@@ -387,8 +387,8 @@ msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
-"A(z) \"%s\" fájl módosítva lett egy külső alkalmazásból. Szeretné "
-"újratölteni, vagy folytatja a szerkesztést?"
+"A(z) \"%s\" fájlt egy külső alkalmazás módosította. Szeretné újratölteni, "
+"vagy folytatja a szerkesztést?"
 
 #: src/Services/Document.vala:717
 msgid "Load"
@@ -459,11 +459,11 @@ msgstr "Fájl mentése"
 
 #: src/Widgets/HeaderBar.vala:57
 msgid "Save this file with a different name"
-msgstr "Fájl mentés más néven"
+msgstr "Fájl mentése más néven"
 
 #: src/Widgets/HeaderBar.vala:61
 msgid "Restore this file"
-msgstr "Ezen fájl visszaállítása"
+msgstr "Fájl visszaállítása"
 
 #: src/Widgets/HeaderBar.vala:72
 msgid "Share"
@@ -475,7 +475,7 @@ msgstr "Kicsinyítés"
 
 #: src/Widgets/HeaderBar.vala:81
 msgid "Zoom 1:1"
-msgstr "Nagyítás 1:1"
+msgstr "Méret 1:1"
 
 #: src/Widgets/HeaderBar.vala:85
 msgid "Zoom In"
@@ -495,11 +495,11 @@ msgstr "Solarizált sötét"
 
 #: src/Widgets/HeaderBar.vala:130
 msgid "Add New View"
-msgstr "Új lapcsoport hozzáadása"
+msgstr "Új nézet hozzáadása"
 
 #: src/Widgets/HeaderBar.vala:134
 msgid "Remove Current View"
-msgstr "Jelenlegi lapcsoport eltávolítása"
+msgstr "Aktuális nézet eltávolítása"
 
 #: src/Widgets/HeaderBar.vala:160
 msgid "Menu"
@@ -547,7 +547,7 @@ msgstr "Új fájl"
 
 #: src/Widgets/WelcomeView.vala:35
 msgid "Create a new empty file."
-msgstr "Üres fájl létrehozása."
+msgstr "Hozzon létre egy új üres fájlt."
 
 #: src/Widgets/WelcomeView.vala:36
 msgid "Open File"
@@ -555,7 +555,7 @@ msgstr "Fájl megnyitása"
 
 #: src/Widgets/WelcomeView.vala:36
 msgid "Open a saved file."
-msgstr "Mentett fájl megnyitása."
+msgstr "Nyisson meg egy elmentett fájlt."
 
 #: src/Widgets/WelcomeView.vala:37
 msgid "Open Folder"
@@ -587,7 +587,7 @@ msgstr "Lejárati idő:"
 
 #: plugins/pastebin/pastebin_dialog.vala:292
 msgid "Keep this paste private"
-msgstr "Személyes"
+msgstr "Kezelje privátként ezt a példányt"
 
 #: plugins/pastebin/pastebin_dialog.vala:321
 msgid "Upload"
@@ -615,7 +615,7 @@ msgstr "Egy hónap"
 
 #: plugins/pastebin/pastebin.vala:94
 msgid "Upload to Pastebin"
-msgstr "Feltöltés Pastebinre"
+msgstr "Feltöltés Pastebin-re"
 
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
 #: plugins/outline/C/CtagsSymbolOutline.vala:64
@@ -662,7 +662,9 @@ msgstr "Előnézet elrejtése"
 msgid ""
 "No suitable dictionaries were found.\n"
 "Please install at least one [aspell] dictionary"
-msgstr "Nincsenek megfelelő könyvtárak."
+msgstr ""
+"Nincs megfelelő szótár.\n"
+"Telepítsen legalább egy [aspell] szótárt"
 
 #: plugins/word-completion/plugin.vala:174
 #, c-format
