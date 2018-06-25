@@ -69,6 +69,7 @@ namespace Scratch.Widgets {
             set_buffer (source_buffer);
             source_buffer.highlight_syntax = true;
             source_buffer.mark_set.connect (on_mark_set);
+            highlight_current_line = true;
 
             smart_home_end = Gtk.SourceSmartHomeEndType.AFTER;
 
@@ -188,7 +189,6 @@ namespace Scratch.Widgets {
             auto_indent = Scratch.settings.auto_indent;
             show_right_margin = Scratch.settings.show_right_margin;
             right_margin_position = Scratch.settings.right_margin_position;
-            highlight_current_line = Scratch.settings.highlight_current_line;
             var source_buffer = (Gtk.SourceBuffer) buffer;
             source_buffer.highlight_matching_brackets = Scratch.settings.highlight_matching_brackets;
             if (settings.draw_spaces == ScratchDrawSpacesState.ALWAYS) {
@@ -212,7 +212,6 @@ namespace Scratch.Widgets {
             var source_buffer = (Gtk.SourceBuffer) buffer;
             Scratch.settings.show_right_margin = show_right_margin;
             Scratch.settings.right_margin_position = (int) right_margin_position;
-            Scratch.settings.highlight_current_line = highlight_current_line;
             Scratch.settings.highlight_matching_brackets = source_buffer.highlight_matching_brackets;
             Scratch.settings.spaces_instead_of_tabs = insert_spaces_instead_of_tabs;
             Scratch.settings.indent_width = (int) tab_width;
@@ -227,7 +226,6 @@ namespace Scratch.Widgets {
             it.forward_chars (offset);
             scroll_to_iter (it, 0, false, 0, 0);
             buffer.place_cursor (it);
-            set_highlight_current_line (true);
         }
 
         public string get_selected_text (bool replace_new_line = true) {

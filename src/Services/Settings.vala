@@ -52,7 +52,6 @@ namespace Scratch {
 
     public class Settings : Granite.Services.Settings {
 
-        public bool highlight_current_line { get; set; }
         public bool highlight_matching_brackets { get; set; }
         public ScratchDrawSpacesState draw_spaces { get; set; }
         public bool spaces_instead_of_tabs { get; set; }
