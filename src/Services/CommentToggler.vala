@@ -69,8 +69,7 @@ public class Scratch.CommentToggler {
             return false;
         }
 
-        string start, end;
-        var type = get_comment_tags_for_lang (lang, CommentType.LINE, out start, out end);
+        var type = get_comment_tags_for_lang (lang, CommentType.LINE, null, null);
         return type != CommentType.NONE;
     }
 
