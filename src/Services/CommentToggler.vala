@@ -64,6 +64,16 @@ public class Scratch.CommentToggler {
         return CommentType.NONE;
     }
 
+    public static bool language_has_comments (Gtk.SourceLanguage? lang) {
+        if (lang == null) {
+            return false;
+        }
+
+        string start, end;
+        var type = get_comment_tags_for_lang (lang, CommentType.LINE, out start, out end);
+        return type != CommentType.NONE;
+    }
+
     // Returns whether or not all lines within a region are already commented.
     // This is to detect whether to toggle comments on or off. If all lines are commented, then we want to remove
     // those comments. If only some are commented, then the user likely selected a chunk of code that already contained
