@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-24 14:44-0700\n"
+"POT-Creation-Date: 2018-06-27 08:36-0700\n"
 "PO-Revision-Date: 2018-05-04 00:03+0000\n"
 "Last-Translator: Park Evans <travellerpeira9@gmail.com>\n"
 "Language-Team: Thai <https://weblate.elementary.io/projects/code/code/th/>\n"
@@ -53,71 +53,68 @@ msgstr ""
 "ไม่สามารถเปิดไฟล์ \"%s\"\n"
 "%s"
 
-#: src/Application.vala:174
+#: src/Application.vala:175
 msgid "It is a mountable location."
 msgstr "ตำแหน่งที่สามารถจำลองได้"
 
-#: src/Application.vala:177
-msgid "It is a directory."
-msgstr "นี่คือไดเรกทอรี"
-
-#: src/Application.vala:180
+#: src/Application.vala:178
+#, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
-" fifo, block device, or character device."
+" FIFO, block device, or character device."
 msgstr ""
 "\"ไฟล์พิเศษ\" เช่น socket,\n"
 " fifo, block device, หรือ character device"
 
-#: src/Application.vala:183
+#: src/Application.vala:181
 msgid "It is an \"unknown\" file type."
 msgstr "ไม่ทราบประเภทของไฟล์"
 
-#: src/Application.vala:255
+#: src/Application.vala:270
 msgid "New Tab"
 msgstr "แท็บใหม่"
 
-#: src/Application.vala:256 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:271 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "หน้าต่างใหม่"
 
-#: src/Application.vala:257
+#: src/Application.vala:272
 msgid "Print version info and exit"
 msgstr "พิมพ์ข้อมูลเวอร์ชั่นแล้วออกจากโปรแกรม"
 
-#: src/Application.vala:258
+#: src/Application.vala:273
 msgid "Set of plugins"
 msgstr "ชุดปลั๊กอิน"
 
-#: src/Application.vala:259
+#: src/Application.vala:274
 msgid "Current working directory"
 msgstr "ไดเรกทอรีปัจจุบัน"
 
-#: src/MainWindow.vala:125
+#: src/MainWindow.vala:131
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:167 src/Widgets/HeaderBar.vala:66
+#: src/MainWindow.vala:176 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
 msgstr "ค้นหา…"
 
-#: src/MainWindow.vala:169
+#: src/MainWindow.vala:178
 msgid "Hide search bar"
 msgstr "ซ่อนแถบค้นหา"
 
-#: src/MainWindow.vala:215
+#: src/MainWindow.vala:224
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "แหล่งข้อมูล Zeitgeist สำหรับ Scratch"
 
-#: src/MainWindow.vala:716
+#: src/MainWindow.vala:731
 msgid "Open some files"
 msgstr "เปิดบางไฟล์"
 
-#: src/MainWindow.vala:735
+#: src/MainWindow.vala:750
 msgid "_Cancel"
 msgstr "_ยกเลิก"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:751
 msgid "_Open"
 msgstr "_เปิด"
 
@@ -129,7 +126,7 @@ msgstr "ไฟล์ทั้งหมด"
 msgid "Text files"
 msgstr "ไฟล์ข้อความ"
 
-#: src/Utils.vala:35 src/Services/Document.vala:371
+#: src/Utils.vala:35 src/Services/Document.vala:403
 msgid "Cancel"
 msgstr "ยกเลิก"
 
@@ -137,98 +134,94 @@ msgstr "ยกเลิก"
 msgid "Open"
 msgstr "เปิด"
 
-#: src/Utils.vala:46 src/Services/Document.vala:372
-#: src/Services/Document.vala:668
+#: src/Utils.vala:46 src/Services/Document.vala:404
+#: src/Services/Document.vala:701
 msgid "Save"
 msgstr "บันทึก"
 
-#: src/Dialogs/PreferencesDialog.vala:39 src/Widgets/HeaderBar.vala:138
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:138
 msgid "Preferences"
 msgstr "ปรับแต่ง"
 
-#: src/Dialogs/PreferencesDialog.vala:53
+#: src/Dialogs/PreferencesDialog.vala:52
 msgid "General"
 msgstr "ทั่วไป"
 
-#: src/Dialogs/PreferencesDialog.vala:54
+#: src/Dialogs/PreferencesDialog.vala:53
 msgid "Save files when changed:"
 msgstr "บันทึกไฟล์เมื่อมีการเปลี่ยนแปลง:"
 
-#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:55 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
 msgstr "แท็บ"
 
-#: src/Dialogs/PreferencesDialog.vala:57 src/Widgets/FormatBar.vala:147
+#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:155
 msgid "Automatic indentation:"
 msgstr "ย่อหน้าโดยอัตโนมัติ"
 
-#: src/Dialogs/PreferencesDialog.vala:59 src/Widgets/FormatBar.vala:141
+#: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:149
 msgid "Insert spaces instead of tabs:"
 msgstr "ใช้เว้นวรรคแทนการแท็บ"
 
-#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:144
+#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:152
 msgid "Tab width:"
 msgstr "ความกว้างของแท็บ:"
 
-#: src/Dialogs/PreferencesDialog.vala:68
+#: src/Dialogs/PreferencesDialog.vala:67
 msgid "Behavior"
 msgstr "พฤติกรรม"
 
-#: src/Dialogs/PreferencesDialog.vala:69
+#: src/Dialogs/PreferencesDialog.vala:68
 msgid "Interface"
 msgstr "ส่วนติดต่อกับผู้ใช้"
 
-#: src/Dialogs/PreferencesDialog.vala:81
+#: src/Dialogs/PreferencesDialog.vala:80
 #: plugins/pastebin/pastebin_dialog.vala:323
 msgid "Close"
 msgstr "ปิด"
 
-#: src/Dialogs/PreferencesDialog.vala:97
+#: src/Dialogs/PreferencesDialog.vala:96
 msgid "Extensions"
 msgstr "ส่วนขยาย"
 
-#: src/Dialogs/PreferencesDialog.vala:106
+#: src/Dialogs/PreferencesDialog.vala:105
 msgid "Editor"
 msgstr "เครื่องมือแก้ไข"
 
-#: src/Dialogs/PreferencesDialog.vala:108
-msgid "Highlight current line:"
-msgstr "แสดงแถบสีบรรทัดปัจจุบัน"
-
-#: src/Dialogs/PreferencesDialog.vala:111
+#: src/Dialogs/PreferencesDialog.vala:107
 msgid "Highlight matching brackets:"
 msgstr "แสดงแถบสี ณ ส่วนที่ตรงกัน:"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:110
 msgid "Draw Spaces:"
 msgstr "สร้างพื้นที่"
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:112
 #: plugins/pastebin/pastebin_dialog.vala:460
 msgid "Never"
 msgstr "ไม่ต้อง"
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:113
 msgid "For selected text"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:118
+#: src/Dialogs/PreferencesDialog.vala:114
 msgid "Always"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:121
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Show Mini Map:"
 msgstr "แสดงแผนที่ขนาดเล็ก:"
 
-#: src/Dialogs/PreferencesDialog.vala:124
+#: src/Dialogs/PreferencesDialog.vala:120
 msgid "Line width guide:"
 msgstr "เส้นพร้อมไกด์:"
 
-#: src/Dialogs/PreferencesDialog.vala:132
+#: src/Dialogs/PreferencesDialog.vala:128
 msgid "Font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:134
+#: src/Dialogs/PreferencesDialog.vala:130
 msgid "Custom font:"
 msgstr "กำหนดแบบอักษร:"
 
@@ -241,11 +234,11 @@ msgstr ""
 msgid "Open In"
 msgstr "เปิด"
 
-#: src/FolderManager/FileItem.vala:102 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:102 src/FolderManager/FolderItem.vala:59
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:105 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:105 src/FolderManager/FolderItem.vala:62
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr ""
@@ -254,35 +247,35 @@ msgstr ""
 msgid "Folders"
 msgstr "โฟลเดอร์"
 
-#: src/FolderManager/FolderItem.vala:77
+#: src/FolderManager/FolderItem.vala:75
 #, fuzzy
 msgid "Folder"
 msgstr "โฟลเดอร์"
 
-#: src/FolderManager/FolderItem.vala:80
+#: src/FolderManager/FolderItem.vala:78
 msgid "Empty File"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:87
+#: src/FolderManager/FolderItem.vala:85
 #, fuzzy
 msgid "New"
 msgstr "แท็บใหม่"
 
-#: src/FolderManager/FolderItem.vala:223
+#: src/FolderManager/FolderItem.vala:228
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:227
+#: src/FolderManager/FolderItem.vala:232
 #, c-format
 msgid "untitled folder %d"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:249
+#: src/FolderManager/FolderItem.vala:260
 #, fuzzy
 msgid "new file"
 msgstr "สร้างไฟล์"
 
-#: src/FolderManager/FolderItem.vala:253
+#: src/FolderManager/FolderItem.vala:264
 #, fuzzy, c-format
 msgid "new file %d"
 msgstr "สร้างไฟล์"
@@ -291,62 +284,61 @@ msgstr "สร้างไฟล์"
 msgid "Close Folder"
 msgstr "ปิดโฟลเดอร์"
 
-#: src/Services/Document.vala:222
+#: src/Services/Document.vala:243
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:223
+#: src/Services/Document.vala:244
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:225
+#: src/Services/Document.vala:246
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:246
+#: src/Services/Document.vala:267
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:247
+#: src/Services/Document.vala:268
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:249
+#: src/Services/Document.vala:270
 #, fuzzy
 msgid "Cancel Load"
 msgstr "ยกเลิก"
 
-#: src/Services/Document.vala:362
+#: src/Services/Document.vala:394
 #, c-format
 msgid "Save changes to document %s before closing?"
 msgstr "ต้องการบันทึกการเปลี่ยนแปลงไปยัง %s ก่อนปิดโปรแกรมหรือไม่?"
 
-#: src/Services/Document.vala:365
+#: src/Services/Document.vala:397
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr ""
-"หากไม่ทำการบันทึก การเปลี่ยนแปลงใดๆ ตั้งแต่ 4 วินาทีล่าสุด จะไม่ถูกบันทึก"
+msgstr "หากไม่ทำการบันทึก การเปลี่ยนแปลงใดๆ ตั้งแต่ 4 วินาทีล่าสุด จะไม่ถูกบันทึก"
 
-#: src/Services/Document.vala:367
+#: src/Services/Document.vala:399
 msgid "Close without saving"
 msgstr "ปิดโดยไม่ต้องบันทึก"
 
-#: src/Services/Document.vala:449
+#: src/Services/Document.vala:482
 msgid "Save File"
 msgstr "บันทึกไฟล์"
 
-#: src/Services/Document.vala:523
+#: src/Services/Document.vala:556
 msgid "New Document"
 msgstr "เอกสารใหม่"
 
-#: src/Services/Document.vala:646
+#: src/Services/Document.vala:679
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "ไม่สามารถสร้างแฟ้ม \"%s\""
 
-#: src/Services/Document.vala:647
+#: src/Services/Document.vala:680
 #, fuzzy
 msgid ""
 "Maybe it is corrupt or you do not have the necessary permissions to read it."
@@ -354,23 +346,23 @@ msgstr ""
 "ไม่สามารถอ่านไฟล์ \"%s\" อาจสูญหาย\n"
 "หรือคุณไม่มีสิทธิ์เข้าถึงการอ่านไฟล์"
 
-#: src/Services/Document.vala:659
+#: src/Services/Document.vala:692
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr "ตำแหน่งไฟล์ \"%s\" ไม่ได้ถูกเมานท์ คุณต้องการบันทึกที่อื่นหรือไม่?"
 
-#: src/Services/Document.vala:661
+#: src/Services/Document.vala:694
 msgid "Save As…"
 msgstr "บันทึกเป็น…"
 
-#: src/Services/Document.vala:666
+#: src/Services/Document.vala:699
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "ไฟล์ \"%s\" ถูกลบ คุณต้องการบันทึกอยู่หรือไม่?"
 
-#: src/Services/Document.vala:681
+#: src/Services/Document.vala:714
 #, c-format
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
@@ -379,11 +371,11 @@ msgstr ""
 "คุณไม่สามารถบันทึกการเปลี่ยนแปลงให้กับไฟล์ \"%s\" "
 "คุณต้องการบันทึกการเปลี่ยนแปลงให้กับไฟล์นี้ในตำแหน่งอื่นหรือไม่?"
 
-#: src/Services/Document.vala:683
+#: src/Services/Document.vala:716
 msgid "Save changes elsewhere"
 msgstr "บันทึกไว้ที่อื่น"
 
-#: src/Services/Document.vala:716
+#: src/Services/Document.vala:749
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -392,11 +384,11 @@ msgstr ""
 "ไฟล์ \"%s\" ถูกแก้ไขโดยแอพพลิเคชั่นจากภายนอก "
 "คุณต้องการโหลดซ้ำอีกครั้งหรือทำการแก้ไขของคุณต่อไป?"
 
-#: src/Services/Document.vala:717
+#: src/Services/Document.vala:750
 msgid "Load"
 msgstr "โหลด"
 
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:753
 msgid "Continue"
 msgstr "ทำต่อไป"
 
@@ -426,21 +418,21 @@ msgstr ""
 msgid "Plain Text"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:191
+#: src/Widgets/FormatBar.vala:199
 #, fuzzy, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "สร้างพื้นที่"
 msgstr[1] "สร้างพื้นที่"
 
-#: src/Widgets/FormatBar.vala:193
+#: src/Widgets/FormatBar.vala:201
 #, fuzzy, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "แท็บใหม่"
 msgstr[1] "แท็บใหม่"
 
-#: src/Widgets/FormatBar.vala:209
+#: src/Widgets/FormatBar.vala:217
 msgid "Go To Line:"
 msgstr "ไปยังบรรทัด:"
 
@@ -538,6 +530,10 @@ msgstr "แทนที่"
 msgid "Replace all"
 msgstr "แทนที่ทั้งหมด"
 
+#: src/Widgets/SourceView.vala:329
+msgid "Sort Selected Lines"
+msgstr ""
+
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
 msgstr "ไม่มีไฟล์ถูกเปิด"
@@ -546,35 +542,36 @@ msgstr "ไม่มีไฟล์ถูกเปิด"
 msgid "Open a file to begin editing."
 msgstr "เปิดไฟล์เพื่อเริ่มแก้ไข"
 
-#: src/Widgets/WelcomeView.vala:35
+#: src/Widgets/WelcomeView.vala:32
 #, fuzzy
 msgid "New File"
 msgstr "/ไฟล์ใหม่"
 
-#: src/Widgets/WelcomeView.vala:35
+#: src/Widgets/WelcomeView.vala:32
 msgid "Create a new empty file."
 msgstr "สร้างไฟล์เปล่า"
 
-#: src/Widgets/WelcomeView.vala:36
+#: src/Widgets/WelcomeView.vala:33
 #, fuzzy
 msgid "Open File"
 msgstr "เปิดไฟล์"
 
-#: src/Widgets/WelcomeView.vala:36
+#: src/Widgets/WelcomeView.vala:33
 msgid "Open a saved file."
 msgstr "เปิดไฟล์ที่บันทึกไว้"
 
-#: src/Widgets/WelcomeView.vala:37
+#: src/Widgets/WelcomeView.vala:34
 #, fuzzy
 msgid "Open Folder"
 msgstr "เปิดโฟลเดอร์"
 
-#: src/Widgets/WelcomeView.vala:37
+#: src/Widgets/WelcomeView.vala:34
 msgid "Add a project folder to the sidebar."
 msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:249
-msgid "Share via PasteBin"
+#, fuzzy
+msgid "Share via Pastebin"
 msgstr "แบ่งปันผ่าน Pastebin"
 
 #: plugins/pastebin/pastebin_dialog.vala:256
@@ -682,6 +679,12 @@ msgstr "%s - เติมคำอัตโนมัติ"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "ไม่สามารถโหลดชุดไอคอน: %s\n"
+
+#~ msgid "It is a directory."
+#~ msgstr "นี่คือไดเรกทอรี"
+
+#~ msgid "Highlight current line:"
+#~ msgstr "แสดงแถบสีบรรทัดปัจจุบัน"
 
 #~ msgid "New file"
 #~ msgstr "สร้างไฟล์"

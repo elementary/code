@@ -69,6 +69,7 @@ namespace Scratch.Widgets {
             set_buffer (source_buffer);
             source_buffer.highlight_syntax = true;
             source_buffer.mark_set.connect (on_mark_set);
+            highlight_current_line = true;
 
             smart_home_end = Gtk.SourceSmartHomeEndType.AFTER;
 
@@ -122,6 +123,8 @@ namespace Scratch.Widgets {
                     }
                 }
             });
+
+            populate_popup.connect_after (on_context_menu);
         }
 
         ~SourceView () {
@@ -158,7 +161,6 @@ namespace Scratch.Widgets {
             auto_indent = Scratch.settings.auto_indent;
             show_right_margin = Scratch.settings.show_right_margin;
             right_margin_position = Scratch.settings.right_margin_position;
-            highlight_current_line = Scratch.settings.highlight_current_line;
             var source_buffer = (Gtk.SourceBuffer) buffer;
             source_buffer.highlight_matching_brackets = Scratch.settings.highlight_matching_brackets;
             if (settings.draw_spaces == ScratchDrawSpacesState.ALWAYS) {
@@ -182,7 +184,6 @@ namespace Scratch.Widgets {
             var source_buffer = (Gtk.SourceBuffer) buffer;
             Scratch.settings.show_right_margin = show_right_margin;
             Scratch.settings.right_margin_position = (int) right_margin_position;
-            Scratch.settings.highlight_current_line = highlight_current_line;
             Scratch.settings.highlight_matching_brackets = source_buffer.highlight_matching_brackets;
             Scratch.settings.spaces_instead_of_tabs = insert_spaces_instead_of_tabs;
             Scratch.settings.indent_width = (int) tab_width;
@@ -197,7 +198,6 @@ namespace Scratch.Widgets {
             it.forward_chars (offset);
             scroll_to_iter (it, 0, false, 0, 0);
             buffer.place_cursor (it);
-            set_highlight_current_line (true);
         }
 
         public string get_selected_text (bool replace_new_line = true) {
@@ -209,6 +209,19 @@ namespace Scratch.Widgets {
             }
 
             return selected;
+        }
+
+        private int get_selected_line_count () {
+            Gtk.TextIter start, end;
+            buffer.get_selection_bounds (out start, out end);
+
+            if (!start.equal (end)) {
+                string selected = buffer.get_text (start, end, true);
+                string[] lines = Regex.split_simple ("""\R""", selected);
+                return lines.length;
+            }
+
+            return 0;
         }
 
         // Duplicate selected text if exists, else duplicate current line
@@ -234,6 +247,63 @@ namespace Scratch.Widgets {
             }
         }
 
+        public void sort_selected_lines () {
+            Gtk.TextIter start, end;
+            buffer.get_selection_bounds (out start, out end);
+
+            if (!start.equal (end)) {
+                if (!start.starts_line ()) {
+                    start.backward_chars (start.get_line_offset ());
+                }
+
+                // Go to the start of the next line so we get the newline character
+                if (!end.starts_line ()) {
+                    end.forward_line ();
+                }
+
+                bool end_included = end.is_end ();
+                string selected = buffer.get_text (start, end, true);
+                string[] lines = Regex.split_simple ("""(\R)""", selected);
+
+                // We have two array elements for every line, don't continue if we have only 1 line
+                if (lines.length <= 3) {
+                    return;
+                }
+
+                // The split lines are split into pairs of the line's content and the newline character(s), so join them
+                // back together as standalone lines again
+                var line_array = new Gee.ArrayList<string> ();
+                for (int i = 0; i < lines.length; i+= 2) {
+                    if (i + 1 <= lines.length - 1) {
+                        line_array.add (lines[i] + lines[i + 1]);
+                    } else if (i == lines.length - 1 && end_included) {
+                        // If this is the EOF line, give it a newline character copied from the line above
+                        line_array.add (lines[i] + lines[i - 1]);
+                    } else {
+                        break;
+                    }
+                }
+
+                line_array.sort ((a, b) => {
+                    return a.collate (b);
+                });
+
+                // Strip the newline off the new last line in the file if we need to
+                if (end_included) {
+                    var orig_end = line_array[line_array.size - 1];
+                    if (Regex.match_simple ("""\R""", orig_end)) {
+                        line_array[line_array.size - 1] = Regex.split_simple ("""\R""", orig_end)[0];
+                    }
+                }
+
+                var sorted = string.joinv ("", line_array.to_array ());
+                buffer.begin_user_action ();
+                buffer.@delete (ref start, ref end);
+                buffer.insert_at_cursor (sorted, -1);
+                buffer.end_user_action ();
+            }
+        }
+
         public void set_text (string text, bool opening = true) {
             var source_buffer = (Gtk.SourceBuffer) buffer;
             if (opening) {
@@ -253,6 +323,15 @@ namespace Scratch.Widgets {
 
         public string get_text () {
             return buffer.text;
+        }
+
+        private void on_context_menu (Gtk.Menu menu) {
+            var sort_item = new Gtk.MenuItem.with_label (_("Sort Selected Lines"));
+            sort_item.sensitive = get_selected_line_count () > 1;
+            sort_item.activate.connect (sort_selected_lines);
+
+            menu.add (sort_item);
+            menu.show_all ();
         }
 
         void on_mark_set (Gtk.TextIter loc, Gtk.TextMark mar) {
