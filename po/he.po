@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:36-0700\n"
-"PO-Revision-Date: 2018-05-05 00:10+0000\n"
+"PO-Revision-Date: 2018-06-28 05:14+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: Hebrew <https://weblate.elementary.io/projects/code/code/he/"
-">\n"
+"Language-Team: Hebrew <https://weblate.elementary.io/projects/code/code/he/>"
+"\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:142
@@ -59,13 +59,12 @@ msgid "It is a mountable location."
 msgstr "מיקום זה ניתן לעגינה."
 
 #: src/Application.vala:178
-#, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
 msgstr ""
 "זה קובץ „מיוחד” כגון שקע,\n"
-"fifo, התקן בלוקים או התקן תווים."
+"‎.FIFO, התקן בלוקים או התקן תווים."
 
 #: src/Application.vala:181
 msgid "It is an \"unknown\" file type."
@@ -519,9 +518,8 @@ msgid "Replace all"
 msgstr "החלפת הכל"
 
 #: src/Widgets/SourceView.vala:329
-#, fuzzy
 msgid "Sort Selected Lines"
-msgstr "עבור הטקסט הנבחר"
+msgstr "סידור השורות הנבחרות"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -556,9 +554,8 @@ msgid "Add a project folder to the sidebar."
 msgstr "הוספת תיקיית מיזם לסרגל הצד."
 
 #: plugins/pastebin/pastebin_dialog.vala:249
-#, fuzzy
 msgid "Share via Pastebin"
-msgstr "שיתוף באמצעות PasteBin"
+msgstr "שיתוף עם PasteBin"
 
 #: plugins/pastebin/pastebin_dialog.vala:256
 msgid "Name:"
