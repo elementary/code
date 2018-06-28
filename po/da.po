@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:36-0700\n"
-"PO-Revision-Date: 2018-05-04 15:08+0000\n"
+"PO-Revision-Date: 2018-06-28 09:09+0000\n"
 "Last-Translator: Kaj Printz Madsen <kajprintz@gmail.com>\n"
-"Language-Team: Danish <https://weblate.elementary.io/projects/code/code/da/"
-">\n"
+"Language-Team: Danish <https://weblate.elementary.io/projects/code/code/da/>"
+"\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:142
@@ -59,13 +59,12 @@ msgid "It is a mountable location."
 msgstr "Det er en monterbar placering."
 
 #: src/Application.vala:178
-#, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
 msgstr ""
-"Det er en \"speciel\" fil, såsom en sokkel,\n"
-" fifo, blokenhed eller tegnenhed."
+"Det er en \"speciel\" fil, såsom en socket,\n"
+" FIFO, blok enhed eller karakter enhed."
 
 #: src/Application.vala:181
 msgid "It is an \"unknown\" file type."
@@ -527,9 +526,8 @@ msgid "Replace all"
 msgstr "Erstat alle"
 
 #: src/Widgets/SourceView.vala:329
-#, fuzzy
 msgid "Sort Selected Lines"
-msgstr "For valgte tekst"
+msgstr "Sorter Valgte Linjer"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -564,9 +562,8 @@ msgid "Add a project folder to the sidebar."
 msgstr "Tilføj en projektmappe til sidepanelet."
 
 #: plugins/pastebin/pastebin_dialog.vala:249
-#, fuzzy
 msgid "Share via Pastebin"
-msgstr "Del via PasteBin"
+msgstr "Del via Pastebin"
 
 #: plugins/pastebin/pastebin_dialog.vala:256
 msgid "Name:"
