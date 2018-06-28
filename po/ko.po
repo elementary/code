@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:36-0700\n"
-"PO-Revision-Date: 2018-05-14 14:52+0000\n"
+"PO-Revision-Date: 2018-06-28 02:40+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
-"Language-Team: Korean <https://weblate.elementary.io/projects/code/code/ko/"
-">\n"
+"Language-Team: Korean <https://weblate.elementary.io/projects/code/code/ko/>"
+"\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:142
@@ -59,13 +59,12 @@ msgid "It is a mountable location."
 msgstr "마운트 가능한 폴더입니다."
 
 #: src/Application.vala:178
-#, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
 msgstr ""
 "다음과 같은 \"특별한\" 파일입니다 socket,\n"
-" fifo, block device, 또는 character device."
+" FIFO, block device, 또는 character device."
 
 #: src/Application.vala:181
 msgid "It is an \"unknown\" file type."
@@ -520,9 +519,8 @@ msgid "Replace all"
 msgstr "모두 바꾸기"
 
 #: src/Widgets/SourceView.vala:329
-#, fuzzy
 msgid "Sort Selected Lines"
-msgstr "선택한 텍스트"
+msgstr "선택한 줄 정렬"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -557,9 +555,8 @@ msgid "Add a project folder to the sidebar."
 msgstr "사이드바에 프로젝트 폴더 추가하기."
 
 #: plugins/pastebin/pastebin_dialog.vala:249
-#, fuzzy
 msgid "Share via Pastebin"
-msgstr "PasteBin으로 공유"
+msgstr "Pastebin으로 공유"
 
 #: plugins/pastebin/pastebin_dialog.vala:256
 msgid "Name:"
