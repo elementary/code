@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:36-0700\n"
-"PO-Revision-Date: 2018-05-31 00:02+0000\n"
+"PO-Revision-Date: 2018-06-30 13:14+0000\n"
 "Last-Translator: Kirill Romanov <djaler1@gmail.com>\n"
-"Language-Team: Russian <https://weblate.elementary.io/projects/code/code/ru/"
-">\n"
+"Language-Team: Russian <https://weblate.elementary.io/projects/code/code/ru/>"
+"\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.18\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-04 05:45+0000\n"
 
 #: src/Application.vala:142
@@ -60,13 +60,12 @@ msgid "It is a mountable location."
 msgstr "Это примонтированный путь."
 
 #: src/Application.vala:178
-#, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
 msgstr ""
 "Это «специальный» файл, как сокет,\n"
-" fifo, блочное или символьное устройство."
+" FIFO, блочное или символьное устройство."
 
 #: src/Application.vala:181
 msgid "It is an \"unknown\" file type."
@@ -526,9 +525,8 @@ msgid "Replace all"
 msgstr "Заменить всё"
 
 #: src/Widgets/SourceView.vala:329
-#, fuzzy
 msgid "Sort Selected Lines"
-msgstr "Для выделенного текста"
+msgstr "Сортировать выделенные строки"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -563,9 +561,8 @@ msgid "Add a project folder to the sidebar."
 msgstr "Добавить папку проекта в боковую панель."
 
 #: plugins/pastebin/pastebin_dialog.vala:249
-#, fuzzy
 msgid "Share via Pastebin"
-msgstr "Поделиться через PasteBin"
+msgstr "Поделиться через Pastebin"
 
 #: plugins/pastebin/pastebin_dialog.vala:256
 msgid "Name:"
