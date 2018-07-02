@@ -65,6 +65,7 @@ namespace Scratch {
         public const string ACTION_OPEN_FOLDER = "action_open_folder";
         public const string ACTION_GO_TO = "action_go_to";
         public const string ACTION_NEW_VIEW = "action_new_view";
+        public const string ACTION_SORT_LINES = "action_sort_lines";
         public const string ACTION_NEW_TAB = "action_new_tab";
         public const string ACTION_NEW_FROM_CLIPBOARD = "action_new_from_clipboard";
         public const string ACTION_PREFERENCES = "preferences";
@@ -103,6 +104,7 @@ namespace Scratch {
             { ACTION_TEMPLATES, action_templates },
             { ACTION_GO_TO, action_go_to },
             { ACTION_NEW_VIEW, action_new_view },
+            { ACTION_SORT_LINES, action_sort_lines },
             { ACTION_NEW_TAB, action_new_tab },
             { ACTION_NEW_FROM_CLIPBOARD, action_new_tab_from_clipboard },
             { ACTION_PREFERENCES, action_preferences },
@@ -140,6 +142,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_SAVE_AS, "<Control><shift>s");
             action_accelerators.set (ACTION_GO_TO, "<Control>i");
             action_accelerators.set (ACTION_NEW_VIEW, "F3");
+            action_accelerators.set (ACTION_SORT_LINES, "F5");
             action_accelerators.set (ACTION_NEW_TAB, "<Control>n");
             action_accelerators.set (ACTION_UNDO, "<Control>z");
             action_accelerators.set (ACTION_REDO, "<Control><shift>z");
@@ -947,6 +950,17 @@ namespace Scratch {
             if (buffer is Gtk.SourceBuffer) {
                 CommentToggler.toggle_comment (buffer as Gtk.SourceBuffer);
             }
+        }
+
+        private void action_sort_lines () {
+            Scratch.Widgets.DocumentView? view = null;
+            view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
+            var doc = view.current_document;
+            if (doc == null) {
+                return;
+            }
+
+            doc.source_view.sort_selected_lines ();
         }
     }
 }

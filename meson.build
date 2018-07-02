@@ -26,6 +26,8 @@ gtksourceview_dep = dependency('gtksourceview-3.0', version: '>=3.24')
 peas_dep = dependency('libpeas-1.0')
 peasgtk_dep = dependency('libpeas-gtk-1.0')
 git_dep = dependency('libgit2-glib-1.0')
+fontconfig_dep = dependency('fontconfig')
+pangofc_dep = dependency('pangoft2')
 posix_dep = meson.get_compiler('vala').find_library('posix')
 
 code_resources = gnome.compile_resources(
@@ -43,6 +45,8 @@ dependencies = [
     peas_dep,
     peasgtk_dep,
     git_dep,
+    fontconfig_dep,
+    pangofc_dep,
     posix_dep,
 ]
 
