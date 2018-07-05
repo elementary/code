@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-03-15 19:09+0000\n"
-"PO-Revision-Date: 2018-04-03 00:05+0000\n"
+"PO-Revision-Date: 2018-07-05 20:12+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
-"Language-Team: Slovenian "
-"<https://weblate.elementary.io/projects/code/plugins/sl/>\n"
+"Language-Team: Slovenian <https://weblate.elementary.io/projects/code/"
+"plugins/sl/>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -70,19 +70,19 @@ msgstr "Odpre dokument v drugi aplikaciji"
 
 #: plugins/outline/outline.plugin:6
 msgid "Outline"
-msgstr ""
+msgstr "Oris"
 
 #: plugins/outline/outline.plugin:7
 msgid "Outline symbols in your current file for vala"
-msgstr ""
+msgstr "Oris simbolov v trenutni datoteki"
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
-msgstr ""
+msgstr "Pastebin"
 
 #: plugins/pastebin/pastebin.plugin:7
 msgid "Share files with pastebin service"
-msgstr ""
+msgstr "Deljenje datotek s storitvijo pastebin"
 
 #: plugins/preserve-indent/preserve-indent.plugin:6
 msgid "Preserve Indent"
@@ -102,11 +102,11 @@ msgstr "Preverjanje črkovanja in slovničnih napak v dokumentu"
 
 #: plugins/strip-trailing-save/strip-trailing-save.plugin:6
 msgid "Strip trailing whitespace"
-msgstr ""
+msgstr "Odstrani končne presledke"
 
 #: plugins/strip-trailing-save/strip-trailing-save.plugin:7
 msgid "Strip trailing whitespace on save"
-msgstr ""
+msgstr "Odstrani presledke na koncu datoteke ob shranjevanju"
 
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
@@ -114,20 +114,20 @@ msgstr "Terminal"
 
 #: plugins/terminal/terminal.plugin:7
 msgid "A terminal in your text editor"
-msgstr ""
+msgstr "Terminal v vašem urejevalniku besedil"
 
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
-msgstr ""
+msgstr "Emulacija Vim"
 
 #: plugins/vim-emulation/vim-emulation.plugin:7
 msgid "Use Vim commands in Scratch"
-msgstr ""
+msgstr "Omogoči uporabo Vim ukazov"
 
 #: plugins/word-completion/word-completion.plugin:3
 msgid "Words Completion"
-msgstr ""
+msgstr "Dokončevanje besed"
 
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
-msgstr ""
+msgstr "Pokaže dialog za dokončevanje najbolj pogostih besed iz vaših datotek"
