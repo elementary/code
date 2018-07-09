@@ -58,6 +58,8 @@ namespace Scratch.FolderManager {
             open_in_menu.add (new Gtk.SeparatorMenuItem ());
             open_in_menu.add (files_menuitem);
 
+            var contractor_menu = new Gtk.Menu ();
+
             GLib.FileInfo info = null;
 
             try {
@@ -91,6 +93,17 @@ namespace Scratch.FolderManager {
                     });
                     open_in_menu.add (item_app);
                 }
+
+                try {
+                    var contracts = Granite.Services.ContractorProxy.get_contracts_by_mime (file_type);
+                    foreach (var contract in contracts) {
+                        var menu_item = new ContractMenuItem (contract, file.file);
+                        contractor_menu.append (menu_item);
+                        menu_item.show_all ();
+                    }
+                } catch (Error e) {
+                    warning (e.message);
+                }
             }
 
             open_in_menu.add (new Gtk.SeparatorMenuItem ());
@@ -98,6 +111,9 @@ namespace Scratch.FolderManager {
 
             var open_in_item = new Gtk.MenuItem.with_label (_("Open In"));
             open_in_item.submenu = open_in_menu;
+
+            var contractor_item = new Gtk.MenuItem.with_label (_("Other Actions"));
+            contractor_item.submenu = contractor_menu;
 
             var rename_item = new Gtk.MenuItem.with_label (_("Rename"));
             rename_item.activate.connect (() => view.start_editing_item (this));
@@ -107,6 +123,7 @@ namespace Scratch.FolderManager {
 
             var menu = new Gtk.Menu ();
             menu.append (open_in_item);
+            menu.append (contractor_item);
             menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (rename_item);
             menu.append (delete_item);
