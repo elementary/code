@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:36-0700\n"
-"PO-Revision-Date: 2018-06-29 19:58+0000\n"
+"PO-Revision-Date: 2018-07-10 00:03+0000\n"
 "Last-Translator: Jan Marek <janmarek28@gmail.com>\n"
 "Language-Team: Czech <https://weblate.elementary.io/projects/code/code/cs/>\n"
 "Language: cs\n"
@@ -152,7 +152,7 @@ msgstr "Automaticky ukládat soubory po upravení:"
 
 #: src/Dialogs/PreferencesDialog.vala:55 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
-msgstr "Karty"
+msgstr "Tabulátory"
 
 #: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:155
 msgid "Automatic indentation:"
@@ -414,16 +414,16 @@ msgstr "Prostý text"
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d mezera"
-msgstr[1] "%d mezer"
-msgstr[2] "%d mezery"
+msgstr[1] "%d mezery"
+msgstr[2] "%d mezer"
 
 #: src/Widgets/FormatBar.vala:201
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "%d karta"
-msgstr[1] "%d karet"
-msgstr[2] "%d karty"
+msgstr[0] "%d tabulátor"
+msgstr[1] "%d tabulátory"
+msgstr[2] "%d tabulátorů"
 
 #: src/Widgets/FormatBar.vala:217
 msgid "Go To Line:"
