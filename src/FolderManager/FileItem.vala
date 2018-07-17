@@ -131,30 +131,5 @@ namespace Scratch.FolderManager {
 
             return menu;
         }
-
-        private void show_app_chooser (File file) {
-            var dialog = new Gtk.AppChooserDialog (new Gtk.Window (), Gtk.DialogFlags.MODAL, file.file);
-            dialog.deletable = false;
-
-            if (dialog.run () == Gtk.ResponseType.OK) {
-                var app_info = dialog.get_app_info ();
-                if (app_info != null) {
-                    launch_app_with_file (app_info, file.file);
-                }
-            }
-
-            dialog.destroy ();
-        }
-
-        private void launch_app_with_file (AppInfo app_info, GLib.File file) {
-            var file_list = new List<GLib.File> ();
-            file_list.append (file);
-
-            try {
-                app_info.launch (file_list, null);
-            } catch (Error e) {
-                warning (e.message);
-            }
-        }
     }
 }
