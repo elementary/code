@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-15 19:09+0000\n"
+"POT-Creation-Date: 2018-07-17 11:34-0700\n"
 "PO-Revision-Date: 2018-06-13 00:02+0000\n"
 "Last-Translator: Timothy <timty97@gmail.com>\n"
-"Language-Team: Malay "
-"<https://weblate.elementary.io/projects/code/plugins/ms/>\n"
+"Language-Team: Malay <https://weblate.elementary.io/projects/code/plugins/ms/"
+">\n"
 "Language: ms\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,14 +35,6 @@ msgstr "Pratonton Pelayar"
 msgid "Get a preview of your work in a web page"
 msgstr "Dapatkan pratonton kerja anda dalam sebuah laman web"
 
-#: plugins/contractor/contractor.plugin:6
-msgid "Contractor"
-msgstr "Kontraktor"
-
-#: plugins/contractor/contractor.plugin:7
-msgid "Share your files with Contractor"
-msgstr "Kongsikan fail-fail anda dengan Kontraktor"
-
 #: plugins/detect-indent/detect-indent.plugin:6
 msgid "Detect Indent"
 msgstr "Pengesan Indent"
@@ -50,6 +42,14 @@ msgstr "Pengesan Indent"
 #: plugins/detect-indent/detect-indent.plugin:7
 msgid "Heuristically detect tab or space settings"
 msgstr "Mengesan tetapan-tetapan tab atau ruang secara heuristik"
+
+#: plugins/editorconfig/editorconfig.plugin:6
+msgid "EditorConfig"
+msgstr ""
+
+#: plugins/editorconfig/editorconfig.plugin:7
+msgid "Load settings from an EditorConfig file"
+msgstr ""
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
@@ -59,20 +59,13 @@ msgstr "Serlahkan Perkataan Pilihan"
 msgid "Highlights all occurrences of words that are selected"
 msgstr "Serlahkan semua kewujudan perkataan-perkataan yang terpilih"
 
-#: plugins/open-with/open-with.plugin:6
-msgid "Open With"
-msgstr "Buka Dengan"
-
-#: plugins/open-with/open-with.plugin:7
-msgid "Open files you are editing with another application"
-msgstr "Buka fail-fail yang anda sedang suntintg dengan aplikasi lain"
-
 #: plugins/outline/outline.plugin:6
 msgid "Outline"
 msgstr "Garis Besar"
 
 #: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for vala"
+#, fuzzy
+msgid "Outline symbols in your current file for Vala"
 msgstr "Garis besarkan simbol-simbol dalam fail semasa untuk Vala"
 
 #: plugins/pastebin/pastebin.plugin:6
@@ -131,3 +124,15 @@ msgstr ""
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
+
+#~ msgid "Contractor"
+#~ msgstr "Kontraktor"
+
+#~ msgid "Share your files with Contractor"
+#~ msgstr "Kongsikan fail-fail anda dengan Kontraktor"
+
+#~ msgid "Open With"
+#~ msgstr "Buka Dengan"
+
+#~ msgid "Open files you are editing with another application"
+#~ msgstr "Buka fail-fail yang anda sedang suntintg dengan aplikasi lain"
