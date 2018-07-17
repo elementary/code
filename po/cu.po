@@ -1,10 +1,11 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 08:36-0700\n"
+"POT-Creation-Date: 2018-07-17 11:34-0700\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 
+#. We list some common errors for quick feedback
 #: src/Application.vala:142
 msgid "Maybe you do not have the necessary permissions."
 msgstr ""
@@ -85,6 +86,7 @@ msgstr ""
 msgid "Zeitgeist Datasource for Scratch"
 msgstr ""
 
+#. Show a GtkFileChooserDialog
 #: src/MainWindow.vala:731
 msgid "Open some files"
 msgstr ""
@@ -204,19 +206,23 @@ msgstr ""
 msgid "Custom font:"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:53
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:59
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:99
+#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:115
 msgid "Open In"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:102 src/FolderManager/FolderItem.vala:59
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:118
+msgid "Other Actions"
+msgstr ""
+
+#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:121
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:105 src/FolderManager/FolderItem.vala:62
+#: src/FolderManager/FileItem.vala:121 src/FolderManager/FolderItem.vala:124
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr ""
@@ -225,32 +231,32 @@ msgstr ""
 msgid "Folders"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:75
+#: src/FolderManager/FolderItem.vala:140
 msgid "Folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:78
+#: src/FolderManager/FolderItem.vala:143
 msgid "Empty File"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:85
+#: src/FolderManager/FolderItem.vala:150
 msgid "New"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:228
+#: src/FolderManager/FolderItem.vala:293
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:232
+#: src/FolderManager/FolderItem.vala:297
 #, c-format
 msgid "untitled folder %d"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:260
+#: src/FolderManager/FolderItem.vala:325
 msgid "new file"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:264
+#: src/FolderManager/FolderItem.vala:329
 #, c-format
 msgid "new file %d"
 msgstr ""
@@ -307,6 +313,7 @@ msgstr ""
 msgid "New Document"
 msgstr ""
 
+#. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:679
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
@@ -333,6 +340,7 @@ msgstr ""
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr ""
 
+#. If the file can't be written
 #: src/Services/Document.vala:714
 #, c-format
 msgid ""
@@ -466,31 +474,31 @@ msgstr ""
 msgid "Menu"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:63
+#: src/Widgets/SearchBar.vala:61
 msgid "Find"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:68
+#: src/Widgets/SearchBar.vala:66
 msgid "Search next"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:73
+#: src/Widgets/SearchBar.vala:71
 msgid "Search previous"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:77
+#: src/Widgets/SearchBar.vala:75
 msgid "Cyclic Search"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:89
+#: src/Widgets/SearchBar.vala:87
 msgid "Replace With"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:92
+#: src/Widgets/SearchBar.vala:90
 msgid "Replace"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:95
+#: src/Widgets/SearchBar.vala:93
 msgid "Replace all"
 msgstr ""
 
@@ -582,6 +590,7 @@ msgstr ""
 msgid "Upload to Pastebin"
 msgstr ""
 
+#. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
 #: plugins/outline/C/CtagsSymbolOutline.vala:64
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
@@ -602,10 +611,13 @@ msgstr ""
 msgid "Terminal"
 msgstr ""
 
+#. Popup menu
+#. COPY
 #: plugins/terminal/terminal.vala:194
 msgid "Copy"
 msgstr ""
 
+#. PASTE
 #: plugins/terminal/terminal.vala:201
 msgid "Paste"
 msgstr ""

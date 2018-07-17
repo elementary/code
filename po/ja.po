@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 08:36-0700\n"
+"POT-Creation-Date: 2018-07-17 11:34-0700\n"
 "PO-Revision-Date: 2018-07-13 00:03+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/code/code/ja/"
@@ -20,6 +20,7 @@ msgstr ""
 "X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
+#. We list some common errors for quick feedback
 #: src/Application.vala:142
 msgid "Maybe you do not have the necessary permissions."
 msgstr "おそらく必要な権限がありません。"
@@ -106,6 +107,7 @@ msgstr "検索バーを隠す"
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Scratch 用の Zeitgeist データソース"
 
+#. Show a GtkFileChooserDialog
 #: src/MainWindow.vala:731
 msgid "Open some files"
 msgstr "複数のファイルを開く"
@@ -225,19 +227,24 @@ msgstr "フォント"
 msgid "Custom font:"
 msgstr "カスタムフォント:"
 
-#: src/FolderManager/FileItem.vala:53
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:59
 msgid "Other Application…"
 msgstr "他のアプリケーション…"
 
-#: src/FolderManager/FileItem.vala:99
+#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:115
 msgid "Open In"
 msgstr "指定した方法で開く"
 
-#: src/FolderManager/FileItem.vala:102 src/FolderManager/FolderItem.vala:59
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:118
+#, fuzzy
+msgid "Other Actions"
+msgstr "他のアプリケーション…"
+
+#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:121
 msgid "Rename"
 msgstr "名前の変更"
 
-#: src/FolderManager/FileItem.vala:105 src/FolderManager/FolderItem.vala:62
+#: src/FolderManager/FileItem.vala:121 src/FolderManager/FolderItem.vala:124
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr "ゴミ箱に移動"
@@ -246,32 +253,32 @@ msgstr "ゴミ箱に移動"
 msgid "Folders"
 msgstr "フォルダー"
 
-#: src/FolderManager/FolderItem.vala:75
+#: src/FolderManager/FolderItem.vala:140
 msgid "Folder"
 msgstr "フォルダー"
 
-#: src/FolderManager/FolderItem.vala:78
+#: src/FolderManager/FolderItem.vala:143
 msgid "Empty File"
 msgstr "空のファイル"
 
-#: src/FolderManager/FolderItem.vala:85
+#: src/FolderManager/FolderItem.vala:150
 msgid "New"
 msgstr "新規作成"
 
-#: src/FolderManager/FolderItem.vala:228
+#: src/FolderManager/FolderItem.vala:293
 msgid "untitled folder"
 msgstr "名称未設定フォルダー"
 
-#: src/FolderManager/FolderItem.vala:232
+#: src/FolderManager/FolderItem.vala:297
 #, c-format
 msgid "untitled folder %d"
 msgstr "名称未設定フォルダー %d"
 
-#: src/FolderManager/FolderItem.vala:260
+#: src/FolderManager/FolderItem.vala:325
 msgid "new file"
 msgstr "新しいファイル"
 
-#: src/FolderManager/FolderItem.vala:264
+#: src/FolderManager/FolderItem.vala:329
 #, c-format
 msgid "new file %d"
 msgstr "新しいファイル %d"
@@ -328,6 +335,7 @@ msgstr "ファイルの保存"
 msgid "New Document"
 msgstr "新しいドキュメント"
 
+#. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:679
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
@@ -356,6 +364,7 @@ msgstr "名前を付けて保存…"
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "\"%s\" は削除されています。それでも保存しますか？"
 
+#. If the file can't be written
 #: src/Services/Document.vala:714
 #, c-format
 msgid ""
@@ -491,31 +500,31 @@ msgstr "現在のビューを削除"
 msgid "Menu"
 msgstr "メニュー"
 
-#: src/Widgets/SearchBar.vala:63
+#: src/Widgets/SearchBar.vala:61
 msgid "Find"
 msgstr "検索"
 
-#: src/Widgets/SearchBar.vala:68
+#: src/Widgets/SearchBar.vala:66
 msgid "Search next"
 msgstr "次を検索"
 
-#: src/Widgets/SearchBar.vala:73
+#: src/Widgets/SearchBar.vala:71
 msgid "Search previous"
 msgstr "前を検索"
 
-#: src/Widgets/SearchBar.vala:77
+#: src/Widgets/SearchBar.vala:75
 msgid "Cyclic Search"
 msgstr "巡回検索"
 
-#: src/Widgets/SearchBar.vala:89
+#: src/Widgets/SearchBar.vala:87
 msgid "Replace With"
 msgstr "置き換え"
 
-#: src/Widgets/SearchBar.vala:92
+#: src/Widgets/SearchBar.vala:90
 msgid "Replace"
 msgstr "置き換え"
 
-#: src/Widgets/SearchBar.vala:95
+#: src/Widgets/SearchBar.vala:93
 msgid "Replace all"
 msgstr "すべて置換"
 
@@ -607,6 +616,7 @@ msgstr "1 ヶ月"
 msgid "Upload to Pastebin"
 msgstr "Pastebin へアップロード"
 
+#. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
 #: plugins/outline/C/CtagsSymbolOutline.vala:64
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
@@ -627,10 +637,13 @@ msgstr "ターミナルを隠す"
 msgid "Terminal"
 msgstr "ターミナル"
 
+#. Popup menu
+#. COPY
 #: plugins/terminal/terminal.vala:194
 msgid "Copy"
 msgstr "コピー"
 
+#. PASTE
 #: plugins/terminal/terminal.vala:201
 msgid "Paste"
 msgstr "貼り付け"

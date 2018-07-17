@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-15 19:09+0000\n"
+"POT-Creation-Date: 2018-07-17 11:34-0700\n"
 "PO-Revision-Date: 2018-07-03 00:05+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://weblate.elementary.io/projects/code/plugins/"
@@ -35,14 +35,6 @@ msgstr "Previsualització del navegador"
 msgid "Get a preview of your work in a web page"
 msgstr "Obtingueu una previsualització de la feina en una pàgina web."
 
-#: plugins/contractor/contractor.plugin:6
-msgid "Contractor"
-msgstr "Contractista"
-
-#: plugins/contractor/contractor.plugin:7
-msgid "Share your files with Contractor"
-msgstr "Compartiu els fitxers amb el Contractista"
-
 #: plugins/detect-indent/detect-indent.plugin:6
 msgid "Detect Indent"
 msgstr "Detecta el sagnat"
@@ -50,6 +42,14 @@ msgstr "Detecta el sagnat"
 #: plugins/detect-indent/detect-indent.plugin:7
 msgid "Heuristically detect tab or space settings"
 msgstr "Detecta la configuració del tabulador o de l'espai heurísticament."
+
+#: plugins/editorconfig/editorconfig.plugin:6
+msgid "EditorConfig"
+msgstr ""
+
+#: plugins/editorconfig/editorconfig.plugin:7
+msgid "Load settings from an EditorConfig file"
+msgstr ""
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
@@ -59,20 +59,13 @@ msgstr "Realça la selecció de paraules"
 msgid "Highlights all occurrences of words that are selected"
 msgstr "Realça totes les ocurrències de paraules que estan seleccionades."
 
-#: plugins/open-with/open-with.plugin:6
-msgid "Open With"
-msgstr "Obre amb..."
-
-#: plugins/open-with/open-with.plugin:7
-msgid "Open files you are editing with another application"
-msgstr "Obre els fitxers que esteu editant amb una altra aplicació."
-
 #: plugins/outline/outline.plugin:6
 msgid "Outline"
 msgstr "Contorn"
 
 #: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for vala"
+#, fuzzy
+msgid "Outline symbols in your current file for Vala"
 msgstr "Marca el contorn dels símbols del fitxer actual per a vala."
 
 #: plugins/pastebin/pastebin.plugin:6
@@ -132,6 +125,18 @@ msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Mostra un diàleg de compleció amb les paraules més usades segons els vostres "
 "fitxers."
+
+#~ msgid "Contractor"
+#~ msgstr "Contractista"
+
+#~ msgid "Share your files with Contractor"
+#~ msgstr "Compartiu els fitxers amb el Contractista"
+
+#~ msgid "Open With"
+#~ msgstr "Obre amb..."
+
+#~ msgid "Open files you are editing with another application"
+#~ msgstr "Obre els fitxers que esteu editant amb una altra aplicació."
 
 #~ msgid "Folder Manager"
 #~ msgstr "Gestor de carpetes"
