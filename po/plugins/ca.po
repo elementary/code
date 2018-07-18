@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-17 11:34-0700\n"
-"PO-Revision-Date: 2018-07-03 00:05+0000\n"
+"PO-Revision-Date: 2018-07-18 07:32+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://weblate.elementary.io/projects/code/plugins/"
 "ca/>\n"
@@ -45,11 +45,11 @@ msgstr "Detecta la configuració del tabulador o de l'espai heurísticament."
 
 #: plugins/editorconfig/editorconfig.plugin:6
 msgid "EditorConfig"
-msgstr ""
+msgstr "Editor de configuració"
 
 #: plugins/editorconfig/editorconfig.plugin:7
 msgid "Load settings from an EditorConfig file"
-msgstr ""
+msgstr "Carrega paràmetres d'un fitxer d'EditorConfig"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
@@ -64,9 +64,8 @@ msgid "Outline"
 msgstr "Contorn"
 
 #: plugins/outline/outline.plugin:7
-#, fuzzy
 msgid "Outline symbols in your current file for Vala"
-msgstr "Marca el contorn dels símbols del fitxer actual per a vala."
+msgstr "Marca el contorn dels símbols del fitxer actual per a Vala"
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
