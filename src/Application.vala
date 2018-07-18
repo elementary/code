@@ -25,7 +25,7 @@ namespace Scratch {
     public Settings settings;
     public ServicesSettings services;
 
-    public class Application : Granite.Application {
+    public class Application : Gtk.Application {
         public string app_cmd_name { get { return _app_cmd_name; } }
         public string data_home_folder_unsaved { get { return _data_home_folder_unsaved; } }
         public string default_font { get; set; }
@@ -39,11 +39,7 @@ namespace Scratch {
         construct {
             flags |= ApplicationFlags.HANDLES_OPEN;
             flags |= ApplicationFlags.HANDLES_COMMAND_LINE;
-            build_version = Constants.VERSION;
 
-            program_name = app_cmd_name;
-            exec_name = Constants.PROJECT_NAME;
-            app_launcher = Constants.PROJECT_NAME + ".desktop";
             application_id = Constants.PROJECT_NAME;
         }
 
@@ -96,7 +92,7 @@ namespace Scratch {
             }
 
             if (print_version) {
-                stdout.printf ("Code %s\n", build_version);
+                stdout.printf ("Code %s\n", Constants.VERSION);
                 return Posix.EXIT_SUCCESS;
             }
 
