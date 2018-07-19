@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-17 11:34-0700\n"
-"PO-Revision-Date: 2018-06-05 00:05+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2018-07-20 00:06+0000\n"
+"Last-Translator: Nils K <slx@nilsk.net>\n"
 "Language-Team: Norwegian Bokmål <https://weblate.elementary.io/projects/code/"
 "code/nb/>\n"
 "Language: nb\n"
@@ -17,23 +17,24 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #. We list some common errors for quick feedback
 #: src/Application.vala:142
 msgid "Maybe you do not have the necessary permissions."
-msgstr "Kanskje du ikke har de påkrevde rettighetene?"
+msgstr "Det er mulig du ikke har de nødvendige rettighetene."
 
 #: src/Application.vala:144
 msgid "Maybe the file path provided is not valid."
-msgstr "Kanskje stien du oppga ikke er gyldig?"
+msgstr "Det er mulig stien du oppga ikke er gyldig."
 
 #: src/Application.vala:146
 msgid "The location is read-only."
 msgstr "Plasseringen kan bare leses."
 
 #: src/Application.vala:148
+#, fuzzy
 msgid "The parent directory doesn't exist."
 msgstr "Overnevnt mappe finnes ikke"
 
@@ -43,7 +44,7 @@ msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
 msgstr ""
-"Kan ikke lage fila \"%s\".\n"
+"Kan ikke lage filen \"%s\".\n"
 "%s"
 
 #: src/Application.vala:165
@@ -52,7 +53,7 @@ msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
 msgstr ""
-"Kan ikke åpne fila \"%s\".\n"
+"Kan ikke åpne filen \"%s\".\n"
 "%s"
 
 #: src/Application.vala:175
@@ -60,7 +61,6 @@ msgid "It is a mountable location."
 msgstr "Det er en plassering som kan monteres."
 
 #: src/Application.vala:178
-#, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -82,7 +82,7 @@ msgstr "Nytt vindu"
 
 #: src/Application.vala:272
 msgid "Print version info and exit"
-msgstr "Skriv versjonsinfo og avslutt"
+msgstr "Skriv versjoninformasjon og avslutt"
 
 #: src/Application.vala:273
 msgid "Set of plugins"
@@ -98,7 +98,7 @@ msgstr "Kode"
 
 #: src/MainWindow.vala:176 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
-msgstr "Finn..."
+msgstr "Finn…"
 
 #: src/MainWindow.vala:178
 msgid "Hide search bar"
@@ -106,7 +106,7 @@ msgstr "Skjul søkefeltet"
 
 #: src/MainWindow.vala:224
 msgid "Zeitgeist Datasource for Scratch"
-msgstr "Zeitgeist Datakilde for Scratch"
+msgstr "Zeitgeist datakilde for Scratch"
 
 #. Show a GtkFileChooserDialog
 #: src/MainWindow.vala:731
@@ -144,15 +144,15 @@ msgstr "Lagre"
 
 #: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:138
 msgid "Preferences"
-msgstr "Brukervalg"
+msgstr "Innstillinger"
 
 #: src/Dialogs/PreferencesDialog.vala:52
 msgid "General"
-msgstr "Hovedmeny"
+msgstr "Generelt"
 
 #: src/Dialogs/PreferencesDialog.vala:53
 msgid "Save files when changed:"
-msgstr "Lagre filer når de er endra:"
+msgstr "Lagre filer når de er endret:"
 
 #: src/Dialogs/PreferencesDialog.vala:55 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
@@ -233,9 +233,8 @@ msgid "Other Application…"
 msgstr "Annet program…"
 
 #: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:115
-#, fuzzy
 msgid "Open In"
-msgstr "Åpne"
+msgstr "Åpne i"
 
 #: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:118
 #, fuzzy
