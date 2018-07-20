@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-17 11:34-0700\n"
-"PO-Revision-Date: 2018-07-20 00:06+0000\n"
+"PO-Revision-Date: 2018-07-21 00:07+0000\n"
 "Last-Translator: Nils K <slx@nilsk.net>\n"
 "Language-Team: Norwegian Bokmål <https://weblate.elementary.io/projects/code/"
 "code/nb/>\n"
@@ -206,7 +206,7 @@ msgstr "Aldri"
 
 #: src/Dialogs/PreferencesDialog.vala:113
 msgid "For selected text"
-msgstr "For valgt tekst:"
+msgstr "For valgt tekst"
 
 #: src/Dialogs/PreferencesDialog.vala:114
 msgid "Always"
@@ -437,7 +437,7 @@ msgstr "Klartekst"
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d mellomrom"
-msgstr[1] ""
+msgstr[1] "%d mellomrom"
 
 #: src/Widgets/FormatBar.vala:201
 #, fuzzy, c-format
