@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 08:36-0700\n"
+"POT-Creation-Date: 2018-07-17 11:34-0700\n"
 "PO-Revision-Date: 2015-12-21 13:37+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Khmer <km@li.org>\n"
@@ -18,6 +18,7 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 "X-Generator: Launchpad (build 18366)\n"
 
+#. We list some common errors for quick feedback
 #: src/Application.vala:142
 msgid "Maybe you do not have the necessary permissions."
 msgstr ""
@@ -98,6 +99,7 @@ msgstr "លាក់​របារ​ស្វែង​រក"
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "ប្រភព​ទិន្នន័យ Zeitgeist សំរាប់ Scratch"
 
+#. Show a GtkFileChooserDialog
 #: src/MainWindow.vala:731
 msgid "Open some files"
 msgstr ""
@@ -217,20 +219,25 @@ msgstr ""
 msgid "Custom font:"
 msgstr "ពុម្ព​អក្សរ​ផ្ទាល់​ខ្លួន ៖"
 
-#: src/FolderManager/FileItem.vala:53
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:59
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:99
+#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:115
 #, fuzzy
 msgid "Open In"
 msgstr "បើក"
 
-#: src/FolderManager/FileItem.vala:102 src/FolderManager/FolderItem.vala:59
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:118
+#, fuzzy
+msgid "Other Actions"
+msgstr "ទ្រង់​ទ្រាយ​ឯ​ទៀត"
+
+#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:121
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:105 src/FolderManager/FolderItem.vala:62
+#: src/FolderManager/FileItem.vala:121 src/FolderManager/FolderItem.vala:124
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr ""
@@ -239,34 +246,34 @@ msgstr ""
 msgid "Folders"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:75
+#: src/FolderManager/FolderItem.vala:140
 msgid "Folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:78
+#: src/FolderManager/FolderItem.vala:143
 msgid "Empty File"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:85
+#: src/FolderManager/FolderItem.vala:150
 #, fuzzy
 msgid "New"
 msgstr "បង្កើតផ្ទាំងថ្មី"
 
-#: src/FolderManager/FolderItem.vala:228
+#: src/FolderManager/FolderItem.vala:293
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:232
+#: src/FolderManager/FolderItem.vala:297
 #, c-format
 msgid "untitled folder %d"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:260
+#: src/FolderManager/FolderItem.vala:325
 #, fuzzy
 msgid "new file"
 msgstr "ឯកសារ​ថ្មី"
 
-#: src/FolderManager/FolderItem.vala:264
+#: src/FolderManager/FolderItem.vala:329
 #, fuzzy, c-format
 msgid "new file %d"
 msgstr "ឯកសារ​ថ្មី"
@@ -324,6 +331,7 @@ msgstr "រក្សាទុកឯកសារ"
 msgid "New Document"
 msgstr "ឯកសារ​ថ្មី"
 
+#. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:679
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
@@ -350,6 +358,7 @@ msgstr "រក្សាទុកជា..."
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "បានលុបឯកសារ \"%s\" ហើយ ។ តើអ្នកចង់រក្សាទុកវាឬទេ?"
 
+#. If the file can't be written
 #: src/Services/Document.vala:714
 #, c-format
 msgid ""
@@ -484,31 +493,31 @@ msgstr "យក​ទិដ្ឋភាព​បច្ចុប្បន្ន​
 msgid "Menu"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:63
+#: src/Widgets/SearchBar.vala:61
 msgid "Find"
 msgstr "រក"
 
-#: src/Widgets/SearchBar.vala:68
+#: src/Widgets/SearchBar.vala:66
 msgid "Search next"
 msgstr "ស្វែងរកពីក្រោយ"
 
-#: src/Widgets/SearchBar.vala:73
+#: src/Widgets/SearchBar.vala:71
 msgid "Search previous"
 msgstr "ស្វែងរកពីមុន"
 
-#: src/Widgets/SearchBar.vala:77
+#: src/Widgets/SearchBar.vala:75
 msgid "Cyclic Search"
 msgstr "ស្វែងរក Cyclic"
 
-#: src/Widgets/SearchBar.vala:89
+#: src/Widgets/SearchBar.vala:87
 msgid "Replace With"
 msgstr "ជំនួស​ដោយ"
 
-#: src/Widgets/SearchBar.vala:92
+#: src/Widgets/SearchBar.vala:90
 msgid "Replace"
 msgstr "ជំនួស"
 
-#: src/Widgets/SearchBar.vala:95
+#: src/Widgets/SearchBar.vala:93
 msgid "Replace all"
 msgstr ""
 
@@ -605,6 +614,7 @@ msgstr "មួយ​ខែ"
 msgid "Upload to Pastebin"
 msgstr ""
 
+#. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
 #: plugins/outline/C/CtagsSymbolOutline.vala:64
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
@@ -625,10 +635,13 @@ msgstr ""
 msgid "Terminal"
 msgstr ""
 
+#. Popup menu
+#. COPY
 #: plugins/terminal/terminal.vala:194
 msgid "Copy"
 msgstr ""
 
+#. PASTE
 #: plugins/terminal/terminal.vala:201
 msgid "Paste"
 msgstr ""
