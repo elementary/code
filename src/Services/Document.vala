@@ -677,7 +677,7 @@ namespace Scratch.Services {
         // Show an error view which says "Hey, I cannot read that file!"
         private void show_default_load_error_view () {
             var title = _("File \"%s\" Cannot Be Read").printf (get_basename ());
-            var description = _("Maybe it is corrupt, or lack the permission to read it?");
+            var description = _("It may be corrupt, or you lack the permission to read it.");
             var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-error");
             alert_view.show_all ();
             main_stack.add_named (alert_view, "error_alert");
