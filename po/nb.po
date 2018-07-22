@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-17 11:34-0700\n"
-"PO-Revision-Date: 2018-07-21 22:37+0000\n"
-"Last-Translator: Nils K <slx@nilsk.net>\n"
+"PO-Revision-Date: 2018-07-22 00:03+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://weblate.elementary.io/projects/code/"
 "code/nb/>\n"
 "Language: nb\n"
@@ -346,9 +346,7 @@ msgstr "Filen \"%s\" kan ikke leses"
 #: src/Services/Document.vala:680
 msgid ""
 "Maybe it is corrupt or you do not have the necessary permissions to read it."
-msgstr ""
-"Den kan være ødelagt eller du ikke har tilstrekkelige rettigheter til å lese "
-"den."
+msgstr "Kanskje den er ødelagt eller at du mangler rettigheter til å lese den?"
 
 #: src/Services/Document.vala:692
 #, c-format
@@ -472,7 +470,7 @@ msgstr "Del"
 
 #: src/Widgets/HeaderBar.vala:77
 msgid "Zoom Out"
-msgstr "Forminske"
+msgstr "Forminsk"
 
 #: src/Widgets/HeaderBar.vala:81
 msgid "Zoom 1:1"
@@ -480,7 +478,7 @@ msgstr "Forstørr 1:1"
 
 #: src/Widgets/HeaderBar.vala:85
 msgid "Zoom In"
-msgstr "Forstørre"
+msgstr "Forstørr"
 
 #: src/Widgets/HeaderBar.vala:100
 msgid "High Contrast"
@@ -572,7 +570,7 @@ msgstr "Legg til en prosjektmappe i sidestolpen."
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via Pastebin"
-msgstr "Del på PasteBin"
+msgstr "Del på Pastebin"
 
 #: plugins/pastebin/pastebin_dialog.vala:256
 msgid "Name:"
