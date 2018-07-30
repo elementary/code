@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-17 11:34-0700\n"
-"PO-Revision-Date: 2018-07-20 00:06+0000\n"
-"Last-Translator: Nils K <slx@nilsk.net>\n"
+"PO-Revision-Date: 2018-07-22 00:03+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://weblate.elementary.io/projects/code/"
 "code/nb/>\n"
 "Language: nb\n"
@@ -206,7 +206,7 @@ msgstr "Aldri"
 
 #: src/Dialogs/PreferencesDialog.vala:113
 msgid "For selected text"
-msgstr "For valgt tekst:"
+msgstr "For valgt tekst"
 
 #: src/Dialogs/PreferencesDialog.vala:114
 msgid "Always"
@@ -237,9 +237,8 @@ msgid "Open In"
 msgstr "Åpne i"
 
 #: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:118
-#, fuzzy
 msgid "Other Actions"
-msgstr "Annet program…"
+msgstr "Andre handlinger"
 
 #: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:121
 msgid "Rename"
@@ -255,18 +254,16 @@ msgid "Folders"
 msgstr "Mapper"
 
 #: src/FolderManager/FolderItem.vala:140
-#, fuzzy
 msgid "Folder"
-msgstr "Mapper"
+msgstr "Mappe"
 
 #: src/FolderManager/FolderItem.vala:143
 msgid "Empty File"
 msgstr "Tom fil"
 
 #: src/FolderManager/FolderItem.vala:150
-#, fuzzy
 msgid "New"
-msgstr "Ny fane"
+msgstr "Ny"
 
 #: src/FolderManager/FolderItem.vala:293
 msgid "untitled folder"
@@ -278,14 +275,13 @@ msgid "untitled folder %d"
 msgstr "ikke navngitt mappe %d"
 
 #: src/FolderManager/FolderItem.vala:325
-#, fuzzy
 msgid "new file"
-msgstr "Ny fil"
+msgstr "ny fil"
 
 #: src/FolderManager/FolderItem.vala:329
-#, fuzzy, c-format
+#, c-format
 msgid "new file %d"
-msgstr "Ny fil"
+msgstr "ny fil %d"
 
 #: src/FolderManager/MainFolderItem.vala:30
 msgid "Close Folder"
@@ -343,19 +339,14 @@ msgstr "Nytt dokument"
 
 #. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:679
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Read"
-msgstr ""
-"Kan ikke lage fila \"%s\".\n"
-"%s"
+msgstr "Filen \"%s\" kan ikke leses"
 
 #: src/Services/Document.vala:680
-#, fuzzy
 msgid ""
 "Maybe it is corrupt or you do not have the necessary permissions to read it."
-msgstr ""
-"Fil \"%s\" kan ikke leses. Kanskje den er ødelagt\n"
-"eller du har ikke rettigheter for å lese den."
+msgstr "Kanskje den er ødelagt eller at du mangler rettigheter til å lese den?"
 
 #: src/Services/Document.vala:692
 #, c-format
@@ -411,18 +402,17 @@ msgid "Templates"
 msgstr "Skisser"
 
 #: src/Widgets/DocumentView.vala:92
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s"
-msgstr "Tekstfil fra "
+msgstr "Tekstfil fra %s"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
 msgstr "Syntaksfremheving"
 
 #: src/Widgets/FormatBar.vala:71
-#, fuzzy
 msgid "Line number"
-msgstr "Vis linjenummer:"
+msgstr "Linjenummer"
 
 #: src/Widgets/FormatBar.vala:95
 msgid "Filter languages"
@@ -437,14 +427,14 @@ msgstr "Klartekst"
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d mellomrom"
-msgstr[1] ""
+msgstr[1] "%d mellomrom"
 
 #: src/Widgets/FormatBar.vala:201
-#, fuzzy, c-format
+#, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "Ny fane"
-msgstr[1] "Ny fane"
+msgstr[0] "%d fane"
+msgstr[1] "%d faner"
 
 #: src/Widgets/FormatBar.vala:217
 msgid "Go To Line:"
@@ -479,16 +469,14 @@ msgid "Share"
 msgstr "Del"
 
 #: src/Widgets/HeaderBar.vala:77
-#, fuzzy
 msgid "Zoom Out"
-msgstr "Forstørr"
+msgstr "Forminsk"
 
 #: src/Widgets/HeaderBar.vala:81
 msgid "Zoom 1:1"
 msgstr "Forstørr 1:1"
 
 #: src/Widgets/HeaderBar.vala:85
-#, fuzzy
 msgid "Zoom In"
 msgstr "Forstørr"
 
@@ -545,9 +533,8 @@ msgid "Replace all"
 msgstr "Erstatt alle"
 
 #: src/Widgets/SourceView.vala:329
-#, fuzzy
 msgid "Sort Selected Lines"
-msgstr "For valgt tekst:"
+msgstr "Sorter valgte linjer"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -558,16 +545,14 @@ msgid "Open a file to begin editing."
 msgstr "Åpne en fil for å komme i gang med redigeringa."
 
 #: src/Widgets/WelcomeView.vala:32
-#, fuzzy
 msgid "New File"
-msgstr "/Ny fil"
+msgstr "Ny fil"
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "Create a new empty file."
 msgstr "Lag en ny, tom fil."
 
 #: src/Widgets/WelcomeView.vala:33
-#, fuzzy
 msgid "Open File"
 msgstr "Åpne fil"
 
@@ -576,27 +561,24 @@ msgid "Open a saved file."
 msgstr "Åpne en lagret fil."
 
 #: src/Widgets/WelcomeView.vala:34
-#, fuzzy
 msgid "Open Folder"
-msgstr "Åpne en mappe"
+msgstr "Åpne mappe"
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Add a project folder to the sidebar."
 msgstr "Legg til en prosjektmappe i sidestolpen."
 
 #: plugins/pastebin/pastebin_dialog.vala:249
-#, fuzzy
 msgid "Share via Pastebin"
-msgstr "Del på PasteBin"
+msgstr "Del på Pastebin"
 
 #: plugins/pastebin/pastebin_dialog.vala:256
 msgid "Name:"
 msgstr "Navn:"
 
 #: plugins/pastebin/pastebin_dialog.vala:259
-#, fuzzy
 msgid "Format:"
-msgstr "Format: "
+msgstr "Format:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
 msgid "Others..."

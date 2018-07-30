@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-17 11:34-0700\n"
-"PO-Revision-Date: 2018-02-22 00:07+0000\n"
+"PO-Revision-Date: 2018-07-21 19:03+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://weblate.elementary.io/projects/code/"
 "plugins/lt/>\n"
@@ -16,9 +16,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n%10>=2 && (n%100<10 || n"
-"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3;\n"
-"X-Generator: Weblate 2.18\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n%10>=2 && (n%100<10 || "
+"n%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3;\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -46,11 +46,11 @@ msgstr "Heuristiškai aptikti tabuliavimo ar tarpų nustatymus"
 
 #: plugins/editorconfig/editorconfig.plugin:6
 msgid "EditorConfig"
-msgstr ""
+msgstr "EditorConfig"
 
 #: plugins/editorconfig/editorconfig.plugin:7
 msgid "Load settings from an EditorConfig file"
-msgstr ""
+msgstr "Įkelti nustatymus iš EditorConfig failo"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
@@ -65,9 +65,8 @@ msgid "Outline"
 msgstr "Apvesti"
 
 #: plugins/outline/outline.plugin:7
-#, fuzzy
 msgid "Outline symbols in your current file for Vala"
-msgstr "Apvesti simbolius jūsų esamame vala faile"
+msgstr "Apvesti simbolius jūsų esamame Vala faile"
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
