@@ -70,6 +70,7 @@ public class Code.FormatBar : Gtk.Grid {
         line_toggle.icon = new ThemedIcon ("view-continuous-symbolic");
         line_toggle.tooltip_text = _("Line number");
 
+        column_homogeneous = true;
         add (tab_toggle);
         add (lang_toggle);
         add (line_toggle);
@@ -289,15 +290,15 @@ public class Code.FormatBar : Gtk.Grid {
         private Gtk.Label label_widget;
 
         construct {
-            width_request = 100;
-
             img = new Gtk.Image ();
             img.icon_size = Gtk.IconSize.SMALL_TOOLBAR;
 
             label_widget = new Gtk.Label (null);
+            label_widget.ellipsize = Pango.EllipsizeMode.END;
 
             var grid = new Gtk.Grid ();
             grid.halign = Gtk.Align.CENTER;
+            grid.margin_start = grid.margin_end = 6;
             grid.add (img);
             grid.add (label_widget);
             add (grid);

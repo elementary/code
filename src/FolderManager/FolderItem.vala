@@ -98,6 +98,68 @@ namespace Scratch.FolderManager {
         }
 
         public override Gtk.Menu? get_context_menu () {
+            var other_menuitem = new Gtk.MenuItem.with_label (_("Other Application…"));
+            other_menuitem.activate.connect (() => show_app_chooser (file));
+
+            var open_in_menu = new Gtk.Menu ();
+
+            var contractor_menu = new Gtk.Menu ();
+
+            GLib.FileInfo info = null;
+
+            try {
+                info = file.file.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, 0);
+            } catch (Error e) {
+                warning (e.message);
+            }
+
+            if (info != null) {
+                var file_type = info.get_attribute_string (GLib.FileAttribute.STANDARD_CONTENT_TYPE);
+
+                List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type (file_type);
+
+                foreach (AppInfo app_info in external_apps) {
+                    if (app_info.get_id () == GLib.Application.get_default ().application_id + ".desktop") {
+                        continue;
+                    }
+
+                    var menuitem_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.MENU);
+                    menuitem_icon.pixel_size = 16;
+
+                    var menuitem_grid = new Gtk.Grid ();
+                    menuitem_grid.add (menuitem_icon);
+                    menuitem_grid.add (new Gtk.Label (app_info.get_name ()));
+
+                    var item_app = new Gtk.MenuItem ();
+                    item_app.add (menuitem_grid);
+
+                    item_app.activate.connect (() => {
+                        launch_app_with_file (app_info, file.file);
+                    });
+                    open_in_menu.add (item_app);
+                }
+
+                try {
+                    var contracts = Granite.Services.ContractorProxy.get_contracts_by_mime (file_type);
+                    foreach (var contract in contracts) {
+                        var menu_item = new ContractMenuItem (contract, file.file);
+                        contractor_menu.append (menu_item);
+                        menu_item.show_all ();
+                    }
+                } catch (Error e) {
+                    warning (e.message);
+                }
+            }
+
+            open_in_menu.add (new Gtk.SeparatorMenuItem ());
+            open_in_menu.add (other_menuitem);
+
+            var open_in_item = new Gtk.MenuItem.with_label (_("Open In"));
+            open_in_item.submenu = open_in_menu;
+
+            var contractor_item = new Gtk.MenuItem.with_label (_("Other Actions"));
+            contractor_item.submenu = contractor_menu;
+
             var rename_item = new Gtk.MenuItem.with_label (_("Rename"));
             rename_item.activate.connect (() => view.start_editing_item (this));
 
@@ -105,8 +167,11 @@ namespace Scratch.FolderManager {
             delete_item.activate.connect (trash);
 
             var menu = new Gtk.Menu ();
-            menu.append (rename_item);
+            menu.append (open_in_item);
+            menu.append (contractor_item);
+            menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (create_submenu_for_new ());
+            menu.append (rename_item);
             menu.append (delete_item);
             menu.show_all ();
 

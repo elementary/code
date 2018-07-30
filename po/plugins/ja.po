@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-15 19:09+0000\n"
-"PO-Revision-Date: 2018-07-02 00:06+0000\n"
+"POT-Creation-Date: 2018-07-17 11:34-0700\n"
+"PO-Revision-Date: 2018-07-18 00:20+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/code/plugins/"
 "ja/>\n"
@@ -35,14 +35,6 @@ msgstr "ブラウザープレビュー"
 msgid "Get a preview of your work in a web page"
 msgstr "Web ページでプレビューします"
 
-#: plugins/contractor/contractor.plugin:6
-msgid "Contractor"
-msgstr "Contractor"
-
-#: plugins/contractor/contractor.plugin:7
-msgid "Share your files with Contractor"
-msgstr "Contractor でファイルを共有します"
-
 #: plugins/detect-indent/detect-indent.plugin:6
 msgid "Detect Indent"
 msgstr "インデントを検知"
@@ -50,6 +42,14 @@ msgstr "インデントを検知"
 #: plugins/detect-indent/detect-indent.plugin:7
 msgid "Heuristically detect tab or space settings"
 msgstr "タブやスペースの設定をヒューリスティックに検知します"
+
+#: plugins/editorconfig/editorconfig.plugin:6
+msgid "EditorConfig"
+msgstr "EditorConfig"
+
+#: plugins/editorconfig/editorconfig.plugin:7
+msgid "Load settings from an EditorConfig file"
+msgstr "EditorConfig ファイルから設定を読み込みます"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
@@ -59,20 +59,12 @@ msgstr "選択された単語をハイライト"
 msgid "Highlights all occurrences of words that are selected"
 msgstr "選択された単語の出現をハイライトします"
 
-#: plugins/open-with/open-with.plugin:6
-msgid "Open With"
-msgstr "このアプリケーションで開く"
-
-#: plugins/open-with/open-with.plugin:7
-msgid "Open files you are editing with another application"
-msgstr "編集中のファイルを別のアプリケーションで開きます"
-
 #: plugins/outline/outline.plugin:6
 msgid "Outline"
 msgstr "アウトライン"
 
 #: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for vala"
+msgid "Outline symbols in your current file for Vala"
 msgstr "Vala 用の現在のファイル内のアウトライン記号"
 
 #: plugins/pastebin/pastebin.plugin:6
@@ -85,7 +77,7 @@ msgstr "Pastebin サービスを利用してファイルを共有します"
 
 #: plugins/preserve-indent/preserve-indent.plugin:6
 msgid "Preserve Indent"
-msgstr "インデントを保持する"
+msgstr "インデントを保持"
 
 #: plugins/preserve-indent/preserve-indent.plugin:7
 msgid "Maintains relative indent level of pasted text"
@@ -101,7 +93,7 @@ msgstr "ドキュメントのスペルをチェックします"
 
 #: plugins/strip-trailing-save/strip-trailing-save.plugin:6
 msgid "Strip trailing whitespace"
-msgstr "ファイルの末尾の空白を削除する"
+msgstr "ファイルの末尾の空白を削除"
 
 #: plugins/strip-trailing-save/strip-trailing-save.plugin:7
 msgid "Strip trailing whitespace on save"
@@ -130,6 +122,18 @@ msgstr "単語補完"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr "ファイル内で最も使用された単語を補完するダイアログを表示します"
+
+#~ msgid "Contractor"
+#~ msgstr "Contractor"
+
+#~ msgid "Share your files with Contractor"
+#~ msgstr "Contractor でファイルを共有します"
+
+#~ msgid "Open With"
+#~ msgstr "このアプリケーションで開く"
+
+#~ msgid "Open files you are editing with another application"
+#~ msgstr "編集中のファイルを別のアプリケーションで開きます"
 
 #~ msgid "Folder Manager"
 #~ msgstr "フォルダマネージャー"
