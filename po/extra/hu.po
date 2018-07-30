@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-14 17:43-0700\n"
-"PO-Revision-Date: 2018-06-13 00:02+0000\n"
+"POT-Creation-Date: 2018-06-27 08:36-0700\n"
+"PO-Revision-Date: 2018-06-23 00:11+0000\n"
 "Last-Translator: Majer Tamás <mtamas@disroot.org>\n"
-"Language-Team: Hungarian "
-"<https://weblate.elementary.io/projects/code/extra/hu/>\n"
+"Language-Team: Hungarian <https://weblate.elementary.io/projects/code/extra/"
+"hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,9 +35,9 @@ msgid ""
 "they're always up-to-date. Plus it remembers your tabs so you never lose "
 "your spot, even in between sessions."
 msgstr ""
-"A kód a megfelelő szerkesztő az ön számára. Automatikusan menti a fájlokat, "
-"tehát azok mindig frissek lesznek. Megjegyzi a megnyitott lapokat, hogy soha "
-"ne veszítse el a fonalat, még a munkamenetek között sem."
+"A Kód a megfelelő szerkesztő az ön számára. Automatikusan menti a fájlokat, "
+"tehát azok mindig aktuálisak lesznek. Megjegyzi a megnyitott lapokat, így ön "
+"mindig tudni fogja hol tart a munkájában."
 
 #: data/io.elementary.code.appdata.xml.in:16
 msgid ""
@@ -47,8 +47,8 @@ msgid ""
 "preferences, you can tweak the behavior and interface to your liking."
 msgstr ""
 "Szabja testre. A Kódot az alapoktól kezdve bővíthetőnek fejlesztettük. "
-"Tarthatja a dolgokat egyszerűen, vagy telepítsen bővítményeket, hogy "
-"teljeskörű IDE környezeté alakítsa az alkalmazást. Az ön választása. Néhány "
+"Tarthatja a dolgokat egyszerűen, vagy telepítsen bővítményeket, hogy teljes "
+"körű IDE környezetté alakítsa az alkalmazást. Az ön választása. Néhány "
 "hasznos beállítási lehetőséggel teljesen a saját ízlésére alakíthatja a Kód "
 "viselkedését és felületét."
 
@@ -71,7 +71,7 @@ msgid ""
 msgstr ""
 "Ismeri az ön nyelvét. Akár Vala kódolással, PHP vagy HTML programozással "
 "foglalkozik, a Kód alkalmas a feladatra. Tapasztalja meg a teljes "
-"szintaxiskiemelést szinte minden programozási, szkriptelési és jelölőnyelven."
+"szintaxiskiemelést szinte minden programozási, szkript- és jelölőnyelven."
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid ""
@@ -79,7 +79,7 @@ msgid ""
 "Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
 "Objective C, Pascal, Perl, Python, Ruby, XML."
 msgstr ""
-"Egyéb nyelvek, amelyeken működik a szintaxis-kiemelés: C, C#, C++. Cmake, "
+"Egyéb nyelvek, amelyeken működik a szintaxiskiemelés: C, C#, C++. Cmake, "
 "CSS, .Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
 "Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 
@@ -89,11 +89,11 @@ msgstr "További funkciók:"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "syntax highlighting with gtksourceview-3"
-msgstr "szintaxiskiemelés gtksourceview-3-vel"
+msgstr "gtksourceview-3 szintaxiskiemelés"
 
 #: data/io.elementary.code.appdata.xml.in:43
 msgid "a find bar to search the words in the files"
-msgstr "kereső sáv a fájlokban található szavak keresésére"
+msgstr "keresősáv a fájlokban található szavak keresésére"
 
 #: data/io.elementary.code.appdata.xml.in:44
 msgid "tab and split documents system"
@@ -103,7 +103,7 @@ msgstr "fül és osztott dokumentum rendszer"
 msgid "lots of others"
 msgstr "sok egyéb"
 
-#: data/io.elementary.code.appdata.xml.in:51
+#: data/io.elementary.code.appdata.xml.in:83
 msgid "elementary LLC."
 msgstr "elementary LLC."
 
