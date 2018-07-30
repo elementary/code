@@ -19,7 +19,7 @@
  */
 
 namespace Scratch.Widgets {
-    public class SearchBar : Gtk.Grid {
+    public class SearchBar : Gtk.FlowBox {
         public weak MainWindow window { get; construct; }
 
         private Gtk.Button tool_arrow_up;
@@ -50,14 +50,12 @@ namespace Scratch.Widgets {
          * following actions : Fetch, ShowGoTo, ShowRreplace, or null.
          **/
         public SearchBar (MainWindow window) {
-            Object (
-                column_spacing: 6,
-                window: window
-            );
+            Object (window: window);
         }
 
         construct {
             get_style_context ().add_class ("search-bar");
+
             search_entry = new Gtk.SearchEntry ();
             search_entry.hexpand = true;
             search_entry.placeholder_text = _("Find");
@@ -121,6 +119,8 @@ namespace Scratch.Widgets {
             entry_context.set_path (entry_path);
             entry_context.add_class ("entry");
 
+            column_spacing = 6;
+            max_children_per_line = 2;
             add (search_grid);
             add (replace_grid);
 

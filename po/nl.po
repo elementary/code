@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 08:36-0700\n"
-"PO-Revision-Date: 2018-05-10 00:08+0000\n"
+"POT-Creation-Date: 2018-07-17 11:34-0700\n"
+"PO-Revision-Date: 2018-06-30 00:02+0000\n"
 "Last-Translator: Dieter Debast <dieter_debast@hotmail.com>\n"
 "Language-Team: Dutch <https://weblate.elementary.io/projects/code/code/nl/>\n"
 "Language: nl\n"
@@ -16,9 +16,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
+#. We list some common errors for quick feedback
 #: src/Application.vala:142
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Misschien heeft u niet de benodigde rechten."
@@ -58,13 +59,12 @@ msgid "It is a mountable location."
 msgstr "Het is een koppelbare locatie."
 
 #: src/Application.vala:178
-#, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
 msgstr ""
 "Het is een \"speciaal\" bestand zoals een socket,\n"
-" fifo, bloktoestel of karaktertoestel."
+" FIFO, bloktoestel of karaktertoestel."
 
 #: src/Application.vala:181
 msgid "It is an \"unknown\" file type."
@@ -106,6 +106,7 @@ msgstr "Verberg zoekbalk"
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Zeitgeist-databron voor Scratch"
 
+#. Show a GtkFileChooserDialog
 #: src/MainWindow.vala:731
 msgid "Open some files"
 msgstr "Open een paar bestanden"
@@ -225,19 +226,24 @@ msgstr "Lettertype"
 msgid "Custom font:"
 msgstr "Aangepast lettertype:"
 
-#: src/FolderManager/FileItem.vala:53
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:59
 msgid "Other Application…"
 msgstr "Andere applicatie…"
 
-#: src/FolderManager/FileItem.vala:99
+#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:115
 msgid "Open In"
 msgstr "Openen met"
 
-#: src/FolderManager/FileItem.vala:102 src/FolderManager/FolderItem.vala:59
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:118
+#, fuzzy
+msgid "Other Actions"
+msgstr "Andere applicatie…"
+
+#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:121
 msgid "Rename"
 msgstr "Hernoem"
 
-#: src/FolderManager/FileItem.vala:105 src/FolderManager/FolderItem.vala:62
+#: src/FolderManager/FileItem.vala:121 src/FolderManager/FolderItem.vala:124
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr ""
@@ -246,32 +252,32 @@ msgstr ""
 msgid "Folders"
 msgstr "Mappen"
 
-#: src/FolderManager/FolderItem.vala:75
+#: src/FolderManager/FolderItem.vala:140
 msgid "Folder"
 msgstr "Map"
 
-#: src/FolderManager/FolderItem.vala:78
+#: src/FolderManager/FolderItem.vala:143
 msgid "Empty File"
 msgstr "Leeg bestand"
 
-#: src/FolderManager/FolderItem.vala:85
+#: src/FolderManager/FolderItem.vala:150
 msgid "New"
 msgstr "Nieuw"
 
-#: src/FolderManager/FolderItem.vala:228
+#: src/FolderManager/FolderItem.vala:293
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:232
+#: src/FolderManager/FolderItem.vala:297
 #, c-format
 msgid "untitled folder %d"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:260
+#: src/FolderManager/FolderItem.vala:325
 msgid "new file"
 msgstr "nieuw bestand"
 
-#: src/FolderManager/FolderItem.vala:264
+#: src/FolderManager/FolderItem.vala:329
 #, c-format
 msgid "new file %d"
 msgstr "nieuw bestand %d"
@@ -330,6 +336,7 @@ msgstr "Bestand opslaan"
 msgid "New Document"
 msgstr "Nieuw Document"
 
+#. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:679
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
@@ -360,6 +367,7 @@ msgstr "Opslaan als…"
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Het bestand \"%s\" is verwijderd. Wilt u het alsnog opslaan?"
 
+#. If the file can't be written
 #: src/Services/Document.vala:714
 #, c-format
 msgid ""
@@ -497,38 +505,37 @@ msgstr "Huidige weergave verwijderen"
 msgid "Menu"
 msgstr "Menu"
 
-#: src/Widgets/SearchBar.vala:63
+#: src/Widgets/SearchBar.vala:61
 msgid "Find"
 msgstr "Zoek"
 
-#: src/Widgets/SearchBar.vala:68
+#: src/Widgets/SearchBar.vala:66
 msgid "Search next"
 msgstr "Volgende zoeken"
 
-#: src/Widgets/SearchBar.vala:73
+#: src/Widgets/SearchBar.vala:71
 msgid "Search previous"
 msgstr "Vorige zoeken"
 
-#: src/Widgets/SearchBar.vala:77
+#: src/Widgets/SearchBar.vala:75
 msgid "Cyclic Search"
 msgstr "Cyclisch zoeken"
 
-#: src/Widgets/SearchBar.vala:89
+#: src/Widgets/SearchBar.vala:87
 msgid "Replace With"
 msgstr "Vervangen met"
 
-#: src/Widgets/SearchBar.vala:92
+#: src/Widgets/SearchBar.vala:90
 msgid "Replace"
 msgstr "Vervang"
 
-#: src/Widgets/SearchBar.vala:95
+#: src/Widgets/SearchBar.vala:93
 msgid "Replace all"
 msgstr "Vervang alles"
 
 #: src/Widgets/SourceView.vala:329
-#, fuzzy
 msgid "Sort Selected Lines"
-msgstr "Voor de geselecteerde tekst"
+msgstr "Sorteer geselecteerde lijnen"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -563,9 +570,8 @@ msgid "Add a project folder to the sidebar."
 msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:249
-#, fuzzy
 msgid "Share via Pastebin"
-msgstr "Delen via PasteBin"
+msgstr "Delen via Pastebin"
 
 #: plugins/pastebin/pastebin_dialog.vala:256
 msgid "Name:"
@@ -615,6 +621,7 @@ msgstr "Eén maand"
 msgid "Upload to Pastebin"
 msgstr "Uploaden naar Pastebin"
 
+#. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
 #: plugins/outline/C/CtagsSymbolOutline.vala:64
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
@@ -635,10 +642,13 @@ msgstr "Terminal verbergen"
 msgid "Terminal"
 msgstr "Terminal"
 
+#. Popup menu
+#. COPY
 #: plugins/terminal/terminal.vala:194
 msgid "Copy"
 msgstr "Kopiëren"
 
+#. PASTE
 #: plugins/terminal/terminal.vala:201
 msgid "Paste"
 msgstr "Plakken"

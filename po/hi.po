@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 08:36-0700\n"
+"POT-Creation-Date: 2018-07-17 11:34-0700\n"
 "PO-Revision-Date: 2018-05-11 06:16+0000\n"
 "Last-Translator: Anand Kumar <anand@anandkumar.net>\n"
 "Language-Team: Hindi <https://weblate.elementary.io/projects/code/code/hi/>\n"
@@ -19,6 +19,7 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
+#. We list some common errors for quick feedback
 #: src/Application.vala:142
 msgid "Maybe you do not have the necessary permissions."
 msgstr "शायद आपके पास आवश्यक अनुमति नहीं है।"
@@ -106,6 +107,7 @@ msgstr "सर्च बार छुपायें"
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "स्क्रैच के लिए Zeitgeist डेटा स्रोत"
 
+#. Show a GtkFileChooserDialog
 #: src/MainWindow.vala:731
 msgid "Open some files"
 msgstr "कुछ फ़ाइल खोलें"
@@ -225,19 +227,24 @@ msgstr "फॉन्ट"
 msgid "Custom font:"
 msgstr "मनपसंद फ़ॉन्ट:"
 
-#: src/FolderManager/FileItem.vala:53
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:59
 msgid "Other Application…"
 msgstr "अन्य अनुप्रयोग…"
 
-#: src/FolderManager/FileItem.vala:99
+#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:115
 msgid "Open In"
 msgstr "में खोलें"
 
-#: src/FolderManager/FileItem.vala:102 src/FolderManager/FolderItem.vala:59
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:118
+#, fuzzy
+msgid "Other Actions"
+msgstr "अन्य अनुप्रयोग…"
+
+#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:121
 msgid "Rename"
 msgstr "पुनः नामकरण"
 
-#: src/FolderManager/FileItem.vala:105 src/FolderManager/FolderItem.vala:62
+#: src/FolderManager/FileItem.vala:121 src/FolderManager/FolderItem.vala:124
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr "रद्दी में डालें"
@@ -246,32 +253,32 @@ msgstr "रद्दी में डालें"
 msgid "Folders"
 msgstr "फोल्डर"
 
-#: src/FolderManager/FolderItem.vala:75
+#: src/FolderManager/FolderItem.vala:140
 msgid "Folder"
 msgstr "फ़ोल्डर"
 
-#: src/FolderManager/FolderItem.vala:78
+#: src/FolderManager/FolderItem.vala:143
 msgid "Empty File"
 msgstr "ख़ाली फ़ाइल"
 
-#: src/FolderManager/FolderItem.vala:85
+#: src/FolderManager/FolderItem.vala:150
 msgid "New"
 msgstr "नया"
 
-#: src/FolderManager/FolderItem.vala:228
+#: src/FolderManager/FolderItem.vala:293
 msgid "untitled folder"
 msgstr "अनाम फ़ोल्डर"
 
-#: src/FolderManager/FolderItem.vala:232
+#: src/FolderManager/FolderItem.vala:297
 #, c-format
 msgid "untitled folder %d"
 msgstr "अनाम फ़ोल्डर %d"
 
-#: src/FolderManager/FolderItem.vala:260
+#: src/FolderManager/FolderItem.vala:325
 msgid "new file"
 msgstr "नई फ़ाइल"
 
-#: src/FolderManager/FolderItem.vala:264
+#: src/FolderManager/FolderItem.vala:329
 #, c-format
 msgid "new file %d"
 msgstr "नई फ़ाइल %d"
@@ -329,6 +336,7 @@ msgstr "फ़ाइल सहेजें"
 msgid "New Document"
 msgstr "नया दस्तावेज़"
 
+#. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:679
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
@@ -355,6 +363,7 @@ msgstr "इस रूप में सहेजें…"
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "फ़ाइल \"%s\" हटा दी गई थी।आप फिर भी सहेजना चाहते हैं?"
 
+#. If the file can't be written
 #: src/Services/Document.vala:714
 #, c-format
 msgid ""
@@ -492,31 +501,31 @@ msgstr "वर्तमान दृश्य को निकालें"
 msgid "Menu"
 msgstr "मेन्यू"
 
-#: src/Widgets/SearchBar.vala:63
+#: src/Widgets/SearchBar.vala:61
 msgid "Find"
 msgstr "खोजें"
 
-#: src/Widgets/SearchBar.vala:68
+#: src/Widgets/SearchBar.vala:66
 msgid "Search next"
 msgstr "अगला खोजे"
 
-#: src/Widgets/SearchBar.vala:73
+#: src/Widgets/SearchBar.vala:71
 msgid "Search previous"
 msgstr "पिछला खोजें"
 
-#: src/Widgets/SearchBar.vala:77
+#: src/Widgets/SearchBar.vala:75
 msgid "Cyclic Search"
 msgstr "चक्रीय ख़ोज"
 
-#: src/Widgets/SearchBar.vala:89
+#: src/Widgets/SearchBar.vala:87
 msgid "Replace With"
 msgstr "के साथ बदलें"
 
-#: src/Widgets/SearchBar.vala:92
+#: src/Widgets/SearchBar.vala:90
 msgid "Replace"
 msgstr "बदलें"
 
-#: src/Widgets/SearchBar.vala:95
+#: src/Widgets/SearchBar.vala:93
 msgid "Replace all"
 msgstr "सबको प्रतिस्थापित करें"
 
@@ -610,6 +619,7 @@ msgstr "एक महीना"
 msgid "Upload to Pastebin"
 msgstr "पेस्टबिन पर अपलोड करे"
 
+#. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
 #: plugins/outline/C/CtagsSymbolOutline.vala:64
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
@@ -630,10 +640,13 @@ msgstr "टर्मिनल छिपाएं"
 msgid "Terminal"
 msgstr "टर्मिनल"
 
+#. Popup menu
+#. COPY
 #: plugins/terminal/terminal.vala:194
 msgid "Copy"
 msgstr "प्रतिलिपि"
 
+#. PASTE
 #: plugins/terminal/terminal.vala:201
 msgid "Paste"
 msgstr "चिपकाएं"

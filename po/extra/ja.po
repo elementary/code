@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:36-0700\n"
-"PO-Revision-Date: 2018-06-14 00:07+0000\n"
-"Last-Translator: Ryo Nakano <ryonakaknock@gmail.com>\n"
+"PO-Revision-Date: 2018-06-29 00:04+0000\n"
+"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/code/extra/"
 "ja/>\n"
 "Language: ja\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -68,10 +68,8 @@ msgid ""
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
-"お使いの言語で動作します。Vala でコードをクラフトしていても、PHP でスクリプ"
-"ティングしていても、HTML で何かを作り出していても、Code はあなたをカバーしま"
-"す。ほぼすべてのプログラミング、スクリプティング、マークアップ言語で最大限の"
-"構文の強調を体験しましょう。"
+"お使いの言語で動作します。Vala でコードを作成していても、PHP でスクリプティングしていても、HTML で何かを作り出していても、Code "
+"はあなたをカバーします。ほぼすべてのプログラミング言語・スクリプティング言語・マークアップ言語で最大限のシンタックスハイライトを体験しましょう。"
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid ""
@@ -85,7 +83,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:38
 msgid "Additional features include:"
-msgstr "その他の機能:"
+msgstr "その他の含まれる機能:"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "syntax highlighting with gtksourceview-3"
