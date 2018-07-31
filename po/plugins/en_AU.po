@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-15 19:09+0000\n"
+"POT-Creation-Date: 2018-07-17 11:34-0700\n"
 "PO-Revision-Date: 2018-01-28 15:41+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -34,14 +34,6 @@ msgstr "Browser Preview"
 msgid "Get a preview of your work in a web page"
 msgstr "Get a preview your work in a web page"
 
-#: plugins/contractor/contractor.plugin:6
-msgid "Contractor"
-msgstr "Contractor"
-
-#: plugins/contractor/contractor.plugin:7
-msgid "Share your files with Contractor"
-msgstr "Share your files with Contractor"
-
 #: plugins/detect-indent/detect-indent.plugin:6
 msgid "Detect Indent"
 msgstr "Detect Indent"
@@ -49,6 +41,14 @@ msgstr "Detect Indent"
 #: plugins/detect-indent/detect-indent.plugin:7
 msgid "Heuristically detect tab or space settings"
 msgstr "Heuristically detect tab or space settings"
+
+#: plugins/editorconfig/editorconfig.plugin:6
+msgid "EditorConfig"
+msgstr ""
+
+#: plugins/editorconfig/editorconfig.plugin:7
+msgid "Load settings from an EditorConfig file"
+msgstr ""
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
@@ -58,20 +58,13 @@ msgstr "Highlight Word Selection"
 msgid "Highlights all occurrences of words that are selected"
 msgstr "Highlights all occurrences of words that are selected"
 
-#: plugins/open-with/open-with.plugin:6
-msgid "Open With"
-msgstr "Open With"
-
-#: plugins/open-with/open-with.plugin:7
-msgid "Open files you are editing with another application"
-msgstr "Open files you are editing with another application"
-
 #: plugins/outline/outline.plugin:6
 msgid "Outline"
 msgstr "Outline"
 
 #: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for vala"
+#, fuzzy
+msgid "Outline symbols in your current file for Vala"
 msgstr "Outline symbols in your current file for vala"
 
 #: plugins/pastebin/pastebin.plugin:6
@@ -129,6 +122,18 @@ msgstr "Words Completion"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr "Show a completion dialog with most used words from your files"
+
+#~ msgid "Contractor"
+#~ msgstr "Contractor"
+
+#~ msgid "Share your files with Contractor"
+#~ msgstr "Share your files with Contractor"
+
+#~ msgid "Open With"
+#~ msgstr "Open With"
+
+#~ msgid "Open files you are editing with another application"
+#~ msgstr "Open files you are editing with another application"
 
 #~ msgid "Folder Manager"
 #~ msgstr "Folder Manager"

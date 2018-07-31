@@ -7,32 +7,34 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-24 14:44-0700\n"
-"PO-Revision-Date: 2018-06-05 00:05+0000\n"
+"POT-Creation-Date: 2018-07-17 11:34-0700\n"
+"PO-Revision-Date: 2018-07-22 00:03+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
-"Language-Team: Norwegian Bokmål "
-"<https://weblate.elementary.io/projects/code/code/nb/>\n"
+"Language-Team: Norwegian Bokmål <https://weblate.elementary.io/projects/code/"
+"code/nb/>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
+#. We list some common errors for quick feedback
 #: src/Application.vala:142
 msgid "Maybe you do not have the necessary permissions."
-msgstr "Kanskje du ikke har de påkrevde rettighetene?"
+msgstr "Det er mulig du ikke har de nødvendige rettighetene."
 
 #: src/Application.vala:144
 msgid "Maybe the file path provided is not valid."
-msgstr "Kanskje stien du oppga ikke er gyldig?"
+msgstr "Det er mulig stien du oppga ikke er gyldig."
 
 #: src/Application.vala:146
 msgid "The location is read-only."
 msgstr "Plasseringen kan bare leses."
 
 #: src/Application.vala:148
+#, fuzzy
 msgid "The parent directory doesn't exist."
 msgstr "Overnevnt mappe finnes ikke"
 
@@ -42,7 +44,7 @@ msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
 msgstr ""
-"Kan ikke lage fila \"%s\".\n"
+"Kan ikke lage filen \"%s\".\n"
 "%s"
 
 #: src/Application.vala:165
@@ -51,74 +53,71 @@ msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
 msgstr ""
-"Kan ikke åpne fila \"%s\".\n"
+"Kan ikke åpne filen \"%s\".\n"
 "%s"
 
-#: src/Application.vala:174
+#: src/Application.vala:175
 msgid "It is a mountable location."
 msgstr "Det er en plassering som kan monteres."
 
-#: src/Application.vala:177
-msgid "It is a directory."
-msgstr "Det er ei mappe."
-
-#: src/Application.vala:180
+#: src/Application.vala:178
 msgid ""
 "It is a \"special\" file such as a socket,\n"
-" fifo, block device, or character device."
+" FIFO, block device, or character device."
 msgstr ""
 "Er en \"spesiell\" fil, som en socket,\n"
 "FIFO, blokkenhet, eller tegnenhet."
 
-#: src/Application.vala:183
+#: src/Application.vala:181
 msgid "It is an \"unknown\" file type."
 msgstr "Det er en \"ukjent\" filtype."
 
-#: src/Application.vala:255
+#: src/Application.vala:270
 msgid "New Tab"
 msgstr "Ny fane"
 
-#: src/Application.vala:256 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:271 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Nytt vindu"
 
-#: src/Application.vala:257
+#: src/Application.vala:272
 msgid "Print version info and exit"
-msgstr "Skriv versjonsinfo og avslutt"
+msgstr "Skriv versjoninformasjon og avslutt"
 
-#: src/Application.vala:258
+#: src/Application.vala:273
 msgid "Set of plugins"
 msgstr "Utvidelser"
 
-#: src/Application.vala:259
+#: src/Application.vala:274
 msgid "Current working directory"
 msgstr "Gjeldende arbeidsmappe"
 
-#: src/MainWindow.vala:125
+#: src/MainWindow.vala:131
 msgid "Code"
 msgstr "Kode"
 
-#: src/MainWindow.vala:167 src/Widgets/HeaderBar.vala:66
+#: src/MainWindow.vala:176 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
-msgstr "Finn..."
+msgstr "Finn…"
 
-#: src/MainWindow.vala:169
+#: src/MainWindow.vala:178
 msgid "Hide search bar"
 msgstr "Skjul søkefeltet"
 
-#: src/MainWindow.vala:215
+#: src/MainWindow.vala:224
 msgid "Zeitgeist Datasource for Scratch"
-msgstr "Zeitgeist Datakilde for Scratch"
+msgstr "Zeitgeist datakilde for Scratch"
 
-#: src/MainWindow.vala:716
+#. Show a GtkFileChooserDialog
+#: src/MainWindow.vala:731
 msgid "Open some files"
 msgstr "Åpne noen filer"
 
-#: src/MainWindow.vala:735
+#: src/MainWindow.vala:750
 msgid "_Cancel"
 msgstr "_Avbryt"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:751
 msgid "_Open"
 msgstr "_Åpne"
 
@@ -130,7 +129,7 @@ msgstr "Alle filer"
 msgid "Text files"
 msgstr "Tekstfiler"
 
-#: src/Utils.vala:35 src/Services/Document.vala:371
+#: src/Utils.vala:35 src/Services/Document.vala:403
 msgid "Cancel"
 msgstr "Avbryt"
 
@@ -138,115 +137,114 @@ msgstr "Avbryt"
 msgid "Open"
 msgstr "Åpne"
 
-#: src/Utils.vala:46 src/Services/Document.vala:372
-#: src/Services/Document.vala:668
+#: src/Utils.vala:46 src/Services/Document.vala:404
+#: src/Services/Document.vala:701
 msgid "Save"
 msgstr "Lagre"
 
-#: src/Dialogs/PreferencesDialog.vala:39 src/Widgets/HeaderBar.vala:138
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:138
 msgid "Preferences"
-msgstr "Brukervalg"
+msgstr "Innstillinger"
+
+#: src/Dialogs/PreferencesDialog.vala:52
+msgid "General"
+msgstr "Generelt"
 
 #: src/Dialogs/PreferencesDialog.vala:53
-msgid "General"
-msgstr "Hovedmeny"
-
-#: src/Dialogs/PreferencesDialog.vala:54
 msgid "Save files when changed:"
-msgstr "Lagre filer når de er endra:"
+msgstr "Lagre filer når de er endret:"
 
-#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:55 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
 msgstr "Faner"
 
-#: src/Dialogs/PreferencesDialog.vala:57 src/Widgets/FormatBar.vala:147
+#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:155
 msgid "Automatic indentation:"
 msgstr "Automatisk innrykk:"
 
-#: src/Dialogs/PreferencesDialog.vala:59 src/Widgets/FormatBar.vala:141
+#: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:149
 msgid "Insert spaces instead of tabs:"
 msgstr "Sett inn mellomrom i stedet for tabulator:"
 
-#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:144
+#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:152
 msgid "Tab width:"
 msgstr "Tabulatorbredde:"
 
-#: src/Dialogs/PreferencesDialog.vala:68
+#: src/Dialogs/PreferencesDialog.vala:67
 msgid "Behavior"
 msgstr "Oppførsel"
 
-#: src/Dialogs/PreferencesDialog.vala:69
+#: src/Dialogs/PreferencesDialog.vala:68
 msgid "Interface"
 msgstr "Brukergrensesnitt"
 
-#: src/Dialogs/PreferencesDialog.vala:81
+#: src/Dialogs/PreferencesDialog.vala:80
 #: plugins/pastebin/pastebin_dialog.vala:323
 msgid "Close"
 msgstr "Lukk"
 
-#: src/Dialogs/PreferencesDialog.vala:97
+#: src/Dialogs/PreferencesDialog.vala:96
 msgid "Extensions"
 msgstr "Utvidelser"
 
-#: src/Dialogs/PreferencesDialog.vala:106
+#: src/Dialogs/PreferencesDialog.vala:105
 msgid "Editor"
 msgstr "Tekstbehandler"
 
-#: src/Dialogs/PreferencesDialog.vala:108
-msgid "Highlight current line:"
-msgstr "Uthev den valgte linja"
-
-#: src/Dialogs/PreferencesDialog.vala:111
+#: src/Dialogs/PreferencesDialog.vala:107
 msgid "Highlight matching brackets:"
 msgstr "Uthev klammer som hører sammen:"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:110
 msgid "Draw Spaces:"
 msgstr "Tegn mellomrom:"
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:112
 #: plugins/pastebin/pastebin_dialog.vala:460
 msgid "Never"
 msgstr "Aldri"
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:113
 msgid "For selected text"
-msgstr "For valgt tekst:"
+msgstr "For valgt tekst"
 
-#: src/Dialogs/PreferencesDialog.vala:118
+#: src/Dialogs/PreferencesDialog.vala:114
 msgid "Always"
 msgstr "Alltid"
 
-#: src/Dialogs/PreferencesDialog.vala:121
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Show Mini Map:"
 msgstr "Vis minikart:"
 
-#: src/Dialogs/PreferencesDialog.vala:124
+#: src/Dialogs/PreferencesDialog.vala:120
 msgid "Line width guide:"
 msgstr "Linjebredde guide:"
 
-#: src/Dialogs/PreferencesDialog.vala:132
+#: src/Dialogs/PreferencesDialog.vala:128
 msgid "Font"
 msgstr "Skrift"
 
-#: src/Dialogs/PreferencesDialog.vala:134
+#: src/Dialogs/PreferencesDialog.vala:130
 msgid "Custom font:"
 msgstr "Egendefinert skrifttype:"
 
-#: src/FolderManager/FileItem.vala:53
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:59
 msgid "Other Application…"
 msgstr "Annet program…"
 
-#: src/FolderManager/FileItem.vala:99
-#, fuzzy
+#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:115
 msgid "Open In"
-msgstr "Åpne"
+msgstr "Åpne i"
 
-#: src/FolderManager/FileItem.vala:102 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:118
+msgid "Other Actions"
+msgstr "Andre handlinger"
+
+#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:121
 msgid "Rename"
 msgstr "Gi nytt navn"
 
-#: src/FolderManager/FileItem.vala:105 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:121 src/FolderManager/FolderItem.vala:124
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr "Flytt til papirkurv"
@@ -255,109 +253,102 @@ msgstr "Flytt til papirkurv"
 msgid "Folders"
 msgstr "Mapper"
 
-#: src/FolderManager/FolderItem.vala:77
-#, fuzzy
+#: src/FolderManager/FolderItem.vala:140
 msgid "Folder"
-msgstr "Mapper"
+msgstr "Mappe"
 
-#: src/FolderManager/FolderItem.vala:80
+#: src/FolderManager/FolderItem.vala:143
 msgid "Empty File"
 msgstr "Tom fil"
 
-#: src/FolderManager/FolderItem.vala:87
-#, fuzzy
+#: src/FolderManager/FolderItem.vala:150
 msgid "New"
-msgstr "Ny fane"
+msgstr "Ny"
 
-#: src/FolderManager/FolderItem.vala:223
+#: src/FolderManager/FolderItem.vala:293
 msgid "untitled folder"
 msgstr "mappe uten navn"
 
-#: src/FolderManager/FolderItem.vala:227
+#: src/FolderManager/FolderItem.vala:297
 #, c-format
 msgid "untitled folder %d"
 msgstr "ikke navngitt mappe %d"
 
-#: src/FolderManager/FolderItem.vala:249
-#, fuzzy
+#: src/FolderManager/FolderItem.vala:325
 msgid "new file"
-msgstr "Ny fil"
+msgstr "ny fil"
 
-#: src/FolderManager/FolderItem.vala:253
-#, fuzzy, c-format
+#: src/FolderManager/FolderItem.vala:329
+#, c-format
 msgid "new file %d"
-msgstr "Ny fil"
+msgstr "ny fil %d"
 
 #: src/FolderManager/MainFolderItem.vala:30
 msgid "Close Folder"
 msgstr "Lukk mappe"
 
-#: src/Services/Document.vala:222
+#: src/Services/Document.vala:243
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s er ikke ei tekstfil"
 
-#: src/Services/Document.vala:223
+#: src/Services/Document.vala:244
 msgid "Code will not load this type of file."
 msgstr "Kode vil ikke laste inn dene typen fil."
 
-#: src/Services/Document.vala:225
+#: src/Services/Document.vala:246
 msgid "Load Anyway"
 msgstr "Last inn uansett"
 
-#: src/Services/Document.vala:246
+#: src/Services/Document.vala:267
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Innlasting av \"%s\" tar lang tid"
 
-#: src/Services/Document.vala:247
+#: src/Services/Document.vala:268
 msgid "Please wait while Code is loading the file."
 msgstr "Vent mens Code laster inn filen."
 
-#: src/Services/Document.vala:249
+#: src/Services/Document.vala:270
 #, fuzzy
 msgid "Cancel Load"
 msgstr "Avbryt"
 
-#: src/Services/Document.vala:362
+#: src/Services/Document.vala:394
 #, c-format
 msgid "Save changes to document %s before closing?"
 msgstr "Lagre endringer i dokument %s før programmet avsluttes?"
 
-#: src/Services/Document.vala:365
+#: src/Services/Document.vala:397
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
 "Hvis du ikke lagrer vil du miste endringene som er gjort de siste 4 sekunder."
 
-#: src/Services/Document.vala:367
+#: src/Services/Document.vala:399
 msgid "Close without saving"
 msgstr "Lukk uten å lagre"
 
-#: src/Services/Document.vala:449
+#: src/Services/Document.vala:482
 msgid "Save File"
 msgstr "Lagre Fil"
 
-#: src/Services/Document.vala:523
+#: src/Services/Document.vala:556
 msgid "New Document"
 msgstr "Nytt dokument"
 
-#: src/Services/Document.vala:646
-#, fuzzy, c-format
+#. Show an error view which says "Hey, I cannot read that file!"
+#: src/Services/Document.vala:679
+#, c-format
 msgid "File \"%s\" Cannot Be Read"
-msgstr ""
-"Kan ikke lage fila \"%s\".\n"
-"%s"
+msgstr "Filen \"%s\" kan ikke leses"
 
-#: src/Services/Document.vala:647
-#, fuzzy
+#: src/Services/Document.vala:680
 msgid ""
 "Maybe it is corrupt or you do not have the necessary permissions to read it."
-msgstr ""
-"Fil \"%s\" kan ikke leses. Kanskje den er ødelagt\n"
-"eller du har ikke rettigheter for å lese den."
+msgstr "Kanskje den er ødelagt eller at du mangler rettigheter til å lese den?"
 
-#: src/Services/Document.vala:659
+#: src/Services/Document.vala:692
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -366,16 +357,17 @@ msgstr ""
 "Plasseringen som inneholder filen \"%s\" var umontert. Ønsker du å lagre et "
 "annet sted?"
 
-#: src/Services/Document.vala:661
+#: src/Services/Document.vala:694
 msgid "Save As…"
 msgstr "Lagre som …"
 
-#: src/Services/Document.vala:666
+#: src/Services/Document.vala:699
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Filen \"%s\" har blitt slettet. Ønsker du å lagre den likevel?"
 
-#: src/Services/Document.vala:681
+#. If the file can't be written
+#: src/Services/Document.vala:714
 #, c-format
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
@@ -384,11 +376,11 @@ msgstr ""
 "Du kan ikke lagre endringer på filen \"%s\". Ønsker du å lagre endringene i "
 "denne filen på et annet sted?"
 
-#: src/Services/Document.vala:683
+#: src/Services/Document.vala:716
 msgid "Save changes elsewhere"
 msgstr "Lagre endringer andre steder"
 
-#: src/Services/Document.vala:716
+#: src/Services/Document.vala:749
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -397,11 +389,11 @@ msgstr ""
 "Filen \"%s\" ble endret av et eksternt program. Ønsker du å laste den igjen "
 "eller fortsette redigeringen?"
 
-#: src/Services/Document.vala:717
+#: src/Services/Document.vala:750
 msgid "Load"
 msgstr "Last inn"
 
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:753
 msgid "Continue"
 msgstr "Fortsett"
 
@@ -410,18 +402,17 @@ msgid "Templates"
 msgstr "Skisser"
 
 #: src/Widgets/DocumentView.vala:92
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s"
-msgstr "Tekstfil fra "
+msgstr "Tekstfil fra %s"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
 msgstr "Syntaksfremheving"
 
 #: src/Widgets/FormatBar.vala:71
-#, fuzzy
 msgid "Line number"
-msgstr "Vis linjenummer:"
+msgstr "Linjenummer"
 
 #: src/Widgets/FormatBar.vala:95
 msgid "Filter languages"
@@ -431,21 +422,21 @@ msgstr "Filtrer språk"
 msgid "Plain Text"
 msgstr "Klartekst"
 
-#: src/Widgets/FormatBar.vala:191
+#: src/Widgets/FormatBar.vala:199
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d mellomrom"
-msgstr[1] ""
+msgstr[1] "%d mellomrom"
 
-#: src/Widgets/FormatBar.vala:193
-#, fuzzy, c-format
+#: src/Widgets/FormatBar.vala:201
+#, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "Ny fane"
-msgstr[1] "Ny fane"
+msgstr[0] "%d fane"
+msgstr[1] "%d faner"
 
-#: src/Widgets/FormatBar.vala:209
+#: src/Widgets/FormatBar.vala:217
 msgid "Go To Line:"
 msgstr "Gå til linje:"
 
@@ -478,16 +469,14 @@ msgid "Share"
 msgstr "Del"
 
 #: src/Widgets/HeaderBar.vala:77
-#, fuzzy
 msgid "Zoom Out"
-msgstr "Forstørr"
+msgstr "Forminsk"
 
 #: src/Widgets/HeaderBar.vala:81
 msgid "Zoom 1:1"
 msgstr "Forstørr 1:1"
 
 #: src/Widgets/HeaderBar.vala:85
-#, fuzzy
 msgid "Zoom In"
 msgstr "Forstørr"
 
@@ -515,33 +504,37 @@ msgstr "Fjern den valgte visninga"
 msgid "Menu"
 msgstr "Meny"
 
-#: src/Widgets/SearchBar.vala:63
+#: src/Widgets/SearchBar.vala:61
 msgid "Find"
 msgstr "Søk"
 
-#: src/Widgets/SearchBar.vala:68
+#: src/Widgets/SearchBar.vala:66
 msgid "Search next"
 msgstr "Søk neste"
 
-#: src/Widgets/SearchBar.vala:73
+#: src/Widgets/SearchBar.vala:71
 msgid "Search previous"
 msgstr "Søk forrige"
 
-#: src/Widgets/SearchBar.vala:77
+#: src/Widgets/SearchBar.vala:75
 msgid "Cyclic Search"
 msgstr "Syklisk søk"
 
-#: src/Widgets/SearchBar.vala:89
+#: src/Widgets/SearchBar.vala:87
 msgid "Replace With"
 msgstr "Erstatt med"
 
-#: src/Widgets/SearchBar.vala:92
+#: src/Widgets/SearchBar.vala:90
 msgid "Replace"
 msgstr "Erstatt"
 
-#: src/Widgets/SearchBar.vala:95
+#: src/Widgets/SearchBar.vala:93
 msgid "Replace all"
 msgstr "Erstatt alle"
+
+#: src/Widgets/SourceView.vala:329
+msgid "Sort Selected Lines"
+msgstr "Sorter valgte linjer"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -551,45 +544,41 @@ msgstr "Ingen åpne filer"
 msgid "Open a file to begin editing."
 msgstr "Åpne en fil for å komme i gang med redigeringa."
 
-#: src/Widgets/WelcomeView.vala:35
-#, fuzzy
+#: src/Widgets/WelcomeView.vala:32
 msgid "New File"
-msgstr "/Ny fil"
+msgstr "Ny fil"
 
-#: src/Widgets/WelcomeView.vala:35
+#: src/Widgets/WelcomeView.vala:32
 msgid "Create a new empty file."
 msgstr "Lag en ny, tom fil."
 
-#: src/Widgets/WelcomeView.vala:36
-#, fuzzy
+#: src/Widgets/WelcomeView.vala:33
 msgid "Open File"
 msgstr "Åpne fil"
 
-#: src/Widgets/WelcomeView.vala:36
+#: src/Widgets/WelcomeView.vala:33
 msgid "Open a saved file."
 msgstr "Åpne en lagret fil."
 
-#: src/Widgets/WelcomeView.vala:37
-#, fuzzy
+#: src/Widgets/WelcomeView.vala:34
 msgid "Open Folder"
-msgstr "Åpne en mappe"
+msgstr "Åpne mappe"
 
-#: src/Widgets/WelcomeView.vala:37
+#: src/Widgets/WelcomeView.vala:34
 msgid "Add a project folder to the sidebar."
 msgstr "Legg til en prosjektmappe i sidestolpen."
 
 #: plugins/pastebin/pastebin_dialog.vala:249
-msgid "Share via PasteBin"
-msgstr "Del på PasteBin"
+msgid "Share via Pastebin"
+msgstr "Del på Pastebin"
 
 #: plugins/pastebin/pastebin_dialog.vala:256
 msgid "Name:"
 msgstr "Navn:"
 
 #: plugins/pastebin/pastebin_dialog.vala:259
-#, fuzzy
 msgid "Format:"
-msgstr "Format: "
+msgstr "Format:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
 msgid "Others..."
@@ -631,6 +620,7 @@ msgstr "En måned"
 msgid "Upload to Pastebin"
 msgstr "Last opp til Pastebin"
 
+#. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
 #: plugins/outline/C/CtagsSymbolOutline.vala:64
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
@@ -651,10 +641,13 @@ msgstr "Skjul terminal"
 msgid "Terminal"
 msgstr "Terminal"
 
+#. Popup menu
+#. COPY
 #: plugins/terminal/terminal.vala:194
 msgid "Copy"
 msgstr "Kopiér"
 
+#. PASTE
 #: plugins/terminal/terminal.vala:201
 msgid "Paste"
 msgstr "Lim inn"
@@ -689,6 +682,12 @@ msgstr "%s - Ordfullføring"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "Kunne ikke laste drakt for ikoner: %s\n"
+
+#~ msgid "It is a directory."
+#~ msgstr "Det er ei mappe."
+
+#~ msgid "Highlight current line:"
+#~ msgstr "Uthev den valgte linja"
 
 #~ msgid "New file"
 #~ msgstr "Ny fil"
