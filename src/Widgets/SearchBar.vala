@@ -82,6 +82,10 @@ namespace Scratch.Widgets {
             search_grid.add (tool_arrow_up);
             search_grid.add (tool_cycle_search);
 
+            var search_flow_box_child = new Gtk.FlowBoxChild ();
+            search_flow_box_child.can_focus = false;
+            search_flow_box_child.add (search_grid);
+
             replace_entry = new Gtk.SearchEntry ();
             replace_entry.hexpand = true;
             replace_entry.placeholder_text = _("Replace With");
@@ -99,6 +103,10 @@ namespace Scratch.Widgets {
             replace_grid.add (replace_entry);
             replace_grid.add (replace_tool_button);
             replace_grid.add (replace_all_tool_button);
+
+            var replace_flow_box_child = new Gtk.FlowBoxChild ();
+            replace_flow_box_child.can_focus = false;
+            replace_flow_box_child.add (replace_grid);
 
             // Connecting to some signals
             search_entry.changed.connect (on_search_entry_text_changed);
@@ -121,8 +129,8 @@ namespace Scratch.Widgets {
 
             column_spacing = 6;
             max_children_per_line = 2;
-            add (search_grid);
-            add (replace_grid);
+            add (search_flow_box_child);
+            add (replace_flow_box_child);
 
             update_replace_tool_sensitivities (search_entry.text, false);
         }
