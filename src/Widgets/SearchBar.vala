@@ -19,7 +19,7 @@
  */
 
 namespace Scratch.Widgets {
-    public class SearchBar : Gtk.Grid {
+    public class SearchBar : Gtk.FlowBox {
         public weak MainWindow window { get; construct; }
 
         private Gtk.Button tool_arrow_up;
@@ -50,14 +50,12 @@ namespace Scratch.Widgets {
          * following actions : Fetch, ShowGoTo, ShowRreplace, or null.
          **/
         public SearchBar (MainWindow window) {
-            Object (
-                column_spacing: 6,
-                window: window
-            );
+            Object (window: window);
         }
 
         construct {
             get_style_context ().add_class ("search-bar");
+
             search_entry = new Gtk.SearchEntry ();
             search_entry.hexpand = true;
             search_entry.placeholder_text = _("Find");
@@ -84,6 +82,10 @@ namespace Scratch.Widgets {
             search_grid.add (tool_arrow_up);
             search_grid.add (tool_cycle_search);
 
+            var search_flow_box_child = new Gtk.FlowBoxChild ();
+            search_flow_box_child.can_focus = false;
+            search_flow_box_child.add (search_grid);
+
             replace_entry = new Gtk.SearchEntry ();
             replace_entry.hexpand = true;
             replace_entry.placeholder_text = _("Replace With");
@@ -101,6 +103,10 @@ namespace Scratch.Widgets {
             replace_grid.add (replace_entry);
             replace_grid.add (replace_tool_button);
             replace_grid.add (replace_all_tool_button);
+
+            var replace_flow_box_child = new Gtk.FlowBoxChild ();
+            replace_flow_box_child.can_focus = false;
+            replace_flow_box_child.add (replace_grid);
 
             // Connecting to some signals
             search_entry.changed.connect (on_search_entry_text_changed);
@@ -121,8 +127,10 @@ namespace Scratch.Widgets {
             entry_context.set_path (entry_path);
             entry_context.add_class ("entry");
 
-            add (search_grid);
-            add (replace_grid);
+            column_spacing = 6;
+            max_children_per_line = 2;
+            add (search_flow_box_child);
+            add (replace_flow_box_child);
 
             update_replace_tool_sensitivities (search_entry.text, false);
         }

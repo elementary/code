@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-15 19:09+0000\n"
-"PO-Revision-Date: 2018-02-25 16:53+0000\n"
-"Last-Translator: Piotr Strebski <strebski@o2.pl>\n"
+"POT-Creation-Date: 2018-07-17 11:34-0700\n"
+"PO-Revision-Date: 2018-07-18 06:01+0000\n"
+"Last-Translator: Piotr Strebski <strebski@gmail.com>\n"
 "Language-Team: Polish <https://weblate.elementary.io/projects/code/plugins/"
 "pl/>\n"
 "Language: pl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -36,14 +36,6 @@ msgstr "Podgląd przeglądarki"
 msgid "Get a preview of your work in a web page"
 msgstr "Uzyskuj podgląd swojej pracy jako strona w oknie przeglądarki"
 
-#: plugins/contractor/contractor.plugin:6
-msgid "Contractor"
-msgstr "Contractor"
-
-#: plugins/contractor/contractor.plugin:7
-msgid "Share your files with Contractor"
-msgstr "Współdziel swoje pliki poprzez Contractora"
-
 #: plugins/detect-indent/detect-indent.plugin:6
 msgid "Detect Indent"
 msgstr "Wykrywanie wcięć"
@@ -51,6 +43,14 @@ msgstr "Wykrywanie wcięć"
 #: plugins/detect-indent/detect-indent.plugin:7
 msgid "Heuristically detect tab or space settings"
 msgstr "Heurystyczne wykrywanie ustawień tabulacji i spacji"
+
+#: plugins/editorconfig/editorconfig.plugin:6
+msgid "EditorConfig"
+msgstr "Konfiguracja edytora"
+
+#: plugins/editorconfig/editorconfig.plugin:7
+msgid "Load settings from an EditorConfig file"
+msgstr "Wczytaj ustawienia z pliku Konfiguracji edytora"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
@@ -60,21 +60,13 @@ msgstr "Zakreślające zaznaczanie słów"
 msgid "Highlights all occurrences of words that are selected"
 msgstr "Zakreśla wszystkie wystąpienia wyznaczonych słów"
 
-#: plugins/open-with/open-with.plugin:6
-msgid "Open With"
-msgstr "Otwórz poprzez"
-
-#: plugins/open-with/open-with.plugin:7
-msgid "Open files you are editing with another application"
-msgstr "Otwieraj pliki, które modyfikujesz, poprzez inne programy"
-
 #: plugins/outline/outline.plugin:6
 msgid "Outline"
 msgstr "Podkreślanie"
 
 #: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for vala"
-msgstr "Podkreślanie symboli w Twoim bieżącym pliku vali"
+msgid "Outline symbols in your current file for Vala"
+msgstr "Podkreśl symbole w Twoim bieżącym pliku Vala"
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
@@ -132,6 +124,18 @@ msgstr "Uzupełnianie słów"
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Wyświetla okno uzupełniania z najczęściej używanymi słowami z Twoich plików"
+
+#~ msgid "Contractor"
+#~ msgstr "Contractor"
+
+#~ msgid "Share your files with Contractor"
+#~ msgstr "Współdziel swoje pliki poprzez Contractora"
+
+#~ msgid "Open With"
+#~ msgstr "Otwórz poprzez"
+
+#~ msgid "Open files you are editing with another application"
+#~ msgstr "Otwieraj pliki, które modyfikujesz, poprzez inne programy"
 
 #~ msgid "Folder Manager"
 #~ msgstr "Zarządzanie katalogami"
