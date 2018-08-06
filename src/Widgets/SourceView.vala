@@ -333,7 +333,7 @@ namespace Scratch.Widgets {
 
             if (buffer is Gtk.SourceBuffer) {
                 var can_comment = CommentToggler.language_has_comments ((buffer as Gtk.SourceBuffer).get_language ());
-                var comment_item = new Gtk.MenuItem.with_label (_("Toggle Comment On Selected Lines"));
+                var comment_item = new Gtk.MenuItem.with_label (_("Toggle Comment"));
                 comment_item.sensitive = get_selected_line_count () > 0 && can_comment;
                 comment_item.activate.connect (() => {
                     CommentToggler.toggle_comment (buffer as Gtk.SourceBuffer);
