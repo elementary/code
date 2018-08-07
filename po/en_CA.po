@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-17 11:34-0700\n"
+"POT-Creation-Date: 2018-08-07 14:05-0700\n"
 "PO-Revision-Date: 2018-05-07 15:47+0000\n"
 "Last-Translator: Shawn <syst3mfailur3@gmail.com>\n"
 "Language-Team: English (Canada) <https://weblate.elementary.io/projects/code/"
@@ -21,23 +21,23 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:142
+#: src/Application.vala:138
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Maybe you do not have the necessary permissions."
 
-#: src/Application.vala:144
+#: src/Application.vala:140
 msgid "Maybe the file path provided is not valid."
 msgstr "Maybe the file path provided is not valid."
 
-#: src/Application.vala:146
+#: src/Application.vala:142
 msgid "The location is read-only."
 msgstr "The location is read-only."
 
-#: src/Application.vala:148
+#: src/Application.vala:144
 msgid "The parent directory doesn't exist."
 msgstr "The parent directory doesn't exist."
 
-#: src/Application.vala:155
+#: src/Application.vala:151
 #, c-format
 msgid ""
 "File \"%s\" cannot be created.\n"
@@ -46,7 +46,7 @@ msgstr ""
 "File \"%s\" cannot be created.\n"
 "%s"
 
-#: src/Application.vala:165
+#: src/Application.vala:161
 #, c-format
 msgid ""
 "File \"%s\" cannot be opened.\n"
@@ -55,11 +55,11 @@ msgstr ""
 "File \"%s\" cannot be opened.\n"
 "%s"
 
-#: src/Application.vala:175
+#: src/Application.vala:171
 msgid "It is a mountable location."
 msgstr "It is a mountable location."
 
-#: src/Application.vala:178
+#: src/Application.vala:174
 #, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
@@ -68,27 +68,27 @@ msgstr ""
 "It is a \"special\" file such as a socket,\n"
 " fifo, block device, or character device."
 
-#: src/Application.vala:181
+#: src/Application.vala:177
 msgid "It is an \"unknown\" file type."
 msgstr "It is an \"unknown\" file type."
 
-#: src/Application.vala:270
+#: src/Application.vala:266
 msgid "New Tab"
 msgstr "New Tab"
 
-#: src/Application.vala:271 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:267 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "New Window"
 
-#: src/Application.vala:272
+#: src/Application.vala:268
 msgid "Print version info and exit"
 msgstr "Print version info and exit"
 
-#: src/Application.vala:273
+#: src/Application.vala:269
 msgid "Set of plugins"
 msgstr "Set of plugins"
 
-#: src/Application.vala:274
+#: src/Application.vala:270
 msgid "Current working directory"
 msgstr "Current working directory"
 
@@ -158,15 +158,15 @@ msgstr "Save files when changed:"
 msgid "Tabs"
 msgstr "Tabs"
 
-#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:155
+#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:156
 msgid "Automatic indentation:"
 msgstr "Automatic indentation:"
 
-#: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:149
+#: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:150
 msgid "Insert spaces instead of tabs:"
 msgstr "Insert spaces instead of tabs:"
 
-#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:152
+#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:153
 msgid "Tab width:"
 msgstr "Tab width:"
 
@@ -245,7 +245,7 @@ msgstr "Other Application…"
 msgid "Rename"
 msgstr "Rename"
 
-#: src/FolderManager/FileItem.vala:121 src/FolderManager/FolderItem.vala:124
+#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:127
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr "Move to Trash"
@@ -254,32 +254,32 @@ msgstr "Move to Trash"
 msgid "Folders"
 msgstr "Folders"
 
-#: src/FolderManager/FolderItem.vala:140
+#: src/FolderManager/FolderItem.vala:143
 msgid "Folder"
 msgstr "Folder"
 
-#: src/FolderManager/FolderItem.vala:143
+#: src/FolderManager/FolderItem.vala:146
 msgid "Empty File"
 msgstr "Empty File"
 
-#: src/FolderManager/FolderItem.vala:150
+#: src/FolderManager/FolderItem.vala:153
 msgid "New"
 msgstr "New"
 
-#: src/FolderManager/FolderItem.vala:293
+#: src/FolderManager/FolderItem.vala:296
 msgid "untitled folder"
 msgstr "untitled folder"
 
-#: src/FolderManager/FolderItem.vala:297
+#: src/FolderManager/FolderItem.vala:300
 #, c-format
 msgid "untitled folder %d"
 msgstr "untitled folder %d"
 
-#: src/FolderManager/FolderItem.vala:325
+#: src/FolderManager/FolderItem.vala:328
 msgid "new file"
 msgstr "new file"
 
-#: src/FolderManager/FolderItem.vala:329
+#: src/FolderManager/FolderItem.vala:332
 #, c-format
 msgid "new file %d"
 msgstr "new file %d"
@@ -415,29 +415,29 @@ msgstr "Syntax Highlighting"
 msgid "Line number"
 msgstr "Line number"
 
-#: src/Widgets/FormatBar.vala:95
+#: src/Widgets/FormatBar.vala:96
 msgid "Filter languages"
 msgstr "Filter languages"
 
-#: src/Widgets/FormatBar.vala:117
+#: src/Widgets/FormatBar.vala:118
 msgid "Plain Text"
 msgstr "Plain Text"
 
-#: src/Widgets/FormatBar.vala:199
+#: src/Widgets/FormatBar.vala:200
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d Space"
 msgstr[1] "%d Spaces"
 
-#: src/Widgets/FormatBar.vala:201
+#: src/Widgets/FormatBar.vala:202
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d Tab"
 msgstr[1] "%d Tabs"
 
-#: src/Widgets/FormatBar.vala:217
+#: src/Widgets/FormatBar.vala:218
 msgid "Go To Line:"
 msgstr "Go To Line:"
 
@@ -521,15 +521,15 @@ msgstr "Search previous"
 msgid "Cyclic Search"
 msgstr "Cyclic Search"
 
-#: src/Widgets/SearchBar.vala:87
+#: src/Widgets/SearchBar.vala:91
 msgid "Replace With"
 msgstr "Replace With"
 
-#: src/Widgets/SearchBar.vala:90
+#: src/Widgets/SearchBar.vala:94
 msgid "Replace"
 msgstr "Replace"
 
-#: src/Widgets/SearchBar.vala:93
+#: src/Widgets/SearchBar.vala:97
 msgid "Replace all"
 msgstr "Replace all"
 
@@ -537,6 +537,10 @@ msgstr "Replace all"
 #, fuzzy
 msgid "Sort Selected Lines"
 msgstr "For selected text"
+
+#: src/Widgets/SourceView.vala:336
+msgid "Toggle Comment"
+msgstr ""
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
