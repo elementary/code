@@ -115,7 +115,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
             var define = "@define-color tab_base_color %s;".printf (color);
             style_provider.load_from_data (define);
-            style_context.add_class ("inline-toolbar");
+            style_context.add_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
             return;
         }
 
