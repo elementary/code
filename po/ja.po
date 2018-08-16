@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-17 11:34-0700\n"
-"PO-Revision-Date: 2018-07-18 00:13+0000\n"
+"POT-Creation-Date: 2018-08-07 14:05-0700\n"
+"PO-Revision-Date: 2018-08-09 00:05+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/code/code/ja/"
 ">\n"
@@ -21,23 +21,23 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:142
+#: src/Application.vala:138
 msgid "Maybe you do not have the necessary permissions."
-msgstr "おそらく必要な権限がありません。"
+msgstr "必要な権限がない可能性があります。"
+
+#: src/Application.vala:140
+msgid "Maybe the file path provided is not valid."
+msgstr "指定されたファイルのパスが有効ではない可能性があります。"
+
+#: src/Application.vala:142
+msgid "The location is read-only."
+msgstr "この場所は読み取り専用になっています。"
 
 #: src/Application.vala:144
-msgid "Maybe the file path provided is not valid."
-msgstr "おそらく提供ファイルのパスが有効ではありません。"
-
-#: src/Application.vala:146
-msgid "The location is read-only."
-msgstr "この場所は読み込み権限になっています。"
-
-#: src/Application.vala:148
 msgid "The parent directory doesn't exist."
 msgstr "親ディレクトリが存在しません。"
 
-#: src/Application.vala:155
+#: src/Application.vala:151
 #, c-format
 msgid ""
 "File \"%s\" cannot be created.\n"
@@ -46,7 +46,7 @@ msgstr ""
 "ファイル \"%s\" を作成できません。\n"
 "%s"
 
-#: src/Application.vala:165
+#: src/Application.vala:161
 #, c-format
 msgid ""
 "File \"%s\" cannot be opened.\n"
@@ -55,11 +55,11 @@ msgstr ""
 "ファイル \"%s\" を開く事ができません。\n"
 "%s"
 
-#: src/Application.vala:175
+#: src/Application.vala:171
 msgid "It is a mountable location."
-msgstr "この場所はマウント場所です。"
+msgstr "これはマウント可能な場所です。"
 
-#: src/Application.vala:178
+#: src/Application.vala:174
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -67,29 +67,29 @@ msgstr ""
 "これは、ソケット、FIFO、ブロックデバイス、\n"
 " キャラクタデバイスなどの \"特別な\" ファイルです。"
 
-#: src/Application.vala:181
+#: src/Application.vala:177
 msgid "It is an \"unknown\" file type."
 msgstr "これは \"未知\" のファイルタイプです。"
 
-#: src/Application.vala:270
+#: src/Application.vala:266
 msgid "New Tab"
 msgstr "新しいタブ"
 
-#: src/Application.vala:271 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:267 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "新しいウィンドウ"
 
-#: src/Application.vala:272
+#: src/Application.vala:268
 msgid "Print version info and exit"
 msgstr "バージョン情報を表示して終了します"
 
-#: src/Application.vala:273
+#: src/Application.vala:269
 msgid "Set of plugins"
-msgstr "プラグイン"
+msgstr "プラグインのセット"
 
-#: src/Application.vala:274
+#: src/Application.vala:270
 msgid "Current working directory"
-msgstr "現在の作業ディレクトリ"
+msgstr "カレントディレクトリ"
 
 #: src/MainWindow.vala:131
 msgid "Code"
@@ -157,15 +157,15 @@ msgstr "変更が加えられた時にファイルを保存:"
 msgid "Tabs"
 msgstr "タブ"
 
-#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:155
+#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:156
 msgid "Automatic indentation:"
 msgstr "自動インデント:"
 
-#: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:149
+#: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:150
 msgid "Insert spaces instead of tabs:"
 msgstr "タブの代わりにスペースを挿入:"
 
-#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:152
+#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:153
 msgid "Tab width:"
 msgstr "タブ幅:"
 
@@ -243,7 +243,7 @@ msgstr "その他の操作"
 msgid "Rename"
 msgstr "名前の変更"
 
-#: src/FolderManager/FileItem.vala:121 src/FolderManager/FolderItem.vala:124
+#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:127
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr "ゴミ箱に移動"
@@ -252,32 +252,32 @@ msgstr "ゴミ箱に移動"
 msgid "Folders"
 msgstr "フォルダー"
 
-#: src/FolderManager/FolderItem.vala:140
+#: src/FolderManager/FolderItem.vala:143
 msgid "Folder"
 msgstr "フォルダー"
 
-#: src/FolderManager/FolderItem.vala:143
+#: src/FolderManager/FolderItem.vala:146
 msgid "Empty File"
 msgstr "空のファイル"
 
-#: src/FolderManager/FolderItem.vala:150
+#: src/FolderManager/FolderItem.vala:153
 msgid "New"
 msgstr "新規作成"
 
-#: src/FolderManager/FolderItem.vala:293
+#: src/FolderManager/FolderItem.vala:296
 msgid "untitled folder"
 msgstr "名称未設定フォルダー"
 
-#: src/FolderManager/FolderItem.vala:297
+#: src/FolderManager/FolderItem.vala:300
 #, c-format
 msgid "untitled folder %d"
 msgstr "名称未設定フォルダー %d"
 
-#: src/FolderManager/FolderItem.vala:325
+#: src/FolderManager/FolderItem.vala:328
 msgid "new file"
 msgstr "新しいファイル"
 
-#: src/FolderManager/FolderItem.vala:329
+#: src/FolderManager/FolderItem.vala:332
 #, c-format
 msgid "new file %d"
 msgstr "新しいファイル %d"
@@ -411,27 +411,27 @@ msgstr "構文ハイライト"
 msgid "Line number"
 msgstr "行番号"
 
-#: src/Widgets/FormatBar.vala:95
+#: src/Widgets/FormatBar.vala:96
 msgid "Filter languages"
 msgstr "言語をフィルター"
 
-#: src/Widgets/FormatBar.vala:117
+#: src/Widgets/FormatBar.vala:118
 msgid "Plain Text"
 msgstr "プレーンテキスト"
 
-#: src/Widgets/FormatBar.vala:199
+#: src/Widgets/FormatBar.vala:200
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d 個のスペース"
 
-#: src/Widgets/FormatBar.vala:201
+#: src/Widgets/FormatBar.vala:202
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d 個のスペース"
 
-#: src/Widgets/FormatBar.vala:217
+#: src/Widgets/FormatBar.vala:218
 msgid "Go To Line:"
 msgstr "行へ移動:"
 
@@ -515,21 +515,25 @@ msgstr "前を検索"
 msgid "Cyclic Search"
 msgstr "巡回検索"
 
-#: src/Widgets/SearchBar.vala:87
+#: src/Widgets/SearchBar.vala:91
 msgid "Replace With"
 msgstr "置き換え"
 
-#: src/Widgets/SearchBar.vala:90
+#: src/Widgets/SearchBar.vala:94
 msgid "Replace"
 msgstr "置き換え"
 
-#: src/Widgets/SearchBar.vala:93
+#: src/Widgets/SearchBar.vala:97
 msgid "Replace all"
 msgstr "すべて置換"
 
 #: src/Widgets/SourceView.vala:329
 msgid "Sort Selected Lines"
 msgstr "選択された行を並べ替え"
+
+#: src/Widgets/SourceView.vala:336
+msgid "Toggle Comment"
+msgstr "コメントを切り替え"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
