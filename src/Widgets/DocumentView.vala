@@ -124,7 +124,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
 
         // Fallback to a non inline toolbar if something went wrong above
-        style_context.remove_class ("inline-toolbar");
+        style_context.remove_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
     }
 
     private string unsaved_file_path_builder () {
