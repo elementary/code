@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-17 11:34-0700\n"
+"POT-Creation-Date: 2018-08-07 14:05-0700\n"
 "PO-Revision-Date: 2018-07-19 17:03+0000\n"
 "Last-Translator: Corentin Noël <corentin@elementary.io>\n"
-"Language-Team: French <https://weblate.elementary.io/projects/code/code/fr/>"
-"\n"
+"Language-Team: French <https://weblate.elementary.io/projects/code/code/fr/"
+">\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,23 +21,23 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:142
+#: src/Application.vala:138
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Peut-être n'avez-vous pas les permissions nécessaires."
 
-#: src/Application.vala:144
+#: src/Application.vala:140
 msgid "Maybe the file path provided is not valid."
 msgstr "Peut-être que le chemin spécifié est invalide."
 
-#: src/Application.vala:146
+#: src/Application.vala:142
 msgid "The location is read-only."
 msgstr "L'emplacement est en lecture-seule."
 
-#: src/Application.vala:148
+#: src/Application.vala:144
 msgid "The parent directory doesn't exist."
 msgstr "Le répertoire parent n'existe pas."
 
-#: src/Application.vala:155
+#: src/Application.vala:151
 #, c-format
 msgid ""
 "File \"%s\" cannot be created.\n"
@@ -46,7 +46,7 @@ msgstr ""
 "Le fichier \"%s\" n'a pas pu être créé.\n"
 "%s"
 
-#: src/Application.vala:165
+#: src/Application.vala:161
 #, c-format
 msgid ""
 "File \"%s\" cannot be opened.\n"
@@ -55,11 +55,11 @@ msgstr ""
 "Le fichier \"%s\" n'a pas pu être ouvert.\n"
 "%s"
 
-#: src/Application.vala:175
+#: src/Application.vala:171
 msgid "It is a mountable location."
 msgstr "Il s'agit d'un emplacement montable."
 
-#: src/Application.vala:178
+#: src/Application.vala:174
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -67,27 +67,27 @@ msgstr ""
 "C'est un fichier \"spécial\" tel qu'une socket,\n"
 " FIFO, périphérique de type bloc ou périphérique caractère."
 
-#: src/Application.vala:181
+#: src/Application.vala:177
 msgid "It is an \"unknown\" file type."
 msgstr "Il s'agit d'un fichier de type inconnu."
 
-#: src/Application.vala:270
+#: src/Application.vala:266
 msgid "New Tab"
 msgstr "Nouvel Onglet"
 
-#: src/Application.vala:271 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:267 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Nouvelle fenêtre"
 
-#: src/Application.vala:272
+#: src/Application.vala:268
 msgid "Print version info and exit"
 msgstr "Afficher les détails de la version et quitter"
 
-#: src/Application.vala:273
+#: src/Application.vala:269
 msgid "Set of plugins"
 msgstr "Ensemble de greffons"
 
-#: src/Application.vala:274
+#: src/Application.vala:270
 msgid "Current working directory"
 msgstr "Répertoire de travail actuel"
 
@@ -157,15 +157,15 @@ msgstr "Sauvegarder les fichiers lorsqu'ils sont modifiés :"
 msgid "Tabs"
 msgstr "Tabulation"
 
-#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:155
+#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:156
 msgid "Automatic indentation:"
 msgstr "Tabulation automatique :"
 
-#: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:149
+#: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:150
 msgid "Insert spaces instead of tabs:"
 msgstr "Insérer des espaces au lieu de tabulations :"
 
-#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:152
+#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:153
 msgid "Tab width:"
 msgstr "Largeur des tabulations :"
 
@@ -243,7 +243,7 @@ msgstr "Autres actions"
 msgid "Rename"
 msgstr "Renommer"
 
-#: src/FolderManager/FileItem.vala:121 src/FolderManager/FolderItem.vala:124
+#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:127
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr "Déplacer dans la corbeille"
@@ -252,32 +252,32 @@ msgstr "Déplacer dans la corbeille"
 msgid "Folders"
 msgstr "Dossiers"
 
-#: src/FolderManager/FolderItem.vala:140
+#: src/FolderManager/FolderItem.vala:143
 msgid "Folder"
 msgstr "Dossier"
 
-#: src/FolderManager/FolderItem.vala:143
+#: src/FolderManager/FolderItem.vala:146
 msgid "Empty File"
 msgstr "Fichier vide"
 
-#: src/FolderManager/FolderItem.vala:150
+#: src/FolderManager/FolderItem.vala:153
 msgid "New"
 msgstr "Nouveau"
 
-#: src/FolderManager/FolderItem.vala:293
+#: src/FolderManager/FolderItem.vala:296
 msgid "untitled folder"
 msgstr "dossier sans-titre"
 
-#: src/FolderManager/FolderItem.vala:297
+#: src/FolderManager/FolderItem.vala:300
 #, c-format
 msgid "untitled folder %d"
 msgstr "dossier sans-titre %d"
 
-#: src/FolderManager/FolderItem.vala:325
+#: src/FolderManager/FolderItem.vala:328
 msgid "new file"
 msgstr "nouveau fichier"
 
-#: src/FolderManager/FolderItem.vala:329
+#: src/FolderManager/FolderItem.vala:332
 #, c-format
 msgid "new file %d"
 msgstr "nouveau fichier %d"
@@ -417,29 +417,29 @@ msgstr "Coloration syntaxique"
 msgid "Line number"
 msgstr "Numéro de ligne"
 
-#: src/Widgets/FormatBar.vala:95
+#: src/Widgets/FormatBar.vala:96
 msgid "Filter languages"
 msgstr "Filtrer les langues"
 
-#: src/Widgets/FormatBar.vala:117
+#: src/Widgets/FormatBar.vala:118
 msgid "Plain Text"
 msgstr "Fichier texte"
 
-#: src/Widgets/FormatBar.vala:199
+#: src/Widgets/FormatBar.vala:200
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d espace"
 msgstr[1] "%d espaces"
 
-#: src/Widgets/FormatBar.vala:201
+#: src/Widgets/FormatBar.vala:202
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d tabulation"
 msgstr[1] "%d tabulations"
 
-#: src/Widgets/FormatBar.vala:217
+#: src/Widgets/FormatBar.vala:218
 msgid "Go To Line:"
 msgstr "Aller à la ligne :"
 
@@ -523,21 +523,25 @@ msgstr "Recherche précédente"
 msgid "Cyclic Search"
 msgstr "Recherche cyclique"
 
-#: src/Widgets/SearchBar.vala:87
+#: src/Widgets/SearchBar.vala:91
 msgid "Replace With"
 msgstr "Remplacer par"
 
-#: src/Widgets/SearchBar.vala:90
+#: src/Widgets/SearchBar.vala:94
 msgid "Replace"
 msgstr "Remplacer"
 
-#: src/Widgets/SearchBar.vala:93
+#: src/Widgets/SearchBar.vala:97
 msgid "Replace all"
 msgstr "Tout remplacer"
 
 #: src/Widgets/SourceView.vala:329
 msgid "Sort Selected Lines"
 msgstr "Trier les lignes sélectionnées"
+
+#: src/Widgets/SourceView.vala:336
+msgid "Toggle Comment"
+msgstr ""
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"

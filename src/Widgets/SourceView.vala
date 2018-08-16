@@ -357,8 +357,19 @@ namespace Scratch.Widgets {
             var sort_item = new Gtk.MenuItem.with_label (_("Sort Selected Lines"));
             sort_item.sensitive = get_selected_line_count () > 1;
             sort_item.activate.connect (sort_selected_lines);
-
             menu.add (sort_item);
+
+            if (buffer is Gtk.SourceBuffer) {
+                var can_comment = CommentToggler.language_has_comments ((buffer as Gtk.SourceBuffer).get_language ());
+                var comment_item = new Gtk.MenuItem.with_label (_("Toggle Comment"));
+                comment_item.sensitive = get_selected_line_count () > 0 && can_comment;
+                comment_item.activate.connect (() => {
+                    CommentToggler.toggle_comment (buffer as Gtk.SourceBuffer);
+                });
+
+                menu.add (comment_item);
+            }
+
             menu.show_all ();
         }
 
