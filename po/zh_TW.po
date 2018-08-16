@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-17 11:34-0700\n"
+"POT-Creation-Date: 2018-08-07 14:05-0700\n"
 "PO-Revision-Date: 2018-03-21 01:09+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://weblate.elementary.io/projects/"
@@ -20,23 +20,23 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:142
+#: src/Application.vala:138
 msgid "Maybe you do not have the necessary permissions."
 msgstr "或許您尚未獲得必要的許可。"
 
-#: src/Application.vala:144
+#: src/Application.vala:140
 msgid "Maybe the file path provided is not valid."
 msgstr "也許提供的檔案路徑無效。"
 
-#: src/Application.vala:146
+#: src/Application.vala:142
 msgid "The location is read-only."
 msgstr "該位置唯讀。"
 
-#: src/Application.vala:148
+#: src/Application.vala:144
 msgid "The parent directory doesn't exist."
 msgstr "不存在上層目錄。"
 
-#: src/Application.vala:155
+#: src/Application.vala:151
 #, c-format
 msgid ""
 "File \"%s\" cannot be created.\n"
@@ -45,7 +45,7 @@ msgstr ""
 "無法建立「%s」檔案\n"
 "%s"
 
-#: src/Application.vala:165
+#: src/Application.vala:161
 #, c-format
 msgid ""
 "File \"%s\" cannot be opened.\n"
@@ -54,11 +54,11 @@ msgstr ""
 "無法開啟「%s」檔案。\n"
 "%s"
 
-#: src/Application.vala:175
+#: src/Application.vala:171
 msgid "It is a mountable location."
 msgstr "這是可掛載的位置。"
 
-#: src/Application.vala:178
+#: src/Application.vala:174
 #, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
@@ -67,27 +67,27 @@ msgstr ""
 "這是「特殊」檔案，像是 socket、\n"
 " fifio、區塊裝置、或字元裝置。"
 
-#: src/Application.vala:181
+#: src/Application.vala:177
 msgid "It is an \"unknown\" file type."
 msgstr "這是「未知」檔案類型。"
 
-#: src/Application.vala:270
+#: src/Application.vala:266
 msgid "New Tab"
 msgstr "新增分頁"
 
-#: src/Application.vala:271 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:267 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "新增視窗"
 
-#: src/Application.vala:272
+#: src/Application.vala:268
 msgid "Print version info and exit"
 msgstr "列印版本資訊並離開"
 
-#: src/Application.vala:273
+#: src/Application.vala:269
 msgid "Set of plugins"
 msgstr "插件集"
 
-#: src/Application.vala:274
+#: src/Application.vala:270
 msgid "Current working directory"
 msgstr "目前的工作目錄"
 
@@ -157,15 +157,15 @@ msgstr "當更動後儲存檔案："
 msgid "Tabs"
 msgstr "Tab"
 
-#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:155
+#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:156
 msgid "Automatic indentation:"
 msgstr "自動縮排："
 
-#: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:149
+#: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:150
 msgid "Insert spaces instead of tabs:"
 msgstr "插入空格而不是跳格："
 
-#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:152
+#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:153
 msgid "Tab width:"
 msgstr "跳格寬度："
 
@@ -244,7 +244,7 @@ msgstr "其他應用程式…"
 msgid "Rename"
 msgstr "改名"
 
-#: src/FolderManager/FileItem.vala:121 src/FolderManager/FolderItem.vala:124
+#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:127
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr "移至垃圾桶"
@@ -253,32 +253,32 @@ msgstr "移至垃圾桶"
 msgid "Folders"
 msgstr "資料夾"
 
-#: src/FolderManager/FolderItem.vala:140
+#: src/FolderManager/FolderItem.vala:143
 msgid "Folder"
 msgstr "資料夾"
 
-#: src/FolderManager/FolderItem.vala:143
+#: src/FolderManager/FolderItem.vala:146
 msgid "Empty File"
 msgstr "空白檔案"
 
-#: src/FolderManager/FolderItem.vala:150
+#: src/FolderManager/FolderItem.vala:153
 msgid "New"
 msgstr "新增"
 
-#: src/FolderManager/FolderItem.vala:293
+#: src/FolderManager/FolderItem.vala:296
 msgid "untitled folder"
 msgstr "無名資料夾"
 
-#: src/FolderManager/FolderItem.vala:297
+#: src/FolderManager/FolderItem.vala:300
 #, c-format
 msgid "untitled folder %d"
 msgstr "無名資料夾 %d"
 
-#: src/FolderManager/FolderItem.vala:325
+#: src/FolderManager/FolderItem.vala:328
 msgid "new file"
 msgstr "新檔案"
 
-#: src/FolderManager/FolderItem.vala:329
+#: src/FolderManager/FolderItem.vala:332
 #, c-format
 msgid "new file %d"
 msgstr "新檔案 %d"
@@ -406,27 +406,27 @@ msgstr "語法標明"
 msgid "Line number"
 msgstr "列號"
 
-#: src/Widgets/FormatBar.vala:95
+#: src/Widgets/FormatBar.vala:96
 msgid "Filter languages"
 msgstr "過濾語言"
 
-#: src/Widgets/FormatBar.vala:117
+#: src/Widgets/FormatBar.vala:118
 msgid "Plain Text"
 msgstr "純文字"
 
-#: src/Widgets/FormatBar.vala:199
+#: src/Widgets/FormatBar.vala:200
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d 個空格"
 
-#: src/Widgets/FormatBar.vala:201
+#: src/Widgets/FormatBar.vala:202
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d Tab"
 
-#: src/Widgets/FormatBar.vala:217
+#: src/Widgets/FormatBar.vala:218
 msgid "Go To Line:"
 msgstr "前往列號："
 
@@ -510,15 +510,15 @@ msgstr "向前搜尋"
 msgid "Cyclic Search"
 msgstr "前後循環搜尋"
 
-#: src/Widgets/SearchBar.vala:87
+#: src/Widgets/SearchBar.vala:91
 msgid "Replace With"
 msgstr "替換為"
 
-#: src/Widgets/SearchBar.vala:90
+#: src/Widgets/SearchBar.vala:94
 msgid "Replace"
 msgstr "取代"
 
-#: src/Widgets/SearchBar.vala:93
+#: src/Widgets/SearchBar.vala:97
 msgid "Replace all"
 msgstr "全部取代"
 
@@ -526,6 +526,10 @@ msgstr "全部取代"
 #, fuzzy
 msgid "Sort Selected Lines"
 msgstr "對於選取的文字"
+
+#: src/Widgets/SourceView.vala:336
+msgid "Toggle Comment"
+msgstr ""
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"

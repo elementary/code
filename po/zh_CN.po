@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
-"PO-Revision-Date: 2017-07-04 08:55+0000\n"
+"PO-Revision-Date: 2018-08-13 00:02+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
-"Language-Team: Chinese (Simplified) "
-"<https://l10n.elementary.io/projects/scratch/scratch/zh_CN/>\n"
+"Language-Team: Chinese (Simplified) <https://weblate.elementary.io/projects/"
+"code/code/zh_Hans/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.14\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: ../src/config.vala:15
@@ -30,7 +30,7 @@ msgstr "文本编辑器"
 
 #: ../src/config.vala:17 ../src/Services/Document.vala:444
 msgid "New Document"
-msgstr "新建文档"
+msgstr "新文件"
 
 #: ../src/config.vala:18 ../src/Scratch.vala:278
 msgid "New Window"
@@ -561,7 +561,7 @@ msgstr "终端"
 
 #: ../plugins/terminal/terminal.vala:24
 msgid "A terminal in your text editor"
-msgstr "一个文本编辑器中的终端"
+msgstr "编辑器内置终端"
 
 #: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
 msgid "Show Terminal"
@@ -590,11 +590,11 @@ msgstr "底部终端"
 
 #: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
 msgid "Strip trailing whitespace"
-msgstr "删除文件末尾的空格"
+msgstr "去除末尾空格"
 
 #: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
 msgid "Strip trailing whitespace on save"
-msgstr "在保存时删除文件末尾的空格"
+msgstr "保存时去除末尾的空格"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -699,11 +699,11 @@ msgstr "书签"
 #. **
 #: ../plugins/vim-emulation/vim-emulation.vala:21
 msgid "Vim Emulation"
-msgstr "Vim 模拟器"
+msgstr "Vim 模拟"
 
 #: ../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
-msgstr "在 Scratch 中使用 Vim 命令"
+msgstr "使用 Vim 指令"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -760,7 +760,7 @@ msgstr "符号"
 #. **
 #: ../plugins/outline/OutlinePlugin.vala:21
 msgid "Outline"
-msgstr "概况"
+msgstr "描边"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
@@ -816,7 +816,7 @@ msgstr "拼写检查"
 
 #: ../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
-msgstr "检查您文档的拼写"
+msgstr "检查文件中的拼写错误"
 
 #: ../plugins/spell/spell.vala:80
 msgid ""
@@ -842,7 +842,7 @@ msgstr ""
 #. **
 #: ../plugins/browser-preview/browser-preview.vala:21
 msgid "Browser Preview"
-msgstr "在浏览器中预览"
+msgstr "浏览器预览"
 
 #: ../plugins/browser-preview/browser-preview.vala:22
 msgid "Get a preview your work in a web page"
@@ -864,11 +864,11 @@ msgstr "隐藏预览"
 
 #: ../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
-msgstr "语法补全"
+msgstr "词语统计"
 
 #: ../plugins/word-completion/plugin.vala:35
 msgid "Show a completion dialog with most used words from your files"
-msgstr "在一个补全对话框显示你文档最常用的词语"
+msgstr "显示一个对话框统计文件中使用较多的词汇"
 
 #: ../plugins/word-completion/plugin.vala:178
 msgid "%s - Word Completion"
@@ -928,11 +928,11 @@ msgstr "一月"
 
 #: ../plugins/pastebin/pastebin.vala:23
 msgid "Pastebin"
-msgstr "剪贴板"
+msgstr "Pastebin 服务"
 
 #: ../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
-msgstr "通过 Pastebin 共享文件"
+msgstr "通过 Pastebin 服务分享文件"
 
 #: ../plugins/pastebin/pastebin.vala:134
 msgid "Upload to Pastebin"

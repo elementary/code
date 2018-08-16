@@ -8,68 +8,60 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:36-0700\n"
-"PO-Revision-Date: 2016-08-05 11:55+0000\n"
+"PO-Revision-Date: 2018-08-13 00:02+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
-"Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
-"Language: \n"
+"Language-Team: Chinese (Simplified) <https://weblate.elementary.io/projects/"
+"code/extra/zh_Hans/>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
 #: data/io.elementary.code.desktop.in.in:4
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
 #: data/io.elementary.code.appdata.xml.in:9
-#, fuzzy
 msgid "The editor that works"
-msgstr "高效的文本编辑器"
+msgstr "高效的编辑器"
 
 #: data/io.elementary.code.appdata.xml.in:11
-#, fuzzy
 msgid ""
 "Code is the editor that works for you. It auto-saves your files, meaning "
 "they're always up-to-date. Plus it remembers your tabs so you never lose "
 "your spot, even in between sessions."
 msgstr ""
-"Scratch 是一款高效的文本编辑器。实时保存功能使您无需手动保存便能对文本内容进"
-"行实时更改。标签记忆功能让您在切换用户或重启设备后仍能继续未完成的工作。"
+"Code 是一款高效的文本编辑器。实时保存功能使您无需手动保存便能对文本内容进行实时更改。标签记忆功能让您在切换用户或重启设备后仍能继续未完成的工作。"
 
 #: data/io.elementary.code.appdata.xml.in:16
-#, fuzzy
 msgid ""
 "Make it yours. Code is written from the ground up to be extensible. Keep "
 "things super lightweight and simple, or install extensions to turn Code into "
 "a full-blown IDE; it's your choice. And with a handful of useful "
 "preferences, you can tweak the behavior and interface to your liking."
 msgstr ""
-"随心所欲！Scratch 的理念就是高度灵活性，既可以提供轻量级的简约体验，也可以安"
-"装扩展变身为全功能 IDE。不仅功能高度灵活，还可以在设置选项中定制界面和外观，"
-"一切都由您自己做主。"
+"随心所欲！Code 的理念就是高度灵活性，既可以提供轻量级的简约体验，也可以安装扩展变身为全功能 "
+"IDE。不仅功能高度灵活，还可以在设置选项中定制界面和外观，一切都由您自己做主。"
 
 #: data/io.elementary.code.appdata.xml.in:22
-#, fuzzy
 msgid ""
 "It's elementary. Code is made to be the perfect editor for elementary, "
 "meaning it closely follows the high standards of design, speed, and "
 "consistency. It's sexy, but not distracting."
-msgstr ""
-"师出有名！Scratch 为 elementary OS 量身定制，风格设计、响应速度和外观一致性都"
-"具有较高的品牌标准。性感而不失内涵。"
+msgstr "师出有名！Code 为 elementary OS 量身定制，风格设计、响应速度和外观一致性都具有较高的品牌标准。性感而不失内涵。"
 
 #: data/io.elementary.code.appdata.xml.in:27
-#, fuzzy
 msgid ""
 "Works with your language. Whether you're crafting code in Vala, scripting "
 "with PHP, or marking things up in HTML, Code has you covered. Experience "
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
-"海纳百川！无论您是 Vala 老手、PHP 专家还是 HTML 大师，Scratch 都能满足您的需"
-"求。语法高亮功能支持几乎所有编程语言、脚本语言和标记语言。"
+"海纳百川！无论您是 Vala 老手、PHP 专家还是 HTML 大师，Code 都能满足您的需求。语法高亮功能支持几乎所有编程语言、脚本语言和标记语言。"
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid ""
@@ -103,33 +95,33 @@ msgstr "更多其他功能"
 
 #: data/io.elementary.code.appdata.xml.in:83
 msgid "elementary LLC."
-msgstr ""
+msgstr "elementary LLC."
 
 #: data/io.elementary.code.desktop.in.in:5
-#, fuzzy
 msgid "Edit code files"
-msgstr "编辑文本文件"
+msgstr "编辑代码文件"
 
 #: data/io.elementary.code.desktop.in.in:6
 msgid "Code Editor"
-msgstr ""
+msgstr "代码编辑器"
 
 #: data/io.elementary.code.desktop.in.in:8
+#, fuzzy
 msgid "io.elementary.code"
-msgstr ""
+msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
 #, fuzzy
 msgid "IDE;scratch;"
-msgstr "Scratch"
+msgstr "IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New Document"
-msgstr ""
+msgstr "新文件"
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
-msgstr ""
+msgstr "新窗口"
 
 #~ msgid "Notepad;IDE;Plain;"
 #~ msgstr "记事本;IDE;纯文本;"
