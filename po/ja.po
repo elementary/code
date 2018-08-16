@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-08-07 14:05-0700\n"
-"PO-Revision-Date: 2018-08-08 00:07+0000\n"
+"PO-Revision-Date: 2018-08-09 00:05+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/code/code/ja/"
 ">\n"
@@ -23,15 +23,15 @@ msgstr ""
 #. We list some common errors for quick feedback
 #: src/Application.vala:138
 msgid "Maybe you do not have the necessary permissions."
-msgstr "おそらく必要な権限がありません。"
+msgstr "必要な権限がない可能性があります。"
 
 #: src/Application.vala:140
 msgid "Maybe the file path provided is not valid."
-msgstr "おそらく提供ファイルのパスが有効ではありません。"
+msgstr "指定されたファイルのパスが有効ではない可能性があります。"
 
 #: src/Application.vala:142
 msgid "The location is read-only."
-msgstr "この場所は読み込み権限になっています。"
+msgstr "この場所は読み取り専用になっています。"
 
 #: src/Application.vala:144
 msgid "The parent directory doesn't exist."
@@ -57,7 +57,7 @@ msgstr ""
 
 #: src/Application.vala:171
 msgid "It is a mountable location."
-msgstr "この場所はマウント場所です。"
+msgstr "これはマウント可能な場所です。"
 
 #: src/Application.vala:174
 msgid ""
@@ -85,11 +85,11 @@ msgstr "バージョン情報を表示して終了します"
 
 #: src/Application.vala:269
 msgid "Set of plugins"
-msgstr "プラグイン"
+msgstr "プラグインのセット"
 
 #: src/Application.vala:270
 msgid "Current working directory"
-msgstr "現在の作業ディレクトリ"
+msgstr "カレントディレクトリ"
 
 #: src/MainWindow.vala:131
 msgid "Code"
