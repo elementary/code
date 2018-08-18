@@ -65,8 +65,12 @@ namespace Scratch.FolderManager {
                 update_git_status ();
                 var git_folder = GLib.File.new_for_path (Path.build_filename (top_level_path, ".git"));
                 if (git_folder.query_exists ()) {
-                    git_monitor = git_folder.monitor_directory (GLib.FileMonitorFlags.NONE);
-                    git_monitor.changed.connect (() => update_git_status ());
+                    try {
+                        git_monitor = git_folder.monitor_directory (GLib.FileMonitorFlags.NONE);
+                        git_monitor.changed.connect (() => update_git_status ());
+                    } catch (IOError e) {
+                        warning ("An error occured setting up a file monitor on the git folder: %s", e.message);
+                    }
                 }
             }
         }
@@ -105,7 +109,7 @@ namespace Scratch.FolderManager {
             });
         }
 
-        protected void do_git_update () {
+        private void do_git_update () {
             if (git_repo == null) {
                 return;
             }
@@ -122,26 +126,32 @@ namespace Scratch.FolderManager {
 
             reset_all_children (this);
             var options = new Ggit.StatusOptions (Ggit.StatusOption.INCLUDE_UNTRACKED, Ggit.StatusShow.INDEX_AND_WORKDIR, null);
-            git_repo.file_status_foreach (options, (path, status) => {
-                if (Ggit.StatusFlags.WORKING_TREE_MODIFIED in status || Ggit.StatusFlags.INDEX_MODIFIED in status) {
-                    var modified_items = new Gee.ArrayList<Item> ();
-                    find_items (this, path, ref modified_items);
-                    foreach (var modified_item in modified_items) {
-                        modified_item.activatable = modified_icon;
-                    }
-                } else if (Ggit.StatusFlags.WORKING_TREE_NEW in status || Ggit.StatusFlags.INDEX_NEW in status) {
-                    var new_items = new Gee.ArrayList<Item> ();
-                    find_items (this, path, ref new_items);
-                    foreach (var new_item in new_items) {
-                        // Only show an added indicator on items that aren't already showing modified state
-                        if (new_item.activatable == null) {
-                            new_item.activatable = added_icon;
-                        }
+            try {
+                git_repo.file_status_foreach (options, check_each_git_status);
+            } catch (Error e) {
+                critical ("Error enumerating git status: %s", e.message);
+            }
+        }
+
+        private int check_each_git_status (string path, Ggit.StatusFlags status) {
+            if (Ggit.StatusFlags.WORKING_TREE_MODIFIED in status || Ggit.StatusFlags.INDEX_MODIFIED in status) {
+                var modified_items = new Gee.ArrayList<Item> ();
+                find_items (this, path, ref modified_items);
+                foreach (var modified_item in modified_items) {
+                    modified_item.activatable = modified_icon;
+                }
+            } else if (Ggit.StatusFlags.WORKING_TREE_NEW in status || Ggit.StatusFlags.INDEX_NEW in status) {
+                var new_items = new Gee.ArrayList<Item> ();
+                find_items (this, path, ref new_items);
+                foreach (var new_item in new_items) {
+                    // Only show an added indicator on items that aren't already showing modified state
+                    if (new_item.activatable == null) {
+                        new_item.activatable = added_icon;
                     }
                 }
+            }
 
-                return 0;
-            });
+            return 0;
         }
 
         private void find_items (Item toplevel_item, string relative_path, ref Gee.ArrayList<Item> items) {
