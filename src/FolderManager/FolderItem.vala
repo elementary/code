@@ -378,7 +378,10 @@ namespace Scratch.FolderManager {
                     var new_items = new Gee.ArrayList<Item> ();
                     find_items (this, path, ref new_items);
                     foreach (var new_item in new_items) {
-                        new_item.activatable = added_icon;
+                        // Only show an added indicator on items that aren't already showing modified state
+                        if (new_item.activatable == null) {
+                            new_item.activatable = added_icon;
+                        }
                     }
                 }
 
