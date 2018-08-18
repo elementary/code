@@ -19,7 +19,7 @@
  */
 
 namespace Scratch.FolderManager {
-    internal class MainFolderItem : FolderItem {
+    internal class ProjectFolderItem : FolderItem {
         // Minimum time to elapse before querying git folder again (ms)
         private const uint GIT_UPDATE_RATE_LIMIT = 300;
 
@@ -34,11 +34,11 @@ namespace Scratch.FolderManager {
         private static Icon added_icon;
         private static Icon modified_icon;
 
-        public MainFolderItem (File file, FileView view) requires (file.is_valid_directory) {
+        public ProjectFolderItem (File file, FileView view) requires (file.is_valid_directory) {
             Object (file: file, view: view);
         }
 
-        ~MainFolderItem () {
+        ~ProjectFolderItem () {
             if (git_monitor != null) {
                 git_monitor.cancel ();
             }

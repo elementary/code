@@ -289,11 +289,11 @@ namespace Scratch.FolderManager {
             get_root_folder (this).update_git_status ();
         }
 
-        private static MainFolderItem get_root_folder (Granite.Widgets.SourceList.ExpandableItem start) {
-            if (start is MainFolderItem) {
-                return start as MainFolderItem;
-            } else if (start.parent is MainFolderItem) {
-                return start.parent as MainFolderItem;
+        private static ProjectFolderItem get_root_folder (Granite.Widgets.SourceList.ExpandableItem start) {
+            if (start is ProjectFolderItem) {
+                return start as ProjectFolderItem;
+            } else if (start.parent is ProjectFolderItem) {
+                return start.parent as ProjectFolderItem;
             } else {
                 return get_root_folder (start.parent);
             }
