@@ -24,20 +24,9 @@ namespace Scratch.FolderManager {
      * Monitored for changes inside the directory.
      */
     internal class FolderItem : Item {
-        // Minimum time to elapse before querying git folder again (ms)
-        private const uint GIT_UPDATE_RATE_LIMIT = 300;
-
         private GLib.FileMonitor monitor;
-        private GLib.FileMonitor git_monitor;
         private bool children_loaded = false;
         private string? newly_created_path = null;
-        private Ggit.Repository? git_repo = null;
-        private string top_level_path;
-        // Static source IDs for each instance of a top level folder, ensures we don't check for git updates too much
-        private static Gee.HashMap<string, uint> git_update_timer_ids;
-
-        private static Icon added_icon;
-        private static Icon modified_icon;
 
         public FolderItem (File file, FileView view) requires (file.is_valid_directory) {
             Object (file: file, view: view);
@@ -45,17 +34,6 @@ namespace Scratch.FolderManager {
 
         ~FolderItem () {
             monitor.cancel ();
-            if (git_monitor != null) {
-                git_monitor.cancel ();
-            }
-        }
-
-        static construct {
-            Ggit.init ();
-
-            git_update_timer_ids = new Gee.HashMap<string, uint> ();
-            added_icon = new ThemedIcon ("user-available");
-            modified_icon = new ThemedIcon ("user-away");
         }
 
         construct {
@@ -65,7 +43,7 @@ namespace Scratch.FolderManager {
                 if (!children_loaded && expanded && n_children <= 1 && file.children.size > 0) {
                     clear ();
                     add_children ();
-                    update_git_status ();
+                    get_root_folder (this).update_git_status ();
                     children_loaded = true;
                 }
             });
@@ -75,26 +53,6 @@ namespace Scratch.FolderManager {
                 monitor.changed.connect (on_changed);
             } catch (GLib.Error e) {
                 warning (e.message);
-            }
-
-            // If this is a toplevel project, see if it is a git repo
-            if (this is MainFolderItem) {
-                top_level_path = file.file.get_path () + Path.DIR_SEPARATOR_S;
-
-                try {
-                    git_repo = Ggit.Repository.open (file.file);
-                } catch (Error e) {
-                    debug ("Error opening git repo, means this probably isn't one: %s", e.message);
-                }
-
-                if (git_repo != null) {
-                    update_git_status ();
-                    var git_folder = GLib.File.new_for_path (Path.build_filename (top_level_path, ".git"));
-                    if (git_folder.query_exists ()) {
-                        git_monitor = git_folder.monitor_directory (GLib.FileMonitorFlags.NONE);
-                        git_monitor.changed.connect (() => update_git_status ());
-                    }
-                }
             }
         }
 
@@ -328,129 +286,16 @@ namespace Scratch.FolderManager {
                 }
             }
 
-            update_git_status ();
+            get_root_folder (this).update_git_status ();
         }
 
-        private void update_git_status () {
-            var root_folder = get_root_folder (this) as MainFolderItem;
-            var uri = root_folder.file.file.get_uri ();
-
-            if (git_update_timer_ids.has_key (uri) && git_update_timer_ids[uri] != 0) {
-                // Update already queued, ignore this request
-                return;
-            }
-
-            git_update_timer_ids[uri] = Timeout.add (GIT_UPDATE_RATE_LIMIT, () => {
-                do_git_update ();
-                git_update_timer_ids[uri] = 0;
-                return Source.REMOVE;
-            });
-        }
-
-        protected void do_git_update () {
-            if (!(this is MainFolderItem)) {
-                var root_folder = get_root_folder (this);
-                if (root_folder != this && root_folder is FolderItem) {
-                    (root_folder as FolderItem).do_git_update ();
-                }
-            }
-
-            if (git_repo == null) {
-                return;
-            }
-
-            try {
-                var head = git_repo.get_head ();
-                if (head.is_branch ()) {
-                    var branch = git_repo.get_head () as Ggit.Branch;
-                    markup = "%s <span size='small' weight='normal'>%s</span>".printf (file.name, branch.get_name ());
-                }
-            } catch (Error e) {
-                warning ("An error occured while fetching the current git branch name: %s", e.message);
-            }
-
-            reset_all_children (this);
-            var options = new Ggit.StatusOptions (Ggit.StatusOption.INCLUDE_UNTRACKED, Ggit.StatusShow.INDEX_AND_WORKDIR, null);
-            git_repo.file_status_foreach (options, (path, status) => {
-                if (Ggit.StatusFlags.WORKING_TREE_MODIFIED in status || Ggit.StatusFlags.INDEX_MODIFIED in status) {
-                    var modified_items = new Gee.ArrayList<Item> ();
-                    find_items (this, path, ref modified_items);
-                    foreach (var modified_item in modified_items) {
-                        modified_item.activatable = modified_icon;
-                    }
-                } else if (Ggit.StatusFlags.WORKING_TREE_NEW in status || Ggit.StatusFlags.INDEX_NEW in status) {
-                    var new_items = new Gee.ArrayList<Item> ();
-                    find_items (this, path, ref new_items);
-                    foreach (var new_item in new_items) {
-                        // Only show an added indicator on items that aren't already showing modified state
-                        if (new_item.activatable == null) {
-                            new_item.activatable = added_icon;
-                        }
-                    }
-                }
-
-                return 0;
-            });
-        }
-
-        private void reset_all_children (Item toplevel_item) {
-            foreach (var child in toplevel_item.children) {
-                var item = child as Item;
-                if (item == null) {
-                    continue;
-                }
-
-                item.name = item.file.name;
-                item.markup = null;
-                item.activatable = null;
-
-                if (item is Granite.Widgets.SourceList.ExpandableItem) {
-                    reset_all_children (item);
-                }
-            }
-        }
-
-        private static Granite.Widgets.SourceList.ExpandableItem get_root_folder (
-            Granite.Widgets.SourceList.ExpandableItem start) {
+        private static MainFolderItem get_root_folder (Granite.Widgets.SourceList.ExpandableItem start) {
             if (start is MainFolderItem) {
-                return start;
+                return start as MainFolderItem;
             } else if (start.parent is MainFolderItem) {
-                return start.parent;
+                return start.parent as MainFolderItem;
             } else {
                 return get_root_folder (start.parent);
-            }
-        }
-
-        private void find_items (Item toplevel_item, string relative_path, ref Gee.ArrayList<Item> items) {
-            foreach (var child in toplevel_item.children) {
-                var item = child as Item;
-                if (item == null) {
-                    continue;
-                }
-
-                var item_relpath = item.path.replace (top_level_path, "");
-                var parts = item_relpath.split (Path.DIR_SEPARATOR_S);
-                var search_parts = relative_path.split (Path.DIR_SEPARATOR_S);
-
-                if (parts.length > search_parts.length) {
-                    continue;
-                }
-
-                bool match = true;
-                for (int i = 0; i < parts.length; i++) {
-                    if (parts[i] != search_parts[i]) {
-                        match = false;
-                        break;
-                    }
-                }
-
-                if (match) {
-                    items.add (item);
-                }
-
-                if (item is Granite.Widgets.SourceList.ExpandableItem) {
-                    find_items (item, relative_path, ref items);
-                }
             }
         }
 
