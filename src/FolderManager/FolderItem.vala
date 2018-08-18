@@ -43,7 +43,7 @@ namespace Scratch.FolderManager {
                 if (!children_loaded && expanded && n_children <= 1 && file.children.size > 0) {
                     clear ();
                     add_children ();
-                    get_root_folder (this).update_git_status ();
+                    get_root_folder ().update_git_status ();
                     children_loaded = true;
                 }
             });
@@ -286,10 +286,14 @@ namespace Scratch.FolderManager {
                 }
             }
 
-            get_root_folder (this).update_git_status ();
+            get_root_folder ().update_git_status ();
         }
 
-        private static ProjectFolderItem get_root_folder (Granite.Widgets.SourceList.ExpandableItem start) {
+        private ProjectFolderItem get_root_folder (Granite.Widgets.SourceList.ExpandableItem? start = null) {
+            if (start == null) {
+                start = this;
+            }
+
             if (start is ProjectFolderItem) {
                 return start as ProjectFolderItem;
             } else if (start.parent is ProjectFolderItem) {
