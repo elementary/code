@@ -33,8 +33,8 @@ namespace Scratch.FolderManager {
         private string? newly_created_path = null;
         private Ggit.Repository? git_repo = null;
         private string top_level_path;
-        // Static source ID for all instances of FolderItem, ensures we don't check for git updates too much
-        private static uint git_update_timer_id = 0;
+        // Static source IDs for each instance of a top level folder, ensures we don't check for git updates too much
+        private static Gee.HashMap<string, uint> git_update_timer_ids;
 
         private static Icon added_icon;
         private static Icon modified_icon;
@@ -53,6 +53,7 @@ namespace Scratch.FolderManager {
         static construct {
             Ggit.init ();
 
+            git_update_timer_ids = new Gee.HashMap<string, uint> ();
             added_icon = new ThemedIcon ("user-available");
             modified_icon = new ThemedIcon ("user-away");
         }
@@ -331,14 +332,17 @@ namespace Scratch.FolderManager {
         }
 
         private void update_git_status () {
-            if (git_update_timer_id != 0) {
+            var root_folder = get_root_folder (this) as MainFolderItem;
+            var uri = root_folder.file.file.get_uri ();
+
+            if (git_update_timer_ids.has_key (uri) && git_update_timer_ids[uri] != 0) {
                 // Update already queued, ignore this request
                 return;
             }
 
-            git_update_timer_id = Timeout.add (GIT_UPDATE_RATE_LIMIT, () => {
+            git_update_timer_ids[uri] = Timeout.add (GIT_UPDATE_RATE_LIMIT, () => {
                 do_git_update ();
-                git_update_timer_id = 0;
+                git_update_timer_ids[uri] = 0;
                 return Source.REMOVE;
             });
         }
