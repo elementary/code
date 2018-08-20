@@ -13,7 +13,6 @@ config_header = configure_file(
 
 code_files = files(
     'Application.vala',
-    'DrawSpacesUtils.vala',
     'MainWindow.vala',
     'Utils.vala',
     'Dialogs/PreferencesDialog.vala',
