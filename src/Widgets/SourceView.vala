@@ -341,7 +341,10 @@ namespace Scratch.Widgets {
             Gtk.TextIter start, end;
             var selection = buffer.get_selection_bounds (out start, out end);
 
-            if (selection && settings.draw_spaces == ScratchDrawSpacesState.FOR_SELECTION) {
+            /* Draw spaces in selection the same way if drawn at all */
+            if (selection &&
+                settings.draw_spaces in (ScratchDrawSpacesState.FOR_SELECTION | ScratchDrawSpacesState.ALWAYS)) {
+
                 buffer.apply_tag_by_name ("draw_spaces", start, end);
             }
         }
