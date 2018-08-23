@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:36-0700\n"
-"PO-Revision-Date: 2018-06-02 00:04+0000\n"
-"Last-Translator: Julian <julianmuesch@live.de>\n"
-"Language-Team: German <https://weblate.elementary.io/projects/code/extra/de/"
-">\n"
+"PO-Revision-Date: 2018-08-19 00:08+0000\n"
+"Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
+"Language-Team: German <https://weblate.elementary.io/projects/code/extra/de/>"
+"\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -27,7 +27,7 @@ msgstr "Code"
 
 #: data/io.elementary.code.appdata.xml.in:9
 msgid "The editor that works"
-msgstr "Der Texteditor, der einfach funktioniert"
+msgstr "Der Editor, der funktioniert"
 
 #: data/io.elementary.code.appdata.xml.in:11
 msgid ""
@@ -35,11 +35,11 @@ msgid ""
 "they're always up-to-date. Plus it remembers your tabs so you never lose "
 "your spot, even in between sessions."
 msgstr ""
-"Scratch ist der Texteditor, der für Dich arbeitet. Er speichert deine "
-"Dateien ganz automatisch, so dass diese immer aktuell sind. Außerdem merkt "
-"sich Scratch, welche Tabs Du geöffnet hattest, sodass Du in der "
+"Code ist der Editor, der für Dich arbeitet. Er speichert deine Dateien ganz "
+"automatisch, so dass diese immer auf dem aktuellen Stand sind. Außerdem "
+"merkt sich Code, welche Tabs Du geöffnet hattest, sodass Du in der "
 "nachfolgenden Sitzung gleich dort weiterarbeiten kannst, wo Du in der "
-"letzten aufgehört hattest."
+"letzten aufgehört hast."
 
 #: data/io.elementary.code.appdata.xml.in:16
 msgid ""
@@ -48,12 +48,12 @@ msgid ""
 "a full-blown IDE; it's your choice. And with a handful of useful "
 "preferences, you can tweak the behavior and interface to your liking."
 msgstr ""
-"Mach ihn zu Deinem persönlichen Editor. Scratch wurde von Grund auf so "
+"Mach ihn zu Deinem persönlichen Editor. Code wurde von Grund auf so "
 "entwickelt, dass er sich einfach erweitern lässt. Belasse alles schlank und "
-"übersichtlich, oder installiere Dir Erweiterungen, um Scratch zu einer "
+"übersichtlich, oder installiere Dir Erweiterungen, um Code zu einer "
 "vollwertigen Entwicklungsumgebung auszubauen. Du hast die Wahl! \n"
 "Mit jeder Menge nützlicher Einstellungen kannst Du das Verhalten und "
-"Aussehen von Scratch ganz nach Deinen Vorstellungen anpassen."
+"Aussehen von Code ganz nach Deinen Vorstellungen anpassen."
 
 #: data/io.elementary.code.appdata.xml.in:22
 msgid ""
@@ -61,9 +61,9 @@ msgid ""
 "meaning it closely follows the high standards of design, speed, and "
 "consistency. It's sexy, but not distracting."
 msgstr ""
-"Scratch ist »elementar«. Scratch ist der perfekte Texteditor für elementary, "
-"er folgt den elementary-Richtlinien in Aussehen, Geschwindigkeit und "
-"Konsistenz. Scratch ist attraktiv, lenkt dabei aber nicht ab."
+"Es ist grundlegend. Code ist der perfekte Editor für elementary, d.h. er "
+"folgt den hohen Anforderungen an Design, Geschwindigkeit und Konsistenz. Er "
+"ist sexy, aber nicht ablenkend."
 
 #: data/io.elementary.code.appdata.xml.in:27
 msgid ""
@@ -72,11 +72,10 @@ msgid ""
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
-"Unabhängig von der eingesetzten Sprache – Scratch funktioniert einfach. Ob "
-"Du in Vala programmierst, PHP-Code schreibst oder Text in HTML verfasst – "
-"Scratch deckt all Deine Anforderungen ab. Erlebe, wie Scratch in fast allen "
-"Programmier-, Skript- und Markup-Sprachen die perfekte Syntax-Hervorhebung "
-"beherrscht."
+"Unabhängig von der eingesetzten Sprache – Code funktioniert einfach. Ob Du "
+"in Vala programmierst, PHP-Code schreibst oder Text in HTML verfasst – Code "
+"deckt all Deine Anforderungen ab. Erlebe, wie Code in fast allen Programmier-"
+", Skript- und Markup-Sprachen die perfekte Syntax-Hervorhebung beherrscht."
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid ""
@@ -90,7 +89,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:38
 msgid "Additional features include:"
-msgstr "Weitere Funktionen:"
+msgstr "Weitere Merkmale sind:"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "syntax highlighting with gtksourceview-3"
@@ -98,8 +97,7 @@ msgstr "Syntax-Hervorhebung mit gtksourceview-3"
 
 #: data/io.elementary.code.appdata.xml.in:43
 msgid "a find bar to search the words in the files"
-msgstr ""
-"Eine Suchleistem, mit der Dateien nach Wörtern durchsucht werden können"
+msgstr "Eine Suchleiste, mit der Dateien nach Wörtern durchsucht werden können"
 
 #: data/io.elementary.code.appdata.xml.in:44
 msgid "tab and split documents system"
@@ -111,12 +109,11 @@ msgstr "viele weitere"
 
 #: data/io.elementary.code.appdata.xml.in:83
 msgid "elementary LLC."
-msgstr ""
+msgstr "elementary LLC."
 
 #: data/io.elementary.code.desktop.in.in:5
-#, fuzzy
 msgid "Edit code files"
-msgstr "Textdateien bearbeiten"
+msgstr "Code Editor"
 
 #: data/io.elementary.code.desktop.in.in:6
 msgid "Code Editor"
@@ -124,11 +121,11 @@ msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:8
 msgid "io.elementary.code"
-msgstr ""
+msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
 msgid "IDE;scratch;"
-msgstr "Entwicklungsumgebung;Scratch;"
+msgstr "Entwicklungsumgebung;Code;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New Document"

@@ -38,6 +38,8 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     public uint view_id = -1;
     public bool is_closing = false;
 
+    private Gtk.CssProvider style_provider;
+
     public DocumentView (MainWindow window) {
         base ();
         allow_restoring = true;
@@ -84,7 +86,45 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             duplicate_document (tab as Services.Document);
         });
 
+        style_provider = new Gtk.CssProvider ();
+        update_inline_tab_colors ();
+        settings.notify["style-scheme"].connect (update_inline_tab_colors);
+        Gtk.StyleContext.add_provider_for_screen (
+            Gdk.Screen.get_default (),
+            style_provider,
+            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        );
+
         /* SplitView shows view as required */
+    }
+
+    private void update_inline_tab_colors () {
+        var sssm = Gtk.SourceStyleSchemeManager.get_default ();
+        var style_context = get_style_context ();
+
+        if (settings.style_scheme in sssm.scheme_ids) {
+            var theme = sssm.get_scheme (settings.style_scheme);
+            var text_color_data = theme.get_style ("text");
+
+            // Default gtksourceview background color is white
+            var color = "#FFFFFF";
+            if (text_color_data != null) {
+                // If the current style has a background color, use that
+                color = text_color_data.background;
+            }
+
+            var define = "@define-color tab_base_color %s;".printf (color);
+            style_context.add_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
+            try {
+                style_provider.load_from_data (define);
+                return;
+            } catch (Error e) {
+                critical ("Unable to set inline tab styling, going back to classic notebook tabs");
+            }
+        }
+
+        // Fallback to a non inline toolbar if something went wrong above
+        style_context.remove_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
     }
 
     private string unsaved_file_path_builder () {

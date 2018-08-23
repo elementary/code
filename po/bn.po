@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-17 11:34-0700\n"
+"POT-Creation-Date: 2018-08-07 14:05-0700\n"
 "PO-Revision-Date: 2017-01-21 09:06+0000\n"
 "Last-Translator: Hasan Sumon <hsnsumon@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,23 +14,23 @@ msgstr ""
 "X-Generator: Launchpad (build 18366)\n"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:142
+#: src/Application.vala:138
 msgid "Maybe you do not have the necessary permissions."
 msgstr "আপনার হয়ত প্রয়োজনীয় অনুমতি নেই।"
 
-#: src/Application.vala:144
+#: src/Application.vala:140
 msgid "Maybe the file path provided is not valid."
 msgstr "হয়ত প্রদানকৃত ফাইল এর পথটি গ্রহনযোগ্য নয়।"
 
-#: src/Application.vala:146
+#: src/Application.vala:142
 msgid "The location is read-only."
 msgstr "এই লোকেশানটি রিড-অনলি।"
 
-#: src/Application.vala:148
+#: src/Application.vala:144
 msgid "The parent directory doesn't exist."
 msgstr "প্যারেন্ট ডিরেক্টরি'র অস্তিত্ব নেই।"
 
-#: src/Application.vala:155
+#: src/Application.vala:151
 #, c-format
 msgid ""
 "File \"%s\" cannot be created.\n"
@@ -39,7 +39,7 @@ msgstr ""
 "\"%s\" ফাইলটি সৃষ্টি করা যাবে না।\n"
 "%s"
 
-#: src/Application.vala:165
+#: src/Application.vala:161
 #, c-format
 msgid ""
 "File \"%s\" cannot be opened.\n"
@@ -48,11 +48,11 @@ msgstr ""
 "\"%s\" ফাইলটি খোলা যাবে না।\n"
 "%s"
 
-#: src/Application.vala:175
+#: src/Application.vala:171
 msgid "It is a mountable location."
 msgstr "এই লোকেশানটি মাউন্ট করা যাবে।"
 
-#: src/Application.vala:178
+#: src/Application.vala:174
 #, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
@@ -61,27 +61,27 @@ msgstr ""
 "এটি একটি \"বিশেষ\" ফাইল যেমন সকেট,\n"
 " ফিফো, ব্লক ডিভাইস, অথবা ক্যারেক্টার ডিভাইস।"
 
-#: src/Application.vala:181
+#: src/Application.vala:177
 msgid "It is an \"unknown\" file type."
 msgstr "এটি একটি \"অপরিচিত\" ফাইল টাইপ।"
 
-#: src/Application.vala:270
+#: src/Application.vala:266
 msgid "New Tab"
 msgstr "নতুন ট্যাব"
 
-#: src/Application.vala:271 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:267 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "নতুন উইন্ডো"
 
-#: src/Application.vala:272
+#: src/Application.vala:268
 msgid "Print version info and exit"
 msgstr "ভার্সন এর তথ্য মুদ্রণ করে প্রস্থান করুন"
 
-#: src/Application.vala:273
+#: src/Application.vala:269
 msgid "Set of plugins"
 msgstr "প্লাগিন এর সেট"
 
-#: src/Application.vala:274
+#: src/Application.vala:270
 msgid "Current working directory"
 msgstr "বর্তমান কাজের ডিরেক্টরি"
 
@@ -151,15 +151,15 @@ msgstr "ফাইল সংরক্ষণ করুন যখনঃ"
 msgid "Tabs"
 msgstr "ট্যাবসমূহ"
 
-#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:155
+#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:156
 msgid "Automatic indentation:"
 msgstr "স্বয়ংক্রিয় ইনডেন্টেশানঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:149
+#: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:150
 msgid "Insert spaces instead of tabs:"
 msgstr "ট্যাব এর বদলে স্পেস ব্যবহার করুনঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:152
+#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:153
 msgid "Tab width:"
 msgstr "ট্যাব এর প্রস্থঃ"
 
@@ -239,7 +239,7 @@ msgstr "অন্যান্য ফরম্যাটসমূহ"
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:121 src/FolderManager/FolderItem.vala:124
+#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:127
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr ""
@@ -248,35 +248,35 @@ msgstr ""
 msgid "Folders"
 msgstr "ফোল্ডারসমূহ"
 
-#: src/FolderManager/FolderItem.vala:140
+#: src/FolderManager/FolderItem.vala:143
 #, fuzzy
 msgid "Folder"
 msgstr "ফোল্ডারসমূহ"
 
-#: src/FolderManager/FolderItem.vala:143
+#: src/FolderManager/FolderItem.vala:146
 msgid "Empty File"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:150
+#: src/FolderManager/FolderItem.vala:153
 #, fuzzy
 msgid "New"
 msgstr "নতুন ট্যাব"
 
-#: src/FolderManager/FolderItem.vala:293
+#: src/FolderManager/FolderItem.vala:296
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:297
+#: src/FolderManager/FolderItem.vala:300
 #, c-format
 msgid "untitled folder %d"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:325
+#: src/FolderManager/FolderItem.vala:328
 #, fuzzy
 msgid "new file"
 msgstr "নতুন ফাইল"
 
-#: src/FolderManager/FolderItem.vala:329
+#: src/FolderManager/FolderItem.vala:332
 #, fuzzy, c-format
 msgid "new file %d"
 msgstr "নতুন ফাইল"
@@ -419,29 +419,29 @@ msgstr "বাক্যরীতি হাইলাইট করা"
 msgid "Line number"
 msgstr "লাইন নাম্বার দেখানঃ"
 
-#: src/Widgets/FormatBar.vala:95
+#: src/Widgets/FormatBar.vala:96
 msgid "Filter languages"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:117
+#: src/Widgets/FormatBar.vala:118
 msgid "Plain Text"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:199
+#: src/Widgets/FormatBar.vala:200
 #, fuzzy, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "ফাঁকা স্থান বসানঃ"
 msgstr[1] "ফাঁকা স্থান বসানঃ"
 
-#: src/Widgets/FormatBar.vala:201
+#: src/Widgets/FormatBar.vala:202
 #, fuzzy, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "নতুন ট্যাব"
 msgstr[1] "নতুন ট্যাব"
 
-#: src/Widgets/FormatBar.vala:217
+#: src/Widgets/FormatBar.vala:218
 msgid "Go To Line:"
 msgstr "লাইন এ যানঃ"
 
@@ -527,20 +527,24 @@ msgstr "পূর্ববর্তী খুঁজুন"
 msgid "Cyclic Search"
 msgstr "সাইক্লিক অনুসন্ধান"
 
-#: src/Widgets/SearchBar.vala:87
+#: src/Widgets/SearchBar.vala:91
 msgid "Replace With"
 msgstr "প্রতিস্থাপক শব্দ/শব্দগুচ্ছ"
 
-#: src/Widgets/SearchBar.vala:90
+#: src/Widgets/SearchBar.vala:94
 msgid "Replace"
 msgstr "প্রতিস্থাপন"
 
-#: src/Widgets/SearchBar.vala:93
+#: src/Widgets/SearchBar.vala:97
 msgid "Replace all"
 msgstr "সব প্রতিস্থাপন করুন"
 
 #: src/Widgets/SourceView.vala:329
 msgid "Sort Selected Lines"
+msgstr ""
+
+#: src/Widgets/SourceView.vala:336
+msgid "Toggle Comment"
 msgstr ""
 
 #: src/Widgets/WelcomeView.vala:26
