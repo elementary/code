@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-08-07 14:05-0700\n"
-"PO-Revision-Date: 2018-05-11 06:16+0000\n"
+"PO-Revision-Date: 2018-08-24 00:00+0000\n"
 "Last-Translator: Anand Kumar <anand@anandkumar.net>\n"
 "Language-Team: Hindi <https://weblate.elementary.io/projects/code/code/hi/>\n"
 "Language: hi\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #. We list some common errors for quick feedback
@@ -59,13 +59,12 @@ msgid "It is a mountable location."
 msgstr "यह एक माउंटेबल स्थान है।"
 
 #: src/Application.vala:174
-#, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
 msgstr ""
 "यह एक \"विशेष\" फ़ाइल है जैसे सॉकेट,\n"
-" फीफो, ब्लॉक डिवाइस या वर्ण डिवाइस।"
+" फीफो, ब्लॉक डिवाइस या अक्षर डिवाइस।"
 
 #: src/Application.vala:177
 msgid "It is an \"unknown\" file type."
@@ -236,9 +235,8 @@ msgid "Open In"
 msgstr "में खोलें"
 
 #: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:118
-#, fuzzy
 msgid "Other Actions"
-msgstr "अन्य अनुप्रयोग…"
+msgstr "अन्य अनुप्रयोग"
 
 #: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:121
 msgid "Rename"
@@ -530,13 +528,12 @@ msgid "Replace all"
 msgstr "सबको प्रतिस्थापित करें"
 
 #: src/Widgets/SourceView.vala:329
-#, fuzzy
 msgid "Sort Selected Lines"
-msgstr "चयनित पाठ के लिए"
+msgstr "चयनित लाइनों को क्रमबद्ध करें"
 
 #: src/Widgets/SourceView.vala:336
 msgid "Toggle Comment"
-msgstr ""
+msgstr "टिप्पणी टॉगल करें"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
