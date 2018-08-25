@@ -71,6 +71,10 @@ namespace Scratch.Widgets {
             source_buffer.mark_set.connect (on_mark_set);
             highlight_current_line = true;
 
+            var draw_spaces_tag = new Gtk.SourceTag ("draw_spaces");
+            draw_spaces_tag.draw_spaces = true;
+            source_buffer.tag_table.add (draw_spaces_tag);
+
             smart_home_end = Gtk.SourceSmartHomeEndType.AFTER;
 
             // Create common tags
@@ -191,12 +195,19 @@ namespace Scratch.Widgets {
             right_margin_position = Scratch.settings.right_margin_position;
             var source_buffer = (Gtk.SourceBuffer) buffer;
             source_buffer.highlight_matching_brackets = Scratch.settings.highlight_matching_brackets;
+
             if (settings.draw_spaces == ScratchDrawSpacesState.ALWAYS) {
                 space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.ALL,
+                    Gtk.SourceSpaceTypeFlags.SPACE | Gtk.SourceSpaceTypeFlags.TAB);
+            } else if (settings.draw_spaces == ScratchDrawSpacesState.FOR_SELECTION) {
+                space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.ALL, Gtk.SourceSpaceTypeFlags.NONE);
+                space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.TRAILING,
                     Gtk.SourceSpaceTypeFlags.SPACE | Gtk.SourceSpaceTypeFlags.TAB);
             } else {
                 space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.ALL, Gtk.SourceSpaceTypeFlags.NONE);
             }
+
+            update_draw_spaces ();
 
             insert_spaces_instead_of_tabs = Scratch.settings.spaces_instead_of_tabs;
             tab_width = (uint) Scratch.settings.indent_width;
@@ -353,6 +364,23 @@ namespace Scratch.Widgets {
             return buffer.text;
         }
 
+        private void update_draw_spaces () {
+            Gtk.TextIter doc_start, doc_end;
+            buffer.get_start_iter (out doc_start);
+            buffer.get_end_iter (out doc_end);
+            buffer.remove_tag_by_name ("draw_spaces", doc_start, doc_end);
+
+            Gtk.TextIter start, end;
+            var selection = buffer.get_selection_bounds (out start, out end);
+
+            /* Draw spaces in selection the same way if drawn at all */
+            if (selection &&
+                settings.draw_spaces in (ScratchDrawSpacesState.FOR_SELECTION | ScratchDrawSpacesState.ALWAYS)) {
+
+                buffer.apply_tag_by_name ("draw_spaces", start, end);
+            }
+        }
+
         private void on_context_menu (Gtk.Menu menu) {
             var sort_item = new Gtk.MenuItem.with_label (_("Sort Selected Lines"));
             sort_item.sensitive = get_selected_line_count () > 1;
@@ -376,14 +404,16 @@ namespace Scratch.Widgets {
         void on_mark_set (Gtk.TextIter loc, Gtk.TextMark mar) {
             // Weed out user movement for text selection changes
             Gtk.TextIter start, end;
-            buffer.get_selection_bounds (out start,out end);
+            buffer.get_selection_bounds (out start, out end);
 
             if (start.equal (last_select_start_iter) && end.equal (last_select_end_iter)) {
                 return;
             }
 
-            last_select_start_iter = start;
-            last_select_end_iter = end;
+            last_select_start_iter.assign (start);
+            last_select_end_iter.assign (end);
+
+            update_draw_spaces ();
 
             if (selection_changed_timer != 0) {
                 Source.remove (selection_changed_timer);
@@ -411,15 +441,6 @@ namespace Scratch.Widgets {
 
             selection_changed_timer = 0;
             return false;
-        }
-
-        public override void draw_layer (Gtk.TextViewLayer layer, Cairo.Context context) {
-            if (layer == Gtk.TextViewLayer.ABOVE && buffer.get_has_selection () && settings.draw_spaces == ScratchDrawSpacesState.FOR_SELECTION) {
-                context.save ();
-                Utils.draw_tabs_and_spaces (this, context);
-                context.restore ();
-            }
-            base.draw_layer (layer, context);
         }
     }
 }
