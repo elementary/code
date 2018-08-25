@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
-"PO-Revision-Date: 2018-03-26 00:08+0000\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"PO-Revision-Date: 2018-08-12 00:05+0000\n"
+"Last-Translator: Veli-Pekka Samuli Finnilä <vpf@tuta.io>\n"
 "Language-Team: Finnish <https://weblate.elementary.io/projects/code/code/fi/>"
 "\n"
 "Language: fi\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: ../src/config.vala:15
@@ -388,7 +388,7 @@ msgstr "Uusi tiedosto"
 
 #: ../src/Widgets/SplitView.vala:50
 msgid "Create a new empty file."
-msgstr "Luo uusi tyhjä tiedosto"
+msgstr "Luo uusi tyhjä tiedosto."
 
 #: ../src/Widgets/SplitView.vala:51
 msgid "Open file"
@@ -557,7 +557,7 @@ msgstr "Fontti- ja väriteema"
 
 #: ../src/Dialogs/PreferencesDialog.vala:189
 msgid "Color scheme:"
-msgstr "Värimaailma"
+msgstr "Värimaailma:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:194
 msgid "Custom font:"
@@ -571,7 +571,7 @@ msgstr "Pääte"
 
 #: ../plugins/terminal/terminal.vala:24
 msgid "A terminal in your text editor"
-msgstr "Pääte tekstieditorissasi"
+msgstr "Pääte tekstimuokkaimessasi"
 
 #: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
 msgid "Show Terminal"
@@ -600,11 +600,13 @@ msgstr "Pääte alhaalla"
 
 #: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
 msgid "Strip trailing whitespace"
-msgstr "Poista taakse jäävä tyhjätila"
+msgstr "Siivoa pois tekstirivien loppuun jääneet turhat välilyönnit"
 
 #: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
 msgid "Strip trailing whitespace on save"
-msgstr "Poista taakse jäävä tyhjätila tallennuksen yhteydessä"
+msgstr ""
+"Siivoa pois tekstirivien loppuun jääneet turhat välilyönnit tallennuksen "
+"yhteydessä"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -626,7 +628,7 @@ msgstr "Korosta valitut sanat"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
 msgid "Highlights all occurrences of words that are selected"
-msgstr "Korosta kaikki valittuna olevien sanojen toistumat"
+msgstr "Korostaa kaikki valittuna olevien sanojen toistumat"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -644,11 +646,11 @@ msgstr "Korosta kaikki valittuna olevien sanojen toistumat"
 #. **
 #: ../plugins/brackets-completion/brackets-completion.vala:21
 msgid "Brackets Completion"
-msgstr "Sulkeiden täydennys"
+msgstr "Sulkujen täydentäminen"
 
 #: ../plugins/brackets-completion/brackets-completion.vala:22
 msgid "Complete brackets while typing"
-msgstr "Täydennä sulkeet kirjoittaessa"
+msgstr "Täydennä sulut kirjoittaessa"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -713,7 +715,7 @@ msgstr "Vim-emulaatio"
 
 #: ../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
-msgstr "Käytä Vim-komentoja Scratchissa"
+msgstr "Käytä Vim-komentoja"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -770,7 +772,7 @@ msgstr "Symbolit"
 #. **
 #: ../plugins/outline/OutlinePlugin.vala:21
 msgid "Outline"
-msgstr "Ääriviiva"
+msgstr "Yhteenveto"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
@@ -826,7 +828,7 @@ msgstr "Oikoluku"
 
 #: ../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
-msgstr "Suorittaa oikoluvun asiakirjoillesi"
+msgstr "Oikolukee asiakirjasi"
 
 #: ../plugins/spell/spell.vala:80
 msgid ""
@@ -962,7 +964,7 @@ msgstr "Lähetä Pastebiniin"
 #. **
 #: ../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
-msgstr "Jaa tiedostoja Contractor-jakamispalvelun kautta"
+msgstr "Jaa tiedostosi Contractorin kautta"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:70
 msgid "Folders"
@@ -1015,7 +1017,7 @@ msgstr "Avaa sovelluksella"
 
 #: ../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr "Avaa muokkaamiasi tiedostoja muilla sovelluksilla"
+msgstr "Avaa muokkaamiasi tiedostoja toisella sovelluksella"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"

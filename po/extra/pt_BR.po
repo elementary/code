@@ -7,38 +7,37 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-14 17:43-0700\n"
-"PO-Revision-Date: 2016-08-16 10:11+0000\n"
-"Last-Translator: Fabio Valentini <decathorpe@gmail.com>\n"
-"Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
+"POT-Creation-Date: 2018-06-27 08:36-0700\n"
+"PO-Revision-Date: 2018-06-01 00:06+0000\n"
+"Last-Translator: Mariel de Jesus™ <marieldejesus12@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://weblate.elementary.io/projects/"
+"code/extra/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
 #: data/io.elementary.code.desktop.in.in:4
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
 #: data/io.elementary.code.appdata.xml.in:9
-#, fuzzy
 msgid "The editor that works"
-msgstr "O editor de texto que funciona"
+msgstr "O editor que funciona"
 
 #: data/io.elementary.code.appdata.xml.in:11
-#, fuzzy
 msgid ""
 "Code is the editor that works for you. It auto-saves your files, meaning "
 "they're always up-to-date. Plus it remembers your tabs so you never lose "
 "your spot, even in between sessions."
 msgstr ""
-"O Scratch é o editor de texto que funciona para você. Ele salva "
-"automaticamente seus arquivos, ou seja, eles estarão sempre atualizados. E "
-"ele salva as abas para que você nunca as perca de vista, até mesmo entre "
-"diferentes sessões."
+"Code é o editor de texto que funciona para você. Ele salva automaticamente "
+"seus arquivos, ou seja, eles estarão sempre atualizados. E ele salva as abas "
+"para que você nunca as perca de vista, até mesmo entre diferentes sessões."
 
 #: data/io.elementary.code.appdata.xml.in:16
 #, fuzzy
@@ -83,7 +82,7 @@ msgid ""
 "Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
 "Objective C, Pascal, Perl, Python, Ruby, XML."
 msgstr ""
-"Outras linguagens em que há reconhecimento: Bash, C, C#, C++. Cmake, CSS, ."
+"Outras linguagens com destaque de sintaxe: Bash, C, C#, C++. Cmake, CSS, ."
 "Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
 "Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 
@@ -93,11 +92,11 @@ msgstr "Funcionalidades adicionais incluem:"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "syntax highlighting with gtksourceview-3"
-msgstr "Reconhecimento de sintaxe com gtksourceview-3"
+msgstr "Destaque de sintaxe com gtksourceview-3"
 
 #: data/io.elementary.code.appdata.xml.in:43
 msgid "a find bar to search the words in the files"
-msgstr "uma barra de pesquisa que procura por palavras nos arquivos"
+msgstr "uma barra de pesquisa para  procurar por palavras nos arquivos"
 
 #: data/io.elementary.code.appdata.xml.in:44
 msgid "tab and split documents system"
@@ -107,9 +106,9 @@ msgstr "crie abas e divida os documentos do sistema"
 msgid "lots of others"
 msgstr "muito outros"
 
-#: data/io.elementary.code.appdata.xml.in:51
+#: data/io.elementary.code.appdata.xml.in:83
 msgid "elementary LLC."
-msgstr ""
+msgstr "elementary LLC."
 
 #: data/io.elementary.code.desktop.in.in:5
 #, fuzzy
@@ -118,11 +117,11 @@ msgstr "Editar arquivos de texto"
 
 #: data/io.elementary.code.desktop.in.in:6
 msgid "Code Editor"
-msgstr ""
+msgstr "Code Editor"
 
 #: data/io.elementary.code.desktop.in.in:8
 msgid "io.elementary.code"
-msgstr ""
+msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
 #, fuzzy
@@ -131,11 +130,11 @@ msgstr "Scratch"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New Document"
-msgstr ""
+msgstr "Novo Documento"
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
-msgstr ""
+msgstr "Nova Janela"
 
 #~ msgid "Notepad;IDE;Plain;"
 #~ msgstr "Bloco de notas;IDE;Texto plano;"

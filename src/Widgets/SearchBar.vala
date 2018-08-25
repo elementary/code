@@ -19,7 +19,7 @@
  */
 
 namespace Scratch.Widgets {
-    public class SearchBar : Gtk.Grid {
+    public class SearchBar : Gtk.FlowBox {
         public weak MainWindow window { get; construct; }
 
         private Gtk.Button tool_arrow_up;
@@ -50,14 +50,12 @@ namespace Scratch.Widgets {
          * following actions : Fetch, ShowGoTo, ShowRreplace, or null.
          **/
         public SearchBar (MainWindow window) {
-            Object (
-                column_spacing: 6,
-                window: window
-            );
+            Object (window: window);
         }
 
         construct {
             get_style_context ().add_class ("search-bar");
+
             search_entry = new Gtk.SearchEntry ();
             search_entry.hexpand = true;
             search_entry.placeholder_text = _("Find");
@@ -84,6 +82,10 @@ namespace Scratch.Widgets {
             search_grid.add (tool_arrow_up);
             search_grid.add (tool_cycle_search);
 
+            var search_flow_box_child = new Gtk.FlowBoxChild ();
+            search_flow_box_child.can_focus = false;
+            search_flow_box_child.add (search_grid);
+
             replace_entry = new Gtk.SearchEntry ();
             replace_entry.hexpand = true;
             replace_entry.placeholder_text = _("Replace With");
@@ -101,6 +103,10 @@ namespace Scratch.Widgets {
             replace_grid.add (replace_entry);
             replace_grid.add (replace_tool_button);
             replace_grid.add (replace_all_tool_button);
+
+            var replace_flow_box_child = new Gtk.FlowBoxChild ();
+            replace_flow_box_child.can_focus = false;
+            replace_flow_box_child.add (replace_grid);
 
             // Connecting to some signals
             search_entry.changed.connect (on_search_entry_text_changed);
@@ -121,8 +127,10 @@ namespace Scratch.Widgets {
             entry_context.set_path (entry_path);
             entry_context.add_class ("entry");
 
-            add (search_grid);
-            add (replace_grid);
+            column_spacing = 6;
+            max_children_per_line = 2;
+            add (search_flow_box_child);
+            add (replace_flow_box_child);
 
             update_replace_tool_sensitivities (search_entry.text, false);
         }
@@ -167,7 +175,7 @@ namespace Scratch.Widgets {
             if (search_for_iter (start_iter, out end_iter)) {
                 string replace_string = replace_entry.text;
                 try {
-                    search_context.replace (start_iter, end_iter, replace_string, replace_string.length);
+                    search_context.replace2 (start_iter, end_iter, replace_string, replace_string.length);
                     bool matches = search ();
                     update_replace_tool_sensitivities (search_entry.text, matches);
                     update_tool_arrows (search_entry.text);
@@ -277,7 +285,7 @@ namespace Scratch.Widgets {
 
         private bool search_for_iter (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
             end_iter = start_iter;
-            bool found = search_context.forward (start_iter, out start_iter, out end_iter);
+            bool found = search_context.forward2 (start_iter, out start_iter, out end_iter, null);
             if (found) {
                 text_buffer.select_range (start_iter, end_iter);
                 text_view.scroll_to_iter (start_iter, 0, false, 0, 0);
@@ -288,7 +296,7 @@ namespace Scratch.Widgets {
 
         private bool search_for_iter_backward (Gtk.TextIter? start_iter, out Gtk.TextIter? end_iter) {
             end_iter = start_iter;
-            bool found = search_context.backward (start_iter, out start_iter, out end_iter);
+            bool found = search_context.backward2 (start_iter, out start_iter, out end_iter, null);
             if (found) {
                 text_buffer.select_range (start_iter, end_iter);
                 text_view.scroll_to_iter (start_iter, 0, false, 0, 0);
@@ -349,14 +357,14 @@ namespace Scratch.Widgets {
                     is_in_end = end_iter.compare(tmp_end_iter) == 0;
 
                     if (!is_in_end) {
-                        bool next_found = search_context.forward (end_iter, out tmp_start_iter, out tmp_end_iter);
+                        bool next_found = search_context.forward2 (end_iter, out tmp_start_iter, out tmp_end_iter, null);
                         tool_arrow_down.sensitive = next_found;
                     } else {
                         tool_arrow_down.sensitive = false;
                     }
 
                     if (!is_in_start) {
-                        bool previous_found = search_context.backward (start_iter, out tmp_start_iter, out end_iter);
+                        bool previous_found = search_context.backward2 (start_iter, out tmp_start_iter, out end_iter, null);
                         tool_arrow_up.sensitive = previous_found;
                     } else {
                         tool_arrow_up.sensitive = false;

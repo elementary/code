@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-15 19:09+0000\n"
-"PO-Revision-Date: 2018-02-27 00:03+0000\n"
-"Last-Translator: Floris Remmert <fadenfisch95@gmail.com>\n"
+"POT-Creation-Date: 2018-07-17 11:34-0700\n"
+"PO-Revision-Date: 2018-08-19 00:08+0000\n"
+"Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
 "Language-Team: German <https://weblate.elementary.io/projects/code/plugins/"
 "de/>\n"
 "Language: de\n"
@@ -17,62 +17,54 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
-msgstr ""
+msgstr "Klammervervollständigung"
 
 #: plugins/brackets-completion/brackets-completion.plugin:7
 msgid "Complete brackets while typing"
-msgstr ""
+msgstr "Vollständige Klammern während der Eingabe"
 
 #: plugins/browser-preview/browser-preview.plugin:6
 msgid "Browser Preview"
-msgstr ""
+msgstr "Browser-Vorschau"
 
 #: plugins/browser-preview/browser-preview.plugin:7
 msgid "Get a preview of your work in a web page"
-msgstr ""
-
-#: plugins/contractor/contractor.plugin:6
-msgid "Contractor"
-msgstr ""
-
-#: plugins/contractor/contractor.plugin:7
-msgid "Share your files with Contractor"
-msgstr ""
+msgstr "Erhalte eine Vorschau deiner Arbeit auf einer Webseite"
 
 #: plugins/detect-indent/detect-indent.plugin:6
 msgid "Detect Indent"
-msgstr ""
+msgstr "Einzug erkennen"
 
 #: plugins/detect-indent/detect-indent.plugin:7
 msgid "Heuristically detect tab or space settings"
+msgstr "Heuristische Erkennung von Tabulator- oder Leerzeicheneinstellungen"
+
+#: plugins/editorconfig/editorconfig.plugin:6
+msgid "EditorConfig"
+msgstr ""
+
+#: plugins/editorconfig/editorconfig.plugin:7
+msgid "Load settings from an EditorConfig file"
 msgstr ""
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
-msgstr ""
+msgstr "Wortauswahl markieren"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:7
 msgid "Highlights all occurrences of words that are selected"
-msgstr ""
-
-#: plugins/open-with/open-with.plugin:6
-msgid "Open With"
-msgstr ""
-
-#: plugins/open-with/open-with.plugin:7
-msgid "Open files you are editing with another application"
-msgstr ""
+msgstr "Markiert alle Vorkommen der markierten Wörter"
 
 #: plugins/outline/outline.plugin:6
 msgid "Outline"
 msgstr ""
 
 #: plugins/outline/outline.plugin:7
-msgid "Outline symbols in your current file for vala"
+msgid "Outline symbols in your current file for Vala"
 msgstr ""
 
 #: plugins/pastebin/pastebin.plugin:6
@@ -81,11 +73,11 @@ msgstr ""
 
 #: plugins/pastebin/pastebin.plugin:7
 msgid "Share files with pastebin service"
-msgstr ""
+msgstr "Dateien über Pastebin teilen"
 
 #: plugins/preserve-indent/preserve-indent.plugin:6
 msgid "Preserve Indent"
-msgstr ""
+msgstr "Einrückung beibehalten"
 
 #: plugins/preserve-indent/preserve-indent.plugin:7
 msgid "Maintains relative indent level of pasted text"
@@ -93,19 +85,19 @@ msgstr ""
 
 #: plugins/spell/spell.plugin:6
 msgid "Spell Checker"
-msgstr ""
+msgstr "Rechtschreibprüfung"
 
 #: plugins/spell/spell.plugin:7
 msgid "Checks the spelling of your documents"
-msgstr ""
+msgstr "Überprüft die Rechtschreibung deiner Dokumente"
 
 #: plugins/strip-trailing-save/strip-trailing-save.plugin:6
 msgid "Strip trailing whitespace"
-msgstr ""
+msgstr "Leerzeichen am Zeilenende entfernen"
 
 #: plugins/strip-trailing-save/strip-trailing-save.plugin:7
 msgid "Strip trailing whitespace on save"
-msgstr ""
+msgstr "Leerzeichen am Zeilenende beim Speichern entfernen"
 
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
@@ -113,11 +105,11 @@ msgstr "Terminal"
 
 #: plugins/terminal/terminal.plugin:7
 msgid "A terminal in your text editor"
-msgstr ""
+msgstr "Ein Terminal in Ihrem Texteditor"
 
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
-msgstr ""
+msgstr "Vim-Emulation"
 
 #: plugins/vim-emulation/vim-emulation.plugin:7
 msgid "Use Vim commands in Scratch"
@@ -125,8 +117,10 @@ msgstr ""
 
 #: plugins/word-completion/word-completion.plugin:3
 msgid "Words Completion"
-msgstr ""
+msgstr "Wortvervollständigung"
 
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
+"Einen Dialog zur Vervollständigung mit den am meisten genutzten Wörtern "
+"deiner Dateien anzeigen"

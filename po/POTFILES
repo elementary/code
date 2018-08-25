@@ -1,5 +1,4 @@
 src/Application.vala
-src/DrawSpacesUtils.vala
 src/MainWindow.vala
 src/Utils.vala
 src/Dialogs/PreferencesDialog.vala
@@ -36,7 +35,6 @@ plugins/outline/Vala/ValaSymbolItem.vala
 plugins/outline/Vala/ValaSidePane.vala
 plugins/terminal/Settings.vala
 plugins/terminal/terminal.vala
-plugins/contractor/contractor.vala
 plugins/brackets-completion/brackets-completion.vala
 plugins/strip-trailing-save/strip-trailing-save.vala
 plugins/browser-preview/BrowserView.vala

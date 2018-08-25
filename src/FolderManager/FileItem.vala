@@ -58,6 +58,8 @@ namespace Scratch.FolderManager {
             open_in_menu.add (new Gtk.SeparatorMenuItem ());
             open_in_menu.add (files_menuitem);
 
+            var contractor_menu = new Gtk.Menu ();
+
             GLib.FileInfo info = null;
 
             try {
@@ -91,6 +93,17 @@ namespace Scratch.FolderManager {
                     });
                     open_in_menu.add (item_app);
                 }
+
+                try {
+                    var contracts = Granite.Services.ContractorProxy.get_contracts_by_mime (file_type);
+                    foreach (var contract in contracts) {
+                        var menu_item = new ContractMenuItem (contract, file.file);
+                        contractor_menu.append (menu_item);
+                        menu_item.show_all ();
+                    }
+                } catch (Error e) {
+                    warning (e.message);
+                }
             }
 
             open_in_menu.add (new Gtk.SeparatorMenuItem ());
@@ -99,45 +112,27 @@ namespace Scratch.FolderManager {
             var open_in_item = new Gtk.MenuItem.with_label (_("Open In"));
             open_in_item.submenu = open_in_menu;
 
+            var contractor_item = new Gtk.MenuItem.with_label (_("Other Actions"));
+            contractor_item.submenu = contractor_menu;
+
             var rename_item = new Gtk.MenuItem.with_label (_("Rename"));
-            rename_item.activate.connect (() => view.start_editing_item (this));
+            rename_item.activate.connect (() => {
+                view.ignore_next_select = true;
+                view.start_editing_item (this);
+            });
 
             var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
             delete_item.activate.connect (trash);
 
             var menu = new Gtk.Menu ();
             menu.append (open_in_item);
+            menu.append (contractor_item);
             menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (rename_item);
             menu.append (delete_item);
             menu.show_all ();
 
             return menu;
-        }
-
-        private void show_app_chooser (File file) {
-            var dialog = new Gtk.AppChooserDialog (new Gtk.Window (), Gtk.DialogFlags.MODAL, file.file);
-            dialog.deletable = false;
-
-            if (dialog.run () == Gtk.ResponseType.OK) {
-                var app_info = dialog.get_app_info ();
-                if (app_info != null) {
-                    launch_app_with_file (app_info, file.file);
-                }
-            }
-
-            dialog.destroy ();
-        }
-
-        private void launch_app_with_file (AppInfo app_info, GLib.File file) {
-            var file_list = new List<GLib.File> ();
-            file_list.append (file);
-
-            try {
-                app_info.launch (file_list, null);
-            } catch (Error e) {
-                warning (e.message);
-            }
         }
     }
 }

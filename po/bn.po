@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-28 15:29-0700\n"
+"POT-Creation-Date: 2018-08-07 14:05-0700\n"
 "PO-Revision-Date: 2017-01-21 09:06+0000\n"
 "Last-Translator: Hasan Sumon <hsnsumon@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,23 +13,24 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 "X-Generator: Launchpad (build 18366)\n"
 
-#: src/Application.vala:142
+#. We list some common errors for quick feedback
+#: src/Application.vala:138
 msgid "Maybe you do not have the necessary permissions."
 msgstr "আপনার হয়ত প্রয়োজনীয় অনুমতি নেই।"
 
-#: src/Application.vala:144
+#: src/Application.vala:140
 msgid "Maybe the file path provided is not valid."
 msgstr "হয়ত প্রদানকৃত ফাইল এর পথটি গ্রহনযোগ্য নয়।"
 
-#: src/Application.vala:146
+#: src/Application.vala:142
 msgid "The location is read-only."
 msgstr "এই লোকেশানটি রিড-অনলি।"
 
-#: src/Application.vala:148
+#: src/Application.vala:144
 msgid "The parent directory doesn't exist."
 msgstr "প্যারেন্ট ডিরেক্টরি'র অস্তিত্ব নেই।"
 
-#: src/Application.vala:155
+#: src/Application.vala:151
 #, c-format
 msgid ""
 "File \"%s\" cannot be created.\n"
@@ -38,7 +39,7 @@ msgstr ""
 "\"%s\" ফাইলটি সৃষ্টি করা যাবে না।\n"
 "%s"
 
-#: src/Application.vala:165
+#: src/Application.vala:161
 #, c-format
 msgid ""
 "File \"%s\" cannot be opened.\n"
@@ -47,71 +48,69 @@ msgstr ""
 "\"%s\" ফাইলটি খোলা যাবে না।\n"
 "%s"
 
-#: src/Application.vala:174
+#: src/Application.vala:171
 msgid "It is a mountable location."
 msgstr "এই লোকেশানটি মাউন্ট করা যাবে।"
 
-#: src/Application.vala:177
-msgid "It is a directory."
-msgstr "এটি একটি ডিরেক্টরি।"
-
-#: src/Application.vala:180
+#: src/Application.vala:174
+#, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
-" fifo, block device, or character device."
+" FIFO, block device, or character device."
 msgstr ""
 "এটি একটি \"বিশেষ\" ফাইল যেমন সকেট,\n"
 " ফিফো, ব্লক ডিভাইস, অথবা ক্যারেক্টার ডিভাইস।"
 
-#: src/Application.vala:183
+#: src/Application.vala:177
 msgid "It is an \"unknown\" file type."
 msgstr "এটি একটি \"অপরিচিত\" ফাইল টাইপ।"
 
-#: src/Application.vala:255
+#: src/Application.vala:266
 msgid "New Tab"
 msgstr "নতুন ট্যাব"
 
-#: src/Application.vala:256 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:267 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "নতুন উইন্ডো"
 
-#: src/Application.vala:257
+#: src/Application.vala:268
 msgid "Print version info and exit"
 msgstr "ভার্সন এর তথ্য মুদ্রণ করে প্রস্থান করুন"
 
-#: src/Application.vala:258
+#: src/Application.vala:269
 msgid "Set of plugins"
 msgstr "প্লাগিন এর সেট"
 
-#: src/Application.vala:259
+#: src/Application.vala:270
 msgid "Current working directory"
 msgstr "বর্তমান কাজের ডিরেক্টরি"
 
-#: src/MainWindow.vala:125
+#: src/MainWindow.vala:131
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:167 src/Widgets/HeaderBar.vala:66
+#: src/MainWindow.vala:176 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
 msgstr "খুঁজুন..."
 
-#: src/MainWindow.vala:169
+#: src/MainWindow.vala:178
 msgid "Hide search bar"
 msgstr "অনুসন্ধান বার লুকিয়ে রাখুন"
 
-#: src/MainWindow.vala:215
+#: src/MainWindow.vala:224
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "স্ক্র্যাচ এর জন্যে জেইটগেইস্ট ডাটাসোর্স"
 
-#: src/MainWindow.vala:716
+#. Show a GtkFileChooserDialog
+#: src/MainWindow.vala:731
 msgid "Open some files"
 msgstr "কিছু ফাইল খুলুন"
 
-#: src/MainWindow.vala:735
+#: src/MainWindow.vala:750
 msgid "_Cancel"
 msgstr "_বাতিল"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:751
 msgid "_Open"
 msgstr "_খুলুন"
 
@@ -123,7 +122,7 @@ msgstr "সব ফাইল"
 msgid "Text files"
 msgstr "টেক্সট ফাইলসমূহ"
 
-#: src/Utils.vala:35 src/Services/Document.vala:371
+#: src/Utils.vala:35 src/Services/Document.vala:403
 msgid "Cancel"
 msgstr "বাতিল করুন"
 
@@ -131,115 +130,116 @@ msgstr "বাতিল করুন"
 msgid "Open"
 msgstr "খুলুন"
 
-#: src/Utils.vala:46 src/Services/Document.vala:372
-#: src/Services/Document.vala:668
+#: src/Utils.vala:46 src/Services/Document.vala:404
+#: src/Services/Document.vala:701
 msgid "Save"
 msgstr "সংরক্ষণ করুন"
 
-#: src/Dialogs/PreferencesDialog.vala:39 src/Widgets/HeaderBar.vala:138
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:138
 msgid "Preferences"
 msgstr "পছন্দসমূহ"
 
-#: src/Dialogs/PreferencesDialog.vala:53
+#: src/Dialogs/PreferencesDialog.vala:52
 msgid "General"
 msgstr "সাধারন"
 
-#: src/Dialogs/PreferencesDialog.vala:54
+#: src/Dialogs/PreferencesDialog.vala:53
 msgid "Save files when changed:"
 msgstr "ফাইল সংরক্ষণ করুন যখনঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:55 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
 msgstr "ট্যাবসমূহ"
 
-#: src/Dialogs/PreferencesDialog.vala:57 src/Widgets/FormatBar.vala:147
+#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:156
 msgid "Automatic indentation:"
 msgstr "স্বয়ংক্রিয় ইনডেন্টেশানঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:59 src/Widgets/FormatBar.vala:141
+#: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:150
 msgid "Insert spaces instead of tabs:"
 msgstr "ট্যাব এর বদলে স্পেস ব্যবহার করুনঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:144
+#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:153
 msgid "Tab width:"
 msgstr "ট্যাব এর প্রস্থঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:68
+#: src/Dialogs/PreferencesDialog.vala:67
 msgid "Behavior"
 msgstr "বৈশিষ্ট্য"
 
-#: src/Dialogs/PreferencesDialog.vala:69
+#: src/Dialogs/PreferencesDialog.vala:68
 msgid "Interface"
 msgstr "ইন্টারফেস"
 
-#: src/Dialogs/PreferencesDialog.vala:81
+#: src/Dialogs/PreferencesDialog.vala:80
 #: plugins/pastebin/pastebin_dialog.vala:323
 msgid "Close"
 msgstr "বন্ধ করুন"
 
-#: src/Dialogs/PreferencesDialog.vala:97
+#: src/Dialogs/PreferencesDialog.vala:96
 msgid "Extensions"
 msgstr "এক্সটেনশানসমূহ"
 
-#: src/Dialogs/PreferencesDialog.vala:106
+#: src/Dialogs/PreferencesDialog.vala:105
 msgid "Editor"
 msgstr "সম্পাদক"
 
-#: src/Dialogs/PreferencesDialog.vala:108
-msgid "Highlight current line:"
-msgstr "বর্তমান লাইনটি হাইলাইট করুনঃ"
-
-#: src/Dialogs/PreferencesDialog.vala:111
+#: src/Dialogs/PreferencesDialog.vala:107
 msgid "Highlight matching brackets:"
 msgstr "একই ধরনের ব্র্যাকেট হাইলাইট করুনঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:110
 msgid "Draw Spaces:"
 msgstr "ফাঁকা স্থান বসানঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:112
 #: plugins/pastebin/pastebin_dialog.vala:460
 msgid "Never"
 msgstr "কখনো নয়"
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:113
 msgid "For selected text"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:118
+#: src/Dialogs/PreferencesDialog.vala:114
 msgid "Always"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:121
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Show Mini Map:"
 msgstr "ছোট ম্যাপ দেখানঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:124
+#: src/Dialogs/PreferencesDialog.vala:120
 msgid "Line width guide:"
 msgstr "লাইন এর প্রস্থ নির্দেশিকাঃ"
 
-#: src/Dialogs/PreferencesDialog.vala:132
+#: src/Dialogs/PreferencesDialog.vala:128
 msgid "Font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:134
+#: src/Dialogs/PreferencesDialog.vala:130
 msgid "Custom font:"
 msgstr "কাস্টম ফন্টঃ"
 
-#: src/FolderManager/FileItem.vala:50
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:59
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:93
+#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:115
 #, fuzzy
 msgid "Open In"
 msgstr "খুলুন"
 
-#: src/FolderManager/FileItem.vala:96 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:118
+#, fuzzy
+msgid "Other Actions"
+msgstr "অন্যান্য ফরম্যাটসমূহ"
+
+#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:121
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:99 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:127
 #: src/FolderManager/MainFolderItem.vala:33
 msgid "Move to Trash"
 msgstr ""
@@ -248,35 +248,35 @@ msgstr ""
 msgid "Folders"
 msgstr "ফোল্ডারসমূহ"
 
-#: src/FolderManager/FolderItem.vala:77
+#: src/FolderManager/FolderItem.vala:143
 #, fuzzy
 msgid "Folder"
 msgstr "ফোল্ডারসমূহ"
 
-#: src/FolderManager/FolderItem.vala:80
+#: src/FolderManager/FolderItem.vala:146
 msgid "Empty File"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:87
+#: src/FolderManager/FolderItem.vala:153
 #, fuzzy
 msgid "New"
 msgstr "নতুন ট্যাব"
 
-#: src/FolderManager/FolderItem.vala:223
+#: src/FolderManager/FolderItem.vala:296
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:227
+#: src/FolderManager/FolderItem.vala:300
 #, c-format
 msgid "untitled folder %d"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:249
+#: src/FolderManager/FolderItem.vala:328
 #, fuzzy
 msgid "new file"
 msgstr "নতুন ফাইল"
 
-#: src/FolderManager/FolderItem.vala:253
+#: src/FolderManager/FolderItem.vala:332
 #, fuzzy, c-format
 msgid "new file %d"
 msgstr "নতুন ফাইল"
@@ -285,65 +285,66 @@ msgstr "নতুন ফাইল"
 msgid "Close Folder"
 msgstr "ফোল্ডার বন্ধ করুন"
 
-#: src/Services/Document.vala:222
+#: src/Services/Document.vala:243
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:223
+#: src/Services/Document.vala:244
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:225
+#: src/Services/Document.vala:246
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:246
+#: src/Services/Document.vala:267
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:247
+#: src/Services/Document.vala:268
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:249
+#: src/Services/Document.vala:270
 #, fuzzy
 msgid "Cancel Load"
 msgstr "বাতিল করুন"
 
-#: src/Services/Document.vala:362
+#: src/Services/Document.vala:394
 #, c-format
 msgid "Save changes to document %s before closing?"
 msgstr "বন্ধ করার আগে ডকুমেন্টে  %s সংরক্ষণ করতে চান?"
 
-#: src/Services/Document.vala:365
+#: src/Services/Document.vala:397
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
 "যদি আপনি সংরক্ষণ না করেন, তাহলে গত ৪ সেকেন্ডের পরিবর্তনগুলো স্থায়ীভাবে হারিয়ে "
 "যাবে।"
 
-#: src/Services/Document.vala:367
+#: src/Services/Document.vala:399
 msgid "Close without saving"
 msgstr "সংরক্ষণ না করে বন্ধ করুন"
 
-#: src/Services/Document.vala:449
+#: src/Services/Document.vala:482
 msgid "Save File"
 msgstr "ফাইল সংরক্ষণ করুন"
 
-#: src/Services/Document.vala:523
+#: src/Services/Document.vala:556
 msgid "New Document"
 msgstr "নতুন ডকুমেন্ট"
 
-#: src/Services/Document.vala:646
+#. Show an error view which says "Hey, I cannot read that file!"
+#: src/Services/Document.vala:679
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 "\"%s\" ফাইলটি সৃষ্টি করা যাবে না।\n"
 "%s"
 
-#: src/Services/Document.vala:647
+#: src/Services/Document.vala:680
 #, fuzzy
 msgid ""
 "Maybe it is corrupt or you do not have the necessary permissions to read it."
@@ -351,7 +352,7 @@ msgstr ""
 "\"%s\" ফাইলটি নির্ণয় করে যাচ্ছেনা।  হয়ত এটি নষ্ট\n"
 "অথবা আপনার প্রয়োজনীয় অনুমতি নেই।"
 
-#: src/Services/Document.vala:659
+#: src/Services/Document.vala:692
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -360,16 +361,17 @@ msgstr ""
 "\"%s\" ফাইলটি যে অবস্থা এ ছিল সে লোকেশানটি সরিয়ে নেয়া হয়েছে। আপনি কী অন্য "
 "কোথায় সংরক্ষণ করতে চান?"
 
-#: src/Services/Document.vala:661
+#: src/Services/Document.vala:694
 msgid "Save As…"
 msgstr "নতুনভাবে সংরক্ষণ করুন..."
 
-#: src/Services/Document.vala:666
+#: src/Services/Document.vala:699
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "\"%s\" ফাইলটি মুছে দেওয়া হয়েছিলো। যাই হোক আপনি কি এটি সংরক্ষণ করতে চান?"
 
-#: src/Services/Document.vala:681
+#. If the file can't be written
+#: src/Services/Document.vala:714
 #, c-format
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
@@ -378,11 +380,11 @@ msgstr ""
 "আপনি \"%s\" ফাইলটিতে সংরক্ষণ করতে পারবেননা। এই ফাইলের পরিবর্তনগুলো আরেকটি "
 "লোকেশনে সংরক্ষণ করতে চান?"
 
-#: src/Services/Document.vala:683
+#: src/Services/Document.vala:716
 msgid "Save changes elsewhere"
 msgstr "পরিবর্তনগুলো অন্য কোথাও সংরক্ষণ করুন"
 
-#: src/Services/Document.vala:716
+#: src/Services/Document.vala:749
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -391,11 +393,11 @@ msgstr ""
 "\"%s\" ফাইলটি একটি এক্সটার্নাল এপ্লিকেশান কর্তৃক পরিবর্তিত হয়েছে। আপনি কী ফাইলটিকে "
 "পুনরায় লোড করে সম্পাদনা চালিয়ে যেতে চান?"
 
-#: src/Services/Document.vala:717
+#: src/Services/Document.vala:750
 msgid "Load"
 msgstr "লোড"
 
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:753
 msgid "Continue"
 msgstr "পরবর্তী"
 
@@ -417,29 +419,29 @@ msgstr "বাক্যরীতি হাইলাইট করা"
 msgid "Line number"
 msgstr "লাইন নাম্বার দেখানঃ"
 
-#: src/Widgets/FormatBar.vala:95
+#: src/Widgets/FormatBar.vala:96
 msgid "Filter languages"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:117
+#: src/Widgets/FormatBar.vala:118
 msgid "Plain Text"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:191
+#: src/Widgets/FormatBar.vala:200
 #, fuzzy, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "ফাঁকা স্থান বসানঃ"
 msgstr[1] "ফাঁকা স্থান বসানঃ"
 
-#: src/Widgets/FormatBar.vala:193
+#: src/Widgets/FormatBar.vala:202
 #, fuzzy, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "নতুন ট্যাব"
 msgstr[1] "নতুন ট্যাব"
 
-#: src/Widgets/FormatBar.vala:209
+#: src/Widgets/FormatBar.vala:218
 msgid "Go To Line:"
 msgstr "লাইন এ যানঃ"
 
@@ -509,33 +511,41 @@ msgstr "বর্তমান ভিউ সরিয়ে দিন"
 msgid "Menu"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:63
+#: src/Widgets/SearchBar.vala:61
 msgid "Find"
 msgstr "খুঁজুন"
 
-#: src/Widgets/SearchBar.vala:68
+#: src/Widgets/SearchBar.vala:66
 msgid "Search next"
 msgstr "পরবর্তী খুঁজুন"
 
-#: src/Widgets/SearchBar.vala:73
+#: src/Widgets/SearchBar.vala:71
 msgid "Search previous"
 msgstr "পূর্ববর্তী খুঁজুন"
 
-#: src/Widgets/SearchBar.vala:77
+#: src/Widgets/SearchBar.vala:75
 msgid "Cyclic Search"
 msgstr "সাইক্লিক অনুসন্ধান"
 
-#: src/Widgets/SearchBar.vala:89
+#: src/Widgets/SearchBar.vala:91
 msgid "Replace With"
 msgstr "প্রতিস্থাপক শব্দ/শব্দগুচ্ছ"
 
-#: src/Widgets/SearchBar.vala:92
+#: src/Widgets/SearchBar.vala:94
 msgid "Replace"
 msgstr "প্রতিস্থাপন"
 
-#: src/Widgets/SearchBar.vala:95
+#: src/Widgets/SearchBar.vala:97
 msgid "Replace all"
 msgstr "সব প্রতিস্থাপন করুন"
+
+#: src/Widgets/SourceView.vala:329
+msgid "Sort Selected Lines"
+msgstr ""
+
+#: src/Widgets/SourceView.vala:336
+msgid "Toggle Comment"
+msgstr ""
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -545,32 +555,36 @@ msgstr "কোন ফাইল খোলা নেই"
 msgid "Open a file to begin editing."
 msgstr "সম্পাদনা শুরু করার জন্যে একটি ফাইল খুলুন"
 
-#: src/Widgets/WelcomeView.vala:35
-msgid "New file"
-msgstr "নতুন ফাইল"
+#: src/Widgets/WelcomeView.vala:32
+#, fuzzy
+msgid "New File"
+msgstr "/নতুন ফাইল"
 
-#: src/Widgets/WelcomeView.vala:35
+#: src/Widgets/WelcomeView.vala:32
 msgid "Create a new empty file."
 msgstr "একটি নতুন খালি ফাইল সৃষ্টি করুন"
 
-#: src/Widgets/WelcomeView.vala:36
-msgid "Open file"
+#: src/Widgets/WelcomeView.vala:33
+#, fuzzy
+msgid "Open File"
 msgstr "ফাইল খুলুন"
 
-#: src/Widgets/WelcomeView.vala:36
+#: src/Widgets/WelcomeView.vala:33
 msgid "Open a saved file."
 msgstr "একটি সংরক্ষিত ফাইল খুলুন"
 
-#: src/Widgets/WelcomeView.vala:37
-msgid "New file from clipboard"
-msgstr "ক্লিপবোর্ড থেকে নতুন ফাইল সৃষ্টি করুন"
+#: src/Widgets/WelcomeView.vala:34
+#, fuzzy
+msgid "Open Folder"
+msgstr "একটি ফোল্ডার খুলুন"
 
-#: src/Widgets/WelcomeView.vala:37
-msgid "Create a new file from the contents of your clipboard."
-msgstr "আপনার ক্লিপবোর্ড এর তথ্য থেকে একটি নতুন ফাইল সৃষ্টি করুন"
+#: src/Widgets/WelcomeView.vala:34
+msgid "Add a project folder to the sidebar."
+msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:249
-msgid "Share via PasteBin"
+#, fuzzy
+msgid "Share via Pastebin"
 msgstr "পেস্টবিন এর মাধ্যমে শেয়ার করুন"
 
 #: plugins/pastebin/pastebin_dialog.vala:256
@@ -622,6 +636,7 @@ msgstr "এক মাস"
 msgid "Upload to Pastebin"
 msgstr "পেস্টবিন এ আপলোড করুন"
 
+#. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
 #: plugins/outline/C/CtagsSymbolOutline.vala:64
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
@@ -642,10 +657,13 @@ msgstr "টার্মিনাল লুকিয়ে রাখুন"
 msgid "Terminal"
 msgstr "টার্মিনাল"
 
+#. Popup menu
+#. COPY
 #: plugins/terminal/terminal.vala:194
 msgid "Copy"
 msgstr "অনুলিপি"
 
+#. PASTE
 #: plugins/terminal/terminal.vala:201
 msgid "Paste"
 msgstr "প্রতিলেপন"
@@ -680,6 +698,21 @@ msgstr "%s - শব্দ পরিপূরণ"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "আইকন থিম লোড করা সম্ভব হয়নিঃ %s\n"
+
+#~ msgid "It is a directory."
+#~ msgstr "এটি একটি ডিরেক্টরি।"
+
+#~ msgid "Highlight current line:"
+#~ msgstr "বর্তমান লাইনটি হাইলাইট করুনঃ"
+
+#~ msgid "New file"
+#~ msgstr "নতুন ফাইল"
+
+#~ msgid "New file from clipboard"
+#~ msgstr "ক্লিপবোর্ড থেকে নতুন ফাইল সৃষ্টি করুন"
+
+#~ msgid "Create a new file from the contents of your clipboard."
+#~ msgstr "আপনার ক্লিপবোর্ড এর তথ্য থেকে একটি নতুন ফাইল সৃষ্টি করুন"
 
 #~ msgid "Open With…"
 #~ msgstr "যে প্রোগ্রামের সাহায্যে খোলা হবে..."
@@ -878,9 +911,6 @@ msgstr "আইকন থিম লোড করা সম্ভব হয়নি�
 
 #~ msgid "File Manager"
 #~ msgstr "ফাইল ব্যবস্থাপক"
-
-#~ msgid "/New File"
-#~ msgstr "/নতুন ফাইল"
 
 #~ msgid "Spell Checker"
 #~ msgstr "বানান সংশোধক"

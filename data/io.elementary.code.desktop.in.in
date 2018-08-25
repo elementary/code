@@ -6,9 +6,9 @@ GenericName=Code Editor
 Exec=@EXEC_NAME@ %U
 Icon=io.elementary.code
 Terminal=false
-Categories=GNOME;GTK;IDE;Utility;TextEditor;WebDevelopment;
+Categories=Development;GTK;IDE;WebDevelopment;
 Keywords=IDE;scratch;
-MimeType=text/plain;
+MimeType=text/plain;inode/directory;
 StartupNotify=true
 Actions=NewWindow;NewDocument;
 
