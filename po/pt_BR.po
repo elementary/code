@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
-"PO-Revision-Date: 2018-08-29 05:01+0000\n"
+"PO-Revision-Date: 2018-08-29 05:12+0000\n"
 "Last-Translator: Rodrigo Oliveira <rod.oliveira@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://weblate.elementary.io/projects/"
 "code/code/pt_BR/>\n"
@@ -585,7 +585,7 @@ msgstr "Terminal"
 
 #: ../plugins/terminal/terminal.vala:24
 msgid "A terminal in your text editor"
-msgstr "Um terminal em seu editor de texto"
+msgstr "Um terminal no seu editor de texto"
 
 #: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
 msgid "Show Terminal"
@@ -614,11 +614,11 @@ msgstr "Terminal embaixo"
 
 #: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
 msgid "Strip trailing whitespace"
-msgstr "Tirar os espaços em branco"
+msgstr "Eliminar espaços no final das linhas"
 
 #: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
 msgid "Strip trailing whitespace on save"
-msgstr "Tirar os espaços em branco ao salvar"
+msgstr "Eliminar espaços no final das linhas ao salvar"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -727,7 +727,7 @@ msgstr "Emulação do Vim"
 
 #: ../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
-msgstr "Usar os comandos do Vim no Scratch"
+msgstr "Use comandos Vim no Code"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -784,7 +784,7 @@ msgstr "Símbolos"
 #. **
 #: ../plugins/outline/OutlinePlugin.vala:21
 msgid "Outline"
-msgstr "Cortorno"
+msgstr "Contorno"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
@@ -836,11 +836,11 @@ msgstr "/Novo Arquivo"
 
 #: ../plugins/spell/spell.vala:18
 msgid "Spell Checker"
-msgstr "Verificar ortográfico"
+msgstr "Corretor Ortográfico"
 
 #: ../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
-msgstr "Checa a ortografia de seus documentos"
+msgstr "Verifica a ortografia dos seus documentos"
 
 #: ../plugins/spell/spell.vala:80
 msgid ""
@@ -888,12 +888,12 @@ msgstr "Esconder pré-visualização"
 
 #: ../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
-msgstr "Conclusão de palavras"
+msgstr "Completar Palavras"
 
 #: ../plugins/word-completion/plugin.vala:35
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
-"Mostrar um diálogo de conclusão com as palavras mais usadas em seus arquivos"
+"Exibir diálogo de conclusão com as palavras mais usadas nos seus arquivos"
 
 #: ../plugins/word-completion/plugin.vala:178
 msgid "%s - Word Completion"
@@ -957,7 +957,7 @@ msgstr "Pastebin"
 
 #: ../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
-msgstr "Compartilhar arquivos com o Pastebin"
+msgstr "Compartilhar arquivos com o serviço Pastebin"
 
 #: ../plugins/pastebin/pastebin.vala:134
 msgid "Upload to Pastebin"
@@ -1004,7 +1004,7 @@ msgstr "Fechar pasta"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:24
 msgid "Preserve Indent"
-msgstr "Preservar identação"
+msgstr "Preservar Recuo"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:25
 msgid "Maintains indent level of pasted text when auto-indent is active"
@@ -1038,11 +1038,11 @@ msgstr "Abrir com..."
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
-msgstr "Detectar Indentação"
+msgstr "Detectar Recuo"
 
 #: ../plugins/detect-indent/detect-indent.vala:2
 msgid "Heuristically detect tab or space settings"
-msgstr "Detectar configurações de espaço e tabulação heuristicamente"
+msgstr "Detectar heuristicamente configurações de tabulação ou espaço"
 
 #~ msgid "Select font:"
 #~ msgstr "Selecionar fonte:"
