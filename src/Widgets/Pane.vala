@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2017 elementary LLC. (https://elementary.io)
+ * Copyright (c) 2017–2018 elementary LLC. (https://elementary.io)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@ public class Code.Pane : Gtk.Grid {
         orientation = Gtk.Orientation.VERTICAL;
         visible = false;
         no_show_all = true;
-        
+
         get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
         stack = new Gtk.Stack ();
         stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
@@ -73,3 +73,4 @@ public class Code.Pane : Gtk.Grid {
         });
     }
 }
+
