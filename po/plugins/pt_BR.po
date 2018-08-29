@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-17 11:34-0700\n"
-"PO-Revision-Date: 2018-08-29 05:06+0000\n"
-"Last-Translator: Enzo Gaban <enzogaban@gmail.com>\n"
+"PO-Revision-Date: 2018-08-29 05:17+0000\n"
+"Last-Translator: Rodrigo Oliveira <rod.oliveira@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://weblate.elementary.io/projects/"
 "code/plugins/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -25,7 +25,7 @@ msgstr "Completar Parênteses"
 
 #: plugins/brackets-completion/brackets-completion.plugin:7
 msgid "Complete brackets while typing"
-msgstr "Completar parênteses enquanto escreve"
+msgstr "Completar colchetes enquanto digita"
 
 #: plugins/browser-preview/browser-preview.plugin:6
 msgid "Browser Preview"
@@ -41,7 +41,7 @@ msgstr "Detectar Recuo"
 
 #: plugins/detect-indent/detect-indent.plugin:7
 msgid "Heuristically detect tab or space settings"
-msgstr "Detectar heuristicamente configurações de tabulação ou espaço"
+msgstr "Detecção heurística de configurações de tabulação ou espaço"
 
 #: plugins/editorconfig/editorconfig.plugin:6
 msgid "EditorConfig"
@@ -57,7 +57,7 @@ msgstr "Realçar seleção de palavras "
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:7
 msgid "Highlights all occurrences of words that are selected"
-msgstr "Destacar todas as ocorrências das palavras que estão selecionadas"
+msgstr "Destaca todas as ocorrências das palavras selecionadas"
 
 #: plugins/outline/outline.plugin:6
 msgid "Outline"
@@ -117,8 +117,9 @@ msgstr "Use comandos Vim no Code"
 
 #: plugins/word-completion/word-completion.plugin:3
 msgid "Words Completion"
-msgstr "Completamento de Palavras"
+msgstr "Completar Palavras"
 
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
+"Exibir diálogo de conclusão com as palavras mais usadas nos seus arquivos"
