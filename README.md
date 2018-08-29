@@ -10,6 +10,7 @@ You'll need the following dependencies:
 * libeditorconfig-dev
 * libgail-3-dev
 * libgee-0.8-dev
+* libgit2-glib-1.0-dev
 * libgtksourceview-3.0-dev >= 3.24
 * libgtkspell3-3-dev
 * libgranite-dev
