@@ -146,15 +146,15 @@ namespace Scratch.Widgets {
             menu_grid.margin_bottom = 3;
             menu_grid.orientation = Gtk.Orientation.VERTICAL;
             menu_grid.width_request = 200;
-            menu_grid.attach (font_size_grid,          0, 0, 3, 1);
-            menu_grid.attach (color_button_white,      0, 1);
-            menu_grid.attach (color_button_light,      1, 1);
-            menu_grid.attach (color_button_dark,       2, 1);
-            menu_grid.attach (menu_separator,          0, 2, 3, 1);
+            menu_grid.attach (font_size_grid, 0, 0, 3, 1);
+            menu_grid.attach (color_button_white, 0, 1, 1, 1);
+            menu_grid.attach (color_button_light, 1, 1, 1, 1);
+            menu_grid.attach (color_button_dark, 2, 1, 1, 1);
+            menu_grid.attach (menu_separator, 0, 2, 3, 1);
             menu_grid.attach (toggle_sidebar_menuitem, 0, 3, 3, 1);
-            menu_grid.attach (new_view_menuitem,       0, 4, 3, 1);
-            menu_grid.attach (remove_view_menuitem,    0, 5, 3, 1);
-            menu_grid.attach (preferences_menuitem,    0, 6, 3, 1);
+            menu_grid.attach (new_view_menuitem, 0, 4, 3, 1);
+            menu_grid.attach (remove_view_menuitem, 0, 5, 3, 1);
+            menu_grid.attach (preferences_menuitem, 0, 6, 3, 1);
             menu_grid.show_all ();
 
             var menu = new Gtk.Popover (null);
