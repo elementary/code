@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
-"PO-Revision-Date: 2018-08-29 19:40+0000\n"
+"PO-Revision-Date: 2018-08-31 11:59+0000\n"
 "Last-Translator: Robin Lahtinen <robin.lahtinen@gmail.com>\n"
 "Language-Team: Finnish <https://weblate.elementary.io/projects/code/code/fi/>"
 "\n"
@@ -672,9 +672,8 @@ msgid "Source Tree"
 msgstr "Lähdepuu"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:21
-#, fuzzy
 msgid "Have a look at your sources organized in a nice tree"
-msgstr "Tarkista lähteet organisoituna"
+msgstr "Tarkista lähteesi organisoituna"
 
 #: ../plugins/source-tree/SourceTreePlugin.vala:42
 msgid "Loading..."
@@ -836,6 +835,8 @@ msgid ""
 "No suitable dictionaries were found.\n"
 "Please install at least one [aspell] dictionary"
 msgstr ""
+"Sopivaa sanakirjaa ei löytynyt.\n"
+"Asenna vähintään yksi [aspell] sanakirja"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -1030,7 +1031,7 @@ msgstr "Havaitse sisennys"
 
 #: ../plugins/detect-indent/detect-indent.vala:2
 msgid "Heuristically detect tab or space settings"
-msgstr ""
+msgstr "Heuristisesti havaitse tab tai väliyönti asetukset"
 
 #~ msgid "No files are open."
 #~ msgstr "Ei tiedostoja avoinna."
