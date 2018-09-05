@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-17 11:34-0700\n"
-"PO-Revision-Date: 2018-03-09 11:21+0000\n"
-"Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
+"PO-Revision-Date: 2018-09-05 22:53+0000\n"
+"Last-Translator: strozzascotte <marco.depaolini@gmail.com>\n"
 "Language-Team: Italian <https://weblate.elementary.io/projects/code/plugins/"
 "it/>\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -45,11 +45,11 @@ msgstr "Rileva euristicamente tabulazioni o spazi"
 
 #: plugins/editorconfig/editorconfig.plugin:6
 msgid "EditorConfig"
-msgstr ""
+msgstr "EditorConfig"
 
 #: plugins/editorconfig/editorconfig.plugin:7
 msgid "Load settings from an EditorConfig file"
-msgstr ""
+msgstr "Carica le impostazioni da un file EditorConfig"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
@@ -65,9 +65,8 @@ msgid "Outline"
 msgstr "Contorno"
 
 #: plugins/outline/outline.plugin:7
-#, fuzzy
 msgid "Outline symbols in your current file for Vala"
-msgstr "Delinea i simboli nel file corrente in vala"
+msgstr "Evidenzia i simboli nel file attuale di Vala"
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
