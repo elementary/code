@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
-"PO-Revision-Date: 2018-06-01 00:06+0000\n"
-"Last-Translator: Mariel de Jesus™ <marieldejesus12@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) "
-"<https://weblate.elementary.io/projects/code/code/pt_BR/>\n"
+"PO-Revision-Date: 2018-08-29 19:40+0000\n"
+"Last-Translator: Rodrigo Oliveira <rod.oliveira@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://weblate.elementary.io/projects/"
+"code/code/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-04 05:45+0000\n"
 
 #: ../src/config.vala:15
@@ -56,7 +56,7 @@ msgstr "Abrir alguns arquivos"
 #: ../src/MainWindow.vala:1003 ../src/MainWindow.vala:1014
 #: ../src/MainWindow.vala:1015
 msgid "Find…"
-msgstr "Localizar..."
+msgstr "Localizar…"
 
 #: ../src/MainWindow.vala:843
 msgid "Hide search bar"
@@ -64,7 +64,7 @@ msgstr "Esconder barra de busca"
 
 #: ../src/MainWindow.vala:909 ../src/MainWindow.vala:910
 msgid "Go to line…"
-msgstr "Ir para a linha..."
+msgstr "Ir para a linha…"
 
 #: ../src/MainWindow.vala:913 ../src/MainWindow.vala:914
 msgid "Quit"
@@ -176,7 +176,7 @@ msgstr "Salvar este arquivo"
 
 #: ../src/MainWindow.vala:973 ../src/Services/Document.vala:578
 msgid "Save As…"
-msgstr "Salvar como..."
+msgstr "Salvar como…"
 
 #: ../src/MainWindow.vala:974
 msgid "Save this file with a different name"
@@ -335,13 +335,17 @@ msgstr "O diretório pai não existe."
 msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
-msgstr "O arquivo \"%s\" não pôde ser criado."
+msgstr ""
+"O arquivo \"%s\" não pôde ser criado.\n"
+"%s"
 
 #: ../src/Scratch.vala:189
 msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
-msgstr "O arquivo \"%s\" não pôde ser aberto."
+msgstr ""
+"O arquivo \"%s\" não pôde ser aberto.\n"
+"%s"
 
 #: ../src/Scratch.vala:198
 msgid "It is a mountable location."
@@ -385,7 +389,7 @@ msgstr "Compartilhar"
 
 #: ../src/Widgets/ToolBar.vala:66
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 #: ../src/Widgets/SplitView.vala:45
 msgid "No Files Open"
@@ -547,11 +551,11 @@ msgstr "Nunca"
 
 #: ../src/Dialogs/PreferencesDialog.vala:167
 msgid "For selected text"
-msgstr ""
+msgstr "Para o texto selecionado"
 
 #: ../src/Dialogs/PreferencesDialog.vala:168
 msgid "Always"
-msgstr ""
+msgstr "Sempre"
 
 #: ../src/Dialogs/PreferencesDialog.vala:171
 msgid "Show line numbers:"
@@ -585,7 +589,7 @@ msgstr "Terminal"
 
 #: ../plugins/terminal/terminal.vala:24
 msgid "A terminal in your text editor"
-msgstr "Um terminal em seu editor de texto"
+msgstr "Um terminal no seu editor de texto"
 
 #: ../plugins/terminal/terminal.vala:167 ../plugins/terminal/terminal.vala:178
 msgid "Show Terminal"
@@ -614,11 +618,11 @@ msgstr "Terminal embaixo"
 
 #: ../plugins/strip-trailing-save/strip-trailing-save.vala:18
 msgid "Strip trailing whitespace"
-msgstr "Tirar os espaços em branco"
+msgstr "Eliminar espaços no final das linhas"
 
 #: ../plugins/strip-trailing-save/strip-trailing-save.vala:19
 msgid "Strip trailing whitespace on save"
-msgstr "Tirar os espaços em branco ao salvar"
+msgstr "Eliminar espaços no final das linhas ao salvar"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -640,7 +644,7 @@ msgstr "Destacar palavras selecionadas"
 
 #: ../plugins/highlight-word-selection/highlight-word-selection.vala:22
 msgid "Highlights all occurrences of words that are selected"
-msgstr "Destacar todas as ocorrências das palavras que estão selecionadas"
+msgstr "Destaca todas as ocorrências das palavras selecionadas"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -658,11 +662,11 @@ msgstr "Destacar todas as ocorrências das palavras que estão selecionadas"
 #. **
 #: ../plugins/brackets-completion/brackets-completion.vala:21
 msgid "Brackets Completion"
-msgstr "Fechamento de parênteses"
+msgstr "Completar Parênteses"
 
 #: ../plugins/brackets-completion/brackets-completion.vala:22
 msgid "Complete brackets while typing"
-msgstr "Completar parênteses enquanto estiver digitando"
+msgstr "Completar colchetes enquanto digita"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -727,7 +731,7 @@ msgstr "Emulação do Vim"
 
 #: ../plugins/vim-emulation/vim-emulation.vala:22
 msgid "Use Vim commands in Scratch"
-msgstr "Usar os comandos do Vim no Scratch"
+msgstr "Use comandos Vim no Code"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -784,11 +788,11 @@ msgstr "Símbolos"
 #. **
 #: ../plugins/outline/OutlinePlugin.vala:21
 msgid "Outline"
-msgstr "Cortorno"
+msgstr "Contorno"
 
 #: ../plugins/outline/OutlinePlugin.vala:22
 msgid "Outline symbols in your current file in vala"
-msgstr "Contornar símbolos em seu atual arquivo em vala."
+msgstr "Contornar símbolos em seu atual arquivo em vala"
 
 #. /or modify it
 #. under the terms of the GNU Lesser General Public License version 3, as published
@@ -836,11 +840,11 @@ msgstr "/Novo Arquivo"
 
 #: ../plugins/spell/spell.vala:18
 msgid "Spell Checker"
-msgstr "Verificar ortográfico"
+msgstr "Corretor Ortográfico"
 
 #: ../plugins/spell/spell.vala:19
 msgid "Checks the spelling of your documents"
-msgstr "Checa a ortografia de seus documentos"
+msgstr "Verifica a ortografia dos seus documentos"
 
 #: ../plugins/spell/spell.vala:80
 msgid ""
@@ -888,12 +892,12 @@ msgstr "Esconder pré-visualização"
 
 #: ../plugins/word-completion/plugin.vala:34
 msgid "Words Completion"
-msgstr "Conclusão de palavras"
+msgstr "Completar Palavras"
 
 #: ../plugins/word-completion/plugin.vala:35
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
-"Mostrar um diálogo de conclusão com as palavras mais usadas em seus arquivos"
+"Exibir diálogo de conclusão com as palavras mais usadas nos seus arquivos"
 
 #: ../plugins/word-completion/plugin.vala:178
 msgid "%s - Word Completion"
@@ -957,7 +961,7 @@ msgstr "Pastebin"
 
 #: ../plugins/pastebin/pastebin.vala:24
 msgid "Share files with pastebin service"
-msgstr "Compartilhar arquivos com o Pastebin"
+msgstr "Compartilhar arquivos com o serviço Pastebin"
 
 #: ../plugins/pastebin/pastebin.vala:134
 msgid "Upload to Pastebin"
@@ -979,7 +983,7 @@ msgstr "Enviar para o Pastebin"
 #. **
 #: ../plugins/contractor/contractor.vala:21
 msgid "Share your files with Contractor"
-msgstr "Compartilhar seu arquivos com o Contractor"
+msgstr "Compartilhar arquivos com Contractor"
 
 #: ../plugins/folder-manager/FolderManagerPlugin.vala:70
 msgid "Folders"
@@ -1004,7 +1008,7 @@ msgstr "Fechar pasta"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:24
 msgid "Preserve Indent"
-msgstr "Preservar identação"
+msgstr "Preservar Recuo"
 
 #: ../plugins/preserve-indent/preserve-indent.vala:25
 msgid "Maintains indent level of pasted text when auto-indent is active"
@@ -1026,23 +1030,23 @@ msgstr "Mantêm a identação do texto colado quando a auto-identação está at
 #. **
 #: ../plugins/open-with/open-with.vala:21
 msgid "Open With"
-msgstr "Abrir com"
+msgstr "Abrir Com"
 
 #: ../plugins/open-with/open-with.vala:22
 msgid "Open files you are editing with another application"
-msgstr "Abrir arquivos que você está editando com outro aplicativo"
+msgstr "Abrir os arquivos que você está editando com outro aplicativo"
 
 #: ../plugins/open-with/open-with.vala:54
 msgid "Open With…"
-msgstr "Abrir com..."
+msgstr "Abrir com…"
 
 #: ../plugins/detect-indent/detect-indent.vala:1
 msgid "Detect Indent"
-msgstr "Detectar indentação"
+msgstr "Detectar Recuo"
 
 #: ../plugins/detect-indent/detect-indent.vala:2
 msgid "Heuristically detect tab or space settings"
-msgstr "Detectar configurações de espaço e tabulação heuristicamente"
+msgstr "Detecção heurística de configurações de tabulação ou espaço"
 
 #~ msgid "Select font:"
 #~ msgstr "Selecionar fonte:"

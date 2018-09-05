@@ -1,7 +1,7 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /*
-* Copyright (c) 2011-2013 Mario Guerriero <mefrio.g@gmail.com>
-*               2017-2018 elementary LLC. <https://elementary.io>
+* Copyright (c) 2011–2013 Mario Guerriero <mefrio.g@gmail.com>
+*               2017–2018 elementary, Inc. <https://elementary.io>
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -159,6 +159,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_ZOOM_OUT, "<Control>minus");
             action_accelerators.set (ACTION_ZOOM_OUT, "<Control>KP_Subtract");
             action_accelerators.set (ACTION_TOGGLE_COMMENT, "<Control>m");
+            action_accelerators.set (ACTION_TOGGLE_COMMENT, "<Control>slash");
 
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("io/elementary/code/Application.css");
