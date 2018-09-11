@@ -1,7 +1,7 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /*
 * Copyright (c) 2013 Mario Guerriero <mefrio.g@gmail.com>
-*               2017-2018 elementary LLC. <https://elementary.io>
+*               2017–2018 elementary, Inc. <https://elementary.io>
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -39,7 +39,7 @@ namespace Scratch.Widgets {
             var open_button = new Gtk.Button.from_icon_name ("document-open", Gtk.IconSize.LARGE_TOOLBAR);
             open_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN;
             open_button.tooltip_text = _("Open a file");
-            
+
             var open_folder_button = new Gtk.Button.from_icon_name ("folder-saved-search", Gtk.IconSize.LARGE_TOOLBAR);
             open_folder_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_FOLDER;
             open_folder_button.tooltip_text = _("Open a folder");
@@ -126,6 +126,10 @@ namespace Scratch.Widgets {
             var menu_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
             menu_separator.margin_top = 12;
 
+            var toggle_sidebar_menuitem = new Gtk.ModelButton ();
+            toggle_sidebar_menuitem.text = _("Toggle Sidebar");
+            toggle_sidebar_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_SIDEBAR;
+
             var new_view_menuitem = new Gtk.ModelButton ();
             new_view_menuitem.text = _("Add New View");
             new_view_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_VIEW;
@@ -147,9 +151,10 @@ namespace Scratch.Widgets {
             menu_grid.attach (color_button_light, 1, 1, 1, 1);
             menu_grid.attach (color_button_dark, 2, 1, 1, 1);
             menu_grid.attach (menu_separator, 0, 2, 3, 1);
-            menu_grid.attach (new_view_menuitem, 0, 3, 3, 1);
-            menu_grid.attach (remove_view_menuitem, 0, 4, 3, 1);
-            menu_grid.attach (preferences_menuitem, 0, 5, 3, 1);
+            menu_grid.attach (toggle_sidebar_menuitem, 0, 3, 3, 1);
+            menu_grid.attach (new_view_menuitem, 0, 4, 3, 1);
+            menu_grid.attach (remove_view_menuitem, 0, 5, 3, 1);
+            menu_grid.attach (preferences_menuitem, 0, 6, 3, 1);
             menu_grid.show_all ();
 
             var menu = new Gtk.Popover (null);
@@ -235,3 +240,4 @@ namespace Scratch.Widgets {
         }
     }
 }
+
