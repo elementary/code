@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-07 14:05-0700\n"
+"POT-Creation-Date: 2018-09-17 14:59-0700\n"
 "PO-Revision-Date: 2016-06-14 15:42+0000\n"
 "Last-Translator: Kristjan Vool <tictac7x@gmail.com>\n"
 "Language-Team: Estonian <et@li.org>\n"
@@ -90,32 +90,32 @@ msgstr "Pluginate kogu"
 msgid "Current working directory"
 msgstr "Praegune töökaust"
 
-#: src/MainWindow.vala:131
+#: src/MainWindow.vala:133
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:176 src/Widgets/HeaderBar.vala:66
+#: src/MainWindow.vala:181 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
 msgstr "Leia…"
 
-#: src/MainWindow.vala:178
+#: src/MainWindow.vala:183
 msgid "Hide search bar"
 msgstr "Peida leidmise tööriistariba"
 
-#: src/MainWindow.vala:224
+#: src/MainWindow.vala:229
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Zeitgeist'i andmeallikad Scratch'i jaoks"
 
 #. Show a GtkFileChooserDialog
-#: src/MainWindow.vala:731
+#: src/MainWindow.vala:736
 msgid "Open some files"
 msgstr "Faili avamine"
 
-#: src/MainWindow.vala:750
+#: src/MainWindow.vala:755
 msgid "_Cancel"
 msgstr "_Loobu"
 
-#: src/MainWindow.vala:751
+#: src/MainWindow.vala:756
 msgid "_Open"
 msgstr "_Ava"
 
@@ -140,7 +140,7 @@ msgstr "Ava"
 msgid "Save"
 msgstr "Salvesta"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:138
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:142
 msgid "Preferences"
 msgstr "Eelistused"
 
@@ -226,26 +226,26 @@ msgstr ""
 msgid "Custom font:"
 msgstr "Kohandatud kirjatüüp:"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:59
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:115
+#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
 #, fuzzy
 msgid "Open In"
 msgstr "Ava"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:118
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
 #, fuzzy
 msgid "Other Actions"
 msgstr "Teised formaadid"
 
-#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:121
+#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:127
-#: src/FolderManager/MainFolderItem.vala:33
+#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr ""
 
@@ -253,40 +253,40 @@ msgstr ""
 msgid "Folders"
 msgstr "Kaustad"
 
-#: src/FolderManager/FolderItem.vala:143
+#: src/FolderManager/FolderItem.vala:148
 #, fuzzy
 msgid "Folder"
 msgstr "Kaustad"
 
-#: src/FolderManager/FolderItem.vala:146
+#: src/FolderManager/FolderItem.vala:151
 msgid "Empty File"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:153
+#: src/FolderManager/FolderItem.vala:158
 #, fuzzy
 msgid "New"
 msgstr "Uus kaart"
 
-#: src/FolderManager/FolderItem.vala:296
+#: src/FolderManager/FolderItem.vala:322
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:300
+#: src/FolderManager/FolderItem.vala:326
 #, c-format
 msgid "untitled folder %d"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:328
+#: src/FolderManager/FolderItem.vala:354
 #, fuzzy
 msgid "new file"
 msgstr "Loo fail"
 
-#: src/FolderManager/FolderItem.vala:332
+#: src/FolderManager/FolderItem.vala:358
 #, fuzzy, c-format
 msgid "new file %d"
 msgstr "Loo fail"
 
-#: src/FolderManager/MainFolderItem.vala:30
+#: src/FolderManager/ProjectFolderItem.vala:78
 msgid "Close Folder"
 msgstr "Sulge kaust"
 
@@ -409,7 +409,7 @@ msgstr "Katkesta"
 msgid "Templates"
 msgstr "Mallid"
 
-#: src/Widgets/DocumentView.vala:92
+#: src/Widgets/DocumentView.vala:132
 #, fuzzy, c-format
 msgid "Text file from %s"
 msgstr "Tekstifail asukohast "
@@ -504,14 +504,19 @@ msgid "Solarized Dark"
 msgstr ""
 
 #: src/Widgets/HeaderBar.vala:130
+#, fuzzy
+msgid "Toggle Sidebar"
+msgstr "Külgriba"
+
+#: src/Widgets/HeaderBar.vala:134
 msgid "Add New View"
 msgstr "Ava külgpaneel"
 
-#: src/Widgets/HeaderBar.vala:134
+#: src/Widgets/HeaderBar.vala:138
 msgid "Remove Current View"
 msgstr "Sulge külgpaneel"
 
-#: src/Widgets/HeaderBar.vala:160
+#: src/Widgets/HeaderBar.vala:165
 msgid "Menu"
 msgstr ""
 
@@ -543,11 +548,11 @@ msgstr "Asenda"
 msgid "Replace all"
 msgstr "Asenda kõik"
 
-#: src/Widgets/SourceView.vala:329
+#: src/Widgets/SourceView.vala:357
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:336
+#: src/Widgets/SourceView.vala:364
 msgid "Toggle Comment"
 msgstr ""
 
@@ -996,9 +1001,6 @@ msgstr "Ebaõnnestus laadida ikoonide teemat: %s\n"
 
 #~ msgid "Status Bar"
 #~ msgstr "Olekuriba"
-
-#~ msgid "Sidebar"
-#~ msgstr "Külgriba"
 
 #~ msgid "No files are open."
 #~ msgstr "Ühtegi faili pole avatud"

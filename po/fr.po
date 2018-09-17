@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-07 14:05-0700\n"
+"POT-Creation-Date: 2018-09-17 14:59-0700\n"
 "PO-Revision-Date: 2018-07-19 17:03+0000\n"
 "Last-Translator: Corentin Noël <corentin@elementary.io>\n"
 "Language-Team: French <https://weblate.elementary.io/projects/code/code/fr/"
@@ -91,32 +91,32 @@ msgstr "Ensemble de greffons"
 msgid "Current working directory"
 msgstr "Répertoire de travail actuel"
 
-#: src/MainWindow.vala:131
+#: src/MainWindow.vala:133
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:176 src/Widgets/HeaderBar.vala:66
+#: src/MainWindow.vala:181 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
 msgstr "Rechercher…"
 
-#: src/MainWindow.vala:178
+#: src/MainWindow.vala:183
 msgid "Hide search bar"
 msgstr "Cacher la barre de recherche"
 
-#: src/MainWindow.vala:224
+#: src/MainWindow.vala:229
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Source de données Zeitgeist pour Scratch"
 
 #. Show a GtkFileChooserDialog
-#: src/MainWindow.vala:731
+#: src/MainWindow.vala:736
 msgid "Open some files"
 msgstr "Ouvrez des fichiers"
 
-#: src/MainWindow.vala:750
+#: src/MainWindow.vala:755
 msgid "_Cancel"
 msgstr "_Annuler"
 
-#: src/MainWindow.vala:751
+#: src/MainWindow.vala:756
 msgid "_Open"
 msgstr "_Ouvrir"
 
@@ -141,7 +141,7 @@ msgstr "Ouvrir"
 msgid "Save"
 msgstr "Enregistrer"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:138
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:142
 msgid "Preferences"
 msgstr "Préférences"
 
@@ -227,24 +227,24 @@ msgstr "Police"
 msgid "Custom font:"
 msgstr "Police personnalisée :"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:59
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
 msgstr "Une autre application…"
 
-#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:115
+#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
 msgid "Open In"
 msgstr "Ouvrir dans"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:118
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
 msgid "Other Actions"
 msgstr "Autres actions"
 
-#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:121
+#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
 msgstr "Renommer"
 
-#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:127
-#: src/FolderManager/MainFolderItem.vala:33
+#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr "Déplacer dans la corbeille"
 
@@ -252,37 +252,37 @@ msgstr "Déplacer dans la corbeille"
 msgid "Folders"
 msgstr "Dossiers"
 
-#: src/FolderManager/FolderItem.vala:143
+#: src/FolderManager/FolderItem.vala:148
 msgid "Folder"
 msgstr "Dossier"
 
-#: src/FolderManager/FolderItem.vala:146
+#: src/FolderManager/FolderItem.vala:151
 msgid "Empty File"
 msgstr "Fichier vide"
 
-#: src/FolderManager/FolderItem.vala:153
+#: src/FolderManager/FolderItem.vala:158
 msgid "New"
 msgstr "Nouveau"
 
-#: src/FolderManager/FolderItem.vala:296
+#: src/FolderManager/FolderItem.vala:322
 msgid "untitled folder"
 msgstr "dossier sans-titre"
 
-#: src/FolderManager/FolderItem.vala:300
+#: src/FolderManager/FolderItem.vala:326
 #, c-format
 msgid "untitled folder %d"
 msgstr "dossier sans-titre %d"
 
-#: src/FolderManager/FolderItem.vala:328
+#: src/FolderManager/FolderItem.vala:354
 msgid "new file"
 msgstr "nouveau fichier"
 
-#: src/FolderManager/FolderItem.vala:332
+#: src/FolderManager/FolderItem.vala:358
 #, c-format
 msgid "new file %d"
 msgstr "nouveau fichier %d"
 
-#: src/FolderManager/MainFolderItem.vala:30
+#: src/FolderManager/ProjectFolderItem.vala:78
 msgid "Close Folder"
 msgstr "Fermer ce dossier"
 
@@ -404,7 +404,7 @@ msgstr "Continuer"
 msgid "Templates"
 msgstr "Modèles"
 
-#: src/Widgets/DocumentView.vala:92
+#: src/Widgets/DocumentView.vala:132
 #, c-format
 msgid "Text file from %s"
 msgstr "Fichier texte à partir de  %s"
@@ -496,14 +496,19 @@ msgid "Solarized Dark"
 msgstr "Solarisé foncé"
 
 #: src/Widgets/HeaderBar.vala:130
+#, fuzzy
+msgid "Toggle Sidebar"
+msgstr "Panneau latéral"
+
+#: src/Widgets/HeaderBar.vala:134
 msgid "Add New View"
 msgstr "Nouvelle colonne"
 
-#: src/Widgets/HeaderBar.vala:134
+#: src/Widgets/HeaderBar.vala:138
 msgid "Remove Current View"
 msgstr "Fermer la colonne active"
 
-#: src/Widgets/HeaderBar.vala:160
+#: src/Widgets/HeaderBar.vala:165
 msgid "Menu"
 msgstr "Menu"
 
@@ -535,11 +540,11 @@ msgstr "Remplacer"
 msgid "Replace all"
 msgstr "Tout remplacer"
 
-#: src/Widgets/SourceView.vala:329
+#: src/Widgets/SourceView.vala:357
 msgid "Sort Selected Lines"
 msgstr "Trier les lignes sélectionnées"
 
-#: src/Widgets/SourceView.vala:336
+#: src/Widgets/SourceView.vala:364
 msgid "Toggle Comment"
 msgstr ""
 
@@ -1044,9 +1049,6 @@ msgstr "Impossible de charger le thème d'icônes : %s\n"
 
 #~ msgid "Status Bar"
 #~ msgstr "Barre d'état"
-
-#~ msgid "Sidebar"
-#~ msgstr "Panneau latéral"
 
 #~ msgid "Save as"
 #~ msgstr "Enregistrer sous"

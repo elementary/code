@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-07 14:05-0700\n"
+"POT-Creation-Date: 2018-09-17 14:59-0700\n"
 "PO-Revision-Date: 2016-08-10 18:13+0000\n"
 "Last-Translator: Fedik <Unknown>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -90,32 +90,32 @@ msgstr "Набір плагінів"
 msgid "Current working directory"
 msgstr "Поточна робоча тека"
 
-#: src/MainWindow.vala:131
+#: src/MainWindow.vala:133
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:176 src/Widgets/HeaderBar.vala:66
+#: src/MainWindow.vala:181 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
 msgstr "Знайти..."
 
-#: src/MainWindow.vala:178
+#: src/MainWindow.vala:183
 msgid "Hide search bar"
 msgstr "Приховати панель пошуку"
 
-#: src/MainWindow.vala:224
+#: src/MainWindow.vala:229
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Відслідковувати джерело данних для Scratch"
 
 #. Show a GtkFileChooserDialog
-#: src/MainWindow.vala:731
+#: src/MainWindow.vala:736
 msgid "Open some files"
 msgstr "Відкрити деякі файли"
 
-#: src/MainWindow.vala:750
+#: src/MainWindow.vala:755
 msgid "_Cancel"
 msgstr "_Скасувати"
 
-#: src/MainWindow.vala:751
+#: src/MainWindow.vala:756
 msgid "_Open"
 msgstr "_Відкрити"
 
@@ -140,7 +140,7 @@ msgstr "Відкрити"
 msgid "Save"
 msgstr "Зберегти"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:138
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:142
 msgid "Preferences"
 msgstr "Параметри"
 
@@ -226,26 +226,26 @@ msgstr ""
 msgid "Custom font:"
 msgstr "Власний шпифт:"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:59
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:115
+#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
 #, fuzzy
 msgid "Open In"
 msgstr "Відкрити"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:118
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
 #, fuzzy
 msgid "Other Actions"
 msgstr "Інші формати"
 
-#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:121
+#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:127
-#: src/FolderManager/MainFolderItem.vala:33
+#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr ""
 
@@ -253,40 +253,40 @@ msgstr ""
 msgid "Folders"
 msgstr "Теки"
 
-#: src/FolderManager/FolderItem.vala:143
+#: src/FolderManager/FolderItem.vala:148
 #, fuzzy
 msgid "Folder"
 msgstr "Теки"
 
-#: src/FolderManager/FolderItem.vala:146
+#: src/FolderManager/FolderItem.vala:151
 msgid "Empty File"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:153
+#: src/FolderManager/FolderItem.vala:158
 #, fuzzy
 msgid "New"
 msgstr "Нова вкладка"
 
-#: src/FolderManager/FolderItem.vala:296
+#: src/FolderManager/FolderItem.vala:322
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:300
+#: src/FolderManager/FolderItem.vala:326
 #, c-format
 msgid "untitled folder %d"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:328
+#: src/FolderManager/FolderItem.vala:354
 #, fuzzy
 msgid "new file"
 msgstr "Новий файл"
 
-#: src/FolderManager/FolderItem.vala:332
+#: src/FolderManager/FolderItem.vala:358
 #, fuzzy, c-format
 msgid "new file %d"
 msgstr "Новий файл"
 
-#: src/FolderManager/MainFolderItem.vala:30
+#: src/FolderManager/ProjectFolderItem.vala:78
 msgid "Close Folder"
 msgstr "Закрити теку"
 
@@ -408,7 +408,7 @@ msgstr "Далі"
 msgid "Templates"
 msgstr "Шаблони"
 
-#: src/Widgets/DocumentView.vala:92
+#: src/Widgets/DocumentView.vala:132
 #, fuzzy, c-format
 msgid "Text file from %s"
 msgstr "Текстовий файл з "
@@ -503,14 +503,19 @@ msgid "Solarized Dark"
 msgstr ""
 
 #: src/Widgets/HeaderBar.vala:130
+#, fuzzy
+msgid "Toggle Sidebar"
+msgstr "Бокова панель"
+
+#: src/Widgets/HeaderBar.vala:134
 msgid "Add New View"
 msgstr "Розділити вікно напвіл"
 
-#: src/Widgets/HeaderBar.vala:134
+#: src/Widgets/HeaderBar.vala:138
 msgid "Remove Current View"
 msgstr "Не ділити вікно"
 
-#: src/Widgets/HeaderBar.vala:160
+#: src/Widgets/HeaderBar.vala:165
 msgid "Menu"
 msgstr ""
 
@@ -542,11 +547,11 @@ msgstr "Замінити"
 msgid "Replace all"
 msgstr "Замінити все"
 
-#: src/Widgets/SourceView.vala:329
+#: src/Widgets/SourceView.vala:357
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:336
+#: src/Widgets/SourceView.vala:364
 msgid "Toggle Comment"
 msgstr ""
 
@@ -1030,9 +1035,6 @@ msgstr "Неможливо завантажити тему іконок: %s\n"
 
 #~ msgid "Create a new document from a template"
 #~ msgstr "Створити новий документ за шаблоном"
-
-#~ msgid "Sidebar"
-#~ msgstr "Бокова панель"
 
 #~ msgid "Context View"
 #~ msgstr "Контекстний перегляд"
