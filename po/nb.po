@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-17 14:59-0700\n"
-"PO-Revision-Date: 2018-07-22 00:03+0000\n"
+"PO-Revision-Date: 2018-09-18 17:51+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://weblate.elementary.io/projects/code/"
 "code/nb/>\n"
@@ -34,9 +34,8 @@ msgid "The location is read-only."
 msgstr "Plasseringen kan bare leses."
 
 #: src/Application.vala:144
-#, fuzzy
 msgid "The parent directory doesn't exist."
-msgstr "Overnevnt mappe finnes ikke"
+msgstr "Overnevnt mappe finnes ikke."
 
 #: src/Application.vala:151
 #, c-format
@@ -312,7 +311,7 @@ msgstr "Vent mens Code laster inn filen."
 #: src/Services/Document.vala:270
 #, fuzzy
 msgid "Cancel Load"
-msgstr "Avbryt"
+msgstr "Avbryt innlasting"
 
 #: src/Services/Document.vala:394
 #, c-format
@@ -495,7 +494,7 @@ msgstr "Solarisert lys"
 #: src/Widgets/HeaderBar.vala:130
 #, fuzzy
 msgid "Toggle Sidebar"
-msgstr "Sidepanel"
+msgstr "Veksle sidepanel"
 
 #: src/Widgets/HeaderBar.vala:134
 msgid "Add New View"
@@ -543,7 +542,7 @@ msgstr "Sorter valgte linjer"
 
 #: src/Widgets/SourceView.vala:364
 msgid "Toggle Comment"
-msgstr ""
+msgstr "Veksle kommentar"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
