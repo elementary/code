@@ -267,7 +267,7 @@ namespace Scratch.Services {
                     var title = _("Loading File \"%s\" Is Taking a Long Time").printf (get_basename ());
                     var description = _("Please wait while Code is loading the file.");
                     var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-information");
-                    alert_view.show_action (_("Cancel Load"));
+                    alert_view.show_action (_("Cancel"));
                     alert_view.show_all ();
                     main_stack.add_named (alert_view, "wait_alert");
                     main_stack.set_visible_child (alert_view);
