@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-18 10:48-0700\n"
-"PO-Revision-Date: 2018-07-19 17:03+0000\n"
-"Last-Translator: Corentin Noël <corentin@elementary.io>\n"
-"Language-Team: French <https://weblate.elementary.io/projects/code/code/fr/"
-">\n"
+"PO-Revision-Date: 2018-09-24 07:17+0000\n"
+"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
+"Language-Team: French <https://weblate.elementary.io/projects/code/code/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -122,7 +122,7 @@ msgstr "_Ouvrir"
 
 #: src/Utils.vala:27
 msgid "All files"
-msgstr "Tout les fichiers"
+msgstr "Tous les fichiers"
 
 #: src/Utils.vala:31
 msgid "Text files"
@@ -155,15 +155,15 @@ msgstr "Sauvegarder les fichiers lorsqu'ils sont modifiés :"
 
 #: src/Dialogs/PreferencesDialog.vala:55 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
-msgstr "Tabulation"
+msgstr "Indentations"
 
 #: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:156
 msgid "Automatic indentation:"
-msgstr "Tabulation automatique :"
+msgstr "Indentation automatique :"
 
 #: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:150
 msgid "Insert spaces instead of tabs:"
-msgstr "Insérer des espaces au lieu de tabulations :"
+msgstr "Insérer des espaces au lieu des tabulations :"
 
 #: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:153
 msgid "Tab width:"
@@ -419,11 +419,11 @@ msgstr "Numéro de ligne"
 
 #: src/Widgets/FormatBar.vala:96
 msgid "Filter languages"
-msgstr "Filtrer les langues"
+msgstr "Filtrer les langages"
 
 #: src/Widgets/FormatBar.vala:118
 msgid "Plain Text"
-msgstr "Fichier texte"
+msgstr "Texte brut"
 
 #: src/Widgets/FormatBar.vala:200
 #, c-format
@@ -453,15 +453,15 @@ msgstr "Ouvrir un dossier"
 
 #: src/Widgets/HeaderBar.vala:49
 msgid "Project templates"
-msgstr "Modèles"
+msgstr "Modèles de projet"
 
 #: src/Widgets/HeaderBar.vala:53
 msgid "Save this file"
-msgstr "Enregistrer le fichier"
+msgstr "Enregistrer ce fichier"
 
 #: src/Widgets/HeaderBar.vala:57
 msgid "Save this file with a different name"
-msgstr "Enregistrer le fichier avec un nom différent"
+msgstr "Enregistrer ce fichier avec un nom différent"
 
 #: src/Widgets/HeaderBar.vala:61
 msgid "Restore this file"
@@ -502,11 +502,11 @@ msgstr "Panneau latéral"
 
 #: src/Widgets/HeaderBar.vala:134
 msgid "Add New View"
-msgstr "Nouvelle colonne"
+msgstr "Ajouter une nouvelle vue"
 
 #: src/Widgets/HeaderBar.vala:138
 msgid "Remove Current View"
-msgstr "Fermer la colonne active"
+msgstr "Supprimer la vue courante"
 
 #: src/Widgets/HeaderBar.vala:165
 msgid "Menu"
@@ -518,11 +518,11 @@ msgstr "Rechercher"
 
 #: src/Widgets/SearchBar.vala:66
 msgid "Search next"
-msgstr "Recherche suivante"
+msgstr "Rechercher le suivant"
 
 #: src/Widgets/SearchBar.vala:71
 msgid "Search previous"
-msgstr "Recherche précédente"
+msgstr "Rechercher le précédent"
 
 #: src/Widgets/SearchBar.vala:75
 msgid "Cyclic Search"
@@ -546,7 +546,7 @@ msgstr "Trier les lignes sélectionnées"
 
 #: src/Widgets/SourceView.vala:364
 msgid "Toggle Comment"
-msgstr ""
+msgstr "Modifier le commentaire"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -689,7 +689,7 @@ msgstr ""
 #: plugins/word-completion/plugin.vala:174
 #, c-format
 msgid "%s - Word Completion"
-msgstr "%s - Saisie semi-automatique"
+msgstr "%s - Autocomplétion"
 
 #: plugins/word-completion/completion-provider.vala:80
 #, c-format
