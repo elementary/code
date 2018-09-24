@@ -74,6 +74,33 @@ namespace Scratch.FolderManager {
             }
         }
 
+        public void change_branch (string ref_name) {
+            bool success = git_repo.set_head (ref_name);
+        }
+
+        public Gtk.MenuItem create_change_branch_menu () {
+            var change_branch_menu = new Gtk.Menu ();
+
+            var cur_branch = git_repo.get_head () as Ggit.Branch;
+            var branches = git_repo.enumerate_branches (Ggit.BranchType.LOCAL);
+
+            foreach (var ref_branch in branches) {
+                Ggit.Branch branch = ref_branch as Ggit.Branch;
+                string branch_name = branch.get_name ();
+                if (branch_name != cur_branch.get_name ()) {
+                    string ref_name = ref_branch.get_name ();
+                    var branch_item = new Gtk.MenuItem.with_label (branch_name);
+                    branch_item.activate.connect (() => { change_branch (ref_name); });
+                    change_branch_menu.add (branch_item);
+                }
+            }
+
+            var change_branch_item = new Gtk.MenuItem.with_label (_("Change Branch"));
+            change_branch_item.submenu = change_branch_menu;
+
+            return change_branch_item;
+        }
+
         public override Gtk.Menu? get_context_menu () {
             var close_item = new Gtk.MenuItem.with_label (_("Close Folder"));
             close_item.activate.connect (() => { closed (); });
@@ -88,6 +115,7 @@ namespace Scratch.FolderManager {
             menu.append (close_item);
             menu.append (create_submenu_for_new ());
             menu.append (delete_item);
+            if (git_repo != null) { menu.append (create_change_branch_menu ()); }
             menu.show_all ();
 
             return menu;
