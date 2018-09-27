@@ -127,9 +127,25 @@ namespace Scratch.Widgets {
             menu_separator.margin_top = 12;
 
             var toggle_sidebar_menuitem = new Gtk.ModelButton ();
-            toggle_sidebar_menuitem.text = _("Toggle Sidebar");
+            // toggle_sidebar_menuitem.text = _("Toggle Sidebar");
             toggle_sidebar_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_SIDEBAR;
-            Utils.add_accel_to_label (toggle_sidebar_menuitem, "F9");
+            // Utils.add_accel_to_label (toggle_sidebar_menuitem, "F9");
+
+            var toggle_sidebar_shortcut_label = new Gtk.Label ("F9");
+            toggle_sidebar_shortcut_label.halign = Gtk.Align.END;
+            toggle_sidebar_shortcut_label.get_style_context ().add_class ("dim-label");
+
+            var toggle_sidebar_shortcut_grid = new Gtk.Grid ();
+            toggle_sidebar_shortcut_grid.add (new Gtk.Label (_("Toggle Sidebar")));
+            toggle_sidebar_shortcut_grid.add (toggle_sidebar_shortcut_label);
+
+            toggle_sidebar_menuitem.add (toggle_sidebar_shortcut_grid);
+
+            // var toggle_sidebar_accel = new Gtk.AccelLabel (_("Toggle Sidebar"));
+            // toggle_sidebar_accel.set_accel (Gdk.keyval_from_name ("backslash"), Gdk.ModifierType.CONTROL_MASK);
+            // toggle_sidebar_menuitem.add (toggle_sidebar_accel);
+            // toggle_sidebar_accel.show_all ();
+            toggle_sidebar_menuitem.show_all ();
 
             var new_view_menuitem = new Gtk.ModelButton ();
             new_view_menuitem.text = _("Add New View");

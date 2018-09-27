@@ -59,13 +59,13 @@ namespace Scratch.Utils {
         return ((SimpleAction) action_group.lookup_action (action_name));
     }
 
-    public void add_accel_to_label(Gtk.Widget widget, Gtk.AccelKey key) {
+    public void add_accel_to_label (Gtk.Widget widget, Gtk.AccelKey key) {
         Gtk.AccelLabel? label = widget as Gtk.AccelLabel;
         if (label == null) {
             return;
         }
 
-	    label.set_accel(key.accel_key, key.accel_mods);
-        label.refetch();
+	    label.set_accel (key.accel_key, key.accel_mods);
+        label.refetch ();
     }
 }
