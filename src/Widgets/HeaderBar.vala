@@ -129,6 +129,7 @@ namespace Scratch.Widgets {
             var toggle_sidebar_menuitem = new Gtk.ModelButton ();
             toggle_sidebar_menuitem.text = _("Toggle Sidebar");
             toggle_sidebar_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_SIDEBAR;
+            Utils.add_accel_to_label (toggle_sidebar_menuitem, "F9");
 
             var new_view_menuitem = new Gtk.ModelButton ();
             new_view_menuitem.text = _("Add New View");
