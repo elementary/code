@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-18 10:48-0700\n"
-"PO-Revision-Date: 2018-10-02 19:13+0000\n"
-"Last-Translator: bitelmaniaco <bitelmaniaco@gmail.com>\n"
+"PO-Revision-Date: 2018-10-03 00:10+0000\n"
+"Last-Translator: Pablo Solís La Beira <pabsol1977@gmail.com>\n"
 "Language-Team: Spanish <https://weblate.elementary.io/projects/code/code/es/>"
 "\n"
 "Language: es\n"
@@ -92,6 +92,7 @@ msgid "Current working directory"
 msgstr "Carpeta de trabajo actual"
 
 #: src/MainWindow.vala:133
+#, fuzzy
 msgid "Code"
 msgstr "Code"
 
@@ -493,7 +494,7 @@ msgstr "Solar oscuro"
 
 #: src/Widgets/HeaderBar.vala:130
 msgid "Toggle Sidebar"
-msgstr "Panel lateral"
+msgstr "Mostrar / ocultar panel lateral"
 
 #: src/Widgets/HeaderBar.vala:134
 msgid "Add New View"
