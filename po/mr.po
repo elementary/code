@@ -3,16 +3,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-18 10:48-0700\n"
-"PO-Revision-Date: 2018-05-18 00:07+0000\n"
+"PO-Revision-Date: 2018-10-05 00:08+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
-"Language-Team: Marathi <https://weblate.elementary.io/projects/code/code/mr/"
-">\n"
+"Language-Team: Marathi <https://weblate.elementary.io/projects/code/code/mr/>"
+"\n"
 "Language: mr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #. We list some common errors for quick feedback
@@ -232,9 +232,8 @@ msgid "Open In"
 msgstr "उघडण्यास वापरा"
 
 #: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
-#, fuzzy
 msgid "Other Actions"
-msgstr "अन्य अप्लिकेशन…"
+msgstr "अन्य कारवाई"
 
 #: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
@@ -432,67 +431,67 @@ msgstr[1] "%d टॅब्स"
 
 #: src/Widgets/FormatBar.vala:218
 msgid "Go To Line:"
-msgstr ""
+msgstr "या ओळीवर जा:"
 
 #: src/Widgets/HeaderBar.vala:41
 msgid "Open a file"
-msgstr ""
+msgstr "फाईल उघडा"
 
 #: src/Widgets/HeaderBar.vala:45
 msgid "Open a folder"
-msgstr ""
+msgstr "फोल्डर उघडा"
 
 #: src/Widgets/HeaderBar.vala:49
 msgid "Project templates"
-msgstr ""
+msgstr "प्रोजेक्ट टेम्प्लेट"
 
 #: src/Widgets/HeaderBar.vala:53
 msgid "Save this file"
-msgstr ""
+msgstr "ही फाईल सेव्ह करा"
 
 #: src/Widgets/HeaderBar.vala:57
 msgid "Save this file with a different name"
-msgstr ""
+msgstr "ही फाईल अन्य नावाने सेव्ह करा"
 
 #: src/Widgets/HeaderBar.vala:61
 msgid "Restore this file"
-msgstr ""
+msgstr "ही फाईल पुर्वस्थितीत आणा"
 
 #: src/Widgets/HeaderBar.vala:72
 msgid "Share"
-msgstr ""
+msgstr "शेअर करा"
 
 #: src/Widgets/HeaderBar.vala:77
 msgid "Zoom Out"
-msgstr ""
+msgstr "झूम आउट"
 
 #: src/Widgets/HeaderBar.vala:81
 msgid "Zoom 1:1"
-msgstr ""
+msgstr "झूम  1:1"
 
 #: src/Widgets/HeaderBar.vala:85
 msgid "Zoom In"
-msgstr ""
+msgstr "झूम इन"
 
 #: src/Widgets/HeaderBar.vala:100
 msgid "High Contrast"
-msgstr ""
+msgstr "जास्त कॉन्ट्रास्ट"
 
 #: src/Widgets/HeaderBar.vala:110
 msgid "Solarized Light"
-msgstr ""
+msgstr "सोलारिज्ड फिका"
 
 #: src/Widgets/HeaderBar.vala:120
 msgid "Solarized Dark"
-msgstr ""
+msgstr "सोलारिज्ड गडद"
 
 #: src/Widgets/HeaderBar.vala:130
 msgid "Toggle Sidebar"
-msgstr ""
+msgstr "साईडबार टॉगल करा"
 
 #: src/Widgets/HeaderBar.vala:134
 msgid "Add New View"
-msgstr ""
+msgstr "नवीन मांडणी"
 
 #: src/Widgets/HeaderBar.vala:138
 msgid "Remove Current View"
