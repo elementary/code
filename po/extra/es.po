@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:36-0700\n"
-"PO-Revision-Date: 2018-04-29 00:04+0000\n"
-"Last-Translator: Iuninefrendor <iuninefrendor@gmail.com>\n"
+"PO-Revision-Date: 2018-10-03 00:10+0000\n"
+"Last-Translator: Pablo Solís La Beira <pabsol1977@gmail.com>\n"
 "Language-Team: Spanish <https://weblate.elementary.io/projects/code/extra/es/"
 ">\n"
 "Language: es\n"
@@ -17,11 +17,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
 #: data/io.elementary.code.desktop.in.in:4
+#, fuzzy
 msgid "Code"
 msgstr "Code"
 
@@ -35,10 +36,10 @@ msgid ""
 "they're always up-to-date. Plus it remembers your tabs so you never lose "
 "your spot, even in between sessions."
 msgstr ""
-"Código es el editor de texto que hace el trabajo por ti. Guarda "
-"automáticamente tus archivos, de modo que siempre estarán actualizados. "
-"Además, recuerda las pestañas abierta para que no pierdas el hilo, incluso "
-"entre sesiones."
+"Code es el editor de texto que hace el trabajo por usted. Guarda "
+"automáticamente los archivos, de modo que siempre estarán actualizados. "
+"Además, recuerda las pestañas abiertas para no perder el hilo, incluso entre "
+"sesiones."
 
 #: data/io.elementary.code.appdata.xml.in:16
 msgid ""
@@ -123,7 +124,7 @@ msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
 msgid "IDE;scratch;"
-msgstr "IDE;código;"
+msgstr "IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New Document"

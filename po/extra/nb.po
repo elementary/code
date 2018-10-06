@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-27 08:36-0700\n"
-"PO-Revision-Date: 2018-06-04 00:08+0000\n"
+"PO-Revision-Date: 2018-09-28 00:06+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://weblate.elementary.io/projects/code/"
 "extra/nb/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -26,47 +26,42 @@ msgid "Code"
 msgstr "Kode"
 
 #: data/io.elementary.code.appdata.xml.in:9
-#, fuzzy
 msgid "The editor that works"
-msgstr "Tekstbehandleren som funker"
+msgstr "Tekstbehandleren som virker"
 
 #: data/io.elementary.code.appdata.xml.in:11
-#, fuzzy
 msgid ""
 "Code is the editor that works for you. It auto-saves your files, meaning "
 "they're always up-to-date. Plus it remembers your tabs so you never lose "
 "your spot, even in between sessions."
 msgstr ""
-"Scratch er tekstbehandleren som jobber for deg. Automatisk lagring sørger "
-"for at dine filer alltid er oppdatert. Den husker hvilke faner du har jobbet "
-"i, slik at du lett kan fortsette der du slapp."
+"Kode er tekstbehandleren som jobber for deg. Automatisk lagring sørger for "
+"at dine filer alltid er oppdatert. Den husker også hvilke faner du har "
+"jobbet i, slik at du lett kan fortsette der du slapp."
 
 #: data/io.elementary.code.appdata.xml.in:16
-#, fuzzy
 msgid ""
 "Make it yours. Code is written from the ground up to be extensible. Keep "
 "things super lightweight and simple, or install extensions to turn Code into "
 "a full-blown IDE; it's your choice. And with a handful of useful "
 "preferences, you can tweak the behavior and interface to your liking."
 msgstr ""
-"Gjør den til din egen. Scratch er laget for å kunne utvides. Behold det som "
-"et lett og simpelt verktøy, eller installer utvidelser for å transformere "
-"Scratch til en fullstendig IDE; valget er ditt. Med en håndfull gode "
-"innstillinger, kan du tilpasse oppførselen og utseendet slik du ønsker."
+"Gjør den til din egen. Kode er laget for å kunne utvides. Behold det som et "
+"lett og enkelt verktøy, eller installer utvidelser for å gjøre Kode til et "
+"fullstendig IDE; valget er ditt. Med en håndfull gode innstillinger, kan du "
+"tilpasse oppførselen og utseendet slik du ønsker."
 
 #: data/io.elementary.code.appdata.xml.in:22
-#, fuzzy
 msgid ""
 "It's elementary. Code is made to be the perfect editor for elementary, "
 "meaning it closely follows the high standards of design, speed, and "
 "consistency. It's sexy, but not distracting."
 msgstr ""
-"Scratch er skapt for å være den beste tekstbehandleren for elementary, ved å "
-"følge de høye standardene for design, fart og konsistens. Det er "
-"engasjerende, men ikke distraherende."
+"Kode er skapt for å være den perfekte tekstbehandleren for elementary, det "
+"betyr den følger de høyeste standardene for design, fart og konsistens. Den "
+"er vakker, men ikke distraherende."
 
 #: data/io.elementary.code.appdata.xml.in:27
-#, fuzzy
 msgid ""
 "Works with your language. Whether you're crafting code in Vala, scripting "
 "with PHP, or marking things up in HTML, Code has you covered. Experience "
@@ -74,9 +69,9 @@ msgid ""
 "languages."
 msgstr ""
 "Fungerer med ditt favorittspråk. Uansett om du skriver kode i Vala, skripter "
-"med PHP eller bygger ting med HTML, står Scratch til tjeneste. Opplev full "
-"syntaks-merking for omtrent alle programmerings-, skripting- og oppmerkings-"
-"språk."
+"med PHP eller bygger ting med HTML, står Kode til tjeneste. Opplev full "
+"syntaks-merking for omtrent alle språk for programmering, skripting og "
+"oppmerking."
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid ""
@@ -113,23 +108,20 @@ msgid "elementary LLC."
 msgstr "elementary LLC. (forretning med begrenset ansvar)"
 
 #: data/io.elementary.code.desktop.in.in:5
-#, fuzzy
 msgid "Edit code files"
-msgstr "Redigér tekstfiler"
+msgstr "Rediger kodefiler"
 
 #: data/io.elementary.code.desktop.in.in:6
 msgid "Code Editor"
 msgstr "Kode -tekstbehandler"
 
 #: data/io.elementary.code.desktop.in.in:8
-#, fuzzy
 msgid "io.elementary.code"
 msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
-#, fuzzy
 msgid "IDE;scratch;"
-msgstr "Scratch"
+msgstr "IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New Document"

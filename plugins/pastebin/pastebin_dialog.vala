@@ -261,7 +261,7 @@ namespace Scratch.Dialogs {
 
             format_combo = new Gtk.ComboBoxText ();
 
-            var format_button = new Gtk.Button.with_label (_("Others..."));
+            var format_button = new Gtk.Button.with_label (_("Others…"));
             format_button.clicked.connect (format_button_clicked);
 
             //populate combo box

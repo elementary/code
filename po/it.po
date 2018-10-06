@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-02 15:44-0500\n"
-"PO-Revision-Date: 2018-03-10 00:03+0000\n"
-"Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
+"PO-Revision-Date: 2018-09-06 00:08+0000\n"
+"Last-Translator: strozzascotte <marco.depaolini@gmail.com>\n"
 "Language-Team: Italian <https://weblate.elementary.io/projects/code/code/it/>"
 "\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-04 05:45+0000\n"
 
 #: ../src/config.vala:15
@@ -176,7 +176,7 @@ msgstr "Salva questo file"
 
 #: ../src/MainWindow.vala:973 ../src/Services/Document.vala:578
 msgid "Save As…"
-msgstr "Salva come..."
+msgstr "Salva come…"
 
 #: ../src/MainWindow.vala:974
 msgid "Save this file with a different name"

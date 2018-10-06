@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2017 elementary LLC. (https://elementary.io),
+ * Copyright (c) 2017-2018 elementary LLC. (https://elementary.io),
  *               2013 Julien Spautz <spautz.julien@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -43,6 +43,11 @@ namespace Scratch.FolderManager {
                 if (!children_loaded && expanded && n_children <= 1 && file.children.size > 0) {
                     clear ();
                     add_children ();
+                    var root = get_root_folder ();
+                    if (root != null) {
+                        root.update_git_status ();
+                    }
+
                     children_loaded = true;
                 }
             });
@@ -283,6 +288,27 @@ namespace Scratch.FolderManager {
 
                         break;
                 }
+            }
+
+            var root = get_root_folder ();
+            if (root != null) {
+                root.update_git_status ();
+            }
+        }
+
+        private ProjectFolderItem? get_root_folder (Granite.Widgets.SourceList.ExpandableItem? start = null) {
+            if (start == null) {
+                start = this;
+            }
+
+            if (start is ProjectFolderItem) {
+                return start as ProjectFolderItem;
+            } else if (start.parent is ProjectFolderItem) {
+                return start.parent as ProjectFolderItem;
+            } else if (start.parent != null) {
+                return get_root_folder (start.parent);
+            } else {
+                return null;
             }
         }
 

@@ -1,7 +1,7 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /*
-* Copyright (c) 2011-2013 Mario Guerriero <mefrio.g@gmail.com>
-*               2017-2018 elementary LLC. <https://elementary.io>
+* Copyright (c) 2011–2013 Mario Guerriero <mefrio.g@gmail.com>
+*               2017–2018 elementary, Inc. <https://elementary.io>
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -87,6 +87,7 @@ namespace Scratch {
         public const string ACTION_ZOOM_IN = "action_zoom_in";
         public const string ACTION_ZOOM_OUT = "action_zoom_out";
         public const string ACTION_TOGGLE_COMMENT = "action_toggle_comment";
+        public const string ACTION_TOGGLE_SIDEBAR = "action_toggle_sidebar";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
@@ -120,7 +121,8 @@ namespace Scratch {
             { ACTION_ZOOM_DEFAULT, action_set_default_zoom },
             { ACTION_ZOOM_IN, action_zoom_in },
             { ACTION_ZOOM_OUT, action_zoom_out},
-            { ACTION_TOGGLE_COMMENT, action_toggle_comment }
+            { ACTION_TOGGLE_COMMENT, action_toggle_comment },
+            { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar }
         };
 
         public MainWindow (Scratch.Application scratch_app) {
@@ -159,6 +161,9 @@ namespace Scratch {
             action_accelerators.set (ACTION_ZOOM_OUT, "<Control>minus");
             action_accelerators.set (ACTION_ZOOM_OUT, "<Control>KP_Subtract");
             action_accelerators.set (ACTION_TOGGLE_COMMENT, "<Control>m");
+            action_accelerators.set (ACTION_TOGGLE_COMMENT, "<Control>slash");
+            action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "F9"); // GNOME
+            action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "<Control>backslash"); // Atom
 
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("io/elementary/code/Application.css");
@@ -962,5 +967,14 @@ namespace Scratch {
 
             doc.source_view.sort_selected_lines ();
         }
+
+        private void action_toggle_sidebar () {
+            if (project_pane == null) {
+                return;
+            }
+
+            project_pane.visible = !project_pane.visible;
+        }
     }
 }
+
