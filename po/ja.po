@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-18 10:48-0700\n"
-"PO-Revision-Date: 2018-09-25 00:01+0000\n"
+"PO-Revision-Date: 2018-10-05 00:08+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/code/code/ja/"
 ">\n"
@@ -101,7 +101,7 @@ msgstr "検索…"
 
 #: src/MainWindow.vala:183
 msgid "Hide search bar"
-msgstr "検索バーを隠す"
+msgstr "検索バーを表示しない"
 
 #: src/MainWindow.vala:229
 msgid "Zeitgeist Datasource for Scratch"
@@ -581,7 +581,7 @@ msgstr "ファイル名:"
 
 #: plugins/pastebin/pastebin_dialog.vala:259
 msgid "Format:"
-msgstr "フォーマット:"
+msgstr "形式:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
 msgid "Others…"
@@ -605,7 +605,7 @@ msgstr "他の形式"
 
 #: plugins/pastebin/pastebin_dialog.vala:461
 msgid "Ten minutes"
-msgstr "10  分間"
+msgstr "10 分間"
 
 #: plugins/pastebin/pastebin_dialog.vala:462
 msgid "One hour"
@@ -638,7 +638,7 @@ msgstr "ターミナルを表示"
 
 #: plugins/terminal/terminal.vala:138
 msgid "Hide Terminal"
-msgstr "ターミナルを隠す"
+msgstr "ターミナルを表示しない"
 
 #: plugins/terminal/terminal.vala:139
 msgid "Terminal"
@@ -666,7 +666,7 @@ msgstr "プレビューを表示"
 
 #: plugins/browser-preview/browser-preview.vala:92
 msgid "Hide Preview"
-msgstr "プレビューを隠す"
+msgstr "プレビューを表示しない"
 
 #: plugins/spell/spell.vala:77
 msgid ""
