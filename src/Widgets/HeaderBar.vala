@@ -95,8 +95,8 @@ namespace Scratch.Widgets {
 
             var color_button_white = new Gtk.RadioButton (null);
             color_button_white.halign = Gtk.Align.CENTER;
-            color_button_white.height_request = 32;
-            color_button_white.width_request = 32;
+            // color_button_white.height_request = 32;
+            // color_button_white.width_request = 32;
             color_button_white.tooltip_text = _("High Contrast");
 
             var color_button_white_context = color_button_white.get_style_context ();
@@ -105,8 +105,8 @@ namespace Scratch.Widgets {
 
             var color_button_light = new Gtk.RadioButton.from_widget (color_button_white);
             color_button_light.halign = Gtk.Align.CENTER;
-            color_button_light.height_request = 32;
-            color_button_light.width_request = 32;
+            // color_button_light.height_request = 32;
+            // color_button_light.width_request = 32;
             color_button_light.tooltip_text = _("Solarized Light");
 
             var color_button_light_context = color_button_light.get_style_context ();
@@ -115,8 +115,8 @@ namespace Scratch.Widgets {
 
             var color_button_dark = new Gtk.RadioButton.from_widget (color_button_white);
             color_button_dark.halign = Gtk.Align.CENTER;
-            color_button_dark.height_request = 32;
-            color_button_dark.width_request = 32;
+            // color_button_dark.height_request = 32;
+            // color_button_dark.width_request = 32;
             color_button_dark.tooltip_text = _("Solarized Dark");
 
             var color_button_dark_context = color_button_dark.get_style_context ();
@@ -198,30 +198,18 @@ namespace Scratch.Widgets {
                 Scratch.settings.prefer_dark_style = true;
                 Scratch.settings.style_scheme = "solarized-dark";
                 gtk_settings.gtk_application_prefer_dark_theme = true;
-
-                // color_button_dark.active = true;
-                color_button_light.active = false;
-                color_button_white.active = false;
             });
 
             color_button_light.clicked.connect (() => {
                 Scratch.settings.prefer_dark_style = false;
                 Scratch.settings.style_scheme = "solarized-light";
                 gtk_settings.gtk_application_prefer_dark_theme = false;
-
-                color_button_dark.active = false;
-                // color_button_light.active = true;
-                color_button_white.active = false;
             });
 
             color_button_white.clicked.connect (() => {
                 Scratch.settings.prefer_dark_style = false;
                 Scratch.settings.style_scheme = "classic";
                 gtk_settings.gtk_application_prefer_dark_theme = false;
-
-                color_button_dark.active = false;
-                color_button_light.active = false;
-                // color_button_white.active = true;
             });
         }
 
