@@ -28,8 +28,6 @@ namespace Scratch.Plugins {
         unowned BrowserPreview.BrowserView? view = null;
         Scratch.Services.Document? doc = null;
 
-        Gtk.Notebook? notebook = null;
-
         Scratch.Services.Interface plugins;
         public Object object { owned get; construct; }
 
