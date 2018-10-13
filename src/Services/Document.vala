@@ -376,7 +376,7 @@ namespace Scratch.Services {
             bool ret_value = true;
             if (app_closing && is_file_temporary && !delete_temporary_file ()) {
                 debug ("Save temporary file!");
-                this.save.begin ();
+                save_sync ();
             }
             // Check for unsaved changes
             else if (!this.saved || (!app_closing && is_file_temporary && !delete_temporary_file ())) {
@@ -412,9 +412,9 @@ namespace Scratch.Services {
                         break;
                     case Gtk.ResponseType.YES:
                         if (this.is_file_temporary)
-                            this.save_as.begin ();
+                            save_as_sync ();
                         else
-                            this.save.begin ();
+                            save_sync ();
                         break;
                     case Gtk.ResponseType.NO:
                         if (this.is_file_temporary)
@@ -435,6 +435,30 @@ namespace Scratch.Services {
             }
 
             return ret_value;
+        }
+
+        public bool save_sync (bool force = false) {
+            var loop = new MainLoop ();
+            bool result = false;
+            save.begin (force, (obj, res) => {
+                result = save.end (res);
+                loop.quit ();
+            });
+
+            loop.run ();
+            return result;
+        }
+
+        public bool save_as_sync () {
+            var loop = new MainLoop ();
+            bool result = false;
+            save_as.begin ((obj, res) => {
+                result = save_as.end (res);
+                loop.quit ();
+            });
+
+            loop.run ();
+            return result;
         }
 
         public async bool save (bool force = false) {
