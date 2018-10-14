@@ -641,7 +641,7 @@ namespace Scratch {
 
         // Ctrl + scroll
         public void action_zoom_in () {
-             zooming (Gdk.ScrollDirection.UP);
+            zooming (Gdk.ScrollDirection.UP);
         }
 
         // Ctrl + scroll
