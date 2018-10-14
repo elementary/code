@@ -902,9 +902,7 @@ namespace Scratch {
         }
 
         private void action_to_lower_case () {
-            Scratch.Widgets.DocumentView? view = null;
-            view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
-            var doc = view.current_document;
+            var doc = get_current_document ();
             if (doc == null) {
                 return;
             }
@@ -919,9 +917,7 @@ namespace Scratch {
         }
 
         private void action_to_upper_case () {
-            Scratch.Widgets.DocumentView? view = null;
-            view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
-            var doc = view.current_document;
+            var doc = get_current_document ();
             if (doc == null) {
                 return;
             }
@@ -936,9 +932,7 @@ namespace Scratch {
         }
 
         private void action_toggle_comment () {
-            Scratch.Widgets.DocumentView? view = null;
-            view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
-            var doc = view.current_document;
+            var doc = get_current_document ();
             if (doc == null) {
                 return;
             }
@@ -950,9 +944,7 @@ namespace Scratch {
         }
 
         private void action_sort_lines () {
-            Scratch.Widgets.DocumentView? view = null;
-            view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
-            var doc = view.current_document;
+            var doc = get_current_document ();
             if (doc == null) {
                 return;
             }
