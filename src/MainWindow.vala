@@ -452,15 +452,7 @@ namespace Scratch {
 
         // Get current view
         public Scratch.Widgets.DocumentView? get_current_view () {
-            Scratch.Widgets.DocumentView? view = null;
-
-            view = split_view.get_current_view ();
-
-            if (view == null && !split_view.is_empty ()) {
-                view = (split_view.get_child1 () ?? split_view.get_child2 ()) as Scratch.Widgets.DocumentView;
-            }
-
-            return view;
+            return split_view.get_focus_child () as Scratch.Widgets.DocumentView;
         }
 
         // Get current document
