@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-14 11:27-0700\n"
-"PO-Revision-Date: 2018-09-06 00:08+0000\n"
-"Last-Translator: strozzascotte <marco.depaolini@gmail.com>\n"
-"Language-Team: Italian <https://weblate.elementary.io/projects/code/code/it/"
-">\n"
+"PO-Revision-Date: 2018-10-15 14:12+0000\n"
+"Last-Translator: Marco De Paolini <marco.depaolini@gmail.com>\n"
+"Language-Team: Italian <https://weblate.elementary.io/projects/code/code/it/>"
+"\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,13 +60,12 @@ msgid "It is a mountable location."
 msgstr "È un percorso montabile."
 
 #: src/Application.vala:174
-#, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
 msgstr ""
 "È un file \"speciale\", come ad esempio un socket,\n"
-" un fifo, un dispositivo a blocchi o un dispositivo a caratteri."
+" un FIFO, un dispositivo a blocchi o un dispositivo a caratteri."
 
 #: src/Application.vala:177
 msgid "It is an \"unknown\" file type."
@@ -94,7 +93,7 @@ msgstr "Cartella di lavoro corrente"
 
 #: src/MainWindow.vala:133
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
 #: src/MainWindow.vala:181 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
@@ -222,7 +221,7 @@ msgstr "Linea guida di larghezza:"
 
 #: src/Dialogs/PreferencesDialog.vala:128
 msgid "Font"
-msgstr ""
+msgstr "Tipo di carattere"
 
 #: src/Dialogs/PreferencesDialog.vala:130
 msgid "Custom font:"
@@ -230,63 +229,58 @@ msgstr "Carattere personalizzato:"
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
-msgstr ""
+msgstr "Un'altra applicazione…"
 
 #: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
-#, fuzzy
 msgid "Open In"
-msgstr "Apri"
+msgstr "Apri con"
 
 #: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
-#, fuzzy
 msgid "Other Actions"
-msgstr "Altri formati"
+msgstr "Altre azioni"
 
 #: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
-msgstr ""
+msgstr "Cambia nome"
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
-msgstr ""
+msgstr "Muovi al cestino"
 
 #: src/FolderManager/FileView.vala:39
 msgid "Folders"
 msgstr "Cartelle"
 
 #: src/FolderManager/FolderItem.vala:148
-#, fuzzy
 msgid "Folder"
-msgstr "Cartelle"
+msgstr "Cartella"
 
 #: src/FolderManager/FolderItem.vala:151
 msgid "Empty File"
-msgstr ""
+msgstr "File vuoto"
 
 #: src/FolderManager/FolderItem.vala:158
-#, fuzzy
 msgid "New"
-msgstr "Nuova scheda"
+msgstr "Nuovo"
 
 #: src/FolderManager/FolderItem.vala:322
 msgid "untitled folder"
-msgstr ""
+msgstr "cartella senza titolo"
 
 #: src/FolderManager/FolderItem.vala:326
 #, c-format
 msgid "untitled folder %d"
-msgstr ""
+msgstr "cartella senza titolo %d"
 
 #: src/FolderManager/FolderItem.vala:354
-#, fuzzy
 msgid "new file"
-msgstr "Nuovo file"
+msgstr "nuovo file"
 
 #: src/FolderManager/FolderItem.vala:358
-#, fuzzy, c-format
+#, c-format
 msgid "new file %d"
-msgstr "Nuovo file"
+msgstr "nuovo file %d"
 
 #: src/FolderManager/ProjectFolderItem.vala:78
 msgid "Close Folder"
@@ -295,29 +289,28 @@ msgstr "Chiudi cartella"
 #: src/Services/Document.vala:243
 #, c-format
 msgid "%s Is Not a Text File"
-msgstr ""
+msgstr "%s non è un file di testo"
 
 #: src/Services/Document.vala:244
 msgid "Code will not load this type of file."
-msgstr ""
+msgstr "Code non può caricare questo tipo di file."
 
 #: src/Services/Document.vala:246
 msgid "Load Anyway"
-msgstr ""
+msgstr "Carica lo stesso"
 
 #: src/Services/Document.vala:267
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr ""
+msgstr "Il caricamento del file \"%s\" sta impiegando molto tempo"
 
 #: src/Services/Document.vala:268
 msgid "Please wait while Code is loading the file."
-msgstr ""
+msgstr "Attendere mentre Code carica il file."
 
 #: src/Services/Document.vala:270
-#, fuzzy
 msgid "Cancel Load"
-msgstr "Annulla"
+msgstr "Annulla il caricamento"
 
 #: src/Services/Document.vala:394
 #, c-format
@@ -345,19 +338,14 @@ msgstr "Nuovo documento"
 
 #. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:679
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Read"
-msgstr ""
-"Il file \"%s\" non può essere creato.\n"
-"%s"
+msgstr "Impossibile leggere il file \"%s\""
 
 #: src/Services/Document.vala:680
-#, fuzzy
 msgid ""
 "Maybe it is corrupt or you do not have the necessary permissions to read it."
-msgstr ""
-"Il file \"%s\" non può essere letto. Forse è corrotto\n"
-"o non disponi delle autorizzazioni necessarie per leggerlo."
+msgstr "Forse è danneggiato o non hai i permessi necessari per aprirlo."
 
 #: src/Services/Document.vala:692
 #, c-format
@@ -413,40 +401,39 @@ msgid "Templates"
 msgstr "Modelli"
 
 #: src/Widgets/DocumentView.vala:132
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s"
-msgstr "File di testo da "
+msgstr "File di testo da %s"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
 msgstr "Evidenziazione sintassi"
 
 #: src/Widgets/FormatBar.vala:71
-#, fuzzy
 msgid "Line number"
-msgstr "Mostra numeri di riga:"
+msgstr "Numero di riga"
 
 #: src/Widgets/FormatBar.vala:96
 msgid "Filter languages"
-msgstr ""
+msgstr "Filtrare i linguaggi"
 
 #: src/Widgets/FormatBar.vala:118
 msgid "Plain Text"
-msgstr ""
+msgstr "Testo semplice"
 
 #: src/Widgets/FormatBar.vala:200
-#, fuzzy, c-format
+#, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
-msgstr[0] "Mostra gli spazi:"
-msgstr[1] "Mostra gli spazi:"
+msgstr[0] "%d spazio"
+msgstr[1] "%d spazi"
 
 #: src/Widgets/FormatBar.vala:202
-#, fuzzy, c-format
+#, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "Nuova scheda"
-msgstr[1] "Nuova scheda"
+msgstr[0] "%d scheda"
+msgstr[1] "%d schede"
 
 #: src/Widgets/FormatBar.vala:218
 msgid "Go To Line:"
@@ -481,35 +468,32 @@ msgid "Share"
 msgstr "Condividi"
 
 #: src/Widgets/HeaderBar.vala:77
-#, fuzzy
 msgid "Zoom Out"
-msgstr "Ingrandimento"
+msgstr "Diminuire l'ingrandimento"
 
 #: src/Widgets/HeaderBar.vala:81
 msgid "Zoom 1:1"
 msgstr "Ingrandimento 1:1"
 
 #: src/Widgets/HeaderBar.vala:85
-#, fuzzy
 msgid "Zoom In"
-msgstr "Ingrandimento"
+msgstr "Aumentare l'ngrandimento"
 
 #: src/Widgets/HeaderBar.vala:98
 msgid "High Contrast"
-msgstr ""
+msgstr "Contrasto elevato"
 
 #: src/Widgets/HeaderBar.vala:106
 msgid "Solarized Light"
-msgstr ""
+msgstr "Solarizzato chiaro"
 
 #: src/Widgets/HeaderBar.vala:114
 msgid "Solarized Dark"
-msgstr ""
+msgstr "Solarizzato scuro"
 
 #: src/Widgets/HeaderBar.vala:124
-#, fuzzy
 msgid "Toggle Sidebar"
-msgstr "Barra laterale"
+msgstr "Mostra o nascondi la barra laterale"
 
 #: src/Widgets/HeaderBar.vala:128
 msgid "Add New View"
@@ -552,13 +536,12 @@ msgid "Replace all"
 msgstr "Sostituisci tutto"
 
 #: src/Widgets/SourceView.vala:357
-#, fuzzy
 msgid "Sort Selected Lines"
-msgstr "Per il testo selezionato"
+msgstr "Ordina le linee selezionate"
 
 #: src/Widgets/SourceView.vala:364
 msgid "Toggle Comment"
-msgstr ""
+msgstr "Attiva o disattiva il commento"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -569,16 +552,14 @@ msgid "Open a file to begin editing."
 msgstr "Apri un file per iniziarne la modifica."
 
 #: src/Widgets/WelcomeView.vala:32
-#, fuzzy
 msgid "New File"
-msgstr "/Nuovo file"
+msgstr "Nuovo file"
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "Create a new empty file."
 msgstr "Crea un nuovo file vuoto."
 
 #: src/Widgets/WelcomeView.vala:33
-#, fuzzy
 msgid "Open File"
 msgstr "Apri file"
 
@@ -587,16 +568,14 @@ msgid "Open a saved file."
 msgstr "Apri un file esistente."
 
 #: src/Widgets/WelcomeView.vala:34
-#, fuzzy
 msgid "Open Folder"
 msgstr "Apri una cartella"
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Add a project folder to the sidebar."
-msgstr ""
+msgstr "Aggiungi una cartella di progetto alla barra laterale."
 
 #: plugins/pastebin/pastebin_dialog.vala:249
-#, fuzzy
 msgid "Share via Pastebin"
 msgstr "Condividi su PasteBin"
 
@@ -605,12 +584,10 @@ msgid "Name:"
 msgstr "Nome:"
 
 #: plugins/pastebin/pastebin_dialog.vala:259
-#, fuzzy
 msgid "Format:"
-msgstr "Formato: "
+msgstr "Formato:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
-#, fuzzy
 msgid "Others…"
 msgstr "Altri…"
 
