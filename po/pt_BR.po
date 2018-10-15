@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-14 11:27-0700\n"
-"PO-Revision-Date: 2018-08-29 19:40+0000\n"
+"PO-Revision-Date: 2018-10-15 03:57+0000\n"
 "Last-Translator: Rodrigo Oliveira <rod.oliveira@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://weblate.elementary.io/projects/"
 "code/code/pt_BR/>\n"
@@ -60,13 +60,12 @@ msgid "It is a mountable location."
 msgstr "É uma localização montável."
 
 #: src/Application.vala:174
-#, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
 msgstr ""
 "É um arquivo \"especial\" como um socket,\n"
-" fifo, dispositivo de bloco ou dispositivo de caractere."
+" FIFO, dispositivo de bloco, ou dispositivo de caractere."
 
 #: src/Application.vala:177
 msgid "It is an \"unknown\" file type."
@@ -94,7 +93,7 @@ msgstr "Diretório atual"
 
 #: src/MainWindow.vala:133
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
 #: src/MainWindow.vala:181 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
@@ -222,7 +221,7 @@ msgstr "Largura na linha de guia:"
 
 #: src/Dialogs/PreferencesDialog.vala:128
 msgid "Font"
-msgstr ""
+msgstr "Fonte"
 
 #: src/Dialogs/PreferencesDialog.vala:130
 msgid "Custom font:"
@@ -230,63 +229,58 @@ msgstr "Fonte personalizada:"
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
-msgstr ""
+msgstr "Outra Aplicação…"
 
 #: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
-#, fuzzy
 msgid "Open In"
-msgstr "Abrir"
+msgstr "Abrir em"
 
 #: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
-#, fuzzy
 msgid "Other Actions"
-msgstr "Outros formatos"
+msgstr "Outras Ações"
 
 #: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
-msgstr ""
+msgstr "Renomear"
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
-msgstr ""
+msgstr "Mover para Lixeira"
 
 #: src/FolderManager/FileView.vala:39
 msgid "Folders"
 msgstr "Pastas"
 
 #: src/FolderManager/FolderItem.vala:148
-#, fuzzy
 msgid "Folder"
-msgstr "Pastas"
+msgstr "Pasta"
 
 #: src/FolderManager/FolderItem.vala:151
 msgid "Empty File"
-msgstr ""
+msgstr "Arquivo Vazio"
 
 #: src/FolderManager/FolderItem.vala:158
-#, fuzzy
 msgid "New"
-msgstr "Nova aba"
+msgstr "Novo(a)"
 
 #: src/FolderManager/FolderItem.vala:322
 msgid "untitled folder"
-msgstr ""
+msgstr "pasta sem título"
 
 #: src/FolderManager/FolderItem.vala:326
 #, c-format
 msgid "untitled folder %d"
-msgstr ""
+msgstr "pasta sem título %d"
 
 #: src/FolderManager/FolderItem.vala:354
-#, fuzzy
 msgid "new file"
-msgstr "Novo arquivo"
+msgstr "novo arquivo"
 
 #: src/FolderManager/FolderItem.vala:358
-#, fuzzy, c-format
+#, c-format
 msgid "new file %d"
-msgstr "Novo arquivo"
+msgstr "movo arquivo %d"
 
 #: src/FolderManager/ProjectFolderItem.vala:78
 msgid "Close Folder"
@@ -295,29 +289,28 @@ msgstr "Fechar pasta"
 #: src/Services/Document.vala:243
 #, c-format
 msgid "%s Is Not a Text File"
-msgstr ""
+msgstr "%s Não é um Arquivo de Texto"
 
 #: src/Services/Document.vala:244
 msgid "Code will not load this type of file."
-msgstr ""
+msgstr "Code não irá carregar este tipo de arquivo."
 
 #: src/Services/Document.vala:246
 msgid "Load Anyway"
-msgstr ""
+msgstr "Carregar de Qualquer Forma"
 
 #: src/Services/Document.vala:267
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr ""
+msgstr "Carregando o Arquivo \"%s\" está Demorando Muito"
 
 #: src/Services/Document.vala:268
 msgid "Please wait while Code is loading the file."
-msgstr ""
+msgstr "Aguarde enquanto o Code está carregando o arquivo."
 
 #: src/Services/Document.vala:270
-#, fuzzy
 msgid "Cancel Load"
-msgstr "Cancelar"
+msgstr "Cancelar Carregamento"
 
 #: src/Services/Document.vala:394
 #, c-format
@@ -345,19 +338,17 @@ msgstr "Novo Documento"
 
 #. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:679
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
-"O arquivo \"%s\" não pôde ser criado.\n"
-"%s"
+"Exibir uma visualização de erro que diz \"Ei, não consigo ler esse arquivo!\""
 
 #: src/Services/Document.vala:680
-#, fuzzy
 msgid ""
 "Maybe it is corrupt or you do not have the necessary permissions to read it."
 msgstr ""
-"O arquivo \"%s\" não pôde ser lido. Ele pode estar corrompido \n"
-"ou você não possui as permissões necessárias para realizar a leitura."
+"Talvez esteja corrompido ou você não possui as permissões necessárias para "
+"lê-lo."
 
 #: src/Services/Document.vala:692
 #, c-format
@@ -413,40 +404,39 @@ msgid "Templates"
 msgstr "Modelos"
 
 #: src/Widgets/DocumentView.vala:132
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s"
-msgstr "Arquivo de texto a partir de "
+msgstr "Arquivo de texto de %s"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
 msgstr "Destaque de sintaxe"
 
 #: src/Widgets/FormatBar.vala:71
-#, fuzzy
 msgid "Line number"
-msgstr "Mostrar número de linhas:"
+msgstr "Número da linha"
 
 #: src/Widgets/FormatBar.vala:96
 msgid "Filter languages"
-msgstr ""
+msgstr "Filtrar linguagens"
 
 #: src/Widgets/FormatBar.vala:118
 msgid "Plain Text"
-msgstr ""
+msgstr "Texto Simples"
 
 #: src/Widgets/FormatBar.vala:200
-#, fuzzy, c-format
+#, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
-msgstr[0] "Desenhar espaços:"
-msgstr[1] "Desenhar espaços:"
+msgstr[0] "%d Espaço"
+msgstr[1] "%d Espaços"
 
 #: src/Widgets/FormatBar.vala:202
-#, fuzzy, c-format
+#, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "Nova aba"
-msgstr[1] "Nova aba"
+msgstr[0] "%d Aba"
+msgstr[1] "%d Abas"
 
 #: src/Widgets/FormatBar.vala:218
 msgid "Go To Line:"
@@ -481,35 +471,32 @@ msgid "Share"
 msgstr "Compartilhar"
 
 #: src/Widgets/HeaderBar.vala:77
-#, fuzzy
 msgid "Zoom Out"
-msgstr "Escala"
+msgstr "Reduzir Zoom"
 
 #: src/Widgets/HeaderBar.vala:81
 msgid "Zoom 1:1"
 msgstr "Escala 1:1"
 
 #: src/Widgets/HeaderBar.vala:85
-#, fuzzy
 msgid "Zoom In"
-msgstr "Escala"
+msgstr "Aumentar Zoom"
 
 #: src/Widgets/HeaderBar.vala:98
 msgid "High Contrast"
-msgstr ""
+msgstr "Alto Contraste"
 
 #: src/Widgets/HeaderBar.vala:106
 msgid "Solarized Light"
-msgstr ""
+msgstr "Solarizado Claro"
 
 #: src/Widgets/HeaderBar.vala:114
 msgid "Solarized Dark"
-msgstr ""
+msgstr "Solarizado Escuro"
 
 #: src/Widgets/HeaderBar.vala:124
-#, fuzzy
 msgid "Toggle Sidebar"
-msgstr "Barra lateral"
+msgstr "Alternar Barra Lateral"
 
 #: src/Widgets/HeaderBar.vala:128
 msgid "Add New View"
@@ -552,13 +539,12 @@ msgid "Replace all"
 msgstr "Substituir todos"
 
 #: src/Widgets/SourceView.vala:357
-#, fuzzy
 msgid "Sort Selected Lines"
-msgstr "Para o texto selecionado"
+msgstr "Ordenar Linhas Selecionadas"
 
 #: src/Widgets/SourceView.vala:364
 msgid "Toggle Comment"
-msgstr ""
+msgstr "Alternar Comentário"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -569,34 +555,30 @@ msgid "Open a file to begin editing."
 msgstr "Abra um arquivo para começar a editar."
 
 #: src/Widgets/WelcomeView.vala:32
-#, fuzzy
 msgid "New File"
-msgstr "/Novo Arquivo"
+msgstr "Novo Arquivo"
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "Create a new empty file."
 msgstr "Criar um novo arquivo vazio."
 
 #: src/Widgets/WelcomeView.vala:33
-#, fuzzy
 msgid "Open File"
-msgstr "Abrir arquivo"
+msgstr "Abrir Arquivo"
 
 #: src/Widgets/WelcomeView.vala:33
 msgid "Open a saved file."
 msgstr "Abrir um arquivo salvo."
 
 #: src/Widgets/WelcomeView.vala:34
-#, fuzzy
 msgid "Open Folder"
-msgstr "Abrir uma pasta"
+msgstr "Abrir Pasta"
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Add a project folder to the sidebar."
-msgstr ""
+msgstr "Adicionar uma pasta de projeto à barra lateral."
 
 #: plugins/pastebin/pastebin_dialog.vala:249
-#, fuzzy
 msgid "Share via Pastebin"
 msgstr "Compartilhar via Pastebin"
 
@@ -605,14 +587,12 @@ msgid "Name:"
 msgstr "Nome:"
 
 #: plugins/pastebin/pastebin_dialog.vala:259
-#, fuzzy
 msgid "Format:"
-msgstr "Formato: "
+msgstr "Formato:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
-#, fuzzy
 msgid "Others…"
-msgstr "Outros..."
+msgstr "Outros…"
 
 #: plugins/pastebin/pastebin_dialog.vala:286
 msgid "Expiry time:"
