@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-07 14:05-0700\n"
+"POT-Creation-Date: 2018-10-14 11:27-0700\n"
 "PO-Revision-Date: 2017-03-02 13:09+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Latvian <lv@li.org>\n"
@@ -87,32 +87,32 @@ msgstr "Spraudņi"
 msgid "Current working directory"
 msgstr "Pāsreizējā darba direktorija"
 
-#: src/MainWindow.vala:131
+#: src/MainWindow.vala:133
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:176 src/Widgets/HeaderBar.vala:66
+#: src/MainWindow.vala:181 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
 msgstr "Meklēt..."
 
-#: src/MainWindow.vala:178
+#: src/MainWindow.vala:183
 msgid "Hide search bar"
 msgstr "Paslēpt meklētāju"
 
-#: src/MainWindow.vala:224
+#: src/MainWindow.vala:229
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Zeitgeist datu avots priekš Scracth"
 
 #. Show a GtkFileChooserDialog
-#: src/MainWindow.vala:731
+#: src/MainWindow.vala:736
 msgid "Open some files"
 msgstr "Atvērt datnes"
 
-#: src/MainWindow.vala:750
+#: src/MainWindow.vala:755
 msgid "_Cancel"
 msgstr "_Atcelt"
 
-#: src/MainWindow.vala:751
+#: src/MainWindow.vala:756
 msgid "_Open"
 msgstr "_Atvērt"
 
@@ -137,7 +137,7 @@ msgstr "Atvērt"
 msgid "Save"
 msgstr "Saglabāt"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:138
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:136
 msgid "Preferences"
 msgstr "Iestatījumi"
 
@@ -223,26 +223,26 @@ msgstr ""
 msgid "Custom font:"
 msgstr "Mainīt fontus:"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:59
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:115
+#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
 #, fuzzy
 msgid "Open In"
 msgstr "Atvērt"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:118
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
 #, fuzzy
 msgid "Other Actions"
 msgstr "Citi formāti"
 
-#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:121
+#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:127
-#: src/FolderManager/MainFolderItem.vala:33
+#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr ""
 
@@ -250,40 +250,40 @@ msgstr ""
 msgid "Folders"
 msgstr "Mapes"
 
-#: src/FolderManager/FolderItem.vala:143
+#: src/FolderManager/FolderItem.vala:148
 #, fuzzy
 msgid "Folder"
 msgstr "Mapes"
 
-#: src/FolderManager/FolderItem.vala:146
+#: src/FolderManager/FolderItem.vala:151
 msgid "Empty File"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:153
+#: src/FolderManager/FolderItem.vala:158
 #, fuzzy
 msgid "New"
 msgstr "Jauna cilne"
 
-#: src/FolderManager/FolderItem.vala:296
+#: src/FolderManager/FolderItem.vala:322
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:300
+#: src/FolderManager/FolderItem.vala:326
 #, c-format
 msgid "untitled folder %d"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:328
+#: src/FolderManager/FolderItem.vala:354
 #, fuzzy
 msgid "new file"
 msgstr "Jauna datne"
 
-#: src/FolderManager/FolderItem.vala:332
+#: src/FolderManager/FolderItem.vala:358
 #, fuzzy, c-format
 msgid "new file %d"
 msgstr "Jauna datne"
 
-#: src/FolderManager/MainFolderItem.vala:30
+#: src/FolderManager/ProjectFolderItem.vala:78
 msgid "Close Folder"
 msgstr "Aizvērt mapi"
 
@@ -404,7 +404,7 @@ msgstr "Turpināt"
 msgid "Templates"
 msgstr "Sagataves"
 
-#: src/Widgets/DocumentView.vala:92
+#: src/Widgets/DocumentView.vala:132
 #, fuzzy, c-format
 msgid "Text file from %s"
 msgstr "Teksta fails no "
@@ -486,27 +486,32 @@ msgstr "Tālummainīt 1:1"
 msgid "Zoom In"
 msgstr "Tālummainīt"
 
-#: src/Widgets/HeaderBar.vala:100
+#: src/Widgets/HeaderBar.vala:98
 msgid "High Contrast"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:110
+#: src/Widgets/HeaderBar.vala:106
 msgid "Solarized Light"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:114
 msgid "Solarized Dark"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:130
+#: src/Widgets/HeaderBar.vala:124
+#, fuzzy
+msgid "Toggle Sidebar"
+msgstr "Sānjosla"
+
+#: src/Widgets/HeaderBar.vala:128
 msgid "Add New View"
 msgstr "Pievienot jaunu skatu"
 
-#: src/Widgets/HeaderBar.vala:134
+#: src/Widgets/HeaderBar.vala:132
 msgid "Remove Current View"
 msgstr "Noņemt pašreizējo skatu"
 
-#: src/Widgets/HeaderBar.vala:160
+#: src/Widgets/HeaderBar.vala:159
 msgid "Menu"
 msgstr ""
 
@@ -538,11 +543,11 @@ msgstr "Aizstāt"
 msgid "Replace all"
 msgstr "Aizvietot visus"
 
-#: src/Widgets/SourceView.vala:329
+#: src/Widgets/SourceView.vala:357
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:336
+#: src/Widgets/SourceView.vala:364
 msgid "Toggle Comment"
 msgstr ""
 
@@ -596,7 +601,8 @@ msgid "Format:"
 msgstr "Formāts: "
 
 #: plugins/pastebin/pastebin_dialog.vala:264
-msgid "Others..."
+#, fuzzy
+msgid "Others…"
 msgstr "Citi..."
 
 #: plugins/pastebin/pastebin_dialog.vala:286
@@ -671,12 +677,12 @@ msgstr "Ielīmēt"
 msgid "Web Preview"
 msgstr ""
 
-#: plugins/browser-preview/browser-preview.vala:74
-#: plugins/browser-preview/browser-preview.vala:100
+#: plugins/browser-preview/browser-preview.vala:72
+#: plugins/browser-preview/browser-preview.vala:98
 msgid "Show Preview"
 msgstr ""
 
-#: plugins/browser-preview/browser-preview.vala:92
+#: plugins/browser-preview/browser-preview.vala:90
 msgid "Hide Preview"
 msgstr ""
 
@@ -916,9 +922,6 @@ msgstr ""
 
 #~ msgid "Create a new instance"
 #~ msgstr "Radīt jaunu instanci"
-
-#~ msgid "Sidebar"
-#~ msgstr "Sānjosla"
 
 #~ msgid "Bottom Panel"
 #~ msgstr "Apakšējais panelis"

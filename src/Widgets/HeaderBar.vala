@@ -1,7 +1,7 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /*
 * Copyright (c) 2013 Mario Guerriero <mefrio.g@gmail.com>
-*               2017-2018 elementary LLC. <https://elementary.io>
+*               2017–2018 elementary, Inc. <https://elementary.io>
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -39,7 +39,7 @@ namespace Scratch.Widgets {
             var open_button = new Gtk.Button.from_icon_name ("document-open", Gtk.IconSize.LARGE_TOOLBAR);
             open_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN;
             open_button.tooltip_text = _("Open a file");
-            
+
             var open_folder_button = new Gtk.Button.from_icon_name ("folder-saved-search", Gtk.IconSize.LARGE_TOOLBAR);
             open_folder_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_FOLDER;
             open_folder_button.tooltip_text = _("Open a folder");
@@ -93,30 +93,24 @@ namespace Scratch.Widgets {
             font_size_grid.add (zoom_default_button);
             font_size_grid.add (zoom_in_button);
 
-            var color_button_white = new Gtk.Button ();
+            var color_button_white = new Gtk.RadioButton (null);
             color_button_white.halign = Gtk.Align.CENTER;
-            color_button_white.height_request = 32;
-            color_button_white.width_request = 32;
             color_button_white.tooltip_text = _("High Contrast");
 
             var color_button_white_context = color_button_white.get_style_context ();
             color_button_white_context.add_class ("color-button");
             color_button_white_context.add_class ("color-white");
 
-            var color_button_light = new Gtk.Button ();
+            var color_button_light = new Gtk.RadioButton.from_widget (color_button_white);
             color_button_light.halign = Gtk.Align.CENTER;
-            color_button_light.height_request = 32;
-            color_button_light.width_request = 32;
             color_button_light.tooltip_text = _("Solarized Light");
 
             var color_button_light_context = color_button_light.get_style_context ();
             color_button_light_context.add_class ("color-button");
             color_button_light_context.add_class ("color-light");
 
-            var color_button_dark = new Gtk.Button ();
+            var color_button_dark = new Gtk.RadioButton.from_widget (color_button_white);
             color_button_dark.halign = Gtk.Align.CENTER;
-            color_button_dark.height_request = 32;
-            color_button_dark.width_request = 32;
             color_button_dark.tooltip_text = _("Solarized Dark");
 
             var color_button_dark_context = color_button_dark.get_style_context ();
@@ -125,6 +119,10 @@ namespace Scratch.Widgets {
 
             var menu_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
             menu_separator.margin_top = 12;
+
+            var toggle_sidebar_menuitem = new Gtk.ModelButton ();
+            toggle_sidebar_menuitem.text = _("Toggle Sidebar");
+            toggle_sidebar_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_SIDEBAR;
 
             var new_view_menuitem = new Gtk.ModelButton ();
             new_view_menuitem.text = _("Add New View");
@@ -147,9 +145,10 @@ namespace Scratch.Widgets {
             menu_grid.attach (color_button_light, 1, 1, 1, 1);
             menu_grid.attach (color_button_dark, 2, 1, 1, 1);
             menu_grid.attach (menu_separator, 0, 2, 3, 1);
-            menu_grid.attach (new_view_menuitem, 0, 3, 3, 1);
-            menu_grid.attach (remove_view_menuitem, 0, 4, 3, 1);
-            menu_grid.attach (preferences_menuitem, 0, 5, 3, 1);
+            menu_grid.attach (toggle_sidebar_menuitem, 0, 3, 3, 1);
+            menu_grid.attach (new_view_menuitem, 0, 4, 3, 1);
+            menu_grid.attach (remove_view_menuitem, 0, 5, 3, 1);
+            menu_grid.attach (preferences_menuitem, 0, 6, 3, 1);
             menu_grid.show_all ();
 
             var menu = new Gtk.Popover (null);
@@ -188,6 +187,18 @@ namespace Scratch.Widgets {
             });
 
             var gtk_settings = Gtk.Settings.get_default ();
+
+            switch (Scratch.settings.style_scheme) {
+               case "high-contrast":
+                   color_button_white.active = true;
+                   break;
+               case "solarized-light":
+                   color_button_light.active = true;
+                   break;
+               case "solarized-dark":
+                   color_button_dark.active = true;
+                   break;
+            }
 
             color_button_dark.clicked.connect (() => {
                 Scratch.settings.prefer_dark_style = true;
@@ -235,3 +246,4 @@ namespace Scratch.Widgets {
         }
     }
 }
+

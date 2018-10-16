@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-07 14:05-0700\n"
-"PO-Revision-Date: 2018-07-19 17:03+0000\n"
-"Last-Translator: Corentin Noël <corentin@elementary.io>\n"
+"POT-Creation-Date: 2018-10-14 11:27-0700\n"
+"PO-Revision-Date: 2018-09-25 00:01+0000\n"
+"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://weblate.elementary.io/projects/code/code/fr/"
 ">\n"
 "Language: fr\n"
@@ -91,38 +91,38 @@ msgstr "Ensemble de greffons"
 msgid "Current working directory"
 msgstr "Répertoire de travail actuel"
 
-#: src/MainWindow.vala:131
+#: src/MainWindow.vala:133
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:176 src/Widgets/HeaderBar.vala:66
+#: src/MainWindow.vala:181 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
 msgstr "Rechercher…"
 
-#: src/MainWindow.vala:178
+#: src/MainWindow.vala:183
 msgid "Hide search bar"
 msgstr "Cacher la barre de recherche"
 
-#: src/MainWindow.vala:224
+#: src/MainWindow.vala:229
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Source de données Zeitgeist pour Scratch"
 
 #. Show a GtkFileChooserDialog
-#: src/MainWindow.vala:731
+#: src/MainWindow.vala:736
 msgid "Open some files"
 msgstr "Ouvrez des fichiers"
 
-#: src/MainWindow.vala:750
+#: src/MainWindow.vala:755
 msgid "_Cancel"
 msgstr "_Annuler"
 
-#: src/MainWindow.vala:751
+#: src/MainWindow.vala:756
 msgid "_Open"
 msgstr "_Ouvrir"
 
 #: src/Utils.vala:27
 msgid "All files"
-msgstr "Tout les fichiers"
+msgstr "Tous les fichiers"
 
 #: src/Utils.vala:31
 msgid "Text files"
@@ -141,7 +141,7 @@ msgstr "Ouvrir"
 msgid "Save"
 msgstr "Enregistrer"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:138
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:136
 msgid "Preferences"
 msgstr "Préférences"
 
@@ -155,15 +155,15 @@ msgstr "Sauvegarder les fichiers lorsqu'ils sont modifiés :"
 
 #: src/Dialogs/PreferencesDialog.vala:55 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
-msgstr "Tabulation"
+msgstr "Indentations"
 
 #: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:156
 msgid "Automatic indentation:"
-msgstr "Tabulation automatique :"
+msgstr "Indentation automatique :"
 
 #: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:150
 msgid "Insert spaces instead of tabs:"
-msgstr "Insérer des espaces au lieu de tabulations :"
+msgstr "Insérer des espaces au lieu des tabulations :"
 
 #: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:153
 msgid "Tab width:"
@@ -227,24 +227,24 @@ msgstr "Police"
 msgid "Custom font:"
 msgstr "Police personnalisée :"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:59
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
 msgstr "Une autre application…"
 
-#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:115
+#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
 msgid "Open In"
 msgstr "Ouvrir dans"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:118
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
 msgid "Other Actions"
 msgstr "Autres actions"
 
-#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:121
+#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
 msgstr "Renommer"
 
-#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:127
-#: src/FolderManager/MainFolderItem.vala:33
+#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr "Déplacer dans la corbeille"
 
@@ -252,37 +252,37 @@ msgstr "Déplacer dans la corbeille"
 msgid "Folders"
 msgstr "Dossiers"
 
-#: src/FolderManager/FolderItem.vala:143
+#: src/FolderManager/FolderItem.vala:148
 msgid "Folder"
 msgstr "Dossier"
 
-#: src/FolderManager/FolderItem.vala:146
+#: src/FolderManager/FolderItem.vala:151
 msgid "Empty File"
 msgstr "Fichier vide"
 
-#: src/FolderManager/FolderItem.vala:153
+#: src/FolderManager/FolderItem.vala:158
 msgid "New"
 msgstr "Nouveau"
 
-#: src/FolderManager/FolderItem.vala:296
+#: src/FolderManager/FolderItem.vala:322
 msgid "untitled folder"
 msgstr "dossier sans-titre"
 
-#: src/FolderManager/FolderItem.vala:300
+#: src/FolderManager/FolderItem.vala:326
 #, c-format
 msgid "untitled folder %d"
 msgstr "dossier sans-titre %d"
 
-#: src/FolderManager/FolderItem.vala:328
+#: src/FolderManager/FolderItem.vala:354
 msgid "new file"
 msgstr "nouveau fichier"
 
-#: src/FolderManager/FolderItem.vala:332
+#: src/FolderManager/FolderItem.vala:358
 #, c-format
 msgid "new file %d"
 msgstr "nouveau fichier %d"
 
-#: src/FolderManager/MainFolderItem.vala:30
+#: src/FolderManager/ProjectFolderItem.vala:78
 msgid "Close Folder"
 msgstr "Fermer ce dossier"
 
@@ -404,7 +404,7 @@ msgstr "Continuer"
 msgid "Templates"
 msgstr "Modèles"
 
-#: src/Widgets/DocumentView.vala:92
+#: src/Widgets/DocumentView.vala:132
 #, c-format
 msgid "Text file from %s"
 msgstr "Fichier texte à partir de  %s"
@@ -419,11 +419,11 @@ msgstr "Numéro de ligne"
 
 #: src/Widgets/FormatBar.vala:96
 msgid "Filter languages"
-msgstr "Filtrer les langues"
+msgstr "Filtrer les langages"
 
 #: src/Widgets/FormatBar.vala:118
 msgid "Plain Text"
-msgstr "Fichier texte"
+msgstr "Texte brut"
 
 #: src/Widgets/FormatBar.vala:200
 #, c-format
@@ -453,15 +453,15 @@ msgstr "Ouvrir un dossier"
 
 #: src/Widgets/HeaderBar.vala:49
 msgid "Project templates"
-msgstr "Modèles"
+msgstr "Modèles de projet"
 
 #: src/Widgets/HeaderBar.vala:53
 msgid "Save this file"
-msgstr "Enregistrer le fichier"
+msgstr "Enregistrer ce fichier"
 
 #: src/Widgets/HeaderBar.vala:57
 msgid "Save this file with a different name"
-msgstr "Enregistrer le fichier avec un nom différent"
+msgstr "Enregistrer ce fichier avec un nom différent"
 
 #: src/Widgets/HeaderBar.vala:61
 msgid "Restore this file"
@@ -483,27 +483,32 @@ msgstr "Zoom 1:1"
 msgid "Zoom In"
 msgstr "Zoom avant"
 
-#: src/Widgets/HeaderBar.vala:100
+#: src/Widgets/HeaderBar.vala:98
 msgid "High Contrast"
 msgstr "Contraste élevé"
 
-#: src/Widgets/HeaderBar.vala:110
+#: src/Widgets/HeaderBar.vala:106
 msgid "Solarized Light"
 msgstr "Solarisé clair"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:114
 msgid "Solarized Dark"
 msgstr "Solarisé foncé"
 
-#: src/Widgets/HeaderBar.vala:130
+#: src/Widgets/HeaderBar.vala:124
+#, fuzzy
+msgid "Toggle Sidebar"
+msgstr "Panneau latéral"
+
+#: src/Widgets/HeaderBar.vala:128
 msgid "Add New View"
-msgstr "Nouvelle colonne"
+msgstr "Ajouter une nouvelle vue"
 
-#: src/Widgets/HeaderBar.vala:134
+#: src/Widgets/HeaderBar.vala:132
 msgid "Remove Current View"
-msgstr "Fermer la colonne active"
+msgstr "Supprimer la vue courante"
 
-#: src/Widgets/HeaderBar.vala:160
+#: src/Widgets/HeaderBar.vala:159
 msgid "Menu"
 msgstr "Menu"
 
@@ -513,11 +518,11 @@ msgstr "Rechercher"
 
 #: src/Widgets/SearchBar.vala:66
 msgid "Search next"
-msgstr "Recherche suivante"
+msgstr "Rechercher le suivant"
 
 #: src/Widgets/SearchBar.vala:71
 msgid "Search previous"
-msgstr "Recherche précédente"
+msgstr "Rechercher le précédent"
 
 #: src/Widgets/SearchBar.vala:75
 msgid "Cyclic Search"
@@ -535,13 +540,13 @@ msgstr "Remplacer"
 msgid "Replace all"
 msgstr "Tout remplacer"
 
-#: src/Widgets/SourceView.vala:329
+#: src/Widgets/SourceView.vala:357
 msgid "Sort Selected Lines"
 msgstr "Trier les lignes sélectionnées"
 
-#: src/Widgets/SourceView.vala:336
+#: src/Widgets/SourceView.vala:364
 msgid "Toggle Comment"
-msgstr ""
+msgstr "Retirer/Mettre en commentaire"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -588,7 +593,8 @@ msgid "Format:"
 msgstr "Format :"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
-msgid "Others..."
+#, fuzzy
+msgid "Others…"
 msgstr "Autres..."
 
 #: plugins/pastebin/pastebin_dialog.vala:286
@@ -597,7 +603,7 @@ msgstr "Délai d'expiration :"
 
 #: plugins/pastebin/pastebin_dialog.vala:292
 msgid "Keep this paste private"
-msgstr "Conserver ce poste privé"
+msgstr "Conserver cette publication privée"
 
 #: plugins/pastebin/pastebin_dialog.vala:321
 msgid "Upload"
@@ -663,12 +669,12 @@ msgstr "Coller"
 msgid "Web Preview"
 msgstr "Aperçu Web"
 
-#: plugins/browser-preview/browser-preview.vala:74
-#: plugins/browser-preview/browser-preview.vala:100
+#: plugins/browser-preview/browser-preview.vala:72
+#: plugins/browser-preview/browser-preview.vala:98
 msgid "Show Preview"
 msgstr "Afficher l'aperçu"
 
-#: plugins/browser-preview/browser-preview.vala:92
+#: plugins/browser-preview/browser-preview.vala:90
 msgid "Hide Preview"
 msgstr "Masquer l'aperçu"
 
@@ -683,7 +689,7 @@ msgstr ""
 #: plugins/word-completion/plugin.vala:174
 #, c-format
 msgid "%s - Word Completion"
-msgstr "%s - Saisie semi-automatique"
+msgstr "%s - Autocomplétion"
 
 #: plugins/word-completion/completion-provider.vala:80
 #, c-format
@@ -1044,9 +1050,6 @@ msgstr "Impossible de charger le thème d'icônes : %s\n"
 
 #~ msgid "Status Bar"
 #~ msgstr "Barre d'état"
-
-#~ msgid "Sidebar"
-#~ msgstr "Panneau latéral"
 
 #~ msgid "Save as"
 #~ msgstr "Enregistrer sous"
