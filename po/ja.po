@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-18 10:48-0700\n"
-"PO-Revision-Date: 2018-09-24 00:04+0000\n"
+"POT-Creation-Date: 2018-10-14 11:27-0700\n"
+"PO-Revision-Date: 2018-10-05 00:08+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/code/code/ja/"
 ">\n"
@@ -101,7 +101,7 @@ msgstr "検索…"
 
 #: src/MainWindow.vala:183
 msgid "Hide search bar"
-msgstr "検索バーを隠す"
+msgstr "検索バーを表示しない"
 
 #: src/MainWindow.vala:229
 msgid "Zeitgeist Datasource for Scratch"
@@ -141,7 +141,7 @@ msgstr "開く"
 msgid "Save"
 msgstr "保存"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:142
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:136
 msgid "Preferences"
 msgstr "設定"
 
@@ -297,7 +297,7 @@ msgstr "Code はこの種類のファイルを読み込むことができませ�
 
 #: src/Services/Document.vala:246
 msgid "Load Anyway"
-msgstr "とにかく読み込む"
+msgstr "強制的に読み込む"
 
 #: src/Services/Document.vala:267
 #, c-format
@@ -475,31 +475,31 @@ msgstr "100% ズーム"
 msgid "Zoom In"
 msgstr "ズームイン"
 
-#: src/Widgets/HeaderBar.vala:100
+#: src/Widgets/HeaderBar.vala:98
 msgid "High Contrast"
 msgstr "ハイコントラスト"
 
-#: src/Widgets/HeaderBar.vala:110
+#: src/Widgets/HeaderBar.vala:106
 msgid "Solarized Light"
 msgstr "Solarized Light"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:114
 msgid "Solarized Dark"
 msgstr "Solarized Dark"
 
-#: src/Widgets/HeaderBar.vala:130
+#: src/Widgets/HeaderBar.vala:124
 msgid "Toggle Sidebar"
 msgstr "サイドバーを切り替え"
 
-#: src/Widgets/HeaderBar.vala:134
+#: src/Widgets/HeaderBar.vala:128
 msgid "Add New View"
 msgstr "新しいビューを追加"
 
-#: src/Widgets/HeaderBar.vala:138
+#: src/Widgets/HeaderBar.vala:132
 msgid "Remove Current View"
 msgstr "現在のビューを削除"
 
-#: src/Widgets/HeaderBar.vala:165
+#: src/Widgets/HeaderBar.vala:159
 msgid "Menu"
 msgstr "メニュー"
 
@@ -581,7 +581,7 @@ msgstr "ファイル名:"
 
 #: plugins/pastebin/pastebin_dialog.vala:259
 msgid "Format:"
-msgstr "フォーマット:"
+msgstr "形式:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
 msgid "Others…"
@@ -605,7 +605,7 @@ msgstr "他の形式"
 
 #: plugins/pastebin/pastebin_dialog.vala:461
 msgid "Ten minutes"
-msgstr "10  分間"
+msgstr "10 分間"
 
 #: plugins/pastebin/pastebin_dialog.vala:462
 msgid "One hour"
@@ -638,7 +638,7 @@ msgstr "ターミナルを表示"
 
 #: plugins/terminal/terminal.vala:138
 msgid "Hide Terminal"
-msgstr "ターミナルを隠す"
+msgstr "ターミナルを表示しない"
 
 #: plugins/terminal/terminal.vala:139
 msgid "Terminal"
@@ -659,14 +659,14 @@ msgstr "貼り付け"
 msgid "Web Preview"
 msgstr "Web プレビュー"
 
-#: plugins/browser-preview/browser-preview.vala:74
-#: plugins/browser-preview/browser-preview.vala:100
+#: plugins/browser-preview/browser-preview.vala:72
+#: plugins/browser-preview/browser-preview.vala:98
 msgid "Show Preview"
 msgstr "プレビューを表示"
 
-#: plugins/browser-preview/browser-preview.vala:92
+#: plugins/browser-preview/browser-preview.vala:90
 msgid "Hide Preview"
-msgstr "プレビューを隠す"
+msgstr "プレビューを表示しない"
 
 #: plugins/spell/spell.vala:77
 msgid ""

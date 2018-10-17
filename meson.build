@@ -1,4 +1,4 @@
-project('io.elementary.code', 'vala', 'c', version: '2.4.1')
+project('io.elementary.code', 'vala', 'c', version: '3.0')
 
 add_project_arguments([
         '-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name())
@@ -21,7 +21,7 @@ glib_dep = dependency('glib-2.0', version: '>=2.30.0')
 gio_unix_dep = dependency('gio-unix-2.0', version: '>=2.20')
 gee_dep = dependency('gee-0.8', version: '>=0.8.5')
 gtk_dep = dependency('gtk+-3.0', version: '>=3.6.0')
-granite_dep = dependency('granite')
+granite_dep = dependency('granite', version: '>=5.1.0')
 gtksourceview_dep = dependency('gtksourceview-3.0', version: '>=3.24')
 peas_dep = dependency('libpeas-1.0')
 peasgtk_dep = dependency('libpeas-gtk-1.0')

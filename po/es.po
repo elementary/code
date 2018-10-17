@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-18 10:48-0700\n"
-"PO-Revision-Date: 2018-08-16 15:03+0000\n"
-"Last-Translator: Rafael Bautista Martínez <iuninefrendor@gmail.com>\n"
+"POT-Creation-Date: 2018-10-14 11:27-0700\n"
+"PO-Revision-Date: 2018-10-03 00:10+0000\n"
+"Last-Translator: Pablo Solís La Beira <pabsol1977@gmail.com>\n"
 "Language-Team: Spanish <https://weblate.elementary.io/projects/code/code/es/"
 ">\n"
 "Language: es\n"
@@ -92,6 +92,7 @@ msgid "Current working directory"
 msgstr "Carpeta de trabajo actual"
 
 #: src/MainWindow.vala:133
+#, fuzzy
 msgid "Code"
 msgstr "Code"
 
@@ -141,7 +142,7 @@ msgstr "Abrir"
 msgid "Save"
 msgstr "Guardar"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:142
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:136
 msgid "Preferences"
 msgstr "Preferencias"
 
@@ -237,7 +238,7 @@ msgstr "Abrir"
 
 #: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
 msgid "Other Actions"
-msgstr "Otra aplicación"
+msgstr "Otras acciones"
 
 #: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
@@ -479,32 +480,31 @@ msgstr "Escala 1∶1"
 msgid "Zoom In"
 msgstr "Aumentar el zoom"
 
-#: src/Widgets/HeaderBar.vala:100
+#: src/Widgets/HeaderBar.vala:98
 msgid "High Contrast"
 msgstr "Alto contraste"
 
-#: src/Widgets/HeaderBar.vala:110
+#: src/Widgets/HeaderBar.vala:106
 msgid "Solarized Light"
 msgstr "Solar claro"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:114
 msgid "Solarized Dark"
 msgstr "Solar oscuro"
 
-#: src/Widgets/HeaderBar.vala:130
-#, fuzzy
+#: src/Widgets/HeaderBar.vala:124
 msgid "Toggle Sidebar"
-msgstr "Panel lateral"
+msgstr "Mostrar / ocultar panel lateral"
 
-#: src/Widgets/HeaderBar.vala:134
+#: src/Widgets/HeaderBar.vala:128
 msgid "Add New View"
 msgstr "Añadir vista nueva"
 
-#: src/Widgets/HeaderBar.vala:138
+#: src/Widgets/HeaderBar.vala:132
 msgid "Remove Current View"
 msgstr "Quitar vista actual"
 
-#: src/Widgets/HeaderBar.vala:165
+#: src/Widgets/HeaderBar.vala:159
 msgid "Menu"
 msgstr "Menú"
 
@@ -589,7 +589,6 @@ msgid "Format:"
 msgstr "Formato:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
-#, fuzzy
 msgid "Others…"
 msgstr "Otros…"
 
@@ -665,12 +664,12 @@ msgstr "Pegar"
 msgid "Web Preview"
 msgstr "Previsualización web"
 
-#: plugins/browser-preview/browser-preview.vala:74
-#: plugins/browser-preview/browser-preview.vala:100
+#: plugins/browser-preview/browser-preview.vala:72
+#: plugins/browser-preview/browser-preview.vala:98
 msgid "Show Preview"
 msgstr "Mostrar previsualización"
 
-#: plugins/browser-preview/browser-preview.vala:92
+#: plugins/browser-preview/browser-preview.vala:90
 msgid "Hide Preview"
 msgstr "Ocultar previsualización"
 
