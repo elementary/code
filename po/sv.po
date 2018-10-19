@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 14:12-0700\n"
-"PO-Revision-Date: 2018-10-19 17:20+0000\n"
+"PO-Revision-Date: 2018-10-20 00:10+0000\n"
 "Last-Translator: Fredrik B <frbo9002@gmail.com>\n"
 "Language-Team: Swedish <https://weblate.elementary.io/projects/code/code/sv/>"
 "\n"
@@ -27,7 +27,7 @@ msgstr "Du kanske inte har nödvändiga behörigheter."
 
 #: src/Application.vala:140
 msgid "Maybe the file path provided is not valid."
-msgstr "Sökvägen är kanske ogiltig"
+msgstr "Sökvägen är kanske ogiltig."
 
 #: src/Application.vala:142
 msgid "The location is read-only."
@@ -151,7 +151,7 @@ msgstr "Allmänt"
 
 #: src/Dialogs/PreferencesDialog.vala:53
 msgid "Save files when changed:"
-msgstr "Spara filer när de ändrats"
+msgstr "Spara filer vid ändring:"
 
 #: src/Dialogs/PreferencesDialog.vala:55 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
@@ -163,7 +163,7 @@ msgstr "Automatiskt indrag:"
 
 #: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:150
 msgid "Insert spaces instead of tabs:"
-msgstr "Använd mellanslag istället för tabbar"
+msgstr "Använd mellanslag istället för tabbar:"
 
 #: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:153
 msgid "Tab width:"
@@ -196,7 +196,7 @@ msgstr "Markera matchande parentestecken:"
 
 #: src/Dialogs/PreferencesDialog.vala:110
 msgid "Draw Spaces:"
-msgstr "Rita ut mellanslag"
+msgstr "Rita ut mellanslag:"
 
 #: src/Dialogs/PreferencesDialog.vala:112
 #: plugins/pastebin/pastebin_dialog.vala:460
@@ -427,8 +427,8 @@ msgstr "Vanlig text"
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
-msgstr[0] "%d mellanrum"
-msgstr[1] "%d mellanrum"
+msgstr[0] "%d mellanslag"
+msgstr[1] "%d mellanslag"
 
 #: src/Widgets/FormatBar.vala:202
 #, c-format
@@ -551,7 +551,7 @@ msgstr "Inga öppna filer"
 
 #: src/Widgets/WelcomeView.vala:27
 msgid "Open a file to begin editing."
-msgstr "Öppna en fil för att börja redigera"
+msgstr "Öppna en fil för att börja redigera."
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "New File"
@@ -559,7 +559,7 @@ msgstr "Ny fil"
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "Create a new empty file."
-msgstr "Skapa en ny tom fil"
+msgstr "Skapa en ny tom fil."
 
 #: src/Widgets/WelcomeView.vala:33
 msgid "Open File"
@@ -567,7 +567,7 @@ msgstr "Öppna fil"
 
 #: src/Widgets/WelcomeView.vala:33
 msgid "Open a saved file."
-msgstr "Öppna en sparad fil"
+msgstr "Öppna en sparad fil."
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Open Folder"
@@ -648,7 +648,7 @@ msgstr "Dölj Terminal"
 
 #: plugins/terminal/terminal.vala:139
 msgid "Terminal"
-msgstr "Terminalen"
+msgstr "Terminal"
 
 #. Popup menu
 #. COPY
@@ -680,7 +680,7 @@ msgid ""
 "Please install at least one [aspell] dictionary"
 msgstr ""
 "Inga lämpliga ordböcker hittades.\n"
-"Vänligen installera minst en [aspell] ordbok."
+"Vänligen installera minst en [aspell] ordbok"
 
 #: plugins/word-completion/plugin.vala:174
 #, c-format
