@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 14:12-0700\n"
-"PO-Revision-Date: 2018-08-31 11:59+0000\n"
-"Last-Translator: Robin Lahtinen <robin.lahtinen@gmail.com>\n"
-"Language-Team: Finnish <https://weblate.elementary.io/projects/code/code/fi/"
-">\n"
+"PO-Revision-Date: 2018-10-21 00:07+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"Language-Team: Finnish <https://weblate.elementary.io/projects/code/code/fi/>"
+"\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -222,7 +222,7 @@ msgstr "Rivileveyden merkki:"
 
 #: src/Dialogs/PreferencesDialog.vala:128
 msgid "Font"
-msgstr ""
+msgstr "Fontti"
 
 #: src/Dialogs/PreferencesDialog.vala:130
 msgid "Custom font:"
@@ -230,7 +230,7 @@ msgstr "Mukautettu fontti:"
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
-msgstr ""
+msgstr "Muu sovellus…"
 
 #: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
 #, fuzzy
@@ -244,30 +244,28 @@ msgstr "Muut muodot"
 
 #: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
-msgstr ""
+msgstr "Nimeä uudelleen"
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
-msgstr ""
+msgstr "Siirrä roskakoriin"
 
 #: src/FolderManager/FileView.vala:39
 msgid "Folders"
 msgstr "Kansiot"
 
 #: src/FolderManager/FolderItem.vala:148
-#, fuzzy
 msgid "Folder"
-msgstr "Kansiot"
+msgstr "Kansio"
 
 #: src/FolderManager/FolderItem.vala:151
 msgid "Empty File"
 msgstr ""
 
 #: src/FolderManager/FolderItem.vala:158
-#, fuzzy
 msgid "New"
-msgstr "Uusi välilehti"
+msgstr "Uusi"
 
 #: src/FolderManager/FolderItem.vala:322
 msgid "untitled folder"
@@ -279,14 +277,13 @@ msgid "untitled folder %d"
 msgstr ""
 
 #: src/FolderManager/FolderItem.vala:354
-#, fuzzy
 msgid "new file"
-msgstr "Uusi tiedosto"
+msgstr "uusi tiedosto"
 
 #: src/FolderManager/FolderItem.vala:358
-#, fuzzy, c-format
+#, c-format
 msgid "new file %d"
-msgstr "Uusi tiedosto"
+msgstr "uusi tiedosto %d"
 
 #: src/FolderManager/ProjectFolderItem.vala:78
 msgid "Close Folder"
@@ -295,7 +292,7 @@ msgstr "Sulje kansio"
 #: src/Services/Document.vala:243
 #, c-format
 msgid "%s Is Not a Text File"
-msgstr ""
+msgstr "%s ei ole tekstitiedosto"
 
 #: src/Services/Document.vala:244
 msgid "Code will not load this type of file."
@@ -303,21 +300,20 @@ msgstr ""
 
 #: src/Services/Document.vala:246
 msgid "Load Anyway"
-msgstr ""
+msgstr "Lataa silti"
 
 #: src/Services/Document.vala:267
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr ""
+msgstr "Tiedoston \"%s\" lataaminen kestää kauan"
 
 #: src/Services/Document.vala:268
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
 #: src/Services/Document.vala:270
-#, fuzzy
 msgid "Cancel Load"
-msgstr "Peru"
+msgstr "Peru lataaminen"
 
 #: src/Services/Document.vala:394
 #, c-format
@@ -345,11 +341,9 @@ msgstr "Uusi asiakirja"
 
 #. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:679
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Read"
-msgstr ""
-"Tiedostoa \"%s\" ei voitu luoda.\n"
-"%s"
+msgstr "Tiedostoa \"%s\" ei voitu lukea"
 
 #: src/Services/Document.vala:680
 #, fuzzy
@@ -422,13 +416,12 @@ msgid "Syntax Highlighting"
 msgstr "Syntaksin korostus"
 
 #: src/Widgets/FormatBar.vala:71
-#, fuzzy
 msgid "Line number"
-msgstr "Näytä rivinumerot:"
+msgstr "Rivinumero"
 
 #: src/Widgets/FormatBar.vala:96
 msgid "Filter languages"
-msgstr ""
+msgstr "Suodata kieliä"
 
 #: src/Widgets/FormatBar.vala:118
 msgid "Plain Text"
@@ -481,22 +474,20 @@ msgid "Share"
 msgstr "Jaa"
 
 #: src/Widgets/HeaderBar.vala:77
-#, fuzzy
 msgid "Zoom Out"
-msgstr "Zoomaus"
+msgstr "Loitonna"
 
 #: src/Widgets/HeaderBar.vala:81
 msgid "Zoom 1:1"
 msgstr "Zoomaus 1:1"
 
 #: src/Widgets/HeaderBar.vala:85
-#, fuzzy
 msgid "Zoom In"
-msgstr "Zoomaus"
+msgstr "Lähennä"
 
 #: src/Widgets/HeaderBar.vala:98
 msgid "High Contrast"
-msgstr ""
+msgstr "Suuri kontrasti"
 
 #: src/Widgets/HeaderBar.vala:106
 msgid "Solarized Light"
@@ -569,16 +560,14 @@ msgid "Open a file to begin editing."
 msgstr "Avaa tiedosto aloittaaksesi muokkauksen."
 
 #: src/Widgets/WelcomeView.vala:32
-#, fuzzy
 msgid "New File"
-msgstr "/Uusi tiedosto"
+msgstr "Uusi tiedosto"
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "Create a new empty file."
 msgstr "Luo uusi tyhjä tiedosto."
 
 #: src/Widgets/WelcomeView.vala:33
-#, fuzzy
 msgid "Open File"
 msgstr "Avaa tiedosto"
 
@@ -587,16 +576,14 @@ msgid "Open a saved file."
 msgstr "Avaa tallennettu tiedosto."
 
 #: src/Widgets/WelcomeView.vala:34
-#, fuzzy
 msgid "Open Folder"
 msgstr "Avaa kansio"
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Add a project folder to the sidebar."
-msgstr ""
+msgstr "Lisää projektikansio sivupalkkiin."
 
 #: plugins/pastebin/pastebin_dialog.vala:249
-#, fuzzy
 msgid "Share via Pastebin"
 msgstr "Jaa PasteBinin kautta"
 
@@ -605,9 +592,8 @@ msgid "Name:"
 msgstr "Nimi:"
 
 #: plugins/pastebin/pastebin_dialog.vala:259
-#, fuzzy
 msgid "Format:"
-msgstr "Muoto: "
+msgstr "Muoto:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
 #, fuzzy
