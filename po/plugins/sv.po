@@ -7,55 +7,57 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-17 11:34-0700\n"
-"PO-Revision-Date: 2018-01-28 15:41+0000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"POT-Creation-Date: 2018-10-18 14:27-0700\n"
+"PO-Revision-Date: 2018-10-20 00:10+0000\n"
+"Last-Translator: Fredrik B <frbo9002@gmail.com>\n"
+"Language-Team: Swedish <https://weblate.elementary.io/projects/code/plugins/"
+"sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
-msgstr ""
+msgstr "Parentesifyllning"
 
 #: plugins/brackets-completion/brackets-completion.plugin:7
 msgid "Complete brackets while typing"
-msgstr ""
+msgstr "Avsluta parenteser medan du skriver"
 
 #: plugins/browser-preview/browser-preview.plugin:6
 msgid "Browser Preview"
-msgstr ""
+msgstr "Webbläsarförhandsvisning"
 
 #: plugins/browser-preview/browser-preview.plugin:7
 msgid "Get a preview of your work in a web page"
-msgstr ""
+msgstr "Få en förhandsvisning av ditt arbete som en webbsida"
 
 #: plugins/detect-indent/detect-indent.plugin:6
 msgid "Detect Indent"
-msgstr ""
+msgstr "Detektera indrag"
 
 #: plugins/detect-indent/detect-indent.plugin:7
 msgid "Heuristically detect tab or space settings"
-msgstr ""
+msgstr "Detektera flik- eller mellanslagsinställningar heuristiskt"
 
 #: plugins/editorconfig/editorconfig.plugin:6
 msgid "EditorConfig"
-msgstr ""
+msgstr "EditorConfig"
 
 #: plugins/editorconfig/editorconfig.plugin:7
 msgid "Load settings from an EditorConfig file"
-msgstr ""
+msgstr "Ladda inställningar från en EditorConfig-fil"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
-msgstr ""
+msgstr "Markera ordval"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:7
 msgid "Highlights all occurrences of words that are selected"
-msgstr ""
+msgstr "Markera alla förekomster av ord som är valda"
 
 #: plugins/outline/outline.plugin:6
 msgid "Outline"
@@ -67,56 +69,56 @@ msgstr ""
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
-msgstr ""
+msgstr "Pastebin"
 
 #: plugins/pastebin/pastebin.plugin:7
 msgid "Share files with pastebin service"
-msgstr ""
+msgstr "Dela filer med pastebintjänster"
 
 #: plugins/preserve-indent/preserve-indent.plugin:6
 msgid "Preserve Indent"
-msgstr ""
+msgstr "Bevara indrag"
 
 #: plugins/preserve-indent/preserve-indent.plugin:7
 msgid "Maintains relative indent level of pasted text"
-msgstr ""
+msgstr "Bibehåller relativa indragsnivåer för inklistrad text"
 
 #: plugins/spell/spell.plugin:6
 msgid "Spell Checker"
-msgstr ""
+msgstr "Stavningskontroll"
 
 #: plugins/spell/spell.plugin:7
 msgid "Checks the spelling of your documents"
-msgstr ""
+msgstr "Kontrollera stavning i dina dokument"
 
 #: plugins/strip-trailing-save/strip-trailing-save.plugin:6
 msgid "Strip trailing whitespace"
-msgstr ""
+msgstr "Rensa efterföljande mellanslag"
 
 #: plugins/strip-trailing-save/strip-trailing-save.plugin:7
 msgid "Strip trailing whitespace on save"
-msgstr ""
+msgstr "Rensa efterföljande mellanslag vid sparning"
 
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
-msgstr ""
+msgstr "Terminal"
 
 #: plugins/terminal/terminal.plugin:7
 msgid "A terminal in your text editor"
-msgstr ""
+msgstr "En terminal i din textredigerare"
 
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
-msgstr ""
+msgstr "Vim-emulering"
 
 #: plugins/vim-emulation/vim-emulation.plugin:7
 msgid "Use Vim commands in Scratch"
-msgstr ""
+msgstr "Använd Vim-kommandon i Scratch"
 
 #: plugins/word-completion/word-completion.plugin:3
 msgid "Words Completion"
-msgstr ""
+msgstr "Ordifyllning"
 
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
-msgstr ""
+msgstr "Visa en ifyllningsdialog med de vanligaste orden från dina filer"

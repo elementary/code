@@ -1,4 +1,4 @@
-project('io.elementary.code', 'vala', 'c', version: '2.4.1')
+project('io.elementary.code', 'vala', 'c', version: '3.0')
 
 add_project_arguments([
         '-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name())
