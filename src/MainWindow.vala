@@ -88,6 +88,8 @@ namespace Scratch {
         public const string ACTION_ZOOM_OUT = "action_zoom_out";
         public const string ACTION_TOGGLE_COMMENT = "action_toggle_comment";
         public const string ACTION_TOGGLE_SIDEBAR = "action_toggle_sidebar";
+        public const string ACTION_FOCUS_NEXT_DOCUMENT = "action_focus_next_document";
+        public const string ACTION_FOCUS_PREVIOUS_DOCUMENT = "action_focus_previous_document";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
@@ -122,7 +124,9 @@ namespace Scratch {
             { ACTION_ZOOM_IN, action_zoom_in },
             { ACTION_ZOOM_OUT, action_zoom_out},
             { ACTION_TOGGLE_COMMENT, action_toggle_comment },
-            { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar }
+            { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar },
+            { ACTION_FOCUS_NEXT_DOCUMENT, action_focus_next_document },
+            { ACTION_FOCUS_PREVIOUS_DOCUMENT, action_focus_previous_document }
         };
 
         public MainWindow (Scratch.Application scratch_app) {
@@ -164,6 +168,10 @@ namespace Scratch {
             action_accelerators.set (ACTION_TOGGLE_COMMENT, "<Control>slash");
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "F9"); // GNOME
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "<Control>backslash"); // Atom
+            action_accelerators.set (ACTION_FOCUS_NEXT_DOCUMENT, "<Control>Page_Down");
+            action_accelerators.set (ACTION_FOCUS_NEXT_DOCUMENT, "<Control>KP_Page_Down");
+            action_accelerators.set (ACTION_FOCUS_PREVIOUS_DOCUMENT, "<Control>Page_Up");
+            action_accelerators.set (ACTION_FOCUS_PREVIOUS_DOCUMENT, "<Control>KP_Page_Up");
 
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("io/elementary/code/Application.css");
@@ -974,6 +982,18 @@ namespace Scratch {
             }
 
             project_pane.visible = !project_pane.visible;
+        }
+
+        private void action_focus_next_document () {
+            Scratch.Widgets.DocumentView? view =
+                split_view.get_focus_child () as Scratch.Widgets.DocumentView;
+            view.next_document ();
+        }
+
+        private void action_focus_previous_document () {
+            Scratch.Widgets.DocumentView? view =
+                split_view.get_focus_child () as Scratch.Widgets.DocumentView;
+            view.previous_document ();
         }
     }
 }
