@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 14:12-0700\n"
-"PO-Revision-Date: 2018-06-06 00:07+0000\n"
-"Last-Translator: seven3z <bangkitpratama73@gmail.com>\n"
+"PO-Revision-Date: 2018-10-24 13:18+0000\n"
+"Last-Translator: Angga Rifandi <empty.email.boxs@gmail.com>\n"
 "Language-Team: Indonesian <https://weblate.elementary.io/projects/code/code/"
 "id/>\n"
 "Language: id\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #. We list some common errors for quick feedback
@@ -59,13 +59,12 @@ msgid "It is a mountable location."
 msgstr "Ini adalah lokasi yang dapat dikait."
 
 #: src/Application.vala:174
-#, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
 msgstr ""
 "Ini adalah berkas \"spesial\" seperti soket,\n"
-"  fifo, perangkat blok, atau perangkat karakter."
+"  FIFO, perangkat blok, atau perangkat karakter."
 
 #: src/Application.vala:177
 msgid "It is an \"unknown\" file type."
@@ -229,7 +228,7 @@ msgstr "Huruf pilihan:"
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
-msgstr ""
+msgstr "Aplikasi Lain..."
 
 #: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
 #, fuzzy
