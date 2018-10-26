@@ -38,7 +38,8 @@ namespace Scratch.Widgets {
         construct {
             var open_button = new Gtk.Button.from_icon_name ("document-open", Gtk.IconSize.LARGE_TOOLBAR);
             open_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN;
-            open_button.tooltip_text = _("Open a file");
+            // FIXME: Is there a way to get this from the action?
+            open_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>o"}, _("Open a file"));
 
             var open_folder_button = new Gtk.Button.from_icon_name ("folder-saved-search", Gtk.IconSize.LARGE_TOOLBAR);
             open_folder_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_FOLDER;
@@ -50,20 +51,24 @@ namespace Scratch.Widgets {
 
             var save_button = new Gtk.Button.from_icon_name ("document-save", Gtk.IconSize.LARGE_TOOLBAR);
             save_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SAVE;
-            save_button.tooltip_text = _("Save this file");
+            // FIXME: Is there a way to get this from the action?
+            save_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>s"}, _("Save this file"));
 
             var save_as_button = new Gtk.Button.from_icon_name ("document-save-as", Gtk.IconSize.LARGE_TOOLBAR);
             save_as_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SAVE_AS;
-            save_as_button.tooltip_text = _("Save this file with a different name");
+            // FIXME: Is there a way to get this from the action?
+            save_as_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl><shift>s"}, _("Save this file with a different name"));
 
             var revert_button = new Gtk.Button.from_icon_name ("document-revert", Gtk.IconSize.LARGE_TOOLBAR);
             revert_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_REVERT;
-            revert_button.tooltip_text = _("Restore this file");
+            // FIXME: Is there a way to get this from the action?
+            revert_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl><shift>o"}, _("Restore this file"));
 
             find_button = new Gtk.ToggleButton ();
             find_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SHOW_FIND;
             find_button.image = new Gtk.Image.from_icon_name ("edit-find", Gtk.IconSize.LARGE_TOOLBAR);
-            find_button.tooltip_text = _("Find…");
+            // FIXME: Is there a way to get this from the action?
+            find_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>f"}, _("Find…"));
 
             share_menu = new Gtk.Menu ();
             share_app_menu = new Gtk.MenuButton ();
@@ -74,15 +79,18 @@ namespace Scratch.Widgets {
 
             var zoom_out_button = new Gtk.Button.from_icon_name ("zoom-out-symbolic", Gtk.IconSize.MENU);
             zoom_out_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_OUT;
-            zoom_out_button.tooltip_text = _("Zoom Out");
+            // FIXME: Is there a way to get this from the action?
+            zoom_out_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>minus"}, _("Zoom Out"));
 
             var zoom_default_button = new Gtk.Button.with_label ("100%");
             zoom_default_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_DEFAULT;
-            zoom_default_button.tooltip_text = _("Zoom 1:1");
+            // FIXME: Is there a way to get this from the action?
+            zoom_default_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>0"}, _("Zoom 1:1"));
 
             var zoom_in_button = new Gtk.Button.from_icon_name ("zoom-in-symbolic", Gtk.IconSize.MENU);
             zoom_in_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_IN;
-            zoom_in_button.tooltip_text = _("Zoom In");
+            // FIXME: Is there a way to get this from the action?
+            zoom_in_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>plus"}, _("Zoom In"));
 
             var font_size_grid = new Gtk.Grid ();
             font_size_grid.column_homogeneous = true;

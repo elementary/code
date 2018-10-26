@@ -178,9 +178,11 @@ namespace Scratch {
             actions.action_state_changed.connect ((name, new_state) => {
                 if (name == ACTION_SHOW_FIND) {
                     if (new_state.get_boolean () == false) {
-                        toolbar.find_button.tooltip_text = _("Find…");
+                        // FIXME: Is there a way to get this from the action?
+                        toolbar.find_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>f"}, _("Find…"));
                     } else {
-                        toolbar.find_button.tooltip_text = _("Hide search bar");
+                        // FIXME: Is there a way to get this from the action?
+                        toolbar.find_button.tooltip_markup = Granite.markup_accel_tooltip ({"Escape"}, _("Hide search bar"));
                     }
 
                     search_revealer.set_reveal_child (new_state.get_boolean ());
