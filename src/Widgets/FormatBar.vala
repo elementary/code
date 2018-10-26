@@ -68,7 +68,6 @@ public class Code.FormatBar : Gtk.Grid {
 
         line_toggle = new FormatButton ();
         line_toggle.icon = new ThemedIcon ("view-continuous-symbolic");
-        line_toggle.tooltip_text = _("Line number");
         line_toggle.tooltip_markup = Granite.markup_accel_tooltip (
             Scratch.Application.instance.get_accels_for_action (
                 Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_GO_TO
