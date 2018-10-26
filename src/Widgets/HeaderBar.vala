@@ -53,24 +53,32 @@ namespace Scratch.Widgets {
 
             var save_button = new Gtk.Button.from_icon_name ("document-save", Gtk.IconSize.LARGE_TOOLBAR);
             save_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SAVE;
-            // FIXME: Is there a way to get this from the action?
-            save_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>s"}, _("Save this file"));
+            save_button.tooltip_markup = Granite.markup_accel_tooltip (
+                Scratch.Application.instance.get_accels_for_action (save_button.action_name),
+                _("Save this file")
+            );
 
             var save_as_button = new Gtk.Button.from_icon_name ("document-save-as", Gtk.IconSize.LARGE_TOOLBAR);
             save_as_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SAVE_AS;
-            // FIXME: Is there a way to get this from the action?
-            save_as_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl><shift>s"}, _("Save this file with a different name"));
+            save_as_button.tooltip_markup = Granite.markup_accel_tooltip (
+                Scratch.Application.instance.get_accels_for_action (save_as_button.action_name),
+                _("Save this file with a different name")
+            );
 
             var revert_button = new Gtk.Button.from_icon_name ("document-revert", Gtk.IconSize.LARGE_TOOLBAR);
             revert_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_REVERT;
-            // FIXME: Is there a way to get this from the action?
-            revert_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl><shift>o"}, _("Restore this file"));
+            revert_button.tooltip_markup = Granite.markup_accel_tooltip (
+                Scratch.Application.instance.get_accels_for_action (revert_button.action_name),
+                _("Restore this file")
+            );
 
             find_button = new Gtk.ToggleButton ();
             find_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SHOW_FIND;
             find_button.image = new Gtk.Image.from_icon_name ("edit-find", Gtk.IconSize.LARGE_TOOLBAR);
-            // FIXME: Is there a way to get this from the action?
-            find_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>f"}, _("Find…"));
+            find_button.tooltip_markup = Granite.markup_accel_tooltip (
+                Scratch.Application.instance.get_accels_for_action (find_button.action_name),
+                _("Find…")
+            );
 
             share_menu = new Gtk.Menu ();
             share_app_menu = new Gtk.MenuButton ();
@@ -81,18 +89,24 @@ namespace Scratch.Widgets {
 
             var zoom_out_button = new Gtk.Button.from_icon_name ("zoom-out-symbolic", Gtk.IconSize.MENU);
             zoom_out_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_OUT;
-            // FIXME: Is there a way to get this from the action?
-            zoom_out_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>minus"}, _("Zoom Out"));
+            zoom_out_button.tooltip_markup = Granite.markup_accel_tooltip (
+                Scratch.Application.instance.get_accels_for_action (zoom_out_button.action_name),
+                _("Zoom Out")
+            );
 
             var zoom_default_button = new Gtk.Button.with_label ("100%");
             zoom_default_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_DEFAULT;
-            // FIXME: Is there a way to get this from the action?
-            zoom_default_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>0"}, _("Zoom 1:1"));
+            zoom_default_button.tooltip_markup = Granite.markup_accel_tooltip (
+                Scratch.Application.instance.get_accels_for_action (zoom_default_button.action_name),
+                _("Zoom 1:1")
+            );
 
             var zoom_in_button = new Gtk.Button.from_icon_name ("zoom-in-symbolic", Gtk.IconSize.MENU);
             zoom_in_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_IN;
-            // FIXME: Is there a way to get this from the action?
-            zoom_in_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>plus"}, _("Zoom In"));
+            zoom_in_button.tooltip_markup = Granite.markup_accel_tooltip (
+                Scratch.Application.instance.get_accels_for_action (zoom_in_button.action_name),
+                _("Zoom In")
+            );
 
             var font_size_grid = new Gtk.Grid ();
             font_size_grid.column_homogeneous = true;
