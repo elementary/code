@@ -76,7 +76,7 @@ namespace Scratch.Widgets {
             find_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SHOW_FIND;
             find_button.image = new Gtk.Image.from_icon_name ("edit-find", Gtk.IconSize.LARGE_TOOLBAR);
             find_button.tooltip_markup = Granite.markup_accel_tooltip (
-                Scratch.Application.instance.get_accels_for_action (find_button.action_name),
+                Scratch.Application.instance.get_accels_for_action (MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND),
                 _("Find…")
             );
 
