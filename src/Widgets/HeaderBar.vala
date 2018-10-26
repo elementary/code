@@ -39,7 +39,7 @@ namespace Scratch.Widgets {
             var open_button = new Gtk.Button.from_icon_name ("document-open", Gtk.IconSize.LARGE_TOOLBAR);
             open_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN;
             // FIXME: Is there a way to get this from the action?
-            open_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>o"}, _("Open a file"));
+            open_button.tooltip_markup = Granite.markup_accel_tooltip (Scratch.Application.instance.get_accels_for_action (open_button.action_name), _("Open a file"));
 
             var open_folder_button = new Gtk.Button.from_icon_name ("folder-saved-search", Gtk.IconSize.LARGE_TOOLBAR);
             open_folder_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_FOLDER;
