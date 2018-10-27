@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 14:12-0700\n"
 "PO-Revision-Date: 2018-10-27 22:24+0000\n"
-"Last-Translator: Sinan Decron <intenfinitia@gmail.com>\n"
+"Last-Translator: Mehmet Zahit Yılmaz <darkmehmet3@gmail.com>\n"
 "Language-Team: Turkish <https://weblate.elementary.io/projects/code/code/tr/>"
 "\n"
 "Language: tr\n"
@@ -221,7 +221,7 @@ msgstr "Satır genişliği kılavuzu:"
 
 #: src/Dialogs/PreferencesDialog.vala:128
 msgid "Font"
-msgstr ""
+msgstr "Yazı Tipi"
 
 #: src/Dialogs/PreferencesDialog.vala:130
 msgid "Custom font:"
@@ -229,7 +229,7 @@ msgstr "Özel yazıtipi:"
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
-msgstr ""
+msgstr "Diğer Uygulamalar..."
 
 #: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
 msgid "Open In"
@@ -241,12 +241,12 @@ msgstr "Diğer Eylemler"
 
 #: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
-msgstr ""
+msgstr "Yeniden adlandır"
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
-msgstr ""
+msgstr "Çöpe taşı"
 
 #: src/FolderManager/FileView.vala:39
 msgid "Folders"
@@ -258,7 +258,7 @@ msgstr "Klasör"
 
 #: src/FolderManager/FolderItem.vala:151
 msgid "Empty File"
-msgstr ""
+msgstr "Boş Dosya"
 
 #: src/FolderManager/FolderItem.vala:158
 msgid "New"
@@ -266,21 +266,21 @@ msgstr "Yeni"
 
 #: src/FolderManager/FolderItem.vala:322
 msgid "untitled folder"
-msgstr ""
+msgstr "adsız klasör"
 
 #: src/FolderManager/FolderItem.vala:326
 #, c-format
 msgid "untitled folder %d"
-msgstr ""
+msgstr "adsız klasör %d"
 
 #: src/FolderManager/FolderItem.vala:354
 msgid "new file"
 msgstr "Yeni dosya"
 
 #: src/FolderManager/FolderItem.vala:358
-#, fuzzy, c-format
+#, c-format
 msgid "new file %d"
-msgstr "Yeni dosya"
+msgstr "yeni dosya %d"
 
 #: src/FolderManager/ProjectFolderItem.vala:78
 msgid "Close Folder"
