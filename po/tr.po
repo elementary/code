@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 14:12-0700\n"
-"PO-Revision-Date: 2018-10-27 22:25+0000\n"
-"Last-Translator: sabri unal <yakushabb@gmail.com>\n"
+"PO-Revision-Date: 2018-10-27 22:32+0000\n"
+"Last-Translator: Sinan Decron <intenfinitia@gmail.com>\n"
 "Language-Team: Turkish <https://weblate.elementary.io/projects/code/code/tr/>"
 "\n"
 "Language: tr\n"
@@ -306,12 +306,11 @@ msgstr "\"%s\" Dosyasının Yüklenmesi Uzun Sürüyor"
 
 #: src/Services/Document.vala:268
 msgid "Please wait while Code is loading the file."
-msgstr "Code dosyayı yüklerken lütfen bekleyiniz."
+msgstr "Kod dosyayı yüklerken lütfen bekleyiniz."
 
 #: src/Services/Document.vala:270
-#, fuzzy
 msgid "Cancel Load"
-msgstr "İptal"
+msgstr "Yüklemeyi İptal et"
 
 #: src/Services/Document.vala:394
 #, c-format
@@ -339,19 +338,16 @@ msgstr "Yeni Belge"
 
 #. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:679
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Read"
-msgstr ""
-"\"%s\" dosyası oluşturulamadı.\n"
-"%s"
+msgstr "\"%s\" dosyası okunamıyor"
 
 #: src/Services/Document.vala:680
-#, fuzzy
 msgid ""
 "Maybe it is corrupt or you do not have the necessary permissions to read it."
 msgstr ""
-"\"%s\" dosyası okunamıyor. Dosya bozuk olabilir veya dosyanın görüntülenmesi "
-"için gerekli izinlere sahip değilsiniz."
+"Dosya bozuk olabilir veya dosyanın görüntülenmesi için gerekli izinlere "
+"sahip değilsiniz."
 
 #: src/Services/Document.vala:692
 #, c-format
@@ -407,18 +403,17 @@ msgid "Templates"
 msgstr "Şablonlar"
 
 #: src/Widgets/DocumentView.vala:132
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s"
-msgstr "konumundan metin dosyası "
+msgstr "%s 'dan metin dosyası"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
 msgstr "Sözdizimi Vurgulaması"
 
 #: src/Widgets/FormatBar.vala:71
-#, fuzzy
 msgid "Line number"
-msgstr "Satır numaralarını göster:"
+msgstr "Satır numarası"
 
 #: src/Widgets/FormatBar.vala:96
 msgid "Filter languages"
@@ -429,18 +424,18 @@ msgid "Plain Text"
 msgstr ""
 
 #: src/Widgets/FormatBar.vala:200
-#, fuzzy, c-format
+#, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
-msgstr[0] "Çizim Alanları"
-msgstr[1] "Çizim Alanları"
+msgstr[0] "%d Boşluk"
+msgstr[1] "%d Boşluk"
 
 #: src/Widgets/FormatBar.vala:202
-#, fuzzy, c-format
+#, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "Yeni Sekme"
-msgstr[1] "Yeni Sekme"
+msgstr[0] "%d Sekme"
+msgstr[1] "%d Sekme"
 
 #: src/Widgets/FormatBar.vala:218
 msgid "Go To Line:"
@@ -475,18 +470,16 @@ msgid "Share"
 msgstr "Paylaş"
 
 #: src/Widgets/HeaderBar.vala:77
-#, fuzzy
 msgid "Zoom Out"
-msgstr "Yakınlık"
+msgstr "Uzaklaş"
 
 #: src/Widgets/HeaderBar.vala:81
 msgid "Zoom 1:1"
 msgstr "Yakınlaşma 1:1"
 
 #: src/Widgets/HeaderBar.vala:85
-#, fuzzy
 msgid "Zoom In"
-msgstr "Yakınlık"
+msgstr "Yakınlaş"
 
 #: src/Widgets/HeaderBar.vala:98
 msgid "High Contrast"
@@ -498,12 +491,11 @@ msgstr ""
 
 #: src/Widgets/HeaderBar.vala:114
 msgid "Solarized Dark"
-msgstr ""
+msgstr "Solarized Dark"
 
 #: src/Widgets/HeaderBar.vala:124
-#, fuzzy
 msgid "Toggle Sidebar"
-msgstr "Kenar çubuğu"
+msgstr "Kenar çubuğunu Aç/Kapat"
 
 #: src/Widgets/HeaderBar.vala:128
 msgid "Add New View"
@@ -546,9 +538,8 @@ msgid "Replace all"
 msgstr "Tümünü değiştir"
 
 #: src/Widgets/SourceView.vala:357
-#, fuzzy
 msgid "Sort Selected Lines"
-msgstr "Seçilen metin için"
+msgstr "Seçilen satırları sınıflandırın"
 
 #: src/Widgets/SourceView.vala:364
 msgid "Toggle Comment"
