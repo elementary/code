@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 14:12-0700\n"
-"PO-Revision-Date: 2018-10-27 22:32+0000\n"
-"Last-Translator: sabri unal <yakushabb@gmail.com>\n"
+"PO-Revision-Date: 2018-10-27 22:33+0000\n"
+"Last-Translator: Sinan Decron <intenfinitia@gmail.com>\n"
 "Language-Team: Turkish <https://weblate.elementary.io/projects/code/code/tr/>"
 "\n"
 "Language: tr\n"
@@ -543,7 +543,7 @@ msgstr "Seçilen satırları sınıflandırın"
 
 #: src/Widgets/SourceView.vala:364
 msgid "Toggle Comment"
-msgstr "Yorum Aç/Kapa"
+msgstr "Yorum Aç/Kapat"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -554,16 +554,14 @@ msgid "Open a file to begin editing."
 msgstr "Düzenlemeye başlamak için bir dosya açın."
 
 #: src/Widgets/WelcomeView.vala:32
-#, fuzzy
 msgid "New File"
-msgstr "/Yeni Dosya"
+msgstr "Yeni Dosya"
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "Create a new empty file."
 msgstr "Yeni bir boş dosya oluştur."
 
 #: src/Widgets/WelcomeView.vala:33
-#, fuzzy
 msgid "Open File"
 msgstr "Dosya aç"
 
@@ -572,7 +570,6 @@ msgid "Open a saved file."
 msgstr "Kaydedilmiş bir dosyayı aç."
 
 #: src/Widgets/WelcomeView.vala:34
-#, fuzzy
 msgid "Open Folder"
 msgstr "Klasör aç"
 
@@ -581,7 +578,6 @@ msgid "Add a project folder to the sidebar."
 msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:249
-#, fuzzy
 msgid "Share via Pastebin"
 msgstr "PasteBin aracılığıyla paylaş"
 
@@ -590,14 +586,12 @@ msgid "Name:"
 msgstr "Ad:"
 
 #: plugins/pastebin/pastebin_dialog.vala:259
-#, fuzzy
 msgid "Format:"
-msgstr "Biçim: "
+msgstr "Biçim:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
-#, fuzzy
 msgid "Others…"
-msgstr "Diğerleri..."
+msgstr "Diğerleri…"
 
 #: plugins/pastebin/pastebin_dialog.vala:286
 msgid "Expiry time:"
