@@ -378,7 +378,7 @@ namespace Scratch.Services {
             }
 
             bool ret_value = true;
-            if (app_closing && settings.autosave && !saved) {
+            if (settings.autosave && !saved) {
                 save_sync ();
             } else if (app_closing && is_file_temporary && !delete_temporary_file ()) {
                 debug ("Save temporary file!");
