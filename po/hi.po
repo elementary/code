@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 14:12-0700\n"
-"PO-Revision-Date: 2018-10-26 17:54+0000\n"
+"PO-Revision-Date: 2018-10-28 00:05+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Hindi <https://weblate.elementary.io/projects/code/code/hi/>\n"
 "Language: hi\n"
@@ -166,7 +166,7 @@ msgstr "टैब की जगह रिक्ति डालें:"
 
 #: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:153
 msgid "Tab width:"
-msgstr "टैब चौड़ाईः"
+msgstr "टैब चौड़ाई :"
 
 #: src/Dialogs/PreferencesDialog.vala:67
 msgid "Behavior"
@@ -421,8 +421,8 @@ msgstr "सादा पाठ"
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
-msgstr[0] "%d स्पेस बनायें"
-msgstr[1] ""
+msgstr[0] "%d स्पेस"
+msgstr[1] "%d स्पेस"
 
 #: src/Widgets/FormatBar.vala:202
 #, c-format
