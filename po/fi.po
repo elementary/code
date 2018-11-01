@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 14:12-0700\n"
-"PO-Revision-Date: 2018-10-21 00:07+0000\n"
+"PO-Revision-Date: 2018-10-29 00:09+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://weblate.elementary.io/projects/code/code/fi/>"
 "\n"
@@ -238,9 +238,8 @@ msgid "Open In"
 msgstr "Avaa"
 
 #: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
-#, fuzzy
 msgid "Other Actions"
-msgstr "Muut muodot"
+msgstr "Muut toiminnot"
 
 #: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
@@ -261,7 +260,7 @@ msgstr "Kansio"
 
 #: src/FolderManager/FolderItem.vala:151
 msgid "Empty File"
-msgstr ""
+msgstr "Tyhjä tiedosto"
 
 #: src/FolderManager/FolderItem.vala:158
 msgid "New"
@@ -269,12 +268,12 @@ msgstr "Uusi"
 
 #: src/FolderManager/FolderItem.vala:322
 msgid "untitled folder"
-msgstr ""
+msgstr "nimetön kansio"
 
 #: src/FolderManager/FolderItem.vala:326
 #, c-format
 msgid "untitled folder %d"
-msgstr ""
+msgstr "nimetön kansio %d"
 
 #: src/FolderManager/FolderItem.vala:354
 msgid "new file"
