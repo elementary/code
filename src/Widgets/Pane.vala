@@ -24,17 +24,30 @@ public class Code.Pane : Gtk.Grid {
         orientation = Gtk.Orientation.VERTICAL;
         visible = false;
         no_show_all = true;
-        
         get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
+
         stack = new Gtk.Stack ();
         stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
+
         stack_switcher = new Gtk.StackSwitcher ();
         stack_switcher.no_show_all = true;
         stack_switcher.visible = false;
         stack_switcher.stack = stack;
         stack_switcher.homogeneous = true;
+
+        var toolbar = new Gtk.Toolbar ();
+        toolbar.get_style_context ().add_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
+        toolbar.icon_size = Gtk.IconSize.SMALL_TOOLBAR;
+
+        var add_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("folder-open-symbolic", Gtk.IconSize.BUTTON), null);
+        add_button.action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_FOLDER;
+        add_button.tooltip_text = _("Add Project Folder…");
+
+        toolbar.add (add_button);
+
         add (stack_switcher);
         add (stack);
+        add (toolbar);
 
         stack.add.connect (() => {
             if (stack.get_children ().length () > 1) {
@@ -64,6 +77,7 @@ public class Code.Pane : Gtk.Grid {
         stack.add (tab);
         stack.child_set_property (tab, "title", tab.title);
         stack.child_set_property (tab, "icon-name", tab.icon_name);
+
         tab.notify["title"].connect (() => {
             stack.child_set_property (tab, "title", tab.title);
         });
@@ -73,3 +87,4 @@ public class Code.Pane : Gtk.Grid {
         });
     }
 }
+
