@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-14 11:27-0700\n"
-"PO-Revision-Date: 2018-09-19 14:20+0000\n"
+"POT-Creation-Date: 2018-10-18 14:12-0700\n"
+"PO-Revision-Date: 2018-10-23 00:02+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
-"Language-Team: Catalan <https://weblate.elementary.io/projects/code/code/ca/"
-">\n"
+"Language-Team: Catalan <https://weblate.elementary.io/projects/code/code/ca/>"
+"\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -364,7 +364,7 @@ msgstr "Anomena i desa…"
 #: src/Services/Document.vala:699
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "S'ha eliminat el fitxer %s. Voleu desar-lo de tota manera?"
+msgstr "S'ha suprimit el fitxer %s. Voleu desar-lo de tota manera?"
 
 #. If the file can't be written
 #: src/Services/Document.vala:714
@@ -502,7 +502,7 @@ msgstr "Afegeix una nova vista"
 
 #: src/Widgets/HeaderBar.vala:132
 msgid "Remove Current View"
-msgstr "Elimina la vista actual"
+msgstr "Suprimeix la vista actual"
 
 #: src/Widgets/HeaderBar.vala:159
 msgid "Menu"

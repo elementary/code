@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 08:36-0700\n"
-"PO-Revision-Date: 2018-05-24 00:09+0000\n"
-"Last-Translator: Furkan Ege Öztürk <furkanegeozturk@galatasaray.net>\n"
+"POT-Creation-Date: 2018-10-18 14:13-0700\n"
+"PO-Revision-Date: 2018-10-28 00:05+0000\n"
+"Last-Translator: sabri unal <yakushabb@gmail.com>\n"
 "Language-Team: Turkish <https://weblate.elementary.io/projects/code/extra/tr/"
 ">\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -26,7 +26,6 @@ msgid "Code"
 msgstr "Kod"
 
 #: data/io.elementary.code.appdata.xml.in:9
-#, fuzzy
 msgid "The editor that works"
 msgstr "Çalışan metin editörü"
 
@@ -36,6 +35,9 @@ msgid ""
 "they're always up-to-date. Plus it remembers your tabs so you never lose "
 "your spot, even in between sessions."
 msgstr ""
+"Kod sizin için çalışan bir düzenleyicidir. Dosyalarınız otomatik kaydeder, "
+"yani her zaman günceldirler. Üstelik sekmelerinizi hatırlar böylece "
+"kaldığınız noktayı asla kaybetmezsiniz, oturumlar arasında bile."
 
 #: data/io.elementary.code.appdata.xml.in:16
 msgid ""
@@ -44,29 +46,32 @@ msgid ""
 "a full-blown IDE; it's your choice. And with a handful of useful "
 "preferences, you can tweak the behavior and interface to your liking."
 msgstr ""
+"Kişiselleştirin. Kod sıfırdan genişletilebilir olarak yazılmıştır. İster her "
+"şeyi hafif ve basit tutun, ister eklentiler kurun ve Kod'u tam anlamıyla bir "
+"IDE'ye dönüştürün; sizin seçiminiz. Ve birkaç kullanışlı seçenekle arayüzü "
+"kendi zevkinize göre ayarlayabilirsiniz."
 
 #: data/io.elementary.code.appdata.xml.in:22
-#, fuzzy
 msgid ""
 "It's elementary. Code is made to be the perfect editor for elementary, "
 "meaning it closely follows the high standards of design, speed, and "
 "consistency. It's sexy, but not distracting."
 msgstr ""
-"Bu elemantary.Scratch elementary için mükemmel bir yazı düzenleyicisi olması "
-"için yapıldı yani yüksek standartlarda ki, tasarımları hızı ve uyumu takip "
-"ediyor.Baştan çıkarıcı ama dikkat dağıtıcı değil."
+"Bu elemantary. Kod, elementary için mükemmel bir düzenleyici olmak için "
+"üretildi. Bunun anlamı yüksek standartlardaki tasarımları, hızı ve akıcılığı "
+"yakından takip eder. Baştan çıkarıcıdır ama dikkat dağıtıcı değil."
 
 #: data/io.elementary.code.appdata.xml.in:27
-#, fuzzy
 msgid ""
 "Works with your language. Whether you're crafting code in Vala, scripting "
 "with PHP, or marking things up in HTML, Code has you covered. Experience "
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
-"Sizin dilinizden anlar. İster Vala ile kodla ister PHP için script tasarla "
-"ya da HTML dosyası düzenle, Çizik her zaman yanında.  Tümüyle kod vurgusu "
-"ile neredeyse bütün dillerle uyumun tecrübesini yaşayın."
+"Sizin dilinizden anlar. İster Vala ile kodluyor olun, ister PHP ile script "
+"yazıyor veya HTML dosyası düzenliyor olun, Kod her zaman yanınızda. Tümüyle "
+"kod vurgusu ile neredeyse bütün programlara dilleri ile uyumun tecrübesini "
+"yaşayın."
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid ""
@@ -84,11 +89,11 @@ msgstr "Ek özellikler şunları içerir:"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "syntax highlighting with gtksourceview-3"
-msgstr ""
+msgstr "gtksourceview-3 ile söz-dizimi vurgulama"
 
 #: data/io.elementary.code.appdata.xml.in:43
 msgid "a find bar to search the words in the files"
-msgstr ""
+msgstr "dosyalar arasında kelime araması yapmak için arama çubuğu"
 
 #: data/io.elementary.code.appdata.xml.in:44
 msgid "tab and split documents system"
@@ -96,37 +101,35 @@ msgstr "Sekme ve bölünmüş belgeler sistemi"
 
 #: data/io.elementary.code.appdata.xml.in:45
 msgid "lots of others"
-msgstr ""
+msgstr "Bir sürü başka"
 
-#: data/io.elementary.code.appdata.xml.in:83
+#: data/io.elementary.code.appdata.xml.in:84
 msgid "elementary LLC."
-msgstr ""
+msgstr "elementary LLC."
 
 #: data/io.elementary.code.desktop.in.in:5
-#, fuzzy
 msgid "Edit code files"
-msgstr "Metin dosyalarını düzenle"
+msgstr "Kod dosyalarını düzenle"
 
 #: data/io.elementary.code.desktop.in.in:6
 msgid "Code Editor"
-msgstr ""
+msgstr "Kod Editörü"
 
 #: data/io.elementary.code.desktop.in.in:8
 msgid "io.elementary.code"
-msgstr ""
+msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
-#, fuzzy
 msgid "IDE;scratch;"
-msgstr "Çizik"
+msgstr "IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New Document"
-msgstr ""
+msgstr "Yeni Belge"
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
-msgstr ""
+msgstr "Yeni Pencere"
 
 #~ msgid "Notepad;IDE;Plain;"
 #~ msgstr "Not Defteri;IDE;Sade;"

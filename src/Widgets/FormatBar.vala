@@ -68,7 +68,12 @@ public class Code.FormatBar : Gtk.Grid {
 
         line_toggle = new FormatButton ();
         line_toggle.icon = new ThemedIcon ("view-continuous-symbolic");
-        line_toggle.tooltip_text = _("Line number");
+        line_toggle.tooltip_markup = Granite.markup_accel_tooltip (
+            Scratch.Application.instance.get_accels_for_action (
+                Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_GO_TO
+            ),
+            _("Line number")
+        );
 
         column_homogeneous = true;
         add (tab_toggle);
@@ -90,7 +95,7 @@ public class Code.FormatBar : Gtk.Grid {
             //Both are lowercased so that the case doesn't matter when comparing.
             return (((LangEntry) row).lang_name.down ().contains (lang_selection_filter.text.down ().strip ()));
         });
-        
+
         lang_selection_filter = new Gtk.SearchEntry ();
         lang_selection_filter.margin = 6;
         lang_selection_filter.placeholder_text = _("Filter languages");
@@ -103,7 +108,7 @@ public class Code.FormatBar : Gtk.Grid {
         lang_scrolled.height_request = 350;
         lang_scrolled.expand = true;
         lang_scrolled.margin_top = lang_scrolled.margin_bottom = 3;
-       
+
         lang_scrolled.add (lang_selection_listbox);
 
         unowned string[]? ids = manager.get_language_ids ();
@@ -121,7 +126,7 @@ public class Code.FormatBar : Gtk.Grid {
         var popover_content = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
         popover_content.add (lang_selection_filter);
         popover_content.add (lang_scrolled);
-        
+
         popover_content.show_all ();
 
         var lang_popover = new Gtk.Popover (lang_toggle);
@@ -195,7 +200,7 @@ public class Code.FormatBar : Gtk.Grid {
             indent_width = (int)doc.source_view.tab_width;
             spaces_instead_of_tabs = doc.source_view.insert_spaces_instead_of_tabs;
         }
-        
+
         if (spaces_instead_of_tabs) {
             tab_toggle.text = ngettext ("%d Space", "%d Spaces", indent_width).printf (indent_width);
         } else {
@@ -209,7 +214,7 @@ public class Code.FormatBar : Gtk.Grid {
         Gtk.TextIter iter;
         buffer.get_iter_at_offset (out iter, position);
         var line = iter.get_line () + 1;
-        
+
         line_toggle.text = "%d.%d".printf (line, iter.get_line_offset ());
         goto_entry.text = "%d.%d".printf (line, iter.get_line_offset ());
     }

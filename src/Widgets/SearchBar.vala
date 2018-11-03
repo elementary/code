@@ -63,12 +63,22 @@ namespace Scratch.Widgets {
             tool_arrow_down = new Gtk.Button.from_icon_name ("go-down-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
             tool_arrow_down.clicked.connect (search_next);
             tool_arrow_down.sensitive = false;
-            tool_arrow_down.tooltip_text = _("Search next");
+            tool_arrow_down.tooltip_markup = Granite.markup_accel_tooltip (
+                Scratch.Application.instance.get_accels_for_action (
+                    Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_FIND_NEXT
+                ),
+                _("Search next")
+            );
 
             tool_arrow_up = new Gtk.Button.from_icon_name ("go-up-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
             tool_arrow_up.clicked.connect (search_previous);
             tool_arrow_up.sensitive = false;
-            tool_arrow_up.tooltip_text = _("Search previous");
+            tool_arrow_up.tooltip_markup = Granite.markup_accel_tooltip (
+                Scratch.Application.instance.get_accels_for_action (
+                    Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_FIND_PREVIOUS
+                ),
+                _("Search previous")
+            );
 
             tool_cycle_search = new Gtk.ToggleButton ();
             tool_cycle_search.image =  new Gtk.Image.from_icon_name ("media-playlist-repeat-symbolic", Gtk.IconSize.SMALL_TOOLBAR);

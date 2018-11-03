@@ -7,16 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-14 11:27-0700\n"
-"PO-Revision-Date: 2017-04-09 20:36+0000\n"
-"Last-Translator: Tobias Ahlström <tobias.ahlstrom@gmail.com>\n"
-"Language-Team: Swedish <sv@li.org>\n"
+"POT-Creation-Date: 2018-10-18 14:12-0700\n"
+"PO-Revision-Date: 2018-10-20 00:10+0000\n"
+"Last-Translator: Fredrik B <frbo9002@gmail.com>\n"
+"Language-Team: Swedish <https://weblate.elementary.io/projects/code/code/sv/>"
+"\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #. We list some common errors for quick feedback
 #: src/Application.vala:138
@@ -25,7 +27,7 @@ msgstr "Du kanske inte har nödvändiga behörigheter."
 
 #: src/Application.vala:140
 msgid "Maybe the file path provided is not valid."
-msgstr "Sökvägen är kanske ogiltig"
+msgstr "Sökvägen är kanske ogiltig."
 
 #: src/Application.vala:142
 msgid "The location is read-only."
@@ -33,7 +35,7 @@ msgstr "Platsen är skrivskyddad."
 
 #: src/Application.vala:144
 msgid "The parent directory doesn't exist."
-msgstr ""
+msgstr "Föräldermappen finns inte."
 
 #: src/Application.vala:151
 #, c-format
@@ -55,17 +57,19 @@ msgstr ""
 
 #: src/Application.vala:171
 msgid "It is a mountable location."
-msgstr ""
+msgstr "Det är en monterbar plats."
 
 #: src/Application.vala:174
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
 msgstr ""
+"Det är en \"speciell\" fil, såsom en socket,\n"
+" FIFO, blockenhet eller bokstavsenhet."
 
 #: src/Application.vala:177
 msgid "It is an \"unknown\" file type."
-msgstr ""
+msgstr "Det är en \"okänd\" filtyp."
 
 #: src/Application.vala:266
 msgid "New Tab"
@@ -89,7 +93,7 @@ msgstr "Aktuell arbetskatalog"
 
 #: src/MainWindow.vala:133
 msgid "Code"
-msgstr ""
+msgstr "Kod"
 
 #: src/MainWindow.vala:181 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
@@ -147,7 +151,7 @@ msgstr "Allmänt"
 
 #: src/Dialogs/PreferencesDialog.vala:53
 msgid "Save files when changed:"
-msgstr "Spara filer när de ändrats"
+msgstr "Spara filer vid ändring:"
 
 #: src/Dialogs/PreferencesDialog.vala:55 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
@@ -159,7 +163,7 @@ msgstr "Automatiskt indrag:"
 
 #: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:150
 msgid "Insert spaces instead of tabs:"
-msgstr "Använd mellanslag istället för tabbar"
+msgstr "Använd mellanslag istället för tabbar:"
 
 #: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:153
 msgid "Tab width:"
@@ -192,7 +196,7 @@ msgstr "Markera matchande parentestecken:"
 
 #: src/Dialogs/PreferencesDialog.vala:110
 msgid "Draw Spaces:"
-msgstr "Rita ut mellanslag"
+msgstr "Rita ut mellanslag:"
 
 #: src/Dialogs/PreferencesDialog.vala:112
 #: plugins/pastebin/pastebin_dialog.vala:460
@@ -201,15 +205,15 @@ msgstr "Aldrig"
 
 #: src/Dialogs/PreferencesDialog.vala:113
 msgid "For selected text"
-msgstr ""
+msgstr "För markerad text"
 
 #: src/Dialogs/PreferencesDialog.vala:114
 msgid "Always"
-msgstr ""
+msgstr "Alltid"
 
 #: src/Dialogs/PreferencesDialog.vala:117
 msgid "Show Mini Map:"
-msgstr ""
+msgstr "Visa minikarta:"
 
 #: src/Dialogs/PreferencesDialog.vala:120
 msgid "Line width guide:"
@@ -217,7 +221,7 @@ msgstr "Linjera med guidlinjen:"
 
 #: src/Dialogs/PreferencesDialog.vala:128
 msgid "Font"
-msgstr ""
+msgstr "Teckensnitt"
 
 #: src/Dialogs/PreferencesDialog.vala:130
 msgid "Custom font:"
@@ -225,63 +229,58 @@ msgstr "Anpassat typsnitt:"
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
-msgstr ""
+msgstr "Annat program…"
 
 #: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
-#, fuzzy
 msgid "Open In"
-msgstr "Öppna"
+msgstr "Öppna i"
 
 #: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
-#, fuzzy
 msgid "Other Actions"
-msgstr "Övriga format"
+msgstr "Andra åtgärder"
 
 #: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
-msgstr ""
+msgstr "Byt namn"
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
-msgstr ""
+msgstr "Flytta till papperskorgen"
 
 #: src/FolderManager/FileView.vala:39
 msgid "Folders"
 msgstr "Mappar"
 
 #: src/FolderManager/FolderItem.vala:148
-#, fuzzy
 msgid "Folder"
-msgstr "Mappar"
+msgstr "Mapp"
 
 #: src/FolderManager/FolderItem.vala:151
 msgid "Empty File"
-msgstr ""
+msgstr "Tom fil"
 
 #: src/FolderManager/FolderItem.vala:158
-#, fuzzy
 msgid "New"
-msgstr "Ny flik"
+msgstr "Nytt"
 
 #: src/FolderManager/FolderItem.vala:322
 msgid "untitled folder"
-msgstr ""
+msgstr "namnlös mapp"
 
 #: src/FolderManager/FolderItem.vala:326
 #, c-format
 msgid "untitled folder %d"
-msgstr ""
+msgstr "namnlös mapp %d"
 
 #: src/FolderManager/FolderItem.vala:354
-#, fuzzy
 msgid "new file"
-msgstr "Ny fil"
+msgstr "ny fil"
 
 #: src/FolderManager/FolderItem.vala:358
-#, fuzzy, c-format
+#, c-format
 msgid "new file %d"
-msgstr "Ny fil"
+msgstr "ny fil %d"
 
 #: src/FolderManager/ProjectFolderItem.vala:78
 msgid "Close Folder"
@@ -290,29 +289,28 @@ msgstr "Stäng mapp"
 #: src/Services/Document.vala:243
 #, c-format
 msgid "%s Is Not a Text File"
-msgstr ""
+msgstr "%s är inte en textfil"
 
 #: src/Services/Document.vala:244
 msgid "Code will not load this type of file."
-msgstr ""
+msgstr "Kod kan inte ladda den här filtypen."
 
 #: src/Services/Document.vala:246
 msgid "Load Anyway"
-msgstr ""
+msgstr "Ladda ändå"
 
 #: src/Services/Document.vala:267
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr ""
+msgstr "Laddning av fil \"%s\" tar lång tid"
 
 #: src/Services/Document.vala:268
 msgid "Please wait while Code is loading the file."
-msgstr ""
+msgstr "Vänta medan Kod laddar in filen."
 
 #: src/Services/Document.vala:270
-#, fuzzy
 msgid "Cancel Load"
-msgstr "Avbryt"
+msgstr "Avbryt inladdning"
 
 #: src/Services/Document.vala:394
 #, c-format
@@ -340,19 +338,16 @@ msgstr "Nytt dokument"
 
 #. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:679
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Read"
-msgstr ""
-"Filen \"%s\" kan inte skapas.\n"
-"%s"
+msgstr "Filen \"%s\" kan inte läsas"
 
 #: src/Services/Document.vala:680
-#, fuzzy
 msgid ""
 "Maybe it is corrupt or you do not have the necessary permissions to read it."
 msgstr ""
-"Filen \"%s\" kan inte läsas. Kanske har den skadats, \n"
-"eller så har du inte tillräckliga rättigheter för att läsa den."
+"Kanske har den skadats, eller så har du inte tillräckliga rättigheter för "
+"att läsa den."
 
 #: src/Services/Document.vala:692
 #, c-format
@@ -408,40 +403,39 @@ msgid "Templates"
 msgstr "Mallar"
 
 #: src/Widgets/DocumentView.vala:132
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s"
-msgstr "Textfil från "
+msgstr "Textfil från %s"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
 msgstr "Syntaxmarkering"
 
 #: src/Widgets/FormatBar.vala:71
-#, fuzzy
 msgid "Line number"
-msgstr "Visa radnumrering:"
+msgstr "Radnumrering"
 
 #: src/Widgets/FormatBar.vala:96
 msgid "Filter languages"
-msgstr ""
+msgstr "Filtrera språk"
 
 #: src/Widgets/FormatBar.vala:118
 msgid "Plain Text"
-msgstr ""
+msgstr "Vanlig text"
 
 #: src/Widgets/FormatBar.vala:200
-#, fuzzy, c-format
+#, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
-msgstr[0] "Rita ut mellanslag"
-msgstr[1] "Rita ut mellanslag"
+msgstr[0] "%d mellanslag"
+msgstr[1] "%d mellanslag"
 
 #: src/Widgets/FormatBar.vala:202
-#, fuzzy, c-format
+#, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "Ny flik"
-msgstr[1] "Ny flik"
+msgstr[0] "%d flik"
+msgstr[1] "%d flikar"
 
 #: src/Widgets/FormatBar.vala:218
 msgid "Go To Line:"
@@ -476,35 +470,32 @@ msgid "Share"
 msgstr "Dela"
 
 #: src/Widgets/HeaderBar.vala:77
-#, fuzzy
 msgid "Zoom Out"
-msgstr "Zooma"
+msgstr "Zooma ut"
 
 #: src/Widgets/HeaderBar.vala:81
 msgid "Zoom 1:1"
 msgstr "Zooma 1:1"
 
 #: src/Widgets/HeaderBar.vala:85
-#, fuzzy
 msgid "Zoom In"
-msgstr "Zooma"
+msgstr "Zooma in"
 
 #: src/Widgets/HeaderBar.vala:98
 msgid "High Contrast"
-msgstr ""
+msgstr "Hög kontrast"
 
 #: src/Widgets/HeaderBar.vala:106
 msgid "Solarized Light"
-msgstr ""
+msgstr "Solariserat ljus"
 
 #: src/Widgets/HeaderBar.vala:114
 msgid "Solarized Dark"
-msgstr ""
+msgstr "Solariserat mörker"
 
 #: src/Widgets/HeaderBar.vala:124
-#, fuzzy
 msgid "Toggle Sidebar"
-msgstr "Sidofält"
+msgstr "Visa/dölj sidopanel"
 
 #: src/Widgets/HeaderBar.vala:128
 msgid "Add New View"
@@ -516,7 +507,7 @@ msgstr "Ta bort nuvarande vy"
 
 #: src/Widgets/HeaderBar.vala:159
 msgid "Menu"
-msgstr ""
+msgstr "Meny"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
@@ -548,11 +539,11 @@ msgstr "Ersätt alla"
 
 #: src/Widgets/SourceView.vala:357
 msgid "Sort Selected Lines"
-msgstr ""
+msgstr "Sortera valda rader"
 
 #: src/Widgets/SourceView.vala:364
 msgid "Toggle Comment"
-msgstr ""
+msgstr "Visa/dölj kommentarer"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -560,37 +551,33 @@ msgstr "Inga öppna filer"
 
 #: src/Widgets/WelcomeView.vala:27
 msgid "Open a file to begin editing."
-msgstr "Öppna en fil för att börja redigera"
+msgstr "Öppna en fil för att börja redigera."
 
 #: src/Widgets/WelcomeView.vala:32
-#, fuzzy
 msgid "New File"
-msgstr "/Ny fil"
+msgstr "Ny fil"
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "Create a new empty file."
-msgstr "Skapa en ny tom fil"
+msgstr "Skapa en ny tom fil."
 
 #: src/Widgets/WelcomeView.vala:33
-#, fuzzy
 msgid "Open File"
 msgstr "Öppna fil"
 
 #: src/Widgets/WelcomeView.vala:33
 msgid "Open a saved file."
-msgstr "Öppna en sparad fil"
+msgstr "Öppna en sparad fil."
 
 #: src/Widgets/WelcomeView.vala:34
-#, fuzzy
 msgid "Open Folder"
-msgstr "Öppna en mapp"
+msgstr "Öppna mapp"
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Add a project folder to the sidebar."
-msgstr ""
+msgstr "Lägg till projektmapp till sidopanelen."
 
 #: plugins/pastebin/pastebin_dialog.vala:249
-#, fuzzy
 msgid "Share via Pastebin"
 msgstr "Dela via PasteBin"
 
@@ -599,14 +586,12 @@ msgid "Name:"
 msgstr "Namn:"
 
 #: plugins/pastebin/pastebin_dialog.vala:259
-#, fuzzy
 msgid "Format:"
-msgstr "Format: "
+msgstr "Format:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
-#, fuzzy
 msgid "Others…"
-msgstr "Andra..."
+msgstr "Andra…"
 
 #: plugins/pastebin/pastebin_dialog.vala:286
 msgid "Expiry time:"
@@ -663,7 +648,7 @@ msgstr "Dölj Terminal"
 
 #: plugins/terminal/terminal.vala:139
 msgid "Terminal"
-msgstr "Terminalen"
+msgstr "Terminal"
 
 #. Popup menu
 #. COPY
@@ -695,7 +680,7 @@ msgid ""
 "Please install at least one [aspell] dictionary"
 msgstr ""
 "Inga lämpliga ordböcker hittades.\n"
-"Vänligen installera minst en [aspell] ordbok."
+"Vänligen installera minst en [aspell] ordbok"
 
 #: plugins/word-completion/plugin.vala:174
 #, c-format
