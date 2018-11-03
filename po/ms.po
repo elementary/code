@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-18 10:48-0700\n"
+"POT-Creation-Date: 2018-10-18 14:12-0700\n"
 "PO-Revision-Date: 2018-06-13 00:02+0000\n"
 "Last-Translator: Timothy <timty97@gmail.com>\n"
 "Language-Team: Malay <https://weblate.elementary.io/projects/code/code/ms/>\n"
@@ -141,7 +141,7 @@ msgstr "Buka"
 msgid "Save"
 msgstr "Simpan"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:142
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:136
 msgid "Preferences"
 msgstr "Keutamaan"
 
@@ -480,34 +480,34 @@ msgstr "Zum 1:1"
 msgid "Zoom In"
 msgstr "Zum masuk"
 
-#: src/Widgets/HeaderBar.vala:100
+#: src/Widgets/HeaderBar.vala:98
 msgid "High Contrast"
 msgstr "Kontras Tinggi"
 
-#: src/Widgets/HeaderBar.vala:110
+#: src/Widgets/HeaderBar.vala:106
 #, fuzzy
 msgid "Solarized Light"
 msgstr "Cahaya Keterlaluan"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:114
 #, fuzzy
 msgid "Solarized Dark"
 msgstr "Kegelapan Keterlaluan"
 
-#: src/Widgets/HeaderBar.vala:130
+#: src/Widgets/HeaderBar.vala:124
 #, fuzzy
 msgid "Toggle Sidebar"
 msgstr "Palang sisi"
 
-#: src/Widgets/HeaderBar.vala:134
+#: src/Widgets/HeaderBar.vala:128
 msgid "Add New View"
 msgstr "Tambah Paparan Baru"
 
-#: src/Widgets/HeaderBar.vala:138
+#: src/Widgets/HeaderBar.vala:132
 msgid "Remove Current View"
 msgstr "Buang Paparan Semasa"
 
-#: src/Widgets/HeaderBar.vala:165
+#: src/Widgets/HeaderBar.vala:159
 msgid "Menu"
 msgstr "Menu"
 
@@ -671,12 +671,12 @@ msgstr "Tampal"
 msgid "Web Preview"
 msgstr "Pratonton Sesawang"
 
-#: plugins/browser-preview/browser-preview.vala:74
-#: plugins/browser-preview/browser-preview.vala:100
+#: plugins/browser-preview/browser-preview.vala:72
+#: plugins/browser-preview/browser-preview.vala:98
 msgid "Show Preview"
 msgstr "Tunjuk Pratonton"
 
-#: plugins/browser-preview/browser-preview.vala:92
+#: plugins/browser-preview/browser-preview.vala:90
 msgid "Hide Preview"
 msgstr "Sembunyi Pratonton"
 

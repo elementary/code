@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-17 14:59-0700\n"
+"POT-Creation-Date: 2018-10-18 14:12-0700\n"
 "PO-Revision-Date: 2018-09-18 17:53+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://weblate.elementary.io/projects/code/code/"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n%10>=2 && (n%100<10 || "
-"n%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n%10>=2 && (n%100<10 || n"
+"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3;\n"
 "X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
@@ -142,7 +142,7 @@ msgstr "Atverti"
 msgid "Save"
 msgstr "Įrašyti"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:142
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:136
 msgid "Preferences"
 msgstr "Nuostatos"
 
@@ -485,31 +485,31 @@ msgstr "Mastelis 1:1"
 msgid "Zoom In"
 msgstr "Didinti"
 
-#: src/Widgets/HeaderBar.vala:100
+#: src/Widgets/HeaderBar.vala:98
 msgid "High Contrast"
 msgstr "Didelis kontrastas"
 
-#: src/Widgets/HeaderBar.vala:110
+#: src/Widgets/HeaderBar.vala:106
 msgid "Solarized Light"
 msgstr "Apšviesta šviesi"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:114
 msgid "Solarized Dark"
 msgstr "Apšviesta tamsi"
 
-#: src/Widgets/HeaderBar.vala:130
+#: src/Widgets/HeaderBar.vala:124
 msgid "Toggle Sidebar"
 msgstr "Perjungti šoninę juostą"
 
-#: src/Widgets/HeaderBar.vala:134
+#: src/Widgets/HeaderBar.vala:128
 msgid "Add New View"
 msgstr "Pridėti naują rodinį"
 
-#: src/Widgets/HeaderBar.vala:138
+#: src/Widgets/HeaderBar.vala:132
 msgid "Remove Current View"
 msgstr "Šalinti esamą rodinį"
 
-#: src/Widgets/HeaderBar.vala:165
+#: src/Widgets/HeaderBar.vala:159
 msgid "Menu"
 msgstr "Meniu"
 
@@ -669,12 +669,12 @@ msgstr "Įdėti"
 msgid "Web Preview"
 msgstr "Saityno peržiūra"
 
-#: plugins/browser-preview/browser-preview.vala:74
-#: plugins/browser-preview/browser-preview.vala:100
+#: plugins/browser-preview/browser-preview.vala:72
+#: plugins/browser-preview/browser-preview.vala:98
 msgid "Show Preview"
 msgstr "Rodyti peržiūrą"
 
-#: plugins/browser-preview/browser-preview.vala:92
+#: plugins/browser-preview/browser-preview.vala:90
 msgid "Hide Preview"
 msgstr "Slėpti peržiūrą"
 

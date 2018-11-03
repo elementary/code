@@ -178,9 +178,15 @@ namespace Scratch {
             actions.action_state_changed.connect ((name, new_state) => {
                 if (name == ACTION_SHOW_FIND) {
                     if (new_state.get_boolean () == false) {
-                        toolbar.find_button.tooltip_text = _("Find…");
+                        toolbar.find_button.tooltip_markup = Granite.markup_accel_tooltip (
+                            app.get_accels_for_action (ACTION_PREFIX + ACTION_FIND),
+                            _("Find…")
+                        );
                     } else {
-                        toolbar.find_button.tooltip_text = _("Hide search bar");
+                        toolbar.find_button.tooltip_markup = Granite.markup_accel_tooltip (
+                            {"Escape"},
+                            _("Hide search bar")
+                        );
                     }
 
                     search_revealer.set_reveal_child (new_state.get_boolean ());

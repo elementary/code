@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-17 14:59-0700\n"
+"POT-Creation-Date: 2018-10-18 14:12-0700\n"
 "PO-Revision-Date: 2018-09-28 00:06+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://weblate.elementary.io/projects/code/"
@@ -141,7 +141,7 @@ msgstr "Åpne"
 msgid "Save"
 msgstr "Lagre"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:142
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:136
 msgid "Preferences"
 msgstr "Innstillinger"
 
@@ -478,31 +478,31 @@ msgstr "Forstørr 1:1"
 msgid "Zoom In"
 msgstr "Forstørr"
 
-#: src/Widgets/HeaderBar.vala:100
+#: src/Widgets/HeaderBar.vala:98
 msgid "High Contrast"
 msgstr "Høy kontrast"
 
-#: src/Widgets/HeaderBar.vala:110
+#: src/Widgets/HeaderBar.vala:106
 msgid "Solarized Light"
 msgstr "Solarisert lys"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:114
 msgid "Solarized Dark"
 msgstr "Solarisert lys"
 
-#: src/Widgets/HeaderBar.vala:130
+#: src/Widgets/HeaderBar.vala:124
 msgid "Toggle Sidebar"
 msgstr "Veksle sidepanel"
 
-#: src/Widgets/HeaderBar.vala:134
+#: src/Widgets/HeaderBar.vala:128
 msgid "Add New View"
 msgstr "Legg til ny visning"
 
-#: src/Widgets/HeaderBar.vala:138
+#: src/Widgets/HeaderBar.vala:132
 msgid "Remove Current View"
 msgstr "Fjern den valgte visninga"
 
-#: src/Widgets/HeaderBar.vala:165
+#: src/Widgets/HeaderBar.vala:159
 msgid "Menu"
 msgstr "Meny"
 
@@ -662,12 +662,12 @@ msgstr "Lim inn"
 msgid "Web Preview"
 msgstr "Forhåndsvisning som nettside"
 
-#: plugins/browser-preview/browser-preview.vala:74
-#: plugins/browser-preview/browser-preview.vala:100
+#: plugins/browser-preview/browser-preview.vala:72
+#: plugins/browser-preview/browser-preview.vala:98
 msgid "Show Preview"
 msgstr "Forhåndsvisning"
 
-#: plugins/browser-preview/browser-preview.vala:92
+#: plugins/browser-preview/browser-preview.vala:90
 msgid "Hide Preview"
 msgstr "Skjul forhåndsvisning"
 

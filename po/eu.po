@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-18 10:48-0700\n"
+"POT-Creation-Date: 2018-10-18 14:12-0700\n"
 "PO-Revision-Date: 2016-09-11 21:29+0000\n"
 "Last-Translator: Thadah Denyse <juchuf@gmail.com>\n"
 "Language-Team: Basque <eu@li.org>\n"
@@ -133,7 +133,7 @@ msgstr "Ireki"
 msgid "Save"
 msgstr "Gorde"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:142
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:136
 msgid "Preferences"
 msgstr "Hobespenak"
 
@@ -475,32 +475,32 @@ msgstr "Zoom-a 1:1"
 msgid "Zoom In"
 msgstr "Zoom-a"
 
-#: src/Widgets/HeaderBar.vala:100
+#: src/Widgets/HeaderBar.vala:98
 msgid "High Contrast"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:110
+#: src/Widgets/HeaderBar.vala:106
 msgid "Solarized Light"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:114
 msgid "Solarized Dark"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:130
+#: src/Widgets/HeaderBar.vala:124
 #, fuzzy
 msgid "Toggle Sidebar"
 msgstr "Albo-barra"
 
-#: src/Widgets/HeaderBar.vala:134
+#: src/Widgets/HeaderBar.vala:128
 msgid "Add New View"
 msgstr "Gehitu bista berria"
 
-#: src/Widgets/HeaderBar.vala:138
+#: src/Widgets/HeaderBar.vala:132
 msgid "Remove Current View"
 msgstr "Kendu uneko bista"
 
-#: src/Widgets/HeaderBar.vala:165
+#: src/Widgets/HeaderBar.vala:159
 msgid "Menu"
 msgstr ""
 
@@ -666,12 +666,12 @@ msgstr "Itsatsi"
 msgid "Web Preview"
 msgstr "Web aurreikuspena"
 
-#: plugins/browser-preview/browser-preview.vala:74
-#: plugins/browser-preview/browser-preview.vala:100
+#: plugins/browser-preview/browser-preview.vala:72
+#: plugins/browser-preview/browser-preview.vala:98
 msgid "Show Preview"
 msgstr "Erakutsi aurreikuspena"
 
-#: plugins/browser-preview/browser-preview.vala:92
+#: plugins/browser-preview/browser-preview.vala:90
 msgid "Hide Preview"
 msgstr "Ezkutatu aurreikuspena"
 

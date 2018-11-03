@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-18 10:48-0700\n"
+"POT-Creation-Date: 2018-10-18 14:12-0700\n"
 "PO-Revision-Date: 2017-03-02 13:09+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Latvian <lv@li.org>\n"
@@ -137,7 +137,7 @@ msgstr "Atvērt"
 msgid "Save"
 msgstr "Saglabāt"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:142
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:136
 msgid "Preferences"
 msgstr "Iestatījumi"
 
@@ -486,32 +486,32 @@ msgstr "Tālummainīt 1:1"
 msgid "Zoom In"
 msgstr "Tālummainīt"
 
-#: src/Widgets/HeaderBar.vala:100
+#: src/Widgets/HeaderBar.vala:98
 msgid "High Contrast"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:110
+#: src/Widgets/HeaderBar.vala:106
 msgid "Solarized Light"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:114
 msgid "Solarized Dark"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:130
+#: src/Widgets/HeaderBar.vala:124
 #, fuzzy
 msgid "Toggle Sidebar"
 msgstr "Sānjosla"
 
-#: src/Widgets/HeaderBar.vala:134
+#: src/Widgets/HeaderBar.vala:128
 msgid "Add New View"
 msgstr "Pievienot jaunu skatu"
 
-#: src/Widgets/HeaderBar.vala:138
+#: src/Widgets/HeaderBar.vala:132
 msgid "Remove Current View"
 msgstr "Noņemt pašreizējo skatu"
 
-#: src/Widgets/HeaderBar.vala:165
+#: src/Widgets/HeaderBar.vala:159
 msgid "Menu"
 msgstr ""
 
@@ -677,12 +677,12 @@ msgstr "Ielīmēt"
 msgid "Web Preview"
 msgstr ""
 
-#: plugins/browser-preview/browser-preview.vala:74
-#: plugins/browser-preview/browser-preview.vala:100
+#: plugins/browser-preview/browser-preview.vala:72
+#: plugins/browser-preview/browser-preview.vala:98
 msgid "Show Preview"
 msgstr ""
 
-#: plugins/browser-preview/browser-preview.vala:92
+#: plugins/browser-preview/browser-preview.vala:90
 msgid "Hide Preview"
 msgstr ""
 

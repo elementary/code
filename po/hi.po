@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-18 10:48-0700\n"
-"PO-Revision-Date: 2018-09-16 10:50+0000\n"
-"Last-Translator: Anand Kumar <anand@anandkumar.net>\n"
+"POT-Creation-Date: 2018-10-18 14:12-0700\n"
+"PO-Revision-Date: 2018-10-28 00:05+0000\n"
+"Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Hindi <https://weblate.elementary.io/projects/code/code/hi/>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
@@ -140,7 +140,7 @@ msgstr "खोलें"
 msgid "Save"
 msgstr "सहेजें"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:142
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:136
 msgid "Preferences"
 msgstr "वरीयताएँ"
 
@@ -166,7 +166,7 @@ msgstr "टैब की जगह रिक्ति डालें:"
 
 #: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:153
 msgid "Tab width:"
-msgstr "टैब चौड़ाईः"
+msgstr "टैब चौड़ाई :"
 
 #: src/Dialogs/PreferencesDialog.vala:67
 msgid "Behavior"
@@ -421,8 +421,8 @@ msgstr "सादा पाठ"
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
-msgstr[0] "%d स्पेस बनायें"
-msgstr[1] ""
+msgstr[0] "%d स्पेस"
+msgstr[1] "%d स्पेस"
 
 #: src/Widgets/FormatBar.vala:202
 #, c-format
@@ -475,32 +475,31 @@ msgstr "ज़ूम 1:1"
 msgid "Zoom In"
 msgstr "ज़ूम इन"
 
-#: src/Widgets/HeaderBar.vala:100
+#: src/Widgets/HeaderBar.vala:98
 msgid "High Contrast"
 msgstr "अधिक कंट्रास्ट"
 
-#: src/Widgets/HeaderBar.vala:110
+#: src/Widgets/HeaderBar.vala:106
 msgid "Solarized Light"
 msgstr "सोलारिज्ड लाइट"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:114
 msgid "Solarized Dark"
 msgstr "सोलारिज्ड डार्क"
 
-#: src/Widgets/HeaderBar.vala:130
-#, fuzzy
+#: src/Widgets/HeaderBar.vala:124
 msgid "Toggle Sidebar"
-msgstr "बाजू की पट्टी"
+msgstr "बाजू की पट्टी टॉगल करें"
 
-#: src/Widgets/HeaderBar.vala:134
+#: src/Widgets/HeaderBar.vala:128
 msgid "Add New View"
 msgstr "नया दृश्य जोड़ें"
 
-#: src/Widgets/HeaderBar.vala:138
+#: src/Widgets/HeaderBar.vala:132
 msgid "Remove Current View"
 msgstr "वर्तमान दृश्य को निकालें"
 
-#: src/Widgets/HeaderBar.vala:165
+#: src/Widgets/HeaderBar.vala:159
 msgid "Menu"
 msgstr "मेन्यू"
 
@@ -585,9 +584,8 @@ msgid "Format:"
 msgstr "प्रारूप:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
-#, fuzzy
 msgid "Others…"
-msgstr "अन्य..."
+msgstr "अन्य…"
 
 #: plugins/pastebin/pastebin_dialog.vala:286
 msgid "Expiry time:"
@@ -661,12 +659,12 @@ msgstr "चिपकाएं"
 msgid "Web Preview"
 msgstr "वेब पूर्वावलोकन"
 
-#: plugins/browser-preview/browser-preview.vala:74
-#: plugins/browser-preview/browser-preview.vala:100
+#: plugins/browser-preview/browser-preview.vala:72
+#: plugins/browser-preview/browser-preview.vala:98
 msgid "Show Preview"
 msgstr "पूर्वावलोकन दिखाएँ"
 
-#: plugins/browser-preview/browser-preview.vala:92
+#: plugins/browser-preview/browser-preview.vala:90
 msgid "Hide Preview"
 msgstr "पूर्वावलोकन छुपाएँ"
 
