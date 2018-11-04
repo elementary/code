@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 14:12-0700\n"
-"PO-Revision-Date: 2018-10-30 00:00+0000\n"
+"PO-Revision-Date: 2018-11-04 00:03+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/code/code/ja/"
 ">\n"
@@ -31,7 +31,7 @@ msgstr "指定されたファイルのパスが有効ではない可能性があ
 
 #: src/Application.vala:142
 msgid "The location is read-only."
-msgstr "この場所は読み取り専用になっています。"
+msgstr "この場所は読み取り専用です。"
 
 #: src/Application.vala:144
 msgid "The parent directory doesn't exist."
@@ -52,7 +52,7 @@ msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
 msgstr ""
-"ファイル \"%s\" を開く事ができません。\n"
+"ファイル \"%s\" を開くことができません。\n"
 "%s"
 
 #: src/Application.vala:171
@@ -69,7 +69,7 @@ msgstr ""
 
 #: src/Application.vala:177
 msgid "It is an \"unknown\" file type."
-msgstr "これは \"未知\" のファイルタイプです。"
+msgstr "これは \"未知\" のファイル形式です。"
 
 #: src/Application.vala:266
 msgid "New Tab"
@@ -93,7 +93,7 @@ msgstr "カレントディレクトリ"
 
 #: src/MainWindow.vala:133
 msgid "Code"
-msgstr "Code"
+msgstr "コード"
 
 #: src/MainWindow.vala:181 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
@@ -105,7 +105,7 @@ msgstr "検索バーを表示しない"
 
 #: src/MainWindow.vala:229
 msgid "Zeitgeist Datasource for Scratch"
-msgstr "Scratch 用の Zeitgeist データソース"
+msgstr "Scratch 向けの Zeitgeist データソース"
 
 #. Show a GtkFileChooserDialog
 #: src/MainWindow.vala:736
@@ -293,7 +293,7 @@ msgstr "%s はテキストファイルではありません"
 
 #: src/Services/Document.vala:244
 msgid "Code will not load this type of file."
-msgstr "Code はこの種類のファイルを読み込むことができません。"
+msgstr "\"コード\" はこの種類のファイルを読み込むことができません。"
 
 #: src/Services/Document.vala:246
 msgid "Load Anyway"
@@ -306,7 +306,7 @@ msgstr "ファイル \"%s\" の読み込みに時間がかかっています"
 
 #: src/Services/Document.vala:268
 msgid "Please wait while Code is loading the file."
-msgstr "Code がファイルを読み込む間お待ちください。"
+msgstr "\"コード\" がファイルを読み込む間、お待ちください。"
 
 #: src/Services/Document.vala:270
 msgid "Cancel Load"
@@ -320,7 +320,7 @@ msgstr "閉じる前にドキュメント %s への変更を保存しますか�
 #: src/Services/Document.vala:397
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr "保存を行わなかった場合、直前の4秒間に加えられた変更が失われます。"
+msgstr "保存しない場合、直前の 4 秒間に加えられた変更は失われます。"
 
 #: src/Services/Document.vala:399
 msgid "Close without saving"
@@ -328,7 +328,7 @@ msgstr "保存せずに閉じる"
 
 #: src/Services/Document.vala:482
 msgid "Save File"
-msgstr "ファイルの保存"
+msgstr "ファイルを保存"
 
 #: src/Services/Document.vala:556
 msgid "New Document"
@@ -343,7 +343,7 @@ msgstr "ファイル \"%s\" を読み込めません"
 #: src/Services/Document.vala:680
 msgid ""
 "Maybe it is corrupt or you do not have the necessary permissions to read it."
-msgstr "ファイルが破損しているか、読み込むのに必要な権限がないようです。"
+msgstr "ファイルが破損しているか、読み込むのに必要な権限がない可能性があります。"
 
 #: src/Services/Document.vala:692
 #, c-format
@@ -369,26 +369,22 @@ msgstr "\"%s\" は削除されています。それでも保存しますか？"
 msgid ""
 "You cannot save changes on file \"%s\". Do you want to save the changes to "
 "this file in a different location?"
-msgstr ""
-"ファイル \"%s\" の変更内容を保存できません。別の場所に変更されたファイルを保"
-"存しますか？"
+msgstr "ファイル \"%s\" の変更内容を保存できません。このファイルへの変更内容を別の場所に保存しますか？"
 
 #: src/Services/Document.vala:716
 msgid "Save changes elsewhere"
-msgstr "他の場所へ変更を保存"
+msgstr "別の場所に変更内容を保存"
 
 #: src/Services/Document.vala:749
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
-msgstr ""
-"ファイル \"%s\" は外部アプリケーションによって変更されました。この内容を読み"
-"込みますか？または編集を続行しますか？"
+msgstr "ファイル \"%s\" は外部アプリケーションによって変更されました。変更を読み込みますか？または編集を続行しますか？"
 
 #: src/Services/Document.vala:750
 msgid "Load"
-msgstr "変更を読込"
+msgstr "変更を読み込む"
 
 #: src/Services/Document.vala:753
 msgid "Continue"
@@ -405,7 +401,7 @@ msgstr "%s からのテキストファイル"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
-msgstr "構文ハイライト"
+msgstr "シンタックスハイライト"
 
 #: src/Widgets/FormatBar.vala:71
 msgid "Line number"
@@ -429,7 +425,7 @@ msgstr[0] "%d 個のスペース"
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "%d 個のスペース"
+msgstr[0] "%d 個のタブ"
 
 #: src/Widgets/FormatBar.vala:218
 msgid "Go To Line:"
@@ -517,7 +513,7 @@ msgstr "前を検索"
 
 #: src/Widgets/SearchBar.vala:75
 msgid "Cyclic Search"
-msgstr "巡回検索"
+msgstr "循環検索"
 
 #: src/Widgets/SearchBar.vala:91
 msgid "Replace With"
@@ -553,7 +549,7 @@ msgstr "新しいファイル"
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "Create a new empty file."
-msgstr "新しい空ファイルを作成します。"
+msgstr "新しい空のファイルを作成します。"
 
 #: src/Widgets/WelcomeView.vala:33
 msgid "Open File"
@@ -569,7 +565,7 @@ msgstr "フォルダーを開く"
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Add a project folder to the sidebar."
-msgstr "サイドバーにプロジェクトのフォルダーを追加します。"
+msgstr "サイドバーにプロジェクトフォルダーを追加します。"
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via Pastebin"
@@ -577,7 +573,7 @@ msgstr "Pastebin で共有"
 
 #: plugins/pastebin/pastebin_dialog.vala:256
 msgid "Name:"
-msgstr "ファイル名:"
+msgstr "名前:"
 
 #: plugins/pastebin/pastebin_dialog.vala:259
 msgid "Format:"
@@ -621,7 +617,7 @@ msgstr "1 か月"
 
 #: plugins/pastebin/pastebin.vala:94
 msgid "Upload to Pastebin"
-msgstr "Pastebin へアップロード"
+msgstr "Pastebin にアップロード"
 
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
@@ -674,7 +670,7 @@ msgid ""
 "Please install at least one [aspell] dictionary"
 msgstr ""
 "適切な辞書が見つかりませんでした。\n"
-"なにか [aspell] 辞書をインストールしてください"
+"少なくとも 1 つ以上の [aspell] 辞書をインストールしてください"
 
 #: plugins/word-completion/plugin.vala:174
 #, c-format
