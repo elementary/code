@@ -381,16 +381,19 @@ namespace Scratch {
 
             if (uris_view1.length > 0) {
                 var view = add_view ();
-                load_files_for_view (view, uris_view1, focused_document1);
+                if(!load_files_for_view (view, uris_view1, focused_document1))
+                    split_view.remove_view(view);
             }
 
             if (uris_view2.length > 0) {
                 var view = add_view ();
-                load_files_for_view (view, uris_view2, focused_document2);
+                if(!load_files_for_view (view, uris_view2, focused_document2))
+                    split_view.remove_view(view);
             }
         }
 
-        private void load_files_for_view (Scratch.Widgets.DocumentView view, string[] uris, string focused_document) {
+        private bool load_files_for_view (Scratch.Widgets.DocumentView view, string[] uris, string focused_document) {
+            bool anyfile_loaded = false;
             foreach (string uri in uris) {
                if (uri != "") {
                     GLib.File file;
@@ -399,13 +402,19 @@ namespace Scratch {
                     } else {
                         file = File.new_for_commandline_arg (uri);
                     }
-                    /* Leave it to doc to handle problematic files properly */
-                    var doc = new Scratch.Services.Document (actions, file);
-                    if (!doc.is_file_temporary) {
-                        open_document (doc, view, file.get_uri () == focused_document);
+                    /* Leave it to doc to handle problematic files properly 
+                       But for files that doesn't exites we need to make sure that doc won't create a new file
+                    */
+                    if(file.query_exists()){
+                        anyfile_loaded = true;
+                        var doc = new Scratch.Services.Document (actions, file);
+                        if (!doc.is_file_temporary) {
+                            open_document (doc, view, file.get_uri () == focused_document);
+                        }
                     }
                 }
             }
+            return anyfile_loaded;
         }
 
         private bool on_key_pressed (Gdk.EventKey event) {
