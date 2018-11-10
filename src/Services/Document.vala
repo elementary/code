@@ -379,10 +379,10 @@ namespace Scratch.Services {
 
             bool ret_value = true;
             if (settings.autosave && !saved) {
-                save_sync ();
+                save_with_hold ();
             } else if (app_closing && is_file_temporary && !delete_temporary_file ()) {
                 debug ("Save temporary file!");
-                save_sync ();
+                save_with_hold ();
             }
             // Check for unsaved changes
             else if (!this.saved || (!app_closing && is_file_temporary && !delete_temporary_file ())) {
@@ -418,9 +418,9 @@ namespace Scratch.Services {
                         break;
                     case Gtk.ResponseType.YES:
                         if (this.is_file_temporary)
-                            save_as_sync ();
+                            save_as_with_hold ();
                         else
-                            save_sync ();
+                            save_with_hold ();
                         break;
                     case Gtk.ResponseType.NO:
                         if (this.is_file_temporary)
@@ -443,7 +443,7 @@ namespace Scratch.Services {
             return ret_value;
         }
 
-        public bool save_sync (bool force = false) {
+        public bool save_with_hold (bool force = false) {
             GLib.Application.get_default ().hold ();
             bool result = false;
             save.begin (force, (obj, res) => {
@@ -454,7 +454,7 @@ namespace Scratch.Services {
             return result;
         }
 
-        public bool save_as_sync () {
+        public bool save_as_with_hold () {
             GLib.Application.get_default ().hold ();
             bool result = false;
             save_as.begin ((obj, res) => {
