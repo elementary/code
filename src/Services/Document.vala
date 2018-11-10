@@ -444,26 +444,24 @@ namespace Scratch.Services {
         }
 
         public bool save_sync (bool force = false) {
-            var loop = new MainLoop ();
+            GLib.Application.get_default ().hold ();
             bool result = false;
             save.begin (force, (obj, res) => {
                 result = save.end (res);
-                loop.quit ();
+                GLib.Application.get_default ().release ();
             });
 
-            loop.run ();
             return result;
         }
 
         public bool save_as_sync () {
-            var loop = new MainLoop ();
+            GLib.Application.get_default ().hold ();
             bool result = false;
             save_as.begin ((obj, res) => {
                 result = save_as.end (res);
-                loop.quit ();
+                GLib.Application.get_default ().release ();
             });
 
-            loop.run ();
             return result;
         }
 
