@@ -437,7 +437,7 @@ namespace Scratch {
         // Set sensitive property for 'delicate' Widgets/GtkActions while
         private void set_widgets_sensitive (bool val) {
             // SearchManager's stuffs
-            Utils.action_from_group (ACTION_FIND, actions).set_enabled (val);
+            Utils.action_from_group (ACTION_SHOW_FIND, actions).set_enabled (val);
             Utils.action_from_group (ACTION_GO_TO, actions).set_enabled (val);
             Utils.action_from_group (ACTION_SHOW_REPLACE, actions).set_enabled (val);
             // Toolbar Actions
