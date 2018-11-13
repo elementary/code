@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 14:12-0700\n"
-"PO-Revision-Date: 2018-11-04 10:41+0000\n"
+"PO-Revision-Date: 2018-11-05 00:09+0000\n"
 "Last-Translator: Elvis Mujanović <elvis.mujanovic@gmail.com>\n"
 "Language-Team: Bosnian <https://weblate.elementary.io/projects/code/code/bs/>"
 "\n"
@@ -164,7 +164,7 @@ msgstr "Automatsko uvlačenje:"
 
 #: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:150
 msgid "Insert spaces instead of tabs:"
-msgstr "Ukucaj prazna mjesta a ne tabulatore"
+msgstr "Umetni razmake umjesto tabulatora:"
 
 #: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:153
 msgid "Tab width:"
@@ -218,7 +218,7 @@ msgstr "Prikaži minijaturni prikaz:"
 
 #: src/Dialogs/PreferencesDialog.vala:120
 msgid "Line width guide:"
-msgstr "Poravnaj sa vodičom"
+msgstr "Vodič za širinu reda:"
 
 #: src/Dialogs/PreferencesDialog.vala:128
 msgid "Font"
@@ -226,7 +226,7 @@ msgstr "Font"
 
 #: src/Dialogs/PreferencesDialog.vala:130
 msgid "Custom font:"
-msgstr "Drugačiji font"
+msgstr "Prilagođeni font:"
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
@@ -432,9 +432,9 @@ msgstr[2] "%d razmaka"
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "%d kartica"
-msgstr[1] "%d kartice"
-msgstr[2] "%d kartica"
+msgstr[0] "%d tabulator"
+msgstr[1] "%d tabulatora"
+msgstr[2] "%d tabulatora"
 
 #: src/Widgets/FormatBar.vala:218
 msgid "Go To Line:"
