@@ -254,6 +254,7 @@ namespace Scratch {
             toolbar = new Scratch.Widgets.HeaderBar ();
             toolbar.title = title;
             set_titlebar (toolbar);
+            set_widgets_sensitive (false);
 
             // SearchBar
             search_bar = new Scratch.Widgets.SearchBar (this);
