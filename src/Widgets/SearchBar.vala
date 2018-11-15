@@ -236,6 +236,10 @@ namespace Scratch.Widgets {
         }
 
         private bool on_search_entry_focused_in (Gdk.EventFocus event) {
+            if (text_buffer == null) {
+                return false;
+            }
+
             Gtk.TextIter? start_iter, end_iter;
             text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
 
@@ -352,7 +356,7 @@ namespace Scratch.Widgets {
                 if (search_string == "") {
                     tool_arrow_up.sensitive = false;
                     tool_arrow_down.sensitive = false;
-                } else {
+                } else if (text_buffer != null){
                     Gtk.TextIter? start_iter, end_iter;
                     Gtk.TextIter? tmp_start_iter, tmp_end_iter;
 
