@@ -210,6 +210,7 @@ namespace Scratch {
 
             // Set up layout
             init_layout ();
+            set_widgets_sensitive (false);
 
             toolbar.templates_button.visible = (plugins.plugin_iface.template_manager.template_available);
             plugins.plugin_iface.template_manager.notify["template_available"].connect (() => {
@@ -437,7 +438,7 @@ namespace Scratch {
         // Set sensitive property for 'delicate' Widgets/GtkActions while
         private void set_widgets_sensitive (bool val) {
             // SearchManager's stuffs
-            Utils.action_from_group (ACTION_FIND, actions).set_enabled (val);
+            Utils.action_from_group (ACTION_SHOW_FIND, actions).set_enabled (val);
             Utils.action_from_group (ACTION_GO_TO, actions).set_enabled (val);
             Utils.action_from_group (ACTION_SHOW_REPLACE, actions).set_enabled (val);
             // Toolbar Actions
@@ -446,6 +447,7 @@ namespace Scratch {
             Utils.action_from_group (ACTION_UNDO, actions).set_enabled (val);
             Utils.action_from_group (ACTION_REDO, actions).set_enabled (val);
             Utils.action_from_group (ACTION_REVERT, actions).set_enabled (val);
+            search_bar.sensitive = val;
             toolbar.share_app_menu.sensitive = val;
 
             // PlugIns
