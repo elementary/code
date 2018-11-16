@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-07 14:05-0700\n"
-"PO-Revision-Date: 2018-08-08 08:08+0000\n"
+"POT-Creation-Date: 2018-10-18 14:12-0700\n"
+"PO-Revision-Date: 2018-10-22 00:03+0000\n"
 "Last-Translator: Kaj Printz Madsen <kajprintz@gmail.com>\n"
 "Language-Team: Danish <https://weblate.elementary.io/projects/code/code/da/>"
 "\n"
@@ -91,32 +91,32 @@ msgstr "Pluginsæt"
 msgid "Current working directory"
 msgstr "Aktuelle arbejdsmappe"
 
-#: src/MainWindow.vala:131
+#: src/MainWindow.vala:133
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:176 src/Widgets/HeaderBar.vala:66
+#: src/MainWindow.vala:181 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
 msgstr "Find…"
 
-#: src/MainWindow.vala:178
+#: src/MainWindow.vala:183
 msgid "Hide search bar"
 msgstr "Skjul søgelinjen"
 
-#: src/MainWindow.vala:224
+#: src/MainWindow.vala:229
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Zeitgeist-datakilde til Scratch"
 
 #. Show a GtkFileChooserDialog
-#: src/MainWindow.vala:731
+#: src/MainWindow.vala:736
 msgid "Open some files"
 msgstr "Åbn nogle filer"
 
-#: src/MainWindow.vala:750
+#: src/MainWindow.vala:755
 msgid "_Cancel"
 msgstr "_Annuller"
 
-#: src/MainWindow.vala:751
+#: src/MainWindow.vala:756
 msgid "_Open"
 msgstr "_Åbn"
 
@@ -141,7 +141,7 @@ msgstr "Åbn"
 msgid "Save"
 msgstr "Gem"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:138
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:136
 msgid "Preferences"
 msgstr "Præferencer"
 
@@ -163,11 +163,11 @@ msgstr "Automatisk indrykning:"
 
 #: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:150
 msgid "Insert spaces instead of tabs:"
-msgstr "Indsæt mellemrum i stedet for tabulator:"
+msgstr "Indsæt mellemrum i stedet for tab:"
 
 #: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:153
 msgid "Tab width:"
-msgstr "Tabulator bredde:"
+msgstr "Tab bredde:"
 
 #: src/Dialogs/PreferencesDialog.vala:67
 msgid "Behavior"
@@ -227,24 +227,24 @@ msgstr "Font"
 msgid "Custom font:"
 msgstr "Tilpasset skrifttype:"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:59
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
 msgstr "Anden Applikation…"
 
-#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:115
+#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
 msgid "Open In"
 msgstr "Åbn I"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:118
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
 msgid "Other Actions"
 msgstr "Andre Handlinger"
 
-#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:121
+#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
 msgstr "Omdøb"
 
-#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:127
-#: src/FolderManager/MainFolderItem.vala:33
+#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr "Flyt til Skrald"
 
@@ -252,37 +252,37 @@ msgstr "Flyt til Skrald"
 msgid "Folders"
 msgstr "Mapper"
 
-#: src/FolderManager/FolderItem.vala:143
+#: src/FolderManager/FolderItem.vala:148
 msgid "Folder"
 msgstr "Mappe"
 
-#: src/FolderManager/FolderItem.vala:146
+#: src/FolderManager/FolderItem.vala:151
 msgid "Empty File"
 msgstr "Tom Fil"
 
-#: src/FolderManager/FolderItem.vala:153
+#: src/FolderManager/FolderItem.vala:158
 msgid "New"
 msgstr "Ny"
 
-#: src/FolderManager/FolderItem.vala:296
+#: src/FolderManager/FolderItem.vala:322
 msgid "untitled folder"
 msgstr "unavngivet mappe"
 
-#: src/FolderManager/FolderItem.vala:300
+#: src/FolderManager/FolderItem.vala:326
 #, c-format
 msgid "untitled folder %d"
 msgstr "unavngivet mappe %d"
 
-#: src/FolderManager/FolderItem.vala:328
+#: src/FolderManager/FolderItem.vala:354
 msgid "new file"
 msgstr "ny fil"
 
-#: src/FolderManager/FolderItem.vala:332
+#: src/FolderManager/FolderItem.vala:358
 #, c-format
 msgid "new file %d"
 msgstr "ny fil %d"
 
-#: src/FolderManager/MainFolderItem.vala:30
+#: src/FolderManager/ProjectFolderItem.vala:78
 msgid "Close Folder"
 msgstr "Luk Mappen"
 
@@ -402,7 +402,7 @@ msgstr "Fortsæt"
 msgid "Templates"
 msgstr "Skabeloner"
 
-#: src/Widgets/DocumentView.vala:92
+#: src/Widgets/DocumentView.vala:132
 #, c-format
 msgid "Text file from %s"
 msgstr "Tekstfil fra  %s"
@@ -481,27 +481,31 @@ msgstr "Zoom 1:1"
 msgid "Zoom In"
 msgstr "Zoom Ind"
 
-#: src/Widgets/HeaderBar.vala:100
+#: src/Widgets/HeaderBar.vala:98
 msgid "High Contrast"
 msgstr "Høj Kontrast"
 
-#: src/Widgets/HeaderBar.vala:110
+#: src/Widgets/HeaderBar.vala:106
 msgid "Solarized Light"
 msgstr "Solarized Light"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:114
 msgid "Solarized Dark"
 msgstr "Solarized Dark"
 
-#: src/Widgets/HeaderBar.vala:130
+#: src/Widgets/HeaderBar.vala:124
+msgid "Toggle Sidebar"
+msgstr "Vis/Skjul Sidepanel"
+
+#: src/Widgets/HeaderBar.vala:128
 msgid "Add New View"
 msgstr "Tilføj ny visning"
 
-#: src/Widgets/HeaderBar.vala:134
+#: src/Widgets/HeaderBar.vala:132
 msgid "Remove Current View"
 msgstr "Fjern nuværende visning"
 
-#: src/Widgets/HeaderBar.vala:160
+#: src/Widgets/HeaderBar.vala:159
 msgid "Menu"
 msgstr "Menu"
 
@@ -533,11 +537,11 @@ msgstr "Erstat"
 msgid "Replace all"
 msgstr "Erstat alle"
 
-#: src/Widgets/SourceView.vala:329
+#: src/Widgets/SourceView.vala:357
 msgid "Sort Selected Lines"
 msgstr "Sorter Valgte Linjer"
 
-#: src/Widgets/SourceView.vala:336
+#: src/Widgets/SourceView.vala:364
 msgid "Toggle Comment"
 msgstr "Slå Kommentarer til/fra"
 
@@ -586,8 +590,8 @@ msgid "Format:"
 msgstr "Format:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
-msgid "Others..."
-msgstr "Andre..."
+msgid "Others…"
+msgstr "Andre…"
 
 #: plugins/pastebin/pastebin_dialog.vala:286
 msgid "Expiry time:"
@@ -661,12 +665,12 @@ msgstr "Indsæt"
 msgid "Web Preview"
 msgstr "Webforhåndsvisning"
 
-#: plugins/browser-preview/browser-preview.vala:74
-#: plugins/browser-preview/browser-preview.vala:100
+#: plugins/browser-preview/browser-preview.vala:72
+#: plugins/browser-preview/browser-preview.vala:98
 msgid "Show Preview"
 msgstr "Vis forhåndsvisning"
 
-#: plugins/browser-preview/browser-preview.vala:92
+#: plugins/browser-preview/browser-preview.vala:90
 msgid "Hide Preview"
 msgstr "Skjul forhåndsvisning"
 
@@ -999,9 +1003,6 @@ msgstr "Kunne ikke indlæse ikon tema: %s\n"
 
 #~ msgid "Status Bar"
 #~ msgstr "Statuslinje"
-
-#~ msgid "Sidebar"
-#~ msgstr "Sidepanel"
 
 #~ msgid "General:"
 #~ msgstr "Generelt:"

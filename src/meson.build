@@ -22,7 +22,7 @@ code_files = files(
     'FolderManager/FileView.vala',
     'FolderManager/FolderItem.vala',
     'FolderManager/Item.vala',
-    'FolderManager/MainFolderItem.vala',
+    'FolderManager/ProjectFolderItem.vala',
     'Services/CommentToggler.vala',
     'Services/Document.vala',
     'Services/FileHandler.vala',

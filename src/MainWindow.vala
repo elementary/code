@@ -1,7 +1,7 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /*
-* Copyright (c) 2011-2013 Mario Guerriero <mefrio.g@gmail.com>
-*               2017-2018 elementary LLC. <https://elementary.io>
+* Copyright (c) 2011–2013 Mario Guerriero <mefrio.g@gmail.com>
+*               2017–2018 elementary, Inc. <https://elementary.io>
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -87,6 +87,7 @@ namespace Scratch {
         public const string ACTION_ZOOM_IN = "action_zoom_in";
         public const string ACTION_ZOOM_OUT = "action_zoom_out";
         public const string ACTION_TOGGLE_COMMENT = "action_toggle_comment";
+        public const string ACTION_TOGGLE_SIDEBAR = "action_toggle_sidebar";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
@@ -120,7 +121,8 @@ namespace Scratch {
             { ACTION_ZOOM_DEFAULT, action_set_default_zoom },
             { ACTION_ZOOM_IN, action_zoom_in },
             { ACTION_ZOOM_OUT, action_zoom_out},
-            { ACTION_TOGGLE_COMMENT, action_toggle_comment }
+            { ACTION_TOGGLE_COMMENT, action_toggle_comment },
+            { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar }
         };
 
         public MainWindow (Scratch.Application scratch_app) {
@@ -159,6 +161,9 @@ namespace Scratch {
             action_accelerators.set (ACTION_ZOOM_OUT, "<Control>minus");
             action_accelerators.set (ACTION_ZOOM_OUT, "<Control>KP_Subtract");
             action_accelerators.set (ACTION_TOGGLE_COMMENT, "<Control>m");
+            action_accelerators.set (ACTION_TOGGLE_COMMENT, "<Control>slash");
+            action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "F9"); // GNOME
+            action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "<Control>backslash"); // Atom
 
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("io/elementary/code/Application.css");
@@ -173,9 +178,15 @@ namespace Scratch {
             actions.action_state_changed.connect ((name, new_state) => {
                 if (name == ACTION_SHOW_FIND) {
                     if (new_state.get_boolean () == false) {
-                        toolbar.find_button.tooltip_text = _("Find…");
+                        toolbar.find_button.tooltip_markup = Granite.markup_accel_tooltip (
+                            app.get_accels_for_action (ACTION_PREFIX + ACTION_FIND),
+                            _("Find…")
+                        );
                     } else {
-                        toolbar.find_button.tooltip_text = _("Hide search bar");
+                        toolbar.find_button.tooltip_markup = Granite.markup_accel_tooltip (
+                            {"Escape"},
+                            _("Hide search bar")
+                        );
                     }
 
                     search_revealer.set_reveal_child (new_state.get_boolean ());
@@ -199,6 +210,7 @@ namespace Scratch {
 
             // Set up layout
             init_layout ();
+            set_widgets_sensitive (false);
 
             toolbar.templates_button.visible = (plugins.plugin_iface.template_manager.template_available);
             plugins.plugin_iface.template_manager.notify["template_available"].connect (() => {
@@ -426,7 +438,7 @@ namespace Scratch {
         // Set sensitive property for 'delicate' Widgets/GtkActions while
         private void set_widgets_sensitive (bool val) {
             // SearchManager's stuffs
-            Utils.action_from_group (ACTION_FIND, actions).set_enabled (val);
+            Utils.action_from_group (ACTION_SHOW_FIND, actions).set_enabled (val);
             Utils.action_from_group (ACTION_GO_TO, actions).set_enabled (val);
             Utils.action_from_group (ACTION_SHOW_REPLACE, actions).set_enabled (val);
             // Toolbar Actions
@@ -435,6 +447,7 @@ namespace Scratch {
             Utils.action_from_group (ACTION_UNDO, actions).set_enabled (val);
             Utils.action_from_group (ACTION_REDO, actions).set_enabled (val);
             Utils.action_from_group (ACTION_REVERT, actions).set_enabled (val);
+            search_bar.sensitive = val;
             toolbar.share_app_menu.sensitive = val;
 
             // PlugIns
@@ -962,5 +975,14 @@ namespace Scratch {
 
             doc.source_view.sort_selected_lines ();
         }
+
+        private void action_toggle_sidebar () {
+            if (project_pane == null) {
+                return;
+            }
+
+            project_pane.visible = !project_pane.visible;
+        }
     }
 }
+

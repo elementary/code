@@ -1,0 +1,133 @@
+# Bosnian translations for extra package.
+# Copyright (C) 2018 THE extra'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# Automatically generated, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-18 14:13-0700\n"
+"PO-Revision-Date: 2018-11-04 10:58+0000\n"
+"Last-Translator: Elvis Mujanović <elvis.mujanovic@gmail.com>\n"
+"Language-Team: Bosnian <https://weblate.elementary.io/projects/code/extra/bs/"
+">\n"
+"Language: bs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.0.1\n"
+
+#: data/io.elementary.code.appdata.xml.in:8
+#: data/io.elementary.code.desktop.in.in:4
+msgid "Code"
+msgstr "Kod"
+
+#: data/io.elementary.code.appdata.xml.in:9
+msgid "The editor that works"
+msgstr "Uređivač koji radi"
+
+#: data/io.elementary.code.appdata.xml.in:11
+msgid ""
+"Code is the editor that works for you. It auto-saves your files, meaning "
+"they're always up-to-date. Plus it remembers your tabs so you never lose "
+"your spot, even in between sessions."
+msgstr ""
+"Kod je uređivač koji radi za Vas. Automatski čuva Vaše datoteke, što znači "
+"da su uvijek ažurne. Štoviše, pamti vaše kartice tako da možete nastaviti "
+"tačno tamo gdje ste stali, čak i u narednoj sesiji."
+
+#: data/io.elementary.code.appdata.xml.in:16
+msgid ""
+"Make it yours. Code is written from the ground up to be extensible. Keep "
+"things super lightweight and simple, or install extensions to turn Code into "
+"a full-blown IDE; it's your choice. And with a handful of useful "
+"preferences, you can tweak the behavior and interface to your liking."
+msgstr ""
+"Prilagodite ga sebi. Kod je od samog početka razvijen s namjerom da bude "
+"lako proširen. Zadrži sve super lakim i jednostavnim ili instaliraj "
+"proširenja koja Kod pretvaraju u pravo integrirano okruženje za razvoj – "
+"izbor je na Vama. Sa samo nekoliko korisnih postavki možete uštimati "
+"ponašanje i sučelje Koda baš onako kako Vi želite."
+
+#: data/io.elementary.code.appdata.xml.in:22
+msgid ""
+"It's elementary. Code is made to be the perfect editor for elementary, "
+"meaning it closely follows the high standards of design, speed, and "
+"consistency. It's sexy, but not distracting."
+msgstr ""
+"To je elementarno. Kod je razvijen da bude savršen uređivač za elementary, "
+"što znači da pažljivo prati visoke standarde dizajna, brzine i "
+"konzistentnosti. Seksi je, ali ne odvlači pažnju."
+
+#: data/io.elementary.code.appdata.xml.in:27
+msgid ""
+"Works with your language. Whether you're crafting code in Vala, scripting "
+"with PHP, or marking things up in HTML, Code has you covered. Experience "
+"full syntax highlighting with nearly all programming, scripting, and markup "
+"languages."
+msgstr ""
+"Radi na Vašem jeziku. Bilo da programirate u Vala, pišete PHP kod ili "
+"obrađujete tekst u HTML-u Kod pokriva sve Vaše zahtjeve. Doživite kako Kod "
+"vlada savršenim isticanjem sintakse za skoro sve programerske, skript i "
+"markup jezike."
+
+#: data/io.elementary.code.appdata.xml.in:33
+msgid ""
+"Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, .Desktop, "
+"Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
+"Objective C, Pascal, Perl, Python, Ruby, XML."
+msgstr ""
+"Drugi jezici s istaknutom sintaksom: Bash, C, C#, C++. Cmake, CSS, .Desktop, "
+"Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
+"Objective C, Pascal, Perl, Python, Ruby, XML."
+
+#: data/io.elementary.code.appdata.xml.in:38
+msgid "Additional features include:"
+msgstr "Dodatne funkcionalnosti uključuju:"
+
+#: data/io.elementary.code.appdata.xml.in:42
+msgid "syntax highlighting with gtksourceview-3"
+msgstr "isticanje sintakse pomoću gtksourceview-3"
+
+#: data/io.elementary.code.appdata.xml.in:43
+msgid "a find bar to search the words in the files"
+msgstr "traka pretrage kako biste pronašli riječi u datotekama"
+
+#: data/io.elementary.code.appdata.xml.in:44
+msgid "tab and split documents system"
+msgstr "sistem dokumenata sa tab i split"
+
+#: data/io.elementary.code.appdata.xml.in:45
+msgid "lots of others"
+msgstr "i još mnogo toga"
+
+#: data/io.elementary.code.appdata.xml.in:84
+msgid "elementary LLC."
+msgstr "elementary LLC."
+
+#: data/io.elementary.code.desktop.in.in:5
+msgid "Edit code files"
+msgstr "Uredite datoteke s kodom"
+
+#: data/io.elementary.code.desktop.in.in:6
+msgid "Code Editor"
+msgstr "Kod uređivač"
+
+#: data/io.elementary.code.desktop.in.in:8
+msgid "io.elementary.code"
+msgstr "io.elementary.code"
+
+#: data/io.elementary.code.desktop.in.in:11
+msgid "IDE;scratch;"
+msgstr "IDE;scratch;"
+
+#: data/io.elementary.code.desktop.in.in:17
+msgid "New Document"
+msgstr "Novi dokument"
+
+#: data/io.elementary.code.desktop.in.in:21
+msgid "New Window"
+msgstr "Novi prozor"

@@ -2,12 +2,13 @@ src/Application.vala
 src/MainWindow.vala
 src/Utils.vala
 src/Dialogs/PreferencesDialog.vala
+src/FolderManager/ContractMenuItem.vala
 src/FolderManager/File.vala
 src/FolderManager/FileItem.vala
 src/FolderManager/FileView.vala
 src/FolderManager/FolderItem.vala
 src/FolderManager/Item.vala
-src/FolderManager/MainFolderItem.vala
+src/FolderManager/ProjectFolderItem.vala
 src/Services/Document.vala
 src/Services/FileHandler.vala
 src/Services/PluginManager.vala

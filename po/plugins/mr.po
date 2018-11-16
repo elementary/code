@@ -1,0 +1,124 @@
+# Marathi translations for plugins package.
+# Copyright (C) 2018 THE plugins'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the plugins package.
+# Automatically generated, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-18 14:27-0700\n"
+"PO-Revision-Date: 2018-10-25 06:09+0000\n"
+"Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
+"Language-Team: Marathi <https://weblate.elementary.io/projects/code/plugins/"
+"mr/>\n"
+"Language: mr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.0.1\n"
+
+#: plugins/brackets-completion/brackets-completion.plugin:6
+msgid "Brackets Completion"
+msgstr "कंस पूर्णता"
+
+#: plugins/brackets-completion/brackets-completion.plugin:7
+msgid "Complete brackets while typing"
+msgstr "टाइप करताना कंस पूर्ण करा"
+
+#: plugins/browser-preview/browser-preview.plugin:6
+msgid "Browser Preview"
+msgstr "ब्राउज़र पूर्वावलोकन"
+
+#: plugins/browser-preview/browser-preview.plugin:7
+msgid "Get a preview of your work in a web page"
+msgstr "वेब पृष्ठात आपल्या कार्याचे पूर्वावलोकन मिळवा"
+
+#: plugins/detect-indent/detect-indent.plugin:6
+msgid "Detect Indent"
+msgstr "इंडेंट शोधा"
+
+#: plugins/detect-indent/detect-indent.plugin:7
+msgid "Heuristically detect tab or space settings"
+msgstr "तार्किकदृष्ट्या टॅब किंवा स्पेस सेटिंग्ज शोधा"
+
+#: plugins/editorconfig/editorconfig.plugin:6
+msgid "EditorConfig"
+msgstr "EditorConfig"
+
+#: plugins/editorconfig/editorconfig.plugin:7
+msgid "Load settings from an EditorConfig file"
+msgstr "EditorConfig फाइलमधून सेटिंग्ज लोड करा"
+
+#: plugins/highlight-word-selection/highlight-word-selection.plugin:6
+msgid "Highlight Word Selection"
+msgstr "शब्द निवड हायलाइट करा"
+
+#: plugins/highlight-word-selection/highlight-word-selection.plugin:7
+msgid "Highlights all occurrences of words that are selected"
+msgstr "निवडलेल्या शब्दांच्या सर्व घटनांना ठळक करते"
+
+#: plugins/outline/outline.plugin:6
+msgid "Outline"
+msgstr "बाह्यरेखा"
+
+#: plugins/outline/outline.plugin:7
+msgid "Outline symbols in your current file for Vala"
+msgstr "आपल्या वर्तमान फाईल मध्ये सिम्बॉल्सला बाह्यरेखा बनवा"
+
+#: plugins/pastebin/pastebin.plugin:6
+msgid "Pastebin"
+msgstr "पेस्टबीन"
+
+#: plugins/pastebin/pastebin.plugin:7
+msgid "Share files with pastebin service"
+msgstr "पेस्टबीन सेवेचा वापर करून फाईल्स शेअर करा"
+
+#: plugins/preserve-indent/preserve-indent.plugin:6
+msgid "Preserve Indent"
+msgstr "इंडेंट संरक्षित करा"
+
+#: plugins/preserve-indent/preserve-indent.plugin:7
+msgid "Maintains relative indent level of pasted text"
+msgstr "पेस्ट केलेल्या मजकुराच्या सापेक्ष इंडेंट स्तरावर ठेवते"
+
+#: plugins/spell/spell.plugin:6
+msgid "Spell Checker"
+msgstr "शब्दलेखन तपासक"
+
+#: plugins/spell/spell.plugin:7
+msgid "Checks the spelling of your documents"
+msgstr "आपल्या दस्तऐवजांची शब्दलेखन तपासा"
+
+#: plugins/strip-trailing-save/strip-trailing-save.plugin:6
+msgid "Strip trailing whitespace"
+msgstr "शेवटी असलेली व्हाईट स्पेस काढून टाका"
+
+#: plugins/strip-trailing-save/strip-trailing-save.plugin:7
+msgid "Strip trailing whitespace on save"
+msgstr "सेव्ह करताना शेवटी असलेली व्हाईट स्पेस काढून टाका"
+
+#: plugins/terminal/terminal.plugin:6
+msgid "Terminal"
+msgstr "टर्मिनल"
+
+#: plugins/terminal/terminal.plugin:7
+msgid "A terminal in your text editor"
+msgstr "आपल्या टेक्स्ट एडिटरमधील टर्मिनल"
+
+#: plugins/vim-emulation/vim-emulation.plugin:6
+msgid "Vim Emulation"
+msgstr "विम इम्यूलेशन"
+
+#: plugins/vim-emulation/vim-emulation.plugin:7
+msgid "Use Vim commands in Scratch"
+msgstr "स्क्रॅचमध्ये विम कमांड वापरा"
+
+#: plugins/word-completion/word-completion.plugin:3
+msgid "Words Completion"
+msgstr "शब्द पूर्णता"
+
+#: plugins/word-completion/word-completion.plugin:7
+msgid "Show a completion dialog with most used words from your files"
+msgstr "आपल्या फाइल्समध्ये बरेचदा वापरलेले शब्द वापरून एक संपुर्ण संवाद दर्शवा"

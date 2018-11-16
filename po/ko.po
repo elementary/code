@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-07 14:05-0700\n"
-"PO-Revision-Date: 2018-08-09 12:58+0000\n"
+"POT-Creation-Date: 2018-10-18 14:12-0700\n"
+"PO-Revision-Date: 2018-09-19 10:20+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
-"Language-Team: Korean <https://weblate.elementary.io/projects/code/code/ko/>"
-"\n"
+"Language-Team: Korean <https://weblate.elementary.io/projects/code/code/ko/"
+">\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -91,32 +91,32 @@ msgstr "플러그인 모음"
 msgid "Current working directory"
 msgstr "지금 작업 중인 디렉터리"
 
-#: src/MainWindow.vala:131
+#: src/MainWindow.vala:133
 msgid "Code"
 msgstr "코드"
 
-#: src/MainWindow.vala:176 src/Widgets/HeaderBar.vala:66
+#: src/MainWindow.vala:181 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
 msgstr "찾기…"
 
-#: src/MainWindow.vala:178
+#: src/MainWindow.vala:183
 msgid "Hide search bar"
 msgstr "검색 바 숨기기"
 
-#: src/MainWindow.vala:224
+#: src/MainWindow.vala:229
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "스크래치를 위한 Zeitgeist 데이터 소스"
 
 #. Show a GtkFileChooserDialog
-#: src/MainWindow.vala:731
+#: src/MainWindow.vala:736
 msgid "Open some files"
 msgstr "파일 열기"
 
-#: src/MainWindow.vala:750
+#: src/MainWindow.vala:755
 msgid "_Cancel"
 msgstr "취소(_C)"
 
-#: src/MainWindow.vala:751
+#: src/MainWindow.vala:756
 msgid "_Open"
 msgstr "열기(_O)"
 
@@ -141,7 +141,7 @@ msgstr "열기"
 msgid "Save"
 msgstr "저장"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:138
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:136
 msgid "Preferences"
 msgstr "환경설정"
 
@@ -227,24 +227,24 @@ msgstr "글꼴"
 msgid "Custom font:"
 msgstr "사용자 지정 글꼴:"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:59
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
 msgstr "다른 애플리케이션…"
 
-#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:115
+#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
 msgid "Open In"
 msgstr "열기"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:118
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
 msgid "Other Actions"
 msgstr "다른 작업"
 
-#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:121
+#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
 msgstr "이름 바꾸기"
 
-#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:127
-#: src/FolderManager/MainFolderItem.vala:33
+#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr "휴지통에 버리기"
 
@@ -252,37 +252,37 @@ msgstr "휴지통에 버리기"
 msgid "Folders"
 msgstr "폴더"
 
-#: src/FolderManager/FolderItem.vala:143
+#: src/FolderManager/FolderItem.vala:148
 msgid "Folder"
 msgstr "폴더"
 
-#: src/FolderManager/FolderItem.vala:146
+#: src/FolderManager/FolderItem.vala:151
 msgid "Empty File"
 msgstr "빈 파일"
 
-#: src/FolderManager/FolderItem.vala:153
+#: src/FolderManager/FolderItem.vala:158
 msgid "New"
 msgstr "새로 만들기"
 
-#: src/FolderManager/FolderItem.vala:296
+#: src/FolderManager/FolderItem.vala:322
 msgid "untitled folder"
 msgstr "이름 없는 폴더"
 
-#: src/FolderManager/FolderItem.vala:300
+#: src/FolderManager/FolderItem.vala:326
 #, c-format
 msgid "untitled folder %d"
 msgstr "이름 없는 폴더 %d"
 
-#: src/FolderManager/FolderItem.vala:328
+#: src/FolderManager/FolderItem.vala:354
 msgid "new file"
 msgstr "새 파일"
 
-#: src/FolderManager/FolderItem.vala:332
+#: src/FolderManager/FolderItem.vala:358
 #, c-format
 msgid "new file %d"
 msgstr "새 파일 %d"
 
-#: src/FolderManager/MainFolderItem.vala:30
+#: src/FolderManager/ProjectFolderItem.vala:78
 msgid "Close Folder"
 msgstr "폴더 닫기"
 
@@ -397,7 +397,7 @@ msgstr "계속"
 msgid "Templates"
 msgstr "서식"
 
-#: src/Widgets/DocumentView.vala:92
+#: src/Widgets/DocumentView.vala:132
 #, c-format
 msgid "Text file from %s"
 msgstr "%s 의 텍스트 파일"
@@ -474,27 +474,31 @@ msgstr "1:1 크기"
 msgid "Zoom In"
 msgstr "확대"
 
-#: src/Widgets/HeaderBar.vala:100
+#: src/Widgets/HeaderBar.vala:98
 msgid "High Contrast"
 msgstr "고 대비"
 
-#: src/Widgets/HeaderBar.vala:110
+#: src/Widgets/HeaderBar.vala:106
 msgid "Solarized Light"
 msgstr "솔라 라이트"
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:114
 msgid "Solarized Dark"
 msgstr "솔라 다크"
 
-#: src/Widgets/HeaderBar.vala:130
+#: src/Widgets/HeaderBar.vala:124
+msgid "Toggle Sidebar"
+msgstr "사이드바 토글"
+
+#: src/Widgets/HeaderBar.vala:128
 msgid "Add New View"
 msgstr "새 페이지 추가"
 
-#: src/Widgets/HeaderBar.vala:134
+#: src/Widgets/HeaderBar.vala:132
 msgid "Remove Current View"
 msgstr "이 페이지 닫기"
 
-#: src/Widgets/HeaderBar.vala:160
+#: src/Widgets/HeaderBar.vala:159
 msgid "Menu"
 msgstr "메뉴"
 
@@ -526,11 +530,11 @@ msgstr "바꾸기"
 msgid "Replace all"
 msgstr "모두 바꾸기"
 
-#: src/Widgets/SourceView.vala:329
+#: src/Widgets/SourceView.vala:357
 msgid "Sort Selected Lines"
 msgstr "선택한 줄 정렬"
 
-#: src/Widgets/SourceView.vala:336
+#: src/Widgets/SourceView.vala:364
 msgid "Toggle Comment"
 msgstr "코멘트 여닫기"
 
@@ -579,8 +583,8 @@ msgid "Format:"
 msgstr "포맷:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
-msgid "Others..."
-msgstr "기타..."
+msgid "Others…"
+msgstr "기타…"
 
 #: plugins/pastebin/pastebin_dialog.vala:286
 msgid "Expiry time:"
@@ -654,12 +658,12 @@ msgstr "붙여넣기"
 msgid "Web Preview"
 msgstr "웹 미리 보기"
 
-#: plugins/browser-preview/browser-preview.vala:74
-#: plugins/browser-preview/browser-preview.vala:100
+#: plugins/browser-preview/browser-preview.vala:72
+#: plugins/browser-preview/browser-preview.vala:98
 msgid "Show Preview"
 msgstr "미리 보기"
 
-#: plugins/browser-preview/browser-preview.vala:92
+#: plugins/browser-preview/browser-preview.vala:90
 msgid "Hide Preview"
 msgstr "미리 보기 숨기기"
 
@@ -983,9 +987,6 @@ msgstr "아이콘 테마 불러오기 실패: %s\n"
 
 #~ msgid "Save the current file"
 #~ msgstr "현재 파일을 저장합니다"
-
-#~ msgid "Sidebar"
-#~ msgstr "사이드바"
 
 #~ msgid "Save as"
 #~ msgstr "다른 이름으로 저장"

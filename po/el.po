@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-07 14:05-0700\n"
+"POT-Creation-Date: 2018-10-18 14:12-0700\n"
 "PO-Revision-Date: 2018-06-05 00:05+0000\n"
 "Last-Translator: Antony <antonykoinousis@gmail.com>\n"
 "Language-Team: Greek <https://weblate.elementary.io/projects/code/code/el/>\n"
@@ -84,32 +84,32 @@ msgstr "Σετ προσθέτων"
 msgid "Current working directory"
 msgstr "Τρέχον φάκελος εργασίας"
 
-#: src/MainWindow.vala:131
+#: src/MainWindow.vala:133
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:176 src/Widgets/HeaderBar.vala:66
+#: src/MainWindow.vala:181 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
 msgstr "Εύρεση..."
 
-#: src/MainWindow.vala:178
+#: src/MainWindow.vala:183
 msgid "Hide search bar"
 msgstr "Απόκρυψη γραμμής αναζήτησης"
 
-#: src/MainWindow.vala:224
+#: src/MainWindow.vala:229
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Πηγή δεδομένων Zeitgeist για το Scratch"
 
 #. Show a GtkFileChooserDialog
-#: src/MainWindow.vala:731
+#: src/MainWindow.vala:736
 msgid "Open some files"
 msgstr "Άνοιγμα μερικών αρχείων"
 
-#: src/MainWindow.vala:750
+#: src/MainWindow.vala:755
 msgid "_Cancel"
 msgstr "_Ακύρωση"
 
-#: src/MainWindow.vala:751
+#: src/MainWindow.vala:756
 msgid "_Open"
 msgstr "_Άνοιγμα"
 
@@ -134,7 +134,7 @@ msgstr "Άνοιγμα"
 msgid "Save"
 msgstr "Αποθήκευση"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:138
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:136
 msgid "Preferences"
 msgstr "Προτιμήσεις"
 
@@ -220,26 +220,26 @@ msgstr ""
 msgid "Custom font:"
 msgstr "Προσαρμοσμένη γραμματοσειρά:"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:59
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:115
+#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
 #, fuzzy
 msgid "Open In"
 msgstr "Άνοιγμα"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:118
+#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
 #, fuzzy
 msgid "Other Actions"
 msgstr "Άλλες μορφές"
 
-#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:121
+#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:127
-#: src/FolderManager/MainFolderItem.vala:33
+#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr ""
 
@@ -247,40 +247,40 @@ msgstr ""
 msgid "Folders"
 msgstr "Φάκελοι"
 
-#: src/FolderManager/FolderItem.vala:143
+#: src/FolderManager/FolderItem.vala:148
 #, fuzzy
 msgid "Folder"
 msgstr "Φάκελοι"
 
-#: src/FolderManager/FolderItem.vala:146
+#: src/FolderManager/FolderItem.vala:151
 msgid "Empty File"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:153
+#: src/FolderManager/FolderItem.vala:158
 #, fuzzy
 msgid "New"
 msgstr "Νέα Καρτέλα"
 
-#: src/FolderManager/FolderItem.vala:296
+#: src/FolderManager/FolderItem.vala:322
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:300
+#: src/FolderManager/FolderItem.vala:326
 #, c-format
 msgid "untitled folder %d"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:328
+#: src/FolderManager/FolderItem.vala:354
 #, fuzzy
 msgid "new file"
 msgstr "Νέο αρχείο"
 
-#: src/FolderManager/FolderItem.vala:332
+#: src/FolderManager/FolderItem.vala:358
 #, fuzzy, c-format
 msgid "new file %d"
 msgstr "Νέο αρχείο"
 
-#: src/FolderManager/MainFolderItem.vala:30
+#: src/FolderManager/ProjectFolderItem.vala:78
 msgid "Close Folder"
 msgstr "Κλείσιμο φακέλου"
 
@@ -397,7 +397,7 @@ msgstr "Συνέχεια"
 msgid "Templates"
 msgstr "Πρότυπα"
 
-#: src/Widgets/DocumentView.vala:92
+#: src/Widgets/DocumentView.vala:132
 #, fuzzy, c-format
 msgid "Text file from %s"
 msgstr "Αρχείο κειμένου από "
@@ -479,27 +479,32 @@ msgstr ""
 msgid "Zoom In"
 msgstr "Μεγέθυνση"
 
-#: src/Widgets/HeaderBar.vala:100
+#: src/Widgets/HeaderBar.vala:98
 msgid "High Contrast"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:110
+#: src/Widgets/HeaderBar.vala:106
 msgid "Solarized Light"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:114
 msgid "Solarized Dark"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:130
+#: src/Widgets/HeaderBar.vala:124
+#, fuzzy
+msgid "Toggle Sidebar"
+msgstr "Πλευρική Στήλη"
+
+#: src/Widgets/HeaderBar.vala:128
 msgid "Add New View"
 msgstr "Προσθήκη Νέας Προβολής"
 
-#: src/Widgets/HeaderBar.vala:134
+#: src/Widgets/HeaderBar.vala:132
 msgid "Remove Current View"
 msgstr "Αφαίρεση Τρέχουσας Προβολής"
 
-#: src/Widgets/HeaderBar.vala:160
+#: src/Widgets/HeaderBar.vala:159
 msgid "Menu"
 msgstr ""
 
@@ -531,11 +536,11 @@ msgstr "Αντικατάσταση"
 msgid "Replace all"
 msgstr "Αντικατάσταση Όλων"
 
-#: src/Widgets/SourceView.vala:329
+#: src/Widgets/SourceView.vala:357
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:336
+#: src/Widgets/SourceView.vala:364
 msgid "Toggle Comment"
 msgstr ""
 
@@ -589,7 +594,8 @@ msgid "Format:"
 msgstr "Μορφή: "
 
 #: plugins/pastebin/pastebin_dialog.vala:264
-msgid "Others..."
+#, fuzzy
+msgid "Others…"
 msgstr "Άλλοι..."
 
 #: plugins/pastebin/pastebin_dialog.vala:286
@@ -664,12 +670,12 @@ msgstr "Επικόλληση"
 msgid "Web Preview"
 msgstr "Προεπισκόπηση στο διαδίκτυο"
 
-#: plugins/browser-preview/browser-preview.vala:74
-#: plugins/browser-preview/browser-preview.vala:100
+#: plugins/browser-preview/browser-preview.vala:72
+#: plugins/browser-preview/browser-preview.vala:98
 msgid "Show Preview"
 msgstr "Εμφάνιση προεπισκόπησης"
 
-#: plugins/browser-preview/browser-preview.vala:92
+#: plugins/browser-preview/browser-preview.vala:90
 msgid "Hide Preview"
 msgstr "Απόκρυψη προεπισκόπησης"
 
@@ -1050,9 +1056,6 @@ msgstr "Αδυναμία φόρτωσης θέματος εικονιδίων: %
 
 #~ msgid "Context View"
 #~ msgstr "Προβολή Με Πλαίσιο"
-
-#~ msgid "Sidebar"
-#~ msgstr "Πλευρική Στήλη"
 
 #~ msgid "Save the current file"
 #~ msgstr "Αποθήκευση τρέχοντος αρχείου"
