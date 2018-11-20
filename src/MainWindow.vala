@@ -452,7 +452,12 @@ namespace Scratch {
 
         // Get current view
         public Scratch.Widgets.DocumentView? get_current_view () {
-            return split_view.get_focus_child () as Scratch.Widgets.DocumentView;
+            var view = (split_view.get_focus_child () as Scratch.Widgets.DocumentView);
+            if (view == null) {
+                // no view is focused right now, so get last focused
+                view = split_view.current_view;
+            }
+            return view;
         }
 
         // Get current document
@@ -461,7 +466,15 @@ namespace Scratch {
             if (view != null) {
                 return view.current_document;
             }
+            return null;
+        }
 
+        // Get current document if it's focused
+        public Scratch.Services.Document? get_focused_document () {
+            var view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;;
+            if (view != null) {
+                return view.current_document;
+            }
             return null;
         }
 
@@ -902,7 +915,7 @@ namespace Scratch {
         }
 
         private void action_to_lower_case () {
-            var doc = get_current_document ();
+            var doc = get_focused_document ();
             if (doc == null) {
                 return;
             }
@@ -917,7 +930,7 @@ namespace Scratch {
         }
 
         private void action_to_upper_case () {
-            var doc = get_current_document ();
+            var doc = get_focused_document ();
             if (doc == null) {
                 return;
             }
@@ -932,7 +945,7 @@ namespace Scratch {
         }
 
         private void action_toggle_comment () {
-            var doc = get_current_document ();
+            var doc = get_focused_document ();
             if (doc == null) {
                 return;
             }
@@ -944,7 +957,7 @@ namespace Scratch {
         }
 
         private void action_sort_lines () {
-            var doc = get_current_document ();
+            var doc = get_focused_document ();
             if (doc == null) {
                 return;
             }
