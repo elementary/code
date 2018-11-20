@@ -452,7 +452,7 @@ namespace Scratch {
 
         // Get current view
         public Scratch.Widgets.DocumentView? get_current_view () {
-            var view = (split_view.get_focus_child () as Scratch.Widgets.DocumentView);
+            var view = (Scratch.Widgets.DocumentView)split_view.get_focus_child ();
             if (view == null) {
                 // no view is focused right now, so get last focused
                 view = split_view.current_view;
@@ -471,7 +471,7 @@ namespace Scratch {
 
         // Get current document if it's focused
         public Scratch.Services.Document? get_focused_document () {
-            var view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;;
+            var view = (Scratch.Widgets.DocumentView)split_view.get_focus_child ();
             if (view != null) {
                 return view.current_document;
             }
