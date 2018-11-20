@@ -494,24 +494,11 @@ namespace Scratch {
                 Gtk.main_iteration ();
             }
 
-            Scratch.Widgets.DocumentView view = null;
-
-            if (view_ != null) {
-                view = view_;
-            }
-
             if (split_view.is_empty ()) {
-                view = split_view.add_view ();
+                Scratch.Widgets.DocumentView view = split_view.add_view ();
                 view.open_document (doc);
             } else {
-                if (view == null) {
-                    view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
-                }
-
-                if (view == null) {
-                    view = split_view.current_view;
-                }
-
+                Scratch.Widgets.DocumentView view = view_ ?? get_current_view ();
                 view.open_document (doc, focus);
             }
         }
@@ -521,15 +508,10 @@ namespace Scratch {
             Scratch.Widgets.DocumentView? view = null;
             if (split_view.is_empty ()) {
                 view = split_view.add_view ();
-                view.close_document (doc);
             } else {
-                view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
-                if (view == null) {
-                    view = split_view.current_view;
-                }
-
-                view.close_document (doc);
+                view = get_current_view ();
             }
+            view.close_document (doc);
         }
 
         // Return true if there are no documents
