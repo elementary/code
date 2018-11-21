@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 14:12-0700\n"
-"PO-Revision-Date: 2018-11-04 00:03+0000\n"
+"PO-Revision-Date: 2018-11-21 00:03+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/code/code/ja/"
 ">\n"
@@ -151,7 +151,7 @@ msgstr "一般"
 
 #: src/Dialogs/PreferencesDialog.vala:53
 msgid "Save files when changed:"
-msgstr "変更が加えられた時にファイルを保存:"
+msgstr "変更が加えられた時にファイルを保存："
 
 #: src/Dialogs/PreferencesDialog.vala:55 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
@@ -159,15 +159,15 @@ msgstr "タブ"
 
 #: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:156
 msgid "Automatic indentation:"
-msgstr "自動インデント:"
+msgstr "自動インデント："
 
 #: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:150
 msgid "Insert spaces instead of tabs:"
-msgstr "タブの代わりにスペースを挿入:"
+msgstr "タブの代わりにスペースを挿入："
 
 #: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:153
 msgid "Tab width:"
-msgstr "タブ幅:"
+msgstr "タブ幅："
 
 #: src/Dialogs/PreferencesDialog.vala:67
 msgid "Behavior"
@@ -192,11 +192,11 @@ msgstr "エディター"
 
 #: src/Dialogs/PreferencesDialog.vala:107
 msgid "Highlight matching brackets:"
-msgstr "対となるブラケットをハイライト:"
+msgstr "対となるブラケットをハイライト："
 
 #: src/Dialogs/PreferencesDialog.vala:110
 msgid "Draw Spaces:"
-msgstr "空白を表示:"
+msgstr "空白を表示："
 
 #: src/Dialogs/PreferencesDialog.vala:112
 #: plugins/pastebin/pastebin_dialog.vala:460
@@ -213,11 +213,11 @@ msgstr "常に表示"
 
 #: src/Dialogs/PreferencesDialog.vala:117
 msgid "Show Mini Map:"
-msgstr "ミニマップを表示:"
+msgstr "ミニマップを表示："
 
 #: src/Dialogs/PreferencesDialog.vala:120
 msgid "Line width guide:"
-msgstr "行の幅のガイド:"
+msgstr "行の幅のガイド："
 
 #: src/Dialogs/PreferencesDialog.vala:128
 msgid "Font"
@@ -225,7 +225,7 @@ msgstr "フォント"
 
 #: src/Dialogs/PreferencesDialog.vala:130
 msgid "Custom font:"
-msgstr "カスタムフォント:"
+msgstr "カスタムフォント："
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
@@ -429,7 +429,7 @@ msgstr[0] "%d 個のタブ"
 
 #: src/Widgets/FormatBar.vala:218
 msgid "Go To Line:"
-msgstr "行へ移動:"
+msgstr "行へ移動："
 
 #: src/Widgets/HeaderBar.vala:41
 msgid "Open a file"
@@ -573,11 +573,11 @@ msgstr "Pastebin で共有"
 
 #: plugins/pastebin/pastebin_dialog.vala:256
 msgid "Name:"
-msgstr "名前:"
+msgstr "名前："
 
 #: plugins/pastebin/pastebin_dialog.vala:259
 msgid "Format:"
-msgstr "形式:"
+msgstr "形式："
 
 #: plugins/pastebin/pastebin_dialog.vala:264
 msgid "Others…"
@@ -585,7 +585,7 @@ msgstr "その他…"
 
 #: plugins/pastebin/pastebin_dialog.vala:286
 msgid "Expiry time:"
-msgstr "期限:"
+msgstr "期限："
 
 #: plugins/pastebin/pastebin_dialog.vala:292
 msgid "Keep this paste private"
@@ -680,7 +680,7 @@ msgstr "%s - 単語補完"
 #: plugins/word-completion/completion-provider.vala:80
 #, c-format
 msgid "Could not load icon theme: %s\n"
-msgstr "アイコンテーマを読み込めませんでした: %s\n"
+msgstr "アイコンテーマを読み込めませんでした：%s\n"
 
 #~ msgid "It is a directory."
 #~ msgstr "この場所はディレクトリです。"
