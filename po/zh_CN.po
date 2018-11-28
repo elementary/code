@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 14:12-0700\n"
-"PO-Revision-Date: 2018-11-28 14:34+0000\n"
+"PO-Revision-Date: 2018-11-29 00:02+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.elementary.io/projects/"
 "code/code/zh_Hans/>\n"
@@ -403,11 +403,11 @@ msgstr "语法高亮"
 
 #: src/Widgets/FormatBar.vala:71
 msgid "Line number"
-msgstr "显示行号："
+msgstr "行号"
 
 #: src/Widgets/FormatBar.vala:96
 msgid "Filter languages"
-msgstr "过滤器语言："
+msgstr "过滤器语言"
 
 #: src/Widgets/FormatBar.vala:118
 msgid "Plain Text"
@@ -667,8 +667,8 @@ msgid ""
 "No suitable dictionaries were found.\n"
 "Please install at least one [aspell] dictionary"
 msgstr ""
-"找不到合适的字典。\n"
-"请至少安装一个 [aspell] 字典。"
+"找不到合适的词典。\n"
+"请至少安装一个 [aspell] 词典"
 
 #: plugins/word-completion/plugin.vala:174
 #, c-format
