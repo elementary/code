@@ -20,107 +20,107 @@ using Gee;
 using GVls;
 
 public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatable {
-  private MainWindow main_window;
-  private GVls.Server _server;
-  private ulong cn = 0;
-  private uint timeout_id = -1;
+    private MainWindow main_window;
+    private GVls.Server _server;
+    private ulong cn = 0;
+    private uint timeout_id = -1;
 
-  public Object object { owned get; construct; }
-  Scratch.Services.Interface plugins;
+    public Object object { owned get; construct; }
+    Scratch.Services.Interface plugins;
 
-  construct {
-    _server = new GVls.GServer ();
-    try {
-      _server.add_default_vapi_dirs ();
-      _server.add_default_namespaces ();
-    } catch (GLib.Error e) {
-      warning ("Initialization Error: %s", e.message);
-    }
-  }
-  ~GVlsCompletion () {
-    if (timeout_id != -1) {
-      var source = MainContext.@default ().find_source_by_id (timeout_id);
-      if (source != null) {
-        source.destroy ();
-      }
-    }
-  }
-
-  public void activate () {
-    plugins = (Scratch.Services.Interface) object;
-    plugins.hook_window.connect ((w) => {
-      this.main_window = w;
-    });
-    cn = plugins.hook_document.connect ((doc)=>{
-      message ("Adding GVls-Completion to View");
-      try {
-        var view = doc.source_view;
-        var ptmp = view.get_data<GVlsui.CompletionProvider> ("gvls-provider");
-        if (ptmp != null) {
-          return;
+    construct {
+        _server = new GVls.GServer ();
+        try {
+            _server.add_default_vapi_dirs ();
+            _server.add_default_namespaces ();
+        } catch (GLib.Error e) {
+            warning ("Initialization Error: %s", e.message);
         }
-        var prov = new GVlsui.CompletionProvider ();
-        prov.server = _server;
-        view.get_completion ().add_provider (prov);
-        view.set_data<GVlsui.CompletionProvider> ("gvls-provider", prov);
-        view.set_data<bool> ("gvls-view-dirty", true);
-        var buf = view.get_buffer ();
-        buf.insert_text.connect ((ref pos, ntext, tlen)=>{
-          view.set_data<bool> ("gvls-view-dirty", true);
+    }
+    ~GVlsCompletion () {
+        if (timeout_id != -1) {
+            var source = MainContext.@default ().find_source_by_id (timeout_id);
+            if (source != null) {
+                source.destroy ();
+            }
+        }
+    }
+    public void activate () {
+        plugins = (Scratch.Services.Interface) object;
+        plugins.hook_window.connect ((w) => {
+            this.main_window = w;
         });
-      } catch (GLib.Error e) {
-        warning ("Error setting completion provider: %s", e.message);
-      }
-    });
-    timeout_id = GLib.Timeout.add (1, update_symbols);
-    message ("GVls-Completion: activated");
-  }
-  public void deactivate () {
-    plugins.disconnect (cn);
-    if (main_window == null) {
-      message ("No MainWindow was set");
-      return;
+        cn = plugins.hook_document.connect ((doc)=>{
+            try {
+                var view = doc.source_view;
+                var ptmp = view.get_data<GVlsui.CompletionProvider> ("gvls-provider");
+                if (ptmp != null) {
+                    return;
+                }
+                var prov = new GVlsui.CompletionProvider ();
+                prov.server = _server;
+                view.get_completion ().add_provider (prov);
+                view.set_data<GVlsui.CompletionProvider> ("gvls-provider", prov);
+                view.set_data<bool> ("gvls-view-dirty", true);
+                var buf = view.get_buffer ();
+                buf.insert_text.connect ((ref pos, ntext, tlen)=>{
+                    view.set_data<bool> ("gvls-view-dirty", true);
+                });
+            } catch (GLib.Error e) {
+                warning ("Error setting completion provider: %s", e.message);
+            }
+        });
+        timeout_id = GLib.Timeout.add (1, update_symbols);
     }
-    var docview = main_window.get_current_view ();
-    foreach (Services.Document doc in docview.docs) {
-      var view = doc.source_view;
-      var prov = view.get_data<GVlsui.CompletionProvider> ("gvls-provider");
-      if (prov == null) return;
-      try {
-      view.get_completion ().remove_provider (prov);
-      } catch (GLib.Error e) {
-      warning (_("Error deactivating GVls Plugin: %s"), e.message);
-      }
+    public void deactivate () {
+        plugins.disconnect (cn);
+        if (main_window == null) {
+            message ("No MainWindow was set");
+            return;
+        }
+        var docview = main_window.get_current_view ();
+        foreach (Services.Document doc in docview.docs) {
+            var view = doc.source_view;
+            var prov = view.get_data<GVlsui.CompletionProvider> ("gvls-provider");
+            if (prov == null) return;
+            try {
+                view.get_completion ().remove_provider (prov);
+            } catch (GLib.Error e) {
+                warning (_("Error deactivating GVls Plugin: %s"), e.message);
+            }
+        }
     }
-    message ("GVls-Completion: deactivated");
-  }
-  public void update_state () {
-  }
-
-  private bool update_symbols () {
-    if (main_window == null) {
-      return true;
+    public void update_state () {
     }
-    var doc = main_window.get_current_document ();
-    if (doc == null) {
-      return true;
+    private bool update_symbols () {
+        if (main_window == null) {
+            return true;
+        }
+        var doc = main_window.get_current_document ();
+        if (doc == null) {
+            return true;
+        }
+        var view = main_window.get_current_document ().source_view;
+        if (view == null) {
+            return true;
+        }
+        var prov = view.get_data<GVlsui.CompletionProvider> ("gvls-provider");
+        if (prov == null) {
+            return true;
+        }
+        bool dirty = view.get_data<bool> ("gvls-view-dirty");
+        if (!dirty) {
+            return true;
+        }
+        prov.current_server.content = view.get_buffer ().text;
+        view.set_data<bool> ("gvls-view-dirty", false);
+        return true;
     }
-    var view = main_window.get_current_document ().source_view;
-    if (view == null) return true;
-    var prov = view.get_data<GVlsui.CompletionProvider> ("gvls-provider");
-    if (prov == null) return true;
-    bool dirty = view.get_data<bool> ("gvls-view-dirty");
-    if (!dirty) return true;
-    prov.current_server.content = view.get_buffer ().text;
-    view.set_data<bool> ("gvls-view-dirty", false);
-    return true;
-  }
 }
 
 [ModuleInit]
-public void peas_register_types (TypeModule module)
-{
-  var objmodule = module as Peas.ObjectModule;
+public void peas_register_types (TypeModule module) {
+    var objmodule = module as Peas.ObjectModule;
     objmodule.register_extension_type (typeof (Peas.Activatable),
                                        typeof (Scratch.Plugins.GVlsCompletion));
 }
