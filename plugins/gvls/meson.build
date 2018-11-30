@@ -6,7 +6,9 @@ gvls_plugin_sources = files([
 	'gvls-code-plugin.vala'
 	])
 
-install_data('gvls-code.plugin', install_dir: pluginsdir)
+gvls_install_dir=join_paths(pluginsdir, module_name)
+
+install_data('gvls-code.plugin', install_dir: gvls_install_dir)
 
 plugin_deps = [
 	gvls_dep,
@@ -16,7 +18,7 @@ plugin_deps = [
 shared_module(module_name, gvls_plugin_sources,
 	dependencies: plugin_deps,
 	install: true,
-	install_dir: pluginsdir,
+	install_dir: gvls_install_dir,
 	vala_args: [
 		'--target-glib=2.52',
 	]

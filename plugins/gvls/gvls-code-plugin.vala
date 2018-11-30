@@ -20,13 +20,12 @@ using Gee;
 using GVls;
 
 public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatable {
-  MainWindow main_window;
+  private MainWindow main_window;
   private GVls.Server _server;
   private ulong cn = 0;
   private uint timeout_id = -1;
 
   public Object object { owned get; construct; }
-  public Gtk.SourceView view { get; set; }
   Scratch.Services.Interface plugins;
 
   construct {
@@ -53,8 +52,13 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
       this.main_window = w;
     });
     cn = plugins.hook_document.connect ((doc)=>{
+      message ("Adding GVls-Completion to View");
       try {
         var view = doc.source_view;
+        var ptmp = view.get_data<GVlsui.CompletionProvider> ("gvls-provider");
+        if (ptmp != null) {
+          return;
+        }
         var prov = new GVlsui.CompletionProvider ();
         prov.server = _server;
         view.get_completion ().add_provider (prov);
@@ -67,20 +71,41 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
       } catch (GLib.Error e) {
         warning ("Error setting completion provider: %s", e.message);
       }
-      
     });
     timeout_id = GLib.Timeout.add (1, update_symbols);
+    message ("GVls-Completion: activated");
   }
   public void deactivate () {
-      plugins.disconnect (cn);
+    plugins.disconnect (cn);
+    if (main_window == null) {
+      message ("No MainWindow was set");
+      return;
+    }
+    var docview = main_window.get_current_view ();
+    foreach (Services.Document doc in docview.docs) {
+      var view = doc.source_view;
       var prov = view.get_data<GVlsui.CompletionProvider> ("gvls-provider");
       if (prov == null) return;
+      try {
       view.get_completion ().remove_provider (prov);
+      } catch (GLib.Error e) {
+      warning (_("Error deactivating GVls Plugin: %s"), e.message);
+      }
+    }
+    message ("GVls-Completion: deactivated");
   }
   public void update_state () {
   }
 
   private bool update_symbols () {
+    if (main_window == null) {
+      return true;
+    }
+    var doc = main_window.get_current_document ();
+    if (doc == null) {
+      return true;
+    }
+    var view = main_window.get_current_document ().source_view;
     if (view == null) return true;
     var prov = view.get_data<GVlsui.CompletionProvider> ("gvls-provider");
     if (prov == null) return true;
