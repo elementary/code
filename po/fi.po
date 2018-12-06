@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 14:12-0700\n"
-"PO-Revision-Date: 2018-11-23 00:01+0000\n"
+"PO-Revision-Date: 2018-12-06 22:09+0000\n"
 "Last-Translator: Veli-Pekka Samuli Finnilä <vpf@tuta.io>\n"
 "Language-Team: Finnish <https://weblate.elementary.io/projects/code/code/fi/>"
 "\n"
@@ -60,7 +60,6 @@ msgid "It is a mountable location."
 msgstr "Kyseessä on liitettävä sijainti."
 
 #: src/Application.vala:174
-#, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -94,7 +93,7 @@ msgstr "Nykyinen työskentelyhakemisto"
 
 #: src/MainWindow.vala:133
 msgid "Code"
-msgstr ""
+msgstr "Koodi"
 
 #: src/MainWindow.vala:181 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
@@ -294,7 +293,7 @@ msgstr "%s ei ole tekstitiedosto"
 
 #: src/Services/Document.vala:244
 msgid "Code will not load this type of file."
-msgstr ""
+msgstr "Koodi ei voi ladata tämäntyyppistä tiedostoa."
 
 #: src/Services/Document.vala:246
 msgid "Load Anyway"
@@ -307,7 +306,7 @@ msgstr "Tiedoston \"%s\" lataaminen kestää kauan"
 
 #: src/Services/Document.vala:268
 msgid "Please wait while Code is loading the file."
-msgstr ""
+msgstr "Koodi lataa tiedostoa. Ole hyvä ja odota."
 
 #: src/Services/Document.vala:270
 msgid "Cancel Load"
@@ -422,7 +421,7 @@ msgstr "Suodata kieliä"
 
 #: src/Widgets/FormatBar.vala:118
 msgid "Plain Text"
-msgstr ""
+msgstr "Tavallinen teksti"
 
 #: src/Widgets/FormatBar.vala:200
 #, c-format
@@ -488,11 +487,11 @@ msgstr "Suuri kontrasti"
 
 #: src/Widgets/HeaderBar.vala:106
 msgid "Solarized Light"
-msgstr ""
+msgstr "Ylivalotus"
 
 #: src/Widgets/HeaderBar.vala:114
 msgid "Solarized Dark"
-msgstr ""
+msgstr "Alivalotus"
 
 #: src/Widgets/HeaderBar.vala:124
 msgid "Toggle Sidebar"
@@ -544,7 +543,7 @@ msgstr "Järjestä valitut rivit"
 
 #: src/Widgets/SourceView.vala:364
 msgid "Toggle Comment"
-msgstr ""
+msgstr "Kytke kommentti"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
