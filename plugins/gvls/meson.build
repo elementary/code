@@ -1,7 +1,5 @@
 module_name = 'gvls-code'
 
-gvls_dep = dependency ('gvlsui-0.10')
-
 gvls_plugin_sources = files([
 	'gvls-code-plugin.vala'
 	])
