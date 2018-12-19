@@ -46,7 +46,6 @@ namespace Scratch.Dialogs {
             var smart_cut_copy_info = new Gtk.Image.from_icon_name ("dialog-information-symbolic", Gtk.IconSize.MENU);
             smart_cut_copy_info.halign = Gtk.Align.START;
             smart_cut_copy_info.tooltip_text = _("Cutting or copying without an active selection will cut or copy the entire current line");
-            smart_cut_copy_info.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
             var indent_width = new Gtk.SpinButton.with_range (1, 24, 1);
             Scratch.settings.schema.bind ("indent-width", indent_width, "value", SettingsBindFlags.DEFAULT);
