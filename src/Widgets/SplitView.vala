@@ -202,10 +202,13 @@ namespace Scratch.Widgets {
         }
 
         // Detect the last focused Document throw a signal
-        private void on_document_changed (Scratch.Services.Document? document) {
+        private void on_document_changed (Scratch.Services.Document? document, Scratch.Widgets.DocumentView parent) {
             if (document != null) {
                 document_change (document);
             }
+
+            // remember last focused view
+            current_view = parent;
         }
 
         // Check the possibility to add or not a new view
