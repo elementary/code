@@ -411,7 +411,7 @@ namespace Scratch {
                     if (file.query_exists ()) {
                         anyfile_loaded = true;
                         var doc = new Scratch.Services.Document (actions, file);
-                        if (!(doc.is_file_temporary && !doc.exists ())) {
+                        if (doc.exists () || !doc.is_file_temporary) {
                             open_document (doc, view, file.get_uri () == focused_document);
                         }
                     }
