@@ -211,6 +211,11 @@ namespace Scratch.Widgets {
 
             insert_spaces_instead_of_tabs = Scratch.settings.spaces_instead_of_tabs;
             tab_width = (uint) Scratch.settings.indent_width;
+            if (Scratch.settings.line_wrap) {
+                set_wrap_mode (Gtk.WrapMode.WORD);
+            } else {
+                set_wrap_mode (Gtk.WrapMode.NONE);
+            }
 
             font = Scratch.settings.font;
             use_default_font (Scratch.settings.use_system_font);

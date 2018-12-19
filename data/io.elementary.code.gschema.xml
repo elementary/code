@@ -73,6 +73,10 @@
       <default>true</default>
       <summary>CTRL+C and CTRL+X copy/cut the current line when no selection</summary>
       <description>If there is no selection, will the cut/copy shortcuts automatically act on the current line</description>
+    <key name="line-wrap" type="b">
+      <default>true</default>
+      <summary>Wrap long lines</summary>
+      <description>Wrap long lines.</description>
     </key>
     <key name="show-right-margin" type="b">
       <default>false</default>

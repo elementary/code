@@ -55,6 +55,7 @@ namespace Scratch {
         public bool highlight_matching_brackets { get; set; }
         public ScratchDrawSpacesState draw_spaces { get; set; }
         public bool spaces_instead_of_tabs { get; set; }
+        public bool line_wrap { get; set; }
         public bool auto_indent { get; set; }
         public int indent_width { get; set; }
         public bool show_right_margin { get; set; }

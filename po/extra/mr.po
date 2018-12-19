@@ -1,0 +1,132 @@
+# Marathi translations for extra package.
+# Copyright (C) 2018 THE extra'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# Automatically generated, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-18 14:13-0700\n"
+"PO-Revision-Date: 2018-12-16 19:24+0000\n"
+"Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
+"Language-Team: Marathi <https://weblate.elementary.io/projects/code/extra/mr/"
+">\n"
+"Language: mr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.0.1\n"
+
+#: data/io.elementary.code.appdata.xml.in:8
+#: data/io.elementary.code.desktop.in.in:4
+msgid "Code"
+msgstr "कोड"
+
+#: data/io.elementary.code.appdata.xml.in:9
+msgid "The editor that works"
+msgstr "काम करणारे एडिटर"
+
+#: data/io.elementary.code.appdata.xml.in:11
+msgid ""
+"Code is the editor that works for you. It auto-saves your files, meaning "
+"they're always up-to-date. Plus it remembers your tabs so you never lose "
+"your spot, even in between sessions."
+msgstr ""
+"कोड एक संपादक आहे जो आपल्यासाठी कार्य करतो. ते आपल्या फायली स्वयंचलितपणे जतन "
+"करते, याचा अर्थ ते नेहमीच अद्ययावत असतात. तसेच ते आपले टॅब लक्षात ठेवते "
+"जेणेकरून आपण आपले स्थान गमावणार नाही, अगदी सत्रांमध्ये देखील."
+
+#: data/io.elementary.code.appdata.xml.in:16
+msgid ""
+"Make it yours. Code is written from the ground up to be extensible. Keep "
+"things super lightweight and simple, or install extensions to turn Code into "
+"a full-blown IDE; it's your choice. And with a handful of useful "
+"preferences, you can tweak the behavior and interface to your liking."
+msgstr ""
+"याला आपले बनवा. कोड अगदी सध्या पद्दतीने वापरला जाऊ शकतो तसेच अनेक विस्तारही "
+"त्याला जोडले जाऊ शकतात. गोष्टींना सुपर लाइटवेट आणि साधे ठेवा, किंवा कोडला "
+"पूर्ण-उलगडलेल्या IDE मध्ये बदलण्यासाठी विस्तार स्थापित करा; आपल्या आवडीनुसा"
+"र. आणि थोड्या उपयोगी प्राधान्यांसह, आपण आपल्या आवडीनुसार कोडचे वर्तन आणि "
+"इंटरफेस tweak करू शकता."
+
+#: data/io.elementary.code.appdata.xml.in:22
+msgid ""
+"It's elementary. Code is made to be the perfect editor for elementary, "
+"meaning it closely follows the high standards of design, speed, and "
+"consistency. It's sexy, but not distracting."
+msgstr ""
+"हे एलिमेंटरी आहे. एलिमेंटरी साठी कोड परिपूर्ण संपादक म्हणून बनविले जाते, याचा"
+" अर्थ ते डिझाइन, वेग आणि स्थिरतेच्या उच्च मानकांचे लक्षपूर्वक अनुसरण करते. हे"
+" आकर्षक आहे, परंतु विचलित करणारे नाही."
+
+#: data/io.elementary.code.appdata.xml.in:27
+msgid ""
+"Works with your language. Whether you're crafting code in Vala, scripting "
+"with PHP, or marking things up in HTML, Code has you covered. Experience "
+"full syntax highlighting with nearly all programming, scripting, and markup "
+"languages."
+msgstr ""
+"आपल्या भाषेसह कार्य करते. आपण व्हॅलामध्ये कोड क्रमाबद्ध करत असाल, PHP सह "
+"स्क्रिप्टिंग करत असाल किंवा HTML मध्ये गोष्टी चिन्हांकित करत असलात तरीही "
+"कोडने सर्व समाविष्ट केले आहे. जवळजवळ सर्व प्रोग्रामिंग, स्क्रिप्टिंग आणि मार्"
+"कअप भाषांसह संपूर्ण सिन्ट्याक्स हायलाइटिंगचा अनुभव घ्या."
+
+#: data/io.elementary.code.appdata.xml.in:33
+msgid ""
+"Other syntax-highlighted languages: Bash, C, C#, C++. Cmake, CSS, .Desktop, "
+"Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
+"Objective C, Pascal, Perl, Python, Ruby, XML."
+msgstr ""
+"इतर सिन्ट्याक्स हायलाइटिंग:  Bash, C, C#, C++. Cmake, CSS, .Desktop, Diff, "
+"Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, Objective C, "
+"Pascal, Perl, Python, Ruby, XML."
+
+#: data/io.elementary.code.appdata.xml.in:38
+msgid "Additional features include:"
+msgstr "समाविष्ट असलेली अतिरिक्त वैशिष्ट्ये:"
+
+#: data/io.elementary.code.appdata.xml.in:42
+msgid "syntax highlighting with gtksourceview-3"
+msgstr "gtksourceview-3 द्वारे सिंटॅक्स हायलाइटिंग"
+
+#: data/io.elementary.code.appdata.xml.in:43
+msgid "a find bar to search the words in the files"
+msgstr "फाइल्समधील शब्द शोधण्यासाठी शोध बार"
+
+#: data/io.elementary.code.appdata.xml.in:44
+msgid "tab and split documents system"
+msgstr "टॅब आणि विभाजित दस्तऐवज प्रणाली"
+
+#: data/io.elementary.code.appdata.xml.in:45
+msgid "lots of others"
+msgstr "आणि बरेच काही"
+
+#: data/io.elementary.code.appdata.xml.in:84
+msgid "elementary LLC."
+msgstr "एलिमेंटरी LLC."
+
+#: data/io.elementary.code.desktop.in.in:5
+msgid "Edit code files"
+msgstr "कोड फायली संपादित करा"
+
+#: data/io.elementary.code.desktop.in.in:6
+msgid "Code Editor"
+msgstr "कोड संपादक"
+
+#: data/io.elementary.code.desktop.in.in:8
+msgid "io.elementary.code"
+msgstr "io.elementary.code"
+
+#: data/io.elementary.code.desktop.in.in:11
+msgid "IDE;scratch;"
+msgstr "आईडीई ;स्क्रैच;"
+
+#: data/io.elementary.code.desktop.in.in:17
+msgid "New Document"
+msgstr "नवीन दस्तऐवज"
+
+#: data/io.elementary.code.desktop.in.in:21
+msgid "New Window"
+msgstr "नवीन विंडो"

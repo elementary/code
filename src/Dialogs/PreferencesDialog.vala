@@ -109,6 +109,9 @@ namespace Scratch.Dialogs {
             var highlight_matching_brackets_label = new SettingsLabel (_("Highlight matching brackets:"));
             highlight_matching_brackets = new SettingsSwitch ("highlight-matching-brackets");
 
+            var line_wrap_label = new SettingsLabel (_("Line wrap:"));
+            var line_wrap = new SettingsSwitch ("line-wrap");
+
             var draw_spaces_label = new SettingsLabel (_("Draw Spaces:"));
             var draw_spaces_combo = new Gtk.ComboBoxText ();
             draw_spaces_combo.append ("Never", _("Never"));
@@ -142,8 +145,10 @@ namespace Scratch.Dialogs {
             content.attach (editor_header, 0, 0, 3, 1);
             content.attach (highlight_matching_brackets_label, 0, 2, 1, 1);
             content.attach (highlight_matching_brackets, 1, 2, 1, 1);
-            content.attach (draw_spaces_label, 0, 3, 1, 1);
-            content.attach (draw_spaces_combo, 1, 3, 2, 1);
+            content.attach (line_wrap_label, 0, 3, 1, 1);
+            content.attach (line_wrap, 1, 3, 1, 1);
+            content.attach (draw_spaces_label, 0, 4, 1, 1);
+            content.attach (draw_spaces_combo, 1, 4, 2, 1);
             content.attach (show_mini_map_label, 0, 5, 1, 1);
             content.attach (show_mini_map, 1, 5, 1, 1);
             content.attach (show_right_margin_label, 0, 6, 1, 1);
