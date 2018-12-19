@@ -145,6 +145,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             current_document = doc;
 
             doc.focus ();
+            save_opened_files ();
         } catch (Error e) {
             critical (e.message);
         }
@@ -164,6 +165,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             current_document = doc;
 
             doc.focus ();
+            save_opened_files ();
         } catch (Error e) {
             critical ("Cannot insert clipboard: %s", clipboard);
         }

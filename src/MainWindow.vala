@@ -405,13 +405,13 @@ namespace Scratch {
                     } else {
                         file = File.new_for_commandline_arg (uri);
                     }
-                    /* Leave it to doc to handle problematic files properly 
+                    /* Leave it to doc to handle problematic files properly
                        But for files that do not exist we need to make sure that doc won't create a new file
                     */
                     if (file.query_exists ()) {
                         anyfile_loaded = true;
                         var doc = new Scratch.Services.Document (actions, file);
-                        if (!doc.is_file_temporary) {
+                        if (doc.exists () || !doc.is_file_temporary) {
                             open_document (doc, view, file.get_uri () == focused_document);
                         }
                     }
