@@ -74,6 +74,11 @@
       <summary>Wrap long lines</summary>
       <description>Wrap long lines.</description>
     </key>
+    <key name="restore-tabs" type="b">
+      <default>true</default>
+      <summary>Whether to restore tabs when app is opened</summary>
+      <description>Whether to restore previously opened tabs or to show the welcome screen when the application is opened</description>
+    </key>
     <key name="show-right-margin" type="b">
       <default>false</default>
       <summary>Show the right margin</summary>

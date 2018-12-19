@@ -213,7 +213,9 @@ namespace Scratch {
             if (window == null) {
                 window = this.new_window ();
                 window.show ();
-                window.restore_opened_documents ();
+                if (settings.restore_tabs) {
+                    window.restore_opened_documents ();
+                }
             } else {
                 window.present ();
             }

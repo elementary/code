@@ -52,13 +52,15 @@ namespace Scratch.Dialogs {
             general_grid.attach (new Granite.HeaderLabel (_("General")), 0, 0, 2, 1);
             general_grid.attach (new SettingsLabel (_("Save files when changed:")), 0, 1, 1, 1);
             general_grid.attach (new SettingsSwitch ("autosave"), 1, 1, 1, 1);
-            general_grid.attach (new Granite.HeaderLabel (_("Tabs")), 0, 2, 2, 1);
-            general_grid.attach (new SettingsLabel (_("Automatic indentation:")), 0, 3, 1, 1);
-            general_grid.attach (new SettingsSwitch ("auto-indent"), 1, 3, 1, 1);
-            general_grid.attach (new SettingsLabel (_("Insert spaces instead of tabs:")), 0, 4, 1, 1);
-            general_grid.attach (new SettingsSwitch ("spaces-instead-of-tabs"), 1, 4, 1, 1);
-            general_grid.attach (new SettingsLabel (_("Tab width:")), 0, 5, 1, 1);
-            general_grid.attach (indent_width, 1, 5, 1, 1);
+            general_grid.attach (new SettingsLabel (_("Restore tabs:")), 0, 2, 1, 1);
+            general_grid.attach (new SettingsSwitch ("restore-tabs"), 1, 2, 1, 1);
+            general_grid.attach (new Granite.HeaderLabel (_("Tabs")), 0, 3, 2, 1);
+            general_grid.attach (new SettingsLabel (_("Automatic indentation:")), 0, 4, 1, 1);
+            general_grid.attach (new SettingsSwitch ("auto-indent"), 1, 4, 1, 1);
+            general_grid.attach (new SettingsLabel (_("Insert spaces instead of tabs:")), 0, 5, 1, 1);
+            general_grid.attach (new SettingsSwitch ("spaces-instead-of-tabs"), 1, 5, 1, 1);
+            general_grid.attach (new SettingsLabel (_("Tab width:")), 0, 6, 1, 1);
+            general_grid.attach (indent_width, 1, 6, 1, 1);
 
             main_stack = new Gtk.Stack ();
             main_stack.margin = 6;
