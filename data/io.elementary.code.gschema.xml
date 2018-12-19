@@ -10,6 +10,7 @@
     <value nick="For Selection" value="1" />
     <value nick="Always" value="2" />
   </enum>
+
   <schema path="/io/elementary/code/saved-state/" id="io.elementary.code.saved-state" gettext-domain="io.elementary.code">
     <key name="window-state" enum="io.elementary.code.window-states">
       <default>"Normal"</default>
@@ -36,7 +37,6 @@
       <summary></summary>
       <description></description>
     </key>
-
     <key name="hp1-size" type="i">
       <default>125</default>
       <summary></summary>
@@ -48,6 +48,7 @@
       <description></description>
     </key>
   </schema>
+
   <schema path="/io/elementary/code/settings/" id="io.elementary.code.settings" gettext-domain="io.elementary.code">
     <key type="as" name="plugins-enabled">
       <default>['detect-indent', 'editorconfig', 'outline']</default>
@@ -73,6 +74,7 @@
       <default>true</default>
       <summary>CTRL+C and CTRL+X copy/cut the current line when no selection</summary>
       <description>If there is no selection, will the cut/copy shortcuts automatically act on the current line</description>
+    </key>
     <key name="line-wrap" type="b">
       <default>true</default>
       <summary>Wrap long lines</summary>
