@@ -65,7 +65,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
         close_tab_requested.connect ((tab) => {
             var document = tab as Services.Document;
-            if (document.file != null) {
+            if (!document.is_file_temporary && document.file != null) {
                 tab.restore_data = document.get_uri ();
             }
 
