@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 14:12-0700\n"
-"PO-Revision-Date: 2018-08-13 00:02+0000\n"
+"PO-Revision-Date: 2018-11-29 00:02+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.elementary.io/projects/"
 "code/code/zh_Hans/>\n"
@@ -60,7 +60,6 @@ msgid "It is a mountable location."
 msgstr "这是一个可挂载的路径。"
 
 #: src/Application.vala:174
-#, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -94,7 +93,7 @@ msgstr "当前工作目录"
 
 #: src/MainWindow.vala:133
 msgid "Code"
-msgstr ""
+msgstr "代码"
 
 #: src/MainWindow.vala:181 src/Widgets/HeaderBar.vala:66
 msgid "Find…"
@@ -222,7 +221,7 @@ msgstr "线宽引导："
 
 #: src/Dialogs/PreferencesDialog.vala:128
 msgid "Font"
-msgstr ""
+msgstr "字体"
 
 #: src/Dialogs/PreferencesDialog.vala:130
 msgid "Custom font:"
@@ -230,63 +229,58 @@ msgstr "更改字体："
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
-msgstr ""
+msgstr "其他应用…"
 
 #: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
-#, fuzzy
 msgid "Open In"
-msgstr "打开"
+msgstr "使用其他应用打开"
 
 #: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
-#, fuzzy
 msgid "Other Actions"
-msgstr "其它格式"
+msgstr "其它动作"
 
 #: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
-msgstr ""
+msgstr "重命名"
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
-msgstr ""
+msgstr "移至回收站"
 
 #: src/FolderManager/FileView.vala:39
 msgid "Folders"
 msgstr "文件夹"
 
 #: src/FolderManager/FolderItem.vala:148
-#, fuzzy
 msgid "Folder"
 msgstr "文件夹"
 
 #: src/FolderManager/FolderItem.vala:151
 msgid "Empty File"
-msgstr ""
+msgstr "空白文件"
 
 #: src/FolderManager/FolderItem.vala:158
-#, fuzzy
 msgid "New"
-msgstr "新标签页"
+msgstr "新建"
 
 #: src/FolderManager/FolderItem.vala:322
 msgid "untitled folder"
-msgstr ""
+msgstr "未命名文件夹"
 
 #: src/FolderManager/FolderItem.vala:326
 #, c-format
 msgid "untitled folder %d"
-msgstr ""
+msgstr "未命名文件夹 %d"
 
 #: src/FolderManager/FolderItem.vala:354
-#, fuzzy
 msgid "new file"
-msgstr "新建文件"
+msgstr "新文件"
 
 #: src/FolderManager/FolderItem.vala:358
-#, fuzzy, c-format
+#, c-format
 msgid "new file %d"
-msgstr "新建文件"
+msgstr "新文件 %d"
 
 #: src/FolderManager/ProjectFolderItem.vala:78
 msgid "Close Folder"
@@ -295,29 +289,28 @@ msgstr "关闭文件夹"
 #: src/Services/Document.vala:243
 #, c-format
 msgid "%s Is Not a Text File"
-msgstr ""
+msgstr "%s 不是文本文件"
 
 #: src/Services/Document.vala:244
 msgid "Code will not load this type of file."
-msgstr ""
+msgstr "无法打开此类型文件。"
 
 #: src/Services/Document.vala:246
 msgid "Load Anyway"
-msgstr ""
+msgstr "仍然载入"
 
 #: src/Services/Document.vala:267
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr ""
+msgstr "载入 \"%s\" 花费的时间较长"
 
 #: src/Services/Document.vala:268
 msgid "Please wait while Code is loading the file."
-msgstr ""
+msgstr "请耐心等待文件载入。"
 
 #: src/Services/Document.vala:270
-#, fuzzy
 msgid "Cancel Load"
-msgstr "取消"
+msgstr "取消载入"
 
 #: src/Services/Document.vala:394
 #, c-format
@@ -343,19 +336,14 @@ msgstr "新文件"
 
 #. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:679
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Read"
-msgstr ""
-"无法创建文件 “%s”。\n"
-"%s"
+msgstr "文件 “%s” 不可读"
 
 #: src/Services/Document.vala:680
-#, fuzzy
 msgid ""
 "Maybe it is corrupt or you do not have the necessary permissions to read it."
-msgstr ""
-"文件 \"%s\" 无法读取。可能文件\n"
-"已损坏或您没有读取它的权限。"
+msgstr "可能文件已损坏或您没有读取它的权限。"
 
 #: src/Services/Document.vala:692
 #, c-format
@@ -405,38 +393,37 @@ msgid "Templates"
 msgstr "模板"
 
 #: src/Widgets/DocumentView.vala:132
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s"
-msgstr "文本文档来自 "
+msgstr "来自 %s 的文本文档"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
 msgstr "语法高亮"
 
 #: src/Widgets/FormatBar.vala:71
-#, fuzzy
 msgid "Line number"
-msgstr "显示行号："
+msgstr "行号"
 
 #: src/Widgets/FormatBar.vala:96
 msgid "Filter languages"
-msgstr ""
+msgstr "过滤器语言"
 
 #: src/Widgets/FormatBar.vala:118
 msgid "Plain Text"
-msgstr ""
+msgstr "纯文本"
 
 #: src/Widgets/FormatBar.vala:200
-#, fuzzy, c-format
+#, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
-msgstr[0] "标出空格："
+msgstr[0] "%d 空格"
 
 #: src/Widgets/FormatBar.vala:202
-#, fuzzy, c-format
+#, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "新标签页"
+msgstr[0] "标签"
 
 #: src/Widgets/FormatBar.vala:218
 msgid "Go To Line:"
@@ -471,35 +458,32 @@ msgid "Share"
 msgstr "分享"
 
 #: src/Widgets/HeaderBar.vala:77
-#, fuzzy
 msgid "Zoom Out"
-msgstr "缩放"
+msgstr "缩小"
 
 #: src/Widgets/HeaderBar.vala:81
 msgid "Zoom 1:1"
 msgstr "原始大小"
 
 #: src/Widgets/HeaderBar.vala:85
-#, fuzzy
 msgid "Zoom In"
-msgstr "缩放"
+msgstr "放大"
 
 #: src/Widgets/HeaderBar.vala:98
 msgid "High Contrast"
-msgstr ""
+msgstr "高对比度"
 
 #: src/Widgets/HeaderBar.vala:106
 msgid "Solarized Light"
-msgstr ""
+msgstr "Solarized 明亮"
 
 #: src/Widgets/HeaderBar.vala:114
 msgid "Solarized Dark"
-msgstr ""
+msgstr "Solarized 深色"
 
 #: src/Widgets/HeaderBar.vala:124
-#, fuzzy
 msgid "Toggle Sidebar"
-msgstr "侧边栏"
+msgstr "激活侧边栏"
 
 #: src/Widgets/HeaderBar.vala:128
 msgid "Add New View"
@@ -542,13 +526,12 @@ msgid "Replace all"
 msgstr "全部替换"
 
 #: src/Widgets/SourceView.vala:357
-#, fuzzy
 msgid "Sort Selected Lines"
-msgstr "选中文本"
+msgstr "整理选中文本"
 
 #: src/Widgets/SourceView.vala:364
 msgid "Toggle Comment"
-msgstr ""
+msgstr "激活备注"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -559,7 +542,6 @@ msgid "Open a file to begin editing."
 msgstr "请打开您要编辑的文件。"
 
 #: src/Widgets/WelcomeView.vala:32
-#, fuzzy
 msgid "New File"
 msgstr "新建文件"
 
@@ -568,7 +550,6 @@ msgid "Create a new empty file."
 msgstr "创建一个新的空白文件。"
 
 #: src/Widgets/WelcomeView.vala:33
-#, fuzzy
 msgid "Open File"
 msgstr "打开文件"
 
@@ -577,16 +558,14 @@ msgid "Open a saved file."
 msgstr "打开已保存的本地文件。"
 
 #: src/Widgets/WelcomeView.vala:34
-#, fuzzy
 msgid "Open Folder"
 msgstr "打开文件夹"
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Add a project folder to the sidebar."
-msgstr ""
+msgstr "侧边栏新建项目文件夹。"
 
 #: plugins/pastebin/pastebin_dialog.vala:249
-#, fuzzy
 msgid "Share via Pastebin"
 msgstr "通过 PasteBin 分享"
 
@@ -595,14 +574,12 @@ msgid "Name:"
 msgstr "名称："
 
 #: plugins/pastebin/pastebin_dialog.vala:259
-#, fuzzy
 msgid "Format:"
-msgstr "格式： "
+msgstr "格式："
 
 #: plugins/pastebin/pastebin_dialog.vala:264
-#, fuzzy
 msgid "Others…"
-msgstr "其它..."
+msgstr "其它…"
 
 #: plugins/pastebin/pastebin_dialog.vala:286
 msgid "Expiry time:"
@@ -690,8 +667,8 @@ msgid ""
 "No suitable dictionaries were found.\n"
 "Please install at least one [aspell] dictionary"
 msgstr ""
-"找不到合适的字典。\n"
-"请至少安装一个 [aspell] 字典。"
+"找不到合适的词典。\n"
+"请至少安装一个 [aspell] 词典"
 
 #: plugins/word-completion/plugin.vala:174
 #, c-format
