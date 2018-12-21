@@ -89,7 +89,7 @@ namespace Scratch {
         }
 
     }
-    
+
     public class FolderManagerSettings : Granite.Services.Settings {
 
         private const string SCHEMA = Constants.PROJECT_NAME + ".folder-manager";
@@ -97,6 +97,17 @@ namespace Scratch {
         public string[] opened_folders { get; set; }
 
         public FolderManagerSettings () {
+            base (SCHEMA);
+        }
+    }
+
+    public class PrivacySettings : Granite.Services.Settings {
+
+        private const string SCHEMA = "org.gnome.desktop.privacy";
+
+        public bool remember_recent_files { get; set; }
+
+        public PrivacySettings () {
             base (SCHEMA);
         }
     }

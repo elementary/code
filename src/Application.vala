@@ -24,6 +24,7 @@ namespace Scratch {
     public SavedState saved_state;
     public Settings settings;
     public ServicesSettings services;
+    public PrivacySettings privacy_settings;
 
     public class Application : Gtk.Application {
         public string app_cmd_name { get { return _app_cmd_name; } }
@@ -58,6 +59,7 @@ namespace Scratch {
             saved_state = new SavedState ();
             settings = new Settings ();
             services = new ServicesSettings ();
+            privacy_settings = new PrivacySettings ();
 
             // Init data home folder for unsaved text files
             _data_home_folder_unsaved = Path.build_filename (Environment.get_user_data_dir (), Constants.PROJECT_NAME, "unsaved");

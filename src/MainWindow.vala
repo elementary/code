@@ -375,22 +375,24 @@ namespace Scratch {
         }
 
         public void restore_opened_documents () {
-            string[] uris_view1 = settings.opened_files_view1;
-            string[] uris_view2 = settings.opened_files_view2;
-            string focused_document1 = settings.focused_document_view1;
-            string focused_document2 = settings.focused_document_view2;
+            if (privacy_settings.remember_recent_files) {
+                string[] uris_view1 = settings.opened_files_view1;
+                string[] uris_view2 = settings.opened_files_view2;
+                string focused_document1 = settings.focused_document_view1;
+                string focused_document2 = settings.focused_document_view2;
 
-            if (uris_view1.length > 0) {
-                var view = add_view ();
-                if (!load_files_for_view (view, uris_view1, focused_document1)) {
-                    split_view.remove_view (view);
+                if (uris_view1.length > 0) {
+                    var view = add_view ();
+                    if (!load_files_for_view (view, uris_view1, focused_document1)) {
+                        split_view.remove_view (view);
+                    }
                 }
-            }
 
-            if (uris_view2.length > 0) {
-                var view = add_view ();
-                if (!load_files_for_view (view, uris_view2, focused_document2)) {
-                    split_view.remove_view (view);
+                if (uris_view2.length > 0) {
+                    var view = add_view ();
+                    if (!load_files_for_view (view, uris_view2, focused_document2)) {
+                        split_view.remove_view (view);
+                    }
                 }
             }
         }
