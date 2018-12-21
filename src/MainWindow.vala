@@ -394,12 +394,6 @@ namespace Scratch {
                         split_view.remove_view (view);
                     }
                 }
-            } else {
-                /* If privacy setting was changed while Code closed, clear history info from settings */
-                settings.opened_files_view1 = {};
-                settings.opened_files_view2 = {};
-                settings.focused_document_view1 = "";
-                settings.focused_document_view2 = "";
             }
         }
 

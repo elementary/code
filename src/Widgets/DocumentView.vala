@@ -95,11 +95,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         );
 
-        privacy_settings.changed.connect (() => {
-            save_opened_files ();  /* Will clear the list if remember_recent_files is false */
-            save_focused_document_uri (current_document);
-        });
-
         /* SplitView shows view as required */
     }
 
@@ -364,23 +359,17 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     }
 
     private void save_focused_document_uri (Services.Document? current_document) {
-        string file_uri = "";
-
-        if (current_document != null) {
-            file_uri = current_document.file.get_uri();
-        }
-
         if (privacy_settings.remember_recent_files) {
+            string file_uri = "";
+
+            if (current_document != null) {
+                file_uri = current_document.file.get_uri();
+            }
+
             if (view_id == 1) {
                 settings.focused_document_view1 = file_uri;
             } else {
                 settings.focused_document_view2 = file_uri;
-            }
-        } else {
-            if (view_id == 1) {
-                settings.focused_document_view1 = "";;
-            } else {
-                settings.focused_document_view1 = "";;
             }
         }
     }
