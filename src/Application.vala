@@ -121,11 +121,7 @@ namespace Scratch {
                 File[] files = new File[unclaimed_args];
                 files.length = 0;
 
-                foreach (string arg in args[1:unclaimed_args + 1]) {
-                    if (arg == null) {
-                        continue;
-                    }
-
+                foreach (unowned string arg in args[1:unclaimed_args]) {
                     // We set a message, that later is informed to the user
                     // in a dialog if something noteworthy happens.
                     string msg = "";
