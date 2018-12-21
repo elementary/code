@@ -96,15 +96,15 @@ namespace Scratch {
                 return Posix.EXIT_SUCCESS;
             }
 
-            // Create (or show) the first window
-            activate ();
-
             // Create a next window if requested and it's not the app launch
             bool is_app_launch = (get_last_window () == null);
             if (create_new_window && !is_app_launch) {
                 create_new_window = false;
                 this.new_window ();
             }
+
+            // Create (or show) the first window
+            activate ();
 
             // Create a new document if requested
             if (create_new_tab) {
@@ -122,6 +122,10 @@ namespace Scratch {
                 files.length = 0;
 
                 foreach (string arg in args[1:unclaimed_args + 1]) {
+                    if (arg == null) {
+                        continue;
+                    }
+
                     // We set a message, that later is informed to the user
                     // in a dialog if something noteworthy happens.
                     string msg = "";
