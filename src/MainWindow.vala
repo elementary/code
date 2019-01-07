@@ -353,9 +353,6 @@ namespace Scratch {
 
             add (vp);
 
-            // Show/Hide widgets
-            show_all ();
-
             search_revealer.set_reveal_child (false);
 
             realize.connect (() => {
@@ -374,6 +371,9 @@ namespace Scratch {
 
                 hook_func ();
             });
+
+            // Show/Hide widgets
+            show_all ();
         }
 
         public void restore_opened_documents () {
