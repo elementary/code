@@ -80,11 +80,9 @@ namespace Scratch {
             context.add_group (Gtk.get_option_group (true));
 
             string[] args = command_line.get_arguments ();
-            int unclaimed_args;
 
             try {
                 context.parse_strv (ref args);
-                unclaimed_args = args.length - 1;
             } catch(Error e) {
                 print (e.message + "\n");
 
@@ -116,12 +114,11 @@ namespace Scratch {
             // Set Current Directory
             Environment.set_current_dir (_cwd);
 
+            int args_length = args.length;
             // Open all files given as arguments
-            if (unclaimed_args > 0) {
-                File[] files = new File[unclaimed_args];
-                files.length = 0;
-
-                foreach (unowned string arg in args[1:unclaimed_args]) {
+            if (args_length > 1) {
+                File[] files = {};
+                foreach (unowned string arg in args[1:args_length]) {
                     // We set a message, that later is informed to the user
                     // in a dialog if something noteworthy happens.
                     string msg = "";
