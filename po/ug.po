@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-04 11:52-0800\n"
+"POT-Creation-Date: 2019-01-08 15:53-0800\n"
 "PO-Revision-Date: 2016-12-11 08:21+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: \n"
@@ -14,23 +14,23 @@ msgstr ""
 "X-Generator: Launchpad (build 18366)\n"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:138
+#: src/Application.vala:135
 msgid "Maybe you do not have the necessary permissions."
 msgstr "بەلكىم سىزنىڭ زۆرۈر ھوقۇقىڭىز يوق بولۇشى مۇمكىن."
 
-#: src/Application.vala:140
+#: src/Application.vala:137
 msgid "Maybe the file path provided is not valid."
 msgstr "بەلكىم تەمىنلەنگەن ھۆججەت ئادىرىسى ئىناۋەتسىز بولۇشى مۇمكىن."
 
-#: src/Application.vala:142
+#: src/Application.vala:139
 msgid "The location is read-only."
 msgstr "بۇ ئادىرىسنى پەقەت ئوقۇغىلى بولىدۇ."
 
-#: src/Application.vala:144
+#: src/Application.vala:141
 msgid "The parent directory doesn't exist."
 msgstr "يۇقىرى دەرىجىلىك مۇندەرىجە مەۋجۇت ئەمەس."
 
-#: src/Application.vala:151
+#: src/Application.vala:148
 #, c-format
 msgid ""
 "File \"%s\" cannot be created.\n"
@@ -39,7 +39,7 @@ msgstr ""
 "ھۆججەت \"%s\" نى قۇرغىلى بولمىدى.\n"
 "\"%s\""
 
-#: src/Application.vala:161
+#: src/Application.vala:158
 #, c-format
 msgid ""
 "File \"%s\" cannot be opened.\n"
@@ -48,11 +48,11 @@ msgstr ""
 "ھۆججەت \"%s\" نى ئاچقىلى بولمىدى.\n"
 "\"%s\""
 
-#: src/Application.vala:171
+#: src/Application.vala:168
 msgid "It is a mountable location."
 msgstr "بۇ يۈكلىگىلى بولىدىغان ئادىرىس."
 
-#: src/Application.vala:174
+#: src/Application.vala:171
 #, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
@@ -61,27 +61,27 @@ msgstr ""
 "بۇ بىر Socket قا ئوخشاش ئالاھىدە ھۆججەت،\n"
 "FIFO ھۆججىتى، بۆلەك ئۈسكىنىسى ياكى ھەرپ-بەلگە ئۈسكۈنىسى."
 
-#: src/Application.vala:177
+#: src/Application.vala:174
 msgid "It is an \"unknown\" file type."
 msgstr "بۇ بىر نامەلۇم ھۆججەت تۈرى."
 
-#: src/Application.vala:266
+#: src/Application.vala:263
 msgid "New Tab"
 msgstr "يىڭى خەتكۈچ"
 
-#: src/Application.vala:267 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:264 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "يىڭى كۆزنەك"
 
-#: src/Application.vala:268
+#: src/Application.vala:265
 msgid "Print version info and exit"
 msgstr "نەشىر ئۇچۇرلىرىنى بىسىش ۋە چىكىنىش"
 
-#: src/Application.vala:269
+#: src/Application.vala:266
 msgid "Set of plugins"
 msgstr "قىستۇرمىلار توپلىمى"
 
-#: src/Application.vala:270
+#: src/Application.vala:267
 msgid "Current working directory"
 msgstr "ھازىر خىزمەت قىلىۋاتقان مۇندەرىجە"
 
@@ -313,7 +313,7 @@ msgstr ""
 
 #: src/Services/Document.vala:294
 #, fuzzy
-msgid "Cancel Load"
+msgid "Cancel Loading"
 msgstr "ئەمەلدىن قالدۇرۇش"
 
 #: src/Services/Document.vala:400
@@ -348,8 +348,7 @@ msgstr ""
 
 #: src/Services/Document.vala:708
 #, fuzzy
-msgid ""
-"Maybe it is corrupt or you do not have the necessary permissions to read it."
+msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "ھۆججەت  \"%s\" نى ئوقۇغىلى بولمىدى. ھۆججەت بۇزغۇنچىلىققا ئۇچرىغان بولىشى "
 "ياكى سىزنىڭ ئوقۇش ھوقۇقىڭىز يوق بولىشى مۇمكىن."
@@ -374,10 +373,10 @@ msgstr "ھۆججەت \"%s\" ئۆچۈرۈلگەن. يىڭى نۇسخىسىنى س
 
 #. If the file can't be written
 #: src/Services/Document.vala:742
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"You cannot save changes on file \"%s\". Do you want to save the changes to "
-"this file in a different location?"
+"You cannot save changes to the file \"%s\". Do you want to save the changes "
+"somewhere else?"
 msgstr ""
 "ھۆججەت  \"%s\" تىكى ئۆزگەرتىشلەرنى ساقلىغىلى بولمىدى. باشقا يەرگە ساقلامسىز؟"
 
