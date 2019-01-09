@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-04 11:52-0800\n"
-"PO-Revision-Date: 2018-09-27 00:09+0000\n"
-"Last-Translator: Nils K <slx@nilsk.net>\n"
+"PO-Revision-Date: 2019-01-09 00:02+0000\n"
+"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://weblate.elementary.io/projects/code/"
 "plugins/nb/>\n"
 "Language: nb\n"
@@ -66,9 +66,8 @@ msgid "Outline"
 msgstr "Omriss"
 
 #: plugins/outline/outline.plugin:7
-#, fuzzy
 msgid "Outline symbols in your current file for Vala"
-msgstr "Disposisjoner symboler i gjeldende fil for vala"
+msgstr "Disposisjoner symboler i gjeldende fil for Vala"
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
@@ -115,9 +114,8 @@ msgid "Vim Emulation"
 msgstr "Vim-emulering"
 
 #: plugins/vim-emulation/vim-emulation.plugin:7
-#, fuzzy
 msgid "Use Vim commands in Code"
-msgstr "Bruk Vim-kommandoer i Scratch"
+msgstr "Bruk Vim-kommandoer i Code"
 
 #: plugins/word-completion/word-completion.plugin:3
 msgid "Words Completion"
