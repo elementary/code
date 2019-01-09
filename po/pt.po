@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-08 15:53-0800\n"
-"PO-Revision-Date: 2019-01-06 00:01+0000\n"
-"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
+"PO-Revision-Date: 2019-01-09 10:51+0000\n"
+"Last-Translator: Nuno Alexandre MS Ribeiro <nuno.anarresti@gmail.com>\n"
 "Language-Team: Portuguese <https://weblate.elementary.io/projects/code/code/"
 "pt/>\n"
 "Language: pt\n"
@@ -313,7 +313,6 @@ msgid "Please wait while Code is loading the file."
 msgstr "Aguarde enquanto o Code está a carregar o ficheiro."
 
 #: src/Services/Document.vala:294
-#, fuzzy
 msgid "Cancel Loading"
 msgstr "Cancelar Carregamento"
 
@@ -348,7 +347,6 @@ msgid "File \"%s\" Cannot Be Read"
 msgstr "Não é Possível Ler o Ficheiro \"%s\""
 
 #: src/Services/Document.vala:708
-#, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "É possível que esteja danificado ou não tem as permissões necessárias para o "
@@ -374,13 +372,13 @@ msgstr "O ficheiro \"%s\" foi apagado. Deseja guardá-lo mesmo assim?"
 
 #. If the file can't be written
 #: src/Services/Document.vala:742
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
 "Não pode guardar as alterações no ficheiro \"%s\". Deseja guardar as "
-"alterações do ficheiro num local diferente?"
+"alterações num local diferente?"
 
 #: src/Services/Document.vala:744
 msgid "Save changes elsewhere"
