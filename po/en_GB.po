@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-08 15:53-0800\n"
-"PO-Revision-Date: 2018-10-30 00:00+0000\n"
-"Last-Translator: Ciaran Ainsworth <ciaranainsworth@outlook.com>\n"
+"PO-Revision-Date: 2019-01-09 12:37+0000\n"
+"Last-Translator: Ciarán Ainsworth <ciaranainsworth@outlook.com>\n"
 "Language-Team: English (United Kingdom) <https://weblate.elementary.io/"
 "projects/code/code/en_GB/>\n"
 "Language: en_GB\n"
@@ -313,9 +313,8 @@ msgid "Please wait while Code is loading the file."
 msgstr "Please wait while Code is loading the file."
 
 #: src/Services/Document.vala:294
-#, fuzzy
 msgid "Cancel Loading"
-msgstr "Cancel Load"
+msgstr "Cancel Loading"
 
 #: src/Services/Document.vala:400
 #, c-format
@@ -347,10 +346,8 @@ msgid "File \"%s\" Cannot Be Read"
 msgstr "File \"%s\" Cannot Be Read"
 
 #: src/Services/Document.vala:708
-#, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
-msgstr ""
-"Maybe it is corrupt or you do not have the necessary permissions to read it."
+msgstr "It may be corrupt or you don't have permission to read it."
 
 #: src/Services/Document.vala:720
 #, c-format
@@ -372,13 +369,13 @@ msgstr "File \"%s\" was deleted. Do you want to save it anyway?"
 
 #. If the file can't be written
 #: src/Services/Document.vala:742
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
-"You cannot save changes on file \"%s\". Do you want to save the changes to "
-"this file in a different location?"
+"You cannot save changes to the file \"%s\". Do you want to save the changes "
+"somewhere else?"
 
 #: src/Services/Document.vala:744
 msgid "Save changes elsewhere"
