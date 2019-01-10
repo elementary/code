@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-18 14:13-0700\n"
-"PO-Revision-Date: 2018-12-03 00:08+0000\n"
+"POT-Creation-Date: 2019-01-04 11:52-0800\n"
+"PO-Revision-Date: 2019-01-07 11:12+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/code/extra/"
 "ja/>\n"
@@ -35,8 +35,9 @@ msgid ""
 "they're always up-to-date. Plus it remembers your tabs so you never lose "
 "your spot, even in between sessions."
 msgstr ""
-"\"コード\" は便利なエディターです。ファイルを自動保存して、常に最新の状態を維持します。加えてタブを保存するので、セッション間であっても編集場所を見失"
-"うことはありません。"
+"\"コード\" は便利なエディターです。ファイルを自動保存して、常に最新の状態を維"
+"持します。加えてタブを保存するので、セッション間であっても編集場所を見失うこ"
+"とはありません。"
 
 #: data/io.elementary.code.appdata.xml.in:16
 msgid ""
@@ -45,8 +46,10 @@ msgid ""
 "a full-blown IDE; it's your choice. And with a handful of useful "
 "preferences, you can tweak the behavior and interface to your liking."
 msgstr ""
-"あなたのものにする。\"コード\" は最大限に拡張可能になるように書かれています。超軽量でシンプルなままを保つか、\"コード\" "
-"を本格的な総合開発環境へと変化させるか、それはあなた次第です。そしてひとつかみの便利な設定で、好みに応じた動作やインターフェースに微調整できます。"
+"あなたのものにする。\"コード\" は最大限に拡張可能になるように書かれています。"
+"超軽量でシンプルなままを保つか、\"コード\" を本格的な総合開発環境へと変化させ"
+"るか、それはあなた次第です。そしてひとつかみの便利な設定で、好みに応じた動作"
+"やインターフェースに微調整できます。"
 
 #: data/io.elementary.code.appdata.xml.in:22
 msgid ""
@@ -54,8 +57,9 @@ msgid ""
 "meaning it closely follows the high standards of design, speed, and "
 "consistency. It's sexy, but not distracting."
 msgstr ""
-"It's elementary. \"コード\" は elementary "
-"向けの完璧なエディターとして作られており、高水準のデザイン、スピード、そして一貫性を持っています。とても美しいですが、気をそらすわけではありません。"
+"It's elementary. \"コード\" は elementary 向けの完璧なエディターとして作られ"
+"ており、高水準のデザイン、スピード、そして一貫性を持っています。とても美しい"
+"ですが、気をそらすわけではありません。"
 
 #: data/io.elementary.code.appdata.xml.in:27
 msgid ""
@@ -64,8 +68,10 @@ msgid ""
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
-"お使いの言語で動作します。Vala でコードを作成していても、PHP でスクリプティングしていても、HTML で何かを作り出していても、\"コード\" "
-"はあなたをカバーします。ほぼすべてのプログラミング言語・スクリプティング言語・マークアップ言語で最大限のシンタックスハイライトを体験できます。"
+"お使いの言語で動作します。Vala でコードを作成していても、PHP でスクリプティン"
+"グしていても、HTML で何かを作り出していても、\"コード\" はあなたをカバーしま"
+"す。ほぼすべてのプログラミング言語・スクリプティング言語・マークアップ言語で"
+"最大限のシンタックスハイライトを体験できます。"
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid ""
@@ -73,9 +79,9 @@ msgid ""
 "Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
 "Objective C, Pascal, Perl, Python, Ruby, XML."
 msgstr ""
-"その他のシンタックスハイライトが利用可能な言語: Bash、C、C#、C++、Cmake、CSS、.Desktop、Diff、Fortran、Gettex"
-"t、ini、Java、JavaScript、LaTex、Lua、Makefile、Objective "
-"C、Pascal、Perl、Python、Ruby、XML。"
+"その他のシンタックスハイライトが利用可能な言語: Bash、C、C#、C++、Cmake、"
+"CSS、.Desktop、Diff、Fortran、Gettext、ini、Java、JavaScript、LaTex、Lua、"
+"Makefile、Objective C、Pascal、Perl、Python、Ruby、XML。"
 
 #: data/io.elementary.code.appdata.xml.in:38
 msgid "Additional features include:"
@@ -97,7 +103,7 @@ msgstr "タブおよび分割ドキュメントシステム"
 msgid "lots of others"
 msgstr "その他数々の機能"
 
-#: data/io.elementary.code.appdata.xml.in:84
+#: data/io.elementary.code.appdata.xml.in:101
 msgid "elementary LLC."
 msgstr "elementary LLC."
 
@@ -114,8 +120,8 @@ msgid "io.elementary.code"
 msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
-msgid "IDE;scratch;"
-msgstr "IDE;scratch;統合開発環境;"
+msgid "text;IDE;scratch;"
+msgstr "text;IDE;scratch;テキスト;統合開発環境;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New Document"
