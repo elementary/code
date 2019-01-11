@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-08 15:53-0800\n"
-"PO-Revision-Date: 2018-11-16 08:39+0000\n"
-"Last-Translator: Corentin Noël <corentin@elementary.io>\n"
-"Language-Team: French <https://weblate.elementary.io/projects/code/code/fr/"
-">\n"
+"PO-Revision-Date: 2019-01-11 08:58+0000\n"
+"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
+"Language-Team: French <https://weblate.elementary.io/projects/code/code/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -313,7 +313,6 @@ msgid "Please wait while Code is loading the file."
 msgstr "Veuillez attendre que Code ait chargé le fichier."
 
 #: src/Services/Document.vala:294
-#, fuzzy
 msgid "Cancel Loading"
 msgstr "Annuler le chargement"
 
@@ -349,11 +348,8 @@ msgid "File \"%s\" Cannot Be Read"
 msgstr "Impossible de lire le fichier « %s »"
 
 #: src/Services/Document.vala:708
-#, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
-msgstr ""
-"Il est peut-être corrompu ou vous n'avez pas les droits nécessaires pour le "
-"lire."
+msgstr "Il peut être corrompu ou vous n'avez pas la permission de le lire."
 
 #: src/Services/Document.vala:720
 #, c-format
@@ -376,7 +372,7 @@ msgstr ""
 
 #. If the file can't be written
 #: src/Services/Document.vala:742
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
