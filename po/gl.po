@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-04 11:52-0800\n"
+"POT-Creation-Date: 2019-01-08 15:53-0800\n"
 "PO-Revision-Date: 2018-10-23 00:02+0000\n"
 "Last-Translator: Pablo Varela <pablovarela182@gmail.com>\n"
 "Language-Team: Galician <https://weblate.elementary.io/projects/code/code/gl/"
@@ -21,23 +21,23 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:138
+#: src/Application.vala:135
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Probablemente non ten os permisos necesarios."
 
-#: src/Application.vala:140
+#: src/Application.vala:137
 msgid "Maybe the file path provided is not valid."
 msgstr "Probablemente o arquivo espcecificado non é valido."
 
-#: src/Application.vala:142
+#: src/Application.vala:139
 msgid "The location is read-only."
 msgstr "A localización é só de lectura."
 
-#: src/Application.vala:144
+#: src/Application.vala:141
 msgid "The parent directory doesn't exist."
 msgstr "O directorio pai non existe."
 
-#: src/Application.vala:151
+#: src/Application.vala:148
 #, c-format
 msgid ""
 "File \"%s\" cannot be created.\n"
@@ -46,7 +46,7 @@ msgstr ""
 "O arquivo \"%s\" non pode ser creado.\n"
 "%s"
 
-#: src/Application.vala:161
+#: src/Application.vala:158
 #, c-format
 msgid ""
 "File \"%s\" cannot be opened.\n"
@@ -55,11 +55,11 @@ msgstr ""
 "O arquivo \"%s\" non pode ser aberto.\n"
 "%s"
 
-#: src/Application.vala:171
+#: src/Application.vala:168
 msgid "It is a mountable location."
 msgstr "É unha localización que se pode montar."
 
-#: src/Application.vala:174
+#: src/Application.vala:171
 #, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
@@ -68,27 +68,27 @@ msgstr ""
 "É un archivo \"especial\" como un socket,\n"
 "·FIFO, dispositivo de bloque, ou dispositivo de caracter."
 
-#: src/Application.vala:177
+#: src/Application.vala:174
 msgid "It is an \"unknown\" file type."
 msgstr "É un arquivo de tipo \"desconocido\"."
 
-#: src/Application.vala:266
+#: src/Application.vala:263
 msgid "New Tab"
 msgstr "Nova lapela"
 
-#: src/Application.vala:267 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:264 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Nova xanela"
 
-#: src/Application.vala:268
+#: src/Application.vala:265
 msgid "Print version info and exit"
 msgstr "Amosar información da versión e saír"
 
-#: src/Application.vala:269
+#: src/Application.vala:266
 msgid "Set of plugins"
 msgstr "Conxunto de engadidos"
 
-#: src/Application.vala:270
+#: src/Application.vala:267
 msgid "Current working directory"
 msgstr "Directorio de traballo actual"
 
@@ -315,7 +315,8 @@ msgid "Please wait while Code is loading the file."
 msgstr "Por favor agarda mentres Code está cargando o ficheiro."
 
 #: src/Services/Document.vala:294
-msgid "Cancel Load"
+#, fuzzy
+msgid "Cancel Loading"
 msgstr "Cancelar Carga"
 
 #: src/Services/Document.vala:400
@@ -349,8 +350,8 @@ msgid "File \"%s\" Cannot Be Read"
 msgstr "O Ficheiro \"%s\" Non Pode Ser Lido"
 
 #: src/Services/Document.vala:708
-msgid ""
-"Maybe it is corrupt or you do not have the necessary permissions to read it."
+#, fuzzy
+msgid "It may be corrupt or you don't have permission to read it."
 msgstr "Tal vez esté corrupto ou non ten os permisos necesarios para lelo."
 
 #: src/Services/Document.vala:720
@@ -373,8 +374,8 @@ msgstr ""
 #: src/Services/Document.vala:742
 #, c-format
 msgid ""
-"You cannot save changes on file \"%s\". Do you want to save the changes to "
-"this file in a different location?"
+"You cannot save changes to the file \"%s\". Do you want to save the changes "
+"somewhere else?"
 msgstr ""
 
 #: src/Services/Document.vala:744

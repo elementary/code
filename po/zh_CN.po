@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-04 11:52-0800\n"
-"PO-Revision-Date: 2018-11-29 00:02+0000\n"
+"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"PO-Revision-Date: 2019-01-15 12:35+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.elementary.io/projects/"
 "code/code/zh_Hans/>\n"
@@ -21,23 +21,23 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:138
+#: src/Application.vala:135
 msgid "Maybe you do not have the necessary permissions."
 msgstr "您可能没有所需的权限。"
 
-#: src/Application.vala:140
+#: src/Application.vala:137
 msgid "Maybe the file path provided is not valid."
 msgstr "可能是提供的文件路径无效。"
 
-#: src/Application.vala:142
+#: src/Application.vala:139
 msgid "The location is read-only."
 msgstr "此路径是只读的。"
 
-#: src/Application.vala:144
+#: src/Application.vala:141
 msgid "The parent directory doesn't exist."
 msgstr "上级目录不存在。"
 
-#: src/Application.vala:151
+#: src/Application.vala:148
 #, c-format
 msgid ""
 "File \"%s\" cannot be created.\n"
@@ -46,7 +46,7 @@ msgstr ""
 "无法创建文件 “%s”。\n"
 "%s"
 
-#: src/Application.vala:161
+#: src/Application.vala:158
 #, c-format
 msgid ""
 "File \"%s\" cannot be opened.\n"
@@ -55,11 +55,11 @@ msgstr ""
 "无法打开文件 “%s”。\n"
 "%s"
 
-#: src/Application.vala:171
+#: src/Application.vala:168
 msgid "It is a mountable location."
 msgstr "这是一个可挂载的路径。"
 
-#: src/Application.vala:174
+#: src/Application.vala:171
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -67,27 +67,27 @@ msgstr ""
 "这是一个“特殊”文件，如 Socket 文件、\n"
 "FIFO 文件、区块设备或字符设备等。"
 
-#: src/Application.vala:177
+#: src/Application.vala:174
 msgid "It is an \"unknown\" file type."
 msgstr "这是一种“未知”文件类型。"
 
-#: src/Application.vala:266
+#: src/Application.vala:263
 msgid "New Tab"
 msgstr "新标签页"
 
-#: src/Application.vala:267 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:264 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "新窗口"
 
-#: src/Application.vala:268
+#: src/Application.vala:265
 msgid "Print version info and exit"
 msgstr "打印版本信息并退出"
 
-#: src/Application.vala:269
+#: src/Application.vala:266
 msgid "Set of plugins"
 msgstr "插件集"
 
-#: src/Application.vala:270
+#: src/Application.vala:267
 msgid "Current working directory"
 msgstr "当前工作目录"
 
@@ -313,7 +313,7 @@ msgid "Please wait while Code is loading the file."
 msgstr "请耐心等待文件载入。"
 
 #: src/Services/Document.vala:294
-msgid "Cancel Load"
+msgid "Cancel Loading"
 msgstr "取消载入"
 
 #: src/Services/Document.vala:400
@@ -345,8 +345,7 @@ msgid "File \"%s\" Cannot Be Read"
 msgstr "文件 “%s” 不可读"
 
 #: src/Services/Document.vala:708
-msgid ""
-"Maybe it is corrupt or you do not have the necessary permissions to read it."
+msgid "It may be corrupt or you don't have permission to read it."
 msgstr "可能文件已损坏或您没有读取它的权限。"
 
 #: src/Services/Document.vala:720
@@ -369,8 +368,8 @@ msgstr "文件 \"%s\" 已被删除。 您想储存此文件的副本吗？"
 #: src/Services/Document.vala:742
 #, c-format
 msgid ""
-"You cannot save changes on file \"%s\". Do you want to save the changes to "
-"this file in a different location?"
+"You cannot save changes to the file \"%s\". Do you want to save the changes "
+"somewhere else?"
 msgstr "无法保存对文件 \"%s\" 的更改。您想将更改的内容保存至其他位置吗？"
 
 #: src/Services/Document.vala:744

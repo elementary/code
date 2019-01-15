@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-04 11:52-0800\n"
+"POT-Creation-Date: 2019-01-08 15:53-0800\n"
 "PO-Revision-Date: 2018-09-01 00:08+0000\n"
 "Last-Translator: Dieter Debast <dieter_debast@hotmail.com>\n"
 "Language-Team: Dutch <https://weblate.elementary.io/projects/code/code/nl/>\n"
@@ -20,23 +20,23 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:138
+#: src/Application.vala:135
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Misschien heeft u niet de benodigde rechten."
 
-#: src/Application.vala:140
+#: src/Application.vala:137
 msgid "Maybe the file path provided is not valid."
 msgstr "Misschien is het bestandspad niet geldig."
 
-#: src/Application.vala:142
+#: src/Application.vala:139
 msgid "The location is read-only."
 msgstr "De locatie is alleen-lezen."
 
-#: src/Application.vala:144
+#: src/Application.vala:141
 msgid "The parent directory doesn't exist."
 msgstr "De bovenliggende map bestaat niet."
 
-#: src/Application.vala:151
+#: src/Application.vala:148
 #, c-format
 msgid ""
 "File \"%s\" cannot be created.\n"
@@ -45,7 +45,7 @@ msgstr ""
 "Bestand \"%s\" kan niet aangemaakt worden.\n"
 "%s"
 
-#: src/Application.vala:161
+#: src/Application.vala:158
 #, c-format
 msgid ""
 "File \"%s\" cannot be opened.\n"
@@ -54,11 +54,11 @@ msgstr ""
 "Bestand \"%s\" kan niet geopend worden.\n"
 "%s"
 
-#: src/Application.vala:171
+#: src/Application.vala:168
 msgid "It is a mountable location."
 msgstr "Het is een koppelbare locatie."
 
-#: src/Application.vala:174
+#: src/Application.vala:171
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -66,27 +66,27 @@ msgstr ""
 "Het is een \"speciaal\" bestand zoals een socket,\n"
 " FIFO, bloktoestel of karaktertoestel."
 
-#: src/Application.vala:177
+#: src/Application.vala:174
 msgid "It is an \"unknown\" file type."
 msgstr "Het is een \"onbekend\" bestandstype."
 
-#: src/Application.vala:266
+#: src/Application.vala:263
 msgid "New Tab"
 msgstr "Nieuwe tab"
 
-#: src/Application.vala:267 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:264 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Nieuw venster"
 
-#: src/Application.vala:268
+#: src/Application.vala:265
 msgid "Print version info and exit"
 msgstr "Toon versie informatie en verlaat applicatie"
 
-#: src/Application.vala:269
+#: src/Application.vala:266
 msgid "Set of plugins"
 msgstr "Pluginset"
 
-#: src/Application.vala:270
+#: src/Application.vala:267
 msgid "Current working directory"
 msgstr "Huidige werkmap"
 
@@ -312,7 +312,8 @@ msgid "Please wait while Code is loading the file."
 msgstr ""
 
 #: src/Services/Document.vala:294
-msgid "Cancel Load"
+#, fuzzy
+msgid "Cancel Loading"
 msgstr "Annuleer inladen"
 
 #: src/Services/Document.vala:400
@@ -346,8 +347,8 @@ msgid "File \"%s\" Cannot Be Read"
 msgstr "Bestand \"%s\" kan niet gelezen worden"
 
 #: src/Services/Document.vala:708
-msgid ""
-"Maybe it is corrupt or you do not have the necessary permissions to read it."
+#, fuzzy
+msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Het bestand kan beschadigd zijn of u heeft niet de benodigde rechten om het "
 "te lezen."
@@ -372,10 +373,10 @@ msgstr "Het bestand \"%s\" is verwijderd. Wilt u het alsnog opslaan?"
 
 #. If the file can't be written
 #: src/Services/Document.vala:742
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"You cannot save changes on file \"%s\". Do you want to save the changes to "
-"this file in a different location?"
+"You cannot save changes to the file \"%s\". Do you want to save the changes "
+"somewhere else?"
 msgstr ""
 "U kunt de wijzigingen in het bestand \"%s\" niet opslaan. Wilt u een kopie "
 "van dit bestand opslaan op een andere locatie?"

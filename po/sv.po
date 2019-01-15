@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-04 11:52-0800\n"
+"POT-Creation-Date: 2019-01-08 15:53-0800\n"
 "PO-Revision-Date: 2018-10-20 00:10+0000\n"
 "Last-Translator: Fredrik B <frbo9002@gmail.com>\n"
 "Language-Team: Swedish <https://weblate.elementary.io/projects/code/code/sv/"
@@ -21,23 +21,23 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:138
+#: src/Application.vala:135
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Du kanske inte har nödvändiga behörigheter."
 
-#: src/Application.vala:140
+#: src/Application.vala:137
 msgid "Maybe the file path provided is not valid."
 msgstr "Sökvägen är kanske ogiltig."
 
-#: src/Application.vala:142
+#: src/Application.vala:139
 msgid "The location is read-only."
 msgstr "Platsen är skrivskyddad."
 
-#: src/Application.vala:144
+#: src/Application.vala:141
 msgid "The parent directory doesn't exist."
 msgstr "Föräldermappen finns inte."
 
-#: src/Application.vala:151
+#: src/Application.vala:148
 #, c-format
 msgid ""
 "File \"%s\" cannot be created.\n"
@@ -46,7 +46,7 @@ msgstr ""
 "Filen \"%s\" kan inte skapas.\n"
 "%s"
 
-#: src/Application.vala:161
+#: src/Application.vala:158
 #, c-format
 msgid ""
 "File \"%s\" cannot be opened.\n"
@@ -55,11 +55,11 @@ msgstr ""
 "Filen \"%s\" kan inte öppnas.\n"
 "%s"
 
-#: src/Application.vala:171
+#: src/Application.vala:168
 msgid "It is a mountable location."
 msgstr "Det är en monterbar plats."
 
-#: src/Application.vala:174
+#: src/Application.vala:171
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -67,27 +67,27 @@ msgstr ""
 "Det är en \"speciell\" fil, såsom en socket,\n"
 " FIFO, blockenhet eller bokstavsenhet."
 
-#: src/Application.vala:177
+#: src/Application.vala:174
 msgid "It is an \"unknown\" file type."
 msgstr "Det är en \"okänd\" filtyp."
 
-#: src/Application.vala:266
+#: src/Application.vala:263
 msgid "New Tab"
 msgstr "Ny flik"
 
-#: src/Application.vala:267 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:264 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Nytt fönster"
 
-#: src/Application.vala:268
+#: src/Application.vala:265
 msgid "Print version info and exit"
 msgstr "Skriv ut versionsinformation och avsluta"
 
-#: src/Application.vala:269
+#: src/Application.vala:266
 msgid "Set of plugins"
 msgstr "uppsättning av tillägg"
 
-#: src/Application.vala:270
+#: src/Application.vala:267
 msgid "Current working directory"
 msgstr "Aktuell arbetskatalog"
 
@@ -313,7 +313,8 @@ msgid "Please wait while Code is loading the file."
 msgstr "Vänta medan Kod laddar in filen."
 
 #: src/Services/Document.vala:294
-msgid "Cancel Load"
+#, fuzzy
+msgid "Cancel Loading"
 msgstr "Avbryt inladdning"
 
 #: src/Services/Document.vala:400
@@ -347,8 +348,8 @@ msgid "File \"%s\" Cannot Be Read"
 msgstr "Filen \"%s\" kan inte läsas"
 
 #: src/Services/Document.vala:708
-msgid ""
-"Maybe it is corrupt or you do not have the necessary permissions to read it."
+#, fuzzy
+msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Kanske har den skadats, eller så har du inte tillräckliga rättigheter för "
 "att läsa den."
@@ -373,10 +374,10 @@ msgstr "Filen \"%s\" raderades. Vill du spara den ändå?"
 
 #. If the file can't be written
 #: src/Services/Document.vala:742
-#, c-format
+#, fuzzy, c-format
 msgid ""
-"You cannot save changes on file \"%s\". Do you want to save the changes to "
-"this file in a different location?"
+"You cannot save changes to the file \"%s\". Do you want to save the changes "
+"somewhere else?"
 msgstr ""
 "Du kan inte spara ändringar i filen \"%s\". Vill du spara ändringarna i "
 "denna fil på annan plats?"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-04 11:52-0800\n"
-"PO-Revision-Date: 2018-12-02 06:19+0000\n"
+"PO-Revision-Date: 2019-01-09 11:26+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/code/code/ja/"
 ">\n"
@@ -21,23 +21,23 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:138
+#: src/Application.vala:135
 msgid "Maybe you do not have the necessary permissions."
 msgstr "必要な権限がない可能性があります。"
 
-#: src/Application.vala:140
+#: src/Application.vala:137
 msgid "Maybe the file path provided is not valid."
 msgstr "指定されたファイルのパスが有効ではない可能性があります。"
 
-#: src/Application.vala:142
+#: src/Application.vala:139
 msgid "The location is read-only."
 msgstr "この場所は読み取り専用です。"
 
-#: src/Application.vala:144
+#: src/Application.vala:141
 msgid "The parent directory doesn't exist."
 msgstr "親ディレクトリが存在しません。"
 
-#: src/Application.vala:151
+#: src/Application.vala:148
 #, c-format
 msgid ""
 "File \"%s\" cannot be created.\n"
@@ -46,7 +46,7 @@ msgstr ""
 "ファイル \"%s\" を作成できません。\n"
 "%s"
 
-#: src/Application.vala:161
+#: src/Application.vala:158
 #, c-format
 msgid ""
 "File \"%s\" cannot be opened.\n"
@@ -55,11 +55,11 @@ msgstr ""
 "ファイル \"%s\" を開くことができません。\n"
 "%s"
 
-#: src/Application.vala:171
+#: src/Application.vala:168
 msgid "It is a mountable location."
 msgstr "これはマウント可能な場所です。"
 
-#: src/Application.vala:174
+#: src/Application.vala:171
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -67,27 +67,27 @@ msgstr ""
 "これは、ソケット、FIFO、ブロックデバイス、\n"
 " キャラクタデバイスなどの \"特別な\" ファイルです。"
 
-#: src/Application.vala:177
+#: src/Application.vala:174
 msgid "It is an \"unknown\" file type."
 msgstr "これは \"未知\" のファイル形式です。"
 
-#: src/Application.vala:266
+#: src/Application.vala:263
 msgid "New Tab"
 msgstr "新しいタブ"
 
-#: src/Application.vala:267 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:264 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "新しいウィンドウ"
 
-#: src/Application.vala:268
+#: src/Application.vala:265
 msgid "Print version info and exit"
 msgstr "バージョン情報を表示して終了します"
 
-#: src/Application.vala:269
+#: src/Application.vala:266
 msgid "Set of plugins"
 msgstr "プラグインのセット"
 
-#: src/Application.vala:270
+#: src/Application.vala:267
 msgid "Current working directory"
 msgstr "カレントディレクトリ"
 
@@ -196,7 +196,7 @@ msgstr "対となるブラケットをハイライト:"
 
 #: src/Dialogs/PreferencesDialog.vala:110
 msgid "Line wrap:"
-msgstr "行の折り返し："
+msgstr "行の折り返し:"
 
 #: src/Dialogs/PreferencesDialog.vala:113
 msgid "Draw Spaces:"
@@ -313,7 +313,7 @@ msgid "Please wait while Code is loading the file."
 msgstr "\"コード\" がファイルを読み込む間、お待ちください。"
 
 #: src/Services/Document.vala:294
-msgid "Cancel Load"
+msgid "Cancel Loading"
 msgstr "読み込みをキャンセル"
 
 #: src/Services/Document.vala:400
@@ -345,10 +345,8 @@ msgid "File \"%s\" Cannot Be Read"
 msgstr "ファイル \"%s\" を読み込めません"
 
 #: src/Services/Document.vala:708
-msgid ""
-"Maybe it is corrupt or you do not have the necessary permissions to read it."
-msgstr ""
-"ファイルが破損しているか、読み込むのに必要な権限がない可能性があります。"
+msgid "It may be corrupt or you don't have permission to read it."
+msgstr "ファイルが破損しているか、読み込む権限がない可能性があります。"
 
 #: src/Services/Document.vala:720
 #, c-format
@@ -372,11 +370,9 @@ msgstr "\"%s\" は削除されています。それでも保存しますか？"
 #: src/Services/Document.vala:742
 #, c-format
 msgid ""
-"You cannot save changes on file \"%s\". Do you want to save the changes to "
-"this file in a different location?"
-msgstr ""
-"ファイル \"%s\" の変更内容を保存できません。このファイルへの変更内容を別の場"
-"所に保存しますか？"
+"You cannot save changes to the file \"%s\". Do you want to save the changes "
+"somewhere else?"
+msgstr "ファイル \"%s\" に変更内容を保存できません。変更内容を別の場所に保存しますか？"
 
 #: src/Services/Document.vala:744
 msgid "Save changes elsewhere"
