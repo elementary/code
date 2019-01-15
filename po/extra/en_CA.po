@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-18 14:13-0700\n"
+"POT-Creation-Date: 2019-01-04 11:52-0800\n"
 "PO-Revision-Date: 2018-10-18 14:13-0700\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -100,7 +100,7 @@ msgstr "tab and split documents system"
 msgid "lots of others"
 msgstr "lots of others"
 
-#: data/io.elementary.code.appdata.xml.in:84
+#: data/io.elementary.code.appdata.xml.in:101
 msgid "elementary LLC."
 msgstr "elementary LLC."
 
@@ -117,7 +117,8 @@ msgid "io.elementary.code"
 msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
-msgid "IDE;scratch;"
+#, fuzzy
+msgid "text;IDE;scratch;"
 msgstr "IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17

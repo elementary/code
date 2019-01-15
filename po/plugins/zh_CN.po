@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-18 14:27-0700\n"
-"PO-Revision-Date: 2018-08-13 00:02+0000\n"
-"Last-Translator: Yang Yang <reliveyy@gmail.com>\n"
+"POT-Creation-Date: 2019-01-04 11:52-0800\n"
+"PO-Revision-Date: 2019-01-15 12:36+0000\n"
+"Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.elementary.io/projects/"
 "code/plugins/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -81,7 +81,7 @@ msgstr "保持缩进"
 
 #: plugins/preserve-indent/preserve-indent.plugin:7
 msgid "Maintains relative indent level of pasted text"
-msgstr "保持粘贴文本的相应缩进值"
+msgstr "保持粘贴文本的缩进"
 
 #: plugins/spell/spell.plugin:6
 msgid "Spell Checker"
@@ -112,7 +112,7 @@ msgid "Vim Emulation"
 msgstr "Vim 模拟"
 
 #: plugins/vim-emulation/vim-emulation.plugin:7
-msgid "Use Vim commands in Scratch"
+msgid "Use Vim commands in Code"
 msgstr "使用 Vim 指令"
 
 #: plugins/word-completion/word-completion.plugin:3

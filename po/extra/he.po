@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-18 14:13-0700\n"
-"PO-Revision-Date: 2018-02-21 12:19+0000\n"
+"POT-Creation-Date: 2019-01-04 11:52-0800\n"
+"PO-Revision-Date: 2019-01-07 14:09+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: Hebrew <https://weblate.elementary.io/projects/code/extra/he/"
-">\n"
+"Language-Team: Hebrew <https://weblate.elementary.io/projects/code/extra/he/>"
+"\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -100,7 +100,7 @@ msgstr "מערכת לשוניות ופיצול מסמכים"
 msgid "lots of others"
 msgstr "ועוד הרבה נוספים"
 
-#: data/io.elementary.code.appdata.xml.in:84
+#: data/io.elementary.code.appdata.xml.in:101
 msgid "elementary LLC."
 msgstr "elementary בע״מ."
 
@@ -117,8 +117,8 @@ msgid "io.elementary.code"
 msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
-msgid "IDE;scratch;"
-msgstr "סביבת פיתוח;קוד;תכנות;"
+msgid "text;IDE;scratch;"
+msgstr "סביבת פיתוח;קוד;תכנות;טקסט;עריכה;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New Document"

@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-18 14:27-0700\n"
-"PO-Revision-Date: 2018-07-19 17:02+0000\n"
-"Last-Translator: Corentin Noël <corentin@elementary.io>\n"
+"POT-Creation-Date: 2019-01-04 11:52-0800\n"
+"PO-Revision-Date: 2019-01-14 00:08+0000\n"
+"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://weblate.elementary.io/projects/code/plugins/"
 "fr/>\n"
 "Language: fr\n"
@@ -25,7 +25,7 @@ msgstr "Complétion de parenthèses et crochets"
 
 #: plugins/brackets-completion/brackets-completion.plugin:7
 msgid "Complete brackets while typing"
-msgstr "Complétion de parenthèses pendant l'écriture"
+msgstr "Complète les parenthèses et les crochets pendant l'écriture"
 
 #: plugins/browser-preview/browser-preview.plugin:6
 msgid "Browser Preview"
@@ -73,7 +73,7 @@ msgstr "Pastebin"
 
 #: plugins/pastebin/pastebin.plugin:7
 msgid "Share files with pastebin service"
-msgstr "Partager des fichiers avec le service pastebin"
+msgstr "Partager des fichiers avec le service Pastebin"
 
 #: plugins/preserve-indent/preserve-indent.plugin:6
 msgid "Preserve Indent"
@@ -97,7 +97,7 @@ msgstr "Enlever les espaces en fin de lignes"
 
 #: plugins/strip-trailing-save/strip-trailing-save.plugin:7
 msgid "Strip trailing whitespace on save"
-msgstr "Enlever les espaces en fin de ligne à l'enregistrement"
+msgstr "Supprime les espaces en fin de ligne à l'enregistrement"
 
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
@@ -112,8 +112,8 @@ msgid "Vim Emulation"
 msgstr "Émulation de Vim"
 
 #: plugins/vim-emulation/vim-emulation.plugin:7
-msgid "Use Vim commands in Scratch"
-msgstr "Utiliser les commandes de Vim dans Scratch"
+msgid "Use Vim commands in Code"
+msgstr "Utiliser les commandes de Vim dans Code"
 
 #: plugins/word-completion/word-completion.plugin:3
 msgid "Words Completion"
@@ -121,7 +121,7 @@ msgstr "Complétion automatique"
 
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
-msgstr "Montrer une invite avec les mots les plus utilisés dans vos fichiers"
+msgstr "Affiche une invite avec les mots les plus utilisés dans vos fichiers"
 
 #~ msgid "Contractor"
 #~ msgstr "Contractor"

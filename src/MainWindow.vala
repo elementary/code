@@ -210,6 +210,7 @@ namespace Scratch {
 
             // Set up layout
             init_layout ();
+            set_widgets_sensitive (false);
 
             toolbar.templates_button.visible = (plugins.plugin_iface.template_manager.template_available);
             plugins.plugin_iface.template_manager.notify["template_available"].connect (() => {
@@ -381,16 +382,21 @@ namespace Scratch {
 
             if (uris_view1.length > 0) {
                 var view = add_view ();
-                load_files_for_view (view, uris_view1, focused_document1);
+                if (!load_files_for_view (view, uris_view1, focused_document1)) {
+                    split_view.remove_view (view);
+                }
             }
 
             if (uris_view2.length > 0) {
                 var view = add_view ();
-                load_files_for_view (view, uris_view2, focused_document2);
+                if (!load_files_for_view (view, uris_view2, focused_document2)) {
+                    split_view.remove_view (view);
+                }
             }
         }
 
-        private void load_files_for_view (Scratch.Widgets.DocumentView view, string[] uris, string focused_document) {
+        private bool load_files_for_view (Scratch.Widgets.DocumentView view, string[] uris, string focused_document) {
+            bool anyfile_loaded = false;
             foreach (string uri in uris) {
                if (uri != "") {
                     GLib.File file;
@@ -399,13 +405,19 @@ namespace Scratch {
                     } else {
                         file = File.new_for_commandline_arg (uri);
                     }
-                    /* Leave it to doc to handle problematic files properly */
-                    var doc = new Scratch.Services.Document (actions, file);
-                    if (!doc.is_file_temporary) {
-                        open_document (doc, view, file.get_uri () == focused_document);
+                    /* Leave it to doc to handle problematic files properly
+                       But for files that do not exist we need to make sure that doc won't create a new file
+                    */
+                    if (file.query_exists ()) {
+                        anyfile_loaded = true;
+                        var doc = new Scratch.Services.Document (actions, file);
+                        if (doc.exists () || !doc.is_file_temporary) {
+                            open_document (doc, view, file.get_uri () == focused_document);
+                        }
                     }
                 }
             }
+            return anyfile_loaded;
         }
 
         private bool on_key_pressed (Gdk.EventKey event) {
@@ -437,7 +449,7 @@ namespace Scratch {
         // Set sensitive property for 'delicate' Widgets/GtkActions while
         private void set_widgets_sensitive (bool val) {
             // SearchManager's stuffs
-            Utils.action_from_group (ACTION_FIND, actions).set_enabled (val);
+            Utils.action_from_group (ACTION_SHOW_FIND, actions).set_enabled (val);
             Utils.action_from_group (ACTION_GO_TO, actions).set_enabled (val);
             Utils.action_from_group (ACTION_SHOW_REPLACE, actions).set_enabled (val);
             // Toolbar Actions
@@ -446,6 +458,7 @@ namespace Scratch {
             Utils.action_from_group (ACTION_UNDO, actions).set_enabled (val);
             Utils.action_from_group (ACTION_REDO, actions).set_enabled (val);
             Utils.action_from_group (ACTION_REVERT, actions).set_enabled (val);
+            search_bar.sensitive = val;
             toolbar.share_app_menu.sensitive = val;
 
             // PlugIns
@@ -458,14 +471,11 @@ namespace Scratch {
 
         // Get current view
         public Scratch.Widgets.DocumentView? get_current_view () {
-            Scratch.Widgets.DocumentView? view = null;
-
-            view = split_view.get_current_view ();
-
-            if (view == null && !split_view.is_empty ()) {
-                view = (split_view.get_child1 () ?? split_view.get_child2 ()) as Scratch.Widgets.DocumentView;
+            var view = (Scratch.Widgets.DocumentView) split_view.get_focus_child ();
+            if (view == null) {
+                // no view is focused right now, so get last focused
+                view = split_view.current_view;
             }
-
             return view;
         }
 
@@ -475,7 +485,15 @@ namespace Scratch {
             if (view != null) {
                 return view.current_document;
             }
+            return null;
+        }
 
+        // Get current document if it's focused
+        public Scratch.Services.Document? get_focused_document () {
+            var view = (Scratch.Widgets.DocumentView) split_view.get_focus_child ();
+            if (view != null) {
+                return view.current_document;
+            }
             return null;
         }
 
@@ -495,24 +513,11 @@ namespace Scratch {
                 Gtk.main_iteration ();
             }
 
-            Scratch.Widgets.DocumentView view = null;
-
-            if (view_ != null) {
-                view = view_;
-            }
-
             if (split_view.is_empty ()) {
-                view = split_view.add_view ();
+                Scratch.Widgets.DocumentView view = split_view.add_view ();
                 view.open_document (doc);
             } else {
-                if (view == null) {
-                    view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
-                }
-
-                if (view == null) {
-                    view = split_view.current_view;
-                }
-
+                Scratch.Widgets.DocumentView view = view_ ?? get_current_view ();
                 view.open_document (doc, focus);
             }
         }
@@ -522,15 +527,10 @@ namespace Scratch {
             Scratch.Widgets.DocumentView? view = null;
             if (split_view.is_empty ()) {
                 view = split_view.add_view ();
-                view.close_document (doc);
             } else {
-                view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
-                if (view == null) {
-                    view = split_view.current_view;
-                }
-
-                view.close_document (doc);
+                view = get_current_view ();
             }
+            view.close_document (doc);
         }
 
         // Return true if there are no documents
@@ -655,7 +655,7 @@ namespace Scratch {
 
         // Ctrl + scroll
         public void action_zoom_in () {
-             zooming (Gdk.ScrollDirection.UP);
+            zooming (Gdk.ScrollDirection.UP);
         }
 
         // Ctrl + scroll
@@ -677,7 +677,7 @@ namespace Scratch {
                 if (font_size < FONT_SIZE_MIN) {
                     return;
                 }
-            } else if (direction  == Gdk.ScrollDirection.UP) {
+            } else if (direction == Gdk.ScrollDirection.UP) {
                 font_size ++;
                 if (font_size > FONT_SIZE_MAX) {
                     return;
@@ -916,9 +916,7 @@ namespace Scratch {
         }
 
         private void action_to_lower_case () {
-            Scratch.Widgets.DocumentView? view = null;
-            view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
-            var doc = view.current_document;
+            var doc = get_focused_document ();
             if (doc == null) {
                 return;
             }
@@ -933,9 +931,7 @@ namespace Scratch {
         }
 
         private void action_to_upper_case () {
-            Scratch.Widgets.DocumentView? view = null;
-            view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
-            var doc = view.current_document;
+            var doc = get_focused_document ();
             if (doc == null) {
                 return;
             }
@@ -950,9 +946,7 @@ namespace Scratch {
         }
 
         private void action_toggle_comment () {
-            Scratch.Widgets.DocumentView? view = null;
-            view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
-            var doc = view.current_document;
+            var doc = get_focused_document ();
             if (doc == null) {
                 return;
             }
@@ -964,9 +958,7 @@ namespace Scratch {
         }
 
         private void action_sort_lines () {
-            Scratch.Widgets.DocumentView? view = null;
-            view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
-            var doc = view.current_document;
+            var doc = get_focused_document ();
             if (doc == null) {
                 return;
             }

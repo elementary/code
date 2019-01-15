@@ -7,108 +7,117 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-18 14:12-0700\n"
-"PO-Revision-Date: 2015-12-21 13:38+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
-"Language-Team: Bosnian <bs@li.org>\n"
+"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"PO-Revision-Date: 2018-11-05 00:09+0000\n"
+"Last-Translator: Elvis Mujanović <elvis.mujanovic@gmail.com>\n"
+"Language-Team: Bosnian <https://weblate.elementary.io/projects/code/code/bs/"
+">\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:138
+#: src/Application.vala:135
 msgid "Maybe you do not have the necessary permissions."
-msgstr ""
+msgstr "Možda nemate potrebne dozovole."
 
-#: src/Application.vala:140
+#: src/Application.vala:137
 msgid "Maybe the file path provided is not valid."
-msgstr ""
+msgstr "Možda je zadana putanja do datoteka nevažeća."
 
-#: src/Application.vala:142
+#: src/Application.vala:139
 msgid "The location is read-only."
-msgstr ""
+msgstr "Lokacija je samo za čitanje."
 
-#: src/Application.vala:144
+#: src/Application.vala:141
 msgid "The parent directory doesn't exist."
-msgstr ""
+msgstr "Nadređeni direktorij ne postoji."
 
-#: src/Application.vala:151
+#: src/Application.vala:148
 #, c-format
 msgid ""
 "File \"%s\" cannot be created.\n"
 "%s"
 msgstr ""
+"Datoteka \"%s\" ne može biti kreirana.\n"
+"%s"
 
-#: src/Application.vala:161
+#: src/Application.vala:158
 #, c-format
 msgid ""
 "File \"%s\" cannot be opened.\n"
 "%s"
 msgstr ""
+"Datoteka \"%s\" ne može biti otvorena.\n"
+"%s"
+
+#: src/Application.vala:168
+msgid "It is a mountable location."
+msgstr "Ovo je lokacija koja se može montirati."
 
 #: src/Application.vala:171
-msgid "It is a mountable location."
-msgstr ""
-
-#: src/Application.vala:174
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
 msgstr ""
+"Ovo je \"posebna\" datoteka, kao što je utičnica,\n"
+" FIFO, uređaj za blokiranje ili znakove."
 
-#: src/Application.vala:177
+#: src/Application.vala:174
 msgid "It is an \"unknown\" file type."
-msgstr ""
+msgstr "Ovo je \"nepoznat\" tip datoteke."
 
-#: src/Application.vala:266
+#: src/Application.vala:263
 msgid "New Tab"
 msgstr "Nova kartica"
 
-#: src/Application.vala:267 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:264 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Novi prozor"
 
-#: src/Application.vala:268
+#: src/Application.vala:265
 msgid "Print version info and exit"
 msgstr "Štampaj informacije o verziji i zatvori"
 
-#: src/Application.vala:269
+#: src/Application.vala:266
 msgid "Set of plugins"
 msgstr "Set dodataka"
 
-#: src/Application.vala:270
+#: src/Application.vala:267
 msgid "Current working directory"
-msgstr ""
+msgstr "Trenutni radni direktorij"
 
 #: src/MainWindow.vala:133
 msgid "Code"
-msgstr ""
+msgstr "Kod"
 
-#: src/MainWindow.vala:181 src/Widgets/HeaderBar.vala:66
+#: src/MainWindow.vala:183 src/Widgets/HeaderBar.vala:80
 msgid "Find…"
 msgstr "Nađi…"
 
-#: src/MainWindow.vala:183
+#: src/MainWindow.vala:188
 msgid "Hide search bar"
 msgstr "Sakrij traku za traženje"
 
-#: src/MainWindow.vala:229
+#: src/MainWindow.vala:236
 msgid "Zeitgeist Datasource for Scratch"
-msgstr ""
+msgstr "Zeitgeist izvor podataka za Scratch"
 
 #. Show a GtkFileChooserDialog
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:742
 msgid "Open some files"
 msgstr "Otvori neke datoteke"
 
-#: src/MainWindow.vala:755
+#: src/MainWindow.vala:761
 msgid "_Cancel"
 msgstr "_Odustani"
 
-#: src/MainWindow.vala:756
+#: src/MainWindow.vala:762
 msgid "_Open"
 msgstr "_Otvori"
 
@@ -120,26 +129,26 @@ msgstr "Sve datoteke"
 msgid "Text files"
 msgstr "Tekstualne datoteke"
 
-#: src/Utils.vala:35 src/Services/Document.vala:403
+#: src/Utils.vala:35 src/Services/Document.vala:409
 msgid "Cancel"
-msgstr ""
+msgstr "Otkaži"
 
 #: src/Utils.vala:44
 msgid "Open"
 msgstr "Otvori"
 
-#: src/Utils.vala:46 src/Services/Document.vala:404
-#: src/Services/Document.vala:701
+#: src/Utils.vala:46 src/Services/Document.vala:410
+#: src/Services/Document.vala:729
 msgid "Save"
 msgstr "Sačuvaj"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:136
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:160
 msgid "Preferences"
 msgstr "Postavke"
 
 #: src/Dialogs/PreferencesDialog.vala:52
 msgid "General"
-msgstr ""
+msgstr "Opće"
 
 #: src/Dialogs/PreferencesDialog.vala:53
 msgid "Save files when changed:"
@@ -147,17 +156,17 @@ msgstr "Sačuvaj datoteke kad se datoteka promijeni:"
 
 #: src/Dialogs/PreferencesDialog.vala:55 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
-msgstr ""
+msgstr "Kartice"
 
-#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:161
 msgid "Automatic indentation:"
 msgstr "Automatsko uvlačenje:"
 
-#: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:150
+#: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:155
 msgid "Insert spaces instead of tabs:"
-msgstr "Ukucaj prazna mjesta a ne tabulatore"
+msgstr "Umetni razmake umjesto tabulatora:"
 
-#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:153
+#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:158
 msgid "Tab width:"
 msgstr "Širina tabulatora:"
 
@@ -180,209 +189,214 @@ msgstr "Proširenja"
 
 #: src/Dialogs/PreferencesDialog.vala:105
 msgid "Editor"
-msgstr ""
+msgstr "Uređivač"
 
 #: src/Dialogs/PreferencesDialog.vala:107
 msgid "Highlight matching brackets:"
 msgstr "Obeležite odgavarajuće nosače:"
 
 #: src/Dialogs/PreferencesDialog.vala:110
-msgid "Draw Spaces:"
+msgid "Line wrap:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:112
+#: src/Dialogs/PreferencesDialog.vala:113
+msgid "Draw Spaces:"
+msgstr "Prikaži prazna polja:"
+
+#: src/Dialogs/PreferencesDialog.vala:115
 #: plugins/pastebin/pastebin_dialog.vala:460
 msgid "Never"
 msgstr "Nikad"
 
-#: src/Dialogs/PreferencesDialog.vala:113
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "For selected text"
-msgstr ""
-
-#: src/Dialogs/PreferencesDialog.vala:114
-msgid "Always"
-msgstr ""
+msgstr "Za odabrani tekst"
 
 #: src/Dialogs/PreferencesDialog.vala:117
-msgid "Show Mini Map:"
-msgstr ""
+msgid "Always"
+msgstr "Uvijek"
 
 #: src/Dialogs/PreferencesDialog.vala:120
+msgid "Show Mini Map:"
+msgstr "Prikaži minijaturni prikaz:"
+
+#: src/Dialogs/PreferencesDialog.vala:123
 msgid "Line width guide:"
-msgstr "Poravnaj sa vodičom"
+msgstr "Vodič za širinu reda:"
 
-#: src/Dialogs/PreferencesDialog.vala:128
+#: src/Dialogs/PreferencesDialog.vala:131
 msgid "Font"
-msgstr ""
+msgstr "Font"
 
-#: src/Dialogs/PreferencesDialog.vala:130
+#: src/Dialogs/PreferencesDialog.vala:133
 msgid "Custom font:"
-msgstr "Drugačiji font"
+msgstr "Prilagođeni font:"
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
-msgstr ""
+msgstr "Druga aplikacija…"
 
 #: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
-#, fuzzy
 msgid "Open In"
-msgstr "Otvori"
+msgstr "Otvori sa"
 
 #: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
-#, fuzzy
 msgid "Other Actions"
-msgstr "Ostali formati"
+msgstr "Druge radnje"
 
 #: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
-msgstr ""
+msgstr "Preimenuj"
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
-msgstr ""
+msgstr "Premjesti u Otpad"
 
 #: src/FolderManager/FileView.vala:39
 msgid "Folders"
 msgstr "Direktoriji"
 
 #: src/FolderManager/FolderItem.vala:148
-#, fuzzy
 msgid "Folder"
-msgstr "Direktoriji"
+msgstr "Fascikle"
 
 #: src/FolderManager/FolderItem.vala:151
 msgid "Empty File"
-msgstr ""
+msgstr "Prazna datoteka"
 
 #: src/FolderManager/FolderItem.vala:158
-#, fuzzy
 msgid "New"
-msgstr "Nova kartica"
+msgstr "Novo"
 
 #: src/FolderManager/FolderItem.vala:322
 msgid "untitled folder"
-msgstr ""
+msgstr "neimenovana fascikla"
 
 #: src/FolderManager/FolderItem.vala:326
 #, c-format
 msgid "untitled folder %d"
-msgstr ""
+msgstr "neimenovana fascikla %d"
 
 #: src/FolderManager/FolderItem.vala:354
-#, fuzzy
 msgid "new file"
-msgstr "Nova datoteka"
+msgstr "nova datoteka"
 
 #: src/FolderManager/FolderItem.vala:358
-#, fuzzy, c-format
+#, c-format
 msgid "new file %d"
-msgstr "Nova datoteka"
+msgstr "nova datoteka %d"
 
 #: src/FolderManager/ProjectFolderItem.vala:78
 msgid "Close Folder"
 msgstr "Zatvori direktorij"
 
-#: src/Services/Document.vala:243
-#, c-format
-msgid "%s Is Not a Text File"
-msgstr ""
-
-#: src/Services/Document.vala:244
-msgid "Code will not load this type of file."
-msgstr ""
-
-#: src/Services/Document.vala:246
-msgid "Load Anyway"
-msgstr ""
-
 #: src/Services/Document.vala:267
 #, c-format
-msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr ""
+msgid "%s Is Not a Text File"
+msgstr "%s nije tekstualna datoteka"
 
 #: src/Services/Document.vala:268
-msgid "Please wait while Code is loading the file."
-msgstr ""
+msgid "Code will not load this type of file."
+msgstr "Kod nije mogao učitati ovaj tip datoteke."
 
 #: src/Services/Document.vala:270
-#, fuzzy
-msgid "Cancel Load"
-msgstr "_Odustani"
+msgid "Load Anyway"
+msgstr "Svejedno učitaj"
 
-#: src/Services/Document.vala:394
+#: src/Services/Document.vala:291
+#, c-format
+msgid "Loading File \"%s\" Is Taking a Long Time"
+msgstr "Učitavanje datoteke \"%s\" traje dugo"
+
+#: src/Services/Document.vala:292
+msgid "Please wait while Code is loading the file."
+msgstr "Molimo, sačekajte dok Kod učitava datoteku."
+
+#: src/Services/Document.vala:294
+#, fuzzy
+msgid "Cancel Loading"
+msgstr "_Otkaži učitavanje"
+
+#: src/Services/Document.vala:400
 #, c-format
 msgid "Save changes to document %s before closing?"
 msgstr "Sačuvati promjene dokumentu %s pre zatvaranja?"
 
-#: src/Services/Document.vala:397
+#: src/Services/Document.vala:403
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr "Ako ne sačuvate, promjene poslednje 4 sekunde će biti izgubljene."
 
-#: src/Services/Document.vala:399
+#: src/Services/Document.vala:405
 msgid "Close without saving"
 msgstr "Zatvori bez čuvanja"
 
-#: src/Services/Document.vala:482
+#: src/Services/Document.vala:510
 msgid "Save File"
 msgstr "Sačuvaj datoteku"
 
-#: src/Services/Document.vala:556
+#: src/Services/Document.vala:584
 msgid "New Document"
 msgstr "Novi dokument"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:679
+#: src/Services/Document.vala:707
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
-msgstr ""
+msgstr "Datoteka \"%s\" ne može biti očitana"
 
-#: src/Services/Document.vala:680
-msgid ""
-"Maybe it is corrupt or you do not have the necessary permissions to read it."
-msgstr ""
+#: src/Services/Document.vala:708
+#, fuzzy
+msgid "It may be corrupt or you don't have permission to read it."
+msgstr "Možda je oštećena ili nemate potrebne dozvole za njeno čitanje."
 
-#: src/Services/Document.vala:692
+#: src/Services/Document.vala:720
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
+"Lokacija koja sadrži datoteku \"%s\" je demontirana. Želite li sačuvati "
+"negdje drugo?"
 
-#: src/Services/Document.vala:694
+#: src/Services/Document.vala:722
 msgid "Save As…"
 msgstr "Sačuvaj kao…"
 
-#: src/Services/Document.vala:699
+#: src/Services/Document.vala:727
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr ""
+msgstr "Datoteka \"%s\" je izbrisana. Želite li svejedno sačuvati?"
 
 #. If the file can't be written
-#: src/Services/Document.vala:714
-#, c-format
+#: src/Services/Document.vala:742
+#, fuzzy, c-format
 msgid ""
-"You cannot save changes on file \"%s\". Do you want to save the changes to "
-"this file in a different location?"
+"You cannot save changes to the file \"%s\". Do you want to save the changes "
+"somewhere else?"
 msgstr ""
+"Ne možete sačuvati izmjene u datoteku \"%s\". Želite li sačuvati izmjene za "
+"ovu datoteku na drugoj lokaciji?"
 
-#: src/Services/Document.vala:716
+#: src/Services/Document.vala:744
 msgid "Save changes elsewhere"
 msgstr "Sačuvati promjene negde drugde"
 
-#: src/Services/Document.vala:749
+#: src/Services/Document.vala:777
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
+"Datoteka \"%s\" je izmijenjena pomoću vanjske aplikacije. Želite li je opet "
+"učitati i nastaviti uređivanje?"
 
-#: src/Services/Document.vala:750
+#: src/Services/Document.vala:778
 msgid "Load"
 msgstr "Učitaj"
 
-#: src/Services/Document.vala:753
+#: src/Services/Document.vala:781
 msgid "Continue"
 msgstr "Nastavi"
 
@@ -391,149 +405,149 @@ msgid "Templates"
 msgstr "Šabloni"
 
 #: src/Widgets/DocumentView.vala:132
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s"
-msgstr "Tekstualne datoteke"
+msgstr "Tekstualna datoteka iz %s"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
 msgstr "Bojenje sintakse"
 
-#: src/Widgets/FormatBar.vala:71
-#, fuzzy
+#: src/Widgets/FormatBar.vala:75
 msgid "Line number"
-msgstr "Prikaži broj reda:"
+msgstr "Broj reda"
 
-#: src/Widgets/FormatBar.vala:96
+#: src/Widgets/FormatBar.vala:101
 msgid "Filter languages"
-msgstr ""
+msgstr "Filtriraj jezike"
 
-#: src/Widgets/FormatBar.vala:118
+#: src/Widgets/FormatBar.vala:123
 msgid "Plain Text"
-msgstr ""
+msgstr "Jednostavni tekst"
 
-#: src/Widgets/FormatBar.vala:200
+#: src/Widgets/FormatBar.vala:205
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d razmak"
+msgstr[1] "%d razmaka"
+msgstr[2] "%d razmaka"
 
-#: src/Widgets/FormatBar.vala:202
-#, fuzzy, c-format
+#: src/Widgets/FormatBar.vala:207
+#, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "Nova kartica"
-msgstr[1] "Nova kartica"
+msgstr[0] "%d tabulator"
+msgstr[1] "%d tabulatora"
+msgstr[2] "%d tabulatora"
 
-#: src/Widgets/FormatBar.vala:218
+#: src/Widgets/FormatBar.vala:223
 msgid "Go To Line:"
 msgstr "Idi na liniju:"
 
-#: src/Widgets/HeaderBar.vala:41
+#: src/Widgets/HeaderBar.vala:43
 msgid "Open a file"
 msgstr "Otvori datoteku"
 
-#: src/Widgets/HeaderBar.vala:45
+#: src/Widgets/HeaderBar.vala:48
 msgid "Open a folder"
 msgstr "Otvori direktorij"
 
-#: src/Widgets/HeaderBar.vala:49
+#: src/Widgets/HeaderBar.vala:52
 msgid "Project templates"
 msgstr "Šabloni projekta"
 
-#: src/Widgets/HeaderBar.vala:53
+#: src/Widgets/HeaderBar.vala:58
 msgid "Save this file"
 msgstr "Sačuvaj ovu datoteku"
 
-#: src/Widgets/HeaderBar.vala:57
+#: src/Widgets/HeaderBar.vala:65
 msgid "Save this file with a different name"
 msgstr "Sačuvaj ovu datoteku sa drugačijim imenom"
 
-#: src/Widgets/HeaderBar.vala:61
+#: src/Widgets/HeaderBar.vala:72
 msgid "Restore this file"
 msgstr "Vrati ovu datoteku"
 
-#: src/Widgets/HeaderBar.vala:72
+#: src/Widgets/HeaderBar.vala:87
 msgid "Share"
 msgstr "Podijeli"
 
-#: src/Widgets/HeaderBar.vala:77
+#: src/Widgets/HeaderBar.vala:94
 msgid "Zoom Out"
-msgstr ""
+msgstr "Umanji"
 
-#: src/Widgets/HeaderBar.vala:81
+#: src/Widgets/HeaderBar.vala:101
 msgid "Zoom 1:1"
-msgstr ""
+msgstr "Normalna veličina prikaza (1:1)"
 
-#: src/Widgets/HeaderBar.vala:85
+#: src/Widgets/HeaderBar.vala:108
 msgid "Zoom In"
-msgstr ""
+msgstr "Uvećaj"
 
-#: src/Widgets/HeaderBar.vala:98
+#: src/Widgets/HeaderBar.vala:122
 msgid "High Contrast"
-msgstr ""
+msgstr "Visoki kontrast"
 
-#: src/Widgets/HeaderBar.vala:106
+#: src/Widgets/HeaderBar.vala:130
 msgid "Solarized Light"
-msgstr ""
+msgstr "Solarizirano svijetlo"
 
-#: src/Widgets/HeaderBar.vala:114
+#: src/Widgets/HeaderBar.vala:138
 msgid "Solarized Dark"
-msgstr ""
+msgstr "Solarizirano tamno"
 
-#: src/Widgets/HeaderBar.vala:124
-#, fuzzy
+#: src/Widgets/HeaderBar.vala:148
 msgid "Toggle Sidebar"
-msgstr "Bočna traka"
+msgstr "Prikaz bočne trake"
 
-#: src/Widgets/HeaderBar.vala:128
+#: src/Widgets/HeaderBar.vala:152
 msgid "Add New View"
 msgstr "Dodaj novi pogled"
 
-#: src/Widgets/HeaderBar.vala:132
+#: src/Widgets/HeaderBar.vala:156
 msgid "Remove Current View"
 msgstr "Ukloni trenutni pogled"
 
-#: src/Widgets/HeaderBar.vala:159
+#: src/Widgets/HeaderBar.vala:183
 msgid "Menu"
-msgstr ""
+msgstr "Izbornik"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
 msgstr "Nađi"
 
-#: src/Widgets/SearchBar.vala:66
+#: src/Widgets/SearchBar.vala:70
 msgid "Search next"
-msgstr ""
+msgstr "Sljedeći rezultat pretrage"
 
-#: src/Widgets/SearchBar.vala:71
+#: src/Widgets/SearchBar.vala:80
 msgid "Search previous"
-msgstr ""
+msgstr "Prethodni rezultat pretrage"
 
-#: src/Widgets/SearchBar.vala:75
+#: src/Widgets/SearchBar.vala:85
 msgid "Cyclic Search"
-msgstr ""
+msgstr "Pretragu uvijek nastaviti s početka teksta"
 
-#: src/Widgets/SearchBar.vala:91
+#: src/Widgets/SearchBar.vala:101
 msgid "Replace With"
 msgstr "Zamijeni sa"
 
-#: src/Widgets/SearchBar.vala:94
+#: src/Widgets/SearchBar.vala:104
 msgid "Replace"
 msgstr "Zamijeni"
 
-#: src/Widgets/SearchBar.vala:97
+#: src/Widgets/SearchBar.vala:107
 msgid "Replace all"
 msgstr "Zamijeni sve"
 
-#: src/Widgets/SourceView.vala:357
+#: src/Widgets/SourceView.vala:362
 msgid "Sort Selected Lines"
-msgstr ""
+msgstr "Razvrstaj odabrane redove"
 
-#: src/Widgets/SourceView.vala:364
+#: src/Widgets/SourceView.vala:369
 msgid "Toggle Comment"
-msgstr ""
+msgstr "Uključi komentar"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -544,16 +558,14 @@ msgid "Open a file to begin editing."
 msgstr "Otvori datoteku da bi ste počeli da je mijenjate."
 
 #: src/Widgets/WelcomeView.vala:32
-#, fuzzy
 msgid "New File"
-msgstr "/Nova datoteka"
+msgstr "Nova datoteka"
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "Create a new empty file."
 msgstr "Napravi novu praznu datoteku."
 
 #: src/Widgets/WelcomeView.vala:33
-#, fuzzy
 msgid "Open File"
 msgstr "Otvori datoteku"
 
@@ -562,32 +574,28 @@ msgid "Open a saved file."
 msgstr "Otvori sačuvanu datoteku."
 
 #: src/Widgets/WelcomeView.vala:34
-#, fuzzy
 msgid "Open Folder"
-msgstr "Otvori direktorij"
+msgstr "Otvori fasciklu"
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Add a project folder to the sidebar."
-msgstr ""
+msgstr "Dodaj projektnu fasciklu na bočnu traku."
 
 #: plugins/pastebin/pastebin_dialog.vala:249
-#, fuzzy
 msgid "Share via Pastebin"
-msgstr "Podijeli preko PasteBin-a"
+msgstr "Podijeli putem PasteBina"
 
 #: plugins/pastebin/pastebin_dialog.vala:256
 msgid "Name:"
 msgstr "Naziv:"
 
 #: plugins/pastebin/pastebin_dialog.vala:259
-#, fuzzy
 msgid "Format:"
-msgstr "Format: "
+msgstr "Format:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
-#, fuzzy
 msgid "Others…"
-msgstr "Ostalo..."
+msgstr "Ostalo…"
 
 #: plugins/pastebin/pastebin_dialog.vala:286
 msgid "Expiry time:"
@@ -627,20 +635,20 @@ msgstr "Postavite na Pastebin"
 
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
-#: plugins/outline/C/CtagsSymbolOutline.vala:64
+#: plugins/outline/C/CtagsSymbolOutline.vala:68
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
 #: plugins/outline/Vala/ValaSymbolOutline.vala:116
 #: plugins/outline/OutlinePane.vala:27
 msgid "Symbols"
-msgstr ""
+msgstr "Simboli"
 
 #: plugins/terminal/terminal.vala:135 plugins/terminal/terminal.vala:142
 msgid "Show Terminal"
-msgstr ""
+msgstr "Prikaži Terminal"
 
 #: plugins/terminal/terminal.vala:138
 msgid "Hide Terminal"
-msgstr ""
+msgstr "Sakrij Terminal"
 
 #: plugins/terminal/terminal.vala:139
 msgid "Terminal"
@@ -659,22 +667,24 @@ msgstr "Nalijepi"
 
 #: plugins/browser-preview/BrowserView.vala:32
 msgid "Web Preview"
-msgstr ""
+msgstr "Web pretpregled"
 
 #: plugins/browser-preview/browser-preview.vala:72
 #: plugins/browser-preview/browser-preview.vala:98
 msgid "Show Preview"
-msgstr ""
+msgstr "Prikaži pretpregled"
 
 #: plugins/browser-preview/browser-preview.vala:90
 msgid "Hide Preview"
-msgstr ""
+msgstr "Sakrij pretpregled"
 
 #: plugins/spell/spell.vala:77
 msgid ""
 "No suitable dictionaries were found.\n"
 "Please install at least one [aspell] dictionary"
 msgstr ""
+"Nisu pronađeni odgovarajući rječnici.\n"
+"Molimo, instalirajte najmanje jedan [aspell] rječnik"
 
 #: plugins/word-completion/plugin.vala:174
 #, c-format
