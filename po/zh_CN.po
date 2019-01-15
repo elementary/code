@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-08 15:53-0800\n"
-"PO-Revision-Date: 2018-11-29 00:02+0000\n"
+"PO-Revision-Date: 2019-01-15 12:35+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://weblate.elementary.io/projects/"
 "code/code/zh_Hans/>\n"
@@ -313,7 +313,6 @@ msgid "Please wait while Code is loading the file."
 msgstr "请耐心等待文件载入。"
 
 #: src/Services/Document.vala:294
-#, fuzzy
 msgid "Cancel Loading"
 msgstr "取消载入"
 
@@ -346,7 +345,6 @@ msgid "File \"%s\" Cannot Be Read"
 msgstr "文件 “%s” 不可读"
 
 #: src/Services/Document.vala:708
-#, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "可能文件已损坏或您没有读取它的权限。"
 
@@ -368,7 +366,7 @@ msgstr "文件 \"%s\" 已被删除。 您想储存此文件的副本吗？"
 
 #. If the file can't be written
 #: src/Services/Document.vala:742
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
