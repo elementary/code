@@ -19,7 +19,7 @@
 ***/
 
 public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
-    public signal void document_change (Services.Document? document);
+    public signal void document_change (Services.Document? document, DocumentView parent);
     public signal void empty ();
 
     public unowned MainWindow window { get; construct set; }
@@ -65,7 +65,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
         close_tab_requested.connect ((tab) => {
             var document = tab as Services.Document;
-            if (document.file != null) {
+            if (!document.is_file_temporary && document.file != null) {
                 tab.restore_data = document.get_uri ();
             }
 
@@ -73,7 +73,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         });
 
         tab_switched.connect ((old_tab, new_tab) => {
-            document_change (new_tab as Services.Document);
+            document_change (new_tab as Services.Document, this);
             save_current_file (new_tab as Services.Document);
         });
 
@@ -145,6 +145,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             current_document = doc;
 
             doc.focus ();
+            save_opened_files ();
         } catch (Error e) {
             critical (e.message);
         }
@@ -164,6 +165,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             current_document = doc;
 
             doc.focus ();
+            save_opened_files ();
         } catch (Error e) {
             critical ("Cannot insert clipboard: %s", clipboard);
         }
@@ -320,7 +322,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         if (doc == null) {
             warning ("Focus event callback cannot get current document");
         } else {
-            document_change (doc);
+            document_change (doc, this);
         }
 
         return false;

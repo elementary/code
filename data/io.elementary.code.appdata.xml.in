@@ -46,6 +46,24 @@
     </ul>
   </description>
   <releases>
+    <release version="3.0.2" date="2018-01-03">
+      <description>
+        <ul>Smarter file saving behavior</ul>
+        <ul>File saving fixes</ul>
+        <ul>Don't add temporary files to tab restore</ul>
+        <ul>Updated translations</ul>
+      </description>
+    </release>
+    <release version="3.0.1" date="2018-11-30">
+      <description>
+        <ul>Don't recreate deleted files when restoring session</ul>
+        <ul>Restore line wrap preference</ul>
+        <ul>Add accel tooltips</ul>
+        <ul>Minor bug fixes</ul>
+        <ul>Updated translations</ul>
+      </description>
+    </release>
+    <release version="3.0" date="2018-10-16"/>
     <release version="2.4.1" date="2017-02-20"/>
   </releases>
   <provides>

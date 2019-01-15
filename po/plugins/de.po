@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-17 11:34-0700\n"
-"PO-Revision-Date: 2018-08-19 00:08+0000\n"
-"Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
+"POT-Creation-Date: 2019-01-04 11:52-0800\n"
+"PO-Revision-Date: 2019-01-06 00:01+0000\n"
+"Last-Translator: Theodin <Theodin@posteo.de>\n"
 "Language-Team: German <https://weblate.elementary.io/projects/code/plugins/"
 "de/>\n"
 "Language: de\n"
@@ -49,7 +49,7 @@ msgstr ""
 
 #: plugins/editorconfig/editorconfig.plugin:7
 msgid "Load settings from an EditorConfig file"
-msgstr ""
+msgstr "Einstellungen aus einer EditorConfig-Datei laden"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
@@ -61,7 +61,7 @@ msgstr "Markiert alle Vorkommen der markierten Wörter"
 
 #: plugins/outline/outline.plugin:6
 msgid "Outline"
-msgstr ""
+msgstr "Übersicht"
 
 #: plugins/outline/outline.plugin:7
 msgid "Outline symbols in your current file for Vala"
@@ -69,7 +69,7 @@ msgstr ""
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
-msgstr ""
+msgstr "Pastebin"
 
 #: plugins/pastebin/pastebin.plugin:7
 msgid "Share files with pastebin service"
@@ -81,7 +81,7 @@ msgstr "Einrückung beibehalten"
 
 #: plugins/preserve-indent/preserve-indent.plugin:7
 msgid "Maintains relative indent level of pasted text"
-msgstr ""
+msgstr "Relative Einrückung von eingefügtem Text beibehalten"
 
 #: plugins/spell/spell.plugin:6
 msgid "Spell Checker"
@@ -112,8 +112,8 @@ msgid "Vim Emulation"
 msgstr "Vim-Emulation"
 
 #: plugins/vim-emulation/vim-emulation.plugin:7
-msgid "Use Vim commands in Scratch"
-msgstr ""
+msgid "Use Vim commands in Code"
+msgstr "Vim-Kommandos in Code benutzen"
 
 #: plugins/word-completion/word-completion.plugin:3
 msgid "Words Completion"

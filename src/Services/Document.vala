@@ -178,6 +178,30 @@ namespace Scratch.Services {
 
             main_stack.add_named (doc_grid, "content");
 
+            this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
+
+            toggle_changed_handlers (true);
+
+            // Focus out event for SourceView
+            this.source_view.focus_out_event.connect (() => {
+                if (settings.autosave) {
+                    save.begin ();
+                }
+
+                return false;
+            });
+
+            source_view.buffer.changed.connect (() => {
+                if (source_view.buffer.text != last_save_content) {
+                    saved = false;
+                    if (!settings.autosave) {
+                        set_saved_status (false);
+                    }
+                } else {
+                    set_saved_status (true);
+                }
+            });
+
             /* Create as loaded - could be new document */
             loaded = true;
         }
@@ -267,7 +291,7 @@ namespace Scratch.Services {
                     var title = _("Loading File \"%s\" Is Taking a Long Time").printf (get_basename ());
                     var description = _("Please wait while Code is loading the file.");
                     var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-information");
-                    alert_view.show_action (_("Cancel Load"));
+                    alert_view.show_action (_("Cancel Loading"));
                     alert_view.show_all ();
                     main_stack.add_named (alert_view, "wait_alert");
                     main_stack.set_visible_child (alert_view);
@@ -310,23 +334,10 @@ namespace Scratch.Services {
                 }
             }
 
-            /* Successful load - now do rest of set up */
-            this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
-
-            toggle_changed_handlers (true);
             // Focus in event for SourceView
             this.source_view.focus_in_event.connect (() => {
                 check_file_status ();
                 check_undoable_actions ();
-
-                return false;
-            });
-
-            // Focus out event for SourceView
-            this.source_view.focus_out_event.connect (() => {
-                if (settings.autosave) {
-                    save.begin ();
-                }
 
                 return false;
             });
@@ -342,14 +353,7 @@ namespace Scratch.Services {
             source_view.buffer.set_modified (false);
             original_content = source_view.buffer.text;
             last_save_content = source_view.buffer.text;
-
-            source_view.buffer.changed.connect (() => {
-                if (source_view.buffer.text != last_save_content && !settings.autosave) {
-                    set_saved_status (false);
-                } else {
-                    set_saved_status (true);
-                }
-            });
+            set_saved_status (true);
 
             doc_opened ();
             source_view.sensitive = true;
@@ -374,9 +378,11 @@ namespace Scratch.Services {
             }
 
             bool ret_value = true;
-            if (app_closing && is_file_temporary && !delete_temporary_file ()) {
+            if (settings.autosave && !saved) {
+                save_with_hold ();
+            } else if (app_closing && is_file_temporary && !delete_temporary_file ()) {
                 debug ("Save temporary file!");
-                this.save.begin ();
+                save_with_hold ();
             }
             // Check for unsaved changes
             else if (!this.saved || (!app_closing && is_file_temporary && !delete_temporary_file ())) {
@@ -412,9 +418,9 @@ namespace Scratch.Services {
                         break;
                     case Gtk.ResponseType.YES:
                         if (this.is_file_temporary)
-                            this.save_as.begin ();
+                            save_as_with_hold ();
                         else
-                            this.save.begin ();
+                            save_with_hold ();
                         break;
                     case Gtk.ResponseType.NO:
                         if (this.is_file_temporary)
@@ -435,6 +441,28 @@ namespace Scratch.Services {
             }
 
             return ret_value;
+        }
+
+        public bool save_with_hold (bool force = false) {
+            GLib.Application.get_default ().hold ();
+            bool result = false;
+            save.begin (force, (obj, res) => {
+                result = save.end (res);
+                GLib.Application.get_default ().release ();
+            });
+
+            return result;
+        }
+
+        public bool save_as_with_hold () {
+            GLib.Application.get_default ().hold ();
+            bool result = false;
+            save_as.begin ((obj, res) => {
+                result = save_as.end (res);
+                GLib.Application.get_default ().release ();
+            });
+
+            return result;
         }
 
         public async bool save (bool force = false) {
@@ -677,7 +705,7 @@ namespace Scratch.Services {
         // Show an error view which says "Hey, I cannot read that file!"
         private void show_default_load_error_view () {
             var title = _("File \"%s\" Cannot Be Read").printf (get_basename ());
-            var description = _("Maybe it is corrupt or you do not have the necessary permissions to read it.");
+            var description = _("It may be corrupt or you don't have permission to read it.");
             var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-error");
             alert_view.show_all ();
             main_stack.add_named (alert_view, "error_alert");
@@ -711,7 +739,7 @@ namespace Scratch.Services {
 
             // If the file can't be written
             if (!can_write ()) {
-                string message = _("You cannot save changes on file \"%s\". Do you want to save the changes to this file in a different location?").printf ("<b>%s</b>".printf (get_basename ()));
+                string message = _("You cannot save changes to the file \"%s\". Do you want to save the changes somewhere else?").printf ("<b>%s</b>".printf (get_basename ()));
 
                 set_message (Gtk.MessageType.WARNING, message, _("Save changes elsewhere"), () => {
                     this.save_as.begin ();

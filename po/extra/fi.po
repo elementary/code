@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 08:36-0700\n"
-"PO-Revision-Date: 2018-07-04 21:08+0000\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"POT-Creation-Date: 2019-01-04 11:52-0800\n"
+"PO-Revision-Date: 2019-01-08 08:54+0000\n"
+"Last-Translator: Veli-Pekka Samuli Finnilä <vpf@tuta.io>\n"
 "Language-Team: Finnish <https://weblate.elementary.io/projects/code/extra/fi/"
 ">\n"
 "Language: fi\n"
@@ -101,7 +101,7 @@ msgstr "välilehti- ja jakonäkymäjärjestelmä"
 msgid "lots of others"
 msgstr "paljon muuta"
 
-#: data/io.elementary.code.appdata.xml.in:83
+#: data/io.elementary.code.appdata.xml.in:101
 msgid "elementary LLC."
 msgstr "elementary LLC."
 
@@ -118,8 +118,8 @@ msgid "io.elementary.code"
 msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
-msgid "IDE;scratch;"
-msgstr "IDE;scratch;"
+msgid "text;IDE;scratch;"
+msgstr "teksti;IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New Document"

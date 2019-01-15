@@ -7,25 +7,27 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-27 08:36-0700\n"
-"PO-Revision-Date: 2016-08-17 20:53+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Swedish <sv@li.org>\n"
+"POT-Creation-Date: 2019-01-04 11:52-0800\n"
+"PO-Revision-Date: 2018-10-21 10:17+0000\n"
+"Last-Translator: Fredrik B <frbo9002@gmail.com>\n"
+"Language-Team: Swedish <https://weblate.elementary.io/projects/code/extra/sv/"
+">\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
 #: data/io.elementary.code.desktop.in.in:4
 msgid "Code"
-msgstr ""
+msgstr "Kod"
 
 #: data/io.elementary.code.appdata.xml.in:9
 msgid "The editor that works"
-msgstr ""
+msgstr "Textredigeraren som fungerar"
 
 #: data/io.elementary.code.appdata.xml.in:11
 msgid ""
@@ -33,6 +35,9 @@ msgid ""
 "they're always up-to-date. Plus it remembers your tabs so you never lose "
 "your spot, even in between sessions."
 msgstr ""
+"Kod är textredigeraren som arbetar för dig. Den sparar automatiskt dina "
+"filer, vilket betyder att de alltid är up-to-date. Plus att den kommer ihåg "
+"dina flikar så att du aldrig mister fokus, även mellan sessioner."
 
 #: data/io.elementary.code.appdata.xml.in:16
 msgid ""
@@ -41,6 +46,10 @@ msgid ""
 "a full-blown IDE; it's your choice. And with a handful of useful "
 "preferences, you can tweak the behavior and interface to your liking."
 msgstr ""
+"Gör den din. Kod är från början skrivet för att kunna utvidgas. Håll saker "
+"superlätt och enkelt, eller installera tillägg för att förvandla Kod till en "
+"fullständig IDE; Valet är ditt. Och med en handfull användbara inställningar "
+"kan du anpassa Kods beteende och utseende så att det passar din smak."
 
 #: data/io.elementary.code.appdata.xml.in:22
 msgid ""
@@ -48,6 +57,9 @@ msgid ""
 "meaning it closely follows the high standards of design, speed, and "
 "consistency. It's sexy, but not distracting."
 msgstr ""
+"Det är elementärt. Kod har skapats för att vara den perfekta redigeraren för "
+"elementary, vilket betyder att den noga följer de höga standarderna för "
+"design, hastighet och konsistens. Den är sexig, men inte distraherande."
 
 #: data/io.elementary.code.appdata.xml.in:27
 msgid ""
@@ -56,6 +68,9 @@ msgid ""
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
+"Fungerar med ditt språk. Oavsett om du kodar i Vala, skriptar med PHP, eller "
+"markerar upp saker i HTML, kan Kod göra det. Upplev full syntaxmarkering med "
+"nästan alla programmerings-, skript- och markeringsspråk."
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid ""
@@ -63,51 +78,55 @@ msgid ""
 "Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
 "Objective C, Pascal, Perl, Python, Ruby, XML."
 msgstr ""
+"Andra syntaxmarkerade språk: Bash, C, C#, C++. Cmake, CSS, .Desktop, Diff, "
+"Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, Objective C, "
+"Pascal, Perl, Python, Ruby, XML."
 
 #: data/io.elementary.code.appdata.xml.in:38
 msgid "Additional features include:"
-msgstr ""
+msgstr "Ytterligare funktioner includerar:"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "syntax highlighting with gtksourceview-3"
-msgstr ""
+msgstr "syntaxmarkering med gtksourceview-3"
 
 #: data/io.elementary.code.appdata.xml.in:43
 msgid "a find bar to search the words in the files"
-msgstr ""
+msgstr "ett sökfält för att finna ord i filer"
 
 #: data/io.elementary.code.appdata.xml.in:44
 msgid "tab and split documents system"
-msgstr ""
+msgstr "tabba och splitta dokumentet"
 
 #: data/io.elementary.code.appdata.xml.in:45
 msgid "lots of others"
-msgstr ""
+msgstr "många andra"
 
-#: data/io.elementary.code.appdata.xml.in:83
+#: data/io.elementary.code.appdata.xml.in:101
 msgid "elementary LLC."
-msgstr ""
+msgstr "elementary LLC."
 
 #: data/io.elementary.code.desktop.in.in:5
 msgid "Edit code files"
-msgstr ""
+msgstr "Redigera kodfiler"
 
 #: data/io.elementary.code.desktop.in.in:6
 msgid "Code Editor"
-msgstr ""
+msgstr "Kod textredigerare"
 
 #: data/io.elementary.code.desktop.in.in:8
 msgid "io.elementary.code"
-msgstr ""
+msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
-msgid "IDE;scratch;"
-msgstr ""
+#, fuzzy
+msgid "text;IDE;scratch;"
+msgstr "IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New Document"
-msgstr ""
+msgstr "Nytt dokument"
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
-msgstr ""
+msgstr "Nytt fönster"

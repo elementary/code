@@ -80,11 +80,9 @@ namespace Scratch {
             context.add_group (Gtk.get_option_group (true));
 
             string[] args = command_line.get_arguments ();
-            int unclaimed_args;
 
             try {
                 context.parse_strv (ref args);
-                unclaimed_args = args.length - 1;
             } catch(Error e) {
                 print (e.message + "\n");
 
@@ -96,15 +94,15 @@ namespace Scratch {
                 return Posix.EXIT_SUCCESS;
             }
 
-            // Create (or show) the first window
-            activate ();
-
             // Create a next window if requested and it's not the app launch
             bool is_app_launch = (get_last_window () == null);
             if (create_new_window && !is_app_launch) {
                 create_new_window = false;
                 this.new_window ();
             }
+
+            // Create (or show) the first window
+            activate ();
 
             // Create a new document if requested
             if (create_new_tab) {
@@ -116,12 +114,11 @@ namespace Scratch {
             // Set Current Directory
             Environment.set_current_dir (_cwd);
 
+            int args_length = args.length;
             // Open all files given as arguments
-            if (unclaimed_args > 0) {
-                File[] files = new File[unclaimed_args];
-                files.length = 0;
-
-                foreach (string arg in args[1:unclaimed_args + 1]) {
+            if (args_length > 1) {
+                File[] files = {};
+                foreach (unowned string arg in args[1:args_length]) {
                     // We set a message, that later is informed to the user
                     // in a dialog if something noteworthy happens.
                     string msg = "";
@@ -254,7 +251,7 @@ namespace Scratch {
         }
 
         public MainWindow? get_last_window () {
-            unowned List<weak Gtk.Window> windows = get_windows ();
+            unowned List<Gtk.Window> windows = get_windows ();
             return windows.length () > 0 ? windows.last ().data as MainWindow : null;
         }
 

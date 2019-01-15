@@ -38,7 +38,10 @@ namespace Scratch.Widgets {
         construct {
             var open_button = new Gtk.Button.from_icon_name ("document-open", Gtk.IconSize.LARGE_TOOLBAR);
             open_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN;
-            open_button.tooltip_text = _("Open a file");
+            open_button.tooltip_markup = Granite.markup_accel_tooltip (
+                Scratch.Application.instance.get_accels_for_action (open_button.action_name),
+                _("Open a file")
+            );
 
             var open_folder_button = new Gtk.Button.from_icon_name ("folder-saved-search", Gtk.IconSize.LARGE_TOOLBAR);
             open_folder_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_FOLDER;
@@ -50,20 +53,32 @@ namespace Scratch.Widgets {
 
             var save_button = new Gtk.Button.from_icon_name ("document-save", Gtk.IconSize.LARGE_TOOLBAR);
             save_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SAVE;
-            save_button.tooltip_text = _("Save this file");
+            save_button.tooltip_markup = Granite.markup_accel_tooltip (
+                Scratch.Application.instance.get_accels_for_action (save_button.action_name),
+                _("Save this file")
+            );
 
             var save_as_button = new Gtk.Button.from_icon_name ("document-save-as", Gtk.IconSize.LARGE_TOOLBAR);
             save_as_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SAVE_AS;
-            save_as_button.tooltip_text = _("Save this file with a different name");
+            save_as_button.tooltip_markup = Granite.markup_accel_tooltip (
+                Scratch.Application.instance.get_accels_for_action (save_as_button.action_name),
+                _("Save this file with a different name")
+            );
 
             var revert_button = new Gtk.Button.from_icon_name ("document-revert", Gtk.IconSize.LARGE_TOOLBAR);
             revert_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_REVERT;
-            revert_button.tooltip_text = _("Restore this file");
+            revert_button.tooltip_markup = Granite.markup_accel_tooltip (
+                Scratch.Application.instance.get_accels_for_action (revert_button.action_name),
+                _("Restore this file")
+            );
 
             find_button = new Gtk.ToggleButton ();
             find_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SHOW_FIND;
             find_button.image = new Gtk.Image.from_icon_name ("edit-find", Gtk.IconSize.LARGE_TOOLBAR);
-            find_button.tooltip_text = _("Find…");
+            find_button.tooltip_markup = Granite.markup_accel_tooltip (
+                Scratch.Application.instance.get_accels_for_action (MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND),
+                _("Find…")
+            );
 
             share_menu = new Gtk.Menu ();
             share_app_menu = new Gtk.MenuButton ();
@@ -74,15 +89,24 @@ namespace Scratch.Widgets {
 
             var zoom_out_button = new Gtk.Button.from_icon_name ("zoom-out-symbolic", Gtk.IconSize.MENU);
             zoom_out_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_OUT;
-            zoom_out_button.tooltip_text = _("Zoom Out");
+            zoom_out_button.tooltip_markup = Granite.markup_accel_tooltip (
+                Scratch.Application.instance.get_accels_for_action (zoom_out_button.action_name),
+                _("Zoom Out")
+            );
 
             var zoom_default_button = new Gtk.Button.with_label ("100%");
             zoom_default_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_DEFAULT;
-            zoom_default_button.tooltip_text = _("Zoom 1:1");
+            zoom_default_button.tooltip_markup = Granite.markup_accel_tooltip (
+                Scratch.Application.instance.get_accels_for_action (zoom_default_button.action_name),
+                _("Zoom 1:1")
+            );
 
             var zoom_in_button = new Gtk.Button.from_icon_name ("zoom-in-symbolic", Gtk.IconSize.MENU);
             zoom_in_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_IN;
-            zoom_in_button.tooltip_text = _("Zoom In");
+            zoom_in_button.tooltip_markup = Granite.markup_accel_tooltip (
+                Scratch.Application.instance.get_accels_for_action (zoom_in_button.action_name),
+                _("Zoom In")
+            );
 
             var font_size_grid = new Gtk.Grid ();
             font_size_grid.column_homogeneous = true;
@@ -93,30 +117,24 @@ namespace Scratch.Widgets {
             font_size_grid.add (zoom_default_button);
             font_size_grid.add (zoom_in_button);
 
-            var color_button_white = new Gtk.Button ();
+            var color_button_white = new Gtk.RadioButton (null);
             color_button_white.halign = Gtk.Align.CENTER;
-            color_button_white.height_request = 32;
-            color_button_white.width_request = 32;
             color_button_white.tooltip_text = _("High Contrast");
 
             var color_button_white_context = color_button_white.get_style_context ();
             color_button_white_context.add_class ("color-button");
             color_button_white_context.add_class ("color-white");
 
-            var color_button_light = new Gtk.Button ();
+            var color_button_light = new Gtk.RadioButton.from_widget (color_button_white);
             color_button_light.halign = Gtk.Align.CENTER;
-            color_button_light.height_request = 32;
-            color_button_light.width_request = 32;
             color_button_light.tooltip_text = _("Solarized Light");
 
             var color_button_light_context = color_button_light.get_style_context ();
             color_button_light_context.add_class ("color-button");
             color_button_light_context.add_class ("color-light");
 
-            var color_button_dark = new Gtk.Button ();
+            var color_button_dark = new Gtk.RadioButton.from_widget (color_button_white);
             color_button_dark.halign = Gtk.Align.CENTER;
-            color_button_dark.height_request = 32;
-            color_button_dark.width_request = 32;
             color_button_dark.tooltip_text = _("Solarized Dark");
 
             var color_button_dark_context = color_button_dark.get_style_context ();
@@ -210,6 +228,18 @@ namespace Scratch.Widgets {
             });
 
             var gtk_settings = Gtk.Settings.get_default ();
+
+            switch (Scratch.settings.style_scheme) {
+               case "high-contrast":
+                   color_button_white.active = true;
+                   break;
+               case "solarized-light":
+                   color_button_light.active = true;
+                   break;
+               case "solarized-dark":
+                   color_button_dark.active = true;
+                   break;
+            }
 
             color_button_dark.clicked.connect (() => {
                 Scratch.settings.prefer_dark_style = true;
