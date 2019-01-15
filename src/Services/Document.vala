@@ -291,7 +291,7 @@ namespace Scratch.Services {
                     var title = _("Loading File \"%s\" Is Taking a Long Time").printf (get_basename ());
                     var description = _("Please wait while Code is loading the file.");
                     var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-information");
-                    alert_view.show_action (_("Cancel Load"));
+                    alert_view.show_action (_("Cancel Loading"));
                     alert_view.show_all ();
                     main_stack.add_named (alert_view, "wait_alert");
                     main_stack.set_visible_child (alert_view);
@@ -705,7 +705,7 @@ namespace Scratch.Services {
         // Show an error view which says "Hey, I cannot read that file!"
         private void show_default_load_error_view () {
             var title = _("File \"%s\" Cannot Be Read").printf (get_basename ());
-            var description = _("Maybe it is corrupt or you do not have the necessary permissions to read it.");
+            var description = _("It may be corrupt or you don't have permission to read it.");
             var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-error");
             alert_view.show_all ();
             main_stack.add_named (alert_view, "error_alert");
@@ -739,7 +739,7 @@ namespace Scratch.Services {
 
             // If the file can't be written
             if (!can_write ()) {
-                string message = _("You cannot save changes on file \"%s\". Do you want to save the changes to this file in a different location?").printf ("<b>%s</b>".printf (get_basename ()));
+                string message = _("You cannot save changes to the file \"%s\". Do you want to save the changes somewhere else?").printf ("<b>%s</b>".printf (get_basename ()));
 
                 set_message (Gtk.MessageType.WARNING, message, _("Save changes elsewhere"), () => {
                     this.save_as.begin ();

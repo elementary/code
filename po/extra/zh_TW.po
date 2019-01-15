@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-18 14:13-0700\n"
+"POT-Creation-Date: 2019-01-04 11:52-0800\n"
 "PO-Revision-Date: 2018-02-24 11:52+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://weblate.elementary.io/projects/"
@@ -100,7 +100,7 @@ msgstr "分頁和文件切分系統"
 msgid "lots of others"
 msgstr "其他一堆有的沒的"
 
-#: data/io.elementary.code.appdata.xml.in:84
+#: data/io.elementary.code.appdata.xml.in:101
 msgid "elementary LLC."
 msgstr "elementary LLC."
 
@@ -117,7 +117,8 @@ msgid "io.elementary.code"
 msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
-msgid "IDE;scratch;"
+#, fuzzy
+msgid "text;IDE;scratch;"
 msgstr "IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-18 14:12-0700\n"
-"PO-Revision-Date: 2018-10-23 00:02+0000\n"
+"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"PO-Revision-Date: 2019-01-09 15:28+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://weblate.elementary.io/projects/code/code/ca/>"
 "\n"
@@ -21,23 +21,23 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:138
+#: src/Application.vala:135
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Potser no en teniu els permisos necessaris."
 
-#: src/Application.vala:140
+#: src/Application.vala:137
 msgid "Maybe the file path provided is not valid."
 msgstr "Potser el camí del fitxer no és vàlid."
 
-#: src/Application.vala:142
+#: src/Application.vala:139
 msgid "The location is read-only."
 msgstr "La ubicació es només de lectura."
 
-#: src/Application.vala:144
+#: src/Application.vala:141
 msgid "The parent directory doesn't exist."
 msgstr "El directori pare no existeix."
 
-#: src/Application.vala:151
+#: src/Application.vala:148
 #, c-format
 msgid ""
 "File \"%s\" cannot be created.\n"
@@ -46,7 +46,7 @@ msgstr ""
 "No es pot crear el fitxer %s.\n"
 "%s"
 
-#: src/Application.vala:161
+#: src/Application.vala:158
 #, c-format
 msgid ""
 "File \"%s\" cannot be opened.\n"
@@ -55,11 +55,11 @@ msgstr ""
 "No espot obrir el fitxer %s.\n"
 "%s"
 
-#: src/Application.vala:171
+#: src/Application.vala:168
 msgid "It is a mountable location."
 msgstr "És una ubicació muntable."
 
-#: src/Application.vala:174
+#: src/Application.vala:171
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -67,27 +67,27 @@ msgstr ""
 "És un fitxer especial, com ara un sòcol,\n"
 "  FIFO, dispositiu de bloc o dispositiu de caràcters."
 
-#: src/Application.vala:177
+#: src/Application.vala:174
 msgid "It is an \"unknown\" file type."
 msgstr "És un tipus de fitxer desconegut."
 
-#: src/Application.vala:266
+#: src/Application.vala:263
 msgid "New Tab"
 msgstr "Pestanya nova"
 
-#: src/Application.vala:267 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:264 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Finestra nova"
 
-#: src/Application.vala:268
+#: src/Application.vala:265
 msgid "Print version info and exit"
 msgstr "Imprimeix informació de la versió i surt"
 
-#: src/Application.vala:269
+#: src/Application.vala:266
 msgid "Set of plugins"
 msgstr "Conjunt de connectors"
 
-#: src/Application.vala:270
+#: src/Application.vala:267
 msgid "Current working directory"
 msgstr "Directori de treball actual"
 
@@ -95,28 +95,28 @@ msgstr "Directori de treball actual"
 msgid "Code"
 msgstr "Codi"
 
-#: src/MainWindow.vala:181 src/Widgets/HeaderBar.vala:66
+#: src/MainWindow.vala:183 src/Widgets/HeaderBar.vala:80
 msgid "Find…"
 msgstr "Cerca…"
 
-#: src/MainWindow.vala:183
+#: src/MainWindow.vala:188
 msgid "Hide search bar"
 msgstr "Oculta la barra de cerca"
 
-#: src/MainWindow.vala:229
+#: src/MainWindow.vala:236
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Font de dades del Zeitgeist per a l'Scratch"
 
 #. Show a GtkFileChooserDialog
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:742
 msgid "Open some files"
 msgstr "Obriu alguns fitxers"
 
-#: src/MainWindow.vala:755
+#: src/MainWindow.vala:761
 msgid "_Cancel"
 msgstr "_Cancel·la"
 
-#: src/MainWindow.vala:756
+#: src/MainWindow.vala:762
 msgid "_Open"
 msgstr "_Obre"
 
@@ -128,7 +128,7 @@ msgstr "Tots els fitxers"
 msgid "Text files"
 msgstr "Fitxers de text"
 
-#: src/Utils.vala:35 src/Services/Document.vala:403
+#: src/Utils.vala:35 src/Services/Document.vala:409
 msgid "Cancel"
 msgstr "Cancel·la"
 
@@ -136,12 +136,12 @@ msgstr "Cancel·la"
 msgid "Open"
 msgstr "Obre"
 
-#: src/Utils.vala:46 src/Services/Document.vala:404
-#: src/Services/Document.vala:701
+#: src/Utils.vala:46 src/Services/Document.vala:410
+#: src/Services/Document.vala:729
 msgid "Save"
 msgstr "Desa"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:136
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:160
 msgid "Preferences"
 msgstr "Preferències"
 
@@ -157,15 +157,15 @@ msgstr "Desa els fitxers quan es produeixin canvis:"
 msgid "Tabs"
 msgstr "Pestanyes"
 
-#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:161
 msgid "Automatic indentation:"
 msgstr "Sagnat automàtic:"
 
-#: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:150
+#: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:155
 msgid "Insert spaces instead of tabs:"
 msgstr "Inserir espais en comptes de tabulacions:"
 
-#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:153
+#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:158
 msgid "Tab width:"
 msgstr "Amplada del tabulador:"
 
@@ -195,35 +195,39 @@ msgid "Highlight matching brackets:"
 msgstr "Realça la parella de claudàtors:"
 
 #: src/Dialogs/PreferencesDialog.vala:110
+msgid "Line wrap:"
+msgstr "Ajust de línia:"
+
+#: src/Dialogs/PreferencesDialog.vala:113
 msgid "Draw Spaces:"
 msgstr "Dibuxa espais:"
 
-#: src/Dialogs/PreferencesDialog.vala:112
+#: src/Dialogs/PreferencesDialog.vala:115
 #: plugins/pastebin/pastebin_dialog.vala:460
 msgid "Never"
 msgstr "Mai"
 
-#: src/Dialogs/PreferencesDialog.vala:113
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "For selected text"
 msgstr "Per al text seleccionat"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Always"
 msgstr "Sempre"
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:120
 msgid "Show Mini Map:"
 msgstr "Mostra el minimapa:"
 
-#: src/Dialogs/PreferencesDialog.vala:120
+#: src/Dialogs/PreferencesDialog.vala:123
 msgid "Line width guide:"
 msgstr "Guia d'amplada de línia:"
 
-#: src/Dialogs/PreferencesDialog.vala:128
+#: src/Dialogs/PreferencesDialog.vala:131
 msgid "Font"
 msgstr "Lletra"
 
-#: src/Dialogs/PreferencesDialog.vala:130
+#: src/Dialogs/PreferencesDialog.vala:133
 msgid "Custom font:"
 msgstr "Tipus de lletra personalitzada:"
 
@@ -286,69 +290,67 @@ msgstr "fitxer nou %d"
 msgid "Close Folder"
 msgstr "Tanca la carpeta"
 
-#: src/Services/Document.vala:243
+#: src/Services/Document.vala:267
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s no és un fitxer de text"
 
-#: src/Services/Document.vala:244
+#: src/Services/Document.vala:268
 msgid "Code will not load this type of file."
 msgstr "El Codi no carregarà aquest tipus de fitxer."
 
-#: src/Services/Document.vala:246
+#: src/Services/Document.vala:270
 msgid "Load Anyway"
 msgstr "Carrega'l tanmateix"
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:291
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "La càrrega del fitxer \"%s\" està trigant molt."
 
-#: src/Services/Document.vala:268
+#: src/Services/Document.vala:292
 msgid "Please wait while Code is loading the file."
 msgstr "Si us plau, espereu mentre el Codi carrega el fitxer."
 
-#: src/Services/Document.vala:270
-msgid "Cancel Load"
+#: src/Services/Document.vala:294
+msgid "Cancel Loading"
 msgstr "Cancel·la la càrrega"
 
-#: src/Services/Document.vala:394
+#: src/Services/Document.vala:400
 #, c-format
 msgid "Save changes to document %s before closing?"
 msgstr "Voleu desar els canvis fets a %s abans de tancar-lo?"
 
-#: src/Services/Document.vala:397
+#: src/Services/Document.vala:403
 msgid ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 msgstr ""
 "Si no deseu el document, els canvis dels darrers 4 segons es pedran "
 "permanentment."
 
-#: src/Services/Document.vala:399
+#: src/Services/Document.vala:405
 msgid "Close without saving"
 msgstr "Tanca sense desar"
 
-#: src/Services/Document.vala:482
+#: src/Services/Document.vala:510
 msgid "Save File"
 msgstr "Desa el fitxer"
 
-#: src/Services/Document.vala:556
+#: src/Services/Document.vala:584
 msgid "New Document"
 msgstr "Document nou"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:679
+#: src/Services/Document.vala:707
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "No es pot llegir el fitxer \"%s\"."
 
-#: src/Services/Document.vala:680
-msgid ""
-"Maybe it is corrupt or you do not have the necessary permissions to read it."
-msgstr ""
-"Potser s'ha corromput o no teniu els permisos necessaris per llegir-lo."
+#: src/Services/Document.vala:708
+msgid "It may be corrupt or you don't have permission to read it."
+msgstr "Potser està corromput o no teniu els permisos necessaris per llegir-lo."
 
-#: src/Services/Document.vala:692
+#: src/Services/Document.vala:720
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -357,30 +359,30 @@ msgstr ""
 "La ubicació que contenia el fitxer %s s'ha desmuntat. El voleu desar en un "
 "altre lloc?"
 
-#: src/Services/Document.vala:694
+#: src/Services/Document.vala:722
 msgid "Save As…"
 msgstr "Anomena i desa…"
 
-#: src/Services/Document.vala:699
+#: src/Services/Document.vala:727
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "S'ha suprimit el fitxer %s. Voleu desar-lo de tota manera?"
 
 #. If the file can't be written
-#: src/Services/Document.vala:714
+#: src/Services/Document.vala:742
 #, c-format
 msgid ""
-"You cannot save changes on file \"%s\". Do you want to save the changes to "
-"this file in a different location?"
+"You cannot save changes to the file \"%s\". Do you want to save the changes "
+"somewhere else?"
 msgstr ""
-"No podeu desar els canvis al fitxer %s. Voleu desar-ne els canvis en un "
-"altre lloc?"
+"No podeu desar els canvis al fitxer %s. Voleu desar els canvis en un altre "
+"lloc?"
 
-#: src/Services/Document.vala:716
+#: src/Services/Document.vala:744
 msgid "Save changes elsewhere"
 msgstr "Desa els canvis a una altra ubicació"
 
-#: src/Services/Document.vala:749
+#: src/Services/Document.vala:777
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -389,11 +391,11 @@ msgstr ""
 "Una aplicació externa ha modificat el fitxer %s . Voleu tornar-lo a carregar "
 "o continuar l'edició?"
 
-#: src/Services/Document.vala:750
+#: src/Services/Document.vala:778
 msgid "Load"
 msgstr "Carrega"
 
-#: src/Services/Document.vala:753
+#: src/Services/Document.vala:781
 msgid "Continue"
 msgstr "Continua"
 
@@ -410,101 +412,101 @@ msgstr "Fitxer de text de %s"
 msgid "Syntax Highlighting"
 msgstr "Realçat de sintaxi"
 
-#: src/Widgets/FormatBar.vala:71
+#: src/Widgets/FormatBar.vala:75
 msgid "Line number"
 msgstr "Número de línia"
 
-#: src/Widgets/FormatBar.vala:96
+#: src/Widgets/FormatBar.vala:101
 msgid "Filter languages"
 msgstr "Filtra llenguatges"
 
-#: src/Widgets/FormatBar.vala:118
+#: src/Widgets/FormatBar.vala:123
 msgid "Plain Text"
 msgstr "Text pla"
 
-#: src/Widgets/FormatBar.vala:200
+#: src/Widgets/FormatBar.vala:205
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d espai"
 msgstr[1] "%d espais"
 
-#: src/Widgets/FormatBar.vala:202
+#: src/Widgets/FormatBar.vala:207
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d pestanya"
 msgstr[1] "%d pestanyes"
 
-#: src/Widgets/FormatBar.vala:218
+#: src/Widgets/FormatBar.vala:223
 msgid "Go To Line:"
 msgstr "Ves a la línia:"
 
-#: src/Widgets/HeaderBar.vala:41
+#: src/Widgets/HeaderBar.vala:43
 msgid "Open a file"
 msgstr "Obre un fitxer"
 
-#: src/Widgets/HeaderBar.vala:45
+#: src/Widgets/HeaderBar.vala:48
 msgid "Open a folder"
 msgstr "Obre una carpeta"
 
-#: src/Widgets/HeaderBar.vala:49
+#: src/Widgets/HeaderBar.vala:52
 msgid "Project templates"
 msgstr "Plantilles de projectes"
 
-#: src/Widgets/HeaderBar.vala:53
+#: src/Widgets/HeaderBar.vala:58
 msgid "Save this file"
 msgstr "Desa aquest fitxer"
 
-#: src/Widgets/HeaderBar.vala:57
+#: src/Widgets/HeaderBar.vala:65
 msgid "Save this file with a different name"
 msgstr "Desa aquest fitxer amb un nom diferent"
 
-#: src/Widgets/HeaderBar.vala:61
+#: src/Widgets/HeaderBar.vala:72
 msgid "Restore this file"
 msgstr "Restaura aquest fitxer"
 
-#: src/Widgets/HeaderBar.vala:72
+#: src/Widgets/HeaderBar.vala:87
 msgid "Share"
 msgstr "Comparteix"
 
-#: src/Widgets/HeaderBar.vala:77
+#: src/Widgets/HeaderBar.vala:94
 msgid "Zoom Out"
 msgstr "Allunya"
 
-#: src/Widgets/HeaderBar.vala:81
+#: src/Widgets/HeaderBar.vala:101
 msgid "Zoom 1:1"
 msgstr "Ampliació 1:1"
 
-#: src/Widgets/HeaderBar.vala:85
+#: src/Widgets/HeaderBar.vala:108
 msgid "Zoom In"
 msgstr "Apropa"
 
-#: src/Widgets/HeaderBar.vala:98
+#: src/Widgets/HeaderBar.vala:122
 msgid "High Contrast"
 msgstr "Contrast alt"
 
-#: src/Widgets/HeaderBar.vala:106
+#: src/Widgets/HeaderBar.vala:130
 msgid "Solarized Light"
 msgstr "Llum de dia clara"
 
-#: src/Widgets/HeaderBar.vala:114
+#: src/Widgets/HeaderBar.vala:138
 msgid "Solarized Dark"
 msgstr "Llum de dia fosca"
 
-#: src/Widgets/HeaderBar.vala:124
+#: src/Widgets/HeaderBar.vala:148
 msgid "Toggle Sidebar"
 msgstr "Commuta la barra lateral"
 
-#: src/Widgets/HeaderBar.vala:128
+#: src/Widgets/HeaderBar.vala:152
 msgid "Add New View"
 msgstr "Afegeix una nova vista"
 
-#: src/Widgets/HeaderBar.vala:132
+#: src/Widgets/HeaderBar.vala:156
 msgid "Remove Current View"
 msgstr "Suprimeix la vista actual"
 
-#: src/Widgets/HeaderBar.vala:159
+#: src/Widgets/HeaderBar.vala:183
 msgid "Menu"
 msgstr "Menú"
 
@@ -512,35 +514,35 @@ msgstr "Menú"
 msgid "Find"
 msgstr "Cerca"
 
-#: src/Widgets/SearchBar.vala:66
+#: src/Widgets/SearchBar.vala:70
 msgid "Search next"
 msgstr "Cerca el següent"
 
-#: src/Widgets/SearchBar.vala:71
+#: src/Widgets/SearchBar.vala:80
 msgid "Search previous"
 msgstr "Cerca l'anterior"
 
-#: src/Widgets/SearchBar.vala:75
+#: src/Widgets/SearchBar.vala:85
 msgid "Cyclic Search"
 msgstr "Cerca cíclica"
 
-#: src/Widgets/SearchBar.vala:91
+#: src/Widgets/SearchBar.vala:101
 msgid "Replace With"
 msgstr "Reemplaça amb"
 
-#: src/Widgets/SearchBar.vala:94
+#: src/Widgets/SearchBar.vala:104
 msgid "Replace"
 msgstr "Reemplaça"
 
-#: src/Widgets/SearchBar.vala:97
+#: src/Widgets/SearchBar.vala:107
 msgid "Replace all"
 msgstr "Reemplaça-ho tot"
 
-#: src/Widgets/SourceView.vala:357
+#: src/Widgets/SourceView.vala:362
 msgid "Sort Selected Lines"
 msgstr "Classifica les línies seleccionades"
 
-#: src/Widgets/SourceView.vala:364
+#: src/Widgets/SourceView.vala:369
 msgid "Toggle Comment"
 msgstr "Commuta el comentari"
 
@@ -630,7 +632,7 @@ msgstr "Puja al Pastebin"
 
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
-#: plugins/outline/C/CtagsSymbolOutline.vala:64
+#: plugins/outline/C/CtagsSymbolOutline.vala:68
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
 #: plugins/outline/Vala/ValaSymbolOutline.vala:116
 #: plugins/outline/OutlinePane.vala:27
@@ -824,9 +826,6 @@ msgstr "No s'ha pogut carregar el tema d'icones: %s\n"
 
 #~ msgid "Show last open tabs"
 #~ msgstr "Mostra les pestanyes obertes recentment"
-
-#~ msgid "Line wrap:"
-#~ msgstr "Ajust de línia:"
 
 #~ msgid "A terminal in your text editor"
 #~ msgstr "Un terminal a l'editor de textos"
