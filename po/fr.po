@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-08 15:53-0800\n"
-"PO-Revision-Date: 2018-11-16 08:39+0000\n"
-"Last-Translator: Corentin Noël <corentin@elementary.io>\n"
-"Language-Team: French <https://weblate.elementary.io/projects/code/code/fr/"
-">\n"
+"PO-Revision-Date: 2019-01-14 00:08+0000\n"
+"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
+"Language-Team: French <https://weblate.elementary.io/projects/code/code/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -69,7 +69,7 @@ msgstr ""
 
 #: src/Application.vala:174
 msgid "It is an \"unknown\" file type."
-msgstr "Il s'agit d'un fichier de type inconnu."
+msgstr "Il s'agit d'un fichier de type « inconnu »."
 
 #: src/Application.vala:263
 msgid "New Tab"
@@ -81,11 +81,11 @@ msgstr "Nouvelle fenêtre"
 
 #: src/Application.vala:265
 msgid "Print version info and exit"
-msgstr "Afficher les détails de la version et quitter"
+msgstr "Afficher les détails de version et quitter"
 
 #: src/Application.vala:266
 msgid "Set of plugins"
-msgstr "Ensemble de greffons"
+msgstr "Ensemble de plugins"
 
 #: src/Application.vala:267
 msgid "Current working directory"
@@ -310,10 +310,9 @@ msgstr "Le chargement du fichier « %s » semble prendre beaucoup de temps"
 
 #: src/Services/Document.vala:292
 msgid "Please wait while Code is loading the file."
-msgstr "Veuillez attendre que Code ait chargé le fichier."
+msgstr "Veuillez patienter pendant que Code charge le fichier."
 
 #: src/Services/Document.vala:294
-#, fuzzy
 msgid "Cancel Loading"
 msgstr "Annuler le chargement"
 
@@ -349,11 +348,8 @@ msgid "File \"%s\" Cannot Be Read"
 msgstr "Impossible de lire le fichier « %s »"
 
 #: src/Services/Document.vala:708
-#, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
-msgstr ""
-"Il est peut-être corrompu ou vous n'avez pas les droits nécessaires pour le "
-"lire."
+msgstr "Il peut être corrompu ou vous n'avez pas la permission de le lire."
 
 #: src/Services/Document.vala:720
 #, c-format
@@ -361,7 +357,7 @@ msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
-"Le répertoire contenant le fichier \"%s\" a été démonté. Voulez-vous "
+"Le répertoire contenant le fichier « %s » a été démonté. Voulez-vous "
 "l'enregistrer ailleurs ?"
 
 #: src/Services/Document.vala:722
@@ -372,16 +368,16 @@ msgstr "Enregistrer sous…"
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr ""
-"Le fichier \"%s\" a été supprimé. Voulez-vous tout de même l'enregistrer ?"
+"Le fichier « %s » a été supprimé. Voulez-vous tout de même l'enregistrer ?"
 
 #. If the file can't be written
 #: src/Services/Document.vala:742
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
-"Impossible d'enregistrer les changements dans le fichier \"%s\". Voulez-vous "
+"Impossible d'enregistrer les changements dans le fichier « %s ». Voulez-vous "
 "les enregistrer dans un emplacement différent ?"
 
 #: src/Services/Document.vala:744
@@ -394,7 +390,7 @@ msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
-"Le fichier \"%s\" a été modifié par une application externe. Voulez-vous le "
+"Le fichier « %s » a été modifié par une application externe. Voulez-vous le "
 "recharger ou continuer votre édition ?"
 
 #: src/Services/Document.vala:778
@@ -494,11 +490,11 @@ msgstr "Contraste élevé"
 
 #: src/Widgets/HeaderBar.vala:130
 msgid "Solarized Light"
-msgstr "Solarisé clair"
+msgstr "Solarized Light"
 
 #: src/Widgets/HeaderBar.vala:138
 msgid "Solarized Dark"
-msgstr "Solarisé foncé"
+msgstr "Solarized Dark"
 
 #: src/Widgets/HeaderBar.vala:148
 msgid "Toggle Sidebar"
@@ -550,7 +546,7 @@ msgstr "Trier les lignes sélectionnées"
 
 #: src/Widgets/SourceView.vala:369
 msgid "Toggle Comment"
-msgstr "Retirer/Mettre en commentaire"
+msgstr "Commenter/Décommenter"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -562,7 +558,7 @@ msgstr "Ouvrir un fichier pour commencer l'édition."
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "New File"
-msgstr "Nouveau Fichier"
+msgstr "Nouveau fichier"
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "Create a new empty file."
@@ -586,7 +582,7 @@ msgstr "Ajouter le dossier d'un projet dans la barre latérale."
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via Pastebin"
-msgstr "Partager en utilisant PasteBin"
+msgstr "Partager via PasteBin"
 
 #: plugins/pastebin/pastebin_dialog.vala:256
 msgid "Name:"
