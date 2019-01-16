@@ -120,7 +120,7 @@ namespace Scratch.FolderManager {
                         }
                     }
                 } catch (GLib.Error e) {
-                    warning ("Failed to create menuitem fir branch %s. %s", branch_name ?? "unknown", e.message);
+                    warning ("Failed to create menuitem for branch %s. %s", branch_name ?? "unknown", e.message);
                 }
             }
 
