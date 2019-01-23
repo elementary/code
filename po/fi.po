@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-08 15:53-0800\n"
-"PO-Revision-Date: 2018-12-06 22:09+0000\n"
-"Last-Translator: Veli-Pekka Samuli Finnilä <vpf@tuta.io>\n"
-"Language-Team: Finnish <https://weblate.elementary.io/projects/code/code/fi/"
-">\n"
+"PO-Revision-Date: 2019-01-23 18:02+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"Language-Team: Finnish <https://weblate.elementary.io/projects/code/code/fi/>"
+"\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -313,7 +313,6 @@ msgid "Please wait while Code is loading the file."
 msgstr "Koodi lataa tiedostoa. Ole hyvä ja odota."
 
 #: src/Services/Document.vala:294
-#, fuzzy
 msgid "Cancel Loading"
 msgstr "Peru lataaminen"
 
@@ -348,11 +347,9 @@ msgid "File \"%s\" Cannot Be Read"
 msgstr "Tiedostoa \"%s\" ei voitu lukea"
 
 #: src/Services/Document.vala:708
-#, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
-"Se voi olla korruptoitunut, tai tarvittava käyttöoikeus sen lukemiseen "
-"puuttuu."
+"Se voi olla rikkoutunut, tai tarvittava käyttöoikeus sen lukemiseen puuttuu."
 
 #: src/Services/Document.vala:720
 #, c-format
@@ -374,13 +371,13 @@ msgstr "Tiedosto \"%s\" poistettiin. Haluatko tallentaa sen silti?"
 
 #. If the file can't be written
 #: src/Services/Document.vala:742
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
-"Et  voi tallentaa muutoksia tiedostoon \"%s\". Haluatko tallentaa tähän "
-"tiedostoon tehdyt muutokset toiseen sijaintiin?"
+"Et  voi tallentaa muutoksia tiedostoon \"%s\". Haluatko tallentaa tehdyt "
+"muutokset toiseen sijaintiin?"
 
 #: src/Services/Document.vala:744
 msgid "Save changes elsewhere"
