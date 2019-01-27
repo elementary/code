@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-08 15:53-0800\n"
-"PO-Revision-Date: 2018-12-09 00:00+0000\n"
+"PO-Revision-Date: 2019-01-27 00:00+0000\n"
 "Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
-"Language-Team: Italian <https://weblate.elementary.io/projects/code/code/it/"
-">\n"
+"Language-Team: Italian <https://weblate.elementary.io/projects/code/code/it/>"
+"\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -93,7 +93,7 @@ msgstr "Cartella di lavoro corrente"
 
 #: src/MainWindow.vala:133
 msgid "Code"
-msgstr "Code"
+msgstr "Codice"
 
 #: src/MainWindow.vala:183 src/Widgets/HeaderBar.vala:80
 msgid "Find…"
@@ -313,7 +313,6 @@ msgid "Please wait while Code is loading the file."
 msgstr "Attendere mentre Code carica il file."
 
 #: src/Services/Document.vala:294
-#, fuzzy
 msgid "Cancel Loading"
 msgstr "Annulla il caricamento"
 
@@ -372,7 +371,7 @@ msgstr "Il file \"%s\" è stato cancellato. Vuoi salvare comunque?"
 
 #. If the file can't be written
 #: src/Services/Document.vala:742
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
