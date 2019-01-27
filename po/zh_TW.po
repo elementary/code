@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
 "PO-Revision-Date: 2018-03-21 01:09+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://weblate.elementary.io/projects/"
@@ -249,7 +249,7 @@ msgid "Rename"
 msgstr "改名"
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr "移至垃圾桶"
 
@@ -287,7 +287,12 @@ msgstr "新檔案"
 msgid "new file %d"
 msgstr "新檔案 %d"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+#, fuzzy
+msgid "Change Branch"
+msgstr "變更 Scratch 設定值"
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr "關閉資料夾"
 
@@ -398,9 +403,9 @@ msgstr "繼續"
 msgid "Templates"
 msgstr "範本"
 
-#: src/Widgets/DocumentView.vala:132
-#, c-format
-msgid "Text file from %s"
+#: src/Widgets/DocumentView.vala:133
+#, fuzzy, c-format
+msgid "Text file from %s:%d"
 msgstr "文字檔來自 %s"
 
 #: src/Widgets/FormatBar.vala:67
@@ -782,9 +787,6 @@ msgstr "無法載入圖示主題：%s\n"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "從剪貼簿新增檔案"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "變更 Scratch 設定值"
 
 #~ msgid "Next Tab"
 #~ msgstr "後個分頁"

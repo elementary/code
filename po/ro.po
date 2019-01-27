@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
 "PO-Revision-Date: 2016-12-13 07:30+0000\n"
 "Last-Translator: Remus <remuszvids@gmail.com>\n"
 "Language-Team: Romanian <ro@li.org>\n"
@@ -249,7 +249,7 @@ msgid "Rename"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr ""
 
@@ -290,7 +290,12 @@ msgstr "Fişier nou"
 msgid "new file %d"
 msgstr "Fişier nou"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+#, fuzzy
+msgid "Change Branch"
+msgstr "Schimbă configurările Scratch"
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr "Închide dosar"
 
@@ -412,9 +417,9 @@ msgstr "Continuă"
 msgid "Templates"
 msgstr "Șabloane"
 
-#: src/Widgets/DocumentView.vala:132
+#: src/Widgets/DocumentView.vala:133
 #, fuzzy, c-format
-msgid "Text file from %s"
+msgid "Text file from %s:%d"
 msgstr "Fișier text de la "
 
 #: src/Widgets/FormatBar.vala:67
@@ -771,9 +776,6 @@ msgstr "Tema iconului nu poate fi încărcată: %s\n"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "Fişier nou din memorie"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "Schimbă configurările Scratch"
 
 #~ msgid "Next Tab"
 #~ msgstr "Următoarea Filă"

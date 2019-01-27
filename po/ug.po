@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
 "PO-Revision-Date: 2016-12-11 08:21+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: \n"
@@ -244,7 +244,7 @@ msgid "Rename"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr ""
 
@@ -285,7 +285,12 @@ msgstr "يىڭى ھۆججەت قۇرۇش"
 msgid "new file %d"
 msgstr "يىڭى ھۆججەت قۇرۇش"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+#, fuzzy
+msgid "Change Branch"
+msgstr "Scratchنىڭ تەڭشەكلىرىنى ئۆزگەرتىش"
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr "مۇندەرىجىنى تاقاش"
 
@@ -405,9 +410,9 @@ msgstr "داۋاملاشتۇرۇش"
 msgid "Templates"
 msgstr "قېلىپ"
 
-#: src/Widgets/DocumentView.vala:132
+#: src/Widgets/DocumentView.vala:133
 #, fuzzy, c-format
-msgid "Text file from %s"
+msgid "Text file from %s:%d"
 msgstr "تېكىست ھۆججىتى مەنبەسى "
 
 #: src/Widgets/FormatBar.vala:67
@@ -763,9 +768,6 @@ msgstr "يۈكلىگىلى بولمىغان بەلگە رەسىم ئۇسلۇبى
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "كۆچۈرۈش تاختىسىدىن يىڭى ھۆججەت قۇرۇش"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "Scratchنىڭ تەڭشەكلىرىنى ئۆزگەرتىش"
 
 #~ msgid "Next Tab"
 #~ msgstr "كىيىنكى خەتكۈچ"

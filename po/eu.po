@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
 "PO-Revision-Date: 2016-09-11 21:29+0000\n"
 "Last-Translator: Thadah Denyse <juchuf@gmail.com>\n"
 "Language-Team: Basque <eu@li.org>\n"
@@ -242,7 +242,7 @@ msgid "Rename"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr ""
 
@@ -283,7 +283,12 @@ msgstr "Fitxategi berria"
 msgid "new file %d"
 msgstr "Fitxategi berria"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+#, fuzzy
+msgid "Change Branch"
+msgstr "Aldatu Scratch-en ezarpenak"
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr "Itxi karpeta"
 
@@ -396,9 +401,9 @@ msgstr "Jarraitu"
 msgid "Templates"
 msgstr "Txantiloiak"
 
-#: src/Widgets/DocumentView.vala:132
+#: src/Widgets/DocumentView.vala:133
 #, fuzzy, c-format
-msgid "Text file from %s"
+msgid "Text file from %s:%d"
 msgstr "Testu-fitxategiak"
 
 #: src/Widgets/FormatBar.vala:67
@@ -777,9 +782,6 @@ msgstr "Ezin izan da ikonoen gaia kargatu: %s\n"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "Fitxategi berria arbeletik"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "Aldatu Scratch-en ezarpenak"
 
 #~ msgid "Next Tab"
 #~ msgstr "Hurrengo fitxa"

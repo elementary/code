@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
 "PO-Revision-Date: 2015-12-21 13:39+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Amharic <am@li.org>\n"
@@ -242,7 +242,7 @@ msgid "Rename"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr ""
 
@@ -283,7 +283,12 @@ msgstr "አዲስ ፋይል"
 msgid "new file %d"
 msgstr "አዲስ ፋይል"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+#, fuzzy
+msgid "Change Branch"
+msgstr "የ ስክራች ማሰናጃዎች መቀየሪያ"
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr "ፎልደር መዝጊያ"
 
@@ -393,9 +398,9 @@ msgstr "ይቀጥሉ"
 msgid "Templates"
 msgstr "ቴምፕሌትስ"
 
-#: src/Widgets/DocumentView.vala:132
+#: src/Widgets/DocumentView.vala:133
 #, fuzzy, c-format
-msgid "Text file from %s"
+msgid "Text file from %s:%d"
 msgstr "የጽሁፍ ፋይሎች"
 
 #: src/Widgets/FormatBar.vala:67
@@ -745,9 +750,6 @@ msgstr ""
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "አዲስ ፋይል ከ ቁራጭ ሰሌዳ"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "የ ስክራች ማሰናጃዎች መቀየሪያ"
 
 #~ msgid "Next Tab"
 #~ msgstr "የሚቀጥለው ንዑስ መስኮት"

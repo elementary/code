@@ -2,11 +2,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-04 11:52-0800\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
 "PO-Revision-Date: 2019-01-09 10:43+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
-"Language-Team: Marathi <https://weblate.elementary.io/projects/code/code/mr/>"
-"\n"
+"Language-Team: Marathi <https://weblate.elementary.io/projects/code/code/mr/"
+">\n"
 "Language: mr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -243,7 +243,7 @@ msgid "Rename"
 msgstr "नाव बदला"
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr "कचऱ्या मध्ये टाका"
 
@@ -281,7 +281,11 @@ msgstr "नवीन फाईल"
 msgid "new file %d"
 msgstr "नवीन फाईल %d"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+msgid "Change Branch"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr "फोल्डर बंद करा"
 
@@ -368,8 +372,8 @@ msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
-"आपण \"%s\" फाईल मध्ये बदल सेव्ह करू शकत नाही. आपणांस  ह्या फाईल मधले बदल अन्"
-"य ठिकाणी सेव्ह करायचे आहेत का?"
+"आपण \"%s\" फाईल मध्ये बदल सेव्ह करू शकत नाही. आपणांस  ह्या फाईल मधले बदल अन्य ठिकाणी "
+"सेव्ह करायचे आहेत का?"
 
 #: src/Services/Document.vala:744
 msgid "Save changes elsewhere"
@@ -396,9 +400,9 @@ msgstr "सुरु ठेवा"
 msgid "Templates"
 msgstr "नमूने"
 
-#: src/Widgets/DocumentView.vala:132
-#, c-format
-msgid "Text file from %s"
+#: src/Widgets/DocumentView.vala:133
+#, fuzzy, c-format
+msgid "Text file from %s:%d"
 msgstr "%s मधल्या टेक्स्ट फाईल्स"
 
 #: src/Widgets/FormatBar.vala:67

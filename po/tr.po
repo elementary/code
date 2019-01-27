@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
 "PO-Revision-Date: 2018-10-28 00:05+0000\n"
 "Last-Translator: Sinan Decron <intenfinitia@gmail.com>\n"
 "Language-Team: Turkish <https://weblate.elementary.io/projects/code/code/tr/"
@@ -248,7 +248,7 @@ msgid "Rename"
 msgstr "Yeniden adlandır"
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr "Çöpe taşı"
 
@@ -286,7 +286,12 @@ msgstr "Yeni dosya"
 msgid "new file %d"
 msgstr "yeni dosya %d"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+#, fuzzy
+msgid "Change Branch"
+msgstr "Scratch ayarlarını değiştir"
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr "Klasörü Kapat"
 
@@ -407,9 +412,9 @@ msgstr "Devam Et"
 msgid "Templates"
 msgstr "Şablonlar"
 
-#: src/Widgets/DocumentView.vala:132
-#, c-format
-msgid "Text file from %s"
+#: src/Widgets/DocumentView.vala:133
+#, fuzzy, c-format
+msgid "Text file from %s:%d"
 msgstr "%s 'dan metin dosyası"
 
 #: src/Widgets/FormatBar.vala:67
@@ -786,9 +791,6 @@ msgstr "Simge teması yüklenemedi: %s\n"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "Panodan yeni dosya yükle"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "Scratch ayarlarını değiştir"
 
 #~ msgid "Next Tab"
 #~ msgstr "Sonraki Sekme"

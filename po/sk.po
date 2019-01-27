@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
 "PO-Revision-Date: 2016-07-17 14:14+0000\n"
 "Last-Translator: Igor Štefanko <istefanko@gmail.com>\n"
 "Language-Team: Slovak <sk@li.org>\n"
@@ -249,7 +249,7 @@ msgid "Rename"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr ""
 
@@ -290,7 +290,12 @@ msgstr "Nový súbor"
 msgid "new file %d"
 msgstr "Nový súbor"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+#, fuzzy
+msgid "Change Branch"
+msgstr "Zmeniť nastavenia editora Scratch"
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr "Zatvoriť priečinok"
 
@@ -411,9 +416,9 @@ msgstr "Pokračovať"
 msgid "Templates"
 msgstr "Šablóny"
 
-#: src/Widgets/DocumentView.vala:132
+#: src/Widgets/DocumentView.vala:133
 #, fuzzy, c-format
-msgid "Text file from %s"
+msgid "Text file from %s:%d"
 msgstr "Textový súbor z "
 
 #: src/Widgets/FormatBar.vala:67
@@ -800,9 +805,6 @@ msgstr "Nepodarilo sa načítať motív ikon: %s\n"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "Nový súbor zo schránky"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "Zmeniť nastavenia editora Scratch"
 
 #~ msgid "Next Tab"
 #~ msgstr "Ďalšia karta"

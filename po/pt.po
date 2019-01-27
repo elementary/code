@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
 "PO-Revision-Date: 2019-01-09 10:51+0000\n"
 "Last-Translator: Nuno Alexandre MS Ribeiro <nuno.anarresti@gmail.com>\n"
 "Language-Team: Portuguese <https://weblate.elementary.io/projects/code/code/"
@@ -248,7 +248,7 @@ msgid "Rename"
 msgstr "Mudar o nome"
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr "Mover para o Lixo"
 
@@ -286,7 +286,12 @@ msgstr "novo ficheiro"
 msgid "new file %d"
 msgstr "novo ficheiro %d"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+#, fuzzy
+msgid "Change Branch"
+msgstr "Alterar definições do Scratch"
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr "Fechar Pasta"
 
@@ -405,9 +410,9 @@ msgstr "Continuar"
 msgid "Templates"
 msgstr "Modelos"
 
-#: src/Widgets/DocumentView.vala:132
-#, c-format
-msgid "Text file from %s"
+#: src/Widgets/DocumentView.vala:133
+#, fuzzy, c-format
+msgid "Text file from %s:%d"
 msgstr "Ficheiro de texto de %s"
 
 #: src/Widgets/FormatBar.vala:67
@@ -754,9 +759,6 @@ msgstr "Impossível carregar ícones: %s\n"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "Novo ficheiro da área de transferência"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "Alterar definições do Scratch"
 
 #~ msgid "Next Tab"
 #~ msgstr "Separador Seguinte"
