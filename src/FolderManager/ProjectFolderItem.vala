@@ -74,62 +74,6 @@ namespace Scratch.FolderManager {
             }
         }
 
-        public bool change_branch (string ref_name) {
-            bool success = false;
-            try {
-                success = git_repo.set_head (ref_name);
-            } catch (GLib.Error e) {
-                warning ("Failed to change branch to %s.  %s", name, e.message);
-            }
-
-            return success;
-        }
-
-        public Gtk.MenuItem? create_change_branch_menu () {
-            Ggit.Branch? cur_branch;
-            Ggit.BranchEnumerator? branches;
-
-            try {
-                cur_branch = (Ggit.Branch?)(git_repo.get_head ());
-                branches = git_repo.enumerate_branches (Ggit.BranchType.LOCAL);
-            } catch (GLib.Error e) {
-                critical ("Failed to create change branch menu. %s", e.message);
-                return null;
-            }
-
-            if (branches == null || cur_branch == null) {
-                return null;
-            }
-
-            var change_branch_menu = new Gtk.Menu ();
-
-            foreach (var ref_branch in branches) {
-                var branch = ref_branch as Ggit.Branch;
-                string? branch_name = null;
-                try {
-                    branch_name = branch.get_name ();
-                    if (branch_name != null && branch_name != cur_branch.get_name ()) {
-                        var ref_name = ref_branch.get_name ();
-                        if (ref_name != null) {
-                            var branch_item = new Gtk.MenuItem.with_label (branch_name);
-                            change_branch_menu.add (branch_item);
-
-                            branch_item.activate.connect (() => {
-                                change_branch (ref_name);
-                            });
-                        }
-                    }
-                } catch (GLib.Error e) {
-                    warning ("Failed to create menuitem for branch %s. %s", branch_name ?? "unknown", e.message);
-                }
-            }
-
-            var change_branch_item = new Gtk.MenuItem.with_label (_("Change Branch"));
-            change_branch_item.submenu = change_branch_menu;
-
-            return change_branch_item;
-        }
-
         public override Gtk.Menu? get_context_menu () {
             var close_item = new Gtk.MenuItem.with_label (_("Close Folder"));
             close_item.activate.connect (() => { closed (); });
@@ -145,12 +89,17 @@ namespace Scratch.FolderManager {
             menu.append (create_submenu_for_new ());
             menu.append (delete_item);
 
-            if (git_repo != null && git_repo.get_head ().is_branch ()) {
-                var change_branch_item = create_change_branch_menu ();
-                if (change_branch_item != null) {
-                    menu.append (change_branch_item);
+            try {
+                if (git_repo != null && git_repo.get_head ().is_branch ()) {
+                    var change_branch_item = new ChangeBranchMenu (git_repo);
+                    if (change_branch_item != null) {
+                        menu.append (change_branch_item);
+                    }
                 }
+            } catch (Error e) {
+                critical (e.message);
             }
+
 
             menu.show_all ();
 
@@ -264,6 +213,61 @@ namespace Scratch.FolderManager {
                 if (item is Granite.Widgets.SourceList.ExpandableItem) {
                     reset_all_children (item);
                 }
+            }
+        }
+
+        private class ChangeBranchMenu : Gtk.MenuItem {
+            public Ggit.Repository git_repo { get; construct; }
+
+            public ChangeBranchMenu (Ggit.Repository git_repo) {
+                Object (git_repo: git_repo);
+            }
+
+            construct {
+                Ggit.Branch? cur_branch;
+                Ggit.BranchEnumerator? branches;
+
+                try {
+                    cur_branch = (Ggit.Branch?)(git_repo.get_head ());
+                    branches = git_repo.enumerate_branches (Ggit.BranchType.LOCAL);
+                } catch (GLib.Error e) {
+                    critical ("Failed to create change branch menu. %s", e.message);
+                    sensitive = false;
+                }
+
+                if (branches == null || cur_branch == null) {
+                    sensitive = false;
+                }
+
+                var change_branch_menu = new Gtk.Menu ();
+
+                foreach (var ref_branch in branches) {
+                    var branch = ref_branch as Ggit.Branch;
+                    string? branch_name = null;
+                    try {
+                        branch_name = branch.get_name ();
+                        if (branch_name != null && branch_name != cur_branch.get_name ()) {
+                            var ref_name = ref_branch.get_name ();
+                            if (ref_name != null) {
+                                var branch_item = new Gtk.MenuItem.with_label (branch_name);
+                                change_branch_menu.add (branch_item);
+
+                                branch_item.activate.connect (() => {
+                                    try {
+                                        git_repo.set_head (ref_name);
+                                    } catch (GLib.Error e) {
+                                        warning ("Failed to change branch to %s.  %s", name, e.message);
+                                    }
+                                });
+                            }
+                        }
+                    } catch (GLib.Error e) {
+                        warning ("Failed to create menuitem for branch %s. %s", branch_name ?? "unknown", e.message);
+                    }
+                }
+
+                label = _("Change Branch");
+                submenu = change_branch_menu;
             }
         }
     }
