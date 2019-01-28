@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-27 13:35-0800\n"
-"PO-Revision-Date: 2019-01-09 06:25+0000\n"
+"PO-Revision-Date: 2019-01-28 12:06+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: Hebrew <https://weblate.elementary.io/projects/code/code/he/"
-">\n"
+"Language-Team: Hebrew <https://weblate.elementary.io/projects/code/code/he/>"
+"\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -287,9 +287,8 @@ msgid "new file %d"
 msgstr "קובץ חדש %d"
 
 #: src/FolderManager/ProjectFolderItem.vala:127
-#, fuzzy
 msgid "Change Branch"
-msgstr "שינוי ההגדרות של רישום"
+msgstr "החלפת ענף"
 
 #: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
@@ -402,9 +401,9 @@ msgid "Templates"
 msgstr "תבניות"
 
 #: src/Widgets/DocumentView.vala:133
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s:%d"
-msgstr "קובץ טקסט מ־%s"
+msgstr "קובץ טקסט מ־%s:‏%d"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
