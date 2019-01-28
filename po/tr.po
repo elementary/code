@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-27 13:35-0800\n"
-"PO-Revision-Date: 2018-10-28 00:05+0000\n"
+"PO-Revision-Date: 2019-01-28 15:02+0000\n"
 "Last-Translator: Sinan Decron <intenfinitia@gmail.com>\n"
-"Language-Team: Turkish <https://weblate.elementary.io/projects/code/code/tr/"
-">\n"
+"Language-Team: Turkish <https://weblate.elementary.io/projects/code/code/tr/>"
+"\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +27,7 @@ msgstr "Belki gerekli izinlere sahip değilsiniz."
 
 #: src/Application.vala:137
 msgid "Maybe the file path provided is not valid."
-msgstr "Belirtilen dosya yolu doğru olmayabilir."
+msgstr "Belki belirtilen dosya yolu doğru olmayabilir."
 
 #: src/Application.vala:139
 msgid "The location is read-only."
@@ -64,8 +64,8 @@ msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
 msgstr ""
-"Bu dosya soket,\n"
-" FIFO, blok aygıt veya karakter aygıtı gibi özel bir dosyadır."
+"O \"özel\" bir dosyadır socket,\n"
+" FIFO, block cihazı, veya karakter cihaz gibi."
 
 #: src/Application.vala:174
 msgid "It is an \"unknown\" file type."
@@ -287,9 +287,8 @@ msgid "new file %d"
 msgstr "yeni dosya %d"
 
 #: src/FolderManager/ProjectFolderItem.vala:127
-#, fuzzy
 msgid "Change Branch"
-msgstr "Scratch ayarlarını değiştir"
+msgstr "Sınıf değiştir"
 
 #: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
@@ -318,7 +317,6 @@ msgid "Please wait while Code is loading the file."
 msgstr "Kod dosyayı yüklerken lütfen bekleyiniz."
 
 #: src/Services/Document.vala:294
-#, fuzzy
 msgid "Cancel Loading"
 msgstr "Yüklemeyi İptal et"
 
@@ -353,7 +351,6 @@ msgid "File \"%s\" Cannot Be Read"
 msgstr "\"%s\" dosyası okunamıyor"
 
 #: src/Services/Document.vala:708
-#, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Dosya bozuk olabilir veya dosyanın görüntülenmesi için gerekli izinlere "
@@ -379,7 +376,7 @@ msgstr "\"%s\"  dosyası silindi. Yine de kaydetmek istiyor musunuz?"
 
 #. If the file can't be written
 #: src/Services/Document.vala:742
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
@@ -413,7 +410,7 @@ msgid "Templates"
 msgstr "Şablonlar"
 
 #: src/Widgets/DocumentView.vala:133
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s:%d"
 msgstr "%s 'dan metin dosyası"
 

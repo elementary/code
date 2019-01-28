@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-27 13:35-0800\n"
-"PO-Revision-Date: 2019-01-09 18:58+0000\n"
+"PO-Revision-Date: 2019-01-28 22:26+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
-"Language-Team: Korean <https://weblate.elementary.io/projects/code/code/ko/"
-">\n"
+"Language-Team: Korean <https://weblate.elementary.io/projects/code/code/ko/>"
+"\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -287,9 +287,8 @@ msgid "new file %d"
 msgstr "새 파일 %d"
 
 #: src/FolderManager/ProjectFolderItem.vala:127
-#, fuzzy
 msgid "Change Branch"
-msgstr "스크래치 설정 변경하기"
+msgstr "Branch 바꾸기"
 
 #: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
@@ -406,9 +405,9 @@ msgid "Templates"
 msgstr "서식"
 
 #: src/Widgets/DocumentView.vala:133
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s:%d"
-msgstr "%s 의 텍스트 파일"
+msgstr "%s에서 온 텍스트 파일:%d개"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
