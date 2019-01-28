@@ -7,7 +7,7 @@ module_files = [
 
 module_deps = [
     codecore_dep,
-    meson.get_compiler('c').find_library('libeditorconfig')
+    meson.get_compiler('c').find_library('editorconfig')
 ]
 
 shared_module(

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
 "PO-Revision-Date: 2018-07-09 20:13+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
 "Language-Team: Slovenian <https://weblate.elementary.io/projects/code/code/"
@@ -250,7 +250,7 @@ msgid "Rename"
 msgstr "Preimenuj"
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr "Premakni v smeti"
 
@@ -288,7 +288,12 @@ msgstr "Nova datoteka"
 msgid "new file %d"
 msgstr "Nova datoteka %d"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+#, fuzzy
+msgid "Change Branch"
+msgstr "Spremeni nastavitve programa"
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr "Zapri mapo"
 
@@ -406,9 +411,9 @@ msgstr "Nadaljuj"
 msgid "Templates"
 msgstr "Predloge"
 
-#: src/Widgets/DocumentView.vala:132
-#, c-format
-msgid "Text file from %s"
+#: src/Widgets/DocumentView.vala:133
+#, fuzzy, c-format
+msgid "Text file from %s:%d"
 msgstr "Tekstovna datoteka iz %s"
 
 #: src/Widgets/FormatBar.vala:67
@@ -791,9 +796,6 @@ msgstr "Ni mogoče naložiti ikonske teme: %s\n"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "Nova datoteka z odložišča"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "Spremeni nastavitve programa"
 
 #~ msgid "Next Tab"
 #~ msgstr "Naslednji zavihek"

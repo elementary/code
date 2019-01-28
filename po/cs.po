@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
 "PO-Revision-Date: 2018-10-03 14:24+0000\n"
 "Last-Translator: Daniel Zvir <zvir.daniel@seznam.cz>\n"
 "Language-Team: Czech <https://weblate.elementary.io/projects/code/code/cs/>\n"
@@ -247,7 +247,7 @@ msgid "Rename"
 msgstr "Přejmenovat"
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr "Přesunout do koše"
 
@@ -285,7 +285,12 @@ msgstr "nový soubor"
 msgid "new file %d"
 msgstr "nový soubor %d"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+#, fuzzy
+msgid "Change Branch"
+msgstr "Změnit předvolby editoru Scratch"
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr "Zavřít složku"
 
@@ -401,9 +406,9 @@ msgstr "Pokračovat"
 msgid "Templates"
 msgstr "Šablony"
 
-#: src/Widgets/DocumentView.vala:132
-#, c-format
-msgid "Text file from %s"
+#: src/Widgets/DocumentView.vala:133
+#, fuzzy, c-format
+msgid "Text file from %s:%d"
 msgstr "Textový soubor z  %s"
 
 #: src/Widgets/FormatBar.vala:67
@@ -782,9 +787,6 @@ msgstr "Nelze načíst motiv ikon: %s\n"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "Nový soubor ze schránky"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "Změnit předvolby editoru Scratch"
 
 #~ msgid "Next Tab"
 #~ msgstr "Další karta"

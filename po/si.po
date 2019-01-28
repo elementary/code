@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
 "PO-Revision-Date: 2018-06-10 00:11+0000\n"
 "Last-Translator: Gamunu Balagalla <gamunu.balagalla@gmail.com>\n"
 "Language-Team: Sinhala <https://weblate.elementary.io/projects/code/code/si/"
@@ -245,7 +245,7 @@ msgid "Rename"
 msgstr "නැවත නම් කරන්න"
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr "කුණු කූඩයට දමන්න"
 
@@ -283,7 +283,11 @@ msgstr "නව ගොනුවක්"
 msgid "new file %d"
 msgstr "නව ගොනුව %d"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+msgid "Change Branch"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr "බහලුම වසන්න"
 
@@ -394,10 +398,10 @@ msgstr ""
 msgid "Templates"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:132
-#, c-format
-msgid "Text file from %s"
-msgstr ""
+#: src/Widgets/DocumentView.vala:133
+#, fuzzy, c-format
+msgid "Text file from %s:%d"
+msgstr "පාඨ ගොනු"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"

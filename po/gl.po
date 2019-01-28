@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
 "PO-Revision-Date: 2018-10-23 00:02+0000\n"
 "Last-Translator: Pablo Varela <pablovarela182@gmail.com>\n"
 "Language-Team: Galician <https://weblate.elementary.io/projects/code/code/gl/"
@@ -249,7 +249,7 @@ msgid "Rename"
 msgstr "Renomear"
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr "Mover ao Lixo"
 
@@ -288,7 +288,12 @@ msgstr "Novo ficheiro"
 msgid "new file %d"
 msgstr "Novo ficheiro %d"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+#, fuzzy
+msgid "Change Branch"
+msgstr "Cambiar as preferencias de Scratch"
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr "Pechar o cartafol"
 
@@ -401,9 +406,9 @@ msgstr "Continuar"
 msgid "Templates"
 msgstr "Modelos"
 
-#: src/Widgets/DocumentView.vala:132
+#: src/Widgets/DocumentView.vala:133
 #, fuzzy, c-format
-msgid "Text file from %s"
+msgid "Text file from %s:%d"
 msgstr "Ficheiros de texto"
 
 #: src/Widgets/FormatBar.vala:67
@@ -756,9 +761,6 @@ msgstr "Non foi posíbel cargar o tema de iconas : %s\n"
 
 #~ msgid "Duplicate selected strings"
 #~ msgstr "Duplicar as cadeas selecionadas"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "Cambiar as preferencias de Scratch"
 
 #~ msgid "Next Tab"
 #~ msgstr "Seguinte lapela"

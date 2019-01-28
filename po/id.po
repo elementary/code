@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
 "PO-Revision-Date: 2018-10-24 13:33+0000\n"
 "Last-Translator: Angga Rifandi <empty.email.boxs@gmail.com>\n"
 "Language-Team: Indonesian <https://weblate.elementary.io/projects/code/code/"
@@ -247,7 +247,7 @@ msgid "Rename"
 msgstr "Ubah Nama"
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr "Pindahkan ke Tempat Sampah"
 
@@ -285,7 +285,12 @@ msgstr "berkas baru"
 msgid "new file %d"
 msgstr "%d berkas baru"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+#, fuzzy
+msgid "Change Branch"
+msgstr "Ubah pengaturan Scratch"
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr "Tutup Folder"
 
@@ -405,9 +410,9 @@ msgstr "Lanjutkan"
 msgid "Templates"
 msgstr "Palet"
 
-#: src/Widgets/DocumentView.vala:132
-#, c-format
-msgid "Text file from %s"
+#: src/Widgets/DocumentView.vala:133
+#, fuzzy, c-format
+msgid "Text file from %s:%d"
 msgstr "Berkas teks dari %s"
 
 #: src/Widgets/FormatBar.vala:67
@@ -752,9 +757,6 @@ msgstr "Tak dapat membuka tema ikon:%s\n"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "Berkas baru dari Papan Klip"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "Ubah pengaturan Scratch"
 
 #~ msgid "Next Tab"
 #~ msgstr "Tab Selanjutnya"

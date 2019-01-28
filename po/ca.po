@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
-"PO-Revision-Date: 2019-01-09 15:28+0000\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
+"PO-Revision-Date: 2019-01-28 15:20+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://weblate.elementary.io/projects/code/code/ca/>"
 "\n"
@@ -248,7 +248,7 @@ msgid "Rename"
 msgstr "Canvia'n el nom"
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr "Mou a la paperera"
 
@@ -286,7 +286,11 @@ msgstr "fitxer nou"
 msgid "new file %d"
 msgstr "fitxer nou %d"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+msgid "Change Branch"
+msgstr "Canvia de branca"
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr "Tanca la carpeta"
 
@@ -348,7 +352,8 @@ msgstr "No es pot llegir el fitxer \"%s\"."
 
 #: src/Services/Document.vala:708
 msgid "It may be corrupt or you don't have permission to read it."
-msgstr "Potser està corromput o no teniu els permisos necessaris per llegir-lo."
+msgstr ""
+"Potser està corromput o no teniu els permisos necessaris per llegir-lo."
 
 #: src/Services/Document.vala:720
 #, c-format
@@ -403,10 +408,10 @@ msgstr "Continua"
 msgid "Templates"
 msgstr "Plantilles"
 
-#: src/Widgets/DocumentView.vala:132
+#: src/Widgets/DocumentView.vala:133
 #, c-format
-msgid "Text file from %s"
-msgstr "Fitxer de text de %s"
+msgid "Text file from %s:%d"
+msgstr "Fitxer de text de %s:%d"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
@@ -782,9 +787,6 @@ msgstr "No s'ha pogut carregar el tema d'icones: %s\n"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "Fitxer nou del porta-retalls"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "Canvia les preferències de l'Scratch"
 
 #~ msgid "Next Tab"
 #~ msgstr "Pestanya següent"

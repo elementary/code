@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
 "PO-Revision-Date: 2019-01-04 00:07+0000\n"
 "Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
 "Language-Team: German <https://weblate.elementary.io/projects/code/code/de/"
@@ -248,7 +248,7 @@ msgid "Rename"
 msgstr "Umbenennen"
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr "In den Papierkorb verschieben"
 
@@ -286,7 +286,12 @@ msgstr "neue Datei"
 msgid "new file %d"
 msgstr "neue Datei %d"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+#, fuzzy
+msgid "Change Branch"
+msgstr "Scratch-Einstellungen ändern"
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr "Ordner schließen"
 
@@ -408,9 +413,9 @@ msgstr "Fortfahren"
 msgid "Templates"
 msgstr "Vorlagen"
 
-#: src/Widgets/DocumentView.vala:132
-#, c-format
-msgid "Text file from %s"
+#: src/Widgets/DocumentView.vala:133
+#, fuzzy, c-format
+msgid "Text file from %s:%d"
 msgstr "Textdatei aus %s"
 
 #: src/Widgets/FormatBar.vala:67
@@ -787,9 +792,6 @@ msgstr "Symbolthema konnte nicht geladen werden: %s\n"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "Neue Datei aus der Zwischenablage"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "Scratch-Einstellungen ändern"
 
 #~ msgid "Next Tab"
 #~ msgstr "Nächster Tab"

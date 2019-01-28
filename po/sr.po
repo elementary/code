@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
 "PO-Revision-Date: 2018-07-15 00:09+0000\n"
 "Last-Translator: Milan Radojević <mikister2012@gmail.com>\n"
 "Language-Team: Serbian <https://weblate.elementary.io/projects/code/code/sr/"
@@ -245,7 +245,7 @@ msgid "Rename"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr ""
 
@@ -286,7 +286,12 @@ msgstr "Нова датотека"
 msgid "new file %d"
 msgstr "Нова датотека"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+#, fuzzy
+msgid "Change Branch"
+msgstr "Промени Scratch поставке"
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr "Затвори фасциклу"
 
@@ -397,9 +402,9 @@ msgstr "Настави"
 msgid "Templates"
 msgstr "Шаблони"
 
-#: src/Widgets/DocumentView.vala:132
+#: src/Widgets/DocumentView.vala:133
 #, fuzzy, c-format
-msgid "Text file from %s"
+msgid "Text file from %s:%d"
 msgstr "Текстуалне датотеке"
 
 #: src/Widgets/FormatBar.vala:67
@@ -747,9 +752,6 @@ msgstr "Не могу да учитам тему иконица: %s\n"
 
 #~ msgid "Duplicate selected strings"
 #~ msgstr "Удвостручи означени низ"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "Промени Scratch поставке"
 
 #~ msgid "Next Tab"
 #~ msgstr "Следећа картица"

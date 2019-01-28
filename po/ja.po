@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-04 11:52-0800\n"
-"PO-Revision-Date: 2019-01-09 11:26+0000\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
+"PO-Revision-Date: 2019-01-28 11:10+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/code/code/ja/"
 ">\n"
@@ -248,7 +248,7 @@ msgid "Rename"
 msgstr "名前の変更"
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr "ゴミ箱に移動"
 
@@ -286,7 +286,11 @@ msgstr "新しいファイル"
 msgid "new file %d"
 msgstr "新しいファイル %d"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+msgid "Change Branch"
+msgstr "ブランチを変更"
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr "フォルダーを閉じる"
 
@@ -372,7 +376,9 @@ msgstr "\"%s\" は削除されています。それでも保存しますか？"
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
-msgstr "ファイル \"%s\" に変更内容を保存できません。変更内容を別の場所に保存しますか？"
+msgstr ""
+"ファイル \"%s\" に変更内容を保存できません。変更内容を別の場所に保存します"
+"か？"
 
 #: src/Services/Document.vala:744
 msgid "Save changes elsewhere"
@@ -399,10 +405,10 @@ msgstr "編集を続行"
 msgid "Templates"
 msgstr "テンプレート"
 
-#: src/Widgets/DocumentView.vala:132
+#: src/Widgets/DocumentView.vala:133
 #, c-format
-msgid "Text file from %s"
-msgstr "%s からのテキストファイル"
+msgid "Text file from %s:%d"
+msgstr "%s:%d のテキストファイル"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
@@ -776,9 +782,6 @@ msgstr "アイコンテーマを読み込めませんでした: %s\n"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "クリップボードより新しいファイル"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "Scratch の設定を変更"
 
 #~ msgid "Next Tab"
 #~ msgstr "次のタブ"

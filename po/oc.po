@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
 "PO-Revision-Date: 2015-12-21 13:38+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Occitan (post 1500) <oc@li.org>\n"
@@ -241,7 +241,7 @@ msgid "Rename"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr ""
 
@@ -280,7 +280,11 @@ msgstr "Novèl fichièr"
 msgid "new file %d"
 msgstr "Novèl fichièr"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+msgid "Change Branch"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr ""
 
@@ -389,9 +393,9 @@ msgstr ""
 msgid "Templates"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:132
+#: src/Widgets/DocumentView.vala:133
 #, c-format
-msgid "Text file from %s"
+msgid "Text file from %s:%d"
 msgstr ""
 
 #: src/Widgets/FormatBar.vala:67

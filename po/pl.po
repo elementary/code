@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
 "PO-Revision-Date: 2019-01-09 11:58+0000\n"
 "Last-Translator: Piotr Strebski <strebski@gmail.com>\n"
-"Language-Team: Polish <https://weblate.elementary.io/projects/code/code/pl/>"
-"\n"
+"Language-Team: Polish <https://weblate.elementary.io/projects/code/code/pl/"
+">\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -249,7 +249,7 @@ msgid "Rename"
 msgstr "Zmień nazwę"
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr "Przenieś do kosza"
 
@@ -287,7 +287,12 @@ msgstr "Nowy plik"
 msgid "new file %d"
 msgstr "Nowy plik %d"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+#, fuzzy
+msgid "Change Branch"
+msgstr "Wyświetla okno preferencji programu"
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr "Zamknij folder"
 
@@ -406,9 +411,9 @@ msgstr "Kontynuuj"
 msgid "Templates"
 msgstr "Szablony"
 
-#: src/Widgets/DocumentView.vala:132
-#, c-format
-msgid "Text file from %s"
+#: src/Widgets/DocumentView.vala:133
+#, fuzzy, c-format
+msgid "Text file from %s:%d"
 msgstr "Plik tekstowy z %s"
 
 #: src/Widgets/FormatBar.vala:67
@@ -787,9 +792,6 @@ msgstr "Nie udało się załadować schematu ikon: %s\n"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "Nowy plik ze schowka"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "Wyświetla okno preferencji programu"
 
 #~ msgid "Next Tab"
 #~ msgstr "Następna karta"

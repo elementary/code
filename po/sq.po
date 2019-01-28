@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
 "PO-Revision-Date: 2016-09-02 08:23+0000\n"
 "Last-Translator: Indrit Bashkimi <indrit.bashkimi@gmail.com>\n"
 "Language-Team: Albanian <sq@li.org>\n"
@@ -246,7 +246,7 @@ msgid "Rename"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr ""
 
@@ -287,7 +287,12 @@ msgstr "Skedar i ri"
 msgid "new file %d"
 msgstr "Skedar i ri"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+#, fuzzy
+msgid "Change Branch"
+msgstr "Ndrysho rregullimet e Scratch"
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr "Mbyll dosjen"
 
@@ -410,9 +415,9 @@ msgstr "Vazdhdo"
 msgid "Templates"
 msgstr "Shabllonet"
 
-#: src/Widgets/DocumentView.vala:132
+#: src/Widgets/DocumentView.vala:133
 #, fuzzy, c-format
-msgid "Text file from %s"
+msgid "Text file from %s:%d"
 msgstr "Skedar teksti nga "
 
 #: src/Widgets/FormatBar.vala:67
@@ -796,9 +801,6 @@ msgstr "Nuk ishte i mundur ngarkimi i temës së ikonave: %s\n"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "Skedar i ri nga shënimet"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "Ndrysho rregullimet e Scratch"
 
 #~ msgid "Next Tab"
 #~ msgstr "Skeda pasuese"

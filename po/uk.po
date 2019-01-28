@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
 "PO-Revision-Date: 2016-08-10 18:13+0000\n"
 "Last-Translator: Fedik <Unknown>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -249,7 +249,7 @@ msgid "Rename"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr ""
 
@@ -290,7 +290,12 @@ msgstr "Новий файл"
 msgid "new file %d"
 msgstr "Новий файл"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+#, fuzzy
+msgid "Change Branch"
+msgstr "Зміна параметрів Scratch"
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr "Закрити теку"
 
@@ -411,9 +416,9 @@ msgstr "Далі"
 msgid "Templates"
 msgstr "Шаблони"
 
-#: src/Widgets/DocumentView.vala:132
+#: src/Widgets/DocumentView.vala:133
 #, fuzzy, c-format
-msgid "Text file from %s"
+msgid "Text file from %s:%d"
 msgstr "Текстовий файл з "
 
 #: src/Widgets/FormatBar.vala:67
@@ -800,9 +805,6 @@ msgstr "Неможливо завантажити тему іконок: %s\n"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "Новий файл з буферу обміну"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "Зміна параметрів Scratch"
 
 #~ msgid "Next Tab"
 #~ msgstr "Наступна вкладка"

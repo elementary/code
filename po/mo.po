@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
 "PO-Revision-Date: 2018-05-26 07:39+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/code/code/mo/"
@@ -243,7 +243,7 @@ msgid "Rename"
 msgstr "Redenumiți"
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr "Aruncă la gunoi"
 
@@ -281,7 +281,11 @@ msgstr "Fișier nou"
 msgid "new file %d"
 msgstr "Fișier nou %d"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+msgid "Change Branch"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr "Închideți dosarul"
 
@@ -400,9 +404,9 @@ msgstr "Continuați"
 msgid "Templates"
 msgstr "Șabloane"
 
-#: src/Widgets/DocumentView.vala:132
-#, c-format
-msgid "Text file from %s"
+#: src/Widgets/DocumentView.vala:133
+#, fuzzy, c-format
+msgid "Text file from %s:%d"
 msgstr "Fișier text de la %s"
 
 #: src/Widgets/FormatBar.vala:67

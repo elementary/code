@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
-"PO-Revision-Date: 2018-12-09 00:00+0000\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
+"PO-Revision-Date: 2019-01-26 18:18+0000\n"
 "Last-Translator: Kaj Printz Madsen <kajprintz@gmail.com>\n"
 "Language-Team: Danish <https://weblate.elementary.io/projects/code/code/da/"
 ">\n"
@@ -248,7 +248,7 @@ msgid "Rename"
 msgstr "Omdøb"
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr "Flyt til Skrald"
 
@@ -286,7 +286,12 @@ msgstr "ny fil"
 msgid "new file %d"
 msgstr "ny fil %d"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+#, fuzzy
+msgid "Change Branch"
+msgstr "Ændre Scratch indstillinger"
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr "Luk Mappen"
 
@@ -313,9 +318,8 @@ msgid "Please wait while Code is loading the file."
 msgstr "Vent venligst, mens Code indlæser filen."
 
 #: src/Services/Document.vala:294
-#, fuzzy
 msgid "Cancel Loading"
-msgstr "Annullér Indlæsning"
+msgstr "Annuller Indlæsning"
 
 #: src/Services/Document.vala:400
 #, c-format
@@ -348,11 +352,9 @@ msgid "File \"%s\" Cannot Be Read"
 msgstr "Filen \"%s\" Kan Ikke Læses"
 
 #: src/Services/Document.vala:708
-#, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
-"Måske er den korrupt, eller så du har ikke de nødvendige tilladelser til at "
-"læse det."
+"Den kan være beskadiget, eller du kan mangle tilladelse til at læse den."
 
 #: src/Services/Document.vala:720
 #, c-format
@@ -374,13 +376,13 @@ msgstr "Filen \"%s\" blev slettet. Vil du gemme den alligevel?"
 
 #. If the file can't be written
 #: src/Services/Document.vala:742
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
-"Du kan ikke gemme ændringer til filen \"%s\". Vil du gemme ændringerne til "
-"denne fil et andet sted?"
+"Du kan ikke gemme dine ændringer i filen \"%s\". Vil du gemme ændringerne et "
+"andet sted?"
 
 #: src/Services/Document.vala:744
 msgid "Save changes elsewhere"
@@ -407,9 +409,9 @@ msgstr "Fortsæt"
 msgid "Templates"
 msgstr "Skabeloner"
 
-#: src/Widgets/DocumentView.vala:132
-#, c-format
-msgid "Text file from %s"
+#: src/Widgets/DocumentView.vala:133
+#, fuzzy, c-format
+msgid "Text file from %s:%d"
 msgstr "Tekstfil fra  %s"
 
 #: src/Widgets/FormatBar.vala:67
@@ -786,9 +788,6 @@ msgstr "Kunne ikke indlæse ikon tema: %s\n"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "Ny fil fra udklipsholder"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "Ændre Scratch indstillinger"
 
 #~ msgid "Next Tab"
 #~ msgstr "Næste faneblad"

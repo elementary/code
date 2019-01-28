@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
-"PO-Revision-Date: 2019-01-09 21:08+0000\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
+"PO-Revision-Date: 2019-01-28 10:41+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://weblate.elementary.io/projects/code/code/"
 "lt/>\n"
@@ -249,7 +249,7 @@ msgid "Rename"
 msgstr "Pervadinti"
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr "Perkelti į Šiukšlinę"
 
@@ -287,7 +287,11 @@ msgstr "naujas failas"
 msgid "new file %d"
 msgstr "naujas failas %d"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+msgid "Change Branch"
+msgstr "Keisti šaką"
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr "Užverti aplanką"
 
@@ -405,10 +409,10 @@ msgstr "Tęsti"
 msgid "Templates"
 msgstr "Šablonai"
 
-#: src/Widgets/DocumentView.vala:132
+#: src/Widgets/DocumentView.vala:133
 #, c-format
-msgid "Text file from %s"
-msgstr "Tekstinis failas iš %s"
+msgid "Text file from %s:%d"
+msgstr "Tekstinis failas iš %s:%d"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
@@ -788,9 +792,6 @@ msgstr "Nepavyko įkelti piktogramų temos: %s\n"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "Naujas failas iš iškarpinės"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "Keisti Scratch nustatymus"
 
 #~ msgid "Next Tab"
 #~ msgstr "Kita kortelė"

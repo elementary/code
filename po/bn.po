@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
 "PO-Revision-Date: 2017-01-21 09:06+0000\n"
 "Last-Translator: Hasan Sumon <hsnsumon@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -244,7 +244,7 @@ msgid "Rename"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr ""
 
@@ -285,7 +285,12 @@ msgstr "নতুন ফাইল"
 msgid "new file %d"
 msgstr "নতুন ফাইল"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+#, fuzzy
+msgid "Change Branch"
+msgstr "স্ক্র্যাচ সেটিংস পরিবর্তন করুন"
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr "ফোল্ডার বন্ধ করুন"
 
@@ -408,9 +413,9 @@ msgstr "পরবর্তী"
 msgid "Templates"
 msgstr "টেমপ্লেট"
 
-#: src/Widgets/DocumentView.vala:132
+#: src/Widgets/DocumentView.vala:133
 #, fuzzy, c-format
-msgid "Text file from %s"
+msgid "Text file from %s:%d"
 msgstr "টেক্সট ফাইল এখান থেকে "
 
 #: src/Widgets/FormatBar.vala:67
@@ -796,9 +801,6 @@ msgstr "আইকন থিম লোড করা সম্ভব হয়নি�
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "ক্লিপবোর্ড থেকে নতুন ফাইল"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "স্ক্র্যাচ সেটিংস পরিবর্তন করুন"
 
 #~ msgid "Next Tab"
 #~ msgstr "পরবর্তী ট্যাব"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"POT-Creation-Date: 2019-01-27 13:35-0800\n"
 "PO-Revision-Date: 2015-12-21 13:38+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Rusyn <rue@li.org>\n"
@@ -242,7 +242,7 @@ msgid "Rename"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
 msgstr ""
 
@@ -281,7 +281,12 @@ msgstr "Новий файл"
 msgid "new file %d"
 msgstr "Новий файл"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:127
+#, fuzzy
+msgid "Change Branch"
+msgstr "Поміняти настройки Scratch"
+
+#: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
 msgstr ""
 
@@ -390,9 +395,9 @@ msgstr ""
 msgid "Templates"
 msgstr "Шаблони"
 
-#: src/Widgets/DocumentView.vala:132
+#: src/Widgets/DocumentView.vala:133
 #, fuzzy, c-format
-msgid "Text file from %s"
+msgid "Text file from %s:%d"
 msgstr "Текстовий файл"
 
 #: src/Widgets/FormatBar.vala:67
@@ -721,9 +726,6 @@ msgstr ""
 
 #~ msgid "Duplicate selected strings"
 #~ msgstr "Дубліковати убратий рядок"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "Поміняти настройки Scratch"
 
 #~ msgid "Fullscreen"
 #~ msgstr "На повну плоху"
