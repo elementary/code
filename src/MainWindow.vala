@@ -353,25 +353,27 @@ namespace Scratch {
 
             add (vp);
 
-            // Show/Hide widgets
-            show_all ();
-
             search_revealer.set_reveal_child (false);
 
-            // Plugins hook
-            HookFunc hook_func = () => {
-                plugins.hook_window (this);
-                plugins.hook_toolbar (toolbar);
-                plugins.hook_share_menu (toolbar.share_menu);
-                plugins.hook_notebook_bottom (bottombar);
-                plugins.hook_split_view (split_view);
-            };
+            realize.connect (() => {
+                // Plugins hook
+                HookFunc hook_func = () => {
+                    plugins.hook_window (this);
+                    plugins.hook_toolbar (toolbar);
+                    plugins.hook_share_menu (toolbar.share_menu);
+                    plugins.hook_notebook_bottom (bottombar);
+                    plugins.hook_split_view (split_view);
+                };
 
-            plugins.extension_added.connect (() => {
+                plugins.extension_added.connect (() => {
+                    hook_func ();
+                });
+
                 hook_func ();
             });
 
-            hook_func ();
+            // Show/Hide widgets
+            show_all ();
         }
 
         public void restore_opened_documents () {
