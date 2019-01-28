@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-27 13:35-0800\n"
-"PO-Revision-Date: 2019-01-28 14:18+0000\n"
+"PO-Revision-Date: 2019-01-29 00:03+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://weblate.elementary.io/projects/code/code/"
 "pt/>\n"
@@ -35,7 +35,7 @@ msgstr "A localização permite apenas a leitura."
 
 #: src/Application.vala:141
 msgid "The parent directory doesn't exist."
-msgstr "A diretoria pai não existe."
+msgstr "A diretoria principal não existe."
 
 #: src/Application.vala:148
 #, c-format
@@ -81,7 +81,7 @@ msgstr "Nova Janela"
 
 #: src/Application.vala:265
 msgid "Print version info and exit"
-msgstr "Apresentar informação de versão e sair"
+msgstr "Apresentar informação da versão e sair"
 
 #: src/Application.vala:266
 msgid "Set of plugins"
@@ -110,7 +110,7 @@ msgstr "Fonte de dados Zeitgeist para o Scratch"
 #. Show a GtkFileChooserDialog
 #: src/MainWindow.vala:742
 msgid "Open some files"
-msgstr "Abrir ficheiros"
+msgstr "Abrir alguns ficheiros"
 
 #: src/MainWindow.vala:761
 msgid "_Cancel"
@@ -163,11 +163,11 @@ msgstr "Indentação automática:"
 
 #: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:155
 msgid "Insert spaces instead of tabs:"
-msgstr "Inserir espaços em vez de tabulação:"
+msgstr "Inserir espaços em vez de separadores:"
 
 #: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:158
 msgid "Tab width:"
-msgstr "Tamanho da tabulação:"
+msgstr "Largura do separador:"
 
 #: src/Dialogs/PreferencesDialog.vala:67
 msgid "Behavior"
@@ -221,7 +221,7 @@ msgstr "Mostrar Mini-mapa:"
 
 #: src/Dialogs/PreferencesDialog.vala:123
 msgid "Line width guide:"
-msgstr "Largura da margem:"
+msgstr "Guia de largura da margem:"
 
 #: src/Dialogs/PreferencesDialog.vala:131
 msgid "Font"
