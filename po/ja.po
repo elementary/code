@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-27 13:35-0800\n"
-"PO-Revision-Date: 2019-01-09 11:26+0000\n"
+"PO-Revision-Date: 2019-01-28 11:10+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://weblate.elementary.io/projects/code/code/ja/"
 ">\n"
@@ -287,9 +287,8 @@ msgid "new file %d"
 msgstr "新しいファイル %d"
 
 #: src/FolderManager/ProjectFolderItem.vala:127
-#, fuzzy
 msgid "Change Branch"
-msgstr "Scratch の設定を変更"
+msgstr "ブランチを変更"
 
 #: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
@@ -407,9 +406,9 @@ msgid "Templates"
 msgstr "テンプレート"
 
 #: src/Widgets/DocumentView.vala:133
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s:%d"
-msgstr "%s からのテキストファイル"
+msgstr "%s:%d のテキストファイル"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
