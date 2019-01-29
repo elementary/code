@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-27 13:35-0800\n"
-"PO-Revision-Date: 2018-11-22 00:02+0000\n"
-"Last-Translator: Cristian Molina <megatux@gmail.com>\n"
-"Language-Team: Spanish <https://weblate.elementary.io/projects/code/code/es/"
-">\n"
+"PO-Revision-Date: 2019-01-29 21:10+0000\n"
+"Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
+"Language-Team: Spanish <https://weblate.elementary.io/projects/code/code/es/>"
+"\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -287,9 +287,8 @@ msgid "new file %d"
 msgstr "nuevo archivo %d"
 
 #: src/FolderManager/ProjectFolderItem.vala:127
-#, fuzzy
 msgid "Change Branch"
-msgstr "Cambiar las preferencias de Scratch"
+msgstr "Cambiar Rama"
 
 #: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
@@ -318,9 +317,8 @@ msgid "Please wait while Code is loading the file."
 msgstr "Espere mientras Code está cargando el archivo."
 
 #: src/Services/Document.vala:294
-#, fuzzy
 msgid "Cancel Loading"
-msgstr "Cancelar carga"
+msgstr "Cancelar Carga"
 
 #: src/Services/Document.vala:400
 #, c-format
@@ -353,9 +351,9 @@ msgid "File \"%s\" Cannot Be Read"
 msgstr "El archivo  \"%s\" no se puede leer"
 
 #: src/Services/Document.vala:708
-#, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
-msgstr "Tal vez esté dañado o no tenga los permisos necesarios para leerlo."
+msgstr ""
+"Tal vez está dañado o no dispones de los permisos necesarios para leerlo."
 
 #: src/Services/Document.vala:720
 #, c-format
@@ -377,13 +375,13 @@ msgstr "El archivo «%s» fue eliminado. ¿Quiere guardarlo de todos modos?"
 
 #. If the file can't be written
 #: src/Services/Document.vala:742
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
-"No puede guardar los cambios en el archivo «%s». ¿Quiere guardar los cambios "
-"de este archivo en otra ubicación?"
+"No puedes guardar los cambios en el archivo «%s». ¿Quieres guardar los "
+"cambios de este archivo en otra ubicación?"
 
 #: src/Services/Document.vala:744
 msgid "Save changes elsewhere"
@@ -411,7 +409,7 @@ msgid "Templates"
 msgstr "Plantillas"
 
 #: src/Widgets/DocumentView.vala:133
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s:%d"
 msgstr "Archivo de texto de %s"
 
