@@ -195,6 +195,15 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase,  Peas.Activatabl
                 view.move_cursor (Gtk.MovementStep.DISPLAY_LINE_ENDS, 1, false);
                 debug ("Vim Emulation: INSERT Mode!");
                 break;
+            case Gdk.Key.a:
+                if (mode == Mode.INSERT) {
+                    return false;
+                }
+                
+                mode = Mode.INSERT;
+                view.move_cursor (Gtk.MovementStep.LOGICAL_POSITIONS, 1, false);
+                debug ("Vim Emulation: INSERT Mode!");
+                break;
             case 46: // Dot "."
                 debug (action);
                 view.insert_at_cursor (action);
