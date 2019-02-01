@@ -219,6 +219,9 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase,  Peas.Activatabl
                 }
 
                 break;
+            case Gdk.Key.asciicircum: // Caret "^"
+                view.move_cursor (Gtk.MovementStep.PARAGRAPH_ENDS, -1, false);
+                break;
             case Gdk.Key.e:
                 view.move_cursor (Gtk.MovementStep.WORDS, number == "" ? 1 : int.parse (number), false);
                 break;
