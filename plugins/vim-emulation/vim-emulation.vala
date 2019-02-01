@@ -26,7 +26,7 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase,  Peas.Activatabl
         VISUAL
     }
 
-    Mode mode = Mode.INSERT;
+    Mode mode = Mode.COMMAND;
     string number = "";
     string action = "";
     bool g = false;
