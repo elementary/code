@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-27 13:35-0800\n"
-"PO-Revision-Date: 2019-01-18 05:03+0000\n"
+"PO-Revision-Date: 2019-02-01 03:17+0000\n"
 "Last-Translator: Rodrigo Oliveira <rod.oliveira@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://weblate.elementary.io/projects/"
 "code/code/pt_BR/>\n"
@@ -287,9 +287,8 @@ msgid "new file %d"
 msgstr "novo arquivo %d"
 
 #: src/FolderManager/ProjectFolderItem.vala:127
-#, fuzzy
 msgid "Change Branch"
-msgstr "Mudar configurações"
+msgstr "Mudar Filial"
 
 #: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
@@ -410,9 +409,9 @@ msgid "Templates"
 msgstr "Modelos"
 
 #: src/Widgets/DocumentView.vala:133
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s:%d"
-msgstr "Arquivo de texto de %s"
+msgstr "Arquivo de texto de %s:%d"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
