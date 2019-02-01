@@ -142,12 +142,12 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase,  Peas.Activatabl
             case Gdk.Key.Down:
             case Gdk.Key.j:
             case Gdk.Key.plus:
-                view.move_cursor (Gtk.MovementStep.DISPLAY_LINES, 1, false);
+                view.move_cursor (Gtk.MovementStep.PARAGRAPHS, 1, false);
                 break;
             case Gdk.Key.Up:
             case Gdk.Key.k:
             case Gdk.Key.minus:
-                view.move_cursor (Gtk.MovementStep.DISPLAY_LINES, -1, false);
+                view.move_cursor (Gtk.MovementStep.PARAGRAPHS, -1, false);
                 break;
             case Gdk.Key.Right:
             case Gdk.Key.l:
@@ -155,7 +155,7 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase,  Peas.Activatabl
                 break;
             case Gdk.Key.End:
             case Gdk.Key.dollar:
-                view.move_cursor (Gtk.MovementStep.DISPLAY_LINE_ENDS, 1, false);
+                view.move_cursor (Gtk.MovementStep.PARAGRAPH_ENDS, 1, false);
                 break;
             case Gdk.Key.u:
                 view.undo ();
@@ -192,7 +192,7 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase,  Peas.Activatabl
                 }
 
                 mode = Mode.INSERT;
-                view.move_cursor (Gtk.MovementStep.DISPLAY_LINE_ENDS, 1, false);
+                view.move_cursor (Gtk.MovementStep.PARAGRAPH_ENDS, 1, false);
                 debug ("Vim Emulation: INSERT Mode!");
                 break;
             case Gdk.Key.a:
