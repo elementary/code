@@ -3,10 +3,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-27 13:35-0800\n"
-"PO-Revision-Date: 2019-01-09 10:43+0000\n"
+"PO-Revision-Date: 2019-02-08 05:12+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
-"Language-Team: Marathi <https://weblate.elementary.io/projects/code/code/mr/"
-">\n"
+"Language-Team: Marathi <https://weblate.elementary.io/projects/code/code/mr/>"
+"\n"
 "Language: mr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -283,7 +283,7 @@ msgstr "नवीन फाईल %d"
 
 #: src/FolderManager/ProjectFolderItem.vala:127
 msgid "Change Branch"
-msgstr ""
+msgstr "ब्रँच बदला"
 
 #: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
@@ -401,9 +401,9 @@ msgid "Templates"
 msgstr "नमूने"
 
 #: src/Widgets/DocumentView.vala:133
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s:%d"
-msgstr "%s मधल्या टेक्स्ट फाईल्स"
+msgstr "%s:%d मधल्या टेक्स्ट फाईल्स"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
