@@ -8,14 +8,16 @@ msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-04 11:52-0800\n"
-"PO-Revision-Date: 2018-01-28 15:41+0000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2019-02-13 00:07+0000\n"
+"Last-Translator: tylnesh <kohutek.michal@gmail.com>\n"
+"Language-Team: Slovak <https://weblate.elementary.io/projects/code/plugins/"
+"sk/>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -99,7 +101,7 @@ msgstr ""
 
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
-msgstr ""
+msgstr "Terminál"
 
 #: plugins/terminal/terminal.plugin:7
 msgid "A terminal in your text editor"
