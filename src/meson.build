@@ -56,7 +56,6 @@ codecore = library(
     config_header,
     dependencies: dependencies,
     install: true,
-    install_dir: [true, true, true],
     version: '0.0'
 )
 
