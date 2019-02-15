@@ -758,10 +758,12 @@ namespace Scratch {
         }
 
         private void action_open_folder () {
-            var chooser = new Gtk.FileChooserDialog (
+            var chooser = new Gtk.FileChooserNative (
                 "Select a folder.", this, Gtk.FileChooserAction.SELECT_FOLDER,
-                _("_Cancel"), Gtk.ResponseType.CANCEL,
-                _("_Open"), Gtk.ResponseType.ACCEPT);
+                _("_Open"),
+                _("_Cancel")
+            );
+
             chooser.select_multiple = true;
 
             if (chooser.run () == Gtk.ResponseType.ACCEPT) {
@@ -771,7 +773,7 @@ namespace Scratch {
                 });
             }
 
-            chooser.close ();
+            chooser.destroy ();
         }
 
         private void action_save () {
