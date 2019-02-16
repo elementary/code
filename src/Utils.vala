@@ -22,7 +22,7 @@
 namespace Scratch.Utils {
     public string? last_path = null;
 
-    public Gtk.FileChooserDialog new_file_chooser_dialog (Gtk.FileChooserAction action, string title, Gtk.Window? parent, bool select_multiple = false) {
+    private Gtk.FileChooserNative new_file_chooser_dialog (Gtk.FileChooserAction action, string title, Gtk.Window? parent, bool select_multiple = false) {
         var all_files_filter = new Gtk.FileFilter ();
         all_files_filter.set_filter_name (_("All files"));
         all_files_filter.add_pattern ("*");
@@ -31,28 +31,33 @@ namespace Scratch.Utils {
         text_files_filter.set_filter_name (_("Text files"));
         text_files_filter.add_mime_type ("text/*");
 
-        var filech = new Gtk.FileChooserDialog (title, parent, action);
-        filech.add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
-        filech.add_filter (all_files_filter);
-        filech.add_filter (text_files_filter);
-        filech.set_current_folder_uri (Utils.last_path ?? GLib.Environment.get_home_dir ());
-        filech.set_default_response (Gtk.ResponseType.ACCEPT);
-        filech.select_multiple = select_multiple;
+        Gtk.FileChooserNative file_chooser;
 
         if (action == Gtk.FileChooserAction.OPEN) {
-            filech.filter = text_files_filter;
-            filech.add_button (_("Open"), Gtk.ResponseType.ACCEPT);
+            file_chooser = new Gtk.FileChooserNative (
+                title,
+                parent,
+                Gtk.FileChooserAction.OPEN,
+                _("Open"),
+                _("Cancel")
+            );
+            file_chooser.filter = text_files_filter;
         } else {
-            filech.add_button (_("Save"), Gtk.ResponseType.ACCEPT);
+            file_chooser = new Gtk.FileChooserNative (
+                title,
+                parent,
+                action,
+                _("Save"),
+                _("Cancel")
+            );
         }
 
-        filech.key_press_event.connect ((ev) => {
-            if (ev.keyval == 65307) // Esc key
-                filech.destroy ();
-            return false;
-        });
+        file_chooser.add_filter (all_files_filter);
+        file_chooser.add_filter (text_files_filter);
+        file_chooser.set_current_folder_uri (Utils.last_path ?? GLib.Environment.get_home_dir ());
+        file_chooser.select_multiple = select_multiple;
 
-        return filech;
+        return file_chooser;
     }
 
     public SimpleAction action_from_group (string action_name, SimpleActionGroup action_group) {
