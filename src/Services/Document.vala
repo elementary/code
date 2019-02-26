@@ -386,29 +386,22 @@ namespace Scratch.Services {
             }
             // Check for unsaved changes
             else if (!this.saved || (!app_closing && is_file_temporary && !delete_temporary_file ())) {
-                debug ("There are unsaved changes, showing a Message Dialog!");
-
-                // Create a GtkDialog
                 var parent_window = source_view.get_toplevel () as Gtk.Window;
-                var dialog = new Gtk.MessageDialog (parent_window, Gtk.DialogFlags.MODAL,
-                                                    Gtk.MessageType.WARNING, Gtk.ButtonsType.NONE, "");
-                dialog.type_hint = Gdk.WindowTypeHint.DIALOG;
-                dialog.deletable = false;
 
-                dialog.use_markup = true;
+                var dialog = new Granite.MessageDialog (
+                    _("Save changes to \"%s\" before closing?").printf (this.get_basename ()),
+                    _("If you don't save, changes will be permanently lost."),
+                    new ThemedIcon ("dialog-warning"),
+                    Gtk.ButtonsType.NONE
+                );
+                dialog.transient_for = parent_window;
 
-                dialog.text = ("<b>" + _("Save changes to document %s before closing?") +
-                               "</b>").printf (this.get_basename ());
-                dialog.text += "\n\n" +
-                            _("If you don't save, changes from the last 4 seconds will be permanently lost.");
+                var no_save_button = (Gtk.Button) dialog.add_button (_("Close Without Saving"), Gtk.ResponseType.NO);
+                no_save_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
-                var button = new Gtk.Button.with_label (_("Close without saving"));
-                button.show ();
-
-                dialog.add_action_widget (button, Gtk.ResponseType.NO);
                 dialog.add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
                 dialog.add_button (_("Save"), Gtk.ResponseType.YES);
-                dialog.set_default_response (Gtk.ResponseType.ACCEPT);
+                dialog.set_default_response (Gtk.ResponseType.YES);
 
                 int response = dialog.run ();
                 switch (response) {
