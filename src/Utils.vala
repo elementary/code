@@ -22,7 +22,7 @@
 namespace Scratch.Utils {
     public string? last_path = null;
 
-    private Gtk.FileChooserNative new_file_chooser_dialog (Gtk.FileChooserAction action, string title, Gtk.Window? parent, bool select_multiple = false) {
+    private Gtk.FileChooserNative new_file_chooser_dialog (Gtk.FileChooserAction action, string title, Gtk.Window? parent) {
         var all_files_filter = new Gtk.FileFilter ();
         all_files_filter.set_filter_name (_("All files"));
         all_files_filter.add_pattern ("*");
@@ -41,7 +41,7 @@ namespace Scratch.Utils {
                 _("Open"),
                 _("Cancel")
             );
-            file_chooser.filter = text_files_filter;
+            file_chooser.select_multiple = true;
         } else {
             file_chooser = new Gtk.FileChooserNative (
                 title,
@@ -55,7 +55,10 @@ namespace Scratch.Utils {
         file_chooser.add_filter (all_files_filter);
         file_chooser.add_filter (text_files_filter);
         file_chooser.set_current_folder_uri (Utils.last_path ?? GLib.Environment.get_home_dir ());
-        file_chooser.select_multiple = select_multiple;
+
+        if (action == Gtk.FileChooserAction.OPEN) {
+            file_chooser.filter = text_files_filter;
+        }
 
         return file_chooser;
     }
