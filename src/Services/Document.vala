@@ -531,7 +531,7 @@ namespace Scratch.Services {
             var is_current_file_temporary = this.is_file_temporary;
 
             if (file_chooser.run () == Gtk.ResponseType.ACCEPT) {
-                this.file = File.new_for_uri (file_chooser.get_file ().get_uri ());
+                file = File.new_for_uri (file_chooser.get_uri ());
                 // Update last visited path
                 Utils.last_path = Path.get_dirname (file_chooser.get_file ().get_uri ());
                 success = true;
