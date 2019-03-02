@@ -755,9 +755,8 @@ namespace Scratch {
                 _("Open"),
                 _("Cancel")
             );
-            file_chooser.add_filter (all_files_filter);
             file_chooser.add_filter (text_files_filter);
-            file_chooser.filter = text_files_filter;
+            file_chooser.add_filter (all_files_filter);
             file_chooser.select_multiple = true;
             file_chooser.set_current_folder_uri (Utils.last_path ?? GLib.Environment.get_home_dir ());
 
