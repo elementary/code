@@ -740,13 +740,31 @@ namespace Scratch {
         }
 
         private void action_open () {
-            // Show a GtkFileChooserDialog
-            var filech = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.OPEN, _("Open some files"), this, true);
-            var response = filech.run ();
-            filech.close (); // Close now so it does not stay open during lengthy or failed loading
+            var all_files_filter = new Gtk.FileFilter ();
+            all_files_filter.set_filter_name (_("All files"));
+            all_files_filter.add_pattern ("*");
+
+            var text_files_filter = new Gtk.FileFilter ();
+            text_files_filter.set_filter_name (_("Text files"));
+            text_files_filter.add_mime_type ("text/*");
+
+            var file_chooser = new Gtk.FileChooserNative (
+                _("Open some files"),
+                this,
+                Gtk.FileChooserAction.OPEN,
+                _("Open"),
+                _("Cancel")
+            );
+            file_chooser.add_filter (text_files_filter);
+            file_chooser.add_filter (all_files_filter);
+            file_chooser.select_multiple = true;
+            file_chooser.set_current_folder_uri (Utils.last_path ?? GLib.Environment.get_home_dir ());
+
+            var response = file_chooser.run ();
+            file_chooser.destroy (); // Close now so it does not stay open during lengthy or failed loading
 
             if (response == Gtk.ResponseType.ACCEPT) {
-                foreach (string uri in filech.get_uris ()) {
+                foreach (string uri in file_chooser.get_uris ()) {
                     // Update last visited path
                     Utils.last_path = Path.get_dirname (uri);
                     // Open the file
