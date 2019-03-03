@@ -506,18 +506,34 @@ namespace Scratch.Services {
                 return false;
             }
 
+            var all_files_filter = new Gtk.FileFilter ();
+            all_files_filter.set_filter_name (_("All files"));
+            all_files_filter.add_pattern ("*");
 
-            var filech = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.SAVE, _("Save File"), null);
-            filech.do_overwrite_confirmation = true;
+            var text_files_filter = new Gtk.FileFilter ();
+            text_files_filter.set_filter_name (_("Text files"));
+            text_files_filter.add_mime_type ("text/*");
+
+            var file_chooser = new Gtk.FileChooserNative (
+                _("Save File"),
+                null,
+                Gtk.FileChooserAction.SAVE,
+                _("Save"),
+                _("Cancel")
+            );
+            file_chooser.add_filter (all_files_filter);
+            file_chooser.add_filter (text_files_filter);
+            file_chooser.do_overwrite_confirmation = true;
+            file_chooser.set_current_folder_uri (Utils.last_path ?? GLib.Environment.get_home_dir ());
 
             var success = false;
             var current_file = file.get_path ();
             var is_current_file_temporary = this.is_file_temporary;
 
-            if (filech.run () == Gtk.ResponseType.ACCEPT) {
-                this.file = File.new_for_uri (filech.get_file ().get_uri ());
+            if (file_chooser.run () == Gtk.ResponseType.ACCEPT) {
+                file = File.new_for_uri (file_chooser.get_uri ());
                 // Update last visited path
-                Utils.last_path = Path.get_dirname (filech.get_file ().get_uri ());
+                Utils.last_path = Path.get_dirname (file_chooser.get_file ().get_uri ());
                 success = true;
             }
 
@@ -541,7 +557,7 @@ namespace Scratch.Services {
             /* We delay destruction of file chooser dialog til to avoid the document focussing in,
              * which triggers premature loading of overwritten content.
              */
-            filech.destroy ();
+            file_chooser.destroy ();
             return success;
         }
 
