@@ -72,14 +72,14 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
                     }
 
                     if (language_list.length () == 0) {
-                        var dialog = new Gtk.MessageDialog (null, Gtk.DialogFlags.MODAL,
-                            Gtk.MessageType.WARNING, Gtk.ButtonsType.OK,
-                            _("No suitable dictionaries were found.\nPlease install at least one [aspell] dictionary"));
-                        dialog.show ();
-
-                        dialog.response.connect ((response_id) => {
-                            dialog.destroy ();
-                        });
+                        var dialog = new Granite.MessageDialog (
+                            _("No Suitable Dictionaries Were Found"),
+                            _("Please install at least one [aspell] dictionary."),
+                            new ThemedIcon ("dialog-warning"),
+                            Gtk.ButtonsType.CLOSE
+                        );
+                        dialog.run ();
+                        dialog.destroy ();
 
                         // This fallback to the LC used but might fail.
                         spell.set_language (null);
