@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-27 13:35-0800\n"
+"POT-Creation-Date: 2019-03-07 11:10-0800\n"
 "PO-Revision-Date: 2016-12-11 08:21+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: \n"
@@ -13,46 +13,35 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 "X-Generator: Launchpad (build 18366)\n"
 
-#. We list some common errors for quick feedback
-#: src/Application.vala:135
-msgid "Maybe you do not have the necessary permissions."
-msgstr "بەلكىم سىزنىڭ زۆرۈر ھوقۇقىڭىز يوق بولۇشى مۇمكىن."
-
-#: src/Application.vala:137
-msgid "Maybe the file path provided is not valid."
-msgstr "بەلكىم تەمىنلەنگەن ھۆججەت ئادىرىسى ئىناۋەتسىز بولۇشى مۇمكىن."
-
-#: src/Application.vala:139
-msgid "The location is read-only."
-msgstr "بۇ ئادىرىسنى پەقەت ئوقۇغىلى بولىدۇ."
-
-#: src/Application.vala:141
-msgid "The parent directory doesn't exist."
-msgstr "يۇقىرى دەرىجىلىك مۇندەرىجە مەۋجۇت ئەمەس."
-
-#: src/Application.vala:148
-#, c-format
-msgid ""
-"File \"%s\" cannot be created.\n"
-"%s"
+#: src/Application.vala:133
+#, fuzzy, c-format
+msgid "File \"%s\" Cannot Be Created"
 msgstr ""
 "ھۆججەت \"%s\" نى قۇرغىلى بولمىدى.\n"
 "\"%s\""
 
-#: src/Application.vala:158
-#, c-format
-msgid ""
-"File \"%s\" cannot be opened.\n"
-"%s"
-msgstr ""
-"ھۆججەت \"%s\" نى ئاچقىلى بولمىدى.\n"
-"\"%s\""
+#. We list some common errors for quick feedback
+#: src/Application.vala:137
+msgid "Maybe you do not have the necessary permissions."
+msgstr "بەلكىم سىزنىڭ زۆرۈر ھوقۇقىڭىز يوق بولۇشى مۇمكىن."
 
-#: src/Application.vala:168
+#: src/Application.vala:139
+msgid "Maybe the file path provided is not valid."
+msgstr "بەلكىم تەمىنلەنگەن ھۆججەت ئادىرىسى ئىناۋەتسىز بولۇشى مۇمكىن."
+
+#: src/Application.vala:141
+msgid "The location is read-only."
+msgstr "بۇ ئادىرىسنى پەقەت ئوقۇغىلى بولىدۇ."
+
+#: src/Application.vala:143
+msgid "The parent directory doesn't exist."
+msgstr "يۇقىرى دەرىجىلىك مۇندەرىجە مەۋجۇت ئەمەس."
+
+#: src/Application.vala:164
 msgid "It is a mountable location."
 msgstr "بۇ يۈكلىگىلى بولىدىغان ئادىرىس."
 
-#: src/Application.vala:171
+#: src/Application.vala:167
 #, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
@@ -61,27 +50,34 @@ msgstr ""
 "بۇ بىر Socket قا ئوخشاش ئالاھىدە ھۆججەت،\n"
 "FIFO ھۆججىتى، بۆلەك ئۈسكىنىسى ياكى ھەرپ-بەلگە ئۈسكۈنىسى."
 
-#: src/Application.vala:174
+#: src/Application.vala:170
 msgid "It is an \"unknown\" file type."
 msgstr "بۇ بىر نامەلۇم ھۆججەت تۈرى."
 
-#: src/Application.vala:263
+#: src/Application.vala:175
+#, fuzzy, c-format
+msgid "File \"%s\" Cannot Be Opened"
+msgstr ""
+"ھۆججەت \"%s\" نى قۇرغىلى بولمىدى.\n"
+"\"%s\""
+
+#: src/Application.vala:259
 msgid "New Tab"
 msgstr "يىڭى خەتكۈچ"
 
-#: src/Application.vala:264 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:260 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "يىڭى كۆزنەك"
 
-#: src/Application.vala:265
+#: src/Application.vala:261
 msgid "Print version info and exit"
 msgstr "نەشىر ئۇچۇرلىرىنى بىسىش ۋە چىكىنىش"
 
-#: src/Application.vala:266
+#: src/Application.vala:262
 msgid "Set of plugins"
 msgstr "قىستۇرمىلار توپلىمى"
 
-#: src/Application.vala:267
+#: src/Application.vala:263
 msgid "Current working directory"
 msgstr "ھازىر خىزمەت قىلىۋاتقان مۇندەرىجە"
 
@@ -101,39 +97,34 @@ msgstr "ئىزدەش سىتونىنى يوشۇرۇش"
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Scratchئۈچۈن Zeitgeist سانلىق مەلۇمات مەنبەسى"
 
-#. Show a GtkFileChooserDialog
-#: src/MainWindow.vala:742
-msgid "Open some files"
-msgstr "بەزى ھۆججەتلەرنى ئىچىش"
-
-#: src/MainWindow.vala:761
-msgid "_Cancel"
-msgstr "ئەمەلدىن قالدۇرۇش(_C)"
-
-#: src/MainWindow.vala:762
-msgid "_Open"
-msgstr "ئىچىش(_O)"
-
-#: src/Utils.vala:27
+#: src/MainWindow.vala:744 src/Services/Document.vala:503
 msgid "All files"
 msgstr "بارلىق ھۆججەتلەر"
 
-#: src/Utils.vala:31
+#: src/MainWindow.vala:748 src/Services/Document.vala:507
 msgid "Text files"
 msgstr "تېكىست ھۆججەتلىرى"
 
-#: src/Utils.vala:35 src/Services/Document.vala:409
-msgid "Cancel"
-msgstr "ئەمەلدىن قالدۇرۇش"
+#: src/MainWindow.vala:752
+msgid "Open some files"
+msgstr "بەزى ھۆججەتلەرنى ئىچىش"
 
-#: src/Utils.vala:44
+#: src/MainWindow.vala:755
 msgid "Open"
 msgstr "ئىچىش"
 
-#: src/Utils.vala:46 src/Services/Document.vala:410
-#: src/Services/Document.vala:729
-msgid "Save"
-msgstr "ساقلاش"
+#: src/MainWindow.vala:756 src/Services/Document.vala:402
+#: src/Services/Document.vala:515
+msgid "Cancel"
+msgstr "ئەمەلدىن قالدۇرۇش"
+
+#: src/MainWindow.vala:781
+msgid "_Open"
+msgstr "ئىچىش(_O)"
+
+#: src/MainWindow.vala:782
+msgid "_Cancel"
+msgstr "ئەمەلدىن قالدۇرۇش(_C)"
 
 #: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:160
 msgid "Preferences"
@@ -244,7 +235,7 @@ msgid "Rename"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:137
+#: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr ""
 
@@ -285,14 +276,14 @@ msgstr "يىڭى ھۆججەت قۇرۇش"
 msgid "new file %d"
 msgstr "يىڭى ھۆججەت قۇرۇش"
 
-#: src/FolderManager/ProjectFolderItem.vala:127
+#: src/FolderManager/ProjectFolderItem.vala:78
+msgid "Close Folder"
+msgstr "مۇندەرىجىنى تاقاش"
+
+#: src/FolderManager/ProjectFolderItem.vala:269
 #, fuzzy
 msgid "Change Branch"
 msgstr "Scratchنىڭ تەڭشەكلىرىنى ئۆزگەرتىش"
-
-#: src/FolderManager/ProjectFolderItem.vala:134
-msgid "Close Folder"
-msgstr "مۇندەرىجىنى تاقاش"
 
 #: src/Services/Document.vala:267
 #, c-format
@@ -321,44 +312,50 @@ msgstr ""
 msgid "Cancel Loading"
 msgstr "ئەمەلدىن قالدۇرۇش"
 
-#: src/Services/Document.vala:400
-#, c-format
-msgid "Save changes to document %s before closing?"
+#: src/Services/Document.vala:392
+#, fuzzy, c-format
+msgid "Save changes to \"%s\" before closing?"
 msgstr "تاقاشتىن بۇرۇن ئۆزگەرتىلگەن مەزمۇننى %s ھۆججىتىگە ساقلامسىز؟"
 
-#: src/Services/Document.vala:403
-msgid ""
-"If you don't save, changes from the last 4 seconds will be permanently lost."
+#: src/Services/Document.vala:393
+#, fuzzy
+msgid "If you don't save, changes will be permanently lost."
 msgstr "ئەگەر ساقلىمىسىڭىز 4 سىكۈنىت ئىچىدە ئۆزگەرتىلگەن مەزمۇن يوقاپ كىتىدۇ."
 
-#: src/Services/Document.vala:405
-msgid "Close without saving"
+#: src/Services/Document.vala:399
+#, fuzzy
+msgid "Close Without Saving"
 msgstr "ساقلىمايلا تاقاش"
 
-#: src/Services/Document.vala:510
+#: src/Services/Document.vala:403 src/Services/Document.vala:514
+#: src/Services/Document.vala:738
+msgid "Save"
+msgstr "ساقلاش"
+
+#: src/Services/Document.vala:511
 msgid "Save File"
 msgstr "ھۆججەتنى ساقلاش"
 
-#: src/Services/Document.vala:584
+#: src/Services/Document.vala:593
 msgid "New Document"
 msgstr "يىڭى ھۆججەت قۇرۇش"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:707
+#: src/Services/Document.vala:716
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 "ھۆججەت \"%s\" نى قۇرغىلى بولمىدى.\n"
 "\"%s\""
 
-#: src/Services/Document.vala:708
+#: src/Services/Document.vala:717
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "ھۆججەت  \"%s\" نى ئوقۇغىلى بولمىدى. ھۆججەت بۇزغۇنچىلىققا ئۇچرىغان بولىشى "
 "ياكى سىزنىڭ ئوقۇش ھوقۇقىڭىز يوق بولىشى مۇمكىن."
 
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:729
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -367,17 +364,17 @@ msgstr ""
 "ھۆججەت \"%s\" ساقلانغان ئورۇنغا يىڭى مەزمۇن يازغىلى بولمايدۇ.باشقا يەرگە "
 "ساقلامسىز؟"
 
-#: src/Services/Document.vala:722
+#: src/Services/Document.vala:731
 msgid "Save As…"
 msgstr "باشقا يەرگە ساقلاش"
 
-#: src/Services/Document.vala:727
+#: src/Services/Document.vala:736
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "ھۆججەت \"%s\" ئۆچۈرۈلگەن. يىڭى نۇسخىسىنى ساقلامسىز؟"
 
 #. If the file can't be written
-#: src/Services/Document.vala:742
+#: src/Services/Document.vala:751
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -385,11 +382,11 @@ msgid ""
 msgstr ""
 "ھۆججەت  \"%s\" تىكى ئۆزگەرتىشلەرنى ساقلىغىلى بولمىدى. باشقا يەرگە ساقلامسىز؟"
 
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:753
 msgid "Save changes elsewhere"
 msgstr "ئۆزگەرتىشلەرنى باشقا يەرگە ساقلاش"
 
-#: src/Services/Document.vala:777
+#: src/Services/Document.vala:786
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -398,11 +395,11 @@ msgstr ""
 "ھۆججەت  \"%s\"نىڭ مەزمۇنى باشقا پروگرامما تەرىپىدىن ئۆزگەرتىلگەن. قايتىدىن "
 "يۈكلەمسىز ياكى داۋاملىق تەھرىرلەمسىز؟"
 
-#: src/Services/Document.vala:778
+#: src/Services/Document.vala:787
 msgid "Load"
 msgstr "يۈكلەش"
 
-#: src/Services/Document.vala:781
+#: src/Services/Document.vala:790
 msgid "Continue"
 msgstr "داۋاملاشتۇرۇش"
 
@@ -691,10 +688,13 @@ msgstr "ئۈنۈمىنى كۆرسىتىش"
 msgid "Hide Preview"
 msgstr "ئۈنۈمىنى كۆرسەتمەسلىك"
 
+#: plugins/spell/spell.vala:76
+msgid "No Suitable Dictionaries Were Found"
+msgstr ""
+
 #: plugins/spell/spell.vala:77
-msgid ""
-"No suitable dictionaries were found.\n"
-"Please install at least one [aspell] dictionary"
+#, fuzzy
+msgid "Please install at least one [aspell] dictionary."
 msgstr ""
 "مۇناسىپ لۈغەت تىپىلمىدى.\n"
 "ھىچ بولمىغاندا بىر  [aspell] لۇغىتى ئورنىتىڭ."
@@ -708,6 +708,20 @@ msgstr "%s - سۆز تولۇقلاندى"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "يۈكلىگىلى بولمىغان بەلگە رەسىم ئۇسلۇبى:%s\n"
+
+#~ msgid ""
+#~ "File \"%s\" cannot be created.\n"
+#~ "%s"
+#~ msgstr ""
+#~ "ھۆججەت \"%s\" نى قۇرغىلى بولمىدى.\n"
+#~ "\"%s\""
+
+#~ msgid ""
+#~ "File \"%s\" cannot be opened.\n"
+#~ "%s"
+#~ msgstr ""
+#~ "ھۆججەت \"%s\" نى ئاچقىلى بولمىدى.\n"
+#~ "\"%s\""
 
 #~ msgid "Edit text files"
 #~ msgstr "تېكىست ھۆججىتىنى تەھرىرلەش"
