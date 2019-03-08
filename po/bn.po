@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-27 13:35-0800\n"
+"POT-Creation-Date: 2019-03-07 11:10-0800\n"
 "PO-Revision-Date: 2017-01-21 09:06+0000\n"
 "Last-Translator: Hasan Sumon <hsnsumon@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,46 +13,35 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 "X-Generator: Launchpad (build 18366)\n"
 
-#. We list some common errors for quick feedback
-#: src/Application.vala:135
-msgid "Maybe you do not have the necessary permissions."
-msgstr "আপনার হয়ত প্রয়োজনীয় অনুমতি নেই।"
-
-#: src/Application.vala:137
-msgid "Maybe the file path provided is not valid."
-msgstr "হয়ত প্রদানকৃত ফাইল এর পথটি গ্রহনযোগ্য নয়।"
-
-#: src/Application.vala:139
-msgid "The location is read-only."
-msgstr "এই লোকেশানটি রিড-অনলি।"
-
-#: src/Application.vala:141
-msgid "The parent directory doesn't exist."
-msgstr "প্যারেন্ট ডিরেক্টরি'র অস্তিত্ব নেই।"
-
-#: src/Application.vala:148
-#, c-format
-msgid ""
-"File \"%s\" cannot be created.\n"
-"%s"
+#: src/Application.vala:133
+#, fuzzy, c-format
+msgid "File \"%s\" Cannot Be Created"
 msgstr ""
 "\"%s\" ফাইলটি সৃষ্টি করা যাবে না।\n"
 "%s"
 
-#: src/Application.vala:158
-#, c-format
-msgid ""
-"File \"%s\" cannot be opened.\n"
-"%s"
-msgstr ""
-"\"%s\" ফাইলটি খোলা যাবে না।\n"
-"%s"
+#. We list some common errors for quick feedback
+#: src/Application.vala:137
+msgid "Maybe you do not have the necessary permissions."
+msgstr "আপনার হয়ত প্রয়োজনীয় অনুমতি নেই।"
 
-#: src/Application.vala:168
+#: src/Application.vala:139
+msgid "Maybe the file path provided is not valid."
+msgstr "হয়ত প্রদানকৃত ফাইল এর পথটি গ্রহনযোগ্য নয়।"
+
+#: src/Application.vala:141
+msgid "The location is read-only."
+msgstr "এই লোকেশানটি রিড-অনলি।"
+
+#: src/Application.vala:143
+msgid "The parent directory doesn't exist."
+msgstr "প্যারেন্ট ডিরেক্টরি'র অস্তিত্ব নেই।"
+
+#: src/Application.vala:164
 msgid "It is a mountable location."
 msgstr "এই লোকেশানটি মাউন্ট করা যাবে।"
 
-#: src/Application.vala:171
+#: src/Application.vala:167
 #, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
@@ -61,27 +50,34 @@ msgstr ""
 "এটি একটি \"বিশেষ\" ফাইল যেমন সকেট,\n"
 " ফিফো, ব্লক ডিভাইস, অথবা ক্যারেক্টার ডিভাইস।"
 
-#: src/Application.vala:174
+#: src/Application.vala:170
 msgid "It is an \"unknown\" file type."
 msgstr "এটি একটি \"অপরিচিত\" ফাইল টাইপ।"
 
-#: src/Application.vala:263
+#: src/Application.vala:175
+#, fuzzy, c-format
+msgid "File \"%s\" Cannot Be Opened"
+msgstr ""
+"\"%s\" ফাইলটি সৃষ্টি করা যাবে না।\n"
+"%s"
+
+#: src/Application.vala:259
 msgid "New Tab"
 msgstr "নতুন ট্যাব"
 
-#: src/Application.vala:264 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:260 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "নতুন উইন্ডো"
 
-#: src/Application.vala:265
+#: src/Application.vala:261
 msgid "Print version info and exit"
 msgstr "ভার্সন এর তথ্য মুদ্রণ করে প্রস্থান করুন"
 
-#: src/Application.vala:266
+#: src/Application.vala:262
 msgid "Set of plugins"
 msgstr "প্লাগিন এর সেট"
 
-#: src/Application.vala:267
+#: src/Application.vala:263
 msgid "Current working directory"
 msgstr "বর্তমান কাজের ডিরেক্টরি"
 
@@ -101,39 +97,34 @@ msgstr "অনুসন্ধান বার লুকিয়ে রাখুন
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "স্ক্র্যাচ এর জন্যে জেইটগেইস্ট ডাটাসোর্স"
 
-#. Show a GtkFileChooserDialog
-#: src/MainWindow.vala:742
-msgid "Open some files"
-msgstr "কিছু ফাইল খুলুন"
-
-#: src/MainWindow.vala:761
-msgid "_Cancel"
-msgstr "_বাতিল"
-
-#: src/MainWindow.vala:762
-msgid "_Open"
-msgstr "_খুলুন"
-
-#: src/Utils.vala:27
+#: src/MainWindow.vala:744 src/Services/Document.vala:503
 msgid "All files"
 msgstr "সব ফাইল"
 
-#: src/Utils.vala:31
+#: src/MainWindow.vala:748 src/Services/Document.vala:507
 msgid "Text files"
 msgstr "টেক্সট ফাইলসমূহ"
 
-#: src/Utils.vala:35 src/Services/Document.vala:409
-msgid "Cancel"
-msgstr "বাতিল করুন"
+#: src/MainWindow.vala:752
+msgid "Open some files"
+msgstr "কিছু ফাইল খুলুন"
 
-#: src/Utils.vala:44
+#: src/MainWindow.vala:755
 msgid "Open"
 msgstr "খুলুন"
 
-#: src/Utils.vala:46 src/Services/Document.vala:410
-#: src/Services/Document.vala:729
-msgid "Save"
-msgstr "সংরক্ষণ করুন"
+#: src/MainWindow.vala:756 src/Services/Document.vala:402
+#: src/Services/Document.vala:515
+msgid "Cancel"
+msgstr "বাতিল করুন"
+
+#: src/MainWindow.vala:781
+msgid "_Open"
+msgstr "_খুলুন"
+
+#: src/MainWindow.vala:782
+msgid "_Cancel"
+msgstr "_বাতিল"
 
 #: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:160
 msgid "Preferences"
@@ -244,7 +235,7 @@ msgid "Rename"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:137
+#: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr ""
 
@@ -285,14 +276,14 @@ msgstr "নতুন ফাইল"
 msgid "new file %d"
 msgstr "নতুন ফাইল"
 
-#: src/FolderManager/ProjectFolderItem.vala:127
+#: src/FolderManager/ProjectFolderItem.vala:78
+msgid "Close Folder"
+msgstr "ফোল্ডার বন্ধ করুন"
+
+#: src/FolderManager/ProjectFolderItem.vala:269
 #, fuzzy
 msgid "Change Branch"
 msgstr "স্ক্র্যাচ সেটিংস পরিবর্তন করুন"
-
-#: src/FolderManager/ProjectFolderItem.vala:134
-msgid "Close Folder"
-msgstr "ফোল্ডার বন্ধ করুন"
 
 #: src/Services/Document.vala:267
 #, c-format
@@ -321,46 +312,52 @@ msgstr ""
 msgid "Cancel Loading"
 msgstr "বাতিল করুন"
 
-#: src/Services/Document.vala:400
-#, c-format
-msgid "Save changes to document %s before closing?"
+#: src/Services/Document.vala:392
+#, fuzzy, c-format
+msgid "Save changes to \"%s\" before closing?"
 msgstr "বন্ধ করার আগে ডকুমেন্টে  %s সংরক্ষণ করতে চান?"
 
-#: src/Services/Document.vala:403
-msgid ""
-"If you don't save, changes from the last 4 seconds will be permanently lost."
+#: src/Services/Document.vala:393
+#, fuzzy
+msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "যদি আপনি সংরক্ষণ না করেন, তাহলে গত ৪ সেকেন্ডের পরিবর্তনগুলো স্থায়ীভাবে হারিয়ে "
 "যাবে।"
 
-#: src/Services/Document.vala:405
-msgid "Close without saving"
+#: src/Services/Document.vala:399
+#, fuzzy
+msgid "Close Without Saving"
 msgstr "সংরক্ষণ না করে বন্ধ করুন"
 
-#: src/Services/Document.vala:510
+#: src/Services/Document.vala:403 src/Services/Document.vala:514
+#: src/Services/Document.vala:738
+msgid "Save"
+msgstr "সংরক্ষণ করুন"
+
+#: src/Services/Document.vala:511
 msgid "Save File"
 msgstr "ফাইল সংরক্ষণ করুন"
 
-#: src/Services/Document.vala:584
+#: src/Services/Document.vala:593
 msgid "New Document"
 msgstr "নতুন ডকুমেন্ট"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:707
+#: src/Services/Document.vala:716
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 "\"%s\" ফাইলটি সৃষ্টি করা যাবে না।\n"
 "%s"
 
-#: src/Services/Document.vala:708
+#: src/Services/Document.vala:717
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "\"%s\" ফাইলটি নির্ণয় করে যাচ্ছেনা।  হয়ত এটি নষ্ট\n"
 "অথবা আপনার প্রয়োজনীয় অনুমতি নেই।"
 
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:729
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -369,17 +366,17 @@ msgstr ""
 "\"%s\" ফাইলটি যে অবস্থা এ ছিল সে লোকেশানটি সরিয়ে নেয়া হয়েছে। আপনি কী অন্য "
 "কোথায় সংরক্ষণ করতে চান?"
 
-#: src/Services/Document.vala:722
+#: src/Services/Document.vala:731
 msgid "Save As…"
 msgstr "নতুনভাবে সংরক্ষণ করুন..."
 
-#: src/Services/Document.vala:727
+#: src/Services/Document.vala:736
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "\"%s\" ফাইলটি মুছে দেওয়া হয়েছিলো। যাই হোক আপনি কি এটি সংরক্ষণ করতে চান?"
 
 #. If the file can't be written
-#: src/Services/Document.vala:742
+#: src/Services/Document.vala:751
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -388,11 +385,11 @@ msgstr ""
 "আপনি \"%s\" ফাইলটিতে সংরক্ষণ করতে পারবেননা। এই ফাইলের পরিবর্তনগুলো আরেকটি "
 "লোকেশনে সংরক্ষণ করতে চান?"
 
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:753
 msgid "Save changes elsewhere"
 msgstr "পরিবর্তনগুলো অন্য কোথাও সংরক্ষণ করুন"
 
-#: src/Services/Document.vala:777
+#: src/Services/Document.vala:786
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -401,11 +398,11 @@ msgstr ""
 "\"%s\" ফাইলটি একটি এক্সটার্নাল এপ্লিকেশান কর্তৃক পরিবর্তিত হয়েছে। আপনি কী ফাইলটিকে "
 "পুনরায় লোড করে সম্পাদনা চালিয়ে যেতে চান?"
 
-#: src/Services/Document.vala:778
+#: src/Services/Document.vala:787
 msgid "Load"
 msgstr "লোড"
 
-#: src/Services/Document.vala:781
+#: src/Services/Document.vala:790
 msgid "Continue"
 msgstr "পরবর্তী"
 
@@ -694,10 +691,13 @@ msgstr "প্রিভিউ দেখান"
 msgid "Hide Preview"
 msgstr "প্রিভিউ লুকিয়ে রাখুন"
 
+#: plugins/spell/spell.vala:76
+msgid "No Suitable Dictionaries Were Found"
+msgstr ""
+
 #: plugins/spell/spell.vala:77
-msgid ""
-"No suitable dictionaries were found.\n"
-"Please install at least one [aspell] dictionary"
+#, fuzzy
+msgid "Please install at least one [aspell] dictionary."
 msgstr ""
 "কোন উপযুক্ত অভিধান পাওয়া যায়নি।\n"
 "অনুগ্রহপূর্বক অন্ততঃ একটি [aspell] অভিধান ইন্সটল করুন"
@@ -711,6 +711,20 @@ msgstr "%s - শব্দ পরিপূরণ"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "আইকন থিম লোড করা সম্ভব হয়নিঃ %s\n"
+
+#~ msgid ""
+#~ "File \"%s\" cannot be created.\n"
+#~ "%s"
+#~ msgstr ""
+#~ "\"%s\" ফাইলটি সৃষ্টি করা যাবে না।\n"
+#~ "%s"
+
+#~ msgid ""
+#~ "File \"%s\" cannot be opened.\n"
+#~ "%s"
+#~ msgstr ""
+#~ "\"%s\" ফাইলটি খোলা যাবে না।\n"
+#~ "%s"
 
 #~ msgid "It is a directory."
 #~ msgstr "এটি একটি ডিরেক্টরি।"
