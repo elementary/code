@@ -274,12 +274,12 @@ namespace Scratch.FolderManager {
 
                             if (source.get_path () == newly_created_path) {
                                 newly_created_path = null;
+                                item.just_created = true;
 
                                 /*
-                                 * Avoid race condition between adding and editing folder item
-                                 * (not required for file items).
+                                 * Avoid race condition between adding and editing folder item.
                                  */
-                                GLib.Idle.add (() => {
+                                GLib.Timeout.add (350, () => {
                                     view.start_editing_item (item);
                                     return false;
                                 });
@@ -291,7 +291,7 @@ namespace Scratch.FolderManager {
             }
 
             var root = get_root_folder ();
-            if (root != null) {
+            if (root != null  && event != GLib.FileMonitorEvent.CREATED) {
                 root.update_git_status ();
             }
         }

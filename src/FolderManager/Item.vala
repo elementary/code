@@ -25,6 +25,8 @@ namespace Scratch.FolderManager {
     internal abstract class Item: Granite.Widgets.SourceList.ExpandableItem, Granite.Widgets.SourceListSortable {
         public File file { get; construct; }
 
+        public bool just_created = false;
+
         public FileView view { get; construct; }
         public string path {
             owned get { return file.path; }
@@ -42,6 +44,10 @@ namespace Scratch.FolderManager {
 
         protected void rename (string new_name) {
             file.rename (new_name);
+            if (this is FileItem) {
+                view.select(file.file.get_parent ().get_path () + "/" + new_name);
+            }
+            just_created = false;
         }
 
         protected void trash () {
