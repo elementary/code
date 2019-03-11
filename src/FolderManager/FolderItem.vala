@@ -262,10 +262,10 @@ namespace Scratch.FolderManager {
                         Item? item = null;
 
                         if (!exists) {
-                            if (file.is_valid_textfile) {
-                                item = new FileItem (file, view);
-                            } else if (file.is_valid_directory) {
+                            if (file.is_valid_directory) {
                                 item = new FolderItem (file, view);
+                            } else {
+                                item = new FileItem (file, view);
                             }
                         }
 
