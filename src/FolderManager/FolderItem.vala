@@ -166,7 +166,7 @@ namespace Scratch.FolderManager {
                 if (child.is_valid_directory) {
                     var item = new FolderItem (child, view);
                     add (item);
-                } else if (child.is_valid_textfile) {
+                } else {
                     var item = new FileItem (child, view);
                     add (item);
                 }
