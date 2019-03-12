@@ -23,7 +23,7 @@ namespace Scratch.FolderManager {
      * Normal item in the source list, represents a textfile.
      */
     internal class FileItem : Item {
-        public FileItem (File file, FileView view) requires (file.is_valid_textfile) {
+        public FileItem (File file, FileView view) {
             Object (file: file, view: view);
         }
 
@@ -54,8 +54,10 @@ namespace Scratch.FolderManager {
             other_menuitem.activate.connect (() => show_app_chooser (file));
 
             var open_in_menu = new Gtk.Menu ();
-            open_in_menu.add (new_window_menuitem);
-            open_in_menu.add (new Gtk.SeparatorMenuItem ());
+            if (file.is_valid_textfile) {
+                open_in_menu.add (new_window_menuitem);
+                open_in_menu.add (new Gtk.SeparatorMenuItem ());
+            }
             open_in_menu.add (files_menuitem);
 
             var contractor_menu = new Gtk.Menu ();

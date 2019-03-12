@@ -304,9 +304,14 @@ namespace Scratch {
             folder_manager_view = new FolderManager.FileView ();
 
             folder_manager_view.select.connect ((a) => {
-                var file = GLib.File.new_for_path (a);
-                var doc = new Scratch.Services.Document (actions, file);
-                open_document (doc);
+                var file = new Scratch.FolderManager.File (a);
+                var doc = new Scratch.Services.Document (actions, file.file);
+                
+                if (file.is_valid_textfile) {
+                    open_document (doc);
+                } else {
+                    open_binary (file.file);
+                }
             });
 
             folder_manager_view.root.child_added.connect (() => {
@@ -374,6 +379,18 @@ namespace Scratch {
 
             // Show/Hide widgets
             show_all ();
+        }
+
+        private void open_binary (File file) {
+            if (!file.query_exists ()) {
+                return;
+            }
+
+            try {
+                AppInfo.launch_default_for_uri (file.get_uri (), null);
+            } catch (Error e) {
+                critical (e.message);
+            }
         }
 
         public void restore_opened_documents () {
