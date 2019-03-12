@@ -274,7 +274,7 @@ namespace Scratch.FolderManager {
 
                             if (source.get_path () == newly_created_path) {
                                 newly_created_path = null;
-                                item.just_created = true;
+                                view.ignore_next_select = true;
 
                                 /*
                                  * Avoid race condition between adding and editing folder item.

@@ -51,7 +51,7 @@ namespace Scratch.FolderManager {
                 return;
             }
 
-            if (item is FileItem && !(item as FileItem).just_created) {
+            if (item is FileItem) {
                 select ((item as FileItem).file.path);
             }
         }

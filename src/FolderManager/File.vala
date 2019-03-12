@@ -139,7 +139,7 @@ namespace Scratch.FolderManager {
                     while ((file_info = enumerator.next_file ()) != null) {
                         var child = file.get_child (file_info.get_name ());
                         var file = new File (child.get_path ());
-                        _children.add (new File (child.get_path ()));
+                        _children.add ( file );
                     }
 
                     children_valid = true;
@@ -176,6 +176,11 @@ namespace Scratch.FolderManager {
         }
 
         public void rename (string name) {
+            // set_display_name throws a warning if the file already exists
+            if (this.name == name) {
+                return;
+            }
+
             try {
                 file.set_display_name (name);
             } catch (GLib.Error error) {
