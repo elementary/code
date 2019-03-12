@@ -122,7 +122,7 @@ namespace Scratch.Widgets {
         public void remove_view (Scratch.Widgets.DocumentView? view = null) {
             // If no specific view is required to be removed, just remove the current one
             if (view == null) {
-                view = get_focus_child () as Scratch.Widgets.DocumentView;
+                view = current_view as Scratch.Widgets.DocumentView;
             }
 
             if (view == null) {
