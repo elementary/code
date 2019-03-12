@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"POT-Creation-Date: 2019-03-07 11:10-0800\n"
 "PO-Revision-Date: 2018-10-23 00:02+0000\n"
 "Last-Translator: Pablo Varela <pablovarela182@gmail.com>\n"
 "Language-Team: Galician <https://weblate.elementary.io/projects/code/code/gl/"
@@ -20,46 +20,33 @@ msgstr ""
 "X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
+#: src/Application.vala:133
+#, fuzzy, c-format
+msgid "File \"%s\" Cannot Be Created"
+msgstr "O Ficheiro \"%s\" Non Pode Ser Lido"
+
 #. We list some common errors for quick feedback
-#: src/Application.vala:135
+#: src/Application.vala:137
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Probablemente non ten os permisos necesarios."
 
-#: src/Application.vala:137
+#: src/Application.vala:139
 msgid "Maybe the file path provided is not valid."
 msgstr "Probablemente o arquivo espcecificado non é valido."
 
-#: src/Application.vala:139
+#: src/Application.vala:141
 msgid "The location is read-only."
 msgstr "A localización é só de lectura."
 
-#: src/Application.vala:141
+#: src/Application.vala:143
 msgid "The parent directory doesn't exist."
 msgstr "O directorio pai non existe."
 
-#: src/Application.vala:148
-#, c-format
-msgid ""
-"File \"%s\" cannot be created.\n"
-"%s"
-msgstr ""
-"O arquivo \"%s\" non pode ser creado.\n"
-"%s"
-
-#: src/Application.vala:158
-#, c-format
-msgid ""
-"File \"%s\" cannot be opened.\n"
-"%s"
-msgstr ""
-"O arquivo \"%s\" non pode ser aberto.\n"
-"%s"
-
-#: src/Application.vala:168
+#: src/Application.vala:164
 msgid "It is a mountable location."
 msgstr "É unha localización que se pode montar."
 
-#: src/Application.vala:171
+#: src/Application.vala:167
 #, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
@@ -68,27 +55,32 @@ msgstr ""
 "É un archivo \"especial\" como un socket,\n"
 "·FIFO, dispositivo de bloque, ou dispositivo de caracter."
 
-#: src/Application.vala:174
+#: src/Application.vala:170
 msgid "It is an \"unknown\" file type."
 msgstr "É un arquivo de tipo \"desconocido\"."
 
-#: src/Application.vala:263
+#: src/Application.vala:175
+#, fuzzy, c-format
+msgid "File \"%s\" Cannot Be Opened"
+msgstr "O Ficheiro \"%s\" Non Pode Ser Lido"
+
+#: src/Application.vala:259
 msgid "New Tab"
 msgstr "Nova lapela"
 
-#: src/Application.vala:264 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:260 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Nova xanela"
 
-#: src/Application.vala:265
+#: src/Application.vala:261
 msgid "Print version info and exit"
 msgstr "Amosar información da versión e saír"
 
-#: src/Application.vala:266
+#: src/Application.vala:262
 msgid "Set of plugins"
 msgstr "Conxunto de engadidos"
 
-#: src/Application.vala:267
+#: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Directorio de traballo actual"
 
@@ -108,39 +100,34 @@ msgstr "Agochar a barra de buscas"
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Orixe dos datos de Zeitgeist para Scratch"
 
-#. Show a GtkFileChooserDialog
-#: src/MainWindow.vala:742
-msgid "Open some files"
-msgstr "Abrir algúns ficheiros"
-
-#: src/MainWindow.vala:761
-msgid "_Cancel"
-msgstr "_Cancelar"
-
-#: src/MainWindow.vala:762
-msgid "_Open"
-msgstr "_Abrir"
-
-#: src/Utils.vala:27
+#: src/MainWindow.vala:744 src/Services/Document.vala:503
 msgid "All files"
 msgstr "Todos os ficheiros"
 
-#: src/Utils.vala:31
+#: src/MainWindow.vala:748 src/Services/Document.vala:507
 msgid "Text files"
 msgstr "Ficheiros de texto"
 
-#: src/Utils.vala:35 src/Services/Document.vala:409
-msgid "Cancel"
-msgstr "Cancelar"
+#: src/MainWindow.vala:752
+msgid "Open some files"
+msgstr "Abrir algúns ficheiros"
 
-#: src/Utils.vala:44
+#: src/MainWindow.vala:755
 msgid "Open"
 msgstr "Abrir"
 
-#: src/Utils.vala:46 src/Services/Document.vala:410
-#: src/Services/Document.vala:729
-msgid "Save"
-msgstr "Gardar"
+#: src/MainWindow.vala:756 src/Services/Document.vala:402
+#: src/Services/Document.vala:515
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: src/MainWindow.vala:781
+msgid "_Open"
+msgstr "_Abrir"
+
+#: src/MainWindow.vala:782
+msgid "_Cancel"
+msgstr "_Cancelar"
 
 #: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:160
 msgid "Preferences"
@@ -292,6 +279,11 @@ msgstr "Novo ficheiro %d"
 msgid "Close Folder"
 msgstr "Pechar o cartafol"
 
+#: src/FolderManager/ProjectFolderItem.vala:269
+#, fuzzy
+msgid "Change Branch"
+msgstr "Cambiar as preferencias de Scratch"
+
 #: src/Services/Document.vala:267
 #, c-format
 msgid "%s Is Not a Text File"
@@ -319,81 +311,87 @@ msgstr "Por favor agarda mentres Code está cargando o ficheiro."
 msgid "Cancel Loading"
 msgstr "Cancelar Carga"
 
-#: src/Services/Document.vala:400
-#, c-format
-msgid "Save changes to document %s before closing?"
+#: src/Services/Document.vala:392
+#, fuzzy, c-format
+msgid "Save changes to \"%s\" before closing?"
 msgstr "Gardar os cambios ao documento %s antes de pechar?"
 
-#: src/Services/Document.vala:403
-msgid ""
-"If you don't save, changes from the last 4 seconds will be permanently lost."
+#: src/Services/Document.vala:393
+#, fuzzy
+msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Se non garda o documento, os cambios dos últimos 4 segundos perderanse "
 "permanentemente."
 
-#: src/Services/Document.vala:405
-msgid "Close without saving"
+#: src/Services/Document.vala:399
+#, fuzzy
+msgid "Close Without Saving"
 msgstr "Pechar sen gardar"
 
-#: src/Services/Document.vala:510
+#: src/Services/Document.vala:403 src/Services/Document.vala:514
+#: src/Services/Document.vala:738
+msgid "Save"
+msgstr "Gardar"
+
+#: src/Services/Document.vala:511
 msgid "Save File"
 msgstr "Gardar o ficheiro"
 
-#: src/Services/Document.vala:584
+#: src/Services/Document.vala:593
 msgid "New Document"
 msgstr "Novo documento"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:707
+#: src/Services/Document.vala:716
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "O Ficheiro \"%s\" Non Pode Ser Lido"
 
-#: src/Services/Document.vala:708
+#: src/Services/Document.vala:717
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "Tal vez esté corrupto ou non ten os permisos necesarios para lelo."
 
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:729
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:722
+#: src/Services/Document.vala:731
 msgid "Save As…"
 msgstr "Gardar como…"
 
-#: src/Services/Document.vala:727
+#: src/Services/Document.vala:736
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr ""
 
 #. If the file can't be written
-#: src/Services/Document.vala:742
+#: src/Services/Document.vala:751
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:753
 msgid "Save changes elsewhere"
 msgstr "Gardar os cambios noutro lugar"
 
-#: src/Services/Document.vala:777
+#: src/Services/Document.vala:786
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
 
-#: src/Services/Document.vala:778
+#: src/Services/Document.vala:787
 msgid "Load"
 msgstr "Cargar"
 
-#: src/Services/Document.vala:781
+#: src/Services/Document.vala:790
 msgid "Continue"
 msgstr "Continuar"
 
@@ -401,9 +399,9 @@ msgstr "Continuar"
 msgid "Templates"
 msgstr "Modelos"
 
-#: src/Widgets/DocumentView.vala:132
+#: src/Widgets/DocumentView.vala:133
 #, fuzzy, c-format
-msgid "Text file from %s"
+msgid "Text file from %s:%d"
 msgstr "Ficheiros de texto"
 
 #: src/Widgets/FormatBar.vala:67
@@ -681,10 +679,12 @@ msgstr ""
 msgid "Hide Preview"
 msgstr ""
 
+#: plugins/spell/spell.vala:76
+msgid "No Suitable Dictionaries Were Found"
+msgstr ""
+
 #: plugins/spell/spell.vala:77
-msgid ""
-"No suitable dictionaries were found.\n"
-"Please install at least one [aspell] dictionary"
+msgid "Please install at least one [aspell] dictionary."
 msgstr ""
 
 #: plugins/word-completion/plugin.vala:174
@@ -696,6 +696,20 @@ msgstr "%s - Completado de palabras"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "Non foi posíbel cargar o tema de iconas : %s\n"
+
+#~ msgid ""
+#~ "File \"%s\" cannot be created.\n"
+#~ "%s"
+#~ msgstr ""
+#~ "O arquivo \"%s\" non pode ser creado.\n"
+#~ "%s"
+
+#~ msgid ""
+#~ "File \"%s\" cannot be opened.\n"
+#~ "%s"
+#~ msgstr ""
+#~ "O arquivo \"%s\" non pode ser aberto.\n"
+#~ "%s"
 
 #~ msgid "Highlight current line:"
 #~ msgstr "Resaltar a liña activa:"
@@ -756,9 +770,6 @@ msgstr "Non foi posíbel cargar o tema de iconas : %s\n"
 
 #~ msgid "Duplicate selected strings"
 #~ msgstr "Duplicar as cadeas selecionadas"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "Cambiar as preferencias de Scratch"
 
 #~ msgid "Next Tab"
 #~ msgstr "Seguinte lapela"

@@ -304,9 +304,14 @@ namespace Scratch {
             folder_manager_view = new FolderManager.FileView ();
 
             folder_manager_view.select.connect ((a) => {
-                var file = GLib.File.new_for_path (a);
-                var doc = new Scratch.Services.Document (actions, file);
-                open_document (doc);
+                var file = new Scratch.FolderManager.File (a);
+                var doc = new Scratch.Services.Document (actions, file.file);
+                
+                if (file.is_valid_textfile) {
+                    open_document (doc);
+                } else {
+                    open_binary (file.file);
+                }
             });
 
             folder_manager_view.root.child_added.connect (() => {
@@ -353,25 +358,39 @@ namespace Scratch {
 
             add (vp);
 
-            // Show/Hide widgets
-            show_all ();
-
             search_revealer.set_reveal_child (false);
 
-            // Plugins hook
-            HookFunc hook_func = () => {
-                plugins.hook_window (this);
-                plugins.hook_toolbar (toolbar);
-                plugins.hook_share_menu (toolbar.share_menu);
-                plugins.hook_notebook_bottom (bottombar);
-                plugins.hook_split_view (split_view);
-            };
+            realize.connect (() => {
+                // Plugins hook
+                HookFunc hook_func = () => {
+                    plugins.hook_window (this);
+                    plugins.hook_toolbar (toolbar);
+                    plugins.hook_share_menu (toolbar.share_menu);
+                    plugins.hook_notebook_bottom (bottombar);
+                    plugins.hook_split_view (split_view);
+                };
 
-            plugins.extension_added.connect (() => {
+                plugins.extension_added.connect (() => {
+                    hook_func ();
+                });
+
                 hook_func ();
             });
 
-            hook_func ();
+            // Show/Hide widgets
+            show_all ();
+        }
+
+        private void open_binary (File file) {
+            if (!file.query_exists ()) {
+                return;
+            }
+
+            try {
+                AppInfo.launch_default_for_uri (file.get_uri (), null);
+            } catch (Error e) {
+                critical (e.message);
+            }
         }
 
         public void restore_opened_documents () {
@@ -738,13 +757,31 @@ namespace Scratch {
         }
 
         private void action_open () {
-            // Show a GtkFileChooserDialog
-            var filech = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.OPEN, _("Open some files"), this, true);
-            var response = filech.run ();
-            filech.close (); // Close now so it does not stay open during lengthy or failed loading
+            var all_files_filter = new Gtk.FileFilter ();
+            all_files_filter.set_filter_name (_("All files"));
+            all_files_filter.add_pattern ("*");
+
+            var text_files_filter = new Gtk.FileFilter ();
+            text_files_filter.set_filter_name (_("Text files"));
+            text_files_filter.add_mime_type ("text/*");
+
+            var file_chooser = new Gtk.FileChooserNative (
+                _("Open some files"),
+                this,
+                Gtk.FileChooserAction.OPEN,
+                _("Open"),
+                _("Cancel")
+            );
+            file_chooser.add_filter (text_files_filter);
+            file_chooser.add_filter (all_files_filter);
+            file_chooser.select_multiple = true;
+            file_chooser.set_current_folder_uri (Utils.last_path ?? GLib.Environment.get_home_dir ());
+
+            var response = file_chooser.run ();
+            file_chooser.destroy (); // Close now so it does not stay open during lengthy or failed loading
 
             if (response == Gtk.ResponseType.ACCEPT) {
-                foreach (string uri in filech.get_uris ()) {
+                foreach (string uri in file_chooser.get_uris ()) {
                     // Update last visited path
                     Utils.last_path = Path.get_dirname (uri);
                     // Open the file
@@ -756,10 +793,12 @@ namespace Scratch {
         }
 
         private void action_open_folder () {
-            var chooser = new Gtk.FileChooserDialog (
+            var chooser = new Gtk.FileChooserNative (
                 "Select a folder.", this, Gtk.FileChooserAction.SELECT_FOLDER,
-                _("_Cancel"), Gtk.ResponseType.CANCEL,
-                _("_Open"), Gtk.ResponseType.ACCEPT);
+                _("_Open"),
+                _("_Cancel")
+            );
+
             chooser.select_multiple = true;
 
             if (chooser.run () == Gtk.ResponseType.ACCEPT) {
@@ -769,7 +808,7 @@ namespace Scratch {
                 });
             }
 
-            chooser.close ();
+            chooser.destroy ();
         }
 
         private void action_save () {

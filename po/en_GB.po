@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
-"PO-Revision-Date: 2019-01-09 12:37+0000\n"
-"Last-Translator: Ciarán Ainsworth <ciaranainsworth@outlook.com>\n"
+"POT-Creation-Date: 2019-03-07 11:10-0800\n"
+"PO-Revision-Date: 2019-01-28 08:10+0000\n"
+"Last-Translator: Ciarán Ainsworth <ciaranainsworth@posteo.net>\n"
 "Language-Team: English (United Kingdom) <https://weblate.elementary.io/"
 "projects/code/code/en_GB/>\n"
 "Language: en_GB\n"
@@ -20,46 +20,33 @@ msgstr ""
 "X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
+#: src/Application.vala:133
+#, fuzzy, c-format
+msgid "File \"%s\" Cannot Be Created"
+msgstr "File \"%s\" Cannot Be Read"
+
 #. We list some common errors for quick feedback
-#: src/Application.vala:135
+#: src/Application.vala:137
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Maybe you do not have the necessary permissions."
 
-#: src/Application.vala:137
+#: src/Application.vala:139
 msgid "Maybe the file path provided is not valid."
 msgstr "Maybe the file path provided is not valid."
 
-#: src/Application.vala:139
+#: src/Application.vala:141
 msgid "The location is read-only."
 msgstr "The location is read-only."
 
-#: src/Application.vala:141
+#: src/Application.vala:143
 msgid "The parent directory doesn't exist."
 msgstr "The parent directory doesn't exist."
 
-#: src/Application.vala:148
-#, c-format
-msgid ""
-"File \"%s\" cannot be created.\n"
-"%s"
-msgstr ""
-"File \"%s\" cannot be created.\n"
-"%s"
-
-#: src/Application.vala:158
-#, c-format
-msgid ""
-"File \"%s\" cannot be opened.\n"
-"%s"
-msgstr ""
-"File \"%s\" cannot be opened.\n"
-"%s"
-
-#: src/Application.vala:168
+#: src/Application.vala:164
 msgid "It is a mountable location."
 msgstr "It is a mountable location."
 
-#: src/Application.vala:171
+#: src/Application.vala:167
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -67,27 +54,32 @@ msgstr ""
 "It is a \"special\" file such as a socket,\n"
 "FIFO, block device, or character device."
 
-#: src/Application.vala:174
+#: src/Application.vala:170
 msgid "It is an \"unknown\" file type."
 msgstr "It is an \"unknown\" file type."
 
-#: src/Application.vala:263
+#: src/Application.vala:175
+#, fuzzy, c-format
+msgid "File \"%s\" Cannot Be Opened"
+msgstr "File \"%s\" Cannot Be Read"
+
+#: src/Application.vala:259
 msgid "New Tab"
 msgstr "New Tab"
 
-#: src/Application.vala:264 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:260 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "New Window"
 
-#: src/Application.vala:265
+#: src/Application.vala:261
 msgid "Print version info and exit"
 msgstr "Print version info and exit"
 
-#: src/Application.vala:266
+#: src/Application.vala:262
 msgid "Set of plugins"
 msgstr "Set of plug-ins"
 
-#: src/Application.vala:267
+#: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Current working directory"
 
@@ -107,39 +99,34 @@ msgstr "Hide search bar"
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Zeitgeist Datasource for Scratch"
 
-#. Show a GtkFileChooserDialog
-#: src/MainWindow.vala:742
-msgid "Open some files"
-msgstr "Open some files"
-
-#: src/MainWindow.vala:761
-msgid "_Cancel"
-msgstr "_Cancel"
-
-#: src/MainWindow.vala:762
-msgid "_Open"
-msgstr "_Open"
-
-#: src/Utils.vala:27
+#: src/MainWindow.vala:744 src/Services/Document.vala:503
 msgid "All files"
 msgstr "All files"
 
-#: src/Utils.vala:31
+#: src/MainWindow.vala:748 src/Services/Document.vala:507
 msgid "Text files"
 msgstr "Text files"
 
-#: src/Utils.vala:35 src/Services/Document.vala:409
-msgid "Cancel"
-msgstr "Cancel"
+#: src/MainWindow.vala:752
+msgid "Open some files"
+msgstr "Open some files"
 
-#: src/Utils.vala:44
+#: src/MainWindow.vala:755
 msgid "Open"
 msgstr "Open"
 
-#: src/Utils.vala:46 src/Services/Document.vala:410
-#: src/Services/Document.vala:729
-msgid "Save"
-msgstr "Save"
+#: src/MainWindow.vala:756 src/Services/Document.vala:402
+#: src/Services/Document.vala:515
+msgid "Cancel"
+msgstr "Cancel"
+
+#: src/MainWindow.vala:781
+msgid "_Open"
+msgstr "_Open"
+
+#: src/MainWindow.vala:782
+msgid "_Cancel"
+msgstr "_Cancel"
 
 #: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:160
 msgid "Preferences"
@@ -290,6 +277,10 @@ msgstr "new file %d"
 msgid "Close Folder"
 msgstr "Close Folder"
 
+#: src/FolderManager/ProjectFolderItem.vala:269
+msgid "Change Branch"
+msgstr "Change Branch"
+
 #: src/Services/Document.vala:267
 #, c-format
 msgid "%s Is Not a Text File"
@@ -316,40 +307,46 @@ msgstr "Please wait while Code is loading the file."
 msgid "Cancel Loading"
 msgstr "Cancel Loading"
 
-#: src/Services/Document.vala:400
-#, c-format
-msgid "Save changes to document %s before closing?"
+#: src/Services/Document.vala:392
+#, fuzzy, c-format
+msgid "Save changes to \"%s\" before closing?"
 msgstr "Save changes to document %s before closing?"
 
-#: src/Services/Document.vala:403
-msgid ""
-"If you don't save, changes from the last 4 seconds will be permanently lost."
+#: src/Services/Document.vala:393
+#, fuzzy
+msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "If you don't save, changes from the last 4 seconds will be permanently lost."
 
-#: src/Services/Document.vala:405
-msgid "Close without saving"
+#: src/Services/Document.vala:399
+#, fuzzy
+msgid "Close Without Saving"
 msgstr "Close without saving"
 
-#: src/Services/Document.vala:510
+#: src/Services/Document.vala:403 src/Services/Document.vala:514
+#: src/Services/Document.vala:738
+msgid "Save"
+msgstr "Save"
+
+#: src/Services/Document.vala:511
 msgid "Save File"
 msgstr "Save File"
 
-#: src/Services/Document.vala:584
+#: src/Services/Document.vala:593
 msgid "New Document"
 msgstr "New Document"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:707
+#: src/Services/Document.vala:716
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "File \"%s\" Cannot Be Read"
 
-#: src/Services/Document.vala:708
+#: src/Services/Document.vala:717
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "It may be corrupt or you don't have permission to read it."
 
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:729
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -358,17 +355,17 @@ msgstr ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 
-#: src/Services/Document.vala:722
+#: src/Services/Document.vala:731
 msgid "Save As…"
 msgstr "Save As…"
 
-#: src/Services/Document.vala:727
+#: src/Services/Document.vala:736
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "File \"%s\" was deleted. Do you want to save it anyway?"
 
 #. If the file can't be written
-#: src/Services/Document.vala:742
+#: src/Services/Document.vala:751
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -377,11 +374,11 @@ msgstr ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:753
 msgid "Save changes elsewhere"
 msgstr "Save changes elsewhere"
 
-#: src/Services/Document.vala:777
+#: src/Services/Document.vala:786
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -390,11 +387,11 @@ msgstr ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 
-#: src/Services/Document.vala:778
+#: src/Services/Document.vala:787
 msgid "Load"
 msgstr "Load"
 
-#: src/Services/Document.vala:781
+#: src/Services/Document.vala:790
 msgid "Continue"
 msgstr "Continue"
 
@@ -402,10 +399,10 @@ msgstr "Continue"
 msgid "Templates"
 msgstr "Templates"
 
-#: src/Widgets/DocumentView.vala:132
+#: src/Widgets/DocumentView.vala:133
 #, c-format
-msgid "Text file from %s"
-msgstr "Text file from %s"
+msgid "Text file from %s:%d"
+msgstr "Text file from %s:%d"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
@@ -674,10 +671,13 @@ msgstr "Show Preview"
 msgid "Hide Preview"
 msgstr "Hide Preview"
 
+#: plugins/spell/spell.vala:76
+msgid "No Suitable Dictionaries Were Found"
+msgstr ""
+
 #: plugins/spell/spell.vala:77
-msgid ""
-"No suitable dictionaries were found.\n"
-"Please install at least one [aspell] dictionary"
+#, fuzzy
+msgid "Please install at least one [aspell] dictionary."
 msgstr ""
 "No suitable dictionaries were found.\n"
 "Please install at least one [aspell] dictionary"
@@ -691,6 +691,20 @@ msgstr "%s - Word Completion"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "Could not load icon theme: %s\n"
+
+#~ msgid ""
+#~ "File \"%s\" cannot be created.\n"
+#~ "%s"
+#~ msgstr ""
+#~ "File \"%s\" cannot be created.\n"
+#~ "%s"
+
+#~ msgid ""
+#~ "File \"%s\" cannot be opened.\n"
+#~ "%s"
+#~ msgstr ""
+#~ "File \"%s\" cannot be opened.\n"
+#~ "%s"
 
 #~ msgid "Edit text files"
 #~ msgstr "Edit text files"
@@ -751,9 +765,6 @@ msgstr "Could not load icon theme: %s\n"
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "New file from Clipboard"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "Change Scratch settings"
 
 #~ msgid "Next Tab"
 #~ msgstr "Next Tab"

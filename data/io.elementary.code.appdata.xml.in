@@ -46,6 +46,16 @@
     </ul>
   </description>
   <releases>
+    <release version="3.1.0" date="2018-03-06">
+      <description>
+        <ul>Fix New Window desktop action behavior</ul>
+        <ul>Properly synchronize Ctrl+N key presses with number of new documents spawned</ul>
+        <ul>Build system fix for editorconfig dependency</ul>
+        <ul>Add Change Branch context menu item</ul>
+        <ul>Avoid possible startup crash related to how plugins load</ul>
+        <ul>Updated translations</ul>
+      </description>
+    </release>
     <release version="3.0.2" date="2018-01-03">
       <description>
         <ul>Smarter file saving behavior</ul>

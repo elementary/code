@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"POT-Creation-Date: 2019-03-07 11:10-0800\n"
 "PO-Revision-Date: 2016-01-22 12:51+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Nepali <ne@li.org>\n"
@@ -18,68 +18,64 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 "X-Generator: Launchpad (build 18366)\n"
 
+#: src/Application.vala:133
+#, c-format
+msgid "File \"%s\" Cannot Be Created"
+msgstr ""
+
 #. We list some common errors for quick feedback
-#: src/Application.vala:135
+#: src/Application.vala:137
 msgid "Maybe you do not have the necessary permissions."
 msgstr ""
 
-#: src/Application.vala:137
+#: src/Application.vala:139
 msgid "Maybe the file path provided is not valid."
 msgstr ""
 
-#: src/Application.vala:139
+#: src/Application.vala:141
 msgid "The location is read-only."
 msgstr ""
 
-#: src/Application.vala:141
+#: src/Application.vala:143
 msgid "The parent directory doesn't exist."
 msgstr ""
 
-#: src/Application.vala:148
-#, c-format
-msgid ""
-"File \"%s\" cannot be created.\n"
-"%s"
-msgstr ""
-
-#: src/Application.vala:158
-#, c-format
-msgid ""
-"File \"%s\" cannot be opened.\n"
-"%s"
-msgstr ""
-
-#: src/Application.vala:168
+#: src/Application.vala:164
 msgid "It is a mountable location."
 msgstr ""
 
-#: src/Application.vala:171
+#: src/Application.vala:167
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
 msgstr ""
 
-#: src/Application.vala:174
+#: src/Application.vala:170
 msgid "It is an \"unknown\" file type."
 msgstr ""
 
-#: src/Application.vala:263
+#: src/Application.vala:175
+#, c-format
+msgid "File \"%s\" Cannot Be Opened"
+msgstr ""
+
+#: src/Application.vala:259
 msgid "New Tab"
 msgstr "नयाँ ट्याब"
 
-#: src/Application.vala:264 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:260 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "नयाँ सञ्झ्याल"
 
-#: src/Application.vala:265
+#: src/Application.vala:261
 msgid "Print version info and exit"
 msgstr ""
 
-#: src/Application.vala:266
+#: src/Application.vala:262
 msgid "Set of plugins"
 msgstr "प्लग्ईनका दल"
 
-#: src/Application.vala:267
+#: src/Application.vala:263
 msgid "Current working directory"
 msgstr ""
 
@@ -99,39 +95,34 @@ msgstr "खोज पट्टी लुकाउनुहोस"
 msgid "Zeitgeist Datasource for Scratch"
 msgstr ""
 
-#. Show a GtkFileChooserDialog
-#: src/MainWindow.vala:742
-msgid "Open some files"
-msgstr ""
-
-#: src/MainWindow.vala:761
-msgid "_Cancel"
-msgstr ""
-
-#: src/MainWindow.vala:762
-msgid "_Open"
-msgstr ""
-
-#: src/Utils.vala:27
+#: src/MainWindow.vala:744 src/Services/Document.vala:503
 msgid "All files"
 msgstr "सबै फाईलरहरु"
 
-#: src/Utils.vala:31
+#: src/MainWindow.vala:748 src/Services/Document.vala:507
 msgid "Text files"
 msgstr "पाठ फाइलहरू"
 
-#: src/Utils.vala:35 src/Services/Document.vala:409
-msgid "Cancel"
-msgstr "रद्द गर्नुहोस्"
+#: src/MainWindow.vala:752
+msgid "Open some files"
+msgstr ""
 
-#: src/Utils.vala:44
+#: src/MainWindow.vala:755
 msgid "Open"
 msgstr "खोल्नुहोस्"
 
-#: src/Utils.vala:46 src/Services/Document.vala:410
-#: src/Services/Document.vala:729
-msgid "Save"
-msgstr "बचत गर्नुहोस्"
+#: src/MainWindow.vala:756 src/Services/Document.vala:402
+#: src/Services/Document.vala:515
+msgid "Cancel"
+msgstr "रद्द गर्नुहोस्"
+
+#: src/MainWindow.vala:781
+msgid "_Open"
+msgstr ""
+
+#: src/MainWindow.vala:782
+msgid "_Cancel"
+msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:160
 msgid "Preferences"
@@ -286,6 +277,11 @@ msgstr "नयाँ कागजात"
 msgid "Close Folder"
 msgstr ""
 
+#: src/FolderManager/ProjectFolderItem.vala:269
+#, fuzzy
+msgid "Change Branch"
+msgstr "स्क्र्याचको प्राथमिकताहरू बदल्नुहोस्"
+
 #: src/Services/Document.vala:267
 #, c-format
 msgid "%s Is Not a Text File"
@@ -313,78 +309,84 @@ msgstr ""
 msgid "Cancel Loading"
 msgstr "रद्द गर्नुहोस्"
 
-#: src/Services/Document.vala:400
-#, c-format
-msgid "Save changes to document %s before closing?"
-msgstr ""
+#: src/Services/Document.vala:392
+#, fuzzy, c-format
+msgid "Save changes to \"%s\" before closing?"
+msgstr "बन्द गर्नु अगाडी परिवर्तन गरिएका सामाग्रीलाई बचत गर्न चाहनुहुन्छ?"
 
-#: src/Services/Document.vala:403
-msgid ""
-"If you don't save, changes from the last 4 seconds will be permanently lost."
+#: src/Services/Document.vala:393
+#, fuzzy
+msgid "If you don't save, changes will be permanently lost."
 msgstr "यदि बचत नगर्नुभएको खण्डमा पछिल्लो ४ सेकोण्डको परिवर्तन सधैंकालागी हराउने छ।"
 
-#: src/Services/Document.vala:405
-msgid "Close without saving"
+#: src/Services/Document.vala:399
+#, fuzzy
+msgid "Close Without Saving"
 msgstr "बचत नगरी बन्द गर्नुहोस्"
 
-#: src/Services/Document.vala:510
+#: src/Services/Document.vala:403 src/Services/Document.vala:514
+#: src/Services/Document.vala:738
+msgid "Save"
+msgstr "बचत गर्नुहोस्"
+
+#: src/Services/Document.vala:511
 msgid "Save File"
 msgstr ""
 
-#: src/Services/Document.vala:584
+#: src/Services/Document.vala:593
 msgid "New Document"
 msgstr "नयाँ कागजात"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:707
+#: src/Services/Document.vala:716
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 
-#: src/Services/Document.vala:708
+#: src/Services/Document.vala:717
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:729
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:722
+#: src/Services/Document.vala:731
 msgid "Save As…"
 msgstr ""
 
-#: src/Services/Document.vala:727
+#: src/Services/Document.vala:736
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr ""
 
 #. If the file can't be written
-#: src/Services/Document.vala:742
+#: src/Services/Document.vala:751
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:753
 msgid "Save changes elsewhere"
 msgstr ""
 
-#: src/Services/Document.vala:777
+#: src/Services/Document.vala:786
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
 
-#: src/Services/Document.vala:778
+#: src/Services/Document.vala:787
 msgid "Load"
 msgstr ""
 
-#: src/Services/Document.vala:781
+#: src/Services/Document.vala:790
 msgid "Continue"
 msgstr ""
 
@@ -392,9 +394,9 @@ msgstr ""
 msgid "Templates"
 msgstr "टेम्प्लेटहरू"
 
-#: src/Widgets/DocumentView.vala:132
+#: src/Widgets/DocumentView.vala:133
 #, fuzzy, c-format
-msgid "Text file from %s"
+msgid "Text file from %s:%d"
 msgstr "पाठ फाइलहरू"
 
 #: src/Widgets/FormatBar.vala:67
@@ -672,10 +674,12 @@ msgstr ""
 msgid "Hide Preview"
 msgstr ""
 
+#: plugins/spell/spell.vala:76
+msgid "No Suitable Dictionaries Were Found"
+msgstr ""
+
 #: plugins/spell/spell.vala:77
-msgid ""
-"No suitable dictionaries were found.\n"
-"Please install at least one [aspell] dictionary"
+msgid "Please install at least one [aspell] dictionary."
 msgstr ""
 
 #: plugins/word-completion/plugin.vala:174
@@ -720,9 +724,6 @@ msgstr ""
 
 #~ msgid "Duplicate selected strings"
 #~ msgstr "चयन गरिएका सब्दहरुको प्रतिलिपी बनाउनुहोस्"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "स्क्र्याचको प्राथमिकताहरू बदल्नुहोस्"
 
 #~ msgid "Fullscreen"
 #~ msgstr "पूरापर्दा"
@@ -817,9 +818,6 @@ msgstr ""
 
 #~ msgid "Show margin on right:"
 #~ msgstr "दाँयातिर किनारा देखाउनुहोस्"
-
-#~ msgid "Save unsaved changes to file before closing?"
-#~ msgstr "बन्द गर्नु अगाडी परिवर्तन गरिएका सामाग्रीलाई बचत गर्न चाहनुहुन्छ?"
 
 #~ msgid "Select font:"
 #~ msgstr "अक्षर चयन गर्नुहोस्"
