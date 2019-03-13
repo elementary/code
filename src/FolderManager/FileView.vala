@@ -74,6 +74,41 @@ namespace Scratch.FolderManager {
             write_settings ();
         }
 
+        public void close_active_folder () {
+            ProjectFolderItem project_root;
+
+            if (selected is FileItem) {
+                project_root = (selected.parent as FolderItem).get_root_folder ();
+            } else {
+                project_root = (selected as FolderItem).get_root_folder ();
+            }
+
+            project_root.closed();
+        }
+
+        public void collapse_all () {
+            foreach (var child in root.children) {
+                (child as ProjectFolderItem).collapse_all ();
+            }
+        }
+
+        public void order_folders () {
+            var list = new Gee.ArrayList<ProjectFolderItem> ();
+
+            foreach (var child in root.children) {
+                root.remove (child as ProjectFolderItem);
+                list.add (child as ProjectFolderItem);
+            }
+
+            list.sort ( (a, b) => {
+                return a.name.down () > b.name.down () ? 0 : -1;
+            });
+
+            foreach (var item in list) {
+                root.add (item);
+            }
+        }
+
         public void select_path (string path) {
             selected = find_path (root, path);
         }
