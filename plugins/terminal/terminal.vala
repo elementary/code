@@ -215,10 +215,9 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         });
 
         try {
-            string last_opened_path =
-                settings.last_opened_path == ""
-                ? GLib.Environment.get_current_dir ()
-                : settings.last_opened_path;
+            string last_opened_path = settings.last_opened_path;
+            if (last_opened_path == "")
+                last_opened_path = GLib.Environment.get_current_dir ();
             terminal.spawn_sync (Vte.PtyFlags.DEFAULT, last_opened_path, { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, out child_pid);
         } catch (GLib.Error e) {
             warning (e.message);
