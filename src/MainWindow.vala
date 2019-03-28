@@ -63,7 +63,6 @@ namespace Scratch {
         public const string ACTION_FIND_PREVIOUS = "action_find_previous";
         public const string ACTION_OPEN = "action_open";
         public const string ACTION_OPEN_FOLDER = "action_open_folder";
-        public const string ACTION_CLOSE_ACTIVE_FOLDER = "action_close_active_folder";
         public const string ACTION_COLLAPSE_ALL_FOLDERS = "action_collapse_all_folders";
         public const string ACTION_ORDER_FOLDERS = "action_order_folders";
         public const string ACTION_GO_TO = "action_go_to";
@@ -100,7 +99,6 @@ namespace Scratch {
             { ACTION_FIND_PREVIOUS, action_find_previous },
             { ACTION_OPEN, action_open },
             { ACTION_OPEN_FOLDER, action_open_folder },
-            { ACTION_CLOSE_ACTIVE_FOLDER, action_close_active_folder },
             { ACTION_COLLAPSE_ALL_FOLDERS, action_collapse_all_folders },
             { ACTION_ORDER_FOLDERS, action_order_folders },
             { ACTION_PREFERENCES, action_preferences },
@@ -302,17 +300,12 @@ namespace Scratch {
 
                 // Set actions sensitive property
                 Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (doc.file != null);
-                Utils.action_from_group (ACTION_CLOSE_ACTIVE_FOLDER, actions).set_enabled (folder_manager_view.selected != null);
                 doc.check_undoable_actions ();
             });
 
             project_pane = new Code.Pane ();
 
             folder_manager_view = new FolderManager.FileView ();
-
-            folder_manager_view.item_selected.connect (() => {
-                Utils.action_from_group (ACTION_CLOSE_ACTIVE_FOLDER, actions).set_enabled (folder_manager_view.selected != null);
-            });
 
             folder_manager_view.select.connect ((a) => {
                 var file = new Scratch.FolderManager.File (a);
@@ -323,8 +316,6 @@ namespace Scratch {
                 } else {
                     open_binary (file.file);
                 }
-
-                Utils.action_from_group (ACTION_CLOSE_ACTIVE_FOLDER, actions).set_enabled (folder_manager_view.selected != null);
             });
 
             folder_manager_view.root.child_added.connect (() => {
@@ -332,16 +323,12 @@ namespace Scratch {
                     project_pane.add_tab (folder_manager_view);
                     folder_manager_view.show_all ();
                 }
-
-                Utils.action_from_group (ACTION_CLOSE_ACTIVE_FOLDER, actions).set_enabled (folder_manager_view.selected != null);
             });
 
             folder_manager_view.root.child_removed.connect (() => {
                 if (folder_manager_view.get_n_visible_children (folder_manager_view.root) == 1) {
                     folder_manager_view.parent.remove (folder_manager_view);
                 }
-                
-                Utils.action_from_group (ACTION_CLOSE_ACTIVE_FOLDER, actions).set_enabled (folder_manager_view.selected != null);
             });
 
             folder_manager_view.restore_saved_state ();
@@ -826,10 +813,6 @@ namespace Scratch {
             }
 
             chooser.destroy ();
-        }
-
-        private void action_close_active_folder () {
-            folder_manager_view.close_active_folder ();
         }
 
         private void action_collapse_all_folders () {

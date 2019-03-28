@@ -296,7 +296,7 @@ namespace Scratch.FolderManager {
             }
         }
 
-        public ProjectFolderItem? get_root_folder (Granite.Widgets.SourceList.ExpandableItem? start = null) {
+        private ProjectFolderItem? get_root_folder (Granite.Widgets.SourceList.ExpandableItem? start = null) {
             if (start == null) {
                 start = this;
             }

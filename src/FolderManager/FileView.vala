@@ -74,18 +74,6 @@ namespace Scratch.FolderManager {
             write_settings ();
         }
 
-        public void close_active_folder () {
-            ProjectFolderItem project_root;
-
-            if (selected is FileItem) {
-                project_root = (selected.parent as FolderItem).get_root_folder ();
-            } else {
-                project_root = (selected as FolderItem).get_root_folder ();
-            }
-
-            project_root.closed();
-        }
-
         public void collapse_all () {
             foreach (var child in root.children) {
                 (child as ProjectFolderItem).collapse_all ();

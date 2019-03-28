@@ -43,10 +43,6 @@ public class Code.Pane : Gtk.Grid {
         add_folder_button.action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_FOLDER;
         add_folder_button.tooltip_text = _("Add Project Folder…");
 
-        var remove_folder_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("folder-move-symbolic", Gtk.IconSize.BUTTON), null);
-        remove_folder_button.action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_CLOSE_ACTIVE_FOLDER;
-        remove_folder_button.tooltip_text = _("Remove Project Folder");
-
         var project_more_button = new Gtk.MenuToolButton (null, null);
         project_more_button.tooltip_text = _("More…");
         
@@ -68,7 +64,6 @@ public class Code.Pane : Gtk.Grid {
         separator_tool_item.draw = false;
 
         toolbar.add (add_folder_button);
-        toolbar.add (remove_folder_button);
         toolbar.add (separator_tool_item);
         toolbar.add (project_more_button);
 
