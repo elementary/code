@@ -49,7 +49,7 @@ public class Code.Pane : Gtk.Grid {
         var collapse_all_menu_item = new Gtk.MenuItem.with_label (_("Collapse All"));
         collapse_all_menu_item.action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_COLLAPSE_ALL_FOLDERS;
 
-        var order_projects_menu_item = new Gtk.MenuItem.with_label (_("Alphabetize Project Folders"));
+        var order_projects_menu_item = new Gtk.MenuItem.with_label (_("Alphabetize"));
         order_projects_menu_item.action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_ORDER_FOLDERS;
 
         var project_menu = new Gtk.Menu ();
