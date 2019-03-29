@@ -54,7 +54,6 @@ public class Code.Pane : Gtk.Grid {
 
         var project_menu = new Gtk.Menu ();
         project_menu.append (collapse_all_menu_item);
-        project_menu.append (new Gtk.SeparatorMenuItem ());
         project_menu.append (order_projects_menu_item);
         project_menu.show_all ();
         project_more_button.set_menu (project_menu);
