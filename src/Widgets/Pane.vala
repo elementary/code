@@ -44,7 +44,7 @@ public class Code.Pane : Gtk.Grid {
         add_folder_button.tooltip_text = _("Add Project Folder…");
 
         var project_more_button = new Gtk.MenuToolButton (null, null);
-        project_more_button.tooltip_text = _("More…");
+        project_more_button.tooltip_text = _("Manage project folders…");
         
         var collapse_all_menu_item = new Gtk.MenuItem.with_label (_("Collapse All"));
         collapse_all_menu_item.action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_COLLAPSE_ALL_FOLDERS;
