@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-27 13:35-0800\n"
-"PO-Revision-Date: 2018-10-28 00:05+0000\n"
+"PO-Revision-Date: 2019-04-12 09:53+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
-"Language-Team: Hindi <https://weblate.elementary.io/projects/code/code/hi/>\n"
+"Language-Team: Hindi <https://l10n.elementary.io/projects/code/code/hi/>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.5.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #. We list some common errors for quick feedback
@@ -195,7 +195,7 @@ msgstr "सामान कोष्ठकों को हाईलाइट �
 
 #: src/Dialogs/PreferencesDialog.vala:110
 msgid "Line wrap:"
-msgstr ""
+msgstr "लाइन रैप:"
 
 #: src/Dialogs/PreferencesDialog.vala:113
 msgid "Draw Spaces:"
@@ -286,9 +286,8 @@ msgid "new file %d"
 msgstr "नई फ़ाइल %d"
 
 #: src/FolderManager/ProjectFolderItem.vala:127
-#, fuzzy
 msgid "Change Branch"
-msgstr "स्क्रेच अनुकूलित करें"
+msgstr "शाखा बदलें"
 
 #: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
@@ -317,7 +316,6 @@ msgid "Please wait while Code is loading the file."
 msgstr "कृपया प्रतीक्षा करें जब तक कि कोड फ़ाइल लोड नहीं करता।"
 
 #: src/Services/Document.vala:294
-#, fuzzy
 msgid "Cancel Loading"
 msgstr "लोड रद्द करें"
 
@@ -351,7 +349,6 @@ msgid "File \"%s\" Cannot Be Read"
 msgstr "\"%s\" फ़ाइल पढ़ा नहीं जा सकता"
 
 #: src/Services/Document.vala:708
-#, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "शायद यह ख़राब है अथवाआपके पास इसे पढ़ने के लिए आवश्यक अनुमति नहीं है।"
 
@@ -373,13 +370,13 @@ msgstr "फ़ाइल \"%s\" हटा दी गई थी।आप फिर
 
 #. If the file can't be written
 #: src/Services/Document.vala:742
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
-"आप फाइल \"%s \" में किए बदलाव सुरक्षित नहीं कर सकते । क्या आप फाइल में किए गए बदलाव "
-"को अन्य स्थान पर सुरक्षित करना चाहते है ?"
+"आप फाइल \"%s \" में किए बदलाव सुरक्षित नहीं कर सकते । क्या आप फाइल में किए "
+"गए बदलाव को अन्य स्थान पर सुरक्षित करना चाहते है ?"
 
 #: src/Services/Document.vala:744
 msgid "Save changes elsewhere"
@@ -407,9 +404,9 @@ msgid "Templates"
 msgstr "नमूने"
 
 #: src/Widgets/DocumentView.vala:133
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s:%d"
-msgstr "टेक्स्ट फाइलें %s"
+msgstr "टेक्स्ट फाइलें %s से : %d तक"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
@@ -432,14 +429,14 @@ msgstr "सादा पाठ"
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] "%d स्पेस"
-msgstr[1] "%d स्पेस"
+msgstr[1] "%d  स्पेस"
 
 #: src/Widgets/FormatBar.vala:207
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "%d टैब"
-msgstr[1] "%d टैब"
+msgstr[1] "%d  टैब"
 
 #: src/Widgets/FormatBar.vala:223
 msgid "Go To Line:"
