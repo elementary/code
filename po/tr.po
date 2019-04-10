@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-27 13:35-0800\n"
-"PO-Revision-Date: 2019-04-05 20:03+0000\n"
+"PO-Revision-Date: 2019-04-12 09:53+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/code/tr/>\n"
 "Language: tr\n"
@@ -30,11 +30,11 @@ msgstr "Belki belirtilen dosya yolu doğru olmayabilir."
 
 #: src/Application.vala:139
 msgid "The location is read-only."
-msgstr "Konum yalnızca okumaya açık."
+msgstr "Konum salt okunur."
 
 #: src/Application.vala:141
 msgid "The parent directory doesn't exist."
-msgstr "Ana dizin mevcut değil."
+msgstr "Üst dizin mevcut değil."
 
 #: src/Application.vala:148
 #, c-format
@@ -88,7 +88,7 @@ msgstr "Eklenti kümesi"
 
 #: src/Application.vala:267
 msgid "Current working directory"
-msgstr "şu andaki çalışma dizini"
+msgstr "Geçerli çalışma dizini"
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -195,11 +195,11 @@ msgstr "Eşleşen parantezleri vurgula:"
 
 #: src/Dialogs/PreferencesDialog.vala:110
 msgid "Line wrap:"
-msgstr "Satırları Kaydır:"
+msgstr "Satırları kaydır:"
 
 #: src/Dialogs/PreferencesDialog.vala:113
 msgid "Draw Spaces:"
-msgstr "Çizim Alanları:"
+msgstr "Boşlukları Göster:"
 
 #: src/Dialogs/PreferencesDialog.vala:115
 #: plugins/pastebin/pastebin_dialog.vala:460
@@ -249,7 +249,7 @@ msgstr "Yeniden adlandır"
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
 #: src/FolderManager/ProjectFolderItem.vala:137
 msgid "Move to Trash"
-msgstr "Çöpe taşı"
+msgstr "Çöpe Taşı"
 
 #: src/FolderManager/FileView.vala:39
 msgid "Folders"
@@ -371,7 +371,7 @@ msgstr "Farklı Kaydet…"
 #: src/Services/Document.vala:727
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "\"%s\"  dosyası silindi. Yine de kaydetmek istiyor musunuz?"
+msgstr "\"%s\" dosyası silindi. Yine de kaydetmek istiyor musunuz?"
 
 #. If the file can't be written
 #: src/Services/Document.vala:742
@@ -469,7 +469,7 @@ msgstr "Bu dosyayı farklı bir adla kaydet"
 
 #: src/Widgets/HeaderBar.vala:72
 msgid "Restore this file"
-msgstr "Dosyayı kurtar"
+msgstr "Bu dosyayı geri yükle"
 
 #: src/Widgets/HeaderBar.vala:87
 msgid "Share"
@@ -501,7 +501,7 @@ msgstr "Solarized Dark"
 
 #: src/Widgets/HeaderBar.vala:148
 msgid "Toggle Sidebar"
-msgstr "Kenar çubuğunu Aç/Kapat"
+msgstr "Kenar Çubuğunu Aç/Kapat"
 
 #: src/Widgets/HeaderBar.vala:152
 msgid "Add New View"
@@ -545,7 +545,7 @@ msgstr "Tümünü değiştir"
 
 #: src/Widgets/SourceView.vala:362
 msgid "Sort Selected Lines"
-msgstr "Seçilen satırları sınıflandırın"
+msgstr "Seçili Satırları Sırala"
 
 #: src/Widgets/SourceView.vala:369
 msgid "Toggle Comment"
@@ -569,7 +569,7 @@ msgstr "Yeni bir boş dosya oluştur."
 
 #: src/Widgets/WelcomeView.vala:33
 msgid "Open File"
-msgstr "Dosya aç"
+msgstr "Dosya Aç"
 
 #: src/Widgets/WelcomeView.vala:33
 msgid "Open a saved file."
@@ -577,7 +577,7 @@ msgstr "Kaydedilmiş bir dosyayı aç."
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Open Folder"
-msgstr "Klasör aç"
+msgstr "Klasör Aç"
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Add a project folder to the sidebar."
@@ -585,7 +585,7 @@ msgstr "Kenar çubuğuna bir proje klasörü ekle."
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via Pastebin"
-msgstr "PasteBin aracılığıyla paylaş"
+msgstr "Pastebin aracılığıyla paylaş"
 
 #: plugins/pastebin/pastebin_dialog.vala:256
 msgid "Name:"
