@@ -157,6 +157,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_ZOOM_DEFAULT, "<Control>0");
             action_accelerators.set (ACTION_ZOOM_DEFAULT, "<Control>KP_0");
             action_accelerators.set (ACTION_ZOOM_IN, "<Control>plus");
+            action_accelerators.set (ACTION_ZOOM_IN, "<Control>equal");
             action_accelerators.set (ACTION_ZOOM_IN, "<Control>KP_Add");
             action_accelerators.set (ACTION_ZOOM_OUT, "<Control>minus");
             action_accelerators.set (ACTION_ZOOM_OUT, "<Control>KP_Subtract");
