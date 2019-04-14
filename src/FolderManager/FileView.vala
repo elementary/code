@@ -120,6 +120,16 @@ namespace Scratch.FolderManager {
                 root.remove (folder_root);
                 write_settings ();
             });
+
+            folder_root.close_all_except.connect (() => {
+                foreach (var child in root.children) {
+                    if (child != folder_root) {
+                        root.remove (child);
+                    }
+                }
+
+                write_settings ();
+            });
         }
 
         private bool is_open (File folder) {

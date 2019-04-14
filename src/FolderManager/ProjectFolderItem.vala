@@ -23,6 +23,7 @@ namespace Scratch.FolderManager {
         private const uint GIT_UPDATE_RATE_LIMIT = 300;
 
         public signal void closed ();
+        public signal void close_all_except ();
 
         // Static source IDs for each instance of a top level folder, ensures we don't check for git updates too much
         private static Gee.HashMap<string, uint> git_update_timer_ids;
@@ -78,6 +79,9 @@ namespace Scratch.FolderManager {
             var close_item = new Gtk.MenuItem.with_label (_("Close Folder"));
             close_item.activate.connect (() => { closed (); });
 
+            var close_all_except_item = new Gtk.MenuItem.with_label (_("Close All Folders Except This"));
+            close_all_except_item.activate.connect (() => { close_all_except (); });
+
             var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
             delete_item.activate.connect (() => {
                 closed ();
@@ -86,6 +90,7 @@ namespace Scratch.FolderManager {
 
             var menu = new Gtk.Menu ();
             menu.append (close_item);
+            menu.append (close_all_except_item);
             menu.append (create_submenu_for_new ());
             menu.append (delete_item);
 
