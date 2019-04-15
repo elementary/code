@@ -157,6 +157,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_ZOOM_DEFAULT, "<Control>0");
             action_accelerators.set (ACTION_ZOOM_DEFAULT, "<Control>KP_0");
             action_accelerators.set (ACTION_ZOOM_IN, "<Control>plus");
+            action_accelerators.set (ACTION_ZOOM_IN, "<Control>equal");
             action_accelerators.set (ACTION_ZOOM_IN, "<Control>KP_Add");
             action_accelerators.set (ACTION_ZOOM_OUT, "<Control>minus");
             action_accelerators.set (ACTION_ZOOM_OUT, "<Control>KP_Subtract");
@@ -194,7 +195,10 @@ namespace Scratch {
             });
 
             foreach (var action in action_accelerators.get_keys ()) {
-                app.set_accels_for_action (ACTION_PREFIX + action, action_accelerators[action].to_array ());
+                var accels_array = action_accelerators[action].to_array ();
+                accels_array += null;
+
+                app.set_accels_for_action (ACTION_PREFIX + action, accels_array);
             }
 
             set_size_request (450, 400);
