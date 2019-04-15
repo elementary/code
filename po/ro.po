@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-27 13:35-0800\n"
+"POT-Creation-Date: 2019-03-07 11:10-0800\n"
 "PO-Revision-Date: 2016-12-13 07:30+0000\n"
 "Last-Translator: Remus <remuszvids@gmail.com>\n"
 "Language-Team: Romanian <ro@li.org>\n"
@@ -18,46 +18,35 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 "X-Generator: Launchpad (build 18366)\n"
 
-#. We list some common errors for quick feedback
-#: src/Application.vala:135
-msgid "Maybe you do not have the necessary permissions."
-msgstr "Posibil să nu ai drepturile necesare."
-
-#: src/Application.vala:137
-msgid "Maybe the file path provided is not valid."
-msgstr "Posibil calea fişierului sa nu fie validă."
-
-#: src/Application.vala:139
-msgid "The location is read-only."
-msgstr "Locaţia nu se poate scrie."
-
-#: src/Application.vala:141
-msgid "The parent directory doesn't exist."
-msgstr "Directorul părinte nu există."
-
-#: src/Application.vala:148
-#, c-format
-msgid ""
-"File \"%s\" cannot be created.\n"
-"%s"
+#: src/Application.vala:133
+#, fuzzy, c-format
+msgid "File \"%s\" Cannot Be Created"
 msgstr ""
 "Fişierul \"%s\" nu poate fi creat.\n"
 "%s"
 
-#: src/Application.vala:158
-#, c-format
-msgid ""
-"File \"%s\" cannot be opened.\n"
-"%s"
-msgstr ""
-"Fişierul \"%s\" nu poate fi deschis.\n"
-"%s"
+#. We list some common errors for quick feedback
+#: src/Application.vala:137
+msgid "Maybe you do not have the necessary permissions."
+msgstr "Posibil să nu ai drepturile necesare."
 
-#: src/Application.vala:168
+#: src/Application.vala:139
+msgid "Maybe the file path provided is not valid."
+msgstr "Posibil calea fişierului sa nu fie validă."
+
+#: src/Application.vala:141
+msgid "The location is read-only."
+msgstr "Locaţia nu se poate scrie."
+
+#: src/Application.vala:143
+msgid "The parent directory doesn't exist."
+msgstr "Directorul părinte nu există."
+
+#: src/Application.vala:164
 msgid "It is a mountable location."
 msgstr "Este o locaţie montabilă."
 
-#: src/Application.vala:171
+#: src/Application.vala:167
 #, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
@@ -66,27 +55,34 @@ msgstr ""
 "Este un fişier \"special\"\n"
 " fifo, dispozitiv blocat, dispozitiv caracter."
 
-#: src/Application.vala:174
+#: src/Application.vala:170
 msgid "It is an \"unknown\" file type."
 msgstr "Este un fişier de tip necunoscut."
 
-#: src/Application.vala:263
+#: src/Application.vala:175
+#, fuzzy, c-format
+msgid "File \"%s\" Cannot Be Opened"
+msgstr ""
+"Fişierul \"%s\" nu poate fi creat.\n"
+"%s"
+
+#: src/Application.vala:259
 msgid "New Tab"
 msgstr "Filă nouă"
 
-#: src/Application.vala:264 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:260 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Fereastră nouă"
 
-#: src/Application.vala:265
+#: src/Application.vala:261
 msgid "Print version info and exit"
 msgstr "Arată informații despre versiune și închide"
 
-#: src/Application.vala:266
+#: src/Application.vala:262
 msgid "Set of plugins"
 msgstr "Set de module"
 
-#: src/Application.vala:267
+#: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Dosarul de lucru curent"
 
@@ -106,39 +102,34 @@ msgstr "Ascunde bara de căutare"
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Sursă de date Zeitgeist pentru Scratch"
 
-#. Show a GtkFileChooserDialog
-#: src/MainWindow.vala:742
-msgid "Open some files"
-msgstr "Deschide niște fișiere"
-
-#: src/MainWindow.vala:761
-msgid "_Cancel"
-msgstr "_Anulează"
-
-#: src/MainWindow.vala:762
-msgid "_Open"
-msgstr "_Deschide"
-
-#: src/Utils.vala:27
+#: src/MainWindow.vala:744 src/Services/Document.vala:503
 msgid "All files"
 msgstr "Toate fişierele"
 
-#: src/Utils.vala:31
+#: src/MainWindow.vala:748 src/Services/Document.vala:507
 msgid "Text files"
 msgstr "Fișiere text"
 
-#: src/Utils.vala:35 src/Services/Document.vala:409
-msgid "Cancel"
-msgstr "Renunță"
+#: src/MainWindow.vala:752
+msgid "Open some files"
+msgstr "Deschide niște fișiere"
 
-#: src/Utils.vala:44
+#: src/MainWindow.vala:755
 msgid "Open"
 msgstr "Deschis"
 
-#: src/Utils.vala:46 src/Services/Document.vala:410
-#: src/Services/Document.vala:729
-msgid "Save"
-msgstr "Salvează"
+#: src/MainWindow.vala:756 src/Services/Document.vala:402
+#: src/Services/Document.vala:515
+msgid "Cancel"
+msgstr "Renunță"
+
+#: src/MainWindow.vala:781
+msgid "_Open"
+msgstr "_Deschide"
+
+#: src/MainWindow.vala:782
+msgid "_Cancel"
+msgstr "_Anulează"
 
 #: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:160
 msgid "Preferences"
@@ -249,7 +240,7 @@ msgid "Rename"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:137
+#: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr ""
 
@@ -290,14 +281,14 @@ msgstr "Fişier nou"
 msgid "new file %d"
 msgstr "Fişier nou"
 
-#: src/FolderManager/ProjectFolderItem.vala:127
+#: src/FolderManager/ProjectFolderItem.vala:78
+msgid "Close Folder"
+msgstr "Închide dosar"
+
+#: src/FolderManager/ProjectFolderItem.vala:269
 #, fuzzy
 msgid "Change Branch"
 msgstr "Schimbă configurările Scratch"
-
-#: src/FolderManager/ProjectFolderItem.vala:134
-msgid "Close Folder"
-msgstr "Închide dosar"
 
 #: src/Services/Document.vala:267
 #, c-format
@@ -326,45 +317,51 @@ msgstr ""
 msgid "Cancel Loading"
 msgstr "Renunță"
 
-#: src/Services/Document.vala:400
-#, c-format
-msgid "Save changes to document %s before closing?"
+#: src/Services/Document.vala:392
+#, fuzzy, c-format
+msgid "Save changes to \"%s\" before closing?"
 msgstr "Salvați modificările documentului %s înainte de închidere?"
 
-#: src/Services/Document.vala:403
-msgid ""
-"If you don't save, changes from the last 4 seconds will be permanently lost."
+#: src/Services/Document.vala:393
+#, fuzzy
+msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Dacă nu salvezi, schimbările făcute în ultimele 4 secunde vor fi pierdute."
 
-#: src/Services/Document.vala:405
-msgid "Close without saving"
+#: src/Services/Document.vala:399
+#, fuzzy
+msgid "Close Without Saving"
 msgstr "Închide fără a salva"
 
-#: src/Services/Document.vala:510
+#: src/Services/Document.vala:403 src/Services/Document.vala:514
+#: src/Services/Document.vala:738
+msgid "Save"
+msgstr "Salvează"
+
+#: src/Services/Document.vala:511
 msgid "Save File"
 msgstr "Salvează fişierul"
 
-#: src/Services/Document.vala:584
+#: src/Services/Document.vala:593
 msgid "New Document"
 msgstr "Document nou"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:707
+#: src/Services/Document.vala:716
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 "Fişierul \"%s\" nu poate fi creat.\n"
 "%s"
 
-#: src/Services/Document.vala:708
+#: src/Services/Document.vala:717
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Fişierul \"%s\"  nu poate fi citit. Poate fi deteriorat\n"
 "sau nu ai permisiunile necesare pentru a-l citi."
 
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:729
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -373,17 +370,17 @@ msgstr ""
 "Locaţia ce conţine fişierul \"%s\" a fost demontată. Doriţi sa salvaţi într-"
 "o locaţie diferită?"
 
-#: src/Services/Document.vala:722
+#: src/Services/Document.vala:731
 msgid "Save As…"
 msgstr "Salvează ca…"
 
-#: src/Services/Document.vala:727
+#: src/Services/Document.vala:736
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Fişierul %s a fost şters. Il salvezi oricum?"
 
 #. If the file can't be written
-#: src/Services/Document.vala:742
+#: src/Services/Document.vala:751
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -392,11 +389,11 @@ msgstr ""
 "Modificările aduse fișierului \"%s\" nu pot fi salvate. Doriți să salvați "
 "modificările într-o alta locație?"
 
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:753
 msgid "Save changes elsewhere"
 msgstr "Salvează schimbările altundeva"
 
-#: src/Services/Document.vala:777
+#: src/Services/Document.vala:786
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -405,11 +402,11 @@ msgstr ""
 "Fișierul \"%s\" a fost modificat de o aplicație externă. Doriți să-l "
 "reîncărcați sau să continuați editarea?"
 
-#: src/Services/Document.vala:778
+#: src/Services/Document.vala:787
 msgid "Load"
 msgstr "Încarcă"
 
-#: src/Services/Document.vala:781
+#: src/Services/Document.vala:790
 msgid "Continue"
 msgstr "Continuă"
 
@@ -699,10 +696,13 @@ msgstr "Arată previzualizarea"
 msgid "Hide Preview"
 msgstr "Ascunde previzualizarea"
 
+#: plugins/spell/spell.vala:76
+msgid "No Suitable Dictionaries Were Found"
+msgstr ""
+
 #: plugins/spell/spell.vala:77
-msgid ""
-"No suitable dictionaries were found.\n"
-"Please install at least one [aspell] dictionary"
+#, fuzzy
+msgid "Please install at least one [aspell] dictionary."
 msgstr ""
 "Nu a fost găsit nici un dicţionar potrivit.\n"
 "Intalează cel puţin un dictionar"
@@ -716,6 +716,20 @@ msgstr "%s - Completare de cuvinte"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "Tema iconului nu poate fi încărcată: %s\n"
+
+#~ msgid ""
+#~ "File \"%s\" cannot be created.\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Fişierul \"%s\" nu poate fi creat.\n"
+#~ "%s"
+
+#~ msgid ""
+#~ "File \"%s\" cannot be opened.\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Fişierul \"%s\" nu poate fi deschis.\n"
+#~ "%s"
 
 #~ msgid "Edit text files"
 #~ msgstr "Editare fișiere text"
