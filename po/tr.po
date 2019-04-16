@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-27 13:35-0800\n"
-"PO-Revision-Date: 2019-04-12 09:53+0000\n"
+"PO-Revision-Date: 2019-04-17 23:31+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/code/tr/>\n"
 "Language: tr\n"
@@ -56,15 +56,15 @@ msgstr ""
 
 #: src/Application.vala:168
 msgid "It is a mountable location."
-msgstr "Burası yerleştirilebilir bir konum."
+msgstr "Bu bağlanabilir bir konum."
 
 #: src/Application.vala:171
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
 msgstr ""
-"O \"özel\" bir dosyadır socket,\n"
-" FIFO, block cihazı, veya karakter cihaz gibi."
+"Soket, FIFO, blok kullanan aygıt veya\n"
+" karakter kullanan aygıtı gibi özel bir dosyadır."
 
 #: src/Application.vala:174
 msgid "It is an \"unknown\" file type."
@@ -104,12 +104,12 @@ msgstr "Arama çubuğunu gizle"
 
 #: src/MainWindow.vala:236
 msgid "Zeitgeist Datasource for Scratch"
-msgstr "Scratch için Zeitgeist Verikaynağı"
+msgstr "Scratch için Zeitgeist Veri Kaynağı"
 
 #. Show a GtkFileChooserDialog
 #: src/MainWindow.vala:742
 msgid "Open some files"
-msgstr "Bir dosya aç"
+msgstr "Birkaç dosya aç"
 
 #: src/MainWindow.vala:761
 msgid "_Cancel"
@@ -158,7 +158,7 @@ msgstr "Sekmeler"
 
 #: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:161
 msgid "Automatic indentation:"
-msgstr "Otomatik girintileme:"
+msgstr "Otomatik girintili yazma:"
 
 #: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:155
 msgid "Insert spaces instead of tabs:"
@@ -195,7 +195,7 @@ msgstr "Eşleşen parantezleri vurgula:"
 
 #: src/Dialogs/PreferencesDialog.vala:110
 msgid "Line wrap:"
-msgstr "Satırları kaydır:"
+msgstr "Satır kaydırma:"
 
 #: src/Dialogs/PreferencesDialog.vala:113
 msgid "Draw Spaces:"
@@ -208,7 +208,7 @@ msgstr "Asla"
 
 #: src/Dialogs/PreferencesDialog.vala:116
 msgid "For selected text"
-msgstr "Seçilen metin için"
+msgstr "Seçili metin için"
 
 #: src/Dialogs/PreferencesDialog.vala:117
 msgid "Always"
@@ -228,7 +228,7 @@ msgstr "Yazı Tipi"
 
 #: src/Dialogs/PreferencesDialog.vala:133
 msgid "Custom font:"
-msgstr "Özel yazıtipi:"
+msgstr "Özel yazı tipi:"
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
@@ -244,7 +244,7 @@ msgstr "Diğer Eylemler"
 
 #: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
-msgstr "Yeniden adlandır"
+msgstr "Yeniden Adlandır"
 
 #: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
 #: src/FolderManager/ProjectFolderItem.vala:137
@@ -278,7 +278,7 @@ msgstr "adsız klasör %d"
 
 #: src/FolderManager/FolderItem.vala:354
 msgid "new file"
-msgstr "Yeni dosya"
+msgstr "yeni dosya"
 
 #: src/FolderManager/FolderItem.vala:358
 #, c-format
@@ -287,7 +287,7 @@ msgstr "yeni dosya %d"
 
 #: src/FolderManager/ProjectFolderItem.vala:127
 msgid "Change Branch"
-msgstr "Sınıf değiştir"
+msgstr "Dalı Değiştir"
 
 #: src/FolderManager/ProjectFolderItem.vala:134
 msgid "Close Folder"
@@ -317,7 +317,7 @@ msgstr "Kod dosyayı yüklerken lütfen bekleyiniz."
 
 #: src/Services/Document.vala:294
 msgid "Cancel Loading"
-msgstr "Yüklemeyi İptal et"
+msgstr "Yüklemeyi İptal Et"
 
 #: src/Services/Document.vala:400
 #, c-format
@@ -347,7 +347,7 @@ msgstr "Yeni Belge"
 #: src/Services/Document.vala:707
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
-msgstr "\"%s\" dosyası okunamıyor"
+msgstr "\"%s\" Dosyası Okunamıyor"
 
 #: src/Services/Document.vala:708
 msgid "It may be corrupt or you don't have permission to read it."
@@ -380,8 +380,8 @@ msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
-"\"%s\" dosyasındaki değişikliklri kaydedemezsiniz. Bu dosya üzerindeki "
-"değişiklikleri farklı bir konuma kaydetmek istiyor musunuz?"
+"Değişiklikleri \"%s\" dosyasına kaydedemezsiniz. Değişiklikleri başka bir "
+"yere kaydetmek ister misiniz?"
 
 #: src/Services/Document.vala:744
 msgid "Save changes elsewhere"
@@ -411,7 +411,7 @@ msgstr "Şablonlar"
 #: src/Widgets/DocumentView.vala:133
 #, c-format
 msgid "Text file from %s:%d"
-msgstr "%s 'dan metin dosyası"
+msgstr "Metin dosyası %s:%d"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
@@ -453,7 +453,7 @@ msgstr "Bir dosya aç"
 
 #: src/Widgets/HeaderBar.vala:48
 msgid "Open a folder"
-msgstr "Klasör aç"
+msgstr "Bir klasör aç"
 
 #: src/Widgets/HeaderBar.vala:52
 msgid "Project templates"
@@ -461,7 +461,7 @@ msgstr "Proje şablonları"
 
 #: src/Widgets/HeaderBar.vala:58
 msgid "Save this file"
-msgstr "Dosyayı kaydet"
+msgstr "Bu dosyayı kaydet"
 
 #: src/Widgets/HeaderBar.vala:65
 msgid "Save this file with a different name"
@@ -477,15 +477,15 @@ msgstr "Paylaş"
 
 #: src/Widgets/HeaderBar.vala:94
 msgid "Zoom Out"
-msgstr "Uzaklaş"
+msgstr "Uzaklaştır"
 
 #: src/Widgets/HeaderBar.vala:101
 msgid "Zoom 1:1"
-msgstr "Yakınlaşma 1:1"
+msgstr "1:1 Yakınlaştır"
 
 #: src/Widgets/HeaderBar.vala:108
 msgid "Zoom In"
-msgstr "Yakınlaş"
+msgstr "Yakınlaştır"
 
 #: src/Widgets/HeaderBar.vala:122
 msgid "High Contrast"
@@ -493,11 +493,11 @@ msgstr "Yüksek Karşıtlık"
 
 #: src/Widgets/HeaderBar.vala:130
 msgid "Solarized Light"
-msgstr "Solarized Light"
+msgstr "Açık Renk Tema"
 
 #: src/Widgets/HeaderBar.vala:138
 msgid "Solarized Dark"
-msgstr "Solarized Dark"
+msgstr "Koyu Renk Tema"
 
 #: src/Widgets/HeaderBar.vala:148
 msgid "Toggle Sidebar"
@@ -529,11 +529,11 @@ msgstr "Öncekini bul"
 
 #: src/Widgets/SearchBar.vala:85
 msgid "Cyclic Search"
-msgstr "Tümünü bul"
+msgstr "Döngüsel Arama"
 
 #: src/Widgets/SearchBar.vala:101
 msgid "Replace With"
-msgstr "İle Değiştir"
+msgstr "Şununla Değiştir"
 
 #: src/Widgets/SearchBar.vala:104
 msgid "Replace"
@@ -686,7 +686,7 @@ msgid ""
 "Please install at least one [aspell] dictionary"
 msgstr ""
 "Uygun bir sözlük bulunamadı.\n"
-"Lütfen en azından bir  [aspell] sözlük yükleyin"
+"Lütfen en azından bir [aspell] sözlük yükleyin"
 
 #: plugins/word-completion/plugin.vala:174
 #, c-format
