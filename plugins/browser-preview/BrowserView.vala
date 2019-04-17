@@ -19,16 +19,36 @@
 ***/
 
 namespace Scratch.Plugins.BrowserPreview {
-    internal class BrowserView : WebKit.WebView {
-        public Gtk.Paned paned;
-        public BrowserView (Gtk.Paned paned) {
-            this.paned = paned;
-            get_settings ().enable_developer_extras = true;
-            get_settings ().allow_file_access_from_file_urls = true;
-            get_inspector ().open_window.connect (() => {return false;});
+    public class BrowserView : Gtk.Grid, Code.PaneSwitcher {
+        public string icon_name { get; set; }
+        public string title { get; set; }
 
-            paned.add1 (this);
-            show_all ();
+        private WebKit.WebView web_view;
+        public unowned Scratch.Services.Document doc;
+
+        public BrowserView (Scratch.Services.Document doc) {
+            this.doc = doc;
+            width_request = 200;
+            title = _("Web Preview");
+            icon_name = "web-browser-symbolic";
+            web_view = new WebKit.WebView ();
+            web_view.expand = true;
+            add (web_view);
+            web_view.get_settings ().enable_developer_extras = true;
+            web_view.get_settings ().allow_file_access_from_file_urls = true;
+            web_view.get_inspector ().open_window.connect (() => {return false;});
+
+            web_view.load_uri (doc.file.get_uri ());
+            doc.doc_saved.connect (reload_preview);
+        }
+
+        private void reload_preview () {
+            var doc_uri = doc.file.get_uri ();
+            if (web_view.uri != doc_uri) {
+                web_view.load_uri (doc_uri);
+            } else {
+                web_view.reload ();
+            }
         }
     }
 }

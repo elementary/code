@@ -87,23 +87,24 @@ namespace Scratch.Services {
 
         public Gtk.Stack main_stack;
         public Scratch.Widgets.SourceView source_view;
+        public Code.Pane pane;
         public string original_content;
+        private string last_save_content;
         public bool saved = true;
 
         private Gtk.ScrolledWindow scroll;
         private Gtk.InfoBar info_bar;
-
-#if GTKSOURCEVIEW_3_18
         private Gtk.SourceMap source_map;
-#endif
 
         private GLib.Cancellable save_cancellable;
         private GLib.Cancellable load_cancellable;
         private ulong onchange_handler_id = 0; // It is used to not mark files as changed on load
-        private bool error_shown = false;
         private bool loaded = false;
         private bool mounted = true; // Mount state of the file
         private Mount mount;
+
+        private static Pango.FontDescription? builder_blocks_font = null;
+        private static Pango.FontMap? builder_font_map = null;
 
 #if HAVE_ZEITGEIST
         // Zeitgeist integration
@@ -115,6 +116,18 @@ namespace Scratch.Services {
             page = main_stack;
         }
 
+        static construct {
+            var fontpath = Path.build_filename (Constants.DATADIR, Constants.PROJECT_NAME, "fonts", "BuilderBlocks.ttf");
+            unowned Fc.Config config = Fc.init ();
+            if (!config.add_app_font (fontpath)) {
+                warning ("Unable to load Builder Blocks font, SourceView map might not be pretty");
+            } else {
+                builder_font_map = Pango.CairoFontMap.new_for_font_type (Cairo.FontType.FT);
+                PangoFc.attach_fontconfig_to_fontmap (builder_font_map, config);
+                builder_blocks_font = Pango.FontDescription.from_string ("Builder Blocks 1");
+            }
+        }
+
         construct {
             main_stack = new Gtk.Stack ();
             source_view = new Scratch.Widgets.SourceView ();
@@ -123,9 +136,15 @@ namespace Scratch.Services {
             scroll.add (source_view);
             info_bar = new Gtk.InfoBar ();
             source_file = new Gtk.SourceFile ();
-#if GTKSOURCEVIEW_3_18
             source_map = new Gtk.SourceMap ();
-#endif
+            if (builder_blocks_font != null && builder_font_map != null) {
+                source_map.set_font_map (builder_font_map);
+                source_map.font_desc = builder_blocks_font;
+            }
+
+            source_map.set_view (source_view);
+
+            pane = new Code.Pane ();
 
             // Handle Drag-and-drop functionality on source-view
             Gtk.TargetEntry uris = {"text/uri-list", 0, 0};
@@ -142,20 +161,46 @@ namespace Scratch.Services {
                 return working;
             });
 
-            var grid = new Gtk.Grid ();
-            grid.orientation = Gtk.Orientation.VERTICAL;
+            var source_grid = new Gtk.Grid ();
+            source_grid.orientation = Gtk.Orientation.HORIZONTAL;
+            source_grid.add (scroll);
+            source_grid.add (source_map);
 
-#if GTKSOURCEVIEW_3_18
-            source_map.set_view (source_view);
+            var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
+            paned.pack1 (source_grid, true, false);
+            paned.pack2 (pane, false, false);
 
-            grid.attach (info_bar, 0, 0, 2, 1);
-            grid.attach (scroll, 0, 1, 1, 1);
-            grid.attach (source_map, 1, 1, 1, 1);
-#else
-            grid.add (info_bar);
-            grid.add (scroll);
-#endif
-            main_stack.add_named (grid, "content");
+            var doc_grid = new Gtk.Grid ();
+            doc_grid.orientation = Gtk.Orientation.VERTICAL;
+            doc_grid.add (info_bar);
+            doc_grid.add (paned);
+            doc_grid.show_all ();
+
+            main_stack.add_named (doc_grid, "content");
+
+            this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
+
+            toggle_changed_handlers (true);
+
+            // Focus out event for SourceView
+            this.source_view.focus_out_event.connect (() => {
+                if (settings.autosave) {
+                    save.begin ();
+                }
+
+                return false;
+            });
+
+            source_view.buffer.changed.connect (() => {
+                if (source_view.buffer.text != last_save_content) {
+                    saved = false;
+                    if (!settings.autosave) {
+                        set_saved_status (false);
+                    }
+                } else {
+                    set_saved_status (true);
+                }
+            });
 
             /* Create as loaded - could be new document */
             loaded = true;
@@ -193,7 +238,7 @@ namespace Scratch.Services {
         }
 
         private uint load_timout_id = 0;
-        public async bool open () {
+        public async void open (bool force = false) {
             /* Loading improper files may hang so we cancel after a certain time as a fallback.
              * In most cases, an error will be thrown and caught. */
             if (load_cancellable != null) { /* just in case */
@@ -208,7 +253,7 @@ namespace Scratch.Services {
                     FileUtils.set_contents (file.get_path (), "");
                 } catch (FileError e) {
                     warning ("Cannot create file \"%s\": %s", get_basename (), e.message);
-                    return false;
+                    return;
                 }
             }
 
@@ -218,12 +263,21 @@ namespace Scratch.Services {
 
             var content_type = ContentType.from_mime_type (mime_type);
 
-            if (!(ContentType.is_a (content_type, "text/plain"))) {
-                var primary_format = _("%s is not a text file.");
-                var secondary_text = _("Code will not load this type of file");
+            if (!force && !(ContentType.is_a (content_type, "text/plain"))) {
+                var title = _("%s Is Not a Text File").printf (get_basename ());
+                var description = _("Code will not load this type of file.");
+                var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-warning");
+                alert_view.show_action (_("Load Anyway"));
+                alert_view.show_all ();
+                main_stack.add_named (alert_view, "load_alert");
+                main_stack.set_visible_child (alert_view);
+                alert_view.action_activated.connect (() => {
+                    open.begin (true);
+                    alert_view.destroy ();
+                });
 
-                show_error_dialog (primary_format, secondary_text);
-                return false;
+                working = false;
+                return;
             }
 
             while (Gtk.events_pending ()) {
@@ -234,31 +288,45 @@ namespace Scratch.Services {
 
             load_timout_id = Timeout.add_seconds_full (GLib.Priority.HIGH, 5, () => {
                 if (load_cancellable != null && !load_cancellable.is_cancelled ()) {
-                    var primary_format = _("Loading file \"%s\" is taking a long time.");
-
-                    if (confirm_cancel_dialog (primary_format)) {
-                        load_timout_id = 0;
+                    var title = _("Loading File \"%s\" Is Taking a Long Time").printf (get_basename ());
+                    var description = _("Please wait while Code is loading the file.");
+                    var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-information");
+                    alert_view.show_action (_("Cancel Loading"));
+                    alert_view.show_all ();
+                    main_stack.add_named (alert_view, "wait_alert");
+                    main_stack.set_visible_child (alert_view);
+                    alert_view.action_activated.connect (() => {
                         load_cancellable.cancel ();
-                        return false;
-                    } else {
-                        return true;
-                    }
+                        doc_closed ();
+                    });
+                    load_timout_id = 0;
+
+                    return GLib.Source.REMOVE;
                 }
 
                 load_timout_id = 0;
-                return false;
+                return GLib.Source.REMOVE;
             });
 
             try {
                 var source_file_loader = new Gtk.SourceFileLoader (buffer, source_file);
                 yield source_file_loader.load_async (GLib.Priority.LOW, load_cancellable, null);
-                source_view.buffer.text = buffer.text;
+                var source_buffer = source_view.buffer as Gtk.SourceBuffer;
+                if (source_buffer != null) {
+                    source_buffer.begin_not_undoable_action ();
+                    source_buffer.text = buffer.text;
+                    source_buffer.end_not_undoable_action ();
+                } else {
+                    source_view.buffer.text = buffer.text;
+                }
+
                 loaded = true;
             } catch (Error e) {
                 critical (e.message);
                 source_view.buffer.text = "";
-                show_default_load_error_dialog ();
-                return false;
+                show_default_load_error_view ();
+                working = false;
+                return;
             } finally {
                 load_cancellable = null;
                 if (load_timout_id > 0) {
@@ -266,23 +334,10 @@ namespace Scratch.Services {
                 }
             }
 
-            /* Successful load - now do rest of set up */
-            this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
-
-            toggle_changed_handlers (true);
             // Focus in event for SourceView
             this.source_view.focus_in_event.connect (() => {
                 check_file_status ();
                 check_undoable_actions ();
-
-                return false;
-            });
-
-            // Focus out event for SourceView
-            this.source_view.focus_out_event.connect (() => {
-                if (settings.autosave) {
-                    save.begin ();
-                }
 
                 return false;
             });
@@ -297,12 +352,8 @@ namespace Scratch.Services {
 
             source_view.buffer.set_modified (false);
             original_content = source_view.buffer.text;
-
-            this.source_view.buffer.modified_changed.connect (() => {
-                if (this.source_view.buffer.get_modified() && !settings.autosave) {
-                    this.set_saved_status (false);
-                }
-            });
+            last_save_content = source_view.buffer.text;
+            set_saved_status (true);
 
             doc_opened ();
             source_view.sensitive = true;
@@ -315,10 +366,10 @@ namespace Scratch.Services {
                 return false;
             });
 
-            return true;
+            return;
         }
 
-        public new bool close (bool app_closing = false) {
+        public bool do_close (bool app_closing = false) {
             message ("Closing \"%s\"", get_basename ());
 
             if (!loaded) {
@@ -327,35 +378,30 @@ namespace Scratch.Services {
             }
 
             bool ret_value = true;
-            if (app_closing && is_file_temporary && !delete_temporary_file ()) {
+            if (settings.autosave && !saved) {
+                save_with_hold ();
+            } else if (app_closing && is_file_temporary && !delete_temporary_file ()) {
                 debug ("Save temporary file!");
-                this.save.begin ();
+                save_with_hold ();
             }
             // Check for unsaved changes
             else if (!this.saved || (!app_closing && is_file_temporary && !delete_temporary_file ())) {
-                debug ("There are unsaved changes, showing a Message Dialog!");
-
-                // Create a GtkDialog
                 var parent_window = source_view.get_toplevel () as Gtk.Window;
-                var dialog = new Gtk.MessageDialog (parent_window, Gtk.DialogFlags.MODAL,
-                                                    Gtk.MessageType.WARNING, Gtk.ButtonsType.NONE, "");
-                dialog.type_hint = Gdk.WindowTypeHint.DIALOG;
-                dialog.deletable = false;
 
-                dialog.use_markup = true;
+                var dialog = new Granite.MessageDialog (
+                    _("Save changes to \"%s\" before closing?").printf (this.get_basename ()),
+                    _("If you don't save, changes will be permanently lost."),
+                    new ThemedIcon ("dialog-warning"),
+                    Gtk.ButtonsType.NONE
+                );
+                dialog.transient_for = parent_window;
 
-                dialog.text = ("<b>" + _("Save changes to document %s before closing?") +
-                               "</b>").printf (this.get_basename ());
-                dialog.text += "\n\n" +
-                            _("If you don't save, changes from the last 4 seconds will be permanently lost.");
+                var no_save_button = (Gtk.Button) dialog.add_button (_("Close Without Saving"), Gtk.ResponseType.NO);
+                no_save_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
-                var button = new Gtk.Button.with_label (_("Close without saving"));
-                button.show ();
-
-                dialog.add_action_widget (button, Gtk.ResponseType.NO);
                 dialog.add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
                 dialog.add_button (_("Save"), Gtk.ResponseType.YES);
-                dialog.set_default_response (Gtk.ResponseType.ACCEPT);
+                dialog.set_default_response (Gtk.ResponseType.YES);
 
                 int response = dialog.run ();
                 switch (response) {
@@ -365,9 +411,9 @@ namespace Scratch.Services {
                         break;
                     case Gtk.ResponseType.YES:
                         if (this.is_file_temporary)
-                            this.save_as.begin ();
+                            save_as_with_hold ();
                         else
-                            this.save.begin ();
+                            save_with_hold ();
                         break;
                     case Gtk.ResponseType.NO:
                         if (this.is_file_temporary)
@@ -388,6 +434,28 @@ namespace Scratch.Services {
             }
 
             return ret_value;
+        }
+
+        public bool save_with_hold (bool force = false) {
+            GLib.Application.get_default ().hold ();
+            bool result = false;
+            save.begin (force, (obj, res) => {
+                result = save.end (res);
+                GLib.Application.get_default ().release ();
+            });
+
+            return result;
+        }
+
+        public bool save_as_with_hold () {
+            GLib.Application.get_default ().hold ();
+            bool result = false;
+            save_as.begin ((obj, res) => {
+                result = save_as.end (res);
+                GLib.Application.get_default ().release ();
+            });
+
+            return result;
         }
 
         public async bool save (bool force = false) {
@@ -418,6 +486,7 @@ namespace Scratch.Services {
 
             doc_saved ();
             this.set_saved_status (true);
+            last_save_content = source_view.buffer.text;
 
             message ("File \"%s\" saved succesfully", get_basename ());
 
@@ -430,18 +499,34 @@ namespace Scratch.Services {
                 return false;
             }
 
+            var all_files_filter = new Gtk.FileFilter ();
+            all_files_filter.set_filter_name (_("All files"));
+            all_files_filter.add_pattern ("*");
 
-            var filech = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.SAVE, _("Save File"), null);
-            filech.do_overwrite_confirmation = true;
+            var text_files_filter = new Gtk.FileFilter ();
+            text_files_filter.set_filter_name (_("Text files"));
+            text_files_filter.add_mime_type ("text/*");
+
+            var file_chooser = new Gtk.FileChooserNative (
+                _("Save File"),
+                null,
+                Gtk.FileChooserAction.SAVE,
+                _("Save"),
+                _("Cancel")
+            );
+            file_chooser.add_filter (all_files_filter);
+            file_chooser.add_filter (text_files_filter);
+            file_chooser.do_overwrite_confirmation = true;
+            file_chooser.set_current_folder_uri (Utils.last_path ?? GLib.Environment.get_home_dir ());
 
             var success = false;
             var current_file = file.get_path ();
             var is_current_file_temporary = this.is_file_temporary;
 
-            if (filech.run () == Gtk.ResponseType.ACCEPT) {
-                this.file = File.new_for_uri (filech.get_file ().get_uri ());
+            if (file_chooser.run () == Gtk.ResponseType.ACCEPT) {
+                file = File.new_for_uri (file_chooser.get_uri ());
                 // Update last visited path
-                Utils.last_path = Path.get_dirname (filech.get_file ().get_uri ());
+                Utils.last_path = Path.get_dirname (file_chooser.get_file ().get_uri ());
                 success = true;
             }
 
@@ -465,7 +550,7 @@ namespace Scratch.Services {
             /* We delay destruction of file chooser dialog til to avoid the document focussing in,
              * which triggers premature loading of overwritten content.
              */
-            filech.destroy ();
+            file_chooser.destroy ();
             return success;
         }
 
@@ -482,7 +567,6 @@ namespace Scratch.Services {
         }
 
         private void restore_settings () {
-#if GTKSOURCEVIEW_3_18
             if (settings.show_mini_map) {
                 source_map.show ();
                 scroll.vscrollbar_policy = Gtk.PolicyType.EXTERNAL;
@@ -491,8 +575,8 @@ namespace Scratch.Services {
                 source_map.no_show_all = true;
                 scroll.vscrollbar_policy = Gtk.PolicyType.AUTOMATIC;
             }
-#endif
         }
+
         // Focus the SourceView
         public new void focus () {
             this.source_view.grab_focus ();
@@ -627,67 +711,14 @@ namespace Scratch.Services {
             this.source_view.duplicate_selection ();
         }
 
-        /** primary format must contain a single %s where the file basename will be printed (in bold) **/
-        /** Markup should not be used for primary label as it will be overridden in the Granite MessageDialog **/
-        private Gtk.Dialog get_modal_dialog (string primary_format, string secondary_text) {
-            string message =  primary_format.printf ("'%s'".printf (get_basename ()));
-
-#if GRANITE_MESSAGEDIALOG
-            var dialog = new Granite.MessageDialog (message,
-                                                    secondary_text,
-                                                    new ThemedIcon.with_default_fallbacks ("dialog-warning"),
-                                                    Gtk.ButtonsType.NONE);
-
-#else
-            var dialog = new Gtk.MessageDialog ((Gtk.Window?)source_view.get_toplevel (),
-                                                Gtk.DialogFlags.MODAL,
-                                                Gtk.MessageType.WARNING,
-                                                Gtk.ButtonsType.NONE,
-                                                "");
-
-
-            dialog.deletable = false;
-            dialog.text = message;
-            dialog.secondary_text = secondary_text;
-#endif
-            return dialog;
-        }
-
-        private bool confirm_cancel_dialog (string primary_format) {
-
-            string secondary_text = _("Do you wish to continue or cancel?");
-
-            var dialog = get_modal_dialog (primary_format, secondary_text);
-            dialog.add_button (_("Continue"), Gtk.ResponseType.CANCEL);
-            dialog.add_button (_("Cancel"), Gtk.ResponseType.YES);
-            dialog.run ();
-
-            var res = dialog.run ();
-            dialog.destroy ();
-
-            return res == Gtk.ResponseType.YES;
-        }
-
-        // Show an error dialog which says "Hey, I cannot read that file!"
-        private void show_default_load_error_dialog () {
-            string primary_format = _("File \"%s\" cannot be read.");
-            string secondary_text = _("Maybe it is corrupt or you do not have the necessary permissions to read it.");
-
-            show_error_dialog (primary_format, secondary_text);
-        }
-
-        /** @primary_format must contain a single %s where the filename will be displayed **/
-        private void show_error_dialog (string primary_format, string secondary_text) {
-            if (this.error_shown) {
-                return;
-            }
-
-            this.error_shown = true;
-
-            var dialog = get_modal_dialog (primary_format, secondary_text);
-            dialog.add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
-            dialog.run ();
-            dialog.destroy ();
+        // Show an error view which says "Hey, I cannot read that file!"
+        private void show_default_load_error_view () {
+            var title = _("File \"%s\" Cannot Be Read").printf (get_basename ());
+            var description = _("It may be corrupt or you don't have permission to read it.");
+            var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-error");
+            alert_view.show_all ();
+            main_stack.add_named (alert_view, "error_alert");
+            main_stack.set_visible_child (alert_view);
         }
 
         // Check if the file was deleted/changed by an external source
@@ -717,7 +748,7 @@ namespace Scratch.Services {
 
             // If the file can't be written
             if (!can_write ()) {
-                string message = _("You cannot save changes on file \"%s\". Do you want to save the changes to this file in a different location?").printf ("<b>%s</b>".printf (get_basename ()));
+                string message = _("You cannot save changes to the file \"%s\". Do you want to save the changes somewhere else?").printf ("<b>%s</b>".printf (get_basename ()));
 
                 set_message (Gtk.MessageType.WARNING, message, _("Save changes elsewhere"), () => {
                     this.save_as.begin ();
@@ -740,7 +771,7 @@ namespace Scratch.Services {
                         source_file_loader.load_async.end (res);
                     } catch (Error e) {
                         critical (e.message);
-                        show_default_load_error_dialog ();
+                        show_default_load_error_view ();
                         return;
                     }
 

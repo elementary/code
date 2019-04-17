@@ -1,43 +1,40 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /***
   BEGIN LICENSE
-	
+
   Copyright (C) 2015 James Morgan <james.harmonic@gmail.com>
-  This program is free software: you can redistribute it and/or modify it	
-  under the terms of the GNU Lesser General Public License version 3, as published	
+  This program is free software: you can redistribute it and/or modify it
+  under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
-	
-  This program is distributed in the hope that it will be useful, but	
-  WITHOUT ANY WARRANTY; without even the implied warranties of	
-  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR	
+
+  This program is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranties of
+  MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
   PURPOSE.  See the GNU General Public License for more details.
-	
-  You should have received a copy of the GNU General Public License along	
-  with this program.  If not, see <http://www.gnu.org/licenses/>	
-  
-  END LICENSE	
+
+  You should have received a copy of the GNU General Public License along
+  with this program.  If not, see <http://www.gnu.org/licenses/>
+
+  END LICENSE
 ***/
 
 using Gtk;
 using Scratch;
 
-public const string NAME = _("Preserve Indent");
-public const string DESCRIPTION = _("Maintains indent level of pasted text when auto-indent is active");
-
 public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatable {
 
     private Scratch.Services.Interface          plugins;
-    private Gee.TreeSet<weak Services.Document> documents;        
+    private Gee.TreeSet<weak Services.Document> documents;
     private Services.Document                   active_document;
     private int                                 last_clipboard_indent_level = 0;
-    private bool                                waiting_for_clipboard_text = false; 
-    
+    private bool                                waiting_for_clipboard_text = false;
+
     public Object object { owned get; construct; }
 
     public void activate () {
         this.documents = new Gee.TreeSet<weak Services.Document> ();
         plugins = (Scratch.Services.Interface) object;
-        
+
         plugins.hook_document.connect ((d) => {
             this.active_document = d;
 
@@ -47,13 +44,13 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatab
                 d.source_view.paste_clipboard.connect (on_paste_clipboard);
                 d.source_view.buffer.paste_done.connect (on_paste_done);
 
-                d.doc_closed.connect ( (d) => { 
-                    this.documents.remove (d); 
-                });     
+                d.doc_closed.connect ( (d) => {
+                    this.documents.remove (d);
+                });
             }
         });
     }
-    
+
     public void deactivate () {
         this.documents.clear();
     }
@@ -72,8 +69,8 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatab
         int tabwidth = Scratch.settings.indent_width;
 
         unichar ch = pos.get_char();
-        while (pos.get_offset() < iter.get_offset() && ch != '\n') {  
-            if (ch == '\t') 
+        while (pos.get_offset() < iter.get_offset() && ch != '\n') {
+            if (ch == '\t')
                 indent += tabwidth;
             else
                 ++indent;
@@ -112,27 +109,27 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatab
 
         buffer.get_iter_at_mark (out insert, buffer.get_insert());
         buffer.create_mark ("paste_start", insert, true);
-        
+
         this.waiting_for_clipboard_text = true;
         buffer.begin_user_action ();
     }
 
-    // delegate to be called after the raw clipboard text has been inserted 
-    // finds all text that was inserted by pasting and adjusts the indent level of each 
+    // delegate to be called after the raw clipboard text has been inserted
+    // finds all text that was inserted by pasting and adjusts the indent level of each
     // as necessary.
     private void on_paste_done() {
 
         Widgets.SourceView view = this.active_document.source_view;
         if (! view.auto_indent)
             return;
-            
+
         // find the bounds of the pasted area
         TextIter paste_begin, paste_end;
 
         TextMark? mark_paste_start = view.buffer.get_mark("paste_start");
-        if( mark_paste_start == null) 
+        if( mark_paste_start == null)
             return;
-        
+
         view.buffer.get_iter_at_mark (out paste_begin, view.buffer.get_mark("paste_start"));
         view.buffer.get_iter_at_mark (out paste_end, view.buffer.get_insert());
 
@@ -141,10 +138,10 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatab
 
         paste_begin.forward_line ();
 
-        if (indent_diff > 0) 
+        if (indent_diff > 0)
             this.increase_indent_in_region (view, paste_begin, paste_end, indent_diff);
 
-        else if (indent_diff < 0) 
+        else if (indent_diff < 0)
             this.decrease_indent_in_region (view, paste_begin, paste_end, indent_diff.abs());
 
         view.buffer.delete_mark_by_name ("paste_start");
@@ -152,22 +149,22 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatab
         this.waiting_for_clipboard_text = false;
     }
 
-    private void increase_indent_in_region (Widgets.SourceView view, 
-                                            TextIter region_begin, 
-                                            TextIter region_end, 
-                                            int nchars) 
+    private void increase_indent_in_region (Widgets.SourceView view,
+                                            TextIter region_begin,
+                                            TextIter region_end,
+                                            int nchars)
     {
         int first_line = region_begin.get_line();
         int last_line = region_end.get_line();
 
         int nlines = (first_line - last_line).abs() + 1;
-        if ( nlines < 1 || nchars < 1 || last_line < first_line || !view.editable) 
+        if ( nlines < 1 || nchars < 1 || last_line < first_line || !view.editable)
             return;
 
         // add a string of whitespace to each line after the first pasted line
         string indent_str;
 
-        if (view.insert_spaces_instead_of_tabs) 
+        if (view.insert_spaces_instead_of_tabs)
             indent_str = string.nfill(nchars, ' ');
 
         else {
@@ -184,18 +181,18 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatab
         for (var i=first_line; i<=last_line; ++i) {
             view.buffer.get_iter_at_line(out itr, i);
             view.buffer.insert(ref itr, indent_str, indent_str.length);
-        } 
+        }
     }
 
-    private void decrease_indent_in_region (Widgets.SourceView view, 
-                                            TextIter region_begin, TextIter region_end, 
-                                            int nchars) 
+    private void decrease_indent_in_region (Widgets.SourceView view,
+                                            TextIter region_begin, TextIter region_end,
+                                            int nchars)
     {
         int first_line = region_begin.get_line();
         int last_line = region_end.get_line();
 
         int nlines = (first_line - last_line).abs() + 1;
-        if ( nlines < 1 || nchars < 1 || last_line < first_line || !view.editable) 
+        if ( nlines < 1 || nchars < 1 || last_line < first_line || !view.editable)
             return;
 
         TextBuffer buffer = view.buffer;
@@ -206,10 +203,10 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatab
             buffer.get_iter_at_line(out itr, line);
             // crawl along the line and tally indentation as we go,
             // when requested number of chars is hit, or if we run out of whitespace (eg. find glyphs or newline),
-            // delete the segment from line start to where we are now 
+            // delete the segment from line start to where we are now
             int chars_to_delete = 0;
             int indent_chars_found = 0;
-            unichar ch = itr.get_char(); 
+            unichar ch = itr.get_char();
             while(ch != '\n' && !ch.isgraph() && indent_chars_found < nchars) {
                 if(ch == ' ') {
                     ++chars_to_delete;
@@ -217,7 +214,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatab
                 }
                 else if (ch == '\t') {
                     ++chars_to_delete;
-                    indent_chars_found += tabwidth; 
+                    indent_chars_found += tabwidth;
                 }
                 itr.forward_char();
                 ch = itr.get_char();

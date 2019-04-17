@@ -1,18 +1,19 @@
 # Code
-[![Translation status](https://l10n.elementary.io/widgets/scratch/-/svg-badge.svg)](https://l10n.elementary.io/projects/scratch/?utm_source=widget)
+[![Translation status](https://l10n.elementary.io/widgets/code/-/svg-badge.svg)](https://l10n.elementary.io/projects/code/?utm_source=widget)
 
 ![Screenshot](data/screenshot.png?raw=true)
 
 ## Building, Testing, and Installation
 
 You'll need the following dependencies:
-* cmake
-* libdevhelp-dev
+* meson
+* libeditorconfig-dev
 * libgail-3-dev
 * libgee-0.8-dev
-* libgtksourceview-3.0-dev
+* libgit2-glib-1.0-dev
+* libgtksourceview-3.0-dev >= 3.24
 * libgtkspell3-3-dev
-* libgranite-dev
+* libgranite-dev >= 5.2.0
 * libpeas-dev
 * libsoup2.4-dev
 * libvala-0.34-dev (or higher)
@@ -21,17 +22,13 @@ You'll need the following dependencies:
 * libzeitgeist-2.0
 * valac
 
-It's recommended to create a clean build environment
+Run `meson build` to configure the build environment. Change to the build directory and run `ninja test` to build
 
-    mkdir build
-    cd build/
+    meson build --prefix=/usr
+    cd build
+    ninja test
 
-Run `cmake` to configure the build environment and then `make` to build
+To install, use `ninja install`, then execute with `io.elementary.code`
 
-    cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-    make
-
-To install, use `make install`, then execute with `io.elementary.code`
-
-    sudo make install
+    sudo ninja install
     io.elementary.code

@@ -19,11 +19,6 @@
 ***/
 
 namespace Scratch.Plugins.TerminalViewer {
-
-    public enum TerminalPosition {
-        BOTTOM = 0,
-        RIGHT = 1
-    }
     /**
      * Class for interacting with gsettings.
      */
@@ -31,7 +26,6 @@ namespace Scratch.Plugins.TerminalViewer {
 
         private const string SCHEMA = Constants.PROJECT_NAME + ".plugins.terminal";
 
-        public int position { get; set; }
         public string last_opened_path { get; set; }
 
         public Settings () {

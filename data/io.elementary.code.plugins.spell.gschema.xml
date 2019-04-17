@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema path="/io/elementary/code/plugins/spell/" id="io.elementary.code.plugins.spell">
+    <key name="language" type="s">
+      <default>'en_US'</default>
+      <summary>Selected Spellcheck Language</summary>
+      <description>Selected Spellcheck Language to be used by spell plugin</description>
+    </key>
+  </schema>
+</schemalist>

@@ -52,11 +52,15 @@ namespace Scratch.Widgets {
         public SourceView () {
             Object (
                 show_line_numbers: true,
+                smart_backspace: true,
+                smart_home_end: Gtk.SourceSmartHomeEndType.BEFORE,
                 wrap_mode: Gtk.WrapMode.WORD
             );
         }
 
         construct {
+            space_drawer.enable_matrix = true;
+
             expand = true;
             manager = Gtk.SourceLanguageManager.get_default ();
             style_scheme_manager = new Gtk.SourceStyleSchemeManager ();
@@ -65,15 +69,24 @@ namespace Scratch.Widgets {
             set_buffer (source_buffer);
             source_buffer.highlight_syntax = true;
             source_buffer.mark_set.connect (on_mark_set);
+            highlight_current_line = true;
+
+            var draw_spaces_tag = new Gtk.SourceTag ("draw_spaces");
+            draw_spaces_tag.draw_spaces = true;
+            source_buffer.tag_table.add (draw_spaces_tag);
 
             smart_home_end = Gtk.SourceSmartHomeEndType.AFTER;
 
             // Create common tags
             warning_tag = new Gtk.TextTag ("warning_bg");
-            warning_tag.background_rgba = Gdk.RGBA () { red = 1.0, green = 1.0, blue = 0, alpha = 0.8 };
+            warning_tag.underline = Pango.Underline.ERROR;
+            warning_tag.underline_rgba = Gdk.RGBA () { red = 0.13, green = 0.55, blue = 0.13, alpha = 1.0 };
 
             error_tag = new Gtk.TextTag ("error_bg");
             error_tag.underline = Pango.Underline.ERROR;
+
+            source_buffer.tag_table.add (error_tag);
+            source_buffer.tag_table.add (warning_tag);
 
             restore_settings ();
 
@@ -93,6 +106,29 @@ namespace Scratch.Widgets {
 
                 return false;
             });
+
+            cut_clipboard.connect (() => {
+                /* If no text is selected, cut the current line */
+                if (!buffer.has_selection) {
+                    Gtk.TextIter iter_start;
+                    buffer.get_iter_at_offset (out iter_start, buffer.cursor_position);
+                    iter_start.backward_chars (iter_start.get_line_offset ());
+                    Gtk.TextIter iter_end = iter_start;
+                    iter_end.forward_line ();
+
+                    if (!iter_start.equal (iter_end)) {
+                        var clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
+                        string cut_text = iter_start.get_slice (iter_end);
+
+                        buffer.begin_user_action ();
+                        clipboard.set_text (cut_text, -1);
+                        buffer.delete_range (iter_start, iter_end);
+                        buffer.end_user_action ();
+                    }
+                }
+            });
+
+            populate_popup.connect_after (on_context_menu);
         }
 
         ~SourceView () {
@@ -129,20 +165,29 @@ namespace Scratch.Widgets {
             auto_indent = Scratch.settings.auto_indent;
             show_right_margin = Scratch.settings.show_right_margin;
             right_margin_position = Scratch.settings.right_margin_position;
-            highlight_current_line = Scratch.settings.highlight_current_line;
             var source_buffer = (Gtk.SourceBuffer) buffer;
             source_buffer.highlight_matching_brackets = Scratch.settings.highlight_matching_brackets;
+
             if (settings.draw_spaces == ScratchDrawSpacesState.ALWAYS) {
-                draw_spaces = Gtk.SourceDrawSpacesFlags.TAB;
-                draw_spaces |= Gtk.SourceDrawSpacesFlags.SPACE;
+                space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.ALL,
+                    Gtk.SourceSpaceTypeFlags.SPACE | Gtk.SourceSpaceTypeFlags.TAB);
+            } else if (settings.draw_spaces == ScratchDrawSpacesState.FOR_SELECTION) {
+                space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.ALL, Gtk.SourceSpaceTypeFlags.NONE);
+                space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.TRAILING,
+                    Gtk.SourceSpaceTypeFlags.SPACE | Gtk.SourceSpaceTypeFlags.TAB);
             } else {
-                // Ensure we change the draw_spaces variable at least once to trigger redraw
-                draw_spaces = Gtk.SourceDrawSpacesFlags.TAB;
-                draw_spaces = Gtk.SourceDrawSpacesFlags.NBSP;
+                space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.ALL, Gtk.SourceSpaceTypeFlags.NONE);
             }
+
+            update_draw_spaces ();
 
             insert_spaces_instead_of_tabs = Scratch.settings.spaces_instead_of_tabs;
             tab_width = (uint) Scratch.settings.indent_width;
+            if (Scratch.settings.line_wrap) {
+                set_wrap_mode (Gtk.WrapMode.WORD);
+            } else {
+                set_wrap_mode (Gtk.WrapMode.NONE);
+            }
 
             font = Scratch.settings.font;
             use_default_font (Scratch.settings.use_system_font);
@@ -155,7 +200,6 @@ namespace Scratch.Widgets {
             var source_buffer = (Gtk.SourceBuffer) buffer;
             Scratch.settings.show_right_margin = show_right_margin;
             Scratch.settings.right_margin_position = (int) right_margin_position;
-            Scratch.settings.highlight_current_line = highlight_current_line;
             Scratch.settings.highlight_matching_brackets = source_buffer.highlight_matching_brackets;
             Scratch.settings.spaces_instead_of_tabs = insert_spaces_instead_of_tabs;
             Scratch.settings.indent_width = (int) tab_width;
@@ -170,7 +214,6 @@ namespace Scratch.Widgets {
             it.forward_chars (offset);
             scroll_to_iter (it, 0, false, 0, 0);
             buffer.place_cursor (it);
-            set_highlight_current_line (true);
         }
 
         public string get_selected_text (bool replace_new_line = true) {
@@ -182,6 +225,19 @@ namespace Scratch.Widgets {
             }
 
             return selected;
+        }
+
+        private int get_selected_line_count () {
+            Gtk.TextIter start, end;
+            buffer.get_selection_bounds (out start, out end);
+
+            if (!start.equal (end)) {
+                string selected = buffer.get_text (start, end, true);
+                string[] lines = Regex.split_simple ("""\R""", selected);
+                return lines.length;
+            }
+
+            return 0;
         }
 
         // Duplicate selected text if exists, else duplicate current line
@@ -207,6 +263,63 @@ namespace Scratch.Widgets {
             }
         }
 
+        public void sort_selected_lines () {
+            Gtk.TextIter start, end;
+            buffer.get_selection_bounds (out start, out end);
+
+            if (!start.equal (end)) {
+                if (!start.starts_line ()) {
+                    start.backward_chars (start.get_line_offset ());
+                }
+
+                // Go to the start of the next line so we get the newline character
+                if (!end.starts_line ()) {
+                    end.forward_line ();
+                }
+
+                bool end_included = end.is_end ();
+                string selected = buffer.get_text (start, end, true);
+                string[] lines = Regex.split_simple ("""(\R)""", selected);
+
+                // We have two array elements for every line, don't continue if we have only 1 line
+                if (lines.length <= 3) {
+                    return;
+                }
+
+                // The split lines are split into pairs of the line's content and the newline character(s), so join them
+                // back together as standalone lines again
+                var line_array = new Gee.ArrayList<string> ();
+                for (int i = 0; i < lines.length; i+= 2) {
+                    if (i + 1 <= lines.length - 1) {
+                        line_array.add (lines[i] + lines[i + 1]);
+                    } else if (i == lines.length - 1 && end_included) {
+                        // If this is the EOF line, give it a newline character copied from the line above
+                        line_array.add (lines[i] + lines[i - 1]);
+                    } else {
+                        break;
+                    }
+                }
+
+                line_array.sort ((a, b) => {
+                    return a.collate (b);
+                });
+
+                // Strip the newline off the new last line in the file if we need to
+                if (end_included) {
+                    var orig_end = line_array[line_array.size - 1];
+                    if (Regex.match_simple ("""\R""", orig_end)) {
+                        line_array[line_array.size - 1] = Regex.split_simple ("""\R""", orig_end)[0];
+                    }
+                }
+
+                var sorted = string.joinv ("", line_array.to_array ());
+                buffer.begin_user_action ();
+                buffer.@delete (ref start, ref end);
+                buffer.insert_at_cursor (sorted, -1);
+                buffer.end_user_action ();
+            }
+        }
+
         public void set_text (string text, bool opening = true) {
             var source_buffer = (Gtk.SourceBuffer) buffer;
             if (opening) {
@@ -228,21 +341,64 @@ namespace Scratch.Widgets {
             return buffer.text;
         }
 
+        private void update_draw_spaces () {
+            Gtk.TextIter doc_start, doc_end;
+            buffer.get_start_iter (out doc_start);
+            buffer.get_end_iter (out doc_end);
+            buffer.remove_tag_by_name ("draw_spaces", doc_start, doc_end);
+
+            Gtk.TextIter start, end;
+            var selection = buffer.get_selection_bounds (out start, out end);
+
+            /* Draw spaces in selection the same way if drawn at all */
+            if (selection &&
+                settings.draw_spaces in (ScratchDrawSpacesState.FOR_SELECTION | ScratchDrawSpacesState.ALWAYS)) {
+
+                buffer.apply_tag_by_name ("draw_spaces", start, end);
+            }
+        }
+
+        private void on_context_menu (Gtk.Menu menu) {
+            var sort_item = new Gtk.MenuItem.with_label (_("Sort Selected Lines"));
+            sort_item.sensitive = get_selected_line_count () > 1;
+            sort_item.activate.connect (sort_selected_lines);
+            menu.add (sort_item);
+
+            if (buffer is Gtk.SourceBuffer) {
+                var can_comment = CommentToggler.language_has_comments ((buffer as Gtk.SourceBuffer).get_language ());
+                var comment_item = new Gtk.MenuItem.with_label (_("Toggle Comment"));
+                comment_item.sensitive = get_selected_line_count () > 0 && can_comment;
+                comment_item.activate.connect (() => {
+                    CommentToggler.toggle_comment (buffer as Gtk.SourceBuffer);
+                });
+
+                menu.add (comment_item);
+            }
+
+            menu.show_all ();
+        }
+
         void on_mark_set (Gtk.TextIter loc, Gtk.TextMark mar) {
             // Weed out user movement for text selection changes
             Gtk.TextIter start, end;
-            buffer.get_selection_bounds (out start,out end);
+            buffer.get_selection_bounds (out start, out end);
 
-            if (start == last_select_start_iter && end == last_select_end_iter) {
+            if (start.equal (last_select_start_iter) && end.equal (last_select_end_iter)) {
                 return;
             }
 
-            if (selection_changed_timer !=0 && MainContext.get_thread_default ().find_source_by_id (selection_changed_timer) != null) {
+            last_select_start_iter.assign (start);
+            last_select_end_iter.assign (end);
+
+            update_draw_spaces ();
+
+            if (selection_changed_timer != 0) {
                 Source.remove (selection_changed_timer);
+                selection_changed_timer = 0;
             }
 
             // Fire deselected immediatly
-            if (!buffer.get_has_selection ()) {
+            if (start.equal (end)) {
                 deselected ();
             // Don't fire signal till we think select movement is done
             } else {
@@ -260,16 +416,8 @@ namespace Scratch.Widgets {
                 deselected ();
             }
 
+            selection_changed_timer = 0;
             return false;
-        }
-
-        public override void draw_layer (Gtk.TextViewLayer layer, Cairo.Context context) {
-            if (layer == Gtk.TextViewLayer.ABOVE && buffer.get_has_selection () && settings.draw_spaces == ScratchDrawSpacesState.FOR_SELECTION) {
-                context.save ();
-                Utils.draw_tabs_and_spaces (this, context);
-                context.restore ();
-            }
-            base.draw_layer (layer, context);
         }
     }
 }

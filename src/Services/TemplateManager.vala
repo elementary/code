@@ -204,8 +204,7 @@ public class Scratch.TemplateManager : GLib.Object {
         var scroll = new Gtk.ScrolledWindow (null, null);
         scroll.height_request = 250;
         scroll.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
-        scroll.add_with_viewport (grid);
-        scroll.set_shadow_type (Gtk.ShadowType.NONE);
+        scroll.add (grid);
 
         (dialog.get_content_area() as Gtk.Box).pack_start(scroll);
         //register_template ("text-editor", "Sample", "sample template", typeof(TestTemplate));
