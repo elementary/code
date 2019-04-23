@@ -8,16 +8,15 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-04 11:52-0800\n"
-"PO-Revision-Date: 2018-10-28 00:05+0000\n"
-"Last-Translator: sabri unal <yakushabb@gmail.com>\n"
-"Language-Team: Turkish <https://weblate.elementary.io/projects/code/extra/tr/"
-">\n"
+"PO-Revision-Date: 2019-04-17 23:31+0000\n"
+"Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
+"Language-Team: Turkish <https://l10n.elementary.io/projects/code/extra/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.5.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -69,9 +68,9 @@ msgid ""
 "languages."
 msgstr ""
 "Sizin dilinizden anlar. İster Vala ile kodluyor olun, ister PHP ile script "
-"yazıyor veya HTML dosyası düzenliyor olun, Kod her zaman yanınızda. Tümüyle "
-"kod vurgusu ile neredeyse bütün programlara dilleri ile uyumun tecrübesini "
-"yaşayın."
+"yazıyor veya HTML dosyası düzenliyor olun, Kod her zaman yanınızda. Tam "
+"sözdizimi vurgulaması ile neredeyse bütün programlama dilleri ile uyumun "
+"tecrübesini yaşayın."
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid ""
@@ -89,7 +88,7 @@ msgstr "Ek özellikler şunları içerir:"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "syntax highlighting with gtksourceview-3"
-msgstr "gtksourceview-3 ile söz-dizimi vurgulama"
+msgstr "gtksourceview-3 ile sözdizimi vurgulaması"
 
 #: data/io.elementary.code.appdata.xml.in:43
 msgid "a find bar to search the words in the files"
@@ -97,11 +96,11 @@ msgstr "dosyalar arasında kelime araması yapmak için arama çubuğu"
 
 #: data/io.elementary.code.appdata.xml.in:44
 msgid "tab and split documents system"
-msgstr "Sekme ve bölünmüş belgeler sistemi"
+msgstr "sekme ve bölünmüş belgeler sistemi"
 
 #: data/io.elementary.code.appdata.xml.in:45
 msgid "lots of others"
-msgstr "Bir sürü başka"
+msgstr "ve daha niceleri"
 
 #: data/io.elementary.code.appdata.xml.in:101
 msgid "elementary LLC."
@@ -113,16 +112,15 @@ msgstr "Kod dosyalarını düzenle"
 
 #: data/io.elementary.code.desktop.in.in:6
 msgid "Code Editor"
-msgstr "Kod Editörü"
+msgstr "Kod Düzenleyici"
 
 #: data/io.elementary.code.desktop.in.in:8
 msgid "io.elementary.code"
 msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
-#, fuzzy
 msgid "text;IDE;scratch;"
-msgstr "IDE;scratch;"
+msgstr "metin;IDE;karalama;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New Document"
