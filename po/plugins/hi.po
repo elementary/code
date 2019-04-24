@@ -8,16 +8,15 @@ msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-04 11:52-0800\n"
-"PO-Revision-Date: 2018-08-24 00:00+0000\n"
-"Last-Translator: Anand Kumar <anand@anandkumar.net>\n"
-"Language-Team: Hindi <https://weblate.elementary.io/projects/code/plugins/hi/"
-">\n"
+"PO-Revision-Date: 2019-04-12 09:53+0000\n"
+"Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
+"Language-Team: Hindi <https://l10n.elementary.io/projects/code/plugins/hi/>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.5.1\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -45,59 +44,59 @@ msgstr "स्वाभाविक रूप से टैब या स्प�
 
 #: plugins/editorconfig/editorconfig.plugin:6
 msgid "EditorConfig"
-msgstr ""
+msgstr "EditorConfig"
 
 #: plugins/editorconfig/editorconfig.plugin:7
 msgid "Load settings from an EditorConfig file"
-msgstr ""
+msgstr "EditorConfig फ़ाइल से सेटिंग लोड करें"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
-msgstr ""
+msgstr "शब्द चयन को हाइलाइट करें"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:7
 msgid "Highlights all occurrences of words that are selected"
-msgstr ""
+msgstr "चुने गए शब्दों की सभी घटनाओं पर प्रकाश डाला गया"
 
 #: plugins/outline/outline.plugin:6
 msgid "Outline"
-msgstr ""
+msgstr "बाह्यरेखा"
 
 #: plugins/outline/outline.plugin:7
 msgid "Outline symbols in your current file for Vala"
-msgstr ""
+msgstr "Vala के लिए अपनी वर्तमान फ़ाइल में प्रतीकों को रेखांकित करें"
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
-msgstr ""
+msgstr "पेस्टबीन"
 
 #: plugins/pastebin/pastebin.plugin:7
 msgid "Share files with pastebin service"
-msgstr ""
+msgstr "Pastebin सेवा के साथ फ़ाइलें साझा करें"
 
 #: plugins/preserve-indent/preserve-indent.plugin:6
 msgid "Preserve Indent"
-msgstr ""
+msgstr "इंडेंट संरक्षित करें"
 
 #: plugins/preserve-indent/preserve-indent.plugin:7
 msgid "Maintains relative indent level of pasted text"
-msgstr ""
+msgstr "चिपकाए गए पाठ के सापेक्ष इंडेंट स्तर को बनाए रखता है"
 
 #: plugins/spell/spell.plugin:6
 msgid "Spell Checker"
-msgstr ""
+msgstr "वर्तनी जाँच करनेवाला"
 
 #: plugins/spell/spell.plugin:7
 msgid "Checks the spelling of your documents"
-msgstr ""
+msgstr "आपके दस्तावेज़ों की वर्तनी की जाँच करता है"
 
 #: plugins/strip-trailing-save/strip-trailing-save.plugin:6
 msgid "Strip trailing whitespace"
-msgstr ""
+msgstr "समाप्त सफेद स्थान को हटा दें"
 
 #: plugins/strip-trailing-save/strip-trailing-save.plugin:7
 msgid "Strip trailing whitespace on save"
-msgstr ""
+msgstr "सेव्ह करते समय अंतिम सफेद स्थान निकालें"
 
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
@@ -105,20 +104,22 @@ msgstr "टर्मिनल"
 
 #: plugins/terminal/terminal.plugin:7
 msgid "A terminal in your text editor"
-msgstr ""
+msgstr "आपके पाठ संपादक में एक टर्मिनल"
 
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
-msgstr ""
+msgstr "विम इम्यूलेशन"
 
 #: plugins/vim-emulation/vim-emulation.plugin:7
 msgid "Use Vim commands in Code"
-msgstr ""
+msgstr "कोड में विम कमांड का उपयोग करें"
 
 #: plugins/word-completion/word-completion.plugin:3
 msgid "Words Completion"
-msgstr ""
+msgstr "शब्द पूर्णता"
 
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
+"अपनी फ़ाइलों में बहुत बार उपयोग किए जाने वाले शब्दों का उपयोग करके एक पूर्ण "
+"संवाद दिखाएं"

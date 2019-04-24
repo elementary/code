@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-07 11:10-0800\n"
-"PO-Revision-Date: 2018-09-28 00:06+0000\n"
+"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"PO-Revision-Date: 2019-04-21 13:31+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
-"Language-Team: Norwegian Bokmål <https://weblate.elementary.io/projects/code/"
+"Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
 "code/nb/>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.5.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:133
@@ -87,44 +87,44 @@ msgstr "Gjeldende arbeidsmappe"
 msgid "Code"
 msgstr "Kode"
 
-#: src/MainWindow.vala:183 src/Widgets/HeaderBar.vala:80
+#: src/MainWindow.vala:184 src/Widgets/HeaderBar.vala:80
 msgid "Find…"
 msgstr "Finn…"
 
-#: src/MainWindow.vala:188
+#: src/MainWindow.vala:189
 msgid "Hide search bar"
 msgstr "Skjul søkefeltet"
 
-#: src/MainWindow.vala:236
+#: src/MainWindow.vala:240
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Zeitgeist datakilde for Scratch"
 
-#: src/MainWindow.vala:744 src/Services/Document.vala:503
+#: src/MainWindow.vala:765 src/Services/Document.vala:503
 msgid "All files"
 msgstr "Alle filer"
 
-#: src/MainWindow.vala:748 src/Services/Document.vala:507
+#: src/MainWindow.vala:769 src/Services/Document.vala:507
 msgid "Text files"
 msgstr "Tekstfiler"
 
-#: src/MainWindow.vala:752
+#: src/MainWindow.vala:773
 msgid "Open some files"
 msgstr "Åpne noen filer"
 
-#: src/MainWindow.vala:755
+#: src/MainWindow.vala:776
 msgid "Open"
 msgstr "Åpne"
 
-#: src/MainWindow.vala:756 src/Services/Document.vala:402
+#: src/MainWindow.vala:777 src/Services/Document.vala:402
 #: src/Services/Document.vala:515
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/MainWindow.vala:781
+#: src/MainWindow.vala:802
 msgid "_Open"
 msgstr "_Åpne"
 
-#: src/MainWindow.vala:782
+#: src/MainWindow.vala:803
 msgid "_Cancel"
 msgstr "_Avbryt"
 
@@ -222,19 +222,19 @@ msgstr "Egendefinert skrifttype:"
 msgid "Other Application…"
 msgstr "Annet program…"
 
-#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:120
 msgid "Open In"
 msgstr "Åpne i"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:123
 msgid "Other Actions"
 msgstr "Andre handlinger"
 
-#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
 msgstr "Gi nytt navn"
 
-#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:132
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr "Flytt til papirkurv"
@@ -280,7 +280,7 @@ msgstr "Lukk mappe"
 #: src/FolderManager/ProjectFolderItem.vala:269
 #, fuzzy
 msgid "Change Branch"
-msgstr "Endre Scratch instillinger"
+msgstr "Bytt gren"
 
 #: src/Services/Document.vala:267
 #, c-format
@@ -305,7 +305,6 @@ msgid "Please wait while Code is loading the file."
 msgstr "Vent mens Kode laster inn filen."
 
 #: src/Services/Document.vala:294
-#, fuzzy
 msgid "Cancel Loading"
 msgstr "Avbryt innlasting"
 
@@ -345,9 +344,8 @@ msgid "File \"%s\" Cannot Be Read"
 msgstr "Filen \"%s\" kan ikke leses"
 
 #: src/Services/Document.vala:717
-#, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
-msgstr "Kanskje den er ødelagt eller at du mangler rettigheter til å lese den?"
+msgstr "Kanskje den er ødelagt eller at du mangler rettigheter til å lese den."
 
 #: src/Services/Document.vala:729
 #, c-format
@@ -369,17 +367,17 @@ msgstr "Filen \"%s\" har blitt slettet. Ønsker du å lagre den likevel?"
 
 #. If the file can't be written
 #: src/Services/Document.vala:751
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
-"Du kan ikke lagre endringer på filen \"%s\". Ønsker du å lagre endringene i "
-"denne filen på et annet sted?"
+"Du kan ikke lagre endringer i filen \"%s\". Ønsker du å lagre endringene et "
+"annet sted?"
 
 #: src/Services/Document.vala:753
 msgid "Save changes elsewhere"
-msgstr "Lagre endringer andre steder"
+msgstr "Lagre endringer annensteds hen"
 
 #: src/Services/Document.vala:786
 #, c-format
@@ -403,9 +401,9 @@ msgid "Templates"
 msgstr "Skisser"
 
 #: src/Widgets/DocumentView.vala:133
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s:%d"
-msgstr "Tekstfil fra %s"
+msgstr "Tekstfil fra %s:%d"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
