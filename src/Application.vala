@@ -259,8 +259,8 @@ namespace Scratch {
             { "new-tab", 't', 0, OptionArg.NONE, out create_new_tab, N_("New Tab"), null },
             { "new-window", 'n', 0, OptionArg.NONE, out create_new_window, N_("New Window"), null },
             { "version", 'v', 0, OptionArg.NONE, out print_version, N_("Print version info and exit"), null },
-            { "set", 's', 0, OptionArg.STRING, ref _app_cmd_name, N_("Set of plugins"), "" },
-            { "cwd", 'c', 0, OptionArg.STRING, ref _cwd, N_("Current working directory"), "" },
+            { "set", 's', 0, OptionArg.STRING, ref _app_cmd_name, N_("Set of plugins"), N_("plugin") },
+            { "cwd", 'c', 0, OptionArg.STRING, ref _cwd, N_("Current working directory"), N_("directory") },
             { null }
         };
 
