@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-05-13 13:42+0200\n"
 "PO-Revision-Date: 2016-08-10 18:13+0000\n"
 "Last-Translator: Fedik <Unknown>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -82,9 +82,19 @@ msgstr "Показати інформацію про версію та вийт�
 msgid "Set of plugins"
 msgstr "Набір плагінів"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "Набір плагінів"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Поточна робоча тека"
+
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "Це каталог"
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -729,9 +739,6 @@ msgstr "Неможливо завантажити тему іконок: %s\n"
 #~ msgstr ""
 #~ "Неможливо відкрити файл \"%s\"\n"
 #~ "%s"
-
-#~ msgid "It is a directory."
-#~ msgstr "Це каталог"
 
 #~ msgid "Highlight current line:"
 #~ msgstr "Виділяти поточний рядок:"

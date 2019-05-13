@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-05-13 13:42+0200\n"
 "PO-Revision-Date: 2018-06-05 00:05+0000\n"
 "Last-Translator: Antony <antonykoinousis@gmail.com>\n"
 "Language-Team: Greek <https://weblate.elementary.io/projects/code/code/el/>\n"
@@ -76,9 +76,18 @@ msgstr "Εκτύπωση πληροφοριών έκδοσης και έξοδο
 msgid "Set of plugins"
 msgstr "Σετ προσθέτων"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "Σετ προσθέτων"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Τρέχον φάκελος εργασίας"
+
+#: src/Application.vala:263
+msgid "directory"
+msgstr ""
 
 #: src/MainWindow.vala:133
 msgid "Code"

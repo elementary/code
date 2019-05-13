@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-05-13 13:42+0200\n"
 "PO-Revision-Date: 2018-03-21 01:09+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://weblate.elementary.io/projects/"
@@ -79,9 +79,19 @@ msgstr "列印版本資訊並離開"
 msgid "Set of plugins"
 msgstr "插件集"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "插件集"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "目前的工作目錄"
+
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "這是目錄。"
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -707,9 +717,6 @@ msgstr "無法載入圖示主題：%s\n"
 #~ msgstr ""
 #~ "無法開啟「%s」檔案。\n"
 #~ "%s"
-
-#~ msgid "It is a directory."
-#~ msgstr "這是目錄。"
 
 #~ msgid "Highlight current line:"
 #~ msgstr "標明目前列："

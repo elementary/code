@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-05-13 13:42+0200\n"
 "PO-Revision-Date: 2019-04-28 08:38+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
@@ -78,9 +78,19 @@ msgstr "バージョン情報を表示して終了します"
 msgid "Set of plugins"
 msgstr "プラグインのセット"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "プラグインのセット"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "カレントディレクトリ"
+
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "この場所はディレクトリです。"
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -696,9 +706,6 @@ msgstr "アイコンテーマを読み込めませんでした: %s\n"
 #~ msgstr ""
 #~ "ファイル \"%s\" を開くことができません。\n"
 #~ "%s"
-
-#~ msgid "It is a directory."
-#~ msgstr "この場所はディレクトリです。"
 
 #~ msgid "Highlight current line:"
 #~ msgstr "現在の行をハイライト:"

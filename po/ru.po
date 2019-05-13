@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-05-13 13:42+0200\n"
 "PO-Revision-Date: 2018-11-24 07:23+0000\n"
 "Last-Translator: Kirill Romanov <djaler1@gmail.com>\n"
 "Language-Team: Russian <https://weblate.elementary.io/projects/code/code/ru/"
@@ -80,9 +80,19 @@ msgstr "Распечатать информацию о версии и выйт�
 msgid "Set of plugins"
 msgstr "Набор надстроек"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "Набор надстроек"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Текущий рабочий каталог"
+
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "Это директория."
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -710,9 +720,6 @@ msgstr "Не удалось загрузить тему иконок: %s\n"
 #~ msgstr ""
 #~ "Файл «%s» не может быть открыт.\n"
 #~ "%s"
-
-#~ msgid "It is a directory."
-#~ msgstr "Это директория."
 
 #~ msgid "Highlight current line:"
 #~ msgstr "Выделять текущую строку:"

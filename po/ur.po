@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-05-13 13:42+0200\n"
 "PO-Revision-Date: 2016-10-16 09:08+0000\n"
 "Last-Translator: Abdul Wakeel <awkhan978@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,9 +70,18 @@ msgstr "ورژن كى معلومات جانيں اوربند کریں"
 msgid "Set of plugins"
 msgstr "پلػ ان كاسيٹ"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "پلػ ان كاسيٹ"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "موجوده ڈائريكٹرى"
+
+#: src/Application.vala:263
+msgid "directory"
+msgstr ""
 
 #: src/MainWindow.vala:133
 msgid "Code"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-05-13 13:42+0200\n"
 "PO-Revision-Date: 2019-02-13 00:07+0000\n"
 "Last-Translator: Cleiton Floss <cleitonfloss@gmail.com>\n"
 "Language-Team: Slovak <https://weblate.elementary.io/projects/code/code/sk/"
@@ -79,9 +79,19 @@ msgstr "Vytlačiť informácie o verzii a ukončiť"
 msgid "Set of plugins"
 msgstr "Sada zásuvných modulov"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "Sada zásuvných modulov"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Aktuálny pracovný adresár"
+
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "Je to priečinok."
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -706,9 +716,6 @@ msgstr "Nepodarilo sa načítať motív ikon: %s\n"
 #~ msgstr ""
 #~ "Súbor \"%s\" nemôže byť otvorený.\n"
 #~ "%s"
-
-#~ msgid "It is a directory."
-#~ msgstr "Je to priečinok."
 
 #~ msgid "Highlight current line:"
 #~ msgstr "Zvýrazniť súčasný riadok:"

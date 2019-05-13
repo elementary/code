@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-05-13 13:42+0200\n"
 "PO-Revision-Date: 2017-08-09 15:06+0000\n"
 "Last-Translator: Yvo Marques <macghivo@gmail.com>\n"
 "Language-Team: Luxembourgish <https://weblate.elementary.io/projects/scratch/"
@@ -72,9 +72,18 @@ msgstr ""
 msgid "Set of plugins"
 msgstr "Set vun plugins"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "Set vun plugins"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Momentanen Bureau"
+
+#: src/Application.vala:263
+msgid "directory"
+msgstr ""
 
 #: src/MainWindow.vala:133
 msgid "Code"

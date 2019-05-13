@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-05-13 13:42+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -63,8 +63,16 @@ msgstr ""
 msgid "Set of plugins"
 msgstr ""
 
+#: src/Application.vala:262
+msgid "plugin"
+msgstr ""
+
 #: src/Application.vala:263
 msgid "Current working directory"
+msgstr ""
+
+#: src/Application.vala:263
+msgid "directory"
 msgstr ""
 
 #: src/MainWindow.vala:133

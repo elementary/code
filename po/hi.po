@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-05-13 13:42+0200\n"
 "PO-Revision-Date: 2019-05-10 06:32+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Hindi <https://l10n.elementary.io/projects/code/code/hi/>\n"
@@ -78,9 +78,19 @@ msgstr "प्रिन्ट संस्करण जानकारी और
 msgid "Set of plugins"
 msgstr "प्लगइन्स का समूह"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "प्लगइन्स का समूह"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "वर्त्तमान फोल्डर"
+
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "यह एक निर्देशिका है।"
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -696,9 +706,6 @@ msgstr "आइकॉन थीम लोड नहीं किया जा स
 #~ msgstr ""
 #~ "फ़ाइल \"%s\" खोला नहीं जा सकता।\n"
 #~ "%s"
-
-#~ msgid "It is a directory."
-#~ msgstr "यह एक निर्देशिका है।"
 
 #~ msgid "Highlight current line:"
 #~ msgstr "वर्तमान पंक्ति को चिन्हांकित करें:"

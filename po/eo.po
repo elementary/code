@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-05-13 13:42+0200\n"
 "PO-Revision-Date: 2018-10-22 00:03+0000\n"
 "Last-Translator: Cleiton Floss <cleitonfloss@gmail.com>\n"
 "Language-Team: Esperanto <https://weblate.elementary.io/projects/code/code/"
@@ -77,8 +77,17 @@ msgstr "Presi version informon kaj eliri"
 msgid "Set of plugins"
 msgstr "Aro de kromaĵoj"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "Aro de kromaĵoj"
+
 #: src/Application.vala:263
 msgid "Current working directory"
+msgstr ""
+
+#: src/Application.vala:263
+msgid "directory"
 msgstr ""
 
 #: src/MainWindow.vala:133

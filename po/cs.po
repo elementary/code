@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-05-13 13:42+0200\n"
 "PO-Revision-Date: 2019-02-06 19:03+0000\n"
 "Last-Translator: Jan Marek <janmarek28@gmail.com>\n"
 "Language-Team: Czech <https://weblate.elementary.io/projects/code/code/cs/>\n"
@@ -78,9 +78,19 @@ msgstr "Zobrazit informace o verzi a ukončit"
 msgid "Set of plugins"
 msgstr "Sada doplňků"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "Sada doplňků"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Pracovní adresář"
+
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "Je to složka."
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -703,9 +713,6 @@ msgstr "Nelze načíst motiv ikon: %s\n"
 #~ msgstr ""
 #~ "Soubor \"%s\" nemůže být otevřen.\n"
 #~ "%s"
-
-#~ msgid "It is a directory."
-#~ msgstr "Je to složka."
 
 #~ msgid "Highlight current line:"
 #~ msgstr "Zvýraznit aktuální řádek:"
