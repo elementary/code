@@ -8,23 +8,23 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-23 14:54-0700\n"
-"PO-Revision-Date: 2019-01-28 10:41+0000\n"
+"PO-Revision-Date: 2019-04-30 14:38+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
-"Language-Team: Lithuanian <https://weblate.elementary.io/projects/code/code/"
-"lt/>\n"
+"Language-Team: Lithuanian <https://l10n.elementary.io/projects/code/code/lt/>"
+"\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n%10>=2 && (n%100<10 || n"
-"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3;\n"
-"X-Generator: Weblate 3.0.1\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n%10>=2 && (n%100<10 || "
+"n%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3;\n"
+"X-Generator: Weblate 3.6\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:133
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Created"
-msgstr "Failas \"%s\" negali būti perskaitytas"
+msgstr "Failas \"%s\" negali būti sukurtas"
 
 #. We list some common errors for quick feedback
 #: src/Application.vala:137
@@ -60,9 +60,9 @@ msgid "It is an \"unknown\" file type."
 msgstr "Tai yra \"nežinomas\" failo tipas."
 
 #: src/Application.vala:175
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Opened"
-msgstr "Failas \"%s\" negali būti perskaitytas"
+msgstr "Failas \"%s\" negali būti atvertas"
 
 #: src/Application.vala:259
 msgid "New Tab"
@@ -309,19 +309,15 @@ msgid "Cancel Loading"
 msgstr "Atsisakyti įkėlimo"
 
 #: src/Services/Document.vala:392
-#, fuzzy, c-format
+#, c-format
 msgid "Save changes to \"%s\" before closing?"
-msgstr "Ar prieš užveriant, įrašyti dokumento %s pakeitimus?"
+msgstr "Ar prieš užveriant, įrašyti pakeitimus į %s?"
 
 #: src/Services/Document.vala:393
-#, fuzzy
 msgid "If you don't save, changes will be permanently lost."
-msgstr ""
-"Jeigu neįrašysite, pakeitimai, atlikti per paskutines 4 sekundes bus "
-"negrįžtamai prarasti."
+msgstr "Jeigu neįrašysite, pakeitimai bus negrįžtamai prarasti."
 
 #: src/Services/Document.vala:399
-#, fuzzy
 msgid "Close Without Saving"
 msgstr "Užverti neįrašant"
 
@@ -680,14 +676,11 @@ msgstr "Slėpti peržiūrą"
 
 #: plugins/spell/spell.vala:76
 msgid "No Suitable Dictionaries Were Found"
-msgstr ""
+msgstr "Nerasta jokių tinkamų žodynų"
 
 #: plugins/spell/spell.vala:77
-#, fuzzy
 msgid "Please install at least one [aspell] dictionary."
-msgstr ""
-"Nerasta tinkamų žodynų.\n"
-"Prašome įdiegti bent vieną [aspell] žodyną"
+msgstr "Įdiekite bent vieną [aspell] žodyną."
 
 #: plugins/word-completion/plugin.vala:174
 #, c-format

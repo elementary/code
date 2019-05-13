@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-23 14:54-0700\n"
-"PO-Revision-Date: 2019-04-12 09:53+0000\n"
+"PO-Revision-Date: 2019-05-10 06:32+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Hindi <https://l10n.elementary.io/projects/code/code/hi/>\n"
 "Language: hi\n"
@@ -16,13 +16,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5.1\n"
+"X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:133
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Created"
-msgstr "\"%s\" फ़ाइल पढ़ा नहीं जा सकता"
+msgstr "फ़ाइल \"%s\" निर्मित नहीं की जा सकती"
 
 #. We list some common errors for quick feedback
 #: src/Application.vala:137
@@ -58,9 +58,9 @@ msgid "It is an \"unknown\" file type."
 msgstr "यह एक \"अज्ञात\" फ़ाइल प्रकार है।"
 
 #: src/Application.vala:175
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Opened"
-msgstr "\"%s\" फ़ाइल पढ़ा नहीं जा सकता"
+msgstr "फ़ाइल \"%s\" नहीं खोली जा सकती"
 
 #: src/Application.vala:259
 msgid "New Tab"
@@ -277,7 +277,6 @@ msgid "Close Folder"
 msgstr "फ़ोल्डर बंद करें"
 
 #: src/FolderManager/ProjectFolderItem.vala:269
-#, fuzzy
 msgid "Change Branch"
 msgstr "शाखा बदलें"
 
@@ -308,18 +307,15 @@ msgid "Cancel Loading"
 msgstr "लोड रद्द करें"
 
 #: src/Services/Document.vala:392
-#, fuzzy, c-format
+#, c-format
 msgid "Save changes to \"%s\" before closing?"
-msgstr "डाँकयुमेन्ट बंद करनेसे पहले %s के बदलाव सेव करे?"
+msgstr "डाँकयुमेन्ट बंद करनेसे पहले \"%s\" के बदलाव सेव करे?"
 
 #: src/Services/Document.vala:393
-#, fuzzy
 msgid "If you don't save, changes will be permanently lost."
-msgstr ""
-"अगर आप फाइल को नहीं सहेजेंगे, तो पिछले ४ सेकंड में किए  बदलाव हमेशा के लिए खो जाएँगे |"
+msgstr "अगर आप फाइल को नहीं सहेजेंगे, तो बदलाव हमेशा के लिए खो जाएँगे |"
 
 #: src/Services/Document.vala:399
-#, fuzzy
 msgid "Close Without Saving"
 msgstr "बिना सहेजे बंद करें"
 
@@ -671,14 +667,11 @@ msgstr "पूर्वावलोकन छुपाएँ"
 
 #: plugins/spell/spell.vala:76
 msgid "No Suitable Dictionaries Were Found"
-msgstr ""
+msgstr "कोई उपयुक्त डिक्शनरी नहीं मिला"
 
 #: plugins/spell/spell.vala:77
-#, fuzzy
 msgid "Please install at least one [aspell] dictionary."
-msgstr ""
-"कोई उपयुक्त शब्दकोश नहीं मिला।\n"
-"कृपया कम से कम एक [aspell] शब्दकोश स्थापित/इनस्टॉल करें"
+msgstr "कृपया कम से कम एक [aspell] शब्दकोश स्थापित/इनस्टॉल करें।"
 
 #: plugins/word-completion/plugin.vala:174
 #, c-format
