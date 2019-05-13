@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-13 13:42+0200\n"
-"PO-Revision-Date: 2019-04-25 22:38+0000\n"
+"PO-Revision-Date: 2019-05-14 19:02+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
 "Language: ca\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6\n"
+"X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:133
@@ -79,18 +79,16 @@ msgid "Set of plugins"
 msgstr "Conjunt de connectors"
 
 #: src/Application.vala:262
-#, fuzzy
 msgid "plugin"
-msgstr "Conjunt de connectors"
+msgstr "connector"
 
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Directori de treball actual"
 
 #: src/Application.vala:263
-#, fuzzy
 msgid "directory"
-msgstr "És un directori."
+msgstr "directori"
 
 #: src/MainWindow.vala:133
 msgid "Code"
