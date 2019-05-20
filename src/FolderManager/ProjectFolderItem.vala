@@ -96,7 +96,7 @@ namespace Scratch.FolderManager {
 
             var menu = new Gtk.Menu ();
             menu.append (close_item);
-            menu.append (create_submenu_for_openin (info, file_type));
+            menu.append (create_submenu_for_open_in (info, file_type));
             menu.append (create_submenu_for_new ());
             menu.append (delete_item);
 

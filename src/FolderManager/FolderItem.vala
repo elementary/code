@@ -99,7 +99,7 @@ namespace Scratch.FolderManager {
             delete_item.activate.connect (trash);
 
             var menu = new Gtk.Menu ();
-            menu.append (create_submenu_for_openin (info, file_type));
+            menu.append (create_submenu_for_open_in (info, file_type));
             menu.append (contractor_item);
             menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (create_submenu_for_new ());
@@ -110,7 +110,7 @@ namespace Scratch.FolderManager {
             return menu;
         }
 
-        protected Gtk.MenuItem create_submenu_for_openin (GLib.FileInfo? info, string file_type) {
+        protected Gtk.MenuItem create_submenu_for_open_in (GLib.FileInfo? info, string file_type) {
             var other_menuitem = new Gtk.MenuItem.with_label (_("Other Application…"));
             other_menuitem.activate.connect (() => show_app_chooser (file));
 
