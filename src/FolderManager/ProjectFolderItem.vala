@@ -84,8 +84,19 @@ namespace Scratch.FolderManager {
                 trash ();
             });
 
+            GLib.FileInfo info = null;
+            string file_type = "";
+
+            try {
+                info = file.file.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, 0);
+                file_type = info.get_attribute_string (GLib.FileAttribute.STANDARD_CONTENT_TYPE);
+            } catch (Error e) {
+                warning (e.message);
+            }
+
             var menu = new Gtk.Menu ();
             menu.append (close_item);
+            menu.append (create_submenu_for_openin (info, file_type));
             menu.append (create_submenu_for_new ());
             menu.append (delete_item);
 
