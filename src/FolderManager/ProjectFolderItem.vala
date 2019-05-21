@@ -266,6 +266,10 @@ namespace Scratch.FolderManager {
                     }
                 }
 
+                if (change_branch_menu.get_children ().length () == 0) {
+                  sensitive = false;
+                }
+
                 label = _("Change Branch");
                 submenu = change_branch_menu;
             }
