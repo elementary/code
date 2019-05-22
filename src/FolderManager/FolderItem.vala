@@ -64,11 +64,11 @@ namespace Scratch.FolderManager {
             var contractor_menu = new Gtk.Menu ();
 
             GLib.FileInfo info = null;
-            string file_type = "";
+            unowned string? file_type = null;
 
             try {
-                info = file.file.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, 0);
-                file_type = info.get_attribute_string (GLib.FileAttribute.STANDARD_CONTENT_TYPE);
+                info = file.file.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, GLib.FileQueryInfoFlags.NONE);
+                file_type = info.get_content_type();
             } catch (Error e) {
                 warning (e.message);
             }
@@ -110,9 +110,11 @@ namespace Scratch.FolderManager {
             return menu;
         }
 
-        protected Gtk.MenuItem create_submenu_for_open_in (GLib.FileInfo? info, string file_type) {
+        protected Gtk.MenuItem create_submenu_for_open_in (GLib.FileInfo? info, string? file_type) {
             var other_menuitem = new Gtk.MenuItem.with_label (_("Other Application…"));
             other_menuitem.activate.connect (() => show_app_chooser (file));
+
+            file_type = file_type ?? "inode/directory";
 
             var open_in_menu = new Gtk.Menu ();
 
