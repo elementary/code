@@ -91,7 +91,6 @@ namespace Scratch.FolderManager {
             }
         }
         
-        // checks if we're dealing with a temporary file
         public bool is_temporary {
             get {
                return path.has_suffix ("~");
