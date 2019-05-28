@@ -264,7 +264,7 @@ namespace Scratch.FolderManager {
                         if (!exists) {
                             if (file.is_valid_directory) {
                                 item = new FolderItem (file, view);
-                            } else if(!file.is_temporary) {
+                            } else if (!file.is_temporary) {
                                 item = new FileItem (file, view);
                             }
                         }
