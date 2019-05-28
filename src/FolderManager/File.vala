@@ -90,6 +90,13 @@ namespace Scratch.FolderManager {
                 return false;
             }
         }
+        
+        // checks if we're dealing with a temporary file
+        public bool is_temporary {
+            get {
+               return path.has_suffix("~");
+            }
+         }
 
         // checks if we're dealing with a textfile
         public bool is_valid_textfile {
