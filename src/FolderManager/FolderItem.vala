@@ -166,7 +166,7 @@ namespace Scratch.FolderManager {
                 if (child.is_valid_directory) {
                     var item = new FolderItem (child, view);
                     add (item);
-                } else {
+                } else if (!child.is_temporary) {
                     var item = new FileItem (child, view);
                     add (item);
                 }
@@ -264,7 +264,7 @@ namespace Scratch.FolderManager {
                         if (!exists) {
                             if (file.is_valid_directory) {
                                 item = new FolderItem (file, view);
-                            } else {
+                            } else if (!file.is_temporary) {
                                 item = new FileItem (file, view);
                             }
                         }
