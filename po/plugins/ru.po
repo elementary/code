@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-04 11:52-0800\n"
 "PO-Revision-Date: 2019-06-08 01:35+0000\n"
-"Last-Translator: Mikhail Oleynikov <quaiby@icloud.com>\n"
+"Last-Translator: MacOSO <auroragamesproject@gmail.com>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/plugins/ru/>"
 "\n"
 "Language: ru\n"
@@ -42,7 +42,7 @@ msgstr "Обнаружить отступы"
 
 #: plugins/detect-indent/detect-indent.plugin:7
 msgid "Heuristically detect tab or space settings"
-msgstr ""
+msgstr "Эвристическое обнаружение настроек табуляции или пробелов"
 
 #: plugins/editorconfig/editorconfig.plugin:6
 msgid "EditorConfig"
@@ -70,7 +70,7 @@ msgstr "Обводить символы в Вашем текущем файле 
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
-msgstr ""
+msgstr "Pastebin"
 
 #: plugins/pastebin/pastebin.plugin:7
 msgid "Share files with pastebin service"
@@ -86,11 +86,11 @@ msgstr "Сохраняет относительные отступы встав�
 
 #: plugins/spell/spell.plugin:6
 msgid "Spell Checker"
-msgstr ""
+msgstr "Проверка орфографии"
 
 #: plugins/spell/spell.plugin:7
 msgid "Checks the spelling of your documents"
-msgstr ""
+msgstr "Проверяет правописание ваших документов"
 
 #: plugins/strip-trailing-save/strip-trailing-save.plugin:6
 msgid "Strip trailing whitespace"
@@ -106,11 +106,11 @@ msgstr "Терминал"
 
 #: plugins/terminal/terminal.plugin:7
 msgid "A terminal in your text editor"
-msgstr ""
+msgstr "Терминал в текстовом редакторе"
 
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
-msgstr ""
+msgstr "Эмуляция Vim"
 
 #: plugins/vim-emulation/vim-emulation.plugin:7
 msgid "Use Vim commands in Code"
@@ -118,8 +118,10 @@ msgstr ""
 
 #: plugins/word-completion/word-completion.plugin:3
 msgid "Words Completion"
-msgstr ""
+msgstr "Завершение слов"
 
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
+"Показать диалоговое окно завершения с наиболее часто используемыми словами "
+"из файлов"
