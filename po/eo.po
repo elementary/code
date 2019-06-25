@@ -8,62 +8,64 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-13 13:42+0200\n"
-"PO-Revision-Date: 2018-10-22 00:03+0000\n"
-"Last-Translator: Cleiton Floss <cleitonfloss@gmail.com>\n"
-"Language-Team: Esperanto <https://weblate.elementary.io/projects/code/code/"
-"eo/>\n"
+"PO-Revision-Date: 2019-06-26 21:09+0000\n"
+"Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
+"Language-Team: Esperanto <https://l10n.elementary.io/projects/code/code/eo/>"
+"\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:133
 #, c-format
 msgid "File \"%s\" Cannot Be Created"
-msgstr ""
+msgstr "Ne eblis krei la dosieron „%s“"
 
 #. We list some common errors for quick feedback
 #: src/Application.vala:137
 msgid "Maybe you do not have the necessary permissions."
-msgstr ""
+msgstr "Eble, vi ne posedas la necesajn permesojn."
 
 #: src/Application.vala:139
 msgid "Maybe the file path provided is not valid."
-msgstr ""
+msgstr "Eble, la dosierindiko provizita ne validas."
 
 #: src/Application.vala:141
 msgid "The location is read-only."
-msgstr ""
+msgstr "La loko estas nurlega."
 
 #: src/Application.vala:143
 msgid "The parent directory doesn't exist."
-msgstr ""
+msgstr "La parenca dosierujo ne ekzistas."
 
 #: src/Application.vala:164
 msgid "It is a mountable location."
-msgstr ""
+msgstr "Tio estas muntebla loko."
 
 #: src/Application.vala:167
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
 msgstr ""
+"Tio estas „speciala“ dosiero, konekt-interfaco,\n"
+" FIFO-rektvica memoro, bloka aŭ bajta dosiero."
 
 #: src/Application.vala:170
 msgid "It is an \"unknown\" file type."
-msgstr ""
+msgstr "Tio estas „nekonata“ dosiertipo."
 
 #: src/Application.vala:175
 #, c-format
 msgid "File \"%s\" Cannot Be Opened"
-msgstr ""
+msgstr "Ne eblis malfermi la dosieron „%s“"
 
 #: src/Application.vala:259
 msgid "New Tab"
-msgstr "Nova tabo"
+msgstr "Nova langeto"
 
 #: src/Application.vala:260 src/FolderManager/FileItem.vala:31
 msgid "New Window"
@@ -71,28 +73,27 @@ msgstr "Nova fenestro"
 
 #: src/Application.vala:261
 msgid "Print version info and exit"
-msgstr "Presi version informon kaj eliri"
+msgstr "Presi versian informon kaj eliri"
 
 #: src/Application.vala:262
 msgid "Set of plugins"
-msgstr "Aro de kromaĵoj"
+msgstr "Kromaĵaro"
 
 #: src/Application.vala:262
-#, fuzzy
 msgid "plugin"
-msgstr "Aro de kromaĵoj"
+msgstr "kromaĵo"
 
 #: src/Application.vala:263
 msgid "Current working directory"
-msgstr ""
+msgstr "Aktiva dosierujo"
 
 #: src/Application.vala:263
 msgid "directory"
-msgstr ""
+msgstr "dosierujo"
 
 #: src/MainWindow.vala:133
 msgid "Code"
-msgstr ""
+msgstr "Kodo"
 
 #: src/MainWindow.vala:184 src/Widgets/HeaderBar.vala:80
 msgid "Find…"
@@ -104,7 +105,7 @@ msgstr "Kaŝi serĉbreton"
 
 #: src/MainWindow.vala:240
 msgid "Zeitgeist Datasource for Scratch"
-msgstr ""
+msgstr "Datenfonto Zeitgeist por Scratch"
 
 #: src/MainWindow.vala:765 src/Services/Document.vala:503
 msgid "All files"
@@ -116,7 +117,7 @@ msgstr "Tekstaj dosieroj"
 
 #: src/MainWindow.vala:773
 msgid "Open some files"
-msgstr "Malfermi kelkajn dosierojn"
+msgstr "Malfermi dosierojn"
 
 #: src/MainWindow.vala:776
 msgid "Open"
@@ -129,11 +130,11 @@ msgstr "Nuligi"
 
 #: src/MainWindow.vala:802
 msgid "_Open"
-msgstr ""
+msgstr "_Malfermi"
 
 #: src/MainWindow.vala:803
 msgid "_Cancel"
-msgstr ""
+msgstr "_Nuligi"
 
 #: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:160
 msgid "Preferences"
@@ -141,19 +142,19 @@ msgstr "Agordoj"
 
 #: src/Dialogs/PreferencesDialog.vala:52
 msgid "General"
-msgstr "Generala"
+msgstr "Ĝenerala"
 
 #: src/Dialogs/PreferencesDialog.vala:53
 msgid "Save files when changed:"
-msgstr "Konservi dosierojn kiam modifitaj:"
+msgstr "Konservi dosierojn post modifo:"
 
 #: src/Dialogs/PreferencesDialog.vala:55 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
-msgstr "Langetoj"
+msgstr "Taboj"
 
 #: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:161
 msgid "Automatic indentation:"
-msgstr "Aŭtomata indentado:"
+msgstr "Aŭtomata tabigo:"
 
 #: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:155
 msgid "Insert spaces instead of tabs:"
@@ -178,36 +179,36 @@ msgstr "Fermi"
 
 #: src/Dialogs/PreferencesDialog.vala:96
 msgid "Extensions"
-msgstr "Etendaĵoj"
+msgstr "Kromaĵoj"
 
 #: src/Dialogs/PreferencesDialog.vala:105
 msgid "Editor"
-msgstr ""
+msgstr "Redaktilo"
 
 #: src/Dialogs/PreferencesDialog.vala:107
 msgid "Highlight matching brackets:"
-msgstr "Marki kongruajn krampojn:"
+msgstr "Emfazi kongruajn rektajn krampojn:"
 
 #: src/Dialogs/PreferencesDialog.vala:110
 msgid "Line wrap:"
-msgstr ""
+msgstr "Linifaldo:"
 
 #: src/Dialogs/PreferencesDialog.vala:113
 msgid "Draw Spaces:"
-msgstr ""
+msgstr "Afiŝi spacojn:"
 
 #: src/Dialogs/PreferencesDialog.vala:115
 #: plugins/pastebin/pastebin_dialog.vala:460
 msgid "Never"
-msgstr ""
+msgstr "Neniam"
 
 #: src/Dialogs/PreferencesDialog.vala:116
 msgid "For selected text"
-msgstr ""
+msgstr "Elektitan tekston"
 
 #: src/Dialogs/PreferencesDialog.vala:117
 msgid "Always"
-msgstr ""
+msgstr "Ĉiam"
 
 #: src/Dialogs/PreferencesDialog.vala:120
 msgid "Show Mini Map:"
