@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-13 13:42+0200\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
 "PO-Revision-Date: 2019-05-14 19:02+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
-"Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/>"
-"\n"
+"Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/"
+">\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -285,8 +285,9 @@ msgstr "novo ficheiro %d"
 msgid "Close Folder"
 msgstr "Fechar Pasta"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
-msgid "Change Branch"
+#: src/FolderManager/ProjectFolderItem.vala:275
+#, fuzzy
+msgid "Branch"
 msgstr "Alterar Ramo"
 
 #: src/Services/Document.vala:267
