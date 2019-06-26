@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-13 13:42+0200\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
 "PO-Revision-Date: 2019-05-14 19:02+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
@@ -284,8 +284,9 @@ msgstr "fitxer nou %d"
 msgid "Close Folder"
 msgstr "Tanca la carpeta"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
-msgid "Change Branch"
+#: src/FolderManager/ProjectFolderItem.vala:275
+#, fuzzy
+msgid "Branch"
 msgstr "Canvia de branca"
 
 #: src/Services/Document.vala:267

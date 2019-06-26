@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-13 13:42+0200\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
 "PO-Revision-Date: 2019-02-13 00:07+0000\n"
 "Last-Translator: Cleiton Floss <cleitonfloss@gmail.com>\n"
 "Language-Team: Slovak <https://weblate.elementary.io/projects/code/code/sk/"
@@ -287,8 +287,9 @@ msgstr "nový súbor %d"
 msgid "Close Folder"
 msgstr "Zatvoriť priečinok"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
-msgid "Change Branch"
+#: src/FolderManager/ProjectFolderItem.vala:275
+#, fuzzy
+msgid "Branch"
 msgstr "Zmeniť vetvu"
 
 #: src/Services/Document.vala:267
