@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
 "PO-Revision-Date: 2016-12-11 08:21+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: \n"
@@ -77,9 +77,19 @@ msgstr "نەشىر ئۇچۇرلىرىنى بىسىش ۋە چىكىنىش"
 msgid "Set of plugins"
 msgstr "قىستۇرمىلار توپلىمى"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "قىستۇرمىلار توپلىمى"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "ھازىر خىزمەت قىلىۋاتقان مۇندەرىجە"
+
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "بۇ بىر مۇندەرىجە."
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -280,9 +290,9 @@ msgstr "يىڭى ھۆججەت قۇرۇش"
 msgid "Close Folder"
 msgstr "مۇندەرىجىنى تاقاش"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
+#: src/FolderManager/ProjectFolderItem.vala:275
 #, fuzzy
-msgid "Change Branch"
+msgid "Branch"
 msgstr "Scratchنىڭ تەڭشەكلىرىنى ئۆزگەرتىش"
 
 #: src/Services/Document.vala:267
@@ -797,9 +807,6 @@ msgstr "يۈكلىگىلى بولمىغان بەلگە رەسىم ئۇسلۇبى
 #~ "Launchpad Contributions:\n"
 #~ "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
 #~ "  ablimet https://launchpad.net/~ablimet"
-
-#~ msgid "It is a directory."
-#~ msgstr "بۇ بىر مۇندەرىجە."
 
 #~ msgid "New file from clipboard"
 #~ msgstr "چاپلاش تاختىسىدىن يىڭى ھۆججەت قۇرۇش"

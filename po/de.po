@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
 "PO-Revision-Date: 2019-01-04 00:07+0000\n"
 "Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
 "Language-Team: German <https://weblate.elementary.io/projects/code/code/de/"
@@ -79,9 +79,19 @@ msgstr "Versionsinformation anzeigen und beenden"
 msgid "Set of plugins"
 msgstr "Erweiterungssammlung"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "Erweiterungssammlung"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Aktuelles Arbeitsverzeichnis"
+
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "Dies ist ein Verzeichnis."
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -277,9 +287,9 @@ msgstr "neue Datei %d"
 msgid "Close Folder"
 msgstr "Ordner schließen"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
+#: src/FolderManager/ProjectFolderItem.vala:275
 #, fuzzy
-msgid "Change Branch"
+msgid "Branch"
 msgstr "Scratch-Einstellungen ändern"
 
 #: src/Services/Document.vala:267
@@ -712,9 +722,6 @@ msgstr "Symbolthema konnte nicht geladen werden: %s\n"
 #~ msgstr ""
 #~ "Datei »%s« kann nicht geöffnet werden.\n"
 #~ "%s"
-
-#~ msgid "It is a directory."
-#~ msgstr "Dies ist ein Verzeichnis."
 
 #~ msgid "Highlight current line:"
 #~ msgstr "Aktive Zeile hervorheben:"

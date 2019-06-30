@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
 "PO-Revision-Date: 2018-10-24 13:33+0000\n"
 "Last-Translator: Angga Rifandi <empty.email.boxs@gmail.com>\n"
 "Language-Team: Indonesian <https://weblate.elementary.io/projects/code/code/"
@@ -78,9 +78,19 @@ msgstr "Cetak info versi dan keluar"
 msgid "Set of plugins"
 msgstr "Kumpulan pengaya"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "Kumpulan pengaya"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Direktori kerja saat ini"
+
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "Ini adalah sebuah direktori."
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -276,9 +286,9 @@ msgstr "%d berkas baru"
 msgid "Close Folder"
 msgstr "Tutup Folder"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
+#: src/FolderManager/ProjectFolderItem.vala:275
 #, fuzzy
-msgid "Change Branch"
+msgid "Branch"
 msgstr "Ubah pengaturan Scratch"
 
 #: src/Services/Document.vala:267
@@ -803,9 +813,6 @@ msgstr "Tak dapat membuka tema ikon:%s\n"
 #~ "  Viko Adi Rahmawan https://launchpad.net/~vikoadi\n"
 #~ "  dadanhrn https://launchpad.net/~dadanhrn\n"
 #~ "  yulandi https://launchpad.net/~yulandi80"
-
-#~ msgid "It is a directory."
-#~ msgstr "Ini adalah sebuah direktori."
 
 #~ msgid "New file from clipboard"
 #~ msgstr "Berkas baru dari papan klip"

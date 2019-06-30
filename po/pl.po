@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
 "PO-Revision-Date: 2019-02-09 11:46+0000\n"
 "Last-Translator: Piotr Strebski <strebski@gmail.com>\n"
 "Language-Team: Polish <https://weblate.elementary.io/projects/code/code/pl/"
@@ -80,9 +80,19 @@ msgstr "Wyświetl informację o wersji i zamknij"
 msgid "Set of plugins"
 msgstr "Zestaw wtyczek"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "Zestaw wtyczek"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Bieżący katalog roboczy"
+
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "Jest to katalog."
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -278,8 +288,9 @@ msgstr "Nowy plik %d"
 msgid "Close Folder"
 msgstr "Zamknij folder"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
-msgid "Change Branch"
+#: src/FolderManager/ProjectFolderItem.vala:275
+#, fuzzy
+msgid "Branch"
 msgstr "Zmień gałąź"
 
 #: src/Services/Document.vala:267
@@ -711,9 +722,6 @@ msgstr "Nie udało się załadować schematu ikon: %s\n"
 #~ msgstr ""
 #~ "Plik \"%s\" nie może zostać otwarty.\n"
 #~ "%s"
-
-#~ msgid "It is a directory."
-#~ msgstr "Jest to katalog."
 
 #~ msgid "Highlight current line:"
 #~ msgstr "Podświetlanie bieżącego wiersza:"

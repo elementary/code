@@ -50,7 +50,7 @@
   </schema>
   <schema path="/io/elementary/code/settings/" id="io.elementary.code.settings" gettext-domain="io.elementary.code">
     <key type="as" name="plugins-enabled">
-      <default>['detect-indent', 'editorconfig', 'outline']</default>
+      <default>['brackets-completion', 'detect-indent', 'editorconfig', 'outline']</default>
       <summary>Enabled Plugins</summary>
       <description>Enabled Plugins</description>
     </key>
@@ -105,7 +105,7 @@
       <description>Whether Scratch should replace tabs with spaces</description>
     </key>
     <key name="auto-indent" type="b">
-      <default>false</default>
+      <default>true</default>
       <summary>Use auto indent</summary>
       <description>Whether Scratch should use auto indentation</description>
     </key>

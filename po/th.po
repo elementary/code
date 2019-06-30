@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
 "PO-Revision-Date: 2018-05-04 00:03+0000\n"
 "Last-Translator: Park Evans <travellerpeira9@gmail.com>\n"
 "Language-Team: Thai <https://weblate.elementary.io/projects/code/code/th/>\n"
@@ -79,9 +79,19 @@ msgstr "พิมพ์ข้อมูลเวอร์ชั่นแล้ว
 msgid "Set of plugins"
 msgstr "ชุดปลั๊กอิน"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "ชุดปลั๊กอิน"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "ไดเรกทอรีปัจจุบัน"
+
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "นี่คือไดเรกทอรี"
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -282,9 +292,9 @@ msgstr "สร้างไฟล์"
 msgid "Close Folder"
 msgstr "ปิดโฟลเดอร์"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
+#: src/FolderManager/ProjectFolderItem.vala:275
 #, fuzzy
-msgid "Change Branch"
+msgid "Branch"
 msgstr "เปลี่ยนการตั้งค่าของ Scratch"
 
 #: src/Services/Document.vala:267
@@ -720,9 +730,6 @@ msgstr "ไม่สามารถโหลดชุดไอคอน: %s\n"
 #~ msgstr ""
 #~ "ไม่สามารถเปิดไฟล์ \"%s\"\n"
 #~ "%s"
-
-#~ msgid "It is a directory."
-#~ msgstr "นี่คือไดเรกทอรี"
 
 #~ msgid "Highlight current line:"
 #~ msgstr "แสดงแถบสีบรรทัดปัจจุบัน"

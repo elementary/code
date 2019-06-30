@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
 "PO-Revision-Date: 2018-05-26 07:39+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/code/code/mo/"
@@ -73,9 +73,19 @@ msgstr "Imprimați versiunea și ieșiți"
 msgid "Set of plugins"
 msgstr "Set de pluginuri"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "Set de pluginuri"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Directorul curent de lucru"
+
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "Este un director."
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -272,8 +282,8 @@ msgstr "Fișier nou %d"
 msgid "Close Folder"
 msgstr "Închideți dosarul"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
-msgid "Change Branch"
+#: src/FolderManager/ProjectFolderItem.vala:275
+msgid "Branch"
 msgstr ""
 
 #: src/Services/Document.vala:267
@@ -706,9 +716,6 @@ msgstr "Nu s-a putut încărca tema pictogramelor: %s ↵\n"
 #~ msgstr ""
 #~ "Fișierul \"%s\" nu poate fi deschis.↵\n"
 #~ "%s"
-
-#~ msgid "It is a directory."
-#~ msgstr "Este un director."
 
 #~ msgid "Highlight current line:"
 #~ msgstr "Evidențiați linia curentă:"

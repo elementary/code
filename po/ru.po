@@ -7,24 +7,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
-"PO-Revision-Date: 2018-11-24 07:23+0000\n"
-"Last-Translator: Kirill Romanov <djaler1@gmail.com>\n"
-"Language-Team: Russian <https://weblate.elementary.io/projects/code/code/ru/"
-">\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
+"PO-Revision-Date: 2019-06-09 02:29+0000\n"
+"Last-Translator: Shmavon Gazanchyan <shmavon@gazanchyan.me>\n"
+"Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2017-05-04 05:45+0000\n"
 
 #: src/Application.vala:133
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Created"
-msgstr "Файл «%s» не может быть прочитан"
+msgstr "Файл «%s» не может быть создан"
 
 #. We list some common errors for quick feedback
 #: src/Application.vala:137
@@ -60,9 +59,9 @@ msgid "It is an \"unknown\" file type."
 msgstr "Это «неизвестный» тип файла."
 
 #: src/Application.vala:175
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Opened"
-msgstr "Файл «%s» не может быть прочитан"
+msgstr "Файл «%s» не может быть открыт"
 
 #: src/Application.vala:259
 msgid "New Tab"
@@ -80,9 +79,17 @@ msgstr "Распечатать информацию о версии и выйт�
 msgid "Set of plugins"
 msgstr "Набор надстроек"
 
+#: src/Application.vala:262
+msgid "plugin"
+msgstr "Набор надстроек"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Текущий рабочий каталог"
+
+#: src/Application.vala:263
+msgid "directory"
+msgstr "Это директория"
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -278,10 +285,10 @@ msgstr "новый файл %d"
 msgid "Close Folder"
 msgstr "Закрыть папку"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
+#: src/FolderManager/ProjectFolderItem.vala:275
 #, fuzzy
-msgid "Change Branch"
-msgstr "Изменить параметры Scratch"
+msgid "Branch"
+msgstr "Сменить Ветку"
 
 #: src/Services/Document.vala:267
 #, c-format
@@ -306,23 +313,19 @@ msgid "Please wait while Code is loading the file."
 msgstr "Пожалуйста, подождите, пока Code открывает файл."
 
 #: src/Services/Document.vala:294
-#, fuzzy
 msgid "Cancel Loading"
-msgstr "Отменить открытие"
+msgstr "Отменить загрузку"
 
 #: src/Services/Document.vala:392
-#, fuzzy, c-format
+#, c-format
 msgid "Save changes to \"%s\" before closing?"
-msgstr "Сохранить изменения в документе %s перед закрытием?"
+msgstr "Сохранить изменения в %s перед закрытием?"
 
 #: src/Services/Document.vala:393
-#, fuzzy
 msgid "If you don't save, changes will be permanently lost."
-msgstr ""
-"Если вы не сохраните файл, изменения за последние 4 секунды будут потеряны."
+msgstr "Если вы не сохраните, то изменения будут безвозвратно потеряны."
 
 #: src/Services/Document.vala:399
-#, fuzzy
 msgid "Close Without Saving"
 msgstr "Закрыть без сохранения"
 
@@ -346,9 +349,8 @@ msgid "File \"%s\" Cannot Be Read"
 msgstr "Файл «%s» не может быть прочитан"
 
 #: src/Services/Document.vala:717
-#, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
-msgstr "Возможно, он повреждён или у вас нет необходимых прав для его чтения."
+msgstr "Возможно, он повреждён или у вас нет разрешения на его чтение."
 
 #: src/Services/Document.vala:729
 #, c-format
@@ -369,13 +371,13 @@ msgstr "Файл «%s» был удалён. Всё равно сохранит�
 
 #. If the file can't be written
 #: src/Services/Document.vala:751
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
-"Невозможно сохранить изменения в файле «%s».  Сохранить изменённую версию в "
-"другом месте?"
+"Вы не можете сохранять изменения в файле «%s».  Хотели бы Вы сохранить "
+"изменения где-нибудь ещё?"
 
 #: src/Services/Document.vala:753
 msgid "Save changes elsewhere"
@@ -403,9 +405,9 @@ msgid "Templates"
 msgstr "Шаблоны"
 
 #: src/Widgets/DocumentView.vala:133
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s:%d"
-msgstr "Текстовый файл от %s"
+msgstr "Текстовый файл от %s:%d"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
@@ -678,14 +680,11 @@ msgstr "Скрыть предпросмотр"
 
 #: plugins/spell/spell.vala:76
 msgid "No Suitable Dictionaries Were Found"
-msgstr ""
+msgstr "Не найдено подходящих словарей"
 
 #: plugins/spell/spell.vala:77
-#, fuzzy
 msgid "Please install at least one [aspell] dictionary."
-msgstr ""
-"Не найдено подходящих словарей.\n"
-"Установите хотя бы один [aspell] словарь"
+msgstr "Пожалуйста, установите хотя бы один [aspell] словарь."
 
 #: plugins/word-completion/plugin.vala:174
 #, c-format
@@ -710,9 +709,6 @@ msgstr "Не удалось загрузить тему иконок: %s\n"
 #~ msgstr ""
 #~ "Файл «%s» не может быть открыт.\n"
 #~ "%s"
-
-#~ msgid "It is a directory."
-#~ msgstr "Это директория."
 
 #~ msgid "Highlight current line:"
 #~ msgstr "Выделять текущую строку:"

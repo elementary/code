@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
 "PO-Revision-Date: 2018-05-07 15:47+0000\n"
 "Last-Translator: Shawn <syst3mfailur3@gmail.com>\n"
 "Language-Team: English (Canada) <https://weblate.elementary.io/projects/code/"
@@ -80,9 +80,19 @@ msgstr "Print version info and exit"
 msgid "Set of plugins"
 msgstr "Set of plugins"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "Set of plugins"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Current working directory"
+
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "It is a directory."
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -279,9 +289,9 @@ msgstr "new file %d"
 msgid "Close Folder"
 msgstr "Close Folder"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
+#: src/FolderManager/ProjectFolderItem.vala:275
 #, fuzzy
-msgid "Change Branch"
+msgid "Branch"
 msgstr "Change Scratch settings"
 
 #: src/Services/Document.vala:267
@@ -715,9 +725,6 @@ msgstr "Could not load icon theme: %s\n"
 #~ msgstr ""
 #~ "File \"%s\" cannot be opened.\n"
 #~ "%s"
-
-#~ msgid "It is a directory."
-#~ msgstr "It is a directory."
 
 #~ msgid "Highlight current line:"
 #~ msgstr "Highlight current line:"

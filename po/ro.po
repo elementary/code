@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
 "PO-Revision-Date: 2016-12-13 07:30+0000\n"
 "Last-Translator: Remus <remuszvids@gmail.com>\n"
 "Language-Team: Romanian <ro@li.org>\n"
@@ -82,9 +82,19 @@ msgstr "Arată informații despre versiune și închide"
 msgid "Set of plugins"
 msgstr "Set de module"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "Set de module"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Dosarul de lucru curent"
+
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "Este un director."
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -285,9 +295,9 @@ msgstr "Fişier nou"
 msgid "Close Folder"
 msgstr "Închide dosar"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
+#: src/FolderManager/ProjectFolderItem.vala:275
 #, fuzzy
-msgid "Change Branch"
+msgid "Branch"
 msgstr "Schimbă configurările Scratch"
 
 #: src/Services/Document.vala:267
@@ -818,9 +828,6 @@ msgstr "Tema iconului nu poate fi încărcată: %s\n"
 #~ "  kobe https://launchpad.net/~florin-kobe\n"
 #~ "  mishu https://launchpad.net/~mihai-acu\n"
 #~ "  rodislav https://launchpad.net/~rodearo"
-
-#~ msgid "It is a directory."
-#~ msgstr "Este un director."
 
 #~ msgid "New file from clipboard"
 #~ msgstr "Fişier nou din memorie"

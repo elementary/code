@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
-"PO-Revision-Date: 2019-04-17 23:31+0000\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
+"PO-Revision-Date: 2019-05-28 07:03+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/code/tr/>\n"
 "Language: tr\n"
@@ -16,22 +16,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.5.1\n"
+"X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:133
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Created"
-msgstr "\"%s\" dosyası okunamıyor"
+msgstr "\"%s\" Dosyası Oluşturulamıyor"
 
 #. We list some common errors for quick feedback
 #: src/Application.vala:137
 msgid "Maybe you do not have the necessary permissions."
-msgstr "Belki gerekli izinlere sahip değilsiniz."
+msgstr "Belki de gerekli izinlere sahip değilsiniz."
 
 #: src/Application.vala:139
 msgid "Maybe the file path provided is not valid."
-msgstr "Belki belirtilen dosya yolu doğru olmayabilir."
+msgstr "Belki de belirtilen dosya yolu geçerli değildir."
 
 #: src/Application.vala:141
 msgid "The location is read-only."
@@ -51,16 +51,16 @@ msgid ""
 " FIFO, block device, or character device."
 msgstr ""
 "Soket, FIFO, blok kullanan aygıt veya\n"
-" karakter kullanan aygıtı gibi özel bir dosyadır."
+" karakter aygıtı gibi özel bir dosyadır."
 
 #: src/Application.vala:170
 msgid "It is an \"unknown\" file type."
-msgstr "Bilinmeyen dosya türü."
+msgstr "Bu \"bilinmeyen\" bir dosya türüdür."
 
 #: src/Application.vala:175
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Opened"
-msgstr "\"%s\" dosyası okunamıyor"
+msgstr "\"%s\" Dosyası Açılamıyor"
 
 #: src/Application.vala:259
 msgid "New Tab"
@@ -78,9 +78,17 @@ msgstr "Sürüm bilgisini yazdır ve çık"
 msgid "Set of plugins"
 msgstr "Eklenti kümesi"
 
+#: src/Application.vala:262
+msgid "plugin"
+msgstr "eklenti"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Geçerli çalışma dizini"
+
+#: src/Application.vala:263
+msgid "directory"
+msgstr "dizin"
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -108,7 +116,7 @@ msgstr "Metin dosyaları"
 
 #: src/MainWindow.vala:773
 msgid "Open some files"
-msgstr "Bir dosya aç"
+msgstr "Birkaç dosya aç"
 
 #: src/MainWindow.vala:776
 msgid "Open"
@@ -276,9 +284,10 @@ msgstr "yeni dosya %d"
 msgid "Close Folder"
 msgstr "Klasörü Kapat"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
-msgid "Change Branch"
-msgstr "Sınıf değiştir"
+#: src/FolderManager/ProjectFolderItem.vala:275
+#, fuzzy
+msgid "Branch"
+msgstr "Dalı Değiştir"
 
 #: src/Services/Document.vala:267
 #, c-format
@@ -307,21 +316,17 @@ msgid "Cancel Loading"
 msgstr "Yüklemeyi İptal Et"
 
 #: src/Services/Document.vala:392
-#, fuzzy, c-format
+#, c-format
 msgid "Save changes to \"%s\" before closing?"
-msgstr "Kapatmadan önce değişiklikler %s belgesine kaydedilsin mi?"
+msgstr "Kapatmadan önce değişiklikler \"%s\" belgesine kaydedilsin mi?"
 
 #: src/Services/Document.vala:393
-#, fuzzy
 msgid "If you don't save, changes will be permanently lost."
-msgstr ""
-"Eğer kaydetmezseniz, son 4 saniyedeki değişiklikler kalıcı olarak "
-"silinecektir."
+msgstr "Kaydetmezseniz, değişiklikler kalıcı olarak kaybedilir."
 
 #: src/Services/Document.vala:399
-#, fuzzy
 msgid "Close Without Saving"
-msgstr "Kaydetmeden kapat"
+msgstr "Kaydetmeden Kapat"
 
 #: src/Services/Document.vala:403 src/Services/Document.vala:514
 #: src/Services/Document.vala:738
@@ -344,9 +349,7 @@ msgstr "\"%s\" Dosyası Okunamıyor"
 
 #: src/Services/Document.vala:717
 msgid "It may be corrupt or you don't have permission to read it."
-msgstr ""
-"Dosya bozuk olabilir veya dosyanın görüntülenmesi için gerekli izinlere "
-"sahip değilsiniz."
+msgstr "Dosya bozuk veya okumak için izniniz yok."
 
 #: src/Services/Document.vala:729
 #, c-format
@@ -675,14 +678,11 @@ msgstr "Önizlemeyi Gizle"
 
 #: plugins/spell/spell.vala:76
 msgid "No Suitable Dictionaries Were Found"
-msgstr ""
+msgstr "Uygun Sözlük Bulunamadı"
 
 #: plugins/spell/spell.vala:77
-#, fuzzy
 msgid "Please install at least one [aspell] dictionary."
-msgstr ""
-"Uygun bir sözlük bulunamadı.\n"
-"Lütfen en azından bir [aspell] sözlük yükleyin"
+msgstr "Lütfen en azından bir [aspell] sözlük yükleyin."
 
 #: plugins/word-completion/plugin.vala:174
 #, c-format
@@ -707,9 +707,6 @@ msgstr "Simge teması yüklenemedi: %s\n"
 #~ msgstr ""
 #~ "\"%s\" dosyası açılamadı.\n"
 #~ "%s"
-
-#~ msgid "It is a directory."
-#~ msgstr "Bu bir dizin."
 
 #~ msgid "Highlight current line:"
 #~ msgstr "Geçerli satırı vurgula:"

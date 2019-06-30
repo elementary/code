@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
 "PO-Revision-Date: 2017-08-22 19:20+0000\n"
 "Last-Translator: anjelo del carmen <anjelo2009@live.com>\n"
 "Language-Team: Tagalog <https://weblate.elementary.io/projects/scratch/"
@@ -77,9 +77,19 @@ msgstr "I-print ang impormasyon ng bersyon at lumabas"
 msgid "Set of plugins"
 msgstr "Hanay ng mga plugin"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "Hanay ng mga plugin"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Kasalukuyang gumaganang direktori"
+
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "Ito ay isang direktori."
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -280,9 +290,9 @@ msgstr "Bagong File"
 msgid "Close Folder"
 msgstr "Isara ang Polder"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
+#: src/FolderManager/ProjectFolderItem.vala:275
 #, fuzzy
-msgid "Change Branch"
+msgid "Branch"
 msgstr "Ibahin ang mga setting ng Scratch"
 
 #: src/Services/Document.vala:267
@@ -723,9 +733,6 @@ msgstr "Hindi mai-load ang icon theme: %s\n"
 #~ msgstr ""
 #~ "Ang file na \"%s\" ay hindi maaaring buksan.b'↵'\n"
 #~ "%s"
-
-#~ msgid "It is a directory."
-#~ msgstr "Ito ay isang direktori."
 
 #~ msgid "Highlight current line:"
 #~ msgstr "I-haylayt ang kasalukuyang linya:"

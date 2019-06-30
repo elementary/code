@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
 "PO-Revision-Date: 2015-12-21 13:37+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,9 +70,18 @@ msgstr "Верси информацине пичетле те тух"
 msgid "Set of plugins"
 msgstr "Плагинсен наборе"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "Плагинсен наборе"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Хальхи ĕçлекен директори"
+
+#: src/Application.vala:263
+msgid "directory"
+msgstr ""
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -269,8 +278,8 @@ msgstr ""
 msgid "Close Folder"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:269
-msgid "Change Branch"
+#: src/FolderManager/ProjectFolderItem.vala:275
+msgid "Branch"
 msgstr ""
 
 #: src/Services/Document.vala:267

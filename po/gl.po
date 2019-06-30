@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
 "PO-Revision-Date: 2018-10-23 00:02+0000\n"
 "Last-Translator: Pablo Varela <pablovarela182@gmail.com>\n"
 "Language-Team: Galician <https://weblate.elementary.io/projects/code/code/gl/"
@@ -80,9 +80,18 @@ msgstr "Amosar información da versión e saír"
 msgid "Set of plugins"
 msgstr "Conxunto de engadidos"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "Conxunto de engadidos"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Directorio de traballo actual"
+
+#: src/Application.vala:263
+msgid "directory"
+msgstr ""
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -279,9 +288,9 @@ msgstr "Novo ficheiro %d"
 msgid "Close Folder"
 msgstr "Pechar o cartafol"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
+#: src/FolderManager/ProjectFolderItem.vala:275
 #, fuzzy
-msgid "Change Branch"
+msgid "Branch"
 msgstr "Cambiar as preferencias de Scratch"
 
 #: src/Services/Document.vala:267

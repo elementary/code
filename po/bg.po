@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
 "PO-Revision-Date: 2016-08-06 00:03+0000\n"
 "Last-Translator: KVG <kvgkvg@gmail.com>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
@@ -75,9 +75,18 @@ msgstr "Принтиране на информация за версията и 
 msgid "Set of plugins"
 msgstr "Набор от добавки"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "Набор от добавки"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Текуща директория"
+
+#: src/Application.vala:263
+msgid "directory"
+msgstr ""
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -278,9 +287,9 @@ msgstr "Нов файл"
 msgid "Close Folder"
 msgstr "Затвори Папка"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
+#: src/FolderManager/ProjectFolderItem.vala:275
 #, fuzzy
-msgid "Change Branch"
+msgid "Branch"
 msgstr "Промяна на настройките на програмата"
 
 #: src/Services/Document.vala:267

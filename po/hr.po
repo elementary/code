@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
 "PO-Revision-Date: 2017-08-16 12:16+0000\n"
 "Last-Translator: gogogogi <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <https://weblate.elementary.io/projects/scratch/"
@@ -85,9 +85,19 @@ msgstr "Ispiši informacije o inačici i izađi"
 msgid "Set of plugins"
 msgstr "Skup priključaka"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "Skup priključaka"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Trenutna radna mapa"
+
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "To je direkrotij."
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -288,9 +298,9 @@ msgstr "Nova datoteka"
 msgid "Close Folder"
 msgstr "Zatvori mapu"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
+#: src/FolderManager/ProjectFolderItem.vala:275
 #, fuzzy
-msgid "Change Branch"
+msgid "Branch"
 msgstr "Promijeni Scratch postavke"
 
 #: src/Services/Document.vala:267
@@ -822,9 +832,6 @@ msgstr "Nemoguće učitati ikone teme:%s\n"
 #~ "  gogo https://launchpad.net/~trebelnik-stefina\n"
 #~ "  xskydevilx https://launchpad.net/~xskydevilx-deactivatedaccount\n"
 #~ "  zvacet https://launchpad.net/~ivicakolic"
-
-#~ msgid "It is a directory."
-#~ msgstr "To je direkrotij."
 
 #~ msgid "New file from clipboard"
 #~ msgstr "Nova datoteka iz međuspremnika"

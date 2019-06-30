@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
 "PO-Revision-Date: 2019-04-08 05:53+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
@@ -79,9 +79,19 @@ msgstr "打印版本信息并退出"
 msgid "Set of plugins"
 msgstr "插件集"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "插件集"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "当前工作目录"
+
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "这是一个目录。"
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -277,9 +287,9 @@ msgstr "新文件 %d"
 msgid "Close Folder"
 msgstr "关闭文件夹"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
+#: src/FolderManager/ProjectFolderItem.vala:275
 #, fuzzy
-msgid "Change Branch"
+msgid "Branch"
 msgstr "更改设置"
 
 #: src/Services/Document.vala:267
@@ -780,9 +790,6 @@ msgstr "无法加载图标主题：%s\n"
 #~ "  colindemian https://launchpad.net/~colindemian\n"
 #~ "  duoduoeeee https://launchpad.net/~pleasant3518\n"
 #~ "  kevinchou https://launchpad.net/~kevinchou-c-gmail"
-
-#~ msgid "It is a directory."
-#~ msgstr "这是一个目录。"
 
 #~ msgid "New file from clipboard"
 #~ msgstr "从剪贴板新建"

@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
-"PO-Revision-Date: 2019-04-21 13:31+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
+"PO-Revision-Date: 2019-06-04 21:20+0000\n"
+"Last-Translator: Nils K <slx@nilsk.net>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
 "code/nb/>\n"
 "Language: nb\n"
@@ -17,13 +17,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.5.1\n"
+"X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:133
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Created"
-msgstr "Filen \"%s\" kan ikke leses"
+msgstr "Filen \"%s\" kan ikke opprettes"
 
 #. We list some common errors for quick feedback
 #: src/Application.vala:137
@@ -59,9 +59,9 @@ msgid "It is an \"unknown\" file type."
 msgstr "Det er en \"ukjent\" filtype."
 
 #: src/Application.vala:175
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Opened"
-msgstr "Filen \"%s\" kan ikke leses"
+msgstr "Filen \"%s\" kan ikke åpnes"
 
 #: src/Application.vala:259
 msgid "New Tab"
@@ -79,9 +79,17 @@ msgstr "Skriv versjoninformasjon og avslutt"
 msgid "Set of plugins"
 msgstr "Utvidelser"
 
+#: src/Application.vala:262
+msgid "plugin"
+msgstr "utvidelse"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Gjeldende arbeidsmappe"
+
+#: src/Application.vala:263
+msgid "directory"
+msgstr "mappe"
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -277,9 +285,9 @@ msgstr "ny fil %d"
 msgid "Close Folder"
 msgstr "Lukk mappe"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
+#: src/FolderManager/ProjectFolderItem.vala:275
 #, fuzzy
-msgid "Change Branch"
+msgid "Branch"
 msgstr "Bytt gren"
 
 #: src/Services/Document.vala:267
@@ -309,18 +317,15 @@ msgid "Cancel Loading"
 msgstr "Avbryt innlasting"
 
 #: src/Services/Document.vala:392
-#, fuzzy, c-format
+#, c-format
 msgid "Save changes to \"%s\" before closing?"
-msgstr "Lagre endringer i dokument %s før programmet avsluttes?"
+msgstr "Lagre endringer i \"%s\" før lukking?"
 
 #: src/Services/Document.vala:393
-#, fuzzy
 msgid "If you don't save, changes will be permanently lost."
-msgstr ""
-"Hvis du ikke lagrer vil du miste endringene som er gjort de siste 4 sekunder."
+msgstr "Hvis du ikke lagrer vil du miste endringene for godt."
 
 #: src/Services/Document.vala:399
-#, fuzzy
 msgid "Close Without Saving"
 msgstr "Lukk uten å lagre"
 
@@ -674,14 +679,11 @@ msgstr "Skjul forhåndsvisning"
 
 #: plugins/spell/spell.vala:76
 msgid "No Suitable Dictionaries Were Found"
-msgstr ""
+msgstr "Ingen dugelige ordbøker ble funnet"
 
 #: plugins/spell/spell.vala:77
-#, fuzzy
 msgid "Please install at least one [aspell] dictionary."
-msgstr ""
-"Fant ingen passende ordbøker.\n"
-"Installer minst ei [aspell]-ordbok"
+msgstr "Installer minst én [aspel]-ordbok."
 
 #: plugins/word-completion/plugin.vala:174
 #, c-format
@@ -706,9 +708,6 @@ msgstr "Kunne ikke laste drakt for ikoner: %s\n"
 #~ msgstr ""
 #~ "Kan ikke åpne filen \"%s\".\n"
 #~ "%s"
-
-#~ msgid "It is a directory."
-#~ msgstr "Det er ei mappe."
 
 #~ msgid "Highlight current line:"
 #~ msgstr "Uthev den valgte linja"

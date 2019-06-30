@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
 "PO-Revision-Date: 2018-06-10 00:11+0000\n"
 "Last-Translator: Gamunu Balagalla <gamunu.balagalla@gmail.com>\n"
 "Language-Team: Sinhala <https://weblate.elementary.io/projects/code/code/si/"
@@ -75,9 +75,19 @@ msgstr "පිටපත තොරතුරු මුද්‍රණය කර �
 msgid "Set of plugins"
 msgstr "ප්ලගීන ලැයිස්තුව"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "ප්ලගීන ලැයිස්තුව"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "වර්තමාන වැඩ කරන බහලුම"
+
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "එය නාමාවලියකි."
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -274,8 +284,8 @@ msgstr "නව ගොනුව %d"
 msgid "Close Folder"
 msgstr "බහලුම වසන්න"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
-msgid "Change Branch"
+#: src/FolderManager/ProjectFolderItem.vala:275
+msgid "Branch"
 msgstr ""
 
 #: src/Services/Document.vala:267
@@ -695,9 +705,6 @@ msgstr ""
 #~ msgstr ""
 #~ "%s ගොනුව විවෘත කළ නොහැක.\n"
 #~ "%s"
-
-#~ msgid "It is a directory."
-#~ msgstr "එය නාමාවලියකි."
 
 #~ msgid "Highlight current line:"
 #~ msgstr "වත්මන් පේළිය උද්දීපනය කරන්න:"

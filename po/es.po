@@ -7,17 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-23 14:54-0700\n"
-"PO-Revision-Date: 2019-01-29 21:10+0000\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
+"PO-Revision-Date: 2019-05-02 19:38+0000\n"
 "Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
-"Language-Team: Spanish <https://weblate.elementary.io/projects/code/code/es/"
-">\n"
+"Language-Team: Spanish <https://l10n.elementary.io/projects/code/code/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.6\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:133
@@ -79,9 +78,19 @@ msgstr "Mostrar información de la versión y salir"
 msgid "Set of plugins"
 msgstr "Conjunto de complementos"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "Conjunto de complementos"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Carpeta de trabajo actual"
+
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "Es una carpeta."
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -277,8 +286,9 @@ msgstr "nuevo archivo %d"
 msgid "Close Folder"
 msgstr "Cerrar carpeta"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
-msgid "Change Branch"
+#: src/FolderManager/ProjectFolderItem.vala:275
+#, fuzzy
+msgid "Branch"
 msgstr "Cambiar Rama"
 
 #: src/Services/Document.vala:267
@@ -675,7 +685,7 @@ msgstr "Ocultar previsualización"
 
 #: plugins/spell/spell.vala:76
 msgid "No Suitable Dictionaries Were Found"
-msgstr ""
+msgstr "No se encontraron diccionarios adecuados"
 
 #: plugins/spell/spell.vala:77
 #, fuzzy
@@ -707,9 +717,6 @@ msgstr "No se pudo cargar el tema de iconos : %s\n"
 #~ msgstr ""
 #~ "No se puede abrir el archivo «%s».\n"
 #~ "%s"
-
-#~ msgid "It is a directory."
-#~ msgstr "Es una carpeta."
 
 #~ msgid "Highlight current line:"
 #~ msgstr "Resaltar la línea actual:"
