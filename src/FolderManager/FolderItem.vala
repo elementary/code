@@ -145,7 +145,10 @@ namespace Scratch.FolderManager {
                 }
             }
 
-            open_in_menu.add (new Gtk.SeparatorMenuItem ());
+            if (open_in_menu.get_children ().length () > 0) {
+                open_in_menu.add (new Gtk.SeparatorMenuItem ());
+            }
+
             open_in_menu.add (other_menuitem);
 
             var open_in_item = new Gtk.MenuItem.with_label (_("Open In"));
