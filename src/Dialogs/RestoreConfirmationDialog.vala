@@ -17,9 +17,9 @@
 */
 
 namespace Scratch.Dialogs {
-    public class RevertConfirmationDialog : Granite.MessageDialog {
+    public class RestoreConfirmationDialog : Granite.MessageDialog {
 
-        public RevertConfirmationDialog (MainWindow parent) {
+        public RestoreConfirmationDialog (MainWindow parent) {
             Object (
                 buttons: Gtk.ButtonsType.NONE,
                 transient_for: parent
@@ -28,14 +28,13 @@ namespace Scratch.Dialogs {
 
         construct {
             image_icon = new ThemedIcon ("dialog-warning");
-            primary_text = _("Reverting a file will undo all changes made since opening it");
+            primary_text = _("Restoring a file will undo all changes made since opening it");
 
-            secondary_text =
-                _("Are you sure you want to to revert those changes?");
+            secondary_text = _("Are you sure you want to restore this file?");
 
-            add_button (_("Don't Revert"), Gtk.ResponseType.REJECT);
+            add_button (_("Don't Restore"), Gtk.ResponseType.REJECT);
 
-            var ignore_button = (Gtk.Button) add_button (_("Revert Anyway"), Gtk.ResponseType.ACCEPT);
+            var ignore_button = (Gtk.Button) add_button (_("Restore Anyway"), Gtk.ResponseType.ACCEPT);
             ignore_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
         }
     }

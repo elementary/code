@@ -848,7 +848,7 @@ namespace Scratch {
         }
 
         private void action_revert () {
-            var confirmation_dialog = new Scratch.Dialogs.RevertConfirmationDialog (this);
+            var confirmation_dialog = new Scratch.Dialogs.RestoreConfirmationDialog (this);
             if (confirmation_dialog.run () == Gtk.ResponseType.ACCEPT) {
                 var doc = get_current_document ();
                 if (doc != null) {
