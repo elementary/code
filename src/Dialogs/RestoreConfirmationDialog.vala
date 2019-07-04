@@ -16,26 +16,24 @@
 * Boston, MA 02110-1301 USA
 */
 
-namespace Scratch.Dialogs {
-    public class RestoreConfirmationDialog : Granite.MessageDialog {
+public class Scratch.Dialogs.RestoreConfirmationDialog : Granite.MessageDialog {
 
-        public RestoreConfirmationDialog (MainWindow parent) {
-            Object (
-                buttons: Gtk.ButtonsType.NONE,
-                transient_for: parent
-            );
-        }
+    public RestoreConfirmationDialog (MainWindow parent) {
+        Object (
+            buttons: Gtk.ButtonsType.NONE,
+            transient_for: parent
+        );
+    }
 
-        construct {
-            image_icon = new ThemedIcon ("dialog-warning");
-            primary_text = _("Restoring a file will undo all changes made since opening it");
+    construct {
+        image_icon = new ThemedIcon ("dialog-warning");
 
-            secondary_text = _("Are you sure you want to restore this file?");
+        primary_text = _("Are You Sure You Want to Restore This File?");
+        secondary_text = _("Restoring a file will undo all changes made since opening it");
 
-            add_button (_("Don't Restore"), Gtk.ResponseType.REJECT);
+        add_button (_("Don't Restore"), Gtk.ResponseType.REJECT);
 
-            var ignore_button = (Gtk.Button) add_button (_("Restore Anyway"), Gtk.ResponseType.ACCEPT);
-            ignore_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
-        }
+        var ignore_button = (Gtk.Button) add_button (_("Restore Anyway"), Gtk.ResponseType.ACCEPT);
+        ignore_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
     }
 }
