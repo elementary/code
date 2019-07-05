@@ -157,7 +157,11 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
     }
 
     private void change_dir_to_current_doc_parent () {
-        if (terminal == null || !tool_button.active || terminal_has_foreground_process ()) {
+        if (terminal == null ||
+            !tool_button.active ||
+            terminal_has_foreground_process () ||
+            !settings.follow_current_doc_path) {
+
             return;
         }
 
@@ -172,6 +176,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         }
     }
 
+    /* Adapted from io.elementary.terminal TerminalWidget */
     public string get_shell_location () {
         int pid = (!) (this.child_pid);
 

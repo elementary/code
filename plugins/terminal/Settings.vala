@@ -27,6 +27,7 @@ namespace Scratch.Plugins.TerminalViewer {
         private const string SCHEMA = Constants.PROJECT_NAME + ".plugins.terminal";
 
         public string last_opened_path { get; set; }
+        public bool follow_current_doc_path { get; set; }
 
         public Settings () {
             base (SCHEMA);

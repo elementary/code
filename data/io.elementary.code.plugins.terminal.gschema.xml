@@ -6,5 +6,10 @@
       <summary>Last opened path</summary>
       <description>Last opened path in the terminal plugin</description>
     </key>
+    <key name="follow-current-doc-path" type="b">
+      <default>false</default>
+      <summary>Follow path of current document</summary>
+      <description>The terminal plugin follows the path of the current document if possible</description>
+    </key>
   </schema>
 </schemalist>
