@@ -121,7 +121,8 @@ namespace Scratch {
                 foreach (unowned string arg in args[1:args_length]) {
                     // We set a message, that later is informed to the user
                     // in a dialog if something noteworthy happens.
-                    string msg = "";
+                    string title = "";
+                    string body = "";
                     try {
                         var file = File.new_for_commandline_arg (arg);
 
@@ -129,34 +130,29 @@ namespace Scratch {
                             try {
                                 FileUtils.set_contents (file.get_path (), "");
                             } catch (Error e) {
-                                string reason = "";
+                                title = _("File \"%s\" Cannot Be Created".printf (file.get_path ()));
+
                                 // We list some common errors for quick feedback
                                 if (e is FileError.ACCES) {
-                                    reason = _("Maybe you do not have the necessary permissions.");
+                                    body = _("Maybe you do not have the necessary permissions.");
                                 } else if (e is FileError.NOENT) {
-                                    reason = _("Maybe the file path provided is not valid.");
+                                    body = _("Maybe the file path provided is not valid.");
                                 } else if (e is FileError.ROFS) {
-                                    reason = _("The location is read-only.");
+                                    body = _("The location is read-only.");
                                 } else if (e is FileError.NOTDIR) {
-                                    reason = _("The parent directory doesn't exist.");
+                                    body = _("The parent directory doesn't exist.");
                                 } else {
                                     // Otherwise we simple use the error notification from glib
-                                    msg = e.message;
-                                }
-
-                                if (reason.length > 0) {
-                                    msg = _("File \"%s\" cannot be created.\n%s").printf ("<b>%s</b>".printf (file.get_path ()), reason);
+                                    body = e.message;
                                 }
 
                                 // Escape to the outer catch clause, and overwrite
                                 // the weird glib's standard errors.
-                                throw new Error (e.domain, e.code, msg);
+                                throw new Error (e.domain, e.code, "%s %s".printf (title, body));
                             }
                         }
 
                         var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
-                        string err_msg = _("File \"%s\" cannot be opened.\n%s");
-                        string reason = "";
 
                         switch (info.get_file_type ()) {
                             case FileType.REGULAR:
@@ -165,18 +161,18 @@ namespace Scratch {
                                 files += file;
                                 break;
                             case FileType.MOUNTABLE:
-                                reason = _("It is a mountable location.");
+                                body = _("It is a mountable location.");
                                 break;
                             case FileType.SPECIAL:
-                                reason = _("It is a \"special\" file such as a socket,\n FIFO, block device, or character device.");
+                                body = _("It is a \"special\" file such as a socket,\n FIFO, block device, or character device.");
                                 break;
                             default:
-                                reason = _("It is an \"unknown\" file type.");
+                                body = _("It is an \"unknown\" file type.");
                                 break;
                         }
 
-                        if (reason.length > 0) {
-                            msg = err_msg.printf ("<b>%s</b>".printf (file.get_path ()), reason);
+                        if (body.length > 0) {
+                            title = _("File \"%s\" Cannot Be Opened".printf (file.get_path ()));
                         }
 
                     } catch (Error e) {
@@ -184,16 +180,16 @@ namespace Scratch {
                     }
 
                     // Notify the user that something happened.
-                    if (msg.length > 0) {
-                        var parent_window = get_last_window () as Gtk.Window;
-                        var dialog = new Gtk.MessageDialog.with_markup (parent_window,
-                            Gtk.DialogFlags.MODAL,
-                            Gtk.MessageType.ERROR,
-                            Gtk.ButtonsType.CLOSE,
-                            msg);
+                    if (title.length > 0) {
+                        var dialog = new Granite.MessageDialog (
+                            title,
+                            body,
+                            new ThemedIcon ("dialog-error"),
+                            Gtk.ButtonsType.CLOSE
+                        );
+                        dialog.transient_for = get_last_window () as Gtk.Window;
                         dialog.run ();
                         dialog.destroy ();
-                        dialog.close ();
                     }
                 }
 
@@ -263,8 +259,8 @@ namespace Scratch {
             { "new-tab", 't', 0, OptionArg.NONE, out create_new_tab, N_("New Tab"), null },
             { "new-window", 'n', 0, OptionArg.NONE, out create_new_window, N_("New Window"), null },
             { "version", 'v', 0, OptionArg.NONE, out print_version, N_("Print version info and exit"), null },
-            { "set", 's', 0, OptionArg.STRING, ref _app_cmd_name, N_("Set of plugins"), "" },
-            { "cwd", 'c', 0, OptionArg.STRING, ref _cwd, N_("Current working directory"), "" },
+            { "set", 's', 0, OptionArg.STRING, ref _app_cmd_name, N_("Set of plugins"), N_("plugin") },
+            { "cwd", 'c', 0, OptionArg.STRING, ref _cwd, N_("Current working directory"), N_("directory") },
             { null }
         };
 

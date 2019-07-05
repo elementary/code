@@ -7,138 +7,136 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-27 13:35-0800\n"
-"PO-Revision-Date: 2016-07-17 14:14+0000\n"
-"Last-Translator: Igor Štefanko <istefanko@gmail.com>\n"
-"Language-Team: Slovak <sk@li.org>\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
+"PO-Revision-Date: 2019-02-13 00:07+0000\n"
+"Last-Translator: Cleiton Floss <cleitonfloss@gmail.com>\n"
+"Language-Team: Slovak <https://weblate.elementary.io/projects/code/code/sk/"
+">\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
+
+#: src/Application.vala:133
+#, fuzzy, c-format
+msgid "File \"%s\" Cannot Be Created"
+msgstr "Súbor \"%s\" sa nedá prečítať"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:135
+#: src/Application.vala:137
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Možno nemáte potrebné oprávnenia."
 
-#: src/Application.vala:137
-msgid "Maybe the file path provided is not valid."
-msgstr "Zadaná cesta k súboru pravdepodobne nie je platná"
-
 #: src/Application.vala:139
+msgid "Maybe the file path provided is not valid."
+msgstr "Zadaná cesta k súboru pravdepodobne nie je platná."
+
+#: src/Application.vala:141
 msgid "The location is read-only."
 msgstr "Lokácia je len pre čítanie."
 
-#: src/Application.vala:141
+#: src/Application.vala:143
 msgid "The parent directory doesn't exist."
 msgstr "Rodičovský priečinok neexistuje."
 
-#: src/Application.vala:148
-#, c-format
-msgid ""
-"File \"%s\" cannot be created.\n"
-"%s"
-msgstr ""
-"Súbor \"%s\" nemôže byť vytvorený.\n"
-"%s"
-
-#: src/Application.vala:158
-#, c-format
-msgid ""
-"File \"%s\" cannot be opened.\n"
-"%s"
-msgstr ""
-"Súbor \"%s\" nemôže byť otvorený.\n"
-"%s"
-
-#: src/Application.vala:168
+#: src/Application.vala:164
 msgid "It is a mountable location."
-msgstr "Pripojiteľné umiestnenie"
+msgstr "Pripojiteľné umiestnenie."
 
-#: src/Application.vala:171
-#, fuzzy
+#: src/Application.vala:167
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
 msgstr ""
 "Je to \"špeciálny\" súbor ako socket,\n"
-" fifo, blokové zariadenie, alebo znakové zariadenie"
+" FIFO, blokové zariadenie, alebo znakové zariadenie."
 
-#: src/Application.vala:174
+#: src/Application.vala:170
 msgid "It is an \"unknown\" file type."
 msgstr "\"Neznámy\" typ súboru."
 
-#: src/Application.vala:263
+#: src/Application.vala:175
+#, fuzzy, c-format
+msgid "File \"%s\" Cannot Be Opened"
+msgstr "Súbor \"%s\" sa nedá prečítať"
+
+#: src/Application.vala:259
 msgid "New Tab"
 msgstr "Nová karta"
 
-#: src/Application.vala:264 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:260 src/FolderManager/FileItem.vala:31
 msgid "New Window"
-msgstr "Nové Okno"
+msgstr "Nové okno"
 
-#: src/Application.vala:265
+#: src/Application.vala:261
 msgid "Print version info and exit"
 msgstr "Vytlačiť informácie o verzii a ukončiť"
 
-#: src/Application.vala:266
+#: src/Application.vala:262
 msgid "Set of plugins"
 msgstr "Sada zásuvných modulov"
 
-#: src/Application.vala:267
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "Sada zásuvných modulov"
+
+#: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Aktuálny pracovný adresár"
 
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "Je to priečinok."
+
 #: src/MainWindow.vala:133
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
-#: src/MainWindow.vala:183 src/Widgets/HeaderBar.vala:80
+#: src/MainWindow.vala:184 src/Widgets/HeaderBar.vala:80
 msgid "Find…"
 msgstr "Nájsť…"
 
-#: src/MainWindow.vala:188
+#: src/MainWindow.vala:189
 msgid "Hide search bar"
 msgstr "Skryť vyhľadávací panel"
 
-#: src/MainWindow.vala:236
+#: src/MainWindow.vala:240
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Zeitgeist zdroj dát pre Scratch"
 
-#. Show a GtkFileChooserDialog
-#: src/MainWindow.vala:742
-msgid "Open some files"
-msgstr "Otvoriť niektoré súbory"
-
-#: src/MainWindow.vala:761
-msgid "_Cancel"
-msgstr "_Zrušiť"
-
-#: src/MainWindow.vala:762
-msgid "_Open"
-msgstr "_Otvoriť"
-
-#: src/Utils.vala:27
+#: src/MainWindow.vala:765 src/Services/Document.vala:503
 msgid "All files"
 msgstr "Všetky súbory"
 
-#: src/Utils.vala:31
+#: src/MainWindow.vala:769 src/Services/Document.vala:507
 msgid "Text files"
 msgstr "Textové súbory"
 
-#: src/Utils.vala:35 src/Services/Document.vala:409
-msgid "Cancel"
-msgstr "Zrušiť"
+#: src/MainWindow.vala:773
+msgid "Open some files"
+msgstr "Otvoriť niektoré súbory"
 
-#: src/Utils.vala:44
+#: src/MainWindow.vala:776
 msgid "Open"
 msgstr "Otvoriť"
 
-#: src/Utils.vala:46 src/Services/Document.vala:410
-#: src/Services/Document.vala:729
-msgid "Save"
-msgstr "Uložiť"
+#: src/MainWindow.vala:777 src/Services/Document.vala:402
+#: src/Services/Document.vala:515
+msgid "Cancel"
+msgstr "Zrušiť"
+
+#: src/MainWindow.vala:802
+msgid "_Open"
+msgstr "_Otvoriť"
+
+#: src/MainWindow.vala:803
+msgid "_Cancel"
+msgstr "_Zrušiť"
 
 #: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:160
 msgid "Preferences"
@@ -208,11 +206,11 @@ msgstr "Nikdy"
 
 #: src/Dialogs/PreferencesDialog.vala:116
 msgid "For selected text"
-msgstr ""
+msgstr "Pre vybraný text"
 
 #: src/Dialogs/PreferencesDialog.vala:117
 msgid "Always"
-msgstr ""
+msgstr "Vždy"
 
 #: src/Dialogs/PreferencesDialog.vala:120
 msgid "Show Mini Map:"
@@ -220,11 +218,11 @@ msgstr "Zobraziť mini-mapu:"
 
 #: src/Dialogs/PreferencesDialog.vala:123
 msgid "Line width guide:"
-msgstr "Šírka vodiacej čiary"
+msgstr "Šírka vodiacej čiary:"
 
 #: src/Dialogs/PreferencesDialog.vala:131
 msgid "Font"
-msgstr ""
+msgstr "Písmo"
 
 #: src/Dialogs/PreferencesDialog.vala:133
 msgid "Custom font:"
@@ -232,138 +230,133 @@ msgstr "Vlastné písmo:"
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
-msgstr ""
+msgstr "Iná aplikácia…"
 
-#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
-#, fuzzy
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:120
 msgid "Open In"
-msgstr "Otvoriť"
+msgstr "Otvoriť v"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
-#, fuzzy
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:123
 msgid "Other Actions"
-msgstr "Iné formáty"
+msgstr "Iné akcie"
 
-#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
-msgstr ""
+msgstr "Premenovať"
 
-#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:137
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
-msgstr ""
+msgstr "Presunúť do koša"
 
 #: src/FolderManager/FileView.vala:39
 msgid "Folders"
 msgstr "Priečinky"
 
 #: src/FolderManager/FolderItem.vala:148
-#, fuzzy
 msgid "Folder"
-msgstr "Priečinky"
+msgstr "Priečinok"
 
 #: src/FolderManager/FolderItem.vala:151
 msgid "Empty File"
-msgstr ""
+msgstr "Prázdny súbor"
 
 #: src/FolderManager/FolderItem.vala:158
-#, fuzzy
 msgid "New"
 msgstr "Nová karta"
 
 #: src/FolderManager/FolderItem.vala:322
 msgid "untitled folder"
-msgstr ""
+msgstr "Priečinok bez názvu"
 
 #: src/FolderManager/FolderItem.vala:326
 #, c-format
 msgid "untitled folder %d"
-msgstr ""
+msgstr "Priečinok bez názvu %d"
 
 #: src/FolderManager/FolderItem.vala:354
-#, fuzzy
 msgid "new file"
-msgstr "Nový súbor"
+msgstr "nový súbor"
 
 #: src/FolderManager/FolderItem.vala:358
-#, fuzzy, c-format
+#, c-format
 msgid "new file %d"
-msgstr "Nový súbor"
+msgstr "nový súbor %d"
 
-#: src/FolderManager/ProjectFolderItem.vala:127
-#, fuzzy
-msgid "Change Branch"
-msgstr "Zmeniť nastavenia editora Scratch"
-
-#: src/FolderManager/ProjectFolderItem.vala:134
+#: src/FolderManager/ProjectFolderItem.vala:78
 msgid "Close Folder"
 msgstr "Zatvoriť priečinok"
+
+#: src/FolderManager/ProjectFolderItem.vala:275
+#, fuzzy
+msgid "Branch"
+msgstr "Zmeniť vetvu"
 
 #: src/Services/Document.vala:267
 #, c-format
 msgid "%s Is Not a Text File"
-msgstr ""
+msgstr "%s nie je textový súbor"
 
 #: src/Services/Document.vala:268
 msgid "Code will not load this type of file."
-msgstr ""
+msgstr "Aplikácia Code nenačíta tento typ súboru."
 
 #: src/Services/Document.vala:270
 msgid "Load Anyway"
-msgstr ""
+msgstr "Napriek tomu načítať"
 
 #: src/Services/Document.vala:291
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr ""
+msgstr "Načítanie súboru \"%s\" trvá veľmi dlho"
 
 #: src/Services/Document.vala:292
 msgid "Please wait while Code is loading the file."
-msgstr ""
+msgstr "Prosím počkajte, kým aplikácia Code načíta súbor."
 
 #: src/Services/Document.vala:294
-#, fuzzy
 msgid "Cancel Loading"
-msgstr "Zrušiť"
+msgstr "Zrušiť načítanie"
 
-#: src/Services/Document.vala:400
-#, c-format
-msgid "Save changes to document %s before closing?"
+#: src/Services/Document.vala:392
+#, fuzzy, c-format
+msgid "Save changes to \"%s\" before closing?"
 msgstr "Uložiť zmeny do dokumentu %s pred ukončením?"
 
-#: src/Services/Document.vala:403
-msgid ""
-"If you don't save, changes from the last 4 seconds will be permanently lost."
+#: src/Services/Document.vala:393
+#, fuzzy
+msgid "If you don't save, changes will be permanently lost."
 msgstr "Ak ich neuložíte, zmeny z posledných 4 sekúnd budú navždy stratené."
 
-#: src/Services/Document.vala:405
-msgid "Close without saving"
+#: src/Services/Document.vala:399
+#, fuzzy
+msgid "Close Without Saving"
 msgstr "Zavrieť bez uloženia"
 
-#: src/Services/Document.vala:510
+#: src/Services/Document.vala:403 src/Services/Document.vala:514
+#: src/Services/Document.vala:738
+msgid "Save"
+msgstr "Uložiť"
+
+#: src/Services/Document.vala:511
 msgid "Save File"
 msgstr "Uložiť súbor"
 
-#: src/Services/Document.vala:584
+#: src/Services/Document.vala:593
 msgid "New Document"
 msgstr "Nový dokument"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:707
-#, fuzzy, c-format
+#: src/Services/Document.vala:716
+#, c-format
 msgid "File \"%s\" Cannot Be Read"
-msgstr ""
-"Súbor \"%s\" nemôže byť vytvorený.\n"
-"%s"
+msgstr "Súbor \"%s\" sa nedá prečítať"
 
-#: src/Services/Document.vala:708
-#, fuzzy
+#: src/Services/Document.vala:717
 msgid "It may be corrupt or you don't have permission to read it."
-msgstr ""
-"Súbor \"%s\" sa nedá prečítať. Môže byť poškodený,\n"
-"alebo nemáte potrebné oprávnenie na jeho čítanie."
+msgstr "Môže byť poškodený, alebo nemáte potrebné oprávnenie na jeho čítanie."
 
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:729
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -372,18 +365,18 @@ msgstr ""
 "Umiestnenie obsahujúce súbor \"%s\" nie je pripojené. Chcete uložiť na iné "
 "miesto?"
 
-#: src/Services/Document.vala:722
+#: src/Services/Document.vala:731
 msgid "Save As…"
 msgstr "Uložiť ako…"
 
-#: src/Services/Document.vala:727
+#: src/Services/Document.vala:736
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Súbor \"%s\" bol odstránený. Chcete ho aj napriek tomu uložiť?"
 
 #. If the file can't be written
-#: src/Services/Document.vala:742
-#, fuzzy, c-format
+#: src/Services/Document.vala:751
+#, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
@@ -391,11 +384,11 @@ msgstr ""
 "Nie je možné uložiť zmeny v súbore \"%s\". Chcete uložiť zmeny v súbore na "
 "iné miesto?"
 
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:753
 msgid "Save changes elsewhere"
 msgstr "Uložiť zmeny inam"
 
-#: src/Services/Document.vala:777
+#: src/Services/Document.vala:786
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -404,11 +397,11 @@ msgstr ""
 "Súbor \"%s\" bol zmenený inou aplikáciou. Chcete ho opätovne načítať, alebo "
 "pokračovať v úpravách?"
 
-#: src/Services/Document.vala:778
+#: src/Services/Document.vala:787
 msgid "Load"
 msgstr "Načítať"
 
-#: src/Services/Document.vala:781
+#: src/Services/Document.vala:790
 msgid "Continue"
 msgstr "Pokračovať"
 
@@ -417,40 +410,41 @@ msgid "Templates"
 msgstr "Šablóny"
 
 #: src/Widgets/DocumentView.vala:133
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s:%d"
-msgstr "Textový súbor z "
+msgstr "Textový súbor z %s:%d"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
 msgstr "Zvýrazňovanie syntaxe"
 
 #: src/Widgets/FormatBar.vala:75
-#, fuzzy
 msgid "Line number"
-msgstr "Zobraziť číslovanie riadkov:"
+msgstr "Číslo riadku"
 
 #: src/Widgets/FormatBar.vala:101
 msgid "Filter languages"
-msgstr ""
+msgstr "Filtrovať jazyky"
 
 #: src/Widgets/FormatBar.vala:123
 msgid "Plain Text"
-msgstr ""
+msgstr "Jednoduchý text"
 
 #: src/Widgets/FormatBar.vala:205
-#, fuzzy, c-format
+#, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
-msgstr[0] "Zobraziť mezery:"
-msgstr[1] "Zobraziť mezery:"
+msgstr[0] "%d medzera"
+msgstr[1] "%d medzery"
+msgstr[2] "%d medzier"
 
 #: src/Widgets/FormatBar.vala:207
-#, fuzzy, c-format
+#, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "Nová karta"
-msgstr[1] "Nová karta"
+msgstr[0] "%d karta"
+msgstr[1] "%d karty"
+msgstr[2] "%d kariet"
 
 #: src/Widgets/FormatBar.vala:223
 msgid "Go To Line:"
@@ -485,33 +479,30 @@ msgid "Share"
 msgstr "Zdieľať"
 
 #: src/Widgets/HeaderBar.vala:94
-#, fuzzy
 msgid "Zoom Out"
-msgstr "Priblíženie"
+msgstr "Oddialiť"
 
 #: src/Widgets/HeaderBar.vala:101
 msgid "Zoom 1:1"
 msgstr "Mierka 1:1"
 
 #: src/Widgets/HeaderBar.vala:108
-#, fuzzy
 msgid "Zoom In"
-msgstr "Priblíženie"
+msgstr "Priblížiť"
 
 #: src/Widgets/HeaderBar.vala:122
 msgid "High Contrast"
-msgstr ""
+msgstr "Vysoký kontrast"
 
 #: src/Widgets/HeaderBar.vala:130
 msgid "Solarized Light"
-msgstr ""
+msgstr "Solarizovaný svetlý"
 
 #: src/Widgets/HeaderBar.vala:138
 msgid "Solarized Dark"
-msgstr ""
+msgstr "Solarizovaný tmavý"
 
 #: src/Widgets/HeaderBar.vala:148
-#, fuzzy
 msgid "Toggle Sidebar"
 msgstr "Bočný panel"
 
@@ -525,7 +516,7 @@ msgstr "Odstrániť aktuálne zobrazenie"
 
 #: src/Widgets/HeaderBar.vala:183
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
@@ -557,11 +548,11 @@ msgstr "Nahradiť všetko"
 
 #: src/Widgets/SourceView.vala:362
 msgid "Sort Selected Lines"
-msgstr ""
+msgstr "Zoradiť vybrané riadky"
 
 #: src/Widgets/SourceView.vala:369
 msgid "Toggle Comment"
-msgstr ""
+msgstr "Skryť/Zobraziť komentár"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -572,16 +563,14 @@ msgid "Open a file to begin editing."
 msgstr "Otvorte súbor a začnite upravovať."
 
 #: src/Widgets/WelcomeView.vala:32
-#, fuzzy
 msgid "New File"
-msgstr "/Nový súbor"
+msgstr "Nový súbor"
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "Create a new empty file."
 msgstr "Vytvoriť nový prázdny súbor."
 
 #: src/Widgets/WelcomeView.vala:33
-#, fuzzy
 msgid "Open File"
 msgstr "Otvoriť súbor"
 
@@ -590,32 +579,28 @@ msgid "Open a saved file."
 msgstr "Otvoriť uložený súbor."
 
 #: src/Widgets/WelcomeView.vala:34
-#, fuzzy
 msgid "Open Folder"
 msgstr "Otvoriť priečinok"
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Add a project folder to the sidebar."
-msgstr ""
+msgstr "Pridať priečinok projektu do bočného panela."
 
 #: plugins/pastebin/pastebin_dialog.vala:249
-#, fuzzy
 msgid "Share via Pastebin"
-msgstr "Zdieľať použitím PasteBin"
+msgstr "Zdieľať s použitím PasteBin"
 
 #: plugins/pastebin/pastebin_dialog.vala:256
 msgid "Name:"
 msgstr "Meno:"
 
 #: plugins/pastebin/pastebin_dialog.vala:259
-#, fuzzy
 msgid "Format:"
-msgstr "Formát: "
+msgstr "Formát:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
-#, fuzzy
 msgid "Others…"
-msgstr "Iné..."
+msgstr "Iné…"
 
 #: plugins/pastebin/pastebin_dialog.vala:286
 msgid "Expiry time:"
@@ -698,10 +683,13 @@ msgstr "Zobraziť náhľad"
 msgid "Hide Preview"
 msgstr "Skryť náhľad"
 
+#: plugins/spell/spell.vala:76
+msgid "No Suitable Dictionaries Were Found"
+msgstr ""
+
 #: plugins/spell/spell.vala:77
-msgid ""
-"No suitable dictionaries were found.\n"
-"Please install at least one [aspell] dictionary"
+#, fuzzy
+msgid "Please install at least one [aspell] dictionary."
 msgstr ""
 "Neboli nájdené vhodné slovníky.\n"
 "Nainštalujte prosím aspoň jeden [aspell] slovník"
@@ -716,8 +704,19 @@ msgstr "Dokončovanie slova: %s"
 msgid "Could not load icon theme: %s\n"
 msgstr "Nepodarilo sa načítať motív ikon: %s\n"
 
-#~ msgid "It is a directory."
-#~ msgstr "Je to priečinok."
+#~ msgid ""
+#~ "File \"%s\" cannot be created.\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Súbor \"%s\" nemôže byť vytvorený.\n"
+#~ "%s"
+
+#~ msgid ""
+#~ "File \"%s\" cannot be opened.\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Súbor \"%s\" nemôže byť otvorený.\n"
+#~ "%s"
 
 #~ msgid "Highlight current line:"
 #~ msgstr "Zvýrazniť súčasný riadok:"

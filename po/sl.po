@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-27 13:35-0800\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
 "PO-Revision-Date: 2018-07-09 20:13+0000\n"
 "Last-Translator: Jernej Virag <jernej@virag.si>\n"
 "Language-Team: Slovenian <https://weblate.elementary.io/projects/code/code/"
@@ -21,46 +21,33 @@ msgstr ""
 "X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
+#: src/Application.vala:133
+#, fuzzy, c-format
+msgid "File \"%s\" Cannot Be Created"
+msgstr "Datoteke  \"%s\" ni mogoče brati"
+
 #. We list some common errors for quick feedback
-#: src/Application.vala:135
+#: src/Application.vala:137
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Morda nimate ustreznih pravic."
 
-#: src/Application.vala:137
+#: src/Application.vala:139
 msgid "Maybe the file path provided is not valid."
 msgstr "Morda pot do datoteke ni pravilna."
 
-#: src/Application.vala:139
+#: src/Application.vala:141
 msgid "The location is read-only."
 msgstr "Lokacija je dostopna samo za branje."
 
-#: src/Application.vala:141
+#: src/Application.vala:143
 msgid "The parent directory doesn't exist."
 msgstr "Mapa z datoteko več ne obstaja."
 
-#: src/Application.vala:148
-#, c-format
-msgid ""
-"File \"%s\" cannot be created.\n"
-"%s"
-msgstr ""
-"Datoteke  \"%s\" ni mogoče ustvariti.\n"
-"%s"
-
-#: src/Application.vala:158
-#, c-format
-msgid ""
-"File \"%s\" cannot be opened.\n"
-"%s"
-msgstr ""
-"Datoteke  \"%s\" ni bilo mogoče odpreti.\n"
-"%s"
-
-#: src/Application.vala:168
+#: src/Application.vala:164
 msgid "It is a mountable location."
 msgstr "Je priklopna točka."
 
-#: src/Application.vala:171
+#: src/Application.vala:167
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -68,79 +55,89 @@ msgstr ""
 "Je \"posebna\" datoteka kot npr. vtičnica,\n"
 "FIFO, blokovna ali znakovna naprava."
 
-#: src/Application.vala:174
+#: src/Application.vala:170
 msgid "It is an \"unknown\" file type."
 msgstr "Je \"neznan\" tip datoteke."
 
-#: src/Application.vala:263
+#: src/Application.vala:175
+#, fuzzy, c-format
+msgid "File \"%s\" Cannot Be Opened"
+msgstr "Datoteke  \"%s\" ni mogoče brati"
+
+#: src/Application.vala:259
 msgid "New Tab"
 msgstr "Nov zavihek"
 
-#: src/Application.vala:264 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:260 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Novo okno"
 
-#: src/Application.vala:265
+#: src/Application.vala:261
 msgid "Print version info and exit"
 msgstr "Prikaži različico in končaj"
 
-#: src/Application.vala:266
+#: src/Application.vala:262
 msgid "Set of plugins"
 msgstr "Nabor vtičnikov"
 
-#: src/Application.vala:267
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "Nabor vtičnikov"
+
+#: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Trenutni imenik"
+
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "Je direktorij."
 
 #: src/MainWindow.vala:133
 msgid "Code"
 msgstr "Koda"
 
-#: src/MainWindow.vala:183 src/Widgets/HeaderBar.vala:80
+#: src/MainWindow.vala:184 src/Widgets/HeaderBar.vala:80
 msgid "Find…"
 msgstr "Išči…"
 
-#: src/MainWindow.vala:188
+#: src/MainWindow.vala:189
 msgid "Hide search bar"
 msgstr "Skrij iskalno vrstico"
 
-#: src/MainWindow.vala:236
+#: src/MainWindow.vala:240
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Vir podatkov Zeitgeist za Scratch"
 
-#. Show a GtkFileChooserDialog
-#: src/MainWindow.vala:742
-msgid "Open some files"
-msgstr "Odpri nekaj datotek"
-
-#: src/MainWindow.vala:761
-msgid "_Cancel"
-msgstr "_Prekliči"
-
-#: src/MainWindow.vala:762
-msgid "_Open"
-msgstr "_Odpri"
-
-#: src/Utils.vala:27
+#: src/MainWindow.vala:765 src/Services/Document.vala:503
 msgid "All files"
 msgstr "Vse datoteke"
 
-#: src/Utils.vala:31
+#: src/MainWindow.vala:769 src/Services/Document.vala:507
 msgid "Text files"
 msgstr "Datoteke z besedilom"
 
-#: src/Utils.vala:35 src/Services/Document.vala:409
-msgid "Cancel"
-msgstr "Prekliči"
+#: src/MainWindow.vala:773
+msgid "Open some files"
+msgstr "Odpri nekaj datotek"
 
-#: src/Utils.vala:44
+#: src/MainWindow.vala:776
 msgid "Open"
 msgstr "Odpri"
 
-#: src/Utils.vala:46 src/Services/Document.vala:410
-#: src/Services/Document.vala:729
-msgid "Save"
-msgstr "Shrani"
+#: src/MainWindow.vala:777 src/Services/Document.vala:402
+#: src/Services/Document.vala:515
+msgid "Cancel"
+msgstr "Prekliči"
+
+#: src/MainWindow.vala:802
+msgid "_Open"
+msgstr "_Odpri"
+
+#: src/MainWindow.vala:803
+msgid "_Cancel"
+msgstr "_Prekliči"
 
 #: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:160
 msgid "Preferences"
@@ -236,21 +233,21 @@ msgstr "Poljubna pisava:"
 msgid "Other Application…"
 msgstr "Druga aplikacija…"
 
-#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:120
 msgid "Open In"
 msgstr "Odpri v"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:123
 #, fuzzy
 msgid "Other Actions"
 msgstr "Druga aplikacija…"
 
-#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
 msgstr "Preimenuj"
 
-#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:137
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr "Premakni v smeti"
 
@@ -288,14 +285,14 @@ msgstr "Nova datoteka"
 msgid "new file %d"
 msgstr "Nova datoteka %d"
 
-#: src/FolderManager/ProjectFolderItem.vala:127
-#, fuzzy
-msgid "Change Branch"
-msgstr "Spremeni nastavitve programa"
-
-#: src/FolderManager/ProjectFolderItem.vala:134
+#: src/FolderManager/ProjectFolderItem.vala:78
 msgid "Close Folder"
 msgstr "Zapri mapo"
+
+#: src/FolderManager/ProjectFolderItem.vala:275
+#, fuzzy
+msgid "Branch"
+msgstr "Spremeni nastavitve programa"
 
 #: src/Services/Document.vala:267
 #, c-format
@@ -324,41 +321,47 @@ msgstr "Prosimo počakajte da Koda naloži datoteko."
 msgid "Cancel Loading"
 msgstr "Prekliči nalaganje"
 
-#: src/Services/Document.vala:400
-#, c-format
-msgid "Save changes to document %s before closing?"
+#: src/Services/Document.vala:392
+#, fuzzy, c-format
+msgid "Save changes to \"%s\" before closing?"
 msgstr "Ali želite pred zaprtjem shraniti spremembe v dokument %s?"
 
-#: src/Services/Document.vala:403
-msgid ""
-"If you don't save, changes from the last 4 seconds will be permanently lost."
+#: src/Services/Document.vala:393
+#, fuzzy
+msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Če ne boste shranili, bodo spremembe zadnjih 4-ih sekund trajno izgubljene."
 
-#: src/Services/Document.vala:405
-msgid "Close without saving"
+#: src/Services/Document.vala:399
+#, fuzzy
+msgid "Close Without Saving"
 msgstr "Zapri brez shranjevanja"
 
-#: src/Services/Document.vala:510
+#: src/Services/Document.vala:403 src/Services/Document.vala:514
+#: src/Services/Document.vala:738
+msgid "Save"
+msgstr "Shrani"
+
+#: src/Services/Document.vala:511
 msgid "Save File"
 msgstr "Shrani datoteko"
 
-#: src/Services/Document.vala:584
+#: src/Services/Document.vala:593
 msgid "New Document"
 msgstr "Nov dokument"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:707
+#: src/Services/Document.vala:716
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Datoteke  \"%s\" ni mogoče brati"
 
-#: src/Services/Document.vala:708
+#: src/Services/Document.vala:717
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "Morda je poškodovana ali pa nimate dovoljenja za branje."
 
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:729
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -367,17 +370,17 @@ msgstr ""
 "Imenik z datoteko \"%s\" je bil odklopljen. Ali želite datoteko shraniti kam "
 "drugam?"
 
-#: src/Services/Document.vala:722
+#: src/Services/Document.vala:731
 msgid "Save As…"
 msgstr "Shrani kot …"
 
-#: src/Services/Document.vala:727
+#: src/Services/Document.vala:736
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Datoteka \"%s\" je bila izbrisana. Ali jo želite vseeno shraniti?"
 
 #. If the file can't be written
-#: src/Services/Document.vala:742
+#: src/Services/Document.vala:751
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -386,11 +389,11 @@ msgstr ""
 "Sprememb v datoteki \"%s\" ne morete shraniti. Ali jo želite shraniti v drug "
 "imenik?"
 
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:753
 msgid "Save changes elsewhere"
 msgstr "Shrani spremembe drugje"
 
-#: src/Services/Document.vala:777
+#: src/Services/Document.vala:786
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -399,11 +402,11 @@ msgstr ""
 "Datoteko \"%s\" je spremenila druga apliakcija. Ali jo želite ponovno "
 "naložiti?"
 
-#: src/Services/Document.vala:778
+#: src/Services/Document.vala:787
 msgid "Load"
 msgstr "Naloži"
 
-#: src/Services/Document.vala:781
+#: src/Services/Document.vala:790
 msgid "Continue"
 msgstr "Nadaljuj"
 
@@ -689,10 +692,13 @@ msgstr "Pokaži predogled"
 msgid "Hide Preview"
 msgstr "Skrij predogled"
 
+#: plugins/spell/spell.vala:76
+msgid "No Suitable Dictionaries Were Found"
+msgstr ""
+
 #: plugins/spell/spell.vala:77
-msgid ""
-"No suitable dictionaries were found.\n"
-"Please install at least one [aspell] dictionary"
+#, fuzzy
+msgid "Please install at least one [aspell] dictionary."
 msgstr ""
 "Nobenega ustreznega slovarja ni mogoče najti.\n"
 "Namestite vsaj en [aspell] slovar"
@@ -707,8 +713,19 @@ msgstr "%s - Dopolnitev besede"
 msgid "Could not load icon theme: %s\n"
 msgstr "Ni mogoče naložiti ikonske teme: %s\n"
 
-#~ msgid "It is a directory."
-#~ msgstr "Je direktorij."
+#~ msgid ""
+#~ "File \"%s\" cannot be created.\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Datoteke  \"%s\" ni mogoče ustvariti.\n"
+#~ "%s"
+
+#~ msgid ""
+#~ "File \"%s\" cannot be opened.\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Datoteke  \"%s\" ni bilo mogoče odpreti.\n"
+#~ "%s"
 
 #~ msgid "Highlight current line:"
 #~ msgstr "Poudari trenutno vrstico:"

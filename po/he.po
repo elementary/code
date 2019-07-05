@@ -7,59 +7,45 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-27 13:35-0800\n"
-"PO-Revision-Date: 2019-01-28 12:06+0000\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
+"PO-Revision-Date: 2019-04-26 05:38+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: Hebrew <https://weblate.elementary.io/projects/code/code/he/>"
-"\n"
+"Language-Team: Hebrew <https://l10n.elementary.io/projects/code/code/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.6\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
+#: src/Application.vala:133
+#, c-format
+msgid "File \"%s\" Cannot Be Created"
+msgstr "לא ניתן ליצור את הקובץ „%s”"
+
 #. We list some common errors for quick feedback
-#: src/Application.vala:135
+#: src/Application.vala:137
 msgid "Maybe you do not have the necessary permissions."
 msgstr "יתכן שלא נתקבלו ההרשאות הנדרשות."
 
-#: src/Application.vala:137
+#: src/Application.vala:139
 msgid "Maybe the file path provided is not valid."
 msgstr "יתכן שנתיב הקובץ אינו תקף."
 
-#: src/Application.vala:139
+#: src/Application.vala:141
 msgid "The location is read-only."
 msgstr "המקום לקריאה בלבד."
 
-#: src/Application.vala:141
+#: src/Application.vala:143
 msgid "The parent directory doesn't exist."
 msgstr "תיקיית האב אינה קיימת."
 
-#: src/Application.vala:148
-#, c-format
-msgid ""
-"File \"%s\" cannot be created.\n"
-"%s"
-msgstr ""
-"לא ניתן ליצור את הקובץ „%s”.\n"
-"%s"
-
-#: src/Application.vala:158
-#, c-format
-msgid ""
-"File \"%s\" cannot be opened.\n"
-"%s"
-msgstr ""
-"לא ניתן לפתוח את הקובץ „%s”.\n"
-"%s"
-
-#: src/Application.vala:168
+#: src/Application.vala:164
 msgid "It is a mountable location."
 msgstr "מיקום זה ניתן לעגינה."
 
-#: src/Application.vala:171
+#: src/Application.vala:167
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -67,79 +53,89 @@ msgstr ""
 "זה קובץ „מיוחד” כגון שקע,\n"
 "‎.FIFO, התקן בלוקים או התקן תווים."
 
-#: src/Application.vala:174
+#: src/Application.vala:170
 msgid "It is an \"unknown\" file type."
 msgstr "זהו סוג קובץ „לא ידוע”."
 
-#: src/Application.vala:263
+#: src/Application.vala:175
+#, c-format
+msgid "File \"%s\" Cannot Be Opened"
+msgstr "לא ניתן לפתוח את הקובץ „%s”"
+
+#: src/Application.vala:259
 msgid "New Tab"
 msgstr "לשונית חדשה"
 
-#: src/Application.vala:264 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:260 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "חלון חדש"
 
-#: src/Application.vala:265
+#: src/Application.vala:261
 msgid "Print version info and exit"
 msgstr "הדפסת מידע גרסה ויציאה"
 
-#: src/Application.vala:266
+#: src/Application.vala:262
 msgid "Set of plugins"
 msgstr "ערכת תוספים"
 
-#: src/Application.vala:267
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "ערכת תוספים"
+
+#: src/Application.vala:263
 msgid "Current working directory"
 msgstr "תיקיית העבודה הנוכחית"
+
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "זו תיקייה."
 
 #: src/MainWindow.vala:133
 msgid "Code"
 msgstr "קוד"
 
-#: src/MainWindow.vala:183 src/Widgets/HeaderBar.vala:80
+#: src/MainWindow.vala:184 src/Widgets/HeaderBar.vala:80
 msgid "Find…"
 msgstr "חיפוש…"
 
-#: src/MainWindow.vala:188
+#: src/MainWindow.vala:189
 msgid "Hide search bar"
 msgstr "הסתרת סרגל החיפוש"
 
-#: src/MainWindow.vala:236
+#: src/MainWindow.vala:240
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "מקור נתונים צייטגייסט עבור קוד"
 
-#. Show a GtkFileChooserDialog
-#: src/MainWindow.vala:742
-msgid "Open some files"
-msgstr "פתיחת מספר קבצים"
-
-#: src/MainWindow.vala:761
-msgid "_Cancel"
-msgstr "_ביטול"
-
-#: src/MainWindow.vala:762
-msgid "_Open"
-msgstr "_פתיחה"
-
-#: src/Utils.vala:27
+#: src/MainWindow.vala:765 src/Services/Document.vala:503
 msgid "All files"
 msgstr "כל הקבצים"
 
-#: src/Utils.vala:31
+#: src/MainWindow.vala:769 src/Services/Document.vala:507
 msgid "Text files"
 msgstr "קבצי טקסט"
 
-#: src/Utils.vala:35 src/Services/Document.vala:409
-msgid "Cancel"
-msgstr "ביטול"
+#: src/MainWindow.vala:773
+msgid "Open some files"
+msgstr "פתיחת מספר קבצים"
 
-#: src/Utils.vala:44
+#: src/MainWindow.vala:776
 msgid "Open"
 msgstr "פתיחה"
 
-#: src/Utils.vala:46 src/Services/Document.vala:410
-#: src/Services/Document.vala:729
-msgid "Save"
-msgstr "שמירה"
+#: src/MainWindow.vala:777 src/Services/Document.vala:402
+#: src/Services/Document.vala:515
+msgid "Cancel"
+msgstr "ביטול"
+
+#: src/MainWindow.vala:802
+msgid "_Open"
+msgstr "_פתיחה"
+
+#: src/MainWindow.vala:803
+msgid "_Cancel"
+msgstr "_ביטול"
 
 #: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:160
 msgid "Preferences"
@@ -235,20 +231,20 @@ msgstr "גופן מותאם אישית:"
 msgid "Other Application…"
 msgstr "יישום אחר…"
 
-#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:120
 msgid "Open In"
 msgstr "פתיחה עם"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:123
 msgid "Other Actions"
 msgstr "פעולות אחרות"
 
-#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
 msgstr "שינוי שם"
 
-#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
-#: src/FolderManager/ProjectFolderItem.vala:137
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr "העברה לאשפה"
 
@@ -286,13 +282,14 @@ msgstr "קובץ חדש"
 msgid "new file %d"
 msgstr "קובץ חדש %d"
 
-#: src/FolderManager/ProjectFolderItem.vala:127
-msgid "Change Branch"
-msgstr "החלפת ענף"
-
-#: src/FolderManager/ProjectFolderItem.vala:134
+#: src/FolderManager/ProjectFolderItem.vala:78
 msgid "Close Folder"
 msgstr "סגירת תיקייה"
+
+#: src/FolderManager/ProjectFolderItem.vala:275
+#, fuzzy
+msgid "Branch"
+msgstr "החלפת ענף"
 
 #: src/Services/Document.vala:267
 #, c-format
@@ -320,67 +317,71 @@ msgstr "נא להמתין בזמן שקוד טוען את הקובץ."
 msgid "Cancel Loading"
 msgstr "ביטול הטעינה"
 
-#: src/Services/Document.vala:400
+#: src/Services/Document.vala:392
 #, c-format
-msgid "Save changes to document %s before closing?"
-msgstr "האם לשמור את השינויים למסמך %s לפני הסגירה?"
+msgid "Save changes to \"%s\" before closing?"
+msgstr "לשמור את השינויים אל „%s” לפני הסגירה?"
 
-#: src/Services/Document.vala:403
-msgid ""
-"If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr "אם לא תשמרו, שינויים מארבע השניות האחרונות יאבדו לצמיתות."
+#: src/Services/Document.vala:393
+msgid "If you don't save, changes will be permanently lost."
+msgstr "בחירה שלא לשמור תוביל לאבדן השינויים לעד."
 
-#: src/Services/Document.vala:405
-msgid "Close without saving"
+#: src/Services/Document.vala:399
+msgid "Close Without Saving"
 msgstr "סגירה ללא שמירה"
 
-#: src/Services/Document.vala:510
+#: src/Services/Document.vala:403 src/Services/Document.vala:514
+#: src/Services/Document.vala:738
+msgid "Save"
+msgstr "שמירה"
+
+#: src/Services/Document.vala:511
 msgid "Save File"
 msgstr "שמירת קובץ"
 
-#: src/Services/Document.vala:584
+#: src/Services/Document.vala:593
 msgid "New Document"
 msgstr "מסמך חדש"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:707
+#: src/Services/Document.vala:716
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "לא ניתן לקרוא את הקובץ „%s”"
 
-#: src/Services/Document.vala:708
+#: src/Services/Document.vala:717
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "יתכן שהוא פגום או שאין לך את ההרשאות המתאימות כדי לקרוא ממנו."
 
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:729
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr "בוטלה העגינה של המקום המכיל את הקובץ „%s”. האם לשמור במקום אחר?"
 
-#: src/Services/Document.vala:722
+#: src/Services/Document.vala:731
 msgid "Save As…"
 msgstr "שמירה בשם…"
 
-#: src/Services/Document.vala:727
+#: src/Services/Document.vala:736
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "הקובץ „%s” נמחק. האם לשמור בכל זאת?"
 
 #. If the file can't be written
-#: src/Services/Document.vala:742
+#: src/Services/Document.vala:751
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr "לא ניתן לשמור שינויים לקובץ „%s”. לשמור את השינויים לקובץ אחר?"
 
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:753
 msgid "Save changes elsewhere"
 msgstr "שמירת השינויים במקום אחר"
 
-#: src/Services/Document.vala:777
+#: src/Services/Document.vala:786
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -388,11 +389,11 @@ msgid ""
 msgstr ""
 "הקובץ „%s” שונה באמצעות יישום חיצוני. האם לטעון אותו שוב או להמשיך בעריכה?"
 
-#: src/Services/Document.vala:778
+#: src/Services/Document.vala:787
 msgid "Load"
 msgstr "טעינה"
 
-#: src/Services/Document.vala:781
+#: src/Services/Document.vala:790
 msgid "Continue"
 msgstr "המשך"
 
@@ -672,13 +673,13 @@ msgstr "הצגת תצוגה מקדימה"
 msgid "Hide Preview"
 msgstr "הסתרת תצוגה מקדימה"
 
+#: plugins/spell/spell.vala:76
+msgid "No Suitable Dictionaries Were Found"
+msgstr "לא נמצאו מילונים מתאימים"
+
 #: plugins/spell/spell.vala:77
-msgid ""
-"No suitable dictionaries were found.\n"
-"Please install at least one [aspell] dictionary"
-msgstr ""
-"לא נמצאו מילונים מתאימים.\n"
-"נא להתקין מילון [aspell] אחד לפחות"
+msgid "Please install at least one [aspell] dictionary."
+msgstr "נא להתקין לפחות מילון [aspell] אחד."
 
 #: plugins/word-completion/plugin.vala:174
 #, c-format
@@ -690,8 +691,19 @@ msgstr "%s - השלמת מילים"
 msgid "Could not load icon theme: %s\n"
 msgstr "לא ניתן לטעון ערכת נושא לסמלים: %s\n"
 
-#~ msgid "It is a directory."
-#~ msgstr "זו תיקייה."
+#~ msgid ""
+#~ "File \"%s\" cannot be created.\n"
+#~ "%s"
+#~ msgstr ""
+#~ "לא ניתן ליצור את הקובץ „%s”.\n"
+#~ "%s"
+
+#~ msgid ""
+#~ "File \"%s\" cannot be opened.\n"
+#~ "%s"
+#~ msgstr ""
+#~ "לא ניתן לפתוח את הקובץ „%s”.\n"
+#~ "%s"
 
 #~ msgid "Highlight current line:"
 #~ msgstr "הדגשת השורה הנוכחית:"
