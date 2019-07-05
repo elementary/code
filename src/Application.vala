@@ -31,7 +31,6 @@ namespace Scratch {
         public string default_font { get; set; }
         private static string _app_cmd_name;
         private static string _data_home_folder_unsaved;
-        private static string _cwd;
         private static bool print_version = false;
         private static bool create_new_tab = false;
         private static bool create_new_window = false;
@@ -111,9 +110,6 @@ namespace Scratch {
                 Utils.action_from_group (MainWindow.ACTION_NEW_TAB, window.actions).activate (null);
             }
 
-            // Set Current Directory
-            Environment.set_current_dir (_cwd);
-
             int args_length = args.length;
             // Open all files given as arguments
             if (args_length > 1) {
@@ -124,7 +120,7 @@ namespace Scratch {
                     string title = "";
                     string body = "";
                     try {
-                        var file = File.new_for_commandline_arg (arg);
+                        var file = command_line.create_file_for_arg (arg);
 
                         if (!file.query_exists ()) {
                             try {
@@ -234,18 +230,6 @@ namespace Scratch {
             }
         }
 
-        public override bool local_command_line (ref weak string[] arguments, out int exit_status) {
-            // Resolve any CWD paths to explicit paths before passing to remote instance as that will
-            // have different CWD
-            for (int i = 0; i < arguments.length; i++) {
-                if (arguments[i] == ".") {
-                    arguments[i] = File.new_for_commandline_arg (".").get_path ();
-                }
-            }
-
-            return base.local_command_line (ref arguments, out exit_status);
-        }
-
         public MainWindow? get_last_window () {
             unowned List<Gtk.Window> windows = get_windows ();
             return windows.length () > 0 ? windows.last ().data as MainWindow : null;
@@ -260,7 +244,6 @@ namespace Scratch {
             { "new-window", 'n', 0, OptionArg.NONE, out create_new_window, N_("New Window"), null },
             { "version", 'v', 0, OptionArg.NONE, out print_version, N_("Print version info and exit"), null },
             { "set", 's', 0, OptionArg.STRING, ref _app_cmd_name, N_("Set of plugins"), N_("plugin") },
-            { "cwd", 'c', 0, OptionArg.STRING, ref _cwd, N_("Current working directory"), N_("directory") },
             { null }
         };
 
