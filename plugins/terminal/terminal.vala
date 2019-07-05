@@ -159,20 +159,27 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
     private void change_dir_to_current_doc_parent () {
         if (terminal == null ||
             !tool_button.active ||
-            terminal_has_foreground_process () ||
-            !settings.follow_current_doc_path) {
+            terminal_has_foreground_process ()) {
 
             return;
         }
 
-        var current_doc = window.get_current_document ();
-        if (current_doc != null && !current_doc.is_file_temporary) {
-            var dir = current_doc.file.get_parent ().get_path ();
-            if (dir != null && dir != get_shell_location ()) {
+        string? dir = null;
 
-                var command = "cd '%s' && clear\n".printf (dir);
-                terminal.feed_child (command, command.length);
+        if (settings.follow_current_doc_path) {
+            var current_doc = window.get_current_document ();
+            if (current_doc != null && !current_doc.is_file_temporary) {
+                dir = current_doc.file.get_parent ().get_path ();
             }
+        }
+
+        if (dir == null) {
+            dir = GLib.Environment.get_current_dir ();
+        }
+
+        if (dir != null && dir != get_shell_location ()) {
+            var command = "cd '%s' && clear\n".printf (dir);
+            terminal.feed_child (command, command.length);
         }
     }
 
