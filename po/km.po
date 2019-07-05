@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-07 11:10-0800\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
 "PO-Revision-Date: 2015-12-21 13:37+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Khmer <km@li.org>\n"
@@ -75,52 +75,61 @@ msgstr "បោះពុម្ពពត៌មានកំណែ និងចា�
 msgid "Set of plugins"
 msgstr "សំណុំ​កម្ម​វិធី​ជំនួយ"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "សំណុំ​កម្ម​វិធី​ជំនួយ"
+
 #: src/Application.vala:263
 msgid "Current working directory"
+msgstr ""
+
+#: src/Application.vala:263
+msgid "directory"
 msgstr ""
 
 #: src/MainWindow.vala:133
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:183 src/Widgets/HeaderBar.vala:80
+#: src/MainWindow.vala:184 src/Widgets/HeaderBar.vala:80
 msgid "Find…"
 msgstr ""
 
-#: src/MainWindow.vala:188
+#: src/MainWindow.vala:189
 msgid "Hide search bar"
 msgstr "លាក់​របារ​ស្វែង​រក"
 
-#: src/MainWindow.vala:236
+#: src/MainWindow.vala:240
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "ប្រភព​ទិន្នន័យ Zeitgeist សំរាប់ Scratch"
 
-#: src/MainWindow.vala:744 src/Services/Document.vala:503
+#: src/MainWindow.vala:765 src/Services/Document.vala:503
 msgid "All files"
 msgstr "ឯកសារ​​ទាំង​អស់"
 
-#: src/MainWindow.vala:748 src/Services/Document.vala:507
+#: src/MainWindow.vala:769 src/Services/Document.vala:507
 msgid "Text files"
 msgstr "ឯកសារ​​អត្ថបទ"
 
-#: src/MainWindow.vala:752
+#: src/MainWindow.vala:773
 msgid "Open some files"
 msgstr ""
 
-#: src/MainWindow.vala:755
+#: src/MainWindow.vala:776
 msgid "Open"
 msgstr "បើក"
 
-#: src/MainWindow.vala:756 src/Services/Document.vala:402
+#: src/MainWindow.vala:777 src/Services/Document.vala:402
 #: src/Services/Document.vala:515
 msgid "Cancel"
 msgstr "បោះបង់"
 
-#: src/MainWindow.vala:781
+#: src/MainWindow.vala:802
 msgid "_Open"
 msgstr ""
 
-#: src/MainWindow.vala:782
+#: src/MainWindow.vala:803
 msgid "_Cancel"
 msgstr ""
 
@@ -218,21 +227,21 @@ msgstr "ពុម្ព​អក្សរ​ផ្ទាល់​ខ្លួន
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:120
 #, fuzzy
 msgid "Open In"
 msgstr "បើក"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:123
 #, fuzzy
 msgid "Other Actions"
 msgstr "ទ្រង់​ទ្រាយ​ឯ​ទៀត"
 
-#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:132
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr ""
@@ -277,9 +286,9 @@ msgstr "ឯកសារ​ថ្មី"
 msgid "Close Folder"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:269
+#: src/FolderManager/ProjectFolderItem.vala:275
 #, fuzzy
-msgid "Change Branch"
+msgid "Branch"
 msgstr "ប្ដូរ​ការ​កំណត់​របស់ Scratch"
 
 #: src/Services/Document.vala:267

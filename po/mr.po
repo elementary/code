@@ -2,23 +2,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-07 11:10-0800\n"
-"PO-Revision-Date: 2019-02-08 05:12+0000\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
+"PO-Revision-Date: 2019-05-14 19:02+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
-"Language-Team: Marathi <https://weblate.elementary.io/projects/code/code/mr/"
-">\n"
+"Language-Team: Marathi <https://l10n.elementary.io/projects/code/code/mr/>\n"
 "Language: mr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:133
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Created"
-msgstr "\"%s\" फाईल वाचली जाऊ शकत नाही"
+msgstr "फाइल \"%s\" तयार केली जाऊ शकत नाही"
 
 #. We list some common errors for quick feedback
 #: src/Application.vala:137
@@ -54,9 +53,9 @@ msgid "It is an \"unknown\" file type."
 msgstr "ह्या फाईल चा प्रकार \"अनोळखी\" आहे."
 
 #: src/Application.vala:175
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Opened"
-msgstr "\"%s\" फाईल वाचली जाऊ शकत नाही"
+msgstr "\"%s\" फाईल उघडली जाऊ शकत नाही"
 
 #: src/Application.vala:259
 msgid "New Tab"
@@ -74,52 +73,60 @@ msgstr "आवृत्तीची माहिती प्रिन्ट क
 msgid "Set of plugins"
 msgstr "प्लगिन्सचा संच"
 
+#: src/Application.vala:262
+msgid "plugin"
+msgstr "प्लगइन"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "सध्या काम करीत असलेले फोल्डर"
+
+#: src/Application.vala:263
+msgid "directory"
+msgstr "डिरेक्टरी"
 
 #: src/MainWindow.vala:133
 msgid "Code"
 msgstr "कोड"
 
-#: src/MainWindow.vala:183 src/Widgets/HeaderBar.vala:80
+#: src/MainWindow.vala:184 src/Widgets/HeaderBar.vala:80
 msgid "Find…"
 msgstr "शोधा…"
 
-#: src/MainWindow.vala:188
+#: src/MainWindow.vala:189
 msgid "Hide search bar"
 msgstr "सर्च बार लपवा"
 
-#: src/MainWindow.vala:236
+#: src/MainWindow.vala:240
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "स्क्रॅच साठी Zeitgeist डेटा स्त्रोत"
 
-#: src/MainWindow.vala:744 src/Services/Document.vala:503
+#: src/MainWindow.vala:765 src/Services/Document.vala:503
 msgid "All files"
 msgstr "सर्व फाईल्स"
 
-#: src/MainWindow.vala:748 src/Services/Document.vala:507
+#: src/MainWindow.vala:769 src/Services/Document.vala:507
 msgid "Text files"
 msgstr "टेक्स्ट फाईल्स"
 
-#: src/MainWindow.vala:752
+#: src/MainWindow.vala:773
 msgid "Open some files"
 msgstr "काही फाईल्स उघडा"
 
-#: src/MainWindow.vala:755
+#: src/MainWindow.vala:776
 msgid "Open"
 msgstr "उघडा"
 
-#: src/MainWindow.vala:756 src/Services/Document.vala:402
+#: src/MainWindow.vala:777 src/Services/Document.vala:402
 #: src/Services/Document.vala:515
 msgid "Cancel"
 msgstr "रद्द करा"
 
-#: src/MainWindow.vala:781
+#: src/MainWindow.vala:802
 msgid "_Open"
 msgstr "उघडा"
 
-#: src/MainWindow.vala:782
+#: src/MainWindow.vala:803
 msgid "_Cancel"
 msgstr "रद्द करा"
 
@@ -217,19 +224,19 @@ msgstr "आपला आवडता फॉन्ट:"
 msgid "Other Application…"
 msgstr "अन्य अप्लिकेशन…"
 
-#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:120
 msgid "Open In"
 msgstr "उघडण्यास वापरा"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:123
 msgid "Other Actions"
 msgstr "अन्य कारवाई"
 
-#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
 msgstr "नाव बदला"
 
-#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:132
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr "कचऱ्या मध्ये टाका"
@@ -272,8 +279,9 @@ msgstr "नवीन फाईल %d"
 msgid "Close Folder"
 msgstr "फोल्डर बंद करा"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
-msgid "Change Branch"
+#: src/FolderManager/ProjectFolderItem.vala:275
+#, fuzzy
+msgid "Branch"
 msgstr "ब्रँच बदला"
 
 #: src/Services/Document.vala:267
@@ -303,17 +311,15 @@ msgid "Cancel Loading"
 msgstr "लोड करणे रद्द करा"
 
 #: src/Services/Document.vala:392
-#, fuzzy, c-format
+#, c-format
 msgid "Save changes to \"%s\" before closing?"
-msgstr "डॉक्युमेंट %s बंद करण्याअगोदर बदल सेव्ह करायचे आहेत का?"
+msgstr "\"%s\" बंद करण्याअगोदर बदल सेव्ह करायचे आहेत का?"
 
 #: src/Services/Document.vala:393
-#, fuzzy
 msgid "If you don't save, changes will be permanently lost."
-msgstr "आपण फाईल सेव्ह न केल्यास मागील ४ सेकंदांत केलेले बदल नाहीसे होतील."
+msgstr "आपण सेव्ह न केल्यास  केलेले बदल नेहमीकरिता नाहीसे होतील."
 
 #: src/Services/Document.vala:399
-#, fuzzy
 msgid "Close Without Saving"
 msgstr "सेव्ह न करता बंद करा"
 
@@ -667,14 +673,11 @@ msgstr "पूर्वावलोकन लपवा"
 
 #: plugins/spell/spell.vala:76
 msgid "No Suitable Dictionaries Were Found"
-msgstr ""
+msgstr "कोणत्याही उपयुक्त डिक्शनरीज सापडल्या नाहीत"
 
 #: plugins/spell/spell.vala:77
-#, fuzzy
 msgid "Please install at least one [aspell] dictionary."
-msgstr ""
-"एकही उपयुक्त dictionary सापडली नाही. \n"
-"कृपया कमीत कमी एक [aspell] dictionary इन्स्टॉल करा"
+msgstr "कृपया कमीत कमी एक [aspell] dictionary इन्स्टॉल करा."
 
 #: plugins/word-completion/plugin.vala:174
 #, c-format
@@ -699,9 +702,6 @@ msgstr "आयकॉन थीम : %s लोड केली जाऊ शक�
 #~ msgstr ""
 #~ "फाईल \"%s\" उघडली जाऊ शकत नाही. \n"
 #~ "\"%s\""
-
-#~ msgid "It is a directory."
-#~ msgstr "ही एक डिरेक्टरी आहे."
 
 #~ msgid "Highlight current line:"
 #~ msgstr "सध्याची ओळ हायलाईट करा:"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-07 11:10-0800\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
 "PO-Revision-Date: 2017-08-22 19:20+0000\n"
 "Last-Translator: anjelo del carmen <anjelo2009@live.com>\n"
 "Language-Team: Tagalog <https://weblate.elementary.io/projects/scratch/"
@@ -77,52 +77,62 @@ msgstr "I-print ang impormasyon ng bersyon at lumabas"
 msgid "Set of plugins"
 msgstr "Hanay ng mga plugin"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "Hanay ng mga plugin"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Kasalukuyang gumaganang direktori"
+
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "Ito ay isang direktori."
 
 #: src/MainWindow.vala:133
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:183 src/Widgets/HeaderBar.vala:80
+#: src/MainWindow.vala:184 src/Widgets/HeaderBar.vala:80
 msgid "Find…"
 msgstr "Hanapin…"
 
-#: src/MainWindow.vala:188
+#: src/MainWindow.vala:189
 msgid "Hide search bar"
 msgstr "Itago ang search bar"
 
-#: src/MainWindow.vala:236
+#: src/MainWindow.vala:240
 msgid "Zeitgeist Datasource for Scratch"
 msgstr ""
 
-#: src/MainWindow.vala:744 src/Services/Document.vala:503
+#: src/MainWindow.vala:765 src/Services/Document.vala:503
 msgid "All files"
 msgstr "Lahat ng mga File"
 
-#: src/MainWindow.vala:748 src/Services/Document.vala:507
+#: src/MainWindow.vala:769 src/Services/Document.vala:507
 msgid "Text files"
 msgstr "Tekstong mga file"
 
-#: src/MainWindow.vala:752
+#: src/MainWindow.vala:773
 msgid "Open some files"
 msgstr "Magbukas ng ilang mga file"
 
-#: src/MainWindow.vala:755
+#: src/MainWindow.vala:776
 msgid "Open"
 msgstr "Buksan"
 
-#: src/MainWindow.vala:756 src/Services/Document.vala:402
+#: src/MainWindow.vala:777 src/Services/Document.vala:402
 #: src/Services/Document.vala:515
 msgid "Cancel"
 msgstr "Ikansela"
 
-#: src/MainWindow.vala:781
+#: src/MainWindow.vala:802
 msgid "_Open"
 msgstr "_Buksan"
 
-#: src/MainWindow.vala:782
+#: src/MainWindow.vala:803
 msgid "_Cancel"
 msgstr "I_kansela"
 
@@ -220,21 +230,21 @@ msgstr "Pasadyang font:"
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:120
 #, fuzzy
 msgid "Open In"
 msgstr "Buksan"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:123
 #, fuzzy
 msgid "Other Actions"
 msgstr "Iba pang mga format"
 
-#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:132
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr ""
@@ -280,9 +290,9 @@ msgstr "Bagong File"
 msgid "Close Folder"
 msgstr "Isara ang Polder"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
+#: src/FolderManager/ProjectFolderItem.vala:275
 #, fuzzy
-msgid "Change Branch"
+msgid "Branch"
 msgstr "Ibahin ang mga setting ng Scratch"
 
 #: src/Services/Document.vala:267
@@ -723,9 +733,6 @@ msgstr "Hindi mai-load ang icon theme: %s\n"
 #~ msgstr ""
 #~ "Ang file na \"%s\" ay hindi maaaring buksan.b'↵'\n"
 #~ "%s"
-
-#~ msgid "It is a directory."
-#~ msgstr "Ito ay isang direktori."
 
 #~ msgid "Highlight current line:"
 #~ msgstr "I-haylayt ang kasalukuyang linya:"

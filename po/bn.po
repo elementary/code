@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-07 11:10-0800\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
 "PO-Revision-Date: 2017-01-21 09:06+0000\n"
 "Last-Translator: Hasan Sumon <hsnsumon@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -77,52 +77,62 @@ msgstr "ভার্সন এর তথ্য মুদ্রণ করে প�
 msgid "Set of plugins"
 msgstr "প্লাগিন এর সেট"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "প্লাগিন এর সেট"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "বর্তমান কাজের ডিরেক্টরি"
+
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "এটি একটি ডিরেক্টরি।"
 
 #: src/MainWindow.vala:133
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:183 src/Widgets/HeaderBar.vala:80
+#: src/MainWindow.vala:184 src/Widgets/HeaderBar.vala:80
 msgid "Find…"
 msgstr "খুঁজুন..."
 
-#: src/MainWindow.vala:188
+#: src/MainWindow.vala:189
 msgid "Hide search bar"
 msgstr "অনুসন্ধান বার লুকিয়ে রাখুন"
 
-#: src/MainWindow.vala:236
+#: src/MainWindow.vala:240
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "স্ক্র্যাচ এর জন্যে জেইটগেইস্ট ডাটাসোর্স"
 
-#: src/MainWindow.vala:744 src/Services/Document.vala:503
+#: src/MainWindow.vala:765 src/Services/Document.vala:503
 msgid "All files"
 msgstr "সব ফাইল"
 
-#: src/MainWindow.vala:748 src/Services/Document.vala:507
+#: src/MainWindow.vala:769 src/Services/Document.vala:507
 msgid "Text files"
 msgstr "টেক্সট ফাইলসমূহ"
 
-#: src/MainWindow.vala:752
+#: src/MainWindow.vala:773
 msgid "Open some files"
 msgstr "কিছু ফাইল খুলুন"
 
-#: src/MainWindow.vala:755
+#: src/MainWindow.vala:776
 msgid "Open"
 msgstr "খুলুন"
 
-#: src/MainWindow.vala:756 src/Services/Document.vala:402
+#: src/MainWindow.vala:777 src/Services/Document.vala:402
 #: src/Services/Document.vala:515
 msgid "Cancel"
 msgstr "বাতিল করুন"
 
-#: src/MainWindow.vala:781
+#: src/MainWindow.vala:802
 msgid "_Open"
 msgstr "_খুলুন"
 
-#: src/MainWindow.vala:782
+#: src/MainWindow.vala:803
 msgid "_Cancel"
 msgstr "_বাতিল"
 
@@ -220,21 +230,21 @@ msgstr "কাস্টম ফন্টঃ"
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:120
 #, fuzzy
 msgid "Open In"
 msgstr "খুলুন"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:123
 #, fuzzy
 msgid "Other Actions"
 msgstr "অন্যান্য ফরম্যাটসমূহ"
 
-#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:132
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr ""
@@ -280,9 +290,9 @@ msgstr "নতুন ফাইল"
 msgid "Close Folder"
 msgstr "ফোল্ডার বন্ধ করুন"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
+#: src/FolderManager/ProjectFolderItem.vala:275
 #, fuzzy
-msgid "Change Branch"
+msgid "Branch"
 msgstr "স্ক্র্যাচ সেটিংস পরিবর্তন করুন"
 
 #: src/Services/Document.vala:267
@@ -725,9 +735,6 @@ msgstr "আইকন থিম লোড করা সম্ভব হয়নি�
 #~ msgstr ""
 #~ "\"%s\" ফাইলটি খোলা যাবে না।\n"
 #~ "%s"
-
-#~ msgid "It is a directory."
-#~ msgstr "এটি একটি ডিরেক্টরি।"
 
 #~ msgid "Highlight current line:"
 #~ msgstr "বর্তমান লাইনটি হাইলাইট করুনঃ"

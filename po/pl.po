@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-07 11:10-0800\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
 "PO-Revision-Date: 2019-02-09 11:46+0000\n"
 "Last-Translator: Piotr Strebski <strebski@gmail.com>\n"
 "Language-Team: Polish <https://weblate.elementary.io/projects/code/code/pl/"
@@ -80,52 +80,62 @@ msgstr "Wyświetl informację o wersji i zamknij"
 msgid "Set of plugins"
 msgstr "Zestaw wtyczek"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "Zestaw wtyczek"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Bieżący katalog roboczy"
+
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "Jest to katalog."
 
 #: src/MainWindow.vala:133
 msgid "Code"
 msgstr "Kod"
 
-#: src/MainWindow.vala:183 src/Widgets/HeaderBar.vala:80
+#: src/MainWindow.vala:184 src/Widgets/HeaderBar.vala:80
 msgid "Find…"
 msgstr "Znajdź…"
 
-#: src/MainWindow.vala:188
+#: src/MainWindow.vala:189
 msgid "Hide search bar"
 msgstr "Ukryj pasek wyszukiwania"
 
-#: src/MainWindow.vala:236
+#: src/MainWindow.vala:240
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Źródła danych Zeitgeist dla Scratch'a"
 
-#: src/MainWindow.vala:744 src/Services/Document.vala:503
+#: src/MainWindow.vala:765 src/Services/Document.vala:503
 msgid "All files"
 msgstr "Wszystkie pliki"
 
-#: src/MainWindow.vala:748 src/Services/Document.vala:507
+#: src/MainWindow.vala:769 src/Services/Document.vala:507
 msgid "Text files"
 msgstr "Pliki tekstowe"
 
-#: src/MainWindow.vala:752
+#: src/MainWindow.vala:773
 msgid "Open some files"
 msgstr "Otwórz jakieś pliki"
 
-#: src/MainWindow.vala:755
+#: src/MainWindow.vala:776
 msgid "Open"
 msgstr "Otwórz"
 
-#: src/MainWindow.vala:756 src/Services/Document.vala:402
+#: src/MainWindow.vala:777 src/Services/Document.vala:402
 #: src/Services/Document.vala:515
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: src/MainWindow.vala:781
+#: src/MainWindow.vala:802
 msgid "_Open"
 msgstr "_Otwórz"
 
-#: src/MainWindow.vala:782
+#: src/MainWindow.vala:803
 msgid "_Cancel"
 msgstr "_Anuluj"
 
@@ -223,19 +233,19 @@ msgstr "Własna czcionka:"
 msgid "Other Application…"
 msgstr "Inny program…"
 
-#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:120
 msgid "Open In"
 msgstr "Otwórz w"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:123
 msgid "Other Actions"
 msgstr "Inne działania"
 
-#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
 msgstr "Zmień nazwę"
 
-#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:132
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr "Przenieś do kosza"
@@ -278,8 +288,9 @@ msgstr "Nowy plik %d"
 msgid "Close Folder"
 msgstr "Zamknij folder"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
-msgid "Change Branch"
+#: src/FolderManager/ProjectFolderItem.vala:275
+#, fuzzy
+msgid "Branch"
 msgstr "Zmień gałąź"
 
 #: src/Services/Document.vala:267
@@ -711,9 +722,6 @@ msgstr "Nie udało się załadować schematu ikon: %s\n"
 #~ msgstr ""
 #~ "Plik \"%s\" nie może zostać otwarty.\n"
 #~ "%s"
-
-#~ msgid "It is a directory."
-#~ msgstr "Jest to katalog."
 
 #~ msgid "Highlight current line:"
 #~ msgstr "Podświetlanie bieżącego wiersza:"

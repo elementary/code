@@ -7,17 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-07 11:10-0800\n"
-"PO-Revision-Date: 2019-01-29 21:10+0000\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
+"PO-Revision-Date: 2019-05-02 19:38+0000\n"
 "Last-Translator: Alvaro <alvaroaraoz_92@hotmail.com>\n"
-"Language-Team: Spanish <https://weblate.elementary.io/projects/code/code/es/"
-">\n"
+"Language-Team: Spanish <https://l10n.elementary.io/projects/code/code/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.6\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:133
@@ -79,52 +78,62 @@ msgstr "Mostrar información de la versión y salir"
 msgid "Set of plugins"
 msgstr "Conjunto de complementos"
 
+#: src/Application.vala:262
+#, fuzzy
+msgid "plugin"
+msgstr "Conjunto de complementos"
+
 #: src/Application.vala:263
 msgid "Current working directory"
 msgstr "Carpeta de trabajo actual"
+
+#: src/Application.vala:263
+#, fuzzy
+msgid "directory"
+msgstr "Es una carpeta."
 
 #: src/MainWindow.vala:133
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:183 src/Widgets/HeaderBar.vala:80
+#: src/MainWindow.vala:184 src/Widgets/HeaderBar.vala:80
 msgid "Find…"
 msgstr "Buscar…"
 
-#: src/MainWindow.vala:188
+#: src/MainWindow.vala:189
 msgid "Hide search bar"
 msgstr "Ocultar la barra de búsqueda"
 
-#: src/MainWindow.vala:236
+#: src/MainWindow.vala:240
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Fuente de datos de Zeitgeist para Code"
 
-#: src/MainWindow.vala:744 src/Services/Document.vala:503
+#: src/MainWindow.vala:765 src/Services/Document.vala:503
 msgid "All files"
 msgstr "Todos los archivos"
 
-#: src/MainWindow.vala:748 src/Services/Document.vala:507
+#: src/MainWindow.vala:769 src/Services/Document.vala:507
 msgid "Text files"
 msgstr "Archivos de texto"
 
-#: src/MainWindow.vala:752
+#: src/MainWindow.vala:773
 msgid "Open some files"
 msgstr "Abre algunos archivos"
 
-#: src/MainWindow.vala:755
+#: src/MainWindow.vala:776
 msgid "Open"
 msgstr "Abrir"
 
-#: src/MainWindow.vala:756 src/Services/Document.vala:402
+#: src/MainWindow.vala:777 src/Services/Document.vala:402
 #: src/Services/Document.vala:515
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/MainWindow.vala:781
+#: src/MainWindow.vala:802
 msgid "_Open"
 msgstr "_Abrir"
 
-#: src/MainWindow.vala:782
+#: src/MainWindow.vala:803
 msgid "_Cancel"
 msgstr "_Cancelar"
 
@@ -222,19 +231,19 @@ msgstr "Tipo de letra personalizado:"
 msgid "Other Application…"
 msgstr "Otra aplicación …"
 
-#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:120
 msgid "Open In"
 msgstr "Abrir"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:123
 msgid "Other Actions"
 msgstr "Otras acciones"
 
-#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
 msgstr "Renombrar"
 
-#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:132
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr "Mover a la papelera"
@@ -277,8 +286,9 @@ msgstr "nuevo archivo %d"
 msgid "Close Folder"
 msgstr "Cerrar carpeta"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
-msgid "Change Branch"
+#: src/FolderManager/ProjectFolderItem.vala:275
+#, fuzzy
+msgid "Branch"
 msgstr "Cambiar Rama"
 
 #: src/Services/Document.vala:267
@@ -675,7 +685,7 @@ msgstr "Ocultar previsualización"
 
 #: plugins/spell/spell.vala:76
 msgid "No Suitable Dictionaries Were Found"
-msgstr ""
+msgstr "No se encontraron diccionarios adecuados"
 
 #: plugins/spell/spell.vala:77
 #, fuzzy
@@ -707,9 +717,6 @@ msgstr "No se pudo cargar el tema de iconos : %s\n"
 #~ msgstr ""
 #~ "No se puede abrir el archivo «%s».\n"
 #~ "%s"
-
-#~ msgid "It is a directory."
-#~ msgstr "Es una carpeta."
 
 #~ msgid "Highlight current line:"
 #~ msgstr "Resaltar la línea actual:"
