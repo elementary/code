@@ -77,6 +77,11 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
 
         plugins.hook_split_view.connect (on_hook_split_view);
 
+        /* Should there be a setting to turn this on/off ? */
+        plugins.hook_document.connect (() => {
+            change_dir_to_current_doc_parent ();
+        });
+
         on_hook_notebook ();
     }
 
@@ -137,6 +142,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             if (this.tool_button.active) {
                 tool_button.tooltip_text = _("Hide Terminal");
                 bottombar.set_current_page (bottombar.append_page (grid, new Gtk.Label (_("Terminal"))));
+                change_dir_to_current_doc_parent ();
                 terminal.grab_focus ();
             } else {
                 tool_button.tooltip_text = _("Show Terminal");
@@ -148,6 +154,17 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
         tool_button.show_all ();
 
         toolbar.pack_end (tool_button);
+    }
+
+    private void change_dir_to_current_doc_parent () {
+        var current_doc = window.get_current_document ();
+        if (current_doc != null && !current_doc.is_file_temporary) {
+            var dir = current_doc.file.get_parent ().get_path ();
+            if (dir != null && dir != get_shell_location ()) {
+                var command = "cd '%s' && clear\n".printf (dir);
+                terminal.feed_child (command, command.length);
+            }
+        }
     }
 
     public string get_shell_location () {

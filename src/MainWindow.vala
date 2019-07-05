@@ -310,7 +310,7 @@ namespace Scratch {
             folder_manager_view.select.connect ((a) => {
                 var file = new Scratch.FolderManager.File (a);
                 var doc = new Scratch.Services.Document (actions, file.file);
-                
+
                 if (file.is_valid_textfile) {
                     open_document (doc);
                 } else {
