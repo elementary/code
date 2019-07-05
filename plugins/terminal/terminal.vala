@@ -157,10 +157,15 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
     }
 
     private void change_dir_to_current_doc_parent () {
+        if (terminal == null || !tool_button.active || terminal_has_foreground_process ()) {
+            return;
+        }
+
         var current_doc = window.get_current_document ();
         if (current_doc != null && !current_doc.is_file_temporary) {
             var dir = current_doc.file.get_parent ().get_path ();
             if (dir != null && dir != get_shell_location ()) {
+
                 var command = "cd '%s' && clear\n".printf (dir);
                 terminal.feed_child (command, command.length);
             }
@@ -176,6 +181,13 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
             warning ("An error occured while fetching the current dir of shell");
             return "";
         }
+    }
+
+    private bool terminal_has_foreground_process () {
+        var pty = terminal.get_pty ();
+        int fgpid = Posix.tcgetpgrp (pty.fd);
+
+        return (fgpid != this.child_pid && fgpid != -1);
     }
 
     void on_hook_notebook () {
