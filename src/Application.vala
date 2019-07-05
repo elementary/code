@@ -116,9 +116,12 @@ namespace Scratch {
 
             int args_length = args.length;
             // Open all files given as arguments
-            if (args_length > 1) {
+            if (args_length > 1) { /* First arg is program name */
                 File[] files = {};
                 foreach (unowned string arg in args[1:args_length]) {
+                    if (arg == null) { /* Recognised options changed to null */
+                        continue;
+                    }
                     // We set a message, that later is informed to the user
                     // in a dialog if something noteworthy happens.
                     string title = "";
