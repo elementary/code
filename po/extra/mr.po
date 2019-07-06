@@ -8,16 +8,15 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-26 22:42+0200\n"
-"PO-Revision-Date: 2019-01-07 16:30+0000\n"
+"PO-Revision-Date: 2019-07-07 11:28+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
-"Language-Team: Marathi <https://weblate.elementary.io/projects/code/extra/mr/"
-">\n"
+"Language-Team: Marathi <https://l10n.elementary.io/projects/code/extra/mr/>\n"
 "Language: mr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
 #: data/io.elementary.code.desktop.in.in:4
@@ -104,70 +103,72 @@ msgstr "आणि बरेच काही"
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "Use Granite.MessageDialog throughout"
-msgstr ""
+msgstr "Granite.MessageDialog संपूर्ण वापरा"
 
 #: data/io.elementary.code.appdata.xml.in:52
 msgid "Include non-text files in sidebar"
-msgstr ""
+msgstr "साइडबारमध्ये नॉन-मजकूर फायली समाविष्ट करा"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Fix Remove Current View"
-msgstr ""
+msgstr "वर्तमान दृश्य काढा दुरुस्ती"
 
 #: data/io.elementary.code.appdata.xml.in:58
 msgid "Fix New Window desktop action behavior"
-msgstr ""
+msgstr "नवीन विंडो डेस्कटॉप क्रिया वर्तन दुरुस्त करा"
 
 #: data/io.elementary.code.appdata.xml.in:59
 msgid ""
 "Properly synchronize Ctrl+N key presses with number of new documents spawned"
 msgstr ""
+"तयार केलेल्या नवीन दस्तऐवजांची संख्या आणि Ctrl + N की दाबणे योग्यरित्या "
+"सिंक्रोनाइझ करा"
 
 #: data/io.elementary.code.appdata.xml.in:60
 msgid "Build system fix for editorconfig dependency"
-msgstr ""
+msgstr "Editorconfig अवलंबनासाठी सिस्टम फिक्स तयार करा"
 
 #: data/io.elementary.code.appdata.xml.in:61
 msgid "Add Change Branch context menu item"
-msgstr ""
+msgstr "शाखा बदल संदर्भ मेनू आयटम जोडा"
 
 #: data/io.elementary.code.appdata.xml.in:62
 msgid "Avoid possible startup crash related to how plugins load"
-msgstr ""
+msgstr "प्लगइन लोड करण्याशी संबंधित संभाव्य स्टार्टअप क्रॅश टाळा"
 
 #: data/io.elementary.code.appdata.xml.in:63
 #: data/io.elementary.code.appdata.xml.in:71
 #: data/io.elementary.code.appdata.xml.in:80
 msgid "Updated translations"
-msgstr ""
+msgstr "अद्ययावत अनुवाद"
 
 #: data/io.elementary.code.appdata.xml.in:68
 msgid "Smarter file saving behavior"
-msgstr ""
+msgstr "स्मार्ट फाईल सेव्हिंग वर्तन"
 
 #: data/io.elementary.code.appdata.xml.in:69
 msgid "File saving fixes"
-msgstr ""
+msgstr "फाइल जतन फिक्स"
 
 #: data/io.elementary.code.appdata.xml.in:70
 msgid "Don't add temporary files to tab restore"
-msgstr ""
+msgstr "टॅब रिस्टोअर मध्ये तात्पुराट्या फायली जोडू नका"
 
 #: data/io.elementary.code.appdata.xml.in:76
 msgid "Don't recreate deleted files when restoring session"
-msgstr ""
+msgstr "सत्र पुनर्संचयित करताना हटविलेल्या फायली पुन्हा तयार करू नका"
 
 #: data/io.elementary.code.appdata.xml.in:77
 msgid "Restore line wrap preference"
-msgstr ""
+msgstr "लाइन ओघ प्राधान्य पुनर्संचयित करा"
 
 #: data/io.elementary.code.appdata.xml.in:78
 msgid "Add accel tooltips"
-msgstr ""
+msgstr "एक्सेल टूलटिप जोडा"
 
 #: data/io.elementary.code.appdata.xml.in:79
 msgid "Minor bug fixes"
-msgstr ""
+msgstr "किरकोळ दोष निराकरण"
 
 #: data/io.elementary.code.appdata.xml.in:118
 msgid "elementary LLC."
