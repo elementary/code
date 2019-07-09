@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:42+0200\n"
-"PO-Revision-Date: 2019-05-14 19:02+0000\n"
+"POT-Creation-Date: 2019-07-09 12:02-0700\n"
+"PO-Revision-Date: 2019-07-04 19:46+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://l10n.elementary.io/projects/code/code/lt/"
 ">\n"
@@ -21,33 +21,33 @@ msgstr ""
 "X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
-#: src/Application.vala:133
+#: src/Application.vala:132
 #, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr "Failas \"%s\" negali būti sukurtas"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:137
+#: src/Application.vala:136
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Galbūt, neturite reikiamų leidimų."
 
-#: src/Application.vala:139
+#: src/Application.vala:138
 msgid "Maybe the file path provided is not valid."
 msgstr "Galbūt, pateiktas failo kelias yra neteisingas."
 
-#: src/Application.vala:141
+#: src/Application.vala:140
 msgid "The location is read-only."
 msgstr "Vieta yra tik skaitymui."
 
-#: src/Application.vala:143
+#: src/Application.vala:142
 msgid "The parent directory doesn't exist."
 msgstr "Virškatalogio nėra."
 
-#: src/Application.vala:164
+#: src/Application.vala:163
 msgid "It is a mountable location."
 msgstr "Tai yra prijungiama vieta."
 
-#: src/Application.vala:167
+#: src/Application.vala:166
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -55,42 +55,34 @@ msgstr ""
 "Tai yra \"specialus\" failas, toks kaip lizdas,\n"
 " FIFO, blokinis įtaisas ar ženklų įrenginys."
 
-#: src/Application.vala:170
+#: src/Application.vala:169
 msgid "It is an \"unknown\" file type."
 msgstr "Tai yra \"nežinomas\" failo tipas."
 
-#: src/Application.vala:175
+#: src/Application.vala:174
 #, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr "Failas \"%s\" negali būti atvertas"
 
-#: src/Application.vala:259
+#: src/Application.vala:246
 msgid "New Tab"
 msgstr "Nauja kortelė"
 
-#: src/Application.vala:260 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:247 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Naujas langas"
 
-#: src/Application.vala:261
+#: src/Application.vala:248
 msgid "Print version info and exit"
 msgstr "Rodyti versijos informaciją ir išeiti"
 
-#: src/Application.vala:262
+#: src/Application.vala:249
 msgid "Set of plugins"
 msgstr "Įskiepių rinkinys"
 
-#: src/Application.vala:262
+#: src/Application.vala:249
 msgid "plugin"
 msgstr "įskiepis"
-
-#: src/Application.vala:263
-msgid "Current working directory"
-msgstr "Esamas darbinis katalogas"
-
-#: src/Application.vala:263
-msgid "directory"
-msgstr "katalogas"
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -227,6 +219,23 @@ msgstr "Šriftas"
 msgid "Custom font:"
 msgstr "Tinkintas šriftas:"
 
+#: src/Dialogs/RestoreConfirmationDialog.vala:31
+msgid "Are You Sure You Want to Restore This File?"
+msgstr ""
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:32
+msgid "Restoring a file will undo all changes made since opening it"
+msgstr ""
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:34
+msgid "Don't Restore"
+msgstr ""
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:36
+#, fuzzy
+msgid "Restore Anyway"
+msgstr "Vis tiek įkelti"
+
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
 msgstr "Kitoje programoje…"
@@ -287,9 +296,8 @@ msgid "Close Folder"
 msgstr "Užverti aplanką"
 
 #: src/FolderManager/ProjectFolderItem.vala:275
-#, fuzzy
 msgid "Branch"
-msgstr "Keisti šaką"
+msgstr "Šaka"
 
 #: src/Services/Document.vala:267
 #, c-format
@@ -700,6 +708,12 @@ msgstr "%s - Žodžių užbaigimas"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "Nepavyko įkelti piktogramų temos: %s\n"
+
+#~ msgid "Current working directory"
+#~ msgstr "Esamas darbinis katalogas"
+
+#~ msgid "directory"
+#~ msgstr "katalogas"
 
 #~ msgid ""
 #~ "File \"%s\" cannot be created.\n"
