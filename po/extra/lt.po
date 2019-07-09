@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-26 22:42+0200\n"
-"PO-Revision-Date: 2019-01-07 11:54+0000\n"
+"PO-Revision-Date: 2019-07-04 19:46+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
-"Language-Team: Lithuanian <https://weblate.elementary.io/projects/code/extra/"
-"lt/>\n"
+"Language-Team: Lithuanian <https://l10n.elementary.io/projects/code/extra/lt/"
+">\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n%10>=2 && (n%100<10 || n"
-"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3;\n"
-"X-Generator: Weblate 3.0.1\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n%10>=2 && (n%100<10 || "
+"n%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3;\n"
+"X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -107,19 +107,19 @@ msgstr "daugybė kitų"
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "Use Granite.MessageDialog throughout"
-msgstr ""
+msgstr "Naudoti visur Granite.MessageDialog"
 
 #: data/io.elementary.code.appdata.xml.in:52
 msgid "Include non-text files in sidebar"
-msgstr ""
+msgstr "Įtraukti į šoninę juostą netekstinius failus"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Fix Remove Current View"
-msgstr ""
+msgstr "Pataisyti dabartinio rodinio šalinimą"
 
 #: data/io.elementary.code.appdata.xml.in:58
 msgid "Fix New Window desktop action behavior"
-msgstr ""
+msgstr "Pataisyti naujo lango darbalaukio veiksmo elgseną"
 
 #: data/io.elementary.code.appdata.xml.in:59
 msgid ""
@@ -128,11 +128,11 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:60
 msgid "Build system fix for editorconfig dependency"
-msgstr ""
+msgstr "Darinių sistemos pataisymas, skirtas editorconfig priklausomybei"
 
 #: data/io.elementary.code.appdata.xml.in:61
 msgid "Add Change Branch context menu item"
-msgstr ""
+msgstr "Pridėti kontekstinio meniu įrašą keisti šaką"
 
 #: data/io.elementary.code.appdata.xml.in:62
 msgid "Avoid possible startup crash related to how plugins load"
@@ -142,23 +142,23 @@ msgstr ""
 #: data/io.elementary.code.appdata.xml.in:71
 #: data/io.elementary.code.appdata.xml.in:80
 msgid "Updated translations"
-msgstr ""
+msgstr "Atnaujinti vertimai"
 
 #: data/io.elementary.code.appdata.xml.in:68
 msgid "Smarter file saving behavior"
-msgstr ""
+msgstr "Išmanesnė failų įrašymo elgsena"
 
 #: data/io.elementary.code.appdata.xml.in:69
 msgid "File saving fixes"
-msgstr ""
+msgstr "Failų įrašymo pataisymai"
 
 #: data/io.elementary.code.appdata.xml.in:70
 msgid "Don't add temporary files to tab restore"
-msgstr ""
+msgstr "Nepridėti laikinųjų failų į kortelių atkūrimą"
 
 #: data/io.elementary.code.appdata.xml.in:76
 msgid "Don't recreate deleted files when restoring session"
-msgstr ""
+msgstr "Nekurti iš naujo failų atkuriant seansą"
 
 #: data/io.elementary.code.appdata.xml.in:77
 msgid "Restore line wrap preference"
@@ -170,7 +170,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:79
 msgid "Minor bug fixes"
-msgstr ""
+msgstr "Nežymių klaidų pataisymai"
 
 #: data/io.elementary.code.appdata.xml.in:118
 msgid "elementary LLC."
