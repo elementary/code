@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-09 12:02-0700\n"
-"PO-Revision-Date: 2019-07-07 11:28+0000\n"
+"PO-Revision-Date: 2019-07-12 12:46+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -219,20 +219,19 @@ msgstr "カスタムフォント:"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
-msgstr ""
+msgstr "このファイルを編集前の状態に復元してもよろしいですか？"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Restoring a file will undo all changes made since opening it"
-msgstr ""
+msgstr "ファイルを編集前の状態に復元すると、開いてから行われたすべての変更が元に戻ります"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:34
 msgid "Don't Restore"
-msgstr ""
+msgstr "復元しない"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
-#, fuzzy
 msgid "Restore Anyway"
-msgstr "強制的に読み込む"
+msgstr "了解して復元"
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
@@ -471,7 +470,7 @@ msgstr "このファイルを別の名前で保存します"
 
 #: src/Widgets/HeaderBar.vala:72
 msgid "Restore this file"
-msgstr "このファイルを復元します"
+msgstr "このファイルを編集前の状態に復元します"
 
 #: src/Widgets/HeaderBar.vala:87
 msgid "Share"
