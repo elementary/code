@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-09 12:02-0700\n"
-"PO-Revision-Date: 2019-07-02 22:27+0000\n"
+"PO-Revision-Date: 2019-07-10 21:04+0000\n"
 "Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
-"Language-Team: Esperanto <https://l10n.elementary.io/projects/code/code/eo/"
-">\n"
+"Language-Team: Esperanto <https://l10n.elementary.io/projects/code/code/eo/>"
+"\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -220,20 +220,19 @@ msgstr "Propra tiparo:"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
-msgstr ""
+msgstr "Ĉu vi certas pri restaŭri ĉi dosieron?"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Restoring a file will undo all changes made since opening it"
-msgstr ""
+msgstr "Restaŭro de dosiero malfaros ĉiujn ŝanĝojn faritaj de la malfermo"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:34
 msgid "Don't Restore"
-msgstr ""
+msgstr "Ne restaŭri"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
-#, fuzzy
 msgid "Restore Anyway"
-msgstr "Ŝargi Ĉiukaze"
+msgstr "Restaŭri ĉiukaze"
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
@@ -295,9 +294,8 @@ msgid "Close Folder"
 msgstr "Fermi Dosierujon"
 
 #: src/FolderManager/ProjectFolderItem.vala:275
-#, fuzzy
 msgid "Branch"
-msgstr "Ŝanĝi branĉon"
+msgstr "Branĉo"
 
 #: src/Services/Document.vala:267
 #, c-format
