@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-09 12:02-0700\n"
-"PO-Revision-Date: 2019-07-07 11:28+0000\n"
+"PO-Revision-Date: 2019-07-13 18:30+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/code/code/mr/>\n"
 "Language: mr\n"
@@ -214,20 +214,19 @@ msgstr "आपला आवडता फॉन्ट:"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
-msgstr ""
+msgstr "आपण ही फाइल पुनर्संचयित करू इच्छित असल्याची आपल्याला खात्री आहे?"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Restoring a file will undo all changes made since opening it"
-msgstr ""
+msgstr "फाइल पुनर्संचयित करणे ती उघडल्यापासून केलेले सर्व बदल पूर्ववत करेल"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:34
 msgid "Don't Restore"
-msgstr ""
+msgstr "पुनर्संचयित करू नका"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
-#, fuzzy
 msgid "Restore Anyway"
-msgstr "कशीही लोड करा"
+msgstr "तरीही पुनर्संचयित करा"
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
