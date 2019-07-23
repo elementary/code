@@ -7,45 +7,45 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:42+0200\n"
-"PO-Revision-Date: 2019-06-21 21:51+0000\n"
-"Last-Translator: Veli-Pekka Samuli Finnilä <vpf@tuta.io>\n"
+"POT-Creation-Date: 2019-07-09 12:02-0700\n"
+"PO-Revision-Date: 2019-07-18 00:24+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/code/code/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
-#: src/Application.vala:133
+#: src/Application.vala:132
 #, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr "Tiedostoa \"%s\" ei voi luoda"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:137
+#: src/Application.vala:136
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Kenties sinulla ei ole tarvittavia oikeuksia."
 
-#: src/Application.vala:139
+#: src/Application.vala:138
 msgid "Maybe the file path provided is not valid."
 msgstr "Kenties määritetty polku on virheellinen."
 
-#: src/Application.vala:141
+#: src/Application.vala:140
 msgid "The location is read-only."
 msgstr "Sijainti on \"vain luku\"-muodossa."
 
-#: src/Application.vala:143
+#: src/Application.vala:142
 msgid "The parent directory doesn't exist."
 msgstr "Ylätason kansiota ei ole olemassa."
 
-#: src/Application.vala:164
+#: src/Application.vala:163
 msgid "It is a mountable location."
 msgstr "Kyseessä on liitettävä sijainti."
 
-#: src/Application.vala:167
+#: src/Application.vala:166
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -53,42 +53,34 @@ msgstr ""
 "Kyseessä on \"erityinen\" tiedosto, kuten pistoke,\n"
 " FIFO, lohkolaite tai merkkilaite."
 
-#: src/Application.vala:170
+#: src/Application.vala:169
 msgid "It is an \"unknown\" file type."
 msgstr "Kyseessä on \"tuntematon\" tiedostotyyppi."
 
-#: src/Application.vala:175
+#: src/Application.vala:174
 #, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr "Tiedostoa \"%s\" ei voi avata"
 
-#: src/Application.vala:259
+#: src/Application.vala:246
 msgid "New Tab"
 msgstr "Uusi välilehti"
 
-#: src/Application.vala:260 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:247 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Uusi ikkuna"
 
-#: src/Application.vala:261
+#: src/Application.vala:248
 msgid "Print version info and exit"
 msgstr "Tulosta versiotiedot ja poistu"
 
-#: src/Application.vala:262
+#: src/Application.vala:249
 msgid "Set of plugins"
 msgstr "Laajennusjoukko"
 
-#: src/Application.vala:262
+#: src/Application.vala:249
 msgid "plugin"
 msgstr "liitännäinen"
-
-#: src/Application.vala:263
-msgid "Current working directory"
-msgstr "Nykyinen työskentelyhakemisto"
-
-#: src/Application.vala:263
-msgid "directory"
-msgstr "kansio"
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -225,6 +217,24 @@ msgstr "Fontti"
 msgid "Custom font:"
 msgstr "Mukautettu fontti:"
 
+#: src/Dialogs/RestoreConfirmationDialog.vala:31
+msgid "Are You Sure You Want to Restore This File?"
+msgstr "Haluatko varmasti palauttaa tämän tiedoston?"
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:32
+msgid "Restoring a file will undo all changes made since opening it"
+msgstr ""
+"Tiedoston palauttaminen kumoaa kaikki avaamisen jälkeen siihen tehdyt "
+"muutokset"
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:34
+msgid "Don't Restore"
+msgstr "Älä palauta"
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:36
+msgid "Restore Anyway"
+msgstr "Palauta silti"
+
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
 msgstr "Muu sovellus…"
@@ -285,9 +295,8 @@ msgid "Close Folder"
 msgstr "Sulje kansio"
 
 #: src/FolderManager/ProjectFolderItem.vala:275
-#, fuzzy
 msgid "Branch"
-msgstr "Vaihda haaraa"
+msgstr "Haara"
 
 #: src/Services/Document.vala:267
 #, c-format
@@ -694,6 +703,12 @@ msgstr "%s - Sanojen täydennys"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "Kuvaketeeman lataus epäonnistui: %s\n"
+
+#~ msgid "Current working directory"
+#~ msgstr "Nykyinen työskentelyhakemisto"
+
+#~ msgid "directory"
+#~ msgstr "kansio"
 
 #~ msgid ""
 #~ "File \"%s\" cannot be created.\n"

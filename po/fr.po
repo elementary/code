@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:42+0200\n"
-"PO-Revision-Date: 2019-05-13 11:54+0000\n"
-"Last-Translator: Corentin Noël <corentin@elementary.io>\n"
+"POT-Creation-Date: 2019-07-09 12:02-0700\n"
+"PO-Revision-Date: 2019-07-13 18:29+0000\n"
+"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -19,33 +19,33 @@ msgstr ""
 "X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
-#: src/Application.vala:133
+#: src/Application.vala:132
 #, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr "Impossible de créer le fichier « %s »"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:137
+#: src/Application.vala:136
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Peut-être n'avez-vous pas les permissions nécessaires."
 
-#: src/Application.vala:139
+#: src/Application.vala:138
 msgid "Maybe the file path provided is not valid."
 msgstr "Peut-être que le chemin spécifié est invalide."
 
-#: src/Application.vala:141
+#: src/Application.vala:140
 msgid "The location is read-only."
 msgstr "L'emplacement est en lecture-seule."
 
-#: src/Application.vala:143
+#: src/Application.vala:142
 msgid "The parent directory doesn't exist."
 msgstr "Le répertoire parent n'existe pas."
 
-#: src/Application.vala:164
+#: src/Application.vala:163
 msgid "It is a mountable location."
 msgstr "Il s'agit d'un emplacement montable."
 
-#: src/Application.vala:167
+#: src/Application.vala:166
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -53,42 +53,34 @@ msgstr ""
 "C'est un fichier \"spécial\" tel qu'une socket,\n"
 " FIFO, périphérique de type bloc ou périphérique caractère."
 
-#: src/Application.vala:170
+#: src/Application.vala:169
 msgid "It is an \"unknown\" file type."
 msgstr "Il s'agit d'un fichier de type « inconnu »."
 
-#: src/Application.vala:175
+#: src/Application.vala:174
 #, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr "Impossible d'ouvrir le fichier « %s »"
 
-#: src/Application.vala:259
+#: src/Application.vala:246
 msgid "New Tab"
 msgstr "Nouvel Onglet"
 
-#: src/Application.vala:260 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:247 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Nouvelle fenêtre"
 
-#: src/Application.vala:261
+#: src/Application.vala:248
 msgid "Print version info and exit"
 msgstr "Afficher les détails de version et quitter"
 
-#: src/Application.vala:262
+#: src/Application.vala:249
 msgid "Set of plugins"
 msgstr "Ensemble de plugins"
 
-#: src/Application.vala:262
+#: src/Application.vala:249
 msgid "plugin"
 msgstr "extension"
-
-#: src/Application.vala:263
-msgid "Current working directory"
-msgstr "Répertoire de travail actuel"
-
-#: src/Application.vala:263
-msgid "directory"
-msgstr "dossier"
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -225,6 +217,24 @@ msgstr "Police"
 msgid "Custom font:"
 msgstr "Police personnalisée :"
 
+#: src/Dialogs/RestoreConfirmationDialog.vala:31
+msgid "Are You Sure You Want to Restore This File?"
+msgstr "Êtes-vous sûr de vouloir restaurer ce fichier ?"
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:32
+msgid "Restoring a file will undo all changes made since opening it"
+msgstr ""
+"La restauration du fichier annulera toutes les modifications effectuées "
+"depuis son ouverture"
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:34
+msgid "Don't Restore"
+msgstr "Ne pas restaurer"
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:36
+msgid "Restore Anyway"
+msgstr "Restaurer quand-même"
+
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
 msgstr "Une autre application…"
@@ -285,9 +295,8 @@ msgid "Close Folder"
 msgstr "Fermer ce dossier"
 
 #: src/FolderManager/ProjectFolderItem.vala:275
-#, fuzzy
 msgid "Branch"
-msgstr "Changer de branche"
+msgstr "Branche"
 
 #: src/Services/Document.vala:267
 #, c-format
@@ -696,6 +705,12 @@ msgstr "%s - Autocomplétion"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "Impossible de charger le thème d'icônes : %s\n"
+
+#~ msgid "Current working directory"
+#~ msgstr "Répertoire de travail actuel"
+
+#~ msgid "directory"
+#~ msgstr "dossier"
 
 #~ msgid ""
 #~ "File \"%s\" cannot be created.\n"

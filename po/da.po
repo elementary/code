@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:42+0200\n"
+"POT-Creation-Date: 2019-07-09 12:02-0700\n"
 "PO-Revision-Date: 2019-01-28 21:43+0000\n"
 "Last-Translator: Kaj Printz Madsen <kajprintz@gmail.com>\n"
 "Language-Team: Danish <https://weblate.elementary.io/projects/code/code/da/"
@@ -20,33 +20,33 @@ msgstr ""
 "X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
-#: src/Application.vala:133
+#: src/Application.vala:132
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr "Filen \"%s\" Kan Ikke Læses"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:137
+#: src/Application.vala:136
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Du har muligvis ikke de nødvendige tilladelser."
 
-#: src/Application.vala:139
+#: src/Application.vala:138
 msgid "Maybe the file path provided is not valid."
 msgstr "Måske er den angive filsti ikke gyldig."
 
-#: src/Application.vala:141
+#: src/Application.vala:140
 msgid "The location is read-only."
 msgstr "Placeringen er skrivebeskyttet."
 
-#: src/Application.vala:143
+#: src/Application.vala:142
 msgid "The parent directory doesn't exist."
 msgstr "Forældermappen findes ikke."
 
-#: src/Application.vala:164
+#: src/Application.vala:163
 msgid "It is a mountable location."
 msgstr "Det er en monterbar placering."
 
-#: src/Application.vala:167
+#: src/Application.vala:166
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -54,44 +54,35 @@ msgstr ""
 "Det er en \"speciel\" fil, såsom en socket,\n"
 " FIFO, blok enhed eller karakter enhed."
 
-#: src/Application.vala:170
+#: src/Application.vala:169
 msgid "It is an \"unknown\" file type."
 msgstr "Det er en \"ukendt\" filtype."
 
-#: src/Application.vala:175
+#: src/Application.vala:174
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr "Filen \"%s\" Kan Ikke Læses"
 
-#: src/Application.vala:259
+#: src/Application.vala:246
 msgid "New Tab"
 msgstr "Nyt faneblad"
 
-#: src/Application.vala:260 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:247 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Nyt Vindue"
 
-#: src/Application.vala:261
+#: src/Application.vala:248
 msgid "Print version info and exit"
 msgstr "Print versionsinfo og afslut"
 
-#: src/Application.vala:262
+#: src/Application.vala:249
 msgid "Set of plugins"
 msgstr "Pluginsæt"
 
-#: src/Application.vala:262
+#: src/Application.vala:249
 #, fuzzy
 msgid "plugin"
 msgstr "Pluginsæt"
-
-#: src/Application.vala:263
-msgid "Current working directory"
-msgstr "Aktuelle arbejdsmappe"
-
-#: src/Application.vala:263
-#, fuzzy
-msgid "directory"
-msgstr "Det er en mappe."
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -227,6 +218,23 @@ msgstr "Font"
 #: src/Dialogs/PreferencesDialog.vala:133
 msgid "Custom font:"
 msgstr "Tilpasset skrifttype:"
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:31
+msgid "Are You Sure You Want to Restore This File?"
+msgstr ""
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:32
+msgid "Restoring a file will undo all changes made since opening it"
+msgstr ""
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:34
+msgid "Don't Restore"
+msgstr ""
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:36
+#, fuzzy
+msgid "Restore Anyway"
+msgstr "Indlæs Alligevel"
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
@@ -704,6 +712,13 @@ msgstr "%s - Fuldførsel af ord"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "Kunne ikke indlæse ikon tema: %s\n"
+
+#~ msgid "Current working directory"
+#~ msgstr "Aktuelle arbejdsmappe"
+
+#, fuzzy
+#~ msgid "directory"
+#~ msgstr "Det er en mappe."
 
 #~ msgid ""
 #~ "File \"%s\" cannot be created.\n"
