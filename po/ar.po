@@ -23,16 +23,16 @@ msgstr ""
 #: src/Application.vala:132
 #, c-format
 msgid "File \"%s\" Cannot Be Created"
-msgstr ""
+msgstr "ملف \"%s\" لا يمكن إنشاؤه"
 
 #. We list some common errors for quick feedback
 #: src/Application.vala:136
 msgid "Maybe you do not have the necessary permissions."
-msgstr ""
+msgstr "أنت لا تملك الصلاحيات اللازمة"
 
 #: src/Application.vala:138
 msgid "Maybe the file path provided is not valid."
-msgstr ""
+msgstr "مسار الملف غير صحيح"
 
 #: src/Application.vala:140
 msgid "The location is read-only."
@@ -40,7 +40,7 @@ msgstr ""
 
 #: src/Application.vala:142
 msgid "The parent directory doesn't exist."
-msgstr ""
+msgstr "المجلد الأب غير موجود"
 
 #: src/Application.vala:163
 msgid "It is a mountable location."
@@ -54,16 +54,16 @@ msgstr ""
 
 #: src/Application.vala:169
 msgid "It is an \"unknown\" file type."
-msgstr ""
+msgstr "نوع الملف غير معروف"
 
 #: src/Application.vala:174
 #, c-format
 msgid "File \"%s\" Cannot Be Opened"
-msgstr ""
+msgstr "الملف \"%s\" لا يُمكن فتحه"
 
 #: src/Application.vala:246
 msgid "New Tab"
-msgstr "لسان جديد"
+msgstr "تبويب جديد"
 
 #: src/Application.vala:247 src/FolderManager/FileItem.vala:31
 msgid "New Window"
@@ -71,7 +71,7 @@ msgstr "نافذة جديدة"
 
 #: src/Application.vala:248
 msgid "Print version info and exit"
-msgstr ""
+msgstr "اظهر معلومات النسخة وإغلق البرنامج"
 
 #: src/Application.vala:249
 msgid "Set of plugins"
@@ -108,7 +108,7 @@ msgstr "ملفات نصية"
 
 #: src/MainWindow.vala:773
 msgid "Open some files"
-msgstr ""
+msgstr "فتح بعض الملفات"
 
 #: src/MainWindow.vala:776
 msgid "Open"
@@ -117,15 +117,15 @@ msgstr "إفتح"
 #: src/MainWindow.vala:777 src/Services/Document.vala:402
 #: src/Services/Document.vala:515
 msgid "Cancel"
-msgstr ""
+msgstr "إلغاء"
 
 #: src/MainWindow.vala:802
 msgid "_Open"
-msgstr ""
+msgstr "فتح"
 
 #: src/MainWindow.vala:803
 msgid "_Cancel"
-msgstr ""
+msgstr "إلغاء"
 
 #: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:160
 msgid "Preferences"
@@ -133,7 +133,7 @@ msgstr "اﻹعدادات"
 
 #: src/Dialogs/PreferencesDialog.vala:52
 msgid "General"
-msgstr ""
+msgstr "عام"
 
 #: src/Dialogs/PreferencesDialog.vala:53
 msgid "Save files when changed:"
@@ -141,7 +141,7 @@ msgstr "إحفظ الملفات عند تغييرها:"
 
 #: src/Dialogs/PreferencesDialog.vala:55 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
-msgstr ""
+msgstr "التبويبات"
 
 #: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:161
 msgid "Automatic indentation:"
@@ -157,7 +157,7 @@ msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:67
 msgid "Behavior"
-msgstr ""
+msgstr "السلوك"
 
 #: src/Dialogs/PreferencesDialog.vala:68
 msgid "Interface"
@@ -174,7 +174,7 @@ msgstr "الامتدادات"
 
 #: src/Dialogs/PreferencesDialog.vala:105
 msgid "Editor"
-msgstr ""
+msgstr "المحرر"
 
 #: src/Dialogs/PreferencesDialog.vala:107
 msgid "Highlight matching brackets:"
@@ -195,11 +195,11 @@ msgstr "أبداً"
 
 #: src/Dialogs/PreferencesDialog.vala:116
 msgid "For selected text"
-msgstr ""
+msgstr "للنص المحدد"
 
 #: src/Dialogs/PreferencesDialog.vala:117
 msgid "Always"
-msgstr ""
+msgstr "دائماً"
 
 #: src/Dialogs/PreferencesDialog.vala:120
 msgid "Show Mini Map:"
@@ -211,7 +211,7 @@ msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:131
 msgid "Font"
-msgstr ""
+msgstr "الخط"
 
 #: src/Dialogs/PreferencesDialog.vala:133
 msgid "Custom font:"
@@ -219,24 +219,24 @@ msgstr "خط مخصص:"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
-msgstr ""
+msgstr "هل تريد حقاً استرجاع هذا الملف؟"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Restoring a file will undo all changes made since opening it"
-msgstr ""
+msgstr "استرجاع الملف سيلغى كل التغييرات التى حدثت منذ فتحه"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:34
 msgid "Don't Restore"
-msgstr ""
+msgstr "لا تسترجع"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
 #, fuzzy
 msgid "Restore Anyway"
-msgstr "حمل على أي حال"
+msgstr "استرجع على أي حال"
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
-msgstr ""
+msgstr "برامج أخرى..."
 
 #: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:120
 #, fuzzy
@@ -272,16 +272,16 @@ msgstr "ملف فارغ"
 #: src/FolderManager/FolderItem.vala:158
 #, fuzzy
 msgid "New"
-msgstr "لسان جديد"
+msgstr "جديد"
 
 #: src/FolderManager/FolderItem.vala:322
 msgid "untitled folder"
-msgstr ""
+msgstr "مجلد بدون عنوان"
 
 #: src/FolderManager/FolderItem.vala:326
 #, c-format
 msgid "untitled folder %d"
-msgstr ""
+msgstr "مجلد بدون عنوان %d"
 
 #: src/FolderManager/FolderItem.vala:354
 msgid "new file"
@@ -546,11 +546,11 @@ msgstr "إستبدال"
 
 #: src/Widgets/SearchBar.vala:107
 msgid "Replace all"
-msgstr ""
+msgstr "استبدال الكل"
 
 #: src/Widgets/SourceView.vala:362
 msgid "Sort Selected Lines"
-msgstr ""
+msgstr "ترتيب السطور المحددة"
 
 #: src/Widgets/SourceView.vala:369
 msgid "Toggle Comment"
@@ -671,12 +671,12 @@ msgstr ""
 #. COPY
 #: plugins/terminal/terminal.vala:194
 msgid "Copy"
-msgstr ""
+msgstr "نسخ"
 
 #. PASTE
 #: plugins/terminal/terminal.vala:201
 msgid "Paste"
-msgstr ""
+msgstr "لصق"
 
 #: plugins/browser-preview/BrowserView.vala:32
 msgid "Web Preview"
