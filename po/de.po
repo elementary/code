@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-09 12:02-0700\n"
 "PO-Revision-Date: 2019-09-01 13:24+0000\n"
-"Last-Translator: Jason  B <jason.bilevitz.webseiten@aikq.de>\n"
+"Last-Translator: tzinski <mtrotzinski@yahoo.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -331,11 +331,9 @@ msgid "Save changes to \"%s\" before closing?"
 msgstr "Änderungen am Dokument »%s« vor dem Schließen speichern?"
 
 #: src/Services/Document.vala:393
-#, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
-"Wenn Sie nicht speichern, gehen Ihre Änderungen der letzten 4 Sekunden "
-"unwiderruflich verloren."
+"Wenn Sie nicht speichern, gehen Ihre Änderungen unwiderruflich verloren."
 
 #: src/Services/Document.vala:399
 msgid "Close Without Saving"
