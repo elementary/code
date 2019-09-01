@@ -89,7 +89,8 @@ namespace Scratch.FolderManager {
         }
 
         private Gee.HashSet <string> get_git_ignored_files () {
-            // We're using a HashSet since it has faster lookup than an ArrayList.
+            // We're using a HashSet since it has faster lookup than an ArrayList when it comes to checking
+            // for the existence of an element inside a collection.
             Gee.HashSet <string> ignored_files = new Gee.HashSet <string> ();
             GLib.File ignore_file = GLib.File.new_for_path (file.path + "/.gitignore");
             try {
@@ -97,7 +98,11 @@ namespace Scratch.FolderManager {
                     GLib.DataInputStream dis = new GLib.DataInputStream (ignore_file.read ());
                     string file_line;
                     while ((file_line = dis.read_line (null)) != null) {
-                        ignored_files.add (file.path + "/" + file_line);
+                        Posix.Glob file_glob = Posix.Glob ();
+                        file_glob.glob (file_line);
+                        foreach (string globbed_file in file_glob.pathv) {
+                            ignored_files.add (file.path + "/" + globbed_file);
+                        }
                     }
                 }
             } catch (Error e) {
