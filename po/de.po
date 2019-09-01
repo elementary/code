@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-09 12:02-0700\n"
 "PO-Revision-Date: 2019-09-01 13:24+0000\n"
-"Last-Translator: Uwe S <saabisto@gmx.de>\n"
+"Last-Translator: Jason  B <jason.bilevitz.webseiten@aikq.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -79,9 +79,8 @@ msgid "Set of plugins"
 msgstr "Erweiterungssammlung"
 
 #: src/Application.vala:249
-#, fuzzy
 msgid "plugin"
-msgstr "Erweiterungssammlung"
+msgstr "Erweiterungen"
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -694,7 +693,7 @@ msgstr "Vorschau ausblenden"
 
 #: plugins/spell/spell.vala:76
 msgid "No Suitable Dictionaries Were Found"
-msgstr ""
+msgstr "Kein geeignetes Wörterbuch gefunden"
 
 #: plugins/spell/spell.vala:77
 #, fuzzy
