@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-24 14:44-0700\n"
+"POT-Creation-Date: 2019-07-09 12:02-0700\n"
 "PO-Revision-Date: 2017-03-02 13:09+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Latvian <lv@li.org>\n"
@@ -18,232 +18,243 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 "X-Generator: Launchpad (build 18366)\n"
 
-#: src/Application.vala:142
-msgid "Maybe you do not have the necessary permissions."
-msgstr "Iespējams jums nav nepieciešamās tiesības"
-
-#: src/Application.vala:144
-msgid "Maybe the file path provided is not valid."
-msgstr "Iespējams norādītais faila ceļš nav korekts"
-
-#: src/Application.vala:146
-msgid "The location is read-only."
-msgstr "Atrašanās vieta ir tikai-lasīt"
-
-#: src/Application.vala:148
-msgid "The parent directory doesn't exist."
-msgstr ""
-
-#: src/Application.vala:155
-#, c-format
-msgid ""
-"File \"%s\" cannot be created.\n"
-"%s"
+#: src/Application.vala:132
+#, fuzzy, c-format
+msgid "File \"%s\" Cannot Be Created"
 msgstr ""
 "Fails \"%s\" nevar tikt radīts.\n"
 "%s"
 
-#: src/Application.vala:165
-#, c-format
-msgid ""
-"File \"%s\" cannot be opened.\n"
-"%s"
-msgstr ""
-"Fails \"%s\" nevar tikt atvērts.\n"
-"%s"
+#. We list some common errors for quick feedback
+#: src/Application.vala:136
+msgid "Maybe you do not have the necessary permissions."
+msgstr "Iespējams jums nav nepieciešamās tiesības"
 
-#: src/Application.vala:174
+#: src/Application.vala:138
+msgid "Maybe the file path provided is not valid."
+msgstr "Iespējams norādītais faila ceļš nav korekts"
+
+#: src/Application.vala:140
+msgid "The location is read-only."
+msgstr "Atrašanās vieta ir tikai-lasīt"
+
+#: src/Application.vala:142
+msgid "The parent directory doesn't exist."
+msgstr ""
+
+#: src/Application.vala:163
 msgid "It is a mountable location."
 msgstr ""
 
-#: src/Application.vala:177
-msgid "It is a directory."
-msgstr "Tā ir direktorija."
-
-#: src/Application.vala:180
+#: src/Application.vala:166
 msgid ""
 "It is a \"special\" file such as a socket,\n"
-" fifo, block device, or character device."
+" FIFO, block device, or character device."
 msgstr ""
 
-#: src/Application.vala:183
+#: src/Application.vala:169
 msgid "It is an \"unknown\" file type."
 msgstr ""
 
-#: src/Application.vala:255
+#: src/Application.vala:174
+#, fuzzy, c-format
+msgid "File \"%s\" Cannot Be Opened"
+msgstr ""
+"Fails \"%s\" nevar tikt radīts.\n"
+"%s"
+
+#: src/Application.vala:246
 msgid "New Tab"
 msgstr "Jauna cilne"
 
-#: src/Application.vala:256 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:247 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Jauns logs"
 
-#: src/Application.vala:257
+#: src/Application.vala:248
 msgid "Print version info and exit"
 msgstr "Drukāt versijas info un iziet"
 
-#: src/Application.vala:258
+#: src/Application.vala:249
 msgid "Set of plugins"
 msgstr "Spraudņi"
 
-#: src/Application.vala:259
-msgid "Current working directory"
-msgstr "Pāsreizējā darba direktorija"
+#: src/Application.vala:249
+#, fuzzy
+msgid "plugin"
+msgstr "Spraudņi"
 
-#: src/MainWindow.vala:125
+#: src/MainWindow.vala:133
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:167 src/Widgets/HeaderBar.vala:66
+#: src/MainWindow.vala:184 src/Widgets/HeaderBar.vala:80
 msgid "Find…"
 msgstr "Meklēt..."
 
-#: src/MainWindow.vala:169
+#: src/MainWindow.vala:189
 msgid "Hide search bar"
 msgstr "Paslēpt meklētāju"
 
-#: src/MainWindow.vala:215
+#: src/MainWindow.vala:240
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Zeitgeist datu avots priekš Scracth"
 
-#: src/MainWindow.vala:716
-msgid "Open some files"
-msgstr "Atvērt datnes"
-
-#: src/MainWindow.vala:735
-msgid "_Cancel"
-msgstr "_Atcelt"
-
-#: src/MainWindow.vala:736
-msgid "_Open"
-msgstr "_Atvērt"
-
-#: src/Utils.vala:27
+#: src/MainWindow.vala:765 src/Services/Document.vala:503
 msgid "All files"
 msgstr "Visas datnes"
 
-#: src/Utils.vala:31
+#: src/MainWindow.vala:769 src/Services/Document.vala:507
 msgid "Text files"
 msgstr "Taksta faili"
 
-#: src/Utils.vala:35 src/Services/Document.vala:371
-msgid "Cancel"
-msgstr "Atcelt"
+#: src/MainWindow.vala:773
+msgid "Open some files"
+msgstr "Atvērt datnes"
 
-#: src/Utils.vala:44
+#: src/MainWindow.vala:776
 msgid "Open"
 msgstr "Atvērt"
 
-#: src/Utils.vala:46 src/Services/Document.vala:372
-#: src/Services/Document.vala:668
-msgid "Save"
-msgstr "Saglabāt"
+#: src/MainWindow.vala:777 src/Services/Document.vala:402
+#: src/Services/Document.vala:515
+msgid "Cancel"
+msgstr "Atcelt"
 
-#: src/Dialogs/PreferencesDialog.vala:39 src/Widgets/HeaderBar.vala:138
+#: src/MainWindow.vala:802
+msgid "_Open"
+msgstr "_Atvērt"
+
+#: src/MainWindow.vala:803
+msgid "_Cancel"
+msgstr "_Atcelt"
+
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:160
 msgid "Preferences"
 msgstr "Iestatījumi"
 
-#: src/Dialogs/PreferencesDialog.vala:53
+#: src/Dialogs/PreferencesDialog.vala:52
 msgid "General"
 msgstr "Vispārējs"
 
-#: src/Dialogs/PreferencesDialog.vala:54
+#: src/Dialogs/PreferencesDialog.vala:53
 msgid "Save files when changed:"
 msgstr "Saglabāt failus pēc izmaņām:"
 
-#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:55 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
 msgstr "Cilnes"
 
-#: src/Dialogs/PreferencesDialog.vala:57 src/Widgets/FormatBar.vala:147
+#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:161
 msgid "Automatic indentation:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:59 src/Widgets/FormatBar.vala:141
+#: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:155
 msgid "Insert spaces instead of tabs:"
 msgstr "Ievietot atstarpes cilnes vietā"
 
-#: src/Dialogs/PreferencesDialog.vala:61 src/Widgets/FormatBar.vala:144
+#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:158
 msgid "Tab width:"
 msgstr "Cilnes platums:"
 
-#: src/Dialogs/PreferencesDialog.vala:68
+#: src/Dialogs/PreferencesDialog.vala:67
 msgid "Behavior"
 msgstr "Izturēšanās"
 
-#: src/Dialogs/PreferencesDialog.vala:69
+#: src/Dialogs/PreferencesDialog.vala:68
 msgid "Interface"
 msgstr "Saskarne"
 
-#: src/Dialogs/PreferencesDialog.vala:81
+#: src/Dialogs/PreferencesDialog.vala:80
 #: plugins/pastebin/pastebin_dialog.vala:323
 msgid "Close"
 msgstr "Aizvērt"
 
-#: src/Dialogs/PreferencesDialog.vala:97
+#: src/Dialogs/PreferencesDialog.vala:96
 msgid "Extensions"
 msgstr "Paplašinājumi"
 
-#: src/Dialogs/PreferencesDialog.vala:106
+#: src/Dialogs/PreferencesDialog.vala:105
 msgid "Editor"
 msgstr "Redaktors"
 
-#: src/Dialogs/PreferencesDialog.vala:108
-msgid "Highlight current line:"
-msgstr "Izcelt konkrēto līniju:"
-
-#: src/Dialogs/PreferencesDialog.vala:111
+#: src/Dialogs/PreferencesDialog.vala:107
 msgid "Highlight matching brackets:"
 msgstr "Izvelt atbilstošās iekavas:"
 
-#: src/Dialogs/PreferencesDialog.vala:114
+#: src/Dialogs/PreferencesDialog.vala:110
+msgid "Line wrap:"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:113
 msgid "Draw Spaces:"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:115
 #: plugins/pastebin/pastebin_dialog.vala:460
 msgid "Never"
 msgstr "Nekad"
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:116
 msgid "For selected text"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:118
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Always"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:121
+#: src/Dialogs/PreferencesDialog.vala:120
 msgid "Show Mini Map:"
 msgstr "Rādīt mini karti:"
 
-#: src/Dialogs/PreferencesDialog.vala:124
+#: src/Dialogs/PreferencesDialog.vala:123
 msgid "Line width guide:"
 msgstr "Rindas platuma norāde"
 
-#: src/Dialogs/PreferencesDialog.vala:132
+#: src/Dialogs/PreferencesDialog.vala:131
 msgid "Font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:134
+#: src/Dialogs/PreferencesDialog.vala:133
 msgid "Custom font:"
 msgstr "Mainīt fontus:"
 
-#: src/FolderManager/FileItem.vala:53
+#: src/Dialogs/RestoreConfirmationDialog.vala:31
+msgid "Are You Sure You Want to Restore This File?"
+msgstr ""
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:32
+msgid "Restoring a file will undo all changes made since opening it"
+msgstr ""
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:34
+msgid "Don't Restore"
+msgstr ""
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:36
+msgid "Restore Anyway"
+msgstr ""
+
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:99
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:120
 #, fuzzy
 msgid "Open In"
 msgstr "Atvērt"
 
-#: src/FolderManager/FileItem.vala:102 src/FolderManager/FolderItem.vala:61
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:123
+#, fuzzy
+msgid "Other Actions"
+msgstr "Citi formāti"
+
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:105 src/FolderManager/FolderItem.vala:64
-#: src/FolderManager/MainFolderItem.vala:33
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr ""
 
@@ -251,138 +262,150 @@ msgstr ""
 msgid "Folders"
 msgstr "Mapes"
 
-#: src/FolderManager/FolderItem.vala:77
+#: src/FolderManager/FolderItem.vala:148
 #, fuzzy
 msgid "Folder"
 msgstr "Mapes"
 
-#: src/FolderManager/FolderItem.vala:80
+#: src/FolderManager/FolderItem.vala:151
 msgid "Empty File"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:87
+#: src/FolderManager/FolderItem.vala:158
 #, fuzzy
 msgid "New"
 msgstr "Jauna cilne"
 
-#: src/FolderManager/FolderItem.vala:223
+#: src/FolderManager/FolderItem.vala:322
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:227
+#: src/FolderManager/FolderItem.vala:326
 #, c-format
 msgid "untitled folder %d"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:249
+#: src/FolderManager/FolderItem.vala:354
 #, fuzzy
 msgid "new file"
 msgstr "Jauna datne"
 
-#: src/FolderManager/FolderItem.vala:253
+#: src/FolderManager/FolderItem.vala:358
 #, fuzzy, c-format
 msgid "new file %d"
 msgstr "Jauna datne"
 
-#: src/FolderManager/MainFolderItem.vala:30
+#: src/FolderManager/ProjectFolderItem.vala:78
 msgid "Close Folder"
 msgstr "Aizvērt mapi"
 
-#: src/Services/Document.vala:222
+#: src/FolderManager/ProjectFolderItem.vala:275
+#, fuzzy
+msgid "Branch"
+msgstr "Mainīt iestatījumus"
+
+#: src/Services/Document.vala:267
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:223
+#: src/Services/Document.vala:268
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:225
+#: src/Services/Document.vala:270
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:246
+#: src/Services/Document.vala:291
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:247
+#: src/Services/Document.vala:292
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:249
+#: src/Services/Document.vala:294
 #, fuzzy
-msgid "Cancel Load"
+msgid "Cancel Loading"
 msgstr "Atcelt"
 
-#: src/Services/Document.vala:362
-#, c-format
-msgid "Save changes to document %s before closing?"
+#: src/Services/Document.vala:392
+#, fuzzy, c-format
+msgid "Save changes to \"%s\" before closing?"
 msgstr "Saglabāt dokumenta %s izmaiņas pirms aizvēršanas?"
 
-#: src/Services/Document.vala:365
-msgid ""
-"If you don't save, changes from the last 4 seconds will be permanently lost."
+#: src/Services/Document.vala:393
+#, fuzzy
+msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Ja nesaglabāsieties,- pēdējo 4 sekužu izmaiņas tiks neatgriezeniski zaudētas."
 
-#: src/Services/Document.vala:367
-msgid "Close without saving"
+#: src/Services/Document.vala:399
+#, fuzzy
+msgid "Close Without Saving"
 msgstr "Aizvērt nesaglabājot"
 
-#: src/Services/Document.vala:449
+#: src/Services/Document.vala:403 src/Services/Document.vala:514
+#: src/Services/Document.vala:738
+msgid "Save"
+msgstr "Saglabāt"
+
+#: src/Services/Document.vala:511
 msgid "Save File"
 msgstr "Saglabāt failu"
 
-#: src/Services/Document.vala:523
+#: src/Services/Document.vala:593
 msgid "New Document"
 msgstr "Jauns dokuments"
 
-#: src/Services/Document.vala:646
+#. Show an error view which says "Hey, I cannot read that file!"
+#: src/Services/Document.vala:716
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 "Fails \"%s\" nevar tikt radīts.\n"
 "%s"
 
-#: src/Services/Document.vala:647
+#: src/Services/Document.vala:717
 #, fuzzy
-msgid ""
-"Maybe it is corrupt or you do not have the necessary permissions to read it."
+msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Nevar atvērt datni \"%s\". Varbūt tā ir bojāta,\n"
 "vai arī jums nav tiesību,  lai atvērtu to."
 
-#: src/Services/Document.vala:659
+#: src/Services/Document.vala:729
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:661
+#: src/Services/Document.vala:731
 msgid "Save As…"
 msgstr "Saglabāt kā..."
 
-#: src/Services/Document.vala:666
+#: src/Services/Document.vala:736
 #, fuzzy, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Fails \"&s\" tika dzēsta. Vai tomēr vēlaties to saglābāt?"
 
-#: src/Services/Document.vala:681
-#, c-format
+#. If the file can't be written
+#: src/Services/Document.vala:751
+#, fuzzy, c-format
 msgid ""
-"You cannot save changes on file \"%s\". Do you want to save the changes to "
-"this file in a different location?"
+"You cannot save changes to the file \"%s\". Do you want to save the changes "
+"somewhere else?"
 msgstr ""
 "Nevar saglabāt izmaiņas \"%s\" datnē. Vai jūs vēlaties saglabāt šīs izmaiņas "
 "citā vietā?"
 
-#: src/Services/Document.vala:683
+#: src/Services/Document.vala:753
 msgid "Save changes elsewhere"
 msgstr "Saglabāt izmaiņas citviet"
 
-#: src/Services/Document.vala:716
+#: src/Services/Document.vala:786
 #, fuzzy, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -391,11 +414,11 @@ msgstr ""
 "Fails \"&s\" tika labota ar citu aplikāciju. Vai vēlaties to ielādēt no "
 "jauna un turpīnat savu darbu?"
 
-#: src/Services/Document.vala:717
+#: src/Services/Document.vala:787
 msgid "Load"
 msgstr "Ielādēt"
 
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:790
 msgid "Continue"
 msgstr "Turpināt"
 
@@ -403,139 +426,152 @@ msgstr "Turpināt"
 msgid "Templates"
 msgstr "Sagataves"
 
-#: src/Widgets/DocumentView.vala:92
+#: src/Widgets/DocumentView.vala:133
 #, fuzzy, c-format
-msgid "Text file from %s"
+msgid "Text file from %s:%d"
 msgstr "Teksta fails no "
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
 msgstr "Sintakses Izcelšana"
 
-#: src/Widgets/FormatBar.vala:71
+#: src/Widgets/FormatBar.vala:75
 #, fuzzy
 msgid "Line number"
 msgstr "Uzrādīt rindu numurus:"
 
-#: src/Widgets/FormatBar.vala:95
+#: src/Widgets/FormatBar.vala:101
 msgid "Filter languages"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:117
+#: src/Widgets/FormatBar.vala:123
 msgid "Plain Text"
 msgstr ""
 
-#: src/Widgets/FormatBar.vala:191
+#: src/Widgets/FormatBar.vala:205
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Widgets/FormatBar.vala:193
+#: src/Widgets/FormatBar.vala:207
 #, fuzzy, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
 msgstr[0] "Jauna cilne"
 msgstr[1] "Jauna cilne"
 
-#: src/Widgets/FormatBar.vala:209
+#: src/Widgets/FormatBar.vala:223
 msgid "Go To Line:"
 msgstr "Doties uz Rindu:"
 
-#: src/Widgets/HeaderBar.vala:41
+#: src/Widgets/HeaderBar.vala:43
 msgid "Open a file"
 msgstr "Atvērt datni"
 
-#: src/Widgets/HeaderBar.vala:45
+#: src/Widgets/HeaderBar.vala:48
 msgid "Open a folder"
 msgstr "Atvērt mapi"
 
-#: src/Widgets/HeaderBar.vala:49
+#: src/Widgets/HeaderBar.vala:52
 msgid "Project templates"
 msgstr "Projekta sagataves"
 
-#: src/Widgets/HeaderBar.vala:53
+#: src/Widgets/HeaderBar.vala:58
 msgid "Save this file"
 msgstr "Saglabāt šo failu"
 
-#: src/Widgets/HeaderBar.vala:57
+#: src/Widgets/HeaderBar.vala:65
 msgid "Save this file with a different name"
 msgstr "Saglabāt šo failu ar citu nosaukumu"
 
-#: src/Widgets/HeaderBar.vala:61
+#: src/Widgets/HeaderBar.vala:72
 msgid "Restore this file"
 msgstr "Atjaunot šo failu"
 
-#: src/Widgets/HeaderBar.vala:72
+#: src/Widgets/HeaderBar.vala:87
 msgid "Share"
 msgstr "Koplietot"
 
-#: src/Widgets/HeaderBar.vala:77
+#: src/Widgets/HeaderBar.vala:94
 #, fuzzy
 msgid "Zoom Out"
 msgstr "Tālummainīt"
 
-#: src/Widgets/HeaderBar.vala:81
+#: src/Widgets/HeaderBar.vala:101
 msgid "Zoom 1:1"
 msgstr "Tālummainīt 1:1"
 
-#: src/Widgets/HeaderBar.vala:85
+#: src/Widgets/HeaderBar.vala:108
 #, fuzzy
 msgid "Zoom In"
 msgstr "Tālummainīt"
 
-#: src/Widgets/HeaderBar.vala:100
+#: src/Widgets/HeaderBar.vala:122
 msgid "High Contrast"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:110
+#: src/Widgets/HeaderBar.vala:130
 msgid "Solarized Light"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:120
+#: src/Widgets/HeaderBar.vala:138
 msgid "Solarized Dark"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:130
+#: src/Widgets/HeaderBar.vala:148
+#, fuzzy
+msgid "Toggle Sidebar"
+msgstr "Sānjosla"
+
+#: src/Widgets/HeaderBar.vala:152
 msgid "Add New View"
 msgstr "Pievienot jaunu skatu"
 
-#: src/Widgets/HeaderBar.vala:134
+#: src/Widgets/HeaderBar.vala:156
 msgid "Remove Current View"
 msgstr "Noņemt pašreizējo skatu"
 
-#: src/Widgets/HeaderBar.vala:160
+#: src/Widgets/HeaderBar.vala:183
 msgid "Menu"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:63
+#: src/Widgets/SearchBar.vala:61
 msgid "Find"
 msgstr "Meklēt"
 
-#: src/Widgets/SearchBar.vala:68
+#: src/Widgets/SearchBar.vala:70
 msgid "Search next"
 msgstr "Meklēt  nākošo"
 
-#: src/Widgets/SearchBar.vala:73
+#: src/Widgets/SearchBar.vala:80
 msgid "Search previous"
 msgstr "Meklēt iepriekšējo"
 
-#: src/Widgets/SearchBar.vala:77
+#: src/Widgets/SearchBar.vala:85
 msgid "Cyclic Search"
 msgstr "Cikliska meklēšana"
 
-#: src/Widgets/SearchBar.vala:89
+#: src/Widgets/SearchBar.vala:101
 msgid "Replace With"
 msgstr "Aizvietot ar"
 
-#: src/Widgets/SearchBar.vala:92
+#: src/Widgets/SearchBar.vala:104
 msgid "Replace"
 msgstr "Aizstāt"
 
-#: src/Widgets/SearchBar.vala:95
+#: src/Widgets/SearchBar.vala:107
 msgid "Replace all"
 msgstr "Aizvietot visus"
+
+#: src/Widgets/SourceView.vala:362
+msgid "Sort Selected Lines"
+msgstr ""
+
+#: src/Widgets/SourceView.vala:369
+msgid "Toggle Comment"
+msgstr ""
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -545,35 +581,36 @@ msgstr "Nav atvērtu failu"
 msgid "Open a file to begin editing."
 msgstr "Atvērt failu tā rediģēšanai."
 
-#: src/Widgets/WelcomeView.vala:35
+#: src/Widgets/WelcomeView.vala:32
 #, fuzzy
 msgid "New File"
 msgstr "/Jauns Fails"
 
-#: src/Widgets/WelcomeView.vala:35
+#: src/Widgets/WelcomeView.vala:32
 msgid "Create a new empty file."
 msgstr "Izveidot tukšu datni."
 
-#: src/Widgets/WelcomeView.vala:36
+#: src/Widgets/WelcomeView.vala:33
 #, fuzzy
 msgid "Open File"
 msgstr "Atvērt datni"
 
-#: src/Widgets/WelcomeView.vala:36
+#: src/Widgets/WelcomeView.vala:33
 msgid "Open a saved file."
 msgstr "Atvērt saglabāto failu."
 
-#: src/Widgets/WelcomeView.vala:37
+#: src/Widgets/WelcomeView.vala:34
 #, fuzzy
 msgid "Open Folder"
 msgstr "Atvērt mapi"
 
-#: src/Widgets/WelcomeView.vala:37
+#: src/Widgets/WelcomeView.vala:34
 msgid "Add a project folder to the sidebar."
 msgstr ""
 
 #: plugins/pastebin/pastebin_dialog.vala:249
-msgid "Share via PasteBin"
+#, fuzzy
+msgid "Share via Pastebin"
 msgstr "Dalīties ar Pastebin"
 
 #: plugins/pastebin/pastebin_dialog.vala:256
@@ -586,7 +623,8 @@ msgid "Format:"
 msgstr "Formāts: "
 
 #: plugins/pastebin/pastebin_dialog.vala:264
-msgid "Others..."
+#, fuzzy
+msgid "Others…"
 msgstr "Citi..."
 
 #: plugins/pastebin/pastebin_dialog.vala:286
@@ -625,8 +663,9 @@ msgstr "1 mēnesis"
 msgid "Upload to Pastebin"
 msgstr "Augšuplādēt ar Pastebin"
 
+#. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
-#: plugins/outline/C/CtagsSymbolOutline.vala:64
+#: plugins/outline/C/CtagsSymbolOutline.vala:68
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
 #: plugins/outline/Vala/ValaSymbolOutline.vala:116
 #: plugins/outline/OutlinePane.vala:27
@@ -645,10 +684,13 @@ msgstr "Slēpt termināli"
 msgid "Terminal"
 msgstr "Terminālis"
 
+#. Popup menu
+#. COPY
 #: plugins/terminal/terminal.vala:194
 msgid "Copy"
 msgstr "Kopēt"
 
+#. PASTE
 #: plugins/terminal/terminal.vala:201
 msgid "Paste"
 msgstr "Ielīmēt"
@@ -657,19 +699,21 @@ msgstr "Ielīmēt"
 msgid "Web Preview"
 msgstr ""
 
-#: plugins/browser-preview/browser-preview.vala:74
-#: plugins/browser-preview/browser-preview.vala:100
+#: plugins/browser-preview/browser-preview.vala:72
+#: plugins/browser-preview/browser-preview.vala:98
 msgid "Show Preview"
 msgstr ""
 
-#: plugins/browser-preview/browser-preview.vala:92
+#: plugins/browser-preview/browser-preview.vala:90
 msgid "Hide Preview"
 msgstr ""
 
+#: plugins/spell/spell.vala:76
+msgid "No Suitable Dictionaries Were Found"
+msgstr ""
+
 #: plugins/spell/spell.vala:77
-msgid ""
-"No suitable dictionaries were found.\n"
-"Please install at least one [aspell] dictionary"
+msgid "Please install at least one [aspell] dictionary."
 msgstr ""
 
 #: plugins/word-completion/plugin.vala:174
@@ -681,6 +725,30 @@ msgstr ""
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr ""
+
+#~ msgid "Current working directory"
+#~ msgstr "Pāsreizējā darba direktorija"
+
+#, fuzzy
+#~ msgid "directory"
+#~ msgstr "Tā ir direktorija."
+
+#~ msgid ""
+#~ "File \"%s\" cannot be created.\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Fails \"%s\" nevar tikt radīts.\n"
+#~ "%s"
+
+#~ msgid ""
+#~ "File \"%s\" cannot be opened.\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Fails \"%s\" nevar tikt atvērts.\n"
+#~ "%s"
+
+#~ msgid "Highlight current line:"
+#~ msgstr "Izcelt konkrēto līniju:"
 
 #~ msgid "New file"
 #~ msgstr "Jauna datne"
@@ -753,9 +821,6 @@ msgstr ""
 
 #~ msgid "New file from Clipboard"
 #~ msgstr "Jauns dokuments no starpliktuves"
-
-#~ msgid "Change Scratch settings"
-#~ msgstr "Mainīt iestatījumus"
 
 #~ msgid "Next Tab"
 #~ msgstr "Nākamā cilne"
@@ -896,9 +961,6 @@ msgstr ""
 
 #~ msgid "Create a new instance"
 #~ msgstr "Radīt jaunu instanci"
-
-#~ msgid "Sidebar"
-#~ msgstr "Sānjosla"
 
 #~ msgid "Bottom Panel"
 #~ msgstr "Apakšējais panelis"

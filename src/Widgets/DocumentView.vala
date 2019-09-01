@@ -19,7 +19,7 @@
 ***/
 
 public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
-    public signal void document_change (Services.Document? document);
+    public signal void document_change (Services.Document? document, DocumentView parent);
     public signal void empty ();
 
     public unowned MainWindow window { get; construct set; }
@@ -37,6 +37,8 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
     public uint view_id = -1;
     public bool is_closing = false;
+
+    private Gtk.CssProvider style_provider;
 
     public DocumentView (MainWindow window) {
         base ();
@@ -63,7 +65,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
         close_tab_requested.connect ((tab) => {
             var document = tab as Services.Document;
-            if (document.file != null) {
+            if (!document.is_file_temporary && document.file != null) {
                 tab.restore_data = document.get_uri ();
             }
 
@@ -71,7 +73,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         });
 
         tab_switched.connect ((old_tab, new_tab) => {
-            document_change (new_tab as Services.Document);
+            document_change (new_tab as Services.Document, this);
             save_current_file (new_tab as Services.Document);
         });
 
@@ -84,12 +86,51 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             duplicate_document (tab as Services.Document);
         });
 
+        style_provider = new Gtk.CssProvider ();
+        update_inline_tab_colors ();
+        settings.notify["style-scheme"].connect (update_inline_tab_colors);
+        Gtk.StyleContext.add_provider_for_screen (
+            Gdk.Screen.get_default (),
+            style_provider,
+            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        );
+
         /* SplitView shows view as required */
+    }
+
+    private void update_inline_tab_colors () {
+        var sssm = Gtk.SourceStyleSchemeManager.get_default ();
+        var style_context = get_style_context ();
+
+        if (settings.style_scheme in sssm.scheme_ids) {
+            var theme = sssm.get_scheme (settings.style_scheme);
+            var text_color_data = theme.get_style ("text");
+
+            // Default gtksourceview background color is white
+            var color = "#FFFFFF";
+            if (text_color_data != null) {
+                // If the current style has a background color, use that
+                color = text_color_data.background;
+            }
+
+            var define = "@define-color tab_base_color %s;".printf (color);
+            style_context.add_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
+            try {
+                style_provider.load_from_data (define);
+                return;
+            } catch (Error e) {
+                critical ("Unable to set inline tab styling, going back to classic notebook tabs");
+            }
+        }
+
+        // Fallback to a non inline toolbar if something went wrong above
+        style_context.remove_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
     }
 
     private string unsaved_file_path_builder () {
         var timestamp = new DateTime.now_local ();
-        string new_text_file = _("Text file from %s").printf (timestamp.format ("%Y-%m-%d %H:%M:%S"));
+        
+        string new_text_file = _("Text file from %s:%d").printf (timestamp.format ("%Y-%m-%d %H:%M:%S"), timestamp.get_microsecond ());
 
         return Path.build_filename (Application.instance.data_home_folder_unsaved, new_text_file);
     }
@@ -105,6 +146,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             current_document = doc;
 
             doc.focus ();
+            save_opened_files ();
         } catch (Error e) {
             critical (e.message);
         }
@@ -124,6 +166,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             current_document = doc;
 
             doc.focus ();
+            save_opened_files ();
         } catch (Error e) {
             critical ("Cannot insert clipboard: %s", clipboard);
         }
@@ -280,7 +323,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         if (doc == null) {
             warning ("Focus event callback cannot get current document");
         } else {
-            document_change (doc);
+            document_change (doc, this);
         }
 
         return false;

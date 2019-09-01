@@ -19,7 +19,7 @@
  */
 
 namespace Scratch.Widgets {
-    public class SearchBar : Gtk.Grid {
+    public class SearchBar : Gtk.FlowBox {
         public weak MainWindow window { get; construct; }
 
         private Gtk.Button tool_arrow_up;
@@ -50,14 +50,12 @@ namespace Scratch.Widgets {
          * following actions : Fetch, ShowGoTo, ShowRreplace, or null.
          **/
         public SearchBar (MainWindow window) {
-            Object (
-                column_spacing: 6,
-                window: window
-            );
+            Object (window: window);
         }
 
         construct {
             get_style_context ().add_class ("search-bar");
+
             search_entry = new Gtk.SearchEntry ();
             search_entry.hexpand = true;
             search_entry.placeholder_text = _("Find");
@@ -65,12 +63,22 @@ namespace Scratch.Widgets {
             tool_arrow_down = new Gtk.Button.from_icon_name ("go-down-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
             tool_arrow_down.clicked.connect (search_next);
             tool_arrow_down.sensitive = false;
-            tool_arrow_down.tooltip_text = _("Search next");
+            tool_arrow_down.tooltip_markup = Granite.markup_accel_tooltip (
+                Scratch.Application.instance.get_accels_for_action (
+                    Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_FIND_NEXT
+                ),
+                _("Search next")
+            );
 
             tool_arrow_up = new Gtk.Button.from_icon_name ("go-up-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
             tool_arrow_up.clicked.connect (search_previous);
             tool_arrow_up.sensitive = false;
-            tool_arrow_up.tooltip_text = _("Search previous");
+            tool_arrow_up.tooltip_markup = Granite.markup_accel_tooltip (
+                Scratch.Application.instance.get_accels_for_action (
+                    Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_FIND_PREVIOUS
+                ),
+                _("Search previous")
+            );
 
             tool_cycle_search = new Gtk.ToggleButton ();
             tool_cycle_search.image =  new Gtk.Image.from_icon_name ("media-playlist-repeat-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
@@ -83,6 +91,10 @@ namespace Scratch.Widgets {
             search_grid.add (tool_arrow_down);
             search_grid.add (tool_arrow_up);
             search_grid.add (tool_cycle_search);
+
+            var search_flow_box_child = new Gtk.FlowBoxChild ();
+            search_flow_box_child.can_focus = false;
+            search_flow_box_child.add (search_grid);
 
             replace_entry = new Gtk.SearchEntry ();
             replace_entry.hexpand = true;
@@ -101,6 +113,10 @@ namespace Scratch.Widgets {
             replace_grid.add (replace_entry);
             replace_grid.add (replace_tool_button);
             replace_grid.add (replace_all_tool_button);
+
+            var replace_flow_box_child = new Gtk.FlowBoxChild ();
+            replace_flow_box_child.can_focus = false;
+            replace_flow_box_child.add (replace_grid);
 
             // Connecting to some signals
             search_entry.changed.connect (on_search_entry_text_changed);
@@ -121,8 +137,10 @@ namespace Scratch.Widgets {
             entry_context.set_path (entry_path);
             entry_context.add_class ("entry");
 
-            add (search_grid);
-            add (replace_grid);
+            column_spacing = 6;
+            max_children_per_line = 2;
+            add (search_flow_box_child);
+            add (replace_flow_box_child);
 
             update_replace_tool_sensitivities (search_entry.text, false);
         }
@@ -218,6 +236,10 @@ namespace Scratch.Widgets {
         }
 
         private bool on_search_entry_focused_in (Gdk.EventFocus event) {
+            if (text_buffer == null) {
+                return false;
+            }
+
             Gtk.TextIter? start_iter, end_iter;
             text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
 
@@ -334,7 +356,7 @@ namespace Scratch.Widgets {
                 if (search_string == "") {
                     tool_arrow_up.sensitive = false;
                     tool_arrow_down.sensitive = false;
-                } else {
+                } else if (text_buffer != null){
                     Gtk.TextIter? start_iter, end_iter;
                     Gtk.TextIter? tmp_start_iter, tmp_end_iter;
 

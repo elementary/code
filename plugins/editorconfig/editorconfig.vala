@@ -30,7 +30,7 @@ public class Scratch.Plugins.EditorConfigPlugin: Peas.ExtensionBase, Peas.Activa
             Scratch.Widgets.SourceView view = d.source_view;
             File file = d.file;
 
-            if (file == null) {
+            if (file == null || !file.query_exists ()) {
                 return;
             }
 

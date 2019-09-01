@@ -46,6 +46,41 @@
     </ul>
   </description>
   <releases>
+    <release version="3.1.1" date="2019-03-06">
+      <description>
+        <ul>Use Granite.MessageDialog throughout</ul>
+        <ul>Include non-text files in sidebar</ul>
+        <ul>Fix Remove Current View</ul>
+      </description>
+    </release>
+    <release version="3.1.0" date="2019-03-06">
+      <description>
+        <ul>Fix New Window desktop action behavior</ul>
+        <ul>Properly synchronize Ctrl+N key presses with number of new documents spawned</ul>
+        <ul>Build system fix for editorconfig dependency</ul>
+        <ul>Add Change Branch context menu item</ul>
+        <ul>Avoid possible startup crash related to how plugins load</ul>
+        <ul>Updated translations</ul>
+      </description>
+    </release>
+    <release version="3.0.2" date="2019-01-03">
+      <description>
+        <ul>Smarter file saving behavior</ul>
+        <ul>File saving fixes</ul>
+        <ul>Don't add temporary files to tab restore</ul>
+        <ul>Updated translations</ul>
+      </description>
+    </release>
+    <release version="3.0.1" date="2018-11-30">
+      <description>
+        <ul>Don't recreate deleted files when restoring session</ul>
+        <ul>Restore line wrap preference</ul>
+        <ul>Add accel tooltips</ul>
+        <ul>Minor bug fixes</ul>
+        <ul>Updated translations</ul>
+      </description>
+    </release>
+    <release version="3.0" date="2018-10-16"/>
     <release version="2.4.1" date="2017-02-20"/>
   </releases>
   <provides>
@@ -90,6 +125,9 @@
   <screenshots>
     <screenshot type="default">
       <image>https://raw.githubusercontent.com/elementary/code/master/data/screenshot.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/elementary/code/master/data/screenshot-dark.png</image>
     </screenshot>
   </screenshots>
 </component>

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-14 17:43-0700\n"
+"POT-Creation-Date: 2019-06-26 22:42+0200\n"
 "PO-Revision-Date: 2017-02-19 12:53+0000\n"
 "Last-Translator: Belos <sagoldenking@hotmail.com>\n"
 "Language-Team: Greek <el@li.org>\n"
@@ -86,6 +86,73 @@ msgid "lots of others"
 msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:51
+msgid "Use Granite.MessageDialog throughout"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:52
+msgid "Include non-text files in sidebar"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:53
+msgid "Fix Remove Current View"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:58
+msgid "Fix New Window desktop action behavior"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:59
+msgid ""
+"Properly synchronize Ctrl+N key presses with number of new documents spawned"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:60
+msgid "Build system fix for editorconfig dependency"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:61
+msgid "Add Change Branch context menu item"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:62
+msgid "Avoid possible startup crash related to how plugins load"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:63
+#: data/io.elementary.code.appdata.xml.in:71
+#: data/io.elementary.code.appdata.xml.in:80
+msgid "Updated translations"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:68
+msgid "Smarter file saving behavior"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:69
+msgid "File saving fixes"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:70
+msgid "Don't add temporary files to tab restore"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:76
+msgid "Don't recreate deleted files when restoring session"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:77
+msgid "Restore line wrap preference"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:78
+msgid "Add accel tooltips"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:79
+msgid "Minor bug fixes"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:118
 msgid "elementary LLC."
 msgstr ""
 
@@ -104,7 +171,7 @@ msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:11
 #, fuzzy
-msgid "IDE;scratch;"
+msgid "text;IDE;scratch;"
 msgstr "Scratch"
 
 #: data/io.elementary.code.desktop.in.in:17

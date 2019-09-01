@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2017 elementary LLC. (https://elementary.io),
+ * Copyright (c) 2017-2018 elementary LLC. (https://elementary.io),
  *               2013 Julien Spautz <spautz.julien@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -43,6 +43,11 @@ namespace Scratch.FolderManager {
                 if (!children_loaded && expanded && n_children <= 1 && file.children.size > 0) {
                     clear ();
                     add_children ();
+                    var root = get_root_folder ();
+                    if (root != null) {
+                        root.update_git_status ();
+                    }
+
                     children_loaded = true;
                 }
             });
@@ -56,19 +61,100 @@ namespace Scratch.FolderManager {
         }
 
         public override Gtk.Menu? get_context_menu () {
+            var contractor_menu = new Gtk.Menu ();
+
+            GLib.FileInfo info = null;
+            unowned string? file_type = null;
+
+            try {
+                info = file.file.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, GLib.FileQueryInfoFlags.NONE);
+                file_type = info.get_content_type();
+            } catch (Error e) {
+                warning (e.message);
+            }
+
+            if (info != null) {
+                try {
+                    var contracts = Granite.Services.ContractorProxy.get_contracts_by_mime (file_type);
+                    foreach (var contract in contracts) {
+                        var menu_item = new ContractMenuItem (contract, file.file);
+                        contractor_menu.append (menu_item);
+                        menu_item.show_all ();
+                    }
+                } catch (Error e) {
+                    warning (e.message);
+                }
+            }
+
+            var contractor_item = new Gtk.MenuItem.with_label (_("Other Actions"));
+            contractor_item.submenu = contractor_menu;
+
             var rename_item = new Gtk.MenuItem.with_label (_("Rename"));
-            rename_item.activate.connect (() => view.start_editing_item (this));
+            rename_item.activate.connect (() => {
+                view.ignore_next_select = true;
+                view.start_editing_item (this);
+            });
 
             var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
             delete_item.activate.connect (trash);
 
             var menu = new Gtk.Menu ();
-            menu.append (rename_item);
+            menu.append (create_submenu_for_open_in (info, file_type));
+            menu.append (contractor_item);
+            menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (create_submenu_for_new ());
+            menu.append (rename_item);
             menu.append (delete_item);
             menu.show_all ();
 
             return menu;
+        }
+
+        protected Gtk.MenuItem create_submenu_for_open_in (GLib.FileInfo? info, string? file_type) {
+            var other_menuitem = new Gtk.MenuItem.with_label (_("Other Application…"));
+            other_menuitem.activate.connect (() => show_app_chooser (file));
+
+            file_type = file_type ?? "inode/directory";
+
+            var open_in_menu = new Gtk.Menu ();
+
+            if (info != null) {
+                List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type (file_type);
+                
+                string this_id = GLib.Application.get_default ().application_id + ".desktop";
+
+                foreach (AppInfo app_info in external_apps) {
+                    if (app_info.get_id () == this_id) {
+                        continue;
+                    }
+
+                    var menuitem_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.MENU);
+                    menuitem_icon.pixel_size = 16;
+
+                    var menuitem_grid = new Gtk.Grid ();
+                    menuitem_grid.add (menuitem_icon);
+                    menuitem_grid.add (new Gtk.Label (app_info.get_name ()));
+
+                    var item_app = new Gtk.MenuItem ();
+                    item_app.add (menuitem_grid);
+
+                    item_app.activate.connect (() => {
+                        launch_app_with_file (app_info, file.file);
+                    });
+                    open_in_menu.add (item_app);
+                }
+            }
+
+            if (open_in_menu.get_children ().length () > 0) {
+                open_in_menu.add (new Gtk.SeparatorMenuItem ());
+            }
+
+            open_in_menu.add (other_menuitem);
+
+            var open_in_item = new Gtk.MenuItem.with_label (_("Open In"));
+            open_in_item.submenu = open_in_menu;
+
+            return open_in_item;
         }
 
         protected Gtk.MenuItem create_submenu_for_new () {
@@ -221,10 +307,10 @@ namespace Scratch.FolderManager {
                         Item? item = null;
 
                         if (!exists) {
-                            if (file.is_valid_textfile) {
-                                item = new FileItem (file, view);
-                            } else if (file.is_valid_directory) {
+                            if (file.is_valid_directory) {
                                 item = new FolderItem (file, view);
+                            } else if (!file.is_temporary) {
+                                item = new FileItem (file, view);
                             }
                         }
 
@@ -247,6 +333,27 @@ namespace Scratch.FolderManager {
 
                         break;
                 }
+            }
+
+            var root = get_root_folder ();
+            if (root != null) {
+                root.update_git_status ();
+            }
+        }
+
+        private ProjectFolderItem? get_root_folder (Granite.Widgets.SourceList.ExpandableItem? start = null) {
+            if (start == null) {
+                start = this;
+            }
+
+            if (start is ProjectFolderItem) {
+                return start as ProjectFolderItem;
+            } else if (start.parent is ProjectFolderItem) {
+                return start.parent as ProjectFolderItem;
+            } else if (start.parent != null) {
+                return get_root_folder (start.parent);
+            } else {
+                return null;
             }
         }
 

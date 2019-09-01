@@ -21,7 +21,7 @@ public class Code.Plugins.CtagsSymbolOutline : Object, Code.Plugins.SymbolOutlin
     public Scratch.Services.Document doc { get; protected set; }
     Granite.Widgets.SourceList store;
     Granite.Widgets.SourceList.ExpandableItem root;
-    GLib.Cancellable cancellable;
+    GLib.Subprocess current_subprocess;
 
     public CtagsSymbolOutline (Scratch.Services.Document _doc) {
         doc = _doc;
@@ -48,37 +48,58 @@ public class Code.Plugins.CtagsSymbolOutline : Object, Code.Plugins.SymbolOutlin
     }
 
     public void parse_symbols () {
-        if (cancellable != null)
-            cancellable.cancel ();
-        cancellable = new GLib.Cancellable ();
-        var command = new Granite.Services.SimpleCommand (Environment.get_home_dir (),
-            "/usr/bin/ctags -f - --format=2 --excmd=n --fields=nsK --extra= "+
-            "--sort=no " + doc.file.get_path ());
-        command.done.connect ((command, status) => {parse_output (command, status, cancellable);});
-        command.run ();
+        if (current_subprocess != null)
+            current_subprocess.force_exit ();
+
+        try {
+            current_subprocess = new GLib.Subprocess (
+                GLib.SubprocessFlags.STDOUT_PIPE|GLib.SubprocessFlags.STDERR_SILENCE,
+                "ctags", "-f", "-", "--format=2", "--excmd=n", "--fields=nstK", "--extra=", "--sort=no", doc.file.get_path ()
+            );
+
+            parse_output.begin (current_subprocess);
+        } catch (GLib.Error e) {
+            critical (e.message);
+        }
     }
 
-    void parse_output (Granite.Services.SimpleCommand command, int status, GLib.Cancellable _cancellable) {
-        new Thread<void*>("parse-symbols", () => {
-            var parent_dependent = new Gee.LinkedList<CtagsSymbolIter> ();
-            var new_root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));
+    private async void parse_output (GLib.Subprocess subprocess) {
+        var parent_dependent = new Gee.LinkedList<CtagsSymbolIter> ();
+        var new_root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));
 
-            if (status != 0)
-                error ("Ctags failed\n");
-
-            var symbols = command.standard_output_str.split ("\n");
-            foreach (var symbol in symbols) {
+        var datainput = new GLib.DataInputStream (subprocess.get_stdout_pipe ());
+        try {
+            string symbol;
+            while ((symbol = yield datainput.read_line_async ()) != null) {
                 if (symbol == "")
                     continue;
 
                 var parts = symbol.split ("\t");
+                if (parts.length < 5) {
+                    continue;
+                }
+
                 var name = parts[0];
                 // 1 => filename
                 // 2 => line number with weird trailing chars
                 var type = parts[3];
-                int line = 0;
+                int line = int.parse (parts[4].offset ("line:".length));
                 string? parent = null;
-                parse_fields (string.joinv (" ", parts[4:parts.length]), out line, out parent);
+                GLib.Icon? parent_icon = null;
+                if (parts.length > 5 && parts[5] != null) {
+                    if ("typeref:" in parts[5]) {
+                        parent = parts[5].offset ("typeref:".length);
+                    } else if ("class:" in parts[5]) {
+                        parent = parts[5].offset ("class:".length);
+                        parent_icon = new ThemedIcon ("lang-class");
+                    } else if ("struct:" in parts[5]) {
+                        parent = parts[5].offset ("struct:".length);
+                        parent_icon = new ThemedIcon ("lang-struct");
+                    } else if ("enum:" in parts[5]) {
+                        parent = parts[5].offset ("enum:".length);
+                        parent_icon = new ThemedIcon ("lang-enum");
+                    }
+                }
 
                 Icon? icon = null;
                 switch (type) {
@@ -89,12 +110,12 @@ public class Code.Plugins.CtagsSymbolOutline : Object, Code.Plugins.SymbolOutlin
                         icon = new ThemedIcon ("lang-struct");
                         break;
                     case "field":
-                    case "enumerator":
                     case "member":
                     case "variable":
                         icon = new ThemedIcon ("lang-property");
                         break;
                     case "enum":
+                    case "enumerator":
                         icon = new ThemedIcon ("lang-enum");
                         break;
                     case "macro":
@@ -123,57 +144,77 @@ public class Code.Plugins.CtagsSymbolOutline : Object, Code.Plugins.SymbolOutlin
                 if (parent == null) {
                     var s = new CtagsSymbol (doc, name, line, icon);
                     new_root.add (s);
-                } else
-                    parent_dependent.add (new CtagsSymbolIter (name, parent, line, icon));
+                } else {
+                    parent_dependent.add (new CtagsSymbolIter (name, parent, line, parent_icon));
+                }
             }
+        } catch (Error e) {
+            critical (e.message);
+            return;
+        }
 
-            var found_something = true;
-            while (found_something && parent_dependent.size > 0) {
-                found_something = false;
-                var iter = parent_dependent.iterator ();
-                while (iter.has_next ()) {
-                    iter.next ();
-                    var i = iter.get ();
+        var found_something = true;
+        while (found_something && parent_dependent.size > 0) {
+            found_something = false;
+            var iter = parent_dependent.iterator ();
+            while (iter.has_next ()) {
+                iter.next ();
+                var i = iter.get ();
 
-                    var parent = find_existing (i.parent, new_root);
-                    if (parent != null) {
-                        found_something = true;
-                        parent.add (new CtagsSymbol (doc, i.name, i.line, i.icon));
-                        iter.remove ();
-                    } else {
-                        // anonymous enum
-                        if (i.parent.substring (0, 6) == "__anon") {
-                            var e = new CtagsSymbol (doc, i.parent, i.line - 1, new ThemedIcon ("lang-enum"));
-                            new_root.add (e);
-
-                            e.add (new CtagsSymbol (doc, i.name, i.line, i.icon));
+                var parent = find_existing (i.parent, new_root);
+                if (parent != null) {
+                    found_something = true;
+                    parent.add (new CtagsSymbol (doc, i.name, i.line, i.icon));
+                    iter.remove ();
+                } else {
+                    if (":" in i.parent) {
+                        var parent_parts = i.parent.split (":", 2);
+                        parent = find_existing (parent_parts[1], new_root);
+                        if (parent != null) {
+                            parent.name = i.name;
+                            switch (parent_parts[0]) {
+                                case "class":
+                                    parent.icon = new ThemedIcon ("lang-class");
+                                    break;
+                                case "struct":
+                                    parent.icon = new ThemedIcon ("lang-struct");
+                                    break;
+                                case "enum":
+                                    parent.icon = new ThemedIcon ("lang-enum");
+                                    break;
+                            }
                             iter.remove ();
+                            continue;
                         }
+                    }
+                    // anonymous enum
+                    if (i.parent.has_prefix ("__anon")) {
+                        var e = new CtagsSymbol (doc, i.parent, i.line - 1, new ThemedIcon ("lang-enum"));
+                        new_root.add (e);
+
+                        e.add (new CtagsSymbol (doc, i.name, i.line, i.icon));
+                        iter.remove ();
                     }
                 }
             }
-            // just add the rest
-            foreach (var symbol in parent_dependent) {
-                new_root.add (new CtagsSymbol (doc, symbol.name, symbol.line, symbol.icon));
-            }
+        }
 
-            if (cancellable.is_cancelled () == false) {
-                Idle.add (() => {
-                    double adjustment_value = store.vadjustment.value;
-                    store.root.clear ();
-                    store.root.add (new_root);
-                    store.root.expand_all ();
-                    store.vadjustment.set_value (adjustment_value);
+        // just add the rest
+        foreach (var symbol in parent_dependent) {
+            new_root.add (new CtagsSymbol (doc, symbol.name, symbol.line, symbol.icon));
+        }
 
-                    destroy_root (root);
-                    root = new_root;
+        Idle.add (() => {
+            double adjustment_value = store.vadjustment.value;
+            store.root.clear ();
+            store.root.add (new_root);
+            store.root.expand_all ();
+            store.vadjustment.set_value (adjustment_value);
 
-                    return false;
-                });
-            } else {
-                destroy_root (new_root);
-            }
-            return null;
+            destroy_root (root);
+            root = new_root;
+
+            return false;
         });
     }
 
@@ -197,24 +238,6 @@ public class Code.Plugins.CtagsSymbolOutline : Object, Code.Plugins.SymbolOutlin
         return result;
     }
 
-    void parse_fields (string fields, out int line, out string parent) {
-        var index = -1;
-        line = -1;
-        parent = null;
-        if ((index = fields.index_of ("line:")) > -1) {
-            line = int.parse (fields.substring (index + 5, int.max (fields.index_of (" ", index + 6) - index, -1)));
-        }
-        if ((index = fields.index_of ("class:")) > -1) {
-            parent = fields.substring (index + 6, int.max (fields.index_of (" ", index + 7) - index, -1));
-        }
-        if ((index = fields.index_of ("struct:")) > -1) {
-            parent = fields.substring (index + 7, int.max (fields.index_of (" ", index + 7) - index, -1));
-        }
-        if ((index = fields.index_of ("enum:")) > -1) {
-            parent = fields.substring (index + 5, int.max (fields.index_of (" ", index + 7) - index, -1));
-        }
-    }
-
     CtagsSymbol? find_existing (string name, Granite.Widgets.SourceList.ExpandableItem parent) {
         CtagsSymbol match = null;
         foreach (var child in parent.children) {
@@ -230,17 +253,6 @@ public class Code.Plugins.CtagsSymbolOutline : Object, Code.Plugins.SymbolOutlin
         }
 
         return match;
-    }
-
-    public static string[] get_supported_types () {
-        string stdout;
-        try {
-            Process.spawn_sync (null, {"/usr/bin/ctags", "--list-languages"}, null, 0, null, out stdout);
-        } catch (Error e) {
-            error (e.message);
-        }
-
-        return stdout.split ("\n");
     }
 
     public Granite.Widgets.SourceList get_source_list () {

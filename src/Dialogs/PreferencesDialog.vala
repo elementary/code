@@ -25,7 +25,6 @@
 namespace Scratch.Dialogs {
     public class Preferences : Gtk.Dialog {
         private Gtk.Stack main_stack;
-        private Gtk.Switch highlight_current_line;
         private Gtk.Switch highlight_matching_brackets;
         private Gtk.Switch use_custom_font;
         private Gtk.FontButton select_font;
@@ -105,11 +104,11 @@ namespace Scratch.Dialogs {
 
             var editor_header = new Granite.HeaderLabel (_("Editor"));
 
-            var highlight_current_line_label = new SettingsLabel (_("Highlight current line:"));
-            highlight_current_line = new SettingsSwitch ("highlight-current-line");
-
             var highlight_matching_brackets_label = new SettingsLabel (_("Highlight matching brackets:"));
             highlight_matching_brackets = new SettingsSwitch ("highlight-matching-brackets");
+
+            var line_wrap_label = new SettingsLabel (_("Line wrap:"));
+            var line_wrap = new SettingsSwitch ("line-wrap");
 
             var draw_spaces_label = new SettingsLabel (_("Draw Spaces:"));
             var draw_spaces_combo = new Gtk.ComboBoxText ();
@@ -142,12 +141,12 @@ namespace Scratch.Dialogs {
             Scratch.settings.schema.bind ("use-system-font", select_font, "sensitive", SettingsBindFlags.INVERT_BOOLEAN);
 
             content.attach (editor_header, 0, 0, 3, 1);
-            content.attach (highlight_current_line_label, 0, 1, 1, 1);
-            content.attach (highlight_current_line, 1, 1, 1, 1);
             content.attach (highlight_matching_brackets_label, 0, 2, 1, 1);
             content.attach (highlight_matching_brackets, 1, 2, 1, 1);
-            content.attach (draw_spaces_label, 0, 3, 1, 1);
-            content.attach (draw_spaces_combo, 1, 3, 2, 1);
+            content.attach (line_wrap_label, 0, 3, 1, 1);
+            content.attach (line_wrap, 1, 3, 1, 1);
+            content.attach (draw_spaces_label, 0, 4, 1, 1);
+            content.attach (draw_spaces_combo, 1, 4, 2, 1);
             content.attach (show_mini_map_label, 0, 5, 1, 1);
             content.attach (show_mini_map, 1, 5, 1, 1);
             content.attach (show_right_margin_label, 0, 6, 1, 1);
