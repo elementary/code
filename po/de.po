@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-09 12:02-0700\n"
 "PO-Revision-Date: 2019-09-01 13:15+0000\n"
-"Last-Translator: Uwe S <saabisto@gmx.de>\n"
+"Last-Translator: tzinski <mtrotzinski@yahoo.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -58,9 +58,9 @@ msgid "It is an \"unknown\" file type."
 msgstr "Dies ist ein »unbekannter« Dateityp."
 
 #: src/Application.vala:174
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Opened"
-msgstr "Datei \"%s\" kann nicht gelesen werden"
+msgstr "Datei \"%s\" kann nicht geöffnet werden"
 
 #: src/Application.vala:246
 msgid "New Tab"
