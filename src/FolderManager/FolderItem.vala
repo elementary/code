@@ -174,32 +174,7 @@ namespace Scratch.FolderManager {
             return new_item;
         }
 
-        private Gee.HashSet <string> get_git_ignored_files () {
-            // We're using a HashSet since it has faster lookup than an ArrayList when it comes to checking
-            // for the existence of an element inside a collection.
-            Gee.HashSet <string> ignored_files = new Gee.HashSet <string> ();
-            GLib.File ignore_file = GLib.File.new_for_path (file.path + "/.gitignore");
-            try {
-                if (ignore_file.query_exists ()) {
-                    GLib.DataInputStream dis = new GLib.DataInputStream (ignore_file.read ());
-                    string file_line;
-                    while ((file_line = dis.read_line (null)) != null) {
-                        Posix.Glob file_glob = Posix.Glob ();
-                        file_glob.glob (file_line);
-                        foreach (string globbed_file in file_glob.pathv) {
-                            ignored_files.add (file.path + "/" + globbed_file);
-                        }
-                    }
-                }
-            } catch (Error e) {
-                warning (e.message);
-            }
-
-            return ignored_files;
-        }
-
         private void add_children () {
-            Gee.HashSet <string> ignored_files = get_git_ignored_files ();
             foreach (var child in file.children) {
                 Granite.Widgets.SourceList.Item item = null;
                 if (child.is_valid_directory) {
@@ -209,10 +184,6 @@ namespace Scratch.FolderManager {
                 }
 
                 if (item != null) {
-                    if (ignored_files.size != 0 && ignored_files.contains (child.path)) {
-                        item.markup = Markup.printf_escaped ("<span foreground='#BFBFBF'>%s</span>", child.name);
-                    }
-
                     add (item);
                 }
             }
