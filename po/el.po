@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-09 12:02-0700\n"
-"PO-Revision-Date: 2019-09-09 18:33+0000\n"
-"Last-Translator: Cleiton Floss <cleitonfloss@gmail.com>\n"
+"PO-Revision-Date: 2019-09-10 14:54+0000\n"
+"Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Greek <https://l10n.elementary.io/projects/code/code/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +31,7 @@ msgstr "Ίσως δεν έχετε τα απαραίτητα δικαιώματ�
 
 #: src/Application.vala:138
 msgid "Maybe the file path provided is not valid."
-msgstr "Ίσως η διαδρομή αρχείου που δώσατε δεν είναι έγκυρη"
+msgstr "Ίσως η διαδρομή αρχείου που δώσατε δεν είναι έγκυρη."
 
 #: src/Application.vala:140
 msgid "The location is read-only."
@@ -234,7 +234,7 @@ msgstr ""
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
-msgstr "Άλλη εφαρμογή..."
+msgstr "Άλλη εφαρμογή…"
 
 #: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:120
 #, fuzzy
@@ -585,7 +585,7 @@ msgstr "/Νέο αρχείο"
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "Create a new empty file."
-msgstr "Δημιουργία νέου κενού αρχείου"
+msgstr "Δημιουργία νέου κενού αρχείου."
 
 #: src/Widgets/WelcomeView.vala:33
 #, fuzzy
@@ -603,7 +603,7 @@ msgstr "Άνοιγμα ενός φακέλου"
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Add a project folder to the sidebar."
-msgstr "Προσθήκη project στην πλευρική εργαλειοθήκη"
+msgstr "Προσθήκη project στην πλευρική εργαλειοθήκη."
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 #, fuzzy
