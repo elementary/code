@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-09 12:02-0700\n"
-"PO-Revision-Date: 2019-09-09 18:29+0000\n"
-"Last-Translator: Cleiton Floss <cleitonfloss@gmail.com>\n"
+"PO-Revision-Date: 2019-09-10 14:54+0000\n"
+"Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/>"
 "\n"
 "Language: uk\n"
@@ -60,7 +60,7 @@ msgstr ""
 
 #: src/Application.vala:169
 msgid "It is an \"unknown\" file type."
-msgstr "Це \"невідомий\" тип файлу"
+msgstr "Це \"невідомий\" тип файлу."
 
 #: src/Application.vala:174
 #, fuzzy, c-format
@@ -190,7 +190,7 @@ msgstr "Виділяти поточні дужки:"
 
 #: src/Dialogs/PreferencesDialog.vala:110
 msgid "Line wrap:"
-msgstr "Перенос рядку"
+msgstr "Перенос рядку:"
 
 #: src/Dialogs/PreferencesDialog.vala:113
 msgid "Draw Spaces:"
@@ -243,7 +243,7 @@ msgstr ""
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
-msgstr "Інший Додаток..."
+msgstr "Інший Додаток…"
 
 #: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:120
 #, fuzzy
@@ -317,7 +317,7 @@ msgstr "%s це не текстовий файл"
 
 #: src/Services/Document.vala:268
 msgid "Code will not load this type of file."
-msgstr "Code не може завантажити цей тип файлу"
+msgstr "Code не може завантажити цей тип файлу."
 
 #: src/Services/Document.vala:270
 msgid "Load Anyway"
