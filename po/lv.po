@@ -8,15 +8,17 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-09 12:02-0700\n"
-"PO-Revision-Date: 2017-03-02 13:09+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
-"Language-Team: Latvian <lv@li.org>\n"
-"Language: Latvian\n"
+"PO-Revision-Date: 2019-09-10 14:54+0000\n"
+"Last-Translator: Cleiton Floss <cleitonfloss@gmail.com>\n"
+"Language-Team: Latvian <https://l10n.elementary.io/projects/code/code/lv/>\n"
+"Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= "
+"19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #: src/Application.vala:132
 #, fuzzy, c-format
@@ -90,7 +92,7 @@ msgstr ""
 
 #: src/MainWindow.vala:184 src/Widgets/HeaderBar.vala:80
 msgid "Find…"
-msgstr "Meklēt..."
+msgstr "Meklēt…"
 
 #: src/MainWindow.vala:189
 msgid "Hide search bar"
@@ -151,7 +153,7 @@ msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:155
 msgid "Insert spaces instead of tabs:"
-msgstr "Ievietot atstarpes cilnes vietā"
+msgstr "Ievietot atstarpes cilnes vietā:"
 
 #: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:158
 msgid "Tab width:"
@@ -209,7 +211,7 @@ msgstr "Rādīt mini karti:"
 
 #: src/Dialogs/PreferencesDialog.vala:123
 msgid "Line width guide:"
-msgstr "Rindas platuma norāde"
+msgstr "Rindas platuma norāde:"
 
 #: src/Dialogs/PreferencesDialog.vala:131
 msgid "Font"
@@ -384,7 +386,7 @@ msgstr ""
 
 #: src/Services/Document.vala:731
 msgid "Save As…"
-msgstr "Saglabāt kā..."
+msgstr "Saglabāt kā…"
 
 #: src/Services/Document.vala:736
 #, fuzzy, c-format
