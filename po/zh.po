@@ -3,7 +3,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-09 12:02-0700\n"
 "PO-Revision-Date: 2019-09-10 14:55+0000\n"
-"Last-Translator: Daniel Foré <daniel@elementary.io>\n"
+"Last-Translator: Tommy Chiang <ty1208chiang@gmail.com>\n"
 "Language-Team: Chinese <https://l10n.elementary.io/projects/code/code/zh/>\n"
 "Language: zh\n"
 "MIME-Version: 1.0\n"
@@ -42,11 +42,12 @@ msgid "It is a mountable location."
 msgstr "此路径可挂载。"
 
 #: src/Application.vala:166
-#, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
-msgstr "这是一个."
+msgstr ""
+"這是一個「特別的」檔案\n"
+"例如：網路介面、管道、塊裝置、字元裝置"
 
 #: src/Application.vala:169
 msgid "It is an \"unknown\" file type."
