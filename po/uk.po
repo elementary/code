@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-09 12:02-0700\n"
 "PO-Revision-Date: 2019-09-09 18:29+0000\n"
-"Last-Translator: Daniel Foré <daniel@elementary.io>\n"
+"Last-Translator: Andrii <chezy@ukr.net>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/code/uk/>"
 "\n"
 "Language: uk\n"
@@ -203,11 +203,11 @@ msgstr "Ніколи"
 
 #: src/Dialogs/PreferencesDialog.vala:116
 msgid "For selected text"
-msgstr ""
+msgstr "Для вибраного тексту"
 
 #: src/Dialogs/PreferencesDialog.vala:117
 msgid "Always"
-msgstr ""
+msgstr "Завжди"
 
 #: src/Dialogs/PreferencesDialog.vala:120
 msgid "Show Mini Map:"
@@ -219,7 +219,7 @@ msgstr "Ширина рядка:"
 
 #: src/Dialogs/PreferencesDialog.vala:131
 msgid "Font"
-msgstr ""
+msgstr "Шрифт"
 
 #: src/Dialogs/PreferencesDialog.vala:133
 msgid "Custom font:"
@@ -243,7 +243,7 @@ msgstr ""
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
-msgstr ""
+msgstr "Інший Додаток..."
 
 #: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:120
 #, fuzzy
@@ -257,12 +257,12 @@ msgstr "Інші формати"
 
 #: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
-msgstr ""
+msgstr "Перейменувати"
 
 #: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:132
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
-msgstr ""
+msgstr "Перемістити до корзини"
 
 #: src/FolderManager/FileView.vala:39
 msgid "Folders"
@@ -275,7 +275,7 @@ msgstr "Теки"
 
 #: src/FolderManager/FolderItem.vala:151
 msgid "Empty File"
-msgstr ""
+msgstr "Порожній файл"
 
 #: src/FolderManager/FolderItem.vala:158
 #, fuzzy
@@ -284,12 +284,12 @@ msgstr "Нова вкладка"
 
 #: src/FolderManager/FolderItem.vala:322
 msgid "untitled folder"
-msgstr ""
+msgstr "папка без назви"
 
 #: src/FolderManager/FolderItem.vala:326
 #, c-format
 msgid "untitled folder %d"
-msgstr ""
+msgstr "папка без назви %d"
 
 #: src/FolderManager/FolderItem.vala:354
 #, fuzzy
@@ -313,11 +313,11 @@ msgstr "Зміна параметрів Scratch"
 #: src/Services/Document.vala:267
 #, c-format
 msgid "%s Is Not a Text File"
-msgstr ""
+msgstr "%s це не текстовий файл"
 
 #: src/Services/Document.vala:268
 msgid "Code will not load this type of file."
-msgstr ""
+msgstr "Code не може завантажити цей тип файлу"
 
 #: src/Services/Document.vala:270
 msgid "Load Anyway"
