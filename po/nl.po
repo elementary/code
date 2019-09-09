@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-09 12:02-0700\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
-"Last-Translator: Jonathan Moerman <jonathanmoerman@gmail.com>\n"
+"Last-Translator: Pieter De Clercq <pieter.eke@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -278,7 +278,7 @@ msgstr "naamloze map"
 #: src/FolderManager/FolderItem.vala:326
 #, c-format
 msgid "untitled folder %d"
-msgstr ""
+msgstr "naamloze map %d"
 
 #: src/FolderManager/FolderItem.vala:354
 msgid "new file"
@@ -301,11 +301,11 @@ msgstr "Wijzig Scratch-instellingen"
 #: src/Services/Document.vala:267
 #, c-format
 msgid "%s Is Not a Text File"
-msgstr ""
+msgstr "%s is geen tekstbestand"
 
 #: src/Services/Document.vala:268
 msgid "Code will not load this type of file."
-msgstr ""
+msgstr "Code kan dit bestandstype niet laden."
 
 #: src/Services/Document.vala:270
 msgid "Load Anyway"
@@ -314,11 +314,11 @@ msgstr "Toch laden"
 #: src/Services/Document.vala:291
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr ""
+msgstr "Het laden van bestand \"%s\" duurt zeer lang"
 
 #: src/Services/Document.vala:292
 msgid "Please wait while Code is loading the file."
-msgstr ""
+msgstr "Even geduld alstublieft terwijl Code het bestand laadt."
 
 #: src/Services/Document.vala:294
 #, fuzzy
@@ -436,11 +436,11 @@ msgstr "Regelnummers"
 
 #: src/Widgets/FormatBar.vala:101
 msgid "Filter languages"
-msgstr ""
+msgstr "Filter talen"
 
 #: src/Widgets/FormatBar.vala:123
 msgid "Plain Text"
-msgstr ""
+msgstr "Platte tekst"
 
 #: src/Widgets/FormatBar.vala:205
 #, c-format
@@ -502,7 +502,7 @@ msgstr "Inzoomen"
 
 #: src/Widgets/HeaderBar.vala:122
 msgid "High Contrast"
-msgstr ""
+msgstr "Hoog contrast"
 
 #: src/Widgets/HeaderBar.vala:130
 msgid "Solarized Light"
@@ -595,7 +595,7 @@ msgstr "Map openen"
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Add a project folder to the sidebar."
-msgstr ""
+msgstr "Voeg een projectmap toe  aan de zijbalk."
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via Pastebin"
