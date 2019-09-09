@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-09 12:02-0700\n"
-"PO-Revision-Date: 2019-09-09 16:52+0000\n"
-"Last-Translator: px-space <janegoogle@outlook.com>\n"
+"PO-Revision-Date: 2019-09-10 14:55+0000\n"
+"Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Chinese <https://l10n.elementary.io/projects/code/code/zh/>\n"
 "Language: zh\n"
 "MIME-Version: 1.0\n"
@@ -50,7 +50,7 @@ msgstr "这是一个."
 
 #: src/Application.vala:169
 msgid "It is an \"unknown\" file type."
-msgstr "文档类型\"未知\""
+msgstr "文档类型\"未知\"."
 
 #: src/Application.vala:174
 #, c-format
@@ -141,7 +141,7 @@ msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:161
 msgid "Automatic indentation:"
-msgstr "自动缩进"
+msgstr "自动缩进:"
 
 #: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:155
 msgid "Insert spaces instead of tabs:"
@@ -231,7 +231,7 @@ msgstr ""
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
-msgstr "其他应用..."
+msgstr "其他应用…"
 
 #: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:120
 msgid "Open In"
@@ -299,7 +299,7 @@ msgstr "%s 不是一个文本文件"
 
 #: src/Services/Document.vala:268
 msgid "Code will not load this type of file."
-msgstr "Code将不会加载这个类型的文件"
+msgstr "Code将不会加载这个类型的文件."
 
 #: src/Services/Document.vala:270
 msgid "Load Anyway"
@@ -312,7 +312,7 @@ msgstr ""
 
 #: src/Services/Document.vala:292
 msgid "Please wait while Code is loading the file."
-msgstr "Code加载文件中，请稍等"
+msgstr "Code加载文件中，请稍等."
 
 #: src/Services/Document.vala:294
 msgid "Cancel Loading"
@@ -363,7 +363,7 @@ msgstr "文件 \"%s\" 所在路径已卸载。你想保存在别处吗？"
 
 #: src/Services/Document.vala:731
 msgid "Save As…"
-msgstr "保存为..."
+msgstr "保存为…"
 
 #: src/Services/Document.vala:736
 #, c-format
@@ -556,7 +556,7 @@ msgstr "新建文件"
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "Create a new empty file."
-msgstr "创建一个空文件"
+msgstr "创建一个空文件."
 
 #: src/Widgets/WelcomeView.vala:33
 msgid "Open File"
@@ -588,7 +588,7 @@ msgstr "格式:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
 msgid "Others…"
-msgstr "其他..."
+msgstr "其他…"
 
 #: plugins/pastebin/pastebin_dialog.vala:286
 msgid "Expiry time:"
@@ -687,7 +687,7 @@ msgstr "%s - 单词完成"
 #: plugins/word-completion/completion-provider.vala:80
 #, c-format
 msgid "Could not load icon theme: %s\n"
-msgstr "无法加载图标主题: %s"
+msgstr "无法加载图标主题: %s\n"
 
 #~ msgid "Current working directory"
 #~ msgstr "当前工作目录"
