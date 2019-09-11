@@ -71,18 +71,6 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
         can_propose (proposals_found);
     }
 
-    public unowned Gdk.Pixbuf? get_icon () {
-        if (this.icon == null) {
-            Gtk.IconTheme theme = Gtk.IconTheme.get_default ();
-            try {
-                this.icon = theme.load_icon ("help-info", 16, 0);
-            } catch (GLib.Error e) {
-                warning (_("Could not load icon theme: %s\n"), e.message);
-            }
-        }
-        return this.icon;
-    }
-
     public bool activate_proposal (Gtk.SourceCompletionProposal proposal, Gtk.TextIter iter) {
         if (proposals_found) {
             /* Count backward from completion_mark instead of iter
