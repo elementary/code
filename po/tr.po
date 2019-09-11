@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-07-09 12:02-0700\n"
-"PO-Revision-Date: 2019-05-28 07:03+0000\n"
+"PO-Revision-Date: 2019-08-27 22:22+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/code/tr/>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:132
@@ -219,20 +219,21 @@ msgstr "Özel yazı tipi:"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
-msgstr ""
+msgstr "Bu Dosyayı Geri Yüklemek İstediğinizden Emin Misiniz?"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Restoring a file will undo all changes made since opening it"
 msgstr ""
+"Bir dosyayı geri yüklemek, dosyayı açtıktan sonra yapılan tüm değişiklikleri "
+"geri alır"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:34
 msgid "Don't Restore"
-msgstr ""
+msgstr "Geri Yükleme"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
-#, fuzzy
 msgid "Restore Anyway"
-msgstr "Yine de Yükle"
+msgstr "Yine de Geri Yükle"
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
@@ -294,9 +295,8 @@ msgid "Close Folder"
 msgstr "Klasörü Kapat"
 
 #: src/FolderManager/ProjectFolderItem.vala:275
-#, fuzzy
 msgid "Branch"
-msgstr "Dalı Değiştir"
+msgstr "Dal"
 
 #: src/Services/Document.vala:267
 #, c-format
