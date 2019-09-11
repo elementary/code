@@ -7,46 +7,45 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:42+0200\n"
-"PO-Revision-Date: 2019-01-04 00:07+0000\n"
-"Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
-"Language-Team: German <https://weblate.elementary.io/projects/code/code/de/"
-">\n"
+"POT-Creation-Date: 2019-07-09 12:02-0700\n"
+"PO-Revision-Date: 2019-09-10 14:54+0000\n"
+"Last-Translator: Daniel Foré <daniel@elementary.io>\n"
+"Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
-#: src/Application.vala:133
-#, fuzzy, c-format
+#: src/Application.vala:132
+#, c-format
 msgid "File \"%s\" Cannot Be Created"
-msgstr "Datei \"%s\" kann nicht gelesen werden"
+msgstr "Datei »%s« kann nicht erstellt werden"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:137
+#: src/Application.vala:136
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Vielleicht fehlen die nötigen Rechte."
 
-#: src/Application.vala:139
+#: src/Application.vala:138
 msgid "Maybe the file path provided is not valid."
 msgstr "Möglicherweise ist der angegebene Dateipfad nicht gültig."
 
-#: src/Application.vala:141
+#: src/Application.vala:140
 msgid "The location is read-only."
 msgstr "Nur Leserechte an diesem Ort."
 
-#: src/Application.vala:143
+#: src/Application.vala:142
 msgid "The parent directory doesn't exist."
 msgstr "Das übergeordnete Verzeichnis existiert nicht."
 
-#: src/Application.vala:164
+#: src/Application.vala:163
 msgid "It is a mountable location."
 msgstr "Dies ist ein mountbarer Ort."
 
-#: src/Application.vala:167
+#: src/Application.vala:166
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -54,44 +53,34 @@ msgstr ""
 "Es ist eine \"spezielle\" Datei wie z.B. ein Socket,\n"
 " FIFO, Blockgerät oder Zeichengerät."
 
-#: src/Application.vala:170
+#: src/Application.vala:169
 msgid "It is an \"unknown\" file type."
 msgstr "Dies ist ein »unbekannter« Dateityp."
 
-#: src/Application.vala:175
-#, fuzzy, c-format
+#: src/Application.vala:174
+#, c-format
 msgid "File \"%s\" Cannot Be Opened"
-msgstr "Datei \"%s\" kann nicht gelesen werden"
+msgstr "Datei »%s« kann nicht geöffnet werden"
 
-#: src/Application.vala:259
+#: src/Application.vala:246
 msgid "New Tab"
 msgstr "Neuer Tab"
 
-#: src/Application.vala:260 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:247 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Neues Fenster"
 
-#: src/Application.vala:261
+#: src/Application.vala:248
 msgid "Print version info and exit"
 msgstr "Versionsinformation anzeigen und beenden"
 
-#: src/Application.vala:262
+#: src/Application.vala:249
 msgid "Set of plugins"
 msgstr "Erweiterungssammlung"
 
-#: src/Application.vala:262
-#, fuzzy
+#: src/Application.vala:249
 msgid "plugin"
-msgstr "Erweiterungssammlung"
-
-#: src/Application.vala:263
-msgid "Current working directory"
-msgstr "Aktuelles Arbeitsverzeichnis"
-
-#: src/Application.vala:263
-#, fuzzy
-msgid "directory"
-msgstr "Dies ist ein Verzeichnis."
+msgstr "Erweiterungen"
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -228,6 +217,24 @@ msgstr "Schriftart"
 msgid "Custom font:"
 msgstr "Benutzerdefinierte Schrift:"
 
+#: src/Dialogs/RestoreConfirmationDialog.vala:31
+msgid "Are You Sure You Want to Restore This File?"
+msgstr "Sind Sie sicher, dass Sie diese Datei wiederherstellen wollen?"
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:32
+msgid "Restoring a file will undo all changes made since opening it"
+msgstr ""
+"Beim Wiederherstellen einer Datei gehen alle Änderungen verloren, die seit "
+"dem Öffnen vorgenommen wurden"
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:34
+msgid "Don't Restore"
+msgstr "Nicht wiederherstellen"
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:36
+msgid "Restore Anyway"
+msgstr "Trotzdem wiederherstellen"
+
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
 msgstr "Anderes Programm…"
@@ -290,7 +297,7 @@ msgstr "Ordner schließen"
 #: src/FolderManager/ProjectFolderItem.vala:275
 #, fuzzy
 msgid "Branch"
-msgstr "Scratch-Einstellungen ändern"
+msgstr "Branch"
 
 #: src/Services/Document.vala:267
 #, c-format
@@ -315,25 +322,20 @@ msgid "Please wait while Code is loading the file."
 msgstr "Bitte warten Sie, während Code die Datei lädt."
 
 #: src/Services/Document.vala:294
-#, fuzzy
 msgid "Cancel Loading"
 msgstr "Laden abbrechen"
 
 #: src/Services/Document.vala:392
-#, fuzzy, c-format
+#, c-format
 msgid "Save changes to \"%s\" before closing?"
-msgstr ""
-"Sollen die Änderungen am Dokument %s vor dem Schließen gespeichert werden?"
+msgstr "Änderungen am Dokument »%s« vor dem Schließen speichern?"
 
 #: src/Services/Document.vala:393
-#, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
-"Wenn Sie nicht speichern, gehen Ihre Änderungen der letzten 4 Sekunden "
-"unwiderruflich verloren."
+"Wenn Sie nicht speichern, gehen Ihre Änderungen unwiderruflich verloren."
 
 #: src/Services/Document.vala:399
-#, fuzzy
 msgid "Close Without Saving"
 msgstr "Schließen ohne zu speichern"
 
@@ -357,11 +359,10 @@ msgid "File \"%s\" Cannot Be Read"
 msgstr "Datei \"%s\" kann nicht gelesen werden"
 
 #: src/Services/Document.vala:717
-#, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Möglicherweise ist sie beschädigt oder Sie verfügen nicht über die "
-"benötigten Rechte um sie zu lesen."
+"benötigten Rechte zum Lesen."
 
 #: src/Services/Document.vala:729
 #, c-format
@@ -383,13 +384,13 @@ msgstr "Die Datei \"%s\" wurde gelöscht. Möchten Sie sie trotzdem speichern?"
 
 #. If the file can't be written
 #: src/Services/Document.vala:751
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
-"Sie können die Änderungen an der Datei \"%s\" nicht speichern. Möchten Sie "
-"die Änderungen an einem anderen Ort speichern?"
+"Sie können die Änderungen an der Datei »%s« nicht speichern. Möchten Sie die "
+"Änderungen an einem anderen Ort speichern?"
 
 #: src/Services/Document.vala:753
 msgid "Save changes elsewhere"
@@ -417,9 +418,9 @@ msgid "Templates"
 msgstr "Vorlagen"
 
 #: src/Widgets/DocumentView.vala:133
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s:%d"
-msgstr "Textdatei aus %s"
+msgstr "Textdatei aus %s:%d"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
@@ -690,14 +691,11 @@ msgstr "Vorschau ausblenden"
 
 #: plugins/spell/spell.vala:76
 msgid "No Suitable Dictionaries Were Found"
-msgstr ""
+msgstr "Keine geeigneten Wörterbucher gefunden"
 
 #: plugins/spell/spell.vala:77
-#, fuzzy
 msgid "Please install at least one [aspell] dictionary."
-msgstr ""
-"Es wurde kein passendes Wörterbuch gefunden.\n"
-"Bitte mindestens ein [aspell]-Wörterbuch installieren"
+msgstr "Bitte mindestens ein [aspell]-Wörterbuch installieren."
 
 #: plugins/word-completion/plugin.vala:174
 #, c-format
@@ -708,6 +706,13 @@ msgstr "%s – Wortvervollständigung"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "Symbolthema konnte nicht geladen werden: %s\n"
+
+#~ msgid "Current working directory"
+#~ msgstr "Aktuelles Arbeitsverzeichnis"
+
+#, fuzzy
+#~ msgid "directory"
+#~ msgstr "Dies ist ein Verzeichnis."
 
 #~ msgid ""
 #~ "File \"%s\" cannot be created.\n"

@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-06-26 22:42+0200\n"
-"PO-Revision-Date: 2019-01-07 11:12+0000\n"
+"PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://weblate.elementary.io/projects/code/extra/"
-"ja/>\n"
+"Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/>"
+"\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -105,70 +105,70 @@ msgstr "その他数々の機能"
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "Use Granite.MessageDialog throughout"
-msgstr ""
+msgstr "一貫的な Granite.MessageDialog の利用"
 
 #: data/io.elementary.code.appdata.xml.in:52
 msgid "Include non-text files in sidebar"
-msgstr ""
+msgstr "サイドバーにテキストファイル以外のファイルも表示するように変更"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Fix Remove Current View"
-msgstr ""
+msgstr "\"現在のビューを削除\" の機能を修正"
 
 #: data/io.elementary.code.appdata.xml.in:58
 msgid "Fix New Window desktop action behavior"
-msgstr ""
+msgstr "デスクトップアクションの \"新しいウィンドウ\" の動作を修正"
 
 #: data/io.elementary.code.appdata.xml.in:59
 msgid ""
 "Properly synchronize Ctrl+N key presses with number of new documents spawned"
-msgstr ""
+msgstr "Ctrl+N キーの押下を新規作成されたドキュメントの数と適切に同期"
 
 #: data/io.elementary.code.appdata.xml.in:60
 msgid "Build system fix for editorconfig dependency"
-msgstr ""
+msgstr "EditorConfig の依存関係に対するビルドシステムの修正"
 
 #: data/io.elementary.code.appdata.xml.in:61
 msgid "Add Change Branch context menu item"
-msgstr ""
+msgstr "コンテキストメニューの項目に \"ブランチを変更\" を追加"
 
 #: data/io.elementary.code.appdata.xml.in:62
 msgid "Avoid possible startup crash related to how plugins load"
-msgstr ""
+msgstr "プラグインの読み込み方法に関連して起こる可能性のある起動時のクラッシュを防止"
 
 #: data/io.elementary.code.appdata.xml.in:63
 #: data/io.elementary.code.appdata.xml.in:71
 #: data/io.elementary.code.appdata.xml.in:80
 msgid "Updated translations"
-msgstr ""
+msgstr "翻訳の更新"
 
 #: data/io.elementary.code.appdata.xml.in:68
 msgid "Smarter file saving behavior"
-msgstr ""
+msgstr "ファイル保存の動作を改善"
 
 #: data/io.elementary.code.appdata.xml.in:69
 msgid "File saving fixes"
-msgstr ""
+msgstr "ファイルの保存に関する修正"
 
 #: data/io.elementary.code.appdata.xml.in:70
 msgid "Don't add temporary files to tab restore"
-msgstr ""
+msgstr "タブの復元に一時ファイルを追加しないように修正"
 
 #: data/io.elementary.code.appdata.xml.in:76
 msgid "Don't recreate deleted files when restoring session"
-msgstr ""
+msgstr "セッションの復元時に削除したファイルを再作成しないように修正"
 
 #: data/io.elementary.code.appdata.xml.in:77
 msgid "Restore line wrap preference"
-msgstr ""
+msgstr "行の折り返しの設定を復活"
 
 #: data/io.elementary.code.appdata.xml.in:78
 msgid "Add accel tooltips"
-msgstr ""
+msgstr "アクセラレーターツールチップの追加"
 
 #: data/io.elementary.code.appdata.xml.in:79
 msgid "Minor bug fixes"
-msgstr ""
+msgstr "軽微なバグの修正"
 
 #: data/io.elementary.code.appdata.xml.in:118
 msgid "elementary LLC."

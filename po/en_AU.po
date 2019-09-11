@@ -7,18 +7,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:42+0200\n"
-"PO-Revision-Date: 2017-04-09 21:12+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
-"Language-Team: English (Australia) <en_AU@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2019-07-09 12:02-0700\n"
+"PO-Revision-Date: 2019-09-10 14:54+0000\n"
+"Last-Translator: Daniel Foré <daniel@elementary.io>\n"
+"Language-Team: English (Australia) <https://l10n.elementary.io/projects/code/"
+"code/en_AU/>\n"
+"Language: en_AU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
-#: src/Application.vala:133
+#: src/Application.vala:132
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr ""
@@ -26,27 +28,27 @@ msgstr ""
 "%s"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:137
+#: src/Application.vala:136
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Maybe you do not have the necessary permissions."
 
-#: src/Application.vala:139
+#: src/Application.vala:138
 msgid "Maybe the file path provided is not valid."
 msgstr "Maybe the file path provided is not valid."
 
-#: src/Application.vala:141
+#: src/Application.vala:140
 msgid "The location is read-only."
 msgstr "The location is read-only."
 
-#: src/Application.vala:143
+#: src/Application.vala:142
 msgid "The parent directory doesn't exist."
 msgstr "The parent directory doesn't exist."
 
-#: src/Application.vala:164
+#: src/Application.vala:163
 msgid "It is a mountable location."
 msgstr "It is a mountable location."
 
-#: src/Application.vala:167
+#: src/Application.vala:166
 #, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
@@ -55,50 +57,41 @@ msgstr ""
 "It is a \"special\" file such as a socket,\n"
 " fifo, block device, or character device."
 
-#: src/Application.vala:170
+#: src/Application.vala:169
 msgid "It is an \"unknown\" file type."
 msgstr "It is an \"unknown\" file type."
 
-#: src/Application.vala:175
+#: src/Application.vala:174
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr ""
 "File \"%s\" cannot be created.\n"
 "%s"
 
-#: src/Application.vala:259
+#: src/Application.vala:246
 msgid "New Tab"
 msgstr "New Tab"
 
-#: src/Application.vala:260 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:247 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "New Window"
 
-#: src/Application.vala:261
+#: src/Application.vala:248
 msgid "Print version info and exit"
 msgstr "Print version info and exit"
 
-#: src/Application.vala:262
+#: src/Application.vala:249
 msgid "Set of plugins"
 msgstr "Set of plugins"
 
-#: src/Application.vala:262
+#: src/Application.vala:249
 #, fuzzy
 msgid "plugin"
 msgstr "Set of plugins"
 
-#: src/Application.vala:263
-msgid "Current working directory"
-msgstr "Current working directory"
-
-#: src/Application.vala:263
-#, fuzzy
-msgid "directory"
-msgstr "It is a directory."
-
 #: src/MainWindow.vala:133
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
 #: src/MainWindow.vala:184 src/Widgets/HeaderBar.vala:80
 msgid "Find…"
@@ -209,11 +202,11 @@ msgstr "Never"
 
 #: src/Dialogs/PreferencesDialog.vala:116
 msgid "For selected text"
-msgstr ""
+msgstr "For selected text"
 
 #: src/Dialogs/PreferencesDialog.vala:117
 msgid "Always"
-msgstr ""
+msgstr "Always"
 
 #: src/Dialogs/PreferencesDialog.vala:120
 msgid "Show Mini Map:"
@@ -225,15 +218,31 @@ msgstr "Line width guide:"
 
 #: src/Dialogs/PreferencesDialog.vala:131
 msgid "Font"
-msgstr ""
+msgstr "Font"
 
 #: src/Dialogs/PreferencesDialog.vala:133
 msgid "Custom font:"
 msgstr "Custom font:"
 
+#: src/Dialogs/RestoreConfirmationDialog.vala:31
+msgid "Are You Sure You Want to Restore This File?"
+msgstr ""
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:32
+msgid "Restoring a file will undo all changes made since opening it"
+msgstr ""
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:34
+msgid "Don't Restore"
+msgstr ""
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:36
+msgid "Restore Anyway"
+msgstr ""
+
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
-msgstr ""
+msgstr "Other Application…"
 
 #: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:120
 #, fuzzy
@@ -247,12 +256,12 @@ msgstr "Other formats"
 
 #: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
-msgstr ""
+msgstr "Rename"
 
 #: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:132
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
-msgstr ""
+msgstr "Move to Rubbish Bin"
 
 #: src/FolderManager/FileView.vala:39
 msgid "Folders"
@@ -265,7 +274,7 @@ msgstr "Folders"
 
 #: src/FolderManager/FolderItem.vala:151
 msgid "Empty File"
-msgstr ""
+msgstr "Empty File"
 
 #: src/FolderManager/FolderItem.vala:158
 #, fuzzy
@@ -274,12 +283,12 @@ msgstr "New Tab"
 
 #: src/FolderManager/FolderItem.vala:322
 msgid "untitled folder"
-msgstr ""
+msgstr "untitled folder"
 
 #: src/FolderManager/FolderItem.vala:326
 #, c-format
 msgid "untitled folder %d"
-msgstr ""
+msgstr "untitled folder %d"
 
 #: src/FolderManager/FolderItem.vala:354
 #, fuzzy
@@ -303,15 +312,15 @@ msgstr "Change Scratch settings"
 #: src/Services/Document.vala:267
 #, c-format
 msgid "%s Is Not a Text File"
-msgstr ""
+msgstr "%s Is Not a Text File"
 
 #: src/Services/Document.vala:268
 msgid "Code will not load this type of file."
-msgstr ""
+msgstr "Code will not load this type of file."
 
 #: src/Services/Document.vala:270
 msgid "Load Anyway"
-msgstr ""
+msgstr "Load Anyway"
 
 #: src/Services/Document.vala:291
 #, c-format
@@ -726,6 +735,13 @@ msgstr "%s - Word Completion"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "Could not load icon theme: %s\n"
+
+#~ msgid "Current working directory"
+#~ msgstr "Current working directory"
+
+#, fuzzy
+#~ msgid "directory"
+#~ msgstr "It is a directory."
 
 #~ msgid ""
 #~ "File \"%s\" cannot be created.\n"

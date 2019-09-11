@@ -7,95 +7,87 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:42+0200\n"
-"PO-Revision-Date: 2018-06-05 00:05+0000\n"
-"Last-Translator: Antony <antonykoinousis@gmail.com>\n"
-"Language-Team: Greek <https://weblate.elementary.io/projects/code/code/el/>\n"
+"POT-Creation-Date: 2019-07-09 12:02-0700\n"
+"PO-Revision-Date: 2019-09-10 14:54+0000\n"
+"Last-Translator: Daniel Foré <daniel@elementary.io>\n"
+"Language-Team: Greek <https://l10n.elementary.io/projects/code/code/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
-#: src/Application.vala:133
+#: src/Application.vala:132
 #, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr ""
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:137
+#: src/Application.vala:136
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Ίσως δεν έχετε τα απαραίτητα δικαιώματα."
 
-#: src/Application.vala:139
+#: src/Application.vala:138
 msgid "Maybe the file path provided is not valid."
-msgstr ""
+msgstr "Ίσως η διαδρομή αρχείου που δώσατε δεν είναι έγκυρη."
 
-#: src/Application.vala:141
+#: src/Application.vala:140
 msgid "The location is read-only."
 msgstr ""
 
-#: src/Application.vala:143
+#: src/Application.vala:142
 msgid "The parent directory doesn't exist."
 msgstr ""
 
-#: src/Application.vala:164
+#: src/Application.vala:163
 msgid "It is a mountable location."
 msgstr ""
 
-#: src/Application.vala:167
+#: src/Application.vala:166
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
 msgstr ""
 
-#: src/Application.vala:170
+#: src/Application.vala:169
 msgid "It is an \"unknown\" file type."
-msgstr ""
+msgstr "Ο τύπος αρχείου είναι άγνωστος."
 
-#: src/Application.vala:175
+#: src/Application.vala:174
 #, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr ""
 
-#: src/Application.vala:259
+#: src/Application.vala:246
 msgid "New Tab"
 msgstr "Νέα Καρτέλα"
 
-#: src/Application.vala:260 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:247 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Νέο Παράθυρο"
 
-#: src/Application.vala:261
+#: src/Application.vala:248
 msgid "Print version info and exit"
 msgstr "Εκτύπωση πληροφοριών έκδοσης και έξοδος"
 
-#: src/Application.vala:262
+#: src/Application.vala:249
 msgid "Set of plugins"
 msgstr "Σετ προσθέτων"
 
-#: src/Application.vala:262
+#: src/Application.vala:249
 #, fuzzy
 msgid "plugin"
 msgstr "Σετ προσθέτων"
 
-#: src/Application.vala:263
-msgid "Current working directory"
-msgstr "Τρέχον φάκελος εργασίας"
-
-#: src/Application.vala:263
-msgid "directory"
-msgstr ""
-
 #: src/MainWindow.vala:133
 msgid "Code"
-msgstr ""
+msgstr "Κώδικας"
 
 #: src/MainWindow.vala:184 src/Widgets/HeaderBar.vala:80
 msgid "Find…"
-msgstr "Εύρεση..."
+msgstr "Εύρεση…"
 
 #: src/MainWindow.vala:189
 msgid "Hide search bar"
@@ -181,7 +173,7 @@ msgstr "Επεκτάσεις"
 
 #: src/Dialogs/PreferencesDialog.vala:105
 msgid "Editor"
-msgstr ""
+msgstr "Συντάκτης"
 
 #: src/Dialogs/PreferencesDialog.vala:107
 msgid "Highlight matching brackets:"
@@ -202,11 +194,11 @@ msgstr "Ποτέ"
 
 #: src/Dialogs/PreferencesDialog.vala:116
 msgid "For selected text"
-msgstr ""
+msgstr "Για το επιλεγμένο κείμενο"
 
 #: src/Dialogs/PreferencesDialog.vala:117
 msgid "Always"
-msgstr ""
+msgstr "Πάντα"
 
 #: src/Dialogs/PreferencesDialog.vala:120
 msgid "Show Mini Map:"
@@ -218,15 +210,31 @@ msgstr "Οδηγός πλάτους γραμμής:"
 
 #: src/Dialogs/PreferencesDialog.vala:131
 msgid "Font"
-msgstr ""
+msgstr "Γραμματοσειρά"
 
 #: src/Dialogs/PreferencesDialog.vala:133
 msgid "Custom font:"
 msgstr "Προσαρμοσμένη γραμματοσειρά:"
 
+#: src/Dialogs/RestoreConfirmationDialog.vala:31
+msgid "Are You Sure You Want to Restore This File?"
+msgstr ""
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:32
+msgid "Restoring a file will undo all changes made since opening it"
+msgstr ""
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:34
+msgid "Don't Restore"
+msgstr ""
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:36
+msgid "Restore Anyway"
+msgstr ""
+
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
-msgstr ""
+msgstr "Άλλη εφαρμογή…"
 
 #: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:120
 #, fuzzy
@@ -240,12 +248,12 @@ msgstr "Άλλες μορφές"
 
 #: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:126
 msgid "Rename"
-msgstr ""
+msgstr "Μετονομασία"
 
 #: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:132
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
-msgstr ""
+msgstr "Μετακίνηση στον κάδο"
 
 #: src/FolderManager/FileView.vala:39
 msgid "Folders"
@@ -258,7 +266,7 @@ msgstr "Φάκελοι"
 
 #: src/FolderManager/FolderItem.vala:151
 msgid "Empty File"
-msgstr ""
+msgstr "Άδειο αρχείο"
 
 #: src/FolderManager/FolderItem.vala:158
 #, fuzzy
@@ -267,12 +275,12 @@ msgstr "Νέα Καρτέλα"
 
 #: src/FolderManager/FolderItem.vala:322
 msgid "untitled folder"
-msgstr ""
+msgstr "φάκελος χωρίς τίτλο"
 
 #: src/FolderManager/FolderItem.vala:326
 #, c-format
 msgid "untitled folder %d"
-msgstr ""
+msgstr "φάκελος χωρίς τίτλο %d"
 
 #: src/FolderManager/FolderItem.vala:354
 #, fuzzy
@@ -296,15 +304,15 @@ msgstr "Αλλαγή ρυθμίσεων του Scratch"
 #: src/Services/Document.vala:267
 #, c-format
 msgid "%s Is Not a Text File"
-msgstr ""
+msgstr "Το %s δεν είναι αρχείο κειμένου"
 
 #: src/Services/Document.vala:268
 msgid "Code will not load this type of file."
-msgstr ""
+msgstr "Ο κώδικας δεν μπορεί να φορτώσει αυτόν τον τύπο αρχείου."
 
 #: src/Services/Document.vala:270
 msgid "Load Anyway"
-msgstr ""
+msgstr "Φόρτωσέ το"
 
 #: src/Services/Document.vala:291
 #, c-format
@@ -313,7 +321,7 @@ msgstr ""
 
 #: src/Services/Document.vala:292
 msgid "Please wait while Code is loading the file."
-msgstr ""
+msgstr "Παρακαλώ περιμένετε όσο ο κώδικας φορτώνει το αρχείο."
 
 #: src/Services/Document.vala:294
 #, fuzzy
@@ -354,7 +362,7 @@ msgstr "Νέο έγγραφο"
 #: src/Services/Document.vala:716
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
-msgstr ""
+msgstr "Το αρχείο \"%s\" δεν μπορεί να διαβαστεί"
 
 #: src/Services/Document.vala:717
 #, fuzzy
@@ -367,6 +375,8 @@ msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
+"Η τοποθεσία που περιέχει το αρχείο \"%s\" δεν μπορεί να βρεθεί. Θέλετε να "
+"αποθηκεύσετε σε κάποια άλλη τοποθεσία;"
 
 #: src/Services/Document.vala:731
 msgid "Save As…"
@@ -398,6 +408,8 @@ msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
 "again or continue your editing?"
 msgstr ""
+"Το αρχείο \"%s\" τροποποιήθηκε από κάποια άλλη εφαρμογή. Θέλετε να το "
+"φορτώσετε ξανά ή να συνεχίσετε την επεξεργασία;"
 
 #: src/Services/Document.vala:787
 msgid "Load"
@@ -427,18 +439,18 @@ msgstr "Εμφάνιση αριθμών γραμμών:"
 
 #: src/Widgets/FormatBar.vala:101
 msgid "Filter languages"
-msgstr ""
+msgstr "Φιλτράρετε τις γλώσσες"
 
 #: src/Widgets/FormatBar.vala:123
 msgid "Plain Text"
-msgstr ""
+msgstr "Απλό κείμενο"
 
 #: src/Widgets/FormatBar.vala:205
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Κενό"
+msgstr[1] "%d Κενά"
 
 #: src/Widgets/FormatBar.vala:207
 #, fuzzy, c-format
@@ -486,7 +498,7 @@ msgstr "Μεγέθυνση"
 
 #: src/Widgets/HeaderBar.vala:101
 msgid "Zoom 1:1"
-msgstr ""
+msgstr "Μεγέθυνση 1:1"
 
 #: src/Widgets/HeaderBar.vala:108
 #, fuzzy
@@ -495,7 +507,7 @@ msgstr "Μεγέθυνση"
 
 #: src/Widgets/HeaderBar.vala:122
 msgid "High Contrast"
-msgstr ""
+msgstr "Υψηλό Contrast"
 
 #: src/Widgets/HeaderBar.vala:130
 msgid "Solarized Light"
@@ -520,7 +532,7 @@ msgstr "Αφαίρεση Τρέχουσας Προβολής"
 
 #: src/Widgets/HeaderBar.vala:183
 msgid "Menu"
-msgstr ""
+msgstr "Μενού"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
@@ -573,7 +585,7 @@ msgstr "/Νέο αρχείο"
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "Create a new empty file."
-msgstr "Δημιουργία νέου κενού αρχείου"
+msgstr "Δημιουργία νέου κενού αρχείου."
 
 #: src/Widgets/WelcomeView.vala:33
 #, fuzzy
@@ -591,7 +603,7 @@ msgstr "Άνοιγμα ενός φακέλου"
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Add a project folder to the sidebar."
-msgstr ""
+msgstr "Προσθήκη project στην πλευρική εργαλειοθήκη."
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 #, fuzzy
@@ -710,6 +722,9 @@ msgstr "%s - Συμπλήρωση Λέξεων"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "Αδυναμία φόρτωσης θέματος εικονιδίων: %s\n"
+
+#~ msgid "Current working directory"
+#~ msgstr "Τρέχον φάκελος εργασίας"
 
 #~ msgid "Highlight current line:"
 #~ msgstr "Επισήμανση τρέχουσας γραμμής:"

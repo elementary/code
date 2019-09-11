@@ -7,18 +7,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:42+0200\n"
-"PO-Revision-Date: 2017-03-02 13:09+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
-"Language-Team: Latvian <lv@li.org>\n"
-"Language: Latvian\n"
+"POT-Creation-Date: 2019-07-09 12:02-0700\n"
+"PO-Revision-Date: 2019-09-10 14:54+0000\n"
+"Last-Translator: Daniel Foré <daniel@elementary.io>\n"
+"Language-Team: Latvian <https://l10n.elementary.io/projects/code/code/lv/>\n"
+"Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= "
+"19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
-#: src/Application.vala:133
+#: src/Application.vala:132
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr ""
@@ -26,72 +28,63 @@ msgstr ""
 "%s"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:137
+#: src/Application.vala:136
 msgid "Maybe you do not have the necessary permissions."
-msgstr "Iespējams jums nav nepieciešamās tiesības"
+msgstr "Iespējams jums nav nepieciešamās tiesības."
 
-#: src/Application.vala:139
+#: src/Application.vala:138
 msgid "Maybe the file path provided is not valid."
-msgstr "Iespējams norādītais faila ceļš nav korekts"
+msgstr "Iespējams norādītais faila ceļš nav korekts."
 
-#: src/Application.vala:141
+#: src/Application.vala:140
 msgid "The location is read-only."
-msgstr "Atrašanās vieta ir tikai-lasīt"
+msgstr "Atrašanās vieta ir tikai-lasīt."
 
-#: src/Application.vala:143
+#: src/Application.vala:142
 msgid "The parent directory doesn't exist."
 msgstr ""
 
-#: src/Application.vala:164
+#: src/Application.vala:163
 msgid "It is a mountable location."
 msgstr ""
 
-#: src/Application.vala:167
+#: src/Application.vala:166
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
 msgstr ""
 
-#: src/Application.vala:170
+#: src/Application.vala:169
 msgid "It is an \"unknown\" file type."
 msgstr ""
 
-#: src/Application.vala:175
+#: src/Application.vala:174
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr ""
 "Fails \"%s\" nevar tikt radīts.\n"
 "%s"
 
-#: src/Application.vala:259
+#: src/Application.vala:246
 msgid "New Tab"
 msgstr "Jauna cilne"
 
-#: src/Application.vala:260 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:247 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Jauns logs"
 
-#: src/Application.vala:261
+#: src/Application.vala:248
 msgid "Print version info and exit"
 msgstr "Drukāt versijas info un iziet"
 
-#: src/Application.vala:262
+#: src/Application.vala:249
 msgid "Set of plugins"
 msgstr "Spraudņi"
 
-#: src/Application.vala:262
+#: src/Application.vala:249
 #, fuzzy
 msgid "plugin"
 msgstr "Spraudņi"
-
-#: src/Application.vala:263
-msgid "Current working directory"
-msgstr "Pāsreizējā darba direktorija"
-
-#: src/Application.vala:263
-#, fuzzy
-msgid "directory"
-msgstr "Tā ir direktorija."
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -99,7 +92,7 @@ msgstr ""
 
 #: src/MainWindow.vala:184 src/Widgets/HeaderBar.vala:80
 msgid "Find…"
-msgstr "Meklēt..."
+msgstr "Meklēt…"
 
 #: src/MainWindow.vala:189
 msgid "Hide search bar"
@@ -160,7 +153,7 @@ msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:155
 msgid "Insert spaces instead of tabs:"
-msgstr "Ievietot atstarpes cilnes vietā"
+msgstr "Ievietot atstarpes cilnes vietā:"
 
 #: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:158
 msgid "Tab width:"
@@ -218,7 +211,7 @@ msgstr "Rādīt mini karti:"
 
 #: src/Dialogs/PreferencesDialog.vala:123
 msgid "Line width guide:"
-msgstr "Rindas platuma norāde"
+msgstr "Rindas platuma norāde:"
 
 #: src/Dialogs/PreferencesDialog.vala:131
 msgid "Font"
@@ -227,6 +220,22 @@ msgstr ""
 #: src/Dialogs/PreferencesDialog.vala:133
 msgid "Custom font:"
 msgstr "Mainīt fontus:"
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:31
+msgid "Are You Sure You Want to Restore This File?"
+msgstr ""
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:32
+msgid "Restoring a file will undo all changes made since opening it"
+msgstr ""
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:34
+msgid "Don't Restore"
+msgstr ""
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:36
+msgid "Restore Anyway"
+msgstr ""
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
@@ -377,7 +386,7 @@ msgstr ""
 
 #: src/Services/Document.vala:731
 msgid "Save As…"
-msgstr "Saglabāt kā..."
+msgstr "Saglabāt kā…"
 
 #: src/Services/Document.vala:736
 #, fuzzy, c-format
@@ -718,6 +727,13 @@ msgstr ""
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr ""
+
+#~ msgid "Current working directory"
+#~ msgstr "Pāsreizējā darba direktorija"
+
+#, fuzzy
+#~ msgid "directory"
+#~ msgstr "Tā ir direktorija."
 
 #~ msgid ""
 #~ "File \"%s\" cannot be created.\n"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:42+0200\n"
-"PO-Revision-Date: 2019-05-28 07:03+0000\n"
+"POT-Creation-Date: 2019-07-09 12:02-0700\n"
+"PO-Revision-Date: 2019-08-27 22:22+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/code/tr/>\n"
 "Language: tr\n"
@@ -16,36 +16,36 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
-#: src/Application.vala:133
+#: src/Application.vala:132
 #, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr "\"%s\" Dosyası Oluşturulamıyor"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:137
+#: src/Application.vala:136
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Belki de gerekli izinlere sahip değilsiniz."
 
-#: src/Application.vala:139
+#: src/Application.vala:138
 msgid "Maybe the file path provided is not valid."
 msgstr "Belki de belirtilen dosya yolu geçerli değildir."
 
-#: src/Application.vala:141
+#: src/Application.vala:140
 msgid "The location is read-only."
 msgstr "Konum salt okunur."
 
-#: src/Application.vala:143
+#: src/Application.vala:142
 msgid "The parent directory doesn't exist."
 msgstr "Üst dizin mevcut değil."
 
-#: src/Application.vala:164
+#: src/Application.vala:163
 msgid "It is a mountable location."
 msgstr "Bu bağlanabilir bir konum."
 
-#: src/Application.vala:167
+#: src/Application.vala:166
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -53,42 +53,34 @@ msgstr ""
 "Soket, FIFO, blok kullanan aygıt veya\n"
 " karakter aygıtı gibi özel bir dosyadır."
 
-#: src/Application.vala:170
+#: src/Application.vala:169
 msgid "It is an \"unknown\" file type."
 msgstr "Bu \"bilinmeyen\" bir dosya türüdür."
 
-#: src/Application.vala:175
+#: src/Application.vala:174
 #, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr "\"%s\" Dosyası Açılamıyor"
 
-#: src/Application.vala:259
+#: src/Application.vala:246
 msgid "New Tab"
 msgstr "Yeni Sekme"
 
-#: src/Application.vala:260 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:247 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Yeni Pencere"
 
-#: src/Application.vala:261
+#: src/Application.vala:248
 msgid "Print version info and exit"
 msgstr "Sürüm bilgisini yazdır ve çık"
 
-#: src/Application.vala:262
+#: src/Application.vala:249
 msgid "Set of plugins"
 msgstr "Eklenti kümesi"
 
-#: src/Application.vala:262
+#: src/Application.vala:249
 msgid "plugin"
 msgstr "eklenti"
-
-#: src/Application.vala:263
-msgid "Current working directory"
-msgstr "Geçerli çalışma dizini"
-
-#: src/Application.vala:263
-msgid "directory"
-msgstr "dizin"
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -225,6 +217,24 @@ msgstr "Yazı Tipi"
 msgid "Custom font:"
 msgstr "Özel yazı tipi:"
 
+#: src/Dialogs/RestoreConfirmationDialog.vala:31
+msgid "Are You Sure You Want to Restore This File?"
+msgstr "Bu Dosyayı Geri Yüklemek İstediğinizden Emin Misiniz?"
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:32
+msgid "Restoring a file will undo all changes made since opening it"
+msgstr ""
+"Bir dosyayı geri yüklemek, dosyayı açtıktan sonra yapılan tüm değişiklikleri "
+"geri alır"
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:34
+msgid "Don't Restore"
+msgstr "Geri Yükleme"
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:36
+msgid "Restore Anyway"
+msgstr "Yine de Geri Yükle"
+
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
 msgid "Other Application…"
 msgstr "Diğer Uygulamalar…"
@@ -285,9 +295,8 @@ msgid "Close Folder"
 msgstr "Klasörü Kapat"
 
 #: src/FolderManager/ProjectFolderItem.vala:275
-#, fuzzy
 msgid "Branch"
-msgstr "Dalı Değiştir"
+msgstr "Dal"
 
 #: src/Services/Document.vala:267
 #, c-format
@@ -693,6 +702,12 @@ msgstr "%s - Kelime Tamamlama"
 #, c-format
 msgid "Could not load icon theme: %s\n"
 msgstr "Simge teması yüklenemedi: %s\n"
+
+#~ msgid "Current working directory"
+#~ msgstr "Geçerli çalışma dizini"
+
+#~ msgid "directory"
+#~ msgstr "dizin"
 
 #~ msgid ""
 #~ "File \"%s\" cannot be created.\n"
