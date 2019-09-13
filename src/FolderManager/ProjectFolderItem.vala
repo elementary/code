@@ -238,7 +238,7 @@ namespace Scratch.FolderManager {
                 item.activatable = null;
 
                 if (is_file_gitignored (item)) {
-                    item.markup = Markup.printf_escaped ("<span foreground='#BFBFBF'>%s</span>", item.name);
+                    item.markup = Markup.printf_escaped ("<span fgalpha='50&#37;'>%s</span>", item.name);
                 } else {
                     item.markup = null;
                 }
@@ -257,7 +257,7 @@ namespace Scratch.FolderManager {
             foreach (var child in top_level_item.children) {
                 var item = child as Item;
                 if (is_file_gitignored (item)) {
-                    item.markup = Markup.printf_escaped ("<span foreground='#BFBFBF'>%s</span>", item.name);
+                    item.markup = Markup.printf_escaped ("<span fgalpha='50&#37;'>%s</span>", item.name);
                 }
 
                 if (item is Granite.Widgets.SourceList.ExpandableItem) {
@@ -266,7 +266,7 @@ namespace Scratch.FolderManager {
             }
         }
 
-        private bool is_file_gitignored (Item item) {
+        public bool is_file_gitignored (Item item) {
             try {
                 if (git_repo.path_is_ignored(item.path)) {
                     return true;
