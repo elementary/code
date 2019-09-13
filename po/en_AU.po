@@ -7,16 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-09 12:02-0700\n"
-"PO-Revision-Date: 2017-04-09 21:12+0000\n"
-"Last-Translator: Mario Guerriero <Unknown>\n"
-"Language-Team: English (Australia) <en_AU@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2019-09-11 09:24-0700\n"
+"PO-Revision-Date: 2019-09-10 14:54+0000\n"
+"Last-Translator: Daniel Foré <daniel@elementary.io>\n"
+"Language-Team: English (Australia) <https://l10n.elementary.io/projects/code/"
+"code/en_AU/>\n"
+"Language: en_AU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #: src/Application.vala:132
 #, fuzzy, c-format
@@ -89,7 +91,7 @@ msgstr "Set of plugins"
 
 #: src/MainWindow.vala:133
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
 #: src/MainWindow.vala:184 src/Widgets/HeaderBar.vala:80
 msgid "Find…"
@@ -200,11 +202,11 @@ msgstr "Never"
 
 #: src/Dialogs/PreferencesDialog.vala:116
 msgid "For selected text"
-msgstr ""
+msgstr "For selected text"
 
 #: src/Dialogs/PreferencesDialog.vala:117
 msgid "Always"
-msgstr ""
+msgstr "Always"
 
 #: src/Dialogs/PreferencesDialog.vala:120
 msgid "Show Mini Map:"
@@ -216,7 +218,7 @@ msgstr "Line width guide:"
 
 #: src/Dialogs/PreferencesDialog.vala:131
 msgid "Font"
-msgstr ""
+msgstr "Font"
 
 #: src/Dialogs/PreferencesDialog.vala:133
 msgid "Custom font:"
@@ -238,62 +240,62 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:114
 msgid "Other Application…"
-msgstr ""
+msgstr "Other Application…"
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:154
 #, fuzzy
 msgid "Open In"
 msgstr "Open"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:123
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:89
 #, fuzzy
 msgid "Other Actions"
 msgstr "Other formats"
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:92
 msgid "Rename"
-msgstr ""
+msgstr "Rename"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:98
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
-msgstr ""
+msgstr "Move to Rubbish Bin"
 
 #: src/FolderManager/FileView.vala:39
 msgid "Folders"
 msgstr "Folders"
 
-#: src/FolderManager/FolderItem.vala:148
+#: src/FolderManager/FolderItem.vala:161
 #, fuzzy
 msgid "Folder"
 msgstr "Folders"
 
-#: src/FolderManager/FolderItem.vala:151
+#: src/FolderManager/FolderItem.vala:164
 msgid "Empty File"
-msgstr ""
+msgstr "Empty File"
 
-#: src/FolderManager/FolderItem.vala:158
+#: src/FolderManager/FolderItem.vala:171
 #, fuzzy
 msgid "New"
 msgstr "New Tab"
 
-#: src/FolderManager/FolderItem.vala:322
+#: src/FolderManager/FolderItem.vala:335
 msgid "untitled folder"
-msgstr ""
+msgstr "untitled folder"
 
-#: src/FolderManager/FolderItem.vala:326
+#: src/FolderManager/FolderItem.vala:339
 #, c-format
 msgid "untitled folder %d"
-msgstr ""
+msgstr "untitled folder %d"
 
-#: src/FolderManager/FolderItem.vala:354
+#: src/FolderManager/FolderItem.vala:367
 #, fuzzy
 msgid "new file"
 msgstr "New file"
 
-#: src/FolderManager/FolderItem.vala:358
+#: src/FolderManager/FolderItem.vala:371
 #, fuzzy, c-format
 msgid "new file %d"
 msgstr "New file"
@@ -302,7 +304,7 @@ msgstr "New file"
 msgid "Close Folder"
 msgstr "Close Folder"
 
-#: src/FolderManager/ProjectFolderItem.vala:275
+#: src/FolderManager/ProjectFolderItem.vala:286
 #, fuzzy
 msgid "Branch"
 msgstr "Change Scratch settings"
@@ -310,15 +312,15 @@ msgstr "Change Scratch settings"
 #: src/Services/Document.vala:267
 #, c-format
 msgid "%s Is Not a Text File"
-msgstr ""
+msgstr "%s Is Not a Text File"
 
 #: src/Services/Document.vala:268
 msgid "Code will not load this type of file."
-msgstr ""
+msgstr "Code will not load this type of file."
 
 #: src/Services/Document.vala:270
 msgid "Load Anyway"
-msgstr ""
+msgstr "Load Anyway"
 
 #: src/Services/Document.vala:291
 #, c-format
@@ -729,10 +731,8 @@ msgstr ""
 msgid "%s - Word Completion"
 msgstr "%s - Word Completion"
 
-#: plugins/word-completion/completion-provider.vala:80
-#, c-format
-msgid "Could not load icon theme: %s\n"
-msgstr "Could not load icon theme: %s\n"
+#~ msgid "Could not load icon theme: %s\n"
+#~ msgstr "Could not load icon theme: %s\n"
 
 #~ msgid "Current working directory"
 #~ msgstr "Current working directory"

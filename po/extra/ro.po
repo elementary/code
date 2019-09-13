@@ -7,16 +7,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:42+0200\n"
-"PO-Revision-Date: 2016-12-12 23:11+0000\n"
-"Last-Translator: Marius Albina <marius.albina@gmail.com>\n"
-"Language-Team: Romanian <ro@li.org>\n"
+"POT-Creation-Date: 2019-09-11 09:24-0700\n"
+"PO-Revision-Date: 2019-09-10 14:54+0000\n"
+"Last-Translator: Daniel Foré <daniel@elementary.io>\n"
+"Language-Team: Romanian <https://l10n.elementary.io/projects/code/extra/ro/"
+">\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
 #: data/io.elementary.code.desktop.in.in:4
@@ -198,11 +201,11 @@ msgstr "Scratch"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New Document"
-msgstr ""
+msgstr "Document nou"
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
-msgstr ""
+msgstr "Fereastră nouă"
 
 #~ msgid "Notepad;IDE;Plain;"
 #~ msgstr "Notepad;IDE;Plain;"

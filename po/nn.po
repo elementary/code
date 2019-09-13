@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-09 12:02-0700\n"
+"POT-Creation-Date: 2019-09-11 09:24-0700\n"
 "PO-Revision-Date: 2019-01-08 00:22+0000\n"
 "Last-Translator: Simon Dagfinrud <semonje@gmail.com>\n"
 "Language-Team: Norwegian Nynorsk <https://weblate.elementary.io/projects/"
@@ -236,23 +236,23 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr "Last inn likevel"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:114
 msgid "Other Application…"
 msgstr "Anna program…"
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:154
 msgid "Open In"
 msgstr "Opne i"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:123
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:89
 msgid "Other Actions"
 msgstr "Andre handlingar"
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:92
 msgid "Rename"
 msgstr "Gje nytt namn"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:98
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr "Flytt til papirkorg"
@@ -261,32 +261,32 @@ msgstr "Flytt til papirkorg"
 msgid "Folders"
 msgstr "Mapper"
 
-#: src/FolderManager/FolderItem.vala:148
+#: src/FolderManager/FolderItem.vala:161
 msgid "Folder"
 msgstr "Mappe"
 
-#: src/FolderManager/FolderItem.vala:151
+#: src/FolderManager/FolderItem.vala:164
 msgid "Empty File"
 msgstr "Tom fil"
 
-#: src/FolderManager/FolderItem.vala:158
+#: src/FolderManager/FolderItem.vala:171
 msgid "New"
 msgstr "Ny"
 
-#: src/FolderManager/FolderItem.vala:322
+#: src/FolderManager/FolderItem.vala:335
 msgid "untitled folder"
 msgstr "mappe utan namn"
 
-#: src/FolderManager/FolderItem.vala:326
+#: src/FolderManager/FolderItem.vala:339
 #, c-format
 msgid "untitled folder %d"
 msgstr "mappe utan namn %d"
 
-#: src/FolderManager/FolderItem.vala:354
+#: src/FolderManager/FolderItem.vala:367
 msgid "new file"
 msgstr "ny fil"
 
-#: src/FolderManager/FolderItem.vala:358
+#: src/FolderManager/FolderItem.vala:371
 #, c-format
 msgid "new file %d"
 msgstr "ny fil %d"
@@ -295,7 +295,7 @@ msgstr "ny fil %d"
 msgid "Close Folder"
 msgstr "Lukk mappe"
 
-#: src/FolderManager/ProjectFolderItem.vala:275
+#: src/FolderManager/ProjectFolderItem.vala:286
 msgid "Branch"
 msgstr ""
 
@@ -708,10 +708,8 @@ msgstr ""
 msgid "%s - Word Completion"
 msgstr "%s – Ordfullføring"
 
-#: plugins/word-completion/completion-provider.vala:80
-#, c-format
-msgid "Could not load icon theme: %s\n"
-msgstr "Kunne ikkje laste tema for ikon: %s\n"
+#~ msgid "Could not load icon theme: %s\n"
+#~ msgstr "Kunne ikkje laste tema for ikon: %s\n"
 
 #~ msgid "Current working directory"
 #~ msgstr "Gjeldande arbeidsmappe"

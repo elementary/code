@@ -7,16 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-09 12:02-0700\n"
-"PO-Revision-Date: 2016-05-04 18:01+0000\n"
-"Last-Translator: Joseph Guay <osajoseph@gmail.com>\n"
-"Language-Team: French (Canada) <fr_CA@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2019-09-11 09:24-0700\n"
+"PO-Revision-Date: 2019-09-10 14:54+0000\n"
+"Last-Translator: Cleiton Floss <cleitonfloss@gmail.com>\n"
+"Language-Team: French (Canada) <https://l10n.elementary.io/projects/code/"
+"code/fr_CA/>\n"
+"Language: fr_CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
-"X-Generator: Launchpad (build 18366)\n"
 
 #: src/Application.vala:132
 #, c-format
@@ -26,19 +28,19 @@ msgstr ""
 #. We list some common errors for quick feedback
 #: src/Application.vala:136
 msgid "Maybe you do not have the necessary permissions."
-msgstr ""
+msgstr "Peut-être que vous n'avez pas les permissions nécessaires."
 
 #: src/Application.vala:138
 msgid "Maybe the file path provided is not valid."
-msgstr ""
+msgstr "Peut-être que le chemin du fichier fourni n'est pas valide."
 
 #: src/Application.vala:140
 msgid "The location is read-only."
-msgstr ""
+msgstr "L'emplacement est en lecture seule."
 
 #: src/Application.vala:142
 msgid "The parent directory doesn't exist."
-msgstr ""
+msgstr "Le répertoire parent n'existe pas."
 
 #: src/Application.vala:163
 msgid "It is a mountable location."
@@ -82,11 +84,11 @@ msgstr "Ensemble de greffons"
 
 #: src/MainWindow.vala:133
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
 #: src/MainWindow.vala:184 src/Widgets/HeaderBar.vala:80
 msgid "Find…"
-msgstr "Rechercher..."
+msgstr "Rechercher…"
 
 #: src/MainWindow.vala:189
 msgid "Hide search bar"
@@ -119,11 +121,11 @@ msgstr "Annuler"
 
 #: src/MainWindow.vala:802
 msgid "_Open"
-msgstr ""
+msgstr "_Ouvrir"
 
 #: src/MainWindow.vala:803
 msgid "_Cancel"
-msgstr ""
+msgstr "_Annuler"
 
 #: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:160
 msgid "Preferences"
@@ -231,23 +233,23 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:114
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:154
 msgid "Open In"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:123
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:89
 msgid "Other Actions"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:92
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:98
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr ""
@@ -256,34 +258,34 @@ msgstr ""
 msgid "Folders"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:148
+#: src/FolderManager/FolderItem.vala:161
 msgid "Folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:151
+#: src/FolderManager/FolderItem.vala:164
 msgid "Empty File"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:158
+#: src/FolderManager/FolderItem.vala:171
 #, fuzzy
 msgid "New"
 msgstr "Nouvel onglet"
 
-#: src/FolderManager/FolderItem.vala:322
+#: src/FolderManager/FolderItem.vala:335
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:326
+#: src/FolderManager/FolderItem.vala:339
 #, c-format
 msgid "untitled folder %d"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:354
+#: src/FolderManager/FolderItem.vala:367
 #, fuzzy
 msgid "new file"
 msgstr "Ouvrez des fichiers"
 
-#: src/FolderManager/FolderItem.vala:358
+#: src/FolderManager/FolderItem.vala:371
 #, c-format
 msgid "new file %d"
 msgstr ""
@@ -292,7 +294,7 @@ msgstr ""
 msgid "Close Folder"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:275
+#: src/FolderManager/ProjectFolderItem.vala:286
 msgid "Branch"
 msgstr ""
 
@@ -707,11 +709,6 @@ msgstr ""
 #: plugins/word-completion/plugin.vala:174
 #, c-format
 msgid "%s - Word Completion"
-msgstr ""
-
-#: plugins/word-completion/completion-provider.vala:80
-#, c-format
-msgid "Could not load icon theme: %s\n"
 msgstr ""
 
 #~ msgid "Edit text files"

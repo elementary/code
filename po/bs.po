@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-09 12:02-0700\n"
+"POT-Creation-Date: 2019-09-11 09:24-0700\n"
 "PO-Revision-Date: 2018-11-05 00:09+0000\n"
 "Last-Translator: Elvis Mujanović <elvis.mujanovic@gmail.com>\n"
 "Language-Team: Bosnian <https://weblate.elementary.io/projects/code/code/bs/"
@@ -237,23 +237,23 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr "Svejedno učitaj"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:114
 msgid "Other Application…"
 msgstr "Druga aplikacija…"
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:154
 msgid "Open In"
 msgstr "Otvori sa"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:123
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:89
 msgid "Other Actions"
 msgstr "Druge radnje"
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:92
 msgid "Rename"
 msgstr "Preimenuj"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:98
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr "Premjesti u Otpad"
@@ -262,32 +262,32 @@ msgstr "Premjesti u Otpad"
 msgid "Folders"
 msgstr "Direktoriji"
 
-#: src/FolderManager/FolderItem.vala:148
+#: src/FolderManager/FolderItem.vala:161
 msgid "Folder"
 msgstr "Fascikle"
 
-#: src/FolderManager/FolderItem.vala:151
+#: src/FolderManager/FolderItem.vala:164
 msgid "Empty File"
 msgstr "Prazna datoteka"
 
-#: src/FolderManager/FolderItem.vala:158
+#: src/FolderManager/FolderItem.vala:171
 msgid "New"
 msgstr "Novo"
 
-#: src/FolderManager/FolderItem.vala:322
+#: src/FolderManager/FolderItem.vala:335
 msgid "untitled folder"
 msgstr "neimenovana fascikla"
 
-#: src/FolderManager/FolderItem.vala:326
+#: src/FolderManager/FolderItem.vala:339
 #, c-format
 msgid "untitled folder %d"
 msgstr "neimenovana fascikla %d"
 
-#: src/FolderManager/FolderItem.vala:354
+#: src/FolderManager/FolderItem.vala:367
 msgid "new file"
 msgstr "nova datoteka"
 
-#: src/FolderManager/FolderItem.vala:358
+#: src/FolderManager/FolderItem.vala:371
 #, c-format
 msgid "new file %d"
 msgstr "nova datoteka %d"
@@ -296,7 +296,7 @@ msgstr "nova datoteka %d"
 msgid "Close Folder"
 msgstr "Zatvori direktorij"
 
-#: src/FolderManager/ProjectFolderItem.vala:275
+#: src/FolderManager/ProjectFolderItem.vala:286
 #, fuzzy
 msgid "Branch"
 msgstr "Promijeni Scratch podešavanja"
@@ -710,10 +710,8 @@ msgstr ""
 msgid "%s - Word Completion"
 msgstr "%s - Automatski završetak riječi"
 
-#: plugins/word-completion/completion-provider.vala:80
-#, c-format
-msgid "Could not load icon theme: %s\n"
-msgstr "Nije moguće učitati temu za ikonice: %s\n"
+#~ msgid "Could not load icon theme: %s\n"
+#~ msgstr "Nije moguće učitati temu za ikonice: %s\n"
 
 #~ msgid "Current working directory"
 #~ msgstr "Trenutni radni direktorij"

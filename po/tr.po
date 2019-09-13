@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-09 12:02-0700\n"
+"POT-Creation-Date: 2019-09-11 09:24-0700\n"
 "PO-Revision-Date: 2019-08-27 22:22+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/code/tr/>\n"
@@ -235,23 +235,23 @@ msgstr "Geri Yükleme"
 msgid "Restore Anyway"
 msgstr "Yine de Geri Yükle"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:114
 msgid "Other Application…"
 msgstr "Diğer Uygulamalar…"
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:154
 msgid "Open In"
 msgstr "İçinde Aç"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:123
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:89
 msgid "Other Actions"
 msgstr "Diğer Eylemler"
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:92
 msgid "Rename"
 msgstr "Yeniden Adlandır"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:98
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr "Çöpe Taşı"
@@ -260,32 +260,32 @@ msgstr "Çöpe Taşı"
 msgid "Folders"
 msgstr "Klasörler"
 
-#: src/FolderManager/FolderItem.vala:148
+#: src/FolderManager/FolderItem.vala:161
 msgid "Folder"
 msgstr "Klasör"
 
-#: src/FolderManager/FolderItem.vala:151
+#: src/FolderManager/FolderItem.vala:164
 msgid "Empty File"
 msgstr "Boş Dosya"
 
-#: src/FolderManager/FolderItem.vala:158
+#: src/FolderManager/FolderItem.vala:171
 msgid "New"
 msgstr "Yeni"
 
-#: src/FolderManager/FolderItem.vala:322
+#: src/FolderManager/FolderItem.vala:335
 msgid "untitled folder"
 msgstr "adsız klasör"
 
-#: src/FolderManager/FolderItem.vala:326
+#: src/FolderManager/FolderItem.vala:339
 #, c-format
 msgid "untitled folder %d"
 msgstr "adsız klasör %d"
 
-#: src/FolderManager/FolderItem.vala:354
+#: src/FolderManager/FolderItem.vala:367
 msgid "new file"
 msgstr "yeni dosya"
 
-#: src/FolderManager/FolderItem.vala:358
+#: src/FolderManager/FolderItem.vala:371
 #, c-format
 msgid "new file %d"
 msgstr "yeni dosya %d"
@@ -294,7 +294,7 @@ msgstr "yeni dosya %d"
 msgid "Close Folder"
 msgstr "Klasörü Kapat"
 
-#: src/FolderManager/ProjectFolderItem.vala:275
+#: src/FolderManager/ProjectFolderItem.vala:286
 msgid "Branch"
 msgstr "Dal"
 
@@ -698,10 +698,8 @@ msgstr "Lütfen en azından bir [aspell] sözlük yükleyin."
 msgid "%s - Word Completion"
 msgstr "%s - Kelime Tamamlama"
 
-#: plugins/word-completion/completion-provider.vala:80
-#, c-format
-msgid "Could not load icon theme: %s\n"
-msgstr "Simge teması yüklenemedi: %s\n"
+#~ msgid "Could not load icon theme: %s\n"
+#~ msgstr "Simge teması yüklenemedi: %s\n"
 
 #~ msgid "Current working directory"
 #~ msgstr "Geçerli çalışma dizini"

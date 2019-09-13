@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-09 12:02-0700\n"
+"POT-Creation-Date: 2019-09-11 09:24-0700\n"
 "PO-Revision-Date: 2019-04-26 05:38+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/code/he/>\n"
@@ -235,23 +235,23 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr "לטעון בכל זאת"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:114
 msgid "Other Application…"
 msgstr "יישום אחר…"
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:154
 msgid "Open In"
 msgstr "פתיחה עם"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:123
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:89
 msgid "Other Actions"
 msgstr "פעולות אחרות"
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:92
 msgid "Rename"
 msgstr "שינוי שם"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:98
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr "העברה לאשפה"
@@ -260,32 +260,32 @@ msgstr "העברה לאשפה"
 msgid "Folders"
 msgstr "תיקיות"
 
-#: src/FolderManager/FolderItem.vala:148
+#: src/FolderManager/FolderItem.vala:161
 msgid "Folder"
 msgstr "תיקייה"
 
-#: src/FolderManager/FolderItem.vala:151
+#: src/FolderManager/FolderItem.vala:164
 msgid "Empty File"
 msgstr "קובץ ריק"
 
-#: src/FolderManager/FolderItem.vala:158
+#: src/FolderManager/FolderItem.vala:171
 msgid "New"
 msgstr "חדש"
 
-#: src/FolderManager/FolderItem.vala:322
+#: src/FolderManager/FolderItem.vala:335
 msgid "untitled folder"
 msgstr "תיקייה ללא שם"
 
-#: src/FolderManager/FolderItem.vala:326
+#: src/FolderManager/FolderItem.vala:339
 #, c-format
 msgid "untitled folder %d"
 msgstr "תיקייה ללא שם %d"
 
-#: src/FolderManager/FolderItem.vala:354
+#: src/FolderManager/FolderItem.vala:367
 msgid "new file"
 msgstr "קובץ חדש"
 
-#: src/FolderManager/FolderItem.vala:358
+#: src/FolderManager/FolderItem.vala:371
 #, c-format
 msgid "new file %d"
 msgstr "קובץ חדש %d"
@@ -294,7 +294,7 @@ msgstr "קובץ חדש %d"
 msgid "Close Folder"
 msgstr "סגירת תיקייה"
 
-#: src/FolderManager/ProjectFolderItem.vala:275
+#: src/FolderManager/ProjectFolderItem.vala:286
 #, fuzzy
 msgid "Branch"
 msgstr "החלפת ענף"
@@ -694,10 +694,8 @@ msgstr "נא להתקין לפחות מילון [aspell] אחד."
 msgid "%s - Word Completion"
 msgstr "%s - השלמת מילים"
 
-#: plugins/word-completion/completion-provider.vala:80
-#, c-format
-msgid "Could not load icon theme: %s\n"
-msgstr "לא ניתן לטעון ערכת נושא לסמלים: %s\n"
+#~ msgid "Could not load icon theme: %s\n"
+#~ msgstr "לא ניתן לטעון ערכת נושא לסמלים: %s\n"
 
 #~ msgid "Current working directory"
 #~ msgstr "תיקיית העבודה הנוכחית"
