@@ -394,7 +394,7 @@ namespace Scratch.Widgets {
             }
 
             string key = Gdk.keyval_name (event.keyval);
-            if (event.state == Gdk.ModifierType.SHIFT_MASK) {
+            if ((event.state & Gdk.ModifierType.SHIFT_MASK) != 0) {
                 key = "<Shift>" + key;
             }
 
