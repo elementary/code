@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-07 11:10-0800\n"
+"POT-Creation-Date: 2019-09-11 09:24-0700\n"
 "PO-Revision-Date: 2016-12-11 08:21+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: \n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 "X-Generator: Launchpad (build 18366)\n"
 
-#: src/Application.vala:133
+#: src/Application.vala:132
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr ""
@@ -21,27 +21,27 @@ msgstr ""
 "\"%s\""
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:137
+#: src/Application.vala:136
 msgid "Maybe you do not have the necessary permissions."
 msgstr "بەلكىم سىزنىڭ زۆرۈر ھوقۇقىڭىز يوق بولۇشى مۇمكىن."
 
-#: src/Application.vala:139
+#: src/Application.vala:138
 msgid "Maybe the file path provided is not valid."
 msgstr "بەلكىم تەمىنلەنگەن ھۆججەت ئادىرىسى ئىناۋەتسىز بولۇشى مۇمكىن."
 
-#: src/Application.vala:141
+#: src/Application.vala:140
 msgid "The location is read-only."
 msgstr "بۇ ئادىرىسنى پەقەت ئوقۇغىلى بولىدۇ."
 
-#: src/Application.vala:143
+#: src/Application.vala:142
 msgid "The parent directory doesn't exist."
 msgstr "يۇقىرى دەرىجىلىك مۇندەرىجە مەۋجۇت ئەمەس."
 
-#: src/Application.vala:164
+#: src/Application.vala:163
 msgid "It is a mountable location."
 msgstr "بۇ يۈكلىگىلى بولىدىغان ئادىرىس."
 
-#: src/Application.vala:167
+#: src/Application.vala:166
 #, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
@@ -50,79 +50,80 @@ msgstr ""
 "بۇ بىر Socket قا ئوخشاش ئالاھىدە ھۆججەت،\n"
 "FIFO ھۆججىتى، بۆلەك ئۈسكىنىسى ياكى ھەرپ-بەلگە ئۈسكۈنىسى."
 
-#: src/Application.vala:170
+#: src/Application.vala:169
 msgid "It is an \"unknown\" file type."
 msgstr "بۇ بىر نامەلۇم ھۆججەت تۈرى."
 
-#: src/Application.vala:175
+#: src/Application.vala:174
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr ""
 "ھۆججەت \"%s\" نى قۇرغىلى بولمىدى.\n"
 "\"%s\""
 
-#: src/Application.vala:259
+#: src/Application.vala:246
 msgid "New Tab"
 msgstr "يىڭى خەتكۈچ"
 
-#: src/Application.vala:260 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:247 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "يىڭى كۆزنەك"
 
-#: src/Application.vala:261
+#: src/Application.vala:248
 msgid "Print version info and exit"
 msgstr "نەشىر ئۇچۇرلىرىنى بىسىش ۋە چىكىنىش"
 
-#: src/Application.vala:262
+#: src/Application.vala:249
 msgid "Set of plugins"
 msgstr "قىستۇرمىلار توپلىمى"
 
-#: src/Application.vala:263
-msgid "Current working directory"
-msgstr "ھازىر خىزمەت قىلىۋاتقان مۇندەرىجە"
+#: src/Application.vala:249
+#, fuzzy
+msgid "plugin"
+msgstr "قىستۇرمىلار توپلىمى"
 
 #: src/MainWindow.vala:133
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:183 src/Widgets/HeaderBar.vala:80
+#: src/MainWindow.vala:184 src/Widgets/HeaderBar.vala:80
 msgid "Find…"
 msgstr "ئىزدەش......"
 
-#: src/MainWindow.vala:188
+#: src/MainWindow.vala:189
 msgid "Hide search bar"
 msgstr "ئىزدەش سىتونىنى يوشۇرۇش"
 
-#: src/MainWindow.vala:236
+#: src/MainWindow.vala:240
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Scratchئۈچۈن Zeitgeist سانلىق مەلۇمات مەنبەسى"
 
-#: src/MainWindow.vala:744 src/Services/Document.vala:503
+#: src/MainWindow.vala:765 src/Services/Document.vala:503
 msgid "All files"
 msgstr "بارلىق ھۆججەتلەر"
 
-#: src/MainWindow.vala:748 src/Services/Document.vala:507
+#: src/MainWindow.vala:769 src/Services/Document.vala:507
 msgid "Text files"
 msgstr "تېكىست ھۆججەتلىرى"
 
-#: src/MainWindow.vala:752
+#: src/MainWindow.vala:773
 msgid "Open some files"
 msgstr "بەزى ھۆججەتلەرنى ئىچىش"
 
-#: src/MainWindow.vala:755
+#: src/MainWindow.vala:776
 msgid "Open"
 msgstr "ئىچىش"
 
-#: src/MainWindow.vala:756 src/Services/Document.vala:402
+#: src/MainWindow.vala:777 src/Services/Document.vala:402
 #: src/Services/Document.vala:515
 msgid "Cancel"
 msgstr "ئەمەلدىن قالدۇرۇش"
 
-#: src/MainWindow.vala:781
+#: src/MainWindow.vala:802
 msgid "_Open"
 msgstr "ئىچىش(_O)"
 
-#: src/MainWindow.vala:782
+#: src/MainWindow.vala:803
 msgid "_Cancel"
 msgstr "ئەمەلدىن قالدۇرۇش(_C)"
 
@@ -216,25 +217,41 @@ msgstr ""
 msgid "Custom font:"
 msgstr "خەت نۇسخىسىنى ئۆزگەرتىش:"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
+#: src/Dialogs/RestoreConfirmationDialog.vala:31
+msgid "Are You Sure You Want to Restore This File?"
+msgstr ""
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:32
+msgid "Restoring a file will undo all changes made since opening it"
+msgstr ""
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:34
+msgid "Don't Restore"
+msgstr ""
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:36
+msgid "Restore Anyway"
+msgstr ""
+
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:114
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:154
 #, fuzzy
 msgid "Open In"
 msgstr "ئىچىش"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:89
 #, fuzzy
 msgid "Other Actions"
 msgstr "باشقا فورماتلار"
 
-#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:92
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:98
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr ""
@@ -243,35 +260,35 @@ msgstr ""
 msgid "Folders"
 msgstr "مۇندەرىجلەر"
 
-#: src/FolderManager/FolderItem.vala:148
+#: src/FolderManager/FolderItem.vala:161
 #, fuzzy
 msgid "Folder"
 msgstr "مۇندەرىجلەر"
 
-#: src/FolderManager/FolderItem.vala:151
+#: src/FolderManager/FolderItem.vala:164
 msgid "Empty File"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:158
+#: src/FolderManager/FolderItem.vala:171
 #, fuzzy
 msgid "New"
 msgstr "يىڭى خەتكۈچ"
 
-#: src/FolderManager/FolderItem.vala:322
+#: src/FolderManager/FolderItem.vala:335
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:326
+#: src/FolderManager/FolderItem.vala:339
 #, c-format
 msgid "untitled folder %d"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:354
+#: src/FolderManager/FolderItem.vala:367
 #, fuzzy
 msgid "new file"
 msgstr "يىڭى ھۆججەت قۇرۇش"
 
-#: src/FolderManager/FolderItem.vala:358
+#: src/FolderManager/FolderItem.vala:371
 #, fuzzy, c-format
 msgid "new file %d"
 msgstr "يىڭى ھۆججەت قۇرۇش"
@@ -280,9 +297,9 @@ msgstr "يىڭى ھۆججەت قۇرۇش"
 msgid "Close Folder"
 msgstr "مۇندەرىجىنى تاقاش"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
+#: src/FolderManager/ProjectFolderItem.vala:286
 #, fuzzy
-msgid "Change Branch"
+msgid "Branch"
 msgstr "Scratchنىڭ تەڭشەكلىرىنى ئۆزگەرتىش"
 
 #: src/Services/Document.vala:267
@@ -704,10 +721,15 @@ msgstr ""
 msgid "%s - Word Completion"
 msgstr "%s - سۆز تولۇقلاندى"
 
-#: plugins/word-completion/completion-provider.vala:80
-#, c-format
-msgid "Could not load icon theme: %s\n"
-msgstr "يۈكلىگىلى بولمىغان بەلگە رەسىم ئۇسلۇبى:%s\n"
+#~ msgid "Could not load icon theme: %s\n"
+#~ msgstr "يۈكلىگىلى بولمىغان بەلگە رەسىم ئۇسلۇبى:%s\n"
+
+#~ msgid "Current working directory"
+#~ msgstr "ھازىر خىزمەت قىلىۋاتقان مۇندەرىجە"
+
+#, fuzzy
+#~ msgid "directory"
+#~ msgstr "بۇ بىر مۇندەرىجە."
 
 #~ msgid ""
 #~ "File \"%s\" cannot be created.\n"
@@ -797,9 +819,6 @@ msgstr "يۈكلىگىلى بولمىغان بەلگە رەسىم ئۇسلۇبى
 #~ "Launchpad Contributions:\n"
 #~ "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
 #~ "  ablimet https://launchpad.net/~ablimet"
-
-#~ msgid "It is a directory."
-#~ msgstr "بۇ بىر مۇندەرىجە."
 
 #~ msgid "New file from clipboard"
 #~ msgstr "چاپلاش تاختىسىدىن يىڭى ھۆججەت قۇرۇش"

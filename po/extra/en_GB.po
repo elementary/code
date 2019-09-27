@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-04 11:52-0800\n"
-"PO-Revision-Date: 2019-01-07 12:34+0000\n"
-"Last-Translator: Ciarán Ainsworth <ciaranainsworth@outlook.com>\n"
-"Language-Team: English (United Kingdom) <https://weblate.elementary.io/"
-"projects/code/extra/en_GB/>\n"
+"POT-Creation-Date: 2019-09-11 09:24-0700\n"
+"PO-Revision-Date: 2019-08-27 22:22+0000\n"
+"Last-Translator: Ciarán Ainsworth <ciaranainsworth@posteo.net>\n"
+"Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
+"code/extra/en_GB/>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -103,7 +103,75 @@ msgstr "tab and split documents system"
 msgid "lots of others"
 msgstr "lots of others"
 
-#: data/io.elementary.code.appdata.xml.in:101
+#: data/io.elementary.code.appdata.xml.in:51
+msgid "Use Granite.MessageDialog throughout"
+msgstr "Use Granite.MessageDialog throughout"
+
+#: data/io.elementary.code.appdata.xml.in:52
+msgid "Include non-text files in sidebar"
+msgstr "Include non-text files in sidebar"
+
+#: data/io.elementary.code.appdata.xml.in:53
+msgid "Fix Remove Current View"
+msgstr "Fix Remove Current View"
+
+#: data/io.elementary.code.appdata.xml.in:58
+msgid "Fix New Window desktop action behavior"
+msgstr "Fix New Window desktop action behaviour"
+
+#: data/io.elementary.code.appdata.xml.in:59
+msgid ""
+"Properly synchronize Ctrl+N key presses with number of new documents spawned"
+msgstr ""
+"Properly synchronise Ctrl+N key presses with number of new documents spawned"
+
+#: data/io.elementary.code.appdata.xml.in:60
+msgid "Build system fix for editorconfig dependency"
+msgstr "Build system fix for editorconfig dependency"
+
+#: data/io.elementary.code.appdata.xml.in:61
+msgid "Add Change Branch context menu item"
+msgstr "Add Change Branch context menu item"
+
+#: data/io.elementary.code.appdata.xml.in:62
+msgid "Avoid possible startup crash related to how plugins load"
+msgstr "Avoid possible startup crash related to how plugins load"
+
+#: data/io.elementary.code.appdata.xml.in:63
+#: data/io.elementary.code.appdata.xml.in:71
+#: data/io.elementary.code.appdata.xml.in:80
+msgid "Updated translations"
+msgstr "Updated translations"
+
+#: data/io.elementary.code.appdata.xml.in:68
+msgid "Smarter file saving behavior"
+msgstr "Smarter file saving behaviour"
+
+#: data/io.elementary.code.appdata.xml.in:69
+msgid "File saving fixes"
+msgstr "File saving fixes"
+
+#: data/io.elementary.code.appdata.xml.in:70
+msgid "Don't add temporary files to tab restore"
+msgstr "Don't add temporary files to tab restore"
+
+#: data/io.elementary.code.appdata.xml.in:76
+msgid "Don't recreate deleted files when restoring session"
+msgstr "Don't recreate deleted files when restoring session"
+
+#: data/io.elementary.code.appdata.xml.in:77
+msgid "Restore line wrap preference"
+msgstr "Restore line wrap preference"
+
+#: data/io.elementary.code.appdata.xml.in:78
+msgid "Add accel tooltips"
+msgstr "Add accel tooltips"
+
+#: data/io.elementary.code.appdata.xml.in:79
+msgid "Minor bug fixes"
+msgstr "Minor bug fixes"
+
+#: data/io.elementary.code.appdata.xml.in:118
 msgid "elementary LLC."
 msgstr "elementary LLC."
 

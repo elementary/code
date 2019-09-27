@@ -7,46 +7,45 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-07 11:10-0800\n"
-"PO-Revision-Date: 2019-01-28 15:20+0000\n"
+"POT-Creation-Date: 2019-09-11 09:24-0700\n"
+"PO-Revision-Date: 2019-07-16 09:30+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
-"Language-Team: Catalan <https://weblate.elementary.io/projects/code/code/ca/"
-">\n"
+"Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
-#: src/Application.vala:133
-#, fuzzy, c-format
+#: src/Application.vala:132
+#, c-format
 msgid "File \"%s\" Cannot Be Created"
-msgstr "No es pot llegir el fitxer \"%s\"."
+msgstr "No es pot crear el fitxer \"%s\"."
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:137
+#: src/Application.vala:136
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Potser no en teniu els permisos necessaris."
 
-#: src/Application.vala:139
+#: src/Application.vala:138
 msgid "Maybe the file path provided is not valid."
 msgstr "Potser el camí del fitxer no és vàlid."
 
-#: src/Application.vala:141
+#: src/Application.vala:140
 msgid "The location is read-only."
 msgstr "La ubicació es només de lectura."
 
-#: src/Application.vala:143
+#: src/Application.vala:142
 msgid "The parent directory doesn't exist."
 msgstr "El directori pare no existeix."
 
-#: src/Application.vala:164
+#: src/Application.vala:163
 msgid "It is a mountable location."
 msgstr "És una ubicació muntable."
 
-#: src/Application.vala:167
+#: src/Application.vala:166
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -54,77 +53,77 @@ msgstr ""
 "És un fitxer especial, com ara un sòcol,\n"
 "  FIFO, dispositiu de bloc o dispositiu de caràcters."
 
-#: src/Application.vala:170
+#: src/Application.vala:169
 msgid "It is an \"unknown\" file type."
 msgstr "És un tipus de fitxer desconegut."
 
-#: src/Application.vala:175
-#, fuzzy, c-format
+#: src/Application.vala:174
+#, c-format
 msgid "File \"%s\" Cannot Be Opened"
-msgstr "No es pot llegir el fitxer \"%s\"."
+msgstr "No es pot obrir el fitxer \"%s\"."
 
-#: src/Application.vala:259
+#: src/Application.vala:246
 msgid "New Tab"
 msgstr "Pestanya nova"
 
-#: src/Application.vala:260 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:247 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Finestra nova"
 
-#: src/Application.vala:261
+#: src/Application.vala:248
 msgid "Print version info and exit"
 msgstr "Imprimeix informació de la versió i surt"
 
-#: src/Application.vala:262
+#: src/Application.vala:249
 msgid "Set of plugins"
 msgstr "Conjunt de connectors"
 
-#: src/Application.vala:263
-msgid "Current working directory"
-msgstr "Directori de treball actual"
+#: src/Application.vala:249
+msgid "plugin"
+msgstr "connector"
 
 #: src/MainWindow.vala:133
 msgid "Code"
 msgstr "Codi"
 
-#: src/MainWindow.vala:183 src/Widgets/HeaderBar.vala:80
+#: src/MainWindow.vala:184 src/Widgets/HeaderBar.vala:80
 msgid "Find…"
 msgstr "Cerca…"
 
-#: src/MainWindow.vala:188
+#: src/MainWindow.vala:189
 msgid "Hide search bar"
 msgstr "Oculta la barra de cerca"
 
-#: src/MainWindow.vala:236
+#: src/MainWindow.vala:240
 msgid "Zeitgeist Datasource for Scratch"
 msgstr "Font de dades del Zeitgeist per a l'Scratch"
 
-#: src/MainWindow.vala:744 src/Services/Document.vala:503
+#: src/MainWindow.vala:765 src/Services/Document.vala:503
 msgid "All files"
 msgstr "Tots els fitxers"
 
-#: src/MainWindow.vala:748 src/Services/Document.vala:507
+#: src/MainWindow.vala:769 src/Services/Document.vala:507
 msgid "Text files"
 msgstr "Fitxers de text"
 
-#: src/MainWindow.vala:752
+#: src/MainWindow.vala:773
 msgid "Open some files"
 msgstr "Obriu alguns fitxers"
 
-#: src/MainWindow.vala:755
+#: src/MainWindow.vala:776
 msgid "Open"
 msgstr "Obre"
 
-#: src/MainWindow.vala:756 src/Services/Document.vala:402
+#: src/MainWindow.vala:777 src/Services/Document.vala:402
 #: src/Services/Document.vala:515
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: src/MainWindow.vala:781
+#: src/MainWindow.vala:802
 msgid "_Open"
 msgstr "_Obre"
 
-#: src/MainWindow.vala:782
+#: src/MainWindow.vala:803
 msgid "_Cancel"
 msgstr "_Cancel·la"
 
@@ -218,23 +217,41 @@ msgstr "Lletra"
 msgid "Custom font:"
 msgstr "Tipus de lletra personalitzada:"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
+#: src/Dialogs/RestoreConfirmationDialog.vala:31
+msgid "Are You Sure You Want to Restore This File?"
+msgstr "Segur que voleu restaurar aquest fitxer?"
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:32
+msgid "Restoring a file will undo all changes made since opening it"
+msgstr ""
+"Restaurar un fitxer desfarà tots els canvis que s'hi han fet des que s'ha "
+"obert."
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:34
+msgid "Don't Restore"
+msgstr "No el restauris"
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:36
+msgid "Restore Anyway"
+msgstr "Restaura'l tanmateix"
+
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:114
 msgid "Other Application…"
 msgstr "Una altra aplicació…"
 
-#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:154
 msgid "Open In"
 msgstr "Obre amb"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:89
 msgid "Other Actions"
 msgstr "Altres accions"
 
-#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:92
 msgid "Rename"
 msgstr "Canvia'n el nom"
 
-#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:98
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr "Mou a la paperera"
@@ -243,32 +260,32 @@ msgstr "Mou a la paperera"
 msgid "Folders"
 msgstr "Carpetes"
 
-#: src/FolderManager/FolderItem.vala:148
+#: src/FolderManager/FolderItem.vala:161
 msgid "Folder"
 msgstr "Carpeta"
 
-#: src/FolderManager/FolderItem.vala:151
+#: src/FolderManager/FolderItem.vala:164
 msgid "Empty File"
 msgstr "Fitxer buit"
 
-#: src/FolderManager/FolderItem.vala:158
+#: src/FolderManager/FolderItem.vala:171
 msgid "New"
 msgstr "Nou"
 
-#: src/FolderManager/FolderItem.vala:322
+#: src/FolderManager/FolderItem.vala:335
 msgid "untitled folder"
 msgstr "carpeta sense nom"
 
-#: src/FolderManager/FolderItem.vala:326
+#: src/FolderManager/FolderItem.vala:339
 #, c-format
 msgid "untitled folder %d"
 msgstr "carpeta sense nom %d"
 
-#: src/FolderManager/FolderItem.vala:354
+#: src/FolderManager/FolderItem.vala:367
 msgid "new file"
 msgstr "fitxer nou"
 
-#: src/FolderManager/FolderItem.vala:358
+#: src/FolderManager/FolderItem.vala:371
 #, c-format
 msgid "new file %d"
 msgstr "fitxer nou %d"
@@ -277,9 +294,9 @@ msgstr "fitxer nou %d"
 msgid "Close Folder"
 msgstr "Tanca la carpeta"
 
-#: src/FolderManager/ProjectFolderItem.vala:269
-msgid "Change Branch"
-msgstr "Canvia de branca"
+#: src/FolderManager/ProjectFolderItem.vala:286
+msgid "Branch"
+msgstr "Branca"
 
 #: src/Services/Document.vala:267
 #, c-format
@@ -308,21 +325,17 @@ msgid "Cancel Loading"
 msgstr "Cancel·la la càrrega"
 
 #: src/Services/Document.vala:392
-#, fuzzy, c-format
+#, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Voleu desar els canvis fets a %s abans de tancar-lo?"
 
 #: src/Services/Document.vala:393
-#, fuzzy
 msgid "If you don't save, changes will be permanently lost."
-msgstr ""
-"Si no deseu el document, els canvis dels darrers 4 segons es pedran "
-"permanentment."
+msgstr "Si no deseu el document, els canvis es perdran permanentment."
 
 #: src/Services/Document.vala:399
-#, fuzzy
 msgid "Close Without Saving"
-msgstr "Tanca sense desar"
+msgstr "Tanca'l sense desar-lo"
 
 #: src/Services/Document.vala:403 src/Services/Document.vala:514
 #: src/Services/Document.vala:738
@@ -675,24 +688,25 @@ msgstr "Amaga la previsualització"
 
 #: plugins/spell/spell.vala:76
 msgid "No Suitable Dictionaries Were Found"
-msgstr ""
+msgstr "No s'ha trobat cap diccionari adient."
 
 #: plugins/spell/spell.vala:77
-#, fuzzy
 msgid "Please install at least one [aspell] dictionary."
-msgstr ""
-"No s'ha trobat cap diccionari adient.\n"
-"Si us plau, instal·leu com a mínim un diccionari (aspell)."
+msgstr "Si us plau, instal·leu com a mínim un diccionari (aspell)."
 
 #: plugins/word-completion/plugin.vala:174
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Compleció de paraules"
 
-#: plugins/word-completion/completion-provider.vala:80
-#, c-format
-msgid "Could not load icon theme: %s\n"
-msgstr "No s'ha pogut carregar el tema d'icones: %s\n"
+#~ msgid "Could not load icon theme: %s\n"
+#~ msgstr "No s'ha pogut carregar el tema d'icones: %s\n"
+
+#~ msgid "Current working directory"
+#~ msgstr "Directori de treball actual"
+
+#~ msgid "directory"
+#~ msgstr "directori"
 
 #~ msgid ""
 #~ "File \"%s\" cannot be created.\n"
@@ -707,9 +721,6 @@ msgstr "No s'ha pogut carregar el tema d'icones: %s\n"
 #~ msgstr ""
 #~ "No espot obrir el fitxer %s.\n"
 #~ "%s"
-
-#~ msgid "It is a directory."
-#~ msgstr "És un directori."
 
 #~ msgid "Highlight current line:"
 #~ msgstr "Realça la línia actual:"

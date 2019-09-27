@@ -84,8 +84,19 @@ namespace Scratch.FolderManager {
                 trash ();
             });
 
+            GLib.FileInfo info = null;
+            unowned string? file_type = null;
+
+            try {
+                info = file.file.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, GLib.FileQueryInfoFlags.NONE);
+                file_type = info.get_content_type();
+            } catch (Error e) {
+                warning (e.message);
+            }
+
             var menu = new Gtk.Menu ();
             menu.append (close_item);
+            menu.append (create_submenu_for_open_in (info, file_type));
             menu.append (create_submenu_for_new ());
             menu.append (delete_item);
 
@@ -246,13 +257,19 @@ namespace Scratch.FolderManager {
                     string? branch_name = null;
                     try {
                         branch_name = branch.get_name ();
-                        if (branch_name != null && branch_name != cur_branch.get_name ()) {
+                        if (branch_name != null) {
                             var ref_name = ref_branch.get_name ();
                             if (ref_name != null) {
-                                var branch_item = new Gtk.MenuItem.with_label (branch_name);
+                                var branch_item = new Gtk.CheckMenuItem.with_label (branch_name);
+                                branch_item.draw_as_radio = true;
+
+                                if (branch_name == cur_branch.get_name ()) {
+                                    branch_item.active = true;
+                                }
+
                                 change_branch_menu.add (branch_item);
 
-                                branch_item.activate.connect (() => {
+                                branch_item.toggled.connect (() => {
                                     try {
                                         git_repo.set_head (ref_name);
                                     } catch (GLib.Error e) {
@@ -266,7 +283,7 @@ namespace Scratch.FolderManager {
                     }
                 }
 
-                label = _("Change Branch");
+                label = _("Branch");
                 submenu = change_branch_menu;
             }
         }
