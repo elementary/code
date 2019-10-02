@@ -195,7 +195,7 @@ msgid "Preferences"
 msgstr "Configuració"
 
 #: ../src/MainWindow.vala:982
-msgid "Change Scratch settings"
+msgid "Change Code settings"
 msgstr "Canviar les preferències d'Scratch"
 
 #: ../src/MainWindow.vala:985 ../src/MainWindow.vala:986
@@ -464,8 +464,8 @@ msgid "General"
 msgstr "General"
 
 #: ../src/Dialogs/PreferencesDialog.vala:110
-msgid "When Scratch starts:"
-msgstr "Quan Scratch s'inicia:"
+msgid "When Code starts:"
+msgstr "Quan Code s'inicia:"
 
 #: ../src/Dialogs/PreferencesDialog.vala:112
 msgid "Show welcome screen"
@@ -1055,8 +1055,8 @@ msgstr ""
 #~ msgid "Next Search"
 #~ msgstr "Cerca següent"
 
-#~ msgid "There are unsaved changes in Scratch!"
-#~ msgstr "Hi ha canvis sense guardar a Scratch!"
+#~ msgid "There are unsaved changes in Code!"
+#~ msgstr "Hi ha canvis sense guardar a Code!"
 
 #~ msgid "Create a new document from a template"
 #~ msgstr "Crear un nou document usant una plantilla"

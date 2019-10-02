@@ -98,7 +98,7 @@ msgstr "隱藏搜尋列"
 
 #: src/MainWindow.vala:240
 msgid "Zeitgeist Datasource for Code"
-msgstr "供 Scratch 使用的 Zeitgeist 資料來源"
+msgstr "供 Code 使用的 Zeitgeist 資料來源"
 
 #: src/MainWindow.vala:765 src/Services/Document.vala:503
 msgid "All files"
@@ -299,7 +299,7 @@ msgstr "關閉資料夾"
 #: src/FolderManager/ProjectFolderItem.vala:286
 #, fuzzy
 msgid "Branch"
-msgstr "變更 Scratch 設定值"
+msgstr "變更 Code 設定值"
 
 #: src/Services/Document.vala:267
 #, c-format
@@ -846,7 +846,7 @@ msgstr "%s - 單字補完"
 #~ msgid "Normal Text"
 #~ msgstr "一般文字"
 
-#~ msgid "When Scratch starts:"
+#~ msgid "When Code starts:"
 #~ msgstr "當 Sractch 開始時："
 
 #~ msgid "Show welcome screen"
@@ -901,7 +901,7 @@ msgstr "%s - 單字補完"
 #~ msgstr "Vim 模擬"
 
 #~ msgid "Use Vim commands in Code"
-#~ msgstr "在 Scratch 中使用指令"
+#~ msgstr "在 Code 中使用指令"
 
 #~ msgid "Clipboard History"
 #~ msgstr "剪貼簿歷史記錄"
@@ -1081,7 +1081,7 @@ msgstr "%s - 單字補完"
 #~ msgid "Argument for the set of plugins"
 #~ msgstr "外掛設定的參數"
 
-#~ msgid "There are unsaved changes in Scratch!"
+#~ msgid "There are unsaved changes in Code!"
 #~ msgstr "Scratch 中有未儲存的更動！"
 
 #~ msgid "Save unsaved changes to file %s before closing?"
