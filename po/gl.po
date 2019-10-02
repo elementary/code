@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-11 09:24-0700\n"
-"PO-Revision-Date: 2019-09-10 14:54+0000\n"
-"Last-Translator: Daniel Foré <daniel@elementary.io>\n"
+"PO-Revision-Date: 2019-09-23 16:22+0000\n"
+"Last-Translator: Daniel R. <riesp@pm.me>\n"
 "Language-Team: Galician <https://l10n.elementary.io/projects/code/code/gl/>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
@@ -20,9 +20,9 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:132
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Created"
-msgstr "O Ficheiro \"%s\" Non Pode Ser Lido"
+msgstr "O ficheiro \"%s\" non pode ser creado"
 
 #. We list some common errors for quick feedback
 #: src/Application.vala:136
@@ -58,9 +58,9 @@ msgid "It is an \"unknown\" file type."
 msgstr "É un arquivo de tipo \"desconocido\"."
 
 #: src/Application.vala:174
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Opened"
-msgstr "O Ficheiro \"%s\" Non Pode Ser Lido"
+msgstr "O ficheiro \"%s\" non pode ser aberto"
 
 #: src/Application.vala:246
 msgid "New Tab"
@@ -79,9 +79,8 @@ msgid "Set of plugins"
 msgstr "Conxunto de engadidos"
 
 #: src/Application.vala:249
-#, fuzzy
 msgid "plugin"
-msgstr "Conxunto de engadidos"
+msgstr "complemento"
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -220,20 +219,20 @@ msgstr "Tipo de letra personalizado:"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
-msgstr ""
+msgstr "Está seguro de que desexa restaurar este ficheiro?"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Restoring a file will undo all changes made since opening it"
 msgstr ""
+"Restaurar un ficheiro desfará todos os cambios realizados desde que se abriu"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:34
 msgid "Don't Restore"
-msgstr ""
+msgstr "Non restaurar"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
-#, fuzzy
 msgid "Restore Anyway"
-msgstr "Cargar de todos modos"
+msgstr "Cargar de todos os xeitos"
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:114
 msgid "Other Application…"
@@ -298,7 +297,7 @@ msgstr "Pechar o cartafol"
 #: src/FolderManager/ProjectFolderItem.vala:286
 #, fuzzy
 msgid "Branch"
-msgstr "Cambiar as preferencias de Scratch"
+msgstr "Rama"
 
 #: src/Services/Document.vala:267
 #, c-format
@@ -323,26 +322,21 @@ msgid "Please wait while Code is loading the file."
 msgstr "Por favor agarda mentres Code está cargando o ficheiro."
 
 #: src/Services/Document.vala:294
-#, fuzzy
 msgid "Cancel Loading"
-msgstr "Cancelar Carga"
+msgstr "Cancelar carga"
 
 #: src/Services/Document.vala:392
-#, fuzzy, c-format
+#, c-format
 msgid "Save changes to \"%s\" before closing?"
-msgstr "Gardar os cambios ao documento %s antes de pechar?"
+msgstr "Gardar os cambios ao documento «%s» antes de pechar?"
 
 #: src/Services/Document.vala:393
-#, fuzzy
 msgid "If you don't save, changes will be permanently lost."
-msgstr ""
-"Se non garda o documento, os cambios dos últimos 4 segundos perderanse "
-"permanentemente."
+msgstr "Se non garda o documento, os cambios perderanse permanentemente."
 
 #: src/Services/Document.vala:399
-#, fuzzy
 msgid "Close Without Saving"
-msgstr "Pechar sen gardar"
+msgstr "Pechar sen gardar cambios"
 
 #: src/Services/Document.vala:403 src/Services/Document.vala:514
 #: src/Services/Document.vala:738
@@ -364,9 +358,8 @@ msgid "File \"%s\" Cannot Be Read"
 msgstr "O Ficheiro \"%s\" Non Pode Ser Lido"
 
 #: src/Services/Document.vala:717
-#, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
-msgstr "Tal vez esté corrupto ou non ten os permisos necesarios para lelo."
+msgstr "Talvez está danado ou non dispós dos permisos necesarios para lelo."
 
 #: src/Services/Document.vala:729
 #, c-format
@@ -431,9 +424,8 @@ msgid "Syntax Highlighting"
 msgstr "Realce da sintaxe"
 
 #: src/Widgets/FormatBar.vala:75
-#, fuzzy
 msgid "Line number"
-msgstr "Amosar os números de liña:"
+msgstr "Número de liña"
 
 #: src/Widgets/FormatBar.vala:101
 msgid "Filter languages"
@@ -598,23 +590,20 @@ msgid "Add a project folder to the sidebar."
 msgstr "Engadir unha carpeta de proxecto a barra lateral."
 
 #: plugins/pastebin/pastebin_dialog.vala:249
-#, fuzzy
 msgid "Share via Pastebin"
-msgstr "Compartir por PasteBin"
+msgstr "Compartir a través de Pastebin"
 
 #: plugins/pastebin/pastebin_dialog.vala:256
 msgid "Name:"
 msgstr "Nome:"
 
 #: plugins/pastebin/pastebin_dialog.vala:259
-#, fuzzy
 msgid "Format:"
-msgstr "Formato: "
+msgstr "Formato:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
-#, fuzzy
 msgid "Others…"
-msgstr "Outras..."
+msgstr "Outros…"
 
 #: plugins/pastebin/pastebin_dialog.vala:286
 msgid "Expiry time:"
