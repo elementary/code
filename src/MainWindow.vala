@@ -237,7 +237,7 @@ namespace Scratch {
             var ds_events = new GenericArray<Zeitgeist.Event> ();
             ds_events.add(ds_event);
             var ds = new Zeitgeist.DataSource.full ("code-logger",
-                                          _("Zeitgeist Datasource for Scratch"),
+                                          _("Zeitgeist Datasource for Code"),
                                           "A data source which logs Open, Close, Save and Move Events",
                                           ds_events); // FIXME: templates!
             registry.register_data_source.begin (ds, null, (obj, res) => {
