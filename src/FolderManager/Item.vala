@@ -44,7 +44,7 @@ namespace Scratch.FolderManager {
             file.rename (new_name);
             if (this is FileItem) {
                 var path = Path.build_filename(file.file.get_parent ().get_path (), new_name);
-                view.select(path);
+                view.select (path);
             }
             view.ignore_next_select = false;
         }
