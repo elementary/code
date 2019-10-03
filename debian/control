@@ -1,10 +1,9 @@
 Source: io.elementary.code
 Section: editors
-Maintainer: Cody Garver <cody@elementary.io>
-Build-Depends: meson (>= 0.44.0),
+Maintainer: Corentin Noël <corentin@elementary.io>
+Build-Depends: appstream,
                debhelper (>= 9),
                desktop-file-utils,
-               appstream,
                exuberant-ctags,
                intltool,
                libeditorconfig-dev,
@@ -17,12 +16,13 @@ Build-Depends: meson (>= 0.44.0),
                libgtkspell-3-dev | libgtkspell3-3-dev,
                libpeas-dev,
                libsoup2.4-dev,
-               libvala-0.44-dev | libvala-0.42-dev | libvala-0.40-dev | libvala-0.36-dev,
+               libvala-0.46-dev | libvala-0.44-dev | libvala-0.42-dev | libvala-0.40-dev | libvala-0.36-dev,
                libvte-2.91-dev,
                libwebkit2gtk-4.0-dev,
                libzeitgeist-2.0-dev,
-               valac (>= 0.36),
-               valac (<< 0.45)
+               meson (>= 0.44.0),
+               valac (<< 0.47),
+               valac (>= 0.36)
 Standards-Version: 3.9.5
 Homepage: https://github.com/elementary/code
 
