@@ -1,11 +1,11 @@
-# Rusyn translation for code
+# Rusyn translation for scratch
 # Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
-# This file is distributed under the same license as the code package.
+# This file is distributed under the same license as the scratch package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: code\n"
+"Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-11 09:24-0700\n"
 "PO-Revision-Date: 2015-12-21 13:38+0000\n"
@@ -93,8 +93,8 @@ msgid "Hide search bar"
 msgstr "Спрятати панель гледаня"
 
 #: src/MainWindow.vala:240
-msgid "Zeitgeist Datasource for Code"
-msgstr "Резервуваня джерел даних про Code"
+msgid "Zeitgeist Datasource for Scratch"
+msgstr "Резервуваня джерел даних про Scratch"
 
 #: src/MainWindow.vala:765 src/Services/Document.vala:503
 msgid "All files"
@@ -296,7 +296,7 @@ msgstr ""
 #: src/FolderManager/ProjectFolderItem.vala:286
 #, fuzzy
 msgid "Branch"
-msgstr "Поміняти настройки Code"
+msgstr "Поміняти настройки Scratch"
 
 #: src/Services/Document.vala:267
 #, c-format
@@ -747,8 +747,8 @@ msgstr ""
 #~ "  Mario Guerriero https://launchpad.net/~mefrio-g\n"
 #~ "  u.f.djeison@gmail.com https://launchpad.net/~u-f-djeison"
 
-#~ msgid "When Code starts:"
-#~ msgstr "Коли Code штартує:"
+#~ msgid "When Scratch starts:"
+#~ msgstr "Коли Scratch штартує:"
 
 #~ msgid "Show welcome screen"
 #~ msgstr "Указати екран вітання"
@@ -765,8 +765,8 @@ msgstr ""
 #~ msgid "Files"
 #~ msgstr "Файли"
 
-#~ msgid "There are unsaved changes in Code!"
-#~ msgstr "Туйки є несохранині переміни у Code!"
+#~ msgid "There are unsaved changes in Scratch!"
+#~ msgstr "Туйки є несохранині переміни у Scratch!"
 
 #~ msgid "Create a new instance"
 #~ msgstr "Утворити нову інштанціу"

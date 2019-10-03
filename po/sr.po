@@ -1,11 +1,11 @@
-# Serbian translation for code
+# Serbian translation for scratch
 # Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
-# This file is distributed under the same license as the code package.
+# This file is distributed under the same license as the scratch package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: code\n"
+"Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-11 09:24-0700\n"
 "PO-Revision-Date: 2018-07-15 00:09+0000\n"
@@ -96,7 +96,7 @@ msgid "Hide search bar"
 msgstr "Сакриј траку за претрагу"
 
 #: src/MainWindow.vala:240
-msgid "Zeitgeist Datasource for Code"
+msgid "Zeitgeist Datasource for Scratch"
 msgstr "Цајтгајст извор података за Скицу"
 
 #: src/MainWindow.vala:765 src/Services/Document.vala:503
@@ -301,7 +301,7 @@ msgstr "Затвори фасциклу"
 #: src/FolderManager/ProjectFolderItem.vala:286
 #, fuzzy
 msgid "Branch"
-msgstr "Промени Code поставке"
+msgstr "Промени Scratch поставке"
 
 #: src/Services/Document.vala:267
 #, c-format
@@ -797,8 +797,8 @@ msgstr "%s - завршавање речи"
 #~ msgid "Normal Text"
 #~ msgstr "Обичан текст"
 
-#~ msgid "When Code starts:"
-#~ msgstr "Када Code почне:"
+#~ msgid "When Scratch starts:"
+#~ msgstr "Када Scratch почне:"
 
 #~ msgid "Show welcome screen"
 #~ msgstr "Прикажи екран добродшлице"
@@ -851,7 +851,7 @@ msgstr "%s - завршавање речи"
 #~ msgid "Vim Emulation"
 #~ msgstr "Вим емулатор"
 
-#~ msgid "Use Vim commands in Code"
+#~ msgid "Use Vim commands in Scratch"
 #~ msgstr "Користи Вим команде у Скици"
 
 #~ msgid "Folder Manager"
@@ -1007,7 +1007,7 @@ msgstr "%s - завршавање речи"
 #~ msgid "Save unsaved changes to file %s before closing?"
 #~ msgstr "Сачувај несачуване промене у датотеку %s пре затварања?"
 
-#~ msgid "There are unsaved changes in Code!"
+#~ msgid "There are unsaved changes in Scratch!"
 #~ msgstr "Постоје несачуване измене у Скици!"
 
 #~ msgid "Font and Color Scheme:"

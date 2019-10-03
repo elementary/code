@@ -1,10 +1,10 @@
-# Chinese (Traditional) translation for code
+# Chinese (Traditional) translation for scratch
 # Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
-# This file is distributed under the same license as the code package.
+# This file is distributed under the same license as the scratch package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: code\n"
+"Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-11 09:24-0700\n"
 "PO-Revision-Date: 2018-03-21 01:09+0000\n"
@@ -97,8 +97,8 @@ msgid "Hide search bar"
 msgstr "隱藏搜尋列"
 
 #: src/MainWindow.vala:240
-msgid "Zeitgeist Datasource for Code"
-msgstr "供 Code 使用的 Zeitgeist 資料來源"
+msgid "Zeitgeist Datasource for Scratch"
+msgstr "供 Scratch 使用的 Zeitgeist 資料來源"
 
 #: src/MainWindow.vala:765 src/Services/Document.vala:503
 msgid "All files"
@@ -299,7 +299,7 @@ msgstr "關閉資料夾"
 #: src/FolderManager/ProjectFolderItem.vala:286
 #, fuzzy
 msgid "Branch"
-msgstr "變更 Code 設定值"
+msgstr "變更 Scratch 設定值"
 
 #: src/Services/Document.vala:267
 #, c-format
@@ -764,8 +764,8 @@ msgstr "%s - 單字補完"
 #~ msgid "Text Editor"
 #~ msgstr "文字編輯器"
 
-#~ msgid "About Code"
-#~ msgstr "關於 Code"
+#~ msgid "About Scratch"
+#~ msgstr "關於 Scratch"
 
 #~ msgid "Trash"
 #~ msgstr "回收筒"
@@ -846,7 +846,7 @@ msgstr "%s - 單字補完"
 #~ msgid "Normal Text"
 #~ msgstr "一般文字"
 
-#~ msgid "When Code starts:"
+#~ msgid "When Scratch starts:"
 #~ msgstr "當 Sractch 開始時："
 
 #~ msgid "Show welcome screen"
@@ -900,8 +900,8 @@ msgstr "%s - 單字補完"
 #~ msgid "Vim Emulation"
 #~ msgstr "Vim 模擬"
 
-#~ msgid "Use Vim commands in Code"
-#~ msgstr "在 Code 中使用指令"
+#~ msgid "Use Vim commands in Scratch"
+#~ msgstr "在 Scratch 中使用指令"
 
 #~ msgid "Clipboard History"
 #~ msgstr "剪貼簿歷史記錄"
@@ -1081,7 +1081,7 @@ msgstr "%s - 單字補完"
 #~ msgid "Argument for the set of plugins"
 #~ msgstr "外掛設定的參數"
 
-#~ msgid "There are unsaved changes in Code!"
+#~ msgid "There are unsaved changes in Scratch!"
 #~ msgstr "Scratch 中有未儲存的更動！"
 
 #~ msgid "Save unsaved changes to file %s before closing?"

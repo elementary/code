@@ -1,11 +1,11 @@
-# Bosnian translation for code
+# Bosnian translation for scratch
 # Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
-# This file is distributed under the same license as the code package.
+# This file is distributed under the same license as the scratch package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: code\n"
+"Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-11 09:24-0700\n"
 "PO-Revision-Date: 2018-11-05 00:09+0000\n"
@@ -98,8 +98,8 @@ msgid "Hide search bar"
 msgstr "Sakrij traku za traženje"
 
 #: src/MainWindow.vala:240
-msgid "Zeitgeist Datasource for Code"
-msgstr "Zeitgeist izvor podataka za Code"
+msgid "Zeitgeist Datasource for Scratch"
+msgstr "Zeitgeist izvor podataka za Scratch"
 
 #: src/MainWindow.vala:765 src/Services/Document.vala:503
 msgid "All files"
@@ -299,7 +299,7 @@ msgstr "Zatvori direktorij"
 #: src/FolderManager/ProjectFolderItem.vala:286
 #, fuzzy
 msgid "Branch"
-msgstr "Promijeni Code podešavanja"
+msgstr "Promijeni Scratch podešavanja"
 
 #: src/Services/Document.vala:267
 #, c-format
@@ -814,8 +814,8 @@ msgstr "%s - Automatski završetak riječi"
 #~ msgid "Normal Text"
 #~ msgstr "Običan tekst"
 
-#~ msgid "When Code starts:"
-#~ msgstr "Kad se Code pokrene:"
+#~ msgid "When Scratch starts:"
+#~ msgstr "Kad se Scratch pokrene:"
 
 #~ msgid "Show welcome screen"
 #~ msgstr "Prikaži ekran dobrodošlice"
@@ -856,7 +856,7 @@ msgstr "%s - Automatski završetak riječi"
 #~ msgid "Vim Emulation"
 #~ msgstr "Vim emulator"
 
-#~ msgid "Use Vim commands in Code"
+#~ msgid "Use Vim commands in Scratch"
 #~ msgstr "Koristite Vim komande unutar Scratch-a"
 
 #~ msgid "Folder Manager"
@@ -1001,7 +1001,7 @@ msgstr "%s - Automatski završetak riječi"
 #~ msgid "Do you want to create it again?"
 #~ msgstr "Želite li rekreirati?"
 
-#~ msgid "There are unsaved changes in Code!"
+#~ msgid "There are unsaved changes in Scratch!"
 #~ msgstr "Ima nesačuvanih promjena u Scratch-u"
 
 #~ msgid "Save unsaved changes to file %s before closing?"

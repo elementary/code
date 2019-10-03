@@ -1,11 +1,11 @@
-# Swedish translation for code
+# Swedish translation for scratch
 # Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
-# This file is distributed under the same license as the code package.
+# This file is distributed under the same license as the scratch package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: code\n"
+"Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-11 09:24-0700\n"
 "PO-Revision-Date: 2018-10-20 00:10+0000\n"
@@ -97,8 +97,8 @@ msgid "Hide search bar"
 msgstr "Dölj sökfältet"
 
 #: src/MainWindow.vala:240
-msgid "Zeitgeist Datasource for Code"
-msgstr "Zeitgeist databaskälla för Code"
+msgid "Zeitgeist Datasource for Scratch"
+msgstr "Zeitgeist databaskälla för Scratch"
 
 #: src/MainWindow.vala:765 src/Services/Document.vala:503
 msgid "All files"
@@ -298,7 +298,7 @@ msgstr "Stäng mapp"
 #: src/FolderManager/ProjectFolderItem.vala:286
 #, fuzzy
 msgid "Branch"
-msgstr "Ändra inställningarna för Code"
+msgstr "Ändra inställningarna för Scratch"
 
 #: src/Services/Document.vala:267
 #, c-format
@@ -768,8 +768,8 @@ msgstr "%s - Ordförslag"
 #~ msgid "Text Editor"
 #~ msgstr "Textredigerare"
 
-#~ msgid "About Code"
-#~ msgstr "Om Code"
+#~ msgid "About Scratch"
+#~ msgstr "Om Scratch"
 
 #~ msgid "Trash"
 #~ msgstr "Papperskorg"
@@ -863,8 +863,8 @@ msgstr "%s - Ordförslag"
 #~ msgid "Normal Text"
 #~ msgstr "Normal text"
 
-#~ msgid "When Code starts:"
-#~ msgstr "När Code startar:"
+#~ msgid "When Scratch starts:"
+#~ msgstr "När Scratch startar:"
 
 #~ msgid "Show welcome screen"
 #~ msgstr "Visa välkomstskärm"
@@ -917,8 +917,8 @@ msgstr "%s - Ordförslag"
 #~ msgid "Vim Emulation"
 #~ msgstr "Vim-emulering"
 
-#~ msgid "Use Vim commands in Code"
-#~ msgstr "Använd Vim-kommandon i Code"
+#~ msgid "Use Vim commands in Scratch"
+#~ msgstr "Använd Vim-kommandon i Scratch"
 
 #~ msgid "Clipboard History"
 #~ msgstr "Urklippshistorik"
@@ -1078,8 +1078,8 @@ msgstr "%s - Ordförslag"
 #~ msgid "Show margin on right:"
 #~ msgstr "Visa högermarginal:"
 
-#~ msgid "There are unsaved changes in Code!"
-#~ msgstr "Det finns osparade ändringar i Code!"
+#~ msgid "There are unsaved changes in Scratch!"
+#~ msgstr "Det finns osparade ändringar i Scratch!"
 
 #~ msgid "There are unsaved changes!"
 #~ msgstr "Det finns osparade ändringar!"
