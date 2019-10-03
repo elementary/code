@@ -2,9 +2,9 @@
  * Copyright (C) 2011-2012 Lucas Baudin <xapantu@gmail.com>
  *               2013      Mario Guerriero <mario@elementaryos.org>
  *
- * This file is part of Scratch.
+ * This file is part of Code.
  *
- * Scratch is free software: you can redistribute it and/or modify it
+ * Code is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
  * Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
