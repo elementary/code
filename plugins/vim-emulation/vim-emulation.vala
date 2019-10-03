@@ -80,6 +80,18 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase,  Peas.Activatabl
         // Firstly let's set the mode
         switch (event.keyval) {
             //mode changing
+            case Gdk.Key.a:
+                if (mode == Mode.INSERT) {
+                    return false;
+                } else {
+                    // clean action string
+                    action = "";
+                }
+
+                mode = Mode.INSERT;
+                view.move_cursor (Gtk.MovementStep.VISUAL_POSITIONS, 1, false);
+                debug ("Vim Emulation: INSERT Mode!");
+                return true;
             case Gdk.Key.i:
                 if (mode == Mode.INSERT) {
                     return false;
