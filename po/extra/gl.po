@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-11 09:24-0700\n"
-"PO-Revision-Date: 2019-09-10 14:55+0000\n"
-"Last-Translator: Daniel Foré <daniel@elementary.io>\n"
-"Language-Team: Galician <https://l10n.elementary.io/projects/code/extra/gl/"
-">\n"
+"PO-Revision-Date: 2019-09-27 14:23+0000\n"
+"Last-Translator: Daniel R. <riesp@pm.me>\n"
+"Language-Team: Galician <https://l10n.elementary.io/projects/code/extra/gl/>"
+"\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +27,7 @@ msgstr "Code"
 
 #: data/io.elementary.code.appdata.xml.in:9
 msgid "The editor that works"
-msgstr ""
+msgstr "O editor que funciona"
 
 #: data/io.elementary.code.appdata.xml.in:11
 msgid ""
@@ -35,6 +35,9 @@ msgid ""
 "they're always up-to-date. Plus it remembers your tabs so you never lose "
 "your spot, even in between sessions."
 msgstr ""
+"Code é o editor que funciona para ti. Garda automaticamente os teus "
+"arquivos, o que significa que sempre están actualizados. Ademais, lembra as "
+"pestanas abertas para non perder o fío, incluso entre sesións."
 
 #: data/io.elementary.code.appdata.xml.in:16
 msgid ""
@@ -43,6 +46,10 @@ msgid ""
 "a full-blown IDE; it's your choice. And with a handful of useful "
 "preferences, you can tweak the behavior and interface to your liking."
 msgstr ""
+"Fágao seu. Code foi deseñado para ser extensíbel. Mantéñao lixeiro e "
+"sinxelo, ou instale extensións para convertilo nun completo contorno de "
+"desenvolvemento; é a súa eleccción. E cun puñado de preferencias útiles, "
+"pode modificar o comportamento e a interface ao seu gusto."
 
 #: data/io.elementary.code.appdata.xml.in:22
 msgid ""
@@ -50,6 +57,9 @@ msgid ""
 "meaning it closely follows the high standards of design, speed, and "
 "consistency. It's sexy, but not distracting."
 msgstr ""
+"É básico. Code está feito para ser o editor perfecto para elementary, o que "
+"significa que segue de preto os altos estándares de deseño, velocidade e "
+"consistencia. É atractivo, pero non lle distrae."
 
 #: data/io.elementary.code.appdata.xml.in:27
 msgid ""
@@ -58,6 +68,10 @@ msgid ""
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
+"Funciona coa súa linguaxe. Tanto se está escribindo código en Vala, facendo "
+"scripts en PHP, ou facendo cousas en HTML, Code encárgase de axudarlle. "
+"Experimente o resaltado de sintaxe en case todas as linguaxes de "
+"programación, scripting ou de marcado."
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid ""
@@ -65,113 +79,119 @@ msgid ""
 "Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
 "Objective C, Pascal, Perl, Python, Ruby, XML."
 msgstr ""
+"Outras linguaxes con resaltado sintáctico: Bash, C, C#, C++. Cmake, CSS, "
+".desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
+"Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 
 #: data/io.elementary.code.appdata.xml.in:38
 msgid "Additional features include:"
-msgstr ""
+msgstr "Características adicionais incluídas:"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "syntax highlighting with gtksourceview-3"
-msgstr ""
+msgstr "resaltado sintáctico con gtksourceview-3"
 
 #: data/io.elementary.code.appdata.xml.in:43
 msgid "a find bar to search the words in the files"
-msgstr ""
+msgstr "unha barra para atopar palabras dentro de arquivos"
 
 #: data/io.elementary.code.appdata.xml.in:44
 msgid "tab and split documents system"
-msgstr ""
+msgstr "sistema para tabular e separar documentos"
 
 #: data/io.elementary.code.appdata.xml.in:45
 msgid "lots of others"
-msgstr ""
+msgstr "moitas outras"
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "Use Granite.MessageDialog throughout"
-msgstr ""
+msgstr "Use Granite.MessageDialog durante"
 
 #: data/io.elementary.code.appdata.xml.in:52
 msgid "Include non-text files in sidebar"
-msgstr ""
+msgstr "Incluír ficheiros que non sexan de texto na barra lateral"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Fix Remove Current View"
-msgstr ""
+msgstr "Corrixir a eliminación da vista actual"
 
 #: data/io.elementary.code.appdata.xml.in:58
 msgid "Fix New Window desktop action behavior"
-msgstr ""
+msgstr "Corrixir comportamento da acción de escritorio Nova Xanela"
 
 #: data/io.elementary.code.appdata.xml.in:59
 msgid ""
 "Properly synchronize Ctrl+N key presses with number of new documents spawned"
 msgstr ""
+"Sincronizar correctamente as teclas Ctrl+N premidas co número de novos "
+"documentos"
 
 #: data/io.elementary.code.appdata.xml.in:60
 msgid "Build system fix for editorconfig dependency"
-msgstr ""
+msgstr "Construír a corrección do sistema para a dependencia editorconfig"
 
 #: data/io.elementary.code.appdata.xml.in:61
 msgid "Add Change Branch context menu item"
-msgstr ""
+msgstr "Engade o elemento de menú de contexto de Change Branch"
 
 #: data/io.elementary.code.appdata.xml.in:62
 msgid "Avoid possible startup crash related to how plugins load"
 msgstr ""
+"Evite os posibles fallos de inicio relacionados coa carga de complementos"
 
 #: data/io.elementary.code.appdata.xml.in:63
 #: data/io.elementary.code.appdata.xml.in:71
 #: data/io.elementary.code.appdata.xml.in:80
 msgid "Updated translations"
-msgstr ""
+msgstr "Actualizar traducións"
 
 #: data/io.elementary.code.appdata.xml.in:68
 msgid "Smarter file saving behavior"
-msgstr ""
+msgstr "Comportamento de gardado de ficheiros máis intelixente"
 
 #: data/io.elementary.code.appdata.xml.in:69
 msgid "File saving fixes"
-msgstr ""
+msgstr "Correccións de gardado de ficheiros"
 
 #: data/io.elementary.code.appdata.xml.in:70
 msgid "Don't add temporary files to tab restore"
-msgstr ""
+msgstr "Non engada ficheiros temporais á restauración de pestanas"
 
 #: data/io.elementary.code.appdata.xml.in:76
 msgid "Don't recreate deleted files when restoring session"
-msgstr ""
+msgstr "Non recrear ficheiros eliminados ao restaurar a sesión"
 
 #: data/io.elementary.code.appdata.xml.in:77
 msgid "Restore line wrap preference"
-msgstr ""
+msgstr "Restaurar a preferencia do envoltorio de liña"
 
 #: data/io.elementary.code.appdata.xml.in:78
 msgid "Add accel tooltips"
-msgstr ""
+msgstr "Engadir consellos de ferramentas de Accel"
 
 #: data/io.elementary.code.appdata.xml.in:79
 msgid "Minor bug fixes"
-msgstr ""
+msgstr "Pequenas correccións de erros"
 
 #: data/io.elementary.code.appdata.xml.in:118
 msgid "elementary LLC."
-msgstr ""
+msgstr "elementary LLC."
 
 #: data/io.elementary.code.desktop.in.in:5
 msgid "Edit code files"
-msgstr ""
+msgstr "Editar ficheiros de código"
 
 #: data/io.elementary.code.desktop.in.in:6
 msgid "Code Editor"
-msgstr ""
+msgstr "Editor de código"
 
 #: data/io.elementary.code.desktop.in.in:8
 msgid "io.elementary.code"
-msgstr ""
+msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
 msgid "text;IDE;scratch;"
-msgstr ""
+msgstr "text;IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New Document"
