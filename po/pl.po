@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-11 09:24-0700\n"
+"POT-Creation-Date: 2019-10-04 09:46-0600\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Paweł Bernaciak <pawelcomp@gmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
@@ -97,7 +97,8 @@ msgid "Hide search bar"
 msgstr "Ukryj pasek wyszukiwania"
 
 #: src/MainWindow.vala:240
-msgid "Zeitgeist Datasource for Scratch"
+#, fuzzy
+msgid "Zeitgeist Datasource for Code"
 msgstr "Źródła danych Zeitgeist dla Scratch'a"
 
 #: src/MainWindow.vala:765 src/Services/Document.vala:503

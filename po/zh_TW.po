@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-11 09:24-0700\n"
+"POT-Creation-Date: 2019-10-04 09:46-0600\n"
 "PO-Revision-Date: 2018-03-21 01:09+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://weblate.elementary.io/projects/"
@@ -97,7 +97,8 @@ msgid "Hide search bar"
 msgstr "隱藏搜尋列"
 
 #: src/MainWindow.vala:240
-msgid "Zeitgeist Datasource for Scratch"
+#, fuzzy
+msgid "Zeitgeist Datasource for Code"
 msgstr "供 Scratch 使用的 Zeitgeist 資料來源"
 
 #: src/MainWindow.vala:765 src/Services/Document.vala:503
