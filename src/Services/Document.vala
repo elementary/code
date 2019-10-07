@@ -20,7 +20,6 @@
 ***/
 
 namespace Scratch.Services {
-
     public enum DocumentStates {
         NORMAL,
         READONLY
@@ -108,7 +107,7 @@ namespace Scratch.Services {
 
 #if HAVE_ZEITGEIST
         // Zeitgeist integration
-        private ZeitgeistLogger zg_log = new ZeitgeistLogger();
+        private ZeitgeistLogger zg_log = new ZeitgeistLogger ();
 #endif
         public Document (SimpleActionGroup actions, File? file = null) {
             this.actions = actions;
@@ -233,7 +232,7 @@ namespace Scratch.Services {
                      });
                 });
             } else if (onchange_handler_id != 0) {
-                this.source_view.buffer.disconnect(onchange_handler_id);
+                this.source_view.buffer.disconnect (onchange_handler_id);
             }
         }
 
@@ -783,7 +782,7 @@ namespace Scratch.Services {
                         if (settings.autosave) {
                             source_view.set_text (new_buffer.text, false);
                         } else {
-                            string message =  _("File \"%s\" was modified by an external application. Do you want to load it again or continue your editing?").printf ("<b>%s</b>".printf (get_basename ()));
+                            string message = _("File \"%s\" was modified by an external application. Do you want to load it again or continue your editing?").printf ("<b>%s</b>".printf (get_basename ()));
                             set_message (Gtk.MessageType.WARNING, message, _("Load"), () => {
                                 this.source_view.set_text (new_buffer.text, false);
                                 hide_info_bar ();

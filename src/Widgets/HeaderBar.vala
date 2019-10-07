@@ -270,4 +270,3 @@ namespace Scratch.Widgets {
         }
     }
 }
-
