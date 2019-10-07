@@ -52,4 +52,3 @@ namespace Scratch.Plugins.BrowserPreview {
         }
     }
 }
-
