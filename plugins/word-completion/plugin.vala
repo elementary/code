@@ -18,26 +18,25 @@
  *
  */
 
-
-public class Scratch.Plugins.Completion : Peas.ExtensionBase,  Peas.Activatable {
-
-    MainWindow main_window;
-
+public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     public Object object { owned get; construct; }
-    Scratch.Services.Interface plugins;
 
     private List<Gtk.SourceView> text_view_list = new List<Gtk.SourceView> ();
     public Euclide.Completion.Parser parser {get; private set;}
     public Gtk.SourceView? current_view {get; private set;}
     public Scratch.Services.Document current_document {get; private set;}
 
-    private const uint [] activate_keys = {Gdk.Key.Return,
-                                           Gdk.Key.KP_Enter,
-                                           Gdk.Key.ISO_Enter,
-                                           Gdk.Key.Tab,
-                                           Gdk.Key.KP_Tab,
-                                           Gdk.Key.ISO_Left_Tab,
-                                    };
+    private MainWindow main_window;
+    private Scratch.Services.Interface plugins;
+
+    private const uint [] ACTIVATE_KEYS = {
+        Gdk.Key.Return,
+        Gdk.Key.KP_Enter,
+        Gdk.Key.ISO_Enter,
+        Gdk.Key.Tab,
+        Gdk.Key.KP_Tab,
+        Gdk.Key.ISO_Left_Tab,
+    };
 
     private const uint USER_REQUESTED_KEY = Gdk.Key.backslash;
 
@@ -139,7 +138,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase,  Peas.Activatable 
                 return false;
         }
 
-        bool activating = kv in activate_keys;
+        bool activating = kv in ACTIVATE_KEYS;
 
         if (completion_visible && activating) {
             current_view.completion.activate_proposal ();

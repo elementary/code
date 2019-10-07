@@ -24,7 +24,6 @@ namespace Scratch.Plugins.SpellSettings {
      * Class for interacting with gsettings.
      */
     internal class Settings : Granite.Services.Settings {
-
         private const string SCHEMA = Constants.PROJECT_NAME + ".plugins.spell";
 
         public string language { get; set; }
@@ -34,4 +33,3 @@ namespace Scratch.Plugins.SpellSettings {
         }
     }
 }
-

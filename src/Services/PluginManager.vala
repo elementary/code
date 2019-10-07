@@ -19,11 +19,10 @@
 ***/
 
 namespace Scratch.Services {
-
     public class Interface : GLib.Object {
-        
+
         public PluginsManager manager;
-        
+
         // Signals
         public signal void hook_window (Scratch.MainWindow window);
         public signal void hook_share_menu (Gtk.Menu menu);
@@ -33,21 +32,21 @@ namespace Scratch.Services {
         public signal void hook_split_view (Scratch.Widgets.SplitView view);
         public signal void hook_document (Scratch.Services.Document doc);
         public signal void hook_preferences_dialog (Scratch.Dialogs.Preferences dialog);
-        
+
         public Scratch.TemplateManager template_manager { private set; get; }
-        
+
         public Interface (PluginsManager manager) {
             this.manager = manager;
-            
+
             template_manager = new Scratch.TemplateManager ();
         }
-        
+
         public Document open_file (File file) {
             var doc = new Document (manager.window.actions, file);
             manager.window.open_document (doc);
             return doc;
         }
-        
+
         public void close_document (Document doc) {
             manager.window.close_document (doc);
         }
@@ -55,20 +54,18 @@ namespace Scratch.Services {
 
 
     public class PluginsManager : GLib.Object {
-    
         Peas.Engine engine;
         Peas.ExtensionSet exts;
-        
         Peas.Engine engine_core;
         Peas.ExtensionSet exts_core;
 
         GLib.Settings settings;
         string settings_field;
-        
+
         public Interface plugin_iface { private set; public get; }
-        
+
         public weak MainWindow window;
-        
+
         // Signals
         public signal void hook_window (Scratch.MainWindow window);
         public signal void hook_share_menu (Gtk.Menu menu);
@@ -77,13 +74,13 @@ namespace Scratch.Services {
         public signal void hook_split_view (Scratch.Widgets.SplitView view);
         public signal void hook_document (Scratch.Services.Document doc);
         public signal void hook_preferences_dialog (Scratch.Dialogs.Preferences dialog);
-        
+
         public signal void extension_added (Peas.PluginInfo info);
         public signal void extension_removed (Peas.PluginInfo info);
-        
+
         public PluginsManager (MainWindow window, string? set_name = null) {
             this.window = window;
-            
+
             settings = Scratch.settings.schema;
             settings_field = "plugins-enabled";
 
@@ -93,12 +90,12 @@ namespace Scratch.Services {
             engine = Peas.Engine.get_default ();
             engine.enable_loader ("python");
             engine.add_search_path (Constants.PLUGINDIR, null);
-            settings.bind("plugins-enabled", engine, "loaded-plugins", SettingsBindFlags.DEFAULT);
-            
+            settings.bind ("plugins-enabled", engine, "loaded-plugins", SettingsBindFlags.DEFAULT);
+
             /* Our extension set */
             exts = new Peas.ExtensionSet (engine, typeof (Peas.Activatable), "object", plugin_iface, null);
 
-            exts.extension_added.connect ((info, ext) => {  
+            exts.extension_added.connect ((info, ext) => {
                 ((Peas.Activatable)ext).activate ();
                 extension_added (info);
             });
@@ -107,7 +104,7 @@ namespace Scratch.Services {
                 extension_removed (info);
             });
             exts.foreach (on_extension_foreach);
-            
+
             if (set_name != null) {
                 /* The core now */
                 engine_core = new Peas.Engine ();
@@ -115,10 +112,10 @@ namespace Scratch.Services {
                 engine_core.add_search_path (Constants.PLUGINDIR + "/" + set_name + "/", null);
 
                 var core_list = engine_core.get_plugin_list ().copy ();
-                string[] core_plugins = new string[core_list.length()];
-                for (int i = 0; i < core_list.length(); i++) {
+                string[] core_plugins = new string[core_list.length ()];
+                for (int i = 0; i < core_list.length (); i++) {
                     core_plugins[i] = core_list.nth_data (i).get_module_name ();
-                    
+
                 }
                 engine_core.loaded_plugins = core_plugins;
 
@@ -127,7 +124,7 @@ namespace Scratch.Services {
 
                 exts_core.foreach (on_extension_foreach);
             }
-            
+
             // Connect managers signals to interface's signals
             this.hook_window.connect ((w) => {
                 plugin_iface.hook_window (w);
@@ -152,11 +149,11 @@ namespace Scratch.Services {
                 plugin_iface.hook_preferences_dialog (d);
             });
         }
-        
+
         void on_extension_foreach (Peas.ExtensionSet set, Peas.PluginInfo info, Peas.Extension extension) {
             ((Peas.Activatable)extension).activate ();
         }
-        
+
         public Gtk.Widget get_view () {
             var view = new PeasGtk.PluginManager (engine);
             var bottom_box = view.get_children ().nth_data (1);
