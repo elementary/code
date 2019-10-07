@@ -18,8 +18,7 @@
   END LICENSE
 ***/
 
-public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
-
+public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
     MainWindow window = null;
 
     Scratch.Plugins.TerminalViewer.Settings settings;
