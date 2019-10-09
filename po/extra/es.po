@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-11 09:24-0700\n"
-"PO-Revision-Date: 2019-10-09 14:23+0000\n"
+"PO-Revision-Date: 2019-10-10 15:23+0000\n"
 "Last-Translator: Daniel R. <riesp@pm.me>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/extra/es/>\n"
 "Language: es\n"
@@ -109,66 +109,70 @@ msgstr "Use Granite.MessageDialog"
 
 #: data/io.elementary.code.appdata.xml.in:52
 msgid "Include non-text files in sidebar"
-msgstr ""
+msgstr "Incluir archivos que no sean de texto en la barra lateral"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Fix Remove Current View"
-msgstr ""
+msgstr "Corregir la eliminación de la vista actual"
 
 #: data/io.elementary.code.appdata.xml.in:58
 msgid "Fix New Window desktop action behavior"
-msgstr ""
+msgstr "Corregir comportamiento de la acción de escritorio Nueva Ventana"
 
 #: data/io.elementary.code.appdata.xml.in:59
 msgid ""
 "Properly synchronize Ctrl+N key presses with number of new documents spawned"
 msgstr ""
+"Sincronizar correctamente las teclas Ctrl+N pulsadas con el número de nuevos "
+"documentos"
 
 #: data/io.elementary.code.appdata.xml.in:60
 msgid "Build system fix for editorconfig dependency"
-msgstr ""
+msgstr "Construir la corrección del sistema para la dependencia editorconfig"
 
 #: data/io.elementary.code.appdata.xml.in:61
 msgid "Add Change Branch context menu item"
-msgstr ""
+msgstr "Añadir el elemento de menú de contexto de Cambiar Rama"
 
 #: data/io.elementary.code.appdata.xml.in:62
 msgid "Avoid possible startup crash related to how plugins load"
 msgstr ""
+"Evitar los posibles fallos de inicio relacionados con la carga de "
+"complementos"
 
 #: data/io.elementary.code.appdata.xml.in:63
 #: data/io.elementary.code.appdata.xml.in:71
 #: data/io.elementary.code.appdata.xml.in:80
 msgid "Updated translations"
-msgstr ""
+msgstr "Traducciones actualizadas"
 
 #: data/io.elementary.code.appdata.xml.in:68
 msgid "Smarter file saving behavior"
-msgstr ""
+msgstr "Comportamiento de guardado de archivos más inteligente"
 
 #: data/io.elementary.code.appdata.xml.in:69
 msgid "File saving fixes"
-msgstr ""
+msgstr "Correcciones de guardado de archivos"
 
 #: data/io.elementary.code.appdata.xml.in:70
 msgid "Don't add temporary files to tab restore"
-msgstr ""
+msgstr "No añadir archivos temporales a la restauración de pestañas"
 
 #: data/io.elementary.code.appdata.xml.in:76
 msgid "Don't recreate deleted files when restoring session"
-msgstr ""
+msgstr "No recrear archivos eliminados al restaurar la sesión"
 
 #: data/io.elementary.code.appdata.xml.in:77
 msgid "Restore line wrap preference"
-msgstr ""
+msgstr "Restaurar la preferencia del envoltorio de línea"
 
 #: data/io.elementary.code.appdata.xml.in:78
 msgid "Add accel tooltips"
-msgstr ""
+msgstr "Agregar indicadores de acceso directo"
 
 #: data/io.elementary.code.appdata.xml.in:79
 msgid "Minor bug fixes"
-msgstr ""
+msgstr "Pequeñas correcciones de errores"
 
 #: data/io.elementary.code.appdata.xml.in:118
 msgid "elementary LLC."
