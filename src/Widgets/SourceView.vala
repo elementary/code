@@ -409,9 +409,9 @@ namespace Scratch.Widgets {
 
         bool selection_changed_event () {
             Gtk.TextIter start, end;
-            bool selected = buffer.get_selection_bounds (out start,out end);
+            bool selected = buffer.get_selection_bounds (out start, out end);
             if (selected) {
-                selection_changed (start,end);
+                selection_changed (start, end);
             } else {
                 deselected ();
             }
