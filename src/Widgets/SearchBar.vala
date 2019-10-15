@@ -31,6 +31,7 @@ namespace Scratch.Widgets {
          * of the search entry.
          **/
         private Gtk.ToggleButton tool_cycle_search;
+        private Gtk.ToggleButton case_sensitive_button;
 
         public Gtk.SearchEntry search_entry;
         public Gtk.SearchEntry replace_entry;
@@ -84,6 +85,11 @@ namespace Scratch.Widgets {
             tool_cycle_search.image = new Gtk.Image.from_icon_name ("media-playlist-repeat-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
             tool_cycle_search.tooltip_text = _("Cyclic Search");
 
+            case_sensitive_button = new Gtk.ToggleButton ();
+            case_sensitive_button.image = new Gtk.Image.from_icon_name ("font-select-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            case_sensitive_button.tooltip_text = _("Case Sensitive");
+            case_sensitive_button.clicked.connect (on_search_entry_text_changed);
+
             var search_grid = new Gtk.Grid ();
             search_grid.margin = 3;
             search_grid.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
@@ -91,6 +97,7 @@ namespace Scratch.Widgets {
             search_grid.add (tool_arrow_down);
             search_grid.add (tool_arrow_up);
             search_grid.add (tool_cycle_search);
+            search_grid.add (case_sensitive_button);
 
             var search_flow_box_child = new Gtk.FlowBoxChild ();
             search_flow_box_child.can_focus = false;
@@ -222,7 +229,7 @@ namespace Scratch.Widgets {
         private void on_search_entry_text_changed () {
             var search_string = search_entry.text;
             search_context.settings.search_text = search_string;
-            bool case_sensitive = !((search_string.up () == search_string) || (search_string.down () == search_string));
+            bool case_sensitive = is_case_sensitive (search_string);
             search_context.settings.case_sensitive = case_sensitive;
 
             bool matches = search ();
@@ -244,7 +251,7 @@ namespace Scratch.Widgets {
             text_buffer.get_iter_at_offset (out start_iter, text_buffer.cursor_position);
 
             end_iter = start_iter;
-            bool case_sensitive = !((search_entry.text.up () == search_entry.text) || (search_entry.text.down () == search_entry.text));
+            bool case_sensitive = is_case_sensitive (search_entry.text);
             bool found = start_iter.forward_search (search_entry.text,
                                                     case_sensitive ? 0 : Gtk.TextSearchFlags.CASE_INSENSITIVE,
                                                     out start_iter, out end_iter, null);
@@ -446,6 +453,10 @@ namespace Scratch.Widgets {
             }
 
             return false;
+        }
+
+        private bool is_case_sensitive (string search_string) {
+            return case_sensitive_button.active || !((search_string.up () == search_string) || (search_string.down () == search_string));
         }
     }
 }
