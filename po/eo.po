@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-04 09:46-0600\n"
-"PO-Revision-Date: 2019-07-14 23:28+0000\n"
+"PO-Revision-Date: 2019-10-05 21:23+0000\n"
 "Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
-"Language-Team: Esperanto <https://l10n.elementary.io/projects/code/code/eo/"
-">\n"
+"Language-Team: Esperanto <https://l10n.elementary.io/projects/code/code/eo/>"
+"\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:132
@@ -96,9 +96,8 @@ msgid "Hide search bar"
 msgstr "Kaŝi serĉbreton"
 
 #: src/MainWindow.vala:240
-#, fuzzy
 msgid "Zeitgeist Datasource for Code"
-msgstr "Datumfonto Zeitgeist por Scratch"
+msgstr "Datumfonto Zeitgeist por Kodo"
 
 #: src/MainWindow.vala:765 src/Services/Document.vala:503
 msgid "All files"

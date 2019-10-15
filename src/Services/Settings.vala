@@ -72,7 +72,7 @@ namespace Scratch {
         public bool show_mini_map { get; set; }
         public bool prefer_dark_style { get; set; }
 
-        public Settings ()  {
+        public Settings () {
             base (Constants.PROJECT_NAME + ".settings");
         }
 
@@ -89,7 +89,7 @@ namespace Scratch {
         }
 
     }
-    
+
     public class FolderManagerSettings : Granite.Services.Settings {
 
         private const string SCHEMA = Constants.PROJECT_NAME + ".folder-manager";
