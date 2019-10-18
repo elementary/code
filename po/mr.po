@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-04 09:46-0600\n"
-"PO-Revision-Date: 2019-07-13 18:30+0000\n"
+"PO-Revision-Date: 2019-10-16 19:24+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/code/code/mr/>\n"
 "Language: mr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:132
@@ -90,9 +90,8 @@ msgid "Hide search bar"
 msgstr "सर्च बार लपवा"
 
 #: src/MainWindow.vala:240
-#, fuzzy
 msgid "Zeitgeist Datasource for Code"
-msgstr "स्क्रॅच साठी Zeitgeist डेटा स्त्रोत"
+msgstr "कोड साठी Zeitgeist डेटा स्त्रोत"
 
 #: src/MainWindow.vala:765 src/Services/Document.vala:503
 msgid "All files"
