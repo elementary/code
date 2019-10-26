@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-04 09:46-0600\n"
-"PO-Revision-Date: 2019-04-26 05:38+0000\n"
+"PO-Revision-Date: 2019-10-27 10:24+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/code/he/>\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 3.6\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:132
@@ -79,9 +79,8 @@ msgid "Set of plugins"
 msgstr "ערכת תוספים"
 
 #: src/Application.vala:249
-#, fuzzy
 msgid "plugin"
-msgstr "ערכת תוספים"
+msgstr "תוסף"
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -96,7 +95,6 @@ msgid "Hide search bar"
 msgstr "הסתרת סרגל החיפוש"
 
 #: src/MainWindow.vala:240
-#, fuzzy
 msgid "Zeitgeist Datasource for Code"
 msgstr "מקור נתונים צייטגייסט עבור קוד"
 
@@ -221,20 +219,19 @@ msgstr "גופן מותאם אישית:"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
-msgstr ""
+msgstr "לשחזר את הקובץ הזה?"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Restoring a file will undo all changes made since opening it"
-msgstr ""
+msgstr "שחזור קובץ יבטל את כל השינויים שנערכו בו מאז פתיחתו"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:34
 msgid "Don't Restore"
-msgstr ""
+msgstr "לא לשחזר"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
-#, fuzzy
 msgid "Restore Anyway"
-msgstr "לטעון בכל זאת"
+msgstr "לשחזר בכל זאת"
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:114
 msgid "Other Application…"
@@ -296,9 +293,8 @@ msgid "Close Folder"
 msgstr "סגירת תיקייה"
 
 #: src/FolderManager/ProjectFolderItem.vala:286
-#, fuzzy
 msgid "Branch"
-msgstr "החלפת ענף"
+msgstr "ענף"
 
 #: src/Services/Document.vala:267
 #, c-format
