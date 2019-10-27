@@ -163,9 +163,11 @@ namespace Scratch.Widgets {
                 tool_arrow_down.sensitive = true;
                 tool_arrow_up.sensitive = false;
                 search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
+                search_entry.primary_icon_name = "edit-find-symbolic";
             } else {
                 if (search_entry.text != "") {
                     search_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ERROR);
+                    search_entry.primary_icon_name = "dialog-error";
                 }
 
                 tool_arrow_down.sensitive = false;
@@ -250,10 +252,12 @@ namespace Scratch.Widgets {
                                                     out start_iter, out end_iter, null);
             if (found) {
                 search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
+                search_entry.primary_icon_name = "edit-find-symbolic";
                 return true;
             } else {
                 if (search_entry.text != "") {
                     search_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ERROR);
+                    search_entry.primary_icon_name = "dialog-error";
                 }
 
                 return false;
@@ -267,6 +271,7 @@ namespace Scratch.Widgets {
 
             if (text_buffer == null || text_buffer.text == "" || search_string == "") {
                 debug ("Can't search anything in an inexistant buffer and/or without anything to search.");
+                search_entry.primary_icon_name = "edit-find-symbolic";
                 return false;
             }
 
@@ -277,15 +282,18 @@ namespace Scratch.Widgets {
 
             if (search_for_iter (start_iter, out end_iter)) {
                 search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
+                search_entry.primary_icon_name = "edit-find-symbolic";
             } else {
                 text_buffer.get_start_iter (out start_iter);
                 if (search_for_iter (start_iter, out end_iter)) {
                     search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
+                    search_entry.primary_icon_name = "edit-find-symbolic";
                 } else {
                     debug ("Not found: \"%s\"", search_string);
                     start_iter.set_offset (-1);
                     text_buffer.select_range (start_iter, start_iter);
                     search_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ERROR);
+                    search_entry.primary_icon_name = "dialog-error";
                     return false;
                 }
             }
