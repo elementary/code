@@ -167,7 +167,7 @@ namespace Scratch.Widgets {
             } else {
                 if (search_entry.text != "") {
                     search_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ERROR);
-                    search_entry.primary_icon_name = "dialog-error";
+                    search_entry.primary_icon_name = "dialog-error-symbolic";
                 }
 
                 tool_arrow_down.sensitive = false;
@@ -257,7 +257,7 @@ namespace Scratch.Widgets {
             } else {
                 if (search_entry.text != "") {
                     search_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ERROR);
-                    search_entry.primary_icon_name = "dialog-error";
+                    search_entry.primary_icon_name = "dialog-error-symbolic";
                 }
 
                 return false;
@@ -267,6 +267,7 @@ namespace Scratch.Widgets {
         public bool search () {
             /* So, first, let's check we can really search something. */
             string search_string = search_entry.text;
+            search_context.highlight = false;
             search_context.highlight = false;
 
             if (text_buffer == null || text_buffer.text == "" || search_string == "") {
@@ -293,7 +294,7 @@ namespace Scratch.Widgets {
                     start_iter.set_offset (-1);
                     text_buffer.select_range (start_iter, start_iter);
                     search_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ERROR);
-                    search_entry.primary_icon_name = "dialog-error";
+                    search_entry.primary_icon_name = "dialog-error-symbolic";
                     return false;
                 }
             }
