@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-04 09:46-0600\n"
-"PO-Revision-Date: 2019-07-18 00:24+0000\n"
+"PO-Revision-Date: 2019-11-05 13:24+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/code/code/fi/>\n"
 "Language: fi\n"
@@ -95,9 +95,8 @@ msgid "Hide search bar"
 msgstr "Piilota hakupalkki"
 
 #: src/MainWindow.vala:240
-#, fuzzy
 msgid "Zeitgeist Datasource for Code"
-msgstr "Zeitgeist-datalähde Scratchille"
+msgstr "Zeitgeist-tietolähde Code-sovellukselle"
 
 #: src/MainWindow.vala:765 src/Services/Document.vala:503
 msgid "All files"
