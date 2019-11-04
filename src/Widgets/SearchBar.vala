@@ -137,6 +137,7 @@ namespace Scratch.Widgets {
             entry_context.set_path (entry_path);
             entry_context.add_class ("entry");
 
+            selection_mode = Gtk.SelectionMode.NONE;
             column_spacing = 6;
             max_children_per_line = 2;
             add (search_flow_box_child);
