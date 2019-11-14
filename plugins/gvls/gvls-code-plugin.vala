@@ -24,6 +24,7 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
     private ulong cn = 0;
     private uint timed_id = -1;
     private bool lsp_sync_in_progress = false;
+    private bool initiated = false;
 
     public Object object { owned get; construct; }
     Scratch.Services.Interface plugins;
@@ -68,6 +69,11 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
                 var file = doc.file;
                 if (file == null) {
                     return;
+                }
+                if (!initiated) {
+                    cl.initialize.begin (file.get_uri (), ()=>{
+                        initiated = true;
+                    });
                 }
                 var ptmp = view.get_data<GVlsui.CompletionProvider> ("gvls-provider");
                 if (ptmp != null) {
@@ -114,6 +120,9 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
             return;
         }
         var docview = main_window.get_current_view ();
+        if (!(docview is Scratch.Widgets.DocumentView)) {
+            return;
+        }
         foreach (Services.Document doc in docview.docs) {
             var view = doc.source_view;
             var prov = view.get_data<GVlsui.CompletionProvider> ("gvls-provider");
@@ -142,20 +151,35 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
         if (lsp_sync_in_progress) {
             return true;
         }
+
         var client = plugins.get_data<GVls.Client> ("gvls-client");
         if (client == null) {
             return true;
         }
+
         if (main_window == null) {
             message ("No MainWindow was set");
             return true;
         }
-        var doc = main_window.get_current_document ();
+
         var view = main_window.get_current_view ();
+        if (view == null) {
+            return true;
+        }
+        if (!(view is Scratch.Widgets.DocumentView)) {
+            return true;
+        }
+
+        var doc = main_window.get_current_document ();
+        if (doc == null) {
+            return true;
+        }
+
         var file = doc.file;
         if (file == null) {
             return true;
         }
+
         var chgs = view.get_data<GVls.Container> ("gvls-changes");
         if (chgs == null) {
             return true;
