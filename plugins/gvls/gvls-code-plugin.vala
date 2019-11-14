@@ -65,54 +65,83 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
                 if (cl == null) {
                     return;
                 }
-                var view = doc.source_view;
                 var file = doc.file;
                 if (file == null) {
                     return;
                 }
                 if (!initiated) {
-                    cl.initialize.begin (file.get_uri (), ()=>{
-                        initiated = true;
+                    cl.initialize.begin (file.get_uri (), (obj, res)=>{
+                        try {
+                            cl.initialize.end (res);
+                            initiated = true;
+                            init_doc (doc, cl);
+                        } catch (GLib.Error e) {
+                            warning ("Error setting completion provider: %s", e.message);
+                        }
                     });
+                } else {
+                    init_doc (doc, cl);
                 }
-                var ptmp = view.get_data<GVlsui.CompletionProvider> ("gvls-provider");
-                if (ptmp != null) {
-                    return;
-                }
-                var prov = new GVlsui.CompletionProvider ();
-                prov.client = client;
-                view.get_completion ().add_provider (prov);
-                view.set_data<GVlsui.CompletionProvider> ("gvls-provider", prov);
-                view.set_data<bool> ("gvls-view-dirty", true);
-                GVls.Container changes = new GVls.GContainer.for_type (typeof (GTextDocumentContentChangeEvent));
-                view.set_data<GVls.Container> ("gvls-changes", changes);
-                var buf = view.get_buffer ();
-                buf.delete_range.connect ((start, end)=>{
-                    var chgs = view.get_data<GVls.Container> ("gvls-changes");
-                    var pstart = new GPosition.from_values (start.get_line (), start.get_line_offset ());
-                    var pend = new GPosition.from_values (end.get_line (), end.get_line_offset ());
-                    var change = new GTextDocumentContentChangeEvent ();
-                    change.range.start = pstart;
-                    change.range.end = pend;
-                    change.text = null;
-                    chgs.add (change);
-                });
-                buf.insert_text.connect ((ref pos, text)=>{
-                    var chgs = view.get_data<GVls.Container> ("gvls-changes");
-                    var pstart = new GPosition.from_values (pos.get_line (), pos.get_line_offset ());
-                    var pend = new GPosition.from_values (pos.get_line (), pos.get_line_offset ());
-                    var change = new GTextDocumentContentChangeEvent ();
-                    change.range.start = pstart;
-                    change.range.end = pend;
-                    change.text = text;
-                    chgs.add (change);
-                });
-                cl.document_open.begin (file.get_uri (), buf.text);
             } catch (GLib.Error e) {
                 warning ("Error setting completion provider: %s", e.message);
             }
         });
     }
+
+    private void init_doc (Scratch.Services.Document doc,
+                            GVls.Client client) throws GLib.Error
+    {
+        var cl = plugins.get_data<GVls.Client> ("gvls-client");
+        if (cl == null) {
+            return;
+        }
+        var view = doc.source_view;
+        var file = doc.file;
+        if (file == null) {
+            return;
+        }
+        var ptmp = view.get_data<GVlsui.CompletionProvider> ("gvls-provider");
+        if (ptmp != null) {
+            return;
+        }
+        var prov = new GVlsui.CompletionProvider ();
+        prov.client = client;
+        view.get_completion ().add_provider (prov);
+        view.set_data<GVlsui.CompletionProvider> ("gvls-provider", prov);
+        view.set_data<bool> ("gvls-view-dirty", true);
+        GVls.Container changes = new GVls.GContainer.for_type (typeof (GTextDocumentContentChangeEvent));
+        view.set_data<GVls.Container> ("gvls-changes", changes);
+        var buf = view.get_buffer ();
+        buf.delete_range.connect ((start, end)=>{
+            var chgs = view.get_data<GVls.Container> ("gvls-changes");
+            var pstart = new GPosition.from_values (start.get_line (), start.get_line_offset ());
+            var pend = new GPosition.from_values (end.get_line (), end.get_line_offset ());
+            var change = new GTextDocumentContentChangeEvent ();
+            change.range.start = pstart;
+            change.range.end = pend;
+            change.text = null;
+            chgs.add (change);
+        });
+        buf.insert_text.connect ((ref pos, text)=>{
+            var chgs = view.get_data<GVls.Container> ("gvls-changes");
+            var pstart = new GPosition.from_values (pos.get_line (), pos.get_line_offset ());
+            var pend = new GPosition.from_values (pos.get_line (), pos.get_line_offset ());
+            var change = new GTextDocumentContentChangeEvent ();
+            change.range.start = pstart;
+            change.range.end = pend;
+            change.text = text;
+            chgs.add (change);
+        });
+        client.document_open.begin (file.get_uri (), buf.text, (obj, res)=>{
+            try {
+                client.document_open.end (res);
+            } catch (GLib.Error e) {
+                warning ("Error while send didOpen notification: %s", e.message);
+            }
+        });
+    }
+
+
     public void deactivate () {
         plugins.disconnect (cn);
         if (main_window == null) {
