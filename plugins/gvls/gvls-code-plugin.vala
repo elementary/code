@@ -109,14 +109,14 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
         view.get_completion ().add_provider (prov);
         view.set_data<GVlsui.CompletionProvider> ("gvls-provider", prov);
         view.set_data<bool> ("gvls-view-dirty", true);
-        GVls.Container changes = new GVls.GContainer.for_type (typeof (GTextDocumentContentChangeEvent));
+        GVls.Container changes = new GVls.ContainerHashList.for_type (typeof (TextDocumentContentChangeEventInfo));
         view.set_data<GVls.Container> ("gvls-changes", changes);
         var buf = view.get_buffer ();
         buf.delete_range.connect ((start, end)=>{
             var chgs = view.get_data<GVls.Container> ("gvls-changes");
-            var pstart = new GPosition.from_values (start.get_line (), start.get_line_offset ());
-            var pend = new GPosition.from_values (end.get_line (), end.get_line_offset ());
-            var change = new GTextDocumentContentChangeEvent ();
+            var pstart = new SourcePosition.from_values (start.get_line (), start.get_line_offset ());
+            var pend = new SourcePosition.from_values (end.get_line (), end.get_line_offset ());
+            var change = new TextDocumentContentChangeEventInfo ();
             change.range.start = pstart;
             change.range.end = pend;
             change.text = null;
@@ -124,9 +124,9 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
         });
         buf.insert_text.connect ((ref pos, text)=>{
             var chgs = view.get_data<GVls.Container> ("gvls-changes");
-            var pstart = new GPosition.from_values (pos.get_line (), pos.get_line_offset ());
-            var pend = new GPosition.from_values (pos.get_line (), pos.get_line_offset ());
-            var change = new GTextDocumentContentChangeEvent ();
+            var pstart = new SourcePosition.from_values (pos.get_line (), pos.get_line_offset ());
+            var pend = new SourcePosition.from_values (pos.get_line (), pos.get_line_offset ());
+            var change = new TextDocumentContentChangeEventInfo ();
             change.range.start = pstart;
             change.range.end = pend;
             change.text = text;
@@ -216,7 +216,7 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
 
         if (chgs.get_n_items () != 0) {
             GVls.Container current_changes = chgs;
-            chgs = new GVls.GContainer.for_type (typeof (GTextDocumentContentChangeEvent));
+            chgs = new GVls.ContainerHashList.for_type (typeof (TextDocumentContentChangeEventInfo));
             view.set_data<GVls.Container> ("gvls-changes", chgs);
             lsp_sync_in_progress = true;
             var uri = file.get_uri ();
