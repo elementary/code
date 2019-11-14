@@ -21,25 +21,16 @@ using GVls;
 
 public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatable {
     private MainWindow main_window;
-    private GVls.Server _server;
     private ulong cn = 0;
-    private uint timeout_id = -1;
+    private uint timed_id = -1;
+    private bool lsp_sync_in_progress = false;
 
     public Object object { owned get; construct; }
     Scratch.Services.Interface plugins;
 
-    construct {
-        _server = new GVls.GServer ();
-        try {
-            _server.add_default_vapi_dirs ();
-            _server.add_default_namespaces ();
-        } catch (GLib.Error e) {
-            warning ("Initialization Error: %s", e.message);
-        }
-    }
     ~GVlsCompletion () {
-        if (timeout_id != -1) {
-            var source = MainContext.@default ().find_source_by_id (timeout_id);
+        if (timed_id != -1) {
+            var source = MainContext.@default ().find_source_by_id (timed_id);
             if (source != null) {
                 source.destroy ();
             }
@@ -47,30 +38,74 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
     }
     public void activate () {
         plugins = (Scratch.Services.Interface) object;
+
+        GVlsp.ServerInetLocal server = new GVlsp.ServerInetLocal ();
+
+        try {
+            server.run ();
+            server.server.add_default_vapi_dirs ();
+        } catch (GLib.Error e) {
+            warning ("Initialization Error: %s", e.message);
+        }
+
+        plugins.set_data<GVls.Server> ("gvls-server", server);
+
+        GVls.Client client = new GVlsp.ClientInetLocal ();
+        plugins.set_data<GVls.Client> ("gvls-client", client);
+
+        timed_id = Timeout.add (1000, push_document_changes);
+
         plugins.hook_window.connect ((w) => {
             this.main_window = w;
         });
         cn = plugins.hook_document.connect ((doc)=>{
             try {
+                var cl = plugins.get_data<GVls.Client> ("gvls-client");
+                if (cl == null) {
+                    return;
+                }
                 var view = doc.source_view;
+                var file = doc.file;
+                if (file == null) {
+                    return;
+                }
                 var ptmp = view.get_data<GVlsui.CompletionProvider> ("gvls-provider");
                 if (ptmp != null) {
                     return;
                 }
                 var prov = new GVlsui.CompletionProvider ();
-                prov.server = _server;
+                prov.client = client;
                 view.get_completion ().add_provider (prov);
                 view.set_data<GVlsui.CompletionProvider> ("gvls-provider", prov);
                 view.set_data<bool> ("gvls-view-dirty", true);
+                GVls.Container changes = new GVls.GContainer.for_type (typeof (GTextDocumentContentChangeEvent));
+                view.set_data<GVls.Container> ("gvls-changes", changes);
                 var buf = view.get_buffer ();
-                buf.insert_text.connect ((ref pos, ntext, tlen)=>{
-                    view.set_data<bool> ("gvls-view-dirty", true);
+                buf.delete_range.connect ((start, end)=>{
+                    var chgs = view.get_data<GVls.Container> ("gvls-changes");
+                    var pstart = new GPosition.from_values (start.get_line (), start.get_line_offset ());
+                    var pend = new GPosition.from_values (end.get_line (), end.get_line_offset ());
+                    var change = new GTextDocumentContentChangeEvent ();
+                    change.range.start = pstart;
+                    change.range.end = pend;
+                    change.text = null;
+                    chgs.add (change);
                 });
+                buf.insert_text.connect ((ref pos, text)=>{
+                    var chgs = view.get_data<GVls.Container> ("gvls-changes");
+                    var pstart = new GPosition.from_values (pos.get_line (), pos.get_line_offset ());
+                    var pend = new GPosition.from_values (pos.get_line (), pos.get_line_offset ());
+                    var change = new GTextDocumentContentChangeEvent ();
+                    change.range.start = pstart;
+                    change.range.end = pend;
+                    change.text = text;
+                    chgs.add (change);
+                });
+                cl.document_open.begin (file.get_uri (), buf.text);
             } catch (GLib.Error e) {
                 warning ("Error setting completion provider: %s", e.message);
             }
         });
-        timeout_id = GLib.Timeout.add (1, update_symbols);
     }
     public void deactivate () {
         plugins.disconnect (cn);
@@ -89,31 +124,59 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
                 warning (_("Error deactivating GVls Plugin: %s"), e.message);
             }
         }
+
+        var client = plugins.get_data<GVls.Client> ("gvls-client");
+        if (client != null) {
+            client.server_shutdown.begin ();
+        }
+        if (timed_id != -1) {
+            var source = MainContext.@default ().find_source_by_id (timed_id);
+            if (source != null) {
+                source.destroy ();
+            }
+        }
     }
     public void update_state () {
     }
-    private bool update_symbols () {
+    private bool push_document_changes () {
+        if (lsp_sync_in_progress) {
+            return true;
+        }
+        var client = plugins.get_data<GVls.Client> ("gvls-client");
+        if (client == null) {
+            return true;
+        }
         if (main_window == null) {
+            message ("No MainWindow was set");
             return true;
         }
         var doc = main_window.get_current_document ();
-        if (doc == null) {
+        var view = main_window.get_current_view ();
+        var file = doc.file;
+        if (file == null) {
             return true;
         }
-        var view = main_window.get_current_document ().source_view;
-        if (view == null) {
+        var chgs = view.get_data<GVls.Container> ("gvls-changes");
+        if (chgs == null) {
             return true;
         }
-        var prov = view.get_data<GVlsui.CompletionProvider> ("gvls-provider");
-        if (prov == null) {
-            return true;
+
+        if (chgs.get_n_items () != 0) {
+            GVls.Container current_changes = chgs;
+            chgs = new GVls.GContainer.for_type (typeof (GTextDocumentContentChangeEvent));
+            view.set_data<GVls.Container> ("gvls-changes", chgs);
+            lsp_sync_in_progress = true;
+            var uri = file.get_uri ();
+            client.document_change.begin (uri, current_changes, (obj, res)=>{
+                try {
+                    client.document_change.end (res);
+                    lsp_sync_in_progress = false;
+                } catch (GLib.Error e) {
+                    warning ("Error while pushing changes to the server: %s", e.message);
+                }
+            });
         }
-        bool dirty = view.get_data<bool> ("gvls-view-dirty");
-        if (!dirty) {
-            return true;
-        }
-        prov.current_server.content = view.get_buffer ().text;
-        view.set_data<bool> ("gvls-view-dirty", false);
+
         return true;
     }
 }

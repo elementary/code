@@ -14,7 +14,7 @@ subdir('terminal')
 subdir('vim-emulation')
 subdir('word-completion')
 
-gvls_dep = dependency ('gvlsui-0.10', required: false)
+gvls_dep = dependency ('gvlsui-0.12', required: false)
 if gvls_dep.found()
 subdir('gvls')
 endif
