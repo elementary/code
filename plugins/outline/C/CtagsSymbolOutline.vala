@@ -53,7 +53,7 @@ public class Code.Plugins.CtagsSymbolOutline : Object, Code.Plugins.SymbolOutlin
 
         try {
             current_subprocess = new GLib.Subprocess (
-                GLib.SubprocessFlags.STDOUT_PIPE|GLib.SubprocessFlags.STDERR_SILENCE,
+                GLib.SubprocessFlags.STDOUT_PIPE | GLib.SubprocessFlags.STDERR_SILENCE,
                 "ctags", "-f", "-", "--format=2", "--excmd=n", "--fields=nstK", "--extra=", "--sort=no", doc.file.get_path ()
             );
 

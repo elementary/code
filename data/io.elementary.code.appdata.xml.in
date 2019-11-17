@@ -46,6 +46,46 @@
     </ul>
   </description>
   <releases>
+    <release version="3.2.0" date="2019-11-14">
+      <description>
+        <ul>Add a confirmation dialog to the "Restore" action</ul>
+        <ul>Add "Open In" menu to the top-level folder in the folder manager</ul>
+        <ul>Fix the keyboard shortcut for going backwards in search results</ul>
+        <ul>Rename leftover instances of Scratch to Code</ul>
+        <ul>Don't show temporary files in the folder manager</ul>
+        <ul>Fix opening files from relative paths in Terminal</ul>
+        <ul>Fix null file dialog when opening a new window via the dock</ul>
+        <ul>Add brackets completion and auto-indent by default</ul>
+        <ul>Add "=" as a zoom key</ul>
+        <ul>Change search entry icon when results aren't found</ul>
+        <ul>Updated translations</ul>
+      </description>
+    </release>    
+    <release version="3.1.1" date="2019-03-06">
+      <description>
+        <ul>Use Granite.MessageDialog throughout</ul>
+        <ul>Include non-text files in sidebar</ul>
+        <ul>Fix Remove Current View</ul>
+      </description>
+    </release>
+    <release version="3.1.0" date="2019-03-06">
+      <description>
+        <ul>Fix New Window desktop action behavior</ul>
+        <ul>Properly synchronize Ctrl+N key presses with number of new documents spawned</ul>
+        <ul>Build system fix for editorconfig dependency</ul>
+        <ul>Add Change Branch context menu item</ul>
+        <ul>Avoid possible startup crash related to how plugins load</ul>
+        <ul>Updated translations</ul>
+      </description>
+    </release>
+    <release version="3.0.2" date="2019-01-03">
+      <description>
+        <ul>Smarter file saving behavior</ul>
+        <ul>File saving fixes</ul>
+        <ul>Don't add temporary files to tab restore</ul>
+        <ul>Updated translations</ul>
+      </description>
+    </release>
     <release version="3.0.1" date="2018-11-30">
       <description>
         <ul>Don't recreate deleted files when restoring session</ul>
@@ -92,10 +132,10 @@
   </content_rating>
   <developer_name>elementary LLC.</developer_name>
   <url type="homepage">http://elementary.io/</url>
-  <url type="bugtracker">https://github.com/elementary/scratch/issues</url>
+  <url type="bugtracker">https://github.com/elementary/code/issues</url>
   <url type="donation">https://elementary.io/get-involved#funding</url>
-  <url type="help">https://elementaryos.stackexchange.com/questions/tagged/scratch</url>
-  <url type="translate">https://l10n.elementary.io/projects/scratch</url>
+  <url type="help">https://elementaryos.stackexchange.com/questions/tagged/code</url>
+  <url type="translate">https://l10n.elementary.io/projects/code</url>
   <update_contact>contact_AT_elementary.io</update_contact>
   <screenshots>
     <screenshot type="default">

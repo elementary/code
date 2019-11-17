@@ -61,28 +61,70 @@ namespace Scratch.FolderManager {
         }
 
         public override Gtk.Menu? get_context_menu () {
-            var other_menuitem = new Gtk.MenuItem.with_label (_("Other Application…"));
-            other_menuitem.activate.connect (() => show_app_chooser (file));
-
-            var open_in_menu = new Gtk.Menu ();
-
             var contractor_menu = new Gtk.Menu ();
 
             GLib.FileInfo info = null;
+            unowned string? file_type = null;
 
             try {
-                info = file.file.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, 0);
+                info = file.file.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, GLib.FileQueryInfoFlags.NONE);
+                file_type = info.get_content_type ();
             } catch (Error e) {
                 warning (e.message);
             }
 
             if (info != null) {
-                var file_type = info.get_attribute_string (GLib.FileAttribute.STANDARD_CONTENT_TYPE);
+                try {
+                    var contracts = Granite.Services.ContractorProxy.get_contracts_by_mime (file_type);
+                    foreach (var contract in contracts) {
+                        var menu_item = new ContractMenuItem (contract, file.file);
+                        contractor_menu.append (menu_item);
+                        menu_item.show_all ();
+                    }
+                } catch (Error e) {
+                    warning (e.message);
+                }
+            }
 
+            var contractor_item = new Gtk.MenuItem.with_label (_("Other Actions"));
+            contractor_item.submenu = contractor_menu;
+
+            var rename_item = new Gtk.MenuItem.with_label (_("Rename"));
+            rename_item.activate.connect (() => {
+                view.ignore_next_select = true;
+                view.start_editing_item (this);
+            });
+
+            var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
+            delete_item.activate.connect (trash);
+
+            var menu = new Gtk.Menu ();
+            menu.append (create_submenu_for_open_in (info, file_type));
+            menu.append (contractor_item);
+            menu.append (new Gtk.SeparatorMenuItem ());
+            menu.append (create_submenu_for_new ());
+            menu.append (rename_item);
+            menu.append (delete_item);
+            menu.show_all ();
+
+            return menu;
+        }
+
+        protected Gtk.MenuItem create_submenu_for_open_in (GLib.FileInfo? info, string? file_type) {
+            var other_menuitem = new Gtk.MenuItem.with_label (_("Other Application…"));
+            other_menuitem.activate.connect (() => show_app_chooser (file));
+
+            file_type = file_type ?? "inode/directory";
+
+            var open_in_menu = new Gtk.Menu ();
+
+            if (info != null) {
                 List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type (file_type);
 
+                string this_id = GLib.Application.get_default ().application_id + ".desktop";
+
                 foreach (AppInfo app_info in external_apps) {
-                    if (app_info.get_id () == GLib.Application.get_default ().application_id + ".desktop") {
+                    if (app_info.get_id () == this_id) {
                         continue;
                     }
 
@@ -101,52 +143,23 @@ namespace Scratch.FolderManager {
                     });
                     open_in_menu.add (item_app);
                 }
-
-                try {
-                    var contracts = Granite.Services.ContractorProxy.get_contracts_by_mime (file_type);
-                    foreach (var contract in contracts) {
-                        var menu_item = new ContractMenuItem (contract, file.file);
-                        contractor_menu.append (menu_item);
-                        menu_item.show_all ();
-                    }
-                } catch (Error e) {
-                    warning (e.message);
-                }
             }
 
-            open_in_menu.add (new Gtk.SeparatorMenuItem ());
+            if (open_in_menu.get_children ().length () > 0) {
+                open_in_menu.add (new Gtk.SeparatorMenuItem ());
+            }
+
             open_in_menu.add (other_menuitem);
 
             var open_in_item = new Gtk.MenuItem.with_label (_("Open In"));
             open_in_item.submenu = open_in_menu;
 
-            var contractor_item = new Gtk.MenuItem.with_label (_("Other Actions"));
-            contractor_item.submenu = contractor_menu;
-
-            var rename_item = new Gtk.MenuItem.with_label (_("Rename"));
-            rename_item.activate.connect (() => {
-                view.ignore_next_select = true;
-                view.start_editing_item (this);
-            });
-
-            var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
-            delete_item.activate.connect (trash);
-
-            var menu = new Gtk.Menu ();
-            menu.append (open_in_item);
-            menu.append (contractor_item);
-            menu.append (new Gtk.SeparatorMenuItem ());
-            menu.append (create_submenu_for_new ());
-            menu.append (rename_item);
-            menu.append (delete_item);
-            menu.show_all ();
-
-            return menu;
+            return open_in_item;
         }
 
         protected Gtk.MenuItem create_submenu_for_new () {
             var new_folder_item = new Gtk.MenuItem.with_label (_("Folder"));
-            new_folder_item.activate.connect(() => add_folder ());
+            new_folder_item.activate.connect (() => add_folder ());
 
             var new_file_item = new Gtk.MenuItem.with_label (_("Empty File"));
             new_file_item.activate.connect (() => add_file ());
@@ -166,7 +179,7 @@ namespace Scratch.FolderManager {
                 if (child.is_valid_directory) {
                     var item = new FolderItem (child, view);
                     add (item);
-                } else if (child.is_valid_textfile) {
+                } else if (!child.is_temporary) {
                     var item = new FileItem (child, view);
                     add (item);
                 }
@@ -262,10 +275,10 @@ namespace Scratch.FolderManager {
                         Item? item = null;
 
                         if (!exists) {
-                            if (file.is_valid_textfile) {
-                                item = new FileItem (file, view);
-                            } else if (file.is_valid_directory) {
+                            if (file.is_valid_directory) {
                                 item = new FolderItem (file, view);
+                            } else if (!file.is_temporary) {
+                                item = new FileItem (file, view);
                             }
                         }
 
@@ -315,7 +328,7 @@ namespace Scratch.FolderManager {
         protected void add_folder () {
             if (!file.is_executable) {
                 // This is necessary to avoid infinite loop below
-                warning("Unable to open parent folder");
+                warning ("Unable to open parent folder");
                 return;
             }
 
@@ -347,7 +360,7 @@ namespace Scratch.FolderManager {
         protected void add_file () {
             if (!file.is_executable) {
                 // This is necessary to avoid infinite loop below
-                warning("Unable to open parent folder");
+                warning ("Unable to open parent folder");
                 return;
             }
 

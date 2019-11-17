@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-18 14:27-0700\n"
-"PO-Revision-Date: 2018-11-04 00:03+0000\n"
+"POT-Creation-Date: 2019-11-15 19:42+0000\n"
+"PO-Revision-Date: 2019-11-09 11:24+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://weblate.elementary.io/projects/code/plugins/"
-"ja/>\n"
+"Language-Team: Japanese <https://l10n.elementary.io/projects/code/plugins/ja/"
+">\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.7.1\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -25,7 +25,7 @@ msgstr "ブラケット補完"
 
 #: plugins/brackets-completion/brackets-completion.plugin:7
 msgid "Complete brackets while typing"
-msgstr "タイピング中のブラケットを補完します"
+msgstr "文字入力中にブラケットを補完します"
 
 #: plugins/browser-preview/browser-preview.plugin:6
 msgid "Browser Preview"
@@ -104,16 +104,16 @@ msgid "Terminal"
 msgstr "ターミナル"
 
 #: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your text editor"
-msgstr "テキストエディター内のターミナル"
+msgid "A terminal in your code editor"
+msgstr "コードエディター内のターミナル"
 
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
 msgstr "Vim エミュレーション"
 
 #: plugins/vim-emulation/vim-emulation.plugin:7
-msgid "Use Vim commands in Scratch"
-msgstr "Scratch で Vim コマンドを使用します"
+msgid "Use Vim commands in Code"
+msgstr "\"コード\" で Vim コマンドを使用します"
 
 #: plugins/word-completion/word-completion.plugin:3
 msgid "Words Completion"

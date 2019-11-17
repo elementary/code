@@ -13,8 +13,6 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-using Gtk;
-
 public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
 
     Scratch.Services.Interface plugins;
@@ -72,14 +70,14 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
                     }
 
                     if (language_list.length () == 0) {
-                        var dialog = new Gtk.MessageDialog (null, Gtk.DialogFlags.MODAL,
-                            Gtk.MessageType.WARNING, Gtk.ButtonsType.OK,
-                            _("No suitable dictionaries were found.\nPlease install at least one [aspell] dictionary"));
-                        dialog.show ();
-
-                        dialog.response.connect ((response_id) => {
-                            dialog.destroy ();
-                        });
+                        var dialog = new Granite.MessageDialog (
+                            _("No Suitable Dictionaries Were Found"),
+                            _("Please install at least one [aspell] dictionary."),
+                            new ThemedIcon ("dialog-warning"),
+                            Gtk.ButtonsType.CLOSE
+                        );
+                        dialog.run ();
+                        dialog.destroy ();
 
                         // This fallback to the LC used but might fail.
                         spell.set_language (null);
@@ -130,7 +128,7 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
 
 
 
-    void language_changed_spell (Scratch.Widgets.SourceView view){
+    private void language_changed_spell (Scratch.Widgets.SourceView view) {
         if (view.language != null)
             spell.detach ();
     }
@@ -161,6 +159,8 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
 [ModuleInit]
 public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type (typeof(Peas.Activatable),
-                                      typeof(Scratch.Plugins.Spell));
+    objmodule.register_extension_type (
+        typeof (Peas.Activatable),
+        typeof (Scratch.Plugins.Spell)
+    );
 }
