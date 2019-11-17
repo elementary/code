@@ -2,14 +2,14 @@
  * Copyright (C) 2011-2012 Lucas Baudin <xapantu@gmail.com>
  *               2013      Mario Guerriero <mario@elementaryos.org>
  *
- * This file is part of Scratch.
+ * This file is part of Code.
  *
- * Scratch is free software: you can redistribute it and/or modify it
+ * Code is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
  * Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  * 
- * Scratch is distributed in the hope that it will be useful, but
+ * Code is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details.
@@ -24,8 +24,8 @@ public abstract class Scratch.Template : Object {
 
     public static void configure_template (string origin, string destination, Gee.HashMap<string, string> variables) {
         debug ("Origin: %s, destination: %s\n", origin, destination);
-        
-        configure_directory (File.new_for_path(origin), File.new_for_path(destination), variables);
+
+        configure_directory (File.new_for_path (origin), File.new_for_path (destination), variables);
     }
 
     static void configure_directory (File origin, File destination, Gee.HashMap<string, string> variables) {
@@ -119,11 +119,9 @@ public abstract class Scratch.Template : Object {
 }
 
 public class Scratch.TestTemplate : Template {
-    
     public override Gtk.Widget get_creation_box () {
-        return new Gtk.Label("Test");
+        return new Gtk.Label ("Test");
     }
-    
 }
 
 public class TemplateButton : Gtk.Button {
@@ -206,7 +204,7 @@ public class Scratch.TemplateManager : GLib.Object {
         scroll.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
         scroll.add (grid);
 
-        (dialog.get_content_area() as Gtk.Box).pack_start(scroll);
+        (dialog.get_content_area () as Gtk.Box).pack_start (scroll);
         //register_template ("text-editor", "Sample", "sample template", typeof(TestTemplate));
     }
 
@@ -244,15 +242,15 @@ public class Scratch.TemplateManager : GLib.Object {
     private void append_button (Gtk.Widget button) {
         if (left > n_columns)
            left = 0;
-               
+
         this.grid.attach (button, left, top, width, height);
-            
+
         button.show ();
-            
+
         if (left == n_columns) top++;
         left++;
     }
-    
+
     /**
      * Show a dialog which contains an #Gtk.IconView with all templates available.
      * 
@@ -260,10 +258,10 @@ public class Scratch.TemplateManager : GLib.Object {
      **/
     public void show_window (Gtk.Widget? parent) {
         this.parent = parent;
-        
+
         if (template_available) {
             if (parent != null) dialog.set_transient_for ((Gtk.Window)parent);
-            
+
             dialog.show_all ();
         }
     }

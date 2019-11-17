@@ -90,7 +90,7 @@ namespace Scratch.FolderManager {
                 return false;
             }
         }
-        
+
         public bool is_temporary {
             get {
                return path.has_suffix ("~");

@@ -28,7 +28,6 @@ public class Code.Plugins.ValaSymbolItem : Granite.Widgets.SourceList.Expandable
             else
                 this.name = "%s.%s".printf (((Vala.CreationMethod)symbol).class_name, symbol.name);
         }
-        
     }
 
     public int compare (Granite.Widgets.SourceList.Item a, Granite.Widgets.SourceList.Item b) {

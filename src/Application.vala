@@ -75,14 +75,14 @@ namespace Scratch {
 
         protected override int command_line (ApplicationCommandLine command_line) {
             var context = new OptionContext ("File");
-            context.add_main_entries (entries, Constants.GETTEXT_PACKAGE);
+            context.add_main_entries (ENTRIES, Constants.GETTEXT_PACKAGE);
             context.add_group (Gtk.get_option_group (true));
 
             string[] args = command_line.get_arguments ();
 
             try {
                 context.parse_strv (ref args);
-            } catch(Error e) {
+            } catch (Error e) {
                 print (e.message + "\n");
 
                 return Posix.EXIT_FAILURE;
@@ -242,7 +242,7 @@ namespace Scratch {
             return new MainWindow (this);
         }
 
-        const OptionEntry[] entries = {
+        const OptionEntry[] ENTRIES = {
             { "new-tab", 't', 0, OptionArg.NONE, out create_new_tab, N_("New Tab"), null },
             { "new-window", 'n', 0, OptionArg.NONE, out create_new_window, N_("New Window"), null },
             { "version", 'v', 0, OptionArg.NONE, out print_version, N_("Print version info and exit"), null },
