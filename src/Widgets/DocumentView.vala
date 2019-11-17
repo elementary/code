@@ -129,7 +129,8 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
     private string unsaved_file_path_builder () {
         var timestamp = new DateTime.now_local ();
-        string new_text_file = _("Text file from %s").printf (timestamp.format ("%Y-%m-%d %H:%M:%S"));
+
+        string new_text_file = _("Text file from %s:%d").printf (timestamp.format ("%Y-%m-%d %H:%M:%S"), timestamp.get_microsecond ());
 
         return Path.build_filename (Application.instance.data_home_folder_unsaved, new_text_file);
     }
@@ -328,7 +329,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         return false;
     }
 
-    private void drag_received (Gtk.Widget w, Gdk.DragContext ctx, int x, int y, Gtk.SelectionData sel,  uint info, uint time) {
+    private void drag_received (Gtk.Widget w, Gdk.DragContext ctx, int x, int y, Gtk.SelectionData sel, uint info, uint time) {
         var uris = sel.get_uris ();
         foreach (var filename in uris) {
             var file = File.new_for_uri (filename);
@@ -360,7 +361,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         string file_uri = "";
 
         if (current_document != null) {
-            file_uri = current_document.file.get_uri();
+            file_uri = current_document.file.get_uri ();
         }
 
         if (file_uri != "") {

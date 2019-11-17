@@ -23,6 +23,6 @@ public class Code.Plugins.CtagsSymbolIter : Object {
     public Icon? icon { get; construct set; }
 
     public CtagsSymbolIter (string name, string parent, int line, Icon? icon) {
-        Object(name: name, parent: parent, line: line, icon: icon);
+        Object (name: name, parent: parent, line: line, icon: icon);
     }
 }

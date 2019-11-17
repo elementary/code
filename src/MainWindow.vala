@@ -21,8 +21,8 @@
 
 namespace Scratch {
     public class MainWindow : Gtk.Window {
-        public int FONT_SIZE_MAX = 72;
-        public int FONT_SIZE_MIN = 7;
+        public const int FONT_SIZE_MAX = 72;
+        public const int FONT_SIZE_MIN = 7;
         private const uint MAX_SEARCH_TEXT_LENGTH = 255;
 
         public weak Scratch.Application app { get; construct; }
@@ -91,7 +91,7 @@ namespace Scratch {
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
-        private const ActionEntry[] action_entries = {
+        private const ActionEntry[] ACTION_ENTRIES = {
             { ACTION_FIND, action_fetch },
             { ACTION_FIND_NEXT, action_find_next },
             { ACTION_FIND_PREVIOUS, action_find_previous },
@@ -157,6 +157,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_ZOOM_DEFAULT, "<Control>0");
             action_accelerators.set (ACTION_ZOOM_DEFAULT, "<Control>KP_0");
             action_accelerators.set (ACTION_ZOOM_IN, "<Control>plus");
+            action_accelerators.set (ACTION_ZOOM_IN, "<Control>equal");
             action_accelerators.set (ACTION_ZOOM_IN, "<Control>KP_Add");
             action_accelerators.set (ACTION_ZOOM_OUT, "<Control>minus");
             action_accelerators.set (ACTION_ZOOM_OUT, "<Control>KP_Subtract");
@@ -172,7 +173,7 @@ namespace Scratch {
 
         construct {
             actions = new SimpleActionGroup ();
-            actions.add_action_entries (action_entries, this);
+            actions.add_action_entries (ACTION_ENTRIES, this);
             insert_action_group ("win", actions);
 
             actions.action_state_changed.connect ((name, new_state) => {
@@ -194,7 +195,10 @@ namespace Scratch {
             });
 
             foreach (var action in action_accelerators.get_keys ()) {
-                app.set_accels_for_action (ACTION_PREFIX + action, action_accelerators[action].to_array ());
+                var accels_array = action_accelerators[action].to_array ();
+                accels_array += null;
+
+                app.set_accels_for_action (ACTION_PREFIX + action, accels_array);
             }
 
             set_size_request (450, 400);
@@ -231,9 +235,9 @@ namespace Scratch {
             ds_event.actor = "application://" + Constants.PROJECT_NAME + ".desktop";
             ds_event.add_subject (new Zeitgeist.Subject ());
             var ds_events = new GenericArray<Zeitgeist.Event> ();
-            ds_events.add(ds_event);
-            var ds = new Zeitgeist.DataSource.full ("scratch-logger",
-                                          _("Zeitgeist Datasource for Scratch"),
+            ds_events.add (ds_event);
+            var ds = new Zeitgeist.DataSource.full ("code-logger",
+                                          _("Zeitgeist Datasource for Code"),
                                           "A data source which logs Open, Close, Save and Move Events",
                                           ds_events); // FIXME: templates!
             registry.register_data_source.begin (ds, null, (obj, res) => {
@@ -304,9 +308,14 @@ namespace Scratch {
             folder_manager_view = new FolderManager.FileView ();
 
             folder_manager_view.select.connect ((a) => {
-                var file = GLib.File.new_for_path (a);
-                var doc = new Scratch.Services.Document (actions, file);
-                open_document (doc);
+                var file = new Scratch.FolderManager.File (a);
+                var doc = new Scratch.Services.Document (actions, file.file);
+
+                if (file.is_valid_textfile) {
+                    open_document (doc);
+                } else {
+                    open_binary (file.file);
+                }
             });
 
             folder_manager_view.root.child_added.connect (() => {
@@ -353,25 +362,39 @@ namespace Scratch {
 
             add (vp);
 
-            // Show/Hide widgets
-            show_all ();
-
             search_revealer.set_reveal_child (false);
 
-            // Plugins hook
-            HookFunc hook_func = () => {
-                plugins.hook_window (this);
-                plugins.hook_toolbar (toolbar);
-                plugins.hook_share_menu (toolbar.share_menu);
-                plugins.hook_notebook_bottom (bottombar);
-                plugins.hook_split_view (split_view);
-            };
+            realize.connect (() => {
+                // Plugins hook
+                HookFunc hook_func = () => {
+                    plugins.hook_window (this);
+                    plugins.hook_toolbar (toolbar);
+                    plugins.hook_share_menu (toolbar.share_menu);
+                    plugins.hook_notebook_bottom (bottombar);
+                    plugins.hook_split_view (split_view);
+                };
 
-            plugins.extension_added.connect (() => {
+                plugins.extension_added.connect (() => {
+                    hook_func ();
+                });
+
                 hook_func ();
             });
 
-            hook_func ();
+            // Show/Hide widgets
+            show_all ();
+        }
+
+        private void open_binary (File file) {
+            if (!file.query_exists ()) {
+                return;
+            }
+
+            try {
+                AppInfo.launch_default_for_uri (file.get_uri (), null);
+            } catch (Error e) {
+                critical (e.message);
+            }
         }
 
         public void restore_opened_documents () {
@@ -738,13 +761,31 @@ namespace Scratch {
         }
 
         private void action_open () {
-            // Show a GtkFileChooserDialog
-            var filech = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.OPEN, _("Open some files"), this, true);
-            var response = filech.run ();
-            filech.close (); // Close now so it does not stay open during lengthy or failed loading
+            var all_files_filter = new Gtk.FileFilter ();
+            all_files_filter.set_filter_name (_("All files"));
+            all_files_filter.add_pattern ("*");
+
+            var text_files_filter = new Gtk.FileFilter ();
+            text_files_filter.set_filter_name (_("Text files"));
+            text_files_filter.add_mime_type ("text/*");
+
+            var file_chooser = new Gtk.FileChooserNative (
+                _("Open some files"),
+                this,
+                Gtk.FileChooserAction.OPEN,
+                _("Open"),
+                _("Cancel")
+            );
+            file_chooser.add_filter (text_files_filter);
+            file_chooser.add_filter (all_files_filter);
+            file_chooser.select_multiple = true;
+            file_chooser.set_current_folder_uri (Utils.last_path ?? GLib.Environment.get_home_dir ());
+
+            var response = file_chooser.run ();
+            file_chooser.destroy (); // Close now so it does not stay open during lengthy or failed loading
 
             if (response == Gtk.ResponseType.ACCEPT) {
-                foreach (string uri in filech.get_uris ()) {
+                foreach (string uri in file_chooser.get_uris ()) {
                     // Update last visited path
                     Utils.last_path = Path.get_dirname (uri);
                     // Open the file
@@ -756,10 +797,12 @@ namespace Scratch {
         }
 
         private void action_open_folder () {
-            var chooser = new Gtk.FileChooserDialog (
+            var chooser = new Gtk.FileChooserNative (
                 "Select a folder.", this, Gtk.FileChooserAction.SELECT_FOLDER,
-                _("_Cancel"), Gtk.ResponseType.CANCEL,
-                _("_Open"), Gtk.ResponseType.ACCEPT);
+                _("_Open"),
+                _("_Cancel")
+            );
+
             chooser.select_multiple = true;
 
             if (chooser.run () == Gtk.ResponseType.ACCEPT) {
@@ -769,7 +812,7 @@ namespace Scratch {
                 });
             }
 
-            chooser.close ();
+            chooser.destroy ();
         }
 
         private void action_save () {
@@ -805,10 +848,14 @@ namespace Scratch {
         }
 
         private void action_revert () {
-            var doc = get_current_document ();
-            if (doc != null) {
-                doc.revert ();
+            var confirmation_dialog = new Scratch.Dialogs.RestoreConfirmationDialog (this);
+            if (confirmation_dialog.run () == Gtk.ResponseType.ACCEPT) {
+                var doc = get_current_document ();
+                if (doc != null) {
+                    doc.revert ();
+                }
             }
+            confirmation_dialog.destroy ();
         }
 
         private void action_duplicate () {
@@ -975,4 +1022,3 @@ namespace Scratch {
         }
     }
 }
-

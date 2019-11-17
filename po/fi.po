@@ -7,59 +7,45 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
-"PO-Revision-Date: 2018-12-06 22:09+0000\n"
-"Last-Translator: Veli-Pekka Samuli Finnilä <vpf@tuta.io>\n"
-"Language-Team: Finnish <https://weblate.elementary.io/projects/code/code/fi/"
-">\n"
+"POT-Creation-Date: 2019-11-15 19:42+0000\n"
+"PO-Revision-Date: 2019-11-05 13:24+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+"Language-Team: Finnish <https://l10n.elementary.io/projects/code/code/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
+#: src/Application.vala:132
+#, c-format
+msgid "File \"%s\" Cannot Be Created"
+msgstr "Tiedostoa \"%s\" ei voi luoda"
+
 #. We list some common errors for quick feedback
-#: src/Application.vala:135
+#: src/Application.vala:136
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Kenties sinulla ei ole tarvittavia oikeuksia."
 
-#: src/Application.vala:137
+#: src/Application.vala:138
 msgid "Maybe the file path provided is not valid."
 msgstr "Kenties määritetty polku on virheellinen."
 
-#: src/Application.vala:139
+#: src/Application.vala:140
 msgid "The location is read-only."
 msgstr "Sijainti on \"vain luku\"-muodossa."
 
-#: src/Application.vala:141
+#: src/Application.vala:142
 msgid "The parent directory doesn't exist."
 msgstr "Ylätason kansiota ei ole olemassa."
 
-#: src/Application.vala:148
-#, c-format
-msgid ""
-"File \"%s\" cannot be created.\n"
-"%s"
-msgstr ""
-"Tiedostoa \"%s\" ei voitu luoda.\n"
-"%s"
-
-#: src/Application.vala:158
-#, c-format
-msgid ""
-"File \"%s\" cannot be opened.\n"
-"%s"
-msgstr ""
-"Tiedostoa \"%s\" ei voitu avata.\n"
-"%s"
-
-#: src/Application.vala:168
+#: src/Application.vala:163
 msgid "It is a mountable location."
 msgstr "Kyseessä on liitettävä sijainti."
 
-#: src/Application.vala:171
+#: src/Application.vala:166
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -67,79 +53,79 @@ msgstr ""
 "Kyseessä on \"erityinen\" tiedosto, kuten pistoke,\n"
 " FIFO, lohkolaite tai merkkilaite."
 
-#: src/Application.vala:174
+#: src/Application.vala:169
 msgid "It is an \"unknown\" file type."
 msgstr "Kyseessä on \"tuntematon\" tiedostotyyppi."
 
-#: src/Application.vala:263
+#: src/Application.vala:174
+#, c-format
+msgid "File \"%s\" Cannot Be Opened"
+msgstr "Tiedostoa \"%s\" ei voi avata"
+
+#: src/Application.vala:246
 msgid "New Tab"
 msgstr "Uusi välilehti"
 
-#: src/Application.vala:264 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:247 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Uusi ikkuna"
 
-#: src/Application.vala:265
+#: src/Application.vala:248
 msgid "Print version info and exit"
 msgstr "Tulosta versiotiedot ja poistu"
 
-#: src/Application.vala:266
+#: src/Application.vala:249
 msgid "Set of plugins"
 msgstr "Laajennusjoukko"
 
-#: src/Application.vala:267
-msgid "Current working directory"
-msgstr "Nykyinen työskentelyhakemisto"
+#: src/Application.vala:249
+msgid "plugin"
+msgstr "liitännäinen"
 
 #: src/MainWindow.vala:133
 msgid "Code"
 msgstr "Koodi"
 
-#: src/MainWindow.vala:183 src/Widgets/HeaderBar.vala:80
+#: src/MainWindow.vala:184 src/Widgets/HeaderBar.vala:80
 msgid "Find…"
 msgstr "Etsi…"
 
-#: src/MainWindow.vala:188
+#: src/MainWindow.vala:189
 msgid "Hide search bar"
 msgstr "Piilota hakupalkki"
 
-#: src/MainWindow.vala:236
-msgid "Zeitgeist Datasource for Scratch"
-msgstr "Zeitgeist-datalähde Scratchille"
+#: src/MainWindow.vala:240
+msgid "Zeitgeist Datasource for Code"
+msgstr "Zeitgeist-tietolähde Code-sovellukselle"
 
-#. Show a GtkFileChooserDialog
-#: src/MainWindow.vala:742
-msgid "Open some files"
-msgstr "Avaa tiedostoja"
-
-#: src/MainWindow.vala:761
-msgid "_Cancel"
-msgstr "_Peru"
-
-#: src/MainWindow.vala:762
-msgid "_Open"
-msgstr "_Avaa"
-
-#: src/Utils.vala:27
+#: src/MainWindow.vala:765 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Kaikki tiedostot"
 
-#: src/Utils.vala:31
+#: src/MainWindow.vala:769 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Tekstitiedostot"
 
-#: src/Utils.vala:35 src/Services/Document.vala:409
-msgid "Cancel"
-msgstr "Peru"
+#: src/MainWindow.vala:773
+msgid "Open some files"
+msgstr "Avaa tiedostoja"
 
-#: src/Utils.vala:44
+#: src/MainWindow.vala:776
 msgid "Open"
 msgstr "Avaa"
 
-#: src/Utils.vala:46 src/Services/Document.vala:410
-#: src/Services/Document.vala:729
-msgid "Save"
-msgstr "Tallenna"
+#: src/MainWindow.vala:777 src/Services/Document.vala:401
+#: src/Services/Document.vala:514
+msgid "Cancel"
+msgstr "Peru"
+
+#: src/MainWindow.vala:802
+msgid "_Open"
+msgstr "_Avaa"
+
+#: src/MainWindow.vala:803
+msgid "_Cancel"
+msgstr "_Peru"
 
 #: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:160
 msgid "Preferences"
@@ -231,23 +217,41 @@ msgstr "Fontti"
 msgid "Custom font:"
 msgstr "Mukautettu fontti:"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
+#: src/Dialogs/RestoreConfirmationDialog.vala:31
+msgid "Are You Sure You Want to Restore This File?"
+msgstr "Haluatko varmasti palauttaa tämän tiedoston?"
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:32
+msgid "Restoring a file will undo all changes made since opening it"
+msgstr ""
+"Tiedoston palauttaminen kumoaa kaikki avaamisen jälkeen siihen tehdyt "
+"muutokset"
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:34
+msgid "Don't Restore"
+msgstr "Älä palauta"
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:36
+msgid "Restore Anyway"
+msgstr "Palauta silti"
+
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:114
 msgid "Other Application…"
 msgstr "Muu sovellus…"
 
-#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:154
 msgid "Open In"
 msgstr "Avaa kohteessa"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:89
 msgid "Other Actions"
 msgstr "Muut toiminnot"
 
-#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:92
 msgid "Rename"
 msgstr "Nimeä uudelleen"
 
-#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:98
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr "Siirrä roskakoriin"
@@ -256,32 +260,32 @@ msgstr "Siirrä roskakoriin"
 msgid "Folders"
 msgstr "Kansiot"
 
-#: src/FolderManager/FolderItem.vala:148
+#: src/FolderManager/FolderItem.vala:161
 msgid "Folder"
 msgstr "Kansio"
 
-#: src/FolderManager/FolderItem.vala:151
+#: src/FolderManager/FolderItem.vala:164
 msgid "Empty File"
 msgstr "Tyhjä tiedosto"
 
-#: src/FolderManager/FolderItem.vala:158
+#: src/FolderManager/FolderItem.vala:171
 msgid "New"
 msgstr "Uusi"
 
-#: src/FolderManager/FolderItem.vala:322
+#: src/FolderManager/FolderItem.vala:335
 msgid "untitled folder"
 msgstr "nimetön kansio"
 
-#: src/FolderManager/FolderItem.vala:326
+#: src/FolderManager/FolderItem.vala:339
 #, c-format
 msgid "untitled folder %d"
 msgstr "nimetön kansio %d"
 
-#: src/FolderManager/FolderItem.vala:354
+#: src/FolderManager/FolderItem.vala:367
 msgid "new file"
 msgstr "uusi tiedosto"
 
-#: src/FolderManager/FolderItem.vala:358
+#: src/FolderManager/FolderItem.vala:371
 #, c-format
 msgid "new file %d"
 msgstr "uusi tiedosto %d"
@@ -290,71 +294,74 @@ msgstr "uusi tiedosto %d"
 msgid "Close Folder"
 msgstr "Sulje kansio"
 
-#: src/Services/Document.vala:267
+#: src/FolderManager/ProjectFolderItem.vala:286
+msgid "Branch"
+msgstr "Haara"
+
+#: src/Services/Document.vala:266
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s ei ole tekstitiedosto"
 
-#: src/Services/Document.vala:268
+#: src/Services/Document.vala:267
 msgid "Code will not load this type of file."
 msgstr "Koodi ei voi ladata tämäntyyppistä tiedostoa."
 
-#: src/Services/Document.vala:270
+#: src/Services/Document.vala:269
 msgid "Load Anyway"
 msgstr "Lataa silti"
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:290
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Tiedoston \"%s\" lataaminen kestää kauan"
 
-#: src/Services/Document.vala:292
+#: src/Services/Document.vala:291
 msgid "Please wait while Code is loading the file."
 msgstr "Koodi lataa tiedostoa. Ole hyvä ja odota."
 
-#: src/Services/Document.vala:294
-#, fuzzy
+#: src/Services/Document.vala:293
 msgid "Cancel Loading"
 msgstr "Peru lataaminen"
 
-#: src/Services/Document.vala:400
+#: src/Services/Document.vala:391
 #, c-format
-msgid "Save changes to document %s before closing?"
-msgstr "Tallennetaanko tiedostoon %s tehdyt muutokset?"
+msgid "Save changes to \"%s\" before closing?"
+msgstr "Tallennetaanko tiedostoon \"%s\" tehdyt muutokset ennen sulkemista?"
 
-#: src/Services/Document.vala:403
-msgid ""
-"If you don't save, changes from the last 4 seconds will be permanently lost."
-msgstr ""
-"Jos et tallenna, muutokset viimeiseltä neljältä sekunnilta katoavat "
-"pysyvästi."
+#: src/Services/Document.vala:392
+msgid "If you don't save, changes will be permanently lost."
+msgstr "Jos et tallenna, muutokset katoavat pysyvästi."
 
-#: src/Services/Document.vala:405
-msgid "Close without saving"
+#: src/Services/Document.vala:398
+msgid "Close Without Saving"
 msgstr "Sulje tallentamatta"
+
+#: src/Services/Document.vala:402 src/Services/Document.vala:513
+#: src/Services/Document.vala:737
+msgid "Save"
+msgstr "Tallenna"
 
 #: src/Services/Document.vala:510
 msgid "Save File"
 msgstr "Tallenna tiedosto"
 
-#: src/Services/Document.vala:584
+#: src/Services/Document.vala:592
 msgid "New Document"
 msgstr "Uusi asiakirja"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:707
+#: src/Services/Document.vala:715
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Tiedostoa \"%s\" ei voitu lukea"
 
-#: src/Services/Document.vala:708
-#, fuzzy
+#: src/Services/Document.vala:716
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
-"Se voi olla korruptoitunut, tai tarvittava käyttöoikeus sen lukemiseen "
-"puuttuu."
+"Se voi olla rikkoutunut, tai tarvittava käyttöoikeus sen lukemiseen puuttuu."
 
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:728
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -363,30 +370,30 @@ msgstr ""
 "Liitos, jossa tiedosto \"%s\" sijaitsee, irrotettiin. Haluatko tallentaa "
 "tiedoston jonnekin muualle?"
 
-#: src/Services/Document.vala:722
+#: src/Services/Document.vala:730
 msgid "Save As…"
 msgstr "Tallenna nimellä…"
 
-#: src/Services/Document.vala:727
+#: src/Services/Document.vala:735
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Tiedosto \"%s\" poistettiin. Haluatko tallentaa sen silti?"
 
 #. If the file can't be written
-#: src/Services/Document.vala:742
-#, fuzzy, c-format
+#: src/Services/Document.vala:750
+#, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
-"Et  voi tallentaa muutoksia tiedostoon \"%s\". Haluatko tallentaa tähän "
-"tiedostoon tehdyt muutokset toiseen sijaintiin?"
+"Et  voi tallentaa muutoksia tiedostoon \"%s\". Haluatko tallentaa tehdyt "
+"muutokset toiseen sijaintiin?"
 
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:752
 msgid "Save changes elsewhere"
 msgstr "Tallenna muutokset muualle"
 
-#: src/Services/Document.vala:777
+#: src/Services/Document.vala:785
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -395,22 +402,22 @@ msgstr ""
 "Tiedostoa \"%s\" muokattiin toisella sovelluksella. Haluatko ladata "
 "tiedoston uudelleen vai jatkaa muokkaamista?"
 
-#: src/Services/Document.vala:778
+#: src/Services/Document.vala:786
 msgid "Load"
 msgstr "Lataa"
 
-#: src/Services/Document.vala:781
+#: src/Services/Document.vala:789
 msgid "Continue"
 msgstr "Jatka"
 
-#: src/Services/TemplateManager.vala:194
+#: src/Services/TemplateManager.vala:192
 msgid "Templates"
 msgstr "Mallit"
 
-#: src/Widgets/DocumentView.vala:132
+#: src/Widgets/DocumentView.vala:133
 #, c-format
-msgid "Text file from %s"
-msgstr "Tekstitiedosto lähteestä %s"
+msgid "Text file from %s:%d"
+msgstr "Tekstitiedosto lähteestä %s:%d"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
@@ -630,7 +637,7 @@ msgstr "Yksi päivä"
 msgid "One month"
 msgstr "Yksi kuukausi"
 
-#: plugins/pastebin/pastebin.vala:94
+#: plugins/pastebin/pastebin.vala:91
 msgid "Upload to Pastebin"
 msgstr "Lähetä Pastebiniin"
 
@@ -643,26 +650,26 @@ msgstr "Lähetä Pastebiniin"
 msgid "Symbols"
 msgstr "Symbolit"
 
-#: plugins/terminal/terminal.vala:135 plugins/terminal/terminal.vala:142
+#: plugins/terminal/terminal.vala:134 plugins/terminal/terminal.vala:141
 msgid "Show Terminal"
 msgstr "Näytä pääte"
 
-#: plugins/terminal/terminal.vala:138
+#: plugins/terminal/terminal.vala:137
 msgid "Hide Terminal"
 msgstr "Piilota pääte"
 
-#: plugins/terminal/terminal.vala:139
+#: plugins/terminal/terminal.vala:138
 msgid "Terminal"
 msgstr "Pääte"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:194
+#: plugins/terminal/terminal.vala:193
 msgid "Copy"
 msgstr "Kopioi"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:201
+#: plugins/terminal/terminal.vala:200
 msgid "Paste"
 msgstr "Liitä"
 
@@ -670,32 +677,50 @@ msgstr "Liitä"
 msgid "Web Preview"
 msgstr "Web-esikatselu"
 
-#: plugins/browser-preview/browser-preview.vala:72
-#: plugins/browser-preview/browser-preview.vala:98
+#: plugins/browser-preview/browser-preview.vala:70
+#: plugins/browser-preview/browser-preview.vala:96
 msgid "Show Preview"
 msgstr "Näytä esikatselu"
 
-#: plugins/browser-preview/browser-preview.vala:90
+#: plugins/browser-preview/browser-preview.vala:88
 msgid "Hide Preview"
 msgstr "Piilota esikatselu"
 
-#: plugins/spell/spell.vala:77
-msgid ""
-"No suitable dictionaries were found.\n"
-"Please install at least one [aspell] dictionary"
-msgstr ""
-"Sopivaa sanakirjaa ei löytynyt.\n"
-"Asenna vähintään yksi [aspell] sanakirja"
+#: plugins/spell/spell.vala:74
+msgid "No Suitable Dictionaries Were Found"
+msgstr "Sopivia sanakirjoja ei löytynyt"
 
-#: plugins/word-completion/plugin.vala:174
+#: plugins/spell/spell.vala:75
+msgid "Please install at least one [aspell] dictionary."
+msgstr "Asenna vähintään yksi [aspell]-sanakirja."
+
+#: plugins/word-completion/plugin.vala:173
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Sanojen täydennys"
 
-#: plugins/word-completion/completion-provider.vala:80
-#, c-format
-msgid "Could not load icon theme: %s\n"
-msgstr "Kuvaketeeman lataus epäonnistui: %s\n"
+#~ msgid "Could not load icon theme: %s\n"
+#~ msgstr "Kuvaketeeman lataus epäonnistui: %s\n"
+
+#~ msgid "Current working directory"
+#~ msgstr "Nykyinen työskentelyhakemisto"
+
+#~ msgid "directory"
+#~ msgstr "kansio"
+
+#~ msgid ""
+#~ "File \"%s\" cannot be created.\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Tiedostoa \"%s\" ei voitu luoda.\n"
+#~ "%s"
+
+#~ msgid ""
+#~ "File \"%s\" cannot be opened.\n"
+#~ "%s"
+#~ msgstr ""
+#~ "Tiedostoa \"%s\" ei voitu avata.\n"
+#~ "%s"
 
 #~ msgid "Edit text files"
 #~ msgstr "Muokkaa tekstitiedostoja"
@@ -757,9 +782,6 @@ msgstr "Kuvaketeeman lataus epäonnistui: %s\n"
 #~ msgid "New file from Clipboard"
 #~ msgstr "Uusi tiedosto leikepöydältä"
 
-#~ msgid "Change Scratch settings"
-#~ msgstr "Muuta Scratchin asetuksia"
-
 #~ msgid "Next Tab"
 #~ msgstr "Seuraava välilehti"
 
@@ -784,9 +806,6 @@ msgstr "Kuvaketeeman lataus epäonnistui: %s\n"
 #~ "  Rami Selin https://launchpad.net/~rami-selin\n"
 #~ "  Teemu Kielinen https://launchpad.net/~teemu-kielinen\n"
 #~ "  topias https://launchpad.net/~topias-kinnunen"
-
-#~ msgid "It is a directory."
-#~ msgstr "Kyseessä on kansio."
 
 #~ msgid "New file from clipboard"
 #~ msgstr "Uusi tiedosto leikepöydältä"

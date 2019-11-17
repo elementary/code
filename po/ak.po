@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-08 15:53-0800\n"
+"POT-Creation-Date: 2019-11-15 19:42+0000\n"
 "PO-Revision-Date: 2017-04-09 20:11+0000\n"
 "Last-Translator: aberba <karabutaworld@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,120 +13,112 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:00+0000\n"
 "X-Generator: Launchpad (build 18366)\n"
 
+#: src/Application.vala:132
+#, c-format
+msgid "File \"%s\" Cannot Be Created"
+msgstr ""
+
 #. We list some common errors for quick feedback
-#: src/Application.vala:135
+#: src/Application.vala:136
 msgid "Maybe you do not have the necessary permissions."
 msgstr ""
 
-#: src/Application.vala:137
+#: src/Application.vala:138
 msgid "Maybe the file path provided is not valid."
 msgstr ""
 
-#: src/Application.vala:139
+#: src/Application.vala:140
 msgid "The location is read-only."
 msgstr ""
 
-#: src/Application.vala:141
+#: src/Application.vala:142
 msgid "The parent directory doesn't exist."
 msgstr ""
 
-#: src/Application.vala:148
-#, c-format
-msgid ""
-"File \"%s\" cannot be created.\n"
-"%s"
-msgstr ""
-
-#: src/Application.vala:158
-#, c-format
-msgid ""
-"File \"%s\" cannot be opened.\n"
-"%s"
-msgstr ""
-
-#: src/Application.vala:168
+#: src/Application.vala:163
 msgid "It is a mountable location."
 msgstr ""
 
-#: src/Application.vala:171
+#: src/Application.vala:166
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
 msgstr ""
 
-#: src/Application.vala:174
+#: src/Application.vala:169
 msgid "It is an \"unknown\" file type."
 msgstr ""
 
-#: src/Application.vala:263
+#: src/Application.vala:174
+#, c-format
+msgid "File \"%s\" Cannot Be Opened"
+msgstr ""
+
+#: src/Application.vala:246
 msgid "New Tab"
 msgstr "Tab Foforɔ"
 
-#: src/Application.vala:264 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:247 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Window Foforɔ"
 
-#: src/Application.vala:265
+#: src/Application.vala:248
 msgid "Print version info and exit"
 msgstr "Printe"
 
-#: src/Application.vala:266
+#: src/Application.vala:249
 msgid "Set of plugins"
 msgstr "Plugins Ahoroɔ"
 
-#: src/Application.vala:267
-msgid "Current working directory"
-msgstr "Ɛha ara"
+#: src/Application.vala:249
+#, fuzzy
+msgid "plugin"
+msgstr "Plugins Ahoroɔ"
 
 #: src/MainWindow.vala:133
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:183 src/Widgets/HeaderBar.vala:80
+#: src/MainWindow.vala:184 src/Widgets/HeaderBar.vala:80
 msgid "Find…"
 msgstr ""
 
-#: src/MainWindow.vala:188
+#: src/MainWindow.vala:189
 msgid "Hide search bar"
 msgstr ""
 
-#: src/MainWindow.vala:236
-msgid "Zeitgeist Datasource for Scratch"
+#: src/MainWindow.vala:240
+msgid "Zeitgeist Datasource for Code"
 msgstr ""
 
-#. Show a GtkFileChooserDialog
-#: src/MainWindow.vala:742
-msgid "Open some files"
-msgstr ""
-
-#: src/MainWindow.vala:761
-msgid "_Cancel"
-msgstr ""
-
-#: src/MainWindow.vala:762
-msgid "_Open"
-msgstr ""
-
-#: src/Utils.vala:27
+#: src/MainWindow.vala:765 src/Services/Document.vala:502
 msgid "All files"
 msgstr ""
 
-#: src/Utils.vala:31
+#: src/MainWindow.vala:769 src/Services/Document.vala:506
 msgid "Text files"
 msgstr ""
 
-#: src/Utils.vala:35 src/Services/Document.vala:409
-msgid "Cancel"
-msgstr "Gyae"
+#: src/MainWindow.vala:773
+msgid "Open some files"
+msgstr ""
 
-#: src/Utils.vala:44
+#: src/MainWindow.vala:776
 msgid "Open"
 msgstr ""
 
-#: src/Utils.vala:46 src/Services/Document.vala:410
-#: src/Services/Document.vala:729
-msgid "Save"
-msgstr "Kora"
+#: src/MainWindow.vala:777 src/Services/Document.vala:401
+#: src/Services/Document.vala:514
+msgid "Cancel"
+msgstr "Gyae"
+
+#: src/MainWindow.vala:802
+msgid "_Open"
+msgstr ""
+
+#: src/MainWindow.vala:803
+msgid "_Cancel"
+msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:160
 msgid "Preferences"
@@ -218,24 +210,40 @@ msgstr ""
 msgid "Custom font:"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:64
+#: src/Dialogs/RestoreConfirmationDialog.vala:31
+msgid "Are You Sure You Want to Restore This File?"
+msgstr ""
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:32
+msgid "Restoring a file will undo all changes made since opening it"
+msgstr ""
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:34
+msgid "Don't Restore"
+msgstr ""
+
+#: src/Dialogs/RestoreConfirmationDialog.vala:36
+msgid "Restore Anyway"
+msgstr ""
+
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:114
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:112 src/FolderManager/FolderItem.vala:120
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:154
 #, fuzzy
 msgid "Open In"
 msgstr "Bue file"
 
-#: src/FolderManager/FileItem.vala:115 src/FolderManager/FolderItem.vala:123
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:89
 msgid "Other Actions"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:118 src/FolderManager/FolderItem.vala:126
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:92
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:124 src/FolderManager/FolderItem.vala:132
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:98
 #: src/FolderManager/ProjectFolderItem.vala:81
 msgid "Move to Trash"
 msgstr ""
@@ -244,34 +252,34 @@ msgstr ""
 msgid "Folders"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:148
+#: src/FolderManager/FolderItem.vala:161
 msgid "Folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:151
+#: src/FolderManager/FolderItem.vala:164
 msgid "Empty File"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:158
+#: src/FolderManager/FolderItem.vala:171
 #, fuzzy
 msgid "New"
 msgstr "Tab Foforɔ"
 
-#: src/FolderManager/FolderItem.vala:322
+#: src/FolderManager/FolderItem.vala:335
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:326
+#: src/FolderManager/FolderItem.vala:339
 #, c-format
 msgid "untitled folder %d"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:354
+#: src/FolderManager/FolderItem.vala:367
 #, fuzzy
 msgid "new file"
 msgstr "File foforɔ"
 
-#: src/FolderManager/FolderItem.vala:358
+#: src/FolderManager/FolderItem.vala:371
 #, fuzzy, c-format
 msgid "new file %d"
 msgstr "File foforɔ"
@@ -280,69 +288,79 @@ msgstr "File foforɔ"
 msgid "Close Folder"
 msgstr ""
 
-#: src/Services/Document.vala:267
+#: src/FolderManager/ProjectFolderItem.vala:286
+msgid "Branch"
+msgstr ""
+
+#: src/Services/Document.vala:266
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:268
+#: src/Services/Document.vala:267
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:270
+#: src/Services/Document.vala:269
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:290
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:292
+#: src/Services/Document.vala:291
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:294
+#: src/Services/Document.vala:293
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Gyae"
 
-#: src/Services/Document.vala:400
-#, c-format
-msgid "Save changes to document %s before closing?"
+#: src/Services/Document.vala:391
+#, fuzzy, c-format
+msgid "Save changes to \"%s\" before closing?"
 msgstr "Wopɛ sɛ wo kora %s to hɔ ansa wadum no anaa?"
 
-#: src/Services/Document.vala:403
-msgid ""
-"If you don't save, changes from the last 4 seconds will be permanently lost."
+#: src/Services/Document.vala:392
+#, fuzzy
+msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Sɛ wo ankora anto hɔ a, wo bɛ hwere nsesayɛ  a waya no animmoho 4 a atwam no "
 "koraa."
 
-#: src/Services/Document.vala:405
-msgid "Close without saving"
+#: src/Services/Document.vala:398
+#, fuzzy
+msgid "Close Without Saving"
 msgstr "Dum no. Mempɛ sɛ wo kora no"
+
+#: src/Services/Document.vala:402 src/Services/Document.vala:513
+#: src/Services/Document.vala:737
+msgid "Save"
+msgstr "Kora"
 
 #: src/Services/Document.vala:510
 msgid "Save File"
 msgstr "Kora file no"
 
-#: src/Services/Document.vala:584
+#: src/Services/Document.vala:592
 msgid "New Document"
 msgstr "Document Foforɔ"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:707
+#: src/Services/Document.vala:715
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 
-#: src/Services/Document.vala:708
+#: src/Services/Document.vala:716
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "File %s antumi ambue. Ebia na asɛe anaa wo nni ho kwan sɛ wo bue."
 
-#: src/Services/Document.vala:720
+#: src/Services/Document.vala:728
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -350,28 +368,28 @@ msgid ""
 msgstr ""
 "Bɛbi a file %s wɔ no nnya mmounte yɛ. Wopɛ sɛ wo kora no baabi fofor anaa?"
 
-#: src/Services/Document.vala:722
+#: src/Services/Document.vala:730
 msgid "Save As…"
 msgstr "Kora no sɛ ..."
 
-#: src/Services/Document.vala:727
+#: src/Services/Document.vala:735
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "File %s nni akoraɛ biara mu. Wo pɛ sɛ wo kora to hɔ anna?"
 
 #. If the file can't be written
-#: src/Services/Document.vala:742
+#: src/Services/Document.vala:750
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr "File %s ntumi nkora wɔ ɛha. Wopɛ sɛ wo kora to babi foforo anaa?"
 
-#: src/Services/Document.vala:744
+#: src/Services/Document.vala:752
 msgid "Save changes elsewhere"
 msgstr "Kora to baabi fororɔ"
 
-#: src/Services/Document.vala:777
+#: src/Services/Document.vala:785
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -380,21 +398,21 @@ msgstr ""
 "Dwumadi foforɔ ayɛ nsesaɛ wɔ %s mu. Wopɛ sɛ wo hwɛ nsesaɛ no ansa na wakora "
 "no bio anaa?"
 
-#: src/Services/Document.vala:778
+#: src/Services/Document.vala:786
 msgid "Load"
 msgstr "Yi"
 
-#: src/Services/Document.vala:781
+#: src/Services/Document.vala:789
 msgid "Continue"
 msgstr "Toa so"
 
-#: src/Services/TemplateManager.vala:194
+#: src/Services/TemplateManager.vala:192
 msgid "Templates"
 msgstr ""
 
-#: src/Widgets/DocumentView.vala:132
+#: src/Widgets/DocumentView.vala:133
 #, fuzzy, c-format
-msgid "Text file from %s"
+msgid "Text file from %s:%d"
 msgstr "Yɛ ntwerɛe foforɔ firi "
 
 #: src/Widgets/FormatBar.vala:67
@@ -618,7 +636,7 @@ msgstr ""
 msgid "One month"
 msgstr ""
 
-#: plugins/pastebin/pastebin.vala:94
+#: plugins/pastebin/pastebin.vala:91
 msgid "Upload to Pastebin"
 msgstr ""
 
@@ -631,26 +649,26 @@ msgstr ""
 msgid "Symbols"
 msgstr ""
 
-#: plugins/terminal/terminal.vala:135 plugins/terminal/terminal.vala:142
+#: plugins/terminal/terminal.vala:134 plugins/terminal/terminal.vala:141
 msgid "Show Terminal"
 msgstr ""
 
-#: plugins/terminal/terminal.vala:138
+#: plugins/terminal/terminal.vala:137
 msgid "Hide Terminal"
 msgstr ""
 
-#: plugins/terminal/terminal.vala:139
+#: plugins/terminal/terminal.vala:138
 msgid "Terminal"
 msgstr ""
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:194
+#: plugins/terminal/terminal.vala:193
 msgid "Copy"
 msgstr ""
 
 #. PASTE
-#: plugins/terminal/terminal.vala:201
+#: plugins/terminal/terminal.vala:200
 msgid "Paste"
 msgstr ""
 
@@ -658,30 +676,30 @@ msgstr ""
 msgid "Web Preview"
 msgstr ""
 
-#: plugins/browser-preview/browser-preview.vala:72
-#: plugins/browser-preview/browser-preview.vala:98
+#: plugins/browser-preview/browser-preview.vala:70
+#: plugins/browser-preview/browser-preview.vala:96
 msgid "Show Preview"
 msgstr ""
 
-#: plugins/browser-preview/browser-preview.vala:90
+#: plugins/browser-preview/browser-preview.vala:88
 msgid "Hide Preview"
 msgstr ""
 
-#: plugins/spell/spell.vala:77
-msgid ""
-"No suitable dictionaries were found.\n"
-"Please install at least one [aspell] dictionary"
+#: plugins/spell/spell.vala:74
+msgid "No Suitable Dictionaries Were Found"
 msgstr ""
 
-#: plugins/word-completion/plugin.vala:174
+#: plugins/spell/spell.vala:75
+msgid "Please install at least one [aspell] dictionary."
+msgstr ""
+
+#: plugins/word-completion/plugin.vala:173
 #, c-format
 msgid "%s - Word Completion"
 msgstr ""
 
-#: plugins/word-completion/completion-provider.vala:80
-#, c-format
-msgid "Could not load icon theme: %s\n"
-msgstr ""
+#~ msgid "Current working directory"
+#~ msgstr "Ɛha ara"
 
 #~ msgid "Edit text files"
 #~ msgstr "Sesa file ahoroɔ ntwerɛyɛ"
