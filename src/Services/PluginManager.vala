@@ -32,6 +32,7 @@ namespace Scratch.Services {
         public signal void hook_split_view (Scratch.Widgets.SplitView view);
         public signal void hook_document (Scratch.Services.Document doc);
         public signal void hook_preferences_dialog (Scratch.Dialogs.Preferences dialog);
+        public signal void hook_folder_manager_view (Scratch.FolderManager.FileView folder_manager_view);
 
         public Scratch.TemplateManager template_manager { private set; get; }
 
@@ -74,6 +75,7 @@ namespace Scratch.Services {
         public signal void hook_split_view (Scratch.Widgets.SplitView view);
         public signal void hook_document (Scratch.Services.Document doc);
         public signal void hook_preferences_dialog (Scratch.Dialogs.Preferences dialog);
+        public signal void hook_folder_manager_view (Scratch.FolderManager.FileView folder_manager_view);
 
         public signal void extension_added (Peas.PluginInfo info);
         public signal void extension_removed (Peas.PluginInfo info);
@@ -148,6 +150,9 @@ namespace Scratch.Services {
             });
             this.hook_preferences_dialog.connect ((d) => {
                 plugin_iface.hook_preferences_dialog (d);
+            });
+            this.hook_folder_manager_view.connect ((v) => {
+                plugin_iface.hook_folder_manager_view  (v);
             });
         }
 

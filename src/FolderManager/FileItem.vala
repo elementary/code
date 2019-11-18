@@ -22,7 +22,7 @@ namespace Scratch.FolderManager {
     /**
      * Normal item in the source list, represents a textfile.
      */
-    internal class FileItem : Item {
+    public class FileItem : Item {
         public FileItem (File file, FileView view) {
             Object (file: file, view: view);
         }

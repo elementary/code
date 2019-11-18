@@ -22,7 +22,7 @@ namespace Scratch.FolderManager {
     /**
      * SourceList that displays folders and their contents.
      */
-    internal class FileView : Granite.Widgets.SourceList, Code.PaneSwitcher {
+    public class FileView : Granite.Widgets.SourceList, Code.PaneSwitcher {
         private FolderManagerSettings settings;
 
         public signal void select (string file);

@@ -306,6 +306,7 @@ namespace Scratch {
             project_pane = new Code.Pane ();
 
             folder_manager_view = new FolderManager.FileView ();
+            plugins.hook_folder_manager_view (folder_manager_view);
 
             folder_manager_view.select.connect ((a) => {
                 var file = new Scratch.FolderManager.File (a);
@@ -372,6 +373,7 @@ namespace Scratch {
                     plugins.hook_share_menu (toolbar.share_menu);
                     plugins.hook_notebook_bottom (bottombar);
                     plugins.hook_split_view (split_view);
+                    plugins.hook_folder_manager_view (folder_manager_view);
                 };
 
                 plugins.extension_added.connect (() => {

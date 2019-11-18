@@ -26,6 +26,8 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
     Gtk.Notebook? bottombar = null;
     Scratch.Widgets.HeaderBar? toolbar = null;
     Gtk.ToggleToolButton? tool_button = null;
+    Scratch.FolderManager.FileView? folder_manager_view = null;
+    Scratch.FolderManager.ProjectFolderItem? current_root_folder { get; private set; default = null;}
 
     Vte.Terminal terminal;
     Gtk.Grid grid;
@@ -44,7 +46,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
     }
 
     public void activate () {
-
         plugins = (Scratch.Services.Interface) object;
 
         plugins.hook_window.connect ((w) => {
@@ -79,6 +80,13 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         /* Should there be a setting to turn this on/off ? */
         plugins.hook_document.connect (() => {
             change_dir_to_current_doc_parent ();
+        });
+
+        plugins.hook_folder_manager_view.connect ((fmv) => {
+            if (folder_manager_view == null) {
+                folder_manager_view = fmv;
+                folder_manager_view.item_selected.connect (on_folder_manager_item_selected);
+            }
         });
 
         on_hook_notebook ();
@@ -170,6 +178,10 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
             if (current_doc != null && !current_doc.is_file_temporary) {
                 dir = current_doc.file.get_parent ().get_path ();
             }
+        }
+
+        if (dir == null &&  current_root_folder != null) {
+            dir = current_root_folder.path;
         }
 
         if (dir == null) {
@@ -336,6 +348,17 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         }
 
         this.terminal.set_colors (foreground_color, background_color, palette);
+    }
+
+    private void on_folder_manager_item_selected (Granite.Widgets.SourceList.Item? item) {
+        current_root_folder = null;
+
+        if (item != null) {
+            var parent_folder = (Scratch.FolderManager.FolderItem)(item.parent);
+            if (parent_folder != null) {
+                current_root_folder = parent_folder.get_root_folder ();
+            }
+        }
     }
 }
 

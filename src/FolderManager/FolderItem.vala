@@ -23,7 +23,7 @@ namespace Scratch.FolderManager {
      * Expandable item in the source list, represents a folder.
      * Monitored for changes inside the directory.
      */
-    internal class FolderItem : Item {
+    public class FolderItem : Item {
         private GLib.FileMonitor monitor;
         private bool children_loaded = false;
         private string? newly_created_path = null;
@@ -309,7 +309,7 @@ namespace Scratch.FolderManager {
             }
         }
 
-        private ProjectFolderItem? get_root_folder (Granite.Widgets.SourceList.ExpandableItem? start = null) {
+        public ProjectFolderItem? get_root_folder (Granite.Widgets.SourceList.ExpandableItem? start = null) {
             if (start == null) {
                 start = this;
             }
