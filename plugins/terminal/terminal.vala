@@ -27,7 +27,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
     Scratch.Widgets.HeaderBar? toolbar = null;
     Gtk.ToggleToolButton? tool_button = null;
     Scratch.FolderManager.FileView? folder_manager_view = null;
-    Scratch.FolderManager.ProjectFolderItem? current_root_folder { get; private set; default = null;}
 
     Vte.Terminal terminal;
     Gtk.Grid grid;
@@ -83,10 +82,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         });
 
         plugins.hook_folder_manager_view.connect ((fmv) => {
-            if (folder_manager_view == null) {
-                folder_manager_view = fmv;
-                folder_manager_view.item_selected.connect (on_folder_manager_item_selected);
-            }
+            folder_manager_view = fmv;
         });
 
         on_hook_notebook ();
@@ -167,21 +163,30 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         if (terminal == null ||
             !tool_button.active ||
             terminal_has_foreground_process ()) {
-
             return;
         }
 
         string? dir = null;
+        var current_doc = window.get_current_document ();
 
-        if (settings.follow_current_doc_path) {
-            var current_doc = window.get_current_document ();
-            if (current_doc != null && !current_doc.is_file_temporary) {
+        if (current_doc != null && !current_doc.is_file_temporary) {
+            if (settings.follow_current_doc_path) {
                 dir = current_doc.file.get_parent ().get_path ();
             }
-        }
 
-        if (dir == null &&  current_root_folder != null) {
-            dir = current_root_folder.path;
+            if (dir == null) {
+                var item = folder_manager_view.find_path (current_doc.file.get_path ());
+
+                if (item != null && item is Scratch.FolderManager.Item) {
+                    var fmi = (Scratch.FolderManager.Item)item;
+
+                    var parent_folder = (Scratch.FolderManager.FolderItem)(item.parent);
+
+                    if (parent_folder != null) {
+                        dir = parent_folder.get_root_folder ().path;
+                    }
+                }
+            }
         }
 
         if (dir == null) {
@@ -348,17 +353,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         }
 
         this.terminal.set_colors (foreground_color, background_color, palette);
-    }
-
-    private void on_folder_manager_item_selected (Granite.Widgets.SourceList.Item? item) {
-        current_root_folder = null;
-
-        if (item != null) {
-            var parent_folder = (Scratch.FolderManager.FolderItem)(item.parent);
-            if (parent_folder != null) {
-                current_root_folder = parent_folder.get_root_folder ();
-            }
-        }
     }
 }
 

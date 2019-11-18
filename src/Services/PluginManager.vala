@@ -152,7 +152,7 @@ namespace Scratch.Services {
                 plugin_iface.hook_preferences_dialog (d);
             });
             this.hook_folder_manager_view.connect ((v) => {
-                plugin_iface.hook_folder_manager_view  (v);
+                plugin_iface.hook_folder_manager_view (v);
             });
         }
 

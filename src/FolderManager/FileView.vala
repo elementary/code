@@ -75,26 +75,38 @@ namespace Scratch.FolderManager {
         }
 
         public void select_path (string path) {
-            selected = find_path (root, path);
+            selected = find_path (path);
         }
 
-        private Granite.Widgets.SourceList.Item? find_path (Granite.Widgets.SourceList.ExpandableItem list, string path) {
-            foreach (var item in list.children) {
-                if (item is Item) {
-                    var code_item = item as Item;
-                    if (code_item.path == path) {
-                        return item;
-                    }
+        public FolderManager.Item? find_path (
+            string path,
+            Granite.Widgets.SourceList.ExpandableItem? list = null) {
 
-                    if (item is Granite.Widgets.SourceList.ExpandableItem) {
-                        var expander = item as Granite.Widgets.SourceList.ExpandableItem;
-                        if (!expander.expanded || !path.has_prefix (code_item.path)) {
+            if (list == null) {
+                list = this.root;
+            }
+
+            foreach (var item in list.children) {
+                if (item != null && item is FolderManager.Item) {
+                    var code_item = (FolderManager.Item)item;
+
+                    if (item is FolderManager.FolderItem) {
+                        var expander = (Granite.Widgets.SourceList.ExpandableItem)item;
+
+                        if (!expander.expanded ||
+                            !path.has_prefix (code_item.path)) {
+
                             continue;
                         }
 
-                        var recurse_item = find_path (expander, path);
+                        var recurse_item = find_path (path, expander);
+
                         if (recurse_item != null) {
                             return recurse_item;
+                        }
+                    } else {
+                        if (code_item.path == path) {
+                            return code_item;
                         }
                     }
                 }
