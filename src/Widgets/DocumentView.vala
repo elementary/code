@@ -364,7 +364,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             string file_uri = "";
 
             if (current_document != null) {
-                file_uri = current_document.file.get_uri();
+                file_uri = current_document.file.get_uri ();
             }
 
             if (view_id == 1) {
