@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-11 09:24-0700\n"
-"PO-Revision-Date: 2019-01-07 10:58+0000\n"
-"Last-Translator: Nuno Alexandre MS Ribeiro <nuno.anarresti@gmail.com>\n"
-"Language-Team: Portuguese <https://weblate.elementary.io/projects/code/"
-"plugins/pt/>\n"
+"POT-Creation-Date: 2019-11-15 19:42+0000\n"
+"PO-Revision-Date: 2019-11-09 11:24+0000\n"
+"Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
+"Language-Team: Portuguese <https://l10n.elementary.io/projects/code/plugins/"
+"pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.7.1\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -91,7 +91,7 @@ msgstr "Corretor ortográfico"
 
 #: plugins/spell/spell.plugin:7
 msgid "Checks the spelling of your documents"
-msgstr "Verifica a ortografia dos teus documentos"
+msgstr "Verifica a ortografia dos seus documentos"
 
 #: plugins/strip-trailing-save/strip-trailing-save.plugin:6
 msgid "Strip trailing whitespace"
@@ -106,8 +106,8 @@ msgid "Terminal"
 msgstr "Terminal"
 
 #: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your text editor"
-msgstr "Um terminal no teu editor de texto"
+msgid "A terminal in your code editor"
+msgstr "Um terminal no seu editor de texto"
 
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
