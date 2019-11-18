@@ -19,7 +19,6 @@
 ***/
 
 namespace Scratch.Services {
-
     public class Interface : GLib.Object {
 
         public PluginsManager manager;
@@ -55,10 +54,8 @@ namespace Scratch.Services {
 
 
     public class PluginsManager : GLib.Object {
-
         Peas.Engine engine;
         Peas.ExtensionSet exts;
-
         Peas.Engine engine_core;
         Peas.ExtensionSet exts_core;
 
@@ -93,7 +90,8 @@ namespace Scratch.Services {
             engine = Peas.Engine.get_default ();
             engine.enable_loader ("python");
             engine.add_search_path (Constants.PLUGINDIR, null);
-            settings.bind("plugins-enabled", engine, "loaded-plugins", SettingsBindFlags.DEFAULT);
+
+            settings.bind ("plugins-enabled", engine, "loaded-plugins", SettingsBindFlags.DEFAULT);
 
             /* Our extension set */
             exts = new Peas.ExtensionSet (engine, typeof (Peas.Activatable), "object", plugin_iface, null);
@@ -115,8 +113,8 @@ namespace Scratch.Services {
                 engine_core.add_search_path (Constants.PLUGINDIR + "/" + set_name + "/", null);
 
                 var core_list = engine_core.get_plugin_list ().copy ();
-                string[] core_plugins = new string[core_list.length()];
-                for (int i = 0; i < core_list.length(); i++) {
+                string[] core_plugins = new string[core_list.length ()];
+                for (int i = 0; i < core_list.length (); i++) {
                     core_plugins[i] = core_list.nth_data (i).get_module_name ();
 
                 }

@@ -19,7 +19,7 @@ You'll need the following dependencies:
 * libvala-0.34-dev (or higher)
 * libvte-2.91-dev
 * libwebkit2gtk-4.0-dev
-* libzeitgeist-2.0
+* libzeitgeist-2.0-dev
 * valac
 
 Run `meson build` to configure the build environment. Change to the build directory and run `ninja test` to build

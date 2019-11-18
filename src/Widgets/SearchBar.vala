@@ -2,14 +2,14 @@
  * Copyright (C) 2011-2012 Lucas Baudin <xapantu@gmail.com>
  *               2013      Mario Guerriero <mario@elementaryos.org>
  *
- * This file is part of Scratch.
+ * This file is part of Code.
  *
- * Scratch is free software: you can redistribute it and/or modify it
+ * Code is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
  * Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Scratch is distributed in the hope that it will be useful, but
+ * Code is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  * See the GNU General Public License for more details.
@@ -81,7 +81,7 @@ namespace Scratch.Widgets {
             );
 
             tool_cycle_search = new Gtk.ToggleButton ();
-            tool_cycle_search.image =  new Gtk.Image.from_icon_name ("media-playlist-repeat-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+            tool_cycle_search.image = new Gtk.Image.from_icon_name ("media-playlist-repeat-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
             tool_cycle_search.tooltip_text = _("Cyclic Search");
 
             var search_grid = new Gtk.Grid ();
@@ -137,6 +137,7 @@ namespace Scratch.Widgets {
             entry_context.set_path (entry_path);
             entry_context.add_class ("entry");
 
+            selection_mode = Gtk.SelectionMode.NONE;
             column_spacing = 6;
             max_children_per_line = 2;
             add (search_flow_box_child);
@@ -163,9 +164,11 @@ namespace Scratch.Widgets {
                 tool_arrow_down.sensitive = true;
                 tool_arrow_up.sensitive = false;
                 search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
+                search_entry.primary_icon_name = "edit-find-symbolic";
             } else {
                 if (search_entry.text != "") {
                     search_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ERROR);
+                    search_entry.primary_icon_name = "dialog-error-symbolic";
                 }
 
                 tool_arrow_down.sensitive = false;
@@ -250,10 +253,12 @@ namespace Scratch.Widgets {
                                                     out start_iter, out end_iter, null);
             if (found) {
                 search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
+                search_entry.primary_icon_name = "edit-find-symbolic";
                 return true;
             } else {
                 if (search_entry.text != "") {
                     search_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ERROR);
+                    search_entry.primary_icon_name = "dialog-error-symbolic";
                 }
 
                 return false;
@@ -264,9 +269,11 @@ namespace Scratch.Widgets {
             /* So, first, let's check we can really search something. */
             string search_string = search_entry.text;
             search_context.highlight = false;
+            search_context.highlight = false;
 
             if (text_buffer == null || text_buffer.text == "" || search_string == "") {
                 debug ("Can't search anything in an inexistant buffer and/or without anything to search.");
+                search_entry.primary_icon_name = "edit-find-symbolic";
                 return false;
             }
 
@@ -277,15 +284,18 @@ namespace Scratch.Widgets {
 
             if (search_for_iter (start_iter, out end_iter)) {
                 search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
+                search_entry.primary_icon_name = "edit-find-symbolic";
             } else {
                 text_buffer.get_start_iter (out start_iter);
                 if (search_for_iter (start_iter, out end_iter)) {
                     search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
+                    search_entry.primary_icon_name = "edit-find-symbolic";
                 } else {
                     debug ("Not found: \"%s\"", search_string);
                     start_iter.set_offset (-1);
                     text_buffer.select_range (start_iter, start_iter);
                     search_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ERROR);
+                    search_entry.primary_icon_name = "dialog-error-symbolic";
                     return false;
                 }
             }
@@ -325,7 +335,7 @@ namespace Scratch.Widgets {
             if (text_buffer != null) {
                 string search_string = search_entry.text;
                 text_buffer.get_selection_bounds (out start_iter, out end_iter);
-                if(!search_for_iter_backward (start_iter, out end_iter) && tool_cycle_search.active) {
+                if (!search_for_iter_backward (start_iter, out end_iter) && tool_cycle_search.active) {
                     text_buffer.get_end_iter (out start_iter);
                     search_for_iter_backward (start_iter, out end_iter);
                 }
@@ -340,7 +350,7 @@ namespace Scratch.Widgets {
             if (text_buffer != null) {
                 string search_string = search_entry.text;
                 text_buffer.get_selection_bounds (out start_iter, out end_iter);
-                if(!search_for_iter (end_iter, out end_iter_tmp) && tool_cycle_search.active) {
+                if (!search_for_iter (end_iter, out end_iter_tmp) && tool_cycle_search.active) {
                     text_buffer.get_start_iter (out start_iter);
                     search_for_iter (start_iter, out end_iter);
                 }
@@ -356,7 +366,7 @@ namespace Scratch.Widgets {
                 if (search_string == "") {
                     tool_arrow_up.sensitive = false;
                     tool_arrow_down.sensitive = false;
-                } else if (text_buffer != null){
+                } else if (text_buffer != null) {
                     Gtk.TextIter? start_iter, end_iter;
                     Gtk.TextIter? tmp_start_iter, tmp_end_iter;
 
@@ -367,8 +377,8 @@ namespace Scratch.Widgets {
 
                     text_buffer.get_selection_bounds (out start_iter, out end_iter);
 
-                    is_in_start = start_iter.compare(tmp_start_iter) == 0;
-                    is_in_end = end_iter.compare(tmp_end_iter) == 0;
+                    is_in_start = start_iter.compare (tmp_start_iter) == 0;
+                    is_in_end = end_iter.compare (tmp_end_iter) == 0;
 
                     if (!is_in_end) {
                         bool next_found = search_context.forward2 (end_iter, out tmp_start_iter, out tmp_end_iter, null);
@@ -394,7 +404,7 @@ namespace Scratch.Widgets {
             }
 
             string key = Gdk.keyval_name (event.keyval);
-            if (event.state == Gdk.ModifierType.SHIFT_MASK) {
+            if (Gdk.ModifierType.SHIFT_MASK in event.state) {
                 key = "<Shift>" + key;
             }
 

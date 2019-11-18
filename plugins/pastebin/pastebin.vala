@@ -18,56 +18,53 @@
   END LICENSE
 ***/
 
-using Soup;
-
 namespace Scratch.Services {
-
     public class PasteBin : GLib.Object {
-		public const string NEVER = "N";
-		public const string TEN_MINUTES = "10M";
-		public const string HOUR = "1H";
-		public const string DAY = "1D";
-		public const string MONTH = "1M";
+        public const string NEVER = "N";
+        public const string TEN_MINUTES = "10M";
+        public const string HOUR = "1H";
+        public const string DAY = "1D";
+        public const string MONTH = "1M";
 
-		public const string PRIVATE = "1";
-		public const string PUBLIC = "0";
+        public const string PRIVATE = "1";
+        public const string PUBLIC = "0";
 
 
-		public static bool submit (out string link, string paste_code, string paste_name,
+        public static bool submit (out string link, string paste_code, string paste_name,
                                      string paste_private, string paste_expire_date,
                                      string paste_format) {
 
             if (paste_code.length == 0) { link = "No text to paste"; return false; }
 
-			string api_url = "http://pastebin.com/api/api_post.php";
+            string api_url = "http://pastebin.com/api/api_post.php";
 
-			var session = new Session ();
-			var message = new Message ("POST", api_url);
+            var session = new Soup.Session ();
+            var message = new Soup.Message ("POST", api_url);
 
-			string request = Form.encode (
-				"api_option", "paste",
-				"api_dev_key", "67480801fa55fc0977f7561cf650a339",
-				"api_paste_code", paste_code,
-				"api_paste_name", paste_name,
-				"api_paste_private", paste_private,
-				"api_paste_expire_date", paste_expire_date,
-				"api_paste_format", paste_format);
+            string request = Soup.Form.encode (
+                "api_option", "paste",
+                "api_dev_key", "67480801fa55fc0977f7561cf650a339",
+                "api_paste_code", paste_code,
+                "api_paste_name", paste_name,
+                "api_paste_private", paste_private,
+                "api_paste_expire_date", paste_expire_date,
+                "api_paste_format", paste_format);
 
-			message.set_request ("application/x-www-form-urlencoded", MemoryUse.COPY, request.data);
-			message.set_flags (MessageFlags.NO_REDIRECT);
+            message.set_request ("application/x-www-form-urlencoded", Soup.MemoryUse.COPY, request.data);
+            message.set_flags (Soup.MessageFlags.NO_REDIRECT);
 
-			session.send_message (message);
+            session.send_message (message);
 
-			var output = (string) message.response_body.data;
-		    link = output;
-            
+            var output = (string) message.response_body.data;
+            link = output;
+
             if (Uri.parse_scheme (output) == null) {
                 // A URI was not returned
                 return false;
             }
-            
+
             return true;
-		}
+        }
     }
 }
 
@@ -94,7 +91,7 @@ public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Peas.Activatable {
             menuitem = new Gtk.MenuItem.with_label (_("Upload to Pastebin"));
             menuitem.activate.connect (() => {
                 MainWindow window = plugins.manager.window;
-		        new Dialogs.PasteBinDialog (window, doc);
+                new Dialogs.PasteBinDialog (window, doc);
             });
             menu.append (menuitem);
             menuitem.show_all ();

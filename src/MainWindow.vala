@@ -21,8 +21,8 @@
 
 namespace Scratch {
     public class MainWindow : Gtk.Window {
-        public int FONT_SIZE_MAX = 72;
-        public int FONT_SIZE_MIN = 7;
+        public const int FONT_SIZE_MAX = 72;
+        public const int FONT_SIZE_MIN = 7;
         private const uint MAX_SEARCH_TEXT_LENGTH = 255;
 
         public weak Scratch.Application app { get; construct; }
@@ -91,7 +91,7 @@ namespace Scratch {
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
-        private const ActionEntry[] action_entries = {
+        private const ActionEntry[] ACTION_ENTRIES = {
             { ACTION_FIND, action_fetch },
             { ACTION_FIND_NEXT, action_find_next },
             { ACTION_FIND_PREVIOUS, action_find_previous },
@@ -173,7 +173,7 @@ namespace Scratch {
 
         construct {
             actions = new SimpleActionGroup ();
-            actions.add_action_entries (action_entries, this);
+            actions.add_action_entries (ACTION_ENTRIES, this);
             insert_action_group ("win", actions);
 
             actions.action_state_changed.connect ((name, new_state) => {
@@ -235,9 +235,9 @@ namespace Scratch {
             ds_event.actor = "application://" + Constants.PROJECT_NAME + ".desktop";
             ds_event.add_subject (new Zeitgeist.Subject ());
             var ds_events = new GenericArray<Zeitgeist.Event> ();
-            ds_events.add(ds_event);
-            var ds = new Zeitgeist.DataSource.full ("scratch-logger",
-                                          _("Zeitgeist Datasource for Scratch"),
+            ds_events.add (ds_event);
+            var ds = new Zeitgeist.DataSource.full ("code-logger",
+                                          _("Zeitgeist Datasource for Code"),
                                           "A data source which logs Open, Close, Save and Move Events",
                                           ds_events); // FIXME: templates!
             registry.register_data_source.begin (ds, null, (obj, res) => {
@@ -1022,4 +1022,3 @@ namespace Scratch {
         }
     }
 }
-

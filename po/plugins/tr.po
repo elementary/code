@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 22:42+0200\n"
-"PO-Revision-Date: 2019-04-17 23:31+0000\n"
+"POT-Creation-Date: 2019-11-15 19:42+0000\n"
+"PO-Revision-Date: 2019-10-05 21:23+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/plugins/tr/"
 ">\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.5.1\n"
+"X-Generator: Weblate 3.7.1\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -61,11 +61,11 @@ msgstr "Seçilmiş olan tüm kelime oluşumlarını vurgula"
 
 #: plugins/outline/outline.plugin:6
 msgid "Outline"
-msgstr "Anahat"
+msgstr "Outline"
 
 #: plugins/outline/outline.plugin:7
 msgid "Outline symbols in your current file for Vala"
-msgstr "Anahat sembolleri mevcut Vala dosyanızın içinde"
+msgstr "Vala dosyalarınızdaki sembolleri kenar çubuğunda gösterir"
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
@@ -104,7 +104,8 @@ msgid "Terminal"
 msgstr "Terminal"
 
 #: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your text editor"
+#, fuzzy
+msgid "A terminal in your code editor"
 msgstr "Metin düzenleyicinizdeki bir terminal"
 
 #: plugins/vim-emulation/vim-emulation.plugin:6
