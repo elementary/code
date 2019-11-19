@@ -39,7 +39,7 @@ public class Code.Pane : Gtk.Grid {
         toolbar.get_style_context ().add_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
         toolbar.icon_size = Gtk.IconSize.SMALL_TOOLBAR;
 
-        var add_folder_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("folder-open-symbolic", Gtk.IconSize.BUTTON), null);
+        var add_folder_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("folder-saved-search", Gtk.IconSize.BUTTON), null);
         add_folder_button.action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_FOLDER;
         add_folder_button.tooltip_text = _("Add Project Folder…");
 
