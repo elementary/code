@@ -18,8 +18,7 @@
   END LICENSE
 ***/
 
-public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase,  Peas.Activatable {
-
+public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Peas.Activatable {
     public enum Mode {
         COMMAND,
         INSERT,

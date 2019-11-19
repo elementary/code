@@ -243,7 +243,7 @@ public class Code.FormatBar : Gtk.Grid {
 
             goto_entry.text = goto_entry.text.replace (":", ".");
 
-            goto_entry.text.scanf("%i.%i", out line, out offset);
+            goto_entry.text.scanf ("%i.%i", out line, out offset);
             doc.source_view.go_to_line (line, offset);
             // Focuses parent to the source view, so that the cursor, which indicates line and column is actually visible.
             doc.source_view.grab_focus ();
