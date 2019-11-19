@@ -41,9 +41,7 @@ namespace Scratch.FolderManager {
         }
 
         protected void rename (string new_name) {
-            if (file.rename (new_name) &&
-                this is FileItem) {
-
+            if (file.rename (new_name)) {
                 view.item_selected (this);
             }
 

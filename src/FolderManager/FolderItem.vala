@@ -159,10 +159,10 @@ namespace Scratch.FolderManager {
 
         protected Gtk.MenuItem create_submenu_for_new () {
             var new_folder_item = new Gtk.MenuItem.with_label (_("Folder"));
-            new_folder_item.activate.connect (() => add_folder ());
+            new_folder_item.activate.connect (on_new_folder_request);
 
             var new_file_item = new Gtk.MenuItem.with_label (_("Empty File"));
-            new_file_item.activate.connect (() => add_file ());
+            new_file_item.activate.connect (on_new_file_request);
 
             var new_menu = new Gtk.Menu ();
             new_menu.append (new_folder_item);
@@ -229,7 +229,6 @@ namespace Scratch.FolderManager {
                 }
             } else {
                 // No cache invalidation is needed here because the entire state is kept in the tree
-
                 switch (event) {
                     case GLib.FileMonitorEvent.DELETED:
                         var children_tmp = new Gee.ArrayList<Granite.Widgets.SourceList.Item> ();
@@ -265,14 +264,15 @@ namespace Scratch.FolderManager {
 
                         var file = new File (source.get_path ());
                         var exists = false;
-                        foreach (var item in children) {
-                            if ((item as Item).path == file.path) {
+                        Item? item = null;
+
+                        foreach (var child in children) {
+                            if ((child as Item).path == file.path) {
                                 exists = true;
+                                item = child as Item;
                                 break;
                             }
                         }
-
-                        Item? item = null;
 
                         if (!exists) {
                             if (file.is_valid_directory) {
@@ -280,25 +280,26 @@ namespace Scratch.FolderManager {
                             } else if (!file.is_temporary) {
                                 item = new FileItem (file, view);
                             }
-                        }
 
-                        if (item != null) {
                             add (item);
-
-                            if (source.get_path () == newly_created_path) {
-                                newly_created_path = null;
-                                view.ignore_next_select = true;
-
-                                /*
-                                 * Avoid race condition between adding and editing folder item.
-                                 */
-                                GLib.Timeout.add (350, () => {
-                                    view.start_editing_item (item);
-                                    return false;
-                                });
-                            }
                         }
 
+                        /* This will expand parent item if required */
+                        view.scroll_to_item (item, true, true, 0.5f);
+
+                        if (source.get_path () == newly_created_path) {
+                            newly_created_path = null;
+
+                        /* As this causes signal emissions, perform in its own thread not in signal handler */
+                            Idle.add (() => {
+                                view.start_editing_item (item);
+                                return Source.REMOVE;
+                            });
+                        }
+
+                        break;
+
+                    default:
                         break;
                 }
             }
@@ -325,68 +326,73 @@ namespace Scratch.FolderManager {
             }
         }
 
-        protected void add_folder () {
-            if (!file.is_executable) {
+        protected void on_new_folder_request () {
+           if (!file.is_executable) {
                 // This is necessary to avoid infinite loop below
                 warning ("Unable to open parent folder");
                 return;
             }
 
-            var new_folder = file.file.get_child (_("untitled folder"));
+            /* As this causes signal emissions, perform in its own thread not in signal handler */
+            Idle.add (() => {
+                var new_folder = file.file.get_child (_("untitled folder"));
 
-            var n = 1;
-            while (new_folder.query_exists ()) {
-                new_folder = file.file.get_child (_("untitled folder %d").printf (n));
-                n++;
-            }
-
-            try {
-                expanded = true;
-
-                new_folder.make_directory ();
-
-                newly_created_path = new_folder.get_path ();
-
-                if (!children_loaded) {
-                    clear ();
-                    add_children ();
-                    children_loaded = true;
+                var n = 1;
+                while (new_folder.query_exists ()) {
+                    new_folder = file.file.get_child (_("untitled folder %d").printf (n));
+                    n++;
                 }
-            } catch (Error e) {
-                warning (e.message);
-            }
+
+                try {
+                    newly_created_path = new_folder.get_path ();
+                    view.ignore_next_select = true;
+                    new_folder.make_directory ();
+
+                    if (!children_loaded) {
+                        clear ();
+                        add_children ();
+                        children_loaded = true;
+                    }
+                } catch (Error e) {
+                    warning (e.message);
+                }
+
+                return false;
+            });
         }
 
-        protected void add_file () {
+        protected void on_new_file_request () {
             if (!file.is_executable) {
                 // This is necessary to avoid infinite loop below
                 warning ("Unable to open parent folder");
                 return;
             }
 
-            var new_file = file.file.get_child (_("new file"));
-
-            var n = 1;
-            while (new_file.query_exists ()) {
-                new_file = file.file.get_child (_("new file %d").printf (n));
-                n++;
-            }
-
-            try {
-                expanded = true;
-
-                new_file.create (FileCreateFlags.NONE);
-
-                newly_created_path = new_file.get_path ();
-
-                if (!children_loaded) {
-                    clear ();
-                    add_children ();
-                    children_loaded = true;
+            /* As this causes signal emissions, perform in its own thread not in signal handler */
+            Idle.add (() => {
+                var new_file = file.file.get_child (_("new file"));
+                var n = 1;
+                while (new_file.query_exists ()) {
+                    new_file = file.file.get_child (_("new file %d").printf (n));
+                    n++;
                 }
-            } catch (Error e) {
-                warning (e.message);
-            }
+
+                try {
+                    newly_created_path = new_file.get_path ();
+                    view.ignore_next_select = true;
+                    new_file.create (FileCreateFlags.NONE);
+
+                    if (!children_loaded) {
+                        clear ();
+                        add_children ();
+                        children_loaded = true;
+                    }
+                } catch (Error e) {
+                    warning (e.message);
+                }
+
+                return Source.REMOVE;
+            });
         }
     }
 }
