@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-04 11:52-0800\n"
+"POT-Creation-Date: 2019-11-15 19:42+0000\n"
 "PO-Revision-Date: 2019-01-08 08:54+0000\n"
 "Last-Translator: Veli-Pekka Samuli Finnilä <vpf@tuta.io>\n"
 "Language-Team: Finnish <https://weblate.elementary.io/projects/code/plugins/"
@@ -106,7 +106,8 @@ msgid "Terminal"
 msgstr "Pääte"
 
 #: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your text editor"
+#, fuzzy
+msgid "A terminal in your code editor"
 msgstr "Pääte tekstimuokkaimessasi"
 
 #: plugins/vim-emulation/vim-emulation.plugin:6

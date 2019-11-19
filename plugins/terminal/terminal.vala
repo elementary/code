@@ -18,7 +18,7 @@
   END LICENSE
 ***/
 
-public class Scratch.Plugins.Terminal : Peas.ExtensionBase,  Peas.Activatable {
+public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
     const double MIN_SCALE = 0.2;
     const double MAX_SCALE = 5.0;
 
