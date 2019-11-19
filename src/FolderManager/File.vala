@@ -181,17 +181,17 @@ namespace Scratch.FolderManager {
             }
         }
 
-        public void rename (string name) {
+        public GLib.File rename (string name) {
             // set_display_name throws a warning if the file already exists
-            if (this.name == name) {
-                return;
+            if (this.name != name) {
+                try {
+                    file.set_display_name (name);
+                } catch (GLib.Error error) {
+                    warning (error.message);
+                }
             }
 
-            try {
-                file.set_display_name (name);
-            } catch (GLib.Error error) {
-                warning (error.message);
-            }
+            return file;
         }
 
         public void trash () {
