@@ -18,10 +18,10 @@
   END LICENSE
 ***/
 
-public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Activatable {
+public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Peas.Activatable {
     Gee.HashMap<string, string> brackets;
     Gee.HashMap<uint, string> keys;
-    const string[] valid_next_chars = {
+    const string[] VALID_NEXT_CHARS = {
         "", " ", "\b", "\r", "\n", "\t", ",", ".", ";", ":"
     };
 
@@ -155,8 +155,8 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase,  Peas.Acti
     }
 
     bool has_valid_next_char (string next_char) {
-        return next_char in valid_next_chars ||
-               next_char in brackets.values  ||
+        return next_char in VALID_NEXT_CHARS ||
+               next_char in brackets.values ||
                brackets.has_key (next_char);
     }
 

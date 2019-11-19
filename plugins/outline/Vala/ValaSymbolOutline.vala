@@ -67,7 +67,7 @@ public class Code.Plugins.ValaSymbolOutline : Object, Code.Plugins.SymbolOutline
         if (cancellable != null)
             cancellable.cancel ();
         cancellable = new GLib.Cancellable ();
-        new Thread<void*>("parse-symbols", () => {
+        new Thread<void*> ("parse-symbols", () => {
             Vala.CodeContext.push (context);
             parser.parse (context);
             resolver.clear ();

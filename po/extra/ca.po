@@ -7,17 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-04 11:52-0800\n"
-"PO-Revision-Date: 2019-01-08 14:31+0000\n"
+"POT-Creation-Date: 2019-11-19 10:14-0800\n"
+"PO-Revision-Date: 2019-07-07 11:28+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
-"Language-Team: Catalan <https://weblate.elementary.io/projects/code/extra/ca/"
-">\n"
+"Language-Team: Catalan <https://l10n.elementary.io/projects/code/extra/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -104,7 +103,121 @@ msgstr "un sistema de pestanyes i de divisió de documents"
 msgid "lots of others"
 msgstr "i moltes coses més"
 
-#: data/io.elementary.code.appdata.xml.in:101
+#: data/io.elementary.code.appdata.xml.in:51
+msgid "Add a confirmation dialog to the \"Restore\" action"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:52
+msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:53
+msgid "Fix the keyboard shortcut for going backwards in search results"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:54
+msgid "Rename leftover instances of Scratch to Code"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:55
+#, fuzzy
+msgid "Don't show temporary files in the folder manager"
+msgstr "No afegir fitxers temporals a la restauració de pestanyes"
+
+#: data/io.elementary.code.appdata.xml.in:56
+msgid "Fix opening files from relative paths in Terminal"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:57
+msgid "Fix null file dialog when opening a new window via the dock"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:58
+msgid "Add brackets completion and auto-indent by default"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:59
+msgid "Add \"=\" as a zoom key"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:60
+msgid "Change search entry icon when results aren't found"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:61
+#: data/io.elementary.code.appdata.xml.in:78
+#: data/io.elementary.code.appdata.xml.in:86
+#: data/io.elementary.code.appdata.xml.in:95
+msgid "Updated translations"
+msgstr "Traduccions actualitzades"
+
+#: data/io.elementary.code.appdata.xml.in:66
+msgid "Use Granite.MessageDialog throughout"
+msgstr "Ús complet de Granite.MessageDialog"
+
+#: data/io.elementary.code.appdata.xml.in:67
+msgid "Include non-text files in sidebar"
+msgstr "Inclusió de fitxers que no siguin de text a la barra lateral"
+
+#: data/io.elementary.code.appdata.xml.in:68
+msgid "Fix Remove Current View"
+msgstr "Correcció la vista actual de la supressió"
+
+#: data/io.elementary.code.appdata.xml.in:73
+msgid "Fix New Window desktop action behavior"
+msgstr "Correcció del comportament d’escriptori de la finestra nova"
+
+#: data/io.elementary.code.appdata.xml.in:74
+msgid ""
+"Properly synchronize Ctrl+N key presses with number of new documents spawned"
+msgstr ""
+"Sincronització correcta de les tecles Ctrl + N amb el nombre de documents "
+"nous generats"
+
+#: data/io.elementary.code.appdata.xml.in:75
+msgid "Build system fix for editorconfig dependency"
+msgstr ""
+"Construcció de la correcció de sistema per a la dependència d'editorconfig"
+
+#: data/io.elementary.code.appdata.xml.in:76
+msgid "Add Change Branch context menu item"
+msgstr "Addició de l'element del menú contextual «Canvia la branca»"
+
+#: data/io.elementary.code.appdata.xml.in:77
+msgid "Avoid possible startup crash related to how plugins load"
+msgstr ""
+"Evitar possibles errors d'inici relacionats amb com es carreguen dels "
+"connectors"
+
+#: data/io.elementary.code.appdata.xml.in:83
+msgid "Smarter file saving behavior"
+msgstr "Comportament més intel·ligent per desar fitxers"
+
+#: data/io.elementary.code.appdata.xml.in:84
+msgid "File saving fixes"
+msgstr "Correccions per desar fitxers"
+
+#: data/io.elementary.code.appdata.xml.in:85
+msgid "Don't add temporary files to tab restore"
+msgstr "No afegir fitxers temporals a la restauració de pestanyes"
+
+#: data/io.elementary.code.appdata.xml.in:91
+msgid "Don't recreate deleted files when restoring session"
+msgstr "No es recreen els fitxers suprimits en restaurar la sessió."
+
+#: data/io.elementary.code.appdata.xml.in:92
+msgid "Restore line wrap preference"
+msgstr "Restauració de la preferència d’ajust de línia"
+
+#: data/io.elementary.code.appdata.xml.in:93
+msgid "Add accel tooltips"
+msgstr "Addició de consells d’accel"
+
+#: data/io.elementary.code.appdata.xml.in:94
+msgid "Minor bug fixes"
+msgstr "Correccions d'errors menors"
+
+#: data/io.elementary.code.appdata.xml.in:133
 msgid "elementary LLC."
 msgstr "elementary LLC."
 

@@ -19,9 +19,7 @@
 ***/
 
 namespace Scratch.Plugins {
-
-    public class BrowserPreviewPlugin : Peas.ExtensionBase,  Peas.Activatable {
-
+    public class BrowserPreviewPlugin : Peas.ExtensionBase, Peas.Activatable {
         Gtk.ToggleButton? tool_button = null;
         Gee.LinkedList<BrowserPreview.BrowserView> previews = new Gee.LinkedList<BrowserPreview.BrowserView> ();
 
