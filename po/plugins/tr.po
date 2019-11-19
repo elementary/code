@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-11 09:24-0700\n"
-"PO-Revision-Date: 2019-08-27 22:22+0000\n"
+"POT-Creation-Date: 2019-11-15 19:42+0000\n"
+"PO-Revision-Date: 2019-10-05 21:23+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/plugins/tr/"
 ">\n"
@@ -61,7 +61,7 @@ msgstr "Seçilmiş olan tüm kelime oluşumlarını vurgula"
 
 #: plugins/outline/outline.plugin:6
 msgid "Outline"
-msgstr "Anahat"
+msgstr "Outline"
 
 #: plugins/outline/outline.plugin:7
 msgid "Outline symbols in your current file for Vala"
@@ -104,7 +104,8 @@ msgid "Terminal"
 msgstr "Terminal"
 
 #: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your text editor"
+#, fuzzy
+msgid "A terminal in your code editor"
 msgstr "Metin düzenleyicinizdeki bir terminal"
 
 #: plugins/vim-emulation/vim-emulation.plugin:6

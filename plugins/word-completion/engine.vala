@@ -22,9 +22,9 @@ public class Euclide.Completion.Parser : GLib.Object {
     public const int MINIMUM_WORD_LENGTH = 1;
     public const int MAX_TOKENS = 1000000;
 
-    public const string delimiters = " .,;:?{}[]()0123456789+-=&|-<>*\\/\n\t\'\"";
+    public const string DELIMITERS = " .,;:?{}[]()0123456789+-=&|-<>*\\/\n\t\'\"";
     public bool is_delimiter (unichar c) {
-        return delimiters.index_of_char (c) >= 0;
+        return DELIMITERS.index_of_char (c) >= 0;
     }
 
     public Gee.HashMap<Gtk.TextView,Gee.ArrayList<string>> text_view_words;
@@ -99,8 +99,8 @@ public class Euclide.Completion.Parser : GLib.Object {
 
     private bool parse_string (string text) {
         parsing_cancelled = false;
-        string [] word_array = text.split_set (delimiters, MAX_TOKENS);
-        foreach (var current_word  in word_array ) {
+        string [] word_array = text.split_set (DELIMITERS, MAX_TOKENS);
+        foreach (var current_word in word_array ) {
             if (parsing_cancelled) {
                 debug ("Cancelling parse");
                 return false;
