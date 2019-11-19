@@ -304,7 +304,7 @@ namespace Scratch.FolderManager {
             }
 
             var root = get_root_folder ();
-            if (root != null  && event != GLib.FileMonitorEvent.CREATED) {
+            if (root != null && event != GLib.FileMonitorEvent.CREATED) {
                 root.update_git_status ();
             }
         }
