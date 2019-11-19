@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-15 19:42+0000\n"
-"PO-Revision-Date: 2019-09-10 14:54+0000\n"
-"Last-Translator: Paweł Bernaciak <pawelcomp@gmail.com>\n"
+"POT-Creation-Date: 2019-11-19 10:13-0800\n"
+"PO-Revision-Date: 2019-11-15 19:42+0000\n"
+"Last-Translator: Piotr Strebski <strebski@gmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -21,9 +21,9 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:132
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Created"
-msgstr "Plik \"%s\" nie może zostać odczytany"
+msgstr "Plik „%s” nie może zostać utworzony"
 
 #. We list some common errors for quick feedback
 #: src/Application.vala:136
@@ -59,9 +59,9 @@ msgid "It is an \"unknown\" file type."
 msgstr "Jest to nieznany rodzaj pliku."
 
 #: src/Application.vala:174
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Opened"
-msgstr "Plik \"%s\" nie może zostać odczytany"
+msgstr "Plik „%s” nie może być otwarty"
 
 #: src/Application.vala:246
 msgid "New Tab"
@@ -80,9 +80,8 @@ msgid "Set of plugins"
 msgstr "Zestaw wtyczek"
 
 #: src/Application.vala:249
-#, fuzzy
 msgid "plugin"
-msgstr "Zestaw wtyczek"
+msgstr "wtyczka"
 
 #: src/MainWindow.vala:133
 msgid "Code"
@@ -97,9 +96,8 @@ msgid "Hide search bar"
 msgstr "Ukryj pasek wyszukiwania"
 
 #: src/MainWindow.vala:240
-#, fuzzy
 msgid "Zeitgeist Datasource for Code"
-msgstr "Źródła danych Zeitgeist dla Scratch'a"
+msgstr "Źródła danych Zeitgeist dla Kodu"
 
 #: src/MainWindow.vala:765 src/Services/Document.vala:502
 msgid "All files"
@@ -222,20 +220,21 @@ msgstr "Własna czcionka:"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
-msgstr ""
+msgstr "Czy na pewno chcesz przywrócić ten plik?"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Restoring a file will undo all changes made since opening it"
 msgstr ""
+"Przywrócenie pliku spowoduje cofnięcie wszystkich zmian wprowadzonych od "
+"czasu jego otwarcia"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:34
 msgid "Don't Restore"
-msgstr ""
+msgstr "Nie przywracaj"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
-#, fuzzy
 msgid "Restore Anyway"
-msgstr "Wczytaj mimo wszystko"
+msgstr "Przywróć mimo wszystko"
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:114
 msgid "Other Application…"
@@ -297,9 +296,8 @@ msgid "Close Folder"
 msgstr "Zamknij folder"
 
 #: src/FolderManager/ProjectFolderItem.vala:286
-#, fuzzy
 msgid "Branch"
-msgstr "Zmień gałąź"
+msgstr "Gałąź"
 
 #: src/Services/Document.vala:266
 #, c-format
@@ -328,19 +326,15 @@ msgid "Cancel Loading"
 msgstr "Anuluj wczytywanie"
 
 #: src/Services/Document.vala:391
-#, fuzzy, c-format
+#, c-format
 msgid "Save changes to \"%s\" before closing?"
-msgstr "Zachować zmiany w pliku %s przed zamknięciem?"
+msgstr "Zachować zmiany w pliku „%s” przed zamknięciem?"
 
 #: src/Services/Document.vala:392
-#, fuzzy
 msgid "If you don't save, changes will be permanently lost."
-msgstr ""
-"Jeśli plik nie zostanie zapisany, zmiany z ostatnich 4 sekund zostaną "
-"utracone."
+msgstr "Jeśli plik nie zostanie zapisany, zmiany zostaną bezzwrotnie utracone."
 
 #: src/Services/Document.vala:398
-#, fuzzy
 msgid "Close Without Saving"
 msgstr "Zamknij bez zapisywania"
 
