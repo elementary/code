@@ -41,13 +41,10 @@ namespace Scratch.FolderManager {
         }
 
         protected void rename (string new_name) {
-            GLib.File new_file = file.rename (new_name);
-            if (this is FileItem) {
-                var parent = new_file.get_parent ();
-                if (parent != null) {
-                    var path = Path.build_filename (new_file.get_parent ().get_path (), new_name);
-                    view.select (path);
-                }
+            if (file.rename (new_name) &&
+                this is FileItem) {
+
+                view.item_selected (this);
             }
 
             view.ignore_next_select = false;
