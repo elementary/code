@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 19:45+0000\n"
+"POT-Creation-Date: 2019-11-25 20:10+0000\n"
 "PO-Revision-Date: 2019-02-06 15:40+0000\n"
 "Last-Translator: Kaj Printz Madsen <kajprintz@gmail.com>\n"
 "Language-Team: Danish <https://weblate.elementary.io/projects/code/extra/da/"
@@ -132,94 +132,98 @@ msgid "Other updates:"
 msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:61
-msgid "Fix the keyboard shortcut for going backwards in search results"
+msgid "Simplify \"Draw spaces\" preference"
 msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:62
-msgid "Fix opening files from relative paths in Terminal"
+msgid "Fix the keyboard shortcut for going backwards in search results"
 msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:63
-msgid "Fix null file dialog when opening a new window via the dock"
+msgid "Fix opening files from relative paths in Terminal"
 msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:64
-msgid "Add \"=\" as a zoom key"
+msgid "Fix null file dialog when opening a new window via the dock"
 msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:65
-msgid "Change search entry icon when results aren't found"
+msgid "Add \"=\" as a zoom key"
 msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:66
-#: data/io.elementary.code.appdata.xml.in:87
-#: data/io.elementary.code.appdata.xml.in:97
-#: data/io.elementary.code.appdata.xml.in:108
+msgid "Change search entry icon when results aren't found"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:67
+#: data/io.elementary.code.appdata.xml.in:88
+#: data/io.elementary.code.appdata.xml.in:98
+#: data/io.elementary.code.appdata.xml.in:109
 msgid "Updated translations"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:73
+#: data/io.elementary.code.appdata.xml.in:74
 msgid "Use Granite.MessageDialog throughout"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:74
+#: data/io.elementary.code.appdata.xml.in:75
 msgid "Include non-text files in sidebar"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:75
+#: data/io.elementary.code.appdata.xml.in:76
 msgid "Fix Remove Current View"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:82
+#: data/io.elementary.code.appdata.xml.in:83
 msgid "Fix New Window desktop action behavior"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:83
+#: data/io.elementary.code.appdata.xml.in:84
 msgid ""
 "Properly synchronize Ctrl+N key presses with number of new documents spawned"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:84
+#: data/io.elementary.code.appdata.xml.in:85
 msgid "Build system fix for editorconfig dependency"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:85
+#: data/io.elementary.code.appdata.xml.in:86
 msgid "Add Change Branch context menu item"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:86
+#: data/io.elementary.code.appdata.xml.in:87
 msgid "Avoid possible startup crash related to how plugins load"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:94
+#: data/io.elementary.code.appdata.xml.in:95
 msgid "Smarter file saving behavior"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:95
+#: data/io.elementary.code.appdata.xml.in:96
 msgid "File saving fixes"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:96
+#: data/io.elementary.code.appdata.xml.in:97
 msgid "Don't add temporary files to tab restore"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:104
+#: data/io.elementary.code.appdata.xml.in:105
 msgid "Don't recreate deleted files when restoring session"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:105
+#: data/io.elementary.code.appdata.xml.in:106
 msgid "Restore line wrap preference"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:106
+#: data/io.elementary.code.appdata.xml.in:107
 msgid "Add accel tooltips"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:107
+#: data/io.elementary.code.appdata.xml.in:108
 msgid "Minor bug fixes"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:147
+#: data/io.elementary.code.appdata.xml.in:148
 msgid "elementary LLC."
 msgstr "elementary LLC."
 
