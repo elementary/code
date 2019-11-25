@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 18:24+0000\n"
+"POT-Creation-Date: 2019-11-25 20:10+0000\n"
 "PO-Revision-Date: 2017-08-16 12:16+0000\n"
 "Last-Translator: gogogogi <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <https://weblate.elementary.io/projects/scratch/"
@@ -140,89 +140,94 @@ msgstr "_Odustani"
 msgid "Preferences"
 msgstr "Osobitosti"
 
-#: src/Dialogs/PreferencesDialog.vala:52
+#: src/Dialogs/PreferencesDialog.vala:48
+msgid ""
+"Cutting or copying without an active selection will cut or copy the entire "
+"current line"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:56
 msgid "General"
 msgstr "Općenito"
 
-#: src/Dialogs/PreferencesDialog.vala:53
+#: src/Dialogs/PreferencesDialog.vala:57
 msgid "Save files when changed:"
 msgstr "Spremi datoteke kada je promjenjeno:"
 
-#: src/Dialogs/PreferencesDialog.vala:55 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:59
+msgid "Smart cut/copy lines:"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
 msgstr "Kartice"
 
-#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:161
+#: src/Dialogs/PreferencesDialog.vala:63 src/Widgets/FormatBar.vala:161
 msgid "Automatic indentation:"
 msgstr "Automatsko uvlačenje:"
 
-#: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:155
+#: src/Dialogs/PreferencesDialog.vala:65 src/Widgets/FormatBar.vala:155
 msgid "Insert spaces instead of tabs:"
 msgstr "Umetni razmake umjesto taba:"
 
-#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:158
+#: src/Dialogs/PreferencesDialog.vala:67 src/Widgets/FormatBar.vala:158
 msgid "Tab width:"
 msgstr "Širina taba:"
 
-#: src/Dialogs/PreferencesDialog.vala:67
+#: src/Dialogs/PreferencesDialog.vala:74
 msgid "Behavior"
 msgstr "Ponašanje"
 
-#: src/Dialogs/PreferencesDialog.vala:68
+#: src/Dialogs/PreferencesDialog.vala:75
 msgid "Interface"
 msgstr "Sučelje"
 
-#: src/Dialogs/PreferencesDialog.vala:80
+#: src/Dialogs/PreferencesDialog.vala:87
 #: plugins/pastebin/pastebin_dialog.vala:323
 msgid "Close"
 msgstr "Zatvori"
 
-#: src/Dialogs/PreferencesDialog.vala:96
+#: src/Dialogs/PreferencesDialog.vala:103
 msgid "Extensions"
 msgstr "Proširenja"
 
-#: src/Dialogs/PreferencesDialog.vala:105
+#: src/Dialogs/PreferencesDialog.vala:112
 msgid "Editor"
 msgstr "Uređivač"
 
-#: src/Dialogs/PreferencesDialog.vala:107
+#: src/Dialogs/PreferencesDialog.vala:114
 msgid "Highlight matching brackets:"
 msgstr "Istakni podudarajuće zagrade:"
 
-#: src/Dialogs/PreferencesDialog.vala:110
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Line wrap:"
 msgstr "Prijelom redka:"
 
-#: src/Dialogs/PreferencesDialog.vala:113
+#: src/Dialogs/PreferencesDialog.vala:120
 msgid "Draw Spaces:"
 msgstr "Prostor crteža:"
 
-#: src/Dialogs/PreferencesDialog.vala:115
-#: plugins/pastebin/pastebin_dialog.vala:460
-msgid "Never"
-msgstr "Nikada"
-
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:122
 msgid "For selected text"
 msgstr "Za odabrani tekst"
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:123
 msgid "Always"
 msgstr "Uvijek"
 
-#: src/Dialogs/PreferencesDialog.vala:120
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Show Mini Map:"
 msgstr "Prikaži mini mapu:"
 
-#: src/Dialogs/PreferencesDialog.vala:123
+#: src/Dialogs/PreferencesDialog.vala:129
 msgid "Line width guide:"
 msgstr "Širina redka vodiča:"
 
-#: src/Dialogs/PreferencesDialog.vala:131
+#: src/Dialogs/PreferencesDialog.vala:137
 msgid "Font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:133
+#: src/Dialogs/PreferencesDialog.vala:139
 msgid "Custom font:"
 msgstr "Prilagođena slova:"
 
@@ -589,12 +594,12 @@ msgstr "Zamijeni"
 msgid "Replace all"
 msgstr "Zamijeni sve"
 
-#: src/Widgets/SourceView.vala:362
+#: src/Widgets/SourceView.vala:390
 #, fuzzy
 msgid "Sort Selected Lines"
 msgstr "Za odabrani tekst"
 
-#: src/Widgets/SourceView.vala:369
+#: src/Widgets/SourceView.vala:397
 msgid "Toggle Comment"
 msgstr ""
 
@@ -667,6 +672,10 @@ msgstr "Pošalji"
 #: plugins/pastebin/pastebin_dialog.vala:352
 msgid "Other formats"
 msgstr "Ostali formati"
+
+#: plugins/pastebin/pastebin_dialog.vala:460
+msgid "Never"
+msgstr "Nikada"
 
 #: plugins/pastebin/pastebin_dialog.vala:461
 msgid "Ten minutes"

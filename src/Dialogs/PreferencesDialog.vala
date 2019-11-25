@@ -43,22 +43,29 @@ namespace Scratch.Dialogs {
         }
 
         construct {
+            var smart_cut_copy_info = new Gtk.Image.from_icon_name ("dialog-information-symbolic", Gtk.IconSize.MENU);
+            smart_cut_copy_info.halign = Gtk.Align.START;
+            smart_cut_copy_info.tooltip_text = _("Cutting or copying without an active selection will cut or copy the entire current line");
+
             var indent_width = new Gtk.SpinButton.with_range (1, 24, 1);
             Scratch.settings.schema.bind ("indent-width", indent_width, "value", SettingsBindFlags.DEFAULT);
 
             var general_grid = new Gtk.Grid ();
             general_grid.column_spacing = 12;
             general_grid.row_spacing = 6;
-            general_grid.attach (new Granite.HeaderLabel (_("General")), 0, 0, 2, 1);
-            general_grid.attach (new SettingsLabel (_("Save files when changed:")), 0, 1, 1, 1);
-            general_grid.attach (new SettingsSwitch ("autosave"), 1, 1, 1, 1);
-            general_grid.attach (new Granite.HeaderLabel (_("Tabs")), 0, 2, 2, 1);
-            general_grid.attach (new SettingsLabel (_("Automatic indentation:")), 0, 3, 1, 1);
-            general_grid.attach (new SettingsSwitch ("auto-indent"), 1, 3, 1, 1);
-            general_grid.attach (new SettingsLabel (_("Insert spaces instead of tabs:")), 0, 4, 1, 1);
-            general_grid.attach (new SettingsSwitch ("spaces-instead-of-tabs"), 1, 4, 1, 1);
-            general_grid.attach (new SettingsLabel (_("Tab width:")), 0, 5, 1, 1);
-            general_grid.attach (indent_width, 1, 5, 1, 1);
+            general_grid.attach (new Granite.HeaderLabel (_("General")), 0, 0, 3);
+            general_grid.attach (new SettingsLabel (_("Save files when changed:")), 0, 1);
+            general_grid.attach (new SettingsSwitch ("autosave"), 1, 1, 2);
+            general_grid.attach (new SettingsLabel (_("Smart cut/copy lines:")), 0, 2);
+            general_grid.attach (new SettingsSwitch ("smart-cut-copy"), 1, 2);
+            general_grid.attach (smart_cut_copy_info, 2, 2);
+            general_grid.attach (new Granite.HeaderLabel (_("Tabs")), 0, 3, 3);
+            general_grid.attach (new SettingsLabel (_("Automatic indentation:")), 0, 4);
+            general_grid.attach (new SettingsSwitch ("auto-indent"), 1, 4, 2);
+            general_grid.attach (new SettingsLabel (_("Insert spaces instead of tabs:")), 0, 5);
+            general_grid.attach (new SettingsSwitch ("spaces-instead-of-tabs"), 1, 5, 2);
+            general_grid.attach (new SettingsLabel (_("Tab width:")), 0, 6);
+            general_grid.attach (indent_width, 1, 6, 2);
 
             main_stack = new Gtk.Stack ();
             main_stack.margin = 6;
@@ -112,7 +119,6 @@ namespace Scratch.Dialogs {
 
             var draw_spaces_label = new SettingsLabel (_("Draw Spaces:"));
             var draw_spaces_combo = new Gtk.ComboBoxText ();
-            draw_spaces_combo.append ("Never", _("Never"));
             draw_spaces_combo.append ("For Selection", _("For selected text"));
             draw_spaces_combo.append ("Always", _("Always"));
             Scratch.settings.schema.bind ("draw-spaces", draw_spaces_combo, "active-id", SettingsBindFlags.DEFAULT);

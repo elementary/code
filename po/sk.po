@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 18:24+0000\n"
+"POT-Creation-Date: 2019-11-25 20:10+0000\n"
 "PO-Revision-Date: 2019-02-13 00:07+0000\n"
 "Last-Translator: Cleiton Floss <cleitonfloss@gmail.com>\n"
 "Language-Team: Slovak <https://weblate.elementary.io/projects/code/code/sk/"
@@ -134,89 +134,94 @@ msgstr "_Zrušiť"
 msgid "Preferences"
 msgstr "Nastavenia"
 
-#: src/Dialogs/PreferencesDialog.vala:52
+#: src/Dialogs/PreferencesDialog.vala:48
+msgid ""
+"Cutting or copying without an active selection will cut or copy the entire "
+"current line"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:56
 msgid "General"
 msgstr "Všeobecné"
 
-#: src/Dialogs/PreferencesDialog.vala:53
+#: src/Dialogs/PreferencesDialog.vala:57
 msgid "Save files when changed:"
 msgstr "Uložiť súbory pri ich zmene:"
 
-#: src/Dialogs/PreferencesDialog.vala:55 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:59
+msgid "Smart cut/copy lines:"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
 msgstr "Karty"
 
-#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:161
+#: src/Dialogs/PreferencesDialog.vala:63 src/Widgets/FormatBar.vala:161
 msgid "Automatic indentation:"
 msgstr "Automatické vytvorenie odstavca:"
 
-#: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:155
+#: src/Dialogs/PreferencesDialog.vala:65 src/Widgets/FormatBar.vala:155
 msgid "Insert spaces instead of tabs:"
 msgstr "Vložiť medzery namiesto tabulátorov:"
 
-#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:158
+#: src/Dialogs/PreferencesDialog.vala:67 src/Widgets/FormatBar.vala:158
 msgid "Tab width:"
 msgstr "Šírka tabulátora:"
 
-#: src/Dialogs/PreferencesDialog.vala:67
+#: src/Dialogs/PreferencesDialog.vala:74
 msgid "Behavior"
 msgstr "Správanie"
 
-#: src/Dialogs/PreferencesDialog.vala:68
+#: src/Dialogs/PreferencesDialog.vala:75
 msgid "Interface"
 msgstr "Rozhranie"
 
-#: src/Dialogs/PreferencesDialog.vala:80
+#: src/Dialogs/PreferencesDialog.vala:87
 #: plugins/pastebin/pastebin_dialog.vala:323
 msgid "Close"
 msgstr "Zavrieť"
 
-#: src/Dialogs/PreferencesDialog.vala:96
+#: src/Dialogs/PreferencesDialog.vala:103
 msgid "Extensions"
 msgstr "Rozšírenia"
 
-#: src/Dialogs/PreferencesDialog.vala:105
+#: src/Dialogs/PreferencesDialog.vala:112
 msgid "Editor"
 msgstr "Editor"
 
-#: src/Dialogs/PreferencesDialog.vala:107
+#: src/Dialogs/PreferencesDialog.vala:114
 msgid "Highlight matching brackets:"
 msgstr "Zvýrazniť zhodujúce sa zátvorky:"
 
-#: src/Dialogs/PreferencesDialog.vala:110
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Line wrap:"
 msgstr "Zalomenie riadkov:"
 
-#: src/Dialogs/PreferencesDialog.vala:113
+#: src/Dialogs/PreferencesDialog.vala:120
 msgid "Draw Spaces:"
 msgstr "Zobraziť mezery:"
 
-#: src/Dialogs/PreferencesDialog.vala:115
-#: plugins/pastebin/pastebin_dialog.vala:460
-msgid "Never"
-msgstr "Nikdy"
-
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:122
 msgid "For selected text"
 msgstr "Pre vybraný text"
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:123
 msgid "Always"
 msgstr "Vždy"
 
-#: src/Dialogs/PreferencesDialog.vala:120
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Show Mini Map:"
 msgstr "Zobraziť mini-mapu:"
 
-#: src/Dialogs/PreferencesDialog.vala:123
+#: src/Dialogs/PreferencesDialog.vala:129
 msgid "Line width guide:"
 msgstr "Šírka vodiacej čiary:"
 
-#: src/Dialogs/PreferencesDialog.vala:131
+#: src/Dialogs/PreferencesDialog.vala:137
 msgid "Font"
 msgstr "Písmo"
 
-#: src/Dialogs/PreferencesDialog.vala:133
+#: src/Dialogs/PreferencesDialog.vala:139
 msgid "Custom font:"
 msgstr "Vlastné písmo:"
 
@@ -567,11 +572,11 @@ msgstr "Nahradiť"
 msgid "Replace all"
 msgstr "Nahradiť všetko"
 
-#: src/Widgets/SourceView.vala:362
+#: src/Widgets/SourceView.vala:390
 msgid "Sort Selected Lines"
 msgstr "Zoradiť vybrané riadky"
 
-#: src/Widgets/SourceView.vala:369
+#: src/Widgets/SourceView.vala:397
 msgid "Toggle Comment"
 msgstr "Skryť/Zobraziť komentár"
 
@@ -638,6 +643,10 @@ msgstr "Nahrať"
 #: plugins/pastebin/pastebin_dialog.vala:352
 msgid "Other formats"
 msgstr "Iné formáty"
+
+#: plugins/pastebin/pastebin_dialog.vala:460
+msgid "Never"
+msgstr "Nikdy"
 
 #: plugins/pastebin/pastebin_dialog.vala:461
 msgid "Ten minutes"
