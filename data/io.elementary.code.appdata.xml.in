@@ -48,6 +48,7 @@
   <releases>
     <release version="3.2.0" date="2019-11-14">
       <description>
+        <ul>Copy/cut current line when no selection</ul>
         <ul>Add a confirmation dialog to the "Restore" action</ul>
         <ul>Add "Open In" menu to the top-level folder in the folder manager</ul>
         <ul>Fix the keyboard shortcut for going backwards in search results</ul>
@@ -60,7 +61,7 @@
         <ul>Change search entry icon when results aren't found</ul>
         <ul>Updated translations</ul>
       </description>
-    </release>    
+    </release>
     <release version="3.1.1" date="2019-03-06">
       <description>
         <ul>Use Granite.MessageDialog throughout</ul>
