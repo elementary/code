@@ -32,7 +32,7 @@ namespace Scratch.Utils {
             return;
         }
 
-	    label.set_accel (key.accel_key, key.accel_mods);
+        label.set_accel (key.accel_key, key.accel_mods);
         label.refetch ();
     }
 }
