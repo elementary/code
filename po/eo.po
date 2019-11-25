@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-04 09:46-0600\n"
-"PO-Revision-Date: 2019-07-14 23:28+0000\n"
+"POT-Creation-Date: 2019-11-19 10:13-0800\n"
+"PO-Revision-Date: 2019-10-05 21:23+0000\n"
 "Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
 "Language-Team: Esperanto <https://l10n.elementary.io/projects/code/code/eo/"
 ">\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:132
@@ -96,15 +96,14 @@ msgid "Hide search bar"
 msgstr "Kaŝi serĉbreton"
 
 #: src/MainWindow.vala:240
-#, fuzzy
 msgid "Zeitgeist Datasource for Code"
-msgstr "Datumfonto Zeitgeist por Scratch"
+msgstr "Datumfonto Zeitgeist por Kodo"
 
-#: src/MainWindow.vala:765 src/Services/Document.vala:503
+#: src/MainWindow.vala:765 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Ĉiuj dosieroj"
 
-#: src/MainWindow.vala:769 src/Services/Document.vala:507
+#: src/MainWindow.vala:769 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Tekstaj dosieroj"
 
@@ -116,8 +115,8 @@ msgstr "Malfermi dosierojn"
 msgid "Open"
 msgstr "Malfermi"
 
-#: src/MainWindow.vala:777 src/Services/Document.vala:402
-#: src/Services/Document.vala:515
+#: src/MainWindow.vala:777 src/Services/Document.vala:401
+#: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Rezigni"
 
@@ -298,69 +297,69 @@ msgstr "Fermi Dosierujon"
 msgid "Branch"
 msgstr "Branĉo"
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:266
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s estas dosiero ne teksta"
 
-#: src/Services/Document.vala:268
+#: src/Services/Document.vala:267
 msgid "Code will not load this type of file."
 msgstr "Kodo ne ŝargos tian dosiertipon."
 
-#: src/Services/Document.vala:270
+#: src/Services/Document.vala:269
 msgid "Load Anyway"
 msgstr "Ŝargi Ĉiukaze"
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:290
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Ŝargo de la dosiero „%s“ longe daŭras"
 
-#: src/Services/Document.vala:292
+#: src/Services/Document.vala:291
 msgid "Please wait while Code is loading the file."
 msgstr "Bonvolu atendi dum Kodo ŝargas la dosieron."
 
-#: src/Services/Document.vala:294
+#: src/Services/Document.vala:293
 msgid "Cancel Loading"
 msgstr "Rezigni Ŝargon"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:391
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Ĉu estu konservata al „%s“ antaŭ fermo?"
 
-#: src/Services/Document.vala:393
+#: src/Services/Document.vala:392
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Sen konservo, ŝanĝoj definitive perdiĝos."
 
-#: src/Services/Document.vala:399
+#: src/Services/Document.vala:398
 msgid "Close Without Saving"
 msgstr "Fermi sen konservo"
 
-#: src/Services/Document.vala:403 src/Services/Document.vala:514
-#: src/Services/Document.vala:738
+#: src/Services/Document.vala:402 src/Services/Document.vala:513
+#: src/Services/Document.vala:737
 msgid "Save"
 msgstr "Konservi"
 
-#: src/Services/Document.vala:511
+#: src/Services/Document.vala:510
 msgid "Save File"
 msgstr "Konservi dosieron"
 
-#: src/Services/Document.vala:593
+#: src/Services/Document.vala:592
 msgid "New Document"
 msgstr "Nova dokumento"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:716
+#: src/Services/Document.vala:715
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Dosiero „%s“ ne legeblas"
 
-#: src/Services/Document.vala:717
+#: src/Services/Document.vala:716
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "Eble ĝi estas koruptita, aŭ mankas al vi leg-permeso."
 
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:728
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -369,17 +368,17 @@ msgstr ""
 "La dosierujo en kiu estis la dosiero „%s“ estis malmuntita. Ĉu vi deziras "
 "konservi aliloke?"
 
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:730
 msgid "Save As…"
 msgstr "Konservi kiel…"
 
-#: src/Services/Document.vala:736
+#: src/Services/Document.vala:735
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "La dosiero „%s“ estis forigita. Ĉu vi deziras tamen konservi ĝin?"
 
 #. If the file can't be written
-#: src/Services/Document.vala:751
+#: src/Services/Document.vala:750
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -387,11 +386,11 @@ msgid ""
 msgstr ""
 "Ne eblas konservi ŝanĝojn en la dosiero „%s“. Ĉu vi deziras konservi aliloke?"
 
-#: src/Services/Document.vala:753
+#: src/Services/Document.vala:752
 msgid "Save changes elsewhere"
 msgstr "Konservi aliloke"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:785
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -400,15 +399,15 @@ msgstr ""
 "La dosiero „%s“ estis modifita de ekstera aplikaĵo. Ĉu vi deziras reŝargi "
 "ĝin aŭ daŭrigi ĝian redaktadon?"
 
-#: src/Services/Document.vala:787
+#: src/Services/Document.vala:786
 msgid "Load"
 msgstr "Ŝargi"
 
-#: src/Services/Document.vala:790
+#: src/Services/Document.vala:789
 msgid "Continue"
 msgstr "Daŭrigi"
 
-#: src/Services/TemplateManager.vala:194
+#: src/Services/TemplateManager.vala:192
 msgid "Templates"
 msgstr "Ŝablonoj"
 
@@ -635,7 +634,7 @@ msgstr "Unu tagon"
 msgid "One month"
 msgstr "Unu monaton"
 
-#: plugins/pastebin/pastebin.vala:94
+#: plugins/pastebin/pastebin.vala:91
 msgid "Upload to Pastebin"
 msgstr "Alŝuti al Pastebin"
 
@@ -648,26 +647,26 @@ msgstr "Alŝuti al Pastebin"
 msgid "Symbols"
 msgstr "Simboloj"
 
-#: plugins/terminal/terminal.vala:135 plugins/terminal/terminal.vala:142
+#: plugins/terminal/terminal.vala:134 plugins/terminal/terminal.vala:141
 msgid "Show Terminal"
 msgstr "Montri la Terminalon"
 
-#: plugins/terminal/terminal.vala:138
+#: plugins/terminal/terminal.vala:137
 msgid "Hide Terminal"
 msgstr "Kaŝi la Terminalon"
 
-#: plugins/terminal/terminal.vala:139
+#: plugins/terminal/terminal.vala:138
 msgid "Terminal"
 msgstr "Terminalo"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:194
+#: plugins/terminal/terminal.vala:193
 msgid "Copy"
 msgstr "Kopii"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:201
+#: plugins/terminal/terminal.vala:200
 msgid "Paste"
 msgstr "Alglui"
 
@@ -675,24 +674,24 @@ msgstr "Alglui"
 msgid "Web Preview"
 msgstr "Retpaĝa antaŭvido"
 
-#: plugins/browser-preview/browser-preview.vala:72
-#: plugins/browser-preview/browser-preview.vala:98
+#: plugins/browser-preview/browser-preview.vala:70
+#: plugins/browser-preview/browser-preview.vala:96
 msgid "Show Preview"
 msgstr "Montri antaŭvidon"
 
-#: plugins/browser-preview/browser-preview.vala:90
+#: plugins/browser-preview/browser-preview.vala:88
 msgid "Hide Preview"
 msgstr "Kaŝi antaŭvidon"
 
-#: plugins/spell/spell.vala:76
+#: plugins/spell/spell.vala:74
 msgid "No Suitable Dictionaries Were Found"
 msgstr "Neniu taŭga vortaro estis trovita"
 
-#: plugins/spell/spell.vala:77
+#: plugins/spell/spell.vala:75
 msgid "Please install at least one [aspell] dictionary."
 msgstr "Bonvolu instali almenaŭ unu [aspell]-vortaron."
 
-#: plugins/word-completion/plugin.vala:174
+#: plugins/word-completion/plugin.vala:173
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - vortkompletigo"

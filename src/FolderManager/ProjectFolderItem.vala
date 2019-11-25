@@ -106,7 +106,7 @@ namespace Scratch.FolderManager {
 
             try {
                 info = file.file.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, GLib.FileQueryInfoFlags.NONE);
-                file_type = info.get_content_type();
+                file_type = info.get_content_type ();
             } catch (Error e) {
                 warning (e.message);
             }

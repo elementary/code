@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-04 09:46-0600\n"
+"POT-Creation-Date: 2019-11-19 10:13-0800\n"
 "PO-Revision-Date: 2019-07-12 12:46+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/code/code/ko/>\n"
@@ -99,11 +99,11 @@ msgstr "검색 바 숨기기"
 msgid "Zeitgeist Datasource for Code"
 msgstr "스크래치를 위한 Zeitgeist 데이터 소스"
 
-#: src/MainWindow.vala:765 src/Services/Document.vala:503
+#: src/MainWindow.vala:765 src/Services/Document.vala:502
 msgid "All files"
 msgstr "모든 파일"
 
-#: src/MainWindow.vala:769 src/Services/Document.vala:507
+#: src/MainWindow.vala:769 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "텍스트 파일"
 
@@ -115,8 +115,8 @@ msgstr "파일 열기"
 msgid "Open"
 msgstr "열기"
 
-#: src/MainWindow.vala:777 src/Services/Document.vala:402
-#: src/Services/Document.vala:515
+#: src/MainWindow.vala:777 src/Services/Document.vala:401
+#: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "취소"
 
@@ -297,69 +297,69 @@ msgstr "폴더 닫기"
 msgid "Branch"
 msgstr "브랜치"
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:266
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s는 텍스트 파일이 아닙니다"
 
-#: src/Services/Document.vala:268
+#: src/Services/Document.vala:267
 msgid "Code will not load this type of file."
 msgstr "코드에서는 이런 종류의 파일을 가져오지 않습니다."
 
-#: src/Services/Document.vala:270
+#: src/Services/Document.vala:269
 msgid "Load Anyway"
 msgstr "그래도 가져오기"
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:290
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "파일 \"%s\" 불러 오는데 시간이 오래 걸립니다"
 
-#: src/Services/Document.vala:292
+#: src/Services/Document.vala:291
 msgid "Please wait while Code is loading the file."
 msgstr "코드가 파일을 불러오는 동안 기다려주세요."
 
-#: src/Services/Document.vala:294
+#: src/Services/Document.vala:293
 msgid "Cancel Loading"
 msgstr "불러오기 취소"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:391
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "닫기 전에 %s 문서의 변경 사항을 저장하시겠습니까?"
 
-#: src/Services/Document.vala:393
+#: src/Services/Document.vala:392
 msgid "If you don't save, changes will be permanently lost."
 msgstr "저장하지 않으면, 변경한 내용은 사라집니다."
 
-#: src/Services/Document.vala:399
+#: src/Services/Document.vala:398
 msgid "Close Without Saving"
 msgstr "저장하지 않고 닫기"
 
-#: src/Services/Document.vala:403 src/Services/Document.vala:514
-#: src/Services/Document.vala:738
+#: src/Services/Document.vala:402 src/Services/Document.vala:513
+#: src/Services/Document.vala:737
 msgid "Save"
 msgstr "저장"
 
-#: src/Services/Document.vala:511
+#: src/Services/Document.vala:510
 msgid "Save File"
 msgstr "파일 저장"
 
-#: src/Services/Document.vala:593
+#: src/Services/Document.vala:592
 msgid "New Document"
 msgstr "새 문서"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:716
+#: src/Services/Document.vala:715
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "파일 \"%s\" 읽을 수 없습니다"
 
-#: src/Services/Document.vala:717
+#: src/Services/Document.vala:716
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "파일이 깨졌거나 이 파일을 읽을 수 있는 권한이 없는 것일 수 있습니다."
 
-#: src/Services/Document.vala:729
+#: src/Services/Document.vala:728
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -367,17 +367,17 @@ msgid ""
 msgstr ""
 "파일 \"%s\"를 포함한 위치가 언마운트 되었습니다. 다른 곳에 저장하시겠습니까?"
 
-#: src/Services/Document.vala:731
+#: src/Services/Document.vala:730
 msgid "Save As…"
 msgstr "다른 이름으로 저장…"
 
-#: src/Services/Document.vala:736
+#: src/Services/Document.vala:735
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "파일 \"%s\"가 지워졌습니다. 그래도 저장하시겠습니까?"
 
 #. If the file can't be written
-#: src/Services/Document.vala:751
+#: src/Services/Document.vala:750
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -386,11 +386,11 @@ msgstr ""
 "이 파일의 변경된 내용을 저장할 수 없습니다 \"%s\". 이 파일의 변경된 내용을 다"
 "른 위치에 저장하시겠습니까?"
 
-#: src/Services/Document.vala:753
+#: src/Services/Document.vala:752
 msgid "Save changes elsewhere"
 msgstr "다른 곳에 변경사항을 저장하기"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:785
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -399,15 +399,15 @@ msgstr ""
 "파일 \"%s\" 는 외부 프로그램에 의해서 수정되었습니다. 다시 읽어 들일까요 아니"
 "면 편집을 계속하실건가요?"
 
-#: src/Services/Document.vala:787
+#: src/Services/Document.vala:786
 msgid "Load"
 msgstr "불러오기"
 
-#: src/Services/Document.vala:790
+#: src/Services/Document.vala:789
 msgid "Continue"
 msgstr "계속"
 
-#: src/Services/TemplateManager.vala:194
+#: src/Services/TemplateManager.vala:192
 msgid "Templates"
 msgstr "서식"
 
@@ -632,7 +632,7 @@ msgstr "하루"
 msgid "One month"
 msgstr "한 달"
 
-#: plugins/pastebin/pastebin.vala:94
+#: plugins/pastebin/pastebin.vala:91
 msgid "Upload to Pastebin"
 msgstr "Pastebin에 업로드"
 
@@ -645,26 +645,26 @@ msgstr "Pastebin에 업로드"
 msgid "Symbols"
 msgstr "기호"
 
-#: plugins/terminal/terminal.vala:135 plugins/terminal/terminal.vala:142
+#: plugins/terminal/terminal.vala:134 plugins/terminal/terminal.vala:141
 msgid "Show Terminal"
 msgstr "터미널 보이기"
 
-#: plugins/terminal/terminal.vala:138
+#: plugins/terminal/terminal.vala:137
 msgid "Hide Terminal"
 msgstr "터미널 숨기기"
 
-#: plugins/terminal/terminal.vala:139
+#: plugins/terminal/terminal.vala:138
 msgid "Terminal"
 msgstr "터미널"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:194
+#: plugins/terminal/terminal.vala:193
 msgid "Copy"
 msgstr "복사"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:201
+#: plugins/terminal/terminal.vala:200
 msgid "Paste"
 msgstr "붙여넣기"
 
@@ -672,24 +672,24 @@ msgstr "붙여넣기"
 msgid "Web Preview"
 msgstr "웹 미리 보기"
 
-#: plugins/browser-preview/browser-preview.vala:72
-#: plugins/browser-preview/browser-preview.vala:98
+#: plugins/browser-preview/browser-preview.vala:70
+#: plugins/browser-preview/browser-preview.vala:96
 msgid "Show Preview"
 msgstr "미리 보기"
 
-#: plugins/browser-preview/browser-preview.vala:90
+#: plugins/browser-preview/browser-preview.vala:88
 msgid "Hide Preview"
 msgstr "미리 보기 숨기기"
 
-#: plugins/spell/spell.vala:76
+#: plugins/spell/spell.vala:74
 msgid "No Suitable Dictionaries Were Found"
 msgstr "적절한 사전을 찾을 수 없습니다"
 
-#: plugins/spell/spell.vala:77
+#: plugins/spell/spell.vala:75
 msgid "Please install at least one [aspell] dictionary."
 msgstr "적어도 맞춤법 사전 [aspell] 한 개는 설치해주세요."
 
-#: plugins/word-completion/plugin.vala:174
+#: plugins/word-completion/plugin.vala:173
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - 단어 완성"

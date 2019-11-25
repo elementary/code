@@ -68,7 +68,7 @@ namespace Scratch.FolderManager {
 
             try {
                 info = file.file.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, GLib.FileQueryInfoFlags.NONE);
-                file_type = info.get_content_type();
+                file_type = info.get_content_type ();
             } catch (Error e) {
                 warning (e.message);
             }
@@ -120,7 +120,7 @@ namespace Scratch.FolderManager {
 
             if (info != null) {
                 List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type (file_type);
-                
+
                 string this_id = GLib.Application.get_default ().application_id + ".desktop";
 
                 foreach (AppInfo app_info in external_apps) {
@@ -159,7 +159,7 @@ namespace Scratch.FolderManager {
 
         protected Gtk.MenuItem create_submenu_for_new () {
             var new_folder_item = new Gtk.MenuItem.with_label (_("Folder"));
-            new_folder_item.activate.connect(() => add_folder ());
+            new_folder_item.activate.connect (() => add_folder ());
 
             var new_file_item = new Gtk.MenuItem.with_label (_("Empty File"));
             new_file_item.activate.connect (() => add_file ());
@@ -331,7 +331,7 @@ namespace Scratch.FolderManager {
         protected void add_folder () {
             if (!file.is_executable) {
                 // This is necessary to avoid infinite loop below
-                warning("Unable to open parent folder");
+                warning ("Unable to open parent folder");
                 return;
             }
 
@@ -363,7 +363,7 @@ namespace Scratch.FolderManager {
         protected void add_file () {
             if (!file.is_executable) {
                 // This is necessary to avoid infinite loop below
-                warning("Unable to open parent folder");
+                warning ("Unable to open parent folder");
                 return;
             }
 

@@ -18,7 +18,7 @@
   END LICENSE
 ***/
 
-public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase,  Peas.Activatable {
+public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.Activatable {
     Scratch.Widgets.SourceView current_source;
     Gtk.SourceSearchContext current_search_context;
 
