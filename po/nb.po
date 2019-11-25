@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-15 19:42+0000\n"
-"PO-Revision-Date: 2019-06-04 21:20+0000\n"
+"POT-Creation-Date: 2019-11-19 10:13-0800\n"
+"PO-Revision-Date: 2019-11-15 21:24+0000\n"
 "Last-Translator: Nils K <slx@nilsk.net>\n"
 "Language-Team: Norwegian Bokmål <https://l10n.elementary.io/projects/code/"
 "code/nb/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
 #: src/Application.vala:132
@@ -96,9 +96,8 @@ msgid "Hide search bar"
 msgstr "Skjul søkefeltet"
 
 #: src/MainWindow.vala:240
-#, fuzzy
 msgid "Zeitgeist Datasource for Code"
-msgstr "Zeitgeist datakilde for Scratch"
+msgstr "Zeitgeist datakilde for Kode"
 
 #: src/MainWindow.vala:765 src/Services/Document.vala:502
 msgid "All files"
@@ -221,18 +220,19 @@ msgstr "Egendefinert skrifttype:"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
-msgstr ""
+msgstr "Er du sikker på at du vil gjenopprette denne filen?"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Restoring a file will undo all changes made since opening it"
 msgstr ""
+"Å gjenopprette filen vil fjerne alle endringene som er gjort siden den ble "
+"åpnet"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:34
 msgid "Don't Restore"
-msgstr ""
+msgstr "Ikke gjenopprett"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
-#, fuzzy
 msgid "Restore Anyway"
 msgstr "Last inn uansett"
 
@@ -296,9 +296,8 @@ msgid "Close Folder"
 msgstr "Lukk mappe"
 
 #: src/FolderManager/ProjectFolderItem.vala:286
-#, fuzzy
 msgid "Branch"
-msgstr "Bytt gren"
+msgstr "Gren"
 
 #: src/Services/Document.vala:266
 #, c-format
