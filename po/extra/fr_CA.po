@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 20:56+0000\n"
+"POT-Creation-Date: 2019-11-25 21:29+0000\n"
 "PO-Revision-Date: 2019-09-10 14:55+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: French (Canada) <https://l10n.elementary.io/projects/code/"
@@ -237,12 +237,15 @@ msgid "text;IDE;scratch;"
 msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:17
-msgid "New Document"
-msgstr "Nouveau Document"
+msgid "New File"
+msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
 msgstr "Nouvelle fenêtre"
+
+#~ msgid "New Document"
+#~ msgstr "Nouveau Document"
 
 #~ msgid "About Scratch"
 #~ msgstr "À propos de Scratch"

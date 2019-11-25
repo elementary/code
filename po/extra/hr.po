@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 20:56+0000\n"
+"POT-Creation-Date: 2019-11-25 21:29+0000\n"
 "PO-Revision-Date: 2019-09-10 14:55+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Croatian <https://l10n.elementary.io/projects/code/extra/hr/"
@@ -255,12 +255,15 @@ msgid "text;IDE;scratch;"
 msgstr "Scratch"
 
 #: data/io.elementary.code.desktop.in.in:17
-msgid "New Document"
-msgstr "Novi dokument"
+msgid "New File"
+msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
 msgstr "Novi prozor"
+
+#~ msgid "New Document"
+#~ msgstr "Novi dokument"
 
 #~ msgid "Notepad;IDE;Plain;"
 #~ msgstr "Notepad;IDE;Ovično;"
