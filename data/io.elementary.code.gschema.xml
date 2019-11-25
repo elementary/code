@@ -98,7 +98,7 @@
     <key name="draw-spaces" enum="io.elementary.code.draw-spaces-states">
       <default>"For Selection"</default>
       <summary>Draw spaces and tabs with symbols</summary>
-      <description>Draw spaces and tabs with symbols.</description>
+      <description>Draw spaces and tabs with symbols. "Never" is deprecated and not exposed in the UI.</description>
     </key>
     <key name="show-mini-map" type="b">
       <default>false</default>
