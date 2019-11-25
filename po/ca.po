@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-15 19:42+0000\n"
+"POT-Creation-Date: 2019-11-25 19:45+0000\n"
 "PO-Revision-Date: 2019-10-09 14:23+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
@@ -82,138 +82,148 @@ msgstr "Conjunt de connectors"
 msgid "plugin"
 msgstr "connector"
 
-#: src/MainWindow.vala:133
+#: src/MainWindow.vala:137
 msgid "Code"
 msgstr "Codi"
 
-#: src/MainWindow.vala:184 src/Widgets/HeaderBar.vala:80
+#: src/MainWindow.vala:188 src/Widgets/HeaderBar.vala:76
 msgid "Find…"
 msgstr "Cerca…"
 
-#: src/MainWindow.vala:189
+#: src/MainWindow.vala:193
 msgid "Hide search bar"
 msgstr "Oculta la barra de cerca"
 
-#: src/MainWindow.vala:240
+#: src/MainWindow.vala:244
 msgid "Zeitgeist Datasource for Code"
 msgstr "Font de dades del Zeitgeist per al Codi"
 
-#: src/MainWindow.vala:765 src/Services/Document.vala:502
+#: src/MainWindow.vala:769 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Tots els fitxers"
 
-#: src/MainWindow.vala:769 src/Services/Document.vala:506
+#: src/MainWindow.vala:773 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Fitxers de text"
 
-#: src/MainWindow.vala:773
+#: src/MainWindow.vala:777
 msgid "Open some files"
 msgstr "Obriu alguns fitxers"
 
-#: src/MainWindow.vala:776
+#: src/MainWindow.vala:780
 msgid "Open"
 msgstr "Obre"
 
-#: src/MainWindow.vala:777 src/Services/Document.vala:401
+#: src/MainWindow.vala:781 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: src/MainWindow.vala:802
+#: src/MainWindow.vala:806
 msgid "_Open"
 msgstr "_Obre"
 
-#: src/MainWindow.vala:803
+#: src/MainWindow.vala:807
 msgid "_Cancel"
 msgstr "_Cancel·la"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:160
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:156
 msgid "Preferences"
 msgstr "Preferències"
 
-#: src/Dialogs/PreferencesDialog.vala:52
+#: src/Dialogs/PreferencesDialog.vala:48
+msgid ""
+"Cutting or copying without an active selection will cut or copy the entire "
+"current line"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:56
 msgid "General"
 msgstr "General"
 
-#: src/Dialogs/PreferencesDialog.vala:53
+#: src/Dialogs/PreferencesDialog.vala:57
 msgid "Save files when changed:"
 msgstr "Desa els fitxers quan es produeixin canvis:"
 
-#: src/Dialogs/PreferencesDialog.vala:55 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:59
+msgid "Smart cut/copy lines:"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
 msgstr "Pestanyes"
 
-#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:161
+#: src/Dialogs/PreferencesDialog.vala:63 src/Widgets/FormatBar.vala:161
 msgid "Automatic indentation:"
 msgstr "Sagnat automàtic:"
 
-#: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:155
+#: src/Dialogs/PreferencesDialog.vala:65 src/Widgets/FormatBar.vala:155
 msgid "Insert spaces instead of tabs:"
 msgstr "Inserir espais en comptes de tabulacions:"
 
-#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:158
+#: src/Dialogs/PreferencesDialog.vala:67 src/Widgets/FormatBar.vala:158
 msgid "Tab width:"
 msgstr "Amplada del tabulador:"
 
-#: src/Dialogs/PreferencesDialog.vala:67
+#: src/Dialogs/PreferencesDialog.vala:74
 msgid "Behavior"
 msgstr "Comportament"
 
-#: src/Dialogs/PreferencesDialog.vala:68
+#: src/Dialogs/PreferencesDialog.vala:75
 msgid "Interface"
 msgstr "Interfície"
 
-#: src/Dialogs/PreferencesDialog.vala:80
+#: src/Dialogs/PreferencesDialog.vala:87
 #: plugins/pastebin/pastebin_dialog.vala:323
 msgid "Close"
 msgstr "Tanca"
 
-#: src/Dialogs/PreferencesDialog.vala:96
+#: src/Dialogs/PreferencesDialog.vala:103
 msgid "Extensions"
 msgstr "Extensions"
 
-#: src/Dialogs/PreferencesDialog.vala:105
+#: src/Dialogs/PreferencesDialog.vala:112
 msgid "Editor"
 msgstr "Editor"
 
-#: src/Dialogs/PreferencesDialog.vala:107
+#: src/Dialogs/PreferencesDialog.vala:114
 msgid "Highlight matching brackets:"
 msgstr "Realça la parella de claudàtors:"
 
-#: src/Dialogs/PreferencesDialog.vala:110
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Line wrap:"
 msgstr "Ajust de línia:"
 
-#: src/Dialogs/PreferencesDialog.vala:113
+#: src/Dialogs/PreferencesDialog.vala:120
 msgid "Draw Spaces:"
 msgstr "Dibuxa espais:"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:122
 #: plugins/pastebin/pastebin_dialog.vala:460
 msgid "Never"
 msgstr "Mai"
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:123
 msgid "For selected text"
 msgstr "Per al text seleccionat"
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:124
 msgid "Always"
 msgstr "Sempre"
 
-#: src/Dialogs/PreferencesDialog.vala:120
+#: src/Dialogs/PreferencesDialog.vala:127
 msgid "Show Mini Map:"
 msgstr "Mostra el minimapa:"
 
-#: src/Dialogs/PreferencesDialog.vala:123
+#: src/Dialogs/PreferencesDialog.vala:130
 msgid "Line width guide:"
 msgstr "Guia d'amplada de línia:"
 
-#: src/Dialogs/PreferencesDialog.vala:131
+#: src/Dialogs/PreferencesDialog.vala:138
 msgid "Font"
 msgstr "Lletra"
 
-#: src/Dialogs/PreferencesDialog.vala:133
+#: src/Dialogs/PreferencesDialog.vala:140
 msgid "Custom font:"
 msgstr "Tipus de lletra personalitzada:"
 
@@ -458,68 +468,80 @@ msgid "Open a file"
 msgstr "Obre un fitxer"
 
 #: src/Widgets/HeaderBar.vala:48
-msgid "Open a folder"
-msgstr "Obre una carpeta"
-
-#: src/Widgets/HeaderBar.vala:52
 msgid "Project templates"
 msgstr "Plantilles de projectes"
 
-#: src/Widgets/HeaderBar.vala:58
+#: src/Widgets/HeaderBar.vala:54
 msgid "Save this file"
 msgstr "Desa aquest fitxer"
 
-#: src/Widgets/HeaderBar.vala:65
+#: src/Widgets/HeaderBar.vala:61
 msgid "Save this file with a different name"
 msgstr "Desa aquest fitxer amb un nom diferent"
 
-#: src/Widgets/HeaderBar.vala:72
+#: src/Widgets/HeaderBar.vala:68
 msgid "Restore this file"
 msgstr "Restaura aquest fitxer"
 
-#: src/Widgets/HeaderBar.vala:87
+#: src/Widgets/HeaderBar.vala:83
 msgid "Share"
 msgstr "Comparteix"
 
-#: src/Widgets/HeaderBar.vala:94
+#: src/Widgets/HeaderBar.vala:90
 msgid "Zoom Out"
 msgstr "Allunya"
 
-#: src/Widgets/HeaderBar.vala:101
+#: src/Widgets/HeaderBar.vala:97
 msgid "Zoom 1:1"
 msgstr "Ampliació 1:1"
 
-#: src/Widgets/HeaderBar.vala:108
+#: src/Widgets/HeaderBar.vala:104
 msgid "Zoom In"
 msgstr "Apropa"
 
-#: src/Widgets/HeaderBar.vala:122
+#: src/Widgets/HeaderBar.vala:118
 msgid "High Contrast"
 msgstr "Contrast alt"
 
-#: src/Widgets/HeaderBar.vala:130
+#: src/Widgets/HeaderBar.vala:126
 msgid "Solarized Light"
 msgstr "Llum de dia clara"
 
-#: src/Widgets/HeaderBar.vala:138
+#: src/Widgets/HeaderBar.vala:134
 msgid "Solarized Dark"
 msgstr "Llum de dia fosca"
 
-#: src/Widgets/HeaderBar.vala:148
+#: src/Widgets/HeaderBar.vala:144
 msgid "Toggle Sidebar"
 msgstr "Commuta la barra lateral"
 
-#: src/Widgets/HeaderBar.vala:152
+#: src/Widgets/HeaderBar.vala:148
 msgid "Add New View"
 msgstr "Afegeix una nova vista"
 
-#: src/Widgets/HeaderBar.vala:156
+#: src/Widgets/HeaderBar.vala:152
 msgid "Remove Current View"
 msgstr "Suprimeix la vista actual"
 
-#: src/Widgets/HeaderBar.vala:183
+#: src/Widgets/HeaderBar.vala:179
 msgid "Menu"
 msgstr "Menú"
+
+#: src/Widgets/Pane.vala:45
+msgid "Add Project Folder…"
+msgstr ""
+
+#: src/Widgets/Pane.vala:48
+msgid "Manage project folders…"
+msgstr ""
+
+#: src/Widgets/Pane.vala:50
+msgid "Collapse All"
+msgstr ""
+
+#: src/Widgets/Pane.vala:53
+msgid "Alphabetize"
+msgstr ""
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
@@ -549,11 +571,11 @@ msgstr "Reemplaça"
 msgid "Replace all"
 msgstr "Reemplaça-ho tot"
 
-#: src/Widgets/SourceView.vala:362
+#: src/Widgets/SourceView.vala:390
 msgid "Sort Selected Lines"
 msgstr "Classifica les línies seleccionades"
 
-#: src/Widgets/SourceView.vala:369
+#: src/Widgets/SourceView.vala:397
 msgid "Toggle Comment"
 msgstr "Commuta el comentari"
 
@@ -698,6 +720,9 @@ msgstr "Si us plau, instal·leu com a mínim un diccionari (aspell)."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Compleció de paraules"
+
+#~ msgid "Open a folder"
+#~ msgstr "Obre una carpeta"
 
 #~ msgid "Could not load icon theme: %s\n"
 #~ msgstr "No s'ha pogut carregar el tema d'icones: %s\n"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-15 19:42+0000\n"
+"POT-Creation-Date: 2019-11-25 19:45+0000\n"
 "PO-Revision-Date: 2019-01-08 00:22+0000\n"
 "Last-Translator: Simon Dagfinrud <semonje@gmail.com>\n"
 "Language-Team: Norwegian Nynorsk <https://weblate.elementary.io/projects/"
@@ -84,139 +84,149 @@ msgstr "Utvidingar"
 msgid "plugin"
 msgstr "Utvidingar"
 
-#: src/MainWindow.vala:133
+#: src/MainWindow.vala:137
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:184 src/Widgets/HeaderBar.vala:80
+#: src/MainWindow.vala:188 src/Widgets/HeaderBar.vala:76
 msgid "Find…"
 msgstr "Finn …"
 
-#: src/MainWindow.vala:189
+#: src/MainWindow.vala:193
 msgid "Hide search bar"
 msgstr "Gøym søkjefeltet"
 
-#: src/MainWindow.vala:240
+#: src/MainWindow.vala:244
 #, fuzzy
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zeitgeist datakjelde for Scratch"
 
-#: src/MainWindow.vala:765 src/Services/Document.vala:502
+#: src/MainWindow.vala:769 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Alle filer"
 
-#: src/MainWindow.vala:769 src/Services/Document.vala:506
+#: src/MainWindow.vala:773 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Tekstfiler"
 
-#: src/MainWindow.vala:773
+#: src/MainWindow.vala:777
 msgid "Open some files"
 msgstr "Opne nokre filer"
 
-#: src/MainWindow.vala:776
+#: src/MainWindow.vala:780
 msgid "Open"
 msgstr "Opne"
 
-#: src/MainWindow.vala:777 src/Services/Document.vala:401
+#: src/MainWindow.vala:781 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/MainWindow.vala:802
+#: src/MainWindow.vala:806
 msgid "_Open"
 msgstr "_Opne"
 
-#: src/MainWindow.vala:803
+#: src/MainWindow.vala:807
 msgid "_Cancel"
 msgstr "_Avbryt"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:160
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:156
 msgid "Preferences"
 msgstr "Innstillingar"
 
-#: src/Dialogs/PreferencesDialog.vala:52
+#: src/Dialogs/PreferencesDialog.vala:48
+msgid ""
+"Cutting or copying without an active selection will cut or copy the entire "
+"current line"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:56
 msgid "General"
 msgstr "Generelt"
 
-#: src/Dialogs/PreferencesDialog.vala:53
+#: src/Dialogs/PreferencesDialog.vala:57
 msgid "Save files when changed:"
 msgstr "Lagre filer når dei er endra:"
 
-#: src/Dialogs/PreferencesDialog.vala:55 src/Widgets/FormatBar.vala:63
+#: src/Dialogs/PreferencesDialog.vala:59
+msgid "Smart cut/copy lines:"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
 msgstr "Faner"
 
-#: src/Dialogs/PreferencesDialog.vala:56 src/Widgets/FormatBar.vala:161
+#: src/Dialogs/PreferencesDialog.vala:63 src/Widgets/FormatBar.vala:161
 msgid "Automatic indentation:"
 msgstr "Automatisk innrykk:"
 
-#: src/Dialogs/PreferencesDialog.vala:58 src/Widgets/FormatBar.vala:155
+#: src/Dialogs/PreferencesDialog.vala:65 src/Widgets/FormatBar.vala:155
 msgid "Insert spaces instead of tabs:"
 msgstr "Set inn mellomrom i staden for tabulator:"
 
-#: src/Dialogs/PreferencesDialog.vala:60 src/Widgets/FormatBar.vala:158
+#: src/Dialogs/PreferencesDialog.vala:67 src/Widgets/FormatBar.vala:158
 msgid "Tab width:"
 msgstr "Tabulatorbreidde:"
 
-#: src/Dialogs/PreferencesDialog.vala:67
+#: src/Dialogs/PreferencesDialog.vala:74
 msgid "Behavior"
 msgstr "Åtferd"
 
-#: src/Dialogs/PreferencesDialog.vala:68
+#: src/Dialogs/PreferencesDialog.vala:75
 msgid "Interface"
 msgstr "Brukargrensesnitt"
 
-#: src/Dialogs/PreferencesDialog.vala:80
+#: src/Dialogs/PreferencesDialog.vala:87
 #: plugins/pastebin/pastebin_dialog.vala:323
 msgid "Close"
 msgstr "Lukk"
 
-#: src/Dialogs/PreferencesDialog.vala:96
+#: src/Dialogs/PreferencesDialog.vala:103
 msgid "Extensions"
 msgstr "Utvidingar"
 
-#: src/Dialogs/PreferencesDialog.vala:105
+#: src/Dialogs/PreferencesDialog.vala:112
 msgid "Editor"
 msgstr "Teksthandsamar"
 
-#: src/Dialogs/PreferencesDialog.vala:107
+#: src/Dialogs/PreferencesDialog.vala:114
 msgid "Highlight matching brackets:"
 msgstr "Framhev klammer som høyrer saman:"
 
-#: src/Dialogs/PreferencesDialog.vala:110
+#: src/Dialogs/PreferencesDialog.vala:117
 msgid "Line wrap:"
 msgstr "Linjebryting:"
 
-#: src/Dialogs/PreferencesDialog.vala:113
+#: src/Dialogs/PreferencesDialog.vala:120
 msgid "Draw Spaces:"
 msgstr "Teikn mellomrom:"
 
-#: src/Dialogs/PreferencesDialog.vala:115
+#: src/Dialogs/PreferencesDialog.vala:122
 #: plugins/pastebin/pastebin_dialog.vala:460
 msgid "Never"
 msgstr "Aldri"
 
-#: src/Dialogs/PreferencesDialog.vala:116
+#: src/Dialogs/PreferencesDialog.vala:123
 msgid "For selected text"
 msgstr "For vald tekst"
 
-#: src/Dialogs/PreferencesDialog.vala:117
+#: src/Dialogs/PreferencesDialog.vala:124
 msgid "Always"
 msgstr "Alltid"
 
-#: src/Dialogs/PreferencesDialog.vala:120
+#: src/Dialogs/PreferencesDialog.vala:127
 msgid "Show Mini Map:"
 msgstr "Vis minikart:"
 
-#: src/Dialogs/PreferencesDialog.vala:123
+#: src/Dialogs/PreferencesDialog.vala:130
 msgid "Line width guide:"
 msgstr "Linjebreidde-guide:"
 
-#: src/Dialogs/PreferencesDialog.vala:131
+#: src/Dialogs/PreferencesDialog.vala:138
 msgid "Font"
 msgstr "Skrift"
 
-#: src/Dialogs/PreferencesDialog.vala:133
+#: src/Dialogs/PreferencesDialog.vala:140
 msgid "Custom font:"
 msgstr "Eigendefinert font:"
 
@@ -465,68 +475,80 @@ msgid "Open a file"
 msgstr "Opna ei fil"
 
 #: src/Widgets/HeaderBar.vala:48
-msgid "Open a folder"
-msgstr "Opne ei mappe"
-
-#: src/Widgets/HeaderBar.vala:52
 msgid "Project templates"
 msgstr "Prosjektmalar"
 
-#: src/Widgets/HeaderBar.vala:58
+#: src/Widgets/HeaderBar.vala:54
 msgid "Save this file"
 msgstr "Lagre denne fila"
 
-#: src/Widgets/HeaderBar.vala:65
+#: src/Widgets/HeaderBar.vala:61
 msgid "Save this file with a different name"
 msgstr "Lagre denne fila med eit anna namn"
 
-#: src/Widgets/HeaderBar.vala:72
+#: src/Widgets/HeaderBar.vala:68
 msgid "Restore this file"
 msgstr "Gjenopprett denne fila"
 
-#: src/Widgets/HeaderBar.vala:87
+#: src/Widgets/HeaderBar.vala:83
 msgid "Share"
 msgstr "Del"
 
-#: src/Widgets/HeaderBar.vala:94
+#: src/Widgets/HeaderBar.vala:90
 msgid "Zoom Out"
 msgstr "Forminsk"
 
-#: src/Widgets/HeaderBar.vala:101
+#: src/Widgets/HeaderBar.vala:97
 msgid "Zoom 1:1"
 msgstr "Forstørr 1:1"
 
-#: src/Widgets/HeaderBar.vala:108
+#: src/Widgets/HeaderBar.vala:104
 msgid "Zoom In"
 msgstr "Forstørr"
 
-#: src/Widgets/HeaderBar.vala:122
+#: src/Widgets/HeaderBar.vala:118
 msgid "High Contrast"
 msgstr "Høg kontrast"
 
-#: src/Widgets/HeaderBar.vala:130
+#: src/Widgets/HeaderBar.vala:126
 msgid "Solarized Light"
 msgstr "Solarisert lys"
 
-#: src/Widgets/HeaderBar.vala:138
+#: src/Widgets/HeaderBar.vala:134
 msgid "Solarized Dark"
 msgstr "Solarisert mørk"
 
-#: src/Widgets/HeaderBar.vala:148
+#: src/Widgets/HeaderBar.vala:144
 msgid "Toggle Sidebar"
 msgstr "Veksle sidepanel"
 
-#: src/Widgets/HeaderBar.vala:152
+#: src/Widgets/HeaderBar.vala:148
 msgid "Add New View"
 msgstr "Lag ei ny visning"
 
-#: src/Widgets/HeaderBar.vala:156
+#: src/Widgets/HeaderBar.vala:152
 msgid "Remove Current View"
 msgstr "Fjern den noverande visninga"
 
-#: src/Widgets/HeaderBar.vala:183
+#: src/Widgets/HeaderBar.vala:179
 msgid "Menu"
 msgstr "Meny"
+
+#: src/Widgets/Pane.vala:45
+msgid "Add Project Folder…"
+msgstr ""
+
+#: src/Widgets/Pane.vala:48
+msgid "Manage project folders…"
+msgstr ""
+
+#: src/Widgets/Pane.vala:50
+msgid "Collapse All"
+msgstr ""
+
+#: src/Widgets/Pane.vala:53
+msgid "Alphabetize"
+msgstr ""
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
@@ -556,11 +578,11 @@ msgstr "Byt ut"
 msgid "Replace all"
 msgstr "Erstatt alle"
 
-#: src/Widgets/SourceView.vala:362
+#: src/Widgets/SourceView.vala:390
 msgid "Sort Selected Lines"
 msgstr "Sorter valde linjer"
 
-#: src/Widgets/SourceView.vala:369
+#: src/Widgets/SourceView.vala:397
 msgid "Toggle Comment"
 msgstr "Veksle kommentar"
 
@@ -708,6 +730,9 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s – Ordfullføring"
+
+#~ msgid "Open a folder"
+#~ msgstr "Opne ei mappe"
 
 #~ msgid "Could not load icon theme: %s\n"
 #~ msgstr "Kunne ikkje laste tema for ikon: %s\n"

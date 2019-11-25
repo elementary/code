@@ -43,10 +43,6 @@ namespace Scratch.Widgets {
                 _("Open a file")
             );
 
-            var open_folder_button = new Gtk.Button.from_icon_name ("folder-saved-search", Gtk.IconSize.LARGE_TOOLBAR);
-            open_folder_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_FOLDER;
-            open_folder_button.tooltip_text = _("Open a folder");
-
             templates_button = new Gtk.Button.from_icon_name ("text-x-generic-template", Gtk.IconSize.LARGE_TOOLBAR);
             templates_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TEMPLATES;
             templates_button.tooltip_text = _("Project templates");
@@ -205,7 +201,6 @@ namespace Scratch.Widgets {
             set_custom_title (format_bar);
 
             pack_start (open_button);
-            pack_start (open_folder_button);
             pack_start (templates_button);
             pack_start (save_button);
             pack_start (save_as_button);
