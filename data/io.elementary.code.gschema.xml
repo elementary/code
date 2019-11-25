@@ -6,7 +6,7 @@
     <value nick="Fullscreen" value="2" />
   </enum>
   <enum id="io.elementary.code.draw-spaces-states">
-    <value nick="Never" value="0" />
+    <value nick="Never (deprecated)" value="0" />
     <value nick="For Selection" value="1" />
     <value nick="Always" value="2" />
   </enum>
@@ -92,7 +92,7 @@
     <key name="draw-spaces" enum="io.elementary.code.draw-spaces-states">
       <default>"For Selection"</default>
       <summary>Draw spaces and tabs with symbols</summary>
-      <description>Draw spaces and tabs with symbols.</description>
+      <description>Draw spaces and tabs with symbols. "Never" is deprecated and not exposed in the UI.</description>
     </key>
     <key name="show-mini-map" type="b">
       <default>false</default>
