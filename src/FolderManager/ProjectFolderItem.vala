@@ -237,16 +237,12 @@ namespace Scratch.FolderManager {
                 item.name = item.file.name;
                 item.activatable = null;
 
-                if (is_file_gitignored (item)) {
-                    item.markup = Markup.printf_escaped ("<span fgalpha='50&#37;'>%s</span>", item.name);
-                } else {
-                    item.markup = null;
-                }
-
                 if (item is Granite.Widgets.SourceList.ExpandableItem) {
                     reset_all_children (item);
                 }
             }
+
+            deprioritize_gitignored_files (toplevel_item);
         }
 
         private void update_git_deprioritized_files () {
@@ -255,9 +251,15 @@ namespace Scratch.FolderManager {
 
         private void deprioritize_gitignored_files (Item top_level_item) {
             foreach (var child in top_level_item.children) {
+                if (child == null || !(child is Item)) {
+                    continue;
+                }
+
                 var item = child as Item;
+
                 if (is_file_gitignored (item)) {
-                    item.markup = Markup.printf_escaped ("<span fgalpha='50&#37;'>%s</span>", item.name);
+                    /* 75% opacity and italic */
+                    item.markup = Markup.printf_escaped ("<span fgalpha='75&#37;'><i>%s</i></span>", item.name);
                 }
 
                 if (item is Granite.Widgets.SourceList.ExpandableItem) {
