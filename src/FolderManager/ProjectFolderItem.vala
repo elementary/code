@@ -268,7 +268,7 @@ namespace Scratch.FolderManager {
 
         public bool is_file_gitignored (Item item) {
             try {
-                if (git_repo.path_is_ignored(item.path)) {
+                if (git_repo.path_is_ignored (item.path)) {
                     return true;
                 }
             } catch (Error e) {
