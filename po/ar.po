@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 20:10+0000\n"
+"POT-Creation-Date: 2019-11-25 20:56+0000\n"
 "PO-Revision-Date: 2019-03-12 20:26+0000\n"
 "Last-Translator: nasserbinlaboun <nasser1990com@gmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/code/code/ar/>\n"
@@ -258,7 +258,7 @@ msgid "Rename"
 msgstr "إعادة التسمية"
 
 #: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:98
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:98
 msgid "Move to Trash"
 msgstr "انقل الى سلة المهملات"
 
@@ -279,29 +279,29 @@ msgstr "ملف فارغ"
 msgid "New"
 msgstr "لسان جديد"
 
-#: src/FolderManager/FolderItem.vala:335
+#: src/FolderManager/FolderItem.vala:338
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:339
+#: src/FolderManager/FolderItem.vala:342
 #, c-format
 msgid "untitled folder %d"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:367
+#: src/FolderManager/FolderItem.vala:370
 msgid "new file"
 msgstr "ملف جديد"
 
-#: src/FolderManager/FolderItem.vala:371
+#: src/FolderManager/FolderItem.vala:374
 #, c-format
 msgid "new file %d"
 msgstr "ملف جديد %d"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:95
 msgid "Close Folder"
 msgstr "أغلق المجلد"
 
-#: src/FolderManager/ProjectFolderItem.vala:286
+#: src/FolderManager/ProjectFolderItem.vala:339
 #, fuzzy
 msgid "Branch"
 msgstr "تغيير إعدادات خربشات"

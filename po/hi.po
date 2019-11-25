@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 20:10+0000\n"
+"POT-Creation-Date: 2019-11-25 20:56+0000\n"
 "PO-Revision-Date: 2019-05-10 06:32+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Hindi <https://l10n.elementary.io/projects/code/code/hi/>\n"
@@ -258,7 +258,7 @@ msgid "Rename"
 msgstr "पुनः नामकरण"
 
 #: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:98
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:98
 msgid "Move to Trash"
 msgstr "रद्दी में डालें"
 
@@ -278,29 +278,29 @@ msgstr "ख़ाली फ़ाइल"
 msgid "New"
 msgstr "नया"
 
-#: src/FolderManager/FolderItem.vala:335
+#: src/FolderManager/FolderItem.vala:338
 msgid "untitled folder"
 msgstr "अनाम फ़ोल्डर"
 
-#: src/FolderManager/FolderItem.vala:339
+#: src/FolderManager/FolderItem.vala:342
 #, c-format
 msgid "untitled folder %d"
 msgstr "अनाम फ़ोल्डर %d"
 
-#: src/FolderManager/FolderItem.vala:367
+#: src/FolderManager/FolderItem.vala:370
 msgid "new file"
 msgstr "नई फ़ाइल"
 
-#: src/FolderManager/FolderItem.vala:371
+#: src/FolderManager/FolderItem.vala:374
 #, c-format
 msgid "new file %d"
 msgstr "नई फ़ाइल %d"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:95
 msgid "Close Folder"
 msgstr "फ़ोल्डर बंद करें"
 
-#: src/FolderManager/ProjectFolderItem.vala:286
+#: src/FolderManager/ProjectFolderItem.vala:339
 #, fuzzy
 msgid "Branch"
 msgstr "शाखा बदलें"

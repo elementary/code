@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 20:10+0000\n"
+"POT-Creation-Date: 2019-11-25 20:56+0000\n"
 "PO-Revision-Date: 2018-06-10 00:11+0000\n"
 "Last-Translator: Gamunu Balagalla <gamunu.balagalla@gmail.com>\n"
 "Language-Team: Sinhala <https://weblate.elementary.io/projects/code/code/si/"
@@ -256,7 +256,7 @@ msgid "Rename"
 msgstr "නැවත නම් කරන්න"
 
 #: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:98
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:98
 msgid "Move to Trash"
 msgstr "කුණු කූඩයට දමන්න"
 
@@ -276,29 +276,29 @@ msgstr "හිස් ගොනුවක්"
 msgid "New"
 msgstr "නව"
 
-#: src/FolderManager/FolderItem.vala:335
+#: src/FolderManager/FolderItem.vala:338
 msgid "untitled folder"
 msgstr "නම් නොකල ෆෝල්ඩරය"
 
-#: src/FolderManager/FolderItem.vala:339
+#: src/FolderManager/FolderItem.vala:342
 #, c-format
 msgid "untitled folder %d"
 msgstr "නම් නොකල ෆෝල්ඩරය %d"
 
-#: src/FolderManager/FolderItem.vala:367
+#: src/FolderManager/FolderItem.vala:370
 msgid "new file"
 msgstr "නව ගොනුවක්"
 
-#: src/FolderManager/FolderItem.vala:371
+#: src/FolderManager/FolderItem.vala:374
 #, c-format
 msgid "new file %d"
 msgstr "නව ගොනුව %d"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:95
 msgid "Close Folder"
 msgstr "බහලුම වසන්න"
 
-#: src/FolderManager/ProjectFolderItem.vala:286
+#: src/FolderManager/ProjectFolderItem.vala:339
 msgid "Branch"
 msgstr ""
 
