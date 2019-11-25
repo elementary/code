@@ -100,16 +100,4 @@ namespace Scratch {
             base (SCHEMA);
         }
     }
-
-    public class PrivacySettings : Granite.Services.Settings {
-
-        private const string SCHEMA = "org.gnome.desktop.privacy";
-
-        public bool remember_recent_files { get; set; }
-
-        public PrivacySettings () {
-            base (SCHEMA);
-        }
-    }
-
 }

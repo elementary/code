@@ -343,7 +343,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     public void save_opened_files () {
         string[] opened_files = {};
 
-        if (privacy_settings.remember_recent_files) {
+        if (privacy_settings.get_boolean ("remember-recent-files")) {
             tabs.foreach ((tab) => {
                 var doc = tab as Scratch.Services.Document;
                 if (doc.file != null && doc.exists ()) {
@@ -360,7 +360,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     }
 
     private void save_focused_document_uri (Services.Document? current_document) {
-        if (privacy_settings.remember_recent_files) {
+        if (privacy_settings.get_boolean ("remember-recent-files")) {
             string file_uri = "";
 
             if (current_document != null) {

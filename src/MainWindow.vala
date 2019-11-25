@@ -402,7 +402,7 @@ namespace Scratch {
         }
 
         public void restore_opened_documents () {
-            if (privacy_settings.remember_recent_files) {
+            if (privacy_settings.get_boolean ("remember-recent-files")) {
                 string[] uris_view1 = settings.opened_files_view1;
                 string[] uris_view2 = settings.opened_files_view2;
                 string focused_document1 = settings.focused_document_view1;
