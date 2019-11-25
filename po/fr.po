@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 19:45+0000\n"
+"POT-Creation-Date: 2019-11-25 20:10+0000\n"
 "PO-Revision-Date: 2019-10-05 21:23+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
@@ -199,31 +199,26 @@ msgid "Draw Spaces:"
 msgstr "Afficher les espaces :"
 
 #: src/Dialogs/PreferencesDialog.vala:122
-#: plugins/pastebin/pastebin_dialog.vala:460
-msgid "Never"
-msgstr "Jamais"
-
-#: src/Dialogs/PreferencesDialog.vala:123
 msgid "For selected text"
 msgstr "Pour le texte sélectionné"
 
-#: src/Dialogs/PreferencesDialog.vala:124
+#: src/Dialogs/PreferencesDialog.vala:123
 msgid "Always"
 msgstr "Toujours"
 
-#: src/Dialogs/PreferencesDialog.vala:127
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Show Mini Map:"
 msgstr "Afficher l'aperçu du fichier :"
 
-#: src/Dialogs/PreferencesDialog.vala:130
+#: src/Dialogs/PreferencesDialog.vala:129
 msgid "Line width guide:"
 msgstr "Guide de largeur de ligne :"
 
-#: src/Dialogs/PreferencesDialog.vala:138
+#: src/Dialogs/PreferencesDialog.vala:137
 msgid "Font"
 msgstr "Police"
 
-#: src/Dialogs/PreferencesDialog.vala:140
+#: src/Dialogs/PreferencesDialog.vala:139
 msgid "Custom font:"
 msgstr "Police personnalisée :"
 
@@ -644,6 +639,10 @@ msgstr "Téléverser"
 #: plugins/pastebin/pastebin_dialog.vala:352
 msgid "Other formats"
 msgstr "Autres formats"
+
+#: plugins/pastebin/pastebin_dialog.vala:460
+msgid "Never"
+msgstr "Jamais"
 
 #: plugins/pastebin/pastebin_dialog.vala:461
 msgid "Ten minutes"

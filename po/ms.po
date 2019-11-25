@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 19:45+0000\n"
+"POT-Creation-Date: 2019-11-25 20:10+0000\n"
 "PO-Revision-Date: 2018-06-13 00:02+0000\n"
 "Last-Translator: Timothy <timty97@gmail.com>\n"
 "Language-Team: Malay <https://weblate.elementary.io/projects/code/code/ms/>\n"
@@ -202,31 +202,26 @@ msgid "Draw Spaces:"
 msgstr "Lukis Ruang:"
 
 #: src/Dialogs/PreferencesDialog.vala:122
-#: plugins/pastebin/pastebin_dialog.vala:460
-msgid "Never"
-msgstr "Tidak Sesekali"
-
-#: src/Dialogs/PreferencesDialog.vala:123
 msgid "For selected text"
 msgstr "Bagi teks diserlahkan"
 
-#: src/Dialogs/PreferencesDialog.vala:124
+#: src/Dialogs/PreferencesDialog.vala:123
 msgid "Always"
 msgstr "Sentiasa"
 
-#: src/Dialogs/PreferencesDialog.vala:127
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Show Mini Map:"
 msgstr "Tunjuk Peta Mini:"
 
-#: src/Dialogs/PreferencesDialog.vala:130
+#: src/Dialogs/PreferencesDialog.vala:129
 msgid "Line width guide:"
 msgstr "Panduan lebar baris:"
 
-#: src/Dialogs/PreferencesDialog.vala:138
+#: src/Dialogs/PreferencesDialog.vala:137
 msgid "Font"
 msgstr "Huruf"
 
-#: src/Dialogs/PreferencesDialog.vala:140
+#: src/Dialogs/PreferencesDialog.vala:139
 msgid "Custom font:"
 msgstr "Fon suai:"
 
@@ -658,6 +653,10 @@ msgstr "Muat Naik"
 #: plugins/pastebin/pastebin_dialog.vala:352
 msgid "Other formats"
 msgstr "Format lain"
+
+#: plugins/pastebin/pastebin_dialog.vala:460
+msgid "Never"
+msgstr "Tidak Sesekali"
 
 #: plugins/pastebin/pastebin_dialog.vala:461
 msgid "Ten minutes"

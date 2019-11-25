@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 19:45+0000\n"
+"POT-Creation-Date: 2019-11-25 20:10+0000\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
@@ -201,31 +201,26 @@ msgid "Draw Spaces:"
 msgstr "Показывать пробелы:"
 
 #: src/Dialogs/PreferencesDialog.vala:122
-#: plugins/pastebin/pastebin_dialog.vala:460
-msgid "Never"
-msgstr "Никогда"
-
-#: src/Dialogs/PreferencesDialog.vala:123
 msgid "For selected text"
 msgstr "Для выделенного текста"
 
-#: src/Dialogs/PreferencesDialog.vala:124
+#: src/Dialogs/PreferencesDialog.vala:123
 msgid "Always"
 msgstr "Всегда"
 
-#: src/Dialogs/PreferencesDialog.vala:127
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Show Mini Map:"
 msgstr "Показывать мини-карту:"
 
-#: src/Dialogs/PreferencesDialog.vala:130
+#: src/Dialogs/PreferencesDialog.vala:129
 msgid "Line width guide:"
 msgstr "Настройка строки:"
 
-#: src/Dialogs/PreferencesDialog.vala:138
+#: src/Dialogs/PreferencesDialog.vala:137
 msgid "Font"
 msgstr "Шрифт"
 
-#: src/Dialogs/PreferencesDialog.vala:140
+#: src/Dialogs/PreferencesDialog.vala:139
 msgid "Custom font:"
 msgstr "Пользовательский шрифт:"
 
@@ -644,6 +639,10 @@ msgstr "Загрузить"
 #: plugins/pastebin/pastebin_dialog.vala:352
 msgid "Other formats"
 msgstr "Другие форматы"
+
+#: plugins/pastebin/pastebin_dialog.vala:460
+msgid "Never"
+msgstr "Никогда"
 
 #: plugins/pastebin/pastebin_dialog.vala:461
 msgid "Ten minutes"
