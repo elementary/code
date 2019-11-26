@@ -140,41 +140,21 @@ namespace Scratch.Widgets {
             var menu_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
             menu_separator.margin_top = 12;
 
-            var toggle_sidebar_menuitem = new Gtk.ModelButton ();
-            // toggle_sidebar_menuitem.text = _("Toggle Sidebar");
-            toggle_sidebar_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_SIDEBAR;
-            // Utils.add_accel_to_label (toggle_sidebar_menuitem, "F9");
+            var action = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_SIDEBAR;
+            var toggle_sidebar_menuitem = new AccelButton (_("Toggle Sidebar"), action);
 
-            var toggle_sidebar_shortcut_label = new Gtk.Label ("F9");
-            toggle_sidebar_shortcut_label.halign = Gtk.Align.END;
-            toggle_sidebar_shortcut_label.get_style_context ().add_class ("dim-label");
+            action = MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_VIEW;
+            var new_view_menuitem = new AccelButton (_("Add New View"), action);
 
-            var toggle_sidebar_shortcut_grid = new Gtk.Grid ();
-            toggle_sidebar_shortcut_grid.add (new Gtk.Label (_("Toggle Sidebar")));
-            toggle_sidebar_shortcut_grid.add (toggle_sidebar_shortcut_label);
+            action = MainWindow.ACTION_PREFIX + MainWindow.ACTION_REMOVE_VIEW;
+            var remove_view_menuitem = new AccelButton (_("Remove Current View"), action);
 
-            toggle_sidebar_menuitem.add (toggle_sidebar_shortcut_grid);
-
-            // var toggle_sidebar_accel = new Gtk.AccelLabel (_("Toggle Sidebar"));
-            // toggle_sidebar_accel.set_accel (Gdk.keyval_from_name ("backslash"), Gdk.ModifierType.CONTROL_MASK);
-            // toggle_sidebar_menuitem.add (toggle_sidebar_accel);
-            // toggle_sidebar_accel.show_all ();
-            toggle_sidebar_menuitem.show_all ();
-
-            var new_view_menuitem = new Gtk.ModelButton ();
-            new_view_menuitem.text = _("Add New View");
-            new_view_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_VIEW;
-
-            var remove_view_menuitem = new Gtk.ModelButton ();
-            remove_view_menuitem.text = _("Remove Current View");
-            remove_view_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_REMOVE_VIEW;
-
-            var preferences_menuitem = new Gtk.ModelButton ();
-            preferences_menuitem.text = _("Preferences");
-            preferences_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_PREFERENCES;
+            action = MainWindow.ACTION_PREFIX + MainWindow.ACTION_PREFERENCES;
+            var preferences_menuitem = new AccelButton (_("Preferences"), action);
 
             var menu_grid = new Gtk.Grid ();
             menu_grid.margin_bottom = 3;
+            menu_grid.hexpand = true;
             menu_grid.orientation = Gtk.Orientation.VERTICAL;
             menu_grid.width_request = 200;
             menu_grid.attach (font_size_grid, 0, 0, 3, 1);
@@ -187,14 +167,17 @@ namespace Scratch.Widgets {
             menu_grid.attach (remove_view_menuitem, 0, 5, 3, 1);
             menu_grid.attach (preferences_menuitem, 0, 6, 3, 1);
             menu_grid.show_all ();
-
-            var menu = new Gtk.Popover (null);
-            menu.add (menu_grid);
+            color_button_white.grab_focus ();
 
             var app_menu = new Gtk.MenuButton ();
             app_menu.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
             app_menu.tooltip_text = _("Menu");
-            app_menu.popover = menu;
+            app_menu.show_all ();
+
+            var popover = new Gtk.PopoverMenu ();
+            popover.add (menu_grid);
+            popover.popdown ();
+            app_menu.popover = popover;
 
             format_bar = new Code.FormatBar ();
             format_bar.no_show_all = true;
@@ -279,6 +262,53 @@ namespace Scratch.Widgets {
 
         public void set_document_focus (Scratch.Services.Document doc) {
             format_bar.set_document (doc);
+        }
+
+
+        private class AccelButton : Gtk.Button {
+            public string action { get; construct; }
+            public string text { get; construct; }
+
+            public AccelButton (string text, string action) {
+                Object (
+                    text: text,
+                    action: action
+                );
+            }
+
+            construct {
+                margin = 6;
+                set_focus_on_click (false);
+                get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+
+                var accel_label = new Gtk.Label ("");
+                var text_label = new Gtk.Label (text);
+
+                var accel = ((Gtk.Application) GLib.Application.get_default ())
+                            .get_accels_for_action (action)[0];
+
+                if (accel != null) {
+                    accel_label.label = Granite.accel_to_string (accel);
+                } else {
+                    debug ("No accels found for action %s", action);
+                }
+
+                accel_label.get_style_context ().add_class (Gtk.STYLE_CLASS_ACCELERATOR);
+
+
+                var grid = new Gtk.Grid ();
+                grid.orientation = Gtk.Orientation.HORIZONTAL;
+                grid.column_homogeneous = false;
+                grid.add (new Gtk.Label (text));
+                grid.add (accel_label);
+                add (grid);
+
+                accel_label.hexpand = true;
+                accel_label.xalign = 1.0f;
+                text_label.hexpand = true;
+
+                set_action_name (action);
+            }
         }
     }
 }
