@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 20:56+0000\n"
+"POT-Creation-Date: 2019-11-25 21:29+0000\n"
 "PO-Revision-Date: 2019-04-17 23:31+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/extra/tr/>\n"
@@ -247,12 +247,15 @@ msgid "text;IDE;scratch;"
 msgstr "metin;IDE;karalama;"
 
 #: data/io.elementary.code.desktop.in.in:17
-msgid "New Document"
-msgstr "Yeni Belge"
+msgid "New File"
+msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
 msgstr "Yeni Pencere"
+
+#~ msgid "New Document"
+#~ msgstr "Yeni Belge"
 
 #~ msgid "Notepad;IDE;Plain;"
 #~ msgstr "Not Defteri;IDE;Sade;"

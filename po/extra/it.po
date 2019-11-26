@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 20:56+0000\n"
+"POT-Creation-Date: 2019-11-25 21:29+0000\n"
 "PO-Revision-Date: 2019-01-27 00:00+0000\n"
 "Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
 "Language-Team: Italian <https://weblate.elementary.io/projects/code/extra/it/"
@@ -251,12 +251,15 @@ msgid "text;IDE;scratch;"
 msgstr "testo;IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
-msgid "New Document"
-msgstr "Nuovo documento"
+msgid "New File"
+msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
 msgstr "Nuova finestra"
+
+#~ msgid "New Document"
+#~ msgstr "Nuovo documento"
 
 #~ msgid "Notepad;IDE;Plain;"
 #~ msgstr "Blocco Note;IDE;Ambiente di sviluppo;Normale;"

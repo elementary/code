@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 20:56+0000\n"
+"POT-Creation-Date: 2019-11-25 21:29+0000\n"
 "PO-Revision-Date: 2018-05-10 00:08+0000\n"
 "Last-Translator: Dieter Debast <dieter_debast@hotmail.com>\n"
 "Language-Team: Dutch <https://weblate.elementary.io/projects/code/extra/nl/"
@@ -236,12 +236,15 @@ msgid "text;IDE;scratch;"
 msgstr "IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
-msgid "New Document"
-msgstr "Nieuw Document"
+msgid "New File"
+msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
 msgstr "Nieuw venster"
+
+#~ msgid "New Document"
+#~ msgstr "Nieuw Document"
 
 #~ msgid "Notepad;IDE;Plain;"
 #~ msgstr "Kladblok;IDE;Kaal;"

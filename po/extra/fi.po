@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 20:56+0000\n"
+"POT-Creation-Date: 2019-11-25 21:29+0000\n"
 "PO-Revision-Date: 2019-01-08 08:54+0000\n"
 "Last-Translator: Veli-Pekka Samuli Finnilä <vpf@tuta.io>\n"
 "Language-Team: Finnish <https://weblate.elementary.io/projects/code/extra/fi/"
@@ -246,12 +246,15 @@ msgid "text;IDE;scratch;"
 msgstr "teksti;IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
-msgid "New Document"
-msgstr "Uusi asiakirja"
+msgid "New File"
+msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
 msgstr "Uusi ikkuna"
+
+#~ msgid "New Document"
+#~ msgstr "Uusi asiakirja"
 
 #~ msgid "Notepad;IDE;Plain;"
 #~ msgstr "Notepad;IDE;Plain;muistio;teksti;"
