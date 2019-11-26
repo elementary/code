@@ -287,14 +287,13 @@ namespace Scratch.FolderManager {
                             add (item);
                         }
 
-                        /* This will expand parent item if required */
-                        view.scroll_to_item (item, true, true, 0.5f);
-
                         if (source.get_path () == newly_created_path) {
                             newly_created_path = null;
 
                         /* As this causes signal emissions, perform in its own thread not in signal handler */
                             Idle.add (() => {
+                                /* This will expand parent item if required */
+                                view.scroll_to_item (item, true);
                                 view.start_editing_item (item);
                                 return Source.REMOVE;
                             });
