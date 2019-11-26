@@ -16,10 +16,7 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-using Gtk;
-
 public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatable {
-
     Scratch.Services.Interface plugins;
     public Object object {owned get; construct;}
     Scratch.MainWindow main_window;
@@ -52,9 +49,9 @@ public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatabl
         if (main_window.get_current_document () != null) {
             var text_view = main_window.get_current_document ().source_view;
             var source_buffer = (Gtk.SourceBuffer) text_view.buffer;
-            source_buffer.begin_user_action();
-            strip_trailing_spaces(source_buffer);
-            source_buffer.end_user_action();
+            source_buffer.begin_user_action ();
+            strip_trailing_spaces (source_buffer);
+            source_buffer.end_user_action ();
         }
     }
 
@@ -62,9 +59,8 @@ public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatabl
      * Pull the buffer into an array and then work out which parts are to
      * be deleted.
      */
-    void strip_trailing_spaces (Gtk.SourceBuffer buffer)
-    {
-        TextIter iter;
+    private void strip_trailing_spaces (Gtk.SourceBuffer buffer) {
+        Gtk.TextIter iter;
 
         var cursor_pos = buffer.cursor_position;
         buffer.get_iter_at_offset (out iter, cursor_pos);
@@ -80,7 +76,7 @@ public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatabl
         }
 
         MatchInfo info;
-        TextIter start_delete, end_delete;
+        Gtk.TextIter start_delete, end_delete;
         Regex whitespace;
 
         try {
@@ -109,6 +105,8 @@ public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatabl
 [ModuleInit]
 public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type(typeof(Peas.Activatable),
-                                      typeof(Scratch.Plugins.StripTrailSave));
+    objmodule.register_extension_type (
+        typeof (Peas.Activatable),
+        typeof (Scratch.Plugins.StripTrailSave)
+    );
 }

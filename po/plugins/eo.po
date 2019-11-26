@@ -7,116 +7,118 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-04 11:52-0800\n"
-"PO-Revision-Date: 2018-10-18 14:27-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"POT-Creation-Date: 2019-11-25 21:29+0000\n"
+"PO-Revision-Date: 2019-11-09 11:24+0000\n"
+"Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
+"Language-Team: Esperanto <https://l10n.elementary.io/projects/code/plugins/"
+"eo/>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.7.1\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
-msgstr ""
+msgstr "Krampigo"
 
 #: plugins/brackets-completion/brackets-completion.plugin:7
 msgid "Complete brackets while typing"
-msgstr ""
+msgstr "Dumskriba krampigo"
 
 #: plugins/browser-preview/browser-preview.plugin:6
 msgid "Browser Preview"
-msgstr ""
+msgstr "Foliumila Aspekto"
 
 #: plugins/browser-preview/browser-preview.plugin:7
 msgid "Get a preview of your work in a web page"
-msgstr ""
+msgstr "Spekti kiel aperas la paĝo ĉe foliumilo"
 
 #: plugins/detect-indent/detect-indent.plugin:6
 msgid "Detect Indent"
-msgstr ""
+msgstr "Detekti Krommarĝenon"
 
 #: plugins/detect-indent/detect-indent.plugin:7
 msgid "Heuristically detect tab or space settings"
-msgstr ""
+msgstr "Agordoj pri rigora detekto de spacoj kaj taboj"
 
 #: plugins/editorconfig/editorconfig.plugin:6
 msgid "EditorConfig"
-msgstr ""
+msgstr "EditorConfig"
 
 #: plugins/editorconfig/editorconfig.plugin:7
 msgid "Load settings from an EditorConfig file"
-msgstr ""
+msgstr "Ŝargi agordojn el EditorConfig-dosiero"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
-msgstr ""
+msgstr "Emfazi vortan elekton"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:7
 msgid "Highlights all occurrences of words that are selected"
-msgstr ""
+msgstr "Emfazi ĉiujn aperojn de elektitaj vortoj"
 
 #: plugins/outline/outline.plugin:6
 msgid "Outline"
-msgstr ""
+msgstr "Skemo"
 
 #: plugins/outline/outline.plugin:7
 msgid "Outline symbols in your current file for Vala"
-msgstr ""
+msgstr "Simbola skemo en la aktiva Vala-dosiero"
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
-msgstr ""
+msgstr "Pastebin"
 
 #: plugins/pastebin/pastebin.plugin:7
 msgid "Share files with pastebin service"
-msgstr ""
+msgstr "Kunhavigi dosierojn per Pastebin-servo"
 
 #: plugins/preserve-indent/preserve-indent.plugin:6
 msgid "Preserve Indent"
-msgstr ""
+msgstr "Konservi krommarĝenojn"
 
 #: plugins/preserve-indent/preserve-indent.plugin:7
 msgid "Maintains relative indent level of pasted text"
-msgstr ""
+msgstr "Konservi rilativan krommarĝenon de algluita teksto"
 
 #: plugins/spell/spell.plugin:6
 msgid "Spell Checker"
-msgstr ""
+msgstr "Literuman Kontrolilon"
 
 #: plugins/spell/spell.plugin:7
 msgid "Checks the spelling of your documents"
-msgstr ""
+msgstr "Kontrolas literumon en viaj dokumentoj"
 
 #: plugins/strip-trailing-save/strip-trailing-save.plugin:6
 msgid "Strip trailing whitespace"
-msgstr ""
+msgstr "Forigi linifinajn spacojn"
 
 #: plugins/strip-trailing-save/strip-trailing-save.plugin:7
 msgid "Strip trailing whitespace on save"
-msgstr ""
+msgstr "Forigas lastajn spacojn en linioj ĉe konservo"
 
 #: plugins/terminal/terminal.plugin:6
 msgid "Terminal"
-msgstr ""
+msgstr "Terminalo"
 
 #: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your text editor"
-msgstr ""
+msgid "A terminal in your code editor"
+msgstr "Terminalo en via koda redaktilo"
 
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
-msgstr ""
+msgstr "Imitado de Vim"
 
 #: plugins/vim-emulation/vim-emulation.plugin:7
 msgid "Use Vim commands in Code"
-msgstr ""
+msgstr "Uzi Vim-komandojn en Kodo"
 
 #: plugins/word-completion/word-completion.plugin:3
 msgid "Words Completion"
-msgstr ""
+msgstr "Vorta Kompletigo"
 
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
-msgstr ""
+msgstr "Montri kompletigan dialogon kun la plej uzataj vortoj el viaj dosieroj"

@@ -25,7 +25,7 @@ namespace Scratch.Dialogs {
     public class PasteBinDialog : Gtk.Dialog {
 
         public string[,] languages = {
-            //if default, code, desc, scratch-equivalent
+            //if default, code, desc, Code-equivalent
             {"n", "4cs", "4CS", ""},
             {"n", "6502acme", "6502 ACME Cross Assembler", ""},
             {"n", "6502kickass", "6502 Kick Assembler", ""},
@@ -267,12 +267,12 @@ namespace Scratch.Dialogs {
             //populate combo box
             var sel_lang = doc.get_language_id ();
             for (var i = 0; i < languages.length[0]; i++) {
-                //insert all languages that are in the scratch combo, and also those that are marked with "y"
+                //insert all languages that are in the Code combo, and also those that are marked with "y"
                 if ((languages[i, 3] != "") || (languages[i, 0] == "y")) {
                     format_combo.append (languages[i, 1], languages[i, 2]);
                 }
 
-                //if the inserted language is selected in scratch combo, select it as default
+                //if the inserted language is selected in Code combo, select it as default
                 if (languages[i, 3] == sel_lang ) {
                     format_combo.set_active_id (languages[i, 1]);
                 }

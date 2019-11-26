@@ -7,17 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-04 11:52-0800\n"
-"PO-Revision-Date: 2019-01-07 16:30+0000\n"
+"POT-Creation-Date: 2019-11-25 21:29+0000\n"
+"PO-Revision-Date: 2019-07-07 11:28+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
-"Language-Team: Marathi <https://weblate.elementary.io/projects/code/extra/mr/"
-">\n"
+"Language-Team: Marathi <https://l10n.elementary.io/projects/code/extra/mr/>\n"
 "Language: mr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
 #: data/io.elementary.code.desktop.in.in:4
@@ -102,7 +101,133 @@ msgstr "टॅब आणि विभाजित दस्तऐवज प्�
 msgid "lots of others"
 msgstr "आणि बरेच काही"
 
-#: data/io.elementary.code.appdata.xml.in:101
+#: data/io.elementary.code.appdata.xml.in:51
+msgid "New features:"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:53
+msgid "Visually deprioritize .gitignored files in project sidebar"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:54
+msgid "Smart cut/copy lines with no active selection"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:55
+msgid "Add a confirmation dialog to the \"Restore\" action"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:56
+msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:57
+#, fuzzy
+msgid "Don't show temporary files in the folder manager"
+msgstr "टॅब रिस्टोअर मध्ये तात्पुराट्या फायली जोडू नका"
+
+#: data/io.elementary.code.appdata.xml.in:58
+msgid "Add brackets completion and auto-indent by default"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:60
+msgid "Other updates:"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:62
+msgid "Simplify \"Draw spaces\" preference"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:63
+msgid "Fix the keyboard shortcut for going backwards in search results"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:64
+msgid "Fix opening files from relative paths in Terminal"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:65
+msgid "Fix null file dialog when opening a new window via the dock"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:66
+msgid "Add \"=\" as a zoom key"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:67
+msgid "Change search entry icon when results aren't found"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:68
+#: data/io.elementary.code.appdata.xml.in:89
+#: data/io.elementary.code.appdata.xml.in:99
+#: data/io.elementary.code.appdata.xml.in:110
+msgid "Updated translations"
+msgstr "अद्ययावत अनुवाद"
+
+#: data/io.elementary.code.appdata.xml.in:75
+msgid "Use Granite.MessageDialog throughout"
+msgstr "Granite.MessageDialog संपूर्ण वापरा"
+
+#: data/io.elementary.code.appdata.xml.in:76
+msgid "Include non-text files in sidebar"
+msgstr "साइडबारमध्ये नॉन-मजकूर फायली समाविष्ट करा"
+
+#: data/io.elementary.code.appdata.xml.in:77
+msgid "Fix Remove Current View"
+msgstr "वर्तमान दृश्य काढा दुरुस्ती"
+
+#: data/io.elementary.code.appdata.xml.in:84
+msgid "Fix New Window desktop action behavior"
+msgstr "नवीन विंडो डेस्कटॉप क्रिया वर्तन दुरुस्त करा"
+
+#: data/io.elementary.code.appdata.xml.in:85
+msgid ""
+"Properly synchronize Ctrl+N key presses with number of new documents spawned"
+msgstr ""
+"तयार केलेल्या नवीन दस्तऐवजांची संख्या आणि Ctrl + N की दाबणे योग्यरित्या सिंक्रोनाइझ करा"
+
+#: data/io.elementary.code.appdata.xml.in:86
+msgid "Build system fix for editorconfig dependency"
+msgstr "Editorconfig अवलंबनासाठी सिस्टम फिक्स तयार करा"
+
+#: data/io.elementary.code.appdata.xml.in:87
+msgid "Add Change Branch context menu item"
+msgstr "शाखा बदल संदर्भ मेनू आयटम जोडा"
+
+#: data/io.elementary.code.appdata.xml.in:88
+msgid "Avoid possible startup crash related to how plugins load"
+msgstr "प्लगइन लोड करण्याशी संबंधित संभाव्य स्टार्टअप क्रॅश टाळा"
+
+#: data/io.elementary.code.appdata.xml.in:96
+msgid "Smarter file saving behavior"
+msgstr "स्मार्ट फाईल सेव्हिंग वर्तन"
+
+#: data/io.elementary.code.appdata.xml.in:97
+msgid "File saving fixes"
+msgstr "फाइल जतन फिक्स"
+
+#: data/io.elementary.code.appdata.xml.in:98
+msgid "Don't add temporary files to tab restore"
+msgstr "टॅब रिस्टोअर मध्ये तात्पुराट्या फायली जोडू नका"
+
+#: data/io.elementary.code.appdata.xml.in:106
+msgid "Don't recreate deleted files when restoring session"
+msgstr "सत्र पुनर्संचयित करताना हटविलेल्या फायली पुन्हा तयार करू नका"
+
+#: data/io.elementary.code.appdata.xml.in:107
+msgid "Restore line wrap preference"
+msgstr "लाइन ओघ प्राधान्य पुनर्संचयित करा"
+
+#: data/io.elementary.code.appdata.xml.in:108
+msgid "Add accel tooltips"
+msgstr "एक्सेल टूलटिप जोडा"
+
+#: data/io.elementary.code.appdata.xml.in:109
+msgid "Minor bug fixes"
+msgstr "किरकोळ दोष निराकरण"
+
+#: data/io.elementary.code.appdata.xml.in:149
 msgid "elementary LLC."
 msgstr "एलिमेंटरी LLC."
 
@@ -123,9 +248,12 @@ msgid "text;IDE;scratch;"
 msgstr "टेक्स्ट;आईडीई ;स्क्रैच;"
 
 #: data/io.elementary.code.desktop.in.in:17
-msgid "New Document"
-msgstr "नवीन दस्तऐवज"
+msgid "New File"
+msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
 msgstr "नवीन विंडो"
+
+#~ msgid "New Document"
+#~ msgstr "नवीन दस्तऐवज"
