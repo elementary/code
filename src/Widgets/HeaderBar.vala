@@ -31,11 +31,18 @@ namespace Scratch.Widgets {
 
             construct {
                 halign = Gtk.Align.CENTER;
-                height_request = 32;
-                width_request = 32;
+                hexpand = true;
+                vexpand = true;
+                label = "A";
 
                 var style_context = get_style_context ();
                 style_context.add_class ("color-button");
+
+                if (prefer_dark_theme) {
+                    style_context.add_class ("color-dark");
+                } else {
+                    style_context.add_class ("color-light");
+                }
 
                 clicked.connect (() => {
                     Scratch.settings.prefer_dark_style = prefer_dark_theme;
@@ -138,7 +145,7 @@ namespace Scratch.Widgets {
             font_size_grid.add (zoom_default_button);
             font_size_grid.add (zoom_in_button);
 
-            var style_buttons = new Gee.ArrayList<Gtk.Button> ();
+            var style_buttons = new Gee.ArrayList<StyleButton> ();
             var settings = new GLib.Settings (Constants.PROJECT_NAME + ".settings");
             var style_array = settings.get_value ("style-schemes");
             VariantIter iter = style_array.iterator ();
@@ -148,26 +155,35 @@ namespace Scratch.Widgets {
             var sssm = Gtk.SourceStyleSchemeManager.get_default ();
             while (iter.next ("{sb}", out style_id, out prefer_dark_theme)) {
                 var button = new StyleButton (style_id, prefer_dark_theme);
-
                 if (style_id in sssm.scheme_ids) {
-                    var style = sssm.get_scheme (style_id);
-                    button.tooltip_text = style.name;
+                    var scheme = sssm.get_scheme (style_id);
+                    button.tooltip_text = scheme.name;
 
-                    var style_data = style.get_style ("background-pattern");
-                    if (style_data != null) {
-                        var button_context = button.get_style_context ();
+                    var background_style = scheme.get_style ("background-pattern");
+                    var foreground_style = scheme.get_style ("text");
+                    string background = prefer_dark_theme ? "#000000" : "#FFFFFF";
+                    string foreground = prefer_dark_theme ? "#FFFFFF" : "#000000";
 
-                        var css_provider = new Gtk.CssProvider ();
-                        var background_css = """
-                            .color-button {
-                                background-color: %s;
-                            }
-                        """.printf (style_data.background);
-                        css_provider.load_from_data (background_css);
-
-                        button_context.add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+                    if (background_style != null && background_style.background_set) {
+                        background = background_style.background;
                     }
 
+                    if (foreground_style != null && foreground_style.foreground_set) {
+                        foreground = foreground_style.foreground;
+                    }
+
+                    var button_context = button.get_style_context ();
+
+                    var css_provider = new Gtk.CssProvider ();
+                    var style_css = """
+                        .color-button {
+                            background-color: %s;
+                            color: %s;
+                        }
+                    """.printf (background, foreground);
+                    css_provider.load_from_data (style_css);
+
+                    button_context.add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
                     style_buttons.add (button);
                 }
             }
@@ -194,17 +210,17 @@ namespace Scratch.Widgets {
             var menu_grid = new Gtk.Grid ();
             menu_grid.margin_bottom = 3;
             menu_grid.orientation = Gtk.Orientation.VERTICAL;
-            menu_grid.width_request = 200;
-            menu_grid.attach (font_size_grid, 0, 0, 3, 1);
-            for (int i = 0; i < style_buttons.size; i++) {
+            var n_styles = style_buttons.size;
+            menu_grid.attach (font_size_grid, 0, 0, n_styles, 1);
+            for (int i = 0; i < n_styles; i++) {
                 menu_grid.attach (style_buttons[i], i, 1, 1, 1);
             }
 
-            menu_grid.attach (menu_separator, 0, 2, 3, 1);
-            menu_grid.attach (toggle_sidebar_menuitem, 0, 3, 3, 1);
-            menu_grid.attach (new_view_menuitem, 0, 4, 3, 1);
-            menu_grid.attach (remove_view_menuitem, 0, 5, 3, 1);
-            menu_grid.attach (preferences_menuitem, 0, 6, 3, 1);
+            menu_grid.attach (menu_separator, 0, 2, n_styles, 1);
+            menu_grid.attach (toggle_sidebar_menuitem, 0, 3, n_styles, 1);
+            menu_grid.attach (new_view_menuitem, 0, 4, n_styles, 1);
+            menu_grid.attach (remove_view_menuitem, 0, 5, n_styles, 1);
+            menu_grid.attach (preferences_menuitem, 0, 6, n_styles, 1);
             menu_grid.show_all ();
 
             var menu = new Gtk.Popover (null);
@@ -239,6 +255,18 @@ namespace Scratch.Widgets {
                 save_button.visible = !Scratch.settings.autosave;
                 var last_window = Application.instance.get_last_window ();
                 zoom_default_button.label = "%.0f%%".printf (last_window.get_current_font_size () * 10);
+            });
+
+            app_menu.popover.notify["visible"].connect_after (() => {
+                if (app_menu.popover.visible ) {
+                var current_style = Scratch.settings.style_scheme;
+                for (int i = 0; i < style_buttons.size; i++) {
+                    if (style_buttons[i].style_id == current_style) {
+                        style_buttons[i].grab_focus ();
+                        break;
+                    }
+                }
+                }
             });
         }
 
