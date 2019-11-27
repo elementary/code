@@ -7,13 +7,13 @@ Exec=@EXEC_NAME@ %U
 Icon=io.elementary.code
 Terminal=false
 Categories=Development;GTK;IDE;WebDevelopment;
-Keywords=IDE;scratch;
+Keywords=text;IDE;scratch;
 MimeType=text/plain;inode/directory;
 StartupNotify=true
-Actions=NewWindow;NewDocument;
+Actions=NewWindow;NewFile;
 
-[Desktop Action NewDocument]
-Name=New Document
+[Desktop Action NewFile]
+Name=New File
 Exec=@EXEC_NAME@ --new-tab
 
 [Desktop Action NewWindow]

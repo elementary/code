@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-17 11:34-0700\n"
-"PO-Revision-Date: 2018-09-05 22:53+0000\n"
-"Last-Translator: strozzascotte <marco.depaolini@gmail.com>\n"
+"POT-Creation-Date: 2019-11-25 21:29+0000\n"
+"PO-Revision-Date: 2019-01-26 15:28+0000\n"
+"Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
 "Language-Team: Italian <https://weblate.elementary.io/projects/code/plugins/"
 "it/>\n"
 "Language: it\n"
@@ -105,7 +105,8 @@ msgid "Terminal"
 msgstr "Terminale"
 
 #: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your text editor"
+#, fuzzy
+msgid "A terminal in your code editor"
 msgstr "Un terminale all'interno tuo editor di testi"
 
 #: plugins/vim-emulation/vim-emulation.plugin:6
@@ -113,8 +114,8 @@ msgid "Vim Emulation"
 msgstr "Emulazione Vim"
 
 #: plugins/vim-emulation/vim-emulation.plugin:7
-msgid "Use Vim commands in Scratch"
-msgstr "Usa i comandi di Vim su Scratch"
+msgid "Use Vim commands in Code"
+msgstr "Usa i comandi di Vim in Codice"
 
 #: plugins/word-completion/word-completion.plugin:3
 msgid "Words Completion"

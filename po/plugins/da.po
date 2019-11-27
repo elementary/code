@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-17 11:34-0700\n"
-"PO-Revision-Date: 2018-07-18 07:18+0000\n"
+"POT-Creation-Date: 2019-11-25 21:29+0000\n"
+"PO-Revision-Date: 2019-02-03 12:02+0000\n"
 "Last-Translator: Kaj Printz Madsen <kajprintz@gmail.com>\n"
 "Language-Team: Danish <https://weblate.elementary.io/projects/code/plugins/"
 "da/>\n"
@@ -104,7 +104,8 @@ msgid "Terminal"
 msgstr "Terminal"
 
 #: plugins/terminal/terminal.plugin:7
-msgid "A terminal in your text editor"
+#, fuzzy
+msgid "A terminal in your code editor"
 msgstr "En indbygget terminal i din teksteditor"
 
 #: plugins/vim-emulation/vim-emulation.plugin:6
@@ -112,8 +113,8 @@ msgid "Vim Emulation"
 msgstr "Vim Emulation"
 
 #: plugins/vim-emulation/vim-emulation.plugin:7
-msgid "Use Vim commands in Scratch"
-msgstr "Brug Vim-kommandoer i Scratch"
+msgid "Use Vim commands in Code"
+msgstr "Brug Vim-kommandoer i Code"
 
 #: plugins/word-completion/word-completion.plugin:3
 msgid "Words Completion"

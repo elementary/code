@@ -31,7 +31,6 @@ namespace Scratch {
         public string default_font { get; set; }
         private static string _app_cmd_name;
         private static string _data_home_folder_unsaved;
-        private static string _cwd;
         private static bool print_version = false;
         private static bool create_new_tab = false;
         private static bool create_new_window = false;
@@ -76,16 +75,14 @@ namespace Scratch {
 
         protected override int command_line (ApplicationCommandLine command_line) {
             var context = new OptionContext ("File");
-            context.add_main_entries (entries, Constants.GETTEXT_PACKAGE);
+            context.add_main_entries (ENTRIES, Constants.GETTEXT_PACKAGE);
             context.add_group (Gtk.get_option_group (true));
 
             string[] args = command_line.get_arguments ();
-            int unclaimed_args;
 
             try {
                 context.parse_strv (ref args);
-                unclaimed_args = args.length - 1;
-            } catch(Error e) {
+            } catch (Error e) {
                 print (e.message + "\n");
 
                 return Posix.EXIT_FAILURE;
@@ -96,15 +93,15 @@ namespace Scratch {
                 return Posix.EXIT_SUCCESS;
             }
 
-            // Create (or show) the first window
-            activate ();
-
             // Create a next window if requested and it's not the app launch
             bool is_app_launch = (get_last_window () == null);
             if (create_new_window && !is_app_launch) {
                 create_new_window = false;
                 this.new_window ();
             }
+
+            // Create (or show) the first window
+            activate ();
 
             // Create a new document if requested
             if (create_new_tab) {
@@ -113,53 +110,48 @@ namespace Scratch {
                 Utils.action_from_group (MainWindow.ACTION_NEW_TAB, window.actions).activate (null);
             }
 
-            // Set Current Directory
-            Environment.set_current_dir (_cwd);
-
+            int args_length = args.length;
             // Open all files given as arguments
-            if (unclaimed_args > 0) {
-                File[] files = new File[unclaimed_args];
-                files.length = 0;
-
-                foreach (string arg in args[1:unclaimed_args + 1]) {
+            if (args_length > 1) { /* First arg is program name */
+                File[] files = {};
+                foreach (unowned string arg in args[1:args_length]) {
+                    if (arg == null) { /* Recognised options changed to null */
+                        continue;
+                    }
                     // We set a message, that later is informed to the user
                     // in a dialog if something noteworthy happens.
-                    string msg = "";
+                    string title = "";
+                    string body = "";
                     try {
-                        var file = File.new_for_commandline_arg (arg);
+                        var file = command_line.create_file_for_arg (arg);
 
                         if (!file.query_exists ()) {
                             try {
                                 FileUtils.set_contents (file.get_path (), "");
                             } catch (Error e) {
-                                string reason = "";
+                                title = _("File \"%s\" Cannot Be Created".printf (file.get_path ()));
+
                                 // We list some common errors for quick feedback
                                 if (e is FileError.ACCES) {
-                                    reason = _("Maybe you do not have the necessary permissions.");
+                                    body = _("Maybe you do not have the necessary permissions.");
                                 } else if (e is FileError.NOENT) {
-                                    reason = _("Maybe the file path provided is not valid.");
+                                    body = _("Maybe the file path provided is not valid.");
                                 } else if (e is FileError.ROFS) {
-                                    reason = _("The location is read-only.");
+                                    body = _("The location is read-only.");
                                 } else if (e is FileError.NOTDIR) {
-                                    reason = _("The parent directory doesn't exist.");
+                                    body = _("The parent directory doesn't exist.");
                                 } else {
                                     // Otherwise we simple use the error notification from glib
-                                    msg = e.message;
-                                }
-
-                                if (reason.length > 0) {
-                                    msg = _("File \"%s\" cannot be created.\n%s").printf ("<b>%s</b>".printf (file.get_path ()), reason);
+                                    body = e.message;
                                 }
 
                                 // Escape to the outer catch clause, and overwrite
                                 // the weird glib's standard errors.
-                                throw new Error (e.domain, e.code, msg);
+                                throw new Error (e.domain, e.code, "%s %s".printf (title, body));
                             }
                         }
 
                         var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
-                        string err_msg = _("File \"%s\" cannot be opened.\n%s");
-                        string reason = "";
 
                         switch (info.get_file_type ()) {
                             case FileType.REGULAR:
@@ -168,18 +160,18 @@ namespace Scratch {
                                 files += file;
                                 break;
                             case FileType.MOUNTABLE:
-                                reason = _("It is a mountable location.");
+                                body = _("It is a mountable location.");
                                 break;
                             case FileType.SPECIAL:
-                                reason = _("It is a \"special\" file such as a socket,\n FIFO, block device, or character device.");
+                                body = _("It is a \"special\" file such as a socket,\n FIFO, block device, or character device.");
                                 break;
                             default:
-                                reason = _("It is an \"unknown\" file type.");
+                                body = _("It is an \"unknown\" file type.");
                                 break;
                         }
 
-                        if (reason.length > 0) {
-                            msg = err_msg.printf ("<b>%s</b>".printf (file.get_path ()), reason);
+                        if (body.length > 0) {
+                            title = _("File \"%s\" Cannot Be Opened".printf (file.get_path ()));
                         }
 
                     } catch (Error e) {
@@ -187,16 +179,16 @@ namespace Scratch {
                     }
 
                     // Notify the user that something happened.
-                    if (msg.length > 0) {
-                        var parent_window = get_last_window () as Gtk.Window;
-                        var dialog = new Gtk.MessageDialog.with_markup (parent_window,
-                            Gtk.DialogFlags.MODAL,
-                            Gtk.MessageType.ERROR,
-                            Gtk.ButtonsType.CLOSE,
-                            msg);
+                    if (title.length > 0) {
+                        var dialog = new Granite.MessageDialog (
+                            title,
+                            body,
+                            new ThemedIcon ("dialog-error"),
+                            Gtk.ButtonsType.CLOSE
+                        );
+                        dialog.transient_for = get_last_window () as Gtk.Window;
                         dialog.run ();
                         dialog.destroy ();
-                        dialog.close ();
                     }
                 }
 
@@ -241,20 +233,8 @@ namespace Scratch {
             }
         }
 
-        public override bool local_command_line (ref weak string[] arguments, out int exit_status) {
-            // Resolve any CWD paths to explicit paths before passing to remote instance as that will
-            // have different CWD
-            for (int i = 0; i < arguments.length; i++) {
-                if (arguments[i] == ".") {
-                    arguments[i] = File.new_for_commandline_arg (".").get_path ();
-                }
-            }
-
-            return base.local_command_line (ref arguments, out exit_status);
-        }
-
         public MainWindow? get_last_window () {
-            unowned List<weak Gtk.Window> windows = get_windows ();
+            unowned List<Gtk.Window> windows = get_windows ();
             return windows.length () > 0 ? windows.last ().data as MainWindow : null;
         }
 
@@ -262,12 +242,11 @@ namespace Scratch {
             return new MainWindow (this);
         }
 
-        const OptionEntry[] entries = {
+        const OptionEntry[] ENTRIES = {
             { "new-tab", 't', 0, OptionArg.NONE, out create_new_tab, N_("New Tab"), null },
             { "new-window", 'n', 0, OptionArg.NONE, out create_new_window, N_("New Window"), null },
             { "version", 'v', 0, OptionArg.NONE, out print_version, N_("Print version info and exit"), null },
-            { "set", 's', 0, OptionArg.STRING, ref _app_cmd_name, N_("Set of plugins"), "" },
-            { "cwd", 'c', 0, OptionArg.STRING, ref _cwd, N_("Current working directory"), "" },
+            { "set", 's', 0, OptionArg.STRING, ref _app_cmd_name, N_("Set of plugins"), N_("plugin") },
             { null }
         };
 

@@ -19,7 +19,7 @@
 ***/
 
 public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
-    public signal void document_change (Services.Document? document);
+    public signal void document_change (Services.Document? document, DocumentView parent);
     public signal void empty ();
 
     public unowned MainWindow window { get; construct set; }
@@ -65,7 +65,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
         close_tab_requested.connect ((tab) => {
             var document = tab as Services.Document;
-            if (document.file != null) {
+            if (!document.is_file_temporary && document.file != null) {
                 tab.restore_data = document.get_uri ();
             }
 
@@ -73,7 +73,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         });
 
         tab_switched.connect ((old_tab, new_tab) => {
-            document_change (new_tab as Services.Document);
+            document_change (new_tab as Services.Document, this);
             save_current_file (new_tab as Services.Document);
         });
 
@@ -129,7 +129,8 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
     private string unsaved_file_path_builder () {
         var timestamp = new DateTime.now_local ();
-        string new_text_file = _("Text file from %s").printf (timestamp.format ("%Y-%m-%d %H:%M:%S"));
+
+        string new_text_file = _("Text file from %s:%d").printf (timestamp.format ("%Y-%m-%d %H:%M:%S"), timestamp.get_microsecond ());
 
         return Path.build_filename (Application.instance.data_home_folder_unsaved, new_text_file);
     }
@@ -145,6 +146,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             current_document = doc;
 
             doc.focus ();
+            save_opened_files ();
         } catch (Error e) {
             critical (e.message);
         }
@@ -164,6 +166,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             current_document = doc;
 
             doc.focus ();
+            save_opened_files ();
         } catch (Error e) {
             critical ("Cannot insert clipboard: %s", clipboard);
         }
@@ -320,13 +323,13 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         if (doc == null) {
             warning ("Focus event callback cannot get current document");
         } else {
-            document_change (doc);
+            document_change (doc, this);
         }
 
         return false;
     }
 
-    private void drag_received (Gtk.Widget w, Gdk.DragContext ctx, int x, int y, Gtk.SelectionData sel,  uint info, uint time) {
+    private void drag_received (Gtk.Widget w, Gdk.DragContext ctx, int x, int y, Gtk.SelectionData sel, uint info, uint time) {
         var uris = sel.get_uris ();
         foreach (var filename in uris) {
             var file = File.new_for_uri (filename);
@@ -358,7 +361,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         string file_uri = "";
 
         if (current_document != null) {
-            file_uri = current_document.file.get_uri();
+            file_uri = current_document.file.get_uri ();
         }
 
         if (file_uri != "") {

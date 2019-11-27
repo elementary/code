@@ -10,6 +10,7 @@
     <value nick="For Selection" value="1" />
     <value nick="Always" value="2" />
   </enum>
+
   <schema path="/io/elementary/code/saved-state/" id="io.elementary.code.saved-state" gettext-domain="io.elementary.code">
     <key name="window-state" enum="io.elementary.code.window-states">
       <default>"Normal"</default>
@@ -36,7 +37,6 @@
       <summary></summary>
       <description></description>
     </key>
-
     <key name="hp1-size" type="i">
       <default>125</default>
       <summary></summary>
@@ -48,26 +48,37 @@
       <description></description>
     </key>
   </schema>
+
   <schema path="/io/elementary/code/settings/" id="io.elementary.code.settings" gettext-domain="io.elementary.code">
     <key type="as" name="plugins-enabled">
-      <default>['detect-indent', 'editorconfig', 'outline']</default>
+      <default>['brackets-completion', 'detect-indent', 'editorconfig', 'outline']</default>
       <summary>Enabled Plugins</summary>
       <description>Enabled Plugins</description>
     </key>
     <key name="opened-files-view1" type="as">
       <default>[]</default>
-      <summary>Files opened in the previously session of Scratch on the first view</summary>
-      <description>It is used to open the files opened in the last Scratch session</description>
+      <summary>Files opened in the previously session of Code on the first view</summary>
+      <description>It is used to open the files opened in the last Code session</description>
     </key>
     <key name="opened-files-view2" type="as">
       <default>[]</default>
-      <summary>Files opened in the previously session of Scratch on the second view</summary>
-      <description>It is used to open the files opened in the last Scratch session</description>
+      <summary>Files opened in the previously session of Code on the second view</summary>
+      <description>It is used to open the files opened in the last Code session</description>
     </key>
     <key name="autosave" type="b">
       <default>true</default>
       <summary>Autosave edited files</summary>
       <description>Autosave edited files.</description>
+    </key>
+    <key name="smart-cut-copy" type="b">
+      <default>true</default>
+      <summary>CTRL+C and CTRL+X copy/cut the current line when no selection</summary>
+      <description>If there is no selection, will the cut/copy shortcuts automatically act on the current line</description>
+    </key>
+    <key name="line-wrap" type="b">
+      <default>true</default>
+      <summary>Wrap long lines</summary>
+      <description>Wrap long lines.</description>
     </key>
     <key name="show-right-margin" type="b">
       <default>false</default>
@@ -82,12 +93,12 @@
     <key name="highlight-matching-brackets" type="b">
       <default>true</default>
       <summary>Highlight Matching Brackets</summary>
-      <description>Whether Scratch should highlight matching brackets.</description>
+      <description>Whether Code should highlight matching brackets.</description>
     </key>
     <key name="draw-spaces" enum="io.elementary.code.draw-spaces-states">
       <default>"For Selection"</default>
       <summary>Draw spaces and tabs with symbols</summary>
-      <description>Draw spaces and tabs with symbols.</description>
+      <description>Draw spaces and tabs with symbols. "Never" is deprecated and not exposed in the UI.</description>
     </key>
     <key name="show-mini-map" type="b">
       <default>false</default>
@@ -97,12 +108,12 @@
     <key name="spaces-instead-of-tabs" type="b">
       <default>true</default>
       <summary>Use spaces instead of tabs</summary>
-      <description>Whether Scratch should replace tabs with spaces</description>
+      <description>Whether Code should replace tabs with spaces</description>
     </key>
     <key name="auto-indent" type="b">
-      <default>false</default>
+      <default>true</default>
       <summary>Use auto indent</summary>
-      <description>Whether Scratch should use auto indentation</description>
+      <description>Whether Code should use auto indentation</description>
     </key>
     <key name="indent-width" type="i">
       <default>4</default>
@@ -112,7 +123,7 @@
     <key name="use-system-font" type="b">
       <default>true</default>
       <summary>Use system font</summary>
-      <description>Whether Scratch should use the default system font</description>
+      <description>Whether Code should use the default system font</description>
     </key>
     <key name="font" type="s">
       <default>'Droid Sans Mono 10'</default>
@@ -132,12 +143,12 @@
     <key name="focused-document-view1" type="s">
       <default>''</default>
       <summary>Remember the last focused document.</summary>
-      <description>Restore the focused document from a previous session when opening Scratch.</description>
+      <description>Restore the focused document from a previous session when opening Code.</description>
     </key>
     <key name="focused-document-view2" type="s">
       <default>''</default>
       <summary>Remember the last focused document.</summary>
-      <description>Restore the focused document from a previous session when opening Scratch.</description>
+      <description>Restore the focused document from a previous session when opening Code.</description>
     </key>
     <key name="prefer-dark-style" type="b">
       <default>false</default>

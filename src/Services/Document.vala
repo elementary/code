@@ -20,7 +20,6 @@
 ***/
 
 namespace Scratch.Services {
-
     public enum DocumentStates {
         NORMAL,
         READONLY
@@ -108,7 +107,7 @@ namespace Scratch.Services {
 
 #if HAVE_ZEITGEIST
         // Zeitgeist integration
-        private ZeitgeistLogger zg_log = new ZeitgeistLogger();
+        private ZeitgeistLogger zg_log = new ZeitgeistLogger ();
 #endif
         public Document (SimpleActionGroup actions, File? file = null) {
             this.actions = actions;
@@ -178,6 +177,30 @@ namespace Scratch.Services {
 
             main_stack.add_named (doc_grid, "content");
 
+            this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
+
+            toggle_changed_handlers (true);
+
+            // Focus out event for SourceView
+            this.source_view.focus_out_event.connect (() => {
+                if (settings.autosave) {
+                    save.begin ();
+                }
+
+                return false;
+            });
+
+            source_view.buffer.changed.connect (() => {
+                if (source_view.buffer.text != last_save_content) {
+                    saved = false;
+                    if (!settings.autosave) {
+                        set_saved_status (false);
+                    }
+                } else {
+                    set_saved_status (true);
+                }
+            });
+
             /* Create as loaded - could be new document */
             loaded = true;
         }
@@ -209,7 +232,7 @@ namespace Scratch.Services {
                      });
                 });
             } else if (onchange_handler_id != 0) {
-                this.source_view.buffer.disconnect(onchange_handler_id);
+                this.source_view.buffer.disconnect (onchange_handler_id);
             }
         }
 
@@ -267,7 +290,7 @@ namespace Scratch.Services {
                     var title = _("Loading File \"%s\" Is Taking a Long Time").printf (get_basename ());
                     var description = _("Please wait while Code is loading the file.");
                     var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-information");
-                    alert_view.show_action (_("Cancel Load"));
+                    alert_view.show_action (_("Cancel Loading"));
                     alert_view.show_all ();
                     main_stack.add_named (alert_view, "wait_alert");
                     main_stack.set_visible_child (alert_view);
@@ -310,23 +333,10 @@ namespace Scratch.Services {
                 }
             }
 
-            /* Successful load - now do rest of set up */
-            this.source_view.buffer.create_tag ("highlight_search_all", "background", "yellow", null);
-
-            toggle_changed_handlers (true);
             // Focus in event for SourceView
             this.source_view.focus_in_event.connect (() => {
                 check_file_status ();
                 check_undoable_actions ();
-
-                return false;
-            });
-
-            // Focus out event for SourceView
-            this.source_view.focus_out_event.connect (() => {
-                if (settings.autosave) {
-                    save.begin ();
-                }
 
                 return false;
             });
@@ -342,14 +352,7 @@ namespace Scratch.Services {
             source_view.buffer.set_modified (false);
             original_content = source_view.buffer.text;
             last_save_content = source_view.buffer.text;
-
-            source_view.buffer.changed.connect (() => {
-                if (source_view.buffer.text != last_save_content && !settings.autosave) {
-                    set_saved_status (false);
-                } else {
-                    set_saved_status (true);
-                }
-            });
+            set_saved_status (true);
 
             doc_opened ();
             source_view.sensitive = true;
@@ -374,35 +377,30 @@ namespace Scratch.Services {
             }
 
             bool ret_value = true;
-            if (app_closing && is_file_temporary && !delete_temporary_file ()) {
+            if (settings.autosave && !saved) {
+                save_with_hold ();
+            } else if (app_closing && is_file_temporary && !delete_temporary_file ()) {
                 debug ("Save temporary file!");
-                this.save.begin ();
+                save_with_hold ();
             }
             // Check for unsaved changes
             else if (!this.saved || (!app_closing && is_file_temporary && !delete_temporary_file ())) {
-                debug ("There are unsaved changes, showing a Message Dialog!");
-
-                // Create a GtkDialog
                 var parent_window = source_view.get_toplevel () as Gtk.Window;
-                var dialog = new Gtk.MessageDialog (parent_window, Gtk.DialogFlags.MODAL,
-                                                    Gtk.MessageType.WARNING, Gtk.ButtonsType.NONE, "");
-                dialog.type_hint = Gdk.WindowTypeHint.DIALOG;
-                dialog.deletable = false;
 
-                dialog.use_markup = true;
+                var dialog = new Granite.MessageDialog (
+                    _("Save changes to \"%s\" before closing?").printf (this.get_basename ()),
+                    _("If you don't save, changes will be permanently lost."),
+                    new ThemedIcon ("dialog-warning"),
+                    Gtk.ButtonsType.NONE
+                );
+                dialog.transient_for = parent_window;
 
-                dialog.text = ("<b>" + _("Save changes to document %s before closing?") +
-                               "</b>").printf (this.get_basename ());
-                dialog.text += "\n\n" +
-                            _("If you don't save, changes from the last 4 seconds will be permanently lost.");
+                var no_save_button = (Gtk.Button) dialog.add_button (_("Close Without Saving"), Gtk.ResponseType.NO);
+                no_save_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
 
-                var button = new Gtk.Button.with_label (_("Close without saving"));
-                button.show ();
-
-                dialog.add_action_widget (button, Gtk.ResponseType.NO);
                 dialog.add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
                 dialog.add_button (_("Save"), Gtk.ResponseType.YES);
-                dialog.set_default_response (Gtk.ResponseType.ACCEPT);
+                dialog.set_default_response (Gtk.ResponseType.YES);
 
                 int response = dialog.run ();
                 switch (response) {
@@ -412,9 +410,9 @@ namespace Scratch.Services {
                         break;
                     case Gtk.ResponseType.YES:
                         if (this.is_file_temporary)
-                            this.save_as.begin ();
+                            save_as_with_hold ();
                         else
-                            this.save.begin ();
+                            save_with_hold ();
                         break;
                     case Gtk.ResponseType.NO:
                         if (this.is_file_temporary)
@@ -435,6 +433,28 @@ namespace Scratch.Services {
             }
 
             return ret_value;
+        }
+
+        public bool save_with_hold (bool force = false) {
+            GLib.Application.get_default ().hold ();
+            bool result = false;
+            save.begin (force, (obj, res) => {
+                result = save.end (res);
+                GLib.Application.get_default ().release ();
+            });
+
+            return result;
+        }
+
+        public bool save_as_with_hold () {
+            GLib.Application.get_default ().hold ();
+            bool result = false;
+            save_as.begin ((obj, res) => {
+                result = save_as.end (res);
+                GLib.Application.get_default ().release ();
+            });
+
+            return result;
         }
 
         public async bool save (bool force = false) {
@@ -478,18 +498,34 @@ namespace Scratch.Services {
                 return false;
             }
 
+            var all_files_filter = new Gtk.FileFilter ();
+            all_files_filter.set_filter_name (_("All files"));
+            all_files_filter.add_pattern ("*");
 
-            var filech = Utils.new_file_chooser_dialog (Gtk.FileChooserAction.SAVE, _("Save File"), null);
-            filech.do_overwrite_confirmation = true;
+            var text_files_filter = new Gtk.FileFilter ();
+            text_files_filter.set_filter_name (_("Text files"));
+            text_files_filter.add_mime_type ("text/*");
+
+            var file_chooser = new Gtk.FileChooserNative (
+                _("Save File"),
+                null,
+                Gtk.FileChooserAction.SAVE,
+                _("Save"),
+                _("Cancel")
+            );
+            file_chooser.add_filter (all_files_filter);
+            file_chooser.add_filter (text_files_filter);
+            file_chooser.do_overwrite_confirmation = true;
+            file_chooser.set_current_folder_uri (Utils.last_path ?? GLib.Environment.get_home_dir ());
 
             var success = false;
             var current_file = file.get_path ();
             var is_current_file_temporary = this.is_file_temporary;
 
-            if (filech.run () == Gtk.ResponseType.ACCEPT) {
-                this.file = File.new_for_uri (filech.get_file ().get_uri ());
+            if (file_chooser.run () == Gtk.ResponseType.ACCEPT) {
+                file = File.new_for_uri (file_chooser.get_uri ());
                 // Update last visited path
-                Utils.last_path = Path.get_dirname (filech.get_file ().get_uri ());
+                Utils.last_path = Path.get_dirname (file_chooser.get_file ().get_uri ());
                 success = true;
             }
 
@@ -513,7 +549,7 @@ namespace Scratch.Services {
             /* We delay destruction of file chooser dialog til to avoid the document focussing in,
              * which triggers premature loading of overwritten content.
              */
-            filech.destroy ();
+            file_chooser.destroy ();
             return success;
         }
 
@@ -677,7 +713,7 @@ namespace Scratch.Services {
         // Show an error view which says "Hey, I cannot read that file!"
         private void show_default_load_error_view () {
             var title = _("File \"%s\" Cannot Be Read").printf (get_basename ());
-            var description = _("Maybe it is corrupt or you do not have the necessary permissions to read it.");
+            var description = _("It may be corrupt or you don't have permission to read it.");
             var alert_view = new Granite.Widgets.AlertView (title, description, "dialog-error");
             alert_view.show_all ();
             main_stack.add_named (alert_view, "error_alert");
@@ -711,7 +747,7 @@ namespace Scratch.Services {
 
             // If the file can't be written
             if (!can_write ()) {
-                string message = _("You cannot save changes on file \"%s\". Do you want to save the changes to this file in a different location?").printf ("<b>%s</b>".printf (get_basename ()));
+                string message = _("You cannot save changes to the file \"%s\". Do you want to save the changes somewhere else?").printf ("<b>%s</b>".printf (get_basename ()));
 
                 set_message (Gtk.MessageType.WARNING, message, _("Save changes elsewhere"), () => {
                     this.save_as.begin ();
@@ -746,7 +782,7 @@ namespace Scratch.Services {
                         if (settings.autosave) {
                             source_view.set_text (new_buffer.text, false);
                         } else {
-                            string message =  _("File \"%s\" was modified by an external application. Do you want to load it again or continue your editing?").printf ("<b>%s</b>".printf (get_basename ()));
+                            string message = _("File \"%s\" was modified by an external application. Do you want to load it again or continue your editing?").printf ("<b>%s</b>".printf (get_basename ()));
                             set_message (Gtk.MessageType.WARNING, message, _("Load"), () => {
                                 this.source_view.set_text (new_buffer.text, false);
                                 hide_info_bar ();

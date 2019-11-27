@@ -91,6 +91,12 @@ namespace Scratch.FolderManager {
             }
         }
 
+        public bool is_temporary {
+            get {
+               return path.has_suffix ("~");
+            }
+         }
+
         // checks if we're dealing with a textfile
         public bool is_valid_textfile {
             get {
@@ -139,10 +145,7 @@ namespace Scratch.FolderManager {
                     while ((file_info = enumerator.next_file ()) != null) {
                         var child = file.get_child (file_info.get_name ());
                         var file = new File (child.get_path ());
-
-                        if (file.is_valid_directory || file.is_valid_textfile) {
-                            _children.add (new File (child.get_path ()));
-                        }
+                        _children.add (new File (child.get_path ()));
                     }
 
                     children_valid = true;

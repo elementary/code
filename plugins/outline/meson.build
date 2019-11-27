@@ -14,16 +14,8 @@ module_files = [
 ]
 
 # We need libvala-X.XX library, but it changes depending on the version that is installed
-# Plus development versions are odd numbers registered as even
-vala_versions = meson.get_compiler('vala').version().split('.')
-vala_major = vala_versions[0]
-vala_minor_int = vala_versions[1].to_int()
-if vala_minor_int.is_odd()
-    vala_minor_int = vala_minor_int + 1
-endif
-
-vala_name = 'libvala-@0@.@1@'.format(vala_major, vala_minor_int)
-vala_dep = dependency(vala_name)
+vala_version = run_command (meson.get_compiler('vala'), '--api-version').stdout().strip()
+vala_dep = dependency('libvala-@0@'.format(vala_version))
 
 module_deps = [
     codecore_dep,

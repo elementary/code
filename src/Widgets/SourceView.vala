@@ -108,15 +108,15 @@ namespace Scratch.Widgets {
             });
 
             cut_clipboard.connect (() => {
+                if (!Scratch.settings.smart_cut_copy) {
+                    return;
+                }
+
                 /* If no text is selected, cut the current line */
                 if (!buffer.has_selection) {
-                    Gtk.TextIter iter_start;
-                    buffer.get_iter_at_offset (out iter_start, buffer.cursor_position);
-                    iter_start.backward_chars (iter_start.get_line_offset ());
-                    Gtk.TextIter iter_end = iter_start;
-                    iter_end.forward_line ();
+                    Gtk.TextIter iter_start, iter_end;
 
-                    if (!iter_start.equal (iter_end)) {
+                    if (get_current_line (out iter_start, out iter_end)) {
                         var clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
                         string cut_text = iter_start.get_slice (iter_end);
 
@@ -128,7 +128,35 @@ namespace Scratch.Widgets {
                 }
             });
 
+            copy_clipboard.connect (() => {
+                if (!Scratch.settings.smart_cut_copy) {
+                    return;
+                }
+
+                /* If no text is selected, copy the current line */
+                if (!buffer.has_selection) {
+                    Gtk.TextIter iter_start, iter_end;
+
+                    if (get_current_line (out iter_start, out iter_end)) {
+                        var clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
+                        string copy_text = iter_start.get_slice (iter_end);
+
+                        clipboard.set_text (copy_text, -1);
+                    }
+                }
+            });
+
             populate_popup.connect_after (on_context_menu);
+        }
+
+        private bool get_current_line (out Gtk.TextIter start, out Gtk.TextIter end) {
+            buffer.get_iter_at_offset (out start, buffer.cursor_position);
+            start.backward_chars (start.get_line_offset ());
+            end = start;
+            end.forward_line ();
+
+            // Have we returned valid iters?
+            return !start.equal (end);
         }
 
         ~SourceView () {
@@ -183,6 +211,11 @@ namespace Scratch.Widgets {
 
             insert_spaces_instead_of_tabs = Scratch.settings.spaces_instead_of_tabs;
             tab_width = (uint) Scratch.settings.indent_width;
+            if (Scratch.settings.line_wrap) {
+                set_wrap_mode (Gtk.WrapMode.WORD);
+            } else {
+                set_wrap_mode (Gtk.WrapMode.NONE);
+            }
 
             font = Scratch.settings.font;
             use_default_font (Scratch.settings.use_system_font);
@@ -404,9 +437,9 @@ namespace Scratch.Widgets {
 
         bool selection_changed_event () {
             Gtk.TextIter start, end;
-            bool selected = buffer.get_selection_bounds (out start,out end);
+            bool selected = buffer.get_selection_bounds (out start, out end);
             if (selected) {
-                selection_changed (start,end);
+                selection_changed (start, end);
             } else {
                 deselected ();
             }

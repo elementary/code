@@ -30,7 +30,7 @@ public class Scratch.Plugins.EditorConfigPlugin: Peas.ExtensionBase, Peas.Activa
             Scratch.Widgets.SourceView view = d.source_view;
             File file = d.file;
 
-            if (file == null) {
+            if (file == null || !file.query_exists ()) {
                 return;
             }
 
@@ -80,5 +80,5 @@ public class Scratch.Plugins.EditorConfigPlugin: Peas.ExtensionBase, Peas.Activa
 [ModuleInit]
 public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
-    objmodule.register_extension_type (typeof(Peas.Activatable), typeof(Scratch.Plugins.EditorConfigPlugin));
+    objmodule.register_extension_type (typeof (Peas.Activatable), typeof (Scratch.Plugins.EditorConfigPlugin));
 }

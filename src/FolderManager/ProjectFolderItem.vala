@@ -29,6 +29,7 @@ namespace Scratch.FolderManager {
         private string top_level_path;
         private Ggit.Repository? git_repo = null;
         private GLib.FileMonitor git_monitor;
+        private GLib.FileMonitor gitignore_monitor;
 
         private static Icon added_icon;
         private static Icon modified_icon;
@@ -40,6 +41,10 @@ namespace Scratch.FolderManager {
         ~ProjectFolderItem () {
             if (git_monitor != null) {
                 git_monitor.cancel ();
+            }
+
+            if (gitignore_monitor != null) {
+                gitignore_monitor.cancel ();
             }
         }
 
@@ -71,6 +76,18 @@ namespace Scratch.FolderManager {
                         warning ("An error occured setting up a file monitor on the git folder: %s", e.message);
                     }
                 }
+
+                // We will only deprioritize git-ignored files whenever the project folder is a git_repo.
+                // It doesn't make sense to have a .gitignore file in a project folder that ain't a local git repo.
+                var gitignore_file = GLib.File.new_for_path (Path.build_filename (top_level_path, ".gitignore"));
+                if (gitignore_file.query_exists ()) {
+                    try {
+                        gitignore_monitor = gitignore_file.monitor_file (GLib.FileMonitorFlags.NONE);
+                        gitignore_monitor.changed.connect (() => update_git_deprioritized_files ());
+                    } catch (IOError e) {
+                        warning ("An error occured setting up a file monitor on the gitignore file: %s", e.message);
+                    }
+                }
             }
         }
 
@@ -84,10 +101,34 @@ namespace Scratch.FolderManager {
                 trash ();
             });
 
+            GLib.FileInfo info = null;
+            unowned string? file_type = null;
+
+            try {
+                info = file.file.query_info (GLib.FileAttribute.STANDARD_CONTENT_TYPE, GLib.FileQueryInfoFlags.NONE);
+                file_type = info.get_content_type ();
+            } catch (Error e) {
+                warning (e.message);
+            }
+
             var menu = new Gtk.Menu ();
             menu.append (close_item);
+            menu.append (create_submenu_for_open_in (info, file_type));
             menu.append (create_submenu_for_new ());
             menu.append (delete_item);
+
+            try {
+                if (git_repo != null && git_repo.get_head ().is_branch ()) {
+                    var change_branch_item = new ChangeBranchMenu (git_repo);
+                    if (change_branch_item != null) {
+                        menu.append (change_branch_item);
+                    }
+                }
+            } catch (Error e) {
+                critical (e.message);
+            }
+
+
             menu.show_all ();
 
             return menu;
@@ -194,12 +235,109 @@ namespace Scratch.FolderManager {
                 }
 
                 item.name = item.file.name;
-                item.markup = null;
                 item.activatable = null;
 
                 if (item is Granite.Widgets.SourceList.ExpandableItem) {
                     reset_all_children (item);
                 }
+            }
+
+            deprioritize_gitignored_files (toplevel_item);
+        }
+
+        private void update_git_deprioritized_files () {
+            deprioritize_gitignored_files (this);
+        }
+
+        private void deprioritize_gitignored_files (Item top_level_item) {
+            foreach (var child in top_level_item.children) {
+                if (child == null || !(child is Item)) {
+                    continue;
+                }
+
+                var item = child as Item;
+
+                if (is_file_gitignored (item)) {
+                    /* 75% opacity and italic */
+                    item.markup = Markup.printf_escaped ("<span fgalpha='75&#37;'><i>%s</i></span>", item.name);
+                }
+
+                if (item is Granite.Widgets.SourceList.ExpandableItem) {
+                    deprioritize_gitignored_files (item);
+                }
+            }
+        }
+
+        public bool is_file_gitignored (Item item) {
+            try {
+                if (git_repo.path_is_ignored (item.path)) {
+                    return true;
+                }
+            } catch (Error e) {
+                warning ("An error occured while checking if item '%s' is git-ignored: %s", item.name, e.message);
+            }
+
+            return false;
+        }
+
+        private class ChangeBranchMenu : Gtk.MenuItem {
+            public Ggit.Repository git_repo { get; construct; }
+
+            public ChangeBranchMenu (Ggit.Repository git_repo) {
+                Object (git_repo: git_repo);
+            }
+
+            construct {
+                Ggit.Branch? cur_branch;
+                Ggit.BranchEnumerator? branches;
+
+                try {
+                    cur_branch = (Ggit.Branch?)(git_repo.get_head ());
+                    branches = git_repo.enumerate_branches (Ggit.BranchType.LOCAL);
+                } catch (GLib.Error e) {
+                    critical ("Failed to create change branch menu. %s", e.message);
+                    sensitive = false;
+                }
+
+                if (branches == null || cur_branch == null) {
+                    sensitive = false;
+                }
+
+                var change_branch_menu = new Gtk.Menu ();
+
+                foreach (var ref_branch in branches) {
+                    var branch = ref_branch as Ggit.Branch;
+                    string? branch_name = null;
+                    try {
+                        branch_name = branch.get_name ();
+                        if (branch_name != null) {
+                            var ref_name = ref_branch.get_name ();
+                            if (ref_name != null) {
+                                var branch_item = new Gtk.CheckMenuItem.with_label (branch_name);
+                                branch_item.draw_as_radio = true;
+
+                                if (branch_name == cur_branch.get_name ()) {
+                                    branch_item.active = true;
+                                }
+
+                                change_branch_menu.add (branch_item);
+
+                                branch_item.toggled.connect (() => {
+                                    try {
+                                        git_repo.set_head (ref_name);
+                                    } catch (GLib.Error e) {
+                                        warning ("Failed to change branch to %s.  %s", name, e.message);
+                                    }
+                                });
+                            }
+                        }
+                    } catch (GLib.Error e) {
+                        warning ("Failed to create menuitem for branch %s. %s", branch_name ?? "unknown", e.message);
+                    }
+                }
+
+                label = _("Branch");
+                submenu = change_branch_menu;
             }
         }
     }

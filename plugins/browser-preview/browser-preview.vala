@@ -19,16 +19,12 @@
 ***/
 
 namespace Scratch.Plugins {
-
-    public class BrowserPreviewPlugin : Peas.ExtensionBase,  Peas.Activatable {
-
+    public class BrowserPreviewPlugin : Peas.ExtensionBase, Peas.Activatable {
         Gtk.ToggleButton? tool_button = null;
         Gee.LinkedList<BrowserPreview.BrowserView> previews = new Gee.LinkedList<BrowserPreview.BrowserView> ();
 
         unowned BrowserPreview.BrowserView? view = null;
         Scratch.Services.Document? doc = null;
-
-        Gtk.Notebook? notebook = null;
 
         Scratch.Services.Interface plugins;
         public Object object { owned get; construct; }

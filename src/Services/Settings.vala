@@ -55,6 +55,7 @@ namespace Scratch {
         public bool highlight_matching_brackets { get; set; }
         public ScratchDrawSpacesState draw_spaces { get; set; }
         public bool spaces_instead_of_tabs { get; set; }
+        public bool line_wrap { get; set; }
         public bool auto_indent { get; set; }
         public int indent_width { get; set; }
         public bool show_right_margin { get; set; }
@@ -66,12 +67,13 @@ namespace Scratch {
         public string[] opened_files_view1 { get; set; }
         public string[] opened_files_view2 { get; set; }
         public bool autosave { get; set; }
+        public bool smart_cut_copy { get; set; }
         public string focused_document_view1 { get; set; }
         public string focused_document_view2 { get; set; }
         public bool show_mini_map { get; set; }
         public bool prefer_dark_style { get; set; }
 
-        public Settings ()  {
+        public Settings () {
             base (Constants.PROJECT_NAME + ".settings");
         }
 
@@ -88,7 +90,7 @@ namespace Scratch {
         }
 
     }
-    
+
     public class FolderManagerSettings : Granite.Services.Settings {
 
         private const string SCHEMA = Constants.PROJECT_NAME + ".folder-manager";

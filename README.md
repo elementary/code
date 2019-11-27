@@ -13,13 +13,13 @@ You'll need the following dependencies:
 * libgit2-glib-1.0-dev
 * libgtksourceview-3.0-dev >= 3.24
 * libgtkspell3-3-dev
-* libgranite-dev
+* libgranite-dev >= 5.2.0
 * libpeas-dev
 * libsoup2.4-dev
 * libvala-0.34-dev (or higher)
 * libvte-2.91-dev
 * libwebkit2gtk-4.0-dev
-* libzeitgeist-2.0
+* libzeitgeist-2.0-dev
 * valac
 
 Run `meson build` to configure the build environment. Change to the build directory and run `ninja test` to build
