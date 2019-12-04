@@ -155,6 +155,7 @@ namespace Scratch.Widgets {
             var menu_grid = new Gtk.Grid ();
             menu_grid.margin_bottom = 3;
             menu_grid.hexpand = true;
+            menu_grid.row_spacing = 0;
             menu_grid.orientation = Gtk.Orientation.VERTICAL;
             menu_grid.width_request = 200;
             menu_grid.attach (font_size_grid, 0, 0, 3, 1);
@@ -277,12 +278,13 @@ namespace Scratch.Widgets {
             }
 
             construct {
-                margin = 6;
                 set_focus_on_click (false);
                 get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
                 var accel_label = new Gtk.Label ("");
+                accel_label.margin_end = 6;
                 var text_label = new Gtk.Label (text);
+                text_label.margin_start = 6;
 
                 var accel = ((Gtk.Application) GLib.Application.get_default ())
                             .get_accels_for_action (action)[0];
