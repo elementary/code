@@ -176,11 +176,14 @@ namespace Scratch.FolderManager {
 
         private void add_children () {
             foreach (var child in file.children) {
+                Granite.Widgets.SourceList.Item item = null;
                 if (child.is_valid_directory) {
-                    var item = new FolderItem (child, view);
-                    add (item);
-                } else if (!child.is_temporary) {
-                    var item = new FileItem (child, view);
+                    item = new FolderItem (child, view);
+                } else if (child.is_valid_textfile) {
+                    item = new FileItem (child, view);
+                }
+
+                if (item != null) {
                     add (item);
                 }
             }
