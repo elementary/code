@@ -279,7 +279,8 @@ namespace Scratch.Widgets {
 
             construct {
                 set_focus_on_click (false);
-                get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+                get_style_context ().remove_class ("button");
+                get_style_context ().add_class ("menuitem");
 
                 var accel_label = new Gtk.Label ("");
                 accel_label.margin_end = 6;
