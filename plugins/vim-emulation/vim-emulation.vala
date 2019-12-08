@@ -201,7 +201,11 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Peas.Activatable
             case Gdk.Key.Home:
             case Gdk.Key.@0:
                 if (number == "") {
-                    view.move_cursor (Gtk.MovementStep.DISPLAY_LINES, 1, false);
+                    Gtk.TextIter insert;
+                    // view.move_cursor (Gtk.MovementStep.PARAGRAPHS, 1, false);
+                    var insert_mark = view.buffer.get_insert ();
+                    view.buffer.get_iter_at_mark (out insert, insert_mark);
+                    insert.set_line_offset (0);
                 } else {
                     number += "0";
                 }
