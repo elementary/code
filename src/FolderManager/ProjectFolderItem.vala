@@ -179,7 +179,7 @@ namespace Scratch.FolderManager {
                 find_items (this, path, ref modified_items);
                 foreach (var modified_item in modified_items) {
                     modified_item.activatable = modified_icon;
-                    modified_item.tooltip = "Modified";
+                    modified_item.tooltip = modified_item.name + ", Modified";
                 }
             } else if (Ggit.StatusFlags.WORKING_TREE_NEW in status || Ggit.StatusFlags.INDEX_NEW in status) {
                 var new_items = new Gee.ArrayList<Item> ();
@@ -188,7 +188,7 @@ namespace Scratch.FolderManager {
                     // Only show an added indicator on items that aren't already showing modified state
                     if (new_item.activatable == null) {
                         new_item.activatable = added_icon;
-                        new_item.tooltip = "New";
+                        new_item.tooltip = new_item.name + ", New";
                     }
                 }
             }
