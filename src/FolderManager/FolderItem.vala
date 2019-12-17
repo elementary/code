@@ -366,6 +366,12 @@ namespace Scratch.FolderManager {
 
         construct {
             edited.connect (rename);
+
+            if (is_folder) {
+                icon = GLib.ContentType.get_icon ("inode/directory");
+            } else {
+                icon = GLib.ContentType.get_icon ("text");
+            }
         }
 
         protected new void rename (string new_name) {
