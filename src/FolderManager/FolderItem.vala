@@ -26,6 +26,7 @@ namespace Scratch.FolderManager {
     internal class FolderItem : Item {
         private GLib.FileMonitor monitor;
         private bool children_loaded = false;
+        private Granite.Widgets.SourceList.Item dummy; /* Blank item for expanded empty folders */
 
         public FolderItem (File file, FileView view) requires (file.is_valid_directory) {
             Object (file: file, view: view);
@@ -36,7 +37,8 @@ namespace Scratch.FolderManager {
         }
 
         construct {
-            add (new Granite.Widgets.SourceList.Item ("")); // dummy
+            dummy = new Granite.Widgets.SourceList.Item ("");
+            add (dummy);
 
             toggled.connect (() => {
                 if (!children_loaded && expanded && n_children <= 1 && file.children.size > 0) {
@@ -158,10 +160,10 @@ namespace Scratch.FolderManager {
 
         protected Gtk.MenuItem create_submenu_for_new () {
             var new_folder_item = new Gtk.MenuItem.with_label (_("Folder"));
-            new_folder_item.activate.connect (() => add_new (true));
+            new_folder_item.activate.connect (() => on_add_new (true));
 
             var new_file_item = new Gtk.MenuItem.with_label (_("Empty File"));
-            new_file_item.activate.connect (() => add_new (false));
+            new_file_item.activate.connect (() => on_add_new (false));
 
             var new_menu = new Gtk.Menu ();
             new_menu.append (new_folder_item);
@@ -204,6 +206,7 @@ namespace Scratch.FolderManager {
 
         private void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
             if (!children_loaded) {
+                /* Empty folder with dummy item will come here even if expanded */
                 switch (event) {
                     case GLib.FileMonitorEvent.DELETED:
                         // This is a pretty intensive operation. For each file deleted, the cache will be
@@ -216,17 +219,21 @@ namespace Scratch.FolderManager {
                         if (file.children.size == 0) {
                             clear ();
                         }
+
                         break;
                     case GLib.FileMonitorEvent.CREATED:
                         if (source.query_exists () == false) {
                             return;
                         }
 
-                        file.invalidate_cache ();
-
-                        if (n_children == 0) {
-                            add (new Granite.Widgets.SourceList.Item ("")); // dummy
+                        /* Fix adding new file to expanded empty folder */
+                        if (expanded && file.children.size == 0) {
+                            file.invalidate_cache ();
+                            clear ();
+                            add_children ();
+                            children_loaded = true;
                         }
+
                         break;
                 }
             } else {
@@ -244,7 +251,7 @@ namespace Scratch.FolderManager {
                                 remove (item);
                                 if (file.children.size == 0) {
                                     clear ();
-                                    add (new Granite.Widgets.SourceList.Item ("")); // dummy
+                                    add (dummy);
                                     expanded = false;
                                     children_loaded = false;
                                 }
@@ -313,7 +320,7 @@ namespace Scratch.FolderManager {
             }
         }
 
-        private void add_new (bool is_folder) {
+        private void on_add_new (bool is_folder) {
             if (!file.is_executable) {
                 // This is necessary to avoid infinite loop below
                 warning ("Unable to open parent folder");
@@ -330,9 +337,14 @@ namespace Scratch.FolderManager {
             }
 
             expanded = true;
-            var rename_item = new RenameItem (new File (new_file.get_path ()), view, is_folder);
+            var rename_item = new RenameItem (new_file.get_basename (), is_folder);
+            if (file.children.size == 0) {
+                clear ();  /* Remove dummy item */
+            }
+
             add (rename_item);
 
+            /* Start editing after finishing signal handler */
             GLib.Idle.add (() => {
                 view.start_editing_item (rename_item);
 
@@ -341,14 +353,26 @@ namespace Scratch.FolderManager {
                     if (view.editing) {
                         return Source.CONTINUE;
                     } else {
-                        /* Item for new file will be added by FileMonitor handler */
-                        GLib.Idle.add (() => {
-                            child_removed (rename_item);
-                            return Source.REMOVE;
-                        });
-
-                        return Source.REMOVE;
+                        var new_name = rename_item.name;
+                        remove (rename_item);
+                        var path = file.file.get_path () + "/" + new_name;
+                        GLib.File gfile = GLib.File.new_for_path (path);
+                        try {
+                            if (is_folder) {
+                                gfile.make_directory ();
+                            } else {
+                                gfile.create (FileCreateFlags.NONE);
+                            }
+                        } catch (Error e) {
+                            warning (e.message);
+                            /* Replace dummy if file creation fails */
+                            if (file.children.size == 0) {
+                                add (dummy);
+                            }
+                        }
                     }
+
+                    return Source.REMOVE;
                 });
 
                 return false;
@@ -356,15 +380,18 @@ namespace Scratch.FolderManager {
         }
     }
 
-    internal class RenameItem : Item {
+    internal class RenameItem : Granite.Widgets.SourceList.Item {
+        public bool is_folder { get; construct; }
 
-        public bool is_folder {get; construct;}
-        public string new_name = "";
-        public RenameItem (File file, FileView view, bool is_folder) {
-            Object (file: file, view: view, is_folder: is_folder);
+        public RenameItem (string name, bool is_folder) {
+            Object (
+                name: name,
+                is_folder: is_folder
+            );
         }
 
         construct {
+            editable = true;
             edited.connect (rename);
 
             if (is_folder) {
@@ -375,21 +402,9 @@ namespace Scratch.FolderManager {
         }
 
         protected new void rename (string new_name) {
-            var path = file.file.get_parent ().get_path () + "/" + new_name;
-            GLib.File gfile = GLib.File.new_for_path (path);
-            try {
-                if (is_folder) {
-                    gfile.make_directory ();
-                } else {
-                    gfile.create (FileCreateFlags.NONE);
-                }
-            } catch (Error e) {
-                warning (e.message);
+            if (new_name != "") {
+                name = new_name;
             }
         }
-
-        new void trash () {}
-        public new void show_app_chooser (File file) {}
-        public new void launch_app_with_file (AppInfo app_info, GLib.File file) {}
     }
 }
