@@ -375,7 +375,7 @@ namespace Scratch.FolderManager {
                     return Source.REMOVE;
                 });
 
-                return false;
+                return Source.REMOVE;
             });
         }
     }
