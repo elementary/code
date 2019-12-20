@@ -327,7 +327,7 @@ namespace Scratch.FolderManager {
                 return;
             }
 
-            var name = is_folder ? _("untitled folder") : _("new file");
+            unowned string name = is_folder ? _("untitled folder") : _("new file");
             var new_file = file.file.get_child (name);
             var n = 1;
 
@@ -356,7 +356,7 @@ namespace Scratch.FolderManager {
                         var new_name = rename_item.name;
                         remove (rename_item);
                         var path = file.file.get_path () + "/" + new_name;
-                        GLib.File gfile = GLib.File.new_for_path (path);
+                        var gfile = GLib.File.new_for_path (path);
                         try {
                             if (is_folder) {
                                 gfile.make_directory ();
@@ -392,7 +392,7 @@ namespace Scratch.FolderManager {
 
         construct {
             editable = true;
-            edited.connect (rename);
+            edited.connect (on_edited);
 
             if (is_folder) {
                 icon = GLib.ContentType.get_icon ("inode/directory");
@@ -401,7 +401,7 @@ namespace Scratch.FolderManager {
             }
         }
 
-        protected new void rename (string new_name) {
+        private void on_edited (string new_name) {
             if (new_name != "") {
                 name = new_name;
             }
