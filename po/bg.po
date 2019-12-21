@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 19:45+0000\n"
+"POT-Creation-Date: 2019-11-25 21:29+0000\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Cleiton Floss <cleitonfloss@gmail.com>\n"
 "Language-Team: Bulgarian <https://l10n.elementary.io/projects/code/code/bg/"
@@ -200,31 +200,26 @@ msgid "Draw Spaces:"
 msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:122
-#: plugins/pastebin/pastebin_dialog.vala:460
-msgid "Never"
-msgstr "Безсрочно"
-
-#: src/Dialogs/PreferencesDialog.vala:123
 msgid "For selected text"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:124
+#: src/Dialogs/PreferencesDialog.vala:123
 msgid "Always"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:127
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Show Mini Map:"
 msgstr "Показване на карта:"
 
-#: src/Dialogs/PreferencesDialog.vala:130
+#: src/Dialogs/PreferencesDialog.vala:129
 msgid "Line width guide:"
 msgstr "Покажи препоръчителната ширина за ред:"
 
-#: src/Dialogs/PreferencesDialog.vala:138
+#: src/Dialogs/PreferencesDialog.vala:137
 msgid "Font"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:140
+#: src/Dialogs/PreferencesDialog.vala:139
 msgid "Custom font:"
 msgstr "Шрифт по избор:"
 
@@ -263,7 +258,7 @@ msgid "Rename"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:98
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:98
 msgid "Move to Trash"
 msgstr ""
 
@@ -285,30 +280,30 @@ msgstr ""
 msgid "New"
 msgstr "Нов раздел"
 
-#: src/FolderManager/FolderItem.vala:335
+#: src/FolderManager/FolderItem.vala:338
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:339
+#: src/FolderManager/FolderItem.vala:342
 #, c-format
 msgid "untitled folder %d"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:367
+#: src/FolderManager/FolderItem.vala:370
 #, fuzzy
 msgid "new file"
 msgstr "Нов файл"
 
-#: src/FolderManager/FolderItem.vala:371
+#: src/FolderManager/FolderItem.vala:374
 #, fuzzy, c-format
 msgid "new file %d"
 msgstr "Нов файл"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:95
 msgid "Close Folder"
 msgstr "Затвори Папка"
 
-#: src/FolderManager/ProjectFolderItem.vala:286
+#: src/FolderManager/ProjectFolderItem.vala:339
 #, fuzzy
 msgid "Branch"
 msgstr "Промяна на настройките на програмата"
@@ -664,6 +659,10 @@ msgstr "Качване"
 #: plugins/pastebin/pastebin_dialog.vala:352
 msgid "Other formats"
 msgstr "Други форати"
+
+#: plugins/pastebin/pastebin_dialog.vala:460
+msgid "Never"
+msgstr "Безсрочно"
 
 #: plugins/pastebin/pastebin_dialog.vala:461
 msgid "Ten minutes"

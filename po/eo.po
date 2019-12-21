@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 19:45+0000\n"
-"PO-Revision-Date: 2019-10-05 21:23+0000\n"
+"POT-Creation-Date: 2019-11-25 21:29+0000\n"
+"PO-Revision-Date: 2019-12-16 21:04+0000\n"
 "Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
-"Language-Team: Esperanto <https://l10n.elementary.io/projects/code/code/eo/"
-">\n"
+"Language-Team: Esperanto <https://l10n.elementary.io/projects/code/code/eo/>"
+"\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:132
@@ -137,6 +137,7 @@ msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
+"Sen aktiva elektaĵo, tondo aŭ kopiado estos farita de la tuta nuna linio"
 
 #: src/Dialogs/PreferencesDialog.vala:56
 msgid "General"
@@ -148,7 +149,7 @@ msgstr "Konservi dosierojn post modifo:"
 
 #: src/Dialogs/PreferencesDialog.vala:59
 msgid "Smart cut/copy lines:"
-msgstr ""
+msgstr "Inteligenta tondo/kopio de linio:"
 
 #: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
@@ -200,31 +201,26 @@ msgid "Draw Spaces:"
 msgstr "Afiŝi spacojn:"
 
 #: src/Dialogs/PreferencesDialog.vala:122
-#: plugins/pastebin/pastebin_dialog.vala:460
-msgid "Never"
-msgstr "Neniam"
-
-#: src/Dialogs/PreferencesDialog.vala:123
 msgid "For selected text"
 msgstr "Por la elektita teksto"
 
-#: src/Dialogs/PreferencesDialog.vala:124
+#: src/Dialogs/PreferencesDialog.vala:123
 msgid "Always"
 msgstr "Ĉiam"
 
-#: src/Dialogs/PreferencesDialog.vala:127
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Show Mini Map:"
 msgstr "Montri minimapon:"
 
-#: src/Dialogs/PreferencesDialog.vala:130
+#: src/Dialogs/PreferencesDialog.vala:129
 msgid "Line width guide:"
 msgstr "Gvido de linia larĝo:"
 
-#: src/Dialogs/PreferencesDialog.vala:138
+#: src/Dialogs/PreferencesDialog.vala:137
 msgid "Font"
 msgstr "Tiparo"
 
-#: src/Dialogs/PreferencesDialog.vala:140
+#: src/Dialogs/PreferencesDialog.vala:139
 msgid "Custom font:"
 msgstr "Propra tiparo:"
 
@@ -261,7 +257,7 @@ msgid "Rename"
 msgstr "Renomi"
 
 #: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:98
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:98
 msgid "Move to Trash"
 msgstr "Rubujen"
 
@@ -281,29 +277,29 @@ msgstr "Malplena Dosiero"
 msgid "New"
 msgstr "Nova"
 
-#: src/FolderManager/FolderItem.vala:335
+#: src/FolderManager/FolderItem.vala:338
 msgid "untitled folder"
 msgstr "sentitola dosierujo"
 
-#: src/FolderManager/FolderItem.vala:339
+#: src/FolderManager/FolderItem.vala:342
 #, c-format
 msgid "untitled folder %d"
 msgstr "sentitola dosierujo %d"
 
-#: src/FolderManager/FolderItem.vala:367
+#: src/FolderManager/FolderItem.vala:370
 msgid "new file"
 msgstr "nova dosiero"
 
-#: src/FolderManager/FolderItem.vala:371
+#: src/FolderManager/FolderItem.vala:374
 #, c-format
 msgid "new file %d"
 msgstr "nova dosiero %d"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:95
 msgid "Close Folder"
 msgstr "Fermi Dosierujon"
 
-#: src/FolderManager/ProjectFolderItem.vala:286
+#: src/FolderManager/ProjectFolderItem.vala:339
 msgid "Branch"
 msgstr "Branĉo"
 
@@ -526,19 +522,19 @@ msgstr "Menuo"
 
 #: src/Widgets/Pane.vala:45
 msgid "Add Project Folder…"
-msgstr ""
+msgstr "Aldoni projektan dosierujon…"
 
 #: src/Widgets/Pane.vala:48
 msgid "Manage project folders…"
-msgstr ""
+msgstr "Mastrumi projektajn dosierujojn…"
 
 #: src/Widgets/Pane.vala:50
 msgid "Collapse All"
-msgstr ""
+msgstr "Maletendi ĉion"
 
 #: src/Widgets/Pane.vala:53
 msgid "Alphabetize"
-msgstr ""
+msgstr "Alfabetigi"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
@@ -639,6 +635,10 @@ msgstr "Alŝuti"
 #: plugins/pastebin/pastebin_dialog.vala:352
 msgid "Other formats"
 msgstr "Aliaj formatoj"
+
+#: plugins/pastebin/pastebin_dialog.vala:460
+msgid "Never"
+msgstr "Neniam"
 
 #: plugins/pastebin/pastebin_dialog.vala:461
 msgid "Ten minutes"

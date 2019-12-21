@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 19:45+0000\n"
-"PO-Revision-Date: 2019-10-05 21:23+0000\n"
+"POT-Creation-Date: 2019-11-25 21:29+0000\n"
+"PO-Revision-Date: 2019-12-16 21:05+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
 "Language: fr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:132
@@ -136,6 +136,8 @@ msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
+"Couper ou copier sans sélection active coupera ou copiera toute la ligne "
+"courante"
 
 #: src/Dialogs/PreferencesDialog.vala:56
 msgid "General"
@@ -147,7 +149,7 @@ msgstr "Sauvegarder les fichiers lorsqu'ils sont modifiés :"
 
 #: src/Dialogs/PreferencesDialog.vala:59
 msgid "Smart cut/copy lines:"
-msgstr ""
+msgstr "Coupure/copie intelligente des lignes :"
 
 #: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
@@ -199,31 +201,26 @@ msgid "Draw Spaces:"
 msgstr "Afficher les espaces :"
 
 #: src/Dialogs/PreferencesDialog.vala:122
-#: plugins/pastebin/pastebin_dialog.vala:460
-msgid "Never"
-msgstr "Jamais"
-
-#: src/Dialogs/PreferencesDialog.vala:123
 msgid "For selected text"
 msgstr "Pour le texte sélectionné"
 
-#: src/Dialogs/PreferencesDialog.vala:124
+#: src/Dialogs/PreferencesDialog.vala:123
 msgid "Always"
 msgstr "Toujours"
 
-#: src/Dialogs/PreferencesDialog.vala:127
+#: src/Dialogs/PreferencesDialog.vala:126
 msgid "Show Mini Map:"
 msgstr "Afficher l'aperçu du fichier :"
 
-#: src/Dialogs/PreferencesDialog.vala:130
+#: src/Dialogs/PreferencesDialog.vala:129
 msgid "Line width guide:"
 msgstr "Guide de largeur de ligne :"
 
-#: src/Dialogs/PreferencesDialog.vala:138
+#: src/Dialogs/PreferencesDialog.vala:137
 msgid "Font"
 msgstr "Police"
 
-#: src/Dialogs/PreferencesDialog.vala:140
+#: src/Dialogs/PreferencesDialog.vala:139
 msgid "Custom font:"
 msgstr "Police personnalisée :"
 
@@ -262,7 +259,7 @@ msgid "Rename"
 msgstr "Renommer"
 
 #: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:98
-#: src/FolderManager/ProjectFolderItem.vala:81
+#: src/FolderManager/ProjectFolderItem.vala:98
 msgid "Move to Trash"
 msgstr "Déplacer dans la corbeille"
 
@@ -282,29 +279,29 @@ msgstr "Fichier vide"
 msgid "New"
 msgstr "Nouveau"
 
-#: src/FolderManager/FolderItem.vala:335
+#: src/FolderManager/FolderItem.vala:338
 msgid "untitled folder"
 msgstr "dossier sans-titre"
 
-#: src/FolderManager/FolderItem.vala:339
+#: src/FolderManager/FolderItem.vala:342
 #, c-format
 msgid "untitled folder %d"
 msgstr "dossier sans-titre %d"
 
-#: src/FolderManager/FolderItem.vala:367
+#: src/FolderManager/FolderItem.vala:370
 msgid "new file"
 msgstr "nouveau fichier"
 
-#: src/FolderManager/FolderItem.vala:371
+#: src/FolderManager/FolderItem.vala:374
 #, c-format
 msgid "new file %d"
 msgstr "nouveau fichier %d"
 
-#: src/FolderManager/ProjectFolderItem.vala:78
+#: src/FolderManager/ProjectFolderItem.vala:95
 msgid "Close Folder"
 msgstr "Fermer ce dossier"
 
-#: src/FolderManager/ProjectFolderItem.vala:286
+#: src/FolderManager/ProjectFolderItem.vala:339
 msgid "Branch"
 msgstr "Branche"
 
@@ -531,19 +528,19 @@ msgstr "Menu"
 
 #: src/Widgets/Pane.vala:45
 msgid "Add Project Folder…"
-msgstr ""
+msgstr "Ajouter un dossier de projet…"
 
 #: src/Widgets/Pane.vala:48
 msgid "Manage project folders…"
-msgstr ""
+msgstr "Gérer les dossiers de projet…"
 
 #: src/Widgets/Pane.vala:50
 msgid "Collapse All"
-msgstr ""
+msgstr "Tout réduire"
 
 #: src/Widgets/Pane.vala:53
 msgid "Alphabetize"
-msgstr ""
+msgstr "Trier par ordre alphabétique"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
@@ -644,6 +641,10 @@ msgstr "Téléverser"
 #: plugins/pastebin/pastebin_dialog.vala:352
 msgid "Other formats"
 msgstr "Autres formats"
+
+#: plugins/pastebin/pastebin_dialog.vala:460
+msgid "Never"
+msgstr "Jamais"
 
 #: plugins/pastebin/pastebin_dialog.vala:461
 msgid "Ten minutes"
