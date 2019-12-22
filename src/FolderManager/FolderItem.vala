@@ -355,8 +355,7 @@ namespace Scratch.FolderManager {
                     } else {
                         var new_name = rename_item.name;
                         remove (rename_item);
-                        var path = file.file.get_path () + "/" + new_name;
-                        var gfile = GLib.File.new_for_path (path);
+                        var gfile = file.file.get_child_for_display_name (new_name);
                         try {
                             if (is_folder) {
                                 gfile.make_directory ();
