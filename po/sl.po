@@ -7,47 +7,47 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 21:29+0000\n"
+"POT-Creation-Date: 2019-12-23 07:21+0000\n"
 "PO-Revision-Date: 2019-12-23 07:19+0000\n"
 "Last-Translator: Marko <marko.dolar@gmail.com>\n"
-"Language-Team: Slovenian <https://l10n.elementary.io/projects/code/code/sl/>"
-"\n"
+"Language-Team: Slovenian <https://l10n.elementary.io/projects/code/code/sl/"
+">\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
-#: src/Application.vala:132
+#: src/Application.vala:134
 #, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr "Datoteke \"%s\" ni mogoče ustvariti"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:136
+#: src/Application.vala:138
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Morda nimate ustreznih pravic."
 
-#: src/Application.vala:138
+#: src/Application.vala:140
 msgid "Maybe the file path provided is not valid."
 msgstr "Morda pot do datoteke ni pravilna."
 
-#: src/Application.vala:140
+#: src/Application.vala:142
 msgid "The location is read-only."
 msgstr "Lokacija je dostopna samo za branje."
 
-#: src/Application.vala:142
+#: src/Application.vala:144
 msgid "The parent directory doesn't exist."
 msgstr "Mapa z datoteko več ne obstaja."
 
-#: src/Application.vala:163
+#: src/Application.vala:165
 msgid "It is a mountable location."
 msgstr "Je priklopna točka."
 
-#: src/Application.vala:166
+#: src/Application.vala:168
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -55,32 +55,32 @@ msgstr ""
 "Je \"posebna\" datoteka kot npr. vtičnica,\n"
 "FIFO, blokovna ali znakovna naprava."
 
-#: src/Application.vala:169
+#: src/Application.vala:171
 msgid "It is an \"unknown\" file type."
 msgstr "Je \"neznan\" tip datoteke."
 
-#: src/Application.vala:174
+#: src/Application.vala:176
 #, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr "Datoteke \"%s\" ni mogoče odpreti"
 
-#: src/Application.vala:246
+#: src/Application.vala:248
 msgid "New Tab"
 msgstr "Nov zavihek"
 
-#: src/Application.vala:247 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Novo okno"
 
-#: src/Application.vala:248
+#: src/Application.vala:250
 msgid "Print version info and exit"
 msgstr "Prikaži različico in končaj"
 
-#: src/Application.vala:249
+#: src/Application.vala:251
 msgid "Set of plugins"
 msgstr "Nabor vtičnikov"
 
-#: src/Application.vala:249
+#: src/Application.vala:251
 msgid "plugin"
 msgstr "vtičnik"
 
@@ -100,32 +100,32 @@ msgstr "Skrij iskalno vrstico"
 msgid "Zeitgeist Datasource for Code"
 msgstr "Vir podatkov Zeitgeist za Kodo"
 
-#: src/MainWindow.vala:769 src/Services/Document.vala:502
+#: src/MainWindow.vala:771 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Vse datoteke"
 
-#: src/MainWindow.vala:773 src/Services/Document.vala:506
+#: src/MainWindow.vala:775 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Datoteke z besedilom"
 
-#: src/MainWindow.vala:777
+#: src/MainWindow.vala:779
 msgid "Open some files"
 msgstr "Odpri nekaj datotek"
 
-#: src/MainWindow.vala:780
+#: src/MainWindow.vala:782
 msgid "Open"
 msgstr "Odpri"
 
-#: src/MainWindow.vala:781 src/Services/Document.vala:401
+#: src/MainWindow.vala:783 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: src/MainWindow.vala:806
+#: src/MainWindow.vala:808
 msgid "_Open"
 msgstr "_Odpri"
 
-#: src/MainWindow.vala:807
+#: src/MainWindow.vala:809
 msgid "_Cancel"
 msgstr "_Prekliči"
 
@@ -243,23 +243,23 @@ msgstr "Ne obnovi"
 msgid "Restore Anyway"
 msgstr "Vseeno obnovi"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:114
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:115
 msgid "Other Application…"
 msgstr "Druga aplikacija…"
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:154
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:155
 msgid "Open In"
 msgstr "Odpri v"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:89
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:90
 msgid "Other Actions"
 msgstr "Druga dejanja"
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:93
 msgid "Rename"
 msgstr "Preimenuj"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:98
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:99
 #: src/FolderManager/ProjectFolderItem.vala:98
 msgid "Move to Trash"
 msgstr "Premakni v smeti"
@@ -268,35 +268,25 @@ msgstr "Premakni v smeti"
 msgid "Folders"
 msgstr "Mape"
 
-#: src/FolderManager/FolderItem.vala:161
+#: src/FolderManager/FolderItem.vala:162
 msgid "Folder"
 msgstr "Mapa"
 
-#: src/FolderManager/FolderItem.vala:164
+#: src/FolderManager/FolderItem.vala:165
 msgid "Empty File"
 msgstr "Prazna datoteka"
 
-#: src/FolderManager/FolderItem.vala:171
+#: src/FolderManager/FolderItem.vala:172
 msgid "New"
 msgstr "Nov zavihek"
 
-#: src/FolderManager/FolderItem.vala:338
+#: src/FolderManager/FolderItem.vala:330
 msgid "untitled folder"
 msgstr "neimenovana mapa"
 
-#: src/FolderManager/FolderItem.vala:342
-#, c-format
-msgid "untitled folder %d"
-msgstr "neimenovana mapa %d"
-
-#: src/FolderManager/FolderItem.vala:370
+#: src/FolderManager/FolderItem.vala:330
 msgid "new file"
 msgstr "Nova datoteka"
-
-#: src/FolderManager/FolderItem.vala:374
-#, c-format
-msgid "new file %d"
-msgstr "Nova datoteka %d"
 
 #: src/FolderManager/ProjectFolderItem.vala:95
 msgid "Close Folder"
@@ -725,6 +715,12 @@ msgstr "Prosim, namestite vsaj en [aspell] slovar."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Dopolnitev besede"
+
+#~ msgid "untitled folder %d"
+#~ msgstr "neimenovana mapa %d"
+
+#~ msgid "new file %d"
+#~ msgstr "Nova datoteka %d"
 
 #~ msgid "Open a folder"
 #~ msgstr "Odpri mapo"
