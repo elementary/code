@@ -74,7 +74,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
         tab_switched.connect ((old_tab, new_tab) => {
             document_change (new_tab as Services.Document, this);
-            save_current_file (new_tab as Services.Document);
+            save_focused_document_uri (new_tab as Services.Document);
         });
 
         tab_restored.connect ((label, restore_data, icon) => {
@@ -343,12 +343,14 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     public void save_opened_files () {
         string[] opened_files = {};
 
-        tabs.foreach ((tab) => {
-            var doc = tab as Scratch.Services.Document;
-            if (doc.file != null && doc.exists ()) {
-                opened_files += doc.file.get_uri ();
-            }
-        });
+        if (privacy_settings.get_boolean ("remember-recent-files")) {
+            tabs.foreach ((tab) => {
+                var doc = (Scratch.Services.Document)tab;
+                if (doc.file != null && doc.exists ()) {
+                    opened_files += doc.file.get_uri ();
+                }
+            });
+        }
 
         if (view_id == 1) {
             settings.opened_files_view1 = opened_files;
@@ -357,24 +359,18 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
     }
 
-    public void save_current_file (Services.Document? current_document) {
-        string file_uri = "";
+    private void save_focused_document_uri (Services.Document? current_document) {
+        if (privacy_settings.get_boolean ("remember-recent-files")) {
+            var file_uri = "";
 
-        if (current_document != null) {
-            file_uri = current_document.file.get_uri ();
-        }
+            if (current_document != null) {
+                file_uri = current_document.file.get_uri ();
+            }
 
-        if (file_uri != "") {
             if (view_id == 1) {
                 settings.focused_document_view1 = file_uri;
             } else {
                 settings.focused_document_view2 = file_uri;
-            }
-        } else {
-            if (view_id == 1) {
-                settings.schema.reset ("focused-document_view1");
-            } else {
-                settings.schema.reset ("focused-document_view2");
             }
         }
     }

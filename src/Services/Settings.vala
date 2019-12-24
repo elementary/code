@@ -101,5 +101,4 @@ namespace Scratch {
             base (SCHEMA);
         }
     }
-
 }
