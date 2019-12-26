@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-23 07:21+0000\n"
-"PO-Revision-Date: 2019-12-26 00:07+0000\n"
+"PO-Revision-Date: 2019-12-27 06:24+0000\n"
 "Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
 "Language: nl\n"
@@ -149,7 +149,7 @@ msgstr "Bestanden opslaan indien gewijzigd:"
 
 #: src/Dialogs/PreferencesDialog.vala:59
 msgid "Smart cut/copy lines:"
-msgstr "Slim knippen/kopiëren van regels"
+msgstr "Slim knippen/kopiëren van regels:"
 
 #: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
@@ -516,19 +516,19 @@ msgstr "Menu"
 
 #: src/Widgets/Pane.vala:45
 msgid "Add Project Folder…"
-msgstr "Project Map toevoegen..."
+msgstr "Project Map toevoegen…"
 
 #: src/Widgets/Pane.vala:48
 msgid "Manage project folders…"
-msgstr "Beheer project mappen..."
+msgstr "Beheer project mappen…"
 
 #: src/Widgets/Pane.vala:50
 msgid "Collapse All"
-msgstr ""
+msgstr "Alles inklappen"
 
 #: src/Widgets/Pane.vala:53
 msgid "Alphabetize"
-msgstr ""
+msgstr "Alfabetiseer"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
@@ -611,9 +611,8 @@ msgid "Format:"
 msgstr "Formaat:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
-#, fuzzy
 msgid "Others…"
-msgstr "Andere..."
+msgstr "Andere…"
 
 #: plugins/pastebin/pastebin_dialog.vala:286
 msgid "Expiry time:"
@@ -702,14 +701,11 @@ msgstr "Voorbeeld verbergen"
 
 #: plugins/spell/spell.vala:74
 msgid "No Suitable Dictionaries Were Found"
-msgstr ""
+msgstr "Er zijn geen geschikte woordenboeken gevonden"
 
 #: plugins/spell/spell.vala:75
-#, fuzzy
 msgid "Please install at least one [aspell] dictionary."
-msgstr ""
-"Geen geschikte woordenboeken werden gevonden.\n"
-"Gelieve ten minste één spellingswoordenboek te installeren"
+msgstr "Gelieve ten minste één [aspell] spellingswoordenboek te installeren."
 
 #: plugins/word-completion/plugin.vala:173
 #, c-format
