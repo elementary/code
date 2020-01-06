@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 21:29+0000\n"
+"POT-Creation-Date: 2019-12-23 07:21+0000\n"
 "PO-Revision-Date: 2019-10-27 10:24+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/code/he/>\n"
@@ -19,33 +19,33 @@ msgstr ""
 "X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
-#: src/Application.vala:132
+#: src/Application.vala:134
 #, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr "לא ניתן ליצור את הקובץ „%s”"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:136
+#: src/Application.vala:138
 msgid "Maybe you do not have the necessary permissions."
 msgstr "יתכן שלא נתקבלו ההרשאות הנדרשות."
 
-#: src/Application.vala:138
+#: src/Application.vala:140
 msgid "Maybe the file path provided is not valid."
 msgstr "יתכן שנתיב הקובץ אינו תקף."
 
-#: src/Application.vala:140
+#: src/Application.vala:142
 msgid "The location is read-only."
 msgstr "המקום לקריאה בלבד."
 
-#: src/Application.vala:142
+#: src/Application.vala:144
 msgid "The parent directory doesn't exist."
 msgstr "תיקיית האב אינה קיימת."
 
-#: src/Application.vala:163
+#: src/Application.vala:165
 msgid "It is a mountable location."
 msgstr "מיקום זה ניתן לעגינה."
 
-#: src/Application.vala:166
+#: src/Application.vala:168
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -53,32 +53,32 @@ msgstr ""
 "זה קובץ „מיוחד” כגון שקע,\n"
 "‎.FIFO, התקן בלוקים או התקן תווים."
 
-#: src/Application.vala:169
+#: src/Application.vala:171
 msgid "It is an \"unknown\" file type."
 msgstr "זהו סוג קובץ „לא ידוע”."
 
-#: src/Application.vala:174
+#: src/Application.vala:176
 #, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr "לא ניתן לפתוח את הקובץ „%s”"
 
-#: src/Application.vala:246
+#: src/Application.vala:248
 msgid "New Tab"
 msgstr "לשונית חדשה"
 
-#: src/Application.vala:247 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "חלון חדש"
 
-#: src/Application.vala:248
+#: src/Application.vala:250
 msgid "Print version info and exit"
 msgstr "הדפסת מידע גרסה ויציאה"
 
-#: src/Application.vala:249
+#: src/Application.vala:251
 msgid "Set of plugins"
 msgstr "ערכת תוספים"
 
-#: src/Application.vala:249
+#: src/Application.vala:251
 msgid "plugin"
 msgstr "תוסף"
 
@@ -98,32 +98,32 @@ msgstr "הסתרת סרגל החיפוש"
 msgid "Zeitgeist Datasource for Code"
 msgstr "מקור נתונים צייטגייסט עבור קוד"
 
-#: src/MainWindow.vala:769 src/Services/Document.vala:502
+#: src/MainWindow.vala:771 src/Services/Document.vala:502
 msgid "All files"
 msgstr "כל הקבצים"
 
-#: src/MainWindow.vala:773 src/Services/Document.vala:506
+#: src/MainWindow.vala:775 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "קבצי טקסט"
 
-#: src/MainWindow.vala:777
+#: src/MainWindow.vala:779
 msgid "Open some files"
 msgstr "פתיחת מספר קבצים"
 
-#: src/MainWindow.vala:780
+#: src/MainWindow.vala:782
 msgid "Open"
 msgstr "פתיחה"
 
-#: src/MainWindow.vala:781 src/Services/Document.vala:401
+#: src/MainWindow.vala:783 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "ביטול"
 
-#: src/MainWindow.vala:806
+#: src/MainWindow.vala:808
 msgid "_Open"
 msgstr "_פתיחה"
 
-#: src/MainWindow.vala:807
+#: src/MainWindow.vala:809
 msgid "_Cancel"
 msgstr "_ביטול"
 
@@ -238,23 +238,23 @@ msgstr "לא לשחזר"
 msgid "Restore Anyway"
 msgstr "לשחזר בכל זאת"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:114
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:115
 msgid "Other Application…"
 msgstr "יישום אחר…"
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:154
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:155
 msgid "Open In"
 msgstr "פתיחה עם"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:89
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:90
 msgid "Other Actions"
 msgstr "פעולות אחרות"
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:93
 msgid "Rename"
 msgstr "שינוי שם"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:98
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:99
 #: src/FolderManager/ProjectFolderItem.vala:98
 msgid "Move to Trash"
 msgstr "העברה לאשפה"
@@ -263,35 +263,25 @@ msgstr "העברה לאשפה"
 msgid "Folders"
 msgstr "תיקיות"
 
-#: src/FolderManager/FolderItem.vala:161
+#: src/FolderManager/FolderItem.vala:162
 msgid "Folder"
 msgstr "תיקייה"
 
-#: src/FolderManager/FolderItem.vala:164
+#: src/FolderManager/FolderItem.vala:165
 msgid "Empty File"
 msgstr "קובץ ריק"
 
-#: src/FolderManager/FolderItem.vala:171
+#: src/FolderManager/FolderItem.vala:172
 msgid "New"
 msgstr "חדש"
 
-#: src/FolderManager/FolderItem.vala:338
+#: src/FolderManager/FolderItem.vala:330
 msgid "untitled folder"
 msgstr "תיקייה ללא שם"
 
-#: src/FolderManager/FolderItem.vala:342
-#, c-format
-msgid "untitled folder %d"
-msgstr "תיקייה ללא שם %d"
-
-#: src/FolderManager/FolderItem.vala:370
+#: src/FolderManager/FolderItem.vala:330
 msgid "new file"
 msgstr "קובץ חדש"
-
-#: src/FolderManager/FolderItem.vala:374
-#, c-format
-msgid "new file %d"
-msgstr "קובץ חדש %d"
 
 #: src/FolderManager/ProjectFolderItem.vala:95
 msgid "Close Folder"
@@ -711,6 +701,12 @@ msgstr "נא להתקין לפחות מילון [aspell] אחד."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - השלמת מילים"
+
+#~ msgid "untitled folder %d"
+#~ msgstr "תיקייה ללא שם %d"
+
+#~ msgid "new file %d"
+#~ msgstr "קובץ חדש %d"
 
 #~ msgid "Open a folder"
 #~ msgstr "פתיחת תיקייה"
