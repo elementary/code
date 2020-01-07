@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-25 21:29+0000\n"
-"PO-Revision-Date: 2019-07-07 11:28+0000\n"
+"PO-Revision-Date: 2019-12-13 17:07+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/extra/ca/>\n"
 "Language: ca\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -105,60 +105,68 @@ msgstr "i moltes coses més"
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "New features:"
-msgstr ""
+msgstr "Funcions noves:"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Visually deprioritize .gitignored files in project sidebar"
 msgstr ""
+"Despriorització visual de fitxers .gitignored a la barra lateral del projecte"
 
 #: data/io.elementary.code.appdata.xml.in:54
 msgid "Smart cut/copy lines with no active selection"
-msgstr ""
+msgstr "Línies de retall / còpia intel·ligents sense selecció activa"
 
 #: data/io.elementary.code.appdata.xml.in:55
 msgid "Add a confirmation dialog to the \"Restore\" action"
-msgstr ""
+msgstr "Addició d'un diàleg de confirmació a l’acció \"Restaura\""
 
 #: data/io.elementary.code.appdata.xml.in:56
 msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
 msgstr ""
+"Addició del menú \"Obrir a\" a la carpeta de primer nivell del gestor de "
+"carpetes"
 
 #: data/io.elementary.code.appdata.xml.in:57
-#, fuzzy
 msgid "Don't show temporary files in the folder manager"
-msgstr "No afegir fitxers temporals a la restauració de pestanyes"
+msgstr "No es mostren els fitxers temporals al gestor de carpetes"
 
 #: data/io.elementary.code.appdata.xml.in:58
 msgid "Add brackets completion and auto-indent by default"
 msgstr ""
+"Addició dels parèntesis d’acabament i sagnat automàtic de manera "
+"predeterminada"
 
 #: data/io.elementary.code.appdata.xml.in:60
 msgid "Other updates:"
-msgstr ""
+msgstr "Altres actualitzacions:"
 
 #: data/io.elementary.code.appdata.xml.in:62
 msgid "Simplify \"Draw spaces\" preference"
-msgstr ""
+msgstr "Simplificació de la preferència \"Dibuixa espais\""
 
 #: data/io.elementary.code.appdata.xml.in:63
 msgid "Fix the keyboard shortcut for going backwards in search results"
 msgstr ""
+"Correcció de la drecera del teclat per tornar enrere en els resultats de la "
+"cerca"
 
 #: data/io.elementary.code.appdata.xml.in:64
 msgid "Fix opening files from relative paths in Terminal"
-msgstr ""
+msgstr "Correcció de l'obertura de fitxes des dels camins relatius al Terminal"
 
 #: data/io.elementary.code.appdata.xml.in:65
 msgid "Fix null file dialog when opening a new window via the dock"
 msgstr ""
+"Correcció del diàleg de fitxer nul quan s'obre una finestra nova a través de "
+"l'acoblador"
 
 #: data/io.elementary.code.appdata.xml.in:66
 msgid "Add \"=\" as a zoom key"
-msgstr ""
+msgstr "Addició de \"=\" com a tecla de zoom"
 
 #: data/io.elementary.code.appdata.xml.in:67
 msgid "Change search entry icon when results aren't found"
-msgstr ""
+msgstr "Canvi de la icona d’entrada de cerca quan no es troben resultats"
 
 #: data/io.elementary.code.appdata.xml.in:68
 #: data/io.elementary.code.appdata.xml.in:89
@@ -255,7 +263,7 @@ msgstr "text;IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
-msgstr ""
+msgstr "Fitxer nou"
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"

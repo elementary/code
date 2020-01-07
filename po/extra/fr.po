@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-25 21:29+0000\n"
-"PO-Revision-Date: 2019-07-07 11:28+0000\n"
+"PO-Revision-Date: 2019-12-16 21:05+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/extra/fr/>\n"
 "Language: fr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -105,60 +105,73 @@ msgstr "plein d’autres"
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "New features:"
-msgstr ""
+msgstr "Nouvelles fonctionnalités :"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Visually deprioritize .gitignored files in project sidebar"
 msgstr ""
+"Dé-prioriser visuellement dans la barre latérale les fichiers .gitignorés"
 
 #: data/io.elementary.code.appdata.xml.in:54
 msgid "Smart cut/copy lines with no active selection"
-msgstr ""
+msgstr "Copier/coller intelligent sans sélection"
 
 #: data/io.elementary.code.appdata.xml.in:55
 msgid "Add a confirmation dialog to the \"Restore\" action"
-msgstr ""
+msgstr "Ajout d'une boîte de configuration pour l'action de restauration"
 
 #: data/io.elementary.code.appdata.xml.in:56
 msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
 msgstr ""
+"Ajout du menu « Ouvrir dans » au niveau supérieur du dossier dans le "
+"gestionnaire de dossiers"
 
 #: data/io.elementary.code.appdata.xml.in:57
-#, fuzzy
 msgid "Don't show temporary files in the folder manager"
-msgstr "Pas de fichiers temporaires ajoutés à la restauration des onglets"
+msgstr ""
+"Ne pas afficher de fichiers temporaires dans le gestionnaire de dossiers"
 
 #: data/io.elementary.code.appdata.xml.in:58
 msgid "Add brackets completion and auto-indent by default"
 msgstr ""
+"Activation par défaut de la complétion des accolades et de l'indentation "
+"automatique"
 
 #: data/io.elementary.code.appdata.xml.in:60
 msgid "Other updates:"
-msgstr ""
+msgstr "Autres mises à jour :"
 
 #: data/io.elementary.code.appdata.xml.in:62
 msgid "Simplify \"Draw spaces\" preference"
-msgstr ""
+msgstr "Simplification du paramètre « Afficher les espaces »"
 
 #: data/io.elementary.code.appdata.xml.in:63
 msgid "Fix the keyboard shortcut for going backwards in search results"
 msgstr ""
+"Correction du raccourci clavier pour revenir en arrière dans les résultats "
+"de recherche"
 
 #: data/io.elementary.code.appdata.xml.in:64
 msgid "Fix opening files from relative paths in Terminal"
 msgstr ""
+"Correction de l'ouverture de fichiers à partir de chemins relatifs dans "
+"Terminal"
 
 #: data/io.elementary.code.appdata.xml.in:65
 msgid "Fix null file dialog when opening a new window via the dock"
 msgstr ""
+"Correction de la boîte de dialogue de fichier vide lors de l'ouverture d'une "
+"nouvelle fenêtre via le dock"
 
 #: data/io.elementary.code.appdata.xml.in:66
 msgid "Add \"=\" as a zoom key"
-msgstr ""
+msgstr "Ajout de « = » comme raccourci de zoom"
 
 #: data/io.elementary.code.appdata.xml.in:67
 msgid "Change search entry icon when results aren't found"
 msgstr ""
+"Modification de l'icône du champ de recherche quand aucun résultat n'est "
+"trouvé"
 
 #: data/io.elementary.code.appdata.xml.in:68
 #: data/io.elementary.code.appdata.xml.in:89
@@ -257,7 +270,7 @@ msgstr "Code;IDE;EDI;scratch;éditeur;intégré;développement;texte;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
-msgstr ""
+msgstr "Nouveau fichier"
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"

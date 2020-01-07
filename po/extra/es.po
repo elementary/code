@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-25 21:29+0000\n"
-"PO-Revision-Date: 2019-10-10 15:23+0000\n"
+"PO-Revision-Date: 2020-01-06 18:07+0000\n"
 "Last-Translator: Daniel R. <riesp@pm.me>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/extra/es/>\n"
 "Language: es\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -105,44 +105,48 @@ msgstr "muchas otras"
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "New features:"
-msgstr ""
+msgstr "Nuevas características: "
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Visually deprioritize .gitignored files in project sidebar"
 msgstr ""
+"No priorizar visualmente los archivos «.gitignored» en la barra lateral del "
+"proyecto"
 
 #: data/io.elementary.code.appdata.xml.in:54
 msgid "Smart cut/copy lines with no active selection"
-msgstr ""
+msgstr "Cortado/copiado inteligente de líneas sin ninguna selección activa"
 
 #: data/io.elementary.code.appdata.xml.in:55
 msgid "Add a confirmation dialog to the \"Restore\" action"
-msgstr ""
+msgstr "Añadir un diálogo de confirmación a la acción \"Restaurar\""
 
 #: data/io.elementary.code.appdata.xml.in:56
 msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
 msgstr ""
+"Añadir el menú \"Abrir en\" al principio de las carpetas en el explorador de "
+"archivos"
 
 #: data/io.elementary.code.appdata.xml.in:57
-#, fuzzy
 msgid "Don't show temporary files in the folder manager"
-msgstr "No añadir archivos temporales a la restauración de pestañas"
+msgstr "No mostrar archivos temporales en el administrador de carpetas"
 
 #: data/io.elementary.code.appdata.xml.in:58
 msgid "Add brackets completion and auto-indent by default"
-msgstr ""
+msgstr "Añadir finalización de paréntesis y auto indentado por defecto"
 
 #: data/io.elementary.code.appdata.xml.in:60
 msgid "Other updates:"
-msgstr ""
+msgstr "Otras actualizaciones:"
 
 #: data/io.elementary.code.appdata.xml.in:62
 msgid "Simplify \"Draw spaces\" preference"
-msgstr ""
+msgstr "Simplificar la preferencia \"Dibujar espacios\""
 
 #: data/io.elementary.code.appdata.xml.in:63
 msgid "Fix the keyboard shortcut for going backwards in search results"
 msgstr ""
+"Corrección del atajo de teclado para retroceder en los resultados de búsqueda"
 
 #: data/io.elementary.code.appdata.xml.in:64
 msgid "Fix opening files from relative paths in Terminal"
@@ -154,11 +158,11 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:66
 msgid "Add \"=\" as a zoom key"
-msgstr ""
+msgstr "Añadir \"=\" como tecla de zoom"
 
 #: data/io.elementary.code.appdata.xml.in:67
 msgid "Change search entry icon when results aren't found"
-msgstr ""
+msgstr "Cambiar el icono de búsqueda cuando no se encuentran resultados"
 
 #: data/io.elementary.code.appdata.xml.in:68
 #: data/io.elementary.code.appdata.xml.in:89
@@ -254,7 +258,7 @@ msgstr "texto;IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
-msgstr ""
+msgstr "Nuevo archivo"
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
