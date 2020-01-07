@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 21:29+0000\n"
+"POT-Creation-Date: 2020-01-07 17:28+0000\n"
 "PO-Revision-Date: 2017-05-15 08:22+0000\n"
 "Last-Translator: Guillem Servera <guillem@gservera.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/scratch/scratch/"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: Weblate 2.13-dev\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
-#: src/Application.vala:132
+#: src/Application.vala:134
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" cannot be created.\n"
@@ -31,37 +31,37 @@ msgstr ""
 "%s"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:136
+#: src/Application.vala:138
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Potser no disposeu dels permisos necessaris."
 
-#: src/Application.vala:138
+#: src/Application.vala:140
 msgid "Maybe the file path provided is not valid."
 msgstr "Potser la ruta d'arxiu especificada no és vàlida."
 
-#: src/Application.vala:140
+#: src/Application.vala:142
 msgid "The location is read-only."
 msgstr "La ubicació és de només lectura."
 
-#: src/Application.vala:142
+#: src/Application.vala:144
 msgid "The parent directory doesn't exist."
 msgstr "El directori superior no existeix."
 
-#: src/Application.vala:163
+#: src/Application.vala:165
 msgid "It is a mountable location."
 msgstr ""
 
-#: src/Application.vala:166
+#: src/Application.vala:168
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
 msgstr ""
 
-#: src/Application.vala:169
+#: src/Application.vala:171
 msgid "It is an \"unknown\" file type."
 msgstr ""
 
-#: src/Application.vala:174
+#: src/Application.vala:176
 #, fuzzy, c-format
 #| msgid ""
 #| "File \"%s\" cannot be opened.\n"
@@ -71,23 +71,23 @@ msgstr ""
 "L'arxiu \"%s\" no s'ha pogut obrir.\n"
 "%s"
 
-#: src/Application.vala:246
+#: src/Application.vala:248
 msgid "New Tab"
 msgstr "Nova pestanya"
 
-#: src/Application.vala:247 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Nova finestra"
 
-#: src/Application.vala:248
+#: src/Application.vala:250
 msgid "Print version info and exit"
 msgstr ""
 
-#: src/Application.vala:249
+#: src/Application.vala:251
 msgid "Set of plugins"
 msgstr "Conjunt de connectors"
 
-#: src/Application.vala:249
+#: src/Application.vala:251
 #, fuzzy
 #| msgid "Set of plugins"
 msgid "plugin"
@@ -111,32 +111,32 @@ msgstr "Amagar la barra de cerca"
 msgid "Zeitgeist Datasource for Code"
 msgstr "Font de dades de Zeitgeist per a Scratch"
 
-#: src/MainWindow.vala:769 src/Services/Document.vala:502
+#: src/MainWindow.vala:771 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Tots els fitxers"
 
-#: src/MainWindow.vala:773 src/Services/Document.vala:506
+#: src/MainWindow.vala:775 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Fitxers de text"
 
-#: src/MainWindow.vala:777
+#: src/MainWindow.vala:779
 msgid "Open some files"
 msgstr ""
 
-#: src/MainWindow.vala:780
+#: src/MainWindow.vala:782
 msgid "Open"
 msgstr "Obrir"
 
-#: src/MainWindow.vala:781 src/Services/Document.vala:401
+#: src/MainWindow.vala:783 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Cancel·lar"
 
-#: src/MainWindow.vala:806
+#: src/MainWindow.vala:808
 msgid "_Open"
 msgstr ""
 
-#: src/MainWindow.vala:807
+#: src/MainWindow.vala:809
 msgid "_Cancel"
 msgstr ""
 
@@ -251,27 +251,27 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:114
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:115
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:154
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:155
 #, fuzzy
 #| msgid "Open"
 msgid "Open In"
 msgstr "Obrir"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:89
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:90
 #, fuzzy
 #| msgid "Other formats"
 msgid "Other Actions"
 msgstr "Altres formats"
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:93
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:98
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:99
 #: src/FolderManager/ProjectFolderItem.vala:98
 msgid "Move to Trash"
 msgstr ""
@@ -280,39 +280,28 @@ msgstr ""
 msgid "Folders"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:161
+#: src/FolderManager/FolderItem.vala:162
 msgid "Folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:164
+#: src/FolderManager/FolderItem.vala:165
 msgid "Empty File"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:171
+#: src/FolderManager/FolderItem.vala:172
 #, fuzzy
 #| msgid "New Tab"
 msgid "New"
 msgstr "Nova pestanya"
 
-#: src/FolderManager/FolderItem.vala:338
+#: src/FolderManager/FolderItem.vala:330
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:342
-#, c-format
-msgid "untitled folder %d"
-msgstr ""
-
-#: src/FolderManager/FolderItem.vala:370
+#: src/FolderManager/FolderItem.vala:330
 #, fuzzy
 #| msgid "New file"
 msgid "new file"
-msgstr "Nou arxiu"
-
-#: src/FolderManager/FolderItem.vala:374
-#, fuzzy, c-format
-#| msgid "New file"
-msgid "new file %d"
 msgstr "Nou arxiu"
 
 #: src/FolderManager/ProjectFolderItem.vala:95
@@ -727,26 +716,26 @@ msgstr ""
 msgid "Symbols"
 msgstr ""
 
-#: plugins/terminal/terminal.vala:134 plugins/terminal/terminal.vala:141
+#: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
 msgstr ""
 
-#: plugins/terminal/terminal.vala:137
+#: plugins/terminal/terminal.vala:179
 msgid "Hide Terminal"
 msgstr ""
 
-#: plugins/terminal/terminal.vala:138
+#: plugins/terminal/terminal.vala:180
 msgid "Terminal"
 msgstr ""
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:193
+#: plugins/terminal/terminal.vala:237
 msgid "Copy"
 msgstr ""
 
 #. PASTE
-#: plugins/terminal/terminal.vala:200
+#: plugins/terminal/terminal.vala:244
 msgid "Paste"
 msgstr ""
 
@@ -775,6 +764,11 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr ""
+
+#, fuzzy
+#~| msgid "New file"
+#~ msgid "new file %d"
+#~ msgstr "Nou arxiu"
 
 #~ msgid "Edit text files"
 #~ msgstr "Editeu fitxers de text"

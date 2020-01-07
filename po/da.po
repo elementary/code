@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 21:29+0000\n"
+"POT-Creation-Date: 2020-01-07 17:28+0000\n"
 "PO-Revision-Date: 2019-01-28 21:43+0000\n"
 "Last-Translator: Kaj Printz Madsen <kajprintz@gmail.com>\n"
 "Language-Team: Danish <https://weblate.elementary.io/projects/code/code/da/"
@@ -20,33 +20,33 @@ msgstr ""
 "X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
-#: src/Application.vala:132
+#: src/Application.vala:134
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr "Filen \"%s\" Kan Ikke Læses"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:136
+#: src/Application.vala:138
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Du har muligvis ikke de nødvendige tilladelser."
 
-#: src/Application.vala:138
+#: src/Application.vala:140
 msgid "Maybe the file path provided is not valid."
 msgstr "Måske er den angive filsti ikke gyldig."
 
-#: src/Application.vala:140
+#: src/Application.vala:142
 msgid "The location is read-only."
 msgstr "Placeringen er skrivebeskyttet."
 
-#: src/Application.vala:142
+#: src/Application.vala:144
 msgid "The parent directory doesn't exist."
 msgstr "Forældermappen findes ikke."
 
-#: src/Application.vala:163
+#: src/Application.vala:165
 msgid "It is a mountable location."
 msgstr "Det er en monterbar placering."
 
-#: src/Application.vala:166
+#: src/Application.vala:168
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -54,32 +54,32 @@ msgstr ""
 "Det er en \"speciel\" fil, såsom en socket,\n"
 " FIFO, blok enhed eller karakter enhed."
 
-#: src/Application.vala:169
+#: src/Application.vala:171
 msgid "It is an \"unknown\" file type."
 msgstr "Det er en \"ukendt\" filtype."
 
-#: src/Application.vala:174
+#: src/Application.vala:176
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr "Filen \"%s\" Kan Ikke Læses"
 
-#: src/Application.vala:246
+#: src/Application.vala:248
 msgid "New Tab"
 msgstr "Nyt faneblad"
 
-#: src/Application.vala:247 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Nyt Vindue"
 
-#: src/Application.vala:248
+#: src/Application.vala:250
 msgid "Print version info and exit"
 msgstr "Print versionsinfo og afslut"
 
-#: src/Application.vala:249
+#: src/Application.vala:251
 msgid "Set of plugins"
 msgstr "Pluginsæt"
 
-#: src/Application.vala:249
+#: src/Application.vala:251
 #, fuzzy
 msgid "plugin"
 msgstr "Pluginsæt"
@@ -101,32 +101,32 @@ msgstr "Skjul søgelinjen"
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zeitgeist-datakilde til Scratch"
 
-#: src/MainWindow.vala:769 src/Services/Document.vala:502
+#: src/MainWindow.vala:771 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Alle filer"
 
-#: src/MainWindow.vala:773 src/Services/Document.vala:506
+#: src/MainWindow.vala:775 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Tekstfiler"
 
-#: src/MainWindow.vala:777
+#: src/MainWindow.vala:779
 msgid "Open some files"
 msgstr "Åbn nogle filer"
 
-#: src/MainWindow.vala:780
+#: src/MainWindow.vala:782
 msgid "Open"
 msgstr "Åbn"
 
-#: src/MainWindow.vala:781 src/Services/Document.vala:401
+#: src/MainWindow.vala:783 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Annuller"
 
-#: src/MainWindow.vala:806
+#: src/MainWindow.vala:808
 msgid "_Open"
 msgstr "_Åbn"
 
-#: src/MainWindow.vala:807
+#: src/MainWindow.vala:809
 msgid "_Cancel"
 msgstr "_Annuller"
 
@@ -242,23 +242,23 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr "Indlæs Alligevel"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:114
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:115
 msgid "Other Application…"
 msgstr "Anden Applikation…"
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:154
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:155
 msgid "Open In"
 msgstr "Åbn I"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:89
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:90
 msgid "Other Actions"
 msgstr "Andre Handlinger"
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:93
 msgid "Rename"
 msgstr "Omdøb"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:98
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:99
 #: src/FolderManager/ProjectFolderItem.vala:98
 msgid "Move to Trash"
 msgstr "Flyt til Skrald"
@@ -267,35 +267,25 @@ msgstr "Flyt til Skrald"
 msgid "Folders"
 msgstr "Mapper"
 
-#: src/FolderManager/FolderItem.vala:161
+#: src/FolderManager/FolderItem.vala:162
 msgid "Folder"
 msgstr "Mappe"
 
-#: src/FolderManager/FolderItem.vala:164
+#: src/FolderManager/FolderItem.vala:165
 msgid "Empty File"
 msgstr "Tom Fil"
 
-#: src/FolderManager/FolderItem.vala:171
+#: src/FolderManager/FolderItem.vala:172
 msgid "New"
 msgstr "Ny"
 
-#: src/FolderManager/FolderItem.vala:338
+#: src/FolderManager/FolderItem.vala:330
 msgid "untitled folder"
 msgstr "unavngivet mappe"
 
-#: src/FolderManager/FolderItem.vala:342
-#, c-format
-msgid "untitled folder %d"
-msgstr "unavngivet mappe %d"
-
-#: src/FolderManager/FolderItem.vala:370
+#: src/FolderManager/FolderItem.vala:330
 msgid "new file"
 msgstr "ny fil"
-
-#: src/FolderManager/FolderItem.vala:374
-#, c-format
-msgid "new file %d"
-msgstr "ny fil %d"
 
 #: src/FolderManager/ProjectFolderItem.vala:95
 msgid "Close Folder"
@@ -678,26 +668,26 @@ msgstr "Upload til Pastebin"
 msgid "Symbols"
 msgstr "Symboler"
 
-#: plugins/terminal/terminal.vala:134 plugins/terminal/terminal.vala:141
+#: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
 msgstr "Vis terminal"
 
-#: plugins/terminal/terminal.vala:137
+#: plugins/terminal/terminal.vala:179
 msgid "Hide Terminal"
 msgstr "Skjul terminal"
 
-#: plugins/terminal/terminal.vala:138
+#: plugins/terminal/terminal.vala:180
 msgid "Terminal"
 msgstr "Terminal"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:193
+#: plugins/terminal/terminal.vala:237
 msgid "Copy"
 msgstr "Kopiér"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:200
+#: plugins/terminal/terminal.vala:244
 msgid "Paste"
 msgstr "Indsæt"
 
@@ -729,6 +719,12 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Fuldførsel af ord"
+
+#~ msgid "untitled folder %d"
+#~ msgstr "unavngivet mappe %d"
+
+#~ msgid "new file %d"
+#~ msgstr "ny fil %d"
 
 #~ msgid "Open a folder"
 #~ msgstr "Åbn en mappe"
