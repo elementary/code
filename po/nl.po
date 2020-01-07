@@ -8,21 +8,21 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-23 07:21+0000\n"
-"PO-Revision-Date: 2019-09-10 14:54+0000\n"
-"Last-Translator: Pieter De Clercq <pieter.eke@gmail.com>\n"
+"PO-Revision-Date: 2019-12-27 06:24+0000\n"
+"Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:134
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Created"
-msgstr "Bestand \"%s\" kan niet gelezen worden"
+msgstr "Bestand \"%s\" kan niet gecreëerd worden"
 
 #. We list some common errors for quick feedback
 #: src/Application.vala:138
@@ -58,9 +58,9 @@ msgid "It is an \"unknown\" file type."
 msgstr "Het is een \"onbekend\" bestandstype."
 
 #: src/Application.vala:176
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Opened"
-msgstr "Bestand \"%s\" kan niet gelezen worden"
+msgstr "Bestand \"%s\" kan niet geopend worden"
 
 #: src/Application.vala:248
 msgid "New Tab"
@@ -79,9 +79,8 @@ msgid "Set of plugins"
 msgstr "Pluginset"
 
 #: src/Application.vala:251
-#, fuzzy
 msgid "plugin"
-msgstr "Pluginset"
+msgstr "Plugin"
 
 #: src/MainWindow.vala:137
 msgid "Code"
@@ -96,9 +95,8 @@ msgid "Hide search bar"
 msgstr "Verberg zoekbalk"
 
 #: src/MainWindow.vala:244
-#, fuzzy
 msgid "Zeitgeist Datasource for Code"
-msgstr "Zeitgeist-databron voor Scratch"
+msgstr "Zeitgeist-databron voor Code"
 
 #: src/MainWindow.vala:771 src/Services/Document.vala:502
 msgid "All files"
@@ -138,6 +136,8 @@ msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
+"Als er geen tekst geselecteerd is, dan wordt de huidige regel geknipt of "
+"gekopieerd"
 
 #: src/Dialogs/PreferencesDialog.vala:56
 msgid "General"
@@ -149,7 +149,7 @@ msgstr "Bestanden opslaan indien gewijzigd:"
 
 #: src/Dialogs/PreferencesDialog.vala:59
 msgid "Smart cut/copy lines:"
-msgstr ""
+msgstr "Slim knippen/kopiëren van regels:"
 
 #: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
@@ -226,19 +226,20 @@ msgstr "Aangepast lettertype:"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
-msgstr ""
+msgstr "Weet u zeker dat u dit bestand wilt herstellen?"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Restoring a file will undo all changes made since opening it"
 msgstr ""
+"Het herstellen van een bestand maakt alle wijzigingen na het openen ongedaan"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:34
 msgid "Don't Restore"
-msgstr ""
+msgstr "Niet herstellen"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
 msgid "Restore Anyway"
-msgstr ""
+msgstr "Toch herstellen"
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:115
 msgid "Other Application…"
@@ -290,9 +291,8 @@ msgid "Close Folder"
 msgstr "Sluit map"
 
 #: src/FolderManager/ProjectFolderItem.vala:339
-#, fuzzy
 msgid "Branch"
-msgstr "Wijzig Scratch-instellingen"
+msgstr "Branch"
 
 #: src/Services/Document.vala:266
 #, c-format
@@ -317,24 +317,19 @@ msgid "Please wait while Code is loading the file."
 msgstr "Even geduld alstublieft terwijl Code het bestand laadt."
 
 #: src/Services/Document.vala:293
-#, fuzzy
 msgid "Cancel Loading"
-msgstr "Annuleer inladen"
+msgstr "Laden annuleren"
 
 #: src/Services/Document.vala:391
-#, fuzzy, c-format
+#, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Veranderingen in document %s opslaan alvorens het te sluiten?"
 
 #: src/Services/Document.vala:392
-#, fuzzy
 msgid "If you don't save, changes will be permanently lost."
-msgstr ""
-"Als je niet opslaat, zullen de wijzigingen van de laatste 4 seconden voor "
-"altijd verloren gaan."
+msgstr "Als je niet opslaat, zullen de wijzigingen voor altijd verloren gaan."
 
 #: src/Services/Document.vala:398
-#, fuzzy
 msgid "Close Without Saving"
 msgstr "Sluiten zonder opslaan"
 
@@ -358,7 +353,6 @@ msgid "File \"%s\" Cannot Be Read"
 msgstr "Bestand \"%s\" kan niet gelezen worden"
 
 #: src/Services/Document.vala:716
-#, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Het bestand kan beschadigd zijn of u heeft niet de benodigde rechten om het "
@@ -384,7 +378,7 @@ msgstr "Het bestand \"%s\" is verwijderd. Wilt u het alsnog opslaan?"
 
 #. If the file can't be written
 #: src/Services/Document.vala:750
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
@@ -418,9 +412,9 @@ msgid "Templates"
 msgstr "Sjablonen"
 
 #: src/Widgets/DocumentView.vala:133
-#, fuzzy, c-format
+#, c-format
 msgid "Text file from %s:%d"
-msgstr "Tekstbestand van %s"
+msgstr "Tekstbestand van %s:%d"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
@@ -498,16 +492,15 @@ msgstr "Hoog contrast"
 
 #: src/Widgets/HeaderBar.vala:126
 msgid "Solarized Light"
-msgstr ""
+msgstr "Gesolarizeerd Licht"
 
 #: src/Widgets/HeaderBar.vala:134
 msgid "Solarized Dark"
-msgstr ""
+msgstr "Gesolariseerd Donker"
 
 #: src/Widgets/HeaderBar.vala:144
-#, fuzzy
 msgid "Toggle Sidebar"
-msgstr "Zijpaneel"
+msgstr "Zijpaneel inschakelen"
 
 #: src/Widgets/HeaderBar.vala:148
 msgid "Add New View"
@@ -523,19 +516,19 @@ msgstr "Menu"
 
 #: src/Widgets/Pane.vala:45
 msgid "Add Project Folder…"
-msgstr ""
+msgstr "Project Map toevoegen…"
 
 #: src/Widgets/Pane.vala:48
 msgid "Manage project folders…"
-msgstr ""
+msgstr "Beheer project mappen…"
 
 #: src/Widgets/Pane.vala:50
 msgid "Collapse All"
-msgstr ""
+msgstr "Alles inklappen"
 
 #: src/Widgets/Pane.vala:53
 msgid "Alphabetize"
-msgstr ""
+msgstr "Alfabetiseer"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
@@ -618,9 +611,8 @@ msgid "Format:"
 msgstr "Formaat:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
-#, fuzzy
 msgid "Others…"
-msgstr "Andere..."
+msgstr "Andere…"
 
 #: plugins/pastebin/pastebin_dialog.vala:286
 msgid "Expiry time:"
@@ -709,14 +701,11 @@ msgstr "Voorbeeld verbergen"
 
 #: plugins/spell/spell.vala:74
 msgid "No Suitable Dictionaries Were Found"
-msgstr ""
+msgstr "Er zijn geen geschikte woordenboeken gevonden"
 
 #: plugins/spell/spell.vala:75
-#, fuzzy
 msgid "Please install at least one [aspell] dictionary."
-msgstr ""
-"Geen geschikte woordenboeken werden gevonden.\n"
-"Gelieve ten minste één spellingswoordenboek te installeren"
+msgstr "Gelieve ten minste één [aspell] spellingswoordenboek te installeren."
 
 #: plugins/word-completion/plugin.vala:173
 #, c-format

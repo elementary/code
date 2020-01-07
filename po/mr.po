@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-23 07:21+0000\n"
-"PO-Revision-Date: 2019-10-16 19:24+0000\n"
+"PO-Revision-Date: 2019-12-27 06:24+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/code/code/mr/>\n"
 "Language: mr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:134
@@ -131,6 +131,8 @@ msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
+"सक्रिय निवडीशिवाय कटिंग किंवा कॉपी केल्याने संपूर्ण वर्तमान ओळ कापली जाईल "
+"किंवा कॉपी होईल"
 
 #: src/Dialogs/PreferencesDialog.vala:56
 msgid "General"
@@ -142,7 +144,7 @@ msgstr "बदल केल्यावर फाईल्स सेव्ह �
 
 #: src/Dialogs/PreferencesDialog.vala:59
 msgid "Smart cut/copy lines:"
-msgstr ""
+msgstr "ओळी स्मार्ट कट / कॉपी :"
 
 #: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
@@ -506,19 +508,19 @@ msgstr "मेन्यू"
 
 #: src/Widgets/Pane.vala:45
 msgid "Add Project Folder…"
-msgstr ""
+msgstr "प्रोजेक्ट फोल्डर जोडा…"
 
 #: src/Widgets/Pane.vala:48
 msgid "Manage project folders…"
-msgstr ""
+msgstr "प्रोजेक्ट फोल्डर व्यवस्थापित करा…"
 
 #: src/Widgets/Pane.vala:50
 msgid "Collapse All"
-msgstr ""
+msgstr "सर्व संकुचित करा"
 
 #: src/Widgets/Pane.vala:53
 msgid "Alphabetize"
-msgstr ""
+msgstr "अल्फाबेटाईझ"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
