@@ -50,10 +50,11 @@ namespace Scratch.FolderManager {
                 }
 
                 if (info == null) {
-                    return "";
+                    _name = file.get_basename ();
+                } else {
+                    _name = info.get_display_name ();
                 }
 
-                _name = info.get_display_name ();
                 return _name;
             }
         }
@@ -183,7 +184,9 @@ namespace Scratch.FolderManager {
 
         public void rename (string name) {
             try {
-                file.set_display_name (name);
+                if (exists) {
+                    file.set_display_name (name);
+                }
             } catch (GLib.Error error) {
                 warning (error.message);
             }

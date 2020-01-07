@@ -7,18 +7,18 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 20:56+0000\n"
-"PO-Revision-Date: 2018-04-03 00:05+0000\n"
-"Last-Translator: Jernej Virag <jernej@virag.si>\n"
-"Language-Team: Slovenian <https://weblate.elementary.io/projects/code/extra/"
-"sl/>\n"
+"POT-Creation-Date: 2019-11-25 21:29+0000\n"
+"PO-Revision-Date: 2019-12-23 07:19+0000\n"
+"Last-Translator: Marko <marko.dolar@gmail.com>\n"
+"Language-Team: Slovenian <https://l10n.elementary.io/projects/code/extra/sl/>"
+"\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 2.18\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -92,7 +92,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "New features:"
-msgstr ""
+msgstr "Nove zmožnosti:"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Visually deprioritize .gitignored files in project sidebar"
@@ -112,7 +112,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:57
 msgid "Don't show temporary files in the folder manager"
-msgstr ""
+msgstr "Ne pokaži začasnih datotek v upravitelju map"
 
 #: data/io.elementary.code.appdata.xml.in:58
 msgid "Add brackets completion and auto-indent by default"
@@ -120,7 +120,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:60
 msgid "Other updates:"
-msgstr ""
+msgstr "Druge posodobitve:"
 
 #: data/io.elementary.code.appdata.xml.in:62
 msgid "Simplify \"Draw spaces\" preference"
@@ -151,7 +151,7 @@ msgstr ""
 #: data/io.elementary.code.appdata.xml.in:99
 #: data/io.elementary.code.appdata.xml.in:110
 msgid "Updated translations"
-msgstr ""
+msgstr "Posodobljeni prevodi"
 
 #: data/io.elementary.code.appdata.xml.in:75
 msgid "Use Granite.MessageDialog throughout"
@@ -188,11 +188,11 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:96
 msgid "Smarter file saving behavior"
-msgstr ""
+msgstr "Pametnejše vedenje pri shranjevanju datotek"
 
 #: data/io.elementary.code.appdata.xml.in:97
 msgid "File saving fixes"
-msgstr ""
+msgstr "Popravki pri shranjevanju datotek"
 
 #: data/io.elementary.code.appdata.xml.in:98
 msgid "Don't add temporary files to tab restore"
@@ -212,7 +212,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:109
 msgid "Minor bug fixes"
-msgstr ""
+msgstr "Manjši popravki"
 
 #: data/io.elementary.code.appdata.xml.in:149
 msgid "elementary LLC."
@@ -220,11 +220,11 @@ msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:5
 msgid "Edit code files"
-msgstr "Urejajte besedilne datoteke"
+msgstr "Urejajte datoteke s kodo"
 
 #: data/io.elementary.code.desktop.in.in:6
 msgid "Code Editor"
-msgstr ""
+msgstr "Urejevalnik kode"
 
 #: data/io.elementary.code.desktop.in.in:8
 msgid "io.elementary.code"
@@ -235,12 +235,15 @@ msgid "text;IDE;scratch;"
 msgstr ""
 
 #: data/io.elementary.code.desktop.in.in:17
-msgid "New Document"
-msgstr "Nov dokument"
+msgid "New File"
+msgstr "Nova datoteka"
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
 msgstr "Novo okno"
+
+#~ msgid "New Document"
+#~ msgstr "Nov dokument"
 
 #~ msgid "About Scratch"
 #~ msgstr "O Scratchu"

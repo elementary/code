@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 20:56+0000\n"
-"PO-Revision-Date: 2019-01-15 12:36+0000\n"
+"POT-Creation-Date: 2019-11-25 21:29+0000\n"
+"PO-Revision-Date: 2019-12-30 07:56+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
-"Language-Team: Chinese (Simplified) <https://weblate.elementary.io/projects/"
+"Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "code/extra/zh_Hans/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -243,12 +243,15 @@ msgid "text;IDE;scratch;"
 msgstr "文本;IDE;草稿;"
 
 #: data/io.elementary.code.desktop.in.in:17
-msgid "New Document"
+msgid "New File"
 msgstr "新文件"
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
 msgstr "新窗口"
+
+#~ msgid "New Document"
+#~ msgstr "新文件"
 
 #~ msgid "Notepad;IDE;Plain;"
 #~ msgstr "记事本;IDE;纯文本;"

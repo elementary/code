@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 20:56+0000\n"
-"PO-Revision-Date: 2019-07-09 19:01+0000\n"
+"POT-Creation-Date: 2019-11-25 21:29+0000\n"
+"PO-Revision-Date: 2019-12-19 05:35+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/code/extra/pt/"
 ">\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -124,9 +124,8 @@ msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
 msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:57
-#, fuzzy
 msgid "Don't show temporary files in the folder manager"
-msgstr "Não adicione ficheiros temporários ao restaurar separador"
+msgstr "Não mostrar ficheiros temporários no gestor de pastas"
 
 #: data/io.elementary.code.appdata.xml.in:58
 msgid "Add brackets completion and auto-indent by default"
@@ -253,12 +252,15 @@ msgid "text;IDE;scratch;"
 msgstr "text;IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
-msgid "New Document"
-msgstr "Novo documento"
+msgid "New File"
+msgstr "Novo Ficheiro"
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
 msgstr "Nova Janela"
+
+#~ msgid "New Document"
+#~ msgstr "Novo documento"
 
 #~ msgid "Notepad;IDE;Plain;"
 #~ msgstr "Notepad;IDE;Simples;"

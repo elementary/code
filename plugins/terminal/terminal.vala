@@ -19,6 +19,9 @@
 ***/
 
 public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
+    const double MIN_SCALE = 0.2;
+    const double MAX_SCALE = 5.0;
+
     MainWindow window = null;
 
     Scratch.Plugins.TerminalViewer.Settings settings;
@@ -52,7 +55,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
                 return;
 
             window = w;
-            window.key_press_event.connect (switch_focus);
+            window.key_press_event.connect (on_window_key_press_event);
             window.destroy.connect (save_last_working_directory);
 
         });
@@ -86,7 +89,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         if (tool_button != null)
             tool_button.destroy ();
 
-        window.key_press_event.disconnect (switch_focus);
+        window.key_press_event.disconnect (on_window_key_press_event);
         window.destroy.disconnect (save_last_working_directory);
     }
 
@@ -94,18 +97,19 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         settings.last_opened_path = get_shell_location ();
     }
 
-    bool switch_focus (Gdk.EventKey event) {
+    bool on_window_key_press_event (Gdk.EventKey event) {
+        /* <Control><Alt>t toggles focus between terminal and document */
         if (event.keyval == Gdk.Key.t
             && Gdk.ModifierType.MOD1_MASK in event.state
             && Gdk.ModifierType.CONTROL_MASK in event.state) {
 
             if (terminal.has_focus && window.get_current_document () != null) {
-
                 window.get_current_document ().focus ();
                 debug ("Move focus: EDITOR.");
                 return true;
 
-            } else if (window.get_current_document () != null && window.get_current_document ().source_view.has_focus) {
+            } else if (window.get_current_document () != null &&
+                       window.get_current_document ().source_view.has_focus) {
 
                 terminal.grab_focus ();
                 debug ("Move focus: TERMINAL.");
@@ -113,6 +117,44 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
 
             }
         }
+
+        if (terminal.has_focus) {
+            /* Action any terminal hotkeys */
+            return on_terminal_key_press_event (event);
+        }
+
+        return false;
+    }
+
+    bool on_terminal_key_press_event (Gdk.EventKey event) {
+        var mods = (event.state & Gtk.accelerator_get_default_mod_mask ());
+        bool control_pressed = ((mods & Gdk.ModifierType.CONTROL_MASK) != 0);
+        bool other_mod_pressed = (((mods & ~Gdk.ModifierType.SHIFT_MASK) & ~Gdk.ModifierType.CONTROL_MASK) != 0);
+        bool only_control_pressed = control_pressed && !other_mod_pressed; /* Shift can be pressed */
+
+        if (only_control_pressed) {
+            switch (event.keyval) {
+                case Gdk.Key.plus:
+                case Gdk.Key.KP_Add:
+                case Gdk.Key.equal:
+                    increment_size ();
+                    return true;
+
+                case Gdk.Key.minus:
+                case Gdk.Key.KP_Subtract:
+                    decrement_size ();
+                    return true;
+
+                case Gdk.Key.@0:
+                case Gdk.Key.KP_0:
+                    set_default_font_size ();
+                    return true;
+
+                default:
+                    break;
+            }
+        }
+
         return false;
     }
 
@@ -176,6 +218,8 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
                 update_terminal_settings (LEGACY_SETTINGS_SCHEMA);
             }
         }
+
+        terminal.key_press_event.connect (on_terminal_key_press_event);
 
         // Set terminal font
         if (font_name == "") {
@@ -293,6 +337,18 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         }
 
         this.terminal.set_colors (foreground_color, background_color, palette);
+    }
+
+    public void increment_size () {
+        terminal.font_scale = (terminal.font_scale + 0.1).clamp (MIN_SCALE, MAX_SCALE);
+    }
+
+    public void decrement_size () {
+        terminal.font_scale = (terminal.font_scale - 0.1).clamp (MIN_SCALE, MAX_SCALE);
+    }
+
+    public void set_default_font_size () {
+        terminal.font_scale = 1.0;
     }
 }
 
