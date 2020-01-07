@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 21:29+0000\n"
+"POT-Creation-Date: 2020-01-07 17:28+0000\n"
 "PO-Revision-Date: 2019-12-27 06:24+0000\n"
 "Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/extra/nl/>\n"
@@ -133,117 +133,129 @@ msgstr ""
 "Het automatisch aanvullen van haakjes en automatisch inspringen zijn "
 "standaard ingeschakeld"
 
+#: data/io.elementary.code.appdata.xml.in:59
+msgid "Zoom terminal plugin with keyboard"
+msgstr ""
+
 #: data/io.elementary.code.appdata.xml.in:60
+msgid "Honor global privacy setting when saving and restoring"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:62
 msgid "Other updates:"
 msgstr "Andere updates:"
 
-#: data/io.elementary.code.appdata.xml.in:62
+#: data/io.elementary.code.appdata.xml.in:64
 msgid "Simplify \"Draw spaces\" preference"
 msgstr "De “teken ruimte” instelling is simpeler geworden"
 
-#: data/io.elementary.code.appdata.xml.in:63
+#: data/io.elementary.code.appdata.xml.in:65
 msgid "Fix the keyboard shortcut for going backwards in search results"
 msgstr ""
 "Een probleem met de sneltoets om terug te gaan in zoekresultaten is verholpen"
 
-#: data/io.elementary.code.appdata.xml.in:64
+#: data/io.elementary.code.appdata.xml.in:66
 msgid "Fix opening files from relative paths in Terminal"
 msgstr ""
 "Een probleem met het openen van bestanden via relatieve paden in Terminal is "
 "verholpen"
 
-#: data/io.elementary.code.appdata.xml.in:65
+#: data/io.elementary.code.appdata.xml.in:67
 msgid "Fix null file dialog when opening a new window via the dock"
 msgstr ""
 "Een probleem met het Bestanden scherm bij het openen van een nieuw venster "
 "via het dock is verholpen"
 
-#: data/io.elementary.code.appdata.xml.in:66
+#: data/io.elementary.code.appdata.xml.in:68
 msgid "Add \"=\" as a zoom key"
 msgstr "De toets \"=\" kan nu worden gebruikt om te zoemen"
 
-#: data/io.elementary.code.appdata.xml.in:67
+#: data/io.elementary.code.appdata.xml.in:69
 msgid "Change search entry icon when results aren't found"
 msgstr "Het zoek invoer icoon verandert als er geen resultaten zijn gevonden"
 
-#: data/io.elementary.code.appdata.xml.in:68
-#: data/io.elementary.code.appdata.xml.in:89
-#: data/io.elementary.code.appdata.xml.in:99
-#: data/io.elementary.code.appdata.xml.in:110
+#: data/io.elementary.code.appdata.xml.in:70
+msgid "Enter name of new file before creating it"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:71
+#: data/io.elementary.code.appdata.xml.in:92
+#: data/io.elementary.code.appdata.xml.in:102
+#: data/io.elementary.code.appdata.xml.in:113
 msgid "Updated translations"
 msgstr "Bijgewerkte vertalingen"
 
-#: data/io.elementary.code.appdata.xml.in:75
+#: data/io.elementary.code.appdata.xml.in:78
 msgid "Use Granite.MessageDialog throughout"
 msgstr "Granite.MessageDialog wordt nu overal gebruikt"
 
-#: data/io.elementary.code.appdata.xml.in:76
+#: data/io.elementary.code.appdata.xml.in:79
 msgid "Include non-text files in sidebar"
 msgstr "Ook niet tekstbestanden worden toegevoegd aan de zijbalk"
 
-#: data/io.elementary.code.appdata.xml.in:77
+#: data/io.elementary.code.appdata.xml.in:80
 msgid "Fix Remove Current View"
 msgstr ""
 "Een probleem met het verwijderen van de huidige schermindeling is opgelost"
 
-#: data/io.elementary.code.appdata.xml.in:84
+#: data/io.elementary.code.appdata.xml.in:87
 msgid "Fix New Window desktop action behavior"
 msgstr ""
 "Een probleem met de functie ‘nieuw venster’ vanaf de desktop is opgelost"
 
-#: data/io.elementary.code.appdata.xml.in:85
+#: data/io.elementary.code.appdata.xml.in:88
 msgid ""
 "Properly synchronize Ctrl+N key presses with number of new documents spawned"
 msgstr ""
 "Het aantal nieuwe documenten loopt weer gelijk met het aantal keer dat de "
 "sneltoetsen Ctrl+N wordt gebruikt"
 
-#: data/io.elementary.code.appdata.xml.in:86
+#: data/io.elementary.code.appdata.xml.in:89
 msgid "Build system fix for editorconfig dependency"
 msgstr ""
 "Een probleem verholpen met het editorconfig pakket tijdens het installeren"
 
-#: data/io.elementary.code.appdata.xml.in:87
+#: data/io.elementary.code.appdata.xml.in:90
 msgid "Add Change Branch context menu item"
 msgstr "Het context menu-item ‘Verander Branch’ toegevoegd"
 
-#: data/io.elementary.code.appdata.xml.in:88
+#: data/io.elementary.code.appdata.xml.in:91
 msgid "Avoid possible startup crash related to how plugins load"
 msgstr ""
 "Een mogelijke crash bij het opstarten verholpen die ontstond door de manier "
 "waarop plug-ins geladen werden"
 
-#: data/io.elementary.code.appdata.xml.in:96
+#: data/io.elementary.code.appdata.xml.in:99
 msgid "Smarter file saving behavior"
 msgstr "Bestanden worden slimmer opgeslagen"
 
-#: data/io.elementary.code.appdata.xml.in:97
+#: data/io.elementary.code.appdata.xml.in:100
 msgid "File saving fixes"
 msgstr "Problemen met het opslaan van bestanden verholpen"
 
-#: data/io.elementary.code.appdata.xml.in:98
+#: data/io.elementary.code.appdata.xml.in:101
 msgid "Don't add temporary files to tab restore"
 msgstr "Tijdelijke bestanden worden niet meer toegevoegd aan de Herstellen tab"
 
-#: data/io.elementary.code.appdata.xml.in:106
+#: data/io.elementary.code.appdata.xml.in:109
 msgid "Don't recreate deleted files when restoring session"
 msgstr ""
 "Verwijderde bestanden worden niet opnieuw aangemaakt bij het herstellen van "
 "een sessie"
 
-#: data/io.elementary.code.appdata.xml.in:107
+#: data/io.elementary.code.appdata.xml.in:110
 msgid "Restore line wrap preference"
 msgstr "De voorkeur voor tekstterugloop is hersteld"
 
-#: data/io.elementary.code.appdata.xml.in:108
+#: data/io.elementary.code.appdata.xml.in:111
 msgid "Add accel tooltips"
 msgstr "Accel helpteksten toegevoegd"
 
-#: data/io.elementary.code.appdata.xml.in:109
+#: data/io.elementary.code.appdata.xml.in:112
 msgid "Minor bug fixes"
 msgstr "Kleine bugfixes"
 
-#: data/io.elementary.code.appdata.xml.in:149
+#: data/io.elementary.code.appdata.xml.in:152
 msgid "elementary LLC."
 msgstr "elementary LLC."
 
