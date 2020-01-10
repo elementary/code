@@ -1,3 +1,66 @@
+io.elementary.code (3.2.0) bionic; urgency=medium
+
+  * Release 3.2.0 (#752)
+  * Update translation files
+  * Update translation files
+  * Update translation template
+  * Update new release appdata for recent commits (#751)
+  * Implement terminal zoom with keyboard. (#632)
+  * Update translation files
+  * Update translation template
+  * FolderManager: Rename before create new file (#743)
+  * Honor global history setting (#612)
+  * Update translation files
+  * Update translation template
+  * Desktop action: “New Document” → “New File” (#723)
+  * Update translation template
+  * Deprioritize git-ignored files (#705)
+  * Update translation template
+  * Drop "Never" from Draw Spaces (#722)
+  * Update translation template
+  * Copy current line when no selection (#425)
+  * Update translation template
+  * Add inline toolbar to sidebar (#569)
+  * Update translation template
+  * Update io.elementary.code.appdata.xml.in (#731)
+  * Update translation template
+  * Make post_install.py executable (#726)
+  * Add Release to Actions
+  * Add Gettext Updates to Actions
+  * SearchBar: Disable flowbox selection (#725)
+  * Travis: Downgrade node to 10
+  * Change Primary Search Entry Icon on Failure (#720)
+  * updated the description of the terminal plugin (#717)
+  * Add Lint to CI (#711)
+  * Lint plugins (#715)
+  * Lint source files (#714)
+  * Update translation files
+  * Rename instances of “Scratch” to “Code” (#713)
+  * SearchBar: Fix shift+enter (#709)
+  * Delete FUNDING.yml
+  * Delete CODE_OF_CONDUCT.md
+  * Update translation files
+  * CompletionProvider: Remove unused get_icon (#706)
+  * README: Update zeitgeist dependency name (#696)
+  * Add "Open In" menu to the top-level project folder (#686)
+  * Update translation files
+  * Add confirmation dialog to Restore action (#687)
+  * Deal with null args after parsing (#691)
+  * Use ApplicationCommandLine to resolve relative paths (#690)
+  * Add Silesian and update translation template
+  * ProjectFolderItem: Show branches as checkmenuitems
+  * Create FUNDING.yml
+  * File.vala: Don't display temporary files in the sidebar (#676)
+  * Update translation template
+  * Enable Brackets completion and auto-indent by default (#669)
+  * Fix help info is not displayed correctly other than in en_US (#670)
+  * Update translation files
+  * Revert "Add brackets completion by default (#300)"
+  * Add brackets completion by default (#300)
+  * Add equal as zoom key (#661)
+
+ -- Corentin Noël <corentin@elementary.io>  Fri, 10 Jan 2020 20:01:48 +0000
+
 io.elementary.code (3.1.1) bionic; urgency=medium
 
   * New upstream release.
