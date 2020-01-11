@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-10 22:25-0800\n"
+"POT-Creation-Date: 2020-01-10 22:47-0800\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
@@ -290,16 +290,17 @@ msgstr "новый файл"
 msgid "Close Folder"
 msgstr "Закрыть папку"
 
-#. modified_item.tooltip = modified_item.name + ", Modified";
-#: src/FolderManager/ProjectFolderItem.vala:183
-msgid ", Modified"
+#: src/FolderManager/ProjectFolderItem.vala:182
+#, c-format
+msgid "%s, Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:192
-msgid ", New"
+#: src/FolderManager/ProjectFolderItem.vala:191
+#, c-format
+msgid "%s, New"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:342
+#: src/FolderManager/ProjectFolderItem.vala:341
 #, fuzzy
 msgid "Branch"
 msgstr "Сменить Ветку"

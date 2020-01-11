@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-10 22:25-0800\n"
+"POT-Creation-Date: 2020-01-10 22:47-0800\n"
 "PO-Revision-Date: 2017-01-13 08:24+0000\n"
 "Last-Translator: Nur Ikhsan Azizudin <karungboy@gmail.com>\n"
 "Language-Team: Sundanese <su@li.org>\n"
@@ -285,16 +285,17 @@ msgstr "Berkas-berkas téks"
 msgid "Close Folder"
 msgstr ""
 
-#. modified_item.tooltip = modified_item.name + ", Modified";
-#: src/FolderManager/ProjectFolderItem.vala:183
-msgid ", Modified"
+#: src/FolderManager/ProjectFolderItem.vala:182
+#, c-format
+msgid "%s, Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:192
-msgid ", New"
+#: src/FolderManager/ProjectFolderItem.vala:191
+#, c-format
+msgid "%s, New"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:342
+#: src/FolderManager/ProjectFolderItem.vala:341
 msgid "Branch"
 msgstr ""
 

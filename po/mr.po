@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-10 22:25-0800\n"
+"POT-Creation-Date: 2020-01-10 22:47-0800\n"
 "PO-Revision-Date: 2019-12-27 06:24+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/code/code/mr/>\n"
@@ -284,16 +284,17 @@ msgstr "नवीन फाईल"
 msgid "Close Folder"
 msgstr "फोल्डर बंद करा"
 
-#. modified_item.tooltip = modified_item.name + ", Modified";
-#: src/FolderManager/ProjectFolderItem.vala:183
-msgid ", Modified"
+#: src/FolderManager/ProjectFolderItem.vala:182
+#, c-format
+msgid "%s, Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:192
-msgid ", New"
+#: src/FolderManager/ProjectFolderItem.vala:191
+#, c-format
+msgid "%s, New"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:342
+#: src/FolderManager/ProjectFolderItem.vala:341
 msgid "Branch"
 msgstr "ब्रँच"
 

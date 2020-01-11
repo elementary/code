@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-10 22:25-0800\n"
+"POT-Creation-Date: 2020-01-10 22:47-0800\n"
 "PO-Revision-Date: 2015-12-21 13:37+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -281,16 +281,17 @@ msgstr ""
 msgid "Close Folder"
 msgstr ""
 
-#. modified_item.tooltip = modified_item.name + ", Modified";
-#: src/FolderManager/ProjectFolderItem.vala:183
-msgid ", Modified"
+#: src/FolderManager/ProjectFolderItem.vala:182
+#, c-format
+msgid "%s, Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:192
-msgid ", New"
+#: src/FolderManager/ProjectFolderItem.vala:191
+#, c-format
+msgid "%s, New"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:342
+#: src/FolderManager/ProjectFolderItem.vala:341
 msgid "Branch"
 msgstr ""
 
