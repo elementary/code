@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-07 17:28+0000\n"
+"POT-Creation-Date: 2020-01-10 22:25-0800\n"
 "PO-Revision-Date: 2018-05-04 00:03+0000\n"
 "Last-Translator: Park Evans <travellerpeira9@gmail.com>\n"
 "Language-Team: Thai <https://weblate.elementary.io/projects/code/code/th/>\n"
@@ -295,7 +295,16 @@ msgstr "สร้างไฟล์"
 msgid "Close Folder"
 msgstr "ปิดโฟลเดอร์"
 
-#: src/FolderManager/ProjectFolderItem.vala:339
+#. modified_item.tooltip = modified_item.name + ", Modified";
+#: src/FolderManager/ProjectFolderItem.vala:183
+msgid ", Modified"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:192
+msgid ", New"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:342
 #, fuzzy
 msgid "Branch"
 msgstr "เปลี่ยนการตั้งค่าของ Scratch"

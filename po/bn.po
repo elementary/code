@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-07 17:28+0000\n"
+"POT-Creation-Date: 2020-01-10 22:25-0800\n"
 "PO-Revision-Date: 2017-01-21 09:06+0000\n"
 "Last-Translator: Hasan Sumon <hsnsumon@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -293,7 +293,16 @@ msgstr "নতুন ফাইল"
 msgid "Close Folder"
 msgstr "ফোল্ডার বন্ধ করুন"
 
-#: src/FolderManager/ProjectFolderItem.vala:339
+#. modified_item.tooltip = modified_item.name + ", Modified";
+#: src/FolderManager/ProjectFolderItem.vala:183
+msgid ", Modified"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:192
+msgid ", New"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:342
 #, fuzzy
 msgid "Branch"
 msgstr "স্ক্র্যাচ সেটিংস পরিবর্তন করুন"
