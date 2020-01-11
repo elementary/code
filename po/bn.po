@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 21:29+0000\n"
+"POT-Creation-Date: 2020-01-07 17:28+0000\n"
 "PO-Revision-Date: 2017-01-21 09:06+0000\n"
 "Last-Translator: Hasan Sumon <hsnsumon@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 "X-Generator: Launchpad (build 18366)\n"
 
-#: src/Application.vala:132
+#: src/Application.vala:134
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr ""
@@ -21,27 +21,27 @@ msgstr ""
 "%s"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:136
+#: src/Application.vala:138
 msgid "Maybe you do not have the necessary permissions."
 msgstr "আপনার হয়ত প্রয়োজনীয় অনুমতি নেই।"
 
-#: src/Application.vala:138
+#: src/Application.vala:140
 msgid "Maybe the file path provided is not valid."
 msgstr "হয়ত প্রদানকৃত ফাইল এর পথটি গ্রহনযোগ্য নয়।"
 
-#: src/Application.vala:140
+#: src/Application.vala:142
 msgid "The location is read-only."
 msgstr "এই লোকেশানটি রিড-অনলি।"
 
-#: src/Application.vala:142
+#: src/Application.vala:144
 msgid "The parent directory doesn't exist."
 msgstr "প্যারেন্ট ডিরেক্টরি'র অস্তিত্ব নেই।"
 
-#: src/Application.vala:163
+#: src/Application.vala:165
 msgid "It is a mountable location."
 msgstr "এই লোকেশানটি মাউন্ট করা যাবে।"
 
-#: src/Application.vala:166
+#: src/Application.vala:168
 #, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
@@ -50,34 +50,34 @@ msgstr ""
 "এটি একটি \"বিশেষ\" ফাইল যেমন সকেট,\n"
 " ফিফো, ব্লক ডিভাইস, অথবা ক্যারেক্টার ডিভাইস।"
 
-#: src/Application.vala:169
+#: src/Application.vala:171
 msgid "It is an \"unknown\" file type."
 msgstr "এটি একটি \"অপরিচিত\" ফাইল টাইপ।"
 
-#: src/Application.vala:174
+#: src/Application.vala:176
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr ""
 "\"%s\" ফাইলটি সৃষ্টি করা যাবে না।\n"
 "%s"
 
-#: src/Application.vala:246
+#: src/Application.vala:248
 msgid "New Tab"
 msgstr "নতুন ট্যাব"
 
-#: src/Application.vala:247 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "নতুন উইন্ডো"
 
-#: src/Application.vala:248
+#: src/Application.vala:250
 msgid "Print version info and exit"
 msgstr "ভার্সন এর তথ্য মুদ্রণ করে প্রস্থান করুন"
 
-#: src/Application.vala:249
+#: src/Application.vala:251
 msgid "Set of plugins"
 msgstr "প্লাগিন এর সেট"
 
-#: src/Application.vala:249
+#: src/Application.vala:251
 #, fuzzy
 msgid "plugin"
 msgstr "প্লাগিন এর সেট"
@@ -99,32 +99,32 @@ msgstr "অনুসন্ধান বার লুকিয়ে রাখুন
 msgid "Zeitgeist Datasource for Code"
 msgstr "স্ক্র্যাচ এর জন্যে জেইটগেইস্ট ডাটাসোর্স"
 
-#: src/MainWindow.vala:769 src/Services/Document.vala:502
+#: src/MainWindow.vala:771 src/Services/Document.vala:502
 msgid "All files"
 msgstr "সব ফাইল"
 
-#: src/MainWindow.vala:773 src/Services/Document.vala:506
+#: src/MainWindow.vala:775 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "টেক্সট ফাইলসমূহ"
 
-#: src/MainWindow.vala:777
+#: src/MainWindow.vala:779
 msgid "Open some files"
 msgstr "কিছু ফাইল খুলুন"
 
-#: src/MainWindow.vala:780
+#: src/MainWindow.vala:782
 msgid "Open"
 msgstr "খুলুন"
 
-#: src/MainWindow.vala:781 src/Services/Document.vala:401
+#: src/MainWindow.vala:783 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "বাতিল করুন"
 
-#: src/MainWindow.vala:806
+#: src/MainWindow.vala:808
 msgid "_Open"
 msgstr "_খুলুন"
 
-#: src/MainWindow.vala:807
+#: src/MainWindow.vala:809
 msgid "_Cancel"
 msgstr "_বাতিল"
 
@@ -239,25 +239,25 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:114
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:115
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:154
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:155
 #, fuzzy
 msgid "Open In"
 msgstr "খুলুন"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:89
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:90
 #, fuzzy
 msgid "Other Actions"
 msgstr "অন্যান্য ফরম্যাটসমূহ"
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:93
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:98
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:99
 #: src/FolderManager/ProjectFolderItem.vala:98
 msgid "Move to Trash"
 msgstr ""
@@ -266,37 +266,27 @@ msgstr ""
 msgid "Folders"
 msgstr "ফোল্ডারসমূহ"
 
-#: src/FolderManager/FolderItem.vala:161
+#: src/FolderManager/FolderItem.vala:162
 #, fuzzy
 msgid "Folder"
 msgstr "ফোল্ডারসমূহ"
 
-#: src/FolderManager/FolderItem.vala:164
+#: src/FolderManager/FolderItem.vala:165
 msgid "Empty File"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:171
+#: src/FolderManager/FolderItem.vala:172
 #, fuzzy
 msgid "New"
 msgstr "নতুন ট্যাব"
 
-#: src/FolderManager/FolderItem.vala:338
+#: src/FolderManager/FolderItem.vala:330
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:342
-#, c-format
-msgid "untitled folder %d"
-msgstr ""
-
-#: src/FolderManager/FolderItem.vala:370
+#: src/FolderManager/FolderItem.vala:330
 #, fuzzy
 msgid "new file"
-msgstr "নতুন ফাইল"
-
-#: src/FolderManager/FolderItem.vala:374
-#, fuzzy, c-format
-msgid "new file %d"
 msgstr "নতুন ফাইল"
 
 #: src/FolderManager/ProjectFolderItem.vala:95
@@ -694,26 +684,26 @@ msgstr "পেস্টবিন এ আপলোড করুন"
 msgid "Symbols"
 msgstr "চিহ্নসমূহ"
 
-#: plugins/terminal/terminal.vala:134 plugins/terminal/terminal.vala:141
+#: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
 msgstr "টার্মিনাল দেখান"
 
-#: plugins/terminal/terminal.vala:137
+#: plugins/terminal/terminal.vala:179
 msgid "Hide Terminal"
 msgstr "টার্মিনাল লুকিয়ে রাখুন"
 
-#: plugins/terminal/terminal.vala:138
+#: plugins/terminal/terminal.vala:180
 msgid "Terminal"
 msgstr "টার্মিনাল"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:193
+#: plugins/terminal/terminal.vala:237
 msgid "Copy"
 msgstr "অনুলিপি"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:200
+#: plugins/terminal/terminal.vala:244
 msgid "Paste"
 msgstr "প্রতিলেপন"
 
@@ -745,6 +735,10 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - শব্দ পরিপূরণ"
+
+#, fuzzy
+#~ msgid "new file %d"
+#~ msgstr "নতুন ফাইল"
 
 #~ msgid "Open a folder"
 #~ msgstr "একটি ফোল্ডার খুলুন"

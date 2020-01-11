@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 21:29+0000\n"
+"POT-Creation-Date: 2020-01-07 17:28+0000\n"
 "PO-Revision-Date: 2019-05-10 06:32+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Hindi <https://l10n.elementary.io/projects/code/code/hi/>\n"
@@ -19,33 +19,33 @@ msgstr ""
 "X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
-#: src/Application.vala:132
+#: src/Application.vala:134
 #, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr "फ़ाइल \"%s\" निर्मित नहीं की जा सकती"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:136
+#: src/Application.vala:138
 msgid "Maybe you do not have the necessary permissions."
 msgstr "शायद आपके पास आवश्यक अनुमति नहीं है।"
 
-#: src/Application.vala:138
+#: src/Application.vala:140
 msgid "Maybe the file path provided is not valid."
 msgstr "हो सकता है कि उपलब्ध फ़ाइल पथ वैध नहीं है।"
 
-#: src/Application.vala:140
+#: src/Application.vala:142
 msgid "The location is read-only."
 msgstr "यह स्थान केवल पठनीय है।"
 
-#: src/Application.vala:142
+#: src/Application.vala:144
 msgid "The parent directory doesn't exist."
 msgstr "मूल निर्देशिका मौजूद नहीं है।"
 
-#: src/Application.vala:163
+#: src/Application.vala:165
 msgid "It is a mountable location."
 msgstr "यह एक माउंटेबल स्थान है।"
 
-#: src/Application.vala:166
+#: src/Application.vala:168
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -53,32 +53,32 @@ msgstr ""
 "यह एक \"विशेष\" फ़ाइल है जैसे सॉकेट,\n"
 " फीफो, ब्लॉक डिवाइस या अक्षर डिवाइस।"
 
-#: src/Application.vala:169
+#: src/Application.vala:171
 msgid "It is an \"unknown\" file type."
 msgstr "यह एक \"अज्ञात\" फ़ाइल प्रकार है।"
 
-#: src/Application.vala:174
+#: src/Application.vala:176
 #, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr "फ़ाइल \"%s\" नहीं खोली जा सकती"
 
-#: src/Application.vala:246
+#: src/Application.vala:248
 msgid "New Tab"
 msgstr "नया टैब"
 
-#: src/Application.vala:247 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "नया विंडो"
 
-#: src/Application.vala:248
+#: src/Application.vala:250
 msgid "Print version info and exit"
 msgstr "प्रिन्ट संस्करण जानकारी और बाहर"
 
-#: src/Application.vala:249
+#: src/Application.vala:251
 msgid "Set of plugins"
 msgstr "प्लगइन्स का समूह"
 
-#: src/Application.vala:249
+#: src/Application.vala:251
 #, fuzzy
 msgid "plugin"
 msgstr "प्लगइन्स का समूह"
@@ -100,32 +100,32 @@ msgstr "सर्च बार छुपायें"
 msgid "Zeitgeist Datasource for Code"
 msgstr "स्क्रैच के लिए Zeitgeist डेटा स्रोत"
 
-#: src/MainWindow.vala:769 src/Services/Document.vala:502
+#: src/MainWindow.vala:771 src/Services/Document.vala:502
 msgid "All files"
 msgstr "सभी फाइलें"
 
-#: src/MainWindow.vala:773 src/Services/Document.vala:506
+#: src/MainWindow.vala:775 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "टेक्स्ट फाइलें"
 
-#: src/MainWindow.vala:777
+#: src/MainWindow.vala:779
 msgid "Open some files"
 msgstr "कुछ फ़ाइल खोलें"
 
-#: src/MainWindow.vala:780
+#: src/MainWindow.vala:782
 msgid "Open"
 msgstr "खोलें"
 
-#: src/MainWindow.vala:781 src/Services/Document.vala:401
+#: src/MainWindow.vala:783 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "रद्द करें"
 
-#: src/MainWindow.vala:806
+#: src/MainWindow.vala:808
 msgid "_Open"
 msgstr "खोलें (_O)"
 
-#: src/MainWindow.vala:807
+#: src/MainWindow.vala:809
 msgid "_Cancel"
 msgstr "रद्द करें (_C)"
 
@@ -241,23 +241,23 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr "वैसे भी लोड करें"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:114
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:115
 msgid "Other Application…"
 msgstr "अन्य अनुप्रयोग…"
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:154
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:155
 msgid "Open In"
 msgstr "में खोलें"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:89
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:90
 msgid "Other Actions"
 msgstr "अन्य अनुप्रयोग"
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:93
 msgid "Rename"
 msgstr "पुनः नामकरण"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:98
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:99
 #: src/FolderManager/ProjectFolderItem.vala:98
 msgid "Move to Trash"
 msgstr "रद्दी में डालें"
@@ -266,35 +266,25 @@ msgstr "रद्दी में डालें"
 msgid "Folders"
 msgstr "फोल्डर"
 
-#: src/FolderManager/FolderItem.vala:161
+#: src/FolderManager/FolderItem.vala:162
 msgid "Folder"
 msgstr "फ़ोल्डर"
 
-#: src/FolderManager/FolderItem.vala:164
+#: src/FolderManager/FolderItem.vala:165
 msgid "Empty File"
 msgstr "ख़ाली फ़ाइल"
 
-#: src/FolderManager/FolderItem.vala:171
+#: src/FolderManager/FolderItem.vala:172
 msgid "New"
 msgstr "नया"
 
-#: src/FolderManager/FolderItem.vala:338
+#: src/FolderManager/FolderItem.vala:330
 msgid "untitled folder"
 msgstr "अनाम फ़ोल्डर"
 
-#: src/FolderManager/FolderItem.vala:342
-#, c-format
-msgid "untitled folder %d"
-msgstr "अनाम फ़ोल्डर %d"
-
-#: src/FolderManager/FolderItem.vala:370
+#: src/FolderManager/FolderItem.vala:330
 msgid "new file"
 msgstr "नई फ़ाइल"
-
-#: src/FolderManager/FolderItem.vala:374
-#, c-format
-msgid "new file %d"
-msgstr "नई फ़ाइल %d"
 
 #: src/FolderManager/ProjectFolderItem.vala:95
 msgid "Close Folder"
@@ -670,26 +660,26 @@ msgstr "पेस्टबिन पर अपलोड करे"
 msgid "Symbols"
 msgstr "संकेत"
 
-#: plugins/terminal/terminal.vala:134 plugins/terminal/terminal.vala:141
+#: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
 msgstr "टर्मिनल दिखाएँ"
 
-#: plugins/terminal/terminal.vala:137
+#: plugins/terminal/terminal.vala:179
 msgid "Hide Terminal"
 msgstr "टर्मिनल छिपाएं"
 
-#: plugins/terminal/terminal.vala:138
+#: plugins/terminal/terminal.vala:180
 msgid "Terminal"
 msgstr "टर्मिनल"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:193
+#: plugins/terminal/terminal.vala:237
 msgid "Copy"
 msgstr "प्रतिलिपि"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:200
+#: plugins/terminal/terminal.vala:244
 msgid "Paste"
 msgstr "चिपकाएं"
 
@@ -718,6 +708,12 @@ msgstr "कृपया कम से कम एक [aspell] शब्दको�
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - शब्द समापन"
+
+#~ msgid "untitled folder %d"
+#~ msgstr "अनाम फ़ोल्डर %d"
+
+#~ msgid "new file %d"
+#~ msgstr "नई फ़ाइल %d"
 
 #~ msgid "Open a folder"
 #~ msgstr "एक फ़ोल्डर खोलें"

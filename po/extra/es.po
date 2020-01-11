@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 21:29+0000\n"
-"PO-Revision-Date: 2019-12-13 17:07+0000\n"
+"POT-Creation-Date: 2020-01-07 17:28+0000\n"
+"PO-Revision-Date: 2020-01-06 18:07+0000\n"
 "Last-Translator: Daniel R. <riesp@pm.me>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/extra/es/>\n"
 "Language: es\n"
@@ -105,23 +105,27 @@ msgstr "muchas otras"
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "New features:"
-msgstr ""
+msgstr "Nuevas características: "
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Visually deprioritize .gitignored files in project sidebar"
 msgstr ""
+"No priorizar visualmente los archivos «.gitignored» en la barra lateral del "
+"proyecto"
 
 #: data/io.elementary.code.appdata.xml.in:54
 msgid "Smart cut/copy lines with no active selection"
-msgstr ""
+msgstr "Cortado/copiado inteligente de líneas sin ninguna selección activa"
 
 #: data/io.elementary.code.appdata.xml.in:55
 msgid "Add a confirmation dialog to the \"Restore\" action"
-msgstr ""
+msgstr "Añadir un diálogo de confirmación a la acción \"Restaurar\""
 
 #: data/io.elementary.code.appdata.xml.in:56
 msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
 msgstr ""
+"Añadir el menú \"Abrir en\" al principio de las carpetas en el explorador de "
+"archivos"
 
 #: data/io.elementary.code.appdata.xml.in:57
 msgid "Don't show temporary files in the folder manager"
@@ -129,109 +133,122 @@ msgstr "No mostrar archivos temporales en el administrador de carpetas"
 
 #: data/io.elementary.code.appdata.xml.in:58
 msgid "Add brackets completion and auto-indent by default"
+msgstr "Añadir finalización de paréntesis y auto indentado por defecto"
+
+#: data/io.elementary.code.appdata.xml.in:59
+msgid "Zoom terminal plugin with keyboard"
 msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:60
-msgid "Other updates:"
+msgid "Honor global privacy setting when saving and restoring"
 msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:62
-msgid "Simplify \"Draw spaces\" preference"
-msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:63
-msgid "Fix the keyboard shortcut for going backwards in search results"
-msgstr ""
+msgid "Other updates:"
+msgstr "Otras actualizaciones:"
 
 #: data/io.elementary.code.appdata.xml.in:64
+msgid "Simplify \"Draw spaces\" preference"
+msgstr "Simplificar la preferencia \"Dibujar espacios\""
+
+#: data/io.elementary.code.appdata.xml.in:65
+msgid "Fix the keyboard shortcut for going backwards in search results"
+msgstr ""
+"Corrección del atajo de teclado para retroceder en los resultados de búsqueda"
+
+#: data/io.elementary.code.appdata.xml.in:66
 msgid "Fix opening files from relative paths in Terminal"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:65
+#: data/io.elementary.code.appdata.xml.in:67
 msgid "Fix null file dialog when opening a new window via the dock"
 msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:66
-msgid "Add \"=\" as a zoom key"
-msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:67
-msgid "Change search entry icon when results aren't found"
-msgstr ""
-
 #: data/io.elementary.code.appdata.xml.in:68
-#: data/io.elementary.code.appdata.xml.in:89
-#: data/io.elementary.code.appdata.xml.in:99
-#: data/io.elementary.code.appdata.xml.in:110
+msgid "Add \"=\" as a zoom key"
+msgstr "Añadir \"=\" como tecla de zoom"
+
+#: data/io.elementary.code.appdata.xml.in:69
+msgid "Change search entry icon when results aren't found"
+msgstr "Cambiar el icono de búsqueda cuando no se encuentran resultados"
+
+#: data/io.elementary.code.appdata.xml.in:70
+msgid "Enter name of new file before creating it"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:71
+#: data/io.elementary.code.appdata.xml.in:92
+#: data/io.elementary.code.appdata.xml.in:102
+#: data/io.elementary.code.appdata.xml.in:113
 msgid "Updated translations"
 msgstr "Traducciones actualizadas"
 
-#: data/io.elementary.code.appdata.xml.in:75
+#: data/io.elementary.code.appdata.xml.in:78
 msgid "Use Granite.MessageDialog throughout"
 msgstr "Use Granite.MessageDialog"
 
-#: data/io.elementary.code.appdata.xml.in:76
+#: data/io.elementary.code.appdata.xml.in:79
 msgid "Include non-text files in sidebar"
 msgstr "Incluir archivos que no sean de texto en la barra lateral"
 
-#: data/io.elementary.code.appdata.xml.in:77
+#: data/io.elementary.code.appdata.xml.in:80
 msgid "Fix Remove Current View"
 msgstr "Corregir la eliminación de la vista actual"
 
-#: data/io.elementary.code.appdata.xml.in:84
+#: data/io.elementary.code.appdata.xml.in:87
 msgid "Fix New Window desktop action behavior"
 msgstr "Corregir comportamiento de la acción de escritorio Nueva Ventana"
 
-#: data/io.elementary.code.appdata.xml.in:85
+#: data/io.elementary.code.appdata.xml.in:88
 msgid ""
 "Properly synchronize Ctrl+N key presses with number of new documents spawned"
 msgstr ""
 "Sincronizar correctamente las teclas Ctrl+N pulsadas con el número de nuevos "
 "documentos"
 
-#: data/io.elementary.code.appdata.xml.in:86
+#: data/io.elementary.code.appdata.xml.in:89
 msgid "Build system fix for editorconfig dependency"
 msgstr "Construir la corrección del sistema para la dependencia editorconfig"
 
-#: data/io.elementary.code.appdata.xml.in:87
+#: data/io.elementary.code.appdata.xml.in:90
 msgid "Add Change Branch context menu item"
 msgstr "Añadir el elemento de menú de contexto de Cambiar Rama"
 
-#: data/io.elementary.code.appdata.xml.in:88
+#: data/io.elementary.code.appdata.xml.in:91
 msgid "Avoid possible startup crash related to how plugins load"
 msgstr ""
 "Evitar los posibles fallos de inicio relacionados con la carga de "
 "complementos"
 
-#: data/io.elementary.code.appdata.xml.in:96
+#: data/io.elementary.code.appdata.xml.in:99
 msgid "Smarter file saving behavior"
 msgstr "Comportamiento de guardado de archivos más inteligente"
 
-#: data/io.elementary.code.appdata.xml.in:97
+#: data/io.elementary.code.appdata.xml.in:100
 msgid "File saving fixes"
 msgstr "Correcciones de guardado de archivos"
 
-#: data/io.elementary.code.appdata.xml.in:98
+#: data/io.elementary.code.appdata.xml.in:101
 msgid "Don't add temporary files to tab restore"
 msgstr "No añadir archivos temporales a la restauración de pestañas"
 
-#: data/io.elementary.code.appdata.xml.in:106
+#: data/io.elementary.code.appdata.xml.in:109
 msgid "Don't recreate deleted files when restoring session"
 msgstr "No recrear archivos eliminados al restaurar la sesión"
 
-#: data/io.elementary.code.appdata.xml.in:107
+#: data/io.elementary.code.appdata.xml.in:110
 msgid "Restore line wrap preference"
 msgstr "Restaurar la preferencia del envoltorio de línea"
 
-#: data/io.elementary.code.appdata.xml.in:108
+#: data/io.elementary.code.appdata.xml.in:111
 msgid "Add accel tooltips"
 msgstr "Agregar indicadores de acceso directo"
 
-#: data/io.elementary.code.appdata.xml.in:109
+#: data/io.elementary.code.appdata.xml.in:112
 msgid "Minor bug fixes"
 msgstr "Pequeñas correcciones de errores"
 
-#: data/io.elementary.code.appdata.xml.in:149
+#: data/io.elementary.code.appdata.xml.in:152
 msgid "elementary LLC."
 msgstr "elementary LLC."
 
@@ -253,7 +270,7 @@ msgstr "texto;IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
-msgstr ""
+msgstr "Nuevo archivo"
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 21:29+0000\n"
+"POT-Creation-Date: 2020-01-07 17:28+0000\n"
 "PO-Revision-Date: 2019-07-02 22:28+0000\n"
 "Last-Translator: Marco Devoti <ilbuzio@yahoo.it>\n"
 "Language-Team: Italian <https://l10n.elementary.io/projects/code/code/it/>\n"
@@ -19,33 +19,33 @@ msgstr ""
 "X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2017-05-04 05:45+0000\n"
 
-#: src/Application.vala:132
+#: src/Application.vala:134
 #, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr "Impossibile creare il file \"%s\""
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:136
+#: src/Application.vala:138
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Forse non disponi delle autorizzazioni necessarie."
 
-#: src/Application.vala:138
+#: src/Application.vala:140
 msgid "Maybe the file path provided is not valid."
 msgstr "Probabilmente il percorso del file fornito non è valido."
 
-#: src/Application.vala:140
+#: src/Application.vala:142
 msgid "The location is read-only."
 msgstr "La posizione è di sola lettura."
 
-#: src/Application.vala:142
+#: src/Application.vala:144
 msgid "The parent directory doesn't exist."
 msgstr "La cartella genitore non esiste."
 
-#: src/Application.vala:163
+#: src/Application.vala:165
 msgid "It is a mountable location."
 msgstr "È un percorso montabile."
 
-#: src/Application.vala:166
+#: src/Application.vala:168
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -53,32 +53,32 @@ msgstr ""
 "È un file \"speciale\", come ad esempio un socket,\n"
 " un FIFO, un dispositivo a blocchi o un dispositivo a caratteri."
 
-#: src/Application.vala:169
+#: src/Application.vala:171
 msgid "It is an \"unknown\" file type."
 msgstr "È un tipo di file \"sconosciuto\"."
 
-#: src/Application.vala:174
+#: src/Application.vala:176
 #, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr "Impossibile aprire il file \"%s\""
 
-#: src/Application.vala:246
+#: src/Application.vala:248
 msgid "New Tab"
 msgstr "Nuova scheda"
 
-#: src/Application.vala:247 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Nuova finestra"
 
-#: src/Application.vala:248
+#: src/Application.vala:250
 msgid "Print version info and exit"
 msgstr "Stampa informazioni sulla versione ed esci"
 
-#: src/Application.vala:249
+#: src/Application.vala:251
 msgid "Set of plugins"
 msgstr "Raccolta di plugin"
 
-#: src/Application.vala:249
+#: src/Application.vala:251
 msgid "plugin"
 msgstr "Componenti aggiuntivi"
 
@@ -99,32 +99,32 @@ msgstr "Nascondi la barra di ricerca"
 msgid "Zeitgeist Datasource for Code"
 msgstr "Origine dati Zeitgeist per Scratch"
 
-#: src/MainWindow.vala:769 src/Services/Document.vala:502
+#: src/MainWindow.vala:771 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Tutti i file"
 
-#: src/MainWindow.vala:773 src/Services/Document.vala:506
+#: src/MainWindow.vala:775 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "File di testo"
 
-#: src/MainWindow.vala:777
+#: src/MainWindow.vala:779
 msgid "Open some files"
 msgstr "Apri alcuni file"
 
-#: src/MainWindow.vala:780
+#: src/MainWindow.vala:782
 msgid "Open"
 msgstr "Apri"
 
-#: src/MainWindow.vala:781 src/Services/Document.vala:401
+#: src/MainWindow.vala:783 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Annulla"
 
-#: src/MainWindow.vala:806
+#: src/MainWindow.vala:808
 msgid "_Open"
 msgstr "_Apri"
 
-#: src/MainWindow.vala:807
+#: src/MainWindow.vala:809
 msgid "_Cancel"
 msgstr "_Annulla"
 
@@ -240,23 +240,23 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr "Carica lo stesso"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:114
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:115
 msgid "Other Application…"
 msgstr "Un'altra applicazione…"
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:154
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:155
 msgid "Open In"
 msgstr "Apri con"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:89
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:90
 msgid "Other Actions"
 msgstr "Altre azioni"
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:93
 msgid "Rename"
 msgstr "Cambia nome"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:98
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:99
 #: src/FolderManager/ProjectFolderItem.vala:98
 msgid "Move to Trash"
 msgstr "Muovi al cestino"
@@ -265,35 +265,25 @@ msgstr "Muovi al cestino"
 msgid "Folders"
 msgstr "Cartelle"
 
-#: src/FolderManager/FolderItem.vala:161
+#: src/FolderManager/FolderItem.vala:162
 msgid "Folder"
 msgstr "Cartella"
 
-#: src/FolderManager/FolderItem.vala:164
+#: src/FolderManager/FolderItem.vala:165
 msgid "Empty File"
 msgstr "File vuoto"
 
-#: src/FolderManager/FolderItem.vala:171
+#: src/FolderManager/FolderItem.vala:172
 msgid "New"
 msgstr "Nuovo"
 
-#: src/FolderManager/FolderItem.vala:338
+#: src/FolderManager/FolderItem.vala:330
 msgid "untitled folder"
 msgstr "cartella senza titolo"
 
-#: src/FolderManager/FolderItem.vala:342
-#, c-format
-msgid "untitled folder %d"
-msgstr "cartella senza titolo %d"
-
-#: src/FolderManager/FolderItem.vala:370
+#: src/FolderManager/FolderItem.vala:330
 msgid "new file"
 msgstr "nuovo file"
-
-#: src/FolderManager/FolderItem.vala:374
-#, c-format
-msgid "new file %d"
-msgstr "nuovo file %d"
 
 #: src/FolderManager/ProjectFolderItem.vala:95
 msgid "Close Folder"
@@ -674,26 +664,26 @@ msgstr "Carica su Pastebin"
 msgid "Symbols"
 msgstr "Simboli"
 
-#: plugins/terminal/terminal.vala:134 plugins/terminal/terminal.vala:141
+#: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
 msgstr "Mostra terminale"
 
-#: plugins/terminal/terminal.vala:137
+#: plugins/terminal/terminal.vala:179
 msgid "Hide Terminal"
 msgstr "Nascondi terminale"
 
-#: plugins/terminal/terminal.vala:138
+#: plugins/terminal/terminal.vala:180
 msgid "Terminal"
 msgstr "Terminale"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:193
+#: plugins/terminal/terminal.vala:237
 msgid "Copy"
 msgstr "Copia"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:200
+#: plugins/terminal/terminal.vala:244
 msgid "Paste"
 msgstr "Incolla"
 
@@ -722,6 +712,12 @@ msgstr "Installa almeno un dizionario [aspell]."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Autocompletamento parole"
+
+#~ msgid "untitled folder %d"
+#~ msgstr "cartella senza titolo %d"
+
+#~ msgid "new file %d"
+#~ msgstr "nuovo file %d"
 
 #~ msgid "Open a folder"
 #~ msgstr "Apri una cartella"
