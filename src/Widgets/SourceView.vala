@@ -387,18 +387,29 @@ namespace Scratch.Widgets {
         }
 
         private void on_context_menu (Gtk.Menu menu) {
-            var sort_item = new Gtk.MenuItem.with_label (_("Sort Selected Lines"));
+            var sort_item = new Gtk.MenuItem ();
             sort_item.sensitive = get_selected_line_count () > 1;
+            sort_item.add (new Granite.AccelLabel.from_action_name (
+                _("Sort Selected Lines"),
+                MainWindow.ACTION_PREFIX + MainWindow.ACTION_SORT_LINES
+            ));
             sort_item.activate.connect (sort_selected_lines);
+
             menu.add (sort_item);
 
             if (buffer is Gtk.SourceBuffer) {
                 var can_comment = CommentToggler.language_has_comments ((buffer as Gtk.SourceBuffer).get_language ());
-                var comment_item = new Gtk.MenuItem.with_label (_("Toggle Comment"));
+
+                var comment_item = new Gtk.MenuItem ();
                 comment_item.sensitive = get_selected_line_count () > 0 && can_comment;
+                comment_item.add (new Granite.AccelLabel.from_action_name (
+                    _("Toggle Comment"),
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_COMMENT
+                ));
                 comment_item.activate.connect (() => {
                     CommentToggler.toggle_comment (buffer as Gtk.SourceBuffer);
                 });
+
 
                 menu.add (comment_item);
             }
