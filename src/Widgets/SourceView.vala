@@ -410,7 +410,6 @@ namespace Scratch.Widgets {
                     CommentToggler.toggle_comment (buffer as Gtk.SourceBuffer);
                 });
 
-
                 menu.add (comment_item);
             }
 
