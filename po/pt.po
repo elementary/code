@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-07 17:28+0000\n"
+"POT-Creation-Date: 2020-01-15 16:27+0000\n"
 "PO-Revision-Date: 2019-12-19 05:35+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/"
@@ -516,21 +516,25 @@ msgstr "Remover vista actual"
 msgid "Menu"
 msgstr "Menu"
 
-#: src/Widgets/Pane.vala:45
-msgid "Add Project Folder…"
-msgstr "Adicionar pasta de projeto…"
-
-#: src/Widgets/Pane.vala:48
-msgid "Manage project folders…"
+#: src/Widgets/Pane.vala:44
+#, fuzzy
+#| msgid "Manage project folders…"
+msgid "Open project folder…"
 msgstr "Gerir pastas de projeto…"
 
-#: src/Widgets/Pane.vala:50
+#: src/Widgets/Pane.vala:46
 msgid "Collapse All"
 msgstr "Recolher tudo"
 
-#: src/Widgets/Pane.vala:53
+#: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
 msgstr "Alfabetizar"
+
+#: src/Widgets/Pane.vala:60
+#, fuzzy
+#| msgid "Manage project folders…"
+msgid "Manage project folders"
+msgstr "Gerir pastas de projeto…"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
@@ -713,6 +717,9 @@ msgstr "Por favor, instale pelo menos um dicionário [aspell]."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Acabar Palavra"
+
+#~ msgid "Add Project Folder…"
+#~ msgstr "Adicionar pasta de projeto…"
 
 #~ msgid "untitled folder %d"
 #~ msgstr "pasta sem nome %d"

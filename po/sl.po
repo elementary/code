@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-07 17:28+0000\n"
+"POT-Creation-Date: 2020-01-15 16:27+0000\n"
 "PO-Revision-Date: 2019-12-23 07:19+0000\n"
 "Last-Translator: Marko <marko.dolar@gmail.com>\n"
 "Language-Team: Slovenian <https://l10n.elementary.io/projects/code/code/sl/"
@@ -518,21 +518,25 @@ msgstr "Odstrani trenutni pogled"
 msgid "Menu"
 msgstr "Meni"
 
-#: src/Widgets/Pane.vala:45
-msgid "Add Project Folder…"
-msgstr "Dodaj projektno mapo…"
-
-#: src/Widgets/Pane.vala:48
-msgid "Manage project folders…"
+#: src/Widgets/Pane.vala:44
+#, fuzzy
+#| msgid "Manage project folders…"
+msgid "Open project folder…"
 msgstr "Upravljaj s projektnimi mapami…"
 
-#: src/Widgets/Pane.vala:50
+#: src/Widgets/Pane.vala:46
 msgid "Collapse All"
 msgstr "Strni vse"
 
-#: src/Widgets/Pane.vala:53
+#: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
 msgstr "Po abecedi"
+
+#: src/Widgets/Pane.vala:60
+#, fuzzy
+#| msgid "Manage project folders…"
+msgid "Manage project folders"
+msgstr "Upravljaj s projektnimi mapami…"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
@@ -715,6 +719,9 @@ msgstr "Prosim, namestite vsaj en [aspell] slovar."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Dopolnitev besede"
+
+#~ msgid "Add Project Folder…"
+#~ msgstr "Dodaj projektno mapo…"
 
 #~ msgid "untitled folder %d"
 #~ msgstr "neimenovana mapa %d"
