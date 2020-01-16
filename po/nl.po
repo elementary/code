@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-15 16:27+0000\n"
-"PO-Revision-Date: 2019-12-27 06:24+0000\n"
-"Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
+"PO-Revision-Date: 2020-01-19 13:08+0000\n"
+"Last-Translator: Ruben Sibon <rubenjs@webricolage.nl>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -515,10 +515,8 @@ msgid "Menu"
 msgstr "Menu"
 
 #: src/Widgets/Pane.vala:44
-#, fuzzy
-#| msgid "Manage project folders…"
 msgid "Open project folder…"
-msgstr "Beheer project mappen…"
+msgstr "Open projectmappen…"
 
 #: src/Widgets/Pane.vala:46
 msgid "Collapse All"
@@ -529,10 +527,8 @@ msgid "Alphabetize"
 msgstr "Alfabetiseer"
 
 #: src/Widgets/Pane.vala:60
-#, fuzzy
-#| msgid "Manage project folders…"
 msgid "Manage project folders"
-msgstr "Beheer project mappen…"
+msgstr "Beheer projectmappen"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
