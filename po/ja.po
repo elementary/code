@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-23 07:21+0000\n"
+"POT-Creation-Date: 2020-01-15 16:27+0000\n"
 "PO-Revision-Date: 2019-12-13 17:07+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
@@ -509,21 +509,25 @@ msgstr "現在のビューを削除"
 msgid "Menu"
 msgstr "メニュー"
 
-#: src/Widgets/Pane.vala:45
-msgid "Add Project Folder…"
-msgstr "プロジェクトフォルダーを追加…"
-
-#: src/Widgets/Pane.vala:48
-msgid "Manage project folders…"
+#: src/Widgets/Pane.vala:44
+#, fuzzy
+#| msgid "Manage project folders…"
+msgid "Open project folder…"
 msgstr "プロジェクトフォルダーを管理…"
 
-#: src/Widgets/Pane.vala:50
+#: src/Widgets/Pane.vala:46
 msgid "Collapse All"
 msgstr "すべて折りたたむ"
 
-#: src/Widgets/Pane.vala:53
+#: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
 msgstr "アルファベット順に並び替え"
+
+#: src/Widgets/Pane.vala:60
+#, fuzzy
+#| msgid "Manage project folders…"
+msgid "Manage project folders"
+msgstr "プロジェクトフォルダーを管理…"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
@@ -658,26 +662,26 @@ msgstr "Pastebin にアップロード"
 msgid "Symbols"
 msgstr "シンボル"
 
-#: plugins/terminal/terminal.vala:134 plugins/terminal/terminal.vala:141
+#: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
 msgstr "ターミナルを表示"
 
-#: plugins/terminal/terminal.vala:137
+#: plugins/terminal/terminal.vala:179
 msgid "Hide Terminal"
 msgstr "ターミナルを表示しない"
 
-#: plugins/terminal/terminal.vala:138
+#: plugins/terminal/terminal.vala:180
 msgid "Terminal"
 msgstr "ターミナル"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:193
+#: plugins/terminal/terminal.vala:237
 msgid "Copy"
 msgstr "コピー"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:200
+#: plugins/terminal/terminal.vala:244
 msgid "Paste"
 msgstr "貼り付け"
 
@@ -706,6 +710,9 @@ msgstr "少なくとも 1 つ以上の [aspell] 辞書をインストールし�
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - 単語補完"
+
+#~ msgid "Add Project Folder…"
+#~ msgstr "プロジェクトフォルダーを追加…"
 
 #~ msgid "untitled folder %d"
 #~ msgstr "名称未設定フォルダー %d"

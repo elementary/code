@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-23 07:21+0000\n"
+"POT-Creation-Date: 2020-01-15 16:27+0000\n"
 "PO-Revision-Date: 2019-12-16 21:05+0000\n"
 "Last-Translator: Rafael Bautista Martínez <iuninefrendor@gmail.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/code/es/>\n"
@@ -513,21 +513,25 @@ msgstr "Quitar vista actual"
 msgid "Menu"
 msgstr "Menú"
 
-#: src/Widgets/Pane.vala:45
-msgid "Add Project Folder…"
-msgstr "Añadir carpeta de proyecto…"
-
-#: src/Widgets/Pane.vala:48
-msgid "Manage project folders…"
+#: src/Widgets/Pane.vala:44
+#, fuzzy
+#| msgid "Manage project folders…"
+msgid "Open project folder…"
 msgstr "Administrar carpetas de proyecto…"
 
-#: src/Widgets/Pane.vala:50
+#: src/Widgets/Pane.vala:46
 msgid "Collapse All"
 msgstr "Desplegar todo"
 
-#: src/Widgets/Pane.vala:53
+#: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
 msgstr "Por orden alfabético"
+
+#: src/Widgets/Pane.vala:60
+#, fuzzy
+#| msgid "Manage project folders…"
+msgid "Manage project folders"
+msgstr "Administrar carpetas de proyecto…"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
@@ -662,26 +666,26 @@ msgstr "Subir a Pastebin"
 msgid "Symbols"
 msgstr "Símbolos"
 
-#: plugins/terminal/terminal.vala:134 plugins/terminal/terminal.vala:141
+#: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
 msgstr "Mostrar consola"
 
-#: plugins/terminal/terminal.vala:137
+#: plugins/terminal/terminal.vala:179
 msgid "Hide Terminal"
 msgstr "Ocultar consola"
 
-#: plugins/terminal/terminal.vala:138
+#: plugins/terminal/terminal.vala:180
 msgid "Terminal"
 msgstr "Terminal"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:193
+#: plugins/terminal/terminal.vala:237
 msgid "Copy"
 msgstr "Copiar"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:200
+#: plugins/terminal/terminal.vala:244
 msgid "Paste"
 msgstr "Pegar"
 
@@ -710,6 +714,9 @@ msgstr "Por favor, instale al menos un diccionario [aspell]."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Completar palabras"
+
+#~ msgid "Add Project Folder…"
+#~ msgstr "Añadir carpeta de proyecto…"
 
 #~ msgid "untitled folder %d"
 #~ msgstr "carpeta sin título %d"

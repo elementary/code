@@ -36,16 +36,12 @@ public class Code.Pane : Gtk.Grid {
         stack_switcher.stack = stack;
         stack_switcher.homogeneous = true;
 
-        var toolbar = new Gtk.Toolbar ();
-        toolbar.get_style_context ().add_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
-        toolbar.icon_size = Gtk.IconSize.SMALL_TOOLBAR;
+        var actionbar = new Gtk.ActionBar ();
+        actionbar.get_style_context ().add_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
 
-        var add_folder_button = new Gtk.ToolButton (new Gtk.Image.from_icon_name ("folder-open-symbolic", Gtk.IconSize.BUTTON), null);
+        var add_folder_button = new Gtk.Button.from_icon_name ("folder-open-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
         add_folder_button.action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_FOLDER;
-        add_folder_button.tooltip_text = _("Add Project Folder…");
-
-        var project_more_button = new Gtk.MenuToolButton (null, null);
-        project_more_button.tooltip_text = _("Manage project folders…");
+        add_folder_button.tooltip_text = _("Open project folder…");
 
         var collapse_all_menu_item = new Gtk.MenuItem.with_label (_("Collapse All"));
         collapse_all_menu_item.action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_COLLAPSE_ALL_FOLDERS;
@@ -57,19 +53,18 @@ public class Code.Pane : Gtk.Grid {
         project_menu.append (collapse_all_menu_item);
         project_menu.append (order_projects_menu_item);
         project_menu.show_all ();
-        project_more_button.set_menu (project_menu);
 
-        var separator_tool_item = new Gtk.SeparatorToolItem ();
-        separator_tool_item.set_expand (true);
-        separator_tool_item.draw = false;
+        var project_more_button = new Gtk.MenuButton ();
+        project_more_button.image = new Gtk.Image.from_icon_name ("view-more-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+        project_more_button.popup = project_menu;
+        project_more_button.tooltip_text = _("Manage project folders");
 
-        toolbar.add (add_folder_button);
-        toolbar.add (separator_tool_item);
-        toolbar.add (project_more_button);
+        actionbar.add (add_folder_button);
+        actionbar.pack_end (project_more_button);
 
         add (stack_switcher);
         add (stack);
-        add (toolbar);
+        add (actionbar);
 
         stack.add.connect (() => {
             if (stack.get_children ().length () > 1) {
