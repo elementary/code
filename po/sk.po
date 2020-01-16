@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-07 17:28+0000\n"
+"POT-Creation-Date: 2020-01-15 16:27+0000\n"
 "PO-Revision-Date: 2019-02-13 00:07+0000\n"
 "Last-Translator: Cleiton Floss <cleitonfloss@gmail.com>\n"
 "Language-Team: Slovak <https://weblate.elementary.io/projects/code/code/sk/"
@@ -518,20 +518,22 @@ msgstr "Odstrániť aktuálne zobrazenie"
 msgid "Menu"
 msgstr "Menu"
 
-#: src/Widgets/Pane.vala:45
-msgid "Add Project Folder…"
-msgstr ""
+#: src/Widgets/Pane.vala:44
+#, fuzzy
+#| msgid "Open a folder"
+msgid "Open project folder…"
+msgstr "Otvoriť priečinok"
 
-#: src/Widgets/Pane.vala:48
-msgid "Manage project folders…"
-msgstr ""
-
-#: src/Widgets/Pane.vala:50
+#: src/Widgets/Pane.vala:46
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Pane.vala:53
+#: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
+msgstr ""
+
+#: src/Widgets/Pane.vala:60
+msgid "Manage project folders"
 msgstr ""
 
 #: src/Widgets/SearchBar.vala:61
@@ -724,9 +726,6 @@ msgstr "Dokončovanie slova: %s"
 
 #~ msgid "new file %d"
 #~ msgstr "nový súbor %d"
-
-#~ msgid "Open a folder"
-#~ msgstr "Otvoriť priečinok"
 
 #~ msgid "Could not load icon theme: %s\n"
 #~ msgstr "Nepodarilo sa načítať motív ikon: %s\n"

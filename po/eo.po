@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-07 17:28+0000\n"
+"POT-Creation-Date: 2020-01-15 16:27+0000\n"
 "PO-Revision-Date: 2019-12-16 21:04+0000\n"
 "Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
 "Language-Team: Esperanto <https://l10n.elementary.io/projects/code/code/eo/"
@@ -510,21 +510,25 @@ msgstr "Forigi aktivan vidon"
 msgid "Menu"
 msgstr "Menuo"
 
-#: src/Widgets/Pane.vala:45
-msgid "Add Project Folder…"
-msgstr "Aldoni projektan dosierujon…"
-
-#: src/Widgets/Pane.vala:48
-msgid "Manage project folders…"
+#: src/Widgets/Pane.vala:44
+#, fuzzy
+#| msgid "Manage project folders…"
+msgid "Open project folder…"
 msgstr "Mastrumi projektajn dosierujojn…"
 
-#: src/Widgets/Pane.vala:50
+#: src/Widgets/Pane.vala:46
 msgid "Collapse All"
 msgstr "Maletendi ĉion"
 
-#: src/Widgets/Pane.vala:53
+#: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
 msgstr "Alfabetigi"
+
+#: src/Widgets/Pane.vala:60
+#, fuzzy
+#| msgid "Manage project folders…"
+msgid "Manage project folders"
+msgstr "Mastrumi projektajn dosierujojn…"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
@@ -707,6 +711,9 @@ msgstr "Bonvolu instali almenaŭ unu [aspell]-vortaron."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - vortkompletigo"
+
+#~ msgid "Add Project Folder…"
+#~ msgstr "Aldoni projektan dosierujon…"
 
 #~ msgid "untitled folder %d"
 #~ msgstr "sentitola dosierujo %d"

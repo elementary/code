@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-07 17:28+0000\n"
+"POT-Creation-Date: 2020-01-15 16:27+0000\n"
 "PO-Revision-Date: 2019-12-27 06:24+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/code/code/mr/>\n"
@@ -506,21 +506,25 @@ msgstr "आत्ताची मांडणी काढून टाका"
 msgid "Menu"
 msgstr "मेन्यू"
 
-#: src/Widgets/Pane.vala:45
-msgid "Add Project Folder…"
-msgstr "प्रोजेक्ट फोल्डर जोडा…"
-
-#: src/Widgets/Pane.vala:48
-msgid "Manage project folders…"
+#: src/Widgets/Pane.vala:44
+#, fuzzy
+#| msgid "Manage project folders…"
+msgid "Open project folder…"
 msgstr "प्रोजेक्ट फोल्डर व्यवस्थापित करा…"
 
-#: src/Widgets/Pane.vala:50
+#: src/Widgets/Pane.vala:46
 msgid "Collapse All"
 msgstr "सर्व संकुचित करा"
 
-#: src/Widgets/Pane.vala:53
+#: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
 msgstr "अल्फाबेटाईझ"
+
+#: src/Widgets/Pane.vala:60
+#, fuzzy
+#| msgid "Manage project folders…"
+msgid "Manage project folders"
+msgstr "प्रोजेक्ट फोल्डर व्यवस्थापित करा…"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
@@ -703,6 +707,9 @@ msgstr "कृपया कमीत कमी एक [aspell] dictionary इन
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s -  शब्द संपूर्ण"
+
+#~ msgid "Add Project Folder…"
+#~ msgstr "प्रोजेक्ट फोल्डर जोडा…"
 
 #~ msgid "untitled folder %d"
 #~ msgstr "निनावी फोल्डर %d"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-07 17:28+0000\n"
+"POT-Creation-Date: 2020-01-15 16:27+0000\n"
 "PO-Revision-Date: 2017-08-22 19:20+0000\n"
 "Last-Translator: anjelo del carmen <anjelo2009@live.com>\n"
 "Language-Team: Tagalog <https://weblate.elementary.io/projects/scratch/"
@@ -526,20 +526,22 @@ msgstr "Alisin ang Kasalukuyang View"
 msgid "Menu"
 msgstr ""
 
-#: src/Widgets/Pane.vala:45
-msgid "Add Project Folder…"
-msgstr ""
+#: src/Widgets/Pane.vala:44
+#, fuzzy
+#| msgid "Open a folder"
+msgid "Open project folder…"
+msgstr "Magbukas ng Polder"
 
-#: src/Widgets/Pane.vala:48
-msgid "Manage project folders…"
-msgstr ""
-
-#: src/Widgets/Pane.vala:50
+#: src/Widgets/Pane.vala:46
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Pane.vala:53
+#: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
+msgstr ""
+
+#: src/Widgets/Pane.vala:60
+msgid "Manage project folders"
 msgstr ""
 
 #: src/Widgets/SearchBar.vala:61
@@ -736,9 +738,6 @@ msgstr "%s - Pagkumpleto ng salita"
 #, fuzzy
 #~ msgid "new file %d"
 #~ msgstr "Bagong File"
-
-#~ msgid "Open a folder"
-#~ msgstr "Magbukas ng Polder"
 
 #~ msgid "Could not load icon theme: %s\n"
 #~ msgstr "Hindi mai-load ang icon theme: %s\n"

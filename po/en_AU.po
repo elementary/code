@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-07 17:28+0000\n"
+"POT-Creation-Date: 2020-01-15 16:27+0000\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: English (Australia) <https://l10n.elementary.io/projects/code/"
@@ -536,20 +536,22 @@ msgstr "Remove Current View"
 msgid "Menu"
 msgstr ""
 
-#: src/Widgets/Pane.vala:45
-msgid "Add Project Folder…"
-msgstr ""
+#: src/Widgets/Pane.vala:44
+#, fuzzy
+#| msgid "Open a folder"
+msgid "Open project folder…"
+msgstr "Open a folder"
 
-#: src/Widgets/Pane.vala:48
-msgid "Manage project folders…"
-msgstr ""
-
-#: src/Widgets/Pane.vala:50
+#: src/Widgets/Pane.vala:46
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Pane.vala:53
+#: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
+msgstr ""
+
+#: src/Widgets/Pane.vala:60
+msgid "Manage project folders"
 msgstr ""
 
 #: src/Widgets/SearchBar.vala:61
@@ -749,9 +751,6 @@ msgstr "%s - Word Completion"
 #, fuzzy
 #~ msgid "new file %d"
 #~ msgstr "New file"
-
-#~ msgid "Open a folder"
-#~ msgstr "Open a folder"
 
 #~ msgid "Could not load icon theme: %s\n"
 #~ msgstr "Could not load icon theme: %s\n"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-07 17:28+0000\n"
+"POT-Creation-Date: 2020-01-15 16:27+0000\n"
 "PO-Revision-Date: 2019-09-11 16:24+0000\n"
 "Last-Translator: Tommy Chiang <ty1208chiang@gmail.com>\n"
 "Language-Team: Chinese <https://l10n.elementary.io/projects/code/code/zh/>\n"
@@ -498,20 +498,22 @@ msgstr "删除当前视图"
 msgid "Menu"
 msgstr "菜单"
 
-#: src/Widgets/Pane.vala:45
-msgid "Add Project Folder…"
-msgstr ""
+#: src/Widgets/Pane.vala:44
+#, fuzzy
+#| msgid "Open a folder"
+msgid "Open project folder…"
+msgstr "打开文件夹"
 
-#: src/Widgets/Pane.vala:48
-msgid "Manage project folders…"
-msgstr ""
-
-#: src/Widgets/Pane.vala:50
+#: src/Widgets/Pane.vala:46
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Pane.vala:53
+#: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
+msgstr ""
+
+#: src/Widgets/Pane.vala:60
+msgid "Manage project folders"
 msgstr ""
 
 #: src/Widgets/SearchBar.vala:61
@@ -701,9 +703,6 @@ msgstr "%s - 单词完成"
 
 #~ msgid "new file %d"
 #~ msgstr "新建文件 %d"
-
-#~ msgid "Open a folder"
-#~ msgstr "打开文件夹"
 
 #~ msgid "Could not load icon theme: %s\n"
 #~ msgstr "无法加载图标主题: %s\n"

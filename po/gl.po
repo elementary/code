@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-07 17:28+0000\n"
+"POT-Creation-Date: 2020-01-15 16:27+0000\n"
 "PO-Revision-Date: 2019-09-23 16:22+0000\n"
 "Last-Translator: Daniel R. <riesp@pm.me>\n"
 "Language-Team: Galician <https://l10n.elementary.io/projects/code/code/gl/>\n"
@@ -513,20 +513,22 @@ msgstr "Eliminar a vista actual"
 msgid "Menu"
 msgstr "Menú"
 
-#: src/Widgets/Pane.vala:45
-msgid "Add Project Folder…"
-msgstr ""
+#: src/Widgets/Pane.vala:44
+#, fuzzy
+#| msgid "Open a folder"
+msgid "Open project folder…"
+msgstr "Abrir un cartafol"
 
-#: src/Widgets/Pane.vala:48
-msgid "Manage project folders…"
-msgstr ""
-
-#: src/Widgets/Pane.vala:50
+#: src/Widgets/Pane.vala:46
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Pane.vala:53
+#: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
+msgstr ""
+
+#: src/Widgets/Pane.vala:60
+msgid "Manage project folders"
 msgstr ""
 
 #: src/Widgets/SearchBar.vala:61
@@ -716,9 +718,6 @@ msgstr "%s - Completado de palabras"
 
 #~ msgid "new file %d"
 #~ msgstr "Novo ficheiro %d"
-
-#~ msgid "Open a folder"
-#~ msgstr "Abrir un cartafol"
 
 #~ msgid "Could not load icon theme: %s\n"
 #~ msgstr "Non foi posíbel cargar o tema de iconas : %s\n"

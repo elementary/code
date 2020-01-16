@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-07 17:28+0000\n"
+"POT-Creation-Date: 2020-01-15 16:27+0000\n"
 "PO-Revision-Date: 2016-03-03 17:53+0000\n"
 "Last-Translator: Dmitry Taranovich <vorbissmcgregor@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -517,20 +517,22 @@ msgstr "Выдаліць бягучы выгляд"
 msgid "Menu"
 msgstr ""
 
-#: src/Widgets/Pane.vala:45
-msgid "Add Project Folder…"
-msgstr ""
+#: src/Widgets/Pane.vala:44
+#, fuzzy
+#| msgid "Open a folder"
+msgid "Open project folder…"
+msgstr "Адкрыць тэчку"
 
-#: src/Widgets/Pane.vala:48
-msgid "Manage project folders…"
-msgstr ""
-
-#: src/Widgets/Pane.vala:50
+#: src/Widgets/Pane.vala:46
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Pane.vala:53
+#: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
+msgstr ""
+
+#: src/Widgets/Pane.vala:60
+msgid "Manage project folders"
 msgstr ""
 
 #: src/Widgets/SearchBar.vala:61
@@ -724,9 +726,6 @@ msgstr "%s - Дапаўненне слоў"
 #, fuzzy
 #~ msgid "new file %d"
 #~ msgstr "Стварыць файл"
-
-#~ msgid "Open a folder"
-#~ msgstr "Адкрыць тэчку"
 
 #~ msgid "Could not load icon theme: %s\n"
 #~ msgstr "Немагчыма загрузіць тэму іконак : %s\n"
