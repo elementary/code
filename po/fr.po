@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-15 16:27+0000\n"
-"PO-Revision-Date: 2019-12-16 21:05+0000\n"
+"PO-Revision-Date: 2020-01-19 13:08+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
 "Language: fr\n"
@@ -517,10 +517,8 @@ msgid "Menu"
 msgstr "Menu"
 
 #: src/Widgets/Pane.vala:44
-#, fuzzy
-#| msgid "Manage project folders…"
 msgid "Open project folder…"
-msgstr "Gérer les dossiers de projet…"
+msgstr "Ouvrir le dossier du projet…"
 
 #: src/Widgets/Pane.vala:46
 msgid "Collapse All"
@@ -531,10 +529,8 @@ msgid "Alphabetize"
 msgstr "Trier par ordre alphabétique"
 
 #: src/Widgets/Pane.vala:60
-#, fuzzy
-#| msgid "Manage project folders…"
 msgid "Manage project folders"
-msgstr "Gérer les dossiers de projet…"
+msgstr "Gérer les dossiers du projet"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
