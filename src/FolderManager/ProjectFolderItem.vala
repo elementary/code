@@ -98,6 +98,7 @@ namespace Scratch.FolderManager {
 
             var close_all_except_item = new Gtk.MenuItem.with_label (_("Close Other Folders"));
             close_all_except_item.activate.connect (() => { close_all_except (); });
+            close_all_except_item.sensitive = view.root.children.size > 1;
 
             var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
             delete_item.activate.connect (() => {
