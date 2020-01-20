@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-15 16:27+0000\n"
+"POT-Creation-Date: 2020-01-20 22:43+0000\n"
 "PO-Revision-Date: 2016-09-11 11:53+0000\n"
 "Last-Translator: Hiwa <hiwa24@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -248,7 +248,7 @@ msgid "Rename"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:99
-#: src/FolderManager/ProjectFolderItem.vala:98
+#: src/FolderManager/ProjectFolderItem.vala:103
 msgid "Move to Trash"
 msgstr ""
 
@@ -277,11 +277,16 @@ msgstr ""
 msgid "new file"
 msgstr "پەڕگەیەکی نوێ"
 
-#: src/FolderManager/ProjectFolderItem.vala:95
+#: src/FolderManager/ProjectFolderItem.vala:96
 msgid "Close Folder"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:339
+#: src/FolderManager/ProjectFolderItem.vala:99
+#, fuzzy
+msgid "Close Other Folders"
+msgstr "کردنەوەی فایل"
+
+#: src/FolderManager/ProjectFolderItem.vala:345
 #, fuzzy
 msgid "Branch"
 msgstr "گۆڕینی ڕێکخستنەکانی (بنەڕەت)"

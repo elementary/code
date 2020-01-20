@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-15 16:27+0000\n"
-"PO-Revision-Date: 2019-12-19 05:35+0000\n"
+"POT-Creation-Date: 2020-01-20 22:43+0000\n"
+"PO-Revision-Date: 2020-01-20 22:41+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/"
 ">\n"
@@ -259,7 +259,7 @@ msgid "Rename"
 msgstr "Mudar o nome"
 
 #: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:99
-#: src/FolderManager/ProjectFolderItem.vala:98
+#: src/FolderManager/ProjectFolderItem.vala:103
 msgid "Move to Trash"
 msgstr "Mover para o Lixo"
 
@@ -287,11 +287,17 @@ msgstr "pasta sem nome"
 msgid "new file"
 msgstr "novo ficheiro"
 
-#: src/FolderManager/ProjectFolderItem.vala:95
+#: src/FolderManager/ProjectFolderItem.vala:96
 msgid "Close Folder"
 msgstr "Fechar Pasta"
 
-#: src/FolderManager/ProjectFolderItem.vala:339
+#: src/FolderManager/ProjectFolderItem.vala:99
+#, fuzzy
+#| msgid "Close Folder"
+msgid "Close Other Folders"
+msgstr "Fechar Pasta"
+
+#: src/FolderManager/ProjectFolderItem.vala:345
 msgid "Branch"
 msgstr "Ramo"
 
@@ -517,10 +523,8 @@ msgid "Menu"
 msgstr "Menu"
 
 #: src/Widgets/Pane.vala:44
-#, fuzzy
-#| msgid "Manage project folders…"
 msgid "Open project folder…"
-msgstr "Gerir pastas de projeto…"
+msgstr "Abrir pasta do projecto…"
 
 #: src/Widgets/Pane.vala:46
 msgid "Collapse All"
@@ -531,10 +535,8 @@ msgid "Alphabetize"
 msgstr "Alfabetizar"
 
 #: src/Widgets/Pane.vala:60
-#, fuzzy
-#| msgid "Manage project folders…"
 msgid "Manage project folders"
-msgstr "Gerir pastas de projeto…"
+msgstr "Gerir pastas de projecto"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
