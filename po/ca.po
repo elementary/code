@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-20 23:07+0000\n"
-"PO-Revision-Date: 2020-01-19 13:08+0000\n"
+"PO-Revision-Date: 2020-01-22 15:53+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
 "Language: ca\n"
@@ -292,10 +292,8 @@ msgid "Close Folder"
 msgstr "Tanca la carpeta"
 
 #: src/FolderManager/ProjectFolderItem.vala:99
-#, fuzzy
-#| msgid "Close Folder"
 msgid "Close Other Folders"
-msgstr "Tanca la carpeta"
+msgstr "Tanca altres carpetes"
 
 #: src/FolderManager/ProjectFolderItem.vala:345
 msgid "Branch"
