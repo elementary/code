@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-20 23:07+0000\n"
-"PO-Revision-Date: 2019-12-27 06:24+0000\n"
+"PO-Revision-Date: 2020-01-22 15:53+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/code/code/mr/>\n"
 "Language: mr\n"
@@ -285,10 +285,8 @@ msgid "Close Folder"
 msgstr "फोल्डर बंद करा"
 
 #: src/FolderManager/ProjectFolderItem.vala:99
-#, fuzzy
-#| msgid "Close Folder"
 msgid "Close Other Folders"
-msgstr "फोल्डर बंद करा"
+msgstr "इतर फोल्डर्स बंद करा"
 
 #: src/FolderManager/ProjectFolderItem.vala:345
 msgid "Branch"
@@ -513,10 +511,8 @@ msgid "Menu"
 msgstr "मेन्यू"
 
 #: src/Widgets/Pane.vala:44
-#, fuzzy
-#| msgid "Manage project folders…"
 msgid "Open project folder…"
-msgstr "प्रोजेक्ट फोल्डर व्यवस्थापित करा…"
+msgstr "प्रोजेक्ट फोल्डर उघडा …"
 
 #: src/Widgets/Pane.vala:46
 msgid "Collapse All"
@@ -527,10 +523,8 @@ msgid "Alphabetize"
 msgstr "अल्फाबेटाईझ"
 
 #: src/Widgets/Pane.vala:60
-#, fuzzy
-#| msgid "Manage project folders…"
 msgid "Manage project folders"
-msgstr "प्रोजेक्ट फोल्डर व्यवस्थापित करा…"
+msgstr "प्रोजेक्ट फोल्डर व्यवस्थापित करा"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
