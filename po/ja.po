@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-20 23:07+0000\n"
-"PO-Revision-Date: 2020-01-19 13:08+0000\n"
+"PO-Revision-Date: 2020-01-25 15:08+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -242,7 +242,7 @@ msgstr "了解して復元"
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:115
 msgid "Other Application…"
-msgstr "他のアプリケーション…"
+msgstr "ほかのアプリケーション…"
 
 #: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:155
 msgid "Open In"
@@ -250,11 +250,11 @@ msgstr "指定した方法で開く"
 
 #: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:90
 msgid "Other Actions"
-msgstr "その他の操作"
+msgstr "ほかの操作"
 
 #: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:93
 msgid "Rename"
-msgstr "名前の変更"
+msgstr "名前を変更"
 
 #: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:99
 #: src/FolderManager/ProjectFolderItem.vala:103
@@ -290,10 +290,8 @@ msgid "Close Folder"
 msgstr "フォルダーを閉じる"
 
 #: src/FolderManager/ProjectFolderItem.vala:99
-#, fuzzy
-#| msgid "Close Folder"
 msgid "Close Other Folders"
-msgstr "フォルダーを閉じる"
+msgstr "ほかのフォルダーを閉じる"
 
 #: src/FolderManager/ProjectFolderItem.vala:345
 msgid "Branch"
@@ -613,7 +611,7 @@ msgstr "形式:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
 msgid "Others…"
-msgstr "その他…"
+msgstr "そのほか…"
 
 #: plugins/pastebin/pastebin_dialog.vala:286
 msgid "Expiry time:"
@@ -629,7 +627,7 @@ msgstr "アップロード"
 
 #: plugins/pastebin/pastebin_dialog.vala:352
 msgid "Other formats"
-msgstr "他の形式"
+msgstr "ほかの形式"
 
 #: plugins/pastebin/pastebin_dialog.vala:460
 msgid "Never"
