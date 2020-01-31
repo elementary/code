@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-20 23:07+0000\n"
-"PO-Revision-Date: 2019-12-21 18:25+0000\n"
+"PO-Revision-Date: 2020-02-01 02:08+0000\n"
 "Last-Translator: Rodrigo Oliveira <rod.oliveira@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/code/"
 "extra/pt_BR/>\n"
@@ -112,15 +112,17 @@ msgstr "Novas funcionalidades:"
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "New \"Close Other Folders\" menu item to help clean up your sidebar"
 msgstr ""
+"Novo item de menu \"Fechar outras pastas\" para ajudar a limpar sua barra "
+"lateral"
 
 #: data/io.elementary.code.appdata.xml.in:55
 #: data/io.elementary.code.appdata.xml.in:75
 msgid "Other updates:"
-msgstr ""
+msgstr "Outras atualizações:"
 
 #: data/io.elementary.code.appdata.xml.in:57
 msgid "Add keyboard shortcuts to menu items"
-msgstr ""
+msgstr "Adicionar atalhos de teclado aos itens de menu"
 
 #: data/io.elementary.code.appdata.xml.in:58
 #: data/io.elementary.code.appdata.xml.in:84
@@ -137,60 +139,62 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:67
 msgid "Smart cut/copy lines with no active selection"
-msgstr ""
+msgstr "Linhas inteligentes de corte/cópia sem seleção ativa"
 
 #: data/io.elementary.code.appdata.xml.in:68
 msgid "Add a confirmation dialog to the \"Restore\" action"
-msgstr ""
+msgstr "Adicione um diálogo de confirmação à ação \"Restaurar\""
 
 #: data/io.elementary.code.appdata.xml.in:69
 msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
-msgstr ""
+msgstr "Adicionado menu \"Abrir em\" na pasta raiz no gerenciador de pastas"
 
 #: data/io.elementary.code.appdata.xml.in:70
-#, fuzzy
 msgid "Don't show temporary files in the folder manager"
-msgstr "Não adicione arquivos temporários a guia restauração"
+msgstr "Não mostrar arquivos temporários no gerenciador de pastas"
 
 #: data/io.elementary.code.appdata.xml.in:71
 msgid "Add brackets completion and auto-indent by default"
 msgstr ""
+"Adicionado indentação e completação de parênteses automáticos por padrão"
 
 #: data/io.elementary.code.appdata.xml.in:72
 msgid "Zoom terminal plugin with keyboard"
-msgstr ""
+msgstr "Zoom plugin de terminal com teclado"
 
 #: data/io.elementary.code.appdata.xml.in:73
 msgid "Honor global privacy setting when saving and restoring"
-msgstr ""
+msgstr "Respeita a configuração de privacidade global ao salvar e restaurar"
 
 #: data/io.elementary.code.appdata.xml.in:77
 msgid "Simplify \"Draw spaces\" preference"
-msgstr ""
+msgstr "Simplificar a configuração de \"Desenhar espaços\""
 
 #: data/io.elementary.code.appdata.xml.in:78
 msgid "Fix the keyboard shortcut for going backwards in search results"
-msgstr ""
+msgstr "Corrigido o atalho de teclado para voltar nos resultados de busca"
 
 #: data/io.elementary.code.appdata.xml.in:79
 msgid "Fix opening files from relative paths in Terminal"
-msgstr ""
+msgstr "Corrigido o abrimento de arquivos de caminhos relativos no Terminal"
 
 #: data/io.elementary.code.appdata.xml.in:80
 msgid "Fix null file dialog when opening a new window via the dock"
 msgstr ""
+"Corrigido dialogo de arquivo nulo quando abrindo uma nova janela pela doca"
 
 #: data/io.elementary.code.appdata.xml.in:81
 msgid "Add \"=\" as a zoom key"
-msgstr ""
+msgstr "Adicionado \"=\" como uma tecla de ampliação"
 
 #: data/io.elementary.code.appdata.xml.in:82
 msgid "Change search entry icon when results aren't found"
 msgstr ""
+"Altera o ícone da barra de pesquisa quando nenhum resultado for encontrado"
 
 #: data/io.elementary.code.appdata.xml.in:83
 msgid "Enter name of new file before creating it"
-msgstr ""
+msgstr "Digite o nome do novo arquivo antes de criá-lo"
 
 #: data/io.elementary.code.appdata.xml.in:91
 msgid "Use Granite.MessageDialog throughout"
@@ -279,7 +283,7 @@ msgstr "texto;IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
-msgstr ""
+msgstr "Novo Arquivo"
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
