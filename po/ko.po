@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-23 07:21+0000\n"
+"POT-Creation-Date: 2020-01-20 23:07+0000\n"
 "PO-Revision-Date: 2019-07-12 12:46+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/code/code/ko/>\n"
@@ -128,7 +128,7 @@ msgstr "열기(_O)"
 msgid "_Cancel"
 msgstr "취소(_C)"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:168
 msgid "Preferences"
 msgstr "환경설정"
 
@@ -256,7 +256,7 @@ msgid "Rename"
 msgstr "이름 바꾸기"
 
 #: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:99
-#: src/FolderManager/ProjectFolderItem.vala:98
+#: src/FolderManager/ProjectFolderItem.vala:103
 msgid "Move to Trash"
 msgstr "휴지통에 버리기"
 
@@ -284,11 +284,17 @@ msgstr "이름 없는 폴더"
 msgid "new file"
 msgstr "새 파일"
 
-#: src/FolderManager/ProjectFolderItem.vala:95
+#: src/FolderManager/ProjectFolderItem.vala:96
 msgid "Close Folder"
 msgstr "폴더 닫기"
 
-#: src/FolderManager/ProjectFolderItem.vala:339
+#: src/FolderManager/ProjectFolderItem.vala:99
+#, fuzzy
+#| msgid "Close Folder"
+msgid "Close Other Folders"
+msgstr "폴더 닫기"
+
+#: src/FolderManager/ProjectFolderItem.vala:345
 msgid "Branch"
 msgstr "브랜치"
 
@@ -495,32 +501,34 @@ msgstr "솔라 다크"
 msgid "Toggle Sidebar"
 msgstr "사이드바 여닫기"
 
-#: src/Widgets/HeaderBar.vala:148
+#: src/Widgets/HeaderBar.vala:154
 msgid "Add New View"
 msgstr "새 페이지 추가"
 
-#: src/Widgets/HeaderBar.vala:152
+#: src/Widgets/HeaderBar.vala:164
 msgid "Remove Current View"
 msgstr "이 페이지 닫기"
 
-#: src/Widgets/HeaderBar.vala:179
+#: src/Widgets/HeaderBar.vala:191
 msgid "Menu"
 msgstr "메뉴"
 
-#: src/Widgets/Pane.vala:45
-msgid "Add Project Folder…"
-msgstr ""
+#: src/Widgets/Pane.vala:44
+#, fuzzy
+#| msgid "Open a folder"
+msgid "Open project folder…"
+msgstr "폴더 열기"
 
-#: src/Widgets/Pane.vala:48
-msgid "Manage project folders…"
-msgstr ""
-
-#: src/Widgets/Pane.vala:50
+#: src/Widgets/Pane.vala:46
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Pane.vala:53
+#: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
+msgstr ""
+
+#: src/Widgets/Pane.vala:60
+msgid "Manage project folders"
 msgstr ""
 
 #: src/Widgets/SearchBar.vala:61
@@ -551,11 +559,11 @@ msgstr "바꾸기"
 msgid "Replace all"
 msgstr "모두 바꾸기"
 
-#: src/Widgets/SourceView.vala:390
+#: src/Widgets/SourceView.vala:393
 msgid "Sort Selected Lines"
 msgstr "선택한 줄 정렬"
 
-#: src/Widgets/SourceView.vala:397
+#: src/Widgets/SourceView.vala:406
 msgid "Toggle Comment"
 msgstr "코멘트 여닫기"
 
@@ -656,26 +664,26 @@ msgstr "Pastebin에 업로드"
 msgid "Symbols"
 msgstr "기호"
 
-#: plugins/terminal/terminal.vala:134 plugins/terminal/terminal.vala:141
+#: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
 msgstr "터미널 보이기"
 
-#: plugins/terminal/terminal.vala:137
+#: plugins/terminal/terminal.vala:179
 msgid "Hide Terminal"
 msgstr "터미널 숨기기"
 
-#: plugins/terminal/terminal.vala:138
+#: plugins/terminal/terminal.vala:180
 msgid "Terminal"
 msgstr "터미널"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:193
+#: plugins/terminal/terminal.vala:237
 msgid "Copy"
 msgstr "복사"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:200
+#: plugins/terminal/terminal.vala:244
 msgid "Paste"
 msgstr "붙여넣기"
 
@@ -710,9 +718,6 @@ msgstr "%s - 단어 완성"
 
 #~ msgid "new file %d"
 #~ msgstr "새 파일 %d"
-
-#~ msgid "Open a folder"
-#~ msgstr "폴더 열기"
 
 #~ msgid "Could not load icon theme: %s\n"
 #~ msgstr "아이콘 테마 불러오기 실패: %s\n"

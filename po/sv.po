@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-23 07:21+0000\n"
+"POT-Creation-Date: 2020-01-20 23:07+0000\n"
 "PO-Revision-Date: 2018-10-20 00:10+0000\n"
 "Last-Translator: Fredrik B <frbo9002@gmail.com>\n"
 "Language-Team: Swedish <https://weblate.elementary.io/projects/code/code/sv/"
@@ -130,7 +130,7 @@ msgstr "_Öppna"
 msgid "_Cancel"
 msgstr "_Avbryt"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:168
 msgid "Preferences"
 msgstr "Inställningar"
 
@@ -259,7 +259,7 @@ msgid "Rename"
 msgstr "Byt namn"
 
 #: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:99
-#: src/FolderManager/ProjectFolderItem.vala:98
+#: src/FolderManager/ProjectFolderItem.vala:103
 msgid "Move to Trash"
 msgstr "Flytta till papperskorgen"
 
@@ -287,11 +287,17 @@ msgstr "namnlös mapp"
 msgid "new file"
 msgstr "ny fil"
 
-#: src/FolderManager/ProjectFolderItem.vala:95
+#: src/FolderManager/ProjectFolderItem.vala:96
 msgid "Close Folder"
 msgstr "Stäng mapp"
 
-#: src/FolderManager/ProjectFolderItem.vala:339
+#: src/FolderManager/ProjectFolderItem.vala:99
+#, fuzzy
+#| msgid "Close Folder"
+msgid "Close Other Folders"
+msgstr "Stäng mapp"
+
+#: src/FolderManager/ProjectFolderItem.vala:345
 #, fuzzy
 msgid "Branch"
 msgstr "Ändra inställningarna för Scratch"
@@ -510,32 +516,34 @@ msgstr "Solariserat mörker"
 msgid "Toggle Sidebar"
 msgstr "Visa/dölj sidopanel"
 
-#: src/Widgets/HeaderBar.vala:148
+#: src/Widgets/HeaderBar.vala:154
 msgid "Add New View"
 msgstr "Lägg till ny vy"
 
-#: src/Widgets/HeaderBar.vala:152
+#: src/Widgets/HeaderBar.vala:164
 msgid "Remove Current View"
 msgstr "Ta bort nuvarande vy"
 
-#: src/Widgets/HeaderBar.vala:179
+#: src/Widgets/HeaderBar.vala:191
 msgid "Menu"
 msgstr "Meny"
 
-#: src/Widgets/Pane.vala:45
-msgid "Add Project Folder…"
-msgstr ""
+#: src/Widgets/Pane.vala:44
+#, fuzzy
+#| msgid "Open a folder"
+msgid "Open project folder…"
+msgstr "Öppna en mapp"
 
-#: src/Widgets/Pane.vala:48
-msgid "Manage project folders…"
-msgstr ""
-
-#: src/Widgets/Pane.vala:50
+#: src/Widgets/Pane.vala:46
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Pane.vala:53
+#: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
+msgstr ""
+
+#: src/Widgets/Pane.vala:60
+msgid "Manage project folders"
 msgstr ""
 
 #: src/Widgets/SearchBar.vala:61
@@ -566,11 +574,11 @@ msgstr "Ersätt"
 msgid "Replace all"
 msgstr "Ersätt alla"
 
-#: src/Widgets/SourceView.vala:390
+#: src/Widgets/SourceView.vala:393
 msgid "Sort Selected Lines"
 msgstr "Sortera valda rader"
 
-#: src/Widgets/SourceView.vala:397
+#: src/Widgets/SourceView.vala:406
 msgid "Toggle Comment"
 msgstr "Visa/dölj kommentarer"
 
@@ -671,26 +679,26 @@ msgstr "Ladda upp till Pastebin"
 msgid "Symbols"
 msgstr "Symboler"
 
-#: plugins/terminal/terminal.vala:134 plugins/terminal/terminal.vala:141
+#: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
 msgstr "Visa Terminal"
 
-#: plugins/terminal/terminal.vala:137
+#: plugins/terminal/terminal.vala:179
 msgid "Hide Terminal"
 msgstr "Dölj Terminal"
 
-#: plugins/terminal/terminal.vala:138
+#: plugins/terminal/terminal.vala:180
 msgid "Terminal"
 msgstr "Terminal"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:193
+#: plugins/terminal/terminal.vala:237
 msgid "Copy"
 msgstr "Kopiera"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:200
+#: plugins/terminal/terminal.vala:244
 msgid "Paste"
 msgstr "Klistra in"
 
@@ -728,9 +736,6 @@ msgstr "%s - Ordförslag"
 
 #~ msgid "new file %d"
 #~ msgstr "ny fil %d"
-
-#~ msgid "Open a folder"
-#~ msgstr "Öppna en mapp"
 
 #~ msgid "Could not load icon theme: %s\n"
 #~ msgstr "Kunde inte läsa in ikon-temat: %s\n"

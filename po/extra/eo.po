@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 21:29+0000\n"
+"POT-Creation-Date: 2020-01-20 23:07+0000\n"
 "PO-Revision-Date: 2019-12-16 21:05+0000\n"
 "Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
-"Language-Team: Esperanto <https://l10n.elementary.io/projects/code/extra/eo/>"
-"\n"
+"Language-Team: Esperanto <https://l10n.elementary.io/projects/code/extra/eo/"
+">\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -102,135 +102,158 @@ msgid "lots of others"
 msgstr "kaj multe pli"
 
 #: data/io.elementary.code.appdata.xml.in:51
+#: data/io.elementary.code.appdata.xml.in:64
 msgid "New features:"
 msgstr "Novaj funkcioj:"
 
 #: data/io.elementary.code.appdata.xml.in:53
+msgid "New \"Close Other Folders\" menu item to help clean up your sidebar"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:55
+#: data/io.elementary.code.appdata.xml.in:75
+msgid "Other updates:"
+msgstr "Aliaj ĝisdatigoj:"
+
+#: data/io.elementary.code.appdata.xml.in:57
+msgid "Add keyboard shortcuts to menu items"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:58
+#: data/io.elementary.code.appdata.xml.in:84
+#: data/io.elementary.code.appdata.xml.in:105
+#: data/io.elementary.code.appdata.xml.in:115
+#: data/io.elementary.code.appdata.xml.in:126
+msgid "Updated translations"
+msgstr "Ĝisdatigitaj tradukoj"
+
+#: data/io.elementary.code.appdata.xml.in:66
 msgid "Visually deprioritize .gitignored files in project sidebar"
 msgstr "Vide malprioritatigi .gitignored-dosierojn ĉe la projekta flankobreto"
 
-#: data/io.elementary.code.appdata.xml.in:54
+#: data/io.elementary.code.appdata.xml.in:67
 msgid "Smart cut/copy lines with no active selection"
 msgstr "Inteligenta tondo/kopio sen aktiva elektaĵo"
 
-#: data/io.elementary.code.appdata.xml.in:55
+#: data/io.elementary.code.appdata.xml.in:68
 msgid "Add a confirmation dialog to the \"Restore\" action"
 msgstr "Aldoni konfirman dialogon al ago „Restaŭri“"
 
-#: data/io.elementary.code.appdata.xml.in:56
+#: data/io.elementary.code.appdata.xml.in:69
 msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
 msgstr ""
 "Aldoni „Malfermi per“-menuon al la plej supra dosiera nivelo de la "
 "dosiermastrumilo"
 
-#: data/io.elementary.code.appdata.xml.in:57
+#: data/io.elementary.code.appdata.xml.in:70
 msgid "Don't show temporary files in the folder manager"
 msgstr "Ne montri portempajn dosierojn en la dosiermastrumilo"
 
-#: data/io.elementary.code.appdata.xml.in:58
+#: data/io.elementary.code.appdata.xml.in:71
 msgid "Add brackets completion and auto-indent by default"
 msgstr "Aldoni apriorajn krampan plenigon kaj aŭtomatan marĝenigon"
 
-#: data/io.elementary.code.appdata.xml.in:60
-msgid "Other updates:"
-msgstr "Aliaj ĝisdatigoj:"
+#: data/io.elementary.code.appdata.xml.in:72
+msgid "Zoom terminal plugin with keyboard"
+msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:62
+#: data/io.elementary.code.appdata.xml.in:73
+msgid "Honor global privacy setting when saving and restoring"
+msgstr ""
+
+#: data/io.elementary.code.appdata.xml.in:77
 msgid "Simplify \"Draw spaces\" preference"
 msgstr "Simpligi agordon de „Afiŝo de spacoj“"
 
-#: data/io.elementary.code.appdata.xml.in:63
+#: data/io.elementary.code.appdata.xml.in:78
 msgid "Fix the keyboard shortcut for going backwards in search results"
 msgstr "Ripari la fulmklavon por retroiri inter serĉaj rezultatoj"
 
-#: data/io.elementary.code.appdata.xml.in:64
+#: data/io.elementary.code.appdata.xml.in:79
 msgid "Fix opening files from relative paths in Terminal"
 msgstr "Ripari malfermon de dosieroj el relativaj indikoj en la Terminalo"
 
-#: data/io.elementary.code.appdata.xml.in:65
+#: data/io.elementary.code.appdata.xml.in:80
 msgid "Fix null file dialog when opening a new window via the dock"
 msgstr ""
 "Ripari malplenan dialogon ĉe malfermo de nova fenestro per la butonbreto"
 
-#: data/io.elementary.code.appdata.xml.in:66
+#: data/io.elementary.code.appdata.xml.in:81
 msgid "Add \"=\" as a zoom key"
 msgstr "Aldoni zoman „=“-klavon"
 
-#: data/io.elementary.code.appdata.xml.in:67
+#: data/io.elementary.code.appdata.xml.in:82
 msgid "Change search entry icon when results aren't found"
 msgstr "Ŝanĝi serĉo-enigan bildeton kaze de nenia trovo"
 
-#: data/io.elementary.code.appdata.xml.in:68
-#: data/io.elementary.code.appdata.xml.in:89
-#: data/io.elementary.code.appdata.xml.in:99
-#: data/io.elementary.code.appdata.xml.in:110
-msgid "Updated translations"
-msgstr "Ĝisdatigitaj tradukoj"
+#: data/io.elementary.code.appdata.xml.in:83
+msgid "Enter name of new file before creating it"
+msgstr ""
 
-#: data/io.elementary.code.appdata.xml.in:75
+#: data/io.elementary.code.appdata.xml.in:91
 msgid "Use Granite.MessageDialog throughout"
 msgstr "Uzi entute Granite.MessageDialog"
 
-#: data/io.elementary.code.appdata.xml.in:76
+#: data/io.elementary.code.appdata.xml.in:92
 msgid "Include non-text files in sidebar"
 msgstr "Inkluzivi netekstajn dosierojn en flankobreton"
 
-#: data/io.elementary.code.appdata.xml.in:77
+#: data/io.elementary.code.appdata.xml.in:93
 msgid "Fix Remove Current View"
 msgstr "Ripari forigon el aktiva vido"
 
-#: data/io.elementary.code.appdata.xml.in:84
+#: data/io.elementary.code.appdata.xml.in:100
 msgid "Fix New Window desktop action behavior"
 msgstr "Ripari la konduton de la labortabla ago por nova fenestro"
 
-#: data/io.elementary.code.appdata.xml.in:85
+#: data/io.elementary.code.appdata.xml.in:101
 msgid ""
 "Properly synchronize Ctrl+N key presses with number of new documents spawned"
 msgstr ""
 "Ĝuste sinkronigi la nombron da klavadoj de Stir.+N kaj la nombron da "
 "generitaj dosieroj"
 
-#: data/io.elementary.code.appdata.xml.in:86
+#: data/io.elementary.code.appdata.xml.in:102
 msgid "Build system fix for editorconfig dependency"
 msgstr "Sistemversia riparo de dependeco de editorconfig"
 
-#: data/io.elementary.code.appdata.xml.in:87
+#: data/io.elementary.code.appdata.xml.in:103
 msgid "Add Change Branch context menu item"
 msgstr "Aldoni kuntekstan menuan elementon pri ŝanĝo de branĉo"
 
-#: data/io.elementary.code.appdata.xml.in:88
+#: data/io.elementary.code.appdata.xml.in:104
 msgid "Avoid possible startup crash related to how plugins load"
 msgstr "Eviti eblan startan kraŝon rilate la ŝargan manieron de kromaĵoj"
 
-#: data/io.elementary.code.appdata.xml.in:96
+#: data/io.elementary.code.appdata.xml.in:112
 msgid "Smarter file saving behavior"
 msgstr "Inteligentigi la konduton pri dosiera registrado"
 
-#: data/io.elementary.code.appdata.xml.in:97
+#: data/io.elementary.code.appdata.xml.in:113
 msgid "File saving fixes"
 msgstr "Riparoj de dosieraj registradoj"
 
-#: data/io.elementary.code.appdata.xml.in:98
+#: data/io.elementary.code.appdata.xml.in:114
 msgid "Don't add temporary files to tab restore"
 msgstr "Ne aldoni portempajn dosierojn al langeta restaŭro"
 
-#: data/io.elementary.code.appdata.xml.in:106
+#: data/io.elementary.code.appdata.xml.in:122
 msgid "Don't recreate deleted files when restoring session"
 msgstr "Ne rekrei forigitajn dosierojn ĉe seanca restaŭro"
 
-#: data/io.elementary.code.appdata.xml.in:107
+#: data/io.elementary.code.appdata.xml.in:123
 msgid "Restore line wrap preference"
 msgstr "Restaŭri linifaldajn agordojn"
 
-#: data/io.elementary.code.appdata.xml.in:108
+#: data/io.elementary.code.appdata.xml.in:124
 msgid "Add accel tooltips"
 msgstr "Aldoni fulmklavajn konsilojn"
 
-#: data/io.elementary.code.appdata.xml.in:109
+#: data/io.elementary.code.appdata.xml.in:125
 msgid "Minor bug fixes"
 msgstr "Malgravaj sencimigoj"
 
-#: data/io.elementary.code.appdata.xml.in:149
+#: data/io.elementary.code.appdata.xml.in:165
 msgid "elementary LLC."
 msgstr "elementary LLC."
 

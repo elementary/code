@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-23 07:21+0000\n"
+"POT-Creation-Date: 2020-01-20 23:07+0000\n"
 "PO-Revision-Date: 2016-09-10 18:45+0000\n"
 "Last-Translator: Beqa Arabuli <arabulibeqa@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -121,7 +121,7 @@ msgstr "გახ_სნა"
 msgid "_Cancel"
 msgstr "_გაუქმება"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:168
 msgid "Preferences"
 msgstr "პარამეტრები"
 
@@ -251,7 +251,7 @@ msgid "Rename"
 msgstr ""
 
 #: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:99
-#: src/FolderManager/ProjectFolderItem.vala:98
+#: src/FolderManager/ProjectFolderItem.vala:103
 msgid "Move to Trash"
 msgstr ""
 
@@ -282,11 +282,17 @@ msgstr ""
 msgid "new file"
 msgstr "ახალი ფაილი"
 
-#: src/FolderManager/ProjectFolderItem.vala:95
+#: src/FolderManager/ProjectFolderItem.vala:96
 msgid "Close Folder"
 msgstr "საქაღალდის დახურვა"
 
-#: src/FolderManager/ProjectFolderItem.vala:339
+#: src/FolderManager/ProjectFolderItem.vala:99
+#, fuzzy
+#| msgid "Close Folder"
+msgid "Close Other Folders"
+msgstr "საქაღალდის დახურვა"
+
+#: src/FolderManager/ProjectFolderItem.vala:345
 #, fuzzy
 msgid "Branch"
 msgstr "Scratch-ის პარამეტრების შეცვლა"
@@ -506,32 +512,34 @@ msgstr ""
 msgid "Toggle Sidebar"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:148
+#: src/Widgets/HeaderBar.vala:154
 msgid "Add New View"
 msgstr "ახალი ხედის დამატება"
 
-#: src/Widgets/HeaderBar.vala:152
+#: src/Widgets/HeaderBar.vala:164
 msgid "Remove Current View"
 msgstr "მიმდინარე ხედის წაშლა"
 
-#: src/Widgets/HeaderBar.vala:179
+#: src/Widgets/HeaderBar.vala:191
 msgid "Menu"
 msgstr ""
 
-#: src/Widgets/Pane.vala:45
-msgid "Add Project Folder…"
-msgstr ""
+#: src/Widgets/Pane.vala:44
+#, fuzzy
+#| msgid "Open a folder"
+msgid "Open project folder…"
+msgstr "საქაღალდის გახსნა"
 
-#: src/Widgets/Pane.vala:48
-msgid "Manage project folders…"
-msgstr ""
-
-#: src/Widgets/Pane.vala:50
+#: src/Widgets/Pane.vala:46
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Pane.vala:53
+#: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
+msgstr ""
+
+#: src/Widgets/Pane.vala:60
+msgid "Manage project folders"
 msgstr ""
 
 #: src/Widgets/SearchBar.vala:61
@@ -562,11 +570,11 @@ msgstr "ჩანაცვლება"
 msgid "Replace all"
 msgstr "ყველას ჩანაცვლება"
 
-#: src/Widgets/SourceView.vala:390
+#: src/Widgets/SourceView.vala:393
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:397
+#: src/Widgets/SourceView.vala:406
 msgid "Toggle Comment"
 msgstr ""
 
@@ -673,26 +681,26 @@ msgstr "Pastebin-ზე ატვირთვა"
 msgid "Symbols"
 msgstr "სიმბოლოები"
 
-#: plugins/terminal/terminal.vala:134 plugins/terminal/terminal.vala:141
+#: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
 msgstr "ტერმინალის ჩვენება"
 
-#: plugins/terminal/terminal.vala:137
+#: plugins/terminal/terminal.vala:179
 msgid "Hide Terminal"
 msgstr "ტერმინალის დამალვა"
 
-#: plugins/terminal/terminal.vala:138
+#: plugins/terminal/terminal.vala:180
 msgid "Terminal"
 msgstr "ტერმინალი"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:193
+#: plugins/terminal/terminal.vala:237
 msgid "Copy"
 msgstr "კოპირება"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:200
+#: plugins/terminal/terminal.vala:244
 msgid "Paste"
 msgstr "ჩასმა"
 
@@ -725,9 +733,6 @@ msgstr "%s - სიტყვის დაბოლოება"
 #, fuzzy
 #~ msgid "new file %d"
 #~ msgstr "ახალი ფაილი"
-
-#~ msgid "Open a folder"
-#~ msgstr "საქაღალდის გახსნა"
 
 #~ msgid "Could not load icon theme: %s\n"
 #~ msgstr "ხატულების თემა ვერ ჩაიტვირთა: %s\n"

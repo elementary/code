@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-23 07:21+0000\n"
+"POT-Creation-Date: 2020-01-20 23:07+0000\n"
 "PO-Revision-Date: 2019-07-02 22:28+0000\n"
 "Last-Translator: Marco Devoti <ilbuzio@yahoo.it>\n"
 "Language-Team: Italian <https://l10n.elementary.io/projects/code/code/it/>\n"
@@ -128,7 +128,7 @@ msgstr "_Apri"
 msgid "_Cancel"
 msgstr "_Annulla"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:168
 msgid "Preferences"
 msgstr "Preferenze"
 
@@ -257,7 +257,7 @@ msgid "Rename"
 msgstr "Cambia nome"
 
 #: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:99
-#: src/FolderManager/ProjectFolderItem.vala:98
+#: src/FolderManager/ProjectFolderItem.vala:103
 msgid "Move to Trash"
 msgstr "Muovi al cestino"
 
@@ -285,11 +285,17 @@ msgstr "cartella senza titolo"
 msgid "new file"
 msgstr "nuovo file"
 
-#: src/FolderManager/ProjectFolderItem.vala:95
+#: src/FolderManager/ProjectFolderItem.vala:96
 msgid "Close Folder"
 msgstr "Chiudi cartella"
 
-#: src/FolderManager/ProjectFolderItem.vala:339
+#: src/FolderManager/ProjectFolderItem.vala:99
+#, fuzzy
+#| msgid "Close Folder"
+msgid "Close Other Folders"
+msgstr "Chiudi cartella"
+
+#: src/FolderManager/ProjectFolderItem.vala:345
 #, fuzzy
 msgid "Branch"
 msgstr "Cambia ramo"
@@ -503,32 +509,34 @@ msgstr "Solarizzato scuro"
 msgid "Toggle Sidebar"
 msgstr "Mostra o nascondi la barra laterale"
 
-#: src/Widgets/HeaderBar.vala:148
+#: src/Widgets/HeaderBar.vala:154
 msgid "Add New View"
 msgstr "Aggiungi nuova vista"
 
-#: src/Widgets/HeaderBar.vala:152
+#: src/Widgets/HeaderBar.vala:164
 msgid "Remove Current View"
 msgstr "Rimuovi vista corrente"
 
-#: src/Widgets/HeaderBar.vala:179
+#: src/Widgets/HeaderBar.vala:191
 msgid "Menu"
 msgstr "Menu"
 
-#: src/Widgets/Pane.vala:45
-msgid "Add Project Folder…"
-msgstr ""
+#: src/Widgets/Pane.vala:44
+#, fuzzy
+#| msgid "Open a folder"
+msgid "Open project folder…"
+msgstr "Apri una cartella"
 
-#: src/Widgets/Pane.vala:48
-msgid "Manage project folders…"
-msgstr ""
-
-#: src/Widgets/Pane.vala:50
+#: src/Widgets/Pane.vala:46
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Pane.vala:53
+#: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
+msgstr ""
+
+#: src/Widgets/Pane.vala:60
+msgid "Manage project folders"
 msgstr ""
 
 #: src/Widgets/SearchBar.vala:61
@@ -559,11 +567,11 @@ msgstr "Sostituisci"
 msgid "Replace all"
 msgstr "Sostituisci tutto"
 
-#: src/Widgets/SourceView.vala:390
+#: src/Widgets/SourceView.vala:393
 msgid "Sort Selected Lines"
 msgstr "Ordina le linee selezionate"
 
-#: src/Widgets/SourceView.vala:397
+#: src/Widgets/SourceView.vala:406
 msgid "Toggle Comment"
 msgstr "Attiva o disattiva il commento"
 
@@ -664,26 +672,26 @@ msgstr "Carica su Pastebin"
 msgid "Symbols"
 msgstr "Simboli"
 
-#: plugins/terminal/terminal.vala:134 plugins/terminal/terminal.vala:141
+#: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
 msgstr "Mostra terminale"
 
-#: plugins/terminal/terminal.vala:137
+#: plugins/terminal/terminal.vala:179
 msgid "Hide Terminal"
 msgstr "Nascondi terminale"
 
-#: plugins/terminal/terminal.vala:138
+#: plugins/terminal/terminal.vala:180
 msgid "Terminal"
 msgstr "Terminale"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:193
+#: plugins/terminal/terminal.vala:237
 msgid "Copy"
 msgstr "Copia"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:200
+#: plugins/terminal/terminal.vala:244
 msgid "Paste"
 msgstr "Incolla"
 
@@ -718,9 +726,6 @@ msgstr "%s - Autocompletamento parole"
 
 #~ msgid "new file %d"
 #~ msgstr "nuovo file %d"
-
-#~ msgid "Open a folder"
-#~ msgstr "Apri una cartella"
 
 #~ msgid "Could not load icon theme: %s\n"
 #~ msgstr "Impossibile caricare il tema di icone: %s\n"

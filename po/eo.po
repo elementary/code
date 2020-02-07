@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-23 07:21+0000\n"
+"POT-Creation-Date: 2020-01-20 23:07+0000\n"
 "PO-Revision-Date: 2019-12-16 21:04+0000\n"
 "Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
 "Language-Team: Esperanto <https://l10n.elementary.io/projects/code/code/eo/"
@@ -128,7 +128,7 @@ msgstr "_Malfermi"
 msgid "_Cancel"
 msgstr "_Rezigni"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:168
 msgid "Preferences"
 msgstr "Agordoj"
 
@@ -257,7 +257,7 @@ msgid "Rename"
 msgstr "Renomi"
 
 #: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:99
-#: src/FolderManager/ProjectFolderItem.vala:98
+#: src/FolderManager/ProjectFolderItem.vala:103
 msgid "Move to Trash"
 msgstr "Rubujen"
 
@@ -285,11 +285,17 @@ msgstr "sentitola dosierujo"
 msgid "new file"
 msgstr "nova dosiero"
 
-#: src/FolderManager/ProjectFolderItem.vala:95
+#: src/FolderManager/ProjectFolderItem.vala:96
 msgid "Close Folder"
 msgstr "Fermi Dosierujon"
 
-#: src/FolderManager/ProjectFolderItem.vala:339
+#: src/FolderManager/ProjectFolderItem.vala:99
+#, fuzzy
+#| msgid "Close Folder"
+msgid "Close Other Folders"
+msgstr "Fermi Dosierujon"
+
+#: src/FolderManager/ProjectFolderItem.vala:345
 msgid "Branch"
 msgstr "Branĉo"
 
@@ -498,33 +504,37 @@ msgstr "Malhela sunlumigo"
 msgid "Toggle Sidebar"
 msgstr "Baskuli flankbreton"
 
-#: src/Widgets/HeaderBar.vala:148
+#: src/Widgets/HeaderBar.vala:154
 msgid "Add New View"
 msgstr "Aldoni novan vidon"
 
-#: src/Widgets/HeaderBar.vala:152
+#: src/Widgets/HeaderBar.vala:164
 msgid "Remove Current View"
 msgstr "Forigi aktivan vidon"
 
-#: src/Widgets/HeaderBar.vala:179
+#: src/Widgets/HeaderBar.vala:191
 msgid "Menu"
 msgstr "Menuo"
 
-#: src/Widgets/Pane.vala:45
-msgid "Add Project Folder…"
-msgstr "Aldoni projektan dosierujon…"
-
-#: src/Widgets/Pane.vala:48
-msgid "Manage project folders…"
+#: src/Widgets/Pane.vala:44
+#, fuzzy
+#| msgid "Manage project folders…"
+msgid "Open project folder…"
 msgstr "Mastrumi projektajn dosierujojn…"
 
-#: src/Widgets/Pane.vala:50
+#: src/Widgets/Pane.vala:46
 msgid "Collapse All"
 msgstr "Maletendi ĉion"
 
-#: src/Widgets/Pane.vala:53
+#: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
 msgstr "Alfabetigi"
+
+#: src/Widgets/Pane.vala:60
+#, fuzzy
+#| msgid "Manage project folders…"
+msgid "Manage project folders"
+msgstr "Mastrumi projektajn dosierujojn…"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
@@ -554,11 +564,11 @@ msgstr "Anstataŭigi"
 msgid "Replace all"
 msgstr "Anstataŭigi ĉiujn"
 
-#: src/Widgets/SourceView.vala:390
+#: src/Widgets/SourceView.vala:393
 msgid "Sort Selected Lines"
 msgstr "Ordigi elektitajn liniojn"
 
-#: src/Widgets/SourceView.vala:397
+#: src/Widgets/SourceView.vala:406
 msgid "Toggle Comment"
 msgstr "Baskuli komentojn"
 
@@ -659,26 +669,26 @@ msgstr "Alŝuti al Pastebin"
 msgid "Symbols"
 msgstr "Simboloj"
 
-#: plugins/terminal/terminal.vala:134 plugins/terminal/terminal.vala:141
+#: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
 msgstr "Montri la Terminalon"
 
-#: plugins/terminal/terminal.vala:137
+#: plugins/terminal/terminal.vala:179
 msgid "Hide Terminal"
 msgstr "Kaŝi la Terminalon"
 
-#: plugins/terminal/terminal.vala:138
+#: plugins/terminal/terminal.vala:180
 msgid "Terminal"
 msgstr "Terminalo"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:193
+#: plugins/terminal/terminal.vala:237
 msgid "Copy"
 msgstr "Kopii"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:200
+#: plugins/terminal/terminal.vala:244
 msgid "Paste"
 msgstr "Alglui"
 
@@ -707,6 +717,9 @@ msgstr "Bonvolu instali almenaŭ unu [aspell]-vortaron."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - vortkompletigo"
+
+#~ msgid "Add Project Folder…"
+#~ msgstr "Aldoni projektan dosierujon…"
 
 #~ msgid "untitled folder %d"
 #~ msgstr "sentitola dosierujo %d"
