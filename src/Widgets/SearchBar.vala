@@ -87,7 +87,10 @@ namespace Scratch.Widgets {
 
             case_sensitive_button = new Gtk.ToggleButton ();
             case_sensitive_button.image = new Gtk.Image.from_icon_name ("font-select-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-            case_sensitive_button.tooltip_text = _("Case Sensitive");
+            case_sensitive_button.bind_property (
+                "active", case_sensitive_button, "tooltip-text", BindingFlags.DEFAULT,
+                (b, f, ref t) => {t.set_string (f.get_boolean () ? _("Case Sensitive") : _("Case Insensitive"));}
+             );
             case_sensitive_button.clicked.connect (on_search_entry_text_changed);
 
             var search_grid = new Gtk.Grid ();
