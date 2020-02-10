@@ -47,6 +47,11 @@
       <summary></summary>
       <description></description>
     </key>
+    <key name="sidebar-open" type="b">
+      <default>true</default>
+      <summary>Whether sidebar is open</summary>
+      <description>Whether to show the sidebar on opening the application</description>
+    </key>
   </schema>
 
   <schema path="/io/elementary/code/settings/" id="io.elementary.code.settings" gettext-domain="io.elementary.code">

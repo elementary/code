@@ -43,6 +43,7 @@ namespace Scratch {
 
         public int hp1_size { get; set; }
         public int vp_size { get; set; }
+        public bool sidebar_open { get; set; }
 
         public SavedState () {
             base (Constants.PROJECT_NAME + ".saved-state");
