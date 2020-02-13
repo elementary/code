@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-20 23:07+0000\n"
-"PO-Revision-Date: 2019-12-23 07:19+0000\n"
+"PO-Revision-Date: 2020-02-13 19:56+0000\n"
 "Last-Translator: Marko <marko.dolar@gmail.com>\n"
-"Language-Team: Slovenian <https://l10n.elementary.io/projects/code/code/sl/"
-">\n"
+"Language-Team: Slovenian <https://l10n.elementary.io/projects/code/code/sl/>"
+"\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
@@ -41,7 +41,7 @@ msgstr "Lokacija je dostopna samo za branje."
 
 #: src/Application.vala:144
 msgid "The parent directory doesn't exist."
-msgstr "Mapa z datoteko več ne obstaja."
+msgstr "Mapa datoteke ne obstaja več."
 
 #: src/Application.vala:165
 msgid "It is a mountable location."
@@ -138,8 +138,8 @@ msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
-"Rezanje ali kopiranje brez aktivnega izbora bo izrezalo ali skopiralo "
-"celotno trenutno vrstico"
+"Rezanje ali kopiranje brez aktivne izbire bo izrezalo ali skopiralo celotno "
+"trenutno vrstico"
 
 #: src/Dialogs/PreferencesDialog.vala:56
 msgid "General"
@@ -286,17 +286,15 @@ msgstr "neimenovana mapa"
 
 #: src/FolderManager/FolderItem.vala:330
 msgid "new file"
-msgstr "Nova datoteka"
+msgstr "nova datoteka"
 
 #: src/FolderManager/ProjectFolderItem.vala:96
 msgid "Close Folder"
 msgstr "Zapri mapo"
 
 #: src/FolderManager/ProjectFolderItem.vala:99
-#, fuzzy
-#| msgid "Close Folder"
 msgid "Close Other Folders"
-msgstr "Zapri mapo"
+msgstr "Zapri druge mape"
 
 #: src/FolderManager/ProjectFolderItem.vala:345
 msgid "Branch"
@@ -424,11 +422,11 @@ msgstr "Tekstovna datoteka iz %s:%d"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
-msgstr "Označevanje sintakse"
+msgstr "Poudarjanje sintakse"
 
 #: src/Widgets/FormatBar.vala:75
 msgid "Line number"
-msgstr "Pokaži številke vrstic"
+msgstr "Številka vrstice"
 
 #: src/Widgets/FormatBar.vala:101
 msgid "Filter languages"
@@ -466,11 +464,11 @@ msgstr "Odpri datoteko"
 
 #: src/Widgets/HeaderBar.vala:48
 msgid "Project templates"
-msgstr "Projektne predloge"
+msgstr "Predloge projektov"
 
 #: src/Widgets/HeaderBar.vala:54
 msgid "Save this file"
-msgstr "Shrani datoteko"
+msgstr "Shrani to datoteko"
 
 #: src/Widgets/HeaderBar.vala:61
 msgid "Save this file with a different name"
@@ -478,7 +476,7 @@ msgstr "Shrani datoteko pod drugim imenom"
 
 #: src/Widgets/HeaderBar.vala:68
 msgid "Restore this file"
-msgstr "Obnovi datoteko"
+msgstr "Obnovi to datoteko"
 
 #: src/Widgets/HeaderBar.vala:83
 msgid "Share"
@@ -502,11 +500,11 @@ msgstr "Visok kontrast"
 
 #: src/Widgets/HeaderBar.vala:126
 msgid "Solarized Light"
-msgstr "Solarized Svetla"
+msgstr "Solarized svetla"
 
 #: src/Widgets/HeaderBar.vala:134
 msgid "Solarized Dark"
-msgstr "Solarized Temna"
+msgstr "Solarized temna"
 
 #: src/Widgets/HeaderBar.vala:144
 msgid "Toggle Sidebar"
@@ -525,10 +523,8 @@ msgid "Menu"
 msgstr "Meni"
 
 #: src/Widgets/Pane.vala:44
-#, fuzzy
-#| msgid "Manage project folders…"
 msgid "Open project folder…"
-msgstr "Upravljaj s projektnimi mapami…"
+msgstr "Odpri mapo projekta…"
 
 #: src/Widgets/Pane.vala:46
 msgid "Collapse All"
@@ -539,10 +535,8 @@ msgid "Alphabetize"
 msgstr "Po abecedi"
 
 #: src/Widgets/Pane.vala:60
-#, fuzzy
-#| msgid "Manage project folders…"
 msgid "Manage project folders"
-msgstr "Upravljaj s projektnimi mapami…"
+msgstr "Upravljaj s projektnimi mapami"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
@@ -558,7 +552,7 @@ msgstr "Išči nazaj"
 
 #: src/Widgets/SearchBar.vala:85
 msgid "Cyclic Search"
-msgstr "Išči ponovno od začetka"
+msgstr "Krožno iskanje"
 
 #: src/Widgets/SearchBar.vala:101
 msgid "Replace With"
@@ -626,7 +620,7 @@ msgstr "Vrsta:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
 msgid "Others…"
-msgstr "Ostali…"
+msgstr "Drugo…"
 
 #: plugins/pastebin/pastebin_dialog.vala:286
 msgid "Expiry time:"
