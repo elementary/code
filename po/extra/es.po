@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-20 23:07+0000\n"
-"PO-Revision-Date: 2020-02-07 16:08+0000\n"
+"PO-Revision-Date: 2020-02-13 19:56+0000\n"
 "Last-Translator: Daniel R. <riesp@pm.me>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/extra/es/>\n"
 "Language: es\n"
@@ -178,11 +178,13 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:79
 msgid "Fix opening files from relative paths in Terminal"
-msgstr ""
+msgstr "Arreglar archivos abiertos desde rutas relativas en la Terminal"
 
 #: data/io.elementary.code.appdata.xml.in:80
 msgid "Fix null file dialog when opening a new window via the dock"
 msgstr ""
+"Solucionar el mensaje de archivo nulo cuando se abre una nueva ventana a "
+"través del dock."
 
 #: data/io.elementary.code.appdata.xml.in:81
 msgid "Add \"=\" as a zoom key"
@@ -194,7 +196,7 @@ msgstr "Cambiar el icono de búsqueda cuando no se encuentran resultados"
 
 #: data/io.elementary.code.appdata.xml.in:83
 msgid "Enter name of new file before creating it"
-msgstr ""
+msgstr "Introducir el nombre del nuevo archivo antes de crearlo"
 
 #: data/io.elementary.code.appdata.xml.in:91
 msgid "Use Granite.MessageDialog throughout"
