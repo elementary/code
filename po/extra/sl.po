@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-20 23:07+0000\n"
-"PO-Revision-Date: 2019-12-23 07:19+0000\n"
+"PO-Revision-Date: 2020-02-13 19:56+0000\n"
 "Last-Translator: Marko <marko.dolar@gmail.com>\n"
-"Language-Team: Slovenian <https://l10n.elementary.io/projects/code/extra/sl/"
-">\n"
+"Language-Team: Slovenian <https://l10n.elementary.io/projects/code/extra/sl/>"
+"\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
@@ -36,6 +36,9 @@ msgid ""
 "they're always up-to-date. Plus it remembers your tabs so you never lose "
 "your spot, even in between sessions."
 msgstr ""
+"Koda je urejevalnik, ki deluje za vas. Samodejno shrani vaše datoteke, kar "
+"pomeni da so vedno posodobljene. Zapomni si tudi vaše zavihke, tako da "
+"nikoli ne izgubite svojega okolja, tudi med sejami."
 
 #: data/io.elementary.code.appdata.xml.in:16
 msgid ""
@@ -44,6 +47,10 @@ msgid ""
 "a full-blown IDE; it's your choice. And with a handful of useful "
 "preferences, you can tweak the behavior and interface to your liking."
 msgstr ""
+"Prilagodite si po svoje. Koda je napisana v celoti, da omogoča razširitev. "
+"Po vaši izbiri  lahko pustite stvari preproste ali namestite razširitve, ki "
+"Kodo spremenijo v popoln IDE. In z nekaj uporabnimi nastavitvami lahko "
+"spremenite vedenje in vmesnik po vašem okusu."
 
 #: data/io.elementary.code.appdata.xml.in:22
 msgid ""
@@ -51,6 +58,9 @@ msgid ""
 "meaning it closely follows the high standards of design, speed, and "
 "consistency. It's sexy, but not distracting."
 msgstr ""
+"To je elementary. Koda je narejena kot popoln urejevalnik za elementary, kar "
+"pomeni da sledi visokim standardom dizajna, hitrosti in konsistence. Je "
+"privlačna a ne moteča."
 
 #: data/io.elementary.code.appdata.xml.in:27
 msgid ""
@@ -59,6 +69,9 @@ msgid ""
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
+"Deluje z vašim jezikom. Če izdelujete kodo v Vali, skriptnem jeziku PHP, ali "
+"označujete stvari z HTML-jem, Koda poskrbi za vas. Izkusite označevanje "
+"sintakse za skoraj vse programske, skriptne in označevalne jezike."
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid ""
@@ -66,7 +79,7 @@ msgid ""
 "Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
 "Objective C, Pascal, Perl, Python, Ruby, XML."
 msgstr ""
-"Drugi jeziki z označeno sintakso: Bash, C, C#, C++. Cmake, CSS, .Desktop, "
+"Drugi jeziki s poudarjeno sintakso: Bash, C, C#, C++. Cmake, CSS, .Desktop, "
 "Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
 "Objective C, Pascal, Perl, Python, Ruby, XML."
 
@@ -76,19 +89,19 @@ msgstr "Dodatne zmožnosti vključujejo:"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "syntax highlighting with gtksourceview-3"
-msgstr ""
+msgstr "poudarjanje sintakse z gtksourceview-3"
 
 #: data/io.elementary.code.appdata.xml.in:43
 msgid "a find bar to search the words in the files"
-msgstr ""
+msgstr "iskalna vrstica za iskanje besed v datotekah"
 
 #: data/io.elementary.code.appdata.xml.in:44
 msgid "tab and split documents system"
-msgstr ""
+msgstr "sistem zavihkov in razdelitev dokumentov"
 
 #: data/io.elementary.code.appdata.xml.in:45
 msgid "lots of others"
-msgstr ""
+msgstr "veliko drugega"
 
 #: data/io.elementary.code.appdata.xml.in:51
 #: data/io.elementary.code.appdata.xml.in:64
@@ -98,6 +111,8 @@ msgstr "Nove zmožnosti:"
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "New \"Close Other Folders\" menu item to help clean up your sidebar"
 msgstr ""
+"Nova menijska vrstica \"Zapri ostale mape\" za pomoč pri čiščenju stranske "
+"vrstice"
 
 #: data/io.elementary.code.appdata.xml.in:55
 #: data/io.elementary.code.appdata.xml.in:75
@@ -106,7 +121,7 @@ msgstr "Druge posodobitve:"
 
 #: data/io.elementary.code.appdata.xml.in:57
 msgid "Add keyboard shortcuts to menu items"
-msgstr ""
+msgstr "Dodaj bližnjice za tipkovnico v meni"
 
 #: data/io.elementary.code.appdata.xml.in:58
 #: data/io.elementary.code.appdata.xml.in:84
@@ -119,18 +134,19 @@ msgstr "Posodobljeni prevodi"
 #: data/io.elementary.code.appdata.xml.in:66
 msgid "Visually deprioritize .gitignored files in project sidebar"
 msgstr ""
+"Manjša vidna prednost za .gitignore datoteke v projektni stranski vrstici"
 
 #: data/io.elementary.code.appdata.xml.in:67
 msgid "Smart cut/copy lines with no active selection"
-msgstr ""
+msgstr "Pameten izrez in kopiranje vrstic brez aktivne izbire"
 
 #: data/io.elementary.code.appdata.xml.in:68
 msgid "Add a confirmation dialog to the \"Restore\" action"
-msgstr ""
+msgstr "Dodaj potrditveni dialog za \"Obnovi\" akcijo"
 
 #: data/io.elementary.code.appdata.xml.in:69
 msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
-msgstr ""
+msgstr "V glavni meni upravitelja map dodan \"Odpri v\""
 
 #: data/io.elementary.code.appdata.xml.in:70
 msgid "Don't show temporary files in the folder manager"
@@ -138,31 +154,31 @@ msgstr "Ne pokaži začasnih datotek v upravitelju map"
 
 #: data/io.elementary.code.appdata.xml.in:71
 msgid "Add brackets completion and auto-indent by default"
-msgstr ""
+msgstr "Dodaj zaključevanje oklepajev in samodejno zamikanje kot privzeto"
 
 #: data/io.elementary.code.appdata.xml.in:72
 msgid "Zoom terminal plugin with keyboard"
-msgstr ""
+msgstr "Spreminjanje velikosti terminala s tipkovnico"
 
 #: data/io.elementary.code.appdata.xml.in:73
 msgid "Honor global privacy setting when saving and restoring"
-msgstr ""
+msgstr "Spoštuj globalne nastavitve zasebnosti pri shranjevanju in obnovitvi"
 
 #: data/io.elementary.code.appdata.xml.in:77
 msgid "Simplify \"Draw spaces\" preference"
-msgstr ""
+msgstr "Poenostavitev nastavitve za prikaz presledkov"
 
 #: data/io.elementary.code.appdata.xml.in:78
 msgid "Fix the keyboard shortcut for going backwards in search results"
-msgstr ""
+msgstr "Popravi tipkovnično bližnjico za vrnitev na prejšnji iskalni rezultat"
 
 #: data/io.elementary.code.appdata.xml.in:79
 msgid "Fix opening files from relative paths in Terminal"
-msgstr ""
+msgstr "Popravljeno odpiranje datotek z relativnimi potmi iz terminala"
 
 #: data/io.elementary.code.appdata.xml.in:80
 msgid "Fix null file dialog when opening a new window via the dock"
-msgstr ""
+msgstr "Popravljen prazen dialog, ko se odpre novo okno preko sidrišča"
 
 #: data/io.elementary.code.appdata.xml.in:81
 msgid "Add \"=\" as a zoom key"
@@ -182,7 +198,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:92
 msgid "Include non-text files in sidebar"
-msgstr ""
+msgstr "Prikaži ne-besedilne datoteke v stranski vrstici"
 
 #: data/io.elementary.code.appdata.xml.in:93
 msgid "Fix Remove Current View"
@@ -219,11 +235,11 @@ msgstr "Popravki pri shranjevanju datotek"
 
 #: data/io.elementary.code.appdata.xml.in:114
 msgid "Don't add temporary files to tab restore"
-msgstr ""
+msgstr "Ne dodajaj začasnih datotek h obnovitvi zavihkov"
 
 #: data/io.elementary.code.appdata.xml.in:122
 msgid "Don't recreate deleted files when restoring session"
-msgstr ""
+msgstr "Ne poustvarjaj izbrisanih datotek pri obnovitvi seje"
 
 #: data/io.elementary.code.appdata.xml.in:123
 msgid "Restore line wrap preference"
@@ -239,7 +255,7 @@ msgstr "Manjši popravki"
 
 #: data/io.elementary.code.appdata.xml.in:165
 msgid "elementary LLC."
-msgstr ""
+msgstr "elementary LLC."
 
 #: data/io.elementary.code.desktop.in.in:5
 msgid "Edit code files"
@@ -251,11 +267,11 @@ msgstr "Urejevalnik kode"
 
 #: data/io.elementary.code.desktop.in.in:8
 msgid "io.elementary.code"
-msgstr ""
+msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
 msgid "text;IDE;scratch;"
-msgstr ""
+msgstr "besedilo;tekst;code;text;IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
