@@ -277,6 +277,8 @@ namespace Scratch {
                 search_bar.highlight_none ();
             });
 
+            Scratch.settings.schema.bind ("cyclic-search", search_bar.tool_cycle_search, "active", SettingsBindFlags.DEFAULT);
+
             // SlitView
             split_view = new Scratch.Widgets.SplitView (this);
 

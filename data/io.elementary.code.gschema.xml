@@ -150,6 +150,11 @@
       <summary>Request dark Gtk stylesheet variant</summary>
       <description>Switches between dark and light style</description>
     </key>
+    <key name="cyclic-search" type="b">
+      <default>false</default>
+      <summary>Whether search is cyclic</summary>
+      <description>Whether text searching should cycle back to the beginning of the document after reaching the end of the document.</description>
+    </key>
   </schema>
   <schema path="/io/elementary/code/services/" id="io.elementary.code.services" gettext-domain="io.elementary.code">
     <key name="paste-format-code" type="s">
