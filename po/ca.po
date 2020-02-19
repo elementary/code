@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-20 23:07+0000\n"
+"POT-Creation-Date: 2020-02-14 00:36+0000\n"
 "PO-Revision-Date: 2020-01-22 15:53+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
@@ -98,32 +98,32 @@ msgstr "Oculta la barra de cerca"
 msgid "Zeitgeist Datasource for Code"
 msgstr "Font de dades del Zeitgeist per al Codi"
 
-#: src/MainWindow.vala:771 src/Services/Document.vala:502
+#: src/MainWindow.vala:773 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Tots els fitxers"
 
-#: src/MainWindow.vala:775 src/Services/Document.vala:506
+#: src/MainWindow.vala:777 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Fitxers de text"
 
-#: src/MainWindow.vala:779
+#: src/MainWindow.vala:781
 msgid "Open some files"
 msgstr "Obriu alguns fitxers"
 
-#: src/MainWindow.vala:782
+#: src/MainWindow.vala:784
 msgid "Open"
 msgstr "Obre"
 
-#: src/MainWindow.vala:783 src/Services/Document.vala:401
+#: src/MainWindow.vala:785 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: src/MainWindow.vala:808
+#: src/MainWindow.vala:810
 msgid "_Open"
 msgstr "_Obre"
 
-#: src/MainWindow.vala:809
+#: src/MainWindow.vala:811
 msgid "_Cancel"
 msgstr "_Cancel·la"
 
@@ -242,23 +242,23 @@ msgstr "No el restauris"
 msgid "Restore Anyway"
 msgstr "Restaura'l tanmateix"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:115
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:117
 msgid "Other Application…"
 msgstr "Una altra aplicació…"
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:155
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:157
 msgid "Open In"
 msgstr "Obre amb"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:90
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:92
 msgid "Other Actions"
 msgstr "Altres accions"
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:93
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:95
 msgid "Rename"
 msgstr "Canvia'n el nom"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:99
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:101
 #: src/FolderManager/ProjectFolderItem.vala:103
 msgid "Move to Trash"
 msgstr "Mou a la paperera"
@@ -267,23 +267,23 @@ msgstr "Mou a la paperera"
 msgid "Folders"
 msgstr "Carpetes"
 
-#: src/FolderManager/FolderItem.vala:162
+#: src/FolderManager/FolderItem.vala:164
 msgid "Folder"
 msgstr "Carpeta"
 
-#: src/FolderManager/FolderItem.vala:165
+#: src/FolderManager/FolderItem.vala:167
 msgid "Empty File"
 msgstr "Fitxer buit"
 
-#: src/FolderManager/FolderItem.vala:172
+#: src/FolderManager/FolderItem.vala:174
 msgid "New"
 msgstr "Nou"
 
-#: src/FolderManager/FolderItem.vala:330
+#: src/FolderManager/FolderItem.vala:332
 msgid "untitled folder"
 msgstr "carpeta sense nom"
 
-#: src/FolderManager/FolderItem.vala:330
+#: src/FolderManager/FolderItem.vala:332
 msgid "new file"
 msgstr "fitxer nou"
 

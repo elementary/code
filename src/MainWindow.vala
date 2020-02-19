@@ -208,7 +208,25 @@ namespace Scratch {
             set_size_request (450, 400);
             set_hide_titlebar_when_maximized (false);
 
-            restore_saved_state ();
+            default_width = Scratch.saved_state.window_width;
+            default_height = Scratch.saved_state.window_height;
+
+            var gtk_settings = Gtk.Settings.get_default ();
+            gtk_settings.gtk_application_prefer_dark_theme = Scratch.settings.prefer_dark_style;
+
+            switch (Scratch.saved_state.window_state) {
+                case ScratchWindowState.MAXIMIZED:
+                    maximize ();
+                    break;
+                case ScratchWindowState.FULLSCREEN:
+                    fullscreen ();
+                    break;
+                default:
+                    if (Scratch.saved_state.window_x != -1 && Scratch.saved_state.window_y != -1) {
+                        move (Scratch.saved_state.window_x, Scratch.saved_state.window_y);
+                    }
+                    break;
+            }
 
             clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
 
@@ -276,6 +294,8 @@ namespace Scratch {
                 search_bar.set_search_string ("");
                 search_bar.highlight_none ();
             });
+
+            Scratch.settings.schema.bind ("cyclic-search", search_bar.tool_cycle_search, "active", SettingsBindFlags.DEFAULT);
 
             // SlitView
             split_view = new Scratch.Widgets.SplitView (this);
@@ -598,27 +618,6 @@ namespace Scratch {
             }
 
             return true;
-        }
-
-        // Save windows size and state
-        private void restore_saved_state () {
-            default_width = Scratch.saved_state.window_width;
-            default_height = Scratch.saved_state.window_height;
-
-            var gtk_settings = Gtk.Settings.get_default ();
-            gtk_settings.gtk_application_prefer_dark_theme = Scratch.settings.prefer_dark_style;
-
-            switch (Scratch.saved_state.window_state) {
-                case ScratchWindowState.MAXIMIZED:
-                    maximize ();
-                    break;
-                case ScratchWindowState.FULLSCREEN:
-                    fullscreen ();
-                    break;
-                default:
-                    move (Scratch.saved_state.window_x, Scratch.saved_state.window_y);
-                    break;
-            }
         }
 
         // Save session informations different from window state
