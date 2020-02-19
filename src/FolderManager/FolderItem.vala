@@ -37,6 +37,8 @@ namespace Scratch.FolderManager {
         }
 
         construct {
+            selectable = false;
+
             dummy = new Granite.Widgets.SourceList.Item ("");
             add (dummy);
 

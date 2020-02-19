@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-23 07:21+0000\n"
-"PO-Revision-Date: 2019-12-16 21:05+0000\n"
+"POT-Creation-Date: 2020-02-14 00:36+0000\n"
+"PO-Revision-Date: 2020-01-22 15:53+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
 "Language: fr\n"
@@ -98,36 +98,36 @@ msgstr "Cacher la barre de recherche"
 msgid "Zeitgeist Datasource for Code"
 msgstr "Source de données Zeitgeist pour Code"
 
-#: src/MainWindow.vala:771 src/Services/Document.vala:502
+#: src/MainWindow.vala:773 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Tous les fichiers"
 
-#: src/MainWindow.vala:775 src/Services/Document.vala:506
+#: src/MainWindow.vala:777 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Fichiers texte"
 
-#: src/MainWindow.vala:779
+#: src/MainWindow.vala:781
 msgid "Open some files"
 msgstr "Ouvrez des fichiers"
 
-#: src/MainWindow.vala:782
+#: src/MainWindow.vala:784
 msgid "Open"
 msgstr "Ouvrir"
 
-#: src/MainWindow.vala:783 src/Services/Document.vala:401
+#: src/MainWindow.vala:785 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Annuler"
 
-#: src/MainWindow.vala:808
+#: src/MainWindow.vala:810
 msgid "_Open"
 msgstr "_Ouvrir"
 
-#: src/MainWindow.vala:809
+#: src/MainWindow.vala:811
 msgid "_Cancel"
 msgstr "_Annuler"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:168
 msgid "Preferences"
 msgstr "Préférences"
 
@@ -242,24 +242,24 @@ msgstr "Ne pas restaurer"
 msgid "Restore Anyway"
 msgstr "Restaurer quand-même"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:115
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:117
 msgid "Other Application…"
 msgstr "Une autre application…"
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:155
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:157
 msgid "Open In"
 msgstr "Ouvrir dans"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:90
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:92
 msgid "Other Actions"
 msgstr "Autres actions"
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:93
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:95
 msgid "Rename"
 msgstr "Renommer"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:99
-#: src/FolderManager/ProjectFolderItem.vala:98
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:101
+#: src/FolderManager/ProjectFolderItem.vala:103
 msgid "Move to Trash"
 msgstr "Déplacer dans la corbeille"
 
@@ -267,31 +267,35 @@ msgstr "Déplacer dans la corbeille"
 msgid "Folders"
 msgstr "Dossiers"
 
-#: src/FolderManager/FolderItem.vala:162
+#: src/FolderManager/FolderItem.vala:164
 msgid "Folder"
 msgstr "Dossier"
 
-#: src/FolderManager/FolderItem.vala:165
+#: src/FolderManager/FolderItem.vala:167
 msgid "Empty File"
 msgstr "Fichier vide"
 
-#: src/FolderManager/FolderItem.vala:172
+#: src/FolderManager/FolderItem.vala:174
 msgid "New"
 msgstr "Nouveau"
 
-#: src/FolderManager/FolderItem.vala:330
+#: src/FolderManager/FolderItem.vala:332
 msgid "untitled folder"
 msgstr "dossier sans-titre"
 
-#: src/FolderManager/FolderItem.vala:330
+#: src/FolderManager/FolderItem.vala:332
 msgid "new file"
 msgstr "nouveau fichier"
 
-#: src/FolderManager/ProjectFolderItem.vala:95
+#: src/FolderManager/ProjectFolderItem.vala:96
 msgid "Close Folder"
 msgstr "Fermer ce dossier"
 
-#: src/FolderManager/ProjectFolderItem.vala:339
+#: src/FolderManager/ProjectFolderItem.vala:99
+msgid "Close Other Folders"
+msgstr "Fermer les autres dossiers"
+
+#: src/FolderManager/ProjectFolderItem.vala:345
 msgid "Branch"
 msgstr "Branche"
 
@@ -504,33 +508,33 @@ msgstr "Solarized Dark"
 msgid "Toggle Sidebar"
 msgstr "Panneau latéral"
 
-#: src/Widgets/HeaderBar.vala:148
+#: src/Widgets/HeaderBar.vala:154
 msgid "Add New View"
 msgstr "Ajouter une nouvelle vue"
 
-#: src/Widgets/HeaderBar.vala:152
+#: src/Widgets/HeaderBar.vala:164
 msgid "Remove Current View"
 msgstr "Supprimer la vue courante"
 
-#: src/Widgets/HeaderBar.vala:179
+#: src/Widgets/HeaderBar.vala:191
 msgid "Menu"
 msgstr "Menu"
 
-#: src/Widgets/Pane.vala:45
-msgid "Add Project Folder…"
-msgstr "Ajouter un dossier de projet…"
+#: src/Widgets/Pane.vala:44
+msgid "Open project folder…"
+msgstr "Ouvrir le dossier du projet…"
 
-#: src/Widgets/Pane.vala:48
-msgid "Manage project folders…"
-msgstr "Gérer les dossiers de projet…"
-
-#: src/Widgets/Pane.vala:50
+#: src/Widgets/Pane.vala:46
 msgid "Collapse All"
 msgstr "Tout réduire"
 
-#: src/Widgets/Pane.vala:53
+#: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
 msgstr "Trier par ordre alphabétique"
+
+#: src/Widgets/Pane.vala:60
+msgid "Manage project folders"
+msgstr "Gérer les dossiers du projet"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
@@ -560,11 +564,11 @@ msgstr "Remplacer"
 msgid "Replace all"
 msgstr "Tout remplacer"
 
-#: src/Widgets/SourceView.vala:390
+#: src/Widgets/SourceView.vala:393
 msgid "Sort Selected Lines"
 msgstr "Trier les lignes sélectionnées"
 
-#: src/Widgets/SourceView.vala:397
+#: src/Widgets/SourceView.vala:406
 msgid "Toggle Comment"
 msgstr "Commenter/Décommenter"
 
@@ -665,26 +669,26 @@ msgstr "Envoyer vers Pastebin"
 msgid "Symbols"
 msgstr "Symboles"
 
-#: plugins/terminal/terminal.vala:134 plugins/terminal/terminal.vala:141
+#: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
 msgstr "Afficher le terminal"
 
-#: plugins/terminal/terminal.vala:137
+#: plugins/terminal/terminal.vala:179
 msgid "Hide Terminal"
 msgstr "Cacher le terminal"
 
-#: plugins/terminal/terminal.vala:138
+#: plugins/terminal/terminal.vala:180
 msgid "Terminal"
 msgstr "Terminal"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:193
+#: plugins/terminal/terminal.vala:237
 msgid "Copy"
 msgstr "Copier"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:200
+#: plugins/terminal/terminal.vala:244
 msgid "Paste"
 msgstr "Coller"
 
@@ -713,6 +717,9 @@ msgstr "Veuillez installer au moins un dictionnaire [aspell]."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Autocomplétion"
+
+#~ msgid "Add Project Folder…"
+#~ msgstr "Ajouter un dossier de projet…"
 
 #~ msgid "untitled folder %d"
 #~ msgstr "dossier sans-titre %d"

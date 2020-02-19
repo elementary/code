@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-23 07:21+0000\n"
-"PO-Revision-Date: 2019-12-27 06:24+0000\n"
+"POT-Creation-Date: 2020-02-14 00:36+0000\n"
+"PO-Revision-Date: 2020-01-22 15:53+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/code/code/mr/>\n"
 "Language: mr\n"
@@ -93,36 +93,36 @@ msgstr "सर्च बार लपवा"
 msgid "Zeitgeist Datasource for Code"
 msgstr "कोड साठी Zeitgeist डेटा स्त्रोत"
 
-#: src/MainWindow.vala:771 src/Services/Document.vala:502
+#: src/MainWindow.vala:773 src/Services/Document.vala:502
 msgid "All files"
 msgstr "सर्व फाईल्स"
 
-#: src/MainWindow.vala:775 src/Services/Document.vala:506
+#: src/MainWindow.vala:777 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "टेक्स्ट फाईल्स"
 
-#: src/MainWindow.vala:779
+#: src/MainWindow.vala:781
 msgid "Open some files"
 msgstr "काही फाईल्स उघडा"
 
-#: src/MainWindow.vala:782
+#: src/MainWindow.vala:784
 msgid "Open"
 msgstr "उघडा"
 
-#: src/MainWindow.vala:783 src/Services/Document.vala:401
+#: src/MainWindow.vala:785 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "रद्द करा"
 
-#: src/MainWindow.vala:808
+#: src/MainWindow.vala:810
 msgid "_Open"
 msgstr "उघडा"
 
-#: src/MainWindow.vala:809
+#: src/MainWindow.vala:811
 msgid "_Cancel"
 msgstr "रद्द करा"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:168
 msgid "Preferences"
 msgstr "प्राधान्ये"
 
@@ -131,8 +131,8 @@ msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
-"सक्रिय निवडीशिवाय कटिंग किंवा कॉपी केल्याने संपूर्ण वर्तमान ओळ कापली जाईल "
-"किंवा कॉपी होईल"
+"सक्रिय निवडीशिवाय कटिंग किंवा कॉपी केल्याने संपूर्ण वर्तमान ओळ कापली जाईल किंवा कॉपी "
+"होईल"
 
 #: src/Dialogs/PreferencesDialog.vala:56
 msgid "General"
@@ -235,24 +235,24 @@ msgstr "पुनर्संचयित करू नका"
 msgid "Restore Anyway"
 msgstr "तरीही पुनर्संचयित करा"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:115
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:117
 msgid "Other Application…"
 msgstr "अन्य अप्लिकेशन…"
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:155
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:157
 msgid "Open In"
 msgstr "उघडण्यास वापरा"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:90
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:92
 msgid "Other Actions"
 msgstr "अन्य कारवाई"
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:93
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:95
 msgid "Rename"
 msgstr "नाव बदला"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:99
-#: src/FolderManager/ProjectFolderItem.vala:98
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:101
+#: src/FolderManager/ProjectFolderItem.vala:103
 msgid "Move to Trash"
 msgstr "कचऱ्या मध्ये टाका"
 
@@ -260,31 +260,35 @@ msgstr "कचऱ्या मध्ये टाका"
 msgid "Folders"
 msgstr "फोल्डर"
 
-#: src/FolderManager/FolderItem.vala:162
+#: src/FolderManager/FolderItem.vala:164
 msgid "Folder"
 msgstr "फोल्डर"
 
-#: src/FolderManager/FolderItem.vala:165
+#: src/FolderManager/FolderItem.vala:167
 msgid "Empty File"
 msgstr "रिकामी फाईल"
 
-#: src/FolderManager/FolderItem.vala:172
+#: src/FolderManager/FolderItem.vala:174
 msgid "New"
 msgstr "नवीन"
 
-#: src/FolderManager/FolderItem.vala:330
+#: src/FolderManager/FolderItem.vala:332
 msgid "untitled folder"
 msgstr "निनावी फोल्डर"
 
-#: src/FolderManager/FolderItem.vala:330
+#: src/FolderManager/FolderItem.vala:332
 msgid "new file"
 msgstr "नवीन फाईल"
 
-#: src/FolderManager/ProjectFolderItem.vala:95
+#: src/FolderManager/ProjectFolderItem.vala:96
 msgid "Close Folder"
 msgstr "फोल्डर बंद करा"
 
-#: src/FolderManager/ProjectFolderItem.vala:339
+#: src/FolderManager/ProjectFolderItem.vala:99
+msgid "Close Other Folders"
+msgstr "इतर फोल्डर्स बंद करा"
+
+#: src/FolderManager/ProjectFolderItem.vala:345
 msgid "Branch"
 msgstr "ब्रँच"
 
@@ -494,33 +498,33 @@ msgstr "सोलारिज्ड गडद"
 msgid "Toggle Sidebar"
 msgstr "साईडबार टॉगल करा"
 
-#: src/Widgets/HeaderBar.vala:148
+#: src/Widgets/HeaderBar.vala:154
 msgid "Add New View"
 msgstr "नवीन मांडणी"
 
-#: src/Widgets/HeaderBar.vala:152
+#: src/Widgets/HeaderBar.vala:164
 msgid "Remove Current View"
 msgstr "आत्ताची मांडणी काढून टाका"
 
-#: src/Widgets/HeaderBar.vala:179
+#: src/Widgets/HeaderBar.vala:191
 msgid "Menu"
 msgstr "मेन्यू"
 
-#: src/Widgets/Pane.vala:45
-msgid "Add Project Folder…"
-msgstr "प्रोजेक्ट फोल्डर जोडा…"
+#: src/Widgets/Pane.vala:44
+msgid "Open project folder…"
+msgstr "प्रोजेक्ट फोल्डर उघडा …"
 
-#: src/Widgets/Pane.vala:48
-msgid "Manage project folders…"
-msgstr "प्रोजेक्ट फोल्डर व्यवस्थापित करा…"
-
-#: src/Widgets/Pane.vala:50
+#: src/Widgets/Pane.vala:46
 msgid "Collapse All"
 msgstr "सर्व संकुचित करा"
 
-#: src/Widgets/Pane.vala:53
+#: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
 msgstr "अल्फाबेटाईझ"
+
+#: src/Widgets/Pane.vala:60
+msgid "Manage project folders"
+msgstr "प्रोजेक्ट फोल्डर व्यवस्थापित करा"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
@@ -550,11 +554,11 @@ msgstr "बदला"
 msgid "Replace all"
 msgstr "सर्व ठिकाणी बदला"
 
-#: src/Widgets/SourceView.vala:390
+#: src/Widgets/SourceView.vala:393
 msgid "Sort Selected Lines"
 msgstr "निवडलेल्या ओळी क्रमबद्ध करा"
 
-#: src/Widgets/SourceView.vala:397
+#: src/Widgets/SourceView.vala:406
 msgid "Toggle Comment"
 msgstr "टिप्पणी टॉगल  करा"
 
@@ -655,26 +659,26 @@ msgstr "पेस्टबीन वर अपलोड करा"
 msgid "Symbols"
 msgstr "सिम्बॉल्स"
 
-#: plugins/terminal/terminal.vala:134 plugins/terminal/terminal.vala:141
+#: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
 msgstr "टर्मिनल दाखवा"
 
-#: plugins/terminal/terminal.vala:137
+#: plugins/terminal/terminal.vala:179
 msgid "Hide Terminal"
 msgstr "टर्मिनल लपवा"
 
-#: plugins/terminal/terminal.vala:138
+#: plugins/terminal/terminal.vala:180
 msgid "Terminal"
 msgstr "टर्मिनल"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:193
+#: plugins/terminal/terminal.vala:237
 msgid "Copy"
 msgstr "कॉपी करा"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:200
+#: plugins/terminal/terminal.vala:244
 msgid "Paste"
 msgstr "चिकटवा"
 
@@ -703,6 +707,9 @@ msgstr "कृपया कमीत कमी एक [aspell] dictionary इन
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s -  शब्द संपूर्ण"
+
+#~ msgid "Add Project Folder…"
+#~ msgstr "प्रोजेक्ट फोल्डर जोडा…"
 
 #~ msgid "untitled folder %d"
 #~ msgstr "निनावी फोल्डर %d"

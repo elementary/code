@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-23 07:21+0000\n"
+"POT-Creation-Date: 2020-02-14 00:36+0000\n"
 "PO-Revision-Date: 2019-01-28 21:43+0000\n"
 "Last-Translator: Kaj Printz Madsen <kajprintz@gmail.com>\n"
 "Language-Team: Danish <https://weblate.elementary.io/projects/code/code/da/"
@@ -101,36 +101,36 @@ msgstr "Skjul søgelinjen"
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zeitgeist-datakilde til Scratch"
 
-#: src/MainWindow.vala:771 src/Services/Document.vala:502
+#: src/MainWindow.vala:773 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Alle filer"
 
-#: src/MainWindow.vala:775 src/Services/Document.vala:506
+#: src/MainWindow.vala:777 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Tekstfiler"
 
-#: src/MainWindow.vala:779
+#: src/MainWindow.vala:781
 msgid "Open some files"
 msgstr "Åbn nogle filer"
 
-#: src/MainWindow.vala:782
+#: src/MainWindow.vala:784
 msgid "Open"
 msgstr "Åbn"
 
-#: src/MainWindow.vala:783 src/Services/Document.vala:401
+#: src/MainWindow.vala:785 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Annuller"
 
-#: src/MainWindow.vala:808
+#: src/MainWindow.vala:810
 msgid "_Open"
 msgstr "_Åbn"
 
-#: src/MainWindow.vala:809
+#: src/MainWindow.vala:811
 msgid "_Cancel"
 msgstr "_Annuller"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:168
 msgid "Preferences"
 msgstr "Præferencer"
 
@@ -242,24 +242,24 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr "Indlæs Alligevel"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:115
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:117
 msgid "Other Application…"
 msgstr "Anden Applikation…"
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:155
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:157
 msgid "Open In"
 msgstr "Åbn I"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:90
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:92
 msgid "Other Actions"
 msgstr "Andre Handlinger"
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:93
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:95
 msgid "Rename"
 msgstr "Omdøb"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:99
-#: src/FolderManager/ProjectFolderItem.vala:98
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:101
+#: src/FolderManager/ProjectFolderItem.vala:103
 msgid "Move to Trash"
 msgstr "Flyt til Skrald"
 
@@ -267,31 +267,37 @@ msgstr "Flyt til Skrald"
 msgid "Folders"
 msgstr "Mapper"
 
-#: src/FolderManager/FolderItem.vala:162
+#: src/FolderManager/FolderItem.vala:164
 msgid "Folder"
 msgstr "Mappe"
 
-#: src/FolderManager/FolderItem.vala:165
+#: src/FolderManager/FolderItem.vala:167
 msgid "Empty File"
 msgstr "Tom Fil"
 
-#: src/FolderManager/FolderItem.vala:172
+#: src/FolderManager/FolderItem.vala:174
 msgid "New"
 msgstr "Ny"
 
-#: src/FolderManager/FolderItem.vala:330
+#: src/FolderManager/FolderItem.vala:332
 msgid "untitled folder"
 msgstr "unavngivet mappe"
 
-#: src/FolderManager/FolderItem.vala:330
+#: src/FolderManager/FolderItem.vala:332
 msgid "new file"
 msgstr "ny fil"
 
-#: src/FolderManager/ProjectFolderItem.vala:95
+#: src/FolderManager/ProjectFolderItem.vala:96
 msgid "Close Folder"
 msgstr "Luk Mappen"
 
-#: src/FolderManager/ProjectFolderItem.vala:339
+#: src/FolderManager/ProjectFolderItem.vala:99
+#, fuzzy
+#| msgid "Close Folder"
+msgid "Close Other Folders"
+msgstr "Luk Mappen"
+
+#: src/FolderManager/ProjectFolderItem.vala:345
 #, fuzzy
 msgid "Branch"
 msgstr "Skift Branch"
@@ -507,32 +513,34 @@ msgstr "Solarized Dark"
 msgid "Toggle Sidebar"
 msgstr "Vis/Skjul Sidepanel"
 
-#: src/Widgets/HeaderBar.vala:148
+#: src/Widgets/HeaderBar.vala:154
 msgid "Add New View"
 msgstr "Tilføj ny visning"
 
-#: src/Widgets/HeaderBar.vala:152
+#: src/Widgets/HeaderBar.vala:164
 msgid "Remove Current View"
 msgstr "Fjern nuværende visning"
 
-#: src/Widgets/HeaderBar.vala:179
+#: src/Widgets/HeaderBar.vala:191
 msgid "Menu"
 msgstr "Menu"
 
-#: src/Widgets/Pane.vala:45
-msgid "Add Project Folder…"
-msgstr ""
+#: src/Widgets/Pane.vala:44
+#, fuzzy
+#| msgid "Open a folder"
+msgid "Open project folder…"
+msgstr "Åbn en mappe"
 
-#: src/Widgets/Pane.vala:48
-msgid "Manage project folders…"
-msgstr ""
-
-#: src/Widgets/Pane.vala:50
+#: src/Widgets/Pane.vala:46
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Pane.vala:53
+#: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
+msgstr ""
+
+#: src/Widgets/Pane.vala:60
+msgid "Manage project folders"
 msgstr ""
 
 #: src/Widgets/SearchBar.vala:61
@@ -563,11 +571,11 @@ msgstr "Erstat"
 msgid "Replace all"
 msgstr "Erstat alle"
 
-#: src/Widgets/SourceView.vala:390
+#: src/Widgets/SourceView.vala:393
 msgid "Sort Selected Lines"
 msgstr "Sorter Valgte Linjer"
 
-#: src/Widgets/SourceView.vala:397
+#: src/Widgets/SourceView.vala:406
 msgid "Toggle Comment"
 msgstr "Slå Kommentarer til/fra"
 
@@ -668,26 +676,26 @@ msgstr "Upload til Pastebin"
 msgid "Symbols"
 msgstr "Symboler"
 
-#: plugins/terminal/terminal.vala:134 plugins/terminal/terminal.vala:141
+#: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
 msgstr "Vis terminal"
 
-#: plugins/terminal/terminal.vala:137
+#: plugins/terminal/terminal.vala:179
 msgid "Hide Terminal"
 msgstr "Skjul terminal"
 
-#: plugins/terminal/terminal.vala:138
+#: plugins/terminal/terminal.vala:180
 msgid "Terminal"
 msgstr "Terminal"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:193
+#: plugins/terminal/terminal.vala:237
 msgid "Copy"
 msgstr "Kopiér"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:200
+#: plugins/terminal/terminal.vala:244
 msgid "Paste"
 msgstr "Indsæt"
 
@@ -725,9 +733,6 @@ msgstr "%s - Fuldførsel af ord"
 
 #~ msgid "new file %d"
 #~ msgstr "ny fil %d"
-
-#~ msgid "Open a folder"
-#~ msgstr "Åbn en mappe"
 
 #~ msgid "Could not load icon theme: %s\n"
 #~ msgstr "Kunne ikke indlæse ikon tema: %s\n"

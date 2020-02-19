@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-23 07:21+0000\n"
+"POT-Creation-Date: 2020-02-14 00:36+0000\n"
 "PO-Revision-Date: 2018-05-26 07:39+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/code/code/mo/"
@@ -95,36 +95,36 @@ msgstr "Ascundeți bara de căutare"
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zeitgeist Datasource pentru Scratch"
 
-#: src/MainWindow.vala:771 src/Services/Document.vala:502
+#: src/MainWindow.vala:773 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Toate filele"
 
-#: src/MainWindow.vala:775 src/Services/Document.vala:506
+#: src/MainWindow.vala:777 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Fișiere text"
 
-#: src/MainWindow.vala:779
+#: src/MainWindow.vala:781
 msgid "Open some files"
 msgstr "Deschideți fișiere"
 
-#: src/MainWindow.vala:782
+#: src/MainWindow.vala:784
 msgid "Open"
 msgstr "Deschide"
 
-#: src/MainWindow.vala:783 src/Services/Document.vala:401
+#: src/MainWindow.vala:785 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Anulare"
 
-#: src/MainWindow.vala:808
+#: src/MainWindow.vala:810
 msgid "_Open"
 msgstr "_Deschis"
 
-#: src/MainWindow.vala:809
+#: src/MainWindow.vala:811
 msgid "_Cancel"
 msgstr "_Anulare"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:168
 msgid "Preferences"
 msgstr "Preferințe"
 
@@ -236,25 +236,25 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr "Încărcați oricum"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:115
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:117
 msgid "Other Application…"
 msgstr "Alte aplicații …"
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:155
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:157
 msgid "Open In"
 msgstr "Deschide în"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:90
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:92
 #, fuzzy
 msgid "Other Actions"
 msgstr "Alte aplicații …"
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:93
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:95
 msgid "Rename"
 msgstr "Redenumiți"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:99
-#: src/FolderManager/ProjectFolderItem.vala:98
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:101
+#: src/FolderManager/ProjectFolderItem.vala:103
 msgid "Move to Trash"
 msgstr "Aruncă la gunoi"
 
@@ -262,31 +262,37 @@ msgstr "Aruncă la gunoi"
 msgid "Folders"
 msgstr "Dosare"
 
-#: src/FolderManager/FolderItem.vala:162
+#: src/FolderManager/FolderItem.vala:164
 msgid "Folder"
 msgstr "Dosar"
 
-#: src/FolderManager/FolderItem.vala:165
+#: src/FolderManager/FolderItem.vala:167
 msgid "Empty File"
 msgstr "Fișier gol"
 
-#: src/FolderManager/FolderItem.vala:172
+#: src/FolderManager/FolderItem.vala:174
 msgid "New"
 msgstr "Nou"
 
-#: src/FolderManager/FolderItem.vala:330
+#: src/FolderManager/FolderItem.vala:332
 msgid "untitled folder"
 msgstr "un dosar fără titlu"
 
-#: src/FolderManager/FolderItem.vala:330
+#: src/FolderManager/FolderItem.vala:332
 msgid "new file"
 msgstr "Fișier nou"
 
-#: src/FolderManager/ProjectFolderItem.vala:95
+#: src/FolderManager/ProjectFolderItem.vala:96
 msgid "Close Folder"
 msgstr "Închideți dosarul"
 
-#: src/FolderManager/ProjectFolderItem.vala:339
+#: src/FolderManager/ProjectFolderItem.vala:99
+#, fuzzy
+#| msgid "Close Folder"
+msgid "Close Other Folders"
+msgstr "Închideți dosarul"
+
+#: src/FolderManager/ProjectFolderItem.vala:345
 msgid "Branch"
 msgstr ""
 
@@ -502,32 +508,34 @@ msgstr "Solarizat închis"
 msgid "Toggle Sidebar"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:148
+#: src/Widgets/HeaderBar.vala:154
 msgid "Add New View"
 msgstr "Adăugați o vizualizare nouă"
 
-#: src/Widgets/HeaderBar.vala:152
+#: src/Widgets/HeaderBar.vala:164
 msgid "Remove Current View"
 msgstr "Eliminați vizualizarea curentă"
 
-#: src/Widgets/HeaderBar.vala:179
+#: src/Widgets/HeaderBar.vala:191
 msgid "Menu"
 msgstr "Meniul"
 
-#: src/Widgets/Pane.vala:45
-msgid "Add Project Folder…"
-msgstr ""
+#: src/Widgets/Pane.vala:44
+#, fuzzy
+#| msgid "Open a folder"
+msgid "Open project folder…"
+msgstr "Deschideți un dosar"
 
-#: src/Widgets/Pane.vala:48
-msgid "Manage project folders…"
-msgstr ""
-
-#: src/Widgets/Pane.vala:50
+#: src/Widgets/Pane.vala:46
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Pane.vala:53
+#: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
+msgstr ""
+
+#: src/Widgets/Pane.vala:60
+msgid "Manage project folders"
 msgstr ""
 
 #: src/Widgets/SearchBar.vala:61
@@ -558,12 +566,12 @@ msgstr "Înlocuește"
 msgid "Replace all"
 msgstr "Înlocuiește-le pe toate"
 
-#: src/Widgets/SourceView.vala:390
+#: src/Widgets/SourceView.vala:393
 #, fuzzy
 msgid "Sort Selected Lines"
 msgstr "Pentru textul selectat"
 
-#: src/Widgets/SourceView.vala:397
+#: src/Widgets/SourceView.vala:406
 msgid "Toggle Comment"
 msgstr ""
 
@@ -666,26 +674,26 @@ msgstr "Încărcați în Pastebin"
 msgid "Symbols"
 msgstr "Simboluri"
 
-#: plugins/terminal/terminal.vala:134 plugins/terminal/terminal.vala:141
+#: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
 msgstr "Arătați terminalul"
 
-#: plugins/terminal/terminal.vala:137
+#: plugins/terminal/terminal.vala:179
 msgid "Hide Terminal"
 msgstr "Ascundeți terminalul"
 
-#: plugins/terminal/terminal.vala:138
+#: plugins/terminal/terminal.vala:180
 msgid "Terminal"
 msgstr "Terminalul"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:193
+#: plugins/terminal/terminal.vala:237
 msgid "Copy"
 msgstr "Copie"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:200
+#: plugins/terminal/terminal.vala:244
 msgid "Paste"
 msgstr "Lipește"
 
@@ -723,9 +731,6 @@ msgstr "%s - Finalizarea cuvintelor"
 
 #~ msgid "new file %d"
 #~ msgstr "Fișier nou %d"
-
-#~ msgid "Open a folder"
-#~ msgstr "Deschideți un dosar"
 
 #~ msgid "Could not load icon theme: %s\n"
 #~ msgstr "Nu s-a putut încărca tema pictogramelor: %s ↵\n"
