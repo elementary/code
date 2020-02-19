@@ -28,12 +28,12 @@
       <description>The saved height of the window. Must be greater than 400, or it will not take effect.</description>
     </key>
     <key name="window-x" type="i">
-      <default>250</default>
+      <default>-1</default>
       <summary></summary>
       <description></description>
     </key>
     <key name="window-y" type="i">
-      <default>250</default>
+      <default>-1</default>
       <summary></summary>
       <description></description>
     </key>
@@ -154,6 +154,11 @@
       <default>false</default>
       <summary>Request dark Gtk stylesheet variant</summary>
       <description>Switches between dark and light style</description>
+    </key>
+    <key name="cyclic-search" type="b">
+      <default>false</default>
+      <summary>Whether search is cyclic</summary>
+      <description>Whether text searching should cycle back to the beginning of the document after reaching the end of the document.</description>
     </key>
   </schema>
   <schema path="/io/elementary/code/services/" id="io.elementary.code.services" gettext-domain="io.elementary.code">

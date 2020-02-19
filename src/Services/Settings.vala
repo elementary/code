@@ -73,6 +73,7 @@ namespace Scratch {
         public string focused_document_view2 { get; set; }
         public bool show_mini_map { get; set; }
         public bool prefer_dark_style { get; set; }
+        public bool cyclic_search { get; set; }
 
         public Settings () {
             base (Constants.PROJECT_NAME + ".settings");
