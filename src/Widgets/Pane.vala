@@ -88,6 +88,10 @@ public class Code.Pane : Gtk.Grid {
                     break;
             }
         });
+
+        realize.connect_after (() => {
+            Scratch.saved_state.schema.bind ("sidebar-open", this, "visible", SettingsBindFlags.DEFAULT);
+        });
     }
 
     public void add_tab (Code.PaneSwitcher tab) {

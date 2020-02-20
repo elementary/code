@@ -407,7 +407,6 @@ namespace Scratch {
 
             // Show/Hide widgets
             show_all ();
-            Scratch.saved_state.schema.bind ("sidebar-open", project_pane, "visible", SettingsBindFlags.DEFAULT);
         }
 
         private void open_binary (File file) {
