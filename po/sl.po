@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-07 17:28+0000\n"
-"PO-Revision-Date: 2019-12-23 07:19+0000\n"
+"POT-Creation-Date: 2020-02-14 00:36+0000\n"
+"PO-Revision-Date: 2020-02-13 19:56+0000\n"
 "Last-Translator: Marko <marko.dolar@gmail.com>\n"
 "Language-Team: Slovenian <https://l10n.elementary.io/projects/code/code/sl/"
 ">\n"
@@ -41,7 +41,7 @@ msgstr "Lokacija je dostopna samo za branje."
 
 #: src/Application.vala:144
 msgid "The parent directory doesn't exist."
-msgstr "Mapa z datoteko več ne obstaja."
+msgstr "Mapa datoteke ne obstaja več."
 
 #: src/Application.vala:165
 msgid "It is a mountable location."
@@ -100,36 +100,36 @@ msgstr "Skrij iskalno vrstico"
 msgid "Zeitgeist Datasource for Code"
 msgstr "Vir podatkov Zeitgeist za Kodo"
 
-#: src/MainWindow.vala:771 src/Services/Document.vala:502
+#: src/MainWindow.vala:773 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Vse datoteke"
 
-#: src/MainWindow.vala:775 src/Services/Document.vala:506
+#: src/MainWindow.vala:777 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Datoteke z besedilom"
 
-#: src/MainWindow.vala:779
+#: src/MainWindow.vala:781
 msgid "Open some files"
 msgstr "Odpri nekaj datotek"
 
-#: src/MainWindow.vala:782
+#: src/MainWindow.vala:784
 msgid "Open"
 msgstr "Odpri"
 
-#: src/MainWindow.vala:783 src/Services/Document.vala:401
+#: src/MainWindow.vala:785 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: src/MainWindow.vala:808
+#: src/MainWindow.vala:810
 msgid "_Open"
 msgstr "_Odpri"
 
-#: src/MainWindow.vala:809
+#: src/MainWindow.vala:811
 msgid "_Cancel"
 msgstr "_Prekliči"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:168
 msgid "Preferences"
 msgstr "Možnosti"
 
@@ -138,8 +138,8 @@ msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
-"Rezanje ali kopiranje brez aktivnega izbora bo izrezalo ali skopiralo "
-"celotno trenutno vrstico"
+"Rezanje ali kopiranje brez aktivne izbire bo izrezalo ali skopiralo celotno "
+"trenutno vrstico"
 
 #: src/Dialogs/PreferencesDialog.vala:56
 msgid "General"
@@ -243,24 +243,24 @@ msgstr "Ne obnovi"
 msgid "Restore Anyway"
 msgstr "Vseeno obnovi"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:115
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:117
 msgid "Other Application…"
 msgstr "Druga aplikacija…"
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:155
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:157
 msgid "Open In"
 msgstr "Odpri v"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:90
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:92
 msgid "Other Actions"
 msgstr "Druga dejanja"
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:93
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:95
 msgid "Rename"
 msgstr "Preimenuj"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:99
-#: src/FolderManager/ProjectFolderItem.vala:98
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:101
+#: src/FolderManager/ProjectFolderItem.vala:103
 msgid "Move to Trash"
 msgstr "Premakni v smeti"
 
@@ -268,31 +268,35 @@ msgstr "Premakni v smeti"
 msgid "Folders"
 msgstr "Mape"
 
-#: src/FolderManager/FolderItem.vala:162
+#: src/FolderManager/FolderItem.vala:164
 msgid "Folder"
 msgstr "Mapa"
 
-#: src/FolderManager/FolderItem.vala:165
+#: src/FolderManager/FolderItem.vala:167
 msgid "Empty File"
 msgstr "Prazna datoteka"
 
-#: src/FolderManager/FolderItem.vala:172
+#: src/FolderManager/FolderItem.vala:174
 msgid "New"
 msgstr "Nov zavihek"
 
-#: src/FolderManager/FolderItem.vala:330
+#: src/FolderManager/FolderItem.vala:332
 msgid "untitled folder"
 msgstr "neimenovana mapa"
 
-#: src/FolderManager/FolderItem.vala:330
+#: src/FolderManager/FolderItem.vala:332
 msgid "new file"
-msgstr "Nova datoteka"
+msgstr "nova datoteka"
 
-#: src/FolderManager/ProjectFolderItem.vala:95
+#: src/FolderManager/ProjectFolderItem.vala:96
 msgid "Close Folder"
 msgstr "Zapri mapo"
 
-#: src/FolderManager/ProjectFolderItem.vala:339
+#: src/FolderManager/ProjectFolderItem.vala:99
+msgid "Close Other Folders"
+msgstr "Zapri druge mape"
+
+#: src/FolderManager/ProjectFolderItem.vala:345
 msgid "Branch"
 msgstr "Veja"
 
@@ -418,11 +422,11 @@ msgstr "Tekstovna datoteka iz %s:%d"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
-msgstr "Označevanje sintakse"
+msgstr "Poudarjanje sintakse"
 
 #: src/Widgets/FormatBar.vala:75
 msgid "Line number"
-msgstr "Pokaži številke vrstic"
+msgstr "Številka vrstice"
 
 #: src/Widgets/FormatBar.vala:101
 msgid "Filter languages"
@@ -460,11 +464,11 @@ msgstr "Odpri datoteko"
 
 #: src/Widgets/HeaderBar.vala:48
 msgid "Project templates"
-msgstr "Projektne predloge"
+msgstr "Predloge projektov"
 
 #: src/Widgets/HeaderBar.vala:54
 msgid "Save this file"
-msgstr "Shrani datoteko"
+msgstr "Shrani to datoteko"
 
 #: src/Widgets/HeaderBar.vala:61
 msgid "Save this file with a different name"
@@ -472,7 +476,7 @@ msgstr "Shrani datoteko pod drugim imenom"
 
 #: src/Widgets/HeaderBar.vala:68
 msgid "Restore this file"
-msgstr "Obnovi datoteko"
+msgstr "Obnovi to datoteko"
 
 #: src/Widgets/HeaderBar.vala:83
 msgid "Share"
@@ -496,43 +500,43 @@ msgstr "Visok kontrast"
 
 #: src/Widgets/HeaderBar.vala:126
 msgid "Solarized Light"
-msgstr "Solarized Svetla"
+msgstr "Solarized svetla"
 
 #: src/Widgets/HeaderBar.vala:134
 msgid "Solarized Dark"
-msgstr "Solarized Temna"
+msgstr "Solarized temna"
 
 #: src/Widgets/HeaderBar.vala:144
 msgid "Toggle Sidebar"
 msgstr "Preklopi stransko vrstico"
 
-#: src/Widgets/HeaderBar.vala:148
+#: src/Widgets/HeaderBar.vala:154
 msgid "Add New View"
 msgstr "Dodaj nov pogled"
 
-#: src/Widgets/HeaderBar.vala:152
+#: src/Widgets/HeaderBar.vala:164
 msgid "Remove Current View"
 msgstr "Odstrani trenutni pogled"
 
-#: src/Widgets/HeaderBar.vala:179
+#: src/Widgets/HeaderBar.vala:191
 msgid "Menu"
 msgstr "Meni"
 
-#: src/Widgets/Pane.vala:45
-msgid "Add Project Folder…"
-msgstr "Dodaj projektno mapo…"
+#: src/Widgets/Pane.vala:44
+msgid "Open project folder…"
+msgstr "Odpri mapo projekta…"
 
-#: src/Widgets/Pane.vala:48
-msgid "Manage project folders…"
-msgstr "Upravljaj s projektnimi mapami…"
-
-#: src/Widgets/Pane.vala:50
+#: src/Widgets/Pane.vala:46
 msgid "Collapse All"
 msgstr "Strni vse"
 
-#: src/Widgets/Pane.vala:53
+#: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
 msgstr "Po abecedi"
+
+#: src/Widgets/Pane.vala:60
+msgid "Manage project folders"
+msgstr "Upravljaj s projektnimi mapami"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
@@ -548,7 +552,7 @@ msgstr "Išči nazaj"
 
 #: src/Widgets/SearchBar.vala:85
 msgid "Cyclic Search"
-msgstr "Išči ponovno od začetka"
+msgstr "Krožno iskanje"
 
 #: src/Widgets/SearchBar.vala:101
 msgid "Replace With"
@@ -562,11 +566,11 @@ msgstr "Zamenjaj"
 msgid "Replace all"
 msgstr "Zamenjaj vse"
 
-#: src/Widgets/SourceView.vala:390
+#: src/Widgets/SourceView.vala:393
 msgid "Sort Selected Lines"
 msgstr "Sortiraj izbrane vrstice"
 
-#: src/Widgets/SourceView.vala:397
+#: src/Widgets/SourceView.vala:406
 msgid "Toggle Comment"
 msgstr "Preklopi komentar"
 
@@ -616,7 +620,7 @@ msgstr "Vrsta:"
 
 #: plugins/pastebin/pastebin_dialog.vala:264
 msgid "Others…"
-msgstr "Ostali…"
+msgstr "Drugo…"
 
 #: plugins/pastebin/pastebin_dialog.vala:286
 msgid "Expiry time:"
@@ -715,6 +719,9 @@ msgstr "Prosim, namestite vsaj en [aspell] slovar."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Dopolnitev besede"
+
+#~ msgid "Add Project Folder…"
+#~ msgstr "Dodaj projektno mapo…"
 
 #~ msgid "untitled folder %d"
 #~ msgstr "neimenovana mapa %d"
