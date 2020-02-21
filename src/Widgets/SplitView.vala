@@ -164,7 +164,7 @@ namespace Scratch.Widgets {
 
             // Move the focus on the other view
             if (views.nth_data (0) != null) {
-                views.nth_data (0).focus ();
+                views.nth_data (0).grab_focus ();
             }
 
             // Show/Hide welcome screen

@@ -187,14 +187,16 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
 
         insert_tab (doc, -1);
-        if (focus) {
-            current_document = doc;
-        }
 
+        var focus_this = focus;
         Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
             doc.open.begin (false, (obj, res) => {
                 doc.open.end (res);
-                doc.focus ();
+                if (focus_this) {
+                    current_document = doc;
+                    current_document.focus ();
+                }
+
                 save_opened_files ();
             });
 
@@ -259,7 +261,8 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         return docs.length () == 0;
     }
 
-    public new void focus () {
+    public new void grab_focus () {
+        base.grab_focus ();
         current_document.focus ();
     }
 

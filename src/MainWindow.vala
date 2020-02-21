@@ -425,8 +425,8 @@ namespace Scratch {
             if (privacy_settings.get_boolean ("remember-recent-files")) {
                 var uris_view1 = settings.opened_files_view1;
                 var uris_view2 = settings.opened_files_view2;
-                unowned string focused_document1 = settings.focused_document_view1;
-                unowned string focused_document2 = settings.focused_document_view2;
+                string focused_document1 = settings.focused_document_view1;
+                string focused_document2 = settings.focused_document_view2;
 
                 if (uris_view1.length > 0) {
                     var view = add_view ();
