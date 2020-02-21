@@ -30,8 +30,9 @@ namespace Scratch.Widgets {
          * "Down", it will go at the start of the file to search for the content
          * of the search entry.
          **/
-        private Gtk.ToggleButton tool_cycle_search;
+
         private Gtk.ToggleButton case_sensitive_button;
+        public Gtk.ToggleButton tool_cycle_search {get; construct;}
 
         public Gtk.SearchEntry search_entry;
         public Gtk.SearchEntry replace_entry;
