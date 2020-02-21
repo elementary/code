@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-14 00:36+0000\n"
-"PO-Revision-Date: 2019-11-05 13:24+0000\n"
+"PO-Revision-Date: 2020-02-22 14:09+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/code/code/fi/>\n"
 "Language: fi\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:134
@@ -136,6 +136,8 @@ msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
+"Leikkaaminen tai kopiointi ilman aktiivista valintaa leikkaa tai kopioi koko "
+"nykyisen rivin"
 
 #: src/Dialogs/PreferencesDialog.vala:56
 msgid "General"
@@ -147,7 +149,7 @@ msgstr "Tallenna tiedostot muutoksien jälkeen:"
 
 #: src/Dialogs/PreferencesDialog.vala:59
 msgid "Smart cut/copy lines:"
-msgstr ""
+msgstr "Älykäs rivien leikkaus/kopiointi:"
 
 #: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
@@ -290,10 +292,8 @@ msgid "Close Folder"
 msgstr "Sulje kansio"
 
 #: src/FolderManager/ProjectFolderItem.vala:99
-#, fuzzy
-#| msgid "Close Folder"
 msgid "Close Other Folders"
-msgstr "Sulje kansio"
+msgstr "Sulje muut kansiot"
 
 #: src/FolderManager/ProjectFolderItem.vala:345
 msgid "Branch"
@@ -519,14 +519,12 @@ msgid "Menu"
 msgstr "Valikko"
 
 #: src/Widgets/Pane.vala:44
-#, fuzzy
-#| msgid "Open a folder"
 msgid "Open project folder…"
-msgstr "Avaa kansio"
+msgstr "Avaa projektikansio…"
 
 #: src/Widgets/Pane.vala:46
 msgid "Collapse All"
-msgstr ""
+msgstr "Supista kaikki"
 
 #: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
@@ -534,7 +532,7 @@ msgstr ""
 
 #: src/Widgets/Pane.vala:60
 msgid "Manage project folders"
-msgstr ""
+msgstr "Hallitse projektikansioita"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
