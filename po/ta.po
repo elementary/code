@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-10 22:47-0800\n"
+"POT-Creation-Date: 2020-01-10 22:25-0800\n"
 "PO-Revision-Date: 2015-12-21 13:39+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Tamil <ta@li.org>\n"
@@ -287,17 +287,16 @@ msgstr "உரை கோப்புகள்"
 msgid "Close Folder"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:182
-#, c-format
-msgid "%s, Modified"
+#. modified_item.tooltip = modified_item.name + ", Modified";
+#: src/FolderManager/ProjectFolderItem.vala:183
+msgid ", Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:191
-#, c-format
-msgid "%s, New"
+#: src/FolderManager/ProjectFolderItem.vala:192
+msgid ", New"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:341
+#: src/FolderManager/ProjectFolderItem.vala:342
 msgid "Branch"
 msgstr ""
 

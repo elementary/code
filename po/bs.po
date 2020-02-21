@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-10 22:47-0800\n"
+"POT-Creation-Date: 2020-01-10 22:25-0800\n"
 "PO-Revision-Date: 2018-11-05 00:09+0000\n"
 "Last-Translator: Elvis Mujanović <elvis.mujanovic@gmail.com>\n"
 "Language-Team: Bosnian <https://weblate.elementary.io/projects/code/code/bs/"
@@ -292,17 +292,16 @@ msgstr "nova datoteka"
 msgid "Close Folder"
 msgstr "Zatvori direktorij"
 
-#: src/FolderManager/ProjectFolderItem.vala:182
-#, c-format
-msgid "%s, Modified"
+#. modified_item.tooltip = modified_item.name + ", Modified";
+#: src/FolderManager/ProjectFolderItem.vala:183
+msgid ", Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:191
-#, c-format
-msgid "%s, New"
+#: src/FolderManager/ProjectFolderItem.vala:192
+msgid ", New"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:341
+#: src/FolderManager/ProjectFolderItem.vala:342
 #, fuzzy
 msgid "Branch"
 msgstr "Promijeni Scratch podešavanja"

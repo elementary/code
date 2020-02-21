@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-10 22:47-0800\n"
+"POT-Creation-Date: 2020-01-10 22:25-0800\n"
 "PO-Revision-Date: 2019-07-12 12:46+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/code/code/ko/>\n"
@@ -288,17 +288,16 @@ msgstr "새 파일"
 msgid "Close Folder"
 msgstr "폴더 닫기"
 
-#: src/FolderManager/ProjectFolderItem.vala:182
-#, c-format
-msgid "%s, Modified"
+#. modified_item.tooltip = modified_item.name + ", Modified";
+#: src/FolderManager/ProjectFolderItem.vala:183
+msgid ", Modified"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:191
-#, c-format
-msgid "%s, New"
+#: src/FolderManager/ProjectFolderItem.vala:192
+msgid ", New"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:341
+#: src/FolderManager/ProjectFolderItem.vala:342
 msgid "Branch"
 msgstr "브랜치"
 
