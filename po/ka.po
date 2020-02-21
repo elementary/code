@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-10 22:25-0800\n"
+"POT-Creation-Date: 2020-01-07 17:28+0000\n"
 "PO-Revision-Date: 2016-09-10 18:45+0000\n"
 "Last-Translator: Beqa Arabuli <arabulibeqa@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -286,16 +286,7 @@ msgstr "ახალი ფაილი"
 msgid "Close Folder"
 msgstr "საქაღალდის დახურვა"
 
-#. modified_item.tooltip = modified_item.name + ", Modified";
-#: src/FolderManager/ProjectFolderItem.vala:183
-msgid ", Modified"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:192
-msgid ", New"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:342
+#: src/FolderManager/ProjectFolderItem.vala:339
 #, fuzzy
 msgid "Branch"
 msgstr "Scratch-ის პარამეტრების შეცვლა"

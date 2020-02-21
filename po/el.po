@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-10 22:25-0800\n"
+"POT-Creation-Date: 2020-01-07 17:28+0000\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Greek <https://l10n.elementary.io/projects/code/code/el/>\n"
@@ -292,16 +292,7 @@ msgstr "Νέο αρχείο"
 msgid "Close Folder"
 msgstr "Κλείσιμο φακέλου"
 
-#. modified_item.tooltip = modified_item.name + ", Modified";
-#: src/FolderManager/ProjectFolderItem.vala:183
-msgid ", Modified"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:192
-msgid ", New"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:342
+#: src/FolderManager/ProjectFolderItem.vala:339
 #, fuzzy
 msgid "Branch"
 msgstr "Αλλαγή ρυθμίσεων του Scratch"

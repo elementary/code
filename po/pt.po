@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-10 22:25-0800\n"
+"POT-Creation-Date: 2020-01-07 17:28+0000\n"
 "PO-Revision-Date: 2019-12-19 05:35+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/"
@@ -291,16 +291,7 @@ msgstr "novo ficheiro"
 msgid "Close Folder"
 msgstr "Fechar Pasta"
 
-#. modified_item.tooltip = modified_item.name + ", Modified";
-#: src/FolderManager/ProjectFolderItem.vala:183
-msgid ", Modified"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:192
-msgid ", New"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:342
+#: src/FolderManager/ProjectFolderItem.vala:339
 msgid "Branch"
 msgstr "Ramo"
 

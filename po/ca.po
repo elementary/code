@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-10 22:25-0800\n"
+"POT-Creation-Date: 2020-01-07 17:28+0000\n"
 "PO-Revision-Date: 2019-12-13 17:07+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
@@ -291,16 +291,7 @@ msgstr "fitxer nou"
 msgid "Close Folder"
 msgstr "Tanca la carpeta"
 
-#. modified_item.tooltip = modified_item.name + ", Modified";
-#: src/FolderManager/ProjectFolderItem.vala:183
-msgid ", Modified"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:192
-msgid ", New"
-msgstr ""
-
-#: src/FolderManager/ProjectFolderItem.vala:342
+#: src/FolderManager/ProjectFolderItem.vala:339
 msgid "Branch"
 msgstr "Branca"
 
