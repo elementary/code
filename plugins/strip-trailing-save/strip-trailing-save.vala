@@ -16,17 +16,17 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-public class Scratch.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatable {
-    Scratch.Services.Interface plugins;
+public class Code.Plugins.StripTrailSave: Peas.ExtensionBase, Peas.Activatable {
+    Code.Services.Interface plugins;
     public Object object {owned get; construct;}
-    Scratch.MainWindow main_window;
+    Code.MainWindow main_window;
     public void update_state () {return;}
 
     /*
      * Activate plugin.
      */
     public void activate () {
-        plugins = (Scratch.Services.Interface) object;
+        plugins = (Code.Services.Interface) object;
         plugins.hook_window.connect ((w) => {
             this.main_window = w;
             var action = w.actions.lookup_action ("action_save") as SimpleAction;
@@ -107,6 +107,6 @@ public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
     objmodule.register_extension_type (
         typeof (Peas.Activatable),
-        typeof (Scratch.Plugins.StripTrailSave)
+        typeof (Code.Plugins.StripTrailSave)
     );
 }

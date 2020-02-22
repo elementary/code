@@ -18,7 +18,7 @@
  *
  */
 
-public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, Object {
+public class Code.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, Object {
     public string name;
     public int priority;
 
@@ -35,7 +35,7 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
 
     public signal void can_propose (bool b);
 
-    public CompletionProvider (Scratch.Plugins.Completion completion) {
+    public CompletionProvider (Code.Plugins.Completion completion) {
         this.view = completion.current_view as Gtk.TextView;
         this.buffer = completion.current_view.buffer;
         this.parser = completion.parser;

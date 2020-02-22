@@ -18,21 +18,21 @@
   END LICENSE
 ***/
 
-public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.Activatable {
-    Scratch.Widgets.SourceView current_source;
+public class Code.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.Activatable {
+    Code.Widgets.SourceView current_source;
     Gtk.SourceSearchContext current_search_context;
 
     // Consts
     // Pneumonoultramicroscopicsilicovolcanoconiosis longest word in a major dictionary @ 45
     private const uint SELECTION_HIGHLIGHT_MAX_CHARS = 45;
 
-    Scratch.Services.Interface plugins;
+    Code.Services.Interface plugins;
     public Object object { owned get; construct; }
 
     public void update_state () {}
 
     public void activate () {
-        plugins = (Scratch.Services.Interface) object;
+        plugins = (Code.Services.Interface) object;
         plugins.hook_document.connect ((doc) => {
             if (current_source != null) {
                 current_source.deselected.disconnect (on_deselection);
@@ -85,5 +85,5 @@ public class Scratch.Plugins.HighlightSelectedWords : Peas.ExtensionBase, Peas.A
 public void peas_register_types (TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
     objmodule.register_extension_type (typeof (Peas.Activatable),
-                                     typeof (Scratch.Plugins.HighlightSelectedWords));
+                                     typeof (Code.Plugins.HighlightSelectedWords));
 }

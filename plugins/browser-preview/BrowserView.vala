@@ -18,15 +18,15 @@
   END LICENSE
 ***/
 
-namespace Scratch.Plugins.BrowserPreview {
+namespace Code.Plugins.BrowserPreview {
     public class BrowserView : Gtk.Grid, Code.PaneSwitcher {
         public string icon_name { get; set; }
         public string title { get; set; }
 
         private WebKit.WebView web_view;
-        public unowned Scratch.Services.Document doc;
+        public unowned Code.Services.Document doc;
 
-        public BrowserView (Scratch.Services.Document doc) {
+        public BrowserView (Code.Services.Document doc) {
             this.doc = doc;
             width_request = 200;
             title = _("Web Preview");

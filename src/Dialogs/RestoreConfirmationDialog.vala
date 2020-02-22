@@ -16,7 +16,7 @@
 * Boston, MA 02110-1301 USA
 */
 
-public class Scratch.Dialogs.RestoreConfirmationDialog : Granite.MessageDialog {
+public class Code.Dialogs.RestoreConfirmationDialog : Granite.MessageDialog {
 
     public RestoreConfirmationDialog (MainWindow parent) {
         Object (

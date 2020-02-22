@@ -20,7 +20,7 @@
 * Boston, MA 02110-1301 USA
 */
 
-namespace Scratch {
+namespace Code {
     public SavedState saved_state;
     public Settings settings;
     public ServicesSettings services;
@@ -215,7 +215,7 @@ namespace Scratch {
 
         protected override void open (File[] files, string hint) {
             // Add a view if there aren't and get the current DocumentView
-            Scratch.Widgets.DocumentView? view = null;
+            Code.Widgets.DocumentView? view = null;
             var window = get_last_window ();
 
             if (window.is_empty ()) {
@@ -229,7 +229,7 @@ namespace Scratch {
                 if (type == FileType.DIRECTORY) {
                     window.open_folder (file);
                 } else {
-                    var doc = new Scratch.Services.Document (window.actions, file);
+                    var doc = new Code.Services.Document (window.actions, file);
                     window.open_document (doc, view);
                 }
             }

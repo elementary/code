@@ -18,9 +18,9 @@
  */
 
 public class Code.WelcomeView : Granite.Widgets.Welcome {
-    public unowned Scratch.MainWindow window { get; construct; }
+    public unowned Code.MainWindow window { get; construct; }
 
-    public WelcomeView (Scratch.MainWindow window) {
+    public WelcomeView (Code.MainWindow window) {
         Object (
             window: window,
             title: _("No Files Open"),
@@ -36,11 +36,11 @@ public class Code.WelcomeView : Granite.Widgets.Welcome {
         activated.connect ((i) => {
             // New file
             if (i == 0) {
-                Scratch.Utils.action_from_group (Scratch.MainWindow.ACTION_NEW_TAB, window.actions).activate (null);
+                Code.Utils.action_from_group (Code.MainWindow.ACTION_NEW_TAB, window.actions).activate (null);
             } else if (i == 1) {
-                Scratch.Utils.action_from_group (Scratch.MainWindow.ACTION_OPEN, window.actions).activate (null);
+                Code.Utils.action_from_group (Code.MainWindow.ACTION_OPEN, window.actions).activate (null);
             } else if (i == 2) {
-                Scratch.Utils.action_from_group (Scratch.MainWindow.ACTION_OPEN_FOLDER, window.actions).activate (null);
+                Code.Utils.action_from_group (Code.MainWindow.ACTION_OPEN_FOLDER, window.actions).activate (null);
             }
         });
     }

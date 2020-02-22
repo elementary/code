@@ -18,7 +18,7 @@
  * Authored by: Julien Spautz <spautz.julien@gmail.com>, Andrei-Costin Zisu <matzipan@gmail.com>
  */
 
-namespace Scratch.FolderManager {
+namespace Code.FolderManager {
 
     /**
      * Class for easily dealing with files.

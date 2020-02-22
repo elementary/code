@@ -18,7 +18,7 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Scratch.Widgets {
+namespace Code.Widgets {
     public class SearchBar : Gtk.FlowBox {
         public weak MainWindow window { get; construct; }
 
@@ -38,7 +38,7 @@ namespace Scratch.Widgets {
         private Gtk.Button replace_tool_button;
         private Gtk.Button replace_all_tool_button;
 
-        private Scratch.Widgets.SourceView? text_view = null;
+        private Code.Widgets.SourceView? text_view = null;
         private Gtk.TextBuffer? text_buffer = null;
         private Gtk.SourceSearchContext search_context = null;
 
@@ -64,8 +64,8 @@ namespace Scratch.Widgets {
             tool_arrow_down.clicked.connect (search_next);
             tool_arrow_down.sensitive = false;
             tool_arrow_down.tooltip_markup = Granite.markup_accel_tooltip (
-                Scratch.Application.instance.get_accels_for_action (
-                    Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_FIND_NEXT
+                Code.Application.instance.get_accels_for_action (
+                    Code.MainWindow.ACTION_PREFIX + Code.MainWindow.ACTION_FIND_NEXT
                 ),
                 _("Search next")
             );
@@ -74,8 +74,8 @@ namespace Scratch.Widgets {
             tool_arrow_up.clicked.connect (search_previous);
             tool_arrow_up.sensitive = false;
             tool_arrow_up.tooltip_markup = Granite.markup_accel_tooltip (
-                Scratch.Application.instance.get_accels_for_action (
-                    Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_FIND_PREVIOUS
+                Code.Application.instance.get_accels_for_action (
+                    Code.MainWindow.ACTION_PREFIX + Code.MainWindow.ACTION_FIND_PREVIOUS
                 ),
                 _("Search previous")
             );
@@ -146,7 +146,7 @@ namespace Scratch.Widgets {
             update_replace_tool_sensitivities (search_entry.text, false);
         }
 
-        public void set_text_view (Scratch.Widgets.SourceView? text_view) {
+        public void set_text_view (Code.Widgets.SourceView? text_view) {
             if (text_view == null) {
                 warning ("No SourceView is associated with SearchManager!");
                 return;

@@ -18,7 +18,7 @@
   END LICENSE
 ***/
 
-public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
+public class Code.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     public signal void document_change (Services.Document? document, DocumentView parent);
     public signal void empty ();
 
@@ -345,7 +345,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
         if (privacy_settings.get_boolean ("remember-recent-files")) {
             tabs.foreach ((tab) => {
-                var doc = (Scratch.Services.Document)tab;
+                var doc = (Code.Services.Document)tab;
                 if (doc.file != null && doc.exists ()) {
                     opened_files += doc.file.get_uri ();
                 }

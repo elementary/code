@@ -18,7 +18,7 @@
   END LICENSE
 ***/
 
-public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Peas.Activatable {
+public class Code.Plugins.BracketsCompletion : Peas.ExtensionBase, Peas.Activatable {
     Gee.HashMap<string, string> brackets;
     Gee.HashMap<uint, string> keys;
     const string[] VALID_NEXT_CHARS = {
@@ -26,11 +26,11 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Peas.Activ
     };
 
     Gtk.TextBuffer current_buffer;
-    Scratch.Widgets.SourceView current_source_view;
+    Code.Widgets.SourceView current_source_view;
 
     private string previous_selection = "";
 
-    Scratch.Services.Interface plugins;
+    Code.Services.Interface plugins;
     public Object object { owned get; construct; }
 
     public void update_state () {}
@@ -55,7 +55,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Peas.Activ
         keys[Gdk.Key.quotedbl] = "\"";
         keys[Gdk.Key.grave] = "`";
 
-        plugins = (Scratch.Services.Interface) object;
+        plugins = (Code.Services.Interface) object;
         plugins.hook_document.connect (on_hook_document);
     }
 
@@ -63,7 +63,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Peas.Activ
         plugins.hook_document.disconnect (on_hook_document);
     }
 
-    void on_hook_document (Scratch.Services.Document doc) {
+    void on_hook_document (Code.Services.Document doc) {
         current_buffer = doc.source_view.buffer;
 
         if (current_source_view != null) {
@@ -279,5 +279,5 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Peas.Activ
 public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
     objmodule.register_extension_type (typeof (Peas.Activatable),
-                                     typeof (Scratch.Plugins.BracketsCompletion));
+                                     typeof (Code.Plugins.BracketsCompletion));
 }

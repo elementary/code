@@ -21,7 +21,7 @@
 #if HAVE_ZEITGEIST
 using Zeitgeist;
 
-namespace Scratch.Services {
+namespace Code.Services {
 
     public class ZeitgeistLogger {
 

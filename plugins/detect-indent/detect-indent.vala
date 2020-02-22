@@ -1,14 +1,14 @@
-public class Scratch.Plugins.DetectIndent: Peas.ExtensionBase, Peas.Activatable {
+public class Code.Plugins.DetectIndent: Peas.ExtensionBase, Peas.Activatable {
     const int MAX_LINES = 500;
 
-    Scratch.Services.Interface plugins;
+    Code.Services.Interface plugins;
     public Object object {owned get; construct;}
 
     public void update_state () {
     }
 
     public void activate () {
-        plugins = (Scratch.Services.Interface) object;
+        plugins = (Code.Services.Interface) object;
 
         plugins.hook_document.connect ((d) => {
             var view = d.source_view;
@@ -80,6 +80,6 @@ public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
     objmodule.register_extension_type (
         typeof (Peas.Activatable),
-        typeof (Scratch.Plugins.DetectIndent)
+        typeof (Code.Plugins.DetectIndent)
     );
 }

@@ -17,10 +17,10 @@
  */
 
 public class Code.Plugins.CtagsSymbol : Granite.Widgets.SourceList.ExpandableItem {
-    public Scratch.Services.Document doc { get; construct set; }
+    public Code.Services.Document doc { get; construct set; }
     public int line { get; construct set; }
 
-    public CtagsSymbol (Scratch.Services.Document doc, string name, int line, Icon? _icon) {
+    public CtagsSymbol (Code.Services.Document doc, string name, int line, Icon? _icon) {
         Object (doc: doc, name: name, line: line);
         icon = _icon;
     }

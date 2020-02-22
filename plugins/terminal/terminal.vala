@@ -18,16 +18,16 @@
   END LICENSE
 ***/
 
-public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
+public class Code.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
     const double MIN_SCALE = 0.2;
     const double MAX_SCALE = 5.0;
 
     MainWindow window = null;
 
-    Scratch.Plugins.TerminalViewer.Settings settings;
+    Code.Plugins.TerminalViewer.Settings settings;
 
     Gtk.Notebook? bottombar = null;
-    Scratch.Widgets.HeaderBar? toolbar = null;
+    Code.Widgets.HeaderBar? toolbar = null;
     Gtk.ToggleToolButton? tool_button = null;
 
     Vte.Terminal terminal;
@@ -40,7 +40,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
 
     private string font_name = "";
 
-    Scratch.Services.Interface plugins;
+    Code.Services.Interface plugins;
     public Object object { owned get; construct; }
 
     public void update_state () {
@@ -48,7 +48,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
 
     public void activate () {
 
-        plugins = (Scratch.Services.Interface) object;
+        plugins = (Code.Services.Interface) object;
 
         plugins.hook_window.connect ((w) => {
             if (window != null)
@@ -158,7 +158,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         return false;
     }
 
-    void on_hook_split_view (Scratch.Widgets.SplitView view) {
+    void on_hook_split_view (Code.Widgets.SplitView view) {
         this.tool_button.visible = ! view.is_empty ();
         view.welcome_shown.connect (() => {
             this.tool_button.visible = false;
@@ -168,7 +168,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         });
     }
 
-    void on_hook_toolbar (Scratch.Widgets.HeaderBar toolbar) {
+    void on_hook_toolbar (Code.Widgets.HeaderBar toolbar) {
         var icon = new Gtk.Image.from_icon_name ("utilities-terminal", Gtk.IconSize.LARGE_TOOLBAR);
         tool_button = new Gtk.ToggleToolButton ();
         tool_button.set_icon_widget (icon);
@@ -203,7 +203,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
     }
 
     void on_hook_notebook () {
-        this.settings = new Scratch.Plugins.TerminalViewer.Settings ();
+        this.settings = new Code.Plugins.TerminalViewer.Settings ();
         this.terminal = new Vte.Terminal ();
         this.terminal.scrollback_lines = -1;
 
@@ -356,5 +356,5 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
 public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
     objmodule.register_extension_type (typeof (Peas.Activatable),
-                                     typeof (Scratch.Plugins.Terminal));
+                                     typeof (Code.Plugins.Terminal));
 }

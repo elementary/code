@@ -18,7 +18,7 @@
   END LICENSE
 ***/
 
-public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Peas.Activatable {
+public class Code.Plugins.VimEmulation : Peas.ExtensionBase, Peas.Activatable {
     public enum Mode {
         COMMAND,
         INSERT,
@@ -30,14 +30,14 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Peas.Activatable
     string action = "";
     bool g = false;
 
-    Gee.TreeSet<Scratch.Widgets.SourceView> views;
-    Scratch.Widgets.SourceView? view = null;
+    Gee.TreeSet<Code.Widgets.SourceView> views;
+    Code.Widgets.SourceView? view = null;
 
-    Scratch.Services.Interface plugins;
+    Code.Services.Interface plugins;
     public Object object { owned get; construct; }
 
     construct {
-        views = new Gee.TreeSet<Scratch.Widgets.SourceView> ();
+        views = new Gee.TreeSet<Code.Widgets.SourceView> ();
     }
 
     public void update_state () {
@@ -45,7 +45,7 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Peas.Activatable
     }
 
     public void activate () {
-        plugins = (Scratch.Services.Interface) object;
+        plugins = (Code.Services.Interface) object;
         plugins.hook_document.connect ((doc) => {
             this.view = doc.source_view;
             this.view.key_press_event.disconnect (handle_key_press);
@@ -262,5 +262,5 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Peas.Activatable
 public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
     objmodule.register_extension_type (typeof (Peas.Activatable),
-                                     typeof (Scratch.Plugins.VimEmulation));
+                                     typeof (Code.Plugins.VimEmulation));
 }

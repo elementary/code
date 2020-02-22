@@ -18,22 +18,22 @@
   END LICENSE
 ***/
 
-namespace Scratch.Plugins {
+namespace Code.Plugins {
     public class BrowserPreviewPlugin : Peas.ExtensionBase, Peas.Activatable {
         Gtk.ToggleButton? tool_button = null;
         Gee.LinkedList<BrowserPreview.BrowserView> previews = new Gee.LinkedList<BrowserPreview.BrowserView> ();
 
         unowned BrowserPreview.BrowserView? view = null;
-        Scratch.Services.Document? doc = null;
+        Code.Services.Document? doc = null;
 
-        Scratch.Services.Interface plugins;
+        Code.Services.Interface plugins;
         public Object object { owned get; construct; }
 
         public void update_state () {
         }
 
         public void activate () {
-            plugins = (Scratch.Services.Interface) object;
+            plugins = (Code.Services.Interface) object;
 
             plugins.hook_window.connect ((w) => {
                 this.doc = w.get_current_document ();
@@ -51,7 +51,7 @@ namespace Scratch.Plugins {
                 tool_button.destroy ();
         }
 
-        void on_hook_split_view (Scratch.Widgets.SplitView view) {
+        void on_hook_split_view (Code.Widgets.SplitView view) {
             this.tool_button.visible = ! view.is_empty ();
             view.welcome_shown.connect (() => {
                 this.tool_button.visible = false;
@@ -61,7 +61,7 @@ namespace Scratch.Plugins {
             });
         }
 
-        void on_hook_toolbar (Scratch.Widgets.HeaderBar toolbar) {
+        void on_hook_toolbar (Code.Widgets.HeaderBar toolbar) {
             if (tool_button != null)
                 return;
 
@@ -97,7 +97,7 @@ namespace Scratch.Plugins {
             }
         }
 
-        void set_current_document (Scratch.Services.Document? d) {
+        void set_current_document (Code.Services.Document? d) {
             if (d != null) {
                 doc = d;
                 view = null;
@@ -117,5 +117,5 @@ namespace Scratch.Plugins {
 public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
     objmodule.register_extension_type (typeof (Peas.Activatable),
-                                     typeof (Scratch.Plugins.BrowserPreviewPlugin));
+                                     typeof (Code.Plugins.BrowserPreviewPlugin));
 }

@@ -18,7 +18,7 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-public abstract class Scratch.Template : Object {
+public abstract class Code.Template : Object {
     public abstract Gtk.Widget get_creation_box ();
     public abstract signal void loaded (File file);
 
@@ -57,7 +57,7 @@ public abstract class Scratch.Template : Object {
             var content_type = file.get_content_type ();
             if ("text" in content_type || "x-desktop" in content_type) {
                 var gfile = File.new_for_path (Path.build_filename (origin.get_path (), file.get_name ()));
-                string content = Scratch.Services.FileHandler.load_content_from_file_sync (gfile);
+                string content = Code.Services.FileHandler.load_content_from_file_sync (gfile);
                 if (variables != null) {
                     foreach (var entry in variables.entries) {
                         content = content.replace ("$$" + entry.key, entry.value);
@@ -118,7 +118,7 @@ public abstract class Scratch.Template : Object {
     }
 }
 
-public class Scratch.TestTemplate : Template {
+public class Code.TestTemplate : Template {
     public override Gtk.Widget get_creation_box () {
         return new Gtk.Label ("Test");
     }
@@ -168,13 +168,13 @@ public class TemplateButton : Gtk.Button {
 }
 
 /**
- * Global Template Manager for Scratch. Only one instance of this object should
+ * Global Template Manager for Code. Only one instance of this object should
  * be used at once. It is created by the main Granite.Application (ScratchApp) and
  * a reference can be got from the plugin manager.
  **/
-public class Scratch.TemplateManager : GLib.Object {
+public class Code.TemplateManager : GLib.Object {
     private Gtk.Dialog dialog;
-    private Scratch.Template current_template;
+    private Code.Template current_template;
     private Gtk.Widget? parent = null;
     private Gtk.Grid grid;
     private int n_columns = 0; // One column
@@ -217,14 +217,14 @@ public class Scratch.TemplateManager : GLib.Object {
      * @param label The name of your template.
      * @param template_type The object type which must be instanciated when we click on
      * the icon on the IconView. It will be used to get the creation box and therefore must
-     * inherit from #Scratch.Template.
+     * inherit from #Code.Template.
      **/
     public void register_template (string icon_id, string label, string description, Type template_type) {
         var button = new TemplateButton (label, description, icon_id);
         append_button (button);
 
         button.clicked.connect (() => {
-            current_template = (Scratch.Template) Object.new (template_type);
+            current_template = (Code.Template) Object.new (template_type);
             this.dialog.hide ();
             var window = new Gtk.Dialog ();
             window.title = label;

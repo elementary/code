@@ -18,7 +18,7 @@
   END LICENSE
 ***/
 
-namespace Scratch.Plugins.TerminalViewer {
+namespace Code.Plugins.TerminalViewer {
     /**
      * Class for interacting with gsettings.
      */

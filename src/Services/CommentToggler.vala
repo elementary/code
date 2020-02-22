@@ -17,7 +17,7 @@
  * Authored by: David Hewitt <davidmhewitt@gmail.com>
  */
 
-public class Scratch.CommentToggler {
+public class Code.CommentToggler {
     private enum CommentType {
         NONE,
         LINE,

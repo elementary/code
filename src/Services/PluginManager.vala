@@ -18,27 +18,27 @@
   END LICENSE
 ***/
 
-namespace Scratch.Services {
+namespace Code.Services {
     public class Interface : GLib.Object {
 
         public PluginsManager manager;
 
         // Signals
-        public signal void hook_window (Scratch.MainWindow window);
+        public signal void hook_window (Code.MainWindow window);
         public signal void hook_share_menu (Gtk.Menu menu);
-        public signal void hook_toolbar (Scratch.Widgets.HeaderBar toolbar);
+        public signal void hook_toolbar (Code.Widgets.HeaderBar toolbar);
         public signal void hook_notebook_sidebar (Gtk.Notebook notebook);
         public signal void hook_notebook_bottom (Gtk.Notebook notebook);
-        public signal void hook_split_view (Scratch.Widgets.SplitView view);
-        public signal void hook_document (Scratch.Services.Document doc);
-        public signal void hook_preferences_dialog (Scratch.Dialogs.Preferences dialog);
+        public signal void hook_split_view (Code.Widgets.SplitView view);
+        public signal void hook_document (Code.Services.Document doc);
+        public signal void hook_preferences_dialog (Code.Dialogs.Preferences dialog);
 
-        public Scratch.TemplateManager template_manager { private set; get; }
+        public Code.TemplateManager template_manager { private set; get; }
 
         public Interface (PluginsManager manager) {
             this.manager = manager;
 
-            template_manager = new Scratch.TemplateManager ();
+            template_manager = new Code.TemplateManager ();
         }
 
         public Document open_file (File file) {
@@ -67,13 +67,13 @@ namespace Scratch.Services {
         public weak MainWindow window;
 
         // Signals
-        public signal void hook_window (Scratch.MainWindow window);
+        public signal void hook_window (Code.MainWindow window);
         public signal void hook_share_menu (Gtk.Menu menu);
-        public signal void hook_toolbar (Scratch.Widgets.HeaderBar toolbar);
+        public signal void hook_toolbar (Code.Widgets.HeaderBar toolbar);
         public signal void hook_notebook_bottom (Gtk.Notebook notebook);
-        public signal void hook_split_view (Scratch.Widgets.SplitView view);
-        public signal void hook_document (Scratch.Services.Document doc);
-        public signal void hook_preferences_dialog (Scratch.Dialogs.Preferences dialog);
+        public signal void hook_split_view (Code.Widgets.SplitView view);
+        public signal void hook_document (Code.Services.Document doc);
+        public signal void hook_preferences_dialog (Code.Dialogs.Preferences dialog);
 
         public signal void extension_added (Peas.PluginInfo info);
         public signal void extension_removed (Peas.PluginInfo info);
@@ -81,7 +81,7 @@ namespace Scratch.Services {
         public PluginsManager (MainWindow window, string? set_name = null) {
             this.window = window;
 
-            settings = Scratch.settings.schema;
+            settings = Code.settings.schema;
             settings_field = "plugins-enabled";
 
             plugin_iface = new Interface (this);

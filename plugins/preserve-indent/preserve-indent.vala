@@ -18,9 +18,9 @@
   END LICENSE
 ***/
 
-public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatable {
+public class Code.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatable {
 
-    private Scratch.Services.Interface plugins;
+    private Code.Services.Interface plugins;
     private Gee.TreeSet<weak Services.Document> documents;
     private Services.Document active_document;
     private int last_clipboard_indent_level = 0;
@@ -30,7 +30,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatab
 
     public void activate () {
         this.documents = new Gee.TreeSet<weak Services.Document> ();
-        plugins = (Scratch.Services.Interface) object;
+        plugins = (Code.Services.Interface) object;
 
         plugins.hook_document.connect ((d) => {
             this.active_document = d;
@@ -63,7 +63,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatab
 
         pos = line_begin;
         int indent = 0;
-        int tabwidth = Scratch.settings.indent_width;
+        int tabwidth = Code.settings.indent_width;
 
         unichar ch = pos.get_char ();
         while (pos.get_offset () < iter.get_offset () && ch != '\n') {
@@ -171,7 +171,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatab
         if (view.insert_spaces_instead_of_tabs) {
             indent_str = string.nfill (nchars, ' ');
         } else {
-            int tabwidth = Scratch.settings.indent_width;
+            int tabwidth = Code.settings.indent_width;
             int tabs = nchars / tabwidth;
             int spaces = nchars % tabwidth;
 
@@ -203,7 +203,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatab
         }
 
         Gtk.TextBuffer buffer = view.buffer;
-        int tabwidth = Scratch.settings.indent_width;
+        int tabwidth = Code.settings.indent_width;
         Gtk.TextIter del_begin, del_end, itr;
 
         for (var line = first_line; line <= last_line; ++line) {
@@ -242,5 +242,5 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatab
 public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
     objmodule.register_extension_type (typeof (Peas.Activatable),
-                                     typeof (Scratch.Plugins.PreserveIndent));
+                                     typeof (Code.Plugins.PreserveIndent));
 }

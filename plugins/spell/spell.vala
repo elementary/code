@@ -13,11 +13,11 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
+public class Code.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
 
-    Scratch.Services.Interface plugins;
+    Code.Services.Interface plugins;
 
-    Scratch.Plugins.SpellSettings.Settings settings;
+    Code.Plugins.SpellSettings.Settings settings;
 
     MainWindow window = null;
 
@@ -36,14 +36,14 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
 
     public void activate () {
 
-        this.settings = new Scratch.Plugins.SpellSettings.Settings ();
+        this.settings = new Code.Plugins.SpellSettings.Settings ();
 
         // Restore the last dictionary used.
         this.lang_dict = settings.language;
 
         settings.changed.connect (settings_changed);
 
-        plugins = (Scratch.Services.Interface) object;
+        plugins = (Code.Services.Interface) object;
         plugins.hook_document.connect ((d) => {
             var view = d.source_view;
 
@@ -128,7 +128,7 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
 
 
 
-    private void language_changed_spell (Scratch.Widgets.SourceView view) {
+    private void language_changed_spell (Code.Widgets.SourceView view) {
         if (view.language != null)
             spell.detach ();
     }
@@ -161,6 +161,6 @@ public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
     objmodule.register_extension_type (
         typeof (Peas.Activatable),
-        typeof (Scratch.Plugins.Spell)
+        typeof (Code.Plugins.Spell)
     );
 }

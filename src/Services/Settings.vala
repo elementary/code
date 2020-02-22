@@ -19,7 +19,7 @@
 ***/
 
 
-namespace Scratch {
+namespace Code {
 
     public enum ScratchWindowState {
         NORMAL = 0,

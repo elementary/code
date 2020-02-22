@@ -19,7 +19,7 @@
 * Boston, MA 02110-1301 USA
 */
 
-namespace Scratch.Utils {
+namespace Code.Utils {
     public string? last_path = null;
 
     public SimpleAction action_from_group (string action_name, SimpleActionGroup action_group) {

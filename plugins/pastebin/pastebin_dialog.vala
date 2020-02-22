@@ -18,9 +18,9 @@
   END LICENSE
 ***/
 
-using Scratch.Services;
+using Code.Services;
 
-namespace Scratch.Dialogs {
+namespace Code.Dialogs {
 
     public class PasteBinDialog : Gtk.Dialog {
 
@@ -228,7 +228,7 @@ namespace Scratch.Dialogs {
             {"n", "zxbasic", "ZXBasic", ""}
         };
 
-        public Scratch.Services.Document doc { get; construct; }
+        public Code.Services.Document doc { get; construct; }
 
         private Gtk.Button send_button;
         private Gtk.Entry name_entry;
@@ -240,7 +240,7 @@ namespace Scratch.Dialogs {
         private Gtk.ListStore format_store;
         private Gtk.Stack stack;
 
-        public PasteBinDialog (Gtk.Window? parent, Scratch.Services.Document doc) {
+        public PasteBinDialog (Gtk.Window? parent, Code.Services.Document doc) {
             Object (
                 border_width: 5,
                 deletable: false,
@@ -412,14 +412,14 @@ namespace Scratch.Dialogs {
             string paste_name = this.doc.get_basename ();
             name_entry.text = paste_name;
 
-            expiry_combo.set_active_id (Scratch.services.expiry_time);
-            private_check.set_active (Scratch.services.set_private);
+            expiry_combo.set_active_id (Code.services.expiry_time);
+            private_check.set_active (Code.services.set_private);
         }
 
         private void write_settings () {
-            Scratch.services.paste_format_code = format_combo.get_active_id ();
-            Scratch.services.expiry_time = expiry_combo.get_active_id ();
-            Scratch.services.set_private = private_check.get_active ();
+            Code.services.paste_format_code = format_combo.get_active_id ();
+            Code.services.expiry_time = expiry_combo.get_active_id ();
+            Code.services.set_private = private_check.get_active ();
         }
 
         private void send_button_clicked () {

@@ -20,9 +20,9 @@ namespace Code.Plugins {
     public class OutlinePlugin : Peas.ExtensionBase, Peas.Activatable {
         public Object object { owned get; construct; }
 
-        Scratch.Services.Interface scratch_interface;
+        Code.Services.Interface scratch_interface;
         SymbolOutline? current_view = null;
-        unowned Scratch.MainWindow window;
+        unowned Code.MainWindow window;
 
         OutlinePane? container = null;
 
@@ -35,7 +35,7 @@ namespace Code.Plugins {
         }
 
         public void activate () {
-            scratch_interface = (Scratch.Services.Interface)object;
+            scratch_interface = (Code.Services.Interface)object;
             scratch_interface.hook_document.connect (on_hook_document);
             scratch_interface.hook_window.connect (on_hook_window);
         }
@@ -48,7 +48,7 @@ namespace Code.Plugins {
 
         }
 
-        void on_hook_window (Scratch.MainWindow window) {
+        void on_hook_window (Code.MainWindow window) {
             if (container != null)
                 return;
 
@@ -58,7 +58,7 @@ namespace Code.Plugins {
             container.visible = false;
         }
 
-        void on_hook_document (Scratch.Services.Document doc) {
+        void on_hook_document (Code.Services.Document doc) {
             if (current_view != null && current_view.doc == doc)
                 return;
 
@@ -129,7 +129,7 @@ namespace Code.Plugins {
             view.goto.disconnect (goto);
         }
 
-        void goto (Scratch.Services.Document doc, int line) {
+        void goto (Code.Services.Document doc, int line) {
             scratch_interface.open_file (doc.file);
 
             var text = doc.source_view;

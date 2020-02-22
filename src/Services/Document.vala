@@ -19,7 +19,7 @@
   END LICENSE
 ***/
 
-namespace Scratch.Services {
+namespace Code.Services {
     public enum DocumentStates {
         NORMAL,
         READONLY
@@ -85,7 +85,7 @@ namespace Scratch.Services {
         }
 
         public Gtk.Stack main_stack;
-        public Scratch.Widgets.SourceView source_view;
+        public Code.Widgets.SourceView source_view;
         public Code.Pane pane;
         public string original_content;
         private string last_save_content;
@@ -129,7 +129,7 @@ namespace Scratch.Services {
 
         construct {
             main_stack = new Gtk.Stack ();
-            source_view = new Scratch.Widgets.SourceView ();
+            source_view = new Code.Widgets.SourceView ();
 
             scroll = new Gtk.ScrolledWindow (null, null);
             scroll.add (source_view);

@@ -18,7 +18,7 @@
  * Authored by: Julien Spautz <spautz.julien@gmail.com>, Andrei-Costin Zisu <matzipan@gmail.com>
  */
 
-namespace Scratch.FolderManager {
+namespace Code.FolderManager {
     /**
      * Normal item in the source list, represents a textfile.
      */
@@ -32,7 +32,7 @@ namespace Scratch.FolderManager {
             new_window_menuitem.activate.connect (() => {
                 var new_window = Application.instance.new_window ();
                 var view = new_window.add_view ();
-                var doc = new Scratch.Services.Document (new_window.actions, file.file);
+                var doc = new Code.Services.Document (new_window.actions, file.file);
 
                 new_window.open_document (doc, view, true);
             });

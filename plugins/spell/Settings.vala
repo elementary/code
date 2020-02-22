@@ -18,7 +18,7 @@
   END LICENSE
 ***/
 
-namespace Scratch.Plugins.SpellSettings {
+namespace Code.Plugins.SpellSettings {
 
     /**
      * Class for interacting with gsettings.

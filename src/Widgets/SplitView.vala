@@ -18,12 +18,12 @@
   END LICENSE
 ***/
 
-namespace Scratch.Widgets {
+namespace Code.Widgets {
 
     public class SplitView : Granite.Widgets.CollapsiblePaned {
         public signal void welcome_shown ();
         public signal void welcome_hidden ();
-        public signal void document_change (Scratch.Services.Document document);
+        public signal void document_change (Code.Services.Document document);
         public signal void views_changed (uint count);
 
         private weak MainWindow _window;
@@ -37,10 +37,10 @@ namespace Scratch.Widgets {
         }
 
         private Code.WelcomeView welcome_view;
-        public Scratch.Widgets.DocumentView? current_view = null;
+        public Code.Widgets.DocumentView? current_view = null;
 
-        public GLib.List<Scratch.Widgets.DocumentView> views;
-        private GLib.List<Scratch.Widgets.DocumentView> hidden_views;
+        public GLib.List<Code.Widgets.DocumentView> views;
+        private GLib.List<Code.Widgets.DocumentView> hidden_views;
 
         public SplitView (MainWindow window) {
             Object (orientation: Gtk.Orientation.HORIZONTAL, window: window);
@@ -61,7 +61,7 @@ namespace Scratch.Widgets {
                     for (var i = 0; i < uris.length; i++) {
                         string filename = uris[i];
                         File file = File.new_for_uri (filename);
-                        Scratch.Services.Document doc = new Scratch.Services.Document (window.actions, file);
+                        Code.Services.Document doc = new Code.Services.Document (window.actions, file);
                         view.open_document (doc);
                     }
 
@@ -69,12 +69,12 @@ namespace Scratch.Widgets {
                 }
             });
 
-            views = new GLib.List<Scratch.Widgets.DocumentView> ();
-            hidden_views = new GLib.List<Scratch.Widgets.DocumentView> ();
+            views = new GLib.List<Code.Widgets.DocumentView> ();
+            hidden_views = new GLib.List<Code.Widgets.DocumentView> ();
             show_welcome ();
         }
 
-        public Scratch.Widgets.DocumentView? add_view () {
+        public Code.Widgets.DocumentView? add_view () {
             if (views.length () >= 2) {
                 warning ("Maximum view number was already reached!");
                 return null;
@@ -85,9 +85,9 @@ namespace Scratch.Widgets {
                 hide_welcome ();
             }
 
-            Scratch.Widgets.DocumentView view;
+            Code.Widgets.DocumentView view;
             if (hidden_views.length () == 0) {
-                view = new Scratch.Widgets.DocumentView (window);
+                view = new Code.Widgets.DocumentView (window);
 
                 view.empty.connect (() => {
                     remove_view (view); /* Welcome will show if no views left */
@@ -119,10 +119,10 @@ namespace Scratch.Widgets {
             return view;
         }
 
-        public void remove_view (Scratch.Widgets.DocumentView? view = null) {
+        public void remove_view (Code.Widgets.DocumentView? view = null) {
             // If no specific view is required to be removed, just remove the current one
             if (view == null) {
-                view = current_view as Scratch.Widgets.DocumentView;
+                view = current_view as Code.Widgets.DocumentView;
             }
 
             if (view == null) {
@@ -139,7 +139,7 @@ namespace Scratch.Widgets {
 
             // Swap the position of the second view in the pane when we delete the first one
             if (get_child1 () == view && get_child2 () != null) {
-                var right_view = get_child2 () as Scratch.Widgets.DocumentView;
+                var right_view = get_child2 () as Code.Widgets.DocumentView;
                 remove (view);
                 remove (right_view);
                 pack1 (right_view, true, true);
@@ -173,7 +173,7 @@ namespace Scratch.Widgets {
             }
         }
 
-        public Scratch.Widgets.DocumentView? get_current_view () {
+        public Code.Widgets.DocumentView? get_current_view () {
             views.foreach ((v) => {
                 if (v.has_focus) {
                     current_view = v;
@@ -202,7 +202,7 @@ namespace Scratch.Widgets {
         }
 
         // Detect the last focused Document throw a signal
-        private void on_document_changed (Scratch.Services.Document? document, Scratch.Widgets.DocumentView parent) {
+        private void on_document_changed (Code.Services.Document? document, Code.Widgets.DocumentView parent) {
             if (document != null) {
                 document_change (document);
             }

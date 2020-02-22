@@ -32,7 +32,7 @@ public class Code.FormatBar : Gtk.Grid {
     public FormatButton line_toggle;
     private Gtk.Entry goto_entry;
 
-    private unowned Scratch.Services.Document? doc = null;
+    private unowned Code.Services.Document? doc = null;
 
     private const string CSS = """
         .format-bar {
@@ -69,8 +69,8 @@ public class Code.FormatBar : Gtk.Grid {
         line_toggle = new FormatButton ();
         line_toggle.icon = new ThemedIcon ("view-continuous-symbolic");
         line_toggle.tooltip_markup = Granite.markup_accel_tooltip (
-            Scratch.Application.instance.get_accels_for_action (
-                Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_GO_TO
+            Code.Application.instance.get_accels_for_action (
+                Code.MainWindow.ACTION_PREFIX + Code.MainWindow.ACTION_GO_TO
             ),
             _("Line number")
         );
@@ -163,14 +163,14 @@ public class Code.FormatBar : Gtk.Grid {
 
         autoindent_switch = new Gtk.Switch ();
         autoindent_switch.halign = Gtk.Align.START;
-        Scratch.settings.schema.bind ("auto-indent", autoindent_switch, "active", SettingsBindFlags.DEFAULT);
+        Code.settings.schema.bind ("auto-indent", autoindent_switch, "active", SettingsBindFlags.DEFAULT);
 
         tab_width = new Gtk.SpinButton.with_range (1, 24, 1);
-        Scratch.settings.schema.bind ("indent-width", tab_width, "value", SettingsBindFlags.DEFAULT);
+        Code.settings.schema.bind ("indent-width", tab_width, "value", SettingsBindFlags.DEFAULT);
 
         space_tab_switch = new Gtk.Switch ();
         space_tab_switch.halign = Gtk.Align.START;
-        Scratch.settings.schema.bind ("spaces-instead-of-tabs", space_tab_switch, "active", SettingsBindFlags.DEFAULT);
+        Code.settings.schema.bind ("spaces-instead-of-tabs", space_tab_switch, "active", SettingsBindFlags.DEFAULT);
 
         var tab_grid = new Gtk.Grid ();
         tab_grid.margin = 12;
@@ -189,13 +189,13 @@ public class Code.FormatBar : Gtk.Grid {
         tab_popover.add (tab_grid);
 
         tab_toggle.bind_property ("active", tab_popover, "visible", GLib.BindingFlags.BIDIRECTIONAL);
-        Scratch.settings.schema.changed["indent-width"].connect (() => format_tab_header ());
-        Scratch.settings.schema.changed["spaces-instead-of-tabs"].connect (() => format_tab_header ());
+        Code.settings.schema.changed["indent-width"].connect (() => format_tab_header ());
+        Code.settings.schema.changed["spaces-instead-of-tabs"].connect (() => format_tab_header ());
     }
 
     private void format_tab_header () {
-        var indent_width = Scratch.settings.schema.get_int ("indent-width");
-        var spaces_instead_of_tabs = Scratch.settings.schema.get_boolean ("spaces-instead-of-tabs");
+        var indent_width = Code.settings.schema.get_int ("indent-width");
+        var spaces_instead_of_tabs = Code.settings.schema.get_boolean ("spaces-instead-of-tabs");
         if (doc != null) {
             indent_width = (int)doc.source_view.tab_width;
             spaces_instead_of_tabs = doc.source_view.insert_spaces_instead_of_tabs;
@@ -250,7 +250,7 @@ public class Code.FormatBar : Gtk.Grid {
         });
     }
 
-    public void set_document (Scratch.Services.Document doc) {
+    public void set_document (Code.Services.Document doc) {
         if (this.doc != null) {
             this.doc.source_view.buffer.notify["cursor-position"].disconnect (format_line_header);
         }

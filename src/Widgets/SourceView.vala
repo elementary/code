@@ -19,7 +19,7 @@
 * Boston, MA 02110-1301 USA
 */
 
-namespace Scratch.Widgets {
+namespace Code.Widgets {
     public class SourceView : Gtk.SourceView {
         public Gtk.TextMark mark;
         public Gtk.SourceLanguageManager manager;
@@ -108,7 +108,7 @@ namespace Scratch.Widgets {
             });
 
             cut_clipboard.connect (() => {
-                if (!Scratch.settings.smart_cut_copy) {
+                if (!Code.settings.smart_cut_copy) {
                     return;
                 }
 
@@ -129,7 +129,7 @@ namespace Scratch.Widgets {
             });
 
             copy_clipboard.connect (() => {
-                if (!Scratch.settings.smart_cut_copy) {
+                if (!Code.settings.smart_cut_copy) {
                     return;
                 }
 
@@ -190,11 +190,11 @@ namespace Scratch.Widgets {
         }
 
         private void restore_settings () {
-            auto_indent = Scratch.settings.auto_indent;
-            show_right_margin = Scratch.settings.show_right_margin;
-            right_margin_position = Scratch.settings.right_margin_position;
+            auto_indent = Code.settings.auto_indent;
+            show_right_margin = Code.settings.show_right_margin;
+            right_margin_position = Code.settings.right_margin_position;
             var source_buffer = (Gtk.SourceBuffer) buffer;
-            source_buffer.highlight_matching_brackets = Scratch.settings.highlight_matching_brackets;
+            source_buffer.highlight_matching_brackets = Code.settings.highlight_matching_brackets;
 
             if (settings.draw_spaces == ScratchDrawSpacesState.ALWAYS) {
                 space_drawer.set_types_for_locations (Gtk.SourceSpaceLocationFlags.ALL,
@@ -209,30 +209,30 @@ namespace Scratch.Widgets {
 
             update_draw_spaces ();
 
-            insert_spaces_instead_of_tabs = Scratch.settings.spaces_instead_of_tabs;
-            tab_width = (uint) Scratch.settings.indent_width;
-            if (Scratch.settings.line_wrap) {
+            insert_spaces_instead_of_tabs = Code.settings.spaces_instead_of_tabs;
+            tab_width = (uint) Code.settings.indent_width;
+            if (Code.settings.line_wrap) {
                 set_wrap_mode (Gtk.WrapMode.WORD);
             } else {
                 set_wrap_mode (Gtk.WrapMode.NONE);
             }
 
-            font = Scratch.settings.font;
-            use_default_font (Scratch.settings.use_system_font);
+            font = Code.settings.font;
+            use_default_font (Code.settings.use_system_font);
             override_font (Pango.FontDescription.from_string (font));
-            source_buffer.style_scheme = style_scheme_manager.get_scheme (Scratch.settings.style_scheme);
+            source_buffer.style_scheme = style_scheme_manager.get_scheme (Code.settings.style_scheme);
             style_changed (source_buffer.style_scheme);
         }
 
         private void update_settings () {
             var source_buffer = (Gtk.SourceBuffer) buffer;
-            Scratch.settings.show_right_margin = show_right_margin;
-            Scratch.settings.right_margin_position = (int) right_margin_position;
-            Scratch.settings.highlight_matching_brackets = source_buffer.highlight_matching_brackets;
-            Scratch.settings.spaces_instead_of_tabs = insert_spaces_instead_of_tabs;
-            Scratch.settings.indent_width = (int) tab_width;
-            Scratch.settings.font = font;
-            Scratch.settings.style_scheme = source_buffer.style_scheme.id;
+            Code.settings.show_right_margin = show_right_margin;
+            Code.settings.right_margin_position = (int) right_margin_position;
+            Code.settings.highlight_matching_brackets = source_buffer.highlight_matching_brackets;
+            Code.settings.spaces_instead_of_tabs = insert_spaces_instead_of_tabs;
+            Code.settings.indent_width = (int) tab_width;
+            Code.settings.font = font;
+            Code.settings.style_scheme = source_buffer.style_scheme.id;
             style_changed (source_buffer.style_scheme);
         }
 

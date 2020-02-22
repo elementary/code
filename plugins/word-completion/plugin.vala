@@ -18,16 +18,16 @@
  *
  */
 
-public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
+public class Code.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     public Object object { owned get; construct; }
 
     private List<Gtk.SourceView> text_view_list = new List<Gtk.SourceView> ();
     public Euclide.Completion.Parser parser {get; private set;}
     public Gtk.SourceView? current_view {get; private set;}
-    public Scratch.Services.Document current_document {get; private set;}
+    public Code.Services.Document current_document {get; private set;}
 
     private MainWindow main_window;
-    private Scratch.Services.Interface plugins;
+    private Code.Services.Interface plugins;
 
     private const uint [] ACTIVATE_KEYS = {
         Gdk.Key.Return,
@@ -44,7 +44,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
     private bool completion_visible = false;
 
     public void activate () {
-        plugins = (Scratch.Services.Interface) object;
+        plugins = (Code.Services.Interface) object;
         parser = new Euclide.Completion.Parser ();
         plugins.hook_window.connect ((w) => {
             this.main_window = w;
@@ -61,7 +61,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
 
     }
 
-    public void on_new_source_view (Scratch.Services.Document doc) {
+    public void on_new_source_view (Code.Services.Document doc) {
         if (current_view != null) {
             if (current_view == doc.source_view)
                 return;
@@ -83,7 +83,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         if (text_view_list.find (current_view) == null)
             text_view_list.append (current_view);
 
-        var comp_provider = new Scratch.Plugins.CompletionProvider (this);
+        var comp_provider = new Code.Plugins.CompletionProvider (this);
         comp_provider.priority = 1;
         comp_provider.name = provider_name_from_document (doc);
         comp_provider.can_propose.connect (on_propose);
@@ -169,7 +169,7 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
         completion_visible = can_propose;
     }
 
-    private string provider_name_from_document (Scratch.Services.Document doc) {
+    private string provider_name_from_document (Code.Services.Document doc) {
         return _("%s - Word Completion").printf (doc.get_basename ());
     }
 
@@ -198,5 +198,5 @@ public class Scratch.Plugins.Completion : Peas.ExtensionBase, Peas.Activatable {
 public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
     objmodule.register_extension_type (typeof (Peas.Activatable),
-                                       typeof (Scratch.Plugins.Completion));
+                                       typeof (Code.Plugins.Completion));
 }

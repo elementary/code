@@ -40,14 +40,14 @@ public class Code.Pane : Gtk.Grid {
         actionbar.get_style_context ().add_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
 
         var add_folder_button = new Gtk.Button.from_icon_name ("folder-open-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-        add_folder_button.action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_FOLDER;
+        add_folder_button.action_name = Code.MainWindow.ACTION_PREFIX + Code.MainWindow.ACTION_OPEN_FOLDER;
         add_folder_button.tooltip_text = _("Open project folder…");
 
         var collapse_all_menu_item = new Gtk.MenuItem.with_label (_("Collapse All"));
-        collapse_all_menu_item.action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_COLLAPSE_ALL_FOLDERS;
+        collapse_all_menu_item.action_name = Code.MainWindow.ACTION_PREFIX + Code.MainWindow.ACTION_COLLAPSE_ALL_FOLDERS;
 
         var order_projects_menu_item = new Gtk.MenuItem.with_label (_("Alphabetize"));
-        order_projects_menu_item.action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_ORDER_FOLDERS;
+        order_projects_menu_item.action_name = Code.MainWindow.ACTION_PREFIX + Code.MainWindow.ACTION_ORDER_FOLDERS;
 
         var project_menu = new Gtk.Menu ();
         project_menu.append (collapse_all_menu_item);

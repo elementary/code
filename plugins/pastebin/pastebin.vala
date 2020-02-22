@@ -18,7 +18,7 @@
   END LICENSE
 ***/
 
-namespace Scratch.Services {
+namespace Code.Services {
     public class PasteBin : GLib.Object {
         public const string NEVER = "N";
         public const string TEN_MINUTES = "10M";
@@ -68,18 +68,18 @@ namespace Scratch.Services {
     }
 }
 
-public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Peas.Activatable {
+public class Code.Plugins.Pastebin : Peas.ExtensionBase, Peas.Activatable {
     Gtk.MenuItem? menuitem = null;
 
     [NoAcessorMethod]
     public Object object { owned get; construct; }
-    Scratch.Services.Interface plugins;
+    Code.Services.Interface plugins;
 
     public void update_state () {
     }
 
     public void activate () {
-        plugins = (Scratch.Services.Interface) object;
+        plugins = (Code.Services.Interface) object;
 
         plugins.hook_share_menu.connect (on_hook);
     }
@@ -108,5 +108,5 @@ public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Peas.Activatable {
 public void peas_register_types (GLib.TypeModule module) {
     var objmodule = module as Peas.ObjectModule;
     objmodule.register_extension_type (typeof (Peas.Activatable),
-                                     typeof (Scratch.Plugins.Pastebin));
+                                     typeof (Code.Plugins.Pastebin));
 }

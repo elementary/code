@@ -18,7 +18,7 @@
   END LICENSE
 ***/
 
-namespace Scratch.Services {
+namespace Code.Services {
 
     public enum FileOption {
         EXISTS,

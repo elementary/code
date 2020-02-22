@@ -17,7 +17,7 @@
  * Authored by: David Hewitt <davidmhewitt@gmail.com>
  */
 
-namespace Scratch.FolderManager {
+namespace Code.FolderManager {
     internal class ProjectFolderItem : FolderItem {
         // Minimum time to elapse before querying git folder again (ms)
         private const uint GIT_UPDATE_RATE_LIMIT = 300;
