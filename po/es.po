@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-14 00:36+0000\n"
-"PO-Revision-Date: 2020-01-25 15:08+0000\n"
+"PO-Revision-Date: 2020-02-24 20:02+0000\n"
 "Last-Translator: Daniel R. <riesp@pm.me>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/code/es/>\n"
 "Language: es\n"
@@ -64,7 +64,7 @@ msgstr "El archivo  \"%s\" no puede ser abierto"
 
 #: src/Application.vala:248
 msgid "New Tab"
-msgstr "Nueva Pestaña"
+msgstr "Nueva pestaña"
 
 #: src/Application.vala:249 src/FolderManager/FileItem.vala:31
 msgid "New Window"
@@ -153,7 +153,7 @@ msgstr "Cortado inteligente/copiar líneas:"
 
 #: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
-msgstr "Pestañas"
+msgstr "Tabulaciones"
 
 #: src/Dialogs/PreferencesDialog.vala:63 src/Widgets/FormatBar.vala:161
 msgid "Automatic indentation:"
@@ -446,8 +446,8 @@ msgstr[1] "%d Espacios"
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "%d Pestaña"
-msgstr[1] "%d Pestañas"
+msgstr[0] "%d tabulación"
+msgstr[1] "%d tabulaciones"
 
 #: src/Widgets/FormatBar.vala:223
 msgid "Go To Line:"
