@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-14 00:36+0000\n"
-"PO-Revision-Date: 2020-02-24 20:02+0000\n"
+"PO-Revision-Date: 2020-02-25 20:09+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/code/es/>\n"
 "Language: es\n"
@@ -64,11 +64,11 @@ msgstr "No se puede abrir el archivo «%s»"
 
 #: src/Application.vala:248
 msgid "New Tab"
-msgstr "Nueva pestaña"
+msgstr "Pestaña nueva"
 
 #: src/Application.vala:249 src/FolderManager/FileItem.vala:31
 msgid "New Window"
-msgstr "Nueva Ventana"
+msgstr "Ventana nueva"
 
 #: src/Application.vala:250
 msgid "Print version info and exit"
@@ -243,11 +243,11 @@ msgstr "Cargar de todos modos"
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:117
 msgid "Other Application…"
-msgstr "Otra aplicación …"
+msgstr "Otra aplicación…"
 
 #: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:157
 msgid "Open In"
-msgstr "Abrir"
+msgstr "Abrir en"
 
 #: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:92
 msgid "Other Actions"
@@ -255,7 +255,7 @@ msgstr "Otras acciones"
 
 #: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:95
 msgid "Rename"
-msgstr "Renombrar"
+msgstr "Cambiar nombre"
 
 #: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:101
 #: src/FolderManager/ProjectFolderItem.vala:103
