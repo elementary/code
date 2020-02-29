@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-14 00:36+0000\n"
-"PO-Revision-Date: 2019-10-27 10:24+0000\n"
+"PO-Revision-Date: 2020-02-29 20:15+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/code/he/>\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
 #: src/Application.vala:134
@@ -136,6 +136,7 @@ msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
+"גזירה או העתקה ללא בחירה פעילה תובלנה לגזירה או להעתקה של כל השורה הנוכחית"
 
 #: src/Dialogs/PreferencesDialog.vala:56
 msgid "General"
@@ -147,7 +148,7 @@ msgstr "שמירת קבצים בעת שינוי:"
 
 #: src/Dialogs/PreferencesDialog.vala:59
 msgid "Smart cut/copy lines:"
-msgstr ""
+msgstr "גזירה/העתקה חכמה של שורות:"
 
 #: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
@@ -288,10 +289,8 @@ msgid "Close Folder"
 msgstr "סגירת תיקייה"
 
 #: src/FolderManager/ProjectFolderItem.vala:99
-#, fuzzy
-#| msgid "Close Folder"
 msgid "Close Other Folders"
-msgstr "סגירת תיקייה"
+msgstr "לסגור את התיקיות האחרות"
 
 #: src/FolderManager/ProjectFolderItem.vala:345
 msgid "Branch"
@@ -511,22 +510,20 @@ msgid "Menu"
 msgstr "תפריט"
 
 #: src/Widgets/Pane.vala:44
-#, fuzzy
-#| msgid "Open a folder"
 msgid "Open project folder…"
-msgstr "פתיחת תיקייה"
+msgstr "לפתוח תיקיית מיזם…"
 
 #: src/Widgets/Pane.vala:46
 msgid "Collapse All"
-msgstr ""
+msgstr "לצמצם הכול"
 
 #: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
-msgstr ""
+msgstr "סידור אלפביתי"
 
 #: src/Widgets/Pane.vala:60
 msgid "Manage project folders"
-msgstr ""
+msgstr "ניהול תיקיות המיזם"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
