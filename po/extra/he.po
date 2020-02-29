@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-14 00:36+0000\n"
-"PO-Revision-Date: 2019-10-27 10:24+0000\n"
+"PO-Revision-Date: 2020-02-29 20:15+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/extra/he/>\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -102,28 +102,28 @@ msgstr "ועוד הרבה נוספים"
 #: data/io.elementary.code.appdata.xml.in:51
 #: data/io.elementary.code.appdata.xml.in:66
 msgid "New features:"
-msgstr ""
+msgstr "תכונות חדשות:"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "New \"Close Other Folders\" menu item to help clean up your sidebar"
-msgstr ""
+msgstr "פריט חדש „לסגור תיקיות אחרות” בתפריט כדי לסייע בפינוי סרגל הצד שלך"
 
 #: data/io.elementary.code.appdata.xml.in:54
 msgid "Save and restore cyclic search setting"
-msgstr ""
+msgstr "שמירה ושחזור של הגדרות חיפוש מעגליות"
 
 #: data/io.elementary.code.appdata.xml.in:56
 #: data/io.elementary.code.appdata.xml.in:77
 msgid "Other updates:"
-msgstr ""
+msgstr "עדכונים נוספים:"
 
 #: data/io.elementary.code.appdata.xml.in:58
 msgid "Add keyboard shortcuts to menu items"
-msgstr ""
+msgstr "הוספת קיצור מקלדת לפריטי התפריט"
 
 #: data/io.elementary.code.appdata.xml.in:59
 msgid "Make sidebar folder items not selectable"
-msgstr ""
+msgstr "הפיכת הפריטים בתיקיית סרגל הצד לבלתי ניתנים לבחירה"
 
 #: data/io.elementary.code.appdata.xml.in:60
 #: data/io.elementary.code.appdata.xml.in:86
@@ -135,68 +135,67 @@ msgstr "עדכוני תרגומים"
 
 #: data/io.elementary.code.appdata.xml.in:68
 msgid "Visually deprioritize .gitignored files in project sidebar"
-msgstr ""
+msgstr "להוריד את העדיפות של קבצים ב־‎.gitignored בסרגל הצד של המיזם"
 
 #: data/io.elementary.code.appdata.xml.in:69
 msgid "Smart cut/copy lines with no active selection"
-msgstr ""
+msgstr "גזירה/העתקה חכמה של שורות ללא בחירה פעילה"
 
 #: data/io.elementary.code.appdata.xml.in:70
 msgid "Add a confirmation dialog to the \"Restore\" action"
-msgstr ""
+msgstr "הוספת דו־שיח אישור לפעולה „שחזור”"
 
 #: data/io.elementary.code.appdata.xml.in:71
 msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
-msgstr ""
+msgstr "הוספת תפריט „פתיחה עם” לתיקייה העליונה במנהל התיקיות"
 
 #: data/io.elementary.code.appdata.xml.in:72
-#, fuzzy
 msgid "Don't show temporary files in the folder manager"
-msgstr "קבצים זמניים לא יתווספו ללשונית השחזור"
+msgstr "לא יוצגו קבצים זמניים במנהל התיקיות"
 
 #: data/io.elementary.code.appdata.xml.in:73
 msgid "Add brackets completion and auto-indent by default"
-msgstr ""
+msgstr "הוספת השלמת סוגריים והזחה אוטומטית כבררת מחדל"
 
 #: data/io.elementary.code.appdata.xml.in:74
 msgid "Zoom terminal plugin with keyboard"
-msgstr ""
+msgstr "תוסף התמקדות במסוף עם מקלדת"
 
 #: data/io.elementary.code.appdata.xml.in:75
 msgid "Honor global privacy setting when saving and restoring"
-msgstr ""
+msgstr "כיבוד הגדרות פרטיות גלובליות בעת שמירה ושחזור"
 
 #: data/io.elementary.code.appdata.xml.in:79
 msgid "Simplify \"Draw spaces\" preference"
-msgstr ""
+msgstr "פישוט ההעדפה „ציור רווחים”"
 
 #: data/io.elementary.code.appdata.xml.in:80
 msgid "Fix the keyboard shortcut for going backwards in search results"
-msgstr ""
+msgstr "תיקון קיצור המקלדת לחזרה אחורה בתוצאות החיפוש"
 
 #: data/io.elementary.code.appdata.xml.in:81
 msgid "Fix opening files from relative paths in Terminal"
-msgstr ""
+msgstr "תיקון פתיחת קבצים מנתיבים יחסיים במסוף"
 
 #: data/io.elementary.code.appdata.xml.in:82
 msgid "Fix null file dialog when opening a new window via the dock"
-msgstr ""
+msgstr "תיקון דו־שיח קבצים ריקים בעת פתיחת חלון חדש דרך המעגן"
 
 #: data/io.elementary.code.appdata.xml.in:83
 msgid "Add \"=\" as a zoom key"
-msgstr ""
+msgstr "הוספת „=” כמקש תקריב"
 
 #: data/io.elementary.code.appdata.xml.in:84
 msgid "Change search entry icon when results aren't found"
-msgstr ""
+msgstr "סמל רשומת החיפוש מוחלף כאשר לא נמצאות תוצאות"
 
 #: data/io.elementary.code.appdata.xml.in:85
 msgid "Enter name of new file before creating it"
-msgstr ""
+msgstr "הקלדת שם של קובץ חדש בטרם יצירתו"
 
 #: data/io.elementary.code.appdata.xml.in:93
 msgid "Use Granite.MessageDialog throughout"
-msgstr ""
+msgstr "להשתמש ב־Granite.MessageDialog בכל מקום שנדרש"
 
 #: data/io.elementary.code.appdata.xml.in:94
 msgid "Include non-text files in sidebar"
@@ -249,7 +248,7 @@ msgstr "שחזור העדפת גלישת שורות"
 
 #: data/io.elementary.code.appdata.xml.in:126
 msgid "Add accel tooltips"
-msgstr ""
+msgstr "הוספת עצות לסימוני האצה"
 
 #: data/io.elementary.code.appdata.xml.in:127
 msgid "Minor bug fixes"
@@ -277,7 +276,7 @@ msgstr "סביבת פיתוח;קוד;תכנות;טקסט;עריכה;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
-msgstr ""
+msgstr "קובץ חדש"
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
