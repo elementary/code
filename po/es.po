@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-14 00:36+0000\n"
-"PO-Revision-Date: 2020-02-25 20:09+0000\n"
+"POT-Creation-Date: 2020-02-29 20:17+0000\n"
+"PO-Revision-Date: 2020-03-02 23:09+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/code/es/>\n"
 "Language: es\n"
@@ -22,12 +22,12 @@ msgstr ""
 #: src/Application.vala:134
 #, c-format
 msgid "File \"%s\" Cannot Be Created"
-msgstr "El archivo  \"%s\" no puede ser creado"
+msgstr "No se puede crear el archivo «%s»"
 
 #. We list some common errors for quick feedback
 #: src/Application.vala:138
 msgid "Maybe you do not have the necessary permissions."
-msgstr "Tal vez no tengas los permisos necesarios."
+msgstr "Tal vez no cuente con los privilegios necesarios."
 
 #: src/Application.vala:140
 msgid "Maybe the file path provided is not valid."
@@ -39,7 +39,7 @@ msgstr "La ubicación es de solo lectura."
 
 #: src/Application.vala:144
 msgid "The parent directory doesn't exist."
-msgstr "El directorio principal no existe."
+msgstr "El directorio superior no existe."
 
 #: src/Application.vala:165
 msgid "It is a mountable location."
@@ -94,36 +94,36 @@ msgstr "Buscar…"
 msgid "Hide search bar"
 msgstr "Ocultar la barra de búsqueda"
 
-#: src/MainWindow.vala:244
+#: src/MainWindow.vala:262
 msgid "Zeitgeist Datasource for Code"
 msgstr "Fuente de datos de Zeitgeist para Code"
 
-#: src/MainWindow.vala:773 src/Services/Document.vala:502
+#: src/MainWindow.vala:770 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Todos los archivos"
 
-#: src/MainWindow.vala:777 src/Services/Document.vala:506
+#: src/MainWindow.vala:774 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Archivos de texto"
 
-#: src/MainWindow.vala:781
+#: src/MainWindow.vala:778
 msgid "Open some files"
 msgstr "Abre algunos archivos"
 
-#: src/MainWindow.vala:784
+#: src/MainWindow.vala:781
 msgid "Open"
 msgstr "Abrir"
 
-#: src/MainWindow.vala:785 src/Services/Document.vala:401
+#: src/MainWindow.vala:782 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/MainWindow.vala:810
+#: src/MainWindow.vala:807
 msgid "_Open"
 msgstr "_Abrir"
 
-#: src/MainWindow.vala:811
+#: src/MainWindow.vala:808
 msgid "_Cancel"
 msgstr "_Cancelar"
 
@@ -149,7 +149,7 @@ msgstr "Guardar archivos al ser modificados:"
 
 #: src/Dialogs/PreferencesDialog.vala:59
 msgid "Smart cut/copy lines:"
-msgstr "Cortado inteligente/copiar líneas:"
+msgstr "Corte y copia inteligente de renglones:"
 
 #: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
@@ -226,7 +226,7 @@ msgstr "Tipo de letra personalizado:"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
-msgstr "¿Está seguro de que desea restaurar este archivo?"
+msgstr "¿Confirma que quiere restaurar este archivo?"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Restoring a file will undo all changes made since opening it"
@@ -322,7 +322,7 @@ msgstr "Espere mientras Code está cargando el archivo."
 
 #: src/Services/Document.vala:293
 msgid "Cancel Loading"
-msgstr "Cancelar Carga"
+msgstr "Cancelar carga"
 
 #: src/Services/Document.vala:391
 #, c-format
@@ -358,8 +358,7 @@ msgstr "El archivo  \"%s\" no se puede leer"
 
 #: src/Services/Document.vala:716
 msgid "It may be corrupt or you don't have permission to read it."
-msgstr ""
-"Tal vez está dañado o no dispones de los permisos necesarios para leerlo."
+msgstr "Tal vez esté dañado o no tenga los permisos necesarios para leerlo."
 
 #: src/Services/Document.vala:728
 #, c-format
@@ -708,12 +707,12 @@ msgstr "No se encontraron diccionarios adecuados"
 
 #: plugins/spell/spell.vala:75
 msgid "Please install at least one [aspell] dictionary."
-msgstr "Por favor, instale al menos un diccionario [aspell]."
+msgstr "Instale por lo menos un diccionario [de aspell]."
 
 #: plugins/word-completion/plugin.vala:173
 #, c-format
 msgid "%s - Word Completion"
-msgstr "%s - Completar palabras"
+msgstr "%s - Compleción de palabras"
 
 #~ msgid "Add Project Folder…"
 #~ msgstr "Añadir carpeta de proyecto…"
