@@ -43,10 +43,6 @@ namespace Scratch.Widgets {
                 _("Open a file")
             );
 
-            var open_folder_button = new Gtk.Button.from_icon_name ("folder-saved-search", Gtk.IconSize.LARGE_TOOLBAR);
-            open_folder_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN_FOLDER;
-            open_folder_button.tooltip_text = _("Open a folder");
-
             templates_button = new Gtk.Button.from_icon_name ("text-x-generic-template", Gtk.IconSize.LARGE_TOOLBAR);
             templates_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TEMPLATES;
             templates_button.tooltip_text = _("Project templates");
@@ -144,13 +140,25 @@ namespace Scratch.Widgets {
             var menu_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
             menu_separator.margin_top = 12;
 
+            var toggle_sidebar_accellabel = new Granite.AccelLabel.from_action_name (
+                _("Toggle Sidebar"),
+                MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_SIDEBAR
+            );
+
             var toggle_sidebar_menuitem = new Gtk.ModelButton ();
-            toggle_sidebar_menuitem.text = _("Toggle Sidebar");
             toggle_sidebar_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_SIDEBAR;
+            toggle_sidebar_menuitem.get_child ().destroy ();
+            toggle_sidebar_menuitem.add (toggle_sidebar_accellabel);
+
+            var new_view_accellabel = new Granite.AccelLabel.from_action_name (
+                _("Add New View"),
+                MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_VIEW
+            );
 
             var new_view_menuitem = new Gtk.ModelButton ();
-            new_view_menuitem.text = _("Add New View");
             new_view_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_VIEW;
+            new_view_menuitem.get_child ().destroy ();
+            new_view_menuitem.add (new_view_accellabel);
 
             var remove_view_menuitem = new Gtk.ModelButton ();
             remove_view_menuitem.text = _("Remove Current View");
@@ -188,7 +196,6 @@ namespace Scratch.Widgets {
             set_custom_title (format_bar);
 
             pack_start (open_button);
-            pack_start (open_folder_button);
             pack_start (templates_button);
             pack_start (save_button);
             pack_start (save_as_button);

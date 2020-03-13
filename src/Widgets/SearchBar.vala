@@ -30,7 +30,7 @@ namespace Scratch.Widgets {
          * "Down", it will go at the start of the file to search for the content
          * of the search entry.
          **/
-        private Gtk.ToggleButton tool_cycle_search;
+        public Gtk.ToggleButton tool_cycle_search {get; construct;}
 
         public Gtk.SearchEntry search_entry;
         public Gtk.SearchEntry replace_entry;
@@ -137,6 +137,7 @@ namespace Scratch.Widgets {
             entry_context.set_path (entry_path);
             entry_context.add_class ("entry");
 
+            selection_mode = Gtk.SelectionMode.NONE;
             column_spacing = 6;
             max_children_per_line = 2;
             add (search_flow_box_child);
@@ -163,9 +164,11 @@ namespace Scratch.Widgets {
                 tool_arrow_down.sensitive = true;
                 tool_arrow_up.sensitive = false;
                 search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
+                search_entry.primary_icon_name = "edit-find-symbolic";
             } else {
                 if (search_entry.text != "") {
                     search_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ERROR);
+                    search_entry.primary_icon_name = "dialog-error-symbolic";
                 }
 
                 tool_arrow_down.sensitive = false;
@@ -250,10 +253,12 @@ namespace Scratch.Widgets {
                                                     out start_iter, out end_iter, null);
             if (found) {
                 search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
+                search_entry.primary_icon_name = "edit-find-symbolic";
                 return true;
             } else {
                 if (search_entry.text != "") {
                     search_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ERROR);
+                    search_entry.primary_icon_name = "dialog-error-symbolic";
                 }
 
                 return false;
@@ -264,9 +269,11 @@ namespace Scratch.Widgets {
             /* So, first, let's check we can really search something. */
             string search_string = search_entry.text;
             search_context.highlight = false;
+            search_context.highlight = false;
 
             if (text_buffer == null || text_buffer.text == "" || search_string == "") {
                 debug ("Can't search anything in an inexistant buffer and/or without anything to search.");
+                search_entry.primary_icon_name = "edit-find-symbolic";
                 return false;
             }
 
@@ -277,15 +284,18 @@ namespace Scratch.Widgets {
 
             if (search_for_iter (start_iter, out end_iter)) {
                 search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
+                search_entry.primary_icon_name = "edit-find-symbolic";
             } else {
                 text_buffer.get_start_iter (out start_iter);
                 if (search_for_iter (start_iter, out end_iter)) {
                     search_entry.get_style_context ().remove_class (Gtk.STYLE_CLASS_ERROR);
+                    search_entry.primary_icon_name = "edit-find-symbolic";
                 } else {
                     debug ("Not found: \"%s\"", search_string);
                     start_iter.set_offset (-1);
                     text_buffer.select_range (start_iter, start_iter);
                     search_entry.get_style_context ().add_class (Gtk.STYLE_CLASS_ERROR);
+                    search_entry.primary_icon_name = "dialog-error-symbolic";
                     return false;
                 }
             }

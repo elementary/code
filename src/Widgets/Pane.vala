@@ -26,15 +26,45 @@ public class Code.Pane : Gtk.Grid {
         no_show_all = true;
 
         get_style_context ().add_class (Gtk.STYLE_CLASS_SIDEBAR);
+
         stack = new Gtk.Stack ();
         stack.transition_type = Gtk.StackTransitionType.SLIDE_LEFT_RIGHT;
+
         stack_switcher = new Gtk.StackSwitcher ();
         stack_switcher.no_show_all = true;
         stack_switcher.visible = false;
         stack_switcher.stack = stack;
         stack_switcher.homogeneous = true;
+
+        var actionbar = new Gtk.ActionBar ();
+        actionbar.get_style_context ().add_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
+
+        var add_folder_button = new Gtk.Button.from_icon_name ("folder-open-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+        add_folder_button.action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_FOLDER;
+        add_folder_button.tooltip_text = _("Open project folder…");
+
+        var collapse_all_menu_item = new Gtk.MenuItem.with_label (_("Collapse All"));
+        collapse_all_menu_item.action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_COLLAPSE_ALL_FOLDERS;
+
+        var order_projects_menu_item = new Gtk.MenuItem.with_label (_("Alphabetize"));
+        order_projects_menu_item.action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_ORDER_FOLDERS;
+
+        var project_menu = new Gtk.Menu ();
+        project_menu.append (collapse_all_menu_item);
+        project_menu.append (order_projects_menu_item);
+        project_menu.show_all ();
+
+        var project_more_button = new Gtk.MenuButton ();
+        project_more_button.image = new Gtk.Image.from_icon_name ("view-more-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+        project_more_button.popup = project_menu;
+        project_more_button.tooltip_text = _("Manage project folders");
+
+        actionbar.add (add_folder_button);
+        actionbar.pack_end (project_more_button);
+
         add (stack_switcher);
         add (stack);
+        add (actionbar);
 
         stack.add.connect (() => {
             if (stack.get_children ().length () > 1) {
@@ -64,6 +94,7 @@ public class Code.Pane : Gtk.Grid {
         stack.add (tab);
         stack.child_set_property (tab, "title", tab.title);
         stack.child_set_property (tab, "icon-name", tab.icon_name);
+
         tab.notify["title"].connect (() => {
             stack.child_set_property (tab, "title", tab.title);
         });

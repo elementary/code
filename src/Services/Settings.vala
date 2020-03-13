@@ -67,10 +67,12 @@ namespace Scratch {
         public string[] opened_files_view1 { get; set; }
         public string[] opened_files_view2 { get; set; }
         public bool autosave { get; set; }
+        public bool smart_cut_copy { get; set; }
         public string focused_document_view1 { get; set; }
         public string focused_document_view2 { get; set; }
         public bool show_mini_map { get; set; }
         public bool prefer_dark_style { get; set; }
+        public bool cyclic_search { get; set; }
 
         public Settings () {
             base (Constants.PROJECT_NAME + ".settings");
@@ -100,5 +102,4 @@ namespace Scratch {
             base (SCHEMA);
         }
     }
-
 }

@@ -63,6 +63,8 @@ namespace Scratch {
         public const string ACTION_FIND_PREVIOUS = "action_find_previous";
         public const string ACTION_OPEN = "action_open";
         public const string ACTION_OPEN_FOLDER = "action_open_folder";
+        public const string ACTION_COLLAPSE_ALL_FOLDERS = "action_collapse_all_folders";
+        public const string ACTION_ORDER_FOLDERS = "action_order_folders";
         public const string ACTION_GO_TO = "action_go_to";
         public const string ACTION_NEW_VIEW = "action_new_view";
         public const string ACTION_SORT_LINES = "action_sort_lines";
@@ -97,6 +99,8 @@ namespace Scratch {
             { ACTION_FIND_PREVIOUS, action_find_previous },
             { ACTION_OPEN, action_open },
             { ACTION_OPEN_FOLDER, action_open_folder },
+            { ACTION_COLLAPSE_ALL_FOLDERS, action_collapse_all_folders },
+            { ACTION_ORDER_FOLDERS, action_order_folders },
             { ACTION_PREFERENCES, action_preferences },
             { ACTION_REVERT, action_revert },
             { ACTION_SAVE, action_save },
@@ -204,7 +208,25 @@ namespace Scratch {
             set_size_request (450, 400);
             set_hide_titlebar_when_maximized (false);
 
-            restore_saved_state ();
+            default_width = Scratch.saved_state.window_width;
+            default_height = Scratch.saved_state.window_height;
+
+            var gtk_settings = Gtk.Settings.get_default ();
+            gtk_settings.gtk_application_prefer_dark_theme = Scratch.settings.prefer_dark_style;
+
+            switch (Scratch.saved_state.window_state) {
+                case ScratchWindowState.MAXIMIZED:
+                    maximize ();
+                    break;
+                case ScratchWindowState.FULLSCREEN:
+                    fullscreen ();
+                    break;
+                default:
+                    if (Scratch.saved_state.window_x != -1 && Scratch.saved_state.window_y != -1) {
+                        move (Scratch.saved_state.window_x, Scratch.saved_state.window_y);
+                    }
+                    break;
+            }
 
             clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
 
@@ -272,6 +294,8 @@ namespace Scratch {
                 search_bar.set_search_string ("");
                 search_bar.highlight_none ();
             });
+
+            Scratch.settings.schema.bind ("cyclic-search", search_bar.tool_cycle_search, "active", SettingsBindFlags.DEFAULT);
 
             // SlitView
             split_view = new Scratch.Widgets.SplitView (this);
@@ -398,22 +422,24 @@ namespace Scratch {
         }
 
         public void restore_opened_documents () {
-            string[] uris_view1 = settings.opened_files_view1;
-            string[] uris_view2 = settings.opened_files_view2;
-            string focused_document1 = settings.focused_document_view1;
-            string focused_document2 = settings.focused_document_view2;
+            if (privacy_settings.get_boolean ("remember-recent-files")) {
+                var uris_view1 = settings.opened_files_view1;
+                var uris_view2 = settings.opened_files_view2;
+                unowned string focused_document1 = settings.focused_document_view1;
+                unowned string focused_document2 = settings.focused_document_view2;
 
-            if (uris_view1.length > 0) {
-                var view = add_view ();
-                if (!load_files_for_view (view, uris_view1, focused_document1)) {
-                    split_view.remove_view (view);
+                if (uris_view1.length > 0) {
+                    var view = add_view ();
+                    if (!load_files_for_view (view, uris_view1, focused_document1)) {
+                        split_view.remove_view (view);
+                    }
                 }
-            }
 
-            if (uris_view2.length > 0) {
-                var view = add_view ();
-                if (!load_files_for_view (view, uris_view2, focused_document2)) {
-                    split_view.remove_view (view);
+                if (uris_view2.length > 0) {
+                    var view = add_view ();
+                    if (!load_files_for_view (view, uris_view2, focused_document2)) {
+                        split_view.remove_view (view);
+                    }
                 }
             }
         }
@@ -592,27 +618,6 @@ namespace Scratch {
             }
 
             return true;
-        }
-
-        // Save windows size and state
-        private void restore_saved_state () {
-            default_width = Scratch.saved_state.window_width;
-            default_height = Scratch.saved_state.window_height;
-
-            var gtk_settings = Gtk.Settings.get_default ();
-            gtk_settings.gtk_application_prefer_dark_theme = Scratch.settings.prefer_dark_style;
-
-            switch (Scratch.saved_state.window_state) {
-                case ScratchWindowState.MAXIMIZED:
-                    maximize ();
-                    break;
-                case ScratchWindowState.FULLSCREEN:
-                    fullscreen ();
-                    break;
-                default:
-                    move (Scratch.saved_state.window_x, Scratch.saved_state.window_y);
-                    break;
-            }
         }
 
         // Save session informations different from window state
@@ -813,6 +818,14 @@ namespace Scratch {
             }
 
             chooser.destroy ();
+        }
+
+        private void action_collapse_all_folders () {
+            folder_manager_view.collapse_all ();
+        }
+
+        private void action_order_folders () {
+            folder_manager_view.order_folders ();
         }
 
         private void action_save () {

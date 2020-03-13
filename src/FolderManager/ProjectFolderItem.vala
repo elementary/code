@@ -23,12 +23,14 @@ namespace Scratch.FolderManager {
         private const uint GIT_UPDATE_RATE_LIMIT = 300;
 
         public signal void closed ();
+        public signal void close_all_except ();
 
         // Static source IDs for each instance of a top level folder, ensures we don't check for git updates too much
         private static Gee.HashMap<string, uint> git_update_timer_ids;
         private string top_level_path;
         private Ggit.Repository? git_repo = null;
         private GLib.FileMonitor git_monitor;
+        private GLib.FileMonitor gitignore_monitor;
 
         private static Icon added_icon;
         private static Icon modified_icon;
@@ -40,6 +42,10 @@ namespace Scratch.FolderManager {
         ~ProjectFolderItem () {
             if (git_monitor != null) {
                 git_monitor.cancel ();
+            }
+
+            if (gitignore_monitor != null) {
+                gitignore_monitor.cancel ();
             }
         }
 
@@ -71,12 +77,28 @@ namespace Scratch.FolderManager {
                         warning ("An error occured setting up a file monitor on the git folder: %s", e.message);
                     }
                 }
+
+                // We will only deprioritize git-ignored files whenever the project folder is a git_repo.
+                // It doesn't make sense to have a .gitignore file in a project folder that ain't a local git repo.
+                var gitignore_file = GLib.File.new_for_path (Path.build_filename (top_level_path, ".gitignore"));
+                if (gitignore_file.query_exists ()) {
+                    try {
+                        gitignore_monitor = gitignore_file.monitor_file (GLib.FileMonitorFlags.NONE);
+                        gitignore_monitor.changed.connect (() => update_git_deprioritized_files ());
+                    } catch (IOError e) {
+                        warning ("An error occured setting up a file monitor on the gitignore file: %s", e.message);
+                    }
+                }
             }
         }
 
         public override Gtk.Menu? get_context_menu () {
             var close_item = new Gtk.MenuItem.with_label (_("Close Folder"));
             close_item.activate.connect (() => { closed (); });
+
+            var close_all_except_item = new Gtk.MenuItem.with_label (_("Close Other Folders"));
+            close_all_except_item.activate.connect (() => { close_all_except (); });
+            close_all_except_item.sensitive = view.root.children.size > 1;
 
             var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
             delete_item.activate.connect (() => {
@@ -96,6 +118,7 @@ namespace Scratch.FolderManager {
 
             var menu = new Gtk.Menu ();
             menu.append (close_item);
+            menu.append (close_all_except_item);
             menu.append (create_submenu_for_open_in (info, file_type));
             menu.append (create_submenu_for_new ());
             menu.append (delete_item);
@@ -218,13 +241,49 @@ namespace Scratch.FolderManager {
                 }
 
                 item.name = item.file.name;
-                item.markup = null;
                 item.activatable = null;
 
                 if (item is Granite.Widgets.SourceList.ExpandableItem) {
                     reset_all_children (item);
                 }
             }
+
+            deprioritize_gitignored_files (toplevel_item);
+        }
+
+        private void update_git_deprioritized_files () {
+            deprioritize_gitignored_files (this);
+        }
+
+        private void deprioritize_gitignored_files (Item top_level_item) {
+            foreach (var child in top_level_item.children) {
+                if (child == null || !(child is Item)) {
+                    continue;
+                }
+
+                var item = child as Item;
+
+                if (is_file_gitignored (item)) {
+                    /* 75% opacity and italic */
+                    item.markup = Markup.printf_escaped ("<span fgalpha='75&#37;'><i>%s</i></span>", item.name);
+                }
+
+                if (item is Granite.Widgets.SourceList.ExpandableItem) {
+                    deprioritize_gitignored_files (item);
+                }
+            }
+        }
+
+        public bool is_file_gitignored (Item item) {
+            try {
+                if (git_repo.path_is_ignored (item.path)) {
+                    return true;
+                }
+            } catch (Error e) {
+                warning ("An error occured while checking if item '%s' is git-ignored: %s", item.name, e.message);
+            }
+
+            return false;
         }
 
         private class ChangeBranchMenu : Gtk.MenuItem {

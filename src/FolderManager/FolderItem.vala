@@ -26,7 +26,7 @@ namespace Scratch.FolderManager {
     internal class FolderItem : Item {
         private GLib.FileMonitor monitor;
         private bool children_loaded = false;
-        private string? newly_created_path = null;
+        private Granite.Widgets.SourceList.Item dummy; /* Blank item for expanded empty folders */
 
         public FolderItem (File file, FileView view) requires (file.is_valid_directory) {
             Object (file: file, view: view);
@@ -37,7 +37,10 @@ namespace Scratch.FolderManager {
         }
 
         construct {
-            add (new Granite.Widgets.SourceList.Item ("")); // dummy
+            selectable = false;
+
+            dummy = new Granite.Widgets.SourceList.Item ("");
+            add (dummy);
 
             toggled.connect (() => {
                 if (!children_loaded && expanded && n_children <= 1 && file.children.size > 0) {
@@ -89,8 +92,8 @@ namespace Scratch.FolderManager {
             var contractor_item = new Gtk.MenuItem.with_label (_("Other Actions"));
             contractor_item.submenu = contractor_menu;
 
-            var rename_item = new Gtk.MenuItem.with_label (_("Rename"));
-            rename_item.activate.connect (() => {
+            var rename_menu_item = new Gtk.MenuItem.with_label (_("Rename"));
+            rename_menu_item.activate.connect (() => {
                 view.ignore_next_select = true;
                 view.start_editing_item (this);
             });
@@ -103,7 +106,7 @@ namespace Scratch.FolderManager {
             menu.append (contractor_item);
             menu.append (new Gtk.SeparatorMenuItem ());
             menu.append (create_submenu_for_new ());
-            menu.append (rename_item);
+            menu.append (rename_menu_item);
             menu.append (delete_item);
             menu.show_all ();
 
@@ -159,10 +162,10 @@ namespace Scratch.FolderManager {
 
         protected Gtk.MenuItem create_submenu_for_new () {
             var new_folder_item = new Gtk.MenuItem.with_label (_("Folder"));
-            new_folder_item.activate.connect (() => add_folder ());
+            new_folder_item.activate.connect (() => on_add_new (true));
 
             var new_file_item = new Gtk.MenuItem.with_label (_("Empty File"));
-            new_file_item.activate.connect (() => add_file ());
+            new_file_item.activate.connect (() => on_add_new (false));
 
             var new_menu = new Gtk.Menu ();
             new_menu.append (new_folder_item);
@@ -176,11 +179,14 @@ namespace Scratch.FolderManager {
 
         private void add_children () {
             foreach (var child in file.children) {
+                Granite.Widgets.SourceList.Item item = null;
                 if (child.is_valid_directory) {
-                    var item = new FolderItem (child, view);
-                    add (item);
-                } else if (!child.is_temporary) {
-                    var item = new FileItem (child, view);
+                    item = new FolderItem (child, view);
+                } else if (child.is_valid_textfile) {
+                    item = new FileItem (child, view);
+                }
+
+                if (item != null) {
                     add (item);
                 }
             }
@@ -202,6 +208,7 @@ namespace Scratch.FolderManager {
 
         private void on_changed (GLib.File source, GLib.File? dest, GLib.FileMonitorEvent event) {
             if (!children_loaded) {
+                /* Empty folder with dummy item will come here even if expanded */
                 switch (event) {
                     case GLib.FileMonitorEvent.DELETED:
                         // This is a pretty intensive operation. For each file deleted, the cache will be
@@ -214,22 +221,25 @@ namespace Scratch.FolderManager {
                         if (file.children.size == 0) {
                             clear ();
                         }
+
                         break;
                     case GLib.FileMonitorEvent.CREATED:
                         if (source.query_exists () == false) {
                             return;
                         }
 
-                        file.invalidate_cache ();
-
-                        if (n_children == 0) {
-                            add (new Granite.Widgets.SourceList.Item ("")); // dummy
+                        /* Fix adding new file to expanded empty folder */
+                        if (expanded && file.children.size == 0) {
+                            file.invalidate_cache ();
+                            clear ();
+                            add_children ();
+                            children_loaded = true;
                         }
+
                         break;
                 }
             } else {
                 // No cache invalidation is needed here because the entire state is kept in the tree
-
                 switch (event) {
                     case GLib.FileMonitorEvent.DELETED:
                         var children_tmp = new Gee.ArrayList<Granite.Widgets.SourceList.Item> ();
@@ -243,7 +253,7 @@ namespace Scratch.FolderManager {
                                 remove (item);
                                 if (file.children.size == 0) {
                                     clear ();
-                                    add (new Granite.Widgets.SourceList.Item ("")); // dummy
+                                    add (dummy);
                                     expanded = false;
                                     children_loaded = false;
                                 }
@@ -284,19 +294,6 @@ namespace Scratch.FolderManager {
 
                         if (item != null) {
                             add (item);
-
-                            if (source.get_path () == newly_created_path) {
-                                newly_created_path = null;
-
-                                /*
-                                 * Avoid race condition between adding and editing folder item
-                                 * (not required for file items).
-                                 */
-                                GLib.Idle.add (() => {
-                                    view.start_editing_item (item);
-                                    return false;
-                                });
-                            }
                         }
 
                         break;
@@ -325,67 +322,89 @@ namespace Scratch.FolderManager {
             }
         }
 
-        protected void add_folder () {
+        private void on_add_new (bool is_folder) {
             if (!file.is_executable) {
                 // This is necessary to avoid infinite loop below
                 warning ("Unable to open parent folder");
                 return;
             }
 
-            var new_folder = file.file.get_child (_("untitled folder"));
-
+            unowned string name = is_folder ? _("untitled folder") : _("new file");
+            var new_file = file.file.get_child (name);
             var n = 1;
-            while (new_folder.query_exists ()) {
-                new_folder = file.file.get_child (_("untitled folder %d").printf (n));
+
+            while (new_file.query_exists ()) {
+                new_file = file.file.get_child (("%s %d").printf (name, n));
                 n++;
             }
 
-            try {
-                expanded = true;
+            expanded = true;
+            var rename_item = new RenameItem (new_file.get_basename (), is_folder);
+            if (file.children.size == 0) {
+                clear ();  /* Remove dummy item */
+            }
 
-                new_folder.make_directory ();
+            add (rename_item);
 
-                newly_created_path = new_folder.get_path ();
+            /* Start editing after finishing signal handler */
+            GLib.Idle.add (() => {
+                view.start_editing_item (rename_item);
 
-                if (!children_loaded) {
-                    clear ();
-                    add_children ();
-                    children_loaded = true;
-                }
-            } catch (Error e) {
-                warning (e.message);
+                /* Need to poll view editing as no signal is generated when canceled (Granite bug) */
+                Timeout.add (200, () => {
+                    if (view.editing) {
+                        return Source.CONTINUE;
+                    } else {
+                        var new_name = rename_item.name;
+                        remove (rename_item);
+                        var gfile = file.file.get_child_for_display_name (new_name);
+                        try {
+                            if (is_folder) {
+                                gfile.make_directory ();
+                            } else {
+                                gfile.create (FileCreateFlags.NONE);
+                            }
+                        } catch (Error e) {
+                            warning (e.message);
+                            /* Replace dummy if file creation fails */
+                            if (file.children.size == 0) {
+                                add (dummy);
+                            }
+                        }
+                    }
+
+                    return Source.REMOVE;
+                });
+
+                return Source.REMOVE;
+            });
+        }
+    }
+
+    internal class RenameItem : Granite.Widgets.SourceList.Item {
+        public bool is_folder { get; construct; }
+
+        public RenameItem (string name, bool is_folder) {
+            Object (
+                name: name,
+                is_folder: is_folder
+            );
+        }
+
+        construct {
+            editable = true;
+            edited.connect (on_edited);
+
+            if (is_folder) {
+                icon = GLib.ContentType.get_icon ("inode/directory");
+            } else {
+                icon = GLib.ContentType.get_icon ("text");
             }
         }
 
-        protected void add_file () {
-            if (!file.is_executable) {
-                // This is necessary to avoid infinite loop below
-                warning ("Unable to open parent folder");
-                return;
-            }
-
-            var new_file = file.file.get_child (_("new file"));
-
-            var n = 1;
-            while (new_file.query_exists ()) {
-                new_file = file.file.get_child (_("new file %d").printf (n));
-                n++;
-            }
-
-            try {
-                expanded = true;
-
-                new_file.create (FileCreateFlags.NONE);
-
-                newly_created_path = new_file.get_path ();
-
-                if (!children_loaded) {
-                    clear ();
-                    add_children ();
-                    children_loaded = true;
-                }
-            } catch (Error e) {
-                warning (e.message);
+        private void on_edited (string new_name) {
+            if (new_name != "") {
+                name = new_name;
             }
         }
     }
