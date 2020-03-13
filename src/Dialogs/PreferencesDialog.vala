@@ -139,6 +139,7 @@ namespace Scratch.Dialogs {
             var use_custom_font_label = new SettingsLabel (_("Custom font:"));
             use_custom_font = new Gtk.Switch ();
             use_custom_font.halign = Gtk.Align.START;
+            use_custom_font.valign = Gtk.Align.CENTER;
             Scratch.settings.schema.bind ("use-system-font", use_custom_font, "active", SettingsBindFlags.INVERT_BOOLEAN);
 
             select_font = new Gtk.FontButton ();
