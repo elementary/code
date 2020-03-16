@@ -350,7 +350,6 @@ namespace Scratch {
                         if (doc.project_folder == a) {
                             to_close.append (doc);
                         }
-                        stdout.printf("%s (pasta): %s %s\n", doc.file.get_basename(), doc.project_folder, doc.project_folder == a?"fecha":"não");
                     }
 
                     foreach (Services.Document doc in to_close) {
@@ -358,7 +357,6 @@ namespace Scratch {
                     }
 
                 }
-                stdout.printf("%s fechou\n", a);
             });
 
             folder_manager_view.root.child_added.connect (() => {
