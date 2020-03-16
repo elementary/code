@@ -25,7 +25,8 @@ namespace Scratch.FolderManager {
     internal class FileView : Granite.Widgets.SourceList, Code.PaneSwitcher {
         private FolderManagerSettings settings;
 
-        public signal void select (string file);
+        public signal void select (string file, string project_root);
+        public signal void project_closed (string project_root);
 
         // This is a workaround for SourceList silliness: you cannot remove an item
         // without it automatically selecting another one.
@@ -52,7 +53,8 @@ namespace Scratch.FolderManager {
             }
 
             if (item is FileItem) {
-                select ((item as FileItem).file.path);
+                var it = item as FileItem;
+                select (it.file.path, it.project_root.file.path );
             }
         }
 
@@ -142,6 +144,7 @@ namespace Scratch.FolderManager {
             folder_root.closed.connect (() => {
                 root.remove (folder_root);
                 write_settings ();
+                project_closed (folder_root.file.path);
             });
 
             folder_root.close_all_except.connect (() => {

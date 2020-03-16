@@ -22,9 +22,19 @@ namespace Scratch.FolderManager {
     /**
      * Normal item in the source list, represents a textfile.
      */
+
+
     internal class FileItem : Item {
-        public FileItem (File file, FileView view) {
+        private ProjectFolderItem _root;
+        public ProjectFolderItem project_root {
+            get {
+                return _root;
+            }
+        }
+
+        public FileItem (File file, FileView view, ProjectFolderItem root) {
             Object (file: file, view: view);
+            this._root = root;
         }
 
         public override Gtk.Menu? get_context_menu () {

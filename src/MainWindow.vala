@@ -331,15 +331,34 @@ namespace Scratch {
 
             folder_manager_view = new FolderManager.FileView ();
 
-            folder_manager_view.select.connect ((a) => {
+            folder_manager_view.select.connect ((a, b) => {
                 var file = new Scratch.FolderManager.File (a);
-                var doc = new Scratch.Services.Document (actions, file.file);
+                var doc = new Scratch.Services.Document (actions, file.file, b);
 
                 if (file.is_valid_textfile) {
                     open_document (doc);
                 } else {
                     open_binary (file.file);
                 }
+            });
+
+
+            folder_manager_view.project_closed.connect((a) => {
+                foreach (Scratch.Widgets.DocumentView? v in split_view.views) {
+                    GLib.List<Services.Document> to_close = new GLib.List<Services.Document>();
+                    foreach (Services.Document doc in v.docs) {
+                        if (doc.project_folder == a) {
+                            to_close.append (doc);
+                        }
+                        stdout.printf("%s (pasta): %s %s\n", doc.file.get_basename(), doc.project_folder, doc.project_folder == a?"fecha":"não");
+                    }
+
+                    foreach (Services.Document doc in to_close) {
+                        v.close_document (doc);
+                    }
+
+                }
+                stdout.printf("%s fechou\n", a);
             });
 
             folder_manager_view.root.child_added.connect (() => {

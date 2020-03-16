@@ -90,6 +90,7 @@ namespace Scratch.Services {
         public string original_content;
         private string last_save_content;
         public bool saved = true;
+        public string project_folder;
 
         private Gtk.ScrolledWindow scroll;
         private Gtk.InfoBar info_bar;
@@ -109,9 +110,10 @@ namespace Scratch.Services {
         // Zeitgeist integration
         private ZeitgeistLogger zg_log = new ZeitgeistLogger ();
 #endif
-        public Document (SimpleActionGroup actions, File? file = null) {
+        public Document (SimpleActionGroup actions, File? file = null, string? project_folder = null) {
             this.actions = actions;
             this.file = file;
+            this.project_folder = project_folder;
             page = main_stack;
         }
 
