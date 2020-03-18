@@ -53,7 +53,7 @@ namespace Scratch.FolderManager {
             }
 
             if (item is FileItem) {
-                var it = item as FileItem;
+                unowned FileItem it = (FileItem) item;
                 select (it.file.path, it.project_root.file.path );
             }
         }
