@@ -343,9 +343,9 @@ namespace Scratch {
             });
 
 
-            folder_manager_view.project_closed.connect((a) => {
+            folder_manager_view.project_closed.connect ((a) => {
                 foreach (Scratch.Widgets.DocumentView? v in split_view.views) {
-                    var to_close = new GLib.List<Services.Document>();
+                    var to_close = new GLib.List<Services.Document> ();
                     foreach (Services.Document doc in v.docs) {
                         if (doc.project_folder == a) {
                             to_close.append (doc);
