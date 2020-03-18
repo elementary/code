@@ -26,7 +26,7 @@ namespace Scratch.FolderManager {
 
     internal class FileItem : Item {
         private ProjectFolderItem _root;
-        public ProjectFolderItem project_root {
+        public ProjectFolderItem project_root { get; construct; }
             get {
                 return _root;
             }
