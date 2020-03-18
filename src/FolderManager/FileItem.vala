@@ -33,7 +33,7 @@ namespace Scratch.FolderManager {
         }
 
         public FileItem (File file, FileView view, ProjectFolderItem root) {
-            Object (file: file, view: view);
+            Object (file: file, view: view, project_root: root);
             this._root = root;
         }
 
