@@ -352,7 +352,7 @@ namespace Scratch {
                         }
                     }
 
-                    foreach (Services.Document doc in to_close) {
+                    foreach (unowned Services.Document doc in to_close) {
                         v.close_document (doc);
                     }
 
