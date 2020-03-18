@@ -90,7 +90,7 @@ namespace Scratch.Services {
         public string original_content;
         private string last_save_content;
         public bool saved = true;
-        public string project_folder;
+        public string? project_folder;
 
         private Gtk.ScrolledWindow scroll;
         private Gtk.InfoBar info_bar;
