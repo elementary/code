@@ -331,7 +331,7 @@ namespace Scratch {
 
             folder_manager_view = new FolderManager.FileView ();
 
-            folder_manager_view.select.connect ((a, b) => {
+            folder_manager_view.select.connect ((a, project_root) => {
                 var file = new Scratch.FolderManager.File (a);
                 var doc = new Scratch.Services.Document (actions, file.file, b);
 
