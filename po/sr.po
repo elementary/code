@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-29 20:17+0000\n"
+"POT-Creation-Date: 2020-03-13 20:05+0000\n"
 "PO-Revision-Date: 2018-07-15 00:09+0000\n"
 "Last-Translator: Milan Radojević <mikister2012@gmail.com>\n"
 "Language-Team: Serbian <https://weblate.elementary.io/projects/code/code/sr/"
@@ -300,7 +300,17 @@ msgstr "Затвори фасциклу"
 msgid "Close Other Folders"
 msgstr "Затвори фасциклу"
 
-#: src/FolderManager/ProjectFolderItem.vala:345
+#: src/FolderManager/ProjectFolderItem.vala:188
+#, c-format
+msgid "%s, Modified"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:197
+#, c-format
+msgid "%s, New"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:347
 #, fuzzy
 msgid "Branch"
 msgstr "Промени Scratch поставке"
