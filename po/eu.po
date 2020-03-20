@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-14 00:36+0000\n"
+"POT-Creation-Date: 2020-03-13 20:05+0000\n"
 "PO-Revision-Date: 2016-09-11 21:29+0000\n"
 "Last-Translator: Thadah Denyse <juchuf@gmail.com>\n"
 "Language-Team: Basque <eu@li.org>\n"
@@ -92,37 +92,37 @@ msgstr "Bilatu..."
 msgid "Hide search bar"
 msgstr "Ezkutatu bilaketa-barra"
 
-#: src/MainWindow.vala:244
+#: src/MainWindow.vala:262
 #, fuzzy
 msgid "Zeitgeist Datasource for Code"
 msgstr "Scratch-entzako Zeitgeist datu-iturburua"
 
-#: src/MainWindow.vala:773 src/Services/Document.vala:502
+#: src/MainWindow.vala:770 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Fitxategi guztiak"
 
-#: src/MainWindow.vala:777 src/Services/Document.vala:506
+#: src/MainWindow.vala:774 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Testu-fitxategiak"
 
-#: src/MainWindow.vala:781
+#: src/MainWindow.vala:778
 msgid "Open some files"
 msgstr "Fitxategi batzuk ireki"
 
-#: src/MainWindow.vala:784
+#: src/MainWindow.vala:781
 msgid "Open"
 msgstr "Ireki"
 
-#: src/MainWindow.vala:785 src/Services/Document.vala:401
+#: src/MainWindow.vala:782 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Utzi"
 
-#: src/MainWindow.vala:810
+#: src/MainWindow.vala:807
 msgid "_Open"
 msgstr "_Ireki"
 
-#: src/MainWindow.vala:811
+#: src/MainWindow.vala:808
 msgid "_Cancel"
 msgstr "_Utzi"
 
@@ -297,7 +297,17 @@ msgstr "Itxi karpeta"
 msgid "Close Other Folders"
 msgstr "Itxi karpeta"
 
-#: src/FolderManager/ProjectFolderItem.vala:345
+#: src/FolderManager/ProjectFolderItem.vala:188
+#, c-format
+msgid "%s, Modified"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:197
+#, c-format
+msgid "%s, New"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:347
 #, fuzzy
 msgid "Branch"
 msgstr "Aldatu Scratch-en ezarpenak"

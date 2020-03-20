@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-14 00:36+0000\n"
+"POT-Creation-Date: 2020-03-13 20:05+0000\n"
 "PO-Revision-Date: 2018-06-01 00:06+0000\n"
 "Last-Translator: Rokar <mail@rokar.de>\n"
 "Language-Team: Kurdish <https://weblate.elementary.io/projects/code/code/ku/"
@@ -88,36 +88,36 @@ msgstr "Lê gerrîn …"
 msgid "Hide search bar"
 msgstr ""
 
-#: src/MainWindow.vala:244
+#: src/MainWindow.vala:262
 msgid "Zeitgeist Datasource for Code"
 msgstr ""
 
-#: src/MainWindow.vala:773 src/Services/Document.vala:502
+#: src/MainWindow.vala:770 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Hemû pelan"
 
-#: src/MainWindow.vala:777 src/Services/Document.vala:506
+#: src/MainWindow.vala:774 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Dosiyên nivîsê"
 
-#: src/MainWindow.vala:781
+#: src/MainWindow.vala:778
 msgid "Open some files"
 msgstr ""
 
-#: src/MainWindow.vala:784
+#: src/MainWindow.vala:781
 msgid "Open"
 msgstr "Veke"
 
-#: src/MainWindow.vala:785 src/Services/Document.vala:401
+#: src/MainWindow.vala:782 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Betal bike"
 
-#: src/MainWindow.vala:810
+#: src/MainWindow.vala:807
 msgid "_Open"
 msgstr "_Veke"
 
-#: src/MainWindow.vala:811
+#: src/MainWindow.vala:808
 msgid "_Cancel"
 msgstr "_Betalbike"
 
@@ -287,7 +287,17 @@ msgstr ""
 msgid "Close Other Folders"
 msgstr "Peldanke veke"
 
-#: src/FolderManager/ProjectFolderItem.vala:345
+#: src/FolderManager/ProjectFolderItem.vala:188
+#, c-format
+msgid "%s, Modified"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:197
+#, c-format
+msgid "%s, New"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:347
 msgid "Branch"
 msgstr ""
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-14 00:36+0000\n"
+"POT-Creation-Date: 2020-03-13 20:05+0000\n"
 "PO-Revision-Date: 2020-01-29 18:08+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/"
@@ -95,36 +95,36 @@ msgstr "Procurar…"
 msgid "Hide search bar"
 msgstr "Ocultar barra de procura"
 
-#: src/MainWindow.vala:244
+#: src/MainWindow.vala:262
 msgid "Zeitgeist Datasource for Code"
 msgstr "Fonte de dados Zeitgeist para o Code"
 
-#: src/MainWindow.vala:773 src/Services/Document.vala:502
+#: src/MainWindow.vala:770 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Todos os ficheiros"
 
-#: src/MainWindow.vala:777 src/Services/Document.vala:506
+#: src/MainWindow.vala:774 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Ficheiros de texto"
 
-#: src/MainWindow.vala:781
+#: src/MainWindow.vala:778
 msgid "Open some files"
 msgstr "Abrir alguns ficheiros"
 
-#: src/MainWindow.vala:784
+#: src/MainWindow.vala:781
 msgid "Open"
 msgstr "Abrir"
 
-#: src/MainWindow.vala:785 src/Services/Document.vala:401
+#: src/MainWindow.vala:782 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/MainWindow.vala:810
+#: src/MainWindow.vala:807
 msgid "_Open"
 msgstr "_Abrir"
 
-#: src/MainWindow.vala:811
+#: src/MainWindow.vala:808
 msgid "_Cancel"
 msgstr "_Cancelar"
 
@@ -295,7 +295,17 @@ msgstr "Fechar Pasta"
 msgid "Close Other Folders"
 msgstr "Fechar outras pastas"
 
-#: src/FolderManager/ProjectFolderItem.vala:345
+#: src/FolderManager/ProjectFolderItem.vala:188
+#, c-format
+msgid "%s, Modified"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:197
+#, c-format
+msgid "%s, New"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:347
 msgid "Branch"
 msgstr "Ramo"
 

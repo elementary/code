@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-14 00:36+0000\n"
+"POT-Creation-Date: 2020-03-13 20:05+0000\n"
 "PO-Revision-Date: 2018-06-10 00:11+0000\n"
 "Last-Translator: Gamunu Balagalla <gamunu.balagalla@gmail.com>\n"
 "Language-Team: Sinhala <https://weblate.elementary.io/projects/code/code/si/"
@@ -92,37 +92,37 @@ msgstr "සොයන්න…"
 msgid "Hide search bar"
 msgstr "සෙවුම් තීරුව සඟවන්න"
 
-#: src/MainWindow.vala:244
+#: src/MainWindow.vala:262
 #, fuzzy
 msgid "Zeitgeist Datasource for Code"
 msgstr "Scratch සඳහා Zeitgeist දත්ත ගබඩාව"
 
-#: src/MainWindow.vala:773 src/Services/Document.vala:502
+#: src/MainWindow.vala:770 src/Services/Document.vala:502
 msgid "All files"
 msgstr "සියලුම ගොනු"
 
-#: src/MainWindow.vala:777 src/Services/Document.vala:506
+#: src/MainWindow.vala:774 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "පාඨ ගොනු"
 
-#: src/MainWindow.vala:781
+#: src/MainWindow.vala:778
 msgid "Open some files"
 msgstr "සමහර ගොනු විවෘත කරන්න"
 
-#: src/MainWindow.vala:784
+#: src/MainWindow.vala:781
 msgid "Open"
 msgstr "විවෘත කරන්න"
 
-#: src/MainWindow.vala:785 src/Services/Document.vala:401
+#: src/MainWindow.vala:782 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "අවලංගු කරන්න"
 
-#: src/MainWindow.vala:810
+#: src/MainWindow.vala:807
 msgid "_Open"
 msgstr "_විවෘත කරන්න"
 
-#: src/MainWindow.vala:811
+#: src/MainWindow.vala:808
 msgid "_Cancel"
 msgstr "_අවලංගු කරන්න"
 
@@ -294,7 +294,17 @@ msgstr "බහලුම වසන්න"
 msgid "Close Other Folders"
 msgstr "බහලුම වසන්න"
 
-#: src/FolderManager/ProjectFolderItem.vala:345
+#: src/FolderManager/ProjectFolderItem.vala:188
+#, c-format
+msgid "%s, Modified"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:197
+#, c-format
+msgid "%s, New"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:347
 msgid "Branch"
 msgstr ""
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-14 00:36+0000\n"
+"POT-Creation-Date: 2020-03-13 20:05+0000\n"
 "PO-Revision-Date: 2017-08-16 12:16+0000\n"
 "Last-Translator: gogogogi <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <https://weblate.elementary.io/projects/scratch/"
@@ -102,37 +102,37 @@ msgstr "Pretraži…"
 msgid "Hide search bar"
 msgstr "Sakrij traku pretrage"
 
-#: src/MainWindow.vala:244
+#: src/MainWindow.vala:262
 #, fuzzy
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zeitgeist izvor podataka za Scratch"
 
-#: src/MainWindow.vala:773 src/Services/Document.vala:502
+#: src/MainWindow.vala:770 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Sve datoteke"
 
-#: src/MainWindow.vala:777 src/Services/Document.vala:506
+#: src/MainWindow.vala:774 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Tekstovne datoteke"
 
-#: src/MainWindow.vala:781
+#: src/MainWindow.vala:778
 msgid "Open some files"
 msgstr "Otvori datoteke"
 
-#: src/MainWindow.vala:784
+#: src/MainWindow.vala:781
 msgid "Open"
 msgstr "Otvori"
 
-#: src/MainWindow.vala:785 src/Services/Document.vala:401
+#: src/MainWindow.vala:782 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Odustani"
 
-#: src/MainWindow.vala:810
+#: src/MainWindow.vala:807
 msgid "_Open"
 msgstr "_Otvori"
 
-#: src/MainWindow.vala:811
+#: src/MainWindow.vala:808
 msgid "_Cancel"
 msgstr "_Odustani"
 
@@ -307,7 +307,17 @@ msgstr "Zatvori mapu"
 msgid "Close Other Folders"
 msgstr "Zatvori mapu"
 
-#: src/FolderManager/ProjectFolderItem.vala:345
+#: src/FolderManager/ProjectFolderItem.vala:188
+#, c-format
+msgid "%s, Modified"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:197
+#, c-format
+msgid "%s, New"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:347
 #, fuzzy
 msgid "Branch"
 msgstr "Promijeni Scratch postavke"
