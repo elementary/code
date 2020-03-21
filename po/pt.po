@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-13 20:05+0000\n"
-"PO-Revision-Date: 2020-01-29 18:08+0000\n"
+"PO-Revision-Date: 2020-03-22 01:09+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
-"Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/"
-">\n"
+"Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/>"
+"\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -298,12 +298,12 @@ msgstr "Fechar outras pastas"
 #: src/FolderManager/ProjectFolderItem.vala:188
 #, c-format
 msgid "%s, Modified"
-msgstr ""
+msgstr "%s, Modificado"
 
 #: src/FolderManager/ProjectFolderItem.vala:197
 #, c-format
 msgid "%s, New"
-msgstr ""
+msgstr "%s, Novo"
 
 #: src/FolderManager/ProjectFolderItem.vala:347
 msgid "Branch"
@@ -316,16 +316,16 @@ msgstr "%s Não é um Ficheiro de Texto"
 
 #: src/Services/Document.vala:267
 msgid "Code will not load this type of file."
-msgstr "Code não irá carregar este tipo de ficheiro."
+msgstr "O Code não irá carregar este tipo de ficheiro."
 
 #: src/Services/Document.vala:269
 msgid "Load Anyway"
-msgstr "Mesmo assim Carregar"
+msgstr "Mesmo assim carregar"
 
 #: src/Services/Document.vala:290
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr "Carregar o Ficheiro \"%s\" está a Demorar Muito"
+msgstr "Carregar o ficheiro \"%s\" está a demorar muito"
 
 #: src/Services/Document.vala:291
 msgid "Please wait while Code is loading the file."
