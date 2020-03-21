@@ -401,7 +401,7 @@ namespace Scratch.Widgets {
                 var can_comment = CommentToggler.language_has_comments ((buffer as Gtk.SourceBuffer).get_language ());
 
                 var comment_item = new Gtk.MenuItem ();
-                comment_item.sensitive = get_selected_line_count () > 0 && can_comment;
+                comment_item.sensitive = can_comment;
                 comment_item.add (new Granite.AccelLabel.from_action_name (
                     _("Toggle Comment"),
                     MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_COMMENT
