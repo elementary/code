@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-29 20:17+0000\n"
-"PO-Revision-Date: 2020-03-11 16:09+0000\n"
+"PO-Revision-Date: 2020-03-24 18:09+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/extra/es/>\n"
 "Language: es\n"
@@ -89,7 +89,7 @@ msgstr "Otras características incluidas:"
 
 #: data/io.elementary.code.appdata.xml.in:42
 msgid "syntax highlighting with gtksourceview-3"
-msgstr "resaltado de sintaxis con gtksourceview-3"
+msgstr "coloración sintáctica con gtksourceview-3"
 
 #: data/io.elementary.code.appdata.xml.in:43
 msgid "a find bar to search the words in the files"
@@ -97,7 +97,7 @@ msgstr "una barra para buscar palabras dentro de archivos"
 
 #: data/io.elementary.code.appdata.xml.in:44
 msgid "tab and split documents system"
-msgstr "sistema para tabular y separar documentos"
+msgstr "sistema de vista por pestañas y división de documentos"
 
 #: data/io.elementary.code.appdata.xml.in:45
 msgid "lots of others"
@@ -106,7 +106,7 @@ msgstr "muchas otras"
 #: data/io.elementary.code.appdata.xml.in:51
 #: data/io.elementary.code.appdata.xml.in:67
 msgid "New features:"
-msgstr "Nuevas características:"
+msgstr "Funcionalidades nuevas:"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "New \"Close Other Folders\" menu item to help clean up your sidebar"
@@ -157,17 +157,17 @@ msgstr "Cortado/copiado inteligente de líneas sin ninguna selección activa"
 
 #: data/io.elementary.code.appdata.xml.in:71
 msgid "Add a confirmation dialog to the \"Restore\" action"
-msgstr "Añadir un diálogo de confirmación a la acción \"Restaurar\""
+msgstr "Se añadió un diálogo de confirmación a la acción «Restaurar»"
 
 #: data/io.elementary.code.appdata.xml.in:72
 msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
 msgstr ""
-"Añadir el menú \"Abrir en\" al principio de las carpetas en el explorador de "
-"archivos"
+"Se añadió el menú «Abrir en» a la carpeta de nivel superior en el gestor de "
+"carpetas"
 
 #: data/io.elementary.code.appdata.xml.in:73
 msgid "Don't show temporary files in the folder manager"
-msgstr "No mostrar archivos temporales en el administrador de carpetas"
+msgstr "No se muestran los archivos temporales en el gestor de carpetas"
 
 #: data/io.elementary.code.appdata.xml.in:74
 msgid "Add brackets completion and auto-indent by default"
@@ -185,7 +185,7 @@ msgstr "Se acata la configuración global de privacidad al guardar y restaurar"
 
 #: data/io.elementary.code.appdata.xml.in:80
 msgid "Simplify \"Draw spaces\" preference"
-msgstr "Simplificar la preferencia \"Dibujar espacios\""
+msgstr "Se simplificó la preferencia «Hacer espacios visibles»"
 
 #: data/io.elementary.code.appdata.xml.in:81
 msgid "Fix the keyboard shortcut for going backwards in search results"
