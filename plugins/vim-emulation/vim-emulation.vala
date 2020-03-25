@@ -206,8 +206,6 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Peas.Activatable
                     buffer.get_iter_at_mark (out insert, buffer.get_insert ());
                     insert.set_line_offset (0);
                     buffer.place_cursor (insert);
-                    print ("Vim Emulation: 0 take 2!");
-
                 } else {
                     number += "0";
                 }
