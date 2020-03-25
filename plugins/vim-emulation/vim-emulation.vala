@@ -141,12 +141,12 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Peas.Activatable
             case Gdk.Key.Down:
             case Gdk.Key.j:
             case Gdk.Key.plus:
-                view.move_cursor (Gtk.MovementStep.DISPLAY_LINES, 1, false);
+                view.move_cursor (Gtk.MovementStep.PARAGRAPHS, 1, false);
                 break;
             case Gdk.Key.Up:
             case Gdk.Key.k:
             case Gdk.Key.minus:
-                view.move_cursor (Gtk.MovementStep.DISPLAY_LINES, -1, false);
+                view.move_cursor (Gtk.MovementStep.PARAGRAPHS, -1, false);
                 break;
             case Gdk.Key.Right:
             case Gdk.Key.l:
@@ -154,7 +154,7 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Peas.Activatable
                 break;
             case Gdk.Key.End:
             case Gdk.Key.dollar:
-                view.move_cursor (Gtk.MovementStep.DISPLAY_LINE_ENDS, 1, false);
+                view.move_cursor (Gtk.MovementStep.PARAGRAPH_ENDS, 1, false);
                 break;
             case Gdk.Key.u:
                 view.undo ();
@@ -191,7 +191,7 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Peas.Activatable
                 }
 
                 mode = Mode.INSERT;
-                view.move_cursor (Gtk.MovementStep.DISPLAY_LINE_ENDS, 1, false);
+                view.move_cursor (Gtk.MovementStep.PARAGRAPH_ENDS, 1, false);
                 debug ("Vim Emulation: INSERT Mode!");
                 break;
             case 46: // Dot "."
@@ -201,7 +201,7 @@ public class Scratch.Plugins.VimEmulation : Peas.ExtensionBase, Peas.Activatable
             case Gdk.Key.Home:
             case Gdk.Key.@0:
                 if (number == "") {
-                    view.move_cursor (Gtk.MovementStep.DISPLAY_LINES, 1, false);
+                    view.move_cursor (Gtk.MovementStep.PARAGRAPHS, 1, false);
                 } else {
                     number += "0";
                 }
