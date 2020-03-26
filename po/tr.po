@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-26 16:55+0000\n"
-"PO-Revision-Date: 2020-02-04 17:08+0000\n"
+"PO-Revision-Date: 2020-03-28 19:09+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/code/tr/>\n"
 "Language: tr\n"
@@ -50,8 +50,8 @@ msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
 msgstr ""
-"Soket, FIFO, blok kullanan aygıt veya\n"
-" karakter aygıtı gibi özel bir dosyadır."
+"Bu dosya, Soket, FIFO, blok kullanan aygıt\n"
+" veya karakter aygıtı gibi özel bir dosyadır."
 
 #: src/Application.vala:171
 msgid "It is an \"unknown\" file type."
@@ -298,12 +298,12 @@ msgstr "Diğer Klasörleri Kapat"
 #: src/FolderManager/ProjectFolderItem.vala:188
 #, c-format
 msgid "%s, Modified"
-msgstr ""
+msgstr "%s, Değiştirildi"
 
 #: src/FolderManager/ProjectFolderItem.vala:197
 #, c-format
 msgid "%s, New"
-msgstr ""
+msgstr "%s, Yeni"
 
 #: src/FolderManager/ProjectFolderItem.vala:347
 msgid "Branch"
@@ -561,11 +561,11 @@ msgstr "Döngüsel Arama"
 
 #: src/Widgets/SearchBar.vala:93
 msgid "Case Sensitive"
-msgstr ""
+msgstr "Büyük/Küçük Harfe Duyarlı"
 
 #: src/Widgets/SearchBar.vala:93
 msgid "Case Insensitive"
-msgstr ""
+msgstr "Büyük/Küçük Harfe Duyarsız"
 
 #: src/Widgets/SearchBar.vala:112
 msgid "Replace With"
