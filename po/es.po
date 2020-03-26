@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-29 20:17+0000\n"
-"PO-Revision-Date: 2020-03-02 23:09+0000\n"
+"POT-Creation-Date: 2020-03-13 20:05+0000\n"
+"PO-Revision-Date: 2020-03-24 18:09+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/code/es/>\n"
 "Language: es\n"
@@ -43,7 +43,7 @@ msgstr "El directorio superior no existe."
 
 #: src/Application.vala:165
 msgid "It is a mountable location."
-msgstr "Es una localización montable."
+msgstr "Es una ubicación montable."
 
 #: src/Application.vala:168
 msgid ""
@@ -194,11 +194,11 @@ msgstr "Resaltar corchetes correspondientes:"
 
 #: src/Dialogs/PreferencesDialog.vala:117
 msgid "Line wrap:"
-msgstr "Ajuste de línea:"
+msgstr "Ajuste de renglones:"
 
 #: src/Dialogs/PreferencesDialog.vala:120
 msgid "Draw Spaces:"
-msgstr "Dibujar espacios:"
+msgstr "Hacer espacios visibles:"
 
 #: src/Dialogs/PreferencesDialog.vala:122
 msgid "For selected text"
@@ -214,7 +214,7 @@ msgstr "Mostrar el minimapa:"
 
 #: src/Dialogs/PreferencesDialog.vala:129
 msgid "Line width guide:"
-msgstr "Guía de ancho de línea:"
+msgstr "Guía de longitud de renglón:"
 
 #: src/Dialogs/PreferencesDialog.vala:137
 msgid "Font"
@@ -294,7 +294,17 @@ msgstr "Cerrar carpeta"
 msgid "Close Other Folders"
 msgstr "Cerrar otras carpetas"
 
-#: src/FolderManager/ProjectFolderItem.vala:345
+#: src/FolderManager/ProjectFolderItem.vala:188
+#, c-format
+msgid "%s, Modified"
+msgstr "%s, modificado"
+
+#: src/FolderManager/ProjectFolderItem.vala:197
+#, c-format
+msgid "%s, New"
+msgstr "%s, nuevo"
+
+#: src/FolderManager/ProjectFolderItem.vala:347
 msgid "Branch"
 msgstr "Rama"
 

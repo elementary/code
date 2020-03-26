@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-29 20:17+0000\n"
-"PO-Revision-Date: 2019-12-26 00:07+0000\n"
-"Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
+"POT-Creation-Date: 2020-03-13 20:05+0000\n"
+"PO-Revision-Date: 2020-03-13 20:03+0000\n"
+"Last-Translator: Tucan Holmes <tucan.web.swiss@gmail.com>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -292,12 +292,20 @@ msgid "Close Folder"
 msgstr "Ordner schließen"
 
 #: src/FolderManager/ProjectFolderItem.vala:99
-#, fuzzy
-#| msgid "Close Folder"
 msgid "Close Other Folders"
-msgstr "Ordner schließen"
+msgstr "Andere Ordner schließen"
 
-#: src/FolderManager/ProjectFolderItem.vala:345
+#: src/FolderManager/ProjectFolderItem.vala:188
+#, c-format
+msgid "%s, Modified"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:197
+#, c-format
+msgid "%s, New"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:347
 msgid "Branch"
 msgstr "Branch"
 
@@ -523,10 +531,8 @@ msgid "Menu"
 msgstr "Menü"
 
 #: src/Widgets/Pane.vala:44
-#, fuzzy
-#| msgid "Manage project folders…"
 msgid "Open project folder…"
-msgstr "Projektordner verwalten…"
+msgstr "Projektordner öffnen…"
 
 #: src/Widgets/Pane.vala:46
 msgid "Collapse All"
@@ -537,10 +543,8 @@ msgid "Alphabetize"
 msgstr "Alphabetisieren"
 
 #: src/Widgets/Pane.vala:60
-#, fuzzy
-#| msgid "Manage project folders…"
 msgid "Manage project folders"
-msgstr "Projektordner verwalten…"
+msgstr "Projektordner verwalten"
 
 #: src/Widgets/SearchBar.vala:61
 msgid "Find"
