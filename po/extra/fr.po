@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-02 00:34+0000\n"
-"PO-Revision-Date: 2020-03-02 23:09+0000\n"
+"PO-Revision-Date: 2020-04-03 12:10+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/extra/fr/>\n"
 "Language: fr\n"
@@ -111,11 +111,11 @@ msgstr "Nouvelles fonctionnalités :"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Include Git status in file tooltips"
-msgstr ""
+msgstr "Ajout du statut GIT dans l'infobulle des fichiers"
 
 #: data/io.elementary.code.appdata.xml.in:54
 msgid "Option for explicit case-sensitive Find"
-msgstr ""
+msgstr "Option pour la recherche sensible à la casse"
 
 #: data/io.elementary.code.appdata.xml.in:56
 #: data/io.elementary.code.appdata.xml.in:71
@@ -126,10 +126,12 @@ msgstr "Autres mises à jour :"
 #: data/io.elementary.code.appdata.xml.in:58
 msgid "Correctly show Toggle Comment menu item when no text is selected"
 msgstr ""
+"Correction de l'affichage de l'élément commenter/décommenter du menu quand "
+"aucun texte n'est sélectionné"
 
 #: data/io.elementary.code.appdata.xml.in:59
 msgid "Fixed font switch alignment"
-msgstr ""
+msgstr "Correction de l'alignement de la police des boutons"
 
 #: data/io.elementary.code.appdata.xml.in:60
 #: data/io.elementary.code.appdata.xml.in:76
