@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-02 00:34+0000\n"
-"PO-Revision-Date: 2020-01-25 15:08+0000\n"
+"PO-Revision-Date: 2020-04-03 12:10+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/"
-">\n"
+"Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/>"
+"\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -111,25 +111,25 @@ msgstr "新機能:"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Include Git status in file tooltips"
-msgstr ""
+msgstr "ファイルのツールチップに Git の状態を表示"
 
 #: data/io.elementary.code.appdata.xml.in:54
 msgid "Option for explicit case-sensitive Find"
-msgstr ""
+msgstr "大文字と小文字を区別する検索オプションを追加"
 
 #: data/io.elementary.code.appdata.xml.in:56
 #: data/io.elementary.code.appdata.xml.in:71
 #: data/io.elementary.code.appdata.xml.in:93
 msgid "Other updates:"
-msgstr ""
+msgstr "そのほかのアップデート:"
 
 #: data/io.elementary.code.appdata.xml.in:58
 msgid "Correctly show Toggle Comment menu item when no text is selected"
-msgstr ""
+msgstr "テキストが選択されていない場合にも、「コメントを切り替え」メニュー項目を適切に表示するように修正"
 
 #: data/io.elementary.code.appdata.xml.in:59
 msgid "Fixed font switch alignment"
-msgstr ""
+msgstr "「カスタムフォント」スイッチの配置を修正"
 
 #: data/io.elementary.code.appdata.xml.in:60
 #: data/io.elementary.code.appdata.xml.in:76
@@ -142,84 +142,83 @@ msgstr "翻訳の更新"
 
 #: data/io.elementary.code.appdata.xml.in:68
 msgid "New \"Close Other Folders\" menu item to help clean up your sidebar"
-msgstr ""
+msgstr "サイドバーを整理できるように、新しく「ほかのフォルダーを閉じる」メニュー項目を追加"
 
 #: data/io.elementary.code.appdata.xml.in:69
 msgid "Save and restore cyclic search setting"
-msgstr ""
+msgstr "循環検索の設定を保存し復元するように修正"
 
 #: data/io.elementary.code.appdata.xml.in:73
 msgid "Add keyboard shortcuts to menu items"
-msgstr ""
+msgstr "メニュー項目にキーボードショートカットを表示するように修正"
 
 #: data/io.elementary.code.appdata.xml.in:74
 msgid "Make sidebar folder items not selectable"
-msgstr ""
+msgstr "サイドバーのフォルダー項目を選択できないように修正"
 
 #: data/io.elementary.code.appdata.xml.in:75
 msgid "Center new windows"
-msgstr ""
+msgstr "新しいウィンドウを画面の中央に表示するように修正"
 
 #: data/io.elementary.code.appdata.xml.in:84
 msgid "Visually deprioritize .gitignored files in project sidebar"
-msgstr ""
+msgstr ".gitignore ファイルに記述されたファイルの名前をプロジェクトサイドバーに薄く表示するように修正"
 
 #: data/io.elementary.code.appdata.xml.in:85
 msgid "Smart cut/copy lines with no active selection"
-msgstr ""
+msgstr "行を選択していなくても切り取り／コピーできるように修正"
 
 #: data/io.elementary.code.appdata.xml.in:86
 msgid "Add a confirmation dialog to the \"Restore\" action"
-msgstr ""
+msgstr "「復元」アクションの実行時に確認ダイアログを表示するように修正"
 
 #: data/io.elementary.code.appdata.xml.in:87
 msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
-msgstr ""
+msgstr "フォルダーマネージャーで最上位のフォルダーに「指定した方法で開く」メニューを追加"
 
 #: data/io.elementary.code.appdata.xml.in:88
-#, fuzzy
 msgid "Don't show temporary files in the folder manager"
-msgstr "タブの復元に一時ファイルを追加しないように修正"
+msgstr "フォルダーマネージャーで一時ファイルを表示しないように修正"
 
 #: data/io.elementary.code.appdata.xml.in:89
 msgid "Add brackets completion and auto-indent by default"
-msgstr ""
+msgstr "閉じカッコの補完と自動インデント機能をデフォルトで有効化"
 
 #: data/io.elementary.code.appdata.xml.in:90
 msgid "Zoom terminal plugin with keyboard"
-msgstr ""
+msgstr "ターミナルプラグインをキーボードで拡大・縮小できるように修正"
 
 #: data/io.elementary.code.appdata.xml.in:91
 msgid "Honor global privacy setting when saving and restoring"
-msgstr ""
+msgstr "保存・復元時にシステムのプライバシー設定を反映するように修正"
 
 #: data/io.elementary.code.appdata.xml.in:95
 msgid "Simplify \"Draw spaces\" preference"
-msgstr ""
+msgstr "「空白を表示」設定を簡易化"
 
 #: data/io.elementary.code.appdata.xml.in:96
 msgid "Fix the keyboard shortcut for going backwards in search results"
-msgstr ""
+msgstr "前の検索結果を表示するキーボードショートカットを修正"
 
 #: data/io.elementary.code.appdata.xml.in:97
 msgid "Fix opening files from relative paths in Terminal"
-msgstr ""
+msgstr "ターミナルから相対パスを使用してファイルを開く際の問題を修正"
 
 #: data/io.elementary.code.appdata.xml.in:98
 msgid "Fix null file dialog when opening a new window via the dock"
-msgstr ""
+msgstr "ドックのコンテキストメニューから新しいウィンドウを開いた際に「ファイル (null) を開けません」というダイアログが表示される問題を修正"
 
 #: data/io.elementary.code.appdata.xml.in:99
 msgid "Add \"=\" as a zoom key"
-msgstr ""
+msgstr "拡大に使用するキーボードショートカットに \"=\" を追加"
 
 #: data/io.elementary.code.appdata.xml.in:100
 msgid "Change search entry icon when results aren't found"
-msgstr ""
+msgstr "検索結果が見つからなかった場合に検索欄のアイコンを変更するように修正"
 
 #: data/io.elementary.code.appdata.xml.in:101
 msgid "Enter name of new file before creating it"
-msgstr ""
+msgstr "新しいファイルの名前をファイルの作成前に入力できるように修正"
 
 #: data/io.elementary.code.appdata.xml.in:109
 msgid "Use Granite.MessageDialog throughout"
