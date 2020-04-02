@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-02 00:34+0000\n"
-"PO-Revision-Date: 2020-03-02 23:09+0000\n"
+"PO-Revision-Date: 2020-04-03 12:10+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/extra/ca/>\n"
 "Language: ca\n"
@@ -111,11 +111,11 @@ msgstr "Funcions noves:"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Include Git status in file tooltips"
-msgstr ""
+msgstr "Inclusió de l'estat de GIt als consells del fitxer"
 
 #: data/io.elementary.code.appdata.xml.in:54
 msgid "Option for explicit case-sensitive Find"
-msgstr ""
+msgstr "Opció per a la cerca explícita amb distinció de majúscules"
 
 #: data/io.elementary.code.appdata.xml.in:56
 #: data/io.elementary.code.appdata.xml.in:71
@@ -126,10 +126,12 @@ msgstr "Altres actualitzacions:"
 #: data/io.elementary.code.appdata.xml.in:58
 msgid "Correctly show Toggle Comment menu item when no text is selected"
 msgstr ""
+"Es mostra correctament al menú la commutació de comentari quan no hi ha text "
+"seleccionat."
 
 #: data/io.elementary.code.appdata.xml.in:59
 msgid "Fixed font switch alignment"
-msgstr ""
+msgstr "Correcció de l'alineament del canvi de lletra"
 
 #: data/io.elementary.code.appdata.xml.in:60
 #: data/io.elementary.code.appdata.xml.in:76
