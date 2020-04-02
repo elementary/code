@@ -46,6 +46,21 @@
     </ul>
   </description>
   <releases>
+    <release version="3.4.0" date="2020-04-01">
+      <description>
+        <p>New features:</p>
+        <ul>
+          <li>Include Git status in file tooltips</li>
+          <li>Option for explicit case-sensitive Find</li>
+        </ul>
+        <p>Other updates:</p>
+        <ul>
+          <li>Correctly show Toggle Comment menu item when no text is selected</li>
+          <li>Fixed font switch alignment</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.3.0" date="2020-02-29">
       <description>
         <p>New features:</p>
