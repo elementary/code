@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-14 00:36+0000\n"
+"POT-Creation-Date: 2020-03-26 16:55+0000\n"
 "PO-Revision-Date: 2016-10-16 09:08+0000\n"
 "Last-Translator: Abdul Wakeel <awkhan978@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -87,37 +87,37 @@ msgstr "تلاش کریں۔۔۔"
 msgid "Hide search bar"
 msgstr "تلاش بارچهپائيں"
 
-#: src/MainWindow.vala:244
+#: src/MainWindow.vala:262
 #, fuzzy
 msgid "Zeitgeist Datasource for Code"
 msgstr "زایت گیست (zeitgeist) ڈیٹا سورس برائے سکریچ"
 
-#: src/MainWindow.vala:773 src/Services/Document.vala:502
+#: src/MainWindow.vala:770 src/Services/Document.vala:502
 msgid "All files"
 msgstr "تمام فائلیں"
 
-#: src/MainWindow.vala:777 src/Services/Document.vala:506
+#: src/MainWindow.vala:774 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "متن فائلیں"
 
-#: src/MainWindow.vala:781
+#: src/MainWindow.vala:778
 msgid "Open some files"
 msgstr "کچھ فائلیں کھولیں"
 
-#: src/MainWindow.vala:784
+#: src/MainWindow.vala:781
 msgid "Open"
 msgstr "کهولیں"
 
-#: src/MainWindow.vala:785 src/Services/Document.vala:401
+#: src/MainWindow.vala:782 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "منسوخ کریں"
 
-#: src/MainWindow.vala:810
+#: src/MainWindow.vala:807
 msgid "_Open"
 msgstr "_کھولیں"
 
-#: src/MainWindow.vala:811
+#: src/MainWindow.vala:808
 msgid "_Cancel"
 msgstr "_مسترد"
 
@@ -292,7 +292,17 @@ msgstr "فولڈربندكريں"
 msgid "Close Other Folders"
 msgstr "فولڈربندكريں"
 
-#: src/FolderManager/ProjectFolderItem.vala:345
+#: src/FolderManager/ProjectFolderItem.vala:188
+#, c-format
+msgid "%s, Modified"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:197
+#, c-format
+msgid "%s, New"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:347
 #, fuzzy
 msgid "Branch"
 msgstr "سكريچ كى ترتیبات تبديل كريں"
@@ -537,31 +547,39 @@ msgstr ""
 msgid "Manage project folders"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:61
+#: src/Widgets/SearchBar.vala:63
 msgid "Find"
 msgstr "تلاش کریں"
 
-#: src/Widgets/SearchBar.vala:70
+#: src/Widgets/SearchBar.vala:72
 msgid "Search next"
 msgstr "اگلا تلاش کریں"
 
-#: src/Widgets/SearchBar.vala:80
+#: src/Widgets/SearchBar.vala:82
 msgid "Search previous"
 msgstr "پچھلا تلاش کریں"
 
-#: src/Widgets/SearchBar.vala:85
+#: src/Widgets/SearchBar.vala:87
 msgid "Cyclic Search"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:101
+#: src/Widgets/SearchBar.vala:93
+msgid "Case Sensitive"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:93
+msgid "Case Insensitive"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:112
 msgid "Replace With"
 msgstr "کے ساتھ تبدیل"
 
-#: src/Widgets/SearchBar.vala:104
+#: src/Widgets/SearchBar.vala:115
 msgid "Replace"
 msgstr "کے ساتھ بدليں"
 
-#: src/Widgets/SearchBar.vala:107
+#: src/Widgets/SearchBar.vala:118
 msgid "Replace all"
 msgstr ""
 

@@ -46,7 +46,23 @@
     </ul>
   </description>
   <releases>
-    <release version="3.3.0" date="2020-02-21">
+    <release version="3.4.0" date="2020-04-01">
+      <description>
+        <p>New features:</p>
+        <ul>
+          <li>Include Git status in file tooltips</li>
+          <li>Option for explicit case-sensitive Find</li>
+        </ul>
+        <p>Other updates:</p>
+        <ul>
+          <li>Fix display and focus of previously active document on restore</li>
+          <li>Correctly show Toggle Comment menu item when no text is selected</li>
+          <li>Fixed font switch alignment</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.3.0" date="2020-02-29">
       <description>
         <p>New features:</p>
         <ul>
@@ -57,7 +73,7 @@
         <ul>
           <li>Add keyboard shortcuts to menu items</li>
           <li>Make sidebar folder items not selectable</li>
-          <li>Fix display and focus of previously active document on restore</li>
+          <li>Center new windows</li>
           <li>Updated translations</li>
         </ul>
       </description>
