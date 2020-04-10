@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-26 16:55+0000\n"
-"PO-Revision-Date: 2020-03-28 19:09+0000\n"
+"PO-Revision-Date: 2020-04-11 21:10+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/>"
 "\n"
@@ -69,7 +69,7 @@ msgstr "Novo Separador"
 
 #: src/Application.vala:249 src/FolderManager/FileItem.vala:31
 msgid "New Window"
-msgstr "Nova Janela"
+msgstr "Nova janela"
 
 #: src/Application.vala:250
 msgid "Print version info and exit"
@@ -137,7 +137,8 @@ msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
-"Cortar ou copiar sem uma seleção ativa cortará ou copiará toda a linha atual"
+"Cortar ou copiar sem uma seleção ativa irá cortar ou copiar toda a linha "
+"atual"
 
 #: src/Dialogs/PreferencesDialog.vala:56
 msgid "General"
@@ -210,11 +211,11 @@ msgstr "Sempre"
 
 #: src/Dialogs/PreferencesDialog.vala:126
 msgid "Show Mini Map:"
-msgstr "Mostrar Mini-mapa:"
+msgstr "Mostrar mapa em miniatura:"
 
 #: src/Dialogs/PreferencesDialog.vala:129
 msgid "Line width guide:"
-msgstr "Guia de largura da margem:"
+msgstr "Guia de largura da linha:"
 
 #: src/Dialogs/PreferencesDialog.vala:137
 msgid "Font"
@@ -222,7 +223,7 @@ msgstr "Fonte"
 
 #: src/Dialogs/PreferencesDialog.vala:139
 msgid "Custom font:"
-msgstr "Tipo de letra personalizado:"
+msgstr "Fonte personalizada:"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
@@ -236,7 +237,7 @@ msgstr ""
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:34
 msgid "Don't Restore"
-msgstr "Não restaure"
+msgstr "Não restaurar"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
 msgid "Restore Anyway"
@@ -248,20 +249,20 @@ msgstr "Outra Aplicação…"
 
 #: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:157
 msgid "Open In"
-msgstr "Abrir Em"
+msgstr "Abrir em"
 
 #: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:92
 msgid "Other Actions"
-msgstr "Outras Ações"
+msgstr "Outras ações"
 
 #: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:95
 msgid "Rename"
-msgstr "Mudar o nome"
+msgstr "Renomear"
 
 #: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:101
 #: src/FolderManager/ProjectFolderItem.vala:103
 msgid "Move to Trash"
-msgstr "Mover para o Lixo"
+msgstr "Mover para o lixo"
 
 #: src/FolderManager/FileView.vala:39
 msgid "Folders"
@@ -273,7 +274,7 @@ msgstr "Pasta"
 
 #: src/FolderManager/FolderItem.vala:167
 msgid "Empty File"
-msgstr "Ficheiro Vazio"
+msgstr "Ficheiro vazio"
 
 #: src/FolderManager/FolderItem.vala:174
 msgid "New"
@@ -289,7 +290,7 @@ msgstr "novo ficheiro"
 
 #: src/FolderManager/ProjectFolderItem.vala:96
 msgid "Close Folder"
-msgstr "Fechar Pasta"
+msgstr "Fechar pasta"
 
 #: src/FolderManager/ProjectFolderItem.vala:99
 msgid "Close Other Folders"
@@ -312,7 +313,7 @@ msgstr "Ramo"
 #: src/Services/Document.vala:266
 #, c-format
 msgid "%s Is Not a Text File"
-msgstr "%s Não é um Ficheiro de Texto"
+msgstr "%s Não é um ficheiro de texto"
 
 #: src/Services/Document.vala:267
 msgid "Code will not load this type of file."
@@ -333,7 +334,7 @@ msgstr "Aguarde enquanto o Code está a carregar o ficheiro."
 
 #: src/Services/Document.vala:293
 msgid "Cancel Loading"
-msgstr "Cancelar Carregamento"
+msgstr "Cancelar carregamento"
 
 #: src/Services/Document.vala:391
 #, c-format
@@ -356,7 +357,7 @@ msgstr "Guardar"
 
 #: src/Services/Document.vala:510
 msgid "Save File"
-msgstr "Guardar Ficheiro"
+msgstr "Guardar ficheiro"
 
 #: src/Services/Document.vala:592
 msgid "New Document"
@@ -366,7 +367,7 @@ msgstr "Novo documento"
 #: src/Services/Document.vala:715
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
-msgstr "Não é Possível Ler o Ficheiro \"%s\""
+msgstr "Não é possível ler o ficheiro \"%s\""
 
 #: src/Services/Document.vala:716
 msgid "It may be corrupt or you don't have permission to read it."
@@ -385,12 +386,12 @@ msgstr ""
 
 #: src/Services/Document.vala:730
 msgid "Save As…"
-msgstr "Guardar Como…"
+msgstr "Guardar como…"
 
 #: src/Services/Document.vala:735
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "O ficheiro \"%s\" foi apagado. Deseja guardá-lo mesmo assim?"
+msgstr "O ficheiro \"%s\" foi eliminado. Deseja guardá-lo mesmo assim?"
 
 #. If the file can't be written
 #: src/Services/Document.vala:750
@@ -446,7 +447,7 @@ msgstr "Filtrar idiomas"
 
 #: src/Widgets/FormatBar.vala:123
 msgid "Plain Text"
-msgstr "Texto Simples"
+msgstr "Texto simples"
 
 #: src/Widgets/FormatBar.vala:205
 #, c-format
@@ -472,11 +473,11 @@ msgstr "Abrir um ficheiro"
 
 #: src/Widgets/HeaderBar.vala:48
 msgid "Project templates"
-msgstr "Modelos de Projeto"
+msgstr "Modelos de projeto"
 
 #: src/Widgets/HeaderBar.vala:54
 msgid "Save this file"
-msgstr "Guardar ficheiro"
+msgstr "Guardar este ficheiro"
 
 #: src/Widgets/HeaderBar.vala:61
 msgid "Save this file with a different name"
@@ -504,27 +505,27 @@ msgstr "Ampliar"
 
 #: src/Widgets/HeaderBar.vala:118
 msgid "High Contrast"
-msgstr "Alto Contraste"
+msgstr "Alto contraste"
 
 #: src/Widgets/HeaderBar.vala:126
 msgid "Solarized Light"
-msgstr "Solarizado Claro"
+msgstr "Solarizado claro"
 
 #: src/Widgets/HeaderBar.vala:134
 msgid "Solarized Dark"
-msgstr "Solarizado Escuro"
+msgstr "Solarizado escuro"
 
 #: src/Widgets/HeaderBar.vala:144
 msgid "Toggle Sidebar"
-msgstr "Alternar Barra Lateral"
+msgstr "Alternar barra lateral"
 
 #: src/Widgets/HeaderBar.vala:154
 msgid "Add New View"
-msgstr "Adicionar Nova Vista"
+msgstr "Adicionar nova vista"
 
 #: src/Widgets/HeaderBar.vala:164
 msgid "Remove Current View"
-msgstr "Remover vista actual"
+msgstr "Remover vista atual"
 
 #: src/Widgets/HeaderBar.vala:191
 msgid "Menu"
@@ -584,15 +585,15 @@ msgstr "Substituir tudo"
 
 #: src/Widgets/SourceView.vala:393
 msgid "Sort Selected Lines"
-msgstr "Ordenar Linhas Selecionadas"
+msgstr "Ordenar linhas selecionadas"
 
 #: src/Widgets/SourceView.vala:406
 msgid "Toggle Comment"
-msgstr "Alternar Comentário"
+msgstr "Alternar comentário"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
-msgstr "Sem Ficheiros Abertos"
+msgstr "Sem ficheiros abertos"
 
 #: src/Widgets/WelcomeView.vala:27
 msgid "Open a file to begin editing."
@@ -600,7 +601,7 @@ msgstr "Abrir um ficheiro para o editar."
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "New File"
-msgstr "Novo Ficheiro"
+msgstr "Novo ficheiro"
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "Create a new empty file."
@@ -608,15 +609,15 @@ msgstr "Criar um novo ficheiro vazio."
 
 #: src/Widgets/WelcomeView.vala:33
 msgid "Open File"
-msgstr "Abrir Ficheiro"
+msgstr "Abrir ficheiro"
 
 #: src/Widgets/WelcomeView.vala:33
 msgid "Open a saved file."
-msgstr "Abrir um ficheiro existente."
+msgstr "Abra um ficheiro guardado."
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Open Folder"
-msgstr "Abrir Pasta"
+msgstr "Abrir pasta"
 
 #: src/Widgets/WelcomeView.vala:34
 msgid "Add a project folder to the sidebar."
@@ -693,7 +694,7 @@ msgstr "Mostrar o Terminal"
 
 #: plugins/terminal/terminal.vala:179
 msgid "Hide Terminal"
-msgstr "Fechar o Terminal"
+msgstr "Ocultar o Terminal"
 
 #: plugins/terminal/terminal.vala:180
 msgid "Terminal"
@@ -717,11 +718,11 @@ msgstr "Pré-Visualização Web"
 #: plugins/browser-preview/browser-preview.vala:70
 #: plugins/browser-preview/browser-preview.vala:96
 msgid "Show Preview"
-msgstr "Mostrar a Pré-visualização"
+msgstr "Mostrar a pré-visualização"
 
 #: plugins/browser-preview/browser-preview.vala:88
 msgid "Hide Preview"
-msgstr "Fechar a Pré-Visualização"
+msgstr "Ocultar a pré-Visualização"
 
 #: plugins/spell/spell.vala:74
 msgid "No Suitable Dictionaries Were Found"
@@ -729,12 +730,12 @@ msgstr "Não foram encontrados dicionários adequados"
 
 #: plugins/spell/spell.vala:75
 msgid "Please install at least one [aspell] dictionary."
-msgstr "Por favor, instale pelo menos um dicionário [aspell]."
+msgstr "Instale pelo menos um dicionário [aspell]."
 
 #: plugins/word-completion/plugin.vala:173
 #, c-format
 msgid "%s - Word Completion"
-msgstr "%s - Acabar Palavra"
+msgstr "%s - Completar palavra"
 
 #~ msgid "Add Project Folder…"
 #~ msgstr "Adicionar pasta de projeto…"
