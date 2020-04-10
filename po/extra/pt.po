@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-02 00:34+0000\n"
-"PO-Revision-Date: 2020-04-09 06:10+0000\n"
+"PO-Revision-Date: 2020-04-11 21:10+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/code/extra/pt/"
 ">\n"
@@ -35,9 +35,9 @@ msgid ""
 "they're always up-to-date. Plus it remembers your tabs so you never lose "
 "your spot, even in between sessions."
 msgstr ""
-"Code é o editor que faz o trabalho por ti. Guarda automaticamente os teus "
-"ficheiros, de modo a que fiquem sempre atualizados. E ainda memoriza os teus "
-"separadores para que nunca os percas de vista, mesmo entre sessões."
+"O Code é o editor que faz o trabalho por si. Guarda automaticamente os seus "
+"ficheiros, de modo a que fiquem sempre atualizados. E ainda memoriza os seus "
+"separadores para que nunca os perca de vista, mesmo entre sessões."
 
 #: data/io.elementary.code.appdata.xml.in:16
 msgid ""
@@ -46,10 +46,10 @@ msgid ""
 "a full-blown IDE; it's your choice. And with a handful of useful "
 "preferences, you can tweak the behavior and interface to your liking."
 msgstr ""
-"Faz dele o teu editor. Code foi desenhado para ser extensível. Mantêm as "
-"coisas leves e simples, ou instala extensões para tornar o Code num poderoso "
-"IDE. E com algumas configurações úteis, podes modificar o funcionamento e a "
-"interface para ficar do teu agrado. Tu decides."
+"Torne-o seu. O Code foi desenhado para ser extensível. Mantém as coisas "
+"leves e simples, ou instala extensões para tornar o Code num poderoso IDE. E "
+"com algumas preferências úteis, pode ajustar o comportamento e a interface "
+"ao seu gosto."
 
 #: data/io.elementary.code.appdata.xml.in:22
 msgid ""
@@ -57,9 +57,9 @@ msgid ""
 "meaning it closely follows the high standards of design, speed, and "
 "consistency. It's sexy, but not distracting."
 msgstr ""
-"É elementar. Code é feito para ser o editor de texto perfeito para o "
+"É elementar. O Code é feito para ser o editor de texto perfeito para o "
 "elementary, pois segue os seus princípios de design, velocidade e "
-"consistência. É sensual, mas não te distrai."
+"consistência. É sensual, mas não o distrai."
 
 #: data/io.elementary.code.appdata.xml.in:27
 msgid ""
@@ -68,10 +68,10 @@ msgid ""
 "full syntax highlighting with nearly all programming, scripting, and markup "
 "languages."
 msgstr ""
-"Funciona com a linguagem de programação que escolhas. Quer estejas a "
-"desenvolver código em Vala, PHP ou HTML, o Code não te deixa ficar mal. "
-"Experiencia realce de sintaxe em praticamente todas as linguagens de "
-"programação, scripting e marcação."
+"Funciona com a linguagem de programação que escolhe. Quer esteja a "
+"desenvolver código em Vala, PHP ou HTML, o Code não o deixa ficar mal. "
+"Experiencia o realce completo da sintaxe em praticamente todas as linguagens "
+"de programação, scripting e marcação."
 
 #: data/io.elementary.code.appdata.xml.in:33
 msgid ""
@@ -93,15 +93,15 @@ msgstr "realce de sintaxe feito com gtksouceview-3"
 
 #: data/io.elementary.code.appdata.xml.in:43
 msgid "a find bar to search the words in the files"
-msgstr "barra de pesquisa para procurar palavras-chave em arquivos"
+msgstr "uma barra de pesquisa para procurar palavras em ficheiros"
 
 #: data/io.elementary.code.appdata.xml.in:44
 msgid "tab and split documents system"
-msgstr "sistema de separadores e comparação de documentos"
+msgstr "tabulação e sistema de documentos divididos"
 
 #: data/io.elementary.code.appdata.xml.in:45
 msgid "lots of others"
-msgstr "e muito mais"
+msgstr "e muitos outros"
 
 #: data/io.elementary.code.appdata.xml.in:51
 #: data/io.elementary.code.appdata.xml.in:66
@@ -214,7 +214,7 @@ msgstr ""
 #: data/io.elementary.code.appdata.xml.in:98
 msgid "Fix null file dialog when opening a new window via the dock"
 msgstr ""
-"Corrige a mensagem de ficheiro nulo ao abrir uma nova janela através da dock"
+"Corrige a mensagem de ficheiro nulo ao abrir uma nova janela através da doca"
 
 #: data/io.elementary.code.appdata.xml.in:99
 msgid "Add \"=\" as a zoom key"
@@ -228,7 +228,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:101
 msgid "Enter name of new file before creating it"
-msgstr "Introduza o nome do novo ficheiro antes de criá-lo"
+msgstr "Introduza o nome do novo ficheiro antes de o criar"
 
 #: data/io.elementary.code.appdata.xml.in:109
 msgid "Use Granite.MessageDialog throughout"
@@ -240,7 +240,7 @@ msgstr "Incluir ficheiros que não são de texto na barra lateral"
 
 #: data/io.elementary.code.appdata.xml.in:111
 msgid "Fix Remove Current View"
-msgstr "Corrigir Remover Vista Atual"
+msgstr "Corrigir Remover vista atual"
 
 #: data/io.elementary.code.appdata.xml.in:118
 msgid "Fix New Window desktop action behavior"
@@ -264,7 +264,7 @@ msgstr "Adicionar item de menu Alterar contexto de ramificação"
 #: data/io.elementary.code.appdata.xml.in:122
 msgid "Avoid possible startup crash related to how plugins load"
 msgstr ""
-"Evite possíveis falhas de arranque relacionadas a como os plug-ins são "
+"Evite possíveis falhas de arranque relacionadas a como os plugins são "
 "carregados"
 
 #: data/io.elementary.code.appdata.xml.in:130
@@ -317,11 +317,11 @@ msgstr "text;IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
-msgstr "Novo Ficheiro"
+msgstr "Novo ficheiro"
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
-msgstr "Nova Janela"
+msgstr "Nova janela"
 
 #~ msgid "New Document"
 #~ msgstr "Novo documento"
