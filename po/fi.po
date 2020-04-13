@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-26 16:55+0000\n"
-"PO-Revision-Date: 2020-02-22 14:09+0000\n"
+"PO-Revision-Date: 2020-04-14 14:10+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/code/code/fi/>\n"
 "Language: fi\n"
@@ -298,12 +298,12 @@ msgstr "Sulje muut kansiot"
 #: src/FolderManager/ProjectFolderItem.vala:188
 #, c-format
 msgid "%s, Modified"
-msgstr ""
+msgstr "%s, muokattu"
 
 #: src/FolderManager/ProjectFolderItem.vala:197
 #, c-format
 msgid "%s, New"
-msgstr ""
+msgstr "%s, uusi"
 
 #: src/FolderManager/ProjectFolderItem.vala:347
 msgid "Branch"
@@ -562,11 +562,11 @@ msgstr "Syklinen haku"
 
 #: src/Widgets/SearchBar.vala:93
 msgid "Case Sensitive"
-msgstr ""
+msgstr "Huomioi kirjainkoko"
 
 #: src/Widgets/SearchBar.vala:93
 msgid "Case Insensitive"
-msgstr ""
+msgstr "Älä huomioi kirjainkokoa"
 
 #: src/Widgets/SearchBar.vala:112
 msgid "Replace With"
