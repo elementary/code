@@ -33,23 +33,6 @@ namespace Scratch {
         ALWAYS = 2
     }
 
-    public class SavedState : Granite.Services.Settings {
-
-        public int window_width { get; set; }
-        public int window_height { get; set; }
-        public ScratchWindowState window_state { get; set; }
-        public int window_x { get; set; }
-        public int window_y { get; set; }
-
-        public int hp1_size { get; set; }
-        public int vp_size { get; set; }
-
-        public SavedState () {
-            base (Constants.PROJECT_NAME + ".saved-state");
-        }
-
-    }
-
     public class Settings : Granite.Services.Settings {
 
         public bool highlight_matching_brackets { get; set; }
