@@ -329,7 +329,6 @@ namespace Scratch {
 
             project_pane = new Code.Pane ();
 
-
             folder_manager_view = new FolderManager.FileView ();
 
             project_pane.add_tab (folder_manager_view);
