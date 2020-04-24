@@ -55,7 +55,7 @@ namespace Scratch {
 
             // Init settings
             default_font = new GLib.Settings ("org.gnome.desktop.interface").get_string ("monospace-font-name");
-            saved_state = new GLib.Settings (Constants.PROJECT_NAME + ".saved-state");
+            saved_state = new GLib.Settings ("io.elementary.code.saved-state");
             settings = new Settings ();
             services = new ServicesSettings ();
             privacy_settings = new GLib.Settings ("org.gnome.desktop.privacy");
