@@ -17,25 +17,15 @@
       <summary>The saved state of the window.</summary>
       <description>The saved state of the window.</description>
     </key>
-    <key name="window-width" type="i">
-      <default>850</default>
-      <summary>The saved width of the window.</summary>
-      <description>The saved width of the window. Must be greater than 700, or it will not take effect.</description>
+    <key name="window-position" type="(ii)">
+      <default>(-1, -1)</default>
+      <summary>Window position</summary>
+      <description>Most recent window position (x, y)</description>
     </key>
-    <key name="window-height" type="i">
-      <default>550</default>
-      <summary>The saved height of the window.</summary>
-      <description>The saved height of the window. Must be greater than 400, or it will not take effect.</description>
-    </key>
-    <key name="window-x" type="i">
-      <default>-1</default>
-      <summary></summary>
-      <description></description>
-    </key>
-    <key name="window-y" type="i">
-      <default>-1</default>
-      <summary></summary>
-      <description></description>
+    <key name="window-size" type="(ii)">
+      <default>(850, 550)</default>
+      <summary>Most recent window size</summary>
+      <description>Most recent window size (width, height)</description>
     </key>
     <key name="hp1-size" type="i">
       <default>125</default>
