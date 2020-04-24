@@ -208,13 +208,17 @@ namespace Scratch {
             set_size_request (450, 400);
             set_hide_titlebar_when_maximized (false);
 
-            default_width = Scratch.saved_state.window_width;
-            default_height = Scratch.saved_state.window_height;
+            var rect = Gdk.Rectangle ();
+            Scratch.saved_state.get ("window-size", "(ii)", out rect.width, out rect.height);
+
+            default_width = rect.width;
+            default_height = rect.height;
 
             var gtk_settings = Gtk.Settings.get_default ();
             gtk_settings.gtk_application_prefer_dark_theme = Scratch.settings.prefer_dark_style;
 
-            switch (Scratch.saved_state.window_state) {
+            var window_state = Scratch.saved_state.get_enum ("window-state");
+            switch (window_state) {
                 case ScratchWindowState.MAXIMIZED:
                     maximize ();
                     break;
@@ -222,8 +226,9 @@ namespace Scratch {
                     fullscreen ();
                     break;
                 default:
-                    if (Scratch.saved_state.window_x != -1 && Scratch.saved_state.window_y != -1) {
-                        move (Scratch.saved_state.window_x, Scratch.saved_state.window_y);
+                    Scratch.saved_state.get ("window-position", "(ii)", out rect.x, out rect.y);
+                    if (rect.x != -1 && rect.y != -1) {
+                        move (rect.x, rect.y);
                     }
                     break;
             }
@@ -613,8 +618,8 @@ namespace Scratch {
         // Save session informations different from window state
         private void restore_saved_state_extra () {
             // Plugin panes size
-            hp1.set_position (Scratch.saved_state.hp1_size);
-            vp.set_position (Scratch.saved_state.vp_size);
+            hp1.set_position (Scratch.saved_state.get_int ("hp1-size"));
+            vp.set_position (Scratch.saved_state.get_int ("vp-size"));
         }
 
         private void create_unsaved_documents_directory () {
@@ -633,27 +638,25 @@ namespace Scratch {
             // Save window state
             var state = get_window ().get_state ();
             if (Gdk.WindowState.MAXIMIZED in state) {
-                Scratch.saved_state.window_state = ScratchWindowState.MAXIMIZED;
+                Scratch.saved_state.set_enum ("window-state", ScratchWindowState.MAXIMIZED);
             } else if (Gdk.WindowState.FULLSCREEN in state) {
-                Scratch.saved_state.window_state = ScratchWindowState.FULLSCREEN;
+                Scratch.saved_state.set_enum ("window-state", ScratchWindowState.FULLSCREEN);
             } else {
-                Scratch.saved_state.window_state = ScratchWindowState.NORMAL;
+                Scratch.saved_state.set_enum ("window-state", ScratchWindowState.NORMAL);
                 // Save window size
                 int width, height;
                 get_size (out width, out height);
-                Scratch.saved_state.window_width = width;
-                Scratch.saved_state.window_height = height;
+                Scratch.saved_state.set ("window-size", "(ii)", width, height);
             }
 
             // Save window position
             int x, y;
             get_position (out x, out y);
-            Scratch.saved_state.window_x = x;
-            Scratch.saved_state.window_y = y;
+            Scratch.saved_state.set ("window-position", "(ii)", x, y);
 
             // Plugin panes size
-            Scratch.saved_state.hp1_size = hp1.get_position ();
-            Scratch.saved_state.vp_size = vp.get_position ();
+            Scratch.saved_state.set_int ("hp1-size", hp1.get_position ());
+            Scratch.saved_state.set_int ("vp-size", vp.get_position ());
         }
 
         // SIGTERM/SIGINT Handling
