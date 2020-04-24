@@ -336,6 +336,9 @@ namespace Scratch {
 
             folder_manager_view = new FolderManager.FileView ();
 
+            project_pane.add_tab (folder_manager_view);
+            folder_manager_view.show_all ();
+
             folder_manager_view.select.connect ((a) => {
                 var file = new Scratch.FolderManager.File (a);
                 var doc = new Scratch.Services.Document (actions, file.file);
@@ -344,19 +347,6 @@ namespace Scratch {
                     open_document (doc);
                 } else {
                     open_binary (file.file);
-                }
-            });
-
-            folder_manager_view.root.child_added.connect (() => {
-                if (folder_manager_view.get_n_visible_children (folder_manager_view.root) == 0) {
-                    project_pane.add_tab (folder_manager_view);
-                    folder_manager_view.show_all ();
-                }
-            });
-
-            folder_manager_view.root.child_removed.connect (() => {
-                if (folder_manager_view.get_n_visible_children (folder_manager_view.root) == 1) {
-                    folder_manager_view.parent.remove (folder_manager_view);
                 }
             });
 
