@@ -28,7 +28,10 @@ namespace Code.Plugins {
 
         Gee.LinkedList<SymbolOutline> views;
 
+        Placeholder placeholder;
+
         construct {
+            placeholder = new Placeholder ();
             views = new Gee.LinkedList<SymbolOutline> ();
             weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
             default_theme.add_resource_path ("/io/elementary/code/plugin/outline");
@@ -55,12 +58,19 @@ namespace Code.Plugins {
             this.window = window;
 
             container = new OutlinePane ();
-            container.visible = false;
+            container.add (placeholder);
         }
 
         void on_hook_document (Scratch.Services.Document doc) {
-            if (current_view != null && current_view.doc == doc)
+            if (current_view != null &&
+                current_view.doc == doc &&
+                current_view.get_source_list ().get_parent () != null) {
+
+                /* Ensure correct source list shown */
+                container.set_visible_child (current_view.get_source_list ());
+
                 return;
+            }
 
             SymbolOutline view = null;
             foreach (var v in views) {
@@ -101,7 +111,7 @@ namespace Code.Plugins {
                 current_view = view;
                 add_container ();
             } else {
-                remove_container ();
+                container.set_visible_child (placeholder);
             }
         }
 
@@ -137,6 +147,14 @@ namespace Code.Plugins {
             text.buffer.get_iter_at_line (out iter, line - 1);
             text.buffer.place_cursor (iter);
             text.scroll_to_iter (iter, 0.0, true, 0.5, 0.5);
+        }
+    }
+
+    private class Placeholder : Gtk.Label {
+        construct {
+            label = _("No symbols found");
+            vexpand = false;
+            hexpand = true;
         }
     }
 }
