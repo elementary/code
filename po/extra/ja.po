@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-24 21:27+0000\n"
-"PO-Revision-Date: 2020-04-03 12:10+0000\n"
+"PO-Revision-Date: 2020-04-26 23:10+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/"
-">\n"
+"Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/>"
+"\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -105,21 +105,19 @@ msgstr "そのほか数々の機能"
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "Fixes:"
-msgstr ""
+msgstr "修正点:"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Fix empty sidebar layout, ensuring folders can always be added"
-msgstr ""
+msgstr "フォルダーが常に追加されるようにすることで、サイドバーのレイアウトに何も表示されない問題を修正"
 
 #: data/io.elementary.code.appdata.xml.in:55
-#, fuzzy
-#| msgid "Other updates:"
 msgid "Minor updates:"
-msgstr "そのほかのアップデート:"
+msgstr "軽微なアップデート:"
 
 #: data/io.elementary.code.appdata.xml.in:57
 msgid "More efficiently save and restore window position"
-msgstr ""
+msgstr "ウィンドウの位置を、より効率的に保存・復元するように修正"
 
 #: data/io.elementary.code.appdata.xml.in:58
 #: data/io.elementary.code.appdata.xml.in:73
