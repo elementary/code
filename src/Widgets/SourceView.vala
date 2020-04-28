@@ -29,11 +29,11 @@ namespace Scratch.Widgets {
 
         private string font;
         private uint selection_changed_timer = 0;
+        private uint size_allocate_timer = 0;
         private Gtk.TextIter last_select_start_iter;
         private Gtk.TextIter last_select_end_iter;
 
-        // Pause after end user highlighting to confirm select,in ms
-        private const uint SELECTION_CHANGED_PAUSE = 400;
+        private const uint THROTTLE_MS = 400;
 
         public signal void style_changed (Gtk.SourceStyleScheme style);
         public signal void selection_changed (Gtk.TextIter start_iter, Gtk.TextIter end_iter);
@@ -149,8 +149,14 @@ namespace Scratch.Widgets {
             populate_popup.connect_after (on_context_menu);
 
             size_allocate.connect ((allocation) => {
-                // TODO: Throttle this for performance
-                bottom_margin = calculate_bottom_margin (allocation.height);
+                // Throttle for performance
+                if (size_allocate_timer == 0) {
+                    size_allocate_timer = Timeout.add (THROTTLE_MS, () => {
+                        size_allocate_timer = 0;
+                        bottom_margin = calculate_bottom_margin (allocation.height);
+                        return GLib.Source.REMOVE;
+                    });
+                }
             });
         }
 
@@ -423,7 +429,7 @@ namespace Scratch.Widgets {
 
         private int calculate_bottom_margin (int height_in_px) {
             const int LINES_TO_KEEP = 3;
-            const double PT_TO_PX = 1.6666; // Normally 1.3̅, but this accounts for line-height
+            const double PT_TO_PX = 1.6666; // Normally 1.3333, but this accounts for line-height
 
             double px_per_line = Application.instance.get_last_window ().get_current_font_size () * PT_TO_PX;
 
@@ -454,7 +460,7 @@ namespace Scratch.Widgets {
                 deselected ();
             // Don't fire signal till we think select movement is done
             } else {
-                selection_changed_timer = Timeout.add (SELECTION_CHANGED_PAUSE, selection_changed_event);
+                selection_changed_timer = Timeout.add (THROTTLE_MS, selection_changed_event);
             }
 
         }
