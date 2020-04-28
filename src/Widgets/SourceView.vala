@@ -429,7 +429,7 @@ namespace Scratch.Widgets {
 
         private int calculate_bottom_margin (int height_in_px) {
             const int LINES_TO_KEEP = 3;
-            const double PT_TO_PX = 1.6666; // Normally 1.3333, but this accounts for line-height
+            const double PT_TO_PX = 1.6667; // Normally 1.3333, but this accounts for line-height
 
             double px_per_line = Application.instance.get_last_window ().get_current_font_size () * PT_TO_PX;
 
