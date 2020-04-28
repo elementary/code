@@ -427,7 +427,7 @@ namespace Scratch.Widgets {
             menu.show_all ();
         }
 
-        private int calculate_bottom_margin (int height_in_px) {
+        private static int calculate_bottom_margin (int height_in_px) {
             const int LINES_TO_KEEP = 3;
             const double PT_TO_PX = 1.6667; // Normally 1.3333, but this accounts for line-height
 
