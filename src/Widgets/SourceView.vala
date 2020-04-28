@@ -147,6 +147,11 @@ namespace Scratch.Widgets {
             });
 
             populate_popup.connect_after (on_context_menu);
+
+            size_allocate.connect ((allocation) => {
+                // TODO: Throttle this for performance
+                bottom_margin = calculate_bottom_margin (allocation.height);
+            });
         }
 
         private bool get_current_line (out Gtk.TextIter start, out Gtk.TextIter end) {
@@ -414,6 +419,15 @@ namespace Scratch.Widgets {
             }
 
             menu.show_all ();
+        }
+
+        private int calculate_bottom_margin (int height_in_px) {
+            const int LINES_TO_KEEP = 3;
+            const double PT_TO_PX = 1.6666; // Normally 1.3̅, but this accounts for line-height
+
+            double px_per_line = Application.instance.get_last_window ().get_current_font_size () * PT_TO_PX;
+
+            return (int) (height_in_px - (LINES_TO_KEEP * px_per_line));
         }
 
         void on_mark_set (Gtk.TextIter loc, Gtk.TextMark mar) {
