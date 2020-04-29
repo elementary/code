@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-29 02:11+0000\n"
-"PO-Revision-Date: 2020-03-24 18:09+0000\n"
+"PO-Revision-Date: 2020-04-30 07:10+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/extra/es/>\n"
 "Language: es\n"
@@ -57,9 +57,9 @@ msgid ""
 "meaning it closely follows the high standards of design, speed, and "
 "consistency. It's sexy, but not distracting."
 msgstr ""
-"Es elemental. Code fue hecho para ser el editor de texto perfecto para "
-"elementary, lo que significa que sigue los elevados estándares de diseño, "
-"velocidad y consistencia. Es atractivo, pero no te distrae."
+"Es elementary. Code fue concebido para ser el editor de texto perfecto para "
+"elementary, lo que significa que sigue sus elevados estándares de diseño, "
+"velocidad y coherencia. Es atractivo, pero no le distrae."
 
 #: data/io.elementary.code.appdata.xml.in:27
 msgid ""
@@ -79,8 +79,8 @@ msgid ""
 "Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, Makefile, "
 "Objective C, Pascal, Perl, Python, Ruby, XML."
 msgstr ""
-"Otros lenguajes con resaltado de sintaxis: Bash, C, C#, C++. Cmake, CSS, ."
-"Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
+"Otros lenguajes con coloración sintáctica: Bash, C, C#, C++, Cmake, CSS, "
+".Desktop, Diff, Fortran, Gettext, ini, Java, JavaScript, LaTex, Lua, "
 "Makefile, Objective C, Pascal, Perl, Python, Ruby, XML."
 
 #: data/io.elementary.code.appdata.xml.in:38
@@ -101,29 +101,29 @@ msgstr "sistema de vista por pestañas y división de documentos"
 
 #: data/io.elementary.code.appdata.xml.in:45
 msgid "lots of others"
-msgstr "muchas otras"
+msgstr "y mucho más"
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "Fixes:"
-msgstr ""
+msgstr "Correcciones:"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Fix empty sidebar layout, ensuring folders can always be added"
 msgstr ""
+"Se solucionó el problema de la barra lateral vacía, lo que garantiza que "
+"siempre puedan añadirse carpetas"
 
 #: data/io.elementary.code.appdata.xml.in:55
-#, fuzzy
-#| msgid "Other updates:"
 msgid "Minor updates:"
-msgstr "Otras actualizaciones:"
+msgstr "Actualizaciones menores:"
 
 #: data/io.elementary.code.appdata.xml.in:57
 msgid "Scroll past the end of a file"
-msgstr ""
+msgstr "Desplazamiento que sobrepasa el final de un archivo"
 
 #: data/io.elementary.code.appdata.xml.in:58
 msgid "More efficiently save and restore window position"
-msgstr ""
+msgstr "Guardado y restauración más eficientes de la posición de la ventana"
 
 #: data/io.elementary.code.appdata.xml.in:59
 #: data/io.elementary.code.appdata.xml.in:74
@@ -144,10 +144,12 @@ msgstr "Funcionalidades nuevas:"
 #: data/io.elementary.code.appdata.xml.in:67
 msgid "Include Git status in file tooltips"
 msgstr ""
+"Se incluye el estado de Git en las descripciones emergentes de los archivos"
 
 #: data/io.elementary.code.appdata.xml.in:68
 msgid "Option for explicit case-sensitive Find"
 msgstr ""
+"Opción para buscar explícitamente con distinción de mayúsculas y minúsculas"
 
 #: data/io.elementary.code.appdata.xml.in:70
 #: data/io.elementary.code.appdata.xml.in:85
@@ -158,10 +160,12 @@ msgstr "Otras actualizaciones:"
 #: data/io.elementary.code.appdata.xml.in:72
 msgid "Correctly show Toggle Comment menu item when no text is selected"
 msgstr ""
+"Se muestra correctamente el elemento del menú «Conmutar comentario» cuando "
+"no se ha seleccionado texto"
 
 #: data/io.elementary.code.appdata.xml.in:73
 msgid "Fixed font switch alignment"
-msgstr ""
+msgstr "Se corrigió la alineación del conmutador de tipos de letra"
 
 #: data/io.elementary.code.appdata.xml.in:82
 msgid "New \"Close Other Folders\" menu item to help clean up your sidebar"
@@ -190,12 +194,11 @@ msgstr "Centrar nuevas ventanas"
 #: data/io.elementary.code.appdata.xml.in:98
 msgid "Visually deprioritize .gitignored files in project sidebar"
 msgstr ""
-"No priorizar visualmente los archivos «.gitignored» en la barra lateral del "
-"proyecto"
+"Se desenfatizan los archivos en .gitignore en la barra lateral del proyecto"
 
 #: data/io.elementary.code.appdata.xml.in:99
 msgid "Smart cut/copy lines with no active selection"
-msgstr "Cortado/copiado inteligente de líneas sin ninguna selección activa"
+msgstr "Cortado/copiado inteligente de renglones sin ninguna selección activa"
 
 #: data/io.elementary.code.appdata.xml.in:100
 msgid "Add a confirmation dialog to the \"Restore\" action"
@@ -246,7 +249,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:113
 msgid "Add \"=\" as a zoom key"
-msgstr "Añadir «=» como tecla de zoom"
+msgstr "Se añadió «=» como tecla de escala"
 
 #: data/io.elementary.code.appdata.xml.in:114
 msgid "Change search entry icon when results aren't found"
