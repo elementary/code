@@ -356,8 +356,7 @@ namespace Scratch {
             bottombar.no_show_all = true;
             bottombar.page_removed.connect (() => { on_plugin_toggled (bottombar); });
             bottombar.page_added.connect (() => {
-                if (!split_view.is_empty ())
-                    on_plugin_toggled (bottombar);
+                on_plugin_toggled (bottombar);
             });
 
             var content = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
