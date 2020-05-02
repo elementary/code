@@ -46,7 +46,52 @@
     </ul>
   </description>
   <releases>
-    <release version="3.2.0" date="2019-11-14">
+    <release version="3.4.1" date="2020-04-23">
+      <description>
+        <p>Fixes:</p>
+        <ul>
+          <li>Fix empty sidebar layout, ensuring folders can always be added</li>
+        </ul>
+        <p>Minor updates:</p>
+        <ul>
+          <li>Scroll past the end of a file</li>
+          <li>More efficiently save and restore window position</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.4.0" date="2020-04-01">
+      <description>
+        <p>New features:</p>
+        <ul>
+          <li>Include Git status in file tooltips</li>
+          <li>Option for explicit case-sensitive Find</li>
+        </ul>
+        <p>Other updates:</p>
+        <ul>
+          <li>Correctly show Toggle Comment menu item when no text is selected</li>
+          <li>Fixed font switch alignment</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.3.0" date="2020-02-29">
+      <description>
+        <p>New features:</p>
+        <ul>
+          <li>New "Close Other Folders" menu item to help clean up your sidebar</li>
+          <li>Save and restore cyclic search setting</li>
+        </ul>
+        <p>Other updates:</p>
+        <ul>
+          <li>Add keyboard shortcuts to menu items</li>
+          <li>Make sidebar folder items not selectable</li>
+          <li>Center new windows</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.2.0" date="2020-01-09">
       <description>
         <p>New features:</p>
         <ul>
@@ -56,6 +101,8 @@
           <li>Add "Open In" menu to the top-level folder in the folder manager</li>
           <li>Don't show temporary files in the folder manager</li>
           <li>Add brackets completion and auto-indent by default</li>
+          <li>Zoom terminal plugin with keyboard</li>
+          <li>Honor global privacy setting when saving and restoring</li>
         </ul>
         <p>Other updates:</p>
         <ul>
@@ -65,6 +112,7 @@
           <li>Fix null file dialog when opening a new window via the dock</li>
           <li>Add "=" as a zoom key</li>
           <li>Change search entry icon when results aren't found</li>
+          <li>Enter name of new file before creating it</li>
           <li>Updated translations</li>
         </ul>
       </description>

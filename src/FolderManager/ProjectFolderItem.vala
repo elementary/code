@@ -23,6 +23,7 @@ namespace Scratch.FolderManager {
         private const uint GIT_UPDATE_RATE_LIMIT = 300;
 
         public signal void closed ();
+        public signal void close_all_except ();
 
         // Static source IDs for each instance of a top level folder, ensures we don't check for git updates too much
         private static Gee.HashMap<string, uint> git_update_timer_ids;
@@ -95,6 +96,10 @@ namespace Scratch.FolderManager {
             var close_item = new Gtk.MenuItem.with_label (_("Close Folder"));
             close_item.activate.connect (() => { closed (); });
 
+            var close_all_except_item = new Gtk.MenuItem.with_label (_("Close Other Folders"));
+            close_all_except_item.activate.connect (() => { close_all_except (); });
+            close_all_except_item.sensitive = view.root.children.size > 1;
+
             var delete_item = new Gtk.MenuItem.with_label (_("Move to Trash"));
             delete_item.activate.connect (() => {
                 closed ();
@@ -113,6 +118,7 @@ namespace Scratch.FolderManager {
 
             var menu = new Gtk.Menu ();
             menu.append (close_item);
+            menu.append (close_all_except_item);
             menu.append (create_submenu_for_open_in (info, file_type));
             menu.append (create_submenu_for_new ());
             menu.append (delete_item);
@@ -179,6 +185,7 @@ namespace Scratch.FolderManager {
                 find_items (this, path, ref modified_items);
                 foreach (var modified_item in modified_items) {
                     modified_item.activatable = modified_icon;
+                    modified_item.tooltip = _("%s, Modified").printf (modified_item.name);
                 }
             } else if (Ggit.StatusFlags.WORKING_TREE_NEW in status || Ggit.StatusFlags.INDEX_NEW in status) {
                 var new_items = new Gee.ArrayList<Item> ();
@@ -187,6 +194,7 @@ namespace Scratch.FolderManager {
                     // Only show an added indicator on items that aren't already showing modified state
                     if (new_item.activatable == null) {
                         new_item.activatable = added_icon;
+                        new_item.tooltip = _("%s, New").printf (new_item.name);
                     }
                 }
             }

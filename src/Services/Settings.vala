@@ -33,23 +33,6 @@ namespace Scratch {
         ALWAYS = 2
     }
 
-    public class SavedState : Granite.Services.Settings {
-
-        public int window_width { get; set; }
-        public int window_height { get; set; }
-        public ScratchWindowState window_state { get; set; }
-        public int window_x { get; set; }
-        public int window_y { get; set; }
-
-        public int hp1_size { get; set; }
-        public int vp_size { get; set; }
-
-        public SavedState () {
-            base (Constants.PROJECT_NAME + ".saved-state");
-        }
-
-    }
-
     public class Settings : Granite.Services.Settings {
 
         public bool highlight_matching_brackets { get; set; }
@@ -72,6 +55,7 @@ namespace Scratch {
         public string focused_document_view2 { get; set; }
         public bool show_mini_map { get; set; }
         public bool prefer_dark_style { get; set; }
+        public bool cyclic_search { get; set; }
 
         public Settings () {
             base (Constants.PROJECT_NAME + ".settings");
@@ -89,16 +73,5 @@ namespace Scratch {
             base (Constants.PROJECT_NAME + ".services");
         }
 
-    }
-
-    public class FolderManagerSettings : Granite.Services.Settings {
-
-        private const string SCHEMA = Constants.PROJECT_NAME + ".folder-manager";
-
-        public string[] opened_folders { get; set; }
-
-        public FolderManagerSettings () {
-            base (SCHEMA);
-        }
     }
 }

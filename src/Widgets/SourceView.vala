@@ -1,7 +1,7 @@
 // -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /*
 * Copyright (c) 2013 Mario Guerriero <mefrio.g@gmail.com>
-*               2017-2018 elementary LLC. <https://elementary.io>
+*               2017–2020 elementary, Inc. <https://elementary.io>
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -29,11 +29,11 @@ namespace Scratch.Widgets {
 
         private string font;
         private uint selection_changed_timer = 0;
+        private uint size_allocate_timer = 0;
         private Gtk.TextIter last_select_start_iter;
         private Gtk.TextIter last_select_end_iter;
 
-        // Pause after end user highlighting to confirm select,in ms
-        private const uint SELECTION_CHANGED_PAUSE = 400;
+        private const uint THROTTLE_MS = 400;
 
         public signal void style_changed (Gtk.SourceStyleScheme style);
         public signal void selection_changed (Gtk.TextIter start_iter, Gtk.TextIter end_iter);
@@ -147,6 +147,17 @@ namespace Scratch.Widgets {
             });
 
             populate_popup.connect_after (on_context_menu);
+
+            size_allocate.connect ((allocation) => {
+                // Throttle for performance
+                if (size_allocate_timer == 0) {
+                    size_allocate_timer = Timeout.add (THROTTLE_MS, () => {
+                        size_allocate_timer = 0;
+                        bottom_margin = calculate_bottom_margin (allocation.height);
+                        return GLib.Source.REMOVE;
+                    });
+                }
+            });
         }
 
         private bool get_current_line (out Gtk.TextIter start, out Gtk.TextIter end) {
@@ -387,15 +398,25 @@ namespace Scratch.Widgets {
         }
 
         private void on_context_menu (Gtk.Menu menu) {
-            var sort_item = new Gtk.MenuItem.with_label (_("Sort Selected Lines"));
+            var sort_item = new Gtk.MenuItem ();
             sort_item.sensitive = get_selected_line_count () > 1;
+            sort_item.add (new Granite.AccelLabel.from_action_name (
+                _("Sort Selected Lines"),
+                MainWindow.ACTION_PREFIX + MainWindow.ACTION_SORT_LINES
+            ));
             sort_item.activate.connect (sort_selected_lines);
+
             menu.add (sort_item);
 
             if (buffer is Gtk.SourceBuffer) {
                 var can_comment = CommentToggler.language_has_comments ((buffer as Gtk.SourceBuffer).get_language ());
-                var comment_item = new Gtk.MenuItem.with_label (_("Toggle Comment"));
-                comment_item.sensitive = get_selected_line_count () > 0 && can_comment;
+
+                var comment_item = new Gtk.MenuItem ();
+                comment_item.sensitive = can_comment;
+                comment_item.add (new Granite.AccelLabel.from_action_name (
+                    _("Toggle Comment"),
+                    MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_COMMENT
+                ));
                 comment_item.activate.connect (() => {
                     CommentToggler.toggle_comment (buffer as Gtk.SourceBuffer);
                 });
@@ -404,6 +425,15 @@ namespace Scratch.Widgets {
             }
 
             menu.show_all ();
+        }
+
+        private static int calculate_bottom_margin (int height_in_px) {
+            const int LINES_TO_KEEP = 3;
+            const double PT_TO_PX = 1.6667; // Normally 1.3333, but this accounts for line-height
+
+            double px_per_line = Application.instance.get_last_window ().get_current_font_size () * PT_TO_PX;
+
+            return (int) (height_in_px - (LINES_TO_KEEP * px_per_line));
         }
 
         void on_mark_set (Gtk.TextIter loc, Gtk.TextMark mar) {
@@ -430,7 +460,7 @@ namespace Scratch.Widgets {
                 deselected ();
             // Don't fire signal till we think select movement is done
             } else {
-                selection_changed_timer = Timeout.add (SELECTION_CHANGED_PAUSE, selection_changed_event);
+                selection_changed_timer = Timeout.add (THROTTLE_MS, selection_changed_event);
             }
 
         }

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-23 07:21+0000\n"
+"POT-Creation-Date: 2020-04-29 02:11+0000\n"
 "PO-Revision-Date: 2016-05-03 15:08+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Macedonian <mk@li.org>\n"
@@ -91,40 +91,40 @@ msgstr "Најди..."
 msgid "Hide search bar"
 msgstr "Скриј поле за пребарување"
 
-#: src/MainWindow.vala:244
+#: src/MainWindow.vala:267
 msgid "Zeitgeist Datasource for Code"
 msgstr ""
 
-#: src/MainWindow.vala:771 src/Services/Document.vala:502
+#: src/MainWindow.vala:763 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Сите датотеки"
 
-#: src/MainWindow.vala:775 src/Services/Document.vala:506
+#: src/MainWindow.vala:767 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Текстуални датотеки"
 
-#: src/MainWindow.vala:779
+#: src/MainWindow.vala:771
 msgid "Open some files"
 msgstr "Отвори неколку датотеки"
 
-#: src/MainWindow.vala:782
+#: src/MainWindow.vala:774
 msgid "Open"
 msgstr "Отвори"
 
-#: src/MainWindow.vala:783 src/Services/Document.vala:401
+#: src/MainWindow.vala:775 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Откажи"
 
-#: src/MainWindow.vala:808
+#: src/MainWindow.vala:800
 msgid "_Open"
 msgstr ""
 
-#: src/MainWindow.vala:809
+#: src/MainWindow.vala:801
 msgid "_Cancel"
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:156
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:168
 msgid "Preferences"
 msgstr "Преференци"
 
@@ -235,25 +235,25 @@ msgstr ""
 msgid "Restore Anyway"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:115
+#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:117
 msgid "Other Application…"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:155
+#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:157
 #, fuzzy
 msgid "Open In"
 msgstr "Отвори"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:90
+#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:92
 msgid "Other Actions"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:93
+#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:95
 msgid "Rename"
 msgstr ""
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:99
-#: src/FolderManager/ProjectFolderItem.vala:98
+#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:101
+#: src/FolderManager/ProjectFolderItem.vala:103
 msgid "Move to Trash"
 msgstr ""
 
@@ -261,33 +261,48 @@ msgstr ""
 msgid "Folders"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:162
+#: src/FolderManager/FolderItem.vala:164
 msgid "Folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:165
+#: src/FolderManager/FolderItem.vala:167
 msgid "Empty File"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:172
+#: src/FolderManager/FolderItem.vala:174
 #, fuzzy
 msgid "New"
 msgstr "Ново ливче"
 
-#: src/FolderManager/FolderItem.vala:330
+#: src/FolderManager/FolderItem.vala:332
 msgid "untitled folder"
 msgstr ""
 
-#: src/FolderManager/FolderItem.vala:330
+#: src/FolderManager/FolderItem.vala:332
 #, fuzzy
 msgid "new file"
 msgstr "Нова датотека"
 
-#: src/FolderManager/ProjectFolderItem.vala:95
+#: src/FolderManager/ProjectFolderItem.vala:96
 msgid "Close Folder"
 msgstr ""
 
-#: src/FolderManager/ProjectFolderItem.vala:339
+#: src/FolderManager/ProjectFolderItem.vala:99
+#, fuzzy
+msgid "Close Other Folders"
+msgstr "Отвори датотека"
+
+#: src/FolderManager/ProjectFolderItem.vala:188
+#, c-format
+msgid "%s, Modified"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:197
+#, c-format
+msgid "%s, New"
+msgstr ""
+
+#: src/FolderManager/ProjectFolderItem.vala:347
 msgid "Branch"
 msgstr ""
 
@@ -505,67 +520,76 @@ msgstr ""
 msgid "Toggle Sidebar"
 msgstr ""
 
-#: src/Widgets/HeaderBar.vala:148
+#: src/Widgets/HeaderBar.vala:154
 msgid "Add New View"
 msgstr "Додади Нов Поглед"
 
-#: src/Widgets/HeaderBar.vala:152
+#: src/Widgets/HeaderBar.vala:164
 msgid "Remove Current View"
 msgstr "Отстрани го сегашниот поглед"
 
-#: src/Widgets/HeaderBar.vala:179
+#: src/Widgets/HeaderBar.vala:191
 msgid "Menu"
 msgstr ""
 
-#: src/Widgets/Pane.vala:45
-msgid "Add Project Folder…"
-msgstr ""
+#: src/Widgets/Pane.vala:44
+#, fuzzy
+msgid "Open project folder…"
+msgstr "Отвори датотека"
 
-#: src/Widgets/Pane.vala:48
-msgid "Manage project folders…"
-msgstr ""
-
-#: src/Widgets/Pane.vala:50
+#: src/Widgets/Pane.vala:46
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Pane.vala:53
+#: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/SearchBar.vala:61
+#: src/Widgets/Pane.vala:60
+msgid "Manage project folders"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:63
 msgid "Find"
 msgstr "Најди"
 
-#: src/Widgets/SearchBar.vala:70
+#: src/Widgets/SearchBar.vala:72
 msgid "Search next"
 msgstr "Пребарај понатаму"
 
-#: src/Widgets/SearchBar.vala:80
+#: src/Widgets/SearchBar.vala:82
 msgid "Search previous"
 msgstr "Пребарај назад"
 
-#: src/Widgets/SearchBar.vala:85
+#: src/Widgets/SearchBar.vala:87
 msgid "Cyclic Search"
 msgstr "Кружно пребарување"
 
-#: src/Widgets/SearchBar.vala:101
+#: src/Widgets/SearchBar.vala:93
+msgid "Case Sensitive"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:93
+msgid "Case Insensitive"
+msgstr ""
+
+#: src/Widgets/SearchBar.vala:112
 msgid "Replace With"
 msgstr "Замени со"
 
-#: src/Widgets/SearchBar.vala:104
+#: src/Widgets/SearchBar.vala:115
 msgid "Replace"
 msgstr "Замени"
 
-#: src/Widgets/SearchBar.vala:107
+#: src/Widgets/SearchBar.vala:118
 msgid "Replace all"
 msgstr "Замени ги сите"
 
-#: src/Widgets/SourceView.vala:390
+#: src/Widgets/SourceView.vala:404
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:397
+#: src/Widgets/SourceView.vala:417
 msgid "Toggle Comment"
 msgstr ""
 
@@ -669,26 +693,26 @@ msgstr ""
 msgid "Symbols"
 msgstr ""
 
-#: plugins/terminal/terminal.vala:134 plugins/terminal/terminal.vala:141
+#: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
 msgstr ""
 
-#: plugins/terminal/terminal.vala:137
+#: plugins/terminal/terminal.vala:179
 msgid "Hide Terminal"
 msgstr ""
 
-#: plugins/terminal/terminal.vala:138
+#: plugins/terminal/terminal.vala:180
 msgid "Terminal"
 msgstr ""
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:193
+#: plugins/terminal/terminal.vala:237
 msgid "Copy"
 msgstr ""
 
 #. PASTE
-#: plugins/terminal/terminal.vala:200
+#: plugins/terminal/terminal.vala:244
 msgid "Paste"
 msgstr ""
 
