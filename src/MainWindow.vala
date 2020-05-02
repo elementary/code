@@ -507,8 +507,6 @@ namespace Scratch {
             // PlugIns
             if (val) {
                 on_plugin_toggled (bottombar);
-            } else {
-                bottombar.visible = val;
             }
         }
 
@@ -524,6 +522,9 @@ namespace Scratch {
 
         // Get current document
         public Scratch.Services.Document? get_current_document () {
+            if (split_view.is_empty ()) {
+                return null;
+            }
             var view = get_current_view ();
             if (view != null) {
                 return view.current_document;
