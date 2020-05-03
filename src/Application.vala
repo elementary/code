@@ -23,7 +23,7 @@
 namespace Scratch {
     public GLib.Settings saved_state;
     public Settings settings;
-    public ServicesSettings services;
+    public GLib.Settings service_settings;
     public GLib.Settings privacy_settings;
 
     public class Application : Gtk.Application {
@@ -57,7 +57,7 @@ namespace Scratch {
             default_font = new GLib.Settings ("org.gnome.desktop.interface").get_string ("monospace-font-name");
             saved_state = new GLib.Settings ("io.elementary.code.saved-state");
             settings = new Settings ();
-            services = new ServicesSettings ();
+            service_settings = new GLib.Settings (Constants.PROJECT_NAME + ".services");
             privacy_settings = new GLib.Settings ("org.gnome.desktop.privacy");
 
             // Init data home folder for unsaved text files

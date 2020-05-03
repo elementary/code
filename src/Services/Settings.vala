@@ -62,16 +62,4 @@ namespace Scratch {
         }
 
     }
-
-    public class ServicesSettings : Granite.Services.Settings {
-
-        public string paste_format_code { get; set; }
-        public string expiry_time { get; set; }
-        public bool set_private { get; set; }
-
-        public ServicesSettings () {
-            base (Constants.PROJECT_NAME + ".services");
-        }
-
-    }
 }
