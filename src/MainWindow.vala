@@ -215,7 +215,7 @@ namespace Scratch {
             default_height = rect.height;
 
             var gtk_settings = Gtk.Settings.get_default ();
-            gtk_settings.gtk_application_prefer_dark_theme = Scratch.settings.prefer_dark_style;
+            gtk_settings.gtk_application_prefer_dark_theme = Scratch.settings.get_boolean ("prefer-dark-style");
 
             var window_state = Scratch.saved_state.get_enum ("window-state");
             switch (window_state) {
@@ -300,7 +300,7 @@ namespace Scratch {
                 search_bar.highlight_none ();
             });
 
-            Scratch.settings.schema.bind ("cyclic-search", search_bar.tool_cycle_search, "active", SettingsBindFlags.DEFAULT);
+            Scratch.settings.bind ("cyclic-search", search_bar.tool_cycle_search, "active", SettingsBindFlags.DEFAULT);
 
             // SlitView
             split_view = new Scratch.Widgets.SplitView (this);
@@ -418,10 +418,10 @@ namespace Scratch {
 
         public void restore_opened_documents () {
             if (privacy_settings.get_boolean ("remember-recent-files")) {
-                var uris_view1 = settings.opened_files_view1;
-                var uris_view2 = settings.opened_files_view2;
-                unowned string focused_document1 = settings.focused_document_view1;
-                unowned string focused_document2 = settings.focused_document_view2;
+                var uris_view1 = Scratch.settings.get_strv ("opened-files-view1");
+                var uris_view2 = Scratch.settings.get_strv ("opened-files-view2");
+                var focused_document1 = Scratch.settings.get_string ("focused-document-view1");
+                var focused_document2 = Scratch.settings.get_string ("focused-document-view2");
 
                 if (uris_view1.length > 0) {
                     var view = add_view ();
@@ -671,7 +671,7 @@ namespace Scratch {
         }
 
         public void set_default_zoom () {
-            Scratch.settings.font = get_current_font () + " " + get_default_font_size ().to_string ();
+            Scratch.settings.set_string ("font", get_current_font () + " " + get_default_font_size ().to_string ());
         }
 
         // Ctrl + scroll
@@ -687,8 +687,8 @@ namespace Scratch {
         private void zooming (Gdk.ScrollDirection direction) {
             string font = get_current_font ();
             int font_size = (int) get_current_font_size ();
-            if (Scratch.settings.use_system_font) {
-                Scratch.settings.use_system_font = false;
+            if (Scratch.settings.get_boolean ("use-system-font")) {
+                Scratch.settings.set_boolean ("use-system-font", false);
                 font = get_default_font ();
                 font_size = (int) get_default_font_size ();
             }
@@ -706,17 +706,17 @@ namespace Scratch {
             }
 
             string new_font = font + " " + font_size.to_string ();
-            Scratch.settings.font = new_font;
+            Scratch.settings.set_string ("font", new_font);
         }
 
         public string get_current_font () {
-            string font = Scratch.settings.font;
+            string font = Scratch.settings.get_string ("font");
             string font_family = font.substring (0, font.last_index_of (" "));
             return font_family;
         }
 
         public double get_current_font_size () {
-            string font = Scratch.settings.font;
+            string font = Scratch.settings.get_string ("font");
             string font_size = font.substring (font.last_index_of (" ") + 1);
             return double.parse (font_size);
         }
