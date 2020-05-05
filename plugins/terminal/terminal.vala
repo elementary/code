@@ -29,6 +29,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
     Gtk.Notebook? bottombar = null;
     Scratch.Widgets.HeaderBar? toolbar = null;
     Gtk.ToggleToolButton? tool_button = null;
+    Gtk.MenuItem current_dir_menu_item;
 
     Vte.Terminal terminal;
     Gtk.Grid grid;
@@ -247,19 +248,44 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         });
         menu.append (paste);
 
+        // Switch to current folder
+        current_dir_menu_item = new Gtk.MenuItem.with_label (_("Set Path from Document"));
+        current_dir_menu_item.activate.connect (() => {
+            if (!has_foreground_process ()) {
+                var current_doc = window.get_current_document ();
+                if (current_doc != null) {
+                    var parent_dir = current_doc.file.get_parent ();
+                    if (parent_dir != null) {
+                        var command_s = "cd '%s'\n".printf (parent_dir.get_path ());
+                        terminal.feed_child (command_s, -1);
+                    }
+                }
+            }
+        });
+
+        menu.append (current_dir_menu_item);
+
         menu.show_all ();
 
         this.terminal.button_press_event.connect ((event) => {
             if (event.button == 3) {
-                menu.select_first (false);
+                current_dir_menu_item.visible = !has_foreground_process ();
+                /* To prevent terminal warning popup before select_first */
                 menu.popup (null, null, null, event.button, event.time);
+                menu.select_first (false);
             }
             return false;
         });
 
         try {
             string last_opened_path = settings.last_opened_path == "" ? "~/" : settings.last_opened_path;
-            terminal.spawn_sync (Vte.PtyFlags.DEFAULT, last_opened_path, { Vte.get_user_shell () }, null, GLib.SpawnFlags.SEARCH_PATH, null, out child_pid);
+            terminal.spawn_sync (Vte.PtyFlags.DEFAULT,
+                                 last_opened_path,
+                                 { Vte.get_user_shell () },
+                                 null,
+                                 GLib.SpawnFlags.SEARCH_PATH,
+                                 null,
+                                 out child_pid);
         } catch (GLib.Error e) {
             warning (e.message);
         }
@@ -274,6 +300,13 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         terminal.hexpand = true;
 
         grid.show_all ();
+    }
+
+    private bool has_foreground_process () {
+        int pty = terminal.get_pty ().fd;
+        int fgpid = Posix.tcgetpgrp (pty);
+
+        return (fgpid != this.child_pid && fgpid != -1);
     }
 
     private void update_terminal_settings (string settings_schema) {
