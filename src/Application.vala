@@ -35,6 +35,8 @@ namespace Scratch {
         private static bool print_version = false;
         private static bool create_new_tab = false;
         private static bool create_new_window = false;
+        private static bool print_help = false;
+        private static bool print_gtk_help = false;
 
         construct {
             flags |= ApplicationFlags.HANDLES_OPEN;
@@ -78,7 +80,9 @@ namespace Scratch {
         protected override int command_line (ApplicationCommandLine command_line) {
             var context = new OptionContext ("File");
             context.add_main_entries (ENTRIES, Constants.GETTEXT_PACKAGE);
-            context.add_group (Gtk.get_option_group (true));
+            var gtk_group = Gtk.get_option_group (true);
+            context.add_group ((owned) gtk_group);
+            context.set_help_enabled (false); // Needed to avoid the exit(0) in OptionContext.print_help
 
             string[] args = command_line.get_arguments ();
 
@@ -88,6 +92,16 @@ namespace Scratch {
                 print (e.message + "\n");
 
                 return Posix.EXIT_FAILURE;
+            }
+
+            if (print_gtk_help) {
+                command_line.print (context.get_help (false, gtk_group));
+                return Posix.EXIT_SUCCESS;
+            }
+
+            if (print_help) {
+                command_line.print (context.get_help (true, null));
+                return Posix.EXIT_SUCCESS;
             }
 
             if (print_version) {
@@ -245,6 +259,8 @@ namespace Scratch {
         }
 
         const OptionEntry[] ENTRIES = {
+            { "help", 'h', 0, OptionArg.NONE, out print_help, N_("Show help"), null },
+            { "help-gtk", 0, 0, OptionArg.NONE, out print_gtk_help, N_("Show GTK+ options"), null },
             { "new-tab", 't', 0, OptionArg.NONE, out create_new_tab, N_("New Tab"), null },
             { "new-window", 'n', 0, OptionArg.NONE, out create_new_window, N_("New Window"), null },
             { "version", 'v', 0, OptionArg.NONE, out print_version, N_("Print version info and exit"), null },
