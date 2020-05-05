@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 02:11+0000\n"
+"POT-Creation-Date: 2020-05-05 21:22+0100\n"
 "PO-Revision-Date: 2018-03-21 01:09+0000\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://weblate.elementary.io/projects/"
@@ -19,33 +19,33 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
-#: src/Application.vala:134
+#: src/Application.vala:148
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr "無法讀取「%s」檔案"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:138
+#: src/Application.vala:152
 msgid "Maybe you do not have the necessary permissions."
 msgstr "或許您尚未獲得必要的許可。"
 
-#: src/Application.vala:140
+#: src/Application.vala:154
 msgid "Maybe the file path provided is not valid."
 msgstr "也許提供的檔案路徑無效。"
 
-#: src/Application.vala:142
+#: src/Application.vala:156
 msgid "The location is read-only."
 msgstr "該位置唯讀。"
 
-#: src/Application.vala:144
+#: src/Application.vala:158
 msgid "The parent directory doesn't exist."
 msgstr "不存在上層目錄。"
 
-#: src/Application.vala:165
+#: src/Application.vala:179
 msgid "It is a mountable location."
 msgstr "這是可掛載的位置。"
 
-#: src/Application.vala:168
+#: src/Application.vala:182
 #, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
@@ -54,32 +54,41 @@ msgstr ""
 "這是「特殊」檔案，像是 socket、\n"
 " fifio、區塊裝置、或字元裝置。"
 
-#: src/Application.vala:171
+#: src/Application.vala:185
 msgid "It is an \"unknown\" file type."
 msgstr "這是「未知」檔案類型。"
 
-#: src/Application.vala:176
+#: src/Application.vala:190
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr "無法讀取「%s」檔案"
 
-#: src/Application.vala:248
+#: src/Application.vala:262
+#, fuzzy
+msgid "Show help"
+msgstr "顯示終端機"
+
+#: src/Application.vala:263
+msgid "Show GTK+ options"
+msgstr ""
+
+#: src/Application.vala:264
 msgid "New Tab"
 msgstr "新增分頁"
 
-#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:265 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "新增視窗"
 
-#: src/Application.vala:250
+#: src/Application.vala:266
 msgid "Print version info and exit"
 msgstr "列印版本資訊並離開"
 
-#: src/Application.vala:251
+#: src/Application.vala:267
 msgid "Set of plugins"
 msgstr "插件集"
 
-#: src/Application.vala:251
+#: src/Application.vala:267
 #, fuzzy
 msgid "plugin"
 msgstr "插件集"
@@ -294,7 +303,6 @@ msgstr "關閉資料夾"
 
 #: src/FolderManager/ProjectFolderItem.vala:99
 #, fuzzy
-#| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "關閉資料夾"
 
@@ -530,7 +538,6 @@ msgstr "選單"
 
 #: src/Widgets/Pane.vala:44
 #, fuzzy
-#| msgid "Open a folder"
 msgid "Open project folder…"
 msgstr "開啟資料夾"
 

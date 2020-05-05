@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 02:11+0000\n"
+"POT-Creation-Date: 2020-05-05 21:22+0100\n"
 "PO-Revision-Date: 2020-03-28 19:09+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/code/tr/>\n"
@@ -19,33 +19,33 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
-#: src/Application.vala:134
+#: src/Application.vala:148
 #, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr "\"%s\" Dosyası Oluşturulamıyor"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:138
+#: src/Application.vala:152
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Belki de gerekli izinlere sahip değilsiniz."
 
-#: src/Application.vala:140
+#: src/Application.vala:154
 msgid "Maybe the file path provided is not valid."
 msgstr "Belki de belirtilen dosya yolu geçerli değildir."
 
-#: src/Application.vala:142
+#: src/Application.vala:156
 msgid "The location is read-only."
 msgstr "Konum salt okunur."
 
-#: src/Application.vala:144
+#: src/Application.vala:158
 msgid "The parent directory doesn't exist."
 msgstr "Üst dizin mevcut değil."
 
-#: src/Application.vala:165
+#: src/Application.vala:179
 msgid "It is a mountable location."
 msgstr "Bu bağlanabilir bir konum."
 
-#: src/Application.vala:168
+#: src/Application.vala:182
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -53,32 +53,41 @@ msgstr ""
 "Bu dosya, Soket, FIFO, blok kullanan aygıt\n"
 " veya karakter aygıtı gibi özel bir dosyadır."
 
-#: src/Application.vala:171
+#: src/Application.vala:185
 msgid "It is an \"unknown\" file type."
 msgstr "Bu \"bilinmeyen\" bir dosya türüdür."
 
-#: src/Application.vala:176
+#: src/Application.vala:190
 #, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr "\"%s\" Dosyası Açılamıyor"
 
-#: src/Application.vala:248
+#: src/Application.vala:262
+#, fuzzy
+msgid "Show help"
+msgstr "Terminal'i Göster"
+
+#: src/Application.vala:263
+msgid "Show GTK+ options"
+msgstr ""
+
+#: src/Application.vala:264
 msgid "New Tab"
 msgstr "Yeni Sekme"
 
-#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:265 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Yeni Pencere"
 
-#: src/Application.vala:250
+#: src/Application.vala:266
 msgid "Print version info and exit"
 msgstr "Sürüm bilgisini yazdır ve çık"
 
-#: src/Application.vala:251
+#: src/Application.vala:267
 msgid "Set of plugins"
 msgstr "Eklenti kümesi"
 
-#: src/Application.vala:251
+#: src/Application.vala:267
 msgid "plugin"
 msgstr "eklenti"
 

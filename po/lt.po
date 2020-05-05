@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 02:11+0000\n"
+"POT-Creation-Date: 2020-05-05 21:22+0100\n"
 "PO-Revision-Date: 2019-10-05 21:23+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://l10n.elementary.io/projects/code/code/lt/"
@@ -21,33 +21,33 @@ msgstr ""
 "X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
-#: src/Application.vala:134
+#: src/Application.vala:148
 #, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr "Failas \"%s\" negali būti sukurtas"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:138
+#: src/Application.vala:152
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Galbūt, neturite reikiamų leidimų."
 
-#: src/Application.vala:140
+#: src/Application.vala:154
 msgid "Maybe the file path provided is not valid."
 msgstr "Galbūt, pateiktas failo kelias yra neteisingas."
 
-#: src/Application.vala:142
+#: src/Application.vala:156
 msgid "The location is read-only."
 msgstr "Vieta yra tik skaitymui."
 
-#: src/Application.vala:144
+#: src/Application.vala:158
 msgid "The parent directory doesn't exist."
 msgstr "Virškatalogio nėra."
 
-#: src/Application.vala:165
+#: src/Application.vala:179
 msgid "It is a mountable location."
 msgstr "Tai yra prijungiama vieta."
 
-#: src/Application.vala:168
+#: src/Application.vala:182
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -55,32 +55,41 @@ msgstr ""
 "Tai yra \"specialus\" failas, toks kaip lizdas,\n"
 " FIFO, blokinis įtaisas ar ženklų įrenginys."
 
-#: src/Application.vala:171
+#: src/Application.vala:185
 msgid "It is an \"unknown\" file type."
 msgstr "Tai yra \"nežinomas\" failo tipas."
 
-#: src/Application.vala:176
+#: src/Application.vala:190
 #, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr "Failas \"%s\" negali būti atvertas"
 
-#: src/Application.vala:248
+#: src/Application.vala:262
+#, fuzzy
+msgid "Show help"
+msgstr "Rodyti terminalą"
+
+#: src/Application.vala:263
+msgid "Show GTK+ options"
+msgstr ""
+
+#: src/Application.vala:264
 msgid "New Tab"
 msgstr "Nauja kortelė"
 
-#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:265 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Naujas langas"
 
-#: src/Application.vala:250
+#: src/Application.vala:266
 msgid "Print version info and exit"
 msgstr "Rodyti versijos informaciją ir išeiti"
 
-#: src/Application.vala:251
+#: src/Application.vala:267
 msgid "Set of plugins"
 msgstr "Įskiepių rinkinys"
 
-#: src/Application.vala:251
+#: src/Application.vala:267
 msgid "plugin"
 msgstr "įskiepis"
 
@@ -291,7 +300,6 @@ msgstr "Užverti aplanką"
 
 #: src/FolderManager/ProjectFolderItem.vala:99
 #, fuzzy
-#| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "Užverti aplanką"
 
@@ -534,7 +542,6 @@ msgstr "Meniu"
 
 #: src/Widgets/Pane.vala:44
 #, fuzzy
-#| msgid "Open a folder"
 msgid "Open project folder…"
 msgstr "Atverti aplanką"
 

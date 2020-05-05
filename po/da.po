@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 02:11+0000\n"
+"POT-Creation-Date: 2020-05-05 21:22+0100\n"
 "PO-Revision-Date: 2019-01-28 21:43+0000\n"
 "Last-Translator: Kaj Printz Madsen <kajprintz@gmail.com>\n"
 "Language-Team: Danish <https://weblate.elementary.io/projects/code/code/da/"
@@ -20,33 +20,33 @@ msgstr ""
 "X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
-#: src/Application.vala:134
+#: src/Application.vala:148
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr "Filen \"%s\" Kan Ikke Læses"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:138
+#: src/Application.vala:152
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Du har muligvis ikke de nødvendige tilladelser."
 
-#: src/Application.vala:140
+#: src/Application.vala:154
 msgid "Maybe the file path provided is not valid."
 msgstr "Måske er den angive filsti ikke gyldig."
 
-#: src/Application.vala:142
+#: src/Application.vala:156
 msgid "The location is read-only."
 msgstr "Placeringen er skrivebeskyttet."
 
-#: src/Application.vala:144
+#: src/Application.vala:158
 msgid "The parent directory doesn't exist."
 msgstr "Forældermappen findes ikke."
 
-#: src/Application.vala:165
+#: src/Application.vala:179
 msgid "It is a mountable location."
 msgstr "Det er en monterbar placering."
 
-#: src/Application.vala:168
+#: src/Application.vala:182
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -54,32 +54,41 @@ msgstr ""
 "Det er en \"speciel\" fil, såsom en socket,\n"
 " FIFO, blok enhed eller karakter enhed."
 
-#: src/Application.vala:171
+#: src/Application.vala:185
 msgid "It is an \"unknown\" file type."
 msgstr "Det er en \"ukendt\" filtype."
 
-#: src/Application.vala:176
+#: src/Application.vala:190
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr "Filen \"%s\" Kan Ikke Læses"
 
-#: src/Application.vala:248
+#: src/Application.vala:262
+#, fuzzy
+msgid "Show help"
+msgstr "Vis terminal"
+
+#: src/Application.vala:263
+msgid "Show GTK+ options"
+msgstr ""
+
+#: src/Application.vala:264
 msgid "New Tab"
 msgstr "Nyt faneblad"
 
-#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:265 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Nyt Vindue"
 
-#: src/Application.vala:250
+#: src/Application.vala:266
 msgid "Print version info and exit"
 msgstr "Print versionsinfo og afslut"
 
-#: src/Application.vala:251
+#: src/Application.vala:267
 msgid "Set of plugins"
 msgstr "Pluginsæt"
 
-#: src/Application.vala:251
+#: src/Application.vala:267
 #, fuzzy
 msgid "plugin"
 msgstr "Pluginsæt"
@@ -293,7 +302,6 @@ msgstr "Luk Mappen"
 
 #: src/FolderManager/ProjectFolderItem.vala:99
 #, fuzzy
-#| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "Luk Mappen"
 
@@ -537,7 +545,6 @@ msgstr "Menu"
 
 #: src/Widgets/Pane.vala:44
 #, fuzzy
-#| msgid "Open a folder"
 msgid "Open project folder…"
 msgstr "Åbn en mappe"
 

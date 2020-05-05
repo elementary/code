@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 02:11+0000\n"
+"POT-Creation-Date: 2020-05-05 21:22+0100\n"
 "PO-Revision-Date: 2017-08-22 19:20+0000\n"
 "Last-Translator: anjelo del carmen <anjelo2009@live.com>\n"
 "Language-Team: Tagalog <https://weblate.elementary.io/projects/scratch/"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Generator: Weblate 2.15\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
-#: src/Application.vala:134
+#: src/Application.vala:148
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr ""
@@ -23,61 +23,70 @@ msgstr ""
 "%s"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:138
+#: src/Application.vala:152
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Maaaring wala kang sapat na kaukulang pahintulot."
 
-#: src/Application.vala:140
+#: src/Application.vala:154
 msgid "Maybe the file path provided is not valid."
 msgstr "Maaaring ang path ng file na ibinigay ay hindi balido."
 
-#: src/Application.vala:142
+#: src/Application.vala:156
 msgid "The location is read-only."
 msgstr "Ang lokasyon ay maaaring basahin lamang."
 
-#: src/Application.vala:144
+#: src/Application.vala:158
 msgid "The parent directory doesn't exist."
 msgstr "Ang pinagmulang direktori ay hindi umiiral."
 
-#: src/Application.vala:165
+#: src/Application.vala:179
 msgid "It is a mountable location."
 msgstr "Ito ay isang mountable na lokasyon."
 
-#: src/Application.vala:168
+#: src/Application.vala:182
 #, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
 msgstr "Ang file na ito ay \"espesyal\" tulad ng isang socket."
 
-#: src/Application.vala:171
+#: src/Application.vala:185
 msgid "It is an \"unknown\" file type."
 msgstr "Ang uri ng file na ito ay \"hindi kilala\"."
 
-#: src/Application.vala:176
+#: src/Application.vala:190
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr ""
 "Ang file na \"%s\" ay hindi maaaring mailikha.b'↵'\n"
 "%s"
 
-#: src/Application.vala:248
+#: src/Application.vala:262
+#, fuzzy
+msgid "Show help"
+msgstr "Ipakita ang Terminal"
+
+#: src/Application.vala:263
+msgid "Show GTK+ options"
+msgstr ""
+
+#: src/Application.vala:264
 msgid "New Tab"
 msgstr "Bagong Tab"
 
-#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:265 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Bagong Window"
 
-#: src/Application.vala:250
+#: src/Application.vala:266
 msgid "Print version info and exit"
 msgstr "I-print ang impormasyon ng bersyon at lumabas"
 
-#: src/Application.vala:251
+#: src/Application.vala:267
 msgid "Set of plugins"
 msgstr "Hanay ng mga plugin"
 
-#: src/Application.vala:251
+#: src/Application.vala:267
 #, fuzzy
 msgid "plugin"
 msgstr "Hanay ng mga plugin"
@@ -294,7 +303,6 @@ msgstr "Isara ang Polder"
 
 #: src/FolderManager/ProjectFolderItem.vala:99
 #, fuzzy
-#| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "Isara ang Polder"
 
@@ -544,7 +552,6 @@ msgstr ""
 
 #: src/Widgets/Pane.vala:44
 #, fuzzy
-#| msgid "Open a folder"
 msgid "Open project folder…"
 msgstr "Magbukas ng Polder"
 

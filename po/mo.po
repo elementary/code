@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 02:11+0000\n"
+"POT-Creation-Date: 2020-05-05 21:22+0100\n"
 "PO-Revision-Date: 2018-05-26 07:39+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/code/code/mo/"
@@ -13,33 +13,33 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.18\n"
 
-#: src/Application.vala:134
+#: src/Application.vala:148
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr "Fișierul \"%s\" Nu poate fi citit"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:138
+#: src/Application.vala:152
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Poate că nu aveți permisiunile necesare."
 
-#: src/Application.vala:140
+#: src/Application.vala:154
 msgid "Maybe the file path provided is not valid."
 msgstr "Poate că calea fișierului furnizată nu este validă."
 
-#: src/Application.vala:142
+#: src/Application.vala:156
 msgid "The location is read-only."
 msgstr "Locația este numai pentru citire."
 
-#: src/Application.vala:144
+#: src/Application.vala:158
 msgid "The parent directory doesn't exist."
 msgstr "Directorul părinte nu există."
 
-#: src/Application.vala:165
+#: src/Application.vala:179
 msgid "It is a mountable location."
 msgstr "Este o locație care se poate monta."
 
-#: src/Application.vala:168
+#: src/Application.vala:182
 #, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
@@ -48,32 +48,41 @@ msgstr ""
 "Este un fișier \"special\", cum ar fi un soclu, ↵\n"
 "  fifo, dispozitiv blocat sau dispozitiv de caractere."
 
-#: src/Application.vala:171
+#: src/Application.vala:185
 msgid "It is an \"unknown\" file type."
 msgstr "Este un tip de fișier \"necunoscut\"."
 
-#: src/Application.vala:176
+#: src/Application.vala:190
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr "Fișierul \"%s\" Nu poate fi citit"
 
-#: src/Application.vala:248
+#: src/Application.vala:262
+#, fuzzy
+msgid "Show help"
+msgstr "Arătați terminalul"
+
+#: src/Application.vala:263
+msgid "Show GTK+ options"
+msgstr ""
+
+#: src/Application.vala:264
 msgid "New Tab"
 msgstr "Filă nouă"
 
-#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:265 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Fereastră nouă"
 
-#: src/Application.vala:250
+#: src/Application.vala:266
 msgid "Print version info and exit"
 msgstr "Imprimați versiunea și ieșiți"
 
-#: src/Application.vala:251
+#: src/Application.vala:267
 msgid "Set of plugins"
 msgstr "Set de pluginuri"
 
-#: src/Application.vala:251
+#: src/Application.vala:267
 #, fuzzy
 msgid "plugin"
 msgstr "Set de pluginuri"
@@ -288,7 +297,6 @@ msgstr "Închideți dosarul"
 
 #: src/FolderManager/ProjectFolderItem.vala:99
 #, fuzzy
-#| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "Închideți dosarul"
 
@@ -532,7 +540,6 @@ msgstr "Meniul"
 
 #: src/Widgets/Pane.vala:44
 #, fuzzy
-#| msgid "Open a folder"
 msgid "Open project folder…"
 msgstr "Deschideți un dosar"
 

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 02:11+0000\n"
+"POT-Creation-Date: 2020-05-05 21:22+0100\n"
 "PO-Revision-Date: 2018-06-10 00:11+0000\n"
 "Last-Translator: Gamunu Balagalla <gamunu.balagalla@gmail.com>\n"
 "Language-Team: Sinhala <https://weblate.elementary.io/projects/code/code/si/"
@@ -15,33 +15,33 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
-#: src/Application.vala:134
+#: src/Application.vala:148
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr "%s ගොනුව කියවිය නොහැක"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:138
+#: src/Application.vala:152
 msgid "Maybe you do not have the necessary permissions."
 msgstr "සමහර විට ඔබට අවශ්ය අවසරයන් නොමැත."
 
-#: src/Application.vala:140
+#: src/Application.vala:154
 msgid "Maybe the file path provided is not valid."
 msgstr "සමහරවිට ලබාදුන් ගොනු පථය වලංගු නැත."
 
-#: src/Application.vala:142
+#: src/Application.vala:156
 msgid "The location is read-only."
 msgstr "නිශ්චයනය කියවීමට පමණක් හැකි වේ."
 
-#: src/Application.vala:144
+#: src/Application.vala:158
 msgid "The parent directory doesn't exist."
 msgstr "මුල් නාමාවලිය නොපවතී."
 
-#: src/Application.vala:165
+#: src/Application.vala:179
 msgid "It is a mountable location."
 msgstr "එය ස්ථාපනය කළ හැකි ස්ථානයකි."
 
-#: src/Application.vala:168
+#: src/Application.vala:182
 #, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
@@ -50,32 +50,40 @@ msgstr ""
 "එය සොකට් වැනි \"විශේෂ\" ගොනුවකි,\n"
 " fifo, බ්ලොක් උපාංගයක් හෝ අනුලක්ෂණය උපාංගයක්."
 
-#: src/Application.vala:171
+#: src/Application.vala:185
 msgid "It is an \"unknown\" file type."
 msgstr "එය \"නොදන්නා\" ගොනු වර්ගයකි."
 
-#: src/Application.vala:176
+#: src/Application.vala:190
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr "%s ගොනුව කියවිය නොහැක"
 
-#: src/Application.vala:248
+#: src/Application.vala:262
+msgid "Show help"
+msgstr ""
+
+#: src/Application.vala:263
+msgid "Show GTK+ options"
+msgstr ""
+
+#: src/Application.vala:264
 msgid "New Tab"
 msgstr "නව පිම්මක්"
 
-#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:265 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "නව කවුළුවක්"
 
-#: src/Application.vala:250
+#: src/Application.vala:266
 msgid "Print version info and exit"
 msgstr "පිටපත තොරතුරු මුද්‍රණය කර පිටවන්න"
 
-#: src/Application.vala:251
+#: src/Application.vala:267
 msgid "Set of plugins"
 msgstr "ප්ලගීන ලැයිස්තුව"
 
-#: src/Application.vala:251
+#: src/Application.vala:267
 #, fuzzy
 msgid "plugin"
 msgstr "ප්ලගීන ලැයිස්තුව"
@@ -290,7 +298,6 @@ msgstr "බහලුම වසන්න"
 
 #: src/FolderManager/ProjectFolderItem.vala:99
 #, fuzzy
-#| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "බහලුම වසන්න"
 

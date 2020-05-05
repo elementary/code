@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 02:11+0000\n"
+"POT-Creation-Date: 2020-05-05 21:22+0100\n"
 "PO-Revision-Date: 2019-05-10 06:32+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Hindi <https://l10n.elementary.io/projects/code/code/hi/>\n"
@@ -19,33 +19,33 @@ msgstr ""
 "X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
-#: src/Application.vala:134
+#: src/Application.vala:148
 #, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr "फ़ाइल \"%s\" निर्मित नहीं की जा सकती"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:138
+#: src/Application.vala:152
 msgid "Maybe you do not have the necessary permissions."
 msgstr "शायद आपके पास आवश्यक अनुमति नहीं है।"
 
-#: src/Application.vala:140
+#: src/Application.vala:154
 msgid "Maybe the file path provided is not valid."
 msgstr "हो सकता है कि उपलब्ध फ़ाइल पथ वैध नहीं है।"
 
-#: src/Application.vala:142
+#: src/Application.vala:156
 msgid "The location is read-only."
 msgstr "यह स्थान केवल पठनीय है।"
 
-#: src/Application.vala:144
+#: src/Application.vala:158
 msgid "The parent directory doesn't exist."
 msgstr "मूल निर्देशिका मौजूद नहीं है।"
 
-#: src/Application.vala:165
+#: src/Application.vala:179
 msgid "It is a mountable location."
 msgstr "यह एक माउंटेबल स्थान है।"
 
-#: src/Application.vala:168
+#: src/Application.vala:182
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -53,32 +53,41 @@ msgstr ""
 "यह एक \"विशेष\" फ़ाइल है जैसे सॉकेट,\n"
 " फीफो, ब्लॉक डिवाइस या अक्षर डिवाइस।"
 
-#: src/Application.vala:171
+#: src/Application.vala:185
 msgid "It is an \"unknown\" file type."
 msgstr "यह एक \"अज्ञात\" फ़ाइल प्रकार है।"
 
-#: src/Application.vala:176
+#: src/Application.vala:190
 #, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr "फ़ाइल \"%s\" नहीं खोली जा सकती"
 
-#: src/Application.vala:248
+#: src/Application.vala:262
+#, fuzzy
+msgid "Show help"
+msgstr "टर्मिनल दिखाएँ"
+
+#: src/Application.vala:263
+msgid "Show GTK+ options"
+msgstr ""
+
+#: src/Application.vala:264
 msgid "New Tab"
 msgstr "नया टैब"
 
-#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:265 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "नया विंडो"
 
-#: src/Application.vala:250
+#: src/Application.vala:266
 msgid "Print version info and exit"
 msgstr "प्रिन्ट संस्करण जानकारी और बाहर"
 
-#: src/Application.vala:251
+#: src/Application.vala:267
 msgid "Set of plugins"
 msgstr "प्लगइन्स का समूह"
 
-#: src/Application.vala:251
+#: src/Application.vala:267
 #, fuzzy
 msgid "plugin"
 msgstr "प्लगइन्स का समूह"
@@ -292,7 +301,6 @@ msgstr "फ़ोल्डर बंद करें"
 
 #: src/FolderManager/ProjectFolderItem.vala:99
 #, fuzzy
-#| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "फ़ोल्डर बंद करें"
 
@@ -529,7 +537,6 @@ msgstr "मेन्यू"
 
 #: src/Widgets/Pane.vala:44
 #, fuzzy
-#| msgid "Open a folder"
 msgid "Open project folder…"
 msgstr "एक फ़ोल्डर खोलें"
 
