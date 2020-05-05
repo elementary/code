@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-05 21:22+0100\n"
+"POT-Creation-Date: 2020-04-29 02:11+0000\n"
 "PO-Revision-Date: 2019-07-02 22:28+0000\n"
 "Last-Translator: Marco Devoti <ilbuzio@yahoo.it>\n"
 "Language-Team: Italian <https://l10n.elementary.io/projects/code/code/it/>\n"
@@ -19,33 +19,33 @@ msgstr ""
 "X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2017-05-04 05:45+0000\n"
 
-#: src/Application.vala:148
+#: src/Application.vala:134
 #, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr "Impossibile creare il file \"%s\""
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:152
+#: src/Application.vala:138
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Forse non disponi delle autorizzazioni necessarie."
 
-#: src/Application.vala:154
+#: src/Application.vala:140
 msgid "Maybe the file path provided is not valid."
 msgstr "Probabilmente il percorso del file fornito non è valido."
 
-#: src/Application.vala:156
+#: src/Application.vala:142
 msgid "The location is read-only."
 msgstr "La posizione è di sola lettura."
 
-#: src/Application.vala:158
+#: src/Application.vala:144
 msgid "The parent directory doesn't exist."
 msgstr "La cartella genitore non esiste."
 
-#: src/Application.vala:179
+#: src/Application.vala:165
 msgid "It is a mountable location."
 msgstr "È un percorso montabile."
 
-#: src/Application.vala:182
+#: src/Application.vala:168
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -53,41 +53,32 @@ msgstr ""
 "È un file \"speciale\", come ad esempio un socket,\n"
 " un FIFO, un dispositivo a blocchi o un dispositivo a caratteri."
 
-#: src/Application.vala:185
+#: src/Application.vala:171
 msgid "It is an \"unknown\" file type."
 msgstr "È un tipo di file \"sconosciuto\"."
 
-#: src/Application.vala:190
+#: src/Application.vala:176
 #, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr "Impossibile aprire il file \"%s\""
 
-#: src/Application.vala:262
-#, fuzzy
-msgid "Show help"
-msgstr "Mostra terminale"
-
-#: src/Application.vala:263
-msgid "Show GTK+ options"
-msgstr ""
-
-#: src/Application.vala:264
+#: src/Application.vala:248
 msgid "New Tab"
 msgstr "Nuova scheda"
 
-#: src/Application.vala:265 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Nuova finestra"
 
-#: src/Application.vala:266
+#: src/Application.vala:250
 msgid "Print version info and exit"
 msgstr "Stampa informazioni sulla versione ed esci"
 
-#: src/Application.vala:267
+#: src/Application.vala:251
 msgid "Set of plugins"
 msgstr "Raccolta di plugin"
 
-#: src/Application.vala:267
+#: src/Application.vala:251
 msgid "plugin"
 msgstr "Componenti aggiuntivi"
 
@@ -300,6 +291,7 @@ msgstr "Chiudi cartella"
 
 #: src/FolderManager/ProjectFolderItem.vala:99
 #, fuzzy
+#| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "Chiudi cartella"
 
@@ -541,6 +533,7 @@ msgstr "Menu"
 
 #: src/Widgets/Pane.vala:44
 #, fuzzy
+#| msgid "Open a folder"
 msgid "Open project folder…"
 msgstr "Apri una cartella"
 

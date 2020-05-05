@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-05 21:22+0100\n"
+"POT-Creation-Date: 2020-04-29 02:11+0000\n"
 "PO-Revision-Date: 2018-10-20 00:10+0000\n"
 "Last-Translator: Fredrik B <frbo9002@gmail.com>\n"
 "Language-Team: Swedish <https://weblate.elementary.io/projects/code/code/sv/"
@@ -20,33 +20,33 @@ msgstr ""
 "X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
-#: src/Application.vala:148
+#: src/Application.vala:134
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr "Filen \"%s\" kan inte läsas"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:152
+#: src/Application.vala:138
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Du kanske inte har nödvändiga behörigheter."
 
-#: src/Application.vala:154
+#: src/Application.vala:140
 msgid "Maybe the file path provided is not valid."
 msgstr "Sökvägen är kanske ogiltig."
 
-#: src/Application.vala:156
+#: src/Application.vala:142
 msgid "The location is read-only."
 msgstr "Platsen är skrivskyddad."
 
-#: src/Application.vala:158
+#: src/Application.vala:144
 msgid "The parent directory doesn't exist."
 msgstr "Föräldermappen finns inte."
 
-#: src/Application.vala:179
+#: src/Application.vala:165
 msgid "It is a mountable location."
 msgstr "Det är en monterbar plats."
 
-#: src/Application.vala:182
+#: src/Application.vala:168
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -54,41 +54,32 @@ msgstr ""
 "Det är en \"speciell\" fil, såsom en socket,\n"
 " FIFO, blockenhet eller bokstavsenhet."
 
-#: src/Application.vala:185
+#: src/Application.vala:171
 msgid "It is an \"unknown\" file type."
 msgstr "Det är en \"okänd\" filtyp."
 
-#: src/Application.vala:190
+#: src/Application.vala:176
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr "Filen \"%s\" kan inte läsas"
 
-#: src/Application.vala:262
-#, fuzzy
-msgid "Show help"
-msgstr "Visa Terminal"
-
-#: src/Application.vala:263
-msgid "Show GTK+ options"
-msgstr ""
-
-#: src/Application.vala:264
+#: src/Application.vala:248
 msgid "New Tab"
 msgstr "Ny flik"
 
-#: src/Application.vala:265 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Nytt fönster"
 
-#: src/Application.vala:266
+#: src/Application.vala:250
 msgid "Print version info and exit"
 msgstr "Skriv ut versionsinformation och avsluta"
 
-#: src/Application.vala:267
+#: src/Application.vala:251
 msgid "Set of plugins"
 msgstr "uppsättning av tillägg"
 
-#: src/Application.vala:267
+#: src/Application.vala:251
 #, fuzzy
 msgid "plugin"
 msgstr "uppsättning av tillägg"
@@ -302,6 +293,7 @@ msgstr "Stäng mapp"
 
 #: src/FolderManager/ProjectFolderItem.vala:99
 #, fuzzy
+#| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "Stäng mapp"
 
@@ -548,6 +540,7 @@ msgstr "Meny"
 
 #: src/Widgets/Pane.vala:44
 #, fuzzy
+#| msgid "Open a folder"
 msgid "Open project folder…"
 msgstr "Öppna en mapp"
 

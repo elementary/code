@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-05 21:22+0100\n"
+"POT-Creation-Date: 2020-04-29 02:11+0000\n"
 "PO-Revision-Date: 2018-06-13 00:02+0000\n"
 "Last-Translator: Timothy <timty97@gmail.com>\n"
 "Language-Team: Malay <https://weblate.elementary.io/projects/code/code/ms/>\n"
@@ -19,33 +19,33 @@ msgstr ""
 "X-Generator: Weblate 2.18\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
-#: src/Application.vala:148
+#: src/Application.vala:134
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr "Fail \"%s\" tidak dapat dibaca"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:152
+#: src/Application.vala:138
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Mungkin anda tidak mempunyai keizinan yang diperlukan."
 
-#: src/Application.vala:154
+#: src/Application.vala:140
 msgid "Maybe the file path provided is not valid."
 msgstr "Mungkin laluan fail yang disediakan tidak sah."
 
-#: src/Application.vala:156
+#: src/Application.vala:142
 msgid "The location is read-only."
 msgstr "Lokasi adalah baca-sahaja."
 
-#: src/Application.vala:158
+#: src/Application.vala:144
 msgid "The parent directory doesn't exist."
 msgstr "Direktori induk tidak wujud."
 
-#: src/Application.vala:179
+#: src/Application.vala:165
 msgid "It is a mountable location."
 msgstr "Adalah lokasi boleh dilekap."
 
-#: src/Application.vala:182
+#: src/Application.vala:168
 #, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
@@ -54,41 +54,32 @@ msgstr ""
 "Adalah fail \"khas\" seperti soket,\n"
 " fifo, peranti blok, atau peranti aksara."
 
-#: src/Application.vala:185
+#: src/Application.vala:171
 msgid "It is an \"unknown\" file type."
 msgstr "Adalah jenis fail yang \"tidak diketahui\"."
 
-#: src/Application.vala:190
+#: src/Application.vala:176
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr "Fail \"%s\" tidak dapat dibaca"
 
-#: src/Application.vala:262
-#, fuzzy
-msgid "Show help"
-msgstr "Tunjuk Terminal"
-
-#: src/Application.vala:263
-msgid "Show GTK+ options"
-msgstr ""
-
-#: src/Application.vala:264
+#: src/Application.vala:248
 msgid "New Tab"
 msgstr "Tab Baru"
 
-#: src/Application.vala:265 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Tetingkap Baru"
 
-#: src/Application.vala:266
+#: src/Application.vala:250
 msgid "Print version info and exit"
 msgstr "Cetak maklumat versi dan keluar"
 
-#: src/Application.vala:267
+#: src/Application.vala:251
 msgid "Set of plugins"
 msgstr "Set pemalam"
 
-#: src/Application.vala:267
+#: src/Application.vala:251
 #, fuzzy
 msgid "plugin"
 msgstr "Set pemalam"
@@ -306,6 +297,7 @@ msgstr "Tutup Folder"
 
 #: src/FolderManager/ProjectFolderItem.vala:99
 #, fuzzy
+#| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "Tutup Folder"
 
@@ -550,6 +542,7 @@ msgstr "Menu"
 
 #: src/Widgets/Pane.vala:44
 #, fuzzy
+#| msgid "Open a folder"
 msgid "Open project folder…"
 msgstr "Buka satu folder"
 

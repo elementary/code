@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-05 21:22+0100\n"
+"POT-Creation-Date: 2020-04-29 02:11+0000\n"
 "PO-Revision-Date: 2020-02-13 19:56+0000\n"
 "Last-Translator: Marko <marko.dolar@gmail.com>\n"
 "Language-Team: Slovenian <https://l10n.elementary.io/projects/code/code/sl/"
@@ -21,33 +21,33 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
-#: src/Application.vala:148
+#: src/Application.vala:134
 #, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr "Datoteke \"%s\" ni mogoče ustvariti"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:152
+#: src/Application.vala:138
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Morda nimate ustreznih pravic."
 
-#: src/Application.vala:154
+#: src/Application.vala:140
 msgid "Maybe the file path provided is not valid."
 msgstr "Morda pot do datoteke ni pravilna."
 
-#: src/Application.vala:156
+#: src/Application.vala:142
 msgid "The location is read-only."
 msgstr "Lokacija je dostopna samo za branje."
 
-#: src/Application.vala:158
+#: src/Application.vala:144
 msgid "The parent directory doesn't exist."
 msgstr "Mapa datoteke ne obstaja več."
 
-#: src/Application.vala:179
+#: src/Application.vala:165
 msgid "It is a mountable location."
 msgstr "Je priklopna točka."
 
-#: src/Application.vala:182
+#: src/Application.vala:168
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -55,41 +55,32 @@ msgstr ""
 "Je \"posebna\" datoteka kot npr. vtičnica,\n"
 "FIFO, blokovna ali znakovna naprava."
 
-#: src/Application.vala:185
+#: src/Application.vala:171
 msgid "It is an \"unknown\" file type."
 msgstr "Je \"neznan\" tip datoteke."
 
-#: src/Application.vala:190
+#: src/Application.vala:176
 #, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr "Datoteke \"%s\" ni mogoče odpreti"
 
-#: src/Application.vala:262
-#, fuzzy
-msgid "Show help"
-msgstr "Pokaži terminal"
-
-#: src/Application.vala:263
-msgid "Show GTK+ options"
-msgstr ""
-
-#: src/Application.vala:264
+#: src/Application.vala:248
 msgid "New Tab"
 msgstr "Nov zavihek"
 
-#: src/Application.vala:265 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Novo okno"
 
-#: src/Application.vala:266
+#: src/Application.vala:250
 msgid "Print version info and exit"
 msgstr "Prikaži različico in končaj"
 
-#: src/Application.vala:267
+#: src/Application.vala:251
 msgid "Set of plugins"
 msgstr "Nabor vtičnikov"
 
-#: src/Application.vala:267
+#: src/Application.vala:251
 msgid "plugin"
 msgstr "vtičnik"
 

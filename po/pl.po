@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-05 21:22+0100\n"
+"POT-Creation-Date: 2020-04-29 02:11+0000\n"
 "PO-Revision-Date: 2019-11-15 19:42+0000\n"
 "Last-Translator: Piotr Strebski <strebski@gmail.com>\n"
 "Language-Team: Polish <https://l10n.elementary.io/projects/code/code/pl/>\n"
@@ -20,33 +20,33 @@ msgstr ""
 "X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
-#: src/Application.vala:148
+#: src/Application.vala:134
 #, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr "Plik „%s” nie może zostać utworzony"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:152
+#: src/Application.vala:138
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Prawdopodobnie nie masz wystarczających uprawnień."
 
-#: src/Application.vala:154
+#: src/Application.vala:140
 msgid "Maybe the file path provided is not valid."
 msgstr "Prawdopodobnie podana ścieżka do pliku nie jest poprawna."
 
-#: src/Application.vala:156
+#: src/Application.vala:142
 msgid "The location is read-only."
 msgstr "Położenie jest tylko do odczytu."
 
-#: src/Application.vala:158
+#: src/Application.vala:144
 msgid "The parent directory doesn't exist."
 msgstr "Katalog nadrzędny nie istnieje."
 
-#: src/Application.vala:179
+#: src/Application.vala:165
 msgid "It is a mountable location."
 msgstr "Jest to położenie montowalne."
 
-#: src/Application.vala:182
+#: src/Application.vala:168
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -54,41 +54,32 @@ msgstr ""
 "Jest to \"specjalny\" plik, taki jak\n"
 " gniazdo, FIFO, urządzenie blokowe lub urządzenie znakowe."
 
-#: src/Application.vala:185
+#: src/Application.vala:171
 msgid "It is an \"unknown\" file type."
 msgstr "Jest to nieznany rodzaj pliku."
 
-#: src/Application.vala:190
+#: src/Application.vala:176
 #, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr "Plik „%s” nie może być otwarty"
 
-#: src/Application.vala:262
-#, fuzzy
-msgid "Show help"
-msgstr "Pokaż terminal"
-
-#: src/Application.vala:263
-msgid "Show GTK+ options"
-msgstr ""
-
-#: src/Application.vala:264
+#: src/Application.vala:248
 msgid "New Tab"
 msgstr "Nowa karta"
 
-#: src/Application.vala:265 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Nowe okno"
 
-#: src/Application.vala:266
+#: src/Application.vala:250
 msgid "Print version info and exit"
 msgstr "Wyświetl informację o wersji i zamknij"
 
-#: src/Application.vala:267
+#: src/Application.vala:251
 msgid "Set of plugins"
 msgstr "Zestaw wtyczek"
 
-#: src/Application.vala:267
+#: src/Application.vala:251
 msgid "plugin"
 msgstr "wtyczka"
 
@@ -301,6 +292,7 @@ msgstr "Zamknij folder"
 
 #: src/FolderManager/ProjectFolderItem.vala:99
 #, fuzzy
+#| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "Zamknij folder"
 
@@ -542,6 +534,7 @@ msgstr "Menu"
 
 #: src/Widgets/Pane.vala:44
 #, fuzzy
+#| msgid "Open a folder"
 msgid "Open project folder…"
 msgstr "Otwórz folder"
 

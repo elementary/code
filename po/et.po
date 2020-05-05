@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-05 21:22+0100\n"
+"POT-Creation-Date: 2020-04-29 02:11+0000\n"
 "PO-Revision-Date: 2016-06-14 15:42+0000\n"
 "Last-Translator: Kristjan Vool <tictac7x@gmail.com>\n"
 "Language-Team: Estonian <et@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 "X-Generator: Launchpad (build 18366)\n"
 
-#: src/Application.vala:148
+#: src/Application.vala:134
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr ""
@@ -26,27 +26,27 @@ msgstr ""
 "%s"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:152
+#: src/Application.vala:138
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Võibolla pole sul piisavaid õigusi."
 
-#: src/Application.vala:154
+#: src/Application.vala:140
 msgid "Maybe the file path provided is not valid."
 msgstr "Võibolla on sisestatud asukoht vale."
 
-#: src/Application.vala:156
+#: src/Application.vala:142
 msgid "The location is read-only."
 msgstr "Asukoht on ainult lugemisõigustega."
 
-#: src/Application.vala:158
+#: src/Application.vala:144
 msgid "The parent directory doesn't exist."
 msgstr "Juurkausta pole olemas."
 
-#: src/Application.vala:179
+#: src/Application.vala:165
 msgid "It is a mountable location."
 msgstr "See on haagitav asukoht."
 
-#: src/Application.vala:182
+#: src/Application.vala:168
 #, fuzzy
 msgid ""
 "It is a \"special\" file such as a socket,\n"
@@ -55,43 +55,34 @@ msgstr ""
 "See on \"eriline\" fail, nagu näiteks soket,\n"
 "fifo, bloki- või karakterseadeldis."
 
-#: src/Application.vala:185
+#: src/Application.vala:171
 msgid "It is an \"unknown\" file type."
 msgstr "See on \"tundmatu\" failitüüp."
 
-#: src/Application.vala:190
+#: src/Application.vala:176
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr ""
 "Faili \"%s\" pole võimalik luua.\n"
 "%s"
 
-#: src/Application.vala:262
-#, fuzzy
-msgid "Show help"
-msgstr "Näita terminali"
-
-#: src/Application.vala:263
-msgid "Show GTK+ options"
-msgstr ""
-
-#: src/Application.vala:264
+#: src/Application.vala:248
 msgid "New Tab"
 msgstr "Uus kaart"
 
-#: src/Application.vala:265 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Uus aken"
 
-#: src/Application.vala:266
+#: src/Application.vala:250
 msgid "Print version info and exit"
 msgstr "Prindi versiooni teave ja välju"
 
-#: src/Application.vala:267
+#: src/Application.vala:251
 msgid "Set of plugins"
 msgstr "Pluginate kogu"
 
-#: src/Application.vala:267
+#: src/Application.vala:251
 #, fuzzy
 msgid "plugin"
 msgstr "Pluginate kogu"
@@ -309,6 +300,7 @@ msgstr "Sulge kaust"
 
 #: src/FolderManager/ProjectFolderItem.vala:99
 #, fuzzy
+#| msgid "Close Folder"
 msgid "Close Other Folders"
 msgstr "Sulge kaust"
 
@@ -560,6 +552,7 @@ msgstr ""
 
 #: src/Widgets/Pane.vala:44
 #, fuzzy
+#| msgid "Open a folder"
 msgid "Open project folder…"
 msgstr "Ava kaust"
 
