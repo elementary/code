@@ -124,7 +124,7 @@ namespace Scratch.FolderManager {
             menu.append (delete_item);
 
             try {
-                if (git_repo != null && git_repo.get_head ().is_branch ()) {
+                if (git_repo != null) {
                     var change_branch_item = new ChangeBranchMenu (git_repo);
                     if (change_branch_item != null) {
                         menu.append (change_branch_item);
@@ -162,10 +162,14 @@ namespace Scratch.FolderManager {
 
             try {
                 var head = git_repo.get_head ();
+                string? display_name = head.get_target ().to_string ();
                 if (head.is_branch ()) {
                     var branch = git_repo.get_head () as Ggit.Branch;
-                    markup = "%s <span size='small' weight='normal'>%s</span>".printf (file.name, branch.get_name ());
+                    display_name = branch.get_name ();
+                } else {
+                    display_name = "%.8s..".printf (display_name);
                 }
+                markup = "%s <span size='small' weight='normal'>%s</span>".printf (file.name, display_name);
             } catch (Error e) {
                 warning ("An error occured while fetching the current git branch name: %s", e.message);
             }
@@ -296,22 +300,23 @@ namespace Scratch.FolderManager {
             }
 
             construct {
-                Ggit.Branch? cur_branch;
+                Ggit.Ref? cur_head;
                 Ggit.BranchEnumerator? branches;
 
                 try {
-                    cur_branch = (Ggit.Branch?)(git_repo.get_head ());
+                    cur_head = git_repo.get_head ();
                     branches = git_repo.enumerate_branches (Ggit.BranchType.LOCAL);
                 } catch (GLib.Error e) {
                     critical ("Failed to create change branch menu. %s", e.message);
                     sensitive = false;
                 }
 
-                if (branches == null || cur_branch == null) {
+                if (branches == null || cur_head == null) {
                     sensitive = false;
                 }
 
                 var change_branch_menu = new Gtk.Menu ();
+                var head_is_branch = cur_head.is_branch ();
 
                 foreach (var ref_branch in branches) {
                     var branch = ref_branch as Ggit.Branch;
@@ -324,7 +329,7 @@ namespace Scratch.FolderManager {
                                 var branch_item = new Gtk.CheckMenuItem.with_label (branch_name);
                                 branch_item.draw_as_radio = true;
 
-                                if (branch_name == cur_branch.get_name ()) {
+                                if (head_is_branch && branch_name == (cur_head as Ggit.Branch?).get_name ()) {
                                     branch_item.active = true;
                                 }
 
