@@ -183,7 +183,7 @@ namespace Scratch.Services {
 
             // Focus out event for SourceView
             this.source_view.focus_out_event.connect (() => {
-                if (settings.autosave) {
+                if (Scratch.settings.get_boolean ("autosave")) {
                     save.begin ();
                 }
 
@@ -193,7 +193,7 @@ namespace Scratch.Services {
             source_view.buffer.changed.connect (() => {
                 if (source_view.buffer.text != last_save_content) {
                     saved = false;
-                    if (!settings.autosave) {
+                    if (!Scratch.settings.get_boolean ("autosave")) {
                         set_saved_status (false);
                     }
                 } else {
@@ -218,7 +218,7 @@ namespace Scratch.Services {
                     this.source_view.buffer.changed.connect (() => {
                         check_undoable_actions ();
                         // Save if autosave is ON
-                        if (settings.autosave) {
+                        if (Scratch.settings.get_boolean ("autosave")) {
                             if (timeout_saving > 0) {
                                 Source.remove (timeout_saving);
                                 timeout_saving = 0;
@@ -377,7 +377,7 @@ namespace Scratch.Services {
             }
 
             bool ret_value = true;
-            if (settings.autosave && !saved) {
+            if (Scratch.settings.get_boolean ("autosave") && !saved) {
                 save_with_hold ();
             } else if (app_closing && is_file_temporary && !delete_temporary_file ()) {
                 debug ("Save temporary file!");
@@ -566,7 +566,7 @@ namespace Scratch.Services {
         }
 
         private void restore_settings () {
-            if (settings.show_mini_map) {
+            if (Scratch.settings.get_boolean ("show-mini-map")) {
                 source_map.show ();
                 scroll.vscrollbar_policy = Gtk.PolicyType.EXTERNAL;
             } else {
@@ -755,7 +755,7 @@ namespace Scratch.Services {
                 });
 
                 Utils.action_from_group (MainWindow.ACTION_SAVE, actions).set_enabled (false);
-                this.source_view.editable = !settings.autosave;
+                this.source_view.editable = !Scratch.settings.get_boolean ("autosave");
             } else {
                 Utils.action_from_group (MainWindow.ACTION_SAVE, actions).set_enabled (true);
                 this.source_view.editable = true;
@@ -779,7 +779,7 @@ namespace Scratch.Services {
                     }
 
                     if (!source_view.buffer.get_modified ()) {
-                        if (settings.autosave) {
+                        if (Scratch.settings.get_boolean ("autosave")) {
                             source_view.set_text (new_buffer.text, false);
                         } else {
                             string message = _("File \"%s\" was modified by an external application. Do you want to load it again or continue your editing?").printf ("<b>%s</b>".printf (get_basename ()));
