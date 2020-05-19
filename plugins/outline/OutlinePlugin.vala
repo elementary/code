@@ -28,10 +28,19 @@ namespace Code.Plugins {
 
         Gee.LinkedList<SymbolOutline> views;
 
-        Placeholder placeholder;
+        private Gtk.Grid placeholder;
 
         construct {
-            placeholder = new Placeholder ();
+            var placeholder_label = new Gtk.Label (_("No Symbols Found"));
+            placeholder_label.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
+
+            placeholder = new Gtk.Grid ();
+            placeholder.halign = placeholder.valign = Gtk.Align.CENTER;
+            placeholder.row_spacing = 3;
+            placeholder.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+            placeholder.attach (new Gtk.Image.from_icon_name ("plugin-outline-symbolic", Gtk.IconSize.DND), 0, 0);
+            placeholder.attach (placeholder_label, 0, 1);
+
             views = new Gee.LinkedList<SymbolOutline> ();
             weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
             default_theme.add_resource_path ("/io/elementary/code/plugin/outline");
@@ -147,14 +156,6 @@ namespace Code.Plugins {
             text.buffer.get_iter_at_line (out iter, line - 1);
             text.buffer.place_cursor (iter);
             text.scroll_to_iter (iter, 0.0, true, 0.5, 0.5);
-        }
-    }
-
-    private class Placeholder : Gtk.Label {
-        construct {
-            label = _("No symbols found");
-            vexpand = false;
-            hexpand = true;
         }
     }
 }
