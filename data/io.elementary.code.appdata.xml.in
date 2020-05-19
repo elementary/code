@@ -48,8 +48,13 @@
   <releases>
     <release version="3.4.1" date="2020-04-23">
       <description>
+        <p>Fixes:</p>
+        <ul>
+          <li>Fix empty sidebar layout, ensuring folders can always be added</li>
+        </ul>
         <p>Minor updates:</p>
         <ul>
+          <li>Scroll past the end of a file</li>
           <li>More efficiently save and restore window position</li>
           <li>Updated translations</li>
         </ul>

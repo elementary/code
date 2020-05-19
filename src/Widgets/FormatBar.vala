@@ -163,14 +163,14 @@ public class Code.FormatBar : Gtk.Grid {
 
         autoindent_switch = new Gtk.Switch ();
         autoindent_switch.halign = Gtk.Align.START;
-        Scratch.settings.schema.bind ("auto-indent", autoindent_switch, "active", SettingsBindFlags.DEFAULT);
+        Scratch.settings.bind ("auto-indent", autoindent_switch, "active", SettingsBindFlags.DEFAULT);
 
         tab_width = new Gtk.SpinButton.with_range (1, 24, 1);
-        Scratch.settings.schema.bind ("indent-width", tab_width, "value", SettingsBindFlags.DEFAULT);
+        Scratch.settings.bind ("indent-width", tab_width, "value", SettingsBindFlags.DEFAULT);
 
         space_tab_switch = new Gtk.Switch ();
         space_tab_switch.halign = Gtk.Align.START;
-        Scratch.settings.schema.bind ("spaces-instead-of-tabs", space_tab_switch, "active", SettingsBindFlags.DEFAULT);
+        Scratch.settings.bind ("spaces-instead-of-tabs", space_tab_switch, "active", SettingsBindFlags.DEFAULT);
 
         var tab_grid = new Gtk.Grid ();
         tab_grid.margin = 12;
@@ -189,13 +189,13 @@ public class Code.FormatBar : Gtk.Grid {
         tab_popover.add (tab_grid);
 
         tab_toggle.bind_property ("active", tab_popover, "visible", GLib.BindingFlags.BIDIRECTIONAL);
-        Scratch.settings.schema.changed["indent-width"].connect (() => format_tab_header ());
-        Scratch.settings.schema.changed["spaces-instead-of-tabs"].connect (() => format_tab_header ());
+        Scratch.settings.changed["indent-width"].connect (() => format_tab_header ());
+        Scratch.settings.changed["spaces-instead-of-tabs"].connect (() => format_tab_header ());
     }
 
     private void format_tab_header () {
-        var indent_width = Scratch.settings.schema.get_int ("indent-width");
-        var spaces_instead_of_tabs = Scratch.settings.schema.get_boolean ("spaces-instead-of-tabs");
+        var indent_width = Scratch.settings.get_int ("indent-width");
+        var spaces_instead_of_tabs = Scratch.settings.get_boolean ("spaces-instead-of-tabs");
         if (doc != null) {
             indent_width = (int)doc.source_view.tab_width;
             spaces_instead_of_tabs = doc.source_view.insert_spaces_instead_of_tabs;

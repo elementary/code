@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-24 21:04+0000\n"
+"POT-Creation-Date: 2020-04-29 02:11+0000\n"
 "PO-Revision-Date: 2019-10-05 21:23+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://l10n.elementary.io/projects/code/code/lt/"
@@ -100,32 +100,32 @@ msgstr "Slėpti paieškos juostą"
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zeitgeist duomenų šaltinis, skirtas Kodui"
 
-#: src/MainWindow.vala:773 src/Services/Document.vala:502
+#: src/MainWindow.vala:763 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Visi failai"
 
-#: src/MainWindow.vala:777 src/Services/Document.vala:506
+#: src/MainWindow.vala:767 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Tekstiniai failai"
 
-#: src/MainWindow.vala:781
+#: src/MainWindow.vala:771
 msgid "Open some files"
 msgstr "Atverti failus"
 
-#: src/MainWindow.vala:784
+#: src/MainWindow.vala:774
 msgid "Open"
 msgstr "Atverti"
 
-#: src/MainWindow.vala:785 src/Services/Document.vala:401
+#: src/MainWindow.vala:775 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Atsisakyti"
 
-#: src/MainWindow.vala:810
+#: src/MainWindow.vala:800
 msgid "_Open"
 msgstr "At_verti"
 
-#: src/MainWindow.vala:811
+#: src/MainWindow.vala:801
 msgid "_Cancel"
 msgstr "_Atsisakyti"
 
@@ -586,11 +586,11 @@ msgstr "Pakeisti"
 msgid "Replace all"
 msgstr "Pakeisti visus"
 
-#: src/Widgets/SourceView.vala:393
+#: src/Widgets/SourceView.vala:404
 msgid "Sort Selected Lines"
 msgstr "Rikiuoti pažymėtas eilutes"
 
-#: src/Widgets/SourceView.vala:406
+#: src/Widgets/SourceView.vala:417
 msgid "Toggle Comment"
 msgstr "Perjungti komentarą"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-24 21:04+0000\n"
+"POT-Creation-Date: 2020-04-29 02:11+0000\n"
 "PO-Revision-Date: 2020-04-14 14:10+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/code/code/fi/>\n"
@@ -98,32 +98,32 @@ msgstr "Piilota hakupalkki"
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zeitgeist-tietolähde Code-sovellukselle"
 
-#: src/MainWindow.vala:773 src/Services/Document.vala:502
+#: src/MainWindow.vala:763 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Kaikki tiedostot"
 
-#: src/MainWindow.vala:777 src/Services/Document.vala:506
+#: src/MainWindow.vala:767 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Tekstitiedostot"
 
-#: src/MainWindow.vala:781
+#: src/MainWindow.vala:771
 msgid "Open some files"
 msgstr "Avaa tiedostoja"
 
-#: src/MainWindow.vala:784
+#: src/MainWindow.vala:774
 msgid "Open"
 msgstr "Avaa"
 
-#: src/MainWindow.vala:785 src/Services/Document.vala:401
+#: src/MainWindow.vala:775 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Peru"
 
-#: src/MainWindow.vala:810
+#: src/MainWindow.vala:800
 msgid "_Open"
 msgstr "_Avaa"
 
-#: src/MainWindow.vala:811
+#: src/MainWindow.vala:801
 msgid "_Cancel"
 msgstr "_Peru"
 
@@ -580,11 +580,11 @@ msgstr "Korvaa"
 msgid "Replace all"
 msgstr "Korvaa kaikki"
 
-#: src/Widgets/SourceView.vala:393
+#: src/Widgets/SourceView.vala:404
 msgid "Sort Selected Lines"
 msgstr "Järjestä valitut rivit"
 
-#: src/Widgets/SourceView.vala:406
+#: src/Widgets/SourceView.vala:417
 msgid "Toggle Comment"
 msgstr "Kytke kommentti"
 

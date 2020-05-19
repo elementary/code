@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-24 21:04+0000\n"
+"POT-Creation-Date: 2020-04-29 02:11+0000\n"
 "PO-Revision-Date: 2020-03-29 21:09+0000\n"
 "Last-Translator: Rodrigo Oliveira <rod.oliveira@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://l10n.elementary.io/projects/code/"
@@ -100,32 +100,32 @@ msgstr "Esconder barra de busca"
 msgid "Zeitgeist Datasource for Code"
 msgstr "Fonte de dados Zeitgeist para Code"
 
-#: src/MainWindow.vala:773 src/Services/Document.vala:502
+#: src/MainWindow.vala:763 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Todos os arquivos"
 
-#: src/MainWindow.vala:777 src/Services/Document.vala:506
+#: src/MainWindow.vala:767 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Arquivos de texto"
 
-#: src/MainWindow.vala:781
+#: src/MainWindow.vala:771
 msgid "Open some files"
 msgstr "Abrir alguns arquivos"
 
-#: src/MainWindow.vala:784
+#: src/MainWindow.vala:774
 msgid "Open"
 msgstr "Abrir"
 
-#: src/MainWindow.vala:785 src/Services/Document.vala:401
+#: src/MainWindow.vala:775 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/MainWindow.vala:810
+#: src/MainWindow.vala:800
 msgid "_Open"
 msgstr "_Abrir"
 
-#: src/MainWindow.vala:811
+#: src/MainWindow.vala:801
 msgid "_Cancel"
 msgstr "_Cancelar"
 
@@ -582,11 +582,11 @@ msgstr "Substituir"
 msgid "Replace all"
 msgstr "Substituir todos"
 
-#: src/Widgets/SourceView.vala:393
+#: src/Widgets/SourceView.vala:404
 msgid "Sort Selected Lines"
 msgstr "Ordenar Linhas Selecionadas"
 
-#: src/Widgets/SourceView.vala:406
+#: src/Widgets/SourceView.vala:417
 msgid "Toggle Comment"
 msgstr "Alternar Comentário"
 

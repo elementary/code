@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-24 21:04+0000\n"
+"POT-Creation-Date: 2020-04-29 02:11+0000\n"
 "PO-Revision-Date: 2016-10-16 09:08+0000\n"
 "Last-Translator: Abdul Wakeel <awkhan978@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,32 +92,32 @@ msgstr "تلاش بارچهپائيں"
 msgid "Zeitgeist Datasource for Code"
 msgstr "زایت گیست (zeitgeist) ڈیٹا سورس برائے سکریچ"
 
-#: src/MainWindow.vala:773 src/Services/Document.vala:502
+#: src/MainWindow.vala:763 src/Services/Document.vala:502
 msgid "All files"
 msgstr "تمام فائلیں"
 
-#: src/MainWindow.vala:777 src/Services/Document.vala:506
+#: src/MainWindow.vala:767 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "متن فائلیں"
 
-#: src/MainWindow.vala:781
+#: src/MainWindow.vala:771
 msgid "Open some files"
 msgstr "کچھ فائلیں کھولیں"
 
-#: src/MainWindow.vala:784
+#: src/MainWindow.vala:774
 msgid "Open"
 msgstr "کهولیں"
 
-#: src/MainWindow.vala:785 src/Services/Document.vala:401
+#: src/MainWindow.vala:775 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "منسوخ کریں"
 
-#: src/MainWindow.vala:810
+#: src/MainWindow.vala:800
 msgid "_Open"
 msgstr "_کھولیں"
 
-#: src/MainWindow.vala:811
+#: src/MainWindow.vala:801
 msgid "_Cancel"
 msgstr "_مسترد"
 
@@ -583,11 +583,11 @@ msgstr "کے ساتھ بدليں"
 msgid "Replace all"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:393
+#: src/Widgets/SourceView.vala:404
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:406
+#: src/Widgets/SourceView.vala:417
 msgid "Toggle Comment"
 msgstr ""
 

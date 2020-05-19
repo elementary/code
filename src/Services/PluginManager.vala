@@ -59,7 +59,6 @@ namespace Scratch.Services {
         Peas.Engine engine_core;
         Peas.ExtensionSet exts_core;
 
-        GLib.Settings settings;
         string settings_field;
 
         public Interface plugin_iface { private set; public get; }
@@ -81,7 +80,6 @@ namespace Scratch.Services {
         public PluginsManager (MainWindow window, string? set_name = null) {
             this.window = window;
 
-            settings = Scratch.settings.schema;
             settings_field = "plugins-enabled";
 
             plugin_iface = new Interface (this);
@@ -90,7 +88,7 @@ namespace Scratch.Services {
             engine = Peas.Engine.get_default ();
             engine.enable_loader ("python");
             engine.add_search_path (Constants.PLUGINDIR, null);
-            settings.bind ("plugins-enabled", engine, "loaded-plugins", SettingsBindFlags.DEFAULT);
+            Scratch.settings.bind ("plugins-enabled", engine, "loaded-plugins", SettingsBindFlags.DEFAULT);
 
             /* Our extension set */
             exts = new Peas.ExtensionSet (engine, typeof (Peas.Activatable), "object", plugin_iface, null);

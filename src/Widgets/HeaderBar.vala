@@ -212,14 +212,14 @@ namespace Scratch.Widgets {
             share_menu.remove.connect (on_share_menu_changed);
 
             settings.changed.connect (() => {
-                save_button.visible = !settings.autosave;
+                save_button.visible = !Scratch.settings.get_boolean ("autosave");
                 var last_window = Application.instance.get_last_window ();
                 zoom_default_button.label = "%.0f%%".printf (last_window.get_current_font_size () * 10);
             });
 
             var gtk_settings = Gtk.Settings.get_default ();
 
-            switch (Scratch.settings.style_scheme) {
+            switch (Scratch.settings.get_string ("style-scheme")) {
                case "high-contrast":
                    color_button_white.active = true;
                    break;
@@ -232,20 +232,20 @@ namespace Scratch.Widgets {
             }
 
             color_button_dark.clicked.connect (() => {
-                Scratch.settings.prefer_dark_style = true;
-                Scratch.settings.style_scheme = "solarized-dark";
+                Scratch.settings.set_boolean ("prefer-dark-style", true);
+                Scratch.settings.set_string ("style-scheme", "solarized-dark");
                 gtk_settings.gtk_application_prefer_dark_theme = true;
             });
 
             color_button_light.clicked.connect (() => {
-                Scratch.settings.prefer_dark_style = false;
-                Scratch.settings.style_scheme = "solarized-light";
+                Scratch.settings.set_boolean ("prefer-dark-style", false);
+                Scratch.settings.set_string ("style-scheme", "solarized-light");
                 gtk_settings.gtk_application_prefer_dark_theme = false;
             });
 
             color_button_white.clicked.connect (() => {
-                Scratch.settings.prefer_dark_style = false;
-                Scratch.settings.style_scheme = "classic";
+                Scratch.settings.set_boolean ("prefer-dark-style", false);
+                Scratch.settings.set_string ("style-scheme", "classic");
                 gtk_settings.gtk_application_prefer_dark_theme = false;
             });
         }

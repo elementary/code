@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-24 21:04+0000\n"
+"POT-Creation-Date: 2020-04-29 02:11+0000\n"
 "PO-Revision-Date: 2020-03-28 19:09+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/code/tr/>\n"
@@ -98,32 +98,32 @@ msgstr "Arama çubuğunu gizle"
 msgid "Zeitgeist Datasource for Code"
 msgstr "Kod için Zeitgeist Veri Kaynağı"
 
-#: src/MainWindow.vala:773 src/Services/Document.vala:502
+#: src/MainWindow.vala:763 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Tüm dosyalar"
 
-#: src/MainWindow.vala:777 src/Services/Document.vala:506
+#: src/MainWindow.vala:767 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Metin dosyaları"
 
-#: src/MainWindow.vala:781
+#: src/MainWindow.vala:771
 msgid "Open some files"
 msgstr "Birkaç dosya aç"
 
-#: src/MainWindow.vala:784
+#: src/MainWindow.vala:774
 msgid "Open"
 msgstr "Aç"
 
-#: src/MainWindow.vala:785 src/Services/Document.vala:401
+#: src/MainWindow.vala:775 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "İptal"
 
-#: src/MainWindow.vala:810
+#: src/MainWindow.vala:800
 msgid "_Open"
 msgstr "_Aç"
 
-#: src/MainWindow.vala:811
+#: src/MainWindow.vala:801
 msgid "_Cancel"
 msgstr "_İptal"
 
@@ -579,11 +579,11 @@ msgstr "Değiştir"
 msgid "Replace all"
 msgstr "Tümünü değiştir"
 
-#: src/Widgets/SourceView.vala:393
+#: src/Widgets/SourceView.vala:404
 msgid "Sort Selected Lines"
 msgstr "Seçili Satırları Sırala"
 
-#: src/Widgets/SourceView.vala:406
+#: src/Widgets/SourceView.vala:417
 msgid "Toggle Comment"
 msgstr "Yorum Aç/Kapat"
 
