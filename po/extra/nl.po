@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-29 02:11+0000\n"
-"PO-Revision-Date: 2020-03-05 19:09+0000\n"
+"PO-Revision-Date: 2020-05-19 18:04+0000\n"
 "Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/extra/nl/>\n"
 "Language: nl\n"
@@ -104,25 +104,26 @@ msgstr "een hele hoop andere"
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "Fixes:"
-msgstr ""
+msgstr "Opgelost:"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Fix empty sidebar layout, ensuring folders can always be added"
 msgstr ""
+"Een probleem met de zijbalk opgelost, waardoor mappen altijd kunnen worden "
+"toegevoegd"
 
 #: data/io.elementary.code.appdata.xml.in:55
-#, fuzzy
-#| msgid "Other updates:"
 msgid "Minor updates:"
-msgstr "Andere updates:"
+msgstr "Kleine updates:"
 
 #: data/io.elementary.code.appdata.xml.in:57
 msgid "Scroll past the end of a file"
-msgstr ""
+msgstr "Scrollen voorbij het einde van een bestand"
 
 #: data/io.elementary.code.appdata.xml.in:58
 msgid "More efficiently save and restore window position"
 msgstr ""
+"Het onthouden en herstellen van de positie van het venster is efficiënter"
 
 #: data/io.elementary.code.appdata.xml.in:59
 #: data/io.elementary.code.appdata.xml.in:74
@@ -142,11 +143,11 @@ msgstr "Nieuwe functies:"
 
 #: data/io.elementary.code.appdata.xml.in:67
 msgid "Include Git status in file tooltips"
-msgstr ""
+msgstr "Toon Git status in de knopinfo"
 
 #: data/io.elementary.code.appdata.xml.in:68
 msgid "Option for explicit case-sensitive Find"
-msgstr ""
+msgstr "Optie voor hoofdletter gevoelig Zoeken"
 
 #: data/io.elementary.code.appdata.xml.in:70
 #: data/io.elementary.code.appdata.xml.in:85
@@ -157,10 +158,13 @@ msgstr "Andere updates:"
 #: data/io.elementary.code.appdata.xml.in:72
 msgid "Correctly show Toggle Comment menu item when no text is selected"
 msgstr ""
+"Toon het Opmerkingen menu item op correcte wijze als geen tekst geselecteerd "
+"is"
 
 #: data/io.elementary.code.appdata.xml.in:73
 msgid "Fixed font switch alignment"
 msgstr ""
+"Een probleem opgelost met het inspringen bij het wisselen van lettertype"
 
 #: data/io.elementary.code.appdata.xml.in:82
 msgid "New \"Close Other Folders\" menu item to help clean up your sidebar"
