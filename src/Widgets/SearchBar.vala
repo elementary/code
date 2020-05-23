@@ -409,14 +409,15 @@ namespace Scratch.Widgets {
         }
 
         private bool on_search_entry_key_press (Gdk.EventKey event) {
-            /* We don't need to perform search if there is nothing to search... */
-            if (search_entry.text == "") {
-                return false;
-            }
-
             string key = Gdk.keyval_name (event.keyval);
             if (Gdk.ModifierType.SHIFT_MASK in event.state) {
                 key = "<Shift>" + key;
+            }
+
+            /* We don't need to perform search if there is nothing to search... */
+            /* Only go ahead if pressed key is Escape */
+            if (search_entry.text == "" && key != "Escape") {
+                return false;
             }
 
             switch (key) {
