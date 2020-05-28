@@ -17,7 +17,7 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
 
     Scratch.Services.Interface plugins;
 
-    Scratch.Plugins.SpellSettings.Settings settings;
+    private GLib.Settings settings;
 
     MainWindow window = null;
 
@@ -35,11 +35,10 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
     }
 
     public void activate () {
-
-        this.settings = new Scratch.Plugins.SpellSettings.Settings ();
+        settings = new GLib.Settings (Constants.PROJECT_NAME + ".plugins.spell");
 
         // Restore the last dictionary used.
-        this.lang_dict = settings.language;
+        lang_dict = settings.get_string ("language");
 
         settings.changed.connect (settings_changed);
 
@@ -136,8 +135,8 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
     public void settings_changed () {
         if (spell != null) {
             try {
-                spell.set_language (settings.language);
-                this.lang_dict = settings.language;
+                spell.set_language (settings.get_string ("language"));
+                lang_dict = settings.get_string ("language");
             } catch (Error e) {
                 warning (e.message);
             }
@@ -146,7 +145,7 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
 
     public void save_settings () {
         // Save the last dictionary used.
-        settings.language = this.lang_dict;
+        settings.set_string ("language", lang_dict);
     }
 
     public void deactivate () {

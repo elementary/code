@@ -1,7 +1,6 @@
 module_name = 'spell'
 
 module_files = [
-    'Settings.vala',
     'spell.vala'
 ]
 

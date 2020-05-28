@@ -28,7 +28,19 @@ namespace Code.Plugins {
 
         Gee.LinkedList<SymbolOutline> views;
 
+        private Gtk.Grid placeholder;
+
         construct {
+            var placeholder_label = new Gtk.Label (_("No Symbols Found"));
+            placeholder_label.get_style_context ().add_class (Granite.STYLE_CLASS_H3_LABEL);
+
+            placeholder = new Gtk.Grid ();
+            placeholder.halign = placeholder.valign = Gtk.Align.CENTER;
+            placeholder.row_spacing = 3;
+            placeholder.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+            placeholder.attach (new Gtk.Image.from_icon_name ("plugin-outline-symbolic", Gtk.IconSize.DND), 0, 0);
+            placeholder.attach (placeholder_label, 0, 1);
+
             views = new Gee.LinkedList<SymbolOutline> ();
             weak Gtk.IconTheme default_theme = Gtk.IconTheme.get_default ();
             default_theme.add_resource_path ("/io/elementary/code/plugin/outline");
@@ -55,12 +67,19 @@ namespace Code.Plugins {
             this.window = window;
 
             container = new OutlinePane ();
-            container.visible = false;
+            container.add (placeholder);
         }
 
         void on_hook_document (Scratch.Services.Document doc) {
-            if (current_view != null && current_view.doc == doc)
+            if (current_view != null &&
+                current_view.doc == doc &&
+                current_view.get_source_list ().get_parent () != null) {
+
+                /* Ensure correct source list shown */
+                container.set_visible_child (current_view.get_source_list ());
+
                 return;
+            }
 
             SymbolOutline view = null;
             foreach (var v in views) {
@@ -101,7 +120,7 @@ namespace Code.Plugins {
                 current_view = view;
                 add_container ();
             } else {
-                remove_container ();
+                container.set_visible_child (placeholder);
             }
         }
 

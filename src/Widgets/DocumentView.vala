@@ -102,8 +102,8 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         var sssm = Gtk.SourceStyleSchemeManager.get_default ();
         var style_context = get_style_context ();
 
-        if (settings.style_scheme in sssm.scheme_ids) {
-            var theme = sssm.get_scheme (settings.style_scheme);
+        if (Scratch.settings.get_string ("style-scheme") in sssm.scheme_ids) {
+            var theme = sssm.get_scheme (Scratch.settings.get_string ("style-scheme"));
             var text_color_data = theme.get_style ("text");
 
             // Default gtksourceview background color is white
@@ -211,7 +211,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             var doc = new Services.Document (window.actions, file);
             doc.source_view.set_text (original.get_text ());
 
-            if (settings.autosave) {
+            if (Scratch.settings.get_boolean ("autosave")) {
                 doc.save.begin (true);
             }
 
@@ -353,9 +353,9 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         }
 
         if (view_id == 1) {
-            settings.opened_files_view1 = opened_files;
+            Scratch.settings.set_strv ("opened-files-view1", opened_files);
         } else {
-            settings.opened_files_view2 = opened_files;
+            Scratch.settings.set_strv ("opened-files-view2", opened_files);
         }
     }
 
@@ -368,9 +368,9 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             }
 
             if (view_id == 1) {
-                settings.focused_document_view1 = file_uri;
+                Scratch.settings.set_string ("focused-document-view1", file_uri);
             } else {
-                settings.focused_document_view2 = file_uri;
+                Scratch.settings.set_string ("focused-document-view2", file_uri);
             }
         }
     }

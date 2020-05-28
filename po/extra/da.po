@@ -8,16 +8,15 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-29 02:11+0000\n"
-"PO-Revision-Date: 2019-02-06 15:40+0000\n"
-"Last-Translator: Kaj Printz Madsen <kajprintz@gmail.com>\n"
-"Language-Team: Danish <https://weblate.elementary.io/projects/code/extra/da/"
-">\n"
+"PO-Revision-Date: 2020-05-27 12:11+0000\n"
+"Last-Translator: Rantyrant <diseasemonger@gmail.com>\n"
+"Language-Team: Danish <https://l10n.elementary.io/projects/code/extra/da/>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -105,23 +104,23 @@ msgstr "mange andre"
 
 #: data/io.elementary.code.appdata.xml.in:51
 msgid "Fixes:"
-msgstr ""
+msgstr "Rettelser:"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Fix empty sidebar layout, ensuring folders can always be added"
-msgstr ""
+msgstr "Ret tomt sidepanellayout, så der altid kan tilføjes mapper"
 
 #: data/io.elementary.code.appdata.xml.in:55
 msgid "Minor updates:"
-msgstr ""
+msgstr "Mindre opdateringer:"
 
 #: data/io.elementary.code.appdata.xml.in:57
 msgid "Scroll past the end of a file"
-msgstr ""
+msgstr "Rul forbi slutningen af en fil"
 
 #: data/io.elementary.code.appdata.xml.in:58
 msgid "More efficiently save and restore window position"
-msgstr ""
+msgstr "Gemme og gendanne vinduesposition mere effektivt"
 
 #: data/io.elementary.code.appdata.xml.in:59
 #: data/io.elementary.code.appdata.xml.in:74
@@ -131,176 +130,180 @@ msgstr ""
 #: data/io.elementary.code.appdata.xml.in:147
 #: data/io.elementary.code.appdata.xml.in:158
 msgid "Updated translations"
-msgstr ""
+msgstr "Opdaterede oversættelser"
 
 #: data/io.elementary.code.appdata.xml.in:65
 #: data/io.elementary.code.appdata.xml.in:80
 #: data/io.elementary.code.appdata.xml.in:96
 msgid "New features:"
-msgstr ""
+msgstr "Nye funktioner:"
 
 #: data/io.elementary.code.appdata.xml.in:67
 msgid "Include Git status in file tooltips"
-msgstr ""
+msgstr "Inkluder Git-status i filværktøjstips"
 
 #: data/io.elementary.code.appdata.xml.in:68
 msgid "Option for explicit case-sensitive Find"
-msgstr ""
+msgstr "Mulighed for eksplicit versalfølsomhed i Find"
 
 #: data/io.elementary.code.appdata.xml.in:70
 #: data/io.elementary.code.appdata.xml.in:85
 #: data/io.elementary.code.appdata.xml.in:107
 msgid "Other updates:"
-msgstr ""
+msgstr "Andre opdateringer:"
 
 #: data/io.elementary.code.appdata.xml.in:72
 msgid "Correctly show Toggle Comment menu item when no text is selected"
-msgstr ""
+msgstr "Korrekt visning af Vis/Skjul-Kommentar menu når ingen tekst er valgt"
 
 #: data/io.elementary.code.appdata.xml.in:73
 msgid "Fixed font switch alignment"
-msgstr ""
+msgstr "Rettede font skifte justering"
 
 #: data/io.elementary.code.appdata.xml.in:82
 msgid "New \"Close Other Folders\" menu item to help clean up your sidebar"
 msgstr ""
+"Ny \"Luk andre mapper\"-menu til at hjælpe med at rydde op i dit sidepanel"
 
 #: data/io.elementary.code.appdata.xml.in:83
 msgid "Save and restore cyclic search setting"
-msgstr ""
+msgstr "Gem og gendan cyklisk søgeindstilling"
 
 #: data/io.elementary.code.appdata.xml.in:87
 msgid "Add keyboard shortcuts to menu items"
-msgstr ""
+msgstr "Tilføj tastaturgenveje til menupunkter"
 
 #: data/io.elementary.code.appdata.xml.in:88
 msgid "Make sidebar folder items not selectable"
-msgstr ""
+msgstr "Gør sidepanelets mappeemner ikke valgbare"
 
 #: data/io.elementary.code.appdata.xml.in:89
 msgid "Center new windows"
-msgstr ""
+msgstr "Centrer nye vinduer"
 
 #: data/io.elementary.code.appdata.xml.in:98
 msgid "Visually deprioritize .gitignored files in project sidebar"
-msgstr ""
+msgstr "Afprioriter visuelt .gitignored filer i projektets sidepanelet"
 
 #: data/io.elementary.code.appdata.xml.in:99
 msgid "Smart cut/copy lines with no active selection"
-msgstr ""
+msgstr "Smart klip / kopier linjer uden aktivt valg"
 
 #: data/io.elementary.code.appdata.xml.in:100
 msgid "Add a confirmation dialog to the \"Restore\" action"
-msgstr ""
+msgstr "Føj en bekræftelsesdialog til \"Gendan\" -handlingen"
 
 #: data/io.elementary.code.appdata.xml.in:101
 msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
-msgstr ""
+msgstr "Føj \"Åbn i\" -menuen til øverste mappe i mappeadministratoren"
 
 #: data/io.elementary.code.appdata.xml.in:102
 msgid "Don't show temporary files in the folder manager"
-msgstr ""
+msgstr "Vis ikke midlertidige filer i mappeadministratoren"
 
 #: data/io.elementary.code.appdata.xml.in:103
 msgid "Add brackets completion and auto-indent by default"
-msgstr ""
+msgstr "Tilføj komplettering af parenteser og automatisk indrykket som standard"
 
 #: data/io.elementary.code.appdata.xml.in:104
 msgid "Zoom terminal plugin with keyboard"
-msgstr ""
+msgstr "Zoom terminal plugin med tastatur"
 
 #: data/io.elementary.code.appdata.xml.in:105
 msgid "Honor global privacy setting when saving and restoring"
 msgstr ""
+"Overhold global indstilling for privatlivets fred, når du gemmer og gendanner"
 
 #: data/io.elementary.code.appdata.xml.in:109
 msgid "Simplify \"Draw spaces\" preference"
-msgstr ""
+msgstr "Forenkl præference for \"Draw space\""
 
 #: data/io.elementary.code.appdata.xml.in:110
 msgid "Fix the keyboard shortcut for going backwards in search results"
-msgstr ""
+msgstr "Ret tastaturgenvejen for at gå baglæns i søgeresultaterne"
 
 #: data/io.elementary.code.appdata.xml.in:111
 msgid "Fix opening files from relative paths in Terminal"
-msgstr ""
+msgstr "Ret åbning af filer fra relative stier i Terminal"
 
 #: data/io.elementary.code.appdata.xml.in:112
 msgid "Fix null file dialog when opening a new window via the dock"
-msgstr ""
+msgstr "Ret dialogboksen null file, når du åbner et nyt vindue via dokken"
 
 #: data/io.elementary.code.appdata.xml.in:113
 msgid "Add \"=\" as a zoom key"
-msgstr ""
+msgstr "Tilføj \"=\" som forstørrelses tast"
 
 #: data/io.elementary.code.appdata.xml.in:114
 msgid "Change search entry icon when results aren't found"
-msgstr ""
+msgstr "Skift ikonet for søgning, når resultater ikke findes"
 
 #: data/io.elementary.code.appdata.xml.in:115
 msgid "Enter name of new file before creating it"
-msgstr ""
+msgstr "Indtast navnet på en ny fil før den oprettes"
 
 #: data/io.elementary.code.appdata.xml.in:123
 msgid "Use Granite.MessageDialog throughout"
-msgstr ""
+msgstr "Brug Granite.MessageDialog over det hele"
 
 #: data/io.elementary.code.appdata.xml.in:124
 msgid "Include non-text files in sidebar"
-msgstr ""
+msgstr "Inkluder ikke-tekst filer i sidebaren"
 
 #: data/io.elementary.code.appdata.xml.in:125
 msgid "Fix Remove Current View"
-msgstr ""
+msgstr "Rettelse af Fjern Nuværende Visning"
 
 #: data/io.elementary.code.appdata.xml.in:132
 msgid "Fix New Window desktop action behavior"
-msgstr ""
+msgstr "Ret Nyt Vindue skrivebords opførsel"
 
 #: data/io.elementary.code.appdata.xml.in:133
 msgid ""
 "Properly synchronize Ctrl+N key presses with number of new documents spawned"
 msgstr ""
+"Korrekt synkronisering af Ctrl + N-tastetryk med antallet af nye dokumenter, "
+"der er skabt"
 
 #: data/io.elementary.code.appdata.xml.in:134
 msgid "Build system fix for editorconfig dependency"
-msgstr ""
+msgstr "Byg system rettelse til editorconfig afhængighed"
 
 #: data/io.elementary.code.appdata.xml.in:135
 msgid "Add Change Branch context menu item"
-msgstr ""
+msgstr "Tilføj menupunkt for Skift Gren"
 
 #: data/io.elementary.code.appdata.xml.in:136
 msgid "Avoid possible startup crash related to how plugins load"
-msgstr ""
+msgstr "Undgå muligt opstarts nedbrud relateret til hvordan plug-ins indlæser"
 
 #: data/io.elementary.code.appdata.xml.in:144
 msgid "Smarter file saving behavior"
-msgstr ""
+msgstr "Smartere filgemmelses opførsel"
 
 #: data/io.elementary.code.appdata.xml.in:145
 msgid "File saving fixes"
-msgstr ""
+msgstr "Rettelser til fil gemmelse"
 
 #: data/io.elementary.code.appdata.xml.in:146
 msgid "Don't add temporary files to tab restore"
-msgstr ""
+msgstr "Tilføje ikke midlertidige filer til fane gendannelse"
 
 #: data/io.elementary.code.appdata.xml.in:154
 msgid "Don't recreate deleted files when restoring session"
-msgstr ""
+msgstr "Genskab ikke slettede filer når sessionen genskabes"
 
 #: data/io.elementary.code.appdata.xml.in:155
 msgid "Restore line wrap preference"
-msgstr ""
+msgstr "Gendan præference for linieindpakning"
 
 #: data/io.elementary.code.appdata.xml.in:156
 msgid "Add accel tooltips"
-msgstr ""
+msgstr "Tilføj accel-værktøjstip"
 
 #: data/io.elementary.code.appdata.xml.in:157
 msgid "Minor bug fixes"
-msgstr ""
+msgstr "Mindre rettelser"
 
 #: data/io.elementary.code.appdata.xml.in:197
 msgid "elementary LLC."
@@ -324,7 +327,7 @@ msgstr "text;IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
-msgstr ""
+msgstr "Ny Fil"
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"

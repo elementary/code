@@ -8,16 +8,15 @@ msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-25 21:29+0000\n"
-"PO-Revision-Date: 2019-02-07 00:06+0000\n"
-"Last-Translator: Jan Marek <janmarek28@gmail.com>\n"
-"Language-Team: Czech <https://weblate.elementary.io/projects/code/plugins/cs/"
-">\n"
+"PO-Revision-Date: 2020-05-11 15:10+0000\n"
+"Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
+"Language-Team: Czech <https://l10n.elementary.io/projects/code/plugins/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -104,9 +103,8 @@ msgid "Terminal"
 msgstr "Terminál"
 
 #: plugins/terminal/terminal.plugin:7
-#, fuzzy
 msgid "A terminal in your code editor"
-msgstr "Terminál ve vašem textovém editoru"
+msgstr "Terminál ve vašem editoru zdrojových kódů"
 
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
