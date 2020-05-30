@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 02:11+0000\n"
+"POT-Creation-Date: 2020-05-29 01:16+0000\n"
 "PO-Revision-Date: 2016-06-14 15:42+0000\n"
 "Last-Translator: Kristjan Vool <tictac7x@gmail.com>\n"
 "Language-Team: Estonian <et@li.org>\n"
@@ -604,11 +604,11 @@ msgstr "Asenda"
 msgid "Replace all"
 msgstr "Asenda kõik"
 
-#: src/Widgets/SourceView.vala:404
+#: src/Widgets/SourceView.vala:408
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:417
+#: src/Widgets/SourceView.vala:421
 msgid "Toggle Comment"
 msgstr ""
 
@@ -715,6 +715,12 @@ msgstr "Laadi üles Pastebin'i"
 msgid "Symbols"
 msgstr "Sümbolid"
 
+#: plugins/outline/OutlinePlugin.vala:34
+#, fuzzy
+#| msgid "Symbols"
+msgid "No Symbols Found"
+msgstr "Sümbolid"
+
 #: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
 msgstr "Näita terminali"
@@ -751,11 +757,11 @@ msgstr "Näita eelvaadet"
 msgid "Hide Preview"
 msgstr "Peida eelvaade"
 
-#: plugins/spell/spell.vala:74
+#: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr ""
 
-#: plugins/spell/spell.vala:75
+#: plugins/spell/spell.vala:74
 #, fuzzy
 msgid "Please install at least one [aspell] dictionary."
 msgstr ""

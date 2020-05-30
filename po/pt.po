@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 02:11+0000\n"
+"POT-Creation-Date: 2020-05-29 01:16+0000\n"
 "PO-Revision-Date: 2020-04-11 21:10+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/"
@@ -583,11 +583,11 @@ msgstr "Substituir"
 msgid "Replace all"
 msgstr "Substituir tudo"
 
-#: src/Widgets/SourceView.vala:404
+#: src/Widgets/SourceView.vala:408
 msgid "Sort Selected Lines"
 msgstr "Ordenar linhas selecionadas"
 
-#: src/Widgets/SourceView.vala:417
+#: src/Widgets/SourceView.vala:421
 msgid "Toggle Comment"
 msgstr "Alternar comentário"
 
@@ -688,6 +688,12 @@ msgstr "Enviar para Pastebin"
 msgid "Symbols"
 msgstr "Símbolos"
 
+#: plugins/outline/OutlinePlugin.vala:34
+#, fuzzy
+#| msgid "Symbols"
+msgid "No Symbols Found"
+msgstr "Símbolos"
+
 #: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
 msgstr "Mostrar o Terminal"
@@ -724,11 +730,11 @@ msgstr "Mostrar a pré-visualização"
 msgid "Hide Preview"
 msgstr "Ocultar a pré-Visualização"
 
-#: plugins/spell/spell.vala:74
+#: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr "Não foram encontrados dicionários adequados"
 
-#: plugins/spell/spell.vala:75
+#: plugins/spell/spell.vala:74
 msgid "Please install at least one [aspell] dictionary."
 msgstr "Instale pelo menos um dicionário [aspell]."
 
