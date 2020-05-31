@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-05-29 01:16+0000\n"
-"PO-Revision-Date: 2020-04-11 21:10+0000\n"
+"PO-Revision-Date: 2020-06-01 16:11+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
-"Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/"
-">\n"
+"Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/>"
+"\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -689,10 +689,8 @@ msgid "Symbols"
 msgstr "Símbolos"
 
 #: plugins/outline/OutlinePlugin.vala:34
-#, fuzzy
-#| msgid "Symbols"
 msgid "No Symbols Found"
-msgstr "Símbolos"
+msgstr "Nenhum símbolo encontrado"
 
 #: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
