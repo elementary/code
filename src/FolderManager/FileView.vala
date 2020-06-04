@@ -52,7 +52,7 @@ namespace Scratch.FolderManager {
             }
 
             if (item is FileItem) {
-                select ((item as FileItem).file.path);
+                select (((FileItem) item).file.path);
             }
         }
 
@@ -77,7 +77,7 @@ namespace Scratch.FolderManager {
 
         public void collapse_all () {
             foreach (var child in root.children) {
-                (child as ProjectFolderItem).collapse_all ();
+                ((ProjectFolderItem) child).collapse_all ();
             }
         }
 
@@ -158,7 +158,7 @@ namespace Scratch.FolderManager {
 
         private bool is_open (File folder) {
             foreach (var child in root.children)
-                if (folder.path == (child as Item).path)
+                if (folder.path == ((Item) child).path)
                     return true;
             return false;
         }
@@ -168,16 +168,17 @@ namespace Scratch.FolderManager {
 
             foreach (var main_folder in root.children) {
                 var saved = false;
+                var folder_path = ((Item) main_folder).path;
 
                 foreach (var saved_folder in to_save) {
-                    if ((main_folder as Item).path == saved_folder) {
+                    if (folder_path == saved_folder) {
                         saved = true;
                         break;
                     }
                 }
 
                 if (!saved) {
-                    to_save += (main_folder as Item).path;
+                    to_save += folder_path;
                 }
             }
 
