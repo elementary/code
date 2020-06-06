@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-29 02:11+0000\n"
-"PO-Revision-Date: 2020-05-03 21:10+0000\n"
+"PO-Revision-Date: 2020-06-07 13:11+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/>"
 "\n"
@@ -109,9 +109,7 @@ msgstr "修正点:"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Fix empty sidebar layout, ensuring folders can always be added"
-msgstr ""
-"フォルダーが常に追加されるようにすることで、サイドバーのレイアウトに何も表示"
-"されない問題を修正"
+msgstr "フォルダーが常に追加されるようにすることで、サイドバーのレイアウトに何も表示されない不具合を修正"
 
 #: data/io.elementary.code.appdata.xml.in:55
 msgid "Minor updates:"
@@ -233,13 +231,11 @@ msgstr "前の検索結果を表示するキーボードショートカットを
 
 #: data/io.elementary.code.appdata.xml.in:111
 msgid "Fix opening files from relative paths in Terminal"
-msgstr "ターミナルから相対パスを使用してファイルを開く際の問題を修正"
+msgstr "ターミナルから相対パスを使用してファイルを開く際の不具合を修正"
 
 #: data/io.elementary.code.appdata.xml.in:112
 msgid "Fix null file dialog when opening a new window via the dock"
-msgstr ""
-"ドックのコンテキストメニューから新しいウィンドウを開いた際に「ファイル "
-"(null) を開けません」というダイアログが表示される問題を修正"
+msgstr "ドックのコンテキストメニューから新しいウィンドウを開いた際に「ファイル (null) を開けません」というダイアログが表示される不具合を修正"
 
 #: data/io.elementary.code.appdata.xml.in:113
 msgid "Add \"=\" as a zoom key"
