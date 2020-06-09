@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 02:11+0000\n"
+"POT-Creation-Date: 2020-05-29 01:16+0000\n"
 "PO-Revision-Date: 2019-10-05 21:23+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://l10n.elementary.io/projects/code/code/lt/"
@@ -586,11 +586,11 @@ msgstr "Pakeisti"
 msgid "Replace all"
 msgstr "Pakeisti visus"
 
-#: src/Widgets/SourceView.vala:404
+#: src/Widgets/SourceView.vala:408
 msgid "Sort Selected Lines"
 msgstr "Rikiuoti pažymėtas eilutes"
 
-#: src/Widgets/SourceView.vala:417
+#: src/Widgets/SourceView.vala:421
 msgid "Toggle Comment"
 msgstr "Perjungti komentarą"
 
@@ -691,6 +691,12 @@ msgstr "Siųsti į Pastebin"
 msgid "Symbols"
 msgstr "Simboliai"
 
+#: plugins/outline/OutlinePlugin.vala:34
+#, fuzzy
+#| msgid "Symbols"
+msgid "No Symbols Found"
+msgstr "Simboliai"
+
 #: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
 msgstr "Rodyti terminalą"
@@ -727,11 +733,11 @@ msgstr "Rodyti peržiūrą"
 msgid "Hide Preview"
 msgstr "Slėpti peržiūrą"
 
-#: plugins/spell/spell.vala:74
+#: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr "Nerasta jokių tinkamų žodynų"
 
-#: plugins/spell/spell.vala:75
+#: plugins/spell/spell.vala:74
 msgid "Please install at least one [aspell] dictionary."
 msgstr "Įdiekite bent vieną [aspell] žodyną."
 

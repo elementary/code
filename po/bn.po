@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 02:11+0000\n"
+"POT-Creation-Date: 2020-05-29 01:16+0000\n"
 "PO-Revision-Date: 2017-01-21 09:06+0000\n"
 "Last-Translator: Hasan Sumon <hsnsumon@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -599,11 +599,11 @@ msgstr "প্রতিস্থাপন"
 msgid "Replace all"
 msgstr "সব প্রতিস্থাপন করুন"
 
-#: src/Widgets/SourceView.vala:404
+#: src/Widgets/SourceView.vala:408
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:417
+#: src/Widgets/SourceView.vala:421
 msgid "Toggle Comment"
 msgstr ""
 
@@ -710,6 +710,12 @@ msgstr "পেস্টবিন এ আপলোড করুন"
 msgid "Symbols"
 msgstr "চিহ্নসমূহ"
 
+#: plugins/outline/OutlinePlugin.vala:34
+#, fuzzy
+#| msgid "Symbols"
+msgid "No Symbols Found"
+msgstr "চিহ্নসমূহ"
+
 #: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
 msgstr "টার্মিনাল দেখান"
@@ -746,11 +752,11 @@ msgstr "প্রিভিউ দেখান"
 msgid "Hide Preview"
 msgstr "প্রিভিউ লুকিয়ে রাখুন"
 
-#: plugins/spell/spell.vala:74
+#: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr ""
 
-#: plugins/spell/spell.vala:75
+#: plugins/spell/spell.vala:74
 #, fuzzy
 msgid "Please install at least one [aspell] dictionary."
 msgstr ""

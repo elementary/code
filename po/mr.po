@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 02:11+0000\n"
-"PO-Revision-Date: 2020-04-06 15:10+0000\n"
+"POT-Creation-Date: 2020-05-29 01:16+0000\n"
+"PO-Revision-Date: 2020-06-01 16:11+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/code/code/mr/>\n"
 "Language: mr\n"
@@ -572,11 +572,11 @@ msgstr "बदला"
 msgid "Replace all"
 msgstr "सर्व ठिकाणी बदला"
 
-#: src/Widgets/SourceView.vala:404
+#: src/Widgets/SourceView.vala:408
 msgid "Sort Selected Lines"
 msgstr "निवडलेल्या ओळी क्रमबद्ध करा"
 
-#: src/Widgets/SourceView.vala:417
+#: src/Widgets/SourceView.vala:421
 msgid "Toggle Comment"
 msgstr "टिप्पणी टॉगल  करा"
 
@@ -677,6 +677,10 @@ msgstr "पेस्टबीन वर अपलोड करा"
 msgid "Symbols"
 msgstr "सिम्बॉल्स"
 
+#: plugins/outline/OutlinePlugin.vala:34
+msgid "No Symbols Found"
+msgstr "कोणतेही सिम्बॉल्स सापडले नाही"
+
 #: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
 msgstr "टर्मिनल दाखवा"
@@ -713,11 +717,11 @@ msgstr "पूर्वावलोकन दाखवा"
 msgid "Hide Preview"
 msgstr "पूर्वावलोकन लपवा"
 
-#: plugins/spell/spell.vala:74
+#: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr "कोणत्याही उपयुक्त डिक्शनरीज सापडल्या नाहीत"
 
-#: plugins/spell/spell.vala:75
+#: plugins/spell/spell.vala:74
 msgid "Please install at least one [aspell] dictionary."
 msgstr "कृपया कमीत कमी एक [aspell] dictionary इन्स्टॉल करा."
 
