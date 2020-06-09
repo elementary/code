@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-05-29 01:16+0000\n"
-"PO-Revision-Date: 2020-03-29 21:09+0000\n"
+"PO-Revision-Date: 2020-06-08 18:11+0000\n"
 "Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
 "Language: nl\n"
@@ -686,10 +686,8 @@ msgid "Symbols"
 msgstr "Symbolen"
 
 #: plugins/outline/OutlinePlugin.vala:34
-#, fuzzy
-#| msgid "Symbols"
 msgid "No Symbols Found"
-msgstr "Symbolen"
+msgstr "Geen symbolen gevonden"
 
 #: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
