@@ -412,14 +412,14 @@ namespace Scratch.Dialogs {
             string paste_name = this.doc.get_basename ();
             name_entry.text = paste_name;
 
-            expiry_combo.set_active_id (Scratch.services.expiry_time);
-            private_check.set_active (Scratch.services.set_private);
+            expiry_combo.set_active_id (Scratch.service_settings.get_string ("expiry-time"));
+            private_check.set_active (Scratch.service_settings.get_boolean ("set-private"));
         }
 
         private void write_settings () {
-            Scratch.services.paste_format_code = format_combo.get_active_id ();
-            Scratch.services.expiry_time = expiry_combo.get_active_id ();
-            Scratch.services.set_private = private_check.get_active ();
+            Scratch.service_settings.set_string ("paste-format-code", format_combo.active_id);
+            Scratch.service_settings.set_string ("expiry-time", expiry_combo.active_id);
+            Scratch.service_settings.set_boolean ("set-private", private_check.active);
         }
 
         private void send_button_clicked () {

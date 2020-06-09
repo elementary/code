@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 02:11+0000\n"
-"PO-Revision-Date: 2019-12-30 07:56+0000\n"
+"POT-Creation-Date: 2020-05-29 01:16+0000\n"
+"PO-Revision-Date: 2020-05-23 11:11+0000\n"
 "Last-Translator: colindemian <colindemian@outlook.com>\n"
 "Language-Team: Chinese (Simplified) <https://l10n.elementary.io/projects/"
 "code/code/zh_Hans/>\n"
@@ -61,7 +61,7 @@ msgstr "这是一种“未知”文件类型。"
 #: src/Application.vala:176
 #, c-format
 msgid "File \"%s\" Cannot Be Opened"
-msgstr "无法打开文件 “%s” "
+msgstr "无法打开文件 “%s”"
 
 #: src/Application.vala:248
 msgid "New Tab"
@@ -96,9 +96,8 @@ msgid "Hide search bar"
 msgstr "隐藏搜索栏"
 
 #: src/MainWindow.vala:267
-#, fuzzy
 msgid "Zeitgeist Datasource for Code"
-msgstr "Scratch Zeitgeist 数据源"
+msgstr "Zeitgeist 数据源"
 
 #: src/MainWindow.vala:763 src/Services/Document.vala:502
 msgid "All files"
@@ -137,7 +136,7 @@ msgstr "首选项"
 msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
-msgstr ""
+msgstr "在没有手动选中内容范围的情况下，默认会剪切或粘贴整段当前命令行"
 
 #: src/Dialogs/PreferencesDialog.vala:56
 msgid "General"
@@ -145,11 +144,11 @@ msgstr "一般设置"
 
 #: src/Dialogs/PreferencesDialog.vala:57
 msgid "Save files when changed:"
-msgstr "自动保存变更："
+msgstr "自动保存："
 
 #: src/Dialogs/PreferencesDialog.vala:59
 msgid "Smart cut/copy lines:"
-msgstr ""
+msgstr "智能剪贴："
 
 #: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
@@ -226,20 +225,19 @@ msgstr "更改字体："
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
-msgstr ""
+msgstr "您确定要恢复此文件吗？"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Restoring a file will undo all changes made since opening it"
-msgstr ""
+msgstr "恢复文件会撤销打开此文件后的所有变更"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:34
 msgid "Don't Restore"
-msgstr ""
+msgstr "停止恢复"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
-#, fuzzy
 msgid "Restore Anyway"
-msgstr "仍然载入"
+msgstr "仍然恢复"
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:117
 msgid "Other Application…"
@@ -291,25 +289,22 @@ msgid "Close Folder"
 msgstr "关闭文件夹"
 
 #: src/FolderManager/ProjectFolderItem.vala:99
-#, fuzzy
-#| msgid "Close Folder"
 msgid "Close Other Folders"
-msgstr "关闭文件夹"
+msgstr "关闭其他文件夹"
 
 #: src/FolderManager/ProjectFolderItem.vala:188
 #, c-format
 msgid "%s, Modified"
-msgstr ""
+msgstr "%s, 已修改"
 
 #: src/FolderManager/ProjectFolderItem.vala:197
 #, c-format
 msgid "%s, New"
-msgstr ""
+msgstr "%s, 新增"
 
 #: src/FolderManager/ProjectFolderItem.vala:347
-#, fuzzy
 msgid "Branch"
-msgstr "更改设置"
+msgstr "分支"
 
 #: src/Services/Document.vala:266
 #, c-format
@@ -338,19 +333,17 @@ msgid "Cancel Loading"
 msgstr "取消载入"
 
 #: src/Services/Document.vala:391
-#, fuzzy, c-format
+#, c-format
 msgid "Save changes to \"%s\" before closing?"
-msgstr "关闭文档 %s 之前保存吗？"
+msgstr "关闭前保存数据到 “%s” 吗？"
 
 #: src/Services/Document.vala:392
-#, fuzzy
 msgid "If you don't save, changes will be permanently lost."
-msgstr "若是您没有保存，最近 4 秒的改动将永久丢失。"
+msgstr "若不保存，变更的内容将永久丢失。"
 
 #: src/Services/Document.vala:398
-#, fuzzy
 msgid "Close Without Saving"
-msgstr "不保存并关闭"
+msgstr "关闭且不保存"
 
 #: src/Services/Document.vala:402 src/Services/Document.vala:513
 #: src/Services/Document.vala:737
@@ -524,22 +517,20 @@ msgid "Menu"
 msgstr "菜单"
 
 #: src/Widgets/Pane.vala:44
-#, fuzzy
-#| msgid "Open a folder"
 msgid "Open project folder…"
-msgstr "打开文件夹"
+msgstr "打开项目文件夹…"
 
 #: src/Widgets/Pane.vala:46
 msgid "Collapse All"
-msgstr ""
+msgstr "全部折叠"
 
 #: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
-msgstr ""
+msgstr "字母顺序"
 
 #: src/Widgets/Pane.vala:60
 msgid "Manage project folders"
-msgstr ""
+msgstr "管理项目文件夹"
 
 #: src/Widgets/SearchBar.vala:63
 msgid "Find"
@@ -559,11 +550,11 @@ msgstr "循环搜索"
 
 #: src/Widgets/SearchBar.vala:93
 msgid "Case Sensitive"
-msgstr ""
+msgstr "区分大小写"
 
 #: src/Widgets/SearchBar.vala:93
 msgid "Case Insensitive"
-msgstr ""
+msgstr "不区分大小写"
 
 #: src/Widgets/SearchBar.vala:112
 msgid "Replace With"
@@ -577,11 +568,11 @@ msgstr "替换"
 msgid "Replace all"
 msgstr "全部替换"
 
-#: src/Widgets/SourceView.vala:404
+#: src/Widgets/SourceView.vala:408
 msgid "Sort Selected Lines"
 msgstr "整理选中文本"
 
-#: src/Widgets/SourceView.vala:417
+#: src/Widgets/SourceView.vala:421
 msgid "Toggle Comment"
 msgstr "激活备注"
 
@@ -682,6 +673,12 @@ msgstr "上传到 Pastebin"
 msgid "Symbols"
 msgstr "符号"
 
+#: plugins/outline/OutlinePlugin.vala:34
+#, fuzzy
+#| msgid "Symbols"
+msgid "No Symbols Found"
+msgstr "符号"
+
 #: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
 msgstr "显示终端"
@@ -718,16 +715,13 @@ msgstr "显示预览"
 msgid "Hide Preview"
 msgstr "隐藏预览"
 
-#: plugins/spell/spell.vala:74
+#: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
-msgstr ""
+msgstr "未找到合适的词典"
 
-#: plugins/spell/spell.vala:75
-#, fuzzy
+#: plugins/spell/spell.vala:74
 msgid "Please install at least one [aspell] dictionary."
-msgstr ""
-"找不到合适的词典。\n"
-"请至少安装一个 [aspell] 词典"
+msgstr "请安装至少一个 [aspell] 词典。"
 
 #: plugins/word-completion/plugin.vala:173
 #, c-format

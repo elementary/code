@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 02:11+0000\n"
-"PO-Revision-Date: 2020-03-29 21:09+0000\n"
+"POT-Creation-Date: 2020-05-29 01:16+0000\n"
+"PO-Revision-Date: 2020-06-08 18:11+0000\n"
 "Last-Translator: Jaimie85 <alsemgeest@gmail.com>\n"
 "Language-Team: Dutch <https://l10n.elementary.io/projects/code/code/nl/>\n"
 "Language: nl\n"
@@ -580,11 +580,11 @@ msgstr "Vervang"
 msgid "Replace all"
 msgstr "Vervang alles"
 
-#: src/Widgets/SourceView.vala:404
+#: src/Widgets/SourceView.vala:408
 msgid "Sort Selected Lines"
 msgstr "Sorteer geselecteerde lijnen"
 
-#: src/Widgets/SourceView.vala:417
+#: src/Widgets/SourceView.vala:421
 msgid "Toggle Comment"
 msgstr "Commentaar in- of uitschakelen"
 
@@ -685,6 +685,10 @@ msgstr "Uploaden naar Pastebin"
 msgid "Symbols"
 msgstr "Symbolen"
 
+#: plugins/outline/OutlinePlugin.vala:34
+msgid "No Symbols Found"
+msgstr "Geen symbolen gevonden"
+
 #: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
 msgstr "Terminal weergeven"
@@ -721,11 +725,11 @@ msgstr "Toon voorbeeld"
 msgid "Hide Preview"
 msgstr "Voorbeeld verbergen"
 
-#: plugins/spell/spell.vala:74
+#: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr "Er zijn geen geschikte woordenboeken gevonden"
 
-#: plugins/spell/spell.vala:75
+#: plugins/spell/spell.vala:74
 msgid "Please install at least one [aspell] dictionary."
 msgstr "Gelieve ten minste één [aspell] spellingswoordenboek te installeren."
 

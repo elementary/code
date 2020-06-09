@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 02:11+0000\n"
+"POT-Creation-Date: 2020-05-29 01:16+0000\n"
 "PO-Revision-Date: 2018-07-15 00:09+0000\n"
 "Last-Translator: Milan Radojević <mikister2012@gmail.com>\n"
 "Language-Team: Serbian <https://weblate.elementary.io/projects/code/code/sr/"
@@ -591,11 +591,11 @@ msgstr "Замени"
 msgid "Replace all"
 msgstr "Замени све"
 
-#: src/Widgets/SourceView.vala:404
+#: src/Widgets/SourceView.vala:408
 msgid "Sort Selected Lines"
 msgstr ""
 
-#: src/Widgets/SourceView.vala:417
+#: src/Widgets/SourceView.vala:421
 msgid "Toggle Comment"
 msgstr ""
 
@@ -702,6 +702,10 @@ msgstr "Отпреми на Pastebin"
 msgid "Symbols"
 msgstr ""
 
+#: plugins/outline/OutlinePlugin.vala:34
+msgid "No Symbols Found"
+msgstr ""
+
 #: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
 msgstr ""
@@ -738,11 +742,11 @@ msgstr ""
 msgid "Hide Preview"
 msgstr ""
 
-#: plugins/spell/spell.vala:74
+#: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr ""
 
-#: plugins/spell/spell.vala:75
+#: plugins/spell/spell.vala:74
 msgid "Please install at least one [aspell] dictionary."
 msgstr ""
 

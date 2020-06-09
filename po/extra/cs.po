@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-29 02:11+0000\n"
-"PO-Revision-Date: 2020-05-11 15:10+0000\n"
+"PO-Revision-Date: 2020-05-30 10:11+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/code/extra/cs/>\n"
 "Language: cs\n"
@@ -110,18 +110,20 @@ msgstr "Opravuje:"
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Fix empty sidebar layout, ensuring folders can always be added"
 msgstr ""
+"Opraveno prázdné rozvržení postranního panelu, což zajišťuje že složky je "
+"možné vždy přidat"
 
 #: data/io.elementary.code.appdata.xml.in:55
 msgid "Minor updates:"
-msgstr ""
+msgstr "Drobné aktualizace:"
 
 #: data/io.elementary.code.appdata.xml.in:57
 msgid "Scroll past the end of a file"
-msgstr ""
+msgstr "Opraveno posouvání za konec souboru"
 
 #: data/io.elementary.code.appdata.xml.in:58
 msgid "More efficiently save and restore window position"
-msgstr ""
+msgstr "Efektivnější ukládání a obnovování pozice okna"
 
 #: data/io.elementary.code.appdata.xml.in:59
 #: data/io.elementary.code.appdata.xml.in:74
@@ -131,176 +133,185 @@ msgstr ""
 #: data/io.elementary.code.appdata.xml.in:147
 #: data/io.elementary.code.appdata.xml.in:158
 msgid "Updated translations"
-msgstr ""
+msgstr "Aktualizovány překlady"
 
 #: data/io.elementary.code.appdata.xml.in:65
 #: data/io.elementary.code.appdata.xml.in:80
 #: data/io.elementary.code.appdata.xml.in:96
 msgid "New features:"
-msgstr ""
+msgstr "Nové funkce:"
 
 #: data/io.elementary.code.appdata.xml.in:67
 msgid "Include Git status in file tooltips"
-msgstr ""
+msgstr "Zahrnout Git stav v nástrojových tipech souborů"
 
 #: data/io.elementary.code.appdata.xml.in:68
 msgid "Option for explicit case-sensitive Find"
-msgstr ""
+msgstr "Volba pro výslovné rozlišování malých/VELKÝCH písmen při hledání"
 
 #: data/io.elementary.code.appdata.xml.in:70
 #: data/io.elementary.code.appdata.xml.in:85
 #: data/io.elementary.code.appdata.xml.in:107
 msgid "Other updates:"
-msgstr ""
+msgstr "Ostatní aktualizace:"
 
 #: data/io.elementary.code.appdata.xml.in:72
 msgid "Correctly show Toggle Comment menu item when no text is selected"
 msgstr ""
+"Správné zobrazování položky nabídky přepnout komentář když není označen "
+"žádný text"
 
 #: data/io.elementary.code.appdata.xml.in:73
 msgid "Fixed font switch alignment"
-msgstr ""
+msgstr "Opraveno zarovnání přepínání fontů"
 
 #: data/io.elementary.code.appdata.xml.in:82
 msgid "New \"Close Other Folders\" menu item to help clean up your sidebar"
 msgstr ""
+"Nová položka nabídky „Zavřít ostatní složky“ pro uklízení postranního panelu"
 
 #: data/io.elementary.code.appdata.xml.in:83
 msgid "Save and restore cyclic search setting"
-msgstr ""
+msgstr "Ukládání a obnovování nastavení cyklického hledání"
 
 #: data/io.elementary.code.appdata.xml.in:87
 msgid "Add keyboard shortcuts to menu items"
-msgstr ""
+msgstr "Přidány klávesové zkratky k položkám nabídek"
 
 #: data/io.elementary.code.appdata.xml.in:88
 msgid "Make sidebar folder items not selectable"
-msgstr ""
+msgstr "Odstranění možnosti výběru položek složky v postranním panelu"
 
 #: data/io.elementary.code.appdata.xml.in:89
 msgid "Center new windows"
-msgstr ""
+msgstr "Nová okna jsou vystřeďována"
 
 #: data/io.elementary.code.appdata.xml.in:98
 msgid "Visually deprioritize .gitignored files in project sidebar"
 msgstr ""
+"Vizuálně snížena priorita souborů, označených v .gitignore v postranním "
+"panelu projektu"
 
 #: data/io.elementary.code.appdata.xml.in:99
 msgid "Smart cut/copy lines with no active selection"
-msgstr ""
+msgstr "Inteligentní vyjímání/kopírování řádků bez aktivního výběru"
 
 #: data/io.elementary.code.appdata.xml.in:100
 msgid "Add a confirmation dialog to the \"Restore\" action"
-msgstr ""
+msgstr "Přidána potvrzovací dialog do akce „Obnovit“"
 
 #: data/io.elementary.code.appdata.xml.in:101
 msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
-msgstr ""
+msgstr "Přidána nabídka „Otevřít v“ ve složce nejvyšší úrovně ve správě složek"
 
 #: data/io.elementary.code.appdata.xml.in:102
 msgid "Don't show temporary files in the folder manager"
-msgstr ""
+msgstr "Nezobrazování dočasných souborů ve správě složek"
 
 #: data/io.elementary.code.appdata.xml.in:103
 msgid "Add brackets completion and auto-indent by default"
-msgstr ""
+msgstr "Přidání doplňování závorek a automatického odsazování ve výchozím stavu"
 
 #: data/io.elementary.code.appdata.xml.in:104
 msgid "Zoom terminal plugin with keyboard"
-msgstr ""
+msgstr "Změna velikost zásuvného modulu terminálu pomocí klávesnice"
 
 #: data/io.elementary.code.appdata.xml.in:105
 msgid "Honor global privacy setting when saving and restoring"
 msgstr ""
+"Respektování globálního nastavení ochrany soukromí při ukládání a obnovování"
 
 #: data/io.elementary.code.appdata.xml.in:109
 msgid "Simplify \"Draw spaces\" preference"
-msgstr ""
+msgstr "Zjednodušení předvolby „Vykreslovat mezery“"
 
 #: data/io.elementary.code.appdata.xml.in:110
 msgid "Fix the keyboard shortcut for going backwards in search results"
-msgstr ""
+msgstr "Opravena klávesová zkrátka pro hledání směrem zpět"
 
 #: data/io.elementary.code.appdata.xml.in:111
 msgid "Fix opening files from relative paths in Terminal"
-msgstr ""
+msgstr "Opraveno otevírání souborů z relativních popisů umístění v Terminálu"
 
 #: data/io.elementary.code.appdata.xml.in:112
 msgid "Fix null file dialog when opening a new window via the dock"
-msgstr ""
+msgstr "Opraven prázdný dialog souboru při otevírání nového okna z doku"
 
 #: data/io.elementary.code.appdata.xml.in:113
 msgid "Add \"=\" as a zoom key"
-msgstr ""
+msgstr "Přidáno „=“ jako klávesa pro přiblížení"
 
 #: data/io.elementary.code.appdata.xml.in:114
 msgid "Change search entry icon when results aren't found"
-msgstr ""
+msgstr "Změna ikony zadávání vyhledávání když nejsou nalezeny výsledky"
 
 #: data/io.elementary.code.appdata.xml.in:115
 msgid "Enter name of new file before creating it"
-msgstr ""
+msgstr "Zadání názvu souboru před jeho vytvářením"
 
 #: data/io.elementary.code.appdata.xml.in:123
 msgid "Use Granite.MessageDialog throughout"
-msgstr ""
+msgstr "Použití Granite.MessageDialog po celou dobu"
 
 #: data/io.elementary.code.appdata.xml.in:124
 msgid "Include non-text files in sidebar"
-msgstr ""
+msgstr "Zahrnutí souborů s jiným než textovým obsahem do postranního panelu"
 
 #: data/io.elementary.code.appdata.xml.in:125
 msgid "Fix Remove Current View"
-msgstr ""
+msgstr "Opraveno odebrání stávajícího pohledu"
 
 #: data/io.elementary.code.appdata.xml.in:132
 msgid "Fix New Window desktop action behavior"
-msgstr ""
+msgstr "Opraveno chování akce desktopu Nové okno"
 
 #: data/io.elementary.code.appdata.xml.in:133
 msgid ""
 "Properly synchronize Ctrl+N key presses with number of new documents spawned"
 msgstr ""
+"Správná synchronizace stisků Ctrl+N a počtu nových vytvořených dokumentů"
 
 #: data/io.elementary.code.appdata.xml.in:134
 msgid "Build system fix for editorconfig dependency"
-msgstr ""
+msgstr "Oprava systému pro sestavování pro závisení na editorconfig"
 
 #: data/io.elementary.code.appdata.xml.in:135
 msgid "Add Change Branch context menu item"
-msgstr ""
+msgstr "Přidána položka kontextové nabídky Změnit  větev"
 
 #: data/io.elementary.code.appdata.xml.in:136
 msgid "Avoid possible startup crash related to how plugins load"
 msgstr ""
+"Vyhnutí se možnému pádu při spouštění souvisejícího s tím, jak jsou načítány "
+"zásuvné moduly"
 
 #: data/io.elementary.code.appdata.xml.in:144
 msgid "Smarter file saving behavior"
-msgstr ""
+msgstr "Inteligentnější chování ukládání souborů"
 
 #: data/io.elementary.code.appdata.xml.in:145
 msgid "File saving fixes"
-msgstr ""
+msgstr "Opravy ukládání souborů"
 
 #: data/io.elementary.code.appdata.xml.in:146
 msgid "Don't add temporary files to tab restore"
-msgstr ""
+msgstr "Nepřidávat dočasné soubory do obnovení karty"
 
 #: data/io.elementary.code.appdata.xml.in:154
 msgid "Don't recreate deleted files when restoring session"
-msgstr ""
+msgstr "Nevytvářet znovu smazané soubory při obnovování relace"
 
 #: data/io.elementary.code.appdata.xml.in:155
 msgid "Restore line wrap preference"
-msgstr ""
+msgstr "Obnovení předvoleb zalamování řádek"
 
 #: data/io.elementary.code.appdata.xml.in:156
 msgid "Add accel tooltips"
-msgstr ""
+msgstr "Přidání nástrojových tipu accel"
 
 #: data/io.elementary.code.appdata.xml.in:157
 msgid "Minor bug fixes"
-msgstr ""
+msgstr "Opravy drobných chyb"
 
 #: data/io.elementary.code.appdata.xml.in:197
 msgid "elementary LLC."
@@ -308,7 +319,7 @@ msgstr "elementary LLC."
 
 #: data/io.elementary.code.desktop.in.in:5
 msgid "Edit code files"
-msgstr "Upravujte soubory s kódem"
+msgstr "Upravujte soubory se zdrojovými kódy"
 
 #: data/io.elementary.code.desktop.in.in:6
 msgid "Code Editor"
