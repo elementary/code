@@ -1,3 +1,35 @@
+io.elementary.code (3.4.1) bionic; urgency=medium
+
+  * Release 3.4.1 (#821)
+  * FolderItem: Handler error when getting file child (#825)
+  * FileView: Fix compiler warnings with casts (#826)
+  * FolderItem: Avoid cast warnings (#824)
+  * Update translation files
+  * Update translation template
+  * Update POTFILES
+  * Update POTFILES
+  * Outliner plugin: Show a placeholder message when no symbols instead
+    of hiding (#797)
+  * Use GLib.Settings instead of Granite.Service.Settings (#808)
+  * Update translation files
+  * Update translation files
+  * Update translation template
+  * SourceView: Scroll past end (#802)
+  * Update translation files
+  * Update translation files
+  * Update translation template
+  * Do not remove empty folder_manager_view (#796)
+  * Update translation files
+  * Update translation files
+  * Update translation template
+  * Use a single gsetting key for window coords/size (#768) (#794)
+  * added "keystroke a: insert after current position" action (#712)
+  * FileView: Use GLib.Settings (#788)
+  * Update translation files
+  * Update translation template
+
+ -- Corentin Noël <corentin@elementary.io>  Tue, 09 Jun 2020 19:14:24 +0000
+
 io.elementary.code (3.4.0) bionic; urgency=medium
 
   * Release 3.4.0 (#787)
