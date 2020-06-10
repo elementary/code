@@ -100,8 +100,9 @@ public class Scratch.Plugins.Spell: Peas.ExtensionBase, Peas.Activatable {
                 // Deactivate Spell checker when we are editing a code file
                 var source_buffer = (Gtk.SourceBuffer) d.source_view.buffer;
                 var lang = source_buffer.language;
-                if (lang != null)
+                if (lang != null && lang.id != "markdown") {
                     spell.detach ();
+                }
 
                 // Detect language changed event
                 view.notify["language"].connect (() => language_changed_spell (view));
