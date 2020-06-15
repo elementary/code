@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-11 01:43+0000\n"
-"PO-Revision-Date: 2020-04-30 07:10+0000\n"
+"PO-Revision-Date: 2020-06-17 00:11+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/extra/es/>\n"
 "Language: es\n"
@@ -111,6 +111,7 @@ msgstr "Actualizaciones menores:"
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Allow Spell Checker extension in Markdown files"
 msgstr ""
+"Se permite la extensión de revisión ortográfica en los archivos Markdown"
 
 #: data/io.elementary.code.appdata.xml.in:59
 msgid "Fixes:"
@@ -180,21 +181,20 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:91
 msgid "Save and restore cyclic search setting"
-msgstr "Guardar y restaurar la configuración de búsqueda cíclica"
+msgstr "Se guarda y restaura la configuración de búsqueda cíclica"
 
 #: data/io.elementary.code.appdata.xml.in:95
 msgid "Add keyboard shortcuts to menu items"
-msgstr "Añadir atajos de teclado a los elementos de menú"
+msgstr "Se añadieron atajos de teclado a los elementos de menú"
 
 #: data/io.elementary.code.appdata.xml.in:96
 msgid "Make sidebar folder items not selectable"
 msgstr ""
-"Hacer que los elementos de la carpeta de la barra lateral no sean "
-"seleccionables"
+"Ya no se pueden seleccionar los elementos de carpeta en la barra lateral"
 
 #: data/io.elementary.code.appdata.xml.in:97
 msgid "Center new windows"
-msgstr "Centrar nuevas ventanas"
+msgstr "Las ventanas nuevas se centran"
 
 #: data/io.elementary.code.appdata.xml.in:106
 msgid "Visually deprioritize .gitignored files in project sidebar"
@@ -227,7 +227,8 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:112
 msgid "Zoom terminal plugin with keyboard"
-msgstr "Complemento de zoom de terminal con teclado"
+msgstr ""
+"Es posible ampliar y reducir el complemento de la terminal con el teclado"
 
 #: data/io.elementary.code.appdata.xml.in:113
 msgid "Honor global privacy setting when saving and restoring"
@@ -244,7 +245,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:119
 msgid "Fix opening files from relative paths in Terminal"
-msgstr "Arreglar archivos abiertos desde rutas relativas en la Terminal"
+msgstr "Apertura correcta de archivos con rutas relativas en la terminal"
 
 #: data/io.elementary.code.appdata.xml.in:120
 msgid "Fix null file dialog when opening a new window via the dock"
@@ -258,7 +259,8 @@ msgstr "Se añadió «=» como tecla de escala"
 
 #: data/io.elementary.code.appdata.xml.in:122
 msgid "Change search entry icon when results aren't found"
-msgstr "Cambiar el icono de búsqueda cuando no se encuentran resultados"
+msgstr ""
+"El icono del cuadro de búsqueda cambia cuando no se encuentran resultados"
 
 #: data/io.elementary.code.appdata.xml.in:123
 msgid "Enter name of new file before creating it"
@@ -266,7 +268,7 @@ msgstr "Introducir el nombre del nuevo archivo antes de crearlo"
 
 #: data/io.elementary.code.appdata.xml.in:131
 msgid "Use Granite.MessageDialog throughout"
-msgstr "Use Granite.MessageDialog"
+msgstr "Uso exhaustivo de Granite.MessageDialog"
 
 #: data/io.elementary.code.appdata.xml.in:132
 msgid "Include non-text files in sidebar"
@@ -289,16 +291,17 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:142
 msgid "Build system fix for editorconfig dependency"
-msgstr "Construir la corrección del sistema para la dependencia editorconfig"
+msgstr ""
+"Corrección del sistema de compilación para la dependencia con editorconfig"
 
 #: data/io.elementary.code.appdata.xml.in:143
 msgid "Add Change Branch context menu item"
-msgstr "Añadir el elemento de menú de contexto de Cambiar Rama"
+msgstr "Se añadió el elemento «Cambiar rama» en el menú contextual"
 
 #: data/io.elementary.code.appdata.xml.in:144
 msgid "Avoid possible startup crash related to how plugins load"
 msgstr ""
-"Evitar los posibles fallos de inicio relacionados con la carga de "
+"Se evitan los posibles fallos de inicio relacionados con la carga de "
 "complementos"
 
 #: data/io.elementary.code.appdata.xml.in:152
@@ -323,7 +326,7 @@ msgstr "Restaurar la preferencia del envoltorio de línea"
 
 #: data/io.elementary.code.appdata.xml.in:164
 msgid "Add accel tooltips"
-msgstr "Agregar indicadores de acceso directo"
+msgstr "Se añadieron descripciones emergentes de los aceleradores"
 
 #: data/io.elementary.code.appdata.xml.in:165
 msgid "Minor bug fixes"
@@ -347,11 +350,11 @@ msgstr "io.elementary.code"
 
 #: data/io.elementary.code.desktop.in.in:11
 msgid "text;IDE;scratch;"
-msgstr "texto;IDE;scratch;"
+msgstr "texto;IDE;EID;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
-msgstr "Nuevo archivo"
+msgstr "Archivo nuevo"
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
