@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-05-29 01:16+0000\n"
-"PO-Revision-Date: 2020-05-30 10:11+0000\n"
+"PO-Revision-Date: 2020-06-17 00:11+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: Spanish <https://l10n.elementary.io/projects/code/code/es/>\n"
 "Language: es\n"
@@ -108,7 +108,7 @@ msgstr "Archivos de texto"
 
 #: src/MainWindow.vala:771
 msgid "Open some files"
-msgstr "Abre algunos archivos"
+msgstr "Abra algunos archivos"
 
 #: src/MainWindow.vala:774
 msgid "Open"
@@ -136,7 +136,7 @@ msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
-"Cortar o copiar sin una selección activa cortará o copiará toda la línea "
+"Cortar o copiar sin una selección activa cortará o copiará todo el renglón "
 "actual"
 
 #: src/Dialogs/PreferencesDialog.vala:56
@@ -161,7 +161,7 @@ msgstr "Sangría automática:"
 
 #: src/Dialogs/PreferencesDialog.vala:65 src/Widgets/FormatBar.vala:155
 msgid "Insert spaces instead of tabs:"
-msgstr "Insertar espacios en lugar de tabulaciones:"
+msgstr "Insertar espacios en lugar de tabuladores:"
 
 #: src/Dialogs/PreferencesDialog.vala:67 src/Widgets/FormatBar.vala:158
 msgid "Tab width:"
@@ -284,7 +284,7 @@ msgstr "carpeta sin título"
 
 #: src/FolderManager/FolderItem.vala:332
 msgid "new file"
-msgstr "Nuevo archivo"
+msgstr "archivo nuevo"
 
 #: src/FolderManager/ProjectFolderItem.vala:96
 msgid "Close Folder"
@@ -315,7 +315,7 @@ msgstr "%s no es un archivo de texto"
 
 #: src/Services/Document.vala:267
 msgid "Code will not load this type of file."
-msgstr "Código no cargará este tipo de archivo."
+msgstr "Code no cargará este tipo de archivo."
 
 #: src/Services/Document.vala:269
 msgid "Load Anyway"
@@ -324,11 +324,11 @@ msgstr "Cargar de todos modos"
 #: src/Services/Document.vala:290
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
-msgstr "Cargar el archivo \"%s\" está tomando mucho tiempo"
+msgstr "La carga del archivo «%s» está demorando mucho"
 
 #: src/Services/Document.vala:291
 msgid "Please wait while Code is loading the file."
-msgstr "Espere mientras Code está cargando el archivo."
+msgstr "Espere mientras Code carga el archivo."
 
 #: src/Services/Document.vala:293
 msgid "Cancel Loading"
@@ -345,7 +345,7 @@ msgstr "Si no guarda el documento, los cambios se perderán permanentemente."
 
 #: src/Services/Document.vala:398
 msgid "Close Without Saving"
-msgstr "Cerrar sin guardar cambios"
+msgstr "Cerrar sin guardar"
 
 #: src/Services/Document.vala:402 src/Services/Document.vala:513
 #: src/Services/Document.vala:737
@@ -358,13 +358,13 @@ msgstr "Guardar archivo"
 
 #: src/Services/Document.vala:592
 msgid "New Document"
-msgstr "Nuevo documento"
+msgstr "Documento nuevo"
 
 #. Show an error view which says "Hey, I cannot read that file!"
 #: src/Services/Document.vala:715
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
-msgstr "El archivo  \"%s\" no se puede leer"
+msgstr "No se puede leer el archivo «%s»"
 
 #: src/Services/Document.vala:716
 msgid "It may be corrupt or you don't have permission to read it."
@@ -395,8 +395,8 @@ msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr ""
-"No puedes guardar los cambios en el archivo «%s». ¿Quieres guardar los "
-"cambios de este archivo en otra ubicación?"
+"No puede guardar los cambios en el archivo «%s». ¿Quiere guardar los cambios "
+"de este archivo en otra ubicación?"
 
 #: src/Services/Document.vala:752
 msgid "Save changes elsewhere"
@@ -426,15 +426,15 @@ msgstr "Plantillas"
 #: src/Widgets/DocumentView.vala:133
 #, c-format
 msgid "Text file from %s:%d"
-msgstr "Archivo de texto de %s"
+msgstr "Archivo de texto de %s:%d"
 
 #: src/Widgets/FormatBar.vala:67
 msgid "Syntax Highlighting"
-msgstr "Resalte de sintaxis"
+msgstr "Coloración sintáctica"
 
 #: src/Widgets/FormatBar.vala:75
 msgid "Line number"
-msgstr "Número de línea"
+msgstr "Número de renglón"
 
 #: src/Widgets/FormatBar.vala:101
 msgid "Filter languages"
@@ -448,19 +448,19 @@ msgstr "Texto sin formato"
 #, c-format
 msgid "%d Space"
 msgid_plural "%d Spaces"
-msgstr[0] "%d Espacio"
-msgstr[1] "%d Espacios"
+msgstr[0] "%d espacio"
+msgstr[1] "%d espacios"
 
 #: src/Widgets/FormatBar.vala:207
 #, c-format
 msgid "%d Tab"
 msgid_plural "%d Tabs"
-msgstr[0] "%d tabulación"
-msgstr[1] "%d tabulaciones"
+msgstr[0] "%d tabulador"
+msgstr[1] "%d tabuladores"
 
 #: src/Widgets/FormatBar.vala:223
 msgid "Go To Line:"
-msgstr "Ir a la línea:"
+msgstr "Ir al renglón:"
 
 #: src/Widgets/HeaderBar.vala:43
 msgid "Open a file"
@@ -476,7 +476,7 @@ msgstr "Guardar este archivo"
 
 #: src/Widgets/HeaderBar.vala:61
 msgid "Save this file with a different name"
-msgstr "Guardar este archivo con un nombre diferente"
+msgstr "Guardar este archivo con otro nombre"
 
 #: src/Widgets/HeaderBar.vala:68
 msgid "Restore this file"
@@ -488,7 +488,7 @@ msgstr "Compartir"
 
 #: src/Widgets/HeaderBar.vala:90
 msgid "Zoom Out"
-msgstr "Disminuir el zoom"
+msgstr "Alejar"
 
 #: src/Widgets/HeaderBar.vala:97
 msgid "Zoom 1:1"
@@ -496,23 +496,23 @@ msgstr "Escala 1∶1"
 
 #: src/Widgets/HeaderBar.vala:104
 msgid "Zoom In"
-msgstr "Aumentar el zoom"
+msgstr "Acercar"
 
 #: src/Widgets/HeaderBar.vala:118
 msgid "High Contrast"
-msgstr "Alto contraste"
+msgstr "Contraste alto"
 
 #: src/Widgets/HeaderBar.vala:126
 msgid "Solarized Light"
-msgstr "Solar claro"
+msgstr "Solarizado claro"
 
 #: src/Widgets/HeaderBar.vala:134
 msgid "Solarized Dark"
-msgstr "Solar oscuro"
+msgstr "Solarizado oscuro"
 
 #: src/Widgets/HeaderBar.vala:144
 msgid "Toggle Sidebar"
-msgstr "Mostrar / ocultar panel lateral"
+msgstr "Mostrar/ocultar barra lateral"
 
 #: src/Widgets/HeaderBar.vala:154
 msgid "Add New View"
@@ -532,7 +532,7 @@ msgstr "Abrir carpeta de proyecto…"
 
 #: src/Widgets/Pane.vala:46
 msgid "Collapse All"
-msgstr "Desplegar todo"
+msgstr "Contraer todo"
 
 #: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
@@ -540,7 +540,7 @@ msgstr "Por orden alfabético"
 
 #: src/Widgets/Pane.vala:60
 msgid "Manage project folders"
-msgstr "Administrar carpetas de proyecto"
+msgstr "Gestionar carpetas de proyecto"
 
 #: src/Widgets/SearchBar.vala:63
 msgid "Find"
@@ -596,7 +596,7 @@ msgstr "Abre un archivo para comenzar la edición."
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "New File"
-msgstr "Nuevo archivo"
+msgstr "Archivo nuevo"
 
 #: src/Widgets/WelcomeView.vala:32
 msgid "Create a new empty file."
@@ -620,7 +620,7 @@ msgstr "Agregar una carpeta de proyecto a la barra lateral."
 
 #: plugins/pastebin/pastebin_dialog.vala:249
 msgid "Share via Pastebin"
-msgstr "Compartir via PasteBin"
+msgstr "Compartir mediante Pastebin"
 
 #: plugins/pastebin/pastebin_dialog.vala:256
 msgid "Name:"
@@ -644,7 +644,7 @@ msgstr "Conservar el texto pegado como privado"
 
 #: plugins/pastebin/pastebin_dialog.vala:321
 msgid "Upload"
-msgstr "Subir"
+msgstr "Enviar"
 
 #: plugins/pastebin/pastebin_dialog.vala:352
 msgid "Other formats"
@@ -672,7 +672,7 @@ msgstr "Un mes"
 
 #: plugins/pastebin/pastebin.vala:91
 msgid "Upload to Pastebin"
-msgstr "Subir a Pastebin"
+msgstr "Enviar a Pastebin"
 
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
