@@ -7,22 +7,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 02:11+0000\n"
-"PO-Revision-Date: 2019-09-10 14:54+0000\n"
-"Last-Translator: damianv2 <dandantom20@gmail.com>\n"
+"POT-Creation-Date: 2020-05-29 01:16+0000\n"
+"PO-Revision-Date: 2020-05-30 10:11+0000\n"
+"Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/code/code/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.7.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
 #: src/Application.vala:134
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Created"
-msgstr "Soubor \"%s\" nelze přečíst"
+msgstr "Soubor \"%s\" nelze vytvořit"
 
 #. We list some common errors for quick feedback
 #: src/Application.vala:138
@@ -58,9 +58,9 @@ msgid "It is an \"unknown\" file type."
 msgstr "Je to \"neznámý\" typ souboru."
 
 #: src/Application.vala:176
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" Cannot Be Opened"
-msgstr "Soubor \"%s\" nelze přečíst"
+msgstr "Soubor \"%s\" nelze otevřít"
 
 #: src/Application.vala:248
 msgid "New Tab"
@@ -79,9 +79,8 @@ msgid "Set of plugins"
 msgstr "Sada doplňků"
 
 #: src/Application.vala:251
-#, fuzzy
 msgid "plugin"
-msgstr "Sada doplňků"
+msgstr "zásuvný modul"
 
 #: src/MainWindow.vala:137
 msgid "Code"
@@ -96,9 +95,8 @@ msgid "Hide search bar"
 msgstr "Skrýt vyhledávací panel"
 
 #: src/MainWindow.vala:267
-#, fuzzy
 msgid "Zeitgeist Datasource for Code"
-msgstr "Zdroj dat Zeitgeist pro Scratch"
+msgstr "Zdroj dat Zeitgeist pro Code"
 
 #: src/MainWindow.vala:763 src/Services/Document.vala:502
 msgid "All files"
@@ -138,6 +136,7 @@ msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
+"Vyjmutí/kopírování bez vybrání vyjme/zkopíruje celý řádek na aktuální pozici"
 
 #: src/Dialogs/PreferencesDialog.vala:56
 msgid "General"
@@ -149,7 +148,7 @@ msgstr "Automaticky ukládat soubory po upravení:"
 
 #: src/Dialogs/PreferencesDialog.vala:59
 msgid "Smart cut/copy lines:"
-msgstr ""
+msgstr "Chytré vyjímání/kopírování řádků:"
 
 #: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
@@ -226,20 +225,19 @@ msgstr "Vlastní písmo:"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
-msgstr ""
+msgstr "Opravdu chcete obnovit tento soubor?"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Restoring a file will undo all changes made since opening it"
-msgstr ""
+msgstr "Obnovení souboru smaže všechny provedené změny od jeho otevření"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:34
 msgid "Don't Restore"
-msgstr ""
+msgstr "Neobnovovat"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
-#, fuzzy
 msgid "Restore Anyway"
-msgstr "Přesto načíst"
+msgstr "Přesto obnovit"
 
 #: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:117
 msgid "Other Application…"
@@ -291,25 +289,22 @@ msgid "Close Folder"
 msgstr "Zavřít složku"
 
 #: src/FolderManager/ProjectFolderItem.vala:99
-#, fuzzy
-#| msgid "Close Folder"
 msgid "Close Other Folders"
-msgstr "Zavřít složku"
+msgstr "Zavřít ostatní složky"
 
 #: src/FolderManager/ProjectFolderItem.vala:188
 #, c-format
 msgid "%s, Modified"
-msgstr ""
+msgstr "%s, Upravený"
 
 #: src/FolderManager/ProjectFolderItem.vala:197
 #, c-format
 msgid "%s, New"
-msgstr ""
+msgstr "%s, Nový"
 
 #: src/FolderManager/ProjectFolderItem.vala:347
-#, fuzzy
 msgid "Branch"
-msgstr "Změnit větev"
+msgstr "Větev"
 
 #: src/Services/Document.vala:266
 #, c-format
@@ -338,17 +333,15 @@ msgid "Cancel Loading"
 msgstr "Zrušit načítání"
 
 #: src/Services/Document.vala:391
-#, fuzzy, c-format
+#, c-format
 msgid "Save changes to \"%s\" before closing?"
-msgstr "Uložit před ukončením změny do dokumentu %s?"
+msgstr "Uložit před ukončením změny do „%s“?"
 
 #: src/Services/Document.vala:392
-#, fuzzy
 msgid "If you don't save, changes will be permanently lost."
-msgstr "Pokud neuložíte, změny za posledních 4 sekundy se nenávratně ztratí."
+msgstr "Pokud neuložíte, změny nenávratně ztratí."
 
 #: src/Services/Document.vala:398
-#, fuzzy
 msgid "Close Without Saving"
 msgstr "Zavřít bez uložení"
 
@@ -532,22 +525,20 @@ msgid "Menu"
 msgstr "Menu"
 
 #: src/Widgets/Pane.vala:44
-#, fuzzy
-#| msgid "Open a folder"
 msgid "Open project folder…"
-msgstr "Otevřít složku"
+msgstr "Otevřít složku projektu…"
 
 #: src/Widgets/Pane.vala:46
 msgid "Collapse All"
-msgstr ""
+msgstr "Sbalit vše"
 
 #: src/Widgets/Pane.vala:49
 msgid "Alphabetize"
-msgstr ""
+msgstr "Řadit podle abecedy"
 
 #: src/Widgets/Pane.vala:60
 msgid "Manage project folders"
-msgstr ""
+msgstr "Spravovat složky projektu"
 
 #: src/Widgets/SearchBar.vala:63
 msgid "Find"
@@ -567,11 +558,11 @@ msgstr "Opakované hledání"
 
 #: src/Widgets/SearchBar.vala:93
 msgid "Case Sensitive"
-msgstr ""
+msgstr "Rozlišovat malá/VELKÁ písmena"
 
 #: src/Widgets/SearchBar.vala:93
 msgid "Case Insensitive"
-msgstr ""
+msgstr "Nerozlišovat malá/VELKÁ písmna"
 
 #: src/Widgets/SearchBar.vala:112
 msgid "Replace With"
@@ -585,13 +576,13 @@ msgstr "Nahradit"
 msgid "Replace all"
 msgstr "Nahradit vše"
 
-#: src/Widgets/SourceView.vala:404
+#: src/Widgets/SourceView.vala:408
 msgid "Sort Selected Lines"
 msgstr "Seřadit vybrané řádky"
 
-#: src/Widgets/SourceView.vala:417
+#: src/Widgets/SourceView.vala:421
 msgid "Toggle Comment"
-msgstr "Skrýt/Zobrazit komentář"
+msgstr "Přepněte komentář"
 
 #: src/Widgets/WelcomeView.vala:26
 msgid "No Files Open"
@@ -690,6 +681,10 @@ msgstr "Nahrát na Pastebin"
 msgid "Symbols"
 msgstr "Znaky"
 
+#: plugins/outline/OutlinePlugin.vala:34
+msgid "No Symbols Found"
+msgstr "Nenalezeny žádné symboly"
+
 #: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
 msgid "Show Terminal"
 msgstr "Zobrazit terminál"
@@ -726,16 +721,13 @@ msgstr "Zobrazit náhled"
 msgid "Hide Preview"
 msgstr "Skrýt náhled"
 
-#: plugins/spell/spell.vala:74
+#: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr "Nebyla nalezena žádná vhodná slovíčka"
 
-#: plugins/spell/spell.vala:75
-#, fuzzy
+#: plugins/spell/spell.vala:74
 msgid "Please install at least one [aspell] dictionary."
-msgstr ""
-"Nebyly nalezeny žádné použitelné slovníky.\n"
-"Nainstalujte prosím alespoň jeden [aspell] slovník"
+msgstr "Nainstalujte prosím alespoň jeden [aspell] slovník."
 
 #: plugins/word-completion/plugin.vala:173
 #, c-format

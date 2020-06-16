@@ -200,7 +200,7 @@ namespace Scratch.FolderManager {
 
         private new void remove (Granite.Widgets.SourceList.Item item) {
             if (item is FolderItem) {
-                (item as FolderItem).remove_all_children ();
+                ((FolderItem) item).remove_all_children ();
             }
 
             base.remove (item);
@@ -245,7 +245,7 @@ namespace Scratch.FolderManager {
                         var children_tmp = new Gee.ArrayList<Granite.Widgets.SourceList.Item> ();
                         children_tmp.add_all (children);
                         foreach (var item in children_tmp) {
-                            if ((item as Item).path == source.get_path ()) {
+                            if (((Item) item).path == source.get_path ()) {
                                 // This is a workaround for SourceList silliness: you cannot remove an item
                                 // without it automatically selecting another one.
 
@@ -276,7 +276,7 @@ namespace Scratch.FolderManager {
                         var file = new File (source.get_path ());
                         var exists = false;
                         foreach (var item in children) {
-                            if ((item as Item).path == file.path) {
+                            if (((Item) item).path == file.path) {
                                 exists = true;
                                 break;
                             }
@@ -357,8 +357,8 @@ namespace Scratch.FolderManager {
                     } else {
                         var new_name = rename_item.name;
                         remove (rename_item);
-                        var gfile = file.file.get_child_for_display_name (new_name);
                         try {
+                            var gfile = file.file.get_child_for_display_name (new_name);
                             if (is_folder) {
                                 gfile.make_directory ();
                             } else {

@@ -48,7 +48,7 @@ namespace Scratch.Dialogs {
             smart_cut_copy_info.tooltip_text = _("Cutting or copying without an active selection will cut or copy the entire current line");
 
             var indent_width = new Gtk.SpinButton.with_range (1, 24, 1);
-            Scratch.settings.schema.bind ("indent-width", indent_width, "value", SettingsBindFlags.DEFAULT);
+            Scratch.settings.bind ("indent-width", indent_width, "value", SettingsBindFlags.DEFAULT);
 
             var general_grid = new Gtk.Grid ();
             general_grid.column_spacing = 12;
@@ -121,7 +121,7 @@ namespace Scratch.Dialogs {
             var draw_spaces_combo = new Gtk.ComboBoxText ();
             draw_spaces_combo.append ("For Selection", _("For selected text"));
             draw_spaces_combo.append ("Always", _("Always"));
-            Scratch.settings.schema.bind ("draw-spaces", draw_spaces_combo, "active-id", SettingsBindFlags.DEFAULT);
+            Scratch.settings.bind ("draw-spaces", draw_spaces_combo, "active-id", SettingsBindFlags.DEFAULT);
 
             var show_mini_map_label = new SettingsLabel (_("Show Mini Map:"));
             show_mini_map = new SettingsSwitch ("show-mini-map");
@@ -131,8 +131,8 @@ namespace Scratch.Dialogs {
 
             var right_margin_position = new Gtk.SpinButton.with_range (1, 250, 1);
             right_margin_position.hexpand = true;
-            Scratch.settings.schema.bind ("right-margin-position", right_margin_position, "value", SettingsBindFlags.DEFAULT);
-            Scratch.settings.schema.bind ("show-right-margin", right_margin_position, "sensitive", SettingsBindFlags.DEFAULT);
+            Scratch.settings.bind ("right-margin-position", right_margin_position, "value", SettingsBindFlags.DEFAULT);
+            Scratch.settings.bind ("show-right-margin", right_margin_position, "sensitive", SettingsBindFlags.DEFAULT);
 
             var font_header = new Granite.HeaderLabel (_("Font"));
 
@@ -140,12 +140,12 @@ namespace Scratch.Dialogs {
             use_custom_font = new Gtk.Switch ();
             use_custom_font.halign = Gtk.Align.START;
             use_custom_font.valign = Gtk.Align.CENTER;
-            Scratch.settings.schema.bind ("use-system-font", use_custom_font, "active", SettingsBindFlags.INVERT_BOOLEAN);
+            Scratch.settings.bind ("use-system-font", use_custom_font, "active", SettingsBindFlags.INVERT_BOOLEAN);
 
             select_font = new Gtk.FontButton ();
             select_font.hexpand = true;
-            Scratch.settings.schema.bind ("font", select_font, "font-name", SettingsBindFlags.DEFAULT);
-            Scratch.settings.schema.bind ("use-system-font", select_font, "sensitive", SettingsBindFlags.INVERT_BOOLEAN);
+            Scratch.settings.bind ("font", select_font, "font-name", SettingsBindFlags.DEFAULT);
+            Scratch.settings.bind ("use-system-font", select_font, "sensitive", SettingsBindFlags.INVERT_BOOLEAN);
 
             content.attach (editor_header, 0, 0, 3, 1);
             content.attach (highlight_matching_brackets_label, 0, 2, 1, 1);
@@ -179,7 +179,7 @@ namespace Scratch.Dialogs {
             public SettingsSwitch (string setting) {
                 halign = Gtk.Align.START;
                 valign = Gtk.Align.CENTER;
-                Scratch.settings.schema.bind (setting, this, "active", SettingsBindFlags.DEFAULT);
+                Scratch.settings.bind (setting, this, "active", SettingsBindFlags.DEFAULT);
             }
         }
     }
