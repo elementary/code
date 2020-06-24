@@ -135,6 +135,16 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         return Path.build_filename (Application.instance.data_home_folder_unsaved, new_text_file);
     }
 
+    private string unsaved_duplicated_file_path_builder (string original_filename) {
+        string[] parts = original_filename.split (".",2);
+        if (parts.length == 1) {
+            return _("%s(copy)").printf (parts[0]);
+        }
+        string new_text_file = _("%s(copy).%s").printf (parts[0], parts[1]);
+
+        return Path.build_filename (Application.instance.data_home_folder_unsaved, new_text_file);
+    }
+
     public void new_document () {
         var file = File.new_for_path (unsaved_file_path_builder ());
         try {
@@ -205,12 +215,12 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     // Set a copy of content
     public void duplicate_document (Services.Document original) {
         try {
-            var file = File.new_for_path (unsaved_file_path_builder ());
+            var file = File.new_for_path (unsaved_duplicated_file_path_builder (original.file.get_basename ()));
             file.create (FileCreateFlags.PRIVATE);
 
             var doc = new Services.Document (window.actions, file);
             doc.source_view.set_text (original.get_text ());
-
+            doc.source_view.language = original.source_view.language;
             if (Scratch.settings.get_boolean ("autosave")) {
                 doc.save.begin (true);
             }
