@@ -136,7 +136,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
     }
 
     private string unsaved_duplicated_file_path_builder (string original_filename) {
-        string[] parts = original_filename.split (".",2);
+        string[] parts = original_filename.split (".", 2);
         if (parts.length == 1) {
             return _("%s(copy)").printf (parts[0]);
         }
