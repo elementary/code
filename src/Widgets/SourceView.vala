@@ -32,6 +32,7 @@ namespace Scratch.Widgets {
         private uint size_allocate_timer = 0;
         private Gtk.TextIter last_select_start_iter;
         private Gtk.TextIter last_select_end_iter;
+        private GitDiffGutter git_diff_gutter;
 
         private const uint THROTTLE_MS = 400;
 
@@ -158,6 +159,9 @@ namespace Scratch.Widgets {
                     });
                 }
             });
+
+            git_diff_gutter = new GitDiffGutter();
+            git_diff_gutter.make_diff();
         }
 
         private bool get_current_line (out Gtk.TextIter start, out Gtk.TextIter end) {

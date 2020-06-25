@@ -33,6 +33,7 @@ code_files = files(
     'Services/ZeitgeistLogger.vala',
     'Widgets/DocumentView.vala',
     'Widgets/FormatBar.vala',
+    'Widgets/GitDiffGutter.vala',
     'Widgets/HeaderBar.vala',
     'Widgets/Pane.vala',
     'Widgets/PaneSwitcher.vala',
