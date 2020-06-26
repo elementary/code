@@ -350,6 +350,22 @@ namespace Scratch {
                 }
             });
 
+            folder_manager_view.close_all_docs_from_path.connect ((a) => {
+                Scratch.Widgets.DocumentView? view = null;
+                if (split_view.is_empty ()) {
+                    view = split_view.add_view ();
+                } else {
+                    view = get_current_view ();
+                }
+                var docs = view.docs.copy ();
+
+                foreach (var doc in docs) {
+                    if (doc.file.get_path ().has_prefix (a)) {
+                        close_document (doc);
+                    }
+                }
+            });
+
             folder_manager_view.restore_saved_state ();
 
             bottombar = new Gtk.Notebook ();
