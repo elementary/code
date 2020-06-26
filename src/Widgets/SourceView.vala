@@ -33,6 +33,9 @@ namespace Scratch.Widgets {
         private Gtk.TextIter last_select_start_iter;
         private Gtk.TextIter last_select_end_iter;
         private GitDiffGutter git_diff_gutter;
+        // Hello hello
+        // Hi
+        // hi
 
         private const uint THROTTLE_MS = 400;
 
@@ -157,11 +160,15 @@ namespace Scratch.Widgets {
                         bottom_margin = calculate_bottom_margin (allocation.height);
                         return GLib.Source.REMOVE;
                     });
+                    
                 }
             });
 
-            git_diff_gutter = new GitDiffGutter();
+            git_diff_gutter = new GitDiffGutter();//
             git_diff_gutter.make_diff();
+            //  git_diff_gutter.print_lines_with_deletions();
+            //  Gtk.SourceGutter source_gutter = this.get_gutter(Gtk.TextWindowType.LEFT);
+            //  source_gutter.insert(git_diff_gutter, 1);
         }
 
         private bool get_current_line (out Gtk.TextIter start, out Gtk.TextIter end) {
