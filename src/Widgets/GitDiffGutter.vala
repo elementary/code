@@ -9,7 +9,7 @@ namespace Scratch.Widgets {
         private string open_file_path = "src/Widgets/GitDiffGutter.vala";
         private const string ADDED = "GREEN";
         private const string MODIFIED = "BLUE";
-        private const string DELETED = "RED";
+        private const string DELETED = "RED";//
 
         public GitDiffGutter () {
             stdout.printf("MAKING NEW DIFF GUTTER\n");
@@ -22,9 +22,10 @@ namespace Scratch.Widgets {
             }
             lines_to_status = new Gee.HashMap<int, string> ();
             gutter_color = Gdk.RGBA ();
-            this.set_size(10);
+            this.set_size(3);
             this.set_visible (true);
         }
+
 
 
         public override void draw (Cairo.Context cr, Gdk.Rectangle bg, Gdk.Rectangle area, Gtk.TextIter start, Gtk.TextIter end, Gtk.SourceGutterRendererState state) {
@@ -33,9 +34,9 @@ namespace Scratch.Widgets {
             if (lines_to_status.contains (gutter_line_no)) {
                 string change = lines_to_status.get (gutter_line_no);
                 if (change == ADDED) {
-                    gutter_color.parse ("rgba(0,0,256,1)");
-                } else if (change == MODIFIED) {
                     gutter_color.parse ("rgba(0,256,0,1)");
+                } else if (change == MODIFIED) {
+                    gutter_color.parse ("rgba(0,0,256,1)");
                 } else if (change == DELETED) {
                     gutter_color.parse ("rgba(256,0,0,1)");
                 }
@@ -48,7 +49,6 @@ namespace Scratch.Widgets {
         private int diff_file_callback (Ggit.DiffDelta delta, float progress) {
             return 0;
         }
-
         private int diff_binary_callback (Ggit.DiffDelta delta, Ggit.DiffBinary binary) {
             return 0;
         }
