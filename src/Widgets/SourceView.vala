@@ -166,9 +166,9 @@ namespace Scratch.Widgets {
 
             git_diff_gutter = new GitDiffGutter();//
             git_diff_gutter.make_diff();
-            //  git_diff_gutter.print_lines_with_deletions();
-            //  Gtk.SourceGutter source_gutter = this.get_gutter(Gtk.TextWindowType.LEFT);
-            //  source_gutter.insert(git_diff_gutter, 1);
+            git_diff_gutter.print_lines_status();
+            Gtk.SourceGutter source_gutter = this.get_gutter(Gtk.TextWindowType.LEFT);
+            source_gutter.insert(git_diff_gutter, 1);
         }
 
         private bool get_current_line (out Gtk.TextIter start, out Gtk.TextIter end) {
