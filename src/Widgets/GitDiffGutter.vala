@@ -1,38 +1,47 @@
 namespace Scratch.Widgets {
     public class GitDiffGutter : Gtk.SourceGutterRenderer {
-        private GLib.File repo_path;
-        private Ggit.Repository? git_repo = null;
-        private Ggit.Diff workdir_diff_List;
+        private Ggit.Diff repo_diff_list;
+        // Use the previously seen diff to compare with the current diff to determine the "type" of diff
         private Ggit.DiffLine previous_line_diff = null;
+
+        // This keeps track of what lines had which kind of modification 
+        // (either new additions, modifying an existing line, or deleting lines)
         private Gee.HashMap<int, string> lines_to_status;
+
+        // Use this to represent the color of a cell in the gutter before it is drawn
         private Gdk.RGBA gutter_color;
+
         private string open_file_path = null;
-        private string repo_path_location = null;
+        private string repo_path = null;
+
+        // Use these to note what lines were modified, which lines are newly added, which lines were removed.
         private const string ADDED = "GREEN";
         private const string MODIFIED = "BLUE";
         private const string DELETED = "RED";//
 
-        public GitDiffGutter (string repo_path_location) {
+        public GitDiffGutter (string repo_path) {
             stdout.printf("MAKING NEW DIFF GUTTER\n");
-            this.repo_path_location = repo_path_location;
+            this.repo_path = repo_path;
             try {
-                repo_path = GLib.File.new_for_path (repo_path_location);
-                git_repo = Ggit.Repository.open (repo_path);//
-                workdir_diff_List = new Ggit.Diff.index_to_workdir (git_repo, null, null);
+                GLib.File repo_file_location = GLib.File.new_for_path (repo_path);
+                Ggit.Repository? git_repo = Ggit.Repository.open (repo_file_location);//
+                repo_diff_list = new Ggit.Diff.index_to_workdir (git_repo, null, null);
             } catch (GLib.Error e) {
                 stdout.printf("Error trying to open repo: %s\n", e.message);
             }
             lines_to_status = new Gee.HashMap<int, string> ();
             gutter_color = Gdk.RGBA ();
-            this.set_size(3);
+            this.set_size (3);
             this.set_visible (true);
         }
 
 
-
+        // Here we take advantage of the method that draws each cell in the gutter
+        // to determine if said line has been modified in some way. If it has,
+        // we set the cell's color appropriately.
         public override void draw (Cairo.Context cr, Gdk.Rectangle bg, Gdk.Rectangle area, Gtk.TextIter start, Gtk.TextIter end, Gtk.SourceGutterRendererState state) {
             base.draw (cr, bg, area, start, end, state);
-            int gutter_line_no = start.get_line () + 2;
+            int gutter_line_no = start.get_line () + 2; // For some reason, all the diffs are off by two lines...? 
             if (lines_to_status.contains (gutter_line_no)) {
                 string change = lines_to_status.get (gutter_line_no);
                 if (change == ADDED) {
@@ -108,6 +117,10 @@ namespace Scratch.Widgets {
             return is_deleted;
         }
 
+        // We look through every diff line of the repo (unfortunately...) and determine if 
+        // the diff is for the file that is in focus. Then we determine the kind of modification,
+        // and save it with the line number. That way we have line numbers mapped to modifications
+        // when it comes time to draw the gutter's cells.
         private int diff_line_callback (Ggit.DiffDelta delta, Ggit.DiffHunk? hunk, Ggit.DiffLine line) {
             Ggit.DiffFile? file_diff = delta.get_old_file ();
             string diff_file_path = file_diff.get_path ();
@@ -136,7 +149,8 @@ namespace Scratch.Widgets {
             }
             previous_line_diff = line;
             return 0;
-            /* Modified an existing line
+            /* Notes for myself on how the DiffLine objects work.
+            Modified an existing line
                 is_added_line: No
                 is_deleted_line: No
                 new_diff_line_no: 18
@@ -215,32 +229,6 @@ namespace Scratch.Widgets {
                 new_diff_line_no: 15
                 old_diff_line_no: 11
             */
-
-            //  if (lines_to_status.has_key (line_no)) {
-            //      // Seen line before? Line must be modified instead
-            //      lines_to_status.set (line_no, MODIFIED);
-            //  } else {
-            //      // First time seeing a line, record its status
-            //      if (is_added_line) {
-            //          lines_to_status.set (line_no, ADDED);
-            //      } else if (is_deleted_line) {
-            //          lines_to_status.set (line_no, DELETED);
-            //      }
-            //  }
-
-            //  if (diff_file_path == open_file_path) {
-            //      stdout.printf("is_added_line: %s\n", str_is_added_line);
-            //      stdout.printf("is_deleted_line: %s\n", str_is_deleted_line);
-            //      stdout.printf("new_diff_line_no: %d\n", new_diff_line_no);
-            //      stdout.printf("old_diff_line_no: %d\n\n", old_diff_line_no);
-            //  }
-
-            //  if (diff_file_path == open_file_path && type_of_change == Ggit.DiffLineType.ADDITION) {
-            //      lines_with_additions.add (new_diff_line_no);
-            //  } else if (diff_file_path == open_file_path && type_of_change == Ggit.DiffLineType.DELETION) {
-            //      lines_with_deletions.add (old_diff_line_no);
-            //  }
-            //  return 0;
         }
 
         public void print_lines_status () {
@@ -252,7 +240,7 @@ namespace Scratch.Widgets {
         public void reload (string basename) {
             stdout.printf("Reloading with: %s\n", basename);
             open_file_path = basename;
-            workdir_diff_List.foreach (diff_file_callback, diff_binary_callback, diff_hunk_callback, diff_line_callback);
+            repo_diff_list.foreach (diff_file_callback, diff_binary_callback, diff_hunk_callback, diff_line_callback);
         }
     }
 }

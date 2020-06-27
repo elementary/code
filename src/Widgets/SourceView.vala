@@ -13,10 +13,10 @@
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 * General Public License for more details.
 *
-* You should have received a copy of the GNU General Public//
+* You should have received a copy of the GNU General Public
 * License along with this program; if not, write to the
 * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-* Boston, MA 02110-1301 USA ///
+* Boston, MA 02110-1301 USA
 */
 
 namespace Scratch.Widgets {
@@ -157,7 +157,7 @@ namespace Scratch.Widgets {
                         bottom_margin = calculate_bottom_margin (allocation.height);
                         return GLib.Source.REMOVE;
                     });
-                    
+
                 }
             });
 
