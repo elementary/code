@@ -180,7 +180,6 @@ namespace Scratch.FolderManager {
                     reset_all_children (this);
                     check_each_git_status (path, Ggit.StatusFlags.WORKING_TREE_MODIFIED);
                     closed ();
-                    
                     return;
                 }
             }
