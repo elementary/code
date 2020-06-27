@@ -1,5 +1,5 @@
 namespace Scratch.Widgets {
-    public class GitDiffGutter : Gtk.SourceGutterRenderer {
+    public class SourceGutterRenderer : Gtk.SourceGutterRenderer {
         private Ggit.Diff repo_diff_list;
         // Use the previously seen diff to compare with the current diff to determine the "type" of diff
         private Ggit.DiffLine previous_line_diff = null;
@@ -18,7 +18,7 @@ namespace Scratch.Widgets {
         private const string MODIFIED = "BLUE";
         private const string DELETED = "RED";//
 
-        public GitDiffGutter (string path_to_git_folder) {
+        public SourceGutterRenderer (string path_to_git_folder) {
             stdout.printf("MAKING NEW DIFF GUTTER\n");
             try {
                 GLib.File repo_file_location = GLib.File.new_for_path (path_to_git_folder);

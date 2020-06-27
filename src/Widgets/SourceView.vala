@@ -32,7 +32,7 @@ namespace Scratch.Widgets {
         private uint size_allocate_timer = 0;
         private Gtk.TextIter last_select_start_iter;
         private Gtk.TextIter last_select_end_iter;
-        private GitDiffGutter git_diff_gutter;
+        private SourceGutterRenderer git_diff_gutter_renderer;
 
         private const uint THROTTLE_MS = 400;
 
@@ -162,9 +162,9 @@ namespace Scratch.Widgets {
             });
 
             // Make the gutter renderer and insert into the left side of the source view.
-            git_diff_gutter = new GitDiffGutter("/home/puffin/code/code/.git/");
+            git_diff_gutter_renderer = new SourceGutterRenderer("/home/puffin/code/code/.git/");
             Gtk.SourceGutter source_gutter = this.get_gutter(Gtk.TextWindowType.LEFT);
-            source_gutter.insert(git_diff_gutter, 1);
+            source_gutter.insert(git_diff_gutter_renderer, 1);
         }
 
         private bool get_current_line (out Gtk.TextIter start, out Gtk.TextIter end) {
@@ -490,7 +490,7 @@ namespace Scratch.Widgets {
         }
 
         public void refresh_gutter (string basename) {
-            git_diff_gutter.reload (basename);
+            git_diff_gutter_renderer.reload (basename);
         }
     }
 }
