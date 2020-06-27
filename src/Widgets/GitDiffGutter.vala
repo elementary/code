@@ -12,18 +12,16 @@ namespace Scratch.Widgets {
         private Gdk.RGBA gutter_color;
 
         private string open_file_path = null;
-        private string repo_path = null;
 
         // Use these to note what lines were modified, which lines are newly added, which lines were removed.
         private const string ADDED = "GREEN";
         private const string MODIFIED = "BLUE";
         private const string DELETED = "RED";//
 
-        public GitDiffGutter (string repo_path) {
+        public GitDiffGutter (string path_to_git_folder) {
             stdout.printf("MAKING NEW DIFF GUTTER\n");
-            this.repo_path = repo_path;
             try {
-                GLib.File repo_file_location = GLib.File.new_for_path (repo_path);
+                GLib.File repo_file_location = GLib.File.new_for_path (path_to_git_folder);
                 Ggit.Repository? git_repo = Ggit.Repository.open (repo_file_location);//
                 repo_diff_list = new Ggit.Diff.index_to_workdir (git_repo, null, null);
             } catch (GLib.Error e) {
@@ -45,11 +43,11 @@ namespace Scratch.Widgets {
             if (lines_to_status.contains (gutter_line_no)) {
                 string change = lines_to_status.get (gutter_line_no);
                 if (change == ADDED) {
-                    gutter_color.parse ("rgba(0,256,0,1)");
+                    gutter_color.parse ("#68b723");
                 } else if (change == MODIFIED) {
-                    gutter_color.parse ("rgba(0,0,256,1)");
+                    gutter_color.parse ("#f37329");
                 } else if (change == DELETED) {
-                    gutter_color.parse ("rgba(256,0,0,1)");
+                    gutter_color.parse ("#c6262e");
                 }
                 this.set_background (gutter_color);
             } else {

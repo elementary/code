@@ -162,7 +162,7 @@ namespace Scratch.Widgets {
             });
 
             // Make the gutter renderer and insert into the left side of the source view.
-            git_diff_gutter = new GitDiffGutter("home/puffin/code/code");
+            git_diff_gutter = new GitDiffGutter("/home/puffin/code/code/.git/");
             Gtk.SourceGutter source_gutter = this.get_gutter(Gtk.TextWindowType.LEFT);
             source_gutter.insert(git_diff_gutter, 1);
         }
