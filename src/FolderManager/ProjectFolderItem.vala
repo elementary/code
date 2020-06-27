@@ -176,6 +176,13 @@ namespace Scratch.FolderManager {
                 git_repo.file_status_foreach (options, check_each_git_status);
             } catch (Error e) {
                 critical ("Error enumerating git status: %s", e.message);
+                if (e is string) {
+                    reset_all_children (this);
+                    check_each_git_status (path, Ggit.StatusFlags.WORKING_TREE_MODIFIED);
+                    closed ();
+                    
+                    return;
+                }
             }
         }
 
