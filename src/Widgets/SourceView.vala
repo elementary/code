@@ -13,10 +13,10 @@
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 * General Public License for more details.
 *
-* You should have received a copy of the GNU General Public
+* You should have received a copy of the GNU General Public//
 * License along with this program; if not, write to the
 * Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-* Boston, MA 02110-1301 USA
+* Boston, MA 02110-1301 USA ///
 */
 
 namespace Scratch.Widgets {
@@ -33,9 +33,6 @@ namespace Scratch.Widgets {
         private Gtk.TextIter last_select_start_iter;
         private Gtk.TextIter last_select_end_iter;
         private GitDiffGutter git_diff_gutter;
-        // Hello hello
-        // Hi
-        // hi
 
         private const uint THROTTLE_MS = 400;
 
@@ -164,9 +161,8 @@ namespace Scratch.Widgets {
                 }
             });
 
-            git_diff_gutter = new GitDiffGutter();//
-            git_diff_gutter.make_diff();
-            git_diff_gutter.print_lines_status();
+            // Make the gutter renderer and insert into the left side of the source view.
+            git_diff_gutter = new GitDiffGutter("home/puffin/code/code");
             Gtk.SourceGutter source_gutter = this.get_gutter(Gtk.TextWindowType.LEFT);
             source_gutter.insert(git_diff_gutter, 1);
         }
@@ -491,6 +487,10 @@ namespace Scratch.Widgets {
 
             selection_changed_timer = 0;
             return false;
+        }
+
+        public void refresh_gutter (string basename) {
+            git_diff_gutter.reload (basename);
         }
     }
 }

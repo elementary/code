@@ -576,8 +576,14 @@ namespace Scratch.Services {
             }
         }
 
+        // When switching between tabs, refresh the source view gutter
+        public void refresh_sourceview_gutter () {
+            this.source_view.refresh_gutter (this.file.get_path ());
+        }
+
         // Focus the SourceView
         public new void focus () {
+            this.source_view.refresh_gutter (this.file.get_path ());
             this.source_view.grab_focus ();
         }
 

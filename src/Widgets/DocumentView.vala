@@ -181,6 +181,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
             if (nth_doc.file != null && nth_doc.file.get_uri () == doc.file.get_uri ()) {
                 current_document = nth_doc;
+                current_document.refresh_sourceview_gutter();
                 warning ("This Document was already opened! Not opening a duplicate!");
                 return;
             }

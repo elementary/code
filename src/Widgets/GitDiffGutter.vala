@@ -6,15 +6,17 @@ namespace Scratch.Widgets {
         private Ggit.DiffLine previous_line_diff = null;
         private Gee.HashMap<int, string> lines_to_status;
         private Gdk.RGBA gutter_color;
-        private string open_file_path = "src/Widgets/GitDiffGutter.vala";
+        private string open_file_path = null;
+        private string repo_path_location = null;
         private const string ADDED = "GREEN";
         private const string MODIFIED = "BLUE";
         private const string DELETED = "RED";//
 
-        public GitDiffGutter () {
+        public GitDiffGutter (string repo_path_location) {
             stdout.printf("MAKING NEW DIFF GUTTER\n");
+            this.repo_path_location = repo_path_location;
             try {
-                repo_path = GLib.File.new_for_path ("/home/puffin/code/code");
+                repo_path = GLib.File.new_for_path (repo_path_location);
                 git_repo = Ggit.Repository.open (repo_path);//
                 workdir_diff_List = new Ggit.Diff.index_to_workdir (git_repo, null, null);
             } catch (GLib.Error e) {
@@ -108,9 +110,15 @@ namespace Scratch.Widgets {
 
         private int diff_line_callback (Ggit.DiffDelta delta, Ggit.DiffHunk? hunk, Ggit.DiffLine line) {
             Ggit.DiffFile? file_diff = delta.get_old_file ();
+            string diff_file_path = file_diff.get_path ();
+
+            // Only process the diff if its for the file in focus.
+            if (!(diff_file_path in open_file_path)) {
+                return 0;
+            }
+
             Ggit.DiffLineType type_of_change = line.get_origin ();
 
-            string diff_file_path = file_diff.get_path ();
             int new_diff_line_no = line.get_new_lineno ();
             int old_diff_line_no = line.get_old_lineno ();
             bool is_added_line = type_of_change == Ggit.DiffLineType.ADDITION ? true : false;
@@ -241,11 +249,10 @@ namespace Scratch.Widgets {
             }
         }
 
-
-        public void make_diff () {
-            stdout.printf("MAKE_DIFF()\n");
+        public void reload (string basename) {
+            stdout.printf("Reloading with: %s\n", basename);
+            open_file_path = basename;
             workdir_diff_List.foreach (diff_file_callback, diff_binary_callback, diff_hunk_callback, diff_line_callback);
         }
-
     }
 }
