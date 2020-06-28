@@ -128,16 +128,6 @@ namespace Scratch.Widgets {
                 return 0;
             }
 
-            Ggit.DiffLineType type_of_change = line.get_origin ();
-
-            int new_diff_line_no = line.get_new_lineno ();
-            int old_diff_line_no = line.get_old_lineno ();
-            bool is_added_line = type_of_change == Ggit.DiffLineType.ADDITION ? true : false;
-            bool is_deleted_line = type_of_change == Ggit.DiffLineType.DELETION ? true : false;
-            string str_is_added_line = type_of_change == Ggit.DiffLineType.ADDITION ? "Yes" : "No";
-            string str_is_deleted_line = type_of_change == Ggit.DiffLineType.DELETION ? "Yes" : "No";
-
-
             if (is_modified (line)) {
                 lines_to_status.set (line.get_new_lineno (), MODIFIED);
             } else if (is_added (line)) {
@@ -147,92 +137,6 @@ namespace Scratch.Widgets {
             }
             previous_line_diff = line;
             return 0;
-            /* Notes for myself on how the DiffLine objects work.
-            Modified an existing line
-                is_added_line: No
-                is_deleted_line: No
-                new_diff_line_no: 18
-                old_diff_line_no: 14
-
-                // Modification begins
-                is_added_line: No
-                is_deleted_line: Yes
-                new_diff_line_no: -1
-                old_diff_line_no: 15
-
-                is_added_line: Yes
-                is_deleted_line: No
-                new_diff_line_no: 19
-                old_diff_line_no: -1
-                // Ends
-
-                is_added_line: No
-                is_deleted_line: No
-                new_diff_line_no: 20
-                old_diff_line_no: 16
-            */
-
-            /* Added a completely new line
-                // All of these are seperate additions
-                is_added_line: Yes
-                is_deleted_line: No
-                new_diff_line_no: 11
-                old_diff_line_no: -1
-
-                is_added_line: Yes
-                is_deleted_line: No
-                new_diff_line_no: 12
-                old_diff_line_no: -1
-
-                is_added_line: Yes
-                is_deleted_line: No
-                new_diff_line_no: 13
-                old_diff_line_no: -1
-            */
-
-            /* Deleted a line
-                is_added_line: No
-                is_deleted_line: No
-                new_diff_line_no: 47
-                old_diff_line_no: 40
-
-                is_added_line: No
-                is_deleted_line: No
-                new_diff_line_no: 48
-                old_diff_line_no: 41
-
-                // Deleted line
-                is_added_line: No
-                is_deleted_line: Yes
-                new_diff_line_no: -1
-                old_diff_line_no: 42
-
-                is_added_line: No
-                is_deleted_line: No
-                new_diff_line_no: 49
-                old_diff_line_no: 43
-            */
-
-            /* Untouched lines
-                is_added_line: No
-                is_deleted_line: No
-                new_diff_line_no: 5
-                old_diff_line_no: 5
-
-                or
-
-
-                is_added_line: No
-                is_deleted_line: No
-                new_diff_line_no: 15
-                old_diff_line_no: 11
-            */
-        }
-
-        public void print_lines_status () {
-            foreach (var line in lines_to_status.entries) {
-                stdout.printf ("%d => %s\n", line.key, line.value);
-            }
         }
 
         public void reload (string basename) {
