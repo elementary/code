@@ -354,12 +354,11 @@ namespace Scratch {
                 if (!split_view.is_empty ()) {
                     split_view.views.foreach ((view) => {
                         var docs = view.docs.copy ();
-                        foreach (var doc in docs) {
+                        docs.foreach ((doc) => {
                             if (doc.file.get_path ().has_prefix (a)) {
                                 view.close_document (doc);
                             }
-                        }
-                        
+                        });
                     });
                 }
             });
