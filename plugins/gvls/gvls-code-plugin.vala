@@ -85,7 +85,8 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
         });
     }
 
-    private void init_doc (Scratch.Services.Document doc,
+    private void init_doc (
+        Scratch.Services.Document doc,
                             GVls.Client client) throws GLib.Error
     {
         var cl = plugins.get_data<GVls.Client> ("gvls-client");
@@ -246,4 +247,3 @@ public void peas_register_types (TypeModule module) {
     objmodule.register_extension_type (typeof (Peas.Activatable),
                                        typeof (Scratch.Plugins.GVlsCompletion));
 }
-
