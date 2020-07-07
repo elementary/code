@@ -89,7 +89,6 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
         Scratch.Services.Document doc,
         GVls.Client client
     ) throws GLib.Error {
-    {
         var cl = plugins.get_data<GVls.Client> ("gvls-client");
         if (cl == null) {
             return;
