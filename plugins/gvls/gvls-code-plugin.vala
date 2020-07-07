@@ -37,6 +37,7 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
             }
         }
     }
+
     public void activate () {
         plugins = (Scratch.Services.Interface) object;
 
@@ -44,7 +45,7 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
 
         try {
             server.run ();
-            server.server.add_default_vapi_dirs ();
+            server.target_manager.add_default_vapi_dirs ();
         } catch (GLib.Error e) {
             warning ("Initialization Error: %s", e.message);
         }
@@ -95,15 +96,18 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
         if (cl == null) {
             return;
         }
+
         var view = doc.source_view;
         var file = doc.file;
         if (file == null) {
             return;
         }
+
         var ptmp = view.get_data<GVlsui.CompletionProvider> ("gvls-provider");
         if (ptmp != null) {
             return;
         }
+
         var prov = new GVlsui.CompletionProvider ();
         prov.client = client;
         view.get_completion ().add_provider (prov);
@@ -122,6 +126,7 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
             change.text = null;
             chgs.add (change);
         });
+
         buf.insert_text.connect ((ref pos, text)=>{
             var chgs = view.get_data<GVls.Container> ("gvls-changes");
             var pstart = new SourcePosition.from_values (pos.get_line (), pos.get_line_offset ());
@@ -132,6 +137,7 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
             change.text = text;
             chgs.add (change);
         });
+
         client.document_open.begin (file.get_uri (), buf.text, (obj, res)=>{
             try {
                 client.document_open.end (res);
@@ -148,10 +154,12 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
             message ("No MainWindow was set");
             return;
         }
+
         var docview = main_window.get_current_view ();
         if (!(docview is Scratch.Widgets.DocumentView)) {
             return;
         }
+
         foreach (Services.Document doc in docview.docs) {
             var view = doc.source_view;
             var prov = view.get_data<GVlsui.CompletionProvider> ("gvls-provider");
@@ -167,6 +175,7 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
         if (client != null) {
             client.server_shutdown.begin ();
         }
+
         if (timed_id != -1) {
             var source = MainContext.@default ().find_source_by_id (timed_id);
             if (source != null) {
