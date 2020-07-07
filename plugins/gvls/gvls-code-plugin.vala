@@ -247,4 +247,3 @@ public void peas_register_types (TypeModule module) {
     objmodule.register_extension_type (typeof (Peas.Activatable),
                                        typeof (Scratch.Plugins.GVlsCompletion));
 }
-
