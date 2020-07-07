@@ -43,12 +43,8 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
 
         GVlsp.ServerInetLocal server = new GVlsp.ServerInetLocal ();
 
-        try {
-            server.run ();
-            server.target_manager.add_default_vapi_dirs ();
-        } catch (GLib.Error e) {
-            warning ("Initialization Error: %s", e.message);
-        }
+        server.run ();
+        server.target_manager.add_default_vapi_dirs ();
 
         plugins.set_data<GVls.Server> ("gvls-server", server);
 
@@ -200,16 +196,17 @@ public class Scratch.Plugins.GVlsCompletion : Peas.ExtensionBase, Peas.Activatab
             return true;
         }
 
-        var view = main_window.get_current_view ();
-        if (view == null) {
-            return true;
-        }
-        if (!(view is Scratch.Widgets.DocumentView)) {
+        var doc = main_window.get_current_document ();
+        if (doc == null) {
             return true;
         }
 
-        var doc = main_window.get_current_document ();
-        if (doc == null) {
+        var view = doc.source_view;
+        if (view == null) {
+            return true;
+        }
+
+        if (!(view is Scratch.Widgets.DocumentView)) {
             return true;
         }
 
