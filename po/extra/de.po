@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-11 01:43+0000\n"
-"PO-Revision-Date: 2020-03-13 20:03+0000\n"
-"Last-Translator: Tucan Holmes <tucan.web.swiss@gmail.com>\n"
+"PO-Revision-Date: 2020-07-10 00:06+0000\n"
+"Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/extra/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -60,9 +60,10 @@ msgid ""
 "meaning it closely follows the high standards of design, speed, and "
 "consistency. It's sexy, but not distracting."
 msgstr ""
-"Es ist grundlegend. Code ist der perfekte Editor für elementary, d.h. er "
-"folgt den hohen Anforderungen an Design, Geschwindigkeit und Konsistenz. Er "
-"ist sexy, aber nicht ablenkend."
+"Es ist ganz simpel. Code ist dafür gemacht, der perfekte Editor für "
+"elementary zu sein, d.h. er orientiert sich eng an den hohen Standards von "
+"Design, Geschwindigkeit und Konsistenz. Er ist ansehnlich, jedoch nicht "
+"ablenkend."
 
 #: data/io.elementary.code.appdata.xml.in:27
 msgid ""
@@ -109,30 +110,30 @@ msgstr "viele weitere"
 
 #: data/io.elementary.code.appdata.xml.in:51
 #: data/io.elementary.code.appdata.xml.in:63
-#, fuzzy
-#| msgid "Other updates:"
 msgid "Minor updates:"
-msgstr "weitere Aktualisierungen:"
+msgstr "Weitere Aktualisierungen:"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Allow Spell Checker extension in Markdown files"
-msgstr ""
+msgstr "Erweiterung der Rechtschreibprüfung in Markdown-Dateien erlauben"
 
 #: data/io.elementary.code.appdata.xml.in:59
 msgid "Fixes:"
-msgstr ""
+msgstr "Korrekturen:"
 
 #: data/io.elementary.code.appdata.xml.in:61
 msgid "Fix empty sidebar layout, ensuring folders can always be added"
 msgstr ""
+"Korrektur des leeren Layouts der Seitenleiste, um sicherzustellen, dass "
+"Ordner jederzeit hinzugefügt werden können"
 
 #: data/io.elementary.code.appdata.xml.in:65
 msgid "Scroll past the end of a file"
-msgstr ""
+msgstr "Bildlauf über das Ende einer Datei hinaus"
 
 #: data/io.elementary.code.appdata.xml.in:66
 msgid "More efficiently save and restore window position"
-msgstr ""
+msgstr "Effizienteres Speichern und Wiederherstellen der Fensterposition"
 
 #: data/io.elementary.code.appdata.xml.in:67
 #: data/io.elementary.code.appdata.xml.in:82
@@ -152,11 +153,12 @@ msgstr "Neue Funktionen:"
 
 #: data/io.elementary.code.appdata.xml.in:75
 msgid "Include Git status in file tooltips"
-msgstr ""
+msgstr "Git-Status in Datei-Tooltips anzeigen lassen"
 
 #: data/io.elementary.code.appdata.xml.in:76
 msgid "Option for explicit case-sensitive Find"
 msgstr ""
+"Option für explizite Suche unter Berücksichtigung der Groß-/Kleinschreibung"
 
 #: data/io.elementary.code.appdata.xml.in:78
 #: data/io.elementary.code.appdata.xml.in:93
@@ -167,30 +169,34 @@ msgstr "weitere Aktualisierungen:"
 #: data/io.elementary.code.appdata.xml.in:80
 msgid "Correctly show Toggle Comment menu item when no text is selected"
 msgstr ""
+"Menüpunkt \"Kommentar umschalten\" korrekt anzeigen, wenn kein Text "
+"ausgewählt ist"
 
 #: data/io.elementary.code.appdata.xml.in:81
 msgid "Fixed font switch alignment"
-msgstr ""
+msgstr "Ausrichtung des Schriftartenschalters korrigiert"
 
 #: data/io.elementary.code.appdata.xml.in:90
 msgid "New \"Close Other Folders\" menu item to help clean up your sidebar"
 msgstr ""
+"Neuer Menüpunkt \"Andere Ordner schließen\", um Ihre Seitenleiste "
+"übersichtlicher zu gestalten"
 
 #: data/io.elementary.code.appdata.xml.in:91
 msgid "Save and restore cyclic search setting"
-msgstr ""
+msgstr "Speichern und Wiederherstellen der zyklischen Sucheinstellung"
 
 #: data/io.elementary.code.appdata.xml.in:95
 msgid "Add keyboard shortcuts to menu items"
-msgstr "Tastenkombinationen zu Menüeinträgen hinzufügen"
+msgstr "Hinzufügen von Tastaturkürzeln zu Menüelementen"
 
 #: data/io.elementary.code.appdata.xml.in:96
 msgid "Make sidebar folder items not selectable"
-msgstr ""
+msgstr "Sidebar-Ordner-Elemente nicht auswählbar machen"
 
 #: data/io.elementary.code.appdata.xml.in:97
 msgid "Center new windows"
-msgstr ""
+msgstr "Neue Fenster zentrieren"
 
 #: data/io.elementary.code.appdata.xml.in:106
 msgid "Visually deprioritize .gitignored files in project sidebar"
@@ -220,11 +226,13 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:112
 msgid "Zoom terminal plugin with keyboard"
-msgstr ""
+msgstr "Terminal-Plugin mit Tastatur vergrößern"
 
 #: data/io.elementary.code.appdata.xml.in:113
 msgid "Honor global privacy setting when saving and restoring"
 msgstr ""
+"Die globalen Datenschutzeinstellungen beim Speichern und Wiederherstellen "
+"beachten"
 
 #: data/io.elementary.code.appdata.xml.in:117
 msgid "Simplify \"Draw spaces\" preference"
@@ -257,7 +265,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:123
 msgid "Enter name of new file before creating it"
-msgstr ""
+msgstr "Den Namen einer neuen Datei vor dem Erstellen eingeben"
 
 #: data/io.elementary.code.appdata.xml.in:131
 msgid "Use Granite.MessageDialog throughout"
