@@ -57,17 +57,6 @@ namespace Scratch {
             _data_home_folder_unsaved = Path.build_filename (Environment.get_user_data_dir (), Constants.PROJECT_NAME, "unsaved");
         }
 
-        public static Application _instance = null;
-
-        public static Application instance {
-            get {
-                if (_instance == null) {
-                    _instance = new Application ();
-                }
-                return _instance;
-            }
-        }
-
         protected override int command_line (ApplicationCommandLine command_line) {
             var context = new OptionContext ("File");
             context.add_main_entries (ENTRIES, Constants.GETTEXT_PACKAGE);
@@ -247,8 +236,7 @@ namespace Scratch {
 
         public static int main (string[] args) {
             _app_cmd_name = "Code";
-            Application app = Application.instance;
-            return app.run (args);
+            return new Application ().run (args);
         }
     }
 }

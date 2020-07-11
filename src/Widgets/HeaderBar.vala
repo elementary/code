@@ -36,10 +36,12 @@ namespace Scratch.Widgets {
         }
 
         construct {
+            var app_instance = (Scratch.Application) GLib.Application.get_default ();
+
             var open_button = new Gtk.Button.from_icon_name ("document-open", Gtk.IconSize.LARGE_TOOLBAR);
             open_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_OPEN;
             open_button.tooltip_markup = Granite.markup_accel_tooltip (
-                Scratch.Application.instance.get_accels_for_action (open_button.action_name),
+                app_instance.get_accels_for_action (open_button.action_name),
                 _("Open a file")
             );
 
@@ -50,21 +52,21 @@ namespace Scratch.Widgets {
             var save_button = new Gtk.Button.from_icon_name ("document-save", Gtk.IconSize.LARGE_TOOLBAR);
             save_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SAVE;
             save_button.tooltip_markup = Granite.markup_accel_tooltip (
-                Scratch.Application.instance.get_accels_for_action (save_button.action_name),
+                app_instance.get_accels_for_action (save_button.action_name),
                 _("Save this file")
             );
 
             var save_as_button = new Gtk.Button.from_icon_name ("document-save-as", Gtk.IconSize.LARGE_TOOLBAR);
             save_as_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SAVE_AS;
             save_as_button.tooltip_markup = Granite.markup_accel_tooltip (
-                Scratch.Application.instance.get_accels_for_action (save_as_button.action_name),
+                app_instance.get_accels_for_action (save_as_button.action_name),
                 _("Save this file with a different name")
             );
 
             var revert_button = new Gtk.Button.from_icon_name ("document-revert", Gtk.IconSize.LARGE_TOOLBAR);
             revert_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_REVERT;
             revert_button.tooltip_markup = Granite.markup_accel_tooltip (
-                Scratch.Application.instance.get_accels_for_action (revert_button.action_name),
+                app_instance.get_accels_for_action (revert_button.action_name),
                 _("Restore this file")
             );
 
@@ -72,7 +74,7 @@ namespace Scratch.Widgets {
             find_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_SHOW_FIND;
             find_button.image = new Gtk.Image.from_icon_name ("edit-find", Gtk.IconSize.LARGE_TOOLBAR);
             find_button.tooltip_markup = Granite.markup_accel_tooltip (
-                Scratch.Application.instance.get_accels_for_action (MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND),
+                app_instance.get_accels_for_action (MainWindow.ACTION_PREFIX + MainWindow.ACTION_FIND),
                 _("Find…")
             );
 
@@ -86,21 +88,21 @@ namespace Scratch.Widgets {
             var zoom_out_button = new Gtk.Button.from_icon_name ("zoom-out-symbolic", Gtk.IconSize.MENU);
             zoom_out_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_OUT;
             zoom_out_button.tooltip_markup = Granite.markup_accel_tooltip (
-                Scratch.Application.instance.get_accels_for_action (zoom_out_button.action_name),
+                app_instance.get_accels_for_action (zoom_out_button.action_name),
                 _("Zoom Out")
             );
 
             var zoom_default_button = new Gtk.Button.with_label ("100%");
             zoom_default_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_DEFAULT;
             zoom_default_button.tooltip_markup = Granite.markup_accel_tooltip (
-                Scratch.Application.instance.get_accels_for_action (zoom_default_button.action_name),
+                app_instance.get_accels_for_action (zoom_default_button.action_name),
                 _("Zoom 1:1")
             );
 
             var zoom_in_button = new Gtk.Button.from_icon_name ("zoom-in-symbolic", Gtk.IconSize.MENU);
             zoom_in_button.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_ZOOM_IN;
             zoom_in_button.tooltip_markup = Granite.markup_accel_tooltip (
-                Scratch.Application.instance.get_accels_for_action (zoom_in_button.action_name),
+                app_instance.get_accels_for_action (zoom_in_button.action_name),
                 _("Zoom In")
             );
 
@@ -213,7 +215,7 @@ namespace Scratch.Widgets {
 
             settings.changed.connect (() => {
                 save_button.visible = !Scratch.settings.get_boolean ("autosave");
-                var last_window = Application.instance.get_last_window ();
+                var last_window = app_instance.get_last_window ();
                 zoom_default_button.label = "%.0f%%".printf (last_window.get_current_font_size () * 10);
             });
 
