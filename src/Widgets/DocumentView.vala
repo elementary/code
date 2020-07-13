@@ -132,7 +132,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
         string new_text_file = _("Text file from %s:%d").printf (timestamp.format ("%Y-%m-%d %H:%M:%S"), timestamp.get_microsecond ());
 
-        return Path.build_filename (Application.instance.data_home_folder_unsaved, new_text_file);
+        return Path.build_filename (((Scratch.Application) GLib.Application.get_default ()).data_home_folder_unsaved, new_text_file);
     }
 
     public void new_document () {

@@ -397,6 +397,7 @@ namespace Scratch {
             search_revealer.set_reveal_child (false);
 
             realize.connect (() => {
+                Scratch.saved_state.bind ("sidebar-visible", project_pane, "visible", SettingsBindFlags.DEFAULT);
                 // Plugins hook
                 HookFunc hook_func = () => {
                     plugins.hook_window (this);
