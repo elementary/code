@@ -27,11 +27,13 @@ namespace Scratch {
 
         public weak Scratch.Application app { get; construct; }
 
+        public Scratch.Widgets.DocumentView document_view;
+
         // Widgets
         public Scratch.Widgets.HeaderBar toolbar;
         private Gtk.Revealer search_revealer;
         public Scratch.Widgets.SearchBar search_bar;
-        public Scratch.Widgets.SplitView split_view;
+        private Code.WelcomeView welcome_view;
         private FolderManager.FileView folder_manager_view;
 
         // Plugins
@@ -44,6 +46,7 @@ namespace Scratch {
         private Gtk.Dialog? preferences_dialog = null;
         private Gtk.Paned hp1;
         private Gtk.Paned vp;
+        private Gtk.Stack content_stack;
 
         public Gtk.Clipboard clipboard;
 
@@ -66,12 +69,10 @@ namespace Scratch {
         public const string ACTION_COLLAPSE_ALL_FOLDERS = "action_collapse_all_folders";
         public const string ACTION_ORDER_FOLDERS = "action_order_folders";
         public const string ACTION_GO_TO = "action_go_to";
-        public const string ACTION_NEW_VIEW = "action_new_view";
         public const string ACTION_SORT_LINES = "action_sort_lines";
         public const string ACTION_NEW_TAB = "action_new_tab";
         public const string ACTION_NEW_FROM_CLIPBOARD = "action_new_from_clipboard";
         public const string ACTION_PREFERENCES = "preferences";
-        public const string ACTION_REMOVE_VIEW = "action_remove_view";
         public const string ACTION_UNDO = "action_undo";
         public const string ACTION_REDO = "action_redo";
         public const string ACTION_REVERT = "action_revert";
@@ -108,12 +109,10 @@ namespace Scratch {
             { ACTION_SHOW_FIND, action_show_fetch, null, "false" },
             { ACTION_TEMPLATES, action_templates },
             { ACTION_GO_TO, action_go_to },
-            { ACTION_NEW_VIEW, action_new_view },
             { ACTION_SORT_LINES, action_sort_lines },
             { ACTION_NEW_TAB, action_new_tab },
             { ACTION_NEW_FROM_CLIPBOARD, action_new_tab_from_clipboard },
             { ACTION_PREFERENCES, action_preferences },
-            { ACTION_REMOVE_VIEW, action_remove_view },
             { ACTION_UNDO, action_undo },
             { ACTION_REDO, action_redo },
             { ACTION_SHOW_REPLACE, action_fetch },
@@ -147,7 +146,6 @@ namespace Scratch {
             action_accelerators.set (ACTION_SAVE, "<Control>s");
             action_accelerators.set (ACTION_SAVE_AS, "<Control><shift>s");
             action_accelerators.set (ACTION_GO_TO, "<Control>i");
-            action_accelerators.set (ACTION_NEW_VIEW, "F3");
             action_accelerators.set (ACTION_SORT_LINES, "F5");
             action_accelerators.set (ACTION_NEW_TAB, "<Control>n");
             action_accelerators.set (ACTION_UNDO, "<Control>z");
@@ -278,8 +276,6 @@ namespace Scratch {
 
             Unix.signal_add (Posix.Signal.INT, quit_source_func, Priority.HIGH);
             Unix.signal_add (Posix.Signal.TERM, quit_source_func, Priority.HIGH);
-
-            /* Splitview controls showing and hiding of Welcome view */
         }
 
         private void init_layout () {
@@ -302,34 +298,25 @@ namespace Scratch {
 
             Scratch.settings.bind ("cyclic-search", search_bar.tool_cycle_search, "active", SettingsBindFlags.DEFAULT);
 
-            // SlitView
-            split_view = new Scratch.Widgets.SplitView (this);
+            welcome_view = new Code.WelcomeView (this);
+            document_view = new Scratch.Widgets.DocumentView (this);
 
-            // Signals
-            split_view.welcome_shown.connect (() => {
-                toolbar.title = app.app_cmd_name;
-                toolbar.document_available (false);
-                set_widgets_sensitive (false);
-            });
+            // Handle Drag-and-drop for files functionality on welcome screen
+            Gtk.TargetEntry target = {"text/uri-list", 0, 0};
+            Gtk.drag_dest_set (welcome_view, Gtk.DestDefaults.ALL, {target}, Gdk.DragAction.COPY);
 
-            split_view.welcome_hidden.connect (() => {
-                toolbar.document_available (true);
-                set_widgets_sensitive (true);
-            });
+            welcome_view.drag_data_received.connect ((ctx, x, y, sel, info, time) => {
+                var uris = sel.get_uris ();
+                if (uris.length > 0) {
+                    for (var i = 0; i < uris.length; i++) {
+                        string filename = uris[i];
+                        var file = File.new_for_uri (filename);
+                        Scratch.Services.Document doc = new Scratch.Services.Document (actions, file);
+                        document_view.open_document (doc);
+                    }
 
-            split_view.document_change.connect ((doc) => {
-                plugins.hook_document (doc);
-
-                search_bar.set_text_view (doc.source_view);
-                // Update MainWindow title
-                if (doc != null) {
-                    toolbar.set_document_focus (doc);
-                    folder_manager_view.select_path (doc.file.get_path ());
+                    Gtk.drag_finish (ctx, true, false, time);
                 }
-
-                // Set actions sensitive property
-                Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (doc.file != null);
-                doc.check_undoable_actions ();
             });
 
             project_pane = new Code.Pane ();
@@ -356,14 +343,22 @@ namespace Scratch {
             bottombar.no_show_all = true;
             bottombar.page_removed.connect (() => { on_plugin_toggled (bottombar); });
             bottombar.page_added.connect (() => {
-                if (!split_view.is_empty ())
-                    on_plugin_toggled (bottombar);
+                on_plugin_toggled (bottombar);
             });
 
-            var content = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-            content.width_request = 200;
-            content.pack_start (search_revealer, false, true, 0);
-            content.pack_start (split_view, true, true, 0);
+            var view_grid = new Gtk.Grid () {
+                orientation = Gtk.Orientation.VERTICAL
+            };
+            view_grid.add (search_revealer);
+            view_grid.add (document_view);
+
+            content_stack = new Gtk.Stack () {
+                expand = true,
+                width_request = 200
+            };
+            content_stack.add (welcome_view);
+            content_stack.add (view_grid);
+
 
             // Set a proper position for ThinPaned widgets
             int width, height;
@@ -372,7 +367,7 @@ namespace Scratch {
             hp1 = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
             hp1.position = 180;
             hp1.pack1 (project_pane, false, false);
-            hp1.pack2 (content, true, false);
+            hp1.pack2 (content_stack, true, false);
 
             vp = new Gtk.Paned (Gtk.Orientation.VERTICAL);
             vp.position = (height - 150);
@@ -391,7 +386,6 @@ namespace Scratch {
                     plugins.hook_toolbar (toolbar);
                     plugins.hook_share_menu (toolbar.share_menu);
                     plugins.hook_notebook_bottom (bottombar);
-                    plugins.hook_split_view (split_view);
                 };
 
                 plugins.extension_added.connect (() => {
@@ -399,6 +393,35 @@ namespace Scratch {
                 });
 
                 hook_func ();
+                restore_opened_documents ();
+            });
+
+            document_view.empty.connect (() => {
+                content_stack.visible_child = welcome_view;
+                toolbar.title = app.app_cmd_name;
+                toolbar.document_available (false);
+                set_widgets_sensitive (false);
+            });
+
+            document_view.tab_added.connect (() => {
+                content_stack.visible_child = view_grid;
+                toolbar.document_available (true);
+                set_widgets_sensitive (true);
+            });
+
+            document_view.document_change.connect ((doc) => {
+                plugins.hook_document (doc);
+
+                search_bar.set_text_view (doc.source_view);
+                // Update MainWindow title
+                if (doc != null) {
+                    toolbar.set_document_focus (doc);
+                    folder_manager_view.select_path (doc.file.get_path ());
+                }
+
+                // Set actions sensitive property
+                Utils.action_from_group (ACTION_SAVE_AS, actions).set_enabled (doc.file != null);
+                doc.check_undoable_actions ();
             });
 
             // Show/Hide widgets
@@ -419,50 +442,29 @@ namespace Scratch {
 
         public void restore_opened_documents () {
             if (privacy_settings.get_boolean ("remember-recent-files")) {
-                var uris_view1 = Scratch.settings.get_strv ("opened-files-view1");
-                var uris_view2 = Scratch.settings.get_strv ("opened-files-view2");
-                var focused_document1 = Scratch.settings.get_string ("focused-document-view1");
-                var focused_document2 = Scratch.settings.get_string ("focused-document-view2");
+                string[] uris = settings.get_strv ("opened-files-view1");
+                string focused_document = settings.get_string ("focused-document-view1");
 
-                if (uris_view1.length > 0) {
-                    var view = add_view ();
-                    if (!load_files_for_view (view, uris_view1, focused_document1)) {
-                        split_view.remove_view (view);
-                    }
-                }
-
-                if (uris_view2.length > 0) {
-                    var view = add_view ();
-                    if (!load_files_for_view (view, uris_view2, focused_document2)) {
-                        split_view.remove_view (view);
-                    }
-                }
-            }
-        }
-
-        private bool load_files_for_view (Scratch.Widgets.DocumentView view, string[] uris, string focused_document) {
-            bool anyfile_loaded = false;
-            foreach (string uri in uris) {
-               if (uri != "") {
-                    GLib.File file;
-                    if (Uri.parse_scheme (uri) != null) {
-                        file = File.new_for_uri (uri);
-                    } else {
-                        file = File.new_for_commandline_arg (uri);
-                    }
-                    /* Leave it to doc to handle problematic files properly
-                       But for files that do not exist we need to make sure that doc won't create a new file
-                    */
-                    if (file.query_exists ()) {
-                        anyfile_loaded = true;
-                        var doc = new Scratch.Services.Document (actions, file);
-                        if (doc.exists () || !doc.is_file_temporary) {
-                            open_document (doc, view, file.get_uri () == focused_document);
+                foreach (string uri in uris) {
+                   if (uri != "") {
+                        GLib.File file;
+                        if (Uri.parse_scheme (uri) != null) {
+                            file = File.new_for_uri (uri);
+                        } else {
+                            file = File.new_for_commandline_arg (uri);
+                        }
+                        /* Leave it to doc to handle problematic files properly
+                           But for files that do not exist we need to make sure that doc won't create a new file
+                        */
+                        if (file.query_exists ()) {
+                            var doc = new Scratch.Services.Document (actions, file);
+                            if (doc.exists () || !doc.is_file_temporary) {
+                                open_document (doc, file.get_uri () == focused_document);
+                            }
                         }
                     }
                 }
             }
-            return anyfile_loaded;
         }
 
         private bool on_key_pressed (Gdk.EventKey event) {
@@ -514,37 +516,14 @@ namespace Scratch {
             }
         }
 
-        // Get current view
-        public Scratch.Widgets.DocumentView? get_current_view () {
-            var view = (Scratch.Widgets.DocumentView) split_view.get_focus_child ();
-            if (view == null) {
-                // no view is focused right now, so get last focused
-                view = split_view.current_view;
-            }
-            return view;
-        }
-
         // Get current document
         public Scratch.Services.Document? get_current_document () {
-            var view = get_current_view ();
-            if (view != null) {
-                return view.current_document;
-            }
-            return null;
+            return document_view.current_document;
         }
 
         // Get current document if it's focused
         public Scratch.Services.Document? get_focused_document () {
-            var view = (Scratch.Widgets.DocumentView) split_view.get_focus_child ();
-            if (view != null) {
-                return view.current_document;
-            }
-            return null;
-        }
-
-        // Add new view
-        public Scratch.Widgets.DocumentView? add_view () {
-            return split_view.add_view ();
+            return document_view.current_document;
         }
 
         public void open_folder (File folder) {
@@ -553,34 +532,20 @@ namespace Scratch {
         }
 
         // Open a document
-        public void open_document (Scratch.Services.Document doc, Scratch.Widgets.DocumentView? view_ = null, bool focus = true) {
+        public void open_document (Scratch.Services.Document doc, bool focus = true) {
             while (Gtk.events_pending ()) {
                 Gtk.main_iteration ();
             }
 
-            if (split_view.is_empty ()) {
-                Scratch.Widgets.DocumentView view = split_view.add_view ();
-                view.open_document (doc);
-            } else {
-                Scratch.Widgets.DocumentView view = view_ ?? get_current_view ();
-                view.open_document (doc, focus);
+            document_view.open_document (doc);
+            if (focus) {
+                document_view.current_document = doc;
             }
         }
 
         // Close a document
         public void close_document (Scratch.Services.Document doc) {
-            Scratch.Widgets.DocumentView? view = null;
-            if (split_view.is_empty ()) {
-                view = split_view.add_view ();
-            } else {
-                view = get_current_view ();
-            }
-            view.close_document (doc);
-        }
-
-        // Return true if there are no documents
-        public bool is_empty () {
-            return split_view.is_empty ();
+            document_view.close_document (doc);
         }
 
         public bool has_temporary_files () {
@@ -600,16 +565,11 @@ namespace Scratch {
 
         // Check if there no unsaved changes
         private bool check_unsaved_changes () {
-            if (!is_empty ()) {
-                foreach (var w in split_view.views) {
-                    var view = w as Scratch.Widgets.DocumentView;
-                    view.is_closing = true;
-                    foreach (var doc in view.docs) {
-                        if (!doc.do_close (true)) {
-                            view.current_document = doc;
-                            return false;
-                        }
-                    }
+            document_view.is_closing = true;
+            foreach (var doc in document_view.docs) {
+                if (!doc.do_close (true)) {
+                    document_view.current_document = doc;
+                    return false;
                 }
             }
 
@@ -668,6 +628,7 @@ namespace Scratch {
 
         // For exit cleanup
         private void handle_quit () {
+            document_view.save_opened_files ();
             update_saved_state ();
         }
 
@@ -873,37 +834,12 @@ namespace Scratch {
         }
 
         private void action_new_tab () {
-            Scratch.Widgets.DocumentView? view = null;
-            if (split_view.is_empty ()) {
-                view = split_view.add_view ();
-            } else {
-                view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
-            }
-
-            view.new_document ();
+            document_view.new_document ();
         }
 
         private void action_new_tab_from_clipboard () {
-            Scratch.Widgets.DocumentView? view = null;
-            if (split_view.is_empty ()) {
-                view = split_view.add_view ();
-            } else {
-                view = split_view.get_focus_child () as Scratch.Widgets.DocumentView;
-            }
-
             string text_from_clipboard = clipboard.wait_for_text ();
-            view.new_document_from_clipboard (text_from_clipboard);
-        }
-
-        private void action_new_view () {
-            var view = split_view.add_view ();
-            if (view != null) {
-                view.new_document ();
-            }
-        }
-
-        private void action_remove_view () {
-            split_view.remove_view ();
+            document_view.new_document_from_clipboard (text_from_clipboard);
         }
 
         private void action_fullscreen () {
@@ -970,7 +906,7 @@ namespace Scratch {
         }
 
         private void action_to_lower_case () {
-            var doc = get_focused_document ();
+            var doc = document_view.current_document;
             if (doc == null) {
                 return;
             }
@@ -985,7 +921,7 @@ namespace Scratch {
         }
 
         private void action_to_upper_case () {
-            var doc = get_focused_document ();
+            var doc = document_view.current_document;
             if (doc == null) {
                 return;
             }
