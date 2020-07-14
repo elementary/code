@@ -413,7 +413,7 @@ namespace Scratch.Widgets {
             menu.add (sort_item);
 
             if (buffer is Gtk.SourceBuffer) {
-                var can_comment = CommentToggler.language_has_comments ((buffer as Gtk.SourceBuffer).get_language ());
+                var can_comment = CommentToggler.language_has_comments (((Gtk.SourceBuffer) buffer).get_language ());
 
                 var comment_item = new Gtk.MenuItem ();
                 comment_item.sensitive = can_comment;
@@ -422,7 +422,7 @@ namespace Scratch.Widgets {
                     MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_COMMENT
                 ));
                 comment_item.activate.connect (() => {
-                    CommentToggler.toggle_comment (buffer as Gtk.SourceBuffer);
+                    CommentToggler.toggle_comment ((Gtk.SourceBuffer) buffer);
                 });
 
                 menu.add (comment_item);
