@@ -152,20 +152,6 @@ namespace Scratch.Widgets {
             toggle_sidebar_menuitem.get_child ().destroy ();
             toggle_sidebar_menuitem.add (toggle_sidebar_accellabel);
 
-            var new_view_accellabel = new Granite.AccelLabel.from_action_name (
-                _("Add New View"),
-                MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_VIEW
-            );
-
-            var new_view_menuitem = new Gtk.ModelButton ();
-            new_view_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_VIEW;
-            new_view_menuitem.get_child ().destroy ();
-            new_view_menuitem.add (new_view_accellabel);
-
-            var remove_view_menuitem = new Gtk.ModelButton ();
-            remove_view_menuitem.text = _("Remove Current View");
-            remove_view_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_REMOVE_VIEW;
-
             var preferences_menuitem = new Gtk.ModelButton ();
             preferences_menuitem.text = _("Preferences");
             preferences_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_PREFERENCES;
@@ -180,9 +166,7 @@ namespace Scratch.Widgets {
             menu_grid.attach (color_button_dark, 2, 1, 1, 1);
             menu_grid.attach (menu_separator, 0, 2, 3, 1);
             menu_grid.attach (toggle_sidebar_menuitem, 0, 3, 3, 1);
-            menu_grid.attach (new_view_menuitem, 0, 4, 3, 1);
-            menu_grid.attach (remove_view_menuitem, 0, 5, 3, 1);
-            menu_grid.attach (preferences_menuitem, 0, 6, 3, 1);
+            menu_grid.attach (preferences_menuitem, 0, 6, 3);
             menu_grid.show_all ();
 
             var menu = new Gtk.Popover (null);
