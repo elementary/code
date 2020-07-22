@@ -40,25 +40,12 @@ namespace Scratch.Plugins {
             });
 
             plugins.hook_document.connect (set_current_document);
-
-            plugins.hook_split_view.connect (on_hook_split_view);
-
             plugins.hook_toolbar.connect (on_hook_toolbar);
         }
 
         public void deactivate () {
             if (tool_button != null)
                 tool_button.destroy ();
-        }
-
-        void on_hook_split_view (Scratch.Widgets.SplitView view) {
-            this.tool_button.visible = ! view.is_empty ();
-            view.welcome_shown.connect (() => {
-                this.tool_button.visible = false;
-            });
-            view.welcome_hidden.connect (() => {
-                this.tool_button.visible = true;
-            });
         }
 
         void on_hook_toolbar (Scratch.Widgets.HeaderBar toolbar) {

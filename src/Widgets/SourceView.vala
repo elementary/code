@@ -98,10 +98,10 @@ namespace Scratch.Widgets {
 
             scroll_event.connect ((key_event) => {
                 if ((Gdk.ModifierType.CONTROL_MASK in key_event.state) && key_event.delta_y < 0) {
-                    Application.instance.get_last_window ().action_zoom_in ();
+                    ((Scratch.Application) GLib.Application.get_default ()).get_last_window ().action_zoom_in ();
                     return true;
                 } else if ((Gdk.ModifierType.CONTROL_MASK in key_event.state) && key_event.delta_y > 0) {
-                    Application.instance.get_last_window ().action_zoom_out ();
+                    ((Scratch.Application) GLib.Application.get_default ()).get_last_window ().action_zoom_out ();
                     return true;
                 }
 
@@ -187,7 +187,7 @@ namespace Scratch.Widgets {
                 return;
             }
 
-            font = Application.instance.default_font;
+            font = ((Scratch.Application) GLib.Application.get_default ()).default_font;
         }
 
         public void change_syntax_highlight_from_file (File file) {
@@ -420,7 +420,7 @@ namespace Scratch.Widgets {
             menu.add (sort_item);
 
             if (buffer is Gtk.SourceBuffer) {
-                var can_comment = CommentToggler.language_has_comments ((buffer as Gtk.SourceBuffer).get_language ());
+                var can_comment = CommentToggler.language_has_comments (((Gtk.SourceBuffer) buffer).get_language ());
 
                 var comment_item = new Gtk.MenuItem ();
                 comment_item.sensitive = can_comment;
@@ -429,7 +429,7 @@ namespace Scratch.Widgets {
                     MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_COMMENT
                 ));
                 comment_item.activate.connect (() => {
-                    CommentToggler.toggle_comment (buffer as Gtk.SourceBuffer);
+                    CommentToggler.toggle_comment ((Gtk.SourceBuffer) buffer);
                 });
 
                 menu.add (comment_item);
@@ -442,7 +442,7 @@ namespace Scratch.Widgets {
             const int LINES_TO_KEEP = 3;
             const double PT_TO_PX = 1.6667; // Normally 1.3333, but this accounts for line-height
 
-            double px_per_line = Application.instance.get_last_window ().get_current_font_size () * PT_TO_PX;
+            double px_per_line = ((Scratch.Application) GLib.Application.get_default ()).get_last_window ().get_current_font_size () * PT_TO_PX;
 
             return (int) (height_in_px - (LINES_TO_KEEP * px_per_line));
         }

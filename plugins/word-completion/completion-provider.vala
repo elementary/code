@@ -162,7 +162,9 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
             Gee.TreeSet<string> prop_word_list;
             if (parser.get_for_word (to_find, out prop_word_list)) {
                 foreach (var word in prop_word_list) {
-                    var item = new Gtk.SourceCompletionItem (word, word, null, null);
+                    var item = new Gtk.SourceCompletionItem ();
+                    item.label = word;
+                    item.text = word;
                     props.prepend (item);
                 }
 
