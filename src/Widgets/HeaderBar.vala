@@ -197,7 +197,11 @@ namespace Scratch.Widgets {
             share_menu.insert.connect (on_share_menu_changed);
             share_menu.remove.connect (on_share_menu_changed);
 
-            settings.changed.connect ((key) => {
+            Scratch.settings.changed.connect ((key) => {
+                if (key != "autosave" && key != "font") {
+                    return;
+                }
+
                 save_button.visible = !Scratch.settings.get_boolean ("autosave");
                 var last_window = app_instance.get_last_window ();
                 if (last_window != null) {
