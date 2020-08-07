@@ -197,10 +197,12 @@ namespace Scratch.Widgets {
             share_menu.insert.connect (on_share_menu_changed);
             share_menu.remove.connect (on_share_menu_changed);
 
-            settings.changed.connect (() => {
+            settings.changed.connect ((key) => {
                 save_button.visible = !Scratch.settings.get_boolean ("autosave");
                 var last_window = app_instance.get_last_window ();
-                zoom_default_button.label = "%.0f%%".printf (last_window.get_current_font_size () * 10);
+                if (last_window != null) {
+                    zoom_default_button.label = "%.0f%%".printf (last_window.get_current_font_size () * 10);
+                }
             });
 
             var gtk_settings = Gtk.Settings.get_default ();

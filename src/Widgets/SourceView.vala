@@ -435,7 +435,12 @@ namespace Scratch.Widgets {
             const int LINES_TO_KEEP = 3;
             const double PT_TO_PX = 1.6667; // Normally 1.3333, but this accounts for line-height
 
-            double px_per_line = ((Scratch.Application) GLib.Application.get_default ()).get_last_window ().get_current_font_size () * PT_TO_PX;
+            double px_per_line = 10 * PT_TO_PX;
+
+            var last_window = ((Scratch.Application) GLib.Application.get_default ()).get_last_window ();
+            if (last_window != null) {
+                px_per_line = last_window.get_current_font_size () * PT_TO_PX;
+            }
 
             return (int) (height_in_px - (LINES_TO_KEEP * px_per_line));
         }
