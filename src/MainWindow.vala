@@ -239,7 +239,6 @@ namespace Scratch {
 
             // Set up layout
             init_layout ();
-            set_widgets_sensitive (false);
 
             toolbar.templates_button.visible = (plugins.plugin_iface.template_manager.template_available);
             plugins.plugin_iface.template_manager.notify["template_available"].connect (() => {
@@ -424,6 +423,8 @@ namespace Scratch {
                 doc.check_undoable_actions ();
             });
 
+            set_widgets_sensitive (false);
+
             // Show/Hide widgets
             show_all ();
         }
@@ -531,16 +532,8 @@ namespace Scratch {
             folder_manager_view.open_folder (foldermanager_file);
         }
 
-        // Open a document
         public void open_document (Scratch.Services.Document doc, bool focus = true) {
-            while (Gtk.events_pending ()) {
-                Gtk.main_iteration ();
-            }
-
-            document_view.open_document (doc);
-            if (focus) {
-                document_view.current_document = doc;
-            }
+            document_view.open_document (doc, focus);
         }
 
         // Close a document

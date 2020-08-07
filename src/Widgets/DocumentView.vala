@@ -179,8 +179,11 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             }
 
             if (nth_doc.file != null && nth_doc.file.get_uri () == doc.file.get_uri ()) {
-                current_document = nth_doc;
-                warning ("This Document was already opened! Not opening a duplicate!");
+                if (focus) {
+                    current_document = nth_doc;
+                }
+
+                debug ("This Document was already opened! Not opening a duplicate!");
                 return;
             }
         }
@@ -193,7 +196,9 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
             doc.open.begin (false, (obj, res) => {
                 doc.open.end (res);
-                doc.focus ();
+                if (focus) {
+                    doc.focus ();
+                }
                 save_opened_files ();
             });
 
