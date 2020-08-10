@@ -44,8 +44,6 @@ namespace Scratch {
         }
 
         public Application () {
-            Granite.Services.Logger.initialize ("Code");
-
             // Init settings
             default_font = new GLib.Settings ("org.gnome.desktop.interface").get_string ("monospace-font-name");
             saved_state = new GLib.Settings (Constants.PROJECT_NAME + ".saved-state");
