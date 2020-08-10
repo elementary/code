@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-10 23:09+0000\n"
+"POT-Creation-Date: 2020-08-10 08:06+0000\n"
 "PO-Revision-Date: 2020-04-14 14:10+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://l10n.elementary.io/projects/code/code/fi/>\n"
@@ -19,33 +19,33 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
-#: src/Application.vala:134
+#: src/Application.vala:114
 #, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr "Tiedostoa \"%s\" ei voi luoda"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:138
+#: src/Application.vala:118
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Kenties sinulla ei ole tarvittavia oikeuksia."
 
-#: src/Application.vala:140
+#: src/Application.vala:120
 msgid "Maybe the file path provided is not valid."
 msgstr "Kenties määritetty polku on virheellinen."
 
-#: src/Application.vala:142
+#: src/Application.vala:122
 msgid "The location is read-only."
 msgstr "Sijainti on \"vain luku\"-muodossa."
 
-#: src/Application.vala:144
+#: src/Application.vala:124
 msgid "The parent directory doesn't exist."
 msgstr "Ylätason kansiota ei ole olemassa."
 
-#: src/Application.vala:165
+#: src/Application.vala:145
 msgid "It is a mountable location."
 msgstr "Kyseessä on liitettävä sijainti."
 
-#: src/Application.vala:168
+#: src/Application.vala:148
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -53,81 +53,81 @@ msgstr ""
 "Kyseessä on \"erityinen\" tiedosto, kuten pistoke,\n"
 " FIFO, lohkolaite tai merkkilaite."
 
-#: src/Application.vala:171
+#: src/Application.vala:151
 msgid "It is an \"unknown\" file type."
 msgstr "Kyseessä on \"tuntematon\" tiedostotyyppi."
 
-#: src/Application.vala:176
+#: src/Application.vala:156
 #, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr "Tiedostoa \"%s\" ei voi avata"
 
-#: src/Application.vala:248
+#: src/Application.vala:220
 msgid "New Tab"
 msgstr "Uusi välilehti"
 
-#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:221 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Uusi ikkuna"
 
-#: src/Application.vala:250
+#: src/Application.vala:222
 msgid "Print version info and exit"
 msgstr "Tulosta versiotiedot ja poistu"
 
-#: src/Application.vala:251
+#: src/Application.vala:223
 msgid "Set of plugins"
 msgstr "Laajennusjoukko"
 
-#: src/Application.vala:251
+#: src/Application.vala:223
 msgid "plugin"
 msgstr "liitännäinen"
 
-#: src/MainWindow.vala:137
+#: src/MainWindow.vala:136
 msgid "Code"
 msgstr "Koodi"
 
-#: src/MainWindow.vala:188 src/Widgets/HeaderBar.vala:76
+#: src/MainWindow.vala:186 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "Etsi…"
 
-#: src/MainWindow.vala:193
+#: src/MainWindow.vala:191
 msgid "Hide search bar"
 msgstr "Piilota hakupalkki"
 
-#: src/MainWindow.vala:267
+#: src/MainWindow.vala:265
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zeitgeist-tietolähde Code-sovellukselle"
 
-#: src/MainWindow.vala:764 src/Services/Document.vala:502
+#: src/MainWindow.vala:725 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Kaikki tiedostot"
 
-#: src/MainWindow.vala:768 src/Services/Document.vala:506
+#: src/MainWindow.vala:729 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Tekstitiedostot"
 
-#: src/MainWindow.vala:772
+#: src/MainWindow.vala:733
 msgid "Open some files"
 msgstr "Avaa tiedostoja"
 
-#: src/MainWindow.vala:775
+#: src/MainWindow.vala:736
 msgid "Open"
 msgstr "Avaa"
 
-#: src/MainWindow.vala:776 src/Services/Document.vala:401
+#: src/MainWindow.vala:737 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Peru"
 
-#: src/MainWindow.vala:801
+#: src/MainWindow.vala:762
 msgid "_Open"
 msgstr "_Avaa"
 
-#: src/MainWindow.vala:802
+#: src/MainWindow.vala:763
 msgid "_Cancel"
 msgstr "_Peru"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:168
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:156
 msgid "Preferences"
 msgstr "Asetukset"
 
@@ -242,23 +242,23 @@ msgstr "Älä palauta"
 msgid "Restore Anyway"
 msgstr "Palauta silti"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:117
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:117
 msgid "Other Application…"
 msgstr "Muu sovellus…"
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:157
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:157
 msgid "Open In"
 msgstr "Avaa kohteessa"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:92
 msgid "Other Actions"
 msgstr "Muut toiminnot"
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:95
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:95
 msgid "Rename"
 msgstr "Nimeä uudelleen"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:101
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:101
 #: src/FolderManager/ProjectFolderItem.vala:103
 msgid "Move to Trash"
 msgstr "Siirrä roskakoriin"
@@ -425,7 +425,7 @@ msgstr "Jatka"
 msgid "Templates"
 msgstr "Mallit"
 
-#: src/Widgets/DocumentView.vala:133
+#: src/Widgets/DocumentView.vala:132
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Tekstitiedosto lähteestä %s:%d"
@@ -464,67 +464,59 @@ msgstr[1] "%d Sarkainlyöntiä"
 msgid "Go To Line:"
 msgstr "Siirry riville:"
 
-#: src/Widgets/HeaderBar.vala:43
+#: src/Widgets/HeaderBar.vala:45
 msgid "Open a file"
 msgstr "Avaa tiedosto"
 
-#: src/Widgets/HeaderBar.vala:48
+#: src/Widgets/HeaderBar.vala:50
 msgid "Project templates"
 msgstr "Projektimallit"
 
-#: src/Widgets/HeaderBar.vala:54
+#: src/Widgets/HeaderBar.vala:56
 msgid "Save this file"
 msgstr "Tallenna tämä tiedosto"
 
-#: src/Widgets/HeaderBar.vala:61
+#: src/Widgets/HeaderBar.vala:63
 msgid "Save this file with a different name"
 msgstr "Tallenna tämä tiedosto eri nimellä"
 
-#: src/Widgets/HeaderBar.vala:68
+#: src/Widgets/HeaderBar.vala:70
 msgid "Restore this file"
 msgstr "Palauta tämä tiedosto"
 
-#: src/Widgets/HeaderBar.vala:83
+#: src/Widgets/HeaderBar.vala:85
 msgid "Share"
 msgstr "Jaa"
 
-#: src/Widgets/HeaderBar.vala:90
+#: src/Widgets/HeaderBar.vala:92
 msgid "Zoom Out"
 msgstr "Loitonna"
 
-#: src/Widgets/HeaderBar.vala:97
+#: src/Widgets/HeaderBar.vala:99
 msgid "Zoom 1:1"
 msgstr "Zoomaus 1:1"
 
-#: src/Widgets/HeaderBar.vala:104
+#: src/Widgets/HeaderBar.vala:106
 msgid "Zoom In"
 msgstr "Lähennä"
 
-#: src/Widgets/HeaderBar.vala:118
+#: src/Widgets/HeaderBar.vala:120
 msgid "High Contrast"
 msgstr "Suuri kontrasti"
 
-#: src/Widgets/HeaderBar.vala:126
+#: src/Widgets/HeaderBar.vala:128
 msgid "Solarized Light"
 msgstr "Ylivalotus"
 
-#: src/Widgets/HeaderBar.vala:134
+#: src/Widgets/HeaderBar.vala:136
 msgid "Solarized Dark"
 msgstr "Alivalotus"
 
-#: src/Widgets/HeaderBar.vala:144
+#: src/Widgets/HeaderBar.vala:146
 msgid "Toggle Sidebar"
 msgstr "Kytke sivupaneeli päälle / pois päältä"
 
-#: src/Widgets/HeaderBar.vala:154
-msgid "Add New View"
-msgstr "Lisää uusi näkymä"
-
-#: src/Widgets/HeaderBar.vala:164
-msgid "Remove Current View"
-msgstr "Poista nykyinen näkymä"
-
-#: src/Widgets/HeaderBar.vala:191
+#: src/Widgets/HeaderBar.vala:177
 msgid "Menu"
 msgstr "Valikko"
 
@@ -548,35 +540,35 @@ msgstr "Hallitse projektikansioita"
 msgid "Find"
 msgstr "Etsi"
 
-#: src/Widgets/SearchBar.vala:72
+#: src/Widgets/SearchBar.vala:74
 msgid "Search next"
 msgstr "Etsi seuraava"
 
-#: src/Widgets/SearchBar.vala:82
+#: src/Widgets/SearchBar.vala:84
 msgid "Search previous"
 msgstr "Etsi seuraava"
 
-#: src/Widgets/SearchBar.vala:87
+#: src/Widgets/SearchBar.vala:89
 msgid "Cyclic Search"
 msgstr "Syklinen haku"
 
-#: src/Widgets/SearchBar.vala:93
+#: src/Widgets/SearchBar.vala:95
 msgid "Case Sensitive"
 msgstr "Huomioi kirjainkoko"
 
-#: src/Widgets/SearchBar.vala:93
+#: src/Widgets/SearchBar.vala:95
 msgid "Case Insensitive"
 msgstr "Älä huomioi kirjainkokoa"
 
-#: src/Widgets/SearchBar.vala:112
+#: src/Widgets/SearchBar.vala:114
 msgid "Replace With"
 msgstr "Korvaava merkkijono"
 
-#: src/Widgets/SearchBar.vala:115
+#: src/Widgets/SearchBar.vala:117
 msgid "Replace"
 msgstr "Korvaa"
 
-#: src/Widgets/SearchBar.vala:118
+#: src/Widgets/SearchBar.vala:120
 msgid "Replace all"
 msgstr "Korvaa kaikki"
 
@@ -691,26 +683,26 @@ msgstr "Symbolit"
 msgid "No Symbols Found"
 msgstr "Symbolit"
 
-#: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
+#: plugins/terminal/terminal.vala:164 plugins/terminal/terminal.vala:171
 msgid "Show Terminal"
 msgstr "Näytä pääte"
 
-#: plugins/terminal/terminal.vala:179
+#: plugins/terminal/terminal.vala:167
 msgid "Hide Terminal"
 msgstr "Piilota pääte"
 
-#: plugins/terminal/terminal.vala:180
+#: plugins/terminal/terminal.vala:168
 msgid "Terminal"
 msgstr "Pääte"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:237
+#: plugins/terminal/terminal.vala:225
 msgid "Copy"
 msgstr "Kopioi"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:244
+#: plugins/terminal/terminal.vala:232
 msgid "Paste"
 msgstr "Liitä"
 
@@ -718,12 +710,12 @@ msgstr "Liitä"
 msgid "Web Preview"
 msgstr "Web-esikatselu"
 
-#: plugins/browser-preview/browser-preview.vala:70
-#: plugins/browser-preview/browser-preview.vala:96
+#: plugins/browser-preview/browser-preview.vala:57
+#: plugins/browser-preview/browser-preview.vala:83
 msgid "Show Preview"
 msgstr "Näytä esikatselu"
 
-#: plugins/browser-preview/browser-preview.vala:88
+#: plugins/browser-preview/browser-preview.vala:75
 msgid "Hide Preview"
 msgstr "Piilota esikatselu"
 
@@ -739,6 +731,12 @@ msgstr "Asenna vähintään yksi [aspell]-sanakirja."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Sanojen täydennys"
+
+#~ msgid "Add New View"
+#~ msgstr "Lisää uusi näkymä"
+
+#~ msgid "Remove Current View"
+#~ msgstr "Poista nykyinen näkymä"
 
 #~ msgid "untitled folder %d"
 #~ msgstr "nimetön kansio %d"
