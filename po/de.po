@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-10 08:06+0000\n"
+"POT-Creation-Date: 2020-09-01 22:59+0000\n"
 "PO-Revision-Date: 2020-07-10 00:06+0000\n"
 "Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
@@ -94,36 +94,36 @@ msgstr "Suchen …"
 msgid "Hide search bar"
 msgstr "Suchleiste ausblenden"
 
-#: src/MainWindow.vala:265
+#: src/MainWindow.vala:264
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zeitgeist Datenquelle für Code"
 
-#: src/MainWindow.vala:725 src/Services/Document.vala:502
+#: src/MainWindow.vala:718 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Alle Dateien"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:506
+#: src/MainWindow.vala:722 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Textdateien"
 
-#: src/MainWindow.vala:733
+#: src/MainWindow.vala:726
 msgid "Open some files"
 msgstr "Ein paar Dateien öffnen"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:729
 msgid "Open"
 msgstr "Öffnen"
 
-#: src/MainWindow.vala:737 src/Services/Document.vala:401
+#: src/MainWindow.vala:730 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: src/MainWindow.vala:762
+#: src/MainWindow.vala:755
 msgid "_Open"
 msgstr "_Öffnen"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:756
 msgid "_Cancel"
 msgstr "_Abbrechen"
 
@@ -522,19 +522,21 @@ msgstr "Seitenleiste umschalten"
 msgid "Menu"
 msgstr "Menü"
 
-#: src/Widgets/Pane.vala:44
-msgid "Open project folder…"
+#: src/Widgets/Pane.vala:45
+#, fuzzy
+#| msgid "Open project folder…"
+msgid "Open Project Folder…"
 msgstr "Projektordner öffnen…"
 
-#: src/Widgets/Pane.vala:46
+#: src/Widgets/Pane.vala:48
 msgid "Collapse All"
 msgstr "Alle zusammenklappen"
 
-#: src/Widgets/Pane.vala:49
+#: src/Widgets/Pane.vala:51
 msgid "Alphabetize"
 msgstr "Alphabetisieren"
 
-#: src/Widgets/Pane.vala:60
+#: src/Widgets/Pane.vala:62
 msgid "Manage project folders"
 msgstr "Projektordner verwalten"
 

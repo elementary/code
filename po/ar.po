@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-10 08:06+0000\n"
+"POT-Creation-Date: 2020-09-01 22:59+0000\n"
 "PO-Revision-Date: 2020-05-16 03:11+0000\n"
 "Last-Translator: nasserbinlaboun <nasser1990com@gmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/code/code/ar/>\n"
@@ -95,36 +95,36 @@ msgstr "إبحث…"
 msgid "Hide search bar"
 msgstr "اخفاء شريط البحث"
 
-#: src/MainWindow.vala:265
+#: src/MainWindow.vala:264
 msgid "Zeitgeist Datasource for Code"
 msgstr "برمجية “zeitgeist” كمصدر معلومات للكود"
 
-#: src/MainWindow.vala:725 src/Services/Document.vala:502
+#: src/MainWindow.vala:718 src/Services/Document.vala:502
 msgid "All files"
 msgstr "كل الملفات"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:506
+#: src/MainWindow.vala:722 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "ملفات نصية"
 
-#: src/MainWindow.vala:733
+#: src/MainWindow.vala:726
 msgid "Open some files"
 msgstr "فتح بعض الملفات"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:729
 msgid "Open"
 msgstr "إفتح"
 
-#: src/MainWindow.vala:737 src/Services/Document.vala:401
+#: src/MainWindow.vala:730 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "الغاء"
 
-#: src/MainWindow.vala:762
+#: src/MainWindow.vala:755
 msgid "_Open"
 msgstr "_فتح"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:756
 msgid "_Cancel"
 msgstr "_الغاء"
 
@@ -521,19 +521,21 @@ msgstr "الشريط الجانبي"
 msgid "Menu"
 msgstr "القائمة"
 
-#: src/Widgets/Pane.vala:44
-msgid "Open project folder…"
+#: src/Widgets/Pane.vala:45
+#, fuzzy
+#| msgid "Open project folder…"
+msgid "Open Project Folder…"
 msgstr "فتح مجلد المشروع…"
 
-#: src/Widgets/Pane.vala:46
+#: src/Widgets/Pane.vala:48
 msgid "Collapse All"
 msgstr "طي الكل"
 
-#: src/Widgets/Pane.vala:49
+#: src/Widgets/Pane.vala:51
 msgid "Alphabetize"
 msgstr "ترتيب بالأبجدية"
 
-#: src/Widgets/Pane.vala:60
+#: src/Widgets/Pane.vala:62
 msgid "Manage project folders"
 msgstr "إدارة مجلدات المشروع"
 
