@@ -261,7 +261,7 @@ public class Scratch.Plugins.BracketsCompletion : Peas.ExtensionBase, Peas.Activ
                 return;
             }
 
-            if (!(prev_char in brackets)) {
+            if (!brackets.has_key (prev_char)) {
                 return;
             }
 

@@ -38,7 +38,6 @@ code_files = files(
     'Widgets/PaneSwitcher.vala',
     'Widgets/SearchBar.vala',
     'Widgets/SourceView.vala',
-    'Widgets/SplitView.vala',
     'Widgets/WelcomeView.vala',
 )
 

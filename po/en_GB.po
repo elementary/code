@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-10 23:09+0000\n"
-"PO-Revision-Date: 2020-04-06 15:10+0000\n"
+"POT-Creation-Date: 2020-09-01 22:59+0000\n"
+"PO-Revision-Date: 2020-07-15 23:12+0000\n"
 "Last-Translator: Ciarán Ainsworth <ciaranainsworth@posteo.net>\n"
 "Language-Team: English (United Kingdom) <https://l10n.elementary.io/projects/"
 "code/code/en_GB/>\n"
@@ -20,33 +20,33 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
-#: src/Application.vala:134
+#: src/Application.vala:114
 #, c-format
 msgid "File \"%s\" Cannot Be Created"
 msgstr "File \"%s\" Cannot Be Created"
 
 #. We list some common errors for quick feedback
-#: src/Application.vala:138
+#: src/Application.vala:118
 msgid "Maybe you do not have the necessary permissions."
 msgstr "Maybe you do not have the necessary permissions."
 
-#: src/Application.vala:140
+#: src/Application.vala:120
 msgid "Maybe the file path provided is not valid."
 msgstr "Maybe the file path provided is not valid."
 
-#: src/Application.vala:142
+#: src/Application.vala:122
 msgid "The location is read-only."
 msgstr "The location is read-only."
 
-#: src/Application.vala:144
+#: src/Application.vala:124
 msgid "The parent directory doesn't exist."
 msgstr "The parent directory doesn't exist."
 
-#: src/Application.vala:165
+#: src/Application.vala:145
 msgid "It is a mountable location."
 msgstr "It is a mountable location."
 
-#: src/Application.vala:168
+#: src/Application.vala:148
 msgid ""
 "It is a \"special\" file such as a socket,\n"
 " FIFO, block device, or character device."
@@ -54,81 +54,81 @@ msgstr ""
 "It is a \"special\" file such as a socket,\n"
 "FIFO, block device, or character device."
 
-#: src/Application.vala:171
+#: src/Application.vala:151
 msgid "It is an \"unknown\" file type."
 msgstr "It is an \"unknown\" file type."
 
-#: src/Application.vala:176
+#: src/Application.vala:156
 #, c-format
 msgid "File \"%s\" Cannot Be Opened"
 msgstr "File \"%s\" Cannot Be Opened"
 
-#: src/Application.vala:248
+#: src/Application.vala:220
 msgid "New Tab"
 msgstr "New Tab"
 
-#: src/Application.vala:249 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:221 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "New Window"
 
-#: src/Application.vala:250
+#: src/Application.vala:222
 msgid "Print version info and exit"
 msgstr "Print version info and exit"
 
-#: src/Application.vala:251
+#: src/Application.vala:223
 msgid "Set of plugins"
 msgstr "Set of plug-ins"
 
-#: src/Application.vala:251
+#: src/Application.vala:223
 msgid "plugin"
 msgstr "plugin"
 
-#: src/MainWindow.vala:137
+#: src/MainWindow.vala:136
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:188 src/Widgets/HeaderBar.vala:76
+#: src/MainWindow.vala:186 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "Find…"
 
-#: src/MainWindow.vala:193
+#: src/MainWindow.vala:191
 msgid "Hide search bar"
 msgstr "Hide search bar"
 
-#: src/MainWindow.vala:267
+#: src/MainWindow.vala:264
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zeitgeist Datasource for Code"
 
-#: src/MainWindow.vala:764 src/Services/Document.vala:502
+#: src/MainWindow.vala:718 src/Services/Document.vala:502
 msgid "All files"
 msgstr "All files"
 
-#: src/MainWindow.vala:768 src/Services/Document.vala:506
+#: src/MainWindow.vala:722 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Text files"
 
-#: src/MainWindow.vala:772
+#: src/MainWindow.vala:726
 msgid "Open some files"
 msgstr "Open some files"
 
-#: src/MainWindow.vala:775
+#: src/MainWindow.vala:729
 msgid "Open"
 msgstr "Open"
 
-#: src/MainWindow.vala:776 src/Services/Document.vala:401
+#: src/MainWindow.vala:730 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Cancel"
 
-#: src/MainWindow.vala:801
+#: src/MainWindow.vala:755
 msgid "_Open"
 msgstr "_Open"
 
-#: src/MainWindow.vala:802
+#: src/MainWindow.vala:756
 msgid "_Cancel"
 msgstr "_Cancel"
 
-#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:168
+#: src/Dialogs/PreferencesDialog.vala:38 src/Widgets/HeaderBar.vala:156
 msgid "Preferences"
 msgstr "Preferences"
 
@@ -241,23 +241,23 @@ msgstr "Don't Restore"
 msgid "Restore Anyway"
 msgstr "Restore Anyway"
 
-#: src/FolderManager/FileItem.vala:53 src/FolderManager/FolderItem.vala:117
+#: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:117
 msgid "Other Application…"
 msgstr "Other Application…"
 
-#: src/FolderManager/FileItem.vala:114 src/FolderManager/FolderItem.vala:157
+#: src/FolderManager/FileItem.vala:113 src/FolderManager/FolderItem.vala:157
 msgid "Open In"
 msgstr "Open In"
 
-#: src/FolderManager/FileItem.vala:117 src/FolderManager/FolderItem.vala:92
+#: src/FolderManager/FileItem.vala:116 src/FolderManager/FolderItem.vala:92
 msgid "Other Actions"
 msgstr "Other Actions"
 
-#: src/FolderManager/FileItem.vala:120 src/FolderManager/FolderItem.vala:95
+#: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:95
 msgid "Rename"
 msgstr "Rename"
 
-#: src/FolderManager/FileItem.vala:126 src/FolderManager/FolderItem.vala:101
+#: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:101
 #: src/FolderManager/ProjectFolderItem.vala:103
 msgid "Move to Trash"
 msgstr "Move to Rubbish Bin"
@@ -423,7 +423,7 @@ msgstr "Continue"
 msgid "Templates"
 msgstr "Templates"
 
-#: src/Widgets/DocumentView.vala:133
+#: src/Widgets/DocumentView.vala:132
 #, c-format
 msgid "Text file from %s:%d"
 msgstr "Text file from %s:%d"
@@ -462,83 +462,77 @@ msgstr[1] "%d Tabs"
 msgid "Go To Line:"
 msgstr "Go To Line:"
 
-#: src/Widgets/HeaderBar.vala:43
+#: src/Widgets/HeaderBar.vala:45
 msgid "Open a file"
 msgstr "Open a file"
 
-#: src/Widgets/HeaderBar.vala:48
+#: src/Widgets/HeaderBar.vala:50
 msgid "Project templates"
 msgstr "Project templates"
 
-#: src/Widgets/HeaderBar.vala:54
+#: src/Widgets/HeaderBar.vala:56
 msgid "Save this file"
 msgstr "Save this file"
 
-#: src/Widgets/HeaderBar.vala:61
+#: src/Widgets/HeaderBar.vala:63
 msgid "Save this file with a different name"
 msgstr "Save this file with a different name"
 
-#: src/Widgets/HeaderBar.vala:68
+#: src/Widgets/HeaderBar.vala:70
 msgid "Restore this file"
 msgstr "Restore this file"
 
-#: src/Widgets/HeaderBar.vala:83
+#: src/Widgets/HeaderBar.vala:85
 msgid "Share"
 msgstr "Share"
 
-#: src/Widgets/HeaderBar.vala:90
+#: src/Widgets/HeaderBar.vala:92
 msgid "Zoom Out"
 msgstr "Zoom Out"
 
-#: src/Widgets/HeaderBar.vala:97
+#: src/Widgets/HeaderBar.vala:99
 msgid "Zoom 1:1"
 msgstr "Zoom 1:1"
 
-#: src/Widgets/HeaderBar.vala:104
+#: src/Widgets/HeaderBar.vala:106
 msgid "Zoom In"
 msgstr "Zoom In"
 
-#: src/Widgets/HeaderBar.vala:118
+#: src/Widgets/HeaderBar.vala:120
 msgid "High Contrast"
 msgstr "High Contrast"
 
-#: src/Widgets/HeaderBar.vala:126
+#: src/Widgets/HeaderBar.vala:128
 msgid "Solarized Light"
 msgstr "Solarised Light"
 
-#: src/Widgets/HeaderBar.vala:134
+#: src/Widgets/HeaderBar.vala:136
 msgid "Solarized Dark"
 msgstr "Solarised Dark"
 
-#: src/Widgets/HeaderBar.vala:144
+#: src/Widgets/HeaderBar.vala:146
 msgid "Toggle Sidebar"
 msgstr "Toggle Sidebar"
 
-#: src/Widgets/HeaderBar.vala:154
-msgid "Add New View"
-msgstr "Add New View"
-
-#: src/Widgets/HeaderBar.vala:164
-msgid "Remove Current View"
-msgstr "Remove Current View"
-
-#: src/Widgets/HeaderBar.vala:191
+#: src/Widgets/HeaderBar.vala:177
 msgid "Menu"
 msgstr "Menu"
 
-#: src/Widgets/Pane.vala:44
-msgid "Open project folder…"
+#: src/Widgets/Pane.vala:45
+#, fuzzy
+#| msgid "Open project folder…"
+msgid "Open Project Folder…"
 msgstr "Open project folder…"
 
-#: src/Widgets/Pane.vala:46
+#: src/Widgets/Pane.vala:48
 msgid "Collapse All"
 msgstr "Collapse All"
 
-#: src/Widgets/Pane.vala:49
+#: src/Widgets/Pane.vala:51
 msgid "Alphabetize"
 msgstr "Alphabetise"
 
-#: src/Widgets/Pane.vala:60
+#: src/Widgets/Pane.vala:62
 msgid "Manage project folders"
 msgstr "Manage project folders"
 
@@ -546,35 +540,35 @@ msgstr "Manage project folders"
 msgid "Find"
 msgstr "Find"
 
-#: src/Widgets/SearchBar.vala:72
+#: src/Widgets/SearchBar.vala:74
 msgid "Search next"
 msgstr "Search next"
 
-#: src/Widgets/SearchBar.vala:82
+#: src/Widgets/SearchBar.vala:84
 msgid "Search previous"
 msgstr "Search previous"
 
-#: src/Widgets/SearchBar.vala:87
+#: src/Widgets/SearchBar.vala:89
 msgid "Cyclic Search"
 msgstr "Cyclic Search"
 
-#: src/Widgets/SearchBar.vala:93
+#: src/Widgets/SearchBar.vala:95
 msgid "Case Sensitive"
 msgstr "Case Sensitive"
 
-#: src/Widgets/SearchBar.vala:93
+#: src/Widgets/SearchBar.vala:95
 msgid "Case Insensitive"
 msgstr "Case Insensitive"
 
-#: src/Widgets/SearchBar.vala:112
+#: src/Widgets/SearchBar.vala:114
 msgid "Replace With"
 msgstr "Replace With"
 
-#: src/Widgets/SearchBar.vala:115
+#: src/Widgets/SearchBar.vala:117
 msgid "Replace"
 msgstr "Replace"
 
-#: src/Widgets/SearchBar.vala:118
+#: src/Widgets/SearchBar.vala:120
 msgid "Replace all"
 msgstr "Replace all"
 
@@ -684,31 +678,29 @@ msgid "Symbols"
 msgstr "Symbols"
 
 #: plugins/outline/OutlinePlugin.vala:34
-#, fuzzy
-#| msgid "Symbols"
 msgid "No Symbols Found"
-msgstr "Symbols"
+msgstr "No Symbols Found"
 
-#: plugins/terminal/terminal.vala:176 plugins/terminal/terminal.vala:183
+#: plugins/terminal/terminal.vala:164 plugins/terminal/terminal.vala:171
 msgid "Show Terminal"
 msgstr "Show Terminal"
 
-#: plugins/terminal/terminal.vala:179
+#: plugins/terminal/terminal.vala:167
 msgid "Hide Terminal"
 msgstr "Hide Terminal"
 
-#: plugins/terminal/terminal.vala:180
+#: plugins/terminal/terminal.vala:168
 msgid "Terminal"
 msgstr "Terminal"
 
 #. Popup menu
 #. COPY
-#: plugins/terminal/terminal.vala:237
+#: plugins/terminal/terminal.vala:225
 msgid "Copy"
 msgstr "Copy"
 
 #. PASTE
-#: plugins/terminal/terminal.vala:244
+#: plugins/terminal/terminal.vala:232
 msgid "Paste"
 msgstr "Paste"
 
@@ -716,12 +708,12 @@ msgstr "Paste"
 msgid "Web Preview"
 msgstr "Web Preview"
 
-#: plugins/browser-preview/browser-preview.vala:70
-#: plugins/browser-preview/browser-preview.vala:96
+#: plugins/browser-preview/browser-preview.vala:57
+#: plugins/browser-preview/browser-preview.vala:83
 msgid "Show Preview"
 msgstr "Show Preview"
 
-#: plugins/browser-preview/browser-preview.vala:88
+#: plugins/browser-preview/browser-preview.vala:75
 msgid "Hide Preview"
 msgstr "Hide Preview"
 
@@ -737,6 +729,12 @@ msgstr "Please install at least one [aspell] dictionary."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Word Completion"
+
+#~ msgid "Add New View"
+#~ msgstr "Add New View"
+
+#~ msgid "Remove Current View"
+#~ msgstr "Remove Current View"
 
 #~ msgid "untitled folder %d"
 #~ msgstr "untitled folder %d"

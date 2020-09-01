@@ -152,20 +152,6 @@ namespace Scratch.Widgets {
             toggle_sidebar_menuitem.get_child ().destroy ();
             toggle_sidebar_menuitem.add (toggle_sidebar_accellabel);
 
-            var new_view_accellabel = new Granite.AccelLabel.from_action_name (
-                _("Add New View"),
-                MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_VIEW
-            );
-
-            var new_view_menuitem = new Gtk.ModelButton ();
-            new_view_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_NEW_VIEW;
-            new_view_menuitem.get_child ().destroy ();
-            new_view_menuitem.add (new_view_accellabel);
-
-            var remove_view_menuitem = new Gtk.ModelButton ();
-            remove_view_menuitem.text = _("Remove Current View");
-            remove_view_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_REMOVE_VIEW;
-
             var preferences_menuitem = new Gtk.ModelButton ();
             preferences_menuitem.text = _("Preferences");
             preferences_menuitem.action_name = MainWindow.ACTION_PREFIX + MainWindow.ACTION_PREFERENCES;
@@ -180,9 +166,7 @@ namespace Scratch.Widgets {
             menu_grid.attach (color_button_dark, 2, 1, 1, 1);
             menu_grid.attach (menu_separator, 0, 2, 3, 1);
             menu_grid.attach (toggle_sidebar_menuitem, 0, 3, 3, 1);
-            menu_grid.attach (new_view_menuitem, 0, 4, 3, 1);
-            menu_grid.attach (remove_view_menuitem, 0, 5, 3, 1);
-            menu_grid.attach (preferences_menuitem, 0, 6, 3, 1);
+            menu_grid.attach (preferences_menuitem, 0, 6, 3);
             menu_grid.show_all ();
 
             var menu = new Gtk.Popover (null);
@@ -213,10 +197,16 @@ namespace Scratch.Widgets {
             share_menu.insert.connect (on_share_menu_changed);
             share_menu.remove.connect (on_share_menu_changed);
 
-            settings.changed.connect (() => {
+            Scratch.settings.changed.connect ((key) => {
+                if (key != "autosave" && key != "font") {
+                    return;
+                }
+
                 save_button.visible = !Scratch.settings.get_boolean ("autosave");
                 var last_window = app_instance.get_last_window ();
-                zoom_default_button.label = "%.0f%%".printf (last_window.get_current_font_size () * 10);
+                if (last_window != null) {
+                    zoom_default_button.label = "%.0f%%".printf (last_window.get_current_font_size () * 10);
+                }
             });
 
             var gtk_settings = Gtk.Settings.get_default ();

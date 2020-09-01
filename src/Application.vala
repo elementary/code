@@ -44,8 +44,6 @@ namespace Scratch {
         }
 
         public Application () {
-            Granite.Services.Logger.initialize ("Code");
-
             // Init settings
             default_font = new GLib.Settings ("org.gnome.desktop.interface").get_string ("monospace-font-name");
             saved_state = new GLib.Settings (Constants.PROJECT_NAME + ".saved-state");
@@ -196,15 +194,7 @@ namespace Scratch {
         }
 
         protected override void open (File[] files, string hint) {
-            // Add a view if there aren't and get the current DocumentView
-            Scratch.Widgets.DocumentView? view = null;
             var window = get_last_window ();
-
-            if (window.is_empty ()) {
-                view = window.add_view ();
-            } else {
-                view = window.get_current_view ();
-            }
 
             foreach (var file in files) {
                 var type = file.query_file_type (FileQueryInfoFlags.NONE);
@@ -212,7 +202,7 @@ namespace Scratch {
                     window.open_folder (file);
                 } else {
                     var doc = new Scratch.Services.Document (window.actions, file);
-                    window.open_document (doc, view);
+                    window.open_document (doc);
                 }
             }
         }
