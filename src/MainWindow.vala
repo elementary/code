@@ -41,7 +41,7 @@ namespace Scratch {
 
         // Widgets for Plugins
         public Gtk.Notebook bottombar;
-        public Code.Pane project_pane;
+        public Code.Sidebar project_pane;
 
         private Gtk.Dialog? preferences_dialog = null;
         private Gtk.Paned hp1;
@@ -318,7 +318,7 @@ namespace Scratch {
                 }
             });
 
-            project_pane = new Code.Pane ();
+            project_pane = new Code.Sidebar ();
 
             folder_manager_view = new FolderManager.FileView ();
 
