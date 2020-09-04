@@ -308,19 +308,19 @@ namespace Scratch.Dialogs {
             grid.attach (format_button, 2, 1, 1, 1);
             grid.attach (expiry_combo_l, 0, 2, 1, 1);
             grid.attach (expiry_combo, 1, 2, 1, 1);
-            grid.attach (private_check, 1, 3, 2, 1);
+            grid.attach (private_check, 1, 3, 1, 1);
 
-            var spinner = new Gtk.Spinner ();
-            spinner.active = true;
-            spinner.height_request = 32;
-            spinner.valign = Gtk.Align.CENTER;
+            var spinner = new Gtk.Spinner () {
+                active = true,
+                height_request = 32,
+                valign = Gtk.Align.CENTER
+            };
 
             stack = new Gtk.Stack ();
             stack.add (grid);
             stack.add (spinner);
 
-            var content_area = get_content_area ();
-            content_area.add (stack);
+            get_content_area ().add (stack);
 
             close_button = (Gtk.Button)add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
             upload_button = (Gtk.Button)add_button (_("Upload to Pastebin"), Gtk.ResponseType.OK);
@@ -353,8 +353,9 @@ namespace Scratch.Dialogs {
             };
             format_dialog.set_default_size (220, 300);
 
-            languages_listbox = new Gtk.ListBox ();
-            languages_listbox.selection_mode = Gtk.SelectionMode.SINGLE;
+            languages_listbox = new Gtk.ListBox () {
+                selection_mode = Gtk.SelectionMode.SINGLE
+            };
 
             for (var i=0; i < languages.length[0]; i++) {
                 var label = new Gtk.Label (languages[i, 2]) {
@@ -365,12 +366,11 @@ namespace Scratch.Dialogs {
                 languages_listbox.add (label);
             }
 
-            var languages_scrolled = new Gtk.ScrolledWindow (null, null);
-            languages_scrolled.hscrollbar_policy = Gtk.PolicyType.NEVER;
-            languages_scrolled.height_request = 250;
-            languages_scrolled.expand = true;
-            languages_scrolled.margin_start = languages_scrolled.margin_end = 10;
-            languages_scrolled.margin_bottom = 10;
+            var languages_scrolled = new Gtk.ScrolledWindow (null, null) {
+                hscrollbar_policy = Gtk.PolicyType.NEVER,
+                height_request = 250,
+                expand = true
+            };
             languages_scrolled.add (languages_listbox);
 
             var cancel_button = (Gtk.Button)format_dialog.add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
@@ -380,10 +380,11 @@ namespace Scratch.Dialogs {
             select_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
             select_button.clicked.connect (select_button_clicked);
 
-            var frame = new Gtk.Frame (null);
+            var frame = new Gtk.Frame (null) {
+                margin = 6,
+                margin_top = 0
+            };
             frame.add (languages_scrolled);
-            frame.margin = 6;
-            frame.margin_top = 0;
 
             format_dialog.get_content_area ().add (frame);
             format_dialog.show_all ();
