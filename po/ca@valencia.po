@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-10 08:06+0000\n"
+"POT-Creation-Date: 2020-09-01 22:59+0000\n"
 "PO-Revision-Date: 2017-05-15 08:22+0000\n"
 "Last-Translator: Guillem Servera <guillem@gservera.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/scratch/scratch/"
@@ -105,38 +105,38 @@ msgstr "Cerca…"
 msgid "Hide search bar"
 msgstr "Amagar la barra de cerca"
 
-#: src/MainWindow.vala:265
+#: src/MainWindow.vala:264
 #, fuzzy
 #| msgid "Zeitgeist Datasource for Scratch"
 msgid "Zeitgeist Datasource for Code"
 msgstr "Font de dades de Zeitgeist per a Scratch"
 
-#: src/MainWindow.vala:725 src/Services/Document.vala:502
+#: src/MainWindow.vala:718 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Tots els fitxers"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:506
+#: src/MainWindow.vala:722 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Fitxers de text"
 
-#: src/MainWindow.vala:733
+#: src/MainWindow.vala:726
 msgid "Open some files"
 msgstr ""
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:729
 msgid "Open"
 msgstr "Obrir"
 
-#: src/MainWindow.vala:737 src/Services/Document.vala:401
+#: src/MainWindow.vala:730 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Cancel·lar"
 
-#: src/MainWindow.vala:762
+#: src/MainWindow.vala:755
 msgid "_Open"
 msgstr ""
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:756
 msgid "_Cancel"
 msgstr ""
 
@@ -569,21 +569,21 @@ msgstr "Barra lateral"
 msgid "Menu"
 msgstr ""
 
-#: src/Widgets/Pane.vala:44
+#: src/Widgets/Pane.vala:45
 #, fuzzy
 #| msgid "Open file"
-msgid "Open project folder…"
+msgid "Open Project Folder…"
 msgstr "Obri un fitxer"
 
-#: src/Widgets/Pane.vala:46
+#: src/Widgets/Pane.vala:48
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Pane.vala:49
+#: src/Widgets/Pane.vala:51
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Pane.vala:60
+#: src/Widgets/Pane.vala:62
 msgid "Manage project folders"
 msgstr ""
 

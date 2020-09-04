@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-10 08:06+0000\n"
+"POT-Creation-Date: 2020-09-01 22:59+0000\n"
 "PO-Revision-Date: 2020-05-30 10:11+0000\n"
 "Last-Translator: Rantyrant <diseasemonger@gmail.com>\n"
 "Language-Team: Danish <https://l10n.elementary.io/projects/code/code/da/>\n"
@@ -94,36 +94,36 @@ msgstr "Find…"
 msgid "Hide search bar"
 msgstr "Skjul søgelinjen"
 
-#: src/MainWindow.vala:265
+#: src/MainWindow.vala:264
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zeitgeist-datakilde til Code"
 
-#: src/MainWindow.vala:725 src/Services/Document.vala:502
+#: src/MainWindow.vala:718 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Alle filer"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:506
+#: src/MainWindow.vala:722 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Tekstfiler"
 
-#: src/MainWindow.vala:733
+#: src/MainWindow.vala:726
 msgid "Open some files"
 msgstr "Åbn nogle filer"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:729
 msgid "Open"
 msgstr "Åbn"
 
-#: src/MainWindow.vala:737 src/Services/Document.vala:401
+#: src/MainWindow.vala:730 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Annuller"
 
-#: src/MainWindow.vala:762
+#: src/MainWindow.vala:755
 msgid "_Open"
 msgstr "_Åbn"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:756
 msgid "_Cancel"
 msgstr "_Annuller"
 
@@ -519,19 +519,21 @@ msgstr "Vis/Skjul Sidepanel"
 msgid "Menu"
 msgstr "Menu"
 
-#: src/Widgets/Pane.vala:44
-msgid "Open project folder…"
+#: src/Widgets/Pane.vala:45
+#, fuzzy
+#| msgid "Open project folder…"
+msgid "Open Project Folder…"
 msgstr "Åbn projekt mappe…"
 
-#: src/Widgets/Pane.vala:46
+#: src/Widgets/Pane.vala:48
 msgid "Collapse All"
 msgstr "Skjul Alle"
 
-#: src/Widgets/Pane.vala:49
+#: src/Widgets/Pane.vala:51
 msgid "Alphabetize"
 msgstr "Alfabetisér"
 
-#: src/Widgets/Pane.vala:60
+#: src/Widgets/Pane.vala:62
 msgid "Manage project folders"
 msgstr "Administrer projektmapper"
 

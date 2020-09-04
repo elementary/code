@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-10 08:06+0000\n"
+"POT-Creation-Date: 2020-09-01 22:59+0000\n"
 "PO-Revision-Date: 2015-12-21 13:39+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Amharic <am@li.org>\n"
@@ -92,36 +92,36 @@ msgstr "መፈለጊያ…"
 msgid "Hide search bar"
 msgstr "የመፈለጊያ ባሩን መደበቂያ"
 
-#: src/MainWindow.vala:265
+#: src/MainWindow.vala:264
 msgid "Zeitgeist Datasource for Code"
 msgstr ""
 
-#: src/MainWindow.vala:725 src/Services/Document.vala:502
+#: src/MainWindow.vala:718 src/Services/Document.vala:502
 msgid "All files"
 msgstr "ሁሉንም ፋይሎች"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:506
+#: src/MainWindow.vala:722 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "የጽሁፍ ፋይሎች"
 
-#: src/MainWindow.vala:733
+#: src/MainWindow.vala:726
 msgid "Open some files"
 msgstr "አንዳንድ ፋይሎች መክፈቻ"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:729
 msgid "Open"
 msgstr "መክፈቻ"
 
-#: src/MainWindow.vala:737 src/Services/Document.vala:401
+#: src/MainWindow.vala:730 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "መሰረዣ"
 
-#: src/MainWindow.vala:762
+#: src/MainWindow.vala:755
 msgid "_Open"
 msgstr "_መክፈቻ"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:756
 msgid "_Cancel"
 msgstr "_መሰረዣ"
 
@@ -520,21 +520,21 @@ msgstr ""
 msgid "Menu"
 msgstr ""
 
-#: src/Widgets/Pane.vala:44
+#: src/Widgets/Pane.vala:45
 #, fuzzy
 #| msgid "Open a folder"
-msgid "Open project folder…"
+msgid "Open Project Folder…"
 msgstr "ፎልደር መክፈቻ"
 
-#: src/Widgets/Pane.vala:46
+#: src/Widgets/Pane.vala:48
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Pane.vala:49
+#: src/Widgets/Pane.vala:51
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Pane.vala:60
+#: src/Widgets/Pane.vala:62
 msgid "Manage project folders"
 msgstr ""
 

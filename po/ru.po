@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-10 08:06+0000\n"
+"POT-Creation-Date: 2020-09-01 22:59+0000\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
@@ -95,37 +95,37 @@ msgstr "Поиск…"
 msgid "Hide search bar"
 msgstr "Скрыть панель поиска"
 
-#: src/MainWindow.vala:265
+#: src/MainWindow.vala:264
 #, fuzzy
 msgid "Zeitgeist Datasource for Code"
 msgstr "Отслеживать источник данных для редактора Scratch"
 
-#: src/MainWindow.vala:725 src/Services/Document.vala:502
+#: src/MainWindow.vala:718 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Все файлы"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:506
+#: src/MainWindow.vala:722 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Текстовые файлы"
 
-#: src/MainWindow.vala:733
+#: src/MainWindow.vala:726
 msgid "Open some files"
 msgstr "Открыть файлы"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:729
 msgid "Open"
 msgstr "Открыть"
 
-#: src/MainWindow.vala:737 src/Services/Document.vala:401
+#: src/MainWindow.vala:730 src/Services/Document.vala:401
 #: src/Services/Document.vala:514
 msgid "Cancel"
 msgstr "Отменить"
 
-#: src/MainWindow.vala:762
+#: src/MainWindow.vala:755
 msgid "_Open"
 msgstr "_Открыть"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:756
 msgid "_Cancel"
 msgstr "_Отменить"
 
@@ -522,21 +522,21 @@ msgstr "Переключить боковую панель"
 msgid "Menu"
 msgstr "Меню"
 
-#: src/Widgets/Pane.vala:44
+#: src/Widgets/Pane.vala:45
 #, fuzzy
 #| msgid "Open a folder"
-msgid "Open project folder…"
+msgid "Open Project Folder…"
 msgstr "Открыть папку"
 
-#: src/Widgets/Pane.vala:46
+#: src/Widgets/Pane.vala:48
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Pane.vala:49
+#: src/Widgets/Pane.vala:51
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Pane.vala:60
+#: src/Widgets/Pane.vala:62
 msgid "Manage project folders"
 msgstr ""
 
