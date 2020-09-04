@@ -26,6 +26,7 @@ namespace Scratch.Dialogs {
 
         public string[,] languages = {
             //if default, code, desc, Code-equivalent
+            {"n", "text", "None", "text"},
             {"n", "4cs", "4CS", ""},
             {"n", "6502acme", "6502 ACME Cross Assembler", ""},
             {"n", "6502kickass", "6502 Kick Assembler", ""},
@@ -203,7 +204,6 @@ namespace Scratch.Dialogs {
             {"n", "tsql", "T-SQL", ""},
             {"n", "tcl", "TCL", ""},
             {"n", "teraterm", "Tera Term", ""},
-            {"n", "text", "None", "text"},
             {"n", "thinbasic", "thinBasic", ""},
             {"n", "typoscript", "TypoScript", ""},
             {"n", "unicon", "Unicon", ""},
