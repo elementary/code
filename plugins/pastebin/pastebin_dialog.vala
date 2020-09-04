@@ -228,12 +228,6 @@ namespace Scratch.Dialogs {
             {"n", "zxbasic", "ZXBasic", ""}
         };
 
-        private const string CSS = """
-            list {
-                background-color: transparent;
-            }
-        """;
-
         public Scratch.Services.Document doc { get; construct; }
 
         private Gtk.Button close_button;
@@ -258,14 +252,6 @@ namespace Scratch.Dialogs {
         }
 
         construct {
-            var provider = new Gtk.CssProvider ();
-            try {
-                provider.load_from_data (CSS, CSS.length);
-                Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-            } catch (Error e) {
-                critical (e.message);
-            }
-
             name_entry = new Gtk.Entry ();
 
             var name_entry_l = new Gtk.Label (_("Name:"));
@@ -389,9 +375,12 @@ namespace Scratch.Dialogs {
             select_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
             select_button.clicked.connect (select_button_clicked);
 
-            var content_area = format_dialog.get_content_area ();
-            content_area.add (languages_scrolled);
+            var frame = new Gtk.Frame (null);
+            frame.add (languages_scrolled);
+            frame.margin = 6;
+            frame.margin_top = 0;
 
+            format_dialog.get_content_area ().add (frame);
             format_dialog.show_all ();
         }
 
