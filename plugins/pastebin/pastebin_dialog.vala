@@ -373,7 +373,7 @@ namespace Scratch.Dialogs {
 
                 languages_listbox.add (label);
             }
-            
+
             var languages_scrolled = new Gtk.ScrolledWindow (null, null);
             languages_scrolled.hscrollbar_policy = Gtk.PolicyType.NEVER;
             languages_scrolled.height_request = 250;
@@ -401,16 +401,13 @@ namespace Scratch.Dialogs {
 
         private void select_button_clicked () {
             var selection = languages_listbox.get_selected_row ();
-            if (selection != null)
-            {
+            if (selection != null) {
                 var label = (Gtk.Label)selection.get_child ();
                 var lang_name = label.label;
                 var lang_code = "";
 
-                for (var i=0; i < languages.length[0]; i++)
-                {
-                    if (languages[i, 2] == lang_name)
-                    {
+                for (var i=0; i < languages.length[0]; i++) {
+                    if (languages[i, 2] == lang_name) {
                         lang_code = languages[i, 1];
                         format_combo.append (lang_code, lang_name);
                         format_combo.set_active_id (lang_code);

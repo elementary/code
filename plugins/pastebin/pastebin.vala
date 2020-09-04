@@ -72,7 +72,7 @@ public class Scratch.Plugins.Pastebin : Peas.ExtensionBase, Peas.Activatable {
     Gtk.MenuItem? menuitem = null;
 
     public Object object { owned get; construct; }
-    
+
     Scratch.Services.Document? doc = null;
     Scratch.Services.Interface plugins;
 
