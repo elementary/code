@@ -385,7 +385,7 @@ namespace Scratch.Dialogs {
             var cancel_button = (Gtk.Button)format_dialog.add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
             cancel_button.clicked.connect (cancel_button_clicked);
 
-            var select_button = (Gtk.Button)format_dialog.add_button (_("Select format"), Gtk.ResponseType.OK);
+            var select_button = (Gtk.Button)format_dialog.add_button (_("Select Format"), Gtk.ResponseType.OK);
             select_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
             select_button.clicked.connect (select_button_clicked);
 
