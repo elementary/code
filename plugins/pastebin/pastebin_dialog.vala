@@ -244,7 +244,7 @@ namespace Scratch.Dialogs {
             Object (
                 deletable: false,
                 resizable: false,
-                border_width: 5,
+                border_width: 6,
                 doc: doc,
                 transient_for: parent,
                 title: _("Upload to Pastebin")
@@ -292,13 +292,15 @@ namespace Scratch.Dialogs {
             populate_expiry_combo ();
 
             private_check = new Gtk.CheckButton.with_label (_("Keep this paste private"));
-            private_check.margin_bottom = 15;
+            private_check.margin_bottom = 12;
 
-            var grid = new Gtk.Grid ();
-            grid.column_spacing = 10;
-            grid.row_spacing = 8;
-            grid.margin = 5;
-            grid.margin_top = 0;
+            var grid = new Gtk.Grid () {
+                column_spacing = 6,
+                row_spacing = 12,
+                margin = 6,
+                margin_top = 0,
+                halign = Gtk.Align.CENTER
+            };
             grid.attach (name_entry_l, 0, 0, 1, 1);
             grid.attach (name_entry, 1, 0, 1, 1);
             grid.attach (format_label, 0, 1, 1, 1);
@@ -343,20 +345,22 @@ namespace Scratch.Dialogs {
         }
 
         private void format_button_clicked () {
-            format_dialog = new Gtk.Dialog ();
-            format_dialog.deletable = false;
-            format_dialog.resizable = false;
-            format_dialog.border_width = 5;
-            format_dialog.title = _("More formats");
+            format_dialog = new Gtk.Dialog () {
+                deletable = false,
+                resizable = false,
+                border_width = 6,
+                title = _("Available Formats")
+            };
             format_dialog.set_default_size (220, 300);
 
             languages_listbox = new Gtk.ListBox ();
             languages_listbox.selection_mode = Gtk.SelectionMode.SINGLE;
 
             for (var i=0; i < languages.length[0]; i++) {
-                var label = new Gtk.Label (languages[i, 2]);
-                label.halign = Gtk.Align.START;
-                label.ypad = 5;
+                var label = new Gtk.Label (languages[i, 2]) {
+                    halign = Gtk.Align.START,
+                    margin = 6
+                };
 
                 languages_listbox.add (label);
             }
