@@ -355,7 +355,6 @@ namespace Scratch.Dialogs {
             });
         }
 
-
         private void format_button_clicked () {
             format_dialog = new Gtk.Dialog ();
             format_dialog.deletable = false;
@@ -459,7 +458,6 @@ namespace Scratch.Dialogs {
             box.show_all ();
             stack.visible_child = box;
         }
-
 
         private bool submit_paste (out string link) {
             // Get the values
