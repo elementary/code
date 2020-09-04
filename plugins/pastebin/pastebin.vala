@@ -36,7 +36,7 @@ namespace Scratch.Services {
 
             if (paste_code.length == 0) { link = "No text to paste"; return false; }
 
-            string api_url = "http://pastebin.com/api/api_post.php";
+            string api_url = "https://pastebin.com/api/api_post.php";
 
             var session = new Soup.Session ();
             var message = new Soup.Message ("POST", api_url);
@@ -58,7 +58,7 @@ namespace Scratch.Services {
             var output = (string) message.response_body.data;
             link = output;
 
-            if (Uri.parse_scheme (output) == null) {
+            if (Uri.parse_scheme (output) == null || message.status_code != 200) {
                 // A URI was not returned
                 return false;
             }
