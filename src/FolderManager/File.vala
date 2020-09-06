@@ -145,7 +145,6 @@ namespace Scratch.FolderManager {
                     var file_info = new FileInfo ();
                     while ((file_info = enumerator.next_file ()) != null) {
                         var child = file.get_child (file_info.get_name ());
-                        var file = new File (child.get_path ());
                         _children.add (new File (child.get_path ()));
                     }
 
