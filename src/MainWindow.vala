@@ -24,6 +24,7 @@ namespace Scratch {
         public const int FONT_SIZE_MAX = 72;
         public const int FONT_SIZE_MIN = 7;
         private const uint MAX_SEARCH_TEXT_LENGTH = 255;
+        private const string HELP_URI = "https://github.com/elementary/code/wiki";
 
         public weak Scratch.Application app { get; construct; }
 
@@ -91,6 +92,7 @@ namespace Scratch {
         public const string ACTION_ZOOM_OUT = "action_zoom_out";
         public const string ACTION_TOGGLE_COMMENT = "action_toggle_comment";
         public const string ACTION_TOGGLE_SIDEBAR = "action_toggle_sidebar";
+        public const string ACTION_HELP = "action_help";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
@@ -125,7 +127,8 @@ namespace Scratch {
             { ACTION_ZOOM_IN, action_zoom_in },
             { ACTION_ZOOM_OUT, action_zoom_out},
             { ACTION_TOGGLE_COMMENT, action_toggle_comment },
-            { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar }
+            { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar },
+            { ACTION_HELP, action_help }
         };
 
         public MainWindow (Scratch.Application scratch_app) {
@@ -167,6 +170,7 @@ namespace Scratch {
             action_accelerators.set (ACTION_TOGGLE_COMMENT, "<Control>slash");
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "F9"); // GNOME
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "<Control>backslash"); // Atom
+            action_accelerators.set (ACTION_HELP, "F1");
 
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("io/elementary/code/Application.css");
@@ -957,6 +961,14 @@ namespace Scratch {
             }
 
             project_pane.visible = !project_pane.visible;
+        }
+
+        private void action_help () {
+            try {
+                Gtk.show_uri (null, HELP_URI, (uint32)(Gdk.CURRENT_TIME));
+            } catch (Error e) {
+                warning ("Could not show help uri %s - %s", HELP_URI, e.message);
+            }
         }
     }
 }
