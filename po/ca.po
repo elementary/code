@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-04 23:14+0000\n"
-"PO-Revision-Date: 2020-05-30 10:11+0000\n"
+"PO-Revision-Date: 2020-09-07 16:39+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
 "Language: ca\n"
@@ -522,10 +522,8 @@ msgid "Menu"
 msgstr "Menú"
 
 #: src/Widgets/Pane.vala:45
-#, fuzzy
-#| msgid "Open project folder…"
 msgid "Open Project Folder…"
-msgstr "Obre la carpeta de projectes…"
+msgstr "Obre la carpeta del projecte…"
 
 #: src/Widgets/Pane.vala:48
 msgid "Collapse All"
@@ -630,13 +628,11 @@ msgstr "Format:"
 
 #: plugins/pastebin/pastebin_dialog.vala:266
 msgid "Choose different format"
-msgstr ""
+msgstr "Trieu un format diferent"
 
 #: plugins/pastebin/pastebin_dialog.vala:289
-#, fuzzy
-#| msgid "Expiry time:"
 msgid "Expiration:"
-msgstr "Temps d'expiració:"
+msgstr "Caducitat:"
 
 #: plugins/pastebin/pastebin_dialog.vala:295
 msgid "Keep this paste private"
@@ -644,13 +640,11 @@ msgstr "Mantén aquest retall com a privat"
 
 #: plugins/pastebin/pastebin_dialog.vala:353
 msgid "Available Formats"
-msgstr ""
+msgstr "Formats disponibles"
 
 #: plugins/pastebin/pastebin_dialog.vala:380
-#, fuzzy
-#| msgid "Select font:"
 msgid "Select Format"
-msgstr "Seleccioneu un tipus de lletra:"
+msgstr "Seleccioneu un format"
 
 #: plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
