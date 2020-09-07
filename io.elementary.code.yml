@@ -124,5 +124,5 @@ modules:
   - name: code
     buildsystem: meson
     sources:
-      - type: git
-        url: https://github.com/elementary/code.git
+      - type: dir
+        path: .
