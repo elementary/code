@@ -99,7 +99,9 @@ namespace Scratch.FolderManager {
         }
 
         public void select_path (string path) {
+            item_selected.disconnect (on_item_selected);
             selected = find_path (root, path);
+            item_selected.connect (on_item_selected);
         }
 
         private Granite.Widgets.SourceList.Item? find_path (Granite.Widgets.SourceList.ExpandableItem list, string path) {
