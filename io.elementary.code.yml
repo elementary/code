@@ -67,7 +67,8 @@ modules:
           - '-DBUILD_SHARED_LIBS:BOOL=ON'
           - '-DCMAKE_INSTALL_LIBDIR:PATH=/app/lib'
         cleanup:
-          - ''
+          - '/share/man'
+          - '/share/doc'
         sources:
           - type: git
             url: https://github.com/libssh2/libssh2.git
@@ -78,9 +79,6 @@ modules:
           - '-DCMAKE_BUILD_TYPE=RelWithDebInfo'
           - '-DBUILD_SHARED_LIBS:BOOL=ON'
           - '-DTHREADSAFE=ON'
-        cleanup:
-          - '/share/man'
-          - '/share/doc'
         sources:
           - type: git
             url: https://github.com/libgit2/libgit2.git
