@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-04 23:14+0000\n"
-"PO-Revision-Date: 2020-06-01 16:11+0000\n"
+"PO-Revision-Date: 2020-09-13 03:16+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/code/tr/>\n"
 "Language: tr\n"
@@ -521,10 +521,8 @@ msgid "Menu"
 msgstr "Menü"
 
 #: src/Widgets/Pane.vala:45
-#, fuzzy
-#| msgid "Open project folder…"
 msgid "Open Project Folder…"
-msgstr "Proje klasörü aç…"
+msgstr "Proje Klasörü Aç…"
 
 #: src/Widgets/Pane.vala:48
 msgid "Collapse All"
@@ -629,11 +627,9 @@ msgstr "Biçim:"
 
 #: plugins/pastebin/pastebin_dialog.vala:266
 msgid "Choose different format"
-msgstr ""
+msgstr "Farklı biçim seç"
 
 #: plugins/pastebin/pastebin_dialog.vala:289
-#, fuzzy
-#| msgid "Expiry time:"
 msgid "Expiration:"
 msgstr "Geçerlilik süresi:"
 
@@ -643,13 +639,11 @@ msgstr "Bu paylaşımı gizli tut"
 
 #: plugins/pastebin/pastebin_dialog.vala:353
 msgid "Available Formats"
-msgstr ""
+msgstr "Kullanılabilir biçimler"
 
 #: plugins/pastebin/pastebin_dialog.vala:380
-#, fuzzy
-#| msgid "Select font:"
 msgid "Select Format"
-msgstr "Yazı tipi seç:"
+msgstr "Biçim Seç"
 
 #: plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"

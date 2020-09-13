@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-04 23:14+0000\n"
-"PO-Revision-Date: 2020-09-02 22:23+0000\n"
+"PO-Revision-Date: 2020-09-07 16:39+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/code/fr/>\n"
 "Language: fr\n"
@@ -630,11 +630,9 @@ msgstr "Format :"
 
 #: plugins/pastebin/pastebin_dialog.vala:266
 msgid "Choose different format"
-msgstr ""
+msgstr "Sélectionnez un autre format"
 
 #: plugins/pastebin/pastebin_dialog.vala:289
-#, fuzzy
-#| msgid "Expiry time:"
 msgid "Expiration:"
 msgstr "Délai d'expiration :"
 
@@ -644,13 +642,11 @@ msgstr "Conserver cette publication privée"
 
 #: plugins/pastebin/pastebin_dialog.vala:353
 msgid "Available Formats"
-msgstr ""
+msgstr "Formats disponibles"
 
 #: plugins/pastebin/pastebin_dialog.vala:380
-#, fuzzy
-#| msgid "Select font:"
 msgid "Select Format"
-msgstr "Choisissez une police :"
+msgstr "Sélectionnez un format"
 
 #: plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
