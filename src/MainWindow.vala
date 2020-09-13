@@ -240,6 +240,9 @@ namespace Scratch {
                     break;
             }
 
+            // Show/Hide widgets
+            show_all ();
+
             toolbar.templates_button.visible = (plugins.plugin_iface.template_manager.template_available);
             plugins.plugin_iface.template_manager.notify["template_available"].connect (() => {
                 toolbar.templates_button.visible = (plugins.plugin_iface.template_manager.template_available);
@@ -426,9 +429,6 @@ namespace Scratch {
             });
 
             set_widgets_sensitive (false);
-
-            // Show/Hide widgets
-            show_all ();
         }
 
         private void open_binary (File file) {
