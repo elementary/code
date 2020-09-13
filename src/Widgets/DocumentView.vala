@@ -35,7 +35,6 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
     public GLib.List<Services.Document> docs;
 
-    public uint view_id = -1;
     public bool is_closing = false;
 
     private Gtk.CssProvider style_provider;
@@ -102,8 +101,8 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         var sssm = Gtk.SourceStyleSchemeManager.get_default ();
         var style_context = get_style_context ();
 
-        if (settings.style_scheme in sssm.scheme_ids) {
-            var theme = sssm.get_scheme (settings.style_scheme);
+        if (Scratch.settings.get_string ("style-scheme") in sssm.scheme_ids) {
+            var theme = sssm.get_scheme (Scratch.settings.get_string ("style-scheme"));
             var text_color_data = theme.get_style ("text");
 
             // Default gtksourceview background color is white
@@ -132,7 +131,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
 
         string new_text_file = _("Text file from %s:%d").printf (timestamp.format ("%Y-%m-%d %H:%M:%S"), timestamp.get_microsecond ());
 
-        return Path.build_filename (Application.instance.data_home_folder_unsaved, new_text_file);
+        return Path.build_filename (((Scratch.Application) GLib.Application.get_default ()).data_home_folder_unsaved, new_text_file);
     }
 
     public void new_document () {
@@ -180,8 +179,11 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             }
 
             if (nth_doc.file != null && nth_doc.file.get_uri () == doc.file.get_uri ()) {
-                current_document = nth_doc;
-                warning ("This Document was already opened! Not opening a duplicate!");
+                if (focus) {
+                    current_document = nth_doc;
+                }
+
+                debug ("This Document was already opened! Not opening a duplicate!");
                 return;
             }
         }
@@ -194,7 +196,9 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
             doc.open.begin (false, (obj, res) => {
                 doc.open.end (res);
-                doc.focus ();
+                if (focus) {
+                    doc.focus ();
+                }
                 save_opened_files ();
             });
 
@@ -211,7 +215,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             var doc = new Services.Document (window.actions, file);
             doc.source_view.set_text (original.get_text ());
 
-            if (settings.autosave) {
+            if (Scratch.settings.get_boolean ("autosave")) {
                 doc.save.begin (true);
             }
 
@@ -295,13 +299,11 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         var other_window = window.app.new_window ();
         other_window.move (x, y);
 
-        DocumentView other_view = other_window.add_view ();
-
         // We need to make sure switch back to the main thread
         // when we are modifiying Gtk widgets shared by two threads.
         Idle.add (() => {
             remove_tab (doc);
-            other_view.insert_tab (doc, -1);
+            other_window.document_view.insert_tab (doc, -1);
 
             return false;
         });
@@ -352,11 +354,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             });
         }
 
-        if (view_id == 1) {
-            settings.opened_files_view1 = opened_files;
-        } else {
-            settings.opened_files_view2 = opened_files;
-        }
+        Scratch.settings.set_strv ("opened-files-view1", opened_files);
     }
 
     private void save_focused_document_uri (Services.Document? current_document) {
@@ -367,11 +365,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
                 file_uri = current_document.file.get_uri ();
             }
 
-            if (view_id == 1) {
-                settings.focused_document_view1 = file_uri;
-            } else {
-                settings.focused_document_view2 = file_uri;
-            }
+            Scratch.settings.set_string ("focused-document-view1", file_uri);
         }
     }
 }
