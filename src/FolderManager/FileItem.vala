@@ -30,11 +30,10 @@ namespace Scratch.FolderManager {
         public override Gtk.Menu? get_context_menu () {
             var new_window_menuitem = new Gtk.MenuItem.with_label (_("New Window"));
             new_window_menuitem.activate.connect (() => {
-                var new_window = Application.instance.new_window ();
-                var view = new_window.add_view ();
+                var new_window = ((Scratch.Application) GLib.Application.get_default ()).new_window ();
                 var doc = new Scratch.Services.Document (new_window.actions, file.file);
 
-                new_window.open_document (doc, view, true);
+                new_window.open_document (doc, true);
             });
 
             var files_appinfo = AppInfo.get_default_for_type ("inode/directory", true);

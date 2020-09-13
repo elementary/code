@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-25 21:29+0000\n"
-"PO-Revision-Date: 2018-02-24 11:20+0000\n"
-"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
-"Language-Team: Chinese (Traditional) <https://weblate.elementary.io/projects/"
-"code/plugins/zh_TW/>\n"
+"PO-Revision-Date: 2020-06-30 21:12+0000\n"
+"Last-Translator: Nan-Hung Hsieh <nhsieh@cvm.tamu.edu>\n"
+"Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
+"code/plugins/zh_Hant/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 3.9.1\n"
 
 #: plugins/brackets-completion/brackets-completion.plugin:6
 msgid "Brackets Completion"
@@ -45,11 +45,11 @@ msgstr "啟發式偵測 Tab 或空白設定"
 
 #: plugins/editorconfig/editorconfig.plugin:6
 msgid "EditorConfig"
-msgstr ""
+msgstr "操作編輯 (EditorConfig)"
 
 #: plugins/editorconfig/editorconfig.plugin:7
 msgid "Load settings from an EditorConfig file"
-msgstr ""
+msgstr "從EditorConfig檔讀取設定"
 
 #: plugins/highlight-word-selection/highlight-word-selection.plugin:6
 msgid "Highlight Word Selection"
@@ -64,9 +64,8 @@ msgid "Outline"
 msgstr "概略"
 
 #: plugins/outline/outline.plugin:7
-#, fuzzy
 msgid "Outline symbols in your current file for Vala"
-msgstr "概略出您目前檔案中的 Vala 語言符號"
+msgstr "概略出目前檔案中的Vala語言符號"
 
 #: plugins/pastebin/pastebin.plugin:6
 msgid "Pastebin"
@@ -74,7 +73,7 @@ msgstr "Pastebin"
 
 #: plugins/pastebin/pastebin.plugin:7
 msgid "Share files with pastebin service"
-msgstr "透過 Pastebin 服務分享檔案"
+msgstr "透過Pastebin服務分享檔案"
 
 #: plugins/preserve-indent/preserve-indent.plugin:6
 msgid "Preserve Indent"
@@ -105,18 +104,16 @@ msgid "Terminal"
 msgstr "終端機"
 
 #: plugins/terminal/terminal.plugin:7
-#, fuzzy
 msgid "A terminal in your code editor"
-msgstr "您文字編輯器中的終端機"
+msgstr "在編輯器中使用終端機"
 
 #: plugins/vim-emulation/vim-emulation.plugin:6
 msgid "Vim Emulation"
-msgstr "Vim 模擬"
+msgstr "Vim仿擬"
 
 #: plugins/vim-emulation/vim-emulation.plugin:7
-#, fuzzy
 msgid "Use Vim commands in Code"
-msgstr "在 Scratch 中使用 Vim 指令"
+msgstr "在Code中使用 Vim 指令"
 
 #: plugins/word-completion/word-completion.plugin:3
 msgid "Words Completion"

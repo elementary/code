@@ -46,15 +46,6 @@ namespace Scratch {
         }
 
         public Application () {
-            // Init internationalization support
-            Intl.setlocale (LocaleCategory.ALL, "");
-            string langpack_dir = Path.build_filename (Constants.INSTALL_PREFIX, "share", "locale");
-            Intl.bindtextdomain (Constants.GETTEXT_PACKAGE, langpack_dir);
-            Intl.bind_textdomain_codeset (Constants.GETTEXT_PACKAGE, "UTF-8");
-            Intl.textdomain (Constants.GETTEXT_PACKAGE);
-
-            Granite.Services.Logger.initialize ("Code");
-
             // Init settings
             default_font = new GLib.Settings ("org.gnome.desktop.interface").get_string ("monospace-font-name");
             saved_state = new GLib.Settings (Constants.PROJECT_NAME + ".saved-state");
@@ -64,17 +55,6 @@ namespace Scratch {
 
             // Init data home folder for unsaved text files
             _data_home_folder_unsaved = Path.build_filename (Environment.get_user_data_dir (), Constants.PROJECT_NAME, "unsaved");
-        }
-
-        public static Application _instance = null;
-
-        public static Application instance {
-            get {
-                if (_instance == null) {
-                    _instance = new Application ();
-                }
-                return _instance;
-            }
         }
 
         protected override int command_line (ApplicationCommandLine command_line) {
@@ -228,15 +208,7 @@ namespace Scratch {
         }
 
         protected override void open (File[] files, string hint) {
-            // Add a view if there aren't and get the current DocumentView
-            Scratch.Widgets.DocumentView? view = null;
             var window = get_last_window ();
-
-            if (window.is_empty ()) {
-                view = window.add_view ();
-            } else {
-                view = window.get_current_view ();
-            }
 
             foreach (var file in files) {
                 var type = file.query_file_type (FileQueryInfoFlags.NONE);
@@ -244,7 +216,7 @@ namespace Scratch {
                     window.open_folder (file);
                 } else {
                     var doc = new Scratch.Services.Document (window.actions, file);
-                    window.open_document (doc, view);
+                    window.open_document (doc);
                 }
             }
         }
@@ -270,8 +242,7 @@ namespace Scratch {
 
         public static int main (string[] args) {
             _app_cmd_name = "Code";
-            Application app = Application.instance;
-            return app.run (args);
+            return new Application ().run (args);
         }
     }
 }
