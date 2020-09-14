@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-14 16:50+0000\n"
-"PO-Revision-Date: 2020-06-01 16:11+0000\n"
+"PO-Revision-Date: 2020-09-15 16:55+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Marathi <https://l10n.elementary.io/projects/code/code/mr/>\n"
 "Language: mr\n"
@@ -514,10 +514,8 @@ msgid "Menu"
 msgstr "मेन्यू"
 
 #: src/Widgets/Pane.vala:45
-#, fuzzy
-#| msgid "Open project folder…"
 msgid "Open Project Folder…"
-msgstr "प्रोजेक्ट फोल्डर उघडा …"
+msgstr "प्रोजेक्ट फोल्डर उघडा…"
 
 #: src/Widgets/Pane.vala:48
 msgid "Collapse All"
@@ -622,13 +620,11 @@ msgstr "प्रारूप:"
 
 #: plugins/pastebin/pastebin_dialog.vala:266
 msgid "Choose different format"
-msgstr ""
+msgstr "भिन्न स्वरूप निवडा"
 
 #: plugins/pastebin/pastebin_dialog.vala:289
-#, fuzzy
-#| msgid "Expiry time:"
 msgid "Expiration:"
-msgstr "समाप्ती(expiry)वेळ:"
+msgstr "समाप्ती:"
 
 #: plugins/pastebin/pastebin_dialog.vala:295
 msgid "Keep this paste private"
@@ -636,13 +632,11 @@ msgstr "ही पेस्ट खाजगी ठेवा"
 
 #: plugins/pastebin/pastebin_dialog.vala:353
 msgid "Available Formats"
-msgstr ""
+msgstr "उपलब्ध स्वरूप"
 
 #: plugins/pastebin/pastebin_dialog.vala:380
-#, fuzzy
-#| msgid "Format:"
 msgid "Select Format"
-msgstr "प्रारूप:"
+msgstr "स्वरूप निवडा"
 
 #: plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
