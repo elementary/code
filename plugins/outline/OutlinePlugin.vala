@@ -126,7 +126,7 @@ namespace Code.Plugins {
 
         void add_container () {
             if (container.get_parent () == null) {
-                window.project_pane.add_tab (container);
+                window.sidebar.add_tab (container);
                 container.show_all ();
             }
         }

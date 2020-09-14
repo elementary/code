@@ -1,7 +1,6 @@
-// -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /*
-* Copyright (c) 2011–2013 Mario Guerriero <mefrio.g@gmail.com>
-*               2017–2018 elementary, Inc. <https://elementary.io>
+* Copyright 2017–2020 elementary, Inc. <https://elementary.io>
+*           2011–2013 Mario Guerriero <mefrio.g@gmail.com>
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -41,7 +40,7 @@ namespace Scratch {
 
         // Widgets for Plugins
         public Gtk.Notebook bottombar;
-        public Code.Pane project_pane;
+        public Code.Sidebar sidebar;
 
         private Gtk.Dialog? preferences_dialog = null;
         private Gtk.Paned hp1;
@@ -321,11 +320,11 @@ namespace Scratch {
                 }
             });
 
-            project_pane = new Code.Pane ();
+            sidebar = new Code.Sidebar ();
 
             folder_manager_view = new FolderManager.FileView ();
 
-            project_pane.add_tab (folder_manager_view);
+            sidebar.add_tab (folder_manager_view);
             folder_manager_view.show_all ();
 
             folder_manager_view.select.connect ((a) => {
@@ -368,7 +367,7 @@ namespace Scratch {
 
             hp1 = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
             hp1.position = 180;
-            hp1.pack1 (project_pane, false, false);
+            hp1.pack1 (sidebar, false, false);
             hp1.pack2 (content_stack, true, false);
 
             vp = new Gtk.Paned (Gtk.Orientation.VERTICAL);
@@ -381,7 +380,7 @@ namespace Scratch {
             search_revealer.set_reveal_child (false);
 
             realize.connect (() => {
-                Scratch.saved_state.bind ("sidebar-visible", project_pane, "visible", SettingsBindFlags.DEFAULT);
+                Scratch.saved_state.bind ("sidebar-visible", sidebar, "visible", SettingsBindFlags.DEFAULT);
                 // Plugins hook
                 HookFunc hook_func = () => {
                     plugins.hook_window (this);
@@ -952,11 +951,11 @@ namespace Scratch {
         }
 
         private void action_toggle_sidebar () {
-            if (project_pane == null) {
+            if (sidebar == null) {
                 return;
             }
 
-            project_pane.visible = !project_pane.visible;
+            sidebar.visible = !sidebar.visible;
         }
     }
 }
