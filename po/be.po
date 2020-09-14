@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-04 23:14+0000\n"
+"POT-Creation-Date: 2020-09-14 16:50+0000\n"
 "PO-Revision-Date: 2016-03-03 17:53+0000\n"
 "Last-Translator: Dmitry Taranovich <vorbissmcgregor@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -87,16 +87,16 @@ msgstr "Знайсці..."
 msgid "Hide search bar"
 msgstr "Схаваць поле пошуку"
 
-#: src/MainWindow.vala:264
+#: src/MainWindow.vala:267
 #, fuzzy
 msgid "Zeitgeist Datasource for Code"
 msgstr "Крыніца дадзеных Zeitgeist для Scratch"
 
-#: src/MainWindow.vala:720 src/Services/Document.vala:502
+#: src/MainWindow.vala:720 src/Services/Document.vala:496
 msgid "All files"
 msgstr "Усе файлы"
 
-#: src/MainWindow.vala:724 src/Services/Document.vala:506
+#: src/MainWindow.vala:724 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "Тэкставыя файлы"
 
@@ -108,8 +108,8 @@ msgstr "Адкрыць некалькі файлаў"
 msgid "Open"
 msgstr "Адкрыць"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:401
-#: src/Services/Document.vala:514 plugins/pastebin/pastebin_dialog.vala:326
+#: src/MainWindow.vala:732 src/Services/Document.vala:395
+#: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Скасаваць"
@@ -308,93 +308,93 @@ msgstr ""
 msgid "Branch"
 msgstr "Змяніць параметры Scratch"
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:260
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:261
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:269
+#: src/Services/Document.vala:263
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:284
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:285
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:293
+#: src/Services/Document.vala:287
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Скасаваць"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:385
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Захаваць змены ў дакуменце %s перад закрыццём?"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:386
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Калі вы  не захаваеце, змены за апошнія 4 секунды будуць назаўсёды страчаны."
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:392
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Закрыць не захоўваючы"
 
-#: src/Services/Document.vala:402 src/Services/Document.vala:513
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:396 src/Services/Document.vala:507
+#: src/Services/Document.vala:731
 msgid "Save"
 msgstr "Захаваць"
 
-#: src/Services/Document.vala:510
+#: src/Services/Document.vala:504
 msgid "Save File"
 msgstr "Захаваць файл"
 
-#: src/Services/Document.vala:592
+#: src/Services/Document.vala:586
 msgid "New Document"
 msgstr "Новы дакумент"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:715
+#: src/Services/Document.vala:709
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 
-#: src/Services/Document.vala:716
+#: src/Services/Document.vala:710
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Немагчыма прачытаць файл \"%s\". Магчыма, ён сапсаваны альбо Вы не маеце "
 "патрэбных прывілеяў, каб яго прачытаць."
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:722
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr "Месца з файлам \"%s\" адмацавана. Жадаеце захаваць у іншым месцы?"
 
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:724
 msgid "Save As…"
 msgstr "Захаваць як..."
 
-#: src/Services/Document.vala:735
+#: src/Services/Document.vala:729
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Файл \"%s\" быў выдалены. Захаваць усё роўна?"
 
 #. If the file can't be written
-#: src/Services/Document.vala:750
+#: src/Services/Document.vala:744
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -403,11 +403,11 @@ msgstr ""
 "Вы не можаце захаваць змены ў файле \"%s\". Жадаеце захаваць змены гэтага "
 "файла дзе-небудзь яшчэ?"
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:746
 msgid "Save changes elsewhere"
 msgstr "Захаваць змены ў іншым месцы"
 
-#: src/Services/Document.vala:785
+#: src/Services/Document.vala:779
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -416,11 +416,11 @@ msgstr ""
 "Файл \"%s\" быў зменены знешнім прыкладаннем. Загрузіць яго зноў ці "
 "працягнуць рэдагаванне?"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:780
 msgid "Load"
 msgstr "Загрузіць"
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:783
 msgid "Continue"
 msgstr "Працягваць"
 
@@ -719,19 +719,6 @@ msgstr "Капіраваць"
 msgid "Paste"
 msgstr "Уставіць"
 
-#: plugins/browser-preview/BrowserView.vala:32
-msgid "Web Preview"
-msgstr "Вэб-перадпрагляд"
-
-#: plugins/browser-preview/browser-preview.vala:57
-#: plugins/browser-preview/browser-preview.vala:83
-msgid "Show Preview"
-msgstr "Паказаць перадпрагляд"
-
-#: plugins/browser-preview/browser-preview.vala:75
-msgid "Hide Preview"
-msgstr "Схаваць перадпрагляд"
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr ""
@@ -744,6 +731,15 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Дапаўненне слоў"
+
+#~ msgid "Web Preview"
+#~ msgstr "Вэб-перадпрагляд"
+
+#~ msgid "Show Preview"
+#~ msgstr "Паказаць перадпрагляд"
+
+#~ msgid "Hide Preview"
+#~ msgstr "Схаваць перадпрагляд"
 
 #, fuzzy
 #~ msgid "Share via Pastebin"

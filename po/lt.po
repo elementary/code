@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-04 23:14+0000\n"
+"POT-Creation-Date: 2020-09-14 16:50+0000\n"
 "PO-Revision-Date: 2019-10-05 21:23+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <https://l10n.elementary.io/projects/code/code/lt/"
@@ -96,15 +96,15 @@ msgstr "Rasti…"
 msgid "Hide search bar"
 msgstr "Slėpti paieškos juostą"
 
-#: src/MainWindow.vala:264
+#: src/MainWindow.vala:267
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zeitgeist duomenų šaltinis, skirtas Kodui"
 
-#: src/MainWindow.vala:720 src/Services/Document.vala:502
+#: src/MainWindow.vala:720 src/Services/Document.vala:496
 msgid "All files"
 msgstr "Visi failai"
 
-#: src/MainWindow.vala:724 src/Services/Document.vala:506
+#: src/MainWindow.vala:724 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "Tekstiniai failai"
 
@@ -116,8 +116,8 @@ msgstr "Atverti failus"
 msgid "Open"
 msgstr "Atverti"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:401
-#: src/Services/Document.vala:514 plugins/pastebin/pastebin_dialog.vala:326
+#: src/MainWindow.vala:732 src/Services/Document.vala:395
+#: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Atsisakyti"
@@ -310,70 +310,70 @@ msgstr ""
 msgid "Branch"
 msgstr "Šaka"
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:260
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s nėra tekstinis failas"
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:261
 msgid "Code will not load this type of file."
 msgstr "Kodas neįkels šio failo tipo."
 
-#: src/Services/Document.vala:269
+#: src/Services/Document.vala:263
 msgid "Load Anyway"
 msgstr "Vis tiek įkelti"
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:284
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Failo \"%s\" įkėlimas užima daug laiko"
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:285
 msgid "Please wait while Code is loading the file."
 msgstr "Palaukite, kol Kodas įkelia failą."
 
-#: src/Services/Document.vala:293
+#: src/Services/Document.vala:287
 msgid "Cancel Loading"
 msgstr "Atsisakyti įkėlimo"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:385
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Ar prieš užveriant, įrašyti pakeitimus į %s?"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:386
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Jeigu neįrašysite, pakeitimai bus negrįžtamai prarasti."
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:392
 msgid "Close Without Saving"
 msgstr "Užverti neįrašant"
 
-#: src/Services/Document.vala:402 src/Services/Document.vala:513
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:396 src/Services/Document.vala:507
+#: src/Services/Document.vala:731
 msgid "Save"
 msgstr "Įrašyti"
 
-#: src/Services/Document.vala:510
+#: src/Services/Document.vala:504
 msgid "Save File"
 msgstr "Įrašyti failą"
 
-#: src/Services/Document.vala:592
+#: src/Services/Document.vala:586
 msgid "New Document"
 msgstr "Naujas dokumentas"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:715
+#: src/Services/Document.vala:709
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Failas \"%s\" negali būti perskaitytas"
 
-#: src/Services/Document.vala:716
+#: src/Services/Document.vala:710
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Galbūt, jis yra pažeistas arba jūs neturite reikiamų leidimų jo skaityti."
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:722
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -382,17 +382,17 @@ msgstr ""
 "Vieta, kurioje buvo failas \"%s\", buvo atjungta. Ar norite įrašyti kur nors "
 "kitur?"
 
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:724
 msgid "Save As…"
 msgstr "Įrašyti kaip…"
 
-#: src/Services/Document.vala:735
+#: src/Services/Document.vala:729
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Failas \"%s\" buvo ištrintas. Ar vis tiek norite jį įrašyti?"
 
 #. If the file can't be written
-#: src/Services/Document.vala:750
+#: src/Services/Document.vala:744
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -401,11 +401,11 @@ msgstr ""
 "Jūs negalite įrašyti pakeitimus į failą \"%s\". Ar norite įrašyti pakeitimus "
 "kitoje vietoje?"
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:746
 msgid "Save changes elsewhere"
 msgstr "Įrašyti pakeitimus kitur"
 
-#: src/Services/Document.vala:785
+#: src/Services/Document.vala:779
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -414,11 +414,11 @@ msgstr ""
 "Failas \"%s\" buvo pakeistas išorinės programos. Ar norite vėl jį įkelti, ar "
 "tęsti redagavimą?"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:780
 msgid "Load"
 msgstr "Įkelti"
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:783
 msgid "Continue"
 msgstr "Tęsti"
 
@@ -714,19 +714,6 @@ msgstr "Kopijuoti"
 msgid "Paste"
 msgstr "Įdėti"
 
-#: plugins/browser-preview/BrowserView.vala:32
-msgid "Web Preview"
-msgstr "Saityno peržiūra"
-
-#: plugins/browser-preview/browser-preview.vala:57
-#: plugins/browser-preview/browser-preview.vala:83
-msgid "Show Preview"
-msgstr "Rodyti peržiūrą"
-
-#: plugins/browser-preview/browser-preview.vala:75
-msgid "Hide Preview"
-msgstr "Slėpti peržiūrą"
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr "Nerasta jokių tinkamų žodynų"
@@ -739,6 +726,15 @@ msgstr "Įdiekite bent vieną [aspell] žodyną."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Žodžių užbaigimas"
+
+#~ msgid "Web Preview"
+#~ msgstr "Saityno peržiūra"
+
+#~ msgid "Show Preview"
+#~ msgstr "Rodyti peržiūrą"
+
+#~ msgid "Hide Preview"
+#~ msgstr "Slėpti peržiūrą"
 
 #~ msgid "Share via Pastebin"
 #~ msgstr "Bendrinti per Pastebin"
