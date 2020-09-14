@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-01 22:59+0000\n"
-"PO-Revision-Date: 2020-05-30 10:11+0000\n"
+"POT-Creation-Date: 2020-09-04 23:14+0000\n"
+"PO-Revision-Date: 2020-09-07 16:39+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
 "Language: ca\n"
@@ -98,32 +98,33 @@ msgstr "Oculta la barra de cerca"
 msgid "Zeitgeist Datasource for Code"
 msgstr "Font de dades del Zeitgeist per al Codi"
 
-#: src/MainWindow.vala:718 src/Services/Document.vala:502
+#: src/MainWindow.vala:720 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Tots els fitxers"
 
-#: src/MainWindow.vala:722 src/Services/Document.vala:506
+#: src/MainWindow.vala:724 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Fitxers de text"
 
-#: src/MainWindow.vala:726
+#: src/MainWindow.vala:728
 msgid "Open some files"
 msgstr "Obriu alguns fitxers"
 
-#: src/MainWindow.vala:729
+#: src/MainWindow.vala:731
 msgid "Open"
 msgstr "Obre"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:401
-#: src/Services/Document.vala:514
+#: src/MainWindow.vala:732 src/Services/Document.vala:401
+#: src/Services/Document.vala:514 plugins/pastebin/pastebin_dialog.vala:326
+#: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: src/MainWindow.vala:755
+#: src/MainWindow.vala:757
 msgid "_Open"
 msgstr "_Obre"
 
-#: src/MainWindow.vala:756
+#: src/MainWindow.vala:758
 msgid "_Cancel"
 msgstr "_Cancel·la"
 
@@ -176,7 +177,7 @@ msgid "Interface"
 msgstr "Interfície"
 
 #: src/Dialogs/PreferencesDialog.vala:87
-#: plugins/pastebin/pastebin_dialog.vala:323
+#: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Tanca"
 
@@ -521,10 +522,8 @@ msgid "Menu"
 msgstr "Menú"
 
 #: src/Widgets/Pane.vala:45
-#, fuzzy
-#| msgid "Open project folder…"
 msgid "Open Project Folder…"
-msgstr "Obre la carpeta de projectes…"
+msgstr "Obre la carpeta del projecte…"
 
 #: src/Widgets/Pane.vala:48
 msgid "Collapse All"
@@ -614,61 +613,58 @@ msgstr "Obre una carpeta"
 msgid "Add a project folder to the sidebar."
 msgstr "Afegeix la carpeta d'un projecte a la barra lateral."
 
-#: plugins/pastebin/pastebin_dialog.vala:249
-msgid "Share via Pastebin"
-msgstr "Comparteix amb el Pastebin"
+#: plugins/pastebin/pastebin_dialog.vala:250
+#: plugins/pastebin/pastebin_dialog.vala:327 plugins/pastebin/pastebin.vala:96
+msgid "Upload to Pastebin"
+msgstr "Puja al Pastebin"
 
-#: plugins/pastebin/pastebin_dialog.vala:256
+#: plugins/pastebin/pastebin_dialog.vala:257
 msgid "Name:"
 msgstr "Nom:"
 
-#: plugins/pastebin/pastebin_dialog.vala:259
+#: plugins/pastebin/pastebin_dialog.vala:260
 msgid "Format:"
 msgstr "Format:"
 
-#: plugins/pastebin/pastebin_dialog.vala:264
-msgid "Others…"
-msgstr "Altres…"
+#: plugins/pastebin/pastebin_dialog.vala:266
+msgid "Choose different format"
+msgstr "Trieu un format diferent"
 
-#: plugins/pastebin/pastebin_dialog.vala:286
-msgid "Expiry time:"
-msgstr "Temps d'expiració:"
+#: plugins/pastebin/pastebin_dialog.vala:289
+msgid "Expiration:"
+msgstr "Caducitat:"
 
-#: plugins/pastebin/pastebin_dialog.vala:292
+#: plugins/pastebin/pastebin_dialog.vala:295
 msgid "Keep this paste private"
 msgstr "Mantén aquest retall com a privat"
 
-#: plugins/pastebin/pastebin_dialog.vala:321
-msgid "Upload"
-msgstr "Puja"
+#: plugins/pastebin/pastebin_dialog.vala:353
+msgid "Available Formats"
+msgstr "Formats disponibles"
 
-#: plugins/pastebin/pastebin_dialog.vala:352
-msgid "Other formats"
-msgstr "Altres formats"
+#: plugins/pastebin/pastebin_dialog.vala:380
+msgid "Select Format"
+msgstr "Seleccioneu un format"
 
-#: plugins/pastebin/pastebin_dialog.vala:460
+#: plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr "Mai"
 
-#: plugins/pastebin/pastebin_dialog.vala:461
+#: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
 msgstr "Deu minuts"
 
-#: plugins/pastebin/pastebin_dialog.vala:462
+#: plugins/pastebin/pastebin_dialog.vala:469
 msgid "One hour"
 msgstr "Una hora"
 
-#: plugins/pastebin/pastebin_dialog.vala:463
+#: plugins/pastebin/pastebin_dialog.vala:470
 msgid "One day"
 msgstr "Un dia"
 
-#: plugins/pastebin/pastebin_dialog.vala:464
+#: plugins/pastebin/pastebin_dialog.vala:471
 msgid "One month"
 msgstr "Un mes"
-
-#: plugins/pastebin/pastebin.vala:91
-msgid "Upload to Pastebin"
-msgstr "Puja al Pastebin"
 
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
@@ -731,6 +727,18 @@ msgstr "Si us plau, instal·leu com a mínim un diccionari (aspell)."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Compleció de paraules"
+
+#~ msgid "Share via Pastebin"
+#~ msgstr "Comparteix amb el Pastebin"
+
+#~ msgid "Others…"
+#~ msgstr "Altres…"
+
+#~ msgid "Upload"
+#~ msgstr "Puja"
+
+#~ msgid "Other formats"
+#~ msgstr "Altres formats"
 
 #~ msgid "Add New View"
 #~ msgstr "Afegeix una nova vista"
@@ -1121,9 +1129,6 @@ msgstr "%s - Compleció de paraules"
 
 #~ msgid "Show margin on right:"
 #~ msgstr "Mostra un marge a la dreta:"
-
-#~ msgid "Select font:"
-#~ msgstr "Seleccioneu un tipus de lletra:"
 
 #~ msgid "There are unsaved changes in Scratch!"
 #~ msgstr "Hi ha canvis sense desar a l'Scratch."

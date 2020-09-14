@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-01 22:59+0000\n"
+"POT-Creation-Date: 2020-09-04 23:14+0000\n"
 "PO-Revision-Date: 2015-12-21 13:39+0000\n"
 "Last-Translator: Mario Guerriero <Unknown>\n"
 "Language-Team: Amharic <am@li.org>\n"
@@ -96,32 +96,33 @@ msgstr "የመፈለጊያ ባሩን መደበቂያ"
 msgid "Zeitgeist Datasource for Code"
 msgstr ""
 
-#: src/MainWindow.vala:718 src/Services/Document.vala:502
+#: src/MainWindow.vala:720 src/Services/Document.vala:502
 msgid "All files"
 msgstr "ሁሉንም ፋይሎች"
 
-#: src/MainWindow.vala:722 src/Services/Document.vala:506
+#: src/MainWindow.vala:724 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "የጽሁፍ ፋይሎች"
 
-#: src/MainWindow.vala:726
+#: src/MainWindow.vala:728
 msgid "Open some files"
 msgstr "አንዳንድ ፋይሎች መክፈቻ"
 
-#: src/MainWindow.vala:729
+#: src/MainWindow.vala:731
 msgid "Open"
 msgstr "መክፈቻ"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:401
-#: src/Services/Document.vala:514
+#: src/MainWindow.vala:732 src/Services/Document.vala:401
+#: src/Services/Document.vala:514 plugins/pastebin/pastebin_dialog.vala:326
+#: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "መሰረዣ"
 
-#: src/MainWindow.vala:755
+#: src/MainWindow.vala:757
 msgid "_Open"
 msgstr "_መክፈቻ"
 
-#: src/MainWindow.vala:756
+#: src/MainWindow.vala:758
 msgid "_Cancel"
 msgstr "_መሰረዣ"
 
@@ -172,7 +173,7 @@ msgid "Interface"
 msgstr "ግንኙነት"
 
 #: src/Dialogs/PreferencesDialog.vala:87
-#: plugins/pastebin/pastebin_dialog.vala:323
+#: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "መዝጊያ"
 
@@ -617,63 +618,61 @@ msgstr "ፎልደር መክፈቻ"
 msgid "Add a project folder to the sidebar."
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:249
-msgid "Share via Pastebin"
+#: plugins/pastebin/pastebin_dialog.vala:250
+#: plugins/pastebin/pastebin_dialog.vala:327 plugins/pastebin/pastebin.vala:96
+msgid "Upload to Pastebin"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:256
+#: plugins/pastebin/pastebin_dialog.vala:257
 msgid "Name:"
 msgstr "ስም :"
 
-#: plugins/pastebin/pastebin_dialog.vala:259
+#: plugins/pastebin/pastebin_dialog.vala:260
 #, fuzzy
 msgid "Format:"
 msgstr "አቀራረብ : "
 
-#: plugins/pastebin/pastebin_dialog.vala:264
-#, fuzzy
-msgid "Others…"
-msgstr "ሌሎች..."
-
-#: plugins/pastebin/pastebin_dialog.vala:286
-msgid "Expiry time:"
+#: plugins/pastebin/pastebin_dialog.vala:266
+msgid "Choose different format"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:292
+#: plugins/pastebin/pastebin_dialog.vala:289
+msgid "Expiration:"
+msgstr ""
+
+#: plugins/pastebin/pastebin_dialog.vala:295
 msgid "Keep this paste private"
 msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:321
-msgid "Upload"
-msgstr "መጫኛ"
+#: plugins/pastebin/pastebin_dialog.vala:353
+msgid "Available Formats"
+msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:352
-msgid "Other formats"
-msgstr "ለሎች አቀራረቦች"
+#: plugins/pastebin/pastebin_dialog.vala:380
+#, fuzzy
+#| msgid "Select font:"
+msgid "Select Format"
+msgstr "ፊደል ይምረጡ :"
 
-#: plugins/pastebin/pastebin_dialog.vala:460
+#: plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr "በፍጹም"
 
-#: plugins/pastebin/pastebin_dialog.vala:461
+#: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
 msgstr "አስር ደቂቃ"
 
-#: plugins/pastebin/pastebin_dialog.vala:462
+#: plugins/pastebin/pastebin_dialog.vala:469
 msgid "One hour"
 msgstr "አንድ ሰአት"
 
-#: plugins/pastebin/pastebin_dialog.vala:463
+#: plugins/pastebin/pastebin_dialog.vala:470
 msgid "One day"
 msgstr "አንድ ቀን"
 
-#: plugins/pastebin/pastebin_dialog.vala:464
+#: plugins/pastebin/pastebin_dialog.vala:471
 msgid "One month"
 msgstr "አንድ ወር"
-
-#: plugins/pastebin/pastebin.vala:91
-msgid "Upload to Pastebin"
-msgstr ""
 
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
@@ -738,6 +737,16 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Others…"
+#~ msgstr "ሌሎች..."
+
+#~ msgid "Upload"
+#~ msgstr "መጫኛ"
+
+#~ msgid "Other formats"
+#~ msgstr "ለሎች አቀራረቦች"
 
 #~ msgid "Add New View"
 #~ msgstr "አዲስ መመለከቻ መጨመሪያ"
@@ -919,9 +928,6 @@ msgstr ""
 
 #~ msgid "General:"
 #~ msgstr "ባጠቃላይ :"
-
-#~ msgid "Select font:"
-#~ msgstr "ፊደል ይምረጡ :"
 
 #~ msgid "Editor:"
 #~ msgstr "አራሚ:"

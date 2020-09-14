@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-01 22:59+0000\n"
-"PO-Revision-Date: 2020-06-01 16:11+0000\n"
+"POT-Creation-Date: 2020-09-04 23:14+0000\n"
+"PO-Revision-Date: 2020-09-13 03:16+0000\n"
 "Last-Translator: Ozgur Baskin <bebeto_baskin@yahoo.com>\n"
 "Language-Team: Turkish <https://l10n.elementary.io/projects/code/code/tr/>\n"
 "Language: tr\n"
@@ -98,32 +98,33 @@ msgstr "Arama çubuğunu gizle"
 msgid "Zeitgeist Datasource for Code"
 msgstr "Kod için Zeitgeist Veri Kaynağı"
 
-#: src/MainWindow.vala:718 src/Services/Document.vala:502
+#: src/MainWindow.vala:720 src/Services/Document.vala:502
 msgid "All files"
 msgstr "Tüm dosyalar"
 
-#: src/MainWindow.vala:722 src/Services/Document.vala:506
+#: src/MainWindow.vala:724 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "Metin dosyaları"
 
-#: src/MainWindow.vala:726
+#: src/MainWindow.vala:728
 msgid "Open some files"
 msgstr "Birkaç dosya aç"
 
-#: src/MainWindow.vala:729
+#: src/MainWindow.vala:731
 msgid "Open"
 msgstr "Aç"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:401
-#: src/Services/Document.vala:514
+#: src/MainWindow.vala:732 src/Services/Document.vala:401
+#: src/Services/Document.vala:514 plugins/pastebin/pastebin_dialog.vala:326
+#: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "İptal"
 
-#: src/MainWindow.vala:755
+#: src/MainWindow.vala:757
 msgid "_Open"
 msgstr "_Aç"
 
-#: src/MainWindow.vala:756
+#: src/MainWindow.vala:758
 msgid "_Cancel"
 msgstr "_İptal"
 
@@ -176,7 +177,7 @@ msgid "Interface"
 msgstr "Arayüz"
 
 #: src/Dialogs/PreferencesDialog.vala:87
-#: plugins/pastebin/pastebin_dialog.vala:323
+#: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Kapat"
 
@@ -520,10 +521,8 @@ msgid "Menu"
 msgstr "Menü"
 
 #: src/Widgets/Pane.vala:45
-#, fuzzy
-#| msgid "Open project folder…"
 msgid "Open Project Folder…"
-msgstr "Proje klasörü aç…"
+msgstr "Proje Klasörü Aç…"
 
 #: src/Widgets/Pane.vala:48
 msgid "Collapse All"
@@ -613,61 +612,58 @@ msgstr "Klasör Aç"
 msgid "Add a project folder to the sidebar."
 msgstr "Kenar çubuğuna bir proje klasörü ekle."
 
-#: plugins/pastebin/pastebin_dialog.vala:249
-msgid "Share via Pastebin"
-msgstr "Pastebin aracılığıyla paylaş"
+#: plugins/pastebin/pastebin_dialog.vala:250
+#: plugins/pastebin/pastebin_dialog.vala:327 plugins/pastebin/pastebin.vala:96
+msgid "Upload to Pastebin"
+msgstr "Pastebin'e Yükle"
 
-#: plugins/pastebin/pastebin_dialog.vala:256
+#: plugins/pastebin/pastebin_dialog.vala:257
 msgid "Name:"
 msgstr "Ad:"
 
-#: plugins/pastebin/pastebin_dialog.vala:259
+#: plugins/pastebin/pastebin_dialog.vala:260
 msgid "Format:"
 msgstr "Biçim:"
 
-#: plugins/pastebin/pastebin_dialog.vala:264
-msgid "Others…"
-msgstr "Diğerleri…"
+#: plugins/pastebin/pastebin_dialog.vala:266
+msgid "Choose different format"
+msgstr "Farklı biçim seç"
 
-#: plugins/pastebin/pastebin_dialog.vala:286
-msgid "Expiry time:"
+#: plugins/pastebin/pastebin_dialog.vala:289
+msgid "Expiration:"
 msgstr "Geçerlilik süresi:"
 
-#: plugins/pastebin/pastebin_dialog.vala:292
+#: plugins/pastebin/pastebin_dialog.vala:295
 msgid "Keep this paste private"
 msgstr "Bu paylaşımı gizli tut"
 
-#: plugins/pastebin/pastebin_dialog.vala:321
-msgid "Upload"
-msgstr "Karşıya Yükle"
+#: plugins/pastebin/pastebin_dialog.vala:353
+msgid "Available Formats"
+msgstr "Kullanılabilir biçimler"
 
-#: plugins/pastebin/pastebin_dialog.vala:352
-msgid "Other formats"
-msgstr "Diğer biçimler"
+#: plugins/pastebin/pastebin_dialog.vala:380
+msgid "Select Format"
+msgstr "Biçim Seç"
 
-#: plugins/pastebin/pastebin_dialog.vala:460
+#: plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr "Asla"
 
-#: plugins/pastebin/pastebin_dialog.vala:461
+#: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
 msgstr "On dakika"
 
-#: plugins/pastebin/pastebin_dialog.vala:462
+#: plugins/pastebin/pastebin_dialog.vala:469
 msgid "One hour"
 msgstr "Bir saat"
 
-#: plugins/pastebin/pastebin_dialog.vala:463
+#: plugins/pastebin/pastebin_dialog.vala:470
 msgid "One day"
 msgstr "Bir gün"
 
-#: plugins/pastebin/pastebin_dialog.vala:464
+#: plugins/pastebin/pastebin_dialog.vala:471
 msgid "One month"
 msgstr "Bir ay"
-
-#: plugins/pastebin/pastebin.vala:91
-msgid "Upload to Pastebin"
-msgstr "Pastebin'e Yükle"
 
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
@@ -730,6 +726,18 @@ msgstr "Lütfen en azından bir [aspell] sözlük yükleyin."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Kelime Tamamlama"
+
+#~ msgid "Share via Pastebin"
+#~ msgstr "Pastebin aracılığıyla paylaş"
+
+#~ msgid "Others…"
+#~ msgstr "Diğerleri…"
+
+#~ msgid "Upload"
+#~ msgstr "Karşıya Yükle"
+
+#~ msgid "Other formats"
+#~ msgstr "Diğer biçimler"
 
 #~ msgid "Add New View"
 #~ msgstr "Yeni Görünüm Ekle"
@@ -1161,9 +1169,6 @@ msgstr "%s - Kelime Tamamlama"
 
 #~ msgid "The file %s was deleted."
 #~ msgstr "%s dosyası silindi."
-
-#~ msgid "Select font:"
-#~ msgstr "Yazı tipi seç:"
 
 #~ msgid "Draw spaces:"
 #~ msgstr "Yazı boşluğu:"

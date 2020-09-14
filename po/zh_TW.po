@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-01 22:59+0000\n"
+"POT-Creation-Date: 2020-09-04 23:14+0000\n"
 "PO-Revision-Date: 2020-08-16 06:13+0000\n"
 "Last-Translator: P.-H. Lin <cypressyew@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -99,32 +99,33 @@ msgstr "隱藏搜尋列"
 msgid "Zeitgeist Datasource for Code"
 msgstr "供 Code 使用的 Zeitgeist 資料來源"
 
-#: src/MainWindow.vala:718 src/Services/Document.vala:502
+#: src/MainWindow.vala:720 src/Services/Document.vala:502
 msgid "All files"
 msgstr "所有檔案"
 
-#: src/MainWindow.vala:722 src/Services/Document.vala:506
+#: src/MainWindow.vala:724 src/Services/Document.vala:506
 msgid "Text files"
 msgstr "文字檔案"
 
-#: src/MainWindow.vala:726
+#: src/MainWindow.vala:728
 msgid "Open some files"
 msgstr "開啟一些檔案"
 
-#: src/MainWindow.vala:729
+#: src/MainWindow.vala:731
 msgid "Open"
 msgstr "開啟"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:401
-#: src/Services/Document.vala:514
+#: src/MainWindow.vala:732 src/Services/Document.vala:401
+#: src/Services/Document.vala:514 plugins/pastebin/pastebin_dialog.vala:326
+#: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "取消"
 
-#: src/MainWindow.vala:755
+#: src/MainWindow.vala:757
 msgid "_Open"
 msgstr "開啟(_O)"
 
-#: src/MainWindow.vala:756
+#: src/MainWindow.vala:758
 msgid "_Cancel"
 msgstr "取消(_C)"
 
@@ -175,7 +176,7 @@ msgid "Interface"
 msgstr "介面"
 
 #: src/Dialogs/PreferencesDialog.vala:87
-#: plugins/pastebin/pastebin_dialog.vala:323
+#: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "關閉"
 
@@ -602,61 +603,62 @@ msgstr "開啟資料夾"
 msgid "Add a project folder to the sidebar."
 msgstr "將專案資料夾新增至側邊欄。"
 
-#: plugins/pastebin/pastebin_dialog.vala:249
-msgid "Share via Pastebin"
-msgstr "透過 PasteBin 分享"
+#: plugins/pastebin/pastebin_dialog.vala:250
+#: plugins/pastebin/pastebin_dialog.vala:327 plugins/pastebin/pastebin.vala:96
+msgid "Upload to Pastebin"
+msgstr "上傳至 Pastebin"
 
-#: plugins/pastebin/pastebin_dialog.vala:256
+#: plugins/pastebin/pastebin_dialog.vala:257
 msgid "Name:"
 msgstr "名稱："
 
-#: plugins/pastebin/pastebin_dialog.vala:259
+#: plugins/pastebin/pastebin_dialog.vala:260
 msgid "Format:"
 msgstr "格式："
 
-#: plugins/pastebin/pastebin_dialog.vala:264
-msgid "Others…"
-msgstr "其他…"
+#: plugins/pastebin/pastebin_dialog.vala:266
+msgid "Choose different format"
+msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:286
-msgid "Expiry time:"
+#: plugins/pastebin/pastebin_dialog.vala:289
+#, fuzzy
+#| msgid "Expiry time:"
+msgid "Expiration:"
 msgstr "截止時間："
 
-#: plugins/pastebin/pastebin_dialog.vala:292
+#: plugins/pastebin/pastebin_dialog.vala:295
 msgid "Keep this paste private"
 msgstr "保持該剪貼為私人使用"
 
-#: plugins/pastebin/pastebin_dialog.vala:321
-msgid "Upload"
-msgstr "上傳"
+#: plugins/pastebin/pastebin_dialog.vala:353
+msgid "Available Formats"
+msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:352
-msgid "Other formats"
-msgstr "其他格式"
+#: plugins/pastebin/pastebin_dialog.vala:380
+#, fuzzy
+#| msgid "Select font:"
+msgid "Select Format"
+msgstr "選取字型："
 
-#: plugins/pastebin/pastebin_dialog.vala:460
+#: plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr "永不"
 
-#: plugins/pastebin/pastebin_dialog.vala:461
+#: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
 msgstr "十分鐘"
 
-#: plugins/pastebin/pastebin_dialog.vala:462
+#: plugins/pastebin/pastebin_dialog.vala:469
 msgid "One hour"
 msgstr "一小時"
 
-#: plugins/pastebin/pastebin_dialog.vala:463
+#: plugins/pastebin/pastebin_dialog.vala:470
 msgid "One day"
 msgstr "一天"
 
-#: plugins/pastebin/pastebin_dialog.vala:464
+#: plugins/pastebin/pastebin_dialog.vala:471
 msgid "One month"
 msgstr "一個月"
-
-#: plugins/pastebin/pastebin.vala:91
-msgid "Upload to Pastebin"
-msgstr "上傳至 Pastebin"
 
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
@@ -719,6 +721,18 @@ msgstr "請安裝至少一本 [aspell] 字典。"
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - 單字補完"
+
+#~ msgid "Share via Pastebin"
+#~ msgstr "透過 PasteBin 分享"
+
+#~ msgid "Others…"
+#~ msgstr "其他…"
+
+#~ msgid "Upload"
+#~ msgstr "上傳"
+
+#~ msgid "Other formats"
+#~ msgstr "其他格式"
 
 #~ msgid "Add New View"
 #~ msgstr "加入新檢視"
@@ -1077,9 +1091,6 @@ msgstr "%s - 單字補完"
 
 #~ msgid "Do you want to save changes before closing this file?"
 #~ msgstr "您是否想在關閉此檔案前儲存變更？"
-
-#~ msgid "Select font:"
-#~ msgstr "選取字型："
 
 #~ msgid "You can't save changes to:"
 #~ msgstr "您無法儲存變更至："

@@ -61,7 +61,7 @@ namespace Scratch.FolderManager {
                 return 1;
             }
 
-            return File.compare ((a as Item).file, (b as Item).file);
+            return File.compare (((Item)a).file, ((Item)b).file);
         }
 
         public bool allow_dnd_sorting () {

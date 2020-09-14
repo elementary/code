@@ -215,6 +215,15 @@ namespace Scratch {
             var gtk_settings = Gtk.Settings.get_default ();
             gtk_settings.gtk_application_prefer_dark_theme = Scratch.settings.get_boolean ("prefer-dark-style");
 
+            clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
+
+            plugins = new Scratch.Services.PluginsManager (this, app.app_cmd_name.down ());
+
+            key_press_event.connect (on_key_pressed);
+
+            // Set up layout
+            init_layout ();
+
             var window_state = Scratch.saved_state.get_enum ("window-state");
             switch (window_state) {
                 case ScratchWindowState.MAXIMIZED:
@@ -231,14 +240,8 @@ namespace Scratch {
                     break;
             }
 
-            clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
-
-            plugins = new Scratch.Services.PluginsManager (this, app.app_cmd_name.down ());
-
-            key_press_event.connect (on_key_pressed);
-
-            // Set up layout
-            init_layout ();
+            // Show/Hide widgets
+            show_all ();
 
             toolbar.templates_button.visible = (plugins.plugin_iface.template_manager.template_available);
             plugins.plugin_iface.template_manager.notify["template_available"].connect (() => {
@@ -413,6 +416,8 @@ namespace Scratch {
 
                 search_bar.set_text_view (doc.source_view);
                 // Update MainWindow title
+                toolbar.title = doc.get_basename ();
+
                 if (doc != null) {
                     toolbar.set_document_focus (doc);
                     folder_manager_view.select_path (doc.file.get_path ());
@@ -424,9 +429,6 @@ namespace Scratch {
             });
 
             set_widgets_sensitive (false);
-
-            // Show/Hide widgets
-            show_all ();
         }
 
         private void open_binary (File file) {
