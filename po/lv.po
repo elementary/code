@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-04 23:14+0000\n"
+"POT-Creation-Date: 2020-09-14 16:50+0000\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Latvian <https://l10n.elementary.io/projects/code/code/lv/>\n"
@@ -98,16 +98,16 @@ msgstr "Meklēt…"
 msgid "Hide search bar"
 msgstr "Paslēpt meklētāju"
 
-#: src/MainWindow.vala:264
+#: src/MainWindow.vala:267
 #, fuzzy
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zeitgeist datu avots priekš Scracth"
 
-#: src/MainWindow.vala:720 src/Services/Document.vala:502
+#: src/MainWindow.vala:720 src/Services/Document.vala:496
 msgid "All files"
 msgstr "Visas datnes"
 
-#: src/MainWindow.vala:724 src/Services/Document.vala:506
+#: src/MainWindow.vala:724 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "Taksta faili"
 
@@ -119,8 +119,8 @@ msgstr "Atvērt datnes"
 msgid "Open"
 msgstr "Atvērt"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:401
-#: src/Services/Document.vala:514 plugins/pastebin/pastebin_dialog.vala:326
+#: src/MainWindow.vala:732 src/Services/Document.vala:395
+#: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Atcelt"
@@ -319,95 +319,95 @@ msgstr ""
 msgid "Branch"
 msgstr "Mainīt iestatījumus"
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:260
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr ""
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:261
 msgid "Code will not load this type of file."
 msgstr ""
 
-#: src/Services/Document.vala:269
+#: src/Services/Document.vala:263
 msgid "Load Anyway"
 msgstr ""
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:284
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr ""
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:285
 msgid "Please wait while Code is loading the file."
 msgstr ""
 
-#: src/Services/Document.vala:293
+#: src/Services/Document.vala:287
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Atcelt"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:385
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Saglabāt dokumenta %s izmaiņas pirms aizvēršanas?"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:386
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Ja nesaglabāsieties,- pēdējo 4 sekužu izmaiņas tiks neatgriezeniski zaudētas."
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:392
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Aizvērt nesaglabājot"
 
-#: src/Services/Document.vala:402 src/Services/Document.vala:513
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:396 src/Services/Document.vala:507
+#: src/Services/Document.vala:731
 msgid "Save"
 msgstr "Saglabāt"
 
-#: src/Services/Document.vala:510
+#: src/Services/Document.vala:504
 msgid "Save File"
 msgstr "Saglabāt failu"
 
-#: src/Services/Document.vala:592
+#: src/Services/Document.vala:586
 msgid "New Document"
 msgstr "Jauns dokuments"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:715
+#: src/Services/Document.vala:709
 #, fuzzy, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr ""
 "Fails \"%s\" nevar tikt radīts.\n"
 "%s"
 
-#: src/Services/Document.vala:716
+#: src/Services/Document.vala:710
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Nevar atvērt datni \"%s\". Varbūt tā ir bojāta,\n"
 "vai arī jums nav tiesību,  lai atvērtu to."
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:722
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
 
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:724
 msgid "Save As…"
 msgstr "Saglabāt kā…"
 
-#: src/Services/Document.vala:735
+#: src/Services/Document.vala:729
 #, fuzzy, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Fails \"&s\" tika dzēsta. Vai tomēr vēlaties to saglābāt?"
 
 #. If the file can't be written
-#: src/Services/Document.vala:750
+#: src/Services/Document.vala:744
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -416,11 +416,11 @@ msgstr ""
 "Nevar saglabāt izmaiņas \"%s\" datnē. Vai jūs vēlaties saglabāt šīs izmaiņas "
 "citā vietā?"
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:746
 msgid "Save changes elsewhere"
 msgstr "Saglabāt izmaiņas citviet"
 
-#: src/Services/Document.vala:785
+#: src/Services/Document.vala:779
 #, fuzzy, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -429,11 +429,11 @@ msgstr ""
 "Fails \"&s\" tika labota ar citu aplikāciju. Vai vēlaties to ielādēt no "
 "jauna un turpīnat savu darbu?"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:780
 msgid "Load"
 msgstr "Ielādēt"
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:783
 msgid "Continue"
 msgstr "Turpināt"
 
@@ -732,19 +732,6 @@ msgstr "Kopēt"
 #: plugins/terminal/terminal.vala:232
 msgid "Paste"
 msgstr "Ielīmēt"
-
-#: plugins/browser-preview/BrowserView.vala:32
-msgid "Web Preview"
-msgstr ""
-
-#: plugins/browser-preview/browser-preview.vala:57
-#: plugins/browser-preview/browser-preview.vala:83
-msgid "Show Preview"
-msgstr ""
-
-#: plugins/browser-preview/browser-preview.vala:75
-msgid "Hide Preview"
-msgstr ""
 
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"

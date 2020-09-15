@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-04 23:14+0000\n"
+"POT-Creation-Date: 2020-09-14 16:50+0000\n"
 "PO-Revision-Date: 2019-07-02 22:28+0000\n"
 "Last-Translator: Marco Devoti <ilbuzio@yahoo.it>\n"
 "Language-Team: Italian <https://l10n.elementary.io/projects/code/code/it/>\n"
@@ -94,16 +94,16 @@ msgstr "Trova…"
 msgid "Hide search bar"
 msgstr "Nascondi la barra di ricerca"
 
-#: src/MainWindow.vala:264
+#: src/MainWindow.vala:267
 #, fuzzy
 msgid "Zeitgeist Datasource for Code"
 msgstr "Origine dati Zeitgeist per Scratch"
 
-#: src/MainWindow.vala:720 src/Services/Document.vala:502
+#: src/MainWindow.vala:720 src/Services/Document.vala:496
 msgid "All files"
 msgstr "Tutti i file"
 
-#: src/MainWindow.vala:724 src/Services/Document.vala:506
+#: src/MainWindow.vala:724 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "File di testo"
 
@@ -115,8 +115,8 @@ msgstr "Apri alcuni file"
 msgid "Open"
 msgstr "Apri"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:401
-#: src/Services/Document.vala:514 plugins/pastebin/pastebin_dialog.vala:326
+#: src/MainWindow.vala:732 src/Services/Document.vala:395
+#: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Annulla"
@@ -311,72 +311,72 @@ msgstr ""
 msgid "Branch"
 msgstr "Cambia ramo"
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:260
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s non è un file di testo"
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:261
 msgid "Code will not load this type of file."
 msgstr "Code non può caricare questo tipo di file."
 
-#: src/Services/Document.vala:269
+#: src/Services/Document.vala:263
 msgid "Load Anyway"
 msgstr "Carica lo stesso"
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:284
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Il caricamento del file \"%s\" sta impiegando molto tempo"
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:285
 msgid "Please wait while Code is loading the file."
 msgstr "Attendere mentre Code carica il file."
 
-#: src/Services/Document.vala:293
+#: src/Services/Document.vala:287
 msgid "Cancel Loading"
 msgstr "Annulla il caricamento"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:385
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Salvare le modifiche apportate a \"%s\" prima di chiudere?"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:386
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Se non esegui il salvataggio le modifiche verranno perse in modo permanente."
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:392
 msgid "Close Without Saving"
 msgstr "Chiudi senza salvare"
 
-#: src/Services/Document.vala:402 src/Services/Document.vala:513
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:396 src/Services/Document.vala:507
+#: src/Services/Document.vala:731
 msgid "Save"
 msgstr "Salva"
 
-#: src/Services/Document.vala:510
+#: src/Services/Document.vala:504
 msgid "Save File"
 msgstr "Salva il file"
 
-#: src/Services/Document.vala:592
+#: src/Services/Document.vala:586
 msgid "New Document"
 msgstr "Nuovo documento"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:715
+#: src/Services/Document.vala:709
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Impossibile leggere il file \"%s\""
 
-#: src/Services/Document.vala:716
+#: src/Services/Document.vala:710
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Potrebbe essere danneggiato o potresti non possedere i permessi necessari ad "
 "aprirlo."
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:722
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -385,17 +385,17 @@ msgstr ""
 "Il percorso che contiene il file \"%s\" è stato smontato. Vuoi salvare da "
 "qualche altra parte?"
 
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:724
 msgid "Save As…"
 msgstr "Salva come…"
 
-#: src/Services/Document.vala:735
+#: src/Services/Document.vala:729
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Il file \"%s\" è stato cancellato. Vuoi salvare comunque?"
 
 #. If the file can't be written
-#: src/Services/Document.vala:750
+#: src/Services/Document.vala:744
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -404,11 +404,11 @@ msgstr ""
 "Non è possibile salvare le modifiche sul file \"%s\". Vuoi salvare le "
 "modifiche a questo file in una posizione diversa?"
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:746
 msgid "Save changes elsewhere"
 msgstr "Salva i cambiamenti in un'altra posizione"
 
-#: src/Services/Document.vala:785
+#: src/Services/Document.vala:779
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -417,11 +417,11 @@ msgstr ""
 "Il file \"%s\" è stato modificato da un programma esterno. Vuoi caricare "
 "nuovamente o continuare la modifica?"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:780
 msgid "Load"
 msgstr "Carica"
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:783
 msgid "Continue"
 msgstr "Continua"
 
@@ -713,19 +713,6 @@ msgstr "Copia"
 msgid "Paste"
 msgstr "Incolla"
 
-#: plugins/browser-preview/BrowserView.vala:32
-msgid "Web Preview"
-msgstr "Anteprima web"
-
-#: plugins/browser-preview/browser-preview.vala:57
-#: plugins/browser-preview/browser-preview.vala:83
-msgid "Show Preview"
-msgstr "Mostra anteprima"
-
-#: plugins/browser-preview/browser-preview.vala:75
-msgid "Hide Preview"
-msgstr "Nascondi l'anteprima"
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr "Non sono stati trovati dizionari adatti"
@@ -738,6 +725,15 @@ msgstr "Installa almeno un dizionario [aspell]."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Autocompletamento parole"
+
+#~ msgid "Web Preview"
+#~ msgstr "Anteprima web"
+
+#~ msgid "Show Preview"
+#~ msgstr "Mostra anteprima"
+
+#~ msgid "Hide Preview"
+#~ msgstr "Nascondi l'anteprima"
 
 #~ msgid "Share via Pastebin"
 #~ msgstr "Condividi su PasteBin"
