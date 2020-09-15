@@ -17,7 +17,7 @@
  * Authored by: Corentin Noël <corentin@elementary.io>
  */
 
-public class Code.Pane : Gtk.Grid {
+public class Code.Sidebar : Gtk.Grid {
     public Gtk.Stack stack { get; private set; }
     private Gtk.StackSwitcher stack_switcher;
     construct {

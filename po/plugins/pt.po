@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 21:29+0000\n"
+"POT-Creation-Date: 2020-09-14 16:50+0000\n"
 "PO-Revision-Date: 2020-04-11 21:10+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/code/plugins/"
@@ -26,14 +26,6 @@ msgstr "Completar parênteses"
 #: plugins/brackets-completion/brackets-completion.plugin:7
 msgid "Complete brackets while typing"
 msgstr "Completar parênteses enquanto escreve"
-
-#: plugins/browser-preview/browser-preview.plugin:6
-msgid "Browser Preview"
-msgstr "Pré-visualizar no navegador"
-
-#: plugins/browser-preview/browser-preview.plugin:7
-msgid "Get a preview of your work in a web page"
-msgstr "Obtenha uma pré-visualização do seu trabalho numa página web"
 
 #: plugins/detect-indent/detect-indent.plugin:6
 msgid "Detect Indent"
@@ -122,6 +114,12 @@ msgstr "Completar palavras"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr "Mostra um diálogo de conclusão com as palavras mais usadas"
+
+#~ msgid "Browser Preview"
+#~ msgstr "Pré-visualizar no navegador"
+
+#~ msgid "Get a preview of your work in a web page"
+#~ msgstr "Obtenha uma pré-visualização do seu trabalho numa página web"
 
 #~ msgid "Contractor"
 #~ msgstr "Contractor"

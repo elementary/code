@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 21:29+0000\n"
+"POT-Creation-Date: 2020-09-14 16:50+0000\n"
 "PO-Revision-Date: 2020-05-11 15:10+0000\n"
 "Last-Translator: p-bo <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://l10n.elementary.io/projects/code/plugins/cs/>\n"
@@ -25,14 +25,6 @@ msgstr "Doplňování závorek"
 #: plugins/brackets-completion/brackets-completion.plugin:7
 msgid "Complete brackets while typing"
 msgstr "Doplňuje závorky v průběhu psaní"
-
-#: plugins/browser-preview/browser-preview.plugin:6
-msgid "Browser Preview"
-msgstr "Náhled v prohlížeči"
-
-#: plugins/browser-preview/browser-preview.plugin:7
-msgid "Get a preview of your work in a web page"
-msgstr "Zobrazte náhled své práce v podobě webové stránky"
 
 #: plugins/detect-indent/detect-indent.plugin:6
 msgid "Detect Indent"
@@ -122,6 +114,12 @@ msgstr "Doplňování slov"
 msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Zobrazte doplňovací dialog s nejčastěji používanými slovy z vašich souborů"
+
+#~ msgid "Browser Preview"
+#~ msgstr "Náhled v prohlížeči"
+
+#~ msgid "Get a preview of your work in a web page"
+#~ msgstr "Zobrazte náhled své práce v podobě webové stránky"
 
 #~ msgid "Contractor"
 #~ msgstr "Contractor"
