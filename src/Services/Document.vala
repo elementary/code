@@ -93,7 +93,7 @@ namespace Scratch.Services {
 
         public Gtk.Stack main_stack;
         public Scratch.Widgets.SourceView source_view;
-        public Code.Pane pane;
+
         public string original_content;
         private string last_save_content;
         public bool saved = true;
@@ -150,8 +150,6 @@ namespace Scratch.Services {
 
             source_map.set_view (source_view);
 
-            pane = new Code.Pane ();
-
             // Handle Drag-and-drop functionality on source-view
             Gtk.TargetEntry uris = {"text/uri-list", 0, 0};
             Gtk.TargetEntry text = {"text/plain", 0, 0};
@@ -172,14 +170,10 @@ namespace Scratch.Services {
             source_grid.add (scroll);
             source_grid.add (source_map);
 
-            var paned = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-            paned.pack1 (source_grid, true, false);
-            paned.pack2 (pane, false, false);
-
             var doc_grid = new Gtk.Grid ();
             doc_grid.orientation = Gtk.Orientation.VERTICAL;
             doc_grid.add (info_bar);
-            doc_grid.add (paned);
+            doc_grid.add (source_grid);
             doc_grid.show_all ();
 
             main_stack.add_named (doc_grid, "content");

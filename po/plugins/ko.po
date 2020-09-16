@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 21:29+0000\n"
+"POT-Creation-Date: 2020-09-14 16:50+0000\n"
 "PO-Revision-Date: 2019-01-07 18:55+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://weblate.elementary.io/projects/code/plugins/"
@@ -26,14 +26,6 @@ msgstr "괄호 완성"
 #: plugins/brackets-completion/brackets-completion.plugin:7
 msgid "Complete brackets while typing"
 msgstr "입력하는 동안 대괄호 사용"
-
-#: plugins/browser-preview/browser-preview.plugin:6
-msgid "Browser Preview"
-msgstr "브라우저 미리보기"
-
-#: plugins/browser-preview/browser-preview.plugin:7
-msgid "Get a preview of your work in a web page"
-msgstr "웹 페이지에서 작업 미리보기"
 
 #: plugins/detect-indent/detect-indent.plugin:6
 msgid "Detect Indent"
@@ -123,6 +115,12 @@ msgstr "단어 완성"
 #: plugins/word-completion/word-completion.plugin:7
 msgid "Show a completion dialog with most used words from your files"
 msgstr "파일에서 가장 많이 사용한 단어로 완료 대화 상자 표시하기"
+
+#~ msgid "Browser Preview"
+#~ msgstr "브라우저 미리보기"
+
+#~ msgid "Get a preview of your work in a web page"
+#~ msgstr "웹 페이지에서 작업 미리보기"
 
 #~ msgid "Contractor"
 #~ msgstr "Contractor"
