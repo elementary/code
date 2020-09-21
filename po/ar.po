@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-04 23:14+0000\n"
+"POT-Creation-Date: 2020-09-14 16:50+0000\n"
 "PO-Revision-Date: 2020-05-16 03:11+0000\n"
 "Last-Translator: nasserbinlaboun <nasser1990com@gmail.com>\n"
 "Language-Team: Arabic <https://l10n.elementary.io/projects/code/code/ar/>\n"
@@ -95,15 +95,15 @@ msgstr "إبحث…"
 msgid "Hide search bar"
 msgstr "اخفاء شريط البحث"
 
-#: src/MainWindow.vala:264
+#: src/MainWindow.vala:267
 msgid "Zeitgeist Datasource for Code"
 msgstr "برمجية “zeitgeist” كمصدر معلومات للكود"
 
-#: src/MainWindow.vala:720 src/Services/Document.vala:502
+#: src/MainWindow.vala:720 src/Services/Document.vala:496
 msgid "All files"
 msgstr "كل الملفات"
 
-#: src/MainWindow.vala:724 src/Services/Document.vala:506
+#: src/MainWindow.vala:724 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "ملفات نصية"
 
@@ -115,8 +115,8 @@ msgstr "فتح بعض الملفات"
 msgid "Open"
 msgstr "إفتح"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:401
-#: src/Services/Document.vala:514 plugins/pastebin/pastebin_dialog.vala:326
+#: src/MainWindow.vala:732 src/Services/Document.vala:395
+#: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "الغاء"
@@ -308,97 +308,97 @@ msgstr "%s, الجديد"
 msgid "Branch"
 msgstr "تفرع"
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:260
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s ليس بملف نصي"
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:261
 msgid "Code will not load this type of file."
 msgstr "الشيفرة البرمجية لن يحمل نوع الملفات هذا."
 
-#: src/Services/Document.vala:269
+#: src/Services/Document.vala:263
 msgid "Load Anyway"
 msgstr "حمل على أي حال"
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:284
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "جاري العمل على الملف “%s” قد يستغرق بعض الوقت"
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:285
 msgid "Please wait while Code is loading the file."
 msgstr "الرجاء الانتظار بينما الشيفرة البرمجية يقوم بتحميل الملف."
 
-#: src/Services/Document.vala:293
+#: src/Services/Document.vala:287
 msgid "Cancel Loading"
 msgstr "الغاء التحميل"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:385
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "حفظ التغيرات الخاصة بـ “%s” قبل اﻹغلاق؟"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:386
 msgid "If you don't save, changes will be permanently lost."
 msgstr "إن لم تحفظ فستختفى نهائيا جميع التغيرات."
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:392
 msgid "Close Without Saving"
 msgstr "اغلق بدون حفظ"
 
-#: src/Services/Document.vala:402 src/Services/Document.vala:513
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:396 src/Services/Document.vala:507
+#: src/Services/Document.vala:731
 msgid "Save"
 msgstr "إحفظ"
 
-#: src/Services/Document.vala:510
+#: src/Services/Document.vala:504
 msgid "Save File"
 msgstr "حفظ الملف"
 
-#: src/Services/Document.vala:592
+#: src/Services/Document.vala:586
 msgid "New Document"
 msgstr "مُستند جديد"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:715
+#: src/Services/Document.vala:709
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "الملف \"%s\" لا يمكن قراءته"
 
-#: src/Services/Document.vala:716
+#: src/Services/Document.vala:710
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "قد يكون تالفا أو أنك ليس لديك الصلاحيات لقراءته."
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:722
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr "المكان يحتوي على الملف “%s” ولم يكن مركبا.  هل تريد حفظه فيه مكان آخر؟"
 
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:724
 msgid "Save As…"
 msgstr "حفظ باسم…"
 
-#: src/Services/Document.vala:735
+#: src/Services/Document.vala:729
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "الملف “%s” قد تم حذفه.  هل تريد حفظه على اية حال؟"
 
 #. If the file can't be written
-#: src/Services/Document.vala:750
+#: src/Services/Document.vala:744
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
 "somewhere else?"
 msgstr "لا يمكنك التغيير على الملف “%s”.  هل تريد حفظ التغييرات في مكان آخر؟"
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:746
 msgid "Save changes elsewhere"
 msgstr "احفظ التغييرات في مكان آخر"
 
-#: src/Services/Document.vala:785
+#: src/Services/Document.vala:779
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -407,11 +407,11 @@ msgstr ""
 "الملف “%s” قد تم تعديله من طرف خارجي. هل تريد إعادة تحميله أم تريد اكمال "
 "التعديل عليه؟"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:780
 msgid "Load"
 msgstr "تحميل"
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:783
 msgid "Continue"
 msgstr "استمرار"
 
@@ -711,19 +711,6 @@ msgstr "نسخ"
 msgid "Paste"
 msgstr "لصق"
 
-#: plugins/browser-preview/BrowserView.vala:32
-msgid "Web Preview"
-msgstr "معاينة الصفحة"
-
-#: plugins/browser-preview/browser-preview.vala:57
-#: plugins/browser-preview/browser-preview.vala:83
-msgid "Show Preview"
-msgstr "اظهر المعاينة"
-
-#: plugins/browser-preview/browser-preview.vala:75
-msgid "Hide Preview"
-msgstr "اخفي المعاينة"
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr "لا قواميس مناسبة تم ايجادها"
@@ -736,6 +723,15 @@ msgstr "رجاءً قم بتثبيت قاموس [aspell] واحد على الأ�
 #, c-format
 msgid "%s - Word Completion"
 msgstr "اتمام %s من الكلمات"
+
+#~ msgid "Web Preview"
+#~ msgstr "معاينة الصفحة"
+
+#~ msgid "Show Preview"
+#~ msgstr "اظهر المعاينة"
+
+#~ msgid "Hide Preview"
+#~ msgstr "اخفي المعاينة"
 
 #, fuzzy
 #~ msgid "Share via Pastebin"
