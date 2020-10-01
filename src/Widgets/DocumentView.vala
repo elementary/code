@@ -233,6 +233,10 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             var next_doc = docs.nth_data (current_index++);
             current_document = next_doc;
             next_doc.focus ();
+        } else if (docs.length () > 0) {
+            var next_doc = docs.nth_data (0);
+            current_document = next_doc;
+            next_doc.focus ();
         }
     }
 
@@ -240,6 +244,10 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         uint current_index = docs.index (current_document);
         if (current_index > 0) {
             var previous_doc = docs.nth_data (--current_index);
+            current_document = previous_doc;
+            previous_doc.focus ();
+        } else if (docs.length () > 0) {
+            var previous_doc = docs.nth_data (docs.length () - 1);
             current_document = previous_doc;
             previous_doc.focus ();
         }
