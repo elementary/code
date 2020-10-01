@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-01 22:59+0000\n"
-"PO-Revision-Date: 2020-06-01 16:11+0000\n"
+"POT-Creation-Date: 2020-09-14 16:50+0000\n"
+"PO-Revision-Date: 2020-09-06 13:13+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese <https://l10n.elementary.io/projects/code/code/pt/"
 ">\n"
@@ -95,36 +95,37 @@ msgstr "Procurar…"
 msgid "Hide search bar"
 msgstr "Ocultar barra de procura"
 
-#: src/MainWindow.vala:264
+#: src/MainWindow.vala:267
 msgid "Zeitgeist Datasource for Code"
 msgstr "Fonte de dados Zeitgeist para o Code"
 
-#: src/MainWindow.vala:718 src/Services/Document.vala:502
+#: src/MainWindow.vala:720 src/Services/Document.vala:496
 msgid "All files"
 msgstr "Todos os ficheiros"
 
-#: src/MainWindow.vala:722 src/Services/Document.vala:506
+#: src/MainWindow.vala:724 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "Ficheiros de texto"
 
-#: src/MainWindow.vala:726
+#: src/MainWindow.vala:728
 msgid "Open some files"
 msgstr "Abrir alguns ficheiros"
 
-#: src/MainWindow.vala:729
+#: src/MainWindow.vala:731
 msgid "Open"
 msgstr "Abrir"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:401
-#: src/Services/Document.vala:514
+#: src/MainWindow.vala:732 src/Services/Document.vala:395
+#: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
+#: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/MainWindow.vala:755
+#: src/MainWindow.vala:757
 msgid "_Open"
 msgstr "_Abrir"
 
-#: src/MainWindow.vala:756
+#: src/MainWindow.vala:758
 msgid "_Cancel"
 msgstr "_Cancelar"
 
@@ -177,7 +178,7 @@ msgid "Interface"
 msgstr "Interface"
 
 #: src/Dialogs/PreferencesDialog.vala:87
-#: plugins/pastebin/pastebin_dialog.vala:323
+#: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Fechar"
 
@@ -310,72 +311,72 @@ msgstr "%s, Novo"
 msgid "Branch"
 msgstr "Ramo"
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:260
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s Não é um ficheiro de texto"
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:261
 msgid "Code will not load this type of file."
 msgstr "O Code não irá carregar este tipo de ficheiro."
 
-#: src/Services/Document.vala:269
+#: src/Services/Document.vala:263
 msgid "Load Anyway"
 msgstr "Mesmo assim carregar"
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:284
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Carregar o ficheiro \"%s\" está a demorar muito"
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:285
 msgid "Please wait while Code is loading the file."
 msgstr "Aguarde enquanto o Code está a carregar o ficheiro."
 
-#: src/Services/Document.vala:293
+#: src/Services/Document.vala:287
 msgid "Cancel Loading"
 msgstr "Cancelar carregamento"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:385
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Guardar alterações ao documento %s antes de fechar?"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:386
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Se não guardar, as alterações efetuadas serão perdidas permanentemente."
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:392
 msgid "Close Without Saving"
 msgstr "Fechar sem guardar"
 
-#: src/Services/Document.vala:402 src/Services/Document.vala:513
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:396 src/Services/Document.vala:507
+#: src/Services/Document.vala:731
 msgid "Save"
 msgstr "Guardar"
 
-#: src/Services/Document.vala:510
+#: src/Services/Document.vala:504
 msgid "Save File"
 msgstr "Guardar ficheiro"
 
-#: src/Services/Document.vala:592
+#: src/Services/Document.vala:586
 msgid "New Document"
 msgstr "Novo documento"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:715
+#: src/Services/Document.vala:709
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Não é possível ler o ficheiro \"%s\""
 
-#: src/Services/Document.vala:716
+#: src/Services/Document.vala:710
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "É possível que esteja danificado ou não tem as permissões necessárias para o "
 "ler."
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:722
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -384,17 +385,17 @@ msgstr ""
 "A localização que contém o ficheiro \"%s\" não está montada. Deseja guardar "
 "noutro lugar?"
 
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:724
 msgid "Save As…"
 msgstr "Guardar como…"
 
-#: src/Services/Document.vala:735
+#: src/Services/Document.vala:729
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "O ficheiro \"%s\" foi eliminado. Deseja guardá-lo mesmo assim?"
 
 #. If the file can't be written
-#: src/Services/Document.vala:750
+#: src/Services/Document.vala:744
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -403,11 +404,11 @@ msgstr ""
 "Não pode guardar as alterações no ficheiro \"%s\". Deseja guardar as "
 "alterações num local diferente?"
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:746
 msgid "Save changes elsewhere"
 msgstr "Guardar alterações noutro local"
 
-#: src/Services/Document.vala:785
+#: src/Services/Document.vala:779
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -416,11 +417,11 @@ msgstr ""
 "O ficheiro \"%s\" foi modificado por uma aplicação externa. Deseja carregá-"
 "lo novamente ou continuar a edição?"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:780
 msgid "Load"
 msgstr "Carregar"
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:783
 msgid "Continue"
 msgstr "Continuar"
 
@@ -524,10 +525,8 @@ msgid "Menu"
 msgstr "Menu"
 
 #: src/Widgets/Pane.vala:45
-#, fuzzy
-#| msgid "Open project folder…"
 msgid "Open Project Folder…"
-msgstr "Abrir pasta do projecto…"
+msgstr "Abrir Pasta do Projecto…"
 
 #: src/Widgets/Pane.vala:48
 msgid "Collapse All"
@@ -617,61 +616,58 @@ msgstr "Abrir pasta"
 msgid "Add a project folder to the sidebar."
 msgstr "Adicionar uma pasta de projeto à barra lateral."
 
-#: plugins/pastebin/pastebin_dialog.vala:249
-msgid "Share via Pastebin"
-msgstr "Partilhar através do PasteBin"
+#: plugins/pastebin/pastebin_dialog.vala:250
+#: plugins/pastebin/pastebin_dialog.vala:327 plugins/pastebin/pastebin.vala:96
+msgid "Upload to Pastebin"
+msgstr "Enviar para Pastebin"
 
-#: plugins/pastebin/pastebin_dialog.vala:256
+#: plugins/pastebin/pastebin_dialog.vala:257
 msgid "Name:"
 msgstr "Nome:"
 
-#: plugins/pastebin/pastebin_dialog.vala:259
+#: plugins/pastebin/pastebin_dialog.vala:260
 msgid "Format:"
 msgstr "Formato:"
 
-#: plugins/pastebin/pastebin_dialog.vala:264
-msgid "Others…"
-msgstr "Outros…"
+#: plugins/pastebin/pastebin_dialog.vala:266
+msgid "Choose different format"
+msgstr "Escolha um formato diferente"
 
-#: plugins/pastebin/pastebin_dialog.vala:286
-msgid "Expiry time:"
-msgstr "Expira em:"
+#: plugins/pastebin/pastebin_dialog.vala:289
+msgid "Expiration:"
+msgstr "Expiração:"
 
-#: plugins/pastebin/pastebin_dialog.vala:292
+#: plugins/pastebin/pastebin_dialog.vala:295
 msgid "Keep this paste private"
 msgstr "Manter esta pasta privada"
 
-#: plugins/pastebin/pastebin_dialog.vala:321
-msgid "Upload"
-msgstr "Enviar"
+#: plugins/pastebin/pastebin_dialog.vala:353
+msgid "Available Formats"
+msgstr "Formatos disponíveis"
 
-#: plugins/pastebin/pastebin_dialog.vala:352
-msgid "Other formats"
-msgstr "Outros formatos"
+#: plugins/pastebin/pastebin_dialog.vala:380
+msgid "Select Format"
+msgstr "Selecionar formato"
 
-#: plugins/pastebin/pastebin_dialog.vala:460
+#: plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr "Nunca"
 
-#: plugins/pastebin/pastebin_dialog.vala:461
+#: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
 msgstr "Dez minutos"
 
-#: plugins/pastebin/pastebin_dialog.vala:462
+#: plugins/pastebin/pastebin_dialog.vala:469
 msgid "One hour"
 msgstr "Uma hora"
 
-#: plugins/pastebin/pastebin_dialog.vala:463
+#: plugins/pastebin/pastebin_dialog.vala:470
 msgid "One day"
 msgstr "Um dia"
 
-#: plugins/pastebin/pastebin_dialog.vala:464
+#: plugins/pastebin/pastebin_dialog.vala:471
 msgid "One month"
 msgstr "Um mês"
-
-#: plugins/pastebin/pastebin.vala:91
-msgid "Upload to Pastebin"
-msgstr "Enviar para Pastebin"
 
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
@@ -709,19 +705,6 @@ msgstr "Copiar"
 msgid "Paste"
 msgstr "Colar"
 
-#: plugins/browser-preview/BrowserView.vala:32
-msgid "Web Preview"
-msgstr "Pré-Visualização Web"
-
-#: plugins/browser-preview/browser-preview.vala:57
-#: plugins/browser-preview/browser-preview.vala:83
-msgid "Show Preview"
-msgstr "Mostrar a pré-visualização"
-
-#: plugins/browser-preview/browser-preview.vala:75
-msgid "Hide Preview"
-msgstr "Ocultar a pré-Visualização"
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr "Não foram encontrados dicionários adequados"
@@ -734,6 +717,27 @@ msgstr "Instale pelo menos um dicionário [aspell]."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Completar palavra"
+
+#~ msgid "Web Preview"
+#~ msgstr "Pré-Visualização Web"
+
+#~ msgid "Show Preview"
+#~ msgstr "Mostrar a pré-visualização"
+
+#~ msgid "Hide Preview"
+#~ msgstr "Ocultar a pré-Visualização"
+
+#~ msgid "Share via Pastebin"
+#~ msgstr "Partilhar através do PasteBin"
+
+#~ msgid "Others…"
+#~ msgstr "Outros…"
+
+#~ msgid "Upload"
+#~ msgstr "Enviar"
+
+#~ msgid "Other formats"
+#~ msgstr "Outros formatos"
 
 #~ msgid "Add New View"
 #~ msgstr "Adicionar nova vista"
@@ -1114,9 +1118,6 @@ msgstr "%s - Completar palavra"
 
 #~ msgid "Show margin on right:"
 #~ msgstr "Mostrar margem à direita:"
-
-#~ msgid "Select font:"
-#~ msgstr "Selecione o tipo de letra:"
 
 #~ msgid "Font and Color Scheme:"
 #~ msgstr "Tipo de letra e esquema de cores:"

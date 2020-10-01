@@ -1,7 +1,6 @@
 msgfmt = find_program('msgfmt')
 
 subdir('brackets-completion')
-subdir('browser-preview')
 subdir('detect-indent')
 subdir('editorconfig')
 subdir('highlight-word-selection')

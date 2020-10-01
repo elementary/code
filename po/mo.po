@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-01 22:59+0000\n"
+"POT-Creation-Date: 2020-09-14 16:50+0000\n"
 "PO-Revision-Date: 2018-05-26 07:39+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/code/code/mo/"
@@ -90,37 +90,38 @@ msgstr "Găsi…"
 msgid "Hide search bar"
 msgstr "Ascundeți bara de căutare"
 
-#: src/MainWindow.vala:264
+#: src/MainWindow.vala:267
 #, fuzzy
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zeitgeist Datasource pentru Scratch"
 
-#: src/MainWindow.vala:718 src/Services/Document.vala:502
+#: src/MainWindow.vala:720 src/Services/Document.vala:496
 msgid "All files"
 msgstr "Toate filele"
 
-#: src/MainWindow.vala:722 src/Services/Document.vala:506
+#: src/MainWindow.vala:724 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "Fișiere text"
 
-#: src/MainWindow.vala:726
+#: src/MainWindow.vala:728
 msgid "Open some files"
 msgstr "Deschideți fișiere"
 
-#: src/MainWindow.vala:729
+#: src/MainWindow.vala:731
 msgid "Open"
 msgstr "Deschide"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:401
-#: src/Services/Document.vala:514
+#: src/MainWindow.vala:732 src/Services/Document.vala:395
+#: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
+#: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Anulare"
 
-#: src/MainWindow.vala:755
+#: src/MainWindow.vala:757
 msgid "_Open"
 msgstr "_Deschis"
 
-#: src/MainWindow.vala:756
+#: src/MainWindow.vala:758
 msgid "_Cancel"
 msgstr "_Anulare"
 
@@ -171,7 +172,7 @@ msgid "Interface"
 msgstr "Interfață"
 
 #: src/Dialogs/PreferencesDialog.vala:87
-#: plugins/pastebin/pastebin_dialog.vala:323
+#: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Închide"
 
@@ -306,75 +307,75 @@ msgstr ""
 msgid "Branch"
 msgstr ""
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:260
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s Nu este un fișier text"
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:261
 msgid "Code will not load this type of file."
 msgstr "Codul nu va încărca acest tip de fișier."
 
-#: src/Services/Document.vala:269
+#: src/Services/Document.vala:263
 msgid "Load Anyway"
 msgstr "Încărcați oricum"
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:284
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Încărcarea fișierului \"%s \"Are o lungă perioadă de timp"
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:285
 msgid "Please wait while Code is loading the file."
 msgstr "Vă rugăm să așteptați până când se încarcă fișierul."
 
-#: src/Services/Document.vala:293
+#: src/Services/Document.vala:287
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Anulați încărcarea"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:385
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Salvați modificările în document %s înainte de închidere?"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:386
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Dacă nu salvați, modificările din ultimele 4 secunde vor fi pierdute "
 "definitiv."
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:392
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Închideți fără salvare"
 
-#: src/Services/Document.vala:402 src/Services/Document.vala:513
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:396 src/Services/Document.vala:507
+#: src/Services/Document.vala:731
 msgid "Save"
 msgstr "Salvează"
 
-#: src/Services/Document.vala:510
+#: src/Services/Document.vala:504
 msgid "Save File"
 msgstr "Salvează fișierul"
 
-#: src/Services/Document.vala:592
+#: src/Services/Document.vala:586
 msgid "New Document"
 msgstr "Document nou"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:715
+#: src/Services/Document.vala:709
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Fișierul \"%s\" Nu poate fi citit"
 
-#: src/Services/Document.vala:716
+#: src/Services/Document.vala:710
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "Poate că este corupt sau nu aveți permisiunile necesare pentru a citi."
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:722
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -383,17 +384,17 @@ msgstr ""
 "Locația care conține fișierul \"%s\" nu a fost montat. Doriți să salvați în "
 "altă parte?"
 
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:724
 msgid "Save As…"
 msgstr "Salvează ca…"
 
-#: src/Services/Document.vala:735
+#: src/Services/Document.vala:729
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Fișierul \"%s \" a fost șters. Vrei să o salvezi oricum?"
 
 #. If the file can't be written
-#: src/Services/Document.vala:750
+#: src/Services/Document.vala:744
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -402,11 +403,11 @@ msgstr ""
 "Nu puteți salva modificările din fișierul \"%s \". Doriți să salvați "
 "modificările acestui fișier într-o altă locație?"
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:746
 msgid "Save changes elsewhere"
 msgstr "Salvați modificările în altă parte"
 
-#: src/Services/Document.vala:785
+#: src/Services/Document.vala:779
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -415,11 +416,11 @@ msgstr ""
 "Fișierul \"%s \" a fost modificat de o aplicație externă. Doriți să o "
 "încărcați din nou sau să continuați editarea?"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:780
 msgid "Load"
 msgstr "Sarcină"
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:783
 msgid "Continue"
 msgstr "Continuați"
 
@@ -617,63 +618,62 @@ msgstr "Deschideți dosarul"
 msgid "Add a project folder to the sidebar."
 msgstr "Adăugați un director de proiect în bara laterală."
 
-#: plugins/pastebin/pastebin_dialog.vala:249
-#, fuzzy
-msgid "Share via Pastebin"
-msgstr "Distribuiți prin PasteBin"
+#: plugins/pastebin/pastebin_dialog.vala:250
+#: plugins/pastebin/pastebin_dialog.vala:327 plugins/pastebin/pastebin.vala:96
+msgid "Upload to Pastebin"
+msgstr "Încărcați în Pastebin"
 
-#: plugins/pastebin/pastebin_dialog.vala:256
+#: plugins/pastebin/pastebin_dialog.vala:257
 msgid "Name:"
 msgstr "Nume:"
 
-#: plugins/pastebin/pastebin_dialog.vala:259
+#: plugins/pastebin/pastebin_dialog.vala:260
 msgid "Format:"
 msgstr "Formatul:"
 
-#: plugins/pastebin/pastebin_dialog.vala:264
-#, fuzzy
-msgid "Others…"
-msgstr "Alte..."
+#: plugins/pastebin/pastebin_dialog.vala:266
+msgid "Choose different format"
+msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:286
-msgid "Expiry time:"
+#: plugins/pastebin/pastebin_dialog.vala:289
+#, fuzzy
+#| msgid "Expiry time:"
+msgid "Expiration:"
 msgstr "Data expirării:"
 
-#: plugins/pastebin/pastebin_dialog.vala:292
+#: plugins/pastebin/pastebin_dialog.vala:295
 msgid "Keep this paste private"
 msgstr "Păstrați această lipire privată"
 
-#: plugins/pastebin/pastebin_dialog.vala:321
-msgid "Upload"
-msgstr "Încărcați"
+#: plugins/pastebin/pastebin_dialog.vala:353
+msgid "Available Formats"
+msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:352
-msgid "Other formats"
-msgstr "Alte formate"
+#: plugins/pastebin/pastebin_dialog.vala:380
+#, fuzzy
+#| msgid "Format:"
+msgid "Select Format"
+msgstr "Formatul:"
 
-#: plugins/pastebin/pastebin_dialog.vala:460
+#: plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr "Niciodată"
 
-#: plugins/pastebin/pastebin_dialog.vala:461
+#: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
 msgstr "Zece minute"
 
-#: plugins/pastebin/pastebin_dialog.vala:462
+#: plugins/pastebin/pastebin_dialog.vala:469
 msgid "One hour"
 msgstr "O oră"
 
-#: plugins/pastebin/pastebin_dialog.vala:463
+#: plugins/pastebin/pastebin_dialog.vala:470
 msgid "One day"
 msgstr "O zi"
 
-#: plugins/pastebin/pastebin_dialog.vala:464
+#: plugins/pastebin/pastebin_dialog.vala:471
 msgid "One month"
 msgstr "O lună"
-
-#: plugins/pastebin/pastebin.vala:91
-msgid "Upload to Pastebin"
-msgstr "Încărcați în Pastebin"
 
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
@@ -713,19 +713,6 @@ msgstr "Copie"
 msgid "Paste"
 msgstr "Lipește"
 
-#: plugins/browser-preview/BrowserView.vala:32
-msgid "Web Preview"
-msgstr "Previzualizare web"
-
-#: plugins/browser-preview/browser-preview.vala:57
-#: plugins/browser-preview/browser-preview.vala:83
-msgid "Show Preview"
-msgstr "Afișați previzualizarea"
-
-#: plugins/browser-preview/browser-preview.vala:75
-msgid "Hide Preview"
-msgstr "Ascundeți previzualizarea"
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr ""
@@ -741,6 +728,29 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Finalizarea cuvintelor"
+
+#~ msgid "Web Preview"
+#~ msgstr "Previzualizare web"
+
+#~ msgid "Show Preview"
+#~ msgstr "Afișați previzualizarea"
+
+#~ msgid "Hide Preview"
+#~ msgstr "Ascundeți previzualizarea"
+
+#, fuzzy
+#~ msgid "Share via Pastebin"
+#~ msgstr "Distribuiți prin PasteBin"
+
+#, fuzzy
+#~ msgid "Others…"
+#~ msgstr "Alte..."
+
+#~ msgid "Upload"
+#~ msgstr "Încărcați"
+
+#~ msgid "Other formats"
+#~ msgstr "Alte formate"
 
 #~ msgid "Add New View"
 #~ msgstr "Adăugați o vizualizare nouă"

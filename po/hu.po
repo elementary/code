@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-01 22:59+0000\n"
+"POT-Creation-Date: 2020-09-14 16:50+0000\n"
 "PO-Revision-Date: 2018-06-22 00:03+0000\n"
 "Last-Translator: Majer Tamás <mtamas@disroot.org>\n"
 "Language-Team: Hungarian <https://weblate.elementary.io/projects/code/code/"
@@ -97,37 +97,38 @@ msgstr "Keresés…"
 msgid "Hide search bar"
 msgstr "A keresősáv elrejtése"
 
-#: src/MainWindow.vala:264
+#: src/MainWindow.vala:267
 #, fuzzy
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zeitgeist adatforrás a Scratch számára"
 
-#: src/MainWindow.vala:718 src/Services/Document.vala:502
+#: src/MainWindow.vala:720 src/Services/Document.vala:496
 msgid "All files"
 msgstr "Minden fájl"
 
-#: src/MainWindow.vala:722 src/Services/Document.vala:506
+#: src/MainWindow.vala:724 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "Szövegfájlok"
 
-#: src/MainWindow.vala:726
+#: src/MainWindow.vala:728
 msgid "Open some files"
 msgstr "Nyisson meg fájlokat"
 
-#: src/MainWindow.vala:729
+#: src/MainWindow.vala:731
 msgid "Open"
 msgstr "Megnyitás"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:401
-#: src/Services/Document.vala:514
+#: src/MainWindow.vala:732 src/Services/Document.vala:395
+#: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
+#: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Mégsem"
 
-#: src/MainWindow.vala:755
+#: src/MainWindow.vala:757
 msgid "_Open"
 msgstr "Meg_nyitás"
 
-#: src/MainWindow.vala:756
+#: src/MainWindow.vala:758
 msgid "_Cancel"
 msgstr "_Mégsem"
 
@@ -178,7 +179,7 @@ msgid "Interface"
 msgstr "Felület"
 
 #: src/Dialogs/PreferencesDialog.vala:87
-#: plugins/pastebin/pastebin_dialog.vala:323
+#: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Bezárás"
 
@@ -314,77 +315,77 @@ msgstr ""
 msgid "Branch"
 msgstr "Scratch beállításainak módosítása"
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:260
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "A(z) %s nem szövegfájl"
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:261
 msgid "Code will not load this type of file."
 msgstr "A Kód nem tölt be ilyen típusú fájlt."
 
-#: src/Services/Document.vala:269
+#: src/Services/Document.vala:263
 msgid "Load Anyway"
 msgstr "Betöltés mindenképp"
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:284
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "A(z) \"%s\" fájl betöltése túl sokáig tart"
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:285
 msgid "Please wait while Code is loading the file."
 msgstr "Kérem várjon, amíg a Kód betölti a fájlt."
 
-#: src/Services/Document.vala:293
+#: src/Services/Document.vala:287
 #, fuzzy
 msgid "Cancel Loading"
 msgstr "Betöltés megszakítása"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:385
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Menti a(z) %s dokumentumban történt változtatásokat bezárás előtt?"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:386
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr ""
 "Ha nem menti, akkor az elmúlt 4 másodpercben történt változások véglegesen "
 "elvesznek."
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:392
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Bezárás mentés nélkül"
 
-#: src/Services/Document.vala:402 src/Services/Document.vala:513
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:396 src/Services/Document.vala:507
+#: src/Services/Document.vala:731
 msgid "Save"
 msgstr "Mentés"
 
-#: src/Services/Document.vala:510
+#: src/Services/Document.vala:504
 msgid "Save File"
 msgstr "Fájl mentése"
 
-#: src/Services/Document.vala:592
+#: src/Services/Document.vala:586
 msgid "New Document"
 msgstr "Új dokumentum"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:715
+#: src/Services/Document.vala:709
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "A(z) \"%s\" fájl nem olvasható"
 
-#: src/Services/Document.vala:716
+#: src/Services/Document.vala:710
 #, fuzzy
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr ""
 "Lehet, hogy sérült vagy nem rendelkezik a szükséges engedélyekkel ahhoz, "
 "hogy elolvashassa."
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:722
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -393,17 +394,17 @@ msgstr ""
 "A hely, amely tartalmazta a(z) \"%s\" fájlt, leválasztásra került. Szeretné  "
 "máshová menteni?"
 
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:724
 msgid "Save As…"
 msgstr "Mentés másként…"
 
-#: src/Services/Document.vala:735
+#: src/Services/Document.vala:729
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "A(z) \"%s\" fájl törölve lett. Szeretné mégis menteni?"
 
 #. If the file can't be written
-#: src/Services/Document.vala:750
+#: src/Services/Document.vala:744
 #, fuzzy, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -412,11 +413,11 @@ msgstr ""
 "Nem menthetők a(z) \"%s\" fájlon végzett módosítások. Szeretné a fájl "
 "módosításait egy másik helyre menteni?"
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:746
 msgid "Save changes elsewhere"
 msgstr "Változtatások mentése máshova"
 
-#: src/Services/Document.vala:785
+#: src/Services/Document.vala:779
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -425,11 +426,11 @@ msgstr ""
 "A(z) \"%s\" fájlt egy külső alkalmazás módosította. Szeretné újratölteni, "
 "vagy folytatja a szerkesztést?"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:780
 msgid "Load"
 msgstr "Betöltés"
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:783
 msgid "Continue"
 msgstr "Folytatás"
 
@@ -628,63 +629,62 @@ msgstr "Mappa megnyitása"
 msgid "Add a project folder to the sidebar."
 msgstr "Adjon hozzá egy projektmappát az oldalsávhoz."
 
-#: plugins/pastebin/pastebin_dialog.vala:249
-#, fuzzy
-msgid "Share via Pastebin"
-msgstr "Megosztás PasteBin-en"
+#: plugins/pastebin/pastebin_dialog.vala:250
+#: plugins/pastebin/pastebin_dialog.vala:327 plugins/pastebin/pastebin.vala:96
+msgid "Upload to Pastebin"
+msgstr "Feltöltés Pastebin-re"
 
-#: plugins/pastebin/pastebin_dialog.vala:256
+#: plugins/pastebin/pastebin_dialog.vala:257
 msgid "Name:"
 msgstr "Név:"
 
-#: plugins/pastebin/pastebin_dialog.vala:259
+#: plugins/pastebin/pastebin_dialog.vala:260
 msgid "Format:"
 msgstr "Formátum:"
 
-#: plugins/pastebin/pastebin_dialog.vala:264
-#, fuzzy
-msgid "Others…"
-msgstr "Egyéb..."
+#: plugins/pastebin/pastebin_dialog.vala:266
+msgid "Choose different format"
+msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:286
-msgid "Expiry time:"
+#: plugins/pastebin/pastebin_dialog.vala:289
+#, fuzzy
+#| msgid "Expiry time:"
+msgid "Expiration:"
 msgstr "Lejárati idő:"
 
-#: plugins/pastebin/pastebin_dialog.vala:292
+#: plugins/pastebin/pastebin_dialog.vala:295
 msgid "Keep this paste private"
 msgstr "Kezelje privátként ezt a példányt"
 
-#: plugins/pastebin/pastebin_dialog.vala:321
-msgid "Upload"
-msgstr "Feltöltés"
+#: plugins/pastebin/pastebin_dialog.vala:353
+msgid "Available Formats"
+msgstr ""
 
-#: plugins/pastebin/pastebin_dialog.vala:352
-msgid "Other formats"
-msgstr "Egyéb formátumok"
+#: plugins/pastebin/pastebin_dialog.vala:380
+#, fuzzy
+#| msgid "Select font:"
+msgid "Select Format"
+msgstr "Betűtípus:"
 
-#: plugins/pastebin/pastebin_dialog.vala:460
+#: plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
 msgstr "Soha"
 
-#: plugins/pastebin/pastebin_dialog.vala:461
+#: plugins/pastebin/pastebin_dialog.vala:468
 msgid "Ten minutes"
 msgstr "Tíz perc"
 
-#: plugins/pastebin/pastebin_dialog.vala:462
+#: plugins/pastebin/pastebin_dialog.vala:469
 msgid "One hour"
 msgstr "Egy óra"
 
-#: plugins/pastebin/pastebin_dialog.vala:463
+#: plugins/pastebin/pastebin_dialog.vala:470
 msgid "One day"
 msgstr "Egy nap"
 
-#: plugins/pastebin/pastebin_dialog.vala:464
+#: plugins/pastebin/pastebin_dialog.vala:471
 msgid "One month"
 msgstr "Egy hónap"
-
-#: plugins/pastebin/pastebin.vala:91
-msgid "Upload to Pastebin"
-msgstr "Feltöltés Pastebin-re"
 
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
@@ -724,19 +724,6 @@ msgstr "Másolás"
 msgid "Paste"
 msgstr "Beillesztés"
 
-#: plugins/browser-preview/BrowserView.vala:32
-msgid "Web Preview"
-msgstr "Web előnézet"
-
-#: plugins/browser-preview/browser-preview.vala:57
-#: plugins/browser-preview/browser-preview.vala:83
-msgid "Show Preview"
-msgstr "Előnézet megjelenítése"
-
-#: plugins/browser-preview/browser-preview.vala:75
-msgid "Hide Preview"
-msgstr "Előnézet elrejtése"
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr ""
@@ -752,6 +739,29 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - szókiegészítés"
+
+#~ msgid "Web Preview"
+#~ msgstr "Web előnézet"
+
+#~ msgid "Show Preview"
+#~ msgstr "Előnézet megjelenítése"
+
+#~ msgid "Hide Preview"
+#~ msgstr "Előnézet elrejtése"
+
+#, fuzzy
+#~ msgid "Share via Pastebin"
+#~ msgstr "Megosztás PasteBin-en"
+
+#, fuzzy
+#~ msgid "Others…"
+#~ msgstr "Egyéb..."
+
+#~ msgid "Upload"
+#~ msgstr "Feltöltés"
+
+#~ msgid "Other formats"
+#~ msgstr "Egyéb formátumok"
 
 #~ msgid "Add New View"
 #~ msgstr "Új nézet hozzáadása"
@@ -1059,9 +1069,6 @@ msgstr "%s - szókiegészítés"
 
 #~ msgid "Normal text"
 #~ msgstr "Egyszerű szöveg"
-
-#~ msgid "Select font:"
-#~ msgstr "Betűtípus:"
 
 #~ msgid "Go to line..."
 #~ msgstr "Ugrás sorra..."
