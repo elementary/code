@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 21:29+0000\n"
+"POT-Creation-Date: 2020-09-14 16:50+0000\n"
 "PO-Revision-Date: 2019-11-09 11:24+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/plugins/ca/"
@@ -26,14 +26,6 @@ msgstr "Compleció de parèntesis"
 #: plugins/brackets-completion/brackets-completion.plugin:7
 msgid "Complete brackets while typing"
 msgstr "Completa els parèntesis mentre s'escriu"
-
-#: plugins/browser-preview/browser-preview.plugin:6
-msgid "Browser Preview"
-msgstr "Previsualització del navegador"
-
-#: plugins/browser-preview/browser-preview.plugin:7
-msgid "Get a preview of your work in a web page"
-msgstr "Obtingueu una previsualització de la feina en una pàgina web"
 
 #: plugins/detect-indent/detect-indent.plugin:6
 msgid "Detect Indent"
@@ -124,6 +116,12 @@ msgid "Show a completion dialog with most used words from your files"
 msgstr ""
 "Mostra un diàleg de compleció amb les paraules més usades segons els vostres "
 "fitxers"
+
+#~ msgid "Browser Preview"
+#~ msgstr "Previsualització del navegador"
+
+#~ msgid "Get a preview of your work in a web page"
+#~ msgstr "Obtingueu una previsualització de la feina en una pàgina web"
 
 #~ msgid "Contractor"
 #~ msgstr "Contractista"

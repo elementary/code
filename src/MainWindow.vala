@@ -1,7 +1,6 @@
-// -*- Mode: vala; indent-tabs-mode: nil; tab-width: 4 -*-
 /*
-* Copyright (c) 2011–2013 Mario Guerriero <mefrio.g@gmail.com>
-*               2017–2018 elementary, Inc. <https://elementary.io>
+* Copyright 2017–2020 elementary, Inc. <https://elementary.io>
+*           2011–2013 Mario Guerriero <mefrio.g@gmail.com>
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -41,7 +40,7 @@ namespace Scratch {
 
         // Widgets for Plugins
         public Gtk.Notebook bottombar;
-        public Code.Pane project_pane;
+        public Code.Sidebar sidebar;
 
         private Gtk.Dialog? preferences_dialog = null;
         private Gtk.Paned hp1;
@@ -215,6 +214,15 @@ namespace Scratch {
             var gtk_settings = Gtk.Settings.get_default ();
             gtk_settings.gtk_application_prefer_dark_theme = Scratch.settings.get_boolean ("prefer-dark-style");
 
+            clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
+
+            plugins = new Scratch.Services.PluginsManager (this, app.app_cmd_name.down ());
+
+            key_press_event.connect (on_key_pressed);
+
+            // Set up layout
+            init_layout ();
+
             var window_state = Scratch.saved_state.get_enum ("window-state");
             switch (window_state) {
                 case ScratchWindowState.MAXIMIZED:
@@ -231,14 +239,8 @@ namespace Scratch {
                     break;
             }
 
-            clipboard = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD);
-
-            plugins = new Scratch.Services.PluginsManager (this, app.app_cmd_name.down ());
-
-            key_press_event.connect (on_key_pressed);
-
-            // Set up layout
-            init_layout ();
+            // Show/Hide widgets
+            show_all ();
 
             toolbar.templates_button.visible = (plugins.plugin_iface.template_manager.template_available);
             plugins.plugin_iface.template_manager.notify["template_available"].connect (() => {
@@ -318,11 +320,11 @@ namespace Scratch {
                 }
             });
 
-            project_pane = new Code.Pane ();
+            sidebar = new Code.Sidebar ();
 
             folder_manager_view = new FolderManager.FileView ();
 
-            project_pane.add_tab (folder_manager_view);
+            sidebar.add_tab (folder_manager_view);
             folder_manager_view.show_all ();
 
             folder_manager_view.select.connect ((a) => {
@@ -365,7 +367,7 @@ namespace Scratch {
 
             hp1 = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
             hp1.position = 180;
-            hp1.pack1 (project_pane, false, false);
+            hp1.pack1 (sidebar, false, false);
             hp1.pack2 (content_stack, true, false);
 
             vp = new Gtk.Paned (Gtk.Orientation.VERTICAL);
@@ -378,7 +380,7 @@ namespace Scratch {
             search_revealer.set_reveal_child (false);
 
             realize.connect (() => {
-                Scratch.saved_state.bind ("sidebar-visible", project_pane, "visible", SettingsBindFlags.DEFAULT);
+                Scratch.saved_state.bind ("sidebar-visible", sidebar, "visible", SettingsBindFlags.DEFAULT);
                 // Plugins hook
                 HookFunc hook_func = () => {
                     plugins.hook_window (this);
@@ -426,9 +428,6 @@ namespace Scratch {
             });
 
             set_widgets_sensitive (false);
-
-            // Show/Hide widgets
-            show_all ();
         }
 
         private void open_binary (File file) {
@@ -952,11 +951,11 @@ namespace Scratch {
         }
 
         private void action_toggle_sidebar () {
-            if (project_pane == null) {
+            if (sidebar == null) {
                 return;
             }
 
-            project_pane.visible = !project_pane.visible;
+            sidebar.visible = !sidebar.visible;
         }
     }
 }
