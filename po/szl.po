@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-14 16:50+0000\n"
+"POT-Creation-Date: 2020-10-02 08:55+0000\n"
 "PO-Revision-Date: 2020-06-12 19:11+0000\n"
 "Last-Translator: Grzegorz Kulik <g.kulik@o2.pl>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/code/code/szl/"
@@ -77,49 +77,49 @@ msgstr "Kōmplet rozszyrzynia"
 msgid "plugin"
 msgstr "rozszyrzynie"
 
-#: src/MainWindow.vala:136
+#: src/MainWindow.vala:139
 msgid "Code"
 msgstr "Kod"
 
-#: src/MainWindow.vala:186 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:191 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "Znojdź…"
 
-#: src/MainWindow.vala:191
+#: src/MainWindow.vala:196
 msgid "Hide search bar"
 msgstr "Skryj posek szukanio"
 
-#: src/MainWindow.vala:267
+#: src/MainWindow.vala:272
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zdrzōdło danych Zeitgeist do Kodu"
 
-#: src/MainWindow.vala:720 src/Services/Document.vala:496
+#: src/MainWindow.vala:725 src/Services/Document.vala:496
 msgid "All files"
 msgstr "Wszyjske zbiory"
 
-#: src/MainWindow.vala:724 src/Services/Document.vala:500
+#: src/MainWindow.vala:729 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "Zbiory tekstowe"
 
-#: src/MainWindow.vala:728
+#: src/MainWindow.vala:733
 msgid "Open some files"
 msgstr "Ôtwōrz pora zbiorōw"
 
-#: src/MainWindow.vala:731
+#: src/MainWindow.vala:736
 msgid "Open"
 msgstr "Ôtwōrz"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:395
+#: src/MainWindow.vala:737 src/Services/Document.vala:395
 #: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Pociep"
 
-#: src/MainWindow.vala:757
+#: src/MainWindow.vala:762
 msgid "_Open"
 msgstr "_Ôtwōrz"
 
-#: src/MainWindow.vala:758
+#: src/MainWindow.vala:763
 msgid "_Cancel"
 msgstr "_Pociep"
 
@@ -515,21 +515,21 @@ msgstr "Szaltrowanie panelu bocznego"
 msgid "Menu"
 msgstr "Myni"
 
-#: src/Widgets/Pane.vala:45
+#: src/Widgets/Sidebar.vala:45
 #, fuzzy
 #| msgid "Open project folder…"
 msgid "Open Project Folder…"
 msgstr "Ôtwōrz katalog projektu…"
 
-#: src/Widgets/Pane.vala:48
+#: src/Widgets/Sidebar.vala:48
 msgid "Collapse All"
 msgstr "Swijń wszyjsko"
 
-#: src/Widgets/Pane.vala:51
+#: src/Widgets/Sidebar.vala:51
 msgid "Alphabetize"
 msgstr "Alfabetyzuj"
 
-#: src/Widgets/Pane.vala:62
+#: src/Widgets/Sidebar.vala:62
 msgid "Manage project folders"
 msgstr "Zarzōndzej katalogami projektōw"
 
@@ -668,7 +668,7 @@ msgstr "Jedyn miesiōnc"
 
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
-#: plugins/outline/C/CtagsSymbolOutline.vala:68
+#: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
 #: plugins/outline/Vala/ValaSymbolOutline.vala:116
 #: plugins/outline/OutlinePane.vala:27

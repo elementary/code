@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-14 16:50+0000\n"
+"POT-Creation-Date: 2020-10-02 08:55+0000\n"
 "PO-Revision-Date: 2017-05-15 08:22+0000\n"
 "Last-Translator: Guillem Servera <guillem@gservera.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/scratch/scratch/"
@@ -93,51 +93,51 @@ msgstr "Conjunt de connectors"
 msgid "plugin"
 msgstr "Conjunt de connectors"
 
-#: src/MainWindow.vala:136
+#: src/MainWindow.vala:139
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:186 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:191 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "Cerca…"
 
-#: src/MainWindow.vala:191
+#: src/MainWindow.vala:196
 msgid "Hide search bar"
 msgstr "Amagar la barra de cerca"
 
-#: src/MainWindow.vala:267
+#: src/MainWindow.vala:272
 #, fuzzy
 #| msgid "Zeitgeist Datasource for Scratch"
 msgid "Zeitgeist Datasource for Code"
 msgstr "Font de dades de Zeitgeist per a Scratch"
 
-#: src/MainWindow.vala:720 src/Services/Document.vala:496
+#: src/MainWindow.vala:725 src/Services/Document.vala:496
 msgid "All files"
 msgstr "Tots els fitxers"
 
-#: src/MainWindow.vala:724 src/Services/Document.vala:500
+#: src/MainWindow.vala:729 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "Fitxers de text"
 
-#: src/MainWindow.vala:728
+#: src/MainWindow.vala:733
 msgid "Open some files"
 msgstr ""
 
-#: src/MainWindow.vala:731
+#: src/MainWindow.vala:736
 msgid "Open"
 msgstr "Obrir"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:395
+#: src/MainWindow.vala:737 src/Services/Document.vala:395
 #: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Cancel·lar"
 
-#: src/MainWindow.vala:757
+#: src/MainWindow.vala:762
 msgid "_Open"
 msgstr ""
 
-#: src/MainWindow.vala:758
+#: src/MainWindow.vala:763
 msgid "_Cancel"
 msgstr ""
 
@@ -570,21 +570,21 @@ msgstr "Barra lateral"
 msgid "Menu"
 msgstr ""
 
-#: src/Widgets/Pane.vala:45
+#: src/Widgets/Sidebar.vala:45
 #, fuzzy
 #| msgid "Open file"
 msgid "Open Project Folder…"
 msgstr "Obri un fitxer"
 
-#: src/Widgets/Pane.vala:48
+#: src/Widgets/Sidebar.vala:48
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Pane.vala:51
+#: src/Widgets/Sidebar.vala:51
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Pane.vala:62
+#: src/Widgets/Sidebar.vala:62
 msgid "Manage project folders"
 msgstr ""
 
@@ -725,7 +725,7 @@ msgstr "Un mes"
 
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
-#: plugins/outline/C/CtagsSymbolOutline.vala:68
+#: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
 #: plugins/outline/Vala/ValaSymbolOutline.vala:116
 #: plugins/outline/OutlinePane.vala:27

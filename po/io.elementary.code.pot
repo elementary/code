@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: io.elementary.code\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-14 16:50+0000\n"
+"POT-Creation-Date: 2020-10-02 08:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,49 +79,49 @@ msgstr ""
 msgid "plugin"
 msgstr ""
 
-#: src/MainWindow.vala:136
+#: src/MainWindow.vala:139
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:186 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:191 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr ""
 
-#: src/MainWindow.vala:191
+#: src/MainWindow.vala:196
 msgid "Hide search bar"
 msgstr ""
 
-#: src/MainWindow.vala:267
+#: src/MainWindow.vala:272
 msgid "Zeitgeist Datasource for Code"
 msgstr ""
 
-#: src/MainWindow.vala:720 src/Services/Document.vala:496
+#: src/MainWindow.vala:725 src/Services/Document.vala:496
 msgid "All files"
 msgstr ""
 
-#: src/MainWindow.vala:724 src/Services/Document.vala:500
+#: src/MainWindow.vala:729 src/Services/Document.vala:500
 msgid "Text files"
 msgstr ""
 
-#: src/MainWindow.vala:728
+#: src/MainWindow.vala:733
 msgid "Open some files"
 msgstr ""
 
-#: src/MainWindow.vala:731
+#: src/MainWindow.vala:736
 msgid "Open"
 msgstr ""
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:395
+#: src/MainWindow.vala:737 src/Services/Document.vala:395
 #: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr ""
 
-#: src/MainWindow.vala:757
+#: src/MainWindow.vala:762
 msgid "_Open"
 msgstr ""
 
-#: src/MainWindow.vala:758
+#: src/MainWindow.vala:763
 msgid "_Cancel"
 msgstr ""
 
@@ -507,19 +507,19 @@ msgstr ""
 msgid "Menu"
 msgstr ""
 
-#: src/Widgets/Pane.vala:45
+#: src/Widgets/Sidebar.vala:45
 msgid "Open Project Folder…"
 msgstr ""
 
-#: src/Widgets/Pane.vala:48
+#: src/Widgets/Sidebar.vala:48
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Pane.vala:51
+#: src/Widgets/Sidebar.vala:51
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Pane.vala:62
+#: src/Widgets/Sidebar.vala:62
 msgid "Manage project folders"
 msgstr ""
 
@@ -654,7 +654,7 @@ msgstr ""
 
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
-#: plugins/outline/C/CtagsSymbolOutline.vala:68
+#: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
 #: plugins/outline/Vala/ValaSymbolOutline.vala:116
 #: plugins/outline/OutlinePane.vala:27
