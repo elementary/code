@@ -25,7 +25,6 @@ public class Scratch.Plugins.CompletionProvider : Gtk.SourceCompletionProvider, 
     public const string COMPLETION_END_MARK_NAME = "ScratchWordCompletionEnd";
     public const string COMPLETION_START_MARK_NAME = "ScratchWordCompletionStart";
 
-    private Gdk.Pixbuf icon;
     private Gtk.TextView? view;
     private Gtk.TextBuffer? buffer;
     private Euclide.Completion.Parser parser;
