@@ -90,6 +90,8 @@ namespace Scratch {
         public const string ACTION_ZOOM_OUT = "action_zoom_out";
         public const string ACTION_TOGGLE_COMMENT = "action_toggle_comment";
         public const string ACTION_TOGGLE_SIDEBAR = "action_toggle_sidebar";
+        public const string ACTION_NEXT_TAB = "action_next_tab";
+        public const string ACTION_PREVIOUS_TAB = "action_previous_tab";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
@@ -124,7 +126,9 @@ namespace Scratch {
             { ACTION_ZOOM_IN, action_zoom_in },
             { ACTION_ZOOM_OUT, action_zoom_out},
             { ACTION_TOGGLE_COMMENT, action_toggle_comment },
-            { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar }
+            { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar },
+            { ACTION_NEXT_TAB, action_next_tab },
+            { ACTION_PREVIOUS_TAB, action_previous_tab },
         };
 
         public MainWindow (Scratch.Application scratch_app) {
@@ -166,6 +170,8 @@ namespace Scratch {
             action_accelerators.set (ACTION_TOGGLE_COMMENT, "<Control>slash");
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "F9"); // GNOME
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "<Control>backslash"); // Atom
+            action_accelerators.set (ACTION_NEXT_TAB, "<Control>Tab");
+            action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control><Shift>Tab");
 
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("io/elementary/code/Application.css");
@@ -961,6 +967,14 @@ namespace Scratch {
             }
 
             sidebar.visible = !sidebar.visible;
+        }
+
+        private void action_next_tab () {
+            document_view.next_document ();
+        }
+
+        private void action_previous_tab () {
+            document_view.previous_document ();
         }
     }
 }
