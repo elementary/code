@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-01 22:59+0000\n"
-"PO-Revision-Date: 2020-05-30 10:11+0000\n"
+"POT-Creation-Date: 2020-10-02 08:55+0000\n"
+"PO-Revision-Date: 2020-09-06 13:13+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: Japanese <https://l10n.elementary.io/projects/code/code/ja/>\n"
 "Language: ja\n"
@@ -82,48 +82,49 @@ msgstr "プラグインのセット"
 msgid "plugin"
 msgstr "プラグイン"
 
-#: src/MainWindow.vala:136
+#: src/MainWindow.vala:139
 msgid "Code"
 msgstr "コード"
 
-#: src/MainWindow.vala:186 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:191 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "検索…"
 
-#: src/MainWindow.vala:191
+#: src/MainWindow.vala:196
 msgid "Hide search bar"
 msgstr "検索バーを表示しない"
 
-#: src/MainWindow.vala:264
+#: src/MainWindow.vala:272
 msgid "Zeitgeist Datasource for Code"
 msgstr "Code 向けの Zeitgeist データソース"
 
-#: src/MainWindow.vala:718 src/Services/Document.vala:502
+#: src/MainWindow.vala:725 src/Services/Document.vala:496
 msgid "All files"
 msgstr "すべてのファイル"
 
-#: src/MainWindow.vala:722 src/Services/Document.vala:506
+#: src/MainWindow.vala:729 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "テキストファイル"
 
-#: src/MainWindow.vala:726
+#: src/MainWindow.vala:733
 msgid "Open some files"
 msgstr "複数のファイルを開く"
 
-#: src/MainWindow.vala:729
+#: src/MainWindow.vala:736
 msgid "Open"
 msgstr "開く"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:401
-#: src/Services/Document.vala:514
+#: src/MainWindow.vala:737 src/Services/Document.vala:395
+#: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
+#: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/MainWindow.vala:755
+#: src/MainWindow.vala:762
 msgid "_Open"
 msgstr "開く(_O)"
 
-#: src/MainWindow.vala:756
+#: src/MainWindow.vala:763
 msgid "_Cancel"
 msgstr "キャンセル(_C)"
 
@@ -174,7 +175,7 @@ msgid "Interface"
 msgstr "インターフェース"
 
 #: src/Dialogs/PreferencesDialog.vala:87
-#: plugins/pastebin/pastebin_dialog.vala:323
+#: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "閉じる"
 
@@ -307,69 +308,69 @@ msgstr "%s、新規"
 msgid "Branch"
 msgstr "ブランチ"
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:260
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s はテキストファイルではありません"
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:261
 msgid "Code will not load this type of file."
 msgstr "\"コード\" はこの種類のファイルを読み込むことができません。"
 
-#: src/Services/Document.vala:269
+#: src/Services/Document.vala:263
 msgid "Load Anyway"
 msgstr "強制的に読み込む"
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:284
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "ファイル \"%s\" の読み込みに時間がかかっています"
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:285
 msgid "Please wait while Code is loading the file."
 msgstr "\"コード\" がファイルを読み込む間、お待ちください。"
 
-#: src/Services/Document.vala:293
+#: src/Services/Document.vala:287
 msgid "Cancel Loading"
 msgstr "読み込みをキャンセル"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:385
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "閉じる前に \"%s\" への変更を保存しますか？"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:386
 msgid "If you don't save, changes will be permanently lost."
 msgstr "保存しない場合、変更は破棄されます。"
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:392
 msgid "Close Without Saving"
 msgstr "保存せずに閉じる"
 
-#: src/Services/Document.vala:402 src/Services/Document.vala:513
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:396 src/Services/Document.vala:507
+#: src/Services/Document.vala:731
 msgid "Save"
 msgstr "保存"
 
-#: src/Services/Document.vala:510
+#: src/Services/Document.vala:504
 msgid "Save File"
 msgstr "ファイルを保存"
 
-#: src/Services/Document.vala:592
+#: src/Services/Document.vala:586
 msgid "New Document"
 msgstr "新しいドキュメント"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:715
+#: src/Services/Document.vala:709
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "ファイル \"%s\" を読み込めません"
 
-#: src/Services/Document.vala:716
+#: src/Services/Document.vala:710
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "ファイルが破損しているか、読み込む権限がない可能性があります。"
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:722
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -378,17 +379,17 @@ msgstr ""
 "ファイル \"%s\" を含む場所はアンマウントされています。どこか別の場所に保存し"
 "ますか？"
 
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:724
 msgid "Save As…"
 msgstr "名前を付けて保存…"
 
-#: src/Services/Document.vala:735
+#: src/Services/Document.vala:729
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "\"%s\" は削除されています。それでも保存しますか？"
 
 #. If the file can't be written
-#: src/Services/Document.vala:750
+#: src/Services/Document.vala:744
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -397,11 +398,11 @@ msgstr ""
 "ファイル \"%s\" に変更内容を保存できません。変更内容を別の場所に保存します"
 "か？"
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:746
 msgid "Save changes elsewhere"
 msgstr "別の場所に変更内容を保存"
 
-#: src/Services/Document.vala:785
+#: src/Services/Document.vala:779
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -410,11 +411,11 @@ msgstr ""
 "ファイル \"%s\" は外部アプリケーションによって変更されました。変更を読み込み"
 "ますか？または編集を続行しますか？"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:780
 msgid "Load"
 msgstr "変更を読み込む"
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:783
 msgid "Continue"
 msgstr "編集を続行"
 
@@ -515,21 +516,19 @@ msgstr "サイドバーを切り替え"
 msgid "Menu"
 msgstr "メニュー"
 
-#: src/Widgets/Pane.vala:45
-#, fuzzy
-#| msgid "Open project folder…"
+#: src/Widgets/Sidebar.vala:45
 msgid "Open Project Folder…"
 msgstr "プロジェクトフォルダーを開く…"
 
-#: src/Widgets/Pane.vala:48
+#: src/Widgets/Sidebar.vala:48
 msgid "Collapse All"
 msgstr "すべて折りたたむ"
 
-#: src/Widgets/Pane.vala:51
+#: src/Widgets/Sidebar.vala:51
 msgid "Alphabetize"
 msgstr "アルファベット順に並び替え"
 
-#: src/Widgets/Pane.vala:62
+#: src/Widgets/Sidebar.vala:62
 msgid "Manage project folders"
 msgstr "プロジェクトフォルダーを管理"
 
@@ -609,65 +608,62 @@ msgstr "フォルダーを開く"
 msgid "Add a project folder to the sidebar."
 msgstr "サイドバーにプロジェクトフォルダーを追加します。"
 
-#: plugins/pastebin/pastebin_dialog.vala:249
-msgid "Share via Pastebin"
-msgstr "Pastebin で共有"
-
-#: plugins/pastebin/pastebin_dialog.vala:256
-msgid "Name:"
-msgstr "名前:"
-
-#: plugins/pastebin/pastebin_dialog.vala:259
-msgid "Format:"
-msgstr "形式:"
-
-#: plugins/pastebin/pastebin_dialog.vala:264
-msgid "Others…"
-msgstr "そのほか…"
-
-#: plugins/pastebin/pastebin_dialog.vala:286
-msgid "Expiry time:"
-msgstr "期限:"
-
-#: plugins/pastebin/pastebin_dialog.vala:292
-msgid "Keep this paste private"
-msgstr "公開しない"
-
-#: plugins/pastebin/pastebin_dialog.vala:321
-msgid "Upload"
-msgstr "アップロード"
-
-#: plugins/pastebin/pastebin_dialog.vala:352
-msgid "Other formats"
-msgstr "ほかの形式"
-
-#: plugins/pastebin/pastebin_dialog.vala:460
-msgid "Never"
-msgstr "なし"
-
-#: plugins/pastebin/pastebin_dialog.vala:461
-msgid "Ten minutes"
-msgstr "10 分間"
-
-#: plugins/pastebin/pastebin_dialog.vala:462
-msgid "One hour"
-msgstr "1 時間"
-
-#: plugins/pastebin/pastebin_dialog.vala:463
-msgid "One day"
-msgstr "1 日"
-
-#: plugins/pastebin/pastebin_dialog.vala:464
-msgid "One month"
-msgstr "1 か月"
-
-#: plugins/pastebin/pastebin.vala:91
+#: plugins/pastebin/pastebin_dialog.vala:250
+#: plugins/pastebin/pastebin_dialog.vala:327 plugins/pastebin/pastebin.vala:96
 msgid "Upload to Pastebin"
 msgstr "Pastebin にアップロード"
 
+#: plugins/pastebin/pastebin_dialog.vala:257
+msgid "Name:"
+msgstr "名前:"
+
+#: plugins/pastebin/pastebin_dialog.vala:260
+msgid "Format:"
+msgstr "形式:"
+
+#: plugins/pastebin/pastebin_dialog.vala:266
+msgid "Choose different format"
+msgstr "別の形式を選択します"
+
+#: plugins/pastebin/pastebin_dialog.vala:289
+msgid "Expiration:"
+msgstr "公開期間:"
+
+#: plugins/pastebin/pastebin_dialog.vala:295
+msgid "Keep this paste private"
+msgstr "公開しない"
+
+#: plugins/pastebin/pastebin_dialog.vala:353
+msgid "Available Formats"
+msgstr "利用可能な書式"
+
+#: plugins/pastebin/pastebin_dialog.vala:380
+msgid "Select Format"
+msgstr "書式を選択"
+
+#: plugins/pastebin/pastebin_dialog.vala:467
+msgid "Never"
+msgstr "なし"
+
+#: plugins/pastebin/pastebin_dialog.vala:468
+msgid "Ten minutes"
+msgstr "10 分間"
+
+#: plugins/pastebin/pastebin_dialog.vala:469
+msgid "One hour"
+msgstr "1 時間"
+
+#: plugins/pastebin/pastebin_dialog.vala:470
+msgid "One day"
+msgstr "1 日"
+
+#: plugins/pastebin/pastebin_dialog.vala:471
+msgid "One month"
+msgstr "1 か月"
+
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
-#: plugins/outline/C/CtagsSymbolOutline.vala:68
+#: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
 #: plugins/outline/Vala/ValaSymbolOutline.vala:116
 #: plugins/outline/OutlinePane.vala:27
@@ -701,19 +697,6 @@ msgstr "コピー"
 msgid "Paste"
 msgstr "貼り付け"
 
-#: plugins/browser-preview/BrowserView.vala:32
-msgid "Web Preview"
-msgstr "Web プレビュー"
-
-#: plugins/browser-preview/browser-preview.vala:57
-#: plugins/browser-preview/browser-preview.vala:83
-msgid "Show Preview"
-msgstr "プレビューを表示"
-
-#: plugins/browser-preview/browser-preview.vala:75
-msgid "Hide Preview"
-msgstr "プレビューを表示しない"
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr "適切な辞書が見つかりませんでした"
@@ -726,6 +709,27 @@ msgstr "少なくとも 1 つ以上の [aspell] 辞書をインストールし�
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - 単語補完"
+
+#~ msgid "Web Preview"
+#~ msgstr "Web プレビュー"
+
+#~ msgid "Show Preview"
+#~ msgstr "プレビューを表示"
+
+#~ msgid "Hide Preview"
+#~ msgstr "プレビューを表示しない"
+
+#~ msgid "Share via Pastebin"
+#~ msgstr "Pastebin で共有"
+
+#~ msgid "Others…"
+#~ msgstr "そのほか…"
+
+#~ msgid "Upload"
+#~ msgstr "アップロード"
+
+#~ msgid "Other formats"
+#~ msgstr "ほかの形式"
 
 #~ msgid "Add New View"
 #~ msgstr "新しいビューを追加"
@@ -1083,9 +1087,6 @@ msgstr "%s - 単語補完"
 
 #~ msgid "Changes to this file haven't been saved."
 #~ msgstr "このファイルへの変更は保存されていません。"
-
-#~ msgid "Select font:"
-#~ msgstr "フォントを選択:"
 
 #~ msgid "You can't save changes to:"
 #~ msgstr "次のファイルに変更を保存できません:"

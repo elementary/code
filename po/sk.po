@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-01 22:59+0000\n"
+"POT-Creation-Date: 2020-10-02 08:55+0000\n"
 "PO-Revision-Date: 2019-02-13 00:07+0000\n"
 "Last-Translator: Cleiton Floss <cleitonfloss@gmail.com>\n"
 "Language-Team: Slovak <https://weblate.elementary.io/projects/code/code/sk/"
@@ -84,49 +84,50 @@ msgstr "Sada zásuvných modulov"
 msgid "plugin"
 msgstr "Sada zásuvných modulov"
 
-#: src/MainWindow.vala:136
+#: src/MainWindow.vala:139
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:186 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:191 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "Nájsť…"
 
-#: src/MainWindow.vala:191
+#: src/MainWindow.vala:196
 msgid "Hide search bar"
 msgstr "Skryť vyhľadávací panel"
 
-#: src/MainWindow.vala:264
+#: src/MainWindow.vala:272
 #, fuzzy
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zeitgeist zdroj dát pre Scratch"
 
-#: src/MainWindow.vala:718 src/Services/Document.vala:502
+#: src/MainWindow.vala:725 src/Services/Document.vala:496
 msgid "All files"
 msgstr "Všetky súbory"
 
-#: src/MainWindow.vala:722 src/Services/Document.vala:506
+#: src/MainWindow.vala:729 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "Textové súbory"
 
-#: src/MainWindow.vala:726
+#: src/MainWindow.vala:733
 msgid "Open some files"
 msgstr "Otvoriť niektoré súbory"
 
-#: src/MainWindow.vala:729
+#: src/MainWindow.vala:736
 msgid "Open"
 msgstr "Otvoriť"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:401
-#: src/Services/Document.vala:514
+#: src/MainWindow.vala:737 src/Services/Document.vala:395
+#: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
+#: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Zrušiť"
 
-#: src/MainWindow.vala:755
+#: src/MainWindow.vala:762
 msgid "_Open"
 msgstr "_Otvoriť"
 
-#: src/MainWindow.vala:756
+#: src/MainWindow.vala:763
 msgid "_Cancel"
 msgstr "_Zrušiť"
 
@@ -177,7 +178,7 @@ msgid "Interface"
 msgstr "Rozhranie"
 
 #: src/Dialogs/PreferencesDialog.vala:87
-#: plugins/pastebin/pastebin_dialog.vala:323
+#: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "Zavrieť"
 
@@ -312,71 +313,71 @@ msgstr ""
 msgid "Branch"
 msgstr "Zmeniť vetvu"
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:260
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s nie je textový súbor"
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:261
 msgid "Code will not load this type of file."
 msgstr "Aplikácia Code nenačíta tento typ súboru."
 
-#: src/Services/Document.vala:269
+#: src/Services/Document.vala:263
 msgid "Load Anyway"
 msgstr "Napriek tomu načítať"
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:284
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "Načítanie súboru \"%s\" trvá veľmi dlho"
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:285
 msgid "Please wait while Code is loading the file."
 msgstr "Prosím počkajte, kým aplikácia Code načíta súbor."
 
-#: src/Services/Document.vala:293
+#: src/Services/Document.vala:287
 msgid "Cancel Loading"
 msgstr "Zrušiť načítanie"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:385
 #, fuzzy, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "Uložiť zmeny do dokumentu %s pred ukončením?"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:386
 #, fuzzy
 msgid "If you don't save, changes will be permanently lost."
 msgstr "Ak ich neuložíte, zmeny z posledných 4 sekúnd budú navždy stratené."
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:392
 #, fuzzy
 msgid "Close Without Saving"
 msgstr "Zavrieť bez uloženia"
 
-#: src/Services/Document.vala:402 src/Services/Document.vala:513
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:396 src/Services/Document.vala:507
+#: src/Services/Document.vala:731
 msgid "Save"
 msgstr "Uložiť"
 
-#: src/Services/Document.vala:510
+#: src/Services/Document.vala:504
 msgid "Save File"
 msgstr "Uložiť súbor"
 
-#: src/Services/Document.vala:592
+#: src/Services/Document.vala:586
 msgid "New Document"
 msgstr "Nový dokument"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:715
+#: src/Services/Document.vala:709
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "Súbor \"%s\" sa nedá prečítať"
 
-#: src/Services/Document.vala:716
+#: src/Services/Document.vala:710
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "Môže byť poškodený, alebo nemáte potrebné oprávnenie na jeho čítanie."
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:722
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
@@ -385,17 +386,17 @@ msgstr ""
 "Umiestnenie obsahujúce súbor \"%s\" nie je pripojené. Chcete uložiť na iné "
 "miesto?"
 
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:724
 msgid "Save As…"
 msgstr "Uložiť ako…"
 
-#: src/Services/Document.vala:735
+#: src/Services/Document.vala:729
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "Súbor \"%s\" bol odstránený. Chcete ho aj napriek tomu uložiť?"
 
 #. If the file can't be written
-#: src/Services/Document.vala:750
+#: src/Services/Document.vala:744
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -404,11 +405,11 @@ msgstr ""
 "Nie je možné uložiť zmeny v súbore \"%s\". Chcete uložiť zmeny v súbore na "
 "iné miesto?"
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:746
 msgid "Save changes elsewhere"
 msgstr "Uložiť zmeny inam"
 
-#: src/Services/Document.vala:785
+#: src/Services/Document.vala:779
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -417,11 +418,11 @@ msgstr ""
 "Súbor \"%s\" bol zmenený inou aplikáciou. Chcete ho opätovne načítať, alebo "
 "pokračovať v úpravách?"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:780
 msgid "Load"
 msgstr "Načítať"
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:783
 msgid "Continue"
 msgstr "Pokračovať"
 
@@ -526,21 +527,21 @@ msgstr "Bočný panel"
 msgid "Menu"
 msgstr "Menu"
 
-#: src/Widgets/Pane.vala:45
+#: src/Widgets/Sidebar.vala:45
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Open Project Folder…"
 msgstr "Otvoriť priečinok"
 
-#: src/Widgets/Pane.vala:48
+#: src/Widgets/Sidebar.vala:48
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Pane.vala:51
+#: src/Widgets/Sidebar.vala:51
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Pane.vala:62
+#: src/Widgets/Sidebar.vala:62
 msgid "Manage project folders"
 msgstr ""
 
@@ -620,65 +621,66 @@ msgstr "Otvoriť priečinok"
 msgid "Add a project folder to the sidebar."
 msgstr "Pridať priečinok projektu do bočného panela."
 
-#: plugins/pastebin/pastebin_dialog.vala:249
-msgid "Share via Pastebin"
-msgstr "Zdieľať s použitím PasteBin"
-
-#: plugins/pastebin/pastebin_dialog.vala:256
-msgid "Name:"
-msgstr "Meno:"
-
-#: plugins/pastebin/pastebin_dialog.vala:259
-msgid "Format:"
-msgstr "Formát:"
-
-#: plugins/pastebin/pastebin_dialog.vala:264
-msgid "Others…"
-msgstr "Iné…"
-
-#: plugins/pastebin/pastebin_dialog.vala:286
-msgid "Expiry time:"
-msgstr "Čas vypršania platnosti:"
-
-#: plugins/pastebin/pastebin_dialog.vala:292
-msgid "Keep this paste private"
-msgstr "Ponechať toto vloženie súkromné"
-
-#: plugins/pastebin/pastebin_dialog.vala:321
-msgid "Upload"
-msgstr "Nahrať"
-
-#: plugins/pastebin/pastebin_dialog.vala:352
-msgid "Other formats"
-msgstr "Iné formáty"
-
-#: plugins/pastebin/pastebin_dialog.vala:460
-msgid "Never"
-msgstr "Nikdy"
-
-#: plugins/pastebin/pastebin_dialog.vala:461
-msgid "Ten minutes"
-msgstr "Desať minút"
-
-#: plugins/pastebin/pastebin_dialog.vala:462
-msgid "One hour"
-msgstr "Jedna hodina"
-
-#: plugins/pastebin/pastebin_dialog.vala:463
-msgid "One day"
-msgstr "Jeden deň"
-
-#: plugins/pastebin/pastebin_dialog.vala:464
-msgid "One month"
-msgstr "Jeden mesiac"
-
-#: plugins/pastebin/pastebin.vala:91
+#: plugins/pastebin/pastebin_dialog.vala:250
+#: plugins/pastebin/pastebin_dialog.vala:327 plugins/pastebin/pastebin.vala:96
 msgid "Upload to Pastebin"
 msgstr "Odoslať do Pastebin"
 
+#: plugins/pastebin/pastebin_dialog.vala:257
+msgid "Name:"
+msgstr "Meno:"
+
+#: plugins/pastebin/pastebin_dialog.vala:260
+msgid "Format:"
+msgstr "Formát:"
+
+#: plugins/pastebin/pastebin_dialog.vala:266
+msgid "Choose different format"
+msgstr ""
+
+#: plugins/pastebin/pastebin_dialog.vala:289
+#, fuzzy
+#| msgid "Expiry time:"
+msgid "Expiration:"
+msgstr "Čas vypršania platnosti:"
+
+#: plugins/pastebin/pastebin_dialog.vala:295
+msgid "Keep this paste private"
+msgstr "Ponechať toto vloženie súkromné"
+
+#: plugins/pastebin/pastebin_dialog.vala:353
+msgid "Available Formats"
+msgstr ""
+
+#: plugins/pastebin/pastebin_dialog.vala:380
+#, fuzzy
+#| msgid "Select font:"
+msgid "Select Format"
+msgstr "Vybrať písmo:"
+
+#: plugins/pastebin/pastebin_dialog.vala:467
+msgid "Never"
+msgstr "Nikdy"
+
+#: plugins/pastebin/pastebin_dialog.vala:468
+msgid "Ten minutes"
+msgstr "Desať minút"
+
+#: plugins/pastebin/pastebin_dialog.vala:469
+msgid "One hour"
+msgstr "Jedna hodina"
+
+#: plugins/pastebin/pastebin_dialog.vala:470
+msgid "One day"
+msgstr "Jeden deň"
+
+#: plugins/pastebin/pastebin_dialog.vala:471
+msgid "One month"
+msgstr "Jeden mesiac"
+
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
-#: plugins/outline/C/CtagsSymbolOutline.vala:68
+#: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
 #: plugins/outline/Vala/ValaSymbolOutline.vala:116
 #: plugins/outline/OutlinePane.vala:27
@@ -714,19 +716,6 @@ msgstr "Kopírovať"
 msgid "Paste"
 msgstr "Vložiť"
 
-#: plugins/browser-preview/BrowserView.vala:32
-msgid "Web Preview"
-msgstr "Náhľad v prehliadači"
-
-#: plugins/browser-preview/browser-preview.vala:57
-#: plugins/browser-preview/browser-preview.vala:83
-msgid "Show Preview"
-msgstr "Zobraziť náhľad"
-
-#: plugins/browser-preview/browser-preview.vala:75
-msgid "Hide Preview"
-msgstr "Skryť náhľad"
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr ""
@@ -742,6 +731,27 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr "Dokončovanie slova: %s"
+
+#~ msgid "Web Preview"
+#~ msgstr "Náhľad v prehliadači"
+
+#~ msgid "Show Preview"
+#~ msgstr "Zobraziť náhľad"
+
+#~ msgid "Hide Preview"
+#~ msgstr "Skryť náhľad"
+
+#~ msgid "Share via Pastebin"
+#~ msgstr "Zdieľať s použitím PasteBin"
+
+#~ msgid "Others…"
+#~ msgstr "Iné…"
+
+#~ msgid "Upload"
+#~ msgstr "Nahrať"
+
+#~ msgid "Other formats"
+#~ msgstr "Iné formáty"
 
 #~ msgid "Add New View"
 #~ msgstr "Pridať nové zobrazenie"
@@ -1094,9 +1104,6 @@ msgstr "Dokončovanie slova: %s"
 
 #~ msgid "Tabs:"
 #~ msgstr "Karty:"
-
-#~ msgid "Select font:"
-#~ msgstr "Vybrať písmo:"
 
 #~ msgid "Save unsaved changes to file before closing?"
 #~ msgstr "Uložiť neuložené zmeny pred zatvorením?"

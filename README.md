@@ -14,11 +14,11 @@ You'll need the following dependencies:
 * libgtksourceview-4-dev
 * libgtkspell3-3-dev
 * libgranite-dev >= 5.2.0
+* libhandy-1-dev >= 0.90.0
 * libpeas-dev
 * libsoup2.4-dev
 * libvala-0.34-dev (or higher)
 * libvte-2.91-dev
-* libwebkit2gtk-4.0-dev
 * libzeitgeist-2.0-dev
 * valac
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-01 22:59+0000\n"
+"POT-Creation-Date: 2020-10-02 08:55+0000\n"
 "PO-Revision-Date: 2019-05-10 06:32+0000\n"
 "Last-Translator: Prachi Joshi <josprachi@yahoo.com>\n"
 "Language-Team: Hindi <https://l10n.elementary.io/projects/code/code/hi/>\n"
@@ -83,49 +83,50 @@ msgstr "प्लगइन्स का समूह"
 msgid "plugin"
 msgstr "प्लगइन्स का समूह"
 
-#: src/MainWindow.vala:136
+#: src/MainWindow.vala:139
 msgid "Code"
 msgstr "कोड"
 
-#: src/MainWindow.vala:186 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:191 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "ढूंढें…"
 
-#: src/MainWindow.vala:191
+#: src/MainWindow.vala:196
 msgid "Hide search bar"
 msgstr "सर्च बार छुपायें"
 
-#: src/MainWindow.vala:264
+#: src/MainWindow.vala:272
 #, fuzzy
 msgid "Zeitgeist Datasource for Code"
 msgstr "स्क्रैच के लिए Zeitgeist डेटा स्रोत"
 
-#: src/MainWindow.vala:718 src/Services/Document.vala:502
+#: src/MainWindow.vala:725 src/Services/Document.vala:496
 msgid "All files"
 msgstr "सभी फाइलें"
 
-#: src/MainWindow.vala:722 src/Services/Document.vala:506
+#: src/MainWindow.vala:729 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "टेक्स्ट फाइलें"
 
-#: src/MainWindow.vala:726
+#: src/MainWindow.vala:733
 msgid "Open some files"
 msgstr "कुछ फ़ाइल खोलें"
 
-#: src/MainWindow.vala:729
+#: src/MainWindow.vala:736
 msgid "Open"
 msgstr "खोलें"
 
-#: src/MainWindow.vala:730 src/Services/Document.vala:401
-#: src/Services/Document.vala:514
+#: src/MainWindow.vala:737 src/Services/Document.vala:395
+#: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
+#: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "रद्द करें"
 
-#: src/MainWindow.vala:755
+#: src/MainWindow.vala:762
 msgid "_Open"
 msgstr "खोलें (_O)"
 
-#: src/MainWindow.vala:756
+#: src/MainWindow.vala:763
 msgid "_Cancel"
 msgstr "रद्द करें (_C)"
 
@@ -176,7 +177,7 @@ msgid "Interface"
 msgstr "इंटरफ़ेस"
 
 #: src/Dialogs/PreferencesDialog.vala:87
-#: plugins/pastebin/pastebin_dialog.vala:323
+#: plugins/pastebin/pastebin_dialog.vala:434
 msgid "Close"
 msgstr "बंद करें"
 
@@ -311,86 +312,86 @@ msgstr ""
 msgid "Branch"
 msgstr "शाखा बदलें"
 
-#: src/Services/Document.vala:266
+#: src/Services/Document.vala:260
 #, c-format
 msgid "%s Is Not a Text File"
 msgstr "%s एक टेक्स्ट फ़ाइल नहीं है"
 
-#: src/Services/Document.vala:267
+#: src/Services/Document.vala:261
 msgid "Code will not load this type of file."
 msgstr "कोड इस प्रकार के फ़ाइल को लोड नहीं कर सकता।"
 
-#: src/Services/Document.vala:269
+#: src/Services/Document.vala:263
 msgid "Load Anyway"
 msgstr "वैसे भी लोड करें"
 
-#: src/Services/Document.vala:290
+#: src/Services/Document.vala:284
 #, c-format
 msgid "Loading File \"%s\" Is Taking a Long Time"
 msgstr "\"%s\" फ़ाइल लोड होने में ज्यादा समय ले रहा है"
 
-#: src/Services/Document.vala:291
+#: src/Services/Document.vala:285
 msgid "Please wait while Code is loading the file."
 msgstr "कृपया प्रतीक्षा करें जब तक कि कोड फ़ाइल लोड नहीं करता।"
 
-#: src/Services/Document.vala:293
+#: src/Services/Document.vala:287
 msgid "Cancel Loading"
 msgstr "लोड रद्द करें"
 
-#: src/Services/Document.vala:391
+#: src/Services/Document.vala:385
 #, c-format
 msgid "Save changes to \"%s\" before closing?"
 msgstr "डाँकयुमेन्ट बंद करनेसे पहले \"%s\" के बदलाव सेव करे?"
 
-#: src/Services/Document.vala:392
+#: src/Services/Document.vala:386
 msgid "If you don't save, changes will be permanently lost."
 msgstr "अगर आप फाइल को नहीं सहेजेंगे, तो बदलाव हमेशा के लिए खो जाएँगे |"
 
-#: src/Services/Document.vala:398
+#: src/Services/Document.vala:392
 msgid "Close Without Saving"
 msgstr "बिना सहेजे बंद करें"
 
-#: src/Services/Document.vala:402 src/Services/Document.vala:513
-#: src/Services/Document.vala:737
+#: src/Services/Document.vala:396 src/Services/Document.vala:507
+#: src/Services/Document.vala:731
 msgid "Save"
 msgstr "सहेजें"
 
-#: src/Services/Document.vala:510
+#: src/Services/Document.vala:504
 msgid "Save File"
 msgstr "फ़ाइल सहेजें"
 
-#: src/Services/Document.vala:592
+#: src/Services/Document.vala:586
 msgid "New Document"
 msgstr "नया दस्तावेज़"
 
 #. Show an error view which says "Hey, I cannot read that file!"
-#: src/Services/Document.vala:715
+#: src/Services/Document.vala:709
 #, c-format
 msgid "File \"%s\" Cannot Be Read"
 msgstr "\"%s\" फ़ाइल पढ़ा नहीं जा सकता"
 
-#: src/Services/Document.vala:716
+#: src/Services/Document.vala:710
 msgid "It may be corrupt or you don't have permission to read it."
 msgstr "शायद यह ख़राब है अथवाआपके पास इसे पढ़ने के लिए आवश्यक अनुमति नहीं है।"
 
-#: src/Services/Document.vala:728
+#: src/Services/Document.vala:722
 #, c-format
 msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr "फ़ाइल \"%s\" उक्त स्थान हटा दिया गया था। आप कहीं और सहेजना चाहते हैं?"
 
-#: src/Services/Document.vala:730
+#: src/Services/Document.vala:724
 msgid "Save As…"
 msgstr "इस रूप में सहेजें…"
 
-#: src/Services/Document.vala:735
+#: src/Services/Document.vala:729
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
 msgstr "फ़ाइल \"%s\" हटा दी गई थी।आप फिर भी सहेजना चाहते हैं?"
 
 #. If the file can't be written
-#: src/Services/Document.vala:750
+#: src/Services/Document.vala:744
 #, c-format
 msgid ""
 "You cannot save changes to the file \"%s\". Do you want to save the changes "
@@ -399,11 +400,11 @@ msgstr ""
 "आप फाइल \"%s \" में किए बदलाव सुरक्षित नहीं कर सकते । क्या आप फाइल में किए गए बदलाव "
 "को अन्य स्थान पर सुरक्षित करना चाहते है ?"
 
-#: src/Services/Document.vala:752
+#: src/Services/Document.vala:746
 msgid "Save changes elsewhere"
 msgstr "बदलाव कहीं और सुरक्षित करें"
 
-#: src/Services/Document.vala:785
+#: src/Services/Document.vala:779
 #, c-format
 msgid ""
 "File \"%s\" was modified by an external application. Do you want to load it "
@@ -412,11 +413,11 @@ msgstr ""
 "फ़ाइल \"%s\" किसी बाह्य एप्लीकेशन द्वारा बदला गया है. क्या आप इसे पुनः लोड करना चाहते "
 "हैं या संपादन जारी रखना चाहते हैं?"
 
-#: src/Services/Document.vala:786
+#: src/Services/Document.vala:780
 msgid "Load"
 msgstr "लोड करें"
 
-#: src/Services/Document.vala:789
+#: src/Services/Document.vala:783
 msgid "Continue"
 msgstr "जारी रखें"
 
@@ -519,21 +520,21 @@ msgstr "बाजू की पट्टी टॉगल करें"
 msgid "Menu"
 msgstr "मेन्यू"
 
-#: src/Widgets/Pane.vala:45
+#: src/Widgets/Sidebar.vala:45
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Open Project Folder…"
 msgstr "एक फ़ोल्डर खोलें"
 
-#: src/Widgets/Pane.vala:48
+#: src/Widgets/Sidebar.vala:48
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Pane.vala:51
+#: src/Widgets/Sidebar.vala:51
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Pane.vala:62
+#: src/Widgets/Sidebar.vala:62
 msgid "Manage project folders"
 msgstr ""
 
@@ -613,65 +614,66 @@ msgstr "फाइल खोलें"
 msgid "Add a project folder to the sidebar."
 msgstr "प्रोजेक्ट फोल्डर को साइडबार में जोड़े।"
 
-#: plugins/pastebin/pastebin_dialog.vala:249
-msgid "Share via Pastebin"
-msgstr "पेस्टबिन  के द्वारा साझा करें"
-
-#: plugins/pastebin/pastebin_dialog.vala:256
-msgid "Name:"
-msgstr "नाम:"
-
-#: plugins/pastebin/pastebin_dialog.vala:259
-msgid "Format:"
-msgstr "प्रारूप:"
-
-#: plugins/pastebin/pastebin_dialog.vala:264
-msgid "Others…"
-msgstr "अन्य…"
-
-#: plugins/pastebin/pastebin_dialog.vala:286
-msgid "Expiry time:"
-msgstr "समाप्ति (expiry) समय:"
-
-#: plugins/pastebin/pastebin_dialog.vala:292
-msgid "Keep this paste private"
-msgstr "इस 'पेस्ट' को निजी रखें"
-
-#: plugins/pastebin/pastebin_dialog.vala:321
-msgid "Upload"
-msgstr "अपलोड करें"
-
-#: plugins/pastebin/pastebin_dialog.vala:352
-msgid "Other formats"
-msgstr "अन्य प्रारूप"
-
-#: plugins/pastebin/pastebin_dialog.vala:460
-msgid "Never"
-msgstr "कभी नहीं"
-
-#: plugins/pastebin/pastebin_dialog.vala:461
-msgid "Ten minutes"
-msgstr "दस मिनट"
-
-#: plugins/pastebin/pastebin_dialog.vala:462
-msgid "One hour"
-msgstr "एक घंटा"
-
-#: plugins/pastebin/pastebin_dialog.vala:463
-msgid "One day"
-msgstr "एक दिन"
-
-#: plugins/pastebin/pastebin_dialog.vala:464
-msgid "One month"
-msgstr "एक महीना"
-
-#: plugins/pastebin/pastebin.vala:91
+#: plugins/pastebin/pastebin_dialog.vala:250
+#: plugins/pastebin/pastebin_dialog.vala:327 plugins/pastebin/pastebin.vala:96
 msgid "Upload to Pastebin"
 msgstr "पेस्टबिन पर अपलोड करे"
 
+#: plugins/pastebin/pastebin_dialog.vala:257
+msgid "Name:"
+msgstr "नाम:"
+
+#: plugins/pastebin/pastebin_dialog.vala:260
+msgid "Format:"
+msgstr "प्रारूप:"
+
+#: plugins/pastebin/pastebin_dialog.vala:266
+msgid "Choose different format"
+msgstr ""
+
+#: plugins/pastebin/pastebin_dialog.vala:289
+#, fuzzy
+#| msgid "Expiry time:"
+msgid "Expiration:"
+msgstr "समाप्ति (expiry) समय:"
+
+#: plugins/pastebin/pastebin_dialog.vala:295
+msgid "Keep this paste private"
+msgstr "इस 'पेस्ट' को निजी रखें"
+
+#: plugins/pastebin/pastebin_dialog.vala:353
+msgid "Available Formats"
+msgstr ""
+
+#: plugins/pastebin/pastebin_dialog.vala:380
+#, fuzzy
+#| msgid "Format:"
+msgid "Select Format"
+msgstr "प्रारूप:"
+
+#: plugins/pastebin/pastebin_dialog.vala:467
+msgid "Never"
+msgstr "कभी नहीं"
+
+#: plugins/pastebin/pastebin_dialog.vala:468
+msgid "Ten minutes"
+msgstr "दस मिनट"
+
+#: plugins/pastebin/pastebin_dialog.vala:469
+msgid "One hour"
+msgstr "एक घंटा"
+
+#: plugins/pastebin/pastebin_dialog.vala:470
+msgid "One day"
+msgstr "एक दिन"
+
+#: plugins/pastebin/pastebin_dialog.vala:471
+msgid "One month"
+msgstr "एक महीना"
+
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
-#: plugins/outline/C/CtagsSymbolOutline.vala:68
+#: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
 #: plugins/outline/Vala/ValaSymbolOutline.vala:116
 #: plugins/outline/OutlinePane.vala:27
@@ -707,19 +709,6 @@ msgstr "प्रतिलिपि"
 msgid "Paste"
 msgstr "चिपकाएं"
 
-#: plugins/browser-preview/BrowserView.vala:32
-msgid "Web Preview"
-msgstr "वेब पूर्वावलोकन"
-
-#: plugins/browser-preview/browser-preview.vala:57
-#: plugins/browser-preview/browser-preview.vala:83
-msgid "Show Preview"
-msgstr "पूर्वावलोकन दिखाएँ"
-
-#: plugins/browser-preview/browser-preview.vala:75
-msgid "Hide Preview"
-msgstr "पूर्वावलोकन छुपाएँ"
-
 #: plugins/spell/spell.vala:73
 msgid "No Suitable Dictionaries Were Found"
 msgstr "कोई उपयुक्त डिक्शनरी नहीं मिला"
@@ -732,6 +721,27 @@ msgstr "कृपया कम से कम एक [aspell] शब्दको�
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - शब्द समापन"
+
+#~ msgid "Web Preview"
+#~ msgstr "वेब पूर्वावलोकन"
+
+#~ msgid "Show Preview"
+#~ msgstr "पूर्वावलोकन दिखाएँ"
+
+#~ msgid "Hide Preview"
+#~ msgstr "पूर्वावलोकन छुपाएँ"
+
+#~ msgid "Share via Pastebin"
+#~ msgstr "पेस्टबिन  के द्वारा साझा करें"
+
+#~ msgid "Others…"
+#~ msgstr "अन्य…"
+
+#~ msgid "Upload"
+#~ msgstr "अपलोड करें"
+
+#~ msgid "Other formats"
+#~ msgstr "अन्य प्रारूप"
 
 #~ msgid "Add New View"
 #~ msgstr "नया दृश्य जोड़ें"

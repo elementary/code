@@ -26,6 +26,7 @@ namespace Scratch.Dialogs {
 
         public string[,] languages = {
             //if default, code, desc, Code-equivalent
+            {"n", "text", "None", "text"},
             {"n", "4cs", "4CS", ""},
             {"n", "6502acme", "6502 ACME Cross Assembler", ""},
             {"n", "6502kickass", "6502 Kick Assembler", ""},
@@ -203,7 +204,6 @@ namespace Scratch.Dialogs {
             {"n", "tsql", "T-SQL", ""},
             {"n", "tcl", "TCL", ""},
             {"n", "teraterm", "Tera Term", ""},
-            {"n", "text", "None", "text"},
             {"n", "thinbasic", "thinBasic", ""},
             {"n", "typoscript", "TypoScript", ""},
             {"n", "unicon", "Unicon", ""},
@@ -230,23 +230,24 @@ namespace Scratch.Dialogs {
 
         public Scratch.Services.Document doc { get; construct; }
 
-        private Gtk.Button send_button;
+        private Gtk.Button close_button;
+        private Gtk.Button upload_button;
         private Gtk.Entry name_entry;
         private Gtk.ComboBoxText expiry_combo;
         private Gtk.CheckButton private_check;
         private Gtk.ComboBoxText format_combo;
-        private Gtk.Window format_others_win;
-        private Gtk.TreeView format_others_view;
-        private Gtk.ListStore format_store;
+        private Gtk.Dialog format_dialog;
         private Gtk.Stack stack;
+        private Gtk.ListBox languages_listbox;
 
         public PasteBinDialog (Gtk.Window? parent, Scratch.Services.Document doc) {
             Object (
-                border_width: 5,
                 deletable: false,
+                resizable: false,
+                border_width: 6,
                 doc: doc,
                 transient_for: parent,
-                title: _("Share via Pastebin")
+                title: _("Upload to Pastebin")
             );
         }
 
@@ -261,7 +262,9 @@ namespace Scratch.Dialogs {
 
             format_combo = new Gtk.ComboBoxText ();
 
-            var format_button = new Gtk.Button.with_label (_("Others…"));
+            var format_button = new Gtk.Button.from_icon_name ("view-more-horizontal-symbolic") {
+                tooltip_text = _("Choose different format")
+            };
             format_button.clicked.connect (format_button_clicked);
 
             //populate combo box
@@ -283,20 +286,22 @@ namespace Scratch.Dialogs {
                 format_combo.set_active_id ("text");
             }
 
-            var expiry_combo_l = new Gtk.Label (_("Expiry time:"));
+            var expiry_combo_l = new Gtk.Label (_("Expiration:"));
             expiry_combo_l.halign = Gtk.Align.END;
 
             expiry_combo = new Gtk.ComboBoxText ();
             populate_expiry_combo ();
 
             private_check = new Gtk.CheckButton.with_label (_("Keep this paste private"));
-            private_check.margin_top = 12;
+            private_check.margin_bottom = 12;
 
-            var grid = new Gtk.Grid ();
-            grid.column_spacing = 6;
-            grid.row_spacing = 12;
-            grid.margin = 5;
-            grid.margin_top = 0;
+            var grid = new Gtk.Grid () {
+                column_spacing = 6,
+                row_spacing = 12,
+                margin = 6,
+                margin_top = 0,
+                halign = Gtk.Align.CENTER
+            };
             grid.attach (name_entry_l, 0, 0, 1, 1);
             grid.attach (name_entry, 1, 0, 1, 1);
             grid.attach (format_label, 0, 1, 1, 1);
@@ -304,39 +309,34 @@ namespace Scratch.Dialogs {
             grid.attach (format_button, 2, 1, 1, 1);
             grid.attach (expiry_combo_l, 0, 2, 1, 1);
             grid.attach (expiry_combo, 1, 2, 1, 1);
-            grid.attach (private_check, 1, 3, 2, 1);
+            grid.attach (private_check, 1, 3, 1, 1);
 
-            var spinner = new Gtk.Spinner ();
-            spinner.active = true;
-            spinner.height_request = 32;
-            spinner.valign = Gtk.Align.CENTER;
+            var spinner = new Gtk.Spinner () {
+                active = true,
+                height_request = 32,
+                valign = Gtk.Align.CENTER
+            };
 
             stack = new Gtk.Stack ();
             stack.add (grid);
             stack.add (spinner);
 
-            var content_area = get_content_area () as Gtk.Box;
-            content_area.add (stack);
+            get_content_area ().add (stack);
 
-            send_button = new Gtk.Button.with_label (_("Upload"));
-
-            var cancel_button = new Gtk.Button.with_label (_("Close"));
-
-            var action_area = get_action_area () as Gtk.Box;
-            action_area.margin_top = 7;
-            action_area.add (cancel_button);
-            action_area.add (send_button);
+            close_button = (Gtk.Button)add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
+            upload_button = (Gtk.Button)add_button (_("Upload to Pastebin"), Gtk.ResponseType.OK);
+            upload_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
             read_settings ();
 
             show_all ();
 
-            send_button.clicked.connect (() => {
+            upload_button.clicked.connect (() => {
                 stack.visible_child = spinner;
-                send_button_clicked ();
+                upload_button_clicked ();
             });
 
-            cancel_button.clicked.connect (() => {
+            close_button.clicked.connect (() => {
                 destroy ();
             });
 
@@ -345,67 +345,74 @@ namespace Scratch.Dialogs {
             });
         }
 
-
         private void format_button_clicked () {
-            format_others_win = new Gtk.Window ();
-            format_others_win.modal = true;
-            format_others_win.title = _("Other formats");
-            format_others_win.set_default_size (250, 300);
+            format_dialog = new Gtk.Dialog () {
+                deletable = false,
+                resizable = false,
+                border_width = 6,
+                title = _("Available Formats")
+            };
+            format_dialog.set_default_size (220, 300);
 
-            format_others_view = new Gtk.TreeView ();
-            format_others_view.set_headers_visible (false);
+            languages_listbox = new Gtk.ListBox () {
+                selection_mode = Gtk.SelectionMode.SINGLE
+            };
 
-            format_store = new Gtk.ListStore (2, typeof (string), typeof (string));
-            format_others_view.set_model (format_store);
-            format_others_view.insert_column_with_attributes (-1, "Language", new Gtk.CellRendererText (), "text", 0);
-
-            Gtk.TreeIter iter;
             for (var i=0; i < languages.length[0]; i++) {
-                format_store.append (out iter);
-                format_store.set (iter, 0, languages[i, 2], 1, languages[i, 1]);
+                var label = new Gtk.Label (languages[i, 2]) {
+                    halign = Gtk.Align.START,
+                    margin = 6
+                };
+
+                languages_listbox.add (label);
             }
 
-            var format_others_scroll = new Gtk.ScrolledWindow (null, null);
-            format_others_scroll.add (format_others_view);
+            var languages_scrolled = new Gtk.ScrolledWindow (null, null) {
+                hscrollbar_policy = Gtk.PolicyType.NEVER,
+                height_request = 250,
+                expand = true
+            };
+            languages_scrolled.add (languages_listbox);
 
-            var format_others_ok = new Gtk.Button.from_icon_name ("dialog-ok", Gtk.IconSize.BUTTON);
-            format_others_ok.clicked.connect (format_others_ok_clicked);
+            var cancel_button = (Gtk.Button)format_dialog.add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
+            cancel_button.clicked.connect (cancel_button_clicked);
 
-            var format_others_cancel = new Gtk.Button.from_icon_name ("dialog-cancel", Gtk.IconSize.BUTTON);
-            format_others_cancel.clicked.connect (format_others_cancel_clicked);
+            var select_button = (Gtk.Button)format_dialog.add_button (_("Select Format"), Gtk.ResponseType.OK);
+            select_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+            select_button.clicked.connect (select_button_clicked);
 
-            var format_others_buttons = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
-            format_others_buttons.set_layout (Gtk.ButtonBoxStyle.CENTER);
-            format_others_buttons.pack_start (format_others_cancel);
-            format_others_buttons.pack_start (format_others_ok);
+            var frame = new Gtk.Frame (null) {
+                margin = 6,
+                margin_top = 0
+            };
+            frame.add (languages_scrolled);
 
-            var format_others_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 10);
-            format_others_box.pack_start (format_others_scroll);
-            format_others_box.pack_start (format_others_buttons);
-
-            format_others_win.add (format_others_box);
-            format_others_win.show_all ();
+            format_dialog.get_content_area ().add (frame);
+            format_dialog.show_all ();
         }
 
-        private void format_others_cancel_clicked () {
-            format_others_win.destroy ();
+        private void cancel_button_clicked () {
+            format_dialog.destroy ();
         }
 
-        private void format_others_ok_clicked () {
+        private void select_button_clicked () {
+            var selection = languages_listbox.get_selected_row ();
+            if (selection != null) {
+                var label = (Gtk.Label)selection.get_child ();
+                var lang_name = label.label;
+                var lang_code = "";
 
-            var selection = format_others_view.get_selection ();
-            Gtk.TreeIter iter;
-            if (selection.get_selected (null, out iter) == true) {
-                Value lang_name;
-                Value lang_code;
-                format_store.get_value (iter, 0, out lang_name);
-                format_store.get_value (iter, 1, out lang_code);
-
-                format_combo.append ((string) lang_code, (string) lang_name);
-                format_combo.set_active_id ((string) lang_code);
+                for (var i=0; i < languages.length[0]; i++) {
+                    if (languages[i, 2] == lang_name) {
+                        lang_code = languages[i, 1];
+                        format_combo.append (lang_code, lang_name);
+                        format_combo.set_active_id (lang_code);
+                        break;
+                    }
+                }
             }
 
-            format_others_win.destroy ();
+            format_dialog.destroy ();
         }
 
         private void read_settings () {
@@ -422,8 +429,9 @@ namespace Scratch.Dialogs {
             Scratch.service_settings.set_boolean ("set-private", private_check.active);
         }
 
-        private void send_button_clicked () {
-            send_button.sensitive = false;
+        private void upload_button_clicked () {
+            upload_button.sensitive = false;
+            close_button.label = _("Close");
 
             string link;
             var submit_result = submit_paste (out link);
@@ -443,7 +451,6 @@ namespace Scratch.Dialogs {
             box.show_all ();
             stack.visible_child = box;
         }
-
 
         private bool submit_paste (out string link) {
             // Get the values
