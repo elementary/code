@@ -33,8 +33,8 @@ namespace Scratch.Utils {
         var sb = new StringBuilder ("");
         var mask = font_descr.get_set_fields ();
         if (Pango.FontMask.FAMILY in mask) {
-            var family = font_descr.get_family ();
-            sb.append ("font-family: \"%s\";".printf (family));
+            unowned string family = font_descr.get_family ();
+            sb.append_printf ("font-family: \"%s\";", family);
         }
 
         if (Pango.FontMask.STYLE in mask) {
@@ -77,7 +77,7 @@ namespace Scratch.Utils {
         if (Pango.FontMask.WEIGHT in mask) {
             var weight = ((int)(font_descr.get_weight () / 100 * 100)).clamp (100, 900);
 
-            sb.append ("font-weight: %i;".printf (weight));
+            sb.append_printf ("font-weight: %i;", weight);
         }
 
         if (Pango.FontMask.STRETCH in mask) {
@@ -85,39 +85,39 @@ namespace Scratch.Utils {
 
             switch (stretch) {
                 case Pango.Stretch.NORMAL:
-                    sb.append ("font-stretch: %s;".printf ("normal"));
+                    sb.append_printf ("font-stretch: %s;", "normal");
                     break;
 
                 case Pango.Stretch.ULTRA_CONDENSED:
-                    sb.append ("font-stretch: %s;".printf ("condensed"));
+                    sb.append_printf ("font-stretch: %s;", "condensed");
                     break;
 
                 case Pango.Stretch.EXTRA_CONDENSED:
-                    sb.append ("font-stretch: %s;".printf ("extra-condensed"));
+                    sb.append_printf ("font-stretch: %s;", "extra-condensed");
                     break;
 
                 case Pango.Stretch.CONDENSED:
-                    sb.append ("font-stretch: %s;".printf ("condensed"));
+                    sb.append_printf ("font-stretch: %s;", "condensed");
                     break;
 
                 case Pango.Stretch.SEMI_CONDENSED:
-                    sb.append ("font-stretch: %s;".printf ("normal"));
+                    sb.append_printf ("font-stretch: %s;", "normal");
                     break;
 
                 case Pango.Stretch.SEMI_EXPANDED:
-                    sb.append ("font-stretch: %s;".printf ("semi-expanded"));
+                    sb.append_printf ("font-stretch: %s;", "semi-expanded");
                     break;
 
                 case Pango.Stretch.EXPANDED:
-                    sb.append ("font-stretch: %s;".printf ("expanded"));
+                    sb.append_printf ("font-stretch: %s;", "expanded");
                     break;
 
                 case Pango.Stretch.EXTRA_EXPANDED:
-                    sb.append ("font-stretch: %s;".printf ("extra-expanded"));
+                    sb.append_printf ("font-stretch: %s;", "extra-expanded");
                     break;
 
                 case Pango.Stretch.ULTRA_EXPANDED:
-                    sb.append ("font-stretch: %s;".printf ("ultra-expanded"));
+                    sb.append_printf ("font-stretch: %s;", "ultra-expanded");
                     break;
 
                 default:
@@ -128,7 +128,7 @@ namespace Scratch.Utils {
 
         if (Pango.FontMask.SIZE in mask) {
             var font_size = font_descr.get_size () / Pango.SCALE;
-            sb.append ("font-size: %dpt;".printf (font_size));
+            sb.append_printf ("font-size: %dpt;", font_size);
         }
 
         return sb.str;
