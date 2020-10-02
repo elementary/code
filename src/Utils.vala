@@ -25,4 +25,112 @@ namespace Scratch.Utils {
     public SimpleAction action_from_group (string action_name, SimpleActionGroup action_group) {
         return ((SimpleAction) action_group.lookup_action (action_name));
     }
+
+    /* Ported (with corrections and improvements) from libdazzle
+     * (https://gitlab.gnome.org/GNOME/libdazzle/-/blob/master/src/util/dzl-pango.c)
+     */
+    public string pango_font_description_to_css (Pango.FontDescription font_descr) {
+        var sb = new StringBuilder ("");
+        var mask = font_descr.get_set_fields ();
+        if (Pango.FontMask.FAMILY in mask) {
+            var family = font_descr.get_family ();
+            sb.append ("font-family: \"%s\";".printf (family));
+        }
+
+        if (Pango.FontMask.STYLE in mask) {
+            var style = font_descr.get_style ();
+
+            switch (style) {
+                case Pango.Style.NORMAL:
+                    sb.append ("font-style: normal;");
+                    break;
+
+                case Pango.Style.ITALIC:
+                    sb.append ("font-style: italic;");
+                    break;
+
+                case Pango.Style.OBLIQUE:
+                    sb.append ("font-style: bold;");
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        if (Pango.FontMask.VARIANT in mask) {
+            var variant = font_descr.get_variant ();
+            switch (variant) {
+                case Pango.Variant.NORMAL:
+                    sb.append ("font-variant: normal;");
+                    break;
+
+                case Pango.Variant.SMALL_CAPS:
+                    sb.append ("font-variant: small-caps");
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        if (Pango.FontMask.WEIGHT in mask) {
+            var weight = ((int)(font_descr.get_weight () / 100 * 100)).clamp (100, 900);
+
+            sb.append ("font-weight: %i;".printf (weight));
+        }
+
+        if (Pango.FontMask.STRETCH in mask) {
+            var stretch = font_descr.get_stretch ();
+
+            switch (stretch) {
+                case Pango.Stretch.NORMAL:
+                    sb.append ("font-stretch: %s;".printf ("normal"));
+                    break;
+
+                case Pango.Stretch.ULTRA_CONDENSED:
+                    sb.append ("font-stretch: %s;".printf ("condensed"));
+                    break;
+
+                case Pango.Stretch.EXTRA_CONDENSED:
+                    sb.append ("font-stretch: %s;".printf ("extra-condensed"));
+                    break;
+
+                case Pango.Stretch.CONDENSED:
+                    sb.append ("font-stretch: %s;".printf ("condensed"));
+                    break;
+
+                case Pango.Stretch.SEMI_CONDENSED:
+                    sb.append ("font-stretch: %s;".printf ("normal"));
+                    break;
+
+                case Pango.Stretch.SEMI_EXPANDED:
+                    sb.append ("font-stretch: %s;".printf ("semi-expanded"));
+                    break;
+
+                case Pango.Stretch.EXPANDED:
+                    sb.append ("font-stretch: %s;".printf ("expanded"));
+                    break;
+
+                case Pango.Stretch.EXTRA_EXPANDED:
+                    sb.append ("font-stretch: %s;".printf ("extra-expanded"));
+                    break;
+
+                case Pango.Stretch.ULTRA_EXPANDED:
+                    sb.append ("font-stretch: %s;".printf ("ultra-expanded"));
+                    break;
+
+                default:
+                    break;
+
+            }
+        }
+
+        if (Pango.FontMask.SIZE in mask) {
+            var font_size = font_descr.get_size () / Pango.SCALE;
+            sb.append ("font-size: %dpt;".printf (font_size));
+        }
+
+        return sb.str;
+    }
 }
