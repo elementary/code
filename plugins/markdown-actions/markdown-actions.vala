@@ -32,66 +32,91 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Peas.Activatable
     public void update_state () {}
 
     public void activate () {
-        print("ATIVOU!\n");
         plugins = (Scratch.Services.Interface) object;
         plugins.hook_document.connect ((doc) => {
             if (current_source != null) {
-                current_source.deselected.disconnect (on_deselection);
-                current_source.selection_changed.disconnect (on_selection_changed);
+                current_source.key_press_event.disconnect (shortcut_handler);
             }
-
+    
             current_source = doc.source_view;
-            current_source.key_press_event.connect((evt) => {
-                var control = (evt.state & Gdk.ModifierType.CONTROL_MASK) != 0;
-                if (control) { print("control!!!\n"); }
-                if (control && evt.keyval == Gdk.Key.b) {
-                    Gtk.TextIter start, end, iter_middle;
-                    current_source.buffer.get_selection_bounds(out start, out end);
+            configure_shortcuts ();
 
-                    current_source.buffer.insert_at_cursor("****", 4);
-
-                    current_source.buffer.get_iter_at_offset(out iter_middle, current_source.buffer.cursor_position - 2);
-                    current_source.buffer.place_cursor(iter_middle);
-                    return true;
-                }
-                return false;
-            });
-            
+            current_source.notify["language"].connect (configure_shortcuts);
         });
     }
 
-    public void on_selection_changed (ref Gtk.TextIter start, ref Gtk.TextIter end) {
-        if (!start.equal (end)) {
-            // Expand highlight to current word
-            if (!start.starts_word ()) {
-                start.backward_word_start ();
-            }
-
-            if (!end.ends_word ()) {
-                end.forward_word_end ();
-            }
-
-            string selected_text = start.get_buffer ().get_text (start, end, false);
-            if (selected_text.char_count () > SELECTION_HIGHLIGHT_MAX_CHARS) {
-                return;
-            }
-
-            current_search_context = new Gtk.SourceSearchContext ((Gtk.SourceBuffer)current_source.buffer, null);
-            current_search_context.settings.search_text = selected_text;
-            current_search_context.set_highlight (true);
+    private void configure_shortcuts () {
+        var lang = current_source.language;
+        if (lang != null && lang.id == "markdown") {
+            current_source.key_press_event.connect (shortcut_handler);
+        } else {
+            current_source.key_press_event.disconnect (shortcut_handler);
         }
     }
 
-    public void on_deselection () {
-        if (current_search_context != null) {
-            current_search_context.settings.search_text = null;
+    private bool shortcut_handler (Gdk.EventKey evt) {
+        var control = (evt.state & Gdk.ModifierType.CONTROL_MASK) != 0;
+        var shift = (evt.state & Gdk.ModifierType.SHIFT_MASK) != 0;
+        if (control && !shift && evt.keyval == Gdk.Key.b) {
+            add_markdown_tag ("**");
+            return true;
+        } else if (control && shift && evt.keyval == Gdk.Key.I) {
+            add_markdown_tag ("_");
+            return true;
+        } else if (control && evt.keyval == Gdk.Key.k) {
+            insert_link ();
         }
+        return false;
+    }
+
+    private void insert_link () {
+        var current_buffer = current_source.buffer;
+        if (current_buffer.has_selection) {
+            insert_around_selection ("[", "]");
+            current_buffer.insert_at_cursor ("()", 2);
+            go_back_n_chars (1);
+        } else {
+            current_buffer.insert_at_cursor ("[]", 2);
+            current_buffer.insert_at_cursor ("()", 2);
+            go_back_n_chars (3);
+        }
+    }
+
+    private void go_back_n_chars (int back_chars) {
+        Gtk.TextIter insert_position;
+        var current_buffer = current_source.buffer;
+        current_buffer.get_iter_at_offset (out insert_position, current_buffer.cursor_position - back_chars);
+        current_buffer.place_cursor (insert_position);
+    }
+
+    private void insert_around_selection (string before, string after) {
+        Gtk.TextIter start, end;
+        var current_buffer = current_source.buffer;
+        current_buffer.get_selection_bounds (out start, out end);
+        var mark_end = new Gtk.TextMark (null);
+        current_buffer.add_mark (mark_end, end);
+        current_buffer.place_cursor (start);
+        current_buffer.insert_at_cursor (before, before.length);
+
+        current_buffer.get_iter_at_mark (out end, mark_end);
+        current_buffer.place_cursor (end);
+        current_buffer.insert_at_cursor (after, after.length);
+    }
+
+    public void add_markdown_tag (string tag) {
+        var current_buffer = current_source.buffer;
+        if (current_buffer.has_selection) {
+            insert_around_selection (tag, tag);
+        } else {
+            current_buffer.insert_at_cursor (tag, tag.length);
+            current_buffer.insert_at_cursor (tag, tag.length);
+        }
+        go_back_n_chars (tag.length);
     }
 
     public void deactivate () {
         if (current_source != null) {
-            current_source.deselected.disconnect (on_deselection);
-            current_source.selection_changed.disconnect (on_selection_changed);
+            current_source.key_press_event.disconnect (shortcut_handler);
         }
     }
 }
