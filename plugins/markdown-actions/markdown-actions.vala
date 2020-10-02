@@ -2,7 +2,7 @@
 /***
   BEGIN LICENSE
 
-  Copyright (C) 2013 Madelynn May <madelynnmay@madelynnmay.com>
+  Copyright (C) 2020 Igor Montagner <igordsm@gmail.com>
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU Lesser General Public License version 3, as published
   by the Free Software Foundation.
@@ -20,13 +20,8 @@
 
 public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Peas.Activatable {
     Scratch.Widgets.SourceView current_source;
-    Gtk.SourceSearchContext current_search_context;
-
-    // Consts
-    // Pneumonoultramicroscopicsilicovolcanoconiosis longest word in a major dictionary @ 45
-    private const uint SELECTION_HIGHLIGHT_MAX_CHARS = 45;
-
     Scratch.Services.Interface plugins;
+
     public Object object { owned get; construct; }
 
     public void update_state () {}
@@ -37,7 +32,7 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Peas.Activatable
             if (current_source != null) {
                 current_source.key_press_event.disconnect (shortcut_handler);
             }
-    
+
             current_source = doc.source_view;
             configure_shortcuts ();
 
