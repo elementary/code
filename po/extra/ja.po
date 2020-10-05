@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-02 08:55+0000\n"
-"PO-Revision-Date: 2020-07-12 22:12+0000\n"
+"PO-Revision-Date: 2020-10-04 22:14+0000\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
-"Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/"
-">\n"
+"Language-Team: Japanese <https://l10n.elementary.io/projects/code/extra/ja/>"
+"\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -117,10 +117,8 @@ msgid "Remember whether the sidebar is open"
 msgstr "サイドバーの表示／非表示の状態を保存するように変更"
 
 #: data/io.elementary.code.appdata.xml.in:55
-#, fuzzy
-#| msgid "Add keyboard shortcuts to menu items"
 msgid "Add keyboard shortcuts for next and previous documents."
-msgstr "メニュー項目にキーボードショートカットを表示するように修正"
+msgstr "タブを切り替えるキーボードショートカットを追加"
 
 #: data/io.elementary.code.appdata.xml.in:61
 msgid "Fixes:"
