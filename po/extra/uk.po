@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-10 23:09+0000\n"
-"PO-Revision-Date: 2020-10-01 23:14+0000\n"
+"POT-Creation-Date: 2020-10-02 08:55+0000\n"
+"PO-Revision-Date: 2020-10-04 22:14+0000\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Language-Team: Ukrainian <https://l10n.elementary.io/projects/code/extra/uk/>"
 "\n"
@@ -104,214 +104,227 @@ msgid "lots of others"
 msgstr "і багато іншого"
 
 #: data/io.elementary.code.appdata.xml.in:51
-#: data/io.elementary.code.appdata.xml.in:64
+#: data/io.elementary.code.appdata.xml.in:65
 msgid "Minor updates:"
 msgstr "Незначні оновлення:"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Allow Spell Checker extension in Markdown files"
-msgstr ""
+msgstr "Дозволити розширення перевірки правопису у файлах Markdown"
 
 #: data/io.elementary.code.appdata.xml.in:54
 msgid "Remember whether the sidebar is open"
-msgstr ""
+msgstr "Пам'ятати чи відкрито бічну панель"
 
-#: data/io.elementary.code.appdata.xml.in:60
+#: data/io.elementary.code.appdata.xml.in:55
+msgid "Add keyboard shortcuts for next and previous documents."
+msgstr "Додано комбінації клавіш для наступних та попередніх документів."
+
+#: data/io.elementary.code.appdata.xml.in:61
 msgid "Fixes:"
 msgstr "Виправлення:"
 
-#: data/io.elementary.code.appdata.xml.in:62
+#: data/io.elementary.code.appdata.xml.in:63
 msgid "Fix empty sidebar layout, ensuring folders can always be added"
 msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:66
-msgid "Scroll past the end of a file"
-msgstr ""
+"Виправлено вигляд порожньої бічної панелі, забезпечивши можливість завжди "
+"додавати теки"
 
 #: data/io.elementary.code.appdata.xml.in:67
-msgid "More efficiently save and restore window position"
-msgstr ""
+msgid "Scroll past the end of a file"
+msgstr "Тепер можна гортати далі кінця файлу"
 
 #: data/io.elementary.code.appdata.xml.in:68
-#: data/io.elementary.code.appdata.xml.in:83
-#: data/io.elementary.code.appdata.xml.in:99
-#: data/io.elementary.code.appdata.xml.in:125
-#: data/io.elementary.code.appdata.xml.in:146
-#: data/io.elementary.code.appdata.xml.in:156
-#: data/io.elementary.code.appdata.xml.in:167
-msgid "Updated translations"
-msgstr ""
+msgid "More efficiently save and restore window position"
+msgstr "Ефективніше збереження та відновлення положення вікна"
 
-#: data/io.elementary.code.appdata.xml.in:74
-#: data/io.elementary.code.appdata.xml.in:89
-#: data/io.elementary.code.appdata.xml.in:105
+#: data/io.elementary.code.appdata.xml.in:69
+#: data/io.elementary.code.appdata.xml.in:84
+#: data/io.elementary.code.appdata.xml.in:100
+#: data/io.elementary.code.appdata.xml.in:126
+#: data/io.elementary.code.appdata.xml.in:147
+#: data/io.elementary.code.appdata.xml.in:157
+#: data/io.elementary.code.appdata.xml.in:168
+msgid "Updated translations"
+msgstr "Оновлено переклади"
+
+#: data/io.elementary.code.appdata.xml.in:75
+#: data/io.elementary.code.appdata.xml.in:90
+#: data/io.elementary.code.appdata.xml.in:106
 msgid "New features:"
 msgstr "Нові функції:"
 
-#: data/io.elementary.code.appdata.xml.in:76
-msgid "Include Git status in file tooltips"
-msgstr ""
-
 #: data/io.elementary.code.appdata.xml.in:77
-msgid "Option for explicit case-sensitive Find"
-msgstr ""
+msgid "Include Git status in file tooltips"
+msgstr "Стан Git включено до підказок для файлів"
 
-#: data/io.elementary.code.appdata.xml.in:79
-#: data/io.elementary.code.appdata.xml.in:94
-#: data/io.elementary.code.appdata.xml.in:116
+#: data/io.elementary.code.appdata.xml.in:78
+msgid "Option for explicit case-sensitive Find"
+msgstr "Можливість явного пошуку з урахуванням регістру"
+
+#: data/io.elementary.code.appdata.xml.in:80
+#: data/io.elementary.code.appdata.xml.in:95
+#: data/io.elementary.code.appdata.xml.in:117
 msgid "Other updates:"
 msgstr "Інші оновлення:"
 
-#: data/io.elementary.code.appdata.xml.in:81
+#: data/io.elementary.code.appdata.xml.in:82
 msgid "Correctly show Toggle Comment menu item when no text is selected"
 msgstr ""
+"Правильний показ пункту меню «Перемкнути коментар», якщо не вибрано текст"
 
-#: data/io.elementary.code.appdata.xml.in:82
+#: data/io.elementary.code.appdata.xml.in:83
 msgid "Fixed font switch alignment"
-msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:91
-msgid "New \"Close Other Folders\" menu item to help clean up your sidebar"
-msgstr ""
+msgstr "Виправлено вирівнювання перемикача шрифтів"
 
 #: data/io.elementary.code.appdata.xml.in:92
-msgid "Save and restore cyclic search setting"
+msgid "New \"Close Other Folders\" menu item to help clean up your sidebar"
 msgstr ""
+"Новий пункт меню «Закрити інші теки», який допоможе очистити бічну панель"
 
-#: data/io.elementary.code.appdata.xml.in:96
-msgid "Add keyboard shortcuts to menu items"
-msgstr ""
+#: data/io.elementary.code.appdata.xml.in:93
+msgid "Save and restore cyclic search setting"
+msgstr "Збереження та відновлення параметрів циклічного пошуку"
 
 #: data/io.elementary.code.appdata.xml.in:97
-msgid "Make sidebar folder items not selectable"
-msgstr ""
+msgid "Add keyboard shortcuts to menu items"
+msgstr "Додано комбінації клавіш до пунктів меню"
 
 #: data/io.elementary.code.appdata.xml.in:98
+msgid "Make sidebar folder items not selectable"
+msgstr "Унеможливлено вибір елементів теки на бічній панелі"
+
+#: data/io.elementary.code.appdata.xml.in:99
 msgid "Center new windows"
 msgstr "Центрування нових вікон"
 
-#: data/io.elementary.code.appdata.xml.in:107
-msgid "Visually deprioritize .gitignored files in project sidebar"
-msgstr ""
-
 #: data/io.elementary.code.appdata.xml.in:108
-msgid "Smart cut/copy lines with no active selection"
-msgstr ""
+msgid "Visually deprioritize .gitignored files in project sidebar"
+msgstr "Візуально знецінено .gitignored у файлах на бічній панелі проєкту"
 
 #: data/io.elementary.code.appdata.xml.in:109
-msgid "Add a confirmation dialog to the \"Restore\" action"
-msgstr ""
+msgid "Smart cut/copy lines with no active selection"
+msgstr "Розумні лінії вирізання/копіювання без активного виділення"
 
 #: data/io.elementary.code.appdata.xml.in:110
-msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
-msgstr ""
+msgid "Add a confirmation dialog to the \"Restore\" action"
+msgstr "Додано діалогове вікно підтвердження дії «Відновити»"
 
 #: data/io.elementary.code.appdata.xml.in:111
-msgid "Don't show temporary files in the folder manager"
-msgstr ""
+msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
+msgstr "Додано меню «Відкрити в» до теки верхнього рівня в менеджері тек"
 
 #: data/io.elementary.code.appdata.xml.in:112
-msgid "Add brackets completion and auto-indent by default"
-msgstr ""
+msgid "Don't show temporary files in the folder manager"
+msgstr "Не показувати тимчасові файли в менеджері тек"
 
 #: data/io.elementary.code.appdata.xml.in:113
-msgid "Zoom terminal plugin with keyboard"
-msgstr ""
+msgid "Add brackets completion and auto-indent by default"
+msgstr "Додано типові завершення дужок та автоматичний відступ"
 
 #: data/io.elementary.code.appdata.xml.in:114
+msgid "Zoom terminal plugin with keyboard"
+msgstr "Плагін масштабування терміналу за допомогою клавіатури"
+
+#: data/io.elementary.code.appdata.xml.in:115
 msgid "Honor global privacy setting when saving and restoring"
 msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:118
-msgid "Simplify \"Draw spaces\" preference"
-msgstr ""
+"Підпорядкування загальним параметрам приватності під час збереження та "
+"відновлення"
 
 #: data/io.elementary.code.appdata.xml.in:119
-msgid "Fix the keyboard shortcut for going backwards in search results"
-msgstr ""
+msgid "Simplify \"Draw spaces\" preference"
+msgstr "Спрощено параметр «Малювати пробіли»"
 
 #: data/io.elementary.code.appdata.xml.in:120
-msgid "Fix opening files from relative paths in Terminal"
-msgstr ""
+msgid "Fix the keyboard shortcut for going backwards in search results"
+msgstr "Виправлено комбінацію клавіш для повернення назад у результатах пошуку"
 
 #: data/io.elementary.code.appdata.xml.in:121
-msgid "Fix null file dialog when opening a new window via the dock"
-msgstr ""
+msgid "Fix opening files from relative paths in Terminal"
+msgstr "Виправлено відкриття файлів із відносних шляхів у Терміналі"
 
 #: data/io.elementary.code.appdata.xml.in:122
+msgid "Fix null file dialog when opening a new window via the dock"
+msgstr ""
+"Виправлено  діалогове вікно файлу під час відкриття нового вікна через док"
+
+#: data/io.elementary.code.appdata.xml.in:123
 msgid "Add \"=\" as a zoom key"
 msgstr "«=» додано до клавіш масштабування"
 
-#: data/io.elementary.code.appdata.xml.in:123
-msgid "Change search entry icon when results aren't found"
-msgstr ""
-
 #: data/io.elementary.code.appdata.xml.in:124
-msgid "Enter name of new file before creating it"
-msgstr ""
+msgid "Change search entry icon when results aren't found"
+msgstr "Змінено піктограму поля пошуку, коли результатів не знайдено"
 
-#: data/io.elementary.code.appdata.xml.in:132
-msgid "Use Granite.MessageDialog throughout"
-msgstr ""
+#: data/io.elementary.code.appdata.xml.in:125
+msgid "Enter name of new file before creating it"
+msgstr "Введення назви нового файлу до його створення"
 
 #: data/io.elementary.code.appdata.xml.in:133
-msgid "Include non-text files in sidebar"
-msgstr ""
+msgid "Use Granite.MessageDialog throughout"
+msgstr "Повсюдне використання Granite.MessageDialog"
 
 #: data/io.elementary.code.appdata.xml.in:134
-msgid "Fix Remove Current View"
-msgstr ""
+msgid "Include non-text files in sidebar"
+msgstr "Включено не текстові файли на бічну панель"
 
-#: data/io.elementary.code.appdata.xml.in:141
-msgid "Fix New Window desktop action behavior"
-msgstr ""
+#: data/io.elementary.code.appdata.xml.in:135
+msgid "Fix Remove Current View"
+msgstr "Виправлено вилучення поточного подання"
 
 #: data/io.elementary.code.appdata.xml.in:142
+msgid "Fix New Window desktop action behavior"
+msgstr "Виправлено поведінку дії на робочому столі Нове вікно"
+
+#: data/io.elementary.code.appdata.xml.in:143
 msgid ""
 "Properly synchronize Ctrl+N key presses with number of new documents spawned"
 msgstr ""
-
-#: data/io.elementary.code.appdata.xml.in:143
-msgid "Build system fix for editorconfig dependency"
-msgstr ""
+"Правильна синхронізація натискання клавіш Ctrl+N із кількістю створених "
+"нових документів"
 
 #: data/io.elementary.code.appdata.xml.in:144
-msgid "Add Change Branch context menu item"
-msgstr ""
+msgid "Build system fix for editorconfig dependency"
+msgstr "Виправлено залежність editorconfig для збирання системи"
 
 #: data/io.elementary.code.appdata.xml.in:145
-msgid "Avoid possible startup crash related to how plugins load"
-msgstr ""
+msgid "Add Change Branch context menu item"
+msgstr "Додано пункт контекстного меню «Змінити гілку»"
 
-#: data/io.elementary.code.appdata.xml.in:153
-msgid "Smarter file saving behavior"
-msgstr ""
+#: data/io.elementary.code.appdata.xml.in:146
+msgid "Avoid possible startup crash related to how plugins load"
+msgstr "Уникання можливого збою запуску, пов’язаного із завантаженням плагінів"
 
 #: data/io.elementary.code.appdata.xml.in:154
-msgid "File saving fixes"
-msgstr ""
+msgid "Smarter file saving behavior"
+msgstr "Розумніша поведінка збереження файлів"
 
 #: data/io.elementary.code.appdata.xml.in:155
-msgid "Don't add temporary files to tab restore"
-msgstr ""
+msgid "File saving fixes"
+msgstr "Виправлення збереження файлів"
 
-#: data/io.elementary.code.appdata.xml.in:163
-msgid "Don't recreate deleted files when restoring session"
-msgstr ""
+#: data/io.elementary.code.appdata.xml.in:156
+msgid "Don't add temporary files to tab restore"
+msgstr "Тимчасові файли більше не додаються для відновлення вкладки"
 
 #: data/io.elementary.code.appdata.xml.in:164
-msgid "Restore line wrap preference"
-msgstr ""
+msgid "Don't recreate deleted files when restoring session"
+msgstr "Видалені файли більше не створюються знову під час відновлення сеансу"
 
 #: data/io.elementary.code.appdata.xml.in:165
-msgid "Add accel tooltips"
-msgstr ""
+msgid "Restore line wrap preference"
+msgstr "Відновлення параметрів перенесення рядків"
 
 #: data/io.elementary.code.appdata.xml.in:166
+msgid "Add accel tooltips"
+msgstr "Додано підказки Accel"
+
+#: data/io.elementary.code.appdata.xml.in:167
 msgid "Minor bug fixes"
 msgstr "Незначні виправлення"
 
-#: data/io.elementary.code.appdata.xml.in:206
+#: data/io.elementary.code.appdata.xml.in:207
 msgid "elementary LLC."
 msgstr "elementary LLC."
 
