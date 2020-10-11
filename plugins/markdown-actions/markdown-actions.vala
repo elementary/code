@@ -167,7 +167,7 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Peas.Activatable
         item_text = line.substring (first_point_character + 1).strip ();
 
         var line_start = line.substring (0, first_point_character);
-        if (!int.try_parse(line_start, out current_number)) {
+        if (!int.try_parse (line_start, out current_number)) {
             return false;
         }
         return true;
