@@ -75,6 +75,110 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Peas.Activatable
             }
         }
 
+        if (evt.keyval == Gdk.Key.Return) {
+            char ul_marker;
+            int ol_number = 1;
+            string item_text;
+            var line = get_current_line ();
+            if (parse_unordered_list_item (line, out ul_marker)) {
+                if (line.length <= 3) { // empty item
+                    delete_empty_item ();
+                } else {
+                    string to_insert = "\n%c ".printf (ul_marker);
+                    current_source.buffer.insert_at_cursor (to_insert, to_insert.length);
+                }
+                return true;
+            } else if (parse_ordered_list_item (line, ref ol_number, out item_text)) {
+                if (item_text.length == 0) {
+                    delete_empty_item ();
+                } else {
+                    string to_insert = "\n%d. ".printf (ol_number + 1);
+                    current_source.buffer.insert_at_cursor (to_insert, to_insert.length);
+                    fix_ordered_list_numbering ();
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void delete_empty_item () {
+        Gtk.TextIter start, end;
+        var current_buffer = current_source.buffer;
+        current_buffer.get_iter_at_offset (out start, current_buffer.cursor_position);
+        start.backward_chars (start.get_line_offset ());
+        end = start;
+        end.forward_to_line_end ();
+        current_buffer.delete (ref start, ref end);
+        current_buffer.insert_at_cursor ("\n", 1);
+    }
+
+    private void fix_ordered_list_numbering () {
+        Gtk.TextIter next;
+        var current_buffer = current_source.buffer;
+        current_buffer.get_iter_at_offset (out next, current_buffer.cursor_position);
+        var line = get_current_line (next).strip ();
+        int count = 1;
+        string item_text;
+        parse_ordered_list_item (line, ref count, out item_text);
+
+        while (next.forward_line ()) {
+            count++;
+            line = get_current_line (next).strip ();
+            if (line.length == 0) {
+                break;
+            }
+
+            var next_mark = current_buffer.create_mark (null, next, true);
+            var point_offset = line.index_of_char ('.');
+            var start = next;
+            var end = start;
+            end.forward_chars (point_offset);
+
+            current_buffer.delete (ref start, ref end);
+            current_buffer.get_iter_at_mark (out next, next_mark);
+
+            var to_insert = "%d".printf (count);
+            current_buffer.insert (ref next, to_insert, to_insert.length);
+        }
+    }
+
+    private string get_current_line (Gtk.TextIter? start=null) {
+        var current_buffer = current_source.buffer;
+        Gtk.TextIter end;
+
+        if (start == null) {
+            current_buffer.get_iter_at_offset (out start, current_buffer.cursor_position);
+        }
+
+        start.backward_chars (start.get_line_offset ());
+        end = start;
+        end.forward_to_line_end ();
+
+        return current_buffer.get_text (start, end, false);
+    }
+
+    private bool parse_ordered_list_item (string line, ref int current_number, out string item_text) {
+        int first_point_character = line.index_of_char ('.');
+        if (first_point_character < 0) {
+            return false;
+        }
+
+        item_text = line.substring (first_point_character + 1).strip ();
+
+        var line_start = line.substring (0, first_point_character);
+        if (!int.try_parse(line_start, out current_number)) {
+            return false;
+        }
+        return true;
+    }
+
+    private bool parse_unordered_list_item (string line, out char ul_marker) {
+        if ((line[0] == '*' || line[0] == '-') && line[1] == ' ') {
+            ul_marker = line[0];
+            return true;
+        }
+        ul_marker = '\0';
         return false;
     }
 
