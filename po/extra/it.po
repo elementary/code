@@ -8,16 +8,15 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-02 08:55+0000\n"
-"PO-Revision-Date: 2019-01-27 00:00+0000\n"
+"PO-Revision-Date: 2020-10-12 22:54+0000\n"
 "Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
-"Language-Team: Italian <https://weblate.elementary.io/projects/code/extra/it/"
-">\n"
+"Language-Team: Italian <https://l10n.elementary.io/projects/code/extra/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.0.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
 #: data/io.elementary.code.appdata.xml.in:8
@@ -109,35 +108,38 @@ msgstr "Molto altro"
 #: data/io.elementary.code.appdata.xml.in:51
 #: data/io.elementary.code.appdata.xml.in:65
 msgid "Minor updates:"
-msgstr ""
+msgstr "Aggiornamenti minori:"
 
 #: data/io.elementary.code.appdata.xml.in:53
 msgid "Allow Spell Checker extension in Markdown files"
-msgstr ""
+msgstr "Abilita l'estensione Controllo Ortografico nei documenti Markdown"
 
 #: data/io.elementary.code.appdata.xml.in:54
 msgid "Remember whether the sidebar is open"
-msgstr ""
+msgstr "Ricorda se la barra laterale é aperta"
 
 #: data/io.elementary.code.appdata.xml.in:55
 msgid "Add keyboard shortcuts for next and previous documents."
 msgstr ""
+"Aggiungi scorciatoie da tastiera per i documenti successivi e precedenti."
 
 #: data/io.elementary.code.appdata.xml.in:61
 msgid "Fixes:"
-msgstr ""
+msgstr "Correzioni:"
 
 #: data/io.elementary.code.appdata.xml.in:63
 msgid "Fix empty sidebar layout, ensuring folders can always be added"
 msgstr ""
+"Corretta la barra laterale vuota, rendendo sicuro che le cartelle possano "
+"sempre essere aggiunte"
 
 #: data/io.elementary.code.appdata.xml.in:67
 msgid "Scroll past the end of a file"
-msgstr ""
+msgstr "Scorri oltre la fine di un file"
 
 #: data/io.elementary.code.appdata.xml.in:68
 msgid "More efficiently save and restore window position"
-msgstr ""
+msgstr "Salva e ripristina in modo più efficiente la posizione della finestra"
 
 #: data/io.elementary.code.appdata.xml.in:69
 #: data/io.elementary.code.appdata.xml.in:84
@@ -147,27 +149,28 @@ msgstr ""
 #: data/io.elementary.code.appdata.xml.in:157
 #: data/io.elementary.code.appdata.xml.in:168
 msgid "Updated translations"
-msgstr ""
+msgstr "Traduzioni aggiornate"
 
 #: data/io.elementary.code.appdata.xml.in:75
 #: data/io.elementary.code.appdata.xml.in:90
 #: data/io.elementary.code.appdata.xml.in:106
 msgid "New features:"
-msgstr ""
+msgstr "Nuove funzionalità:"
 
 #: data/io.elementary.code.appdata.xml.in:77
 msgid "Include Git status in file tooltips"
-msgstr ""
+msgstr "Includere lo stato di Git nei nomi del file"
 
 #: data/io.elementary.code.appdata.xml.in:78
 msgid "Option for explicit case-sensitive Find"
 msgstr ""
+"Opzione per la ricerca con distinzione esplicita tra maiuscole e minuscole"
 
 #: data/io.elementary.code.appdata.xml.in:80
 #: data/io.elementary.code.appdata.xml.in:95
 #: data/io.elementary.code.appdata.xml.in:117
 msgid "Other updates:"
-msgstr ""
+msgstr "Altri aggiornamenti:"
 
 #: data/io.elementary.code.appdata.xml.in:82
 msgid "Correctly show Toggle Comment menu item when no text is selected"
@@ -180,66 +183,78 @@ msgstr ""
 #: data/io.elementary.code.appdata.xml.in:92
 msgid "New \"Close Other Folders\" menu item to help clean up your sidebar"
 msgstr ""
+"Nuova voce del menu \"Chiudi le altre cartelle\" per aiutarti a mantenere in "
+"ordine la barra laterale"
 
 #: data/io.elementary.code.appdata.xml.in:93
 msgid "Save and restore cyclic search setting"
-msgstr ""
+msgstr "Salva e ripristina il settaggio di ricerca ciclico"
 
 #: data/io.elementary.code.appdata.xml.in:97
 msgid "Add keyboard shortcuts to menu items"
-msgstr ""
+msgstr "Aggiunte scorciatoie da tastiera alle voci del menu"
 
 #: data/io.elementary.code.appdata.xml.in:98
 msgid "Make sidebar folder items not selectable"
-msgstr ""
+msgstr "Le cartelle nella barra laterale non possono essere selezionate"
 
 #: data/io.elementary.code.appdata.xml.in:99
 msgid "Center new windows"
-msgstr ""
+msgstr "Centra le nuove finestre"
 
 #: data/io.elementary.code.appdata.xml.in:108
 msgid "Visually deprioritize .gitignored files in project sidebar"
 msgstr ""
+"Mette in secondo piano tutti i files presenti nel file .gitignored nella "
+"barra laterale del progetto"
 
 #: data/io.elementary.code.appdata.xml.in:109
 msgid "Smart cut/copy lines with no active selection"
-msgstr ""
+msgstr "Taglia/copia linee intelligente senza selezione attiva"
 
 #: data/io.elementary.code.appdata.xml.in:110
 msgid "Add a confirmation dialog to the \"Restore\" action"
-msgstr ""
+msgstr "Aggiungi una finestra di conferma all azione \"Ripristina\""
 
 #: data/io.elementary.code.appdata.xml.in:111
 msgid "Add \"Open In\" menu to the top-level folder in the folder manager"
 msgstr ""
+"Aggiungi il menu \"Apri in\" alla cartella di primo livello nel gestore "
+"delle cartelle"
 
 #: data/io.elementary.code.appdata.xml.in:112
 msgid "Don't show temporary files in the folder manager"
-msgstr ""
+msgstr "Non mostrare i file temporanei nel gestore delle cartelle"
 
 #: data/io.elementary.code.appdata.xml.in:113
 msgid "Add brackets completion and auto-indent by default"
 msgstr ""
+"Aggiungi il completamento delle parentesi e il rientro automatico per "
+"impostazione predefinita"
 
 #: data/io.elementary.code.appdata.xml.in:114
 msgid "Zoom terminal plugin with keyboard"
-msgstr ""
+msgstr "Zoom del plugin Terminale con la tastiera"
 
 #: data/io.elementary.code.appdata.xml.in:115
 msgid "Honor global privacy setting when saving and restoring"
 msgstr ""
+"Rispetta l'impostazione della privacy globale durante il salvataggio e il "
+"ripristino"
 
 #: data/io.elementary.code.appdata.xml.in:119
 msgid "Simplify \"Draw spaces\" preference"
-msgstr ""
+msgstr "Semplifica la preferenza \"Mostra gli spazi\""
 
 #: data/io.elementary.code.appdata.xml.in:120
 msgid "Fix the keyboard shortcut for going backwards in search results"
 msgstr ""
+"Corretta la scorciatoia da tastiera per tornare indietro nei risultati di "
+"ricerca"
 
 #: data/io.elementary.code.appdata.xml.in:121
 msgid "Fix opening files from relative paths in Terminal"
-msgstr ""
+msgstr "Risolta l'apertura di file da percorsi relativi nel Terminale"
 
 #: data/io.elementary.code.appdata.xml.in:122
 msgid "Fix null file dialog when opening a new window via the dock"
@@ -252,22 +267,23 @@ msgstr ""
 #: data/io.elementary.code.appdata.xml.in:124
 msgid "Change search entry icon when results aren't found"
 msgstr ""
+"Cambia l'icona della voce di ricerca quando i risultati non vengono trovati"
 
 #: data/io.elementary.code.appdata.xml.in:125
 msgid "Enter name of new file before creating it"
-msgstr ""
+msgstr "Immettere il nome del nuovo file prima di crearlo"
 
 #: data/io.elementary.code.appdata.xml.in:133
 msgid "Use Granite.MessageDialog throughout"
-msgstr ""
+msgstr "Usa Granite.MessageDialog dappertutto"
 
 #: data/io.elementary.code.appdata.xml.in:134
 msgid "Include non-text files in sidebar"
-msgstr ""
+msgstr "Includi file non di testo nella barra laterale"
 
 #: data/io.elementary.code.appdata.xml.in:135
 msgid "Fix Remove Current View"
-msgstr ""
+msgstr "Corretto \"Rimuovi vista corrente\""
 
 #: data/io.elementary.code.appdata.xml.in:142
 msgid "Fix New Window desktop action behavior"
@@ -284,7 +300,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:145
 msgid "Add Change Branch context menu item"
-msgstr ""
+msgstr "Aggiunta voce di menu contestuale per cambiare ramo di sviluppo"
 
 #: data/io.elementary.code.appdata.xml.in:146
 msgid "Avoid possible startup crash related to how plugins load"
@@ -296,7 +312,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:155
 msgid "File saving fixes"
-msgstr ""
+msgstr "Correzioni nel salvataggio dei file"
 
 #: data/io.elementary.code.appdata.xml.in:156
 msgid "Don't add temporary files to tab restore"
@@ -316,7 +332,7 @@ msgstr ""
 
 #: data/io.elementary.code.appdata.xml.in:167
 msgid "Minor bug fixes"
-msgstr ""
+msgstr "Correzione di problemi minori"
 
 #: data/io.elementary.code.appdata.xml.in:207
 msgid "elementary LLC."
@@ -340,7 +356,7 @@ msgstr "testo;IDE;scratch;"
 
 #: data/io.elementary.code.desktop.in.in:17
 msgid "New File"
-msgstr ""
+msgstr "Nuovo file"
 
 #: data/io.elementary.code.desktop.in.in:21
 msgid "New Window"
