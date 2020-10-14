@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-02 08:55+0000\n"
-"PO-Revision-Date: 2020-07-11 11:05+0000\n"
+"PO-Revision-Date: 2020-10-12 22:54+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://l10n.elementary.io/projects/code/extra/fr/>\n"
 "Language: fr\n"
@@ -118,10 +118,8 @@ msgid "Remember whether the sidebar is open"
 msgstr "Nous avons fait en sorte de sauvegarder l'état de la barre latérale"
 
 #: data/io.elementary.code.appdata.xml.in:55
-#, fuzzy
-#| msgid "Add keyboard shortcuts to menu items"
 msgid "Add keyboard shortcuts for next and previous documents."
-msgstr "Ajout des raccourcis claviers aux éléments de menu"
+msgstr "Ajout des raccourcis claviers pour les documents précédent et suivant."
 
 #: data/io.elementary.code.appdata.xml.in:61
 msgid "Fixes:"
