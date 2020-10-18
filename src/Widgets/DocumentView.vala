@@ -72,7 +72,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         });
 
         tab_switched.connect ((old_tab, new_tab) => {
-            document_change (new_tab as Services.Document, this);
+            /* The 'document_change' signal is emitted when the document is focused. We do not need to emit it here */
             save_focused_document_uri (new_tab as Services.Document);
         });
 
