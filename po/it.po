@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-02 08:55+0000\n"
-"PO-Revision-Date: 2019-07-02 22:28+0000\n"
-"Last-Translator: Marco Devoti <ilbuzio@yahoo.it>\n"
+"PO-Revision-Date: 2020-10-12 22:54+0000\n"
+"Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
 "Language-Team: Italian <https://l10n.elementary.io/projects/code/code/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-04 05:45+0000\n"
 
 #: src/Application.vala:114
@@ -95,9 +95,8 @@ msgid "Hide search bar"
 msgstr "Nascondi la barra di ricerca"
 
 #: src/MainWindow.vala:272
-#, fuzzy
 msgid "Zeitgeist Datasource for Code"
-msgstr "Origine dati Zeitgeist per Scratch"
+msgstr "Origine dati Zeitgeist per Codice"
 
 #: src/MainWindow.vala:725 src/Services/Document.vala:496
 msgid "All files"
@@ -138,6 +137,8 @@ msgid ""
 "Cutting or copying without an active selection will cut or copy the entire "
 "current line"
 msgstr ""
+"Tagliare o copiare senza una selezione comporterà il taglio o la copia "
+"dell'intera riga corrente"
 
 #: src/Dialogs/PreferencesDialog.vala:56
 msgid "General"
@@ -149,7 +150,7 @@ msgstr "Salva i file appena modificati:"
 
 #: src/Dialogs/PreferencesDialog.vala:59
 msgid "Smart cut/copy lines:"
-msgstr ""
+msgstr "Copia/Incolla righe intelligente:"
 
 #: src/Dialogs/PreferencesDialog.vala:62 src/Widgets/FormatBar.vala:63
 msgid "Tabs"
@@ -226,20 +227,20 @@ msgstr "Carattere personalizzato:"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:31
 msgid "Are You Sure You Want to Restore This File?"
-msgstr ""
+msgstr "Vuoi davvero ripristinare questo file?"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:32
 msgid "Restoring a file will undo all changes made since opening it"
 msgstr ""
+"Il ripristino di un file annullerà tutte le modifiche apportate dall'apertura"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:34
 msgid "Don't Restore"
-msgstr ""
+msgstr "Non ripristinare"
 
 #: src/Dialogs/RestoreConfirmationDialog.vala:36
-#, fuzzy
 msgid "Restore Anyway"
-msgstr "Carica lo stesso"
+msgstr "Ripristina lo stesso"
 
 #: src/FolderManager/FileItem.vala:52 src/FolderManager/FolderItem.vala:117
 msgid "Other Application…"
@@ -291,25 +292,22 @@ msgid "Close Folder"
 msgstr "Chiudi cartella"
 
 #: src/FolderManager/ProjectFolderItem.vala:99
-#, fuzzy
-#| msgid "Close Folder"
 msgid "Close Other Folders"
-msgstr "Chiudi cartella"
+msgstr "Chiudi le altre cartelle"
 
 #: src/FolderManager/ProjectFolderItem.vala:188
 #, c-format
 msgid "%s, Modified"
-msgstr ""
+msgstr "%s, modificato"
 
 #: src/FolderManager/ProjectFolderItem.vala:197
 #, c-format
 msgid "%s, New"
-msgstr ""
+msgstr "%s, nuovo"
 
 #: src/FolderManager/ProjectFolderItem.vala:347
-#, fuzzy
 msgid "Branch"
-msgstr "Cambia ramo"
+msgstr "Ramo"
 
 #: src/Services/Document.vala:260
 #, c-format
@@ -525,22 +523,20 @@ msgid "Menu"
 msgstr "Menu"
 
 #: src/Widgets/Sidebar.vala:45
-#, fuzzy
-#| msgid "Open a folder"
 msgid "Open Project Folder…"
-msgstr "Apri una cartella"
+msgstr "Apri cartella progetto…"
 
 #: src/Widgets/Sidebar.vala:48
 msgid "Collapse All"
-msgstr ""
+msgstr "Comprimi tutto"
 
 #: src/Widgets/Sidebar.vala:51
 msgid "Alphabetize"
-msgstr ""
+msgstr "Disponi in ordine alfabetico"
 
 #: src/Widgets/Sidebar.vala:62
 msgid "Manage project folders"
-msgstr ""
+msgstr "Gestisci le cartelle dei progetti"
 
 #: src/Widgets/SearchBar.vala:63
 msgid "Find"
@@ -560,11 +556,11 @@ msgstr "Ricerca ciclica"
 
 #: src/Widgets/SearchBar.vala:95
 msgid "Case Sensitive"
-msgstr ""
+msgstr "Che tiene conto del maiuscolo o minuscolo"
 
 #: src/Widgets/SearchBar.vala:95
 msgid "Case Insensitive"
-msgstr ""
+msgstr "Nessuna distinzione fra maiuscolo e minuscolo"
 
 #: src/Widgets/SearchBar.vala:114
 msgid "Replace With"
@@ -633,11 +629,9 @@ msgstr "Formato:"
 
 #: plugins/pastebin/pastebin_dialog.vala:266
 msgid "Choose different format"
-msgstr ""
+msgstr "Scegli un formato diverso"
 
 #: plugins/pastebin/pastebin_dialog.vala:289
-#, fuzzy
-#| msgid "Expiry time:"
 msgid "Expiration:"
 msgstr "Scadenza:"
 
@@ -647,13 +641,11 @@ msgstr "Mantieni questa copia privata"
 
 #: plugins/pastebin/pastebin_dialog.vala:353
 msgid "Available Formats"
-msgstr ""
+msgstr "Formati disponibili"
 
 #: plugins/pastebin/pastebin_dialog.vala:380
-#, fuzzy
-#| msgid "Select font:"
 msgid "Select Format"
-msgstr "Seleziona il carattere:"
+msgstr "Seleziona il formato"
 
 #: plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
@@ -685,10 +677,8 @@ msgid "Symbols"
 msgstr "Simboli"
 
 #: plugins/outline/OutlinePlugin.vala:34
-#, fuzzy
-#| msgid "Symbols"
 msgid "No Symbols Found"
-msgstr "Simboli"
+msgstr "Nessun simbolo trovato"
 
 #: plugins/terminal/terminal.vala:164 plugins/terminal/terminal.vala:171
 msgid "Show Terminal"
