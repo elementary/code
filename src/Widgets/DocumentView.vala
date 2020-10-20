@@ -139,9 +139,13 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         if (parts.length == 1) {
             return _("%s(copy)").printf (parts[0]);
         }
+
         string new_text_file = _("%s(copy).%s").printf (parts[0], parts[1]);
 
-        return Path.build_filename (Application.instance.data_home_folder_unsaved, new_text_file);
+        return Path.build_filename (
+            ((Scratch.Application) GLib.Application.get_default ()).data_home_folder_unsaved,
+            new_text_file
+        );
     }
 
     public void new_document () {
