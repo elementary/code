@@ -19,7 +19,7 @@
 */
 
 namespace Scratch {
-    public class MainWindow : Gtk.Window {
+    public class MainWindow : Hdy.Window {
         public const int FONT_SIZE_MAX = 72;
         public const int FONT_SIZE_MIN = 7;
         private const uint MAX_SEARCH_TEXT_LENGTH = 255;
@@ -90,6 +90,8 @@ namespace Scratch {
         public const string ACTION_ZOOM_OUT = "action_zoom_out";
         public const string ACTION_TOGGLE_COMMENT = "action_toggle_comment";
         public const string ACTION_TOGGLE_SIDEBAR = "action_toggle_sidebar";
+        public const string ACTION_NEXT_TAB = "action_next_tab";
+        public const string ACTION_PREVIOUS_TAB = "action_previous_tab";
 
         public static Gee.MultiMap<string, string> action_accelerators = new Gee.HashMultiMap<string, string> ();
 
@@ -124,7 +126,9 @@ namespace Scratch {
             { ACTION_ZOOM_IN, action_zoom_in },
             { ACTION_ZOOM_OUT, action_zoom_out},
             { ACTION_TOGGLE_COMMENT, action_toggle_comment },
-            { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar }
+            { ACTION_TOGGLE_SIDEBAR, action_toggle_sidebar },
+            { ACTION_NEXT_TAB, action_next_tab },
+            { ACTION_PREVIOUS_TAB, action_previous_tab },
         };
 
         public MainWindow (Scratch.Application scratch_app) {
@@ -166,10 +170,14 @@ namespace Scratch {
             action_accelerators.set (ACTION_TOGGLE_COMMENT, "<Control>slash");
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "F9"); // GNOME
             action_accelerators.set (ACTION_TOGGLE_SIDEBAR, "<Control>backslash"); // Atom
+            action_accelerators.set (ACTION_NEXT_TAB, "<Control>Tab");
+            action_accelerators.set (ACTION_PREVIOUS_TAB, "<Control><Shift>Tab");
 
             var provider = new Gtk.CssProvider ();
             provider.load_from_resource ("io/elementary/code/Application.css");
             Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+            Hdy.init ();
         }
 
         construct {
@@ -282,7 +290,6 @@ namespace Scratch {
         private void init_layout () {
             toolbar = new Scratch.Widgets.HeaderBar ();
             toolbar.title = title;
-            set_titlebar (toolbar);
 
             // SearchBar
             search_bar = new Scratch.Widgets.SearchBar (this);
@@ -375,7 +382,11 @@ namespace Scratch {
             vp.pack1 (hp1, true, false);
             vp.pack2 (bottombar, false, false);
 
-            add (vp);
+            var grid = new Gtk.Grid ();
+            grid.attach (toolbar, 0, 0);
+            grid.attach (vp, 0, 1);
+
+            add (grid);
 
             search_revealer.set_reveal_child (false);
 
@@ -956,6 +967,14 @@ namespace Scratch {
             }
 
             sidebar.visible = !sidebar.visible;
+        }
+
+        private void action_next_tab () {
+            document_view.next_document ();
+        }
+
+        private void action_previous_tab () {
+            document_view.previous_document ();
         }
     }
 }

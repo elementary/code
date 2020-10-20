@@ -20,7 +20,7 @@
 */
 
 namespace Scratch.Widgets {
-    public class HeaderBar : Gtk.HeaderBar {
+    public class HeaderBar : Hdy.HeaderBar {
         public Gtk.Menu share_menu;
         public Gtk.MenuButton share_app_menu;
         public Gtk.MenuButton app_menu;
