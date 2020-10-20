@@ -32,7 +32,7 @@ public class Code.Plugins.ValaSymbolOutline : Object, Code.Plugins.SymbolOutline
 
         store = new Granite.Widgets.SourceList ();
         store.item_selected.connect ((selected) => {
-            goto (doc, (selected as ValaSymbolItem).symbol.source_reference.begin.line);
+            goto (doc, ((ValaSymbolItem)selected).symbol.source_reference.begin.line);
         });
 
         root = new Granite.Widgets.SourceList.ExpandableItem (_("Symbols"));

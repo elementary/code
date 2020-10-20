@@ -72,7 +72,7 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         });
 
         tab_switched.connect ((old_tab, new_tab) => {
-            document_change (new_tab as Services.Document, this);
+            /* The 'document_change' signal is emitted when the document is focused. We do not need to emit it here */
             save_focused_document_uri (new_tab as Services.Document);
         });
 
@@ -189,8 +189,11 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             }
 
             if (nth_doc.file != null && nth_doc.file.get_uri () == doc.file.get_uri ()) {
-                current_document = nth_doc;
-                warning ("This Document was already opened! Not opening a duplicate!");
+                if (focus) {
+                    current_document = nth_doc;
+                }
+
+                debug ("This Document was already opened! Not opening a duplicate!");
                 return;
             }
         }
@@ -203,7 +206,9 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         Idle.add_full (GLib.Priority.LOW, () => { // This helps ensures new tab is drawn before opening document.
             doc.open.begin (false, (obj, res) => {
                 doc.open.end (res);
-                doc.focus ();
+                if (focus) {
+                    doc.focus ();
+                }
                 save_opened_files ();
             });
 
@@ -238,6 +243,10 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
             var next_doc = docs.nth_data (current_index++);
             current_document = next_doc;
             next_doc.focus ();
+        } else if (docs.length () > 0) {
+            var next_doc = docs.nth_data (0);
+            current_document = next_doc;
+            next_doc.focus ();
         }
     }
 
@@ -245,6 +254,10 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         uint current_index = docs.index (current_document);
         if (current_index > 0) {
             var previous_doc = docs.nth_data (--current_index);
+            current_document = previous_doc;
+            previous_doc.focus ();
+        } else if (docs.length () > 0) {
+            var previous_doc = docs.nth_data (docs.length () - 1);
             current_document = previous_doc;
             previous_doc.focus ();
         }

@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 2017 elementary LLC. (https://elementary.io)
+ * Copyright 2017-2020 elementary, Inc. (https://elementary.io)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
  * Authored by: Corentin Noël <corentin@elementary.io>
  */
 
-public class Code.Pane : Gtk.Grid {
+public class Code.Sidebar : Gtk.Grid {
     public Gtk.Stack stack { get; private set; }
     private Gtk.StackSwitcher stack_switcher;
     construct {
@@ -39,9 +39,11 @@ public class Code.Pane : Gtk.Grid {
         var actionbar = new Gtk.ActionBar ();
         actionbar.get_style_context ().add_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
 
-        var add_folder_button = new Gtk.Button.from_icon_name ("folder-open-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-        add_folder_button.action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_FOLDER;
-        add_folder_button.tooltip_text = _("Open project folder…");
+        var add_folder_button = new Gtk.Button.from_icon_name ("folder-open-symbolic", Gtk.IconSize.SMALL_TOOLBAR) {
+            action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_OPEN_FOLDER,
+            always_show_image = true,
+            label = _("Open Project Folder…")
+        };
 
         var collapse_all_menu_item = new Gtk.MenuItem.with_label (_("Collapse All"));
         collapse_all_menu_item.action_name = Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_COLLAPSE_ALL_FOLDERS;

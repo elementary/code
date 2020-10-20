@@ -19,11 +19,10 @@ src/Services/ZeitgeistLogger.vala
 src/Widgets/DocumentView.vala
 src/Widgets/FormatBar.vala
 src/Widgets/HeaderBar.vala
-src/Widgets/Pane.vala
+src/Widgets/Sidebar.vala
 src/Widgets/PaneSwitcher.vala
 src/Widgets/SearchBar.vala
 src/Widgets/SourceView.vala
-src/Widgets/SplitView.vala
 src/Widgets/WelcomeView.vala
 plugins/pastebin/pastebin_dialog.vala
 plugins/pastebin/pastebin.vala
@@ -40,8 +39,6 @@ plugins/outline/SymbolOutline.vala
 plugins/terminal/terminal.vala
 plugins/brackets-completion/brackets-completion.vala
 plugins/strip-trailing-save/strip-trailing-save.vala
-plugins/browser-preview/BrowserView.vala
-plugins/browser-preview/browser-preview.vala
 plugins/vim-emulation/vim-emulation.vala
 plugins/spell/spell.vala
 plugins/word-completion/plugin.vala
