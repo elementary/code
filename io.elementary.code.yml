@@ -37,6 +37,13 @@ modules:
         url: https://gitlab.gnome.org/GNOME/gtksourceview.git
         tag: gtksourceview-4-6
 
+  - name: handy
+    buildsystem: meson
+    sources:
+      - type: git
+        url: https://gitlab.gnome.org/GNOME/libhandy.git
+        tag: '1.0.0'
+
   - name: peas
     buildsystem: meson
     cleanup:
