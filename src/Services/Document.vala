@@ -582,7 +582,7 @@ namespace Scratch.Services {
 
         // Get file name
         public string get_basename () {
-            if (is_file_temporary && file.get_basename ().split (".").length == 1) {
+            if (is_file_temporary) {
                 return _("New Document");
             } else {
                 return file.get_basename ();

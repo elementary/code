@@ -126,26 +126,22 @@ public class Scratch.Widgets.DocumentView : Granite.Widgets.DynamicNotebook {
         style_context.remove_class (Gtk.STYLE_CLASS_INLINE_TOOLBAR);
     }
 
-    private string unsaved_file_path_builder () {
+    private string unsaved_file_path_builder (string extension = "txt") {
         var timestamp = new DateTime.now_local ();
 
         string new_text_file = _("Text file from %s:%d").printf (timestamp.format ("%Y-%m-%d %H:%M:%S"), timestamp.get_microsecond ());
 
-        return Path.build_filename (((Scratch.Application) GLib.Application.get_default ()).data_home_folder_unsaved, new_text_file);
+        return Path.build_filename (((Scratch.Application) GLib.Application.get_default ()).data_home_folder_unsaved, new_text_file) + "." + extension;
     }
 
     private string unsaved_duplicated_file_path_builder (string original_filename) {
+        string extension = "txt";
         string[] parts = original_filename.split (".", 2);
-        if (parts.length == 1) {
-            return _("%s(copy)").printf (parts[0]);
+        if (parts.length > 1) {
+            extension = parts[parts.length - 1];
         }
 
-        string new_text_file = _("%s(copy).%s").printf (parts[0], parts[1]);
-
-        return Path.build_filename (
-            ((Scratch.Application) GLib.Application.get_default ()).data_home_folder_unsaved,
-            new_text_file
-        );
+        return unsaved_file_path_builder (extension);
     }
 
     public void new_document () {
