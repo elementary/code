@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: elementary/docker:unstable
+      image: docker.io/bilelmoussaoui/flatpak-github-actions
 
     steps:
     - uses: actions/checkout@v1
