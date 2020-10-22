@@ -29,7 +29,6 @@ namespace Scratch.Services {
         public signal void hook_toolbar (Scratch.Widgets.HeaderBar toolbar);
         public signal void hook_notebook_sidebar (Gtk.Notebook notebook);
         public signal void hook_notebook_bottom (Gtk.Notebook notebook);
-        public signal void hook_footer (Gtk.Notebook footer);
         public signal void hook_document (Scratch.Services.Document doc);
         public signal void hook_preferences_dialog (Scratch.Dialogs.Preferences dialog);
 
@@ -136,9 +135,6 @@ namespace Scratch.Services {
             });
             this.hook_notebook_bottom.connect ((n) => {
                 plugin_iface.hook_notebook_bottom (n);
-            });
-            this.hook_footer.connect ((n) => {
-                plugin_iface.hook_footer (n);
             });
             this.hook_document.connect ((d) => {
                 plugin_iface.hook_document (d);

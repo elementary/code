@@ -40,7 +40,6 @@ namespace Scratch {
 
         // Widgets for Plugins
         public Gtk.Notebook bottombar;
-        public Gtk.Notebook footerbar;
         public Code.Sidebar sidebar;
 
         private Gtk.Dialog? preferences_dialog = null;
@@ -378,21 +377,16 @@ namespace Scratch {
             hp1.pack1 (sidebar, false, false);
 
 
-            var vp2 = new Gtk.Paned (Gtk.Orientation.VERTICAL);
-            vp2.position = (height - 150);
-            vp2.pack1 (content_stack, false, false);
-            vp2.pack2 (bottombar, false, false);
-
-            hp1.pack2 (vp2, true, false);
-
             vp = new Gtk.Paned (Gtk.Orientation.VERTICAL);
             vp.position = (height - 150);
-            vp.pack1 (hp1, true, false);
-            vp.pack2 (footerbar, false, false);
+            vp.pack1 (content_stack, true, false);
+            vp.pack2 (bottombar, false, false);
+
+            hp1.pack2 (vp, true, false);
 
             var grid = new Gtk.Grid ();
             grid.attach (toolbar, 0, 0);
-            grid.attach (vp, 0, 1);
+            grid.attach (hp1, 0, 1);
 
             add (grid);
 
@@ -406,7 +400,6 @@ namespace Scratch {
                     plugins.hook_toolbar (toolbar);
                     plugins.hook_share_menu (toolbar.share_menu);
                     plugins.hook_notebook_bottom (bottombar);
-                    plugins.hook_footer (footerbar);
                 };
 
                 plugins.extension_added.connect (() => {
