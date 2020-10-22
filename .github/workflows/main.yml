@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: docker.io/bilelmoussaoui/flatpak-github-actions
+      image: elementary/docker:unstable
 
     steps:
     - uses: actions/checkout@v1
@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: elementary/docker:unstable
+      image: docker.io/bilelmoussaoui/flatpak-github-actions
       options: --privileged
 
     steps:
