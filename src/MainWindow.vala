@@ -372,16 +372,14 @@ namespace Scratch {
             int width, height;
             get_size (out width, out height);
 
-            hp1 = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
-            hp1.position = 180;
-            hp1.pack1 (sidebar, false, false);
-
-
             vp = new Gtk.Paned (Gtk.Orientation.VERTICAL);
             vp.position = (height - 150);
             vp.pack1 (content_stack, true, false);
             vp.pack2 (bottombar, false, false);
 
+            hp1 = new Gtk.Paned (Gtk.Orientation.HORIZONTAL);
+            hp1.position = 180;
+            hp1.pack1 (sidebar, false, false);
             hp1.pack2 (vp, true, false);
 
             var grid = new Gtk.Grid ();
