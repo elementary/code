@@ -53,15 +53,28 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Peas.Activatable
     private bool shortcut_handler (Gdk.EventKey evt) {
         var control = (evt.state & Gdk.ModifierType.CONTROL_MASK) != 0;
         var shift = (evt.state & Gdk.ModifierType.SHIFT_MASK) != 0;
-        if (control && !shift && evt.keyval == Gdk.Key.b) {
-            add_markdown_tag ("**");
-            return true;
-        } else if (control && shift && evt.keyval == Gdk.Key.I) {
-            add_markdown_tag ("_");
-            return true;
-        } else if (control && evt.keyval == Gdk.Key.k) {
-            insert_link ();
+        var other_mods = (evt.state & Gtk.accelerator_get_default_mod_mask () &
+                          ~Gdk.ModifierType.SHIFT_MASK &
+                          ~Gdk.ModifierType.CONTROL_MASK) != 0;
+
+        if (evt.is_modifier == 1 || other_mods == true) {
+            return false;
         }
+
+        if (control && shift) {
+            switch (evt.keyval) {
+                case Gdk.Key.B:
+                    add_markdown_tag ("**");
+                    return true;
+                case Gdk.Key.I:
+                    add_markdown_tag ("_");
+                    return true;
+                case Gdk.Key.K:
+                    insert_link ();
+                    break;
+            }
+        }
+
         return false;
     }
 
