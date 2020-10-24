@@ -31,6 +31,7 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Peas.Activatable
         plugins.hook_document.connect ((doc) => {
             if (current_source != null) {
                 current_source.key_press_event.disconnect (shortcut_handler);
+                current_source.notify["language"].disconnect (configure_shortcuts);
             }
 
             current_source = doc.source_view;
@@ -112,6 +113,7 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Peas.Activatable
     public void deactivate () {
         if (current_source != null) {
             current_source.key_press_event.disconnect (shortcut_handler);
+            current_source.notify["language"].disconnect (configure_shortcuts);
         }
     }
 }
