@@ -34,7 +34,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: bilelmoussaoui/flatpak-github-actions@v1
+    - uses: bilelmoussaoui/flatpak-github-actions@v2
       with:
         bundle: "io.elementary.code.flatpak"
         manifest-path: "io.elementary.code.yml"
