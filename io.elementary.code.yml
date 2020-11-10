@@ -1,0 +1,133 @@
+app-id: io.elementary.code
+runtime: org.gnome.Sdk # outline plugin needs libvala that is only on sdk
+runtime-version: '3.36'
+base: io.elementary.BaseApp
+base-version: juno-19.08
+sdk: org.gnome.Sdk
+command: io.elementary.code
+finish-args:
+  - '--filesystem=host'
+
+  - '--share=ipc'
+  - '--socket=fallback-x11'
+  - '--socket=wayland'
+
+  - '--talk-name=org.gtk.vfs.*'
+  - '--talk-name=org.gnome.SettingsDaemon'
+
+  - '--metadata=X-DConf=migrate-path=/io/elementary/code/'
+cleanup:
+  - '/include'
+  - '/lib/pkgconfig'
+  - '/lib/debug'
+  - '/lib/cmake'
+  - '/lib/girepository-1.0'
+  - '/share/gir-1.0'
+  - '/share/vala'
+  - '*a'
+  - '*.la'
+build-options:
+  env:
+    V: '1'
+modules:
+  - name: gtksourceview
+    buildsystem: meson
+    sources:
+      - type: git
+        url: https://gitlab.gnome.org/GNOME/gtksourceview.git
+        tag: gtksourceview-4-6
+
+  - name: handy
+    buildsystem: meson
+    sources:
+      - type: git
+        url: https://gitlab.gnome.org/GNOME/libhandy.git
+        tag: '1.0.0'
+
+  - name: peas
+    buildsystem: meson
+    cleanup:
+      - '/bin/peas-demo'
+      - '/lib/peas-demo'
+    sources:
+      - type: git
+        url: https://gitlab.gnome.org/GNOME/libpeas.git
+        tag: 'libpeas-1.26.0'
+
+  - name: git2-glib
+    buildsystem: meson
+    builddir: true
+    config-opts:
+      - '--buildtype=release'
+      - '--libdir=/app/lib'
+    cleanup:
+      - '/lib/python3.7'
+    sources:
+      - type: git
+        url: https://gitlab.gnome.org/GNOME/libgit2-glib.git
+        tag: 'v0.99.0.1'
+    modules:
+      - name: ssh2
+        buildsystem: cmake-ninja
+        config-opts:
+          - '-DCMAKE_BUILD_TYPE=RelWithDebInfo'
+          - '-DBUILD_SHARED_LIBS:BOOL=ON'
+          - '-DCMAKE_INSTALL_LIBDIR:PATH=/app/lib'
+        cleanup:
+          - '/share/man'
+          - '/share/doc'
+        sources:
+          - type: git
+            url: https://github.com/libssh2/libssh2.git
+            tag: 'libssh2-1.8.0'
+      - name: libgit2
+        buildsystem: cmake-ninja
+        config-opts:
+          - '-DCMAKE_BUILD_TYPE=RelWithDebInfo'
+          - '-DBUILD_SHARED_LIBS:BOOL=ON'
+          - '-DTHREADSAFE=ON'
+        sources:
+          - type: git
+            url: https://github.com/libgit2/libgit2.git
+            tag: 'v0.28.4'
+
+  - name: editorconfig
+    buildsystem: cmake-ninja
+    sources:
+      - type: git
+        url: https://github.com/editorconfig/editorconfig-core-c.git
+        tag: 'v0.12.3'
+
+  - name: gtkspell
+    config-opts:
+      - '--disable-gtk-doc'
+    cleanup:
+      - '/share/gtk-doc' # for some reason, it still install the html folder.
+    sources:
+      - type: archive
+        url: https://downloads.sourceforge.net/gtkspell/gtkspell3-3.0.10.tar.xz
+        sha256: b040f63836b347eb344f5542443dc254621805072f7141d49c067ecb5a375732
+    modules:
+      - name: intltool
+        cleanup:
+          - '*'
+        sources:
+          - type: archive
+            url: https://launchpad.net/intltool/trunk/0.51.0/+download/intltool-0.51.0.tar.gz
+            md5: 12e517cac2b57a0121cda351570f1e63
+
+  - name: vte
+    buildsystem: meson
+    build-options:
+      env:
+        CXXFLAGS: -fno-exceptions
+    sources:
+      - type: git
+        url: https://gitlab.gnome.org/GNOME/vte.git
+        branch: '0.59.92'
+
+  - name: code
+    buildsystem: meson
+    sources:
+      - type: dir
+        path: .
