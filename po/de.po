@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-02 08:55+0000\n"
-"PO-Revision-Date: 2020-07-10 00:06+0000\n"
-"Last-Translator: Jörg Arnold <j.ar@mailbox.org>\n"
+"PO-Revision-Date: 2020-10-28 02:15+0000\n"
+"Last-Translator: Uwe S <saabisto@gmx.de>\n"
 "Language-Team: German <https://l10n.elementary.io/projects/code/code/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -524,10 +524,8 @@ msgid "Menu"
 msgstr "Menü"
 
 #: src/Widgets/Sidebar.vala:45
-#, fuzzy
-#| msgid "Open project folder…"
 msgid "Open Project Folder…"
-msgstr "Projektordner öffnen…"
+msgstr "Projektordner öffnen …"
 
 #: src/Widgets/Sidebar.vala:48
 msgid "Collapse All"
@@ -632,7 +630,7 @@ msgstr "Format:"
 
 #: plugins/pastebin/pastebin_dialog.vala:266
 msgid "Choose different format"
-msgstr ""
+msgstr "Anderes Format wählen"
 
 #: plugins/pastebin/pastebin_dialog.vala:289
 #, fuzzy
@@ -646,13 +644,11 @@ msgstr "Diese Kopie als privat einstufen"
 
 #: plugins/pastebin/pastebin_dialog.vala:353
 msgid "Available Formats"
-msgstr ""
+msgstr "Verfügbare Formate"
 
 #: plugins/pastebin/pastebin_dialog.vala:380
-#, fuzzy
-#| msgid "Select font:"
 msgid "Select Format"
-msgstr "Schrift auswählen:"
+msgstr "Format wählen"
 
 #: plugins/pastebin/pastebin_dialog.vala:467
 msgid "Never"
