@@ -24,6 +24,7 @@ namespace Scratch.Widgets {
         public Gtk.TextMark mark;
         public Gtk.SourceLanguageManager manager;
         public Gtk.SourceStyleSchemeManager style_scheme_manager;
+        public Gtk.CssProvider font_css_provider;
         public Gtk.TextTag warning_tag;
         public Gtk.TextTag error_tag;
 
@@ -64,6 +65,9 @@ namespace Scratch.Widgets {
             expand = true;
             manager = Gtk.SourceLanguageManager.get_default ();
             style_scheme_manager = new Gtk.SourceStyleSchemeManager ();
+
+            font_css_provider = new Gtk.CssProvider ();
+            get_style_context ().add_provider (font_css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
             var source_buffer = new Gtk.SourceBuffer (null);
             set_buffer (source_buffer);
@@ -175,14 +179,6 @@ namespace Scratch.Widgets {
             update_settings ();
         }
 
-        public void use_default_font (bool value) {
-            if (!value) {
-                return;
-            }
-
-            font = ((Scratch.Application) GLib.Application.get_default ()).default_font;
-        }
-
         public void change_syntax_highlight_from_file (File file) {
             try {
                 var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
@@ -232,9 +228,25 @@ namespace Scratch.Widgets {
                 set_wrap_mode (Gtk.WrapMode.NONE);
             }
 
-            font = Scratch.settings.get_string ("font");
-            use_default_font (Scratch.settings.get_boolean ("use-system-font"));
-            override_font (Pango.FontDescription.from_string (font));
+            if (Scratch.settings.get_boolean ("use-system-font")) {
+                font = ((Scratch.Application) GLib.Application.get_default ()).default_font;
+            } else {
+                font = Scratch.settings.get_string ("font");
+            }
+
+            /* Convert font description to css equivalent and apply to the .view node */
+            var font_css = string.join (" ",
+                ".view {",
+                Scratch.Utils.pango_font_description_to_css (Pango.FontDescription.from_string (font)),
+                "}"
+            );
+
+            try {
+                font_css_provider.load_from_data (font_css);
+            } catch (Error e) {
+                critical (e.message);
+            }
+
             source_buffer.style_scheme = style_scheme_manager.get_scheme (Scratch.settings.get_string ("style-scheme"));
             style_changed (source_buffer.style_scheme);
         }
