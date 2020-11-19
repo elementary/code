@@ -1,8 +1,8 @@
 app-id: io.elementary.code
 runtime: org.gnome.Sdk # outline plugin needs libvala that is only on sdk
-runtime-version: '3.36'
+runtime-version: '3.38'
 base: io.elementary.BaseApp
-base-version: juno-19.08
+base-version: juno-20.08
 sdk: org.gnome.Sdk
 command: io.elementary.code
 finish-args:
@@ -19,59 +19,57 @@ finish-args:
 cleanup:
   - '/include'
   - '/lib/pkgconfig'
-  - '/lib/debug'
   - '/lib/cmake'
   - '/lib/girepository-1.0'
   - '/share/gir-1.0'
   - '/share/vala'
-  - '*a'
+  - '*.a'
   - '*.la'
-build-options:
-  env:
-    V: '1'
 modules:
   - name: gtksourceview
     buildsystem: meson
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/gtksourceview.git
-        tag: gtksourceview-4-6
+        tag: '4.8.0'
 
   - name: handy
     buildsystem: meson
+    config-opts:
+      - '-Dexamples=false'
+      - '-Dtests=false'
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/libhandy.git
-        tag: '1.0.0'
+        tag: '1.0.1'
 
   - name: peas
     buildsystem: meson
-    cleanup:
-      - '/bin/peas-demo'
-      - '/lib/peas-demo'
+    config-opts:
+      - '-Dgtk-doc=false'
+      - '-Ddemos=false'
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/libpeas.git
-        tag: 'libpeas-1.26.0'
+        tag: libpeas-1.28.0
 
   - name: git2-glib
     buildsystem: meson
     builddir: true
     config-opts:
-      - '--buildtype=release'
-      - '--libdir=/app/lib'
-    cleanup:
-      - '/lib/python3.7'
+      - '-Dpython=false'
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/libgit2-glib.git
-        tag: 'v0.99.0.1'
+        tag: v0.99.0.1
     modules:
       - name: ssh2
         buildsystem: cmake-ninja
         config-opts:
           - '-DCMAKE_BUILD_TYPE=RelWithDebInfo'
           - '-DBUILD_SHARED_LIBS:BOOL=ON'
+          - '-DBUILD_EXAMPLES:BOOL=OFF'
+          - '-DBUILD_TESTING:BOOL=OFF'
           - '-DCMAKE_INSTALL_LIBDIR:PATH=/app/lib'
         cleanup:
           - '/share/man'
@@ -79,28 +77,29 @@ modules:
         sources:
           - type: git
             url: https://github.com/libssh2/libssh2.git
-            tag: 'libssh2-1.8.0'
+            tag: libssh2-1.9.0
       - name: libgit2
         buildsystem: cmake-ninja
         config-opts:
           - '-DCMAKE_BUILD_TYPE=RelWithDebInfo'
-          - '-DBUILD_SHARED_LIBS:BOOL=ON'
-          - '-DTHREADSAFE=ON'
         sources:
           - type: git
             url: https://github.com/libgit2/libgit2.git
-            tag: 'v0.28.4'
+            tag: 'v1.1.0'
 
   - name: editorconfig
     buildsystem: cmake-ninja
+    config-opts:
+      - '-DCMAKE_BUILD_TYPE=RelWithDebInfo'
+      - '-DBUILD_DOCUMENTATION:BOOL=OFF'
     sources:
       - type: git
         url: https://github.com/editorconfig/editorconfig-core-c.git
-        tag: 'v0.12.3'
+        tag: 'v0.12.4'
 
   - name: gtkspell
     config-opts:
-      - '--disable-gtk-doc'
+      - '--disable-gtk-doc-html'
     cleanup:
       - '/share/gtk-doc' # for some reason, it still install the html folder.
     sources:
@@ -118,13 +117,18 @@ modules:
 
   - name: vte
     buildsystem: meson
-    build-options:
-      env:
-        CXXFLAGS: -fno-exceptions
+    config-opts:
+      - '-Dbuildtype=debugoptimized'
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/vte.git
-        branch: '0.59.92'
+        branch: '0.62.1'
+
+  - name: universal-ctags
+    sources:
+      - type: git
+        url: https://github.com/universal-ctags/ctags.git
+        tag: p5.9.20201101.0
 
   - name: code
     buildsystem: meson
