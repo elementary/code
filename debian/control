@@ -108,29 +108,3 @@ Description: text editor that works for you (plugin development files)
  languages.
  .
  This package contains the development headers for writing Code plugins.
-
-Package: io.elementary.code-dbg
-Architecture: any
-Section: debug
-Priority: extra
-Depends: io.elementary.code (= ${binary:Version}), ${misc:Depends}
-Description: text editor that works for you (debugging symbols)
- Code is the text editor that works for you. It auto-saves your files,
- meaning they're always up-to-date. Plus it remembers your tabs so you never
- lose your spot, even in between sessions.
- .
- Make it yours. Code is written from the ground up to be extensible. Keep
- things super lightweight and simple, or install extensions to turn Code
- into a full-blown IDE; it's your choice. And with a handful of useful
- preferences, you can tweak the behavior and interface to your liking.
- .
- It's elementary. Code is made to be the perfect text editor for elementary,
- meaning it closely follows the high standards of design, speed, and
- consistency. It's sexy, but not distracting.
- .
- Works with your language. Whether you're crafting code in Vala, scripting with
- PHP, or marking things up in HTML, Code has you covered. Experience full
- syntax highlighting with nearly all programming, scripting, and markup
- languages.
- .
- This package contains debugging symbols for io.elementary.code.

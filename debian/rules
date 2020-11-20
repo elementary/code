@@ -1,17 +1,10 @@
 #!/usr/bin/make -f
 
-# Disable unit testing
-export DEB_BUILD_OPTIONS=nocheck
-
-# Enable additional explot mitigation
-# (PIE and *full* RELRO at the time of this writing)
-export DEB_BUILD_MAINT_OPTIONS=hardening=+all
-
 %:
 	dh $@ --buildsystem=meson
 
-override_dh_install:
-	dh_install --fail-missing
+override_dh_missing:
+	dh_missing --fail-missing --list-missing
 
 override_dh_strip:
-	dh_strip --dbg-package=io.elementary.code-dbg
+	dh_strip --dbgsym-migration='io.elementary.code-dbg (<< 3.4.1~r3285+pkg136)'
