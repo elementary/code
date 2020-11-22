@@ -163,7 +163,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatab
 
         int nlines = (first_line - last_line).abs () + 1;
         if (nlines < 1 || nchars < 1 || last_line < first_line || !view.editable
-            || first_line==buf_last_line
+            || first_line == buf_last_line
         ) {
             return;
         }
