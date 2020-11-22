@@ -66,7 +66,7 @@ public class Scratch.Plugins.PreserveIndent : Peas.ExtensionBase, Peas.Activatab
         int tabwidth = Scratch.settings.get_int ("indent-width");
 
         unichar ch = pos.get_char ();
-        while (pos.get_offset () < iter.get_offset () && ch != '\n') {
+        while (pos.get_offset () < iter.get_offset () && ch != '\n' && ch.isspace ()) {
             if (ch == '\t') {
                 indent += tabwidth;
             } else {
