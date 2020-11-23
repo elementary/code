@@ -61,7 +61,11 @@ public class Code.Plugins.ValaSymbolOutline : Object, Code.Plugins.SymbolOutline
 
     public void parse_symbols () {
         var context = new Vala.CodeContext ();
+#if VALA_0_50
+        context.set_target_profile (Vala.Profile.GOBJECT, false);
+#else
         context.profile = Vala.Profile.GOBJECT;
+#endif
         context.add_source_filename (doc.file.get_path ());
         context.report = new Report ();
         if (cancellable != null)
