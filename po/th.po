@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-14 16:50+0000\n"
+"POT-Creation-Date: 2020-10-02 08:55+0000\n"
 "PO-Revision-Date: 2018-05-04 00:03+0000\n"
 "Last-Translator: Park Evans <travellerpeira9@gmail.com>\n"
 "Language-Team: Thai <https://weblate.elementary.io/projects/code/code/th/>\n"
@@ -84,50 +84,50 @@ msgstr "ชุดปลั๊กอิน"
 msgid "plugin"
 msgstr "ชุดปลั๊กอิน"
 
-#: src/MainWindow.vala:136
+#: src/MainWindow.vala:139
 msgid "Code"
 msgstr ""
 
-#: src/MainWindow.vala:186 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:191 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "ค้นหา…"
 
-#: src/MainWindow.vala:191
+#: src/MainWindow.vala:196
 msgid "Hide search bar"
 msgstr "ซ่อนแถบค้นหา"
 
-#: src/MainWindow.vala:267
+#: src/MainWindow.vala:272
 #, fuzzy
 msgid "Zeitgeist Datasource for Code"
 msgstr "แหล่งข้อมูล Zeitgeist สำหรับ Scratch"
 
-#: src/MainWindow.vala:720 src/Services/Document.vala:496
+#: src/MainWindow.vala:725 src/Services/Document.vala:496
 msgid "All files"
 msgstr "ไฟล์ทั้งหมด"
 
-#: src/MainWindow.vala:724 src/Services/Document.vala:500
+#: src/MainWindow.vala:729 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "ไฟล์ข้อความ"
 
-#: src/MainWindow.vala:728
+#: src/MainWindow.vala:733
 msgid "Open some files"
 msgstr "เปิดบางไฟล์"
 
-#: src/MainWindow.vala:731
+#: src/MainWindow.vala:736
 msgid "Open"
 msgstr "เปิด"
 
-#: src/MainWindow.vala:732 src/Services/Document.vala:395
+#: src/MainWindow.vala:737 src/Services/Document.vala:395
 #: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "ยกเลิก"
 
-#: src/MainWindow.vala:757
+#: src/MainWindow.vala:762
 msgid "_Open"
 msgstr "_เปิด"
 
-#: src/MainWindow.vala:758
+#: src/MainWindow.vala:763
 msgid "_Cancel"
 msgstr "_ยกเลิก"
 
@@ -535,21 +535,21 @@ msgstr "แถบด้านข้าง"
 msgid "Menu"
 msgstr ""
 
-#: src/Widgets/Pane.vala:45
+#: src/Widgets/Sidebar.vala:45
 #, fuzzy
 #| msgid "Open a folder"
 msgid "Open Project Folder…"
 msgstr "เปิดโฟลเดอร์"
 
-#: src/Widgets/Pane.vala:48
+#: src/Widgets/Sidebar.vala:48
 msgid "Collapse All"
 msgstr ""
 
-#: src/Widgets/Pane.vala:51
+#: src/Widgets/Sidebar.vala:51
 msgid "Alphabetize"
 msgstr ""
 
-#: src/Widgets/Pane.vala:62
+#: src/Widgets/Sidebar.vala:62
 msgid "Manage project folders"
 msgstr ""
 
@@ -692,7 +692,7 @@ msgstr "หนึ่งเดือน"
 
 #. Remove fake fields created by the vala parser.
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
-#: plugins/outline/C/CtagsSymbolOutline.vala:68
+#: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
 #: plugins/outline/Vala/ValaSymbolOutline.vala:116
 #: plugins/outline/OutlinePane.vala:27
