@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-02 08:55+0000\n"
+"POT-Creation-Date: 2020-11-24 22:13+0000\n"
 "PO-Revision-Date: 2020-11-05 12:15+0000\n"
 "Last-Translator: David M <rbndavid@gmail.com>\n"
 "Language-Team: Catalan <https://l10n.elementary.io/projects/code/code/ca/>\n"
@@ -19,112 +19,73 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
-#: src/Application.vala:114
-#, c-format
-msgid "File \"%s\" Cannot Be Created"
-msgstr "No es pot crear el fitxer \"%s\"."
-
-#. We list some common errors for quick feedback
-#: src/Application.vala:118
-msgid "Maybe you do not have the necessary permissions."
-msgstr "Potser no en teniu els permisos necessaris."
-
-#: src/Application.vala:120
-msgid "Maybe the file path provided is not valid."
-msgstr "Potser el camí del fitxer no és vàlid."
-
-#: src/Application.vala:122
-msgid "The location is read-only."
-msgstr "La ubicació es només de lectura."
-
-#: src/Application.vala:124
-msgid "The parent directory doesn't exist."
-msgstr "El directori pare no existeix."
-
-#: src/Application.vala:145
-msgid "It is a mountable location."
-msgstr "És una ubicació muntable."
-
-#: src/Application.vala:148
-msgid ""
-"It is a \"special\" file such as a socket,\n"
-" FIFO, block device, or character device."
-msgstr ""
-"És un fitxer especial, com ara un sòcol,\n"
-"  FIFO, dispositiu de bloc o dispositiu de caràcters."
-
-#: src/Application.vala:151
-msgid "It is an \"unknown\" file type."
-msgstr "És un tipus de fitxer desconegut."
-
-#: src/Application.vala:156
-#, c-format
-msgid "File \"%s\" Cannot Be Opened"
-msgstr "No es pot obrir el fitxer \"%s\"."
-
-#: src/Application.vala:220
+#: src/Application.vala:39
 msgid "New Tab"
 msgstr "Pestanya nova"
 
-#: src/Application.vala:221 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Finestra nova"
 
-#: src/Application.vala:222
+#: src/Application.vala:41
 msgid "Print version info and exit"
 msgstr "Imprimeix informació de la versió i surt"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "Set of plugins"
 msgstr "Conjunt de connectors"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "plugin"
 msgstr "connector"
+
+#: src/Application.vala:43
+msgid "[FILE…]"
+msgstr ""
 
 #: src/MainWindow.vala:139
 msgid "Code"
 msgstr "Codi"
 
-#: src/MainWindow.vala:191 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:193 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "Cerca…"
 
-#: src/MainWindow.vala:196
+#: src/MainWindow.vala:198
 msgid "Hide search bar"
 msgstr "Amaga la barra de cerca"
 
-#: src/MainWindow.vala:272
+#: src/MainWindow.vala:274
 msgid "Zeitgeist Datasource for Code"
 msgstr "Font de dades del Zeitgeist per al Codi"
 
-#: src/MainWindow.vala:725 src/Services/Document.vala:496
+#: src/MainWindow.vala:730 src/Services/Document.vala:496
 msgid "All files"
 msgstr "Tots els fitxers"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:500
+#: src/MainWindow.vala:734 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "Fitxers de text"
 
-#: src/MainWindow.vala:733
+#: src/MainWindow.vala:738
 msgid "Open some files"
 msgstr "Obriu alguns fitxers"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:741
 msgid "Open"
 msgstr "Obre"
 
-#: src/MainWindow.vala:737 src/Services/Document.vala:395
+#: src/MainWindow.vala:742 src/Services/Document.vala:395
 #: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: src/MainWindow.vala:762
+#: src/MainWindow.vala:767
 msgid "_Open"
 msgstr "_Obre"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:768
 msgid "_Cancel"
 msgstr "_Cancel·la"
 
@@ -573,11 +534,11 @@ msgstr "Reemplaça"
 msgid "Replace all"
 msgstr "Reemplaça-ho tot"
 
-#: src/Widgets/SourceView.vala:408
+#: src/Widgets/SourceView.vala:420
 msgid "Sort Selected Lines"
 msgstr "Classifica les línies seleccionades"
 
-#: src/Widgets/SourceView.vala:421
+#: src/Widgets/SourceView.vala:433
 msgid "Toggle Comment"
 msgstr "Commuta el comentari"
 
@@ -670,7 +631,7 @@ msgstr "Un mes"
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
 #: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:116
+#: plugins/outline/Vala/ValaSymbolOutline.vala:120
 #: plugins/outline/OutlinePane.vala:27
 msgid "Symbols"
 msgstr "Simbols"
@@ -714,6 +675,37 @@ msgstr "Si us plau, instal·leu com a mínim un diccionari (aspell)."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Compleció de paraules"
+
+#~ msgid "File \"%s\" Cannot Be Created"
+#~ msgstr "No es pot crear el fitxer \"%s\"."
+
+#~ msgid "Maybe you do not have the necessary permissions."
+#~ msgstr "Potser no en teniu els permisos necessaris."
+
+#~ msgid "Maybe the file path provided is not valid."
+#~ msgstr "Potser el camí del fitxer no és vàlid."
+
+#~ msgid "The location is read-only."
+#~ msgstr "La ubicació es només de lectura."
+
+#~ msgid "The parent directory doesn't exist."
+#~ msgstr "El directori pare no existeix."
+
+#~ msgid "It is a mountable location."
+#~ msgstr "És una ubicació muntable."
+
+#~ msgid ""
+#~ "It is a \"special\" file such as a socket,\n"
+#~ " FIFO, block device, or character device."
+#~ msgstr ""
+#~ "És un fitxer especial, com ara un sòcol,\n"
+#~ "  FIFO, dispositiu de bloc o dispositiu de caràcters."
+
+#~ msgid "It is an \"unknown\" file type."
+#~ msgstr "És un tipus de fitxer desconegut."
+
+#~ msgid "File \"%s\" Cannot Be Opened"
+#~ msgstr "No es pot obrir el fitxer \"%s\"."
 
 #~ msgid "Web Preview"
 #~ msgstr "Previsualitzció web"
