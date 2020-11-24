@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-02 08:55+0000\n"
+"POT-Creation-Date: 2020-11-24 22:13+0000\n"
 "PO-Revision-Date: 2020-06-12 19:11+0000\n"
 "Last-Translator: Grzegorz Kulik <g.kulik@o2.pl>\n"
 "Language-Team: Silesian <https://l10n.elementary.io/projects/code/code/szl/"
@@ -14,112 +14,73 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-#: src/Application.vala:114
-#, c-format
-msgid "File \"%s\" Cannot Be Created"
-msgstr "Niy idzie stworzić zbioru „%s”"
-
-#. We list some common errors for quick feedback
-#: src/Application.vala:118
-msgid "Maybe you do not have the necessary permissions."
-msgstr "Możesz niy mieć potrzebnych uprawniyń."
-
-#: src/Application.vala:120
-msgid "Maybe the file path provided is not valid."
-msgstr "Możno wkludzōno drōga niyma noleżno."
-
-#: src/Application.vala:122
-msgid "The location is read-only."
-msgstr "Tyn plac je ino do ôdczytu."
-
-#: src/Application.vala:124
-msgid "The parent directory doesn't exist."
-msgstr "Wyższy katalog niy istniyje."
-
-#: src/Application.vala:145
-msgid "It is a mountable location."
-msgstr "To je mōntowalny plac."
-
-#: src/Application.vala:148
-msgid ""
-"It is a \"special\" file such as a socket,\n"
-" FIFO, block device, or character device."
-msgstr ""
-"To je „specjalny” zbiōr, jak socket,\n"
-" FIFO, blok abo znak."
-
-#: src/Application.vala:151
-msgid "It is an \"unknown\" file type."
-msgstr "To je niyznōmo zorta zbioru."
-
-#: src/Application.vala:156
-#, c-format
-msgid "File \"%s\" Cannot Be Opened"
-msgstr "Zbiōr „%s” niy może być ôtwarty"
-
-#: src/Application.vala:220
+#: src/Application.vala:39
 msgid "New Tab"
 msgstr "Nowo karta"
 
-#: src/Application.vala:221 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Nowe ôkno"
 
-#: src/Application.vala:222
+#: src/Application.vala:41
 msgid "Print version info and exit"
 msgstr "Pokoż info ô wersyji i zawrzij"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "Set of plugins"
 msgstr "Kōmplet rozszyrzynia"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "plugin"
 msgstr "rozszyrzynie"
+
+#: src/Application.vala:43
+msgid "[FILE…]"
+msgstr ""
 
 #: src/MainWindow.vala:139
 msgid "Code"
 msgstr "Kod"
 
-#: src/MainWindow.vala:191 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:193 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "Znojdź…"
 
-#: src/MainWindow.vala:196
+#: src/MainWindow.vala:198
 msgid "Hide search bar"
 msgstr "Skryj posek szukanio"
 
-#: src/MainWindow.vala:272
+#: src/MainWindow.vala:274
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zdrzōdło danych Zeitgeist do Kodu"
 
-#: src/MainWindow.vala:725 src/Services/Document.vala:496
+#: src/MainWindow.vala:730 src/Services/Document.vala:496
 msgid "All files"
 msgstr "Wszyjske zbiory"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:500
+#: src/MainWindow.vala:734 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "Zbiory tekstowe"
 
-#: src/MainWindow.vala:733
+#: src/MainWindow.vala:738
 msgid "Open some files"
 msgstr "Ôtwōrz pora zbiorōw"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:741
 msgid "Open"
 msgstr "Ôtwōrz"
 
-#: src/MainWindow.vala:737 src/Services/Document.vala:395
+#: src/MainWindow.vala:742 src/Services/Document.vala:395
 #: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Pociep"
 
-#: src/MainWindow.vala:762
+#: src/MainWindow.vala:767
 msgid "_Open"
 msgstr "_Ôtwōrz"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:768
 msgid "_Cancel"
 msgstr "_Pociep"
 
@@ -569,11 +530,11 @@ msgstr "Zastōmp"
 msgid "Replace all"
 msgstr "Zastōmp wszyjske"
 
-#: src/Widgets/SourceView.vala:408
+#: src/Widgets/SourceView.vala:420
 msgid "Sort Selected Lines"
 msgstr "Zortuj zaznaczōne wiersze"
 
-#: src/Widgets/SourceView.vala:421
+#: src/Widgets/SourceView.vala:433
 msgid "Toggle Comment"
 msgstr "Szaltruj kōmyntorz"
 
@@ -670,7 +631,7 @@ msgstr "Jedyn miesiōnc"
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
 #: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:116
+#: plugins/outline/Vala/ValaSymbolOutline.vala:120
 #: plugins/outline/OutlinePane.vala:27
 msgid "Symbols"
 msgstr "Symbole"
@@ -714,6 +675,37 @@ msgstr "Zainstaluj aby jedyn słownik [aspell]."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Dopołnianie słōw"
+
+#~ msgid "File \"%s\" Cannot Be Created"
+#~ msgstr "Niy idzie stworzić zbioru „%s”"
+
+#~ msgid "Maybe you do not have the necessary permissions."
+#~ msgstr "Możesz niy mieć potrzebnych uprawniyń."
+
+#~ msgid "Maybe the file path provided is not valid."
+#~ msgstr "Możno wkludzōno drōga niyma noleżno."
+
+#~ msgid "The location is read-only."
+#~ msgstr "Tyn plac je ino do ôdczytu."
+
+#~ msgid "The parent directory doesn't exist."
+#~ msgstr "Wyższy katalog niy istniyje."
+
+#~ msgid "It is a mountable location."
+#~ msgstr "To je mōntowalny plac."
+
+#~ msgid ""
+#~ "It is a \"special\" file such as a socket,\n"
+#~ " FIFO, block device, or character device."
+#~ msgstr ""
+#~ "To je „specjalny” zbiōr, jak socket,\n"
+#~ " FIFO, blok abo znak."
+
+#~ msgid "It is an \"unknown\" file type."
+#~ msgstr "To je niyznōmo zorta zbioru."
+
+#~ msgid "File \"%s\" Cannot Be Opened"
+#~ msgstr "Zbiōr „%s” niy może być ôtwarty"
 
 #~ msgid "Web Preview"
 #~ msgstr "Podglōnd w przeglōndarce internetowyj"

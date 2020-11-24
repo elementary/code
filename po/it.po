@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-02 08:55+0000\n"
+"POT-Creation-Date: 2020-11-24 22:13+0000\n"
 "PO-Revision-Date: 2020-10-23 17:15+0000\n"
 "Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
 "Language-Team: Italian <https://l10n.elementary.io/projects/code/code/it/>\n"
@@ -19,112 +19,73 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-04 05:45+0000\n"
 
-#: src/Application.vala:114
-#, c-format
-msgid "File \"%s\" Cannot Be Created"
-msgstr "Impossibile creare il file \"%s\""
-
-#. We list some common errors for quick feedback
-#: src/Application.vala:118
-msgid "Maybe you do not have the necessary permissions."
-msgstr "Forse non disponi delle autorizzazioni necessarie."
-
-#: src/Application.vala:120
-msgid "Maybe the file path provided is not valid."
-msgstr "Probabilmente il percorso del file fornito non è valido."
-
-#: src/Application.vala:122
-msgid "The location is read-only."
-msgstr "La posizione è di sola lettura."
-
-#: src/Application.vala:124
-msgid "The parent directory doesn't exist."
-msgstr "La cartella genitore non esiste."
-
-#: src/Application.vala:145
-msgid "It is a mountable location."
-msgstr "È un percorso montabile."
-
-#: src/Application.vala:148
-msgid ""
-"It is a \"special\" file such as a socket,\n"
-" FIFO, block device, or character device."
-msgstr ""
-"È un file \"speciale\", come ad esempio un socket,\n"
-" un FIFO, un dispositivo a blocchi o un dispositivo a caratteri."
-
-#: src/Application.vala:151
-msgid "It is an \"unknown\" file type."
-msgstr "È un tipo di file \"sconosciuto\"."
-
-#: src/Application.vala:156
-#, c-format
-msgid "File \"%s\" Cannot Be Opened"
-msgstr "Impossibile aprire il file \"%s\""
-
-#: src/Application.vala:220
+#: src/Application.vala:39
 msgid "New Tab"
 msgstr "Nuova scheda"
 
-#: src/Application.vala:221 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Nuova finestra"
 
-#: src/Application.vala:222
+#: src/Application.vala:41
 msgid "Print version info and exit"
 msgstr "Stampa informazioni sulla versione ed esci"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "Set of plugins"
 msgstr "Raccolta di estensioni"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "plugin"
 msgstr "Componenti aggiuntivi"
+
+#: src/Application.vala:43
+msgid "[FILE…]"
+msgstr ""
 
 #: src/MainWindow.vala:139
 msgid "Code"
 msgstr "Codice"
 
-#: src/MainWindow.vala:191 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:193 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "Trova…"
 
-#: src/MainWindow.vala:196
+#: src/MainWindow.vala:198
 msgid "Hide search bar"
 msgstr "Nascondi la barra di ricerca"
 
-#: src/MainWindow.vala:272
+#: src/MainWindow.vala:274
 msgid "Zeitgeist Datasource for Code"
 msgstr "Origine dati Zeitgeist per Codice"
 
-#: src/MainWindow.vala:725 src/Services/Document.vala:496
+#: src/MainWindow.vala:730 src/Services/Document.vala:496
 msgid "All files"
 msgstr "Tutti i file"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:500
+#: src/MainWindow.vala:734 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "File di testo"
 
-#: src/MainWindow.vala:733
+#: src/MainWindow.vala:738
 msgid "Open some files"
 msgstr "Apri alcuni file"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:741
 msgid "Open"
 msgstr "Apri"
 
-#: src/MainWindow.vala:737 src/Services/Document.vala:395
+#: src/MainWindow.vala:742 src/Services/Document.vala:395
 #: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Annulla"
 
-#: src/MainWindow.vala:762
+#: src/MainWindow.vala:767
 msgid "_Open"
 msgstr "_Apri"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:768
 msgid "_Cancel"
 msgstr "_Annulla"
 
@@ -574,11 +535,11 @@ msgstr "Sostituisci"
 msgid "Replace all"
 msgstr "Sostituisci tutto"
 
-#: src/Widgets/SourceView.vala:408
+#: src/Widgets/SourceView.vala:420
 msgid "Sort Selected Lines"
 msgstr "Ordina le linee selezionate"
 
-#: src/Widgets/SourceView.vala:421
+#: src/Widgets/SourceView.vala:433
 msgid "Toggle Comment"
 msgstr "Attiva o disattiva il commento"
 
@@ -671,7 +632,7 @@ msgstr "Un mese"
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
 #: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:116
+#: plugins/outline/Vala/ValaSymbolOutline.vala:120
 #: plugins/outline/OutlinePane.vala:27
 msgid "Symbols"
 msgstr "Simboli"
@@ -715,6 +676,37 @@ msgstr "Installa almeno un dizionario [aspell]."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Autocompletamento parole"
+
+#~ msgid "File \"%s\" Cannot Be Created"
+#~ msgstr "Impossibile creare il file \"%s\""
+
+#~ msgid "Maybe you do not have the necessary permissions."
+#~ msgstr "Forse non disponi delle autorizzazioni necessarie."
+
+#~ msgid "Maybe the file path provided is not valid."
+#~ msgstr "Probabilmente il percorso del file fornito non è valido."
+
+#~ msgid "The location is read-only."
+#~ msgstr "La posizione è di sola lettura."
+
+#~ msgid "The parent directory doesn't exist."
+#~ msgstr "La cartella genitore non esiste."
+
+#~ msgid "It is a mountable location."
+#~ msgstr "È un percorso montabile."
+
+#~ msgid ""
+#~ "It is a \"special\" file such as a socket,\n"
+#~ " FIFO, block device, or character device."
+#~ msgstr ""
+#~ "È un file \"speciale\", come ad esempio un socket,\n"
+#~ " un FIFO, un dispositivo a blocchi o un dispositivo a caratteri."
+
+#~ msgid "It is an \"unknown\" file type."
+#~ msgstr "È un tipo di file \"sconosciuto\"."
+
+#~ msgid "File \"%s\" Cannot Be Opened"
+#~ msgstr "Impossibile aprire il file \"%s\""
 
 #~ msgid "Web Preview"
 #~ msgstr "Anteprima web"

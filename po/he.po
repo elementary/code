@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-02 08:55+0000\n"
+"POT-Creation-Date: 2020-11-24 22:13+0000\n"
 "PO-Revision-Date: 2020-10-04 22:14+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://l10n.elementary.io/projects/code/code/he/>\n"
@@ -19,112 +19,73 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
-#: src/Application.vala:114
-#, c-format
-msgid "File \"%s\" Cannot Be Created"
-msgstr "לא ניתן ליצור את הקובץ „%s”"
-
-#. We list some common errors for quick feedback
-#: src/Application.vala:118
-msgid "Maybe you do not have the necessary permissions."
-msgstr "יתכן שלא נתקבלו ההרשאות הנדרשות."
-
-#: src/Application.vala:120
-msgid "Maybe the file path provided is not valid."
-msgstr "יתכן שנתיב הקובץ אינו תקף."
-
-#: src/Application.vala:122
-msgid "The location is read-only."
-msgstr "המקום לקריאה בלבד."
-
-#: src/Application.vala:124
-msgid "The parent directory doesn't exist."
-msgstr "תיקיית האב אינה קיימת."
-
-#: src/Application.vala:145
-msgid "It is a mountable location."
-msgstr "מיקום זה ניתן לעגינה."
-
-#: src/Application.vala:148
-msgid ""
-"It is a \"special\" file such as a socket,\n"
-" FIFO, block device, or character device."
-msgstr ""
-"זה קובץ „מיוחד” כגון שקע,\n"
-"‎.FIFO, התקן בלוקים או התקן תווים."
-
-#: src/Application.vala:151
-msgid "It is an \"unknown\" file type."
-msgstr "זהו סוג קובץ „לא ידוע”."
-
-#: src/Application.vala:156
-#, c-format
-msgid "File \"%s\" Cannot Be Opened"
-msgstr "לא ניתן לפתוח את הקובץ „%s”"
-
-#: src/Application.vala:220
+#: src/Application.vala:39
 msgid "New Tab"
 msgstr "לשונית חדשה"
 
-#: src/Application.vala:221 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "חלון חדש"
 
-#: src/Application.vala:222
+#: src/Application.vala:41
 msgid "Print version info and exit"
 msgstr "הדפסת מידע גרסה ויציאה"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "Set of plugins"
 msgstr "ערכת תוספים"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "plugin"
 msgstr "תוסף"
+
+#: src/Application.vala:43
+msgid "[FILE…]"
+msgstr ""
 
 #: src/MainWindow.vala:139
 msgid "Code"
 msgstr "קוד"
 
-#: src/MainWindow.vala:191 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:193 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "חיפוש…"
 
-#: src/MainWindow.vala:196
+#: src/MainWindow.vala:198
 msgid "Hide search bar"
 msgstr "הסתרת סרגל החיפוש"
 
-#: src/MainWindow.vala:272
+#: src/MainWindow.vala:274
 msgid "Zeitgeist Datasource for Code"
 msgstr "מקור נתונים צייטגייסט עבור קוד"
 
-#: src/MainWindow.vala:725 src/Services/Document.vala:496
+#: src/MainWindow.vala:730 src/Services/Document.vala:496
 msgid "All files"
 msgstr "כל הקבצים"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:500
+#: src/MainWindow.vala:734 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "קבצי טקסט"
 
-#: src/MainWindow.vala:733
+#: src/MainWindow.vala:738
 msgid "Open some files"
 msgstr "פתיחת מספר קבצים"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:741
 msgid "Open"
 msgstr "פתיחה"
 
-#: src/MainWindow.vala:737 src/Services/Document.vala:395
+#: src/MainWindow.vala:742 src/Services/Document.vala:395
 #: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "ביטול"
 
-#: src/MainWindow.vala:762
+#: src/MainWindow.vala:767
 msgid "_Open"
 msgstr "_פתיחה"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:768
 msgid "_Cancel"
 msgstr "_ביטול"
 
@@ -564,11 +525,11 @@ msgstr "החלפה"
 msgid "Replace all"
 msgstr "החלפת הכול"
 
-#: src/Widgets/SourceView.vala:408
+#: src/Widgets/SourceView.vala:420
 msgid "Sort Selected Lines"
 msgstr "סידור השורות הנבחרות"
 
-#: src/Widgets/SourceView.vala:421
+#: src/Widgets/SourceView.vala:433
 msgid "Toggle Comment"
 msgstr "החלפת מצב הערה"
 
@@ -661,7 +622,7 @@ msgstr "חודש אחד"
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
 #: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:116
+#: plugins/outline/Vala/ValaSymbolOutline.vala:120
 #: plugins/outline/OutlinePane.vala:27
 msgid "Symbols"
 msgstr "סמלים"
@@ -705,6 +666,37 @@ msgstr "נא להתקין לפחות מילון [aspell] אחד."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - השלמת מילים"
+
+#~ msgid "File \"%s\" Cannot Be Created"
+#~ msgstr "לא ניתן ליצור את הקובץ „%s”"
+
+#~ msgid "Maybe you do not have the necessary permissions."
+#~ msgstr "יתכן שלא נתקבלו ההרשאות הנדרשות."
+
+#~ msgid "Maybe the file path provided is not valid."
+#~ msgstr "יתכן שנתיב הקובץ אינו תקף."
+
+#~ msgid "The location is read-only."
+#~ msgstr "המקום לקריאה בלבד."
+
+#~ msgid "The parent directory doesn't exist."
+#~ msgstr "תיקיית האב אינה קיימת."
+
+#~ msgid "It is a mountable location."
+#~ msgstr "מיקום זה ניתן לעגינה."
+
+#~ msgid ""
+#~ "It is a \"special\" file such as a socket,\n"
+#~ " FIFO, block device, or character device."
+#~ msgstr ""
+#~ "זה קובץ „מיוחד” כגון שקע,\n"
+#~ "‎.FIFO, התקן בלוקים או התקן תווים."
+
+#~ msgid "It is an \"unknown\" file type."
+#~ msgstr "זהו סוג קובץ „לא ידוע”."
+
+#~ msgid "File \"%s\" Cannot Be Opened"
+#~ msgstr "לא ניתן לפתוח את הקובץ „%s”"
 
 #~ msgid "Web Preview"
 #~ msgstr "תצוגה מקדימה ברשת"

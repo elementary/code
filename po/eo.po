@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-02 08:55+0000\n"
+"POT-Creation-Date: 2020-11-24 22:13+0000\n"
 "PO-Revision-Date: 2020-03-14 21:09+0000\n"
 "Last-Translator: Shtonchjo <shtonchjo@gmail.com>\n"
 "Language-Team: Esperanto <https://l10n.elementary.io/projects/code/code/eo/"
@@ -20,112 +20,73 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:01+0000\n"
 
-#: src/Application.vala:114
-#, c-format
-msgid "File \"%s\" Cannot Be Created"
-msgstr "Ne eblis krei la dosieron „%s“"
-
-#. We list some common errors for quick feedback
-#: src/Application.vala:118
-msgid "Maybe you do not have the necessary permissions."
-msgstr "Eble, vi ne posedas la necesajn permesojn."
-
-#: src/Application.vala:120
-msgid "Maybe the file path provided is not valid."
-msgstr "Eble, la dosierindiko provizita ne validas."
-
-#: src/Application.vala:122
-msgid "The location is read-only."
-msgstr "La loko estas nurlega."
-
-#: src/Application.vala:124
-msgid "The parent directory doesn't exist."
-msgstr "La parenca dosierujo ne ekzistas."
-
-#: src/Application.vala:145
-msgid "It is a mountable location."
-msgstr "Tio estas muntebla loko."
-
-#: src/Application.vala:148
-msgid ""
-"It is a \"special\" file such as a socket,\n"
-" FIFO, block device, or character device."
-msgstr ""
-"Tio estas „speciala“ dosiero, konekt-interfaco,\n"
-" FIFO-rektvica memoro, bloka aŭ bajta dosiero."
-
-#: src/Application.vala:151
-msgid "It is an \"unknown\" file type."
-msgstr "Tio estas „nekonata“ dosiertipo."
-
-#: src/Application.vala:156
-#, c-format
-msgid "File \"%s\" Cannot Be Opened"
-msgstr "Ne eblis malfermi la dosieron „%s“"
-
-#: src/Application.vala:220
+#: src/Application.vala:39
 msgid "New Tab"
 msgstr "Nova langeto"
 
-#: src/Application.vala:221 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Nova fenestro"
 
-#: src/Application.vala:222
+#: src/Application.vala:41
 msgid "Print version info and exit"
 msgstr "Presi versian informon kaj eliri"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "Set of plugins"
 msgstr "Kromaĵaro"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "plugin"
 msgstr "kromaĵo"
+
+#: src/Application.vala:43
+msgid "[FILE…]"
+msgstr ""
 
 #: src/MainWindow.vala:139
 msgid "Code"
 msgstr "Kodo"
 
-#: src/MainWindow.vala:191 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:193 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "Trovi…"
 
-#: src/MainWindow.vala:196
+#: src/MainWindow.vala:198
 msgid "Hide search bar"
 msgstr "Kaŝi serĉbreton"
 
-#: src/MainWindow.vala:272
+#: src/MainWindow.vala:274
 msgid "Zeitgeist Datasource for Code"
 msgstr "Datumfonto Zeitgeist por Kodo"
 
-#: src/MainWindow.vala:725 src/Services/Document.vala:496
+#: src/MainWindow.vala:730 src/Services/Document.vala:496
 msgid "All files"
 msgstr "Ĉiuj dosieroj"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:500
+#: src/MainWindow.vala:734 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "Tekstaj dosieroj"
 
-#: src/MainWindow.vala:733
+#: src/MainWindow.vala:738
 msgid "Open some files"
 msgstr "Malfermi dosierojn"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:741
 msgid "Open"
 msgstr "Malfermi"
 
-#: src/MainWindow.vala:737 src/Services/Document.vala:395
+#: src/MainWindow.vala:742 src/Services/Document.vala:395
 #: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Rezigni"
 
-#: src/MainWindow.vala:762
+#: src/MainWindow.vala:767
 msgid "_Open"
 msgstr "_Malfermi"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:768
 msgid "_Cancel"
 msgstr "_Rezigni"
 
@@ -571,11 +532,11 @@ msgstr "Anstataŭigi"
 msgid "Replace all"
 msgstr "Anstataŭigi ĉiujn"
 
-#: src/Widgets/SourceView.vala:408
+#: src/Widgets/SourceView.vala:420
 msgid "Sort Selected Lines"
 msgstr "Ordigi elektitajn liniojn"
 
-#: src/Widgets/SourceView.vala:421
+#: src/Widgets/SourceView.vala:433
 msgid "Toggle Comment"
 msgstr "Baskuli komentojn"
 
@@ -672,7 +633,7 @@ msgstr "Unu monaton"
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
 #: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:116
+#: plugins/outline/Vala/ValaSymbolOutline.vala:120
 #: plugins/outline/OutlinePane.vala:27
 msgid "Symbols"
 msgstr "Simboloj"
@@ -718,6 +679,37 @@ msgstr "Bonvolu instali almenaŭ unu [aspell]-vortaron."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - vortkompletigo"
+
+#~ msgid "File \"%s\" Cannot Be Created"
+#~ msgstr "Ne eblis krei la dosieron „%s“"
+
+#~ msgid "Maybe you do not have the necessary permissions."
+#~ msgstr "Eble, vi ne posedas la necesajn permesojn."
+
+#~ msgid "Maybe the file path provided is not valid."
+#~ msgstr "Eble, la dosierindiko provizita ne validas."
+
+#~ msgid "The location is read-only."
+#~ msgstr "La loko estas nurlega."
+
+#~ msgid "The parent directory doesn't exist."
+#~ msgstr "La parenca dosierujo ne ekzistas."
+
+#~ msgid "It is a mountable location."
+#~ msgstr "Tio estas muntebla loko."
+
+#~ msgid ""
+#~ "It is a \"special\" file such as a socket,\n"
+#~ " FIFO, block device, or character device."
+#~ msgstr ""
+#~ "Tio estas „speciala“ dosiero, konekt-interfaco,\n"
+#~ " FIFO-rektvica memoro, bloka aŭ bajta dosiero."
+
+#~ msgid "It is an \"unknown\" file type."
+#~ msgstr "Tio estas „nekonata“ dosiertipo."
+
+#~ msgid "File \"%s\" Cannot Be Opened"
+#~ msgstr "Ne eblis malfermi la dosieron „%s“"
 
 #~ msgid "Web Preview"
 #~ msgstr "Retpaĝa antaŭvido"

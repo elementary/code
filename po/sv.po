@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-02 08:55+0000\n"
+"POT-Creation-Date: 2020-11-24 22:13+0000\n"
 "PO-Revision-Date: 2018-10-20 00:10+0000\n"
 "Last-Translator: Fredrik B <frbo9002@gmail.com>\n"
 "Language-Team: Swedish <https://weblate.elementary.io/projects/code/code/sv/"
@@ -20,114 +20,75 @@ msgstr ""
 "X-Generator: Weblate 3.0.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:03+0000\n"
 
-#: src/Application.vala:114
-#, fuzzy, c-format
-msgid "File \"%s\" Cannot Be Created"
-msgstr "Filen \"%s\" kan inte läsas"
-
-#. We list some common errors for quick feedback
-#: src/Application.vala:118
-msgid "Maybe you do not have the necessary permissions."
-msgstr "Du kanske inte har nödvändiga behörigheter."
-
-#: src/Application.vala:120
-msgid "Maybe the file path provided is not valid."
-msgstr "Sökvägen är kanske ogiltig."
-
-#: src/Application.vala:122
-msgid "The location is read-only."
-msgstr "Platsen är skrivskyddad."
-
-#: src/Application.vala:124
-msgid "The parent directory doesn't exist."
-msgstr "Föräldermappen finns inte."
-
-#: src/Application.vala:145
-msgid "It is a mountable location."
-msgstr "Det är en monterbar plats."
-
-#: src/Application.vala:148
-msgid ""
-"It is a \"special\" file such as a socket,\n"
-" FIFO, block device, or character device."
-msgstr ""
-"Det är en \"speciell\" fil, såsom en socket,\n"
-" FIFO, blockenhet eller bokstavsenhet."
-
-#: src/Application.vala:151
-msgid "It is an \"unknown\" file type."
-msgstr "Det är en \"okänd\" filtyp."
-
-#: src/Application.vala:156
-#, fuzzy, c-format
-msgid "File \"%s\" Cannot Be Opened"
-msgstr "Filen \"%s\" kan inte läsas"
-
-#: src/Application.vala:220
+#: src/Application.vala:39
 msgid "New Tab"
 msgstr "Ny flik"
 
-#: src/Application.vala:221 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Nytt fönster"
 
-#: src/Application.vala:222
+#: src/Application.vala:41
 msgid "Print version info and exit"
 msgstr "Skriv ut versionsinformation och avsluta"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "Set of plugins"
 msgstr "uppsättning av tillägg"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 #, fuzzy
 msgid "plugin"
 msgstr "uppsättning av tillägg"
+
+#: src/Application.vala:43
+msgid "[FILE…]"
+msgstr ""
 
 #: src/MainWindow.vala:139
 msgid "Code"
 msgstr "Kod"
 
-#: src/MainWindow.vala:191 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:193 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "Sök…"
 
-#: src/MainWindow.vala:196
+#: src/MainWindow.vala:198
 msgid "Hide search bar"
 msgstr "Dölj sökfältet"
 
-#: src/MainWindow.vala:272
+#: src/MainWindow.vala:274
 #, fuzzy
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zeitgeist databaskälla för Scratch"
 
-#: src/MainWindow.vala:725 src/Services/Document.vala:496
+#: src/MainWindow.vala:730 src/Services/Document.vala:496
 msgid "All files"
 msgstr "Alla filer"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:500
+#: src/MainWindow.vala:734 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "Textfiler"
 
-#: src/MainWindow.vala:733
+#: src/MainWindow.vala:738
 msgid "Open some files"
 msgstr "Öppna några filer"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:741
 msgid "Open"
 msgstr "Öppna"
 
-#: src/MainWindow.vala:737 src/Services/Document.vala:395
+#: src/MainWindow.vala:742 src/Services/Document.vala:395
 #: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/MainWindow.vala:762
+#: src/MainWindow.vala:767
 msgid "_Open"
 msgstr "_Öppna"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:768
 msgid "_Cancel"
 msgstr "_Avbryt"
 
@@ -585,11 +546,11 @@ msgstr "Ersätt"
 msgid "Replace all"
 msgstr "Ersätt alla"
 
-#: src/Widgets/SourceView.vala:408
+#: src/Widgets/SourceView.vala:420
 msgid "Sort Selected Lines"
 msgstr "Sortera valda rader"
 
-#: src/Widgets/SourceView.vala:421
+#: src/Widgets/SourceView.vala:433
 msgid "Toggle Comment"
 msgstr "Visa/dölj kommentarer"
 
@@ -686,7 +647,7 @@ msgstr "En månad"
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
 #: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:116
+#: plugins/outline/Vala/ValaSymbolOutline.vala:120
 #: plugins/outline/OutlinePane.vala:27
 msgid "Symbols"
 msgstr "Symboler"
@@ -735,6 +696,39 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Ordförslag"
+
+#, fuzzy
+#~ msgid "File \"%s\" Cannot Be Created"
+#~ msgstr "Filen \"%s\" kan inte läsas"
+
+#~ msgid "Maybe you do not have the necessary permissions."
+#~ msgstr "Du kanske inte har nödvändiga behörigheter."
+
+#~ msgid "Maybe the file path provided is not valid."
+#~ msgstr "Sökvägen är kanske ogiltig."
+
+#~ msgid "The location is read-only."
+#~ msgstr "Platsen är skrivskyddad."
+
+#~ msgid "The parent directory doesn't exist."
+#~ msgstr "Föräldermappen finns inte."
+
+#~ msgid "It is a mountable location."
+#~ msgstr "Det är en monterbar plats."
+
+#~ msgid ""
+#~ "It is a \"special\" file such as a socket,\n"
+#~ " FIFO, block device, or character device."
+#~ msgstr ""
+#~ "Det är en \"speciell\" fil, såsom en socket,\n"
+#~ " FIFO, blockenhet eller bokstavsenhet."
+
+#~ msgid "It is an \"unknown\" file type."
+#~ msgstr "Det är en \"okänd\" filtyp."
+
+#, fuzzy
+#~ msgid "File \"%s\" Cannot Be Opened"
+#~ msgstr "Filen \"%s\" kan inte läsas"
 
 #~ msgid "Web Preview"
 #~ msgstr "Förhandsvisning för webben"

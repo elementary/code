@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-02 08:55+0000\n"
+"POT-Creation-Date: 2020-11-24 22:13+0000\n"
 "PO-Revision-Date: 2019-07-12 12:46+0000\n"
 "Last-Translator: Jung-Kyu Park <bagjunggyu@gmail.com>\n"
 "Language-Team: Korean <https://l10n.elementary.io/projects/code/code/ko/>\n"
@@ -19,113 +19,74 @@ msgstr ""
 "X-Generator: Weblate 3.6.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:02+0000\n"
 
-#: src/Application.vala:114
-#, c-format
-msgid "File \"%s\" Cannot Be Created"
-msgstr "\"%s\" 파일을 만들 수 없습니다"
-
-#. We list some common errors for quick feedback
-#: src/Application.vala:118
-msgid "Maybe you do not have the necessary permissions."
-msgstr "필요한 권한을 가지고 계시지 않는 것 같습니다."
-
-#: src/Application.vala:120
-msgid "Maybe the file path provided is not valid."
-msgstr "지정하신 경로가 잘못된 것 같습니다."
-
-#: src/Application.vala:122
-msgid "The location is read-only."
-msgstr "그 폴더는 읽기 전용입니다."
-
-#: src/Application.vala:124
-msgid "The parent directory doesn't exist."
-msgstr "상위 디렉토리가 없습니다."
-
-#: src/Application.vala:145
-msgid "It is a mountable location."
-msgstr "마운트 가능한 폴더입니다."
-
-#: src/Application.vala:148
-msgid ""
-"It is a \"special\" file such as a socket,\n"
-" FIFO, block device, or character device."
-msgstr ""
-"다음과 같은 \"특별한\" 파일입니다 socket,\n"
-" FIFO, block device, 또는 character device."
-
-#: src/Application.vala:151
-msgid "It is an \"unknown\" file type."
-msgstr "\"알 수 없는\" 파일 형식입니다."
-
-#: src/Application.vala:156
-#, c-format
-msgid "File \"%s\" Cannot Be Opened"
-msgstr "\"%s\" 파일을 열 수 없습니다"
-
-#: src/Application.vala:220
+#: src/Application.vala:39
 msgid "New Tab"
 msgstr "새 탭"
 
-#: src/Application.vala:221 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "새 창"
 
-#: src/Application.vala:222
+#: src/Application.vala:41
 msgid "Print version info and exit"
 msgstr "버전 정보를 출력하고 나가기"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "Set of plugins"
 msgstr "플러그인 모음"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "plugin"
 msgstr "플러그인"
+
+#: src/Application.vala:43
+msgid "[FILE…]"
+msgstr ""
 
 #: src/MainWindow.vala:139
 msgid "Code"
 msgstr "코드"
 
-#: src/MainWindow.vala:191 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:193 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "찾기…"
 
-#: src/MainWindow.vala:196
+#: src/MainWindow.vala:198
 msgid "Hide search bar"
 msgstr "검색 바 숨기기"
 
-#: src/MainWindow.vala:272
+#: src/MainWindow.vala:274
 #, fuzzy
 msgid "Zeitgeist Datasource for Code"
 msgstr "스크래치를 위한 Zeitgeist 데이터 소스"
 
-#: src/MainWindow.vala:725 src/Services/Document.vala:496
+#: src/MainWindow.vala:730 src/Services/Document.vala:496
 msgid "All files"
 msgstr "모든 파일"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:500
+#: src/MainWindow.vala:734 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "텍스트 파일"
 
-#: src/MainWindow.vala:733
+#: src/MainWindow.vala:738
 msgid "Open some files"
 msgstr "파일 열기"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:741
 msgid "Open"
 msgstr "열기"
 
-#: src/MainWindow.vala:737 src/Services/Document.vala:395
+#: src/MainWindow.vala:742 src/Services/Document.vala:395
 #: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "취소"
 
-#: src/MainWindow.vala:762
+#: src/MainWindow.vala:767
 msgid "_Open"
 msgstr "열기(_O)"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:768
 msgid "_Cancel"
 msgstr "취소(_C)"
 
@@ -570,11 +531,11 @@ msgstr "바꾸기"
 msgid "Replace all"
 msgstr "모두 바꾸기"
 
-#: src/Widgets/SourceView.vala:408
+#: src/Widgets/SourceView.vala:420
 msgid "Sort Selected Lines"
 msgstr "선택한 줄 정렬"
 
-#: src/Widgets/SourceView.vala:421
+#: src/Widgets/SourceView.vala:433
 msgid "Toggle Comment"
 msgstr "코멘트 여닫기"
 
@@ -671,7 +632,7 @@ msgstr "한 달"
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
 #: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:116
+#: plugins/outline/Vala/ValaSymbolOutline.vala:120
 #: plugins/outline/OutlinePane.vala:27
 msgid "Symbols"
 msgstr "기호"
@@ -717,6 +678,37 @@ msgstr "적어도 맞춤법 사전 [aspell] 한 개는 설치해주세요."
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - 단어 완성"
+
+#~ msgid "File \"%s\" Cannot Be Created"
+#~ msgstr "\"%s\" 파일을 만들 수 없습니다"
+
+#~ msgid "Maybe you do not have the necessary permissions."
+#~ msgstr "필요한 권한을 가지고 계시지 않는 것 같습니다."
+
+#~ msgid "Maybe the file path provided is not valid."
+#~ msgstr "지정하신 경로가 잘못된 것 같습니다."
+
+#~ msgid "The location is read-only."
+#~ msgstr "그 폴더는 읽기 전용입니다."
+
+#~ msgid "The parent directory doesn't exist."
+#~ msgstr "상위 디렉토리가 없습니다."
+
+#~ msgid "It is a mountable location."
+#~ msgstr "마운트 가능한 폴더입니다."
+
+#~ msgid ""
+#~ "It is a \"special\" file such as a socket,\n"
+#~ " FIFO, block device, or character device."
+#~ msgstr ""
+#~ "다음과 같은 \"특별한\" 파일입니다 socket,\n"
+#~ " FIFO, block device, 또는 character device."
+
+#~ msgid "It is an \"unknown\" file type."
+#~ msgstr "\"알 수 없는\" 파일 형식입니다."
+
+#~ msgid "File \"%s\" Cannot Be Opened"
+#~ msgstr "\"%s\" 파일을 열 수 없습니다"
 
 #~ msgid "Web Preview"
 #~ msgstr "웹 미리 보기"
