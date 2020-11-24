@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-02 08:55+0000\n"
-"PO-Revision-Date: 2020-10-12 22:54+0000\n"
+"PO-Revision-Date: 2020-10-23 17:15+0000\n"
 "Last-Translator: Fabio Zaramella <fabiozaramella@hotmail.it>\n"
 "Language-Team: Italian <https://l10n.elementary.io/projects/code/code/it/>\n"
 "Language: it\n"
@@ -76,7 +76,7 @@ msgstr "Stampa informazioni sulla versione ed esci"
 
 #: src/Application.vala:223
 msgid "Set of plugins"
-msgstr "Raccolta di plugin"
+msgstr "Raccolta di estensioni"
 
 #: src/Application.vala:223
 msgid "plugin"
@@ -211,7 +211,7 @@ msgstr "Sempre"
 
 #: src/Dialogs/PreferencesDialog.vala:126
 msgid "Show Mini Map:"
-msgstr "Mostra Mini Map:"
+msgstr "Mostra minimappa:"
 
 #: src/Dialogs/PreferencesDialog.vala:129
 msgid "Line width guide:"
@@ -256,12 +256,12 @@ msgstr "Altre azioni"
 
 #: src/FolderManager/FileItem.vala:119 src/FolderManager/FolderItem.vala:95
 msgid "Rename"
-msgstr "Cambia nome"
+msgstr "Rinomina"
 
 #: src/FolderManager/FileItem.vala:125 src/FolderManager/FolderItem.vala:101
 #: src/FolderManager/ProjectFolderItem.vala:103
 msgid "Move to Trash"
-msgstr "Muovi al cestino"
+msgstr "Sposta nel cestino"
 
 #: src/FolderManager/FileView.vala:39
 msgid "Folders"
@@ -307,7 +307,7 @@ msgstr "%s, nuovo"
 
 #: src/FolderManager/ProjectFolderItem.vala:347
 msgid "Branch"
-msgstr "Ramo"
+msgstr "Ramo di sviluppo"
 
 #: src/Services/Document.vala:260
 #, c-format
@@ -316,7 +316,7 @@ msgstr "%s non è un file di testo"
 
 #: src/Services/Document.vala:261
 msgid "Code will not load this type of file."
-msgstr "Code non può caricare questo tipo di file."
+msgstr "Codice non può caricare questo tipo di file."
 
 #: src/Services/Document.vala:263
 msgid "Load Anyway"
@@ -329,7 +329,7 @@ msgstr "Il caricamento del file \"%s\" sta impiegando molto tempo"
 
 #: src/Services/Document.vala:285
 msgid "Please wait while Code is loading the file."
-msgstr "Attendere mentre Code carica il file."
+msgstr "Attendere mentre Codice carica il file."
 
 #: src/Services/Document.vala:287
 msgid "Cancel Loading"
@@ -380,7 +380,7 @@ msgid ""
 "The location containing the file \"%s\" was unmounted. Do you want to save "
 "somewhere else?"
 msgstr ""
-"Il percorso che contiene il file \"%s\" è stato smontato. Vuoi salvare da "
+"Il percorso che contiene il file \"%s\" è stato smontato. Vuoi salvarlo da "
 "qualche altra parte?"
 
 #: src/Services/Document.vala:724
@@ -390,7 +390,7 @@ msgstr "Salva come…"
 #: src/Services/Document.vala:729
 #, c-format
 msgid "File \"%s\" was deleted. Do you want to save it anyway?"
-msgstr "Il file \"%s\" è stato cancellato. Vuoi salvare comunque?"
+msgstr "Il file \"%s\" è stato cancellato. Vuoi salvarlo comunque?"
 
 #. If the file can't be written
 #: src/Services/Document.vala:744
@@ -442,7 +442,7 @@ msgstr "Numero di riga"
 
 #: src/Widgets/FormatBar.vala:101
 msgid "Filter languages"
-msgstr "Filtrare i linguaggi"
+msgstr "Filtra i linguaggi"
 
 #: src/Widgets/FormatBar.vala:123
 msgid "Plain Text"
