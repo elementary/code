@@ -40,7 +40,7 @@ namespace Scratch {
             { "new-window", 'n', 0, OptionArg.NONE, null, N_("New Window"), null },
             { "version", 'v', 0, OptionArg.NONE, null, N_("Print version info and exit"), null },
             { "set", 's', 0, OptionArg.STRING, ref _app_cmd_name, N_("Set of plugins"), N_("plugin") },
-            { GLib.OPTION_REMAINING, 0, 0, OptionArg.FILENAME_ARRAY, null, null, null },
+            { GLib.OPTION_REMAINING, 0, 0, OptionArg.FILENAME_ARRAY, null, null, N_("[FILE…]") },
             { null }
         };
 
