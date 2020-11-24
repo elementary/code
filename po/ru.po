@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-02 08:55+0000\n"
+"POT-Creation-Date: 2020-11-24 22:13+0000\n"
 "PO-Revision-Date: 2019-09-10 14:54+0000\n"
 "Last-Translator: Daniel Foré <daniel@elementary.io>\n"
 "Language-Team: Russian <https://l10n.elementary.io/projects/code/code/ru/>\n"
@@ -20,113 +20,74 @@ msgstr ""
 "X-Generator: Weblate 3.7.1\n"
 "X-Launchpad-Export-Date: 2017-05-04 05:45+0000\n"
 
-#: src/Application.vala:114
-#, c-format
-msgid "File \"%s\" Cannot Be Created"
-msgstr "Файл «%s» не может быть создан"
-
-#. We list some common errors for quick feedback
-#: src/Application.vala:118
-msgid "Maybe you do not have the necessary permissions."
-msgstr "Возможно, у вас нет нужных прав."
-
-#: src/Application.vala:120
-msgid "Maybe the file path provided is not valid."
-msgstr "Возможно, предоставленный путь неправильный."
-
-#: src/Application.vala:122
-msgid "The location is read-only."
-msgstr "Путь доступен только для чтения."
-
-#: src/Application.vala:124
-msgid "The parent directory doesn't exist."
-msgstr "Родительская директория не существует."
-
-#: src/Application.vala:145
-msgid "It is a mountable location."
-msgstr "Это примонтированный путь."
-
-#: src/Application.vala:148
-msgid ""
-"It is a \"special\" file such as a socket,\n"
-" FIFO, block device, or character device."
-msgstr ""
-"Это «специальный» файл, как сокет,\n"
-" FIFO, блочное или символьное устройство."
-
-#: src/Application.vala:151
-msgid "It is an \"unknown\" file type."
-msgstr "Это «неизвестный» тип файла."
-
-#: src/Application.vala:156
-#, c-format
-msgid "File \"%s\" Cannot Be Opened"
-msgstr "Файл «%s» не может быть открыт"
-
-#: src/Application.vala:220
+#: src/Application.vala:39
 msgid "New Tab"
 msgstr "Новая вкладка"
 
-#: src/Application.vala:221 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Новое окно"
 
-#: src/Application.vala:222
+#: src/Application.vala:41
 msgid "Print version info and exit"
 msgstr "Распечатать информацию о версии и выйти"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "Set of plugins"
 msgstr "Набор надстроек"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "plugin"
 msgstr "Набор надстроек"
+
+#: src/Application.vala:43
+msgid "[FILE…]"
+msgstr ""
 
 #: src/MainWindow.vala:139
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:191 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:193 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "Поиск…"
 
-#: src/MainWindow.vala:196
+#: src/MainWindow.vala:198
 msgid "Hide search bar"
 msgstr "Скрыть панель поиска"
 
-#: src/MainWindow.vala:272
+#: src/MainWindow.vala:274
 #, fuzzy
 msgid "Zeitgeist Datasource for Code"
 msgstr "Отслеживать источник данных для редактора Scratch"
 
-#: src/MainWindow.vala:725 src/Services/Document.vala:496
+#: src/MainWindow.vala:730 src/Services/Document.vala:496
 msgid "All files"
 msgstr "Все файлы"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:500
+#: src/MainWindow.vala:734 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "Текстовые файлы"
 
-#: src/MainWindow.vala:733
+#: src/MainWindow.vala:738
 msgid "Open some files"
 msgstr "Открыть файлы"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:741
 msgid "Open"
 msgstr "Открыть"
 
-#: src/MainWindow.vala:737 src/Services/Document.vala:395
+#: src/MainWindow.vala:742 src/Services/Document.vala:395
 #: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Отменить"
 
-#: src/MainWindow.vala:762
+#: src/MainWindow.vala:767
 msgid "_Open"
 msgstr "_Открыть"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:768
 msgid "_Cancel"
 msgstr "_Отменить"
 
@@ -577,11 +538,11 @@ msgstr "Заменить"
 msgid "Replace all"
 msgstr "Заменить всё"
 
-#: src/Widgets/SourceView.vala:408
+#: src/Widgets/SourceView.vala:420
 msgid "Sort Selected Lines"
 msgstr "Сортировать выделенные строки"
 
-#: src/Widgets/SourceView.vala:421
+#: src/Widgets/SourceView.vala:433
 msgid "Toggle Comment"
 msgstr "Закомментировать/Раскомментировать"
 
@@ -678,7 +639,7 @@ msgstr "Один месяц"
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
 #: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:116
+#: plugins/outline/Vala/ValaSymbolOutline.vala:120
 #: plugins/outline/OutlinePane.vala:27
 msgid "Symbols"
 msgstr "Символы"
@@ -724,6 +685,37 @@ msgstr "Пожалуйста, установите хотя бы один [aspel
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s — Автозавершение слов"
+
+#~ msgid "File \"%s\" Cannot Be Created"
+#~ msgstr "Файл «%s» не может быть создан"
+
+#~ msgid "Maybe you do not have the necessary permissions."
+#~ msgstr "Возможно, у вас нет нужных прав."
+
+#~ msgid "Maybe the file path provided is not valid."
+#~ msgstr "Возможно, предоставленный путь неправильный."
+
+#~ msgid "The location is read-only."
+#~ msgstr "Путь доступен только для чтения."
+
+#~ msgid "The parent directory doesn't exist."
+#~ msgstr "Родительская директория не существует."
+
+#~ msgid "It is a mountable location."
+#~ msgstr "Это примонтированный путь."
+
+#~ msgid ""
+#~ "It is a \"special\" file such as a socket,\n"
+#~ " FIFO, block device, or character device."
+#~ msgstr ""
+#~ "Это «специальный» файл, как сокет,\n"
+#~ " FIFO, блочное или символьное устройство."
+
+#~ msgid "It is an \"unknown\" file type."
+#~ msgstr "Это «неизвестный» тип файла."
+
+#~ msgid "File \"%s\" Cannot Be Opened"
+#~ msgstr "Файл «%s» не может быть открыт"
 
 #~ msgid "Web Preview"
 #~ msgstr "Предпросмотр в веб-браузере"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: scratch\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-02 08:55+0000\n"
+"POT-Creation-Date: 2020-11-24 22:13+0000\n"
 "PO-Revision-Date: 2020-08-16 06:13+0000\n"
 "Last-Translator: P.-H. Lin <cypressyew@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://l10n.elementary.io/projects/"
@@ -19,113 +19,73 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 "X-Launchpad-Export-Date: 2017-05-03 06:04+0000\n"
 
-#: src/Application.vala:114
-#, c-format
-msgid "File \"%s\" Cannot Be Created"
-msgstr "檔案「%s」無法產生"
-
-#. We list some common errors for quick feedback
-#: src/Application.vala:118
-msgid "Maybe you do not have the necessary permissions."
-msgstr "或許您尚未獲得必要的許可。"
-
-#: src/Application.vala:120
-msgid "Maybe the file path provided is not valid."
-msgstr "也許提供的檔案路徑無效。"
-
-#: src/Application.vala:122
-msgid "The location is read-only."
-msgstr "該位置唯讀。"
-
-#: src/Application.vala:124
-msgid "The parent directory doesn't exist."
-msgstr "不存在上層目錄。"
-
-#: src/Application.vala:145
-msgid "It is a mountable location."
-msgstr "這是可掛載的位置。"
-
-#: src/Application.vala:148
-#, fuzzy
-msgid ""
-"It is a \"special\" file such as a socket,\n"
-" FIFO, block device, or character device."
-msgstr ""
-"這是「特殊」檔案，像是 socket、\n"
-" fifio、區塊裝置、或字元裝置。"
-
-#: src/Application.vala:151
-msgid "It is an \"unknown\" file type."
-msgstr "這是「未知」檔案類型。"
-
-#: src/Application.vala:156
-#, c-format
-msgid "File \"%s\" Cannot Be Opened"
-msgstr "檔案「%s」無法開啟"
-
-#: src/Application.vala:220
+#: src/Application.vala:39
 msgid "New Tab"
 msgstr "新增分頁"
 
-#: src/Application.vala:221 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "新增視窗"
 
-#: src/Application.vala:222
+#: src/Application.vala:41
 msgid "Print version info and exit"
 msgstr "列印版本資訊並離開"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "Set of plugins"
 msgstr "插件集"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "plugin"
 msgstr "插件"
+
+#: src/Application.vala:43
+msgid "[FILE…]"
+msgstr ""
 
 #: src/MainWindow.vala:139
 msgid "Code"
 msgstr "Code"
 
-#: src/MainWindow.vala:191 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:193 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "尋找…"
 
-#: src/MainWindow.vala:196
+#: src/MainWindow.vala:198
 msgid "Hide search bar"
 msgstr "隱藏搜尋列"
 
-#: src/MainWindow.vala:272
+#: src/MainWindow.vala:274
 msgid "Zeitgeist Datasource for Code"
 msgstr "供 Code 使用的 Zeitgeist 資料來源"
 
-#: src/MainWindow.vala:725 src/Services/Document.vala:496
+#: src/MainWindow.vala:730 src/Services/Document.vala:496
 msgid "All files"
 msgstr "所有檔案"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:500
+#: src/MainWindow.vala:734 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "文字檔案"
 
-#: src/MainWindow.vala:733
+#: src/MainWindow.vala:738
 msgid "Open some files"
 msgstr "開啟一些檔案"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:741
 msgid "Open"
 msgstr "開啟"
 
-#: src/MainWindow.vala:737 src/Services/Document.vala:395
+#: src/MainWindow.vala:742 src/Services/Document.vala:395
 #: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "取消"
 
-#: src/MainWindow.vala:762
+#: src/MainWindow.vala:767
 msgid "_Open"
 msgstr "開啟(_O)"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:768
 msgid "_Cancel"
 msgstr "取消(_C)"
 
@@ -563,11 +523,11 @@ msgstr "取代"
 msgid "Replace all"
 msgstr "全部取代"
 
-#: src/Widgets/SourceView.vala:408
+#: src/Widgets/SourceView.vala:420
 msgid "Sort Selected Lines"
 msgstr "排序所選取的行"
 
-#: src/Widgets/SourceView.vala:421
+#: src/Widgets/SourceView.vala:433
 msgid "Toggle Comment"
 msgstr "切換註釋"
 
@@ -664,7 +624,7 @@ msgstr "一個月"
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
 #: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:116
+#: plugins/outline/Vala/ValaSymbolOutline.vala:120
 #: plugins/outline/OutlinePane.vala:27
 msgid "Symbols"
 msgstr "符號"
@@ -708,6 +668,38 @@ msgstr "請安裝至少一本 [aspell] 字典。"
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - 單字補完"
+
+#~ msgid "File \"%s\" Cannot Be Created"
+#~ msgstr "檔案「%s」無法產生"
+
+#~ msgid "Maybe you do not have the necessary permissions."
+#~ msgstr "或許您尚未獲得必要的許可。"
+
+#~ msgid "Maybe the file path provided is not valid."
+#~ msgstr "也許提供的檔案路徑無效。"
+
+#~ msgid "The location is read-only."
+#~ msgstr "該位置唯讀。"
+
+#~ msgid "The parent directory doesn't exist."
+#~ msgstr "不存在上層目錄。"
+
+#~ msgid "It is a mountable location."
+#~ msgstr "這是可掛載的位置。"
+
+#, fuzzy
+#~ msgid ""
+#~ "It is a \"special\" file such as a socket,\n"
+#~ " FIFO, block device, or character device."
+#~ msgstr ""
+#~ "這是「特殊」檔案，像是 socket、\n"
+#~ " fifio、區塊裝置、或字元裝置。"
+
+#~ msgid "It is an \"unknown\" file type."
+#~ msgstr "這是「未知」檔案類型。"
+
+#~ msgid "File \"%s\" Cannot Be Opened"
+#~ msgstr "檔案「%s」無法開啟"
 
 #~ msgid "Web Preview"
 #~ msgstr "網頁預覽"
