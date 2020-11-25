@@ -345,6 +345,15 @@ namespace Scratch {
                 }
             });
 
+            folder_manager_view.close_all_docs_from_path.connect ((a) => {
+                var docs = document_view.docs.copy ();
+                docs.foreach ((doc) => {
+                    if (doc.file.get_path ().has_prefix (a)) {
+                        document_view.close_document (doc);
+                    }
+                });
+            });
+
             folder_manager_view.restore_saved_state ();
 
             bottombar = new Gtk.Notebook ();
