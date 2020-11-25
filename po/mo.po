@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-02 08:55+0000\n"
+"POT-Creation-Date: 2020-11-24 22:13+0000\n"
 "PO-Revision-Date: 2018-05-26 07:39+0000\n"
 "Last-Translator: Romanic Ion Nicușor <contact.romanic@gmail.com>\n"
 "Language-Team: Moldovan <https://weblate.elementary.io/projects/code/code/mo/"
@@ -13,115 +13,75 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.18\n"
 
-#: src/Application.vala:114
-#, fuzzy, c-format
-msgid "File \"%s\" Cannot Be Created"
-msgstr "Fișierul \"%s\" Nu poate fi citit"
-
-#. We list some common errors for quick feedback
-#: src/Application.vala:118
-msgid "Maybe you do not have the necessary permissions."
-msgstr "Poate că nu aveți permisiunile necesare."
-
-#: src/Application.vala:120
-msgid "Maybe the file path provided is not valid."
-msgstr "Poate că calea fișierului furnizată nu este validă."
-
-#: src/Application.vala:122
-msgid "The location is read-only."
-msgstr "Locația este numai pentru citire."
-
-#: src/Application.vala:124
-msgid "The parent directory doesn't exist."
-msgstr "Directorul părinte nu există."
-
-#: src/Application.vala:145
-msgid "It is a mountable location."
-msgstr "Este o locație care se poate monta."
-
-#: src/Application.vala:148
-#, fuzzy
-msgid ""
-"It is a \"special\" file such as a socket,\n"
-" FIFO, block device, or character device."
-msgstr ""
-"Este un fișier \"special\", cum ar fi un soclu, ↵\n"
-"  fifo, dispozitiv blocat sau dispozitiv de caractere."
-
-#: src/Application.vala:151
-msgid "It is an \"unknown\" file type."
-msgstr "Este un tip de fișier \"necunoscut\"."
-
-#: src/Application.vala:156
-#, fuzzy, c-format
-msgid "File \"%s\" Cannot Be Opened"
-msgstr "Fișierul \"%s\" Nu poate fi citit"
-
-#: src/Application.vala:220
+#: src/Application.vala:39
 msgid "New Tab"
 msgstr "Filă nouă"
 
-#: src/Application.vala:221 src/FolderManager/FileItem.vala:31
+#: src/Application.vala:40 src/FolderManager/FileItem.vala:31
 msgid "New Window"
 msgstr "Fereastră nouă"
 
-#: src/Application.vala:222
+#: src/Application.vala:41
 msgid "Print version info and exit"
 msgstr "Imprimați versiunea și ieșiți"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 msgid "Set of plugins"
 msgstr "Set de pluginuri"
 
-#: src/Application.vala:223
+#: src/Application.vala:42
 #, fuzzy
 msgid "plugin"
 msgstr "Set de pluginuri"
+
+#: src/Application.vala:43
+msgid "[FILE…]"
+msgstr ""
 
 #: src/MainWindow.vala:139
 msgid "Code"
 msgstr "Cod"
 
-#: src/MainWindow.vala:191 src/Widgets/HeaderBar.vala:78
+#: src/MainWindow.vala:193 src/Widgets/HeaderBar.vala:78
 msgid "Find…"
 msgstr "Găsi…"
 
-#: src/MainWindow.vala:196
+#: src/MainWindow.vala:198
 msgid "Hide search bar"
 msgstr "Ascundeți bara de căutare"
 
-#: src/MainWindow.vala:272
+#: src/MainWindow.vala:274
 #, fuzzy
 msgid "Zeitgeist Datasource for Code"
 msgstr "Zeitgeist Datasource pentru Scratch"
 
-#: src/MainWindow.vala:725 src/Services/Document.vala:496
+#: src/MainWindow.vala:730 src/Services/Document.vala:496
 msgid "All files"
 msgstr "Toate filele"
 
-#: src/MainWindow.vala:729 src/Services/Document.vala:500
+#: src/MainWindow.vala:734 src/Services/Document.vala:500
 msgid "Text files"
 msgstr "Fișiere text"
 
-#: src/MainWindow.vala:733
+#: src/MainWindow.vala:738
 msgid "Open some files"
 msgstr "Deschideți fișiere"
 
-#: src/MainWindow.vala:736
+#: src/MainWindow.vala:741
 msgid "Open"
 msgstr "Deschide"
 
-#: src/MainWindow.vala:737 src/Services/Document.vala:395
+#: src/MainWindow.vala:742 src/Services/Document.vala:395
 #: src/Services/Document.vala:508 plugins/pastebin/pastebin_dialog.vala:326
 #: plugins/pastebin/pastebin_dialog.vala:377
 msgid "Cancel"
 msgstr "Anulare"
 
-#: src/MainWindow.vala:762
+#: src/MainWindow.vala:767
 msgid "_Open"
 msgstr "_Deschis"
 
-#: src/MainWindow.vala:763
+#: src/MainWindow.vala:768
 msgid "_Cancel"
 msgstr "_Anulare"
 
@@ -577,12 +537,12 @@ msgstr "Înlocuește"
 msgid "Replace all"
 msgstr "Înlocuiește-le pe toate"
 
-#: src/Widgets/SourceView.vala:408
+#: src/Widgets/SourceView.vala:420
 #, fuzzy
 msgid "Sort Selected Lines"
 msgstr "Pentru textul selectat"
 
-#: src/Widgets/SourceView.vala:421
+#: src/Widgets/SourceView.vala:433
 msgid "Toggle Comment"
 msgstr ""
 
@@ -679,7 +639,7 @@ msgstr "O lună"
 #: plugins/outline/C/CtagsSymbolOutline.vala:31
 #: plugins/outline/C/CtagsSymbolOutline.vala:71
 #: plugins/outline/Vala/ValaSymbolOutline.vala:38
-#: plugins/outline/Vala/ValaSymbolOutline.vala:116
+#: plugins/outline/Vala/ValaSymbolOutline.vala:120
 #: plugins/outline/OutlinePane.vala:27
 msgid "Symbols"
 msgstr "Simboluri"
@@ -728,6 +688,40 @@ msgstr ""
 #, c-format
 msgid "%s - Word Completion"
 msgstr "%s - Finalizarea cuvintelor"
+
+#, fuzzy
+#~ msgid "File \"%s\" Cannot Be Created"
+#~ msgstr "Fișierul \"%s\" Nu poate fi citit"
+
+#~ msgid "Maybe you do not have the necessary permissions."
+#~ msgstr "Poate că nu aveți permisiunile necesare."
+
+#~ msgid "Maybe the file path provided is not valid."
+#~ msgstr "Poate că calea fișierului furnizată nu este validă."
+
+#~ msgid "The location is read-only."
+#~ msgstr "Locația este numai pentru citire."
+
+#~ msgid "The parent directory doesn't exist."
+#~ msgstr "Directorul părinte nu există."
+
+#~ msgid "It is a mountable location."
+#~ msgstr "Este o locație care se poate monta."
+
+#, fuzzy
+#~ msgid ""
+#~ "It is a \"special\" file such as a socket,\n"
+#~ " FIFO, block device, or character device."
+#~ msgstr ""
+#~ "Este un fișier \"special\", cum ar fi un soclu, ↵\n"
+#~ "  fifo, dispozitiv blocat sau dispozitiv de caractere."
+
+#~ msgid "It is an \"unknown\" file type."
+#~ msgstr "Este un tip de fișier \"necunoscut\"."
+
+#, fuzzy
+#~ msgid "File \"%s\" Cannot Be Opened"
+#~ msgstr "Fișierul \"%s\" Nu poate fi citit"
 
 #~ msgid "Web Preview"
 #~ msgstr "Previzualizare web"
