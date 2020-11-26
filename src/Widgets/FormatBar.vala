@@ -42,7 +42,7 @@ public class Code.FormatBar : Gtk.Grid {
     """;
 
     static construct {
-       var provider = new Gtk.CssProvider ();
+        var provider = new Gtk.CssProvider ();
         try {
             provider.load_from_data (CSS, CSS.length);
             Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
@@ -69,7 +69,7 @@ public class Code.FormatBar : Gtk.Grid {
         line_toggle = new FormatButton ();
         line_toggle.icon = new ThemedIcon ("view-continuous-symbolic");
         line_toggle.tooltip_markup = Granite.markup_accel_tooltip (
-            Scratch.Application.instance.get_accels_for_action (
+            ((Scratch.Application) GLib.Application.get_default ()).get_accels_for_action (
                 Scratch.MainWindow.ACTION_PREFIX + Scratch.MainWindow.ACTION_GO_TO
             ),
             _("Line number")

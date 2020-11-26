@@ -24,6 +24,7 @@ namespace Scratch.Widgets {
         public Gtk.TextMark mark;
         public Gtk.SourceLanguageManager manager;
         public Gtk.SourceStyleSchemeManager style_scheme_manager;
+        public Gtk.CssProvider font_css_provider;
         public Gtk.TextTag warning_tag;
         public Gtk.TextTag error_tag;
 
@@ -65,6 +66,9 @@ namespace Scratch.Widgets {
             manager = Gtk.SourceLanguageManager.get_default ();
             style_scheme_manager = new Gtk.SourceStyleSchemeManager ();
 
+            font_css_provider = new Gtk.CssProvider ();
+            get_style_context ().add_provider (font_css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+
             var source_buffer = new Gtk.SourceBuffer (null);
             set_buffer (source_buffer);
             source_buffer.highlight_syntax = true;
@@ -97,10 +101,10 @@ namespace Scratch.Widgets {
 
             scroll_event.connect ((key_event) => {
                 if ((Gdk.ModifierType.CONTROL_MASK in key_event.state) && key_event.delta_y < 0) {
-                    Application.instance.get_last_window ().action_zoom_in ();
+                    ((Scratch.Application) GLib.Application.get_default ()).get_last_window ().action_zoom_in ();
                     return true;
                 } else if ((Gdk.ModifierType.CONTROL_MASK in key_event.state) && key_event.delta_y > 0) {
-                    Application.instance.get_last_window ().action_zoom_out ();
+                    ((Scratch.Application) GLib.Application.get_default ()).get_last_window ().action_zoom_out ();
                     return true;
                 }
 
@@ -175,14 +179,6 @@ namespace Scratch.Widgets {
             update_settings ();
         }
 
-        public void use_default_font (bool value) {
-            if (!value) {
-                return;
-            }
-
-            font = Application.instance.default_font;
-        }
-
         public void change_syntax_highlight_from_file (File file) {
             try {
                 var info = file.query_info ("standard::*", FileQueryInfoFlags.NONE, null);
@@ -232,9 +228,25 @@ namespace Scratch.Widgets {
                 set_wrap_mode (Gtk.WrapMode.NONE);
             }
 
-            font = Scratch.settings.get_string ("font");
-            use_default_font (Scratch.settings.get_boolean ("use-system-font"));
-            override_font (Pango.FontDescription.from_string (font));
+            if (Scratch.settings.get_boolean ("use-system-font")) {
+                font = ((Scratch.Application) GLib.Application.get_default ()).default_font;
+            } else {
+                font = Scratch.settings.get_string ("font");
+            }
+
+            /* Convert font description to css equivalent and apply to the .view node */
+            var font_css = string.join (" ",
+                ".view {",
+                Scratch.Utils.pango_font_description_to_css (Pango.FontDescription.from_string (font)),
+                "}"
+            );
+
+            try {
+                font_css_provider.load_from_data (font_css);
+            } catch (Error e) {
+                critical (e.message);
+            }
+
             source_buffer.style_scheme = style_scheme_manager.get_scheme (Scratch.settings.get_string ("style-scheme"));
             style_changed (source_buffer.style_scheme);
         }
@@ -413,7 +425,7 @@ namespace Scratch.Widgets {
             menu.add (sort_item);
 
             if (buffer is Gtk.SourceBuffer) {
-                var can_comment = CommentToggler.language_has_comments ((buffer as Gtk.SourceBuffer).get_language ());
+                var can_comment = CommentToggler.language_has_comments (((Gtk.SourceBuffer) buffer).get_language ());
 
                 var comment_item = new Gtk.MenuItem ();
                 comment_item.sensitive = can_comment;
@@ -422,7 +434,7 @@ namespace Scratch.Widgets {
                     MainWindow.ACTION_PREFIX + MainWindow.ACTION_TOGGLE_COMMENT
                 ));
                 comment_item.activate.connect (() => {
-                    CommentToggler.toggle_comment (buffer as Gtk.SourceBuffer);
+                    CommentToggler.toggle_comment ((Gtk.SourceBuffer) buffer);
                 });
 
                 menu.add (comment_item);
@@ -435,7 +447,14 @@ namespace Scratch.Widgets {
             const int LINES_TO_KEEP = 3;
             const double PT_TO_PX = 1.6667; // Normally 1.3333, but this accounts for line-height
 
-            double px_per_line = Application.instance.get_last_window ().get_current_font_size () * PT_TO_PX;
+            // Use a default size of 10pt
+            double px_per_line = 10 * PT_TO_PX;
+
+            var last_window = ((Scratch.Application) GLib.Application.get_default ()).get_last_window ();
+            if (last_window != null) {
+                // Get the actual font size
+                px_per_line = last_window.get_current_font_size () * PT_TO_PX;
+            }
 
             return (int) (height_in_px - (LINES_TO_KEEP * px_per_line));
         }

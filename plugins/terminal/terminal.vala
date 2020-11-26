@@ -77,8 +77,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
             }
         });
 
-        plugins.hook_split_view.connect (on_hook_split_view);
-
         on_hook_notebook ();
     }
 
@@ -156,16 +154,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         }
 
         return false;
-    }
-
-    void on_hook_split_view (Scratch.Widgets.SplitView view) {
-        this.tool_button.visible = ! view.is_empty ();
-        view.welcome_shown.connect (() => {
-            this.tool_button.visible = false;
-        });
-        view.welcome_hidden.connect (() => {
-            this.tool_button.visible = true;
-        });
     }
 
     void on_hook_toolbar (Scratch.Widgets.HeaderBar toolbar) {
@@ -252,7 +240,7 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         this.terminal.button_press_event.connect ((event) => {
             if (event.button == 3) {
                 menu.select_first (false);
-                menu.popup (null, null, null, event.button, event.time);
+                menu.popup_at_pointer (event);
             }
             return false;
         });
@@ -280,9 +268,6 @@ public class Scratch.Plugins.Terminal : Peas.ExtensionBase, Peas.Activatable {
         var pantheon_terminal_settings = new GLib.Settings (settings_schema);
 
         font_name = pantheon_terminal_settings.get_string ("font");
-
-        bool allow_bold_setting = pantheon_terminal_settings.get_boolean ("allow-bold");
-        this.terminal.set_allow_bold (allow_bold_setting);
 
         bool audible_bell_setting = pantheon_terminal_settings.get_boolean ("audible-bell");
         this.terminal.set_audible_bell (audible_bell_setting);
