@@ -26,6 +26,7 @@ namespace Scratch.FolderManager {
         private GLib.Settings settings;
 
         public signal void select (string file);
+        public signal void close_all_docs_from_path (string path);
 
         // This is a workaround for SourceList silliness: you cannot remove an item
         // without it automatically selecting another one.
@@ -143,6 +144,7 @@ namespace Scratch.FolderManager {
 
             folder_root.expanded = expand;
             folder_root.closed.connect (() => {
+                close_all_docs_from_path (folder_root.file.path);
                 root.remove (folder_root);
                 write_settings ();
             });
