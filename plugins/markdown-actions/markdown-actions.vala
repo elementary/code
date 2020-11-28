@@ -80,6 +80,7 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Peas.Activatable
 
     private void insert_link () {
         var current_buffer = current_source.buffer;
+        current_buffer.begin_user_action ();
         if (current_buffer.has_selection) {
             insert_around_selection ("[", "]");
             current_buffer.insert_at_cursor ("()", 2);
@@ -89,6 +90,7 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Peas.Activatable
             current_buffer.insert_at_cursor ("()", 2);
             go_back_n_chars (3);
         }
+        current_buffer.end_user_action ();
     }
 
     private void go_back_n_chars (int back_chars) {
@@ -114,12 +116,14 @@ public class Code.Plugins.MarkdownActions : Peas.ExtensionBase, Peas.Activatable
 
     public void add_markdown_tag (string tag) {
         var current_buffer = current_source.buffer;
+        current_buffer.begin_user_action ();
         if (current_buffer.has_selection) {
             insert_around_selection (tag, tag);
         } else {
             current_buffer.insert_at_cursor (tag, tag.length);
             current_buffer.insert_at_cursor (tag, tag.length);
         }
+        current_buffer.end_user_action ();
         go_back_n_chars (tag.length);
     }
 
